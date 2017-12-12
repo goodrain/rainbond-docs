@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{% if page.summary %}{{ page.summary | strip_html | strip_newlines | truncate: 160 }}{% endif %}">
+<meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', ' | escape }}{% endif %}">
+<title>{{ page.title }} | {{ site.site_title }}</title>
+<link rel="canonical" href="{{ page.canonical | absolute_url }}">
+<link rel="shortcut icon" href="{{ 'images/favicon.png' | relative_url }}" type="image/png">
+
+<link rel="stylesheet" type="text/css" href="{{ 'css/font-awesome.min.css' | relative_url }}">
+<link rel="stylesheet" type="text/css" href="{{ 'css/lavish-bootstrap.css' | relative_url }}">
+{% if page.comparison == true %}<link rel="stylesheet" type="text/css" href="{{ 'css/select2.min.css' | relative_url }}">{% endif %}
+<link rel="stylesheet" type="text/css" href="{{ 'css/customstyles.css' | relative_url }}">
+<link rel="stylesheet" type="text/css" href="{{ 'css/theme-blue.css' | relative_url }}">
+{% if page.asciicast == true %}<link rel="stylesheet" type="text/css" href="{{ 'css/asciinema-player.css' | relative_url }}">{% endif %}
+
+<script>
+var pageConfig = {
+    tocNotNested: {% if page.toc_not_nested %}true{% else %}false{% endif %}
+};
+</script>
+
+<script src="{{ 'js/jquery.min.js' | relative_url }}"></script>
+<script src="{{ 'js/jquery.cookie.min.js' | relative_url }}"></script>
+<script src="{{ 'js/jquery.navgoco.min.js' | relative_url }}"></script>
+<script src="{{ 'js/bootstrap.min.js' | relative_url }}"></script>
+<script src="{{ 'js/toc.js' | relative_url }}"></script>
+<script src="{{ 'js/clipboard.min.js' | relative_url }}"></script>
+<script src="{{ 'js/customscripts.js' | relative_url }}"></script>
+<script src="{{ 'js/anchor.js' | relative_url }}"></script>
+<script src="//js.hsforms.net/forms/v2.js"></script>
+{% if page.comparison == true %}
+  <script src="{{ 'js/comparison-chart.js' | relative_url }}"></script>
+  <script src="{{ 'js/select2.min.js' | relative_url }}"></script>
+{% endif %}
+{% if page.optimizely == true %}<script src="https://cdn.optimizely.com/js/7825500667.js"></script>{% endif %}
+{% if page.asciicast == true %}<script src="{{ 'js/asciinema-player.js' | relative_url }}"></script>{% endif %}
