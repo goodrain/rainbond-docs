@@ -31,7 +31,7 @@ asciicast: true
 {% include copy-clipboard.html %}
 ```bash
 # 通过此脚本可快速安装上线云帮 (管理节点 & 计算节点)
-bash <(curl -s https://repo.goodrain.com/install/3.4/start.sh)
+bash <(curl -s http://repo.goodrain.com/install/3.4/start.sh)
 ```
 
 <!--
