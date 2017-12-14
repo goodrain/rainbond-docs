@@ -22,11 +22,14 @@ asciicast: true
 {% include copy-clipboard.html %}
 ```bash
 # 添加计算节点到node集群里
-grctl node add -i <计算节点内网ip> -e <计算节点ip> --Role compute
+grctl node add -i <计算节点内网ip> --Role compute
+
 # 计算节点uid
 uuid=$(grctl node list | grep <计算节点内网ip> | awk '{print $2}')
+
 # 安装计算节点服务
 grctl install compute --nodes $uuid
+
 # 上线计算节点服务
 grctl node up $uuid
 ```
