@@ -3519,7 +3519,7 @@ img.mfp-img {
 
 .tier-4 a{font-size: 14px;}
 
-#bdcsMain{border-radius: 18px; margin-bottom: 20px;  border:1px solid #DADADA}
+#bdcsMain{border-radius: 18px; margin-bottom: 20px;  border:1px solid #DADADA; padding-left: 10px;}
 .search .fa-search{position: absolute; top: 8px; right: 45px; left:auto;}
 
 /*# sourceMappingURL=customstyles.css.map */
