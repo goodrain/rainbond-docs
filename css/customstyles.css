@@ -3521,5 +3521,5 @@ img.mfp-img {
 
 #bdcsMain{border-radius: 18px; margin-bottom: 20px;  border:1px solid #DADADA; padding-left: 10px;}
 .search .fa-search{position: absolute; top: 8px; right: 45px; left:auto;}
-
+table > thead > tr > th{white-space : nowrap}
 /*# sourceMappingURL=customstyles.css.map */
