@@ -1,8 +1,8 @@
 # This plugin manages docs versioning based on the following conventions. Docs
-# for each non-patch release of CockroachDB--that is, each release of
-# CockroachDB that has its own release branch in the cockroachdb/cockroach
+# for each non-patch release of Rainbond--that is, each release of
+# Rainbond that has its own release branch in the goodrain/rainbond
 # repository--are expected to be stored in in a top-level directory named after
-# that version. For example, docs for CockroachDB v1.1 are expected to be stored
+# that version. For example, docs for Rainbond v1.1 are expected to be stored
 # in a directory named `v1.1`. Docs which do not logically belong to one
 # version, like release notes, are instead stored at the root of the repository.
 #
