@@ -9,7 +9,7 @@ asciicast: true
 
 ## 概述
 
-云帮平台通过[acp_repo](manage/module/acp-repo.html)组件实现了Maven仓库管理功能，该组件基于 [Artifactory](https://www.jfrog.com/open-source/) 开源版本实现。
+云帮平台通过[rbd-repo](platform-maintenance/add-management-node/component-introduction/rbd-repo.html)组件实现了Maven仓库管理功能，该组件基于 [Artifactory](https://www.jfrog.com/open-source/) 开源版本实现。
 
 如果您已经部署了Maven仓库管理系统，如 [Artifactory](https://www.jfrog.com/open-source/) 或 [Nexus](http://www.sonatype.org/nexus/)，可以通过配置云帮的acp_repo组件与您本地的Maven仓库对接。如果您还没有Maven仓库，可以直接使用云帮内置的Maven仓库进行应用的构建。
 
