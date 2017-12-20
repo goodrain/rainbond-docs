@@ -113,7 +113,7 @@ web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar   --port $PORT tar
 1. 配置Profile：将如下命令添加到您的Profile中。
 
    ```bash
-   $ java -jar target/dependency/webapp-runner.jar --session-store memcache target/<appname>.war
+   $ java -jar target/dependency/webapp-runner.jar --session-store redis target/<appname>.war
    ```
 
 2. 应用关联redis：云帮创建并部署redis应用；将redis与应用关联。
