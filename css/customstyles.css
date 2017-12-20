@@ -3374,7 +3374,6 @@ img.mfp-img {
           width: 200px; } }
   .comparison-chart td {
     vertical-align: middle;
-    border: none;
     border-left: 1px solid #F3F3F3;
     font-family:  "SourceHanSansCN Light", "Microsoft YaHei",Arial,STHeiti,sans-serif;
     font-size: 12px;
