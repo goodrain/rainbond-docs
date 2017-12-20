@@ -17,29 +17,31 @@ toc: false
 - 选择应用分组
 - 选择平台内置官方实例
   -    官方示例包括：2048小游戏、静态Web、PHP、Python、Node.js、Golang、Java
-- 指定单节点内存
 - 点击 **免费创建**
 
-<center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-offical1.png" style="border:1px solid #eee;max-width:60%" /></center>
+<center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-offical.png" style="border:1px solid #eee;max-width:60%"/></center>
 
 ### 代码同步
 
 系统根据创建时提交代码进行同步并检测语言类型；同步完成页面会给予反馈。如图：
 
-   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-offical2.png" style="border:1px solid #eee;max-width:60%"/></center>
+   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-offical-2.png" style="border:1px solid #eee;max-width:60%"/></center>
 
-   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-offical3.png" style="border:1px solid #eee;max-width:60%" /></center>
+   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-offical-3.png" style="border:1px solid #eee;max-width:60%" /></center>
 
 ### 应用设置
 
 同步代码完毕后可以根据您的实际需求进行如下设置。如图：
 
-   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-offical4-1.png" style="border:1px solid #eee;max-width:60%" /></center>
+   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-offical-4-1.png" style="border:1px solid #eee;max-width:60%" /></center>
 
-   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-offical4-2.png" style="border:1px solid #eee;max-width:60%" /></center>
+   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-offical-4-2.png" style="border:1px solid #eee;max-width:60%" /></center>
 
    - 端口管理：指定您的端口号，是否对外服务，是否对外访问，选择访问方式。
-   - 服务依赖：根据您应用的实际需求选择您已创建的本平台其它应用来建立依赖关系。
+   - 应用类型：包括 **无状态应用**、**有状态应用**，根据描述谨慎选择。
+   - 内存选择：根据应用内存占用选择。
+   - 端口管理：根据您应用的端口开放情况编辑此模块。
+   - 服务依赖：此模块可选择关联其他应用，[点此了解更多](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)。
    - 文件存储：您可点击`为当前应用新设持久化目录`或点击`挂在其他应用的持久化目录`选择不同存储位置。
    - 环境变量：输入环境变量名称、变量名、变量值完成环境变量的添加。
 
@@ -59,15 +61,13 @@ toc: false
 
 - 选择应用分组
 
-- 自定义输入公开的源码GIt库地址
+- 输入公开的源码Git仓库地址
 
-- 自定义输入代码版本
-
-- 指定单节点内存
+- 输入该源码Git仓库Branch的版本
 
 - 点击 免费创建
 
-   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-openGit.png" style="border:1px solid #eee;max-width:60%" /></center>
+   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-opengit.png" style="border:1px solid #eee;max-width:60%" /></center>
 
 
 ### 其余构建过程
@@ -99,10 +99,9 @@ toc: false
 
 - 选择应用分组
 - 选择已关联GitHub中项目
-- 指定单节点内存
 - 点击 免费创建
 
-<center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-GitHub1.png" style="border:1px solid #eee;max-width:60%" /></center>
+<center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-GitHub-1.png" style="border:1px solid #eee;max-width:60%" /></center>
 
 ### 其余构建过程
 
@@ -125,10 +124,9 @@ toc: false
 - 选择好雨GIt项目
   - 选择已有库
   - 选择新建库，通过新给定的库地址，git代码到对应的库中
-- 指定单节点内存
 - 点击 **免费创建**
 
-如图：<center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-goodrain_Git.png" style="border:1px solid #eee;max-width:50%" /></center>
+如图：<center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-goodrain-Git.png" style="border:1px solid #eee;max-width:50%" /></center>
 
 ### 其余构建过程
 

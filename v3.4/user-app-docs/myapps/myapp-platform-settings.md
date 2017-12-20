@@ -12,13 +12,19 @@ toc: false
 
 设置当前应用的基础信息：
 
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-settings1.png" style="border:1px solid #eee;max-width:100%" />
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-settings-1.png" style="border:1px solid #eee;max-width:100%" />
 
-通过点击基础信息栏右上角绿色画笔图标，可以修改当前应用名称，所属组，GIt仓库地址等。
+你可以通过点击基础信息栏右上角绿色画笔图标，可以修改当前应用名称，所属组，GIt仓库地址等。
+
+{{site.data.alerts.callout_success}}
+
+如果您的应用通过源码构建，则在设置-基础信息会显示 **Git仓库**，该模块显示您的源码地址。您可以在右侧修改源码分支，如若修改，请**重新部署**。
+
+{{site.data.alerts.end}}
 
 ## 自定义环境变量
 
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-settings2.png" alt="CockroachDB Admin UI" style="border:1px solid #eee;max-width:100%" />
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-settings-2.png" alt="CockroachDB Admin UI" style="border:1px solid #eee;max-width:100%" />
 
 根据实际情况，可添加或删除环境变量。
 

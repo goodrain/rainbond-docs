@@ -12,9 +12,7 @@ asciicast: true
 
 以MySQL数据库服务为例，概览选项可以查看应用当前使用的物理资源、流量、费用等情况。还可以对应用进行重启、重新部署、开启/关闭等操作:
 
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-overview1.png" style="border:1px solid #eee;max-width:100%" />
-
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-overview2.png" style="border:1px solid #eee;max-width:100%" />
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-overview-1.png" style="border:1px solid #eee;max-width:100%" />
 
 {{site.data.alerts.callout_success}}
 
@@ -22,15 +20,17 @@ asciicast: true
 
 {{site.data.alerts.end}}
 
-## 添加管理服务/访问
+## 管理/访问
 
 根据部署不同应用，显示不同可操作按钮。
 
-### 添加管理服务
+### 管理
 
-以MySQL为例，点击 **添加管理服务** 您可以添加新的应用与当前MySQL服务建立[依赖](myapp-platform-reliance.html)关系，平台默认新建应用为**phpMyAdmin**。
+以MySQL为例，点击 **管理** 您可以添加新的应用与当前MySQL服务建立[依赖](myapp-platform-reliance.html)关系，平台默认新建应用 **phpMyAdmin** 与该MySQL应用建立依赖。
 
-如图：<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-overview3.png" style="border:1px solid #eee;max-width:100%" />
+如图：<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-overview-2.png" style="border:1px solid #eee;max-width:100%" />
+
+显示内容为MySQL应用的连接信息，通过其他应用依赖当前MySQL时使用以上变量连接。
 
 ### 访问
 
