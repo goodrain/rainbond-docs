@@ -6,6 +6,7 @@ baseurl: "/docs"
 
 gems:
 - jekyll-sitemap
+- jekyll-last-modified-at
 
 highlighter: rouge
 markdown: redcarpet
