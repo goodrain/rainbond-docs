@@ -24,8 +24,8 @@ versions:
 release_info:
   v3.4:
     version: v3.4.1
-    build_time: 2017/09/14 15:13:51
-    start_time: 2017-09-14 13:33:22.046027038 -0400 EDT
+    build_time: 2017/12/25 16:35:45
+    start_time: 2017-12-25 19:33:22.046027038 +800 CST
 
 exclude: ["ci", "vendor"]
 
