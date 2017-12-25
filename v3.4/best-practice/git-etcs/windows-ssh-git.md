@@ -1,5 +1,5 @@
 ---
-title: windows下配置SSH连接GitHub
+title: Windows下配置SSH连接GitHub
 summary: 讲解如何在windows下配置SSH连接GitHub
 toc: false
 asciicast: true

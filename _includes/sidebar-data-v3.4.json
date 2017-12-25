@@ -695,7 +695,7 @@
                     "urls": [
                         "/${VERSION}/best-practice/git-etcs/connection-git-server.html"
                     ]},{
-                    "title": "windows配置SSH连接GitHub",
+                    "title": "Windows配置SSH连接GitHub",
                     "urls": [
                         "/${VERSION}/best-practice/git-etcs/windows-ssh-git.html"
                     ]}
