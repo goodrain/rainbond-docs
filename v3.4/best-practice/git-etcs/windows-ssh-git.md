@@ -143,3 +143,10 @@ Git安装包([下载Git for Windows](https://git-scm.com/download/win))
    ```
 
 3. 刷新GitHub界面，查看刚刚推到此库的`README.md`
+
+## Git — GUI Clients
+
+#### [SourceTree](https://www.sourcetreeapp.com/)
+
+#### [GitHub Desktop](https://desktop.github.com/)
+

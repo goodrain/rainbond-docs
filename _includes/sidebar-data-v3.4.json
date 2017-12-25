@@ -211,6 +211,19 @@
                         "/${VERSION}/user-lang-docs/java/lang-java-warandjar.html"
                     ]
                 }, {
+                    "title": "部署方式",
+                    "items": [{
+                        "title": "Webapp-Runner",
+                        "urls": [
+                            "/${VERSION}/user-lang-docs/java/deploy/webapp-runner.html"
+                        ]
+                    },{
+                        "title": "Jetty-Runner",
+                        "urls": [
+                            "/${VERSION}/user-lang-docs/java/deploy/jetty-runner.html"
+                        ]
+                    }
+                ]},{
                     "title": "代码示例",
                     "urls": [
                         "/${VERSION}/user-lang-docs/java/lang-java-eg.html"
@@ -701,7 +714,7 @@
                     ]}
                 ]
             },
-                {
+            {
                 "title": "对接Maven仓库",
                 "urls": [
                     "/${VERSION}/best-practice/connection-maven-repository.html"
@@ -712,7 +725,13 @@
                 "urls": [
                     "/${VERSION}/best-practice/connection-docker-registry.html"
                 ]
-            }
+            },
+            {
+                "title": "Java的War包项目配置Redis实现session共享",
+                "urls": [
+                    "/${VERSION}/best-practice/war-redis-session.html"
+                ]
+            },
         ]
     },
     {
