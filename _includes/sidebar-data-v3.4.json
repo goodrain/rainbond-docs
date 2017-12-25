@@ -691,7 +691,7 @@
         "items": [{
                 "title": "Git相关实践",
                 "items": [{
-                    "title": "对接Git Server",
+                    "title": "云帮对接Git Server",
                     "urls": [
                         "/${VERSION}/best-practice/git-etcs/connection-git-server.html"
                     ]},{

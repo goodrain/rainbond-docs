@@ -4,7 +4,7 @@ site_title: Rainbond
 url: "https://www.rainbond.com"
 baseurl: "/docs"
 
-gems:
+plugins:
 - jekyll-sitemap
 - jekyll-last-modified-at
 
