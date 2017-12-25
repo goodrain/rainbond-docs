@@ -708,12 +708,6 @@
                 ]
             },
             {
-                "title": "对接Git Server",
-                "urls": [
-                    "/${VERSION}/best-practice/connection-git-server.html"
-                ]
-            },
-            {
                 "title": "对接Docker镜像仓库",
                 "urls": [
                     "/${VERSION}/best-practice/connection-docker-registry.html"
