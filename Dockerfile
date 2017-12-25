@@ -16,6 +16,10 @@ RUN bundle
 
 # timezone
 ENV TZ=Asia/Shanghai
+RUN apk add --no-cache tzdata && \
+       cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+       echo "Asia/Shanghai" >  /etc/timezone && \
+       date && apk del --no-cache tzdata
 
 EXPOSE 80
 ENTRYPOINT ["/srv/jekyll/run.sh"]
