@@ -729,7 +729,7 @@
             {
                 "title": "Java的War包项目配置Redis实现session共享",
                 "urls": [
-                    "/${VERSION}/best-practice/war-redis-session.html"
+                    "/${VERSION}/best-practice/tomcat-redis-session.html"
                 ]
             },
         ]
