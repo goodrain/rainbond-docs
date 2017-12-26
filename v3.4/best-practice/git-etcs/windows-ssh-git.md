@@ -1,5 +1,5 @@
 ---
-title: Windows下配置SSH连接GitHub
+title: Windows下配置SSH连接Git Server
 summary: 讲解如何在windows下配置SSH连接GitHub
 toc: false
 asciicast: true
@@ -40,80 +40,110 @@ Git安装包([下载Git for Windows](https://git-scm.com/download/win))
 
 
 
-## 配置ssh连接git
+## 获取SSH Key
 
-1. 打开 **Git Bash** ，检查本机是否有SSH key设置。输入如下命令：
+### 检查
 
-   ```bash
-   $ cd ~/.ssh
-   ```
+打开 **Git Bash** ，检查本机是否有SSH key设置。输入如下命令：
 
-   - 如果没有则提示： No such file or directory
+```bash
+$ cd ~/.ssh
+```
 
-   - 如果有，则进入~/.ssh路径下输入如下命令：
+- 如果没有则提示： No such file or directory
 
-     ```Bash
-     $ ls				#查看~/.ssh路径下的文件
-     $ rm *			#删除~/.ssh路径下的文件
-     ```
+- 如果有，则进入~/.ssh路径下输入如下命令：
 
-2. 生成新的SSH key，输入如下命令：
+  ```Bash
+  $ ls				#查看~/.ssh路径下的文件
+  $ rm *			#删除~/.ssh路径下的文件
+  ```
 
-   ```bash
-   $ cd ~  #保证当前路径在家目录下
+### 创建SSH Key
 
-   $ ssh-keygen -t rsa -C "xxxxxx@yy.com"  #建议填写自己真实有效的邮箱地址
+生成新的SSH Key，输入如下命令：
 
-   Generating public/private rsa key pair.
+```bash
+$ cd ~  #保证当前路径在家目录下
 
-   Enter file in which to save the key (/c/Users/xxxx_000/.ssh/id_rsa):   #不填直接回车
+$ ssh-keygen -t rsa -C "xxxxxx@yy.com"  #建议填写自己真实有效的邮箱地址
 
-   Enter passphrase (empty for no passphrase):   #输入密码（可以为空，回车）
+Generating public/private rsa key pair.
 
-   Enter same passphrase again:   #再次确认密码（可以为空，回车）
+Enter file in which to save the key (/c/Users/xxxx_000/.ssh/id_rsa):   #不填直接回车
 
-   Your identification has been saved in /c/Users/xxxx_000/.ssh/id_rsa.   #生成的密钥
+Enter passphrase (empty for no passphrase):   #输入密码（可以为空，回车）
 
-   Your public key has been saved in /c/Users/xxxx_000/.ssh/id_rsa.pub.  #生成的公钥
+Enter same passphrase again:   #再次确认密码（可以为空，回车）
 
-   The key fingerprint is:
+Your identification has been saved in /c/Users/xxxx_000/.ssh/id_rsa.   #生成的密钥
 
-   e3:51:33:xx:xx:xx:xx:xxx:61:28:83:e2:81 xxxxxx@yy.com
-   ```
+Your public key has been saved in /c/Users/xxxx_000/.ssh/id_rsa.pub.  #生成的公钥
 
-3. SSH key已生成，复制`id_rsa.pub`文件内容，输入如下命令：
+The key fingerprint is:
 
-   ```bash
-   $ cat ~/.ssh/id_rsa.pub			#将输出内容复制
-   ```
+e3:51:33:xx:xx:xx:xx:xxx:61:28:83:e2:81 xxxxxx@yy.com
+```
+SSH key已生成，复制`id_rsa.pub`文件内容，输入如下命令：
 
-4. 登录GitHub，自定义SSH key的标题，将刚刚复制的`id_rsa.pub`内容添加至key，点击保存
+```bash
+$ cat ~/.ssh/id_rsa.pub			#将输出内容复制
+```
+## 添加SSH Key到Git Server
 
-   <img src="https://static.goodrain.com/images/acp/docs/bestpractice/windows-ssh-git/windows-ssh-git4.png" width="100%" />
+### 添加到Git Hub 
 
-5. 配置账户：
+登录GitHub，点击右上角头像，进入设置中心，选择SSH and GPG keys开始设置。
 
-   ```bash
-   $ git config --global user.name “your username”			#自定义用户名
+自定义SSH key的标题，将刚刚复制的`id_rsa.pub`内容添加至key，点击保存
 
-   $ git config --global user.email “your_registered_github_Email”	 #设置邮箱地址(建议用注册giuhub的邮箱)
-   ```
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/windows-ssh-git/windows-ssh-git4.png" width="100%" />
 
-6. 测试ssh keys是否设置成功。
+### 添加到GitLab
 
-   ```bash
-   $ ssh -T git@github.com
+#### root用户
 
-   The authenticity of host 'github.com (192.30.252.129)' can't be established.
+首次登录GitLab应用使用root账户，进入主页面点，击右上角头像选择Settings，进入设置中心。选择SSH Keys开始设置。
 
-   RSA key fingerprint is 16:27:xx:xx:xx:xx:xx:4d:eb:df:a6:48.
+自定义SSH Key的标题，将刚刚复制的`id_rsa.pub`内容添加至key，点击保存
 
-   Are you sure you want to continue connecting (yes/no)? yes #确认你是否继续联系，输入yes
+<center><img src="https://static.goodrain.com/images/acp/docs/bestpractice/windows-ssh-git/windows-ssh-git5.png" width="100%" /></center>
 
-   Warning: Permanently added 'github.com,192.30.252.129' (RSA) to the list of known hosts.
-   ```
+#### 非root用户
 
-## 测试git基本操作
+##### 创建一个账户
+
+- 通过root用户添加
+
+  <center><img src="https://static.goodrain.com/images/acp/docs/bestpractice/windows-ssh-git/windows-ssh-git6.png" width="100%" /></center>
+
+- 注册一个账户
+
+登录后进入主页面，点击右上角头像选择Settings，进入设置中心。选择SSH Keys开始设置。设置方式与root用户相同
+
+## 配置账户
+
+```bash
+$ git config --global user.name “your username”			#自定义用户名
+
+$ git config --global user.email “your_registered_github_Email”	 #设置邮箱地址(建议用注册giuhub的邮箱)
+```
+## 测试
+
+### 测试ssh keys是否设置成功。
+
+```bash
+$ ssh -T git@github.com
+
+The authenticity of host 'github.com (192.30.252.129)' can't be established.
+
+RSA key fingerprint is 16:27:xx:xx:xx:xx:xx:4d:eb:df:a6:48.
+
+Are you sure you want to continue connecting (yes/no)? yes #确认你是否继续访问，输入yes
+
+Warning: Permanently added 'github.com,192.30.252.129' (RSA) to the list of known hosts.
+```
+### git基本操作
 
 1. 在GitHUb创建新的仓库，并复制此仓库的ssh路径。
 
@@ -141,12 +171,25 @@ Git安装包([下载Git for Windows](https://git-scm.com/download/win))
    #ssh key若设置密码，则会提示输出密码
    Enter passphrase for key '~/.ssh/id_rsa':  
    ```
+   刷新GitHub界面，查看刚刚推到此库的`README.md`
 
-3. 刷新GitHub界面，查看刚刚推到此库的`README.md`
 
-## Git — GUI Clients
+## GUI Clients
 
-#### [SourceTree](https://www.sourcetreeapp.com/)
+Git GUI是Git内置的用于提交与浏览的工具。Git也支持其他第三方客户端来实现同样的功能，例如[SourceTree](https://www.sourcetreeapp.com/)、[GitHub Desktop](https://desktop.github.com/)、[TortoiseGit](https://tortoisegit.org/)等
 
-#### [GitHub Desktop](https://desktop.github.com/)
+### [SourceTree](https://www.sourcetreeapp.com/)
 
+Windows系统支持SourceTree，下载并安装SourceTree。安装过程中需要登录，您可注册ATLASSIAN账号或使用Google账号登录。安装完成后，打开sourcetree。如下图：
+
+<center><img src="https://static.goodrain.com//images/acp/docs/bestpractice/windows-ssh-git/windows-ssh-git8.PNG" width="100%" /></center>
+
+{{site.data.alerts.callout_success}}若使用SSH方式进行Git操作，点击工具—>配置SSH密匙。进入系统目录，找到上文生成的 id_rsa 文件。
+
+{{site.data.alerts.end}}
+
+### [GitHub Desktop](https://desktop.github.com/)
+
+Windows系统支持使用GitHub Desktop，下载安装使用GitHub Desktop。客户端如下：
+
+<center><img src="https://static.goodrain.com/images/acp/docs/bestpractice/windows-ssh-git/windows-ssh-git7.PNG" width="100%" /></center>
