@@ -178,9 +178,9 @@ Warning: Permanently added 'github.com,192.30.252.129' (RSA) to the list of know
 
 Git GUI是Git内置的用于提交与浏览的工具。Git也支持其他第三方客户端来实现同样的功能，例如[SourceTree](https://www.sourcetreeapp.com/)、[GitHub Desktop](https://desktop.github.com/)、[TortoiseGit](https://tortoisegit.org/)等
 
-### [SourceTree](https://www.sourcetreeapp.com/) [下载地址](https://pkg.goodrain.com/apps/git/SourceTreeSetup-2.3.5.0.exe)
+### SourceTree
 
-Windows系统支持SourceTree，下载并安装SourceTree。安装过程中需要登录，您可注册ATLASSIAN账号或使用Google账号登录。安装完成后，打开sourcetree。如下图：
+Windows系统支持SourceTree，[下载](https://pkg.goodrain.com/apps/git/SourceTreeSetup-2.3.5.0.exe)并安装SourceTree。安装过程中需要登录，您可注册ATLASSIAN账号或使用Google账号登录。安装完成后，打开sourcetree。如下图：
 
 <center><img src="https://static.goodrain.com//images/acp/docs/bestpractice/windows-ssh-git/windows-ssh-git8.PNG" width="100%" /></center>
 
@@ -188,8 +188,8 @@ Windows系统支持SourceTree，下载并安装SourceTree。安装过程中需�
 
 {{site.data.alerts.end}}
 
-### [GitHub Desktop](https://desktop.github.com/) [下载地址](https://pkg.goodrain.com/apps/git/GitHubDesktopSetup_1.0.11.exe)
+### GitHub Desktop
 
-Windows系统支持使用GitHub Desktop，下载安装使用GitHub Desktop。客户端如下：
+Windows系统支持使用GitHub Desktop，[下载](https://pkg.goodrain.com/apps/git/GitHubDesktopSetup_1.0.11.exe) 安装使用GitHub Desktop。客户端如下：
 
 <center><img src="https://static.goodrain.com/images/acp/docs/bestpractice/windows-ssh-git/windows-ssh-git7.PNG" width="100%" /></center>
