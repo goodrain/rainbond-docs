@@ -85,7 +85,7 @@ toc: false
 - 对接到私有的代码托管平台。
 - 在创建应用前需要将授权key添加到自建Git授权SSH 密钥里。
 - 代码源选择私有平台的公开项目。
-- 对接Gitlab/Gogs可参考[对接私有git仓库](http://www.rainbond.com/docs/stable/best-practice/connection-git-server.html)
+- 对接Gitlab/Gogs可参考[对接私有Git仓库](http://www.rainbond.com/docs/stable/best-practice/connection-git-server.html)
 
 ## GitHub
 
@@ -113,9 +113,9 @@ toc: false
 
 ## 好雨Git
 
-创建应用的同时也创建一个代码仓库，该代码仓库是好雨云平台提供的免费git仓库，通过http://code.goodrain.com 使用。用户名和密码即为好雨 Git 用户名和密码。
+创建应用的同时也创建一个代码仓库，该代码仓库是好雨云平台提供的免费Git仓库，通过http://code.goodrain.com 使用。用户名和密码即为好雨 Git 用户名和密码。
 
-检测实例为java程序，如下所示，创建分为四步：
+检测实例为Java程序，如下所示，创建分为四步：
 
 ### 创建应用
 
@@ -123,7 +123,7 @@ toc: false
 - 选择应用分组
 - 选择好雨Git项目
   - 选择已有库
-  - 选择新建库，通过新给定的库地址，git代码到对应的库中
+  - 选择新建库，通过新给定的库地址，Git代码到对应的库中
 - 点击 **免费创建**
 
 如图：<center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-code-goodrain-Git.png" style="border:1px solid #eee;max-width:50%" /></center>
