@@ -6,7 +6,7 @@ toc: false
 <div id="toc"></div>
 为了使您的应用承受更多的并发，提高应用稳定性，您需要在适当情况下进行扩容。每个节点下的Tomcat只存储来访问自己的请求时产生的session，为了解决扩容后session持久化的问题，我们提供 **Java的War包项目使用Tomcat配置Redis实现Session共享** 解决方案，将您session储存在redis中来保证您应用程序稳定性。如图所示：
 
-<center><img src="https://static.goodrain.com/images/acp/docs/bestpractice/java-session-redis.png" width="50%"/></center>
+<center><img src="https://static.goodrain.com/images/acp/docs/code-docs/java/java-session-redis.png" width="50%"/></center>
 
 > 若 **Load Balancing** 将请求发送给 **container 1** 下的 **tomcat A** ，同时产生 **session** ，将此 **session** 持久化到**Redis** 中。当 **Web Server** 再次发送请求，若请求到 **container 2**的 **tomcat A** ，此时会在**Redis** 中找到已存在的 **session**，即取即用。
 
