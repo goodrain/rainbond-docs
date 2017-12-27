@@ -95,3 +95,24 @@ dig *.y5vhe.goodrain.org | grep -A 2 "ANSWER SECTION"
 
 >compose的配置文件在`/etc/goodrain/docker-compose.yaml`
 
+### 3.4版本如何升级到3.4.1版本
+
+```
+wget repo.goodrain.com/release/3.4.1/gaops/jobs/update/update.sh -O /root/update_version.sh
+chmod +x /root/update_version.sh
+bash /root/update_version.sh
+```
+
+### 如何查看安装日志
+
+```
+安装日志默认 /var/log/event/
+```
+
+### 3.4.1 版本安装过程中可能遇到到问题
+
+```
+Q:安装任务卡住或者停止了,如何处理
+A:新开一个终端，执行systemctl restart rainbond-node
+```
+
