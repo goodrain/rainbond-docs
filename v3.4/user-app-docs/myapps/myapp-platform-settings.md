@@ -14,7 +14,7 @@ toc: false
 
 <img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-settings-1.png" style="border:1px solid #eee;max-width:100%" />
 
-你可以通过点击基础信息栏右上角绿色画笔图标，可以修改当前应用名称，所属组，GIt仓库地址等。
+你可以通过点击基础信息栏右上角绿色画笔图标，可以修改当前应用名称，所属组，Git仓库分支等。
 
 {{site.data.alerts.callout_success}}
 
