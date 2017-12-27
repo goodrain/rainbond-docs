@@ -49,7 +49,7 @@ toc: false
 
 平台会根据代码的语言类型来提示设置应用运行的环境的版本，目前平台所支持的版本请参考*代码版本支持参考*。例如PHP语言可选[BCMath](http://docs.php.net/bcmath)、[Calendar](https://user.goodrain.com/apps/jfteam/gr7c1e25/app-language/http/docs.php.net/calendar)、[Exif](http://docs.php.net/exif)等扩展。
 
-## 公开GIt
+## 公开Git
 
 **公开Git**是平台支持主流的代码托管平台的公开项目。
 
@@ -121,7 +121,7 @@ toc: false
 
 - 自定义输入应用名
 - 选择应用分组
-- 选择好雨GIt项目
+- 选择好雨Git项目
   - 选择已有库
   - 选择新建库，通过新给定的库地址，git代码到对应的库中
 - 点击 **免费创建**
