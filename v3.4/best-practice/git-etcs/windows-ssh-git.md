@@ -14,7 +14,7 @@ asciicast: true
 
 Windows7/Windows8系统
 
-Git安装包([下载Git for Windows](https://git-scm.com/download/win))
+Git 2.15 安装包下载([Git for Windows 32 ](https://pkg.goodrain.com/apps/git/Git-2.15.1.2-32-bit.exe)) ([Git for Windows 64 ](https://pkg.goodrain.com/apps/git/Git-2.15.1.2-64-bit.exe))
 
 ### 安装
 
@@ -178,7 +178,7 @@ Warning: Permanently added 'github.com,192.30.252.129' (RSA) to the list of know
 
 Git GUI是Git内置的用于提交与浏览的工具。Git也支持其他第三方客户端来实现同样的功能，例如[SourceTree](https://www.sourcetreeapp.com/)、[GitHub Desktop](https://desktop.github.com/)、[TortoiseGit](https://tortoisegit.org/)等
 
-### [SourceTree](https://www.sourcetreeapp.com/)
+### [SourceTree](https://www.sourcetreeapp.com/) [下载地址](https://pkg.goodrain.com/apps/git/SourceTreeSetup-2.3.5.0.exe)
 
 Windows系统支持SourceTree，下载并安装SourceTree。安装过程中需要登录，您可注册ATLASSIAN账号或使用Google账号登录。安装完成后，打开sourcetree。如下图：
 
@@ -188,7 +188,7 @@ Windows系统支持SourceTree，下载并安装SourceTree。安装过程中需�
 
 {{site.data.alerts.end}}
 
-### [GitHub Desktop](https://desktop.github.com/)
+### [GitHub Desktop](https://desktop.github.com/) [下载地址](https://pkg.goodrain.com/apps/git/GitHubDesktopSetup_1.0.11.exe)
 
 Windows系统支持使用GitHub Desktop，下载安装使用GitHub Desktop。客户端如下：
 
