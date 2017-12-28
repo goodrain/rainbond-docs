@@ -16,6 +16,7 @@ asciicast: true
 {{site.data.alerts.callout_danger}}
 
 确保第一个节点可以ssh免密登陆其他节点。
+安装前请务必确定是否满足前置条件。
 
 {{site.data.alerts.end}}
 
