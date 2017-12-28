@@ -215,18 +215,24 @@
                     "items": [{
                         "title": "Webapp-Runner",
                         "urls": [
-                            "/${VERSION}/user-lang-docs/java/deploy/webapp-runner.html"
+                            "/${VERSION}/user-lang-docs/java/best-practice/webapp-runner.html"
                         ]
                     },{
                         "title": "Jetty-Runner",
                         "urls": [
-                            "/${VERSION}/user-lang-docs/java/deploy/jetty-runner.html"
+                            "/${VERSION}/user-lang-docs/java/best-practice/jetty-runner.html"
                         ]
                     },
                     {
-                        "title": "Redis实现session共享",
+                        "title": "session持久化",
                         "urls": [
                             "/${VERSION}/user-lang-docs/java/best-practice/tomcat-redis-session.html"
+                        ]
+                    },
+                    {
+                        "title": "Spring-Boot配置MySQL",
+                        "urls": [
+                            "/${VERSION}/user-lang-docs/java/best-practice/spring-boot-mysql.html"
                         ]
                     }
                 ]},{
