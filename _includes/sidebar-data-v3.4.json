@@ -224,9 +224,15 @@
                         ]
                     },
                     {
-                        "title": "通过Redis实现session共享",
+                        "title": "session持久化",
                         "urls": [
                             "/${VERSION}/user-lang-docs/java/best-practice/tomcat-redis-session.html"
+                        ]
+                    },
+                    {
+                        "title": "Spring-Boot配置MySQL",
+                        "urls": [
+                            "/${VERSION}/user-lang-docs/java/best-practice/spring-boot-mysql.html"
                         ]
                     }
                 ]},{
