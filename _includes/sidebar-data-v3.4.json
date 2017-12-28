@@ -225,7 +225,6 @@
                     },
                     {
                         "title": "session持久化",
-                        "title": "Redis实现session共享",
                         "urls": [
                             "/${VERSION}/user-lang-docs/java/best-practice/tomcat-redis-session.html"
                         ]
