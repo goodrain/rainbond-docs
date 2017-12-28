@@ -9,7 +9,7 @@ Spring Boot框架简化了新Spring应用的初始搭建以及开发过程，云
 
 云帮提供Spring Boot配置MySQL服务的示例，去[云市](http://app-test.goodrain.com)一键式部署[Spring Boot-MySQL示例]()
 
-您可以通过如下配置自行创建建Spring Boot实例
+**以下内容是本地创建和运行该示例的过程：**
 
 ## 创建示例
 
@@ -230,7 +230,7 @@ WORKDIR /app
 #声明映射端口
 EXPOSE 5000
 #指定maven的配置文件，文件内制定新的mirror地址
-RUN mvn -s settings.xml -B -DskipTests=true clean install
+RUN mvn -B -DskipTests=true clean install
 #启动脚本
 ENTRYPOINT ["/app/run.sh"]
 ```
