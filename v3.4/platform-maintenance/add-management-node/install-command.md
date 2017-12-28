@@ -14,10 +14,12 @@ asciicast: true
 - 手动启动etcd ,重新执行安装脚本即可	
 -->
 
-## 添加管理节点
+## 扩容管理节点
 
+{{site.data.alerts.callout_danger}}
 - 管理节点安装数建议为奇数(1,3,5,7...)
 - 安装命令都在第一个管理节点执行
+{{site.data.alerts.end}}
 
 {% include copy-clipboard.html %}
 ```bash

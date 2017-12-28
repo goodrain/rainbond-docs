@@ -215,16 +215,17 @@
                     "items": [{
                         "title": "Webapp-Runner",
                         "urls": [
-                            "/${VERSION}/user-lang-docs/java/deploy/webapp-runner.html"
+                            "/${VERSION}/user-lang-docs/java/best-practice/webapp-runner.html"
                         ]
                     },{
                         "title": "Jetty-Runner",
                         "urls": [
-                            "/${VERSION}/user-lang-docs/java/deploy/jetty-runner.html"
+                            "/${VERSION}/user-lang-docs/java/best-practice/jetty-runner.html"
                         ]
                     },
                     {
                         "title": "session持久化",
+                        "title": "Redis实现session共享",
                         "urls": [
                             "/${VERSION}/user-lang-docs/java/best-practice/tomcat-redis-session.html"
                         ]
