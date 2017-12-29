@@ -7,7 +7,7 @@ toc: false
 
 Spring Boot框架简化了新Spring应用的初始搭建以及开发过程，云帮支持平台部署Spring Boot类应用。
 
-云帮提供Spring Boot配置MySQL服务的示例，去[云市](http://app-test.goodrain.com)一键式部署[Spring Boot-MySQL示例]()
+云帮提供Spring Boot配置MySQL服务的示例，去[云市](http://app-test.goodrain.com)一键式部署[Spring Boot-MySQL示例](http://app-test.goodrain.com/#/app/detail/55)
 
 **以下内容是本地创建和运行该示例的过程：**
 
