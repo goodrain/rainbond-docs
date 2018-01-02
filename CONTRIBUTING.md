@@ -1,14 +1,14 @@
-# Contributing to CockroachDB Docs
+# Contributing to rainbond Docs
 
-The CockroachDB docs are open source just like the database itself. We welcome your contributions!
+The rainbond docs are open source just like the database itself. We welcome your contributions!
 
 ## Setup
 
-1. Fork the [CockroachDB docs repository](https://github.com/cockroachdb/docs).
+1. Fork the [Rainbond docs repository](https://github.com/goodrain/rainbond-docs).
 
 2. [Create a local clone](https://help.github.com/articles/cloning-a-repository/) of your fork.
 
-3. CockroachDB uses [Jekyll](https://jekyllrb.com/docs/installation/) to transform Markdown and layout files into a complete, static HTML site. We also use [HTMLProofer](https://github.com/gjtorikian/html-proofer) to check the generated HTML for errors (broken internal and external links, missing images, etc.).
+3. Rainbond uses [Jekyll](https://jekyllrb.com/docs/installation/) to transform Markdown and layout files into a complete, static HTML site. We also use [HTMLProofer](https://github.com/gjtorikian/html-proofer) to check the generated HTML for errors (broken internal and external links, missing images, etc.).
 
     Install Jekyll, HTMLProofer, and some other dependencies so you can view doc changes locally:
 
@@ -34,7 +34,7 @@ Once you're ready to contribute:
 
 3. Make your changes.
 
-    Note that there are distinct directories for each documented version of CockroachDB. For example, docs for CockroachDB v1.0 are in the `v1.0` directory, whereas docs for CockroachDB v1.1 are in the `v1.1` directory.
+    Note that there are distinct directories for each documented version of Rainbond. For example, docs for Rainbond v1.0 are in the `v1.0` directory, whereas docs for Rainbond v1.1 are in the `v1.1` directory.
 
 4. [Build and test the docs locally](#build-and-test-the-docs-locally).
 
@@ -42,18 +42,18 @@ Once you're ready to contribute:
 
 5. [Push to your local branch to your remote fork](https://help.github.com/articles/pushing-to-a-remote/).
 
-6. Back in the CockroachDB docs repo, [open a pull request](https://github.com/cockroachdb/docs/pulls) and assign it to `jseldess`.
+6. Back in the Rainbond docs repo, [open a pull request](https://github.com/goodrain/rainbond-docs/pulls) and assign it to `jseldess`.
 
 We'll review your changes, providing feedback and guidance as necessary. Also, Teamcity, the system we use to automate tests, will run the markdown files through Jekyll and then run [HTMLProofer](https://github.com/gjtorikian/html-proofer) against the resulting HTML output to check for errors. Teamcity will also attempt to sync the HTML to an AWS server, but since you'll be working on your own fork, this part of the process will fail; don't worry about the Teamcity fail status.
 
 ## Keep Contributing
 
-If you want to regularly contribute to the CockroachDB docs, there are a few things we recommend:
+If you want to regularly contribute to the Rainbond docs, there are a few things we recommend:
 
 1. Make it easy to bring updated docs into your fork by tracking us upstream:
 
     ``` shell
-    $ git remote add --track master upstream https://github.com/cockroachdb/docs.git
+    $ git remote add --track master upstream https://github.com/goodrain/rainbond-docs.git
     ```
 
 2. When you're ready to make your next round of changes, get our latest docs:
@@ -72,7 +72,7 @@ If you want to regularly contribute to the CockroachDB docs, there are a few thi
 
 ### Pages
 
-We provide documentation for each major version of CockroachDB. The pages for each version are found in a directory named for the version. For example, docs for CockroachDB v1.0 are in the `v1.0` directory, whereas docs for CockroachDB v1.1 are in the `v1.1` directory.
+We provide documentation for each major version of Rainbond. The pages for each version are found in a directory named for the version. For example, docs for Rainbond v1.0 are in the `v1.0` directory, whereas docs for Rainbond v1.1 are in the `v1.1` directory.
 
 Within each version directory, each page must be an `.md` file written in the redcarpet dialect of Markdown, and must start with the following front-matter:
 
@@ -105,7 +105,7 @@ Field | Description | Default
 
 #### Page TOC
 
-The CockroachDB Jekyll theme can auto-generate a page-level table of contents listing all h2 and h3 headers or just all h2 headers on the page. Related files: `js/toc.js` and `_includes/toc.html`.
+The Rainbond Jekyll theme can auto-generate a page-level table of contents listing all h2 and h3 headers or just all h2 headers on the page. Related files: `js/toc.js` and `_includes/toc.html`.
 
 - To add a page TOC to the very top of the page, set `toc: true` in the page's front-matter.
 
@@ -121,7 +121,7 @@ The CockroachDB Jekyll theme can auto-generate a page-level table of contents li
 
 #### Auto-Included Content
 
-Some pages auto-include content from the [`_includes`](_includes) directory. For example, each SQL statement page inludes a syntax diagram from `_includes/sql/diagrams`, and the [build-an-app-with-cockroachdb.md](build-an-app-with-cockroachdb.md) tutorials include code samples from `_includes/app`.
+Some pages auto-include content from the [`_includes`](_includes) directory. For example, each SQL statement page inludes a syntax diagram from `_includes/sql/diagrams`, and the [build-an-app-with-rainbond.md](build-an-app-with-rainbond.md) tutorials include code samples from `_includes/app`.
 
 The syntax for including content is `{% include <filepath> %}`, for example, `{% include app/basic-sample.rb %}`.
 
@@ -207,7 +207,7 @@ We use [Optimizely](https://www.optimizely.com/) to A/B test changes across our 
 
 ### Sidebar
 
-For each documented version of CockroachDB, a JSON file in the `_includes` directory defines the pages that appear in the docs sidebar. For example, the sidebar for CockroachDB v1.0 is defined by [`_includes/sidebar-data-v1.0.json`](_includes/sidebar_data-v1.0.json).
+For each documented version of Rainbond, a JSON file in the `_includes` directory defines the pages that appear in the docs sidebar. For example, the sidebar for Rainbond v1.0 is defined by [`_includes/sidebar-data-v1.0.json`](_includes/sidebar_data-v1.0.json).
 
 If you're adding a page that you think should appear in the sidebar, please mention this in your pull request.
 
@@ -217,14 +217,14 @@ Field | Type | Description
 ------|------|------------
 `title` | String | At the top level, this field defines the title for a section of the sidenav, e.g., `Get Started`. Within the `items` field, `title` defines either the title for a subsection or the title for a page, which can be different from the actual page title. See the [JSON Example](#json-example) below for more clarity.
 `items` | Array of objects | The pages in a section of the sidenav.
-`urls` | Array of strings | The URLs for a page in the sidenav, each formatted as `/${VERSION}/<page-name>.html`, e.g., `/${VERSION}/learn-cockroachdb-sql.html`. The first URL is the page to link to. The subsequent URLs are pages that should highlight this title in the sidebar.
+`urls` | Array of strings | The URLs for a page in the sidenav, each formatted as `/${VERSION}/<page-name>.html`, e.g., `/${VERSION}/improve-the-docs.html`. The first URL is the page to link to. The subsequent URLs are pages that should highlight this title in the sidebar.
 
 #### JSON Example
 
 This example shows some of the first section of the sidenav, `Get Started`:
 - The first `title` field defines the section title.
 - The first `items` field contains multiple objects, each defining pages in the section:
-    - The first object defines the title and URL for the first page in the section, `Install CockroachDB`.
+    - The first object defines the title and URL for the first page in the section, `Install Rainbond`.
     - The second object is more complex. It defines a subsection titled `Start a Local Cluster`. This object contains its own `items` field, which in turn contains multiple objects, each defining the title and URL for a page.
 
 ``` json
@@ -233,9 +233,9 @@ This example shows some of the first section of the sidenav, `Get Started`:
     "title": "Get Started",
     "items": [
       {
-        "title": "Install CockroachDB",
+        "title": "Install Rainbond",
         "urls": [
-          "/${VERSION}/install-cockroachdb.html"
+          "/${VERSION}/install-rainbond.html"
         ]
       },
       {
@@ -263,7 +263,7 @@ This example shows some of the first section of the sidenav, `Get Started`:
 
 ## Style Guide
 
-CockroachDB docs should be:
+Rainbond docs should be:
 
 - Clear
 - Correct

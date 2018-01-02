@@ -4,9 +4,9 @@ summary: 用户可以根据应用当前的访问情况、压力大小等实际�
 toc: false
 ---
 
-&emsp;&emsp;用户可以根据应用当前应用的使用情况、负载能力等，动态的调整后端服务节点的数量或调整内存进行扩容。如增大内存-垂直升级，添加多个节点(实例数)-水平升级。===
+&emsp;&emsp;用户可以根据应用当前应用的使用情况、负载能力等，动态的调整后端服务节点的数量或调整内存进行扩容。如增大内存-垂直升级，添加多个节点(实例数)-水平升级。
 
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-capacity.png" style="border:1px solid #eee;max-width:100%" />
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-capacity-1.png" style="border:1px solid #eee;max-width:100%" />
 
 > 为什么服务扩容和服务升级可以动态的完成，不影响服务？
 >

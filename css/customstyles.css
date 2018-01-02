@@ -3374,7 +3374,6 @@ img.mfp-img {
           width: 200px; } }
   .comparison-chart td {
     vertical-align: middle;
-    border: none;
     border-left: 1px solid #F3F3F3;
     font-family:  "SourceHanSansCN Light", "Microsoft YaHei",Arial,STHeiti,sans-serif;
     font-size: 12px;
@@ -3519,4 +3518,7 @@ img.mfp-img {
 
 .tier-4 a{font-size: 14px;}
 
+#bdcsMain{border-radius: 18px; margin-bottom: 20px;  border:1px solid #DADADA; padding-left: 10px;}
+.search .fa-search{position: absolute; top: 8px; right: 45px; left:auto;}
+table > thead > tr > th{white-space : nowrap}
 /*# sourceMappingURL=customstyles.css.map */

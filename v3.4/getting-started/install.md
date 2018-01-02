@@ -16,6 +16,7 @@ asciicast: true
 {{site.data.alerts.callout_danger}}
 
 确保第一个节点可以ssh免密登陆其他节点。
+安装前请务必确定是否满足前置条件。
 
 {{site.data.alerts.end}}
 
@@ -30,8 +31,8 @@ asciicast: true
 
 {% include copy-clipboard.html %}
 ```bash
-# 通过此脚本可快速安装上线云帮 (管理节点 & 计算节点)
-bash <(curl -s http://repo.goodrain.com/install/3.4/start.sh)
+# 通过此脚本可快速部署单节点的云帮，后续可以扩容。
+bash <(curl -s http://repo.goodrain.com/install/3.4.1/start.sh)
 ```
 
 <!--
@@ -86,11 +87,13 @@ grctl是云帮datacenter controller util,通过此命令初始化集群，扩容
 
 - 扩容相关节点参考
 
+[扩容管理节点](http://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/install-command.html)
 [扩容计算节点](http://www.rainbond.com/docs/stable/platform-maintenance/add-compute-node/install-command.html)
 
-- 安装使用问题FQA
+- 安装使用问题FAQ
 
-安装使用问题，更多请参照 [平台安装，维护-常见问题](http://rb.goodrain.com/docs/stable/FAQs/install-maintenance-faqs.html)
+
+安装使用问题，请参照 [平台安装，维护-常见问题](http://www.rainbond.com/docs/stable/FAQs/install-maintenance-faqs.html)
 
 {{site.data.alerts.callout_danger}}
 - 首先应安装云帮的主节点(上面的命令即是安装主节点的命令)。

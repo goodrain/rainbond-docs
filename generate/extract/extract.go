@@ -15,7 +15,7 @@ import (
 	"sync"
 	"unicode"
 
-	"github.com/cockroachdb/docs/generate/yacc"
+	"github.com/goodrain/rainbond-docs/generate/yacc"
 )
 
 const (

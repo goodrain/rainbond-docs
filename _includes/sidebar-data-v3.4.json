@@ -211,6 +211,31 @@
                         "/${VERSION}/user-lang-docs/java/lang-java-warandjar.html"
                     ]
                 }, {
+                    "title": "最佳实践",
+                    "items": [{
+                        "title": "Webapp-Runner",
+                        "urls": [
+                            "/${VERSION}/user-lang-docs/java/best-practice/webapp-runner.html"
+                        ]
+                    },{
+                        "title": "Jetty-Runner",
+                        "urls": [
+                            "/${VERSION}/user-lang-docs/java/best-practice/jetty-runner.html"
+                        ]
+                    },
+                    {
+                        "title": "session持久化",
+                        "urls": [
+                            "/${VERSION}/user-lang-docs/java/best-practice/tomcat-redis-session.html"
+                        ]
+                    },
+                    {
+                        "title": "Spring-Boot配置MySQL",
+                        "urls": [
+                            "/${VERSION}/user-lang-docs/java/best-practice/spring-boot-mysql.html"
+                        ]
+                    }
+                ]},{
                     "title": "代码示例",
                     "urls": [
                         "/${VERSION}/user-lang-docs/java/lang-java-eg.html"
@@ -689,15 +714,22 @@
     {
         "title": "最佳实践",
         "items": [{
-                "title": "对接Maven仓库",
-                "urls": [
-                    "/${VERSION}/best-practice/connection-maven-repository.html"
+                "title": "Git相关实践",
+                "items": [{
+                    "title": "云帮对接Git Server",
+                    "urls": [
+                        "/${VERSION}/best-practice/git-etcs/connection-git-server.html"
+                    ]},{
+                    "title": "Windows配置SSH连接Git Server",
+                    "urls": [
+                        "/${VERSION}/best-practice/git-etcs/windows-ssh-git.html"
+                    ]}
                 ]
             },
             {
-                "title": "对接Git Server",
+                "title": "对接Maven仓库",
                 "urls": [
-                    "/${VERSION}/best-practice/connection-git-server.html"
+                    "/${VERSION}/best-practice/connection-maven-repository.html"
                 ]
             },
             {

@@ -12,7 +12,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/cockroachdb/docs/generate/extract"
+	"github.com/goodrain/rainbond-docs/generate/extract"
 	"github.com/spf13/cobra"
 )
 

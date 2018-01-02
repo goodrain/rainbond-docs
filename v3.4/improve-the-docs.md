@@ -10,7 +10,7 @@ Rainbond的这份文档也同样开源，我们欢迎热心的用户帮助我们
 
 感谢参与贡献的每一位朋友！
 
-先查找标签为 [help-wanted](https://github.com/cockroachdb/docs/issues?q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted) 的问题（issue），这些问题都是用户或我们列出的将要修改或即将要写的文档，然后参考 [CONTRIBUTING.md](https://github.com/goodrain/rainbond-docs/blob/master/CONTRIBUTING.md) 文档的说明来贡献文档。当然，您也可以直接在某个页面的右上角，选择 **改进文档 > 编辑该页** 。
+先查找标签为 [help-wanted](https://github.com/goodrain/rainbond-docs/issues?q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted) 的问题（issue），这些问题都是用户或我们列出的将要修改或即将要写的文档，然后参考 [CONTRIBUTING.md](https://github.com/goodrain/rainbond-docs/blob/master/CONTRIBUTING.md) 文档的说明来贡献文档。当然，您也可以直接在某个页面的右上角，选择 **改进文档 > 编辑该页** 。
 
 ## 建议与改进
 

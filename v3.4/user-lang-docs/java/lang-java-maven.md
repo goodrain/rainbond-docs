@@ -105,35 +105,3 @@ web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar   --port $PORT tar
 按照[新建应用-源码构建](docs/stable/user-app-docs/addapp/addapp-code.html)的步骤操作，当代码提交完成后，平台就能够识别出项目所使用的语言来。如下图所示：
 
 <center><img src="https://static.goodrain.com/images/acp/docs/code-docs/lang-java-maven.png" style="border:1px solid #eee;max-width:70%" /></center>
-
-## java配置redis实现session共享
-
-为了使您的应用承受更多的并发，提高应用稳定性，您需要在适当情况下进行扩容。为了解决扩容后session共享问题，我们提供 **java配置redis实现session共享** 解决方案，将您session储存在redis中来保证您应用程序稳定性
-
-1. 配置Profile：将如下命令添加到您的Profile中。
-
-   ```bash
-   $ java -jar target/dependency/webapp-runner.jar --session-store memcache target/<appname>.war
-   ```
-
-2. 应用关联redis：云帮创建并部署redis应用；将redis与应用关联。
-
-3. 应用配置redis：将`REDIS_URL`新增至应用环境变量中。
-
-4. 重启应用以适配。
-
-
-
-> 您也可以通过将您的session存储在memcache中实现同样的功能：
->
-> 1. 配置Profile：将如下命令添加到您的Profile中。
->
->    ```bash
->     $ java -jar target/dependency/webapp-runner.jar --session-store memcache target/<appname>.war
->    ```
->
-> 2. 应用关联memcache：创建并部署redis应用；将redis与应用关联。
->
-> 3. 应用配置memcache：将以下三个环境变量新增至当前应用：`MEMCACHE_SERVERS`、 `MEMCACHE_USERNAME`、` MEMCACHE_PASSWORD`。
->
-> 4. 重启应用以适配。
