@@ -48,7 +48,7 @@ toc: false
 
   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-image-offical-6.png" style="border:1px solid #eee;max-width:60%" /></center>
 
-- 文件存储：如下，此模块为您应用持久化设计。点击 **挂载目录** 可选择 **为当前应用新设计持久化目录**、**挂载为娶她应用的持久化目录**。
+- 文件存储：如下，此模块为您应用持久化设计。点击 **挂载目录** 可选择 **为当前应用新设计持久化目录**、**挂载为其他应用的持久化目录**。
 
   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-image-offical-7.png" style="border:1px solid #eee;max-width:60%" /></center>
 
