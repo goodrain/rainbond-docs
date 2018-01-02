@@ -119,20 +119,16 @@ A:新开一个终端，执行systemctl restart rainbond-node
 ### 机器重启后发生无法访问控制台
 
 ```
-# 1. 检查机器ip
+1. 检查机器ip
 ip r
-
-# 2. 检查机器dns
-
+2. 检查机器dns
 cat /etc/resolv.conf
 <dns 应该和机器ip一致>
-
-# 3. 如果不一致，检查相关配置
+3. 如果不一致，检查相关配置
 grctl configs get
 确定ip具体是何值
-
-# 4. 修改相关配置以grctl configs get获取的值为准
-
+4. 修改相关配置以grctl configs get获取的值为准
+/etc/resolv.conf 和 /etc/sysconfig/network-scripts/ifcfg-eth0
 
 绝大数可能是网卡获取ip是dhcp导致的。
 cat /etc/sysconfig/network-scripts/ifcfg-eth0 # 具体网卡具体对待
@@ -159,14 +155,12 @@ IPADDR=192.168.1.45
 GATEWAY=192.168.1.1
 NETMASK=255.255.255.0
 
-
 说明：
 BOOTPROTO=static                  #使用static配置
 ONBOOT=yes                        #开机启用本配置
 IPADDR=192.168.1.45               #静态IP
 GATEWAY=192.168.1.1               #默认网关
 NETMASK=255.255.255.0             #子网掩码
-
 
 最后，修改完重启一下网络
 systemctl restart network
