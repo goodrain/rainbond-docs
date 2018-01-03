@@ -19,12 +19,12 @@ Kubernetes是Google团队发起并维护的基于Docker的开源容器集群管�
 
 - 组件信息
 
-  | 类型   | 位置                                       |
-  | :--- | :--------------------------------------- |
-  | 开机自启 | 是                                        |
-  | 安装包  | gr-kube-apiserver                        |
-  | 启动文件 | /usr/lib/systemd/system/kube-apiserver.service |
-  | 启动脚本 | /usr/share/gr-kubernetes/scripts/start-kube-	apiserver.sh |
+| 类型   | 位置                                       |
+| :--- | :--------------------------------------- |
+| 开机自启 | 是                                        |
+| 安装包  | gr-kube-apiserver                        |
+| 启动文件 | /usr/lib/systemd/system/kube-apiserver.service |
+| 启动脚本 | /usr/share/gr-kubernetes/scripts/start-kube-	apiserver.sh |
 
 - 维护命令
 
