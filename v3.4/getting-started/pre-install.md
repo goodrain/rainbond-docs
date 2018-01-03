@@ -149,3 +149,9 @@ gateway 192.168.1.1
 
 
 `hostname`在安装完成后建议不要修改，如果修改需同时修改`/etc/host`和`/etc/hostname`这两个文件保证hostname一致。
+要确保每个节点的`hostname`不重复，推荐
+```
+管理节点 manage01 manage02 ...
+计算节点 compute01 compute02 ...
+存储节点 storage01 storage02 ...
+```
