@@ -32,7 +32,7 @@ timedatectl set-ntp yes
 timedatectl
 ```
 
-## 2、Ubuntu系统同步时间的方法**
+## Ubuntu系统同步时间的方法
 
 - 安装tzdata
 

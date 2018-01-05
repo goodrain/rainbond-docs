@@ -8,7 +8,7 @@ asciicast: true
 
 <div id="toc"></div>
 
-## 1、Centos设置**
+## 1、Centos设置
 
 
 {% include copy-clipboard.html %}
@@ -27,7 +27,7 @@ NETMASK=255.255.255.0
 
 {{site.data.alerts.end}}
 
-## 2、Ubuntu设置**
+## 2、Ubuntu设置
       
 {% include copy-clipboard.html %}
 ```bash

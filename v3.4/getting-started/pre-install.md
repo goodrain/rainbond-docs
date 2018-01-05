@@ -53,11 +53,11 @@ asciicast: true
 ### **3、 网络需求**
 
 {{site.data.alerts.callout_danger}}
-一定要配置静态ip，确保重启节点，不会修改节点ip和dns配置，参考文档：[设置静态IP](/docs/stable/other/static-ip.html)
+一定要配置静态ip，确保重启节点，不会修改节点ip和dns配置，参考文档：<a href="/docs/stable/other/static-ip.html" target="_blank">配置静态IP</a>
 {{site.data.alerts.end}}
 
 ## 保持服务器时间同步
-参考文档: [配置时区与时间同步](/docs/stable/other/timezone.html)
+参考文档: <a href="/docs/stable/other/timezone.html" target="_blank">配置时区与时间同步</a>
 
 ## 主机名设置
 
