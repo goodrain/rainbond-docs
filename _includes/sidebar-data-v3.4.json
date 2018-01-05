@@ -20,18 +20,9 @@
             },
             {
                 "title": "安装",
-                "items": [{
-                        "title": "前置需求",
-                        "urls": [
-                            "/${VERSION}/getting-started/pre-install.html"
-                        ]
-                    },
-                    {
-                        "title": "在线安装",
-                        "urls": [
-                            "/${VERSION}/getting-started/install.html"
-                        ]
-                    }
+                "urls": [
+                    "/${VERSION}/getting-started/pre-install.html",
+                    "/${VERSION}/getting-started/install.html",
                 ]
             },
             {

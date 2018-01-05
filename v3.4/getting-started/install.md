@@ -1,10 +1,15 @@
 ---
-title: 快速安装
+title: 安装
 summary: 快速在线安装云帮.
 toc: false
 toc_not_nested: true
 asciicast: true
 ---
+
+<div class="filters filters-big clearfix">
+    <a href="pre-install.html"><button class="filter-button "><strong>安装前准备</strong></button></a>
+    <a href="install.html"><button class="filter-button current">安装</button></a>
+</div>
 
 <div id="toc"></div>
 
