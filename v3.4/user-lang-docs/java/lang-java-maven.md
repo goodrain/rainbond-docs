@@ -5,7 +5,7 @@ toc: false
 ---
 <div id="toc"></div>
 
-&emsp;&emsp;云帮支持的 Java-maven 应用通过`pom.xml`文件来进行项目的依赖管理，配置以下内容至您的`pom.xml`中：
+云帮支持的 Java-maven 应用通过`pom.xml`文件来进行项目的依赖管理，配置以下内容至您的`pom.xml`中：
 
 ## 打包
 
