@@ -105,3 +105,5 @@ web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar   --port $PORT tar
 按照[新建应用-源码构建](docs/stable/user-app-docs/addapp/addapp-code.html)的步骤操作，当代码提交完成后，平台就能够识别出项目所使用的语言来。如下图所示：
 
 <center><img src="https://static.goodrain.com/images/acp/docs/code-docs/lang-java-maven.png" style="border:1px solid #eee;max-width:70%" /></center>
+
+本文示范demo源码：[java-maven-demo]https://github.com/goodrain-apps/java-maven-demo
