@@ -169,3 +169,12 @@ dc-compose stop
 cclear
 dc-compose up -d
 ```
+
+### 访问云帮控制台提示Table不存在
+
+```
+# 数据库表不全,在第一个管理节点执行如下操作
+docker exec rbd-app-ui python /app/ui/manage.py migrate
+```
+
+可以将日志`/var/log/event/install_acp_plugins.log`附加到[github issue](https://github.com/goodrain/rainbond/issues/new)
