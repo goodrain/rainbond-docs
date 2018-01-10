@@ -11,7 +11,7 @@ asciicast: true
 
 云帮平台通过[rbd-repo](/docs/stable/platform-maintenance/add-management-node/component-introduction/rbd-repo.html)组件实现了Maven仓库管理功能，该组件基于 [Artifactory](https://www.jfrog.com/open-source/) 开源版本实现。
 
-如果您已经部署了Maven仓库管理系统，如 [Artifactory](https://www.jfrog.com/open-source/) 或 [Nexus](http://www.sonatype.org/nexus/)，可以通过配置云帮的acp_repo组件与您本地的Maven仓库对接。如果您还没有Maven仓库，可以直接使用云帮内置的Maven仓库进行应用的构建。
+如果您已经部署了Maven仓库管理系统，如 [Artifactory](https://www.jfrog.com/open-source/) 或 [Nexus](http://www.sonatype.org/nexus/)，可以通过配置云帮的rbd-repo组件与您本地的Maven仓库对接。如果您还没有Maven仓库，可以直接使用云帮内置的Maven仓库进行应用的构建。
 
 本文介绍对接云帮外部Maven仓库，实际上就是配置云帮的Artifactory与外部Artifactory或者Nexus对接，同时还会介绍如何使用云帮内置的Maven仓库来上传jar包，最终通过云帮构建java应用。
 
