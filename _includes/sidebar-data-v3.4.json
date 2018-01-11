@@ -2,19 +2,19 @@
         "title": "快速开始",
         "items": [
             {
-                "title": "云帮公有云",
+                "title": "使用云帮公有云",
                 "urls": [
                     "/${VERSION}/getting-started/rainbond-public.html"
                 ]
             },
             {
-                "title": "镜像部署",
+                "title": "阿里云镜像安装",
                 "urls": [
                     "/${VERSION}/getting-started/rainbond-image-install.html"
                 ]
             },
             {
-                "title": "私有部署",
+                "title": "在线私有安装",
                 "urls": [
                     "/${VERSION}/getting-started/pre-install.html",
                     "/${VERSION}/getting-started/install.html"
@@ -24,7 +24,7 @@
         ]
     },
     {
-        "title": "了解云帮",
+        "title": "了解Rainbond",
         "items": [{
                 "title": "设计理念",
                 "urls": [
@@ -74,7 +74,7 @@
         ]
     },   
     {
-        "title": "云帮使用",
+        "title": "Rainbond使用",
         "items": [{
                 "title": "介绍",
                 "urls": [
@@ -423,7 +423,7 @@
         ]
     },
     {
-        "title": "云帮维护",
+        "title": "Rainbond维护",
         "items": [{
                 "title": "概览",
                 "urls": [
