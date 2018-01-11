@@ -1,9 +1,14 @@
 ---
-title: '<input type="text" />'
+title: '搜索结果'
 toc: true
 contribute: true
 ---
 
+
+<div>
+	<input type="text" id="search-searchbar" />
+</div>
+<div id="search-hits"></div>
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css">
@@ -11,7 +16,7 @@ contribute: true
 
 <script>
 const search = instantsearch({
-  appId: 'JW03QS46UU',
+  appId: ' JW03QS46UU',
   apiKey: 'd0d5c58ee85408dd6a9148c2ae10fa1a',
   indexName: 'rainbond',
   searchParameters: {
@@ -32,7 +37,7 @@ const hitTemplate = function(hit) {
   const content = hit._highlightResult.html.value;
 
   return `
-    <div class="post-item" id="search-hits">
+    <div class="post-item">
       <span class="post-meta">${date}</span>
       <h2><a class="post-link" href="${url}">${title}</a></h2>
       <div class="post-snippet">${content}</div>
@@ -43,7 +48,7 @@ const hitTemplate = function(hit) {
 
 search.addWidget(
   instantsearch.widgets.searchBox({
-    container: '#bdcsMain',
+    container: '#search-searchbar',
     placeholder: 'Search into posts...'
   })
 );
