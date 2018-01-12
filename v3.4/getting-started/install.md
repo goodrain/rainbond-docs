@@ -84,24 +84,33 @@ grctl show
 <ip>:7070
 ```
 
--->
+
 
 - grctl
 
 grctl是云帮datacenter controller util,通过此命令初始化集群，扩容节点。更多细节请参考[组件：grctl](http://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/component-introduction/grctl.html)
 
-- 扩容相关节点参考
+-->
 
-[扩容管理节点](http://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/install-command.html)
-[扩容计算节点](http://www.rainbond.com/docs/stable/platform-maintenance/add-compute-node/install-command.html)
+### 扩容节点
 
-- 安装使用问题FAQ
+- [扩容管理节点](http://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/install-command.html)
+- [扩容计算节点](http://www.rainbond.com/docs/stable/platform-maintenance/add-compute-node/install-command.html)
 
+### 安装使用问题FAQ
 
-安装使用问题，请参照 [平台安装，维护-常见问题](http://www.rainbond.com/docs/stable/FAQs/install-maintenance-faqs.html)
+- 安装使用问题，请参照 [平台安装，维护-常见问题](http://www.rainbond.com/docs/stable/FAQs/install-maintenance-faqs.html)
+- [rainbond开源版本安装使用帮助](https://t.goodrain.com/t/rainbond/359)
+
+### 安装使用问题反馈
+
+- [Github Issue](https://github.com/goodrain/rainbond/issues/new)
+- 支持邮箱: rainbond@goodrain.com
+
+### 高可用说明
 
 {{site.data.alerts.callout_danger}}
 - 首先应安装云帮的主节点(上面的命令即是安装主节点的命令)。
 - 主节点具备云帮平台的所有功能，但不支持高可用。
-- 高可用特性需要将集群至少扩容到3个节点。
+- 高可用特性需要将集群管理节点至少扩容到3个节点。
 {{site.data.alerts.end}}
