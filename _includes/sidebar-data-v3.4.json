@@ -750,22 +750,6 @@
             }
         ]
     },
-    {
-        "title": "故障排查",
-        "items": [{
-                "title": "概述",
-                "urls": [
-                    "/${VERSION}/troubleshooting/overview.html"
-                ]
-            },
-            {
-                "title": "Debug & 错误日志",
-                "urls": [
-                    "/${VERSION}/troubleshooting/debug-and-error-logs.html"
-                ]
-            }
-        ]
-    },
     {% include sidebar-releases.json %},
     {
         "title": "FAQs",
