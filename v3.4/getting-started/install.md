@@ -92,6 +92,13 @@ grctl是云帮datacenter controller util,通过此命令初始化集群，扩容
 
 -->
 
+### 安装完成
+
+```bash
+grctl show 
+<ip>:7070
+```
+
 ### 扩容节点
 
 - [扩容管理节点](http://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/install-command.html)
