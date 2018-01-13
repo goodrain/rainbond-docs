@@ -94,6 +94,7 @@ grctl是云帮datacenter controller util,通过此命令初始化集群，扩容
 
 ### 安装完成
 
+访问控制台
 ```bash
 grctl show 
 <ip>:7070
