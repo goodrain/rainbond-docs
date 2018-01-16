@@ -61,6 +61,11 @@ asciicast: true
 
 ## 主机名设置
 
+{{site.data.alerts.callout_danger}}
+主机名如果是localhost之类的,即包含localhost
+执行 hostname -s 检查hostname
+{{site.data.alerts.end}}
+
 `hostname`在安装完成后建议不要修改，如果修改需同时修改`/etc/host`和`/etc/hostname`这两个文件保证hostname一致。
 要确保每个节点的`hostname`不重复，推荐
 
