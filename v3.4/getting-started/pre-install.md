@@ -75,4 +75,11 @@ asciicast: true
 计算节点 compute01 compute02 ...
 
 存储节点 storage01 storage02 ...
+
+存储节点 storage01 storage02 ...
+
+# 配置示例
+hostname manage01
+echo manage01 > /etc/hostname
+echo "192.168.1.1 manage01" >> /etc/hosts 
 ```
