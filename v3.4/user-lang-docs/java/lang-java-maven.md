@@ -44,7 +44,7 @@ mvn -B -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.
 
 ## 应用运行
 
-平台默认通过 webapp-runner.jar 将 打包的 `war` 包运行起来，类似如下命令：
+平台默认通过 <a href="https://github.com/jsimone/webapp-runner" target="__blank">webapp-runner.jar</a> 将打包的 `war` 包运行起来，类似如下命令：
 
 {% include copy-clipboard.html %}
 
