@@ -11,7 +11,7 @@ toc: false
 
 ## 打包
 
-云帮检测出项目为maven项目后，在构建阶段会将代码打包，在`pom.xml`文件中示例程序将项目打包为war包。
+云帮检测出项目为maven项目后，在构建阶段会将代码打包，在`pom.xml`文件中示例程序将编译后的文件打包为war包。
 
 `pom.xml`
 {% include copy-clipboard.html %}
@@ -61,7 +61,7 @@ java $JAVA_OPTS -jar /opt/webapp-runner.jar   --port $PORT target/*.war
 
 ## 自定义运行命令
 
-用户可以通过在代码根目录创建 [Procfile](/docs/stable/user-lang-docs/etc/procfile.html)，文件并编辑该文件，可以实现自定义运行命令：
+用户可以通过在代码根目录创建 [Procfile](/docs/stable/user-lang-docs/etc/procfile.html) 文件并编辑该文件，可以实现自定义运行命令：
 
 {% include copy-clipboard.html %}
 
@@ -71,6 +71,7 @@ web: java $JAVA_OPTS -jar  target/*.jar
 
 {{site.data.alerts.callout_danger}}
 自定义启动命令时需要注意Procfile文件的格式：
+
 - 必须以 `web: ` 开头
 - 文件结尾不能包含特殊字符
 {{site.data.alerts.end}}
