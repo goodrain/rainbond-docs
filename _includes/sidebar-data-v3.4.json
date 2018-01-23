@@ -747,14 +747,7 @@
                 "urls": [
                     "/${VERSION}/best-practice/connection-docker-registry.html"
                 ]
-            },
-            {
-                "title": "Spring Cloud 微服务",
-                "urls": [
-                    "/${VERSION}/best-practice/spring-cloud.html"
-                ]
-            },
-
+            }
 
         ]
 
@@ -764,9 +757,15 @@
         "title": "微服务框架",
         "items": [
             {
-                "title": "Dubbo",
+                "title": "Dubbo 架构",
                 "urls": [
-                    "/${VERSION}/microservice/dubbo-overview.html"
+                    "/${VERSION}/microservice/dubbo/dubbo-overview.html"
+                ]
+            },
+            {
+                "title": "Spring Cloud 架构",
+                "urls": [
+                    "/${VERSION}/microservice/spring-cloud/spring-cloud.html"
                 ]
             }
         ]

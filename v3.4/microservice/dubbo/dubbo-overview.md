@@ -1,12 +1,12 @@
 ---
-title: Dubbo架构
+title: Dubbo概述
 summary: 讲解Dubbo框架
 toc: false
 toc_not_nested: true
 asciicast: true
 ---
 <div class="filters filters-big clearfix">
-    <a href="dubbo-overview.html"><button class="filter-button current"><strong>Dubbo讲解</strong></button></a>
+    <a href="dubbo-overview.html"><button class="filter-button current"><strong>Dubbo概述</strong></button></a>
     <a href="dubbo-demo-construction.html"><button class="filter-button">Dubbo示例</button></a>
     
 </div>

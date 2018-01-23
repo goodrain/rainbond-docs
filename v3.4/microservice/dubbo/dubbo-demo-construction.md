@@ -6,7 +6,7 @@ toc_not_nested: true
 asciicast: true
 ---
 <div class="filters filters-big clearfix">
-    <a href="dubbo-overview.html"><button class="filter-button">Dubbo讲解</button></a>
+    <a href="dubbo-overview.html"><button class="filter-button">Dubbo概述</button></a>
     <a href="dubbo-demo-construction.html"><button class="filter-button current"><strong>Dubbo示例</strong></button></a>
     
 </div>
