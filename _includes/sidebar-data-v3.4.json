@@ -747,8 +747,18 @@
                 "urls": [
                     "/${VERSION}/best-practice/connection-docker-registry.html"
                 ]
-            }
+            },
+            {
+                "title": "Spring Cloud 微服务",
+                "urls": [
+                    "/${VERSION}/best-practice/spring-cloud.html"
+                ]
+            },
+
+
         ]
+
+
     },
     {% include sidebar-releases.json %},
     {
