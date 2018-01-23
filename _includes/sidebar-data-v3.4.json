@@ -750,6 +750,17 @@
             }
         ]
     },
+    {
+        "title": "微服务框架",
+        "items": [
+            {
+                "title": "Dubbo",
+                "urls": [
+                    "/${VERSION}/microservice/dubbo-overview.html"
+                ]
+            }
+        ]
+    },
     {% include sidebar-releases.json %},
     {
         "title": "FAQs",
