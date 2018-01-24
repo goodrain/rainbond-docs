@@ -49,8 +49,8 @@ asciicast: true
 spring.application.name=gateway-service-zuul
 server.port=8888
 
-#这里的配置表示，访问/it/** 直接重定向到http://域名/**
-zuul.routes.baidu.path=/it/**
+#这里的配置表示，访问/producer/** 直接重定向到http://域名/**
+zuul.routes.baidu.path=/producer/**
 zuul.routes.baidu.url=http://域名/
 
 ```
@@ -73,12 +73,8 @@ public class GatewayServiceZuulApplication {
 
 4、测试
 
-启动`gateway-service-zuul-simple`项目，先输入：`http://localhost:8888/it/hello?name=neo`
+启动`gateway-service-zuul-simple`项目，先输入：`http://localhost:8888/producer/hello?name=neo`
 
 返回：`hello neo，this is first messge`
 
-浏览器中输入：`http://localhost:8888/hello/neo`
-
-返回：`hello neo，this is first messge`
-
-说明调度成功，第一次调度到生产者（B），第二次调度到消费者(A)
+说明调度成功。

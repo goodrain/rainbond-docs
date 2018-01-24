@@ -117,9 +117,9 @@ public class ConfigServerApplication {
     "state": null, 
     "propertySources": [
         {
-            "name": "https://github.com/ityouknow/spring-cloud-starter/config-repo/neo-config-dev.properties", 
+            "name": "https://github.com/goodrain-apps/spring-cloud-demo/config-repo/neo-config-dev.properties", 
             "source": {
-                "neo.hello": "hello im dev"
+                "neo.hello": "hello im dev update"
             }
         }
     ]
