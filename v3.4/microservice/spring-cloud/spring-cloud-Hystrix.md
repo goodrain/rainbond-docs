@@ -85,7 +85,6 @@ public interface HelloRemote {
 
 ```
 
-改动点就这点，很简单吧。
 
 4、测试
 
