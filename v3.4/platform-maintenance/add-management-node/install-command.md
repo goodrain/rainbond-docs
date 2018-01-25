@@ -32,7 +32,7 @@ grctl install manage_base --nodes $uuid
 # 安装管理节点核心服务
 grctl install manage --nodes $uuid
 ```
-
+<!-- 
 ## 同步管理节点配置
 
 - 需要在完成管理节点安装后执行
@@ -46,3 +46,4 @@ grctl tasks exec update_entrance_services -n <管理节点uid>
 grctl tasks exec create_host_id_list -n <管理节点uid>
 
 ```
+-->
