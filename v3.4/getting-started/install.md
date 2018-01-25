@@ -78,8 +78,7 @@ grctl node list
 
 - 访问web控制台
 
-```bash
-# 第一个节点的ip
+```
 grctl show
 <ip>:7070
 ```
