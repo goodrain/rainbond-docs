@@ -28,17 +28,17 @@ asciicast: true
 
 {{site.data.alerts.end}}
 
-下边将根据此示例介绍如何配置Dubbo应用；并将Dubbo应用容器化后部署在云帮平台上。
-
-## 创建项目
-
-下面我们就会用[Spring Boot](https://projects.spring.io/spring-boot/)开发服务提供方Service Provider和服务调用方Service Web。
+我将会根据此示例介绍如何配置Dubbo应用；并将Dubbo应用容器化后部署在云帮平台上。
 
 {{site.data.alerts.callout_success}}
 
-本文主要讲解配置，点击查看[示例源码](https://github.com/goodrain-apps/Dubbo-Demo)。
+本文主要讲解配置，点击查看[示例源码](https://github.com/goodrain-apps/Dubbo-Demo)。也可以去[云市一键部署](https://app.goodrain.com/#/app/detail/108)本示例查看效果。
 
 {{site.data.alerts.end}}
+
+## 创建项目
+
+下面我就会用[Spring Boot](https://projects.spring.io/spring-boot/)开发服务提供方Service Provider和服务调用方Service Web。
 
 ### 定义接口
 
@@ -46,7 +46,7 @@ asciicast: true
 
 {% include copy-clipboard.html %}
 
-```Java
+```java
 //user service
 public interface UserService {
   	public Integer registerUser(String name);
@@ -84,11 +84,11 @@ public interface VoteService {
 
 投票应用Provider服务包括User-Provider与Vote-Provider。此处以User-Provider为例介绍Provider服务配置：
 
-1. 创建Userservice的实现类
+- 创建Userservice的实现类
 
-   {% include copy-clipboard.html %}
+{% include copy-clipboard.html %}
 
-```Java
+```java
 public class UserServiceImpl implements UserService {
   	private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 	private Map<Integer, String> userRegisterDB = new HashMap<Integer, String>();
@@ -97,9 +97,9 @@ public class UserServiceImpl implements UserService {
 }
 ```
 
-2. 为了能找到服务接口，需要在pom.xml中定义对service-api的依赖。
+- 为了能找到服务接口，需要在pom.xml中定义对service-api的依赖。
 
-   {% include copy-clipboard.html %}
+{% include copy-clipboard.html %}
 
 ```xml
 <dependency>
@@ -109,9 +109,28 @@ public class UserServiceImpl implements UserService {
 </dependency>
 ```
 
-3. Dubbo通过spring xml配置文件的方式声明对zookeeper的访问。在resources目录下创建provider.xml，其中最重要的内容是指定zookeeper的地址和端口。xml文件中的其他内容包括指定本服务的侦听端口为`28018`，UserService的接口API类等。
+- 本示例的service-api上传至自建的maven仓库，故还需配置接口的jar包存放的maven仓库地址。
 
-   {% include copy-clipboard.html %}
+{% include copy-clipboard.html %}
+
+```xml
+<repositories>
+	<repository>
+		<id>...</id>
+		<url>http://...</url>
+	</repository>
+</repositories>		
+```
+
+{{site.data.alerts.callout_success}}
+
+云帮对接Maven仓库管理系统，如 [Artifactory](https://www.jfrog.com/open-source/)或 [Nexus](http://www.sonatype.org/nexus/)，可参考文章[对接Maven仓库](https://www.rainbond.com/docs/stable/best-practice/connection-maven-repository.html)
+
+{{site.data.alerts.end}}
+
+- Dubbo通过spring xml配置文件的方式声明对zookeeper的访问。在resources目录下创建provider.xml，其中最重要的内容是指定zookeeper的地址和端口。xml文件中的其他内容包括指定本服务的侦听端口为`28018`，UserService的接口API类等。
+
+{% include copy-clipboard.html %}
 
 ```xml
 <dubbo:application name="demo.user.provider" />
@@ -122,7 +141,7 @@ public class UserServiceImpl implements UserService {
 <dubbo:service interface="com.goodrain.demo.vote.service.UserService" ref="userService" />
 ```
 
-4. xml文件中的其他内容包括指定本服务的侦听端口为`20880`，`GreetingsImpl`类实现的接口API类等。
+- xml文件中的其他内容包括指定本服务的侦听端口为`20880`，`GreetingsImpl`类实现的接口API类等。
 
 下面要在pom.xml引入dubbo的项目依赖（其它依赖可参考[源码](https://github.com/goodrain-apps/Dubbo-Demo)）。
 
@@ -146,9 +165,9 @@ public class UserServiceImpl implements UserService {
 </dependency>
 ```
 
-5. Springboot有一个很好的特性，就是把一个Java应用的所有相关依赖打包成为一个超级JAR包，对于生成Docker镜像来说非常方便。在pom.xml编译模块添加:
+- Springboot有一个很好的特性，就是把一个Java应用的所有相关依赖打包成为一个超级JAR包，对于生成Docker镜像来说非常方便。在pom.xml编译模块添加:
 
-   {% include copy-clipboard.html %}
+{% include copy-clipboard.html %}
 
 ```xml
 <build>
@@ -161,9 +180,9 @@ public class UserServiceImpl implements UserService {
 </build>
 ```
 
-6. 创建一个Spring主类。由于Dubbo采用xml配置文件的方式，则在主类中声明加载provider.xml配置文件.
+- 创建一个Spring主类。由于Dubbo采用xml配置文件的方式，则在主类中声明加载provider.xml配置文件.
 
-   {% include copy-clipboard.html %}
+{% include copy-clipboard.html %}
 
 ```java
 public class Launch {
@@ -177,9 +196,9 @@ public class Launch {
 
 ### Web 服务调用
 
-1. Web服务调用的配置与Provider服务配置类似，也需要在pom.xml中引入对dubbo, service-api的依赖和springboot的编译方式。在resouces目录下创建vote-dubbo.xml，声明zookeeper的地址和要访问的服务接口：
+- Web服务调用的配置与Provider服务配置类似，也需要在pom.xml中引入对dubbo, service-api的依赖和springboot的编译方式。在resouces目录下创建vote-dubbo.xml，声明zookeeper的地址和要访问的服务接口：
 
-   {% include copy-clipboard.html %}
+{% include copy-clipboard.html %}
 
 ```Xml
 <dubbo:application name="demo.vote.web" />
@@ -190,9 +209,9 @@ public class Launch {
 <dubbo:reference id="userService" 		interface="com.goodrain.demo.vote.service.UserService" />
 ```
 
-2. 创建Spring主类，使用另外一种方式声明加载vote-dubbo.xml配置文件。通过`@ImportResource`声明加载配置文件。
+- 创建Spring主类，使用另外一种方式声明加载vote-dubbo.xml配置文件。通过`@ImportResource`声明加载配置文件。
 
-   {% include copy-clipboard.html %}
+{% include copy-clipboard.html %}
 
 ```java
 @ImportResource({ "classpath:vote-dubbo.xml" })
@@ -204,7 +223,7 @@ public class DemoApplication {
 }
 ```
 
-3. Springboot Web应用启动后会自动侦听8080端口。
+- Springboot Web应用启动后会自动侦听8080端口。
 
 ### 编译源码
 
@@ -212,17 +231,30 @@ public class DemoApplication {
 
 {% include copy-clipboard.html %}
 
-```
+```java
 mvn package
 ```
 
+{{site.data.alerts.callout_success}}
+
+同时您可直接使用投票示例的jar包直接构建:
+
+接口jar包为				[**demo.vote.service-0.0.1-SNAPSHOT.jar**](https://github.com/goodrain-apps/Dubbo-Demo/releases/download/demo-jar/demo.vote.service-0.0.1-SNAPSHOT.jar)
+
+user-provider的jar包为	[**demo.user.provider-0.0.1-SNAPSHOT.jar**](https://github.com/goodrain-apps/Dubbo-Demo/releases/download/demo-jar/demo.user.provider-0.0.1-SNAPSHOT.jar)
+
+vote-provider的jar包为	[**demo.vote.provider-0.0.1-SNAPSHOT.jar**](https://github.com/goodrain-apps/Dubbo-Demo/releases/download/demo-jar/demo.vote.provider-0.0.1-SNAPSHOT.jar)
+
+vote-web的jar包为		[**demo.vote.web.jar**](https://github.com/goodrain-apps/Dubbo-Demo/releases/download/demo-jar/demo.vote.web.jar)
+
+{{site.data.alerts.end}}
+
 ## 项目容器化
 
-1. Provider服务与Web服务调用通过Zookeeper注册服务。Zookeeper已经有了Docker镜像，可在云帮[创建应用-应用市场](https://user.goodrain.com/apps/grapps/service-entrance/?ty=app)搜索Zookeeper应用一键部署。
+- Provider服务与Web服务调用通过Zookeeper注册服务。Zookeeper已经有了Docker镜像，可在云帮[创建应用-应用市场](https://user.goodrain.com/apps/grapps/service-entrance/?ty=app)搜索Zookeeper应用一键部署。
+- 新建目录，并将此目录作为新的源码目录。待完成编辑Dockerfile，将Dockerfile与前边生成的编译后jar包放置此新建目录。Dockerfile内容如下：
 
-2. 新建目录，并将此目录作为新的源码目录。待完成编辑Dockerfile，将Dockerfile与前边生成的编译后jar包放置此新建目录。Dockerfile内容如下：
-
-   {% include copy-clipboard.html %}
+{% include copy-clipboard.html %}
 
 ```dockerfile
 FROM goodrainapps/maven:jdk7-alpine
@@ -258,15 +290,14 @@ CMD ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/<jar-name>.jar"]
 
 以Dubbo-投票示例结构举例说明。
 
-1. Vote-Web服务、Vote-Provider服务、User-Provider服务均依赖Zookeeper。这三个服务创建完毕的时候，在[应用控制台-依赖](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)选择关联刚刚创建的Zookeeper。
+- Vote-Web服务、Vote-Provider服务、User-Provider服务均依赖Zookeeper。这三个服务创建完毕的时候，在[应用控制台-依赖](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)选择关联刚刚创建的Zookeeper。
 
-   <img src="https://static.goodrain.com/images/acp/docs/microservice/dubbo/dubbo-deploy6.png" width="100%"/>
+<img src="https://static.goodrain.com/images/acp/docs/microservice/dubbo/dubbo-deploy6.png" width="100%"/>
 
+- Web服务依赖Provider服务，故在本示例Vote-Web服务应当依赖Vote-Provider服务与User-Provider服务，依赖方式与上相同。
 
-2. Web服务依赖Provider服务，故在本示例Vote-Web服务应当依赖Vote-Provider服务与User-Provider服务，依赖方式与上相同。
+<img src="https://static.goodrain.com/images/acp/docs/microservice/dubbo/dubbo-deploy7.png" width="100%"/>
 
-   <img src="https://static.goodrain.com/images/acp/docs/microservice/dubbo/dubbo-deploy7.png" width="100%"/>
-
-   此时Web服务应当依赖Zookeeper于其他Provider服务。
+此时Web服务应当依赖Zookeeper于其他Provider服务。
 
 ##### 由于配置改变，此时需重启应用适配。待重启完毕即可访问Dubbo架构的应用了！
