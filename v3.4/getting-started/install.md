@@ -121,3 +121,8 @@ grctl show
 - 主节点具备云帮平台的所有功能，但不支持高可用。
 - 高可用特性需要将集群管理节点至少扩容到3个节点。
 {{site.data.alerts.end}}
+
+
+### Demo install
+
+<iframe allowFullScreen frameborder="0" height="564" mozallowfullscreen src="https://player.vimeo.com/video/253097354" webkitAllowFullScreen width="640"></iframe>
