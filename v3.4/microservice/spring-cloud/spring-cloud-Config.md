@@ -10,7 +10,7 @@ asciicast: true
     <a href="spring-cloud-Eureka.html"><button class="filter-button">2. Eureka组件</button></a>
     <a href="spring-cloud-Hystrix.html"><button class="filter-button">3. Hystrix组件</button></a>
     <a href="spring-cloud-Config.html"><button class="filter-button current"><strong>4. Config组件</strong></button></a>
-    <a href="spring-cloud-Zull.html"><button class="filter-button">5. Zull组件</button></a>
+    <a href="spring-cloud-Zuul.html"><button class="filter-button">5. Zuul组件</button></a>
 </div>
 
 <div id="toc"></div>

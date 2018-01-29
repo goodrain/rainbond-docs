@@ -1,6 +1,6 @@
 ---
-title: Zull组件
-summary: 讲解如何搭建Zull
+title: Zuul组件
+summary: 讲解如何搭建Zuul
 toc: false
 asciicast: true
 ---
@@ -10,21 +10,21 @@ asciicast: true
     <a href="spring-cloud-Eureka.html"><button class="filter-button">2. Eureka组件</button></a>
     <a href="spring-cloud-Hystrix.html"><button class="filter-button">3. Hystrix组件</button></a>
     <a href="spring-cloud-Config.html"><button class="filter-button">4. Config组件</button></a>
-    <a href="spring-cloud-Zull.html"><button class="filter-button current"><strong>5. Zull组件</strong></button></a>
+    <a href="spring-cloud-Zuul.html"><button class="filter-button current"><strong>5. Zuul组件</strong></button></a>
 </div>
 
 <div id="toc"></div>
 
 ## 组件介绍
 
-​	在微服务架构中，后端服务往往不直接开放给调用端，而是通过一个API网关根据请求的url，路由到相应的服务。当添加API网关后，在第三方调用端和服务提供方之间就创建了一面墙，这面墙直接与调用方通信进行权限控制，后将请求均衡分发给后台服务端。而用来进行代理调度的组件就是Zull。
+​	在微服务架构中，后端服务往往不直接开放给调用端，而是通过一个API网关根据请求的url，路由到相应的服务。当添加API网关后，在第三方调用端和服务提供方之间就创建了一面墙，这面墙直接与调用方通信进行权限控制，后将请求均衡分发给后台服务端。而用来进行代理调度的组件就是Zuul。
 
 ## 项目描述
 
-​	在项目中，只有Zull提供对外访问，Gateway通过请求的url的不同，将请求调度到不同的后端服务
+​	在项目中，只有Zuul提供对外访问，Gateway通过请求的url的不同，将请求调度到不同的后端服务
 
 <div align=center>
-    <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/bestpractice/microservice/zull-1.png" width="75%" height="75%">
+    <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/bestpractice/microservice/zuul-1.png" width="75%" height="75%">
 </div>
 
 ## 部署到云帮
