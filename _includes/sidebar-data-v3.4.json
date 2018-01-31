@@ -729,7 +729,8 @@
                     "title": "云帮对接Git Server",
                     "urls": [
                         "/${VERSION}/best-practice/git-etcs/connection-git-server.html"
-                    ]},{
+                    ]},
+                    {
                     "title": "Windows配置SSH连接Git Server",
                     "urls": [
                         "/${VERSION}/best-practice/git-etcs/windows-ssh-git.html"
@@ -770,6 +771,33 @@
             }
         ]
     },
+
+    {
+        "title": "视频指南",
+        "items": [
+            {
+                "title": "云帮设计思想",
+                "urls": [
+                    "/${VERSION}/video/rainbond_design/design_video.html"
+                ]
+            },
+            {
+                "title": "云帮的安装",
+                "urls": [
+                    "/${VERSION}/video/rainbond_install/install_video.html"
+                ]
+            },
+            {
+                "title": "云帮的使用",
+                "urls": [
+                    "/${VERSION}/video/rainbond_use"
+                ]
+            }
+        ]
+    },
+
+
+
     {% include sidebar-releases.json %},
     {
         "title": "FAQs",
