@@ -186,3 +186,9 @@ wget repo.goodrain.com/release/3.4.2/gaops/jobs/update/update.sh -O /root/update
 chmod +x /root/update_version.sh
 bash /root/update_version.sh
 ```
+
+### 3.4.2域名绑定说明
+
+```
+当前版本端口默认是10443, release 3.5将解决这个问题
+```
