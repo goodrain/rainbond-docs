@@ -32,7 +32,7 @@ asciicast: true
 
 {{site.data.alerts.callout_success}}
 
-本文主要讲解配置，点击查看[示例源码](https://github.com/goodrain-apps/Dubbo-Demo)。也可以去[云市一键部署](https://app.goodrain.com/#/app/detail/108)本示例查看效果。
+本文主要讲解配置，点击查看[示例源码](https://github.com/goodrain-apps/Dubbo-Demo)。也可以去[云市一键部署](https://www.goodrain.com/#/app/detail/108)本示例查看效果。
 
 {{site.data.alerts.end}}
 

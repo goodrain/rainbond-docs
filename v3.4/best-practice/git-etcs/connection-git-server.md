@@ -7,13 +7,13 @@ asciicast: true
 
 <div id="toc"></div>
 
-云帮支持直接部署私有仓库中的源码，目前支持GitLab。同时我们的[云市](app.goodrain.com)提供一键式部署[GitLab应用]()。部署情况分为以下两种:
+云帮支持直接部署私有仓库中的源码，目前支持GitLab。同时我们的[云市](https://www.goodrain.com/#/index)提供一键式部署[GitLab应用]()。部署情况分为以下两种:
 
 ## 使用云帮创建的GitLab
 
 ### 新建GitLab应用
 
-公有云进入[云市](http://app.goodrain.com/#/index)选择GitLab应用，一键部署在云帮。私有云进入创建应用-应用列表创建GitLab应用。
+公有云进入[云市](https://www.goodrain.com/#/index)选择GitLab应用，一键部署在云帮。私有云进入创建应用-应用列表创建GitLab应用。
 
 应用创建请参考文档：[创建应用-应用市场](http://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-market.html)
 
