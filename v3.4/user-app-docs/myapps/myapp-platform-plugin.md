@@ -60,9 +60,9 @@ toc: false
 3. **WEIGHT** 
 >转发权重设置，范围1~100
 
-	当所配置两个下游应用`DOMAINS相同`时，会引发WEIGHT参数，会控制向下游应用转发的权重，如下图所示： 
+	当所配置两个下游应用`DOMAINS、PREFIX`相同时，会引发WEIGHT参数，会控制向下游应用转发的权重，如下图所示： 
 	<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-plugin10.png" style="border:1px solid #eee;max-width:100%" />
-	此时，当前应用请求 rainbond.lan时 会因为权重的控制将请求以3:7的比例进行分配。插件会认为所有设置`相同域名`的下游应用为分配权重的对象，总的权重值为 100，若配置的总权重值不等于100，则会引发错误，影响访问。
+	此时，当前应用请求 rainbond.lan时 会因为权重的控制将请求以3:7的比例进行分配。插件会认为所有设置相同`DOMAINS、PREFIX`的下游应用为分配权重的对象，总的权重值为 100，若配置的总权重值不等于100，则会引发错误，影响访问。
 
 4. **HEADERS**  
 >HTTP请求头设置
