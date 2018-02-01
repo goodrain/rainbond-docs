@@ -158,6 +158,12 @@
                                 ]
                             },
                             {
+                                "title": "插件",
+                                "urls": [
+                                    "/${VERSION}/user-app-docs/myapps/myapp-platform-plugin.html"
+                                ]
+                            },
+                            {
                                 "title": "设置",
                                 "urls": [
                                     "/${VERSION}/user-app-docs/myapps/myapp-platform-settings.html"
