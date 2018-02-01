@@ -178,3 +178,11 @@ docker exec rbd-app-ui python /app/ui/manage.py migrate
 ```
 
 可以将日志`/var/log/event/install_acp_plugins.log`附加到[github issue](https://github.com/goodrain/rainbond/issues/new)
+
+### 3.4.1版本如何升级到3.4.2版本
+
+```
+wget repo.goodrain.com/release/3.4.2/gaops/jobs/update/update.sh -O /root/update_version.sh
+chmod +x /root/update_version.sh
+bash /root/update_version.sh
+```
