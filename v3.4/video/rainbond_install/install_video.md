@@ -13,6 +13,6 @@ toc: false
 
 **[PPT]**
 
-
+<embed width="650" height="450" fullscreen="yes" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/video/rainbond_install.pdf">
 
 
