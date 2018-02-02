@@ -32,6 +32,8 @@ asciicast: true
 dc-compose up -d rbd-repo
 ##停止|重启rbd-repo:
 dc-compose stop|restart rbd-repo
+##如果一直重启先停服务, 删除此目录
+rm -rf /grdata/services/artifactory5/*
 
 ##查看日志：
 dc-compose logs rbd-repo
