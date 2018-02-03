@@ -192,3 +192,13 @@ bash /root/update_version.sh
 ```
 当前版本端口默认是10443, release 3.5将解决这个问题
 ```
+
+### 安装提示异常或无法使用插件
+
+```
+请检查数据库
+docker exec rbd-db mysql -e "select count(*) from console.tenant_plugin_share"
+如果count数小于2则表示插件库数据不全，
+docker exec rbd-db mysql -e "use console;source /root/plugins.sql"
+如果还有问题，请提issue，附上`/logs/goodrain_web`日志
+```
