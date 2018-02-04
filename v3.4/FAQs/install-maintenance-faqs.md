@@ -200,5 +200,10 @@ bash /root/update_version.sh
 docker exec rbd-db mysql -e "select count(*) from console.tenant_plugin_share"
 如果count数小于2则表示插件库数据不全，
 docker exec rbd-db mysql -e "use console;source /root/plugins.sql"
+如果执行上述操作后，依旧如此
+wget repo.goodrain.com/release/3.4.2/gaops/config/grplugin.sql
+docker cp $PWD/grplugin.sql rbd-db:/root
+docker exec rbd-db mysql -e "use console;source /root/grplugin.sql"
 如果还有问题，请提issue，附上`/logs/goodrain_web`日志
 ```
+
