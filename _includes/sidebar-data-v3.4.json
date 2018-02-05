@@ -761,8 +761,14 @@
 
     },
     {
-        "title": "微服务框架",
+        "title": "微服务架构",
         "items": [
+            {
+                "title": "云帮微服务手册",
+                "urls": [
+                    "/${VERSION}/microservice/micros-rainbond/microservice-support.html"
+                ]
+            },
             {
                 "title": "Dubbo 架构",
                 "urls": [
