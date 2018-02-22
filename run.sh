@@ -5,7 +5,10 @@
 
 sleep ${PAUSE:-0}
 
-bundle exec jekyll build
+# run crond
+crond
+
+bundle exec jekyll build -I
 
 # start nginx
 nginx -t

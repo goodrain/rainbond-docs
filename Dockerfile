@@ -10,6 +10,10 @@ RUN apk add --no-cache tzdata nginx \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" >  /etc/timezone
 
+
+# add cron
+RUN crontab -l | { cat; echo "* * * * * cd /srv/jekyll;git pull "; } | crontab -
+
 COPY . /srv/jekyll
 COPY etc /etc
 
