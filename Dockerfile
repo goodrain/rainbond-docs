@@ -12,7 +12,7 @@ RUN apk add --no-cache tzdata nginx \
 
 
 # add cron
-RUN crontab -l | { cat; echo "* * * * * cd /srv/jekyll;git pull "; } | crontab -
+RUN crontab -l | { cat; echo "* * * * * cd /srv/jekyll;./build.sh "; } | crontab -
 
 COPY . /srv/jekyll
 COPY etc /etc

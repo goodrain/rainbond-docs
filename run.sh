@@ -9,7 +9,7 @@ sleep ${PAUSE:-0}
 crond
 
 # build static
-bundle exec jekyll build -I
+bundle exec jekyll build
 
 # start nginx
 nginx -t
