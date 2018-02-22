@@ -9,8 +9,6 @@ RUN apk add --no-cache tzdata nginx \
     && mkdir /run/nginx \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" >  /etc/timezone
-ENV TZ=Asia/Shanghai
-
 
 COPY . /srv/jekyll
 COPY etc /etc
@@ -18,7 +16,7 @@ COPY etc /etc
 WORKDIR /srv/jekyll
 
 # 安装组件
-RUN bundle config mirror.https://rubygems.org https://gems.goodrain.me \
+RUN bundle config mirror.https://rubygems.org http://gems.goodrain.me \
     && bundle
 
 EXPOSE 80
