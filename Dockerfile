@@ -12,7 +12,8 @@ COPY etc /etc
 WORKDIR /srv/jekyll
 
 # 安装组件
-RUN bundle
+RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org \
+    && bundle
 
 # timezone
 ENV TZ=Asia/Shanghai
