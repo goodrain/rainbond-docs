@@ -3,8 +3,14 @@ FROM goodrainapps/jekyll:3.6.2
 MAINTAINER zhouyq@goodrain.com
 
 
-RUN apk add --no-cache nginx \
-    && mkdir /run/nginx
+# set timezone and install nginx
+ENV TZ=Asia/Shanghai
+RUN apk add --no-cache tzdata nginx \
+    && mkdir /run/nginx \
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo "Asia/Shanghai" >  /etc/timezone
+ENV TZ=Asia/Shanghai
+
 
 COPY . /srv/jekyll
 COPY etc /etc
@@ -12,15 +18,8 @@ COPY etc /etc
 WORKDIR /srv/jekyll
 
 # 安装组件
-RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org \
+RUN bundle config mirror.https://rubygems.org https://gems.goodrain.me \
     && bundle
-
-# timezone
-ENV TZ=Asia/Shanghai
-RUN apk add --no-cache tzdata && \
-       cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-       echo "Asia/Shanghai" >  /etc/timezone
-ENV TZ=Asia/Shanghai
 
 EXPOSE 80
 ENTRYPOINT ["/srv/jekyll/run.sh"]
