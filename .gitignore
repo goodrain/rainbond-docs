@@ -7,3 +7,5 @@ _site
 .jekyll-metadata
 bootstrap
 vendor/
+node_modules
+update_search_index.sh
