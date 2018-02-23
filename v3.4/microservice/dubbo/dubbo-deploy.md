@@ -274,11 +274,11 @@ CMD ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/<jar-name>.jar"]
 
 获取您代码仓库中包含Dockerfile的源码地址，使用该地址在云帮部署应用。此处应用一并部署Zookeeper应用，方便后边依赖使用。
 
-参考文档[创建应用-从源码](http://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html)
+参考文档[创建应用-从源码](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html)
 
 ### 端口
 
-[创建应用-应用设置](http://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)部分需将应用服务端口指定。如图：
+[创建应用-应用设置](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)部分需将应用服务端口指定。如图：
 
 - Provider服务开设端口类型为http，设置对外服务（内部访问）<img src="https://static.goodrain.com/images/acp/docs/microservice/dubbo/dubbo-deploy4.png" width="100%"/>
 
@@ -290,7 +290,7 @@ CMD ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/<jar-name>.jar"]
 
 以Dubbo-投票示例结构举例说明。
 
-- Vote-Web服务、Vote-Provider服务、User-Provider服务均依赖Zookeeper。这三个服务创建完毕的时候，在[应用控制台-依赖](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)选择关联刚刚创建的Zookeeper。
+- Vote-Web服务、Vote-Provider服务、User-Provider服务均依赖Zookeeper。这三个服务创建完毕的时候，在[应用控制台-依赖](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)选择关联刚刚创建的Zookeeper。
 
 <img src="https://static.goodrain.com/images/acp/docs/microservice/dubbo/dubbo-deploy6.png" width="100%"/>
 

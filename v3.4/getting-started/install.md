@@ -49,7 +49,7 @@ bash <(curl -s http://repo.goodrain.com/install/3.4.2/start.sh)
 ```bash
 bash -c "$(curl -s repo.goodrain.com/install/grctl)"
 ```
-grctl是云帮datacenter controller util,通过此命令初始化集群，扩容节点。更多细节请参考[组件：grctl](http://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/component-introduction/grctl.html)
+grctl是云帮datacenter controller util,通过此命令初始化集群，扩容节点。更多细节请参考[组件：grctl](https://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/component-introduction/grctl.html)
 
 - 初始化集群
 
@@ -87,7 +87,7 @@ grctl show
 
 - grctl
 
-grctl是云帮datacenter controller util,通过此命令初始化集群，扩容节点。更多细节请参考[组件：grctl](http://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/component-introduction/grctl.html)
+grctl是云帮datacenter controller util,通过此命令初始化集群，扩容节点。更多细节请参考[组件：grctl](https://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/component-introduction/grctl.html)
 
 -->
 
@@ -101,12 +101,12 @@ grctl show
 
 ### 扩容节点
 
-- [扩容管理节点](http://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/install-command.html)
-- [扩容计算节点](http://www.rainbond.com/docs/stable/platform-maintenance/add-compute-node/install-command.html)
+- [扩容管理节点](https://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/install-command.html)
+- [扩容计算节点](https://www.rainbond.com/docs/stable/platform-maintenance/add-compute-node/install-command.html)
 
 ### 安装使用问题FAQ
 
-- 安装使用问题，请参照 [平台安装，维护-常见问题](http://www.rainbond.com/docs/stable/FAQs/install-maintenance-faqs.html)
+- 安装使用问题，请参照 [平台安装，维护-常见问题](https://www.rainbond.com/docs/stable/FAQs/install-maintenance-faqs.html)
 - [rainbond开源版本安装使用帮助](https://t.goodrain.com/t/rainbond/359)
 
 ### 安装使用问题反馈

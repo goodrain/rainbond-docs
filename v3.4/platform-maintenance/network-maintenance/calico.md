@@ -15,13 +15,13 @@ Calico是一个纯3层的数据中心网络方案。能够提供可控的VM、�
 
 这样保证最终所有的workload之间的数据流量都是通过IP路由的方式完成互联的。
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/Calico/calico%E6%B5%81%E9%87%8F%E6%B5%81%E7%A8%8B%E5%9B%BE.png" width="65%" />
+<img src="https://static.goodrain.com/images/acp/docs/Calico/calico%E6%B5%81%E9%87%8F%E6%B5%81%E7%A8%8B%E5%9B%BE.png" width="65%" />
 
 
 
 Calico节点组网可以直接利用数据中心的网络结构（无论是L2或者L3），不需要额外的NAT，隧道或者Overlay Network。
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/Calico/calico%E5%B0%81%E5%8C%85%E5%9B%BE.png" width="50%" />
+<img src="https://static.goodrain.com/images/acp/docs/Calico/calico%E5%B0%81%E5%8C%85%E5%9B%BE.png" width="50%" />
 
 如上图所示，这样保证这个方案的简单可控，而且没有封包解包，节约CPU计算资源的同时，提高了整个网络的性能。
 
@@ -29,7 +29,7 @@ Calico节点组网可以直接利用数据中心的网络结构（无论是L2或
 
 ### Calico 架构
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/Calico/calico%E6%9E%B6%E6%9E%84%E5%9B%BE.png" width="60%" />
+<img src="https://static.goodrain.com/images/acp/docs/Calico/calico%E6%9E%B6%E6%9E%84%E5%9B%BE.png" width="60%" />
 
 
 - Felix，Calico Agent,跑在每台需要运行Workload的节点上，主要负责配置路由及ACLs等信息来确保Endpoint的连通状态；
@@ -45,7 +45,7 @@ Calico节点组网可以直接利用数据中心的网络结构（无论是L2或
 
 ###云帮Calico架构图
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/Calico/calico%E4%BA%91%E5%B8%AE%E4%BD%BF%E7%94%A8%E6%9E%B6%E6%9E%84%E5%9B%BE.png" width="70%" />
+<img src="https://static.goodrain.com/images/acp/docs/Calico/calico%E4%BA%91%E5%B8%AE%E4%BD%BF%E7%94%A8%E6%9E%B6%E6%9E%84%E5%9B%BE.png" width="70%" />
 
 
 ###Calico在云帮实现的功能
@@ -60,7 +60,7 @@ Calico基于iptables提供了丰富而灵活的网络Policy，保证通过各个
 ### k8s结合calico的使用
 
 #### k8s与calico流程架构图
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/Calico/k8s%E7%BB%93%E5%90%88calico%E6%B5%81%E7%A8%8B%E5%9B%BE.png" width="50%" />
+<img src="https://static.goodrain.com/images/acp/docs/Calico/k8s%E7%BB%93%E5%90%88calico%E6%B5%81%E7%A8%8B%E5%9B%BE.png" width="50%" />
 
 - 通过k8s创建启动网络容器，通过calico-cni插件根据cni的配置然后分配calico的网络。
 

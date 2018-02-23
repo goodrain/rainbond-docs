@@ -5,7 +5,7 @@ toc: false
 toc_not_nested: true
 asciicast: true
 ---
-Rainbond遵循“以应用为中心，软件定义一切”的[设计理念](http://www.rainbond.com/docs/stable/getting-started/design-concept.html)，提供应用创建组装、运行生产、发布传播三阶段体系化支持。Rainbond支持包括源代码构建在内的多种途径持续构建应用，可搭配Mysql、Redis、Zookeeper等各类数据存储应用，构成一个完整的服务，并可发布到私有应用市场供企业内部共享，或分享到[好雨云市](https://www.goodrain.com/#/appList)进行商业销售。
+Rainbond遵循“以应用为中心，软件定义一切”的[设计理念](https://www.rainbond.com/docs/stable/getting-started/design-concept.html)，提供应用创建组装、运行生产、发布传播三阶段体系化支持。Rainbond支持包括源代码构建在内的多种途径持续构建应用，可搭配Mysql、Redis、Zookeeper等各类数据存储应用，构成一个完整的服务，并可发布到私有应用市场供企业内部共享，或分享到[好雨云市](https://www.goodrain.com/#/appList)进行商业销售。
 
 ## 应用构建
 

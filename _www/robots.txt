@@ -3,4 +3,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: http://www.rainbond.com/sitemap.xml
+Sitemap: https://www.rainbond.com/sitemap.xml

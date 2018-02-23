@@ -21,7 +21,7 @@ asciicast: true
 
 ## 静态配置
 
-在应用启动时，云帮通过应用控制台中的[设置-自定义环境变量](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-settings.html#part-3c7bec83e797ac2a)为应用注入变量。不同的模式传入不同的变量值，在应用启动时通过环境变量完成配置。
+在应用启动时，云帮通过应用控制台中的[设置-自定义环境变量](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-settings.html#part-3c7bec83e797ac2a)为应用注入变量。不同的模式传入不同的变量值，在应用启动时通过环境变量完成配置。
 
 例如开发人员进行调试时，可自定义`DEBUG=true/false`来进行代码调试。
 
@@ -49,14 +49,14 @@ asciicast: true
 提供多种创建方式，可从镜像、从源码创建应用。服务型应用也可直接从应用市场、[云市](www.goodrain.com)创建，例如MySQL、Redis、RabbitMQ等。
 
 - 创建服务调用端`microservice-web`，服务提供端`user-api1`、`user-api2`、`user-api3`，数据库`MySQL`
-- 根据[创建应用-应用设置](http://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)完成服务运行前配置：指定web访问端口、api服务端口、数据库服务端口
+- 根据[创建应用-应用设置](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)完成服务运行前配置：指定web访问端口、api服务端口、数据库服务端口
 
 ### 依赖
 
 描述应用的依赖关系有两种方法：
 
-- 在[创建应用-应用设置](http://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)选择应用应用关联。
-- 在[应用控制台-依赖](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)选择应用应用关联。
+- 在[创建应用-应用设置](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)选择应用应用关联。
+- 在[应用控制台-依赖](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)选择应用应用关联。
 
 依赖关系配置完成后，关系拓扑图为：
 

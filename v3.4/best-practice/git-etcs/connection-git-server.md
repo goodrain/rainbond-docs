@@ -15,7 +15,7 @@ asciicast: true
 
 公有云进入[云市](https://www.goodrain.com/#/index)选择GitLab应用，一键部署在云帮。私有云进入创建应用-应用列表创建GitLab应用。
 
-应用创建请参考文档：[创建应用-应用市场](http://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-market.html)
+应用创建请参考文档：[创建应用-应用市场](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-market.html)
 
 ### 配置GitLab应用
 
@@ -27,13 +27,13 @@ asciicast: true
 
 2. 添加变量
 
-   进入[应用控制台-设置](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-settings.html)，添加变量`GITLAB_SSH_HOST`
+   进入[应用控制台-设置](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-settings.html)，添加变量`GITLAB_SSH_HOST`
 
    <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/connect-git2.png"  width="80%" />
 
 3. 重启与访问
 
-   配置完成后请先重启应用，观察[应用控制台-日志](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-logs.html)。待日志显示GitLab完成配置，进入[应用控制台-概览](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-overview.html)即可访问。
+   配置完成后请先重启应用，观察[应用控制台-日志](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-logs.html)。待日志显示GitLab完成配置，进入[应用控制台-概览](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-overview.html)即可访问。
 
    <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/connect-git3.png"  width="80%" />
 

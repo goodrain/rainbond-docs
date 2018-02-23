@@ -27,13 +27,13 @@ asciicast: true
 	正常调用服务A请求服务B：
 
 	<div align=center>
-	<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/bestpractice/microservice/eureka-1.png" width="50%" height="50%">
+	<img src="https://static.goodrain.com/images/acp/docs/bestpractice/microservice/eureka-1.png" width="50%" height="50%">
 	</div>
 
 有了服务中心之后，服务A不能直接调用服务B，而是A,B通过在注册中心中注册服务，然后互相发现，服务A通过注册中心来调用服务B：
 	
 	<div align=center>
-	<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/bestpractice/microservice/eureka-2.png" width="75%" height="75%">
+	<img src="https://static.goodrain.com/images/acp/docs/bestpractice/microservice/eureka-2.png" width="75%" height="75%">
 	</div>
 
 	以上只是2个服务之间的相互调用，如果有十几个甚至几十个服务，任何其中的一个项目改动，就会牵连好几个项目跟着重启，巨麻烦而且容易出错。通过服务中心来获取服务你不需要关注你调用的项目IP地址，由几台服务器组成，每次直接去服务中心获取可以使用的服务去调用既可。
@@ -97,7 +97,7 @@ eureka.client.serviceUrl.defaultZone=http://localhost:${server.port}/eureka/
 启动工程后，访问：http://localhost:8000/，可以看到下面的页面，其中还没有发现任何服务
 
 	<div align=center>
-	<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/bestpractice/microservice/eureka-3.png" width="100%" height="100%">
+	<img src="https://static.goodrain.com/images/acp/docs/bestpractice/microservice/eureka-3.png" width="100%" height="100%">
 	</div>
 
 ###服务提供者(B)
@@ -167,7 +167,7 @@ public class HelloController {
 添加`@EnableDiscoveryClient`注解后，项目就具有了服务注册的功能。启动工程后，就可以在注册中心的页面看到SPRING-CLOUD-PRODUCER服务。
 
 	<div align=center>
-	<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/bestpractice/microservice/eureka-4.png" width="100%" height="100%">
+	<img src="https://static.goodrain.com/images/acp/docs/bestpractice/microservice/eureka-4.png" width="100%" height="100%">
 	</div>
 
 到此服务提供者配置就完成了。

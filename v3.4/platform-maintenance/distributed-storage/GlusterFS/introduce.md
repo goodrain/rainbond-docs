@@ -15,7 +15,7 @@ GlusterFS支持运行在任何标准IP网络上标准应用程序的标准客户
 
 ### 架构
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/GlusterFS/GlusterFS%E6%9E%B6%E6%9E%84%E5%9B%BE.png"60%" />
+<img src="https://static.goodrain.com/images/acp/docs/GlusterFS/GlusterFS%E6%9E%B6%E6%9E%84%E5%9B%BE.png"60%" />
 
 ### 常见术语
 名称|	解释
@@ -46,7 +46,7 @@ POSIX|	一个标准，GlusterFS兼容
 
 ###云帮GlusterFS总体架构
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/GlusterFS/GlusterFS%E4%BA%91%E5%B8%AE%E6%9E%B6%E6%9E%84%E5%9B%BE.png" width="80%" />
+<img src="https://static.goodrain.com/images/acp/docs/GlusterFS/GlusterFS%E4%BA%91%E5%B8%AE%E6%9E%B6%E6%9E%84%E5%9B%BE.png" width="80%" />
 
 
 ###GlusterFS在云帮的用途
@@ -61,7 +61,7 @@ POSIX|	一个标准，GlusterFS兼容
 
 ####distribute replica volume 分布式复制卷
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/GlusterFS/GlusterFS%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%8D%E5%88%B6%E5%8D%B7.png" width="80%" />
+<img src="https://static.goodrain.com/images/acp/docs/GlusterFS/GlusterFS%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%8D%E5%88%B6%E5%8D%B7.png" width="80%" />
 
 Brick server 数量是镜像数的倍数,可以在 2 个或多个节点之间复制数据。分布式的复制卷，volume 中 brick 所包含的存储服务器数必须是 replica 的倍数(>=2倍)，兼顾分布式和复制式的功能。
 

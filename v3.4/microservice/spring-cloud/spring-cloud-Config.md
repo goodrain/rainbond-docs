@@ -24,7 +24,7 @@ asciicast: true
 ​目前Config支持git和svn作为存放配置文件的仓库，本次示例使用git仓库来存放配置文件。这里的Config-client  就相当于服务A和服务B,他们的配置文件都集中存放，通过Config-server来获取各自的配置文件。
 
 <div align=center>
-  <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/bestpractice/microservice/config-1.png" width="50%" height="50%">
+  <img src="https://static.goodrain.com/images/acp/docs/bestpractice/microservice/config-1.png" width="50%" height="50%">
 </div>
 
 ## 部署到云帮

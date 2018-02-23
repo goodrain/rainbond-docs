@@ -25,7 +25,7 @@ asciicast: true
 
 
 <div align=center>
-    <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/bestpractice/microservice/hystrix-1.png" width="50%" height="50%">
+    <img src="https://static.goodrain.com/images/acp/docs/bestpractice/microservice/hystrix-1.png" width="50%" height="50%">
 </div>
 
 ## 项目描述
@@ -33,7 +33,7 @@ asciicast: true
 ​	通过将Hystrix组件添加到服务消费者，实现熔断效果，只需要在Eureka的demo基础加入Hystrix即可。
 
 <div align=center>
-    <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/bestpractice/microservice/hystrix-2.png" width="50%" height="50%">
+    <img src="https://static.goodrain.com/images/acp/docs/bestpractice/microservice/hystrix-2.png" width="50%" height="50%">
 </div>
 
 {{site.data.alerts.callout_danger}}

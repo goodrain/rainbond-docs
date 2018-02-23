@@ -40,11 +40,11 @@ toc: false
 
   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-image-offical-4.png" style="border:1px solid #eee;max-width:30%" /></center>
 
-- 端口管理：如下，根据您应用的端口开放情况在此指定，此处需确认端口号、[对外服务](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-port.html#part-2c696518044fc4f0)、[外部访问](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-port.html#part-2c27c8f988fb443b)、及[访问方式](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-port.html#part-2ba97bbe77ab9feb)。点击已添加的端口信息-端口号可对当前端口信息修改。
+- 端口管理：如下，根据您应用的端口开放情况在此指定，此处需确认端口号、[对外服务](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-port.html#part-2c696518044fc4f0)、[外部访问](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-port.html#part-2c27c8f988fb443b)、及[访问方式](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-port.html#part-2ba97bbe77ab9feb)。点击已添加的端口信息-端口号可对当前端口信息修改。
 
   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-image-offical-5.png" style="border:1px solid #eee;max-width:60%" /></center>
 
-- 服务依赖：如下，您可点击 **新增依赖** 进行应用关联。点此了解[服务依赖](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)
+- 服务依赖：如下，您可点击 **新增依赖** 进行应用关联。点此了解[服务依赖](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)
 
   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-image-offical-6.png" style="border:1px solid #eee;max-width:60%" /></center>
 

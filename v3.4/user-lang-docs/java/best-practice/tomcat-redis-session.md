@@ -16,7 +16,7 @@ toc: false
 
 云帮使用 [webapp-Runner]() 内嵌的 tomcat 或 [jetty-Runner]() 内嵌的 jetty 实现服务器功能。在您不创建其他服务器情况下即可轻松将应用部署在云帮。通过以下步骤可实现 **配置redis实现session共享**。
 
-1. 配置[Procfile](http://www.rainbond.com/docs/stable/user-lang-docs/etc/procfile.html)：将如下命令添加到您的Procfile中，并源码根目录下添加Procfile。
+1. 配置[Procfile](https://www.rainbond.com/docs/stable/user-lang-docs/etc/procfile.html)：将如下命令添加到您的Procfile中，并源码根目录下添加Procfile。
 
    {% include copy-clipboard.html %}
 
@@ -49,7 +49,7 @@ toc: false
    webapp-runner-8.5.5.2.jar
    ```
 
-3. 云帮通过源码[创建应用](http://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html)，在[创建应用-应用设置](http://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)选择已创建的Redis进行依赖关联。
+3. 云帮通过源码[创建应用](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html)，在[创建应用-应用设置](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)选择已创建的Redis进行依赖关联。
 
 4. 应用配置redis：将`REDIS_URL`新增至应用环境变量中，值为 `127.0.0.1:6379`。
 
@@ -57,7 +57,7 @@ toc: false
 
 {{site.data.alerts.callout_success}}
 
-为方便创建应用时依赖，建议提前通过[应用市场](http://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-market.html)创建 Redis 应用；若您未在创建时依赖Redis应用，也可以在应用创建完成后在 [应用控制台-依赖](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)进行Redis应用关联。关联后记得重启应用哦。
+为方便创建应用时依赖，建议提前通过[应用市场](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-market.html)创建 Redis 应用；若您未在创建时依赖Redis应用，也可以在应用创建完成后在 [应用控制台-依赖](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)进行Redis应用关联。关联后记得重启应用哦。
 
 {{site.data.alerts.end}}
 
@@ -90,7 +90,7 @@ toc: false
 
 2. 确认源码的`<dir_name>`或`<filename>.war`存在，并且与Dockerfile文件存在同一目录，以此目录为根目录开始[创建应用](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html)。
 
-3. 在[创建应用-应用设置](http://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)选择已创建的Redis进行依赖关联。
+3. 在[创建应用-应用设置](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)选择已创建的Redis进行依赖关联。
 
 4. 应用配置redis：配置变量`REDIS_URL`到应用环境变量中，值为 `127.0.0.1:6379`；配置变量`REDIS_SESSION`到应用环境变量中，值为`true`。
 
