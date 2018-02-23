@@ -3,4 +3,10 @@
 # unset http.proxy
 git config --unset http.proxy
 
-git pull && bundle exec jekyll build
+isUpdate=$(git pull) 
+
+if [ "$isUpdate" != "Already up-to-date." ];then
+
+  bundle exec jekyll build
+
+fi
