@@ -72,3 +72,25 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy97mlKJo1xPoDYejmeK0bMhM6O/leVuLF/U0ry/NL
 
 ### 生成SSH公钥
 
+在云帮第一个管理节点执行如下命令:
+
+```bash
+ssh-keygen -t rsa -f /etc/goodrain/ssh/goodrain-builder
+
+#更改文件权限为rain用户
+chown -R rain.rain /etc/goodrain/ssh
+
+#更改公钥权限
+chmod 400 /etc/goodrain/ssh/goodrain-builder.pub
+
+#获取公钥内容
+cat /etc/goodrain/ssh/goodrain-builder.pub
+```
+
+文件 `/etc/goodrain/ssh/goodrain-builder.pub` 的内容就是SSH公钥内容，剩下的工作与公有云对接私有仓库的流程一致，这里就不再赘述了。
+
+{{site.data.alerts.callout_success}}
+当云帮有多个管理节点时，需要将第一台生成的 `/etc/goodrain/ssh` 目录复制到其他管理节点的相应目录下。也就是说，要保证所有管理节点的`/etc/goodrain/ssh` 内容及权限一致。
+
+该目录会被 [rbd-chaos](docs/stable/platform-maintenance/add-management-node/component-introduction/rbd-chaos.html) 组件挂载并使用。
+{{site.data.alerts.end}}
