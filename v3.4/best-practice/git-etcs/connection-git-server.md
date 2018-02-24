@@ -106,19 +106,20 @@ cat /etc/goodrain/ssh/goodrain-builder.pub
 
 ## 对接云帮上部署的Gitlab私有仓库
 
-上文介绍的都是对接现有Gitlab的情况，如果你还没有Git仓库，云帮可以一键部署Gitlab应用，下面主要介绍云帮对接部署在云帮上的Gitlab需要注意的地方。
+上文介绍的都是对接现有Gitlab的情况，如果你还没有Git仓库，云帮可以一键部署Gitlab应用，下面主要介绍对接云帮上部署的Gitlab
 
 ### 创建Gitlab应用
-可以通过 【新建应用】-【应用市场】搜索到Gitlab应用，选择你想要安装的版本即可。
 
+通过 【新建应用】-【应用市场】搜索到Gitlab应用，选择需要的版本安装即可。
 
 ### 配置Gitlab
+
 Gitlab安装完成后，可以在应用的端口页面看到对外打开的端口号，如下图：
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-install-gitlab-02.png"  width="90%"/>
 
 - 端口号：应用内部监听的端口，本例中监听了`22`和`80`端口
-- 访问地址：云帮映射的地址与端口，本例中 22端口映射的地址为`172.16.210.205`，端口为`20006` ，80端口地址为`	80.grea7fc4.zaak.48mt2.goodrain.org`，端口为`80`
+- 访问地址：云帮映射的地址与端口，本例中 22端口映射的地址为`172.16.210.205`，端口为`20006` ，80端口地址为`	80.grea7fc4.zggk.48mt2.goodrain.org`，端口为`80`
 
 
 {{site.data.alerts.callout_success}}
@@ -126,6 +127,48 @@ Gitlab安装完成后，可以在应用的端口页面看到对外打开的端�
 - 云帮为非HTTP协议的应用端口默认分配一个访问地址和一个随机的映射端口，但端口映射与应用端口唯一对应，不会变化，因此本例的端口可能与你实际情况不一致。
 {{site.data.alerts.end}}
 
+- **设置Gitlab的HTTP和SSH地址**
 
-- **设置Gitlab的SSH地址**
-Gitlab应用通过 `GITLAB_SSH_HOST` 环境变量的值来设置SSH地址信息，因此需要将该变量的值设置到Gitlab应用中。
+Gitlab应用通过 `GITLAB_SSH_HOST` 和 `GITLAB_HOST` 环境变量来设置SSH和HTTP的地址，因此需要将这两个变量设置到Gitlab应用中。
+
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-configure-gitlab-01.png"  width="90%"/>
+
+{{site.data.alerts.callout_success}}
+设置环境变量后，需要重启Gitlab应用。
+{{site.data.alerts.end}}
+
+### 配置云帮对接Git仓库的ssh协议端口号
+云帮通过默认的22端口，利用ssh协议拉取Git仓库的代码，但由于Gitlab安装到了云帮平台，云帮又将22端口映射成其他端口，因此需要特殊处理，下面分别介绍公有云和私有云的配置方式：
+
+#### 云帮私有化部署的处理方式
+
+**第一个管理节点执行：**
+
+```bash
+cat << EOF >/etc/goodrain/ssh/config
+# 22 端口映射的地址，本示例为 172.16.210.205
+Host 172.16.210.205
+  IdentityFile ~/.ssh/goodrain-builder
+  StrictHostKeyChecking no
+  LogLevel ERROR
+  # 22端口的映射端口，本示例为20006
+  Port 20006
+EOF
+```
+
+{{site.data.alerts.callout_success}}
+当云帮有多个管理节点时，需要将第一台生成的 `/etc/goodrain/ssh` 目录复制到其他管理节点的相应目录下。也就是说，要保证所有管理节点的`/etc/goodrain/ssh` 内容及权限一致。
+
+该目录会被 [rbd-chaos](/docs/stable/platform-maintenance/add-management-node/component-introduction/rbd-chaos.html) 组件挂载并使用。
+{{site.data.alerts.end}}
+
+#### 云帮公有云的处理方式
+公有云针对该问题只能通过修改ssh地址的方式来支持：
+
+```bash
+# 默认地址
+git@gr6a10f1.demo.ali-sh-s1.goodrain.net:test/helloworld.git
+
+# 修改为
+ssh://git@gr6a10f1.demo.ali-sh-s1.goodrain.net:20592/test/helloworld.git
+```
