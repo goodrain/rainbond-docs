@@ -85,7 +85,7 @@ toc: false
 - 对接到私有的代码托管平台。
 - 在创建应用前需要将授权key添加到自建Git授权SSH 密钥里。
 - 代码源选择私有平台的公开项目。
-- 对接Gitlab/Gogs可参考[对接私有Git仓库](https://www.rainbond.com/docs/stable/best-practice/connection-git-server.html)
+- 对接Gitlab/Gogs可参考[对接私有Git仓库](/docs/stable/best-practice/git-etcs/connection-git-server.html)
 
 ## GitHub
 
