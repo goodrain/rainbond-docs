@@ -7,7 +7,12 @@ asciicast: true
 
 <div id="toc"></div>
 
-云帮支持直接部署私有仓库中的源码，目前支持GitLab。同时我们的[云市](https://www.goodrain.com/#/index)提供一键式部署[GitLab应用]()。部署情况分为以下两种:
+云帮通过对接Git仓库来创建基于源代码及Dockerfile的应用。
+
+如果是公开的项目，可以通过填写项目地址的方式创建应用，但如果是私有项目，目前云帮公有云支持 [Github](docs/stable/user-app-docs/addapp/addapp-code.html#github)和 好雨Git仓库，私有化版本只支持通过 SSH 公钥的的方式对接Git仓库。
+
+本文主要讲解通过 SSH 公钥的方式对接私有Git仓库，以Gitlab为示例进行说明。
+
 
 ## 使用云帮创建的GitLab
 
