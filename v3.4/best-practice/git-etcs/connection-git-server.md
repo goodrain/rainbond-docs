@@ -14,89 +14,59 @@ asciicast: true
 本文主要讲解通过 SSH 公钥的方式对接私有Git仓库，以Gitlab为示例进行说明。
 
 
-## 使用云帮创建的GitLab
+### 公有云对接私有仓库
 
-### 新建GitLab应用
+#### 配置 SSH 公钥
 
-公有云进入[云市](https://www.goodrain.com/#/index)选择GitLab应用，一键部署在云帮。私有云进入创建应用-应用列表创建GitLab应用。
+进入创建应用-私有Git，获取公有云的SSH公钥：
 
-应用创建请参考文档：[创建应用-应用市场](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-market.html)
+{% include copy-clipboard.html %}
 
-### 配置GitLab应用
+```
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy97mlKJo1xPoDYejmeK0bMhM6O/leVuLF/U0ry/NLWatfkl1R69NIX6TpW/hVFjGXRZTz56V37jLOVQWq24dQaLIXyFqxZwJnakZzX/b6K3sKb6Y+dDZdktcPEVLUQPWHs6gm0tUgbvgywulEVuTgAt5fYwa1rG48zmgCHlU4a6jWT8iQ9D2Lqpf4ZYZnUOOGB6AmaABfCBSCFDj8ihIz00Hp77s42gxRhn/iQJE9ZrDYWnxN0cUAxvLpB1jCANFR4Zc5FslHUp4tLVNMdDeqi8OPZMj4G6yWclwa3Uqfu7yd3gqik4nI1jaRLL9Lq/2GgA20MvCFWqtvcBJ2Tcv1 builder
+```
+#### 创建项目
 
-1. 获取`GITLAB_SSH_HOST`变量值
+**新建项目**
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-01.png"  width="90%" />
 
-   获取变量的值为22端口访问地址中红线包括部分，截止到`.net`处结束。不包括其后的冒号（:）与映射端口（此图中20046）
+**填写项目名称**
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-02.png"  width="90%" />
 
-   <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/connect-git1.png"  width="80%"/>
+**创建示例代码**
 
-2. 添加变量
-
-   进入[应用控制台-设置](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-settings.html)，添加变量`GITLAB_SSH_HOST`
-
-   <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/connect-git2.png"  width="80%" />
-
-3. 重启与访问
-
-   配置完成后请先重启应用，观察[应用控制台-日志](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-logs.html)。待日志显示GitLab完成配置，进入[应用控制台-概览](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-overview.html)即可访问。
-
-   <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/connect-git3.png"  width="80%" />
-
-4. 登录
-
-   首次登录GitLab您需要重置root用户的密码；或注册一个新的GitLab用户。root用户重置密码完成后使用用户名为`root`及新的密码登录。
-
-### 对接云帮-公有云
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-03.png"  width="90%" />
 
 {{site.data.alerts.callout_success}}
-
-若您使用HTTP方式提交代码，完成GitLab应用创建并获取HTTP的git地址即可GitLab代码仓库中的代码创建应用，可跳过本小节。
-
+切换到SSH地址后，需要记住项目的SSH地址，后续创建应用时需要用到，这里的地址是 `git@172.16.210.205:test/helloworld.git`
 {{site.data.alerts.end}}
 
-1. 配置SSH-key
 
-   进入创建应用-私有Git，获取公有云的授权key：
+新建一个index.html 的文件，内容为 `hello world,hello goodrain!` 提交。
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-04.png"  width="90%" />
 
-   {% include copy-clipboard.html %}
+#### 配置SSH公钥
 
-   ```
-   ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy97mlKJo1xPoDYejmeK0bMhM6O/leVuLF/U0ry/NLWatfkl1R69NIX6TpW/hVFjGXRZTz56V37jLOVQWq24dQaLIXyFqxZwJnakZzX/b6K3sKb6Y+dDZdktcPEVLUQPWHs6gm0tUgbvgywulEVuTgAt5fYwa1rG48zmgCHlU4a6jWT8iQ9D2Lqpf4ZYZnUOOGB6AmaABfCBSCFDj8ihIz00Hp77s42gxRhn/iQJE9ZrDYWnxN0cUAxvLpB1jCANFR4Zc5FslHUp4tLVNMdDeqi8OPZMj4G6yWclwa3Uqfu7yd3gqik4nI1jaRLL9Lq/2GgA20MvCFWqtvcBJ2Tcv1 builder
-   ```
+**切换到项目首页**
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-add-ssh-key-01.png"  width="90%" />
 
-   进入GitLab点击右上角头像，进入Setting界面。进入Setting界面后在导航栏选择SSH keys，进入SSH-key配置界面。添加公有云提供的授权key：
+**添加SSH公钥**
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-add-ssh-key-02.png"  width="90%" />
 
-   <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/connect-git4.png"  width="80%" />
-
-2. 在配置SSH key的账户创建测试demo并获取SSH的git地址
-
-   在GitLab创建一个project，或者导入您本地的代码。完成创建project并确认测试代码存在并且可用的情况下，获取此project对应SSH的git地址
-
-   {{site.data.alerts.callout_success}}
-
-   git基本使用可参考：[git-简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
-
-   {{site.data.alerts.end}}
-
-3. 使用私有Git创建应用
-
-   - 获取变量的值为22端口映射端口值，图中红线部分。
-
-     <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/get-ssh-port.png" width="80%">
+**SSH 公钥添加完成**
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-add-ssh-key-03.png"  width="90%" />
 
 
-   - 进入创建应用-私有Git页面（获取云帮-公有云授权key的页面）
+#### 测试对接是否成功
+通过私有仓库创建应用的方式来测试云帮能否通过SSH关于获取Git仓库中的代码。
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-01.png"  width="90%" />
 
-   - 编辑已获取的SSH的git地址:
+**创建应用**
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-02.png"  width="90%" />
 
-     ```
-     #原本获取的git地址格式大致为
-     git@gr842b59.demo.ali-hz-s1.goodrain.net:root/test.git
-     #修改为(在获取的git地址前添加 ssh:// ；在地址.net后添加刚刚获取的映射端口值):
-     ssh://git@gr842b59.demo.ali-hz-s1.goodrain.net:20046/root/test.git
-     ```
+**能够识别语言，代表对接成功**
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-03.png"  width="90%" />
 
-   <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/connect-git5.png"  width="80%"/>
 
 ### 对接云帮-私有云
 
