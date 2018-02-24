@@ -16,7 +16,7 @@ asciicast: true
 
 ## 公有云对接私有仓库
 
-### 配置 SSH 公钥
+### 获取公钥
 
 进入创建应用-私有Git，获取公有云的SSH公钥：
 
@@ -45,7 +45,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy97mlKJo1xPoDYejmeK0bMhM6O/leVuLF/U0ry/NL
 新建一个index.html 的文件，内容为 `hello world,hello goodrain!` 提交。
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-04.png"  width="90%" />
 
-### 配置SSH公钥
+### 将公钥添加到Git仓库
 
 - **切换到项目首页**
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-add-ssh-key-01.png"  width="90%" />
@@ -92,5 +92,5 @@ cat /etc/goodrain/ssh/goodrain-builder.pub
 {{site.data.alerts.callout_success}}
 当云帮有多个管理节点时，需要将第一台生成的 `/etc/goodrain/ssh` 目录复制到其他管理节点的相应目录下。也就是说，要保证所有管理节点的`/etc/goodrain/ssh` 内容及权限一致。
 
-该目录会被 [rbd-chaos](docs/stable/platform-maintenance/add-management-node/component-introduction/rbd-chaos.html) 组件挂载并使用。
+该目录会被 [rbd-chaos](/docs/stable/platform-maintenance/add-management-node/component-introduction/rbd-chaos.html) 组件挂载并使用。
 {{site.data.alerts.end}}
