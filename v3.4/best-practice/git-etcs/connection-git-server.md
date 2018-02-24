@@ -1,5 +1,5 @@
 ---
-title: 部署GitLab与云帮对接
+title: 云帮对接私有Git仓库
 summary: 讲解如何对接云帮外部的gitlab仓库和使用云帮内部的gitlab仓库
 toc: false
 asciicast: true
@@ -66,4 +66,6 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy97mlKJo1xPoDYejmeK0bMhM6O/leVuLF/U0ry/NL
 
 - **能够识别语言，代表对接成功**
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-03.png"  width="90%" />
+
+## 云帮私有云对接私有仓库
 
