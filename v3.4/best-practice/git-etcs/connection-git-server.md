@@ -9,9 +9,12 @@ asciicast: true
 
 云帮通过对接Git仓库来创建基于源代码及Dockerfile的应用。
 
-如果是公开的项目，可以通过填写项目地址的方式创建应用，但如果是私有项目，目前云帮公有云支持 [GitHub](/docs/stable/user-app-docs/addapp/addapp-code.html#github)和 好雨Git仓库，私有化版本只支持通过 SSH 公钥的的方式对接Git仓库。
+如果是公开的项目，可以通过填写项目地址的方式创建应用，如果是私有项目，目前云帮公有云支持 [GitHub](/docs/stable/user-app-docs/addapp/addapp-code.html#github)和 好雨Git仓库，如果是私有化部署的Git服务，云帮通过 SSH 公钥的的方式对接Git仓库。下图是云帮对接Git仓库支持的方式与协议：
 
-本文主要讲解通过 SSH 公钥的方式对接私有Git仓库，以GitLab为示例进行说明。
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/rbd-link-git.png"  width="80%" />
+
+
+本文主要讲解通过 SSH 公钥的方式对接私有部署的Git仓库，以[GitLab](https://gitlab.com/)为示例进行说明。
 
 
 ## 公有云对接私有仓库
