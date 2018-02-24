@@ -68,4 +68,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy97mlKJo1xPoDYejmeK0bMhM6O/leVuLF/U0ry/NL
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-03.png"  width="90%" />
 
 ## 云帮私有云对接私有仓库
+云帮私有云对接私有Git仓库的流程和公有云一致，唯一不同的就是需要手动生成SSH公钥。
+
+### 生成SSH公钥
 
