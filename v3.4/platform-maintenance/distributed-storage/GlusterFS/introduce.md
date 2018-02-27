@@ -44,11 +44,6 @@ POSIX|	一个标准，GlusterFS兼容
 ## 与云帮对接
 
 
-###云帮GlusterFS总体架构
-
-<img src="https://static.goodrain.com/images/acp/docs/GlusterFS/GlusterFS%E4%BA%91%E5%B8%AE%E6%9E%B6%E6%9E%84%E5%9B%BE.png" width="80%" />
-
-
 ###GlusterFS在云帮的用途
 
 
@@ -75,19 +70,20 @@ Brick server 数量是镜像数的倍数,可以在 2 个或多个节点之间复
 
 - 所有控制节点和计算节点都需要挂载/grdata目录
 
-```
-例如:/grdata/tenant/5dfda738ae214401bd832a9fe630a793/service/da91fa02f650ea5ac115884fac68fa4e/
+```bash
+# 例如目录：
+# /grdata/tenant/5dfda738ae214401bd832a9fe630a793/service/da91fa02f650ea5ac115884fac68fa4e/
 
+## 应用持久化目录
 /grdata/tenant
-##存放所有用户的目录
 
+## 团队名唯一标示
 5dfda738ae214401bd832a9fe630a793
-##表示一个用户
 
+## 应用标示目录
 service
-##所有服务存放的目录
 
+## 应用名唯一标示
 da91fa02f650ea5ac115884fac68fa4e
-##表示一个服务
 ```
 
