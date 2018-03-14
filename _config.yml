@@ -20,12 +20,18 @@ redcarpet:
 
 versions:
   stable: v3.4
+  dev: v3.5
 
 release_info:
   v3.4:
-    version: v3.4.1
+    version: v3.4.2
     build_time: 2017/12/25 16:35:45
     start_time: 2017-12-25 19:33:22.046027038 +800 CST
+  v3.5:
+    name: v3.5.0-beta
+    version: v3.5.0-beta
+    build_time: 2018/03/25 16:35:45
+    start_time: 2018-03-25 19:33:22.046027038 +800 CST
 
 exclude: ["ci", "vendor"]
 
