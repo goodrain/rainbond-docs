@@ -94,14 +94,14 @@ grctl是云帮datacenter controller util,通过此命令初始化集群，扩容
 ### 安装完成
 
 访问控制台
-```bash
+```
 grctl show 
 <ip>:7070
 ```
 
 ### 扩容节点
 
-- [扩容管理节点](https://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/install-command.html)
+<!-- - [扩容管理节点](https://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/install-command.html)-->
 - [扩容计算节点](https://www.rainbond.com/docs/stable/platform-maintenance/add-compute-node/install-command.html)
 
 ### 安装使用问题FAQ
@@ -114,6 +114,7 @@ grctl show
 - [Github Issue](https://github.com/goodrain/rainbond/issues/new)
 - 支持邮箱: rainbond@goodrain.com
 
+<!--
 ### 高可用说明
 
 {{site.data.alerts.callout_danger}}
@@ -121,7 +122,7 @@ grctl show
 - 主节点具备云帮平台的所有功能，但不支持高可用。
 - 高可用特性需要将集群管理节点至少扩容到3个节点。
 {{site.data.alerts.end}}
-
+-->
 
 ### Demo install
 

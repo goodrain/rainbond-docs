@@ -439,12 +439,6 @@
             {
                 "title": "管理节点",
                 "items": [{
-                    "title": "扩容管理节点",
-                    "urls": [
-                        "/${VERSION}/platform-maintenance/add-management-node/install-command.html"
-
-                    ]
-                }, {
                     "title": "组件介绍",
                     "items": [{
                             "title": "概览",
