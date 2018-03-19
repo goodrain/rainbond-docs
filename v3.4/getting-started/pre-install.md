@@ -71,7 +71,7 @@ dns 配置建议使用 114.114.114.114等国内dns server
 执行 hostname -s 检查hostname
 {{site.data.alerts.end}}
 
-`hostname`在安装完成后建议不要修改，如果修改需同时修改`/etc/host`和`/etc/hostname`这两个文件保证hostname一致。
+`hostname`在安装完成后建议不要修改，如果修改需同时修改`/etc/hosts`和`/etc/hostname`这两个文件保证hostname一致。
 要确保每个节点的`hostname`不重复，推荐
 
 ```bash
