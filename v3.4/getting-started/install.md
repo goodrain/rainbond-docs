@@ -37,7 +37,7 @@ asciicast: true
 {% include copy-clipboard.html %}
 ```bash
 # 通过此脚本可快速部署单节点的云帮，后续可以扩容。
-bash <(curl -s http://repo.goodrain.com/install/3.5/start.sh)
+bash <(curl -s http://repo.goodrain.com/install/3.4.2/start.sh)
 ```
 
 <!--
