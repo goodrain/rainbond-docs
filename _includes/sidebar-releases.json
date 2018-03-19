@@ -6,6 +6,12 @@
       "urls": [
         "/releases/v3.4.html"
       ]
+    },
+    {
+      "title": "v3.5",
+      "urls": [
+        "/releases/v3.5.html"
+      ]
     }
   ]
 }
