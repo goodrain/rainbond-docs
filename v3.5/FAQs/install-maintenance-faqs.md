@@ -270,6 +270,8 @@ source /root/upgrade.sql
 update user_administrator set user_id=1 wherer id=1;
 
 # 5. 更新数据中心
-INSERT INTO `region_info` ( `region_id`, `region_name`, `region_alias`, `url`, `token`, `status`, `desc`, `wsurl`, `httpdomain`, `tcpdomain`) VALUES('asdasdasdasdasdasdasdasdas', 'cloudbang', '私有数据中心1', 'http://region.goodrain.me:8888', NULL, '1', '当前数据中心是默认安装添加的数据中心', 'ws://47.95.140.196:6060', 's9mc9.goodrain.org', '127.0.0.1');
+INSERT INTO `region_info` ( `region_id`, `region_name`, `region_alias`, `url`, `token`, `status`, `desc`, `wsurl`, `httpdomain`, `tcpdomain`) VALUES('asdasdasdasdasdasdasdasdas', 'cloudbang', '私有数据中心1', 'http://region.goodrain.me:8888', NULL, '1', '当前数据中心是默认安装添加的数据中心', 'ws://<ip>:6060', '<域名>', '<ip>');
 
+ip: 如果有公网ip则使用公网ip，若在内网则使用内网ip(/etc/goodrain/envs/ip.sh)
+域名: 云帮随机生成的域名
 ```
