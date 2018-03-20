@@ -95,13 +95,6 @@ dig *.y5vhe.goodrain.org | grep -A 2 "ANSWER SECTION"
 
 >compose的配置文件在`/etc/goodrain/docker-compose.yaml`
 
-### 3.4版本如何升级到3.4.1版本
-
-```
-wget repo.goodrain.com/release/3.4.1/gaops/jobs/update/update.sh -O /root/update_version.sh
-chmod +x /root/update_version.sh
-bash /root/update_version.sh
-```
 
 ### 如何查看安装日志
 
@@ -109,11 +102,11 @@ bash /root/update_version.sh
 安装日志默认 /var/log/event/
 ```
 
-### 3.4.1 版本安装过程中可能遇到到问题
+### 安装过程中可能遇到到问题
 
 ```
 Q:安装任务卡住或者停止了,如何处理
-A:新开一个终端，执行systemctl restart rainbond-node
+A: 检查当前任务是否生成相关日志文件，若未生成,则可以新开一个终端，执行systemctl restart rainbond-node；如重启node后以及未执行，使用`grctl tasks get <任务>` 检查依赖任务是否执行成功，若未成功，则检查依赖任务执行日志。
 ```
 
 ### 机器重启后发生无法访问控制台
@@ -179,31 +172,104 @@ docker exec rbd-app-ui python /app/ui/manage.py migrate
 
 可以将日志`/var/log/event/install_acp_plugins.log`附加到[github issue](https://github.com/goodrain/rainbond/issues/new)
 
-### 3.4.1版本如何升级到3.4.2版本
+
+### 版本3.4.2升级到3.5操作
 
 ```
-wget repo.goodrain.com/release/3.4.2/gaops/jobs/update/update.sh -O /root/update_version.sh
-chmod +x /root/update_version.sh
-bash /root/update_version.sh
-```
+# 1. 更新自研组件至3.5版本 /etc/goodrain/docker-compose.yaml
+rainbond/rbd-app-ui:3.5
+rainbond/rbd-lb:3.5
+rainbond/rbd-webcli:3.5
+rainbond/rbd-api:3.5
+rainbond/rbd-eventlog:3.5
+rainbond/rbd-entrance:3.5
+rainbond/rbd-chaos:3.5
+rainbond/rbd-mq:3.5
+rainbond/rbd-worker:3.5
 
-### 3.4.2域名绑定说明
+# 2. 新增调整/etc/goodrain/console.py
+
+import datetime
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+    'EXCEPTION_HANDLER': 'console.views.base.custom_exception_handler',
+    'PAGE_SIZE': 10
+}
+
+OAUTH2_APP = {
+    'CLIENT_ID': '"$license_client_id"',
+    'CLIENT_SECRET': '"$license_client_secret"',
+}
+
+LICENSE = ""
+
+SECRET_KEY = 'hd_279hu4@3^bq&8w5hm_l$+xrip$_r8vh5t%ru(q8#!rauoj1'
+
+JWT_AUTH = {
+    'JWT_ENCODE_HANDLER':
+    'rest_framework_jwt.utils.jwt_encode_handler',
+    'JWT_DECODE_HANDLER':
+    'rest_framework_jwt.utils.jwt_decode_handler',
+    'JWT_PAYLOAD_HANDLER':
+    'rest_framework_jwt.utils.jwt_payload_handler',
+    'JWT_PAYLOAD_GET_USER_ID_HANDLER':
+    'rest_framework_jwt.utils.jwt_get_user_id_from_payload_handler',
+    'JWT_RESPONSE_PAYLOAD_HANDLER':
+    'rest_framework_jwt.utils.jwt_response_payload_handler',
+    'JWT_SECRET_KEY':
+    SECRET_KEY,
+    'JWT_GET_USER_SECRET_KEY':
+    None,
+    'JWT_PUBLIC_KEY':
+    None,
+    'JWT_PRIVATE_KEY':
+    None,
+    'JWT_ALGORITHM':
+    'HS256',
+    'JWT_VERIFY':
+    True,
+    'JWT_VERIFY_EXPIRATION':
+    True,
+    'JWT_LEEWAY':
+    0,
+    'JWT_EXPIRATION_DELTA':
+    datetime.timedelta(days=15),
+    'JWT_AUDIENCE':
+    None,
+    'JWT_ISSUER':
+    None,
+    'JWT_ALLOW_REFRESH':
+    False,
+    'JWT_REFRESH_EXPIRATION_DELTA':
+    datetime.timedelta(days=15),
+    'JWT_AUTH_HEADER_PREFIX':
+    'GRJWT',
+    'JWT_AUTH_COOKIE':
+    None,
+}
+
+# 3. 更新数据库相关字段
+
+docker cp rbd-app-ui:/app/ui/sql/upgrade.sql .
+docker cp upgrade.sql rbd-db:/root/upgrade.sql
+din rbd-db
+mysql
+use console
+source /root/upgrade.sql
+
+# 4. 设置默认管理员
+
+update user_administrator set user_id=1 wherer id=1;
+
+# 5. 更新数据中心
+INSERT INTO `region_info` ( `region_id`, `region_name`, `region_alias`, `url`, `token`, `status`, `desc`, `wsurl`, `httpdomain`, `tcpdomain`) VALUES('asdasdasdasdasdasdasdasdas', 'cloudbang', '私有数据中心1', 'http://region.goodrain.me:8888', NULL, '1', '当前数据中心是默认安装添加的数据中心', 'ws://47.95.140.196:6060', 's9mc9.goodrain.org', '127.0.0.1');
 
 ```
-当前版本端口默认是10443, release 3.5将解决这个问题
-```
-
-### 安装提示异常或无法使用插件
-
-```
-请检查数据库
-docker exec rbd-db mysql -e "select count(*) from console.tenant_plugin_share"
-如果count数小于2则表示插件库数据不全，
-docker exec rbd-db mysql -e "use console;source /root/plugins.sql"
-如果执行上述操作后，依旧如此
-wget repo.goodrain.com/release/3.4.2/gaops/config/grplugin.sql
-docker cp $PWD/grplugin.sql rbd-db:/root
-docker exec rbd-db mysql -e "use console;source /root/grplugin.sql"
-如果还有问题，请提issue，附上`/logs/goodrain_web`日志
-```
-
