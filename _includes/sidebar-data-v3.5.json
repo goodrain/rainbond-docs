@@ -84,24 +84,19 @@
             {
                 "title": "创建应用",
                 "items": [{
-                    "title": "从镜像",
+                    "title": "从Docker镜像创建",
                     "urls": [
                         "/${VERSION}/user-app-docs/addapp/addapp-image.html"
                     ]
                 }, {
-                    "title": "从源码",
+                    "title": "从源码创建",
                     "urls": [
                         "/${VERSION}/user-app-docs/addapp/addapp-code.html"
                     ]
                 }, {
-                    "title": "应用市场",
+                    "title": "从云市安装",
                     "urls": [
                         "/${VERSION}/user-app-docs/addapp/addapp-market.html"
-                    ]
-                }, {
-                    "title": "云框架",
-                    "urls": [
-                        "/${VERSION}/user-app-docs/addapp/addapp-cloud_framework.html"
                     ]
                 }]
             },
