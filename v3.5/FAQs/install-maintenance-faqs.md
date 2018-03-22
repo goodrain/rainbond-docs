@@ -59,6 +59,12 @@ rainbond/rbd-worker:3.5
 
 移除rbd-app-ui部分volumes
 /etc/goodrain/console.py:/etc/goodrain/console.py
+新增rbd-app-ui环境变量environment
+      MYSQL_HOST: <ip>
+      MYSQL_PORT: 3306
+      MYSQL_USER: <user>
+      MYSQL_PASS: <pass>
+      MYSQL_DB: console
 移除rbd-slogger服务
 移除rbd-dalaran服务
 
@@ -77,6 +83,8 @@ update user_administrator set user_id=1 where id=1;
 
 # 5. 更新数据中心
 INSERT INTO `region_info` ( `region_id`, `region_name`, `region_alias`, `url`, `token`, `status`, `desc`, `wsurl`, `httpdomain`, `tcpdomain`) VALUES('asdasdasdasdasdasdasdasdas', 'cloudbang', '私有数据中心1', 'http://region.goodrain.me:8888', NULL, '1', '当前数据中心是默认安装添加的数据中心', 'ws://<ip>:6060', '<域名>', '<ip>');
+
+INSERT INTO `console_sys_config` (`ID`,`key`,`type`, `value`, `desc`, `enable`, `create_time`) VALUES(NULL, 'REGION_SERVICE_API', 'json', '  [{\"url\": \"http://region.goodrain.me:8888\", \"token\": null, \"enable\": true, \"region_name\": \"cloudbang\", \"region_alias\": \"cloudbang\"}]', '', 1, '2018-02-05 14:00:00.000000');
 
 ip: 如果有公网ip则使用公网ip，若在内网则使用内网ip(/etc/goodrain/envs/ip.sh)
 域名: 云帮随机生成的域名
