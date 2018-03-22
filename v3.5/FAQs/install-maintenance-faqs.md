@@ -57,8 +57,10 @@ rainbond/rbd-worker:3.5
 
 # 2. 更新docker-compose.yaml
 
-去掉rbd-app-ui部分volumes
+移除rbd-app-ui部分volumes
 /etc/goodrain/console.py:/etc/goodrain/console.py
+移除rbd-slogger服务
+移除rbd-dalaran服务
 
 # 3. 更新数据库相关字段
 
