@@ -55,11 +55,11 @@ rainbond/rbd-chaos:3.5
 rainbond/rbd-mq:3.5
 rainbond/rbd-worker:3.5
 
-# 2. 更新docker-compose.yaml
-
+# 2. 更新docker-compose.yaml 
+相关配置参数可以通过grctl configs get获取
 移除rbd-app-ui部分volumes
 /etc/goodrain/console.py:/etc/goodrain/console.py
-新增rbd-app-ui环境变量environment
+新增rbd-app-ui环境变量environment 
       MYSQL_HOST: <ip>
       MYSQL_PORT: 3306
       MYSQL_USER: <user>
@@ -88,4 +88,10 @@ INSERT INTO `console_sys_config` (`ID`,`key`,`type`, `value`, `desc`, `enable`, 
 
 ip: 如果有公网ip则使用公网ip，若在内网则使用内网ip(/etc/goodrain/envs/ip.sh)
 域名: 云帮随机生成的域名
+
+# 5. 插件
+在我的插件里新建插件
+镜像地址为goodrain.me/tcm 
+插件类型为性能分析
+构建插件
 ```
