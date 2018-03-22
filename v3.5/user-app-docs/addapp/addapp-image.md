@@ -6,11 +6,11 @@ toc: false
 
 <div id="toc"></div>
 
-云帮支持从镜像一键构建应用，对于一些相对复杂的应用，如MySQL服务，论坛等，是无法通过源代码进行构建的，这样的应用可以通过基于Docker的镜像来部署。从镜像构建应用包含以下方式：
+- 云帮支持从镜像一键构建应用，对于一些相对复杂的应用，如MySQL服务，论坛等，是无法通过源代码进行构建的，这样的应用可以通过基于Docker的镜像来部署。从镜像构建应用包含以下方式：
 
 ## 指定镜像
 
-**指定镜像** 通过官方提供的Docker镜像来构建应用。
+- **指定镜像** 通过官方提供的Docker镜像来构建应用。
 测试实例为tomcat服务，如下所示，创建分为三步：
 
 ### 创建应用 
@@ -24,7 +24,7 @@ toc: false
 
 ### 高级设置
 
-高级设置是应用创建前的最后一步，包含如下设置模块：
+- 高级设置是应用创建前的最后一步，包含如下设置模块：
 
 - 应用类型：应用类型分为 **无状态应用** 、**有状态应用** ，根据应用实际类型选择。
 
@@ -60,11 +60,11 @@ toc: false
 
 ###构建应用
 
-高级设置完毕后点击 **构建应用**，即可开始应用的构建流程。等待很短的一段时间后，应用就会构建成功，运行状态如下图：
+- 高级设置完毕后点击 **构建应用**，即可开始应用的构建流程。等待很短的一段时间后，应用就会构建成功，运行状态如下图：
 
 <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/done1.png" style="border:1px solid #eee;max-width:60%"/></center>
 
-到此为止，您已经通过 **指定镜像** 构建了一个应用。
+- 到此为止，您已经通过 **指定镜像** 构建了一个应用。
 
 ## DockerRun命令
 
@@ -88,7 +88,7 @@ toc: false
 
 ## DockerCompose
 
-在V3.5版本中上线了__DockerCompose__build功能，通过它，您可以输入一段合法的个性化Compose代码，来编排一系列的容器。这最终会给您提供一个相对复杂的应用，例如MySQL与Wordpress的组合。
+- 在V3.5版本中上线了__DockerCompose__build功能，通过它，您可以输入一段合法的个性化Compose代码，来编排一系列的容器。这最终会给您提供一个相对复杂的应用，例如MySQL与Wordpress的组合。
 
 ###创建应用
 
@@ -98,7 +98,7 @@ toc: false
 
 <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/addapp-compose1.jpg" style="border:1px solid #eee;max-width:100%"/></center>
 
-值得注意的是，在V3.5版本里，支持的Compose版本上限为2.X
+- 值得注意的是，在 **V3.5** 版本里，支持的 **Compose版本** 上限为 **2.X**
 
 ###其余构建过程
 

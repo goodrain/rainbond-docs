@@ -6,11 +6,11 @@ toc: false
 
 <div id="toc"></div>
 
-云帮平台的源码构建时，会根据不同的语言下载该语言的运行时（Runtime）环境，如PHP源码，会根据用户的环境相关的配置，去下载PHP的运行时，扩展组件等等，Java语言也会根据用户选择的jre的版本去下载不同的jre程序包。从源码构建包含以下方式：
+- 云帮平台的源码构建时，会根据不同的语言下载该语言的运行时（Runtime）环境，如PHP源码，会根据用户的环境相关的配置，去下载PHP的运行时，扩展组件等等，Java语言也会根据用户选择的jre的版本去下载不同的jre程序包。从源码构建包含以下方式：
 
 ## 官方demo
 
-**官方demo**提供由官方的镜像构建应用的方案。检测实例为2048小游戏，如下所示，创建分为四步：
+- **官方demo**提供由官方的镜像构建应用的方案。检测实例为2048小游戏，如下所示，创建分为四步：
 
 ### 创建应用
 - 自定义输入应用名
@@ -23,7 +23,7 @@ toc: false
 
 ### 代码同步
 
-系统根据创建时提交代码进行同步并检测语言类型；同步完成页面会给予反馈。如图：
+- 系统根据创建时提交代码进行同步并检测语言类型；同步完成页面会给予反馈。如图：
 
    <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/addapp-offical-demo2.png" style="border:1px solid #eee;max-width:100%"/></center>
 
@@ -65,19 +65,19 @@ toc: false
 
 ###构建应用
 
-高级设置完毕后点击**构建应用**，即可开始应用的构建流程。等待很短的一段时间后，应用就会构建成功，运行状态如下图：
+- 高级设置完毕后点击 **构建应用**，即可开始应用的构建流程。等待很短的一段时间后，应用就会构建成功，运行状态如下图：
 
 <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/done1.png" style="border:1px solid #eee;max-width:60%"/></center>
 
-到此为止，您已经通过官方demo构建了一个应用。
+- 到此为止，您已经通过 **官方demo** 构建了一个应用。
    
 ### 高级选项
 
-平台会根据代码的语言类型来提示设置应用运行的环境的版本，目前平台所支持的版本请参考*代码版本支持参考*。例如PHP语言可选[BCMath](http://docs.php.net/bcmath)、[Calendar](https://user.goodrain.com/apps/jfteam/gr7c1e25/app-language/http/docs.php.net/calendar)、[Exif](http://docs.php.net/exif)等扩展。
+- 平台会根据代码的语言类型来提示设置应用运行的环境的版本，目前平台所支持的版本请参考*代码版本支持参考*。例如PHP语言可选[BCMath](http://docs.php.net/bcmath)、[Calendar](https://user.goodrain.com/apps/jfteam/gr7c1e25/app-language/http/docs.php.net/calendar)、[Exif](http://docs.php.net/exif)等扩展。
 
 ## 自定义源码
 
-**自定义源码**提供由GitHub链接来构建应用的方案。检测实例为tomcat，构建共分三步：
+- **自定义源码** 提供由GitHub链接来构建应用的方案。检测实例为tomcat，构建共分三步：
 
 ### 创建应用
 
@@ -89,7 +89,7 @@ toc: false
 
 - 输入您的Git信息
 
-- 点击 免费创建
+- 点击 **免费创建**
 
    <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/addapp-selfdefine1.jpg" style="border:1px solid #eee;max-width:100%" /></center>
 
@@ -107,7 +107,7 @@ toc: false
 
 ## GitHub项目
 
-**GitHub项目**通过[云帮关联GitHub(点击查看关联步骤)](/docs/stable/rainBond_GitHub.html)后，可将您GitHub上的代码在好雨云平台部署。
+- **GitHub项目** 通过[云帮关联GitHub(点击查看关联步骤)](/docs/stable/rainBond_GitHub.html)后，可将您GitHub上的代码在好雨云平台部署。
 
 检测实例为2048小游戏，如下所示，创建分为四步：
 
@@ -133,7 +133,7 @@ toc: false
 
 ## 好雨代码仓库
 
-**好雨代码仓库**在创建应用的同时也创建一个代码仓库，该代码仓库是好雨云平台提供的免费Git仓库，通过http://code.goodrain.com 使用。用户名和密码即为好雨 Git 用户名和密码。
+- **好雨代码仓库**在创建应用的同时也创建一个代码仓库，该代码仓库是好雨云平台提供的免费Git仓库，通过http://code.goodrain.com 使用。用户名和密码即为好雨 Git 用户名和密码。
 
 检测实例为Java程序，如下所示，创建分为四步：
 
