@@ -187,74 +187,10 @@ rainbond/rbd-chaos:3.5
 rainbond/rbd-mq:3.5
 rainbond/rbd-worker:3.5
 
-# 2. 新增调整/etc/goodrain/console.py
+# 2. 更新docker-compose.yaml
 
-import datetime
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-    ),
-    'EXCEPTION_HANDLER': 'console.views.base.custom_exception_handler',
-    'PAGE_SIZE': 10
-}
-
-OAUTH2_APP = {
-    'CLIENT_ID': '"$license_client_id"',
-    'CLIENT_SECRET': '"$license_client_secret"',
-}
-
-LICENSE = ""
-
-SECRET_KEY = 'hd_279hu4@3^bq&8w5hm_l$+xrip$_r8vh5t%ru(q8#!rauoj1'
-
-JWT_AUTH = {
-    'JWT_ENCODE_HANDLER':
-    'rest_framework_jwt.utils.jwt_encode_handler',
-    'JWT_DECODE_HANDLER':
-    'rest_framework_jwt.utils.jwt_decode_handler',
-    'JWT_PAYLOAD_HANDLER':
-    'rest_framework_jwt.utils.jwt_payload_handler',
-    'JWT_PAYLOAD_GET_USER_ID_HANDLER':
-    'rest_framework_jwt.utils.jwt_get_user_id_from_payload_handler',
-    'JWT_RESPONSE_PAYLOAD_HANDLER':
-    'rest_framework_jwt.utils.jwt_response_payload_handler',
-    'JWT_SECRET_KEY':
-    SECRET_KEY,
-    'JWT_GET_USER_SECRET_KEY':
-    None,
-    'JWT_PUBLIC_KEY':
-    None,
-    'JWT_PRIVATE_KEY':
-    None,
-    'JWT_ALGORITHM':
-    'HS256',
-    'JWT_VERIFY':
-    True,
-    'JWT_VERIFY_EXPIRATION':
-    True,
-    'JWT_LEEWAY':
-    0,
-    'JWT_EXPIRATION_DELTA':
-    datetime.timedelta(days=15),
-    'JWT_AUDIENCE':
-    None,
-    'JWT_ISSUER':
-    None,
-    'JWT_ALLOW_REFRESH':
-    False,
-    'JWT_REFRESH_EXPIRATION_DELTA':
-    datetime.timedelta(days=15),
-    'JWT_AUTH_HEADER_PREFIX':
-    'GRJWT',
-    'JWT_AUTH_COOKIE':
-    None,
-}
+去掉rbd-app-ui部分volumes
+/etc/goodrain/console.py:/etc/goodrain/console.py
 
 # 3. 更新数据库相关字段
 
