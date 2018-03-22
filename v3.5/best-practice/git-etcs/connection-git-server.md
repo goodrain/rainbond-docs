@@ -97,6 +97,12 @@ chmod 400 /etc/goodrain/ssh/goodrain-builder.pub
 
 #获取公钥内容
 cat /etc/goodrain/ssh/goodrain-builder.pub
+
+# 配置config
+Host *
+  IdentityFile ~/.ssh/goodrain-builder
+  StrictHostKeyChecking no
+  LogLevel ERROR
 ```
 
 文件 `/etc/goodrain/ssh/goodrain-builder.pub` 的内容就是SSH公钥内容，剩下的工作与公有云对接私有仓库的流程一致，这里就不再赘述了。
