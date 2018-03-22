@@ -73,7 +73,7 @@ source /root/upgrade.sql
 
 # 4. 设置默认管理员
 
-update user_administrator set user_id=1 wherer id=1;
+update user_administrator set user_id=1 where id=1;
 
 # 5. 更新数据中心
 INSERT INTO `region_info` ( `region_id`, `region_name`, `region_alias`, `url`, `token`, `status`, `desc`, `wsurl`, `httpdomain`, `tcpdomain`) VALUES('asdasdasdasdasdasdasdasdas', 'cloudbang', '私有数据中心1', 'http://region.goodrain.me:8888', NULL, '1', '当前数据中心是默认安装添加的数据中心', 'ws://<ip>:6060', '<域名>', '<ip>');
