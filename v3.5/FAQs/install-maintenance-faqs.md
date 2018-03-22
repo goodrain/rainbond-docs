@@ -89,7 +89,7 @@ INSERT INTO `console_sys_config` (`ID`,`key`,`type`, `value`, `desc`, `enable`, 
 ip: 如果有公网ip则使用公网ip，若在内网则使用内网ip(/etc/goodrain/envs/ip.sh)
 域名: 云帮随机生成的域名
 
-# 5. 插件
+# 6. 插件
 在我的插件里新建插件
 镜像地址为goodrain.me/tcm 
 插件类型为性能分析
