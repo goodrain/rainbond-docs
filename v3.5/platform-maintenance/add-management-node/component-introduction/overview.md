@@ -14,7 +14,7 @@ asciicast: true
 | :--------------------------------------- | :--------------------------------------- |
 | [**docker**](/docs/stable/platform-maintenance/add-management-node/component-introduction/docker.html) | docker是云帮容器的管理引擎。                        |
 | [**builder**](/docs/stable/platform-maintenance/add-management-node/component-introduction/builder.html) | 平台源码构建的基础组件，根据不同的开发语言构建语言运行环境，最终将环境与源码打包成tgz文件。 |
-| [**etcd**](/docs/stable/platform-maintenance/add-management-node/component-introduction/etcd.html) | 键值数据库，能够构建一个高可用的分布式键值数据库，来存放集群状态和配置，所有有节点都从etcd中获取其他机器和容器状态，所以etcd是集群状态同步的关键。 |
+| [**etcd**](/docs/stable/platform-maintenance/add-management-node/component-introduction/etcd.html) | 键值数据库，能够构建一个高可用的分布式键值数据库，来存放集群状态和配置，所有节点都从etcd中获取其他机器和容器状态，所以etcd是集群状态同步的关键。 |
 | [**rainbond-node**](/docs/stable/platform-maintenance/add-management-node/component-introduction/rainbond-node.html) | 集群资源控制器，管理节点的安装都依赖acp-node来完成。           |
 | [**kubernetes**](/docs/stable/platform-maintenance/add-management-node/component-introduction/kubernetes.html) | 提供与云帮集群管理相关的API服务，例如校验应用的配置信息存储到后端的etcd服务器上。 |
 
