@@ -5,26 +5,67 @@ toc: false
 ---
 <div id="toc"></div>
 
-&emsp;&emsp;您在容器中操作的数据是会随着容器的重启或停止而**丢失**的，所以需要将数据持久化存储到分布式存储中（云帮公有云内置分布式存储，如果是私有化安装需要自行部署）。数据持久化就是将我们希望保存的数据保存到硬件存储中。云帮根据不同的构建方式，数据持久化的策略也有所不同。
+- 由于Docker本身的设定，您在应用中存储的数据会随着容器的重启和关闭而 **消失** ，因此，我们为您提供了 **存储** 功能。我们将这种长期保存用户数据的设定，定义为 **持久化设置** 。
 
-## 通过源码构建
+## 持久化设置
 
-[源码构建](/docs/stable/user-app-docs/addapp/addapp-code.html)的应用默认持久化目录为`/data`，当然也支持自定义持久化目录，如图所示：
+### 作用与机制
 
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-memory1.png" style="border:1px solid #eee;max-width:100%" />
+-  **持久化设置** 通过数据卷挂载目录的方式，将分布式存储以数据卷的形式挂载到您应用下的特定目录，该目录下存储的所有数据都会保存在您的分布式存储中，从而保留了您的个人数据。
 
-您通过点击 **新增持久化设置** 来自定义您的持久化目录。您自定义的目录都会放在`/app`目录下，如：您自定义目录为`/upload`，最终您添加后的自定义持久化目录为`/app/upload`。
+  <img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-datavolume1.png" style="border:1px solid #eee;width:100%" />
 
-## 通过dockerfile构建
+- 图中元素的意义
 
-**dockerfile构建**的应用，持久化目录为自定义绝对路径，平台不会在自定义目录前追加目录。
+  - **持久化名称** 由您自定义的名称，定义的原则为方便理解与记忆。
+  - **持久化目录** 由您指定，将应用下的哪个目录中数据加以保存。
+  - **持久化类型** 一般以share-file（共享文件）的形式，将数据保存到分布式存储中。
+  - **操作** 在这里，可以删除您的持久化设置。
 
-{{site.data.alerts.callout_danger}}持久化目录不能是系统目录，因为挂载后该目录下以前的内容将不可用。{{site.data.alerts.end}}
+### 添加持久化
 
-{{site.data.alerts.callout_success}}挂载是指将一个设备（通常是存储设备）挂接到一个已存在的目录上。 我们要访问存储设备中的文件，必须将文件所在的分区挂载到一个已存在的目录上， 然后通过访问这个目录来访问存储设备。{{site.data.alerts.end}}
+- 点击 **添加持久化** 可以让您自定义添加持久化目录。
 
-### 文件存储
+<center><img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-datavolume2.png" style="border:1px solid #eee;width:60%" /></center>
 
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-memory2.png" style="border:1px solid #eee;max-width:100%" />
+- 图中元素的意义
+  - **名称** 由您自定义的持久化设置的名称。
+  - **目录** 有您自定义持久化设置的目录。
+  - **类型** 选择共享存储类型
 
-文件存储模块列表显示您在云帮的其它应用，该列表显示应用名称以及共享目录地址。您可以选择应用 **挂载** 到当前应用服务器下的根目录，挂载后的目录为根目录下对应的共享目录地址。
+
+## 文件存储
+
+### 作用与机制
+
+- **文件存储** 可以将您其他应用的持久化目录挂载至当前应用下的某个目录下，实现了应用之间的 **文件共享** 
+
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-datavolume3.png" style="border:1px solid #eee;width:100%" />
+
+- 图中元素的意义
+  - **本地持久化目录** 由您自定义，选择当前应用您希望做文件共享设置的目录。
+  - **目标持久化名称** 目标应用持久化设置的名称。
+  - **目标持久化目录** 目标应用持久化设置的目录。
+  - **目标持久化类型** 目标应用持久化设置的存储类型。
+  - **目标所属应用** 指向了目标应用。
+  - **目标应用所属组** 目标应用所属的应用组。
+  - **操作** 在这里可以取消挂载。
+- 图中的设置，可以理解为：将 **应用组yml-test** 中的 **应用Redis** 下的 **持久化目录/data** 以 **share-file（文件共享）**的方式，挂载至 **当前应用** 下的 **/var/log** 目录下。这样的设置，在设置了 **/var/log** 的持久化的同时，实现了与 **/data** 目录的文件共享。
+
+### 挂载目录
+
+- 点击 **挂载目录** 可以添加文件存储
+
+  <img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-datavolume4.png" style="border:1px solid #eee;width:100%" />
+
+- 勾选目标持久化设置之后，在 **本地持久化目录** 中输入您自定义的挂载目录，点击 **确定** 即可完成挂载共享目录。
+
+## 约定规范
+
+- 持久化设置有几点约定规范，请您务必研读遵守
+  - 持久化目录不可以选择系统级目录，即不可以使用类似 **/**、**/proc** 、**/etc** 等路径。
+  - 持久化目录一旦挂载，该路径下原有文件将不再生效，您也无法找到它们。
+  - 持久化设置完成后，需要重启应用方可生效。
+
+
+

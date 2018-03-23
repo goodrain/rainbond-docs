@@ -6,53 +6,52 @@ toc: false
 
 <div id="toc"></div>
 
-&emsp;&emsp;顾名思义，端口就是设备端或应用端与外界通讯交流的出口。云帮在这里指的是当前应用的端口：
+- **端口** 是设备与外界通讯交流的出口。云帮为您的应用提供了 **端口** 功能，您可以自定义当前应用的端口设置。
 
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-port1.png" style="border:1px solid #eee;max-width:100%" />
+## 添加端口
 
-## 端口号
+- 点击 **添加端口** 即可以为您的应用添加一个可以自定义的端口。
 
-端口号的范围从0到65535(2^16-1)，比如用于浏览网页服务的80端口，用于FTP服务的21端口等。云帮构建应用程序指定端口号有所不同：
+<center><img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-port3.png" style="border:1px solid #eee;width:60%" /></center>
 
-###源代码构建的应用
+- 图中元素的意义
+  - **端口** 自定义的端口号。端口号的取值范围从0到65535。
+  - **协议** 自定义协议类型，提供了 **http** 、**TCP** 、**UDP** 、**mysql** 几种类型的协议。
+- 大多数应用在构建完成后都会设定好所需要的端口和协议类型。为了方便区分用途，我们将端口的类型分为 **对外服务** 和 **对内服务** 两种。
 
-源代码构建的应用，默认端口是5000，端口号是根据不同的语言启动时候使用的 `$PORT` 变量来定义。如果你的程序启动后监听的不是5000端口，请点击途中 绿色图标 进行修改，修改后需请重启应用。
+## 对外服务
 
-###Dockerfile构建的应用
+### 作用与机制
 
-  使用Dockerfile构建的应用，云帮会自动识别 `EXPOSE` 指令中定义的端口来指定端口。
+- **对外服务** 的端口，通过将应用的端口暴露在公网上，允许公网通过 **访问地址** 访问该应用。
 
-## 协议类型
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-port1.png" style="border:1px solid #eee;width:100%" />
 
-### http协议
+- 图中元素的意义
 
-HTTP协议(HyperText Transfer Protocol，超文本传输协议)是用于从WWW服务器传输超文本到本地浏览器的传送协议。它可以使浏览器更加高效，使网络传输减少
+  - **端口号** 当前端口的端口号。
 
-### stream协议
+  - **端口协议** 指定了该端口所遵循的协议类型，您可以点击右侧的按钮修改当前协议类型。**http** 即超文本传输协议，将超文本从WEB服务器传送到本地浏览器的传输协议，默认端口号80.
 
-其它非 HTTP的 协议，我们称之为stream协议（比如连接mysql服务使用的TCP协议，这就是stream协议）
+  - **服务信息** 在这里开启此端口对外服务的开关，通过 **访问地址** 中的URL即可访问当前应用的此端口。这个URL在当前设置下可被公网访问。
 
-## 服务信息
+  - **绑定域名** 点击 **新增域名** 可以将一个合法的域名与 **访问地址** 绑定，绑定后，您不需要输入复杂的URL，只需要搜索对应的域名即可访问应用。详情参见[[如何为应用设置一个自己的域名](https://t.goodrain.com/t/topic/251)](http://t.goodrain.com/t/topic/251)
 
-### 对外服务
+  - **操作** 在这里可以删除该端口。
 
-  当应用需要给平台内部其他应用使用时，需要打开 对外服务。打开 对外服务 的应用通过设置应用的别名，生成该应用的环境变量。
+## 对内服务
 
-> **举例**
->
->   - 云市中安装的MySQL服务
->     默认是开启对外服务的，它的别名是 `MYSQL` 这样其他的应用如果想使用这个MySQL服务，关联后就可以直接使用 `MySQL_HOST` 和 `MYSQL_PORT` 两个变量来连接这个数据库服务了。
->
->   - 用户自己写的API服务
->     如果用户自己开发了一个应用，需要对外服务使用，这时就可以开启对外服务，并设置好别名，这样团队账号中的其他应用就可以通过应用别名访问到这个应用了。比如这个应用的别名是 `USER_API` 这样其他应用可以关联到这个应用，并使用 `USER_API_HOST` 和 `USER_API_PORT` 来访问到这个API应用了。
+### 作用与机制
 
-{{site.data.alerts.callout_success}}如果安装的应用使用第三方的rpc调用(如dubbo），它本身实现了服务发现机制，则不需要开启对外服务。{{site.data.alerts.end}}
-### 外部访问
+- **对内服务** 的端口，只会将当前端口暴露给平台内部的其他应用，这种端口对配置应用间[依赖](http://www.rainbond.com/docs/dev/user-app-docs/myapps/myapp-platform-reliance.html)至关重要。
 
-  当前应用如果提供外网服务，则需要打开 对外服务 选项，开启后可以直接点击 访问地址 进行访问。
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-port2.png" style="border:1px solid #eee;width:100%" />
 
-## 新增绑定域名
+- 图中元素的意义
+  - **端口号** 当前端口的端口号。
+  - **端口协议** 指定了该端口所遵循的协议类型，您可以点击右侧的按钮修改当前协议类型。**stream** 其他非http协议，MySQL使用的TCP协议就是其中一种。
+  - **服务信息** 在这里打开对内服务的开关。其他应用就可以通过 **访问地址** 访问当前应用，如果当前应用为其他应用的依赖，那么[连接信息](http://www.rainbond.com/docs/dev/user-app-docs/myapps/myapp-platform-reliance.html#part-99dc644194fc63b3)应参照这里填写。这个 **访问地址** 在被引用的时候，也可以 **使用别名** 来代替。
+  - **绑定域名** 由于对内服务的端口不会被公网所访问，所以不能（也没有必要）绑定域名。
+  - **操作** 在这里可以删除该端口。
 
-用户想使用自己的域名，可以通过绑定域名的方式来设置。
-
-绑定域名只是在云帮平台做个标记和绑定，也就是说，用户设置的自定义域名将关联到这个应用上，但如果想让这个绑定的域名生效，还需要到你的DNS服务商那里进行 `CNAME`记录的设置。详情参见：[[如何为应用设置一个自己的域名](https://t.goodrain.com/t/topic/251)](http://t.goodrain.com/t/topic/251)
+{{site.data.alerts.callout_success}}如果安装的应用使用第三方的rpc调用(如dubbo），它本身实现了服务发现机制，则不需要开启对内服务。{{site.data.alerts.end}}
