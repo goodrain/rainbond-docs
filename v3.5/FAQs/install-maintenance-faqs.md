@@ -69,7 +69,7 @@ rainbond/rbd-worker:3.5
 移除rbd-dalaran服务
 检查rbd-chaos部分volumes
 /etc/goodrain/ssh:/root/.ssh
-同时保证/etc/goodrain/ssh目录下文件权限属主是否正确。
+同时保证/etc/goodrain/ssh目录下文件权限属主是否正确。有rain变更为root
 
 # 3. 更新数据库相关字段
 
