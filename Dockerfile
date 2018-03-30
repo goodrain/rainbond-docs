@@ -20,7 +20,7 @@ COPY etc /etc
 WORKDIR /srv/jekyll
 
 # 安装组件
-RUN bundle config mirror.https://rubygems.org http://gems.goodrain.me \
+RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org/ \
     && bundle
 
 EXPOSE 80
