@@ -14,5 +14,5 @@ if [ "$START_NGINX" == "true" ];then
   nginx -t
   nginx -g 'daemon off;'
 else
-  bundle exec jekyll server
+  bundle exec jekyll server -H 0.0.0.0 -P 4000
 fi
