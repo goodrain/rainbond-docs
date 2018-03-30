@@ -1,7 +1,7 @@
 #!/bin/bash
 
 [ $DEBUG ] && set -x 
-START_NGINX=$(START_NGINX:-true)
+START_NGINX=${START_NGINX:-true}
 
 sleep ${PAUSE:-0}
 
