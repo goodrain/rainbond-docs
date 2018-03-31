@@ -23,5 +23,6 @@ WORKDIR /srv/jekyll
 RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org/ \
     && bundle
 
-EXPOSE [80,4000]
+EXPOSE 80
+EXPOSE 4000
 ENTRYPOINT ["/srv/jekyll/run.sh"]
