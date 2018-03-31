@@ -1,7 +1,7 @@
 homepage_title: Rainbond 文档中心
 site_title: Rainbond
 
-url: "https://www.rainbond.com"
+url: "__HOME__"
 baseurl: "/docs"
 
 plugins:
