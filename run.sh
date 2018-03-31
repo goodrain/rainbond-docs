@@ -21,6 +21,6 @@ if [ "$START_NGINX" == "true" ];then
 else
 
   # replace domain
-  sed -i "s/__HOME//" _config.yml
+  sed -i "s/__HOME__//" _config.yml
   bundle exec jekyll server -H 0.0.0.0 -P 4000
 fi
