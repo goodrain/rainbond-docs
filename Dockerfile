@@ -12,16 +12,18 @@ RUN apk add --no-cache tzdata nginx \
 
 
 # add cron
-RUN crontab -l | { cat; echo "* * * * * cd /srv/jekyll;./build.sh "; } | crontab -
-
-COPY . /srv/jekyll
-COPY etc /etc
+# RUN crontab -l | { cat; echo "* * * * * cd /srv/jekyll;./build.sh "; } | crontab -
 
 WORKDIR /srv/jekyll
+
+COPY Gemfile* /srv/jekyll
 
 # 安装组件
 RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org/ \
     && bundle
+
+COPY . /srv/jekyll
+COPY etc /etc
 
 EXPOSE 80
 EXPOSE 4000
