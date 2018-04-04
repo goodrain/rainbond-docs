@@ -16,7 +16,8 @@ RUN apk add --no-cache tzdata nginx \
 
 WORKDIR /srv/jekyll
 
-COPY Gemfile* /srv/jekyll
+COPY Gemfile /srv/jekyll
+COPY Gemfile.lock /srv/jekyll
 
 # 安装组件
 RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org/ \
