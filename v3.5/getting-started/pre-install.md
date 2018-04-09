@@ -10,26 +10,27 @@ asciicast: true
     <a href="install.html"><button class="filter-button">安装</button></a>
 </div>
 
-<div id="toc"></div>
+为了保证您正常使用云帮各项功能，以及云帮系统的稳定运行，在安装云帮之前您需要确认系统满足以下条件：
 
-在安装云帮之前需要了解云帮所需要的系统级配置需求，以下是云帮目前所支持的系统具体信息:
+- 使用系统版本为CentOS 7、Debian 8/9、Ubuntu 16.04的系统进行安装。参考[系统需求](/docs/stable/getting-started/pre-install.html#part-2de6a0626265fe19)；
+
+
+- 可正常访问至公网；
+- 系统CPU、内存需求，若不满足则可能影响云帮系统使用。参考[配置需求](/docs/stable/getting-started/pre-install.html#part-2e4bde086eeb4c50)；
+- 网卡配置静态IP，且未配置固定DNS。参考[网络需求](/docs/stable/getting-started/pre-install.html#part-2e161d26075a8cf6)；
+- 系统未安装其他服务，如nginx、docker、kubernetes等，如有安装请完全卸载
+- 建议关闭相关防火墙服务，如：SElinux，Firewall等
+- 建议配置服务器时间同步为Asia/Shanghai。参考[配置时区与时间同步](/docs/stable/other/timezone.html) 
 
 ## 系统需求
-| 系统     | 版本   | 内核版本 | 说明   |
-| :----- | :--- | :--- | :--- |
-| Centos | 7.3  | 3.10 | 64位  |
-
-
-{{site.data.alerts.callout_danger}}
-请确保系统未安装其他服务，如nginx、docker、kubernetes等，如有安装请完全卸载;另外建议关闭相关防火墙服务如selinux。
-
-<!--后面也会陆续支持Debian9/Ubuntu16.04系统。 -->
-{{site.data.alerts.end}}
+| 系统   | 版本  | 说明           |
+| :----- | :---- | :------------- |
+| CentOS | 7.*   | 64位，推荐安装 |
+| Debian | 8，9  | 64位           |
+| Ubuntu | 16.04 | 64位           |
 
 ## 配置需求
-平台建议使用多节点(2+),即管理节点(1,3,5,7...+)&计算节点(1+)。
-
-### **1、服务器配置需求**
+### 服务器配置需求
 
 | 环境     | CPU  | 内存   | 磁盘    | 集群规模 |
 | :----- | :--- | :--- | :---- | :--- |
@@ -40,29 +41,28 @@ asciicast: true
 CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个集群的总需求。
 {{site.data.alerts.end}}
 
-### **2、磁盘需求**
+### 磁盘需求
 
-| 节点类型    | 分区目录            | 分区大小                      | 分区说明             |
-| :------ | :-------------- | :------------------------ | :--------------- |
-| 管理/计算节点 | /               | 20G                       | 系统的根分区           |
-| 管理/计算节点 | /var/lib/docker | 50G(测试环境)</br>100G+(生产环境) | 储存docker镜像       |
-| 管理节点    | /data           | 50G(测试环境)</br>100G+(生产环境) | 集群管理程序日志和数据      |
-| 管理节点    | /grdata         | 50G(测试环境)</br>500G+(生产环境) | 集群公共数据，应用公共持久化存储 |
+| 节点类型      | 分区目录        | 分区大小                          | 分区说明                                      |
+| :------------ | :-------------- | :-------------------------------- | :-------------------------------------------- |
+| 管理/计算节点 | /               | 20G                               | 系统的根分区                                  |
+| 管理/计算节点 | /var/lib/docker | 50G(测试环境)</br>100G+(生产环境) | 储存docker镜像                                |
+| 管理/计算节点 | /opt/rainbond   | 50G(测试环境)</br>100G+(生产环境) | 云帮安装目录；</br>存储集群管理程序日志和数据 |
+| 管理节点      | /grdata         | 50G(测试环境)</br>500G+(生产环境) | 集群公共数据，应用公共持久化存储              |
 
 {{site.data.alerts.callout_danger}}
-/grdata目录在开源版中默认使用nfs作为共享存储，生产环境便于配置分布式文件系统，企业版支持块设备存储.
-除第一个管理节点外，其他节点请勿自行挂载/grdata 
+
+- /grdata目录在开源版中默认使用nfs作为共享存储，生产环境便于配置分布式文件系统，企业版支持块设备存储.
+- 除第一个管理节点外，其他节点请勿自行挂载/grdata 
+
 {{site.data.alerts.end}}
 
-### **3、 网络需求**
+## 网络需求
 
 {{site.data.alerts.callout_danger}}
 dns 配置建议使用 114.114.114.114等国内dns server
 一定要配置静态ip，确保重启节点，不会修改节点ip和dns配置，参考文档：<a href="/docs/stable/other/static-ip.html" target="_blank">配置静态IP</a>
 {{site.data.alerts.end}}
-
-## 保持服务器时间同步
-参考文档: <a href="/docs/stable/other/timezone.html" target="_blank">配置时区与时间同步</a>
 
 ## 主机名设置
 

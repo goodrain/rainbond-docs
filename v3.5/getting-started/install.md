@@ -11,37 +11,63 @@ asciicast: true
     <a href="install.html"><button class="filter-button current"><strong>安装</strong></button></a>
 </div>
 
+{{site.data.alerts.callout_info}}
+
+云帮3.5开源版上线，我们会采用全新的安装方式。[旧的安装方式](/docs/stable/getting-started/install.html#part-4aae9ca17b67bb1f)支持安装云帮3.5开源版的安装，后续版本将暂停维护，且本提示保留至云帮3.6版本发布。
+
+{{site.data.alerts.end}}
+
 <div id="toc"></div>
 
-<!--
-&emsp;&emsp;通过grctl在线安装云帮。
--->
-## 安装前准备
-
 {{site.data.alerts.callout_danger}}
 
-确保第一个节点可以ssh免密登陆其他节点。
-安装前请务必确定是否满足前置条件。
+- 安装前建议阅读[安装前准备](/docs/stable/getting-started/pre-install.html)，安装时会检查系统环境是否符合安装条件
+- 首先确保当前用户是root或者具有root权限。
 
 {{site.data.alerts.end}}
 
+## 快速安装
 
-## 安装
+当前安装是通过git工具克隆安装程序源码到本地开始安装，您需要的操作：
 
-{{site.data.alerts.callout_danger}}
-首先确保当前用户是root或者具有root权限。
-{{site.data.alerts.end}}
+1、 克隆源码到本地
 
-### 快速安装
+   {% include copy-clipboard.html %}
 
-{% include copy-clipboard.html %}
-```bash
-# 通过此脚本可快速部署单节点的云帮，后续可以扩容。
-bash <(curl -s http://repo.goodrain.com/install/3.5/start.sh)
-```
+   ```bash
+   git clone https://github.com/goodrain/rainbond-install.git
+   ```
+
+2、 进入安装程序目录
+
+   {% include copy-clipboard.html %}
+
+   ```bash
+   cd rainbond-install
+   ```
+
+3、 执行安装
+
+   {% include copy-clipboard.html %}
+
+   ```bash
+   ./install.sh <arg>
+   ```
+
+   {{site.data.alerts.callout_info}}
+
+   - args:
+     - help   获取帮助信息
+     - dev     强制安装
+     - 无参数则默认安装
+
+   - 安装程序源码地址[https://github.com/goodrain/rainbond-install](https://github.com/goodrain/rainbond-install)
+
+   {{site.data.alerts.end}}
 
 <!--
-### 拆分安装
+
+## 拆分安装
 
 - 安装grctl
 
@@ -91,39 +117,46 @@ grctl是云帮datacenter controller util,通过此命令初始化集群，扩容
 
 -->
 
-### 安装完成
+## 安装完成
 
 访问控制台
-```
-grctl show 
-<ip>:7070
-```
 
-### 扩容节点
+`<your ip>:7070`
+
+## 扩容节点
 
 <!-- - [扩容管理节点](https://www.rainbond.com/docs/stable/platform-maintenance/add-management-node/install-command.html)-->
-- [扩容计算节点](https://www.rainbond.com/docs/stable/platform-maintenance/add-compute-node/install-command.html)
+- [扩容计算节点](/docs/stable/platform-maintenance/add-compute-node/install-command.html)
 
-### 安装使用问题FAQ
+## 安装使用问题FAQ
 
-- 安装使用问题，请参照 [平台安装，维护-常见问题](https://www.rainbond.com/docs/stable/FAQs/install-maintenance-faqs.html)
+- 安装使用问题，请参照 [平台安装，维护-常见问题](/docs/stable/FAQs/install-maintenance-faqs.html)
 - [rainbond开源版本安装使用帮助](https://t.goodrain.com/t/rainbond/359)
 
-### 安装使用问题反馈
+## 安装使用问题反馈
 
 - [Github Issue](https://github.com/goodrain/rainbond/issues/new)
 - 支持邮箱: rainbond@goodrain.com
 
 <!--
-### 高可用说明
+## 高可用说明
 
 {{site.data.alerts.callout_danger}}
 - 首先应安装云帮的主节点(上面的命令即是安装主节点的命令)。
 - 主节点具备云帮平台的所有功能，但不支持高可用。
 - 高可用特性需要将集群管理节点至少扩容到3个节点。
-{{site.data.alerts.end}}
--->
+  {{site.data.alerts.end}}
+  -->
 
-### Demo install
+## 旧的安装方式
+
+```
+# 通过此脚本可快速部署单节点的云帮，后续可以扩容。
+bash <(curl -s http://repo.goodrain.com/install/3.5/start.sh)
+```
+
+## Demo install
 
 <iframe allowFullScreen frameborder="0" height="564" mozallowfullscreen src="https://player.vimeo.com/video/253097354" webkitAllowFullScreen width="640"></iframe>
+
+##  
