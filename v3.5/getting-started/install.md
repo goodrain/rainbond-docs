@@ -30,20 +30,20 @@ asciicast: true
 
 当前安装是通过git工具克隆安装程序源码到本地开始安装，您需要的操作：
 
-1、 克隆源码到本地
+1、 下载安装脚本
 
    {% include copy-clipboard.html %}
 
    ```bash
-   git clone https://github.com/goodrain/rainbond-install.git
+   curl -k -L -o install.sh  https://raw.githubusercontent.com/goodrain/rainbond-install/master/install.sh
    ```
 
-2、 进入安装程序目录
+2、 修改权限
 
    {% include copy-clipboard.html %}
 
    ```bash
-   cd rainbond-install
+   chmod +x ./install.sh
    ```
 
 3、 执行安装
@@ -51,14 +51,16 @@ asciicast: true
    {% include copy-clipboard.html %}
 
    ```bash
-   ./install.sh <arg>
+   ./install.sh
    ```
 
    {{site.data.alerts.callout_info}}
 
+安装脚本后可追加参数获取更多
+
    - args:
      - help   获取帮助信息
-     - dev     强制安装
+     - dev     强制安装，忽略CPU、内存等检查
      - 无参数则默认安装
 
    - 安装程序源码地址[https://github.com/goodrain/rainbond-install](https://github.com/goodrain/rainbond-install)

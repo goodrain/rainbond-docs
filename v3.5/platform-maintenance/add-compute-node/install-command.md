@@ -8,13 +8,11 @@ asciicast: true
 
 <div id="toc"></div>
 
-<!--
-{{site.data.alerts.callout_danger}}	
+{{site.data.alerts.callout_info}}
 
+- 此扩容方式仅在**旧版本安装方式**所安装云帮内支持，当前安装方式的扩容计算节点后续支持。
 
 {{site.data.alerts.end}}
-
--->
 
 ##扩容计算节点
 
