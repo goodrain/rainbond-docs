@@ -11,18 +11,11 @@ asciicast: true
     <a href="install.html"><button class="filter-button current"><strong>安装</strong></button></a>
 </div>
 
-{{site.data.alerts.callout_info}}
-
-云帮3.5开源版上线，我们会采用全新的安装方式。[旧的安装方式](/docs/stable/getting-started/install.html#part-4aae9ca17b67bb1f)支持安装云帮3.5开源版的安装，后续版本将暂停维护，且本提示保留至云帮3.6版本发布。
-
-{{site.data.alerts.end}}
-
 <div id="toc"></div>
 
 {{site.data.alerts.callout_danger}}
 
-- 安装前建议阅读[安装前准备](/docs/stable/getting-started/pre-install.html)，安装时会检查系统环境是否符合安装条件
-- 首先确保当前用户是root或者具有root权限。
+- 安装前请阅读[安装前准备](/docs/stable/getting-started/pre-install.html)，在确定符合安装条件后执行安装操作
 
 {{site.data.alerts.end}}
 
@@ -34,7 +27,7 @@ asciicast: true
 # 通过此脚本可快速部署单节点的云帮
 bash <(curl -s http://repo.goodrain.com/install/3.5/start.sh)
 ```
-## 安装方法二 (Rainbond-install)
+#### 安装方法二 (Rainbond-install)
 
 ```
 # 通过此脚本可快速部署单节点的云帮
