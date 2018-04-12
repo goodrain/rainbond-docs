@@ -37,8 +37,8 @@ chmod +x ./install.sh
 ```
 
 {{site.data.alerts.callout_info}}
-方法二源码地址[https://github.com/goodrain/rainbond-install](https://github.com/goodrain/rainbond-install)
-后续安装升级推荐方法二
+方法二源码地址[rainbond-install](https://github.com/goodrain/rainbond-install)
+后续安装升级推荐方法二，方法一下个版本不在维护。
 {{site.data.alerts.end}}
 
 
