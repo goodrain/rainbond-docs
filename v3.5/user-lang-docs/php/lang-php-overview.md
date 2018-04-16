@@ -146,11 +146,33 @@ composer是PHP的依赖管理器，composer.json则是composer的配置文件，
 - [Yaf](http://pecl.php.net/package/yaf)(yaf)
 - [Phalcon](http://phalconphp.com/)(phalcon)
 
+#### 如果使用PHP 7.2.4版本：支持的扩展项目如下：
+
+扩展名|配置方式
+---------|----------
+apcu-5.1.11| "ext-apcu-5.1.11": "*" |
+blackfire | "ext-blackfire": "*" |
+blackfire-1.18.2 |  "ext-blackfire-1.18.2": "*" |
+cassandra-1.3.2 |  "ext-cassandra-1.3.2": "*" |
+ev-1.0.4 |  "ext-ev-1.0.4": "*" |
+event-2.3.0 |  "ext-event-2.3.0": "*" |
+imagick-3.4.3 |  "ext-imagick-3.4.3": "*" |
+memcached-3.0.4 |  "ext-memcached-3.0.4": "*" |
+mongodb-1.4.2 |  "ext-mongodb-1.4.2": "*" |
+newrelic-8.0.0.204 |  "ext-newrelic-8.0.0.204": "*" |
+oauth-2.0.2 |  "ext-oauth-2.0.2": "*" |
+phalcon-3.3.2  | "ext-phalcon-3.3.2": "*" |
+pq-2.1.3  | "ext-pq-2.1.3": "*" |
+raphf-2.0.0 |  "ext-raphf-2.0.0": "*" |
+rdkafka-3.0.5  | "ext-rdkafka-3.0.5": "*" |
+redis-3.1.6 | "ext-redis-3.1.6": "*" |
+
 {{site.data.alerts.callout_success}}
 
 HHVM 暂时不支持自定义扩展
 
 {{site.data.alerts.end}}
+
 
 #### 扩展特例
 
