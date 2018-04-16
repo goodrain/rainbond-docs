@@ -4,10 +4,14 @@ summary: 日志部分
 toc: false
 ---
 
-&emsp;&emsp;日志部分将应用开启、关闭及操作过程中的内部日志实时输出。界面包含暂停，历史日志下载，最新1000条日志选项。如图：
+##日志
 
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-logs1.png" style="border:1px solid #eee;max-width:100%" />
+- 日志功能可以将应用运行时产生的日志实时推送给您，如果您的应用在运行的时候遇到了任何问题，请将发生问题时的日志下载并提交给我们，这将是我们为您解决问题的重要依据。
 
-- **暂停**：暂停或继续日志的输出。
-- **历史日志下载**：跳转至日志列表页面，可根据日期选择想要下载的日志。
-- **最新1000条日志**：跳转至新的日志内容页，该页面显示最新的1000条日志。
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-logs.png" style="border:1px solid #eee;max-width:100%" />
+
+- 图中元素的意义
+
+  - **暂停推送**：暂停或继续日志的输出。
+  - **历史日志下载**：跳转至日志列表页面，可根据日期选择想要下载的日志。
+  - **最新1000条日志**：跳转到最新的1000条日志。

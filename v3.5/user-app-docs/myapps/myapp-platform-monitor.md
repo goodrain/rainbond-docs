@@ -4,51 +4,29 @@ summary: 可选择查看应用走势图。
 toc: false
 ---
 
+监控页面的开启依赖于扩展部分所提供的插件，默认不开通。详情参见[扩展](myapp-platform-plugin.html)
+
 <div id="toc"></div>
 
-&emsp;&emsp;您可以通过选择实时、1H、8H、24H、7d查看应用走势图。应用支持内存，磁盘，流量的监控，目前MySQL服务与http协议型应用额外包括实时业务监控业务。以MySQL为例，其监控过程如下：
+##实时
 
-## 实时
+- 打开监控界面后默认进入 **实时** 监控界面，该界面提供了扩展插件所提供的实时监控信息。
 
-选择图中右上角下拉框中的 **实时**
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-moniter1.png" style="border:1px solid #eee;max-width:100%" />
 
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-monitor1.png" style="border:1px solid #eee;max-width:100%" />
+- 图中元素的意义
 
-- **SQL平均响应时间**：操作关系到的sql语句响应时间总和/SQL语句数。
+  - **平均响应时间** 指 Application Server 为用户返回请求结果所花的时间的平均值。响应时间受很多因素的影响，例如，网络带宽、用户数、提交的请求数和类型以及平均延迟时间。
+  - **吞吐率** 过去一分钟平均每5秒的请求次数。
+  - **在线人数** 过去5分钟的独立IP数量。
+  - **过去5分钟耗时最多的URL排行** 此功能统计了过去5分钟耗时最多的URL的排行，包括累计时间、平均时间、请求次数、异常次数的统计。这里记录的是访问应用的URL。
 
+##历史
 
+- 在右上角切换到 **历史** 监控界面，该界面提供了最近1小时、8小时、24小时、7天的监控信息曲线。
 
-- **SQL吞吐率**：吞吐量/运行时间。
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-moniter2.png" style="border:1px solid #eee;max-width:100%" />
 
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-moniter3.png" style="border:1px solid #eee;max-width:100%" />
 
-
-- **过去五分钟耗时最多的SQL排行**：统计MySQL运行过去五分钟内执行的SQL语句，以耗时排序并列出SQL语句对应执行累计时间、平均时间、个数。
-
-
-## 小时
-
-选择图中右上角下拉框中的 **小时**
-
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/myapp-platform-monitor2.png" style="border:1px solid #eee;max-width:100%" />
-
-- **SQL响应时间**：显示过去五分钟内，SQL语句平均响应时间走势图。
-- **SQL执行次数**：在MySQL运行期间显示每一分钟SQL语句执行的总次数走势图。
-- **内存**：显示内存使用情况。
-- **磁盘**：在MySQL运行期间显示磁盘使用情况。
-- **流量**：显示流量使用情况。
-
-{{site.data.alerts.callout_success}}监控平台右上角下拉宽可选择其它监控时间范围。{{site.data.alerts.end}}
-> Web应用会持续监测以下内容：
-> > 五分钟内平局响应时间以走势图显示
->
-> > 每一分钟吞吐率以走势图显示
->
-> >在线人数以走势图显示
->
-> >内存使用情况
->
-> >磁盘使用情况
->
-> >流量使用情况
-#### 
-
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-moniter4.png" style="border:1px solid #eee;max-width:100%" />ß

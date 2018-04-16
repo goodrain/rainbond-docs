@@ -1,5 +1,5 @@
 ---
-title: 应用市场
+title: 从云市安装
 summary: 热门应用、最近部署的应用、最新应用、分享的应用
 toc: false
 
@@ -7,26 +7,22 @@ toc: false
 
 <div id="toc"></div>
 
-&emsp;&emsp;应用市场包含四个常用菜单：**热门应用**、**最近部署的应用**、**最新应用**、**分享的应用**。通过点击各菜单中应用名可在新窗口链接至云市该应用的详情页。如图：
+我们将市面上最流行的应用发布到了云市中，通过云市，您可以一键部署所需要的应用。相对于从源码和从镜像来部署应用，这种方式省去了您很多麻烦，不必关心底层代码，也不用关心高级设置，仅仅是点击即可。
 
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/addapp-market1.png" alt="CockroachDB Admin UI" style="border:1px solid #eee;max-width:100%" />
+##应用构建
 
-## 热门应用
+###点击应用
 
-当前云帮部署最多的应用，根据部署量从大到小排序。
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/addapp-market1.png" alt="CockroachDB Admin UI" style="border:1px solid #eee;max-width:100%" />
 
-## 最近部署的应用
+###选择分组
 
-您最近部署的应用，根据您部署的先后顺序排序。
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/addapp-market2.jpg" alt="CockroachDB Admin UI" style="border:1px solid #eee;max-width:100%" />
 
-## 最新应用
+###构建完成
 
-平台最新发布的应用，根据发布的先后顺序排讯。
+<img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/addapp-market3.jpg" alt="CockroachDB Admin UI" style="border:1px solid #eee;max-width:100%" />
 
-## 分享的应用
+##应用分享
 
-已分享的应用。若您还没分享过应用，[点击这里查看如何分享](http://www.kancloud.cn/good-rain/share2market/198574)
-
-## 更多应用
-
-从各快捷菜单的下方点击`更多应用`进入云市来选择您需要的应用，云市包含10余类，120多款企业常见应用供您选择。如数据库、博客、OA等常见应用，即点即用。
+我们欢迎您将其它应用分享给我们[点击这里查看如何分享](http://www.kancloud.cn/good-rain/share2market/198574)

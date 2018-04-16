@@ -84,31 +84,26 @@
             {
                 "title": "创建应用",
                 "items": [{
-                    "title": "从镜像",
+                    "title": "从Docker镜像创建",
                     "urls": [
                         "/${VERSION}/user-app-docs/addapp/addapp-image.html"
                     ]
                 }, {
-                    "title": "从源码",
+                    "title": "从源码创建",
                     "urls": [
                         "/${VERSION}/user-app-docs/addapp/addapp-code.html"
                     ]
                 }, {
-                    "title": "应用市场",
+                    "title": "从云市安装",
                     "urls": [
                         "/${VERSION}/user-app-docs/addapp/addapp-market.html"
-                    ]
-                }, {
-                    "title": "云框架",
-                    "urls": [
-                        "/${VERSION}/user-app-docs/addapp/addapp-cloud_framework.html"
                     ]
                 }]
             },
             {
-                "title": "应用管理",
+                "title": "我的应用",
                 "items": [{
-                        "title": "应用组管理",
+                        "title": "应用管理界面",
                         "urls": [
                             "/${VERSION}/user-app-docs/myapps/myapp-introduce.html"
                         ]
@@ -116,7 +111,7 @@
                     {
                         "title": "应用控制台",
                         "items": [{
-                                "title": "概览",
+                                "title": "总览",
                                 "urls": [
                                     "/${VERSION}/user-app-docs/myapps/myapp-platform-overview.html"
                                 ]
@@ -134,7 +129,7 @@
                                 ]
                             },
                             {
-                                "title": "扩容",
+                                "title": "伸缩",
                                 "urls": [
                                     "/${VERSION}/user-app-docs/myapps/myapp-platform-capacity.html"
                                 ]
@@ -158,9 +153,9 @@
                                 ]
                             },
                             {
-                                "title": "插件",
+                                "title": "扩展",
                                 "urls": [
-                                    "/${VERSION}/user-app-docs/myapps/myapp-platform-plugin.html"
+                                    "/${VERSION}/user-app-docs/myapps/myapp-platform-extend.html"
                                 ]
                             },
                             {
@@ -439,12 +434,6 @@
             {
                 "title": "管理节点",
                 "items": [{
-                    "title": "扩容管理节点",
-                    "urls": [
-                        "/${VERSION}/platform-maintenance/add-management-node/install-command.html"
-
-                    ]
-                }, {
                     "title": "组件介绍",
                     "items": [{
                             "title": "概览",

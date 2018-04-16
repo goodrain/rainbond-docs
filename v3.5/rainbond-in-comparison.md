@@ -279,7 +279,7 @@ Rainbond 包含了众多的功能特性，如果您需要个性化或高级功�
 </tr>
 
 <tr>
-<td rowspan="7">
+<td rowspan="8">
 <b>管理</b>
 </td>
 <td  class="comparison-chart__feature">平台全功能的API接口
@@ -335,14 +335,26 @@ Rainbond 包含了众多的功能特性，如果您需要个性化或高级功�
 </tr>
 
 <tr>
-<td  class="comparison-chart__feature">应用/资源管理
+<td  class="comparison-chart__feature">应用管理
 <a href="#" data-toggle="tooltip" title="支持多租户的创建与管理">
 <img src="{{ 'images/icon_info.svg' | relative_url }}" alt="tooltip icon"></a>
 </td>
-<td><span class="support"  style="display: inline;">命令行</span></td>
+<td><a class="comparison-chart__link">命令行，应用控制台</a></td>
 
-<td><a class="comparison-chart__link">命令行，资源后台</a></td>
+<td><a class="comparison-chart__link">命令行，应用控制台</a></td>
 </tr>
+
+
+<tr>
+<td  class="comparison-chart__feature">资源管理
+<a href="#" data-toggle="tooltip" title="支持多租户的创建与管理">
+<img src="{{ 'images/icon_info.svg' | relative_url }}" alt="tooltip icon"></a>
+</td>
+<td><span class="support"  style="display: inline;">不支持</span></td>
+
+<td><a class="comparison-chart__link">资源控制台</a></td>
+</tr>
+
 
 <tr>
 <td rowspan="7">
