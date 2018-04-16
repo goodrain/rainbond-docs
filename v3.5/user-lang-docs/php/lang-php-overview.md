@@ -23,19 +23,14 @@ toc: false
 
 ### PHP版本
 
-- PHP 5.4 (5.4.40)
-- PHP 5.5 (5.5.26)
-- PHP 5.6 (5.6.11)(默认)
-- PHP 7.0 (7.0.16)
-- PHP 7.1 (7.1.2)
+- PHP 5.5 (5.5.38)
+- PHP 5.6 (5.6.11, 5.6.30, 5.6.35)(默认)
+- PHP 7.0 (7.0.16, 7.0.29)
+- PHP 7.1 (7.1.2, 7.1.16)
+- PHP 7.2 (7.2.4)
 
 ### HHVM版本
 
-- HHVM 3.2.0
-- HHVM 3.3.1
-- HHVM 3.3.4
-- HHVM 3.4.2
-- HHVM 3.5.0
 - HHVM 3.5.1
 
 ### 选择PHP版本
@@ -45,28 +40,28 @@ toc: false
 - 通过平台创建应用向导中选择。
 - 通过配置`composer.json`文件来实现：
 
-1. 在您代码的根目录创建`composer.json`文件，指定使用`PHP 5.5.26`版本，文件具体内容如下：
+1. 在您代码的根目录创建`composer.json`文件，指定使用`PHP 5.6.35`版本，文件具体内容如下：
 
 
 {% include copy-clipboard.html %}
 
 ```json
 {
-	"require": {"php": "5.5.26"}
+	"require": {"php": "5.6.35"}
 }
 ```
 
-2. 在您代码的根目录创建`composer.json`配置并使用`HHVM 3.2`版本：
+2. 在您代码的根目录创建`composer.json`配置并使用`HHVM 3.5.1`版本：
 
 {% include copy-clipboard.html %}
 
 ```json
 {
-	"require": {"hhvm": "3.2"}
+	"require": {"hhvm": "3.5.1"}
 }
 ```
 {{site.data.alerts.callout_success}}
-PHP 的版本支持 ~5.5.16 这种 [Semantic Versioning](http://semver.org/) 的形式，如果用户指定~5.5.16系统会从平台中选择5.5分支版本最高的版本，因此会选择5.5.26版本。
+PHP 的版本支持 ~5.5.35 这种 [Semantic Versioning](http://semver.org/) 的形式，如果用户指定~5.5.35系统会从平台中选择5.5分支版本最高的版本，因此会选择5.5.35版本。
 {{site.data.alerts.end}}
 
 ### 扩展
@@ -166,7 +161,7 @@ HHVM 暂时不支持自定义扩展
 ```json
 {
     "require": {
-                "php": "~7.1.2",
+                "php": "~7.1.16",
                 "ext-memcached": "*",
                 "ext-mongodb": "*",
                 "ext-mbstring": "*"
