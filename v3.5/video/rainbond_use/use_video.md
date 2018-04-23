@@ -1,5 +1,5 @@
 ---
-title:Rainbond的使用
+title: Rainbond的应用构建与管理
 summary: 视频、PPT分享
 toc: false
 ---
