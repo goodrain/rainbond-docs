@@ -798,6 +798,12 @@
                 "urls": [
                     "/${VERSION}/video/rainbond_use/use_video.html"
                 ]
+            },
+            {
+                "title": "云帮和Service Mesh微服务架构",
+                "urls": [
+                    "/${VERSION}/video/rainbond_use/service_video.html"
+                ]
             }
         ]
     },
