@@ -44,20 +44,26 @@ A: 检查当前任务是否生成相关日志文件，若未生成,则可以新�
 ### 版本3.5升级到3.5.1操作
 
 ```
-# 1. 更新自研组件至3.5最新版版本 
-rainbond/rbd-app-ui:3.5
-rainbond/rbd-lb:3.5
-rainbond/rbd-webcli:3.5
-rainbond/rbd-api:3.5
-rainbond/rbd-eventlog:3.5
-rainbond/rbd-entrance:3.5
-rainbond/rbd-chaos:3.5
-rainbond/rbd-mq:3.5
-rainbond/rbd-worker:3.5
+1. 更新管理节点服务至3.5最新版版本
 
-# 2. 更新node至最新版本
+docker pull rainbond/rbd-app-ui:3.5
+docker pull rainbond/rbd-lb:3.5
+docker pull rainbond/rbd-webcli:3.5
+docker pull rainbond/rbd-api:3.5
+docker pull rainbond/rbd-eventlog:3.5
+docker pull rainbond/rbd-entrance:3.5
+docker pull rainbond/rbd-chaos:3.5
+docker pull rainbond/rbd-mq:3.5
+docker pull rainbond/rbd-worker:3.5
+
+2. 更新数据库
+下载更新sql https://github.com/goodrain/rainbond-ui/blob/V3.5/sql/V3.5-V3.5.1.sql
+进入数据库容器：docker exec -it rbd-db bash 
+执行sql语句
+
+3. 更新管理节点服务
+dc-compose up -d 
+4. 更新所有节点node至最新版本
 docker run --rm -v /var/run/docker.sock:/var/run/docker.sock rainbond/static gr-node
 
-# 3. 更新数据库字段
-请参考 https://github.com/goodrain/rainbond-ui/blob/V3.5/sql/V3.5-V3.5.1.sql
 ```
