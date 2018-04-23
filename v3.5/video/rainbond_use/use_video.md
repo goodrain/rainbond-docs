@@ -1,5 +1,5 @@
 ---
-title: 云帮的应用构建和管理
+title:Rainbond的使用
 summary: 视频、PPT分享
 toc: false
 ---
@@ -7,7 +7,7 @@ toc: false
 <br/>
 
 
-**[视频]Rainbond的应用构建、管理**
+**[视频]Rainbond的应用构建与管理**
 
 <iframe height=450 width=650 src='https://player.youku.com/embed/XMzM3NDQ2Mzc4NA==' frameborder=0 'allowfullscreen'></iframe>
 
