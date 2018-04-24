@@ -10,7 +10,9 @@ toc: false
 
 <embed src='http://player.youku.com/player.php/sid/XMzU1MjMyMjc0MA==/v.swf' allowFullScreen='true' quality='high' width='650' height='450' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
 
+<iframe height=450 width=650 src='http://player.youku.com/embed/XMzU1MjMyMjc0MA==' frameborder=0 'allowfullscreen'></iframe>
+
 **[PPT]**
 
-<embed width="650" height="450" fullscreen="yes" src="https://static.goodrain.com/images/acp/docs/videorainbond_service_mesh.pdf">
+<embed width="650" height="450" fullscreen="yes" src="https://static.goodrain.com/images/acp/docs/video/rainbond_service_mesh.pdf">
 
