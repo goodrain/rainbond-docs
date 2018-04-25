@@ -743,6 +743,12 @@
                 "urls": [
                     "/${VERSION}/best-practice/connection-docker-registry.html"
                 ]
+            },
+            {
+                "title": "Minio部署与使用",
+                "urls": [
+                    "/${VERSION}/best-practice/minio-deploy-use.html"
+                ]
             }
 
         ]
