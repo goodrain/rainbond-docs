@@ -274,7 +274,7 @@ chmod +x mc
 
 ### 从云市
 
-您可以从[云市](https://www.goodrain.com/applist)一键式部署[Minio应用(点击获取)](https://www.goodrain.com/app/detail/129)。
+您可以从[云市](https://www.goodrain.com/applist)一键式部署[Minio应用(点击获取)](https://www.goodrain.com/app/detail/132)。
 
 ### 从云帮
 
