@@ -43,7 +43,7 @@ toc: false
 
   {{site.data.alerts.end}}
 
-- 端口管理：根据您应用的端口开放情况在此指定，此处需确认端口号、[对外服务](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-port.html#part-2c696518044fc4f0)、[外部访问](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-port.html#part-2c27c8f988fb443b)、及[访问方式](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-port.html#part-2ba97bbe77ab9feb)。点击已添加的端口信息-端口号可对当前端口信息修改。
+- 端口管理：根据您应用的端口开放情况在此指定，此处需确认端口号、协议类型、[对内服务](http://www.rainbond.com/docs/dev/user-app-docs/myapps/myapp-platform-port.html#part-2c6963e937fac9c1)、[对外服务](http://www.rainbond.com/docs/dev/user-app-docs/myapps/myapp-platform-port.html#part-2c696518044fc4f0)。
 
   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/addapp-config-1.jpeg" style="border:1px solid #eee;max-width:100%" /></center>
 
@@ -59,7 +59,7 @@ toc: false
 
   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/addapp-config-4.jpeg" style="border:1px solid #eee;max-width:100%" /></center>
 
-- 服务依赖：您可点击 **新增依赖** 进行应用关联。点此了解[服务依赖](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)
+- 服务依赖：您可点击 **新增依赖** 进行应用关联。点此了解[依赖](http://www.rainbond.com/docs/dev/user-app-docs/myapps/myapp-platform-reliance.html)
 
   <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/addapp-config-5.jpeg" style="border:1px solid #eee;max-width:100%" /></center>
 
@@ -70,7 +70,7 @@ toc: false
 <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/done1.png" style="border:1px solid #eee;max-width:60%"/></center>
 
 - 到此为止，您已经通过 **官方demo** 构建了一个应用。
-   
+  
 ### 高级选项
 
 - 平台会根据代码的语言类型来提示设置应用运行的环境的版本，目前平台所支持的版本请参考*代码版本支持参考*。例如PHP语言可选[BCMath](http://docs.php.net/bcmath)、[Calendar](https://user.goodrain.com/apps/jfteam/gr7c1e25/app-language/http/docs.php.net/calendar)、[Exif](http://docs.php.net/exif)等扩展。
