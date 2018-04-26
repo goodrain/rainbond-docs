@@ -5,6 +5,7 @@
 sleep ${PAUSE:-0}
 
 HOME_DOMAIN=${HOME_DOMAIN:-https://www.rainbond.com}
+PORT=${PORT:-80}
 
 # run crond
 crond
@@ -13,7 +14,11 @@ crond
 if [ "$START_NGINX" == "true" ];then
 
   # replace domain
-  sed -i "s/__HOME/$HOME_DOMAIN/" _config.yml
+  sed -i "s/__HOME__/$HOME_DOMAIN/" _config.yml
+
+  # replace nginx port
+  sed -i "s/__PORT__/$PORT/g" etc/nginx/conf.d/default.conf
+
   # build static
   bundle exec jekyll build
   nginx -t
