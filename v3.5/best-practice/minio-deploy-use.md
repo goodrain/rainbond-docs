@@ -17,19 +17,19 @@ Minio是建立在云原生的基础上；有分布式和共享存储等功能；
 - 根据存储是否为远端，可直接使用FS或NFS直接操作存储中的Object
 - 调用S3接口，通过Minio使用FS或NFS来操作Object
 
-<img src="http://static.goodrain.com/images/acp/docs/bestpractice/minio/minio-single.png"  width="50%" />
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/minio/minio-single.png"  width="50%" />
 
 ### 多节点
 
 多节点的Minio会根据不同的Access_key及Secret_Key来区分不同租户，每个租户可操作对应Server获取Object。Minio Server间可以通过不同的[进程模型](https://baike.baidu.com/item/%E8%BF%9B%E7%A8%8B%E6%A8%A1%E5%9E%8B)、容器或是虚拟机来互相隔离。
 
-<img src="http://static.goodrain.com/images/acp/docs/bestpractice/minio/minio-multi.png"  width="50%" />
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/minio/minio-multi.png"  width="50%" />
 
 ### 分布式
 
 分布式Minio在无共享架构中根据需求扩展到尽可能多的服务器，所有节点需要使用相同的Access_key及Secret_key来登录。分布式Minio使用Web负载均衡器或DNS轮循(DNS round-robin)，在各服务器之间实现负载均衡。
 
-<img src="http://static.goodrain.com/images/acp/docs/bestpractice/minio/minio-distributed.png"  width="50%" />
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/minio/minio-distributed.png"  width="50%" />
 
 ## 功能特性
 
@@ -79,7 +79,7 @@ Minio提供:包含图形化界面的Server端;使用命令行操作的Client端�
 
 - 使用Access Key与Secret Key登录Minio。登录成功后进入如下界面
 
-<img src="http://static.goodrain.com/images/acp/docs/bestpractice/minio/minio-1.jpg"  width="90%" />
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/minio/minio-1.jpg"  width="90%" />
 
 {{site.data.alerts.callout_success}}
 
@@ -101,7 +101,7 @@ Access Key与Secret Key可由Minio Server随机生成，也可通过变量来自
 
   - 对话框上方弹出该Object现剩余到期时间
 
-  <img src="http://static.goodrain.com/images/acp/docs/bestpractice/minio/minio-2.jpg"  width="90%" />
+  <img src="https://static.goodrain.com/images/acp/docs/bestpractice/minio/minio-2.jpg"  width="90%" />
 
 ### Minio Client
 
@@ -274,7 +274,7 @@ chmod +x mc
 
 ### 从云市
 
-您可以从[云市](https://www.goodrain.com/applist)一键式部署[Minio应用(点击获取)](https://www.goodrain.com/app/detail/132)。
+您可以从[云市](https://www.goodrain.com/applist)一键式部署<a href="https://www.goodrain.com/app/detail/132">Minio应用(点击获取)</a>。
 
 ### 从云帮
 
