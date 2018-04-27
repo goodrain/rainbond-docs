@@ -21,13 +21,7 @@ asciicast: true
 
 ## 快速安装
 
-#### 方案方法一(GAOps)
-
-```
-# 通过此脚本可快速部署单节点的云帮
-bash <(curl -s http://repo.goodrain.com/install/3.5/start.sh)
-```
-#### 安装方法二 (Rainbond-install)
+#### 安装方法 (Rainbond-install)
 
 ```
 # 通过此脚本可快速部署单节点的云帮
@@ -35,12 +29,16 @@ curl -k -L -o install.sh  https://raw.githubusercontent.com/goodrain/rainbond-in
 chmod +x ./install.sh
 ./install.sh
 ```
+安装相关源码地址[rainbond-install](https://github.com/goodrain/rainbond-install)
 
-{{site.data.alerts.callout_info}}
-方法二源码地址[rainbond-install](https://github.com/goodrain/rainbond-install)
-后续安装升级推荐方法二，方法一下个版本不在维护。
-{{site.data.alerts.end}}
+<!--
+#### 方案方法二(GAOps)
 
+```
+# 通过此脚本可快速部署单节点的云帮
+bash <(curl -s http://repo.goodrain.com/install/3.5/start.sh)
+```
+-->
 
 ## 安装完成
 
