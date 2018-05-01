@@ -1,0 +1,323 @@
+[
+    {
+        "title": "平台概览",
+        "items": [
+            {
+                "title": "Rainbond是什么",
+                "urls": [
+                    "/${VERSION}/overview/definition.html"
+                ]
+            },
+            {
+                "title": "Rainbond可以做什么",
+                "urls": [
+                    "/${VERSION}/overview/use-case.html"
+                ]
+            },
+            {
+                "title": "Rainbond有哪些特性",
+                "urls": [
+                    "/${VERSION}/overview/features.html"
+                ]
+            },
+            {
+                "title": "Rainbond有什么优势",
+                "urls": [
+                    "/${VERSION}/overview/advantages.html"
+                ]
+            },
+            {
+                "title": "Rainbond版本对比（开源版/企业版）",
+                "urls": [
+                    "/${VERSION}/overview/edition.html"
+                ]
+            }
+        ]
+    },
+    {
+        "title": "快速开始",
+        "items": [
+            {
+                "title": "在线私有化安装",
+                "urls": [
+                    "/${VERSION}/getting-started/before-installation.html",
+                    "/${VERSION}/getting-started/online-installation.html"
+                ]
+            },
+            {
+                "title": "通过阿里云市场镜像安装",
+                "urls": [
+                    "/${VERSION}/getting-started/image-install.html"
+                ]
+            },
+            {
+                "title": "使用Rainbond公有云",
+                "items": [
+                    {
+                        "title": "Rainbond公有云介绍",
+                        "urls": [
+                            "/${VERSION}/getting-started/public-cloud-brief.html"
+                        ]
+                    },
+                    {
+                        "title": "数据中心",
+                        "urls": [
+                            "/${VERSION}/getting-started/data-center.html"
+                        ]
+                    },
+                    {
+                        "title": "计费方案",
+                        "urls": [
+                            "/${VERSION}/getting-started/public-cloud-charge.html"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "基础操作",
+        "items": [
+            {
+                "title": "管理团队",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage-your-team.html"
+                ]
+            },
+            {
+                "title": "管理数据中心",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage-your-data-center.html"
+                ]
+            },
+            {
+                "title": "创建应用",
+                "urls": [
+                    "/${VERSION}/basic-operation/create-an-application.html"
+                ]
+            },
+            {
+                "title": "管理应用",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage-your-application.html"
+                ]
+            },
+            {
+                "title": "分享应用",
+                "urls": [
+                    "/${VERSION}/basic-operation/share-an-application.html"
+                ]
+            }
+        ]
+    },
+    {
+        "title": "高级操作",
+        "items": [
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/advanced-operation/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/advanced-operation/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/advanced-operation/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/advanced-operation/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/advanced-operation/请补充.html"
+                ]
+            }
+        ]
+    },
+    {
+        "title": "平台维护",
+        "items": [
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/maintenance/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/maintenance/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/maintenance/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/maintenance/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/maintenance/请补充.html"
+                ]
+            }
+        ]
+    },
+    {
+        "title": "企业级功能",
+        "items": [
+            {
+                "title": "多数据中心管理",
+                "urls": [
+                    "/${VERSION}/entripise-edition/multi-data-center.html"
+                ]
+            },
+            {
+                "title": "资源管理控制台",
+                "urls": [
+                    "/${VERSION}/entripise-edition/resource-console.html"
+                ]
+            },
+            {
+                "title": "功能定制",
+                "urls": [
+                    "/${VERSION}/entripise-edition/customization.html"
+                ]
+            },
+            {
+                "title": "技术支持",
+                "urls": [
+                    "/${VERSION}/entripise-edition/support.html"
+                ]
+            },
+            {
+                "title": "获取企业级功能",
+                "urls": [
+                    "/${VERSION}/entripise-edition/upgrade-to-entripise-edition.html"
+                ]
+            }
+        ]
+    },
+    {
+        "title": "FAQ",
+        "items": [
+            {
+                "title": "产品相关",
+                "urls": [
+                    "/${VERSION}/faq/product.html"
+                ]
+            },
+            {
+                "title": "使用相关",
+                "urls": [
+                    "/${VERSION}/faq/useage.html"
+                ]
+            },
+            {
+                "title": "安装与维护相关",
+                "urls": [
+                    "/${VERSION}/faq/maintenance.html"
+                ]
+            },
+            {
+                "title": "视频指南",
+                "urls": [
+                    "/${VERSION}/faq/video.html"
+                ]
+            },
+            {
+                "title": "落地案例",
+                "urls": [
+                    "/${VERSION}/faq/case.html"
+                ]
+            }
+        ]
+    },
+    {
+        "title": "API",
+        "items": [
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/api/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/api/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/api/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/api/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/api/请补充.html"
+                ]
+            }
+        ]
+    },
+    {
+        "title": "词汇表",
+        "items": [
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/glossary/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/glossary/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/glossary/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/glossary/请补充.html"
+                ]
+            },
+            {
+                "title": "请补充一级",
+                "urls": [
+                    "/${VERSION}/glossary/请补充.html"
+                ]
+            }
+        ]
+    }
+]
