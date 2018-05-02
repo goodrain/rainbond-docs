@@ -733,6 +733,16 @@
                 ]
             },
             {
+                "title": "插件相关实践",
+                "items": [{
+                        "title": "数据库插件",
+                        "urls": [
+                            "/${VERSION}/best-practice/add-on/mysql-add-ons.html"
+                        ]
+                    }
+                ]
+            },
+            {
                 "title": "对接Maven仓库",
                 "urls": [
                     "/${VERSION}/best-practice/connection-maven-repository.html"
