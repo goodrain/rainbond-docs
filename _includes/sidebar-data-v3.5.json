@@ -749,8 +749,13 @@
                 "urls": [
                     "/${VERSION}/best-practice/minio-deploy-use.html"
                 ]
+            },
+            {
+                "title": "Pinpoint-java性能分析最佳实践",
+                "urls": [
+                    "/${VERSION}/best-practice/pinpoint-deploy-use.html"
+                ]
             }
-
         ]
 
 
