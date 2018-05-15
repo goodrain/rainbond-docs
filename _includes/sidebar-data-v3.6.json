@@ -699,6 +699,17 @@
                 ]
             },
             {
+                "title": "高可用部署",
+                "items": [{
+                        "title": "云帮最小化高可用设计方案",
+                        "urls": [
+                            "/${VERSION}/platform-maintenance/ha-deploy/haminimal-install.html"
+                        ]
+                    }
+
+                ]
+            },
+            {
                 "title": "分布式存储",
                 "items": [{
                     "title": "GlusterFS",
