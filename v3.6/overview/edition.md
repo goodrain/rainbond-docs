@@ -219,8 +219,8 @@ Rainbond 包含了众多的功能特性，如果您需要个性化或高级功�
 <a href="#" data-toggle="tooltip" title="支持企业内部私有应用市场，IT部门和其他部门高效衔接">
 <img src="{{ 'images/icon_info.svg' | relative_url }}" alt="tooltip icon"></a>
 </td>
-<td><a class="comparison-chart__link">支持</a></td>
-<td><a class="comparison-chart__link">支持</a></td>
+<td><a class="comparison-chart__link">支持(单数据中心)</a></td>
+<td><a class="comparison-chart__link">支持(跨数据中心)</a></td>
 </tr>
 
 <tr>
@@ -308,23 +308,23 @@ Rainbond 包含了众多的功能特性，如果您需要个性化或高级功�
 <img src="{{ 'images/icon_info.svg' | relative_url }}" alt="tooltip icon"></a>
 </td>
 <td><a class="comparison-chart__link">支持</a></td>
-<td><a class="comparison-chart__link">支持</a></td>
+<td><a class="comparison-chart__link">支持(租户隔离)</a></td>
 </tr>
 
 <tr>
-<td  class="comparison-chart__feature">分布式存储
+<td  class="comparison-chart__feature">多类型存储
 <a href="#" data-toggle="tooltip" title="支持NAS存储方式，如NFS／GlusterFS">
 <img src="{{ 'images/icon_info.svg' | relative_url }}" alt="tooltip icon"></a>
 </td>
-<td><a class="comparison-chart__link">支持</a></td>
-<td><a class="comparison-chart__link">支持</a></td>
+<td><a class="comparison-chart__link">支持(分布式文件系统)</a></td>
+<td><a class="comparison-chart__link">支持(多种存储系统)</a></td>
 
 <tr>
 <td  class="comparison-chart__feature">多租户
 <a href="#" data-toggle="tooltip" title="支持多租户的创建与管理">
 <img src="{{ 'images/icon_info.svg' | relative_url }}" alt="tooltip icon"></a>
 </td>
-<td><a class="comparison-chart__link">支持</a></td>
+<td><a class="comparison-chart__link">支持(资源不隔离)</a></td>
 <td><a class="comparison-chart__link">支持</a></td>
 </tr>
 
@@ -334,7 +334,7 @@ Rainbond 包含了众多的功能特性，如果您需要个性化或高级功�
 <img src="{{ 'images/icon_info.svg' | relative_url }}" alt="tooltip icon"></a>
 </td>
 <td><span class="support"  style="display: inline;"></span>仅支持对接好雨公有云</td>
-<td><a class="comparison-chart__link">对接任意资源中心</a></td>
+<td><a class="comparison-chart__link">管理任意资源中心</a></td>
 </tr>
 
 <tr>
