@@ -16,6 +16,9 @@
 
     // 微服务
     {% include 3.6/microservice.json %},
+
+    // 管理后台
+    {% include 3.6/back-manage.json %},
     
     // 视频指南
     {% include 3.6/video.json %},

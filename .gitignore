@@ -9,3 +9,4 @@ bootstrap
 vendor/
 node_modules
 update_search_index.sh
+.idea/
