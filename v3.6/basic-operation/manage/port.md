@@ -1,6 +1,6 @@
 ---
-title: 端口
-summary: 端口就是设备端或应用端与外界通讯交流的出口。
+title: 配置端口
+summary: 配置端口
 toc: false
 ---
 

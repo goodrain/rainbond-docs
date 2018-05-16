@@ -1,6 +1,6 @@
 ---
-title: 云帮支持Go
-summary: 云帮支持Go
+title: 通过Golang源码创建
+summary: 通过Golang源码创建
 toc: false
 ---
 
@@ -44,3 +44,8 @@ Go，又称golang，是Google开发的一种静态强类型、编译型，并发
   默认支持版本 0.8.0
 - HG
   默认支持版本3.9
+
+
+## 示例代码
+
+- [Go示例代码](http://code.goodrain.com/demo/go-hello/tree/master)

@@ -1,6 +1,6 @@
 ---
-title: 云帮支持Dockerfile
-summary: 云帮支持Dockerfile
+title: 通过Dockerfile源码创建
+summary: 通过Dockerfile源码创建
 toc: false
 ---
 
@@ -139,3 +139,11 @@ toc: false
    WORKDIR /path/to/workdir
 ```
 用于切换 `RUN`、`CMD`、`ENTRYPOINT` 的工作目录，相当于cd。
+
+## 示例代码
+
+- [Dockerfile示例代码](http://code.goodrain.com/demo/dockerfile/tree/master)
+
+## Dockerfile官方文档
+
+- [builder](https://docs.docker.com/reference/builder/)

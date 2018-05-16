@@ -1,5 +1,5 @@
 ---
-title: 云帮支持PHP
+title: 通过PHP源码创建
 summary: 云帮可以将PHP应用更快速的部署到平台。
 toc: false
 ---
@@ -279,3 +279,7 @@ location ~ ^/(app|app_dev|config)\.php(/|$) {
 ```bash
 web: vendor/bin/heroku-php-nginx -C nginx_app.conf
 ```
+
+## PHP示例代码
+
+- [php示例代码](http://code.goodrain.com/demo/php-hello/tree/master)

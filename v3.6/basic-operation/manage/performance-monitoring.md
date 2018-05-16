@@ -1,5 +1,5 @@
 ---
-title: 监控
+title: 性能分析
 summary: 可选择查看应用走势图。
 toc: false
 ---

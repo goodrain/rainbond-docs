@@ -1,6 +1,6 @@
 ---
-title: 日志
-summary: 日志部分
+title: 日志查看与处理
+summary: 日志查看与处理
 toc: false
 ---
 

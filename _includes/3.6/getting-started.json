@@ -18,7 +18,7 @@
             "title": "使用Rainbond公有云",
             "items": [
                 {
-                    "title": "Rainbond公有云介绍",
+                    "title": "公有云介绍",
                     "urls": [
                         "/${VERSION}/getting-started/public-cloud-brief.html"
                     ]

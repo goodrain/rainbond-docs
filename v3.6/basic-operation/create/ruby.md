@@ -119,3 +119,8 @@ ruby "1.9.3", :engine ="jruby", :engine_version ="1.7.8"
 ```bash
 ruby ENV['CUSTOM_RUBY_VERSION'] || '2.0.0'
 ```
+
+## 示例代码
+
+- [Ruby-Sinatra示例代码](http://code.goodrain.com/demo/ruby-sinatra/tree/master)
+- [Ruby-Rails示例代码](http://code.goodrain.com/demo/ruby-rails/tree/master)

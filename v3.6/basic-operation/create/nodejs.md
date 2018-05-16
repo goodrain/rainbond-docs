@@ -1,6 +1,6 @@
 ---
-title: 云帮支持Node.js
-summary: 云帮支持Node.js
+title: 通过Node.JS源码创建
+summary: 通过Node.JS源码创建
 toc: false
 ---
 <div id="toc"></div>
@@ -94,3 +94,7 @@ web: npm start
 ```
 系统会优先使用 Procfile 中的启动命令。
 {{site.data.alerts.callout_danger}}请注意Profile的语法，冒号后在有一个空格。{{site.data.alerts.end}}
+
+## 示例代码
+
+- [Node.js示例代码](http://code.goodrain.com/demo/nodejs-hello/tree/master)

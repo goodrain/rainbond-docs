@@ -1,26 +1,11 @@
 ---
-title: 设置
+title: 配置健康检查
 summary: 设置模块可以满足您对当前应用的 基础信息、自定义环境变量、应用健康监测、权限、是否删除的管理。
 toc: false
 ---
 
 <div id="toc"></div>
 
-- 设置模块可以满足您对当前应用的 **基础信息**、**自定义环境变量**、**应用健康监测**、**权限** 的管理：
-
-## 基础信息
-
-- 查看当前应用的基础信息：
-
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-config1.png" style="border:1px solid #eee;max-width:100%" />
-
-- 您可以查看应用的 **创建时间**、**应用特性**，如果您的应用是 **[从源码创建](http://www.rainbond.com/docs/dev/user-app-docs/addapp/addapp-code.html)**，您还可以查看 **Git仓库** 、**代码分支** 信息。
-
-## 自定义环境变量
-
-<img src="https://static.goodrain.com/images/acp/docs/user-docs/myapps/V3.5/myapp-config2.png" alt="CockroachDB Admin UI" style="border:1px solid #eee;max-width:100%" />
-
-- 您可以在这里自定义添加或删除环境变量。
 
 ## 应用健康监测
 

@@ -1,5 +1,5 @@
 ---
-title: 从云市安装
+title: 从应用市场创建
 summary: 热门应用、最近部署的应用、最新应用、分享的应用
 toc: false
 
