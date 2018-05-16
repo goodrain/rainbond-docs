@@ -18,8 +18,6 @@ asciicast: true
 
 同样由好雨开源的最佳实践项目云框架中的[Spring Cloud](https://github.com/cloudframeworks-springcloud/user-guide-springcloud)、[api gateway](https://github.com/cloudframeworks-apigateway/user-guide-apigateway)等微服务架构主题，均可完美运行于Rainbond之上，开发者仅需替换实例中业务代码即可变成自己的微服务架构项目，并通过docker-compose的方式一键部署。
 
-![](http://oe5ahutux.bkt.clouddn.com/20171129151194515548783.png)
-
 ## 混合云多云管理
 
 混合云多云管理是Rainbond的另一项优势功能。在云计算飞速发展的今天，众多厂商提供了丰富的各类型公有云资源，Rainbond通过对应用与资源的解耦，将各类资源（私有云服务器、公有云服务器、网络资源）统一整合成Rainbond数据中心，对各类资源进行自动管理，实现跨区域互联与租户化隔离，用户无需关注服务器即可将应用部署于混合云多云环境。
