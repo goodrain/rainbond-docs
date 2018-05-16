@@ -20,7 +20,7 @@ redcarpet:
 
 versions:
   v3.4: v3.4
-  v3.6: v3.6
+  dev: v3.6
   stable: v3.5
 
 release_info:

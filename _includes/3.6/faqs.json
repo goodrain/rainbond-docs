@@ -1,0 +1,35 @@
+{
+    "title": "FAQs",
+    "items": [
+        {
+            "title": "产品 FAQs",
+            "urls": [
+                "/${VERSION}/FAQs/product-faqs.html"
+            ]
+        },
+        {
+            "title": "使用 FAQs",
+            "urls": [
+                "/${VERSION}/FAQs/usage-faqs.html"
+            ]
+        },
+        {
+            "title": "安装与维护 FAQs",
+            "urls": [
+                "/${VERSION}/FAQs/install-maintenance-faqs.html"
+            ]
+        },
+        {
+            "title": "Rainbond 版本比较",
+            "urls": [
+                "/${VERSION}/rainbond-in-comparison.html"
+            ]
+        },
+        {
+            "title": "已知问题",
+            "urls": [
+                "/${VERSION}/known-limitations.html"
+            ]
+        }
+    ]
+}

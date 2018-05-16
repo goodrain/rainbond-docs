@@ -1,0 +1,35 @@
+{
+    "title": "基础操作",
+    "items": [
+        {
+            "title": "管理团队",
+            "urls": [
+                "/${VERSION}/basic-operation/manage-your-team.html"
+            ]
+        },
+        {
+            "title": "管理数据中心",
+            "urls": [
+                "/${VERSION}/basic-operation/manage-your-data-center.html"
+            ]
+        },
+        {
+            "title": "创建应用",
+            "urls": [
+                "/${VERSION}/basic-operation/create-an-application.html"
+            ]
+        },
+        {
+            "title": "管理应用",
+            "urls": [
+                "/${VERSION}/basic-operation/manage-your-application.html"
+            ]
+        },
+        {
+            "title": "分享应用",
+            "urls": [
+                "/${VERSION}/basic-operation/share-an-application.html"
+            ]
+        }
+    ]
+}

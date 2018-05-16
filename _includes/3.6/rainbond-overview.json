@@ -1,0 +1,36 @@
+{
+    "title": "平台概览",
+    "is_top_level": true,
+    "items": [
+        {
+            "title": "Rainbond是什么",
+            "urls": [
+                "/${VERSION}/overview/definition.html"
+            ]
+        },
+        {
+            "title": "Rainbond可以做什么",
+            "urls": [
+                "/${VERSION}/overview/use-case.html"
+            ]
+        },
+        {
+            "title": "Rainbond有哪些特性",
+            "urls": [
+                "/${VERSION}/overview/features.html"
+            ]
+        },
+        {
+            "title": "Rainbond有什么优势",
+            "urls": [
+                "/${VERSION}/overview/advantages.html"
+            ]
+        },
+        {
+            "title": "Rainbond版本对比（开源版/企业版）",
+            "urls": [
+                "/${VERSION}/overview/edition.html"
+            ]
+        }
+    ]
+}

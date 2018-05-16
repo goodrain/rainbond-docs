@@ -1,0 +1,28 @@
+{
+    "title": "贡献",
+    "items": [
+       {
+            "title": "开发文档",
+            "items":[
+                {
+                    "title":"数据中心API说明",
+                    "urls": [
+                        "/${VERSION}/open-api.html"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "参与Rainbond项目",
+            "urls": [
+                "/${VERSION}/contribute-to-rainbond.html"
+            ]
+        },
+        {
+            "title": "改进文档",
+            "urls": [
+                "/${VERSION}/improve-the-docs.html"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "title": "快速开始",
+    "items": [
+        {
+            "title": "在线私有化安装",
+            "urls": [
+                "/${VERSION}/getting-started/before-installation.html",
+                "/${VERSION}/getting-started/online-installation.html"
+            ]
+        },
+        {
+            "title": "通过阿里云市场镜像安装",
+            "urls": [
+                "/${VERSION}/getting-started/image-install.html"
+            ]
+        },
+        {
+            "title": "使用Rainbond公有云",
+            "items": [
+                {
+                    "title": "Rainbond公有云介绍",
+                    "urls": [
+                        "/${VERSION}/getting-started/public-cloud-brief.html"
+                    ]
+                },
+                {
+                    "title": "数据中心",
+                    "urls": [
+                        "/${VERSION}/getting-started/data-center.html"
+                    ]
+                },
+                {
+                    "title": "计费方案",
+                    "urls": [
+                        "/${VERSION}/getting-started/public-cloud-charge.html"
+                    ]
+                }
+            ]
+        }
+    ]
+}
