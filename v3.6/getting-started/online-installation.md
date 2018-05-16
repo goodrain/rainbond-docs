@@ -7,15 +7,15 @@ asciicast: true
 ---
 
 <div class="filters filters-big clearfix">
-    <a href="pre-install.html"><button class="filter-button ">安装前准备</button></a>
-    <a href="install.html"><button class="filter-button current"><strong>安装</strong></button></a>
+    <a href="before-installation.html"><button class="filter-button ">安装前准备</button></a>
+    <a href="online-installation.html"><button class="filter-button current"><strong>安装</strong></button></a>
 </div>
 
 <div id="toc"></div>
 
 {{site.data.alerts.callout_danger}}
 
-- 安装前请阅读[安装前准备](/docs/stable/getting-started/pre-install.html)，在确定符合安装条件后执行安装操作
+- 安装前请阅读[安装前准备](before-installation.html)，在确定符合安装条件后执行安装操作
 
 {{site.data.alerts.end}}
 

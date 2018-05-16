@@ -6,8 +6,8 @@ toc_not_nested: true
 asciicast: true
 ---
 <div class="filters filters-big clearfix">
-    <a href="pre-install.html"><button class="filter-button current"><strong>安装前准备</strong></button></a>
-    <a href="install.html"><button class="filter-button">安装</button></a>
+    <a href="before-installation.html"><button class="filter-button current"><strong>安装前准备</strong></button></a>
+    <a href="online-installation.html"><button class="filter-button">安装</button></a>
 </div>
 
 <div id="toc"></div>
@@ -35,10 +35,10 @@ CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个�
 | 节点类型      | 分区目录        | 分区大小                          | 分区说明                                      |
 | :------------ | :-------------- | :-------------------------------- | :-------------------------------------------- |
 | 管理/计算节点 | /               | 20G                               | 系统的根分区                                  |
-| 管理/计算节点 | /var/lib/docker | 50G(测试环境)</br>100G+(生产环境) | 储存docker镜像                                |
-| 管理/计算节点 | /opt/rainbond   | 50G(测试环境)</br>100G+(生产环境) | 云帮安装目录；</br>存储集群管理程序日志和数据 |
-| 管理节点      | /grdata         | 50G(测试环境)</br>500G+(生产环境) | 集群公共数据，应用公共持久化存储              |
-| 管理节点      | /cache          | 20G(测试环境)</br>100G+(生产环境) | 源码构建缓存                                  |
+| 管理/计算节点 | /var/lib/docker | 50G(测试)</br>100G+(生产) | 储存docker镜像                                |
+| 管理/计算节点 | /opt/rainbond   | 50G(测试)</br>100G+(生产) | 云帮安装目录；</br>存储集群管理程序日志和数据 |
+| 管理节点      | /grdata         | 50G(测试)</br>500G+(生产) | 集群公共数据，应用公共持久化存储              |
+| 管理节点      | /cache          | 20G(测试)</br>100G+(生产) | 源码构建缓存                                  |
 
 {{site.data.alerts.callout_danger}}
 
@@ -51,12 +51,12 @@ CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个�
 
 {{site.data.alerts.callout_danger}}
 dns 配置建议使用 114.114.114.114等国内dns server
-一定要配置静态ip，确保重启节点，不会修改节点ip和dns配置，参考文档：<a href="/docs/stable/other/static-ip.html" target="_blank">配置静态IP</a>
+一定要配置静态ip，确保重启节点，不会修改节点ip和dns配置，参考文档：<a href="../other/static-ip.html" target="_blank">配置静态IP</a>
 {{site.data.alerts.end}}
 
 ## 配置时区与时间同步
 
-确定系统时间与时区(Asia/Shanghai)同步，参考[配置时区与时间同步](/docs/stable/other/timezone.html)
+确定系统时间与时区(Asia/Shanghai)同步，参考[配置时区与时间同步](../other/timezone.html)
 
 ## 主机名设置
 
