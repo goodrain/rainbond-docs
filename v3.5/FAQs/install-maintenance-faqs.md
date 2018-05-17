@@ -34,13 +34,6 @@ dig *.y5vhe.goodrain.org | grep -A 2 "ANSWER SECTION"
 安装日志默认 /var/log/event/
 ```
 
-### 安装过程中可能遇到到问题
-
-```
-Q:安装任务卡住或者停止了,如何处理
-A: 检查当前任务是否生成相关日志文件，若未生成,则可以新开一个终端，执行systemctl restart rainbond-node；如重启node后以及未执行，使用`grctl tasks get <任务>` 检查依赖任务是否执行成功，若未成功，则检查依赖任务执行日志。
-```
-
 ### 版本3.5升级到3.5.1操作
 
 ```
