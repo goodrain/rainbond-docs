@@ -1,6 +1,6 @@
 ---
 title: 应用导入导出
-summary: 云帮应用导和导出功能使用文档
+summary: 云帮应用导入导出功能使用文档
 toc: false
 toc_not_nested: true
 asciicast: true
