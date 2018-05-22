@@ -7,9 +7,10 @@
 
     // 基础操作
     {% include 3.6/basic-operation.json %},
+
     // 高级操作
     {% include 3.6/advanced-operation.json %},
-
+    
     // 平台维护
     {% include 3.6/maintenance.json %},
     

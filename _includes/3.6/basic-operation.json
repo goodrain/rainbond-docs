@@ -181,6 +181,6 @@
             "urls": [
                 "/${VERSION}/basic-operation/manage-your-data-center.html"
             ]
-        },
+        }
     ]
 }
