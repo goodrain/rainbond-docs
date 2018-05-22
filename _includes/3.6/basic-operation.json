@@ -154,9 +154,26 @@
             ]
         },
         {
-            "title": "管理团队",
-            "urls": [
-                "/${VERSION}/basic-operation/manage-your-team.html"
+            "title": "团队(租户)&用户管理",
+            "items":[
+                {
+                    "title":"团队管理",
+                    "urls": [
+                        "/${VERSION}/basic-operation/manage-your-team.html"
+                    ]
+                },
+                {
+                    "title":"管理团队用户",
+                    "urls": [
+                        "/${VERSION}/basic-operation/manage-your-team-user.html"
+                    ]
+                },
+                {
+                    "title":"管理团队权限",
+                    "urls": [
+                        "/${VERSION}/basic-operation/manage-your-permissions.html"
+                    ]
+                }
             ]
         },
         {
