@@ -24,10 +24,8 @@ toc: false
   > 您添加的角色名称不可以与系统默认的角色名称相同
   >
   > 角色名称是三十个字符内的数字/字母/中文字符/下划线/中划线的任意组合
-  ![](https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_role.jpg)
-
-##### #####
   
+ ![](http://http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/permissions-manage/add_role2.jpg) 
 
 * ##### 删除角色
 
@@ -36,7 +34,9 @@ toc: false
   >注意事项
   >
   >如果您的团队中已经有成员拥有此角色，那您不能直接删除该角色
-![](https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rm_role.png)
+
+
+ ![](https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rm_role.png)
   
 
 * ##### 编辑角色
