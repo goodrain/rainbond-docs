@@ -24,8 +24,7 @@ toc: false
   > 您添加的角色名称不可以与系统默认的角色名称相同
   >
   > 角色名称是三十个字符内的数字/字母/中文字符/下划线/中划线的任意组合
-  
- ![](http://http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/permissions-manage/add_role2.jpg) 
+  ![](http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_role2.jpg)
 
 * ##### 删除角色
 
@@ -36,7 +35,7 @@ toc: false
   >如果您的团队中已经有成员拥有此角色，那您不能直接删除该角色
 
 
- ![](https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rm_role.png)
+   ![](https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rm_role.png)
   
 
 * ##### 编辑角色
@@ -94,7 +93,8 @@ toc: false
 
   如果您拥有的权限中存在 `应用权限设置` 这一权限操作，那么您可以在此应用中编辑一个 `应用成员` 在此应用下的权限。首先进入到您的应用页面，点击 `设置` 选项，在该页面最下方的 `成员应用权限` 一栏中点击您想要编辑成员后方的 `编辑权限` 按钮 ，给该成员选择一些新的权限后点击确认即可完成修改。
  ![](http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/team1.jpg)
- ![](http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/team2.jpg)
+ 
+ ![](static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/team2.jpg)
 
 
 
