@@ -41,7 +41,7 @@ toc: false
 * ##### 编辑角色
 
   您可以修改自定义角色的名称以及这个角色对应的权限选项。但您在本团队中的角色必须是`owner(创建者)`或者`admin(管理员)`才可以进行修改自定义角色的操作。您可以在`团队管理`中的`角色管理`一栏中点击想要修改的角色后方的`修改`按钮，修改角色名称以及对应的权限选项，确认无误后点击确认即可完成对次角色的修改，
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_role.jpg" style="border:1px solid #eee;width:60%"/></center>
+  <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_role.jpg" style="border:1px solid #eee;width:60%"/></center>
   
 * ##### 添加团队成员
 
@@ -52,13 +52,13 @@ toc: false
 * ##### 删除团队成员
 
      如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中点击您想要删除成员后方的`删除`按钮，再次确认后即可将此成员在本团队中移除。
- <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rem_user.jpg" style="border:1px solid #eee;width:60%"/></center>
+    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rem_user.jpg" style="border:1px solid #eee;width:60%"/></center>
      
 
 * ##### 修改成员角色
 
      如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中点击您想要修改的成员后方的`修改角色`按钮，给该成员选择一些您团队中已经存在的角色，点击确认即可修改该成员在此团队中的角色。
- <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_user.jpg" style="border:1px solid #eee;width:60%"/></center>
+    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_user.jpg" style="border:1px solid #eee;width:60%"/></center>
 
  
 ## 应用权限管理
@@ -93,7 +93,7 @@ toc: false
 
   如果您拥有的权限中存在 `应用权限设置` 这一权限操作，那么您可以在此应用中编辑一个 `应用成员` 在此应用下的权限。首先进入到您的应用页面，点击 `设置` 选项，在该页面最下方的 `成员应用权限` 一栏中点击您想要编辑成员后方的 `编辑权限` 按钮 ，给该成员选择一些新的权限后点击确认即可完成修改。
   <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/team1.jpg" style="border:1px solid #eee;width:60%"/></center>
- <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/service.jpg" style="border:1px solid #eee;width:60%"/></center>
+  <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/service.jpg" style="border:1px solid #eee;width:60%"/></center>
 
 
 
