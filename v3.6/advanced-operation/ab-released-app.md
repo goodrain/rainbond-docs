@@ -34,6 +34,7 @@ Rainbond默认的代理插件支持4层负载均衡，借助Service Mesh便于�
 
 ## 配置操作
 
+
 首先在`团队插件`中安装`服务网络治理插件`，在您的上游应用中开通此插件，配置您的下游应用及参数设置来灵活的管理您的下游应用，比如您可以设置`HEADERS`的值，根据请求头中的参数来决定此次请求应该分流到哪个具体的个下游应用中，以此来实现您的A/B测试功能。
 <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/extended.jpg" style="border:1px solid #eee;width:60%"/></center>
 <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/config.jpg" style="border:1px solid #eee;width:60%"/></center>
@@ -43,10 +44,14 @@ Rainbond默认的代理插件支持4层负载均衡，借助Service Mesh便于�
 - WEIGHT：转发权重设置，范围1~100。规定相同的DOMAINS与PREFIX组合情况下，权重总和为100。数值越大，权重越高。
 - HEADERS：HTTP请求头设置，多个参数以;分隔，您可以根据请求头中的参数不同来决定去请求哪个下游应用
 - LIMITS：TCP限速，设值值为0则熔断
-- MaxPendingRequests：HTTP最大挂起请求数，设值值为0则挂起
+- MaxPendingRequests：HTTP最大挂起请求数，设置值为0则挂起
+- MaxRequests：在任何给定时间，可以处理的最大请求数
+- MaxConnections：最大连接数，为上游群集中的所有主机建立的最大连接数
 - MaxEjectionPercent：最大降级节点百分比，比如您有十个节点，最大降级节点单百分比为20%，那么最大降级节点为2
 - ConsecutiveErrors：连续错误降级阀值。当下游服务错误率到达一个阀值，将上游请求快速失败返回，保护上游服务稳定，同时又不给下游服务增加压力，做到快速失败、快速返回。
-- MaxActiveRetries：最大尝试重试的次数。
+- MaxActiveRetries：可以执行的最大重试次数，达到设置值请求将被熔断
+- IntervalMS：被逐出后多少秒(s)后自动重新投入使用
+- BaseEjectionTimeMS：降级基准时间(ms)，主机被逐出几毫秒。意味着主机被标记为不健康，在负载平衡期间不会使用，除非负载平衡器处于紧急情况。毫秒数等于BaseEjectionTimeMS值乘以主机被逐出的次数。这会导致主机如果继续失败，则会被逐出更长和更长的时间。
 
 
 
