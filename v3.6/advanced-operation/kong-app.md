@@ -22,11 +22,11 @@ asciicast: true
 ### 部署
 首先登录云帮平台，在我的应用中新建一个组，然后在云市中找到Kong，将它安装在自定义的组中，如下：
 
-![](https://github.com/goodrain/rainbond-docs/blob/master/v3.6/advanced-operation/install-kong.png)
+![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/install-kong.png)
 
 安装好以后，点击组名查看该组的拓扑图：
 
-![](https://github.com/goodrain/rainbond-docs/blob/master/v3.6/advanced-operation/installed-kong.png)
+![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/installed-kong.png)
 
 组件说明：
 * `Kong`：这个就是kong，它具有对客户端请求的转发、认证、限流等功能。
@@ -45,22 +45,22 @@ asciicast: true
    * `upstream_url`: http://127.0.0.1:8080/api/persons
 1. 同样的方式将`newinfo`也添加进入。
 1. 点击页面上的`APIs`，如下：
-  
-    ![](https://github.com/goodrain/rainbond-docs/blob/master/v3.6/advanced-operation/apis-kong.png)
+    
+    ![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/apis-kong.png)
 
 ### 访问
 接下来，回到云帮平台管理页面，访问Kong，并在其链接后加上`/p`就可以访问到`person`组件的`GET /api/persons`。
 
-![](https://github.com/goodrain/rainbond-docs/blob/master/v3.6/advanced-operation/access-api.png)
+![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/access-api.png)
 
-![](https://github.com/goodrain/rainbond-docs/blob/master/v3.6/advanced-operation/accessed-api.png)
+![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/accessed-api.png)
 
 ### 加入自定义API
 假设我们现在有一个叫web的应用，它含有一个REST API：`GET /api/applist`，那么将这个API注册到Kong的步骤如下：
 
 1. 将自定义的应用添加到Kong的依赖中，如下：
     
-    ![](https://github.com/goodrain/rainbond-docs/blob/master/v3.6/advanced-operation/add-dps.png)
+    ![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/add-dps.png)
 1. 然后在弹出的框中选择自定义的应用。
 1. 重启Kong。
 1. 按照前面“添加API”的步骤，将自定义的API添加到Kong即可。
