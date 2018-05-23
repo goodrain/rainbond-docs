@@ -12,7 +12,7 @@ toc: false
 ## 团队权限管理
 > 使用说明
 
-* ##### 添加角色
+* 添加角色
 
   如果您是团队的`owner(创建者)`或者`admin(管理员)`，您可以在`团队管理`中的`角色管理`一栏中点击`添加角色`来为本团队新添加一个角色，同时为这个角色绑定您需要的权限选项。
 
@@ -24,10 +24,10 @@ toc: false
   >
   > 角色名称是三十个字符内的数字/字母/中文字符/下划线/中划线的任意组合
   <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_role2.jpg" style="border:1px solid #eee;width:100%"/></center>
+  
+* 删除角色
 
-* ##### 删除角色
-
-  您可以删除团队中自定义的角色，但您在本团队中的角色必须是`owner(创建者)`或者`admin(管理员)`才可以进行删除自定义角色的操作。您可以在`团队管理`中的`   角色管理`一栏中点击想要删除角色后方的`删除`按钮，再次点击确认后即可删除本角色。
+   您可以删除团队中自定义的角色，但您在本团队中的角色必须是`owner(创建者)`或者`admin(管理员)`才可以进行删除自定义角色的操作。您可以在`团队管理`中的角色管理`一栏中点击想要删除角色后方的`删除`按钮，再次点击确认后即可删除本角色。
 
   >注意事项
   >
@@ -37,7 +37,7 @@ toc: false
    <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rm_role.png" style="border:1px solid #eee;width:100%"/></center>
   
 
-* ##### 编辑角色
+* 编辑角色
 
     您可以修改自定义角色的名称以及这个角色对应的权限选项。但您在本团队中的角色必须是`owner(创建者)`或者`admin(管理员)`才可以进行修改自定义角色的操作。您可以在`团队管理`中的`角色管理`一栏中点击想要修改的角色后方的`修改`按钮，修改角色名称以及对应的权限选项，确认无误后点击确认即可完成对次角色的修改，
   <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_role.jpg" style="border:1px solid #eee;width:100%"/></center>
