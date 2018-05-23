@@ -51,7 +51,7 @@ asciicast: true
 ### 访问
 接下来，回到云帮平台管理页面，访问Kong，并在其链接后加上`/p`就可以访问到`person`组件的`GET /api/persons`。
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/access-api.png" style="border:1px solid #eee;max-width:100%" />
+<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/access-kong.png" style="border:1px solid #eee;max-width:100%" />
 
 <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/accessed-api.png" style="border:1px solid #eee;max-width:100%" />
 
