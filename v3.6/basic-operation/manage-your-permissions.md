@@ -23,7 +23,8 @@ toc: false
   > 您添加的角色名称不可以与系统默认的角色名称相同
   >
   > 角色名称是三十个字符内的数字/字母/中文字符/下划线/中划线的任意组合
-  <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_role2.jpg" style="border:1px solid #eee;width:100%"/></center>
+  
+<center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_role2.jpg" style="border:1px solid #eee;width:100%"/></center>
   
 * 删除角色
 
