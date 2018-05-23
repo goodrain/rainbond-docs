@@ -8,7 +8,6 @@ asciicast: true
 
 <div id="toc"></div>
 
-# 灰度发布方案
 
 
 
@@ -24,7 +23,7 @@ asciicast: true
 
 我们云帮支持通过简单的配置帮您实现灰度发布的需求。
 
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/selector.png" style="border:1px solid #eee;width:60%"/></center>
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/selector.png" style="border:1px solid #eee;width:80%"/></center>
 
 
 ## 应用连接
@@ -33,9 +32,9 @@ asciicast: true
 
 应用依赖信息表明了当前应用都依赖了哪些其他应用。通过添加依赖，可以让当前应用读取被依赖应用的连接信息，通过这些连接信息，您的应用会自动与被依赖应用互动，为您提供相应的服务。
 
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/general.jpg" style="border:1px solid #eee;width:60%"/></center>
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/general.jpg" style="border:1px solid #eee;width:80%"/></center>
 
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/rely.jpg" style="border:1px solid #eee;width:60%"/></center>
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/rely.jpg" style="border:1px solid #eee;width:80%"/></center>
 
 
 ## 配置操作
@@ -43,9 +42,9 @@ asciicast: true
 
 首先在您的团队`团队插件`中安装`服务网络治理插件`，在需要灰度发布的应用中部署服务，在您的上游应用中开通此插件，添加下游应用并配置它们的参数信息。您可以通过各下游应用的`DOMAINS`与`PREFIX`相同的情况下，给`WEIGHT(权重值)`参数分配不同的数值来控制流量的转发，实现灰度发布的功能，通过对新版本的观察，进而决定继续全量升级或回滚应用。
 
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/extended.jpg" style="border:1px solid #eee;width:60%"/></center>
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/extended.jpg" style="border:1px solid #eee;width:80%"/></center>
 
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/config.jpg" style="border:1px solid #eee;width:60%"/></center>
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/config.jpg" style="border:1px solid #eee;width:80%"/></center>
 
 - PREFIX：URL前缀path配置，例如/api
 - DOMAINS：内网请求域名配置，基于配置的域名转发至下游应用，仅支持一级域名
