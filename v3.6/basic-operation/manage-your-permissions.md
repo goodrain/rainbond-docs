@@ -24,7 +24,7 @@ toc: false
   > 您添加的角色名称不可以与系统默认的角色名称相同
   >
   > 角色名称是三十个字符内的数字/字母/中文字符/下划线/中划线的任意组合
-  <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_role2.jpg" style="border:1px solid #eee;width:60%"/></center>
+  <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_role2.jpg" style="border:1px solid #eee;width:100%"/></center>
 
 * ##### 删除角色
 
@@ -35,13 +35,13 @@ toc: false
   >如果您的团队中已经有成员拥有此角色，那您不能直接删除该角色
 
 
-   <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rm_role.png" style="border:1px solid #eee;width:60%"/></center>
+   <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rm_role.png" style="border:1px solid #eee;width:100%"/></center>
   
 
 * ##### 编辑角色
 
   您可以修改自定义角色的名称以及这个角色对应的权限选项。但您在本团队中的角色必须是`owner(创建者)`或者`admin(管理员)`才可以进行修改自定义角色的操作。您可以在`团队管理`中的`角色管理`一栏中点击想要修改的角色后方的`修改`按钮，修改角色名称以及对应的权限选项，确认无误后点击确认即可完成对次角色的修改，
-  <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_role.jpg" style="border:1px solid #eee;width:60%"/></center>
+  <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_role.jpg" style="border:1px solid #eee;width:100%"/></center>
   
 * ##### 添加团队成员
 
@@ -52,13 +52,13 @@ toc: false
 * ##### 删除团队成员
 
      如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中点击您想要删除成员后方的`删除`按钮，再次确认后即可将此成员在本团队中移除。
-    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rem_user.jpg" style="border:1px solid #eee;width:60%"/></center>
+    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rem_user.jpg" style="border:1px solid #eee;width:100%"/></center>
      
 
 * ##### 修改成员角色
 
      如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中点击您想要修改的成员后方的`修改角色`按钮，给该成员选择一些您团队中已经存在的角色，点击确认即可修改该成员在此团队中的角色。
-    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_user.jpg" style="border:1px solid #eee;width:60%"/></center>
+    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_user.jpg" style="border:1px solid #eee;width:100%"/></center>
 
  
 ## 应用权限管理
@@ -92,8 +92,8 @@ toc: false
 * ##### 修改应用成员权限
 
   如果您拥有的权限中存在 `应用权限设置` 这一权限操作，那么您可以在此应用中编辑一个 `应用成员` 在此应用下的权限。首先进入到您的应用页面，点击 `设置` 选项，在该页面最下方的 `成员应用权限` 一栏中点击您想要编辑成员后方的 `编辑权限` 按钮 ，给该成员选择一些新的权限后点击确认即可完成修改。
-  <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/team1.jpg" style="border:1px solid #eee;width:60%"/></center>
-  <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/service.jpg" style="border:1px solid #eee;width:60%"/></center>
+  <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/team1.jpg" style="border:1px solid #eee;width:100%"/></center>
+  <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/service.jpg" style="border:1px solid #eee;width:100%"/></center>
 
 
 
@@ -102,90 +102,46 @@ toc: false
 ## 权限功能说明
 
 
-1. ###### 登入团队
+* ###### 登入团队:  该权限控制一些团队信息的获取，如果您定义的角色是为了使用该团队，那么请您务必选择该权限
 
-   该权限控制一些团队信息的获取，如果您定义的角色是为了使用该团队，那么请您务必选择该权限
+* ###### 开通数据中心:  控制该角色能否为团队开通数据中心
 
-2. ###### 开通数据中心
+* ###### 团队权限设置:  为团队添加团队成员，删除团队成员，修改团队成员角色
 
-   控制该角色能否为团队开通数据中心
+* ###### 自定义角色:  能否在团队中添加自定义角色，删除自定义角色，修改自定义角色对应的权限。目前只有团队的owner与admin拥有此权限
 
-3. ###### 团队权限设置
+* ###### 应用导入导出:  控制云市应用的导入和导出操作
 
-   为团队添加团队成员，删除团队成员，修改团队成员角色
+* ###### 查看插件信息:  团队中我的插件板块的查看权限
 
-4. ###### 自定义角色
+* ###### 插件管理:  在团队中新建插件，删除插件，安装插件，管理插件等操作权限
 
-   能否在团队中添加自定义角色，删除自定义角色，修改自定义角色对应的权限。目前只有团队的owner与admin拥有此权限
+* ###### 应用组管理:  新建应用组，删除应用组，应用组内应用的移动
 
-5. ###### 应用导入导出
+* ###### 应用组分享:  应用组分享的权限
 
-   控制云市应用的导入和导出操作
+* ###### 创建应用:  创建应用的权限
 
-6. ###### 查看插件信息
+* ###### 删除应用:  删除一个应用的权限
 
-   团队中我的插件板块的查看权限
+* ###### 查看应用信息:  应用组总览信息查看，应用的信息获取和查看
 
-7. ###### 插件管理
+* ###### 部署应用:  应用的构建和部署权限
 
-   在团队中新建插件，删除插件，安装插件，管理插件等操作权限
+* ###### 启动应用:  启动一个应用的权限
 
-8. ###### 应用组管理
+* ###### 关闭应用:  关闭一个应用的权限
 
-   新建应用组，删除应用组，应用组内应用的移动
+* ###### 重启应用:  重启一个应用的权限
 
-9. ###### 应用组分享
+* ###### 回滚应用:  回滚一个应用的权限
 
-   应用组分享的权限
+* ###### 应用容器管理:  获取容器节点与进入容器
 
-10. ###### 创建应用
+* ###### 应用伸缩管理:  应用伸缩板块的操作权限
 
-    创建应用的权限
+* ###### 应用扩展管理:  应用扩展板块的操作权限
 
-11. ###### 删除应用
+* ###### 应用配置管理:  应用依赖，存储，端口，特性，环境变量，健康监测等应用的配置操作权限
 
-    删除一个应用的权限
-
-12. ###### 查看应用信息
-
-    应用组总览信息查看，应用的信息获取和查看
-
-13. ###### 部署应用
-
-    应用的构建和部署权限
-
-14. ###### 启动应用
-
-    启动一个应用的权限
-
-15. ###### 关闭应用
-
-    关闭一个应用的权限
-
-16. ###### 重启应用
-
-    重启一个应用的权限
-
-17. ###### 回滚应用
-
-    回滚一个应用的权限
-
-18. ###### 应用容器管理
-
-    获取容器节点与进入容器
-
-19. ###### 应用伸缩管理
-
-    应用伸缩板块的操作权限
-
-20. ###### 应用扩展管理
-
-    应用扩展板块的操作权限
-
-21. ###### 应用配置管理
-
-    应用依赖，存储，端口，特性，环境变量，健康监测等应用的配置操作权限
-
-22. ###### 应用权限设置
-
-    在一个应用中添加应用成员，删除应用成员，修改应用成员在本应用中的权限
+* ###### 应用权限设置:  在一个应用中添加应用成员，删除应用成员，修改应用成员在本应用中的权限
