@@ -8,7 +8,6 @@ asciicast: true
 
 <div id="toc"></div>
 
-# 应用A/B测试方案
 
 
 
