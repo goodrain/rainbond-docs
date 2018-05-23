@@ -26,23 +26,23 @@ asciicast: true
 
 安装好以后，点击组名查看该组的拓扑图：
 
-![](https://github.com/goodrain/rainbond-docs/blob/master/v3.6/advanced-operation/installd-kong.png)
+![](https://github.com/goodrain/rainbond-docs/blob/master/v3.6/advanced-operation/installed-kong.png)
 
 组件说明：
-`Kong`：这个就是kong，它具有对客户端请求的转发、认证、限流等功能。
-`Kong-Dashboard`：Kong的WEB客户端，通过它可以在页面上查看和管理Kong。
-`Kong-Database`：一个postgres数据库，它被Kong依赖，存放Kong运行时产生的数据。
-`newinfo`：一个用于测试的web服务，包含一个rest api：`GET /api/newinfos`。
-`person`：一个用于测试的web服务，包含一个rest api：`GET /api/persons`。
-`mysql5.5`：mysql数据库，被`newinfo`和`person`所依赖。
+* `Kong`：这个就是kong，它具有对客户端请求的转发、认证、限流等功能。
+* `Kong-Dashboard`：Kong的WEB客户端，通过它可以在页面上查看和管理Kong。
+* `Kong-Database`：一个PostgreSQL数据库，它被Kong依赖，存放Kong运行时产生的数据。
+* `newinfo`：一个用于测试的web服务，包含一个rest api：`GET /api/newinfos`。
+* `person`：一个用于测试的web服务，包含一个rest api：`GET /api/persons`。
+* `mysql5.5`：mysql数据库，被`newinfo`和`person`所依赖。
 
 ### 添加API
 1. 等待所有组件启动以后，访问`Kong-Dashboard`组件，进入Kong的管理页面，点击`CREATE AN API`。
 1. 填写以下选项，其它选项默认：
-   * name: get-person
-   * uris: /p
-   * method: GET
-   * upstream_url: http://127.0.0.1:8080/api/persons
+   * `name`: get-person
+   * `uris`: /p
+   * `method`: GET
+   * `upstream_url`: http://127.0.0.1:8080/api/persons
 1. 同样的方式将`newinfo`也添加进入。
 1. 点击页面上的`APIs`，如下：
   
