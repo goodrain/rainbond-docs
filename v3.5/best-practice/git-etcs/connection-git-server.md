@@ -171,8 +171,8 @@ EOF
 该目录会被 [rbd-chaos](/docs/stable/platform-maintenance/add-management-node/component-introduction/rbd-chaos.html) 组件挂载并使用。
 {{site.data.alerts.end}}
 
-#### 云帮公有云的处理方式
-公有云针对该问题只能通过修改ssh地址的方式来支持：
+#### 云帮部署gitlab的ssh协议处理方式
+如果是上传大文件，建议使用ssh协议。另外ssh协议问题目前只能通过修改ssh地址的方式来支持：
 
 ```bash
 # 默认地址
@@ -180,4 +180,8 @@ git@gr6a10f1.demo.ali-sh-s1.goodrain.net:test/helloworld.git
 
 # 修改为
 ssh://git@gr6a10f1.demo.ali-sh-s1.goodrain.net:20592/test/helloworld.git
+
+# 如git clone 
+git clone ssh://git@gr6a10f1.demo.ali-sh-s1.goodrain.net:20592/test/helloworld.git
+
 ```
