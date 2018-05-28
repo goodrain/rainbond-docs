@@ -29,6 +29,8 @@ toc: false
 * #### 开启功能
 
   在您的应用中请打开自动部署功能，并复制我们给您的URL
+ 
+    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/webhooks.jpg" style="border:1px solid #eee;width:100%"/></center>
 
 * #### 配置webhooks
   * 正确填写URL
