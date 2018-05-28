@@ -15,11 +15,12 @@ toc: false
 
 如果您想对您的应用使用自动部署，则需要符合以下几点要求。
 
->1. 您的应用是由源码创建，目前支持的代码仓库为`GITHUB`与`GITLAB`
+>1. 您的应用是由源码创建(官方demo除外)，目前支持的代码仓库为`GITHUB`与`GITLAB`
 >2. 确定您对该应用已经`开启`了此功能
 >3. 需要您为代码仓库中的项目正确`配置webhooks`
 >4. 目前仅支持项目的`push`事件
 >5. 提交信息中包含触发关键字`@deploy`
+>6. 您的应用状态必须是正常`运行中`
 
 
 
@@ -42,6 +43,6 @@ toc: false
   > 如果您的项目存放在`GITLAB`中，请看这里
    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/gitlab.jpg" style="border:1px solid #eee;width:100%"/></center>
   
-  * #### 提交信息
-    当您往代码仓库push您的项目时，请在提交信息的末尾
+* #### 提交信息
+    当您往代码仓库push您的项目时，请在提交信息的末尾添加触发自动部署的标识字符串：`@deploy`
    
