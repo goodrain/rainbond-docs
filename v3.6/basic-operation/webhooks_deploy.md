@@ -37,13 +37,13 @@ toc: false
   * 确定添加webhooks成功
   ---
 
-  > 如果您的项目存放在`GITHUB`中，请看这里
+  如果您的项目存放在`GITHUB`中，请看这里
   <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/github.jpg" style="border:1px solid #eee;width:100%"/></center>
 
 ---
 
-  > 如果您的项目存放在`GITLAB`中，请看这里
-   <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/gitlab.jpg" style="border:1px solid #eee;width:100%"/></center>
+  如果您的项目存放在`GITLAB`中，请看这里
+    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/gitlab.jpg" style="border:1px solid #eee;width:100%"/></center>
   
 * #### 提交信息
     当您往代码仓库push您的项目时，请在提交信息的末尾添加触发自动部署的标识字符串：`@deploy`
