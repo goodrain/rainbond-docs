@@ -39,7 +39,8 @@ toc: false
 
   如果您的项目存放在`GITHUB`中，请看这里
   <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/github.jpg" style="border:1px solid #eee;width:100%"/></center>
-  ---
+  
+  
     如果您的项目存放在`GITLAB`中，请看这里
      <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/gitlab.jpg" style="border:1px solid     #eee;width:100%"/></center>
   
