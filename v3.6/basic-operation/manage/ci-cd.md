@@ -30,13 +30,13 @@ toc: false
 
 ## 如何配置
 
-* #### 开启功能
+* 开启功能
 
   在您的应用中请打开自动部署功能，并复制我们给您的URL粘贴到您的webhooks设置中
  
     <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/webhooks.jpg" style="border:1px solid #eee;width:100%"/></center>
 
-* #### 配置webhooks
+* 配置webhooks
   * 正确填写URL
   * 选择ContentType为`json`格式
   * 选择事件为`push`事件
@@ -50,5 +50,5 @@ toc: false
     如果您的项目存放在`GITLAB`中，请看这里
      <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/gitlab.jpg" style="border:1px solid     #eee;width:100%"/></center>
   
-* #### 提交信息
-    当您往代码仓库push您的项目时，请在提交信息的末尾添加触发自动部署的标识字符串：`@deploy`
+* 提交信息
+当您往代码仓库push您的项目时，请在提交信息的末尾添加触发自动部署的标识字符串：`@deploy`
