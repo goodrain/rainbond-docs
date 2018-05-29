@@ -40,7 +40,6 @@ toc: false
   * 正确填写URL
   * 选择ContentType为`json`格式
   * 选择事件为`push`事件
-  * 确定添加webhooks成功
   ---
 
   如果您的项目存放在`GITHUB`中，请看这里
@@ -51,4 +50,5 @@ toc: false
      <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/gitlab.jpg" style="border:1px solid     #eee;width:100%"/></center>
   
 * 提交信息
-当您往代码仓库push您的项目时，请在提交信息的末尾添加触发自动部署的标识字符串：`@deploy`
+
+  当您往代码仓库push您的项目时，请在提交信息的末尾添加触发自动部署的标识字符串：`@deploy`
