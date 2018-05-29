@@ -40,7 +40,7 @@ toc: false
   * 正确填写URL
   * 选择ContentType为`json`格式
   * 选择事件为`push`事件
-  ---
+  * 添加webhooks成功
 
   如果您的项目存放在`GITHUB`中，请看这里
   <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/github.jpg" style="border:1px solid #eee;width:100%"/></center>
