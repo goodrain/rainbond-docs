@@ -2,6 +2,8 @@
 title: 持续构建与部署
 summary: 持续构建与部署
 toc: false
+toc_not_nested: true
+asciicast: true
 
 ---
 
