@@ -1,5 +1,5 @@
 {
-    "title": "平台概览",
+    "title": "产品概览",
     "is_top_level": true,
     "items": [
         {
@@ -24,6 +24,12 @@
             "title": "Rainbond有什么优势",
             "urls": [
                 "/${VERSION}/overview/advantages.html"
+            ]
+        },
+        {
+            "title": "Rainbond版本开发计划（Roadmap）",
+            "urls": [
+                "/${VERSION}/roadmap.html"
             ]
         },
         {
