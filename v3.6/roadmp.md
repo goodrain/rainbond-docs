@@ -1,6 +1,6 @@
 ---
 title: 版本功能计划
-summary: This document defines the roadmap for TiDB development.
+summary: This document defines the roadmap for Rainbond development.
 toc: false
 ---
 
@@ -10,23 +10,23 @@ This document defines the roadmap for Rainbond development.
 ## V3.6
 *Estimated release time: 2018-06-15*
 
-- [*] Support the ServiceMesh micro service framework out of the box
-    - [*] Support Application for grayscale publishing and A/B testing
-    - [*] Support Limiting and Circuit breaker
-    - [*] Support Intelligent routing
-    - [*] Support flow analysis that differentiates sources,This is shown in the topology
+- [x] Support the ServiceMesh micro service framework out of the box
+    - [x] Support Application for grayscale publishing and A/B testing
+    - [x] Support Limiting and Circuit breaker
+    - [x] Support Intelligent routing
+    - [x] Support flow analysis that differentiates sources,This is shown in the topology
 - [ ] Support Application group backup and restore
 - [ ] Support Application group migration across datacenters and across tenants
 - [ ] Support share plugin to market and install from market
-- [*] Support Export applications from the application market
-    - [*] Export dockercompse specification
-    - [*] Export rainbond-app specification
-- [*] Support batch offline import applications to the application market    
+- [x] Support Export applications from the application market
+    - [x] Export dockercompse specification
+    - [x] Export rainbond-app specification
+- [x] Support batch offline import applications to the application market    
 - [ ] Management service HA support
-    - [*] Region DB support CockroachDB
+    - [x] Region DB support CockroachDB
     - [ ] UI DB support CockroachDB
-- [*] Support auto-building based on git webhook  
-- [*] Support In-station letter announcement
+- [x] Support auto-building based on git webhook  
+- [x] Support In-station letter announcement
 - [ ] Monitoring module automatically finds monitoring targets and automatically configures them
     - [ ] Compute node monitoring
     - [ ] Management service monitoring
