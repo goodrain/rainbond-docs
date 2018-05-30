@@ -36,7 +36,7 @@ asciicast: true
 
   在您的应用中请打开自动部署功能，并复制我们给您的URL粘贴到您的webhooks设置中
  
-    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/webhooks.jpg" style="border:1px solid #eee;width:100%"/></center>
+    <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/webhooks.jpg" style="border:1px solid #eee;width:100%"/></center>
 
 * 配置webhooks
   * 正确填写URL
@@ -45,11 +45,11 @@ asciicast: true
   * 添加webhooks成功
 
   如果您的项目存放在`GITHUB`中，请看这里
-  <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/github.jpg" style="border:1px solid #eee;width:100%"/></center>
+  <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/github.jpg" style="border:1px solid #eee;width:100%"/></center>
   
   
     如果您的项目存放在`GITLAB`中，请看这里
-     <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/gitlab.jpg" style="border:1px solid     #eee;width:100%"/></center>
+     <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/gitlab.jpg" style="border:1px solid     #eee;width:100%"/></center>
   
 * 提交信息
 
