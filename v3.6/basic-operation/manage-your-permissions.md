@@ -24,7 +24,7 @@ toc: false
   >
   > 角色名称是三十个字符内的数字/字母/中文字符/下划线/中划线的任意组合
   
-    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_role2.jpg" style="border:1px solid #eee;width:100%"/></center>
+    <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_role2.jpg" style="border:1px solid #eee;width:100%"/></center>
   
 * 删除角色
 
@@ -46,19 +46,19 @@ toc: false
 * ##### 添加团队成员
 
      如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中查看您当前团队下的所有成员，并点击`添加成员`可以为团队新添加一个成员，并给该成员授予一个您当前团队中存在的角色，这样该成员就拥有该角色所对应的所有权限操作了。
-     <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_user.jpg" style="border:1px solid #eee;width:60%"/></center>
+     <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_user.jpg" style="border:1px solid #eee;width:60%"/></center>
      
 
 * ##### 删除团队成员
 
      如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中点击您想要删除成员后方的`删除`按钮，再次确认后即可将此成员在本团队中移除。
-    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rem_user.jpg" style="border:1px solid #eee;width:100%"/></center>
+    <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rem_user.jpg" style="border:1px solid #eee;width:100%"/></center>
      
 
 * ##### 修改成员角色
 
      如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中点击您想要修改的成员后方的`修改角色`按钮，给该成员选择一些您团队中已经存在的角色，点击确认即可修改该成员在此团队中的角色。
-    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_user.jpg" style="border:1px solid #eee;width:100%"/></center>
+    <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_user.jpg" style="border:1px solid #eee;width:100%"/></center>
 
  
 ## 应用权限管理
@@ -92,8 +92,8 @@ toc: false
 * 修改应用成员权限
 
   如果您拥有的权限中存在 `应用权限设置` 这一权限操作，那么您可以在此应用中编辑一个 `应用成员` 在此应用下的权限。首先进入到您的应用页面，点击 `设置` 选项，在该页面最下方的 `成员应用权限` 一栏中点击您想要编辑成员后方的 `编辑权限` 按钮 ，给该成员选择一些新的权限后点击确认即可完成修改。
-  <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/team1.jpg" style="border:1px solid #eee;width:100%"/></center>
-  <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/service.jpg" style="border:1px solid #eee;width:100%"/></center>
+  <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/team1.jpg" style="border:1px solid #eee;width:100%"/></center>
+  <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/service.jpg" style="border:1px solid #eee;width:100%"/></center>
 
 
 
