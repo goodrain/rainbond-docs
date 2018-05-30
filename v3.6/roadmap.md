@@ -30,6 +30,7 @@ This document defines the roadmap for Rainbond development.
 - [ ] Monitoring module automatically finds monitoring targets and automatically configures them
     - [ ] Compute node monitoring
     - [ ] Management service monitoring
+- [ ] 2000 compute node support
 
 ## V3.7
 - [ ] Support .net application manage
@@ -38,4 +39,5 @@ This document defines the roadmap for Rainbond development.
     - [ ] NFS storage is supported in Windows
     - [ ] Support `.net` source building applications
     - [ ] Support `.net` applications to connect to other applications.
-
+- [ ] Support auto-building based on docker image hub webhook.
+- [ ] Support the definition of alarm rules.
