@@ -18,15 +18,15 @@ asciicast: true
 Rainbond默认的代理插件支持4层负载均衡，借助Service Mesh便于扩展得特性，我们可以再针对各种应用层协议匹配不同的网络治理插件，实现7层负载均衡，例如HTTP、gRPC、Redis等协议。Rainbond目前提供“基于envoy的7层网络治理插件”（envoy本身可以与安生运行于Rainbond插件体系之中），用户也可以选择和实现其他插件，Rainbond运行时将提供完善的基础服务。目前我们平台仅支持内部应用A/B测试，您可以通过Rainbond`服务网络治理插件`配置管理来实现您应用的A/B测试。
 
 
-<center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/ab.jpg" style="border:1px solid #eee;width:100%"/></center>
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/ab.jpg" style="border:1px solid #eee;width:100%"/></center>
 
 ## 服务依赖
 
 应用依赖信息，表明了当前应用都依赖了哪些其他应用。通过添加依赖，可以让当前应用读取被依赖应用的连接信息，通过这些连接信息，您的应用会自动与被依赖应用互动，为您提供相应的服务。您可以在应用中点击`依赖`板块添加`应用链接信息`。通过键值对的方式，将环境变量写入实例的系统环境中，供进程读取和调用。
 
 应用依赖信息表明了当前应用都依赖了哪些其他应用。通过添加依赖，可以让当前应用读取被依赖应用的连接信息，通过这些连接信息，您的应用会自动与被依赖应用互动，为您提供相应的服务。
-<center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/general.jpg" style="border:1px solid #eee;width:100%"/></center>
-<center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/rely.jpg" style="border:1px solid #eee;width:100%"/></center>
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/general.jpg" style="border:1px solid #eee;width:100%"/></center>
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/rely.jpg" style="border:1px solid #eee;width:100%"/></center>
 
 
 
@@ -35,8 +35,8 @@ Rainbond默认的代理插件支持4层负载均衡，借助Service Mesh便于�
 
 
 首先在`团队插件`中安装`服务网络治理插件`，在您的上游应用中开通此插件，配置您的下游应用及参数设置来灵活的管理您的下游应用，比如您可以设置`HEADERS`的值，根据请求头中的参数来决定此次请求应该分流到哪个具体的个下游应用中，以此来实现您的A/B测试功能。
-<center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/extended.jpg" style="border:1px solid #eee;width:100%"/></center>
-<center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/config.jpg" style="border:1px solid #eee;width:100%"/></center>
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/extended.jpg" style="border:1px solid #eee;width:100%"/></center>
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/config.jpg" style="border:1px solid #eee;width:100%"/></center>
 
 - PREFIX：URL前缀path配置，例如/api
 - DOMAINS：内网请求域名配置，基于配置的域名转发至下游应用，仅支持一级域名
