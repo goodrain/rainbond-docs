@@ -9,7 +9,12 @@ asciicast: true
 
 <div id="toc"></div>
 
-## 基于源码构建应用的自动部署
+## 部署应用
+当您往代码仓库提交最新的代码准备上线时，点击应用中的`重新部署`，云帮会到您指定的仓库地址和指定的分支获取`最新`的代码进行重新部署。
+    <center><img src="http://static.goodrain.com/images/docs/3.6/basic-operation/webhooks/deploy.jpg" style="border:1px solid #eee;width:100%"/></center>
+
+
+## 自动部署
 
 ## 功能概述
 
