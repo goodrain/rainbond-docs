@@ -34,6 +34,11 @@
                 "/${VERSION}/advanced-operation/backup-app.html"
             ]
         },{
+            "title": "应用导入导出",
+            "urls": [
+                "/${VERSION}/advanced-operation/import-export-app.html"
+            ]
+        },{
             "title": "搭建基于ServiceMesh的微服务架构",
             "urls": [
                 "/${VERSION}/advanced-operation/service-mesh-app.html"

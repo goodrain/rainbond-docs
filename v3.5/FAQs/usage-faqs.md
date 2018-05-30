@@ -57,3 +57,14 @@ toc: false
 ### 比较担心应用市场里的应用，毕竟生产环境求稳妥都是源码安装的……
 
 > 完全不用担心，云帮应用市场里的所有应用都是基于Dockerfile制作的，Dockefile源码都是在github上开源的。同时做出来的应用都具备高可用和弹性伸缩的能力。源码参见：[https://github.com/goodrain-apps](https://github.com/goodrain-apps)
+
+### Java源码构建失败QA
+
+```
+was cached in the local repository, resolution will not be reattempted until the update interval of nexus-osc has elapsed or updates are forced
+```
+如果Debug日志里有如上的报错，在环境变量里设置如下变量
+```
+NO_CACHE	true
+```
+重新构建即可。
