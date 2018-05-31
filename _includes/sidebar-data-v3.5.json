@@ -737,7 +737,7 @@
                 "items": [{
                         "title": "数据库插件",
                         "urls": [
-                            "/${VERSION}/best-practice/add-on/mysql-add-ons.html"
+                            "/${VERSION}/best-practice/add-on/mysql-plugin.html"
                         ]
                     }
                 ]
@@ -758,6 +758,12 @@
                 "title": "Minio部署与使用",
                 "urls": [
                     "/${VERSION}/best-practice/minio-deploy-use.html"
+                ]
+            },
+            {
+                "title": "ELK日志对接实践",
+                "urls": [
+                    "/${VERSION}/best-practice/elk-deploy-use.html"
                 ]
             },
             {
