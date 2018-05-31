@@ -38,6 +38,7 @@ The current version focuses on supporting the infrastructure of the microservice
     - [ ] Management service monitoring
 - [x] Accurate user permission control, support custom roles
 - [ ] Rainbond Installer upgrade
+  - [ ] Support install mulit manage nodes
 
 ## V5.0
 The current version focuses on upgrade kubernetes and docker,  full support `.net ` application management and operation.
