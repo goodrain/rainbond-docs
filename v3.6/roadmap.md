@@ -8,7 +8,7 @@ toc: false
 This document defines the roadmap for Rainbond development.
 
 ## V3.6
-*Estimated release time: 2018-06-15*
+*Estimated release time: 2018-06-15*   
 The current version focuses on supporting the infrastructure of the microservice architecture, service governance, service backup & recovery & migration.
 
 - [x] Support the ServiceMesh micro service framework out of the box
