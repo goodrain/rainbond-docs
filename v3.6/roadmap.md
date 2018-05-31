@@ -36,8 +36,8 @@ The current version focuses on supporting the infrastructure of the microservice
 - [ ] Monitoring module automatically finds monitoring targets and automatically configures them
     - [ ] Compute node monitoring
     - [ ] Management service monitoring
-- [ ]   
-- [ ] Install
+- [x] Accurate user permission control, support custom roles
+- [ ] Rainbond Installer upgrade
 
 ## V5.0
 The current version focuses on upgrade kubernetes and docker,  full support `.net ` application management and operation.
