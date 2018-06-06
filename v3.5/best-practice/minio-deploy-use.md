@@ -128,9 +128,13 @@ chmod +x mc
   > 例:
   >
   > ```bash
-  > ./mc config host add test http://9000.gr8be71d.grapps.ali-hz.goodrain.net access_key secret_key S3v4
+  > ./mc config host add test http://9000.gr8be71d.grapps.ali-hz.goodrain.net:80 access_key secret_key S3v4
   > ```
   >
+  
+  特别说明:
+  Unable to initialize new config from the provided credentials. The request signature we calculated does not match the signature you provided. Check your key and signing method.  
+  如果遇到此类问题请在minio server url里配置上端口
 
 
 
