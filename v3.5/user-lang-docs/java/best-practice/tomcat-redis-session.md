@@ -20,40 +20,19 @@ toc: false
 
    {% include copy-clipboard.html %}
 
-   ```
-   web: java -jar ./webapp-runner.jar --port 5000 --session-store redis ./*.war
-   ```
+```bash
+web: java $JAVA_OPTS -jar /opt/webapp-runner.jar   --port $PORT --session-store redis target/*.war
+```
 
-   - 应用端口8080，平台默认开启应用5000端口，为了端口映射正常：
-     - 在Procfile中指定端口`--port 5000`
-     - 在[应用控制台-端口](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-port.html)设置8080端口
-   - 指定session存储`--session-store redis`
+- `--port` 指定程序监听端口，建议使用默认的5000端口
+- `--session-store` 指定存储session的类型，示例为 `redis`
 
-2. 配置webserver：在源码根目录下添加webserver文件，写入现平台支持webapp-runner版本：
 
-   {% include copy-clipboard.html %}
+2. 云帮通过源码[创建应用](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html)，在[创建应用-应用设置](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)选择已创建的Redis进行依赖关联。
 
-   ```
-   webapp-runner-7.0.57.2.jar
-   ```
+3. 应用配置redis：将`REDIS_URL`新增至应用环境变量中，值为 `127.0.0.1:6379`。
 
-   {% include copy-clipboard.html %}
-
-   ```
-   webapp-runner-8.0.18.0-M1.jar
-   ```
-
-   {% include copy-clipboard.html %}
-
-   ```
-   webapp-runner-8.5.5.2.jar
-   ```
-
-3. 云帮通过源码[创建应用](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html)，在[创建应用-应用设置](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)选择已创建的Redis进行依赖关联。
-
-4. 应用配置redis：将`REDIS_URL`新增至应用环境变量中，值为 `127.0.0.1:6379`。
-
-5. 重启应用以适配
+4. 重启应用以适配
 
 {{site.data.alerts.callout_success}}
 
