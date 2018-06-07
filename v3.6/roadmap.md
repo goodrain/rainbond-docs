@@ -16,9 +16,9 @@ The current version focuses on supporting the infrastructure of the microservice
     - [x] Support Limiting and Circuit breaker
     - [x] Support Intelligent routing
     - [x] Support flow analysis that differentiates sources,This is shown in the topology
-- [ ] Support Application group backup and restore
-- [ ] Support Application group migration across datacenters and across tenants
-- [ ] Support share plugin to market and install from market
+- [x] Support Application group backup and restore
+- [x] Support Application group migration across datacenters and across tenants
+- [x] Support share plugin to market and install from market
     - [ ] MySQL backup and restore plugin
     - [ ] PostgreSQL backup and restore plugin
     - [ ] MongoDB backup and restore plugin
@@ -30,15 +30,16 @@ The current version focuses on supporting the infrastructure of the microservice
 - [x] Support batch offline import applications to the application market    
 - [ ] Management service HA support
     - [x] Region DB support CockroachDB
-    - [ ] UI DB support CockroachDB
+    - [ ] UI DB support TiDB
 - [x] Support auto-building based on git webhook  
 - [x] Support In-station letter announcement
-- [ ] Monitoring module automatically finds monitoring targets and automatically configures them
-    - [ ] Compute node monitoring
-    - [ ] Management service monitoring
+- [x] Monitoring module automatically finds monitoring targets and automatically configures them
+    - [x] Compute node monitoring
+    - [x] Management service monitoring
 - [x] Accurate user permission control, support custom roles
 - [ ] Rainbond Installer upgrade
   - [ ] Support install mulit manage nodes
+- [x] Update rbd-dns to support for custom generic domain name resolution and cluster level one domain default resolution
 
 ## V5.0
 The current version focuses on upgrade kubernetes and docker,  full support `.net ` application management and operation.
