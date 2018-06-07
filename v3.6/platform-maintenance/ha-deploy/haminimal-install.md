@@ -12,6 +12,7 @@ toc: false
 - **第一级**： 随机计算节点宕机，用户的应用不受影响，或只受到一小段时间的影响。
 - **第二级**： 管理节点全部宕机，用户的应用不受影响。
 - **第三级**： 云帮平台个组件自身实现高可用。
+
 ##云帮高可用架构图
 <img src="https://static.goodrain.com/images/docs/3.6/platform-maintenance/ha-deploy/Rainbond-Ha-Topology.png" width="100%"/>
 
