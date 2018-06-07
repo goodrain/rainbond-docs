@@ -107,7 +107,7 @@ toc: false
 
 ## GitHub项目
 
-- **GitHub项目** 通过[云帮关联GitHub(点击查看关联步骤)](/docs/stable/rainBond_GitHub.html)后，可将您GitHub上的代码在好雨云平台部署。
+- **GitHub项目** 通过云帮关联GitHub后，可将您GitHub上的代码在好雨云平台部署。
 
 检测实例为2048小游戏，如下所示，创建分为四步：
 
