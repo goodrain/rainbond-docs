@@ -13,9 +13,42 @@
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/animate.min.css" rel="stylesheet">
+        <link href="css/video-js.min.css" rel="stylesheet">
         <link href="docs/css/lavish-bootstrap.css" rel="stylesheet">
         <link href="docs/css/customstyles.css" rel="stylesheet">
-         <link href="css/base.css?v=20171123" rel="stylesheet">
+        <link href="css/base.css?v=20171123" rel="stylesheet">
+        <link rel="stylesheet" href='css/modal-video.css'>
+        <style type="text/css">
+            .video-1 {background: url('video/video-bg-1.png') center center no-repeat;}
+            .video-2 {background: url('video/video-bg-2.png') center center no-repeat;}
+            .video-3 {background: url('video/video-bg-3.png') center center no-repeat;}
+            .video-4 {background: url('video/video-bg-4.png') center center no-repeat;}
+            
+            .video-outer{
+               cursor: pointer;
+               position: relative;
+               display: flex;
+               height:180px;
+               text-align: center;
+               padding:0;
+               background-size: 100% 100%;
+               transition: all .5s;
+            }
+            .video-outer:hover {background-size: 105% 105%;}
+            .video-inner {
+              height: 100%;
+              width:100%;
+              display: flex;
+              align-items: center;
+              position: relative;
+              border-right:none;
+              border-left: none;
+            }
+            
+            .video-title {transition: all .5s;background:rgb(0,0,0,0.6);height:40px;line-height:40px;font-size:14px;width: 100%;color:#fff;position:absolute;left:0;bottom:0;right:0;}
+            .video-outer:hover title{font-size:18px;}
+            .video-icon {display:none;position:absolute;font-size:60px;top:50%;left:50%;margin-top:-52px;margin-left:-26px;color:#fff;width:52px;height:52px;background:url('http://vs5.bdstatic.com/browse_static/v3/search_v2/page/play_f073d9b.png') center center no-repeat}
+            </style>
     </head>
     <body>
         <!--
@@ -124,6 +157,45 @@
                     </div>
                 </div>
         </section>
+        <section class="mainbox" style="padding:30px 0">
+            <div class="container">
+                <p class="titthree text-center">10分钟入门Rainbond</p>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="indexsceneinside video-outer video-show video-1" data-src="video/app-create.mp4">
+                            <div class="video-inner">
+                                <div class="video-title">应用快速构建和安装</div>
+                                <div class="video-icon"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="indexsceneinside video-outer video-show video-2" data-src="video/app-manage.mp4">
+                            <div class="video-inner">
+                                <div class="video-title">应用管理和自动化运维</div>
+                                <div class="video-icon"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="indexsceneinside video-outer video-show video-3" data-src="video/app-monitor.mp4">
+                            <div class="video-inner">
+                                <div class="video-title">应用拓扑和业务实时监控</div>
+                                <div class="video-icon"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="indexsceneinside video-outer video-show video-4"  data-src="video/ywxt.mp4">
+                            <div class="video-inner">
+                                <div class="video-title">业务系统一键安装和发布</div>
+                                <div class="video-icon"></div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+             
         <section class="mainbox" style="padding:30px 0">
             <div class="container">
                 <div class="row">
@@ -300,11 +372,15 @@
         </script>
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src='js/video.min.js'></script>
+        <script type="text/javascript" src='js/modal-video.js'></script>
         <script src="js/wow.min.js"></script>
+
         <script src="js/base.js"></script>
         <script src="docs/js/clipboard.min.js"></script>
         <script src="docs/js/toc.js"></script>
         <script src="docs/js/customscripts.js"></script>
+        
         
     <script>
     var _hmt = _hmt || [];
@@ -328,6 +404,14 @@
                 s.parentNode.insertBefore(j, s)
             })(window, document, 'script', '//eco-api.meiqia.com/dist/meiqia.js', '_MEIQIA');
             _MEIQIA('entId', 5732);
+
+
+            $(function(){
+                var modalVideo = new ModalVideo({width: 1000, height:550});
+                $('.video-show').click(function(){
+                   modalVideo.show({url:$(this).data('src')});
+                })
+            })
         </script>
         
     </body>
