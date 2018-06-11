@@ -23,22 +23,21 @@ asciicast: true
 
 #### 安装方法 (Rainbond-install)
 
-```
+<!--
 # 通过此脚本可快速部署单节点的云帮
 curl -k -L -o install.sh  https://raw.githubusercontent.com/goodrain/rainbond-install/master/install.sh
 chmod +x ./install.sh
 ./install.sh
-```
-安装相关源码地址[rainbond-install](https://github.com/goodrain/rainbond-install)
-
-<!--
-#### 方案方法二(GAOps)
-
-```
-# 通过此脚本可快速部署单节点的云帮
-bash <(curl -s http://repo.goodrain.com/install/3.5/start.sh)
-```
 -->
+
+```bash
+# stable v3.5
+git clone --depth 1 -b v3.5 https://github.com/goodrain/rainbond-install.git
+cd rainbond-install
+./setup.sh
+```
+
+安装相关源码地址[rainbond-install](https://github.com/goodrain/rainbond-install)
 
 ## 安装完成
 
