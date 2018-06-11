@@ -41,7 +41,7 @@ toc: false
    - 应用类型：包括 **无状态应用**、**有状态应用**，根据描述谨慎选择。
    - 内存选择：根据应用内存占用选择。
    - 端口管理：根据您应用的端口开放情况编辑此模块。
-   - 服务依赖：此模块可选择关联其他应用，[点此了解更多](http://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)。
+   - 服务依赖：此模块可选择关联其他应用，[点此了解更多](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)。
    - 文件存储：您可点击`为当前应用新设持久化目录`或点击`挂在其他应用的持久化目录`选择不同存储位置。
    - 环境变量：输入环境变量名称、变量名、变量值完成环境变量的添加。
 
@@ -85,11 +85,11 @@ toc: false
 - 对接到私有的代码托管平台。
 - 在创建应用前需要将授权key添加到自建Git授权SSH 密钥里。
 - 代码源选择私有平台的公开项目。
-- 对接Gitlab/Gogs可参考[对接私有Git仓库](http://www.rainbond.com/docs/stable/best-practice/connection-git-server.html)
+- 对接Gitlab/Gogs可参考[对接私有Git仓库](/docs/stable/best-practice/git-etcs/connection-git-server.html)
 
 ## GitHub
 
-通过[云帮关联GitHub(点击查看关联步骤)](/docs/stable/rainBond_GitHub.html)后，可将您GitHub上的代码在好雨云平台部署。
+通过云帮关联GitHub后，可将您GitHub上的代码在好雨云平台部署。
 
 检测实例为java程序，如下所示，创建分为四步：
 

@@ -1,0 +1,24 @@
+    
+    {
+        "title": "微服务架构",
+        "items": [
+            {
+                "title": "云帮微服务手册",
+                "urls": [
+                    "/${VERSION}/microservice/micros-rainbond/microservice-support.html"
+                ]
+            },
+            {
+                "title": "Dubbo 架构",
+                "urls": [
+                    "/${VERSION}/microservice/dubbo/dubbo-overview.html"
+                ]
+            },
+            {
+                "title": "Spring Cloud 架构",
+                "urls": [
+                    "/${VERSION}/microservice/spring-cloud/spring-cloud.html"
+                ]
+            }
+        ]
+    }

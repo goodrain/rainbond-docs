@@ -1,7 +1,7 @@
 homepage_title: Rainbond 文档中心
 site_title: Rainbond
 
-url: "https://www.rainbond.com"
+url: "__HOME__"
 baseurl: "/docs"
 
 plugins:
@@ -19,13 +19,25 @@ redcarpet:
   - with_toc_data
 
 versions:
-  stable: v3.4
+  v3.4: v3.4
+  dev: v3.6
+  stable: v3.5
 
 release_info:
   v3.4:
-    version: v3.4.1
+    version: v3.4.2
     build_time: 2017/12/25 16:35:45
     start_time: 2017-12-25 19:33:22.046027038 +800 CST
+  v3.5:
+    name: v3.5.0
+    version: v3.5.0
+    build_time: 2018/03/26 16:35:45
+    start_time: 2018-03-26 19:33:22.046027038 +800 CST
+  v3.6:
+    name: v3.6.0
+    version: v3.6.0
+    build_time: 2018/05/12 16:35:45
+    start_time: 2018-05-12 19:33:22.046027038 +800 CST  
 
 exclude: ["ci", "vendor"]
 

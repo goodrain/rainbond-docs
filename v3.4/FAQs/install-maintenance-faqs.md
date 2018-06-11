@@ -116,3 +116,94 @@ Q:安装任务卡住或者停止了,如何处理
 A:新开一个终端，执行systemctl restart rainbond-node
 ```
 
+### 机器重启后发生无法访问控制台
+
+```
+1. 检查机器ip
+ip r
+2. 检查机器dns
+cat /etc/resolv.conf
+<dns 应该和机器ip一致>
+3. 如果不一致，检查相关配置
+grctl configs get
+确定ip具体是何值
+4. 修改相关配置以grctl configs get获取的值为准
+/etc/resolv.conf 和 /etc/sysconfig/network-scripts/ifcfg-eth0
+
+绝大数可能是网卡获取ip是dhcp导致的。
+cat /etc/sysconfig/network-scripts/ifcfg-eth0 # 具体网卡具体对待
+
+如下静态ip demo：
+
+TYPE=Ethernet
+BOOTPROTO=static
+DEFROUTE=yes
+PEERDNS=yes
+PEERROUTES=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_PEERDNS=yes
+IPV6_PEERROUTES=yes
+IPV6_FAILURE_FATAL=no
+NAME=eno1
+UUID=ea4bbbab-1804-46df-b8f9-1451e5a710fc
+DEVICE=eno1
+ONBOOT=yes
+IPADDR=192.168.1.45
+GATEWAY=192.168.1.1
+NETMASK=255.255.255.0
+
+说明：
+BOOTPROTO=static                  #使用static配置
+ONBOOT=yes                        #开机启用本配置
+IPADDR=192.168.1.45               #静态IP
+GATEWAY=192.168.1.1               #默认网关
+NETMASK=255.255.255.0             #子网掩码
+
+最后，修改完重启一下网络
+systemctl restart network
+
+dc-compose stop
+cclear
+dc-compose up -d
+```
+
+### 访问云帮控制台提示Table不存在
+
+```
+# 数据库表不全,在第一个管理节点执行如下操作
+docker exec rbd-app-ui python /app/ui/manage.py migrate
+```
+
+可以将日志`/var/log/event/install_acp_plugins.log`附加到[github issue](https://github.com/goodrain/rainbond/issues/new)
+
+### 3.4.1版本如何升级到3.4.2版本
+
+```
+wget repo.goodrain.com/release/3.4.2/gaops/jobs/update/update.sh -O /root/update_version.sh
+chmod +x /root/update_version.sh
+bash /root/update_version.sh
+```
+
+### 3.4.2域名绑定说明
+
+```
+当前版本端口默认是10443, release 3.5将解决这个问题
+```
+
+### 安装提示异常或无法使用插件
+
+```
+请检查数据库
+docker exec rbd-db mysql -e "select count(*) from console.tenant_plugin_share"
+如果count数小于2则表示插件库数据不全，
+docker exec rbd-db mysql -e "use console;source /root/plugins.sql"
+如果执行上述操作后，依旧如此
+wget repo.goodrain.com/release/3.4.2/gaops/config/grplugin.sql
+docker cp $PWD/grplugin.sql rbd-db:/root
+docker exec rbd-db mysql -e "use console;source /root/grplugin.sql"
+如果还有问题，请提issue，附上`/logs/goodrain_web`日志
+```
+

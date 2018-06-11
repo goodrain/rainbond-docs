@@ -1,0 +1,37 @@
+[
+    // 平台概述
+    {% include 3.6/rainbond-overview.json %},
+
+    // 快速开始
+    {% include 3.6/getting-started.json %},
+
+    // 基础操作
+    {% include 3.6/basic-operation.json %},
+
+    // 高级操作
+    {% include 3.6/advanced-operation.json %},
+    
+    // 平台维护
+    {% include 3.6/maintenance.json %},
+    
+    // 最佳实践
+    {% include 3.6/best-practice.json %},
+
+    // 微服务
+    {% include 3.6/microservice.json %},
+
+    // 管理后台
+    {% include 3.6/back-manage.json %},
+    
+    // 视频指南
+    {% include 3.6/video.json %},
+
+    // 更新历史
+    {% include sidebar-releases.json %},
+    
+    // FAQs
+    {% include 3.6/faqs.json %},
+
+    // 贡献
+    {% include 3.6/contribute.json %}
+]

@@ -79,13 +79,13 @@
       {% endcomment %}
     </div>
     <li class="search-wrap">
-      <div class="search">
-        <span class="fa fa-search"></span>
-        <form method="GET" action="{{ 'search.html' | relative_url }}">
+      <a class="search" href="https://www.rainbond.com/docs/search.html" style="position:static; width: 80px; height: 30px; line-height: 30px; padding:0 10px; background: #28cb75; color: #fff; border-radius: 8px; margin-bottom: 20px;">
+        <span class="fa fa-search" style="position: static; color: #fff; font-size: 16px; margin-right: 5px;"></span>搜索
+        <!-- <form method="GET" action="{{ 'search.html' | relative_url }}">
           <input type="text" id="bdcsMain" name="q" placeholder="搜索">
           <span class="clear-search"></span>
-        </form>
-      </div>
+        </form> -->
+      </a>
     </li>
 
     <script>
@@ -230,19 +230,19 @@ $(document).ready(function() {
   });
 
   // set search input value to query string
-  $('#search-input').val(QueryString.q);
+ //  $('#search-input').val(QueryString.q);
 
-  // on load, show close button if search input
-	if ($('#search-input').val() != '') $('.clear-search').show();
+ //  // on load, show close button if search input
+	// if ($('#search-input').val() != '') $('.clear-search').show();
 
-  $('.clear-search').on('click', function() {
-    $('#search-input').val('');
-    $(this).hide();
-  });
+ //  $('.clear-search').on('click', function() {
+ //    $('#search-input').val('');
+ //    $(this).hide();
+ //  });
 
-  $('#search-input').on('input', function() {
-    if ($(this).val() != '') $('.clear-search').show();
-  });
+ //  $('#search-input').on('input', function() {
+ //    if ($(this).val() != '') $('.clear-search').show();
+ //  });
 });
 </script>
 {% endif %}

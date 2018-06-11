@@ -1,11 +1,13 @@
 section.footer {
-	background: $cl_gray_footer;
+	background: #505664;
 	padding: 0 0 30px;
+	color:#fff;
 
 	@include at-query($min, $screen-sm) {
 		padding-bottom: 40px;
 		border-top: 1px solid $cl_gray_medium;
-		background: #fff;
+		background: #505664;
+		color:#fff;
 	}
 
 	.container {
@@ -41,6 +43,7 @@ section.footer {
 			        justify-content: space-between;
 			-ms-flex-wrap: wrap;
 			    flex-wrap: wrap;
+
 
 			@include at-query($min, $screen-sm) {
 				width: 65%;
@@ -125,7 +128,7 @@ section.footer {
 			}
 
 			a {
-				color: $cl_blue_dark;
+				color:#fff;;
 				@include type-caption-3;
 				// vertical spacing
 				line-height: 40px;
@@ -151,10 +154,17 @@ section.footer {
 
 			@include at-query($min, $screen-sm) {
 				margin-bottom: 15px;
+				color:#fff;;
 			}
 		}
 
 		li:before {
+		  content: "";
+			display:none;
+			left:auto;
+			top:auto;
+		}
+		li:after {
 		  content: "";
 			display:none;
 			left:auto;

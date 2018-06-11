@@ -1,0 +1,60 @@
+    
+    {
+        "title": "管理后台",
+        "items": [
+            {
+                "title": "介绍",
+                "urls": [
+                    "/${VERSION}/back-manage/introduce.html"
+                ]
+            },
+            {
+                "title": "资源管理",
+                "urls": [
+                    "/${VERSION}/back-manage/resource-manage.html"
+                ]
+            },
+            {
+                "title": "租户管理",
+                "urls": [
+                    "/${VERSION}/back-manage/tenant-manage.html"
+                ]
+            },
+            {
+                "title": "团队管理",
+                "urls": [
+                    "/${VERSION}/back-manage/team-manage.html"
+                ]
+            },
+            {
+                "title": "用户管理",
+                "urls": [
+                    "/${VERSION}/back-manage/user-manage.html"
+                ]
+            },
+            {
+                "title": "配置管理",
+                "urls": [
+                    "/${VERSION}/back-manage/config-manage.html"
+                ]
+            },
+            {
+                "title": "特性管理",
+                "urls": [
+                    "/${VERSION}/back-manage/label-manage.html"
+                ]
+            },
+            {
+                "title": "日志管理",
+                "urls": [
+                    "/${VERSION}/back-manage/service-log-manage.html"
+                ]
+            },
+            {
+                "title": "公告管理",
+                "urls": [
+                    "/${VERSION}/back-manage/announcement-manage.html"
+                ]
+            }
+        ]
+    }

@@ -85,7 +85,7 @@ web: gunicorn hello:app --log-file - --access-logfile - --error-logfile -
 
 **web** : 定义该应用的服务类型为web 平台会自动将该应用添加到全局负载均衡中。后续会添加其他类型的应用。
 
-**gunicorn** : Python WSGI HTTP Server for UNIX 详细设置文档参见 命令行参
+**gunicorn** : Python WSGI HTTP Server for UNIX。
 
 {{site.data.alerts.end}}
 

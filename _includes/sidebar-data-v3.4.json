@@ -1,5 +1,30 @@
 [{
         "title": "快速开始",
+        "items": [
+            {
+                "title": "使用云帮公有云",
+                "urls": [
+                    "/${VERSION}/getting-started/rainbond-public.html"
+                ]
+            },
+            {
+                "title": "阿里云镜像安装",
+                "urls": [
+                    "/${VERSION}/getting-started/rainbond-image-install.html"
+                ]
+            },
+            {
+                "title": "在线私有安装",
+                "urls": [
+                    "/${VERSION}/getting-started/pre-install.html",
+                    "/${VERSION}/getting-started/install.html"
+                ]
+            }
+
+        ]
+    },
+    {
+        "title": "了解Rainbond",
         "items": [{
                 "title": "设计理念",
                 "urls": [
@@ -16,22 +41,6 @@
                 "title": "特性",
                 "urls": [
                     "/${VERSION}/getting-started/features.html"
-                ]
-            },
-            {
-                "title": "安装",
-                "items": [{
-                        "title": "前置需求",
-                        "urls": [
-                            "/${VERSION}/getting-started/pre-install.html"
-                        ]
-                    },
-                    {
-                        "title": "在线安装",
-                        "urls": [
-                            "/${VERSION}/getting-started/install.html"
-                        ]
-                    }
                 ]
             },
             {
@@ -63,15 +72,16 @@
                 ]
             }
         ]
-    },
+    },   
     {
-        "title": "平台使用",
+        "title": "Rainbond使用",
         "items": [{
                 "title": "介绍",
                 "urls": [
                     "/${VERSION}/user-app-docs/how-to-use-app.html"
                 ]
-            }, {
+            }, 
+            {
                 "title": "创建应用",
                 "items": [{
                     "title": "从镜像",
@@ -148,6 +158,12 @@
                                 ]
                             },
                             {
+                                "title": "插件",
+                                "urls": [
+                                    "/${VERSION}/user-app-docs/myapps/myapp-platform-plugin.html"
+                                ]
+                            },
+                            {
                                 "title": "设置",
                                 "urls": [
                                     "/${VERSION}/user-app-docs/myapps/myapp-platform-settings.html"
@@ -156,264 +172,264 @@
                         ]
                     }
                 ]
-            }
-        ]
-    },
-    {
-        "title": "源码构建",
-        "items": [{
-                "title": "总览",
-                "items": [{
-                    "title": "云帮支持",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/overview/rainbond-support.html"
-                    ]
-                }, {
-                    "title": "构建流程",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/overview/build-process.html"
-                    ]
-                }, {
-                    "title": "构建原理",
-                    "items": [{
-                        "title": "Builder",
-                        "urls": [
-                            "/${VERSION}/user-lang-docs/overview/principle/builder.html"
-                        ]
-                    }, {
-                        "title": "Buildpack",
-                        "urls": [
-                            "/${VERSION}/user-lang-docs/overview/principle/buildpack.html"
-                        ]
-                    }, {
-                        "title": "Runner",
-                        "urls": [
-                            "/${VERSION}/user-lang-docs/overview/principle/runner.html"
-                        ]
-                    }]
-                }]
             },
             {
-                "title": "Java",
+                "title": "语言支持",
                 "items": [{
-                    "title": "概述",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/java/lang-java-overview.html"
-                    ]
-                }, {
-                    "title": "Java-Maven",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/java/lang-java-maven.html"
-                    ]
-                }, {
-                    "title": "War包与Jar包",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/java/lang-java-warandjar.html"
-                    ]
-                }, {
-                    "title": "最佳实践",
-                    "items": [{
-                        "title": "Webapp-Runner",
-                        "urls": [
-                            "/${VERSION}/user-lang-docs/java/best-practice/webapp-runner.html"
-                        ]
-                    },{
-                        "title": "Jetty-Runner",
-                        "urls": [
-                            "/${VERSION}/user-lang-docs/java/best-practice/jetty-runner.html"
-                        ]
+                        "title": "总览",
+                        "items": [{
+                            "title": "云帮支持",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/overview/rainbond-support.html"
+                            ]
+                        }, {
+                            "title": "构建流程",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/overview/build-process.html"
+                            ]
+                        }, {
+                            "title": "构建原理",
+                            "items": [{
+                                "title": "Builder",
+                                "urls": [
+                                    "/${VERSION}/user-lang-docs/overview/principle/builder.html"
+                                ]
+                            }, {
+                                "title": "Buildpack",
+                                "urls": [
+                                    "/${VERSION}/user-lang-docs/overview/principle/buildpack.html"
+                                ]
+                            }, {
+                                "title": "Runner",
+                                "urls": [
+                                    "/${VERSION}/user-lang-docs/overview/principle/runner.html"
+                                ]
+                            }]
+                        }]
                     },
                     {
-                        "title": "session持久化",
-                        "urls": [
-                            "/${VERSION}/user-lang-docs/java/best-practice/tomcat-redis-session.html"
-                        ]
+                        "title": "Java",
+                        "items": [{
+                            "title": "概述",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/java/lang-java-overview.html"
+                            ]
+                        }, {
+                            "title": "Java-Maven",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/java/lang-java-maven.html"
+                            ]
+                        }, {
+                            "title": "War包与Jar包",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/java/lang-java-warandjar.html"
+                            ]
+                        }, {
+                            "title": "最佳实践",
+                            "items": [{
+                                "title": "Webapp-Runner",
+                                "urls": [
+                                    "/${VERSION}/user-lang-docs/java/best-practice/webapp-runner.html"
+                                ]
+                            },{
+                                "title": "Jetty-Runner",
+                                "urls": [
+                                    "/${VERSION}/user-lang-docs/java/best-practice/jetty-runner.html"
+                                ]
+                            },
+                            {
+                                "title": "session持久化",
+                                "urls": [
+                                    "/${VERSION}/user-lang-docs/java/best-practice/tomcat-redis-session.html"
+                                ]
+                            },
+                            {
+                                "title": "Spring-Boot配置MySQL",
+                                "urls": [
+                                    "/${VERSION}/user-lang-docs/java/best-practice/spring-boot-mysql.html"
+                                ]
+                            }
+                        ]},{
+                            "title": "代码示例",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/java/lang-java-eg.html"
+                            ]
+                        }]
                     },
                     {
-                        "title": "Spring-Boot配置MySQL",
-                        "urls": [
-                            "/${VERSION}/user-lang-docs/java/best-practice/spring-boot-mysql.html"
-                        ]
+                        "title": "Scala",
+                        "items": [{
+                            "title": "概述",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/scala/lang-scala-overview.html"
+                            ]
+                        }, {
+                            "title": "Play框架",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/scala/lang-scala-play.html"
+                            ]
+                        }, {
+                            "title": "代码示例",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/scala/lang-scala-eg.html"
+                            ]
+                        }]
+                    },
+                    {
+                        "title": "Ruby",
+                        "items": [{
+                            "title": "概述",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/ruby/lang-ruby-overview.html"
+                            ]
+                        }, {
+                            "title": "应用部署",
+                            "items": [{
+                                "title": "Rails应用部署",
+                                "urls": [
+                                    "/${VERSION}/user-lang-docs/ruby/rails-framework/lang-ruby-rails-overview.html"
+                                ]
+                            }, {
+                                "title": "部署Rails3.x应用",
+                                "urls": [
+                                    "/${VERSION}/user-lang-docs/ruby/rails-framework/lang-ruby-rails3.x-deploy.html"
+                                ]
+                            }, {
+                                "title": "使用Puma部署Rails",
+                                "urls": [
+                                    "/${VERSION}/user-lang-docs/ruby/rails-framework/lang-ruby-rails-puma.html"
+                                ]
+                            }]
+                        }, {
+                            "title": "示例代码",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/ruby/lang-ruby-eg.html"
+                            ]
+                        }]
+                    },
+                    {
+                        "title": "Python",
+                        "items": [{
+                            "title": "概述",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/python/lang-python-overview.html"
+                            ]
+                        }, {
+                            "title": "代码示例",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/python/lang-python-eg.html"
+                            ]
+                        }]
+                    },
+                    {
+                        "title": "PHP",
+                        "items": [{
+                            "title": "概述",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/php/lang-php-overview.html"
+                            ]
+                        }, {
+                            "title": "运行时环境设置与调试",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/php/lang-php-runtime.html"
+                            ]
+                        }, {
+                            "title": "部署ThinkPHP框架",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/php/lang-php-thinkphp.html"
+                            ]
+                        }, {
+                            "title": "代码示例",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/php/lang-php-eg.html"
+                            ]
+                        }]
+                    },
+                    {
+                        "title": "Go",
+                        "items": [{
+                            "title": "概述",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/go/lang-go-overview.html"
+                            ]
+                        }, {
+                            "title": "Beego框架",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/go/lang-go-beego.html"
+                            ]
+                        }, {
+                            "title": "代码示例",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/go/lang-go-eg.html"
+                            ]
+                        }]
+                    },
+                    {
+                        "title": "Node.js",
+                        "items": [{
+                            "title": "概述",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/ndjs/lang-ndjs-overview.html"
+                            ]
+                        }, {
+                            "title": "代码示例",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/ndjs/lang-ndjs-eg.html"
+                            ]
+                        }]
+                    },
+                    {
+                        "title": "Static Html",
+                        "items": [{
+                            "title": "概述",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/html/lang-html-overview.html"
+                            ]
+                        }, {
+                            "title": "代码示例",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/html/lang-html-eg.html"
+                            ]
+                        }]
+                    },
+                    {
+                        "title": "Dockerfile",
+                        "items": [{
+                            "title": "概述",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/dockerfile/lang-dockerfile-overview.html"
+                            ]
+                        }, {
+                            "title": "代码示例",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/dockerfile/lang-dockerfile-eg.html"
+                            ]
+                        }, {
+                            "title": "官方文档",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/dockerfile/lang-dockerfile-offcial.html"
+                            ]
+                        }]
+                    }, {
+                        "title": "相关文档",
+                        "items": [{
+                            "title": "Procfile",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/etc/procfile.html"
+                            ]
+                        }, {
+                            "title": "Cron计划任务",
+                            "urls": [
+                                "/${VERSION}/user-lang-docs/etc/cron-plan.html"
+                            ]
+                        }]
                     }
-                ]},{
-                    "title": "代码示例",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/java/lang-java-eg.html"
-                    ]
-                }]
-            },
-            {
-                "title": "Scala",
-                "items": [{
-                    "title": "概述",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/scala/lang-scala-overview.html"
-                    ]
-                }, {
-                    "title": "Play框架",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/scala/lang-scala-play.html"
-                    ]
-                }, {
-                    "title": "代码示例",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/scala/lang-scala-eg.html"
-                    ]
-                }]
-            },
-            {
-                "title": "Ruby",
-                "items": [{
-                    "title": "概述",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/ruby/lang-ruby-overview.html"
-                    ]
-                }, {
-                    "title": "应用部署",
-                    "items": [{
-                        "title": "Rails应用部署",
-                        "urls": [
-                            "/${VERSION}/user-lang-docs/ruby/rails-framework/lang-ruby-rails-overview.html"
-                        ]
-                    }, {
-                        "title": "部署Rails3.x应用",
-                        "urls": [
-                            "/${VERSION}/user-lang-docs/ruby/rails-framework/lang-ruby-rails3.x-deploy.html"
-                        ]
-                    }, {
-                        "title": "使用Puma部署Rails",
-                        "urls": [
-                            "/${VERSION}/user-lang-docs/ruby/rails-framework/lang-ruby-rails-puma.html"
-                        ]
-                    }]
-                }, {
-                    "title": "示例代码",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/ruby/lang-ruby-eg.html"
-                    ]
-                }]
-            },
-            {
-                "title": "Python",
-                "items": [{
-                    "title": "概述",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/python/lang-python-overview.html"
-                    ]
-                }, {
-                    "title": "代码示例",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/python/lang-python-eg.html"
-                    ]
-                }]
-            },
-            {
-                "title": "PHP",
-                "items": [{
-                    "title": "概述",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/php/lang-php-overview.html"
-                    ]
-                }, {
-                    "title": "运行时环境设置与调试",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/php/lang-php-runtime.html"
-                    ]
-                }, {
-                    "title": "部署ThinkPHP框架",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/php/lang-php-thinkphp.html"
-                    ]
-                }, {
-                    "title": "代码示例",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/php/lang-php-eg.html"
-                    ]
-                }]
-            },
-            {
-                "title": "Go",
-                "items": [{
-                    "title": "概述",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/go/lang-go-overview.html"
-                    ]
-                }, {
-                    "title": "Beego框架",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/go/lang-go-beego.html"
-                    ]
-                }, {
-                    "title": "代码示例",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/go/lang-go-eg.html"
-                    ]
-                }]
-            },
-            {
-                "title": "Node.js",
-                "items": [{
-                    "title": "概述",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/ndjs/lang-ndjs-overview.html"
-                    ]
-                }, {
-                    "title": "代码示例",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/ndjs/lang-ndjs-eg.html"
-                    ]
-                }]
-            },
-            {
-                "title": "Static Html",
-                "items": [{
-                    "title": "概述",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/html/lang-html-overview.html"
-                    ]
-                }, {
-                    "title": "代码示例",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/html/lang-html-eg.html"
-                    ]
-                }]
-            },
-            {
-                "title": "Dockerfile",
-                "items": [{
-                    "title": "概述",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/dockerfile/lang-dockerfile-overview.html"
-                    ]
-                }, {
-                    "title": "代码示例",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/dockerfile/lang-dockerfile-eg.html"
-                    ]
-                }, {
-                    "title": "官方文档",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/dockerfile/lang-dockerfile-offcial.html"
-                    ]
-                }]
-            }, {
-                "title": "相关文档",
-                "items": [{
-                    "title": "Procfile",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/etc/procfile.html"
-                    ]
-                }, {
-                    "title": "Cron计划任务",
-                    "urls": [
-                        "/${VERSION}/user-lang-docs/etc/cron-plan.html"
-                    ]
-                }]
+                ]
             }
         ]
     },
     {
-        "title": "平台维护",
+        "title": "Rainbond维护",
         "items": [{
                 "title": "概览",
                 "urls": [
@@ -423,12 +439,6 @@
             {
                 "title": "管理节点",
                 "items": [{
-                    "title": "扩容管理节点",
-                    "urls": [
-                        "/${VERSION}/platform-maintenance/add-management-node/install-command.html"
-
-                    ]
-                }, {
                     "title": "组件介绍",
                     "items": [{
                             "title": "概览",
@@ -719,7 +729,8 @@
                     "title": "云帮对接Git Server",
                     "urls": [
                         "/${VERSION}/best-practice/git-etcs/connection-git-server.html"
-                    ]},{
+                    ]},
+                    {
                     "title": "Windows配置SSH连接Git Server",
                     "urls": [
                         "/${VERSION}/best-practice/git-etcs/windows-ssh-git.html"
@@ -738,24 +749,67 @@
                     "/${VERSION}/best-practice/connection-docker-registry.html"
                 ]
             }
+
         ]
+
+
     },
     {
-        "title": "故障排查",
-        "items": [{
-                "title": "概述",
+        "title": "微服务架构",
+        "items": [
+            {
+                "title": "云帮微服务手册",
                 "urls": [
-                    "/${VERSION}/troubleshooting/overview.html"
+                    "/${VERSION}/microservice/micros-rainbond/microservice-support.html"
                 ]
             },
             {
-                "title": "Debug & 错误日志",
+                "title": "Dubbo 架构",
                 "urls": [
-                    "/${VERSION}/troubleshooting/debug-and-error-logs.html"
+                    "/${VERSION}/microservice/dubbo/dubbo-overview.html"
+                ]
+            },
+            {
+                "title": "Spring Cloud 架构",
+                "urls": [
+                    "/${VERSION}/microservice/spring-cloud/spring-cloud.html"
                 ]
             }
         ]
     },
+
+    {
+        "title": "视频指南",
+        "items": [
+            {
+                "title": "云帮设计思想",
+                "urls": [
+                    "/${VERSION}/video/rainbond_design/design_video.html"
+                ]
+            },
+            {
+                "title": "云帮的安装",
+                "urls": [
+                    "/${VERSION}/video/rainbond_install/install_video.html"
+                ]
+            },
+            {
+                "title": "云帮的使用",
+                "urls": [
+                    "/${VERSION}/video/rainbond_use/use_video.html"
+                ]
+            },
+            {
+                "title": "云帮和Service Mesh微服务架构",
+                "urls": [
+                    "/${VERSION}/video/rainbond_use/service_video.html"
+                ]
+            }
+        ]
+    },
+
+
+
     {% include sidebar-releases.json %},
     {
         "title": "FAQs",

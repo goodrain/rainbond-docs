@@ -2,11 +2,30 @@
 
 [ $DEBUG ] && set -x 
 
-
 sleep ${PAUSE:-0}
 
-bundle exec jekyll build
+HOME_DOMAIN=${HOME_DOMAIN:-https://www.rainbond.com}
+PORT=${PORT:-80}
+
+# run crond
+crond
 
 # start nginx
-nginx -t
-nginx -g 'daemon off;'
+if [ "$START_NGINX" == "true" ];then
+
+  # replace domain
+  sed -i "s/__HOME__/$HOME_DOMAIN/" _config.yml
+
+  # replace nginx port
+  sed -i "s/__PORT__/$PORT/g" /etc/nginx/conf.d/default.conf
+
+  # build static
+  bundle exec jekyll build
+  nginx -t
+  nginx -g 'daemon off;'
+else
+
+  # replace domain
+  sed -i "s/__HOME__//" _config.yml
+  bundle exec jekyll server -H 0.0.0.0 -P 4000
+fi

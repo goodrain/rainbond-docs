@@ -330,8 +330,8 @@ Rainbond 包含了众多的功能特性，如果您需要个性化或高级功�
 <a href="#" data-toggle="tooltip" title="提供多数据中心的资源与应用管理">
 <img src="{{ 'images/icon_info.svg' | relative_url }}" alt="tooltip icon"></a>
 </td>
-<td><span class="support"  style="display: inline;"></span>对接</td>
-<td><a class="comparison-chart__link">对接，可定制</a></td>
+<td><span class="support"  style="display: inline;"></span>仅支持对接好雨公有云</td>
+<td><a class="comparison-chart__link">对接任意资源中心</a></td>
 </tr>
 
 <tr>

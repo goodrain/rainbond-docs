@@ -189,7 +189,7 @@ We show "Contribute" options in the top-right of every page by default. To remov
 
 We use the [JekyllRedirectFrom](https://github.com/jekyll/jekyll-redirect-from) plugin to ensure that multiple URLs resolve to a single page. This is most useful in cases where we change the filename or directory structure of a page.
 
-For example, if `v1.0.html` page were moved from the root level to `releases/v1.0.html`, you would add `redirect-from: /v1.0.html` to the page's front-matter to ensure that `https://cockroachlabs.com/docs/v1.0.html` gets redirected to `https:/cockroachlabs.com/docs/releases/v1.0.html`.
+For example, if `v3.4` page were moved from the root level to `releases/v3.4.html`, you would add `redirect-from: /v3.4/` to the page's front-matter to ensure that `https://www.rainbond.com/docs/v3.4/` gets redirected to `https://www.rainbond.com/docs/releases/v3.4.html`.
 
 If you rename or restructure a versioned page, use a relative link, not an absolute link. For example, if `show-transaction.md` and `show-time-zone.md` are merged into `show-vars.md` for v1.1, use the following `redirect_from` specification:
 

@@ -1,5 +1,5 @@
 ---
-title: 对接gitlab仓库
+title: 云帮对接私有Git仓库
 summary: 讲解如何对接云帮外部的gitlab仓库和使用云帮内部的gitlab仓库
 toc: false
 asciicast: true
@@ -7,170 +7,171 @@ asciicast: true
 
 <div id="toc"></div>
 
-## 概述 
+云帮通过对接Git仓库来创建基于源代码及Dockerfile的应用。
 
-云帮平台的应用可以通过源码来创建，在创建应用之前，需要将平台与代码仓库（目前云帮只支持Git Server）进行对接。
+如果是公开的项目，可以通过填写项目地址的方式创建应用，如果是私有项目，目前云帮公有云支持 [GitHub](/docs/stable/user-app-docs/addapp/addapp-code.html#github)和 好雨Git仓库，如果是私有化部署的Git服务，云帮通过 SSH 公钥的的方式对接Git仓库。下图是云帮对接Git仓库支持的方式与协议：
 
-云帮是通过 acp_chaos 进行应用的源码构建，因此云帮与代码仓库的对接，实际上就是云帮acp_chaos 组件与代码仓库的对接。
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/rbd-link-git.png"  width="80%" />
 
-本文会针对两种情况进行讲解：
 
-1、有git仓库，云帮与现有的git仓库进行对接
+本文主要讲解通过 SSH 公钥的方式对接私有部署的Git仓库，以[GitLab](https://gitlab.com/)为示例进行说明。
 
-2、没有git仓库，在云帮平台创建git仓库，并与云帮平台对接
 
-##云帮对接Git仓库的原理
+## 公有云对接私有仓库
 
-Git Server可以通过ssh，http的方式拉取代码。云帮平台使用的是ssh key，通过添加组件acp_chaos中的ssh公钥到Git Server上，可以实现免秘钥拉取代码，推荐使用ssh key的方式。(云帮对接自建Git server 目前只支持 ssh key 的方式。)
+### 获取公钥
 
-## 对接外部的Git Server
+进入创建应用-私有Git，获取公有云的SSH公钥：
 
-### 新建测试文件
+{% include copy-clipboard.html %}
 
-- 新建库
-
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/create-new-projects.png" width="80%">
-
-- 输入项目名称，创建私有项目
-
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/create-private-projiect.png" width="80%">
-
-- 仓库中创建一个index.html 文件
-
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/create-new-file.png" width="80%">
-
-- 编辑index.html 文件
-
-  <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/edit-index-html.png" width="80%">
-
-###配置管理节点的ssh config文件
-
-- 配置ssh_config
-
-Port设置为gitlab服务器的ssh服务端口号
-
-```bash
-cat <<EOF >/etc/goodrain/ssh/config
-Host *
-  IdentityFile ~/.ssh/goodrain-builder
-  StrictHostKeyChecking no
-  LogLevel ERROR
-  Port ##gitlab服务器的ssh端口
-EOF
 ```
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy97mlKJo1xPoDYejmeK0bMhM6O/leVuLF/U0ry/NLWatfkl1R69NIX6TpW/hVFjGXRZTz56V37jLOVQWq24dQaLIXyFqxZwJnakZzX/b6K3sKb6Y+dDZdktcPEVLUQPWHs6gm0tUgbvgywulEVuTgAt5fYwa1rG48zmgCHlU4a6jWT8iQ9D2Lqpf4ZYZnUOOGB6AmaABfCBSCFDj8ihIz00Hp77s42gxRhn/iQJE9ZrDYWnxN0cUAxvLpB1jCANFR4Zc5FslHUp4tLVNMdDeqi8OPZMj4G6yWclwa3Uqfu7yd3gqik4nI1jaRLL9Lq/2GgA20MvCFWqtvcBJ2Tcv1 builder
+```
+### 创建项目
 
-- 生成ssh key
+- **新建项目**
 
-`ssh-keygen -t rsa -f /etc/goodrain/ssh/goodrain-builder`
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-01.png"  width="90%" />
 
-- 更改文件权限为rain用户
+- **填写项目名称**
 
-`chown -R rain.rain /etc/goodrain/ssh`
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-02.png"  width="90%" />
 
-- 更改公钥权限
+- **创建示例代码**
 
-`chmod 400 /etc/goodrain/ssh/goodrain-builder.pub`
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-03.png"  width="90%" />
 
-- 查看public key
-
-`cat /etc/goodrain/ssh/goodrain-builder.pub`
-
-- 将/etc/goodrain/ssh/goodrain-builder.pub的内容添加到gitlab创建demo项目的用户ssh-key列表中。
-
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/add-ssh-key.png" width="80%">
-
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/add-ssh-key1.png" width="80%">
-
-{{site.data.alerts.callout_info}}
-ssh-key和 ssh config 是在管理节点上生成并配置，管理节点上的acp_chaos程序都是以容器的方式运行，通过挂载的形式将宿主机的/etc/goodrain/ssh 目录挂载到容器内部。详情可以参见 /etc/goodrain/docker-compose.yaml 配置文件。
+{{site.data.alerts.callout_success}}
+切换到SSH地址后，需要记住项目的SSH地址，后续创建应用时需要用到，这里的地址是 `git@172.16.210.205:test/helloworld.git`
 {{site.data.alerts.end}}
 
-###对接云帮
 
-- 获取之前创建的demo地址
+新建一个index.html 的文件，内容为 `hello world,hello goodrain!` 提交。
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/get-demo.png" width="80%">
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-04.png"  width="90%" />
 
-- 云帮创建应用
+### 将公钥添加到Git仓库
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/create-app.png" width="80%">
+- **切换到项目首页**
 
-​			选择**从源码**，**私有git**
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-add-ssh-key-01.png"  width="90%" />
 
-​			云帮私有云对接私有git目前只支持ssh协议。
+- **添加SSH公钥**
 
-- 粘贴地址
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-add-ssh-key-02.png"  width="90%" />
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/add-address.png" width="80%">
+- **SSH 公钥添加完成**
 
-给应用起名字，粘贴git地址，部署应用。
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-add-ssh-key-03.png"  width="90%" />
 
-- 访问
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/get.png" width="80%">
+### 测试对接是否成功
+通过私有仓库创建应用的方式来测试云帮能否通过SSH关于获取Git仓库中的代码。
 
-## 对接云帮平台创建的Git Server
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-01.png"  width="90%" />
 
-### 云帮部署gitlab应用
+- **创建应用**
 
-Gitlab依赖Mysql和Redis这两个应用，云帮创建gitlab应用会自动创建依赖应用并连接。
-- 在应用市场选择最新应用
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-02.png"  width="90%" />
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/deploy-gitlab.png" width="80%"  />
+- **能够识别语言，代表对接成功**
 
-- 配置环境变量
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-03.png"  width="90%" />
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/configure%20environment%20variable.png" width="80%">
+## 云帮私有云对接私有仓库
+云帮私有云对接私有Git仓库的流程和公有云一致，唯一不同的就是需要手动生成SSH公钥。
 
-​			"GITLAB_SSH_HOST"设置为你的内网ip。
+### 生成SSH公钥
 
-​			"GITLAB_SSH_PORT"不用填写，云帮会默认要求其为22。
-
-​			点击**下一步**部署。
-
-- 设置**GITLAB_HOST**
-
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/gitlab-host.png" width="80%">
-
-​			在端口界面取得上图的地址。
-
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/delete.png" width="80%">
-
-​			在设置界面删除原有的GITLAB_HOST变量，新增这个变量值设为刚才取到的地址。
-
-​			最后重启应用。
-
-### 新建测试文件
-
-- 设置密码并登录gitlab
-
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/set-password.png" width="80%">
-
-​			设置密码并登录，用户名默认是admin@example.com
-
-- 新建仓库
-
-与对接外部gitlab步骤一致。
-
-### 配置管理节点的ssh config文件
-
-- 取得gitlab容器ssh的端口号
-
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/get-ssh-port.png" width="80%">
-
-- 配置ssh_config
+在云帮第一个管理节点执行如下命令:
 
 ```bash
-cat <<EOF >/etc/goodrain/ssh/config
-Host *
+ssh-keygen -t rsa -f /etc/goodrain/ssh/goodrain-builder
+
+#更改文件权限为rain用户
+chown -R rain.rain /etc/goodrain/ssh
+
+#更改公钥权限
+chmod 400 /etc/goodrain/ssh/goodrain-builder.pub
+
+#获取公钥内容
+cat /etc/goodrain/ssh/goodrain-builder.pub
+```
+
+文件 `/etc/goodrain/ssh/goodrain-builder.pub` 的内容就是SSH公钥内容，剩下的工作与公有云对接私有仓库的流程一致，这里就不再赘述了。
+
+{{site.data.alerts.callout_success}}
+当云帮有多个管理节点时，需要将第一台生成的 `/etc/goodrain/ssh` 目录复制到其他管理节点的相应目录下。也就是说，要保证所有管理节点的`/etc/goodrain/ssh` 内容及权限一致。
+
+该目录会被 [rbd-chaos](/docs/stable/platform-maintenance/add-management-node/component-introduction/rbd-chaos.html) 组件挂载并使用。
+{{site.data.alerts.end}}
+
+## 对接云帮上部署的GitLab私有仓库
+
+上文介绍的都是对接现有GitLab的情况，如果你还没有Git仓库，云帮可以一键部署GitLab应用，下面主要介绍对接云帮上部署的GitLab
+
+### 创建GitLab应用
+
+通过 【新建应用】-【应用市场】搜索到GitLab应用，选择需要的版本安装即可。
+
+### 配置GitLab
+
+GitLab安装完成后，可以在应用的端口页面看到对外打开的端口号，如下图：
+
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-install-gitlab-02.png"  width="90%"/>
+
+- 端口号：应用内部监听的端口，本例中监听了`22`和`80`端口
+- 访问地址：云帮映射的地址与端口，本例中 22端口映射的地址为`172.16.210.205`，端口为`20006` ，80端口地址为`	80.grea7fc4.zggk.48mt2.goodrain.org`，端口为`80`
+
+
+{{site.data.alerts.callout_success}}
+- 云帮为HTTP协议的应用端口默认分配一个访问域名
+- 云帮为非HTTP协议的应用端口默认分配一个访问地址和一个随机的映射端口，但端口映射与应用端口唯一对应，不会变化，因此本例的端口可能与你实际情况不一致。
+{{site.data.alerts.end}}
+
+- **设置GitLab的HTTP和SSH地址**
+
+GitLab应用通过 `GITLAB_SSH_HOST` 和 `GITLAB_HOST` 环境变量来设置SSH和HTTP的地址，因此需要将这两个变量设置到GitLab应用中。
+
+<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-configure-gitlab-01.png"  width="90%"/>
+
+{{site.data.alerts.callout_success}}
+设置环境变量后，需要重启GitLab应用。
+{{site.data.alerts.end}}
+
+### 配置云帮对接Git仓库的ssh协议端口号
+云帮通过默认的22端口，利用ssh协议拉取Git仓库的代码，但由于GitLab安装到了云帮平台，云帮又将22端口映射成其他端口，因此需要特殊处理，下面分别介绍公有云和私有云的配置方式：
+
+#### 云帮私有化部署的处理方式
+
+**第一个管理节点执行：**
+
+```bash
+cat << EOF >/etc/goodrain/ssh/config
+# 22 端口映射的地址，本示例为 172.16.210.205
+Host 172.16.210.205
   IdentityFile ~/.ssh/goodrain-builder
   StrictHostKeyChecking no
   LogLevel ERROR
-  Port ##上面看到的端口号
+  # 22端口的映射端口，本示例为20006
+  Port 20006
 EOF
 ```
-剩余步骤与上述对接外部的gitlab仓库一致。
 
-###对接云帮
+{{site.data.alerts.callout_success}}
+当云帮有多个管理节点时，需要将第一台生成的 `/etc/goodrain/ssh` 目录复制到其他管理节点的相应目录下。也就是说，要保证所有管理节点的`/etc/goodrain/ssh` 内容及权限一致。
 
-与上述对接外部gitlab步骤一致。
+该目录会被 [rbd-chaos](/docs/stable/platform-maintenance/add-management-node/component-introduction/rbd-chaos.html) 组件挂载并使用。
+{{site.data.alerts.end}}
+
+#### 云帮公有云的处理方式
+公有云针对该问题只能通过修改ssh地址的方式来支持：
+
+```bash
+# 默认地址
+git@gr6a10f1.demo.ali-sh-s1.goodrain.net:test/helloworld.git
+
+# 修改为
+ssh://git@gr6a10f1.demo.ali-sh-s1.goodrain.net:20592/test/helloworld.git
+```

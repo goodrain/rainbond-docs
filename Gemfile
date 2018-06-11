@@ -6,9 +6,12 @@ source "https://rubygems.org"
 # instructions.
 
 gem "html-proofer", "~> 3.7"
-gem "jekyll", "~> 3.4"
+gem "jekyll", "~> 3.6"
 gem "jekyll-redirect-from", "~> 0.12"
 gem "jekyll-sitemap", "~> 1.1.1"
 gem "rake", "~> 12.0.0"
 gem "redcarpet", "~> 3.4"
 gem "jekyll-last-modified-at"
+group :jekyll_plugins do
+  gem 'jekyll-algolia'
+end
