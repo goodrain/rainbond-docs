@@ -61,7 +61,3 @@ bash <(curl -s http://repo.goodrain.com/install/3.5/start.sh)
 - [Github Issue](https://github.com/goodrain/rainbond/issues/new)
 - [Github Install Issue](https://github.com/goodrain/rainbond-install/issues/new)
 - 支持邮箱: rainbond@goodrain.com
-
-## Demo install
-
-<iframe allowFullScreen frameborder="0" height="564" mozallowfullscreen src="https://player.vimeo.com/video/253097354" webkitAllowFullScreen width="640"></iframe>
