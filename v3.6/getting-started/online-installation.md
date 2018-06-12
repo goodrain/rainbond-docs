@@ -11,7 +11,7 @@ asciicast: true
     <a href="online-installation.html"><button class="filter-button current"><strong>安装</strong></button></a>
 </div>
 
-<div id="toc"></div>
+有关 云帮3.6 版本中的新功能，请参阅[发布说明](roadmap.html)。
 
 {{site.data.alerts.callout_danger}}
 
