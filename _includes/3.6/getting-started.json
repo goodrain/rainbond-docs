@@ -16,25 +16,8 @@
         },
         {
             "title": "使用Rainbond公有云",
-            "items": [
-                {
-                    "title": "公有云介绍",
-                    "urls": [
-                        "/${VERSION}/getting-started/public-cloud-brief.html"
-                    ]
-                },
-                {
-                    "title": "数据中心",
-                    "urls": [
-                        "/${VERSION}/getting-started/data-center.html"
-                    ]
-                },
-                {
-                    "title": "计费方案",
-                    "urls": [
-                        "/${VERSION}/getting-started/public-cloud-charge.html"
-                    ]
-                }
+            "urls": [
+                "/${VERSION}/getting-started/public-cloud-brief.html"
             ]
         }
     ]
