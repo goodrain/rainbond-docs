@@ -25,13 +25,15 @@ asciicast: true
 
 或者
 
-直接下载 [安装程序(1.8Mb)](https://github.com/goodrain/rainbond-install/archive/v3.6.zip) 压缩包，解压后
+直接下载 [安装程序(1.8M)](https://github.com/goodrain/rainbond-install/archive/v3.6.zip) 压缩包，解压后
 
 执行 `./setup.sh install` 脚本可快速部署单节点的云帮。
 
 ```bash
-# clone或者解压安装包后，切换到安装程序目录，执行安装命令
-cd rainbond-install
+# 克隆或解压后，切换到云帮安装目录
+cd rainbond-install*
+
+# 执行安装命令
 ./setup.sh install
 ```
 
