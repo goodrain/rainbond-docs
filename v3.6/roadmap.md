@@ -40,6 +40,10 @@ The current version focuses on supporting the infrastructure of the microservice
 - [ ] Rainbond Installer upgrade
   - [ ] Support install mulit manage nodes
 - [x] Update rbd-dns to support for custom generic domain name resolution and cluster level one domain default resolution
+### V3.6.*
+- [ ] support comprehensive node and cluster health check [3.6.1]
+- [ ] tenant resource statistics task single node run
+
 
 ## V5.0
 The current version focuses on upgrade kubernetes and docker,  full support `.net ` application management and operation.
@@ -64,3 +68,8 @@ The current version focuses on upgrade kubernetes and docker,  full support `.ne
 - [ ] Support GroupApplication Life cycle control
     - [ ] Support GroupApplication start control
     - [ ] Support GroupApplication build control
+- [ ] Security policy upgrade
+    - [ ] region api authorization base on RBAC
+    - [ ] access the etcd cluster based on certificates
+    - [ ] [UI] support user registration for secondary verification by manager.
+    
