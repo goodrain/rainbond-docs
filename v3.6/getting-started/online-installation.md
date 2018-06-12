@@ -11,7 +11,7 @@ asciicast: true
     <a href="online-installation.html"><button class="filter-button current"><strong>安装</strong></button></a>
 </div>
 
-有关 云帮3.6 版本中的新功能，请参阅[发布说明](roadmap.html)。
+云帮3.6.0 RC2版本中的新功能，请参阅[发布说明](https://github.com/goodrain/rainbond/releases/tag/v3.6-rc.2)。
 
 {{site.data.alerts.callout_danger}}
 
@@ -21,42 +21,43 @@ asciicast: true
 
 ## 快速安装
 
-#### 安装方法 (Rainbond-install)
+通过 `git clone --depth 1 -b v3.6 https://github.com/goodrain/rainbond-install.git` 克隆安装程序代码。
 
+或者
+
+直接下载 [安装程序(1.8Mb)](https://github.com/goodrain/rainbond-install/archive/v3.6.zip) 压缩包，解压后
+
+执行 `./setup.sh install` 脚本可快速部署单节点的云帮。
+
+```bash
+# clone或者解压安装包后，切换到安装程序目录，执行安装命令
+cd rainbond-install
+./setup.sh install
 ```
-# 通过此脚本可快速部署单节点的云帮
-curl -k -L -o install.sh  https://raw.githubusercontent.com/goodrain/rainbond-install/master/install.sh
-chmod +x ./install.sh
-./install.sh
-```
-安装相关源码地址[rainbond-install](https://github.com/goodrain/rainbond-install)
 
-<!--
-#### 方案方法二(GAOps)
+安装程序会检查硬件配置、操作系统是否符合需求。然后安装配置Salt，通过Salt states进行云帮的安装。安装时间取决于机器配置和网速。
 
-```
-# 通过此脚本可快速部署单节点的云帮
-bash <(curl -s http://repo.goodrain.com/install/3.5/start.sh)
-```
--->
+完成安装后可通过 `http://<your ip>:7070` 访问应用管理控制台。
 
-## 安装完成
 
-访问控制台
+{{site.data.alerts.callout_success}}
+云帮安装程序通过 shell脚本+SaltStack 实现，包括后续集群的扩容、升级及管理。相关源码参见：[rainbond-install](https://github.com/goodrain/rainbond-install)
+{{site.data.alerts.end}}
 
-`<your ip>:7070`
 
-## 扩容节点
+## 更多相关文章
+
+### 扩容节点
 
 - [扩容计算节点](/docs/stable/platform-maintenance/add-compute-node/install-command.html)
 
-## 安装使用问题FAQ
+### 安装使用问题FAQ
 
 - 安装使用问题，请参照 [平台安装，维护-常见问题](/docs/stable/FAQs/install-maintenance-faqs.html)
 - [rainbond开源版本安装使用帮助](https://t.goodrain.com/t/rainbond/359)
 - 通过rainbond-install安装请参照[WIKI](https://github.com/goodrain/rainbond-install/wiki)
 
-## 安装使用问题反馈
+### 安装使用问题反馈
 
 - [Github Issue](https://github.com/goodrain/rainbond/issues/new)
 - [Github Install Issue](https://github.com/goodrain/rainbond-install/issues/new)
