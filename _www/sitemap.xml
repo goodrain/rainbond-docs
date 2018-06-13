@@ -17,6 +17,20 @@
 </url>
 
 <url>
+<loc>https://www.rainbond.com/docs/3.4/</loc>
+<lastmod>2018/2/5</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.rainbond.com/docs/dev/</loc>
+<lastmod>2018/2/5</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
 <loc>https://github.com/goodrain/rainbond</loc>
 <lastmod>2018/2/5</lastmod>
 <changefreq>weekly</changefreq>
