@@ -27,7 +27,7 @@ asciicast: true
 # stable v3.5 (推荐)
 git clone --depth 1 -b v3.5 https://github.com/goodrain/rainbond-install.git
 cd rainbond-install
-./setup.sh
+./setup.sh install
 ```
 
 或者通过如下脚本快速部署单节点云帮：
