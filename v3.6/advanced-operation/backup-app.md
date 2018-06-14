@@ -15,7 +15,7 @@ asciicast: true
 
 对于生成环境的业务系统，我们需要对其进行定期的全量备份操作，过去我们针对数据单独进行备份，或对数据库进行单独备份。缺乏一种全局统一备份的机制，特别是对于分布式应用。Rainbond应用组备份与恢复完成对业务系统的整体的、全量的备份，以实现整个系统故障时的全局回滚。这里所说的备份主要指冷备份，需要暂停业务服务，如需要不停止服务实习备份例如Mysql类的局部应用的热备份参考并使用mysql数据备份插件。
 
-![backup](https://static.goodrain.com/images/docs/3.6/advanced-operation/backup.gif)
+<img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/backup.gif" width="100%" />
 
 
 - 应用组的跨租户和跨数据中心迁移
