@@ -51,11 +51,11 @@ cd rainbond-install*
 
 ### 扩容节点
 
-- [扩容计算节点](platform-maintenance/add-compute-node/install-command.html)
+- [扩容计算节点](/platform-maintenance/add-compute-node/install-command.html)
 
 ### 安装使用问题FAQ
 
-- 安装使用问题，请参照 [平台安装，维护-常见问题](FAQs/install-maintenance-faqs.html)
+- 安装使用问题，请参照 [平台安装，维护-常见问题](/FAQs/install-maintenance-faqs.html)
 - [rainbond开源版本安装使用帮助](https://t.goodrain.com/t/rainbond/359)
 - 通过rainbond-install安装请参照[WIKI](https://github.com/goodrain/rainbond-install/wiki)
 
