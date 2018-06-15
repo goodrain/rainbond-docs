@@ -24,7 +24,7 @@ asciicast: true
 ​	在项目中，只有Zull提供对外访问，Gateway通过请求的url的不同，将请求调度到不同的后端服务
 
 <div align=center>
-    <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/bestpractice/microservice/zull-1.png" width="75%" height="75%">
+    <img src="https://static.goodrain.com/images/acp/docs/bestpractice/microservice/zull-1.png" width="75%" height="75%">
 </div>
 
 ## 部署到云帮

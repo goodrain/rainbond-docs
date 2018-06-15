@@ -8,7 +8,7 @@ toc: false
 
 欢迎使用云帮管理后台！总览界面将是您登录后所见到的第一个页面。
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/back-manager/v3.5/main-menu.png" width="100%"/>
+<img src="https://static.goodrain.com/images/acp/docs/back-manager/v3.5/main-menu.png" width="100%"/>
 
 云帮管理后台总览界面的几个主要分区为：导航区、显示区。
 

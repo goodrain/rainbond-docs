@@ -29,10 +29,10 @@ asciicast: true
 1. 登录云帮，并进入“从应用市场安装”页面。
 1. 找到想要导出的应用，并点击该应用版块上的导出按钮，然后在弹出的两个选项中选其中一种格式并点击它:
 
-    <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/exportapp-format.jpg" style="border:1px solid #eee;max-width:100%" />
+    <img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/exportapp-format.jpg" style="border:1px solid #eee;max-width:100%" />
 1. 这时按钮会显示正在导出，表示平台会正在打包该应用，打包完成后按钮会显示为下载，点击即可:
 
-    <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/exportapp-download.jpg" style="border:1px solid #eee;max-width:100%" />
+    <img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/exportapp-download.jpg" style="border:1px solid #eee;max-width:100%" />
 
 ## 批量导出
 每个应用在打包完成后，都会存储在某个数据中心的`/grdata/app`目录中，利用这一点，我们可以批量导出平台中的应用。

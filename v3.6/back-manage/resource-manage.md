@@ -14,7 +14,7 @@ toc: false
 `同步` 操作将会直接把您云帮的数据中心信息同步到管理后台。
 `添加`操作则需要您手动添加您的数据中心信息。
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/back-manager/v3.5/add-region.png" width="100%"/>
+<img src="https://static.goodrain.com/images/acp/docs/back-manager/v3.5/add-region.png" width="70%"/>
 
 * `名称` 您需要显示在云帮的数据中心名称
 * `标识` 数据中心的标识，该标识在您的数据中心中必须唯一
@@ -28,7 +28,7 @@ toc: false
 
 完成数据中心的添加以后，您可以看到数据中心的资源信息和对数据中心的相关操作。如图
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/back-manager/v3.5/region_info.png" width="100%"/>
+<img src="https://static.goodrain.com/images/acp/docs/back-manager/v3.5/region_info.png" width="100%"/>
 
 **数据中心操作解释**
 
@@ -46,11 +46,11 @@ toc: false
 
 您可以通过点击数据中心的名称或左侧节点管理导航按钮进入节点管理界面
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/back-manager/v3.5/enter-node-manage.gif" width="100%" >
+<img src="https://static.goodrain.com/images/acp/docs/back-manager/v3.5/enter-node-manage.gif" width="100%" >
 
 在节点管理页面如下。
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/back-manager/v3.5/node_manage.png" width="100%" />
+<img src="https://static.goodrain.com/images/acp/docs/back-manager/v3.5/node_manage.png" width="100%" />
 
 `下线` 下线会将部署在该机器的应用全部删除，有可能导致您的应用不可用。
 `设为不可调度` 节点设置为不可调度则您创建或者重新部署应用时，应用不会调度到该节点。原有在节点上的应用不受影响。
@@ -62,31 +62,31 @@ toc: false
 
     节点详情展示了所使用机器的详情，包括节点类型，节点的系统和内核版本等。
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/back-manager/v3.5/node_info_detail.png" width="100%">
+<img src="https://static.goodrain.com/images/acp/docs/back-manager/v3.5/node_info_detail.png" width="100%">
 
 * 节点监控信息
 
 节点监控信息组要展示节点资源调度情况，运行实例和物理监控
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/back-manager/v3.5/node_monitor_detail.gif" width="100%">
+<img src="https://static.goodrain.com/images/acp/docs/back-manager/v3.5/node_monitor_detail.gif" width="100%">
 
 **调度资源**
 
 资源调度主要是节点内存和cpu信息。如图
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/back-manager/v3.5/node_dispatch.png" width="100%"/>
+<img src="https://static.goodrain.com/images/acp/docs/back-manager/v3.5/node_dispatch.png" width="100%"/>
 
 **运行实例**
 
 运行实例主要展示当前运行在该机器的pod信息。如图
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/back-manager/v3.5/node_running_instance.png" width="100%"/>
+<img src="https://static.goodrain.com/images/acp/docs/back-manager/v3.5/node_running_instance.png" width="100%"/>
 
 **物理监控**
 
 物理监控主要针对当前机器的内存、cpu、磁盘、负载的展示。如图：
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/acp/docs/back-manager/v3.5/node_physical_monitor.png" width="100%"/>
+<img src="https://static.goodrain.com/images/acp/docs/back-manager/v3.5/node_physical_monitor.png" width="100%"/>
 
 
 

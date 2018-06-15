@@ -22,11 +22,11 @@ asciicast: true
 ### 部署
 首先登录云帮平台，在我的应用中新建一个组，然后在云市中找到Kong，将它安装在自定义的组中，如下：
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/install-kong.png" style="border:1px solid #eee;max-width:100%" />
+<img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/install-kong.png" style="border:1px solid #eee;max-width:100%" />
 
 安装好以后，点击组名查看该组的拓扑图：
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/installed-kong.png" style="border:1px solid #eee;max-width:100%" />
+<img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/installed-kong.png" style="border:1px solid #eee;max-width:100%" />
 
 组件说明：
 * `Kong`：这个就是kong，它具有对客户端请求的转发、认证、限流等功能。
@@ -46,21 +46,21 @@ asciicast: true
 1. 同样的方式将`newinfo`也添加进入。
 1. 点击页面上的`APIs`，如下：
     
-    <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/apis-kong.png" style="border:1px solid #eee;max-width:100%" />
+    <img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/apis-kong.png" style="border:1px solid #eee;max-width:100%" />
 
 ### 访问
 接下来，回到云帮平台管理页面，访问Kong，并在其链接后加上`/p`就可以访问到`person`组件的`GET /api/persons`。
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/access-kong.png" style="border:1px solid #eee;max-width:100%" />
+<img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/access-kong.png" style="border:1px solid #eee;max-width:100%" />
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/accessed-api.png" style="border:1px solid #eee;max-width:100%" />
+<img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/accessed-api.png" style="border:1px solid #eee;max-width:100%" />
 
 ### 加入自定义API
 假设我们现在有一个叫web的应用，它含有一个REST API：`GET /api/applist`，那么将这个API注册到Kong的步骤如下：
 
 1. 将自定义的应用添加到Kong的依赖中，如下：
     
-    <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/basic-operation/advanced-operation/add-dps.png" style="border:1px solid #eee;max-width:100%" />
+    <img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/add-dps.png" style="border:1px solid #eee;max-width:100%" />
 1. 然后在弹出的框中选择自定义的应用。
 1. 重启Kong。
 1. 按照前面“添加API”的步骤，将自定义的API添加到Kong即可。
