@@ -8,37 +8,24 @@ toc: false
 
 ### 云帮目前支持CentOS 7.x, Debian等
 
-> 目前我们在CentOS 7.3 系统下做了严格的测试，并且具备了丰富的生产环境使用经验。因此建议用户也选用基于CentOS 7.3的系统安装云帮。目前只支持systemd
+> 目前我们在CentOS 7.3 系统下做了严格的测试，并且具备了丰富的生产环境使用经验。因此建议用户也选用基于CentOS 7.3的系统安装云帮。
 
 ### 在公有云环境部署云帮后，应用域名解析为内网ip，如何更改默认域名解析设置？
 
 > 云帮平台上运行起来的应用，如果需要外部访问，都需要一个域名与之对应。这个域名是应用的标示，同时也是平台负载均衡区分后端服务的方法。
-> 云帮安装程序默认会自动注册一个`*.<random>.goodrain.org` 的泛域名并进行dns的解析工作
+> 云帮安装程序默认会自动注册一个`*.<random>.grapps.cn` 的泛域名并进行dns的解析工作
 
 ```
-# 查看当前解析记录
-dig  *.y5vhe.goodrain.org | grep -A 2 "ANSWER SECTION"
-;; ANSWER SECTION:
-*.y5vhe.goodrain.org.	60	IN	A	10.26.98.37
-# 更改当前解析记录
-grctl domain --ip 59.110.8.184 --domain y5vhe.goodrain.org # domain 参数可选
-# 稍等3分钟左右等待解析生效后再次查看
-dig *.y5vhe.goodrain.org | grep -A 2 "ANSWER SECTION"
-;; ANSWER SECTION:
-*.y5vhe.goodrain.org.	60	IN	A	59.110.8.184
+domain-cli -newip 47.93.247.163
+或者
+grctl domain --ip 47.93.247.163
 ```
 
-### 如何查看安装日志
+### 如何查看相关日志
 
 ```
-安装日志默认 /var/log/event/
-```
-
-### 安装过程中可能遇到到问题
-
-```
-Q:安装任务卡住或者停止了,如何处理
-A: 检查当前任务是否生成相关日志文件，若未生成,则可以新开一个终端，执行systemctl restart rainbond-node；如重启node后以及未执行，使用`grctl tasks get <任务>` 检查依赖任务是否执行成功，若未成功，则检查依赖任务执行日志。
+安装日志默认 /var/log/salt
+组件日志默认 /opt/rainbond/logs/
 ```
 
 ### 版本3.5.1升级到3.6操作
