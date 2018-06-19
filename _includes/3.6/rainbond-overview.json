@@ -15,7 +15,7 @@
             ]
         },
         {
-            "title": "Rainbond有哪些特性",
+            "title": "Rainbond主要特性",
             "urls": [
                 "/${VERSION}/overview/features.html"
             ]
@@ -33,7 +33,7 @@
             ]
         },
         {
-            "title": "Rainbond版本对比（开源版/企业版）",
+            "title": "Rainbond功能列表",
             "urls": [
                 "/${VERSION}/overview/edition.html"
             ]

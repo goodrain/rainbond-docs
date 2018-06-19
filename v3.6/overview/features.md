@@ -22,4 +22,4 @@ asciicast: true
 
 混合云多云管理是Rainbond的另一项优势功能。在云计算飞速发展的今天，众多厂商提供了丰富的各类型公有云资源，Rainbond通过对应用与资源的解耦，将各类资源（私有云服务器、公有云服务器、网络资源）统一整合成Rainbond数据中心，对各类资源进行自动管理，实现跨区域互联与租户化隔离，用户无需关注服务器即可将应用部署于混合云多云环境。
 
-*更多特性请见[版本对比](https://github.com/goodrain/rainbond-docs/edit/master/v3.6/overview/edition.md)*
+*更多特性请见[功能列表](https://github.com/goodrain/rainbond-docs/edit/master/v3.6/overview/edition.md)*

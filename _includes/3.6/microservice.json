@@ -19,6 +19,12 @@
                 "urls": [
                     "/${VERSION}/microservice/spring-cloud/spring-cloud.html"
                 ]
+            },
+            {
+                "title": "API-Gateway(Kong)",
+                "urls": [
+                    "/${VERSION}/microservice/kong/kong.html"
+                ]
             }
         ]
     }

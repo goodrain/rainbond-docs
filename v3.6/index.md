@@ -24,7 +24,7 @@ Rainbond历经超过五年的生产运营打磨和验证，形成目前理念最
 <div class="row">
     <div class="col-md-4">
         <div class="roach">
-            <a href="getting-started/pre-install.html">
+            <a href="getting-started/before-installation.html">
                 <img src="{{ 'images/SCENE_superhero_profile_craig.png' | relative_url }}" alt="快速部署"/>
                 <h3>部署云帮集群</h3>
                 <p>数分钟就可以搭建属于自己的一套云帮平台。</p>
@@ -36,7 +36,7 @@ Rainbond历经超过五年的生产运营打磨和验证，形成目前理念最
             <a target="_blank" href="open-api.html">
                 <img src="{{ 'images/builder_craig.png' | relative_url }}" alt="开发文档"/>
                 <h3>开发文档</h3>
-                <p>云帮开放API文档</p>
+                <p>Rainbond API文档</p>
             </a>
         </div>
     </div>
@@ -63,7 +63,7 @@ Rainbond历经超过五年的生产运营打磨和验证，形成目前理念最
     </div>
     <div class="col-md-4">
         <div class="roach">
-            <a href="getting-started/architecture.html">
+            <a href="/docs/v3.5/getting-started/architecture.html">
                 <img src="{{ 'images/sleeping_craig.png' | relative_url }}" alt="rainbond 架构"/>
                 <h3>技术架构</h3>
                 <p>深入了解云帮的技术原理及工作机制。</p>
