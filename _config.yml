@@ -29,8 +29,8 @@ release_info:
     build_time: 2017/12/25 16:35:45
     start_time: 2017-12-25 19:33:22.046027038 +800 CST
   v3.5:
-    name: v3.5.0
-    version: v3.5.0
+    name: v3.5.2
+    version: v3.5.2
     build_time: 2018/03/26 16:35:45
     start_time: 2018-03-26 19:33:22.046027038 +800 CST
   v3.6:
