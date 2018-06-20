@@ -11,7 +11,7 @@ asciicast: true
     <a href="online-installation.html"><button class="filter-button current"><strong>安装</strong></button></a>
 </div>
 
-云帮3.6.0 RC2版本中的新功能，请参阅[发布说明](https://github.com/goodrain/rainbond/releases/tag/v3.6-rc.2)。
+云帮3.6.0 版本中的新功能，请参阅[发布说明](https://github.com/goodrain/rainbond/releases/tag/v3.6.0)。
 
 {{site.data.alerts.callout_danger}}
 
@@ -55,9 +55,8 @@ cd rainbond-install*
 
 ### 安装使用问题FAQ
 
-- 安装使用问题，请参照 [平台安装，维护-常见问题](/FAQs/install-maintenance-faqs.html)
-- [rainbond开源版本安装使用帮助](https://t.goodrain.com/t/rainbond/359)
 - 通过rainbond-install安装请参照[WIKI](https://github.com/goodrain/rainbond-install/wiki)
+- 安装使用问题，请参照 [平台安装，维护-常见问题](/FAQs/install-maintenance-faqs.html)
 
 ### 安装使用问题反馈
 
