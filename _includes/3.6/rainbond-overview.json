@@ -27,6 +27,18 @@
             ]
         },
         {
+            "title": "Rainbond设计理念",
+            "urls": [
+                "/${VERSION}/overview/design-concept.html"
+            ]
+        },
+        {
+            "title": "Rainbond架构",
+            "urls": [
+                "/${VERSION}/overview/architecture.html"
+            ]
+        },
+        {
             "title": "Rainbond版本开发计划（Roadmap）",
             "urls": [
                 "/${VERSION}/roadmap.html"
