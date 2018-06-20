@@ -22,15 +22,29 @@
             "urls": [
                 "/${VERSION}/advanced-operation/app-log.html"
             ]
-        },{
-            "title": "应用备份与恢复",
+        },
+        {
+            "title": "应用备份恢复和迁移",
             "urls": [
                 "/${VERSION}/advanced-operation/backup-app.html"
             ]
-        },{
-            "title": "应用导入导出",
+        },
+        {
+            "title": "内部市场应用导入导出",
             "urls": [
                 "/${VERSION}/advanced-operation/import-export-app.html"
+            ]
+        },
+        {
+            "title": "修改应用对外tcp端口",
+            "urls": [
+                "/${VERSION}/advanced-operation/change-port.html"
+            ]
+        },
+        {
+            "title": "应用自定义二级域名",
+            "urls": [
+                "/${VERSION}/advanced-operation/sld-domain.html"
             ]
         }
 
