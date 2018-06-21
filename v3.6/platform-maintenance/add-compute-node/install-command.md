@@ -31,5 +31,5 @@ grctl node up $uuid
 ```
 
 {{site.data.alerts.callout_info}}
-如果在扩容时,遇到问题欢迎提 issue
+如果在扩容时,遇到问题请给我们提 [issue](https://github.com/goodrain/rainbond-install/issues/new)，我们会第一时间处理。
 {{site.data.alerts.end}}

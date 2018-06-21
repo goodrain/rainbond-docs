@@ -11,8 +11,6 @@ asciicast: true
     <a href="online-installation.html"><button class="filter-button current"><strong>安装</strong></button></a>
 </div>
 
-云帮3.6.0 版本中的新功能，请参阅[发布说明](https://github.com/goodrain/rainbond/releases/tag/v3.6.0)。
-
 {{site.data.alerts.callout_danger}}
 
 - 安装前请阅读[安装前准备](before-installation.html)，在确定符合安装条件后执行安装操作
@@ -51,7 +49,7 @@ cd rainbond-install*
 
 ### 扩容节点
 
-- [扩容计算节点](/platform-maintenance/add-compute-node/install-command.html)
+- [扩容计算节点](../platform-maintenance/add-compute-node/install-command.html)
 
 ### 安装使用问题FAQ
 
