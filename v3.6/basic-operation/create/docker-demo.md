@@ -98,7 +98,7 @@ toc: false
 
 <center><img src="https://static.goodrain.com/images/acp/docs/user-docs/addapp/V3.5/addapp-compose1.jpg" style="border:1px solid #eee;max-width:100%"/></center>
 
-- 值得注意的是，在 **V3.5** 版本里，支持的 **Compose版本** 上限为 **2.X**
+- Rainbond 支持docker-compose的最高版本是：**2.X**
 
 ###其余构建过程
 
