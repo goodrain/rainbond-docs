@@ -48,3 +48,7 @@ defaults:
       type: "pages"
     values:
       layout: "page"
+
+algolia:
+   application_id: JW03QS46UU
+   index_name: rainbond
