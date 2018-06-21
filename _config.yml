@@ -1,12 +1,11 @@
 homepage_title: Rainbond 文档中心
 site_title: Rainbond
 
-url: "__HOME__"
+url: "https://www.rainbond.com"
 baseurl: "/docs"
 
 plugins:
 - jekyll-sitemap
-- jekyll-last-modified-at
 
 highlighter: rouge
 markdown: redcarpet

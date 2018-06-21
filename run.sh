@@ -13,9 +13,6 @@ crond
 # start nginx
 if [ "$START_NGINX" == "true" ];then
 
-  # replace domain
-  sed -i "s/__HOME__/$HOME_DOMAIN/" _config.yml
-
   # replace nginx port
   sed -i "s/__PORT__/$PORT/g" /etc/nginx/conf.d/default.conf
 
