@@ -4,6 +4,13 @@ summary: 管理后台介绍
 toc: false
 ---
 
+{{site.data.alerts.callout_info}}
+
+- 资源管理后台为企业版功能，目前还没有开源。
+- rainbond开源用户可通过文档页面右下角的【在线客服】或发邮件到 rainbond@goodrain.com 申请体验。
+
+{{site.data.alerts.end}}
+
 ## 访问主页
 
 欢迎使用云帮管理后台！总览界面将是您登录后所见到的第一个页面。
