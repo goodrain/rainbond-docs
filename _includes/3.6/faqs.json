@@ -20,12 +20,6 @@
             ]
         },
         {
-            "title": "Rainbond 版本比较",
-            "urls": [
-                "/${VERSION}/rainbond-in-comparison.html"
-            ]
-        },
-        {
             "title": "已知问题",
             "urls": [
                 "/${VERSION}/known-limitations.html"

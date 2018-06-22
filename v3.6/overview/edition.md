@@ -313,7 +313,7 @@ Rainbond 包含了众多的功能特性，下面是详细的功能对比表：
 - 应用之间的负载均衡功能可插件化扩展，支持高级的服务治理
 
 {{site.data.alerts.callout_info}}
-- <a href="support/rainbond-enterprise-support.html" target="_blank">企业级服务与支持</a>
-- <a href="support/rainbond-enterprise-training.html" target="_blank">企业培训与咨询</a>
-- <a href="support/rainbond-enterprise-sla.html" target="_blank">企业级产品支持服务等级协议</a>
+- <a href="../support/rainbond-enterprise-support.html" target="_blank">企业级服务与支持</a>
+- <a href="../support/rainbond-enterprise-training.html" target="_blank">企业培训与咨询</a>
+- <a href="../support/rainbond-enterprise-sla.html" target="_blank">企业级产品支持服务等级协议</a>
 {{site.data.alerts.end}}
