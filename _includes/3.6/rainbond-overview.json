@@ -33,7 +33,7 @@
             ]
         },
         {
-            "title": "Rainbond架构",
+            "title": "技术架构与实现",
             "urls": [
                 "/${VERSION}/overview/architecture.html"
             ]
