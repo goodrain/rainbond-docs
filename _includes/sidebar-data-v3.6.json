@@ -2,8 +2,8 @@
     // 快速开始
     {% include 3.6/getting-started.json %},
     
-    // 平台概述
-    {% include 3.6/rainbond-overview.json %},
+    // 技术架构与实现
+    {% include 3.6/architecture.json %},
 
     // 基础操作
     {% include 3.6/basic-operation.json %},
