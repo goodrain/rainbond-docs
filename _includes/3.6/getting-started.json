@@ -2,20 +2,20 @@
     "title": "快速开始",
     "items": [
         {
-            "title": "在线私有化安装",
+            "title": "概述",
+            "urls": [
+                "/${VERSION}/getting-started/rainbond-overview.html"
+            ]
+        },
+        {
+            "title": "一键安装",
             "urls": [
                 "/${VERSION}/getting-started/before-installation.html",
                 "/${VERSION}/getting-started/online-installation.html"
             ]
         },
         {
-            "title": "通过阿里云市场镜像安装",
-            "urls": [
-                "/${VERSION}/getting-started/image-install.html"
-            ]
-        },
-        {
-            "title": "使用Rainbond公有云",
+            "title": "公有云试用",
             "urls": [
                 "/${VERSION}/getting-started/public-cloud-brief.html"
             ]

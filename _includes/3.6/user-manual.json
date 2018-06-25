@@ -1,0 +1,11 @@
+{
+    "title": "用户手册",
+    "items": [
+        {
+            "title": "创建一个应用",
+            "urls": [
+                "/${VERSION}/user-manual/create-an-app.html"
+            ]
+            }
+        ]
+}
