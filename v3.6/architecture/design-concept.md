@@ -1,5 +1,5 @@
 ---
-title: 设计理念
+title: Rainbond设计理念
 summary: Rainbond设计的由来和理念，达到的目标前景
 toc: false
 ---
