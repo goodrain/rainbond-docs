@@ -1,0 +1,30 @@
+{
+    "title": "产品架构与技术实现",
+    "is_top_level": true,
+    "items": [
+        {
+            "title": "设计与抽象",
+            "urls": [
+                "/${VERSION}/architecture/abstraction.html"
+            ]
+        },
+        {
+            "title": "整体架构",
+            "urls": [
+                "/${VERSION}/architecture/architecture.html"
+            ]
+        },
+        {
+            "title": "功能列表",
+            "urls": [
+                "/${VERSION}/architecture/edition.html"
+            ]
+        },
+        {
+            "title": "Roadmap",
+            "urls": [
+                "/${VERSION}/architecture/roadmap.html"
+            ]
+        }
+    ]
+}

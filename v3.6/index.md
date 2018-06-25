@@ -63,10 +63,10 @@ Rainbond历经超过五年的生产运营打磨和验证，形成目前理念最
     </div>
     <div class="col-md-4">
         <div class="roach">
-            <a href="overview/architecture.html">
+            <a href="architecture/architecture.html">
                 <img src="{{ 'images/sleeping_craig.png' | relative_url }}" alt="rainbond 架构"/>
                 <h3>技术架构</h3>
-                <p>深入了解云帮的技术原理及工作机制。</p>
+                <p>深入了解Rainbond的技术原理及工作机制。</p>
             </a>
         </div>
     </div>

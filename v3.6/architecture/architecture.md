@@ -1,6 +1,6 @@
 ---
 title: Rainbond技术架构
-summary: 介绍Rainbond技术架构及组成部分
+summary: Rainbond技术架构及组件组成部分
 toc: false
 ---
 

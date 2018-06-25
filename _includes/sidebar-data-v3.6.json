@@ -1,9 +1,9 @@
 [
-    // 平台概述
-    {% include 3.6/rainbond-overview.json %},
-
     // 快速开始
     {% include 3.6/getting-started.json %},
+    
+    // 平台概述
+    {% include 3.6/rainbond-overview.json %},
 
     // 基础操作
     {% include 3.6/basic-operation.json %},

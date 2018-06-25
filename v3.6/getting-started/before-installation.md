@@ -70,4 +70,3 @@ dns 配置建议使用 114.114.114.114等国内dns server
 还需注意系统未安装其他服务，如nginx、docker、kubernetes等，如有安装请完全卸载。
 
 {{site.data.alerts.end}}
-
