@@ -5,7 +5,8 @@
         {
             "title": "设计与抽象",
             "urls": [
-                "/${VERSION}/architecture/design-concept.html"
+                "/${VERSION}/architecture/design-concept.html",
+                "/${VERSION}/architecture/abstraction.html"
             ]
         },
         {
