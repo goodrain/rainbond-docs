@@ -6,8 +6,11 @@ toc: false
 
 <div id="toc"></div>
 
+**应用**是Rainbond可管理的最小服务单元，用户可以将多个应用组成一个复杂的业务系统，这套业务系统可以对外提供服务，也可以分享给其他组织独立部署。
 
-你可以通过源代码、Docker镜像、云市来创建应用。本文将通过示例教你创建Rainbond上的第一个应用。
+Rainbond支持多种方式创建应用，下图是支持创建应用的方式示意图，你可以选择适合自己的方式快速起步：
+
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/create-app.png" width="100%" />
 
 ## 一、通过源代码创建应用
 Rainbond支持流行的编程语言源代码直接创建应用，同时也支持Dockerfile创建应用，接下来主要通过2个示例来介绍。
