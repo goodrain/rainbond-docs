@@ -26,6 +26,12 @@
             ]
         },
         {
+            "title": "应用状态说明",
+            "urls": [
+                "/${VERSION}/user-manual/app-status.html"
+            ]
+        },
+        {
             "title": "连接数据库",
             "urls": [
                 "/${VERSION}/user-manual/link-db.html"
