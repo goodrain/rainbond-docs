@@ -1562,7 +1562,7 @@ li.search-wrap {
     transform: rotate(-45deg); }
 
 .bs-callout {
-  padding: 30px 40px 30px 25px;
+  padding: 30px 40px 10px 25px;
   margin: 30px 0;
   border-left: 5px solid #eee;
   font-family: "San Francisco","Lucida Grande","Lucida Sans Unicode","helvetica neue",Verdana,tahoma,Aril,PingFangSC-Light,"hiragino sans gb",STXihei,"华文细黑","WenQuanYi Micro Hei","Microsoft YaHei UI","Microsoft YaHei","微软雅黑",Heiti,"黑体",sans-serif;  
