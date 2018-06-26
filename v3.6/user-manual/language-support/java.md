@@ -1,5 +1,5 @@
 ---
-title: Java语言源码创建
+title: Java源码创建
 summary: 云帮可以将java程序轻松部署到平台，并提供灵活伸缩的高可用特性。您可以部署标准的基于Tomcat或Jetty的web app程序，同时也支持Spring、Play等框架构建的应用程序。我们的致力于在不改变开发习惯情况下将您的java应用在云端快速部署、运行、灵活伸缩！
 toc: false
 ---
@@ -9,7 +9,7 @@ toc: false
 
 ## 一、代码识别
 
-云帮支持部署Java源码、jar包、war包项目：
+云帮支持部署Java源码、jar包、war包项目.
 
 ### 1.1 Maven源码项目
 
@@ -112,7 +112,7 @@ java $JAVA_OPTS -jar /opt/webapp-runner.jar   --port $PORT target/*.war
 
 ### 3.4 自定义运行命令
 
-用户可以通过在代码根目录创建 [Procfile](/docs/stable/user-lang-docs/etc/procfile.html) 文件并编辑该文件，可以实现自定义运行命令：
+用户可以通过在代码根目录创建 [Procfile](etc/procfile.html) 文件并编辑该文件，可以实现自定义运行命令：
 
 {% include copy-clipboard.html %}
 
@@ -128,7 +128,7 @@ web: java $JAVA_OPTS -jar  target/*.jar
 {{site.data.alerts.end}}
 
 
-本文示范demo源码：[java-maven-demo](https://github.com/goodrain-apps/java-maven-demo)
+本文示范demo源码：[java-maven-demo](https://github.com/goodrain/java-maven-demo.git)
 
 ## 四、示例：部署war/jar包
 
@@ -136,8 +136,8 @@ web: java $JAVA_OPTS -jar  target/*.jar
 
 **示例代码:**
 
-- [java-war-demo](http://code.goodrain.com/demo/java-war-demo/tree/master)
-- [java-jar-demo](http://code.goodrain.com/demo/java-jar-demo/tree/master)
+- [java-war-demo](https://github.com/goodrain/java-war-demo.git)
+- [java-jar-demo](https://github.com/goodrain/java-jar-demo.git)
 
 
 ### 4.1 部署war包
@@ -157,3 +157,10 @@ JAR文件通常是集合 类文件、数据文件或资源的文件，它的扩�
 ```
 echo java-jar > LANGUAGE
 ```
+
+## 五、相关文章
+
+- <a href="java/spring-boot-mysql.html" target="_blank" >Spring Boot项目配置MySQL</a>
+- <a href="java/tomcat-redis-session.html" target="_blank" >Tomcat配置Redis实现Session共享</a>
+- <a href="java/jetty-runner.html" target="_blank" >部署基于Jetty-Runner的应用</a>
+- <a href="java/webapp-runner.html" target="_blank" >部署基于webapp-runner的应用</a>

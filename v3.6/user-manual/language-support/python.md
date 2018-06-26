@@ -5,9 +5,9 @@ toc: false
 ---
 <div id="toc"></div>
 
-云帮支持部署和扩展Python应用程序。无论您喜欢`Django`或`Flask`等框架，云帮都可以使用。
+云帮支持部署和伸缩Python应用程序。无论您喜欢`Django`或`Flask`等框架，云帮都可以使用。
 
-## 代码识别
+## 一、代码识别
 
 云帮通过检测到您代码的根目录下存在`requirements.txt`文件而识别您的应用为Python应用。您可以通过命令生成 `requirements.txt` 文件，命令如下：
 
@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 {{site.data.alerts.end}}
 
-## 版本选择
+## 二、版本选择
 
 云帮默认使用`Python2.7.13`版本，您也可以通过在根目录下增加一个 `runtime.txt`文件来指定版本：
 
@@ -49,21 +49,21 @@ $ cat runtime.txt
 python-3.4.3
 ```
 
-### 推荐的python版本
+### 2.1 推荐的python版本
 
 - Python-2.7.9~Python-2.7.13
 - Python-3.4.3,Python-3.5.2,Python-3.6.0,Python-3.6.1
 
 当然您也可以指定【2.4.4 - 3.6.1】之间的版本，但不支持如下几个特殊的版本`Python-3.4.5`、` Python-3.4.6 `、`Python-3.5.3`。
 
-## 工具库
+## 三、工具库
 
 系统使用以下的库来管理和解决 Python 依赖，您不可以自定义它们：
 
 - setuptools 35.0.2
 - pip 9.0.1
 
-## 构建(build)
+## 四、构建(build)
 
 系统会在您代码部署的环境运行以下命令来解决依赖：
 
@@ -71,9 +71,9 @@ python-3.4.3
 $ pip install -r requirements.txt --allow-all-external
 ```
 
-## 启动命令
+## 五、启动命令
 
-需要您在代码根目录创建 Procfile 文件来指定启动应用的命令，并写入如下内容：
+需要您在代码根目录创建 [Procfile](etc/procfile.html) 文件来指定启动应用的命令，并写入如下内容：
 
 {% include copy-clipboard.html %}
 
@@ -89,7 +89,7 @@ web: gunicorn hello:app --log-file - --access-logfile - --error-logfile -
 
 {{site.data.alerts.end}}
 
-## Django 静态文件支持
+## 六、Django 静态文件支持
 
 由于 [Django](https://www.djangoproject.com/) 的静态文件支持（CSS、图片等）不是很容易配置而且不方便调试，这里给出一个示例：
 
@@ -122,14 +122,14 @@ $ python manage.py collectstatic --noinput
 
 用户可以手工禁用上述特性，只需要在应用的环境变量里配置 DISABLE_COLLECTSTATIC 的值为 1。
 
-## Whitenoise
+## 七、Whitenoise
 
 默认情况下，Django 在生产模式下不支持托管静态文件，我们推荐在生产环境下使用 [Whitenoise](https://pypi.io/project/whitenoise/)
 项目托管静态文件作为最佳实践，以下是具体的安装和配置方式：
 
 > 参考文档： 具体细节请查看 Django 文档的 [Managing static files](https://docs.djangoproject.com/en/1.7/howto/static-files/) 和[Deploying static files](https://docs.djangoproject.com/en/1.7/howto/static-files/) 章节。
 
-### 安装 Whitenoise
+### 7.1 安装 Whitenoise
 
 ```bash
 $ pip install whitenoise
@@ -155,6 +155,6 @@ application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
 ```
 
-## 示例代码
+## 八、示例代码
 
-- [Python示例代码](http://code.goodrain.com/demo/python-hello/tree/master)
+- [Python示例代码](https://github.com/goodrain/python-demo.git)

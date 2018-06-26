@@ -1,11 +1,11 @@
 ---
-title: 云帮支持Ruby
-summary: ruby概述
+title: Ruby源码创建应用
+summary: ruby源码创建应用
 toc: false
 ---
 <div id="toc"></div>
 
-## 代码识别
+## 一、代码识别
 
 您代码的根目录下需要有 `Gemfile` 文件，即使没有任何 gem 依赖，也就是一个空的 `Gemfile`也可以。云帮会通过此条件识别语言类别。针对不同的ruby web开发框架有如下识别方式：
 
@@ -19,7 +19,7 @@ toc: false
 
 {{site.data.alerts.end}}
 
-## 环境变量
+## 二、环境变量
 
 云帮会在ruby应用运行时，自动设置以下环境变量：
 
@@ -35,15 +35,15 @@ PATH => bin:vendor/bundle/#{RUBY_ENGINE}/#{RUBY_ABI_VERSION}/bin:/usr/local/bin:
 
 {{site.data.alerts.end}}
 
-## 构建(build)
+## 三、构建(build)
 
 当应用部署时，会触发构建行为，这时 `RAILS_ENV` 或 `RACK_ENV` 变量被设置为 `production` 。Rails 4.1+ 版本 可以通过`DATABASE_URL`环境变量设置`database.yml`文件中的 `url` 来配置数据库。目前云帮还未支持该特性，后续会支持。
 
-## 支持的运行时环境
+## 四、支持的运行时环境
 
 系统默认会使用 `Ruby 2.0.0`。当然，你也可以自己指定一个要使用的版本，云帮支持大部分的 ruby 版本。
 
-### MRI
+### 4.1 MRI
 
 - 1.8.7 : patchlevel 376, Rubygems : 1.8.24
 - 1.9.2 : patchlevel 327, Rubygems : 1.3.7.1
@@ -57,15 +57,15 @@ PATH => bin:vendor/bundle/#{RUBY_ENGINE}/#{RUBY_ABI_VERSION}/bin:/usr/local/bin:
 
 {{site.data.alerts.end}}
 
-### JRuby
+### 4.2 JRuby
 
 - 1.7.20, Ruby 版本: [1.9.3], Java 版本:1.7.0_45-b31
 
-## 可用的运行时环境
+## 五、可用的运行时环境
 
 其它版本的 JRuby 也在支持范围内。
 
-### JRuby
+### 5.1 JRuby
 
 - 1.7.1, Ruby 版本: [1.8.7, 1.9.3], Java 版本: 1.7.0_25-b30
 - 1.7.2, Ruby 版本: [1.8.7, 1.9.3], Java 版本: 1.7.0_25>b30
@@ -89,7 +89,7 @@ PATH => bin:vendor/bundle/#{RUBY_ENGINE}/#{RUBY_ABI_VERSION}/bin:/usr/local/bin:
 - 9.0.0.0.pre1, Ruby 版本: [2.2.0], Java 版本: 8u40 (cedar-14)
 - 9.0.0.0.pre2, Ruby 版本: [2.2.2], Java 版本: 8u40 (cedar-14)
 
-### 选择Ruby版本
+### 5.2 选择Ruby版本
 
 在`Gemfile`里指定 Ruby 版本
 
@@ -120,7 +120,7 @@ ruby "1.9.3", :engine ="jruby", :engine_version ="1.7.8"
 ruby ENV['CUSTOM_RUBY_VERSION'] || '2.0.0'
 ```
 
-## 示例代码
+## 六、示例代码
 
-- [Ruby-Sinatra示例代码](http://code.goodrain.com/demo/ruby-sinatra/tree/master)
-- [Ruby-Rails示例代码](http://code.goodrain.com/demo/ruby-rails/tree/master)
+- [Ruby-Sinatra示例代码](https://github.com/goodrain/ruby-sinatra-demo.git)
+- [Ruby-Rails示例代码](https://github.com/goodrain/ruby-rails-demo.git)

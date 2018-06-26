@@ -5,11 +5,11 @@ toc: false
 ---
 <div id="toc"></div>
 
-&emsp;&emsp;云帮可以将PHP应用更快速的部署到平台。无论是倾向`Symfony`或`Laravel`等开发框架，还是使用非开发框架，或者可以通过环境配置文件可以自定义Web Server或`php.ini`的参数等，云帮在不改变开发习惯下，让PHP程序自由快速运行在平台。
+Rainbond可以将PHP源码快速的部署并运行起来。无论是`Symfony`、`Laravel` 或 [ThinkPHP](php/thinkphp.html) 等开发框架，还是使用非开发框架，或者通过环境配置文件<a href="php/custom-env.html" target="_blank" >自定义Web Server与PHP环境</a>。
 
-## 代码识别
+## 一、代码识别
 
-云帮识别您的代码为PHP语言，需要您在代码的根目录下确认有` index.php` 文件或者 `composer.json `文件。
+代码的根目录下有 `index.php` 文件或者 `composer.json `文件，rainbond构建程序会识别为PHP语言。
 
 {{site.data.alerts.callout_success}}
 
@@ -17,22 +17,22 @@ toc: false
 
 {{site.data.alerts.end}}
 
-## 支持版本
+## 二、支持版本
 
 平台提供了不同的PHP版本，您可以使用PHP，HHVM(PHP代码编译器)，或者同时使用二者，通过HHVM提高PHP性能。
 
-### PHP版本
+### 2.1 PHP版本
 
 - PHP 5.5 (5.5.38)
 - PHP 5.6 (5.6.11, 5.6.30, 5.6.35)(默认)
 - PHP 7.0 (7.0.16, 7.0.29)
 - PHP 7.1 (7.1.2, 7.1.16)
 
-### HHVM版本
+### 2.2 HHVM版本
 
 - HHVM 3.5.1
 
-### 选择PHP版本
+### 2.3 选择PHP版本
 
 有两种方式指定PHP版本：
 
@@ -63,13 +63,11 @@ toc: false
 PHP 的版本支持 ~5.5.35 这种 [Semantic Versioning](http://semver.org/) 的形式，如果用户指定~5.5.35系统会从平台中选择5.5分支版本最高的版本，因此会选择5.5.35版本。
 {{site.data.alerts.end}}
 
-### 扩展
+### 2.4 扩展
 
 云帮创建PHP应用时支持添加扩展。您可以在创建应用时通过向导提供的扩展进行选择添加；或者自定义扩展，云帮会在构建过程中将您自定义的扩展添加：
 
-#### 通过云帮构建向导
-
-##### 默认扩展
+#### 2.4.1 默认扩展
 
 以下为云帮创建PHP应用时默认开启的扩展：
 
@@ -88,7 +86,7 @@ PHP 的版本支持 ~5.5.35 这种 [Semantic Versioning](http://semver.org/) 的
 - [Zip](http://docs.php.net/zip)
 - [Zlib](http://docs.php.net/zlib)
 
-##### 可选扩展
+#### 2.4.2 可选扩展
 
 您可以在应用创建的向导中选择添加除默认扩展外的其他扩展(扩展名对应包名在下列括号中给出)：
 
@@ -109,7 +107,7 @@ PHP 的版本支持 ~5.5.35 这种 [Semantic Versioning](http://semver.org/) 的
 - [XMLRPC](http://docs.php.net/xmlrpc)(xmlrpc)
 - [XSL](http://docs.php.net/xsl)(xsl)
 
-#### 自定义扩展
+#### 2.4.3 自定义扩展
 
 您可以在`composer.json`中添加自定义扩展，这里需要以  **ext-(前缀) **  **+**  **扩展包名** 这样的格式命名扩展包名称，使用  ***** 标识扩展包的版本号。以下是使用`bcmath`, `Memcached`, `MongoDB`和 XSL 的例子：
 
@@ -132,7 +130,7 @@ composer是PHP的依赖管理器，composer.json则是composer的配置文件，
 
 {{site.data.alerts.end}}
 
-#### 第三方扩展
+#### 2.4.4 第三方扩展
 
 以下第三方扩展可以通过 composer.json 开启（包名已在括号内给出）：
 
@@ -152,7 +150,7 @@ HHVM 暂时不支持自定义扩展
 {{site.data.alerts.end}}
 
 
-#### 扩展特例
+#### 2.4.5 扩展特例
 
 官方出品过2个mongodb的扩展，一个叫mongo，一个是mongodb。前者已经被官方废弃，不再提供稳定的更新，官方推荐使用后者，并且后者是支持php7的。所以在使用mongodb扩展时，需要在composer.json中指定扩展为mongodb。
 
@@ -169,7 +167,7 @@ HHVM 暂时不支持自定义扩展
 }
 ```
 
-## 构建
+## 三、构建
 
 在部署期间系统会运行以下命令来安装依赖包，解决依赖关系：
 
@@ -183,11 +181,11 @@ composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
 {{site.data.alerts.end}}
 
-## Web 服务器
+## 四、Web 服务器
 
 云帮支持 [Apache](http://httpd.apache.org/) 和 [Nginx](http://nginx.org/) 两种 Web 服务器，如果您在Profile文件中没有设置加载其中任一服务器，或代码根目录没有 Procfile 文件，应用创建向导会提示用户选择Apache或Nginx作为Web服务器。
 
-### Apache服务器
+### 4.1 Apache服务器
 
 Apache接口与PHP-FPM或HHVM通过FastCGI使用 `mod_proxy_fcgi`。
 
@@ -237,7 +235,7 @@ RewriteRule .? %{ENV:BASE}/app.php [L]
 web: vendor/bin/heroku-php-apache2 -C apache_app.conf
 ```
 
-### Nginx
+### 4.2 Nginx
 
 Nginx 使用 FastCGI 连接 PHP-FPM，使用下面的 Procfile 开启 Nginx：
 
@@ -280,6 +278,10 @@ location ~ ^/(app|app_dev|config)\.php(/|$) {
 web: vendor/bin/heroku-php-nginx -C nginx_app.conf
 ```
 
-## PHP示例代码
+## 五、PHP示例代码
 
-- [php示例代码](http://code.goodrain.com/demo/php-hello/tree/master)
+- [php示例代码](https://github.com/goodrain/php-demo.git)
+
+## 六、相关文档
+- <a href="php/custom-env.html" target="_blank" >自定义Web Server与PHP环境</a>
+- <a href="etc/procfile.html" target="_blank" >Procfile文件说明</a>

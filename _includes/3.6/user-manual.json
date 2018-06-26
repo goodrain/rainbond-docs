@@ -76,6 +76,12 @@
                 ]
             },
             {
+                "title": "Html",
+                "urls": [
+                    "/${VERSION}/user-manual/language-support/html.html"
+                ]
+            },
+            {
                 "title": "Dockerfile",
                 "urls": [
                     "/${VERSION}/user-manual/language-support/dockerfile.html"
