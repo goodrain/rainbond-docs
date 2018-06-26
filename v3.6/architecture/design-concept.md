@@ -12,7 +12,7 @@ toc: false
 
 ## 云计算的发展
 <center>
-<img width="85%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/architecture/cloud-development.png"></img>
+<img width="100%" src="https://static.goodrain.com/images/docs/3.6/architecture/cloud-development.png"></img>
 </center>
     我们回顾云计算产业与技术的发展路程，物理计算集群逐步被IaaS层虚拟化取代，国内例如阿里云，腾讯云等IaaS厂商布局多年。IaaS层解决了资源提供者与使用者的耦合问题，对于用户来说只需要选择使用什么操作系统，分配多大资源上限即可，一定层度上降低了用户交付应用价值的难度。但是，用户依然需要重复得进行操作系统运维，环境与应用运维，技术难度依然很高。近两年，以Docker、Kubernetes为代表的容器与容器编排技术盛行，其实际上是将虚拟化进一步上移，更加面向应用，我们时常称容器化是对应用的虚拟化。在这样的基础上用户创造和交付大规模业务系统变得更加简单。我们认为，云计算的发展更多的是让大部分公司和人群只需要关注和创造业务系统，关注业务逻辑，而不是将大量时间和人力投入到复杂的，重复的计算资源维护上，因此只是容器化还不能达到这个层次，我们希望将云计算推向到下个阶段：应用管理阶段，呈现出两个产品，无服务器PaaS和云原生SaaS。
 
