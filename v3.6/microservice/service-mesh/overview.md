@@ -83,13 +83,13 @@ ServiceMesh架构具有以下优点：`最大化透明`,`代码无侵入`,`支�
 ## ServiceMesh微服务架构实践
 可以这么说，通过Rainbond部署的应用都是微服务，为了达到更好的服务治理，通过下文实践文档快速Get新技能：
 
-- [服务注册]() 
+- [服务注册](/docs/stable/microservice/service-mesh/regist.html) 
 
-- [服务发现]() 
+- [服务发现](/docs/stable/microservice/service-mesh/discover.html) 
 
 - [服务路由，灰度发布，A/B测试]() 
 
-- [日志处理]()  
+- [日志处理](/docs/stable/microservice/service-mesh/service-log.html)  
 
 - [服务监控]() 
 
@@ -97,15 +97,15 @@ ServiceMesh架构具有以下优点：`最大化透明`,`代码无侵入`,`支�
 
 - [断路器,限流]() 
 
-- [服务备份、恢复]() 
+- [服务备份、恢复](docs/stable/advanced-operation/backup-app.html) 
 
 - [认证与权限]()
 
-- [动态配置]() 
+- [动态配置](/docs/stable/microservice/service-mesh/service-config.html) 
 
 - [应用拓扑与编排]() 
 
-- [服务伸缩]() 
+- [服务伸缩](/docs/stable/microservice/service-mesh/service-extension.html) 
 
 - [服务通信加密]()
 
