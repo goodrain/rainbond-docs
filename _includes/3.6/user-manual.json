@@ -6,6 +6,76 @@
             "urls": [
                 "/${VERSION}/user-manual/create-an-app.html"
             ]
+        },
+        {
+            "title": "自定义应用域名",
+            "urls": [
+                "/${VERSION}/user-manual/custom-app-domain.html"
+            ]
+        },
+        {
+            "title": "查看应用日志",
+            "urls": [
+                "/${VERSION}/user-manual/view-app-logs.html"
+            ]
+        },
+        {
+            "title": "为应用添加存储",
+            "urls": [
+                "/${VERSION}/user-manual/add-persistent-storage.html"
+            ]
+        },
+        {
+            "title": "连接数据库",
+            "urls": [
+                "/${VERSION}/user-manual/link-db.html"
+            ]
+        },
+        {
+            "title": "语言支持",
+            "items": [{
+                "title": "Java",
+                "urls": [
+                    "/${VERSION}/user-manual/language-support/java.html"
+                ]
+            },
+            {
+                "title": "PHP",
+                "urls": [
+                    "/${VERSION}/user-manual/language-support/php.html"
+                ]
+            },
+            {
+                "title": "Python",
+                "urls": [
+                    "/${VERSION}/user-manual/language-support/python.html"
+                ]
+            },
+            {
+                "title": "Node.JS",
+                "urls": [
+                    "/${VERSION}/user-manual/language-support/nodejs.html"
+                ]
+            },
+            {
+                "title": "Ruby",
+                "urls": [
+                    "/${VERSION}/user-manual/language-support/ruby.html"
+                ]
+            },
+            {
+                "title": "Golang",
+                "urls": [
+                    "/${VERSION}/user-manual/language-support/golang.html"
+                ]
+            },
+            {
+                "title": "Dockerfile",
+                "urls": [
+                    "/${VERSION}/user-manual/language-support/dockerfile.html"
+                ]
             }
         ]
+        }
+    ]
 }
