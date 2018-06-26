@@ -83,3 +83,8 @@ Dubbo 架构具有以下几个特点，分别是连通性、健壮性、伸缩�
 | Admin      | 统一管理控制台             |
 | Registry   | 服务注册与发现的注册中心        |
 | Monitor    | 统计服务的调用次数和调用时间的监控中心 |
+
+## 其他微服务架构支持
+- [SpringCloud](https://www.rainbond.com/docs/stable/microservice/spring-cloud/spring-cloud.html)
+- [Dubbo](https://www.rainbond.com/docs/stable/microservice/dubbo/dubbo-deploy.html)
+- [API Gateway(Kong)](https://www.rainbond.com/docs/stable/microservice/kong/kong.html)

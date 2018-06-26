@@ -19,3 +19,9 @@ asciicast: true
 - Vote_web 通过Zookeeper查找服务。
 - Vote_web 查找到服务后直接调用User.provider 与 Vote.provider 服务。
 - Vote_web、User.provider 与 Vote.provider 服务在构建时通过Maven仓库下载voteservice.jar 文件。
+
+
+## 其他微服务架构支持
+- [SpringCloud](https://www.rainbond.com/docs/stable/microservice/spring-cloud/spring-cloud.html)
+- [Dubbo](https://www.rainbond.com/docs/stable/microservice/dubbo/dubbo-deploy.html)
+- [API Gateway(Kong)](https://www.rainbond.com/docs/stable/microservice/kong/kong.html)

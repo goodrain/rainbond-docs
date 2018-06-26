@@ -301,3 +301,9 @@ CMD ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/<jar-name>.jar"]
 此时Web服务应当依赖Zookeeper于其他Provider服务。
 
 ##### 由于配置改变，此时需重启应用适配。待重启完毕即可访问Dubbo架构的应用了！
+
+
+## 其他微服务架构支持
+- [SpringCloud](https://www.rainbond.com/docs/stable/microservice/spring-cloud/spring-cloud.html)
+- [Dubbo](https://www.rainbond.com/docs/stable/microservice/dubbo/dubbo-deploy.html)
+- [API Gateway(Kong)](https://www.rainbond.com/docs/stable/microservice/kong/kong.html)
