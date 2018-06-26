@@ -15,11 +15,11 @@ asciicast: true
 
 ## 使用说明
 
-* 添加二级域名
+* 添加二级域名(修改域名后需重启应用)
 
  <img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/sld-domain.gif" style="border:1px solid #eee;max-width:100%" />
 
-* 解绑二级域名
+* 解绑二级域名(修改域名后需重启应用)
 
 <img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/unbind-sld-domain.png" style="border:1px solid #eee;max-width:100%" />
 
