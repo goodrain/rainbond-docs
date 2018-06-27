@@ -19,6 +19,18 @@
             "urls": [
                 "/${VERSION}/getting-started/public-cloud-brief.html"
             ]
+        },
+        {
+            "title": "功能列表",
+            "urls": [
+                "/${VERSION}/architecture/edition.html"
+            ]
+        },
+        {
+            "title": "Roadmap",
+            "urls": [
+                "/${VERSION}/architecture/roadmap.html"
+            ]
         }
     ]
 }

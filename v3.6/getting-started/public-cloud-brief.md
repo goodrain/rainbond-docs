@@ -6,6 +6,6 @@ toc_not_nested: true
 asciicast: true
 ---
 
-如果您想快速体验云帮平台，可以 [注册](https://sso.goodrain.com/#/register/https%253A%252F%252Fconsole.goodrain.com%252Fsso_callback) 并使用我们的公有云产品。
+如果您想快速体验Rainbond平台，好雨云提供了基于Rainbond实现的多数据中心的公有云服务，您可以直接 [注册](https://console.goodrain.com) 并使用，快速将你的业务系统上云。
 
-- <a href="https://www.goodrain.com" target="_blank">公有云</a>
+- <a href="https://console.goodrain.com" target="_blank">公有云Rainbond控制台</a>

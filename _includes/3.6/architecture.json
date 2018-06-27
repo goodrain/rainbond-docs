@@ -14,18 +14,6 @@
             "urls": [
                 "/${VERSION}/architecture/architecture.html"
             ]
-        },
-        {
-            "title": "功能列表",
-            "urls": [
-                "/${VERSION}/architecture/edition.html"
-            ]
-        },
-        {
-            "title": "Roadmap",
-            "urls": [
-                "/${VERSION}/architecture/roadmap.html"
-            ]
         }
     ]
 }
