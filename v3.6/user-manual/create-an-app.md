@@ -6,8 +6,11 @@ toc: false
 
 <div id="toc"></div>
 
+**应用**是Rainbond可管理的最小服务单元，用户可以将多个应用组成一个复杂的业务系统，这套业务系统可以对外提供服务，也可以分享给其他组织独立部署。
 
-你可以通过源代码、Docker镜像、云市来创建应用。本文将通过示例教你创建Rainbond上的第一个应用。
+Rainbond支持多种方式创建应用，下图是支持创建应用的方式示意图，你可以选择适合自己的方式快速起步：
+
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/create-app.png" width="100%" />
 
 ## 一、通过源代码创建应用
 Rainbond支持流行的编程语言源代码直接创建应用，同时也支持Dockerfile创建应用，接下来主要通过2个示例来介绍。
@@ -56,6 +59,16 @@ docker run -d --name ghost -p 3001:2368 -v /data:/var/lib/ghost/content ghost:1-
 
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/image-demo02.gif" width="100%" />
 
+### 2.3 其他语言源码创建应用
+
+- <a href="language-support/java.html" target="_blank">Java源码创建应用</a>
+- <a href="language-support/php.html" target="_blank">PHP源码创建应用</a>
+- <a href="language-support/python.html" target="_blank">Python源码创建应用</a>
+- <a href="language-support/nodejs.html" target="_blank">Node.js源码创建应用</a>
+- <a href="language-support/ruby.html" target="_blank">Ruby源码创建应用</a>
+- <a href="language-support/golang.html" target="_blank">Golang源码创建应用</a>
+- <a href="language-support/html.html" target="_blank">Html静态源码创建应用</a>
+- <a href="language-support/dockerfile.html" target="_blank">Dockerfile源码创建应用</a>
 
 ## 三、通过云市创建应用
 除了上文介绍的两大类创建应用的方法外，rainbond还提供了应用市场的应用一键部署，应用市场是好雨提供的一项公有云服务，提供了常用的开发应用及工具。下面介绍通过应用市场安装 Wordpress 应用的示例：
