@@ -3,6 +3,7 @@ title: Rainbond技术架构
 summary: Rainbond技术架构及组件组成部分
 toc: false
 ---
+<div id="toc"></div>
 
 ## Rainbond技术架构
 
