@@ -1,0 +1,130 @@
+{
+        "title": "运维手册",
+        "items": [{
+                "title": "平台部署结构",
+                "urls": [
+                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                ]
+            },
+            {
+                "title": "平台组件说明",
+                "urls": [
+                    "/${VERSION}/operation-manual/component-description.html"
+                ]
+            },
+            {
+                "title": "集群管理",
+                "items": [{
+                    "title": "集群部署原理",
+                    "urls": [
+                        "/${VERSION}/operation-manual/cluster-management/deployment-principle.html"
+                    ]
+                }, 
+                {
+                    "title": "扩容管理节点",
+                    "urls": [
+                        "/${VERSION}/operation-manual/cluster-management/add-manage-node.html"
+                    ]
+                
+                },
+                {
+                    "title": "扩容计算节点",
+                    "urls": [
+                        "/${VERSION}/operation-manual/cluster-management/add-compute-node.html"
+
+                    ]
+                },
+                {
+                    "title": "安装最小化高可用集群",
+                    "urls": [
+                        "/${VERSION}/operation-manual/cluster-management/haminimal-install.html"
+
+                    ]
+                }
+            ]
+            },
+            {
+                "title": "平台维护",
+                "items": [{
+                        "title": "管理节点",
+                        "urls": [
+                            "/${VERSION}/operation-manual/platform-maintenance/management-node.html"
+                        ]
+                    },
+                    {
+                        "title": "计算节点",
+                        "urls": [
+                            "/${VERSION}/operation-manual/platform-maintenance/compute-node.html"
+                        ]
+                    },
+                    {
+                        "title": "存储节点",
+                        "items": [{
+                            "title": "GlusterFS",
+                            "items": [{
+                                    "title": "介绍",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/storage/GlusterFS/introduce.html"
+                                    ]
+                                }, {
+                                    "title": "安装",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/storage/GlusterFS/install.html"
+                                    ]
+                                }, {
+                                    "title": "维护",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/storage/GlusterFS/maintain.html"
+                                    ]
+                                }, {
+                                    "title": "基准测试",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/storage/GlusterFS/test.html"
+                                    ]
+                                }
+                            ]
+                        }]
+                    },
+                    {
+                            "title": "网络维护",
+                            "items": [{
+                                "title": "Calico",
+                                "urls": [
+                                    "/${VERSION}/operation-manual/network/calico.html"
+                                ]
+                            }]
+                        }
+                ]
+            },
+            {
+                "title": "性能调优",
+                "items": [{
+                        "title": "增加文件描述符限制",
+                        "urls": [
+                            "/${VERSION}/operation-manual/performance-tuning/increase-the-file-descriptor-limit.html"
+                        ]
+                    }, {
+                        "title": "调整内核参数",
+                        "urls": [
+                            "/${VERSION}/operation-manual/performance-tuning/adjust-kernel-parameters.html"
+                        ]
+                    }, {
+                        "title": "增加NFS挂载服务的并发数量",
+                        "urls": [
+                            "/${VERSION}/operation-manual/performance-tuning/increase-the-number-of-concurrent-nfs-mount-services.html"
+                        ]
+                    }, {
+                        "title": "开启容器swap使用限制",
+                        "urls": [
+                            "/${VERSION}/operation-manual/performance-tuning/open-container-swap-usage-restrictions.html"
+                        ]
+                    }, {
+                        "title": "创建Docker存储设备",
+                        "urls": [
+                            "/${VERSION}/operation-manual/performance-tuning/create-a-docker-storage-device.html"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }

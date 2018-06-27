@@ -10,9 +10,9 @@
 
     // 高级操作
     {% include 3.6/advanced-operation.json %},
-    
-    // 平台维护
-    {% include 3.6/maintenance.json %},
+
+    // 运维手册
+    {% include 3.6/operation-manual.json %},
     
     // 最佳实践
     {% include 3.6/best-practice.json %},

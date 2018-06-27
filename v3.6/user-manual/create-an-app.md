@@ -13,7 +13,7 @@ Rainbond支持多种方式创建应用，下图是支持创建应用的方式示
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/create-app.png" width="100%" />
 
 ## 一、通过源代码创建应用
-Rainbond支持流行的编程语言源代码直接创建应用，同时也支持Dockerfile创建应用，接下来主要通过2个示例来介绍。
+Rainbond支持[流行的编程语言](create-an-app.html#2-3)源代码直接创建应用，同时也支持Dockerfile创建应用，接下来主要通过2个示例来介绍。
 
 ### 1.1 PHP源码创建应用
 
