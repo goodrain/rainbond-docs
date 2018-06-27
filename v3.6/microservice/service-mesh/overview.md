@@ -89,15 +89,15 @@ ServiceMesh架构具有以下优点：`最大化透明`,`代码无侵入`,`支�
 
 - [服务路由，灰度发布，A/B测试](/docs/stable/microservice/service-mesh/abtest-backup-app.html) 
 
-- [日志处理](docs/stable/user-manual/view-app-logs.html)  
+- [日志处理](/docs/stable/user-manual/view-app-logs.html)  
 
 - [服务监控，性能监控](/docs/stable/microservice/service-mesh/service-per-monitor.html) 
 
 - [断路器,限流](/docs/stable/microservice/service-mesh/fuse-limiting.html) 
 
-- [服务备份、恢复](docs/stable/advanced-operation/backup-app.html) 
+- [服务备份、恢复](/docs/stable/advanced-operation/backup-app.html) 
 
-- [认证与权限]()
+- 认证与权限(TODO)
 
 - [动态配置](/docs/stable/microservice/service-mesh/service-config.html) 
 
@@ -105,7 +105,7 @@ ServiceMesh架构具有以下优点：`最大化透明`,`代码无侵入`,`支�
 
 - [服务伸缩](/docs/stable/microservice/service-mesh/service-extension.html) 
 
-- [服务通信加密]()
+- 服务通信加密(TODO)
 
 ## 其他微服务架构支持
 - [SpringCloud](https://www.rainbond.com/docs/stable/microservice/spring-cloud/spring-cloud.html)
