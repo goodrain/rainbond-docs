@@ -8,4 +8,5 @@ Rainbond是一套完整的PaaS，包含了众多的服务组件，按功能可�
 
 单节点rainbond可以通过自动化安装脚本来扩容集群，详情清参见：[集群部署原理](cluster-management/deployment-principle.html)，本文主要介绍rainbond的逻辑与物理部署结构和集群打角色及功能，下图为逻辑部署结构：
 
-<img src="https://static.goodrain.com/images/docs/3.6/operation-manual/deploy-logic.png" width="100%" />
+<a href="https://static.goodrain.com/images/docs/3.6/operation-manual/deploy-logic.png" target="_blank"><img src="https://static.goodrain.com/images/docs/3.6/operation-manual/deploy-logic.png" width="100%"  /></a>
+
