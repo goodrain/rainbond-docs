@@ -57,11 +57,23 @@ storage01:/gv0	/grdata	glusterfs	backupvolfile-server=storage02,use-readdirp=no,
 
 <img src="https://static.goodrain.com/images/docs/3.6/operation-manual/manage-node.png" width="100%"  />
 
+各组件介绍及配置详情参见：[管理节点组件说明](component-description.html#part-2a23774a75b3498)
+
 ### 2.3 计算节点部署结构
 
 计算节点又称为容器节点，负责运行平台上的应用（容器）。除此之外还运行了节点管理等服务。
 
 <img src="https://static.goodrain.com/images/docs/3.6/operation-manual/compute-node.png" width="100%"  />
+
+{{site.data.alerts.callout_info}}
+
+- rbd-proxy组件代理了管理节点的`kube-apiserver`和`rbd-hub`服务。
+- ETCD-Proxy是管理节点ETCD服务的代理
+- 计算节点中运行的用户应用容器最终会注册到rbd-lb(全局负载均衡)提供给用户访问。
+
+{{site.data.alerts.end}}
+
+各组件介绍及配置详情参见：[计算节点组件说明](component-description.html#part-27873e014342db2f)
 
 ## 三、相关文章
 
