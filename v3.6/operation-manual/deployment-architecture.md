@@ -4,13 +4,15 @@ summary: 平台服务及部署结构
 toc: false
 ---
 
+<div id="toc"></div>
+
 Rainbond是一套完整的PaaS，包含了众多的服务组件，按功能可分为不同的集群角色。
 
 当部署一个节点时，所有组件都安装在该节点上，该节点承载了所有的集群角色。单节点只用作全功能demo演示，并不具备高可用、高性能等生产级别的需求。
 
 单节点rainbond可以通过自动化安装脚本来扩容集群，详情清参见：[集群部署原理](cluster-management/deployment-principle.html)，本文主要介绍rainbond的逻辑与物理部署结构和集群的角色及功能。
 
-## 逻辑部署结构
+## 一、逻辑部署结构
 
 <a href="https://static.goodrain.com/images/docs/3.6/operation-manual/deploy-logic.png" target="_blank"><img src="https://static.goodrain.com/images/docs/3.6/operation-manual/deploy-logic.png" width="100%"  /></a>
 
@@ -37,7 +39,7 @@ Rainbond集群部署时，需要将分布式存储分开部署，也就是说，
 
 我们推荐使用 [GlusterFS](storage/GlusterFS/introduce.html) 作为分布式存储服务，详细的安装配置请参考：[GlusterFS安装](storage/GlusterFS/install.html)
 
-安装配置好GlusterFS之后，需要将存储卷挂载到 [管理节点]() 和 [计算节点]() 的 `/grdata` 目录：
+安装配置好GlusterFS之后，需要将存储卷挂载到 [管理节点](deployment-architecture.html#2-2) 和 [计算节点](deployment-architecture.html#2-3) 的 `/grdata` 目录：
 
 ```bash
 # 手动挂载
@@ -60,3 +62,10 @@ storage01:/gv0	/grdata	glusterfs	backupvolfile-server=storage02,use-readdirp=no,
 计算节点又称为容器节点，负责运行平台上的应用（容器）。除此之外还运行了节点管理等服务。
 
 <img src="https://static.goodrain.com/images/docs/3.6/operation-manual/compute-node.png" width="100%"  />
+
+## 三、相关文章
+
+- [集群安装原理](cluster-management/deployment-principle.html)
+- [一键安装云帮](../getting-started/before-installation.html)
+- [扩容计算节点](cluster-management/add-compute-node.html)
+- [扩容管理节点](cluster-management/add-manage-node.html)

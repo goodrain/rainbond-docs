@@ -13,6 +13,12 @@
                 ]
             },
             {
+                "title": "命令行工具",
+                "urls": [
+                    "/${VERSION}/operation-manual/cli.html"
+                ]
+            },
+            {
                 "title": "集群管理",
                 "items": [{
                     "title": "集群部署原理",
