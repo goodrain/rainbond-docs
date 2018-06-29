@@ -13,6 +13,7 @@ asciicast: true
 对于一个传统应用，完整的CI过程会包括：设计、编码、打包、测试、Release，已有的CI产品中已经在源码测试和Pipline方面做得非常成熟，例如Jenkins、Gitlab等，本文就以Jenkins为例，介绍传统应用怎样部署在云帮平台上并实现持续部署。
 
 一般情况下，我们的源码在经Jenkins的构建和集成后，产出的应用不外乎以下几种格式：
+
 1. 可执行文件，这是最常见的格式，比如：Jar包、War包、二进制文件。
 1. 镜像，比如以Docker为代表的镜像格式。
 1. 源码，有时候Jenkins完成的工作可能是集成、测试或是打包等工作，最后的产出还是源码。
@@ -33,6 +34,7 @@ asciicast: true
 
 ### 创建项目
 创建一个项目，该项目包含应用包`web-app.war`、配置文件`default.conf`和镜像源码文件`Dockerfile`：
+
 ```
 tree .
 .
@@ -43,6 +45,7 @@ tree .
 
 ### 编写Dockerfile
 Dockerfile的内容如下：
+
 ```
 FROM tomcat:7.0.88-jre7
 
@@ -51,10 +54,13 @@ COPY default.conf /etc/web-app.conf
 
 CMD ["catalina.sh", "run"]
 ```
+
 说明：
-`FROM`指基础镜像，`tomcat:7.0.88-jre7`是一个已存在的镜像，它包含了Java7和Tomcat7.0.88，可以在[Docker官方仓库](https://hub.docker.com/_/tomcat/)中找到它。
-`COPY`指命的作用是将指定文件复制到tomcat镜像中。
-`CMD`指要执行的命令，`catalina.sh`是tomcat镜像中的一个启动脚本。
+
+* `FROM`指基础镜像，`tomcat:7.0.88-jre7`是一个已存在的镜像，它包含了Java7和Tomcat7.0.88，可以在[Docker官方仓库](https://hub.docker.com/_/tomcat/)中找到它。
+* `COPY`指命的作用是将指定文件复制到tomcat镜像中。
+* `CMD`指要执行的命令，`catalina.sh`是tomcat镜像中的一个启动脚本。
+
 关于Dockerfile的更多信息请看Docker[官方文档](https://docs.docker.com/engine/reference/builder/)。
 
 ### 上传代码
