@@ -37,6 +37,12 @@
             ]
         },
         {
+            "title": "对接外部CI工具",
+            "urls": [
+                "/${VERSION}/best-practice/from-external-ci-tools.html"
+            ]
+        },
+        {
             "title": "Minio部署与使用",
             "urls": [
                 "/${VERSION}/best-practice/minio-deploy-use.html"
