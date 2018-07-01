@@ -18,14 +18,65 @@
                     "/${VERSION}/operation-manual/cli.html"
                 ]
             },
+            
             {
-                "title": "集群管理",
+                "title": "安装部署",
                 "items": [{
                     "title": "集群部署原理",
                     "urls": [
                         "/${VERSION}/operation-manual/cluster-management/deployment-principle.html"
                     ]
-                }, 
+                },
+                {
+                    "title": "分步部署",
+                    "items":[
+                        {
+                            "title": "初始化环境",
+                            "urls": ["/${VERSION}/operation-manual/setup/part-init.html"]
+                        },
+                        {
+                            "title":"存储部署",
+                            "urls": ["/${VERSION}/operation-manual/setup/part-storage.html"]
+                        },
+                        {
+                            "title":"基础服务部署",
+                            "urls": [
+                                "/${VERSION}/operation-manual/setup/part-docker.html"
+                            ]
+                        },
+                        {
+                            "title": "部署服务etcd",
+                            "urls": [
+                                "/${VERSION}/operation-manual/setup/part-etcd.html"
+                            ]
+                        },
+                        {
+                            "title": "部署网络组件calico",
+                            "urls": [
+                                "/${VERSION}/operation-manual/setup/part-network-calico.html"
+                            ]
+                        },
+                        {
+                            "title": "部署Kubernetes",
+                            "urls": [
+                                "/${VERSION}/operation-manual/setup/part-k8s.html"
+                            ]
+                        },
+                        {
+                            "title": "部署Rainbond组件",
+                            "urls": [
+                                "/${VERSION}/operation-manual/setup/part-rainbond-plugin.html"
+                            ]
+                        },
+                                                {
+                                                    "title": "部署Rainbond UI",
+                                                    "urls": [
+                                                        "/${VERSION}/operation-manual/setup/part-rainbond-ui.html"
+                                                    ]
+                                                }
+
+                    ]
+                },
                 {
                     "title": "扩容管理节点",
                     "urls": [

@@ -8,7 +8,7 @@
             ]
         },
         {
-            "title": "一键安装",
+            "title": "一键部署",
             "urls": [
                 "/${VERSION}/getting-started/before-installation.html",
                 "/${VERSION}/getting-started/online-installation.html"
