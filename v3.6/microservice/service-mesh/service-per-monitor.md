@@ -43,7 +43,7 @@ asciicast: true
 - 平均响应时间：服务响应的平均时长，单位ms
 - 吞吐率：过去一分钟平均每5秒的请求数量
 - 在线人数：过去5分钟访问的独立IP数量
-- 过去5分钟耗时最多的URL排行：过去5分钟内平均耗时最长的路径
+- 过去5分钟耗时最多的URL排行：过去5分钟内平均耗时最长的路径及他们的平均请求时间，请求数，出现错误的次数。
 
 <img src="https://static.goodrain.com/images/docs/3.6/monitor/shishi.jpg" style="border:1px solid #eee;width:100%">
 
