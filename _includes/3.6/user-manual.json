@@ -28,7 +28,7 @@
         {
             "title": "应用状态说明",
             "urls": [
-                "/${VERSION}/user-manual/app-status.html"
+                "/${VERSION}/user-manual/appstatus-instructions.html"
             ]
         },
         {

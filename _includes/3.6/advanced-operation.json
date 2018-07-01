@@ -40,12 +40,6 @@
             "urls": [
                 "/${VERSION}/advanced-operation/change-port.html"
             ]
-        },
-        {
-            "title": "应用自定义二级域名",
-            "urls": [
-                "/${VERSION}/advanced-operation/sld-domain.html"
-            ]
         }
 
     ]
