@@ -149,15 +149,13 @@ mount -a
   
   <VIP> goodrain.me lang.goodrain.me maven.goodrain.me
   ```
+
 - 重新启动rainbond
-  ```bash
-  dc-compose up -d --remove-orphans
-  ```
+```bash
+dc-compose up -d --remove-orphans
+```
 
-
-
-
-### 配置VIP
+###3.4 配置VIP
 
 在两个计算节点配置VIP
 
@@ -166,7 +164,10 @@ mount -a
 ```bash
 docker cp rbd-lb:/usr/local/bin/vrrpd /usr/local/bin
 ```
+
+
 - 编辑启动脚本，并设置开机运行
+
 ```bash
 vi /opt/rainbond/scripts/vrrpd.sh
 #输入如下内容
@@ -178,7 +179,9 @@ vi /etc/rc.local
 #输入如下内容
 ./opt/rainbond/scripts/vrrpd.sh
 ```
+
 - 加载模块，并配置开机加载
+
 ```bash
 #加载模块
 modprobe ip_vs
@@ -187,16 +190,20 @@ vi /etc/sysconfig/modules/ip_vs.modules
 #输入如下内容
 /sbin/modprobe ip_vs
 ```
+
 - 开启vrrpd工具
+
 ```bash
 /usr/local/bin/vrrpd -i eth0 -v 1 <VIP> -I <VIP> -O <VIP所在网络段的网关>
 #另一台节点该命令参数 -v 2
 ```
+
+
+
 - 切换应用域名解析IP到VIP
+
 ```bash
 #在manage01节点执行
 grctl domain --ip <VIP>
 ```
-
-
 

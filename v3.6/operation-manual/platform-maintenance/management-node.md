@@ -4,9 +4,11 @@ summary: 管理节点服务，管理节点维护方式
 toc: false
 ---
 
-本文介绍了 [平台组件说明](operation-manual/component-description.html) 中所列举出的管理节点服务的维护方式。
+<div id="toc"></div>
 
-# 一、通过docker-compose管理的服务
+本文介绍了 [平台组件说明](../component-description.html) 中所列举出的管理节点服务的维护方式。
+
+## 一、通过docker-compose管理的服务
 
 rainbond平台的组件均通过docker-compose 编排服务，以容器化的形式启动。运维人员可以使用⼀组基于dc-compose的简单命令对它们进行管理。 
 
@@ -46,7 +48,7 @@ dc-compose logs -f rbd-*
 
 
 
-# 二、通过systemd管理的服务
+## 二、通过systemd管理的服务
 
 除了rainbond自身各组件，平台还依赖于其它一些服务：docker、kubernetes、etcd、node、calico。运维人员可以通过 **systemctl** 命令对这些服务进行管理；这些服务本身也提供了运维手册。
 
@@ -59,7 +61,7 @@ dc-compose logs -f rbd-*
 
 
 
-##2.1 Docker 常用运维命令及应用场景
+### 2.1 Docker 常用运维命令及应用场景
 
 - 查看当前宿主机中的容器
 
@@ -103,6 +105,12 @@ docker stop <Container ID>
 docker rm <Container ID>
 ```
 
+- 查看容器详细信息
+
+```bash
+docker inspect <Container ID>
+```
+
 - 在宿主机与容器之间拷贝文件
 
 ```bash
@@ -127,7 +135,7 @@ docker exec -ti <Container ID> bash
 
 
 
-## 2.2 Kubernetes 常用运维命令及应用场景
+### 2.2 Kubernetes 常用运维命令及应用场景
 
 - 获取命名空间（租户ID）
 
@@ -173,7 +181,7 @@ kubectl uncordon <nodeID>
 
 
 
-## 2.3 Etcd常用运维命令及应用场景
+### 2.3 Etcd常用运维命令及应用场景
 
 - 获取集群信息
 
@@ -189,7 +197,7 @@ etcdctl cluster-health
 
 
 
-## 2.4 Calico常用运维命令及应用场景
+### 2.4 Calico常用运维命令及应用场景
 
 - 获取集群信息及健康状态
 
