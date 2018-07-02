@@ -37,9 +37,9 @@
             ]
         },
         {
-            "title": "对接外部CI工具",
+            "title": "对接Jenkins",
             "urls": [
-                "/${VERSION}/best-practice/from-external-ci-tools.html"
+                "/${VERSION}/best-practice/connection-jenkins.html"
             ]
         },
         {
