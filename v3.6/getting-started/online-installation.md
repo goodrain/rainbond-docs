@@ -23,26 +23,17 @@ asciicast: true
 
 ```bash
 # git clone
-
 git clone --depth 1 -b v3.6 https://github.com/goodrain/rainbond-install.git
-
-# 或者
-
+# 或者下载压缩包
+wget https://github.com/goodrain/rainbond-install/archive/v3.6.zip
+unzip v3.6.zip
 # 克隆或解压后，切换到云帮安装目录
 cd rainbond-install*
-
 # 执行安装命令
 ./setup.sh install
+# 完成安装后可通过访问管理控制台,默认第一个注册用户为平台管理员
+http://<your ip>:7070
 ```
-
-或者下载 [安装程序压缩包](https://github.com/goodrain/rainbond-install/archive/v3.6.zip)，解压后
-
-执行 `./setup.sh install` 脚本可快速部署单节点的云帮。
-
-安装程序会检查硬件配置、操作系统是否符合需求。然后安装配置Salt，通过Salt states进行云帮的安装。安装时间取决于机器配置和网速。
-
-完成安装后可通过 `http://<your ip>:7070` 访问应用管理控制台。
-
 
 {{site.data.alerts.callout_success}}
 云帮安装程序通过 shell脚本+SaltStack 实现，包括后续集群的扩容、升级及管理。相关源码参见：[rainbond-install](https://github.com/goodrain/rainbond-install)

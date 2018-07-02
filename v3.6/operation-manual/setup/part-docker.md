@@ -94,11 +94,102 @@ EOF
 
 ### 1.6 启动 docker
 
-```
+```bash
 systemctl daemon-reload
 systemctl restart docker
 ```
 
 ## 二、安装基础服务组件
 
+### 2.1 安装数据库服务
+
+#### 2.1.1 拉取镜像配置docker-compose.yaml文件
+
+```bash
+# 拉取镜像
+docker pull rainbond/rbd-db:3.6
+# 更新配置docker-compose.yaml文件
+cat > /opt/rainbond/compose/db.yaml <<EOF
+version: '2.1'
+services:
+  rbd-db:
+    image: rainbond/rbd-db:3.6
+    container_name: rbd-db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+    volumes:
+    - /opt/rainbond/data/rbd-db:/data
+    - /opt/rainbond/etc/rbd-db:/etc/mysql
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+        max-file: '3'
+    network_mode: host
+    restart: always
+EOF
+```
+
+#### 2.1.2 配置数据库文件
+
+```bash
+mkdir -p /opt/rainbond/data/rbd-db /opt/rainbond/etc/rbd-db/conf.d
+wget https://raw.githubusercontent.com/goodrain/rainbond-install/v3.6/install/salt/db/mysql/files/charset.cnf -O /opt/rainbond/etc/rbd-db/conf.d
+wget https://raw.githubusercontent.com/goodrain/rainbond-install/v3.6/install/salt/db/mysql/files/my.cnf -O /opt/rainbond/etc/rbd-db/
+```
+
+#### 2.1.3 启动数据库
+
+```bash
+docker-compose up -d rbd-db -f /opt/rainbond/compose/db.yaml
+```
+
+#### 2.1.4 初始化数据库
+
+```bash
+docker exec rbd-db mysql -e "show databases"
+# DBUSER gradmin DBPASS 可以用pwgen 8 1生成，如Adi1oefo
+docker exec rbd-db mysql -e "grant all on *.* to 'gradmin'@'%' identified by 'Adi1oefo' with grant option;flush privileges"
+docker exec rbd-db mysql -e "delete from mysql.user where user=''; flush privileges"
+# 创建region & console数据库
+docker exec rbd-db mysql -e "CREATE DATABASE IF NOT EXISTS region DEFAULT CHARSET utf8 COLLATE utf8_general_ci;"
+docker exec rbd-db mysql -e "CREATE DATABASE IF NOT EXISTS console DEFAULT CHARSET utf8 COLLATE utf8_general_ci;"
+```
+
+### 2.2 安装基础仓库服务
+
+```bash
+cat > /opt/rainbond/compose/base.yaml <<EOF
+version: '2.1'
+services:
+  rbd-hub:
+    image: rainbond/rbd-registry:2.3.1
+    container_name: rbd-hub
+    volumes:
+    - /grdata/services/registry:/var/lib/registry
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+        max-file: '3'
+    network_mode: host
+    restart: always
+  rbd-repo:
+    image: rainbond/rbd-repo:3.6
+    container_name: rbd-repo
+    volumes:
+    - /grdata/services/artifactory-manage01:/var/opt/jfrog/artifactory
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+        max-file: '3'
+    network_mode: host
+    restart: always
+EOF
+docker-compose up -d -f /opt/rainbond/compose/base.yaml
+```
+
 ## 三、配置相关二进制
+
+
