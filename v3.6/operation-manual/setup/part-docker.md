@@ -187,9 +187,17 @@ services:
     network_mode: host
     restart: always
 EOF
+
 docker-compose up -d -f /opt/rainbond/compose/base.yaml
 ```
 
 ## 三、配置相关二进制
 
-
+```bash
+docker run -it --rm -v /tmp/tools:/sysdir rainbond/cni:tools tar zxf /pkg.tgz -C /sysdir
+cp -a /tmp/tools/bin/* /usr/bin/
+docker run --rm -v /srv/salt/misc/file:/sysdir rainbond/cni:rbd_v3.6 tar zxf /pkg.tgz -C /sysdir
+docker run --rm -v /srv/salt/misc/file:/sysdir rainbond/cni:k8s_v3.6 tar zxf /pkg.tgz -C /sysdir
+cp -a /srv/salt/misc/file/bin/* /usr/local/bin/
+cp -a /srv/salt/misc/file/cni/bin/* /opt/rainbond/bin/
+```
