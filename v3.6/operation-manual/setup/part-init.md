@@ -84,6 +84,14 @@ container-selinux
 
 如果可以确保,机器重启机器ip不发生改变,`dhclient`服务可不禁用.
 
+#### 1.3.6 创建node_host_uuid.conf
+
+要确保每台节点的uuid都不同。
+
+```bash
+mkdir -p /opt/rainbond/etc/rbd-node
+echo "host_uuid=$(uuidgen)" > /opt/rainbond/etc/rbd-node/node_host_uuid.conf
+```
 
 ## 二、管理节点部分
 
@@ -106,7 +114,14 @@ Host *
 EOF
 ```
 
-### 2.2 域名生成
+### 2.2 更新hosts
+
+```bash
+# /etc/hosts
+<ip> <hostname> <uuid> lang.goodrain.me maven.goodrain.me kubeapi.goodrain.me region.goodrain.me goodrain.me console.goodrain.me
+```
+
+uuid参见上述步骤生成文件：`/opt/rainbond/etc/rbd-node/node_host_uuid.conf`
 
 ## 三、计算节点部分
 

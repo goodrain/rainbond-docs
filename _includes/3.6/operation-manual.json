@@ -35,11 +35,11 @@
                             "urls": ["/${VERSION}/operation-manual/setup/part-init.html"]
                         },
                         {
-                            "title":"存储部署",
+                            "title":"部署存储",
                             "urls": ["/${VERSION}/operation-manual/setup/part-storage.html"]
                         },
                         {
-                            "title":"基础服务部署",
+                            "title":"部署基础服务",
                             "urls": [
                                 "/${VERSION}/operation-manual/setup/part-docker.html"
                             ]
@@ -51,9 +51,9 @@
                             ]
                         },
                         {
-                            "title": "部署网络组件calico",
+                            "title": "部署网络组件",
                             "urls": [
-                                "/${VERSION}/operation-manual/setup/part-network-calico.html"
+                                "/${VERSION}/operation-manual/setup/part-network.html"
                             ]
                         },
                         {
