@@ -192,9 +192,7 @@ vi /etc/sysconfig/modules/ip_vs.modules
 /usr/local/bin/vrrpd -i eth0 -v 1 <VIP> -I <VIP> -O <VIP所在网络段的网关>
 #另一台节点该命令参数 -v 2
 ```
-
 - 切换应用域名解析IP到VIP
-
 ```bash
 #在manage01节点执行
 grctl domain --ip <VIP>
