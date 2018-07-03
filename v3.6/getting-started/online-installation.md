@@ -17,7 +17,14 @@ asciicast: true
 
 {{site.data.alerts.end}}
 
-## 一键部署Rainbond
+## 一、版本选择
+
+| 版本|说明|
+|--------|---------|
+|Mainline v3.6|主力开发的版本，包含最新功能。推荐开发测试环境使用|
+|Stable v3.5.2|当前稳定版本，只修复Bug，不做功能更新，生产环境推荐使用|
+
+## 二、一键部署Rainbond
 
 一键部署Rainbond是为了简化Rainbond安装步骤，通过shell脚本将Rainbond及其所需要的组件，统一进行安装及配置。用户仅需要简单的配置相关参数，运行shell命令即可。一键部署Rainbond适合仅简单了解Rainbond架构，想迅速搭建Rainbond的人群。
 
@@ -40,18 +47,18 @@ http://<your ip>:7070
 {{site.data.alerts.end}}
 
 
-## 分步部署Rainbond
+## 三、分步部署Rainbond
 
 分步部署Rainbond是分组件一步一步的安装Rainbond及所需组件，用户可以定制相关的安装。分步部署Rainbond适合非常了解Rainbond架构，需要定制部署Rainbond的人群。
 
 具体安装流程请参考[分步部署](../operation-manual/cluster-management/installation-configuration.html)
 
-## 安装使用问题FAQ
+## 四、安装使用问题FAQ
 
 - 通过rainbond-install安装请参照[WIKI](https://github.com/goodrain/rainbond-install/wiki)
 - 安装使用问题，请参照 [平台安装，维护-常见问题](../FAQs/install-maintenance-faqs.html)
 
-## 安装使用问题反馈
+## 五、安装使用问题反馈
 
 - [Github Issue](https://github.com/goodrain/rainbond/issues/new)
 - [Github Install Issue](https://github.com/goodrain/rainbond-install/issues/new)

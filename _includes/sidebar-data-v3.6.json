@@ -8,8 +8,8 @@
     // 用户手册
     {% include 3.6/user-manual.json %},
 
-    // 高级操作
-    {% include 3.6/advanced-operation.json %},
+    // 插件管理
+    {% include 3.6/plugins.json %},
 
     // 运维手册
     {% include 3.6/operation-manual.json %},
@@ -19,10 +19,7 @@
 
     // 微服务
     {% include 3.6/microservice.json %},
-
-    // 管理后台
-    {% include 3.6/back-manage.json %},
-    
+   
     // 视频指南
     {% include 3.6/video.json %},
 

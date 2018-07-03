@@ -26,15 +26,41 @@
             ]
         },
         {
-            "title": "应用状态说明",
-            "urls": [
-                "/${VERSION}/user-manual/appstatus-instructions.html"
-            ]
-        },
-        {
             "title": "连接数据库",
             "urls": [
                 "/${VERSION}/user-manual/link-db.html"
+            ]
+        },
+        {
+            "title": "应用管理",
+            "items": [{
+                "title": "应用控制",
+                "urls": [
+                    "/${VERSION}/user-manual/app-manage/app-ctl.html"
+                ]
+            },
+            {
+                "title": "应用属性",
+                "urls": [
+                    "/${VERSION}/user-manual/app-manage/app-properties.html"
+                ]
+            },
+            {
+                "title": "应用组管理",
+                "urls": [
+                    "/${VERSION}/user-manual/app-manage/app-group.html"
+                ]
+            }
+        ]
+        },
+        {
+            "title": "团队管理",
+            "urls": ["/${VERSION}/user-manual/manage-your-team.html"
+            ]
+        },
+        {
+            "title": "应用市场",
+            "urls": ["/${VERSION}/user-manual/app-store.html"
             ]
         },
         {

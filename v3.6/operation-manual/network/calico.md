@@ -7,7 +7,7 @@ asciicast: true
 
 <div id="toc"></div>
 
-## Calico介绍
+##一、Calico介绍
 
 Calico是一个纯3层的数据中心网络方案。能够提供可控的VM、容器、裸机之间的IP通信。     
 
@@ -27,7 +27,7 @@ Calico节点组网可以直接利用数据中心的网络结构（无论是L2或
 
 此外，Calico基于iptables还提供了丰富而灵活的网络Policy，保证通过各个节点上的ACLs来提供Workload的多租户隔离、安全组以及其他可达性限制等功能。
 
-### Calico 架构
+###1.1 Calico 架构
 
 <img src="https://static.goodrain.com/images/acp/docs/Calico/calico%E6%9E%B6%E6%9E%84%E5%9B%BE.png" width="60%" />
 
@@ -40,15 +40,15 @@ Calico节点组网可以直接利用数据中心的网络结构（无论是L2或
 
 - BGP Route Reflector（BIRD），大规模部署时使用，摒弃所有节点互联的 mesh 模式，通过一个或者多个BGP Route Reflector来完成集中式的路由分发；
 
-##对接云帮
+##二、对接云帮
 
 
-###云帮Calico架构图
+###2.1 云帮Calico架构图
 
 <img src="https://static.goodrain.com/images/acp/docs/Calico/calico%E4%BA%91%E5%B8%AE%E4%BD%BF%E7%94%A8%E6%9E%B6%E6%9E%84%E5%9B%BE.png" width="70%" />
 
 
-###Calico在云帮实现的功能
+###2.2 Calico在云帮实现的功能
 
 #### 容器网络的互连
 Calico在每一个计算节点利用Linux Kernel实现了一个高效的vRouter来负责数据转发，而每个vRouter通过BGP协议负责把自己上运行的workload的路由信息像整个Calico网络内传播——小规模部署可以直接互联，大规模下可通过指定的BGP route reflector来完成。 这样保证最终所有的workload之间的数据流量都是通过IP路由的方式完成互联。
@@ -57,7 +57,7 @@ Calico在每一个计算节点利用Linux Kernel实现了一个高效的vRouter�
 
 Calico基于iptables提供了丰富而灵活的网络Policy，保证通过各个节点上的ACLs来提供Workload的多租户隔离、安全组以及其他可达性限制等功能。
  
-### k8s结合calico的使用
+###2.3 k8s结合calico的使用
 
 #### k8s与calico流程架构图
 <img src="https://static.goodrain.com/images/acp/docs/Calico/k8s%E7%BB%93%E5%90%88calico%E6%B5%81%E7%A8%8B%E5%9B%BE.png" width="50%" />
@@ -84,9 +84,9 @@ cat /etc/goodrain/cni/net.d/10-calico.conf
 }
 ``` 
  
-## Calico性能测试
+##三、Calico性能测试
 
-### 测试环境
+###3.1 测试环境
 
 系统|CentOS7.3 | |
 ----------|--------|------|
@@ -96,7 +96,7 @@ calico2|	10.81.9.113|172.19.189.196
 
 - 测试工具：iperf 命令
 
-### 宿主机测试
+###3.2 宿主机测试
 - calico2执行命令
 
 ```
@@ -128,7 +128,7 @@ TCP window size: 85.0 KByte (default)
 
 - 以上测试是客户端calico1到服务端calico2的上行带宽测试
 
-### 容器测试
+###3.3 容器测试
 - 在calico1宿主机上的容器端执行命令
 
 ```
@@ -161,14 +161,14 @@ TCP window size: 85.0 KByte (default)
 
 - 以上测试是客户端calico1的容器到服务端calico2中容器的上行带宽测试
 
-### 结论
+###3.4 结论
 
 - 通过测试对比我们发现使用calico中容器之间的网络与宿主机的消耗是非常小的。
  
 
-## Calico维护
+##四、Calico维护
 
-### Calico的常用资源
+###4.1 Calico的常用资源
 
 |资源|说明|
 |---|---|
@@ -181,7 +181,7 @@ TCP window size: 85.0 KByte (default)
 
  [详细资源与格式介绍](https://docs.projectcalico.org/v2.1/reference/calicoctl/resources/bgppeer)
 
-###Calico对资源的常用操作
+###4.2 Calico对资源的常用操作
 
 - **资源常用命令**
 
@@ -211,7 +211,7 @@ TCP window size: 85.0 KByte (default)
 
 
 
-### Calico连接的ip更改
+###4.3 Calico连接的ip更改
 
 - 以下为示例环境
 

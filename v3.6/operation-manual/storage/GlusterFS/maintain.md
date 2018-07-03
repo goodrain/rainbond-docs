@@ -8,9 +8,9 @@ asciicast: true
 <div id="toc"></div>
 
 
-##GlusterFS卷维护
+##一、 GlusterFS卷维护
 
-### GlusterFS的常用操作
+###1.1 GlusterFS的常用操作
  卷的常用操作|命令|
  ----|------|
 创建卷|gluster volume create |
@@ -23,7 +23,7 @@ asciicast: true
 查看集群中的卷信息|gluster volume info   
 查看集群中的卷状态|gluster volume statu
 
-### 扩容卷
+###1.2 扩容卷
 
 #### 先添主机到主机池中
 
@@ -67,7 +67,7 @@ transport.address-family: inet
 nfs.disable: on
 ```
 
-### 收缩节点
+###1.3 收缩节点
 
 #### 执行缩卷命令
 
@@ -113,7 +113,7 @@ Options Reconfigured:
 transport.address-family: inet
 nfs.disable: on
 ```
-### GlusterFS目录迁移
+###1.4 GlusterFS目录迁移
 
 #### 创建迁移目录
 
@@ -145,9 +145,9 @@ nfs.disable: on
 transport.address-family: inet
 ```
 
-## GlusterFS常用的优化
+##二、 GlusterFS常用的优化
 
-### GlusterFS常用优化参数
+###2.1 GlusterFS常用优化参数
  
 配置选项|用途 | 默认值|合法值
 ----|------|----|---

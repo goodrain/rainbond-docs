@@ -61,7 +61,20 @@ dc-compose logs -f rbd-*
 
 
 
-### 2.1 Docker 常用运维命令及应用场景
+### 2.1 Docker 维护
+
+- 相关配置文件
+
+|     文件     |             说明            |
+| :---------- | :-------------------------- |
+|/usr/lib/systemd/system/docker.service|docker的systemd服务文件|
+| /opt/rainbond/envs/docker.sh | systemd服务文件调用的环境文件 |
+
+- **启动、停止、查看状态、重启** docker 服务
+
+```bash
+systemctl start | stop | status | restart docker
+```
 
 - 查看当前宿主机中的容器
 
@@ -135,7 +148,28 @@ docker exec -ti <Container ID> bash
 
 
 
-### 2.2 Kubernetes 常用运维命令及应用场景
+### 2.2 Kubernetes 维护
+
+- 相关配置文件
+
+
+|                文件               |                          说明                          |
+| :--------------------------------- | :---------------------------------------------------- |
+|/etc/systemd/system/kube-apiserver.service | kube-apiserver的systemd服务文件|
+| /opt/rainbond/scripts/start-kube-apiserver.sh | kube-apiserver的systemd服务文件调用的启动脚本 |
+|/etc/systemd/system/kube-controller-manager.service|kube-controller-manager的systemd服务文件|
+| /opt/rainbond/scripts/start-kube-controller-manager.sh | kube-controller-manager的systemd服务文件调用的启动脚本 |
+|/etc/systemd/system/kube-scheduler.service|kube-scheduler的systemd服务文件|
+| /opt/rainbond/scripts/start-kube-scheduler.sh |     kube-scheduler的systemd服务文件调用的启动脚本     |
+|       /opt/rainbond/envs/kube-apiserver.sh       |          kube-apiserver的systemd服务文件调用的环境脚本          |
+| /opt/rainbond/etc/kubernetes |              其它配置文件目录              |
+
+
+- **启动、停止、查看状态、重启** kubernetes 服务（以kube-apiserver为例）
+
+```bash
+systemctl start | stop | status | restart kube-apiserver
+```
 
 - 获取命名空间（租户ID）
 
@@ -173,7 +207,7 @@ kubectl cordon <nodeID>
 kubectl drain <nodeID>
 ```
 
-- 为某个节点接触不可调度的状态
+- 为某个节点解除不可调度的状态
 
 ```bash
 kubectl uncordon <nodeID>
@@ -181,7 +215,39 @@ kubectl uncordon <nodeID>
 
 
 
-### 2.3 Etcd常用运维命令及应用场景
+### 2.3 Node 维护
+
+- 相关配置文件
+
+|       文件       |                功能                |
+| :-------------- | :--------------------------------- |
+|/etc/systemd/system/node.service|node的systemd服务文件|
+|   /opt/rainbond/scripts/start-node.sh   | systemd服务文件调用的启动脚本 |
+| /opt/rainbond/etc/rbd-node |  其它配置文件目录 |
+
+- **启动、停止、查看状态、重启** node 服务
+
+```bash
+systemctl start | stop | status | restart node
+```
+
+
+
+### 2.4 Etcd 维护
+
+- 相关配置文件
+
+|     文件    |                说明                |
+| :----------- | :--------------------------------- |
+|/etc/systemd/system/etcd.service|etcd的systemd服务文件|
+| /opt/rainbond/scripts/start-etcd.sh | systemd服务文件调用的启动脚本 |
+| /opt/rainbond/envs/etcd.sh | systemd服务文件调用的环境脚本 |
+
+- **启动、停止、查看状态、重启** etcd 服务
+
+```bash
+systemctl start | stop | status | restart etcd
+```
 
 - 获取集群信息
 
@@ -197,7 +263,21 @@ etcdctl cluster-health
 
 
 
-### 2.4 Calico常用运维命令及应用场景
+### 2.5 Calico 维护
+
+- 相关配置文件
+
+|文件       |说明                  |
+| :------------- | :-----------------------------------|
+|/etc/systemd/system/calico.service|calico的systemd服务文件|
+|/opt/rainbond/scripts/start-calico.sh   |systemd服务文件调用的启动脚本 |
+|/opt/rainbond/envs/calico.sh |systemd服务文件调用的环境脚本      |
+
+- **启动、停止、查看状态、重启** calico 服务
+
+```bash
+systemctl start | stop | status | restart calico
+```
 
 - 获取集群信息及健康状态
 

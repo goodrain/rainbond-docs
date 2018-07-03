@@ -8,11 +8,11 @@ asciicast: true
 <div id="toc"></div>
 
 
-##GlusterFS的安装
+##一、GlusterFS的安装
 
 - 以下为示例环境
 
-###部署环境
+###1.1 部署环境
 
 系统 | CentOS 7.3| 
 ----|------|----
@@ -60,20 +60,20 @@ tmpfs           380M     0  380M   0% /run/user/0
 /dev/vdb         20G   33M   20G   1% /data
 ```
 
-### 安装
+###1.2 安装
 
 ```
 yum install centos-release-gluster -y
 yum install glusterfs-server -y
 ```
-### 启动GlusterFS服务
+###1.3 启动GlusterFS服务
 
 ```
 systemctl  start   glusterd.service
 systemctl  enable  glusterd.service
 systemctl  status  glusterd.service
 ```
-### 配置信任池(一端添加就行)
+###1.4 配置信任池(一端添加就行)
 
 ```
 [root@server1 ~]# gluster peer probe server2
@@ -86,7 +86,7 @@ Uuid: be69468e-94b6-45a6-8a3d-bea86c2702dc
 State: Peer in Cluster (Connected)
 ```
 
-### 创建卷
+###1.5 创建卷
 
 ```bash
 # 所有节点都需执行  
@@ -102,7 +102,7 @@ Do you still want to continue?
 volume create: data: success: please start the volume to access data
 ```
 
-### 查看卷的信息
+###1.6 查看卷的信息
 
 
 ```
@@ -129,7 +129,7 @@ nfs.disable: on
 volume start: data: success
 ```
 
-### 挂载测试
+###1.7 挂载测试
 
 ```
 #server1 挂载
