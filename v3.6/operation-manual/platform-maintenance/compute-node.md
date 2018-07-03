@@ -14,11 +14,19 @@ toc: false
 
 ##二、 kubelet 维护
 
-- kubelet 启动参数脚本：/opt/rainbond/scripts/start-kubelet.sh
-
-- kubelet 环境配置脚本：/opt/rainbond/envs/kubelet.sh
-
 - [官方文档](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
+- 相关配置文件
+
+| 功能             | 路径                                   |
+| :--------------- | :------------------------------------- |
+| 配置启动参数     | /opt/rainbond/scripts/start-kubelet.sh |
+| kubelet 环境配置 | /opt/rainbond/envs/kubelet.sh          |
+
+- **启动、停止、查看状态、重启** kubelet 服务
+
+```bash
+systemctl start | stop | status | restart kubelet
+```
 
 ##三、 Node 维护
 
@@ -26,7 +34,19 @@ toc: false
 
 ##四、 Etcd-proxy
 
-- etcd-proxy 启动参数脚本：/opt/rainbond/scripts/start-etcdproxy.sh
+- 相关配置文件
+
+| 功能         | 路径                                     |
+| ------------ | ---------------------------------------- |
+| 配置启动参数 | /opt/rainbond/scripts/start-etcdproxy.sh |
+
+- **启动、停止、查看状态、重启** etcd-proxy 服务
+
+```bash
+systemctl start | stop | status | restart etcd-proxy
+```
+
+
 
 ##五、 Calico 维护
 

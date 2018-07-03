@@ -63,7 +63,19 @@ dc-compose logs -f rbd-*
 
 ### 2.1 Docker 维护
 
-- docker 启动参数脚本：/opt/rainbond/envs/docker.sh
+- 相关配置文件
+
+|     功能     |             路径             |
+| :---------- | :-------------------------- |
+| 配置启动参数 | /opt/rainbond/envs/docker.sh |
+
+
+
+- **启动、停止、查看状态、重启** docker 服务
+
+```bash
+systemctl start | stop | status | restart docker
+```
 
 - 查看当前宿主机中的容器
 
@@ -139,15 +151,22 @@ docker exec -ti <Container ID> bash
 
 ### 2.2 Kubernetes 维护
 
-- kubernetes 启动参数脚本:
+- 相关配置文件
 
-  - /opt/rainbond/scripts/start-kube-apiserver.sh  
-  - /opt/rainbond/scripts/start-kube-controller-manager.sh
-  - /opt/rainbond/scripts/start-kube-scheduler.sh
 
-- kube-apiserver 环境配置文件：/opt/rainbond/envs/kube-apiserver.sh
+|                功能                 |                          路径                          |
+| :--------------------------------- | :---------------------------------------------------- |
+|     配置kube-apiserver启动参数      |     /opt/rainbond/scripts/start-kube-apiserver.sh      |
+| 配置kube-controller-manager启动参数 | /opt/rainbond/scripts/start-kube-controller-manager.sh |
+|     配置kube-scheduler启动参数      |     /opt/rainbond/scripts/start-kube-scheduler.sh      |
+|       kube-apiserver 环境配置       |          /opt/rainbond/envs/kube-apiserver.sh          |
+|          其它配置文件目录           |              /opt/rainbond/etc/kubernetes              |
 
-- kubernetes 配置文件目录：/opt/rainbond/etc/kubernetes
+- **启动、停止、查看状态、重启** kubernetes 服务（以kube-apiserver为例）
+
+```bash
+systemctl start | stop | status | restart kube-apiserver
+```
 
 - 获取命名空间（租户ID）
 
@@ -191,18 +210,39 @@ kubectl drain <nodeID>
 kubectl uncordon <nodeID>
 ```
 
+
+
 ### 2.3 Node 维护
 
-- node 启动参数脚本：/opt/rainbond/scripts/start-node.sh
+- 相关配置文件
 
-- node 配置文件目录：/opt/rainbond/etc/rbd-node 
+|       功能       |                路径                 |
+| :-------------- | :--------------------------------- |
+|   配置启动参数   | /opt/rainbond/scripts/start-node.sh |
+| 其它配置文件目录 |     /opt/rainbond/etc/rbd-node      |
+
+- **启动、停止、查看状态、重启** node 服务
+
+```bash
+systemctl start | stop | status | restart node
+```
+
 
 
 ### 2.4 Etcd 维护
 
-- etcd 启动参数脚本：/opt/rainbond/scripts/start-etcd.sh
+- 相关配置文件
 
-- etcd 环境配置脚本：/opt/rainbond/envs/etcd.sh
+|     功能      |                路径                 |
+| :----------- | :--------------------------------- |
+| 配置启动参数  | /opt/rainbond/scripts/start-etcd.sh |
+| etcd 环境配置 |     /opt/rainbond/envs/etcd.sh      |
+
+- **启动、停止、查看状态、重启** etcd 服务
+
+```bash
+systemctl start | stop | status | restart etcd
+```
 
 - 获取集群信息
 
@@ -220,9 +260,18 @@ etcdctl cluster-health
 
 ### 2.5 Calico 维护
 
-- calico 启动参数脚本：/opt/rainbond/scripts/start-calico.sh
+- 相关配置文件
 
-- calico 环境配置脚本：/opt/rainbond/envs/calico.sh
+|功能       |路径                  |
+| :------------- | :-----------------------------------|
+|配置启动参数   |/opt/rainbond/scripts/start-calico.sh |
+|calico 环境配置 |/opt/rainbond/envs/calico.sh      |
+
+- **启动、停止、查看状态、重启** calico 服务
+
+```bash
+systemctl start | stop | status | restart calico
+```
 
 - 获取集群信息及健康状态
 
