@@ -15,8 +15,8 @@ cat > /etc/yum.repos.d/docker.repo <<EOF
 gpgcheck=1
 gpgkey=http://repo.goodrain.com/gpg/RPM-GPG-KEY-CentOS-goodrain
 enabled=1
-baseurl=http://repo.goodrain.com/centos/$releasever/3.6/$basearch
-name=Goodrain CentOS-$releasever - for x86_64
+baseurl=http://repo.goodrain.com/centos/\$releasever/3.6/\$basearch
+name=Goodrain CentOS-\$releasever - for x86_64
 EOF
 yum makecache
 # Debian
@@ -41,6 +41,8 @@ apt install -y gr-docker-engine
 
 Centos `/usr/lib/systemd/system/docker.service`  
 Debian `/lib/systemd/system/docker.service`  
+
+具体可以 `systemctl cat docker`
 
 ```bash
 [Unit]
@@ -75,6 +77,7 @@ WantedBy=multi-user.target
 更新配置 `/opt/rainbond/envs/docker.sh`
 
 ```bash
+mkdir -p /opt/rainbond/envs
 # centos
 DOCKER_OPTS="-H unix:///var/run/docker.sock --bip=172.30.42.1/16 --dns=<管理节点ip> --insecure-registry goodrain.me --storage-driver=devicemapper --storage-opt dm.xfs_nospace_max_retries=0 --userland-proxy=false"
 
@@ -85,6 +88,7 @@ DOCKER_OPTS="-H unix:///var/run/docker.sock --bip=172.30.42.1/16 --dns=<管理�
 ### 1.5 配置镜像加速
 
 ```bash
+mkdir /etc/docker/
 cat > /etc/docker/daemon.json <<EOF
 {
     "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/"]
@@ -96,14 +100,27 @@ EOF
 
 ```bash
 systemctl daemon-reload
-systemctl restart docker
+systemctl enable docker
+systemctl start docker
 ```
 
 ## 二、安装基础服务组件
 
-### 2.1 安装数据库服务
+### 2.1 准备工作
 
-#### 2.1.1 拉取镜像配置docker-compose.yaml文件
+```bash
+mkdir -p /opt/rainbond/compose /opt/rainbond/bin/
+docker run -it --rm -v /tmp/tools:/sysdir rainbond/cni:tools tar zxf /pkg.tgz -C /sysdir
+cp -a /tmp/tools/bin/* /usr/bin/
+docker run --rm -v /srv/salt/misc/file:/sysdir rainbond/cni:rbd_v3.6 tar zxf /pkg.tgz -C /sysdir
+docker run --rm -v /srv/salt/misc/file:/sysdir rainbond/cni:k8s_v3.6 tar zxf /pkg.tgz -C /sysdir
+cp -a /srv/salt/misc/file/bin/* /usr/local/bin/
+cp -a /srv/salt/misc/file/cni/bin/* /opt/rainbond/bin/
+```
+
+### 2.2 安装数据库服务
+
+#### 2.2.1 拉取镜像配置docker-compose.yaml文件
 
 ```bash
 # 拉取镜像
@@ -130,21 +147,21 @@ services:
 EOF
 ```
 
-#### 2.1.2 配置数据库文件
+#### 2.2.2 配置数据库文件
 
 ```bash
 mkdir -p /opt/rainbond/data/rbd-db /opt/rainbond/etc/rbd-db/conf.d
-wget https://raw.githubusercontent.com/goodrain/rainbond-install/v3.6/install/salt/db/mysql/files/charset.cnf -O /opt/rainbond/etc/rbd-db/conf.d
-wget https://raw.githubusercontent.com/goodrain/rainbond-install/v3.6/install/salt/db/mysql/files/my.cnf -O /opt/rainbond/etc/rbd-db/
+wget https://raw.githubusercontent.com/goodrain/rainbond-install/v3.6/install/salt/db/mysql/files/charset.cnf -O /opt/rainbond/etc/rbd-db/conf.d/charset.cnf
+wget https://raw.githubusercontent.com/goodrain/rainbond-install/v3.6/install/salt/db/mysql/files/my.cnf -O /opt/rainbond/etc/rbd-db/my.cnf
 ```
 
-#### 2.1.3 启动数据库
+#### 2.2.3 启动数据库
 
 ```bash
-docker-compose up -d rbd-db -f /opt/rainbond/compose/db.yaml
+dc-compose up -d rbd-db
 ```
 
-#### 2.1.4 初始化数据库
+#### 2.2.4 初始化数据库
 
 ```bash
 docker exec rbd-db mysql -e "show databases"
@@ -156,7 +173,7 @@ docker exec rbd-db mysql -e "CREATE DATABASE IF NOT EXISTS region DEFAULT CHARSE
 docker exec rbd-db mysql -e "CREATE DATABASE IF NOT EXISTS console DEFAULT CHARSET utf8 COLLATE utf8_general_ci;"
 ```
 
-### 2.2 安装基础仓库服务
+### 2.3 安装基础仓库服务
 
 ```bash
 cat > /opt/rainbond/compose/base.yaml <<EOF
@@ -188,16 +205,6 @@ services:
     restart: always
 EOF
 
-docker-compose up -d -f /opt/rainbond/compose/base.yaml
-```
-
-## 三、配置相关二进制
-
-```bash
-docker run -it --rm -v /tmp/tools:/sysdir rainbond/cni:tools tar zxf /pkg.tgz -C /sysdir
-cp -a /tmp/tools/bin/* /usr/bin/
-docker run --rm -v /srv/salt/misc/file:/sysdir rainbond/cni:rbd_v3.6 tar zxf /pkg.tgz -C /sysdir
-docker run --rm -v /srv/salt/misc/file:/sysdir rainbond/cni:k8s_v3.6 tar zxf /pkg.tgz -C /sysdir
-cp -a /srv/salt/misc/file/bin/* /usr/local/bin/
-cp -a /srv/salt/misc/file/cni/bin/* /opt/rainbond/bin/
+dc-compose up -d rbd-hub
+dc-compose up -d rbd-repo
 ```
