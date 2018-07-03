@@ -228,9 +228,11 @@ systemctl enable kube-scheduler
 systemctl start kube-scheduler
 ```
 
-### 4.4 验证集群状态
+### 4.4 验证k8s集群
 
 ```bash
+mkdir -p /root/.kube
+cp /opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig /root/.kube/config
 kubectl get cs
 ```
 
@@ -277,4 +279,77 @@ cat >> /etc/resolv.conf <<EOF
 nameserver 114.114.114.114
 nameserver <管理点ip>
 EOF
+```
+
+## 6. 安装 kubelet
+
+### 6.1 配置 kubelet.service
+
+```bash
+cat > /etc/systemd/system/kubelet.service <<EOF
+[Unit]
+Description=Kubernetes Agent
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/opt/rainbond/envs/kubelet.sh
+PermissionsStartOnly=true
+ExecStart=/opt/rainbond/scripts/start-kubelet.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+### 6.2 配置脚本
+
+```bash
+cat > /opt/rainbond/envs/kubelet.sh <<EOF
+HOST_UUID=<同当前节点 node 的 uuid>
+DNS_SERVERS=<dns所在节点 ip>
+HOST_IP=<管理节点 ip>
+REG="false"
+EOF
+
+cat > /opt/rainbond/scripts/start-kubelet.sh <<EOF
+#!/bin/sh
+
+KUBELET_OPTS="--address=\$HOST_IP \
+--port=10250 \
+--hostname_override=\$HOST_UUID \
+--kubeconfig=/opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig \
+--require-kubeconfig \
+--cert-dir=/opt/rainbond/etc/kubernetes/ssl \
+--cluster-domain=cluster.local. --hairpin-mode promiscuous-bridge \
+--cluster-dns=\$DNS_SERVERS \
+--register-node=\${REG:-true} \
+--max-pods=10000 \
+--custom-config=/opt/rainbond/etc/kubernetes/custom.conf \
+--network-plugin=cni \
+--network-plugin-dir=/opt/rainbond/bin \
+--cni-conf-dir=/opt/rainbond/etc/cni/ \
+--cpu-cfs-quota=false \
+--pod-infra-container-image=goodrain.me/pause-amd64:3.0 \
+--logtostderr=true \
+--log-driver=streamlog \
+--maximum-dead-containers-per-container=0 \
+--v=2"
+
+exec /usr/local/bin/kubelet \$KUBELET_OPTS
+EOF
+
+chmod +x /opt/rainbond/scripts/start-kubelet.sh
+```
+
+### 启动 kubelet
+
+```bash
+systemctl daemon-reload
+systemctl enable kubelet
+systemctl start kubelet
 ```

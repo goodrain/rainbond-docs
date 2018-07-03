@@ -208,3 +208,21 @@ EOF
 dc-compose up -d rbd-hub
 dc-compose up -d rbd-repo
 ```
+
+## 配置构建&默认插件镜像
+
+```bash
+docker pull rainbond/runner
+docker tag rainbond/runner goodrain.me/runner
+docker pull rainbond/builder
+docker tag rainbond/builder goodrain.me/builder
+docker pull rainbond/adapter:3.6
+docker tag rainbond/adapter:3.6 goodrain.me/adapter
+docker pull rainbond/pause-amd64:3.0
+docker tag rainbond/pause-amd64:3.0 goodrain.me/pause-amd64:3.0
+# 插件
+docker pull rainbond/plugins:tcm
+docker tag rainbond/plugins:tcm goodrain.me/tcm
+docker pull rainbond/plugins:mesh
+docker tag rainbond/plugins:mesh goodrain.me/mesh_plugin
+```
