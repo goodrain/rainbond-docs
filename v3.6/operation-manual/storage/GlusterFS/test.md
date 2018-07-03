@@ -7,9 +7,9 @@ asciicast: true
 
 <div id="toc"></div>
 
-##GlusterFS基准测试
+##一、 GlusterFS基准测试
 
-###测试环境
+###1.1 测试环境
 
 |测试环境| |
 |---|---|
@@ -23,7 +23,7 @@ asciicast: true
 |存储节点|	2个|
 |复制份数|	2|
 
-###测试工具
+###1.2 测试工具
 
 fio 测试磁盘性能
 
@@ -51,7 +51,7 @@ fio -direct=1 -iodepth=64 -rw=write -ioengine=libaio -bs=1024k -size=1G -numjobs
 fio -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=1024k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=iotest -name=Read_PPS_Testing
 ```
 
-###本地磁盘测试
+###1.3 本地磁盘测试
 
 
 |单次写入大小及策略|测试文件定义大小|随机写io|每秒|iops|运行时间|
@@ -62,7 +62,7 @@ fio -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=1024k -size=1G -numjobs=
 |1M顺序读|100G|94G|98340KB/s|96|1000s|	
 
 
-###挂载节点测试
+###1.4 挂载节点测试
 
 |单次写入大小及策略|测试文件定义大小|随机写io|每秒|iops|运行时间|
 |---|---|---|---|---|---|
