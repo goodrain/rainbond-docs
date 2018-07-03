@@ -21,5 +21,5 @@ toc: false
 
 具体任务可以参见[rainbond-install](https://github.com/goodrain/rainbond-install/tree/v3.6/install/salt)
 
-![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/operation-manual/setup/salt-install.png)
+![](https://static.goodrain.com/images/docs/3.6/operation-manual/setup/salt-install.png)
 
