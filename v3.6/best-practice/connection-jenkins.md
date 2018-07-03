@@ -25,7 +25,7 @@ asciicast: true
 云帮支持直接从源码部署应用，请参考文档：[通过源码创建应用](http://www.rainbond.com/docs/stable/user-manual/create-an-app.html#part-28c173cde44e6408)，从源码部署的应用支持自动部署功能，开启此功能后，当您提交了新的代码后，云帮会自动下载代码并重新部署应用，有关自动部署的更多信息请参考[开启自动部署功能](https://github.com/goodrain/rainbond-docs/blob/master/v3.6/basic-operation/manage/ci-cd.md)。
 
 ## 可执行文件
-相信这是我们最常用的打包方式了，我们以Java应用为例，通常运行一个Java应用需要依赖一些外部资源，比如：Java运行时、应用配置文件、依赖包或是Tomcat这样的服务，这时我们推荐使用Dockerfile来定义应用的运行方式和运行环境，请参[MySQL应用](https://github.com/goodrain-apps/mysql/tree/master/5.7)，定义好以后就可以通过源码的方式来部署应用，并且可以支持自定部署，有关自动部署的更多信息请参考[开启自动部署功能](https://github.com/goodrain/rainbond-docs/blob/master/v3.6/basic-operation/manage/ci-cd.md)。
+相信这是我们最常用的打包方式了，我们以Java应用为例，通常运行一个Java应用需要依赖一些外部资源，比如：Java运行时、应用配置文件、依赖包或是Tomcat这样的服务，这时我们推荐使用Dockerfile来定义应用的运行方式和运行环境，请参考[Tomcat应用](https://github.com/goodrain-apps/tomcat/tree/master/oraclejdk7-tomcat7)，定义好以后就可以通过源码的方式来部署应用，并且可以支持自定部署，有关自动部署的更多信息请参考[开启自动部署功能](https://github.com/goodrain/rainbond-docs/blob/master/v3.6/basic-operation/manage/ci-cd.md)。
 
 ## 构建自己的持续部署流程
 在云帮的应用市场中有丰富的应用可以安装使用，您可以使用这些应用构建自己的工作流。
