@@ -17,10 +17,11 @@ toc: false
 - [官方文档](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
 - 相关配置文件
 
-| 功能             | 路径                                   |
+| 文件             | 说明                                   |
 | :--------------- | :------------------------------------- |
-| 配置启动参数     | /opt/rainbond/scripts/start-kubelet.sh |
-| kubelet 环境配置 | /opt/rainbond/envs/kubelet.sh          |
+|/etc/systemd/system/kubelet.service|kubelet的systemd服务文件|
+| /opt/rainbond/scripts/start-kubelet.sh | systemd服务文件调用的启动脚本 |
+| /opt/rainbond/envs/kubelet.sh | systemd服务文件调用的环境脚本 |
 
 - **启动、停止、查看状态、重启** kubelet 服务
 
@@ -36,9 +37,10 @@ systemctl start | stop | status | restart kubelet
 
 - 相关配置文件
 
-| 功能         | 路径                                     |
+| 文件         | 说明                                     |
 | ------------ | ---------------------------------------- |
-| 配置启动参数 | /opt/rainbond/scripts/start-etcdproxy.sh |
+|/etc/systemd/system/etcd-proxy.service|etcd-proxy的systemd服务文件|
+| /opt/rainbond/scripts/start-etcdproxy.sh | systemd服务文件调用的启动脚本 |
 
 - **启动、停止、查看状态、重启** etcd-proxy 服务
 
