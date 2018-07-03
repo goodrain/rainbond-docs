@@ -204,7 +204,7 @@ kubectl cordon <nodeID>
 kubectl drain <nodeID>
 ```
 
-- 为某个节点接触不可调度的状态
+- 为某个节点解除不可调度的状态
 
 ```bash
 kubectl uncordon <nodeID>
