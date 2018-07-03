@@ -4,7 +4,7 @@ summary: 部署Kubernetes
 toc: true 
 ---
 
-## 一、创建生成证书
+## 一、创建证书配置文件
 
 ### 1.1 生成证书
 
@@ -59,7 +59,7 @@ cat > /opt/rainbond/scripts/start-kube-apiserver.sh <<EOF
 KUBE_APISERVER_OPTS="--insecure-bind-address=127.0.0.1 \
 --insecure-port=8181 \
 --advertise-address=0.0.0.0 --bind-address=0.0.0.0 \
---etcd-servers=${ETCD_ADDRESS:-http://127.0.0.1:2379} \
+--etcd-servers=\${ETCD_ADDRESS:-http://127.0.0.1:2379} \
 --admission-control=ServiceAccount,NamespaceLifecycle,NamespaceExists,LimitRanger,ResourceQuota \
 --authorization-mode=RBAC \
 --runtime-config=rbac.authorization.k8s.io/v1beta1 \
@@ -80,13 +80,16 @@ exec /usr/bin/docker \
   --name kube-apiserver \
   --volume=/opt/rainbond/etc/kubernetes:/opt/rainbond/etc/kubernetes \
   rainbond/kube-apiserver:v1.6.4 \
-  $KUBE_APISERVER_OPTS
+  \$KUBE_APISERVER_OPTS
 EOF
+
+chmod +x /opt/rainbond/scripts/start-kube-apiserver.sh
 ```
 
 ### 2.4 启动kube-apiserver服务
 
 ```bash
+docker pull rainbond/kube-apiserver:v1.6.4
 systemctl daemon-reload
 systemctl enable kube-apiserver
 systemctl start kube-apiserver
@@ -151,13 +154,15 @@ exec /usr/bin/docker \
   --name kube-controller-manager \
   --volume=/opt/rainbond/etc/kubernetes:/opt/rainbond/etc/kubernetes \
   rainbond/kube-controller-manager:v1.6.4 \
-  $KUBE_CONTROLLER_MANAGER_OPTS
+  \$KUBE_CONTROLLER_MANAGER_OPTS
 EOF  
+chmod +x /opt/rainbond/scripts/start-kube-controller-manager.sh
 ```
 
 ### 3.3 启动kube-controller-manager服务
 
 ```bash
+docker pull rainbond/kube-controller-manager:v1.6.4
 systemctl daemon-reload
 systemctl enable kube-controller-manager
 systemctl start kube-controller-manager
@@ -209,13 +214,15 @@ exec /usr/bin/docker \
   --name kube-scheduler \
   --volume=/opt/rainbond/etc/kubernetes/kubecfg:/opt/rainbond/etc/kubernetes/kubecfg \
   rainbond/kube-scheduler:v1.6.4 \
-  $KUBE_SCHEDULER_OPTS
+  \$KUBE_SCHEDULER_OPTS
 EOF
+chmod +x /opt/rainbond/scripts/start-kube-scheduler.sh
 ```
 
 ### 4.3 启动kube-scheduler服务
 
 ```bash
+docker pull rainbond/kube-scheduler:v1.6.4
 systemctl daemon-reload
 systemctl enable kube-scheduler
 systemctl start kube-scheduler
@@ -259,7 +266,7 @@ services:
     restart: always
 EOF
 
-docker-compose up -d -f /opt/rainbond/compose/dns.yaml
+dc-compose up -d rbd-dns
 ```
 
 ### 5.2 修改机器配置
