@@ -31,16 +31,22 @@ toc: false
 ###3.1平台基本部署
 
 部署单管理节点、双计算节点的rainbond平台：
+
 - 安装单节点云帮平台：
+
   - 详情参见：[一键部署rainbond]( https://www.rainbond.com/docs/stable/getting-started/online-installation.html)
+
 - 扩容计算节点：
+
   - 详情参见：[扩容计算节点](https://www.rainbond.com/docs/v3.5/getting-started/install.html#part-2c4b8d54ecfe5f5f)
+
 ###3.2部署GFS
 
 在计算节点部署双节点GFS集群：
 
-  - 安装GFS：
-      - 详情参见：[GlusterFS安装]( https://www.rainbond.com/docs/stable/operation-manual/storage/GlusterFS/install.html)
+- 安装GFS：
+
+  - 详情参见：[GlusterFS安装]( https://www.rainbond.com/docs/stable/operation-manual/storage/GlusterFS/install.html)
 
 - 切换存储
 
@@ -60,10 +66,13 @@ umount /mnt
 编辑所有节点的/etc/fstab,新增一行：
 
 manage01 & compute01:
+
 ```bash
 compute01:/gv0	/grdata	glusterfs	backupvolfile-server=compute02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
 ```
+
 compute02:
+
 ```bash
 compute02:/gv0	/grdata	glusterfs	backupvolfile-server=compute01,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
 ```
@@ -76,9 +85,9 @@ mount -a
 
 ### 3.3配置rbd-lb
 
-- 修改 yaml 文件
+修改rbd-lb组件的配置，需要修改rbd-entrance组件配置、自身配置文件、以及本地主机解析三个方面。
 
-  - 修改管理节点rbd-entrance配置
+- 修改管理节点rbd-entrance配置
 
   ```bash
   vi /opt/rainbond/compose/plugin.yaml
@@ -109,21 +118,22 @@ mount -a
       
   ```
 
-  - 将管理节点的lb.yaml复制到计算节点
+- 将管理节点的lb.yaml复制到计算节点
+
   ```bash
   scp /opt/rainbond/compose/lb.yaml compute01:/opt/rainbond/compose
   scp /opt/rainbond/compose/lb.yaml compute02:/opt/rainbond/compose
   mv /opt/rainbond/compose/lb.yaml /opt/rainbond/compose/lb.yaml.bak
   ```
-- 修改配置文件
-  - 将管理节点的配置文件目录拷贝到计算节点
 
+- 将管理节点的配置文件目录拷贝到计算节点
+  
   ```bash
   scp -rp /opt/rainbond/etc/rbd-lb/dynamics compute01:/opt/rainbond/etc/rbd-lb/dynamics
   scp -rp /opt/rainbond/etc/rbd-lb/dynamics compute02:/opt/rainbond/etc/rbd-lb/dynamics
   ```
 
-  - 在计算节点修改配置文件
+- 在计算节点修改配置文件
 
   ```bash
   vi /opt/rainbond/etc/rbd-lb/dynamics/dynamic_servers/default.http.conf
@@ -141,7 +151,7 @@ mount -a
   }
   ```
 
-  - 修改三个节点的/etc/hosts
+- 修改三个节点的/etc/hosts
 
   ```bash
   vi /etc/hosts
@@ -152,6 +162,7 @@ mount -a
   ```
 
 - 重新启动rainbond
+
 ```bash
 dc-compose up -d --remove-orphans
 ```
