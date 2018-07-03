@@ -1,45 +1,47 @@
 {
     "title": "最佳实践",
     "items": [{
-            "title": "Git相关实践",
+            "title": "CI/CD",
             "items": [{
                 "title": "云帮对接Git Server",
                 "urls": [
-                    "/${VERSION}/best-practice/git-etcs/connection-git-server.html"
+                    "/${VERSION}/best-practice/ci-cd/connection-git-server.html"
                 ]},
                 {
-                "title": "Windows配置SSH连接Git Server",
+                "title": "Windows配置SSH连接Git",
                 "urls": [
-                    "/${VERSION}/best-practice/git-etcs/windows-ssh-git.html"
-                ]}
-            ]
-        },
-        {
-            "title": "插件相关实践",
-            "items": [{
-                    "title": "数据库插件",
+                    "/${VERSION}/best-practice/ci-cd/windows-ssh-git.html"
+                ]},
+                {
+                    "title": "对接Maven仓库",
                     "urls": [
-                        "/${VERSION}/best-practice/add-on/mysql-add-ons.html"
+                        "/${VERSION}/best-practice/ci-cd/connection-maven-repository.html"
+                    ]
+                },
+                {
+                    "title": "对接Docker镜像仓库",
+                    "urls": [
+                        "/${VERSION}/best-practice/ci-cd/connection-docker-registry.html"
+                    ]
+                },
+                {
+                    "title": "对接Jenkins",
+                    "urls": [
+                        "/${VERSION}/best-practice/ci-cd/connection-jenkins.html"
+                    ]
+                },
+                {
+                    "title": "应用A/B测试",
+                    "urls": [
+                        "/${VERSION}/best-practice/ci-cd/ab-released-app.html"
+                    ]
+                },
+                {
+                    "title": "应用灰度发布",
+                    "urls": [
+                        "/${VERSION}/best-practice/ci-cd/gray-released-app.html"
                     ]
                 }
-            ]
-        },
-        {
-            "title": "对接Maven仓库",
-            "urls": [
-                "/${VERSION}/best-practice/connection-maven-repository.html"
-            ]
-        },
-        {
-            "title": "对接Docker镜像仓库",
-            "urls": [
-                "/${VERSION}/best-practice/connection-docker-registry.html"
-            ]
-        },
-        {
-            "title": "对接Jenkins",
-            "urls": [
-                "/${VERSION}/best-practice/connection-jenkins.html"
             ]
         },
         {
@@ -49,7 +51,7 @@
             ]
         },
         {
-            "title": "Pinpoint-java性能分析最佳实践",
+            "title": "Pinpoint-java性能分析",
             "urls": [
                 "/${VERSION}/best-practice/pinpoint-deploy-use.html"
             ]

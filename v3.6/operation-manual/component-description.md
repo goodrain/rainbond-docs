@@ -32,7 +32,7 @@ toc: false
 |rbd-lb|全局负载均衡，基于Openresty实现，[源码地址](https://github.com/goodrain/lb-openresty)|
 
 {{site.data.alerts.callout_info}}
-- docker-compose.yaml 配置文件默认在 `/opt/rainbond/docker-compose.yaml`
+- docker-compose 配置文件默认在 `/opt/rainbond/compose目录中`
 - 通过dc-compose命令可以维护这些服务，详情参见: [管理节点服务维护](platform-maintenance/management-node.html)
 {{site.data.alerts.end}}
 
