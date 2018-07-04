@@ -1,5 +1,8 @@
 {
     "title": "最佳实践",
+    "urls": [
+        "/${VERSION}/best-practice/index.html"
+    ],
     "items": [{
             "title": "CI/CD",
             "items": [{

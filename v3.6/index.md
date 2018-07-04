@@ -24,6 +24,15 @@ Rainbond历经超过五年的生产运营打磨和验证，形成目前理念最
 <div class="row">
     <div class="col-md-4">
         <div class="roach">
+            <a href="architecture/architecture.html">
+                <img src="{{ 'images/sleeping_craig.png' | relative_url }}" alt="rainbond 架构"/>
+                <h3>技术架构</h3>
+                <p>深入了解Rainbond的技术原理及工作机制。</p>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="roach">
             <a href="getting-started/before-installation.html">
                 <img src="{{ 'images/SCENE_superhero_profile_craig.png' | relative_url }}" alt="快速部署"/>
                 <h3>部署云帮集群</h3>
@@ -33,19 +42,10 @@ Rainbond历经超过五年的生产运营打磨和验证，形成目前理念最
     </div>
     <div class="col-md-4">
         <div class="roach">
-            <a target="_blank" href="open-api.html">
-                <img src="{{ 'images/builder_craig.png' | relative_url }}" alt="开发文档"/>
-                <h3>开发文档</h3>
-                <p>Rainbond API文档</p>
-            </a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="roach">
-            <a href="best-practice/connection-maven-repository.html">
-                <img src="{{ 'images/scientist_catrina.png' | relative_url }}" alt="最佳实践"/>
-                <h3>最佳实践</h3>
-                <p>这里我们只讲最干的云帮使用经验</p>
+            <a href="user-manual/create-an-app.html">
+                <img src="{{ 'images/craig_crossfit.png' | relative_url }}" alt="rainbond 维护"/>
+                <h3>创建一个应用</h3>
+                <p>通过源码、镜像或应用市场快速创建一个应用。</p>
             </a>
         </div>
     </div>
@@ -54,19 +54,19 @@ Rainbond历经超过五年的生产运营打磨和验证，形成目前理念最
 <div class="row">
     <div class="col-md-4">
         <div class="roach">
-            <a href="platform-maintenance/overview/overview.html">
-                <img src="{{ 'images/craig_crossfit.png' | relative_url }}" alt="rainbond 维护"/>
-                <h3>集群维护</h3>
+            <a target="_blank" href="operation-manual/deployment-architecture.html">
+                <img src="{{ 'images/builder_craig.png' | relative_url }}" alt="开发文档"/>
+                <h3>运维手册</h3>
                 <p>教您如何搭建生产环境就绪的云帮集群。</p>
             </a>
         </div>
     </div>
     <div class="col-md-4">
         <div class="roach">
-            <a href="architecture/architecture.html">
-                <img src="{{ 'images/sleeping_craig.png' | relative_url }}" alt="rainbond 架构"/>
-                <h3>技术架构</h3>
-                <p>深入了解Rainbond的技术原理及工作机制。</p>
+            <a href="best-practice/index.html">
+                <img src="{{ 'images/scientist_catrina.png' | relative_url }}" alt="最佳实践"/>
+                <h3>最佳实践</h3>
+                <p>这里我们只讲最干的云帮使用经验</p>
             </a>
         </div>
     </div>
