@@ -64,20 +64,17 @@ Rainbond通过对接Git仓库来创建基于源代码及Dockerfile的应用。
 ### 1.4 测试对接是否成功
 通过私有仓库创建应用的方式来测试云帮能否通过SSH关于获取Git仓库中的代码。
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-01.png"  width="90%" />
-
 - **创建应用**
+<img src="https://static.goodrain.com/images/docs/3.6/best-practice/ci-cd/ssh-02.png"  width="100%" />
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-02.png"  width="90%" />
 
 - **能够识别语言，代表对接成功**
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-03.png"  width="90%" />
-
+<img src="https://static.goodrain.com/images/docs/3.6/best-practice/ci-cd/ssh-03.png"  width="75%" />
 
 ## 二、对接云帮上部署的GitLab私有仓库
 
-上文介绍的都是对接现有GitLab的情况，如果你还没有Git仓库，云帮可以一键部署GitLab应用，下面主要介绍对接云帮上部署的GitLab
+上文介绍的是对接现有GitLab的情况，如果你还没有Git仓库，云帮可以一键部署GitLab应用，下面主要介绍对接云帮上部署的GitLab
 
 ### 2.1 创建GitLab应用
 
@@ -87,33 +84,33 @@ Rainbond通过对接Git仓库来创建基于源代码及Dockerfile的应用。
 
 GitLab安装完成后，可以在应用的端口页面看到对外打开的端口号，如下图：
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-install-gitlab-02.png"  width="90%"/>
+<img src="https://static.goodrain.com/images/docs/3.6/best-practice/ci-cd/ssh-04.png"  width="100%" />
 
 - 端口号：应用内部监听的端口，本例中监听了`22`和`80`端口
 - 访问地址：云帮映射的地址与端口，本例中 22端口映射的地址为`172.16.210.205`，端口为`20006` ，80端口地址为`	80.grea7fc4.zggk.48mt2.goodrain.org`，端口为`80`
-
 
 {{site.data.alerts.callout_success}}
 - 云帮为HTTP协议的应用端口默认分配一个访问域名
 - 云帮为非HTTP协议的应用端口默认分配一个访问地址和一个随机的映射端口，但端口映射与应用端口唯一对应，不会变化，因此本例的端口可能与你实际情况不一致。
 {{site.data.alerts.end}}
 
-- **设置GitLab的HTTP和SSH地址**
+#### 2.2.1 设置GitLab的HTTP和SSH地址
 
 GitLab应用通过 `GITLAB_SSH_HOST` 和 `GITLAB_HOST` 环境变量来设置SSH和HTTP的地址，因此需要将这两个变量设置到GitLab应用中。
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-configure-gitlab-01.png"  width="90%"/>
+<img src="https://static.goodrain.com/images/docs/3.6/best-practice/ci-cd/ssh-05.png"  width="100%" />
 
 {{site.data.alerts.callout_success}}
 设置环境变量后，需要重启GitLab应用。
 {{site.data.alerts.end}}
 
-### 配置云帮对接Git仓库的ssh协议端口号
+### 2.3 创建应用时Git地址中的端口配置
+由于SSH协议使用的是非默认的22端口，因此在创建应用时，填写的Git地址也需要加上端口信息，格式如下：
 
 ```bash
 # 默认地址
-git@gr6a10f1.demo.ali-sh-s1.goodrain.net:test/helloworld.git
+git@172.16.210.205:test/helloworld.git
 
 # 修改为
-ssh://git@gr6a10f1.demo.ali-sh-s1.goodrain.net:20592/test/helloworld.git
+git@172.16.210.205:20006/test/helloworld.git
 ```
