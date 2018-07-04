@@ -156,6 +156,12 @@
                         "urls":[
                             "/${VERSION}/operation-manual/trouble-shooting/domain-ops.html"
                         ]
+                    },
+                    {
+                        "title": "集群故障排查",
+                        "urls": [
+                            "/${VERSION}/operation-manual/trouble-shooting/issue.html"
+                        ]
                     }
                 ]
             },
