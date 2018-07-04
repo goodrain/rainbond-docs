@@ -7,28 +7,23 @@ asciicast: true
 
 <div id="toc"></div>
 
-云帮通过对接Git仓库来创建基于源代码及Dockerfile的应用。
+Rainbond通过对接Git仓库来创建基于源代码及Dockerfile的应用。
 
-如果是公开的项目，可以通过填写项目地址的方式创建应用，如果是私有项目，目前云帮公有云支持 [GitHub](/docs/stable/user-app-docs/addapp/addapp-code.html#github)和 好雨Git仓库，如果是私有化部署的Git服务，云帮通过 SSH 公钥的的方式对接Git仓库。下图是云帮对接Git仓库支持的方式与协议：
+通过【自定义源码】的方式创建应用，当你填写Git地址时，平台会自动判断地址的协议，如果是HTTP的Git地址，平台会提示你输入Git仓库的用户名和密码，如果是公开项目，用户名密码可以省略。当输入的Git地址是SSH协议时，平台会提示你将rainbond的SSH公钥复制到Git仓库中。
 
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/rbd-link-git.png"  width="80%" />
-
-
-本文主要讲解通过 SSH 公钥的方式对接私有部署的Git仓库，以[GitLab](https://gitlab.com/)为示例进行说明。
+本文主要讲解通过 SSH 公钥的方式对接私有部署的Git仓库，以 [GitLab](https://gitlab.com/)为示例进行说明。
 
 
-## 公有云对接私有仓库
+## 一、配置SSH公钥对接私有仓库
 
-### 获取公钥
+### 1.1 获取公钥
 
-进入创建应用-私有Git，获取公有云的SSH公钥：
+进入【创建应用】-【从源码创建】-【自定义源码】，将项目的SSh协议的地址复制到【Git仓库地址】栏中时，会提示【配置授权Key】连接，点开显示详细信息：
 
-{% include copy-clipboard.html %}
+<img src="https://static.goodrain.com/images/docs/3.6/best-practice/ci-cd/ssh-01.gif" width="100%" />
 
-```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy97mlKJo1xPoDYejmeK0bMhM6O/leVuLF/U0ry/NLWatfkl1R69NIX6TpW/hVFjGXRZTz56V37jLOVQWq24dQaLIXyFqxZwJnakZzX/b6K3sKb6Y+dDZdktcPEVLUQPWHs6gm0tUgbvgywulEVuTgAt5fYwa1rG48zmgCHlU4a6jWT8iQ9D2Lqpf4ZYZnUOOGB6AmaABfCBSCFDj8ihIz00Hp77s42gxRhn/iQJE9ZrDYWnxN0cUAxvLpB1jCANFR4Zc5FslHUp4tLVNMdDeqi8OPZMj4G6yWclwa3Uqfu7yd3gqik4nI1jaRLL9Lq/2GgA20MvCFWqtvcBJ2Tcv1 builder
-```
-### 创建项目
+
+### 1.2 Gitlab创建新项目
 
 - **新建项目**
 
@@ -51,7 +46,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy97mlKJo1xPoDYejmeK0bMhM6O/leVuLF/U0ry/NL
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-04.png"  width="90%" />
 
-### 将公钥添加到Git仓库
+### 1.3 将公钥添加到Git仓库
 
 - **切换到项目首页**
 
@@ -66,7 +61,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy97mlKJo1xPoDYejmeK0bMhM6O/leVuLF/U0ry/NL
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-add-ssh-key-03.png"  width="90%" />
 
 
-### 测试对接是否成功
+### 1.4 测试对接是否成功
 通过私有仓库创建应用的方式来测试云帮能否通过SSH关于获取Git仓库中的代码。
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-01.png"  width="90%" />
@@ -79,49 +74,16 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy97mlKJo1xPoDYejmeK0bMhM6O/leVuLF/U0ry/NL
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-test-ssh-key-03.png"  width="90%" />
 
-## 云帮私有云对接私有仓库
-云帮私有云对接私有Git仓库的流程和公有云一致，唯一不同的就是需要手动生成SSH公钥。
 
-### 生成SSH公钥
-
-在云帮第一个管理节点执行如下命令:
-
-```bash
-ssh-keygen -t rsa -f /etc/goodrain/ssh/goodrain-builder
-
-#更改文件权限为rain用户
-chown -R rain.rain /etc/goodrain/ssh
-
-#更改公钥权限
-chmod 400 /etc/goodrain/ssh/goodrain-builder.pub
-
-#获取公钥内容
-cat /etc/goodrain/ssh/goodrain-builder.pub
-
-# 配置config
-Host *
-  IdentityFile ~/.ssh/goodrain-builder
-  StrictHostKeyChecking no
-  LogLevel ERROR
-```
-
-文件 `/etc/goodrain/ssh/goodrain-builder.pub` 的内容就是SSH公钥内容，剩下的工作与公有云对接私有仓库的流程一致，这里就不再赘述了。
-
-{{site.data.alerts.callout_success}}
-当云帮有多个管理节点时，需要将第一台生成的 `/etc/goodrain/ssh` 目录复制到其他管理节点的相应目录下。也就是说，要保证所有管理节点的`/etc/goodrain/ssh` 内容及权限一致。
-
-该目录会被 [rbd-chaos](/docs/stable/platform-maintenance/add-management-node/component-introduction/rbd-chaos.html) 组件挂载并使用。
-{{site.data.alerts.end}}
-
-## 对接云帮上部署的GitLab私有仓库
+## 二、对接云帮上部署的GitLab私有仓库
 
 上文介绍的都是对接现有GitLab的情况，如果你还没有Git仓库，云帮可以一键部署GitLab应用，下面主要介绍对接云帮上部署的GitLab
 
-### 创建GitLab应用
+### 2.1 创建GitLab应用
 
 通过 【新建应用】-【应用市场】搜索到GitLab应用，选择需要的版本安装即可。
 
-### 配置GitLab
+### 2.2 配置GitLab
 
 GitLab安装完成后，可以在应用的端口页面看到对外打开的端口号，如下图：
 
@@ -147,32 +109,6 @@ GitLab应用通过 `GITLAB_SSH_HOST` 和 `GITLAB_HOST` 环境变量来设置SSH�
 {{site.data.alerts.end}}
 
 ### 配置云帮对接Git仓库的ssh协议端口号
-云帮通过默认的22端口，利用ssh协议拉取Git仓库的代码，但由于GitLab安装到了云帮平台，云帮又将22端口映射成其他端口，因此需要特殊处理，下面分别介绍公有云和私有云的配置方式：
-
-#### 云帮私有化部署的处理方式
-
-**第一个管理节点执行：**
-
-```bash
-cat << EOF >/etc/goodrain/ssh/config
-# 22 端口映射的地址，本示例为 172.16.210.205
-Host 172.16.210.205
-  IdentityFile ~/.ssh/goodrain-builder
-  StrictHostKeyChecking no
-  LogLevel ERROR
-  # 22端口的映射端口，本示例为20006
-  Port 20006
-EOF
-```
-
-{{site.data.alerts.callout_success}}
-当云帮有多个管理节点时，需要将第一台生成的 `/etc/goodrain/ssh` 目录复制到其他管理节点的相应目录下。也就是说，要保证所有管理节点的`/etc/goodrain/ssh` 内容及权限一致。
-
-该目录会被 [rbd-chaos](/docs/stable/platform-maintenance/add-management-node/component-introduction/rbd-chaos.html) 组件挂载并使用。
-{{site.data.alerts.end}}
-
-#### 云帮公有云的处理方式
-公有云针对该问题只能通过修改ssh地址的方式来支持：
 
 ```bash
 # 默认地址
