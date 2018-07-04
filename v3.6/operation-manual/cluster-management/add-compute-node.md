@@ -9,6 +9,7 @@ toc: false
 特别说明一下，计算节点主机名需要已compute开头，如computexxx.
 
 ```bash
+# 在管理节点执行如下操作
 cd rainbond-intall/scripts
 # 管理节点初始化计算节点(主机名compute01,ip, 密码)
 ./compute.sh init single <hostname> <ip> <passwd>
