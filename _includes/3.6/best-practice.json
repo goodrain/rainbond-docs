@@ -6,7 +6,7 @@
     "items": [{
             "title": "CI/CD",
             "items": [{
-                "title": "云帮对接Git Server",
+                "title": "对接Git Server",
                 "urls": [
                     "/${VERSION}/best-practice/ci-cd/connection-git-server.html"
                 ]},
