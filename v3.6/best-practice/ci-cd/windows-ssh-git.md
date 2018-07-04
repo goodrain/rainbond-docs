@@ -1,5 +1,5 @@
 ---
-title: Windows下配置SSH连接Git Server
+title: Windows配置SSH公钥连接Git
 summary: 讲解如何在windows下配置SSH连接GitHub
 toc: false
 asciicast: true
@@ -8,15 +8,15 @@ asciicast: true
 <div id="toc"></div>
 
 
-## 安装Git
+## 一、安装Git
 
-### 准备
+### 1.1 下载安装包
 
 Windows7/Windows8系统
 
 Git 2.15 安装包下载([Git for Windows 32 ](https://pkg.goodrain.com/apps/git/Git-2.15.1.2-32-bit.exe)) ([Git for Windows 64 ](https://pkg.goodrain.com/apps/git/Git-2.15.1.2-64-bit.exe))
 
-### 安装
+### 1.2 安装
 
 1. Git安装包通过浏览器下载完成后,需要修改文件的锁定属性,特别是 `.zip` 文件和 `.chm` 文件(否则打开chm会显示404). 右键点击下载的文件,选择属性,然后点击"解除锁定"按钮,确定即可. 如下图所示:
 
@@ -40,9 +40,9 @@ Git 2.15 安装包下载([Git for Windows 32 ](https://pkg.goodrain.com/apps/git
 
 
 
-## 获取SSH Key
+## 二、获取SSH Key
 
-### 检查
+### 2.1 检查SSH Key
 
 打开 **Git Bash** ，检查本机是否有SSH key设置。输入如下命令：
 
@@ -59,7 +59,7 @@ $ cd ~/.ssh
   $ rm *			#删除~/.ssh路径下的文件
   ```
 
-### 创建SSH Key
+### 2.2 创建SSH Key
 
 生成新的SSH Key，输入如下命令：
 
@@ -89,9 +89,9 @@ SSH key已生成，复制`id_rsa.pub`文件内容，输入如下命令：
 ```bash
 $ cat ~/.ssh/id_rsa.pub			#将输出内容复制
 ```
-## 添加SSH Key到Git Server
+## 三、添加SSH Key到Git Server
 
-### 添加到Git Hub 
+### 3.1 添加到Git Hub 
 
 登录GitHub，点击右上角头像，进入设置中心，选择SSH and GPG keys开始设置。
 
@@ -99,9 +99,9 @@ $ cat ~/.ssh/id_rsa.pub			#将输出内容复制
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/windows-ssh-git/windows-ssh-git4.png" width="100%" />
 
-### 添加到GitLab
+### 3.2 添加到GitLab
 
-#### root用户
+#### 3.2.1 root用户
 
 首次登录GitLab应用使用root账户，进入主页面点，击右上角头像选择Settings，进入设置中心。选择SSH Keys开始设置。
 
@@ -109,7 +109,7 @@ $ cat ~/.ssh/id_rsa.pub			#将输出内容复制
 
 <center><img src="https://static.goodrain.com/images/acp/docs/bestpractice/windows-ssh-git/windows-ssh-git5.png" width="100%" /></center>
 
-#### 非root用户
+#### 3.2.2 非root用户
 
 ##### 创建一个账户
 
@@ -121,16 +121,16 @@ $ cat ~/.ssh/id_rsa.pub			#将输出内容复制
 
 登录后进入主页面，点击右上角头像选择Settings，进入设置中心。选择SSH Keys开始设置。设置方式与root用户相同
 
-## 配置账户
+## 四、配置账户
 
 ```bash
 $ git config --global user.name “your username”			#自定义用户名
 
 $ git config --global user.email “your_registered_github_Email”	 #设置邮箱地址(建议用注册giuhub的邮箱)
 ```
-## 测试
+## 五、测试
 
-### 测试ssh keys是否设置成功。
+### 5.1 测试ssh keys是否设置成功。
 
 ```bash
 $ ssh -T git@github.com
@@ -143,7 +143,7 @@ Are you sure you want to continue connecting (yes/no)? yes #确认你是否继�
 
 Warning: Permanently added 'github.com,192.30.252.129' (RSA) to the list of known hosts.
 ```
-### git基本操作
+### 5.2 Git基本操作
 
 1. 在GitHUb创建新的仓库，并复制此仓库的ssh路径。
 
@@ -174,11 +174,11 @@ Warning: Permanently added 'github.com,192.30.252.129' (RSA) to the list of know
    刷新GitHub界面，查看刚刚推到此库的`README.md`
 
 
-## GUI Clients
+## 六、GUI Clients
 
 Git GUI是Git内置的用于提交与浏览的工具。Git也支持其他第三方客户端来实现同样的功能，例如[SourceTree](https://www.sourcetreeapp.com/)、[GitHub Desktop](https://desktop.github.com/)、[TortoiseGit](https://tortoisegit.org/)等
 
-### SourceTree
+### 6.1 SourceTree
 
 Windows系统支持SourceTree，[下载](https://pkg.goodrain.com/apps/git/SourceTreeSetup-2.3.5.0.exe)并安装SourceTree。安装过程中需要登录，您可注册ATLASSIAN账号或使用Google账号登录。安装完成后，打开sourcetree。如下图：
 
@@ -188,7 +188,7 @@ Windows系统支持SourceTree，[下载](https://pkg.goodrain.com/apps/git/Sourc
 
 {{site.data.alerts.end}}
 
-### GitHub Desktop
+### 6.2 GitHub Desktop
 
 Windows系统支持使用GitHub Desktop，[下载](https://pkg.goodrain.com/apps/git/GitHubDesktopSetup_1.0.11.exe) 安装使用GitHub Desktop。客户端如下：
 
