@@ -118,14 +118,53 @@ din <容器ID>
 ### 2.2 dps 查看运行与停止的容器
 该命令是 `docker ps -a`  命令的封装，列出所有容器，包括运行与非运行状态。
 
+### 2.3 cclear清理已经退出的容器
+该命令是我们封装的脚本，可以清理已经退出的容器，脚本内容如下：
+
 ```bash
-dps
+#!/bin/bash
+rm_ctns=$(docker ps -a -q --filter 'status=exited')
+if [ -z "$rm_ctns" ];then
+	echo "no exited containers need to delete"
+else
+	docker rm $rm_ctns
+fi
 ```
 
-### 2.3 cclear清理已经退出的容器
-
 ### 2.4 iclear 清理处于dangling状态的镜像
+该命令是我们封装的脚本，可以清理处于 [dangling](https://stackoverflow.com/questions/45142528/docker-what-is-a-dangling-image-and-what-is-an-unused-image) 状态的镜像，脚本内容如下：
+
+```bash
+#!/bin/bash
+
+#=============================
+# <none> images cleanup script
+#=============================
+
+cclear
+
+ilist=`docker images --filter "dangling=true" -q`
+
+if [ "$ilist" != "" ];then
+
+docker rmi $ilist
+
+else
+  echo -e "\nThere is no images of <none>"
+fi
+```
 
 ### 2.5 igrep 快速搜索镜像
+快速定位指定关键词的镜像，该命令是我们封装的脚本，示例如下：
+
+```bash
+[root@manage01 ~]# igrep  api
+34dd66d1e6bb        2 weeks             63.76 MB            rainbond/rbd-api:3.6
+c71664913ade        11 days             63.77 MB            rainbond/rbd-api:cloud
+d4e43a94f3e3        4 months            310.3 MB            rainbond/kube-apiserver:v1.6.4
+```
 
 ### 2.6 ctop 查看容器资源使用情况
+以top的形式查看容器运行状态。
+
+<img src="https://static.goodrain.com/images/docs/3.6/operation-manual/ctop.gif" width="100%" />
