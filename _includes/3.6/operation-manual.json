@@ -150,7 +150,13 @@
                                     "/${VERSION}/operation-manual/network/calico.html"
                                 ]
                             }]
-                        }
+                        },
+                    {
+                        "title":"域名维护",
+                        "urls":[
+                            "/${VERSION}/operation-manual/trouble-shooting/domain-ops.html"
+                        ]
+                    }
                 ]
             },
             {
