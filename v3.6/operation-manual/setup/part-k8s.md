@@ -4,7 +4,7 @@ summary: 部署Kubernetes
 toc: true 
 ---
 
-## 一、创建生成证书
+## 一、创建证书配置文件
 
 ### 1.1 生成证书
 
@@ -59,7 +59,7 @@ cat > /opt/rainbond/scripts/start-kube-apiserver.sh <<EOF
 KUBE_APISERVER_OPTS="--insecure-bind-address=127.0.0.1 \
 --insecure-port=8181 \
 --advertise-address=0.0.0.0 --bind-address=0.0.0.0 \
---etcd-servers=${ETCD_ADDRESS:-http://127.0.0.1:2379} \
+--etcd-servers=\${ETCD_ADDRESS:-http://127.0.0.1:2379} \
 --admission-control=ServiceAccount,NamespaceLifecycle,NamespaceExists,LimitRanger,ResourceQuota \
 --authorization-mode=RBAC \
 --runtime-config=rbac.authorization.k8s.io/v1beta1 \
@@ -80,13 +80,16 @@ exec /usr/bin/docker \
   --name kube-apiserver \
   --volume=/opt/rainbond/etc/kubernetes:/opt/rainbond/etc/kubernetes \
   rainbond/kube-apiserver:v1.6.4 \
-  $KUBE_APISERVER_OPTS
+  \$KUBE_APISERVER_OPTS
 EOF
+
+chmod +x /opt/rainbond/scripts/start-kube-apiserver.sh
 ```
 
 ### 2.4 启动kube-apiserver服务
 
 ```bash
+docker pull rainbond/kube-apiserver:v1.6.4
 systemctl daemon-reload
 systemctl enable kube-apiserver
 systemctl start kube-apiserver
@@ -151,13 +154,15 @@ exec /usr/bin/docker \
   --name kube-controller-manager \
   --volume=/opt/rainbond/etc/kubernetes:/opt/rainbond/etc/kubernetes \
   rainbond/kube-controller-manager:v1.6.4 \
-  $KUBE_CONTROLLER_MANAGER_OPTS
+  \$KUBE_CONTROLLER_MANAGER_OPTS
 EOF  
+chmod +x /opt/rainbond/scripts/start-kube-controller-manager.sh
 ```
 
 ### 3.3 启动kube-controller-manager服务
 
 ```bash
+docker pull rainbond/kube-controller-manager:v1.6.4
 systemctl daemon-reload
 systemctl enable kube-controller-manager
 systemctl start kube-controller-manager
@@ -209,21 +214,25 @@ exec /usr/bin/docker \
   --name kube-scheduler \
   --volume=/opt/rainbond/etc/kubernetes/kubecfg:/opt/rainbond/etc/kubernetes/kubecfg \
   rainbond/kube-scheduler:v1.6.4 \
-  $KUBE_SCHEDULER_OPTS
+  \$KUBE_SCHEDULER_OPTS
 EOF
+chmod +x /opt/rainbond/scripts/start-kube-scheduler.sh
 ```
 
 ### 4.3 启动kube-scheduler服务
 
 ```bash
+docker pull rainbond/kube-scheduler:v1.6.4
 systemctl daemon-reload
 systemctl enable kube-scheduler
 systemctl start kube-scheduler
 ```
 
-### 4.4 验证集群状态
+### 4.4 验证k8s集群
 
 ```bash
+mkdir -p /root/.kube
+cp /opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig /root/.kube/config
 kubectl get cs
 ```
 
@@ -259,7 +268,7 @@ services:
     restart: always
 EOF
 
-docker-compose up -d -f /opt/rainbond/compose/dns.yaml
+dc-compose up -d rbd-dns
 ```
 
 ### 5.2 修改机器配置
@@ -270,4 +279,77 @@ cat >> /etc/resolv.conf <<EOF
 nameserver 114.114.114.114
 nameserver <管理点ip>
 EOF
+```
+
+## 6. 安装 kubelet
+
+### 6.1 配置 kubelet.service
+
+```bash
+cat > /etc/systemd/system/kubelet.service <<EOF
+[Unit]
+Description=Kubernetes Agent
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/opt/rainbond/envs/kubelet.sh
+PermissionsStartOnly=true
+ExecStart=/opt/rainbond/scripts/start-kubelet.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+### 6.2 配置脚本
+
+```bash
+cat > /opt/rainbond/envs/kubelet.sh <<EOF
+HOST_UUID=<同当前节点 node 的 uuid>
+DNS_SERVERS=<dns所在节点 ip>
+HOST_IP=<管理节点 ip>
+REG="false"
+EOF
+
+cat > /opt/rainbond/scripts/start-kubelet.sh <<EOF
+#!/bin/sh
+
+KUBELET_OPTS="--address=\$HOST_IP \
+--port=10250 \
+--hostname_override=\$HOST_UUID \
+--kubeconfig=/opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig \
+--require-kubeconfig \
+--cert-dir=/opt/rainbond/etc/kubernetes/ssl \
+--cluster-domain=cluster.local. --hairpin-mode promiscuous-bridge \
+--cluster-dns=\$DNS_SERVERS \
+--register-node=\${REG:-true} \
+--max-pods=10000 \
+--custom-config=/opt/rainbond/etc/kubernetes/custom.conf \
+--network-plugin=cni \
+--network-plugin-dir=/opt/rainbond/bin \
+--cni-conf-dir=/opt/rainbond/etc/cni/ \
+--cpu-cfs-quota=false \
+--pod-infra-container-image=goodrain.me/pause-amd64:3.0 \
+--logtostderr=true \
+--log-driver=streamlog \
+--maximum-dead-containers-per-container=0 \
+--v=2"
+
+exec /usr/local/bin/kubelet \$KUBELET_OPTS
+EOF
+
+chmod +x /opt/rainbond/scripts/start-kubelet.sh
+```
+
+### 启动 kubelet
+
+```bash
+systemctl daemon-reload
+systemctl enable kubelet
+systemctl start kubelet
 ```

@@ -103,6 +103,7 @@ echo "host_uuid=$(uuidgen)" > /opt/rainbond/etc/rbd-node/node_host_uuid.conf
 # 生成 key,如果有,则跳过生成
  ssh-keygen -t rsa -f /root/.ssh/id_rsa -P ""
 # 将 key拷贝到指定路径
+mkdir -p /opt/rainbond/etc/rbd-chaos/ssh/
 cp -a /root/.ssh/id_rsa /opt/rainbond/etc/rbd-chaos/ssh/builder_rsa
 cp -a /root/.ssh/id_rsa.pub /opt/rainbond/etc/rbd-chaos/ssh/builder_rsa.pub
 

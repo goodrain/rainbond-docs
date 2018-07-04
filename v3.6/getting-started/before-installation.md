@@ -52,6 +52,9 @@ CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个�
 {{site.data.alerts.callout_danger}}
 dns 配置建议使用 114.114.114.114等国内dns server
 一定要配置静态ip，确保重启节点，不会修改节点ip和dns配置，参考文档：<a href="../other/static-ip.html" target="_blank">配置静态IP</a>
+
+确保网络没有限制，或者将repo.goodrain.com(镜像源),www.rainbond.com,domain.grapps.cn(域名API接口),mirrors.ustc.edu.cn(镜像源)加入到网络白名单里。
+
 {{site.data.alerts.end}}
 
 ## 配置时区与时间同步
