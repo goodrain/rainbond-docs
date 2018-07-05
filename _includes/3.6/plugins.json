@@ -2,9 +2,9 @@
     "title": "插件管理",
     "items": [
         {
-            "title": "创建插件",
+            "title": "插件设计与开发",
             "urls": [
-                "/${VERSION}/plugins/create-plugin.html"
+                "/${VERSION}/plugins/plugin-design-develop.html"
             ]
         },
         {
