@@ -43,7 +43,10 @@ http://<your ip>:7070
 ```
 
 {{site.data.alerts.callout_success}}
-云帮安装程序通过 shell脚本+SaltStack 实现，包括后续集群的扩容、升级及管理。相关源码参见：[rainbond-install](https://github.com/goodrain/rainbond-install)
+云帮安装程序通过 shell脚本+SaltStack 实现，包括后续集群的扩容、升级及管理。相关源码参见：[rainbond-install](https://github.com/goodrain/rainbond-install)  
+节点扩容, 请参照 [运维手册, 节点扩容](../operation-manual/cluster-management/add-compute-node.html)  
+安装问题, 请参照 [运维手册，安装部署-集群安装问题排查](../operation-manual/trouble-shooting/install-issue.html)   
+使用问题, 请参照 [运维手册，平台维护-集群故障排查](../operation-manual/trouble-shooting/issue.html)  
 {{site.data.alerts.end}}
 
 
@@ -52,9 +55,3 @@ http://<your ip>:7070
 分步部署Rainbond是分组件一步一步的安装Rainbond及所需组件，用户可以定制相关的安装。分步部署Rainbond适合非常了解Rainbond架构，需要定制部署Rainbond的人群。
 
 具体安装流程请参考[分步部署](../operation-manual/cluster-management/installation-configuration.html)
-
-
-{{site.data.alerts.callout_info}}
-安装问题，请参照 [运维手册，安装部署-集群安装问题排查](../operation-manual/trouble-shooting/install-issue.html)  
-使用问题，请参照 [运维手册，平台维护-集群故障排查](../operation-manual/trouble-shooting/issue.html)
-{{site.data.alerts.end}}

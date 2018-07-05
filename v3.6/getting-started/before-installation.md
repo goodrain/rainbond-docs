@@ -55,6 +55,7 @@ dns 配置建议使用 114.114.114.114等国内dns server
 
 确保网络没有限制，或者将repo.goodrain.com(镜像源),www.rainbond.com,domain.grapps.cn(域名API接口),mirrors.ustc.edu.cn(镜像源)加入到网络白名单里。
 
+如果使用云服务器，请确定安全组规则，建议放行22,80,6060,7070端口
 {{site.data.alerts.end}}
 
 ## 配置时区与时间同步
