@@ -16,7 +16,7 @@ cd rainbond-intall/scripts
 # 或者管理节点已经做了信任
 ./compute.sh init single <hostname> <ip> <key私钥> ssh
 # 安装计算节点服务
-./compute.sh install
+./compute.sh install <hostname>
 
 # 计算节点uid
 uuid=$(grctl node list | grep <计算节点内网ip> | awk '{print $2}')
