@@ -53,13 +53,8 @@ http://<your ip>:7070
 
 具体安装流程请参考[分步部署](../operation-manual/cluster-management/installation-configuration.html)
 
-## 四、安装使用问题FAQ
 
-- 通过rainbond-install安装请参照[WIKI](https://github.com/goodrain/rainbond-install/wiki)
-- 安装使用问题，请参照 [平台安装，维护-常见问题](../FAQs/install-maintenance-faqs.html)
-
-## 五、安装使用问题反馈
-
-- [Github Issue](https://github.com/goodrain/rainbond/issues/new)
-- [Github Install Issue](https://github.com/goodrain/rainbond-install/issues/new)
-- 支持邮箱: rainbond@goodrain.com
+{{site.data.alerts.callout_info}}
+安装问题，请参照 [运维手册，安装部署-集群安装问题排查](../operation-manual/trouble-shooting/install-issue.html)  
+使用问题，请参照 [运维手册，平台维护-集群故障排查](../operation-manual/trouble-shooting/issue.html)
+{{site.data.alerts.end}}

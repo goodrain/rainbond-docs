@@ -92,10 +92,16 @@
                     ]
                 },
                 {
-                    "title": "安装最小化高可用集群",
+                    "title": "部署最小化高可用集群",
                     "urls": [
                         "/${VERSION}/operation-manual/cluster-management/haminimal-install.html"
 
+                    ]
+                },
+                {
+                    "title": "安装故障排查",
+                    "urls": [
+                        "/${VERSION}/operation-manual/trouble-shooting/install-issue.html"
                     ]
                 }
             ]
