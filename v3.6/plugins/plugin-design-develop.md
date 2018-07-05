@@ -30,9 +30,11 @@ asciicast: true
 当我们为应用安装了一个插件后，云帮会自动为插件分配一个端口，并且应用的所有请求在到达应用之前都会先到达该端口，这些端口相关的信息可以通过node组件的RESTFUL API获取到，而该API地址会被注入到插件的环境变量中。
 
 我们现在需要从API中获取端口信息然后写入到nginx的配置文件中，这部分工作可以通过[confd服务](https://github.com/goodrain/plugin-discover-config)来自动完成，confd服务的启动比较简单：
+
 ```
 confd --template ./nginx.conf.template --out ./nginx.conf &
 ```
+
 confd服务完成的事情如下：
 
 1. 从环境变量`DISCOVER_URL`获取API地址
