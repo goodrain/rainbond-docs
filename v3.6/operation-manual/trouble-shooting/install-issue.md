@@ -6,6 +6,13 @@ toc: true
 
 当安装Rainbond 遇到问题时，请先参考本篇文档。如果问题未解决，请按文档要求收集相关信息通过 Github [提供给 Rainbond开发者](https://github.com/goodrain/rainbond-install/issues/new)或者通过邮件反馈<rainbond@goodrain.com>。
 
+安装问题反馈需要提供如下信息:
+
+1. 内核版本，系统信息；
+2. 机器配置 如：CPU,内存,存储,网络(网络是否有限制)；
+3. 安装出错步骤完整截图，具体哪一步出错；
+4. 重新执行后，是否还是同样问题
+
 ## 安装网络问题排查
 
 如果服务器无法直接联网，只能通过代理上网，需要做如下设置。
