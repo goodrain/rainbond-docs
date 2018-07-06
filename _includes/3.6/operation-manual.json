@@ -31,6 +31,10 @@
                     "title": "分步部署",
                     "items":[
                         {
+                            "title": "安装部署salt",
+                            "urls": ["/${VERSION}/operation-manual/setup/part-salt.html"]
+                        },
+                        {
                             "title": "初始化环境",
                             "urls": ["/${VERSION}/operation-manual/setup/part-init.html"]
                         },
