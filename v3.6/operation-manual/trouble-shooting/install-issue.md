@@ -38,3 +38,21 @@ EOF
 systemctl daemon-reload
 systemctl restart docker
 ```
+
+## 扩容计算节点了，grclt node list却没有列出对应的计算节点
+
+```bash
+# 确定计算节点uuid信息是否有重复的
+salt "*" grains.item uuid
+# 修改重复的计算节点的uuid 可通过uuidgen生成uuid
+/opt/rainbond/envs/kubelet.sh HOST_UUID的值
+/opt/rainbond/etc/rbd-node/node_host_uuid.conf:host_uuid的值
+两者的值一致，修改完成
+# 重启计算节点服务
+systemctl restart node
+systemctl restart kubelet
+# 被重复的节点也需要重启一下node
+systemctl restart node
+# 重新上线重复节点
+grclt node up <新生成的uuid>
+```
