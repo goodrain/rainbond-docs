@@ -30,5 +30,19 @@
     {% include 3.6/faqs.json %},
 
     // 贡献
-    {% include 3.6/contribute.json %}
+    {% include 3.6/contribute.json %},
+
+    // 招聘
+    {
+        "title": "招聘",
+        "is_top_level": true,
+        "items": [
+            {
+                "title": "招聘岗位",
+                "urls": [
+                    "/${VERSION}/recruitment/list.html"
+                ]
+            }
+        ]
+    }
 ]
