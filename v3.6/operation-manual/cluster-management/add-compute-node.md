@@ -6,7 +6,7 @@ toc: false
 
 ## 一、扩容计算节点
 
-特别说明一下，计算节点主机名需要已compute开头，如computexxx.
+特别说明一下，计算节点主机名需要以compute开头，如computexxx.
 
 ```bash
 # 在管理节点执行如下操作
