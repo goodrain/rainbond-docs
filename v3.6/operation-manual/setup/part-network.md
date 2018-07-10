@@ -4,9 +4,15 @@ summary: 部署网络组件
 toc: true 
 ---
 
-## 一、安装部署网络组件calico
+## 一、salt部署calico网络
 
-### 1.1 配置calico-node systemd
+```bash
+salt "*" state.sls network
+```
+
+## 二、手动安装部署网络组件calico
+
+#### 2.1 配置calico-node systemd
 
 ```bash
 cat > /etc/systemd/system/calico.service <<EOF
@@ -30,7 +36,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-### 1.2 配置calico环境变量
+#### 2.2 配置calico环境变量
 
 配置当前节点信息格式示例如下: 
 
@@ -41,7 +47,7 @@ ETCD_ENDPOINTS=http://172.17.119.104:2379
 NODE_IMAGE=rainbond/calico-node:v2.4.1
 ```
 
-### 1.3 配置启动脚本
+#### 2.3 配置启动脚本
 
 ```bash
 cat > /opt/rainbond/scripts/start-calico.sh <<EOF
@@ -72,7 +78,7 @@ EOF
 chmod +x /opt/rainbond/scripts/start-calico.sh
 ```
 
-### 1.4 启动网络组件calico
+#### 2.4 启动网络组件calico
 
 ```bash
 docker pull rainbond/calico-node:v2.4.1
@@ -83,7 +89,7 @@ systemctl start calico
 calicoctl node status
 ```
 
-### 1.5 初始化网络
+#### 2.5 初始化网络
 
 ```bash
 wget https://www.rainbond.com/docs/stable/operation-manual/setup/config/init-network.sh -O /tmp/init.calico

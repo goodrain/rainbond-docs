@@ -4,9 +4,15 @@ summary: 部署服务etcd
 toc: true 
 ---
 
-## 一、安装etcd或集群
+## 一、salt自动化部署单节点etcd
 
-### 1.1 配置etcd systemd
+```bash
+salt "*" state.sls etcd
+```
+
+## 二、手动安装etcd或集群
+
+#### 2.1 配置etcd systemd
 
 ```bash
 cat > /etc/systemd/system/etcd.service <<EOF
@@ -29,7 +35,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-### 1.2 配置etcd环境
+#### 2.2 配置etcd环境
 
 配置当前节点信息格式示例如下: 
 
@@ -38,7 +44,7 @@ EOF
 LOCAL_IP=172.17.119.104
 ```
 
-### 1.3 配置启动脚本
+#### 2.3 配置启动脚本
 
 ```bash
 wget https://www.rainbond.com/docs/stable/operation-manual/setup/config/start-etcd.sh -O /opt/rainbond/scripts/start-etcd.sh
@@ -54,7 +60,7 @@ manage03:172.17.119.106
 "
 ```
 
-### 1.4 启动etcd服务
+#### 2.4 启动etcd服务
 
 ```bash
 mkdir -p /opt/rainbond/data/etcd
@@ -66,7 +72,7 @@ etcdctl member list
 etcdctl cluster-health
 ```
 
-## 二、etcd集群扩容
+## 三、etcd集群扩容
 
 动态扩容etcd节点
 

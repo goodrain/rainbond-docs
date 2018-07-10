@@ -48,8 +48,21 @@ bash -x /tmp/init-sls.sh
 |dns-master/slave|默认114和CNNIC|支持自定义dns服务|
 |myaql||支持自定义port,user,pass(port 还需修改此文件`/srv/salt/db/mysql/files/my.cnf`)|
 
-## 二、细节说明
+## 二、初始化节点说明
 
-### 2.1 管理节点
+```bash
+# 初始化节点
+salt "*" state.sls init
+```
 
-### 2.2 计算节点
+#### 主要操作
+
+1. 配置ssh相关key
+2. 创建rain用户
+3. 限制swap
+4. 修改limits文件等系统级配置文件
+5. 禁止部分系统服务如dnsmasq
+6. 生成域名(仅manage01)
+7. 生成部分组件配置文件
+
+具体配置参见[rainbond-install/install/salt/init/](https://github.com/goodrain/rainbond-install/tree/v3.6/install/salt/init),欢迎pull request来完善初始化部分。

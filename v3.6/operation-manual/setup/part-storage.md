@@ -76,3 +76,9 @@ df -h
 ### 3.2 GlusterFS
 
 具体可以参见[存储-GlusterFS](../storage/GlusterFS/introduce.html)
+
+## 四、salt部署存储
+
+```bash
+salt "*" state.sls storage
+```
