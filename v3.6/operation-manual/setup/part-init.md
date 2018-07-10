@@ -4,7 +4,8 @@ summary: 初始化环境
 toc: true 
 ---
 
-## 一、基础部分
+## 一、准备工作
+
 
 ### 1.1 安装常用的工具
 
@@ -17,112 +18,38 @@ yum install -y iotop nload telnet htop lsof tree rsync lvm2 tar ntpdate wget net
 apt install -y iotop nload telnet htop lsof tree rsync lvm2 tar ntpdate wget net-tools git pwgen uuid-runtime iproute2 systemd dnsutils python-pip apt-transport-https 
 ```
 
-### 1.2 创建用户
+### 1.2 克隆安装代码
 
 ```bash
-useradd -m -s /bin/bash -u 200 -g 200 rain
-echo "rain ALL = (root) NOPASSWD:ALL" > /etc/sudoers.d/rain
-chmod 0440 /etc/sudoers.d/rain
+git clone --depth 1 -b v3.6 https://github.com/goodrain/rainbond-install.git
+cd rainbond-install
 ```
 
-### 1.3 系统服务参数调整
-
-#### 1.3.1 修改主机名
+### 1.3 配置salt
 
 ```bash
-hostname manage01
-echo manage01 > /etc/hostname
+cp -a install/salt /srv/
+cp -a install/pillar /srv/
+cp rainbond.yaml.default /srv/pillar/rainbond.sls
+cp -a scripts/yq /tmp/
+# 默认生成配置
+wget https://www.rainbond.com/docs/stable/operation-manual/setup/config/init-sls.sh -O /tmp/init-sls.sh
+chmod +x /tmp/init-sls.sh
+bash -x /tmp/init-sls.sh
 ```
 
-#### 1.3.2 调整文件描述符
-```bash
-# /etc/security/limits.conf 
-root soft nofile 102400
-root hard nofile 102400
-* soft nofile 102400
-* hard nofile 102400
-* soft memlock unlimited
-* hard memlock unlimited
-* soft nproc 2048
-* hard nproc 4096
-# 查看参数
-ulimit -a
-```
+根据需求可以变更`/srv/pillar/rainbond.sls`, 具体如下表
 
-#### 1.3.3 调整sysctl.conf配置
+| 可自定义项 | 默认值 | 说明   |
+| ------ | -------- | ----- | 
+|master-public-ip|默认空|仅建议在专有网络情况下，想公网使用，可以修改为公网ip;|
+|domain|默认null|支持修改为自定义域名|
+|registry-mirrors|默认中科大|支持自定义加速器|
+|dns-master/slave|默认114和CNNIC|支持自定义dns服务|
+|myaql||支持自定义port,user,pass(port 还需修改此文件`/srv/salt/db/mysql/files/my.cnf`)|
 
-前者启用ipv4转发,后者调整支持elk
+## 二、细节说明
 
-```bash
-# /etc/sysctl.conf
-net.ipv4.ip_forward = 1
-vm.max_map_count = 262144
-# 生效
-sysctl -p /etc/sysctl.conf
-```
+### 2.1 管理节点
 
-#### 1.3.4 限制swap
-
-```bash
-# /etc/default/grub 新增
-GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1"
-
-# 更新grub
-grub2-mkconfig -o /boot/grub2/grub.cfg # centos
-grub-mkconfig -o /boot/grub/grub.cfg # debian
-```
-
-#### 1.3.5 卸载禁用服务
-
-需要禁用如下服务
-
-```bash
-firewalld nscd dnsmasq
-# centos 需要卸载此工具包
-container-selinux
-```
-
-如果可以确保,机器重启机器ip不发生改变,`dhclient`服务可不禁用.
-
-#### 1.3.6 创建node_host_uuid.conf
-
-要确保每台节点的uuid都不同。
-
-```bash
-mkdir -p /opt/rainbond/etc/rbd-node
-echo "host_uuid=$(uuidgen)" > /opt/rainbond/etc/rbd-node/node_host_uuid.conf
-```
-
-## 二、管理节点部分
-
-### 2.1 生成 key
-
-源码构建需要
-
-```bash
-# 生成 key,如果有,则跳过生成
- ssh-keygen -t rsa -f /root/.ssh/id_rsa -P ""
-# 将 key拷贝到指定路径
-mkdir -p /opt/rainbond/etc/rbd-chaos/ssh/
-cp -a /root/.ssh/id_rsa /opt/rainbond/etc/rbd-chaos/ssh/builder_rsa
-cp -a /root/.ssh/id_rsa.pub /opt/rainbond/etc/rbd-chaos/ssh/builder_rsa.pub
-
-cat > /opt/rainbond/etc/rbd-chaos/ssh/config <<EOF
-Host *
-  IdentityFile ~/.ssh/builder_rsa
-  StrictHostKeyChecking no
-  LogLevel ERROR
-EOF
-```
-
-### 2.2 更新hosts
-
-```bash
-# /etc/hosts
-<ip> <hostname> <uuid> lang.goodrain.me maven.goodrain.me kubeapi.goodrain.me region.goodrain.me goodrain.me console.goodrain.me
-```
-
-uuid参见上述步骤生成文件：`/opt/rainbond/etc/rbd-node/node_host_uuid.conf`
-
-## 三、计算节点部分
-
+### 2.2 计算节点
