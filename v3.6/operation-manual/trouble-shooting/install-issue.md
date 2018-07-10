@@ -56,3 +56,27 @@ systemctl restart node
 # 重新上线重复节点
 grclt node up <新生成的uuid>
 ```
+
+## 云服务器因重启导致无法远程访问
+
+可以通过远程连接方式登录服务器，排查问题。
+
+```bash
+# 阿里云目前已知的可能发生的问题
+1. 网卡名与网卡配置中信息不一致，导致网络服务异常
+如：网络信息是ens3，而网卡配置文件中是eth0;修改配置文件，重启网卡
+2. ssh服务异常
+```
+
+如果进行上述操作还有问题，可以采用如下措施
+
+```bash
+# 清除防火墙规则
+ptables -F;iptables -X;iptables -Z
+# 禁止docker,kubelet,node开机启动
+systemctl disable docker
+systemctl disable kubelet
+systemctl disable node
+# 重启机器
+# 然后依次启动docker,k8s,etcd,calico,node等组件
+```
