@@ -23,18 +23,18 @@ The current version focuses on supporting the infrastructure of the microservice
 - [x] Support Application group backup and restore
 - [x] Support Application group migration across datacenters and across tenants
 - [x] Support share plugin to market and install from market
-    - [ ] MySQL backup and restore plugin
+    - [x] MySQL backup and restore plugin
     - [ ] PostgreSQL backup and restore plugin
     - [ ] MongoDB backup and restore plugin
     - [ ] Log collect plugin  
-    - [ ] WAF plugin
+    - [x] WAF plugin
 - [x] Support Export applications from the application market
     - [x] Export dockercompse specification
     - [x] Export rainbond-app specification
 - [x] Support batch offline import applications to the application market    
-- [ ] Management service HA support
+- [x] Management service HA support
     - [x] Region DB support CockroachDB
-    - [ ] UI DB support TiDB
+    - [x] UI DB support TiDB
 - [x] Support auto-building based on git webhook  
 - [x] Support In-station letter announcement
 - [x] Monitoring module automatically finds monitoring targets and automatically configures them
@@ -44,10 +44,23 @@ The current version focuses on supporting the infrastructure of the microservice
 - [ ] Rainbond Installer upgrade
   - [ ] Support install mulit manage nodes
 - [x] Update rbd-dns to support for custom generic domain name resolution and cluster level one domain default resolution
-### V3.6.*
-- [ ] support comprehensive node and cluster health check [3.6.1]
-- [ ] tenant resource statistics task single node run
 
+### V3.7
+About system stability
+- [ ] management service progress guardian by systemd uniformly.
+- [ ] support management node offline.
+- [ ] support for all node and management service health checks.
+- [ ] support for automatic offline of major fault nodes.
+- [ ] tenant resource statistics task single node run.
+
+About application manage
+- [ ] support .netcore(2.1) source code build application in linux os.
+- [ ] support SVN code repository.
+- [ ] support application build automatically based on API and imagerepository webhook.
+- [ ] support application + plugin share to market
+
+About Security policy upgrade
+- [ ] [UI] support user registration for secondary verification by manager.
 
 ## V5.0
 The current version focuses on upgrade kubernetes and docker,  full support `.net ` application management and operation.
@@ -75,5 +88,4 @@ The current version focuses on upgrade kubernetes and docker,  full support `.ne
 - [ ] Security policy upgrade
     - [ ] region api authorization base on RBAC
     - [ ] access the etcd cluster based on certificates
-    - [ ] [UI] support user registration for secondary verification by manager.
     
