@@ -55,7 +55,7 @@ dns 配置建议使用 114.114.114.114等国内dns server
 
 确保网络没有限制，或者将repo.goodrain.com(镜像源),www.rainbond.com,domain.grapps.cn(域名API接口),mirrors.ustc.edu.cn(镜像源)加入到网络白名单里。
 
-如果使用云服务器，请确定安全组规则，建议放行22,80,6060,7070端口
+如果使用云服务器，请确定安全组规则，放行22,80,6060,7070端口
 {{site.data.alerts.end}}
 
 ## 配置时区与时间同步
@@ -74,3 +74,18 @@ dns 配置建议使用 114.114.114.114等国内dns server
 还需注意系统未安装其他服务，如nginx、docker、kubernetes等，如有安装请完全卸载。
 
 {{site.data.alerts.end}}
+
+## 云服务商支持说明
+
+| 云服务商   | 测试区域  | 说明           |
+| :----- | :---- | :------------- |
+| 阿里云 | 中国  | 推荐 |
+| 腾讯云 | 中国  | 测试通过           |
+| AWS | 中国 | 测试通过          |
+| vultr | 日本 | 测试通过          |
+| 滴滴云 | 中国  | 测试通过           |
+
+{{site.data.alerts.callout_danger}}
+目前：华为云存在如下问题：机器重启较大概率可能造成机器无法正常启动访问。如需协助，请[issue](https://github.com/goodrain/rainbond-install/issues/new)或者联系在线客服寻求协助。
+{{site.data.alerts.end}}
+
