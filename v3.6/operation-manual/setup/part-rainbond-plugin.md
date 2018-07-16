@@ -4,9 +4,22 @@ summary: 部署Rainbond组件
 toc: true 
 ---
 
-## 一、部署node组件
+## 一、salt部署云帮组件
 
-### 1.1 配置node.service
+```bash
+# node
+salt "*" state.sls node
+# plugin
+salt "*" state.sls plugins
+# proxy
+salt "*" state.sls proxy
+```
+
+## 二、手动部署云帮组件
+
+### 2.1 部署node
+
+#### 2.1.1 配置node.service
 
 ```bash
 cat > /etc/systemd/system/node.service <<EOF
@@ -31,7 +44,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-### 1.2 配置启动脚本
+#### 2.1.2 配置启动脚本
 
 ```bash
 cat > /opt/rainbond/scripts/start-node.sh <<EOF
@@ -48,7 +61,7 @@ EOF
 chmod +x /opt/rainbond/scripts/start-node.sh
 ```
 
-### 1.3 启动
+#### 2.1.3 启动node
 
 ```bash
 systemctl daemon-reload
@@ -56,7 +69,7 @@ systemctl enable node
 systemctl start node
 ```
 
-## 二、负载均衡组件
+### 2.2 部署负载均衡组件
 
 ```bash
 wget https://raw.githubusercontent.com/goodrain/rainbond-install/v3.6/install/salt/plugins/data/proxy.conf -O /opt/rainbond/etc/rbd-lb/dynamics/dynamic_servers/default.http.conf
@@ -88,7 +101,7 @@ EOF
 dc-compose up -d rbd-lb
 ```
 
-## 三、核心组件
+### 2.3 部署核心组件
 
 ```bash
 cat > /opt/rainbond/compose/plugin.yaml <<EOF
@@ -252,6 +265,31 @@ services:
     network_mode: host
     restart: always
 EOF
+
+cat > /opt/rainbond/compose/ui.yaml <<EOF
+version: '2.1'
+services:
+  rbd-app-ui:
+    image: rainbond/rbd-app-ui:3.6
+    container_name: rbd-app-ui
+    environment:
+      MANAGE_SECRET_KEY: sjtoken
+      MYSQL_HOST: 172.17.119.104
+      MYSQL_PORT: 3306
+      MYSQL_USER: gradmin
+      MYSQL_PASS: Adi1oefo
+      MYSQL_DB: console
+    volumes:
+    - /grdata/services/console:/data
+    - /opt/rainbond/logs/rbd-app-ui/goodrain.log:/tmp/goodrain.log
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+        max-file: '3'
+    network_mode: host
+    restart: always
+EOF
 ```
 
 根据实际情况,修改配置文件里的域名, ip,数据库配置等信息.
@@ -259,3 +297,27 @@ EOF
 ```bash
 dc-compose up -d
 ```
+
+### 2.4 更新数据库字段
+
+```bash
+docker exec rbd-app-ui python /app/ui/manage.py migrate
+din rbd-db 
+cat > /root/init.sql <<EOF
+INSERT INTO `console_sys_config` (`ID`,`key`,`type`, `value`, `desc`, `enable`, `create_time`) VALUES(NULL, 'REGION_SERVICE_API', 'json', '  [{\"url\": \"http://region.goodrain.me:8888\", \"token\": null, \"enable\": true, \"region_name\": \"rainbond\", \"region_alias\": \"rainbond\"}]', '', 1, '2018-02-05 14:00:00.000000');
+EOF
+cat > /root/region.sql <<EOF
+INSERT INTO `region_info` ( `region_id`, `region_name`, `region_alias`, `url`, `token`, `status`, `desc`, `wsurl`, `httpdomain`, `tcpdomain`, `scope`) VALUES('rainbond_defalut_id', 'rainbond', '私有数据中心1', 'http://region.goodrain.me:8888', NULL, '1', '当前数据中心是默认安装添加的数据中心', 'ws://172.17.119.104:6060', '042ff9.grapps.cn', '172.17.119.104', 'private');
+EOF
+mysql
+# sql语句
+use console;
+truncate table console_sys_config;
+source /root/init.sql;
+source /root/region.sql;
+```
+
+### 2.5 控制台访问
+
+控制台地址 http://<管理节点ip>:7070  
+默认第一个注册用户是平台管理员。

@@ -4,23 +4,32 @@ summary: 部署Kubernetes
 toc: true 
 ---
 
-## 一、创建证书配置文件
+## 一、salt部署kubernetes组件
 
-### 1.1 生成证书
+```bash
+salt "*" state.sls kubernetes.server
+salt "*" state.sls kubernetes.node
+```
+
+## 二、手动部署kubernetes组件
+
+### 2.1 创建证书配置文件
+
+#### 2.1.1 生成证书
 
 ```docker
 docker run --rm -v /opt/rainbond/etc/kubernetes/ssl:/ssl -w /ssl rainbond/cfssl:dev kip 172.17.119.104
 ```
 
-### 1.2 生成kubeconfig配置文件
+#### 2.1.2 生成kubeconfig配置文件
 
 ```docker
 docker run --rm -v /opt/rainbond/etc/kubernetes/ssl:/etc/goodrain/kubernetes/ssl -v /opt/rainbond/etc/kubernetes/kubecfg:/k8s rainbond/kubecfg:dev
 ```
 
-## 二、配置kube-apiserver服务
+### 2.2 配置kube-apiserver服务
 
-### 2.1 配置kube-apiserver systemd
+#### 2.2.1 配置kube-apiserver systemd
 
 ```bash
 cat > /etc/systemd/system/kube-apiserver.service <<EOF
@@ -44,14 +53,14 @@ WantedBy=multi-user.target
 EOF
 ```
 
-### 2.2 配置kube-apiserver环境变量
+#### 2.2.2 配置kube-apiserver环境变量
 
 ```bash
 # /opt/rainbond/envs/kube-apiserver.sh
 ETCD_ADDRESS=http://172.17.119.104:2379
 ```
 
-### 2.3 配置kube-apiserver启动脚本
+#### 2.2.3 配置kube-apiserver启动脚本
 
 ```bash
 cat > /opt/rainbond/scripts/start-kube-apiserver.sh <<EOF
@@ -86,7 +95,7 @@ EOF
 chmod +x /opt/rainbond/scripts/start-kube-apiserver.sh
 ```
 
-### 2.4 启动kube-apiserver服务
+#### 2.2.4 启动kube-apiserver服务
 
 ```bash
 docker pull rainbond/kube-apiserver:v1.6.4
@@ -95,9 +104,9 @@ systemctl enable kube-apiserver
 systemctl start kube-apiserver
 ```
 
-## 三、配置kube-controller-manager服务
+### 2.3 配置kube-controller-manager服务
 
-### 3.1 配置kube-controller-manager systemd
+#### 2.3.1 配置kube-controller-manager systemd
 
 ```bash
 cat > /etc/systemd/system/kube-controller-manager.service <<EOF
@@ -120,7 +129,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-### 3.2 配置kube-controller-manager启动脚本
+#### 2.3.2 配置kube-controller-manager启动脚本
 
 ```bash
 cat > /opt/rainbond/etc/kubernetes/custom.conf <<EOF
@@ -159,7 +168,7 @@ EOF
 chmod +x /opt/rainbond/scripts/start-kube-controller-manager.sh
 ```
 
-### 3.3 启动kube-controller-manager服务
+#### 2.3.3 启动kube-controller-manager服务
 
 ```bash
 docker pull rainbond/kube-controller-manager:v1.6.4
@@ -168,9 +177,9 @@ systemctl enable kube-controller-manager
 systemctl start kube-controller-manager
 ```
 
-## 四、配置kube-scheduler服务
+### 2.4 配置kube-scheduler服务
 
-### 4.1 配置kube-scheduler systemd
+#### 2.4.1 配置kube-scheduler systemd
 
 ```bash
 cat > /etc/systemd/system/kube-scheduler.service <<EOF
@@ -193,7 +202,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-### 4.2 配置kube-scheduler启动脚本
+#### 2.4.2 配置kube-scheduler启动脚本
 
 ```bash
 cat > /opt/rainbond/scripts/start-kube-scheduler.sh <<EOF
@@ -219,7 +228,7 @@ EOF
 chmod +x /opt/rainbond/scripts/start-kube-scheduler.sh
 ```
 
-### 4.3 启动kube-scheduler服务
+#### 2.4.3 启动kube-scheduler服务
 
 ```bash
 docker pull rainbond/kube-scheduler:v1.6.4
@@ -228,7 +237,7 @@ systemctl enable kube-scheduler
 systemctl start kube-scheduler
 ```
 
-### 4.4 验证k8s集群
+### 2.5 验证k8s集群
 
 ```bash
 mkdir -p /root/.kube
@@ -236,10 +245,10 @@ cp /opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig /root/.kube/config
 kubectl get cs
 ```
 
-## 五、配置rbd-dns服务
+### 2.6、配置rbd-dns服务
 
 
-### 5.1 启动rbd-dns服务
+#### 2.6.1 启动rbd-dns服务
 
 ```bash
 cat > /opt/rainbond/compose/dns.yaml <<EOF
@@ -271,7 +280,7 @@ EOF
 dc-compose up -d rbd-dns
 ```
 
-### 5.2 修改机器配置
+#### 2.6.2 修改机器配置
 
 ```bash
 # 修改dns
@@ -281,9 +290,9 @@ nameserver <管理点ip>
 EOF
 ```
 
-## 6. 安装 kubelet
+### 2.7. 安装 kubelet
 
-### 6.1 配置 kubelet.service
+#### 2.7.1 配置 kubelet.service
 
 ```bash
 cat > /etc/systemd/system/kubelet.service <<EOF
@@ -306,7 +315,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-### 6.2 配置脚本
+#### 2.7.2 配置脚本
 
 ```bash
 cat > /opt/rainbond/envs/kubelet.sh <<EOF
@@ -346,7 +355,7 @@ EOF
 chmod +x /opt/rainbond/scripts/start-kubelet.sh
 ```
 
-### 启动 kubelet
+#### 2.7.3 启动 kubelet
 
 ```bash
 systemctl daemon-reload

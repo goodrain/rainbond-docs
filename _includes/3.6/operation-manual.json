@@ -71,13 +71,7 @@
                             "urls": [
                                 "/${VERSION}/operation-manual/setup/part-rainbond-plugin.html"
                             ]
-                        },
-                                                {
-                                                    "title": "部署Rainbond UI",
-                                                    "urls": [
-                                                        "/${VERSION}/operation-manual/setup/part-rainbond-ui.html"
-                                                    ]
-                                                }
+                        }
 
                     ]
                 },

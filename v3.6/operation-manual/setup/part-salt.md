@@ -45,7 +45,14 @@ yum install salt-minion
 
 ## 二、配置SaltStack
 
-### 2.1 配置salt-master
+### 2.1 修改主机名
+
+```bash
+hostname manage01
+echo manage01 > /etc/hostname
+```
+
+### 2.2 配置salt-master
 
 ```bash
 # /etc/salt/master.d/master.conf
@@ -61,7 +68,7 @@ log_level_logfile: debug
 timeout: 60
 ```
 
-### 2.2 配置salt-minion
+### 2.3 配置salt-minion
 
 ```bash
 # /etc/salt/minion.d/minion.conf
@@ -75,4 +82,17 @@ log_level_logfile: debug
 grains:               
   mip:
     - <minion节点ip>
+```
+
+### 2.4 启动salt服务
+
+```bash
+# 重启服务
+systemctl restart salt-master
+systemctl restart salt-minion
+salt-key -L
+# 测试
+salt "*" test.ping
+manage01:
+    True
 ```

@@ -4,9 +4,25 @@ summary: 基础服务部署
 toc: true 
 ---
 
-## 一、安装docker
+## 一、salt部署基础服务
 
-### 1.1 配置仓库
+通过salt自动化部署基础服务。
+
+```bash
+# docker
+salt "*" state.sls docker
+# 基础服务
+salt "*" state.sls misc
+salt "*" state.sls grbase
+# 数据库服务
+salt "*" state.sls db
+```
+
+## 二、手动部署基础服务
+
+### 2.1 安装配置docker
+
+#### 2.1.1 配置仓库
 
 ```bash
 # centos
@@ -27,7 +43,7 @@ curl http://repo.goodrain.com/gpg/goodrain-C4CDA0B7 2>/dev/null | apt-key add -
 apt update
 ```
 
-### 1.2 安装docker
+#### 2.1.2 安装docker
 
 ```bash
 # Centos
@@ -36,7 +52,7 @@ yum install -y gr-docker-engine
 apt install -y gr-docker-engine
 ```
 
-### 1.3 更新docker.service
+#### 2.1.3 更新docker.service
 
 
 Centos `/usr/lib/systemd/system/docker.service`  
@@ -72,7 +88,7 @@ MountFlags=slave
 WantedBy=multi-user.target
 ```
 
-### 1.4 更新docker envs
+#### 2.1.4 更新docker envs
 
 更新配置 `/opt/rainbond/envs/docker.sh`
 
@@ -85,7 +101,7 @@ DOCKER_OPTS="-H unix:///var/run/docker.sock --bip=172.30.42.1/16 --dns=<管理�
 DOCKER_OPTS="-H unix:///var/run/docker.sock --bip=172.30.42.1/16 --dns=<管理节点ip> --insecure-registry goodrain.me --storage-driver=devicemapper --userland-proxy=false"
 ```
 
-### 1.5 配置镜像加速
+#### 2.1.5 配置镜像加速
 
 ```bash
 mkdir /etc/docker/
@@ -96,7 +112,7 @@ cat > /etc/docker/daemon.json <<EOF
 EOF
 ```
 
-### 1.6 启动 docker
+#### 2.1.6 启动 docker
 
 ```bash
 systemctl daemon-reload
@@ -104,9 +120,9 @@ systemctl enable docker
 systemctl start docker
 ```
 
-## 二、安装基础服务组件
+### 2.2 安装基础服务组件
 
-### 2.1 准备工作
+#### 2.2.1 准备工作
 
 ```bash
 mkdir -p /opt/rainbond/compose /opt/rainbond/bin/
@@ -118,9 +134,9 @@ cp -a /srv/salt/misc/file/bin/* /usr/local/bin/
 cp -a /srv/salt/misc/file/cni/bin/* /opt/rainbond/bin/
 ```
 
-### 2.2 安装数据库服务
+#### 2.2.2 安装数据库服务
 
-#### 2.2.1 拉取镜像配置docker-compose.yaml文件
+##### 2.2.2.1 拉取镜像配置docker-compose.yaml文件
 
 ```bash
 # 拉取镜像
@@ -147,7 +163,7 @@ services:
 EOF
 ```
 
-#### 2.2.2 配置数据库文件
+##### 2.2.2.2 配置数据库文件
 
 ```bash
 mkdir -p /opt/rainbond/data/rbd-db /opt/rainbond/etc/rbd-db/conf.d
@@ -155,13 +171,13 @@ wget https://raw.githubusercontent.com/goodrain/rainbond-install/v3.6/install/sa
 wget https://raw.githubusercontent.com/goodrain/rainbond-install/v3.6/install/salt/db/mysql/files/my.cnf -O /opt/rainbond/etc/rbd-db/my.cnf
 ```
 
-#### 2.2.3 启动数据库
+##### 2.2.2.3 启动数据库
 
 ```bash
 dc-compose up -d rbd-db
 ```
 
-#### 2.2.4 初始化数据库
+##### 2.2.2.4 初始化数据库
 
 ```bash
 docker exec rbd-db mysql -e "show databases"
@@ -173,7 +189,7 @@ docker exec rbd-db mysql -e "CREATE DATABASE IF NOT EXISTS region DEFAULT CHARSE
 docker exec rbd-db mysql -e "CREATE DATABASE IF NOT EXISTS console DEFAULT CHARSET utf8 COLLATE utf8_general_ci;"
 ```
 
-### 2.3 安装基础仓库服务
+#### 2.2.3 安装基础仓库服务
 
 ```bash
 cat > /opt/rainbond/compose/base.yaml <<EOF
@@ -209,7 +225,7 @@ dc-compose up -d rbd-hub
 dc-compose up -d rbd-repo
 ```
 
-## 配置构建&默认插件镜像
+### 2.3 配置构建&默认插件镜像
 
 ```bash
 docker pull rainbond/runner
