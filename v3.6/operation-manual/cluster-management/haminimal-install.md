@@ -60,7 +60,7 @@ yum install -y glusterfs-fuse
 
 ```bash
 mount -t glusterfs compute01:gv0 /mnt
-cp -rp /grdata /mnt
+cp -rp /grdata/* /mnt
 umount /mnt
 ```
 编辑所有节点的/etc/fstab,新增一行：
