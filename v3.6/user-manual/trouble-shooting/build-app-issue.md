@@ -19,3 +19,16 @@ toc: true
 
 
 当使用Rainbond 遇到问题时，请先参考本篇文档。如果问题未解决，请按文档要求收集相关信息通过 Github [反馈给 Rainbond开发者](https://github.com/goodrain/rainbond/issues/new)。
+
+## 2. 对于maven 多模块项目 怎么运行
+
+暂时只能拆开，单独运行。
+
+## 3. 如何设置maven构建命令
+
+构建命令 `mvn install -pl jsoft-common -am -amd`  
+设置应用环境变量：`BUILD_MAVEN_CUSTOM_GOALS="clean install -pl jsoft-common -am -amd"`  
+
+## 4. 如何设置启动命令
+
+通过设置 [Procfile](../language-support/java.html#3-4) 实现自定义启动命令。

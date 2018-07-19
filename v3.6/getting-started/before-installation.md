@@ -91,3 +91,10 @@ dns 配置建议使用 114.114.114.114等国内dns server
 目前：华为云存在如下问题：机器重启较大概率可能造成机器无法正常启动访问。如需协助，请[issue](https://github.com/goodrain/rainbond-install/issues/new)或者联系在线客服寻求协助。
 {{site.data.alerts.end}}
 
+## 自定义配置项说明
+
+具体请参考 [Rainbond自定义安装](../operation-manual/setup/custom-config.html)  
+
+{{site.data.alerts.callout_danger}}
+如果使用境外服务器，建议禁用docker镜像加速服务，以免影响体验。
+{{site.data.alerts.end}}
