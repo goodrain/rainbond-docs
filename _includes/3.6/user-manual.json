@@ -114,6 +114,12 @@
                 ]
             }
         ]
+        },
+        {
+            "title": "常见问题排查",
+            "urls": [
+                        "/${VERSION}/user-manual/trouble-shooting/build-app-issue.html"
+            ]
         }
     ]
 }
