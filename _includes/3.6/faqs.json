@@ -14,12 +14,6 @@
             ]
         },
         {
-            "title": "安装与维护 FAQs",
-            "urls": [
-                "/${VERSION}/FAQs/install-maintenance-faqs.html"
-            ]
-        },
-        {
             "title": "已知问题",
             "urls": [
                 "/${VERSION}/known-limitations.html"
