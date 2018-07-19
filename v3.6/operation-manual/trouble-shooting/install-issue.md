@@ -13,6 +13,28 @@ toc: true
 3. 安装出错步骤完整截图，具体哪一步出错；
 4. 重新执行后，是否还是同样问题
 
+## 安装过程提示salt命令未找到
+
+salt服务未正常安装，请重新执行安装命令，或者手动安装salt服务
+
+具体安装请参考官方文档 [install the 2017.7 release of SaltStack.](https://repo.saltstack.com/2017.7.html)
+
+## 安装过程中提示Minion did not return. [No response]
+主要是salt执行命令超时机制导致的。
+salt在等待了timeout时间后minion还没有返回执行结果，就用find_job去minion查询一下当前执行的状态。当find_job超时过了gather_job_timeout设定时间，那么salt命令会返回Minion did not return.
+目前我们默认设置的参数
+
+```bash
+gather_job_timeout: 10 #客户端请求有关运行作业的信息时所需等待的时间，默认10s
+timeout: 60 #salt命令和api的默认超时，60s。
+```
+临时的解决措施就是重新执行安装命令。如果多次出现可以考虑重启salt服务,然后重新执行。
+
+```bash
+systemctl restart salt-master
+systemctl restart salt-minion
+```
+
 ## 安装网络问题排查
 
 如果服务器无法直接联网，只能通过代理上网，需要做如下设置。
