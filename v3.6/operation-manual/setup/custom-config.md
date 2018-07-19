@@ -6,7 +6,7 @@ toc: true
 
 ## 一、概述
 
-在安装前可以自定义一些配置，默认通过修改`rainbond.yaml.default`.
+必须在执行安装脚本前配置相关参数。默认通过修改`rainbond.yaml.default`.
 
 ## 二、域名
 

@@ -93,8 +93,12 @@ dns 配置建议使用 114.114.114.114等国内dns server
 
 ## 自定义配置项说明
 
-具体请参考 [Rainbond自定义安装](../operation-manual/setup/custom-config.html)  
+具体请参考 [Rainbond自定义配置](../operation-manual/setup/custom-config.html)  
 
 {{site.data.alerts.callout_danger}}
 如果使用境外服务器，建议禁用docker镜像加速服务，以免影响体验。
 {{site.data.alerts.end}}
+
+## 系统常用命令
+
+要确保系统已经安装了如下命令: `curl`, `git`
