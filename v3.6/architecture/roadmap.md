@@ -47,6 +47,7 @@ The current version focuses on supporting the infrastructure of the microservice
 
 ### V3.7
 About system stability
+
 - [ ] management service progress guardian by systemd uniformly.
 - [ ] support management node offline.
 - [ ] support for all node and management service health checks.
@@ -54,12 +55,14 @@ About system stability
 - [ ] tenant resource statistics task single node run.
 
 About application manage
+
 - [ ] support .netcore(2.1) source code build application in linux os.
 - [ ] support SVN code repository.
 - [ ] support application build automatically based on API and imagerepository webhook.
 - [ ] support application + plugin share to market
 
 About Security policy upgrade
+
 - [ ] [UI] support user registration for secondary verification by manager.
 
 ## V5.0

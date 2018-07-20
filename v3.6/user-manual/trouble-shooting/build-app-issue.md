@@ -17,9 +17,6 @@ toc: true
 2. 如果还构建失败，请确定是否使用了私有maven仓库，如果有请参考 [对接Maven仓库
 ](../../best-practice/ci-cd/connection-maven-repository.html)  
 
-
-当使用Rainbond 遇到问题时，请先参考本篇文档。如果问题未解决，请按文档要求收集相关信息通过 Github [反馈给 Rainbond开发者](https://github.com/goodrain/rainbond/issues/new)。
-
 ## 2. 对于maven 多模块项目 怎么运行
 
 暂时只能拆开，单独运行。
@@ -32,3 +29,6 @@ toc: true
 ## 4. 如何设置启动命令
 
 通过设置 [Procfile](../language-support/java.html#3-4) 实现自定义启动命令。
+
+
+当使用Rainbond 遇到问题时，请先参考本篇文档。如果问题未解决，请按文档要求收集相关信息通过 Github [反馈给 Rainbond开发者](https://github.com/goodrain/rainbond/issues/new)。
