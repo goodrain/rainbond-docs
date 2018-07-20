@@ -4,7 +4,7 @@ summary: 安装问题排查
 toc: true
 ---
 
-当安装Rainbond 遇到问题时，请先参考本篇文档。如果问题未解决，请按文档要求收集相关信息通过 Github [提供给 Rainbond开发者](https://github.com/goodrain/rainbond-install/issues/new)或者通过邮件反馈<rainbond@goodrain.com>。
+当安装Rainbond 遇到问题时，请先参考本篇文档。如果问题未解决，请按文档要求收集相关信息通过 Github [反馈给 Rainbond开发者](https://github.com/goodrain/rainbond-install/issues/new)或者通过邮件反馈<rainbond@goodrain.com>。
 
 安装问题反馈需要提供如下信息:
 
@@ -102,3 +102,7 @@ systemctl disable node
 # 重启机器
 # 然后依次启动docker,k8s,etcd,calico,node等组件
 ```
+
+## 安装过程中安装db失败
+
+请检查一下3306端口是否被其他mysql进程占用，如果是，请禁用其他mysql进程服务，重新执行安装命令
