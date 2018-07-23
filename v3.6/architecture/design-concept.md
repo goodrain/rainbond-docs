@@ -5,7 +5,7 @@ toc: false
 ---
 <div class="filters filters-big clearfix">
     <a href="design-concept.html"><button class="filter-button current"><strong>设计思想</strong></button></a>
-    <a href="abstraction.html"><button class="filter-button">抽象设计</button></a>
+    <a href="abstraction.html"><button class="filter-button">产品抽象</button></a>
 </div>
 
 本文我们将从多个方面阐述Rainbond产品的思考和设计思路：
