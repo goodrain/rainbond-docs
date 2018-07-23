@@ -99,6 +99,17 @@ dns 配置建议使用 114.114.114.114等国内dns server
 如果使用境外服务器，建议禁用docker镜像加速服务，以免影响体验。
 {{site.data.alerts.end}}
 
-## 系统常用命令
+## 其他检查内容
 
-要确保系统已经安装了如下命令: `curl`, `git`
+1. 要确保系统已经安装了如下命令: `curl`, `git`
+2. 要确保系统配置的源是否正常可用
+
+```
+# centos
+yum makecache
+yum install htop -y
+
+# debian/ubuntu
+apt update
+apt install htop -y
+```
