@@ -1,13 +1,13 @@
 ---
-title: Rainbond设计思路与产品抽象
-summary: Rainbond设计思路与产品抽象
+title: Rainbond产品抽象
+summary: Rainbond产品抽象
 toc: false
 toc_not_nested: true
 asciicast: true
 ---
 <div class="filters filters-big clearfix">
     <a href="design-concept.html"><button class="filter-button">设计思想</button></a>
-    <a href="abstraction.html"><button class="filter-button current"><strong>抽象设计</strong></button></a>
+    <a href="abstraction.html"><button class="filter-button current"><strong>产品抽象</strong></button></a>
 </div>
 
 <div id="toc"></div>
