@@ -45,7 +45,7 @@ The current version focuses on supporting the infrastructure of the microservice
   - [ ] Support install mulit manage nodes
 - [x] Update rbd-dns to support for custom generic domain name resolution and cluster level one domain default resolution
 
-### V3.7
+### V3.7 2018-08 first week
 About system stability
 
 - [ ] management service progress guardian by systemd uniformly.
