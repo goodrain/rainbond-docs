@@ -41,6 +41,10 @@ cd rainbond-install*
 http://<your ip>:7070
 ```
 
+{{site.data.alerts.callout_danger}}
+在安装过程中如遇到提示salt命令未找到，或者Minion did not return.[No response],请参考[安装问题排查](../operation-manual/trouble-shooting/install-issue.html),或者联系我们协助。
+{{site.data.alerts.end}}
+
 {{site.data.alerts.callout_success}}
 云帮安装程序通过 shell脚本+SaltStack 实现，包括后续集群的扩容、升级及管理。相关源码参见：[rainbond-install](https://github.com/goodrain/rainbond-install)  
 节点扩容, 请参照 [运维手册, 节点扩容](../operation-manual/cluster-management/add-compute-node.html)  
