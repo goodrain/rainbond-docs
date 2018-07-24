@@ -35,6 +35,10 @@ systemctl restart salt-master
 systemctl restart salt-minion
 ```
 
+## 安装过程中出现 error pulling image configuration: Get https://docker.mirrors.ustc.edu.cn/v2/rainbond错误
+
+请重新执行安装
+
 ## 安装网络问题排查
 
 如果服务器无法直接联网，只能通过代理上网，需要做如下设置。
