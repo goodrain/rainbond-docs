@@ -52,12 +52,12 @@ About system stability
 - [ ] support management node offline.
 - [ ] support for all node and management service health checks.
 - [ ] support for automatic offline of major fault nodes.
-- [ ] tenant resource statistics task single node run.
+- [x] tenant resource statistics task single node run.
 
 About application manage
 
-- [ ] support .netcore(2.1) source code build application in linux os.
-- [ ] support SVN code repository.
+- [x] support .netcore(2.1) source code build application in linux os.
+- [x] support SVN code repository.
 - [ ] support application build automatically based on API and imagerepository webhook.
 - [ ] support application + plugin share to market
 
