@@ -40,7 +40,7 @@ cd rainbond-install
 |domain|默认null|支持修改为自定义域名|
 |registry-mirrors|默认中科大|支持自定义加速器|
 |dns-master/slave|默认114和CNNIC|支持自定义dns服务|
-|myaql||支持自定义port,user,pass(port 还需修改此文件`/srv/salt/db/mysql/files/my.cnf`)|
+|mysql||支持自定义port,user,pass(port 还需修改此文件`/srv/salt/db/mysql/files/my.cnf`)|
 
 其他请参考[自定义配置](https://www.rainbond.com/docs/stable/operation-manual/setup/custom-config.html)
 
