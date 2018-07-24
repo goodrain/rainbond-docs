@@ -4,9 +4,14 @@ summary: 部署默认存储NFS
 toc: true 
 ---
 
-## 一、服务端部署
+## 一、salt快速部署存储
 
-### 1.1 部署NFS服务端
+```bash
+salt "*" state.sls storage
+```
+## 二、服务端部署
+
+### 2.1 部署NFS服务端
 
 ```bash
 # centos 
@@ -15,7 +20,7 @@ yum install -y nfs-utils portmap
 apt install -y nfs-kernel-server
 ```
 
-### 1.2 配置NFS服务端
+### 2.2 配置NFS服务端
 
 NFS服务的主配置文件为：`/etc/exports`
 
@@ -29,7 +34,7 @@ cat > /etc/exports <<EOF
 EOF
 ```
 
-### 1.3 开启NFS服务
+### 2.3 开启NFS服务
 
 ```bash
 # 设置开机自启
@@ -41,9 +46,9 @@ exportfs -ra
 showmount -e 127.0.0.1
 ```
 
-## 二、客户端部署
+## 三、客户端部署
 
-### 2.1 安装客户端工具包
+### 3.1 安装客户端工具包
 
 ```bash
 # centos 
@@ -52,7 +57,7 @@ yum install -y nfs-utils
 apt install -y  nfs-common
 ```
 
-### 2.2 挂载
+### 3.2 挂载
 
 ```
 # 创建目录
@@ -65,20 +70,15 @@ mount -a
 df -h
 ```
 
-## 三、其他存储说明
+## 四、其他存储说明
 
-### 3.1 Aliyun NAS存储
+### 4.1 Aliyun NAS存储
 
 ```
 <url>:/   /grdata    nfs vers=3,nolock,noatime   0 0
 ```
 
-### 3.2 GlusterFS
+### 4.2 GlusterFS
 
 具体可以参见[存储-GlusterFS](../storage/GlusterFS/introduce.html)
 
-## 四、salt部署存储
-
-```bash
-salt "*" state.sls storage
-```
