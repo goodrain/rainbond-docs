@@ -24,8 +24,8 @@ toc: false
 ## 编译使用高级变量
 
 以`BUILD_`开头的环境变量用于应用编译时，目前有以下变量可用：
-| 变量名 |变量值|说明|
-|-|-|-|
+| 变量名   | 变量值           | 说明                             |
+| -------- | ---------------- | -------------------------------- |
 |BUILD_REPARSE| true| 构建时重新识别代码语言类型|
 |NO_CACHE| true | 构建时不使用缓存包 |
 |BUILD_MAVEN_CUSTOM_OPTS|-DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true | 用于 maven 构建，默认值如前|
