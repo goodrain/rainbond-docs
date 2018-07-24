@@ -5,7 +5,7 @@ toc: false
 ---
 
 <div id="toc"></div>
-Rainbond平台默认注入以下环境变量信息以供应用使用：
+Rainbond平台默认注入以下环境变量信息以供应用使用：
 
 | 变量名          | 变量值                                      | 说明                                                                             |
 | --------------- | ------------------------------------------- | -------------------------------------------------------------------------------- |
@@ -26,10 +26,10 @@ toc: false
 以`BUILD_`开头的环境变量用于应用编译时，目前有以下变量可用：
 | 变量名   | 变量值           | 说明                             |
 | -------- | ---------------- | -------------------------------- |
-|BUILD_REPARSE| true| 构建时重新识别代码语言类型|
-|NO_CACHE| true | 构建时不使用缓存包 |
-|BUILD_MAVEN_CUSTOM_OPTS|-DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true | 用于 maven 构建，默认值如前|
-|BUILD_MAVEN_CUSTOM_GOALS| clean install |用于 maven 构建，默认值如前 |
+| BUILD_REPARSE| true| 构建时重新识别代码语言类型|
+| NO_CACHE| true | 构建时不使用缓存包 |
+| BUILD_MAVEN_CUSTOM_OPTS| -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true | 用于 maven 构建，默认值如前|
+| BUILD_MAVEN_CUSTOM_GOALS| clean install | 用于 maven 构建，默认值如前 |
 
 ## 调度使用高级变量
 
