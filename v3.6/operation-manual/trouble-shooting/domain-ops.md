@@ -48,6 +48,11 @@ dc-compose up -d
 docker exec rbd-db mysql -e 'use console;update region_info set httpdomain="自定义域名"'
 ```
 
+{{site.data.alerts.callout_danger}}
+如用：自定义域名(www.a.com) 需要泛解析到管理节点(10.10.10.1)
+示例 `*.www.a.com A	10.10.10.1`
+{{site.data.alerts.end}}
+
 ## 三、调整已有域名解析
 
 <!--
