@@ -13,6 +13,9 @@ salt "*" state.sls node
 salt "*" state.sls plugins
 # proxy
 salt "*" state.sls proxy
+# 上线节点
+grctl node list
+grctl node up <uid>
 ```
 
 ## 二、手动部署云帮组件
