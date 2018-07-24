@@ -28,14 +28,8 @@ cd rainbond-install
 ### 1.3 配置salt
 
 ```bash
-cp -a install/salt /srv/
-cp -a install/pillar /srv/
-cp rainbond.yaml.default /srv/pillar/rainbond.sls
-cp -a scripts/yq /tmp/
-# 默认生成配置
-wget https://www.rainbond.com/docs/stable/operation-manual/setup/config/init-sls.sh -O /tmp/init-sls.sh
-chmod +x /tmp/init-sls.sh
-bash -x /tmp/init-sls.sh
+# 检测并初始化配置
+./setup.sh check
 ```
 
 根据需求可以变更`/srv/pillar/rainbond.sls`, 具体如下表
@@ -47,6 +41,8 @@ bash -x /tmp/init-sls.sh
 |registry-mirrors|默认中科大|支持自定义加速器|
 |dns-master/slave|默认114和CNNIC|支持自定义dns服务|
 |myaql||支持自定义port,user,pass(port 还需修改此文件`/srv/salt/db/mysql/files/my.cnf`)|
+
+其他请参考[自定义配置](https://www.rainbond.com/docs/stable/operation-manual/setup/custom-config.html)
 
 ## 二、初始化节点说明
 
