@@ -35,9 +35,11 @@ systemctl restart salt-master
 systemctl restart salt-minion
 ```
 
-## 安装过程中出现 error pulling image configuration: Get https://docker.mirrors.ustc.edu.cn/v2/rainbond 错误
+## 安装过程中出现 error pulling image configuration 错误
 
-请重新执行安装
+错误具体如下: `error pulling image configuration : Get https://docker.mirrors.ustc.edu.cn/v2/rainbond`
+
+手动执行 `docker pull <镜像名>` ,镜像拉取完成后，请重新执行安装命令。
 
 ## 安装网络问题排查
 
