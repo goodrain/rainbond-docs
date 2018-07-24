@@ -19,6 +19,7 @@ toc: false
 - 6.12.3
 - 8.9.4
 - 9.3.0
+- 10.7.0
 
 您可以在 `package.json` 里使用 engines 指定版本：
 
