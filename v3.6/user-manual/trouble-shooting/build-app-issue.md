@@ -30,5 +30,22 @@ toc: true
 
 通过设置 [Procfile](../language-support/java.html#3-4) 实现自定义启动命令。
 
+## 5. 应用运行异常如何排查
+
+#### 5.1 单一应用异常
+示例应用URL:  `https://dev.spanda.io/#/team/ysicing/region/aws-jp/app/grc5d5f1/overview`
+
+1. 查看应用日志看服务是否有报错日志
+2. 查看应用状态 `grctl services get https://dev.spanda.io/#/team/ysicing/region/aws-jp/app/grc5d5f1/overview`,看pod的`PodStatus`状态是否为`True`,正常情况如下`PodStatus:    	Initialized : True  Ready : True  PodScheduled : True`
+3. 登录到pod所在节点(PodHostIP/PodHostName),查看容器状态`dps |head -10`或者`ctop`
+4. 可以排查一下docker,kubelet的状态。
+
+#### 5.2 多个应用或者全部应用都异常
+
+1. 检查集群状态 `kubectl get cs` & `kubectl get node`
+2. 检查rbd-worker的状态
+
+
 
 当使用Rainbond 遇到问题时，请先参考本篇文档。如果问题未解决，请按文档要求收集相关信息通过 Github [反馈给 Rainbond开发者](https://github.com/goodrain/rainbond/issues/new)。
+
