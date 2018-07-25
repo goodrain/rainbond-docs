@@ -170,8 +170,13 @@
                 ]
             },
             {
-                "title": "性能调优",
+                "title": "自定义配置",
                 "items": [{
+                        "title": "配置私有镜像仓库",
+                        "urls": [
+                            "/${VERSION}/operation-manual/performance-tuning/add-insecure-registry.html"
+                        ]
+                    }, {
                         "title": "增加文件描述符限制",
                         "urls": [
                             "/${VERSION}/operation-manual/performance-tuning/increase-the-file-descriptor-limit.html"
