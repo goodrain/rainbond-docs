@@ -35,6 +35,8 @@ toc: true
 #### 5.1 单一应用异常
 示例应用URL:  `https://dev.spanda.io/#/team/ysicing/region/aws-jp/app/grc5d5f1/overview`
 
+![](https://static.goodrain.com/images/docs/3.6/user-manual/Issue/WX20180726-164608@2x.png)
+
 1. 查看应用日志看服务是否有报错日志
 2. 查看应用状态 `grctl services get https://dev.spanda.io/#/team/ysicing/region/aws-jp/app/grc5d5f1/overview`,看pod的`PodStatus`状态是否为`True`,正常情况如下`PodStatus:    	Initialized : True  Ready : True  PodScheduled : True`
 3. 登录到pod所在节点(PodHostIP/PodHostName),查看容器状态`dps |head -10`或者`ctop`
