@@ -1,11 +1,13 @@
 --- 
 title: 卸载云帮
 summary: 卸载云帮
-toc: true 
+toc: false
 ---
 
-避免其他因素导致卸载不干净，建议先把应用全部停止完成。
 
+{{site.data.alerts.callout_danger}}
+此操作不可逆，如有需要请做好备份操作。此删除方式将会删除部署的所有组件。避免其他因素导致卸载不干净，建议先把应用全部停止完成。
+{{site.data.alerts.end}}
 
 ```bash
 systemctl disable docker
@@ -55,5 +57,7 @@ cat > /etc/hosts <<EOF
 127.0.0.1 localhost
 EOF
 
-```
+# 删除rainbond-install项目
+rm -rf ./rainbond-install
 
+```

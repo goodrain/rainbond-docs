@@ -87,6 +87,7 @@ rbd-dns服务，除提供平台用户应用的域名解析之外，还提供内�
 |lang.goodrain.me|源码构建依赖包下载地址，rbd-repo提供服务|
 |maven.goodrain.me|maven仓库地址，rbd-repo提供服务|
 
+
 ## 二、计算节点组件及服务详情
 
 | 服务名| 说明|
