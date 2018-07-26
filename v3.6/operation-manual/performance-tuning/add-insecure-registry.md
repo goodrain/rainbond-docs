@@ -29,6 +29,8 @@ cclear
 
 ```bash
 systemctl restart docker
+# 如果管理节点和计算节点在同一个节点上需要重启kubelet服务。
+systemctl restart kubelet
 ```
 
 ## 四、启动Rainbond容器服务
@@ -42,7 +44,6 @@ dc-compose ps
 
 {{site.data.alerts.callout_danger}}
 当集群中包含多个管理节点时，每个管理节点的都需要执行上面的四步。
-如果管理节点和计算节点在同一个节点上需要重启kubelet服务。
 {{site.data.alerts.end}}
 
 
