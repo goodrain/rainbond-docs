@@ -21,7 +21,7 @@ systemctl disable kubelet
 systemctl disable salt-master
 systemctl disable salt-minion
 
-dc-compsoe stop
+dc-compose stop
 cclear
 
 
