@@ -194,13 +194,40 @@ asciicast: true
 
 当一个独立的业务系统不能完成所有功能时，就需要借助其他的服务来实现。如web服务一般都需要数据库存储数据，前端页面展现程序需要调用后端API服务获取数据等等。
 
-Rainbond借助微服务的理念，通过容器、kubernetes、ServiceMesh等技术可以实现众多服务的管理（应用管理）、服务与服务之间的关系管理（微服务治理）、服务高可用以及服务伸缩的功能。
-
 建立应用依赖的操作请参考：[添加数据库依赖](../link-db.html)
 
 ### 5.2 应用如何连接依赖服务
 
 当应用与依赖的服务建立起关联后，下一步就是连接依赖服务。
+
+在【依赖】页面中的 【依赖应用信息】可以看到已经依赖的服务：
+
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-link01.png" width="100%" />
+
+- <b>(1) 获取连接信息 </b>
+
+选择其中一个依赖服务，点击【连接信息】会弹出连接信息页面:
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-link02.png" width="60%" />
+
+- <b>(2) 应用连接依赖服务</b>
+
+当应用添加了依赖，并且查看了连接信息后，下一步就是修改应用的配置，连接依赖的服务，以Springcloud程序为例介绍通过环境变量的形式连接依赖的服务：
+
+`application.yml` 文件
+
+```yml
+...
+spring:
+  data:
+    mysql:
+      host: ${MYSQL_HOST}
+      username: ${MYSQL_USER}
+      password: ${MySQL_PASS}
+      database: ${MYSQL_DB}
+      port: ${MYSQL_PORT}
+...
+```
+其他各类语言都有获取环境变量的方法，如果不想用环境变量，也可以使用直接变量值。
 
 ## 应用端口与域名管理
 
