@@ -37,7 +37,7 @@ systemctl restart docker
 # 启动rainbond容器服务
 dc-compose up -d
 # 查看服务状态
-dc-compse ps
+dc-compose ps
 ```
 
 {{site.data.alerts.callout_danger}}
