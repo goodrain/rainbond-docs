@@ -6,7 +6,7 @@ toc: false
 
 当通过镜像创建应用时，管理节点的`rbd-chaos` 组件会调用系统的docker命令来拉取用户指定的仓库镜像。如果用户创建应用时填写的仓库地址不支持`HTTPS`协议，需要修改管理节点dockerd的配置，来支持非安全的镜像仓库地址。当前版本暂不支持私有镜像权限验证。
 
-## 一、修改Docker启动配置
+## 一、修改docker启动配置
 
 ```bash
 vi /opt/rainbond/envs/docker.sh
