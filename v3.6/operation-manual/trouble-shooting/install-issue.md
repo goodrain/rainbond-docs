@@ -112,3 +112,7 @@ systemctl disable node
 ## 安装过程中安装db失败
 
 请检查一下3306端口是否被其他mysql进程占用，如果是，请禁用其他mysql进程服务，重新执行安装命令
+
+## 卸载重装卡在install salt
+
+手动安装salt-master/salt-minion,然后重新执行安装命令
