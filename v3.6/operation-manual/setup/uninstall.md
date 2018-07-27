@@ -7,7 +7,10 @@ toc: false
 
 {{site.data.alerts.callout_danger}}
 此操作不可逆，如有需要请做好备份操作。此删除方式将会删除部署的所有组件。避免其他因素导致卸载不干净，建议先把应用全部停止完成。
+管理节点卸载可能会导致计算节点不可用。
 {{site.data.alerts.end}}
+
+以下卸载仅面向管理节点和计算节点复用情况，其他情况类似
 
 ```bash
 systemctl disable docker
