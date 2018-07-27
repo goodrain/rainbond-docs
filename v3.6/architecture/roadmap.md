@@ -4,8 +4,9 @@ summary: This document defines the roadmap for Rainbond development.
 toc: false
 ---
 <div class="filters filters-big clearfix">
-    <a href="edition.html"><button class="filter-button"><strong>功能列表</strong></button></a>
-    <a href="roadmap.html"><button class="filter-button current">开发计划</button></a>
+    <a href="edition.html"><button class="filter-button">功能列表</button></a>
+    <a href="roadmap.html"><button class="filter-button current"><strong>开发计划</strong></button></a>
+    <a href="release-cycle.html"><button class="filter-button">发布周期</button></a>
 </div>
 
 # Rainbond Roadmap

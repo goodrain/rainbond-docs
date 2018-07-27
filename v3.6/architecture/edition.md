@@ -8,6 +8,7 @@ asciicast: true
 <div class="filters filters-big clearfix">
     <a href="edition.html"><button class="filter-button current"><strong>功能列表</strong></button></a>
     <a href="roadmap.html"><button class="filter-button">开发计划</button></a>
+    <a href="release-cycle.html"><button class="filter-button">发布周期</button></a>
 </div>
 
 <div id="toc"></div>
