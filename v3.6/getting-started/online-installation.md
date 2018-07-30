@@ -57,4 +57,4 @@ http://<your ip>:7070
 
 分步部署Rainbond是分组件一步一步的安装Rainbond及所需组件，用户可以定制相关的安装。分步部署Rainbond适合非常了解Rainbond架构，需要定制部署Rainbond的人群。
 
-具体安装流程请参考[分步部署](../operation-manual/cluster-management/installation-configuration.html)
+具体安装流程请参考[分步部署](../operation-manual/setup/part-salt.html)
