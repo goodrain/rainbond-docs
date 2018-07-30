@@ -127,7 +127,7 @@ mount -a
   ```
 
 - 将管理节点的配置文件目录拷贝到计算节点
-  
+
   ```bash
   scp -rp /opt/rainbond/etc/rbd-lb/dynamics compute01:/opt/rainbond/etc/rbd-lb/dynamics
   scp -rp /opt/rainbond/etc/rbd-lb/dynamics compute02:/opt/rainbond/etc/rbd-lb/dynamics
@@ -169,53 +169,85 @@ dc-compose up -d --remove-orphans
 
 ###3.4 配置VIP
 
-在两个计算节点配置VIP
+在两个计算节点配置VIP，搭建基于keepalived软件的主备机制
 
-- 获取vrrpd
+- 安装keepalived
 
 ```bash
-docker cp rbd-lb:/usr/local/bin/vrrpd /usr/local/bin
+yum install -y keepalived
 ```
 
 
-- 编辑启动脚本，并设置开机运行
+- 修改配置文件
 
 ```bash
-vi /opt/rainbond/scripts/vrrpd.sh
-#输入如下内容
-/usr/local/bin/vrrpd -i eth0 -v 1 <VIP> -I <VIP> -O <VIP所在网络段的网关>
+#备份原有配置文件
+cp /etc/keepalived/keepalived.conf /etc/keepalived/keepalived.conf.bak
+#编辑配置文件如下
+#compute01
+! Configuration File for keepalived
 
-chmod +x /opt/rainbond/scripts/vrrpd.sh
+global_defs {
+   router_id LVS_DEVEL
+}
 
-vi /etc/rc.local
-#输入如下内容
-./opt/rainbond/scripts/vrrpd.sh
+vrrp_instance VI_1 {
+    state MASTER   #角色，当前为主节点
+    interface ens6f0  #网卡设备名，通过 ifconfig 命令确定
+    virtual_router_id 51
+    priority 100   #优先级，主节点大于备节点
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        <VIP>
+    }
+}
+
+#compute02
+! Configuration File for keepalived
+
+global_defs {
+   router_id LVS_DEVEL
+}
+
+vrrp_instance VI_1 {
+    state BACKUP   #角色，当前为备节点
+    interface ens6f0   #网卡设备名，通过 ifconfig 命令确定
+    virtual_router_id 51
+    priority 50   #优先级，主节点大于备节点
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        <VIP>
+    }
+}
+
+
+#启动服务，设置开机自启动
+systemctl start keeplived
+systemctl enable keeplived
 ```
-
-- 加载模块，并配置开机加载
-
-```bash
-#加载模块
-modprobe ip_vs
-#开机加载模块
-vi /etc/sysconfig/modules/ip_vs.modules
-#输入如下内容
-/sbin/modprobe ip_vs
-```
-
-- 开启vrrpd工具
-
-```bash
-/usr/local/bin/vrrpd -i eth0 -v 1 <VIP> -I <VIP> -O <VIP所在网络段的网关>
-#另一台节点该命令参数 -v 2
-```
-
-
 
 - 切换应用域名解析IP到VIP
 
 ```bash
 #在manage01节点执行
 grctl domain --ip <VIP>
+```
+
+- 修改tcpdomain
+
+```bash
+#在manage01节点执行
+din rbd-db   #进入rbd-db组件
+mysql        #进入数据库
+use console; #使用console数据库
+UPDATE region_info set tcpdomain="<VIP>"; #更新tcpdomain
 ```
 
