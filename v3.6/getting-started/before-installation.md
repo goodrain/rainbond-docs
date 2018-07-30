@@ -60,6 +60,10 @@ dns 配置建议使用 114.114.114.114等国内dns server
 如果使用云服务器，请确定安全组规则，放行22,80,6060,7070端口
 {{site.data.alerts.end}}
 
+{{site.data.alerts.callout_danger}}
+云服务器的内网ip段请不要使用172.30这个ip段。
+{{site.data.alerts.end}}
+
 ## 配置时区与时间同步
 
 确定系统时间与时区(Asia/Shanghai)同步，参考[配置时区与时间同步](../other/timezone.html)
