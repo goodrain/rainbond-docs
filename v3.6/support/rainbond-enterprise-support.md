@@ -33,6 +33,6 @@ toc: false
 
 - 平台部署、使用、配置、升级和问题诊断
 - 应用迁移
-- [专属的企业解决方案与咨询服务](rainbond-enterprise-training.html)
+- [专属的解决方案、咨询与培训服务](rainbond-enterprise-training.html)
 - 组建多数据中心
 - 程序安全补丁、bug修复 （3个工作日）
