@@ -60,7 +60,7 @@ About application manage
 
 - [x] support .netcore(2.1) source code build application in linux os.
 - [x] support SVN code repository.
-- [ ] support application build automatically based on API and imagerepository webhook.
+- [ ] support application build automatically based on API ,`gitea webhook` and `gogs webhook` 
 - [ ] support application + plugin share to market
 
 About Security policy upgrade
