@@ -13,13 +13,13 @@ toc: false
 
 不同开发语言的源代码，其检查标准是不一样的，以下列出了平台支持的源代码构建语言的检测标准：
 
-- [Java源码检测标准](../language-support/java.html#part-db8881a8c8748f64)
-- [PHP源码检测标准](../language-support/php.html#part-db8881a8c8748f64)
-- [Ruby源码检测标准](../language-support/ruby.html#part-db8881a8c8748f64)
-- [Python源码检测标准](../language-support/python.html#part-db8881a8c8748f64)
-- [Golang源码检测标准](../language-support/golang.html#part-db8881a8c8748f64)
-- [Node.JS源码检查标准](../language-support/nodejs.html#part-db8881a8c8748f64)
-- [HTML静态源码检查标准](../language-support/html.html)
+- [Java源码检测标准](language-support/java.html#part-db8881a8c8748f64)
+- [PHP源码检测标准](language-support/php.html#part-db8881a8c8748f64)
+- [Ruby源码检测标准](language-support/ruby.html#part-db8881a8c8748f64)
+- [Python源码检测标准](language-support/python.html#part-db8881a8c8748f64)
+- [Golang源码检测标准](language-support/golang.html#part-db8881a8c8748f64)
+- [Node.JS源码检查标准](language-support/nodejs.html#part-db8881a8c8748f64)
+- [HTML静态源码检查标准](language-support/html.html)
 
 {{site.data.alerts.callout_danger}}
 
