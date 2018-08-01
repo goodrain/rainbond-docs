@@ -49,11 +49,12 @@ The current version focuses on supporting the infrastructure of the microservice
 ### V3.7 2018-08 first week
 About system stability
 
-- [ ] management service progress guardian by systemd uniformly.
-- [ ] support management node offline.
-- [ ] support for all node and management service health checks.
-- [ ] support for automatic offline of major fault nodes.
+- [x] management service progress guardian by systemd uniformly.
+- [x] support management node offline.
+- [x] support for all node and management service health checks.
+- [x] support for automatic offline of major fault nodes.
 - [x] tenant resource statistics task single node run.
+- [ ] Support to set alarm rules and connect `Prometheus-Altermanager` alarm system
 
 About application manage
 
@@ -63,7 +64,7 @@ About application manage
 - [ ] support application + plugin share to market
 
 About Security policy upgrade
-
+- [ ] Region api support TLS Two-way authentication
 - [ ] [UI] support user registration for secondary verification by manager.
 
 ## V5.0
