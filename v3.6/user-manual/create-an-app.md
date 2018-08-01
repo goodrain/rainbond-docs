@@ -12,6 +12,8 @@ Rainbond支持多种方式创建应用，下图是支持创建应用的方式示
 
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/create-app.png" width="100%" />
 
+通过程序源码、Dockerfile源码和Docker镜像创建应用时，Rainbond构建模块会进行自动检测，详情请参见：[自动检查的方法及标准](app-detect.html)
+
 ## 一、通过源代码创建应用
 Rainbond支持[流行的编程语言](create-an-app.html#2-3)源代码直接创建应用，同时也支持Dockerfile创建应用，接下来主要通过2个示例来介绍。
 
