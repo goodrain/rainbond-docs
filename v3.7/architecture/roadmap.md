@@ -42,8 +42,6 @@ The current version focuses on supporting the infrastructure of the microservice
     - [x] Compute node monitoring
     - [x] Management service monitoring
 - [x] Accurate user permission control, support custom roles
-- [ ] Rainbond Installer upgrade
-  - [ ] Support install mulit manage nodes
 - [x] Update rbd-dns to support for custom generic domain name resolution and cluster level one domain default resolution
 
 ## V3.7 2018-08 first week
@@ -66,6 +64,11 @@ About application manage
 About Security policy upgrade
 - [ ] Region api support TLS Two-way authentication
 - [ ] [UI] support user registration for secondary verification by manager.
+
+About install
+- [ ] Support complete offline installation
+- [ ] Support install mulit manage nodes
+
 
 ## V5.0
 The current version focuses on upgrade kubernetes and docker,  full support `.net ` application management and operation.
