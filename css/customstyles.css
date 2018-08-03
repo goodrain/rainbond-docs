@@ -769,7 +769,7 @@ body.sidenav-open .col-content {
           line-height: 20px; }
           @media screen and (min-width: 992px) {
             .nav > li > ul > li > a {
-              font-size: 14px; } }
+              font-size: 15px; } }
         .nav > li > ul > li > ul {
           border-left: 1px solid #28cb75;
           margin: 0 0 0 5px;
