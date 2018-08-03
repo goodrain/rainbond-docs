@@ -1,7 +1,7 @@
 ---
 title: Rainbond设计理念
 summary: Rainbond设计的由来和理念，达到的目标前景
-toc: false
+toc: true
 ---
 <div class="filters filters-big clearfix">
     <a href="design-concept.html"><button class="filter-button current"><strong>设计思想</strong></button></a>

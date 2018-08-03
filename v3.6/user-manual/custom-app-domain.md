@@ -1,10 +1,8 @@
 ---
 title: 自定义应用域名
 summary: 自定义应用域名
-toc: false
+toc: true
 ---
-
-<div id="toc"></div>
 
 Rainbond为每一个HTTP应用自动生成一个默认的域名，一般情况下这个域名都比较长，不方便记忆。你可以通过下面两种方式修改默认域名：
 

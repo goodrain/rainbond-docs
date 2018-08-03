@@ -1,9 +1,8 @@
 ---
 title: 通过Python源码创建
 summary: 通过Python源码创建
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
 云帮支持部署和伸缩Python应用程序。无论您喜欢`Django`或`Flask`等框架，云帮都可以使用。
 

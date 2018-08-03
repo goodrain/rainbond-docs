@@ -1,9 +1,10 @@
 ---
 title: Builder
 summary: 
-toc: false
+toc: true
 ---
-&emsp;&emsp;Builder是一个镜像，您所提交的应用源码可以在Builder中进行解压、预编译、编译、打包等。
+
+Builder是一个镜像，您所提交的应用源码可以在Builder中进行解压、预编译、编译、打包等。
 
 
 ## 构建流程图

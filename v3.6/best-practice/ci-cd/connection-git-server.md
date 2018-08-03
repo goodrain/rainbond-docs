@@ -1,11 +1,9 @@
 ---
 title: 云帮对接私有Git仓库
 summary: 讲解如何对接云帮外部的gitlab仓库和使用云帮内部的gitlab仓库
-toc: false
+toc: true
 asciicast: true
 ---
-
-<div id="toc"></div>
 
 Rainbond通过对接Git仓库来创建基于源代码及Dockerfile的应用。
 

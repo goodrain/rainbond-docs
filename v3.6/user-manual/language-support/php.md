@@ -1,9 +1,8 @@
 ---
 title: 通过PHP源码创建
 summary: 云帮可以将PHP应用更快速的部署到平台。
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
 Rainbond可以将PHP源码快速的部署并运行起来。无论是`Symfony`、`Laravel` 或 [ThinkPHP](php/thinkphp.html) 等开发框架，还是使用非开发框架，或者通过环境配置文件<a href="php/custom-env.html" target="_blank" >自定义Web Server与PHP环境</a>。
 

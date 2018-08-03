@@ -22,25 +22,21 @@ p {
   }
 
   @include at-query($min, $screen-md) {
-    margin: 20px 0;
+    margin: 10px 0;
   }
 }
 
 h1, h2 {
-  margin-top: 60px;
+  margin-top: 30px;
   margin-bottom: 20px;
-
-  @include at-query($min, $screen-sm) {
-    margin-top: 70px;
-  }
 }
 
 h3, h4, h5, h6 {
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 20px;
 
   @include at-query($min, $screen-sm) {
-    margin-top: 50px;
+    margin-top: 40px;
   }
 }
 
@@ -91,20 +87,20 @@ h4 {
   }
 }
 
-pre {
-  overflow: auto;
-}
+pre { overflow: auto; }
+
+code {
+  @include code-type;
+  border: 1px solid $cl_gray_medium;
+ }
 
 pre, code {
-  background-color: $cl_gray_light;
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  @include code-type;
+  background-color: $cl_syntax_gray_light;
   font-size: 14px;
   line-height: 25px;
   color: $cl_blue;
-}
-
-code {
-  border: 1px solid $cl_gray_medium;
+  hyphens: none;
 }
 
 ul {
@@ -145,10 +141,6 @@ h6:target:before {
       margin-bottom: 20px;
     }
   }
-
-  ul li, ol li {
-    margin: 10px 0px;
-  }
 }
 
 .post-summary {
@@ -187,18 +179,10 @@ table > tfoot > tr > th,
 table > thead > tr > td,
 table > tbody > tr > td,
 table > tfoot > tr > td {
-  /*padding: 8px;*/
-  /*line-height: 1.42857143;*/
   vertical-align: top;
   border-top: 1px solid #ddd;
 }
-/*table > thead > tr > th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #ddd;
-  text-transform: uppercase;
-  background-color: #444;
-  color: white;
-  text-align: center; }*/
+
 
 table > caption + thead > tr:first-child > th,
 table > colgroup + thead > tr:first-child > th,
@@ -207,10 +191,6 @@ table > caption + thead > tr:first-child > td,
 table > colgroup + thead > tr:first-child > td,
 table > thead:first-child > tr:first-child > td {
   border-top: 0;
-}
-
-table > tbody > tr:nth-of-type(odd) {
-  /*background-color: #f9f9f9;*/
 }
 
 table col[class*="col-"] {
@@ -481,19 +461,6 @@ ol.series li {
   background-color: #FAFAFA;
 }
 
-@media (min-width: 1000px) {
-  ul#mysidebar {
-    width: 225px;
-    position: relative;
-  }
-}
-
-@media (max-width: 900px) {
-  ul#mysidebar {
-    max-width: 100%;
-  }
-}
-
 span.muted {color: #C0C0C0;}
 
 .highlight .err {
@@ -544,7 +511,7 @@ a.accordion-toggle {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 40px -30px 10px;
+  margin: 20px -30px 10px;
 
   > * {
     margin-left: 30px;
@@ -555,6 +522,11 @@ a.accordion-toggle {
 .post-title-main {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.cockroachdb-training {
+  width: 100%;
+  max-width: 800px;
 }
 
 @import "components/search";
@@ -573,3 +545,4 @@ a.accordion-toggle {
 @import "components/copy-clipboard";
 @import "components/version-tag";
 @import "components/comparison-chart";
+@import "components/algolia";

@@ -1,9 +1,8 @@
 ---
 title: Rails应用概述
 summary: rails应用概述
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
 ## 代码识别
 

@@ -1,9 +1,8 @@
 ---
 title: 部署ThinkPHP框架程序
 summary: 在云帮部署ThinkPHP框架程序
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
 ## 前言
 

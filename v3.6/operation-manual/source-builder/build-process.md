@@ -1,9 +1,9 @@
 ---
 title: 构建流程
 summary: 构建流程图
-toc: false
+toc: true
 ---
-&emsp;&emsp;云帮只需要您提交代码然后稍加配置，后边的事交给云帮。工作流程大致如下图：
+云帮只需要您提交代码然后稍加配置，后边的事交给云帮。工作流程大致如下图：
 
 <img src="https://static.goodrain.com/images/acp/docs/code-docs/build-process.png" width="100%"/>
 

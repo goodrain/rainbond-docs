@@ -1,5 +1,6 @@
 {
     "title": "基础操作",
+    "is_top_level": true,
     "items": [
         {
             "title": "创建应用",

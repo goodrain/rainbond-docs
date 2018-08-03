@@ -1,10 +1,8 @@
 ---
 title: 应用市场
 summary: 应用市场，同步应用，同步插件
-toc: false
+toc: true
 ---
-
-<div id="toc"></div>
 
 本文阐述应用市场的概念，并教你如何从好雨公共应用市场同步应用于插件。
 

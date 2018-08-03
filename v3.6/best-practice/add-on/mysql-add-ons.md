@@ -5,8 +5,6 @@ toc: true
 asciicast: true
 ---
 
-<div id="toc"></div>
-
 [Percona XtraBackup](https://www.percona.com/software/mysql-database/percona-xtrabackup)（简称PXB）是 Percona 公司开发的一个用于 MySQL 数据库物理热备的备份工具，支持 MySQl（Oracle）、Percona Server 和 MariaDB.数据库插件基于percona-xtrabackup构建而成.目前本数据库插件仅支持 mysql数据库全量备份&全量恢复.
 
 ## 数据库插件

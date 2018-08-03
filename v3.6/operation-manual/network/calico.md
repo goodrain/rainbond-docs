@@ -1,11 +1,9 @@
 ---
 title: 网络维护之Calico
 summary: 维护Calico网络基准
-toc: false
+toc: true
 asciicast: true
 ---
-
-<div id="toc"></div>
 
 ##一、Calico介绍
 

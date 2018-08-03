@@ -1,9 +1,9 @@
 ---
 title: Spring Boot框架配置MySQL
 summary: spring boot mysql demo
-toc: false
+toc: true
 ---
-<div id="toc"></div>
+
 
 Spring Boot框架简化了新Spring应用的初始搭建以及开发过程，云帮支持平台部署Spring Boot类应用。
 

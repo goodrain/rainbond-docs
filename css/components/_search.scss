@@ -3,20 +3,23 @@
 
   .fa-search {
     position: absolute;
+    top: 10px;
+    left: 15px;
     color: $cl-green;
     font-size: 20px; // icon sizing
   }
 
   #search-input {
     background-color: white;
-    border: solid 1px #bcbcbc;
+    border: none;
     border-radius: 32px;
+    box-shadow: 0 0 8px $cl_gray_medium;
     height: 40px;
-    width: 86%;
+    width: calc(100% - 30px);
     outline: 0px none;
     padding: 3px 10px 0px 45px;
     transition: all 0.15s ease 0s;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 16px;
     line-height: 40px; // vertical positioning
 
@@ -29,22 +32,29 @@
     }
 
     @media (min-width: $screen-md) {
-      width: 90%;
-      margin-bottom: 30px;
+      width: 100%;
     }
   }
 }
 
-li.search-wrap {
+#mysidebar li.search-wrap {
   margin-bottom: 0;
+
+  @include at-query($min, $screen-md) {
+    display: block;
+    position: fixed;
+    top: 89px;
+    width: 240px;
+    background: #ffffff;
+    z-index: 2;
+    padding-top: 11px;
+  }
 }
 
 .search-item {
   margin-top: 30px;
 }
-.search-title {
-  // font-size: 20px;
-}
+
 .search-link {
   color: #999988;
   @include caption;
@@ -57,20 +67,15 @@ li.search-wrap {
 .clear-search {
   display: none;
   position: absolute;
-  top: 1px;
-  right: 48px;
+  top: 2px;
+  right: calc(0% + 30px);
   height: 38px;
   width: 35px;
   border-radius: 50%;
   outline: none;
+  cursor: pointer;
 
-  @include at-query($min, $screen-sm) {
-    right: 104px;
-  }
-
-  @include at-query($min, $screen-md) {
-    right: 20px;
-  }
+  @include at-query($min, $screen-md) { right: 0; }
 
   &:before, &:after {
     content: '';

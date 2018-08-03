@@ -1,7 +1,7 @@
 ---
 title: 基于静态HTML源码创建应用
 summary: 基于静态HTML源码创建应用
-toc: false
+toc: true
 ---
 
 ## 代码识别

@@ -1,12 +1,9 @@
 ---
 title: GlusterFS安装
 summary: GlusterFS安装
-toc: false
+toc: true
 asciicast: true
 ---
-
-<div id="toc"></div>
-
 
 ##一、GlusterFS的安装
 

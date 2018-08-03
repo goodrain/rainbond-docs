@@ -49,7 +49,7 @@ nav.mobile_expanded {
 
 	a:not(.mobile-menu-dropdown__parent-link):not(.logo) {
 		border-bottom: 1px solid $cl_gray_medium;
-		@include button-text--heavy--large;
+		@include button-text--heavy--medium;
 		text-transform: uppercase;
 		width:100%;
 		float:left;
@@ -68,7 +68,7 @@ nav.mobile_expanded {
 	.mobile-menu-dropdown {
 		width: 100%;
 		float: left;
-		@include button-text--heavy--large;
+		@include button-text--heavy--medium;
 		color: $cl_blue;
 		text-transform: uppercase;
 		padding: 30px 0 30px 20px;
@@ -91,6 +91,34 @@ nav.mobile_expanded {
 
 		.mobile-sub-nav {
 			display: none;
+
+			span,
+			&--link-list {
+				@include caption;
+				letter-spacing: normal;
+				text-transform: none;				
+			}
+
+			span {
+				display: block;
+				margin-top: 15px;
+			}
+
+			&--link-list {
+				list-style-type: none;
+
+				li {
+					margin: 0;
+
+					// &:before {
+					// 	content: '';
+					// }
+
+					a {
+						margin-top: 10px;
+					}
+				}
+			}
 		}
 
 		.blue-arrow {
@@ -158,7 +186,7 @@ nav.mobile_expanded {
 
 .logo {
 	width: 180px;
-	margin-top: 3px;
+	margin-top: 5px;
 	float:left;
 	line-height: 20px;
 	font-size: 0;
@@ -167,8 +195,9 @@ nav.mobile_expanded {
 		line-height: 23px;
 	}
 
-	@include at-query($min, $screen-lg) {
-		width:209px;
+	@include at-query($min, $screen-md) {
+		width: 209px;
+		margin-top: 3px;
 	}
 }
 
@@ -180,11 +209,6 @@ header {
   border-bottom: 1px solid $cl_gray_medium;
 	height: 60px;
 
-	// there is just not enough room once we hit tablet
-	@include at-query($min, $screen-sm) {
-		padding: 15px 10px;
-	}
-
 	@include at-query($min, $screen-md) {
 		height: 70px;
 	}
@@ -194,18 +218,14 @@ header {
 		padding: 15px;
 	}
 
-	.container {
-		position: relative;
-		margin: 0;
+	&.navbar-fixed-top {
+		display: flex;
+		justify-content: center;
+	}
 
-		@include at-query($min, $screen-sm) {
-			width: 100%;
-			margin: 0 auto;
-		}
-
-		@include at-query($min, $max-plus-gutters) {
-			max-width: $max-width;
-		}
+	.navbar-fixed-top--inner {
+		width: 100%;
+		max-width: 1500px;
 	}
 
 	&.scrolled {
@@ -218,9 +238,9 @@ header {
 
 		a:not(.button--header) {
 			color: $cl_blue;
-			@include button-text--heavy;
+			@include button-text--heavy--medium;
 			text-transform:uppercase;
-			line-height: 40px;
+			line-height: 45px;
 			float:left;
 			margin:0 10px;
 			padding:0;
@@ -298,15 +318,38 @@ header {
 					}
 				}
 			}
+
+			.menu-dropdown--subsection {
+				padding: 20px 30px 10px;
+				border-bottom: 2px solid #e6e6e6;
+
+				&__title {
+					display: block;
+					@include type-body-medium;
+					color: $cl_blue;
+					text-transform: none;
+					letter-spacing: normal;
+					@include groovy(color);
+				}
+
+				&__link {
+					float: none;
+					display: inline-block;
+					@include caption;
+					color: $cl_green;
+					text-transform: none;
+					letter-spacing: normal;
+					padding: 0;
+				}
+			}
 		}
 
 		.menu-item-dropdown {
 			float: left;
 			margin: 0 10px;
 			padding: 0;
-			@include avenir_h(12px);
-			line-height: 40px;
-			letter-spacing: 1.5px;
+			@include button-text--heavy--medium;
+			line-height: 45px;
 			text-transform: uppercase;
 			@include groovy(color);
 

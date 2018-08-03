@@ -1,6 +1,7 @@
     
     {
         "title": "管理后台",
+        "is_top_level": true,
         "items": [
             {
                 "title": "介绍",

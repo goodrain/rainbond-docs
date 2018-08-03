@@ -1,11 +1,10 @@
 ---
 title: calico-node
 summary: calico-node,calico_node
-toc: false
+toc: true
 asciicast: true
 ---
 
-<div id="toc"></div>
 
 ##简述
 

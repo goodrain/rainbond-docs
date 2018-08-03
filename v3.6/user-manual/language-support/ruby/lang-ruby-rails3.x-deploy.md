@@ -1,9 +1,8 @@
 ---
 title: 部署Rails3.x应用
 summary: 部署Rails3.x应用
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
 本篇文档帮助您将基于Rails3.x的应用快速部署到云帮。Sinatra 或其他类型的Ruby应用请参考[构建语言-Ruby](../lang-ruby-overview.html)
 

@@ -1,9 +1,8 @@
 ---
 title: Ruby源码创建应用
 summary: ruby源码创建应用
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
 ## 一、代码识别
 

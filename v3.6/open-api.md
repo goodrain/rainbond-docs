@@ -1,7 +1,7 @@
 ---
 title: 开发文档
 summary: rainbond 开放API文档
-toc: false
+toc: true
 ---
 
 <div id="toc"></div>

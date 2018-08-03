@@ -1,7 +1,7 @@
 ---
 title: 安装
 summary: 快速在线安装云帮.
-toc: false
+toc: true
 toc_not_nested: true
 asciicast: true
 ---

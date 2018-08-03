@@ -4,8 +4,8 @@
   display: inline-block;
   padding: 25px;
   background-color: $cl_green_light;
-  font-size: 0;
-  line-height: 0;
+  font-size: 17px;
+  line-height: 1;
 
   form {
     display: inline-block;
@@ -14,16 +14,19 @@
 }
 
 #feedback-prompt p {
+  margin-bottom: 18px;
   line-height: 0;
 }
 
 .feedback-question {
-  display: inline-block;
+  display: block;
   line-height: 0;
   margin-right: 15px;
   vertical-align: bottom;
   @include avenir_r(17px);
   line-height: 30px;
+
+  @include at-query($min, $screen-xsm) { display: inline-block; }
 }
 
 @media screen and (max-width: 767px){
@@ -36,7 +39,9 @@
   }
 }
 
-.yes-button, .no-button {
+#yes-button,
+#no-button,
+#feedback-prompt input[type="submit"] {
   width: 70px;
   height: 40px;
   margin: 0 5px;
@@ -58,12 +63,41 @@
   &:hover {
     background-color: $cl_blue;
     color: #fff !important;
-    border-bottom: 2px solid $cl_blue !important;
+    border-bottom: none;
   }
 }
 
-.no-button:hover, .yes-button:hover, .no-button:focus, .yes-button:focus {
+form[class*="hs-form"] {
+  margin-bottom: 0;
 
+  label {
+    font-family: inherit;
+    font-size: 15px;
+  }
+
+  div[class="actions"] {
+    padding: 0;
+    margin: 0;
+  }
+
+  input[type="radio"][class="hs-input"] { margin-right: 10px; }
+
+  input[type="submit"] {
+    background: none;
+    text-shadow: none;
+    box-sizing: border-box;
+
+    &:hover:not(.inactive) {
+      border: 1px solid $cl_blue;
+      box-shadow: none;
+    }
+  }
+
+  textarea:focus,
+  input[type="email"]:focus {
+    border: 1px solid $cl_green;
+    box-shadow: none;
+  }
 }
 
 /* Feedback popup and hubspot form
@@ -117,8 +151,8 @@
 
 .white-popup .hbspt-form .hs-button {
   color: #fff;
-  background: #28cb75;
-  border: 2px solid #28cb75;
+  background: #46a417;
+  border: 2px solid #46a417;
   border-radius: 35px;
   text-align: center;
   vertical-align: middle;
@@ -134,7 +168,7 @@
 
 .white-popup .hbspt-form .hs-button:hover {
   background: #fff;
-  color: #28cb75;
+  color: #46a417;
   outline: none;
 }
 
@@ -280,7 +314,7 @@ button::-moz-focus-inner {
   color: #FFF;
   font-style: normal;
   font-size: 28px;
-  font-family:  "SourceHanSansCN Light", "Microsoft YaHei",Arial,STHeiti,sans-serif; }
+  font-family: Arial, Baskerville, monospace; }
   .mfp-close:hover,
   .mfp-close:focus {
     opacity: 1; }
@@ -441,7 +475,8 @@ img.mfp-img {
 .mfp-gallery .mfp-image-holder .mfp-figure {
   cursor: pointer; }
 
-@media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
+@media screen and (max-width: 800px) and (orientation: landscape),
+screen and (max-height: 300px) {
   /**
        * Remove all paddings around the image on small screen
        */

@@ -1,10 +1,8 @@
 ---
 title: 应用检测
 summary: 创建应用时的检测
-toc: false
+toc: true
 ---
-
-<div id="toc"></div>
 
 通过程序源码、Dockerfile源码或Docker镜像创建应用时，平台会进行自动检测，看是否符合平台创建应用的标准。本文会针对各种类型的应用来说明平台自动检查的方法及标准。
 

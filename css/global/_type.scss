@@ -89,16 +89,42 @@
 }
 
 //
+// body
+//
+@mixin type-body {
+  @include avenir_r(17px);
+  line-height: 30px;
+}
+
+@mixin type-body-medium {
+  @include avenir_m(17px);
+  line-height: 30px;
+}
+
+
+//
 // miscellaneous
 //
 @mixin button-text {
-  @include avenir_bl(14px);
+  @include avenir_bl(12px);
   line-height: 15px;
   letter-spacing: 1.5px;
 }
 
 @mixin button-text--heavy {
-  @include avenir_h(14px);
+  @include avenir_h(12px);
+  line-height: 15px;
+  letter-spacing: 1.5px;
+}
+
+@mixin button-text--heavy--small {
+  @include avenir_h(11px);
+  line-height: 15px;
+  letter-spacing: 1.5px;
+}
+
+@mixin button-text--heavy--medium {
+  @include avenir_h(13px);
   line-height: 15px;
   letter-spacing: 1.5px;
 }
@@ -110,8 +136,8 @@
 }
 
 @mixin caption {
-  @include avenir_r(14px);
-  line-height: 20px;
+  @include avenir_r(15px);
+  line-height: 25px;
 }
 
 @mixin caption--small {
@@ -149,4 +175,9 @@
     font-size: 17px;
     line-height: 30px;
   }
+}
+
+@mixin code-type {
+  @include source_code_r(14px);
+  line-height: 25px;
 }

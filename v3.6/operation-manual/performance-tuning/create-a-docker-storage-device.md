@@ -1,16 +1,14 @@
 ---
 title: 创建Docker存储设备
 summary: 创建Docker存储设备
-toc: false
+toc: true
 toc_not_nested: false
 asciicast: true
 ---
 
-<div id="toc"></div>
+## 配置Docker的devicemapper(direct-lvm)
 
-##配置Docker的devicemapper(direct-lvm)
-
-###1.安装lvm2
+### 1.安装lvm2
 
 ```bash
 # ubuntu
@@ -20,7 +18,7 @@ apt-get install lvm2
 yum install lvm2
 ```
 
-###2.创建PV
+### 2.创建PV
 
 ```bash
 # 先查看一下预分配的磁盘名

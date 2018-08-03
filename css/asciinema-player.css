@@ -1,6 +1,6 @@
 .play-button polygon, .play-button rect {
-  stroke: #28cb75 !important;
-  fill: #28cb75 !important;
+  stroke: #46a417 !important;
+  fill: #46a417 !important;
 }
 
 .play-button polyline {
@@ -23,7 +23,7 @@
   font-size: 20px;
   line-height: 1em;
   padding: 15px;
-  font-family:  "SourceHanSansCN Light", "Microsoft YaHei",Arial,STHeiti,sans-serif;
+  font-family: sans-serif;
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
 }
@@ -150,7 +150,7 @@
   border-style: solid;
   cursor: text;
   border-width: 0.5em;
-  font-family:  "SourceHanSansCN Light", "Microsoft YaHei",Arial,STHeiti,sans-serif;
+  font-family: Consolas, Menlo, 'Bitstream Vera Sans Mono', monospace, 'Powerline Symbols';
   line-height: 1.3333333333em;
 }
 .asciinema-terminal .line {
@@ -228,7 +228,7 @@
   width: 50px;
   height: 100%;
   text-align: center;
-  font-family:  "SourceHanSansCN Light", "Microsoft YaHei",Arial,STHeiti,sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 11px;
   font-weight: bold;
   line-height: 32px;

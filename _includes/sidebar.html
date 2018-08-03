@@ -1,16 +1,17 @@
-<div class="col-md-3 col-sidebar">
+<div class="col-sidebar">
   <script>
     $(document).ready(function() {
       // Initialize navgoco with default options
       var $sidebar = $('#mysidebar'),
           $versionSwitcher = $('#version-switcher').find('ul.nav')
-          $maincontent = $('#main-content'), $contentcol = $('.content-col');
+          $maincontent = $('#main-content'),
+          $contentcol = $('.content-col');
 
       var navgocoOptions = {
         caretHtml: '',
         accordion: true,
-        openClass: 'active', // open
-        save: false, // leave false or nav highlighting doesn't work right
+        openClass: 'active',
+        save: false,
         cookie: {
           name: 'navgoco',
           expires: false,
@@ -22,19 +23,6 @@
         }
       };
 
-      function adjustMinHeight() {
-        setTimeout(function() {
-          var height = $sidebar.outerHeight();
-          if(height > 475) {
-            $maincontent.animate({ 'min-height' : 625 + (height - 475) }, 200);
-            $contentcol.css({ 'min-height' : 625 + (height - 475) });
-          } else {
-            $maincontent.animate({ 'min-height' : 625 }, 200);
-            $contentcol.css({ 'min-height' : 625 });
-          }
-        }, 400);
-      }
-
       function closeVersionSwitcher() {
         $('#version-switcher .tier-1 ul').slideUp();
         $('#version-switcher').removeClass('open');
@@ -42,7 +30,6 @@
 
       $sidebar.navgoco($.extend(navgocoOptions, {
         onToggleAfter: function() {
-          adjustMinHeight();
           if ($(this.el).attr('id') == 'mysidebar' &&
               $('#version-switcher').hasClass('open')) {
             closeVersionSwitcher();
@@ -58,12 +45,10 @@
 
       $sidebar.show();
       $versionSwitcher.show();
-      adjustMinHeight();
     });
   </script>
 
   <ul id="mysidebar" class="nav {% if page.name == 'index.md' %}nav--home{% endif %}{% if page.url == '/search.html'%}nav--search{% endif %}" style="display: none">
-    <!-- <div class="sidenav-arrow"><img src="{{ 'images/sidenav-arrow.svg' | relative_url }}" alt="Sidenav arrow"></div> -->
     <div class="sidenav-arrow"><div class="arrow-down"></div></div>
     <div class="collapsed-header">
       Docs Menu
@@ -79,15 +64,14 @@
       {% endcomment %}
     </div>
     <li class="search-wrap">
-      <a class="search" href="https://www.rainbond.com/docs/search.html" style="position:static; width: 80px; height: 30px; line-height: 30px; padding:0 10px; background: #28cb75; color: #fff; border-radius: 8px; margin-bottom: 20px;">
-        <span class="fa fa-search" style="position: static; color: #fff; font-size: 16px; margin-right: 5px;"></span>搜索
-        <!-- <form method="GET" action="{{ 'search.html' | relative_url }}">
-          <input type="text" id="bdcsMain" name="q" placeholder="搜索">
-          <span class="clear-search"></span>
-        </form> -->
-      </a>
-    </li>
-
+        <a class="search" href="https://www.rainbond.com/docs/search.html" style="position:static; width: 80px; height: 30px; line-height: 30px; padding:0 10px; background: #28cb75; color: #fff; border-radius: 8px; margin-bottom: 20px;">
+          <span class="fa fa-search" style="position: static; color: #fff; font-size: 16px; margin-right: 5px;"></span>搜索
+          <!-- <form method="GET" action="{{ 'search.html' | relative_url }}">
+            <input type="text" id="bdcsMain" name="q" placeholder="搜索">
+            <span class="clear-search"></span>
+          </form> -->
+        </a>
+      </li>
     <script>
       (function () {
         var baseUrl = "{{ site.baseurl }}";
@@ -143,9 +127,19 @@
 
           var lis = items.map(function (item) {
             var urls = (item.urls || []).map(function (url) {
-                return baseUrl + url.replace("${VERSION}", pageVersion);
+              var url = url.replace("${VERSION}", pageVersion);
+              // This condition makes it possible to use external
+              // urls in the sidebar.
+              if (!/^https?:/.test(url)) {
+                url = baseUrl + url;
+              }
+              return url;
             });
-            var active = (urls.indexOf(location.pathname) !== -1);
+            
+            // this ensures page will be highlighted in sidebar even if URL is accessed without `.html` appended
+            var activePathname = location.pathname.slice(-5) === '.html' ? location.pathname : location.pathname + '.html';
+
+            var active = (urls.indexOf(activePathname) !== -1);
             if (active) {
               // This mutation inside an otherwise pure function is
               // unfortunate, but doing it here avoids a separate
@@ -153,16 +147,24 @@
               var breadcrumbs = $("<div>")
                 .addClass("collapsed-header__pre")
                 .html(paths.join("<div class=\"arrow-down arrow-down--pre\"></div>\n"));
+
               var title = $("<div>").html(item.title);
               $(".collapsed-header").empty().append(breadcrumbs, title);
             }
+
             var subitems = renderItems(item.items, paths.concat(item.title));
             var a = $("<a>")
               .attr("href", urls[0] || "#")
               .html(item.title);
+
             if (subitems.length > 0) {
-              a.append(" ").append($("<div>").addClass("arrow-down"));
+              if (item.is_top_level) {
+                a.append(" ").append($("<div>").addClass("nav-expand"));
+              } else {
+                a.append(" ").append($("<div>").addClass("arrow-down"));
+              }
             }
+
             return $("<li>")
               .addClass("tier-" + (paths.length + 1))
               .toggleClass("active", active)
@@ -208,41 +210,9 @@
       location.href = $(this).val();
     });
   </script>
+  
+  <script src="{{ 'js/searchInputRendering.js' | relative_url }}"></script>
 </div>
 
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
 <script>$("#mysidebar").find("li.active").parents('li').toggleClass("active");</script>
-
-{% if page.url == '/search.html' %}
-<script>
-$(document).ready(function() {
-  // this will make search appear instead of header in collapsed docs menu
-  $('.collapsed-header').hide();
-  $('.search-wrap').show();
-
-  // this will remove the class with custom styling for search page,
-  // so when we close the menu it reverts to normal styling
-  // needs to happen if any of these elements are clicked
-  $('.sidenav-arrow, #search-input, .clear-search').on('click', function() {
-    if ($('#mysidebar').hasClass('nav--search')) {
-      $('#mysidebar').removeClass('nav--search').addClass('nav--home');
-    }
-  });
-
-  // set search input value to query string
- //  $('#search-input').val(QueryString.q);
-
- //  // on load, show close button if search input
-	// if ($('#search-input').val() != '') $('.clear-search').show();
-
- //  $('.clear-search').on('click', function() {
- //    $('#search-input').val('');
- //    $(this).hide();
- //  });
-
- //  $('#search-input').on('input', function() {
- //    if ($(this).val() != '') $('.clear-search').show();
- //  });
-});
-</script>
-{% endif %}

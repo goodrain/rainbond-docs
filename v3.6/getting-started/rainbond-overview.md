@@ -1,12 +1,10 @@
 ---
 title: 简介
 summary: 云帮简介
-toc: false
+toc: true
 toc_not_nested: true
 asciicast: true
 ---
-
-<div id="toc"></div>
 
 
 ## Rainbond是什么

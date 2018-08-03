@@ -1,10 +1,8 @@
 ---
 title: Golang源码创建
 summary: 通过Golang源码创建
-toc: false
+toc: true
 ---
-
-<div id="toc"></div>
 
 Go，又称golang，是Google开发的一种静态强类型、编译型，并发型，并具有垃圾回收功能的编程语言。通过云帮您可以轻松部署和扩展Go应用。无论你是喜欢`Beego`框架,还是`Martini`等框架，云帮都会让您以喜欢的方式来构建应用。
 

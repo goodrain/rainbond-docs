@@ -1,12 +1,10 @@
 ---
 title: 配置静态IP
 summary: rainbond，静态IP
-toc: false
+toc: true
 toc_not_nested: true
 asciicast: true
 ---
-
-<div id="toc"></div>
 
 ## 1、Centos设置
 

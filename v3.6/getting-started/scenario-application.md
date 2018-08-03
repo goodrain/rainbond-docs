@@ -1,7 +1,7 @@
 ---
 title: 应用全生命周期解决方案
 summary: 应用全生命周期解决方案
-toc: false
+toc: true
 toc_not_nested: true
 asciicast: true
 ---

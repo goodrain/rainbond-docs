@@ -1,11 +1,9 @@
 ---
 title: 对接Jenkins
 summary: 以Jenkins为例，将传统应用部署到云帮
-toc: false
+toc: true
 asciicast: true
 ---
-
-<div id="toc"></div>
 
 # 对接Jenkins
 如果您现在已经有了自己的CI工作流程，并且想在云帮中持续部署您的应用，那么本文将引导您将自己的应用部署到云帮并设置持续部署。考虑到Jenkins是目前主流的持续集成工具，并且它在源码测试和Pipline方面已经做得非常成熟，所以我提供了针对Jenkins的集成方案。

@@ -1,5 +1,6 @@
 {
     "title": "视频指南",
+    "is_top_level": true,
     "items": [
         {
             "title": "Rainbond设计思想",

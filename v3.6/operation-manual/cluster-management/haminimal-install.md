@@ -1,9 +1,8 @@
 ---
 title: 安装最小化高可用集群
 summary: 介绍一种符合第二级高可用的云帮架构
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
 ##一、设计初衷
 

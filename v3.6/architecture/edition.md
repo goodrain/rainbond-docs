@@ -1,7 +1,7 @@
 ---
 title: Rainbond功能列表
 summary: 功能列表
-toc: false
+toc: true
 toc_not_nested: true
 asciicast: true
 ---
@@ -10,9 +10,6 @@ asciicast: true
     <a href="roadmap.html"><button class="filter-button">开发计划</button></a>
     <a href="release-cycle.html"><button class="filter-button">发布周期</button></a>
 </div>
-
-<div id="toc"></div>
-
 
 Rainbond 包含了众多的功能特性，下面是详细的功能对比表：
 

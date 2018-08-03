@@ -1,11 +1,10 @@
 ---
 title: GlusterFS基准测试
 summary: GlusterFS基准测试
-toc: false
+toc: true
 asciicast: true
 ---
 
-<div id="toc"></div>
 
 ##一、 GlusterFS基准测试
 

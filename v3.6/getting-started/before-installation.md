@@ -1,7 +1,7 @@
 ---
 title: 安装前准备
 summary: 在安装云帮之前需要了解云帮所需要的系统级配置需求。
-toc: false
+toc: true
 toc_not_nested: true
 asciicast: true
 ---

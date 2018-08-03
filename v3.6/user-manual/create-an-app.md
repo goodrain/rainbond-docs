@@ -1,7 +1,7 @@
 ---
 title: 创建一个应用
 summary: rainbond，创建应用
-toc: false
+toc: true
 ---
 
 <div id="toc"></div>

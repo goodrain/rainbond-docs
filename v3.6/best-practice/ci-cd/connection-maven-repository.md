@@ -1,11 +1,9 @@
 ---
 title: 对接Maven仓库
 summary: 讲解如何对接云帮外部的Maven仓库和使用云帮内部的Maven仓库
-toc: false
+toc: true
 asciicast: true
 ---
-
-<div id="toc"></div>
 
 ## 概述
 

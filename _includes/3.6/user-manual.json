@@ -1,5 +1,6 @@
 {
     "title": "用户手册",
+    "is_top_level": true,
     "items": [
         {
             "title": "创建一个应用",

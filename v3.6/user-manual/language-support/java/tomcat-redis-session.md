@@ -1,9 +1,9 @@
 ---
 title: Tomcat配置Redis实现Session共享
 summary: how-to-use-rainbond
-toc: false
+toc: true
 ---
-<div id="toc"></div>
+
 为了使您的应用承受更多的并发，提高应用稳定性，您需要在适当情况下进行扩容。每个节点下的Tomcat只存储来访问自己的请求时产生的session，为了解决扩容后session持久化的问题，我们提供 **Java的War包项目使用Tomcat配置Redis实现Session共享** 解决方案，将您session储存在redis中来保证您应用程序稳定性。如图所示：
 
 <center><img src="https://static.goodrain.com/images/acp/docs/code-docs/java/java-session-redis.png" width="50%"/></center>
