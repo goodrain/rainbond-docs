@@ -63,11 +63,11 @@ About application manage
 
 About Security policy upgrade
 - [ ] Region api support TLS Two-way authentication
-- [ ] [UI] support user registration for secondary verification by manager.
+- [x] [UI] support user registration for secondary verification by manager.
 
 About install
 - [ ] Support complete offline installation
-- [ ] Support install mulit manage nodes
+- [x] Support install mulit manage nodes
 
 
 ## V5.0
