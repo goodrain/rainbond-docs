@@ -1,9 +1,9 @@
 ---
 title: 使用Beego等框架
 summary: 使用Beego等框架
-toc: false
+toc: true
 ---
-<div id="toc"></div>
+
 ## 前提说明
 
 - 应用监听的网络默认为`0.0.0.0`，而不是`localhost`(`127.0.0.1`)。

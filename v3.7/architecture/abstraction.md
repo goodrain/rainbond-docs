@@ -1,7 +1,7 @@
 ---
 title: Rainbond产品抽象
 summary: Rainbond产品抽象
-toc: false
+toc: true
 toc_not_nested: true
 asciicast: true
 ---
@@ -9,8 +9,6 @@ asciicast: true
     <a href="design-concept.html"><button class="filter-button">设计思想</button></a>
     <a href="abstraction.html"><button class="filter-button current"><strong>产品抽象</strong></button></a>
 </div>
-
-<div id="toc"></div>
 
 本文介绍Rainbond几个核心抽象：
 

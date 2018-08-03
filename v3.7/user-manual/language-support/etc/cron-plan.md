@@ -1,10 +1,10 @@
 ---
 title: Cron计划任务
 summary: Cron计划任务
-toc: false
+toc: true
 ---
-<div id="toc"></div>
-&emsp;&emsp;云帮应用的计划任务功能目前处于beta阶段，完全兼容crontab的计划任务格式。本文介绍的内容可能在以后的产品升级中废除或改进，但已经部署的计划任务应用不会受到影响。
+
+云帮应用的计划任务功能目前处于beta阶段，完全兼容crontab的计划任务格式。本文介绍的内容可能在以后的产品升级中废除或改进，但已经部署的计划任务应用不会受到影响。
 ## 实现原理
 云帮的计划任务应用和传统的Linux计划任务实现是一致的，同样使用 crontab 格式的文件，配合cron程序来执行特定的任务。同样与代码部署的逻辑一致，只需要将crontab 格式的计划任务文件放在代码跟目录即可。
 <center><img src="https://static.goodrain.com/images/acp/docs/code-docs/lang-etc-cron-plan.png" style="border:1px solid #eee;max-width:70%"></center>

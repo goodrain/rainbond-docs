@@ -1,9 +1,8 @@
 ---
 title: 通过Node.JS源码创建
 summary: 通过Node.JS源码创建
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
 ## 一、代码识别
 

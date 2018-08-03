@@ -1,20 +1,33 @@
 
     {
         "title": "微服务架构",
+        "is_top_level": true,
         "items": [
             {
-                "title": "RainbondServiceMesh架构",
+                "title": "Spring Cloud",
+                "urls": [
+                    "/${VERSION}/microservice/spring-cloud/spring-cloud.html"
+                ]
+            },
+            {
+                "title": "Service Mesh",
                 "urls": [
                     "/${VERSION}/microservice/service-mesh/overview.html"
                 ]
             },
             {
-                "title": "其他微服务架构",
+                "title": "Dubbo",
                 "urls": [
-                    "/${VERSION}/microservice/dubbo/dubbo-overview.html",
-                    "/${VERSION}/microservice/spring-cloud/spring-cloud.html",
+                    "/${VERSION}/microservice/dubbo/dubbo-overview.html"
+                ]
+            },
+            {
+                "title": "Kong(API Gateway)",
+                "urls": [
                     "/${VERSION}/microservice/kong/kong.html"
                 ]
             }
         ]
     }
+
+    

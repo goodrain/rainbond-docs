@@ -1,5 +1,6 @@
     {
         "title": "平台维护",
+        "is_top_level": true,
         "items": [{
                 "title": "概览",
                 "urls": [

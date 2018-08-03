@@ -1,10 +1,9 @@
 ---
 title: Minio的部署与使用
 summary: 介绍minio、云帮部署minio、mc使用
-toc: false
+toc: true
 ---
 
-<div id="toc"></div>
 
 ## 概述
 

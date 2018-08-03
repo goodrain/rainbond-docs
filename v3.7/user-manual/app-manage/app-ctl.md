@@ -5,8 +5,6 @@ toc: true
 asciicast: true
 ---
 
-<div id="toc"></div>
-
 本文讲解应用的行为，也就是说用户可以对应用做哪些控制。
 
 ## 一、应用基本操作

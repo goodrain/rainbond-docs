@@ -1,10 +1,10 @@
 ---
 title: 高级环境变量配置
 summary: 高级环境变量配置
-toc: false
+toc: true
 ---
 
-<div id="toc"></div>
+
 Rainbond平台默认注入以下环境变量信息以供应用使用：
 
 | 变量名 | 变量值 | 说明 |

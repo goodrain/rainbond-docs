@@ -1,12 +1,10 @@
 ---
 title: 增加NFS挂载服务的并发数量
 summary: 增加NFS挂载服务的并发数量
-toc: false
+toc: true
 toc_not_nested: true
 asciicast: true
 ---
-
-<div id="toc"></div>
 
 - 编辑`/etc/sysctl.conf`文件，添加如下内容：
 

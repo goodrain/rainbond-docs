@@ -5,8 +5,6 @@ toc: true
 asciicast: true
 ---
 
-<div id="toc"></div>
-
 数据库的备份与恢复插件基于 [Percona XtraBackup](https://www.percona.com/software/mysql-database/percona-xtrabackup) 实现，支持 MySQL 数据库物理热备与完全恢复。
 
 目前此插件处于alpha版本。

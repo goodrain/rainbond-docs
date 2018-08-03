@@ -1,10 +1,8 @@
 ---
 title: 产品相关-常见问题
 summary: 云帮产品设计、理念、发展方向相关的常见问题。
-toc: false
+toc: true
 ---
-
-<div id="toc"></div>
 
 ### 云帮开源版的定位是什么？
 

@@ -1,9 +1,8 @@
 ---
 title: Procfile文件
 summary: profile
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
 Procfile是一种帮助用户在云帮上将自己编写的程序运行起来的描述文件。目前云帮只支持web类型的用户代码，后续会增加worker，clock等等各种类型的应用。
 

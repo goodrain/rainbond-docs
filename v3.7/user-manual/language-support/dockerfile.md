@@ -1,10 +1,8 @@
 ---
 title: 通过Dockerfile源码创建应用
 summary: 通过Dockerfile源码创建
-toc: false
+toc: true
 ---
-
-<div id="toc"></div>
 
 ## 一、代码识别
 

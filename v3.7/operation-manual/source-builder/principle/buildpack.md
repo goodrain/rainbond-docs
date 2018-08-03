@@ -1,9 +1,10 @@
 ---
 title: Buildpack
 summary: 构建组件
-toc: false
+toc: true
 ---
-&emsp;&emsp;Buildpack为应用程序提供框架和运行时支持。buildpack目录至少含有一个`/bin`目录，并且`/bin`下需要含有三个文件：`detect`、`compile`和`release`，且文件名固定。
+
+Buildpack为应用程序提供框架和运行时支持。buildpack目录至少含有一个`/bin`目录，并且`/bin`下需要含有三个文件：`detect`、`compile`和`release`，且文件名固定。
 
 ## detect
 

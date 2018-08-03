@@ -1,7 +1,7 @@
 ---
 title: Rainbond开源用户支持
 summary: Rainbond开源用户支持
-toc: false
+toc: true
 ---
 
 Rainbond开源用户可以通过如下渠道获取社区支持：

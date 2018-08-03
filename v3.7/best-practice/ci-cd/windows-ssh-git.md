@@ -1,12 +1,9 @@
 ---
 title: Windows配置SSH公钥连接Git
 summary: 讲解如何在windows下配置SSH连接GitHub
-toc: false
+toc: true
 asciicast: true
 ---
-
-<div id="toc"></div>
-
 
 ## 一、安装Git
 

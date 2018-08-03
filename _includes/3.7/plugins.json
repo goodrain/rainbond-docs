@@ -1,5 +1,6 @@
 {
     "title": "插件管理",
+    "is_top_level": true,
     "items": [
         {
             "title": "插件设计与开发",

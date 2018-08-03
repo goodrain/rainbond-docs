@@ -1,5 +1,6 @@
 {
     "title": "快速开始",
+    "is_top_level": true,
     "items": [
         {
             "title": "概述",
@@ -29,7 +30,8 @@
         {
             "title": "Roadmap",
             "urls": [
-                "/${VERSION}/architecture/roadmap.html"
+                "/${VERSION}/architecture/roadmap.html",
+                "/${VERSION}/architecture/release-cycle.html"
             ]
         }
     ]

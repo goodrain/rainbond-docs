@@ -1,15 +1,13 @@
 ---
 title: 插件设计与开发
 summary: 分类讲解插件的制作流程
-toc: false
+toc: true
 asciicast: true
 ---
 
 <div class="filters filters-big clearfix">
     <a href="plugin-design-develop.html"><button class="filter-button">入口网络插件</button></a>
 </div>
-
-<div id="toc"></div>
 
 ## 什么是入口网络插件
 入口网络插件是指云帮中为用户提供的一系列应用增强功能，比如，当我们部署了一个web应用后，我们不希望有不合法的请求（比如SQL注入）到达web中，这时我们可以为web应用安装一个安全插件，用来控制所有访问web的请求，就像是一个入口控制器，所以我们把这类插件叫做入口网络插件。

@@ -1,12 +1,9 @@
 ---
 title: GlusterFS维护
 summary: GlusterFS维护
-toc: false
+toc: true
 asciicast: true
 ---
-
-<div id="toc"></div>
-
 
 ##一、 GlusterFS卷维护
 

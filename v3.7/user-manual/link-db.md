@@ -1,10 +1,8 @@
 ---
 title: 连接数据库
 summary: 连接数据库
-toc: false
+toc: true
 ---
-
-<div id="toc"></div>
 
 
 ## 一、连接MySQL

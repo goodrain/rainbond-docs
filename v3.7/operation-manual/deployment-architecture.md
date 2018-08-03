@@ -1,10 +1,8 @@
 ---
 title: 平台部署结构
 summary: 平台服务及部署结构
-toc: false
+toc: true
 ---
-
-<div id="toc"></div>
 
 Rainbond是一套完整的PaaS，包含了众多的服务组件，按功能可分为不同的集群角色。
 

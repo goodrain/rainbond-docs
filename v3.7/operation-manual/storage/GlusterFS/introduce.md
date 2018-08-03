@@ -1,11 +1,9 @@
 ---
 title: GlusterFS介绍
 summary: GlusterFS介绍
-toc: false
+toc: true
 asciicast: true
 ---
-
-<div id="toc"></div>
 
 
 ##一、 介绍

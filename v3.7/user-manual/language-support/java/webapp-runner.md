@@ -1,9 +1,8 @@
 ---
 title: Webapp Runner
 summary: how-to-use-rainbond
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
 Webapp Runner可以在任何安装有JRE环境的系统中利用Tomcat将应用程序启动。使用Webapp Runner不需要安装Tomcat。它只是一个jar文件可以用`java`命令运行和配置。
 

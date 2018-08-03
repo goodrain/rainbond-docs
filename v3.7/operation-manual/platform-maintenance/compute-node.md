@@ -1,10 +1,9 @@
 ---
 title: 计算节点服务及维护方式
 summary: 计算节点服务，计算节点维护方式
-toc: false
+toc: true
 ---
 
-<div id="toc"></div>
 
 本文介绍了 [平台组件说明](../component-description.html) 中所列举出的计算节点服务的维护方式。
 

@@ -1,7 +1,7 @@
 ---
 title: 改进文档
 summary: 帮助我们完善文档，提交建议。
-toc: false
+toc: true
 ---
 
 Rainbond的这份文档也同样开源，我们欢迎热心的用户帮助我们完善与改进文档！

@@ -1,10 +1,8 @@
 ---
 title: 平台使用-常见问题
 summary: 云帮使用相关的常见问题。
-toc: false
+toc: true
 ---
-
-<div id="toc"></div>
 
 ### 云帮上的MySQL能否用MySQL-front这些软件直接访问？数据如何导入MySQL？
 

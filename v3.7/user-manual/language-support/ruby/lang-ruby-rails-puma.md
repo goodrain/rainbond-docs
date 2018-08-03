@@ -1,9 +1,8 @@
 ---
 title: 使用Puma部署Rails应用
 summary: 使用Puma部署Rails应用
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
 ## 前言
 

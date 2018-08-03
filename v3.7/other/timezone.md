@@ -1,11 +1,10 @@
 ---
 title: 配置时区与时间同步
 summary: rainbond，时区，时间同步
-toc: false
+toc: true
 toc_not_nested: true
 asciicast: true
 ---
-<div id="toc"></div>
 下面会分别说明CentOS系统和Ubuntu系统下服务器同步标准时间的方法:
 
 ## CentOS系统同步时间的方法 

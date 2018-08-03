@@ -1,7 +1,7 @@
 ---
 title: 集群部署原理
 summary: rainbond集群部署原理
-toc: false
+toc: true
 ---
 
 ## 使用Salt配置安装Rainbond

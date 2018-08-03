@@ -5,7 +5,6 @@ toc: true
 asciicast: true
 ---
 
-<div id="toc"></div>
 
 本文讲解与应用相关的属性及名词，从而让你更清晰的了解应用的概念。
 

@@ -1,12 +1,11 @@
 ---
 title: 调整内核参数
 summary: 调整内核参数
-toc: false
+toc: true
 toc_not_nested: true
 asciicast: true
 ---
 
-<div id="toc"></div>
 
 - 编辑`/etc/sysctl.conf`文件，添加如下内容:
 

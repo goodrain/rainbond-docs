@@ -1,10 +1,8 @@
 ---
 title: 命令行工具
 summary: 命令行工具说明
-toc: false
+toc: true
 ---
-
-<div id="toc"></div>
 
 ## 一、grctl 命令
 

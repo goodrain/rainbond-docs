@@ -1,11 +1,10 @@
 ---
 title: 云帮部署Play框架
 summary: 由于Play1.x版本不支持Scala语言，所以云帮支持的Play框架版本是基于Play2.x版本。Scala语言支持已经介绍了如何识别Scala 语言以及Play框架，接下来让我为您介绍Play框架的运行条件。
-toc: false
+toc: true
 ---
-<div id="toc"></div>
 
-&emsp;&emsp;由于Play1.x版本不支持Scala语言，所以云帮支持的Play框架版本是基于Play2.x版本。[Scala语言支持](lang-scala-overview.html)已经介绍了如何识别Scala 语言以及Play框架，接下来让我为您介绍Play框架的运行条件。
+由于Play1.x版本不支持Scala语言，所以云帮支持的Play框架版本是基于Play2.x版本。[Scala语言支持](lang-scala-overview.html)已经介绍了如何识别Scala 语言以及Play框架，接下来让我为您介绍Play框架的运行条件。
 
 ## 启动
 

@@ -1,7 +1,7 @@
 ---
 title: 版本发布周期
 summary: 版本发布周期
-toc: false
+toc: true
 ---
 <div class="filters filters-big clearfix">
     <a href="edition.html"><button class="filter-button">功能列表</button></a>
