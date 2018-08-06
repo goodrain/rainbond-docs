@@ -34,15 +34,8 @@
 
     // 招聘
     {
-        "title": "招聘",
+        "title": "加入我们",
         "is_top_level": true,
-        "items": [
-            {
-                "title": "招聘岗位",
-                "urls": [
-                    "/${VERSION}/recruitment/list.html"
-                ]
-            }
-        ]
+        "urls": [ "/recruitment/join.html"]
     }
 ]
