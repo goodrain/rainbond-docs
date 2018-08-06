@@ -52,21 +52,21 @@ About system stability
 - [x] support for all node and management service health checks.
 - [x] support for automatic offline of major fault nodes.
 - [x] tenant resource statistics task single node run.
-- [ ] Support to set alarm rules and connect `Prometheus-Altermanager` alarm system
+- [x] Support to set alarm rules and connect `Prometheus-Altermanager` alarm system
 
 About application manage
 
 - [x] support .netcore(2.1) source code build application in linux os.
 - [x] support SVN code repository.
-- [ ] support application build automatically based on API ,`gitea webhook` and `gogs webhook` 
-- [ ] support application + plugin share to market
+- [x] support application build automatically based on API ,`gitea webhook` and `gogs webhook` 
+- [x] support application + plugin share to market
 
 About Security policy upgrade
-- [ ] Region api support TLS Two-way authentication
+- [x] Region api support TLS Two-way authentication
 - [x] [UI] support user registration for secondary verification by manager.
 
 About install
-- [ ] Support complete offline installation
+- [x] Support complete offline installation
 - [x] Support install mulit manage nodes
 
 
