@@ -289,10 +289,3 @@ public class ConsumerController {
 3. `hello?name=neo`和`hello/neo`添加在`访问`所产生的url后<br>
 
 之后组件的验证同理。
-
-
-
-## 其他微服务架构支持
-- [SpringCloud](https://www.rainbond.com/docs/stable/microservice/spring-cloud/spring-cloud.html)
-- [Dubbo](https://www.rainbond.com/docs/stable/microservice/dubbo/dubbo-deploy.html)
-- [API Gateway(Kong)](https://www.rainbond.com/docs/stable/microservice/kong/kong.html)

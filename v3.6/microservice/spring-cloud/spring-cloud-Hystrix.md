@@ -103,9 +103,3 @@ public interface HelloRemote {
 返回：`hello neo, this messge send failed`
 
 根据返回结果说明熔断成功。
-
-
-## 其他微服务架构支持
-- [SpringCloud](https://www.rainbond.com/docs/stable/microservice/spring-cloud/spring-cloud.html)
-- [Dubbo](https://www.rainbond.com/docs/stable/microservice/dubbo/dubbo-deploy.html)
-- [API Gateway(Kong)](https://www.rainbond.com/docs/stable/microservice/kong/kong.html)

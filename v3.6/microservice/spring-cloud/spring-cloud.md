@@ -35,20 +35,3 @@ Spring Cloud是一系列框架的有序集合。它利用Spring Boot的开发便
 
 本篇最佳实践示例源码：
 [源码](https://github.com/goodrain-apps/spring-cloud-demo.git)
-
-## 其他微服务架构支持
-- [SpringCloud](https://www.rainbond.com/docs/stable/microservice/spring-cloud/spring-cloud.html)
-- [Dubbo](https://www.rainbond.com/docs/stable/microservice/dubbo/dubbo-deploy.html)
-- [API Gateway(Kong)](https://www.rainbond.com/docs/stable/microservice/kong/kong.html)
-
-
-
-
-
-
-
-
-
-
-
-

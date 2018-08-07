@@ -82,9 +82,3 @@ Rainbond原生提供全量的ServiceMesh治理功能方案，同时提供了插�
 - 服务通信加密(TODO)
 
 - 分布式跟踪(TODO)
-
-## 其他微服务架构支持
-- [SpringCloud](https://www.rainbond.com/docs/stable/microservice/spring-cloud/spring-cloud.html)
-- [Dubbo](https://www.rainbond.com/docs/stable/microservice/dubbo/dubbo-deploy.html)
-- [API Gateway(Kong)](https://www.rainbond.com/docs/stable/microservice/kong/kong.html)
-

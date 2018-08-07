@@ -240,9 +240,3 @@ class HelloController {
 ```
 
 启动项目后访问：`http://localhost:8002/hello`，返回：`hello im dev update`说明已经正确的从server端获取到了参数。到此一个完整的服务端提供配置服务，客户端获取配置参数的例子就完成了。
-
-
-## 其他微服务架构支持
-- [SpringCloud](https://www.rainbond.com/docs/stable/microservice/spring-cloud/spring-cloud.html)
-- [Dubbo](https://www.rainbond.com/docs/stable/microservice/dubbo/dubbo-deploy.html)
-- [API Gateway(Kong)](https://www.rainbond.com/docs/stable/microservice/kong/kong.html)
