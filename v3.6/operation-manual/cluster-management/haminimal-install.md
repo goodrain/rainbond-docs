@@ -82,9 +82,9 @@ compute02:/gv0	/grdata	glusterfs	backupvolfile-server=compute01,use-readdirp=no,
 mount -a
 ```
 
-### 3.3配置rbd-lb
+### 3.3配置rbd-lb、rbd-dns
 
-修改rbd-lb组件的配置，需要修改rbd-entrance组件配置、自身配置文件、以及本地主机解析三个方面。
+修改rbd-lb组件的配置，需要修改rbd-entrance组件配置、自身配置文件、以及本地主机解析三个方面。修改rbd-dns配置，则需要修改kubelet的解析。
 
 - 修改管理节点rbd-entrance配置
 
@@ -117,12 +117,14 @@ mount -a
       
   ```
 
-- 将管理节点的lb.yaml复制到计算节点
+- 将管理节点的lb.yaml以及base.yaml复制到计算节点
 
   ```bash
   scp /opt/rainbond/compose/lb.yaml compute01:/opt/rainbond/compose
   scp /opt/rainbond/compose/lb.yaml compute02:/opt/rainbond/compose
   mv /opt/rainbond/compose/lb.yaml /opt/rainbond/compose/lb.yaml.bak
+  scp /opt/rainbond/compose/base.yaml compute01:/opt/rainbond/compose
+  scp /opt/rainbond/compose/base.yaml compute02:/opt/rainbond/compose
   ```
 
 - 将管理节点的配置文件目录拷贝到计算节点
@@ -160,10 +162,55 @@ mount -a
   <VIP> goodrain.me lang.goodrain.me maven.goodrain.me
   ```
 
-- 重新启动rainbond
+- 修改计算节点base.yaml配置文件
 
 ```bash
+#compute01&02
+vi /opt/rainbond/compose/base.yaml
+#仅保留如下段落
+rbd-dns:
+    image: rainbond/rbd-dns:3.6
+    container_name: rbd-dns
+    mem_limit: 1024M
+   environment:
+      - VERBOSE=true
+    command:
+    - --kubecfg-file=/etc/kubernetes/admin.kubeconfig
+    - --v=3
+    - --healthz-port=8089
+    - --nameservers=8.8.8.8,1.2.4.8
+    - --recoders=goodrain.me=10.141.161.106,*.goodrain.me=10.141.161.106
+    volumes:
+    - /opt/rainbond/etc/kubernetes/kubecfg:/etc/kubernetes
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+        max-file: '3'
+    network_mode: host
+    restart: always
+```
+
+- 修改计算节点kubelet环境配置文件，更改dns解析参数
+
+```bash
+#compute01&02
+vi /opt/rainbond/envs/kubelet.sh
+#修改如下
+HOST_UUID=13dd8356-1dd2-11b2-a30d-000000821800
+DNS_SERVERS=10.141.161.107,10.141.161.108 #修改为两计算节点IP
+HOST_IP=10.141.161.107
+REG="false"
+```
+
+- 重新启动rainbond以及kubelet
+
+```bash
+#manage01
 dc-compose up -d --remove-orphans
+#compute01&02
+dc-compose up -d 
+systemctl restart kubelet
 ```
 
 ###3.4 配置VIP
