@@ -15,7 +15,7 @@ asciicast: true
 ## 系统需求
 | 系统   | 版本  | 说明           |
 | :----- | :---- | :------------- |
-| CentOS | 7.*   | 64位，推荐安装(7.3.1611) |
+| CentOS | 7.3/7.4   | 64位，推荐安装(7.3.1611) |
 | Debian | 9  | 64位           |
 | Ubuntu | 16.04 | 64位           |
 
@@ -111,9 +111,9 @@ dns 配置建议使用 114.114.114.114等国内dns server
 ```
 # centos
 yum makecache
-yum install htop -y
+yum install crul git -y
 
 # debian/ubuntu
 apt update
-apt install htop -y
+apt install curl git -y
 ```

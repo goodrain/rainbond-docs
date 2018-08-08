@@ -21,28 +21,28 @@ asciicast: true
 
 | 版本|说明|
 |--------|---------|
+|Dev v3.7.0rc|当前最新版本|
 |Stable v3.6.1|当前稳定版本，只修复Bug，不做功能更新，生产环境推荐使用|
 
-## 二、一键部署Rainbond
+
+## 二、一键部署
 
 一键部署Rainbond是为了简化Rainbond安装步骤，通过shell脚本将Rainbond及其所需要的组件，统一进行安装及配置。用户仅需要简单的配置相关参数，运行shell命令即可。一键部署Rainbond适合仅简单了解Rainbond架构，想迅速搭建Rainbond的人群。
 
 ```bash
-# git clone
-git clone --depth 1 -b v3.6 https://github.com/goodrain/rainbond-install.git
-# 或者下载压缩包
-wget https://github.com/goodrain/rainbond-install/archive/v3.6.zip
-unzip v3.6.zip
-# 克隆或解压后，切换到云帮安装目录
-cd rainbond-install*
-# 执行安装命令
-./setup.sh install
-# 完成安装后可通过访问管理控制台,默认第一个注册用户为平台管理员
-http://<your ip>:7070
+## 方法一
+wget https://pkg.rainbond.com/releases/common/v3.7.0rc/grctl
+chmod +x ./grctl
+./grctl init
+
+## 方法二
+git clone --depth 1 -b v3.7 https://github.com/goodrain/rainbond-install.git
+cd rainbond-install
+./setup.sh
 ```
 
 {{site.data.alerts.callout_danger}}
-在安装过程中如遇到提示salt命令未找到，或者Minion did not return.[No response],请参考[安装问题排查](../operation-manual/trouble-shooting/install-issue.html),或者联系我们协助。
+3.7版本安装有所调整,主要将镜像拉取集中到一步，导致这步耗时比较长, 正常情况下大概需要8-20分钟。如果这步出现报错，请重新执行安装命令，如有其他报错，请与我们反馈 [Github](https://github.com/goodrain/rainbond-install/issues/new?template=install-error-report.md)。
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_success}}
@@ -53,8 +53,16 @@ http://<your ip>:7070
 {{site.data.alerts.end}}
 
 
-## 三、分步部署Rainbond
+## 三、分步部署
 
 分步部署Rainbond是分组件一步一步的安装Rainbond及所需组件，用户可以定制相关的安装。分步部署Rainbond适合非常了解Rainbond架构，需要定制部署Rainbond的人群。
 
-具体安装流程请参考[分步部署](../operation-manual/setup/part-salt.html)
+具体安装流程请参考[分步部署](../operation-manual/install/step/part-salt.html)
+
+## 四、离线部署
+
+离线安装具体流程请参考[离线部署](../operation-manual/install/offline/setup.html)
+
+## 五、源码部署
+
+从源码安装具体流程请参考[源码部署](../operation-manual/install/source/setup.html)
