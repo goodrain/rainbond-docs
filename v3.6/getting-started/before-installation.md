@@ -90,10 +90,7 @@ dns 配置建议使用 114.114.114.114等国内dns server
 | AWS | 中国 | 测试通过          |
 | vultr | 日本 | 测试通过          |
 | 滴滴云 | 中国  | 测试通过           |
-
-{{site.data.alerts.callout_danger}}
-目前：华为云存在如下问题：机器重启较大概率可能造成机器无法正常启动访问。如需协助，请[issue](https://github.com/goodrain/rainbond-install/issues/new)或者联系在线客服寻求协助。
-{{site.data.alerts.end}}
+| 华为云| 中国 | 安装完成后请确保NetworkManager是开机启动的|
 
 ## 自定义配置项说明
 
