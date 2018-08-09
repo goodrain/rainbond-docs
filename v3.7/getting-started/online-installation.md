@@ -40,6 +40,14 @@ git clone --depth 1 -b v3.7 https://github.com/goodrain/rainbond-install.git
 cd rainbond-install
 ./setup.sh
 ```
+安装完成后检查,当所有项目都是健康状态时平台即可正常使用。
+```
+# 集群整体状态
+grctl cluster
+
+# 集群节点状态
+grctl node list
+```
 
 {{site.data.alerts.callout_danger}}
 3.7版本安装有所调整,主要将镜像拉取集中到一步，导致这步耗时比较长, 正常情况下大概需要8-20分钟。如果这步出现报错，请重新执行安装命令，如有其他报错，请与我们反馈 [Github](https://github.com/goodrain/rainbond-install/issues/new?template=install-error-report.md)。
