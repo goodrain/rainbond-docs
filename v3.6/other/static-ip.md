@@ -18,6 +18,7 @@ ONBOOT=yes
 BOOTPROTO=static
 IPADDR=192.168.1.100
 NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
  ```
  
  {{site.data.alerts.callout_danger}}    
