@@ -17,18 +17,18 @@ asciicast: true
 
 针对不同类型的应用，触发 `重新部署` 操作后，有着不同的含义，下表针对不同类型的应用加以说明：
 
-| 应用类型 | 说明|
-|-------------|---------------|
-| 各语言源代码|拉取最新源代码，通过[rbd-chaos](../../architecture/architecture.html#chaos-ci)调用[builder](https://github.com/goodrain/builder)进行构建，上线应用|
-| Dockerfile源码| 拉取最新源代码，通多docker build 创建Docker镜像，push镜像到内部镜像仓库，上线应用|
-| Docker镜像| 重新拉取指定镜像地址的镜像，推送到本地镜像仓库，上线应用 |
-| 云市应用| 重新拉取云市应用镜像/应用包，推送到本地镜像仓库，上线应用 |
+| 应用类型        | 说明                                                                                                                                               |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 各语言源代码    | 拉取最新源代码，通过[rbd-chaos](../../architecture/architecture.html#chaos-ci)调用[builder](https://github.com/goodrain/builder)进行构建，上线应用 |
+| Dockerfile 源码 | 拉取最新源代码，通多 docker build 创建 Docker 镜像，push 镜像到内部镜像仓库，上线应用                                                              |
+| Docker 镜像     | 重新拉取指定镜像地址的镜像，推送到本地镜像仓库，上线应用                                                                                           |
+| 云市应用        | 重新拉取云市应用镜像/应用包，推送到本地镜像仓库，上线应用                                                                                          |
 
 {{site.data.alerts.callout_info}}
 
-- Dockerfile源码类应用就是将Dockerfile及所需要的文件放到Git仓库，通过源代码创建的应用。
+- Dockerfile 源码类应用就是将 Dockerfile 及所需要的文件放到 Git 仓库，通过源代码创建的应用。
 - 重新部署后，如果一切顺利，应用会自动切换为新版本并上线，即使代码没有更新，也会触发应用滚动上线的流程。
-- 单节点应用重新部署后服务会有3~10秒的中断（根据应用启动时间），多节点应用服务不受影响。
+- 单节点应用重新部署后服务会有 3~10 秒的中断（根据应用启动时间），多节点应用服务不受影响。
 - 处于关闭状态的应用，触发重新部署操作后，如果构建正常，平台会将应用运行起来。
 
 {{site.data.alerts.end}}
@@ -42,11 +42,10 @@ asciicast: true
 启动后可以在应用概览页面的 `操作日志` 看到平台调度与处理服务的详细操作日志，当调度完成后，应用就进入启动阶段，这时候可以通过 `日志` 页面查看应用的启动日志。
 
 - 应用概览页的操作日志
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-start-log01.png" width="100%" />
+  <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-start-log01.png" width="100%" />
 
-
-- 应用日志页面
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-start-log02.png" width="100%" />
+* 应用日志页面
+  <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-start-log02.png" width="100%" />
 
 ### 1.3 关闭
 
@@ -58,12 +57,12 @@ asciicast: true
 
 > 使用场景：运行中或运行异常的应用
 
-触发重启操作后，平台会将现有的应用重启，对应后端的操作是，先关闭，再启动。
+触发重启操作后，平台会将现有的应用重启，对于无状态应用，重启过程滚动进行，有状态应用，将关闭全部实例后再启动。
 
 {{site.data.alerts.callout_danger}}
 
 - 重启应用并不会更新应用代码或镜像，需要和`重新部署`操作区分。
-- 重启操作会中断应用的服务。
+- 重启操作会中断有状态应用和单节点无状态应用的服务。
 
 {{site.data.alerts.end}}
 
@@ -73,22 +72,22 @@ asciicast: true
 
 针对不同协议的应用，点击访问按钮后所触发的命令也不一样：
 
-| 应用协议| 点击访问按钮后的操作|
-|--------|-------------------|
-| HTTP| 浏览器新开窗口，打开应用的默认域名，如果绑定多个域名，会显示域名列表供用户选择|
-| TCP | 弹出访问信息窗口|
+| 应用协议 | 点击访问按钮后的操作                                                           |
+| -------- | ------------------------------------------------------------------------------ |
+| HTTP     | 浏览器新开窗口，打开应用的默认域名，如果绑定多个域名，会显示域名列表供用户选择 |
+| TCP      | 弹出访问信息窗口                                                               |
 
-- HTTP协议应用
+- HTTP 协议应用
 
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-open-http.gif" width="85%" />
 
-- TCP协议应用
+- TCP 协议应用
 
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-open-tcp.gif" width="85%" />
 
 ## 二、回滚应用到指定版本
 
-应用每次成功部署后，都会生成一个应用版本，每个版本对应一次代码提交（基于源码创建），或者一个镜像（Docker镜像创建）。
+应用每次成功部署后，都会生成一个应用版本，每个版本对应一次代码提交（基于源码创建），或者一个镜像（Docker 镜像创建）。
 
 通过 `构建版本管理` 功能，可以将应用回滚到指定版本。
 
@@ -96,23 +95,21 @@ asciicast: true
 
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-rollback01.png" width="100%" />
 
-
 - 回滚到指定版本
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-rollback02.png" width="100%" />
+  <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-rollback02.png" width="100%" />
 
 {{site.data.alerts.callout_danger}}
 
 - 回滚操作是关闭现有版本应用，再启动其他版本应用的过程，本质上是一个应用重启的操作，因此针对单节点应用会中断服务。
-- 多节点应用回滚操作采用滚动升级方式，因此时不会影响服务，但会有较短的时间同时存在2种版本的情况。
+- 多节点应用回滚操作采用滚动升级方式，因此时不会影响服务，但会有较短的时间同时存在 2 种版本的情况。
 
 {{site.data.alerts.end}}
-
 
 ## 三、伸缩应用
 
 平台应用有两种伸缩方式：
 
-- 垂直伸缩：增加或减少应用的内存（应用CPU与内存是联动的，按照一定的[比例调整](#3-1-cpu)）
+- 垂直伸缩：增加或减少应用的内存（应用 CPU 与内存是联动的，按照一定的[比例调整](#3-1-cpu)）
 - 水平伸缩：增加或减少应用的实例数
 
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-scaling01.png" width="100%" />
@@ -124,21 +121,18 @@ asciicast: true
 
 {{site.data.alerts.end}}
 
-
-### 3.1 垂直伸缩CPU与内存比例关系
+### 3.1 垂直伸缩 CPU 与内存比例关系
 
 | 申请值比例（CPU/内存） | 限制值比例（CPU/内存) |
-|-----------------------|---------|
-|0.24/1|1.28/1|
+| ---------------------- | --------------------- |
+| 0.24/1                 | 1.28/1                |
 
 {{site.data.alerts.callout_info}}
 
-- Kubernetes 针对CPU和内存分为申请值与限制值，详情参见: [管理容器的计算资源](https://kubernetes.io/cn/docs/concepts/configuration/manage-compute-resources-container/)
-- 平台目前调整的CPU与内存占比是经过生产环境验证过，目前平台还没有提供修改占比的方式。
+- Kubernetes 针对 CPU 和内存分为申请值与限制值，详情参见: [管理容器的计算资源](https://kubernetes.io/cn/docs/concepts/configuration/manage-compute-resources-container/)
+- 平台目前调整的 CPU 与内存占比是经过生产环境验证过，目前平台还没有提供修改占比的方式。
 
 {{site.data.alerts.end}}
-
-
 
 ## 四、添加应用存储
 
@@ -146,7 +140,7 @@ asciicast: true
 
 应用是平台的抽象概念，底层是通过容器封装运行起来的，容器默认是没有存储的，也就是说，在容器中的程序在运行过程中的日志、生成或处理的文件，一旦容器关闭或重启，之前生成或存储的文件就丢失了。
 
-因此，为了保存程序运行中的文件，需要给容器挂载一个存储，在rainbond中，只要给应用挂载一个存储，即使应用水平扩展几十上百个节点，平台都会自动挂载。
+因此，为了保存程序运行中的文件，需要给容器挂载一个存储，在 rainbond 中，只要给应用挂载一个存储，即使应用水平扩展几十上百个节点，平台都会自动挂载。
 
 ### 4.2 如何为应用添加存储
 
@@ -166,7 +160,6 @@ asciicast: true
 
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-storage03.png" width="100%" />
 
-
 - <b>(2) 挂载其他应用的存储</b>
 
 在【存储】页面找到 【挂载目录】
@@ -182,7 +175,7 @@ asciicast: true
 {{site.data.alerts.callout_danger}}
 
 - 新增或挂载其他应用的存储后，需要重启应用。
-- 新增或挂载其他应用存储时，本应用的路径不能使用Linux系统保留目录，如：/dev、/usr、/bin、/sys、/proc 等
+- 新增或挂载其他应用存储时，本应用的路径不能使用 Linux 系统保留目录，如：/dev、/usr、/bin、/sys、/proc 等
 
 {{site.data.alerts.end}}
 
@@ -290,7 +283,7 @@ spring:
 
 其他各类语言都有获取环境变量的方法，如果不想用环境变量，也可以使用直接变量值，但按照<a href="https://12factor.net/zh_cn/config" target="_blank">十二要素</a>原则，我们不推荐使用硬编码的方式连接应用。
 
-## 进入容器命令行
+## 七、进入容器命令行
 
 运行起来的应用后端都是由容器提供的，平台提供了通过浏览器的方式登录到应用容器命令行的方式。当应用正常启动后，可以通过【管理容器】按钮，选择某个节点，进入到容器命令行：
 
@@ -303,8 +296,138 @@ spring:
 
 {{site.data.alerts.end}}
 
-## 查看应用日志
+## 八、查看应用日志
 
-## 应用高级设置
+当应用创建完成后，会有两种日志与该应用有关：
 
-## 删除应用
+- 操作日志：显示应用的构建及操作信息，应用的回滚也在这里完成。
+- 应用输出日志：应用运行后输出到<a href="https://baike.baidu.com/item/stdout" target="_blank">标准输出(stdout)</a>和<a href="https://baike.baidu.com/item/stderr" target="_blank">标准错误输出(stderr)</a>的日志。
+
+详细文档参考：<a href="../view-app-logs.html" target="_blank">查看应用日志</a>
+
+## 九、应用高级设置
+
+应用的其他功能，包括更多的应用信息、自动部署、健康检查等高级功能都在 应用的 【设置】页面中，下文会对每一块功能做详细介绍。
+
+### 9.1 应用基础信息
+
+应用基础信息显示了应用当前的版本信息、来源及状态，不同类型的应用显示的内容也会有所不同，下面针对不同类型的应用分别介绍：
+
+<table>
+<thead>
+<tr>
+<th >Docker镜像</th>
+<th >源码构建应用</th>
+<th >云市应用</th>
+</tr>
+</thead>
+<tr>
+<td><img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/img-info.png" width=100%/></td>
+<td><img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/source-info.png" width=100%/></td>
+<td><img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/appstore-info.png" width=100%/></td> 
+</tr>
+</table>
+
+{{site.data.alerts.callout_info}}
+
+- 只有通过源码构建的应用才显示Git/Svn仓库地址和分支信息
+- Docker镜像、Docker Run命令和Docker compose的方式创建的应用会显示镜像地址和版本
+
+{{site.data.alerts.end}}
+
+### 9.2 自动部署
+
+目前自动部署支持通过Git仓库源码创建的应用，后续会提供Svn仓库、Docker镜像仓库的自动部署功能。
+
+在应用【设置】页面，自动部署区域，点击【开启自动部署】按钮后，会提示类似如下信息：
+
+<center>
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/auto-deploy.png" width="80%" />
+</center>
+
+详细文档请参考: [应用持续构建与部署](../../best-practice/ci-cd/auto-deploy.html)
+
+### 9.3 自定义环境变量
+
+当你通过应用【设置】中的自定义环境变量，添加变量时，应用下次启动会加载这些环境变量。
+
+通常情况下，我们将配置信息写到配置文件中供程序读取使用，在Rainbond平台中，我们<b>极力推荐</b>使用环境变量的方式来代替传统的配置文件的方式。
+
+这样做的好处如下：
+
+- 将配置信息与应用绑定，与代码解耦，摆脱不同环境下切换配置文件的麻烦
+- 敏感信息与代码分离，避免程序漏洞造成数据丢失
+- 省去配置管理的工作
+
+下面是一个生产环境的应用使用环境变量进行配置的截图：
+
+<center>
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/custom-env.png" width="90%" />
+</center>
+
+以Python为例介绍在配置读取环境变量的方法：
+
+```python
+# -*- coding: utf8 -*-
+import os
+
+DEBUG = os.environ.get('DEBUG') or False
+
+TEMPLATE_DEBUG = os.environ.get('TEMPLATE_DEBUG') or False
+
+DEFAULT_HANDLERS = [os.environ.get('DEFAULT_HANDLERS') or 'zmq_handler']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'goodrain',
+        'USER': os.environ.get('MYSQL_USER'),
+        'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
+        'HOST': os.environ.get('MYSQL_HOST'),
+        'PORT': os.environ.get('MYSQL_PORT'),
+    }
+}
+...
+```
+
+### 9.4 健康检查
+
+为了了解应用启动后的服务是否可用，已经应用运行中的服务运行情况，我们增加了应用检查的功能：
+
+- 启动时检查
+
+> 应用启动时的健康检查，用户可根据应用的协议、端口自定义设置监控选项。如果达到检查的阈值，平台会重启应用
+
+<b>应用启动时检查配置示例</b>
+
+<center>
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-check-on-startup.png" width="80%" />
+</center>
+
+> 示例配置：当容器启动2秒后，开始对 5000 端口进行 tcp 协议的第一次检查，如果等待20秒检查没有结果，平台会重启应用，如果20秒内成功返回，平台认为应用启动成功。
+
+- 运行时检查
+
+> 应用运行时的监控检查，用户可根据应用的协议、端口自定义设置监控选项。如果达到检查的阈值，平台会重启应用（生产环境谨慎设置）
+
+<b>应用运行时检查配置示例</b>
+
+<center>
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-check-on-running.png" width="80%" />
+</center>
+
+> 示例配置：当应用成功启动后，等待20秒，针对5000端口，tcp协议进行第一次检查，每隔3秒检查一次，检查超时时间20秒，如果连续三次检查都失败，平台会重启应用。
+
+### 9.5 成员应用权限
+
+关于角色权限定义的文档请参考：<a href="../manage-your-team.html#part-4d32fc61fb3a5f74">角色与团队成员管理</a>
+
+这里主要讲的是应用权限的管理，当某个用户加入到团队时，团队管理员决定该用户的角色，如果要限制某个用户只能管理某些应用，建议使用 `Viewer(观察者)` 角色，然后根据需要在应用的 【成员应用权限】中设置应用的管理权限。
+
+## 十、删除应用
+
+平台提供应用永久删除功能，应用删除后，应用信息会从控制台和数据中心数据库中删除，持久化数据暂时保留。
+
+目前还没有恢复删除应用的功能，请谨慎使用该功能。
+
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/delete-app.gif" width="100%" />
