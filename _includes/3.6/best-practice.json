@@ -35,6 +35,12 @@
                     ]
                 },
                 {
+                    "title": "应用持续构建与部署",
+                    "urls": [
+                        "/${VERSION}/best-practice/ci-cd/auto-deploy.html"
+                    ]
+                },
+                {
                     "title": "应用A/B测试",
                     "urls": [
                         "/${VERSION}/best-practice/ci-cd/ab-released-app.html"
