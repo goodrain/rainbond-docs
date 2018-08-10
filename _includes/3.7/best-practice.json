@@ -49,15 +49,9 @@
             ]
         },
         {
-            "title": "Minio部署与使用",
+            "title": "云市应用",
             "urls": [
-                "/${VERSION}/best-practice/minio-deploy-use.html"
-            ]
-        },
-        {
-            "title": "Pinpoint-java性能分析",
-            "urls": [
-                "/${VERSION}/best-practice/pinpoint-deploy-use.html"
+                "/${VERSION}/best-practice/apps/lists.html"
             ]
         }
     ]

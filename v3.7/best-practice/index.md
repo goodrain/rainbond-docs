@@ -14,7 +14,9 @@ toc: false
 - [应用A/B测试](ci-cd/ab-released-app.html)
 - [应用灰度发布](ci-cd/gray-released-app.html)
 
-## 其他
 
-- [Minio部署与使用](minio-deploy-use.html)
-- [Pinpoint-java性能分析](pinpoint-deploy-use.html)
+## 云市应用
+
+- [SonarQube v7.1](https://www.goodrain.com/app/detail/157) [使用文档](./apps/sonarqube.html)
+- [Minio](https://www.goodrain.com/app/detail/132) [使用文档](./apps/minio.html)
+- [Pinpoint v1.7.2](https://www.goodrain.com/app/detail/133) [使用文档](./apps/pinpoint.html)
