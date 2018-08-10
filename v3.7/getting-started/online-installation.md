@@ -30,17 +30,18 @@ asciicast: true
 一键部署Rainbond是为了简化Rainbond安装步骤，通过shell脚本将Rainbond及其所需要的组件，统一进行安装及配置。用户仅需要简单的配置相关参数，运行shell命令即可。一键部署Rainbond适合仅简单了解Rainbond架构，想迅速搭建Rainbond的人群。
 
 ```bash
-## 方法一
+# 方法一
 wget https://pkg.rainbond.com/releases/common/v3.7.0rc/grctl
 chmod +x ./grctl
 ./grctl init
 
-## 方法二
+# 方法二
 git clone --depth 1 -b v3.7 https://github.com/goodrain/rainbond-install.git
 cd rainbond-install
 ./setup.sh
 ```
 安装完成后检查,当所有项目都是健康状态时平台即可正常使用。
+
 ```
 # 集群整体状态
 grctl cluster

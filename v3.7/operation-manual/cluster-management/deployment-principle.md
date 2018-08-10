@@ -15,11 +15,11 @@ toc: true
 
 
 ```bash
-管理节点任务: init,storage,docker,base_services,etcd,node,network,kubernetes,plugins
-计算节点任务: init,storage,docker,etcd-proxy,network,kubernetes,node
+管理节点任务: common storage docker image base master
+计算节点任务: common storage docker image base worker
 ```
 
-具体任务可以参见[rainbond-install](https://github.com/goodrain/rainbond-install/tree/v3.6/install/salt)
+具体任务可以参见[rainbond-install](https://github.com/goodrain/rainbond-install/tree/v3.7/install/salt)
 
 ![](https://static.goodrain.com/images/docs/3.6/operation-manual/setup/salt-install.png)
 
