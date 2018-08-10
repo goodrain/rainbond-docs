@@ -9,7 +9,7 @@ toc: true
 当应用创建完成后，会有两种日志与该应用有关：
 
 - 操作日志：显示应用的构建及操作信息，应用的回滚也在这里完成。
-- 应用标准输出日志：应用运行后输出到<a href="https://baike.baidu.com/item/stdout" target="_blank">标准输出(stdout)</a>和<a href="https://baike.baidu.com/item/stderr" target="_blank">标准错误输出(stderr)</a>的日志。
+- 应用输出日志：应用运行后输出到<a href="https://baike.baidu.com/item/stdout" target="_blank">标准输出(stdout)</a>和<a href="https://baike.baidu.com/item/stderr" target="_blank">标准错误输出(stderr)</a>的日志。
 
 ### 1.1 应用关键日志
 
