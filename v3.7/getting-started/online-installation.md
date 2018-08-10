@@ -40,6 +40,14 @@ git clone --depth 1 -b v3.7 https://github.com/goodrain/rainbond-install.git
 cd rainbond-install
 ./setup.sh
 ```
+安装完成后检查,当所有项目都是健康状态时平台即可正常使用。
+```
+# 集群整体状态
+grctl cluster
+
+# 集群节点状态
+grctl node list
+```
 
 ## 三、分步部署
 

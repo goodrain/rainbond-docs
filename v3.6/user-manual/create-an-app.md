@@ -40,7 +40,7 @@ Rainbond支持[流行的编程语言](create-an-app.html#2-3)源代码直接创�
 
 
 ## 二、通过Docker镜像创建应用
-Rainbond可以通过直接拉取Docker官方或者第三方Docker镜像的方式创建应用，但需要注意的是，第三方Docker仓库一定要支持HTTPS协议，否则需要 <a href="../operation-manual/other/add-insecure-registry.html" target="_blank" >修改管理节点docker配置，支持非安全的仓库地址</a>。除了通过拉取镜像，rainbond还支持`docker run`命令来创建应用，下面通过两个示例介绍创建方法：
+Rainbond可以通过直接拉取Docker官方或者第三方Docker镜像的方式创建应用，但需要注意的是，第三方Docker仓库一定要支持HTTPS协议，否则需要 <a href="../operation-manual/performance-tuning/add-insecure-registry.html" target="_blank" >修改管理节点docker配置，支持非安全的仓库地址</a>。除了通过拉取镜像，rainbond还支持`docker run`命令来创建应用，下面通过两个示例介绍创建方法：
 
 
 ### 2.1 通过docker镜像创建应用
