@@ -1,13 +1,12 @@
 ---
 title: 配置时区与时间同步
 summary: rainbond，时区，时间同步
-toc: true
-toc_not_nested: true
-asciicast: true
+toc: false
+toc_not_nested: false
+asciicast: false
 ---
-下面会分别说明CentOS系统和Ubuntu系统下服务器同步标准时间的方法:
 
-## CentOS系统同步时间的方法 
+## CentOS同步系统时间
 
 - 安装ntp服务
 
@@ -31,7 +30,7 @@ timedatectl set-ntp yes
 timedatectl
 ```
 
-## Ubuntu系统同步时间的方法
+## Debian系同步系统时间
 
 - 安装tzdata
 
@@ -46,7 +45,7 @@ dpkg-reconfigure tzdata
 
 {% include copy-clipboard.html %}
  ```bash
-  sudo cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime
+  sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
   ```
 
 - 网上同步时间

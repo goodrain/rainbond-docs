@@ -41,18 +41,6 @@ cd rainbond-install
 ./setup.sh
 ```
 
-{{site.data.alerts.callout_danger}}
-3.7版本安装有所调整,主要将镜像拉取集中到一步，导致这步耗时比较长, 正常情况下大概需要8-20分钟。如果这步出现报错，请重新执行安装命令，如有其他报错，请与我们反馈 [Github](https://github.com/goodrain/rainbond-install/issues/new?template=install-error-report.md)。
-{{site.data.alerts.end}}
-
-{{site.data.alerts.callout_success}}
-云帮安装程序通过 shell脚本+SaltStack 实现，包括后续集群的扩容、升级及管理。相关源码参见：[rainbond-install](https://github.com/goodrain/rainbond-install)  
-节点扩容, 请参照 [运维手册, 节点扩容](../operation-manual/cluster-management/add-compute-node.html)  
-安装问题, 请参照 [运维手册，安装部署-集群安装问题排查](../operation-manual/trouble-shooting/install-issue.html)   
-使用问题, 请参照 [运维手册，平台维护-集群故障排查](../operation-manual/trouble-shooting/issue.html)  
-{{site.data.alerts.end}}
-
-
 ## 三、分步部署
 
 分步部署Rainbond是分组件一步一步的安装Rainbond及所需组件，用户可以定制相关的安装。分步部署Rainbond适合非常了解Rainbond架构，需要定制部署Rainbond的人群。
@@ -63,6 +51,19 @@ cd rainbond-install
 
 离线安装具体流程请参考[离线部署](../operation-manual/install/offline/setup.html)
 
+<!--
 ## 五、源码部署
 
 从源码安装具体流程请参考[源码部署](../operation-manual/install/source/setup.html)
+-->
+
+{{site.data.alerts.callout_danger}}
+3.7版本安装有所调整,将镜像拉取集中到一步，导致这步耗时比较长, 正常情况下大概需要8-20分钟。如果这步出现报错，请重新执行安装命令，如有其他报错，请与我们反馈 [Github](https://github.com/goodrain/rainbond-install/issues/new?template=install-error-report.md)。
+{{site.data.alerts.end}}
+
+{{site.data.alerts.callout_success}}
+云帮安装程序通过 shell脚本+SaltStack 实现，包括后续集群的扩容、升级及管理。相关源码参见：[rainbond-install](https://github.com/goodrain/rainbond-install)  
+节点扩容, 请参照 [运维手册, 节点扩容](../operation-manual/cluster-management/add-compute-node.html)  
+安装问题, 请参照 [运维手册，安装部署-集群安装问题排查](../operation-manual/trouble-shooting/install-issue.html)   
+使用问题, 请参照 [运维手册，平台维护-集群故障排查](../operation-manual/trouble-shooting/issue.html)  
+{{site.data.alerts.end}}
