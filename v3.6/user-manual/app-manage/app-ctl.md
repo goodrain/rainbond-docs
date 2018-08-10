@@ -290,7 +290,7 @@ spring:
 
 其他各类语言都有获取环境变量的方法，如果不想用环境变量，也可以使用直接变量值，但按照<a href="https://12factor.net/zh_cn/config" target="_blank">十二要素</a>原则，我们不推荐使用硬编码的方式连接应用。
 
-## 进入容器命令行
+## 七、进入容器命令行
 
 运行起来的应用后端都是由容器提供的，平台提供了通过浏览器的方式登录到应用容器命令行的方式。当应用正常启动后，可以通过【管理容器】按钮，选择某个节点，进入到容器命令行：
 
@@ -303,8 +303,138 @@ spring:
 
 {{site.data.alerts.end}}
 
-## 查看应用日志
+## 八、查看应用日志
 
-## 应用高级设置
+当应用创建完成后，会有两种日志与该应用有关：
 
-## 删除应用
+- 操作日志：显示应用的构建及操作信息，应用的回滚也在这里完成。
+- 应用输出日志：应用运行后输出到<a href="https://baike.baidu.com/item/stdout" target="_blank">标准输出(stdout)</a>和<a href="https://baike.baidu.com/item/stderr" target="_blank">标准错误输出(stderr)</a>的日志。
+
+详细文档参考：<a href="../view-app-logs.html" target="_blank">查看应用日志</a>
+
+## 九、应用高级设置
+
+应用的其他功能，包括更多的应用信息、自动部署、健康检查等高级功能都在 应用的 【设置】页面中，下文会对每一块功能做详细介绍。
+
+### 9.1 应用基础信息
+
+应用基础信息显示了应用当前的版本信息、来源及状态，不同类型的应用显示的内容也会有所不同，下面针对不同类型的应用分别介绍：
+
+<table>
+<thead>
+<tr>
+<th >Docker镜像</th>
+<th >源码构建应用</th>
+<th >云市应用</th>
+</tr>
+</thead>
+<tr>
+<td><img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/img-info.png" width=100%/></td>
+<td><img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/source-info.png" width=100%/></td>
+<td><img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/appstore-info.png" width=100%/></td> 
+</tr>
+</table>
+
+{{site.data.alerts.callout_info}}
+
+- 只有通过源码构建的应用才显示Git/Svn仓库地址和分支信息
+- Docker镜像、Docker Run命令和Docker compose的方式创建的应用会显示镜像地址和版本
+
+{{site.data.alerts.end}}
+
+### 9.2 自动部署
+
+目前自动部署支持通过Git仓库源码创建的应用，后续会提供Svn仓库、Docker镜像仓库的自动部署功能。
+
+在应用【设置】页面，自动部署区域，点击【开启自动部署】按钮后，会提示类似如下信息：
+
+<center>
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/auto-deploy.png" width="80%" />
+</center>
+
+详细文档请参考: [应用持续构建与部署](../../best-practice/ci-cd/auto-deploy.html)
+
+### 9.3 自定义环境变量
+
+当你通过应用【设置】中的自定义环境变量，添加变量时，应用下次启动会加载这些环境变量。
+
+通常情况下，我们将配置信息写到配置文件中供程序读取使用，在Rainbond平台中，我们<b>极力推荐</b>使用环境变量的方式来代替传统的配置文件的方式。
+
+这样做的好处如下：
+
+- 将配置信息与应用绑定，与代码解耦，摆脱不同环境下切换配置文件的麻烦
+- 敏感信息与代码分离，避免程序漏洞造成数据丢失
+- 省去配置管理的工作
+
+下面是一个生产环境的应用使用环境变量进行配置的截图：
+
+<center>
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/custom-env.png" width="90%" />
+</center>
+
+以Python为例介绍在配置读取环境变量的方法：
+
+```python
+# -*- coding: utf8 -*-
+import os
+
+DEBUG = os.environ.get('DEBUG') or False
+
+TEMPLATE_DEBUG = os.environ.get('TEMPLATE_DEBUG') or False
+
+DEFAULT_HANDLERS = [os.environ.get('DEFAULT_HANDLERS') or 'zmq_handler']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'goodrain',
+        'USER': os.environ.get('MYSQL_USER'),
+        'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
+        'HOST': os.environ.get('MYSQL_HOST'),
+        'PORT': os.environ.get('MYSQL_PORT'),
+    }
+}
+...
+```
+
+### 9.4 健康检查
+
+为了了解应用启动后的服务是否可用，已经应用运行中的服务运行情况，我们增加了应用检查的功能：
+
+- 启动时检查
+
+> 应用启动时的健康检查，用户可根据应用的协议、端口自定义设置监控选项。如果达到检查的阈值，平台会重启应用
+
+<b>应用启动时检查配置示例</b>
+
+<center>
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-check-on-startup.png" width="80%" />
+</center>
+
+> 示例配置：当容器启动2秒后，开始对 5000 端口进行 tcp 协议的第一次检查，如果等待20秒检查没有结果，平台会重启应用，如果20秒内成功返回，平台认为应用启动成功。
+
+- 运行时检查
+
+> 应用运行时的监控检查，用户可根据应用的协议、端口自定义设置监控选项。如果达到检查的阈值，平台会重启应用（生产环境谨慎设置）
+
+<b>应用运行时检查配置示例</b>
+
+<center>
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-check-on-running.png" width="80%" />
+</center>
+
+> 示例配置：当应用成功启动后，等待20秒，针对5000端口，tcp协议进行第一次检查，每隔3秒检查一次，检查超时时间20秒，如果连续三次检查都失败，平台会重启应用。
+
+### 9.5 成员应用权限
+
+关于角色权限定义的文档请参考：<a href="../manage-your-team.html#part-4d32fc61fb3a5f74">角色与团队成员管理</a>
+
+这里主要讲的是应用权限的管理，当某个用户加入到团队时，团队管理员决定该用户的角色，如果要限制某个用户只能管理某些应用，建议使用 `Viewer(观察者)` 角色，然后根据需要在应用的 【成员应用权限】中设置应用的管理权限。
+
+## 十、删除应用
+
+平台提供应用永久删除功能，应用删除后，应用信息会从控制台和数据中心数据库中删除，持久化数据暂时保留。
+
+目前还没有恢复删除应用的功能，请谨慎使用该功能。
+
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/delete-app.gif" width="100%" />
