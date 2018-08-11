@@ -50,6 +50,7 @@ grctl cluster
 grctl node list
 ```
 
+<!--
 ## 三、分步部署
 
 分步部署Rainbond是分组件一步一步的安装Rainbond及所需组件，用户可以定制相关的安装。分步部署Rainbond适合非常了解Rainbond架构，需要定制部署Rainbond的人群。
@@ -60,7 +61,7 @@ grctl node list
 
 离线安装具体流程请参考[离线部署](../operation-manual/install/offline/setup.html)
 
-<!--
+
 ## 五、源码部署
 
 从源码安装具体流程请参考[源码部署](../operation-manual/install/source/setup.html)
