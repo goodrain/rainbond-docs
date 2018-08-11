@@ -47,7 +47,7 @@ CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个�
 - /grdata目录在开源版中默认使用nfs作为共享存储，生产环境便于配置分布式文件系统，企业版支持块设备存储.
 {{site.data.alerts.end}}
 
-## 安装检查事项
+## 安装检查注意事项
 
 1. 要确保系统已经安装了如下命令: `curl`, `git`
 2. 要确保系统配置的源是否正常可用
@@ -60,6 +60,7 @@ CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个�
 9. 确定系统时间与时区(Asia/Shanghai)同步，参考[配置时区与时间同步](../operation-manual/install/config/timezone.html)
 10. 确定网络没有限制，如有请加如下域名添加到白名单repo.goodrain.com,www.rainbond.com,domain.grapps.cn
 11. 安装前请勿挂载/grdata目录
+12. 不支持容器部署,不支持OpenVZ架构部署
 
 ## 云服务商支持说明
 
