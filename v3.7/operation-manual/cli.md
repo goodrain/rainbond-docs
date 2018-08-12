@@ -25,22 +25,24 @@ USAGE:
    grctl [global options] command [command options] [arguments...]
 
 VERSION:
-   0.0.0
+   3.7-951ad3f-2018-08-11-08
 
 COMMANDS:
-     service  服务相关，grctl service -h
-     tenant   grctl tenant -h
-     node     节点。grctl node
-     noderes  获取计算节点资源信息  grctl noderes
-     exec     进入容器方法。grctl exec POD_NAME COMMAND
-     show     显示region安装完成后访问地址
-     domain
-     help, h  Shows a list of commands or help for one command
+     service   服务相关
+     tenant    租户相关
+     node      节点管理
+     cluster   集群信息
+     exec      进入容器。grctl exec POD_NAME COMMAND
+     init      初始化集群
+     show      显示访问信息
+     alerting  监控报警相关
+     conf      集群和服务配置相关工具
+     domain    更改域名解析
 
 GLOBAL OPTIONS:
-   --config FILE, -c FILE  Load configuration from FILE (default: "/etc/goodrain/grctl.json")
-   --help, -h              show help
-   --version, -v           print the version
+   --config value, -c value  default <USER_HOME>/.rbd/grctl.yaml
+   --help, -h                show help
+   --version, -v             print the version
 ```
 
 ### 1.1 通过grctl命令查看应用运行详细信息
@@ -63,12 +65,20 @@ grctl service get test/gr114c75
 ```bash
 grctl node list
 ```
-<img src="https://static.goodrain.com/images/docs/3.6/operation-manual/grctl-node-list.png" width="100%" />
+
+<img src="https://static.goodrain.com/images/docs/3.7/operation-manual/grctl_node_list.png" width="100%" />
+
+- 查看集群信息
+
+```bash
+grctl  cluster
+```
 
 - 获取某个节点的详细信息
 
 ```bash
-grctl node list d4ac1bcf-4239-4d55-b1ea-db81e067eb70
+# 可以获取这个节点集群服务的健康状态
+grctl node get 03f2ee6b-3f3e-4353-bbe3-0e49ce1da677
 ```
 
 - 下线与上线某个节点
@@ -166,3 +176,7 @@ d4e43a94f3e3        4 months            310.3 MB            rainbond/kube-apiser
 以top的形式查看容器运行状态。
 
 <img src="https://static.goodrain.com/images/docs/3.6/operation-manual/ctop.gif" width="100%" />
+
+### 2.7 grclis 关闭服务
+
+快速关闭服务.
