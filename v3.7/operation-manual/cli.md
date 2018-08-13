@@ -57,6 +57,19 @@ grctl service get test/gr114c75
 
 <img src="https://static.goodrain.com/images/docs/3.6/operation-manual/grctl-service-get.png" width="100%" />
 
+- 查看应用容器真实使用内存
+
+通过上面的操作可以获取应用所在的宿主机IP（10.0.4.12）和容器的ID(`342d8b28b86e`)，接下来就可以通过 `docker stats` 命令来查看容器真实使用的内存：
+
+```bash
+# 登录到应用所在的宿主机，如果是本机的话可以省略这一步
+ssh 10.0.4.12
+
+# 查看容器状态
+docker stats 342d8b28b86e
+```
+
+<img src="https://static.goodrain.com/images/docs/3.6/operation-manual/get-container-memory.png" width="100%" />
 
 ### 1.2 通过grctl命令操作节点
 
