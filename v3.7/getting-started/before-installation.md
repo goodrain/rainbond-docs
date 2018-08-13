@@ -56,7 +56,7 @@ CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个�
 5. 检查端口80,443,2379,3306,5000,6060,6443,7070,8443是否被占用
 6. 安全组需要放行80,6060,7070
 7. DNS建议配置为常用DNS服务如114.114.114.114,1.2.4.8等
-8. 确保机器重启，服务器ip不发生改变，推荐[配置静态ip](../operation-manual/install/config/timezone.html)
+8. 确保机器重启，服务器ip不发生改变，推荐[配置静态ip](../operation-manual/install/config/static-ip.html)
 9. 确定系统时间与时区(Asia/Shanghai)同步，参考[配置时区与时间同步](../operation-manual/install/config/timezone.html)
 10. 确定网络没有限制，如有请加如下域名添加到白名单repo.goodrain.com,www.rainbond.com,domain.grapps.cn
 11. 安装前请勿挂载/grdata目录
