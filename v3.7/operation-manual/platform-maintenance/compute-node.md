@@ -31,7 +31,7 @@ systemctl start | stop | status | restart kubelet
 
 - 相关配置文件
 
-`/opt/rainbond/conf/master.yaml`
+`/opt/rainbond/conf/worker.yaml`
 
 - **启动、停止、查看状态、重启** etcd-proxy 服务
 
