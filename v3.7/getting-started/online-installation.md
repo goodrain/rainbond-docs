@@ -21,8 +21,7 @@ asciicast: true
 
 | 版本|说明|
 |--------|---------|
-|Dev v3.7.0rc|当前最新版本|
-|Stable v3.6.1|当前稳定版本，只修复Bug，不做功能更新，生产环境推荐使用|
+|Stable v3.7.0|当前稳定版本|
 
 
 ## 二、一键部署
@@ -31,7 +30,7 @@ asciicast: true
 
 ```bash
 # 方法一
-wget https://pkg.rainbond.com/releases/common/v3.7.0rc/grctl
+wget https://pkg.rainbond.com/releases/common/v3.7.0/grctl
 chmod +x ./grctl
 ./grctl init
 
