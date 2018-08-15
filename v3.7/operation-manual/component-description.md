@@ -8,9 +8,24 @@ toc: true
 
 ## 一、管理节点服务详情
 
+从3.7版本开始，所有服务都通过[Systemd](https://zh.wikipedia.org/wiki/Systemd)进行管理。
+
 ### 1.1 服务说明
 
-以下是通过docker-compose管理的服务：
+Rainbond平台基本服务
+
+|服务名|版本|说明|
+|-----------|-------|------------|
+|dockerd|1.12.6|容器引擎服务 (rainbond定制开发)|
+|kube-apiserver|1.6.4|kubernetes API服务，提供集群管理的 REST API 接口[官方文档](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) (rainbond定制开发)|
+|kube-scheduler|1.6.4|负责分配调度 Pod 到集群内的节点上，详情参见：[官方文档](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/) (rainbond定制开发)|
+|kube-controller-manager|1.6.4|监控整个集群的状态，并确保集群处于预期的工作状态。[官方文档](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/) (rainbond定制开发)|
+|rbd-node|3.6|Rainbond集群监控与控制服务|
+|etcd|3.2.13|Rainbond基础服务，kubernetes服务依赖的核心服务，存储配置信息与实现服务发现机制|
+|calico-node|2.4.1|可选服务，Calico网络节点服务，负责维护容器内部网络与跨住进通讯。Rainbond单节点部署时，该服务运行，当分开部署计算节点时该服务可关闭。|
+
+
+Rainbond平台业务服务
 
 |服务名|说明|
 |----------|---------------|
@@ -28,25 +43,6 @@ toc: true
 |rbd-api|云帮区域中心API服务，提供底层服务接口|
 |rbd-app-ui|应用控制台web服务|
 |rbd-lb|全局负载均衡，基于Openresty实现，[源码地址](https://github.com/goodrain/lb-openresty)|
-
-{{site.data.alerts.callout_info}}
-- docker-compose 配置文件默认在 `/opt/rainbond/compose目录中`
-- 通过dc-compose命令可以维护这些服务，详情参见: [管理节点服务维护](platform-maintenance/management-node.html)
-{{site.data.alerts.end}}
-
--------------
-
-以下是通过systemd维护的服务
-
-|服务名|版本|说明|
-|-----------|-------|------------|
-|dockerd|1.12.6|容器引擎服务 (rainbond定制开发)|
-|kube-apiserver|1.6.4|kubernetes API服务，提供集群管理的 REST API 接口[官方文档](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) (rainbond定制开发)|
-|kube-scheduler|1.6.4|负责分配调度 Pod 到集群内的节点上，详情参见：[官方文档](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/) (rainbond定制开发)|
-|kube-controller-manager|1.6.4|监控整个集群的状态，并确保集群处于预期的工作状态。[官方文档](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/) (rainbond定制开发)|
-|rbd-node|3.6|Rainbond集群监控与控制服务|
-|etcd|3.2.13|Rainbond基础服务，kubernetes服务依赖的核心服务，存储配置信息与实现服务发现机制|
-|calico-node|2.4.1|可选服务，Calico网络节点服务，负责维护容器内部网络与跨住进通讯。Rainbond单节点部署时，该服务运行，当分开部署计算节点时该服务可关闭。|
 
 {{site.data.alerts.callout_info}}
 - 以上服务都是通过[systemd](https://www.freedesktop.org/wiki/Software/systemd/)进行维护，详情参见：[管理节点服务维护](platform-maintenance/management-node.html)

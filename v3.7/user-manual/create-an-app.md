@@ -10,7 +10,7 @@ toc: true
 
 Rainbond支持多种方式创建应用，下图是支持创建应用的方式示意图，你可以选择适合自己的方式快速起步：
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/create-app.png" width="100%" />
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/create-app-3.7.png" width="100%" />
 
 通过程序源码、Dockerfile源码和Docker镜像创建应用时，Rainbond构建模块会进行自动检测，详情请参见：[自动检查的方法及标准](app-detect.html)
 
