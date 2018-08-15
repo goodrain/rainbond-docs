@@ -35,8 +35,9 @@ chmod +x ./grctl
 ./grctl init
 
 # 方法二
-git clone --depth 1 -b v3.7 https://github.com/goodrain/rainbond-install.git
-cd rainbond-install
+mkdir -p /opt/rainbond
+git clone --depth 1 -b v3.7 https://github.com/goodrain/rainbond-install.git /opt/rainbond/install
+cd /opt/rainbond/install
 ./setup.sh
 ```
 安装完成后检查,当所有项目都是健康状态时平台即可正常使用。
