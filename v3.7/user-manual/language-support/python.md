@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 ## 二、版本选择
 
-云帮默认使用`Python2.7.13`版本，您也可以通过在根目录下增加一个 `runtime.txt`文件来指定版本：
+云帮默认使用`Python2.7.15`版本，您也可以通过在根目录下增加一个 `runtime.txt`文件来指定版本：
 
 ```bash
 $ cat runtime.txt
@@ -50,10 +50,8 @@ python-3.4.3
 
 ### 2.1 推荐的python版本
 
-- Python-2.7.9~Python-2.7.13
-- Python-3.4.3,Python-3.5.2,Python-3.6.0,Python-3.6.1
-
-当然您也可以指定【2.4.4 - 3.6.1】之间的版本，但不支持如下几个特殊的版本`Python-3.4.5`、` Python-3.4.6 `、`Python-3.5.3`。
+- Python-2.7.15
+- Python-3.6.6
 
 ## 三、工具库
 
@@ -69,6 +67,14 @@ python-3.4.3
 ```bash
 $ pip install -r requirements.txt --allow-all-external
 ```
+
+构建时支持自定义PIP源，需配置环境变量，否则默认中科大镜像源：
+
+```
+变量名:变量值
+BUILD_PIP_INDEX_URL:https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
 
 ## 五、启动命令
 
