@@ -39,6 +39,8 @@ toc: true
 
   - 详情参见：[扩容计算节点](https://www.rainbond.com/docs/v3.5/getting-started/install.html#part-2c4b8d54ecfe5f5f)
 
+> 注意：将计算节点作为存储节点，需要将上方文档中的 server1、server2 更换为 compute01、compute02
+
 ###3.2部署GFS
 
 在计算节点部署双节点GFS集群：
@@ -58,7 +60,7 @@ yum install -y glusterfs-fuse
 将管理节点的/grdata目录写入GFS
 
 ```bash
-mount -t glusterfs compute01:gv0 /mnt
+mount -t glusterfs compute01:data /mnt
 cp -rp /grdata/* /mnt
 umount /mnt
 ```
@@ -67,13 +69,13 @@ umount /mnt
 manage01 & compute01:
 
 ```bash
-compute01:/gv0	/grdata	glusterfs	backupvolfile-server=compute02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
+compute01:/data	/grdata	glusterfs	backupvolfile-server=compute02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
 ```
 
 compute02:
 
 ```bash
-compute02:/gv0	/grdata	glusterfs	backupvolfile-server=compute01,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
+compute02:/data	/grdata	glusterfs	backupvolfile-server=compute01,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
 ```
 
 重新挂载
