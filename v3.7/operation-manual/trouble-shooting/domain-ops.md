@@ -26,7 +26,7 @@ systemctl restart rbd-api
 
 说明一下：需要把自定义域名解析到当前机器ip。
 
-#### 2.2.2 更新数据库字段
+#### 2.1.2 更新数据库字段
 
 ```bash
 docker exec rbd-db mysql -e 'use console;update region_info set httpdomain="自定义域名"'
