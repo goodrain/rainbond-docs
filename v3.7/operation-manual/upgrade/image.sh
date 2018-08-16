@@ -1,6 +1,14 @@
 #!/bin/bash
 
-imglist="rainbond/builder:v3.7 \
+imglist="rainbond/plugins:tcm \
+rainbond/plugins:mesh \
+rainbond/runner:latest \
+rainbond/pause-amd64:3.0 \
+rainbond/cni:k8s_v3.7 \
+rainbond/cni:rbd_v3.7 \
+rainbond/rbd-db:3.6 \
+rainbond/adapter:3.6 \
+rainbond/rbd-registry:2.3.1 \
 rainbond/rbd-app-ui:3.7 \
 rainbond/rbd-eventlog:3.7 \
 rainbond/rbd-worker:3.7 \
@@ -10,14 +18,16 @@ rainbond/rbd-monitor:3.7 \
 rainbond/rbd-entrance:3.7 \
 rainbond/rbd-chaos:3.7 \
 rainbond/rbd-api:3.7 \
-rainbond/cni:rbd_v3.7 \
 rainbond/builder:3.7 \
-rainbond/plugins:tcm \
 rainbond/rbd-lb:3.7 \
-rainbond/cni:k8s_v3.7 \
 rainbond/rbd-dns:3.7 \
-rainbond/plugins:mesh \
 rainbond/rbd-repo:3.7 \
+rainbond/etcd:v3.2.13 \
+rainbond/kube-scheduler:v1.6.4 \
+rainbond/kube-controller-manager:v1.6.4 \
+rainbond/kube-apiserver:v1.6.4 \
+rainbond/calico-node:v2.4.1 \
+rainbond/grafana:5.2.2
 "
 
 do_pull(){

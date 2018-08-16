@@ -11,33 +11,17 @@ toc: true
 
 ## 二、自定义域名
 
-### 2.1 自动化部署前设置自定义域名
+### 2.1 安装完成后修改自定义域名
+
+#### 2.1.1 更新配置文件
+
+需要编辑如下文件`/opt/rainbond/conf/master.yaml`,示例如下
 
 ```bash
-git clone --depth 1 -b v3.6 https://github.com/goodrain/rainbond-install.git
-cd rainbond-install
-# 编辑rainbond.yaml.default里domain信息, 然后执行安装
-```
-
-### 2.2 安装完成后修改自定义域名
-
-#### 2.2.1 更新配置文件
-
-需要编辑如下文件`/opt/rainbond/compose/plugin.yaml` & `/opt/rainbond/compose/lb.yaml`,示例如下
-
-```bash
-# 修改前
-/opt/rainbond/compose/plugin.yaml:      EX_DOMAIN: e9eb55.grapps.cn
-/opt/rainbond/compose/plugin.yaml:      EX_DOMAIN: e9eb55.grapps.cn
-/opt/rainbond/compose/lb.yaml:      HTTP_SUFFIX_URL: e9eb55.grapps.cn
-
-# 修改后
-/opt/rainbond/compose/plugin.yaml:      EX_DOMAIN: www.a.com
-/opt/rainbond/compose/plugin.yaml:      EX_DOMAIN: www.a.com
-/opt/rainbond/compose/lb.yaml:      HTTP_SUFFIX_URL: www.a.com
-
-# 重启服务
-dc-compose up -d
+sed -i "s#<默认域名>#<自定义域名>#g" /opt/rainbond/conf/master.yaml
+systemctl restart rbd-lb
+systemctl restart rbd-worker
+systemctl restart rbd-api
 ```
 
 说明一下：需要把自定义域名解析到当前机器ip。
