@@ -15,7 +15,7 @@ toc: true
 - [官方文档](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
 - 相关配置文件
 
-`/opt/rainbond/conf/master.yaml`
+`/opt/rainbond/conf/worker.yaml`
 
 - **启动、停止、查看状态、重启** kubelet 服务
 
