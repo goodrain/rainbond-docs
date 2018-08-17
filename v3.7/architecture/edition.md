@@ -209,7 +209,7 @@ Rainbond 包含了众多的功能特性，下面是详细的功能对比表：
 - 性能监控，支持Reids的性能分析与展示
 
 ### Zookeeper服务
-- 一键安装使用，支持zookeepre应用的一键部署
+- 一键安装使用，支持zookeeper应用的一键部署
 - 高可用，支持zookeeper应用的高可用
 - 实时扩容，支持zookeeper应用的集群部署与实时扩容
 
