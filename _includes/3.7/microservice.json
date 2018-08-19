@@ -16,6 +16,12 @@
                 ]
             },
             {
+                "title": "Service Mesh案例",
+                "urls": [
+                    "/${VERSION}/microservice/service-mesh/use-case.html"
+                ]
+            },
+            {
                 "title": "Dubbo",
                 "urls": [
                     "/${VERSION}/microservice/dubbo/dubbo-overview.html"
