@@ -109,7 +109,6 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
       - MYSQL_DATABASE=socksdb
-    mem_limit: 512m
   carts:
     image: weaveworksdemos/carts:0.4.8
     hostname: carts
@@ -118,7 +117,6 @@ services:
       - all
     cap_add:
       - NET_BIND_SERVICE
-    read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid
     environment:
@@ -128,7 +126,6 @@ services:
     depends_on:
       - carts-db
       - zipkin
-    mem_limit: 1024m
   carts-db:
     image: mongo:3.4
     hostname: carts-db
@@ -139,10 +136,8 @@ services:
       - CHOWN
       - SETGID
       - SETUID
-    read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid
-    mem_limit: 512m
   orders:
     image: rilweic/orders
     hostname: orders
@@ -151,7 +146,6 @@ services:
       - all
     cap_add:
       - NET_BIND_SERVICE
-    read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid
     environment:
@@ -165,7 +159,6 @@ services:
       - carts
       - payment
       - user
-    mem_limit: 1024m
   orders-db:
     image: mongo:3.4
     hostname: orders-db
@@ -176,19 +169,16 @@ services:
       - CHOWN
       - SETGID
       - SETUID
-    read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid
-    mem_limit: 512m
   shipping:
-    image: weaveworksdemos/shipping:0.4.8
+    image: rainbond/shipping:0.4.8
     hostname: shipping
     restart: always
     cap_drop:
       - all
     cap_add:
       - NET_BIND_SERVICE
-    read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid
     environment:
@@ -206,7 +196,6 @@ services:
       - all
     cap_add:
       - NET_BIND_SERVICE
-    read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid
     depends_on:
@@ -222,7 +211,6 @@ services:
       - SETGID
       - SETUID
       - DAC_OVERRIDE
-    read_only: true
   payment:
     image: weaveworksdemos/payment:0.4.3
     hostname: payment
@@ -231,7 +219,6 @@ services:
       - all
     cap_add:
       - NET_BIND_SERVICE
-    read_only: true
     depends_on:
       - zipkin
   user:
@@ -242,7 +229,6 @@ services:
       - all
     cap_add:
       - NET_BIND_SERVICE
-    read_only: true
     environment:
       - MONGO_HOST=user-db:27017
     depends_on:
@@ -258,7 +244,6 @@ services:
       - CHOWN
       - SETGID
       - SETUID
-    read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid
   zipkin:
@@ -277,7 +262,6 @@ services:
       - reschedule=on-node-failure
     ports:
       - "9411:9411"
-    mem_limit: 1024m
   
 ~~~
 
