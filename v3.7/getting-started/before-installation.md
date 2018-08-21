@@ -73,12 +73,10 @@ CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个�
 | 滴滴云 | 中国  | 测试通过           |
 | 华为云 | 中国  | 测试通过           |
 
-<!--
+
 ## 自定义配置项说明
 
-具体请参考 [Rainbond自定义配置](../operation-manual/setup/custom-config.html)  
+- 支持自定义配置域名 & 公网ip - Aug 20, 2018
 
-{{site.data.alerts.callout_danger}}
-如果使用境外服务器，建议禁用docker镜像加速服务，以免影响体验。
-{{site.data.alerts.end}}
--->
+具体请参考 [Rainbond自定义配置](../operation-manual/install/config/custom-config.html)  
+

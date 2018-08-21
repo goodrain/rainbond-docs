@@ -62,3 +62,24 @@ apt install <包名> -d -y
 4. 具体什么报错(最好有必要的图文说明)
 5. 是否重新执行安装
 6. 是否采用了上述的解决方案
+
+## 五、附录
+
+可以使用好雨科技提供的离线安装包,此离线包仅针对阿里云CentOS 7.4做过优化，并不能保证其适用于其他环境下的CentOS服务器。此离线包仅会同步更新大版本。
+
+```
+wget https://pkg.rainbond.com/releases/offline/v3.7.0/install.offline.v3.7.0.2018-08-21.tgz
+
+MD5SUM:
+ebdf396603ab78fa2bc4442ce7bce60f
+SHA512SUM:
+2fe0722e85e7c374d9119bcc4219256c2495e17194e1e492b5435fcdf9dd07e2debf81d39c0e3762326f0caaeb05855ec310698aa7709a10410c8090d6002ab7  
+
+# 建议在有网的环境下,解压 cd /opt/rainbond/install/ 并更新安装脚本git pull 优化安装
+# 离线环境
+tar xf install.offline.v3.7.0.2018-08-21.tgz -C /
+cd /opt/rainbond/install/
+./grctl init --type offline --domain <自定义域名，可选>
+# 扩容参考管理节点
+```
+
