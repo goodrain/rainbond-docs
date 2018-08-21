@@ -40,7 +40,7 @@ cd /opt/rainbond/install
 
 ## 四、安装提示报错
 
-如果是安装包失败或者提示什么命令未找到，请停止安装,根据提示自行下载相关安装包
+1. 如果是安装包失败或者提示什么命令未找到，请停止安装,根据提示自行下载相关安装包
 
 ```
 mkdir -p /root/pkgs
@@ -52,7 +52,19 @@ apt install <包名> -d -y
 
 手动安装缺失的包或工具,然后重新执行安装。
 
-## 四、安装问题建议
+2. 安装docker失败，提示audit包问题
+
+请检查`/opt/rainbond/install/install/pkgs/centos`目录下
+
+```
+ls | grep au
+audit-2.8.1-3.el7.x86_64.rpm
+audit-libs-2.8.1-3.el7.x86_64.rpm
+audit-libs-python-2.8.1-3.el7.x86_64.rpm
+```
+正常情况应该是这样的，需要移除其他包或者新增缺失包，相关包(centos el7)可以在[阿里云镜像站](https://opsx.alibaba.com/mirror)下载
+
+## 五、安装问题建议
 
 当离线安装Rainbond 遇到问题时，请参考本篇相关文档。如果问题未解决，请按文档要求收集相关信息通过 Github [提供给 Rainbond开发者](https://github.com/goodrain/rainbond/issues/new)。
 
