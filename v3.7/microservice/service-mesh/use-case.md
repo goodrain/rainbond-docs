@@ -6,30 +6,33 @@ toc_not_nested: true
 asciicast: true
 ---
 
-## 基于微服务架构的网上商城案例介绍
+## 基于ServiceMesh微服务架构的电商案例实践
 
+<div id="toc"></div>
 
 ### 简介
 
-`sockshop`是一个面向用户的网上销售袜子的商城，是一个典型的微服务案例。主要由`spring boot`,`golang`,`nodejs`开发。使用的数据库为`mysql`和`mongoDB`。
+`sockshop`是一个面向用户的网上销售袜子的商城，具备用户管理、商品管理、购物车、订单流程、地址管理等完善的电商解决方案，是一个典型的微服务架构案例。主要由`spring boot`,`golang`,`nodejs`等多种语言开发。使用`mysql`和`mongoDB`等多种数据库。其原方案是单机环境下部署，缺乏服务治理能力和分布式能力。
 
-- 商城在RainBond平台的概览
+借助Rainbond开箱即用的ServiceMesh架构，对原代码不做任何侵入。将其转化成为具有`服务注册*发现`、`分布式跟踪` 、`A/B测试`、`灰度发布`、`限流` 、`熔断`、 `性能分析`、`高可用`、`日志分析`等能力的高可靠性电商业务系统。
+
+- 商城在Rainbond平台的部署效果总览
 
 
-<img src="https://static.goodrain.com/images/article/sockshop/gr-archi.png" style="border:1px solid #eee;width:100%">
+<img src="https://static.goodrain.com/images/article/sockshop/gr-archi.png" style="border:1px solid #eee;width:80%">
 
 
-- 商城预览图
+- 商城首页预览图
+  
     
-    
-<img src="https://static.goodrain.com/images/article/sockshop/sockshop-frontend.png" style="border:1px solid #eee;width:100%">
+<img src="https://static.goodrain.com/images/article/sockshop/sockshop-frontend.png" style="border:1px solid #eee;width:80%">
 
 
 
 - 商城架构图
 
 
-<img src="https://static.goodrain.com/images/article/sockshop/Architecture.png" style="border:1px solid #eee;width:100%">
+<img src="https://static.goodrain.com/images/article/sockshop/Architecture.png" style="border:1px solid #eee;width:80%">
 
 
 
@@ -39,15 +42,18 @@ asciicast: true
 * [weavesocksdemo样例](https://cloud.weave.works/demo)
 
 
-## 商城部署流程
+## 商城Rainbond部署流程
 
-### 创建
-在RainBond平台使用`Dockercompose`的创建方式可以很轻松的创建出sockshop里的所有应用（负载测试和分布式跟踪除外）。
+本文以Rainbond(V3.7.0)为基础平台部署微服务架构商城用例。
+
+### 服务创建
+
+为了简化创建过程，在Rainbond平台使用`DockerCompose配置文件`的创建方式可以很轻松的批量创建出sockshop里的所有服务。
 
 **docker-compose创建**
 
 
-<img src="https://static.goodrain.com/images/article/sockshop/docker-compose-create.png" style="border:1px solid #eee;width:100%">
+<img src="https://static.goodrain.com/images/article/sockshop/docker-compose-create.png" style="border:1px solid #eee;width:80%">
 
 
 **docker-compose源码**
@@ -265,7 +271,7 @@ services:
   
 ~~~
 
-创建完成后需要对应用进行端口开放和内存调整，这里每个应用开发的端口和具体内存情况
+服务创建完成后需要对批量创建的服务进行注册和对部署内存的调整，根据服务之间的调用关系，我们需要分析出哪些服务是作为内部服务供给其它服务调用，哪个服务是对用户提供访问的。根据上文的架构图我们做以下操作：
 
 ### 服务注册
 
@@ -298,38 +304,39 @@ services:
 
 > 如果使用上面的docker-compose文件创建应用，无需手动添加依赖，在创建应用时系统已根据docker-compose文件内容自动配置了服务发现
 
-### 服务网络治理
+### 服务Mesh治理
 
 在商城案例中，`front-end`为`nodejs`项目。该服务会调用其他5个服务来获取数据。如图:
 
 
-<img src="https://static.goodrain.com/images/article/sockshop/front-end-invoke.png" style="border:1px solid #eee;max-width:100%" >
+<img src="https://static.goodrain.com/images/article/sockshop/front-end-invoke.png" style="border:1px solid #eee;max-width:80%" >
 
 `front-end`在调用其他服务时，会使用域名+端口的调用方式（该项目所有调用均为此方式）
 如 `front-end` 调用 `orders` 时，内部访问地址为 `http://orders/xxx`.
 
-RainBond平台在服务进行调用时，会默认将`域名+端口`解析到`127.0.0.1+端口` 如果调用的服务对应的端口都不冲突没有任何问题，而在此案例中，`front-end`调用的其他5个服务的端口均为80。因此我们需要使用网络治理插件来进行`服务网络治理`（服务提供方一般以多实例的形式提供服务，负载均衡功能能够让服务调用方连接到合适的服务节点。并且，节点选择的工作对服务调用方来说是透明的）。
-RainBond平台通过提供插件的形式来实现对用户代码的无侵入网络治理功能，插件由RainBond平台默认提供。
+RainBond平台在服务进行调用时，会默认将`顶级域名`解析到`127.0.0.1` 如果调用的服务对应的端口都不冲突没有任何问题，而在此案例中，`front-end`调用的其他5个服务的端口均为80。因此这里需要第一个治理功能：端口复用。
+
+在不安装7层网络治理插件的情况下，平台默认使用4层网络治理插件，无法提供端口复用的机制。因此，我们为服务`front-end` `orders` 分别安装网络治理插件。
 
 #### 安装网络治理插件
 
 在`我的插件`中选择`服务网络治理插件`进行安装。
 
-<img src="https://static.goodrain.com/images/article/sockshop/net-plugin-install.png" style="border:1px solid #eee;max-width:100%" >
+<img src="https://static.goodrain.com/images/article/sockshop/net-plugin-install.png" style="border:1px solid #eee;width:80%" >
 
 > 注意: 网络治理插件会默认使用80端口，因此使用该插件的应用不能为监听80端口的应用
-    
+
 #### 应用安装插件
 
 在应用详情页面选择`插件`标签，然后开通指定的插件
     
-<img src="https://static.goodrain.com/images/article/sockshop/service-plugin-install.png" style="border:1px solid #eee;max-width:100%" >
+<img src="https://static.goodrain.com/images/article/sockshop/service-plugin-install.png" style="border:1px solid #eee;width:80%" >
 
 > 安装插件后需重启应用生效
 
-#### 插件配置
+#### Mesh插件配置
 
-为了`front-end`服务能根据代码已有的域名调用选择对应的服务提供方，我们需要根据其调用的域名来进行配置。将应用进行依赖后，`服务网络治理插件`能够自动识别出其依赖的应用。您只需在插件的配置的域名项中进行域名配置即可。如图
+配置域名路由，实现端口复用。为了`front-end`服务能根据代码已有的域名调用选择对应的服务提供方，我们需要根据其调用的域名来进行配置。将应用进行依赖后，`服务网络治理插件`能够自动识别出其依赖的应用。您只需在插件的配置的域名项中进行域名配置即可。如图
     
 <img src="https://static.goodrain.com/images/article/sockshop/plugin-config.png" style="border:1px solid #eee;max-width:100%" >
 
@@ -341,15 +348,7 @@ RainBond平台通过提供插件的形式来实现对用户代码的无侵入网
 
 - **特别注意**
 
-    **原始案例中需要将`order`项目进行一点小的改动**。
-
-    正如上文图中提到的，`order`项目同时依赖其他几个项目，而与`front-end`项目不同的是二者监听的端口不同，`front-end`项目监听`8079`和`9001`端口，而`order`项目监听`80`端口。监听80口的应用在安装`服务网络治理插件`时会有端口占用错误。因此需要对其进小小的改动.将监听的端口改为非80端口。
-    
-    > 使用上面的docker-compose文件创建无需更改
-    
-    更改（如需更改源码）完成后，也需要为`order`项目添加网络治理插件。
-    
-    具体方法同上。
+    >  工作在7层的Mesh插件默认会占用80端口，因此需要安装此插件的服务本身不能占用80端口。因此我们推荐服务尽量监听非80端口。
 
 关于网络治理插件的更对详情可参考 [服务路由，灰度发布，A/B测试
 ](https://www.rainbond.com/docs/stable/microservice/service-mesh/abtest-backup-app.html)
@@ -366,7 +365,7 @@ RainBond平台通过提供插件的形式来实现对用户代码的无侵入网
 
 * 安装插件
 
-    <img src="https://static.goodrain.com/images/article/sockshop/perform-plugin.png" style="border:1px solid #eee;max-width:100%" >
+    <img src="https://static.goodrain.com/images/article/sockshop/perform-plugin.png" style="border:1px solid #eee;width:80%" >
 
 * 应用安装插件
 
@@ -376,13 +375,13 @@ RainBond平台通过提供插件的形式来实现对用户代码的无侵入网
 
     安装完成性能分析插件，可以在安装该插件的应用概览页面查看应用的`平均响应时间`和`吞吐率`。如图所示
     
-    <img src="https://static.goodrain.com/images/article/sockshop/service-perform-anly.png" style="border:1px solid #eee;max-width:100%" >
+    <img src="https://static.goodrain.com/images/article/sockshop/service-perform-anly.png" style="border:1px solid #eee;width:80%" >
 
     除此以外，您也可以在该组应用的组概览中看到应用的访问情况，如图
     
-    <img src="https://static.goodrain.com/images/article/sockshop/group-anly.png" style="border:1px solid #eee;max-width:100%" >
+    <img src="https://static.goodrain.com/images/article/sockshop/group-anly.png" style="border:1px solid #eee;width:80%" >
 
-* 案例上的性能测试
+* 案例上的性能测试工具服务
 
     sockshop商城案例自带性能测试的服务，但是与该项目不是持续运行，而是运行一次后程序便会退出。在这里，我们根据源码进行了一点小的修改。主要是将程序变为不退出运行。源码[地址](https://github.com/rilweic/load-test.git)
 
@@ -390,7 +389,7 @@ RainBond平台通过提供插件的形式来实现对用户代码的无侵入网
 
     <img src="https://static.goodrain.com/images/article/sockshop/source-code-create.png" style="border:1px solid #eee;max-width:100%" >
 
-    创建完成后，您需要在sockshop商城创建一个账号为user,密码为password的用户，负载测试需要使用该用户名来和密码进行模拟请求。
+    创建完成后，您需要在sockshop商城创建一个账号为`user`,密码为`password`的用户，负载测试需要使用该用户名来和密码进行模拟请求。
 
 ### 微服务分布式跟踪
 
@@ -403,7 +402,7 @@ RainBond平台通过提供插件的形式来实现对用户代码的无侵入网
 
 * zipkin架构
 
- <img src="https://static.goodrain.com/images/article/sockshop/zipkin-frame.png" style="border:1px solid #eee;max-width:100%" >
+ <img src="https://static.goodrain.com/images/article/sockshop/zipkin-frame.png" style="border:1px solid #eee;width:80%" >
 
 装配了zipkin跟踪器的服务可以将服务的每次调用（可以是http或者rpc或数据库调用等）延时通过`Transport`（目前有4总共发送方式，`http,kafka,scribe,rabbitmq`）发送给`zipkin`服务。
 
@@ -417,7 +416,7 @@ zipkin主要包含4个模块
 
 * zipkin服务追踪流程
 
-<img src="https://static.goodrain.com/images/article/sockshop/process.png" style="border:1px solid #eee;max-width:100%" >
+<img src="https://static.goodrain.com/images/article/sockshop/process.png" style="border:1px solid #eee;width:80%" >
 
 
 从上图可以简单概括为一次请求调用，zipkin会在请求中加入跟踪的头部信息和相应的注释，并记录调用的时间并将数据返回给zipkin的收集器collector。
@@ -425,36 +424,9 @@ zipkin主要包含4个模块
 
 #### zipkin安装
 
-zipkin官方提供3中安装方式。
-
-* Docker(推荐)
-
-~~~
-docker run -d -p 9411:9411 openzipkin/zipkin
-~~~
-
-* Java(Java8或更高版本)
-
-~~~
-curl -sSL https://zipkin.io/quickstart.sh | bash -s
-java -jar zipkin.jar
-~~~
-
-* 源码
-
-~~~
-# get the latest source
-git clone https://github.com/openzipkin/zipkin
-cd zipkin
-# Build the server and also make its dependencies
-./mvnw -DskipTests --also-make -pl zipkin-server clean install
-# Run the server
-java -jar ./zipkin-server/target/zipkin-server-*exec.jar
-~~~
-
 在Rinbond平台，您可以直接通过docker run 方式运行zipkin.
 
-<img src="https://static.goodrain.com/images/article/sockshop/docker-run-zipkin.png" style="border:1px solid #eee;max-width:100%" >
+<img src="https://static.goodrain.com/images/article/sockshop/docker-run-zipkin.png" style="border:1px solid #eee;width:80%" >
 
 > 注意开启对外访问端口和调整应用内存大小
 
@@ -575,3 +547,17 @@ sockshop案例集成了`zipkin`做分布式跟踪。集成的组件为 `users`�
 <img src="https://static.goodrain.com/images/article/sockshop/zipkin-detail.png" style="border:1px solid #eee;max-width:100%" >
 
 您可以在该图中查看各个服务调用的延时详情。
+
+### 基础部署完成
+
+到此，你应该可以看到如上文看到的完整的业务拓扑图了，商城案例也可以正常工作了。虽然这只是一个Demo用例，但其与实际的电商系统只是缺乏一些业务逻辑了。你是否可以将其业务完善用于你们的实际需求呢？
+
+下面我们开始进阶完成每一个服务的`水平伸缩` `持续集成与部署` `数据备份` `灰度发布`
+
+TODO
+
+
+
+
+
+#### 

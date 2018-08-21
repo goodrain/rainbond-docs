@@ -1,39 +1,26 @@
-
+{
+  "title": "微服务架构",
+  "is_top_level": true,
+  "items": [
     {
-        "title": "微服务架构",
-        "is_top_level": true,
-        "items": [
-            {
-                "title": "Spring Cloud",
-                "urls": [
-                    "/${VERSION}/microservice/spring-cloud/spring-cloud.html"
-                ]
-            },
-            {
-                "title": "Service Mesh",
-                "urls": [
-                    "/${VERSION}/microservice/service-mesh/overview.html"
-                ]
-            },
-            {
-                "title": "Service Mesh案例",
-                "urls": [
-                    "/${VERSION}/microservice/service-mesh/use-case.html"
-                ]
-            },
-            {
-                "title": "Dubbo",
-                "urls": [
-                    "/${VERSION}/microservice/dubbo/dubbo-overview.html"
-                ]
-            },
-            {
-                "title": "Kong(API Gateway)",
-                "urls": [
-                    "/${VERSION}/microservice/kong/kong.html"
-                ]
-            }
-        ]
+      "title": "Spring Cloud",
+      "urls": ["/${VERSION}/microservice/spring-cloud/spring-cloud.html"]
+    },
+    {
+      "title": "Service Mesh",
+      "urls": ["/${VERSION}/microservice/service-mesh/overview.html"]
+    },
+    {
+      "title": "ServiceMesh电商用例",
+      "urls": ["/${VERSION}/microservice/service-mesh/use-case.html"]
+    },
+    {
+      "title": "Dubbo",
+      "urls": ["/${VERSION}/microservice/dubbo/dubbo-overview.html"]
+    },
+    {
+      "title": "Kong(API Gateway)",
+      "urls": ["/${VERSION}/microservice/kong/kong.html"]
     }
-
-    
+  ]
+}
