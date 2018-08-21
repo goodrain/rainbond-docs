@@ -56,7 +56,7 @@ grctl node list
 
 ## 四、平台安装完成，部署 ServiceMesh 完整微服务电商用例试试？
 
-[ServiceMesh 微服务架构电商平台部署](../microservice/service-mesh/use-case.html")
+[ServiceMesh 微服务架构电商平台部署](../microservice/service-mesh/use-case.html)
 
 <!--
 ## 四、分步部署
