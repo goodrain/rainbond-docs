@@ -103,7 +103,7 @@
                 {
                     "title": "卸载",
                     "urls": [
-                        "/${VERSION}/operation-manual/setup/uninstall.html"
+                        "/${VERSION}/operation-manual/install/uninstall.html"
                     ]
                 }
             ]
