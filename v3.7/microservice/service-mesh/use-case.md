@@ -1,55 +1,59 @@
 ---
-title: 电子商城ServiceMesh微服务架构案例
-summary: 电子商城ServiceMesh微服务架构案例
+title: ServiceMesh微服务架构电商案例
+summary: 电子商城 ServiceMesh 微服务架构案例
 toc: true
-toc_not_nested: true
 asciicast: true
 ---
 
-## 基于 ServiceMesh 微服务架构的电商案例实践
 
-<div id="toc"></div>
+## 一、简介
 
-### 简介
+[sockshop](https://github.com/microservices-demo/microservices-demo) 是一个面向用户的网上销售袜子的商城，具备用户管理、商品管理、购物车、订单流程、地址管理等完善的电商解决方案，是一个典型的微服务架构案例。主要由`Spring boot`,`Golang`,`Nodejs`等多种语言开发。使用`MySQL`和`MongoDB`等多种数据库。其原方案是单机环境下部署，缺乏服务治理能力和分布式能力。
 
-`sockshop`是一个面向用户的网上销售袜子的商城，具备用户管理、商品管理、购物车、订单流程、地址管理等完善的电商解决方案，是一个典型的微服务架构案例。主要由`spring boot`,`golang`,`nodejs`等多种语言开发。使用`mysql`和`mongoDB`等多种数据库。其原方案是单机环境下部署，缺乏服务治理能力和分布式能力。
+借助 Rainbond 开箱即用的 ServiceMesh 架构，对原代码不做任何侵入。将其转化成为具有`服务注册与发现`、`分布式跟踪` 、`A/B测试`、`灰度发布`、`限流` 、`熔断`、 `性能分析`、`高可用`、`日志分析`等能力的高可靠性电商业务系统。
 
-借助 Rainbond 开箱即用的 ServiceMesh 架构，对原代码不做任何侵入。将其转化成为具有`服务注册*发现`、`分布式跟踪` 、`A/B测试`、`灰度发布`、`限流` 、`熔断`、 `性能分析`、`高可用`、`日志分析`等能力的高可靠性电商业务系统。
+### 1.1 部署后的拓扑图总览
 
-- 商城在 Rainbond 平台的部署效果总览
+<center>
+<img src="https://static.goodrain.com/images/docs/3.7/microservice/service-mesh/sockshop.gif" style="border:1px solid #eee;width:85%">
+</center>
 
-<img src="https://static.goodrain.com/images/article/sockshop/gr-archi.png" style="border:1px solid #eee;width:80%">
+### 1.2 商城首页预览图
 
-- 商城首页预览图
+<center>
+<img src="https://static.goodrain.com/images/article/sockshop/sockshop-frontend.png" style="border:1px solid #eee;width:85%">
+</center>
 
-<img src="https://static.goodrain.com/images/article/sockshop/sockshop-frontend.png" style="border:1px solid #eee;width:80%">
+### 1.3 商城架构图
 
-- 商城架构图
-
+<center>
 <img src="https://static.goodrain.com/images/article/sockshop/Architecture.png" style="border:1px solid #eee;width:80%">
+</center>
 
 更多信息
 
 - [源码地址](https://github.com/microservices-demo)
 - [weavesocksdemo 样例](https://cloud.weave.works/demo)
 
-## 商城 Rainbond 部署流程
+## 二、商城在Rainbond的部署流程
 
 本文以 Rainbond(V3.7.0)为基础平台部署微服务架构商城用例。
 
-### 服务创建
+### 2.1 服务创建
 
 为了简化创建过程，在 Rainbond 平台使用`DockerCompose配置文件`的创建方式可以很轻松的批量创建出 sockshop 里的所有服务。
 
-**docker-compose 创建**
+- **docker-compose 创建**
 
+<center>
 <img src="https://static.goodrain.com/images/article/sockshop/docker-compose-create.png" style="border:1px solid #eee;width:80%">
+</center>
 
 > 需要注意的是检测和创建过程由于获取大量镜像需要一定时间，请耐心等候完成！
 
-**docker-compose 源码**
+- **docker-compose 源码: [下载](/docs/attachments/yaml/sockshop.yaml)**
 
-```
+```yaml
 version: '2'
 
 services:
@@ -263,10 +267,10 @@ services:
 
 服务创建完成后需要对批量创建的服务进行注册和对部署内存的调整，根据服务之间的调用关系，我们需要分析出哪些服务是作为内部服务供给其它服务调用，哪个服务是对用户提供访问的。根据上文的架构图我们做以下操作：
 
-### 服务注册
+### 2.2 服务注册
 
 服务创建后，您需要对各个服务进行注册以便服务之间进行相互调用。
-在 RainBond 平台，您可以通过在服务的端口页打开端口来进行服务的注册。关于服务注册的详细文档可参考[RainBond 平台服务注册](https://www.rainbond.com/docs/stable/microservice/service-mesh/regist.html)
+在 RainBond 平台，您可以通过在服务的端口页打开端口来进行服务的注册。关于服务注册的详细文档可参考[RainBond 平台服务注册](regist.html)
 
 各服务对应的端口和部署内存大小如下：
 
@@ -288,17 +292,19 @@ services:
 | queue-master | 无                                | 1024                | 消息队列服务                   |
 | zipkin       | 9410 `对内` 9411 `内外均开`       | 1024                | 分布式跟踪服务                 |
 
-### 服务发现
+### 2.3 服务发现
 
-商城项目通过内部域名来进行服务调用。在完成服务的注册后，调用服务需要发现被调用服务，如何实现呢？在 RainBond 平台，您可以通过服务依赖来实现（详情参考文档[服务发现](https://www.rainbond.com/docs/stable/microservice/service-mesh/discover.html)）。各服务依赖的详情可参考上图`商城在RainBond平台的概览`
+商城项目通过内部域名来进行服务调用。在完成服务的注册后，调用服务需要发现被调用服务，如何实现呢？在 RainBond 平台，您可以通过服务依赖来实现（详情参考文档[服务发现](discover.html)）。各服务依赖的详情可参考上图`商城在RainBond平台的概览`
 
 > 如果使用上面的 docker-compose 文件创建应用，无需手动添加依赖，在创建应用时系统已根据 docker-compose 文件内容自动配置了服务发现
 
-### 服务 Mesh 治理
+### 2.4 服务 Mesh 治理
 
 在商城案例中，`front-end`为`nodejs`项目。该服务会调用其他 5 个服务来获取数据。如图:
 
+<center>
 <img src="https://static.goodrain.com/images/article/sockshop/front-end-invoke.png" style="border:1px solid #eee;max-width:80%" >
+</center>
 
 `front-end`在调用其他服务时，会使用域名+端口的调用方式（该项目所有调用均为此方式）
 如 `front-end` 调用 `orders` 时，内部访问地址为 `http://orders/xxx`.
@@ -307,27 +313,32 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
 
 在不安装 7 层网络治理插件的情况下，平台默认使用 4 层网络治理插件，无法提供端口复用的机制。因此，我们为服务`front-end` `orders` 分别安装网络治理插件。
 
-#### 安装网络治理插件
+### 2.5 安装网络治理插件
 
 在`我的插件`中选择`服务网络治理插件`进行安装。
 
-<img src="https://static.goodrain.com/images/article/sockshop/net-plugin-install.png" style="border:1px solid #eee;width:80%" >
+<center>
+<img src="https://static.goodrain.com/images/article/sockshop/net-plugin-install.png" style="border:1px solid #eee;width:85%" >
+</center>
 
 > 注意: 网络治理插件会默认使用 80 端口，因此使用该插件的应用不能为监听 80 端口的应用
 
-#### 应用安装插件
+### 2.6 应用安装插件
 
 在应用详情页面选择`插件`标签，然后开通指定的插件
 
-<img src="https://static.goodrain.com/images/article/sockshop/service-plugin-install.png" style="border:1px solid #eee;width:80%" >
+<center>
+<img src="https://static.goodrain.com/images/article/sockshop/service-plugin-install.png" style="border:1px solid #eee;width:85%" >
+</center>
 
 > 安装插件后需重启应用生效
 
-#### Mesh 插件配置
+### 2.7 Mesh 插件配置
 
-配置域名路由，实现端口复用。为了`front-end`服务能根据代码已有的域名调用选择对应的服务提供方，我们需要根据其调用的域名来进行配置。将应用进行依赖后，`服务网络治理插件`能够自动识别出其依赖的应用。您只需在插件的配置的域名项中进行域名配置即可。如图
+配置域名路由，实现端口复用。为了`front-end`服务能根据代码已有的域名调用选择对应的服务提供方，我们需要根据其调用的域名来进行配置。将应用进行依赖后，`服务网络治理插件`能够自动识别出其依赖的应用。您只需在插件的配置的域名项中进行域名配置即可。如下图：
 
 <img src="https://static.goodrain.com/images/article/sockshop/plugin-config.png" style="border:1px solid #eee;max-width:100%" >
+>
 
 详细配置
 
@@ -340,9 +351,9 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
   > 工作在 7 层的 Mesh 插件默认会占用 80 端口，因此需要安装此插件的服务本身不能占用 80 端口。因此我们推荐服务尽量监听非 80 端口。
 
 关于网络治理插件的更对详情可参考 [服务路由，灰度发布，A/B 测试
-](https://www.rainbond.com/docs/stable/microservice/service-mesh/abtest-backup-app.html)
+](abtest-backup-app.html)
 
-### 服务性能分析
+### 2.8 服务性能分析
 
 微服务是一个分布式的架构模式，它一直以来都会有一些自身的问题。当一个应用的运行状态出现异常时，对于我们的运维和开发人员来说，即时发现应用的状态异常并解决是非常有必要的。其次是应用是否正常提供服务，应用提供服务的状况又是怎样？我们可以通过监控手段对服务进行衡量，或者做一个数据支撑。服务目前是怎样的性能状况，以及出了问题我们要怎么去发现它。
 
@@ -354,7 +365,9 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
 
 - 安装插件
 
-    <img src="https://static.goodrain.com/images/article/sockshop/perform-plugin.png" style="border:1px solid #eee;width:80%" >
+<center>
+<img src="https://static.goodrain.com/images/article/sockshop/perform-plugin.png" style="border:1px solid #eee;width:80%" />
+</center>
 
 - 应用安装插件
 
@@ -364,11 +377,15 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
 
   安装完成性能分析插件，可以在安装该插件的应用概览页面查看应用的`平均响应时间`和`吞吐率`。如图所示
 
-    <img src="https://static.goodrain.com/images/article/sockshop/service-perform-anly.png" style="border:1px solid #eee;width:80%" >
+<center>
+<img src="https://static.goodrain.com/images/article/sockshop/service-perform-anly.png" style="border:1px solid #eee;width:80%" />
+</center>
 
-  除此以外，您也可以在该组应用的组概览中看到应用的访问情况，如图
+除此以外，您也可以在该组应用的组概览中看到应用的访问情况，如图
 
-    <img src="https://static.goodrain.com/images/article/sockshop/group-anly.png" style="border:1px solid #eee;width:80%" >
+<center>
+<img src="https://static.goodrain.com/images/article/sockshop/group-anly.png" style="border:1px solid #eee;width:85%" />
+</center>
 
 - 案例上的性能测试工具服务
 
@@ -376,13 +393,13 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
 
   您可以通过源码方式来创建项目。如图
 
-    <img src="https://static.goodrain.com/images/article/sockshop/source-code-create.png" style="border:1px solid #eee;max-width:100%" >
+<img src="https://static.goodrain.com/images/article/sockshop/source-code-create.png" style="border:1px solid #eee;max-width:100%" />
 
-  创建完成后，您需要在 sockshop 商城创建一个账号为`user`,密码为`password`的用户，负载测试需要使用该用户名来和密码进行模拟请求。
+  创建完成后，您需要在 sockshop 商城创建一个账号为`user`,密码为`password` 的用户，负载测试需要使用该用户名来和密码进行模拟请求。
 
-### 微服务分布式跟踪
+## 三、微服务分布式跟踪
 
-#### zipkin 简介
+### 3.1 zipkin 简介
 
 随着业务越来越复杂，系统也随之进行各种拆分，特别是随着微服务架构和容器技术的兴起，看似简单的一个应用，后台可能有几十个甚至几百个服务在支撑；一个前端的请求可能需要多次的服务调用最后才能完成；当请求变慢或者不可用时，我们无法得知是哪个后台服务引起的，这时就需要解决如何快速定位服务故障点，Zipkin 分布式跟踪系统就能很好的解决这样的问题。
 
@@ -391,7 +408,9 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
 
 - zipkin 架构
 
- <img src="https://static.goodrain.com/images/article/sockshop/zipkin-frame.png" style="border:1px solid #eee;width:80%" >
+<center>
+ <img src="https://static.goodrain.com/images/article/sockshop/zipkin-frame.png" style="border:1px solid #eee;width:85%" >
+ </center>
 
 装配了 zipkin 跟踪器的服务可以将服务的每次调用（可以是 http 或者 rpc 或数据库调用等）延时通过`Transport`（目前有 4 总共发送方式，`http,kafka,scribe,rabbitmq`）发送给`zipkin`服务。
 
@@ -404,15 +423,17 @@ zipkin 主要包含 4 个模块
 
 - zipkin 服务追踪流程
 
-<img src="https://static.goodrain.com/images/article/sockshop/process.png" style="border:1px solid #eee;width:80%" >
+<center>
+<img src="https://static.goodrain.com/images/article/sockshop/process.png" style="border:1px solid #eee;width:85%" >
+</center>
 
 从上图可以简单概括为一次请求调用，zipkin 会在请求中加入跟踪的头部信息和相应的注释，并记录调用的时间并将数据返回给 zipkin 的收集器 collector。
 
-#### zipkin 安装
+### 3.2 zipkin 安装
 
 在 Rinbond 平台，您可以直接通过 docker run 方式运行 zipkin.
 
-<img src="https://static.goodrain.com/images/article/sockshop/docker-run-zipkin.png" style="border:1px solid #eee;width:80%" >
+<img src="https://static.goodrain.com/images/article/sockshop/docker-run-zipkin.png" style="border:1px solid #eee;width:100%" />
 
 > 注意开启对外访问端口和调整应用内存大小
 
@@ -447,9 +468,9 @@ mysql -uusername -ppassword
 CREATE DATABASE zipkin ;
 ```
 
-创建 zipkin 相关的表
+创建 zipkin 相关的表：[下载](/docs/attachments/sql/zipkin.sql)
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS zipkin_spans (
   `trace_id_high` BIGINT NOT NULL DEFAULT 0 COMMENT 'If non zero, this means the trace uses 128 bit traceIds instead of 64 bit',
   `trace_id` BIGINT NOT NULL,
@@ -508,7 +529,7 @@ ALTER TABLE zipkin_dependencies ADD UNIQUE KEY(`day`, `parent`, `child`);
 
 > 其他服务如果连接的变量与 RainBond 平台默认提供的不一致，您可以在应用的设置也添加相应的环境变量来达到访问的目的。
 
-#### sock-shop 中的 zipkin 案例
+### 3.3 sock-shop 中的 zipkin 案例
 
 sockshop 案例集成了`zipkin`做分布式跟踪。集成的组件为 `users`、`carts`、`orders`、`payment`、`catalogue`、`shipping`。
 
@@ -530,7 +551,7 @@ sockshop 案例集成了`zipkin`做分布式跟踪。集成的组件为 `users`�
 
 您可以在该图中查看各个服务调用的延时详情。
 
-### 基础部署完成
+## 四、基础部署完成
 
 到此，你应该可以看到如上文看到的完整的业务拓扑图了，商城案例也可以正常工作了。虽然这只是一个 Demo 用例，但其与实际的电商系统只是缺乏一些业务逻辑了。你是否可以将其业务完善用于你们的实际需求呢？
 
