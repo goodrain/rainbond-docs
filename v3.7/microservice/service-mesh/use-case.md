@@ -267,6 +267,8 @@ services:
 
 服务创建完成后需要对批量创建的服务进行注册和对部署内存的调整，根据服务之间的调用关系，我们需要分析出哪些服务是作为内部服务供给其它服务调用，哪个服务是对用户提供访问的。根据上文的架构图我们做以下操作：
 
+> Rainbond除了提供了基于DockerCompose创建应用的基础上还有更多的创建方式，体验从源码到云端的流程等，参考文档：[创建一个应用](https://www.goodrain.com/docs/stable/user-manual/create-an-app.html)
+
 ### 2.2 服务注册
 
 服务创建后，您需要对各个服务进行注册以便服务之间进行相互调用。
@@ -292,6 +294,8 @@ services:
 | queue-master | 无                                | 1024                | 消息队列服务                   |
 | zipkin       | 9410 `对内` 9411 `内外均开`       | 1024                | 分布式跟踪服务                 |
 
+> 请注意，这里必须确定对每个服务组件的服务注册信息和资源分配信息设置正确。
+
 ### 2.3 服务发现
 
 商城项目通过内部域名来进行服务调用。在完成服务的注册后，调用服务需要发现被调用服务，如何实现呢？在 RainBond 平台，您可以通过服务依赖来实现（详情参考文档[服务发现](discover.html)）。各服务依赖的详情可参考上图`商城在RainBond平台的概览`
@@ -305,7 +309,6 @@ services:
 <center>
 <img src="https://static.goodrain.com/images/article/sockshop/front-end-invoke.png" style="border:1px solid #eee;max-width:80%" >
 </center>
-
 `front-end`在调用其他服务时，会使用域名+端口的调用方式（该项目所有调用均为此方式）
 如 `front-end` 调用 `orders` 时，内部访问地址为 `http://orders/xxx`.
 
@@ -320,8 +323,9 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
 <center>
 <img src="https://static.goodrain.com/images/article/sockshop/net-plugin-install.png" style="border:1px solid #eee;width:85%" >
 </center>
+**特别注意**
 
-> 注意: 网络治理插件会默认使用 80 端口，因此使用该插件的应用不能为监听 80 端口的应用
+> 工作在 7 层的 Mesh 插件默认会占用 80 端口，因此需要安装此插件的服务本身不能占用 80 端口。因此我们推荐服务尽量监听非 80 端口。插件内存使用量需要根据流量大小调节。
 
 ### 2.6 应用安装插件
 
@@ -331,7 +335,7 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
 <img src="https://static.goodrain.com/images/article/sockshop/service-plugin-install.png" style="border:1px solid #eee;width:85%" >
 </center>
 
-> 安装插件后需重启应用生效
+> Rainbond默认提供的服务网络治理插件是基于[Envoy](https://github.com/envoyproxy/envoy)制作，Rainbond ServiceMesh架构为Envoy提供了标准的运行支持。安装插件后需重启应用生效。
 
 ### 2.7 Mesh 插件配置
 
@@ -344,13 +348,7 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
 
 <img src="https://static.goodrain.com/images/article/sockshop/plugin-config-detail.gif" style="border:1px solid #eee;max-width:100%" >
 
-更新插件相关的配置后进行保存并重启相关应用即可。
-
-- **特别注意**
-
-  > 工作在 7 层的 Mesh 插件默认会占用 80 端口，因此需要安装此插件的服务本身不能占用 80 端口。因此我们推荐服务尽量监听非 80 端口。
-
-关于网络治理插件的更对详情可参考 [服务路由，灰度发布，A/B 测试
+更新插件相关的配置后进行保存并重启相关应用即可。此处暂时先只用到基于域名的路由配置，关于网络治理插件的更对详情可参考 [服务路由，灰度发布，A/B 测试
 ](abtest-backup-app.html)
 
 ### 2.8 服务性能分析
@@ -557,6 +555,8 @@ sockshop 案例集成了`zipkin`做分布式跟踪。集成的组件为 `users`�
 
 下面我们开始进阶完成每一个服务的`水平伸缩` `持续集成与部署` `数据备份` `灰度发布`
 
-TODO
+## 五、进阶
 
-####
+> 参考此例创建你自己的微服务架构，使用源码直接在Rainbond进行构建，集成Jenkins进行源码测试+持续部署。Rainbond如何数据备份，服务如何伸缩和升级。
+>
+> TODO
