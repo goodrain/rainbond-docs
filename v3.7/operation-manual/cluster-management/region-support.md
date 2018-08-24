@@ -61,7 +61,7 @@ region_alias: 私有数据中心1
 export IP=47.93.103.244
 export DOMAIN=034212.grapps.cn
 cat > /tmp/region_info.sql <<EOF
-INSERT INTO \`region_info\` ( \`region_id\`, \`region_name\`, \`region_alias\`, \`url\`, \`token\`, \`status\`, \`desc\`, \`wsurl\`, \`httpdomain\`, \`tcpdomain\`, \`scope\`, \`ssl_ca_cert\`,\`cert_file\`,\`key_file\`) VALUES('asdasdasdasdasdasdasdasdas', 'rainbond2', '私有数据中心2', 'http://$IP:8888', NULL, '1', '当前数据中心是默认安装添加的数据中心', 'ws://$IP:6060', '$DOMAIN', '$IP', 'private','/etc/goodrain/region.goodrain.me/ssl/ca.pem','/etc/goodrain/region.goodrain.me/ssl/client.pem','/etc/goodrain/region.goodrain.me/ssl/client.key.pem');
+INSERT INTO \`region_info\` ( \`region_id\`, \`region_name\`, \`region_alias\`, \`url\`, \`token\`, \`status\`, \`desc\`, \`wsurl\`, \`httpdomain\`, \`tcpdomain\`, \`scope\`, \`ssl_ca_cert\`,\`cert_file\`,\`key_file\`) VALUES('<随机>', '<随机>', '私有数据中心2', 'http://$IP:8888', NULL, '1', '当前数据中心是默认安装添加的数据中心', 'ws://$IP:6060', '$DOMAIN', '$IP', 'private','/etc/goodrain/region.goodrain.me/ssl/ca.pem','/etc/goodrain/region.goodrain.me/ssl/client.pem','/etc/goodrain/region.goodrain.me/ssl/client.key.pem');
 EOF
 
 docker cp /tmp/region_info.sql rbd-db:/root/ri.sql
