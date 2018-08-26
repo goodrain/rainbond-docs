@@ -90,8 +90,7 @@ State: Peer in Cluster (Connected)
 mkdir  -p /data/glusterfs
 
 # 创建一个卷
-gluster volume create data replica 2 server1:/data/
-glusterfs server2:/data/glusterfs
+gluster volume create data replica 2 server1:/data/glusterfs server2:/data/glusterfs
 
 Replica 2 volumes are prone to split-brain. Use Arbiter or Replica 3 to avoid this. See: http://docs.gluster.org/en/latest/Administrator%20Guide/Split%20brain%20and%20ways%20to%20deal%20with%20it/.
 Do you still want to continue?
