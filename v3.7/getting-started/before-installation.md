@@ -61,7 +61,8 @@ CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个�
 10. 确定网络没有限制，如有请加如下域名添加到白名单repo.goodrain.com,www.rainbond.com,domain.grapps.cn
 11. 安装前请勿挂载/grdata目录
 12. 不支持容器部署,不支持OpenVZ架构部署
-13. 推荐[限制容器资源](../operation-manual/install/config/swap.md)
+13. 推荐[限制容器资源](../operation-manual/install/config/swap.html)
+14. 推荐关闭[NetworkManager](../operation-manual/install/config/disable-NetworkManager.html)服务
 
 ## 云服务商支持说明
 
