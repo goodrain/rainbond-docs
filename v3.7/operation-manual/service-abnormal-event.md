@@ -27,4 +27,4 @@ Rainbond实现的worker组件中，对应用实例出的pod进行状态观察，
 
 `grctl notification get --st 1535097191 --et 1535356391`
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/service-unnormal.png)
+![](https://static.goodrain.com/images/docs/3.7/monitor/service-error.jpg)
