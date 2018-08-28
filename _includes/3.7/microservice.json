@@ -15,6 +15,10 @@
       "urls": ["/${VERSION}/microservice/service-mesh/use-case.html"]
     },
     {
+      "title": "应用日志对接",
+      "urls": ["/${VERSION}/microservice/service-mesh/service-log.html"]
+    },
+    {
       "title": "Dubbo",
       "urls": ["/${VERSION}/microservice/dubbo/dubbo-overview.html"]
     },
