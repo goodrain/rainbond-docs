@@ -4,15 +4,21 @@ summary: 主机、服务、容器监控
 toc: true
 ---
 
-### 一：简介
+### 一：概述
 
-本节主要介绍的是Raibond中对Node机器监控，各服务组件监控及容器监控。主要使用开源监控项目[Prometheus](https://prometheus.io/)收取存储监控数据并提供监控数据查询，在容器监控中使用[Cadvisor](https://github.com/google/cadvisor)组件收集容器监控数据，使用[Granfana](https://grafana.com/)让监控数据可视化。Prometheus提供简单的WEB UI，在浏览器中访问本机的`9999`端口即可。
+本节主要介绍的是Raibond监控体系中对Node机器监控，各服务组件监控及容器监控。监控服务由Rainbond组件`rbd-monitor`完成，在monitor组件中采用Sidecar设计模式思想整合[Prometheus](https://prometheus.io/)服务，并基于ETCD动态发现需要监控的targets，自动配置与管理Prometheus服务。monitor会定期到每个targets刮取指标数据，并将数据持久化在本地，提供灵活的PromQL查询与RESTful API查询。通过[Granfana](https://grafana.com/)将监控数据可视化。在Rainbond资源管理后台与控制台中，基于monitor组件刮取的监控数据对应用与容器实现资源可视化等。monitor组件支持自定义报警规则，对接Alertmanager向用户发送报警信息，关于报警方面我们会在文档`报警`中详细介绍。
+
+当前`rbd-monitor`是冗余的工作模式，即对集群中所有节点的监控数据进行收集，当节点数量或监控数据量庞大时，对监控服务务必带来很大的压力。在后面的版本中我们会持续优化监控体系，支持多点部署、分布式数据采集、查询汇总等。
+
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/monitor-structure.jpg" width="80%"  />
+
+`rbd-monitor`提供Prometheus服务，在浏览器中访问本机的`9999`端口即可。Prometheus默认保存七天的数据，如果你需要更改配置，在`/opt/rainbond/conf/manager-services.yaml`文件中的`rbd-monitor`配置中修改启动参数对应的值即可。
 
 
 
 ### 二：Node资源监控
 
-有许多第三方组件提供导出现有的Prometheus指标供Prometheus拉取。Prometheus社区提供的[NodeExporter](https://github.com/prometheus/node_exporter)项目可以对于主机的关键度量指标状态监控，在Rainbond中已经部署了NodeExporter并暴露在端口6100，Prometheus可以通过`http://node_ip:6100/metrics`获取本节点的主机监控指标及数据。
+有许多第三方组件提供导出现有的Prometheus指标供Prometheus拉取。Prometheus社区提供的[NodeExporter](https://github.com/prometheus/node_exporter)项目可以对于主机的关键度量指标状态监控，Rainbond整合实现了NodeExporter并暴露在Node端口6100上，Prometheus可以通过`http://node_ip:6100/metrics`刮取本节点的主机监控指标及数据。
 
 ![](https://static.goodrain.com/images/docs/3.7/monitor/node_targets.jpg)
 
@@ -24,7 +30,7 @@ toc: true
 
 ### 三：服务组件监控
 
-我们在Rainbond的各服务组件中自定义了一些Prometheus的指标，通过Prometheus的Exporter将指标数据生成Prometheus可以识别的格式，通过metrics地址供Prometheus刮取。
+我们在Rainbond的各服务组件中自定义了Prometheus的Exporter，定义组件健康与工作等一些指标，并将指标与数据生成Prometheus可以识别的格式，通过metrics地址供Prometheus刮取。
 
 在Prometheus的`Targets`中你可以看到这些服务组件，并可以查询这些服务组件暴露的指标及数据。
 
@@ -40,7 +46,7 @@ CAdvisor 启动通过调用 Linux 系统 inotify 监测 cgroup docker 目录的�
 
 Kubernetes的生态中，cAdvisor是作为容器监控数据采集的Agent，cAdvisor集成在Kubelet中，其部署在每个计算节点上的kubelet启动时会自动启动cAdvisor，一个cAdvisor仅对一台Node机器进行监控，默认端口为`4194`，在URL`http://node_ip:4194/metrics` 提供监控指标及数据供Prometheus刮取。
 
-在Rainbond的`monitor`组件中通过etcd发现计算节点，将该节点CAdvisor提供的metrics地址配置Prometheus的配置文件，通过Prometheus指标丰富的`label`对容器及pod进行分类查找。具体的监控项可在Granfana中配置模版，下面回详细说明如何在Granfana中配置容器监控模版。
+在Rainbond的`monitor`组件中通过etcd发现计算节点，将该节点CAdvisor提供的metrics地址配置Prometheus的配置文件，通过Prometheus指标丰富的`label`对容器及pod进行分类查找。并可实现对Rainbond应用的资源监控等。具体的监控项可在Granfana中配置模版，下面会详细说明如何在Granfana中配置容器监控模版。
 
 ![](https://static.goodrain.com/images/docs/3.7/monitor/cadvisor-1.jpg)
 
@@ -54,7 +60,7 @@ grafana是用于可视化大型测量数据的开源程序，他提供了强大�
 
 ##### 5.1 登陆Grafana
 
-当你安装完Rainbond后，我们已经安装好Grafana服务，如你想自己安装Grafana，可参阅[文档](http://docs.grafana.org/installation/)。默认情况下，Grafana将监听http:// localhost:3000。默认登录名为“admin”/“admin”。如果密码不正确，你可以在`/opt/rainbond/conf/manager-services.yaml`文件中`rbd-grafana`的启动参数中配置`-e GF_SECURITY_ADMIN_PASSWORD="password"`设置admin用户密码。
+当安装Rainbond时，可选择安装Grafana服务。如你想安装自己的Grafana，可参阅[文档](http://docs.grafana.org/installation/)安装。Rainbond安装的Grafana将监听http:// localhost:3000。默认登录名为“admin”/“admin”。如果密码不正确，你可以在`/opt/rainbond/conf/manager-services.yaml`文件中`rbd-grafana`的启动参数中配置`-e GF_SECURITY_ADMIN_PASSWORD="password"`设置admin用户密码。
 
 ![](https://static.goodrain.com/images/docs/3.7/monitor/login.png)
 
@@ -84,7 +90,7 @@ Grafana支持通过json文件快速导入你需要的仪表盘模版。[点击�
 
 ![](https://static.goodrain.com/images/docs/3.7/monitor/node-export.png)
 
-##### 5.4 容器监控
+##### 5.4 导入容器监控模版
 
 容器监控模版的导入方法与上面Node主机监控的导入方法一致，[点击这里](https://static.goodrain.com/images/docs/3.7/monitor/Docker_and_Container_Stats.json)获取json文件。导入后可根据标签`pod_name`来查看某一个pod中容器的监控情况。`Node`标签可切换节点，`interval`可切换间隔时间。
 
