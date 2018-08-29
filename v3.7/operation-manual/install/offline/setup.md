@@ -11,7 +11,7 @@ toc: true
 需要在有网的环境下，且已经安装了docker，且有权限读写/opt/rainbond目录。
 
 ```bash
-# 默认会在/opt/目录下创建rainbond相关目录文件
+# 默认会在/opt/目录下创建rainbond相关目录文件,建议当前系统环境与后续离线系统环境保持一致
 curl https://raw.githubusercontent.com/goodrain/rainbond-install/v3.7/scripts/offline.sh -o ./offline.sh
 chmod +x offline.sh
 ./offline.sh
@@ -35,7 +35,7 @@ nfs-kernel-server nfs-common dnsutils python-pip python-apt apt-transport-https 
 
 ```bash
 cd /opt/rainbond/install
-./grctl init --install-type offline
+./grctl init --type offline --domain <自定义域名，可选>
 ```
 
 ## 四、安装提示报错
@@ -75,7 +75,7 @@ audit-libs-python-2.8.1-3.el7.x86_64.rpm
 5. 是否重新执行安装
 6. 是否采用了上述的解决方案
 
-## 五、附录
+## 六、附录
 
 可以使用好雨科技提供的离线安装包,此离线包仅针对阿里云CentOS 7.4做过优化，并不能保证其适用于其他环境下的CentOS服务器。此离线包仅会同步更新大版本。
 
@@ -92,6 +92,5 @@ SHA512SUM:
 tar xf install.offline.v3.7.0.2018-08-21.tgz -C /
 cd /opt/rainbond/install/
 ./grctl init --type offline --domain <自定义域名，可选>
-# 扩容参考管理节点
 ```
 
