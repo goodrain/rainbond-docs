@@ -57,7 +57,7 @@ DockerHub 地址https://hub.docker.com/r/prom/alertmanager/
 
 在Prometheus的配置文件中增加Alertmanager的配置：
 
-```
+```yaml
 alerting:
   alertmanagers:
     - static_configs:
@@ -65,8 +65,6 @@ alerting:
 ```
 
 > 在Rainbond中你可以在服务配置文件`/opt/rainbond/conf/manager-services.yaml`中找到`rbd-monitor`服务，在启动参数中使用`--alertmanager-address=localhost:9093`配置Alertmanager地址，如果有多个可用逗号分隔。重启monitor服务时，会将该参数解析出来替换到Pormetheus的`ConfigMap`中并启动，Pormetheus会通过HTTP与Alertmanager在API端点`/api/v1/alerts`处侦听Pormetheus发送来的警报。
-
-
 
 ### 四：在Prometheus创建警报规则
 
@@ -82,7 +80,7 @@ RuleFiles      []string        `yaml:"rule_files,omitempty"`
 
 配置文件结构大致为：
 
-```
+```yaml
 rule_files:
   - "rules/node.rules"
   - "rules2/*.rules"
@@ -92,14 +90,14 @@ rule_files:
 
 警告规则配置文件结构大致为：
 
-```
+```yaml
 groups:
   [ - <rule_group> ]
 ```
 
 <rule_group>:
 
-```
+```yaml
 # The name of the group. Must be unique within a file.
 name: <string>
 
@@ -112,7 +110,7 @@ rules:
 
 <rule>:
 
-```
+```yaml
 # The name of the alert. Must be a valid metric name.
 alert: <string>
 
@@ -161,7 +159,6 @@ annotations:
 > `gectl alerting get NodeHealth`  得到结果
 
 ```yaml
-
 name: NodeHealth
 rules:
 - alert: high_cpu_usage_on_node
