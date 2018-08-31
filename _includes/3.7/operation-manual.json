@@ -94,10 +94,34 @@
                     ]
                 },
                 {
-                    "title": "部署最小化高可用集群",
-                    "urls": [
-                        "/${VERSION}/operation-manual/cluster-management/haminimal-install.html"
+                    "title": "部署方案",
+                    "items": [{
+                            "title": "单节点demo部署方案",
+                            "urls": [
+                                "/${VERSION}/operation-manual/cluster-management/one-node-deployment.html"
+                            ]
+                        },
+                        {
+                            "title": "三节点高可用部署方案",
+                            "urls": [
+                                "/${VERSION}/operation-manual/cluster-management/three-nodes-deployment.html"
 
+                            ]
+                        },
+                        {
+                            "title": "五节点高可用部署方案",
+                            "urls": [
+                                "/${VERSION}/operation-manual/cluster-management/five-nodes-deployment.html"
+
+                            ]
+                        },
+                        {
+                            "title": "生产部署方案",
+                            "urls": [
+                                "/${VERSION}/operation-manual/cluster-management/production-deployment.html"
+
+                            ]
+                        }
                     ]
                 },
                 {
