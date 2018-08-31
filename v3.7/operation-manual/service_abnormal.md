@@ -17,14 +17,26 @@ Rainbond实现的worker组件中，对应用实例出的pod进行状态观察，
 
 
 
-### 三：grctl中查询应用异常事件
+### 三：grctl中查询未处理的应用异常事件
 
-你可以使用Rainbond的命令行工具`grctl` 来查询应用的异常事件。
+你可以使用Rainbond的命令行工具`grctl` 来查询未处理应用的异常事件。
 
-使用 `grctl notification get` 默认获取`三天内`的应用异常事件，如果你需要查询某时间段的异常事件，可以使用`--st`和`--et` 分别指定开始时间戳与结束时间戳，如果只有开始时间并不指定结束时间，则结束时间默认为当前时间。
+使用 `grctl notification get` 默认获取`三天内`未处理的应用异常事件，如果你需要查询某时间段的异常事件，可以使用`--st`和`--et` 分别指定开始时间戳与结束时间戳，如果只有开始时间并不指定结束时间，则结束时间默认为当前时间。
 
 > 示例
 
 `grctl notification get --st 1535097191 --et 1535356391`
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/service-error2.png)
+![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.7/monitor/service-error2.png)
+
+
+
+### 四：处理应用异常
+
+当把出现异常事件的应用处理完毕后，可将该应用相关的异常事件修改为`已处理`状态。
+
+在grctl命令行工具中使用命令`grctl notification get handle -n [ServiceName] -m [HandleMessage]`  将某应用的异常事件标记为已处理。使用`-- ServiceName`或`- n`指定要处理应用的应用别名，使用`-- HandleMessage`或`- m `指定处理信息，次参数为可选项。
+
+> 示例
+
+`grctl notification handle -n gr9c80c9 -m '应用已处理'`
