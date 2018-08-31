@@ -19,8 +19,9 @@ asciicast: true
 
 ```bash
 #in the first manage node 
-cd rainbond
-./setup.sh install
+wget https://pkg.rainbond.com/releases/common/v3.7.0/grctl
+chmod +x ./grctl
+./grctl init
 
 #add second manage node
 grctl node add --hostname manage02 --iip <内网ip> --root-pass <root用户密码> --role manage
