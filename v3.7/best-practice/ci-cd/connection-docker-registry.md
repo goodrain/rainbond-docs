@@ -5,4 +5,4 @@ toc: true
 asciicast: true
 ---
 
-文档持续更新中……
+可参考: [添加非安全的镜像仓库地址](../../operation-manual/performance-tuning/add-insecure-registry.html)
