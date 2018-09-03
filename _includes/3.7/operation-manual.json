@@ -114,13 +114,6 @@
                                 "/${VERSION}/operation-manual/cluster-management/five-nodes-deployment.html"
 
                             ]
-                        },
-                        {
-                            "title": "生产部署方案",
-                            "urls": [
-                                "/${VERSION}/operation-manual/cluster-management/production-deployment.html"
-
-                            ]
                         }
                     ]
                 },
