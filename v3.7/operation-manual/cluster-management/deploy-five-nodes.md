@@ -181,7 +181,7 @@ UPDATE region_info set tcpdomain="<VIP>"; #更新tcpdomain
 - 修改compute01-02的rbd-lb组件配置
 
 ```bash
-vi /opt/rainbond/etc/rbd-lb/dynamics/dynamic_servers
+vi /opt/rainbond/etc/rbd-lb/dynamics/dynamic_servers/default.http.conf
 #修改如下
 
 upstream lang {
