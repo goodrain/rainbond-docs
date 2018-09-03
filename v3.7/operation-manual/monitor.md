@@ -44,7 +44,7 @@ toc: true
 
 CAdvisor 启动通过调用 Linux 系统 inotify 监测 cgroup docker 目录的文件变化判断 docker 的创建和删除。找出Container对应的系统文件读取监控数据。
 
-Kubernetes的生态中，cAdvisor是作为容器监控数据采集的Agent，cAdvisor集成在Kubelet中，其部署在每个计算节点上的kubelet启动时会自动启动cAdvisor，一个cAdvisor仅对一台Node机器进行监控，默认端口为`4194`，在URL`http://node_ip:4194/metrics` 提供监控指标及数据供Prometheus刮取。
+Kubernetes的生态中，cAdvisor是作为容器监控数据采集的Agent，cAdvisor集成在Kubelet中，其部署在每个计算节点上的kubelet启动时会自动启动cAdvisor，一个cAdvisor仅对一台Node机器进行监控，默认端口为`4194`，在URL`http://node_ip:4194/metrics` 提供监控指标及数据供Prometheus刮取，默认的刮取间隔为`15s`一次。
 
 在Rainbond的`monitor`组件中通过etcd发现计算节点，将该节点CAdvisor提供的metrics地址配置Prometheus的配置文件，通过Prometheus指标丰富的`label`对容器及pod进行分类查找。并可实现对Rainbond应用的资源监控等。具体的监控项可在Granfana中配置模版，下面会详细说明如何在Granfana中配置容器监控模版。
 
