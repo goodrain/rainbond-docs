@@ -178,7 +178,106 @@ UPDATE region_info set tcpdomain="<VIP>"; #更新tcpdomain
 
 ## 五、添加rbd-lb配置
 
-testing
+- 修改compute01-02的rbd-lb组件配置
+
+```bash
+vi /opt/rainbond/etc/rbd-lb/dynamics/dynamic_servers
+#修改如下
+
+upstream lang {
+    server <manage01_IP>:8081;
+    server <manage02_IP>:8081;
+    server <manage03_IP>:8081;
+}
+
+upstream maven {
+    server <manage01_IP>:8081;
+    server <manage02_IP>:8081;
+    server <manage03_IP>:8081;
+}
+
+upstream registry {
+    ip_hash;
+    server <manage01_IP>:5000;
+    server <manage02_IP>:5000;
+    server <manage03_IP>:5000;
+}
+upstream rbd-api {
+    server <manage01_IP>:6060;
+    server <manage02_IP>:6060;
+    server <manage03_IP>:6060;
+}
+
+server {
+    listen 6060;
+    proxy_pass rbd-api;
+    proxy_connect_timeout 60;
+    proxy_read_timeout 600;
+    proxy_send_timeout 600;
+}
+
+server {
+    listen 80;
+    server_name lang.goodrain.me;
+    rewrite ^/(.*)$ /artifactory/pkg_lang/$1 break;
+    location / {
+        proxy_pass http://lang;
+        proxy_set_header Host $host;
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_connect_timeout 60;
+        proxy_read_timeout 600;
+        proxy_send_timeout 600;
+    }
+}
+
+server {
+    listen 80;
+    server_name maven.goodrain.me;
+    location / {
+        rewrite ^/(.*)$ /artifactory/libs-release/$1 break;
+        proxy_pass http://maven;
+        proxy_set_header Host $host;
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_connect_timeout 60;
+        proxy_read_timeout 600;
+        proxy_send_timeout 600;
+    }
+
+    location /monitor {
+        return 204;
+    }
+}
+
+server {
+    listen 443;
+    server_name goodrain.me;
+    ssl on;
+    ssl_certificate /usr/local/openresty/nginx/conf/dynamics/dynamic_certs/goodrain.me/server.crt;
+    ssl_certificate_key /usr/local/openresty/nginx/conf/dynamics/dynamic_certs/goodrain.me/server.key;
+    client_max_body_size 0;
+    chunked_transfer_encoding on;
+    location /v2/ {
+        proxy_pass http://registry;
+        proxy_set_header Host $http_host; # required for docker client's sake
+        proxy_set_header X-Real-IP $remote_addr; # pass on real client's IP
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 900;
+    }
+}
+# repo.goodrain.me
+server {
+    listen 80;
+    root /opt/rainbond/install/install/pkgs/centos/;
+    server_name repo.goodrain.me;
+
+}
+
+```
 
 ## 六、配置Cockroachdb
 
