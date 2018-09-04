@@ -19,3 +19,12 @@ grctl node add --hostname <主机名> --iip <内网ip> --private-key <信任私�
 grctl node add --hostname <主机名> --iip <内网ip> --root-pass <root用户密码> --role manage
 ```
 
+扩容完成可以执行如下:
+
+```bash
+# 更新部分配置
+salt "*" state.sls common.node_conf
+# 如管理节点的 entrance 服务
+systemctl restart node
+systemctl restart rbd-entrance
+```
