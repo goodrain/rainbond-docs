@@ -20,12 +20,11 @@ toc: true
 
 有许多第三方组件提供导出现有的Prometheus指标供Prometheus拉取。Prometheus社区提供的[NodeExporter](https://github.com/prometheus/node_exporter)项目可以对于主机的关键度量指标状态监控，Rainbond整合实现了NodeExporter并暴露在Node端口6100上，Prometheus可以通过`http://node_ip:6100/metrics`刮取本节点的主机监控指标及数据。
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/node_targets.jpg)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/node_targets.jpg" width="100%" />
 
 在Rainbond的`monitor`组件中，通过etcd中注册的node信息来发现各节点，将各节点主机监控的Metrics地址配置到Prometheus配置文件，Prometheus按配置的间隔时间定时到所有Node拉取指标数据，存储数据并可用PromQL提供丰富的查询。你可以使用Prometheus的查询语句查询各资源使用情况，或者配置Granfana模版更加直观展示主机的监控信息，在下面会详细介绍如何在Granfana配置Noed监控模版。
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/node-targets2.jpg)
-
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/node-targets2.jpg" width="100%" />
 
 
 ### 三：服务组件监控
@@ -34,8 +33,7 @@ toc: true
 
 在Prometheus的`Targets`中你可以看到这些服务组件，并可以查询这些服务组件暴露的指标及数据。
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/service-healthy.jpg)
-
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/service-healthy.jpg" width="100%" />
 
 
 ### 四：容器监控
@@ -48,10 +46,9 @@ Kubernetes的生态中，cAdvisor是作为容器监控数据采集的Agent，cAd
 
 在Rainbond的`monitor`组件中通过etcd发现计算节点，将该节点CAdvisor提供的metrics地址配置Prometheus的配置文件，通过Prometheus指标丰富的`label`对容器及pod进行分类查找。并可实现对Rainbond应用的资源监控等。具体的监控项可在Granfana中配置模版，下面会详细说明如何在Granfana中配置容器监控模版。
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/cadvisor-1.jpg)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/cadvisor-1.jpg" width="100%" />
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/cadvisor-2.jpg)
-
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/cadvisor-2.jpg" width="100%" />
 
 
 ### 五：使用Granfana 可视化监控
@@ -62,7 +59,7 @@ grafana是用于可视化大型测量数据的开源程序，他提供了强大�
 
 当安装Rainbond时，可选择安装Grafana服务。如你想安装自己的Grafana，可参阅[文档](http://docs.grafana.org/installation/)安装。Rainbond安装的Grafana将监听http:// localhost:3000。默认登录名为“admin”/“admin”。如果密码不正确，你可以在`/opt/rainbond/conf/manager-services.yaml`文件中`rbd-grafana`的启动参数中配置`-e GF_SECURITY_ADMIN_PASSWORD="password"`设置admin用户密码。
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/login.png)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/login.png" width="100%" />
 
 ##### 5.2 创建Prometheus数据源
 
@@ -74,36 +71,36 @@ grafana是用于可视化大型测量数据的开源程序，他提供了强大�
 6. 根据需要调整其他数据源设置（例如，关闭代理访问）。
 7. 单击“添加”以保存新数据源。
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/add-datasource1.jpg)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/add-datasource1.jpg" width="100%" />
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/add-datasource2.jpg)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/add-datasource2.jpg" width="100%" />
 
 ##### 5.3 导入Node主机监控模版
 
 Grafana支持通过json文件快速导入你需要的仪表盘模版。[点击这里](https://static.goodrain.com/images/docs/3.7/monitor/Node_Exporter_Full.json)获取Node Exporter的json文件，点击左侧菜单栏的加号，选择`Import`，将json数据复制粘贴到`Or paste JSON`一栏中，点击load按钮，输入名称，选择刚才添加的Prometheus数据源，点击`Import`即可添加模版。
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/import1.jpg)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/import1.jpg" width="100%" />
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/import2.jpg)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/import2.jpg" width="100%" />
 
 > 效果展示如下，可选择Host标签切换节点
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/node-export.png)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/node-export.png" width="100%" />
 
 ##### 5.4 导入容器监控模版
 
 容器监控模版的导入方法与上面Node主机监控的导入方法一致，[点击这里](https://static.goodrain.com/images/docs/3.7/monitor/Docker_and_Container_Stats.json)获取json文件。导入后可根据标签`pod_name`来查看某一个pod中容器的监控情况。`Node`标签可切换节点，`interval`可切换间隔时间。
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/contaner.jpg)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/contaner.jpg" width="100%" />
 
 ##### 5.5 自定制
 
 你可以点击每个仪表盘的名字，选择`Edit`进入编辑页面，在这里你可以看到该仪表盘对应的Prometheus查询语句，该语句查询的数据结果渲染出该仪表盘。你可以根据自己的需求修改这些参数及设置等。
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/edit1.jpg)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/edit1.jpg" width="100%" />
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/edit2.jpg)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/edit2.jpg" width="100%" />
 
 你也可以点击上方的设置按钮，来编辑整个模版的信息，添加`Variables`标签等。修改后记得点击`Save`保存更改哦。
 
-![](https://static.goodrain.com/images/docs/3.7/monitor/settings.jpg)
+<img src="https://static.goodrain.com/images/docs/3.7/monitor/settings.jpg" width="100%" />
