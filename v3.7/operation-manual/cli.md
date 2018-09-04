@@ -16,8 +16,6 @@ grctl命令是rainbond自带的集群管理工具，它具备如下主要功能�
 更多信息可通过help命令获取
 
 ```bash
-grctl -h
-
 NAME:
    grctl - A new cli application
 
@@ -25,19 +23,22 @@ USAGE:
    grctl [global options] command [command options] [arguments...]
 
 VERSION:
-   3.7-951ad3f-2018-08-11-08
+   3.7-e827348-2018-09-02-17
 
 COMMANDS:
-     service   服务相关
-     tenant    租户相关
-     node      节点管理
-     cluster   集群信息
-     exec      进入容器。grctl exec POD_NAME COMMAND
-     init      初始化集群
-     show      显示访问信息
-     alerting  监控报警相关
-     conf      集群和服务配置相关工具
-     domain    更改域名解析
+     service       about  application service operation，grctl service -h
+     tenant        grctl tenant -h
+     node          about cluster node manage
+     cluster       show curren cluster datacenter info
+     exec          exec service container。grctl exec POD_NAME COMMAND
+     init          init cluster for install。grctl init cluster
+     show          显示region安装完成后访问地址
+     alerting      about alterting rule manage。grctl alerting
+     notification  应用异常通知事件。grctl notification
+     conf          集群和服务配置相关工具
+     domain
+     buildtest     build test source code, If it can be build, you can build in rainbond
+     help, h       Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
    --config value, -c value  default <USER_HOME>/.rbd/grctl.yaml
@@ -124,8 +125,31 @@ grctl exec <PodName> <COMMAND>
 Rainbond默认会申请一个泛解析域名提供给平台HTTP协议的应用使用，如果要修改泛解析地址，可以通过如下命令来设置：
 
 ```bash
-grctl domain --ip <ip address>
+NAME:
+   grctl domain -
+
+USAGE:
+   grctl domain [command options] [arguments...]
+
+OPTIONS:
+   --ip value      ip address
+   --domain value  domain
 ```
+
+### 1.5 通过grctl测试源码构建
+
+```
+USAGE:
+   grctl buildtest [command options] [arguments...]
+
+OPTIONS:
+   --dir value    source code dir,default is current dir.
+   --lang value   source code lang type, if not specified, will automatic identify
+   --image value  builder image name (default: "goodrain.me/builder")
+   --env value    Build the required environment variables
+```
+
+
 
 ## 二、其他命令行工具
 

@@ -1,28 +1,29 @@
 {
-        "title": "运维手册",
-        "is_top_level": true,
-        "items": [{
-                "title": "平台部署结构",
-                "urls": [
-                    "/${VERSION}/operation-manual/deployment-architecture.html"
-                ]
-            },
-            {
-                "title": "节点组件说明",
-                "urls": [
-                    "/${VERSION}/operation-manual/component-description.html"
-                ]
-            },
-            {
-                "title": "命令行工具",
-                "urls": [
-                    "/${VERSION}/operation-manual/cli.html"
-                ]
-            },
-            
-            {
-                "title": "安装部署",
-                "items": [{
+    "title": "运维手册",
+    "is_top_level": true,
+    "items": [
+        {
+            "title": "平台部署结构",
+            "urls": [
+                "/${VERSION}/operation-manual/deployment-architecture.html"
+            ]
+        },
+        {
+            "title": "节点组件说明",
+            "urls": [
+                "/${VERSION}/operation-manual/component-description.html"
+            ]
+        },
+        {
+            "title": "命令行工具",
+            "urls": [
+                "/${VERSION}/operation-manual/cli.html"
+            ]
+        },
+        {
+            "title": "安装部署",
+            "items": [
+                {
                     "title": "集群部署原理",
                     "urls": [
                         "/${VERSION}/operation-manual/cluster-management/deployment-principle.html"
@@ -30,21 +31,27 @@
                 },
                 {
                     "title": "分步部署",
-                    "items":[
+                    "items": [
                         {
                             "title": "安装部署salt",
-                            "urls": ["/${VERSION}/operation-manual/setup/part-salt.html"]
+                            "urls": [
+                                "/${VERSION}/operation-manual/setup/part-salt.html"
+                            ]
                         },
                         {
                             "title": "初始化环境",
-                            "urls": ["/${VERSION}/operation-manual/setup/part-init.html"]
+                            "urls": [
+                                "/${VERSION}/operation-manual/setup/part-init.html"
+                            ]
                         },
                         {
-                            "title":"部署存储",
-                            "urls": ["/${VERSION}/operation-manual/setup/part-storage.html"]
+                            "title": "部署存储",
+                            "urls": [
+                                "/${VERSION}/operation-manual/setup/part-storage.html"
+                            ]
                         },
                         {
-                            "title":"部署基础服务",
+                            "title": "部署基础服务",
                             "urls": [
                                 "/${VERSION}/operation-manual/setup/part-docker.html"
                             ]
@@ -73,12 +80,12 @@
                                 "/${VERSION}/operation-manual/setup/part-rainbond-plugin.html"
                             ]
                         }
-
                     ]
                 },
                 {
                     "title": "扩容节点",
-                    "items": [{
+                    "items": [
+                        {
                             "title": "扩容管理节点",
                             "urls": [
                                 "/${VERSION}/operation-manual/cluster-management/add-manage-node.html"
@@ -88,7 +95,65 @@
                             "title": "扩容计算节点",
                             "urls": [
                                 "/${VERSION}/operation-manual/cluster-management/add-compute-node.html"
-
+                            ]
+                        },
+                        {
+                            "title": "组件参数配置说明",
+                            "items": [
+                                {
+                                    "title": "rbd-api",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/cluster-management/manager-services/rbd-api.html"
+                                    ]
+                                },
+                                {
+                                    "title": "rbd-chaos",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/cluster-management/manager-services/rbd-chaos.html"
+                                    ]
+                                },
+                                {
+                                    "title": "rbd-worker",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/cluster-management/manager-services/rbd-worker.html"
+                                    ]
+                                },
+                                {
+                                    "title": "rbd-entrance",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/cluster-management/manager-services/rbd-entrance.html"
+                                    ]
+                                },
+                                {
+                                    "title": "rbd-webcli",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/cluster-management/manager-services/rbd-webcli.html"
+                                    ]
+                                },
+                                {
+                                    "title": "rbd-eventlog",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/cluster-management/manager-services/rbd-eventlog.html"
+                                    ]
+                                },
+                                {
+                                    "title": "rbd-monitor",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/cluster-management/manager-services/rbd-monitor.html"
+                                    ]
+                                },
+                                {
+                                    "title": "rbd-mq",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/cluster-management/manager-services/rbd-mq.html"
+                                    ]
+                                },
+                                {
+                                    "title": "node",
+                                    "urls": [
+                                        "/${VERSION}/operation-manual/cluster-management/manager-services/node.html"
+                                    ]
+                                }
                             ]
                         }
                     ]
@@ -97,7 +162,6 @@
                     "title": "部署最小化高可用集群",
                     "urls": [
                         "/${VERSION}/operation-manual/cluster-management/haminimal-install.html"
-
                     ]
                 },
                 {
@@ -107,66 +171,76 @@
                     ]
                 }
             ]
-            },
-            {
-                "title": "平台维护",
-                "items": [
-                    {
-                        "title": "节点维护",
-                        "items": [
-                            {
-                                "title": "管理节点",
-                                "urls": [
-                                    "/${VERSION}/operation-manual/platform-maintenance/management-node.html"
-                                ]
-                            }, {
-                                "title": "计算节点",
-                                "urls": [
-                                    "/${VERSION}/operation-manual/platform-maintenance/compute-node.html"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "title": "存储维护",
-                        "items": [{
+        },
+        {
+            "title": "平台维护",
+            "items": [
+                {
+                    "title": "节点维护",
+                    "items": [
+                        {
+                            "title": "管理节点",
+                            "urls": [
+                                "/${VERSION}/operation-manual/platform-maintenance/management-node.html"
+                            ]
+                        },
+                        {
+                            "title": "计算节点",
+                            "urls": [
+                                "/${VERSION}/operation-manual/platform-maintenance/compute-node.html"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "存储维护",
+                    "items": [
+                        {
                             "title": "GlusterFS",
-                            "items": [{
+                            "items": [
+                                {
                                     "title": "介绍",
                                     "urls": [
                                         "/${VERSION}/operation-manual/storage/GlusterFS/introduce.html"
                                     ]
-                                }, {
+                                },
+                                {
                                     "title": "安装",
                                     "urls": [
                                         "/${VERSION}/operation-manual/storage/GlusterFS/install.html"
                                     ]
-                                }, {
+                                },
+                                {
                                     "title": "维护",
                                     "urls": [
                                         "/${VERSION}/operation-manual/storage/GlusterFS/maintain.html"
                                     ]
-                                }, {
+                                },
+                                {
                                     "title": "基准测试",
                                     "urls": [
                                         "/${VERSION}/operation-manual/storage/GlusterFS/test.html"
                                     ]
                                 }
                             ]
-                        }]
-                    },
-                    {
-                            "title": "网络维护",
-                            "items": [{
-                                "title": "Calico",
-                                "urls": [
-                                    "/${VERSION}/operation-manual/network/calico.html"
-                                ]
-                            }]
-                        },
-                    {
-                        "title": "杂项手册",
-                        "items": [{
+                        }
+                    ]
+                },
+                {
+                    "title": "网络维护",
+                    "items": [
+                        {
+                            "title": "Calico",
+                            "urls": [
+                                "/${VERSION}/operation-manual/network/calico.html"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "杂项手册",
+                    "items": [
+                        {
                             "title": "域名维护",
                             "urls": [
                                 "/${VERSION}/operation-manual/trouble-shooting/domain-ops.html"
@@ -183,32 +257,38 @@
                             "urls": [
                                 "/${VERSION}/operation-manual/performance-tuning/create-a-docker-storage-device.html"
                             ]
-                        }]
-                    }
-                ]
-            },
-            {
-                "title": "故障排查",
-                "items": [{
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "故障排查",
+            "items": [
+                {
                     "title": "安装问题排查",
                     "urls": [
                         "/${VERSION}/operation-manual/trouble-shooting/install-issue.html"
                     ]
-                }, {
+                },
+                {
                     "title": "集群日常问题排查",
                     "urls": [
                         "/${VERSION}/operation-manual/trouble-shooting/issue.html"
                     ]
-                }]
-            },
-            {
-                "title": "升级指南",
-                "items": [{
+                }
+            ]
+        },
+        {
+            "title": "升级指南",
+            "items": [
+                {
                     "title": "3.6.1升级到3.7.0",
                     "urls": [
                         "/${VERSION}/operation-manual/upgrade/3.6.1-to-3.7.0.html"
                     ]
-                }]
-            }
-        ]
-    }
+                }
+            ]
+        }
+    ]
+}
