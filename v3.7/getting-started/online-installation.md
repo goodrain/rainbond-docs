@@ -21,7 +21,7 @@ asciicast: true
 
 | 版本          | 说明         |
 | ------------- | ------------ |
-| Stable v3.7.0 | 当前稳定版本 |
+| Stable v3.7.1 | 当前稳定版本 |
 
 ## 二、一键部署
 
@@ -29,7 +29,8 @@ asciicast: true
 
 ```bash
 # 方法一
-wget https://pkg.rainbond.com/releases/common/v3.7.0/grctl
+# 公网环境可以指定公网ip，具体可以grctl init --help
+wget https://pkg.rainbond.com/releases/common/v3.7.1/grctl
 chmod +x ./grctl
 ./grctl init
 

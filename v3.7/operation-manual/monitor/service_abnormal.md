@@ -4,18 +4,13 @@ summary: 应用异常事件监控
 toc: true
 ---
 
-
 ### 一：简介
 
 应用异常事件监控是捕捉并记录在RainBond中部署应用的OOM，运行异常情况等事件。便于发现并调整存在异常的应用，避免由于应用的持续异常影响资源及各服务的正常工作。
 
-
-
 ### 二：实现机制
 
 Rainbond实现的worker组件中，对应用实例出的pod进行状态观察，当pod发生异常退出时触发事件来处理pod的退出信息，并将错误类型、错误原因、触发次数、最后出现时间等信息记录在数据库中供我们查询。
-
-
 
 ### 三：grctl中查询未处理的应用异常事件
 
@@ -27,9 +22,7 @@ Rainbond实现的worker组件中，对应用实例出的pod进行状态观察，
 
 `grctl notification get --st 1535097191 --et 1535356391`
 
-![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.7/monitor/service-error2.png)
-
-
+![](https://static.goodrain.com/images/docs/3.7/monitor/service-error2.png)
 
 ### 四：处理应用异常
 
