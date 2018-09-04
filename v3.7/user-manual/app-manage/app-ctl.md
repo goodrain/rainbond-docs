@@ -112,7 +112,7 @@ asciicast: true
 - 垂直伸缩：增加或减少应用的内存（应用 CPU 与内存是联动的，按照一定的[比例调整](#3-1-cpu)）
 - 水平伸缩：增加或减少应用的实例数
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-scaling01.png" width="100%" />
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-extend.jpg" width="100%" />
 
 {{site.data.alerts.callout_danger}}
 
@@ -131,6 +131,16 @@ asciicast: true
 
 - Kubernetes 针对 CPU 和内存分为申请值与限制值，详情参见: [管理容器的计算资源](https://kubernetes.io/cn/docs/concepts/configuration/manage-compute-resources-container/)
 - 平台目前调整的 CPU 与内存占比是经过生产环境验证过，目前平台还没有提供修改占比的方式。
+
+{{site.data.alerts.end}}
+
+### 3.2 应用实例内存使用情况
+
+在实例情况一栏中可监控每个实例的内存使用百分比，可参考内存使用的大小来伸缩内存。
+
+{{site.data.alerts.callout_info}}
+
+- 监控数据非实时数据，存在10s内的时间误差。
 
 {{site.data.alerts.end}}
 
@@ -423,6 +433,10 @@ DATABASES = {
 关于角色权限定义的文档请参考：<a href="../manage-your-team.html#part-4d32fc61fb3a5f74">角色与团队成员管理</a>
 
 这里主要讲的是应用权限的管理，当某个用户加入到团队时，团队管理员决定该用户的角色，如果要限制某个用户只能管理某些应用，建议使用 `Viewer(观察者)` 角色，然后根据需要在应用的 【成员应用权限】中设置应用的管理权限。
+
+### 9.6 修改构建源
+对于已经部署完成的应用，如果你想要修改应用的构建源，可在应用`设置`中的`构建源`一栏中重新修改此应用的构建源，当再次重新部署应用时，便会使用新的构建源部署应用。
+<img src="https://static.goodrain.com/images/docs/3.7.1/build_source.jpg" width="100%" />
 
 ## 十、删除应用
 
