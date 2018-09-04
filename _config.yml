@@ -40,8 +40,8 @@ release_info:
     build_time: 2018/07/19 16:35:45
     start_time: 2018/07/19 19:33:22.046027038 +800 CST  
   v3.7:
-    name: v3.7.0
-    version: v3.7.0
+    name: v3.7.1
+    version: v3.7.1
     build_time: 2018/08/15 10:13:27
     start_time: 2018/08/15 10:10:14.012472125 +800 CST 
   v5.0:

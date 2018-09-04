@@ -160,8 +160,7 @@ annotations:
 >
 > `gectl alerting get NodeHealth`  得到结果
 
-```yaml
-
+```
 name: NodeHealth
 rules:
 - alert: high_cpu_usage_on_node
@@ -192,7 +191,7 @@ rules:
 
 ./rule.yml
 
-```yaml
+```
 name: NodeHealth
 rules:
 - alert: high_cpu_usage_on_node
@@ -220,7 +219,7 @@ rules:
 
 * 规则格式及参数说明
 
-```yaml
+```
 name: NodeHealth
 rules:
 - alert: high_cpu_usage_on_node

@@ -15,7 +15,7 @@ toc: true
 |-----------|-------|------------|
 |Docker|1.12.6|容器引擎服务(定制开发) [源码](https://github.com/goodrain/moby)|
 |Kubernetes|1.6.4|容器的编排和管理(定制开发) [源码](https://github.com/goodrain/kubernetes)|
-|Rainbond|3.7|Rainbond组件 [源码](https://github.com/goodrain/rainbond)|
+|Rainbond|3.7.1|Rainbond组件 [源码](https://github.com/goodrain/rainbond)|
 |etcd/etcd-proxy|3.2.13|存储配置信息与实现服务发现机制|
 |Calico|2.4.1|网络服务，负责维护容器内部网络与跨主机通讯|
 
@@ -36,7 +36,7 @@ Storage节点(存储节点)
 |组件|版本|安装属性|说明|
 |---|-----|-----|---------------|
 |docker|1.12.6|Master/Worker|应用容器引擎|
-|node|3.7|Master/Worker|集群监控与控制服务|
+|node|3.7.1|Master/Worker|集群监控与控制服务|
 |kubelet|1.6.4|Master/Worker|管理节点默认仅manage01节点启用|
 |kube-controller-manager|1.6.4|Master||
 |kube-apiserver|1.6.4|Master||
@@ -45,17 +45,17 @@ Storage节点(存储节点)
 |etcd-proxy|3.2.13|worker|管理节点etcd服务的代理|
 |rbd-dns|3.7|Master|Rainbond内部dns服务，可作为集群dns服务使用 [源码](https://github.com/goodrain/dns)|
 |rbd-db|3.7|Master|云帮数据库服务，支持MySQL，[Tidb](https://pingcap.com/docs-cn/)与[CockroachDB](https://www.cockroachlabs.com/)|
-|rbd-mq|3.7|Master|消息队列服务|
+|rbd-mq|3.7.1|Master|消息队列服务|
 |rbd-hub|3.7|Master|基于[Docker Registry](https://docs.docker.com/registry/)封装，提供docker镜像存储服务|
 |rbb-repo|3.7|Master|源码构建仓库服务，基于[Artifactory OSS](https://jfrog.com/open-source/)封装|
-|rbd-eventlog|3.7|Master|云帮事件处理与日志汇聚服务|
-|rbd-worker|3.7|Master|云帮应用操作与处理服务|
-|rbd-webcli|3.7|Master|提供应用web方式进入容器命令行的服务|
-|rbd-entrance|3.7|Master|负载均衡控制器，负责负载均衡规则与节点维护|
-|rbd-chaos|3.7|Master|应用构建服务，提供源码，Docker镜像等方式创建应用|
-|rbd-monitor|3.7|Master|云帮服务监控组件，基于[Prometheus](https://prometheus.io/)封装|
-|rbd-api|3.7|Master|云帮区域中心API服务，提供底层服务接口|
-|rbd-app-ui|3.7|Master|应用控制台web服务|
+|rbd-eventlog|3.7.1|Master|云帮事件处理与日志汇聚服务|
+|rbd-worker|3.7.1|Master|云帮应用操作与处理服务|
+|rbd-webcli|3.7.1|Master|提供应用web方式进入容器命令行的服务|
+|rbd-entrance|3.7.1|Master|负载均衡控制器，负责负载均衡规则与节点维护|
+|rbd-chaos|3.7.1|Master|应用构建服务，提供源码，Docker镜像等方式创建应用|
+|rbd-monitor|3.7.1|Master|云帮服务监控组件，基于[Prometheus](https://prometheus.io/)封装|
+|rbd-api|3.7.1|Master|云帮区域中心API服务，提供底层服务接口|
+|rbd-app-ui|3.7.1|Master|应用控制台web服务|
 |rbd-lb|3.7|Master/Worker|全局负载均衡，基于Openresty实现，[源码](https://github.com/goodrain/lb-openresty)|
 
 
