@@ -1,8 +1,8 @@
 ---
 title: 熔断，限流
 summary: 熔断器与限流
-toc: false
-toc_not_nested: true
+toc: true
+toc_not_nested: false
 asciicast: true
 ---
 
@@ -15,7 +15,7 @@ asciicast: true
 云帮提供`服务网络治理`插件通过配置各下游应用的参数，来实现微服务治理，并对修改实时生效，不影响业务的正常运行。
 
 
-### 安装插件
+### 使用插件
 
 在团队中的`我的插件`中安装`服务网络治理插件`，在上游应用的`扩展`板块中开通此插件，点击查看配置，为你的下游应用配置相应的参数，来实现服务的熔断与限流。
 
@@ -24,7 +24,7 @@ asciicast: true
 以[ServiceMesh微服务架构电商案例](/docs/stable/microservice/service-mesh/use-case.html)为例。安装完`服务网络治理插件`后的配置如图。
 <img src="https://static.goodrain.com/images/article/20180904/net_plugin_config.png" style="border:1px solid #eee;width:100%">
 
-#### 配置说明
+### 配置说明
 
 - MaxConnections：调用服务建立的最大连接数。这仅适用于HTTP/1.1，默认1024
 - MaxPendingRequests: 最大待处理请求数，默认1024.
