@@ -27,4 +27,6 @@ salt "*" state.sls common.node_conf
 # 如管理节点的 entrance 服务
 systemctl restart node
 systemctl restart rbd-entrance
+# 如果扩容前已经有应用运行了，请将管理节点1的rbd-lb的数据同步到其他管理节点
+数据路径：/opt/rainbond/etc/rbd-lb/
 ```
