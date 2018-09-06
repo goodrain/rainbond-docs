@@ -144,8 +144,8 @@ vrrp_instance VI_1 {
 
 
 #启动服务，设置开机自启动
-systemctl start keeplived
-systemctl enable keeplived
+systemctl start keepalived
+systemctl enable keepalived
 ```
 
 - 切换应用域名解析IP到VIP
