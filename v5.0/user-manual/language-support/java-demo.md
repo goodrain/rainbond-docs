@@ -39,6 +39,7 @@ RuoYi/
 
 1. 进入MySQL的端口管理页面，打开3306端口的对外开放按钮，并得到一个对外访问地址，例：`47.92.168.60:20002`。
 1. 使用MySQL客户端登录数据库（初始root密码可在MySQL应用的依赖管理页面中找到），修改root密码为"password"，因为若依默认使用该密码连接数据库（见配置文件：[application-druid.yml](https://gitee.com/rainbond/RuoYi/tree/master/src/main/resources)）:
+    
     ```
     mysql -u root -h <对外地址> -P <对外端口> -p
     grant all privileges on *.* to 'root'@'%' identified by 'password' with grant option;
@@ -46,6 +47,7 @@ RuoYi/
     flush privileges;
     ```
 1. 将项目中[sql目录](https://gitee.com/rainbond/RuoYi/tree/master/sql)下的两个sql文件导入MySQL中：
+    
     ```
     mysql -u root -h 47.92.168.60 -P 20002 -p -e "create database ry;"
     mysql -u root -h 47.92.168.60 -P 20002 -p ry < /opt/test/RuoYi/sql/quartz.sql
@@ -57,6 +59,7 @@ RuoYi/
 1. 进入云帮控制台页面，选择从**自定义源码**创建应用，给应用起一个好听的名字。
 1. 在**仓库地址**那一栏添入项目的代码仓库地址：`https://gitee.com/y_project/RuoYi.git`，点击**新建应用**，等待应用检测完成。
 1. 点击**高级设置**，为应用添加一个存储（该步骤不可省略，否则会因为目录不存在而启动失败，见项目配置文件：[logback.xml](https://gitee.com/rainbond/RuoYi/tree/master/src/main/resources)）：
+    
     ```
     名称：log
     目录：/home/logs/ruoyi
