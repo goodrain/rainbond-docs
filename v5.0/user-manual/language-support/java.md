@@ -65,6 +65,7 @@ maven.version=3.3.9
 
 ### 3.1 编译
 云帮通过`maven`对包含`pom.xml`文件的java项目进行编译，最终根据`pom.xml`中的`<packaging>war</packaging>`字段来决定生成`jar`包或者`war`包，具体的编译命令如下：
+
 ```
 mvn -B -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true clean install
 ```
@@ -77,6 +78,7 @@ mvn -B -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.
 
 ### 3.3 应用运行
 在启动阶段，云帮会根据slug文件中的Procfile文件来启动应用。您可以通过在项目的根目录创建<a href="https://github.com/jsimone/webapp-runner" target="__blank">webapp-runner.jar</a>文件来指定应用的运行方式，如：
+
 ```
 web: java $JAVA_OPTS -jar target/*.jar
 ```
@@ -89,6 +91,7 @@ web: java $JAVA_OPTS -jar target/*.jar
 - PORT ： 默认监听端口为 5000
 
 如果Procfile文件不存在，云帮会自动生成它，默认内容如下：
+
 ```
 java $JAVA_OPTS -jar /opt/webapp-runner.jar --port $PORT target/*.war
 ```
