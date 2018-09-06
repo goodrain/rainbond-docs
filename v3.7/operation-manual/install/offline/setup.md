@@ -91,6 +91,6 @@ SHA512SUM:
 # 离线环境
 tar xf install.offline.v3.7.0.2018-08-21.tgz -C /
 cd /opt/rainbond/install/
-./grctl init --type offline --domain <自定义域名，可选>
+./grctl init --install-type offline --domain <自定义域名，可选>
 ```
 
