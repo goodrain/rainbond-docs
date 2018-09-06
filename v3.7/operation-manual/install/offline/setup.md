@@ -35,7 +35,7 @@ nfs-kernel-server nfs-common dnsutils python-pip python-apt apt-transport-https 
 
 ```bash
 cd /opt/rainbond/install
-./grctl init --type offline --domain <自定义域名，可选>
+./grctl init --install-type offline --domain <自定义域名，可选>
 ```
 
 ## 四、安装提示报错
