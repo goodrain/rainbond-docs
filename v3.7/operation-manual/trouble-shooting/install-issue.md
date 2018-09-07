@@ -67,7 +67,7 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
-## 扩容计算节点了，grclt node list却没有列出对应的计算节点
+## 扩容计算节点了，grctl node list却没有列出对应的计算节点
 
 ```bash
 # 确定计算节点uuid信息是否有重复的
@@ -82,7 +82,7 @@ systemctl restart kubelet
 # 被重复的节点也需要重启一下node
 systemctl restart node
 # 重新上线重复节点
-grclt node up <新生成的uuid>
+grctl node up <新生成的uuid>
 ```
 
 ## 云服务器因重启导致无法远程访问
