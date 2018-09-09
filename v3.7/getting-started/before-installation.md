@@ -63,6 +63,7 @@ CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个�
 12. 不支持容器部署,不支持OpenVZ架构部署
 13. 推荐[限制容器资源](../operation-manual/install/config/swap.html)
 14. 推荐关闭[NetworkManager](../operation-manual/install/config/disable-NetworkManager.html)服务
+15. 请勿安装桌面环境
 
 ## 云服务商支持说明
 
