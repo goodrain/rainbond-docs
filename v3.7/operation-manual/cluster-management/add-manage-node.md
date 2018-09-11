@@ -8,6 +8,7 @@ toc: true
 
 - 管理节点主机名(hostname)仅支持以manage命名开头，且不能为manage01，如managexxx.
 - 管理节点不支持批量扩容操作，只能依次扩容。
+- 管理节点数目推荐为奇数1,3,5,7。两个节点无法保证高可用
   
 {{site.data.alerts.end}}
 
