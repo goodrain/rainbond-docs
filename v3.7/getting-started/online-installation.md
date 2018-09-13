@@ -29,7 +29,7 @@ asciicast: true
 
 ```bash
 # 方法一
-# 公网环境可以指定公网ip，具体可以grctl init --help
+# 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip grctl init --eip <公网ip>
 wget https://pkg.rainbond.com/releases/common/v3.7.1/grctl
 chmod +x ./grctl
 ./grctl init
