@@ -14,18 +14,7 @@ vi /opt/rainbond/envs/docker.sh
 # 示例： --insecure-registry  demo.com
 ```
 
-
-## 二、停止管理节点Rainbond容器服务
-
-```bash
-# 停止rainbond容器服务
-dc-compose stop
-# 清理停止的容器
-cclear
-```
-
-
-## 三、重启docker服务
+## 二、重启docker服务
 
 ```bash
 systemctl restart docker
@@ -33,17 +22,8 @@ systemctl restart docker
 systemctl restart kubelet
 ```
 
-## 四、启动Rainbond容器服务
-
-```bash
-# 启动rainbond容器服务
-dc-compose up -d
-# 查看服务状态
-dc-compose ps
-```
-
 {{site.data.alerts.callout_danger}}
-当集群中包含多个管理节点时，每个管理节点的都需要执行上面的四步。
+当集群中包含多个管理节点时，每个管理节点的都需要执行上面的步骤。
 {{site.data.alerts.end}}
 
 
