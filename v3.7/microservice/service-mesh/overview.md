@@ -14,6 +14,7 @@ asciicast: true
 ## 什么是ServiceMesh
  [ServiceMesh 简史](https://www.goodrain.com/2018/06/25/tech-20180625/)
  一般的字面解释是“服务网格”，作为时下最流行的分布式系统架构微服务的动态链接器，处于服务到服务的通信的专用基础设施层，该层独立于应用程序为服务之间的通信提供轻量级的可靠传递。如果简单的描述的话，可以将它比作是应用程序或者说微服务间的 TCP/IP，负责服务之间的网络调用、限流、熔断和监控，同样使用 ServiceMesh 也就无须关系服务之间的那些原来是通过应用程序或者其他框架实现的事情，比如 Spring Cloud、OSS，现在只要交给 ServiceMesh 就可以了。ServiceMesh的出现主要是由于应用虚拟化技术的发展，例如Kubernetes,Rainbond等项目，大大降低了应用的部署和运维复杂度。
+
 <center>
 <img width="85%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/architecture/mesh.png"></img>
 </center>
@@ -42,8 +43,11 @@ ServiceMesh 并没有给我们带来新功能，它是用于解决其他工具�
 ## ServiceMesh只处理网络么？
 ServiceMesh架构框架主要通过治理网络通信提供一系列服务治理功能，对于Rainbond的设计来说，ServiceMesh不仅仅提供网络治理，也包括信息安全、日志处理、数据备份等开箱即用的插件功能。
 
-## Rainbond与ServiceMesh
-Rainbond原生提供全量的ServiceMesh治理功能方案，同时提供了插件化得扩展策略，用户除了使用默认方案以外也可以自定义插件实现。Rainbond与Istio的实现有共同点，也有天然的不同。相同点是都实现了全局控制层，不同点是Istio需要依赖Kubernetes等平台工作，微服务架构的支持需要从底层存储与通信到上层的应用层配置全盘考虑，大型的微服务架构是离开不了自动化管理应用的PaaS平台的。Rainbond从硬件层，通信层，平台层实现不同的控制逻辑，既兼容已有的微服务架构，同时提供了完整的ServiceMesh微服务架构实践。包容的架构形式让已有的应用服务化变得可落地。
+
+
+## Rainbond ServiceMesh架构
+
+Rainbond原生提供全量的ServiceMesh治理功能方案，同时提供了插件化的扩展策略，用户除了使用默认方案以外也可以自定义插件实现。Rainbond与Istio的实现有共同点，也有天然的不同。相同点是都实现了全局控制层，不同点是Istio需要依赖Kubernetes等平台工作，微服务架构的支持需要从底层存储与通信到上层的应用层配置全盘考虑，大型的微服务架构是离开不了自动化管理应用的PaaS平台的。Rainbond从硬件层，通信层，平台层实现不同的控制逻辑，既兼容已有的微服务架构，同时提供了完整的ServiceMesh微服务架构实践。包容的架构形式让已有的应用服务化变得可落地。
 <center>
 <img width="85%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/architecture/sm-arh.png"></img>
 </center>
