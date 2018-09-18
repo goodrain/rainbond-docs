@@ -10,7 +10,7 @@ asciicast: true
 可能你听说Rainbond原生支持ServiceMesh微服务架构，首先你可能有下面三个问题：
 
 * [什么是ServiceMesh微服务架构](http://t.goodrain.com/t/servicemesh/451)
-* [Rainbond如何支持ServiceMesh架构](https://www.rainbond.com/docs/stable/microservice/service-mesh/overview.html)
+* [Rainbond如何支持ServiceMesh架构](http://t.goodrain.com/t/rainbond-servicemesh/452)
 * [Rainbond ServiceMesh 架构与Istio的关系](https://www.rainbond.com/docs/stable/microservice/service-mesh/overview.html)
 
 这里我假设你已经了解了上诉三个话题，那我们来到本文的重点，既然ServiceMesh架构这么简单易用，我们要如何才能把我们的业务系统部署到Rainbond，基于Rainbond提供的架构支持实现完整的微服务呢？本文我们通过部署一个电子商城业务系统的方式详细解读Rainbond ServiceMesh架构的实际使用。跟着本文的实践，让你掌握将你的已有业务系统借助平台转化为微服务集群架构的能力。
