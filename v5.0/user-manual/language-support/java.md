@@ -4,6 +4,13 @@ summary: 云帮可以将java程序轻松部署到平台，并提供灵活伸缩�
 toc: true
 ---
 
+<div class="filters filters-big clearfix">
+    <a href="java.html"><button class="filter-button current"><strong>构建手册</strong></button></a>
+    <a href="java-demo.html"><button class="filter-button">例子</button></a>
+</div>
+
+<div id="toc"></div>
+
 云帮可以将java程序轻松部署到平台，并提供灵活伸缩的高可用特性。您可以部署标准的基于Tomcat或Jetty的web应用，同时也支持Spring、Play等框架构建的应用程序。我们的致力于在不改变开发习惯情况下将您的java应用在云端快速部署、运行、灵活伸缩！
 
 ## 一、代码识别
@@ -24,10 +31,10 @@ toc: true
 
 ## 二、Java运行时环境
 
-| 组件     | 支持的版本                     | 默认值    |
+| 组件     | 支持的版本  | 默认值    |
 | :----- | :------------------------ | :----- |
 | JDK    | 1.6, 1.7, 1.8,1.9         | 1.8    |
-| MAVEN  | 3.0.5, 3.1.1, 3.2.5,3.3.1 | 3.3.1  |
+| MAVEN  | 3.0.5, 3.1.1, 3.2.3, 3.2.5, 3.3.9 | 3.3.9  |
 | TOMCAT | 6.0.41, 7.0.56, 8.0.14    | 7.0.56 |
 
 以上各组件，您可以在平台创建应用的向导中选择，也可以自行配置支持的版本：
@@ -40,126 +47,61 @@ toc: true
 java.runtime.version=1.8
 ```
 
+当`system.properties`文件不存在或内空为空时，云帮将自动根据pom文件中的`<java.version>1.8</java.version>`字段选择java版本，如果pom文件中没有该字段测使用1.8版本的java。
+
 ### 2.2 配置Maven
 
-您可以通过设定 `maven.version` 在`system.properties` 中指定一个Maven版本：
+您可以通过编辑`system.properties`文件来指定一个Maven版本：
 
 ```bash
-maven.version=3.3.1
+maven.version=3.3.9
 ```
 
-如果此条属性被定义，`mvnw` 脚本将会被忽略.
+支持的maven版本为 `3.0.5`、 `3.1.1`、 `3.2.3` 、 `3.2.5`、`3.3.9`。若未指定版本，默认版本为`3.3.9`。
 
-兼容的maven版本为 `3.0.5`、 `3.1.1`、 `3.2.5` 、 `3.3.1`、`3.3.9`。若未指定版本，默认版本为`3.3.1`。如果您当前正在使用`maven3.0.5`并希望升级到最新版本，那么您必须创建 `system.properties` 并指定版本。
+当`system.properties`文件不存在或内空为空时，将自动根据java版本选择合适的maven，如果java版本低于1.7时，使用3.2.5版本的maven，否则使用3.3.9版本的maven。
 
+## 三、基于Maven构建应用
 
-## 三、示例：基于Maven构建应用
+### 3.1 编译
+云帮通过`maven`对包含`pom.xml`文件的java项目进行编译，最终根据`pom.xml`中的`<packaging>war</packaging>`字段来决定生成`jar`包或者`war`包，具体的编译命令如下：
 
-云帮通过 maven 对包含 `pom.xml` 文件的 java项目进行构建，最终根据 `pom.xml` 中的打包需求生成 `jar`包 或者 `war`包。
-
-本文以好雨官方 [java-maven-demo](https://github.com/goodrain-apps/java-maven-demo) 为示例进行说明。
-
-### 3.1 打包
-
-云帮检测出项目为maven项目后，在构建阶段会将代码打包，在`pom.xml`文件中示例程序将编译后的文件打包为war包。
-
-`pom.xml`
-{% include copy-clipboard.html %}
-
-```xml
-...
-...
-    <packaging>war</packaging>
-...
-...
 ```
-
-### 3.2 自动构建
-
-平台检测为java-maven项目后，会自动通过mvn命令进行构建操作，具体的构建命令为：
-
-
-
-{% include copy-clipboard.html %}
-
-```bash
 mvn -B -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true clean install
 ```
 
-{{site.data.alerts.callout_success}}
+编译时会根据pom文件中指定的maven仓库下载依赖包，您也可以使用云帮的maven仓库，地址为：`maven.goodrain.me`。
 
-后续版本会引入自定义maven构建命令的功能。
+### 3.2 打包
 
-{{site.data.alerts.end}}
+编译完成后，云帮会将代码与编译后的目标文件整体打包为slug文件，并进入启动阶段。
 
 ### 3.3 应用运行
-
-平台默认通过 <a href="https://github.com/jsimone/webapp-runner" target="__blank">webapp-runner.jar</a> 将打包的 `war` 包运行起来，类似如下命令：
-
-{% include copy-clipboard.html %}
+在启动阶段，云帮会根据slug文件中的Procfile文件来启动应用。您可以通过在项目的根目录创建<a href="https://github.com/jsimone/webapp-runner" target="__blank">webapp-runner.jar</a>文件来指定应用的运行方式，如：
 
 ```
-java $JAVA_OPTS -jar /opt/webapp-runner.jar   --port $PORT target/*.war
+web: java $JAVA_OPTS -jar target/*.jar
 ```
 
-{{site.data.alerts.callout_success}}
+自定义启动命令时需要注意Procfile文件的格式：
 
+- 必须以`web: `开头
+- 文件结尾不能包含特殊字符
 - JAVA_OPTS ： 平台会根据应用的内存大小，自动设置Xmx和Xms的值
 - PORT ： 默认监听端口为 5000
 
-{{site.data.alerts.end}}
-
-### 3.4 自定义运行命令
-
-用户可以通过在代码根目录创建 [Procfile](etc/procfile.html) 文件并编辑该文件，可以实现自定义运行命令：
-
-{% include copy-clipboard.html %}
-
-```bash
-web: java $JAVA_OPTS -jar  target/*.jar
-```
-
-{{site.data.alerts.callout_danger}}
-自定义启动命令时需要注意Procfile文件的格式：
-
-- 必须以 `web: ` 开头
-- 文件结尾不能包含特殊字符
-{{site.data.alerts.end}}
-
-
-本文示范demo源码：[java-maven-demo](https://github.com/goodrain/java-maven-demo.git)
-
-## 四、示例：部署war/jar包
-
-云帮为了让您更方便的部署项目，特推出识可别 **War包** 、**Jar包** 的构建模式，云帮分别称为Java-war与Java-jar。上文提到了 **War包** 与 **Jar包** 的代码识别方式及构建环境。
-
-**示例代码:**
-
-- [java-war-demo](https://github.com/goodrain/java-war-demo.git)
-- [java-jar-demo](https://github.com/goodrain/java-jar-demo.git)
-
-
-### 4.1 部署war包
-
-WAR文件是JAR文件的一种，其中包含JSP、Java Servlet、Java类、XML文件、标签库、静态网页（HTML和相关文件），以及构成Web应用程序的其他资源。云帮平台支持WAR文件运行。
-
-### 4.2 部署jar包
-
-JAR文件通常是集合 类文件、数据文件或资源的文件，它的扩展名为`.jar`。云帮平台支持JAR文件运行。
-
-### 4.3 检测
-
-平台通过检测 `/app`目录下`LANGUAGE`文件存在且文件内容为`java-jar`识别应用为 **Java-jar** 应用。所以在您应用根目录下需创建`LANGUAGE`文件，并且写入`java-jar`内容。您可以通过以下命令写入：
-
-{% include copy-clipboard.html %}
+如果Procfile文件不存在，云帮会自动生成它，默认内容如下：
 
 ```
-echo java-jar > LANGUAGE
+java $JAVA_OPTS -jar /opt/webapp-runner.jar --port $PORT target/*.war
 ```
 
-## 五、相关文章
+示例：[从Java源码构建应用](https://github.com/goodrain/java-maven-demo.git)
+
+## 四、相关文章
 
 - <a href="java/spring-boot-mysql.html" target="_blank" >Spring Boot项目配置MySQL</a>
 - <a href="java/tomcat-redis-session.html" target="_blank" >Tomcat配置Redis实现Session共享</a>
 - <a href="java/jetty-runner.html" target="_blank" >部署基于Jetty-Runner的应用</a>
 - <a href="java/webapp-runner.html" target="_blank" >部署基于webapp-runner的应用</a>
+

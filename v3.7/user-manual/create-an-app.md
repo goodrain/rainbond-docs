@@ -38,9 +38,9 @@ Rainbond支持[流行的编程语言](create-an-app.html#2-3)源代码直接创�
 - 点击【创建应用】--【从源码创建】
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/dockerfile-demo.gif" width="100%" />
 
-### 1.3 使用Git或SVN仓库创建应用
+### 1.3 Git和SVN仓库支持说明
 
-在Rainbond使用源码创建应用时，支持`Git`(GitHub\GitLab\Gitee\Gogs等)与`SVN`两种类型的代码仓库。在创建应用时，根据代码仓库的类型选择Git或SVN，并正确填写该应用的代码仓库地址以及要使用的`代码分支`或`Tag`，Rainbond支持分支或Tag的方式拉取相应代码。部署应用时，会到你填写的代码仓库地址及你选择的分支或Tag上拉去代码。
+在Rainbond使用源码创建应用时，支持`Git`(GitHub\GitLab\Gitee\Gogs等)与`SVN`两种类型的代码仓库。在创建应用时，根据代码仓库的类型选择Git或SVN，并正确填写该应用的代码仓库地址以及要使用的`代码分支`或`Tag`，Rainbond支持分支或Tag的方式拉取相应代码。部署应用时，会到你填写的代码仓库地址及你选择的分支或Tag上拉去代码。git服务端默认分支`master`, svn服务端默认分支`trunk`。
 
 仓库是私有的怎么办？使用SSH访问仓库怎么办？
 如果你的存储库是私有的，访问需要验证，点击`填写仓库账号密码`，正确填写你的登陆用户名及密码即可。

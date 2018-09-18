@@ -12,6 +12,7 @@ toc: true
 # Rainbond Roadmap
 This document defines the roadmap for Rainbond development.
 
+[About Rainbond 5.X RoadMap Community needs collection](https://github.com/goodrain/rainbond/issues/106)
 
 ## V3.7 2018-08-15
 About system stability
@@ -37,34 +38,6 @@ About Security policy upgrade
 About install
 - [x] Support complete offline installation
 - [x] Support install mulit manage nodes
-
-
-## V5.0
-The current version focuses on upgrade kubernetes and docker,  full support `.net ` application management and operation.
-
-- [ ] upgrade docker version to 17.04.x and kubernetes version to 1.10.3.
-- [ ] Support .net application manage
-    - [ ] Support Windows system compute nodes
-    - [ ] Windows system nodes communicate with Linux system node networks
-    - [ ] NFS storage is supported in Windows
-    - [ ] Support `.net` source building applications
-    - [ ] Support `.net` applications to connect to other applications.
-- [ ] upgrade source code buildpack
-    - [ ] `java` support java7,java8,java9,java10
-    - [ ] `python` support python-3.6.4 and python-2.7.15
-    - [ ] `nodejs` support 6.x, 8.x, 9.x, and 10.x
-    - [ ] `golang` support dep,govendor,glide,GB,Godep dependence define.
-    - [ ] `php` uses Composer for dependency management, supports PHP or HHVM (experimental) as runtimes, and offers a choice of Apache2 or Nginx web servers.
-    - [ ] `ruby` support MRI and JRuby
-- [ ] Dockerfile source build supports multi-stage builds.  
-- [ ] Support auto-building based on docker image hub webhook.
-- [ ] Support the definition of alarm rules.
-- [ ] Support GroupApplication Life cycle control
-    - [ ] Support GroupApplication start control
-    - [ ] Support GroupApplication build control
-- [ ] Security policy upgrade
-    - [ ] region api authorization base on RBAC
-    - [ ] access the etcd cluster based on certificates
     
 
 # History version

@@ -23,7 +23,7 @@ asciicast: true
 
 - 扩容计算节点：
 
-  - 详情参见：[扩容计算节点](cluster-management/add-compute-node.html)
+  - 详情参见：[扩容计算节点](/docs/stable/operation-manual/cluster-management/add-compute-node.html)
 
 ## 二、部署Glusterfs
 
@@ -47,7 +47,7 @@ yum install -y glusterfs-fuse
 
 ```bash
 mount -t glusterfs compute01:data /mnt
-cp -rp /grdata/* /mnt
+cp -a /grdata/. /mnt
 umount /mnt
 ```
 编辑所有节点的/etc/fstab,新增一行：
@@ -144,8 +144,8 @@ vrrp_instance VI_1 {
 
 
 #启动服务，设置开机自启动
-systemctl start keeplived
-systemctl enable keeplived
+systemctl start keepalived
+systemctl enable keepalived
 ```
 
 - 切换应用域名解析IP到VIP
