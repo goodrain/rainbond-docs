@@ -23,7 +23,7 @@ asciicast: true
 
 - 扩容计算节点：
 
-  - 详情参见：[扩容计算节点](cluster-management/add-compute-node.html)
+  - 详情参见：[扩容计算节点](/docs/stable/operation-manual/cluster-management/add-compute-node.html)
 
 ## 二、部署Glusterfs
 
