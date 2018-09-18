@@ -316,8 +316,7 @@ sockshop 案例集成了`zipkin`做分布式跟踪。集成的组件为 `users`�
 
 ### 5.1 服务伸缩
 
-![服务伸缩](https://grstatic.oss-cn-shanghai.aliyuncs.com/images%2Fdocs%2Fcommon%2Fshensuo.png)
-
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images%2Fdocs%2Fcommon%2Fshensuo.png" style="border:1px solid #eee;max-width:100%" >
 为了能够支持更大的流量和并发，服务可以采用水平伸缩或垂直伸缩的方式进行扩容，首先我们必须明确几个问题
 
 **什么服务能够水平伸缩：**
