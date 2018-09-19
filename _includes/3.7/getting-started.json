@@ -16,6 +16,12 @@
             ]
         },
         {
+            "title": "快速上手",
+            "urls": [
+                "/${VERSION}/getting-started/quick-learning.html"
+            ]
+        },
+        {
             "title": "公有云试用",
             "urls": [
                 "/${VERSION}/getting-started/public-cloud-brief.html"
