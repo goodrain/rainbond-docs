@@ -19,7 +19,7 @@ chmod +x offline.sh
 
 ## 二、准备工作
 
-1. 将离线包同步到离线环境 `tar xf install.offline.v3.7.1.2018-09-08.tgz -C /`。
+1. 将离线包同步到离线环境 `tar xf install.offline.v3.7.1.2018-09-14.tgz -C /`。
 2. 请提前安装好如下包,避免安装失败。
 
 ```bash
@@ -80,53 +80,18 @@ audit-libs-python-2.8.1-3.el7.x86_64.rpm
 可以使用好雨科技提供的离线安装包,此离线包仅针对阿里云CentOS 7.4做过优化，并不能保证其适用于其他环境下的CentOS服务器。此离线包仅会同步更新大版本。
 
 ```
-wget https://pkg.rainbond.com/releases/offline/v3.7.1/install.offline.v3.7.1.2018-09-08.tgz
+wget https://pkg.rainbond.com/releases/offline/v3.7.1/install.offline.v3.7.1.2018-09-14.tgz
 
 MD5SUM:
-0ccf64720cf67ff217f5be756abb10f6
+91a901b859cd46ed2ac495de4a047936
 SHA512SUM:
-5910935c45a0421f2880ada012aa09fe16cb6176af821971f96d2d8a91299d757b788c94b016839f80312053b2148096dbefc9ee3689f9c9341643ee3bef326b
+2c474ab70fdedc759a5a049928aac87d38017eec74fc9708cc58eb986d9ef108d07220e650b5c9341a176205acac9ec1ab94405cb91184ad078a802decfb2829
 
 # 建议在有网的环境下,解压 cd /opt/rainbond/install/ 并更新安装脚本git pull 优化安装
 # 离线环境
-tar xf install.offline.v3.7.1.2018-09-08.tgz -C /
+tar xf install.offline.v3.7.1.2018-09-14.tgz -C /
 cd /opt/rainbond/install/
 ./grctl init --install-type offline --domain <自定义域名，可选>
 ```
 
 ## 七、已知问题
-
-1. 安装docker会提示docker-repo不存在问题
-
-```bash
-# 1. 修改/opt/rainbond/install/setup.sh 120&121行如下
-cat > /etc/yum.repos.d/docker-repo.repo << EOF
-[docker-repo]
-# 2. 删除/opt/rainbond/install/salt/docker/install.sls或者/srv/salt/docker/install.sls如下部分即可
-docker-repo:
-  pkgrepo.managed:
-  {% if grains['os_family']|lower == 'redhat' %}
-    {% if pillar['install-type']=="offline" %}
-      {% if grains['id']!= "manage01" %}
-    - humanname: local_repo
-    - baseurl: http://repo.goodrain.me/
-    - enabled: 1
-    - gpgcheck: 0
-      {% endif %}
-    #online
-    {% else %}
-    - humanname: Goodrain CentOS-$releasever - for x86_64
-    - baseurl: http://repo.goodrain.com/centos/$releasever/3.6/$basearch
-    - enabled: 1
-    - gpgcheck: 0
-    - gpgkey: http://repo.goodrain.com/gpg/RPM-GPG-KEY-CentOS-goodrain
-    {% endif %}
-  # debain or ubuntu
-  {% else %}
-    - name: deb http://repo.goodrain.com/debian/9 3.6 main
-    - file: /etc/apt/sources.list.d/docker.list
-    - key_url: http://repo.goodrain.com/gpg/goodrain-C4CDA0B7
-  {% endif %}  
-    - require_in:
-      - pkg: gr-docker-engine
-```

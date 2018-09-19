@@ -1,12 +1,23 @@
 ---
-title: ServiceMesh微服务架构电商案例
-summary: 电子商城 ServiceMesh 微服务架构案例
+title: ServiceMesh微服务架构电商案例动手实践
+summary: 自己动手，以电子商城项目为例，部署一个完整的 ServiceMesh 微服务架构
 toc: true
 asciicast: true
 ---
 
+## 前言
 
-## 一、简介
+可能你听说Rainbond原生支持ServiceMesh微服务架构，首先你可能有下面三个问题：
+
+* [什么是ServiceMesh微服务架构](http://t.goodrain.com/t/servicemesh/451)
+* [Rainbond如何支持ServiceMesh架构](http://t.goodrain.com/t/rainbond-servicemesh/452)
+* [Rainbond ServiceMesh 架构与Istio的关系](https://www.rainbond.com/docs/stable/microservice/service-mesh/overview.html)
+
+这里我假设你已经了解了上诉三个话题，那我们来到本文的重点，既然ServiceMesh架构这么简单易用，我们要如何才能把我们的业务系统部署到Rainbond，基于Rainbond提供的架构支持实现完整的微服务呢？本文我们通过部署一个电子商城业务系统的方式详细解读Rainbond ServiceMesh架构的实际使用。跟着本文的实践，让你掌握将你的已有业务系统借助平台转化为微服务集群架构的能力。
+
+<div id="doc"></div>
+
+## 一、案例简介
 
 [sockshop](https://github.com/microservices-demo/microservices-demo) 是一个面向用户的网上销售袜子的商城，具备用户管理、商品管理、购物车、订单流程、地址管理等完善的电商解决方案，是一个典型的微服务架构案例。主要由`Spring boot`,`Golang`,`Nodejs`等多种语言开发。使用`MySQL`和`MongoDB`等多种数据库。其原方案是单机环境下部署，缺乏服务治理能力和分布式能力。
 
@@ -18,17 +29,14 @@ asciicast: true
 <img src="https://static.goodrain.com/images/docs/3.7/microservice/service-mesh/sockshop.gif" style="border:1px solid #eee;width:85%">
 </center>
 
-### 1.2 商城首页预览图
 
-<center>
-<img src="https://static.goodrain.com/images/article/sockshop/sockshop-frontend.png" style="border:1px solid #eee;width:85%">
-</center>
 
-### 1.3 商城架构图
+### 1.2 商城架构图
 
 <center>
 <img src="https://static.goodrain.com/images/article/sockshop/Architecture.png" style="border:1px solid #eee;width:80%">
 </center>
+在这个用例中，Front-end是一个前端项目，通过Http Restful协议请求后端多个微服务。Order订单服务处理订单业务中涉及到使用消息队列异步处理。
 
 更多信息
 
@@ -37,264 +45,50 @@ asciicast: true
 
 ## 二、商城在Rainbond的部署流程
 
-本文以 Rainbond(V3.7.0)为基础平台部署微服务架构商城用例。如果你还未安装Rainbond平台，请先参考 [安装文档](https://www.rainbond.com/docs/stable/getting-started/before-installation.html) 
+本文以 Rainbond(V3.7.0)为基础平台部署微服务架构商城用例，如果你还没有安装Rainbond，请参阅 [Rainbond部署文档](https://www.rainbond.com/docs/stable/getting-started/before-installation.html)
 
-### 2.1 服务创建
+### 2.1 服务组件的创建与部署
 
-为了简化创建过程，在 Rainbond 平台使用`DockerCompose配置文件`的创建方式可以很轻松的批量创建出 sockshop 里的所有服务。
+首先，我们需要将此例中的所有服务组件依次部署到平台，通常我们按照逻辑上的依赖关系来依次进行创建，每个服务组件如何创建你可以通过查阅[创建第一个应用](https://www.rainbond.com/docs/stable/user-manual/create-an-app.html) 或者 [关于Rainbond，你一定关心的事](http://t.goodrain.com/t/rainbond/453/2) 两篇文章，这里就不再啰嗦。我们希望你可以使用源码分别去部署每个服务组件。
+
+为了简化创建过程，这里我们在 Rainbond 平台使用`DockerCompose配置文件`的创建方式批量的创建出 sockshop 里的所有服务。
 
 - **docker-compose 创建**
 
 <center>
 <img src="https://static.goodrain.com/images/article/sockshop/docker-compose-create.png" style="border:1px solid #eee;width:80%">
 </center>
-
-> 需要注意的是检测和创建过程由于获取大量镜像需要一定时间，请耐心等候完成！
-
 - **docker-compose 源码: [下载](/docs/attachments/yaml/sockshop.yaml)**
 
-```yaml
-version: '2'
-
-services:
-  front-end:
-    image: weaveworksdemos/front-end:0.3.12
-    hostname: front-end
-    restart: always
-    cap_drop:
-      - all
-    ports:
-      - "8079:8079"
-      - "9001:9001"
-    depends_on:
-      - catalogue
-      - carts
-      - payment
-      - user
-      - orders
-  edge-router:
-    image: weaveworksdemos/edge-router:0.1.1
-    ports:
-      - '80:80'
-      - '8080:8080'
-    cap_drop:
-      - all
-    cap_add:
-      - NET_BIND_SERVICE
-      - CHOWN
-      - SETGID
-      - SETUID
-      - DAC_OVERRIDE
-    tmpfs:
-      - /var/run:rw,noexec,nosuid
-    hostname: edge-router
-    restart: always
-    depends_on:
-      - front-end
-  catalogue:
-    image: weaveworksdemos/catalogue:0.3.5
-    hostname: catalogue
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - NET_BIND_SERVICE
-    depends_on:
-      - catalogue-db
-      - zipkin
-  catalogue-db:
-    image: rilweic/catalog-db
-    hostname: catalogue-db
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_ALLOW_EMPTY_PASSWORD=true
-      - MYSQL_DATABASE=socksdb
-  carts:
-    image: weaveworksdemos/carts:0.4.8
-    hostname: carts
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - NET_BIND_SERVICE
-    tmpfs:
-      - /tmp:rw,noexec,nosuid
-    environment:
-      - JAVA_OPTS=-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
-    ports:
-      - "80:80"
-    depends_on:
-      - carts-db
-      - zipkin
-  carts-db:
-    image: mongo:3.4
-    hostname: carts-db
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - CHOWN
-      - SETGID
-      - SETUID
-    tmpfs:
-      - /tmp:rw,noexec,nosuid
-  orders:
-    image: rilweic/orders
-    hostname: orders
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - NET_BIND_SERVICE
-    tmpfs:
-      - /tmp:rw,noexec,nosuid
-    environment:
-      - JAVA_OPTS=-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
-    ports:
-      - "8848:8848"
-    depends_on:
-      - orders-db
-      - zipkin
-      - shipping
-      - carts
-      - payment
-      - user
-  orders-db:
-    image: mongo:3.4
-    hostname: orders-db
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - CHOWN
-      - SETGID
-      - SETUID
-    tmpfs:
-      - /tmp:rw,noexec,nosuid
-  shipping:
-    image: rainbond/shipping:0.4.8
-    hostname: shipping
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - NET_BIND_SERVICE
-    tmpfs:
-      - /tmp:rw,noexec,nosuid
-    environment:
-      - JAVA_OPTS=-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
-    ports:
-      - "8080:8080"
-    depends_on:
-      - rabbitmq
-      - zipkin
-  queue-master:
-    image: weaveworksdemos/queue-master:0.3.1
-    hostname: queue-master
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - NET_BIND_SERVICE
-    tmpfs:
-      - /tmp:rw,noexec,nosuid
-    depends_on:
-      - rabbitmq
-  rabbitmq:
-    image: rabbitmq:3.6.8
-    hostname: rabbitmq
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - CHOWN
-      - SETGID
-      - SETUID
-      - DAC_OVERRIDE
-  payment:
-    image: weaveworksdemos/payment:0.4.3
-    hostname: payment
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - NET_BIND_SERVICE
-    depends_on:
-      - zipkin
-  user:
-    image: weaveworksdemos/user:0.4.4
-    hostname: user
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - NET_BIND_SERVICE
-    environment:
-      - MONGO_HOST=user-db:27017
-    depends_on:
-      - user-db
-      - zipkin
-  user-db:
-    image: weaveworksdemos/user-db:0.4.0
-    hostname: user-db
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - CHOWN
-      - SETGID
-      - SETUID
-    tmpfs:
-      - /tmp:rw,noexec,nosuid
-  zipkin:
-    image: openzipkin/zipkin
-    hostname: zipkin
-    restart: always
-    cap_drop:
-      - all
-    cap_add:
-      - CHOWN
-      - SETGID
-      - SETUID
-    tmpfs:
-      - /tmp:rw,noexec,nosuid
-    environment:
-      - reschedule=on-node-failure
-    ports:
-      - "9411:9411"
-```
-
-服务创建完成后需要对批量创建的服务进行注册和对部署内存的调整，根据服务之间的调用关系，我们需要分析出哪些服务是作为内部服务供给其它服务调用，哪个服务是对用户提供访问的。根据上文的架构图我们做以下操作：
-
+> 需要注意的是检测和创建过程由于获取大量镜像需要一定时间，请耐心等候完成！通过识别DockerCompose文件创建的服务组件都是基于镜像构建的，无法直接通过源码进行部署。
+>
 > Rainbond除了提供了基于DockerCompose创建应用的基础上还有更多的创建方式，体验从源码到云端的流程等，参考文档：[创建一个应用](https://www.goodrain.com/docs/stable/user-manual/create-an-app.html)
+
+服务识别完成后，您需要对各个服务进行一些**高级设置**，以便服务组件能够正常工作。例如服务注册、服务发现和部署属性等。
+
+| 应用名称     | 开放端口                         | 最小内存（单位：M） | 部署属性   | 说明                           |
+| ------------ | -------------------------------- | ------------------- | ---------- | ------------------------------ |
+| edge-router  | 80 `内外均开` 8080 `内外均开`    | 128                 | 无状态     | 路由，用于做负载均衡           |
+| front-end    | 8079 `对内` 9001 `对内`          | 512                 | 无状态     | 前后端分离的前端部分，用于展示 |
+| orders       | 8848 `对内`                      | 1024                | 无状态     | 订单服务                       |
+| orders-db    | 27017 `对内`                     | 512                 | 有状态服务 | 订单数据库                     |
+| shipping     | 8080 `对内`                      | 1024                | 无状态服务 |                                |
+| catalogue    | 80 `对内`                        | 128                 | 无状态服务 | 商品分类服务                   |
+| catalogue-db | 3306 `对内`                      | 512                 | 有状态服务 | 商品分类数据库                 |
+| carts        | 80 `对内`                        | 1024                | 无状态服务 | 订单服务                       |
+| payment      | 80 `对内`                        | 128                 | 无状态服务 | 支付服务                       |
+| carts-db     | 27017 `对内`                     | 512                 | 有状态服务 | 订单服务数据库                 |
+| user         | 80 `对内`                        | 512                 | 无状态服务 | 用户服务                       |
+| user-db      | 27017 `对内`                     | 512                 | 有状态服务 | 用户服务数据库                 |
+| rabbitmq     | 4369 5671  5672 25672 `全部对内` | 1024                | 有状态服务 | 消息队列                       |
+| queue-master | 无                               | 1024                | 无状态服务 | 消息处理服务                   |
+| zipkin       | 9410 `对内` 9411 `内外均开`      | 1024                | 无状态服务 | 分布式跟踪服务                 |
+
+> 请注意，这里必须确定对每个服务组件的服务注册信息和资源分配信息设置正确。
 
 ### 2.2 服务注册
 
-服务创建后，您需要对各个服务进行注册以便服务之间进行相互调用。
-在 RainBond 平台，您可以通过在服务的端口页打开端口来进行服务的注册。关于服务注册的详细文档可参考[RainBond 平台服务注册](regist.html)
-
-各服务对应的端口和部署内存大小如下：
-
-| 应用名称     | 开放端口                          | 最小内存（单位：M） | 说明                           |
-| ------------ | --------------------------------- | ------------------- | ------------------------------ |
-| edge-router  | 80 `内外均开` 8080 `内外均开`     | 128                 | 路由，用于做负载均衡           |
-| front-end    | 8079 `对内` 9001 `对内`           | 512                 | 前后端分离的前端部分，用于展示 |
-| orders       | 8848 `对内`                       | 1024                | 订单服务                       |
-| orders-db    | 27017 `对内`                      | 512                 | （有状态服务）订单数据库       |
-| shipping     | 8080 `对内`                       | 1024                | 消息传输服务                   |
-| catalogue    | 80 `对内`                         | 128                 | 商品分类服务                   |
-| catalogue-db | 3306 `对内`                       | 512                 | （有状态服务）商品分类数据库   |
-| carts        | 80 `对内`                         | 1024                | 订单服务                       |
-| payment      | 80 `对内`                         | 128                 | 支付服务                       |
-| carts-db     | 27017 `对内`                      | 512                 | （有状态服务）订单数据库       |
-| user         | 80 `对内`                         | 512                 | 用户服务                       |
-| user-db      | 27017 `对内`                      | 512                 | （有状态服务）用户数据库       |
-| rabbitmq     | 4369 5671  5672 25672 `全部对内`  | 1024                | （有状态服务）                 |
-| queue-master | 无                                | 1024                | 消息队列服务                   |
-| zipkin       | 9410 `对内` 9411 `内外均开`       | 1024                | 分布式跟踪服务                 |
-
-> 请注意，这里必须确定对每个服务组件的服务注册信息和资源分配信息设置正确。
+在 RainBond 平台，您可以通过在服务的端tab页打开端口服务属性来进行服务的注册。关于服务注册的详细文档可参考[RainBond 平台服务注册](regist.html) 。根据上诉表格中的每个服务端口属性设置来进行调整，服务的端口是与程序本身监听的端口一一对应的，我们一般推荐一个服务一个端口。在对你自己的服务进行部署的时候，你需要考虑哪些服务是对内部提供服务的，哪些服务是对外网提供服务的，分别进行控制。
 
 ### 2.3 服务发现
 
@@ -302,7 +96,17 @@ services:
 
 > 如果使用上面的 docker-compose 文件创建应用，无需手动添加依赖，在创建应用时系统已根据 docker-compose 文件内容自动配置了服务发现
 
-### 2.4 服务 Mesh 治理
+这个服务发现和服务注册都是平台完成，用户代码无需更改。服务直接的请求（Http）只需要按照指定域名单机的形式进行调用即可。
+
+### 2.4 服务部署属性调整
+
+每个服务的部署属性需要严格按照服务组件的特性选择，部署类型创建后不可更改。在进行部署类型选择时：如何是数据库类服务、集群类服务、需要使用DNS服务发现的服务等必须采用又状态服务类型。其他服务采用无状态服务类型。应用的内存需要根据应用需求分配即可，一般Java类的应用内存占用较大。
+
+调整完以上信息后就可以正式构建应用了，等候应用多有组件构建完成即可在拓扑图中呈现上文看到的`部署后的拓扑图总览`图示。
+
+完成了应用的基础部署之后，接下来我们将对服务的治理进行配置：
+
+### 2.5 服务网络治理(Mesh)
 
 在商城案例中，`front-end`为`nodejs`项目。该服务会调用其他 5 个服务来获取数据。如图:
 
@@ -316,28 +120,32 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
 
 在不安装 7 层网络治理插件的情况下，平台默认使用 4 层网络治理插件，无法提供端口复用的机制。因此，我们为服务`front-end` `orders` 分别安装网络治理插件。
 
-### 2.5 安装网络治理插件
+#### 2.5.1 安装网络治理插件
 
-在`我的插件`中选择`服务网络治理插件`进行安装。
+在`我的插件`中选择`服务网络治理插件`进行安装, Rainbond中当前版本默认提供性能分析和服务网络治理两个插件。
+
+用户可以自己根据插件规范制作应用插件，或者使用社区其他用户分享的应用插件来扩展应用治理功能。
 
 <center>
 <img src="https://static.goodrain.com/images/article/sockshop/net-plugin-install.png" style="border:1px solid #eee;width:85%" >
 </center>
 **特别注意**
 
-> 工作在 7 层的 Mesh 插件默认会占用 80 端口，因此需要安装此插件的服务本身不能占用 80 端口。因此我们推荐服务尽量监听非 80 端口。插件内存使用量需要根据流量大小调节。
+> 工作在 7 层的 Mesh 插件默认会占用 80 端口，因此需要安装此插件的服务本身不能占用 80 端口。我们推荐服务尽量监听非 80 端口。插件内存使用量需要根据流量大小调节。
 
-### 2.6 应用安装插件
+#### 2.5.2 应用组件开通插件
 
-在应用详情页面选择`插件`标签，然后开通指定的插件
+我们需要为`front-end` 和 `orders` 分别开通网络治理插件，在应用详情页面选择`插件`标签，然后开通指定的插件
 
 <center>
 <img src="https://static.goodrain.com/images/article/sockshop/service-plugin-install.png" style="border:1px solid #eee;width:85%" >
 </center>
 
 > Rainbond默认提供的服务网络治理插件是基于[Envoy](https://github.com/envoyproxy/envoy)制作，Rainbond ServiceMesh架构为Envoy提供了标准的运行支持。安装插件后需重启应用生效。
+>
+> 后续版本中我们会默认引入Istio-proxy制作网络治理插件，提供更多的安全控制治理功能。
 
-### 2.7 Mesh 插件配置
+#### 2.5.3 网络治理插件配置
 
 配置域名路由，实现端口复用。为了`front-end`服务能根据代码已有的域名调用选择对应的服务提供方，我们需要根据其调用的域名来进行配置。将应用进行依赖后，`服务网络治理插件`能够自动识别出其依赖的应用。您只需在插件的配置的域名项中进行域名配置即可。如下图：
 
@@ -348,16 +156,16 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
 
 <img src="https://static.goodrain.com/images/article/sockshop/plugin-config-detail.gif" style="border:1px solid #eee;max-width:100%" >
 
-更新插件相关的配置后进行保存并重启相关应用即可。此处暂时先只用到基于域名的路由配置，关于网络治理插件的更对详情可参考 [服务路由，灰度发布，A/B 测试
+更多插件相关的配置后进行保存并重启相关应用即可。此处暂时先只用到基于域名的路由配置，关于网络治理插件的更对详情可参考 [服务路由，灰度发布，A/B 测试
 ](abtest-backup-app.html)
 
-### 2.8 服务性能分析
+### 2.6 服务性能分析
 
 微服务是一个分布式的架构模式，它一直以来都会有一些自身的问题。当一个应用的运行状态出现异常时，对于我们的运维和开发人员来说，即时发现应用的状态异常并解决是非常有必要的。其次是应用是否正常提供服务，应用提供服务的状况又是怎样？我们可以通过监控手段对服务进行衡量，或者做一个数据支撑。服务目前是怎样的性能状况，以及出了问题我们要怎么去发现它。
 
 这些都可能是服务所面对的问题。出现这些问题后，监控就是一个比较常用、有效率的一个手段。总的来说，监控主要解决的是感知系统的状况。
 
-我们 Rainbond 平台为你提供了服务监控与性能监控，可以简单直观的了解服务当前的状态和信息。
+我们 Rainbond 平台为你提供了业务级服务与性能监控，可以简单直观的了解服务当前的状态和信息。
 
 > 目前仅支持 HTTP 与 mysql 协议的应用，后续我们会继续提供其他协议的支持
 
@@ -385,7 +193,7 @@ RainBond 平台在服务进行调用时，会默认将`顶级域名`解析到`12
 <img src="https://static.goodrain.com/images/article/sockshop/group-anly.png" style="border:1px solid #eee;width:85%" />
 </center>
 
-- 案例上的性能测试工具服务
+- 案例上的性能测试工具服务（制造流量）
 
   sockshop 商城案例自带性能测试的服务，但是与该项目不是持续运行，而是运行一次后程序便会退出。在这里，我们根据源码进行了一点小的修改。主要是将程序变为不退出运行。源码[地址](https://github.com/rilweic/load-test.git)
 
@@ -466,58 +274,9 @@ mysql -uusername -ppassword
 CREATE DATABASE zipkin ;
 ```
 
-创建 zipkin 相关的表：[下载](/docs/attachments/sql/zipkin.sql)
+关于创建 zipkin 相关的表的SQL文件：[下载](/docs/attachments/sql/zipkin.sql)
 
-```sql
-CREATE TABLE IF NOT EXISTS zipkin_spans (
-  `trace_id_high` BIGINT NOT NULL DEFAULT 0 COMMENT 'If non zero, this means the trace uses 128 bit traceIds instead of 64 bit',
-  `trace_id` BIGINT NOT NULL,
-  `id` BIGINT NOT NULL,
-  `name` VARCHAR(255) NOT NULL,
-  `parent_id` BIGINT,
-  `debug` BIT(1),
-  `start_ts` BIGINT COMMENT 'Span.timestamp(): epoch micros used for endTs query and to implement TTL',
-  `duration` BIGINT COMMENT 'Span.duration(): micros used for minDuration and maxDuration query'
-) ENGINE=InnoDB ROW_FORMAT=COMPRESSED CHARACTER SET=utf8 COLLATE utf8_general_ci;
-
-ALTER TABLE zipkin_spans ADD UNIQUE KEY(`trace_id_high`, `trace_id`, `id`) COMMENT 'ignore insert on duplicate';
-ALTER TABLE zipkin_spans ADD INDEX(`trace_id_high`, `trace_id`, `id`) COMMENT 'for joining with zipkin_annotations';
-ALTER TABLE zipkin_spans ADD INDEX(`trace_id_high`, `trace_id`) COMMENT 'for getTracesByIds';
-ALTER TABLE zipkin_spans ADD INDEX(`name`) COMMENT 'for getTraces and getSpanNames';
-ALTER TABLE zipkin_spans ADD INDEX(`start_ts`) COMMENT 'for getTraces ordering and range';
-
-CREATE TABLE IF NOT EXISTS zipkin_annotations (
-  `trace_id_high` BIGINT NOT NULL DEFAULT 0 COMMENT 'If non zero, this means the trace uses 128 bit traceIds instead of 64 bit',
-  `trace_id` BIGINT NOT NULL COMMENT 'coincides with zipkin_spans.trace_id',
-  `span_id` BIGINT NOT NULL COMMENT 'coincides with zipkin_spans.id',
-  `a_key` VARCHAR(255) NOT NULL COMMENT 'BinaryAnnotation.key or Annotation.value if type == -1',
-  `a_value` BLOB COMMENT 'BinaryAnnotation.value(), which must be smaller than 64KB',
-  `a_type` INT NOT NULL COMMENT 'BinaryAnnotation.type() or -1 if Annotation',
-  `a_timestamp` BIGINT COMMENT 'Used to implement TTL; Annotation.timestamp or zipkin_spans.timestamp',
-  `endpoint_ipv4` INT COMMENT 'Null when Binary/Annotation.endpoint is null',
-  `endpoint_ipv6` BINARY(16) COMMENT 'Null when Binary/Annotation.endpoint is null, or no IPv6 address',
-  `endpoint_port` SMALLINT COMMENT 'Null when Binary/Annotation.endpoint is null',
-  `endpoint_service_name` VARCHAR(255) COMMENT 'Null when Binary/Annotation.endpoint is null'
-) ENGINE=InnoDB ROW_FORMAT=COMPRESSED CHARACTER SET=utf8 COLLATE utf8_general_ci;
-
-ALTER TABLE zipkin_annotations ADD UNIQUE KEY(`trace_id_high`, `trace_id`, `span_id`, `a_key`, `a_timestamp`) COMMENT 'Ignore insert on duplicate';
-ALTER TABLE zipkin_annotations ADD INDEX(`trace_id_high`, `trace_id`, `span_id`) COMMENT 'for joining with zipkin_spans';
-ALTER TABLE zipkin_annotations ADD INDEX(`trace_id_high`, `trace_id`) COMMENT 'for getTraces/ByIds';
-ALTER TABLE zipkin_annotations ADD INDEX(`endpoint_service_name`) COMMENT 'for getTraces and getServiceNames';
-ALTER TABLE zipkin_annotations ADD INDEX(`a_type`) COMMENT 'for getTraces';
-ALTER TABLE zipkin_annotations ADD INDEX(`a_key`) COMMENT 'for getTraces';
-ALTER TABLE zipkin_annotations ADD INDEX(`trace_id`, `span_id`, `a_key`) COMMENT 'for dependencies job';
-
-CREATE TABLE IF NOT EXISTS zipkin_dependencies (
-  `day` DATE NOT NULL,
-  `parent` VARCHAR(255) NOT NULL,
-  `child` VARCHAR(255) NOT NULL,
-  `call_count` BIGINT,
-  `error_count` BIGINT
-) ENGINE=InnoDB ROW_FORMAT=COMPRESSED CHARACTER SET=utf8 COLLATE utf8_general_ci;
-
-ALTER TABLE zipkin_dependencies ADD UNIQUE KEY(`day`, `parent`, `child`);
-```
+在终端或Mysql客户端执行上诉Sql创建表和初始化数据。
 
 在 zipkin 服务中添加环境变量 `STORAGE_TYPE` 为 `mysql`,此变量标志 zipkin 使用的存储方式。可选择值为 `mysql`,`elasticsearch`、`cassandra`
 
@@ -553,10 +312,55 @@ sockshop 案例集成了`zipkin`做分布式跟踪。集成的组件为 `users`�
 
 到此，你应该可以看到如上文看到的完整的业务拓扑图了，商城案例也可以正常工作了。虽然这只是一个 Demo 用例，但其与实际的电商系统只是缺乏一些业务逻辑了。你是否可以将其业务完善用于你们的实际需求呢？
 
-下面我们开始进阶完成每一个服务的`水平伸缩` `持续集成与部署` `数据备份` `灰度发布`
-
 ## 五、进阶
 
-> 参考此例创建你自己的微服务架构，使用源码直接在Rainbond进行构建，集成Jenkins进行源码测试+持续部署。Rainbond如何数据备份，服务如何伸缩和升级。
->
-> TODO
+### 5.1 服务伸缩
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images%2Fdocs%2Fcommon%2Fshensuo.png" style="border:1px solid #eee;max-width:100%" >
+为了能够支持更大的流量和并发，服务可以采用水平伸缩或垂直伸缩的方式进行扩容，首先我们必须明确几个问题
+
+**什么服务能够水平伸缩：**
+
+1. 不基于内存的Session实现的大部分无状态服务。
+2. 应用层实现了数据同步的集群类服务（Etcd、TiDB、Cassandra等）。
+3. 从同一个主服务同步数据的从服务（比如Mysql的从节点服务）。
+
+**什么时候需要伸缩：**
+
+1. 单实例内存使用超过80%时推荐进行扩容。
+2. 业务性能监控吞吐率异常下降或相应实际异常变大时进行扩容。
+
+**选择水平伸缩还是垂直伸缩：**
+
+1. 并发量大时推荐水平伸缩。
+2. 无法进行水平伸缩时采用垂直伸缩。
+3. 需要高可用保证时采用水平伸缩。
+4. 单机性能瓶颈时采用水平伸缩。
+
+### 5.2 灰度发布或A/B测试
+
+当你将完整的业务系统上线运行以后，优雅对对服务进行持续升级而不影响业务至关重要。一般情况下Rainbond提供的默认滚动升级策略已经可以保证多节点的服务不中断升级，并且自动完成无需人工参与。对于一些更为重要的服务我们需要可控的进行灰度发布或A/B测试我们应该如何进行呢？
+
+在基础部署环节中我们已经了解到ServiceMesh架构中服务直接调用是可控的，这就为我们进行灰度发布奠定基础。我们过去进行灰度发布时免不了需要运维的同事配合进行流量管理。在Rainbond平台上可以直接可视化的控制流量。
+
+例如我们需要对服务`orders`进行灰度发布，我们需要关注它的调用端`front-end`服务。
+
+1. 创建新服务orders-v2
+2. `front-end`依赖服务orders-v2
+3. 配置网络治理插件，将orders-v2的访问域名设置与旧版orders服务一致，同时设置10%流量到新服务。
+4. 重复进行第3步，直到流量100%切换到orders-v2
+5. 关闭或删除旧版orders服务
+
+当前的不足，恢复发布缺乏全局的控制，人工参与过多。后续的版本我们将灰度发布和A/B测试流程话控制。全局一致性控制保证。
+
+### 服务持续继承构建
+ TODO
+### 服务备份
+ TODO
+
+
+
+
+
+
+
