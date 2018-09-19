@@ -14,6 +14,7 @@ toc: false
 
 ```bash
 
+grclis stop
 
 systemctl disable docker
 systemctl disable etcd
@@ -28,8 +29,6 @@ systemctl disable kubelet
 
 cd /etc/systemd/system/
 systemctl disable rbd-*
-
-grclis stop
 
 cclear
 
