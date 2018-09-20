@@ -328,16 +328,14 @@ ul.nav-flex li a.active{
     border-radius: 40px;
     display: inline-block;
     width: 25%;
-    height: 40px;
+    height: 50px;
     text-align: center;
-    line-height: 40px;
-    color: #14CE72;
-    font-size: 25px;
+    line-height: 50px;
+    /*color: #14CE72;*/
+    /*font-size: 25px;*/
 }
-
-
-.ovial a{
-    color: #ffffff;
+.infoTxt:hover{
+    color: #14CE72;
 }
 a:hover{
     cursor: pointer;
