@@ -281,4 +281,4 @@ server {
 
 ## 六、配置Cockroachdb
 
-testing
+受限于docker化的分布式数据库Cockroachdb并不稳定，当前部署方案需要内测一段时间才会继续更新。
