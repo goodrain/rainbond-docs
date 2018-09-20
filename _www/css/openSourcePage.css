@@ -191,11 +191,11 @@ ul.nav-flex li a.active{
 }
 
 .video-icon {
-    display: none;
+    /*display: none;*/
     position: absolute;
     font-size: 60px;
-    top: 50%;
-    left: 50%;
+    top: 60%;
+    left: 55%;
     margin-top: -52px;
     margin-left: -26px;
     color: #fff;
@@ -442,7 +442,7 @@ a:hover{
     letter-spacing: 0.1px;
     line-height: 75px;
     height: 75px;
-    padding: 0 50px;
+    padding: 0 57px;
 }
 .social{
     position: relative;
@@ -463,6 +463,7 @@ a:hover{
     justify-content: start;
     align-items: center;
     height: 75px;
+    letter-spacing: 0.1px;
 }
 
 .footer-nav{
@@ -502,28 +503,28 @@ a:hover{
     background: url("../images/logos/github1.png") center center no-repeat;
     width: 50px;
     height: 50px;
-    background-size: 70% 70%;
+    background-size: 50% 50%;
     /*background-color: #FFFFFF;*/
 }
 .weibo{
     background: url("../images/logos/weibo1.png") center center no-repeat;
     width: 50px;
     height: 50px;
-    background-size: 100% 100%;
+    background-size: 80% 80%;
     /*background-color: #FFFFFF;*/
 }
 .wechart{
     background: url("../images/logos/chart1.png") center center no-repeat;
     width: 50px;
     height: 50px;
-    background-size: 100% 100%;
+    background-size: 80% 80%;
     /*background-color: #FFFFFF;*/
 }
 .luntan{
     background: url("../images/logos/bg1.png") center center no-repeat;
     width: 50px;
     height: 50px;
-    background-size: 70% 70%;
+    background-size: 50% 50%;
     /*background-color: #FFFFFF;*/
 }
 .wechart-hover{
