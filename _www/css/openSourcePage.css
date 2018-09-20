@@ -194,10 +194,15 @@ ul.nav-flex li a.active{
     /*display: none;*/
     position: absolute;
     font-size: 60px;
-    top: 60%;
-    left: 55%;
-    margin-top: -52px;
-    margin-left: -26px;
+    /*top: 60%;*/
+    /*left: 55%;*/
+    /*margin-top: -52px;*/
+    /*margin-left: -26px;*/
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     color: #fff;
     width: 52px;
     height: 52px;
