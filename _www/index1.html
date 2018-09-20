@@ -19,7 +19,19 @@
 </head>
 <body>
 <div id="app">
-    <div class="header">
+    <div class="nav-logo">
+        <a class="" href="#">
+            <img class="img-responsive" src="logo.png" alt="北京市XXXX科技有限公司" style="height: 100%;width: auto;" />
+        </a>
+    </div>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <header>
         <nav class="navbar navbar-bg hide" id="nav">
             <div class="navContainer">
                 <div class="nav-logo" style="width: 15%">
@@ -30,16 +42,16 @@
                 <div id="nav-list">
                     <ul class="nav-flex fontsize_12">
                         <li><a href="https://www.rainbond.com/">开源</a></li>
-                        <li><a href="https://www.goodrain.com/industrycloud">企业</a></li>
-                        <li><a href="https://t.goodrain.com">社区</a></li>
+                        <li><a href="https://www.goodrain.com/industrycloud" target="_blank">企业</a></li>
+                        <li><a href="https://t.goodrain.com" target="_blank">社区</a></li>
                         <li><a href="/docs/stable/">文档</a></li>
                         <li><a class="active" href="docs/stable/getting-started/before-installation.html">快速开始</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </div>
-   <section>
+    <header/>
+   <section class="navShow">
        <div class="container-fluid bgLinear" style="min-height: 640px;">
            <div class="main-container">
                <div style="display: flex;">
@@ -50,18 +62,18 @@
                        <div class="fontsize_44 textRight">以应用为中心的开源PaaS</div>
                        <div class="textRight height50 fontsize13">基于GPL_v3协议开源</div>
                        <div class="textRight">
-                           <a href="ocs/stable/getting-started/rainbond-overview.html" target="_blank"><span class="fontsize13">快速开始</span></a>
+                           <a href="docs/stable/getting-started/rainbond-overview.html" target="_blank"><span class="fontsize13">快速开始</span></a>
                            <a href="https://github.com/goodrain/rainbond" target="_blank"><span class="fontsize13">Github</span></a>
                            <a href="https://gitee.com/rainbond/Rainbond" target="_blank"><span class="fontsize13">码云</span></a>
                        </div>
                    </div>
                </div>
                <div class="lineProgress">
-                   <span><a href="">开源</a></span>
-                   <span><a href="">企业</a></span>
-                   <span class="active"><a href="">快速开始</a></span>
-                   <span><a href="">社区</a></span>
-                   <span ><a href="">文档</a></span>
+                   <a href="https://www.rainbond.com/">开源</a>
+                   <a href="https://www.goodrain.com/industrycloud" target="_blank">企业</a>
+                   <a class="active" href="docs/stable/getting-started/rainbond-overview.html">快速开始</a>
+                   <a href="https://t.goodrain.com" target="_blank">社区</a>
+                   <a href="/docs/stable/">文档</a>
                </div>
            </div>
        </div>
@@ -271,8 +283,8 @@
         <nav class="footer-nav">
             <div class="socialTo">
                 <a href="https://www.rainbond.com/">开源</a>
-                <a href="https://www.goodrain.com/industrycloud">企业</a>
-                <a href="https://t.goodrain.com/">社区</a>
+                <a href="https://www.goodrain.com/industrycloud" target="_blank">企业</a>
+                <a href="https://t.goodrain.com/" target="_blank">社区</a>
                 <a href="/docs/stable/">文档</a>
             </div>
             <div class="footer-copy">
@@ -296,11 +308,11 @@
             modalVideo.show({ url: $(this).data('src') });
         })
         $('#marquee-wrap marquee').attr('width',$(window).width());
-        $('.lineProgress span').hover(function () {
+        $('.lineProgress a').hover(function () {
             $(this).addClass('active');
         },function () {
             $(this).removeClass('active');
-            $('.lineProgress span:eq(2)').attr('class', 'active');
+            $('.lineProgress a:eq(2)').attr('class', 'active');
         })
         $('.wechart').hover(function () {
             $('.wechart-hover').css({
@@ -316,7 +328,7 @@
     $(document).ready(function(){
         $(document).scroll(function(){
             var scrTop = $(window).scrollTop();
-            if(scrTop > 0){
+            if(scrTop > $('.navShow').height()){
                 $('#nav').css({'position':'fixed','top':'0','width':'100%',"z-index":10}).removeClass('hide');
             }else{//否则清空悬浮
                 $('#nav').css({'position':'','top':''}).addClass('hide');
@@ -335,19 +347,17 @@
         var aliWidth = ali.eq(0).width();
         var aliSize = ali.size();
         var ulWidth = aliWidth*aliSize;
-        console.log(ulWidth)
         oul.width(ulWidth);
 
-        var speed = -10;
+        var speed = -3;
 
         function slider(){
 
             if(speed<0){
                 if(oul.css('left')==-ulWidth/2+'px'){
                     oul.css('left',0);
-                    // $('#marquee-wrap ul').append($('#marquee-wrap ul')[0]);
                 }
-                oul.css('left','+=-2px');
+                oul.css('left','+='+speed+'px');
             }
             if(speed>0){
                 if(oul.css('left')=='0px'){

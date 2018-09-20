@@ -69,23 +69,27 @@ ul.nav-flex li a.active{
     margin-top: 220px;
     font-size: 0;
 }
-.lineProgress span{
+.lineProgress a{
     width: 20%;
     display: inline-block;
     border-bottom: 5px solid #ffffff;
     text-align: center;
     font-size: 12px;
     height: 35px;
-}
-.lineProgress span a{
-    /* 开源: */
-    font-family: AppleSystemUIFont;
-    font-size: 12px;
+
     color: #FFFFFF;
     letter-spacing: 2.4px;
-    text-align: center;
+    font-family: AppleSystemUIFont;
 }
-.lineProgress span.active{
+/*.lineProgress  a{*/
+    /*!* 开源: *!*/
+    /*font-family: AppleSystemUIFont;*/
+    /*font-size: 12px;*/
+    /*color: #FFFFFF;*/
+    /*letter-spacing: 2.4px;*/
+    /*text-align: center;*/
+/*}*/
+.lineProgress a.active{
     border-bottom-color:#f5a623;
 }
 .left-box{
@@ -220,19 +224,20 @@ ul.nav-flex li a.active{
     overflow: hidden;
     width: 100%;
     white-space: nowrap;
-    height: 50px;
+    height: 80px;
     margin-top: 20px;
 }
 .marquee-wrap ul li{
     /*float: left;*/
-    width: 100px;
-    height: 50px;
+    width: 200px;
+    height: 80px;
     margin-right: 55px;
     display: inline-block;
 }
 .marquee-wrap ul li img{
     width: 100%;
     height: 100%;
+    vertical-align: middle;
 }
 .tip1{
     /* 特性: */
@@ -512,10 +517,11 @@ a:hover{
     background-size: 100% 100%;
 }
 .luntan{
-    background: url("../images/logos/rain-logo.png") center center no-repeat;
+    background: url("../images/logos/logo.png") center center no-repeat;
     width: 50px;
     height: 50px;
     background-size: 100% 100%;
+    background-color: #FFFFFF;
 }
 .wechart-hover{
     position: absolute;
