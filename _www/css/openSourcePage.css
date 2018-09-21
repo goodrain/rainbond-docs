@@ -353,7 +353,7 @@ a:hover{
 #nav-list li a:hover{
     color:#f5a623;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 560px){
     .fontsize_44{
         font-size: 14px;
     }
@@ -393,6 +393,8 @@ a:hover{
     .footer-title{
         height: 50px !important;
         width: 100% !important;
+        text-align: center;
+        padding: 0 !important;
     }
     .socialTo{
         height: 50px !important;
