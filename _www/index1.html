@@ -292,6 +292,82 @@
     <script type="text/javascript " src='js/modal-video.js'></script>
     <script src="js/wow.min.js "></script>
 
+    <script>
+        $(function () {
+            var modalVideo = new ModalVideo({ width: 1000, height: 550 });
+            $('.video-show').click(function () {
+                modalVideo.show({ url: $(this).data('src') });
+            })
+            $('#marquee-wrap marquee').attr('width',$(window).width());
+            $('.lineProgress a').hover(function () {
+                $(this).addClass('active');
+            },function () {
+                $(this).removeClass('active');
+                $('.lineProgress a:eq(2)').attr('class', 'active');
+            })
+            $('.wechart').hover(function () {
+                $('.wechart-hover').css({
+                    left: "225px",
+                    top: "-90px"
+                }).removeClass('hide')
+            },function () {
+                $('.wechart-hover').addClass('hide');
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function(){
+            $(document).scroll(function(){
+                var scrTop = $(window).scrollTop();
+                if(scrTop > $('.navShow').height()){
+                    $('#nav').css({'position':'fixed','top':'0','width':'100%',"z-index":10}).removeClass('hide');
+                }else{//否则清空悬浮
+                    $('#nav').css({'position':'','top':''}).addClass('hide');
+                }
+            })
+        })
+    </script>
+    <script>
+        $(function(){
+            var oul = $('#marquee-wrap ul');
+            var oulHtml = oul.html();
+            oul.html(oulHtml+oulHtml)
+            var timeId = null;
+
+            var ali = $('#marquee-wrap ul li');
+            var aliWidth = ali.eq(0).width();
+            var aliSize = ali.size();
+            var ulWidth = aliWidth*aliSize;
+            oul.width(ulWidth);
+
+            var speed = -3;
+
+            function slider(){
+
+                if(speed<0){
+                    if(oul.css('left')==-ulWidth/2+'px'){
+                        oul.css('left',0);
+                    }
+                    oul.css('left','+='+speed+'px');
+                }
+                if(speed>0){
+                    if(oul.css('left')=='0px'){
+                        // oul.css('left',-ulWidth/2+'px');
+                    }
+                    oul.css('left','+='+speed+'px');
+                }
+
+            }
+            timeId = setInterval(slider,30);
+            $('#marquee-wrap').mouseover(function(){
+                clearInterval(timeId);
+            });
+            $('#marquee-wrap').mouseout(function(){
+                timeId = setInterval(slider,30);
+            });
+        })
+    </script>
+
     <script src="js/base.js "></script>
     <script src="docs/js/clipboard.min.js "></script>
     <script src="docs/js/toc.js "></script>
@@ -336,80 +412,6 @@
         })();
     </script>
 
-    <script>
-    $(function () {
-        var modalVideo = new ModalVideo({ width: 1000, height: 550 });
-        $('.video-show').click(function () {
-            modalVideo.show({ url: $(this).data('src') });
-        })
-        $('#marquee-wrap marquee').attr('width',$(window).width());
-        $('.lineProgress a').hover(function () {
-            $(this).addClass('active');
-        },function () {
-            $(this).removeClass('active');
-            $('.lineProgress a:eq(2)').attr('class', 'active');
-        })
-        $('.wechart').hover(function () {
-            $('.wechart-hover').css({
-                left: "225px",
-                top: "-90px"
-            }).removeClass('hide')
-        },function () {
-            $('.wechart-hover').addClass('hide');
-        })
-    })
-</script>
-<script>
-    $(document).ready(function(){
-        $(document).scroll(function(){
-            var scrTop = $(window).scrollTop();
-            if(scrTop > $('.navShow').height()){
-                $('#nav').css({'position':'fixed','top':'0','width':'100%',"z-index":10}).removeClass('hide');
-            }else{//否则清空悬浮
-                $('#nav').css({'position':'','top':''}).addClass('hide');
-            }
-        })
-    })
-</script>
-<script>
-    $(function(){
-        var oul = $('#marquee-wrap ul');
-        var oulHtml = oul.html();
-        oul.html(oulHtml+oulHtml)
-        var timeId = null;
 
-        var ali = $('#marquee-wrap ul li');
-        var aliWidth = ali.eq(0).width();
-        var aliSize = ali.size();
-        var ulWidth = aliWidth*aliSize;
-        oul.width(ulWidth);
-
-        var speed = -3;
-
-        function slider(){
-
-            if(speed<0){
-                if(oul.css('left')==-ulWidth/2+'px'){
-                    oul.css('left',0);
-                }
-                oul.css('left','+='+speed+'px');
-            }
-            if(speed>0){
-                if(oul.css('left')=='0px'){
-                    // oul.css('left',-ulWidth/2+'px');
-                }
-                oul.css('left','+='+speed+'px');
-            }
-
-        }
-        timeId = setInterval(slider,30);
-        $('#marquee-wrap').mouseover(function(){
-            clearInterval(timeId);
-        });
-        $('#marquee-wrap').mouseout(function(){
-            timeId = setInterval(slider,30);
-        });
-    })
-</script>
 </body>
 </html>
