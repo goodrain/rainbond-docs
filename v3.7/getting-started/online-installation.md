@@ -55,9 +55,11 @@ grctl node list
 
 离线安装具体流程请参考[离线部署](../operation-manual/install/offline/setup.html)
 
-## 四、平台安装完成，部署 ServiceMesh 完整微服务电商用例试试？
+## 四、部署完成后的引导
 
-[ServiceMesh 微服务架构电商平台部署](../microservice/service-mesh/use-case.html)
+平台部署完成后，下面的文章可以引导你快速上手Rainbond。
+
+[下一步、快速上手](./quick-learning.html)
 
 <!--
 ## 四、分步部署
