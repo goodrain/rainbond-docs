@@ -37,6 +37,7 @@
         <!--</div>-->
         <!--<div class="copyright" style="color:#fff;"><span class="year">&copy; 2018 </span>北京好雨科技有限公司 </div>-->
     <!--</div>-->
+<!--</section>-->
 <section id="footer" class="footer">
     {% include back-to-top.html %} {% include help-widget.html %}
     <nav class="footer-nav">
@@ -44,7 +45,7 @@
         <div class="social">
             <a href="https://github.com/goodrain/rainbond" class="github" target="_blank"></a>
             <a href="javascript:void(0);" class="wechart"></a>
-            <img src="images/wechart.png" alt="" class="wechart-hover hide">
+            <img src="{{ 'images/wechart.png' | relative_url }}" alt="" class="wechart-hover hide">
             <a href="ttps://weibo.com/u/5743730973" class="weibo" target="_blank"></a>
             <a href="https://t.goodrain.com/" class="luntan" target="_blank"></a>
         </div>
@@ -75,4 +76,15 @@
         })(window, document, 'script', '//eco-api.meiqia.com/dist/meiqia.js', '_MEIQIA');
         _MEIQIA('entId', 5732);
     </script>
-<!--</section>-->
+<script>
+    $(function(){
+        $('.wechart').hover(function () {
+            $('.wechart-hover').css({
+                left: "225px",
+                top: "-90px"
+            }).removeClass('hide')
+        },function () {
+            $('.wechart-hover').addClass('hide');
+        })
+    })
+</script>

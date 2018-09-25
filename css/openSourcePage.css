@@ -83,12 +83,12 @@ ul.nav-flex li a.active{
     font-family: AppleSystemUIFont;
 }
 /*.lineProgress  a{*/
-/*!* 开源: *!*/
-/*font-family: AppleSystemUIFont;*/
-/*font-size: 12px;*/
-/*color: #FFFFFF;*/
-/*letter-spacing: 2.4px;*/
-/*text-align: center;*/
+    /*!* 开源: *!*/
+    /*font-family: AppleSystemUIFont;*/
+    /*font-size: 12px;*/
+    /*color: #FFFFFF;*/
+    /*letter-spacing: 2.4px;*/
+    /*text-align: center;*/
 /*}*/
 .lineProgress a.active{
     border-bottom-color:#f5a623;
@@ -507,28 +507,28 @@ a:hover{
     border-radius: 5px 5px;
 }
 .github{
-    background: url("../images/logos/github1.png") center center no-repeat;
+    background: url("../images/github1.png") center center no-repeat;
     width: 50px;
     height: 50px;
     background-size: 50% 50%;
     /*background-color: #FFFFFF;*/
 }
 .weibo{
-    background: url("../images/logos/weibo1.png") center center no-repeat;
+    background: url("../images/weibo1.png") center center no-repeat;
     width: 50px;
     height: 50px;
     background-size: 80% 80%;
     /*background-color: #FFFFFF;*/
 }
 .wechart{
-    background: url("../images/logos/chart1.png") center center no-repeat;
+    background: url("../images/chart1.png") center center no-repeat;
     width: 50px;
     height: 50px;
     background-size: 80% 80%;
     /*background-color: #FFFFFF;*/
 }
 .luntan{
-    background: url("../images/logos/bg1.png") center center no-repeat;
+    background: url("../images/bg1.png") center center no-repeat;
     width: 50px;
     height: 50px;
     background-size: 50% 50%;
