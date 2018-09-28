@@ -5,7 +5,7 @@ toc: true
 toc_not_nested: true
 asciicast: true
 ---
-
+<!--
 <div class="filters filters-big clearfix">
     <a href="before-installation.html"><button class="filter-button ">安装前准备</button></a>
     <a href="online-installation.html"><button class="filter-button current"><strong>安装</strong></button></a>
@@ -16,7 +16,7 @@ asciicast: true
 - 安装前请务必阅读[安装前准备](before-installation.html)，在确定符合安装相关条件后执行安装操作。
 
 {{site.data.alerts.end}}
-
+-->
 ## 一、版本选择
 
 | 版本          | 说明         |
@@ -55,13 +55,8 @@ grctl node list
 
 离线安装具体流程请参考[离线部署](../operation-manual/install/offline/setup.html)
 
-## 四、部署完成后的引导
-
-平台部署完成后，下面的文章可以引导你快速上手Rainbond。
-
-[下一步、快速上手](./quick-learning.html)
-
 <!--
+
 ## 四、分步部署
 
 分步部署Rainbond是分组件一步一步的安装Rainbond及所需组件，用户可以定制相关的安装。分步部署Rainbond适合非常了解Rainbond架构，需要定制部署Rainbond的人群。
@@ -72,6 +67,7 @@ grctl node list
 ## 五、源码部署
 
 从源码安装具体流程请参考[源码部署](../operation-manual/install/source/setup.html)
+
 -->
 
 {{site.data.alerts.callout_danger}}
@@ -84,3 +80,11 @@ grctl node list
 安装问题, 请参照 [运维手册，安装部署-集群安装问题排查](../operation-manual/trouble-shooting/install-issue.html)  
 使用问题, 请参照 [运维手册，平台维护-集群故障排查](../operation-manual/trouble-shooting/issue.html)  
 {{site.data.alerts.end}}
+
+## 四、部署完成后的引导
+
+平台部署完成后，下面的文章可以引导你快速上手Rainbond。
+
+<div class="btn-group btn-group-justified">
+<a href="./quick-learning.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">快速上手</a>
+</div>

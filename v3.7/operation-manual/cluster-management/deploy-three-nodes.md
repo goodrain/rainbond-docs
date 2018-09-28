@@ -6,11 +6,6 @@ toc_not_nested: true
 asciicast: true
 ---
 
-<div class="filters filters-big clearfix">
-    <a href="three-nodes-deployment.html"><button class="filter-button ">方案概述</button></a>
-    <a href="deploy-three-nodes.html"><button class="filter-button current"><strong>操作流程</strong></button></a>
-</div>
-
 <div id="toc"></div>
 
 ##一、基本平台部署
@@ -19,11 +14,19 @@ asciicast: true
 
 - 安装单节点云帮平台：
 
-  - 详情参见：[一键部署]( /docs/stable/getting-started/before-installation.html)
+```bash
+# 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip grctl init --eip <公网ip>
+wget https://pkg.rainbond.com/releases/common/v3.7.2/grctl
+chmod +x ./grctl
+./grctl init --role master
+```
 
 - 扩容计算节点：
 
-  - 详情参见：[扩容计算节点](/docs/stable/operation-manual/cluster-management/add-compute-node.html)
+```bash
+grctl node add --host compute01 --iip <internal ip> -p <root pass> -r worker
+grctl node add --host compute02 --iip <internal ip> -p <root pass> -r worker
+```
 
 ## 二、部署Glusterfs
 
@@ -164,3 +167,11 @@ mysql        #进入数据库
 use console; #使用console数据库
 UPDATE region_info set tcpdomain="<VIP>"; #更新tcpdomain
 ```
+
+## 五、部署完成后的引导
+
+平台部署完成后，下面的文章可以引导你快速上手Rainbond。
+
+<div class="btn-group btn-group-justified">
+<a href="/docs/stable/getting-started/quick-learning.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">快速上手</a>
+</div>
