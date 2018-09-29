@@ -10,86 +10,167 @@ toc: true
 
 对于当前IT软件交付的方式复杂，人力投入大的难题，Rainbond对异构应用服务提供了标准化的打包形式，将软件、依赖部署关系、功能扩展插件、版本信息、运行环境、配置信息甚至是初始化数据等整体打包存放于应用市场。因此应用市场是Rainbond定义的一种应用的共享途径，它可以跨团队，跨数据中心，甚至跨平台的分享应用。应用市场的应用是完整的业务解决方案集成体，或者是优秀的架构实践体，其可以标准化得一键交付部署。
 
-## 二、应用同步
+ 
 
-应用同步是在互联网环境下的一种跨平台应用交付方式，通过此方式可以快速获取优秀的、成熟的通用解决方案，例如Mysql、TiDB等数据库方案，Gitlab、Jenkins等IT工具。也可以通过此方式交付商业业务系统给你的用户。
+## 二、发布应用到应用市场
 
-当前Rainbond默认提供了与好雨云市的互联用例。
+在Rainbond中，你可以将整套业务系统打包成一个`云市应用`，并选择将该应用发布到`团队`、`公司`、`好雨公有云市`。分享到不同的范围，可见性也有所不同，具体可见范围如下：
 
-## 三、应用导入与导出
+* 团队：只有当前团队下的成员可见
+* 公司：当前企业下的所有成员可见
+* 好雨云市：连接好雨公有云市的所有企业及用户可见
 
-为了让用户能够更好的管理自己的应用，我们为平台设计了应用导入导出功能，该功能允许用户通过简单的几次点击，就可以将云市中的应用打包为一个压缩文件，并可以下载到本地。在导出的时候，支持两种格式，一种为`rainbond-app`格式，另一种为`docker-compose`格式。
+我们将一个`应用组`内完整的业务解决方案集成体整体打包成一个`云市应用`，发布成功后，其他用户在创建应用时可以选择`从应用市场安装`的方式`一键安装部署`完整的服务体系，实现标准化得一键交付部署。
 
-### 3.1 格式说明
-1. `rainbond-app`：为了在多个云帮之间迁移应用而设计，即在A平台导出后，可以导入到B平台，但导出后的文件不能直接运行，导出的文件是一个tar格式的压缩包，其中包含了该应用的描述信息、每个组件的镜像或源码包等。
+####  2.1 应用发布流程
 
-2. `docker-compose`：为了快速交付而设计，当我们把云帮上的应用交付给用户时，就需要让应用具备脱离平台可运行的能力，这样才能避免为了使用一个应用而不得不先部署平台的问题，`docker-compose`导出格式可以在安装有[docker](https://www.docker.com/)和[docker-compose](https://docs.docker.com/compose/)的环境中运行，假设我们现在导出了一个`docker-compose`文件且名为`web.tar`，那么执行以下命令运行它：
-    ```
-    tar -xf web.tar
-    ./web/run.sh
-    ```
-      使用这种可运行的格式有以下需要注意的事项：
-   * 依赖环境：应用的运行需要依赖[docker](https://www.docker.com/)和[docker-compose](https://docs.docker.com/compose/)，如果您的系统中没有安装它们，`run.sh`脚本将会自动为您安装，所以请保证您的系统能够连接互连网，否则请手动安装这两个工具。
-   * 端口是否可用，假如我们导出了一个WEB应用，如果它在启动时需要监听80端口，则物理机上的80端口必须是空闲状态，否则会因为端口冲突而导致应用启动失败。
+**选择要分享的应用组，点击`发布到市场`。**
 
-### 3.2 应用导出
-* 登录云帮，并进入“内部市场”页面。
-* 找到想要导出的应用，并点击该应用版块上的`导出Compose包`或`导出平台应用`。
+> 提示：发布应用时，组内所有服务的状态必须为运行中
 
-  
-    <img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/app_export.png" style="border:1px solid #eee;max-width:100%" />
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-1.jpg" width='100%' />
 
-* 点击导出后，相应的按钮会显示为导出中。
+**完善应用信息**
 
-    <img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/app_exporting.png" style="border:1px solid #eee;max-width:100%" />
+1. 填写应用基本信息
 
-* 完成导出后，导出的文件即可下载到本地
+* 应用名：要发布的应用名称
+* 版本：应用发布版本  (当同一应用组多次发布时，如果版本号相同，则会覆盖已发布的该版本应用)
+* 分享范围：发布的可见范围
+* 应用说明：应用的简单描述
+* 图标：应用LOGO
 
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-2.jpg" width='100%' />
+
+2. 填写每个服务的配置信息
+
+* 环境变量：编辑该服务默认的环境变量，勾选`可修改`，则其他用户安装此应用后可编辑这个环境的值，反之不可编辑。
+* 伸缩规则：定义该服务可伸缩的最大最小节点数，及节点伸缩步长，最小安装内存限制。
+
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-3.jpg" width='100%' />
+
+**提交发布任务**
+
+完善应用信息后，点击`提交`，向数据中心发起同步任务。由数据中心的`rbd-chaos`组件对应用中的每一个服务进行数据同步。如果是发布到`好雨公有云市`，数据中心会将应用所需的镜像或源码包同步到好雨公有仓库及FTP服务器存储，并将应用的模版数据保存到Console数据库并发送到好雨云市保存。如果是发布到`团队`或`公司`，则应用所需的镜像或源码包同步到本数据中心，并将应用的模版数据保存在Console数据库。
+
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-4.jpg" width='100%' />
+
+**确认发布**
+
+当应用中的所有服务及插件全部完成同步后，点击`确认发布`，即可完成应用发布。发布成功后可在`创建应用`下的`从应用市场安装`中对应的范围下看到你发布的应用。
+
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-5.jpg" width='100%' />
+
+
+
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-6.jpg" width='100%' />
+
+**完善应用README**
+
+如果你的应用是发布到`好雨公有市场`，那么所有连接好雨云市的企业及用户都可以下载并安装你发布的应用。为了让别人更好的了解和知道如何使用你的应用，可以在好雨云市用为你的应用添加README。感谢您为好雨云市以及好雨用户的贡献！
+
+使用你的企业管理员账号登陆[好雨云市](https://www.goodrain.com/spa/#/personalCenter/app-provider-center/app-published-list)，进入到`企业中心`，进入左侧菜单栏`应用市场`、`自由市场`，点击`分享应用管理`即可看到你的企业下发布到云市的应用。选择要编辑的应用，点击下方的`信息编辑`进一步完善应用信息，可在`详细介绍`一栏中添加应用的README。一切就绪后点击应用下方的`上架`即可将应用发布到好雨公有云市并对所有访问云市的用户可见。
+
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/market.gifg" width='100%' />
+
+
+
+
+
+## 三、下载安装云市应用
+
+应用下载同步是在互联网环境下的一种跨平台应用交付方式，通过此方式可以快速获取优秀的、成熟的通用解决方案，例如Mysql、TiDB等数据库方案，Gitlab、Jenkins等IT工具。也可以通过此方式交付商业业务系统给你的用户。当前Rainbond默认提供了与好雨云市的互联用例。
+
+在Rainbond控制台中点击左侧导航栏进入`内部市场`，根据你的需求选择应用或插件，点击`云端同步`即可看到在好雨公有云市发布的应用。应用名称后有`(官方发布)`字样是我们好雨官方发布或推荐的应用。点击应用名称可查看应用的详细介绍。
+
+选择要下载的应用或插件点击后方的`下载`将`好雨公有云市`应用或插件下载到你的`内部市场`中。下载完成后，方可在方可在 `从应用市场安装`直接一键安装本应用。如果是插件可在左侧导航栏`我的插件`中安装管理你的插件。
+
+> 点击内部市场应用后方的`云端更新`，可将好雨云市中该应用的最新版本下载更新到你的内部市场。
+
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/download.gif" width='100%' />
+
+
+ 
+
+## 四、应用导入与导出
+
+ 
+
+为了让用户能够更好的管理自己的应用，快捷简单交付业务，我们为平台设计了应用导入导出功能，该功能允许用户通过简单的几次点击，就可以将内部市场的应用打包为一个压缩文件，并可以下载到本地。在导出的时候，支持两种格式，一种为`rainbond-app`格式，另一种为`docker-compose`格式。
 
 > 云市同步的应用不支持导出compose文件，只支持导出`rainbond-app`格式。
 
+### 4.1 格式说明
 
+1. `rainbond-app`：为了在多个云帮之间迁移应用而设计，即在A平台导出后，可以导入到B平台，但导出后的文件不能直接运行，导出的文件是一个zip格式的压缩包，其中包含了该应用的描述信息、每个组件的镜像或源码包等。
 
+2. `docker-compose`：为了快速交付而设计，当我们把云帮上的应用交付给用户时，就需要让应用具备脱离平台可运行的能力，这样才能避免为了使用一个应用而不得不先部署平台的问题，`docker-compose`导出格式可以在安装有[docker](https://www.docker.com/)和[docker-compose](https://docs.docker.com/compose/)的环境中运行，假设我们现在导出了一个`docker-compose`文件且名为`web.tar`，那么执行以下命令运行它：
+
+````
+    tar -xf web.tar
+    ./web/run.sh
+````
+
+​      使用这种可运行的格式有以下需要注意的事项：
+
+* 依赖环境：应用的运行需要依赖[docker](https://www.docker.com/)和[docker-compose](https://docs.docker.com/compose/)，如果您的系统中没有安装它们，`run.sh`脚本将会自动为您安装，所以请保证您的系统能够连接互连网，否则请手动安装这两个工具。
+
+* 端口是否可用，假如我们导出了一个WEB应用，如果它在启动时需要监听80端口，则物理机上的80端口必须是空闲状态，否则会因为端口冲突而导致应用启动失败。
+
+ 
+
+### 4.2 应用导出
+
+* 登录Rainbond，并进入`内部市场`页面。
+* 找到想要导出的应用，并点击该应用版块上的`导出应用`
+
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/export-1.jpg" width='100%' />
+
+* 点击导出后，导出状态会显示为导出中
+
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/export-2.jpg" width='100%' />
+
+* 完成导出后，点击`下载`即可将文件下载到本地
+
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/export-3.jpg" width='100%' />
 
 
 
 ### 3.3 批量导出
+
 云帮导出的应用包文件会很大，如果网络不好的情况下，我们建议您直接在对应的数据中心的服务器上进行操作。
+
 每个应用在打包完成后，都会存储在某个数据中心的`/grdata/app`目录中，利用这一点，我们可以批量导出平台中的应用。
 
 1. 登录云帮，并进入“内部市场”页面。
+
 2. 找到想要导出的应用，并依次点击它们的导出按钮，等待平台打包完成即可。
+
 3. 等待平台打包完成后，登录到数据中心对应的服务器，假设我们要把所有导出的应用包复制到`/mnt/sdc1/`目录中，执行以下命令：
-    ```
-    find /grdata/app -maxdepth 2 -name '*.tar' | xargs -I FF cp FF /mnt/sdc1/
-    ```
+
+   ```
+       find /grdata/app -maxdepth 2 -name '*.zip' | xargs -I FF cp FF /mnt/sdc1/
+   ```
+
+ 
 
 ### 3.4 应用导入
 
-对于导出的应用，您也可以通过导入功能将应用导入到内部市场。
+对于导出的应用，您也可以通过`离线导入应用`功能将应用导入到内部市场。在Rainbod左侧导航栏进入`内部市场`，点击`离线导入应用`，上传你的RainbondAPP文件开始导入。
+
+应用导入有以下两种方式：
+
+1. 如果你的网络情况不乐观的情况下，我们建议您直接在对应的数据中心的服务器上进行操作。你可以将RainbondAPP文件复制到数据中心管理节点上我们提供的目录下
+2. 如果网络情况较好，可以直接通过网络上传文件至数据中心指定目录下
+
+开启`自动识别`，Rainbond自动识别已上传RainbondAPP文件，选中要导入的APP(支持批量导入)，点击`确认导入`向数据中心发送导入请求并开始导入应用。
+
 具体操作如下：
 
-<img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/import.gif" style="border:1px solid #eee;max-width:100%" />
-
-使用文件上传的操作每次只能上传一个包，如果您导出的应用包比较大或者您一次需要导入多个应用包，推荐您使用批量导入应用的方式。
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/import.gif" width='100%' />
 
 
-### 3.5 应用批量导入
 
-如果您导出的应用包比较大或者您一次需要导入多个应用包，您可以使用批量导入。
+应用导入成功后，可在内部市场看到你导入的应用。
 
-<img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/batch-import.png" style="border:1px solid #eee;max-width:100%" />
-
-点击`批量导入`后，系统会返回给您需要导入的文件的地址。如图
-
-<img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/import-dir.png" style="border:1px solid #eee;max-width:100%" />
-
-
-登录到数据中心对应的服务器，将需要的文件包存入系统提示的文件目录，点击确定后系统会展示您的应用信息如图。
-
-<img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/import-selected.png" style="border:1px solid #eee;max-width:100%" />
-
-您可以点击您需要的应用包，然后点击导入将应用导入。
-每个应用的导入状态也会显示给您。导入完成后，您即可看到导入的应用。
-
-<img src="http://static.goodrain.com/images/docs/3.6/advanced-operation/batch-import-status.png" style="border:1px solid #eee;max-width:100%" />
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/import-1.jpg" width='100%' />
