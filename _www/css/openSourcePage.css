@@ -7,40 +7,44 @@
     border-radius: 0px;
 }
 #nav-list{
-    width: 50%;
     line-height: 50px;
     float: right;
+    height: 50px;
+    margin-right: 4%;
 }
 #nav-list li{
     height:50px;
     line-height: 50px;
-}
-.navContainer{
-    margin: 0 auto;
-    max-width: 1095px;
+    width: 100px;
+    float: right;
+    text-align: center;
 }
 ul.nav-flex{
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
     list-style: none;
 }
 ul.nav-flex li a{
     color: #ffffff;
     font-size: 13px;
 }
+#nav-list li.defaultSty{
+    height: 30px;
+    background: #2593fc;
+    border-radius: 25px;
+    margin-top: 10px;
+    line-height: 30px;
+}
 ul.nav-flex li a.active{
-    color:#F5A623;
+    /* color:#F5A623; */
 }
 .main-container{
     margin: 0 auto;
-    max-width: 1095px;
     color: #ffffff;
     padding-top: 180px
 }
 .bgLinear{
     /* Background: */
-    background-image: linear-gradient(0deg, #17E7E0 0%, #15CE8E 100%, #14CD72 100%, #15CD85 100%, #14CD72 100%);
+    /* background-image: linear-gradient(0deg, #17E7E0 0%, #15CE8E 100%, #14CD72 100%, #15CD85 100%, #14CD72 100%); */
+    background-image: url('../images//logos/rainbond_bg.png')
 }
 .fontsize_44{
     font-size: 44px;
@@ -101,7 +105,7 @@ ul.nav-flex li a.active{
 
 .right-box{
     width: 65%;
-    padding-left: 20%;
+    padding-right: 5%;
 }
 .nav-logo{
     float: left;
@@ -157,6 +161,7 @@ ul.nav-flex li a.active{
     padding: 0;
     background-size: 100% 100%;
     transition: all .5s;
+    border-radius: 12px;
 }
 
 .video-outer:hover {
@@ -185,6 +190,8 @@ ul.nav-flex li a.active{
     left: 0;
     bottom: 0;
     right: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .video-outer:hover title {
@@ -224,7 +231,7 @@ ul.nav-flex li a.active{
     font-size: 24px;
     letter-spacing: 0.01px;
     line-height: 43px;
-    color: #14CE72;
+    color: #2593fc;
 }
 .marquee-wrap{
     overflow: hidden;
@@ -235,7 +242,7 @@ ul.nav-flex li a.active{
 }
 .marquee-wrap ul li{
     /*float: left;*/
-    width: 150px;
+    width: 120px;
     height: 60px;
     margin-right: 55px;
     display: inline-block;
@@ -258,21 +265,22 @@ ul.nav-flex li a.active{
     /* 原生Service Mesh微服务架构: */
     font-family: PingFangSC-Regular;
     font-size: 20px;
-    color: #14CE72;
+    color: #2593fc;
     letter-spacing: 0.43px;
     text-align: left;
+    font-weight: bond;
 }
 .feature .featureText{
     /* 跨语言、跨协议、无侵入的ServiceM: */
     font-family: AppleSystemUIFont;
-    font-size: 14px;
+    font-size: 13px;
     color: #626262;
     letter-spacing: 0.2px;
     text-align: left;
     line-height: 24.88px;
 }
 .padding5{
-    padding: 50px 20px 10px 0;
+    padding: 50px 90px 20px 0;
 }
 .useSence{
     padding-top: 40px;
@@ -289,7 +297,7 @@ ul.nav-flex li a.active{
     /* 各类微服务架构平台: */
     font-family: AppleSystemUIFont;
     font-size: 20px;
-    color: #14CE72;
+    color: #2593fc;
     letter-spacing: 0.43px;
     text-align: left;
 }
@@ -297,7 +305,7 @@ ul.nav-flex li a.active{
     /* 各类微服务架构平台: */
     font-family: AppleSystemUIFont;
     font-size: 15px;
-    color: #14CE72;
+    color: #2593fc;
     letter-spacing: 0.43px;
     text-align: left;
 }
@@ -325,15 +333,16 @@ ul.nav-flex li a.active{
 }
 .infoTxt{
     /* Rectangle 30: */
-    border: 1px solid #14CE72;
+    /* border: 1px solid #14CE72; */
     border-radius: 40px;
     display: inline-block;
     width: 25%;
     height: 50px;
     text-align: center;
     line-height: 50px;
-    /*color: #14CE72;*/
+    color: #ffffff;
     /*font-size: 25px;*/
+    background-color: #2593fc;
 }
 .infoTxt:hover{
     color: #14CE72;
@@ -345,10 +354,9 @@ a:hover{
 .left-box .leftTextSty{
     /* Rainbond: */
     font-family: SFNSDisplay;
-
+    text-align: center;
     color: #FFFFFF;
     letter-spacing: 0.01px;
-    text-align: left;
     line-height: 55px;
 }
 #nav-list li a:hover{
@@ -444,32 +452,26 @@ a:hover{
     /* Rainbond，以应用为中心的开源Pa: */
     font-family: AppleSystemUIFont;
     font-size: 15px;
-    color: #14CE72;
+    color: #2593fc;
     letter-spacing: 0.1px;
     line-height: 75px;
     height: 75px;
-    padding: 0 57px;
+    padding-left: 4%;
 }
 .social{
     position: relative;
-    width: 50%;
-    float: left;
-    padding: 30px;
+    width: 30%;
+    float: right;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 75px;
+    padding-right: 4%;
 }
 .socialTo{
-    position: relative;
     width: 50%;
+    padding-left: 4%;
     float: left;
-    padding: 30px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 75px;
-    letter-spacing: 0.1px;
 }
 
 .footer-nav{
@@ -477,23 +479,22 @@ a:hover{
     width: 100% !important;
 }
 .footer-copy{
-    height: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 50px;
+    float: right;
+    padding-right: 4%;
     /* Copyright © 2018 Goo: */
     font-family: PingFangSC-Regular;
     font-size: 10px;
     color: #A7A7A7;
     letter-spacing: 0.1px;
-    line-height: 22px;
+    line-height: 50px;
 }
 .socialTo a{
-    width: 50px;
+    /* width: 50px; */
     height: 50px;
-    margin: 15px;
     line-height: 50px;
     text-align: center;
+    margin-right: 40px;
     /* 文档: */
     font-family: AppleSystemUIFont;
     font-size: 13px;
@@ -503,7 +504,7 @@ a:hover{
 .social a{
     width: 50px;
     height: 50px;
-    margin: 15px;
+    margin-left: 15px;
     border-radius: 5px 5px;
 }
 .github{

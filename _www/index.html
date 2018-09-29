@@ -19,22 +19,22 @@
 </head>
 <body>
     <div class="navbar-fixed-top">
-        <nav class="navbar navbar-bg hide" id="nav">
-            <div class="navContainer">
-                <div class="nav-logo" style="width:209px">
+        <nav class="navbar navbar-bg hide container" id="nav">
+            <div class="row">
+                <div class="nav-logo" style="width:209px;height: 50px;margin-left: 4%">
                     <a href="https://www.rainbond.com/" class="logo" title="RainBond">
-                        <img src="./images/logo.png" alt="" style="width: 100%">
+                        <img src="./images/logos/blue_logo.png" alt="" style="width: 100%;height: 100%;vertical-align: middle">
                     </a>
                 </div>
-                <div id="nav-list">
+                <nav id="nav-list">
                     <ul class="nav-flex fontsize_12">
-                        <li><a href="https://www.rainbond.com/">开源</a></li>
-                        <li><a href="https://www.goodrain.com/industrycloud" target="_blank">企业</a></li>
-                        <li><a href="https://t.goodrain.com" target="_blank">社区</a></li>
+                        <li class="defaultSty"><a class="active" href="docs/stable/getting-started/before-installation.html">快速开始</a></li>
                         <li><a href="/docs/stable/">文档</a></li>
-                        <li><a class="active" href="docs/stable/getting-started/before-installation.html">快速开始</a></li>
+                        <li><a href="https://t.goodrain.com" target="_blank">社区</a></li>
+                        <li><a href="https://www.goodrain.com/industrycloud" target="_blank">企业</a></li>
+                        <li><a href="https://www.rainbond.com/">开源</a></li>
                     </ul>
-                </div>
+                </nav>
             </div>
         </nav>
     </div>
@@ -78,7 +78,7 @@
     <section class="mainbox bgfbfbfb">
         <div class="container ">
             <div class="row ">
-                <p class="titthree text-center ">10分钟入门Rainbond</p>
+                <p class="titthree text-center" style="font-size:22px">10分钟入门Rainbond</p>
                 <div class="col-sm-3 video ">
                     <div class="indexsceneinside video-outer video-show video-1 " data-src="https://static.goodrain.com/mp4/app-create.mp4 ">
                         <div class="video-inner ">
@@ -124,16 +124,16 @@
                                <li><img src="images/logos/logo0.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo1.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo2.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo3.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo4.png" alt="" width="100" height="50"></li>
+                               <!-- <li><img src="images/logos/logo3.png" alt="" width="100" height="50"></li> -->
+                               <!-- <li><img src="images/logos/logo4.png" alt="" width="100" height="50"></li> -->
                                <li><img src="images/logos/logo5.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo6.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo7.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo8.png" alt="" width="100" height="50"></li>
+                               <!-- <li><img src="images/logos/logo8.png" alt="" width="100" height="50"></li> -->
                                <li><img src="images/logos/logo9.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo10.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo11.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo12.png" alt="" width="100" height="50"></li>
+                               <!-- <li><img src="images/logos/logo12.png" alt="" width="100" height="50"></li> -->
                            </ul>
                     </div>
                 </div>
@@ -196,7 +196,7 @@
                 <p class="text-center tip">使用场景</p>
                 <div class="col-sm-12 margin20 boxshadow">
                     <span class="blueA">各类微服务架构平台</span>
-                    <div class="textStyle">借助Rainbond提供的开箱即用的ServiceMesh微服务架构支持，可帮助企业快速完成从传统应用架构向微服务架构的转型，享受微服务架构带来的种种优势。 同时支持[Spring Cloud]、[Api gateway]等微服务框架，
+                    <div class="textStyle">借助Rainbond提供的开箱即用的ServiceMesh微服务架构支持，可帮助企业快速完成从传统应用架构向微服务架构的转型，享受微服务架构带来的种种优势。 同时支持<a href="docs/stable/microservice/spring-cloud/spring-cloud.html">  [Spring Cloud]</a>、<a href="docs/stable/microservice/service-mesh/use-case.html">[Api gateway]</a>等微服务框架，
                         通过插件式的扩展已有架构的治理功能，无侵入原生提供服务治理、服务注册与发现、服务升级、服务监控、服务伸缩等功能。
                     </div>
                     <div class="text-right padding20">
@@ -300,7 +300,8 @@
             })
             $('#marquee-wrap marquee').attr('width',$(window).width());
             $('.lineProgress a').hover(function () {
-                $(this).addClass('active');
+                $(this).addClass('active')
+                    .siblings().removeClass("active");
             },function () {
                 $(this).removeClass('active');
                 $('.lineProgress a:eq(2)').attr('class', 'active');
