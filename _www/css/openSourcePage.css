@@ -42,7 +42,11 @@ ul.nav-flex li a.active{
     padding-top: 180px
 }
 .bgLinear{
+<<<<<<< HEAD
     background-image: url('../images//logos/content_bg.png')
+=======
+    background-image: url('../images/logos/content_bg.png')
+>>>>>>> new
 }
 .fontsize_44{
     font-size: 44px;
@@ -449,7 +453,7 @@ a:hover{
     /*padding: 30px;*/
     /* Rainbond，以应用为中心的开源Pa: */
     font-family: AppleSystemUIFont;
-    font-size: 15px;
+    font-size: 20px;
     color: #2593fc;
     letter-spacing: 0.1px;
     line-height: 75px;
