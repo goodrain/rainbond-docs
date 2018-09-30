@@ -42,9 +42,7 @@ ul.nav-flex li a.active{
     padding-top: 180px
 }
 .bgLinear{
-    /* Background: */
-    /* background-image: linear-gradient(0deg, #17E7E0 0%, #15CE8E 100%, #14CD72 100%, #15CD85 100%, #14CD72 100%); */
-    background-image: url('../images//logos/rainbond_bg.png')
+    background-image: url('../images//logos/content_bg.png')
 }
 .fontsize_44{
     font-size: 44px;
