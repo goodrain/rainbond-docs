@@ -42,7 +42,7 @@ ul.nav-flex li a.active{
     padding-top: 180px
 }
 .bgLinear{
-    background-image: url('../images/logos/content_bg.png');
+    background-image: url('../images/logos/content_bg.png')
 }
 .fontsize_44{
     font-size: 44px;
