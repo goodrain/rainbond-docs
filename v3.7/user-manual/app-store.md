@@ -73,10 +73,11 @@ toc: true
 
 使用你的企业管理员账号登陆[好雨云市](https://www.goodrain.com/spa/#/personalCenter/app-provider-center/app-published-list)，进入到`企业中心`，进入左侧菜单栏`应用市场`、`自由市场`，点击`分享应用管理`即可看到你的企业下发布到云市的应用。选择要编辑的应用，点击下方的`信息编辑`进一步完善应用信息，可在`详细介绍`一栏中添加应用的README。一切就绪后点击应用下方的`上架`即可将应用发布到好雨公有云市并对所有访问云市的用户可见。
 
-<img src="https://static.goodrain.com/images/docs/3.7/user-manual/market.gifg" width='100%' />
+<img src="https://static.goodrain.com/images/docs/3.7/user-manual/market.gif" width='100%' />
 
+**上架应用**
 
-
+完善应用信息后点击应用下方的`上架`即可将应用发布到好雨公有云市，并对所有访问云市的用户可见。
 
 
 ## 三、下载安装云市应用
