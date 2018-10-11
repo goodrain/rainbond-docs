@@ -18,6 +18,47 @@
     <link rel="stylesheet" href="./css/openSourcePage.css">
 </head>
 <body>
+    <!-- mobile -->
+    <div class="header hide">
+        <nav class="navbar navbar-default bg-default navbar-fixed-top">
+            <div id="navbar_header_wrap" style="width:100%; max-width:1180px; margin:0 auto; padding:0 10px;">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar_list">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+    
+                    <a href="javascript:void(0);" style="display: inline-block; padding-top: 15px;">
+                        <img src="./images/logo.png" class="rainlogo" id="rainlogo" width="125px" alt="Rainbond_好雨云帮" title="好雨_logo">
+                    </a>
+    
+                </div>
+                <div class="collapse navbar-collapse" id="navbar_list">
+                    <ul id="ulnav" class="nav navbar-nav navbar-left">
+                        <li class="dropdown">
+                            <a href="https://www.goodrain.com/industrycloud" target="_blank">企业服务</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="https://www.rainbond.com" target="_blank">开源</a>
+                        </li>
+                        <li>
+                            <a href="/docs/stable/">文档</a>
+                        </li>
+                        <li>
+                            <a href="https://www.goodrain.com/blog/" target="_blank">博客</a>
+                        </li>
+                        <li>
+                            <a href="https://t.goodrain.com/" target="_blank">社区</a>
+                        </li>
+                    </ul>
+                </div>
+    
+            </div>
+        </nav>
+    </div>
+    <!-- client -->
     <div class="navbar-fixed-top">
         <nav class="navbar navbar-bg hide container-fluid" id="nav">
             <div class="row">
@@ -39,7 +80,7 @@
         </nav>
     </div>
    <section class="navShow">
-       <div class="container-fluid bgLinear" style="min-height: 640px;">
+       <div class="container-fluid bgLinear">
            <div class="main-container">
                <div style="display: flex;">
                    <div class="left-box">
@@ -114,7 +155,7 @@
             </div>
         </div>
     </section>
-    <section style="padding: 8% 0;height: 350px">
+    <section class="marqueeContainer">
         <div class="container">
             <div class="row">
                 <p class="text-center tip">他们正在使用<span class="titleRain">Rainbond</span></p>
@@ -320,12 +361,16 @@
         $(document).ready(function(){
             $(document).scroll(function(){
                 var scrTop = $(window).scrollTop();
-                if(scrTop > $('.navShow').height()){
+                if(scrTop > $('.navShow').height() && $(window).width()>768){
                     $('#nav').css({'position':'fixed','top':'0','width':'100%',"z-index":10}).removeClass('hide');
                 }else{//否则清空悬浮
                     $('#nav').css({'position':'','top':''}).addClass('hide');
                 }
             })
+            if($(window).width() < 768){
+                $('div.header').removeClass('hide');
+                $('.lineProgress').addClass('hide');
+            }
         })
     </script>
     <script>

@@ -365,67 +365,6 @@ a:hover{
 #nav-list li a:hover{
     color:#f5a623;
 }
-@media screen and (max-width: 560px){
-    .fontsize_44{
-        font-size: 14px;
-    }
-    .fontsize_12{
-        font-size: 12px;
-    }
-    #nav-list{
-        width: 60%;
-    }
-    #nav-list li {
-        height: 50px;
-        line-height: 50px;
-    }
-    .description{
-        margin-top: 30px !important;
-    }
-    .fontsize58{
-        font-size: 14px;
-    }
-    .footerFlag{
-        text-align: center;
-    }
-    .padding30{
-        padding: 10px 0 !important;
-    }
-    .video-outer{
-        width: 100%;
-    }
-    .footer{
-        height: 250px !important;
-    }
-    .footer-copy{
-        text-align: center !important;
-        height: 50px!important;
-        width: 100% !important;
-    }
-    .footer-title{
-        height: 50px !important;
-        width: 100% !important;
-        text-align: center;
-        padding: 0 !important;
-    }
-    .socialTo{
-        height: 50px !important;
-        width: 100% !important;
-    }
-    .social{
-        height: 50px !important;
-        width: 100% !important;
-    }
-    .infoTxt{
-        width: 100% !important;
-    }
-    .margin20{
-        padding: 0px 10px !important;
-        height: 250px;
-        box-sizing: content-box;
-    }
-
-}
 .padding30{
     padding: 30px 0;
 }
@@ -543,4 +482,100 @@ a:hover{
     width: 100px;
     height: 100px;
 }
+@media screen and (max-width: 560px){
+    #ulnav li{
+        border-bottom: 1px solid #DADADA;
+    }
+    #ulnav li a{
+        height: 40px;
+        line-height: 40px;
+    }
+    .bgLinear{
+        min-height: 400px;
+    }
+    .titthree{
+        width: 100%;
+    }
+    .marqueeContainer{
+        height: 250px;
+    }
+    .tip{
+        width: 100%;
+    }
+    .top1{
+        width: 100%;
+    }
+    .fontsize_44{
+        font-size: 14px;
+    }
+    .fontsize_12{
+        font-size: 12px;
+    }
+    .description{
+        margin-top: 30px !important;
+    }
+    .fontsize58{
+        font-size: 25px;
+    }
 
+    .video-outer{
+        width: 100%;
+    }
+    .footer{
+        height: 250px !important;
+    }
+    .footer-nav{
+        border: 0px !important;
+    }
+    .footer-copy{
+        text-align: center !important;
+        height: 50px!important;
+        width: 100% !important;
+        line-height: 50px;
+        padding: 0;
+    }
+    .footer-title{
+        height: 50px !important;
+        line-height: 50px !important;
+        font-size: 20px !important;
+        width: 100% !important;
+        text-align: center;
+        padding: 0 !important;
+    }
+    .socialTo{
+        height: 50px !important;
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+    .socialTo a{
+        margin: 0;
+        flex: 1;
+    }
+    .social{
+        height: 50px !important;
+        width: 100% !important;
+        padding: 0;
+        justify-content: space-around
+    }
+    .social a{
+        margin: 0;
+    }
+    .infoTxt{
+        width: 100% !important;
+    }
+    .margin20{
+        padding: 0px 10px !important;
+        height: 250px;
+        box-sizing: content-box;
+    }
+    .feature .padding5{
+        padding: 25px 25px 20px 1%;
+    }
+    .textRight span{
+        margin-bottom: 2%;
+    }
+
+}

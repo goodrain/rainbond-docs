@@ -47,7 +47,46 @@
 		<!--</nav>-->
 	<!--</div>-->
 <!--</header>-->
+<!-- mobile -->
+<div class="header">
+	<nav class="navbar navbar-default bg-default navbar-fixed-top">
+		<div id="navbar_header_wrap" style="width:100%; max-width:1180px; margin:0 auto; padding:0 10px;">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar_list">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 
+				<a href="javascript:void(0);" style="display: inline-block; padding-top: 15px;padding-left: 1%">
+					<img src="{{ 'images/rainbond-logo.png' | relative_url }}"  class="rainlogo" id="rainlogo" width="125px" alt="Rainbond_好雨云帮" title="好雨_logo">
+				</a>
+
+			</div>
+			<div class="collapse navbar-collapse" id="navbar_list">
+				<ul id="ulnav" class="nav navbar-nav navbar-left">
+					<li class="dropdown">
+						<a href="https://www.goodrain.com/industrycloud" target="_blank">企业服务</a>
+					</li>
+					<li class="dropdown">
+						<a href="https://www.rainbond.com" target="_blank">开源</a>
+					</li>
+					<li>
+						<a href="/docs/stable/">文档</a>
+					</li>
+					<li>
+						<a href="https://www.goodrain.com/blog/" target="_blank">博客</a>
+					</li>
+					<li>
+						<a href="https://t.goodrain.com/" target="_blank">社区</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</nav>
+</div>
 <div class="navbar-fixed-top">
         <nav class="navbar navbar-bg container-fluid" id="nav">
             <div class="row">
@@ -68,3 +107,8 @@
             </div>
         </nav>
     </div>
+<script>
+	if($(window).width() < 768){
+		$('#nav').addClass('hide');
+	}
+</script>
