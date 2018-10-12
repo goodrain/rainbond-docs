@@ -19,7 +19,7 @@ toc: true
 
 安装RainBond后，如果想进入好雨公有云市下载云市应用，需要你手动连接好雨公有云市并通过企业验证。具体的操作如下：
 
-<img src="https://static.goodrain.com/images/docs/3.7.1/%E8%BF%9E%E6%8E%A5%E4%BA%91%E5%B8%82.gif" width='100%' />
+<img src="https://static.goodrain.com/images/docs/3.7.1/link.gif" width='100%' />
 
 
 ## 三、发布应用到应用市场
