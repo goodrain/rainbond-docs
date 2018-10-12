@@ -488,6 +488,9 @@ a:hover{
     padding: 8% 0;
     height: 350px;
 }
+.imgWidth{
+    width: 60%;
+}
 @media screen and (max-width: 640px){
     #ulnav li{
         border-bottom: 1px solid #DADADA;
@@ -512,7 +515,7 @@ a:hover{
         width: 100%;
     }
     .fontsize_44{
-        font-size: 14px;
+        font-size: 20px;
     }
     .fontsize_12{
         font-size: 12px;
@@ -525,7 +528,7 @@ a:hover{
     }
 
     .video-outer{
-        width: 100%;
+        width: 80%;
     }
     .footer{
         height: 250px !important;
@@ -573,14 +576,36 @@ a:hover{
         width: 100% !important;
     }
     .margin20{
-        padding: 0px 10px !important;
-        height: 250px;
+        padding: 5% 5% !important;
+        /* margin: 2%; */
         box-sizing: content-box;
+        height: 100%;
     }
     .feature .padding5{
-        padding: 25px 25px 20px 1%;
+        padding: 25px 25px 20px 5%;
     }
     .textRight span{
         margin-bottom: 2%;
+    }
+    .video{
+        display: flex;
+        justify-content: center;
+    }
+    .left-box{
+        display: none;
+    }
+    .right-box{
+        width: 100%;
+        padding: 0;
+    }
+    .textRight{
+        text-align: center;
+        margin: 20px 0;
+    }
+    .main-container{
+        padding-top: 35%;
+    }
+    .imgWidth{
+        width: 85%;
     }
 }
