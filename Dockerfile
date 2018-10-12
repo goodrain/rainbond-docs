@@ -20,8 +20,8 @@ COPY Gemfile /srv/jekyll
 COPY Gemfile.lock /srv/jekyll
 
 # 安装组件
-RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org/ \
-    && bundle
+RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.com && bundle
+#RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org && bundle
 
 COPY . /srv/jekyll
 COPY etc /etc
