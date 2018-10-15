@@ -489,6 +489,7 @@ a:hover{
     #ulnav li a{
         height: 40px;
         line-height: 40px;
+        color: #fff;
     }
     .bgLinear{
         min-height: 400px;

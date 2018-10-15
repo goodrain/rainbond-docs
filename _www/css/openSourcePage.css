@@ -491,6 +491,7 @@ a:hover{
 .imgWidth{
     width: 60%;
 }
+
 @media screen and (max-width: 640px){
     #ulnav li{
         border-bottom: 1px solid #DADADA;
@@ -498,6 +499,7 @@ a:hover{
     #ulnav li a{
         height: 40px;
         line-height: 40px;
+        color: #fff;
     }
     .bgLinear{
         min-height: 400px;
@@ -607,5 +609,14 @@ a:hover{
     }
     .imgWidth{
         width: 85%;
+    }
+    .navbar-toggle{
+        background-color: #2e95f9;
+    }
+    #navbar_header_wrap{
+        background-color: #4a4a4a;
+    }
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+        background-color: #2e95f9;
     }
 }
