@@ -52,7 +52,7 @@
         },
         {
           "title": "应用更新",
-          "urls": ["/${VERSION}/user-manual//app-store/app-upgrade.html"]
+          "urls": ["/${VERSION}/user-manual/app-store/app-upgrade.html"]
         }
       ]
       

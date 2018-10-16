@@ -72,7 +72,7 @@ Rainbond历经超过五年的生产运营打磨和验证，形成目前理念最
     </div>
     <div class="col-md-4">
         <div class="roach">
-            <a href="https://t.goodrain.com/c/21-category">
+            <a href="https://t.goodrain.com/t/rainbond/32">
                 <img src="{{ 'images/announcement_catrina.png' | relative_url }}" alt="rainbond 社区"/>
                 <h3>社区</h3>
                 <p>使用过程中遇到了问题？想与大家分享经验？吐槽？我们在此恭候。</p>
