@@ -527,6 +527,7 @@ a:hover{
     }
     .footer-nav{
         border: 0px !important;
+        padding: 20px 0 !important;
     }
     .footer-copy{
         text-align: center !important;
@@ -558,8 +559,8 @@ a:hover{
     .social{
         height: 50px !important;
         width: 100% !important;
-        padding: 0;
-        justify-content: space-around
+        padding: 0 6%;
+        justify-content: space-between;
     }
     .social a{
         margin: 0;
