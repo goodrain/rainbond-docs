@@ -190,6 +190,9 @@ spring.datasource.removeAbandoned=true
 示例应用只包含了两个组件，这样的操作或许并不能体现出足够的优越性，
 
 请设想一个场景：用户的系统是一套由20个应用组合而成的微服务架构。那么这套架构如何快速复制与部署就会是一个很严肃的问题。如果用户使用了Rainbond来部署这一套微服务架构，那么 **分享应用** 功能会使得快速复制与部署不再是个问题。如何统一管理这20个应用，实现对微服务架构的网络治理，也是一个值得深入探讨的话题，这将在另一篇文章中详细阐述。
+<div class="btn-group btn-group-justified">
+<a href="https://t.goodrain.com/t/topic/486" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">如何制作一个可分享的云市应用?</a>
+</div>
 
 ## 5、微服务架构
 
@@ -197,7 +200,4 @@ spring.datasource.removeAbandoned=true
 
 <div class="btn-group btn-group-justified">
 <a href="../microservice/service-mesh/use-case.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">ServiceMesh生产示例</a>
-</div>
-<div class="btn-group btn-group-justified">
-<a href="https://t.goodrain.com/t/topic/486" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">如何制作一个可分享的云市应用?</a>
 </div>
