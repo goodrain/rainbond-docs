@@ -78,5 +78,8 @@ Rainbond提供了一种聚焦于应用管理的新一代云计算模式，企业
 
 ## 部署Rainbond
 
-[下一步，部署Rainbond私有环境](https://www.rainbond.com/docs/stable/getting-started/before-installation.html)
+进入部署引导：
 
+<div class="btn-group btn-group-justified">
+<a href="./installation-guide.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">部署引导</a>
+</div>

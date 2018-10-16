@@ -9,10 +9,9 @@
             ]
         },
         {
-            "title": "一键部署",
+            "title": "部署引导",
             "urls": [
-                "/${VERSION}/getting-started/before-installation.html",
-                "/${VERSION}/getting-started/online-installation.html"
+                "/${VERSION}/getting-started/installation-guide.html"
             ]
         },
         {

@@ -33,7 +33,7 @@ Rainbond历经超过五年的生产运营打磨和验证，形成目前理念最
     </div>
     <div class="col-md-4">
         <div class="roach">
-            <a href="getting-started/before-installation.html">
+            <a href="getting-started/installation-guide.html">
                 <img src="{{ 'images/SCENE_superhero_profile_craig.png' | relative_url }}" alt="快速部署"/>
                 <h3>部署云帮集群</h3>
                 <p>数分钟就可以搭建属于自己的一套云帮平台。</p>

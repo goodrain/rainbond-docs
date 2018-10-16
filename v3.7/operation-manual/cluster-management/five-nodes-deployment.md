@@ -6,11 +6,6 @@ toc_not_nested: true
 asciicast: true
 ---
 
-<div class="filters filters-big clearfix">
-    <a href="five-nodes-deployment.html"><button class="filter-button current"><strong>方案概述</strong></button></a>
-    <a href="deploy-five-nodes.html"><button class="filter-button">操作流程</button></a>
-</div>
-
 <div id="toc"></div>
 
 ##一、高可用分级
@@ -52,7 +47,7 @@ Rainbond所依赖的服务，按照其功能可以做出如下的划分：
   - 如果是在阿里云上部署的Rainbond，可以直接使用阿里云官方提供的SLB负载均衡直接对接Rainbond；
   - 如果是在阿里云上部署的Rainbond，可以使用阿里云官方的NAS存储，代替glusterfs。
 
-## 五、架构图
+## 五、部署结构图
 
 <img src="https://static.goodrain.com/images/docs/3.7/operation-manual/5newHAdeploy.png" width="100%"/>
 
@@ -62,3 +57,9 @@ Rainbond所依赖的服务，按照其功能可以做出如下的划分：
 - **劣势**：受限于docker化的分布式数据库Cockroachdb并不稳定，当前部署方案需要内测一段时间。
 - **适用人群**：对于Rainbond有了深入了解，想要探究其生产性的高可用的客户群体。
 - **适用场景**：POC测试、小规模生产环境。
+
+## 七、操作流程
+
+<div class="btn-group btn-group-justified">
+<a href="deploy-five-nodes.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">操作流程</a>
+</div>

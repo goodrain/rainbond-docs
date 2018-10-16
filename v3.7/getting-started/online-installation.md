@@ -5,7 +5,7 @@ toc: true
 toc_not_nested: true
 asciicast: true
 ---
-
+<!--
 <div class="filters filters-big clearfix">
     <a href="before-installation.html"><button class="filter-button ">安装前准备</button></a>
     <a href="online-installation.html"><button class="filter-button current"><strong>安装</strong></button></a>
@@ -16,29 +16,25 @@ asciicast: true
 - 安装前请务必阅读[安装前准备](before-installation.html)，在确定符合安装相关条件后执行安装操作。
 
 {{site.data.alerts.end}}
-
+-->
 ## 一、版本选择
 
 | 版本          | 说明         |
 | ------------- | ------------ |
-| Stable v3.7.1 | 当前稳定版本 |
+| Stable v3.7.2 | 当前稳定版本 |
+| Stable v3.7.1 | 历史稳定版本 |
 
 ## 二、一键部署
 
 一键部署 Rainbond 是为了简化 Rainbond 安装步骤，通过 shell 脚本将 Rainbond 及其所需要的组件，统一进行安装及配置。用户仅需要简单的配置相关参数，运行 shell 命令即可。一键部署 Rainbond 适合仅简单了解 Rainbond 架构，想迅速搭建 Rainbond 的人群。
 
 ```bash
-# 方法一
-# 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip grctl init --eip <公网ip>
-wget https://pkg.rainbond.com/releases/common/v3.7.1/grctl
+# 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip --eip <公网ip>, 可选
+# 云帮版本，目前支持(v3.7.1,v3.7.2),v3.7版本默认为最新版本v3.7.2 --rainbond-version <版本信息>, 可选
+wget https://pkg.rainbond.com/releases/common/v3.7.2/grctl
 chmod +x ./grctl
-./grctl init
+./grctl init --eip <公网ip> --rainbond-version <版本信息>
 
-# 方法二
-mkdir -p /opt/rainbond
-git clone --depth 1 -b v3.7 https://github.com/goodrain/rainbond-install.git /opt/rainbond/install
-cd /opt/rainbond/install
-./setup.sh
 ```
 
 安装完成后检查,当所有项目都是健康状态时平台即可正常使用。
@@ -55,13 +51,8 @@ grctl node list
 
 离线安装具体流程请参考[离线部署](../operation-manual/install/offline/setup.html)
 
-## 四、部署完成后的引导
-
-平台部署完成后，下面的文章可以引导你快速上手Rainbond。
-
-[下一步、快速上手](./quick-learning.html)
-
 <!--
+
 ## 四、分步部署
 
 分步部署Rainbond是分组件一步一步的安装Rainbond及所需组件，用户可以定制相关的安装。分步部署Rainbond适合非常了解Rainbond架构，需要定制部署Rainbond的人群。
@@ -72,6 +63,7 @@ grctl node list
 ## 五、源码部署
 
 从源码安装具体流程请参考[源码部署](../operation-manual/install/source/setup.html)
+
 -->
 
 {{site.data.alerts.callout_danger}}
@@ -84,3 +76,11 @@ grctl node list
 安装问题, 请参照 [运维手册，安装部署-集群安装问题排查](../operation-manual/trouble-shooting/install-issue.html)  
 使用问题, 请参照 [运维手册，平台维护-集群故障排查](../operation-manual/trouble-shooting/issue.html)  
 {{site.data.alerts.end}}
+
+## 四、部署完成后的引导
+
+平台部署完成后，下面的文章可以引导你快速上手Rainbond。
+
+<div class="btn-group btn-group-justified">
+<a href="./quick-learning.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">快速上手</a>
+</div>
