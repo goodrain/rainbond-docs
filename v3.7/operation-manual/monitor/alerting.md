@@ -24,7 +24,7 @@ toc: true
 
 可在github下载源码编译二进制文件执行
 
-```
+```go
 $ mkdir -p $GOPATH/src/github.com/prometheus
 $ cd $GOPATH/src/github.com/prometheus
 $ git clone https://github.com/prometheus/alertmanager.git
@@ -43,7 +43,7 @@ DockerHub 地址https://hub.docker.com/r/prom/alertmanager/
 
 要查看所有可用的命令行flag，运行alertmanager -h。
 
-```
+```yaml
 ./alertmanager --config.file=simple.yml
 ```
 
@@ -57,7 +57,7 @@ DockerHub 地址https://hub.docker.com/r/prom/alertmanager/
 
 在Prometheus的配置文件中增加Alertmanager的配置：
 
-```
+```yaml
 alerting:
   alertmanagers:
     - static_configs:
@@ -76,13 +76,13 @@ Prometheus的警告规则定义在固定格式的yaml文件中，并将此文件
 
 rule_files代码结构定义为：
 
-```
+```yaml
 RuleFiles      []string        `yaml:"rule_files,omitempty"`
 ```
 
 配置文件结构大致为：
 
-```
+```yaml
 rule_files:
   - "rules/node.rules"
   - "rules2/*.rules"
@@ -92,14 +92,14 @@ rule_files:
 
 警告规则配置文件结构大致为：
 
-```
+```yaml
 groups:
   [ - <rule_group> ]
 ```
 
 <rule_group>:
 
-```
+```yaml
 # The name of the group. Must be unique within a file.
 name: <string>
 
@@ -112,7 +112,7 @@ rules:
 
 <rule>:
 
-```
+```yaml
 # The name of the alert. Must be a valid metric name.
 alert: <string>
 
@@ -160,7 +160,7 @@ annotations:
 >
 > `gectl alerting get NodeHealth`  得到结果
 
-<code>
+```yaml
 name: NodeHealth
 rules:
 - alert: high_cpu_usage_on_node
@@ -181,7 +181,7 @@ rules:
   for: 5m
   labels:
     service: node_load5
-</code>
+```
 
 * 添加一组规则
 
@@ -191,7 +191,7 @@ rules:
 
 ./rule.yml
 
-<code>
+```yaml
 name: NodeHealth
 rules:
 - alert: high_cpu_usage_on_node
@@ -203,7 +203,7 @@ rules:
   for: 5m
   labels:
     service: node_cpu
-</code>
+```
 
 执行命令
 
@@ -219,7 +219,7 @@ rules:
 
 * 规则格式及参数说明
 
-<code>
+```yaml
 name: NodeHealth
 rules:
 - alert: high_cpu_usage_on_node
@@ -231,7 +231,7 @@ rules:
   for: 5m
   labels:
     service: node_cpu
-</code>
+```
 
 * 内容格式必须为yml文件格式。
 * name： 是这组规则的组名，可以用这个组名来查询、修改、删除一组规则。
