@@ -23,22 +23,22 @@ USAGE:
    grctl [global options] command [command options] [arguments...]
 
 VERSION:
-   3.7-e827348-2018-09-02-17
+   3.7.2-b396ca2-2018-10-15-23
 
 COMMANDS:
-     service       about  application service operation，grctl service -h
-     tenant        grctl tenant -h
-     node          about cluster node manage
-     cluster       show curren cluster datacenter info
-     exec          exec service container。grctl exec POD_NAME COMMAND
-     init          init cluster for install。grctl init cluster
-     show          显示region安装完成后访问地址
-     alerting      about alterting rule manage。grctl alerting
-     notification  应用异常通知事件。grctl notification
-     conf          集群和服务配置相关工具
-     domain
-     buildtest     build test source code, If it can be build, you can build in rainbond
-     help, h       Shows a list of commands or help for one command
+     service    应用管理相关操作
+     tenant     租户管理相关操作
+     node       节点管理相关操作
+     cluster    数据中心相关操作
+     exec       进入容器方法
+     init       初始化集群
+     show       显示region安装完成后访问地址
+     alerting   监控报警
+     msg        应用异常通知事件
+     reset      重置当前节点
+     conf       集群和服务配置相关工具
+     domain     更新域名解析
+     buildtest  build test source code
 
 GLOBAL OPTIONS:
    --config value, -c value  default <USER_HOME>/.rbd/grctl.yaml
@@ -109,10 +109,10 @@ grctl node up d4ac1bcf-4239-4d55-b1ea-db81e067eb70
 
 ```bash
 # 禁止调度到某个节点
-grct node unscheduable d4ac1bcf-4239-4d55-b1ea-db81e067eb70
+grct node cordon d4ac1bcf-4239-4d55-b1ea-db81e067eb70
 
 # 允许调度到某个节点
-grctl node rescheduable d4ac1bcf-4239-4d55-b1ea-db81e067eb70
+grctl node uncordon d4ac1bcf-4239-4d55-b1ea-db81e067eb70
 ```
 
 ### 1.3 通过grctl命令进入应用容器
@@ -126,7 +126,7 @@ Rainbond默认会申请一个泛解析域名提供给平台HTTP协议的应用�
 
 ```bash
 NAME:
-   grctl domain -
+   grctl domain 
 
 USAGE:
    grctl domain [command options] [arguments...]
@@ -157,47 +157,17 @@ OPTIONS:
 该命令是 `docker exec -it $1 bash` 命令的封装，可以进入到给定容器ID的容器内部。
 
 ```bash
-din <容器ID>
+din <容器ID> <sh/bash/ash>
 ```
 
 ### 2.2 dps 查看运行与停止的容器
 该命令是 `docker ps -a`  命令的封装，列出所有容器，包括运行与非运行状态。
 
 ### 2.3 cclear清理已经退出的容器
-该命令是我们封装的脚本，可以清理已经退出的容器，脚本内容如下：
-
-```bash
-#!/bin/bash
-rm_ctns=$(docker ps -a -q --filter 'status=exited')
-if [ -z "$rm_ctns" ];then
-	echo "no exited containers need to delete"
-else
-	docker rm $rm_ctns
-fi
-```
+该命令是我们封装的脚本，可以清理已经退出的容器.
 
 ### 2.4 iclear 清理处于dangling状态的镜像
-该命令是我们封装的脚本，可以清理处于 [dangling](https://stackoverflow.com/questions/45142528/docker-what-is-a-dangling-image-and-what-is-an-unused-image) 状态的镜像，脚本内容如下：
-
-```bash
-#!/bin/bash
-
-#=============================
-# <none> images cleanup script
-#=============================
-
-cclear
-
-ilist=`docker images --filter "dangling=true" -q`
-
-if [ "$ilist" != "" ];then
-
-docker rmi $ilist
-
-else
-  echo -e "\nThere is no images of <none>"
-fi
-```
+该命令是我们封装的脚本，可以清理处于 [dangling](https://stackoverflow.com/questions/45142528/docker-what-is-a-dangling-image-and-what-is-an-unused-image) 状态的镜像
 
 ### 2.5 igrep 快速搜索镜像
 快速定位指定关键词的镜像，该命令是我们封装的脚本，示例如下：
@@ -214,6 +184,13 @@ d4e43a94f3e3        4 months            310.3 MB            rainbond/kube-apiser
 
 <img src="https://static.goodrain.com/images/docs/3.6/operation-manual/ctop.gif" width="100%" />
 
-### 2.7 grclis 关闭服务
+### 2.7 grclis 批量管理服务
 
-快速关闭服务.
+```bash
+# 批量stop当前节点所有服务
+grclis stop
+# 批量start当前节点所有服务
+grclis start
+# 批量更新镜像版本
+grclis update all
+```
