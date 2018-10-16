@@ -11,7 +11,7 @@ toc: true
 对于从公有云市安装回来的应用，如果分享应用的用户对其分享到公有云市的应用有小版本更新（其应用下组件版本有更新），我们会在控制台对您的安装回来的应用进行更新提醒，如果您更新了内部应用市场应用后，我们会在您安装到本地控制台的应用进行应用升级提醒。
 流程图如下：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.7.1/app_upgrade.png" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.7.1/app_upgrade.png" width='100%' />
  
 
 具体流程如下：
