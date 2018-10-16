@@ -410,7 +410,7 @@ a:hover{
     justify-content: space-between;
     align-items: center;
     height: 75px;
-    padding-right: 4%;
+    padding-right: 3.5%;
 }
 .socialTo{
     width: 50%;
@@ -491,7 +491,17 @@ a:hover{
 .imgWidth{
     width: 60%;
 }
-
+.btn-gr-blue{
+    color:#fff;
+    border-radius: 2px;
+    /* border: 1px solid #ffffff; */
+     margin-right:50px; 
+     padding-right: 15px;
+     background: #f5a623;
+}
+.btn-gr-blue:hover{
+    color: #ffffff;
+}
 @media screen and (max-width: 640px){
     #ulnav li{
         border-bottom: 1px solid #DADADA;
