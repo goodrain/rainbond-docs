@@ -51,6 +51,14 @@
           "urls": ["/${VERSION}/user-manual/app-store/app-store.html"]
         },
         {
+          "title": "应用发布与安装",
+          "urls": ["/${VERSION}/user-manual/app-store/publish_and_install.html"]
+        },
+        {
+          "title": "应用交付与导入导入",
+          "urls": ["/${VERSION}/user-manual/app-store/app_delivery.html"]
+        },
+        {
           "title": "应用更新",
           "urls": ["/${VERSION}/user-manual/app-store/app-upgrade.html"]
         }
