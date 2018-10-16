@@ -76,6 +76,6 @@ storage01:/gv0	/grdata	glusterfs	backupvolfile-server=storage02,use-readdirp=no,
 ## 三、相关文章
 
 - [集群安装原理](cluster-management/deployment-principle.html)
-- [一键安装云帮](../getting-started/before-installation.html)
+- [一键安装云帮](../getting-started/installation-guide.html)
 - [扩容计算节点](cluster-management/add-compute-node.html)
 - [扩容管理节点](cluster-management/add-manage-node.html)

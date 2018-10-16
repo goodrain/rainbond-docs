@@ -45,7 +45,17 @@
     },
     {
       "title": "应用市场",
-      "urls": ["/${VERSION}/user-manual/app-store.html"]
+      "items": [
+        {
+          "title": "应用市场",
+          "urls": ["/${VERSION}/user-manual/app-store/app-store.html"]
+        },
+        {
+          "title": "应用更新",
+          "urls": ["/${VERSION}/user-manual/app-store/app-upgrade.html"]
+        }
+      ]
+      
     },
     {
       "title": "语言支持",

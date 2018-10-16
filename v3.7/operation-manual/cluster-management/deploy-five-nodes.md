@@ -1,39 +1,34 @@
 ---
-title: 五节点高可用部署方案
-summary: 介绍五节点的高可用部署方案，达到第二级高可用
+title: 五节点+高可用部署方案
+summary: 介绍五节点+的高可用部署方案，达到第二级高可用
 toc: true
 toc_not_nested: true
 asciicast: true
 ---
 
-<div class="filters filters-big clearfix">
-    <a href="five-nodes-deployment.html"><button class="filter-button ">方案概述</button></a>
-    <a href="deploy-five-nodes.html"><button class="filter-button current"><strong>操作流程</strong></button></a>
-</div>
-
 <div id="toc"></div>
 
 ##一、基本平台部署
 
-- 按正常顺序部署管理节点3个、计算节点2个
+- 按正常顺序部署管理节点3个、计算节点2+个(管理节点不支持批量安装，只能依次按照顺便安装)
 
 ```bash
-#in the first manage node 
-wget https://pkg.rainbond.com/releases/common/v3.7.0/grctl
+# 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip grctl init --eip <公网ip>
+wget https://pkg.rainbond.com/releases/common/v3.7.2/grctl
 chmod +x ./grctl
-./grctl init
+./grctl init --role master
 
 #add second manage node
-grctl node add --hostname manage02 --iip <内网ip> --root-pass <root用户密码> --role manage
+grctl node add --hostname manage02 --iip <内网ip> --root-pass <root用户密码> --role master
 
 #add 3st manage node 
-grctl node add --hostname manage03 --iip <内网ip> --root-pass <root用户密码> --role manage
+grctl node add --hostname manage03 --iip <内网ip> --root-pass <root用户密码> --role master
 
 #add the first compute node
-grctl node add --hostname compute01 --iip <内网ip> --root-pass <root用户密码> --role compute
+grctl node add --hostname compute01 --iip <内网ip> --root-pass <root用户密码> --role worker
 
 #add the second compute node
-grctl node add --hostname compute02 --iip <内网ip> --root-pass <root用户密码> --role compute
+grctl node add --hostname compute02 --iip <内网ip> --root-pass <root用户密码> --role worker
 
 ```
 ## 二、部署Glusterfs
@@ -279,6 +274,16 @@ server {
 
 ```
 
-## 六、配置Cockroachdb
+## 六、数据库处理
 
-受限于docker化的分布式数据库Cockroachdb并不稳定，当前部署方案需要内测一段时间才会继续更新。
+- 当前方案的rbd-db组件依然默认使用了mysql数据库，为了使之拥有高可用特性，推荐使用mysql推荐的高可用方案部署多主分布式集群。
+
+- Rainbond计划在将来使用分布式数据库Cockroachdb代替mysql充当平台数据库。受限于docker化的分布式数据库Cockroachdb并不稳定，这一改动还需要长期的优化与测试。
+
+## 七、部署完成后的引导
+
+平台部署完成后，下面的文章可以引导你快速上手Rainbond。
+
+<div class="btn-group btn-group-justified">
+<a href="/docs/stable/getting-started/quick-learning.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">快速上手</a>
+</div>

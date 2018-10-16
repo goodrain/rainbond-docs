@@ -20,7 +20,7 @@ asciicast: true
 
 <img src="https://static.goodrain.com/images/docs/3.7.1/batch_operation.jpg" width="100%" />
 
-## 五、应用分享
+## 五、[应用分享](https://www.rainbond.com/docs/stable/user-manual/app-store.html#part-839ea5e117f05836)
 
 ## 六、应用备份恢复与迁移
 

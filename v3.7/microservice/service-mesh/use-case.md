@@ -45,7 +45,7 @@ asciicast: true
 
 ## 二、商城在Rainbond的部署流程
 
-本文以 Rainbond(V3.7.0)为基础平台部署微服务架构商城用例，如果你还没有安装Rainbond，请参阅 [Rainbond部署文档](https://www.rainbond.com/docs/stable/getting-started/before-installation.html)
+本文以 Rainbond(V3.7.0)为基础平台部署微服务架构商城用例，如果你还没有安装Rainbond，请参阅 [Rainbond部署文档](https://www.rainbond.com/docs/stable/getting-started/installation-guide.html)
 
 ### 2.1 服务组件的创建与部署
 
