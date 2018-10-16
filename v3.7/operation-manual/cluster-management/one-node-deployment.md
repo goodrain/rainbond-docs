@@ -17,5 +17,5 @@ toc: true
 
 ## 二、搭建流程
 
-- 参见：[一键部署](/docs/stable/getting-started/before-installation.html)
+- 参见：[一键部署](/docs/stable/getting-started/installation-guide.html)
 

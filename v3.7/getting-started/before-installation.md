@@ -7,7 +7,7 @@ asciicast: true
 ---
 
 <div class="filters filters-big clearfix">
-    <a href="before-installation.html"><button class="filter-button current"><strong>安装前准备</strong></button></a>
+    <a href="installation-guide.html"><button class="filter-button current"><strong>安装前准备</strong></button></a>
     <a href="online-installation.html"><button class="filter-button">安装</button></a>
 </div>
 

@@ -7,13 +7,13 @@ asciicast: true
 ---
 <!--
 <div class="filters filters-big clearfix">
-    <a href="before-installation.html"><button class="filter-button ">安装前准备</button></a>
+    <a href="installation-guide.html"><button class="filter-button ">安装前准备</button></a>
     <a href="online-installation.html"><button class="filter-button current"><strong>安装</strong></button></a>
 </div>
 
 {{site.data.alerts.callout_danger}}
 
-- 安装前请务必阅读[安装前准备](before-installation.html)，在确定符合安装相关条件后执行安装操作。
+- 安装前请务必阅读[安装前准备](installation-guide.html)，在确定符合安装相关条件后执行安装操作。
 
 {{site.data.alerts.end}}
 -->
@@ -45,6 +45,9 @@ grctl cluster
 
 # 集群节点状态
 grctl node list
+
+# 控制台访问地址
+<管理节点>:7070
 ```
 
 ## 三、离线部署
