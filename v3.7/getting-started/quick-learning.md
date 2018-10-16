@@ -198,3 +198,6 @@ spring.datasource.removeAbandoned=true
 <div class="btn-group btn-group-justified">
 <a href="../microservice/service-mesh/use-case.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">ServiceMesh生产示例</a>
 </div>
+<div class="btn-group btn-group-justified">
+<a href="https://t.goodrain.com/t/topic/486" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">如何制作一个可分享的云市应用?</a>
+</div>
