@@ -21,24 +21,20 @@ asciicast: true
 
 | 版本          | 说明         |
 | ------------- | ------------ |
-| Stable v3.7.1 | 当前稳定版本 |
+| Stable v3.7.2 | 当前稳定版本 |
+| Stable v3.7.1 | 历史稳定版本 |
 
 ## 二、一键部署
 
 一键部署 Rainbond 是为了简化 Rainbond 安装步骤，通过 shell 脚本将 Rainbond 及其所需要的组件，统一进行安装及配置。用户仅需要简单的配置相关参数，运行 shell 命令即可。一键部署 Rainbond 适合仅简单了解 Rainbond 架构，想迅速搭建 Rainbond 的人群。
 
 ```bash
-# 方法一
-# 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip grctl init --eip <公网ip>
-wget https://pkg.rainbond.com/releases/common/v3.7.1/grctl
+# 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip --eip <公网ip>, 可选
+# 云帮版本，目前支持(v3.7.1,v3.7.2),v3.7版本默认为最新版本v3.7.2 --rainbond-version <版本信息>, 可选
+wget https://pkg.rainbond.com/releases/common/v3.7.2/grctl
 chmod +x ./grctl
-./grctl init
+./grctl init --eip <公网ip> --rainbond-version <版本信息>
 
-# 方法二
-mkdir -p /opt/rainbond
-git clone --depth 1 -b v3.7 https://github.com/goodrain/rainbond-install.git /opt/rainbond/install
-cd /opt/rainbond/install
-./setup.sh
 ```
 
 安装完成后检查,当所有项目都是健康状态时平台即可正常使用。

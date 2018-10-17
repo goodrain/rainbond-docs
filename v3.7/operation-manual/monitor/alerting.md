@@ -160,7 +160,7 @@ annotations:
 >
 > `gectl alerting get NodeHealth`  得到结果
 
-```
+<code>
 name: NodeHealth
 rules:
 - alert: high_cpu_usage_on_node
@@ -181,7 +181,7 @@ rules:
   for: 5m
   labels:
     service: node_load5
-```
+</code>
 
 * 添加一组规则
 
@@ -191,7 +191,7 @@ rules:
 
 ./rule.yml
 
-```
+<code>
 name: NodeHealth
 rules:
 - alert: high_cpu_usage_on_node
@@ -203,7 +203,7 @@ rules:
   for: 5m
   labels:
     service: node_cpu
-```
+</code>
 
 执行命令
 
@@ -219,7 +219,7 @@ rules:
 
 * 规则格式及参数说明
 
-```
+<code>
 name: NodeHealth
 rules:
 - alert: high_cpu_usage_on_node
@@ -231,7 +231,7 @@ rules:
   for: 5m
   labels:
     service: node_cpu
-```
+</code>
 
 * 内容格式必须为yml文件格式。
 * name： 是这组规则的组名，可以用这个组名来查询、修改、删除一组规则。
