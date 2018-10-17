@@ -19,6 +19,7 @@ server1 |10.81.29.87
 server2 |10.81.9.115
 
 #### hosts解析
+
 ```
 [root@server1 ~]# cat /etc/hosts
 127.0.0.1 localhost
@@ -26,14 +27,23 @@ server2 |10.81.9.115
 10.81.29.87 server1
 10.81.9.115 server2
 ```
+
 #### 格式化磁盘、创建目录并挂载
+
 ```
+#在所有存储节点执行
+#格式化磁盘
 mkfs.xfs  /dev/vdb
+#制作挂载点目录
 mkdir  -p /data
+#编辑 /etc/fstab 配置开机挂载信息
 echo "/dev/vdb  /data  xfs  defaults 1 2" >>/etc/fstab
+#执行挂载操作
 mount -a
 ```
-#### 查看
+
+#### 查看挂载情况
+
 ```
 [root@server1 ~]# df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -43,7 +53,7 @@ tmpfs           1.9G     0  1.9G   0% /dev/shm
 tmpfs           1.9G  332K  1.9G   1% /run
 tmpfs           1.9G     0  1.9G   0% /sys/fs/cgroup
 tmpfs           380M     0  380M   0% /run/user/0
-/dev/vdb         20G   33M   20G   1% /data
+/dev/vdb         20G   33M   20G   1% /data   #出现这条记录，即挂载成功
 ```
 ```
 [root@server2 ~]# df -h
@@ -54,18 +64,20 @@ tmpfs           1.9G     0  1.9G   0% /dev/shm
 tmpfs           1.9G  344K  1.9G   1% /run
 tmpfs           1.9G     0  1.9G   0% /sys/fs/cgroup
 tmpfs           380M     0  380M   0% /run/user/0
-/dev/vdb         20G   33M   20G   1% /data
+/dev/vdb         20G   33M   20G   1% /data    #出现这条记录，即挂载成功
 ```
 
-###1.2 安装
+###1.2 安装glusterfs
 
 ```
+#所有存储节点执行
 yum install centos-release-gluster -y
 yum install glusterfs-server -y
 ```
 ###1.3 启动GlusterFS服务
 
 ```
+#所有存储节点执行
 systemctl  start   glusterd.service
 systemctl  enable  glusterd.service
 systemctl  status  glusterd.service
@@ -99,7 +111,6 @@ volume create: data: success: please start the volume to access data
 ```
 
 ###1.6 查看卷的信息
-
 
 ```
 [root@server1 ~]# gluster volume info
@@ -137,7 +148,7 @@ volume start: data: success
 #在server2上创建文件
 [root@server2 ~]# touch /mnt/{1..10}test.txt
 
-#在server1上查看
+#在server1上查看文件是否同步，如出现上一步创建的文件，说明同步成功
 [root@server1 ~]# ls /mnt/
 10test.txt  2test.txt  4test.txt  6test.txt  8test.txt
 1test.txt   3test.txt  5test.txt  7test.txt  9test.txt

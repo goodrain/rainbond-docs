@@ -18,6 +18,9 @@ asciicast: true
 | Ubuntu | 16.04 | 64位           |
 
 > 目前我们在CentOS 7.3 系统下做了严格的测试，并且具备了丰富的生产环境使用经验。因此推荐用户使用CentOS 7.3安装云帮。
+{{site.data.alerts.callout_danger}}
+同时，我们要求使用root用户进行部署操作。
+{{site.data.alerts.end}}
 
 ###1.2 服务器配置需求
 

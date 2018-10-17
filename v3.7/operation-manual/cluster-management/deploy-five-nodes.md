@@ -8,15 +8,50 @@ asciicast: true
 
 <div id="toc"></div>
 
-##一、基本平台部署
+## 一、准备存储
+
+`/grdata`目录是所有Rainbond节点都需要使用的共享目录，为了使Rainbond所有节点能够共享 `/grdata` 目录，需要提前准备共享存储。Rainbond支持 NFS、NAS、glusterfs等兼容nfs协议的共享存储形式，本文将使用glusterfs为例，搭建共享存储。
+
+在计算节点部署双节点GFS集群：
+
+- 安装GFS：
+
+  - 详情参见：[GlusterFS安装](../storage/GlusterFS/install.html)
+
+> 注意：将计算节点作为存储节点，需要将上方文档中的 server1、server2 更换为 compute01、compute02
+
+- 切换存储
+
+为管理节点安装GFS文件系统
+
+```bash
+yum install -y centos-release-gluster
+yum install -y glusterfs-fuse
+```
+
+编辑所有节点的/etc/fstab,新增一行：
+
+```bash
+compute01:/data	/grdata	glusterfs	backupvolfile-server=compute02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
+```
+
+重新挂载
+
+```bash
+#在所有节点执行
+mount -a
+```
+
+## 二、基本平台部署
 
 - 按正常顺序部署管理节点3个、计算节点2+个(管理节点不支持批量安装，只能依次按照顺便安装)
 
 ```bash
-# 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip grctl init --eip <公网ip>
+# 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip参数 --eip <公网ip>, 可选
+# 云帮版本，目前支持(v3.7.1,v3.7.2),v3.7版本默认为最新版本v3.7.2 --rainbond-version <版本信息>, 可选
 wget https://pkg.rainbond.com/releases/common/v3.7.2/grctl
 chmod +x ./grctl
-./grctl init --role master
+./grctl init --eip <公网ip> --rainbond-version <版本信息> --role master
 
 #add second manage node
 grctl node add --hostname manage02 --iip <内网ip> --root-pass <root用户密码> --role master
@@ -31,50 +66,7 @@ grctl node add --hostname compute01 --iip <内网ip> --root-pass <root用户密�
 grctl node add --hostname compute02 --iip <内网ip> --root-pass <root用户密码> --role worker
 
 ```
-## 二、部署Glusterfs
 
-在计算节点部署双节点GFS集群：
-
-- 安装GFS：
-
-  - 详情参见：[GlusterFS安装]( https://www.rainbond.com/docs/stable/operation-manual/storage/GlusterFS/install.html)
-
-> 注意：将计算节点作为存储节点，需要将上方文档中的 server1、server2 更换为 compute01、compute02
-
-- 切换存储
-
-为管理节点安装GFS文件系统
-
-```bash
-yum install -y centos-release-gluster
-yum install -y glusterfs-fuse
-```
-将管理节点的/grdata目录写入GFS
-
-```bash
-mount -t glusterfs compute01:data /mnt
-cp -rp /grdata/* /mnt
-umount /mnt
-```
-编辑所有节点的/etc/fstab,新增一行：
-
-manage01-03 & compute01:
-
-```bash
-compute01:/data	/grdata	glusterfs	backupvolfile-server=compute02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
-```
-
-compute02:
-
-```bash
-compute02:/data	/grdata	glusterfs	backupvolfile-server=compute01,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
-```
-
-重新挂载
-
-```bash
-mount -a
-```
 ## 三、配置VIP
 
 在两个计算节点配置VIP，搭建基于keepalived软件的主备机制
