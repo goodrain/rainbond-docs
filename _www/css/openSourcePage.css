@@ -246,10 +246,15 @@ ul.nav-flex li a.active{
 }
 .marquee-wrap ul li{
     /*float: left;*/
-    width: 120px;
-    height: 60px;
+    width: 150px;
+    /* height: 60px; */
     margin-right: 55px;
     display: inline-block;
+    text-align: center;
+    line-height: 1em;
+}
+.marquee-wrap ul .logoT{
+    width: 200px !important;
 }
 .marquee-wrap ul li img{
     width: 100%;
