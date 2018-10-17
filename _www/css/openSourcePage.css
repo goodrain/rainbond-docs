@@ -492,15 +492,11 @@ a:hover{
     width: 60%;
 }
 .btn-gr-blue{
-    color:#fff;
+    /* color:#fff;
     border-radius: 2px;
-    /* border: 1px solid #ffffff; */
      margin-right:50px; 
-     padding-right: 15px;
+     padding-right: 15px; */
      background: #f5a623;
-}
-.btn-gr-blue:hover{
-    color: #ffffff;
 }
 @media screen and (max-width: 640px){
     #ulnav li{
@@ -629,5 +625,8 @@ a:hover{
     }
     .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
         background-color: #2e95f9;
+    }
+    .textRight>a>span.btn-gr-blue{
+        display: none;
     }
 }
