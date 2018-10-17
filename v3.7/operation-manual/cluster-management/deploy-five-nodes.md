@@ -159,6 +159,50 @@ use console; #使用console数据库
 UPDATE region_info set tcpdomain="<VIP>"; #更新tcpdomain
 ```
 
+- 调整rbd-entrance设置
+
+```bash
+#修改配置，使平台应用负载均衡规则在计算节点（负载均衡节点）上正确生成
+#管理节点执行
+vi /opt/rainbond/conf/master.yaml
+#修改rbd-entrance配置段落
+- name: rbd-entrance
+  endpoints:
+  - name: ENTRANCE_ENDPOINTS
+    protocol: http
+    port: 6200
+  health:
+    name: rbd-entrance
+    model: http
+    address: 127.0.0.1:6200/health
+    time_interval: 5
+  after:
+    - docker
+  type: simple
+  pre_start: docker rm rbd-entrance
+  start: >-
+    docker run --name rbd-entrance
+    --network host
+    -e DEFAULT_HTTP_PORT=80
+    -e DEFAULT_HTTPS_PORT=443
+    -v /opt/rainbond/etc/kubernetes/kubecfg:/opt/rainbond/etc/kubernetes/kubecfg
+    -i goodrain.me/rbd-entrance:3.7.2
+    --plugin-name=openresty
+    --plugin-opts=urls=http://compute01IP:10002-http://compute02IP:10002   #手动修改此处
+    --kube-conf=/opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig
+    --log-level=debug
+    --etcd-endpoints=${ETCD_ENDPOINTS}
+    --run-mode=sync
+  stop: docker stop rbd-entrance
+  restart_policy: always
+  restart_sec: 10
+
+#修改完成后重启服务
+systemctl restart node
+systemctl restart rbd-entrance
+
+  ```
+
 ## 四、配置本地主机解析
 
 - 修改5个节点的/etc/hosts
