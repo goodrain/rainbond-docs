@@ -33,8 +33,8 @@ asciicast: true
 # 云帮版本，目前支持(v3.7.1,v3.7.2),v3.7版本默认为最新版本v3.7.2 --rainbond-version <版本信息>, 可选
 wget https://pkg.rainbond.com/releases/common/v3.7.2/grctl
 chmod +x ./grctl
+# 可选参数 eip,rainbond-version
 ./grctl init --eip <公网ip> --rainbond-version <版本信息>
-
 ```
 
 安装完成后检查,当所有项目都是健康状态时平台即可正常使用。
