@@ -169,16 +169,29 @@
                                <li><img src="images/logos/logo0.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo1.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo2.png" alt="" width="100" height="50"></li>
-                               <li class="logoT"><img src="images/logos/logo3.png" alt="" width="100" height="50"></li>
+                               <li class=""><img class="scaleImg" src="images/logos/logo3.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo4.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo5.png" alt="" width="100" height="50"></li>
-                               <li class="logoT"><img src="images/logos/logo6.png" alt="" width="100" height="50"></li>
+                               <li class=""><img src="images/logos/logo6.png" alt="" width="100" height="50"></li>
                                <!-- <li><img src="images/logos/logo7.png" alt="" width="100" height="50"></li> -->
-                               <li><img src="images/logos/logo8.png" alt="" width="100" height="50"></li>
+                               <li><img class="scaleImgseven" src="images/logos/logo8.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo9.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo10.png" alt="" width="100" height="50"></li>
                                <li><img src="images/logos/logo11.png" alt="" width="100" height="50"></li>
-                               <li class="logoT"><img src="images/logos/logo12.png" alt="" width="100" height="50"></li>
+                               <li class=""><img class="scaleImg" src="images/logos/logo12.png" alt="" width="100" height="50"></li>
+                               <li><img src="images/logos/logo0.png" alt="" width="100" height="50"></li>
+                               <li><img src="images/logos/logo1.png" alt="" width="100" height="50"></li>
+                               <li><img src="images/logos/logo2.png" alt="" width="100" height="50"></li>
+                               <li class=""><img class="scaleImg" src="images/logos/logo3.png" alt="" width="100" height="50"></li>
+                               <li><img src="images/logos/logo4.png" alt="" width="100" height="50"></li>
+                               <li><img src="images/logos/logo5.png" alt="" width="100" height="50"></li>
+                               <li class=""><img src="images/logos/logo6.png" alt="" width="100" height="50"></li>
+                               <!-- <li><img src="images/logos/logo7.png" alt="" width="100" height="50"></li> -->
+                               <li><img class="scaleImgseven" src="images/logos/logo8.png" alt="" width="100" height="50"></li>
+                               <li><img src="images/logos/logo9.png" alt="" width="100" height="50"></li>
+                               <li><img src="images/logos/logo10.png" alt="" width="100" height="50"></li>
+                               <li><img src="images/logos/logo11.png" alt="" width="100" height="50"></li>
+                               <li class=""><img class="scaleImg" src="images/logos/logo12.png" alt="" width="100" height="50"></li>
                            </ul>
                     </div>
                 </div>
@@ -381,7 +394,7 @@
         $(function(){
             var oul = $('#marquee-wrap ul');
             var oulHtml = oul.html();
-            oul.html(oulHtml+oulHtml)
+            oul.html(oulHtml+oulHtml+oulHtml+oulHtml+oulHtml+oulHtml+oulHtml+oulHtml)
             var timeId = null;
 
             var ali = $('#marquee-wrap ul li');
@@ -395,7 +408,7 @@
             function slider(){
 
                 if(speed<0){
-                    if(oul.css('left')==-ulWidth/2+'px'){
+                    if(oul.css('left')==-ulWidth/8+'px'){
                         oul.css('left',0);
                     }
                     oul.css('left','+='+speed+'px');
