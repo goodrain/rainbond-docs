@@ -358,12 +358,26 @@
             })
             $('#marquee-wrap marquee').attr('width',$(window).width());
             $('.lineProgress a').hover(function () {
+                clearInterval(window.timer);
                 $(this).addClass('active')
                     .siblings().removeClass("active");
             },function () {
-                $(this).removeClass('active');
-                $('.lineProgress a:eq(2)').attr('class', 'active');
+                // $(this).removeClass('active');
+                // $('.lineProgress a:eq(2)').attr('class', 'active');
+                window.timer = setInterval(cycle,1000);
             })
+//导航条循环
+            function cycle(){
+                var idx = $('.lineProgress a.active').index();
+                let newidx = (idx + 1)%5;
+                $('.lineProgress a:eq('+newidx+')')
+                .addClass('active')
+                .siblings('a')
+                .removeClass('active')
+            }
+            clearInterval(window.timer)
+            window.timer = setInterval(cycle,1000)
+
             $('.wechart').hover(function () {
                 $('.wechart-hover').css({
                     left: "75px",
