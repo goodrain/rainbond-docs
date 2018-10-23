@@ -12,7 +12,30 @@ toc: true
 # Rainbond Roadmap
 This document defines the roadmap for Rainbond development.
 
-[About Rainbond 5.X RoadMap Community needs collection](https://github.com/goodrain/rainbond/issues/106)
+
+## 5.0 （预计2018年12月12日发布release）
+- 服务网关rbd-gateway发布
+  - 更好的支持Openresty, 严格保证数据一致性。
+  - 更好的支持多节点集群，将集群数据更改模式从Push更改为Pull并就近缓存
+  - 进一步简化服务网关模块复杂度
+  - 支持IP池管理和分配
+  - 支持Http高级路由设置
+  - 支持Https和证书自动生成
+  - 支持泛域名和域名rewrite
+  - 支持ingress资源
+- 支持helm部署
+  - 应用运行时应用控制部分增加对自定义k8s资源的支持。
+  - 应用模块增加基于helm源码构建应用。
+  - 应用核心抽象更改-应用市场、应用备份等逻辑跟随修改。
+- 升级默认Kubernetes版本到 v1.10及以上 并支持社区版本
+  - 应用运行时增加对kubernetes的存储、网络的深入支持
+  - 应用部署逻辑、升级逻辑尽使用kubernetes的控制逻辑
+- 升级默认Docker版本到 v17.09及以上 并支持社区版本
+  - 应用运行时日志处理部分重新实现
+- 安装流程优化
+  - 支持基于已存在kubernetes集群或docker安装
+
+[关于更多 Rainbond 5.X RoadMap 的讨论和需求收集](https://github.com/goodrain/rainbond/issues/106)
 
 ## V3.7 2018-08-15
 About system stability
