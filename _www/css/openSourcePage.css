@@ -643,3 +643,13 @@ a:hover{
         display: none;
     }
 }
+@media screen and (min-width: 1366px){
+    .social{
+        width: 25%;
+    }
+}
+@media screen and (min-width: 1600px){
+    .social{
+        width: 22%;
+    }
+}
