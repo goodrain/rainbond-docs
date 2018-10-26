@@ -49,7 +49,7 @@ compute02:/data	/grdata	glusterfs	backupvolfile-server=compute01,use-readdirp=no
 mount -a
 ```
 
-##二、基本平台部署
+## 二、基本平台部署
 
 部署单管理节点、双计算节点的rainbond平台：
 
@@ -70,6 +70,9 @@ grctl node add --host compute01 --iip <internal ip> -p <root pass> -r worker
 grctl node add --host compute02 --iip <internal ip> -p <root pass> -r worker
 ```
 
+- 离线部署基本平台
+
+离线安装具体流程请参考[离线部署](../install/offline/setup.html#rainbond)
 
 ## 三、配置本地主机解析
 
@@ -92,7 +95,6 @@ grctl node add --host compute02 --iip <internal ip> -p <root pass> -r worker
 ```bash
 yum install -y keepalived
 ```
-
 
 - 修改配置文件
 
@@ -166,6 +168,7 @@ mysql        #进入数据库
 use console; #使用console数据库
 UPDATE region_info set tcpdomain="<VIP>"; #更新tcpdomain
 ```
+
 - 调整rbd-entrance设置
 
 ```bash
@@ -207,10 +210,9 @@ vi /opt/rainbond/conf/master.yaml
 #修改完成后重启服务
 systemctl restart node
 systemctl restart rbd-entrance
-
-  ```
+    ```
   
-## 五、部署完成后的引导
+# 五、部署完成后的引导
 
 平台部署完成后，下面的文章可以引导你快速上手Rainbond。
 

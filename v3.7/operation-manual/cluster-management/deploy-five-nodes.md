@@ -67,6 +67,10 @@ grctl node add --hostname compute02 --iip <内网ip> --root-pass <root用户密�
 
 ```
 
+- 离线部署基本平台
+
+离线安装具体流程请参考[离线部署](../install/offline/setup.html#rainbond)
+
 ## 三、配置VIP
 
 在两个计算节点配置VIP，搭建基于keepalived软件的主备机制
@@ -76,7 +80,6 @@ grctl node add --hostname compute02 --iip <内网ip> --root-pass <root用户密�
 ```bash
 yum install -y keepalived
 ```
-
 
 - 修改配置文件
 

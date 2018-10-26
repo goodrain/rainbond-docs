@@ -33,16 +33,45 @@ nfs-kernel-server nfs-common dnsutils python-pip python-apt apt-transport-https 
 
 ## 三、安装Rainbond
 
+- 安装首个管理节点
+
 ```bash
 cd /opt/rainbond/install
 ./grctl init --install-type offline --domain <自定义域名，可选>
 ```
 
+- 扩容管理节点
+
+```bash
+# 在管理节点manage01执行如下操作
+# ssh安装
+grctl node add --hostname <主机名> --iip <内网ip> --private-key <信任私钥(/root/.ssh/id_rsa)> --role master
+# 密码安装(仅支持root用户)
+grctl node add --hostname <主机名> --iip <内网ip> --root-pass <root用户密码> --role master
+# 更新部分配置
+salt "*" state.sls common.node_conf
+# 如管理节点的 entrance 服务
+systemctl restart node
+systemctl restart rbd-entrance
+# 如果扩容前已经有应用运行了，请将管理节点1的rbd-lb的数据同步到其他管理节点
+数据路径：/opt/rainbond/etc/rbd-lb/
+```
+
+- 扩容计算节点
+
+```bash
+# 在管理节点manage01执行如下操作
+# ssh安装
+grctl node add --hostname <主机名> --iip <内网ip> --private-key <信任私钥(/root/.ssh/id_rsa)> --role worker
+# 密码安装(仅支持root用户)
+grctl node add --hostname <主机名> --iip <内网ip> --root-pass <root用户密码> --role worker
+```
+
 ## 四、安装提示报错
 
-1. 如果是安装包失败或者提示什么命令未找到，请停止安装,根据提示自行下载相关安装包
+- 如果是安装包失败或者提示什么命令未找到，请停止安装,根据提示自行下载相关安装包
 
-```
+```bash
 mkdir -p /root/pkgs
 # centos
 yum install <包名> --downloadonly --downloaddir=/root/pkgs
@@ -52,16 +81,17 @@ apt install <包名> -d -y
 
 手动安装缺失的包或工具,然后重新执行安装。
 
-2. 安装docker失败，提示audit包问题
+- 安装docker失败，提示audit包问题
 
 请检查`/opt/rainbond/install/install/pkgs/centos`目录下
 
-```
+```bash
 ls | grep au
 audit-2.8.1-3.el7.x86_64.rpm
 audit-libs-2.8.1-3.el7.x86_64.rpm
 audit-libs-python-2.8.1-3.el7.x86_64.rpm
 ```
+
 正常情况应该是这样的，需要移除其他包或者新增缺失包，相关包(centos el7)可以在[阿里云镜像站](https://opsx.alibaba.com/mirror)下载
 
 ## 五、安装问题建议
@@ -79,7 +109,7 @@ audit-libs-python-2.8.1-3.el7.x86_64.rpm
 
 可以使用好雨科技提供的离线安装包,此离线包仅针对阿里云CentOS 7.4做过优化，并不能保证其适用于其他环境下的CentOS服务器。此离线包仅会同步更新大版本。
 
-```
+```bash
 wget https://pkg.rainbond.com/releases/offline/v3.7.1/install.offline.v3.7.1.2018-09-14.tgz
 
 MD5SUM:
