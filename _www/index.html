@@ -15,6 +15,7 @@
     <link href="docs/css/customstyles.css" rel="stylesheet">
     <link href="css/base.css?v=20171123" rel="stylesheet">
     <link rel="stylesheet" href='css/modal-video.css'>
+    <link href="https://cdn.bootcss.com/unslider/2.0.3/css/unslider.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/openSourcePage.css">
 </head>
 <body>
@@ -162,37 +163,28 @@
     <section class="marqueeContainer">
         <div class="container">
             <div class="row">
-                <p class="text-center tip">他们正在使用<span class="titleRain">Rainbond</span></p>
-                <div class="col-sm-12">
-                    <div class="marquee-wrap" id="marquee-wrap" style="position: relative">
-                           <ul style="position: absolute">
-                               <li><img src="images/logos/logo0.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo1.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo2.png" alt="" width="100" height="50"></li>
-                               <li class=""><img class="scaleImg" src="images/logos/logo3.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo4.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo5.png" alt="" width="100" height="50"></li>
-                               <li class=""><img src="images/logos/logo6.png" alt="" width="100" height="50"></li>
-                               <!-- <li><img src="images/logos/logo7.png" alt="" width="100" height="50"></li> -->
-                               <li><img class="scaleImgseven" src="images/logos/logo8.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo9.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo10.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo11.png" alt="" width="100" height="50"></li>
-                               <li class=""><img class="scaleImg" src="images/logos/logo12.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo0.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo1.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo2.png" alt="" width="100" height="50"></li>
-                               <li class=""><img class="scaleImg" src="images/logos/logo3.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo4.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo5.png" alt="" width="100" height="50"></li>
-                               <li class=""><img src="images/logos/logo6.png" alt="" width="100" height="50"></li>
-                               <!-- <li><img src="images/logos/logo7.png" alt="" width="100" height="50"></li> -->
-                               <li><img class="scaleImgseven" src="images/logos/logo8.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo9.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo10.png" alt="" width="100" height="50"></li>
-                               <li><img src="images/logos/logo11.png" alt="" width="100" height="50"></li>
-                               <li class=""><img class="scaleImg" src="images/logos/logo12.png" alt="" width="100" height="50"></li>
-                           </ul>
+                <div class="text-center tip col-sm-2 col-md-2 col-lg-2" style="margin-top:3%">
+                    <div class="row textalign_left">他们正在使用</div>
+                    <div class="titleRain row textalign_left">Rainbond</div>
+                </div>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <div  class="banner" >
+                        <ul>
+                            <li><img src="images/logos_tag/logo1.png" alt="" width="100%" ></li>
+                            <li><img src="images/logos_tag/logo2.png" alt="" width="100%" ></li>
+                            <li><img src="images/logos_tag/logo3.png" alt=""  width="100%"></li>
+                            <li><img src="images/logos_tag/logo4.png" alt="" width="100%" ></li>
+                            <li><img src="images/logos_tag/logo5.png" alt="" width="100%" ></li>
+                            <li><img src="images/logos_tag/logo6.png" alt="" width="100%" ></li>
+                            <li><img src="images/logos_tag/logo7.png" alt="" width="100%" ></li>
+                            <li><img src="images/logos_tag/logo1.png" alt="" width="100%" ></li>
+                            <li><img src="images/logos_tag/logo2.png" alt="" width="100%" ></li>
+                            <li><img src="images/logos_tag/logo3.png" alt=""  width="100%"></li>
+                            <li><img src="images/logos_tag/logo4.png" alt="" width="100%" ></li>
+                            <li><img src="images/logos_tag/logo5.png" alt="" width="100%" ></li>
+                            <li><img src="images/logos_tag/logo6.png" alt="" width="100%" ></li>
+                            <li><img src="images/logos_tag/logo7.png" alt="" width="100%" ></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -349,7 +341,7 @@
     <script type="text/javascript " src='js/video.min.js'></script>
     <script type="text/javascript " src='js/modal-video.js'></script>
     <script src="js/wow.min.js "></script>
-
+    <script src="https://cdn.bootcss.com/unslider/2.0.3/js/unslider-min.js"></script>
     <script>
         $(function () {
             var modalVideo = new ModalVideo({ width: 1000, height: 550 });
@@ -406,42 +398,15 @@
     </script>
     <script>
         $(function(){
-            var oul = $('#marquee-wrap ul');
-            var oulHtml = oul.html();
-            oul.html(oulHtml+oulHtml+oulHtml+oulHtml+oulHtml+oulHtml+oulHtml+oulHtml)
-            var timeId = null;
-
-            var ali = $('#marquee-wrap ul li');
-            var aliWidth = ali.eq(0).width();
-            var aliSize = ali.size();
-            var ulWidth = aliWidth*aliSize;
-            oul.width(ulWidth);
-
-            var speed = -3;
-
-            function slider(){
-
-                if(speed<0){
-                    if(oul.css('left')==-ulWidth/8+'px'){
-                        oul.css('left',0);
-                    }
-                    oul.css('left','+='+speed+'px');
-                }
-                if(speed>0){
-                    if(oul.css('left')=='0px'){
-                        // oul.css('left',-ulWidth/2+'px');
-                    }
-                    oul.css('left','+='+speed+'px');
-                }
-
-            }
-            timeId = setInterval(slider,30);
-            $('#marquee-wrap').mouseover(function(){
-                clearInterval(timeId);
+            $('.banner').unslider({
+                speed: 500,               //  The speed to animate each slide (in milliseconds)
+                delay: 3000,              //  The delay between slide animations (in milliseconds)
+                complete: function() {},  //  A function that gets called after every slide animation
+                dots: true,               //  Display dot navigation
+                fluid: false ,
+                autoplay :true
             });
-            $('#marquee-wrap').mouseout(function(){
-                timeId = setInterval(slider,30);
-            });
+
         })
     </script>
 

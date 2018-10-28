@@ -237,6 +237,9 @@ ul.nav-flex li a.active{
     line-height: 43px;
     color: #2593fc;
 }
+.textalign_left{
+    text-align: left;
+}
 .marquee-wrap{
     overflow: hidden;
     width: 100%;
@@ -511,6 +514,13 @@ a:hover{
      padding-right: 15px; */
      background: #f5a623;
 }
+/*轮播*/
+.banner {position:relative;overflow:auto;text-align:center;}
+.banner li {list-style: none;}
+.banner ul li {float: left;}
+.dots{position:absolute;bottom:10px;left:0;right:0;}  
+.unslider-nav,.unslider-arrow{ display: none;}
+
 @media screen and (max-width: 640px){
     #ulnav li{
         border-bottom: 1px solid #DADADA;
@@ -641,6 +651,9 @@ a:hover{
     }
     .textRight>a>span.btn-gr-blue{
         display: none;
+    }
+    .textalign_left{
+        text-align: center;
     }
 }
 @media screen and (min-width: 1366px){
