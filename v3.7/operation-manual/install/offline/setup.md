@@ -110,16 +110,16 @@ audit-libs-python-2.8.1-3.el7.x86_64.rpm
 可以使用好雨科技提供的离线安装包,此离线包仅针对阿里云CentOS 7.4做过优化，并不能保证其适用于其他环境下的CentOS服务器。此离线包仅会同步更新大版本。
 
 ```bash
-wget https://pkg.rainbond.com/releases/offline/v3.7.1/install.offline.v3.7.1.2018-09-14.tgz
+wget https://pkg.rainbond.com/releases/offline/v3.7.2/install.offline.v3.7.2.2018-10-24.tgz
 
 MD5SUM:
-91a901b859cd46ed2ac495de4a047936
+8e1b3b437adc3e30ea775d6365c9a967
 SHA512SUM:
-2c474ab70fdedc759a5a049928aac87d38017eec74fc9708cc58eb986d9ef108d07220e650b5c9341a176205acac9ec1ab94405cb91184ad078a802decfb2829
+2c6f7b3afcf437ed1d04048cf6fc734d2ccd4e8ff37c3730762bc9062d14ff958aeac7da314e289f3efc3bb6564f9acd4c9a4be73d4a7e2ba1e514b45972b884
 
 # 建议在有网的环境下,解压 cd /opt/rainbond/install/ 并更新安装脚本git pull 优化安装
 # 离线环境
-tar xf install.offline.v3.7.1.2018-09-14.tgz -C /
+tar xf install.offline.v3.7.2.2018-10-24.tgz -C /
 cd /opt/rainbond/install/
 ./grctl init --install-type offline --domain <自定义域名，可选>
 ```
