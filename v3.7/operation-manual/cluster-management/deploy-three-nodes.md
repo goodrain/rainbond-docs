@@ -210,7 +210,7 @@ vi /opt/rainbond/conf/master.yaml
 #修改完成后重启服务
 systemctl restart node
 systemctl restart rbd-entrance
-    ```
+```
   
 # 五、部署完成后的引导
 
