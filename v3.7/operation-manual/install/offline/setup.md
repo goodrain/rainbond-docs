@@ -113,9 +113,9 @@ audit-libs-python-2.8.1-3.el7.x86_64.rpm
 wget https://pkg.rainbond.com/releases/offline/v3.7.2/install.offline.v3.7.2.2018-10-24.tgz
 
 MD5SUM:
-8e1b3b437adc3e30ea775d6365c9a967
+3e0837bd6d407b0c7c92d978c22be60e
 SHA512SUM:
-2c6f7b3afcf437ed1d04048cf6fc734d2ccd4e8ff37c3730762bc9062d14ff958aeac7da314e289f3efc3bb6564f9acd4c9a4be73d4a7e2ba1e514b45972b884
+8056ce3ebe235dfb6e06508d4c291f5c07401569a7bef83908813fb6fa37dee0e1f973b191d587ac3bca3c3d9ebbf5a9e36b66e20fcdbc6f282c57c61e8a2784
 
 # 建议在有网的环境下,解压 cd /opt/rainbond/install/ 并更新安装脚本git pull 优化安装
 # 离线环境
