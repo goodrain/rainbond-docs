@@ -19,6 +19,7 @@ toc: true
 
 ```bash
 sed -i "s#<默认域名>#<自定义域名>#g" /opt/rainbond/conf/master.yaml
+systemctl restart node
 systemctl restart rbd-lb
 systemctl restart rbd-worker
 systemctl restart rbd-api
