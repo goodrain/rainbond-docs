@@ -51,7 +51,7 @@ toc: true
 
 <img src="https://static.goodrain.com/images/docs/3.7/user-manual/export-2.jpg" width='100%' />
 
-* 完成导出后，点击`下载`即可将文件下载到本地
+* 完成导出后，点击`下载`即可将文件下载到本地，导出的文件存放在数据中心下的/grdata/app/rainbond-app或/grdata/app/docker-compose下
 
 <img src="https://static.goodrain.com/images/docs/3.7/user-manual/export-3.jpg" width='100%' />
 

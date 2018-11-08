@@ -55,7 +55,7 @@
           "urls": ["/${VERSION}/user-manual/app-store/publish_and_install.html"]
         },
         {
-          "title": "应用交付与导入导入",
+          "title": "应用交付与导入导出",
           "urls": ["/${VERSION}/user-manual/app-store/app_delivery.html"]
         },
         {
