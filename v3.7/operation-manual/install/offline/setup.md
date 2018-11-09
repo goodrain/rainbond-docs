@@ -19,7 +19,7 @@ chmod +x offline.sh
 
 ## 二、准备工作
 
-1. 将离线包同步到离线环境 `tar xf install.offline.v3.7.1.2018-09-14.tgz -C /`。
+1. 将离线包同步到离线环境 `tar xf install.offline.3.7.2.2018-11-10.tgz -C /`。
 2. 请提前安装好如下包,避免安装失败。
 
 ```bash
@@ -110,16 +110,17 @@ audit-libs-python-2.8.1-3.el7.x86_64.rpm
 可以使用好雨科技提供的离线安装包,此离线包仅针对阿里云CentOS 7.4做过优化，并不能保证其适用于其他环境下的CentOS服务器。此离线包仅会同步更新大版本。
 
 ```bash
-wget https://pkg.rainbond.com/releases/offline/v3.7.2/install.offline.v3.7.2.2018-10-24.tgz
+wget https://pkg.rainbond.com/releases/offline/v3.7.2/install.offline.3.7.2.2018-11-10.tgz
 
 MD5SUM:
-3e0837bd6d407b0c7c92d978c22be60e
+07e9e1594cc206648746e04b3a4f2d6d
 SHA512SUM:
-8056ce3ebe235dfb6e06508d4c291f5c07401569a7bef83908813fb6fa37dee0e1f973b191d587ac3bca3c3d9ebbf5a9e36b66e20fcdbc6f282c57c61e8a2784
+65895bddd62c09a7196d6a90074f1fc733ded006e5cfa5b44d753e11867b145f11fdd68d3e9e9a1a2c34d0bf61e563e8e7c9da172eaf32655aec50810278c649
+
 
 # 建议在有网的环境下,解压 cd /opt/rainbond/install/ 并更新安装脚本git pull 优化安装
 # 离线环境
-tar xf install.offline.v3.7.2.2018-10-24.tgz -C /
+tar xf install.offline.3.7.2.2018-11-10.tgz -C /
 cd /opt/rainbond/install/
 ./grctl init --install-type offline --domain <自定义域名，可选>
 ```
