@@ -12,7 +12,7 @@ toc: true
 
 ```bash
 # 默认会在/opt/目录下创建rainbond相关目录文件,建议当前系统环境与后续离线系统环境保持一致
-curl https://raw.githubusercontent.com/goodrain/rainbond-install/v3.7.1/scripts/offline.sh -o ./offline.sh
+curl https://raw.githubusercontent.com/goodrain/rainbond-install/v3.7.2/scripts/offline.sh -o ./offline.sh
 chmod +x offline.sh
 ./offline.sh
 ```
