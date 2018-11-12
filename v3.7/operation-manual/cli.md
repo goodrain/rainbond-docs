@@ -134,7 +134,14 @@ USAGE:
 OPTIONS:
    --ip value      ip address
    --domain value  domain
+   
+# 特别注意
+grctl domain 默认仅支持修改我们默认分配的域名解析,域名已grapps.cn结尾
+不支持离线环境和在线安装自定义域名的。
+默认我们生成的域名日志可见/opt/rainbond/.domain.log
 ```
+
+
 
 ### 1.5 通过grctl测试源码构建
 
