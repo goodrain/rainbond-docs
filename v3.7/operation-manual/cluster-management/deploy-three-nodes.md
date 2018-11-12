@@ -155,7 +155,7 @@ systemctl enable keepalived
 - 切换应用域名解析IP到VIP
 
 ```bash
-#在manage01节点执行
+#在manage01节点执行,如果你是离线环境或者自定义域名可跳过此步骤，需要手动调整相关域名解析，原先解析管理节点改成vip即可。
 grctl domain --ip <VIP>
 ```
 
