@@ -17,6 +17,12 @@ Rainbond支持多种方式创建应用，下图是支持创建应用的方式示
 ## 一、通过源代码创建应用
 Rainbond支持[流行的编程语言](create-an-app.html#2-3)源代码直接创建应用，同时也支持Dockerfile创建应用，接下来主要通过2个示例来介绍。
 
+> Rainbond 支持的代码仓库类型包括 git、svn。对于一些聚合工程，我们想要构建应用所需的源码，可能位于仓库下的某一个子目录下。获取对应子目录下的源码的方式如下：
+
+> git: 源码仓库地址为：https://github.com/demo/demo.git 所需源码位于子目录 /subdir1/subdir2 下，则构建应用使用的仓库地址为：https://github.com/demo/demo.git?dir=subdir1/subdir2
+
+> svn: 源码仓库地址为：http://svn.demo.net/trunk/subdir 则构建应用使用仓库地址为： http://svn.demo.net 分支选择为子目录路径： trunk/subdir
+
 ### 1.1 PHP源码创建应用
 
 源代码地址：[https://github.com/goodrain/php-demo.git](https://github.com/goodrain/php-demo.git)
