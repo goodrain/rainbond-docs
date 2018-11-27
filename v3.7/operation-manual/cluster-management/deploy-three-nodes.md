@@ -8,48 +8,8 @@ asciicast: true
 
 <div id="toc"></div>
 
-## 一、准备存储
 
-`/grdata`目录是所有Rainbond节点都需要使用的共享目录，为了使Rainbond所有节点能够共享 `/grdata` 目录，需要提前准备共享存储。Rainbond支持 NFS、NAS、glusterfs等兼容nfs协议的共享存储形式，本文将使用glusterfs为例，搭建共享存储。
-
-在计算节点部署双节点GFS集群：
-
-- 安装GFS：
-
-  - 详情参见：[GlusterFS安装](../storage/GlusterFS/install.html)
-
-> 注意：将计算节点作为存储节点，需要将上方文档中的 server1、server2 更换为 compute01、compute02
-
-- 切换存储
-
-为管理节点安装GFS文件系统
-
-```bash
-yum install -y centos-release-gluster
-yum install -y glusterfs-fuse
-```
-
-编辑所有节点的/etc/fstab,新增一行：
-
-manage01 & compute01:
-
-```bash
-compute01:/data	/grdata	glusterfs	backupvolfile-server=compute02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
-```
-
-compute02:
-
-```bash
-compute02:/data	/grdata	glusterfs	backupvolfile-server=compute01,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
-```
-
-重新挂载
-
-```bash
-mount -a
-```
-
-## 二、基本平台部署
+## 一、基本平台部署
 
 部署单管理节点、双计算节点的rainbond平台：
 
@@ -73,6 +33,72 @@ grctl node add --host compute02 --iip <internal ip> -p <root pass> -r worker
 - 离线部署基本平台
 
 离线安装具体流程请参考[离线部署](../install/offline/setup.html#rainbond)
+
+## 二、切换存储
+
+`/grdata`目录是所有Rainbond节点都需要使用的共享目录，为了使Rainbond所有节点能够共享 `/grdata` 目录，需要提前准备共享存储。Rainbond支持 NFS、NAS、glusterfs等兼容nfs协议的共享存储形式，本文将使用glusterfs为例，搭建共享存储。
+
+在计算节点部署双节点GFS集群：
+
+- 安装GFS：
+
+  - 详情参见：[GlusterFS安装](../storage/GlusterFS/install.html)
+
+> 注意：将计算节点作为存储节点，需要将上方文档中的 server1、server2 更换为 compute01、compute02
+
+- 切换存储
+
+为管理节点安装GFS文件系统
+
+```bash
+yum install -y centos-release-gluster
+yum install -y glusterfs-fuse
+```
+
+编辑所有节点的/etc/fstab,新增一行：
+
+compute01:
+
+```bash
+compute01:/data	/grdata	glusterfs	backupvolfile-server=compute02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
+```
+
+compute02:
+
+```bash
+compute02:/data	/grdata	glusterfs	backupvolfile-server=compute01,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
+```
+
+manage01:
+
+```bash
+# /etc/fstab
+compute01:/data	/grdata	glusterfs	backupvolfile-server=compute02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
+```
+
+迁移操作：
+
+```bash
+# manage01停服务
+grclis start 
+cclear
+dps
+# 摘掉所有计算节点/grdata
+umount /grdata
+# 将数据迁移备份到gfs
+mv /grdata /grdata_old
+mkdir /grdata
+# manage01 新增 /etc/fstab
+mount -a
+cp -a /grdata_old/* /grdata/ #(确定grdata和grdata_old目录层级一致)
+# 其他节点修复/etc/fstab,将nfs修改gfs
+mount -a
+# 确定所有节点数据一致
+# 启动管理管理节点服务
+grclis start 
+# 如果一致正常的话,节点都是health的
+grctl node list 
+```
 
 ## 三、配置本地主机解析
 
