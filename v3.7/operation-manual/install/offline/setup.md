@@ -117,10 +117,19 @@ MD5SUM:
 SHA512SUM:
 65895bddd62c09a7196d6a90074f1fc733ded006e5cfa5b44d753e11867b145f11fdd68d3e9e9a1a2c34d0bf61e563e8e7c9da172eaf32655aec50810278c649
 
-
-# 建议在有网的环境下,解压 cd /opt/rainbond/install/ 并更新安装脚本git pull 优化安装
+# 特别说明,期间可能修复了某些bug，需要你在有网的环境下进行如下操作：
+wget https://pkg.rainbond.com/releases/offline/v3.7.2/install.offline.3.7.2.2018-11-10.tgz
+tar xf  https://pkg.rainbond.com/releases/offline/v3.7.2/install.offline.3.7.2.2018-11-10.tgz -C /
+cd  /opt/rainbond/install/
+git pull
+wget https://pkg.rainbond.com/releases/common/v3.7.2/grctl
+chmod +x grctl
+# 更新离线镜像 /opt/rainbond/install/install/imgs/ 如：rbd-api,rbd-worker,rbd-chaos,rbd-app-ui,rbd-cni等组件
+cd /opt/rainbond/install/scripts
+./offline.sh image #(默认更新全部镜像)
+tar zcvf install.offline.3.7.2.$(date +%F).tgz /opt/rainbond/install
 # 离线环境
-tar xf install.offline.3.7.2.2018-11-10.tgz -C /
+tar xf install.offline.3.7.2.xxxx.tgz -C / #(解压上述离线包)
 cd /opt/rainbond/install/
 ./grctl init --install-type offline --domain <自定义域名，可选>
 ```
