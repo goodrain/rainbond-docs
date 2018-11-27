@@ -8,33 +8,7 @@ asciicast: true
 
 <div id="toc"></div>
 
-
-## 一、基本平台部署
-
-部署单管理节点、双计算节点的rainbond平台：
-
-- 安装单节点云帮平台：
-
-```bash
-# 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip参数 --eip <公网ip>, 可选
-# 云帮版本，目前支持(v3.7.1,v3.7.2),v3.7版本默认为最新版本v3.7.2 --rainbond-version <版本信息>, 可选
-wget https://pkg.rainbond.com/releases/common/v3.7.2/grctl
-chmod +x ./grctl
-./grctl init --eip <公网ip> --rainbond-version <版本信息> --role master
-```
-
-- 扩容计算节点：
-
-```bash
-grctl node add --host compute01 --iip <internal ip> -p <root pass> -r worker
-grctl node add --host compute02 --iip <internal ip> -p <root pass> -r worker
-```
-
-- 离线部署基本平台
-
-离线安装具体流程请参考[离线部署](../install/offline/setup.html#rainbond)
-
-## 二、切换存储
+## 一、准备存储
 
 `/grdata`目录是所有Rainbond节点都需要使用的共享目录，为了使Rainbond所有节点能够共享 `/grdata` 目录，需要提前准备共享存储。Rainbond支持 NFS、NAS、glusterfs等兼容nfs协议的共享存储形式，本文将使用glusterfs为例，搭建共享存储。
 
@@ -57,7 +31,7 @@ yum install -y glusterfs-fuse
 
 编辑所有节点的/etc/fstab,新增一行：
 
-compute01:
+manage01 & compute01:
 
 ```bash
 compute01:/data	/grdata	glusterfs	backupvolfile-server=compute02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
@@ -69,14 +43,41 @@ compute02:
 compute02:/data	/grdata	glusterfs	backupvolfile-server=compute01,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
 ```
 
-manage01:
+重新挂载
 
 ```bash
-# /etc/fstab
-compute01:/data	/grdata	glusterfs	backupvolfile-server=compute02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
+mount -a
 ```
 
-迁移操作：
+
+## 二、基本平台部署
+
+部署单管理节点、双计算节点的rainbond平台：
+
+- 安装单节点云帮平台：
+
+```bash
+# 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip参数 --eip <公网ip>, 可选
+# 云帮版本，目前支持(v3.7.1,v3.7.2),v3.7版本默认为最新版本v3.7.2 --rainbond-version <版本信息>, 可选
+wget https://pkg.rainbond.com/releases/common/v3.7.2/grctl
+chmod +x ./grctl
+./grctl init --eip <公网ip> --rainbond-version <版本信息> --role master
+
+# 初始化可选参数
+--storage-type other
+--storage-args "完成fstab挂载命令"
+## 示例
+./grctl init --iip <内网ip> --eip <公网ip> --rainbond-version <版本信息> --role master --storage-type other --storage-args "compute01:/data	/grdata	glusterfs	backupvolfile-server=compute02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0"
+```
+
+- 扩容计算节点：
+
+```bash
+grctl node add --host compute01 --iip <internal ip> -p <root pass> -r worker
+grctl node add --host compute02 --iip <internal ip> -p <root pass> -r worker
+```
+
+- 手动迁移存储(未指定存储参数，可手动迁移)
 
 ```bash
 # manage01停服务
@@ -99,6 +100,10 @@ grclis start
 # 如果一致正常的话,节点都是health的
 grctl node list 
 ```
+
+- 离线部署基本平台
+
+离线安装具体流程请参考[离线部署](../install/offline/setup.html#rainbond)
 
 ## 三、配置本地主机解析
 
