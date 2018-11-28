@@ -1,4 +1,4 @@
---- 
+---
 title: 离线安装 
 summary: 离线安装云帮
 toc: true 
@@ -19,7 +19,7 @@ chmod +x offline.sh
 
 ## 二、准备工作
 
-1. 将离线包同步到离线环境 `tar xf install.offline.3.7.2.2018-11-10.tgz -C /`。
+1. 将离线包同步到离线环境 `tar xf install.offline.3.7.2.2018-11-10.tgz -C /`。**请务必添加 -C 参数指定解压路径**
 2. 请提前安装好如下包,避免安装失败。
 
 ```bash
