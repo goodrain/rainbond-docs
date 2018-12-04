@@ -28,7 +28,7 @@ asciicast: true
 
 | 环境     | CPU  | 内存   | 磁盘    | 集群规模 |
 | :----- | :--- | :--- | :---- | :--- |
-| demo环境 | 4核   | 8G  | 100G  | 1台   |
+| 单机环境 | 4核   | 8G  | 100G  | 1台   |
 | 测试环境   | 8核   | 32G  | 200G  | 3台   |
 | 生产环境   | 16+核 | 64G+ | 500G+ | 5台+  |
 
@@ -81,7 +81,7 @@ CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个�
 请选择部署方式：
 
 <div class="btn-group btn-group-justified">
-  <a href="online-installation.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">单节点DEMO</a>
+  <a href="online-installation.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">单机环境</a>
   <a href="../operation-manual/cluster-management/three-nodes-deployment.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">三节点测试</a>
   <a href="../operation-manual/cluster-management/five-nodes-deployment.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">5+节点生产</a>
 </div>
