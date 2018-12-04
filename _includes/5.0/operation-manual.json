@@ -2,6 +2,82 @@
         "title": "运维手册",
         "is_top_level": true,
         "items": [{
+                "title": "组件架构和部署结构",
+                "items": [{
+                    "title": "组件架构",
+                    "urls": [
+                        "/${VERSION}/operation-manual/component-description.html"
+                    ]
+                },
+                {
+                    "title": "部署结构",
+                    "urls": [
+                        "/${VERSION}/operation-manual/deployment-architecture.html"
+                    ]
+                }
+                ]
+            },
+            {
+                "title": "数据中心概述",
+                "urls": [
+                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                ]
+            },
+            {
+                "title": "系统服务部署参数说明",
+                "urls": [
+                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                ]
+            },
+            {
+                "title": "数据中心初始化",
+                "urls": [
+                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                ]
+            },
+            {
+                "title": "分布式存储系统",
+                "urls": [
+                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                ]
+            },
+            {
+                "title": "软件定义网络",
+                "urls": [
+                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                ]
+            },
+            {
+                "title": "节点管理",
+                "urls": [
+                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                ]
+            },
+            {
+                "title": "监控与报警管理",
+                "urls": [
+                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                ]
+            },
+            {
+                "title": "日常维护工具集",
+                "urls": [
+                    "/${VERSION}/operation-manual/cli.html"
+                ]
+            },
+            {
+                "title": "常见故障",
+                "urls": [
+                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                ]
+            },
+            {
+                "title": "升级指南",
+                "urls": [
+                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                ]
+            },
+            {
                 "title": "平台部署结构",
                 "urls": [
                     "/${VERSION}/operation-manual/deployment-architecture.html"
@@ -13,13 +89,6 @@
                     "/${VERSION}/operation-manual/component-description.html"
                 ]
             },
-            {
-                "title": "命令行工具",
-                "urls": [
-                    "/${VERSION}/operation-manual/cli.html"
-                ]
-            },
-            
             {
                 "title": "安装部署",
                 "items": [{

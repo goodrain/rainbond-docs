@@ -1,27 +1,27 @@
 [
     // 快速开始
-    {% include 3.7/getting-started.json %},
+    {% include 5.0/getting-started.json %},
     
-    // 技术架构与实现
-    {% include 3.7/architecture.json %},
+    // 技术架构
+    {% include 5.0/architecture.json %},
 
-    // 用户手册
-    {% include 3.7/user-manual.json %},
+    // 控制台手册
+    {% include 5.0/user-manual.json %},
 
-    // 插件管理
-    {% include 3.7/plugins.json %},
+    // 进阶场景
+    {% include 5.0/advanced-scenarios.json %},
 
     // 运维手册
-    {% include 3.7/operation-manual.json %},
+    {% include 5.0/operation-manual.json %},
     
     // 最佳实践
-    {% include 3.7/best-practice.json %},
+    {% include 5.0/best-practice.json %},
 
-    // 微服务
-    {% include 3.7/microservice.json %},
+    // 微服务架构
+    {% include 5.0/microservice.json %},
    
     // 视频指南
-    {% include 3.7/video.json %},
+    {% include 5.0/video.json %},
 
     // 更新历史
     {% include sidebar-releases.json %},

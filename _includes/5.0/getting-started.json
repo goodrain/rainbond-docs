@@ -3,22 +3,16 @@
     "is_top_level": true,
     "items": [
         {
-            "title": "概述",
+            "title": "项目概述",
             "urls": [
                 "/${VERSION}/getting-started/rainbond-overview.html"
             ]
         },
         {
-            "title": "一键部署",
+            "title": "平台安装",
             "urls": [
                 "/${VERSION}/getting-started/before-installation.html",
                 "/${VERSION}/getting-started/online-installation.html"
-            ]
-        },
-        {
-            "title": "公有云试用",
-            "urls": [
-                "/${VERSION}/getting-started/public-cloud-brief.html"
             ]
         },
         {
@@ -28,7 +22,7 @@
             ]
         },
         {
-            "title": "Roadmap",
+            "title": "开发路线",
             "urls": [
                 "/${VERSION}/architecture/roadmap.html",
                 "/${VERSION}/architecture/release-cycle.html"

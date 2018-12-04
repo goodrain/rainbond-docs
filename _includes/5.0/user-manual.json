@@ -1,7 +1,91 @@
 {
-  "title": "用户手册",
+  "title": "控制台手册",
   "is_top_level": true,
   "items": [
+    {
+      "title": "用户注册登陆",
+      "urls": ["/${VERSION}/user-manual/user-registration-login.html"]
+    },
+    {
+      "title": "创建团队",
+      "urls": ["/${VERSION}/user-manual/create-team.html"]
+    },
+    {
+      "title": "创建应用",
+      "urls": ["/${VERSION}/user-manual/create-an-app.html"]
+    },
+    {
+      "title": "应用管理",
+      "items": [{
+        "title": "应用管理",
+        "urls": [
+            "/${VERSION}/user-manual/manage-app.html"
+        ]
+    },
+    {
+        "title": "服务组件管理",
+        "urls": [
+            "/${VERSION}/user-manual/service-component-management.html"
+        ]
+    }
+  ]
+    },
+    {
+      "title": "应用网关",
+      "urls": ["/${VERSION}/user-manual/gateway-of-app.html"]
+    },
+    {
+      "title": "插件管理",
+      "is_top_level": true,
+      "items": [
+          {
+              "title": "插件设计与开发",
+              "urls": [
+                  "/${VERSION}/plugins/plugin-design-develop.html"
+              ]
+          },
+          {
+              "title": "插件分享与发布",
+              "urls": [
+                  "/${VERSION}/plugins/share-and-publish.html"
+              ]
+          },
+          {
+              "title": "插件列表",
+              "items": [{
+                  "title": "性能分析插件",
+                  "urls": [
+                      "/${VERSION}/plugins/lists/performance-analysis.html"
+                  ]
+              },
+              {
+                  "title": "服务网格治理插件",
+                  "urls": [
+                      "/${VERSION}/plugins/lists/service-mesh.html"
+                  ]
+              },
+              {
+                  "title": "MySQL数据库备份插件",
+                  "urls": [
+                      "/${VERSION}/plugins/lists/mysql-backup.html"
+                  ]
+              }
+          ]
+          }
+      ]
+  },
+    {
+      "title": "团队管理",
+      "urls": ["/${VERSION}/user-manual/manage-your-team.html"]
+    },
+    {
+      "title": "应用市场",
+      "urls": ["/${VERSION}/user-manual/app-store.html"]
+    },
+    {
+      "title": "企业中心",
+      "urls": ["/${VERSION}/user-manual/business-center.html"]
+    },
     {
       "title": "创建一个应用",
       "urls": ["/${VERSION}/user-manual/create-an-app.html"]

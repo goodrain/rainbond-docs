@@ -1,0 +1,35 @@
+{
+    "title": "进阶场景",
+    "is_top_level": true,
+    "items": [
+        {
+            "title": "创建一个微服务架构",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/create-mirco-service.html"
+            ]
+        },
+        {
+            "title": "创建一个中间件集群",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/create-middleware-cluster.html"
+            ]
+        },{
+            "title": "迁移已有的业务上Rainbond",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/migration-of-business.html"
+            ]
+        },{
+            "title": "基于Rainbond做DevOps",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/rainbond-devops.html"
+            ]
+        },
+        {
+            "title": "基于Rainbond做应用交付",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/application-delivery.html"
+            ]
+        }
+
+    ]
+}
