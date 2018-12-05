@@ -1,6 +1,8 @@
 ---
 title: 
 summary: Rainbond项目简介
+type: first_page
+homepage: true
 toc: true
 toc_not_nested: true
 asciicast: true
@@ -12,7 +14,9 @@ asciicast: true
 
   Rainbond支撑企业应用的开发、架构、交付和运维的全流程，通过“无侵入”架构，无缝衔接各类企业应用，底层资源可以对接和管理IaaS、虚拟机和物理服务器。
 
-```企业应用包括：各类信息系统、OA、CRM、ERP、数据库、大数据、物联网、互联网平台、微服务架构等运行在企业内部的各种系统
+```
+企业应用包括：
+各类信息系统、OA、CRM、ERP、数据库、大数据、物联网、互联网平台、微服务架构等运行在企业内部的各种系统
 ```
 
 ## Rainbond可以做什么
