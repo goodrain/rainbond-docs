@@ -20,9 +20,9 @@ contribute: false
     <div class="col-md-4">
         <div class="roach">
             <a href="getting-started/rainbond-overview.html">
-                <!--img src="{{ 'images/sleeping_craig.png' | relative_url }}" alt="rainbond 架构"/-->
+                <img src="{{ 'images/sleeping_craig.png' | relative_url }}" alt="rainbond 架构"/>
                 <h3>简介</h3>
-                <p>Rainbond是什么？</p>
+                <p>Rainbond是什么？用在什么场景？</p>
             </a>
         </div>
     </div>
@@ -30,8 +30,8 @@ contribute: false
         <div class="roach">
             <a href="getting-started/installation-guide.html">
                 <img src="{{ 'images/SCENE_superhero_profile_craig.png' | relative_url }}" alt="快速部署"/>
-                <h3>部署云帮集群</h3>
-                <p>数分钟就可以搭建属于自己的一套云帮平台。</p>
+                <h3>安装Rainbond</h3>
+                <p>跟着安装文档部署Rainbond。</p>
             </a>
         </div>
     </div>
@@ -39,7 +39,7 @@ contribute: false
         <div class="roach">
             <a href="user-manual/create-an-app.html">
                 <img src="{{ 'images/craig_crossfit.png' | relative_url }}" alt="rainbond 维护"/>
-                <h3>创建一个应用</h3>
+                <h3>创建第一个应用</h3>
                 <p>通过源码、镜像或应用市场快速创建一个应用。</p>
             </a>
         </div>
@@ -52,7 +52,7 @@ contribute: false
             <a target="_blank" href="operation-manual/deployment-architecture.html">
                 <img src="{{ 'images/builder_craig.png' | relative_url }}" alt="开发文档"/>
                 <h3>运维手册</h3>
-                <p>教您如何搭建生产环境就绪的云帮集群。</p>
+                <p>教您维护生产环境就绪的Rainbond集群。</p>
             </a>
         </div>
     </div>
@@ -61,7 +61,7 @@ contribute: false
             <a href="best-practice/index.html">
                 <img src="{{ 'images/scientist_catrina.png' | relative_url }}" alt="最佳实践"/>
                 <h3>最佳实践</h3>
-                <p>这里我们只讲最干的云帮使用经验</p>
+                <p>这里我们只讲最干的云Rainbond使用经验</p>
             </a>
         </div>
     </div>
