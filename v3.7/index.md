@@ -7,9 +7,6 @@ optimizely: true
 twitter: true
 contribute: false
 ---
-好雨云帮（Rainbond）是国内首个开源的无服务器PaaS平台，深度整合基于[Kubernetes](https://github.com/kubernetes/kubernetes)的容器管理、多类型CI/CD应用构建与交付、多数据中心的资源管理等技术提供完整的云原生应用管理解决方案，构建出应用、基础设施之间的互联互通生态体系。
-
-Rainbond历经超过五年的生产运营打磨和验证，形成目前理念最新、生态最完整的无服务器PaaS平台。如今，我们选择开源、拥抱社区，期望吸收最好的想法和实践，进一步完善和提升云帮，让更多企业和个人用户享受“以应用为中心”的技术体验。
 
 <style>
     #party {
@@ -22,10 +19,10 @@ Rainbond历经超过五年的生产运营打磨和验证，形成目前理念最
 <div class="row">
     <div class="col-md-4">
         <div class="roach">
-            <a href="architecture/architecture.html">
-                <img src="{{ 'images/sleeping_craig.png' | relative_url }}" alt="rainbond 架构"/>
-                <h3>技术架构</h3>
-                <p>深入了解Rainbond的技术原理及工作机制。</p>
+            <a href="getting-started/rainbond-overview.html">
+                <!--img src="{{ 'images/sleeping_craig.png' | relative_url }}" alt="rainbond 架构"/-->
+                <h3>简介</h3>
+                <p>Rainbond是什么？</p>
             </a>
         </div>
     </div>
