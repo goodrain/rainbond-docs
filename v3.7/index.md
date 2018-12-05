@@ -2,8 +2,6 @@
 title: Rainbond 文档中心
 summary: Rainbond 文档中心包含详细的安装手册，使用入门，技术架构等
 tags: 安装,使用,维护
-type: first_page
-homepage: true
 toc: false
 optimizely: true
 twitter: true
