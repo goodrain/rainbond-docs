@@ -1631,8 +1631,9 @@ pre code {
 }
 
 .row {
-    margin-right: -15px;
-    margin-left: -15px
+    /* margin-right: -15px;
+    margin-left: -15px; */
+    width:100%;
 }
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2,
