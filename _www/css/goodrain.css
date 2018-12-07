@@ -1,0 +1,733 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; } 
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; } 
+/* h1, h2, h3, h4, h5, h6{ font-size:100%; }  */
+address, cite, dfn, em, var { font-style:normal; } 
+code, kbd, pre, samp { font-family:AppleSystemUIFont, courier, monospace; } 
+/* small{ font-size:12px; }  */
+ul, ol { list-style:none; } 
+a { text-decoration:none; } 
+a:hover { text-decoration:underline; } 
+sup { vertical-align:text-top; } 
+sub{ vertical-align:text-bottom; } 
+legend { color:#000; } 
+fieldset, img { border:0; } 
+/* button, input, select, textarea { font-size:100%; }  */
+table { border-collapse:collapse; border-spacing:0; }
+/** first_section*/
+
+.first_section {
+    background-color: #313a5a;
+    height: 80px;
+    display: flex;
+    align-items: center
+}
+
+.nav-logo {
+    float: left;
+    width: 25%;
+    height: 50px;
+}
+
+.navbar-bg {
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+#nav-list {
+    line-height: 50px;
+    float: left;
+    height: 50px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+#nav-list li {
+    height: 50px;
+    line-height: 50px;
+    width: 100px;
+    float: left;
+    text-align: center;
+}
+
+ul.nav-flex li a {
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.highBtnBox {
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.highBtnBox .highBtnUl {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.highBtnBox li {
+    float: left;
+    font-family: Helvetica;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 35px;
+    height: 35px;
+    width: 120px;
+    margin-right: 20px;
+}
+
+.highBtnBox .highBtnUl li.highBtnShow {
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+}
+
+.highBtnBox .highBtnUl li.highBtnQuick {
+    background: #4A90E2;
+    box-shadow: 0 8px 34px 0 #4A90E2;
+    border-radius: 5px;
+}
+
+/** second_section*/
+
+.second_section {
+    background-color: #313a5a;
+    min-height: 600px;
+}
+
+.second_section .lefBox {
+    width: 50%;
+    float: left;
+    padding-top: 7%;
+    /* 在 阿里云 上 用 Rainbond 开: */
+    font-family: PingFangSC-Regular;
+    font-size: 48px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+.second_section .lefBox ul {
+    padding: 0;
+}
+
+.second_section .rightBox {
+    width: 50%;
+    float: left;
+    padding-top: 20%;
+}
+
+.second_section .rightBox .first_title {
+    /* 一句话解释什么是企业应用云操作系统: */
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: right;
+}
+
+.second_section .rightBox .second_title {
+    /* 企业应用云操作系统: */
+    font-family: PingFangSC-Regular;
+    font-size: 48px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: right;
+    padding:2% 0 5% 0;
+}
+
+.second_section .rightBox .third_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.second_section .rightBox .third_title span {
+    float: right;
+    /* Rectangle: */
+    border: 2px solid #FFFFFF;
+    /* Gitee: */
+    font-family: Helvetica;
+    font-size: 18px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    border-radius: 5px;
+    width: 120px;
+}
+
+.second_section .rightBox .third_title span.active {
+    /* Rectangle: */
+    background: #4A90E2;
+    border: 1px solid #4A90E2;
+    box-shadow: 0 -8px 34px 0 #4A90E2;
+}
+
+/** third_section*/
+.third_section {
+    background-color: #fff;
+
+}
+.third_section .container {
+    box-shadow: 0 10px 34px 0 rgba(210, 210, 210, 0.50);
+    border-radius: 10px;
+    margin-top: -8%;
+    background-color: #fff;
+    height: 320px;
+}
+.third_section .container div{
+    background-color: #fff;
+}
+.third_section .container li {
+    margin-bottom: 10%;
+    margin-left: 20%;
+}
+
+.third_section .container li.third_section_title {
+    padding-top: 4%;
+}
+
+.third_section .container li.third_section_title img {
+    /* Rectangle: */
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+
+.third_section .container li.third_section_text {
+    margin-bottom: 5%;
+}
+
+.third_section .container li.third_section_line {
+    /* Rectangle 2: */
+    border: 1px solid #4A90E2;
+    width: 20%;
+    margin: 0 0 5% 20%;
+}
+
+.third_section .container li.third_section_content {
+    /* You only need 1 acco: */
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #5B6C94;
+    letter-spacing: 0;
+    line-height: 32px;
+}
+
+.container{
+    width: 1200px; 
+}
+/* S-逻辑架构*/
+.logicalArchitecture{
+    background: #f8f9fc;
+}
+.logicalArchitecture-top{
+    font-family: PingFangSC-Regular;
+   padding: 3% 0 4% 0;
+}
+.logicalArchitecture_top-l{
+    font-size: 30px;
+    color: #212121;
+    line-height: 42px;
+}
+.logicalArchitecture_top-r{
+    font-size: 18px;
+    padding-left: 10px;
+    color: #212121;
+    line-height: 42px;
+    cursor: pointer;
+}
+
+
+.logicalArchitecture-c-t{
+    margin-top: 3%;
+    font-family: PingFangSC-Regular;
+    display: flex;
+    align-items: center;
+}
+
+
+.logicalArchitecture_cen-t-l  img{
+ width: 80%; 
+}
+.logicalArchitecture_cen-t-r h6{
+    font-size: 24px;
+    color: #212121;
+    line-height: 34px;
+}
+
+.logicalArchitecture-c-b{
+    font-family: PingFangSC-Regular;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 8%;
+}
+.logicalArchitecture_cen-l img{
+    width: 80%; 
+}
+.logicalArchitecture_cen-r h6{
+    padding-bottom: 10px;
+    font-size: 24px;
+    color: #212121;
+    line-height: 34px;
+}
+/* E-逻辑架构*/
+
+
+/* S-功能特性*/
+.features-center{
+    margin: 4% 0;
+}
+.features_box h6{
+    font-family: AppleSystemUIFont;
+    font-size: 18px;
+    color: #212121;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.features_box div{
+    margin: 10% 0 ;
+    font-family:AppleSystemUIFont;
+    font-size: 16px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: left;
+    line-height: 32px;
+}
+/* E-功能特性*/
+
+/* S-底部*/
+.footer{
+    background: #313A5A;
+}
+.footer-t {
+    padding: 5% 0 ;
+}
+.footer-t  a{
+    cursor: pointer;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    background: #4A90E2;
+    border: 1px solid #4A90E2;
+    box-shadow: 0 -8px 34px 0 #4A90E2;
+    width: 280px;
+    height: 40px;
+    line-height: 40px;
+    font-family: AppleSystemUIFont;
+    font-size: 18px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+}
+.footer-c{
+    padding: 2% 0;
+}
+.footer-c a,.footer-c span{
+    cursor: pointer;
+    font-family: AppleSystemUIFont;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 32px;
+}
+.footer-c span{
+margin: 0 1%;
+}
+.footer-b {
+    padding-bottom: 3%;
+}
+.footer-b a{
+    cursor: pointer;
+    font-family: AppleSystemUIFont;
+    font-size: 16px;
+    color: #9B9B9B;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 32px;
+    display: block;
+}
+.social {display: flex;justify-content: center;}
+.social a{
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    border-radius: 5px 5px;
+    display: block;
+}
+.github{
+    background: url("../images/logos/github1.png") center center no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 50% 50%;
+    /*background-color: #FFFFFF;*/
+}
+.weibo{
+    background: url("../images/logos/weibo1.png") center center no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 80% 80%;
+    /*background-color: #FFFFFF;*/
+}
+.wechart{
+    background: url("../images/logos/chart1.png") center center no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 80% 80%;
+    /*background-color: #FFFFFF;*/
+}
+.luntan{
+    background: url("../images/logos/bg1.png") center center no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 50% 50%;
+    /*background-color: #FFFFFF;*/
+}
+/* E-底部*/
+
+@media (min-width: 768px) and (max-width:1200px) { 
+    .container{
+        width: 768px;
+    }
+}
+
+@media (min-width: 320px) and (max-width:768px) { 
+    .container{
+        width: 100%;
+        padding: 0!important;
+        margin: 0!important;
+    }
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2,
+.col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4,
+.col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5,
+.col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7,
+.col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9,
+.col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10,
+.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12,
+.col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 5px;
+    padding-left: 5px
+}
+/* S-逻辑架构*/
+
+    .logicalArchitecture-top{
+        font-family: PingFangSC-Regular;
+       padding-top: 5%;
+    }
+    .logicalArchitecture_top-l{
+        font-size: 15px;
+        color: #212121;
+        line-height: 20px;
+    }
+    .logicalArchitecture_top-r{
+        font-size: 12px;
+        padding-left: 10px;
+        color: #212121;
+        line-height: 20px;
+        cursor: pointer;
+    }
+    
+    .logicalArchitecture-c-t{
+        margin-top: 3%;
+        font-family: PingFangSC-Regular;
+        display: flex;
+        align-items: center;
+    }
+    
+    
+    .logicalArchitecture_cen-t-l  img{
+     width: 80%; 
+    }
+    .logicalArchitecture_cen-t-r h6{
+        font-size: 12px;
+        color: #212121;
+        line-height: 12px;
+    }
+    
+    .logicalArchitecture-c-b{
+        font-family: PingFangSC-Regular;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 8%;
+    }
+    .logicalArchitecture_cen-l img{
+        width: 80%; 
+    }
+    .logicalArchitecture_cen-r h6{
+        padding-bottom: 1px;
+        font-size: 12px;
+        color: #212121;
+        line-height: 12px;
+    }
+
+/* E-逻辑架构*/
+
+/* S-功能特性*/
+.features-center{
+    margin: 4% 0;
+}
+.features_box h6{
+    font-family: AppleSystemUIFont;
+    font-size: 14px;
+    color: #212121;
+    letter-spacing: 0;
+    line-height: 14px;
+}
+.features_box div{
+    margin: 10% 0 ;
+    font-family:AppleSystemUIFont;
+    font-size: 12px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: left;
+    line-height: 14px;
+}
+/* E-功能特性*/
+
+
+/* S-底部*/
+.footer{
+    background: #313A5A;
+}
+.footer-t {
+    padding: 5% 0 ;
+}
+.footer-t  a{
+    cursor: pointer;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    background: #4A90E2;
+    border: 1px solid #4A90E2;
+    box-shadow: 0 -8px 34px 0 #4A90E2;
+    width: 140px;
+    height: 20px;
+    line-height: 20px;
+    font-family: AppleSystemUIFont;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+}
+.footer-c{
+    padding: 2% 0;
+}
+.footer-c a,.footer-c span{
+    cursor: pointer;
+    font-family: AppleSystemUIFont;
+    font-size: 12px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 14px;
+}
+.footer-c span{
+margin: 0 1%;
+}
+.footer-b {
+    padding-bottom: 6%;
+}
+.footer-b a{
+    cursor: pointer;
+    font-family: AppleSystemUIFont;
+    font-size: 12px;
+    color: #9B9B9B;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+}
+.social {display: flex;justify-content: center;}
+.social a{
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    border-radius: 5px 5px;
+    display: block;
+}
+.github{
+    background: url("../images/logos/github1.png") center center no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 50% 50%;
+    /*background-color: #FFFFFF;*/
+}
+.weibo{
+    background: url("../images/logos/weibo1.png") center center no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 80% 80%;
+    /*background-color: #FFFFFF;*/
+}
+.wechart{
+    background: url("../images/logos/chart1.png") center center no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 80% 80%;
+    /*background-color: #FFFFFF;*/
+}
+.luntan{
+    background: url("../images/logos/bg1.png") center center no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 50% 50%;
+    /*background-color: #FFFFFF;*/
+}
+/* E-底部*/
+
+
+
+
+/*-------------------------*/
+/** second_section*/
+
+.second_section {
+    background-color: #313a5a;
+    min-height:0;
+    padding-bottom: 10%;
+}
+
+.second_section .lefBox {
+    width: 100%;
+    padding-top: 7%;
+    /* 在 阿里云 上 用 Rainbond 开: */
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+.second_section .lefBox ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.second_section .rightBox {
+    width: 100%;
+    padding-top: 8%;
+}
+
+.second_section .rightBox .first_title {
+    /* 一句话解释什么是企业应用云操作系统: */
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: right;
+}
+
+.second_section .rightBox .second_title {
+    /* 企业应用云操作系统: */
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: right;
+    padding:2% 0 5% 0;
+}
+
+.second_section .rightBox .third_title {
+    display: flex;
+    justify-content: space-around;
+}
+
+.second_section .rightBox .third_title span {
+    float: right;
+    /* Rectangle: */
+    border: 2px solid #FFFFFF;
+    /* Gitee: */
+    font-family: Helvetica;
+    font-size: 12px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    border-radius: 5px;
+    width: 60px;
+}
+
+.second_section .rightBox .third_title span.active {
+    /* Rectangle: */
+    background: #4A90E2;
+    border: 1px solid #4A90E2;
+    box-shadow: 0 -8px 34px 0 #4A90E2;
+}
+
+/** third_section*/
+.third_section {
+    background-color: #fff;
+
+}
+.third_section .container {
+    box-shadow: 0 10px 34px 0 rgba(210, 210, 210, 0.50);
+    border-radius: 10px;
+    margin-top: -8%;
+    background-color: #fff;
+    height: 320px;
+}
+.third_section .container div{
+    background-color: #fff;
+}
+.third_section .container li {
+    margin-bottom: 10%;
+    margin-left: 20%;
+}
+
+.third_section .container li.third_section_title {
+    padding-top: 4%;
+}
+
+.third_section .container li.third_section_title img {
+    /* Rectangle: */
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+
+.third_section .container li.third_section_text {
+    margin-bottom: 5%;
+}
+
+.third_section .container li.third_section_line {
+    /* Rectangle 2: */
+    border: 1px solid #4A90E2;
+    width: 20%;
+    margin: 0 0 5% 20%;
+}
+
+.third_section .container li.third_section_content {
+    /* You only need 1 acco: */
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #5B6C94;
+    letter-spacing: 0;
+    line-height: 32px;
+}
+
+ }
+ @media (min-width: 340px) and (max-width:768px) {
+    .logicalArchitecture_cen-r h6:nth-last-child(1){
+        padding-top: 37%;
+      }
+ }
+ @media (min-width: 350px) and (max-width:768px) {
+  
+      .footer-b a{
+        width: 54%;
+    }
+ }
+ @media (min-width: 380px) and (max-width:768px) {
+    .footer-b a{
+        width: 50%;
+    }
+ }

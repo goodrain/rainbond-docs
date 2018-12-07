@@ -9,6 +9,7 @@
     <title>Rainbond，以应用为中心的开源PaaS</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/goodrain.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/video-js.min.css" rel="stylesheet">
     <link href="docs/css/lavish-bootstrap.css" rel="stylesheet">
@@ -340,6 +341,19 @@
     <script type="text/javascript " src='js/modal-video.js'></script>
     <script src="js/wow.min.js "></script>
     <script src="https://cdn.bootcss.com/unslider/2.0.3/js/unslider-min.js"></script>
+    <script> 
+        //自适应 
+        !(function(doc, win) { 
+        var docEle = doc.documentElement, 
+        evt = "onorientationchange" in window ? "orientationchange" : "resize", 
+        fn = function() { 
+        var width = docEle.clientWidth; 
+        width && (docEle.style.fontSize = 25 * (width / 375) + "px"); 
+        }; 
+          win.addEventListener(evt, fn, false); 
+        doc.addEventListener("DOMContentLoaded", fn, false); 
+          }(document, window)); 
+        </script>
     <script>
         $(function () {
             var modalVideo = new ModalVideo({ width: 1000, height: 550 });
