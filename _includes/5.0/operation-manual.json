@@ -11,11 +11,28 @@
                 },
                 {
                     "title": "部署结构",
-                    "urls": [
-                        "/${VERSION}/operation-manual/deployment-architecture.html"
+                    "items": [{
+                            "title": "单节点部署方案",
+                            "urls": [
+                                "/${VERSION}/operation-manual/cluster-management/one-node-deployment.html"
+                            ]
+                        },
+                        {
+                            "title": "三节点高可用部署方案",
+                            "urls": [
+                                "/${VERSION}/operation-manual/cluster-management/three-nodes-deployment.html"
+    
+                            ]
+                        },
+                        {
+                            "title": "五节点高可用部署方案",
+                            "urls": [
+                                "/${VERSION}/operation-manual/cluster-management/five-nodes-deployment.html"
+    
+                            ]
+                        }
                     ]
-                }
-                ]
+                }]
             },
             {
                 "title": "数据中心概述",
@@ -37,9 +54,31 @@
             },
             {
                 "title": "分布式存储系统",
-                "urls": [
-                    "/${VERSION}/operation-manual/deployment-architecture.html"
-                ]
+                "items": [{
+                    "title": "GlusterFS",
+                    "items": [{
+                            "title": "介绍",
+                            "urls": [
+                                "/${VERSION}/operation-manual/storage/GlusterFS/introduce.html"
+                            ]
+                        }, {
+                            "title": "安装",
+                            "urls": [
+                                "/${VERSION}/operation-manual/storage/GlusterFS/install.html"
+                            ]
+                        }, {
+                            "title": "维护",
+                            "urls": [
+                                "/${VERSION}/operation-manual/storage/GlusterFS/maintain.html"
+                            ]
+                        }, {
+                            "title": "基准测试",
+                            "urls": [
+                                "/${VERSION}/operation-manual/storage/GlusterFS/test.html"
+                            ]
+                        }
+                    ]
+                }]
             },
             {
                 "title": "软件定义网络",

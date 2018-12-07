@@ -11,7 +11,7 @@ toc: true
 ```bash
 # 在管理节点manage01执行如下操作
 # ssh安装
-grctl node add --hostname <主机名> --iip <内网ip> --private-key <信任私钥(/root/.ssh/id_rsa)> --role compute
+grctl node add --hostname <主机名> --iip <内网ip> --private-key <信任私钥(/root/.ssh/id_rsa)> --role worker
 # 密码安装(仅支持root用户)
-grctl node add --hostname <主机名> --iip <内网ip> --root-pass <root用户密码> --role compute
+grctl node add --hostname <主机名> --iip <内网ip> --root-pass <root用户密码> --role worker
 ```
