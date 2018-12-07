@@ -5,7 +5,7 @@ address, cite, dfn, em, var { font-style:normal; }
 code, kbd, pre, samp { font-family:AppleSystemUIFont, courier, monospace; } 
 /* small{ font-size:12px; }  */
 ul, ol { list-style:none; } 
-a { text-decoration:none; } 
+a { text-decoration:none!important; } 
 a:hover { text-decoration:underline; } 
 sup { vertical-align:text-top; } 
 sub{ vertical-align:text-bottom; } 
@@ -101,7 +101,7 @@ ul.nav-flex li a {
 
 .second_section {
     background-color: #313a5a;
-    min-height: 600px;
+    padding-bottom: 20%;
 }
 
 .second_section .lefBox {
@@ -128,7 +128,7 @@ ul.nav-flex li a {
 .second_section .rightBox .first_title {
     /* 一句话解释什么是企业应用云操作系统: */
     font-family: PingFangSC-Regular;
-    font-size: 12px;
+    font-size: 16px;
     color: #FFFFFF;
     letter-spacing: 0;
     text-align: right;
@@ -171,16 +171,21 @@ ul.nav-flex li a {
 }
 
 /** third_section*/
-.third_section {
-    background-color: #fff;
-
-}
 .third_section .container {
     box-shadow: 0 10px 34px 0 rgba(210, 210, 210, 0.50);
     border-radius: 10px;
-    margin-top: -8%;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    margin-top: -430px;
+    margin-bottom: 110px;
+}
+.third_section_top{
     background-color: #fff;
+}
+.bj{
+    background: #f8f9fc;
     height: 320px;
+    width: 100%;
 }
 .third_section .container div{
     background-color: #fff;
@@ -196,7 +201,7 @@ ul.nav-flex li a {
 
 .third_section .container li.third_section_title img {
     /* Rectangle: */
-    background-color: #ffffff;
+    background-color: #f8f9fc;
     border-radius: 6px;
 }
 
@@ -214,7 +219,7 @@ ul.nav-flex li a {
 .third_section .container li.third_section_content {
     /* You only need 1 acco: */
     font-family: PingFangSC-Regular;
-    font-size: 16px;
+    font-size: 14px;
     color: #5B6C94;
     letter-spacing: 0;
     line-height: 32px;
@@ -223,6 +228,159 @@ ul.nav-flex li a {
 .container{
     width: 1200px; 
 }
+
+
+/* S-视频*/
+.box {
+    width: 95%;
+    height: 400px;
+    position: relative;
+    margin: 5% auto;
+}
+
+.box .list {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.box  .btn {
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    width: 60px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    background: rgba(0, 255, 0, .5);
+    cursor: pointer;
+    display: none
+}
+
+.box  .next {
+    right: 0;
+}
+
+.box li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    list-style: none;
+    opacity: 1;
+    transition: all 0.3s ease-out;
+    width: 60%;
+    height: 300px;
+}
+
+.list ul li a div {
+    width: 100%;
+    height: 300px;
+    border: none;
+    float: left;
+}
+
+.p1 {
+    transform: translate3d(-20%, 0, 0) scale(0.81);
+}
+
+.p2 {
+    transform: translate3d(0px, 0, 0) scale(0.81);
+    transform-origin: 0 50%;
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.p3 {
+    transform: translate3d(33%, 0, 0) scale(1);
+    z-index: 3;
+    opacity: 1;
+}
+
+.p4 {
+    transform: translate3d(100%, 0, 0) scale(0.81);
+    transform-origin: 100% 50%;
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.video-1 {
+    background: url('../video/video-bg-1.png') center center no-repeat;
+    background-size: 100% 100%;
+}
+
+.video-2 {
+    background: url('../video/video-bg-2.png') center center no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.video-3 {
+    background: url('../video/video-bg-3.png') center center no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.video-4 {
+    background: url('../video/video-bg-4.png') center center no-repeat;
+    background-size: 100% 100%;
+}
+
+.video-icon {
+    /*display: none;*/
+    position: absolute;
+    font-size: 60px;
+    /*top: 60%;*/
+    /*left: 55%;*/
+    /*margin-top: -52px;*/
+    /*margin-left: -26px;*/
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    color: #fff;
+    width: 52px;
+    height: 52px;
+    background: url('https://vs5.bdstatic.com/browse_static/v3/search_v2/page/play_f073d9b.png') center center no-repeat
+}
+.buttons {
+    position: absolute;
+    width: 1200px;
+    height: 30px;
+    bottom: 10%;
+    text-align: center;
+}
+
+.buttons a {
+    cursor: pointer;
+}
+
+ .buttons span {
+    display: inline-block;
+    font-family: SFNSDisplay;
+    font-size: 24px;
+    color: #212121;
+    text-align: center;
+    line-height: 34px;
+    display: none;
+}
+
+.blue{
+    display: block!important;
+}
+.video-title{
+    font-family: SFNSDisplay;
+    font-size: 24px;
+    color: #212121;
+    text-align: center;
+    line-height: 34px;
+}
+/* E-视频*/
+
 /* S-逻辑架构*/
 .logicalArchitecture{
     background: #f8f9fc;
@@ -230,6 +388,11 @@ ul.nav-flex li a {
 .logicalArchitecture-top{
     font-family: PingFangSC-Regular;
    padding: 3% 0 4% 0;
+}
+.logicalArchitecture-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .logicalArchitecture_top-l{
     font-size: 30px;
@@ -301,6 +464,23 @@ ul.nav-flex li a {
     line-height: 32px;
 }
 /* E-功能特性*/
+
+
+/* S-正在使用 */
+.isUsing{
+    padding-bottom: 10%;
+    background: #f8f9fc;
+}
+
+/*轮播*/
+.banner {position:relative;overflow:auto;text-align:center;}
+.banner li {list-style: none;}
+.banner ul li {float: left;}
+.banner ul li img{ background: #f8f9fc;}
+.dots{position:absolute;bottom:10px;left:0;right:0;}  
+.unslider-nav,.unslider-arrow{ display: none;}
+/* E-正在使用 */
+
 
 /* S-底部*/
 .footer{
@@ -392,11 +572,6 @@ margin: 0 1%;
 }
 /* E-底部*/
 
-@media (min-width: 768px) and (max-width:1200px) { 
-    .container{
-        width: 768px;
-    }
-}
 
 @media (min-width: 320px) and (max-width:768px) { 
     .container{
@@ -418,7 +593,6 @@ margin: 0 1%;
     padding-left: 5px
 }
 /* S-逻辑架构*/
-
     .logicalArchitecture-top{
         font-family: PingFangSC-Regular;
        padding-top: 5%;
@@ -457,7 +631,7 @@ margin: 0 1%;
         font-family: PingFangSC-Regular;
         display: flex;
         align-items: flex-end;
-        padding-bottom: 8%;
+        padding-bottom: 15%;
     }
     .logicalArchitecture_cen-l img{
         width: 80%; 
@@ -499,7 +673,7 @@ margin: 0 1%;
     background: #313A5A;
 }
 .footer-t {
-    padding: 5% 0 ;
+    padding: 12% 0 5% 0 ;
 }
 .footer-t  a{
     cursor: pointer;
@@ -595,7 +769,7 @@ margin: 0 1%;
 .second_section {
     background-color: #313a5a;
     min-height:0;
-    padding-bottom: 10%;
+    padding-bottom: 6%;
 }
 
 .second_section .lefBox {
@@ -626,6 +800,7 @@ margin: 0 1%;
     color: #FFFFFF;
     letter-spacing: 0;
     text-align: right;
+    padding: 5% 4%;
 }
 
 .second_section .rightBox .second_title {
@@ -635,12 +810,13 @@ margin: 0 1%;
     color: #FFFFFF;
     letter-spacing: 0;
     text-align: right;
-    padding:2% 0 5% 0;
+    padding:2% 4% 5% 0;
 }
 
 .second_section .rightBox .third_title {
     display: flex;
     justify-content: space-around;
+    padding: 5% 0;
 }
 
 .second_section .rightBox .third_title span {
@@ -674,14 +850,13 @@ margin: 0 1%;
     border-radius: 10px;
     margin-top: -8%;
     background-color: #fff;
-    height: 320px;
 }
 .third_section .container div{
     background-color: #fff;
 }
 .third_section .container li {
-    margin-bottom: 10%;
-    margin-left: 20%;
+    margin-bottom: 3%;
+    margin-left: 8%;
 }
 
 .third_section .container li.third_section_title {
@@ -692,28 +867,209 @@ margin: 0 1%;
     /* Rectangle: */
     background-color: #ffffff;
     border-radius: 6px;
+    width: 10%;
 }
 
 .third_section .container li.third_section_text {
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 
 .third_section .container li.third_section_line {
     /* Rectangle 2: */
     border: 1px solid #4A90E2;
     width: 20%;
-    margin: 0 0 5% 20%;
+    margin: 0 0 3% 11%;
 }
 
 .third_section .container li.third_section_content {
     /* You only need 1 acco: */
     font-family: PingFangSC-Regular;
-    font-size: 16px;
+    font-size: 12px;
     color: #5B6C94;
     letter-spacing: 0;
-    line-height: 32px;
+    line-height: 16px;
+}
+.bj{
+    background: #f8f9fc;
+    height: 0px;
+    width: 100%;
+}
+.third_section_top div ul{
+ padding: 3% 0 5% 0;
 }
 
+
+.box {
+    width: 95%;
+    height: 200px;
+    position: relative;
+    margin: 10% auto;
+}
+
+.box .list {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.box  .btn {
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    width: 60px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    background: rgba(0, 255, 0, .5);
+    cursor: pointer;
+    display: none
+}
+
+.box  .next {
+    right: 0;
+}
+
+.box li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    list-style: none;
+    opacity: 1;
+    transition: all 0.3s ease-out;
+    height: 150px;
+    width: 60%;
+}
+
+.list ul li a div {
+    width: 100%;
+    height: 150px;
+    border: none;
+    float: left;
+}
+
+.p1 {
+    transform: translate3d(-20%, 0, 0) scale(0.81);
+}
+
+.p2 {
+    transform: translate3d(0px, 0, 0) scale(0.81);
+    transform-origin: 0 50%;
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.p3 {
+    transform: translate3d(33%, 0, 0) scale(1);
+    z-index: 3;
+    opacity: 1;
+}
+
+.p4 {
+    transform: translate3d(100%, 0, 0) scale(0.81);
+    transform-origin: 100% 50%;
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.video-1 {
+    background: url('../video/video-bg-1.png') center center no-repeat;
+    background-size: 100% 100%;
+}
+
+.video-2 {
+    background: url('../video/video-bg-2.png') center center no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.video-3 {
+    background: url('../video/video-bg-3.png') center center no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.video-4 {
+    background: url('../video/video-bg-4.png') center center no-repeat;
+    background-size: 100% 100%;
+}
+
+.video-icon {
+    /*display: none;*/
+    position: absolute;
+    font-size: 14px;
+    /*top: 60%;*/
+    /*left: 55%;*/
+    /*margin-top: -52px;*/
+    /*margin-left: -26px;*/
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    background: url('https://vs5.bdstatic.com/browse_static/v3/search_v2/page/play_f073d9b.png') center center no-repeat
+}
+.buttons {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: 0;
+    text-align: center;
+}
+
+.buttons a {
+    cursor: pointer;
+}
+
+ .buttons span {
+    display: inline-block;
+    font-family: SFNSDisplay;
+    font-size: 15px;
+    color: #212121;
+    text-align: center;
+    line-height: 18px;
+    display: none;
+}
+
+.blue{
+    display: block!important;
+}
+.video-title{
+    font-family: SFNSDisplay;
+    font-size: 12px;
+    color: #212121;
+    text-align: center;
+    line-height: 18px;
+}
+/* E-视频*/
+
+.header .navbar{
+background: #313a5a!important;
+}
+.header #ulnav li{
+    border-bottom: 1px solid #DADADA;
+}
+#ulnav {
+    height: 190px;
+}
+#ulnav li a {
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+background: #313a5a!important;
+
+}
+.navbar-default{
+    border-color: #313a5a!important;
+}
  }
  @media (min-width: 340px) and (max-width:768px) {
     .logicalArchitecture_cen-r h6:nth-last-child(1){
