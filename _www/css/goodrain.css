@@ -148,7 +148,7 @@ ul.nav-flex li a {
  }
  #rollingOne a{
     font-family: PingFangSC-Regular;
-    animation: rollingOne 5s infinite ease;
+    animation: rollingOne 3s infinite ease;
     width: 535px;
     height: 100%;
     display: inline-block;
@@ -161,7 +161,7 @@ ul.nav-flex li a {
  }
  #rollingTwo a{
     font-family: PingFangSC-Regular;
-    animation: rollingTwo 6s infinite ease;
+    animation: rollingTwo 4s infinite ease;
     width: 535px;
     height: 100%;
     display: inline-block;
@@ -174,16 +174,19 @@ ul.nav-flex li a {
  }
  #rollingThree a{
     font-family: PingFangSC-Regular;
-    animation: rollingThree 8s infinite ease;
+    animation: rollingThree 5s infinite ease;
     width: 750px;
     height: 100%;
     display: inline-block;
  }
 @keyframes rollingOne {
     0% {
+        margin-left: 125px;
+    }
+    33% {
         margin-left: 0px;
     }
-    50% {
+    66% {
       margin-left: -165px;
       
     }
@@ -194,11 +197,13 @@ ul.nav-flex li a {
 
 @keyframes rollingTwo {
     0% {
+        margin-left: 115px;
+    }
+    33% {
         margin-left: 0px;
     }
-    50% {
+    66% {
       margin-left: -115px;
-      
     }
     100% {
       margin-left: -230px;
@@ -207,9 +212,12 @@ ul.nav-flex li a {
 
 @keyframes rollingThree {
     0% {
+        margin-left: 255px;
+    }
+    33% {
         margin-left: 0px;
     }
-    50% {
+    66% {
       margin-left: -255px;
       
     }
@@ -939,11 +947,13 @@ margin: 0 1%;
  }
 @keyframes rollingOne {
     0% {
+        margin-left: 47px;
+    }
+    33% {
         margin-left: 0px;
     }
-    50% {
+    66% {
       margin-left: -47px;
-      
     }
     100% {
       margin-left: -93px;
@@ -952,9 +962,12 @@ margin: 0 1%;
 
 @keyframes rollingTwo {
     0% {
+        margin-left: 32px;
+    }
+    33% {
         margin-left: 0px;
     }
-    50% {
+    66% {
       margin-left: -32px;
       
     }
@@ -965,9 +978,12 @@ margin: 0 1%;
 
 @keyframes rollingThree {
     0% {
+        margin-left: 70px;
+    }
+    33% {
         margin-left: 0px;
     }
-    50% {
+    66% {
       margin-left: -73px;
       
     }
