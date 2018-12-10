@@ -178,7 +178,7 @@ ul.nav-flex li a {
  #rollingThree a{
     font-family: PingFangSC-Regular;
     animation: rollingThree 6s infinite ease;
-    width: 750px;
+    width: 1000px;
     height: 100%;
     display: inline-block;
  }
@@ -244,16 +244,16 @@ ul.nav-flex li a {
         margin-left: 0px;
     }
     35% {
-        margin-left: -290px;
+        margin-left: -430px;
       }
     66% {
-      margin-left: -290px;
+      margin-left: -430px;
     }
     68% {
-        margin-left: -540px;
+        margin-left: -800px;
       }
     100% {
-      margin-left: -540px;
+      margin-left: -800px;
     }
 }
 
@@ -284,8 +284,9 @@ ul.nav-flex li a {
 
 .second_section .rightBox .third_title {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     cursor: pointer;
+    align-items:center;
 }
 
 .second_section .rightBox .third_title span {
@@ -294,12 +295,14 @@ ul.nav-flex li a {
     border: 2px solid #FFFFFF;
     /* Gitee: */
     font-family: Helvetica;
-    font-size: 18px;
+    font-size: 15px;
     color: #FFFFFF;
     letter-spacing: 0;
     text-align: center;
     border-radius: 5px;
     width: 120px;
+    padding: 8px 0;
+    margin-left: 10px;
 }
 
 .second_section .rightBox .third_title span.active {
@@ -323,7 +326,7 @@ ul.nav-flex li a {
     background-color: #fff;
 }
 .bj{
-    background: #f8f9fc;
+    background: #fff;
     height: 320px;
     width: 100%;
 }
@@ -422,7 +425,6 @@ ul.nav-flex li a {
     border: none;
     float: left;
 }
-
 .p1 {
     transform: translate3d(-20%, 0, 0) scale(0.81);
 }
@@ -455,13 +457,11 @@ ul.nav-flex li a {
 .video-2 {
     background: url('../video/video-bg-2.png') center center no-repeat;
     background-size: 100% 100%;
-
 }
 
 .video-3 {
     background: url('../video/video-bg-3.png') center center no-repeat;
     background-size: 100% 100%;
-
 }
 
 .video-4 {
@@ -502,7 +502,7 @@ ul.nav-flex li a {
  .buttons span {
     display: inline-block;
     font-family: SFNSDisplay;
-    font-size: 24px;
+    font-size: 20px;
     color: #212121;
     text-align: center;
     line-height: 34px;
@@ -519,11 +519,14 @@ ul.nav-flex li a {
     text-align: center;
     line-height: 34px;
 }
+.vido-bjcolor{
+    background: #f8f9fc;
+}
 /* E-视频*/
 
 /* S-逻辑架构*/
 .logicalArchitecture{
-    background: #f8f9fc;
+    background: #fff;
 }
 .logicalArchitecture-top{
     font-family: PingFangSC-Regular;
@@ -531,7 +534,7 @@ ul.nav-flex li a {
 }
 .logicalArchitecture-box{
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
 }
 .logicalArchitecture_top-l{
@@ -540,7 +543,7 @@ ul.nav-flex li a {
     line-height: 42px;
 }
 .logicalArchitecture_top-r{
-    font-size: 18px;
+    font-size: 14px;
     padding-left: 10px;
     color: #4A90E2;
     line-height: 42px;
@@ -572,7 +575,7 @@ ul.nav-flex li a {
     padding-bottom: 8%;
 }
 .logicalArchitecture_cen-l img{
-    width: 80%; 
+    width: 75%; 
 }
 .logicalArchitecture_cen-r h6{
     padding-bottom: 10px;
@@ -584,6 +587,9 @@ ul.nav-flex li a {
 
 
 /* S-功能特性*/
+.features{
+background: #f8f9fc;
+}
 .features-center{
     margin: 4% auto;
     width: 90%;
@@ -610,14 +616,13 @@ ul.nav-flex li a {
 /* S-正在使用 */
 .isUsing{
     padding-bottom: 10%;
-    background: #f8f9fc;
+    background: #fff;
 }
 
 /*轮播*/
 .banner {position:relative;overflow:auto;text-align:center;}
 .banner li {list-style: none;}
 .banner ul li {float: left;}
-.banner ul li img{ background: #f8f9fc;}
 .dots{position:absolute;bottom:10px;left:0;right:0;}  
 .unslider-nav,.unslider-arrow{ display: none;}
 /* E-正在使用 */
@@ -741,14 +746,14 @@ margin: 0 1%;
        padding-top: 5%;
     }
     .logicalArchitecture_top-l{
-        font-size: 15px;
+        font-size: 18px;
         color: #212121;
         line-height: 20px;
     }
     .logicalArchitecture_top-r{
         font-size: 12px;
         padding-left: 10px;
-        color: #212121;
+        color: #4A90E2;
         line-height: 20px;
         cursor: pointer;
     }
@@ -923,12 +928,14 @@ margin: 0 1%;
     font-size: 14px;
     color: #FFFFFF;
     letter-spacing: 0;
+    display: flex;
+    justify-content:space-between;
 }
 
 .second_section .lefBox ul {
-    display: flex;
-    justify-content: center;
+    float: right;
     padding: 0;
+    margin-right: 4px;
 }
 .second_section .lefBox ul li{
     display: flex;
@@ -946,13 +953,14 @@ margin: 0 1%;
  }
  #rollingOne a{
     font-family: PingFangSC-Regular;
-    animation: rollingOne 10s infinite ease;
+    animation: rollingOne 9s infinite ease;
     width: 200px;
     display: inline-block;
  }
  #rollingTwo{
-    width:36px;
+    width:30px;
     height:100%;
+    margin-left: 48px;
     overflow: hidden;
     display:inline-block;
  }
@@ -964,15 +972,16 @@ margin: 0 1%;
     display: inline-block;
  }
  #rollingThree{
-    width:78px;
+    width:71px;
     height:100%;
+    margin-left: 7px;
     overflow: hidden;
     display:inline-block;
  }
  #rollingThree a{
     font-family: PingFangSC-Regular;
     animation: rollingThree 15s infinite ease;
-    width: 250px;
+    width: 350px;
     height: 100%;
     display: inline-block;
  }
@@ -1002,7 +1011,7 @@ margin: 0 1%;
 
 @keyframes rollingTwo {
     0% {
-        margin-left: 32px;
+        margin-left: 50px;
     }
     2% {
         margin-left: 0px;
@@ -1011,16 +1020,16 @@ margin: 0 1%;
         margin-left: 0px;
     }
     35% {
-        margin-left: -32px;
+        margin-left: -36px;
       }
     66% {
-      margin-left: -32px;
+      margin-left: -36px;
     }
     68% {
-        margin-left: -66px;
+        margin-left: -75px;
       }
     100% {
-      margin-left: -66px;
+      margin-left: -75px;
     }
 }
 
@@ -1035,16 +1044,16 @@ margin: 0 1%;
         margin-left: 0px;
     }
     35% {
-        margin-left: -73px;
+        margin-left: -100px;
       }
     66% {
-      margin-left: -73px;
+      margin-left: -100px;
     }
     68% {
-        margin-left: -140px;
+        margin-left: -220px;
       }
     100% {
-      margin-left: -140px;
+      margin-left: -220px;
     }
 }
 .second_section .rightBox {
@@ -1074,7 +1083,7 @@ margin: 0 1%;
 
 .second_section .rightBox .third_title {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: 5% 0;
 }
 
@@ -1090,6 +1099,7 @@ margin: 0 1%;
     text-align: center;
     border-radius: 5px;
     width: 60px;
+    margin-left: 0px;
 }
 
 .second_section .rightBox .third_title span.active {
@@ -1290,7 +1300,7 @@ margin: 0 1%;
  .buttons span {
     display: inline-block;
     font-family: SFNSDisplay;
-    font-size: 15px;
+    font-size: 13px;
     color: #212121;
     text-align: center;
     line-height: 18px;
