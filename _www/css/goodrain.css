@@ -19,7 +19,10 @@ table { border-collapse:collapse; border-spacing:0; }
     height: 100px;
 }
 
-
+body{
+    width:100%;
+    overflow-x: hidden;
+}
 .setWidth{
     width: 90%;
     margin: 0 auto;
