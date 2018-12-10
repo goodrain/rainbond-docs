@@ -17,4 +17,4 @@ toc: true
 
 ## 二、搭建流程
 
-- 参见：[单机环境一键部署](/docs/stable/getting-started/online-installation.html)
+- 参见：[单机环境一键部署](../../getting-started/online-installation.html)
