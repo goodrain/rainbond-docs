@@ -6,7 +6,7 @@ code, kbd, pre, samp { font-family:AppleSystemUIFont, courier, monospace; }
 /* small{ font-size:12px; }  */
 ul, ol { list-style:none; } 
 a { text-decoration:none!important; } 
-a:hover { text-decoration:underline; } 
+a:hover { text-decoration:underline;color: #4A90E2; } 
 sup { vertical-align:text-top; } 
 sub{ vertical-align:text-bottom; } 
 legend { color:#000; } 
@@ -19,7 +19,10 @@ table { border-collapse:collapse; border-spacing:0; }
     height: 100px;
 }
 
-
+body{
+    width:100%;
+    overflow-x: hidden;
+}
 .setWidth{
     width: 90%;
     margin: 0 auto;
@@ -148,7 +151,7 @@ ul.nav-flex li a {
  }
  #rollingOne a{
     font-family: PingFangSC-Regular;
-    animation: rollingOne 3s infinite ease;
+    animation: rollingOne 9s infinite ease;
     width: 535px;
     height: 100%;
     display: inline-block;
@@ -161,7 +164,7 @@ ul.nav-flex li a {
  }
  #rollingTwo a{
     font-family: PingFangSC-Regular;
-    animation: rollingTwo 4s infinite ease;
+    animation: rollingTwo 12s infinite ease;
     width: 535px;
     height: 100%;
     display: inline-block;
@@ -174,7 +177,7 @@ ul.nav-flex li a {
  }
  #rollingThree a{
     font-family: PingFangSC-Regular;
-    animation: rollingThree 5s infinite ease;
+    animation: rollingThree 6s infinite ease;
     width: 750px;
     height: 100%;
     display: inline-block;
@@ -183,15 +186,26 @@ ul.nav-flex li a {
     0% {
         margin-left: 125px;
     }
+    2% {
+        margin-left: 0px;
+    }
+   
     33% {
         margin-left: 0px;
     }
-    66% {
-      margin-left: -165px;
-      
+    35% {
+      margin-left: -160px;
     }
+  
+      66% {
+        margin-left: -160px;
+      }
+      68% {
+        margin-left: -320px;
+      }
+  
     100% {
-      margin-left: -330px;
+      margin-left: -320px;
     }
 }
 
@@ -199,14 +213,23 @@ ul.nav-flex li a {
     0% {
         margin-left: 115px;
     }
+    2% {
+        margin-left: 0px;
+    }
     33% {
         margin-left: 0px;
     }
+    35% {
+        margin-left: -128px;
+      }
     66% {
-      margin-left: -115px;
+      margin-left: -128px;
     }
+    68% {
+        margin-left: -258px;
+      }
     100% {
-      margin-left: -230px;
+      margin-left: -258px;
     }
 }
 
@@ -214,15 +237,23 @@ ul.nav-flex li a {
     0% {
         margin-left: 255px;
     }
+    2% {
+        margin-left: 0px;
+    }
     33% {
         margin-left: 0px;
     }
+    35% {
+        margin-left: -290px;
+      }
     66% {
-      margin-left: -255px;
-      
+      margin-left: -290px;
     }
+    68% {
+        margin-left: -540px;
+      }
     100% {
-      margin-left: -470px;
+      margin-left: -540px;
     }
 }
 
@@ -322,7 +353,7 @@ ul.nav-flex li a {
     /* Rectangle 2: */
     border: 1px solid #4A90E2;
     width: 20%;
-    margin: 0 0 5% 20%;
+    margin: 0 0 5% 22%;
 }
 
 .third_section .container li.third_section_content {
@@ -342,7 +373,7 @@ ul.nav-flex li a {
 /* S-视频*/
 .box {
     width: 95%;
-    height: 400px;
+    height: 500px;
     position: relative;
     margin: 5% auto;
 }
@@ -382,12 +413,12 @@ ul.nav-flex li a {
     opacity: 1;
     transition: all 0.3s ease-out;
     width: 60%;
-    height: 300px;
+    height: 400px;
 }
 
 .list ul li  div:nth-child(1) {
     width: 100%;
-    height: 300px;
+    height: 100%;
     border: none;
     float: left;
 }
@@ -460,7 +491,7 @@ ul.nav-flex li a {
     position: absolute;
     width: 100%;
     height: 30px;
-    bottom: 10%;
+    bottom: 0;
     text-align: center;
 }
 
@@ -511,7 +542,7 @@ ul.nav-flex li a {
 .logicalArchitecture_top-r{
     font-size: 18px;
     padding-left: 10px;
-    color: #212121;
+    color: #4A90E2;
     line-height: 42px;
     cursor: pointer;
 }
@@ -915,7 +946,7 @@ margin: 0 1%;
  }
  #rollingOne a{
     font-family: PingFangSC-Regular;
-    animation: rollingOne 6s infinite ease;
+    animation: rollingOne 10s infinite ease;
     width: 200px;
     display: inline-block;
  }
@@ -927,7 +958,7 @@ margin: 0 1%;
  }
  #rollingTwo a{
     font-family: PingFangSC-Regular;
-    animation: rollingTwo 5s infinite ease;
+    animation: rollingTwo 12s infinite ease;
     width: 200px;
     height: 100%;
     display: inline-block;
@@ -940,7 +971,7 @@ margin: 0 1%;
  }
  #rollingThree a{
     font-family: PingFangSC-Regular;
-    animation: rollingThree 8s infinite ease;
+    animation: rollingThree 15s infinite ease;
     width: 250px;
     height: 100%;
     display: inline-block;
@@ -949,12 +980,21 @@ margin: 0 1%;
     0% {
         margin-left: 47px;
     }
+    2% {
+        margin-left: 0px;
+    }
     33% {
         margin-left: 0px;
     }
+    35% {
+        margin-left: -47px;
+      }
     66% {
       margin-left: -47px;
     }
+    68% {
+        margin-left: -93px;
+      }
     100% {
       margin-left: -93px;
     }
@@ -964,13 +1004,21 @@ margin: 0 1%;
     0% {
         margin-left: 32px;
     }
+    2% {
+        margin-left: 0px;
+    }
     33% {
         margin-left: 0px;
     }
+    35% {
+        margin-left: -32px;
+      }
     66% {
       margin-left: -32px;
-      
     }
+    68% {
+        margin-left: -66px;
+      }
     100% {
       margin-left: -66px;
     }
@@ -980,13 +1028,21 @@ margin: 0 1%;
     0% {
         margin-left: 70px;
     }
+    2% {
+        margin-left: 0px;
+    }
     33% {
         margin-left: 0px;
     }
+    35% {
+        margin-left: -73px;
+      }
     66% {
       margin-left: -73px;
-      
     }
+    68% {
+        margin-left: -140px;
+      }
     100% {
       margin-left: -140px;
     }
@@ -1082,7 +1138,7 @@ margin: 0 1%;
     /* Rectangle 2: */
     border: 1px solid #4A90E2;
     width: 20%;
-    margin: 0 0 3% 11%;
+    margin: 0 0 3% 9%;
 }
 
 .third_section .container li.third_section_content {
@@ -1278,7 +1334,7 @@ background: #313a5a!important;
 /*轮播*/
 .banner {position:relative;overflow:auto;text-align:center;}
 .banner li {list-style: none;}
-.banner ul li {float: left;height: 150px;}
+.banner ul li {float: left;height: 100px;}
 .banner ul li img{ background: #f8f9fc; height: 100%;}
 .dots{position:absolute;bottom:10px;left:0;right:0;}  
 .unslider-nav,.unslider-arrow{ display: none;}
