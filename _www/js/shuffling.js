@@ -112,15 +112,15 @@ $( function (){
 	//进入页面自动开始定时器
 	timer = setInterval(nextImg,3000);
 	//移动端左右滑动touch事件
-    $(".box").on('touchstart','.p3',function (e){
+    $(".box").on('touchstart','.p2',function (e){
         clearInterval(timer);
         startX = e.originalEvent.changedTouches[0].pageX;
         startY = e.originalEvent.changedTouches[0].pageY;
     });
-    $(".box").on('touchmove','.p3',function (e){
+    $(".box").on('touchmove','.p2',function (e){
         clearInterval(timer);
     });
-    $(".box").on('touchend','.p3',function (e){
+    $(".box").on('touchend','.p2',function (e){
         moveEndX = e.originalEvent.changedTouches[0].pageX;
         moveEndY = e.originalEvent.changedTouches[0].pageY;
         X = moveEndX - startX;

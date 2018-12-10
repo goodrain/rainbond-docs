@@ -13,6 +13,11 @@ legend { color:#000; }
 fieldset, img { border:0; } 
 /* button, input, select, textarea { font-size:100%; }  */
 table { border-collapse:collapse; border-spacing:0; }
+.wechart-hover{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
 /** first_section*/
 
 .first_section {
@@ -84,6 +89,7 @@ ul.nav-flex li a {
     height: 35px;
     width: 120px;
     margin-right: 20px;
+    cursor:pointer;
 }
 
 .highBtnBox .highBtnUl li.highBtnShow {
@@ -118,6 +124,92 @@ ul.nav-flex li a {
 .second_section .lefBox ul {
     padding: 0;
 }
+.second_section .lefBox ul li{
+     display: flex;
+     align-items: center;
+     height: 68px;
+} 
+.second_section .lefBox ul li a{
+    color: #FFFFFF;
+}
+
+#rollingOne{ 
+    width:175px;
+    height:100%;
+    overflow: hidden;
+    display:inline-block;
+ }
+ #rollingOne a{
+    font-family: PingFangSC-Regular;
+    animation: rollingOne 40s infinite ease;
+    width: 535px;
+    height: 100%;
+    display: inline-block;
+ }
+ #rollingTwo{
+    width:125px;
+    height:100%;
+    overflow: hidden;
+    display:inline-block;
+ }
+ #rollingTwo a{
+    font-family: PingFangSC-Regular;
+    animation: rollingTwo 40s infinite ease;
+    width: 535px;
+    height: 100%;
+    display: inline-block;
+ }
+ #rollingThree{
+    width:255px;
+    height:100%;
+    overflow: hidden;
+    display:inline-block;
+ }
+ #rollingThree a{
+    font-family: PingFangSC-Regular;
+    animation: rollingThree 10s infinite ease;
+    width: 750px;
+    height: 100%;
+    display: inline-block;
+ }
+@keyframes rollingOne {
+    0% {
+        margin-left: 0px;
+    }
+    50% {
+      margin-left: -165px;
+      
+    }
+    100% {
+      margin-left: -330px;
+    }
+}
+
+@keyframes rollingTwo {
+    0% {
+        margin-left: 0px;
+    }
+    50% {
+      margin-left: -115px;
+      
+    }
+    100% {
+      margin-left: -230px;
+    }
+}
+
+@keyframes rollingThree {
+    0% {
+        margin-left: 0px;
+    }
+    50% {
+      margin-left: -255px;
+      
+    }
+    100% {
+      margin-left: -470px;
+    }
+}
 
 .second_section .rightBox {
     width: 50%;
@@ -147,6 +239,7 @@ ul.nav-flex li a {
 .second_section .rightBox .third_title {
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .second_section .rightBox .third_title span {
@@ -276,7 +369,7 @@ ul.nav-flex li a {
     height: 300px;
 }
 
-.list ul li a div {
+.list ul li  div:nth-child(1) {
     width: 100%;
     height: 300px;
     border: none;
@@ -534,7 +627,7 @@ margin: 0 1%;
     line-height: 32px;
     display: block;
 }
-.social {display: flex;justify-content: center;}
+.social {display: flex;justify-content: center;position: relative;}
 .social a{
     width: 50px;
     height: 50px;
@@ -592,6 +685,8 @@ margin: 0 1%;
     padding-right: 5px;
     padding-left: 5px
 }
+
+
 /* S-逻辑架构*/
     .logicalArchitecture-top{
         font-family: PingFangSC-Regular;
@@ -722,7 +817,7 @@ margin: 0 1%;
     width: 60%;
     margin: 0 auto;
 }
-.social {display: flex;justify-content: center;}
+.social {display: flex;justify-content: center;position: relative;}
 .social a{
     width: 50px;
     height: 50px;
@@ -787,10 +882,93 @@ margin: 0 1%;
     justify-content: center;
     padding: 0;
 }
+.second_section .lefBox ul li{
+    display: flex;
+    align-items: center;
+    height: 20px;
+}
+.second_section .lefBox ul li a{
+    color: #FFFFFF;
+}
 
+#rollingOne{ 
+    width:50px;
+    overflow: hidden;
+    display:inline-block;
+ }
+ #rollingOne a{
+    font-family: PingFangSC-Regular;
+    animation: rollingOne 60s infinite ease;
+    width: 200px;
+    display: inline-block;
+ }
+ #rollingTwo{
+    width:36px;
+    height:100%;
+    overflow: hidden;
+    display:inline-block;
+ }
+ #rollingTwo a{
+    font-family: PingFangSC-Regular;
+    animation: rollingTwo 50s infinite ease;
+    width: 200px;
+    height: 100%;
+    display: inline-block;
+ }
+ #rollingThree{
+    width:78px;
+    height:100%;
+    overflow: hidden;
+    display:inline-block;
+ }
+ #rollingThree a{
+    font-family: PingFangSC-Regular;
+    animation: rollingThree 80s infinite ease;
+    width: 250px;
+    height: 100%;
+    display: inline-block;
+ }
+@keyframes rollingOne {
+    0% {
+        margin-left: 0px;
+    }
+    50% {
+      margin-left: -47px;
+      
+    }
+    100% {
+      margin-left: -93px;
+    }
+}
+
+@keyframes rollingTwo {
+    0% {
+        margin-left: 0px;
+    }
+    50% {
+      margin-left: -32px;
+      
+    }
+    100% {
+      margin-left: -66px;
+    }
+}
+
+@keyframes rollingThree {
+    0% {
+        margin-left: 0px;
+    }
+    50% {
+      margin-left: -73px;
+      
+    }
+    100% {
+      margin-left: -140px;
+    }
+}
 .second_section .rightBox {
     width: 100%;
-    padding-top: 8%;
+    padding-top: 0%;
 }
 
 .second_section .rightBox .first_title {
@@ -944,7 +1122,7 @@ margin: 0 1%;
     width: 60%;
 }
 
-.list ul li a div {
+.list ul li  div:nth-child(1) {
     width: 100%;
     height: 150px;
     border: none;
@@ -1070,6 +1248,16 @@ background: #313a5a!important;
 .navbar-default{
     border-color: #313a5a!important;
 }
+
+/*轮播*/
+.banner {position:relative;overflow:auto;text-align:center;}
+.banner li {list-style: none;}
+.banner ul li {float: left;height: 150px;}
+.banner ul li img{ background: #f8f9fc; height: 100%;}
+.dots{position:absolute;bottom:10px;left:0;right:0;}  
+.unslider-nav,.unslider-arrow{ display: none;}
+/* E-正在使用 */
+
  }
  @media (min-width: 340px) and (max-width:768px) {
     .logicalArchitecture_cen-r h6:nth-last-child(1){
@@ -1087,3 +1275,5 @@ background: #313a5a!important;
         width: 50%;
     }
  }
+
+

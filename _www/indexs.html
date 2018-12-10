@@ -22,8 +22,9 @@
 </head>
 
 <body>
+
     <!-- mobile -->
-    <div class="header hide">
+    <div class="header hide" style="height: 50px">
         <nav class="navbar navbar-default bg-default navbar-fixed-top">
             <div id="navbar_header_wrap" style="width:100%; max-width:1180px; margin:0 auto; padding:0 10px;">
                 <div class="navbar-header">
@@ -91,10 +92,22 @@
         <div class="container">
             <div class="lefBox">
                 <ul>
-                    <li>在阿里云上</li>
+                    <li>
+                        在
+                        <span id="rollingOne">
+                            <a>&nbsp;阿里云&nbsp;虚拟机&nbsp;服务器</a>
+                        </span>
+                        上
+                    </li>
                     <li>用Rainbond</li>
-                    <li>开发</li>
-                    <li>微服务架构</li>
+                    <li><span id="rollingTwo">
+                            <a>&nbsp;开发&nbsp;交付&nbsp;运行</a>
+                        </span></li>
+                    <li>
+                        <span id="rollingThree">
+                            <a>&nbsp;微服务架构 &nbsp;&nbsp;大数据&nbsp;&nbsp;&nbsp;&nbsp;企业应用</a>
+                        </span>
+                    </li>
                 </ul>
             </div>
             <div class="rightBox">
@@ -147,27 +160,19 @@
             <div class="list">
                 <ul>
                     <li class="p4 ">
-                        <a href="#">
-                            <div class="video-1 "></div>
-                        </a>
+                        <div class="video-1"></div>
                         <div class="video-icon video-show" data-src="https://static.goodrain.com/mp4/app-create.mp4 "></div>
                     </li>
                     <li class="p3  ">
-                        <a href="#">
-                            <div class="video-2"></div>
-                        </a>
+                        <div class="video-2"></div>
                         <div class="video-icon video-show" data-src="https://static.goodrain.com/mp4/app-create.mp4 "></div>
                     </li>
                     <li class="p2 ">
-                        <a href="#">
-                            <div class="video-3"></div>
-                        </a>
+                        <div class="video-3"></div>
                         <div class="video-icon video-show" data-src="https://static.goodrain.com/mp4/app-create.mp4 "></div>
                     </li>
                     <li class="p1">
-                        <a href="#">
-                            <div class="video-4"></div>
-                        </a>
+                        <div class="video-4"></div>
                         <div class="video-icon video-show" data-src="https://static.goodrain.com/mp4/app-create.mp4 "></div>
                     </li>
                 </ul>
@@ -262,18 +267,12 @@
         <div class="container">
             <div class="banner col-lg-12 col-xs-12 col-sm-12 col-md-12">
                 <ul>
-                    <li><img src="images/logos_tag/logo1.png" alt="" width="100%"></li>
-                    <li><img src="images/logos_tag/logo2.png" alt="" width="100%"></li>
-                    <li><img src="images/logos_tag/logo3.png" alt="" width="100%"></li>
-                    <li><img src="images/logos_tag/logo4.png" alt="" width="100%"></li>
-                    <li><img src="images/logos_tag/logo5.png" alt="" width="100%"></li>
-                    <li><img src="images/logos_tag/logo6.png" alt="" width="100%"></li>
-                    <li><img src="images/logos_tag/logo1.png" alt="" width="100%"></li>
-                    <li><img src="images/logos_tag/logo2.png" alt="" width="100%"></li>
-                    <li><img src="images/logos_tag/logo3.png" alt="" width="100%"></li>
-                    <li><img src="images/logos_tag/logo4.png" alt="" width="100%"></li>
-                    <li><img src="images/logos_tag/logo5.png" alt="" width="100%"></li>
-                    <li><img src="images/logos_tag/logo6.png" alt="" width="100%"></li>
+                    <li><img src="./images/new_logo/4.png" alt="" width="100%"></li>
+                    <li><img src="./images/new_logo/5.png" alt="" width="100%"></li>
+                    <li><img src="./images/new_logo/6.png" alt="" width="100%"></li>
+                    <li><img src="./images/new_logo/4.png" alt="" width="100%"></li>
+                    <li><img src="./images/new_logo/5.png" alt="" width="100%"></li>
+                    <li><img src="./images/new_logo/6.png" alt="" width="100%"></li>
                 </ul>
             </div>
         </div>
@@ -350,7 +349,13 @@
             var modalVideo = new ModalVideo({ width: 1000, height: 550 });
             $('.video-show').click(function () {
                 modalVideo.show({ url: $(this).data('src') });
-                console.log("$(this).data('src')", $(this).data('src'))
+            })
+            $('.wechart').hover(function () {
+                $('.wechart-hover').css({
+                    top: "-92px"
+                }).removeClass('hide')
+            },function () {
+                $('.wechart-hover').addClass('hide');
             })
         })
     </script>
@@ -363,7 +368,6 @@
                 // }else{//否则清空悬浮
                 //     $('#nav').css({'position':'','top':''}).addClass('hide');
                 // }
-                console.log("scrTop", scrTop)
                 if (scrTop > 768) {
                     $('.first_section').css({ 'position': 'fixed', 'top': '0', 'width': '100%', "z-index": 10 });
 
@@ -374,7 +378,7 @@
             if ($(window).width() < 768) {
                 $('.header').removeClass('hide');
                 $('.first_section').addClass('hide');
-            }else{
+            } else {
                 $('.header').addClass('hide');
                 $('.first_section').removeClass('hide');
             }
