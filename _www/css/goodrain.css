@@ -18,6 +18,13 @@ table { border-collapse:collapse; border-spacing:0; }
     width: 100px;
     height: 100px;
 }
+
+
+.setWidth{
+    width: 90%;
+    margin: 0 auto;
+}
+
 /** first_section*/
 
 .first_section {
@@ -35,7 +42,7 @@ table { border-collapse:collapse; border-spacing:0; }
 
 .navbar-bg {
     height: 50px;
-    width: 100%;
+    width: 90%;
     line-height: 50px;
     margin-bottom: 0px;
     border-radius: 0px;
@@ -271,6 +278,7 @@ ul.nav-flex li a {
     padding-bottom: 10px;
     margin-top: -430px;
     margin-bottom: 110px;
+    width: 85%;
 }
 .third_section_top{
     background-color: #fff;
@@ -319,7 +327,7 @@ ul.nav-flex li a {
 }
 
 .container{
-    width: 1200px; 
+    width: 100%; 
 }
 
 
@@ -442,7 +450,7 @@ ul.nav-flex li a {
 }
 .buttons {
     position: absolute;
-    width: 1200px;
+    width: 100%;
     height: 30px;
     bottom: 10%;
     text-align: center;
@@ -538,7 +546,8 @@ ul.nav-flex li a {
 
 /* S-功能特性*/
 .features-center{
-    margin: 4% 0;
+    margin: 4% auto;
+    width: 90%;
 }
 .features_box h6{
     font-family: AppleSystemUIFont;
@@ -1028,6 +1037,7 @@ margin: 0 1%;
     border-radius: 10px;
     margin-top: -8%;
     background-color: #fff;
+    width: 100%;
 }
 .third_section .container div{
     background-color: #fff;
