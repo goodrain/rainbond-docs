@@ -141,7 +141,7 @@ ul.nav-flex li a {
  }
  #rollingOne a{
     font-family: PingFangSC-Regular;
-    animation: rollingOne 40s infinite ease;
+    animation: rollingOne 5s infinite ease;
     width: 535px;
     height: 100%;
     display: inline-block;
@@ -154,7 +154,7 @@ ul.nav-flex li a {
  }
  #rollingTwo a{
     font-family: PingFangSC-Regular;
-    animation: rollingTwo 40s infinite ease;
+    animation: rollingTwo 6s infinite ease;
     width: 535px;
     height: 100%;
     display: inline-block;
@@ -167,7 +167,7 @@ ul.nav-flex li a {
  }
  #rollingThree a{
     font-family: PingFangSC-Regular;
-    animation: rollingThree 10s infinite ease;
+    animation: rollingThree 8s infinite ease;
     width: 750px;
     height: 100%;
     display: inline-block;
@@ -220,7 +220,7 @@ ul.nav-flex li a {
 .second_section .rightBox .first_title {
     /* 一句话解释什么是企业应用云操作系统: */
     font-family: PingFangSC-Regular;
-    font-size: 16px;
+    font-size: 14px;
     color: #FFFFFF;
     letter-spacing: 0;
     text-align: right;
@@ -898,7 +898,7 @@ margin: 0 1%;
  }
  #rollingOne a{
     font-family: PingFangSC-Regular;
-    animation: rollingOne 60s infinite ease;
+    animation: rollingOne 6s infinite ease;
     width: 200px;
     display: inline-block;
  }
@@ -910,7 +910,7 @@ margin: 0 1%;
  }
  #rollingTwo a{
     font-family: PingFangSC-Regular;
-    animation: rollingTwo 50s infinite ease;
+    animation: rollingTwo 5s infinite ease;
     width: 200px;
     height: 100%;
     display: inline-block;
@@ -923,7 +923,7 @@ margin: 0 1%;
  }
  #rollingThree a{
     font-family: PingFangSC-Regular;
-    animation: rollingThree 80s infinite ease;
+    animation: rollingThree 8s infinite ease;
     width: 250px;
     height: 100%;
     display: inline-block;
