@@ -45,7 +45,7 @@ asciicast: true
 
 **选择要分享的应用，点击`发布到市场`。**
 
-> 提示：发布应用时，组内所有服务的状态必须为运行中
+> 提示：发布应用时，应用内所有服务的状态必须为运行中
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1544492992679.jpg" width='100%' />
 
