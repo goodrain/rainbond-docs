@@ -58,9 +58,9 @@
           ]
         },
         {
-          "title": "访问控制",
+          "title": "证书管理",
           "urls": [
-            "/${VERSION}/user-manual/gateway/traffic-control.html"
+            "/${VERSION}/user-manual/gateway/cert-management.html"
           ]
         }
       ]

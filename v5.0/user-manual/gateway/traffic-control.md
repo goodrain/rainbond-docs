@@ -1,6 +1,6 @@
 ---
 title: 应用网关
-summary: 您在容器中操作的数据是会随着容器的重启或停止而丢失的，所以需要将数据持久化存储到分布式存储中。
+summary: 。
 toc: true
 ---
 
@@ -33,10 +33,20 @@ toc: true
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/TCP%E7%AD%96%E7%95%A5.gif" width='100%' />
 
 ### **HTTPs, HTTP 转 HTTPs**
+- 点击 应用网关 -> 访问控制 -> 添加策略
+- 填写 域名, `绑定证书`, 应用(组), 服务组件, 端口号, `HTTP Rewrite HTTPs`, 均衡算法
+- 点击 确认
+- 把 域名 复制到浏览器进行访问
+
+> 如果没有勾选 HTTP Rewrite HTTPs, 那么将会是单纯的HTTPs
+
+可以看到, 用 http://test.goodrain.com 进行访问, 将被强制转成 https://test.goodrain.com
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/HTTPtoHTTPs.gif" width='100%' />
 
 ### **泛域名**
 - 点击 应用网关 -> 访问控制 -> 添加策略
-- 填写 域名(`这里需要填写泛域名`), 应用(组), 服务组件, 端口号
+- 填写 `泛域名`, 应用(组), 服务组件, 端口
 - 点击 确认
 - 把 域名 复制到浏览器进行访问
 
@@ -58,11 +68,7 @@ toc: true
 172:~ abe$ curl test.goodrain.com
 <html>
 <head><title>502 Bad Gateway</title></head>
-<body bgcolor="white">
-<center><h1>502 Bad Gateway</h1></center>
-<hr><center>openresty/1.13.6.1</center>
-</body>
-</html>
+...
 ```
 
 在访问的时候需要带上Cookie信息才能正常地对应用进行访问:
@@ -73,16 +79,6 @@ toc: true
 <html>
 <head>
 <title>Welcome to nginx!</title>
-<style>
-    body {
-        width: 35em;
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-    }
-</style>
-</head>
-<body>
-<h1>Welcome to nginx!</h1>
 ...
 ```
 
@@ -97,11 +93,7 @@ toc: true
 172:~ abe$ curl test.goodrain.com
 <html>
 <head><title>502 Bad Gateway</title></head>
-<body bgcolor="white">
-<center><h1>502 Bad Gateway</h1></center>
-<hr><center>openresty/1.13.6.1</center>
-</body>
-</html>
+...
 ```
 
 在访问的时候需要带上请求头信息才能正常地对应用进行访问:

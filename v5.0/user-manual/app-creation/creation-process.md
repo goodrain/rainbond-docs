@@ -24,6 +24,8 @@ Step 3: 应用检测通过后, 点击 **构建应用**.
 
 Step 4: 构建完成后, 点击 **访问**,  验证应用是否创建成功.
 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/HTML%E6%BA%90%E7%A0%81%E5%88%9B%E5%BB%BA.gif" width="100%" />
+
 这样, 一个由源码创建的应用就完成了. 
 
 ## **2. 从 Docker 镜像创建**
@@ -38,6 +40,8 @@ Step 3: 应用检测通过后, 点击 **构建应用**.
 
 Step 4: 构建完成后, 点击 **访问**,  验证应用是否创建成功.
 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA.gif" width="100%" />
+
 这样, 一个由 Docker 镜像创建的应用就完成了.
 
 ## **3. 从应用市场安装**
@@ -49,3 +53,7 @@ Step 1: 点击 **创建应用** -> **从应用市场安装**
 Step 2: 找到2048这个应用, 点击**安装**
 
 Step 3: 安装完成后, 点击 **访问**,  验证应用是否创建成功.
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/%E5%BA%94%E7%94%A8%E5%B8%82%E5%9C%BA%E5%AE%89%E8%A3%85.gif" width="100%" />
+
+这样, 一个从应用市场安装的应用就完成了.
