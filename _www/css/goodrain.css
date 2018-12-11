@@ -34,7 +34,11 @@ body{
     background-color: #313a5a;
     height: 80px;
     display: flex;
-    align-items: center
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10 ;
 }
 
 .nav-logo {
@@ -91,12 +95,11 @@ ul.nav-flex li a {
 .highBtnBox li {
     float: left;
     font-family: Helvetica;
-    font-size: 16px;
+    font-size: 15px;
     color: #FFFFFF;
     letter-spacing: 0;
     text-align: center;
     line-height: 35px;
-    height: 35px;
     width: 120px;
     margin-right: 20px;
     cursor:pointer;
@@ -123,7 +126,7 @@ ul.nav-flex li a {
 .second_section .lefBox {
     width: 50%;
     float: left;
-    padding-top: 7%;
+    padding-top: 14%;
     /* 在 阿里云 上 用 Rainbond 开: */
     font-family: PingFangSC-Regular;
     font-size: 48px;
@@ -152,9 +155,13 @@ ul.nav-flex li a {
  #rollingOne a{
     font-family: PingFangSC-Regular;
     animation: rollingOne 9s infinite ease;
-    width: 535px;
+    width: 750px;
     height: 100%;
     display: inline-block;
+ }
+ #rollingOne a span{
+     display: inline-block;
+     width: 250px
  }
  #rollingTwo{
     width:125px;
@@ -165,10 +172,14 @@ ul.nav-flex li a {
  #rollingTwo a{
     font-family: PingFangSC-Regular;
     animation: rollingTwo 12s infinite ease;
-    width: 535px;
+    width: 750px;
     height: 100%;
     display: inline-block;
  }
+ #rollingTwo a span{
+    display: inline-block;
+    width: 250px
+}
  #rollingThree{
     width:255px;
     height:100%;
@@ -177,90 +188,94 @@ ul.nav-flex li a {
  }
  #rollingThree a{
     font-family: PingFangSC-Regular;
-    animation: rollingThree 6s infinite ease;
-    width: 1000px;
+    animation: rollingThree 15s infinite ease;
+    width: 1500px;
     height: 100%;
     display: inline-block;
  }
+ #rollingThree a span{
+    display: inline-block;
+    width: 300px
+}
 @keyframes rollingOne {
     0% {
-        margin-left: 125px;
+        margin-left: 250px;
     }
     2% {
-        margin-left: 0px;
+        margin-left: 20px;
     }
    
     33% {
-        margin-left: 0px;
+        margin-left: 20px;
     }
     35% {
-      margin-left: -160px;
+      margin-left: -230px;
     }
   
       66% {
-        margin-left: -160px;
+        margin-left: -230px;
       }
       68% {
-        margin-left: -320px;
+        margin-left: -480px;
       }
   
     100% {
-      margin-left: -320px;
+      margin-left: -480px;
     }
 }
 
 @keyframes rollingTwo {
     0% {
-        margin-left: 115px;
+        margin-left: 250px;
     }
     2% {
-        margin-left: 0px;
+        margin-left: 4px;
     }
     33% {
-        margin-left: 0px;
+        margin-left: 4px;
     }
     35% {
-        margin-left: -128px;
+        margin-left: -243px;
       }
     66% {
-      margin-left: -128px;
+      margin-left: -243px;
     }
     68% {
-        margin-left: -258px;
+        margin-left: -493px;
       }
     100% {
-      margin-left: -258px;
+      margin-left: -493px;
     }
 }
 
 @keyframes rollingThree {
     0% {
-        margin-left: 255px;
+        margin-left: 300px;
     }
     2% {
-        margin-left: 0px;
+        margin-left: 4px;
     }
     33% {
-        margin-left: 0px;
+        margin-left: 4px;
     }
     35% {
-        margin-left: -430px;
+        margin-left: -310px;
       }
     66% {
-      margin-left: -430px;
+      margin-left: -310px;
     }
     68% {
-        margin-left: -800px;
+        margin-left: -610px;
       }
     100% {
-      margin-left: -800px;
+      margin-left: -610px;
     }
 }
 
 .second_section .rightBox {
     width: 50%;
     float: left;
-    padding-top: 20%;
+    padding-top: 30%;
 }
 
 .second_section .rightBox .first_title {
@@ -707,6 +722,7 @@ margin: 0 1%;
     width: 50px;
     height: 50px;
     background-size: 80% 80%;
+    position: relative;
     /*background-color: #FFFFFF;*/
 }
 .luntan{
@@ -954,23 +970,31 @@ margin: 0 1%;
  #rollingOne a{
     font-family: PingFangSC-Regular;
     animation: rollingOne 9s infinite ease;
-    width: 200px;
+    width: 300px;
     display: inline-block;
  }
+ #rollingOne a span{
+    display: inline-block;
+    width: 100px
+}
  #rollingTwo{
-    width:30px;
+    width:35px;
     height:100%;
-    margin-left: 48px;
+    margin-left: 45px;
     overflow: hidden;
     display:inline-block;
  }
  #rollingTwo a{
     font-family: PingFangSC-Regular;
     animation: rollingTwo 12s infinite ease;
-    width: 200px;
+    width: 300px;
     height: 100%;
     display: inline-block;
  }
+ #rollingTwo a span{
+    display: inline-block;
+    width: 100px
+}
  #rollingThree{
     width:71px;
     height:100%;
@@ -980,62 +1004,66 @@ margin: 0 1%;
  }
  #rollingThree a{
     font-family: PingFangSC-Regular;
-    animation: rollingThree 15s infinite ease;
-    width: 350px;
+    animation: rollingThree 3s infinite ease;
+    width: 600px;
     height: 100%;
     display: inline-block;
  }
+ #rollingThree a span{
+    display: inline-block;
+    width: 150px
+}
 @keyframes rollingOne {
     0% {
-        margin-left: 47px;
+        margin-left: 100px;
     }
     2% {
-        margin-left: 0px;
+        margin-left: 5px;
     }
     33% {
-        margin-left: 0px;
+        margin-left: 5px;
     }
     35% {
-        margin-left: -47px;
+        margin-left: -95px;
       }
     66% {
-      margin-left: -47px;
+      margin-left: -95px;
     }
     68% {
-        margin-left: -93px;
+        margin-left: -195px;
       }
     100% {
-      margin-left: -93px;
+      margin-left: -195px;
     }
 }
 
 @keyframes rollingTwo {
     0% {
-        margin-left: 50px;
+        margin-left: 100px;
     }
     2% {
-        margin-left: 0px;
+        margin-left: 1px;
     }
     33% {
-        margin-left: 0px;
+        margin-left: 1px;
     }
     35% {
-        margin-left: -36px;
+        margin-left: -96px;
       }
     66% {
-      margin-left: -36px;
+      margin-left: -96px;
     }
     68% {
-        margin-left: -75px;
+        margin-left: -195px;
       }
     100% {
-      margin-left: -75px;
+      margin-left: -195px;
     }
 }
 
 @keyframes rollingThree {
     0% {
-        margin-left: 70px;
+        margin-left: 150px;
     }
     2% {
         margin-left: 0px;
@@ -1044,16 +1072,16 @@ margin: 0 1%;
         margin-left: 0px;
     }
     35% {
-        margin-left: -100px;
+        margin-left: -130px;
       }
     66% {
-      margin-left: -100px;
+      margin-left: -130px;
     }
     68% {
-        margin-left: -220px;
+        margin-left: -292px;
       }
     100% {
-      margin-left: -220px;
+      margin-left: -292px;
     }
 }
 .second_section .rightBox {
