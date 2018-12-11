@@ -83,7 +83,7 @@
             {
                 "title": "软件定义网络",
                 "urls": [
-                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                    "/${VERSION}/operation-manual/network/calico.html"
                 ]
             },
             {
