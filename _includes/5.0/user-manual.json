@@ -18,6 +18,12 @@
       "title": "创建应用",
       "items": [
         {
+          "title": "应用的定义",
+          "urls": [
+            "/${VERSION}/user-manual/app-creation/app-definition.html"
+          ]
+        },
+        {
           "title": "创建方式",
           "urls": [
             "/${VERSION}/user-manual/app-creation/way-of-creation.html"
