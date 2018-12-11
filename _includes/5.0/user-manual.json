@@ -16,8 +16,19 @@
     },
     {
       "title": "创建应用",
-      "urls": [
-        "/${VERSION}/user-manual/create-an-app.html"
+      "items": [
+        {
+          "title": "创建方式",
+          "urls": [
+            "/${VERSION}/user-manual/app-creation/way-of-creation.html"
+          ]
+        },
+        {
+          "title": "创建流程",
+          "urls": [
+            "/${VERSION}/user-manual/app-creation/creation-process.html"
+          ]
+        }
       ]
     },
     {
