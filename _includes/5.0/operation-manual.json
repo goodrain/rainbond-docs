@@ -43,7 +43,7 @@
             {
                 "title": "系统服务部署参数说明",
                 "urls": [
-                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                    "/${VERSION}/operation-manual/rbd-parameter.html"
                 ]
             },
             {
@@ -88,14 +88,46 @@
             },
             {
                 "title": "节点管理",
-                "urls": [
-                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                "items": [{
+                    "title": "节点类型",
+                    "urls": [
+                        "/${VERSION}/operation-manual/cluster-management/type-of-node.html"
+                    ]
+                    },
+                    {
+                        "title": "扩容节点",
+                        "urls": [
+                            "/${VERSION}/operation-manual/cluster-management/add-node.html"
+                        ]
+                    },
+                    {
+                        "title": "删除节点",
+                        "urls": [
+                            "/${VERSION}/operation-manual/cluster-management/del-node.html"
+
+                        ]
+                    }
                 ]
             },
             {
                 "title": "监控与报警管理",
-                "urls": [
-                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                "items": [
+                    {
+                        "title": "监控",
+                        "urls": [
+                            "/${VERSION}/operation-manual/monitor/monitor.html"
+                        ]},
+                    {
+                        "title": "报警",
+                        "urls": [
+                            "/${VERSION}/operation-manual/monitor/alerting.html"
+                        ]},
+                    {
+                            "title": "应用异常事件监控",
+                            "urls": [
+                                "/${VERSION}/operation-manual/monitor/service_abnormal.html"
+                            ]
+                    }
                 ]
             },
             {

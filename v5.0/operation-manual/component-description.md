@@ -18,20 +18,6 @@ toc: true
 |etcd/etcd-proxy|3.2.25|存储配置信息与实现服务发现机制|
 |Calico|v3.3.1|网络服务，负责维护容器内部网络与跨主机通讯|
 
-## 二、节点类型列表
-
-目前Rainbond节点属性主要分为5种类型:
-
-|节点类型|功能说明|备注|
-|-------|-------|-----|
-|Master节点|Rainbond管理节点，集结平台自身组件，提供应用调度管理等高级功能||
-|Worker节点|Rainbond计算节点，提供计算资源||
-|Etcd节点|提供kubernetes所需etcd存储|默认部署于管理节点|
-|Lb节点|提供通向应用的网关|默认部署于管理节点|
-|Storage节点|提供集群共享存储|默认使用NFS存储，可对接其它存储|
-
-默认所有节点都会安装docker,node,kubernetes(计算节点仅安装kubelet),calico,etcd(计算节点安装etcd-proxy)
-
 以下是通过一键部署方式将会在服务器安装的Rainbond各服务组件及其版本信息。
 
 |组件|版本|安装属性|说明|
@@ -59,13 +45,13 @@ toc: true
 |rbd-app-ui|5.0|Master|应用控制台web服务|
 |rbd-gateway|5.0|Master/Lb|通向应用的全局网关，提供A/B测试、灰度发布等高级功能|
 
-## 三、逻辑架构图
+## 二、逻辑架构图
 
 <a href="https://static.goodrain.com/images/docs/5.0/operation-manual/deploy-logic.png" target="_blank"><img src="https://static.goodrain.com/images/docs/5.0/operation-manual/deploy-logic.png" width="100%"  /></a>
 
-## 四、附录
+## 三、附录
 
-### 4.1 DNS服务说明
+### 3.1 DNS服务说明
 
 rbd-dns服务，除提供平台用户应用的域名解析之外，还提供内部组件互相访问的域名解析。
 
@@ -77,7 +63,7 @@ rbd-dns服务，除提供平台用户应用的域名解析之外，还提供内�
 |maven.goodrain.me|maven仓库地址，rbd-repo提供服务|
 |repo.goodrain.me|本地软件源,rbd-gateway提供服务,仅离线环境|
 
-### 4.2 部分服务端口说明
+### 3.2 部分服务端口说明
 
 |端口号|说明|访问控制|
 |--------|--------|------------|
