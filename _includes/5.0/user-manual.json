@@ -43,13 +43,13 @@
         {
           "title": "应用管理",
           "urls": [
-            "/${VERSION}/user-manual/manage-app.html"
+            "/${VERSION}/user-manual/app-manage/app-group.html"
           ]
         },
         {
           "title": "服务组件管理",
           "urls": [
-            "/${VERSION}/user-manual/service-component-management.html"
+            "/${VERSION}/user-manual/app-manage/app-ctl.html"
           ]
         }
       ]
@@ -75,38 +75,9 @@
       "title": "插件管理",
       "items": [
         {
-          "title": "插件设计与开发",
-          "urls": [
-            "/${VERSION}/plugins/plugin-design-develop.html"
-          ]
-        },
-        {
           "title": "插件分享与发布",
           "urls": [
-            "/${VERSION}/plugins/share-and-publish.html"
-          ]
-        },
-        {
-          "title": "插件列表",
-          "items": [
-            {
-              "title": "性能分析插件",
-              "urls": [
-                "/${VERSION}/plugins/lists/performance-analysis.html"
-              ]
-            },
-            {
-              "title": "服务网格治理插件",
-              "urls": [
-                "/${VERSION}/plugins/lists/service-mesh.html"
-              ]
-            },
-            {
-              "title": "MySQL数据库备份插件",
-              "urls": [
-                "/${VERSION}/plugins/lists/mysql-backup.html"
-              ]
-            }
+            "/${VERSION}/user-manual/plugin-manage/plugin-manage.html"
           ]
         }
       ]
@@ -120,7 +91,7 @@
     {
       "title": "应用市场",
       "urls": [
-        "/${VERSION}/user-manual/app-store.html"
+        "/${VERSION}/user-manual/app-store/app-market.html"
       ]
     },
     {
