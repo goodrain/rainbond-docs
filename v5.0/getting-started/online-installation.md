@@ -94,15 +94,11 @@ cd /opt/rainbond/rainbond-ansible
 5.0 版本安装有所调整,如果安装过程中有报错且提示ignore,可忽略此报错。如有报错，请与我们反馈 [Github](https://github.com/goodrain/rainbond-ansible/issues)。
 {{site.data.alerts.end}}
 
-<!--
-{{site.data.alerts.callout_success}}
-云帮安装程序通过 shell 脚本 + ansible 实现，包括后续集群的扩容、升级及管理。相关源码参见：[rainbond-install](https://github.com/goodrain/rainbond-install)  
-节点扩容, 请参照 [运维手册, 节点扩容](../operation-manual/cluster-management/add-compute-node.html)  
-安装问题, 请参照 [运维手册，安装部署-集群安装问题排查](../operation-manual/trouble-shooting/install-issue.html)  
-使用问题, 请参照 [运维手册，平台维护-集群故障排查](../operation-manual/trouble-shooting/issue.html)  
-{{site.data.alerts.end}}
 
--->
+{{site.data.alerts.callout_success}}
+云帮安装程序通过 shell 脚本 + ansible 实现，包括后续集群的扩容、升级及管理。相关源码参见：[rainbond-ansible](https://github.com/goodrain/rainbond-ansible)  
+节点扩容, 请参照 [运维手册, 节点扩容](../operation-manual/cluster-management/add-node.html) 
+{{site.data.alerts.end}}
 
 ## 四、部署完成后的引导
 
