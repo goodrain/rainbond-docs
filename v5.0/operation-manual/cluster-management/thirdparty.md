@@ -7,9 +7,9 @@ toc: true
 
 ## 准备已有配置文件或者重新签发k8s证书
 
-k8s 需要签`kubeapi.goodrain.me`
-k8s ssl文件copy到  `/opt/rainbond/etc/kubernetes/ssl`目录下
-k8s kubeconfig 文件copy到 `/opt/rainbond/etc/kubernetes/kubecfg`目录下
+k8s 需要签`kubeapi.goodrain.me`  
+k8s ssl文件copy到  `/opt/rainbond/etc/kubernetes/ssl`目录下  
+k8s kubeconfig 文件copy到 `/opt/rainbond/etc/kubernetes/kubecfg`目录下  
 
 
 ```
