@@ -126,7 +126,7 @@
     {
       "title": "团队管理",
       "urls": [
-        "/${VERSION}/user-manual/manage-your-team.html"
+        "/${VERSION}/user-manual/manage-team.html"
       ]
     },
     {
