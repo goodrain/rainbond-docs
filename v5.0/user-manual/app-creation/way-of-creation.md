@@ -4,10 +4,7 @@ summary: 。
 toc: true
 ---
 
--[] 支持哪些编程语言的源码创建?
--[] 修改管理节点docker配置，支持非安全的仓库地址
-
-在前一篇文章 [应用的定义](http://www.goodrain.com) 中已经提到, 应用是由各个不同的服务组件构成, 那么应用的创建就离不开服务组件的创建. 服务组件创建的方式有3种, 分别是: 源码创建, 从 Docker 镜像创建, 从应用市场安装.
+在前一篇文章 [应用的定义](./app-definition.md) 中已经提到, 应用是由各个不同的服务组件构成, 那么应用的创建就离不开服务组件的创建. 服务组件创建的方式有3种, 分别是: 源码创建, 从 Docker 镜像创建, 从应用市场安装.
 
 <img src="https://static.goodrain.com/images/docs/3.7/user-manual/create-app-3.7.png" width="100%" />
 

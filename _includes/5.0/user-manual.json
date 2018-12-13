@@ -34,6 +34,47 @@
           "urls": [
             "/${VERSION}/user-manual/app-creation/creation-process.html"
           ]
+        },
+        {
+          "title": "语言支持",
+          "items": [
+            {
+              "title": "Dockerfile",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/dockerfile.html"]
+            },
+            {
+              "title": "Java",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/java.html"]
+            },
+            {
+              "title": "PHP",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/php.html"]
+            },
+            {
+              "title": "Python",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/python.html"]
+            },
+            {
+              "title": "Node.JS",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/nodejs.html"]
+            },
+            {
+              "title": "Ruby",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/ruby.html"]
+            },
+            {
+              "title": "Golang",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/golang.html"]
+            },
+            {
+              "title": "Html",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/html.html"]
+            },
+            {
+              "title": "NetCore",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/netcore.html"]
+            }
+          ]
         }
       ]
     },
@@ -85,7 +126,7 @@
     {
       "title": "团队管理",
       "urls": [
-        "/${VERSION}/user-manual/manage-your-team.html"
+        "/${VERSION}/user-manual/manage-team.html"
       ]
     },
     {
