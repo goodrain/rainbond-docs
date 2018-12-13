@@ -1,23 +1,26 @@
 ---
-title: 命令行工具
+title: 日常维护工具集
 summary: 命令行工具说明
 toc: true
 ---
 
-## 一、grctl 命令
+## 一、 grctl 
 
 grctl命令是rainbond自带的集群管理工具，它具备如下主要功能特性：
 
 |功能模块|命令示例|
 |-----------|-------------|
-|平台应用控制|`grctl service get <url>` 查看应用详情<br>`grctl service stop <团队别名>/<应用别名>` 关闭指定团队内某个应用<br>`grctl service start <团队别名>/<应用别名>` 启动指定团队内某个应用<br>|
-|集群节点控制|`grctl node list` 查看集群节点情况<br>`grctl  node down <节点ID>`下线指定节点<br>`grctl  node up <节点ID>`上线指定节点<br>`grctl  node delete <节点ID>`删除指定节点<br>`grctl  node unscheduable <节点ID>`将某个节点设置为不可调度<br>`grctl  node rescheduable <节点ID>`恢复某个节点的调度|
+|平台应用控制|`grctl service get <应用别名> -t <团队别名>` 查看应用详情<br>`grctl service stop <团队别名>/<应用别名>` 关闭指定团队内某个应用<br>`grctl service start <团队别名>/<应用别名>` 启动指定团队内某个应用<br>|
+|集群节点控制|`grctl cluster` 查看集群情况<br>`grctl node list` 查看集群节点列表<br>`grctl  node down <节点ID>`下线指定节点<br>`grctl  node up <节点ID>`上线指定节点<br>`grctl  node delete <节点ID>`删除指定节点<br>`grctl  node cordon <节点ID>`将某个节点设置为不可调度<br>`grctl  node uncordon <节点ID>`恢复某个节点的调度|
+
+> 如何得知当前应用的 <团队别名> <应用别名>？
+
+<img src="https://static.goodrain.com/images/docs/5.0/operation-manual/team-service-alias.png" width="100%" />
 
 更多信息可通过help命令获取
 
 ```bash
-grctl -h
-
+[root@node1 ~]# grctl -h
 NAME:
    grctl - A new cli application
 
@@ -25,37 +28,41 @@ USAGE:
    grctl [global options] command [command options] [arguments...]
 
 VERSION:
-   3.7-951ad3f-2018-08-11-08
+   5.0-748241a-2018-12-09-08
 
 COMMANDS:
-     service   服务相关
-     tenant    租户相关
-     node      节点管理
-     cluster   集群信息
-     exec      进入容器。grctl exec POD_NAME COMMAND
-     init      初始化集群
-     show      显示访问信息
-     alerting  监控报警相关
-     conf      集群和服务配置相关工具
-     domain    更改域名解析
+     service    about  application service operation，grctl service -h
+     tenant     grctl tenant -h
+     node       节点管理相关操作
+     cluster    show curren cluster datacenter info
+     exec       进入容器方法。grctl exec POD_NAME COMMAND
+     init       初始化集群。grctl init cluster
+     show       显示region安装完成后访问地址
+     alerting   监控报警。grctl alerting
+     msg        应用异常通知事件。grctl msg
+     reset      重置当前节点grctl reset
+     conf       集群和服务配置相关工具
+     domain
+     buildtest  build test source code, If it can be build, you can build in rainbond
+     help, h    Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --config value, -c value  default <USER_HOME>/.rbd/grctl.yaml
-   --help, -h                show help
-   --version, -v             print the version
+   --config value, -c value          default <USER_HOME>/.rbd/grctl.yaml
+   --kubeconfig value, --kube value  default <USER_HOME>/.kube/config
+   --help, -h                        show help
+   --version, -v                     print the version
 ```
 
-### 1.1 通过grctl命令查看应用运行详细信息
-
+### 1.1 查看应用详情
 
 ```bash
-# 应用 URL
-grctl service get http://dev.rainbond.com/#/team/test/region/private-center2/app/gr114c75/overview
-# 租户/应用别名
-grctl service get test/gr114c75
+
+# 获取应用详情
+grctl service get grac5e3c -t 4ur5male
+
 ```
 
-<img src="https://static.goodrain.com/images/docs/3.6/operation-manual/grctl-service-get.png" width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.0/operation-manual/grctl-service-get.png" width="100%" />
 
 - 查看应用容器真实使用内存
 
