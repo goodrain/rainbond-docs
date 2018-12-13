@@ -4,14 +4,25 @@
   "items": [
     {
       "title": "用户注册登陆",
-      "urls": [
-        "/${VERSION}/user-manual/user-registration-login.html"
+      "items": [
+        {
+          "title": "用户、管理员注册",
+          "urls": [
+            "/${VERSION}/user-manual/user-registration-login/user-register.html"
+          ]
+        },
+        {
+          "title": "用户管理",
+          "urls": [
+            "/${VERSION}/user-manual/user-registration-login/user-manage.html"
+          ]
+        }
       ]
     },
     {
       "title": "创建团队",
       "urls": [
-        "/${VERSION}/user-manual/create-team.html"
+        "/${VERSION}/user-manual/create-team/create-team.html"
       ]
     },
     {
@@ -126,7 +137,7 @@
     {
       "title": "团队管理",
       "urls": [
-        "/${VERSION}/user-manual/manage-team.html"
+        "/${VERSION}/user-manual/manage-team/manage-team.html"
       ]
     },
     {
@@ -138,7 +149,7 @@
     {
       "title": "企业中心",
       "urls": [
-        "/${VERSION}/user-manual/business-center.html"
+        "/${VERSION}/user-manual/business-center/business-center.html"
       ]
     }
   ]
