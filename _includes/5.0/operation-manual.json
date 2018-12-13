@@ -87,6 +87,12 @@
                 ]
             },
             {
+                "title": "对接已有k8s集群",
+                "urls": [
+                    "/${VERSION}/operation-manual/cluster-management/thirdparty.html"
+                ]
+            },
+            {
                 "title": "节点管理",
                 "items": [{
                     "title": "节点类型",
