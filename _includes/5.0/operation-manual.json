@@ -37,7 +37,7 @@
             {
                 "title": "数据中心概述",
                 "urls": [
-                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                    "/${VERSION}/operation-manual/data-center.html"
                 ]
             },
             {
@@ -49,7 +49,7 @@
             {
                 "title": "数据中心初始化",
                 "urls": [
-                    "/${VERSION}/operation-manual/deployment-architecture.html"
+                    "/${VERSION}/operation-manual/init-datacenter.html"
                 ]
             },
             {
