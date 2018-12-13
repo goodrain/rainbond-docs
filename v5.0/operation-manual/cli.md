@@ -78,7 +78,7 @@ docker stats 342d8b28b86e
 
 <img src="https://static.goodrain.com/images/docs/3.6/operation-manual/get-container-memory.png" width="100%" />
 
-### 1.2 通过grctl命令操作节点
+### 1.2 操作节点
 
 - 列出集群节点信息
 
@@ -94,40 +94,45 @@ grctl node list
 grctl  cluster
 ```
 
+<img src="https://static.goodrain.com/images/docs/5.0/operation-manual/grctl-cluster.png" width="100%" />
+
 - 获取某个节点的详细信息
 
 ```bash
 # 可以获取这个节点集群服务的健康状态
-grctl node get 03f2ee6b-3f3e-4353-bbe3-0e49ce1da677
+grctl node get dfbb29b0d7b8b340120b4bb81a49efff
 ```
+
+<img src="https://static.goodrain.com/images/docs/5.0/operation-manual/grctl-node-get.png" width="100%" />
 
 - 下线与上线某个节点
 
 ```bash
-# 下线172.16.210.110节点
-grctl node down d4ac1bcf-4239-4d55-b1ea-db81e067eb70
+# 下线节点
+grctl node down dfbb29b0d7b8b340120b4bb81a49efff
 
 # 上线节点
-grctl node up d4ac1bcf-4239-4d55-b1ea-db81e067eb70
+grctl node up dfbb29b0d7b8b340120b4bb81a49efff
 ```
 
 - 禁止/允许调度到某个节点
 
 ```bash
 # 禁止调度到某个节点
-grct node unscheduable d4ac1bcf-4239-4d55-b1ea-db81e067eb70
+grct node cordon dfbb29b0d7b8b340120b4bb81a49efff
 
 # 允许调度到某个节点
-grctl node rescheduable d4ac1bcf-4239-4d55-b1ea-db81e067eb70
+grctl node uncordon dfbb29b0d7b8b340120b4bb81a49efff
 ```
 
-### 1.3 通过grctl命令进入应用容器
+### 1.3 进入应用容器
 
 ```bash
-grctl exec <PodName> <COMMAND>
+grctl exec <PodName> bash
 ```
 
-### 1.4 通过grctl修改泛域名解析
+### 1.4 修改泛域名解析
+
 Rainbond默认会申请一个泛解析域名提供给平台HTTP协议的应用使用，如果要修改泛解析地址，可以通过如下命令来设置：
 
 ```bash
@@ -137,16 +142,21 @@ grctl domain --ip <ip address>
 ## 二、其他命令行工具
 
 ### 2.1 din 进入指定容器
-该命令是 `docker exec -it $1 bash` 命令的封装，可以进入到给定容器ID的容器内部。
+
+该命令是 `docker exec -it $1 ${2:-bash}` 命令的封装，可以进入到给定容器ID的容器内部。
 
 ```bash
 din <容器ID>
 ```
 
+> 如报错容器中没有bash，则在命令后加 `sh`
+
 ### 2.2 dps 查看运行与停止的容器
+
 该命令是 `docker ps -a`  命令的封装，列出所有容器，包括运行与非运行状态。
 
 ### 2.3 cclear清理已经退出的容器
+
 该命令是我们封装的脚本，可以清理已经退出的容器，脚本内容如下：
 
 ```bash
@@ -160,6 +170,7 @@ fi
 ```
 
 ### 2.4 iclear 清理处于dangling状态的镜像
+
 该命令是我们封装的脚本，可以清理处于 [dangling](https://stackoverflow.com/questions/45142528/docker-what-is-a-dangling-image-and-what-is-an-unused-image) 状态的镜像，脚本内容如下：
 
 ```bash
@@ -183,6 +194,7 @@ fi
 ```
 
 ### 2.5 igrep 快速搜索镜像
+
 快速定位指定关键词的镜像，该命令是我们封装的脚本，示例如下：
 
 ```bash
@@ -193,10 +205,7 @@ d4e43a94f3e3        4 months            310.3 MB            rainbond/kube-apiser
 ```
 
 ### 2.6 ctop 查看容器资源使用情况
+
 以top的形式查看容器运行状态。
 
 <img src="https://static.goodrain.com/images/docs/3.6/operation-manual/ctop.gif" width="100%" />
-
-### 2.7 grclis 关闭服务
-
-快速关闭服务.
