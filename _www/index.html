@@ -16,7 +16,6 @@
     <link href="css/video-js.min.css" rel="stylesheet">
     <link rel="stylesheet" href='css/modal-video.css'>
 </head>
-
 <body>
     <!-- mobile -->
     <div class="header hide" style="height: 50px">
@@ -91,32 +90,32 @@
         <div class="container">
             <div class="setWidth">
                 <div class="lefBox">
-                <div class="second_title  leftBoxTitle hide">企业应用云操作系统</div>
+                <div class="second_title rightBoxText leftBoxTitle hide">企业应用云操作系统</div>
                     <ul>
                         <li>
                             在
                             <span id="rollingOne">
-                                <a>&nbsp;阿里云&nbsp;虚拟机&nbsp;服务器</a>
+                                <a><span>阿里云</span><span>虚拟机</span><span>服务器</span></a>
                             </span>
                             上
                         </li>
                         <li>用Rainbond</li>
                         <li><span id="rollingTwo">
-                                <a>开发&nbsp;&nbsp;交付&nbsp;&nbsp;运维</a>
+                                <a><span>开发</span><span>交付</span><span>运维</span></a>
                             </span></li>
                         <li>
                             <span id="rollingThree">
-                                <a>微服务架构 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大数据&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业应用</a>
+                                <a><span>微服务架构</span> <span>大数据</span><span>企业应用</span></a>
                             </span>
                         </li>
                     </ul>
                 </div>
                 <div class="rightBox">
                     <ul>
-                        <li class="first_title rightBoxTit">Rainbond支撑企业应用的开发、架构、交付和运维的全流程，通过“无侵入”架构<br>无缝衔接各类企业应用，底层资源可以对接和管理IaaS、虚拟机和物理服务器。</li>
-                        <li class="second_title rightBoxTitTwo">企业应用云操作系统</li>
+                        <li class="second_title rightBoxTitTwo ">企业应用云操作系统</li>
+                        <li class="first_title rightBoxTit">Rainbond支撑企业应用的开发、架构、交付和运维的全流程，通过“无侵入”架构<br>无缝衔接各类企业应用，底层资源可以对接和管理IaaS、虚拟机和物理服务器</li>
                         <li class="third_title">
-                            <a class="active" href="docs/stable/getting-started/installation-guide.html" target="_blank"><span
+                            <a class="active" href="docs/stable/getting-started/rainbond-overview.html" target="_blank"><span
                                     class="active">快速开始</span></a>
                             <a target="_blank" href="https://www.goodrain.com/contactus"><span>演示环境</span></a>
                             <a href="https://github.com/goodrain/rainbond" target="_blank"><span>Github</span></a>
@@ -296,8 +295,7 @@
                 </div>
                 <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 text-center social">
                     <a href="https://github.com/goodrain/rainbond" class="github" target="_blank"></a>
-                    <a href="javascript:void(0);" class="wechart"></a>
-                    <img src="./images/wechart.png" alt="" class="wechart-hover hide">
+                    <a href="javascript:void(0);" class="wechart"><img src="./images/wechart.png" alt="" class="wechart-hover hide"></a>
                     <!-- <a href="ttps://weibo.com/u/5743730973" class="weibo" target="_blank"></a> -->
                     <a href="https://t.goodrain.com/" class="luntan" target="_blank"></a>
                 </div>
@@ -361,7 +359,8 @@
             })
             $('.wechart').hover(function () {
                 $('.wechart-hover').css({
-                    top: "-92px"
+                    top: "-96px",
+                    left:"-28px"
                 }).removeClass('hide')
             }, function () {
                 $('.wechart-hover').addClass('hide');
@@ -377,12 +376,7 @@
                 // }else{//否则清空悬浮
                 //     $('#nav').css({'position':'','top':''}).addClass('hide');
                 // }
-                if (scrTop > 768) {
-                    $('.first_section').css({ 'position': 'fixed', 'top': '0', 'width': '100%', "z-index": 10 });
-
-                } else {
-                    $('.first_section').css({ 'position': '', 'top': '' });
-                }
+              
             })
             if ($(window).width() < 768) {
                 $('.header').removeClass('hide');
