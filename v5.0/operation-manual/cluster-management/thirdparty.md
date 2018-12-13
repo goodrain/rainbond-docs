@@ -16,6 +16,12 @@ k8s kubeconfig 文件copy到 `/opt/rainbond/etc/kubernetes/kubecfg`目录下
 admin.kubeconfig kube-proxy.kubeconfig
 ```
 
+## docker配置
+
+```
+docker 需要配置 --insecure-registry goodrain.me
+```
+
 ## 安装rainbond相关组件
 
 ```
