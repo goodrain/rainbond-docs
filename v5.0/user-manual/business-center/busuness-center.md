@@ -10,7 +10,7 @@ toc: false
 
 企业管理员可以设置平台信息，管理企业下的团队。
 
-##平台设置
+##一.平台设置
 设置用户是否允许在该平台注册
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/platform_1.png" width="100%"/>
 
@@ -20,7 +20,7 @@ toc: false
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/platform_2.png" width="100%"/>
 
 
-##团队管理
+##二.团队管理
 管理该平台下的所有团队
 
 ###添加团队
