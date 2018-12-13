@@ -29,3 +29,10 @@ wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 chmod +x ./grctl
 ./grctl init --iip <内网ip> --rainbond-version thirdparty 
 ```
+
+## 修改kubelet参数
+
+```
+# 可选 kubelet参数配置，不配置的话无法使用节点管理操作
+--hostname_override=<当前节点node的UID>
+```
