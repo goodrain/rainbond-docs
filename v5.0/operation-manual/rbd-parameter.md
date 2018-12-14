@@ -120,7 +120,26 @@ Rainbond各组件的配置文件存放于 `/opt/rainbond/conf` 目录下，配�
     --websocket.bind.ip=10.10.10.19
 ```
 
-## 九、 查看一个组件的所有配置项
+## 九、rbd-gateway
+
+```bash
+    # kubernetes 集群配置文件路径
+    --kube-conf="/etc/goodrain/kubernetes/admin.kubeconfig"
+    # etcd 地址，当前使用默认集群地址，可更改为指定的地址,格式为 http://ETCD1:2379,http://ETCD2:2379,http://ETCD3:2379
+    --etcd-endpoints=${ETCD_ENDPOINTS}
+    # etcd 连接超时时间, 单位'秒'
+    --etcd-timeout=5
+    # Gateway 健康检查端口
+    --healthz-port=10254
+    # Gateway 健康检查URI
+    --health-path="/healthz"
+    # Gateway 健康检查超时时间, 单位'秒'
+    --health-check-timeout=10
+    # 日志级别
+    --log.level=info
+```
+
+## 十、 查看一个组件的所有配置项
 
 当你希望获取某个组件的所有可配置信息的时候，下面的方法可以帮助你实现目的：
 
@@ -137,7 +156,7 @@ ps -ef
 
 <img src="https://static.goodrain.com/images/docs/5.0/operation-manual/get-all-para.png" width="100%"  />
 
-## 十、 修改配置后如何生效
+## 十一、 修改配置后如何生效
 
 当你修改了配置文件，执行以下操作可以使变更生效：
 
