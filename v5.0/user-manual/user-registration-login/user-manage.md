@@ -15,7 +15,7 @@ toc: true
 
 权限系统拥有灵活定制性的同时也使权限控制的粒度更加细腻。
 
-<img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/privilege-management01.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/privilege-management02.png" width="100%" />
 
 
 ### **添加角色**
@@ -28,7 +28,7 @@ toc: true
 - 角色名称是三十个字符内的数字/字母/中文字符/下划线/中划线的任意组合
 {{site.data.alerts.end}}
 
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_role2.jpg" style="border:1px solid #eee;width:100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/permissions_01.png" style="border:1px solid #eee;width:100%"/></center>
   
 
 ### **删除角色**
@@ -39,13 +39,13 @@ toc: true
 - 如果您的团队中已经有成员拥有此角色，那您不能直接删除该角色
 {{site.data.alerts.end}}
 
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rm_role.png" style="border:1px solid #eee;width:100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/permissions_02.png" style="border:1px solid #eee;width:100%"/></center>
 
 ### **编辑角色**
 
 您可以修改自定义角色的名称以及这个角色对应的权限选项。但您在本团队中的角色必须是`owner(创建者)`或者`admin(管理员)`才可以进行修改自定义角色的操作。您可以在`团队管理`中的`角色管理`一栏中点击想要修改的角色后方的`修改`按钮，修改角色名称以及对应的权限选项，确认无误后点击确认即可完成对次角色的修改，
 
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_role.jpg" style="border:1px solid #eee;width:100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/permissions_03.png" style="border:1px solid #eee;width:100%"/></center>
   
 ### **添加团队成员**
 
