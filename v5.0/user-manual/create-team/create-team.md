@@ -22,6 +22,8 @@ Rainbond注册的第一个用户是平台管理员，他可以新建其他团队
 ## **二.数据中心**
 
 如果您具有`开通数据中心`权限，才可以执行开通数据中心操作
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/openDataCenter.gif" width="100%"
+/>
 
 
 
