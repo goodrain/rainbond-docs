@@ -131,6 +131,18 @@
           "urls": [
             "/${VERSION}/user-manual/plugin-manage/plugin-manage.html"
           ]
+        },
+        {
+          "title": "插件设计与开发",
+          "urls": [
+            "/${VERSION}/user-manual/plugin-manage/plugin-design-develop.html"
+          ]
+        },
+        {
+          "title": "MySQL数据库备份与恢复插件",
+          "urls": [
+            "/${VERSION}/user-manual/plugin-manage/create-mysql-plugin.html"
+          ]
         }
       ]
     },
