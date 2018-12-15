@@ -27,7 +27,7 @@
     {% include sidebar-releases.json %},
     
     // FAQs
-    {% include 3.7/faqs.json %},
+    {% include 5.0/faqs.json %},
 
     // 贡献
     {% include 3.7/contribute.json %},
