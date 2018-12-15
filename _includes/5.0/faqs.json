@@ -1,12 +1,5 @@
 {
     "title": "FAQs",
     "is_top_level": true,
-    "items": [
-        {
-            "title": "FAQs",
-            "urls": [
-                "/${VERSION}/FAQs/FAQs.html"
-            ]
-        }
-    ]
+    "urls": [ "/${VERSION}/FAQs/FAQs.html"]
 }
