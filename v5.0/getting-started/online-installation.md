@@ -27,10 +27,12 @@ asciicast: true
 
 一键部署 Rainbond 是为了简化 Rainbond 安装步骤，通过 shell 脚本将 Rainbond 及其所需要的组件，统一进行安装及配置。用户仅需要简单的配置相关参数，运行 shell 命令即可。一键部署 Rainbond 适合仅简单了解 Rainbond 架构，想迅速搭建 Rainbond 的人群。
 
+安装前请阅读[grctl参数相关说明](https://github.com/goodrain/rainbond-ansible/tree/devel/docs/guide)  
+
 ```bash
 wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 chmod +x ./grctl
-./grctl init --iip <管理节点内网ip>
+./grctl init 
 ```
 
 安装完成后检查,当所有项目都是健康状态时平台即可正常使用。
@@ -46,29 +48,32 @@ grctl node list
 <管理节点>:7070
 ```
 
-## 三、手动部署
+## 三、源码部署
+
+
+安装前请阅读[源码安装相关说明](https://github.com/goodrain/rainbond-ansible/tree/devel/docs/guide)  
 
 通过执行ansible相关命令来执行安装
 
 ```
-# 默认配置在目录下 rainbond-ansible/scripts/installer/global.sh
-## 自定义项
-IIP="" #内网ip
-DOMAIN="" #域名，如果需要指定自定义域名
-NETWORK_TYPE="calico" #支持calico和flannel
+# 更新 /opt/rainbond/rainbond-ansible/scripts/installer/global.sh，示例如下，除INSTALL_TYPE和DEPLOY_TYPE外其他都可以更改
 
-## 默认项，也需定义
 INSTALL_TYPE="online"
+POD_NETWORK_CIDR=""
 DEPLOY_TYPE="onenode"
-
-# 节点信息 rainbond-ansible/inventory/hosts
+NETWORK_TYPE="calico"
+IIP="192.168.56.5"
+DOMAIN=""
 ```
 
 安装操作
 
 ```
 # 项目需要git clone到/opt/rainbond目录下
-cd /opt/rainbond/rainbond-ansible
+mkdir -pv /opt/rainbond
+cd /opt/rainbond
+git clone https://github.com/goodrain/rainbond-ansible.git 
+cd rainbond-ansible
 # 更新global.sh后执行安装
 ./setup.sh
 ```
