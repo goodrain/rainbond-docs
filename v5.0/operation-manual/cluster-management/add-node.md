@@ -46,8 +46,8 @@ grctl node add --hostname <主机名> --iip <内网ip> --root-pass <root用户�
 如新增多个计算节点, compute01 需要配置相关密码，compute02 需要提前配置ssh信任
 [all]
 node1 ansible_host=192.168.56.3 ip=192.168.56.3 ansible_user=root ansible_ssh_pass=12345678 ansible_become=true
-compute01 ip=192.168.56.4 ansible_user=root ansible_ssh_pass=12345678 ansible_become=true
-compute02 ip=192.168.56.5
+compute01 ansible_host=192.168.56.4 ip=192.168.56.4 ansible_user=root ansible_ssh_pass=12345678 ansible_become=true
+compute02 ansible_host=192.168.56.5 ip=192.168.56.5
 
 [deploy]
 node1 NTP_ENABLED=no
@@ -67,7 +67,9 @@ node1
 [lb]
 node1
 
-[new-node]
+[new-master]
+
+[new-worker]
 compute01
 compute02
 
