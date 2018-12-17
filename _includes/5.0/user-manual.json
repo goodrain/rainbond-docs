@@ -94,14 +94,102 @@
       "items": [
         {
           "title": "应用管理",
-          "urls": [
-            "/${VERSION}/user-manual/app-manage/app-group.html"
+          "items": [
+            {
+              "title": "基本操作",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/app/app-operation.html"
+              ]
+            },
+            {
+              "title": "应用的发布与安装",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/app/share-app.html"
+              ]
+            },
+            {
+              "title": "应用的备份与迁移",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/app/app-backup.html"
+              ]
+            },
+            {
+              "title": "拓扑图",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/app/app-topology.html"
+              ]
+            },
+            {
+              "title": "创建服务组件说明",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/app/create-service.html"
+              ]
+            }
           ]
         },
         {
           "title": "服务组件管理",
-          "urls": [
-            "/${VERSION}/user-manual/app-manage/app-ctl.html"
+          "items": [
+            {
+              "title": "服务基本操作",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/basic-operation.html"
+              ]
+            },
+            {
+              "title": "服务回滚",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-rollback.html"
+              ]
+            },
+            {
+              "title": "服务伸缩",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-scaling.html"
+              ]
+            },
+            {
+              "title": "添加服务存储",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/add-service.html"
+              ]
+            },
+            {
+              "title": "服务端口与域名管理",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-port-domain.html"
+              ]
+            },
+            {
+              "title": "添加服务依赖",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-rely.html"
+              ]
+            },
+            {
+              "title": "进入容器",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-container.html"
+              ]
+            },
+            {
+              "title": "服务日志",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-log.html"
+              ]
+            },
+            {
+              "title": "构建源",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-source.html"
+              ]
+            },
+            {
+              "title": "其他设置",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/other-set.html"
+              ]
+            }
           ]
         }
       ]
@@ -154,8 +242,25 @@
     },
     {
       "title": "应用市场",
-      "urls": [
-        "/${VERSION}/user-manual/app-store/app-market.html"
+      "items": [
+        {
+          "title": "应用市场定义",
+          "urls": [
+            "/${VERSION}/user-manual/app-store/app-market-define.html"
+          ]
+        },
+        {
+          "title": "应用市场同步",
+          "urls": [
+            "/${VERSION}/user-manual/app-store/app-market-synchronous.html"
+          ]
+        },
+        {
+          "title": "应用市场的分享与创造",
+          "urls": [
+            "/${VERSION}/user-manual/app-store/share-app-market.html"
+          ]
+        }
       ]
     },
     {
