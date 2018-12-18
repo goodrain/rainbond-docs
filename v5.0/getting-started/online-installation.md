@@ -72,7 +72,7 @@ DOMAIN=""
 # 项目需要git clone到/opt/rainbond目录下
 mkdir -pv /opt/rainbond
 cd /opt/rainbond
-git clone https://github.com/goodrain/rainbond-ansible.git 
+git clone -b 5.0 --depth 1 https://github.com/goodrain/rainbond-ansible.git 
 cd rainbond-ansible
 # 更新global.sh后执行安装
 ./setup.sh
