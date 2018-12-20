@@ -66,7 +66,7 @@ asciicast: true
 
 
 ### 13.是否支持二次开发
-> 开源rainbond支持二次开发，但需要遵守GPLv3 License。  [开发者文档]（https://github.com/goodrain/rainbond/tree/master/api）
+> 开源rainbond支持二次开发，但需要遵守GPLv3 License。  [开发者文档](https://github.com/goodrain/rainbond/tree/master/api)
 
 ### 14.开源和企业有什么不同
 >从理念上，开源版更强调用户能够自助使用，好雨仅提供社区支持。 
