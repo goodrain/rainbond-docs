@@ -4,7 +4,7 @@ summary: This document defines the roadmap for Rainbond development.
 toc: true
 ---
 <div class="filters filters-big clearfix">
-    <a href="edition.html"><button class="filter-button">功能列表</button></a>
+    <a href="edition.html"><button class="filter-button">基础功能列表</button></a>
     <a href="roadmap.html"><button class="filter-button current"><strong>开发计划</strong></button></a>
     <a href="release-cycle.html"><button class="filter-button">发布周期</button></a>
 </div>
@@ -161,3 +161,6 @@ The current version focuses on supporting the infrastructure of the microservice
     - [x] Management service monitoring
 - [x] Accurate user permission control, support custom roles
 - [x] Update rbd-dns to support for custom generic domain name resolution and cluster level one domain default resolution
+
+<div><a href="edition.html"><button class="filter-button">基础功能列表</button></a><div>
+<div><a href="release-cycle.html"><button class="btn">查看版本发布周期</button></a></div>

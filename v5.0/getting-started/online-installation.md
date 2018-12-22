@@ -23,7 +23,7 @@ asciicast: true
 | ------------- | ------------ |
 | Dev v5.0 | 最新版本 |
 
-## 二、一键部署
+## 二、单节点一键部署
 
 一键部署 Rainbond 是为了简化 Rainbond 安装步骤，通过 shell 脚本将 Rainbond 及其所需要的组件，统一进行安装及配置。用户仅需要简单的配置相关参数，运行 shell 命令即可。一键部署 Rainbond 适合仅简单了解 Rainbond 架构，想迅速搭建 Rainbond 的人群。
 
@@ -109,6 +109,6 @@ cd rainbond-ansible
 
 平台部署完成后，下面的文章可以引导你快速上手Rainbond。
 
-<div class="btn-group btn-group-justified">
-<a href="./quick-learning.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">快速上手</a>
+<div class="step">
+<a href="./quick-learning.html" class="btn">开始部署管理你的应用</a>
 </div>

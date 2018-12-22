@@ -46,7 +46,10 @@
   font-style: normal; }
 html {
   height: 100%; }
-
+  .step {
+    text-align: center;
+    margin-top: 32px;
+  }
   .roach {
     border: 1px solid #DADADA;
     margin-bottom: 20px;
