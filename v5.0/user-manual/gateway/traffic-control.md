@@ -21,7 +21,7 @@ toc: true
 
 接下来会对应用网关的功能一一地进行配置.
 
-### 3.1. HTTP 访问策略
+### 3.1 HTTP 访问策略
 
 - 点击 应用网关 -> 访问控制 -> 添加策略
 - 填写 域名, 应用(组), 服务组件, 端口号
@@ -127,7 +127,7 @@ toc: true
 最后, 通过他们的域名`test.goodrain.com`访问; 可以发现, 有75%的概率访问的是2048, 25%的概率访问的是Nginx.
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/%E8%AE%BE%E7%BD%AE%E6%9D%83%E9%87%8D.gif" width="100%" />
 
-## 后续更新计划
+## 4. 后续更新计划
 
 - 支持更多的负载均衡算法(一致性哈希, 粘性会话)
 - IP 池,  可以自定义IP
