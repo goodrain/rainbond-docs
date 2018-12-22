@@ -198,6 +198,12 @@
       "title": "应用网关",
       "items": [
         {
+          "title": "应用网关",
+          "urls": [
+            "/${VERSION}/user-manual/gateway/gateway.html"
+          ]
+        },
+        {
           "title": "访问控制",
           "urls": [
             "/${VERSION}/user-manual/gateway/traffic-control.html"

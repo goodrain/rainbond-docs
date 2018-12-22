@@ -1,40 +1,43 @@
 ---
-title: 应用网关
+title: 访问控制
 summary: 。
 toc: true
 ---
 
-##  1. 应用网关是什么？
-在百度百科中, 网关的定义是这样子的: 网关(Gateway)就是一个网络连接到另一个网络的"关口". 类似的, 在 Rainbond 中, 应用网关(rbd-gateway)是外部流量流入内部应用的"关口". 也可以说是南北向流量中, 北向流量流向南向流量的一个"关口".
+这篇文章将会介绍如何在配置[应用网关]("./gateway.md")中的规则, 从而对应用的访问进行控制.
 
-## 2. 为什么用应用网关?
-应用网关可以轻松地设置对后端服务的访问策略, 并且功能十分地强大. 支持的功能有:
+在这篇文章中, 你将会完成:
 
-- HTTP 和 HTTPs 访问策略, HTTP 转 HTTPs
-- TCP/UDP 访问策略
-- 泛域名访问策略
-- 高级路由: 根据访问路径, 请求头, Cookie, 权重的访问控制
-- A/B测试, 灰度发布
-- 负载均衡
+<li>添加 HTTP 策略</li>
+<li>添加 HTTP 强转 HTTPs 策略</li>
+<li>添加 TCP 策略</li>
+<li>添加 泛域名 策略</li>
+<li>添加 A/B 测试策略</li>
 
-## 3. 应用网关的配置
+## 前期准备
 
-接下来会对应用网关的功能一一地进行配置.
+请确保你能够满足以下条件:
 
-### 3.1 HTTP 访问策略
+- 一个状态健康的 Rainbond.
+- 一个或多个运行中的[应用](../app-creation/app-definition.md).
+- 一个可用, 并且已经解析到应用网关所在机器上的域名(机器的 IP 可以在添加策略的面板上找到)
 
+### 1. 添加 HTTP 策略
+
+- 准备一个[应用](../app-creation/app-definition.md)(Nginx)
 - 点击 应用网关 -> 访问控制 -> 添加策略
-- 填写 域名, 应用(组), 服务组件, 端口号
+- 填写 域名, 应用(组), 服务组件, 端口号等基本信息
 - 点击 确认
-- 把 域名 复制到浏览器进行访问
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/%E6%B7%BB%E5%8A%A0http.png" width='100%' />
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/HTTP%E7%AD%96%E7%95%A5.gif" width='100%' />
+配置完成后, 就可以通过域名(www.test.com)对应用(Nginx)进行访问了.
 
 ### 3.2 HTTPs, HTTP 转 HTTPs
+
+- 准备一个[应用](../app-creation/app-definition.md)(Nginx)
 - 点击 应用网关 -> 访问控制 -> 添加策略
-- 填写 域名, `绑定证书`, 应用(组), 服务组件, 端口号, `HTTP Rewrite HTTPs`, 均衡算法
+- 填写 域名, `绑定证书`, 应用(组), 服务组件, 端口号, `HTTP Rewrite HTTPs` 等信息
 - 点击 确认
-- 把 域名 复制到浏览器进行访问
 
 > 如果没有勾选 HTTP Rewrite HTTPs, 那么将会是单纯的HTTPs
 
@@ -126,8 +129,3 @@ toc: true
 
 最后, 通过他们的域名`test.goodrain.com`访问; 可以发现, 有75%的概率访问的是2048, 25%的概率访问的是Nginx.
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/%E8%AE%BE%E7%BD%AE%E6%9D%83%E9%87%8D.gif" width="100%" />
-
-## 4. 后续更新计划
-
-- 支持更多的负载均衡算法(一致性哈希, 粘性会话)
-- IP 池,  可以自定义IP
