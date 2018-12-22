@@ -30,7 +30,7 @@ asciicast: true
 | 环境     | CPU  | 内存   | 磁盘    | 说明|
 | :----- | :--- | :--- | :---- | :---|
 | 最低部署配置 | 2核   | 4G  | 50G  |此配置为部署rainbond的最低阈值|
-| 最低运行配置   | 4核   | 8G  | 100G  |此配置为通过rainbond部署应用的最低阈值| 
+| 最低运行配置   | 4核   | 8G  | 100G  |此配置为通过rainbond部署应用的最低阈值|
 
 {{site.data.alerts.callout_danger}}
 CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个集群的总需求。
@@ -72,3 +72,6 @@ CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个�
 | 华为云 | 中国  | 测试通过           |
 具体请参考 [Rainbond自定义配置](../operation-manual/install/config/custom-config.html)  
 -->
+
+<div class="step"><a href="online-installation.html"><button class="btn">我已经准备好，开始安装</button></a></div>
+
