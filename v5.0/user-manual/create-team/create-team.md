@@ -7,9 +7,7 @@ toc: true
 <div id="toc"></div>
 
 ## **一.创建团队**
-Rainbond注册的第一个用户是平台管理员，他可以新建其他团队，后续再注册的用户为普通用户。
-
-新用户注册后默认创建一个 名为 `<注册名称>的团队` 的团队。
+Rainbond注册的第一个用户是企业管理员，目前只有企业管理员可以新建团队，后续再注册的用户为普通用户只能选择加入某个团队。
 
 **平台管理员新建团队**
 <img src="https://static.goodrain.com/images/docs/3.6/basic-operation/create-team.gif" width="100%" />
