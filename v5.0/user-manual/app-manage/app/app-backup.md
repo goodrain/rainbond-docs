@@ -21,6 +21,13 @@ asciicast: true
 > 本地备份：将一组应用备份在本地，本地备份的应用无法进行跨数据中心和租户的迁移操作。
 > 云端备份：需要配置sftp服务器和私有hub仓库才能进行云端备份，云端备份可以实现应用的跨数据中心和租户操作，并且还能支持该组备份的导出。目前企业版支持管理后台配置sftp和hub仓库的配置。
 
+在5.0版本中新添加`全部备份`页面，进入后会展示出当前团队数据中心下的所有备份记录，以便清晰查看，同时也解决了之前版本应用有备份记录无法删除的问题。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1545546175984.jpg" width="100%">
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1545546337853.jpg" width="100%">
+
+
 
 `恢复` 对于已经备份成功的一组应用，使用恢复可以将该组应用进行恢复操作。
 恢复操作如下：

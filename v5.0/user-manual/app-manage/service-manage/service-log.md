@@ -12,4 +12,3 @@ asciicast: true
 - 操作日志：显示服务的构建及操作信息，服务的回滚也在这里完成。
 - 服务输出日志：服务运行后输出到<a href="https://baike.baidu.com/item/stdout" target="_blank">标准输出(stdout)</a>和<a href="https://baike.baidu.com/item/stderr" target="_blank">标准错误输出(stderr)</a>的日志。
 
-详细文档参考：<a href="../view-app-logs.html" target="_blank">查看服务日志</a>
