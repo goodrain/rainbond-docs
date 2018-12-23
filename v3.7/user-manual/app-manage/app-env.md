@@ -5,7 +5,7 @@ toc: true
 ---
 
 
-Rainbond平台默认注入以下环境变量信息以供应用使用：
+Rainbond平台启动服务时默认注入以下环境变量信息以供应用使用：
 
 | 变量名 | 变量值 | 说明 |
 | ----- | ----- | ---- |
@@ -17,6 +17,8 @@ Rainbond平台默认注入以下环境变量信息以供应用使用：
 | MEMORY_SIZE     | micro， small， medium， large， 2xlarge 等 | 表示当前应用实例的内存大小设置，一般用于应用内存相关设置的初始化，例如 JAVA_OPTS |
 | SERVICE_POD_NUM | 应用实例数量 | 应用实例的数量 |
 | DEPEND_SERVICE  | serviceAlias:serviceID,| 依赖的应用 |
+| HOST_IP | ip地址 | 服务运行时所在宿主机IP地址 |
+| POD_IP  | ip地址 | 服务运行时的IP地址 |
 | DISCOVER_URL    | http://xxxxxxx | 配置发现接口地址,插件运行环境有效 |
 
 使用以下高级环境变量可以解锁更多高级功能：
@@ -33,9 +35,12 @@ Rainbond平台默认注入以下环境变量信息以供应用使用：
 | NO_CACHE | true | 构建时不使用缓存包 |
 | BUILD_MAVEN_CUSTOM_OPTS | -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true | 用于 maven 构建，默认值如前 |
 | BUILD_MAVEN_CUSTOM_GOALS | clean install | 用于 maven 构建，默认值如前 |
+| NO_CACHE | true | 构建时不使用缓存包 |
 
 ## 应用运行高级变量
-
+以`ES_`开头的环境变量将作为扩展功能变量，例如下面用例：
 | 变量名 | 变量值 | 说明 |
 | ----- | ----- | --- |
-| HOSTNAME | 需要使用的主机名 | 设置应用主机名称，单实例应用生效 |
+| ES_SELECTNODE | 选择宿主机的ID | 用于定点调度，指定调度到某台宿主机上，节点的ID通过grctl node list 可得 |
+| ES_HOSTNETWORK | true | 是否使用主机端口映射|
+| ES_HOSTANME | 主机名 | 设置实例的主机名，适用于单实例服务|
