@@ -4,13 +4,24 @@ summary: 。
 toc: true
 ---
 
+这篇文章将会为你介绍 Rainbond 的应用的创建方式.
+
 在前一篇文章 [应用的定义](./app-definition.md) 中已经提到, 应用是由各个不同的服务组件构成, 那么应用的创建就离不开服务组件的创建. 服务组件创建的方式有3种, 分别是: 源码创建, 从 Docker 镜像创建, 从 [应用市场](../app-store/app-market.md) 安装.
 
 <img src="https://static.goodrain.com/images/docs/3.7/user-manual/create-app-3.7.png" width="100%" />
 
 ## 1. 从源码创建
 
-Rainbond 支持多种流行的编程语言的源码创建, 同时也支持通过Dockerfile进行创建.
+Rainbond 支持多种流行的编程语言的源码创建, 同时也支持通过Dockerfile进行创建. Rainbond 目前支持的语言有:
+
+- <a href="language-support/java.html" target="_blank">Java源码创建应用</a>
+- <a href="language-support/php.html" target="_blank">PHP源码创建应用</a>
+- <a href="language-support/python.html" target="_blank">Python源码创建应用</a>
+- <a href="language-support/nodejs.html" target="_blank">Node.js源码创建应用</a>
+- <a href="language-support/ruby.html" target="_blank">Ruby源码创建应用</a>
+- <a href="language-support/golang.html" target="_blank">Golang源码创建应用</a>
+- <a href="language-support/html.html" target="_blank">Html静态源码创建应用</a>
+- <a href="language-support/dockerfile.html" target="_blank">Dockerfile源码创建应用</a>
 
 通过源码的方式创建服务组件, 需要把源码托管在版本控制系统上, Rainbond 目前支持的版本控制系统有 Git 和 SVN, 也是目前大家常用的版本控制系统.
 
@@ -32,8 +43,16 @@ Rainbond可以通过直接拉取 Docker 官方或者第三方 Docker 镜像的�
 
 ### 2.2 Docker Run 命令
 
+Docker Run 命令时, Rainbond 会解析出 Docker Run 命令中的镜像, 端口, 环境变量和存储信息, 然后生成`应用（服务）抽象`, 最后再被调度到 Kubernetes 上运行起来.
+
+> Rainbond 支关心镜像, 端口, 环境变量和存储这四个信息, 其它信息将会被忽略.
+
 ### 2.1 Docker Compose
+
+如果你习惯用 Docker Compose来进行容器的编排, 那么可以选择 DockerCompose, 并提供 docker-compose.yml. 跟 Docker Run 命令一样, Rainbond 会解析出 docker-compose.yml 中的`镜像, 端口, 环境变量和存储`这四个信息, 然后生成`应用（服务）抽象`, 最后再被调度到 Kubernetes 上运行起来.
 
 ## 3. 从应用市场安装
 
 除了从源码创建和从 Docker 镜像这两种创建应用的方法外，rainbond还提供了应用市场的应用一键部署，应用市场是好雨提供的一项公有云服务，提供了常用的开发应用及工具.
+
+关于应用市场的更多信息, 请前往: [应用市场](../app-store/app-market-define.md)

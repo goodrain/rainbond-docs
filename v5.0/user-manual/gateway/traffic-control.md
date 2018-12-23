@@ -1,6 +1,6 @@
 ---
 title: 访问控制
-summary: 。
+summary: 访问控制
 toc: true
 ---
 
@@ -12,7 +12,7 @@ toc: true
 <li>添加 HTTP 强转 HTTPs 策略</li>
 <li>添加 TCP 策略</li>
 <li>添加 泛域名 策略</li>
-<li>添加 A/B 测试策略</li>
+<li>添加 A/B 测试, 灰度发布策略</li>
 
 ## 前期准备
 
