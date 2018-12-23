@@ -26,13 +26,17 @@ API服务处理三类请求：
 
 #### 应用网关服务
 
-TODO
+应用网关是外部流量进入Rainbond内部服务的唯一入口, 提供HTTP, HTTPs路由, TCP/UDP服务, 负载均衡器, 高级路由(A/B测试, 灰度发布)等功能.
+
+应用网关的大部分灵感来自于[NGINX Ingress Controller](https://github.com/kubernetes/ingress-nginx/), 通过kube-apiserver将监听到的Kubernetes资源(Ingress, Service, Secret, Endpoint)应用到Nginx上, 再由Nginx把Rainbond内部的服务暴露出去.
+
+应用网关的高可用和数据一致性:
+
+为了避免网络故障, 宕机或其它因素使得应用网关无法正常工作, 从而导致内部服务无法被访问, 有必要为应用网关`高可用`(尤其在生产环境中). Rainbond应用网关的高可用方案是: 配置两个或两个以上的状态完全一样的应用网关, 并且为这些应用网关配置一个四层的负载均衡器或VIP. 每一个应用网关的数据一致性由Kubernetes的Watch机制来保证, 另处, 应用网关会每10秒同步一次K8s的资源. 如下图所示:
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/gw.png" width="100%"/>
 
 #### 应用构建服务
-
-
-
-
 
 <img src="https://static.goodrain.com/images/docs/3.6/architecture/app-ci.png" width="100%" />
 
@@ -149,7 +153,7 @@ DNS服务为集群提供DNS解析服务,  基于Kube-DNS二次开发。
 
 基于开源 Artifactory项目，服务于应用基于源码构建，存储或代理应用构建所需要的所有第三方类库和文件包。是源码构建必须的组件，其可对接企业内部的其他包仓库。
 
-### 三、业务逻辑层组件说明
+## 三、业务逻辑层组件说明
 
 #### 应用控制台
 

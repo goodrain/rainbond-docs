@@ -14,16 +14,16 @@ toc: true
 
 Rainbond 支持多种流行的编程语言的源码创建, 同时也支持通过Dockerfile进行创建. Rainbond 目前支持的语言有:
 
-- <a href="language-support/java.html" target="_blank">Java源码创建应用</a>
-- <a href="language-support/php.html" target="_blank">PHP源码创建应用</a>
-- <a href="language-support/python.html" target="_blank">Python源码创建应用</a>
-- <a href="language-support/nodejs.html" target="_blank">Node.js源码创建应用</a>
-- <a href="language-support/ruby.html" target="_blank">Ruby源码创建应用</a>
-- <a href="language-support/golang.html" target="_blank">Golang源码创建应用</a>
-- <a href="language-support/html.html" target="_blank">Html静态源码创建应用</a>
-- <a href="language-support/dockerfile.html" target="_blank">Dockerfile源码创建应用</a>
+- Java
+- PHP
+- Python
+- Node.js
+- Ruby
+- Golang
+- Html
+- Dockerfile
 
-通过源码的方式创建服务组件, 需要把源码托管在版本控制系统上, Rainbond 目前支持的版本控制系统有 Git 和 SVN, 也是目前大家常用的版本控制系统.
+通过源码的方式创建服务组件, 需要把源码托管在版本控制系统上, Rainbond 目前支持的版本控制系统有 `Git 和 SVN`, 也是目前大家常用的版本控制系统.
 
 对于一些聚合工程, 我们想要构建应用所需的源码, 可能位于仓库下的某一个子目录下. 获取对应子目录下的源码的方式如下：
 
