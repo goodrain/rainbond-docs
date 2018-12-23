@@ -56,4 +56,3 @@ Rainbond为每一个HTTP服务自动生成一个默认的域名，一般情况�
 - 修改默认域名：修改服务默认生成的域名前缀，主域名是安装云帮时生成或指定的。
 - 绑定新域名：为服务指定一个新域名，绑定完成后，需要在你的DNS域名服务商的那里设置一下<a href="https://baike.baidu.com/item/CNAME" target="_blank">CNAME</a>记录。
 
-详细操作文档请参考：<a href="../custom-app-domain.html" target="_blank" >自定义服务域名</a>
