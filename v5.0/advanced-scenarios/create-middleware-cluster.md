@@ -25,17 +25,18 @@ asciicast: true
 5）Slave服务器端的SQL线程会实时检测本地Relay Log 中IO线程新增的日志内容，然后及时把Relay LOG 文件中的内容解析成sql语句，并在自身Slave服务器上按解析SQL语句的位置顺序执行应用这样sql语句，并在relay-log.info中记录当前应用中继日志的文件名和位置点。
 ```
 
-## 二. 好雨云整合mysql主从复制集群
+## 二. 安装MySQL集群镜像
 
 ### 2.1 应用市场安装mysql集群
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/create_mysql_cluster_instance.jpg)
 
+## 三. mysql主从同步配置
 
-### 2.2 查看master节点状态，记录二进制文件名(mysql-bin.000003)和位置(154)
+### 3.1 查看master节点状态，记录二进制文件名(mysql-bin.000003)和位置(154)
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204175039003-207802438.png)
 
-### 2.3 slave节点执行同步SQL语句(需要主服务器主机名，登陆凭据，二进制文件的名称和位置)：
+### 3.2 slave节点执行同步SQL语句(需要主服务器主机名，登陆凭据，二进制文件的名称和位置)
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204175242854-1718088857.png)
