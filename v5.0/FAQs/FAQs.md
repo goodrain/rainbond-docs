@@ -1,6 +1,6 @@
 ---
 title: Rainbond FAQs
-summary: 常见故障排查指南
+summary: 常见问题列表
 toc: true
 asciicast: true
 ---
