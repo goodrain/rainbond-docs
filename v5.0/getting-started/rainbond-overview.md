@@ -45,20 +45,17 @@ asciicast: true
 | **自动化运维**                | 应用自动化运维。节点自动安装、扩容、监控、容错。平台支持高可用、多数据中心管理、多租户管理。                                                                          |
 | **Serverless PaaS**            | 以应用为核心，使用过程不需要了解服务器相关概念，简单灵活。通过对接行业应用，快速构建行业专有PaaS。                                                                    |
 
-
-*更多特性请见[功能列表](https://github.com/goodrain/rainbond-docs/edit/master/v3.6/overview/edition.md)*
+*更多特性请见[功能列表](/docs/5.0/architecture/edition.html)*
+*版本计划详见[开发计划](/docs/5.0/architecture/roadmap.html)*
 
 ## Rainbond项目的优势
 
 1. 只需要关注自身业务，业务之外的技术问题（资源管理、运维、架构、治理、环境等问题），一站式解决。
 2. Rainbond结合行业应用，不需要做开发，就能快速变成行业专属开发、交付、运维平台。
 3. 通过“无侵入”架构，支持各类遗留系统，也不需要改变开发习惯。
+4. 系统兼容性强，Windows、国产系统统一支持。
 
-
-## 部署Rainbond
-
-进入部署引导：
-
-<div class="btn-group btn-group-justified">
-<a href="./installation-guide.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">部署引导</a>
+<div class="step">
+ <a href="/docs/v5.0/getting-started/before-installation.html"><button class="btn">我已经了解，开始安装</button></a>
 </div>
+

@@ -25,7 +25,8 @@
             "title": "开发路线",
             "urls": [
                 "/${VERSION}/architecture/roadmap.html",
-                "/${VERSION}/architecture/release-cycle.html"
+                "/${VERSION}/architecture/release-cycle.html",
+                "/${VERSION}/architecture/edition.html"
             ]
         }
     ]
