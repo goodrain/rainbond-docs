@@ -12,6 +12,7 @@ Rainbond注册的第一个用户是企业管理员，他可以新建其他团队
 新用户注册后默认创建一个 名为 `<注册名称>的团队` 的团队。
 
 ### 1.1 平台管理员新建团队
+平台管理员注册完毕后，可以新建团队。
 <img src="https://static.goodrain.com/images/docs/3.6/basic-operation/create-team.gif" width="100%" />
 
 ### 1.2 团队重命名
