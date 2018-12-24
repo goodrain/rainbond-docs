@@ -1,4 +1,4 @@
-# ---
+---
 title: Rainbond FAQs
 summary: 常见故障排查指南
 toc: true
