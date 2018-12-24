@@ -56,5 +56,6 @@ asciicast: true
 4. 系统兼容性强，Windows、国产系统统一支持。
 
 <div class="step">
- <a href="./installation-guide.html"><button class="btn">我已经了解，开始安装</button></a>
+ <a href="/docs/v5.0/getting-started/before-installation.html"><button class="btn">我已经了解，开始安装</button></a>
 </div>
+

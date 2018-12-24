@@ -160,5 +160,5 @@ The current version focuses on supporting the infrastructure of the microservice
 - [x] Accurate user permission control, support custom roles
 - [x] Update rbd-dns to support for custom generic domain name resolution and cluster level one domain default resolution
 
-<div><a href="edition.html"><button class="filter-button">查看基础功能列表</button></a></div>
-<div><a href="release-cycle.html"><button class="btn">查看版本发布周期</button></a></div>
+<div class="step"><a href="edition.html"><button class="btn">查看基础功能列表</button></a></div>
+<div class="step"><a href="release-cycle.html"><button class="btn">查看版本发布周期</button></a></div>
