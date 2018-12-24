@@ -48,10 +48,25 @@ $ cat runtime.txt
 python-3.4.3
 ```
 
-### 2.1 推荐的python版本
+推荐的python版本
 
 - Python-2.7.15
 - Python-3.6.6
+
+默认支持python版本
+
+```bash
+# python 2.7.x
+python-2.7.9 python-2.7.10 python-2.7.13 python-2.7.14 python-2.7.15 
+# python 3.x
+python-3.4.3
+python-3.5.3 
+python-3.6.0 python-3.6.1 python-3.6.2 python-3.6.3 python-3.6.4 python-3.6.5 python-3.6.6 
+python-3.7.0 python-3.7.1
+# pypi
+pypy-4.0.0 pypy-4.0.1 pypy-5.0.0 pypy-5.0.1 pypy-5.1.0 pypy-5.1.1 pypy-5.3.1 pypy-5.6.0 pypy-5.7.0 pypy-5.7.1 pypy-5.8.0 
+pypy3-2.3.1 pypy3-2.4.0 pypy3-5.5.0 pypy3-5.7.1 pypy3-5.8.0
+```
 
 ## 三、工具库
 
@@ -60,7 +75,7 @@ python-3.4.3
 - setuptools 35.0.2
 - pip 9.0.1
 
-## 四、构建(build)
+## 四、构建-环境变量
 
 系统会在您代码部署的环境运行以下命令来解决依赖：
 
@@ -68,7 +83,7 @@ python-3.4.3
 $ pip install -r requirements.txt --allow-all-external
 ```
 
-构建时支持自定义PIP源，需配置环境变量，否则默认中科大镜像源：
+通过Rainbond构建时支持自定义PIP源，需配置环境变量，否则默认中科大镜像源：
 
 ```
 变量名:变量值
@@ -76,7 +91,7 @@ BUILD_PIP_INDEX_URL:https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 
-## 五、启动命令
+## 五、设置启动命令
 
 需要您在代码根目录创建 [Procfile](etc/procfile.html) 文件来指定启动应用的命令，并写入如下内容：
 

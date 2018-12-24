@@ -81,11 +81,17 @@ asciicast: true
 
 1.rainbond是否可以运行在物理服务器和虚拟机上
 
+> Rainbond可以很好的部署和运行在 Intel 架构服务器环境及主流虚拟化环境，并支持绝大多数的主流硬件网络
+
 2.私有部署如何配置内网dns
 
 3.访问rainbond应该开放什么端口
 
+> 对外只需要开放80,6060,7070,以及使用tcp协议对外开发的端口默认20000-30000
+
 4.rainbond安装支持那些操作系统
+
+> 支持CentOS 7;Ubuntu 16.04;Debian 9
 
 ## 维护问题
 
@@ -111,11 +117,11 @@ asciicast: true
 
 6.如何去掉管理节点的计算属性
 
->
+> 移除配置文件 /opt/rainbond/conf/k8s-worker.yaml, 停kubelet服务`systemctl stop kubelet`,更新/opt/rainbond/scripts/start-node.sh文件里noderule为manage,重启node`systemctl restart node`
 
-7.泛解析域名
+7.更新泛解析域名
 
->
+> 可以通过grctl domain命令进行操作
 
 ## 开发问题
 

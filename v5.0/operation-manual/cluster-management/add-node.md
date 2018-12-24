@@ -4,7 +4,23 @@ summary: 扩容管理或计算节点
 toc: true
 ---
 
-## 一、 准备工作
+## 一、 命令行模式
+
+```
+# 添加管理节点
+grctl node add --host manage01 --iip <管理节点ip> --pass <root密码> --role master 
+## 法2默认已经配置ssh信任登陆
+grctl node add --host manage01 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role master
+
+# 添加计算节点
+grctl node add --host compute01 --iip <计算节点ip> --pass <root密码> --role worker
+## 法2默认已经配置ssh信任登陆
+grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role worker
+```
+
+## 二、 通过源码的方式
+
+### 2.1 准备工作
 
 
 ```bash
@@ -40,7 +56,7 @@ manage02
 compute01
 ```
 
-## 二、 扩容管理节点
+### 2.2 扩容管理节点
 
 {{site.data.alerts.callout_danger}}
 
@@ -55,7 +71,7 @@ ansible-playbook -i inventory/hosts addmaster.yml
 ```
 
 
-## 三、 扩容计算节点
+### 2.3 扩容计算节点
 
 
 ```bash
