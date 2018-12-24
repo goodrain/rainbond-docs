@@ -8,9 +8,7 @@ toc: true
     <a href="roadmap.html"><button class="filter-button current"><strong>开发计划</strong></button></a>
     <a href="release-cycle.html"><button class="filter-button">发布周期</button></a>
 </div>
-
-# Rainbond Roadmap
-This document defines the roadmap for Rainbond development.
+本文档定义了Rainbond开发的路线图。
 
 ### V5.1版本规划
 
@@ -162,5 +160,5 @@ The current version focuses on supporting the infrastructure of the microservice
 - [x] Accurate user permission control, support custom roles
 - [x] Update rbd-dns to support for custom generic domain name resolution and cluster level one domain default resolution
 
-<div><a href="edition.html"><button class="filter-button">基础功能列表</button></a><div>
+<div><a href="edition.html"><button class="filter-button">查看基础功能列表</button></a></div>
 <div><a href="release-cycle.html"><button class="btn">查看版本发布周期</button></a></div>
