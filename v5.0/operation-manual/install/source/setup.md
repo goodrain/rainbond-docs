@@ -18,14 +18,14 @@ git clone --depth 1 -b 5.0 https://github.com/goodrain/rainbond-ansible.git
 cd rainbond-ansible
 # 更新默认配置文件 /opt/rainbond/rainbond-ansible/scripts/installer/global.sh，示例如下：
 
-# 必须指定参数，且不可修改
+## 必须指定参数，且不可修改
 INSTALL_TYPE="online"
 DEPLOY_TYPE="onenode"
 
-# IIP参数必须指定自己当前内网ip
-POD_NETWORK_CIDR=""
+## IIP参数必须指定自己当前内网ip,EIP参数为外网ip，多网卡必须指定IIP
 NETWORK_TYPE="calico"
-IIP="192.168.56.5"
+POD_NETWORK_CIDR=""
+IIP=""
 EIP=""
 DOMAIN=""
 
