@@ -70,10 +70,6 @@
               "urls": ["/${VERSION}/user-manual/app-creation/language-support/nodejs.html"]
             },
             {
-              "title": "Ruby",
-              "urls": ["/${VERSION}/user-manual/app-creation/language-support/ruby.html"]
-            },
-            {
               "title": "Golang",
               "urls": ["/${VERSION}/user-manual/app-creation/language-support/golang.html"]
             },

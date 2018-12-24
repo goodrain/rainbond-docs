@@ -10,7 +10,7 @@ toc: true
 {% include copy-clipboard.html %}
 
 ```bash
-echo '<h1>hello world!</h1>'>index.html
+echo '<h1>hello world!</h1>' > index.html
 ```
 
 ## 代码运行
