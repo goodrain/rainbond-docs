@@ -32,7 +32,7 @@ asciicast: true
 ```bash
 wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 chmod +x ./grctl
-./grctl init 
+./grctl init --iip 内网ip --eip 公网ip # 参数可选， iip多网卡时需要手动指定, eip云服务商部署时可以指定公网ip,其他参数可以grctl init --help
 ```
 
 安装完成后检查,当所有项目都是健康状态时平台即可正常使用。
@@ -48,35 +48,11 @@ grctl node list
 <管理节点>:7070
 ```
 
-## 三、源码部署
+## 三、其他部署方式
 
 
-安装前请阅读[源码安装相关说明](https://github.com/goodrain/rainbond-ansible/tree/devel/docs/guide)  
+从源码安装具体流程请参考[源码部署](../operation-manual/install/source/setup.html)
 
-通过执行ansible相关命令来执行安装
-
-```
-# 更新 /opt/rainbond/rainbond-ansible/scripts/installer/global.sh，示例如下，除INSTALL_TYPE和DEPLOY_TYPE外其他都可以更改
-
-INSTALL_TYPE="online"
-POD_NETWORK_CIDR=""
-DEPLOY_TYPE="onenode"
-NETWORK_TYPE="calico"
-IIP="192.168.56.5"
-DOMAIN=""
-```
-
-安装操作
-
-```
-# 项目需要git clone到/opt/rainbond目录下
-mkdir -pv /opt/rainbond
-cd /opt/rainbond
-git clone -b 5.0 --depth 1 https://github.com/goodrain/rainbond-ansible.git 
-cd rainbond-ansible
-# 更新global.sh后执行安装
-./setup.sh
-```
 
 <!--
 ## 三、离线部署
@@ -89,14 +65,10 @@ cd rainbond-ansible
 具体安装流程请参考[分步部署](../operation-manual/install/step/part-salt.html)
 
 
-## 五、源码部署
-
-从源码安装具体流程请参考[源码部署](../operation-manual/install/source/setup.html)
-
 -->
 
 {{site.data.alerts.callout_danger}}
-5.0 版本安装有所调整,如果安装过程中有报错且提示ignore,可忽略此报错。如有报错，请与我们反馈 [Github](https://github.com/goodrain/rainbond-ansible/issues)。
+如有报错，请与我们反馈 [Github](https://github.com/goodrain/rainbond-ansible/issues)。
 {{site.data.alerts.end}}
 
 
