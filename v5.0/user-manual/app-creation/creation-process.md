@@ -4,7 +4,7 @@ summary: 。
 toc: true
 ---
 
-通过 [应用的定义](./app-definition.md) 和 [应用的创建方式](./way-of-creation.md) 两篇文章, 我们知道了什么是应用, 以及应用的3种创建方式.
+通过 [应用的定义](./app-definition.html) 和 [应用的创建方式](./way-of-creation.html) 两篇文章, 我们知道了什么是应用, 以及应用的3种创建方式.
 
 那么, *如何在 Rainbond 创建应用呢?* 这就是接下来要介绍的内容.
 

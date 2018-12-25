@@ -6,7 +6,7 @@ toc: true
 
 这篇文章将会为你介绍 Rainbond 的应用的创建方式.
 
-在前一篇文章 [应用的定义](./app-definition.md) 中已经提到, 应用是由各个不同的服务组件构成, 那么应用的创建就离不开服务组件的创建. 服务组件创建的方式有3种, 分别是: 源码创建, 从 Docker 镜像创建, 从 [应用市场](../app-store/app-market.md) 安装.
+在前一篇文章 [应用的定义](./app-definition.html) 中已经提到, 应用是由各个不同的服务组件构成, 那么应用的创建就离不开服务组件的创建. 服务组件创建的方式有3种, 分别是: 源码创建, 从 Docker 镜像创建, 从 [应用市场](../app-store/app-market.html) 安装.
 
 <img src="https://static.goodrain.com/images/docs/3.7/user-manual/create-app-3.7.png" width="100%" />
 
@@ -55,4 +55,4 @@ Docker Run 命令时, Rainbond 会解析出 Docker Run 命令中的镜像, 端�
 
 除了从源码创建和从 Docker 镜像这两种创建应用的方法外，rainbond还提供了应用市场的应用一键部署，应用市场是好雨提供的一项公有云服务，提供了常用的开发应用及工具.
 
-关于应用市场的更多信息, 请前往: [应用市场](../app-store/app-market-define.md)
+关于应用市场的更多信息, 请前往: [应用市场](../app-store/app-market-define.html)
