@@ -18,16 +18,30 @@ asciicast: true
 
 在阿里云同一个区域内开通ECS,NAS服务, 服务器内部网络未限制。
 
-### 2.1 挂载NAS
+创建ECS 参考[ECS入门](https://help.aliyun.com/document_detail/58282.html?spm=a2c4g.11186623.6.611.3a183002dRnSqd)
+创建NAS 参考[NAS](https://help.aliyun.com/document_detail/27526.html?spm=a2c4g.11186623.3.2.53a67a66p9mopj)
+
+### 2.1 配置NAS
 
 {{site.data.alerts.callout_danger}}
-注意：挂载NAS需要使用v3版本，切勿使用v4版本，否则会存在文件锁。
+阿里云推荐使用NAS,经过我们大量的生产测试环境使用，挂载NAS需要使用v3版本，切勿使用v4版本，否则会存在文件锁。
 {{site.data.alerts.end}}
 
+要在 Linux 系统中将 NAS 的 NFS 文件系统挂载至 ECS 实例，您需要安装 NFS 客户端。
+操作步骤：
+
 ```bash
+# 登陆ECS实例
+# 安装NFS客户端
+## CentOS系统
+sudo yum install nfs-utils
+## Debian/Ubuntu系统
+sudo apt-get install nfs-common
+## 创建NAS挂载点
 mkdir /grdata
-# 编辑/etc/fstab
+## 更新/etc/fstab示例,挂载点域名需要替换成在创建文件系统时自动生成的挂载点域名
 rainbond-test.cn-shanghai.nas.aliyuncs.com:/   /grdata    nfs vers=3,nolock,noatime   0 0
+## 挂载
 ```
 
 ### 2.2 初始化数据中心

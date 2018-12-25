@@ -71,7 +71,12 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
 
 3. 初始化Rainbond数据中心
 
-   TODO
+```bash
+wget https://pkg.rainbond.com/releases/common/v5.0/grctl
+./grctl init --iip <内网ip> --deploy-type thirdparty 
+
+```
+
 
 
 
