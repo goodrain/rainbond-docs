@@ -10,7 +10,7 @@ asciicast: true
 
 ## 一、操作系统准备和检查
 
-1. 检查操作系统，目前版本支持以下操作系统
+### 1.1 检查操作系统，目前版本支持以下操作系统
 
 | 系统     | 版本         | 说明                     |
 | :------- | :----------- | :----------------------- |
@@ -19,22 +19,29 @@ asciicast: true
 | Ubuntu   | 16.04        | 64位                     |
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
-2. 下载系统安装工具
+{{site.data.alerts.callout_danger}}
+注意：CentOS目前不支持7.5版本
+{{site.data.alerts.end}}
+
+### 1.2 下载系统安装工具
 
 ```
 wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 chmod +x ./grctl
 ```
 
-3. 检查操作系统基础设置
+### 1.3 检查操作系统基础设置
 
-   * 确保机器重启，服务器IP地址不发生改变，推荐[配置静态ip](../operation-manual/install/config/static-ip.html)
+   * 确保机器重启，服务器IP地址和nameserver不发生改变，推荐[配置静态ip](../operation-manual/install/config/static-ip.html)
 
    * 确定系统时间与时区(Asia/Shanghai)同步，参考[配置时区与时间同步](../operation-manual/install/config/timezone.html)
 
+   * 如果已经装有docker, 需要在安装前配置`insecure-registry: goodrain.me` 
+
    * 确定网络没有限制，如有请加如下域名添加到白名单
 
-     repo.goodrain.com, api.goodrain.com, hub.goodrain.com, docker.io, domain.grapps.cn
+     repo.goodrain.com, api.goodrain.com, hub.goodrain.com, docker.io, domain.grapps.cn, aliyun.com,aliyuncs.com
+
 
 ## 二、初始化数据中心
 

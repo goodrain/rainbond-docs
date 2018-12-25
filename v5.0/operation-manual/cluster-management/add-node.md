@@ -85,8 +85,7 @@ cd /opt/rainbond/rainbond-ansible
 ansible-playbook -i inventory/hosts addnode.yml
 ```
 
-<!--
-## 四、 管理后台添加
+## 三、 管理后台添加
 
 - 添加节点
 
@@ -95,4 +94,3 @@ ansible-playbook -i inventory/hosts addnode.yml
 - 编辑节点属性
 
 <a href="https://static.goodrain.com/images/docs/5.0/operation-manual/add-node2.png" target="_blank"><img src="https://static.goodrain.com/images/docs/5.0/operation-manual/add-node2.png" width="100%"  /></a>
--->
