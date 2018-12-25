@@ -135,6 +135,32 @@ Rainbond各组件的配置文件存放于 `/opt/rainbond/conf` 目录下，配�
     --health-path="/healthz"
     # Gateway 健康检查超时时间, 单位'秒'
     --health-check-timeout=10
+    # 是否开启 Rainbond 的默认服务
+    --enable-rbd-endpoints=true
+    # Rainbond 默认服务在 ETCD 中的Key
+    --rbd-endpoints=/rainbond/endpoint/
+    # Rainbond 默认服务绑定的 IP
+    --rbdsrv-internal-ip=0.0.0.0
+    # Nginx 中 worker 的数量, 默认获取当前节点 CPU 的核心数, 最多应为节点上的 CPU 核心数。
+    --worker-processes=0
+    # Nginx 中每个 worker 的最大连接数
+    --worker-connections=4000
+    # Nginx可用的文件描述符数
+    --worker-rlimit-nofile=200000
+    # 让每个线程可以处理更多的 client. 只能在 Linux 上使用
+    --enable-epool=true
+    # 在nginx获得有关新连接的通知后，接受尽可能多的连接
+    --enable-multi-accept=true
+    # 只打印 critical 级别的日志
+    --error-log=/dev/stderr crit
+    # nginx 的用户和组
+    --nginx-user=root
+    # 客户端可以通过 keep-alive 连接发出的请求数
+    --keepalive-requests=10000
+    # 保持连接的超时. 服务器将在此时间后关闭连接
+    --keepalive-timeout=30
+    # 开启对 rbd-gateway 指标的收集
+    --enable-metrics=true
     # 日志级别
     --log.level=info
 ```
