@@ -8,14 +8,18 @@ toc: true
 
 ```
 # 添加管理节点
-grctl node add --host manage01 --iip <管理节点ip> --pass <root密码> --role master 
+grctl node add --host manage01 --iip <管理节点ip> -p <root密码> --role master 
 ## 法2默认已经配置ssh信任登陆
 grctl node add --host manage01 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role master
 
 # 添加计算节点
-grctl node add --host compute01 --iip <计算节点ip> --pass <root密码> --role worker
+grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role worker
 ## 法2默认已经配置ssh信任登陆
 grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role worker
+
+
+# 安装节点，节点uid可以通过grctl node list获取
+grctl node install <新增节点uid> 
 ```
 
 ## 二、 通过源码的方式
