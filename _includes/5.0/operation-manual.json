@@ -21,25 +21,24 @@
                     ]
                 },
                 {
-                    "title": "部署结构",
-                    "items": [{
-                            "title": "单节点部署方案",
+                    "title": "平台安装方案",
+                    "items": [
+                        {
+                            "title": "基于阿里云资源安装",
                             "urls": [
-                                "/${VERSION}/operation-manual/cluster-management/one-node-deployment.html"
+                                "/${VERSION}/operation-manual/install/alicloud/install-base-alicloud.html"
                             ]
                         },
                         {
-                            "title": "三节点高可用部署方案",
+                            "title": "基于已有Kubernetes集群安装",
                             "urls": [
-                                "/${VERSION}/operation-manual/cluster-management/three-nodes-deployment.html"
-    
+                                "/${VERSION}/operation-manual/install/kubernetes/install-base-kubernetes.html"
                             ]
                         },
                         {
-                            "title": "五节点高可用部署方案",
+                            "title": "从零开始搭建高可用Rainbond集群",
                             "urls": [
-                                "/${VERSION}/operation-manual/cluster-management/five-nodes-deployment.html"
-    
+                                "/${VERSION}/operation-manual/install/HA/install-base-ha.html"
                             ]
                         }
                     ]
@@ -99,16 +98,6 @@
                             "title": "Calico",
                             "urls": [
                                 "/${VERSION}/operation-manual/network/calico.html"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "title": "已有k8s集群",
-                    "items": [{
-                            "title": "对接操作文档",
-                            "urls": [
-                                "/${VERSION}/operation-manual/cluster-management/thirdparty.html"
                             ]
                         }
                     ]

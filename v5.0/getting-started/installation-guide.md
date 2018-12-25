@@ -26,3 +26,10 @@ TODO
 > 此方式将首先引导你进行相关资源的规划和准备，以完成高可用集群的快速安装。
 
 TODO
+
+# Rainbond与已存在Kubernetes集群对接安装
+
+> 此方式适用于已安装Kubernetes集群的用户，此安装方式Rainbond将使用用户提供的Kubernetes集群。
+
+安装请阅读： [基于已有Kubernetes集群安装](/docs/v5.0/operation-manual/install/kubernetes/install-base-kubernetes.html)
+
