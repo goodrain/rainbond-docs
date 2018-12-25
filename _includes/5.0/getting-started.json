@@ -11,7 +11,7 @@
         {
             "title": "平台安装",
             "urls": [
-                "/${VERSION}/getting-started/before-installation.html",
+                "/${VERSION}/getting-started/installation-guide.html",
                 "/${VERSION}/getting-started/online-installation.html"
             ]
         },
@@ -25,8 +25,7 @@
             "title": "开发路线",
             "urls": [
                 "/${VERSION}/architecture/roadmap.html",
-                "/${VERSION}/architecture/release-cycle.html",
-                "/${VERSION}/architecture/edition.html"
+                "/${VERSION}/architecture/release-cycle.html"
             ]
         }
     ]
