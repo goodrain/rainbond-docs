@@ -238,8 +238,25 @@
     },
     {
       "title": "团队管理",
-      "urls": [
-        "/${VERSION}/user-manual/manage-team/manage-team.html"
+      "items": [
+        {
+          "title": "用户管理",
+          "urls": [
+            "/${VERSION}/user-manual/manage-team/manage-user.html"
+          ]
+        },
+        {
+          "title": "权限管理",
+          "urls": [
+            "/${VERSION}/user-manual/manage-team/manage-permision.html"
+          ]
+        },
+        {
+          "title": "数据中心管理",
+          "urls": [
+            "/${VERSION}/user-manual/manage-team/manage-datacenter.html"
+          ]
+        }
       ]
     },
     {
