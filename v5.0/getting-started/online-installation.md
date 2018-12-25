@@ -53,30 +53,17 @@ grctl node list
 为当前数据中心添加计算资源节点,增强应用负载能力,相关操作命令如下：
 
 ```bash
-grctl node add --host compute01 --iip <计算资源节点ip> --pass <root用户密码> --role compute
+grctl node add --host <主机名> --iip <计算资源节点ip> -p <root用户密码> --role compute
+# 获取新添加节点的uid
+grctl node list 
+grctl node install <新计算资源节点的uid>
 ```
 
-更多细节可以参考 [运维手册, 节点扩容](../operation-manual/cluster-management/add-node.html) 
-
+更多细节可以参考 [运维手册, 添加节点](../operation-manual/cluster-management/add-node.html) 
 
 ## 四、其他部署方式
 
-
 从源码安装具体流程请参考[源码部署](../operation-manual/install/source/setup.html)
-
-
-<!--
-## 三、离线部署
-离线安装具体流程请参考[离线部署](../operation-manual/install/offline/setup.html)
-
-## 四、分步部署
-
-分步部署Rainbond是分组件一步一步的安装Rainbond及所需组件，用户可以定制相关的安装。分步部署Rainbond适合非常了解Rainbond架构，需要定制部署Rainbond的人群。
-
-具体安装流程请参考[分步部署](../operation-manual/install/step/part-salt.html)
-
-
--->
 
 {{site.data.alerts.callout_danger}}
 云帮安装程序通过 shell 脚本 + ansible 实现，包括后续集群的扩容、升级及管理。如在安装使用中遇到问题，请与我们反馈 [Github](https://github.com/goodrain/rainbond-ansible/issues)。
@@ -86,6 +73,7 @@ grctl node add --host compute01 --iip <计算资源节点ip> --pass <root用户�
 
 平台部署完成后，下面的文章可以引导你快速上手Rainbond。
 
-<div class="step">
-<a href="./quick-learning.html"><button class="btn">开始部署管理你的应用</button></a>
+<div class="btn-group btn-group-justified">
+  <a href="./quick-learning.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">开始部署管理你的应用</a>
+  <a href="../operation-manual/cluster-management/ha-cluster.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">高可用部署调整</a>
 </div>

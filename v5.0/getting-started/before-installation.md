@@ -22,7 +22,8 @@ asciicast: true
 
 {{site.data.alerts.callout_danger}}
 目前我们在CentOS 7.4 系统下做了严格的测试，并且具备了丰富的生产环境使用经验。因此推荐用户使用CentOS 7.4安装云帮。
-目前仅支持root用户，支持Systemd守护
+目前仅支持root用户，支持Systemd守护.
+目前不支持Centos 7.5版本
 {{site.data.alerts.end}}
 
 ## 二、服务器配置需求
