@@ -196,7 +196,7 @@ vi /opt/rainbond/conf/master.yaml
 systemctl restart node
 systemctl restart rbd-entrance
 
-  ```
+```
 
 ## 四、配置本地主机解析
 

@@ -106,7 +106,8 @@
             },
             {
                 "title": "数据中心节点管理",
-                "items": [{
+                "items": [
+                    {
                     "title": "节点类型",
                     "urls": [
                         "/${VERSION}/operation-manual/cluster-management/type-of-node.html"
@@ -122,7 +123,12 @@
                         "title": "删除节点",
                         "urls": [
                             "/${VERSION}/operation-manual/cluster-management/del-node.html"
-
+                        ]
+                    },
+                    {
+                        "title": "节点健康检查",
+                        "urls": [
+                            "/${VERSION}/operation-manual/cluster-management/node-health.html"
                         ]
                     }
                 ]
