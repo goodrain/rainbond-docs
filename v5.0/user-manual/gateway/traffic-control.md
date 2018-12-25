@@ -4,7 +4,7 @@ summary: 访问控制
 toc: true
 ---
 
-这篇文章将会介绍如何在配置[应用网关]("./gateway.md")中的规则, 从而对应用的访问进行控制.
+这篇文章将会介绍如何在配置[应用网关](./gateway.html)中的规则, 从而对应用的访问进行控制.
 
 在这篇文章中, 你将会完成:
 
@@ -19,12 +19,12 @@ toc: true
 请确保你能够满足以下条件:
 
 - 一个状态健康的 Rainbond.
-- 一个或多个运行中的[应用](../app-creation/app-definition.md).
+- 一个或多个运行中的[应用](../app-creation/app-definition.html).
 - 一个可用, 并且已经解析到应用网关所在机器上的域名(机器的 IP 可以在添加策略的面板上找到)
 
 ### 1. 添加 HTTP 策略
 
-- 准备一个[应用](../app-creation/app-definition.md)(Nginx)
+- 准备一个[应用](../app-creation/app-definition.html)(Nginx)
 - 点击 应用网关 -> 访问控制 -> 添加策略
 - 填写 域名, 应用(组), 服务组件, 端口号等基本信息
 - 点击 确认
@@ -34,7 +34,7 @@ toc: true
 
 ### 3.2 HTTPs 策略, HTTP 强转 HTTPs 策略
 
-- 准备一个[应用](../app-creation/app-definition.md)(Nginx)
+- 准备一个[应用](../app-creation/app-definition.html)(Nginx)
 - 点击 应用网关 -> 访问控制 -> 添加策略
 - 填写 域名, `绑定证书`, 应用(组), 服务组件, 端口号, `HTTP Rewrite HTTPs` 等信息
 - 点击 确认
@@ -47,7 +47,7 @@ toc: true
 
 ### 3.3 TCP 访问策略
 
-- 准备一个[应用](../app-creation/app-definition.md)(Nginx)
+- 准备一个[应用](../app-creation/app-definition.html)(Nginx)
 - 点击 应用网关 -> 访问控制 -> TCP/UDP -> 添加策略
 - 填写 IP, 端口, 应用(组), 服务组件, 端口号, 负载均衡
 - 点击 确认
@@ -60,7 +60,7 @@ toc: true
 
 ### 3.4 泛域名
 
-- 准备一个[应用](../app-creation/app-definition.md)(Nginx)
+- 准备一个[应用](../app-creation/app-definition.html)(Nginx)
 - 点击 应用网关 -> 访问控制 -> 添加策略
 - 填写 `泛域名`, 应用(组), 服务组件, 端口
 - 点击 确认
