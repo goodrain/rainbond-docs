@@ -5,8 +5,9 @@ toc: true
 ---
 
 #### 企业应用云操作系统
-
- ![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch1.png)  
+ 
+ <img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch1.png"></img>
+ 
 对于企业IT来说，企业应用是企业IT价值的最主要体现，然而，当前不管是开发应用还是使用应用，都需要面对最底层的计算资源（IaaS/虚拟化/物理服务器），导致技术栈很长，需要做很多跟业务不直接相关的工作，比如：开发和运行环境搭建；服务器管理；网络管理；交付流程管理；技术架构支持；基础技术服务提供；技术工具维护等运维和技术工作，而这些工作对所有企业应用是有通用性的，如果把这些工作统一包装并自动化完成，企业专注自身业务，这样就能让企业IT的效率大幅度提高。
 
 Rainbond 通过 `以应用为中心` 的方式包装以上重复性工作，并在此上支撑企业应用的开发、架构、交付和运维，这种抽象粒度，即能简化企业应用的管理，又能满足业务的灵活性。在对接底层基础设施时，通过`软件定义`实现和对接，能做到对接各类基础设施。通过以上设计，自然形成了企业应用的操作系统。
@@ -14,7 +15,7 @@ Rainbond 通过 `以应用为中心` 的方式包装以上重复性工作，并�
 
 
 ####  无侵入架构
- ![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch2.png)  
+ <img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch2.png"></img> 
 
 
 Rainbond把广泛支撑企业应用作为首要目标，广泛支撑企业应用意味着各种企业应用都能在Rainbond上开发、架构、运维，这点也是影响使用体验的关键点，为了实现这个目标，Rainbond采用`无侵入`架构。`无侵入`架构表现在使用简单，已有应用不需要改动就能支持。
@@ -30,7 +31,8 @@ Rainbond把广泛支撑企业应用作为首要目标，广泛支撑企业应用
 `无侵入`架构还表现在，对使用者无绑定，开发的应用程序可以脱离Rainbond开发和运行。
 
 #### 以应用为中心，连接企业应用和企业计算资源
- ![](http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch3.png) 
+ <img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch3.png"></img> 
+ 
  `以应用为中心`是Rainbond的核心设计理念，也是Rainbond的抽象思路，强调关注业务，跟业务相关技术概念对外暴露，跟业务不直接相关的技术概念统一包装。通过这种方式抽象，使用者不用过多考虑服务器的问题，也就是`Serverless`架构。
  
  通过`以应用为中心`抽象可以将企业应用和企业计算资源解耦，企业应用的生命周期管理跟计算资源不直接相关，也就是说企业应用的开发可以在任何类型的计算资源上，开发好的企业应用可以直接安装运行在任何类型的计算资源上，还可以随时从一个资源迁移到另一个资源。
