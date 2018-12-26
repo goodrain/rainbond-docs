@@ -46,7 +46,7 @@ dotnet publish -c Release
 
 通过设置环境变量`BUILD_DOTNET_RUNTIME_VERSION` 设置你需要的版本
 
-编译的结果文件存放于运行环境的`/app`目录下。由于平台咱无法很好的感知项目的入口运行文件，需要在源码主目录中定义`rainbondfile`定义项目的运行启动方式，例如：
+编译的结果文件存放于运行环境的`/app`目录下。由于平台咱无法很好的感知项目的入口运行文件，需要在源码主目录中定义[rainbondfile](./etc/rainbondfile.html)定义项目的运行启动方式，例如：
 
 ```
 ports:

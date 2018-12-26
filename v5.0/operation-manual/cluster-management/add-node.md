@@ -20,8 +20,6 @@ grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.p
 
 # 安装节点，节点uid可以通过grctl node list获取
 grctl node install <新增节点uid> 
-# 确定节点状态为health后上线节点
-grctl node up <新增节点uid>
 ```
 
 ## 二、 通过源码的方式

@@ -6,7 +6,7 @@ toc: true
 
 ## 一、代码识别
 
-您的代码根目录下需要有 `Dockerfile` 文件，云帮会识别代码语言类型为**Dockerfile**
+您的代码主目录下需要有 `Dockerfile` 文件，云帮会识别代码语言类型为**Dockerfile**
 
 ## 二、云帮Dockerfile约定规范
 
