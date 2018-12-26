@@ -50,6 +50,20 @@
           "title": "语言支持",
           "items": [
             {
+              "title": "环境定义",
+              "items":[
+                {
+                  "title": "Procfile",
+                  "urls": ["/${VERSION}/user-manual/app-creation/language-support/etc/procfile.html"]
+                },
+                {
+                  "title": "Rainbondfile",
+                  "urls": ["/${VERSION}/user-manual/app-creation/language-support/etc/rainbondfile.html"]
+                }
+
+              ]
+            },
+            {
               "title": "Dockerfile",
               "urls": ["/${VERSION}/user-manual/app-creation/language-support/dockerfile.html"]
             },
