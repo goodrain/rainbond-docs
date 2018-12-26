@@ -32,7 +32,7 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
 
 # 安装Rainbond
 
-1. 准备Rainbond需要的Kubernetes的相关文件
+### 1. 准备Rainbond需要的Kubernetes的相关文件
 
    Rainbond需要使用具有全量权限的`admin.kubeconfig` 和用于kube-proxy的`kube-proxy.kubeconfig`配置文件。
 
@@ -44,7 +44,7 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
    admin.kubeconfig kube-proxy.kubeconfig
    ```
 
-2. 调整集群所有节点的Docker配置
+### 2. 调整集群所有节点的Docker配置
 
    * 信任goodrain.me镜像仓库(必要)
 
@@ -58,7 +58,7 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
    # /etc/docker/daemon.json
    {
      "registry-mirrors": ["https://registry.docker-cn.com", "https://bf3asb4c.mirror.aliyuncs.com"],
-     "insecure-registry": ["goodrain.me"],
+     "insecure-registries": ["goodrain.me"],
      "max-concurrent-downloads": 10,
      "log-level": "warn",
      "log-driver": "json-file",
@@ -69,14 +69,14 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
    }
    ```
 
-3. 初始化Rainbond数据中心
+### 3. 初始化Rainbond数据中心
+
+在k8s管理节点执行安装，进行初始化Rainbond数据中心。
 
 ```bash
 wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 ./grctl init --iip <内网ip> --deploy-type thirdparty 
-
 ```
-
 
 
 
