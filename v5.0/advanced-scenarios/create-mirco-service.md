@@ -26,7 +26,7 @@ asciicast: true
 
 ​	那么如何将这些服务组件部署到 `Rainbond` 呢？我们提供以下方式：
 
-- [源码构建](/docs/dev/user-manual/app-creation/way-of-creation.html#1) 适用的场景很广泛，尤其适用于还没有容器化的服务以及用户自己开发的业务。我们提供一个[示例](/docs/dev/user-manual/app-creation/creation-process.html#1)供用户参考。
+- [源码构建](/docs/v5.0/user-manual/app-creation/way-of-creation.html#1) 适用的场景很广泛，尤其适用于还没有容器化的服务以及用户自己开发的业务。我们提供一个[示例](/docs/dev/user-manual/app-creation/creation-process.html#1)供用户参考。
 - [docker镜像构建](/docs/dev/user-manual/app-creation/way-of-creation.html#2-docker) 支持由docker镜像进行部署，适用于已经容器化的服务，比如 [Docker Hub](hub.docker.com) 可以获取到的各种开发完备的镜像。
 - [从应用市场安装](/docs/dev/user-manual/app-creation/way-of-creation.html#3) 我们为用户提供了应用市场的概念。区别于镜像市场，应用市场中的应用，经过好雨科技技术人员的精心制作，可以通过一键部署的方式，快速将一个完整的应用部署起来，快速应用于使用场景。
 
