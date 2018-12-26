@@ -44,7 +44,7 @@ toc: true
 
 应用全局负载均衡，提供了应用访问的入口。在5.0版本，我们通过 `rbd-gateway` 组件，代替了原有的 `rbd-lb`、`rbd-entrance`。除了性能上的优化，更提供了许多高级的路由功能。
 
-1.了解 [应用网关](/docs/dev/user-manual/gateway/traffic-control.html)
+1.了解 [应用网关](/docs/v5.0/user-manual/gateway/traffic-control.html)
 
 2.未来Rainbond考虑支持更专业的商业级软硬件负载均衡（v3.7.2已支持）
 

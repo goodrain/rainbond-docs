@@ -13,15 +13,17 @@
             "urls": [
                 "/${VERSION}/advanced-scenarios/create-middleware-cluster.html"
             ]
-        },{
+        },
+        {
+            "title": "基于Rainbond实现源码自动部署",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/rainbond-devops.html"
+            ]
+        },
+        {
             "title": "迁移已有的业务上Rainbond",
             "urls": [
                 "/${VERSION}/advanced-scenarios/migration-of-business.html"
-            ]
-        },{
-            "title": "基于Rainbond做DevOps",
-            "urls": [
-                "/${VERSION}/advanced-scenarios/rainbond-devops.html"
             ]
         },
         {
