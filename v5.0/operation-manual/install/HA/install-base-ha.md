@@ -136,7 +136,48 @@ mkdir /grdata
 mount -a
 ```
 
-### 3.3 手动校验存储
+### 3.3 为已安装的Rainbond切换存储
+
+> 场景描述： 用户已经初始化Rainbond数据中心，现在希望将共享存储切换到新搭建好的GlusterFS
+
+思路引导：Rainbond数据中心初始化默认使用manage01节点作为NFS-server，对所有集群其他成员共享其 `/grdata` 目录。如果需要切换，则先摘除集群其他节点的共享存储，然后停止manage01的nfs-server服务，最后将数据同步到GlusterFS，所有节点重新挂载。
+
+具体操作如下：
+
+- 摘除集群其他节点的共享存储
+
+```bash
+##在集群中除manage01节点外的其他节点执行
+umount /grdata
+```
+
+- 停止manage01的nfs-server服务
+
+```bash
+##在manage01节点执行
+systemctl stop nfs-server
+systemctl disable nfs-server
+```
+
+- 将数据同步到GlusterFS
+
+```bash
+##以在server01 server02两个存储节点制作存储卷 data 为例,在manage01节点执行
+mount -t glusterfs server01:data /mnt
+cp -arp /grdata/. /mnt
+```
+
+- 所有节点重新挂载
+
+所有节点编辑 `/etc/fstab` 注释或者删除指向原manage01节点的NFS挂载记录，添加如下记录：
+`server1:/data /grdata glusterfs   backupvolfile-server=server2,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0`
+
+```bash
+##在所有节点执行
+mount -a
+```
+
+### 3.4 手动校验存储
 
 在所有节点执行
 
