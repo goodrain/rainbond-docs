@@ -27,6 +27,14 @@ asciicast: true
 
 ###  2.1 机器资源要求与规划
 
+> 操作系统要求
+
+|操作系统|版本|
+|--|--|
+|CentOS|7.3/7.4|
+|Debian|9.6|
+|Ubuntu|16.04|
+
 > 单台服务器计算资源配置要求
 
 |服务器角色|CPU|内存|              
@@ -41,24 +49,25 @@ asciicast: true
 
 |挂载点|磁盘大小|说明|
 |---|---|---|
-| / |40G|系统根分区|
-| /var/lib/docker |100G|docker镜像存储分区|
-| /opt/rainbond |50G|存储rainbond程序以及产生的日志、数据|
+| / |40G|系统根分区，本地磁盘|
+| /var/lib/docker |100G|docker镜像存储分区，本地磁盘|
+| /opt/rainbond |50G|存储rainbond程序以及产生的日志、数据，本地磁盘|
+| /cache | 50G | 存储应用构建使用的缓存，可以使用共享存储在管理节点间共享|
 
 > 计算节点磁盘分区
 
 |挂载点|磁盘大小|说明|
 |---|---|---|
-| / |40G|系统根分区|
-| /var/lib/docker |100G|docker镜像存储分区|
-| /grlocaldata |100G|应用本地持久化存储|
+| / |40G|系统根分区，本地磁盘|
+| /var/lib/docker |100G|docker镜像存储分区，本地磁盘|
+| /grlocaldata |100G|应用本地持久化存储，本地磁盘|
 
 > 存储节点磁盘分区
 
 |挂载点|磁盘大小|说明|
 |---|---|---|
-| / |40G|系统根分区|
-| /data |500G+|用于搭建集群共享存储|
+| / |40G|系统根分区，本地磁盘|
+| /data |500G+|用于搭建集群共享存储，本地单独挂载磁盘|
 
 > 网络节点网络配置
 
@@ -74,7 +83,7 @@ asciicast: true
 
 - 计算节点：
 
-计算节点为常规部署项，必然存在于集群之中。部署数量至少2台，并在集群资源不足时按需扩容。
+计算节点为常规部署项，必然存在于集群之中。部署数量2至100台，并在集群资源不足时按需扩容。
 
 - 网络节点：
 
@@ -86,14 +95,15 @@ asciicast: true
 
 - 网关节点：
 
-网关节点特指具备Rainbond应用访问负载均衡组件rbd-gateway的节点，为常规部署项，必然存在于集群之中。默认部署于所有的管理节点，可以根据需要单独部署。部署数量至少2台，并配置VIP保证高可用。
-
+网关节点特指具备Rainbond应用访问负载均衡组件rbd-gateway的节点，为常规部署项，必然存在于集群之中。默认部署于所有的管理节点，可以根据需要单独部署。部署数量参照管理节点，并配置VIP保证高可用。
 
 ## 三、存储集群选择与安装
 
+准备存储是安装高可用集群的第一步。在这一步将解决集群共享目录 `/grdata` 的配置。
+
 ### 3.1 支持的存储集群说明
 
-Rainbond需要为管理节点与计算节点的 `/grdata` 目录配置共享存储，在初始化集群时默认使用 `NFS` 进行共享，受限于这种技术本身，这种方案无法在生产环境中保证其高可用性。需要用户选择其他共享存储解决方案。
+Rainbond需要为管理节点与计算节点的 `/grdata` 目录配置共享存储。
 
 > Rainbond支持多种共享存储解决方案，请根据如下场景进行选择：
 
@@ -104,6 +114,10 @@ Rainbond需要为管理节点与计算节点的 `/grdata` 目录配置共享存�
 - GlusterFS：
 
 基于用户自备的服务器或虚拟机部署Rainbond的情况下，推荐部署 [GlusterFS](/docs/v5.0/operation-manual/storage/GlusterFS/introduce.html) 作为共享存储解决方案。
+
+- 其它兼容NFS协议的共享存储
+
+如果用户拥有可使用的兼容NFS协议的共享存储，可以直接使用。使 /grdata 目录在集群管理节点与计算节点间共享即可。
 
 ### 3.2 安装GlusterFS集群
 
@@ -122,6 +136,16 @@ mkdir /grdata
 mount -a
 ```
 
+### 3.3 手动校验存储
+
+在所有节点执行
+
+```bash
+mount | grep /grdata
+```
+
+若返回结果已挂载，则校验成功，进行下一步。如不成功，请重新审查本节操作。
+
 ## 四、网络解决方案选择
 
 ### 支持的网络方案与优缺点
@@ -130,17 +154,67 @@ mount -a
 
 ## 五、Rainbond数据中心初始化
 
+### 5.1 命令
+
+这一步将初始化Rainbond数据中心，即安装首个管理节点。这一步非常重要，会配置访问应用所使用的IP、集群网络解决方案等信息。
+
 ```bash
 
 wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 chmod +x ./grctl
-./grctl init --iip <内网ip> --eip <访问应用使用的公网IP/网关节点VIP>
+./grctl init --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> --network <选择网络解决方案，可选择calico/flannel/midonet，默认calico> --vip <指定VIP，具体配置见下节>
 
 ```
 
-## 六、网关节点扩容
+> 更多初始化参数，请执行 ./grctl init -h 获取
 
-如无特殊设置，网关节点将默认安装在所有的管理节点，故而会随管理节点同步扩容。扩容完成后，需要配置VIP实现高可用,该VIP在 **Rainbond数据中心初始化** 时由 `--eip` 参数指定。
+### 5.2 手动校验
+
+安装完成后，在当前节点执行：
+
+```bash
+grctl cluster
+```
+
+若返回集群信息正常，则进行下一步；若返回不正常，请重新审查本节操作。
+
+## 六、管理节点扩容
+
+管理节点的扩容，实现了集群管理功能的高可用。考虑到 etcd 集群选举机制，应至少扩容到3个管理节点。
+
+### 6.1 扩容命令
+
+按下列场景选择扩容命令
+
+- 未做ssh免密操作时，需要知悉节点root密码
+
+```bash
+grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role master
+```
+
+- 配置好ssh免密后
+
+```bash
+grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role master
+```
+
+> 更扩容参数，请执行 grctl node add -h 获取
+
+### 6.2 手动校验
+
+安装完成后，在当前节点执行：
+
+```bash
+grctl cluster
+```
+
+若返回集群列表中显示出扩容节点且状态正常，则进行下一步；若返回不正常，请重新审查本节操作。
+
+## 七、网关节点扩容
+
+如无特殊设置，网关节点将默认安装在所有的管理节点，故而会随管理节点同步扩容。扩容完成后，需要配置VIP实现高可用,该VIP在 **Rainbond数据中心初始化** 时由 `--vip` 参数指定。
+
+### 7.1 vip配置
 
 借助 `keepalived` 完成VIP配置
 
@@ -217,21 +291,23 @@ mysql        #进入数据库
 use console; #使用console数据库
 UPDATE region_info set tcpdomain="<VIP>"; #更新tcpdomain
 ```
-## 七、管理节点扩容
 
-- 未做ssh免密操作时，需要知悉节点root密码
+### 7.2 手动校验
 
-```bash
-grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role master
-```
-
-- 配置好ssh免密后
+在主节点执行如下命令：
 
 ```bash
-grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role master
+systemctl stop keepalived
+ip a
 ```
+
+如果在关闭服务后，vip成功在某一台备用节点上启动，则进入下一步；如果vip没有成功漂移，请重新审查本节操作。
 
 ## 八、计算节点扩容
+
+### 8.1 扩容命令
+
+按下列场景选择扩容命令
 
 - 未做ssh免密操作时，需要知悉节点root密码
 
@@ -244,3 +320,13 @@ grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role wo
 ```bash
 grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role worker
 ```
+
+### 8.2 手动校验
+
+安装完成后，在当前节点执行：
+
+```bash
+grctl cluster
+```
+
+若返回集群列表中显示扩容节点且状态正常，则表示扩容成功；若返回不正常，请重新审查本节操作。
