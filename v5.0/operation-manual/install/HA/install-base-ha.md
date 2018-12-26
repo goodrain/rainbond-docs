@@ -8,48 +8,236 @@ asciicast: true
 
 <div id="toc"></div>
 
-前文
 
 ## 一、Rainbond集群高可用说明
 
+在生产环境下，可以调整Rainbond的部署结构，来提高其高可用性。Rainbond高可用性可以从以下几个层面提升：
 
+- 存储高可用：选择合适的分布式存储系统作为集群的共享存储。
+
+- 网络高可用：为集群选择合适的SDN网络。
+
+- 管理节点集群： 部署多个管理节点，实现Rainbond管理功能高可用。
+
+- 计算节点集群： 分布式部署多个计算节点，实现计算资源高可用。
+
+- 网关节点集群： 部署多个网关节点，提供多个应用访问入口。
 
 ## 二、机器资源准备
 
 ###  2.1 机器资源要求与规划
 
- 
+> 单台服务器计算资源配置要求
+
+|服务器角色|CPU|内存|              
+|------|-----|-----|
+|管理节点| 16核|32G|
+|计算节点| 16核|64G|
+|网络节点|8核|16G|
+|存储节点|4核|8G|
+|网关节点|4核|8G|
+
+> 管理节点磁盘分区
+|挂载点|磁盘大小|说明|
+|---|---|---|
+|/|40G|系统根分区|
+|/var/lib/docker|100G|docker镜像存储分区|
+|/opt/rainbond|存储rainbond程序以及产生的日志、数据|
+
+> 计算节点磁盘分区
+|挂载点|磁盘大小|说明|
+|---|---|---|
+|/|40G|系统根分区|
+|/var/lib/docker|100G|docker镜像存储分区|
+|grlocaldata|100G|应用本地持久化存储|
+
+> 存储节点磁盘分区
+|挂载点|磁盘大小|说明|
+|---|---|---|
+|/|40G|系统根分区|
+|/data|500G+|用于搭建集群共享存储|
+
+> 网络节点网络配置
+
+如对于应用网络有较高要求，请对应提高网络节点网络配置：提高带宽并升级网卡。
 
 ###  2.2 节点规划
 
+根据用户具体要求，可以参见本节规划集群的节点配置。
+
+- 管理节点：
+
+管理节点为常规部署项，必然存在于集群之中。部署数量从1开始，按奇数递增（即可以部署 1、3、5···台），推荐3台。
+
+- 计算节点：
+
+计算节点为常规部署项，必然存在于集群之中。部署数量至少2台，并在集群资源不足时按需扩容。
+
+- 网络节点：
+
+特指在选择midonet作为集群网络解决方案时部署的网络出口节点。部署数量推荐2台，并可以在必要时进行切换保证高可用。
+
+- 存储节点：
+
+特指在选择glusterfs作为集群共享存储解决方案时部署的存储节点。部署数量至少2台，并根据节点数量选择复制集数量。
+
+- 网关节点：
+
+网关节点特指具备Rainbond应用访问负载均衡组件rbd-gateway的节点，为常规部署项，必然存在于集群之中。默认部署于所有的管理节点，可以根据需要单独部署。部署数量至少2台，并配置VIP保证高可用。
 
 
 ## 三、存储集群选择与安装
 
 ### 3.1 支持的存储集群说明
 
-GlusterFS, NAS 
+Rainbond需要为管理节点与计算节点的 `/grdata` 目录配置共享存储，在初始化集群时默认使用 `NFS` 进行共享，受限于这种技术本身，这种方案无法在生产环境中保证其高可用性。需要用户选择其他共享存储解决方案。
+
+> Rainbond支持多种共享存储解决方案，请根据如下场景进行选择：
+
+- NAS：
+
+基于阿里云等IaaS设施部署Rainbond的情况下，可以选择其提供的 [NAS](/docs/v5.0/operation-manual/install/alicloud/install-base-alicloud.html#2-1-nas) 存储服务。
+
+- GlusterFS：
+
+基于用户自备的服务器或虚拟机部署Rainbond的情况下，推荐部署 [GlusterFS](/docs/v5.0/operation-manual/storage/GlusterFS/introduce.html) 作为共享存储解决方案。
 
 ### 3.2 安装GlusterFS集群
 
-链接
+安装GlusterFS集群，请参见 [GlusterFS双机复制集群安装](/docs/v5.0/operation-manual/storage/GlusterFS/install.html)
+
+安装完成后，可以获得数据卷 `data`，接下来将其挂载到对应节点的 `/grdata`：
+
+在所有的管理节点和计算节点执行：
+
+```bash
+##增加挂载记录
+echo 'server1:/data /grdata glusterfs   backupvolfile-server=server2,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0' >> /etc/fstab
+##创建挂载点
+mkdir /grdata
+##执行挂载
+mount -a
+```
 
 ## 四、网络解决方案选择
 
 ### 支持的网络方案与优缺点
 
- 链接 《对比 calico flannel midonet》
+ DOING 《对比 calico flannel midonet》
 
 ## 五、Rainbond数据中心初始化
 
+```bash
 
+wget https://pkg.rainbond.com/releases/common/v5.0/grctl
+chmod +x ./grctl
+./grctl init --iip <内网ip> --eip <访问应用使用的公网IP/网关节点VIP>
+
+```
 
 ## 六、网关节点扩容
 
+如无特殊设置，网关节点将默认安装在所有的管理节点，故而会随管理节点同步扩容。扩容完成后，需要配置VIP实现高可用,该VIP在 **Rainbond数据中心初始化** 时由 `--eip` 参数指定。
 
+借助 `keepalived` 完成VIP配置
 
+- 安装
+
+`yum install -y keepalived`
+
+- 编辑配置文件
+
+```bash
+##备份原有配置文件
+cp /etc/keepalived/keepalived.conf /etc/keepalived/keepalived.conf.bak
+##编辑配置文件如下
+##manage01
+! Configuration File for keepalived
+
+global_defs {
+   router_id LVS_DEVEL
+}
+
+vrrp_instance VI_1 {
+    state MASTER   #角色，当前为主节点
+    interface ens6f0  #网卡设备名，通过 ifconfig 命令确定
+    virtual_router_id 51
+    priority 100   #优先级，主节点大于备节点
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        <VIP>
+    }
+}
+
+##其他管理节点
+! Configuration File for keepalived
+
+global_defs {
+   router_id LVS_DEVEL
+}
+
+vrrp_instance VI_1 {
+    state BACKUP   #角色，当前为备节点
+    interface ens6f0   #网卡设备名，通过 ifconfig 命令确定
+    virtual_router_id 51
+    priority 50   #优先级，主节点大于备节点
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        <VIP>
+    }
+}
+
+```
+
+- 启动服务
+
+```bash
+##启动服务，设置开机自启动
+systemctl start keepalived
+systemctl enable keepalived
+```
+
+- 其他需要调整的配置
+
+```bash
+##在manage01节点执行
+din rbd-db   #进入rbd-db组件
+mysql        #进入数据库
+use console; #使用console数据库
+UPDATE region_info set tcpdomain="<VIP>"; #更新tcpdomain
+```
 ## 七、管理节点扩容
 
+- 未做ssh免密操作时，需要知悉节点root密码
 
+```bash
+grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role master
+```
+
+- 配置好ssh免密后
+
+```bash
+grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role master
+```
 
 ## 八、计算节点扩容
+
+- 未做ssh免密操作时，需要知悉节点root密码
+
+```bash
+grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role worker
+```
+
+- 配置好ssh免密后
+
+```bash
+grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role worker
+```
