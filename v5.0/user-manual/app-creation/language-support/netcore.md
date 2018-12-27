@@ -5,8 +5,10 @@ toc: true
 ---
 
 Rainbond 可以识别.NetCore 语言的项目并一键编译部署到平台，对于.NetCore语言的支持与Dockerfile一样将构建出镜像而不是slug程序包，因此.NetCore不能使用Procfile文件定义。
+
 {{site.data.alerts.callout_success}}
 - 目前仅支持单项目代码维护形式，如果你一个代码仓库维护了多个 Project,例如一个微服务架构，那么首先建议你将每个 Project 分离到不同仓库或同个仓库不同二级目录下。
+- NetCore语言构建过程默认使用`microsoft/dotnet:2.2-sdk-alpine` 编译镜像和`microsoft/dotnet:2.2-aspnetcore-runtime`运行环境镜像，若设置其他版本同理。若你未提前下载镜像在构建过程容易出现拉取镜像失败的错误。强烈建议先在Rainbond管理节点提前手动获取上诉镜像。
 {{site.data.alerts.end}}
 
 ## 一、代码识别
