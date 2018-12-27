@@ -1,7 +1,7 @@
 ---
 title: Rainbond ServiceMesh架构框架简介
 summary: Rainbond ServiceMesh架构框架简介
-toc: false
+toc: true
 toc_not_nested: true
 asciicast: true
 ---
@@ -15,8 +15,10 @@ asciicast: true
  [ServiceMesh 简史](https://www.goodrain.com/2018/06/25/tech-20180625/)
  一般的字面解释是“服务网格”，作为时下最流行的分布式系统架构微服务的动态链接器，处于服务到服务的通信的专用基础设施层，该层独立于应用程序为服务之间的通信提供轻量级的可靠传递。如果简单的描述的话，可以将它比作是应用程序或者说微服务间的 TCP/IP，负责服务之间的网络调用、限流、熔断和监控，同样使用 ServiceMesh 也就无须关系服务之间的那些原来是通过应用程序或者其他框架实现的事情，比如 Spring Cloud、OSS，现在只要交给 ServiceMesh 就可以了。ServiceMesh的出现主要是由于应用虚拟化技术的发展，例如Kubernetes,Rainbond等项目，大大降低了应用的部署和运维复杂度。
 <center>
-<img width="85%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/architecture/mesh.png"></img>
+<img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/microservice/servicemesh-arch.png"></img>
 </center>
+## 微服务架构对比
+<img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/microservice/servicemesh-compare.png"></img>
 
 ## 为何使用ServiceMesh
 ServiceMesh 并没有给我们带来新功能，它是用于解决其他工具已经解决过的问题，只不过这次是在 Cloud Native 的 kubernetes 环境下的实现。
@@ -45,12 +47,12 @@ ServiceMesh架构框架主要通过治理网络通信提供一系列服务治理
 ## Rainbond与ServiceMesh
 Rainbond原生提供全量的ServiceMesh治理功能方案，同时提供了插件化得扩展策略，用户除了使用默认方案以外也可以自定义插件实现。Rainbond与Istio的实现有共同点，也有天然的不同。相同点是都实现了全局控制层，不同点是Istio需要依赖Kubernetes等平台工作，微服务架构的支持需要从底层存储与通信到上层的应用层配置全盘考虑，大型的微服务架构是离开不了自动化管理应用的PaaS平台的。Rainbond从硬件层，通信层，平台层实现不同的控制逻辑，既兼容已有的微服务架构，同时提供了完整的ServiceMesh微服务架构实践。包容的架构形式让已有的应用服务化变得可落地。
 <center>
-<img width="85%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/architecture/sm-arh.png"></img>
+<img width="100%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/architecture/sm-arh.png"></img>
 </center>
 
 如下图可知，Rainbond的网络治理插件通过Sidecar的方式在应用的同一个网络命名空间，同一个存储空间，同一个环境变量空间内动态启动第三方插件服务，例如envoy服务，通过与Rainbond应用运行时通信完成从应用空间到平台空间的数据交换，实现平台对应用通信的控制。
 <center>
-<img width="85%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/architecture/sidercar.png"></img>
+<img width="100%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/architecture/sidercar.png"></img>
 </center>
 
 ## ServiceMesh微服务架构实践
