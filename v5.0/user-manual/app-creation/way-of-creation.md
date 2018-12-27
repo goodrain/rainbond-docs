@@ -14,14 +14,14 @@ toc: true
 
 Rainbond 支持多种流行的编程语言的源码创建, 同时也支持通过Dockerfile进行创建. Rainbond 目前支持的语言有:
 
-- Java
-- PHP
-- Python
-- Node.js
-- Ruby
-- Golang
-- Html
-- Dockerfile
+- <a href="language-support/java.html" target="_blank">Java源码创建应用</a>
+- <a href="language-support/php.html" target="_blank">PHP源码创建应用</a>
+- <a href="language-support/python.html" target="_blank">Python源码创建应用</a>
+- <a href="language-support/nodejs.html" target="_blank">Node.js源码创建应用</a>
+- <a href="language-support/golang.html" target="_blank">Golang源码创建应用</a>
+- <a href="language-support/netcore.html" target="_blank">.Net源码创建应用</a>
+- <a href="language-support/html.html" target="_blank">Html静态源码创建应用</a>
+- <a href="language-support/dockerfile.html" target="_blank">Dockerfile源码创建应用</a>
 
 通过源码的方式创建服务组件, 需要把源码托管在版本控制系统上, Rainbond 目前支持的版本控制系统有 `Git 和 SVN`, 也是目前大家常用的版本控制系统.
 
@@ -35,7 +35,16 @@ Rainbond 支持多种流行的编程语言的源码创建, 同时也支持通过
 
 ## 2. 从 Docker 镜像创建
 
-从 Docker 镜像创建又分为: 指定镜像, Docker Run 命令和 Docker Compose.
+Rainbond 的底层是 Kubernetes(k8s), k8s 是一个用于自动化部署，扩展和管理`容器化应用`的系统. 而在 k8s 容器化应用的过程中, Docker `镜像`发挥着十分重要的作用. 有了`镜像`, 我们就可以做到"一次构建, 到处运行(Build once, Run anywhere)".
+
+你可以将项目的代码, 运行时环境, 依赖库, 配置等资源或信息通过 Dockerfile 打包成一个或多个镜像, 上传到Docker Hub, 或quay.io, 又或是自己的私有仓库. 对于项目中所需要的数据库, 消息队列等中间件, 或者Elastic Search, Kibana, Grafana等日志收集工具, 你甚至可以直接在 Docker Hub 找别人制作好的镜像, 不需要自己去制作. 然后, 你可以通过`镜像的名字, Docker Run 命令, 或者 Docker Compose`, 将的镜像跑在 Rainbond 上.
+
+{{site.data.alerts.callout_info}}
+以下的镜像不能安装:
+<li>发行版及软件包镜像：Debian, Ubuntu, Centos, Fedora, FreeBSD, etc</li>
+<li>编程语言镜像：Golang, Ruby, Openjdk, etc</li>
+<li>某些软件镜像: Docker, Homebrew Bottles, etc</li>
+{{site.data.alerts.end}}
 
 ### 2.1 指定镜像
 
