@@ -322,7 +322,6 @@ asciicast: true
 ## 关于企业版本
 
 {{site.data.alerts.callout_info}}
-- <a href="../support/rainbond-enterprise-support.html" target="_blank">企业级服务与支持</a>
-- <a href="../support/rainbond-enterprise-training.html" target="_blank">企业培训与咨询</a>
-- <a href="../support/rainbond-enterprise-sla.html" target="_blank">企业级产品支持服务等级协议</a>
+- <a href="https://www.goodrain.com/industrycloud" target="_blank">企业服务</a>
+- <a href="../support/rainbond-enterprise-sla.html" target="_blank">服务等级协议</a>
 {{site.data.alerts.end}}
