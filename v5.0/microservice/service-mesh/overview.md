@@ -52,7 +52,7 @@ Rainbond原生提供全量的ServiceMesh治理功能方案，同时提供了插�
 
 如下图可知，Rainbond的网络治理插件通过Sidecar的方式在应用的同一个网络命名空间，同一个存储空间，同一个环境变量空间内动态启动第三方插件服务，例如envoy服务，通过与Rainbond应用运行时通信完成从应用空间到平台空间的数据交换，实现平台对应用通信的控制。
 <center>
-<img width="100%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/architecture/sidercar.png"></img>
+<img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/microservice/servicemesh-sidecar.png"></img>
 </center>
 
 ## ServiceMesh微服务架构实践
