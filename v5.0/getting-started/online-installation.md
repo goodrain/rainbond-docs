@@ -36,7 +36,7 @@ chmod +x ./grctl
 
    * 确定系统时间与时区(Asia/Shanghai)同步，参考[配置时区与时间同步](../operation-manual/install/config/timezone.html)
 
-   * 如果已经装有docker, 需要在安装前配置`insecure-registry: goodrain.me` 
+   * 如果已经装有docker, 需要在安装前配置`insecure registry: goodrain.me`,可以通过docker info查看`Insecure Registries`
 
    * 确定网络没有限制，如有请加如下域名添加到白名单
 
@@ -76,10 +76,10 @@ http://<节点IP地址>:7070
 
 若你需要增加你的集群计算资源池，可以快速扩容计算节点：
 
-> 其中主机名可以根据排序顺序依次compute01-computeN
+> 其中host/hostname可以根据排序顺序依次compute01-computeN,host/hostname不要重复。
 
 ```bash
-grctl node add --host compute01 --iip <计算节点IP> --root-pass <root用户密码> --role compute
+grctl node add --host <computexx> --iip <计算节点IP> --root-pass <root用户密码> --role compute
 # 获取添加节点的NodeID，此时节点应处于未安装状态
 grctl node list
 # 指定节点ID开始安装

@@ -79,7 +79,7 @@ NAS默认选择 `SSD性能型`即可,推荐，满足Rainbond使用。也可以�
 阿里云推荐使用NAS,经过我们大量的生产测试环境使用，挂载NAS需要使用v3版本，切勿使用v4版本，否则会存在文件锁问题。
 {{site.data.alerts.end}}
 
-要在 Linux 系统中将 NAS 的 NFS 文件系统挂载至 ECS 实例，您需要安装 NFS 客户端。
+要在 Linux 系统中将 NAS 的 NFS 文件系统挂载至 ECS 实例，您需要安装 NFS 客户端，目前所有节点都需要提前挂载好NAS。
 操作步骤：
 
 ```bash
@@ -113,14 +113,14 @@ chmod +x ./grctl
 
 ```
 # 添加管理节点
-grctl node add --host manage01 --iip <管理节点ip> -p <root密码> --role master 
+grctl node add --host <managexx> --iip <管理节点内网ip> -p <root密码> --role master 
 ## 法2默认已经配置ssh信任登陆
-grctl node add --host manage01 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role master
+grctl node add --host  <managexx>  --iip <管理节点内网ip> --key /root/.ssh/id_rsa.pub --role master
 
 # 添加计算节点
-grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role worker
+grctl node add --host <computexx> --iip <计算节点内网ip> -p <root密码> --role worker
 ## 法2默认已经配置ssh信任登陆
-grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role worker
+grctl node add --host <computexx> --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role worker
 
 # 安装节点，节点uid可以通过grctl node list获取
 grctl node install <新增节点uid> 
