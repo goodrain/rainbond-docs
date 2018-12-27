@@ -6,20 +6,30 @@ toc: true
 
 ## 一、 命令行模式
 
+{{site.data.alerts.callout_danger}}
+
+1. host/hostname不能重复，可以是其他
+2. 安装节点时，请勿使用之前wget下载的grctl工具即(./grctl)，直接使用grctl命令
+  
+{{site.data.alerts.end}}
+
 ```
 # 添加管理节点
-grctl node add --host manage01 --iip <管理节点ip> -p <root密码> --role master 
+grctl node add --host <managexx> --iip <管理节点ip> -p <root密码> --role master 
 ## 法2默认已经配置ssh信任登陆
-grctl node add --host manage01 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role master
+grctl node add --host <managexx> --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role master
 
 # 添加计算节点
-grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role worker
+grctl node add --host <computexx> --iip <计算节点ip> -p <root密码> --role compute
 ## 法2默认已经配置ssh信任登陆
-grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role worker
+grctl node add --host <computexx> --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role compute
 
 
 # 安装节点，节点uid可以通过grctl node list获取
 grctl node install <新增节点uid> 
+# 确定计算节点处于health状态
+grctl node up <新增节点uid> 
+
 ```
 
 ## 二、 通过源码的方式
