@@ -16,7 +16,7 @@ Rainbond可以将PHP源码快速的部署并运行起来。无论是`Symfony`、
 - 项目根目录下必须存在`composer.lock`文件  
 - 项目根目录下需要定义`Procfile`,用来定义程序启动方式
 
-示例: [python-demo](https://github.com/goodrain/php-demo)
+示例: [php-demo](https://github.com/goodrain/php-demo)
 
 ## 二、代码识别
 
@@ -202,9 +202,9 @@ composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
 ## 五、配置启动命令
 
-云帮支持 [Apache](http://httpd.apache.org/) 和 [Nginx](http://nginx.org/) 两种 Web 服务器，如果您在Profile文件中没有设置加载其中任一服务器，或代码根目录没有 Procfile 文件，应用创建向导会提示用户选择Apache或Nginx作为Web服务器。
+云帮支持 [Apache](http://httpd.apache.org/)，如果您在Profile文件中没有设置加载其中任一服务器，或代码根目录没有 Procfile 文件，应用创建向导会提示用户选择Apache作为Web服务器。
 
-### 5.1 Apache服务器
+### Apache服务器
 
 Apache接口与PHP-FPM或HHVM通过FastCGI使用 `mod_proxy_fcgi`。
 
@@ -253,6 +253,7 @@ RewriteRule .? %{ENV:BASE}/app.php [L]
 ```bash
 web: vendor/bin/heroku-php-apache2 -C apache_app.conf
 ```
+<!--
 
 ### 5.2 Nginx
 
@@ -297,10 +298,8 @@ location ~ ^/(app|app_dev|config)\.php(/|$) {
 web: vendor/bin/heroku-php-nginx -C nginx_app.conf
 ```
 
-## 六、PHP示例代码
+-->
 
-- [php示例代码](https://github.com/goodrain/php-demo.git)
-
-## 七、相关文档
+## 六、相关文档
 - <a href="php/custom-env.html" target="_blank" >自定义Web Server与PHP环境</a>
 - <a href="etc/procfile.html" target="_blank" >Procfile文件说明</a>
