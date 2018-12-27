@@ -165,12 +165,6 @@
                 "urls": [
                     "/${VERSION}/operation-manual/how-to-update.html"
                 ]
-            },
-            {
-                "title": "故障诊断",
-                "urls": [
-                    "/${VERSION}/FAQs/FAQs.html"
-                ]
             }
         ]
     }

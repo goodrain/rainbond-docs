@@ -2,12 +2,9 @@
 title: Rainbond安装引导
 summary: 本文引导用户根据自己的需要和具备的不同环境选择合理的安装方式
 toc: true
-toc_not_nested: true
 asciicast: true
 
 ---
-
-<div id="toc"></div>
 
 # 快速安装Rainbond
 

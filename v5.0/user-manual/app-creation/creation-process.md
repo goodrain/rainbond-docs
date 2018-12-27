@@ -34,8 +34,8 @@ Step 4: 构建完成后, 点击 **访问**, 验证应用是否创建成功.
 - <a href="language-support/php.html" target="_blank">PHP源码创建应用</a>
 - <a href="language-support/python.html" target="_blank">Python源码创建应用</a>
 - <a href="language-support/nodejs.html" target="_blank">Node.js源码创建应用</a>
-- <a href="language-support/ruby.html" target="_blank">Ruby源码创建应用</a>
 - <a href="language-support/golang.html" target="_blank">Golang源码创建应用</a>
+- <a href="language-support/netcore.html" target="_blank">.Net源码创建应用</a>
 - <a href="language-support/html.html" target="_blank">Html静态源码创建应用</a>
 - <a href="language-support/dockerfile.html" target="_blank">Dockerfile源码创建应用</a>
 
