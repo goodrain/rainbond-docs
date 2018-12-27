@@ -48,7 +48,7 @@ asciicast: true
 *更多特性请见[功能列表](/docs/5.0/architecture/edition.html)*
 *版本计划详见[开发计划](/docs/5.0/architecture/roadmap.html)*
 
-## Rainbond项目的优势
+## Rainbond的优势
 
 1. 只需要关注自身业务，业务之外的技术问题（资源管理、运维、架构、治理、环境等问题），一站式解决。
 2. Rainbond结合行业应用，不需要做开发，就能快速变成行业专属开发、交付、运维平台。
