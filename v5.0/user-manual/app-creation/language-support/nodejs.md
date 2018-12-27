@@ -4,11 +4,23 @@ summary: 通过Node.JS源码创建
 toc: true
 ---
 
-## 一、代码识别
+## 一、准备工作
 
-在您代码的根目录下必须有`package.json`文件，如果不存在请手动或使用 `npm init` 命令创建并配置需要的依赖和其它信息。
+在此步骤中，您将准备一个可以部署的简单应用程序，至少需要满足前3个条件: 
 
-## 二、支持的Node.js版本
+- 本地可以正常运行部署的Nodejs程序  
+- 项目可以托管到git仓库  
+- 项目根目录下必须存在`package.json`,用来管理Nodejs项目的依赖,也是Rainbond识别为Nodejs语言的必要条件  
+- 项目根目录下需要定义`Procfile`,用来定义程序启动方式
+
+
+示例: [Node.js示例代码](https://github.com/goodrain/nodejs-demo.git)
+
+## 二、代码识别
+
+代码的根目录下必须有`package.json`文件，如果不存在请手动或使用 `npm init` 命令创建并配置需要的依赖和其它信息。
+
+## 三、版本支持
 
 默认当前支持的版本
 
@@ -46,7 +58,7 @@ toc: true
 npm 版本不是必须的，可以省略，因为 npm 是跟 node 绑定的。
 {{site.data.alerts.end}}
 
-## 三、环境变量
+## 四、环境变量
 
 系统会设置以下的环境变量，`NODE_ENV`环境变量默认是 production。
 
@@ -58,7 +70,7 @@ npm 版本不是必须的，可以省略，因为 npm 是跟 node 绑定的。
    PATH=vendor/node/bin:bin:node_modules/.bin:$PATH
 ```
 
-## 四、自定义构建
+## 五、自定义构建
 
 如果您的应用在构建时需要执行额外的操作，可以在 `package.json` 的 `scripts` 节点下添加 `postinstall`
 脚本，该脚本会在 buildpack 执行完 `npm install —production` 后自动执行，可参考`package.json` 示例：
@@ -90,7 +102,7 @@ npm 版本不是必须的，可以省略，因为 npm 是跟 node 绑定的。
 
 我们 **推荐** 在本地编译好静态文件再上传到服务器部署，而不是在服务器端.因为服务器端可能会缺少某些包依赖的外部环境而无法执行某些 grunt 任务，比如：`grunt-contrib-compass` 和 `grunt-contrib-sass` 都是依赖外部的 Ruby 命令行工具的，但是平台的 node.js 环境里是没有这些工具的。
 
-## 五、启动命令
+## 五、配置启动命令
 
 Procfile 文件不是必须的，系统会检查 `package.json` 里的 `scripts.start` 项，如果存在，系统会使用 `scripts.start` 里的命令做为启动命令，参考上一节里 `package.json` 示例里的 `scripts.start` 脚本。
 
@@ -103,6 +115,6 @@ web: npm start
 系统会优先使用 Procfile 中的启动命令。
 {{site.data.alerts.callout_danger}}请注意Profile的语法，冒号后在有一个空格。{{site.data.alerts.end}}
 
-## 六、示例代码
+## 六、特别说明
 
-- [Node.js示例代码](https://github.com/goodrain/nodejs-demo.git)
+目前Nodejs项目仅支持使用node或者npm启动,如果需要编译成js，使用nginx的方式推荐使用Dockerfile
