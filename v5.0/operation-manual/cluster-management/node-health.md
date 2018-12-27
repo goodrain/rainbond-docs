@@ -22,9 +22,29 @@ toc: true
 
 | 节点类型 | 检查项目 | 检查方式 |
 | -------- | -------- | -------- |
-|          |          |          |
-|          |          |          |
-|          |          |          |
+| 管理节点 |     rbd-registry     |     HTTP     |
+| 管理节点 |     rbd-repo     |     HTTP     |
+| 管理节点 |     rbd-db     |     TCP     |
+| 管理节点, 计算节点 | rbd-dns | TCP |
+| 管理节点 | etcd | TCP |
+| 计算节点 | etcd-proxy | TCP |
+| 管理节点, 计算节点 | docker | HTTP |
+| 管理节点, 计算节点 | storage | CMD |
+| 管理节点, 计算节点 | local-dns | CMD |
+| 管理节点 | kube-apiserver | HTTP |
+| 管理节点 | kube-scheduler | TCP |
+| 管理节点 | kube-controller-manager | TCP |
+| 管理节点, 计算节点 | kubelet | TCP |
+| 管理节点 | rbd-gateway | HTTP |
+| 管理节点 | rbd-api | HTTP |
+| 管理节点 | rbd-chaos | HTTP |
+| 管理节点 | rbd-mq | HTTP |
+| 管理节点 | rbd-webcli | HTTP |
+| 管理节点 | rbd-worker | HTTP |
+| 管理节点 | rbd-monitor | HTTP |
+| 管理节点 | rbd-eventlog | HTTP |
+| 管理节点, 计算节点 | calico | CMD |
+| 管理节点 | rbd-app-ui | HTTP |
 
 
 
