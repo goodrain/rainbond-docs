@@ -1,17 +1,13 @@
 ---
 title: 创建一个中间件集群
 summary: 创建一个中间件集群
-toc: false
-toc_not_nested: true
-asciicast: true
+toc: true
 ---
 
 <div id="toc"></div>
 
-## mysql 主从同步
-
 ## 一. mysql主从同步原理
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204102924349-2125007754.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204102924349-2125007754.png" width="70%">
 
 
 1）在Slave 服务器上执行sart slave命令开启主从复制开关，开始进行主从复制。
