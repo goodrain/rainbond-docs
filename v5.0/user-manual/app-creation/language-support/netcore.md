@@ -4,7 +4,10 @@ summary: Rainbond 可以识别.NetCore 语言的项目并一键编译部署到�
 toc: true
 ---
 
-Rainbond 可以识别.NetCore 语言的项目并一键编译部署到平台。
+Rainbond 可以识别.NetCore 语言的项目并一键编译部署到平台，对于.NetCore语言的支持与Dockerfile一样将构建出镜像而不是slug程序包，因此.NetCore不能使用Procfile文件定义。
+{{site.data.alerts.callout_success}}
+- 目前仅支持单项目代码维护形式，如果你一个代码仓库维护了多个 Project,例如一个微服务架构，那么首先建议你将每个 Project 分离到不同仓库或同个仓库不同二级目录下。
+{{site.data.alerts.end}}
 
 ## 一、代码识别
 
@@ -24,14 +27,11 @@ Rainbond 可以识别.NetCore 语言的项目并一键编译部署到平台。
 #### 编译方式设置
 
 默认编译方式如下：
-
 ```
 dotnet restore
 dotnet publish -c Release
 ```
-
 若需要在`dotnet restore`之前执行的命令可以通过 `BUILD_DOTNET_RESTORE_PRE`环境变量指定。
-
 若需要改变 `dotnet restore`命令可以通过`BUILD_DOTNET_RESTORE` 环境变量指定。
 
 ## 三、项目运行
@@ -63,9 +63,4 @@ cmd: dotnet aspnetapp.dll
 
 [dotnet-demo](https://github.com/goodrain-apps/dotnet-demo)
 
-{{site.data.alerts.callout_success}}
-
-- 目前仅支持单项目代码维护形式，如果你一个代码仓库维护了多个 Project,例如一个微服务架构，那么首先建议你将每个 Project 分离到不同仓库或同个仓库不同二级目录下。
-
-{{site.data.alerts.end}}
 
