@@ -1,10 +1,10 @@
 ---
 title: 设计思想
 summary: Rainbond设计的由来和理念
-toc: false
+toc: true
 ---
 
-#### 企业应用云操作系统
+## 企业应用云操作系统
  
  <img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch1.png"></img>
  
@@ -14,7 +14,7 @@ Rainbond 通过 `以应用为中心` 的方式包装以上重复性工作，并�
 
 
 
-####  无侵入架构
+##  无侵入架构
  <img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch2.png"></img> 
 
 
@@ -30,7 +30,7 @@ Rainbond把广泛支撑企业应用作为首要目标，广泛支撑企业应用
 
 `无侵入`架构还表现在，对使用者无绑定，开发的应用程序可以脱离Rainbond开发和运行。
 
-#### 以应用为中心，连接企业应用和企业计算资源
+## 以应用为中心，连接企业应用和企业计算资源
  <img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch3.png"></img> 
  
  `以应用为中心`是Rainbond的核心设计理念，也是Rainbond的抽象思路，强调关注业务，跟业务相关技术概念对外暴露，跟业务不直接相关的技术概念统一包装。通过这种方式抽象，使用者不用过多考虑服务器的问题，也就是`Serverless`架构。
