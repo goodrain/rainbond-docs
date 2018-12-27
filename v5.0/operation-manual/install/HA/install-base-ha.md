@@ -9,7 +9,7 @@ asciicast: true
 <div id="toc"></div>
 
 
-## 一、Rainbond集群高可用说明
+## 一、集群高可用说明
 
 在生产环境下，可以调整Rainbond的部署结构，来提高其高可用性。Rainbond高可用性可以从以下几个层面提升：
 
@@ -31,9 +31,7 @@ asciicast: true
 
 |操作系统|版本|
 |--|--|
-|CentOS|7.3/7.4|
-|Debian|9.6|
-|Ubuntu|16.04|
+|CentOS|7.4|
 
 > 单台服务器计算资源配置要求
 
@@ -127,18 +125,33 @@ Rainbond需要为管理节点与计算节点的 `/grdata` 目录配置共享存�
 
 在所有的管理节点和计算节点执行：
 
+增加挂载记录
+
+{% include copy-clipboard.html %}
+
 ```bash
-##增加挂载记录
 echo 'server1:/data /grdata glusterfs   backupvolfile-server=server2,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0' >> /etc/fstab
-##创建挂载点
+```
+
+创建挂载点
+
+{% include copy-clipboard.html %}
+
+```bash
 mkdir /grdata
-##执行挂载
+```
+
+执行挂载
+
+{% include copy-clipboard.html %}
+
+```bash
 mount -a
 ```
 
 ### 3.3 为已安装的Rainbond切换存储
 
-> 场景描述： 用户已经初始化Rainbond数据中心，现在希望将共享存储切换到新搭建好的GlusterFS
+> 场景描述： 用户已经拥有Rainbond集群，现在希望将共享存储切换到新搭建好的GlusterFS
 
 思路引导：Rainbond数据中心初始化默认使用manage01节点作为NFS-server，对所有集群其他成员共享其 `/grdata` 目录。如果需要切换，则先摘除集群其他节点的共享存储，然后停止manage01的nfs-server服务，最后将数据同步到GlusterFS，所有节点重新挂载。
 
@@ -146,40 +159,64 @@ mount -a
 
 - 摘除集群其他节点的共享存储
 
+在集群中除manage01节点外的其他节点执行
+
+{% include copy-clipboard.html %}
+
 ```bash
-##在集群中除manage01节点外的其他节点执行
 umount /grdata
 ```
 
 - 停止manage01的nfs-server服务
 
+在manage01节点执行
+
+{% include copy-clipboard.html %}
+
 ```bash
-##在manage01节点执行
 systemctl stop nfs-server
 systemctl disable nfs-server
 ```
 
 - 将数据同步到GlusterFS
 
+以在server01 server02两个存储节点制作存储卷 data 为例,在manage01节点执行
+
+{% include copy-clipboard.html %}
+
 ```bash
-##以在server01 server02两个存储节点制作存储卷 data 为例,在manage01节点执行
 mount -t glusterfs server01:data /mnt
+```
+
+{% include copy-clipboard.html %}
+
+```bash
 cp -arp /grdata/. /mnt
 ```
 
 - 所有节点重新挂载
 
 所有节点编辑 `/etc/fstab` 注释或者删除指向原manage01节点的NFS挂载记录，添加如下记录：
-`server1:/data /grdata glusterfs   backupvolfile-server=server2,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0`
+
+{% include copy-clipboard.html %}
 
 ```bash
-##在所有节点执行
+server1:/data /grdata glusterfs   backupvolfile-server=server2,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
+```
+
+在所有节点执行
+
+{% include copy-clipboard.html %}
+
+```bash
 mount -a
 ```
 
 ### 3.4 手动校验存储
 
 在所有节点执行
+
+{% include copy-clipboard.html %}
 
 ```bash
 mount | grep /grdata
@@ -199,11 +236,24 @@ mount | grep /grdata
 
 这一步将初始化Rainbond数据中心，即安装首个管理节点。这一步非常重要，会配置访问应用所使用的IP、集群网络解决方案等信息。
 
-```bash
+{% include copy-clipboard.html %}
 
+```bash
 wget https://pkg.rainbond.com/releases/common/v5.0/grctl
+```
+
+{% include copy-clipboard.html %}
+
+```bash
 chmod +x ./grctl
-./grctl init --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> --network <选择网络解决方案，可选择calico/flannel/midonet，默认calico> --vip <指定VIP，具体配置见下节>
+```
+
+{% include copy-clipboard.html %}
+
+```bash
+./grctl init --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> \
+--network <选择网络解决方案，可选择calico/flannel/midonet，默认calico> \
+--vip <指定VIP，具体配置见下节> --install-type offline <此项必须填写>
 
 ```
 
@@ -212,6 +262,8 @@ chmod +x ./grctl
 ### 5.2 手动校验
 
 安装完成后，在当前节点执行：
+
+{% include copy-clipboard.html %}
 
 ```bash
 grctl cluster
@@ -231,27 +283,105 @@ grctl cluster
 
 - 未做ssh免密操作时，需要知悉节点root密码
 
+{% include copy-clipboard.html %}
+
 ```bash
-grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role master
+grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role manage --install
 ```
 
 - 配置好ssh免密后
 
+{% include copy-clipboard.html %}
+
 ```bash
-grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role master
+grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage --install
 ```
 
 > 更扩容参数，请执行 grctl node add -h 获取
 
-### 6.2 手动校验
+### 6.2 调整集群内部服务
+
+> 集群内部服务由rbd-gateway进行负载均衡，在多管理节点部署时，需要进行端口调整。
+
+- 调整kube-apiserver
+
+kube-apiserver默认监听6443端口，为了不与rbd-gateway监听端口冲突，需要将监听端口修改至其它值，下面以6442为例，修改这个端口
+
+在所有管理节点均执行
+
+```bash
+vi /opt/rainbond/conf/k8s-master.yaml
+
+version: '2.1'
+services:
+- name: kube-apiserver
+  disable: false
+  endpoints:
+  - name: APISERVER_ENDPOINTS
+    protocol: http
+    #修改健康检测端口
+    port: 6442
+  health:
+    name: kube-apiserver
+    model: http
+    address: http://127.0.0.1:8181/version
+    time_interval: 5
+    max_errors_num: 3
+  after:
+    - docker
+  type: simple
+  pre_start: docker rm kube-apiserver
+  start: >-
+    /usr/bin/docker
+    run
+    --privileged
+    --restart=always
+    --net=host
+    --name kube-apiserver
+    --volume=/opt/rainbond/etc/kubernetes:/opt/rainbond/etc/kubernetes
+    goodrain.me/kube-apiserver:v1.10.11
+    #添加一行，指定监听端口 6442
+    --secure-port=6442
+    --insecure-bind-address=127.0.0.1
+    --insecure-port=8181
+    --advertise-address=10.10.10.221 --bind-address=10.10.10.221
+    --etcd-servers=${ETCD_ENDPOINTS}
+    --enable-admission-plugins=ServiceAccount,NamespaceLifecycle,LimitRanger,DefaultStorageClass,DefaultTolerationSeconds,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota
+    --authorization-mode=Node,RBAC
+    --runtime-config=rbac.authorization.k8s.io/v1beta1
+    --enable-bootstrap-token-auth
+    --token-auth-file=/opt/rainbond/etc/kubernetes/kubecfg/token.csv
+    --tls-cert-file=/opt/rainbond/etc/kubernetes/ssl/kubernetes.pem
+    --tls-private-key-file=/opt/rainbond/etc/kubernetes/ssl/kubernetes-key.pem
+    --client-ca-file=/opt/rainbond/etc/kubernetes/ssl/ca.pem
+    --service-account-key-file=/opt/rainbond/etc/kubernetes/ssl/ca-key.pem
+    --logtostderr=true
+    --service-cluster-ip-range=11.1.0.1/12
+  stop: docker stop kube-apiserver
+  restart_policy: always
+  restart_sec: 10
+```
+
+重启服务
+
+{% include copy-clipboard.html %}
+
+```bash
+systemctl restart node
+systemctl restart kube-apiserver
+```
+
+### 6.3 手动校验
 
 安装完成后，在当前节点执行：
+
+{% include copy-clipboard.html %}
 
 ```bash
 grctl cluster
 ```
 
-若返回集群列表中显示出扩容节点且状态正常，则进行下一步；若返回不正常，请重新审查本节操作。
+若返回集群列表中显示出扩容节点且服务状态正常，则进行下一步；若返回不正常，请重新审查本节操作。
 
 ## 七、网关节点扩容
 
@@ -267,6 +397,8 @@ grctl cluster
 
 - 编辑配置文件
 
+{% include copy-clipboard.html %}
+
 ```bash
 ##备份原有配置文件
 cp /etc/keepalived/keepalived.conf /etc/keepalived/keepalived.conf.bak
@@ -279,10 +411,13 @@ global_defs {
 }
 
 vrrp_instance VI_1 {
-    state MASTER   #角色，当前为主节点
-    interface ens6f0  #网卡设备名，通过 ifconfig 命令确定
+    #角色，当前为主节点
+    state MASTER
+    #网卡设备名，通过 ifconfig 命令确定
+    interface ens6f0
     virtual_router_id 51
-    priority 100   #优先级，主节点大于备节点
+    #优先级，主节点大于备节点
+    priority 100
     advert_int 1
     authentication {
         auth_type PASS
@@ -301,10 +436,13 @@ global_defs {
 }
 
 vrrp_instance VI_1 {
-    state BACKUP   #角色，当前为备节点
-    interface ens6f0   #网卡设备名，通过 ifconfig 命令确定
+    #角色，当前为备节点
+    state BACKUP
+    #网卡设备名，通过 ifconfig 命令确定
+    interface ens6f0
     virtual_router_id 51
-    priority 50   #优先级，主节点大于备节点
+    #优先级，主节点大于备节点
+    priority 50
     advert_int 1
     authentication {
         auth_type PASS
@@ -319,25 +457,33 @@ vrrp_instance VI_1 {
 
 - 启动服务
 
+启动服务，设置开机自启动
+
+{% include copy-clipboard.html %}
+
 ```bash
-##启动服务，设置开机自启动
 systemctl start keepalived
 systemctl enable keepalived
 ```
 
 - 其他需要调整的配置
 
+在manage01节点执行
+
+{% include copy-clipboard.html %}
+
 ```bash
-##在manage01节点执行
-din rbd-db   #进入rbd-db组件
-mysql        #进入数据库
-use console; #使用console数据库
-UPDATE region_info set tcpdomain="<VIP>"; #更新tcpdomain
+din rbd-db
+mysql
+use console;
+UPDATE region_info set tcpdomain="<VIP>";
 ```
 
 ### 7.2 手动校验
 
 在主节点执行如下命令：
+
+{% include copy-clipboard.html %}
 
 ```bash
 systemctl stop keepalived
@@ -356,19 +502,25 @@ ip a
 
 - 未做ssh免密操作时，需要知悉节点root密码
 
+{% include copy-clipboard.html %}
+
 ```bash
-grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role worker
+grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role compute --install
 ```
 
 - 配置好ssh免密后
 
+{% include copy-clipboard.html %}
+
 ```bash
-grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role worker
+grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role compute --install
 ```
 
 ### 8.2 手动校验
 
 安装完成后，在当前节点执行：
+
+{% include copy-clipboard.html %}
 
 ```bash
 grctl cluster
