@@ -135,12 +135,6 @@ Rainbond各组件的配置文件存放于 `/opt/rainbond/conf` 目录下，配�
     --health-path="/healthz"
     # Gateway 健康检查超时时间, 单位'秒'
     --health-check-timeout=10
-    # 是否开启 Rainbond 的默认服务
-    --enable-rbd-endpoints=true
-    # Rainbond 默认服务在 ETCD 中的Key
-    --rbd-endpoints=/rainbond/endpoint/
-    # Rainbond 默认服务绑定的 IP
-    --rbdsrv-internal-ip=0.0.0.0
     # Nginx 中 worker 的数量, 默认获取当前节点 CPU 的核心数, 最多应为节点上的 CPU 核心数。
     --worker-processes=0
     # Nginx 中每个 worker 的最大连接数
@@ -163,6 +157,32 @@ Rainbond各组件的配置文件存放于 `/opt/rainbond/conf` 目录下，配�
     --enable-metrics=true
     # 日志级别
     --log.level=info
+    # HTTP 服务的 80, 443 端口绑定的IP
+    --ip=0.0.0.0
+    # 是否开启 Rainbond 的默认服务
+    --enable-rbd-endpoints=true
+    # Rainbond 默认服务在 ETCD 中的Key
+    --rbd-endpoints=/rainbond/endpoint/
+    # 是否开启kube-apiserver的负载均衡
+    --enable-kubeapi=false
+    # kube-apiserver绑定的IP
+    --kubeapi-ip=0.0.0.0
+    # 是否开启lang.goodrain.me的负载均衡
+    --enable-lang-grme=true
+    # lang.goodrain.me 绑定的IP
+    --lang-grme-ip=0.0.0.0
+    # 是否开启maven.goodrain.me的负载均衡
+    --enable-mvn-grme=true
+    # maven.goodrain.me 绑定的IP
+    --mvn-grme-ip=0.0.0.0
+    # 是否开启goodrain.me的负载均衡
+    --enable-grme=true
+    # goodrain.me 绑定的IP
+    --grme-ip=0.0.0.0
+    # 是否开启 repo.goodrain.me 服务
+    --enable-repo-grme=true
+    # repo.goodrain.me 绑定的IP
+    --repo-grme-ip=0.0.0.0
 ```
 
 ## 十、 查看一个组件的所有配置项
