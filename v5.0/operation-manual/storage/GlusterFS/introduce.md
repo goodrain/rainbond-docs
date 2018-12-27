@@ -13,7 +13,7 @@ GlusterFS支持运行在任何标准IP网络上标准应用程序的标准客户
 
 ###1.1 架构
 
-<img src="https://static.goodrain.com/images/acp/docs/GlusterFS/GlusterFS%E6%9E%B6%E6%9E%84%E5%9B%BE.png"60%" />
+<img src="https://static.goodrain.com/images/acp/docs/GlusterFS/GlusterFS%E6%9E%B6%E6%9E%84%E5%9B%BE.png" width="100%" />
 
 ###1.2 常见术语
 名称|	解释
