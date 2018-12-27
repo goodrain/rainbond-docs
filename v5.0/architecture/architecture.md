@@ -4,11 +4,12 @@ summary: Rainbond技术架构及组件组成部分
 toc: true
 ---
 
-## 一、Rainbond总体技术架构
+## 一、Rainbond技术架构
 
 <img width="100%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/architecture.svg"></img>
 
 Rainbond践行以应用为中心的理念，吸纳优秀的社区解决方案，形成了应用控制、应用运行时，集群控制三大模块结合的数据中心技术架构，结合跨数据中心的上层结构应用控制台和资源控制台，形成了完整的PaaS平台解决方案，下面将对每个组件集进行简述：
+
 
 ## 二、数据中心服务组件说明
 
@@ -162,3 +163,7 @@ DNS服务为集群提供DNS解析服务,  基于Kube-DNS二次开发。
 #### 资源管理控制台（企业版）
 
 资源控制台UI组件提供Rainbond集群资源管理，计划支持对接IaaS的资源管理能力，面向运维人员设计。关注节点物理资源，集群资源，管理服务资源，应用实际使用资源，租户资源等管理。Rainbond自动化运维能力的关键展示平台。
+
+## 四、组件部署
+
+[组件部署架构文档](/docs/v5.0/operation-manual/component-description.html)
