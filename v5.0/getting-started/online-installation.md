@@ -84,6 +84,9 @@ grctl node add --host compute01 --iip <计算节点IP> --root-pass <root用户�
 grctl node list
 # 指定节点ID开始安装
 grtcl node install <NodeID>
+# 确定节点处于健康状态上线节点
+grtcl node up <NodeID>
+
 ```
 
 更多细节可以参考文档 [运维手册, 节点扩容](../operation-manual/cluster-management/add-node.html) 
