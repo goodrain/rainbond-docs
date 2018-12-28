@@ -19,9 +19,6 @@
 
     // 微服务架构
     {% include 5.0/microservice.json %},
-   
-    // 视频指南
-    {% include 5.0/video.json %},
     
     // FAQs
     {% include 5.0/faqs.json %},
