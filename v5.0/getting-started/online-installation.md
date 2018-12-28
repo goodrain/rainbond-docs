@@ -69,6 +69,7 @@ grctl node list
 # 控制台访问地址
 http://<节点IP地址>:7070
 ```
+如果集群状态是不健康的，参考[节点健康检测](/docs/v5.0/operation-manual/cluster-management/node-health.html) 文档解决故障。
 
 ## 三、数据中心添加节点
 
