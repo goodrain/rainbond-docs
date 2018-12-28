@@ -185,6 +185,24 @@ Rainbond各组件的配置文件存放于 `/opt/rainbond/conf` 目录下，配�
     --repo-grme-ip=0.0.0.0
 ```
 
+## 十、 node
+
+```bash
+   # API监听地址，此端口请勿随意修改
+   --api-addr=:6100
+   # 是否自动注册节点
+   --auto-registnode=true
+   # 如果设置为true,当节点不健康后自动设置为不可调度
+   --auto-scheduler=true
+   --autounscheduler-unhealty-dura=5m
+   # kube-apiserver配置文件地址
+   --kube-conf=/opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig
+   # 运行模式，master 或者 worker
+   --run-mode=worker
+   # 节点属性，支持多个属性，compute manage storage 
+   --noderule=compute
+```
+
 ## 十、 查看一个组件的所有配置项
 
 当你希望获取某个组件的所有可配置信息的时候，下面的方法可以帮助你实现目的：

@@ -9,7 +9,7 @@ asciicast: true
 
 平台服务有两种伸缩方式：
 
-- 垂直伸缩：增加或减少服务的内存（服务 CPU 与内存是联动的，按照一定的[比例调整](#3-1-cpu)）
+- 垂直伸缩：增加或减少服务的内存（服务 CPU 与内存是联动的，按照一定的`比例调整`）
 - 水平伸缩：增加或减少服务的实例数
 
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-scaling01.png" width="100%" />
