@@ -38,10 +38,14 @@ chmod +x ./grctl
 
    * 如果已经装有docker, 需要在安装前配置`insecure registry: goodrain.me`,可以通过docker info查看`Insecure Registries`
 
+
    * 确定网络没有限制，如有请加如下域名添加到白名单
 
      repo.goodrain.com, api.goodrain.com, hub.goodrain.com, docker.io, domain.grapps.cn, aliyun.com,aliyuncs.com
 
+### 1.4 安装须知
+
+   * 默认情况下计算节点会预留1.5核1.5G内存资源
 
 ## 二、初始化数据中心
 
