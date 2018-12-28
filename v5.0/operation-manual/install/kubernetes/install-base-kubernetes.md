@@ -44,7 +44,7 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
    admin.kubeconfig kube-proxy.kubeconfig
    ```
 
-### 2. 调整集群所有节点的Docker配置
+### 2. 调整集群所有节点的Docker配置(必要) 
 
    * 信任goodrain.me镜像仓库(必要)  Insecure Registries必须配置，否则会影响后续的一系列使用.确定配置是否生效`docker info`查看Insecure Registries是否包含goodrain.me
 
@@ -57,7 +57,6 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
    ```
    # /etc/docker/daemon.json
    {
-     "registry-mirrors": ["https://registry.docker-cn.com", "https://bf3asb4c.mirror.aliyuncs.com"],
      "insecure-registries": ["goodrain.me"],
      "max-concurrent-downloads": 10,
      "log-level": "warn",
@@ -71,29 +70,48 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
 
 ### 3. 初始化Rainbond数据中心
 
-在k8s管理节点执行安装，进行初始化Rainbond数据中心。
+在k8s管理节点执行安装，进行初始化Rainbond数据中心,安装Rainbond管理节点服务,如果有外网ip，则需要指定外网ip
 
 ```bash
 wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 chmod +x ./grctl
-./grctl init --iip <内网ip> --deploy-type thirdparty 
+./grctl init --iip <必须指定内网ip> --eip <可选外网ip> --deploy-type thirdparty 
 ```
 
-### 4. k8s计算节点安装rainbond服务
+### 4. 将已有k8s节点纳入rainbond管理
+
+下述安装操作前请务必执行信任goodrain.me镜像仓库步骤，否则会影响安装
 
 ```
-# 编辑 /opt/rainbond/rainbond-ansible/inventory/hosts,新增如下,根据具体ip自行调整
+# worker节点NAME，通过如下命令获取
+kubectl get node -o wide 
 
-[all]
-k8s-worker01 ansible_host=10.10.10.226 ip=10.10.10.226
-k8s-worker02 ansible_host=10.10.10.227 ip=10.10.10.227
+# 添加已有k8s worker计算节点
+grctl node add --host <worker节点hostname> --iip <worker内网ip> --key /root/.ssh/id_rsa.pub --role compute --id <worker节点NAME>
+grctl node install <worker节点NAME>
 
-[new-worker]
-k8s-worker01
-k8s-worker02
+# 添加已有k8s master管理节点
+grctl node add --host <master节点hostname> --iip <worker内网ip> --key /root/.ssh/id_rsa.pub --role manage --id <master节点NAME>
+grctl node install <master节点NAME>
+```
 
-# 初始化k8s worker节点rainbond服务
-cd /opt/rainbond/rainbond-ansible
-ansible-playbook -i inventory/hosts hack/thirdparty/addnode.yml
+示例
+
+```
+root@iZj6caqbup3uo1me2vt0qqZ:~# kubectl get node -o wide
+NAME                      STATUS   ROLES    AGE    VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION   CONTAINER-RUNTIME
+izj6caqbup3uo1me2vt0qrz   Ready    <none>   117m   v1.13.1   10.10.10.230   <none>        Debian GNU/Linux 9 (stretch)   4.9.0-8-amd64    docker://17.3.3
+
+grctl node add --host izj6caqbup3uo1me2vt0qrz --iip 10.10.10.230 --key /root/.ssh/id_rsa.pub --role compute --id izj6caqbup3uo1me2vt0qrz
+grctl node install izj6caqbup3uo1me2vt0qrz
+```
+
+### 5. 其他说明
+
+默认情况下，rainbond默认会将节点纳入到管理中，可手动关闭当前节点自动禁止调度功能。
+
+```
+# 修改 /opt/rainbond/scripts/start-node.sh 调整auto-scheduler为false即可禁用
+systemctl restart node
 ```
 
