@@ -33,26 +33,30 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
 ## 安装Rainbond
 
 ### 1. 准备Rainbond需要的Kubernetes的相关文件
-   * admin.kubeconfig
-   Kube-Apiserver admin用户权限的配置文件，你的集群可能有不同的命名，请更改为此名称并复制到`/opt/rainbond/etc/kubernetes/kubecfg`目录下。比如kubectl命令使用的配置文件`~/.kube/config`
-   * kube-proxy.kubeconfig
-   用于Slave节点Kube-Proxy的配置文件,一般用户名为`kube-proxy`,你的集群可能有不同的命名，请更改为此名称并复制到`/opt/rainbond/etc/kubernetes/kubecfg`目录下。
-   ```
-   # 查看是否复制成功
-   ls /opt/rainbond/etc/kubernetes/kubecfg
-   admin.kubeconfig kube-proxy.kubeconfig
-   ```
-  * kubeadm安装
+
+> admin.kubeconfig,Kube-Apiserver admin用户权限的配置文件  
+> kube-proxy.kubeconfig,用于Slave节点Kube-Proxy的配置文件,一般用户名为`kube-proxy`  
+
+需要将这个文件拷贝到`/opt/rainbond/etc/kubernetes/kubecfg`目录下  
+
+```
+# 查看是否复制成功
+ls /opt/rainbond/etc/kubernetes/kubecfg
+admin.kubeconfig kube-proxy.kubeconfig
+```
+
+  * 通过kubeadm安装的k8s集群相关文件获取方式  
   
- ```
- # admin.kubeconfig文件
- 文件为管理节点 /etc/kubernetes/admin.conf或者$HOME/.kube/config
+admin.kubeconfig文件，在master节点获取`/etc/kubernetes/admin.conf`或者`$HOME/.kube/config`  
+kube-proxy.kubeconfig文件，示例如下  
+
+```
  # kube-proxy.kubeconfig
 apiVersion: v1
 kind: Config
 clusters:
 - cluster:
-    certificate-authority: <ca.crt证书base64>
+    certificate-authority: <base64 ca.crt证书内容>
     server: <kube api https地址>
   name: default
 contexts:
@@ -70,10 +74,11 @@ users:
 # ca.crt 文件：/etc/kubernetes/pki/ca.crt
 # token 获取方式
 kubectl -n kube-system get secret | grep kube-proxy | awk '{print "secret/"$1}' | xargs kubectl describe -n kube-system | grep token: | awk -F: '{print $2}' | xargs echo
- ```
- * 其他安装方式
+```
+
+ * 其他途径安装部署的k8s集群配置文件获取
  
-  可以参考 [创建 kubeconfig 文件](https://jimmysong.io/kubernetes-handbook/practice/create-kubeconfig.html)
+ 根据具体情况，自行生成相关文件，具体可以参考 [创建 kubeconfig 文件](https://jimmysong.io/kubernetes-handbook/practice/create-kubeconfig.html)一文。  
 
 ### 2. 调整集群所有节点的Docker配置(必要) 
 
