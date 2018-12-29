@@ -42,6 +42,37 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
    ls /opt/rainbond/etc/kubernetes/kubecfg
    admin.kubeconfig kube-proxy.kubeconfig
    ```
+  * kubeadm安装
+  
+ ```
+ # admin.kubeconfig文件
+ 文件为管理节点 /etc/kubernetes/admin.conf或者$HOME/.kube/config
+ # kube-proxy.kubeconfig
+apiVersion: v1
+kind: Config
+clusters:
+- cluster:
+    certificate-authority: <ca.crt证书base64>
+    server: <kube api https地址>
+  name: default
+contexts:
+- context:
+    cluster: default
+    namespace: default
+    user: default
+  name: default
+current-context: default
+users:
+- name: default
+  user:
+    token: <token>
+    
+# token 获取方式
+kubectl -n kube-system get secret | grep kube-proxy | awk '{print "secret/"$1}' | xargs kubectl describe -n kube-system | grep token: | awk -F: '{print $2}' | xargs echo
+ ```
+ * 其他安装方式
+ 
+  可以参考 [创建 kubeconfig 文件](https://jimmysong.io/kubernetes-handbook/practice/create-kubeconfig.html)
 
 ### 2. 调整集群所有节点的Docker配置(必要) 
 
