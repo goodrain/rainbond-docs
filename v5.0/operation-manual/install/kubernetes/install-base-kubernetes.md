@@ -33,11 +33,10 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
 ## 安装Rainbond
 
 ### 1. 准备Rainbond需要的Kubernetes的相关文件
-
-   Rainbond需要使用具有全量权限的`admin.kubeconfig` 和用于kube-proxy的`kube-proxy.kubeconfig`配置文件。
-
-   将以上两个文件复制到`/opt/rainbond/etc/kubernetes/kubecfg`
-
+   * admin.kubeconfig
+   Kube-Apiserver admin用户权限的配置文件，你的集群可能有不同的命名，请更改为此名称并复制到`/opt/rainbond/etc/kubernetes/kubecfg`目录下。比如kubectl命令使用的配置文件`~/.kube/config`
+   * kube-proxy.kubeconfig
+   用于Slave节点Kube-Proxy的配置文件,一般用户名为`kube-proxy`,你的集群可能有不同的命名，请更改为此名称并复制到`/opt/rainbond/etc/kubernetes/kubecfg`目录下。
    ```
    # 查看是否复制成功
    ls /opt/rainbond/etc/kubernetes/kubecfg
