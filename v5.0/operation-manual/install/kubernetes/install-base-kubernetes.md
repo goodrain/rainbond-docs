@@ -66,7 +66,8 @@ users:
 - name: default
   user:
     token: <token>
-    
+
+# ca.crt 文件：/etc/kubernetes/pki/ca.crt
 # token 获取方式
 kubectl -n kube-system get secret | grep kube-proxy | awk '{print "secret/"$1}' | xargs kubectl describe -n kube-system | grep token: | awk -F: '{print $2}' | xargs echo
  ```
