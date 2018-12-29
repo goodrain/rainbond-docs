@@ -36,6 +36,9 @@ Rainbond官方文档系统部署在我们的公有云环境中。现在以此场
 
 <img src="https://static.goodrain.com/images/docs/5.0/operation-manual/rainbond-docs3.png" style="border:1px solid #eee;width:85%">
 
+值得注意的是：
+`Content type` 选项务必选择 `application/json`
+
 > 配置完成
 
 ### 2.2 触发方式
