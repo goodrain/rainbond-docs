@@ -37,8 +37,9 @@ chmod +x ./grctl
    * 确定系统时间与时区(Asia/Shanghai)同步，参考[配置时区与时间同步](../operation-manual/install/config/timezone.html)
 
    * 如果已经装有docker, 需要在安装前配置`insecure registry: goodrain.me`,可以通过docker info查看`Insecure Registries`
-
-
+   
+   * 确定系统可以正常yum/apt-get install相关软件包，需要提前配置系统相关软件源
+   
    * 确定网络没有限制，如有请加如下域名添加到白名单
 
      repo.goodrain.com, api.goodrain.com, hub.goodrain.com, docker.io, domain.grapps.cn, aliyun.com,aliyuncs.com
