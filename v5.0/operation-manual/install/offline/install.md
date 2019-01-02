@@ -36,6 +36,8 @@ scp offline.5.0.190102.tgz <数据中心节点ip>:/root/
 ## 登陆到目标机器操作
 
 ```
+# 需要移除默认源
+mv /etc/yum.repos.d/*.repo /tmp/
 # 解压离线包
 tar xf offline.5.0.190102.tgz
 # 进入解压目录下
