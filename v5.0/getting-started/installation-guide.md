@@ -30,3 +30,8 @@ asciicast: true
 
 安装请阅读： [基于已有Kubernetes集群安装](/docs/v5.0/operation-manual/install/kubernetes/install-base-kubernetes.html)
 
+# 离线安装Rainbond
+
+> 此方式适用于外网网络受到严格限制的用户，此版本目前仅支持CentOS 7.4.1708系统。
+
+安装请阅读： [离线安装](/docs/v5.0/operation-manual/install/offline/install.html)
