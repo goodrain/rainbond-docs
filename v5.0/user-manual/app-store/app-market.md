@@ -99,11 +99,11 @@ Rainbond应用市场与传统意义上的镜像仓库不同之处在于，它基
 
 - 设置价格。
 
-<img src='/uploads/default/original/2X/3/3e0aa3de5b0b0970a171680fc624fe4c6e3377d6.jpg'>
+<img src='https://t.goodrain.com/uploads/default/original/2X/3/3e0aa3de5b0b0970a171680fc624fe4c6e3377d6.jpg' width='100%'>
 
 - 上架。
 
-<img src='/uploads/default/original/2X/5/5cdfffcd677910f5fea98215efeaeb8af7e2b935.gif'>
+<img src='https://t.goodrain.com/uploads/default/original/2X/5/5cdfffcd677910f5fea98215efeaeb8af7e2b935.gif'>
  
 完成上架之后，我们就可以在云端中找到你上架的应用。
 

@@ -20,7 +20,7 @@ asciicast: true
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
 {{site.data.alerts.callout_danger}}
-注意：CentOS目前不支持7.5版本
+注意：CentOS目前不支持7.5版本，磁盘最低要求 40GB, 详细的资源要求可以参考 [高可用安装资源规划](https://www.rainbond.com/docs/stable/operation-manual/install/HA/install-base-ha.html#2-1)
 {{site.data.alerts.end}}
 
 ### 1.2 下载系统安装工具
@@ -37,11 +37,16 @@ chmod +x ./grctl
    * 确定系统时间与时区(Asia/Shanghai)同步，参考[配置时区与时间同步](../operation-manual/install/config/timezone.html)
 
    * 如果已经装有docker, 需要在安装前配置`insecure registry: goodrain.me`,可以通过docker info查看`Insecure Registries`
-
+   
+   * 确定系统可以正常yum/apt-get install相关软件包，需要提前配置系统相关软件源
+   
    * 确定网络没有限制，如有请加如下域名添加到白名单
 
      repo.goodrain.com, api.goodrain.com, hub.goodrain.com, docker.io, domain.grapps.cn, aliyun.com,aliyuncs.com
 
+### 1.4 安装须知
+
+   * 默认情况下计算节点会预留1.5核1.5G内存资源
 
 ## 二、初始化数据中心
 
@@ -69,6 +74,7 @@ grctl node list
 # 控制台访问地址
 http://<节点IP地址>:7070
 ```
+如果集群状态是不健康的，参考[节点健康检测](/docs/v5.0/operation-manual/cluster-management/node-health.html) 文档解决故障。
 
 ## 三、数据中心添加节点
 
