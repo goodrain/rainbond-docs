@@ -89,9 +89,9 @@ grctl node add --host <computexx> --iip <计算节点IP> --root-pass <root用户
 # 获取添加节点的NodeID，此时节点应处于未安装状态
 grctl node list
 # 指定节点ID开始安装
-grtcl node install <NodeID>
+grctl node install <NodeID>
 # 确定节点处于健康状态上线节点
-grtcl node up <NodeID>
+grctl node up <NodeID>
 
 ```
 
