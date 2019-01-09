@@ -86,6 +86,8 @@ http://<节点IP地址>:7070
 
 ```bash
 grctl node add --host <computexx> --iip <计算节点IP> --root-pass <root用户密码> --role compute
+示例：
+grctl node add --host compute01 --iip 192.168.1.1 --root-pass 12345678 --role compute
 # 获取添加节点的NodeID，此时节点应处于未安装状态
 grctl node list
 # 指定节点ID开始安装
