@@ -20,7 +20,7 @@ asciicast: true
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
 {{site.data.alerts.callout_danger}}
-注意：CentOS目前不支持7.5版本，磁盘最低要求 40GB, 详细的资源要求可以参考 [高可用安装资源规划](https://www.rainbond.com/docs/stable/operation-manual/install/HA/install-base-ha.html#2-1)
+注意：CentOS目前不支持7.5版本，磁盘最低要求 40GB,内存要求最低2核4G, 默认情况下节点预留的资源配置为:1.5核CPU1.5G内存, 详细的资源要求可以参考 [高可用安装资源规划](https://www.rainbond.com/docs/stable/operation-manual/install/HA/install-base-ha.html#2-1)
 {{site.data.alerts.end}}
 
 ### 1.2 下载系统安装工具
@@ -44,9 +44,6 @@ chmod +x ./grctl
 
      repo.goodrain.com, api.goodrain.com, hub.goodrain.com, docker.io, domain.grapps.cn, aliyun.com,aliyuncs.com
 
-### 1.4 安装须知
-
-   * 默认情况下计算节点会预留1.5核1.5G内存资源
 
 ## 二、初始化数据中心
 
