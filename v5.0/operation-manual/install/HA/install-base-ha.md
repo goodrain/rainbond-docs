@@ -204,6 +204,16 @@ cp -arp /grdata/. /mnt
 server1:/data /grdata glusterfs   backupvolfile-server=server2,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
 ```
 
+- 所有管理计算节点配置存储节点hostname解析
+
+所有计算节点和管理节点编辑 `/etc/hosts`， 示例如下：
+
+```bash
+# storage 节点
+192.168.1.1 server1
+192.168.1.2 server2
+```
+
 在所有节点执行
 
 {% include copy-clipboard.html %}
