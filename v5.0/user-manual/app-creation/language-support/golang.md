@@ -42,7 +42,25 @@ go1.9.7 go1.8.7 go1.11.2 go1.11 go1.11.1 go1.10.5 go1.10.4
 - MattesMigrate
   默认支持版本v3.0.0
 
+## 四、定义启动命令
 
-## 四、示例代码
+在项目的根目录定义`Procfile`
+
+```bash
+$cat Procfile
+web: hello
+```
+
+其中 `hello`,就是Go项目编译后的二进制文件。
+
+## 五、构建特性
+
+在源码识别通过后,选择高级设置,配置环境变量来自定义Go的版本。
+
+```bash
+BUILD_GOVERSION: go1.8.7
+```
+
+## 五、示例代码
 
 - [Go示例代码](https://github.com/goodrain/go-demo.git)

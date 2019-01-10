@@ -18,7 +18,10 @@ glusterfs版本| 3.12.1
 server1 |10.81.29.87   
 server2 |10.81.9.115
 
-#### hosts解析
+#### 存储节点hosts解析
+
+所有节点都需要配置存储节点hostname解析
+
 ```
 [root@server1 ~]# cat /etc/hosts
 127.0.0.1 localhost

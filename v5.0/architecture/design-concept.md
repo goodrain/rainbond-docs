@@ -4,7 +4,7 @@ summary: Rainbond设计的由来和理念
 toc: true
 ---
 
-#### 企业应用云操作系统
+## 企业应用云操作系统
  
  <img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch1.png"></img>
  
@@ -14,7 +14,7 @@ Rainbond 通过 `以应用为中心` 的方式包装以上重复性工作，并�
 
 
 
-####  无侵入架构
+##  无侵入架构
  <img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch2.png"></img> 
 
 
@@ -22,15 +22,15 @@ Rainbond把广泛支撑企业应用作为首要目标，广泛支撑企业应用
 
 具体从三方面入手：
 
-- 在开发阶段，对接代码仓库，自动识别开发语言类型，不改变开发者习惯，尽量最大可能不修改现有代码，直接编译、构建和运行。
+- 在开发阶段，对接代码仓库，自动识别[开发语言类型](/docs/v5.0/user-manual/app-creation/language-support/java.html)，不改变开发者习惯，尽量最大可能不修改现有代码，直接编译、构建和运行。
 
-- 在架构阶段，如果已有系统没有分布式架构，Rainbond提供Service Mesh架构，业务模块不改代码就能变成微服务架构。
+- 在架构阶段，如果已有系统没有分布式架构，Rainbond提供[Service Mesh](/docs/v5.0/microservice/service-mesh/overview.html) 架构，业务模块不改代码就能变成微服务架构。
 
 - 在运维阶段，老的遗留系统很难找到原有开发人员，要迁移到新运行环境比较困难，Rainbond使用动态生成配置文件和网络关系的方式，迁移和运行遗留系统。运维和治理功能，Rainbond通过“无侵入”插件的形式提供，根据功能需要选择加载插件。
 
 `无侵入`架构还表现在，对使用者无绑定，开发的应用程序可以脱离Rainbond开发和运行。
 
-#### 以应用为中心，连接企业应用和企业计算资源
+## 以应用为中心，连接企业应用和企业计算资源
  <img width="100%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/arch3.png"></img> 
  
  `以应用为中心`是Rainbond的核心设计理念，也是Rainbond的抽象思路，强调关注业务，跟业务相关技术概念对外暴露，跟业务不直接相关的技术概念统一包装。通过这种方式抽象，使用者不用过多考虑服务器的问题，也就是`Serverless`架构。

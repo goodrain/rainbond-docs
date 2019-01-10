@@ -6,17 +6,37 @@ toc: true
 
 Rainbond可以将PHP源码快速的部署并运行起来。无论是`Symfony`、`Laravel` 或 [ThinkPHP](php/thinkphp.html) 等开发框架，还是使用非开发框架，或者通过环境配置文件<a href="php/custom-env.html" target="_blank" >自定义Web Server与PHP环境</a>。
 
-## 一、代码识别
+## 一、准备工作
+
+在此步骤中，您将准备一个可以部署的简单应用程序，至少需要满足以下条件: 
+
+- 本地可以正常运行部署的php程序  
+- 项目可以托管到git仓库  
+- 项目根目录下必须存在`composer.json`,用来管理PHP项目的依赖,也是Rainbond识别为PHP语言的必要条件
+- 项目根目录下必须存在`composer.lock`文件  
+- 项目根目录下需要定义`Procfile`,用来定义程序启动方式
+
+示例: [php-demo](https://github.com/goodrain/php-demo)
+
+## 二、代码识别
 
 代码的根目录下有 `index.php` 文件或者 `composer.json `文件，rainbond构建程序会识别为PHP语言。
 
 {{site.data.alerts.callout_success}}
 
-如果根目录存在` composer.lock`文件会优化读取`composer.lock`的配置，忽略掉 `composer.json`，需删除composer.phar
+如果根目录存在`composer.lock`文件会优化读取`composer.lock`的配置，忽略掉 `composer.json`，需删除composer.phar
 
 {{site.data.alerts.end}}
 
-## 二、支持版本
+如果没有提示composer.lock文件可以通过如下命令生成
+
+```
+1. 需要确定.gitignore文件是否忽略了composer.lock，如果有请从.gitignore文件里删除
+2. 如果本就不存在，请执行composer update生成
+# 如果项目里没有请从.gitignore
+```
+
+## 三、支持版本
 
 平台提供了不同的PHP版本，您可以使用PHP，HHVM(PHP代码编译器)，或者同时使用二者，通过HHVM提高PHP性能。
 
@@ -166,7 +186,7 @@ HHVM 暂时不支持自定义扩展
 }
 ```
 
-## 三、构建
+## 四、源码编译构建
 
 在部署期间系统会运行以下命令来安装依赖包，解决依赖关系：
 
@@ -180,11 +200,11 @@ composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
 {{site.data.alerts.end}}
 
-## 四、Web 服务器
+## 五、配置启动命令
 
-云帮支持 [Apache](http://httpd.apache.org/) 和 [Nginx](http://nginx.org/) 两种 Web 服务器，如果您在Profile文件中没有设置加载其中任一服务器，或代码根目录没有 Procfile 文件，应用创建向导会提示用户选择Apache或Nginx作为Web服务器。
+云帮支持 [Apache](http://httpd.apache.org/)，如果您在Profile文件中没有设置加载其中任一服务器，或代码根目录没有 Procfile 文件，应用创建向导会提示用户选择Apache作为Web服务器。
 
-### 4.1 Apache服务器
+### Apache服务器
 
 Apache接口与PHP-FPM或HHVM通过FastCGI使用 `mod_proxy_fcgi`。
 
@@ -233,8 +253,9 @@ RewriteRule .? %{ENV:BASE}/app.php [L]
 ```bash
 web: vendor/bin/heroku-php-apache2 -C apache_app.conf
 ```
+<!--
 
-### 4.2 Nginx
+### 5.2 Nginx
 
 Nginx 使用 FastCGI 连接 PHP-FPM，使用下面的 Procfile 开启 Nginx：
 
@@ -277,9 +298,7 @@ location ~ ^/(app|app_dev|config)\.php(/|$) {
 web: vendor/bin/heroku-php-nginx -C nginx_app.conf
 ```
 
-## 五、PHP示例代码
-
-- [php示例代码](https://github.com/goodrain/php-demo.git)
+-->
 
 ## 六、相关文档
 - <a href="php/custom-env.html" target="_blank" >自定义Web Server与PHP环境</a>

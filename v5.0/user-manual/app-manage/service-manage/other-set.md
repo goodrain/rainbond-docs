@@ -40,7 +40,7 @@ Rainbond目前支持基于Git仓库Webhook方式（Github、Gitlab、Gitee、Gog
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/auto-deploy.png" width="80%" />
 </center>
 
-详细文档请参考: [服务持续构建与部署](../../best-practice/ci-cd/auto-deploy.html)
+详细文档请参考: [服务持续构建与部署](./auto-deploy.html)
 
 ### 1.3 自定义环境变量
 
@@ -127,7 +127,7 @@ DATABASES = {
 
 ### 1.5 成员服务权限
 
-关于角色权限定义的文档请参考：<a href="../manage-your-team.html#part-4d32fc61fb3a5f74">角色与团队成员管理</a>
+关于角色权限定义的文档请参考：<a href="../../user-registration-login/user-manage.html">用户管理</a>
 
 这里主要讲的是服务权限的管理，当某个用户加入到团队时，团队管理员决定该用户的角色，如果要限制某个用户只能管理某些服务，建议使用 `Viewer(观察者)` 角色，然后根据需要在服务的 【成员服务权限】中设置服务的管理权限。
 

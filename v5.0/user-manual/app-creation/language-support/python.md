@@ -1,14 +1,26 @@
 ---
-title: 通过Python源码创建
+title: Python源码创建
 summary: 通过Python源码创建
 toc: true
 ---
 
-云帮支持部署和伸缩Python应用程序。无论您喜欢`Django`或`Flask`等框架，云帮都可以使用。
+云帮支持部署和伸缩Python应用程序。无论您喜欢`Django`或`Flask`等框架，Rainbond都可以使用。本文将在几分钟教你学会在Rainbond部署一个Python程序。
 
-## 一、代码识别
+## 一、准备工作
 
-云帮通过检测到您代码的根目录下存在`requirements.txt`文件而识别您的应用为Python应用。您可以通过命令生成 `requirements.txt` 文件，命令如下：
+在此步骤中，您将准备一个可以部署的简单应用程序，至少需要满足前4个条件: 
+
+- 本地可以正常运行部署的Python程序  
+- 项目可以托管到git仓库  
+- 项目根目录下必须存在`requirements.txt`,用来管理Python项目的依赖,也是Rainbond识别为Python语言的必要条件  
+- 项目根目录下需要定义`Procfile`,用来定义程序启动方式
+- 项目根目录下存在`runtime.txt`,用来定义当前项目的Python使用版本  
+
+示例: [python-demo](https://github.com/goodrain/python-demo)
+
+## 二、识别Python语言
+
+通过检测到代码的根目录下是否存在`requirements.txt`文件来识别应用为Python应用。
 
 {% include copy-clipboard.html %}
 
@@ -19,10 +31,8 @@ pip freeze > requirements.txt
 演示应用程序(python-demo)已经有一个`requirements.txt`，它的内容如下：
 
 ```bash
-Flask==0.12.1
-Jinja2==2.9.6
-Werkzeug==0.12.1
-gunicorn==19.7.1
+Flask==1.0.2
+gunicorn==19.9.0
 ```
 
 该`requirements.txt`文件列出应用程序依赖关系及其版本。部署应用程序时，云帮会读取此文件，并使用命令安装Python依赖关系。
@@ -30,6 +40,7 @@ gunicorn==19.7.1
 {% include copy-clipboard.html %}
 
 ```bash
+# 项目的根目录执行如下命令
 pip install -r requirements.txt
 ```
 
@@ -39,13 +50,30 @@ pip install -r requirements.txt
 
 {{site.data.alerts.end}}
 
-## 二、版本选择
+## 三、定义程序启动命令
 
-云帮默认使用`Python2.7.15`版本，您也可以通过在根目录下增加一个 `runtime.txt`文件来指定版本：
+需要您在代码根目录创建 [Procfile](etc/procfile.html) 文件来指定启动应用的命令，并写入如下内容：
+
+{% include copy-clipboard.html %}
+
+```bash
+web: gunicorn app:app --log-file - --access-logfile - --error-logfile -
+```
+
+{{site.data.alerts.callout_info}}
+
+**web** : 定义该应用的服务类型为web 平台会自动将该应用添加到全局负载均衡中。    
+**gunicorn** : Python WSGI HTTP Server for UNIX 
+
+{{site.data.alerts.end}}
+
+## 四、Python版本选择
+
+如果未定义runtime.txt, Rainbond将会默认使用`Python2.7.15`版本, 也可以通过在根目录下增加一个 `runtime.txt`文件来自定义版本：
 
 ```bash
 $ cat runtime.txt
-python-3.4.3
+python-3.6.6
 ```
 
 推荐的python版本
@@ -63,51 +91,18 @@ python-3.4.3
 python-3.5.3 
 python-3.6.0 python-3.6.1 python-3.6.2 python-3.6.3 python-3.6.4 python-3.6.5 python-3.6.6 
 python-3.7.0 python-3.7.1
-# pypi
-pypy-4.0.0 pypy-4.0.1 pypy-5.0.0 pypy-5.0.1 pypy-5.1.0 pypy-5.1.1 pypy-5.3.1 pypy-5.6.0 pypy-5.7.0 pypy-5.7.1 pypy-5.8.0 
-pypy3-2.3.1 pypy3-2.4.0 pypy3-5.5.0 pypy3-5.7.1 pypy3-5.8.0
 ```
 
-## 三、工具库
+## 五、构建特性
 
-系统使用以下的库来管理和解决 Python 依赖，您不可以自定义它们：
-
-- setuptools 35.0.2
-- pip 9.0.1
-
-## 四、构建-环境变量
-
-系统会在您代码部署的环境运行以下命令来解决依赖：
-
-```bash
-$ pip install -r requirements.txt --allow-all-external
-```
-
-通过Rainbond构建时支持自定义PIP源，需配置环境变量，否则默认中科大镜像源：
+在源码识别通过后,选择高级设置,配置环境变量来自定义PIP源, 默认为中科大镜像源,也可以自定义其他镜像源，如公司的内部pypi源等，示例如下：
 
 ```
 变量名:变量值
 BUILD_PIP_INDEX_URL:https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-
-## 五、设置启动命令
-
-需要您在代码根目录创建 [Procfile](etc/procfile.html) 文件来指定启动应用的命令，并写入如下内容：
-
-{% include copy-clipboard.html %}
-
-```bash
-web: gunicorn hello:app --log-file - --access-logfile - --error-logfile -
-```
-
-{{site.data.alerts.callout_info}}
-
-**web** : 定义该应用的服务类型为web 平台会自动将该应用添加到全局负载均衡中。后续会添加其他类型的应用。
-
-**gunicorn** : Python WSGI HTTP Server for UNIX 详细设置文档参见 命令行参
-
-{{site.data.alerts.end}}
+如果已经构建过后的应用, 可以应用的其他设置的配置`BUILD_PIP_INDEX_URL`环境变量,下次构建会使用配置的pypi源
 
 ## 六、Django 静态文件支持
 
@@ -140,8 +135,9 @@ $ python manage.py collectstatic --dry-run --noinput
 $ python manage.py collectstatic --noinput
 ```
 
-用户可以手工禁用上述特性，只需要在应用的环境变量里配置 DISABLE_COLLECTSTATIC 的值为 1。
+用户可以手工禁用上述特性，只需要在应用的环境变量里配置 `BUILD_DISABLE_COLLECTSTATIC` 的值为 1。
 
+<!--
 ## 七、Whitenoise
 
 默认情况下，Django 在生产模式下不支持托管静态文件，我们推荐在生产环境下使用 [Whitenoise](https://pypi.io/project/whitenoise/)
@@ -174,7 +170,6 @@ from whitenoise.django import DjangoWhiteNoise
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
 ```
+-->
 
-## 八、示例代码
 
-- [Python示例代码](https://github.com/goodrain/python-demo.git)

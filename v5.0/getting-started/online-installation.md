@@ -20,7 +20,7 @@ asciicast: true
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
 {{site.data.alerts.callout_danger}}
-注意：CentOS目前不支持7.5版本
+注意：CentOS目前不支持7.5版本，磁盘最低要求 40GB,内存要求最低2核4G, 默认情况下节点预留的资源配置为:1.5核CPU1.5G内存, 详细的资源要求可以参考 [高可用安装资源规划](https://www.rainbond.com/docs/stable/operation-manual/install/HA/install-base-ha.html#2-1)
 {{site.data.alerts.end}}
 
 ### 1.2 下载系统安装工具
@@ -36,8 +36,10 @@ chmod +x ./grctl
 
    * 确定系统时间与时区(Asia/Shanghai)同步，参考[配置时区与时间同步](../operation-manual/install/config/timezone.html)
 
-   * 如果已经装有docker, 需要在安装前配置`insecure-registry: goodrain.me` 
-
+   * 如果已经装有docker, 需要在安装前配置`insecure registry: goodrain.me`,可以通过docker info查看`Insecure Registries`
+   
+   * 确定系统可以正常yum/apt-get install相关软件包，需要提前配置系统相关软件源
+   
    * 确定网络没有限制，如有请加如下域名添加到白名单
 
      repo.goodrain.com, api.goodrain.com, hub.goodrain.com, docker.io, domain.grapps.cn, aliyun.com,aliyuncs.com
@@ -49,7 +51,8 @@ chmod +x ./grctl
 
 * 初始化安装第一个节点
 
-> 快速安装无需设置过多的参数，重点注意IP地址的设定，若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址，若无则无需指定。
+> 快速安装无需设置过多的参数，重点注意IP地址的设定。若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址(eip)，若无则无需指定。
+
 
 ```bash
 ./grctl init --iip 内网ip --eip 公网ip
@@ -69,6 +72,7 @@ grctl node list
 # 控制台访问地址
 http://<节点IP地址>:7070
 ```
+如果集群状态是不健康的，参考[节点健康检测](/docs/v5.0/operation-manual/cluster-management/node-health.html) 文档解决故障。
 
 ## 三、数据中心添加节点
 
@@ -76,16 +80,18 @@ http://<节点IP地址>:7070
 
 若你需要增加你的集群计算资源池，可以快速扩容计算节点：
 
-> 其中主机名可以根据排序顺序依次compute01-computeN
+> 其中host/hostname可以根据排序顺序依次compute01-computeN,host/hostname不要重复。
 
 ```bash
-grctl node add --host compute01 --iip <计算节点IP> --root-pass <root用户密码> --role compute
+grctl node add --host computexx --iip 计算节点IP --root-pass root用户密码 --role compute
+示例：
+grctl node add --host compute01 --iip 192.168.1.1 --root-pass 12345678 --role compute
 # 获取添加节点的NodeID，此时节点应处于未安装状态
 grctl node list
 # 指定节点ID开始安装
-grtcl node install <NodeID>
+grctl node install NodeID
 # 确定节点处于健康状态上线节点
-grtcl node up <NodeID>
+grctl node up <NodeID>
 
 ```
 

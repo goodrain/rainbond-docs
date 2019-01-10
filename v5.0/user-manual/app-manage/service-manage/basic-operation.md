@@ -9,7 +9,8 @@ asciicast: true
 
 ## 服务基本操作
 
-构建、启动、关闭、重启、更新、删除和访问是服务最基本和最常用的操作，根据服务的[不同状态](app-properties.html#part-f217864b95b2f14e)，用户可以执行不同的操作，下面会针对每一个操作介绍功能和操作后所触发的事件。
+构建、启动、关闭、重启、更新、删除和访问是服务最基本和最常用的操作，根据服务的[不同状态](./app-properties.html)，用户可以执行不同的操作，下面会针对每一个操作介绍功能和操作后所触发的事件。
+
 
 ### 1.1 构建
 
@@ -19,7 +20,7 @@ asciicast: true
 
 | 服务类型        | 说明                                                                                                                                               |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 各语言源代码    | 拉取最新源代码，通过[rbd-chaos](../../architecture/architecture.html#chaos-ci)调用[builder](https://github.com/goodrain/builder)进行构建，上线服务 |
+| 各语言源代码    | 拉取最新源代码，通过[rbd-chaos](./app-properties.html)调用[builder](https://github.com/goodrain/builder)进行构建，上线服务 |
 | Dockerfile 源码 | 拉取最新源代码，通多 docker build 创建 Docker 镜像，push 镜像到内部镜像仓库，上线服务                                                              |
 | Docker 镜像     | 重新拉取指定镜像地址的镜像，推送到本地镜像仓库，上线服务                                                                                           |
 | 云市应用        | 重新拉取云市服务镜像/服务包，推送到本地镜像仓库，上线服务                                                                                          |
@@ -33,7 +34,16 @@ asciicast: true
 
 {{site.data.alerts.end}}
 
-### 1.2 启动
+### 1.2 更新
+
+> 使用场景：运行中服务
+
+触发更新操作后，平台会将现有的服务更新，发送更新请求给数据中心，会升级到最新的服务状态，即在服务运行过程中，改变了服务的依赖、存储、挂载、环境变量、特性、健康监测等运行属性，都可以触发`更新`操作来处理，更新操作会作为我们后期主要操作。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1544171271240.jpg" width="85%" />
+
+
+### 1.3 启动
 
 > 使用场景：首次构建成功，并处于关闭状态的服务
 
@@ -47,13 +57,13 @@ asciicast: true
 * 服务日志页面
   <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-start-log02.png" width="100%" />
 
-### 1.3 关闭
+### 1.4 关闭
 
 > 使用场景：运行中或运行异常的服务
 
 触发关闭操作后，平台会将服务的从负载均衡下线并关闭服务容器，多个节点的服务会滚动下线。
 
-### 1.4 重启
+### 1.5 重启
 
 > 使用场景：运行中或运行异常的服务
 
@@ -66,7 +76,7 @@ asciicast: true
 
 {{site.data.alerts.end}}
 
-### 1.5 访问
+### 1.6 访问
 
 > 使用场景：运行中的服务 && （打开了对外服务 | 对内服务的端口）
 
@@ -84,14 +94,6 @@ asciicast: true
 - TCP 协议服务
 
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-open-tcp.gif" width="85%" />
-
-### 1.6 更新
-
-> 使用场景：运行中服务
-
-触发更新操作后，平台会将现有的服务更新，发送更新请求给数据中心，会升级到最新的服务状态，即改变了某个环境变量或连接信息，都可以触发`更新`操作来处理。
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1544171271240.jpg" width="85%" />
 
 ### 1.7 删除
 
