@@ -51,7 +51,8 @@ chmod +x ./grctl
 
 * 初始化安装第一个节点
 
-> 快速安装无需设置过多的参数，重点注意IP地址的设定，若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址，若无则无需指定。
+> 快速安装无需设置过多的参数，重点注意IP地址的设定。若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址(eip)，若无则无需指定。
+
 
 ```bash
 ./grctl init --iip 内网ip --eip 公网ip
@@ -82,13 +83,13 @@ http://<节点IP地址>:7070
 > 其中host/hostname可以根据排序顺序依次compute01-computeN,host/hostname不要重复。
 
 ```bash
-grctl node add --host <computexx> --iip <计算节点IP> --root-pass <root用户密码> --role compute
+grctl node add --host computexx --iip 计算节点IP --root-pass root用户密码 --role compute
 示例：
 grctl node add --host compute01 --iip 192.168.1.1 --root-pass 12345678 --role compute
 # 获取添加节点的NodeID，此时节点应处于未安装状态
 grctl node list
 # 指定节点ID开始安装
-grctl node install <NodeID>
+grctl node install NodeID
 # 确定节点处于健康状态上线节点
 grctl node up <NodeID>
 
