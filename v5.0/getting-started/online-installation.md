@@ -40,7 +40,7 @@ chmod +x ./grctl
    
    * 确定系统可以正常yum/apt-get install相关软件包，需要提前配置系统相关软件源
    
-   * 确定系统已经禁用`NetworkManager`服务
+   * 确定系统已禁用`NetworkManager`或者[配置NetworkManager](https://t.goodrain.com/t/calico-networkmanager/591)
    
    * 节点资源：磁盘最低要求 40GB,内存要求最低2核4G, 默认情况下节点会给系统预留1.5核CPU1.5G内存的资源
    
