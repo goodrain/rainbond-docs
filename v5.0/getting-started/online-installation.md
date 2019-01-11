@@ -26,7 +26,7 @@ CentOS目前不支持7.5版本
 ### 1.2 下载系统安装工具
 
 ```
-wget https://pkg.rainbond.com/releases/common/v5.0.1/grctl
+wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 chmod +x ./grctl
 ```
 
