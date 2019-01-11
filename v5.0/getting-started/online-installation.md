@@ -42,6 +42,8 @@ chmod +x ./grctl
    
    * 确定系统已经禁用`NetworkManager`服务
    
+   * 节点资源：磁盘最低要求 40GB,内存要求最低2核4G, 默认情况下节点会给系统预留1.5核CPU1.5G内存的资源
+   
    * 确定网络没有限制，如有请加如下域名添加到白名单
 
      repo.goodrain.com, api.goodrain.com, hub.goodrain.com, docker.io, domain.grapps.cn, aliyun.com,aliyuncs.com
@@ -53,12 +55,7 @@ chmod +x ./grctl
 
 * 初始化安装第一个节点
 
-> 快速安装无需设置过多的参数，重点注意IP地址的设定。若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址(eip)，若无则无需指定。
-
-{{site.data.alerts.callout_danger}}
-系统磁盘最低要求 40GB,内存要求最低2核4G, 默认情况下节点预留的资源配置为:1.5核CPU1.5G内存, 详细的资源要求可以参考 [高可用安装资源规划](https://www.rainbond.com/docs/stable/operation-manual/install/HA/install-base-ha.html#2-1)，如果想跳过系统配置检查，安装时指定`--enable-check disable`
-{{site.data.alerts.end}}
-
+> 快速安装无需设置过多的参数，重点注意IP地址的设定。若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址(eip)，若无则无需指定。如果想跳过系统配置检查，安装时指定`--enable-check disable`
 
 ```bash
 ./grctl init --iip 内网ip --eip 公网ip
