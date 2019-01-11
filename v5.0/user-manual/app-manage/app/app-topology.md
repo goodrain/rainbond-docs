@@ -12,6 +12,11 @@ asciicast: true
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/team-operation4.gif" width="100%">
 
 ## 编辑拓扑图
-编辑拓扑图目前支持:服务组件连接建立依赖关系、快速打开服务组件对外端口，方便快捷；选择连接线按下delete键快速删除组件依赖关系、关闭服务组件所有对外端口，方便快捷；command+ command- ctrl+ ctrl- 快速缩小放大视图;后期我们会增加拖拽创建服务组件，完美的排版方式，方便快捷，敬请期待。
+编辑拓扑图目前支持:服务组件连接建立依赖关系、快速打开服务组件对外端口，方便快捷；点击连接线按下delete键快速删除组件依赖关系、关闭服务组件所有对外端口，方便快捷；command+ command- ctrl+ ctrl- 快速缩小放大视图;超过10个服务组件自适应布局，完美的排版方式。后期我们会增加拖拽创建服务组件，点击服务组件出现当前服务的详情框进行操作，方便快捷，敬请期待。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/team-operation8.gif" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/team-operation10.gif" width="100%">
+
+## 编辑拓扑图常见的问题
+编辑拓扑图目前支持:点击锚点去拖拽出新的一条线去做操作；不支持:直接对已有的线进行操作;后期我们会优化编辑线的操作，更好的体验编辑拓扑图，敬请期待。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/team-operation9.gif" width="100%">
