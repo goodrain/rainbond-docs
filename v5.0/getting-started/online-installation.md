@@ -20,13 +20,13 @@ asciicast: true
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
 {{site.data.alerts.callout_danger}}
-注意：CentOS目前不支持7.5版本，磁盘最低要求 40GB,内存要求最低2核4G, 默认情况下节点预留的资源配置为:1.5核CPU1.5G内存, 详细的资源要求可以参考 [高可用安装资源规划](https://www.rainbond.com/docs/stable/operation-manual/install/HA/install-base-ha.html#2-1)
+CentOS目前不支持7.5版本
 {{site.data.alerts.end}}
 
 ### 1.2 下载系统安装工具
 
 ```
-wget https://pkg.rainbond.com/releases/common/v5.0/grctl
+wget https://pkg.rainbond.com/releases/common/v5.0.1/grctl
 chmod +x ./grctl
 ```
 
@@ -40,6 +40,8 @@ chmod +x ./grctl
    
    * 确定系统可以正常yum/apt-get install相关软件包，需要提前配置系统相关软件源
    
+   * 确定系统已经禁用`NetworkManager`服务
+   
    * 确定网络没有限制，如有请加如下域名添加到白名单
 
      repo.goodrain.com, api.goodrain.com, hub.goodrain.com, docker.io, domain.grapps.cn, aliyun.com,aliyuncs.com
@@ -52,6 +54,10 @@ chmod +x ./grctl
 * 初始化安装第一个节点
 
 > 快速安装无需设置过多的参数，重点注意IP地址的设定。若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址(eip)，若无则无需指定。
+
+{{site.data.alerts.callout_danger}}
+系统磁盘最低要求 40GB,内存要求最低2核4G, 默认情况下节点预留的资源配置为:1.5核CPU1.5G内存, 详细的资源要求可以参考 [高可用安装资源规划](https://www.rainbond.com/docs/stable/operation-manual/install/HA/install-base-ha.html#2-1)，如果想跳过系统配置检查，安装时指定`--enable-check disable`
+{{site.data.alerts.end}}
 
 
 ```bash
