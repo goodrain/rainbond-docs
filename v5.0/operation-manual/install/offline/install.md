@@ -21,7 +21,7 @@ asciicast: true
 
 ```
 # 有网环境
-wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.5.0.1.190111.tgz
+wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.5.0.1.190114.tgz
 ```
 
 ## 同步到数据中心节点
