@@ -19,19 +19,6 @@
             "urls": [
                 "/${VERSION}/advanced-scenarios/rainbond-devops.html"
             ]
-        },
-        {
-            "title": "迁移已有的业务上Rainbond",
-            "urls": [
-                "/${VERSION}/advanced-scenarios/migration-of-business.html"
-            ]
-        },
-        {
-            "title": "基于Rainbond做应用交付",
-            "urls": [
-                "/${VERSION}/advanced-scenarios/application-delivery.html"
-            ]
         }
-
     ]
 }
