@@ -236,9 +236,9 @@ mount | grep /grdata
 
 ## 四、网络解决方案选择
 
-### 支持的网络方案与优缺点
+### 支持的网络方案
 
- DOING 《对比 calico flannel midonet》
+当前版本Rainbond支持三种网络类型，默认为 `calico` 可选项为 `flannel` `midonet`。需要在数据中心初始化时，通过 `--network` 参数指定。
 
 ## 五、Rainbond数据中心初始化
 
