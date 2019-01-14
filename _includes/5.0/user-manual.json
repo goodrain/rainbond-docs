@@ -159,7 +159,7 @@
               ]
             },
             {
-              "title": "添加服务存储",
+              "title": "服务持久化存储",
               "urls": [
                 "/${VERSION}/user-manual/app-manage/service-manage/add-service.html"
               ]
@@ -171,7 +171,7 @@
               ]
             },
             {
-              "title": "添加服务依赖",
+              "title": "服务依赖",
               "urls": [
                 "/${VERSION}/user-manual/app-manage/service-manage/service-rely.html"
               ]
