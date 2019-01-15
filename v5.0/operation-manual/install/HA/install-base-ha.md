@@ -286,18 +286,32 @@ grctl cluster
 {% include copy-clipboard.html %}
 
 ```bash
-grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role manage --install
+grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role manage
+
 ```
+
+{% include copy-clipboard.html %}
+
+```bash
+grctl node install <Uid>
+```
+
 
 - 配置好ssh免密后
 
 {% include copy-clipboard.html %}
 
 ```bash
-grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage --install
+grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage
 ```
 
-> 更扩容参数，请执行 grctl node add -h 获取
+{% include copy-clipboard.html %}
+
+```bash
+grctl node install <Uid>
+```
+
+> 更多扩容参数，请执行 grctl node add -h 获取
 
 ### 6.2 调整集群内部服务
 
@@ -505,7 +519,13 @@ ip a
 {% include copy-clipboard.html %}
 
 ```bash
-grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role compute --install
+grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role compute
+```
+
+{% include copy-clipboard.html %}
+
+```bash
+grctl node install  <Uid>
 ```
 
 - 配置好ssh免密后
@@ -513,7 +533,13 @@ grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role co
 {% include copy-clipboard.html %}
 
 ```bash
-grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role compute --install
+grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role compute
+```
+
+{% include copy-clipboard.html %}
+
+```bash
+grctl node install <Uid>
 ```
 
 ### 8.2 手动校验
