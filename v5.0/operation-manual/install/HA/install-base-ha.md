@@ -125,7 +125,15 @@ Rainbond需要为管理节点与计算节点的 `/grdata` 目录配置共享存�
 
 在所有的管理节点和计算节点执行：
 
-增加挂载记录
+- 安装glustefs挂载包
+
+{% include copy-clipboard.html %}
+
+```bash
+yum install -y glusterfs-fuse
+```
+
+- 增加挂载记录
 
 {% include copy-clipboard.html %}
 
@@ -133,7 +141,7 @@ Rainbond需要为管理节点与计算节点的 `/grdata` 目录配置共享存�
 echo 'server1:/data /grdata glusterfs   backupvolfile-server=server2,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0' >> /etc/fstab
 ```
 
-创建挂载点
+- 创建挂载点
 
 {% include copy-clipboard.html %}
 
@@ -141,7 +149,7 @@ echo 'server1:/data /grdata glusterfs   backupvolfile-server=server2,use-readdir
 mkdir /grdata
 ```
 
-执行挂载
+- 执行挂载
 
 {% include copy-clipboard.html %}
 
@@ -323,7 +331,7 @@ grctl node install <Uid>
 
 > 更多扩容参数，请执行 grctl node add -h 获取
 
-### 6.2 调整集群内部服务
+<!-- ### 6.2 调整集群内部服务
 
 > 集群内部服务由rbd-gateway进行负载均衡，在多管理节点部署时，需要进行端口调整。
 
@@ -393,9 +401,9 @@ services:
 ```bash
 systemctl restart node
 systemctl restart kube-apiserver
-```
+``` -->
 
-### 6.3 手动校验
+### 6.2 手动校验
 
 安装完成后，在当前节点执行：
 
