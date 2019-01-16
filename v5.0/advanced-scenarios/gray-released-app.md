@@ -26,16 +26,12 @@ asciicast: true
 
   依然通过 [应用网关](https://www.rainbond.com/docs/stable/user-manual/gateway/gateway.html) -> [访问策略](https://www.rainbond.com/docs/stable/user-manual/gateway/traffic-control.html#1-http) 添加以下两个HTTP访问策略：
 
+| 域名         | 权重 | 服务        |
+| ------------ | ---- | --------- |
+| www.test.com | 90   | 外部服务   |
+| www.test.com | 10   | 外部服务2  |
 
-
-  | 域名         | 权重 | 服务      |
-  | ------------ | ---- | --------- |
-  | www.test.com | 90   | 外部服务  |
-  | www.test.com | 10   | 外部服务2 |
-
-
-
-  根据需要逐步分别降低和升高权重即可。
+根据需要逐步分别降低和升高权重即可。
 
 * 内部服务
 
