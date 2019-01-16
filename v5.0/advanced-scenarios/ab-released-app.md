@@ -60,10 +60,10 @@ curl -H user:test www.test.com
 
 * 用法二：通过Cookie标识客户端
 
-| 域名           | Cookie    | 服务      |
-| -------------- | --------- | --------- |
-| <www.test.com> | 无        | 外部服务  |
-| <www.test.com> | user=test | 外部服务2 |
+| 域名         | Cookie    | 服务      |
+| ------------ | --------- | --------- |
+| www.test.com | 无        | 外部服务  |
+| www.test.com | user=test | 外部服务2 |
 
 测试方式：
 
