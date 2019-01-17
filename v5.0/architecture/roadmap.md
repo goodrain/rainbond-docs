@@ -35,7 +35,7 @@ toc: true
 
 关于5.1版本规划如果你有建议请于Rainbond社区[t.goodrain.com](t.goodrain.com)反馈
 
-### V5.0版本规划（已于2018年12月12日发布beta版）
+### V5.0版本规划（已发布Release）
 
 #### 应用网关
 
