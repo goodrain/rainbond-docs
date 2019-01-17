@@ -20,7 +20,7 @@ asciicast: true
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
 {{site.data.alerts.callout_danger}}
-CentOS目前不支持7.5版本
+CentOS 7.5/7.6版本需要内核版本升级到4.x
 {{site.data.alerts.end}}
 
 ### 1.2 下载系统安装工具
