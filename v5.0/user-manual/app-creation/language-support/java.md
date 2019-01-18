@@ -142,18 +142,26 @@ mvn -B -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.
 
 ### 4.3 应用运行
 
-平台默认通过 <a href="https://github.com/jsimone/webapp-runner" target="__blank">webapp-runner.jar</a> 将打包的 `war` 包运行起来，类似如下命令：
+在你未定义[Procfile](etc/procfile.html)的情况下，平台默认通过以下几种方式运行：
+
+* 在pom.xml中定义的打包方式为war
+平台使用<a href="https://github.com/jsimone/webapp-runner" target="__blank">webapp-runner.jar</a> 将打包的 `war` 包运行起来，类似如下命令：
 
 {% include copy-clipboard.html %}
 
 ```
-java $JAVA_OPTS -jar /opt/webapp-runner.jar   --port $PORT target/*.war
+java $JAVA_OPTS -jar /opt/webapp-runner.jar --port $PORT target/*.war
 ```
+* 如果是SpringBoot的项目且打包方式不是war包
 
+默认运行方式如下：
+```
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
+```
 {{site.data.alerts.callout_success}}
 
 - JAVA_OPTS ： 平台会根据应用的内存大小，自动设置Xmx和Xms的值
-- PORT ： 默认监听端口为 5000
+- PORT ： 根据用户在平台设置的端口决定监听，默认监听端口为 5000
 
 {{site.data.alerts.end}}
 
