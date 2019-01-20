@@ -25,7 +25,7 @@ asciicast: true
 
 ## 二、机器资源准备
 
-###  2.1 机器资源要求与规划
+### 2.1 机器资源要求与规划
 
 > 操作系统要求
 
@@ -71,7 +71,7 @@ asciicast: true
 
 如对于应用网络有较高要求，请对应提高网络节点网络配置：提高带宽并升级网卡。
 
-###  2.2 节点规划
+### 2.2 节点规划
 
 根据用户具体要求，可以参见本节规划集群的节点配置。
 
@@ -83,10 +83,6 @@ asciicast: true
 
 计算节点为常规部署项，必然存在于集群之中。部署数量2至100台，并在集群资源不足时按需扩容。
 
-- 网络节点：
-
-特指在选择midonet作为集群网络解决方案时部署的网络出口节点。部署数量推荐2台，并可以在必要时进行切换保证高可用。
-
 - 存储节点：
 
 特指在选择glusterfs作为集群共享存储解决方案时部署的存储节点。部署数量至少2台，并根据节点数量选择复制集数量。
@@ -95,11 +91,11 @@ asciicast: true
 
 网关节点特指具备Rainbond应用访问负载均衡组件rbd-gateway的节点，为常规部署项，必然存在于集群之中。默认部署于所有的管理节点，可以根据需要单独部署。部署数量参照管理节点，并配置VIP保证高可用。
 
-## 三、存储集群选择与安装
+## 三、存储节点选择
 
 准备存储是安装高可用集群的第一步。在这一步将解决集群共享目录 `/grdata` 的配置。
 
-### 3.1 支持的存储集群说明
+### 3.1 支持的存储说明
 
 Rainbond需要为管理节点与计算节点的 `/grdata` 目录配置共享存储。
 
@@ -107,140 +103,37 @@ Rainbond需要为管理节点与计算节点的 `/grdata` 目录配置共享存�
 
 - NAS：
 
-基于阿里云等IaaS设施部署Rainbond的情况下，可以选择其提供的 [NAS](/docs/v5.0/operation-manual/install/alicloud/install-base-alicloud.html#2-1-nas) 存储服务。
+基于阿里云等IaaS设施部署Rainbond的情况下，可以选择其提供的NAS存储服务。
 
 - GlusterFS：
 
-基于用户自备的服务器或虚拟机部署Rainbond的情况下，推荐部署 [GlusterFS](/docs/v5.0/operation-manual/storage/GlusterFS/introduce.html) 作为共享存储解决方案。
+基于用户自备的服务器或虚拟机部署Rainbond的情况下，推荐部署GlusterFS作为共享存储解决方案。
 
 - 其它兼容NFS协议的共享存储
 
 如果用户拥有可使用的兼容NFS协议的共享存储，可以直接使用。使 /grdata 目录在集群管理节点与计算节点间共享即可。
 
-### 3.2 安装GlusterFS集群
+### 3.2 存储节点部署方案
 
-安装GlusterFS集群，请参见 [GlusterFS双机复制集群安装](/docs/v5.0/operation-manual/storage/GlusterFS/install.html)
+> 推荐节点先行部署或对接存储节点，确定所有节点都已经正常挂载/grdata
 
-安装完成后，可以获得数据卷 `data`，接下来将其挂载到对应节点的 `/grdata`：
+#### GlusterFS
 
-在所有的管理节点和计算节点执行：
+部署GlusterFS存储节点，请参见 [GlusterFS双机复制集群安装](/docs/v5.0/operation-manual/storage/GlusterFS/install.html)
 
-增加挂载记录
+#### NAS
 
-{% include copy-clipboard.html %}
+对接阿里云文件存储NAS，请参见[对接文件存储NAS](/docs/v5.0/operation-manual/storage/nas/alinas-install.html)
 
-```bash
-echo 'server1:/data /grdata glusterfs   backupvolfile-server=server2,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0' >> /etc/fstab
-```
+## 四、网络方案选择
 
-创建挂载点
+### 支持的网络方案
 
-{% include copy-clipboard.html %}
+当前版本Rainbond支持三种网络类型，开源版本默认为 `calico` 可选项为 `flannel` 。需要在数据中心初始化时，通过 `--network` 参数指定。
 
-```bash
-mkdir /grdata
-```
+> Rainbond默认推荐使用calico网络
 
-执行挂载
-
-{% include copy-clipboard.html %}
-
-```bash
-mount -a
-```
-
-### 3.3 为已安装的Rainbond切换存储
-
-> 场景描述： 用户已经拥有Rainbond集群，现在希望将共享存储切换到新搭建好的GlusterFS
-
-思路引导：Rainbond数据中心初始化默认使用manage01节点作为NFS-server，对所有集群其他成员共享其 `/grdata` 目录。如果需要切换，则先摘除集群其他节点的共享存储，然后停止manage01的nfs-server服务，最后将数据同步到GlusterFS，所有节点重新挂载。
-
-具体操作如下：
-
-- 摘除集群其他节点的共享存储
-
-在集群中除manage01节点外的其他节点执行
-
-{% include copy-clipboard.html %}
-
-```bash
-umount /grdata
-```
-
-- 停止manage01的nfs-server服务
-
-在manage01节点执行
-
-{% include copy-clipboard.html %}
-
-```bash
-systemctl stop nfs-server
-systemctl disable nfs-server
-```
-
-- 将数据同步到GlusterFS
-
-以在server01 server02两个存储节点制作存储卷 data 为例,在manage01节点执行
-
-{% include copy-clipboard.html %}
-
-```bash
-mount -t glusterfs server01:data /mnt
-```
-
-{% include copy-clipboard.html %}
-
-```bash
-cp -arp /grdata/. /mnt
-```
-
-- 所有节点重新挂载
-
-所有节点编辑 `/etc/fstab` 注释或者删除指向原manage01节点的NFS挂载记录，添加如下记录：
-
-{% include copy-clipboard.html %}
-
-```bash
-server1:/data /grdata glusterfs   backupvolfile-server=server2,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
-```
-
-- 所有管理计算节点配置存储节点hostname解析
-
-所有计算节点和管理节点编辑 `/etc/hosts`， 示例如下：
-
-```bash
-# storage 节点
-192.168.1.1 server1
-192.168.1.2 server2
-```
-
-在所有节点执行
-
-{% include copy-clipboard.html %}
-
-```bash
-mount -a
-```
-
-### 3.4 手动校验存储
-
-在所有节点执行
-
-{% include copy-clipboard.html %}
-
-```bash
-mount | grep /grdata
-```
-
-若返回结果已挂载，则校验成功，进行下一步。如不成功，请重新审查本节操作。
-
-## 四、网络解决方案选择
-
-### 支持的网络方案与优缺点
-
- DOING 《对比 calico flannel midonet》
-
-## 五、Rainbond数据中心初始化
+## 五、数据中心初始化
 
 ### 5.1 命令
 
@@ -258,16 +151,14 @@ wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 chmod +x ./grctl
 ```
 
+> 更多初始化参数，请执行 ./grctl init -h 获取
+
 {% include copy-clipboard.html %}
 
 ```bash
-./grctl init --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> \
---network <选择网络解决方案，可选择calico/flannel/midonet，默认calico> \
---vip <指定VIP，具体配置见下节> --install-type offline <此项必须填写>
-
+./grctl init --role master --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> 
 ```
 
-> 更多初始化参数，请执行 ./grctl init -h 获取
 
 ### 5.2 手动校验
 
@@ -281,11 +172,11 @@ grctl cluster
 
 若返回集群信息正常，则进行下一步；若返回不正常，请重新审查本节操作。
 
+> 扩容前，请检查是否配置了共享存储，如果是，请先行挂载 `/grdata`
+
 ## 六、管理节点扩容
 
 管理节点的扩容，实现了集群管理功能的高可用。考虑到 etcd 集群选举机制，应至少扩容到3个管理节点。
-
-> 扩容前，请检查是否配置了共享存储，如果是，请先行挂载 `/grdata`
 
 ### 6.1 扩容命令
 
@@ -296,20 +187,34 @@ grctl cluster
 {% include copy-clipboard.html %}
 
 ```bash
-grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role manage --install
+grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role manage
+
 ```
+
+{% include copy-clipboard.html %}
+
+```bash
+grctl node install <Uid>
+```
+
 
 - 配置好ssh免密后
 
 {% include copy-clipboard.html %}
 
 ```bash
-grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage --install
+grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage
 ```
 
-> 更扩容参数，请执行 grctl node add -h 获取
+{% include copy-clipboard.html %}
 
-### 6.2 调整集群内部服务
+```bash
+grctl node install <Uid>
+```
+
+> 更多扩容参数，请执行 grctl node add -h 获取
+
+<!-- ### 6.2 调整集群内部服务
 
 > 集群内部服务由rbd-gateway进行负载均衡，在多管理节点部署时，需要进行端口调整。
 
@@ -379,9 +284,9 @@ services:
 ```bash
 systemctl restart node
 systemctl restart kube-apiserver
-```
+``` -->
 
-### 6.3 手动校验
+### 6.2 手动校验
 
 安装完成后，在当前节点执行：
 
@@ -395,7 +300,9 @@ grctl cluster
 
 ## 七、网关节点扩容
 
-如无特殊设置，网关节点将默认安装在所有的管理节点，故而会随管理节点同步扩容。扩容完成后，需要配置VIP实现高可用,该VIP在 **Rainbond数据中心初始化** 时由 `--vip` 参数指定。
+如无特殊设置，网关节点将默认安装在所有的管理节点，故而会随管理节点同步扩容。扩容完成后，需要配置VIP实现高可用。
+
+> VIP要保证和当前机器ip在同一网段内。
 
 ### 7.1 vip配置
 
@@ -478,7 +385,7 @@ systemctl enable keepalived
 
 - 其他需要调整的配置
 
-在manage01节点执行
+在第一个管理节点执行
 
 {% include copy-clipboard.html %}
 
@@ -487,6 +394,18 @@ din rbd-db
 mysql
 use console;
 UPDATE region_info set tcpdomain="<VIP>";
+```
+
+调整所有节点rbd-dns关于goodrain.me的解析(100.100.100.16为示例VIP,根据实际情况调整)
+
+```bash
+# 编辑/opt/rainbond/conf/dns.yaml,将recoders修改为vip地址
+    --recoders=goodrain.me=100.100.100.16,*.goodrain.me=100.100.100.16
+
+# 更新服务
+node service update
+# 编辑 /etc/hosts
+100.100.100.16  kubeapi.goodrain.me goodrain.me repo.goodrain.me lang.goodrain.me maven.goodrain.me region.goodrain.me
 ```
 
 ### 7.2 手动校验
@@ -515,7 +434,13 @@ ip a
 {% include copy-clipboard.html %}
 
 ```bash
-grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role compute --install
+grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role compute
+```
+
+{% include copy-clipboard.html %}
+
+```bash
+grctl node install  <Uid>
 ```
 
 - 配置好ssh免密后
@@ -523,7 +448,13 @@ grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role co
 {% include copy-clipboard.html %}
 
 ```bash
-grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role compute --install
+grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role compute
+```
+
+{% include copy-clipboard.html %}
+
+```bash
+grctl node install <Uid>
 ```
 
 ### 8.2 手动校验

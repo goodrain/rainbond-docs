@@ -63,48 +63,6 @@
             ]
             },
             {
-                "title": "配置集群",
-                "items": [            {
-                    "title": "分布式存储系统",
-                    "items": [{
-                        "title": "GlusterFS",
-                        "items": [{
-                                "title": "介绍",
-                                "urls": [
-                                    "/${VERSION}/operation-manual/storage/GlusterFS/introduce.html"
-                                ]
-                            }, {
-                                "title": "安装",
-                                "urls": [
-                                    "/${VERSION}/operation-manual/storage/GlusterFS/install.html"
-                                ]
-                            }, {
-                                "title": "维护",
-                                "urls": [
-                                    "/${VERSION}/operation-manual/storage/GlusterFS/maintain.html"
-                                ]
-                            }, {
-                                "title": "基准测试",
-                                "urls": [
-                                    "/${VERSION}/operation-manual/storage/GlusterFS/test.html"
-                                ]
-                            }
-                        ]
-                    }]
-                },
-                {
-                    "title": "软件定义网络",
-                    "items": [{
-                            "title": "Calico",
-                            "urls": [
-                                "/${VERSION}/operation-manual/network/calico.html"
-                            ]
-                        }
-                    ]
-                }
-            ]
-            },
-            {
                 "title": "数据中心节点管理",
                 "items": [
                     {
@@ -134,6 +92,57 @@
                 ]
             },
             {
+                "title": "配置集群",
+                "items": [            {
+                    "title": "对接分布式存储",
+                    "items": [{
+                        "title": "GlusterFS",
+                        "items": [{
+                                "title": "介绍",
+                                "urls": [
+                                    "/${VERSION}/operation-manual/storage/GlusterFS/introduce.html"
+                                ]
+                            }, {
+                                "title": "安装",
+                                "urls": [
+                                    "/${VERSION}/operation-manual/storage/GlusterFS/install.html"
+                                ]
+                            }, {
+                                "title": "维护",
+                                "urls": [
+                                    "/${VERSION}/operation-manual/storage/GlusterFS/maintain.html"
+                                ]
+                            }, {
+                                "title": "基准测试",
+                                "urls": [
+                                    "/${VERSION}/operation-manual/storage/GlusterFS/test.html"
+                                ]
+                            }
+                        ]
+                    },{
+                        "title": "文件存储NAS",
+                        "items": [{
+                            "title": "对接阿里云NAS",
+                            "urls": [
+                                "/${VERSION}/operation-manual/storage/nas/alinas-install.html"
+                            ]
+                        }]
+                    }
+                ]
+                },
+                {
+                    "title": "软件定义网络",
+                    "items": [{
+                            "title": "Calico",
+                            "urls": [
+                                "/${VERSION}/operation-manual/network/calico.html"
+                            ]
+                        }
+                    ]
+                }
+            ]
+            },
+            {
                 "title": "监控集群",
                 "items": [
                     {
@@ -153,6 +162,14 @@
                             ]
                     }
                 ]
+            },
+            {
+                "title": "运维集群",
+                "items": [            {
+                    "title": "集群故障诊断",
+                    "urls": [ "/${VERSION}/operation-manual/op-guide/trouble-shooting.html" ]
+                }
+            ]
             },
             {
                 "title": "周边工具集",

@@ -51,5 +51,5 @@ defaults:
       layout: "page"
 
 algolia:
-   application_id: JW03QS46UU
+   application_id: RITXU8D7M1
    index_name: rainbond
