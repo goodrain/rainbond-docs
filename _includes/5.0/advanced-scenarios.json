@@ -31,6 +31,12 @@
             "urls": [
                 "/${VERSION}/advanced-scenarios/gray-released-app.html"
             ]
+        },
+        {
+            "title": "配置文件",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/config-file.html"
+            ]
         }
     ]
 }
