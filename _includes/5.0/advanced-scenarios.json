@@ -19,6 +19,12 @@
             "urls": [
                 "/${VERSION}/advanced-scenarios/rainbond-devops.html"
             ]
+        },
+        {
+            "title": "离线环境下的Java源码构建",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/offline-java-build.html"
+            ]
         }
     ]
 }
