@@ -3,21 +3,33 @@
     "is_top_level": true,
     "items": [
         {
-            "title": "创建一个微服务架构",
+            "title": "创建一个微服务架构应用实践",
             "urls": [
                 "/${VERSION}/advanced-scenarios/create-mirco-service.html"
             ]
         },
         {
-            "title": "创建一个中间件集群",
+            "title": "创建一个中间件集群应用实践",
             "urls": [
                 "/${VERSION}/advanced-scenarios/create-middleware-cluster.html"
             ]
         },
         {
-            "title": "基于Rainbond实现源码自动部署",
+            "title": "基于源码配置自动CI/CD实践",
             "urls": [
                 "/${VERSION}/advanced-scenarios/rainbond-devops.html"
+            ]
+        },
+        {
+            "title": "应用A/B测试实践",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/ab-released-app.html"
+            ]
+        },
+        {
+            "title": "应用灰度发布实践",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/gray-released-app.html"
             ]
         },
         {

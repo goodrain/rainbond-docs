@@ -60,9 +60,10 @@ grctl node get <unhealth节点的UID>
 ### 3.1 存储健康检测不通过
 
 大部分情况下，存储健康检测不通过主要是存储同步有问题。
-* 确定异常节点是否挂载了/grdata
-* 确定存储是否同步
-* 手动执行`/opt/rainbond/health/storage.sh`,看退出码是否为0
+* 确定异常节点是否挂载了/grdata  
+* 确定存储是否同步  
+* 手动执行`/opt/rainbond/health/storage.sh`,看退出码是否为0  
+* 确定GlusterFS存储安装正确，且所有节点上存储服务可用
 
 ### 3.2 Rainbond组件异常
 

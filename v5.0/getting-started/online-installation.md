@@ -20,7 +20,7 @@ asciicast: true
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
 {{site.data.alerts.callout_danger}}
-注意：CentOS目前不支持7.5版本，磁盘最低要求 40GB, 详细的资源要求可以参考 [高可用安装资源规划](https://www.rainbond.com/docs/stable/operation-manual/install/HA/install-base-ha.html#2-1)
+CentOS 7.5/7.6版本需要内核版本升级到4.x
 {{site.data.alerts.end}}
 
 ### 1.2 下载系统安装工具
@@ -40,13 +40,14 @@ chmod +x ./grctl
    
    * 确定系统可以正常yum/apt-get install相关软件包，需要提前配置系统相关软件源
    
+   * 确定系统已禁用`NetworkManager`或者[配置NetworkManager](https://t.goodrain.com/t/calico-networkmanager/591)
+   
+   * 节点资源：磁盘最低要求 40GB,内存要求最低2核4G, 默认情况下节点会给系统预留1.5核CPU1.5G内存的资源
+   
    * 确定网络没有限制，如有请加如下域名添加到白名单
 
      repo.goodrain.com, api.goodrain.com, hub.goodrain.com, docker.io, domain.grapps.cn, aliyun.com,aliyuncs.com
 
-### 1.4 安装须知
-
-   * 默认情况下计算节点会预留1.5核1.5G内存资源
 
 ## 二、初始化数据中心
 
@@ -54,7 +55,7 @@ chmod +x ./grctl
 
 * 初始化安装第一个节点
 
-> 快速安装无需设置过多的参数，重点注意IP地址的设定，若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址，若无则无需指定。
+> 快速安装无需设置过多的参数，重点注意IP地址的设定。若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址(eip)，若无则无需指定。如果想跳过系统配置检查，安装时指定`--enable-check disable`,如果配置过低可能会无法正常部署运行应用。如果需要安装特定docker版本，在安装前指定docker版本，如`export DOCKER_VERSION=18.06`
 
 ```bash
 ./grctl init --iip 内网ip --eip 公网ip
@@ -85,13 +86,15 @@ http://<节点IP地址>:7070
 > 其中host/hostname可以根据排序顺序依次compute01-computeN,host/hostname不要重复。
 
 ```bash
-grctl node add --host <computexx> --iip <计算节点IP> --root-pass <root用户密码> --role compute
+grctl node add --host computexx --iip 计算节点IP --root-pass root用户密码 --role compute
+示例：
+grctl node add --host compute01 --iip 192.168.1.1 --root-pass 12345678 --role compute
 # 获取添加节点的NodeID，此时节点应处于未安装状态
 grctl node list
 # 指定节点ID开始安装
-grtcl node install <NodeID>
+grctl node install NodeID
 # 确定节点处于健康状态上线节点
-grtcl node up <NodeID>
+grctl node up <NodeID>
 
 ```
 
