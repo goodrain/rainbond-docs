@@ -37,6 +37,12 @@
             "urls": [
                 "/${VERSION}/advanced-scenarios/offline-java-build.html"
             ]
+        },
+        {
+            "title": "通过应用市场做应用交付与升级",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/application-delivery.html"
+            ]
         }
     ]
 }
