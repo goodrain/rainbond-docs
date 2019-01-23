@@ -35,7 +35,7 @@ toc: true
 |rbd-db|5.0|Master|云帮数据库服务，支持MySQL，[Tidb](https://pingcap.com/docs-cn/)与[CockroachDB](https://www.cockroachlabs.com/)|
 |rbd-mq|5.0|Master|消息队列服务|
 |rbd-hub|2.6.2|Master|基于[Docker Registry](https://docs.docker.com/registry/)封装，提供docker镜像存储服务|
-|rbb-repo|5.0|Master|源码构建仓库服务，基于[Artifactory OSS](https://jfrog.com/open-source/)封装|
+|rbb-repo|6.5.9|Master|源码构建仓库服务，基于[Artifactory OSS](https://jfrog.com/open-source/)封装|
 |rbd-eventlog|5.0|Master|云帮事件处理与日志汇聚服务|
 |rbd-worker|5.0|Master|云帮应用操作与处理服务|
 |rbd-webcli|5.0|Master|提供应用web方式进入容器命令行的服务|
@@ -59,25 +59,41 @@ rbd-dns服务，除提供平台用户应用的域名解析之外，还提供内�
 |----------|-------------|
 |goodrain.me|rainbond内部docker镜像仓库地址，rbd-hub提供服务|
 |kubeapi.goodrain.me|kube-apisever服务|
+|region.goodrain.me|数据中心API服务|
 |lang.goodrain.me|源码构建依赖包下载地址，rbd-repo提供服务|
 |maven.goodrain.me|maven仓库地址，rbd-repo提供服务|
 |repo.goodrain.me|本地软件源,rbd-gateway提供服务,仅离线环境|
 
 ### 3.2 部分服务端口说明
 
-|端口号|说明|访问控制|
+> 公网访问: 如部署在公有云环境需要公网访问需要安全组放行
+
+|端口号|说明|公网访问|
 |--------|--------|------------|
-|7070|应用控制台web|对外|
-|6060|Websocket服务，提供日志、性能监控实时推送|对外|
-|2379,4001|etcd服务|对内|
-|8181,6443|kube-apiserver服务|对内|
-|8443,8888|Rainbond API服务|对内/对外|
-|53| rbd-dns提供的集群内部dns服务|对内|
-|80,443,20001~60000|rbd-lb 提供的全局负载均衡服务|对内/对外|
+|7070|应用控制台web|需要安全组放行|
+|6060|Websocket服务，提供日志、性能监控实时推送|需要安全组放行|
+|2379,2380,4001|etcd服务||
+|8181,6443|kube-apiserver服务||
+|8443,8888|Rainbond API服务||
+|53| rbd-dns提供的集群内部dns服务||
+|80,443|rbd-gateway 提供的全局负载均衡服务|需要安全组放行|
 
 {{site.data.alerts.callout_info}}
 - etcd的4001为非安全端口，2379为安全端口
 - kube-apiserver的8181为非安全端口，6443为安全端口
 - rainbond API端口当只有一个数据中心时不需要对外开放，当多数据中心，且在不同网络时需要对外开放,8888非安全端口,8443为安全端口
-- rbd-lb提供的80与443端口是为HTTP协议应用提供，20001~60000是为TCP协议的应用提供。
+- rbd-gateway提供的80与443端口是为HTTP协议应用提供，20001~60000是为TCP协议的应用提供。
 {{site.data.alerts.end}}
+
+### 3.3 服务部署类型说明
+
+|部署类型|说明|组件名|
+|--------|------------|------------|
+|二进制或者deb/rpm部署|通常使用apt或者yum方式安装,由systemd守护|node,docker,kubelet|
+|容器化部署|通过docker run方式部署,由node生成systemd进行守护|其他组件都是容器化部署|
+
+#### 3.3.1 日志查看方式
+
+默认所有服务都可以通过`systemctl`或者`journalctl`方式查看组件的状态日志等信息。
+
+容器化部署服务还可以通过`docker logs`方式查看日志，`dps`方式查看运行状态
