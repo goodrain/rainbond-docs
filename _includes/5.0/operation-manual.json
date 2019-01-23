@@ -12,7 +12,7 @@
                             ]
                         },
                         {
-                            "title": "系统服务组件参数说明",
+                            "title": "服务组件参数说明",
                             "urls": [
                                 "/${VERSION}/operation-manual/rbd-parameter.html"
     
@@ -166,6 +166,9 @@
             {
                 "title": "运维集群",
                 "items": [            {
+                    "title": "检查所需端口",
+                    "urls": [ "/${VERSION}/operation-manual/op-guide/check_required_ports.html" ]
+                },{
                     "title": "集群故障诊断",
                     "urls": [ "/${VERSION}/operation-manual/op-guide/trouble-shooting.html" ]
                 }
