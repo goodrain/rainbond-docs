@@ -195,6 +195,12 @@
               ]
             },
             {
+              "title": "自动构建设置",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/auto-deploy.html"
+              ]
+            },
+            {
               "title": "其他设置",
               "urls": [
                 "/${VERSION}/user-manual/app-manage/service-manage/other-set.html"
