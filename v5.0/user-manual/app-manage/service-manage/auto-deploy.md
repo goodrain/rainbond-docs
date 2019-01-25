@@ -19,7 +19,7 @@ asciicast: true
 - 确定应用已经 `开启` 了此功能
 - 需要在代码仓库的项目中配置正确的 `webhooks`
 - 目前仅支持项目的`push`事件
-- 提交信息中包含触发关键字 `@deploy`
+- 提交信息中包含触发关键字 默认为`@deploy`
 - 应用状态必须是`运行中`或`运行异常`
 
 ### 2.1 开启自动构建
@@ -85,3 +85,7 @@ asciicast: true
 通过开启API自动构建返回的url，调用API，携带秘钥即可触发API自动构建，秘钥可以自定义设置
 
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548429560105.jpg" style="border:1px solid #eee;width:80%"/></center>
+
+秘钥触发命令：
+
+`curl -d `{"secret_key":"<秘钥>"}` -H "Content-type: application/json" -X POST <API地址>`
