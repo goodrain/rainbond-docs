@@ -49,6 +49,12 @@
             "urls": [
                 "/${VERSION}/advanced-scenarios/application-delivery.html"
             ]
+        },
+        {
+            "title": "无影响滚动升级无状态应用",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/upgrade-stateless-app.html"
+            ]
         }
     ]
 }
