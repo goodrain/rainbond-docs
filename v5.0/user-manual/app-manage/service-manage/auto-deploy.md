@@ -82,10 +82,12 @@ asciicast: true
 
 ## 四、API触发自动构建
  
-通过开启API自动构建返回的url，调用API，携带秘钥即可触发API自动构建，秘钥可以自定义设置
+通过开启API自动构建返回的url，POST方法调用API，携带秘钥即可触发API自动构建，秘钥可以自定义设置
 
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548429560105.jpg" style="border:1px solid #eee;width:80%"/></center>
 
-秘钥触发命令：
+API使用用例：
 
-`curl -d `{"secret_key":"<秘钥>"}` -H "Content-type: application/json" -X POST <API地址>`
+```
+curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+```
