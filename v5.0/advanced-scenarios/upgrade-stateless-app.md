@@ -76,31 +76,38 @@ NewReplicaSet:   eb02a36a5f8d0b349b2254461393369e-deployment-9fcdf797 (3/3 repli
 Events:
   Type    Reason             Age   From                   Message
   ----    ------             ----  ----                   -------
-  Normal  ScalingReplicaSet  27m   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-84dc79c979 to 1 #第一次部署，新建实例设置为1
-  Normal  ScalingReplicaSet  25m   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-d5ff5fbd4 to 1 #更新操作，新建实例设置为1
-  Normal  ScalingReplicaSet  24m   deployment-controller  Scaled down replica set eb02a36a5f8d0b349b2254461393369e-deployment-84dc79c979 to 0 #更新操作，旧实例数设置为0
-  Normal  ScalingReplicaSet  24m   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-66b58566c9 to 1 #伸缩操作，新建实例设置为1
-  Normal  ScalingReplicaSet  24m   deployment-controller  Scaled down replica set eb02a36a5f8d0b349b2254461393369e-deployment-d5ff5fbd4 to 0 #伸缩操作，旧实例设置为0
+  Normal  ScalingReplicaSet  27m   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-84dc79c979 to 1 #第一次部署，新建实例数设置为1
+  Normal  ScalingReplicaSet  25m   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-d5ff5fbd4 to 1 #构建操作，新建实例数设置为1
+  Normal  ScalingReplicaSet  24m   deployment-controller  Scaled down replica set eb02a36a5f8d0b349b2254461393369e-deployment-84dc79c979 to 0 #构建操作，旧实例数设置为0
+  Normal  ScalingReplicaSet  24m   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-66b58566c9 to 1 #伸缩操作，新建实例数设置为1
+  Normal  ScalingReplicaSet  24m   deployment-controller  Scaled down replica set eb02a36a5f8d0b349b2254461393369e-deployment-d5ff5fbd4 to 0 #伸缩操作，旧实例数设置为0
   Normal  ScalingReplicaSet  30s   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-66b58566c9 to 3 #伸缩操作，新建实例数设置为3
-  Normal  ScalingReplicaSet  22s   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-9fcdf797 to 1 #更新操作，新建实例数设置为1
-  Normal  ScalingReplicaSet  20s   deployment-controller  Scaled down replica set eb02a36a5f8d0b349b2254461393369e-deployment-66b58566c9 to 2 #更新操作，旧实例数设置为2
-  Normal  ScalingReplicaSet  20s   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-9fcdf797 to 2 #更新操作，新实例数设置为2
-  Normal  ScalingReplicaSet  18s   deployment-controller  Scaled down replica set eb02a36a5f8d0b349b2254461393369e-deployment-66b58566c9 to 1 #更新操作，旧实例数设置为1
-  Normal  ScalingReplicaSet  18s   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-9fcdf797 to 3 #更新操作，新实例数设置为3
-  Normal  ScalingReplicaSet  16s   deployment-controller  Scaled down replica set eb02a36a5f8d0b349b2254461393369e-deployment-66b58566c9 to 0 #更新操作，旧实例数设置为0
+  Normal  ScalingReplicaSet  22s   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-9fcdf797 to 1 #构建操作，新建实例数设置为1
+  Normal  ScalingReplicaSet  20s   deployment-controller  Scaled down replica set eb02a36a5f8d0b349b2254461393369e-deployment-66b58566c9 to 2 #构建操作，旧实例数设置为2
+  Normal  ScalingReplicaSet  20s   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-9fcdf797 to 2 #构建操作，新实例数设置为2
+  Normal  ScalingReplicaSet  18s   deployment-controller  Scaled down replica set eb02a36a5f8d0b349b2254461393369e-deployment-66b58566c9 to 1 #构建操作，旧实例数设置为1
+  Normal  ScalingReplicaSet  18s   deployment-controller  Scaled up replica set eb02a36a5f8d0b349b2254461393369e-deployment-9fcdf797 to 3 #构建操作，新实例数设置为3
+  Normal  ScalingReplicaSet  16s   deployment-controller  Scaled down replica set eb02a36a5f8d0b349b2254461393369e-deployment-66b58566c9 to 0 #构建操作，旧实例数设置为0
 ```
 
 ## 无影响升级
 
 无影响的前提，是已经多实例部署了。如果单实例部署，需要保证应用启动即服务。
 
-#### 应用健康检查
+#### 配置应用健康检查
 
-要确保服务安装正常的需求运行起来且已经可用，需要配置应用的健康检查。
+Rainbond提供应用健康检查功能，用于查看应用和用户业务是否正常运行，设置健康检查可以在应用运行过程中，根据设置需要定时检查应用健康状态。
 
-具体配置参考:[应用健康检查](../user-manual/app-manage/service-manage/other-set.html#1-4)
+默认我们提供了两种健康检查方式：
 
-#### 有状态的Web应用
+- 应用启动时检查(应用实例存活检查): 探测应用实例是否已经启动，该检查方式用于检测实例是否存活或者服务是否启动，类似于执行`ps`检查进程是否存在。如果检查失败，会重启该实例;若检查成功不执行任何操作。
+- 应用运行时检查(应用业务就绪检查): 探测应用业务是否已经就绪，该检查方式用于检测实例是否准备好开始处理用户请求或者运行过程中业务是否异常退出情况。如果检查失败，会重启该实例；若检查成功不执行任何操作。
 
-针对这类问题可以参考: [Tomcat配置Redis实现Session共享
+具体如何配置健康检查请参考:[应用健康检查](../user-manual/app-manage/service-manage/other-set.html#1-4)
+
+#### 微服务架构下分布式session共享
+
+在某些场景下，单实例情况下多数将session存在到内存中,所有用户请求由单实例进行响应处理，达到保持用户状态的需求。随着微服务架构的普及发展,需要对原有单一实例的应用进行改造拆分，实现应用向云平台迁移。拆分每一个微应用都具有自己的Web页面，这些Web页面都会通过浏览器客户端展现给用户，整个微应用架构可以近似地看作是一个大型的分布式应用，所以每个微应用都需要有Session对象，同时整个微应用架构中，同一用户的Session数据应该是一致的。因此，在微服务架构下，对session的处理不再保存在内存中, 而是在架构中引入独立的中间存储介质如redis或memcache，将企业应用的session统一管理。
+
+针对这类场景, 可以参考: [Tomcat基于Redis实现Session共享
 ](../user-manual/app-creation/language-support/java/tomcat-redis-session.html)
