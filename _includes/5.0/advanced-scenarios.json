@@ -33,7 +33,7 @@
             ]
         },
         {
-            "title": "配置文件",
+            "title": "应用配置文件实践",
             "urls": [
                 "/${VERSION}/advanced-scenarios/config-file.html"
             ]
@@ -48,6 +48,12 @@
             "title": "通过应用市场做应用交付与升级",
             "urls": [
                 "/${VERSION}/advanced-scenarios/application-delivery.html"
+            ]
+        },
+        {
+            "title": "无影响滚动升级无状态应用",
+            "urls": [
+                "/${VERSION}/advanced-scenarios/upgrade-stateless-app.html"
             ]
         }
     ]

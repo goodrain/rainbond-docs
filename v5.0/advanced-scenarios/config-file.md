@@ -1,5 +1,5 @@
 ---
-title: 配置文件
+title: 应用配置文件实践
 summary: 配置文件
 toc: true
 ---
