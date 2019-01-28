@@ -53,7 +53,7 @@ asciicast: true
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548428724539.jpg" style="border:1px solid     #eee;width:80%"/></center>
 
  
-## 三、镜像仓库自动化构建使用说明
+## 三、镜像仓库自动化构建说明
 
 镜像仓库自动构建目前仅支持Docker官方仓库，可以实现推送镜像后应用的自动构建，方便的对接第三方自动化流程。只需要通过简单的设置，就可以持续构建应用。
 
