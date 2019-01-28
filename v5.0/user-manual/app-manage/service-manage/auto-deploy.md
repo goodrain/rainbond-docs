@@ -9,9 +9,9 @@ asciicast: true
 
 ## 一、自动构建
 
-通过自动构建的功能，可以实现代码提交后应用的自动构建，平台提供了基于Git-Webhooks、API(Url)和镜像仓库Webhooks三种方式触发自动应用部署。方便的对接第三方自动化流程。只需要通过简单的设置，就可以帮您完成重新部署的工作。
+通过自动构建的功能，可以实现代码提交后应用的自动构建，平台提供了基于代码仓库Webhooks、镜像仓库Webhooks和API等方式触发自动应用部署。方便的对接第三方自动化流程。只需要通过简单的设置，就可以帮您完成重新部署的工作。
 
-## 二、源码仓库webhooks使用说明
+## 二、代码仓库自动化构建说明
 
 开启源码自动构建，需要应用具备如下条件：
 
@@ -29,7 +29,7 @@ asciicast: true
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548428389742.jpg" style="border:1px solid #eee;width:80%"/></center>
 
 
-### 2.2 配置Git Server
+### 2.2 配置代码仓库
 
 * 配置GitHub
 
@@ -53,24 +53,24 @@ asciicast: true
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548428724539.jpg" style="border:1px solid     #eee;width:80%"/></center>
 
  
-## 三、镜像仓库webhooks使用说明
+## 三、镜像仓库自动化构建使用说明
 
 镜像仓库自动构建目前仅支持Docker官方仓库，可以实现推送镜像后应用的自动构建，方便的对接第三方自动化流程。只需要通过简单的设置，就可以持续构建应用。
 
 开启镜像自动构建，需要应用具备如下条件：
 
-- 应用是由镜像创建，目前支持的代码仓库为`Docker Hub`
+- 应用是由镜像创建，目前支持的镜像仓库为`Docker Hub`
 - 确定应用已经 `开启` 了此功能
-- 需要在代码仓库的项目中配置正确的 `webhooks`
+- 需要在镜像仓库的项目中配置正确的 `webhooks`
 - 应用状态必须是`运行中`或`运行异常`
 
 ### 3.1 开启自动构建
 
-  在您的应用中请打开自动构建功能，并复制我们给您的URL粘贴到您的webhooks设置中
+  需要在应用中启用自动构建功能，并且需要将应用的webhooks url配置到目标镜像仓库的webhooks中
 
   <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548422517293.jpg" style="border:1px solid #eee;width:80%"/></center>
 
-### 3.2 配置Docker Server
+### 3.2 配置镜像仓库
 
 * 配置Docker Hub
 
@@ -82,11 +82,11 @@ asciicast: true
 
 ## 四、API触发自动构建
  
-通过开启API自动构建返回的url，POST方法调用API，携带秘钥即可触发API自动构建，秘钥可以自定义设置
+通过开启API自动构建返回的url，POST方法调用API，携带秘钥即可触发API自动构建，秘钥可以自定义设置
 
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548429560105.jpg" style="border:1px solid #eee;width:80%"/></center>
 
-API使用用例：
+API使用用例：
 
 ```
 curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
