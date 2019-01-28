@@ -52,6 +52,8 @@ asciicast: true
 
 重新发布来升级应用市场中的应用
 
+> 需要注意的是，重新发布同一个应用的时候，`版本` 应与原应用保持一致，方视为对原应用的升级；否则，会发布出一个新的应用。
+
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/app-delivery-5.gif" width="100%">
 
 ### 3.2 同Rainbond下应用市场部署应用的升级
