@@ -9,41 +9,24 @@ toc: true
 ## 一、修改docker启动配置
 
 ```bash
-vi /opt/rainbond/envs/docker.sh
-# 通过添加多个 --insecure-registry 参数的形式，来支持非安全的仓库
-# 示例： --insecure-registry  demo.com
+vi /etc/docker/daemon.json
+# 通过添加多个 insecure-registries 值的形式，来支持非安全的仓库
+# 示例： "insecure-registries": ["goodrain.me","rainbond.me"]
 ```
 
-
-## 二、停止管理节点Rainbond容器服务
-
-```bash
-# 停止rainbond容器服务
-dc-compose stop
-# 清理停止的容器
-cclear
-```
-
-
-## 三、重启docker服务
+## 二、重启docker服务
 
 ```bash
+# 建议停docker服务前先停其他组件服务
+grclis stop
 systemctl restart docker
 # 如果管理节点和计算节点在同一个节点上需要重启kubelet服务。
+systemctl start node
 systemctl restart kubelet
 ```
 
-## 四、启动Rainbond容器服务
-
-```bash
-# 启动rainbond容器服务
-dc-compose up -d
-# 查看服务状态
-dc-compose ps
-```
-
 {{site.data.alerts.callout_danger}}
-当集群中包含多个管理节点时，每个管理节点的都需要执行上面的四步。
+当集群中包含多个管理节点时，每个管理节点的都需要执行上述步骤。
 {{site.data.alerts.end}}
 
 
