@@ -80,11 +80,11 @@ kubectl -n kube-system get secret | grep kube-proxy | awk '{print "secret/"$1}' 
  
  根据具体情况，自行生成相关文件，具体可以参考 [创建 kubeconfig 文件](https://jimmysong.io/kubernetes-handbook/practice/create-kubeconfig.html)一文。  
 
-### 2. 调整集群所有节点的Docker配置(必要) 
+### 2. 调整集群所有节点的Docker配置(可选) 
 
-   * 信任goodrain.me镜像仓库(必要)  Insecure Registries必须配置，否则会影响后续的一系列使用.确定配置是否生效`docker info`查看Insecure Registries是否包含goodrain.me
+   * 信任goodrain.me镜像仓库，推荐配置Insecure Registries，确定配置是否生效`docker info`查看Insecure Registries是否包含goodrain.me
 
-   * 配置日志驱动设置（可选）
+   * 配置日志驱动设置
 
      Rainbond将实时通过Docker Daemon 获取容器日志，需要Docker配置为`json-file`驱动。若你已采用其他驱动，Rainbond可能无法正常获取服务日志。
 
