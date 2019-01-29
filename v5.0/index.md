@@ -49,7 +49,7 @@ contribute: false
 <div class="row">
     <div class="col-md-4">
         <div class="roach">
-            <a target="_blank" href="operation-manual/deployment-architecture.html">
+            <a target="_blank" href="operation-manual/component-description.html">
                 <img src="{{ 'images/builder_craig.png' | relative_url }}" alt="开发文档"/>
                 <h3>运维手册</h3>
                 <p>教您维护生产环境就绪的Rainbond集群。</p>
