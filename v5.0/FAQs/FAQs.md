@@ -121,7 +121,7 @@ asciicast: true
 
 > 移除配置文件 /opt/rainbond/conf/k8s-worker.yaml, 停kubelet服务`systemctl stop kubelet`,更新/opt/rainbond/scripts/start-node.sh文件里noderule为manage,重启node`systemctl restart node`
 
-7.更新泛解析域名
+### 7.更新泛解析域名
 
 > 可以通过grctl domain命令进行操作
 

@@ -36,12 +36,12 @@ toc: true
 | 序号 | rainbond role | IP   | 存储 | 云帮组件 | 其他服务       |
 | ---- | ------------- | ---- | ---- | -------- | -------------- |
 | 1    | manage01      |      |      |          | k8s.etcd.      |
-| 2    | compute01     |      | GFS  | rbd-lb   | kubelet.docker |
-| 3    | compute02     |      | GFS  | rbd-lb   | kubelet.docker |
+| 2    | compute01     |      | GlusterFS  | rbd-lb   | kubelet.docker |
+| 3    | compute02     |      | GlusterFS  | rbd-lb   | kubelet.docker |
 
 - 高可用组件介绍
 
-  - GFS：是一个可扩展的[分布式文件系统](https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F)，用于大型的、分布式的、对大量数据进行访问的应用。它运行于廉价的普通硬件上，并提供容错功能。它可以给大量的用户提供总体性能较高的服务。通过在计算节点挂载GFS分布式存储，实现存储方面的高可用。
+  - GlusterFS：是一个可扩展的[分布式文件系统](https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F)，用于大型的、分布式的、对大量数据进行访问的应用。它运行于廉价的普通硬件上，并提供容错功能。它可以给大量的用户提供总体性能较高的服务。通过在计算节点挂载GlusterFS分布式存储，实现存储方面的高可用。
   - rbd-lb：是云帮自研发的组件之一，用于实现外部访问应用的负载均衡，通过将它运行在管理节点以外，可以实现管理节点宕机情况下，外部依然可以访问应用。
 
 ###2.4 设计架构图
@@ -63,11 +63,11 @@ toc: true
   - 详情参见：[扩容计算节点](https://www.rainbond.com/docs/v3.5/getting-started/install.html#part-2c4b8d54ecfe5f5f)
 
 
-###3.2部署GFS
+###3.2部署GlusterFS
 
-在计算节点部署双节点GFS集群：
+在计算节点部署双节点GlusterFS集群：
 
-- 安装GFS：
+- 安装GlusterFS：
 
   - 详情参见：[GlusterFS安装]( https://www.rainbond.com/docs/stable/operation-manual/storage/GlusterFS/install.html)
 
@@ -75,13 +75,13 @@ toc: true
 
 - 切换存储
 
-为管理节点安装GFS文件系统
+为管理节点安装GlusterFS文件系统
 
 ```bash
 yum install -y centos-release-gluster
 yum install -y glusterfs-fuse
 ```
-将管理节点的/grdata目录写入GFS
+将管理节点的/grdata目录写入GlusterFS
 
 ```bash
 mount -t glusterfs compute01:data /mnt
