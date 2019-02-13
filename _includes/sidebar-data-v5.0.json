@@ -8,20 +8,11 @@
     // 控制台手册
     {% include 5.0/user-manual.json %},
 
-    // 进阶场景
-    {% include 5.0/advanced-scenarios.json %},
-
     // 运维手册
     {% include 5.0/operation-manual.json %},
-    
-    // 最佳实践
-    {% include 5.0/best-practice.json %},
 
-    // 微服务架构
-    {% include 5.0/microservice.json %},
-    
-    // 更新历史
-    {% include sidebar-releases.json %},
+    // 进阶场景
+    {% include 5.0/advanced-scenarios.json %},
     
     // FAQs
     {% include 5.0/faqs.json %},

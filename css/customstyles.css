@@ -50,6 +50,14 @@ html {
     text-align: center;
     margin-top: 32px;
   }
+  .left-body {
+    width: 50%;
+    float: left;
+  }
+  .right-body {
+    width: 50%;
+    float: right;
+  }
   .roach {
     border: 1px solid #DADADA;
     margin-bottom: 20px;
@@ -1103,6 +1111,7 @@ a:not([href]) {
           #content #main-content .content-col.no-sidebar {
             padding-left: 30px; }
           #content #main-content .content-col.no-toc {
+            width: 100%;
             padding-right: 15px; } }
       #content #main-content .content-col--landing {
         padding-top: 30px; }
