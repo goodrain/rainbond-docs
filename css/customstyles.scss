@@ -86,7 +86,14 @@ h4 {
     font-size: 17px;
   }
 }
-
+.left-body {
+  width: 50%;
+  float: left;
+}
+.right-body {
+  width: 50%;
+  float: right;
+}
 pre { overflow: auto; }
 
 code {
