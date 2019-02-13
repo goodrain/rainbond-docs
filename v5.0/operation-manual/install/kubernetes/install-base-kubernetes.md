@@ -80,7 +80,7 @@ kubectl -n kube-system get secret | grep kube-proxy | awk '{print "secret/"$1}' 
  
  根据具体情况，自行生成相关文件，具体可以参考 [创建 kubeconfig 文件](https://jimmysong.io/kubernetes-handbook/practice/create-kubeconfig.html)一文。  
 
-### 2. 调整集群所有节点的Docker配置(可选) 
+### 2. 调整集群节点的Docker配置(可选) 
 
    * 信任goodrain.me镜像仓库，推荐配置Insecure Registries，确定配置是否生效`docker info`查看Insecure Registries是否包含goodrain.me
 
