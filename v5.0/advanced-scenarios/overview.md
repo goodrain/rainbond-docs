@@ -1,13 +1,13 @@
 ---
-title: Rainbond的最佳实践场景
-summary: Rainbond的最佳实践场景
+title: Rainbond实践场景导航
+summary: Rainbond的各类实践场景导航文档
 toc: false
 toc_not_nested: true
 asciicast: true
 ---
 
 <div class="left-body">
-<h3>应用使用制作方面</h3>
+<h3>应用使用、制作方面</h3>
 <ul>
   <li><a target="_blank" href="./create-middleware-cluster.html">Mysql主从集群应用制作</a></li>
   <li><a target="_blank" href="../best-practice/apps/pinpoint.html">Pinpoint应用使用-Java类应用性能分析实践</a></li>
