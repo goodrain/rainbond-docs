@@ -37,7 +37,7 @@ contribute: false
     </div>
     <div class="col-md-4">
         <div class="roach">
-            <a href="user-manual/create-an-app.html">
+            <a href="user-manual/user-registration-login/user-register.html">
                 <img src="{{ 'images/craig_crossfit.png' | relative_url }}" alt="rainbond 维护"/>
                 <h3>平台使用手册</h3>
                 <p>系统的呈现Rainbond平台的功能使用方式。</p>
@@ -58,7 +58,7 @@ contribute: false
     </div>
     <div class="col-md-4">
         <div class="roach">
-            <a href="best-practice/index.html">
+            <a href="advanced-scenarios/overview.html">
                 <img src="{{ 'images/scientist_catrina.png' | relative_url }}" alt="最佳实践"/>
                 <h3>进阶场景</h3>
                 <p>这里呈现从应用架构和开发、管理和运维、交付和传播各方面的进阶使用场景</p>
