@@ -14,6 +14,9 @@
     // 进阶场景
     {% include 5.0/advanced-scenarios.json %},
     
+     // 视频教程
+    {% include 5.0/video.json %},
+    
     // FAQs
     {% include 5.0/faqs.json %},
     
