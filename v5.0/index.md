@@ -39,8 +39,8 @@ contribute: false
         <div class="roach">
             <a href="user-manual/create-an-app.html">
                 <img src="{{ 'images/craig_crossfit.png' | relative_url }}" alt="rainbond 维护"/>
-                <h3>创建第一个应用</h3>
-                <p>通过源码、镜像或应用市场快速创建一个应用。</p>
+                <h3>平台使用手册</h3>
+                <p>系统的呈现Rainbond平台的功能使用方式。</p>
             </a>
         </div>
     </div>
@@ -60,8 +60,8 @@ contribute: false
         <div class="roach">
             <a href="best-practice/index.html">
                 <img src="{{ 'images/scientist_catrina.png' | relative_url }}" alt="最佳实践"/>
-                <h3>最佳实践</h3>
-                <p>这里我们只讲最干的云Rainbond使用经验</p>
+                <h3>进阶场景</h3>
+                <p>这里呈现从应用架构和开发、管理和运维、交付和传播各方面的进阶使用场景</p>
             </a>
         </div>
     </div>
