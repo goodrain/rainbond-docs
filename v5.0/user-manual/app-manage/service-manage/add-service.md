@@ -101,3 +101,20 @@ socket = /tmp/mysql.sock
 - 新增或挂载其他服务存储时，本服务的路径不能使用 Linux 系统保留目录，如：/dev、/usr、/bin、/sys、/proc 等
 
 {{site.data.alerts.end}}
+
+## 4. 存储挂载路径查看方式
+
+可以通过grctl命令来查看应用存储挂载路径查看方式 `grctl service get <应用别名> -t <租户id>`。
+
+示例如下: 源码构建python程序，挂载日志目录,应用控制台URL <b>http://172.20.0.101:7070/#/team/lsqbjv5e/region/rainbond/app/grbc2de8/overview</b>
+
+```bash
+grctl service get grbc2de8 -t lsqbjv5e
+# 存储部分
+PodVolumePath:	/grdata/tenant/b03170a64738460e894f7288fe54c3d6/service/1f1efa8fcaf32156989142e93ebc2de8/logs:/logs:/logs
+              	/grdata/build/tenant/b03170a64738460e894f7288fe54c3d6/slug/1f1efa8fcaf32156989142e93ebc2de8/20190213191750.tgz:/tmp/slug/slug.tgz:/tmp/slug/slug.tgz
+```
+
+PodVolumePath 结构说明：`<本地存储/分布式存储><存储路径>:<应用存储路径>:<插件存储路径(仅启用插件后显示)>`
+
+其中slug.tgz为源码构建生成物,源码构建应用必须挂载。
