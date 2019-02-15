@@ -59,11 +59,12 @@ html {
     float: right;
   }
   .video-list {
+    flex-wrap: wrap;
     padding-top: 15px;
+    display: flex;
   }
   .video-list-item {
-    width: 100%;
-    float: left;
+    width: 31%;
     margin-left: 18px;
     border-radius: 4px;
     margin-bottom: 12px;
@@ -92,7 +93,7 @@ html {
   .video-list-item-label {
     text-align: center;
   } 
- @media screen and (min-width: 768px) {
+  @media (min-width: 320px) and (max-width:768px) { 
   .left-body {
     width: 100%;
     float: left;
@@ -102,14 +103,15 @@ html {
     float: right;
   }
   .video-list {
+    display: flex;
     padding-top: 15px;
+    flex-wrap: wrap;
   }
   .video-list-item {
-    width: 50%;
-    float: left;
+    width: 88%;
     margin-left: 18px;
     border-radius: 4px;
-    margin-bottom: 12px;
+    margin-bottom: 42px;
     position: relative;
   }
   .video-list-item .videolist-icon {
@@ -136,7 +138,7 @@ html {
     text-align: center;
   } 
  }
- @media screen and (min-width: 992px) {
+ @media (min-width: 768px) and (max-width:1200px) {
   .left-body {
     width: 50%;
     float: left;
@@ -146,10 +148,12 @@ html {
     float: right;
   }
   .video-list {
+    display: flex;
+    flex-wrap: wrap;
     padding-top: 15px;
   }
   .video-list-item {
-    width: 33%;
+    width: 30%;
     float: left;
     margin-left: 18px;
     border-radius: 4px;
@@ -1725,6 +1729,7 @@ a.accordion-toggle {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 100%;
   margin: 20px -30px 10px; }
   .post-header > * {
     margin-left: 30px;
