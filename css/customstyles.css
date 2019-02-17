@@ -50,12 +50,17 @@ html {
     text-align: center;
     margin-top: 32px;
   }
+  .zsl-box{
+    display: flex;
+    flex-wrap:wrap
+  }
   .left-body {
-    width: 100%;
+    width: 50%;
     float: left;
+
   }
   .right-body {
-    width: 100%;
+    width: 50%;
     float: right;
   }
   .video-list {
@@ -1216,7 +1221,8 @@ a:not([href]) {
   -webkit-box-shadow: 5px 0 4px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 5px 0 4px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 5px 0 4px 0 rgba(0, 0, 0, 0.1);
-  overflow: auto; }
+  /* overflow: auto; */
+ }
   #content #main-content {
     margin: 0 15px; }
     @media screen and (min-width: 992px) {
