@@ -27,12 +27,13 @@ toc: false
     </div>
   </div>
 </div> 
-
-#### 反馈
-你对Rainbond教程视频有任何意见和建议，或者需要查看更新计划，请点击 [Rainbond 5.X 视频教程更新计划](http://t.goodrain.com/t/rainbond-5-x/698)
 <script>
     var modalVideo = new ModalVideo({ width: 1200, height: 650 });
     $('.video-show').click(function () {
+        console.log($(this).data('src'))
         modalVideo.show({ url: $(this).data('src') });
     })
 </script>
+
+#### 反馈
+你对Rainbond教程视频有任何意见和建议，或者需要查看更新计划，请点击 [Rainbond 5.X 视频教程更新计划](http://t.goodrain.com/t/rainbond-5-x/698)
