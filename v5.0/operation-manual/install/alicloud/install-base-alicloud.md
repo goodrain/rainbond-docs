@@ -108,7 +108,7 @@ mount -l | grep grdata
 ```bash
 wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 chmod +x ./grctl
-./grctl init --iip <内网ip> --eip <弹性ip/lb所在公网ip> --role master,worker
+./grctl init --iip <内网ip> --eip <弹性ip/lb所在公网ip> --role master,compute
 ```
 
 ### 2.4 添加节点
@@ -120,9 +120,9 @@ grctl node add --host <managexx> --iip <管理节点内网ip> -p <root密码> --
 grctl node add --host  <managexx>  --iip <管理节点内网ip> --key /root/.ssh/id_rsa.pub --role master
 
 # 添加计算节点
-grctl node add --host <computexx> --iip <计算节点内网ip> -p <root密码> --role worker
+grctl node add --host <computexx> --iip <计算节点内网ip> -p <root密码> --role compute
 ## 法2默认已经配置ssh信任登陆
-grctl node add --host <computexx> --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role worker
+grctl node add --host <computexx> --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role compute
 
 # 安装节点，节点uid可以通过grctl node list获取
 grctl node install <新增节点uid> 
