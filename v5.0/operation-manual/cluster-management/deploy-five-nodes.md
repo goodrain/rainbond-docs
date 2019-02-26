@@ -10,11 +10,11 @@ asciicast: true
 
 ## 一、准备存储
 
-`/grdata`目录是所有Rainbond节点都需要使用的共享目录，为了使Rainbond所有节点能够共享 `/grdata` 目录，需要提前准备共享存储。Rainbond支持 NFS、NAS、glusterfs等兼容nfs协议的共享存储形式，本文将使用glusterfs为例，搭建共享存储。
+`/grdata`目录是所有Rainbond节点都需要使用的共享目录，为了使Rainbond所有节点能够共享 `/grdata` 目录，需要提前准备共享存储。Rainbond支持 NFS、NAS、glusterfs等兼容nfs协议的共享存储形式，本文将使用GlusterFS为例，搭建共享存储。
 
-在计算节点部署双节点GFS集群：
+在计算节点部署双节点GlusterFS集群：
 
-- 安装GFS：
+- 安装GlusterFS：
 
   - 详情参见：[GlusterFS安装](../storage/GlusterFS/install.html)
 
@@ -22,7 +22,7 @@ asciicast: true
 
 - 切换存储
 
-为管理节点安装GFS文件系统
+为管理节点安装GlusterFS文件系统
 
 ```bash
 yum install -y centos-release-gluster

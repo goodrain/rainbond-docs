@@ -1,48 +1,16 @@
 {
     "title": "进阶场景",
     "is_top_level": true,
-    "items": [
-        {
-            "title": "创建一个微服务架构应用实践",
-            "urls": [
-                "/${VERSION}/advanced-scenarios/create-mirco-service.html"
-            ]
-        },
-        {
-            "title": "创建一个中间件集群应用实践",
-            "urls": [
-                "/${VERSION}/advanced-scenarios/create-middleware-cluster.html"
-            ]
-        },
-        {
-            "title": "基于源码配置自动CI/CD实践",
-            "urls": [
-                "/${VERSION}/advanced-scenarios/rainbond-devops.html"
-            ]
-        },
-        {
-            "title": "应用A/B测试实践",
-            "urls": [
-                "/${VERSION}/advanced-scenarios/ab-released-app.html"
-            ]
-        },
-        {
-            "title": "应用灰度发布实践",
-            "urls": [
-                "/${VERSION}/advanced-scenarios/gray-released-app.html"
-            ]
-        },
-        {
-            "title": "离线环境下的Java源码构建",
-            "urls": [
-                "/${VERSION}/advanced-scenarios/offline-java-build.html"
-            ]
-        },
-        {
-            "title": "通过应用市场做应用交付与升级",
-            "urls": [
-                "/${VERSION}/advanced-scenarios/application-delivery.html"
-            ]
-        }
+    "urls": [
+        "/${VERSION}/advanced-scenarios/overview.html",
+        "/${VERSION}/advanced-scenarios/create-mirco-service.html",
+        "/${VERSION}/advanced-scenarios/create-middleware-cluster.html",
+        "/${VERSION}/advanced-scenarios/rainbond-devops.html",
+        "/${VERSION}/advanced-scenarios/ab-released-app.html",
+        "/${VERSION}/advanced-scenarios/gray-released-app.html",
+        "/${VERSION}/advanced-scenarios/config-file.html",
+        "/${VERSION}/advanced-scenarios/offline-java-build.html",
+        "/${VERSION}/advanced-scenarios/application-delivery.html",
+        "/${VERSION}/advanced-scenarios/upgrade-stateless-app.html"
     ]
 }

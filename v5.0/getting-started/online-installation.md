@@ -14,7 +14,7 @@ asciicast: true
 
 | 系统     | 版本         | 说明                     |
 | :------- | :----------- | :----------------------- |
-| CentOS   | 7.3/7.4      | 64位，推荐安装(7.4.1708) |
+| CentOS   | 7.3/7.4      | 64位，推荐安装([7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)) |
 | Debian   | 9.6          | 64位                     |
 | Ubuntu   | 16.04        | 64位                     |
 | 中标麒麟 | 服务器版V7.4 | 64位                     |

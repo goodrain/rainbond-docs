@@ -8,20 +8,16 @@ asciicast: true
 
 ## 准备工作
 
-1. 检查操作系统，目前离线版本仅支持CentOS 7.4.1708版本
+1. 检查操作系统，目前离线版本仅支持[CentOS 7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)版本
 2. 确保机器重启，服务器IP地址和nameserver不发生改变，推荐配置静态ip
 3. 多节点部署时，需要确保机器间时间要同步
 4. 多节点时，机器间网络访问没有限制
-
-<!--
-5. 机器资源最低要求2核4G，否则程序会退出
--->
 
 ## 下载离线包
 
 ```
 # 有网环境
-wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.5.0.1.190114.tgz
+wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.5.0.3.190128.tgz
 ```
 
 ## 同步到数据中心节点
@@ -30,7 +26,7 @@ wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.5.0.1.
 
 ```
 # 示例
-scp offline.5.0.190102.tgz <数据中心节点ip>:/root/
+scp offline.5.0.3.190128.tgz <数据中心节点ip>:/root/
 ```
 
 ## 登陆到目标机器操作
@@ -39,7 +35,7 @@ scp offline.5.0.190102.tgz <数据中心节点ip>:/root/
 # 需要移除默认源
 mv /etc/yum.repos.d/*.repo /tmp/
 # 解压离线包
-tar xf offline.5.0.190102.tgz
+tar xf offline.5.0.3.190128.tgz
 # 进入解压目录下
 cd offline
 # 执行准备工作

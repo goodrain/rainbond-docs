@@ -134,7 +134,7 @@ touch /mnt/{1..10}.txt
 ls /mnt/ | wc -l
 ```
 
-## 二、 对接存储GFS
+## 二、 对接存储GlusterFS
 
 > 此步骤应该在执行安装前操作，避免安装完成后切换存储不正确导致集群不可用，下述步骤集群所属节点都需要执行。
 
@@ -149,13 +149,13 @@ ls /mnt/ | wc -l
 
 > 验证方式： 任意集群中节点都可以正常ping通gfs01和gfs02
 
-### 2.2 安装gfs客户端程序
+### 2.2 安装GlusterFS客户端程序
 
 ```bash
 yum install -y glusterfs-fuse
 ```
 
-### 2.3 挂载gfs数据卷
+### 2.3 挂载GlusterFS数据卷
 
 ```
 # 创建挂载点
@@ -171,11 +171,11 @@ rm -rf /grdata/*.txt
 
 ### 2.4 其他事项说明
 
-如果是已经安装好集群想切换到gfs上,请参考如下流程:
+如果是已经安装好集群想切换到GlusterFS上,请参考如下流程:
 
 ```
 1. 先切换计算节点，后切换管理节点
-2. 计算节点将默认的nfs存储摘掉，编辑fstab文件，切换到gfs,重新挂载
+2. 计算节点将默认的nfs存储摘掉，编辑fstab文件，切换到GlusterFS,重新挂载
 3. 管理节点需要先停服务
 systemctl stop node
 systemctl stop rbd-repo
@@ -201,3 +201,20 @@ cp -a /backup/. /grdata/
 systemctl stop nfs-server
 systemctl disable nfs-server
 ```
+
+## 三、 通过ansible安装GlusterFS
+
+
+```
+# 下载源码
+git clone https://github.com/goodrain/rainbond-glusterfs.git
+cd rainbond-glusterfs
+# 编辑 inventory/hosts 文件
+all下为所有节点信息
+gfscluster下为gfscluster server端(存储节点)
+rainbondcluster下为gfscluster client端(即管理节点，计算节点)
+# 执行安装
+./setup.sh
+```
+
+> 需要注意disk_volume_device_1值为实际GlusterFS存储使用的磁盘(fdisk -l)

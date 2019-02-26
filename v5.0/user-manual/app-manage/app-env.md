@@ -1,7 +1,7 @@
 ---
 title: 高级环境变量配置
 summary: 高级环境变量配置
-toc: true
+toc: false
 ---
 
 
@@ -26,9 +26,7 @@ Rainbond平台启动服务时默认注入以下环境变量信息以供应用使
 
 ## 部署（构建）应用时使用的变量
 
-目前部署（构建）应用时的环境变量只支持通过程序源代码创建的应用，不支持Dockerfile、镜像创建的应用。
-
-变量名以`BUILD_`开头的环境变量在重新部署应用时生效，目前有以下变量可用：
+变量名以`BUILD_`开头的环境变量在源码构建类应用构建阶段生效，比如下述变量：
 
 | 变量名                   | 变量值                                                       | 说明                        |
 | ------------------------ | ------------------------------------------------------------ | --------------------------- |
@@ -36,7 +34,10 @@ Rainbond平台启动服务时默认注入以下环境变量信息以供应用使
 | NO_CACHE                 | true                                                         | 构建时不使用缓存包          |
 | BUILD_MAVEN_CUSTOM_OPTS  | -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true | 用于 maven 构建，默认值如前 |
 | BUILD_MAVEN_CUSTOM_GOALS | clean install                                                | 用于 maven 构建，默认值如前 |
-| NO_CACHE                 | true                                                         | 构建时不使用缓存包          |
+
+变量名以`BUILD_ARG_`开头的环境变量定义Dockerfile构建的ARG变量：
+比如  BUILD_ARG_VERSION=v1 变量在构建Dockerfile时存在ARG变量 VERSION=v1
+
 
 ## 应用运行高级变量
 以`ES_`开头的环境变量将作为扩展功能变量，例如下面用例：
@@ -46,5 +47,6 @@ Rainbond平台启动服务时默认注入以下环境变量信息以供应用使
 | ES_SELECTNODE  | 选择宿主机的ID | 用于定点调度，指定调度到某台宿主机上，节点的ID通过grctl node list 可得 |
 | ES_HOSTNETWORK | true           | 是否使用主机端口映射                                         |
 | ES_HOSTANME    | 主机名         | 设置实例的主机名，适用于单实例服务                           |
-|                |                |                                                              |
+| ES_CPULIMIT    | 1核=1000       |  自定义服务的CPU限制值  5.0.3及以后版本支持                   |
+| ES_CPUREQUEST    | 1核=1000       |  自定义服务的CPU请求值     5.0.3及以后版本支持           |
 

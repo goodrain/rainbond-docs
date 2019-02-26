@@ -28,7 +28,7 @@ asciicast: true
 
 |服务器角色|CPU|内存|            
 |------|-----|-----|
-|管理节点| 8核|32G|
+|管理节点| 4核|16G|
 |计算节点| 16核|64G|
 
 > 单台服务器磁盘配置
@@ -86,12 +86,14 @@ NAS默认选择 `SSD性能型`即可,推荐，满足Rainbond使用。也可以�
 # 登陆ECS实例
 # 安装NFS客户端
 ## CentOS系统
-sudo yum install nfs-utils
+sudo yum install -y nfs-utils
 ## Debian/Ubuntu系统
-sudo apt-get install nfs-common
+sudo apt-get install -y nfs-common
 ## 创建NAS挂载点
 mkdir /grdata
 ## 更新/etc/fstab示例,挂载点域名需要替换成在创建文件系统时自动生成的挂载点域名
+vi /etc/fstab
+## 添加以下配置信息，其中NAS挂载点地址在阿里云控制台获取
 rainbond-test.cn-shanghai.nas.aliyuncs.com:/   /grdata    nfs vers=3,nolock,noatime   0 0
 ## 挂载
 mount -a
@@ -106,7 +108,7 @@ mount -l | grep grdata
 ```bash
 wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 chmod +x ./grctl
-./grctl init --iip <内网ip> --eip <弹性ip/lb所在公网ip>
+./grctl init --iip <内网ip> --eip <弹性ip/lb所在公网ip> --role master,compute
 ```
 
 ### 2.4 添加节点
@@ -118,9 +120,9 @@ grctl node add --host <managexx> --iip <管理节点内网ip> -p <root密码> --
 grctl node add --host  <managexx>  --iip <管理节点内网ip> --key /root/.ssh/id_rsa.pub --role master
 
 # 添加计算节点
-grctl node add --host <computexx> --iip <计算节点内网ip> -p <root密码> --role worker
+grctl node add --host <computexx> --iip <计算节点内网ip> -p <root密码> --role compute
 ## 法2默认已经配置ssh信任登陆
-grctl node add --host <computexx> --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role worker
+grctl node add --host <computexx> --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role compute
 
 # 安装节点，节点uid可以通过grctl node list获取
 grctl node install <新增节点uid> 
