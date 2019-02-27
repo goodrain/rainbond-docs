@@ -21,7 +21,7 @@ echo '<h1>hello world!</h1>' > index.html
 
 Nginx默认使用稳定版本v1.14.2
 
-需要在源码根目录定义nginx配置文件：`web.conf`,默认配置文件为
+如果需要自定义nginx配置文件，需要在源码根目录定义nginx配置文件：`web.conf`,否则使用默认配置文件为
 
 ```
 server {
@@ -34,6 +34,7 @@ server {
 }
 ```
 
+<!--
 ### 构建环境变量支持
 
 ```bash
@@ -41,6 +42,7 @@ BUILD_DEBUG_URL: 显示runtime下载url
 BUILD_USE_NGINX: 使用Nginx
 BUILD_USE_APACHE: 使用Apache
 ```
+-->
 
 ## 示例代码
 

@@ -71,6 +71,8 @@ docker run -d --name ghost -p 3001:2368 -v /data:/var/lib/ghost/content ghost:1-
 - <a href="language-support/golang.html" target="_blank">Golang源码创建应用</a>
 - <a href="language-support/html.html" target="_blank">Html静态源码创建应用</a>
 - <a href="language-support/dockerfile.html" target="_blank">Dockerfile源码创建应用</a>
+- <a href="language-support/nodejs2html.html" target="_blank">Node.js前端项目创建应用</a>
+
 
 ## 三、通过云市创建应用
 除了上文介绍的两大类创建应用的方法外，rainbond还提供了应用市场的应用一键部署，应用市场是好雨提供的一项公有云服务，提供了常用的开发应用及工具。下面介绍通过应用市场安装 Wordpress 应用的示例：

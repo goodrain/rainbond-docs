@@ -94,6 +94,10 @@
             {
               "title": "NetCore",
               "urls": ["/${VERSION}/user-manual/app-creation/language-support/netcore.html"]
+            },
+            {
+              "title": "Nodejs前端项目",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/nodejs2html.html"]
             }
           ]
         }
