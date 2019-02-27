@@ -1,0 +1,16 @@
+{
+    "title": "进阶场景",
+    "is_top_level": true,
+    "urls": [
+        "/${VERSION}/advanced-scenarios/overview.html",
+        "/${VERSION}/advanced-scenarios/create-mirco-service.html",
+        "/${VERSION}/advanced-scenarios/create-middleware-cluster.html",
+        "/${VERSION}/advanced-scenarios/rainbond-devops.html",
+        "/${VERSION}/advanced-scenarios/ab-released-app.html",
+        "/${VERSION}/advanced-scenarios/gray-released-app.html",
+        "/${VERSION}/advanced-scenarios/config-file.html",
+        "/${VERSION}/advanced-scenarios/offline-java-build.html",
+        "/${VERSION}/advanced-scenarios/application-delivery.html",
+        "/${VERSION}/advanced-scenarios/upgrade-stateless-app.html"
+    ]
+}

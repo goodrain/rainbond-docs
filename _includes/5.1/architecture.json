@@ -1,0 +1,24 @@
+{
+    "title": "架构",
+    "is_top_level": true,
+    "items": [
+        {
+            "title": "设计思想",
+            "urls": [
+                "/${VERSION}/architecture/design-concept.html"
+            ]
+        },
+                {
+            "title": "业务流程",
+            "urls": [
+                "/${VERSION}/architecture/flow.html"
+            ]
+        },
+        {
+            "title": "组件架构",
+            "urls": [
+                "/${VERSION}/architecture/architecture.html"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,164 @@
+{
+    "title": "基础操作",
+    "is_top_level": true,
+    "items": [
+        {
+            "title": "创建应用",
+            "items": [{
+                "title": "从Docker镜像创建",
+                "urls": [
+                    "/${VERSION}/basic-operation/create/docker-demo.html"
+                ]
+            },
+            {
+                "title": "从源代码创建",
+                "urls": [
+                    "/${VERSION}/basic-operation/create/source-demo.html"
+                ]
+            },
+            {
+                "title": "从应用市场创建",
+                "urls": [
+                    "/${VERSION}/basic-operation/create/appmarket.html"
+                ]
+            },
+            {
+                "title": "通过Java源码创建",
+                "urls": [
+                    "/${VERSION}/basic-operation/create/java.html"
+                ]
+            },
+            {
+                "title": "通过PHP源码创建",
+                "urls": [
+                    "/${VERSION}/basic-operation/create/php.html"
+                ]
+            },
+            {
+                "title": "通过Python源码创建",
+                "urls": [
+                    "/${VERSION}/basic-operation/create/python.html"
+                ]
+            },
+            {
+                "title": "通过Node.JS源码创建",
+                "urls": [
+                    "/${VERSION}/basic-operation/create/nodejs.html"
+                ]
+            },
+            {
+                "title": "通过Golang源码创建",
+                "urls": [
+                    "/${VERSION}/basic-operation/create/golang.html"
+                ]
+            },
+            {
+                "title": "通过Dockerfile源码创建",
+                "urls": [
+                    "/${VERSION}/basic-operation/create/dockerfile.html"
+                ]
+            }
+        ]
+        },
+        {
+            "title": "应用管理",
+            "items": [{
+                "title": "持续构建与部署",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/ci-cd.html"
+                ]
+            },
+            {
+                "title": "启动与停止",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/start-and-stop.html"
+                ]
+            },
+            {
+                "title": "日志查看与处理",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/logs.html"
+                ]
+            },
+            {
+                "title": "伸缩应用集群",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/scaling.html"
+                ]
+            },
+            {
+                "title": "管理依赖",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/dependent.html"
+                ]
+            },
+            {
+                "title": "添加持久化存储",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/persistence.html"
+                ]
+            },
+            {
+                "title": "自定义域名",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/domain.html"
+                ]
+            },
+            {
+                "title": "配置端口",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/port.html"
+                ]
+            },
+            {
+                "title": "性能分析",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/performance-monitoring.html"
+                ]
+            },
+            {
+                "title": "配置健康检查",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/status-checkout.html"
+                ]
+            },
+            {
+                "title": "应用权限管理",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/privileges.html"
+                ]
+            },
+            {
+                "title": "配置连接MySQL",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/link-mysql.html"
+                ]
+            },
+            {
+                "title": "配置连接Redis",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/link-redis.html"
+                ]
+            },
+            {
+                "title": "配置连接CockroachDB",
+                "urls": [
+                    "/${VERSION}/basic-operation/manage/link-cockroachdb.html"
+                ]
+            }
+        ]
+        },
+        {
+            "title": "分享应用",
+            "urls": [
+                "/${VERSION}/basic-operation/share-an-application.html"
+            ]
+        },
+        {
+            "title": "团队管理",
+            "urls": [
+                "/${VERSION}/basic-operation/manage-your-team.html"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,312 @@
+{
+  "title": "使用手册",
+  "is_top_level": true,
+  "items": [
+    {
+      "title": "用户注册登陆",
+      "items": [
+        {
+          "title": "用户、管理员注册",
+          "urls": [
+            "/${VERSION}/user-manual/user-registration-login/user-register.html"
+          ]
+        },
+        {
+          "title": "用户管理",
+          "urls": [
+            "/${VERSION}/user-manual/user-registration-login/user-manage.html"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "创建团队",
+      "urls": [
+        "/${VERSION}/user-manual/create-team/create-team.html"
+      ]
+    },
+    {
+      "title": "创建应用",
+      "items": [
+        {
+          "title": "应用的定义",
+          "urls": [
+            "/${VERSION}/user-manual/app-creation/app-definition.html"
+          ]
+        },
+        {
+          "title": "创建方式",
+          "urls": [
+            "/${VERSION}/user-manual/app-creation/way-of-creation.html"
+          ]
+        },
+        {
+          "title": "创建流程",
+          "urls": [
+            "/${VERSION}/user-manual/app-creation/creation-process.html"
+          ]
+        },
+        {
+          "title": "语言支持",
+          "items": [
+            {
+              "title": "环境定义",
+              "items":[
+                {
+                  "title": "Procfile",
+                  "urls": ["/${VERSION}/user-manual/app-creation/language-support/etc/procfile.html"]
+                },
+                {
+                  "title": "Rainbondfile",
+                  "urls": ["/${VERSION}/user-manual/app-creation/language-support/etc/rainbondfile.html"]
+                }
+
+              ]
+            },
+            {
+              "title": "Dockerfile",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/dockerfile.html"]
+            },
+            {
+              "title": "Java",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/java.html"]
+            },
+            {
+              "title": "PHP",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/php.html"]
+            },
+            {
+              "title": "Python",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/python.html"]
+            },
+            {
+              "title": "Node.JS",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/nodejs.html"]
+            },
+            {
+              "title": "Golang",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/golang.html"]
+            },
+            {
+              "title": "Html",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/html.html"]
+            },
+            {
+              "title": "NetCore",
+              "urls": ["/${VERSION}/user-manual/app-creation/language-support/netcore.html"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "应用管理",
+      "items": [
+        {
+          "title": "应用管理",
+          "items": [
+            {
+              "title": "基本操作",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/app/app-operation.html"
+              ]
+            },
+            {
+              "title": "应用的发布与安装",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/app/share-app.html"
+              ]
+            },
+            {
+              "title": "应用的备份与迁移",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/app/app-backup.html"
+              ]
+            },
+            {
+              "title": "拓扑图",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/app/app-topology.html"
+              ]
+            },
+            {
+              "title": "创建服务组件说明",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/app/create-service.html"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "服务组件管理",
+          "items": [
+            {
+              "title": "服务基本操作",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/basic-operation.html"
+              ]
+            },
+            {
+              "title": "服务回滚",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-rollback.html"
+              ]
+            },
+            {
+              "title": "服务伸缩",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-scaling.html"
+              ]
+            },
+            {
+              "title": "服务持久化存储",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/add-service.html"
+              ]
+            },
+            {
+              "title": "服务端口与域名管理",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-port-domain.html"
+              ]
+            },
+            {
+              "title": "服务依赖",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-rely.html"
+              ]
+            },
+            {
+              "title": "进入容器",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-container.html"
+              ]
+            },
+            {
+              "title": "服务日志",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-log.html"
+              ]
+            },
+            {
+              "title": "构建源",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/service-source.html"
+              ]
+            },
+            {
+              "title": "自动构建设置",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/auto-deploy.html"
+              ]
+            },
+            {
+              "title": "其他设置",
+              "urls": [
+                "/${VERSION}/user-manual/app-manage/service-manage/other-set.html"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "应用网关",
+      "items": [
+        {
+          "title": "应用网关",
+          "urls": [
+            "/${VERSION}/user-manual/gateway/gateway.html"
+          ]
+        },
+        {
+          "title": "访问控制",
+          "urls": [
+            "/${VERSION}/user-manual/gateway/traffic-control.html"
+          ]
+        },
+        {
+          "title": "证书管理",
+          "urls": [
+            "/${VERSION}/user-manual/gateway/cert-management.html"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "插件管理",
+      "items": [
+        {
+          "title": "插件分享与发布",
+          "urls": [
+            "/${VERSION}/user-manual/plugin-manage/plugin-manage.html"
+          ]
+        },
+        {
+          "title": "插件设计与开发",
+          "urls": [
+            "/${VERSION}/user-manual/plugin-manage/plugin-design-develop.html"
+          ]
+        },
+        {
+          "title": "MySQL数据库备份与恢复插件",
+          "urls": [
+            "/${VERSION}/user-manual/plugin-manage/create-mysql-plugin.html"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "团队管理",
+      "items": [
+        {
+          "title": "用户管理",
+          "urls": [
+            "/${VERSION}/user-manual/manage-team/manage-user.html"
+          ]
+        },
+        {
+          "title": "权限管理",
+          "urls": [
+            "/${VERSION}/user-manual/manage-team/manage-permision.html"
+          ]
+        },
+        {
+          "title": "数据中心管理",
+          "urls": [
+            "/${VERSION}/user-manual/manage-team/manage-datacenter.html"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "应用市场",
+      "items": [
+        {
+          "title": "应用市场定义",
+          "urls": [
+            "/${VERSION}/user-manual/app-store/app-market-define.html"
+          ]
+        },
+        {
+          "title": "应用市场同步",
+          "urls": [
+            "/${VERSION}/user-manual/app-store/app-market-synchronous.html"
+          ]
+        },
+        {
+          "title": "应用市场的分享与创造",
+          "urls": [
+            "/${VERSION}/user-manual/app-store/share-app-market.html"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "企业中心",
+      "urls": [
+        "/${VERSION}/user-manual/business-center/business-center.html"
+      ]
+    }
+  ]
+}

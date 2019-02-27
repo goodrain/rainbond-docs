@@ -1,0 +1,40 @@
+{
+    "title": "插件管理",
+    "is_top_level": true,
+    "items": [
+        {
+            "title": "插件设计与开发",
+            "urls": [
+                "/${VERSION}/plugins/plugin-design-develop.html"
+            ]
+        },
+        {
+            "title": "插件分享与发布",
+            "urls": [
+                "/${VERSION}/plugins/share-and-publish.html"
+            ]
+        },
+        {
+            "title": "插件列表",
+            "items": [{
+                "title": "性能分析插件",
+                "urls": [
+                    "/${VERSION}/plugins/lists/performance-analysis.html"
+                ]
+            },
+            {
+                "title": "服务网格治理插件",
+                "urls": [
+                    "/${VERSION}/plugins/lists/service-mesh.html"
+                ]
+            },
+            {
+                "title": "MySQL数据库备份插件",
+                "urls": [
+                    "/${VERSION}/plugins/lists/mysql-backup.html"
+                ]
+            }
+        ]
+        }
+    ]
+}

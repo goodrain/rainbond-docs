@@ -1,0 +1,43 @@
+{
+    "title": "最佳实践",
+    "is_top_level": true,
+    "items": [{
+            "title": "CI/CD",
+            "items": [{
+                "title": "对接Git Server",
+                "urls": [
+                    "/${VERSION}/best-practice/ci-cd/connection-git-server.html"
+                ]},
+                {
+                "title": "Windows配置SSH连接Git",
+                "urls": [
+                    "/${VERSION}/best-practice/ci-cd/windows-ssh-git.html"
+                ]},
+                {
+                    "title": "对接Maven仓库",
+                    "urls": [
+                        "/${VERSION}/best-practice/ci-cd/connection-maven-repository.html"
+                    ]
+                },
+                {
+                    "title": "对接Docker镜像仓库",
+                    "urls": [
+                        "/${VERSION}/best-practice/ci-cd/connection-docker-registry.html"
+                    ]
+                },
+                {
+                    "title": "对接Jenkins",
+                    "urls": [
+                        "/${VERSION}/best-practice/ci-cd/connection-jenkins.html"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "云市应用",
+            "urls": [
+                "/${VERSION}/best-practice/apps/lists.html"
+            ]
+        }
+    ]
+}
