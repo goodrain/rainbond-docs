@@ -50,7 +50,8 @@ JAVA 作为一门十分流行的计算机编程语言，自1995年面世以来�
 
 Rainbond在执行源码构建的时候，源码需要遵循一定的规范。就本文使用的JAVA示例代码而言，需要遵循[JAVA代码规范](https://www.rainbond.com/docs/v5.0/user-manual/language-support/java.html)。细心的人会发现，Rainbond所需要遵循的规范与传统代码形式基本没有冲突，大多数的源码仅需要做出很小的改动，甚至不需要改动即可被Rainbond接纳。
 
-> Rainbond还支持这些语言：[Dockerfile](/docs/stable/user-manual/language-support/dockerfile.html)、[PHP](/docs/stable/user-manual/language-support/php.html)、[Python](/docs/stable/user-manual/language-support/python.html)、[Node.Js](/docs/stable/user-manual/language-support/nodejs.html)、[Ruby](/docs/stable/user-manual/language-support/ruby.html)、[Golang](/docs/stable/user-manual/language-support/golang.html)、[Html](/docs/stable/user-manual/language-support/html.html)、[.NetCore](/docs/stable/user-manual/language-support/netcore.html) 
+> Rainbond还支持这些语言：[Dockerfile](/docs/stable/user-manual/language-support/dockerfile.html)、[PHP](/docs/stable/user-manual/language-support/php.html)、[Python](/docs/stable/user-manual/language-support/python.html)、[Node.Js](/docs/stable/user-manual/language-support/nodejs.html)、[Ruby](/docs/stable/user-manual/language-support/ruby.html)、[Golang](/docs/stable/user-manual/language-support/golang.html)、[Html](/docs/stable/user-manual/language-support/html.html)、[.NetCore](/docs/stable/user-manual/language-support/netcore.html)、[Nodejs前端项目]
+(/docs/v5.1/user-manual/app-creation/language-support/nodejs2html.html)
 
 - **构建spring boot**
 

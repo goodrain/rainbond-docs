@@ -1,0 +1,32 @@
+{
+    "title": "入门",
+    "is_top_level": true,
+    "items": [
+        {
+            "title": "Rainbond简介",
+            "urls": [
+                "/${VERSION}/getting-started/rainbond-overview.html"
+            ]
+        },
+        {
+            "title": "安装",
+            "urls": [
+                "/${VERSION}/getting-started/installation-guide.html",
+                "/${VERSION}/getting-started/online-installation.html"
+            ]
+        },
+        {
+            "title": "功能",
+            "urls": [
+                "/${VERSION}/architecture/edition.html"
+            ]
+        },
+        {
+            "title": "Roadmap",
+            "urls": [
+                "/${VERSION}/architecture/roadmap.html",
+                "/${VERSION}/architecture/release-cycle.html"
+            ]
+        }
+    ]
+}

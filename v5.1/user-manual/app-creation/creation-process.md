@@ -38,6 +38,8 @@ Step 4: 构建完成后, 点击 **访问**, 验证应用是否创建成功.
 - <a href="language-support/netcore.html" target="_blank">.Net源码创建应用</a>
 - <a href="language-support/html.html" target="_blank">Html静态源码创建应用</a>
 - <a href="language-support/dockerfile.html" target="_blank">Dockerfile源码创建应用</a>
+- <a href="language-support/nodejs2html.html" target="_blank">Node.js前端项目创建应用</a>
+
 
 ### 1.3 Git 和 SVN 的使用
 在创建应用时，根据代码仓库的类型选择 Git 或 SVN, 并正确填写该应用的代码仓库地址以及要使用的代码`分支`或 `tag`. Git的默认分支是 `master`, SVN 的默认 tag 是 `trunk`.

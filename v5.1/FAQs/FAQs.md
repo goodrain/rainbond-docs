@@ -129,7 +129,10 @@ asciicast: true
 
 ### 1.Rainbond支持哪些开发语言？
 
-> 支持[Java](/docs/v5.0/user-manual/app-creation/language-support/java.html) [PHP](/docs/v5.0/user-manual/app-creation/language-support/php.html) [Python](/docs/v5.0/user-manual/app-creation/language-support/python.html) [NodeJS](/docs/v5.0/user-manual/app-creation/language-support/nodejs.html) [Golang](/docs/v5.0/user-manual/app-creation/language-support/golang.html) [静态HTML](/docs/v5.0/user-manual/app-creation/language-support/html.html) [.NetCore](/docs/v5.0/user-manual/app-creation/language-support/netcore.html) [Dockerfile](/docs/v5.0/user-manual/app-creation/language-support/dockerfile.html) 等开发语言。
+> 支持[Java](/docs/v5.1/user-manual/app-creation/language-support/java.html) [PHP](/docs/v5.1/user-manual/app-creation/language-support/php.html) [Python](/docs/v5.1/user-manual/app-creation/language-support/python.html) [NodeJS](/docs/v5.1/user-manual/app-creation/language-support/nodejs.html) [Nodejs前端项目]
+(/docs/v5.1/user-manual/app-creation/language-support/nodejs2html.html) [Golang]
+(/docs/v5.1/user-manual/app-creation/language-support/golang.html) [静态HTML](/docs/v5.1/user-manual/app-creation/language-support/html.html) [.NetCore]
+(/docs/v5.1/user-manual/app-creation/language-support/netcore.html) [Dockerfile](/docs/v5.1/user-manual/app-creation/language-support/dockerfile.html) 等开发语言。
 
 ### 2.是否支持.net 语言、是否支持windows应用、是否支持windows服务器部署？
 

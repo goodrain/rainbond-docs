@@ -18,6 +18,7 @@ toc: true
 - [Golang源码检测标准](language-support/golang.html#part-db8881a8c8748f64)
 - [Node.JS源码检查标准](language-support/nodejs.html#part-db8881a8c8748f64)
 - [HTML静态源码检查标准](language-support/html.html)
+- [Node.js前端项目检测标准](language-support/nodejs2html.html)
 
 {{site.data.alerts.callout_danger}}
 
