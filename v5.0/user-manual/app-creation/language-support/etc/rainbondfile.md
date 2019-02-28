@@ -1,28 +1,31 @@
 ---
-title: Rainbondfile源码定义环境配置文件
-summary: Rainbondfile源码定义环境配置文件
+title: rainbondfile源码定义环境配置文件
+summary: rainbondfile源码定义环境配置文件
 toc: true
 ---
 
-## RainbondFile介绍
-Rainbondfile 是Rainbond基于代码指定服务运行环境的策略。其本身是一个普通的yaml格式的文本文件，需要将其放到代码的跟目录中，其适用于所有基于源码构建的服务类型。目前Rainbondfile支持定义`环境变量` `端口` `持久化存储` `启动命令`四个项目。Rainbond在创建服务的过程中将识别其中定义的内容自动设置到服务属性中，在Rainbond控制台可以查阅。
+## rainbondfile介绍
+rainbondfile 是Rainbond基于代码指定服务运行环境的策略。其本身是一个普通的yaml格式的文本文件，需要将其放到代码的跟目录中，其适用于所有基于源码构建的服务类型。目前rainbondfile支持定义`环境变量` `端口` `持久化存储` `启动命令`四个项目。Rainbond在创建服务的过程中将识别其中定义的内容自动设置到服务属性中，在Rainbond控制台可以查阅。
 完整用例如下：
 
-```
-language: java-jar
+```bash
+language: Java-maven
 buildpath: target/
 ports:
- -port: 8080
-  protocol: http
+ - port: 8080
+   protocol: http
+  #如需开启多个端口，则继续添加端口并指定协议
+ - port: 5000
+   protocol: tcp
 envs:
- -ENV_KEY1: ENV_VALUE1
- -ENV_KEY2: ENV_VALUE2
+  ENV_KEY1: ENV_VALUE1
+  ENV_KEY2: ENV_VALUE2
 # 适用于Dockerfile、NetCore源码类型
 cmd: java -jar xxxx.jar
 ```
 
-## RainbondFile作用
-源码定义环境是Rainbond推荐的服务管理策略。通过RainbondFile的定义可以便捷的批量添加环境变量等服务属性，后续版本将逐步增加可配置的属性。
+## rainbondfile作用
+源码定义环境是Rainbond推荐的服务管理策略。通过rainbondfile的定义可以便捷的批量添加环境变量等服务属性，后续版本将逐步增加可配置的属性。
 
 ## 支持的配置项目说明
 

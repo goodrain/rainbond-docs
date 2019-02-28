@@ -89,7 +89,12 @@ Rainbond为了让您更方便的部署项目，特推出识可别 **War包** 、
 
 WAR文件是JAR文件的一种，其中包含JSP、Java Servlet、Java类、XML文件、标签库、静态网页（HTML和相关文件），以及构成Web应用程序的其他资源，它的扩展名为`.war`。云帮平台支持WAR文件运行。
 
-在代码根目录上传好War包后，通过源码构建即可。
+在代码根目录上传好War包后，通过源码构建即可。需要注意的是，War包类型优先级低于Maven类型，因此如果主目录具有pom.xml文件将优先识别为Java-Maven项目。
+Rainbond运行War包的方式如下述Profile定义：
+
+```
+web: java -jar /opt/webapp-runner.jar --port $PORT *.war
+```
 
 ### 3.2 部署jar包
 
