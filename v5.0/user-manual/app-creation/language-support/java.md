@@ -95,6 +95,7 @@ Rainbond运行War包的方式如下述Profile定义：
 ```
 web: java -jar /opt/webapp-runner.jar --port $PORT *.war
 ```
+关于 webapp-runner.jar 的使用参考文档 [Webapp-Runner](https://github.com/jsimone/webapp-runner)
 
 ### 3.2 部署jar包
 
