@@ -29,12 +29,14 @@ Rainbond平台启动服务时默认注入以下环境变量信息以供应用使
 变量名以`BUILD_`开头的环境变量在源码构建类应用构建阶段生效，比如下述变量：
 
 | 变量名                   | 变量值                                                       | 说明                        |
-| ------------------------ | ------------------------------------------------------------ | --------------------------- |
-| BUILD_REPARSE            | true                                                         | 构建时重新识别代码语言类型  |
-| NO_CACHE                 | true                                                         | 构建时不使用缓存包          |
-| BUILD_MAVEN_CUSTOM_OPTS  | -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true | 用于 maven 构建，默认值如前 |
-| BUILD_MAVEN_CUSTOM_GOALS | clean install                                                | 用于 maven 构建，默认值如前 |
-| NO_CACHE                 | true                                                         | 构建时不使用缓存包          |
+| ------------------------- | ------------------------------------------------------------ | --------------------------- |
+| BUILD_REPARSE             | true                                                         | 构建时重新识别代码语言类型  |
+| NO_CACHE                  | true                                                         | 构建时不使用缓存包          |
+| BUILD_MAVEN_CUSTOM_OPTS   | -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true | 用于 maven 构建，默认值如前 |
+| BUILD_MAVEN_CUSTOM_GOALS  | clean install                                                | 用于 maven 构建，默认值如前 |
+| BUILD_MAVEN_MIRROR_OF     | *                                                            | maven mirrorof          |
+| BUILD_MAVEN_MIRROR_URL    | http://maven.goodrain.me                                     | maven mirror url         |
+| BUILD_MAVEN_MIRROR_DISABLE| false                                                        | 禁用maven mirror         |
 
 变量名以`BUILD_ARG_`开头的环境变量定义Dockerfile构建的ARG变量：
 比如  BUILD_ARG_VERSION=v1 变量在构建Dockerfile时存在ARG变量 VERSION=v1
