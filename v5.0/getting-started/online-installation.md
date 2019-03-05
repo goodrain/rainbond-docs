@@ -20,8 +20,10 @@ asciicast: true
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
 {{site.data.alerts.callout_danger}}
-CentOS 7.5/7.6版本需要内核版本升级到4.x
+CentOS 7.5/7.6版本需要内核版本升级到4.x,具体可以参考[社区方案](https://t.goodrain.com/t/centos-check-unpack/628)
 {{site.data.alerts.end}}
+
+更多关于软硬件要求请参考 [软件和硬件环境要求](../operation-manual/op-guide/recommendation.html)
 
 ### 1.2 下载系统安装工具
 

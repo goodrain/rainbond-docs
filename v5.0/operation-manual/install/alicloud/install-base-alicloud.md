@@ -16,13 +16,17 @@ asciicast: true
 
 我们在阿里云有大量生产实践经验，如下配置为推荐配置，建议参考
 
-> 操作系统推荐,经过我们验证推荐
+> 操作系统推荐,经过我们线上验证推荐
 
 |操作系统|版本|
 |--|--|
-|CentOS|7.4|
+|CentOS|7.4(推荐)|
 |Debian|9.6|
 |Ubuntu|16.04|
+
+{{site.data.alerts.callout_danger}}
+当前版本不推荐选用CentOS 7.5/7.6版本，如果必须使用上述版本，请将内核版本升级到4.x,具体可以参考[社区方案](https://t.goodrain.com/t/centos-check-unpack/628)
+{{site.data.alerts.end}}
 
 > 单台服务器配置要求
 
@@ -58,6 +62,8 @@ NAS默认选择 `SSD性能型`即可,推荐，满足Rainbond使用。也可以�
 > 安全方面限制
 
 如果需要公网访问，安全组需要对外放行80,6060,7070端口，以及ssh端口,内部网络不限制。
+
+更多关于软硬件要求请参考 [软件和硬件环境要求](../../op-guide/recommendation.html)
 
 ## 二、 部署流程
 

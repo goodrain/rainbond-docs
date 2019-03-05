@@ -31,7 +31,11 @@ asciicast: true
 
 |操作系统|版本|
 |--|--|
-|CentOS|7.4|
+|CentOS|[7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)(建议安装此版本)|
+
+{{site.data.alerts.callout_danger}}
+当前版本不推荐选用CentOS 7.5/7.6版本，如果必须使用上述版本，请将内核版本升级到4.x,具体可以参考[社区方案](https://t.goodrain.com/t/centos-check-unpack/628)
+{{site.data.alerts.end}}
 
 > 单台服务器计算资源配置要求
 
@@ -90,6 +94,8 @@ asciicast: true
 - 网关节点：
 
 网关节点特指具备Rainbond应用访问负载均衡组件rbd-gateway的节点，为常规部署项，必然存在于集群之中。默认部署于所有的管理节点，可以根据需要单独部署。部署数量参照管理节点，并配置VIP保证高可用。
+
+更多关于软硬件要求请参考 [软件和硬件环境要求](../../op-guide/recommendation.html)
 
 ## 三、存储节点选择
 
