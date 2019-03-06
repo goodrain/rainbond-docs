@@ -66,4 +66,4 @@ asciicast: true
 
 <img src="https://static.goodrain.com/images/docs/5.0/advanced-scenarios/3services.png" style="border:1px solid #eee;width:85%">
 
-> 其余服务组件镜像地址参见 [ServiceMesh微服务架构电商案例](/docs/v5.0/microservice/service-mesh/use-case.html) 中的 `docker-compose` 文件
+> 其余服务组件镜像地址参见 [ServiceMesh微服务架构电商案例](../microservice/service-mesh/use-case.html) 中的 `docker-compose` 文件

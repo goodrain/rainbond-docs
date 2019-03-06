@@ -45,8 +45,8 @@ asciicast: true
 | **自动化运维**                | 应用自动化运维。节点自动安装、扩容、监控、容错。平台支持高可用、多数据中心管理、多租户管理。                                                                          |
 | **Serverless PaaS**            | 以应用为核心，使用过程不需要了解服务器相关概念，简单灵活。通过对接行业应用，快速构建行业专有PaaS。                                                                    |
 
-*更多特性请见[功能列表](/docs/v5.0/architecture/edition.html)*
-*版本计划详见[开发计划](/docs/v5.0/architecture/roadmap.html)*
+*更多特性请见[功能列表](../architecture/edition.html)*
+*版本计划详见[开发计划](../architecture/roadmap.html)*
 
 ## Rainbond的优势
 
@@ -56,6 +56,6 @@ asciicast: true
 4. 系统兼容性强，Windows、国产系统均可支持。
 
 <div class="step">
- <a href="/docs/v5.0/getting-started/installation-guide.html"><button class="btn">我已经了解，开始安装</button></a>
+ <a href="../getting-started/installation-guide.html"><button class="btn">我已经了解，开始安装</button></a>
 </div>
 

@@ -32,7 +32,7 @@ asciicast: true
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/app-delivery-2.gif" width="100%">
 
-导入完成后，即可以使用[从应用市场构建](/docs/v5.0/user-manual/app-creation/way-of-creation.html#3)，来将导入的包构建为应用。基于Rainbond应用市场的应用交付就完成了。
+导入完成后，即可以使用[从应用市场构建](../user-manual/app-creation/way-of-creation.html#3)，来将导入的包构建为应用。基于Rainbond应用市场的应用交付就完成了。
 
 ## 三、 应用市场升级操作
 

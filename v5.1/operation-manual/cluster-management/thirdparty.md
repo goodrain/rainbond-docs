@@ -27,7 +27,7 @@ docker 需要配置 --insecure-registry goodrain.me
 ## 安装rainbond相关组件
 
 ```
-wget https://pkg.rainbond.com/releases/common/v5.0/grctl
+wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 ./grctl init --iip <内网ip> --rainbond-version devel --deploy-type thirdparty 
 ```

@@ -33,15 +33,15 @@ asciicast: true
 
 > Gogs离线导入方式和Gitlab一致。
 
-至此，我们已经拥有了一个私有化的代码仓库。可以通过它来托管代码，并可以通过它实现[自动构建](/docs/v5.0/advanced-scenarios/rainbond-devops.html)。
+至此，我们已经拥有了一个私有化的代码仓库。可以通过它来托管代码，并可以通过它实现[自动构建](./rainbond-devops.html)。
 
 ## 三、 离线对接/部署构建私服
 
 Java源码基于Maven构建过程中，会根据 `pom.xml` 文件解析依赖关系，并前往指定的构建私服拉取依赖包。而在Rainbond中，安装了默认的源码构建包仓库 `rbd-repo` ，这个组件既可以作为已有私服的代理，也可以用来搭建本地私服，来应对不同用户的需求。
 
-- [已有私服的对接](/docs/v5.0/best-practice/ci-cd/connection-maven-repository.html#maven)
+- [已有私服的对接](../best-practice/ci-cd/connection-maven-repository.html#maven)
 
-- [搭建本地仓库，并导入jar包](/docs/v5.0/best-practice/ci-cd/connection-maven-repository.html#1-local-maven)
+- [搭建本地仓库，并导入jar包](../best-practice/ci-cd/connection-maven-repository.html#1-local-maven)
 
 ## 四、 离线配置应用运行时
 

@@ -144,7 +144,7 @@ asciicast: true
 
 ### 4.如何配置maven私服？
 
-> Rainbond支持对接maven私服，对接方式见 [对接Maven私服](/docs/v5.0/best-practice/ci-cd/connection-maven-repository.html)
+> Rainbond支持对接maven私服，对接方式见 [对接Maven私服](../best-practice/ci-cd/connection-maven-repository.html)
 
 ### 5.遗留系统是否能运行在rainbond上？
 
@@ -152,7 +152,7 @@ asciicast: true
 
 ### 6.如何对接已有ci/cd？
 
-> Rainbond推荐推荐Jenkins前置CI系统 [Rainbond与Jenkins对接](/v5.0/best-practice/ci-cd/connection-jenkins.html)
+> Rainbond推荐推荐Jenkins前置CI系统 [Rainbond与Jenkins对接](../best-practice/ci-cd/connection-jenkins.html)
 
 ### 7.是否支持oracle  jdk ？
 
@@ -216,13 +216,13 @@ asciicast: true
 
 ### 1.是否支持dubbo、是否支持spring cloud？
 
-> 支持，关于Springcloud查看文档[Spring Cloud 微服务架构](/docs/v5.0/microservice/spring-cloud/spring-cloud.html) ,关于Dubbo查看 [Dubbo](/docs/v5.0/microservice/dubbo/dubbo-overview.html)
+> 支持，关于Springcloud查看文档[Spring Cloud 微服务架构](../microservice/spring-cloud/spring-cloud.html) ,关于Dubbo查看 [Dubbo](../microservice/dubbo/dubbo-overview.html)
 
 ### 2.微服务架构 service mesh 是什么？怎么用？
 
 > [ServiceMesh 简史](https://www.goodrain.com/2018/06/25/tech-20180625/) 一般的字面解释是“服务网格”，作为时下最流行的分布式系统架构微服务的动态链接器，处于服务到服务的通信的专用基础设施层，该层独立于应用程序为服务之间的通信提供轻量级的可靠传递。如果简单的描述的话，可以将它比作是应用程序或者说微服务间的 TCP/IP，负责服务之间的网络调用、限流、熔断和监控，同样使用 ServiceMesh 也就无须关系服务之间的那些原来是通过应用程序或者其他框架实现的事情，比如 Spring Cloud、OSS，现在只要交给 ServiceMesh 就可以了。ServiceMesh的出现主要是由于应用虚拟化技术的发展，例如Kubernetes,Rainbond等项目，大大降低了应用的部署和运维复杂度。
 >
-> Rainbond部署ServiceMesh用例：[ServiceMesh微服务架构电商案例](/docs/v5.0/microservice/service-mesh/use-case.html)
+> Rainbond部署ServiceMesh用例：[ServiceMesh微服务架构电商案例](../microservice/service-mesh/use-case.html)
 
 ## 插件问题
 
@@ -230,7 +230,7 @@ asciicast: true
 
 > 应用插件是标准化的为应用提供功能扩展，与应用共同运行的程序，例如：性能分析插件可以实时看到该服务的性能如何，吞吐率、响应时间以及在线人数等；网路治理插件则可以实现智能路由、A/B测试以及灰度发布等
 >
->  文档： [插件管理](/docs/v5.0/user-manual/plugin-manage/plugin-manage.html)
+>  文档： [插件管理](../user-manual/plugin-manage/plugin-manage.html)
 
 ### 2.使用服务性能监控插件有什么限制？
 
@@ -238,4 +238,4 @@ asciicast: true
 
 ### 3.我该如何制作分享插件？
 
-> 查看文档 : [插件制作与分享](/docs/v5.0/user-manual/plugin-manage/plugin-manage.html)
+> 查看文档 : [插件制作与分享](../user-manual/plugin-manage/plugin-manage.html)

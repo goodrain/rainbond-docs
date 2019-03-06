@@ -22,9 +22,9 @@ Rainbond把广泛支撑企业应用作为首要目标，广泛支撑企业应用
 
 具体从三方面入手：
 
-- 在开发阶段，对接代码仓库，自动识别[开发语言类型](/docs/v5.0/user-manual/app-creation/language-support/java.html)，不改变开发者习惯，尽量最大可能不修改现有代码，直接编译、构建和运行。
+- 在开发阶段，对接代码仓库，自动识别[开发语言类型](../user-manual/app-creation/language-support/java.html)，不改变开发者习惯，尽量最大可能不修改现有代码，直接编译、构建和运行。
 
-- 在架构阶段，如果已有系统没有分布式架构，Rainbond提供[Service Mesh](/docs/v5.0/microservice/service-mesh/overview.html) 架构，业务模块不改代码就能变成微服务架构。
+- 在架构阶段，如果已有系统没有分布式架构，Rainbond提供[Service Mesh](../microservice/service-mesh/overview.html) 架构，业务模块不改代码就能变成微服务架构。
 
 - 在运维阶段，老的遗留系统很难找到原有开发人员，要迁移到新运行环境比较困难，Rainbond使用动态生成配置文件和网络关系的方式，迁移和运行遗留系统。运维和治理功能，Rainbond通过“无侵入”插件的形式提供，根据功能需要选择加载插件。
 

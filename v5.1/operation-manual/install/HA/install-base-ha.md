@@ -119,11 +119,11 @@ Rainbond需要为管理节点与计算节点的 `/grdata` 目录配置共享存�
 
 #### GlusterFS
 
-部署GlusterFS存储节点，请参见 [GlusterFS双机复制集群安装](/docs/v5.0/operation-manual/storage/GlusterFS/install.html)
+部署GlusterFS存储节点，请参见 [GlusterFS双机复制集群安装](../operation-manual/storage/GlusterFS/install.html)
 
 #### NAS
 
-对接阿里云文件存储NAS，请参见[对接文件存储NAS](/docs/v5.0/operation-manual/storage/nas/alinas-install.html)
+对接阿里云文件存储NAS，请参见[对接文件存储NAS](../operation-manual/storage/nas/alinas-install.html)
 
 ## 四、网络方案选择
 
@@ -152,7 +152,7 @@ grctl init --network flannel 其他参数
 {% include copy-clipboard.html %}
 
 ```bash
-wget https://pkg.rainbond.com/releases/common/v5.0/grctl
+wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 ```
 
 {% include copy-clipboard.html %}

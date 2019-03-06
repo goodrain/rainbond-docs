@@ -7,7 +7,7 @@ asciicast: true
 
 ## 构建源
 
-Rainbond创建服务有三种模式：[源码](https://www.rainbond.com/docs/v5.0/user-manual/app-creation/way-of-creation.html#1)、[镜像](https://www.rainbond.com/docs/v5.0/user-manual/app-creation/way-of-creation.html#2-docker)和[应用市场](https://www.rainbond.com/docs/v5.0/user-manual/app-creation/way-of-creation.html#3)，它们分别具有不同的属性提供配置。
+Rainbond创建服务有三种模式：[源码](../../app-creation/way-of-creation.html#1)、[镜像](../../app-creation/way-of-creation.html#2-docker)和[应用市场](../../app-creation/way-of-creation.html#3)，它们分别具有不同的属性提供配置。
 
 * 源码
 > 源码的构建源配置参数将是最为丰富的，除了基础的代码仓库信息包括（仓库地址，分支，Tag, 授权信息等)，重点在5.1版本中将提供每个源码类型的CI构建参数设置。

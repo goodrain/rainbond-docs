@@ -48,8 +48,8 @@ mount -a
 
 ```bash
 # 公网环境(阿里云，腾讯云等云上环境)可以指定公网ip参数 --eip <公网ip>, 可选
-# 云帮版本，目前支持最新版本v5.0
-wget https://pkg.rainbond.com/releases/common/v5.0/grctl
+# 云帮版本，目前支持最新版本v5.1
+wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 ./grctl init --eip <公网ip> --rainbond-version <指定版本号，可选> --role master
 

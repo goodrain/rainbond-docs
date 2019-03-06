@@ -23,11 +23,11 @@ JAVA 作为一门十分流行的计算机编程语言，自1995年面世以来�
 
 首次登陆Rainbond，需要跟随引导注册用户、新建团队以及选择数据中心。当这一切就绪之后，就来到了Rainbond平台的操作界面。
 
-> 通过文档了解 [用户管理](/docs/v5.0/user-manual/manage-team/manage-user.html)、[权限管理](/docs/v5.0/user-manual/manage-team/manage-permision.html)、[数据中心管理](/docs/v5.0/user-manual/manage-team/manage-datacenter.html)。
+> 通过文档了解 [用户管理](../user-manual/manage-team/manage-user.html)、[权限管理](../user-manual/manage-team/manage-permision.html)、[数据中心管理](../user-manual/manage-team/manage-datacenter.html)。
 
 ## 2、构建数据库
 
-这个示例需要一个mysql来支持它，我们先搭建一个mysql。[通过应用市场部署应用](/docs/v5.0/user-manual/app-creation/way-of-creation.html#3)是基于Rainbond应用市场的一种创建方式，在应用市场里，好雨科技官方已经提供了多个版本的mysql应用，可以在用户同步市场之后，直接安装。
+这个示例需要一个mysql来支持它，我们先搭建一个mysql。[通过应用市场部署应用](../user-manual/app-creation/way-of-creation.html#3)是基于Rainbond应用市场的一种创建方式，在应用市场里，好雨科技官方已经提供了多个版本的mysql应用，可以在用户同步市场之后，直接安装。
 
 > 5.0版本中优化了应用创建流程控制，可以先创建应用，在设置其他属性（比如在本次MYSQL部署过程中，添加默认数据库demo的操作）后构建。
 
@@ -44,14 +44,14 @@ JAVA 作为一门十分流行的计算机编程语言，自1995年面世以来�
 
 细心的人会发现，`mysql`应用所提供的访问地址是`127.0.0.1:3306`这个本地地址，并没有指明自身实际的IP，这样的连接方式如何能够让对方访问到自己呢？答案会在源码构建完成后的服务依赖部分揭晓。
 
-> 深入了解请参见[服务注册](/docs/v5.0/microservice/service-mesh/regist.html)
+> 深入了解请参见[服务注册](../microservice/service-mesh/regist.html)
 
 ##3、源码构建
 
-Rainbond在执行源码构建的时候，源码需要遵循一定的规范。就本文使用的JAVA示例代码而言，需要遵循[JAVA代码规范](https://www.rainbond.com/docs/v5.0/user-manual/language-support/java.html)。细心的人会发现，Rainbond所需要遵循的规范与传统代码形式基本没有冲突，大多数的源码仅需要做出很小的改动，甚至不需要改动即可被Rainbond接纳。
+Rainbond在执行源码构建的时候，源码需要遵循一定的规范。就本文使用的JAVA示例代码而言，需要遵循[JAVA代码规范](../user-manual/language-support/java.html)。细心的人会发现，Rainbond所需要遵循的规范与传统代码形式基本没有冲突，大多数的源码仅需要做出很小的改动，甚至不需要改动即可被Rainbond接纳。
 
-> Rainbond还支持这些语言：[Dockerfile](/docs/stable/user-manual/language-support/dockerfile.html)、[PHP](/docs/stable/user-manual/language-support/php.html)、[Python](/docs/stable/user-manual/language-support/python.html)、[Node.Js](/docs/stable/user-manual/language-support/nodejs.html)、[Ruby](/docs/stable/user-manual/language-support/ruby.html)、[Golang](/docs/stable/user-manual/language-support/golang.html)、[Html](/docs/stable/user-manual/language-support/html.html)、[.NetCore](/docs/stable/user-manual/language-support/netcore.html)、[Nodejs前端项目]
-(/docs/v5.1/user-manual/app-creation/language-support/nodejs2html.html)
+> Rainbond还支持这些语言：[Dockerfile](../user-manual/language-support/dockerfile.html)、[PHP](../user-manual/language-support/php.html)、[Python](../user-manual/language-support/python.html)、[Node.Js](../user-manual/language-support/nodejs.html)、[Ruby](../user-manual/language-support/ruby.html)、[Golang](../user-manual/language-support/golang.html)、[Html](../user-manual/language-support/html.html)、[.NetCore](../user-manual/language-support/netcore.html)、[Nodejs前端项目]
+(../user-manual/app-creation/language-support/nodejs2html.html)
 
 - **构建spring boot**
 
@@ -71,7 +71,7 @@ Rainbond在执行源码构建的时候，源码需要遵循一定的规范。就
 
 回答之前的疑问，`spring boot`如何通过`127.0.0.1:3306`来访问`mysql`呢？是因为Rainbond在内部实现了一层代理机制，这一层机制可以让 `spring boot` 通过自身代理连接到`mysql`的实际IP。了解 docker 的用户一定知道，每更新一次容器，IP都会重新分配一次。代理机制使得这种动态IP对用户透明，无论IP如何变化，`spring boot` 需要访问的只是自身的代理，剩下的事情，代理会自动完成。
 
-> 深入了解请参见[服务发现](/docs/v3.6/microservice/service-mesh/discover.html) 
+> 深入了解请参见[服务发现](../microservice/service-mesh/discover.html) 
 
  - **确认部署属性**：
 
@@ -91,7 +91,7 @@ Rainbond针对有状态、无状态的服务，部署使用的资源并不一样
 
   如果你仔细的研究了示例源码，会发现其中有一些技巧——**环境变量**的引入。在配置一些参数的时候，比如jdbc的连接信息，我们可以将其设置为环境变量，这种操作十分明智。在我们更换了数据库的连接信息之后，不再需要更改源码，只需要更换环境变量，即可实现连接信息的**动态配置**。
 
-> 进一步了解Rainbond对环境变量的支持，请参见[高级环境变量配置](/docs/v5.0/user-manual/app-manage/app-env.html)
+> 进一步了解Rainbond对环境变量的支持，请参见[高级环境变量配置](../user-manual/app-manage/app-env.html)
 
 - 代码示例：
 
@@ -149,19 +149,19 @@ spring.datasource.removeAbandoned=true
 
 > 应用部署完毕后，有很多功能可以尝试操作一下。
 >
-> 请参考[应用管理](/docs/v5.0/user-manual/app-manage/app/app-operation.html)来深入了解下Rainbond如何管理应用。
+> 请参考[应用管理](../user-manual/app-manage/app/app-operation.html)来深入了解下Rainbond如何管理应用。
 
 > 以下链接可以帮助作为读者的你解决很多实际问题：
 >
-> 这次构建没有成功？别着急，你可以了解下[常见问题排查](/docs/v5.0/user-manual/trouble-shooting/build-app-issue.html)。
+> 这次构建没有成功？别着急，你可以了解下[常见问题排查](../user-manual/trouble-shooting/build-app-issue.html)。
 >
-> 如果你觉得，平台默认生成的访问域名太难记，那么请[自定义应用域名](/docs/v5.0/user-manual/custom-app-domain.html)。
+> 如果你觉得，平台默认生成的访问域名太难记，那么请[自定义应用域名](../user-manual/custom-app-domain.html)。
 >
-> 如果你的源码来自于私有的git仓库，Rainbond提供了[对接私有Git仓库 ](/docs/v5.0/best-practice/ci-cd/connection-git-server.html)的功能。
+> 如果你的源码来自于私有的git仓库，Rainbond提供了[对接私有Git仓库 ](../best-practice/ci-cd/connection-git-server.html)的功能。
 >
-> 很多企业内部搭建了自有的maven仓库，Rainbond提供了[对接MAVEN仓库](/docs/v5.0/best-practice/ci-cd/connection-maven-repository.html)的功能。
+> 很多企业内部搭建了自有的maven仓库，Rainbond提供了[对接MAVEN仓库](../best-practice/ci-cd/connection-maven-repository.html)的功能。
 >
-> 而针对已经拥有Jenkins这种CI工具的用户，Rainbond提供了[对接Jenkins](/docs/v5.0/best-practice/ci-cd/connection-jenkins.html)的功能。
+> 而针对已经拥有Jenkins这种CI工具的用户，Rainbond提供了[对接Jenkins](../best-practice/ci-cd/connection-jenkins.html)的功能。
 
 
 
