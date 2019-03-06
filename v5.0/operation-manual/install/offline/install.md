@@ -17,7 +17,7 @@ asciicast: true
 
 ```
 # 有网环境
-wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.5.0.3.190128.tgz
+wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.5.0.4.190306.tgz
 ```
 
 ## 同步到数据中心节点
@@ -26,7 +26,7 @@ wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.5.0.3.
 
 ```
 # 示例
-scp offline.5.0.3.190128.tgz <数据中心节点ip>:/root/
+scp offline.5.0.4.190306.tgz <数据中心节点ip>:/root/
 ```
 
 ## 登陆到目标机器操作
@@ -35,7 +35,7 @@ scp offline.5.0.3.190128.tgz <数据中心节点ip>:/root/
 # 需要移除默认源
 mv /etc/yum.repos.d/*.repo /tmp/
 # 解压离线包
-tar xf offline.5.0.3.190128.tgz
+tar xf offline.5.0.4.190306.tgz
 # 进入解压目录下
 cd offline
 # 执行准备工作
