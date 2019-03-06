@@ -63,14 +63,14 @@ docker run -d --name ghost -p 3001:2368 -v /data:/var/lib/ghost/content ghost:1-
 
 ### 2.3 其他语言源码创建应用
 
-- <a href="language-support/java.html" target="_blank">Java源码创建应用</a>
-- <a href="language-support/php.html" target="_blank">PHP源码创建应用</a>
-- <a href="language-support/python.html" target="_blank">Python源码创建应用</a>
-- <a href="language-support/nodejs.html" target="_blank">Node.js源码创建应用</a>
-- <a href="language-support/ruby.html" target="_blank">Ruby源码创建应用</a>
-- <a href="language-support/golang.html" target="_blank">Golang源码创建应用</a>
-- <a href="language-support/html.html" target="_blank">Html静态源码创建应用</a>
-- <a href="language-support/dockerfile.html" target="_blank">Dockerfile源码创建应用</a>
+- <a href="app-creation/language-support/java.html" target="_blank">Java源码创建应用</a>
+- <a href="app-creation/language-support/php.html" target="_blank">PHP源码创建应用</a>
+- <a href="app-creation/language-support/python.html" target="_blank">Python源码创建应用</a>
+- <a href="app-creation/language-support/nodejs.html" target="_blank">Node.js源码创建应用</a>
+- <a href="app-creation/language-support/ruby.html" target="_blank">Ruby源码创建应用</a>
+- <a href="app-creation/language-support/golang.html" target="_blank">Golang源码创建应用</a>
+- <a href="app-creation/language-support/html.html" target="_blank">Html静态源码创建应用</a>
+- <a href="app-creation/language-support/dockerfile.html" target="_blank">Dockerfile源码创建应用</a>
 
 ## 三、通过云市创建应用
 除了上文介绍的两大类创建应用的方法外，rainbond还提供了应用市场的应用一键部署，应用市场是好雨提供的一项公有云服务，提供了常用的开发应用及工具。下面介绍通过应用市场安装 Wordpress 应用的示例：
