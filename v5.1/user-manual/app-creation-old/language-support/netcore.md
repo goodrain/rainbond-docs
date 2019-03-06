@@ -29,15 +29,12 @@ Rainbond 可以识别.NetCore 语言的项目并一键编译部署到平台，�
 #### 编译方式设置
 
 默认编译方式如下：
-
 ```
 dotnet restore
 dotnet publish -c Release
 ```
-
 若需要在`dotnet restore`之前执行的命令可以通过 `BUILD_DOTNET_RESTORE_PRE`环境变量指定。
-
-若需要改变默认的 `dotnet restore`命令可以通过`BUILD_DOTNET_RESTORE` 环境变量指定。
+若需要改变 `dotnet restore`命令可以通过`BUILD_DOTNET_RESTORE` 环境变量指定。
 
 ## 三、项目运行
 

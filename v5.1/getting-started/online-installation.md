@@ -6,8 +6,6 @@ toc_not_nested: true
 asciicast: true
 ---
 
-
-
 ## 一、操作系统准备和检查
 
 ### 1.1 检查操作系统，目前版本支持以下操作系统
@@ -19,14 +17,12 @@ asciicast: true
 | Ubuntu   | 16.04        | 64位                     |
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
-{{site.data.alerts.callout_danger}}
-CentOS 7.5/7.6版本需要内核版本升级到4.x
-{{site.data.alerts.end}}
+更多关于软硬件要求请参考 [软件和硬件环境要求](../operation-manual/op-guide/recommendation.html)
 
 ### 1.2 下载系统安装工具
 
 ```
-wget https://pkg.rainbond.com/releases/common/v5.0/grctl
+wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 ```
 
@@ -51,7 +47,7 @@ chmod +x ./grctl
 
 ## 二、初始化数据中心
 
-[数据中心](/docs/v5.0/architecture/abstraction.html#region) 是Rainbond资源集合的核心抽象。初始化数据中心操作需要在第一台服务器上执行安装命令。
+[数据中心](../architecture/abstraction.html#region) 是Rainbond资源集合的核心抽象。初始化数据中心操作需要在第一台服务器上执行安装命令。
 
 * 初始化安装第一个节点
 
@@ -75,11 +71,11 @@ grctl node list
 # 控制台访问地址
 http://<节点IP地址>:7070
 ```
-如果集群状态是不健康的，参考[节点健康检测](/docs/v5.0/operation-manual/cluster-management/node-health.html) 文档解决故障。
+如果集群状态是不健康的，参考[节点健康检测](../operation-manual/cluster-management/node-health.html) 文档解决故障。
 
 ## 三、数据中心添加节点
 
-上诉步骤完成默认将第一个节点安装成为第一个[管理节点](/docs/v5.0/architecture/abstraction.html#node) 和第一个 [计算节点](/docs/v5.0/architecture/abstraction.html#node)
+上诉步骤完成默认将第一个节点安装成为第一个[管理节点](../architecture/abstraction.html#node) 和第一个 [计算节点](../architecture/abstraction.html#node)
 
 若你需要增加你的集群计算资源池，可以快速扩容计算节点：
 

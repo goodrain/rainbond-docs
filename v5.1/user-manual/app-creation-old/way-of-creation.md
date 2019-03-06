@@ -22,6 +22,8 @@ Rainbond 支持多种流行的编程语言的源码创建, 同时也支持通过
 - <a href="language-support/netcore.html" target="_blank">.Net源码创建应用</a>
 - <a href="language-support/html.html" target="_blank">Html静态源码创建应用</a>
 - <a href="language-support/dockerfile.html" target="_blank">Dockerfile源码创建应用</a>
+- <a href="language-support/nodejs2html.html" target="_blank">Node.js前端项目创建应用</a>
+
 
 通过源码的方式创建服务组件, 需要把源码托管在版本控制系统上, Rainbond 目前支持的版本控制系统有 `Git 和 SVN`, 也是目前大家常用的版本控制系统.
 

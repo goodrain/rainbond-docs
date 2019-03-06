@@ -10,7 +10,7 @@ Procfile 是Rainbond基于代码指定服务运行方式的策略。其本身是
 - Java语言类型，定义启动命令运行War包
 
 ```bash
-web: java -jar /opt/webapp-runner.jar --port $PORT --session-store redis ./*.war
+web: java -jar ./webapp-runner.jar --port $PORT --session-store redis ./*.war
 ```
 
 - 直接执行二进制文件，例如nginx
