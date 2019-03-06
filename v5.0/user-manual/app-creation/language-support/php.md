@@ -24,7 +24,7 @@ Rainbond可以将PHP源码快速的部署并运行起来。无论是`Symfony`、
 
 {{site.data.alerts.callout_success}}
 
-如果根目录存在`composer.lock`文件会优化读取`composer.lock`的配置，忽略掉 `composer.json`，需删除composer.phar
+根目录必须存在`composer.lock`文件
 
 {{site.data.alerts.end}}
 
@@ -32,7 +32,7 @@ Rainbond可以将PHP源码快速的部署并运行起来。无论是`Symfony`、
 
 ```
 1. 需要确定.gitignore文件是否忽略了composer.lock，如果有请从.gitignore文件里删除
-2. 如果本就不存在，请执行composer update生成
+2. 如果本就不存在，请执行composer update --ignore-platform-reqs生成
 # 如果项目里没有请从.gitignore
 ```
 
@@ -186,7 +186,15 @@ HHVM 暂时不支持自定义扩展
 }
 ```
 
-## 四、源码编译构建
+## 四、生成composer.lock文件
+上诉根据项目环境需要配置好composer.json文件后，必须生成composer.lock文件，这个可以给出一个快速生成的方式。
+```
+composer update --ignore-platform-reqs
+```
+请注意：提交代码时务必将`composer.json`和`composer.lock`文件同步提交。
+
+
+## 五、源码编译构建
 
 在部署期间系统会运行以下命令来安装依赖包，解决依赖关系：
 
@@ -200,7 +208,7 @@ composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
 {{site.data.alerts.end}}
 
-## 五、配置启动命令
+## 六、配置启动命令
 
 云帮支持 [Apache](http://httpd.apache.org/)，如果您在Profile文件中没有设置加载其中任一服务器，或代码根目录没有 Procfile 文件，应用创建向导会提示用户选择Apache作为Web服务器。
 
