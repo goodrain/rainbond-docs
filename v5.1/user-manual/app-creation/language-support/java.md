@@ -4,7 +4,24 @@ summary: Java源码创建
 toc: true
 ---
 
-Rainbond 可以将 Java 程序轻松部署到平台，并提供灵活伸缩的高可用特性。您可以部署标准的基于 Tomcat 或 Jetty 的 Web 应用，同时也支持 SpringBoot 等框架构建的应用程序。我们致力于在不改变开发习惯情况下将您的 Java 应用在云端快速部署、运行、灵活伸缩！
+Rainbond 可以快速将 Java 源码程序轻松部署到平台，并提供灵活伸缩的高可用特性。您可以部署标准的基于 Tomcat 或 Jetty 的Web应用，同时也支持 SpringBoot 等框架构建的应用程序。我们致力于在不改变开发习惯情况下将您的 Java 应用在云端快速部署、运行、灵活伸缩！
+
+<div class="filters filters-big clearfix">
+    <a href="java-jar.html">
+        <button class="filter-button current"><strong>Java-Jar</strong></button>
+    </a>
+    <a href="java-war.html">
+        <button class="filter-button">Java-War</button>
+    </a>
+    <a href="java-maven.html">
+        <button class="filter-button">Java-Maven</button>
+    </a>
+    <a href="java-gradle.html">
+        <button class="filter-button">Java-Gradle</button>
+    </a>
+</div>
+
+<!--
 
 ## 一、代码识别
 
@@ -253,3 +270,5 @@ web: java $JAVA_OPTS -jar  target/*.jar
 - <a href="java/jetty-runner.html" target="_blank" >部署基于Jetty-Runner的应用</a>
 - <a href="java/webapp-runner.html" target="_blank" >部署基于webapp-runner的应用</a>
 - <a href="java/webapp-runner.html" target="_blank" >使用 Heroku 部署 Gradle 项目</a>
+
+-->

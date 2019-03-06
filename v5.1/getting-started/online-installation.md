@@ -12,8 +12,8 @@ asciicast: true
 
 | 系统     | 版本         | 说明                     |
 | :------- | :----------- | :----------------------- |
-| CentOS   | 7.3/7.4      | 64位，推荐安装([7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)) |
-| Debian   | 9.6          | 64位                     |
+| CentOS   | 7.3及以上      | 64位，推荐安装([7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)) |
+| Debian   | 9.6及以上          | 64位                     |
 | Ubuntu   | 16.04        | 64位                     |
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
@@ -38,7 +38,7 @@ chmod +x ./grctl
    
    * 确定系统已禁用`NetworkManager`或者[配置NetworkManager](https://t.goodrain.com/t/calico-networkmanager/591)
    
-   * 节点资源：磁盘最低要求 40GB,内存要求最低2核4G, 默认情况下节点会给系统预留1.5核CPU1.5G内存的资源
+   * 节点资源：推荐要求4核,8G,100GB(2核4G40GB), 默认情况下节点会给系统预留1.5核CPU1.5G内存的资源
    
    * 确定网络没有限制，如有请加如下域名添加到白名单
 
@@ -82,16 +82,13 @@ http://<节点IP地址>:7070
 > 其中host/hostname可以根据排序顺序依次compute01-computeN,host/hostname不要重复。
 
 ```bash
-grctl node add --host computexx --iip 计算节点IP --root-pass root用户密码 --role compute
+grctl node add --host computexx --iip 计算节点IP --root-pass root用户密码 --role compute --install
 示例：
-grctl node add --host compute01 --iip 192.168.1.1 --root-pass 12345678 --role compute
+grctl node add --host compute01 --iip 192.168.1.1 --root-pass 12345678 --role compute --install
 # 获取添加节点的NodeID，此时节点应处于未安装状态
 grctl node list
-# 指定节点ID开始安装
-grctl node install NodeID
 # 确定节点处于健康状态上线节点
 grctl node up <NodeID>
-
 ```
 
 更多细节可以参考文档 [运维手册, 节点扩容](../operation-manual/cluster-management/add-node.html) 
