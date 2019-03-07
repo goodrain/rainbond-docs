@@ -66,6 +66,6 @@ cmd: dotnet aspnetapp.dll
 
 ## 四、示例代码
 
-[dotnet-demo](https://github.com/goodrain-apps/dotnet-demo)
+[dotnet-demo](https://github.com/goodrain/dotnet-demo)
 
 
