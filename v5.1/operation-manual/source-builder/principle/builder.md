@@ -19,9 +19,8 @@ Builder是一个镜像，您所提交的应用源码可以在Builder中进行解
 2. 通过管道将已打包代码传送到builder
 3. 通过tar命令将压缩文件解压，解压出源码
 4. 将源码预编译：
-   - 通过接口获取用户设置的应用环境
+   - 通过接口获取用户设置的应用环境,语言类型
    - 把用户配置写入文件procfile
-5. 执行detect脚本，识别源码类型
-6. 执行compile脚本，编译源码。一般会拉去对应Runtime、framework等
-7. 执行release脚本，输出yaml
-8. 系统生成后缀为.tgz的slug文件
+5. 执行compile脚本，编译源码,过程中会下载Runtimes等相关依赖
+6. 执行release脚本，输出yaml
+7. 系统生成后缀为.tgz的slug文件

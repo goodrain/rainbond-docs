@@ -4,43 +4,40 @@ summary: Java Maven源码构建应用
 toc: true
 ---
 
-## 简介
+> 本教程将帮助你在几分钟内熟悉Rainbond如何快速部署Java Maven源码程序。
 
-本教程将帮助你在几分钟内快速部署Java Maven源码程序。
+## 平台编译运行机制
 
-## 准备工作
+1. 平台默认会通过pom.xml来识别源码项目为Java Mvaen项目;
+2. [预编译](../../../operation-manual/source-builder/principle/builder.html)处理会探测是否定义了启动命令配置文件[Procfile](./etc/procfile.html),如果未定义会根据打包类型或者项目框架生成默认Procfile文件;
+3. 预编译处理完成后,会根据语言类型选择Java的buildpack去编译项目.在编译过程中会安装定义的JDK版本，Maven版本，然后构建编译Maven源码项目;
+4. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
+5. 最后将编译后的jar包或者war包连同Java编译环境打成slug包
+
+默认Maven构建命令如下
+
+```bash
+mvn -B -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true clean install
+```
+
+## Maven项目源码规范
 
 在此步骤中，你需要提供一个可用的Java Maven源码程序用来部署在Rainbond平台上,此应用程序至少需要满足如下条件:
 
-1. 本地可以正常构建运行的Java Maven源码程序
+1. 本地可以使用默认Maven命令正常构建的Java Maven源码程序,多模块项目需要确定子模块可以单独编译即`mvn install -pl <modulename> -am`
 2. 源码程序必须托管在gitlab等相关git或者svn服务上
-3. 源码程序根路径下需要存在Java的依赖管理工具Maven所需的`pom.xml`文件
+3. 源码程序根路径下需要存在Java的依赖管理工具Maven所需的`pom.xml`文件 
 
-这里提供示例Java Maven源码程序,你可以选择自己需求选择已有的Java Maven源码程序
+### pom.xml规范
 
-```bash
-git clone https://github.com/goodrain/java-maven-demo.git
-cd java-maven-demo
-```
+1. SpringBoot项目,建议在源码根目录创建Procfile明确定义启动命令,且pom.xml不能包含<packaing>即打包方式不是 war 包
+2. 非SpringBoot项目，要求pom.xml必须需要引入[webapp-runner.jar](https://github.com/jsimone/webapp-runner),打包方式`<packaging>war</packaging>`
 
-## 定义启动命令
-
-Rainbond源码构建应用程序使用[Procfile](./etc/procfile.html)的特殊声明文件来明确声明应该执行什么命令来启动你的应用程序。
-
-```bash
-web: java $JAVA_OPTS -jar target/spring-boot-demo-0.0.1.jar
-```
-
-
-
-{{site.data.alerts.callout_info}}
-1. `web:`和`java`之间有一个空格
-2. 文件结尾不能包含特殊字符
-{{site.data.alerts.end}}
+### Procfile规范
 
 如果项目未定义Procfile文件,平台默认会根据识别项目类型有以下几种方式运行:
 
-1. 在pom.xml中定义的打包方式为 war ,平台使用 webapp-runner.jar 将打包的 war 包运行起来，类似启动命令如下：
+1. 在pom.xml中定义的打包方式为 war 包,平台使用 webapp-runner.jar 将打包的 war 包运行起来，类似启动命令如下：
 
 ```bash
 web: java $JAVA_OPTS -jar /opt/webapp-runner.jar --port $PORT target/*.war
@@ -52,12 +49,16 @@ web: java $JAVA_OPTS -jar /opt/webapp-runner.jar --port $PORT target/*.war
 web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 ```
 
-目前源码构建应用只支持单一类型: `web`, 表示此应用为Web型应用,可以接受处理web流量;  
-`$JAVA_OPTS`: 平台会根据应用分配的内存自动调整此参数;  
-`$PORT`: 根据用户在平台设置的端口决定监听，默认监听端口为 5000
+{{site.data.alerts.callout_info}}
+1. `web:`和`java`之间有一个空格
+2. 文件结尾不能包含特殊字符
+3. 如果是多模块项目,需注意编译后jar包或者war包路径，其路径为`<子模块名>/targets/*.jar`或`<子模块名>/targets/*.war`  
+4. JAVA_OPTS: 平台会根据应用的内存大小，自动设置Xmx和Xms的值
+5. PORT: 根据用户在平台设置的端口决定监听，默认监听端口为 5000
+{{site.data.alerts.end}}
 
 
-## Java运行环境配置
+## 编译运行环境设置
 
 ### 配置Java版本
 
@@ -77,6 +78,11 @@ web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 java.runtime.version=1.8
 ```
 
+{{site.data.alerts.callout_info}}
+平台目前也支持OracleJDK,但此特性需要在平台里启用才会生效。  
+同时平台默认不内置提供OracleJDK下载,需要在设置里启用OracleJDK后配置相关OracleJDK下载地址。
+{{site.data.alerts.end}}
+
 ### 配置Maven版本
 
 Rainbond默认的推荐Maven版本为`3.3.1`,支持如下版本: `3.0.5`, `3.1.1`, `3.2.5`, `3.3.1`, `3.3.9`.    
@@ -88,6 +94,40 @@ maven.version=3.3.1
 ```
 
 如果指定了Maven版本，则会忽略`mvnw`
+
+{{site.data.alerts.callout_info}}
+平台设置的配置优先级要高于程序代码中定义的配置，如Java JDK版本的选择,在程序代码里通过`system.properties`指定了JDK版本为1.9,在平台上选择了JDK版本为11,那么默认在进行源码编译时会优先使用平台指定的版本JDK11
+{{site.data.alerts.end}}
+
+## 示例demo程序
+
+示例[https://github.com/goodrain/java-maven-demo](https://github.com/goodrain/java-maven-demo.git)是Spring Boot项目。
+
+自定义的Procfile为
+
+```bash
+web: java $JAVA_OPTS -jar target/java-maven-demo-0.0.1.jar
+```
+
+### 本地调试(可选)
+
+如果可以访问管理节点，可以在管理节点测试是否可以正常源码构建
+
+```git
+git clone https://github.com/goodrain/java-maven-demo.git
+cd java-maven-demo
+grctl buildtest
+```
+
+## 推荐阅读
+
+- [Java-Jar源码构建应用](./java-jar.html)
+- [Java-War源码构建应用](./java-jar.html)
+- [Java-Gradle源码构建应用](./java-jar.html)
+- [Spring Boot项目配置MySQL](./java/spring-boot-mysql.html)
+- [Tomcat配置Redis实现Session共享](./java/tomcat-redis-session.html)
+
+<!--
 
 ## 构建高级选项配置
 
@@ -104,44 +144,8 @@ maven.version=3.3.1
 | BUILD_MAVEN_CUSTOM_GOALS|`clean dependency:list install`|Maven构建参数|
 | BUILD_MAVEN_SETTINGS_URL|默认为空|Maven配置地址|
 | BUILD_MAVEN_JAVA_OPTS| `-Xmx1024m` ||
+| BUILD_ENABLE_ORACLEJDK| 默认为空|启用ORACLEJDK|
+| BUILD_ORACLEJDK_URL|默认为空|ORACLEJDK下载路径|
 | NO_CACHE| 默认为空| 不使用缓存 |
 
-## 部署应用
-
-### 本地调试(可选)
-
-如果可以访问管理节点，可以在管理测试是否可以正常源码构建
-
-```bash
-git clone https://github.com/goodrain/java-maven-demo.git
-cd java-maven-demo
-grctl buildtest
-# 如果需要使用高级设置，可使用
-grctl buildtest --env BUILD_DEBUG_URL=true
-```
-
-## 添加数据库依赖
-
-前提是代码里已经配置了可以从环境变量中获取数据库的连接信息如：
-
-- MYSQL_USER
-- MYSQL_PASSWORD
-- MYSQL_HOST
-- MYSQL_PORT
-
-### 首次源码构建
-
-在识别出Java项目后高级设置里，添加依赖数据库依赖
-
-### 构建完成后
-
-如果应用已经构建完成,可以在依赖选项卡里添加依赖，添加完成后更新Java程序
-
-## 推荐阅读
-
-- [Java-Jar源码构建应用](./java-jar.html)
-- [Java-War源码构建应用](./java-jar.html)
-- [Java-Gradle源码构建应用](./java-jar.html)
-- [Spring Boot项目配置MySQL](./java/spring-boot-mysql.html)
-- [Tomcat配置Redis实现Session共享](./java/tomcat-redis-session.html)
-
+-->
