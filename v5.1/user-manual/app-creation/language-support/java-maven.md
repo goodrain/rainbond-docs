@@ -12,12 +12,11 @@ toc: true
 2. [预编译](../../../operation-manual/source-builder/principle/builder.html)处理会探测是否定义了启动命令配置文件[Procfile](./etc/procfile.html),如果未定义会根据打包类型或者项目框架生成默认Procfile文件;
 3. 预编译处理完成后,会根据语言类型选择Java的buildpack去编译项目.在编译过程中会安装定义的JDK版本，Maven版本，然后构建编译Maven源码项目;
 4. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
-5. 最后将编译后的jar包或者war包连同Java编译环境打成slug包
 
 默认Maven构建命令如下
 
 ```bash
-mvn -B -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true clean install
+mvn -DskipTests clean dependency:list install
 ```
 
 ## Maven项目源码规范
@@ -26,18 +25,17 @@ mvn -B -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.
 
 1. 本地可以使用默认Maven命令正常构建的Java Maven源码程序,多模块项目需要确定子模块可以单独编译即`mvn install -pl <modulename> -am`
 2. 源码程序必须托管在gitlab等相关git或者svn服务上
-3. 源码程序根路径下需要存在Java的依赖管理工具Maven所需的`pom.xml`文件 
+3. 源码程序根路径下必须需要存在Java的依赖管理工具Maven所需的`pom.xml`文件 
 
 ### pom.xml规范
 
-1. SpringBoot项目,建议在源码根目录创建Procfile明确定义启动命令,且pom.xml不能包含<packaing>即打包方式不是 war 包
-2. 非SpringBoot项目，要求pom.xml必须需要引入[webapp-runner.jar](https://github.com/jsimone/webapp-runner),打包方式`<packaging>war</packaging>`
+SpringBoot项目,打包方式不推荐使用 war 包方式, 非SpringBoot项目，推荐使用 war 包方`<packaging>war</packaging>`
 
 ### Procfile规范
 
 如果项目未定义Procfile文件,平台默认会根据识别项目类型有以下几种方式运行:
 
-1. 在pom.xml中定义的打包方式为 war 包,平台使用 webapp-runner.jar 将打包的 war 包运行起来，类似启动命令如下：
+1. 在pom.xml中定义的打包方式为 war 包,平台使用 [webapp-runner.jar](https://github.com/jsimone/webapp-runner) 将打包的 war 包运行起来，类似启动命令如下：
 
 ```bash
 web: java $JAVA_OPTS -jar /opt/webapp-runner.jar --port $PORT target/*.war
@@ -62,7 +60,9 @@ web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 
 ### 配置Java版本
 
-当前Rainbond只支持OpenJDK如下版本为：
+#### OpenJDK支持
+
+当前Rainbond支持OpenJDK如下版本为：
 
 - Java 1.6 - `1.6.0_27`
 - Java 1.7 - `1.7.0_95`
@@ -78,10 +78,10 @@ web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 java.runtime.version=1.8
 ```
 
-{{site.data.alerts.callout_info}}
+#### OracleJDK支持
+
 平台目前也支持OracleJDK,但此特性需要在平台里启用才会生效。  
-同时平台默认不内置提供OracleJDK下载,需要在设置里启用OracleJDK后配置相关OracleJDK下载地址。
-{{site.data.alerts.end}}
+默认不内置提供OracleJDK下载,需要在设置里启用OracleJDK后配置相关OracleJDK下载地址。
 
 ### 配置Maven版本
 
@@ -98,6 +98,28 @@ maven.version=3.3.1
 {{site.data.alerts.callout_info}}
 平台设置的配置优先级要高于程序代码中定义的配置，如Java JDK版本的选择,在程序代码里通过`system.properties`指定了JDK版本为1.9,在平台上选择了JDK版本为11,那么默认在进行源码编译时会优先使用平台指定的版本JDK11
 {{site.data.alerts.end}}
+
+### 高级构建选项
+
+在构建高级设置或构建源处启用高级构建特性
+
+##### Maven Mirror配置
+
+| 环境变量     | 默认值        | 说明                     |
+| :------- | :----------- | :----------------------- |
+| BUILD_MAVEN_MIRROR_DISABLE   |         | 默认是启用Maven Mirror                    |
+| BUILD_MAVEN_MIRROR_OF | * |                      |mirrorOf值
+| BUILD_MAVEN_MIRROR_URL | maven.goodrain.me |  平台默认Mirror地址                    |
+
+##### Maven 构建高级配置
+
+| 环境变量     | 默认值        | 说明                     |
+| :------- | :----------- | :----------------------- |
+| BUILD_MAVEN_CUSTOM_OPTS| `-DskipTests`| Maven构建参数|
+| BUILD_MAVEN_CUSTOM_GOALS|`clean dependency:list install`|Maven构建参数|
+| BUILD_MAVEN_SETTINGS_URL||默认为空Maven配置地址|
+| BUILD_MAVEN_JAVA_OPTS|`-Xmx1024m`|默认|
+
 
 ## 示例demo程序
 
@@ -136,16 +158,15 @@ grctl buildtest
 | 环境变量     | 默认值        | 说明                     |
 | :------- | :----------- | :----------------------- |
 | BUILD_PROCFILE   |  默认为空     | 配置此值构建时会重写源码中的Procfile |
-| BUILD_DEBUG_URL   | 默认为空     | 默认不显示资源下载URL                     |
 | BUILD_MAVEN_MIRROR_DISABLE   | 默认为空        | 启用Maven Mirror                    |
 | BUILD_MAVEN_MIRROR_OF | * |                      |
 | BUILD_MAVEN_MIRROR_URL | maven.goodrain.me |  平台默认Mirror地址                    |
-| BUILD_MAVEN_CUSTOM_OPTS| `-DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true`| Maven构建参数|
+| BUILD_MAVEN_CUSTOM_OPTS| `-DskipTests`| Maven构建参数|
 | BUILD_MAVEN_CUSTOM_GOALS|`clean dependency:list install`|Maven构建参数|
 | BUILD_MAVEN_SETTINGS_URL|默认为空|Maven配置地址|
 | BUILD_MAVEN_JAVA_OPTS| `-Xmx1024m` ||
 | BUILD_ENABLE_ORACLEJDK| 默认为空|启用ORACLEJDK|
 | BUILD_ORACLEJDK_URL|默认为空|ORACLEJDK下载路径|
-| NO_CACHE| 默认为空| 不使用缓存 |
+
 
 -->
