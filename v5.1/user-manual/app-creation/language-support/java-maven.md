@@ -146,7 +146,7 @@ grctl buildtest
 ## 推荐阅读
 
 - [Java-Jar源码构建应用](./java-jar.html)
-- [Java-War源码构建应用](./java-jar.html)
-- [Java-Gradle源码构建应用](./java-jar.html)
+- [Java-War源码构建应用](./java-war.html)
+- [Java-Gradle源码构建应用](./java-gradle.html)
 - [Spring Boot项目配置MySQL](./java/spring-boot-mysql.html)
 - [Tomcat配置Redis实现Session共享](./java/tomcat-redis-session.html)
