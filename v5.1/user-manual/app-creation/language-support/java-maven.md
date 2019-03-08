@@ -8,7 +8,7 @@ toc: true
 
 ## 平台编译运行机制
 
-1. 平台默认会通过pom.xml来识别源码项目为Java Mvaen项目;
+1. 平台默认会通过pom.xml来识别源码项目为Java Maven项目;
 2. [预编译](../../../operation-manual/source-builder/principle/builder.html)处理会探测是否定义了启动命令配置文件[Procfile](./etc/procfile.html),如果未定义会根据打包类型或者项目框架生成默认Procfile文件;
 3. 预编译处理完成后,会根据语言类型选择Java的buildpack去编译项目.在编译过程中会安装定义的JDK版本，Maven版本，然后构建编译Maven源码项目;
 4. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
@@ -29,23 +29,26 @@ mvn -DskipTests clean dependency:list install
 
 ### pom.xml规范
 
-SpringBoot项目打包方式不推荐使用 war 包方式(即pom中不能有<packaging>), 非SpringBoot项目推荐使用 war 包方`<packaging>war</packaging>`
+SpringBoot项目打包方式推荐使用 jar 包方式
+非SpringBoot项目打包方式推荐使用 war 包方式
 
 ### Procfile规范
 
-如果项目未定义Procfile文件,平台默认会根据识别项目类型有以下几种方式运行:
+如果项目未定义Procfile文件,平台默认会根据识别项目类型生成默认Procfile。
 
-1. 在pom.xml中定义的打包方式为 war 包,平台使用 [webapp-runner.jar](https://github.com/jsimone/webapp-runner) 将打包的 war 包运行起来，类似启动命令如下：
+- 打包方式为 war 包,平台使用 [webapp-runner.jar](https://github.com/jsimone/webapp-runner) 将打包的 war 包运行起来。示例
 
 ```bash
 web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT target/*.war
 ```
 
-2. 如果是SpringBoot的项目且打包方式不是 war 包, 类型启动命令如下
+- 打包方式为 jar 包,示例
 
 ```bash
 web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 ```
+
+上述是默认Procfile,如果需要扩展更多启动参数,可以自定义Procfile。
 
 {{site.data.alerts.callout_info}}
 1. `web:`和`java`之间有一个空格
@@ -54,7 +57,6 @@ web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 4. JAVA_OPTS: 平台会根据应用的内存大小，自动设置Xmx和Xms的值
 5. PORT: 根据用户在平台设置的端口决定监听，默认监听端口为 5000
 {{site.data.alerts.end}}
-
 
 ## 编译运行环境设置
 
