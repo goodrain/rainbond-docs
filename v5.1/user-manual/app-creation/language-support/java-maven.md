@@ -29,7 +29,7 @@ mvn -DskipTests clean dependency:list install
 
 ### pom.xml规范
 
-SpringBoot项目,打包方式不推荐使用 war 包方式, 非SpringBoot项目，推荐使用 war 包方`<packaging>war</packaging>`
+SpringBoot项目打包方式不推荐使用 war 包方式(即pom中不能有<packaging>), 非SpringBoot项目推荐使用 war 包方`<packaging>war</packaging>`
 
 ### Procfile规范
 
@@ -38,7 +38,7 @@ SpringBoot项目,打包方式不推荐使用 war 包方式, 非SpringBoot项目�
 1. 在pom.xml中定义的打包方式为 war 包,平台使用 [webapp-runner.jar](https://github.com/jsimone/webapp-runner) 将打包的 war 包运行起来，类似启动命令如下：
 
 ```bash
-web: java $JAVA_OPTS -jar /opt/webapp-runner.jar --port $PORT target/*.war
+web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT target/*.war
 ```
 
 2. 如果是SpringBoot的项目且打包方式不是 war 包, 类型启动命令如下
@@ -148,25 +148,3 @@ grctl buildtest
 - [Java-Gradle源码构建应用](./java-jar.html)
 - [Spring Boot项目配置MySQL](./java/spring-boot-mysql.html)
 - [Tomcat配置Redis实现Session共享](./java/tomcat-redis-session.html)
-
-<!--
-
-## 构建高级选项配置
-
-默认平台 Java-Maven 源码构建Buildpack支持如下参数选项,进行源码构建高级配置设定，可以根据自己需求在环境变量里设置,构建时生效.
-
-| 环境变量     | 默认值        | 说明                     |
-| :------- | :----------- | :----------------------- |
-| BUILD_PROCFILE   |  默认为空     | 配置此值构建时会重写源码中的Procfile |
-| BUILD_MAVEN_MIRROR_DISABLE   | 默认为空        | 启用Maven Mirror                    |
-| BUILD_MAVEN_MIRROR_OF | * |                      |
-| BUILD_MAVEN_MIRROR_URL | maven.goodrain.me |  平台默认Mirror地址                    |
-| BUILD_MAVEN_CUSTOM_OPTS| `-DskipTests`| Maven构建参数|
-| BUILD_MAVEN_CUSTOM_GOALS|`clean dependency:list install`|Maven构建参数|
-| BUILD_MAVEN_SETTINGS_URL|默认为空|Maven配置地址|
-| BUILD_MAVEN_JAVA_OPTS| `-Xmx1024m` ||
-| BUILD_ENABLE_ORACLEJDK| 默认为空|启用ORACLEJDK|
-| BUILD_ORACLEJDK_URL|默认为空|ORACLEJDK下载路径|
-
-
--->
