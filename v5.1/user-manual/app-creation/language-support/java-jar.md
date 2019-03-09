@@ -26,7 +26,7 @@ toc: true
 如果项目未定义Procfile文件,平台默认会生成默认Procfile来运行Jar包。
 
 ```bash
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar ./*.jar
 ```
 
 上述是默认Procfile,如果需要扩展更多启动参数,可以自定义Procfile。

@@ -1,14 +1,21 @@
 ---
-title: Python源码创建
-summary: 通过Python源码创建
+title:  Python源码构建应用
+summary: Python源码构建应用
 toc: true
 ---
 
-云帮支持部署和伸缩Python应用程序。无论您喜欢`Django`或`Flask`等框架，Rainbond都可以使用。本文将在几分钟教你学会在Rainbond部署一个Python程序。
+> 本教程将帮助你在几分钟内熟悉Rainbond如何快速部署Python源码程序。
 
-## 一、准备工作
+## 平台编译运行机制
 
-在此步骤中，您将准备一个可以部署的简单应用程序，至少需要满足前4个条件: 
+1. 平台默认会根据源码根目录是否有requirements.txt文件来识别为Python项目;
+2. [预编译](../../../operation-manual/source-builder/principle/builder.html)处理会探测是否定义了启动命令配置文件[Procfile](./etc/procfile.html),如果未定义会生成默认Flask/Django启动配置文件;
+3. 预编译处理完成后,会根据语言类型选择Python的buildpack去编译项目.在编译过程中会安装定义的Python版本以及相关Python依赖;
+4. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
+
+## Python项目源码规范
+
+在此步骤中，你需要提供一个可用的Python源码程序用来部署在Rainbond平台上,此应用程序至少需要满足如下条件:
 
 - 本地可以正常运行部署的Python程序  
 - 项目可以托管到git仓库  
@@ -16,60 +23,35 @@ toc: true
 - 项目根目录下需要定义`Procfile`,用来定义程序启动方式
 - 项目根目录下存在`runtime.txt`,用来定义当前项目的Python使用版本  
 
-示例: [python-demo](https://github.com/goodrain/python-demo)
+### requirements.txt 规范
 
-## 二、识别Python语言
-
-通过检测到代码的根目录下是否存在`requirements.txt`文件来识别应用为Python应用。
-
-{% include copy-clipboard.html %}
+若程序没有依赖关系，可使`requirements.txt`为空文件。
+若无`requirements.txt`可用如下命令生成
 
 ```bash
 pip freeze > requirements.txt
 ```
 
-演示应用程序(python-demo)已经有一个`requirements.txt`，它的内容如下：
+### Procfile规范
 
-```bash
-Flask==1.0.2
-gunicorn==19.9.0
-```
-
-该`requirements.txt`文件列出应用程序依赖关系及其版本。部署应用程序时，云帮会读取此文件，并使用命令安装Python依赖关系。
-
-{% include copy-clipboard.html %}
-
-```bash
-# 项目的根目录执行如下命令
-pip install -r requirements.txt
-```
-
-{{site.data.alerts.callout_success}}
-
-若程序没有依赖关系，可使`requirements.txt`为空文件。
-
-{{site.data.alerts.end}}
-
-## 三、定义程序启动命令
-
-需要您在代码根目录创建 [Procfile](etc/procfile.html) 文件来指定启动应用的命令，并写入如下内容：
-
-{% include copy-clipboard.html %}
+如果项目未定义Procfile文件,平台默认会生成默认Procfile来运行War包。
 
 ```bash
 web: gunicorn app:app --log-file - --access-logfile - --error-logfile -
 ```
 
+上述是默认Procfile,如果需要扩展更多启动参数,可以自定义Procfile。
+
 {{site.data.alerts.callout_info}}
-
-**web** : 定义该应用的服务类型为web 平台会自动将该应用添加到全局负载均衡中。    
-**gunicorn** : Python WSGI HTTP Server for UNIX 
-
+1. `web:`和`gunicorn`之间有一个空格
+2. 文件结尾不能包含特殊字符
 {{site.data.alerts.end}}
 
-## 四、Python版本选择
+## 编译运行环境设置
 
-如果未定义runtime.txt, Rainbond将会默认使用`Python2.7.15`版本, 也可以通过在根目录下增加一个 `runtime.txt`文件来自定义版本：
+### 配置Python版本
+
+推荐使用runtime.txt来定义Python版本,若未定义,Rainbond将会默认使用`python-3.6.6`版本。
 
 ```bash
 $ cat runtime.txt
@@ -90,21 +72,19 @@ python-2.7.9 python-2.7.10 python-2.7.13 python-2.7.14 python-2.7.15
 python-3.4.3
 python-3.5.3 
 python-3.6.0 python-3.6.1 python-3.6.2 python-3.6.3 python-3.6.4 python-3.6.5 python-3.6.6 
-python-3.7.0 python-3.7.1
+python-3.7.0
 ```
 
-## 五、构建特性
 
-在源码识别通过后,选择高级设置,配置环境变量来自定义PIP源, 默认为中科大镜像源,也可以自定义其他镜像源，如公司的内部pypi源等，示例如下：
+### 高级构建选项
 
-```
-变量名:变量值
-BUILD_PIP_INDEX_URL:https://pypi.tuna.tsinghua.edu.cn/simple
-```
+在构建高级设置或构建源处启用高级构建特性
 
-如果已经构建过后的应用, 可以应用的其他设置的配置`BUILD_PIP_INDEX_URL`环境变量,下次构建会使用配置的pypi源
+| 环境变量     | 默认值        | 说明                     |
+| :------- | :----------- | :----------------------- |
+| BUILD_PIP_INDEX_URL|https://pypi.tuna.tsinghua.edu.cn/simple| Pypi源                    |
 
-## 六、Django 静态文件支持
+### Django 静态文件支持
 
 由于 [Django](https://www.djangoproject.com/) 的静态文件支持（CSS、图片等）不是很容易配置而且不方便调试，这里给出一个示例：
 
@@ -136,6 +116,10 @@ $ python manage.py collectstatic --noinput
 ```
 
 用户可以手工禁用上述特性，只需要在应用的环境变量里配置 `BUILD_DISABLE_COLLECTSTATIC` 的值为 1。
+
+## 示例demo程序
+
+示例[https://github.com/goodrain/python-demo](https://github.com/goodrain/python-demo.git)
 
 <!--
 ## 七、Whitenoise
