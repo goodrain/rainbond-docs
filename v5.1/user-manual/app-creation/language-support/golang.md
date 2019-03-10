@@ -1,20 +1,42 @@
 ---
-title: Golang源码创建
-summary: 通过Golang源码创建
+title: Golang源码构建应用
+summary: Golang源码构建应用
 toc: true
 ---
 
-Go，又称golang，是Google开发的一种静态强类型、编译型，并发型，并具有垃圾回收功能的编程语言。通过云帮您可以轻松部署和扩展Go应用。无论你是喜欢`Beego`框架,还是`Martini`等框架，云帮都会让您以喜欢的方式来构建应用。
+> 本教程将帮助你在几分钟内熟悉Rainbond如何快速部署Golang源码程序。
 
-## 一、代码识别
+## 平台编译运行机制
 
-当buildpack检查您的应用含有如下情况时，您的应用被识别为Go应用：
+1. 平台默认会根据源码根目录是否有`<文件名>.go`来识别为Golang项目;
+2. 预编译处理完成后,会根据语言类型选择Go的buildpack去编译项目.在编译过程中会安装定义的Golang版本;
+3. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
 
-- 在根目录的`/Godeps`目录下有`Godeps.json`文件，标识应用由[godep](https://devcenter.heroku.com/articles/go-dependencies-via-godep)管理。
-- 在根目录的`/vendor`目录下有`Govendor.json`文件，标识应用由[govendor](https://devcenter.heroku.com/articles/go-dependencies-via-govendor)管理。
-- 在根目录的`/src`目录下包含`<文件名>.go`文件，标识应用由[gb](https://devcenter.heroku.com/articles/go-dependencies-via-gb)管理。
+## Golang项目源码规范
 
-## 二、Go支持版本
+在此步骤中，你需要提供一个可用的Go源码程序用来部署在Rainbond平台上,此应用程序至少需要满足如下条件:
+
+1. 本地可以正常运行的`go build`,`go run`
+2. 源码程序必须托管在gitlab等相关git或者svn服务上
+3. 在根目录的`/Godeps`目录下有`Godeps.json`文件，标识应用由[godep](https://devcenter.heroku.com/articles/go-dependencies-via-godep)管理;在根目录的`/vendor`目录下有`Govendor.json`文件，标识应用由[govendor](https://devcenter.heroku.com/articles/go-dependencies-via-govendor)管理;在根目录的`/src`目录下包含`<文件名>.go`文件，标识应用由[gb](https://devcenter.heroku.com/articles/go-dependencies-via-gb)管理。
+
+### Procfile规范
+
+必须定义Procfile
+
+```bash
+web: hello
+```
+
+{{site.data.alerts.callout_info}}
+1. `web:`和`hello`之间有一个空格
+2. 文件结尾不能包含特殊字符
+3. `hello`为编译后的二进制
+{{site.data.alerts.end}}
+
+## 编译运行环境设置
+
+### 配置Golang版本
 
 主流支持版本 `go1.10.5`,`go1.11.2`，云帮默认版本 `go1.11.2`。
 
@@ -23,7 +45,7 @@ Go，又称golang，是Google开发的一种静态强类型、编译型，并发
 go1.9.7 go1.8.7 go1.11.2 go1.11 go1.11.1 go1.10.5 go1.10.4
 ```
 
-## 三、Go Tools版本
+### Go Tools版本
 
 - Dep
   默认支持版本v0.4.1
@@ -42,25 +64,9 @@ go1.9.7 go1.8.7 go1.11.2 go1.11 go1.11.1 go1.10.5 go1.10.4
 - MattesMigrate
   默认支持版本v3.0.0
 
-## 四、定义启动命令
+## 示例demo程序
 
-在项目的根目录定义`Procfile`
+示例[https://github.com/goodrain/go-demo](https://github.com/goodrain/go-demo.git)
 
-```bash
-$cat Procfile
-web: hello
-```
+## 推荐阅读
 
-其中 `hello`,就是Go项目编译后的二进制文件。
-
-## 五、构建特性
-
-在源码识别通过后,选择高级设置,配置环境变量来自定义Go的版本。
-
-```bash
-BUILD_GOVERSION: go1.8.7
-```
-
-## 五、示例代码
-
-- [Go示例代码](https://github.com/goodrain/go-demo.git)

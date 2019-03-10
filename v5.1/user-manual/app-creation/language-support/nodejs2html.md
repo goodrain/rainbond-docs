@@ -1,42 +1,48 @@
 ---
-title: NodeJS源码构建应用
-summary: NodeJS源码构建应用
+title: NodeJS前端类源码构建应用
+summary: NodeJS前端类源码构建应用
 toc: true
 ---
 
-> 本教程将帮助你在几分钟内熟悉Rainbond如何快速部署NodeJS源码程序。
+> 本教程将帮助你在几分钟内熟悉Rainbond如何快速部署NodeJS前端类源码程序。
 
 ## 平台编译运行机制
 
-1. 平台默认会根据源码根目录是否有`package.json`来识别为NodeJS项目;
-2. [预编译](../../../operation-manual/source-builder/principle/builder.html)处理会探测是否定义了启动命令配置文件[Procfile](./etc/procfile.html),如果未定义会读取`package.json`文件中的`script.start`值来生成启动配置文件;
-3. 预编译处理完成后,会根据语言类型选择nodejs的buildpack去编译项目.在编译过程中会安装定义的Node版本以及Nodejs相关依赖;
-4. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
+1. 平台默认会根据源码根目录是否有`package.json`和`nodestatic.json`文件来识别为NodeJS前端类项目;
+2. 预编译处理完成后,会根据语言类型选择nodejstatic的buildpack去编译项目.在编译过程中会安装定义的Node版本以及Nodejs相关依赖,安装默认web服务nginx;
+3. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
 
-## NodeJS项目源码规范
+## NodeJS前端项目源码规范
 
 在此步骤中，你需要提供一个可用的NodeJS源码程序用来部署在Rainbond平台上,此应用程序至少需要满足如下条件:
 
 1. 本地可以正常运行的NodeJS项目
 2. 源码程序必须托管在gitlab等相关git或者svn服务上
-3. 源码程序根路径下必须存在`package.json`,用来管理NodeJS项目的依赖,也是Rainbond识别为NodeJS语言的必要条件
+3. 源码程序根路径下必须存在`package.json`,用来管理NodeJS项目的依赖,是Rainbond识别为NodeJS前端类语言的必要条件
+4. 代码的根目录下必须有`nodestatic.json`文件，是Rainbond识别为NodeJS前端类语言的必要条件
 
-{{site.data.alerts.callout_info}}
-NodeJS前端项目源码构建请参考 [NodeJS前端项目](./nodejs2html.html)
-{{site.data.alerts.end}}
+
+### nodestatic.json规范
+
+用于定义NodeJS编译后文件路径。
+
+```
+# cat nodestatic.json
+{"path":"<编译后路径>"}
+```
 
 ### Procfile规范
 
-如果项目未定义Procfile文件,平台会根据`package.json`文件中的`script.start`值来生成默认Procfile。
+如果未定义Procfile，会生成如下默认Procfile
 
 ```bash
-web: npm start
+web: sh boot.sh
 ```
 
 上述是默认Procfile,如果需要扩展更多启动参数,可以自定义Procfile。
 
 {{site.data.alerts.callout_info}}
-1. `web:`和`npm`之间有一个空格
+1. `web:`和`sh`之间有一个空格
 2. 文件结尾不能包含特殊字符
 {{site.data.alerts.end}}
 
@@ -136,10 +142,26 @@ Node项目支持使用[npm package manager](https://www.npmjs.com/) 和 [yarn pa
 系统默认不自带 grunt、gulp、bower 这些工具，但是会安装 `package.json` 中 `dependencies` 和`devDependencies` 节点下的依赖，所以自定义执行的命令也需要作为依赖添加到此节点下，否则可能会找不到命令，这些工具执行时需要的依赖也是如此。
 {{site.data.alerts.end}}
 
+### Web服务支持
+
+Web默认支持Nginx,目前Nginx版本为1.14.2。如果需要自定义配置Nginx，需要在源代码根目录添加`web.conf`(需要符合Nginx配置文件语法)。
+
+默认配置文件`web.conf`
+
+```bash
+server {
+    listen       80;
+    
+    location / {
+        root   /app/www;
+        index  index.html index.htm;
+    }
+}
+```
 
 ## 示例demo程序
 
-示例[https://github.com/goodrain/nodejs-demo](https://github.com/goodrain/nodejs-demo)
+示例[https://github.com/goodrain/rainbond-ui](https://github.com/goodrain/rainbond-ui.git)
 
 ## 推荐阅读
 

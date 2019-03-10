@@ -4,18 +4,45 @@ summary: 基于静态HTML源码创建应用
 toc: true
 ---
 
-## 代码识别
+> 本教程将帮助你在几分钟内熟悉Rainbond如何快速部署静态语言源码程序。
 
-您的代码根目录需要有一个 `index.html` ，云帮会识别为Static(静态网页)语言。您也可以使用如下命令在您代码的根目录创建`index.html`:
-{% include copy-clipboard.html %}
+## 平台编译运行机制
+
+1. 平台默认会根据源码根目录是否有`index.html`文件来识别为静态语言项目;
+2. 预编译处理完成后,会根据语言类型选择static的buildpack去编译项目.在编译过程中会安装定义的Web服务Nginx或者Apache;
+3. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
+
+## 静态语言项目源码规范
+
+1. 源码程序必须托管在gitlab等相关git或者svn服务上
+2. 源码根目录需要存在`index.html`文件
+
+### Procfile规范
+
+如果未定义Procfile，会生成如下默认Procfile
 
 ```bash
-echo '<h1>hello world!</h1>' > index.html
+web: sh boot.sh
 ```
 
-## 代码运行
+### Web服务支持
 
-静态代码Rainbond支持以Nginx和Apache中间件运行，通过 `服务管理`-`构建源设置` 设置。
+> 默认使用最新稳定版本Nginx
+
+#### 自定义Nginx配置
+
+需要在源码根目录定义nginx配置文件：web.conf,默认配置文件为
+
+```
+server {
+    listen       80;
+    
+    location / {
+        root   /app/www;
+        index  index.html index.htm;
+    }
+}
+```
 
 ## 示例代码
 
