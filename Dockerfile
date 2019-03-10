@@ -1,31 +1,16 @@
-FROM goodrainapps/jekyll:3.6.2
+FROM alpine:3.8
 
-MAINTAINER zhouyq@goodrain.com
+# install hugo
+RUN apk add --no-cache bash net-tools && \
+    wget https://github.com/gohugoio/hugo/releases/download/v0.54.0/hugo_0.54.0_Linux-64bit.tar.gz && \
+    tar -zxvf hugo_0.54.0_Linux-64bit.tar.gz -C /usr/local/bin/ && \
+    rm -rf hugo_0.54.0_Linux-64bit.tar.gz
+
+# copy doc
+ADD . /app
+WORKDIR /app
+EXPOSE 1313
+
+CMD ["hugo","server","--bind","0.0.0.0"]
 
 
-# set timezone and install nginx
-ENV TZ=Asia/Shanghai
-RUN apk add --no-cache tzdata nginx \
-    && mkdir /run/nginx \
-    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" >  /etc/timezone
-
-
-# add cron
-# RUN crontab -l | { cat; echo "* * * * * cd /srv/jekyll;./build.sh "; } | crontab -
-
-WORKDIR /srv/jekyll
-
-COPY Gemfile /srv/jekyll
-COPY Gemfile.lock /srv/jekyll
-
-# 安装组件
-RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.com && bundle
-#RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org && bundle
-
-COPY . /srv/jekyll
-COPY etc /etc
-
-EXPOSE 80
-EXPOSE 4000
-ENTRYPOINT ["/srv/jekyll/run.sh"]

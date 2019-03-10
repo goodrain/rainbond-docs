@@ -1,0 +1,9 @@
+baseURL = "http://www.rainbond.com/"
+languageCode = "zh-cn"
+title = "Rainbond文档中心"
+theme = "hugo-theme-learn"
+[params]
+  editURL = "https://github.com/goodrain/rainbond-docs/edit/V5.1/content/"
+  showVisitedLinks = true
+[outputs]
+  home = [ "HTML", "RSS", "JSON"]  

@@ -1,6 +1,6 @@
 # Rainbond Docs
 
-This repository contains the source files for the Rainbond documentation available at [www.rainbond.com/docs/stable](https://www.rainbond.com/docs/stable/).
+This repository contains the source files for the Rainbond documentation available at [www.rainbond.com](https://www.rainbond.com/docs/v5.1).
 
 ## Suggest Improvements
 
@@ -8,4 +8,4 @@ Want a topic added to the docs? Need additional details or clarification? See an
 
 ## Write Docs
 
-Want to contribute to the docs? See [CONTRIBUTING](CONTRIBUTING.md) for details about setting yourself up and getting started.
+We welcome your contributions to the Rainbond documentation and look forward to your PR.
