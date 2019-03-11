@@ -13,7 +13,7 @@ description: "Rainbond安装教程引导"
 
 > 此方式适用于你使用阿里云服务资源，此方式我们将使用阿里云 ECS+NAS+专有网络(弹性IP)等资源。
 
-安装请阅读： [基于阿里云资源安装Rainbond](../operation-manual/install/alicloud/install-base-alicloud.html)
+安装请阅读： [基于阿里云资源安装Rainbond](/user-operations/install/install-base-alicloud/)
 
 #### Rainbond高可用集群安装
 
