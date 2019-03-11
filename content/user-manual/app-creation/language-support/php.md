@@ -1,6 +1,6 @@
 ---
 title: PHP
-description: 部署PHP源码服务到Rainbond
+description: PHP语言类型Rainbond支持规范介绍
 weight: 3308
 hidden: true
 ---

@@ -9,7 +9,7 @@ hidden: true
 ## 平台编译运行机制
 
 1. 平台默认会通过pom.xml来识别源码项目为Java Maven项目;
-2. [预编译](../../../operation-manual/source-builder/principle/builder.html)处理会探测是否定义了启动命令配置文件[Procfile](./etc/procfile.html),如果未定义会根据打包类型或者项目框架生成默认Procfile文件;
+2. [预编译](../../../operation-manual/source-builder/principle/builder.html)处理会探测是否定义了启动命令配置文件[Procfile](../etc/procfile/),如果未定义会根据打包类型或者项目框架生成默认Procfile文件;
 3. 预编译处理完成后,会根据语言类型选择Java的buildpack去编译项目.在编译过程中会安装定义的JDK版本，Maven版本，然后构建编译Maven源码项目;
 4. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
 

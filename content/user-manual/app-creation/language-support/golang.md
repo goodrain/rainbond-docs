@@ -1,6 +1,6 @@
 ---
 title: Golang
-description: 通过Golang源码创建Rainbond服务
+description: Golang语言类型Rainbond支持规范介绍
 weight: 3310
 hidden: true
 ---

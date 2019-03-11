@@ -1,5 +1,5 @@
 +++
-title = "操作手册"
+title = "使用手册"
 chapter = true
 menu = "user-manual"
 weight = 1000

@@ -1,6 +1,6 @@
 ---
 title: Python
-description: 将Python源码部署到Rainbond
+description: Python语言类型Rainbond支持规范介绍
 weight: 3306
 hidden: true
 ---

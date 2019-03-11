@@ -5,9 +5,9 @@ hidden: true
 draft: true
 ---
 
-PHP 有内置的Web Server，但它只适用于debug，生产环境中我们推荐大家通过[Procfile](../etc/procfile.html)文件来描述PHP 使用的Web Server，当然如果你的代码中没有包含[Procfile](../etc/procfile.html)，我们在创建应用向导中会提示你选择一个Web Server。
+PHP 有内置的Web Server，但它只适用于debug，生产环境中我们推荐大家通过[Procfile](.../etc/procfile/)文件来描述PHP 使用的Web Server，当然如果你的代码中没有包含[Procfile](.../etc/procfile/)，我们在创建应用向导中会提示你选择一个Web Server。
 
-本篇文档介绍了通过[Procfile](../etc/procfile.html)自定义Web Server，以及如何指定自定义的Web Server配置和PHP的配置。
+本篇文档介绍了通过[Procfile](.../etc/procfile/)自定义Web Server，以及如何指定自定义的Web Server配置和PHP的配置。
 
 ## 一、自定义Web Server
 
@@ -24,7 +24,7 @@ PHP 有内置的Web Server，但它只适用于debug，生产环境中我们推�
 
 这些脚本会在构建PHP环境时安装在代码根目录的 vendor/bin 目录中，因此在选择使用不同的启动脚本时需要指定完整执行目录，如： vendor/bin/heroku-php-apache2
 
-下面介绍如何在[Procfile](../etc/procfile.html)文件中自定义Web Server：
+下面介绍如何在[Procfile](.../etc/procfile/)文件中自定义Web Server：
 
 ### 1.1 Nginx＋PHP
 
@@ -54,7 +54,7 @@ web: vendor/bin/heroku-hhvm-apache2
 
 很多用户的应用并不是将代码跟目录作为Web Server的主目录，例如利用流行的PHP 框架 Laravel 写的程序，它要求Document root 是 public 目录。
 
-下面的示例使用Apache和PHP，并且将Document root 设置到 跟目录中下的`/public`二级目录中，那么你的 [Procfile](../etc/procfile.html) 文件应该这样写：
+下面的示例使用Apache和PHP，并且将Document root 设置到 跟目录中下的`/public`二级目录中，那么你的 [Procfile](.../etc/procfile/) 文件应该这样写：
 
 
 
@@ -140,7 +140,7 @@ RewriteRule .? - [L]
 RewriteRule .? %{ENV:BASE}/app.php [L]
 ```
 
-这里我配置了一些rewrite规则，当我添加了新的apache配置文件后，只需要在启动描述文件[Procfile](../etc/procfile.html)中添加 -C 参数配置一下就可以加载配置文件了：
+这里我配置了一些rewrite规则，当我添加了新的apache配置文件后，只需要在启动描述文件[Procfile](.../etc/procfile/)中添加 -C 参数配置一下就可以加载配置文件了：
 
 
 
@@ -173,7 +173,7 @@ location ~ ^/(app|app_dev|config)\.php(/|$) {
 {{% notice note %}}
 internal 选项是为了确认到达 `/app.php` 的请求都是通过rewrite过来的。
 {{% /notice %}}
-与自定义Apache的配置类似，最终需要在[Procfile](../etc/procfile.html)文件中通过-C 参数指定一下新添加的配置文件：
+与自定义Apache的配置类似，最终需要在[Procfile](.../etc/procfile/)文件中通过-C 参数指定一下新添加的配置文件：
 
 ```bash
 web: vendor/bin/heroku-php-nginx -C nginx_app.conf
@@ -195,7 +195,7 @@ Web server 默认监听5000 端口，这也是平台所有HTTP协议的默认端
 云帮提供了多种方式自定义 `php.in`i 中的配置。
 
 - 通过在PHP程序中通过[ini_set](http://docs.php.net/ini_set)的方式；
-- 在源码跟目录中添加一个PHP-FPM格式的配置文件，通过[Procfile](../etc/procfile.html)在启动应用时加载；
+- 在源码跟目录中添加一个PHP-FPM格式的配置文件，通过[Procfile](.../etc/procfile/)在启动应用时加载；
 - 在源码根目录中添加一个 `.user.ini` 文件，PHP-FPM 会在启动时自动加载；
 
 #### 2.1.1 `.user.ini` 文件 (推荐)
@@ -224,7 +224,7 @@ PHP 程序执行之前会在其目录下读取 `.user.ini` 文件中的内容来
 php_value[always_populate_raw_post_data]=-1
 ```
 
-当然我们还是需要通过[Procfile](../etc/procfile.html)文件来指定这个配置文件：
+当然我们还是需要通过[Procfile](.../etc/procfile/)文件来指定这个配置文件：
 
 
 
@@ -280,7 +280,7 @@ echo memory_limit = 8M > .user.ini
 {{% notice info %}}
 内存大小单位是M，请使用大写
 {{% /notice %}}
-如果用户代码不再根目录，需要在[Procfile](../etc/procfile.html)中指定根目录位置，然后再将.user.ini放在代码根目录中。
+如果用户代码不再根目录，需要在[Procfile](.../etc/procfile/)中指定根目录位置，然后再将.user.ini放在代码根目录中。
 修改完文件后提交代码，部署应用时会看到如下日志信息：
 
 ```bash
@@ -298,7 +298,7 @@ Optimizing php-fpm worker for 128M Memory....
 php_value[memory_limit] = 64M
 ```
 
-想要这个配置生效，还需要代码根目录中创建 [Procfile](../etc/procfile.html) 文件，通过 -F 参数指定一下，这样php-fpm启动的时候就可以加载这个自定义的配置文件了，下面是[Procfile](../etc/procfile.html)文件的内容示例：
+想要这个配置生效，还需要代码根目录中创建 [Procfile](.../etc/procfile/) 文件，通过 -F 参数指定一下，这样php-fpm启动的时候就可以加载这个自定义的配置文件了，下面是[Procfile](.../etc/procfile/)文件的内容示例：
 
 ```bash
 web: vendor/bin/heroku-php-apache2 -F fpm_custom.conf

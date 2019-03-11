@@ -6,4 +6,4 @@ theme = "hugo-theme-learn"
   editURL = "https://github.com/goodrain/rainbond-docs/edit/V5.1-new/content/"
   showVisitedLinks = true
 [outputs]
-  home = [ "HTML", "RSS", "JSON"]  
+  home = [ "HTML", "RSS", "JSON"]

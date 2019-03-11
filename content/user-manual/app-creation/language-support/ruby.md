@@ -1,6 +1,6 @@
 ---
 title: Ruby
-description: 将ruby源码部署到Rainbond
+description: Ruby语言类型Rainbond支持规范介绍
 weight: 3322
 hidden: true
 ---

@@ -33,4 +33,4 @@ cmd: java -jar xxxx.jar
 * ports 服务端口列表
 * envs 服务环境变量列表
 * buildpath 服务主目录不在当前目录时有用，指定二级目录地址
-* cmd 指定服务运行方式，适用于Dockerfile、NetCore源码类型，其他语言通过[Procfile](./procfile.html)指定运行方式
+* cmd 指定服务运行方式，适用于Dockerfile、NetCore源码类型，其他语言通过[Procfile](../procfile/)指定运行方式

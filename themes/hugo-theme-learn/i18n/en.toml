@@ -29,7 +29,7 @@
 other = "搜索..."
 
 [Clear-History]
-other = "清楚浏览历史"
+other = "清除浏览历史"
 
 [Attachments-label]
 other = "附件"

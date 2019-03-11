@@ -1,6 +1,6 @@
 ---
 title: Java
-description: 基于Java maven jar包 war包 类型创建Rainbond服务
+description: Java语言类型Rainbond支持规范介绍,支持Maven、Gradle构建和Jar包、War包部署
 weight: 3304
 menu: "java"
 hidden: true

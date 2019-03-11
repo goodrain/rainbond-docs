@@ -1,6 +1,6 @@
 ---
 title: 静态HTML
-description: 基于静态HTML源码创建应用
+description: 静态Html语言类型Rainbond支持规范介绍
 weight: 3312
 hidden: true
 ---

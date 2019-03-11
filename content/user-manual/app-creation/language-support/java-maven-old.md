@@ -25,7 +25,7 @@ cd java-maven-demo
 
 ## 定义启动命令
 
-Rainbond源码构建应用程序使用[Procfile](./etc/procfile.html)的特殊声明文件来明确声明应该执行什么命令来启动你的应用程序。
+Rainbond源码构建应用程序使用[Procfile](../etc/procfile/)的特殊声明文件来明确声明应该执行什么命令来启动你的应用程序。
 
 ```bash
 web: java $JAVA_OPTS -jar target/spring-boot-demo-0.0.1.jar

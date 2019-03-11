@@ -1,6 +1,6 @@
 ---
 title: Node.JS
-description: 通过Node.JS源码创建Rainbond服务
+description: NodeJS语言类型Rainbond支持规范介绍
 weight: 3320
 hidden: true
 ---
@@ -145,11 +145,11 @@ Node项目支持使用[npm package manager](https://www.npmjs.com/) 和 [yarn pa
 
 Procfile 文件不是必须的，系统会检查 `package.json` 里的 `scripts.start` 项，如果存在，系统会使用 `scripts.start` 里的命令做为启动命令，参考上一节里 `package.json` 示例里的 `scripts.start` 脚本。
 
-另外，您也可以自行创建  [Procfile](./etc/procfile.html)  来指定应用启动命令，如：
+另外，您也可以自行创建  [Procfile](../etc/procfile/)  来指定应用启动命令，如：
 
 
 ```bash
 web: npm start
 ```
-系统会优先使用  [Procfile](./etc/procfile.html)  中的启动命令。
-{{% notice info %}}请注意  [Procfile](./etc/procfile.html)  的语法，冒号后在有一个空格。{{% /notice %}}
+系统会优先使用  [Procfile](../etc/procfile/)  中的启动命令。
+{{% notice info %}}请注意  [Procfile](../etc/procfile/)  的语法，冒号后在有一个空格。{{% /notice %}}

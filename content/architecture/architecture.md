@@ -4,16 +4,16 @@ weight: 206
 describe: Rainbond 技术架构
 ---
 
-## 一、Rainbond技术架构
+#### Rainbond技术架构
 
 <img width="100%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/architecture.svg"></img>
 
 Rainbond践行以应用为中心的理念，吸纳优秀的社区解决方案，形成了应用控制、应用运行时，集群控制三大模块结合的数据中心技术架构，结合跨数据中心的上层结构应用控制台和资源控制台，形成了完整的PaaS平台解决方案，下面将对每个组件集进行简述：
 
 
-## 二、数据中心服务组件说明
+#### 数据中心服务组件说明
 
-#### 数据中心API服务
+##### 数据中心API服务
 
 API服务作为数据中心级抽象的核心控制服务，对外提供Restful风格的API服务，是数据中心控制流的唯一入口，安全控制基于TLS双向安全认证。
 
@@ -25,7 +25,7 @@ API服务处理三类请求：
 
 `代理请求` API服务同时代理了后端Websocket信息推送服务、监控服务、Web终端控制服务。
 
-#### 应用网关服务
+##### 应用网关服务
 
 应用网关是外部流量进入Rainbond内部服务的唯一入口, 提供HTTP, HTTPs路由, TCP/UDP服务, 负载均衡器, 高级路由(A/B测试, 灰度发布)等功能.
 
@@ -37,7 +37,7 @@ API服务处理三类请求：
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/gw.png" width="100%"/>
 
-#### 应用构建服务
+##### 应用构建服务
 
 <img src="https://static.goodrain.com/images/docs/3.6/architecture/app-ci.png" width="100%" />
 
@@ -45,12 +45,12 @@ Rainbond 应用构建服务处理CI过程，将输入源 包括 `源代码` 或 
 
 传统意义上说，完整的CI过程会包括：设计、编码、打包、测试和发布，Docker镜像自推出以来逐步成为众多应用代码打包的新形式。现有的CI产品中已经在源码测试和Pipline方面做得非常成熟，例如Jenkins，Gitlab等，因此Rainbond在对于源码或Docker镜像的前置处理方面可以直接对接第三方服务，由第三方服务处理完成的源码或镜像再对接到 Rainbond-Chaos 模块进行应用抽象。
 
-Chaos的输入源是支持Git、Svn协议的代码仓库，Docker镜像仓库。如果是源代码，Chaos智能判断源码的类型，例如[Java](http://www.rainbond.com/docs/stable/user-manual/app-creation/language-support/java.html), [PHP](http://www.rainbond.com/docs/stable/user-manual/app-creation/language-support/php.html) , [Python](http://www.rainbond.com/docs/stable/user-manual/app-creation/language-support/python.html), [Dockerfile](http://www.rainbond.com/docs/stable/user-manual/app-creation/language-support/Dockerfile.html)等，根据不同的源码类型选择对应的BuildingPack(源码构建器)进行源码编译，同时识别源码中定义的运行环境要求参数，应用端口、环境变量等参数，形成应用抽象的配置雏形。除了Dockerfile以外的源码类型将被编译成应用代码环境包（SLUG）存储于分布式存储中，其他的生成Docker本地镜像存储于数据中心镜像仓库中，结合应用的各类属性信息形成`应用抽象包`。
+Chaos的输入源是支持Git、Svn协议的代码仓库，Docker镜像仓库。如果是源代码，Chaos智能判断源码的类型，例如[Java](/user-manual/app-creation/language-support/java/), [PHP](/user-manual/app-creation/language-support/php/) , [Python](/user-manual/app-creation/language-support/python/), [Dockerfile](/user-manual/app-creation/language-support/dockerfile/)等，根据不同的源码类型选择对应的BuildingPack(源码构建器)进行源码编译，同时识别源码中定义的运行环境要求参数，应用端口、环境变量等参数，形成应用抽象的配置雏形。除了Dockerfile以外的源码类型将被编译成应用代码环境包（SLUG）存储于分布式存储中，其他的生成Docker本地镜像存储于数据中心镜像仓库中，结合应用的各类属性信息形成`应用抽象包`。
 
-> - 关于源码编译的BuildingPack参考[各语言支持文档](../user-manual/language-support/java.html)。
+> - 关于源码编译的BuildingPack参考[各语言支持文档](/user-manual/app-creation/language-support/)。
 > - 应用构建服务支持多点高可用部署，多点部署从消息中间件获取应用构建任务。
 
-#### 应用运行时控制服务
+##### 应用运行时控制服务
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/worker-arch.svg">
 
@@ -64,7 +64,7 @@ Chaos的输入源是支持Git、Svn协议的代码仓库，Docker镜像仓库。
 
 > worker组件功能分为有状态部分和无状态部分，为了实现worker组件的集群部署，worker进行了主节点选举，选举为主节点的服务将提供应用存储Provider和存储统计服务。
 
-#### 监控服务
+##### 监控服务
 
 Rainbond集群需要多个维度的监控：
 
@@ -79,13 +79,13 @@ Prometheus有单点性能障碍，例如单节点服务监控目标越多，内�
 
 除了监控我们还需要报警，monitor能够自动配置一些默认的报警规则，自定义的报警规则支持将在资源管理后台体现，后续将支持命令行控制。Prometheus发出报警信息到monitor,完成去重，忽略等操作后根据级别与用户需求完成邮件、微信、站内消息等报警方式。
 
-#### 消息中间件服务
+##### 消息中间件服务
 
 MQ组件是基于etcd实现的轻量级分布式、消息持久化和全局一致性的消息中间件。该组件维护异步任务消息，提供多种主题的发布和订阅能力。
 
 我们没有选择使用已有的消息中间件服务，主要是我们要实现分布式消息，还要保证消息的一致性，评估了现有的方案后都觉得不太合适且复杂，因此我们基于etcd的分布式能力实现了轻量级MQ组件，提供了gRPC和http两种接口实现pub/sub。
 
-#### 事件与日志处理服务
+##### 事件与日志处理服务
 
 Rainbond平台需要处理的日志和消息信息包含三大类，分别为：用户异步操作日志、应用构建日志和应用运行日志，下面针对这三类日志加以详细说明。
 
@@ -113,7 +113,7 @@ Rainbond平台需要处理的日志和消息信息包含三大类，分别为：
 
 > 由于各种实时推送的需要，eventlog组件实现了websockt服务。
 
-#### 集群、节点管理服务
+##### 集群、节点管理服务
 
 <center><img width="85%" src="https://static.goodrain.com/images/docs/3.6/architecture/rainbond-cluster-ctl.png" /></center>
 
@@ -128,42 +128,42 @@ Node组件是Rainbond集群组建的基本服务，集群内所有节点都需�
 
 Node提供了envoy的全局化配置发现支持，跟应用绑定的envoy插件通过宿主机网络跳出租户网络，访问到Node服务，并最终获取全局的服务网络治理配置。其他应用插件使用同样的机制从node服务中动态获取配置，应用运行信息等。
 
-#### 应用Web终端控制服务
+##### 应用Web终端控制服务
 
 该组件实现了通过web的方式连接到容器控制台的功能。该组件通过与UI进行WebSocket通信，用户可以通过模拟Web终端发送各类shell命令，webcli通过kube-apiserver提供的exec方式在容器中执行命令并返回结果到Web终端。
 
 > Webcli属于无状态组件，天然支持多点高可用部署。
 
-#### 元数据存储服务
+##### 元数据存储服务
 
 Rainbond数据中心元数据目前支持存储于Mysql数据库或[CockroachDB](https://www.cockroachlabs.com/)数据库。
 
-#### Kubernetes Master服务
+##### Kubernetes Master服务
 
 Kubernetes Master包含1.10.11版本的Kube-apiserver、Kube-ControllerManager、Kube-Scheduler三个组件。
 
-#### DNS服务
+##### DNS服务
 
 DNS服务为集群提供DNS解析服务,  基于Kube-DNS二次开发。
 
-#### 镜像仓库服务
+##### 镜像仓库服务
 
 基于开源[Distribution](https://github.com/docker/distribution)项目，用于当前数据中心下的容器镜像存储。
 
-#### 包仓库（Artifactory）
+##### 包仓库（Artifactory）
 
 基于开源 Artifactory项目，服务于应用基于源码构建，存储或代理应用构建所需要的所有第三方类库和文件包。是源码构建必须的组件，其可对接企业内部的其他包仓库。
 
-## 三、业务逻辑层组件说明
+#### 业务逻辑层组件说明
 
-#### 应用控制台
+##### 应用控制台
 
 应用控制台UI组件作为Rainbond以应用为中心抽象的关键模块，面向应用开发者和应用使用者。基于Django+Ant design前后端分离架构设计，提供用户对应用抽象、应用组抽象，数据中心抽象，应用市场抽象提供交互体验。实现完整的应用创建、管理流程，应用交付分享流程等。
 
-#### 资源管理控制台（企业版）
+##### 资源管理控制台（企业版）
 
 资源控制台UI组件提供Rainbond集群资源管理，计划支持对接IaaS的资源管理能力，面向运维人员设计。关注节点物理资源，集群资源，管理服务资源，应用实际使用资源，租户资源等管理。Rainbond自动化运维能力的关键展示平台。
 
-## 四、组件部署
+#### 组件部署
 
 [组件部署架构文档](../operation-manual/component-description.html)

@@ -6,8 +6,8 @@ hidden: true
 ---
 <div id="toc"></div>
 
-## 一.用户管理
-为了让用户能够更好的管理团队及分配相关功能，我们设计了基于角色的权限系统。该系统基于 `角色` 来控制成员的行为，并支持用户`自定义` 团队中的角色，平台默认设置了三个角色，分别为：
+#### 成员管理
+为了让用户能够更好的管理团队及分配相关功能，我们设计了基于角色的权限系统。该系统基于角色来控制成员的行为，并支持用户自定义团队中的角色，平台默认设置了三个角色，分别为：
 
 - Admin：团队管理员
 - Developer：开发者
@@ -17,8 +17,28 @@ hidden: true
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/privilege-management02.png" width="100%" />
 
+##### 添加团队成员
 
-### 1.1 添加角色
+如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中查看您当前团队下的所有成员，并点击`添加成员`可以为团队新添加一个成员，并给该成员授予一个您当前团队中存在的角色，这样该成员就拥有该角色所对应的所有权限操作了。
+
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_user.jpg" style="border:1px solid #eee;width:60%"/></center>
+
+##### 删除团队成员
+
+如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中点击您想要删除成员后方的`删除`按钮，再次确认后即可将此成员在本团队中移除。
+
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rem_user.jpg" style="border:1px solid #eee;width:100%"/></center>
+
+##### 修改成员角色
+
+如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中点击您想要修改的成员后方的`修改角色`按钮，给该成员选择一些您团队中已经存在的角色，点击确认即可修改该成员在此团队中的角色。
+
+<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_user.jpg" style="border:1px solid #eee;width:100%"/></center>
+
+ 
+#### 角色管理
+
+##### 添加角色
 
   如果您是团队的`owner(创建者)`或者`admin(管理员)`，您可以在`团队管理`中的`角色管理`一栏中点击`添加角色`来为本团队新添加一个角色，同时为这个角色绑定您需要的权限选项。
 
@@ -31,7 +51,7 @@ hidden: true
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/permissions_01.png" style="border:1px solid #eee;width:100%"/></center>
   
 
-### 1.2 删除角色
+##### 删除角色
 
 您可以删除团队中自定义的角色，但您在本团队中的角色必须是`owner(创建者)`或者`admin(管理员)`才可以进行删除自定义角色的操作。您可以在`团队管理`中的角色管理`一栏中点击想要删除角色后方的`删除`按钮，再次点击确认后即可删除本角色。
 
@@ -41,31 +61,11 @@ hidden: true
 
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/permissions_02.png" style="border:1px solid #eee;width:100%"/></center>
 
-### 1.3 编辑角色
+##### 编辑角色
 
 您可以修改自定义角色的名称以及这个角色对应的权限选项。但您在本团队中的角色必须是`owner(创建者)`或者`admin(管理员)`才可以进行修改自定义角色的操作。您可以在`团队管理`中的`角色管理`一栏中点击想要修改的角色后方的`修改`按钮，修改角色名称以及对应的权限选项，确认无误后点击确认即可完成对次角色的修改，
 
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/permissions_03.png" style="border:1px solid #eee;width:100%"/></center>
   
-### 1.4 添加团队成员
-
-如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中查看您当前团队下的所有成员，并点击`添加成员`可以为团队新添加一个成员，并给该成员授予一个您当前团队中存在的角色，这样该成员就拥有该角色所对应的所有权限操作了。
-
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/add_user.jpg" style="border:1px solid #eee;width:60%"/></center>
-
-### 1.5 删除团队成员
-
-如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中点击您想要删除成员后方的`删除`按钮，再次确认后即可将此成员在本团队中移除。
-
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/rem_user.jpg" style="border:1px solid #eee;width:100%"/></center>
-
-### 1.6修改成员角色
-
-如果您在本团队拥有的角色中包含`团队权限设置`这一权限，那么您可以在`团队管理`中的`团队成员`一栏中点击您想要修改的成员后方的`修改角色`按钮，给该成员选择一些您团队中已经存在的角色，点击确认即可修改该成员在此团队中的角色。
-
-<center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/permissions-manage/edit_user.jpg" style="border:1px solid #eee;width:100%"/></center>
-
- 
-
-
-
+参考：
+[团队权限管理](../manage-permision/)
