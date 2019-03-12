@@ -19,10 +19,6 @@ weight: 1002
 |Debian|9.6|
 |Ubuntu|16.04|
 
-{{site.data.alerts.callout_danger}}
-当前版本不推荐选用CentOS 7.5/7.6版本，如果必须使用上述版本，请将内核版本升级到4.x,具体可以参考[社区方案](https://t.goodrain.com/t/centos-check-unpack/628)
-{{site.data.alerts.end}}
-
 > 单台服务器配置要求
 
 |服务器角色|CPU|内存|            
@@ -76,9 +72,9 @@ NAS默认选择 `SSD性能型`即可,推荐，满足Rainbond使用。也可以�
 
 ### 2.2 配置NAS
 
-{{site.data.alerts.callout_danger}}
+{{% notice info %}}
 阿里云推荐使用NAS,经过我们大量的生产测试环境使用，挂载NAS需要使用v3版本，切勿使用v4版本，否则会存在文件锁问题。
-{{site.data.alerts.end}}
+{{% /notice %}}
 
 要在 Linux 系统中将 NAS 的 NFS 文件系统挂载至 ECS 实例，您需要安装 NFS 客户端，目前所有节点都需要提前挂载好NAS。
 操作步骤：
