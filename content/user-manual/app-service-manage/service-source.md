@@ -42,12 +42,12 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 | OracleJDK下载路径(BUILD_ENABLE_ORACLEJDK)| ||OracleJDK(linux amd64)下载路径|
 | Maven版本(BUILD_RUNTIMES_MAVEN) | 3.3.1 | 3.0.5,3.1.1,3.2.5,3.3.1,3.3.9|Maven版本|
 | Web服务器支持(BUILD_RUNTIMES_SERVER)| tomcat85| tomcat7,tomcat8,tomcat85,tomcat9,jetty7,jetty9||
-| 禁用Maven Mirror(BUILD_MAVEN_MIRROR_DISABLE) |false|true|默认启用Maven mirror|
-| MAVEN MIRROR OF配置(BUILD_MAVEN_MIRROR_DISABLE)|*|||
-| MAVEN MIRROR_URL(BUILD_MAVEN_MIRROR_DISABLE)| maven.goodrain.me|||
-| Maven构建参数(BUILD_MAVEN_MIRROR_DISABLE)|-DskipTests||Maven构建参数|
-| Maven构建全局参数(BUILD_MAVEN_MIRROR_DISABLE)|clean dependency:list install||Maven构建参数|
-| MAVEN构建Java参数配置(BUILD_MAVEN_SETTINGS_URL)|-Xmx1024m|||
+| 禁用Maven Mirror(BUILD_MAVEN_MIRROR_DISABLE) ||true|默认启用Maven mirror|
+| MAVEN MIRROR OF配置(BUILD_MAVEN_MIRROR_OF)|*|||
+| MAVEN MIRROR_URL(BUILD_MAVEN_MIRROR_URL)| maven.goodrain.me|||
+| Maven构建参数(BUILD_MAVEN_CUSTOM_OPTS)|-DskipTests||Maven构建参数|
+| Maven构建全局参数(BUILD_MAVEN_CUSTOM_GOALS)|clean dependency:list install||Maven构建参数|
+| MAVEN构建Java参数配置(BUILD_MAVEN_JAVA_OPTS)|-Xmx1024m|||
 | 启动命令(BUILD_PROCFILE)|||War包:<br \>`web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT target/*.war`;<br \>Jar包:<br \>`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar`|
 
 #### JAVA Jar语言类型
