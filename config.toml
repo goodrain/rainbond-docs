@@ -1,4 +1,4 @@
-baseURL = "http://www.rainbond.com/"
+baseURL = "https://v5-1.docs.rainbond.com:443/docs/v5.1/"
 languageCode = "zh-cn"
 title = "Rainbond文档中心(5.1版)"
 theme = "hugo-theme-learn"
