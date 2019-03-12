@@ -5,12 +5,14 @@ weight: 5017
 hidden: true
 ---
 
-## 构建源
+### 服务构建源
 
-Rainbond创建服务有三种模式：[源码](../../app-creation/way-of-creation.html#1)、[镜像](../../app-creation/way-of-creation.html#2-docker)和[应用市场](../../app-creation/way-of-creation.html#3)，它们分别具有不同的属性提供配置。
+Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/service_create/#从源码创建)、[镜像](/user-manual/app-creation/service_create/#从docker镜像创建)和[应用市场](/user-manual/app-creation/service_create/#从应用市场安装)，它们分别具有不同的属性提供配置。
 
 * 源码
-> 源码的构建源配置参数将是最为丰富的，除了基础的代码仓库信息包括（仓库地址，分支，Tag, 授权信息等)，重点在5.1版本中将提供每个源码类型的CI构建参数设置。
+> 源码的构建源配置参数将是最为丰富的，包括基础的代码仓库信息包括（仓库地址，分支，Tag, 授权信息等)
+>
+> 还有各语言的编译环境参数
 
 * 镜像
 > 镜像的可配置参数主要是镜像地址，仓库信息和镜像启动命令等
@@ -18,9 +20,29 @@ Rainbond创建服务有三种模式：[源码](../../app-creation/way-of-creatio
 * 应用市场
 > 从应用市场安装的服务不提供更多的参数配置，主要展示来源于哪个云市应用。
 
-服务创建后的第一个环节就是构建源的健康检测和兼容性检查，只有通过了检查才能正常的创建服务：
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1544427683639.jpg" width="100%" />
+### 构建源检测
 
-构建源信息修改后在下一次构建操作中生效。
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1544427462576.jpg" width="100%" />
+服务创建时对构建源进行语言检测，在后续的持续开发中，如果源码更改了语言类型，比如从Java-Maven类型更改为Dockerfile类型，需用执行重新检测源码操作，让Rainbond重新设定服务的编译方式才能生效。
+
+> Rainbond在源码编译过程中不会重新识别语言类型、
+
+### 自动构建设置
+
+自动构建即通过一种方式自动触发Rainbond服务版本构建的操作，详细文档见[服务自动构建](/user-manual/app-service-manage/auto-deploy/)
+
+### 构建参数设置
+
+#### JAVA语言类型
+
+| 参数名称 | 默认值 | 可选值 | 说明 |
+| -------- | ------ | ------ | ---- |
+| JDK版本  | 1.8    |        |      |
+|          |        |        |      |
+|          |        |        |      |
+
+
+
+#### Dockerfile语言类型
+
+支持ARG参数设置
 
