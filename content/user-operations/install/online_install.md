@@ -33,7 +33,7 @@ chmod +x ./grctl
 > 若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址(eip)，若无则无需指定;  
 > 如果想跳过系统配置检查，安装时指定`--enable-check disable`,如果配置过低可能会无法正常部署运行应用;  
 > 如果需要安装特定docker版本，在安装前指定docker版本，如`export DOCKER_VERSION=17.06`  
-> 更多参数说明请阅读[grctl工具](/user-operations/tools/grctl/)
+> 更多参数说明请阅读[节点初始化重要参数说明](/user-operations/tools/grctl/#节点初始化重要参数说明)
 
 ```bash
 ./grctl init --iip 内网ip --eip 公网ip
