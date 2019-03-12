@@ -53,11 +53,11 @@ grctl node list
 # 控制台访问地址
 http://<节点IP地址>:7070
 ```
-如果集群状态是不健康的，参考[节点健康检测](../operation-manual/cluster-management/node-health.html) 文档解决故障。
+如果集群状态是不健康的，参考[节点健康检测](/user-operations/monitor/node-health/) 文档解决故障。
 
 ## 三、数据中心添加节点
 
-上诉步骤完成默认将第一个节点安装成为第一个[管理节点](../architecture/abstraction.html#node) 和第一个 [计算节点](../architecture/abstraction.html#node)
+上诉步骤完成默认将第一个节点安装成为第一个管理节点和第一个计算节点。
 
 若你需要增加你的集群计算资源池，可以快速扩容计算节点：
 
@@ -67,14 +67,15 @@ http://<节点IP地址>:7070
 grctl node add --host computexx --iip 计算节点IP --root-pass root用户密码 --role compute --install
 示例：
 grctl node add --host compute01 --iip 192.168.1.1 --root-pass 12345678 --role compute --install
-# 获取添加节点的NodeID，此时节点应处于未安装状态
 grctl node list
 # 确定节点处于健康状态上线节点
 grctl node up <NodeID>
 ```
 
-更多细节可以参考文档 [运维手册, 节点扩容](../operation-manual/cluster-management/add-node.html) 
+更多细节可以参考文档 [节点扩容](/user-operations/management/add-node/) 
 
+<!--
 <div class="step">
   <a href="./quick-learning.html"><button class="btn">安装完成，开始部署管理你的应用</button></a>
 </div>
+-->

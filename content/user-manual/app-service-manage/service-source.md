@@ -32,15 +32,98 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 
 ### 构建参数设置
 
-#### JAVA语言类型
+#### JAVA Maven语言类型
 
 | 参数名称 | 默认值 | 可选值 | 说明 |
 | -------- | ------ | ------ | ---- |
-| JDK版本  | 1.8    |        |      |
-|          |        |        |      |
-|          |        |        |      |
+| JDK版本  | 1.8    | 1.6,1.7,1.9,10,11| OpenJDK版本     |
+| BUILD_ENABLE_ORACLEJDK| |true| 默认不启用OracleJDK |
+| BUILD_ENABLE_ORACLEJDK| ||OracleJDK下载路径|
+| Maven版本 | 3.3.1 | 3.0.5,3.1.1,3.2.5,3.3.1,3.3.9|Maven版本|
+| Web服务器支持| tomcat85| tomcat7,tomcat8,tomcat9,jetty7,jetty9||
+| BUILD_MAVEN_MIRROR_DISABLE |false|true|默认启用Maven mirror|
+| BUILD_MAVEN_MIRROR_OF|*|||
+| BUILD_MAVEN_MIRROR_OF| maven.goodrain.me|||
+| BUILD_MAVEN_CUSTOM_OPTS|-DskipTests||Maven构建参数|
+| BUILD_MAVEN_CUSTOM_GOALS|clean dependency:list install||Maven构建参数|
+| BUILD_MAVEN_JAVA_OPTS|-Xmx1024m|||
+| BUILD_PROCFILE|||示例War包:`web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT target/*.war
+`;Jar包:`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar`|
+
+#### JAVA Jar语言类型
+
+| 参数名称 | 默认值 | 可选值 | 说明 |
+| -------- | ------ | ------ | ---- |
+| JDK版本  | 1.8    | 1.6,1.7,1.9,10,11| OpenJDK版本     |
+| BUILD_ENABLE_ORACLEJDK| |true| 默认不启用OracleJDK |
+| BUILD_ENABLE_ORACLEJDK| ||OracleJDK下载路径|
+| BUILD_PROCFILE|||示例`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar`|
 
 
+#### JAVA War语言类型
+
+| 参数名称 | 默认值 | 可选值 | 说明 |
+| -------- | ------ | ------ | ---- |
+| JDK版本  | 1.8    | 1.6,1.7,1.9,10,11| OpenJDK版本     |
+| BUILD_ENABLE_ORACLEJDK| |true| 默认不启用OracleJDK |
+| BUILD_ENABLE_ORACLEJDK| ||OracleJDK下载路径|
+| Web服务器支持| tomcat85| tomcat7,tomcat8,tomcat9,jetty7,jetty9||
+| BUILD_PROCFILE|||示例`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar`|
+
+
+#### JAVA Gradle语言类型
+
+| 参数名称 | 默认值 | 可选值 | 说明 |
+| -------- | ------ | ------ | ---- |
+| JDK版本  | 1.8    | 1.6,1.7,1.9,10,11| OpenJDK版本     |
+| BUILD_ENABLE_ORACLEJDK| |true| 默认不启用OracleJDK |
+| BUILD_ENABLE_ORACLEJDK| ||OracleJDK下载路径|
+
+#### Python语言类型支持
+| 参数名称 | 默认值 | 可选值 | 说明 |
+| -------- | ------ | ------ | ---- |
+| Python版本|python-3.6.6 |python-3.4.3,python-3.5.3,python-3.6.0,python-3.6.1,python-3.6.2,python-3.6.3,python-3.6.4,python-3.6.5,python-3.6.6,python-2.7.9,python-2.7.10,python-2.7.13,python-2.7.14,python-2.7.15| |
+|BUILD_PIP_INDEX_URL|https://pypi.tuna.tsinghua.edu.cn/simple||PIP源|
+
+#### PHP语言类型
+
+| 参数名称 | 默认值 | 可选值 | 说明 |
+| -------- | ------ | ------ | ---- |
+| web服务器支持| apache |nginx| |
+| PHP版本| 5.6.35 |5.5.38,7.0.29,7.1.16| |
+| HHVM版本|3.5.1|||
+
+#### 静态语言类型
+
+| 参数名称 | 默认值 | 可选值 | 说明 |
+| -------- | ------ | ------ | ---- |
+| web服务器支持| nginx |apache| |
+
+#### NodeJS语言类型
+
+| 参数名称 | 默认值 | 可选值 | 说明 |
+| -------- | ------ | ------ | ---- |
+| Node版本| 8.12.0 |4.9.1,5.12.0,6.14.4,7.10.1,9.11.2,10.13.0,11.1.0|Node版本| 
+
+#### Golang语言类型
+
+| 参数名称 | 默认值 | 可选值 | 说明 |
+| -------- | ------ | ------ | ---- |
+| Golang版本| go1.11.2 |go1.9.7 go1.8.7 go1.11.2 go1.11 go1.11.1 go1.10.5 go1.10.4|Go版本| 
+
+#### NodeJS前端语言类型
+
+| 参数名称 | 默认值 | 可选值 | 说明 |
+| -------- | ------ | ------ | ---- |
+| Node版本| 8.12.0 |4.9.1,5.12.0,6.14.4,7.10.1,9.11.2,10.13.0,11.1.0|Node版本| 
+| web服务器支持| nginx|apache| |
+
+#### .NetCore语言类型
+
+| 参数名称 | 默认值 | 可选值 | 说明 |
+| -------- | ------ | ------ | ---- |
+|BUILD_DOTNET_SDK_VERSION|2.2-sdk-alpine|3.0-sdk,2.1-sdk|编译环境版本|
+|BUILD_DOTNET_RUNTIME_VERSION|2.2-aspnetcore-runtime|3.0-aspnetcore-runtime,2.1-aspnetcore-runtime|运行环境版本|
 
 #### Dockerfile语言类型
 

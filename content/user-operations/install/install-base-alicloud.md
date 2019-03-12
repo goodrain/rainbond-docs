@@ -103,10 +103,12 @@ mount -l | grep grdata
 在第一个管理节点执行初始化数据中心命令,默认情况下第一个节点管理节点和计算节点复用
 
 ```bash
-wget https://pkg.rainbond.com/releases/common/v5.0/grctl
+wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 ./grctl init --iip <内网ip> --eip <弹性ip/lb所在公网ip> --role master,compute
 ```
+
+--storage nas --storage-args "82b554a292-fiq56.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
 
 ### 2.4 添加节点
 
