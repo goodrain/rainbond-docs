@@ -6,5 +6,6 @@ canonifyURLs = true
 [params]
   editURL = "https://github.com/goodrain/rainbond-docs/edit/V5.1-new/content/"
   showVisitedLinks = true
+  disableShortcutsTitle = false
 [outputs]
   home = [ "HTML", "RSS", "JSON"] 
