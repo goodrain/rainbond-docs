@@ -47,8 +47,9 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 | BUILD_MAVEN_CUSTOM_OPTS|-DskipTests||Maven构建参数|
 | BUILD_MAVEN_CUSTOM_GOALS|clean dependency:list install||Maven构建参数|
 | BUILD_MAVEN_JAVA_OPTS|-Xmx1024m|||
-| BUILD_PROCFILE|||示例War包:`web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT target/*.war
-`;Jar包:`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar`|
+| BUILD_PROCFILE|||War包:<br \>`web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT target/*.war`;<br \>Jar包:<br \>`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar`|
+
+
 
 #### JAVA Jar语言类型
 
@@ -57,7 +58,7 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 | JDK版本  | 1.8    | 1.6,1.7,1.9,10,11| OpenJDK版本     |
 | BUILD_ENABLE_ORACLEJDK| |true| 默认不启用OracleJDK |
 | BUILD_ENABLE_ORACLEJDK| ||OracleJDK下载路径|
-| BUILD_PROCFILE|||示例`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar`|
+| BUILD_PROCFILE|||`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar`|
 
 
 #### JAVA War语言类型
@@ -68,7 +69,7 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 | BUILD_ENABLE_ORACLEJDK| |true| 默认不启用OracleJDK |
 | BUILD_ENABLE_ORACLEJDK| ||OracleJDK下载路径|
 | Web服务器支持| tomcat85| tomcat7,tomcat8,tomcat9,jetty7,jetty9||
-| BUILD_PROCFILE|||示例`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar`|
+| BUILD_PROCFILE|||`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar`|
 
 
 #### JAVA Gradle语言类型
