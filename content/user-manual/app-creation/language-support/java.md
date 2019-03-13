@@ -10,7 +10,7 @@ Rainbond 可以快速将 Java 源码程序轻松部署到平台，并提供灵�
 
 Rainbond支持以下几种程序部署类型：
 
-{{% button href="../java-maven/" %}}部署Java Maven源码项目{{% /button %}}
-{{% button href="../java-gradle/" %}}部署Java Gradle源码项目{{% /button %}}
-{{% button href="../java-jar/" %}}直接部署Java Jar包{{% /button %}}
-{{% button href="../java-war/" %}}直接部署Java War包{{% /button %}}
+{{% button href="../java/java-maven/" %}}部署Java Maven源码项目{{% /button %}}
+{{% button href="../java/java-gradle/" %}}部署Java Gradle源码项目{{% /button %}}
+{{% button href="../java/java-jar/" %}}直接部署Java Jar包{{% /button %}}
+{{% button href="../java/java-war/" %}}直接部署Java War包{{% /button %}}

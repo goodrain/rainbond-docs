@@ -2,8 +2,10 @@ baseURL = "https://v5-1.docs.rainbond.com:443/docs/v5.1/"
 languageCode = "zh-cn"
 title = "Rainbond文档中心(5.1版)"
 theme = "hugo-theme-learn"
+canonifyURLs = true
 [params]
   editURL = "https://github.com/goodrain/rainbond-docs/edit/V5.1-new/content/"
   showVisitedLinks = true
+  disableShortcutsTitle = false
 [outputs]
-  home = [ "HTML", "RSS", "JSON"]
+  home = [ "HTML", "RSS", "JSON"] 

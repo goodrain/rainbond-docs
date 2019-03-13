@@ -11,6 +11,6 @@ ADD . /app
 WORKDIR /app
 EXPOSE 1313
 
-CMD ["hugo","server","--bind","0.0.0.0","--disableLiveReload","true","--baseURL","https://v5-1.docs.rainbond.com:443/docs/v5.1/"]
+CMD ["/app/start.sh"]
 
 

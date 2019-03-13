@@ -25,19 +25,22 @@
         {{end}} 
     </ul>
 
-    {{ $disableShortcutsTitle := .Site.Params.DisableShortcutsTitle}}
-    {{with .Site.Menus.shortcuts}}
-      <section id="shortcuts">
-        <h3>{{ if not $disableShortcutsTitle}}{{ T "Shortcuts-Title"}}{{ end }}</h3>
-        <ul>
-          {{ range sort . "Weight"}}
-              <li> 
-                  {{.Pre}}<a class="padding" href="{{.URL | absLangURL }}">{{safeHTML .Name}}</a>{{.Post}}
-              </li>
-          {{end}}
-        </ul>
-      </section>
-    {{end}}
+  
+    <section id="shortcuts">
+      <h3>{{ T "Shortcuts-Title"}}</h3>
+      <ul>
+            <li> 
+                <a class="padding" target="_blank" href="https://t.goodrain.com">
+                  <i class="fas fas-w fa-discourse"></i>  社区
+                </a>
+            </li>
+            <li> 
+              <a class="padding" target="_blank" href="https://blog.goodrain.com">
+                <i class="fas fas-w fa-blog"></i>  博客
+              </a>
+          </li>
+      </ul>
+    </section>
 
     {{ if or .Site.IsMultiLingual $showvisitedlinks }}
     <section id="prefooter">
@@ -80,6 +83,7 @@
       
       {{ if $showvisitedlinks}}
         <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> {{T "Clear-History"}}</a></li>
+        <li style="margin-top:1em;"><a target="_blank" class="padding" href="https://www.rainbond.com/docs/v5.0/"><i class="fas fa-camera fa-fw"></i> V5.0 版本文档</a></li>
       {{ end }}
       </ul>
     </section>
