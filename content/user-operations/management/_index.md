@@ -8,4 +8,7 @@ chapter: true
 
 ## 管理集群
 
+{{% notice note %}}
+管理和运维Rainbond集群的知识和经验
+{{% /notice %}}
 {{% children showhidden="true" description="true" style="h4"  %}}

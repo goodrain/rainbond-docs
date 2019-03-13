@@ -5,6 +5,8 @@ weight: 8000
 chapter: true
 ---
 
-本章内容包括：
+{{% notice note %}}
+汇总了 Rainbond 周边工具集，安装时已经默认内置了，其默认路径为`/opt/rainbond/etc/tools/bin`。
+{{% /notice %}}
 
 {{% children showhidden="true" description="true" style="h4"  %}}

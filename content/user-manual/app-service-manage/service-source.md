@@ -42,7 +42,7 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 | OracleJDK下载路径(BUILD_ENABLE_ORACLEJDK)| ||OracleJDK(linux amd64)下载路径|
 | Maven版本(BUILD_RUNTIMES_MAVEN) | 3.3.1 | 3.0.5,3.1.1,3.2.5,3.3.1,3.3.9|Maven版本|
 | Web服务器支持(BUILD_RUNTIMES_SERVER)| tomcat85| tomcat7,tomcat8,tomcat85,tomcat9,jetty7,jetty9||
-| 禁用Maven Mirror(BUILD_MAVEN_MIRROR_DISABLE) ||true|默认启用Maven mirror|
+| 禁用Maven Mirror(BUILD_MAVEN_MIRROR_DISABLE) ||true|默认启用Maven mirror,若禁用Mirror则关于Mirror配置不生效|
 | MAVEN MIRROR OF配置(BUILD_MAVEN_MIRROR_OF)|*|||
 | MAVEN MIRROR_URL(BUILD_MAVEN_MIRROR_URL)| maven.goodrain.me|||
 | Maven构建参数(BUILD_MAVEN_CUSTOM_OPTS)|-DskipTests||Maven构建参数|
