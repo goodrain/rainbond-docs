@@ -1,6 +1,8 @@
 ---
 title: "离线部署"
 weight: 1005
+description: 离线部署Rainbond
+hidden: true
 ---
 
 ## 一、操作系统准备和检查

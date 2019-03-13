@@ -1,6 +1,8 @@
 ---
 title: "高可用部署"
 weight: 1003
+description: 高可用部署Rainbond
+hidden: true
 ---
 
 ### 一、集群高可用说明

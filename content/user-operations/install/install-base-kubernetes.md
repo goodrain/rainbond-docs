@@ -1,6 +1,8 @@
 ---
 title: "基于已有Kubernetes集群部署"
 weight: 1004
+description: 对接已有K8S集群
+hidden: true
 ---
 
 ### Rainbond与Kubernetes集群的关系

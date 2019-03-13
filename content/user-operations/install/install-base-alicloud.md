@@ -1,6 +1,8 @@
 ---
 title: "阿里云部署"
 weight: 1002
+description: 阿里云部署Rainbond
+hidden: true
 ---
 
 ## 一、部署说明

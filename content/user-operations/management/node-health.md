@@ -2,7 +2,9 @@
 title: "节点健康检测"
 date: 2019-03-11T12:50:54+08:00
 draft: false
-weight: 1201
+weight: 1303
+description: 节点健康检测手册
+hidden: true
 ---
 
 ### 节点健康检查机制

@@ -1,6 +1,8 @@
 ---
 title: "快速部署"
 weight: 1001
+description: 在线快速部署Rainbond
+hidden: true
 ---
 
 ## 一、操作系统准备和检查
