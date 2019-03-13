@@ -11,9 +11,17 @@ hidden: true
 
 本文默认已创建了文件系统，如果未创建，请参考[阿里云NAS文档](https://help.aliyun.com/document_detail/27526.html)
 
-## 快速配置指南
+#### 快速配置指南
 
-#### 安装配置NFS客户端程序
+提前准备好NAS，安装时指定存储类型为`nas`,具体示例如下：
+
+```
+./grctl init --storage nas --storage-args "82b554a292-rvg38.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
+```
+
+#### 手动对接NAS
+
+##### 安装配置NFS客户端程序
 
 ```bash
 # Debian/Ubuntu
@@ -23,7 +31,7 @@ apt-get install nfs-common
 yum install nfs-utils
 ```
 
-#### 配置NFS请求数量
+##### 配置NFS请求数量
 
 ```
 cat /proc/sys/sunrpc/tcp_slot_table_entries
@@ -41,7 +49,7 @@ sysctl -w sunrpc.tcp_slot_table_entries=128
 
 参数修改完成后，请重启系统。
 
-## 节点挂载NFS文件系统
+##### 节点挂载NFS文件系统
 
 > 推荐使用NFS v3协议
 
@@ -55,7 +63,7 @@ mount -a
 mount -l
 ```
 
-## 其他说明注意事项
+##### 其他说明注意事项
 
 - 如果安装前所有节点挂载/grdata,则默认会跳过存储操作
 
