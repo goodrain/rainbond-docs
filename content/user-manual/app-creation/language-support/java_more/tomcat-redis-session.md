@@ -16,9 +16,7 @@ hidden: true
 
 云帮使用 [webapp-Runner]() 内嵌的 tomcat 或 [jetty-Runner]() 内嵌的 jetty 实现服务器功能。在您不创建其他服务器情况下即可轻松将应用部署在云帮。通过以下步骤可实现 **配置redis实现session共享**。
 
-1. 配置[Procfile](https://www.rainbond.com/docs/stable/user-lang-docs/etc/procfile.html)：将如下命令添加到您的Procfile中，并源码根目录下添加Procfile。
-
-   
+1. 配置[Procfile](../../etc/procfile/)：将如下命令添加到您的Procfile中，并源码根目录下添加Procfile。
 
    ```
    web: java -jar ./webapp-runner.jar --port 5000 --session-store redis ./*.war
@@ -26,7 +24,7 @@ hidden: true
 
    - 应用端口8080，平台默认开启应用5000端口，为了端口映射正常：
      - 在Procfile中指定端口`--port 5000`
-     - 在[应用控制台-端口](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-port.html)设置8080端口
+     - 在[应用控制台-端口](/user-manual/app-service-manage/service-port-domain/)设置8080端口
    - 指定session存储`--session-store redis`
 
 2. 配置webserver：在源码根目录下添加webserver文件，写入现平台支持webapp-runner版本：
@@ -49,17 +47,11 @@ hidden: true
    webapp-runner-8.5.5.2.jar
    ```
 
-3. 云帮通过源码[创建应用](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html)，在[创建应用-应用设置](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)选择已创建的Redis进行依赖关联。
+3. 从应用市场安装Redis服务，并设置当前服务依赖创建的Redis服务，参考文档 [依赖服务](/user-manual/app-service-manage/service-rely/#服务如何连接依赖服务)
 
 4. 应用配置redis：将`REDIS_URL`新增至应用环境变量中，值为 `127.0.0.1:6379`。
 
 5. 重启应用以适配
-
-{{% notice note %}}
-
-为方便创建应用时依赖，建议提前通过[应用市场](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-market.html)创建 Redis 应用；若您未在创建时依赖Redis应用，也可以在应用创建完成后在 [应用控制台-依赖](https://www.rainbond.com/docs/stable/user-app-docs/myapps/myapp-platform-reliance.html)进行Redis应用关联。关联后记得重启应用哦。
-
-{{% /notice %}}
 
 ## 使用docker镜像
 
@@ -88,10 +80,7 @@ hidden: true
    EXPOSE 8080
    ```
 
-2. 确认源码的`<dir_name>`或`<filename>.war`存在，并且与Dockerfile文件存在同一目录，以此目录为根目录开始[创建应用](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html)。
-
-3. 在[创建应用-应用设置](https://www.rainbond.com/docs/stable/user-app-docs/addapp/addapp-code.html#part-2c9f27d6be436681)选择已创建的Redis进行依赖关联。
-
+2. 确认源码的`<dir_name>`或`<filename>.war`存在，并且与Dockerfile文件存在同一目录，以此目录为根目录开始创建服务
+3. 安装Redis服务并建立依赖关系，参考文档 [依赖服务](/user-manual/app-service-manage/service-rely/#服务如何连接依赖服务)
 4. 应用配置redis：配置变量`REDIS_URL`到应用环境变量中，值为 `127.0.0.1:6379`；配置变量`REDIS_SESSION`到应用环境变量中，值为`true`。
-
 5. 重启应用以适配
