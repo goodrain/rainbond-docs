@@ -2,3 +2,12 @@
 Hidden: true
 Description: ""
 ---
+
+Rainbond 可以快速将 Java 源码程序轻松部署到平台，并提供灵活伸缩的高可用特性。您可以部署标准的基于 Tomcat 或 Jetty 的Web应用，同时也支持 SpringBoot 等框架构建的应用程序。我们致力于在不改变开发习惯情况下将您的 Java 应用在云端快速部署、运行、灵活伸缩！
+
+Rainbond支持以下几种程序部署类型：
+
+{{% button href="../java/java-maven/" %}}部署Java Maven源码项目{{% /button %}}
+{{% button href="../java/java-gradle/" %}}部署Java Gradle源码项目{{% /button %}}
+{{% button href="../java/java-jar/" %}}直接部署Java Jar包{{% /button %}}
+{{% button href="../java/java-war/" %}}直接部署Java War包{{% /button %}}
