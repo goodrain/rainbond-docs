@@ -1,6 +1,6 @@
 ---
 title: 其他命令行工具
-description: 其他命令行工具
+description: 其他命令行工具(dps,din等)
 hidden: true
 ---
 

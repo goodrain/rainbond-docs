@@ -2,7 +2,7 @@
 title: "软件和硬件环境要求"
 date: 2019-03-11T12:50:54+08:00
 draft: false
-weight: 801
+weight: 802
 ---
 
 #### 概述
