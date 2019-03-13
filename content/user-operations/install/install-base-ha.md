@@ -1,7 +1,7 @@
 ---
 title: "高可用部署"
 weight: 1003
-description: 高可用部署Rainbond
+description: "此方式将首先引导你进行相关资源的规划和准备，以完成高可用集群的快速安装。"
 hidden: true
 ---
 
@@ -442,3 +442,5 @@ grctl cluster
 ```
 
 若返回集群列表中显示扩容节点且状态正常，则表示扩容成功；若返回不正常，请重新审查本节操作。
+
+{{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}

@@ -1,7 +1,7 @@
 ---
 title: "快速部署"
 weight: 1001
-description: 在线快速部署Rainbond
+description: "此方式适用于你想快速安装和试用Rainbond平台, 最少只需要单台裸系统机器即可安装完成。此方式为基础安装方式，后续安装方案都是在本方案基础上的扩展和延伸。"
 hidden: true
 ---
 
@@ -76,8 +76,4 @@ grctl node up <NodeID>
 
 更多细节可以参考文档 [节点扩容](/user-operations/management/add-node/) 
 
-<!--
-<div class="step">
-  <a href="./quick-learning.html"><button class="btn">安装完成，开始部署管理你的应用</button></a>
-</div>
--->
+{{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}

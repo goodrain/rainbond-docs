@@ -1,7 +1,7 @@
 ---
 title: "离线部署"
 weight: 1005
-description: 离线部署Rainbond
+description: "此方式适用于外网网络受到严格限制的用户，此版本目前仅支持CentOS 7.4.1708系统。"
 hidden: true
 ---
 
@@ -77,6 +77,4 @@ grctl node up <NodeID>
 
 更多细节可以参考文档 [运维手册, 节点扩容](../operation-manual/cluster-management/add-node.html) 
 
-<div class="step">
-  <a href="./quick-learning.html"><button class="btn">安装完成，开始部署管理你的应用</button></a>
-</div>
+{{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}

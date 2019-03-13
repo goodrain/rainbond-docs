@@ -1,7 +1,7 @@
 ---
 title: "基于已有Kubernetes集群部署"
 weight: 1004
-description: 对接已有K8S集群
+description: "此方式适用于已安装Kubernetes集群的用户，此安装方式Rainbond将使用用户提供的Kubernetes集群。"
 hidden: true
 ---
 
@@ -147,3 +147,5 @@ grctl node install izj6caqbup3uo1me2vt0qrz
 # 修改 /opt/rainbond/scripts/start-node.sh 调整auto-scheduler为false即可禁用
 systemctl restart node
 ```
+
+{{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}

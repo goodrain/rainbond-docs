@@ -1,7 +1,7 @@
 ---
 title: "阿里云部署"
 weight: 1002
-description: 阿里云部署Rainbond
+description: "此方式适用于你使用阿里云服务资源，此方式我们将使用阿里云 ECS+NAS+专有网络(弹性IP)等资源。"
 hidden: true
 ---
 
@@ -143,3 +143,6 @@ grctl node up <新增节点uid>
 grctl cluster
 ```
 如果有节点处于unhealth,通过`grctl node get <unhealth节点uid>`确定哪个服务异常，来排查哪个服务异常。
+
+
+{{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}
