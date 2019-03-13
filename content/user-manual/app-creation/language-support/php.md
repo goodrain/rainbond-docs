@@ -62,10 +62,11 @@ composer update --ignore-platform-reqs
 - PHP 7.0.29 (7.0.29)
 - PHP 7.1.16 (7.1.16)
 
+<!--
 ##### HHVM版本
 
 - HHVM 3.5.1
-
+-->
 
 可以通过composer.json文件来指定上述支持的PHP或HHVM版本
 

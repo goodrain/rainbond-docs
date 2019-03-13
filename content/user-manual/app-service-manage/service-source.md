@@ -92,9 +92,11 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 | -------- | ------ | ------ | ---- |
 | web服务器支持(BUILD_RUNTIMES_SERVER)| apache |nginx| |
 | PHP版本(BUILD_RUNTIMES)| 5.6.35 |5.5.38,5.6.35,7.0.29,7.1.16| |
-| HHVM版本(BUILD_RUNTIMES_HHVM)|3.5.1|||
 | 清除构建缓存(NO_CACHE)||true|默认不启用|
 
+<!--
+| HHVM版本(BUILD_RUNTIMES_HHVM)|3.5.1|||
+-->
 
 #### 静态语言类型
 
