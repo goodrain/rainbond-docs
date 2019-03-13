@@ -97,5 +97,5 @@ Rainbond默认内置了如下版本Webapp-Runner
 - [Java-Maven源码构建应用](../java-maven/)
 - [Java-Jar源码构建应用](../java-jar/)
 - [Java-Gradle源码构建应用](../java-gradle/)
-- [Spring Boot项目配置MySQL](../java/spring-boot-mysql/)
-- [Tomcat配置Redis实现Session共享](../java/tomcat-redis-session)
+- [Spring Boot项目配置MySQL](../spring-boot-mysql/)
+- [Tomcat配置Redis实现Session共享](../tomcat-redis-session)

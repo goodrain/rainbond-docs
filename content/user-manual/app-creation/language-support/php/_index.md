@@ -1,4 +1,3 @@
 ---
 Hidden: true
-Description: ""
 ---
