@@ -3,7 +3,7 @@ title: 扩容节点
 date: 2019-03-11T12:50:54+08:00
 draft: false
 weight: 1302
-description: 当前集群添加节点手册
+description: 添加节点
 hidden: true
 ---
 
