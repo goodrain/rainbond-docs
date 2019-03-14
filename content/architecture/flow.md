@@ -2,7 +2,6 @@
 title: 业务流程
 describe: Rainbond在具体场景的使用流程
 weight: 202
-draft: true
 ---
 
 #### 抽象流程
