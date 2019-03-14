@@ -57,6 +57,12 @@ web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 5. PORT: 根据用户在平台设置的端口决定监听，默认监听端口为 5000
 {{% /notice %}}
 
+{{% notice info %}}
+当调整了Web服务器支持后，打包成War需要调整启动命令
+- 选择tomcat不同版本时 `web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT ./*.war`
+- 选择jetty不同版本时 `web: java $JAVA_OPTS -jar ./jetty-runner.jar --port $PORT ./*.war`
+{{% /notice %}}
+
 #### 编译运行环境设置
 
 ##### OpenJDK支持
