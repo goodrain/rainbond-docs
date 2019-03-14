@@ -28,6 +28,10 @@ gradlew build -x test
 
 #### 编译运行环境设置
 
+{{% notice info %}}
+在选择JDK版本或其他组件版本时，需要注意JDK或者其他组件版本不要选择比项目使用的版本过高或者过低以免导致源码编译失败
+{{% /notice %}}
+
 ##### OpenJDK支持
 
 当前Rainbond支持OpenJDK如下版本为：
