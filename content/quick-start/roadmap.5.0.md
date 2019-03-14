@@ -5,8 +5,8 @@ weight: 208
 hidden: true
 ---
 
-{{% button href="/quick-start/edition/" %}}功能列表{{% /button %}}
-{{% button href="/quick-start/release-cycle/" %}}发布周期{{% /button %}}
+{{% button href="../edition/" %}}功能列表{{% /button %}}
+{{% button href="../release-cycle/" %}}发布周期{{% /button %}}
 
 ### V5.0版本规划（已发布Release）
 

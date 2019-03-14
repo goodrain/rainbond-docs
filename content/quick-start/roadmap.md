@@ -4,8 +4,8 @@ description: This document defines the roadmap for Rainbond development.
 weight: 208
 ---
 
-{{% button href="/quick-start/edition/" %}}功能列表{{% /button %}}
-{{% button href="/quick-start/release-cycle/" %}}发布周期{{% /button %}}
+{{% button href="../edition/" %}}功能列表{{% /button %}}
+{{% button href="../release-cycle/" %}}发布周期{{% /button %}}
 
 本文档定义了Rainbond开发的路线图。
 
