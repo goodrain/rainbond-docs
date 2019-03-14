@@ -22,7 +22,7 @@ pre = "<b>1. </b>"
 </div>
 
 <div class="item">
-    <h4><a href="./user-manual/">运维手册</a></h4>
+    <h4><a href="./user-operations/">运维手册</a></h4>
     <p>运维维护生产环境就绪的Rainbond集群</p>
 </div>
 
