@@ -31,4 +31,21 @@ Hidden: true
 
 #### 创建基于API注册的第三方服务
 
-主要描述API使用方式
+* 选择服务注册访问方式为API注册
+
+* 创建服务后会返回url以及秘钥，提供api以供调用，我们已提供GET, PUT, DELETE三种请求方法：
+    GET方法获取服务所有实例列表；
+
+    > 参数：secret_key 秘钥
+    >
+    PUT方法添加或修改实例上下线操作，无实例时即为添加，有相同ip即为修改实例上下线操作
+
+    >参数：secret_key 秘钥; ip 实例endpoint(str类型)；is_online 是否上线（布尔类型，默认为true）
+    >
+
+    DELETE方法为删除实例
+
+    >参数：secret_key 秘钥; ip 实例endpoint(str类型)
+    >
+
+* 可在服务Dashboard页面进行健康检测，端口等配置项
