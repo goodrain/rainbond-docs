@@ -6,7 +6,7 @@ chapter: true
 ---
 
 {{% notice info %}}
-汇总了5.1.x版本升级文档,具体细节请参考[社区公告](https://t.goodrain.com/c/announcements)
+汇总了5.1.x版本升级文档,具体细节请参考[社区版本升级公告](https://t.goodrain.com/c/announcements)
 {{% /notice %}}
 
 {{% children showhidden="true" description="true" style="h4"  %}}
