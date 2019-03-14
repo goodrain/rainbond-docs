@@ -169,12 +169,6 @@ composer是PHP的依赖管理器，composer.json则是composer的配置文件，
 - [Yaf](http://pecl.php.net/package/yaf)(yaf)
 - [Phalcon](http://phalconphp.com/)(phalcon)
 
-{{% notice info %}}
-
-HHVM 暂时不支持自定义扩展
-
-{{% /notice %}}
-
 
 ##### 扩展特例
 
@@ -191,15 +185,20 @@ HHVM 暂时不支持自定义扩展
 }
 ```
 
+{{% notice info %}}
+
+更多细节扩展支持说明请参考：<a href="../php_more/extensions/" target="_blank">不同版本PHP扩展支持说明</a>
+
+{{% /notice %}}
+
 #### 示例demo程序
 
 示例[https://github.com/goodrain/php-demo](https://github.com/goodrain/php-demo.git)
 
 #### 推荐阅读
 
-- <a href="../php/custom-env/" target="_blank" >自定义Web Server与PHP环境</a>
+- <a href="../php_more/custom-env/" target="_blank" >自定义Web Server与PHP环境</a>
 - <a href="../etc/procfile/" target="_blank" >Procfile文件说明</a>
-
 
 <!--
 ## 五、源码编译构建

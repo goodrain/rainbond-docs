@@ -60,9 +60,7 @@ draft: true
 ### 多个composer.json
 
 某项目大概结构如下：
-
-
-
+ 
 ```
 index.php
 composer.json
@@ -89,7 +87,6 @@ vendor/topthink/think-captcha/composer.json
 ## web服务器的选择
 
 您无需自已安装和配置web服务器，云帮会自动提供`apache`和`nginx`服务器供您选择使用，因为ThinkPHP框架会使用`.htaccess`文件来自定义`apache`的跳转规则，所以您应该选择`apache`做为web服务器。
-更多关于web服务器的内容请参见[自定义Web Server](http://doc.goodrain.com/usage/181944)。
 
 ## 设置Document Root
 {{% notice note %}}
@@ -99,18 +96,8 @@ vendor/topthink/think-captcha/composer.json
 
 配置的方法是在代码的根目录下写一个`Procfile`文件，内容如下：
 
-
-
 ```bash
 web: vendor/bin/heroku-php-apache2 public/
 ```
 
 这段配置是告诉平台用`apache`来做为web服务器，并将`public`目录做为web根目录。
-
-## 更多内容
-
-如果您想了解更多内容，如php的调优，web服务器的配置，请参见
-
-- [PHP概述](lang-php-overview.html)。
-
-- [运行时环境设置与调试](lang-php-runtime.html)
