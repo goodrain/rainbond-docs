@@ -27,7 +27,7 @@ menu: "java"
 如果项目未定义Procfile文件,平台默认会生成默认Procfile来运行War包。
 
 ```bash
-web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT target/*.war
+web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT ./*.war
 ```
 
 上述是默认Procfile,如果需要扩展更多启动参数,可以自定义Procfile。
@@ -37,6 +37,12 @@ web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT target/*.war
 2. 文件结尾不能包含特殊字符
 3. JAVA_OPTS: 平台会根据应用的内存大小，自动设置Xmx和Xms的值
 4. PORT: 根据用户在平台设置的端口决定监听，默认监听端口为 5000
+{{% /notice %}}
+
+{{% notice info %}}
+当调整了Web服务器支持后，打包成War需要调整启动命令
+- 选择tomcat不同版本时 `web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT ./*.war`
+- 选择jetty不同版本时 `web: java $JAVA_OPTS -jar ./jetty-runner.jar --port $PORT ./*.war`
 {{% /notice %}}
 
 #### 编译运行环境设置
