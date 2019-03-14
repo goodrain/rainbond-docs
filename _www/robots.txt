@@ -1,6 +1,0 @@
-# robots.txt
-
-User-agent: *
-Disallow:
-
-Sitemap: https://www.rainbond.com/sitemap.xml
