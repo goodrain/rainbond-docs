@@ -1,0 +1,69 @@
+---
+title: Java Gradle源码创建
+summary: Java Gradle源码创建
+toc: true
+---
+
+> 本教程将帮助你在几分钟内熟悉Rainbond如何快速部署Java Gradle源码程序。
+
+## 平台编译运行机制
+
+1. 平台默认会根据源码根目录是否有gradlew文件或者build.gradle来识别为Java Gradle项目;
+2. 预编译处理完成后,会根据语言类型选择Java-Gradle的buildpack去编译项目.在编译过程中会安装定义的JDK版本;
+3. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
+
+默认编译命令
+```
+gradlew build -x test
+```
+
+## Java-jar项目源码规范
+
+在此步骤中，你需要提供一个可用的Java Gradle源码程序用来部署在Rainbond平台上,此应用程序至少需要满足如下条件:
+
+1. 本地可以正常运行的Gradle程序
+2. 源码程序必须托管在gitlab等相关git或者svn服务上
+3. 源码程序根路径下必须需要存在gradlew文件或者build.gradle
+
+## 编译运行环境设置
+
+### 配置Java版本
+
+#### OpenJDK支持
+
+当前Rainbond支持OpenJDK如下版本为：
+
+- Java 1.6 - `1.6.0_27`
+- Java 1.7 - `1.7.0_95`
+- Java 1.8 - `1.8.0_74`
+- Java 1.9 - `1.9-latest`
+- Java 10  - `10.0.2`
+- Java 11  - `11.0.1`
+
+平台默认版本使用`1.8`。若需要使用其他版本的OpenJDK，可以通过在源码根目录下添加`system.properties`文件来设定`java.runtime.version`的值来指定所需版本的JDK。
+
+```yaml
+# system.properties 目前Rainbond能识别的版本值为11,10,1.9,1.8,1.7,1.6
+java.runtime.version=1.8
+```
+
+#### OracleJDK支持
+
+平台目前也支持OracleJDK,但此特性需要在平台里启用才会生效。  
+默认不内置提供OracleJDK下载,需要在设置里启用OracleJDK后配置相关OracleJDK下载地址。
+
+{{site.data.alerts.callout_info}}
+平台设置的配置优先级要高于程序代码中定义的配置，如Java JDK版本的选择,在程序代码里通过`system.properties`指定了JDK版本为1.9,在平台上选择了JDK版本为11,那么默认在进行源码编译时会优先使用平台指定的版本JDK11
+{{site.data.alerts.end}}
+
+## 示例demo程序
+
+示例[https://github.com/goodrain/java-gradle-demo](https://github.com/goodrain/java-gradle-demo.git)
+
+## 推荐阅读
+
+- [Java-Maven源码构建应用](./java-maven.html)
+- [Java-War源码构建应用](./java-war.html)
+- [Java-Jar源码构建应用](./java-jar.html)
+- [Spring Boot项目配置MySQL](./java/spring-boot-mysql.html)
+- [Tomcat配置Redis实现Session共享](./java/tomcat-redis-session.html)

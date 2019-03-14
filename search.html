@@ -5,7 +5,7 @@ contribute: true
 ---
 
 
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css">
@@ -20,13 +20,14 @@ contribute: true
 <script>
 
 const search = instantsearch({
-  appId: 'JW03QS46UU',
-  apiKey: 'd0d5c58ee85408dd6a9148c2ae10fa1a',
+  appId: 'RITXU8D7M1',
+  apiKey: '821093c5255b7d4d40129bc13a12882f',
   indexName: 'rainbond',
   searchParameters: {
     restrictSearchableAttributes: [
       'title',
-      'content'
+      'content',
+      'headings'
     ]
   }
 });
@@ -37,8 +38,8 @@ const hitTemplate = function(hit) {
     date = moment.unix(hit.date).format('MMM D, YYYY');
   }
   const url = hit.url;
-  const title = hit._highlightResult.title.value;
-  const content = hit._highlightResult.html.value;
+  const title = hit._highlightResult.title && hit._highlightResult.title.value;
+  const content = hit._highlightResult.html && hit._highlightResult.html.value;
 
   return `
     <div class="post-item">

@@ -1,0 +1,32 @@
+[
+    // 快速开始
+    {% include 5.1/getting-started.json %},
+    
+    // 技术架构
+    {% include 5.1/architecture.json %},
+
+    // 控制台手册
+    {% include 5.1/user-manual.json %},
+
+    // 运维手册
+    {% include 5.1/operation-manual.json %},
+
+    // 进阶场景
+    {% include 5.1/advanced-scenarios.json %},
+    
+     // 视频教程
+    {% include 5.1/video.json %},
+    
+    // FAQs
+    {% include 5.1/faqs.json %},
+    
+    // 贡献
+    {% include 3.7/contribute.json %},
+
+    // 招聘
+    {
+        "title": "加入我们",
+        "is_top_level": true,
+        "urls": [ "/recruitment/join.html"]
+    }
+]
