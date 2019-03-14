@@ -2,7 +2,7 @@
 title: 应用持续构建与部署
 description: Rainbond服务进行持续构建与部署（自动CI/CD）文档
 hidden: true
-
+weight: 5015
 ---
 
 ### 服务自动构建

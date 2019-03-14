@@ -2,6 +2,7 @@
 title: 服务基础属性说明
 description: Rainbond基础属性的说明文档
 hidden: true
+weight: 5001
 ---
 
 

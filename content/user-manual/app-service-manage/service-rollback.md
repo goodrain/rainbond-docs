@@ -2,6 +2,7 @@
 title: 服务版本管理
 description: Rainbond服务版本的管理和版本回滚文档
 hidden: true
+weight: 5018
 ---
 
 ### 服务版本管理
