@@ -1,5 +1,5 @@
 ---
-title: "集群故障诊断"
+title: "集群故障诊断FAQ"
 date: 2019-03-11T12:50:54+08:00
 draft: false
 weight: 1320
@@ -7,7 +7,7 @@ description: 当试用 Rainbond 遇到问题时，请先参考本篇文档。如
 hidden: true
 ---
 
-当试用 Rainbond 遇到问题时，请先参考本篇文档。如果问题未解决，请按要求收集必要的信息通过[社区(用户帮助)](https://t.goodrain.com/) 提供给Rainbond开发者。
+当试用 Rainbond 遇到问题时，请先参考本篇文档快速索引部分。如果问题未解决，请按要求收集必要的信息通过[社区(用户帮助)](https://t.goodrain.com/) 提供给Rainbond开发者。
 
 #### 如何给Rainbond开发者报告错误
 
@@ -42,3 +42,7 @@ Rainbond版本:
 8. 最近一段时间的网络/IO监控数据是否有异常
 
 ```
+
+#### 快速索引
+
+- [重置企业管理员密码](/user-operations/op-guide/reset_enterprise_password/)
