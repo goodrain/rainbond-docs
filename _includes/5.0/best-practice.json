@@ -1,9 +1,6 @@
 {
     "title": "最佳实践",
     "is_top_level": true,
-    "urls": [
-        "/${VERSION}/best-practice/index.html"
-    ],
     "items": [{
             "title": "CI/CD",
             "items": [{
@@ -32,18 +29,6 @@
                     "title": "对接Jenkins",
                     "urls": [
                         "/${VERSION}/best-practice/ci-cd/connection-jenkins.html"
-                    ]
-                },
-                {
-                    "title": "应用A/B测试",
-                    "urls": [
-                        "/${VERSION}/best-practice/ci-cd/ab-released-app.html"
-                    ]
-                },
-                {
-                    "title": "应用灰度发布",
-                    "urls": [
-                        "/${VERSION}/best-practice/ci-cd/gray-released-app.html"
                     ]
                 }
             ]

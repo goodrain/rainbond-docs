@@ -18,27 +18,11 @@ redcarpet:
   - with_toc_data
 
 versions:
-  v3.4: v3.4
-  v3.5: v3.5
-  v3.6: v3.6
-  stable: v3.7
-  dev: v5.0
+  v3.7: v3.7
+  v5.0: v5.0
+  stable: v5.0
 
 release_info:
-  v3.4:
-    version: v3.4.2
-    build_time: 2017/12/25 16:35:45
-    start_time: 2017-12-25 19:33:22.046027038 +800 CST
-  v3.5:
-    name: v3.5.2
-    version: v3.5.2
-    build_time: 2018/03/26 16:35:45
-    start_time: 2018-03-26 19:33:22.046027038 +800 CST
-  v3.6:
-    name: v3.6.1
-    version: v3.6.1
-    build_time: 2018/07/19 16:35:45
-    start_time: 2018/07/19 19:33:22.046027038 +800 CST  
   v3.7:
     name: v3.7.2
     version: v3.7.2
@@ -61,5 +45,5 @@ defaults:
       layout: "page"
 
 algolia:
-   application_id: JW03QS46UU
+   application_id: RITXU8D7M1
    index_name: rainbond

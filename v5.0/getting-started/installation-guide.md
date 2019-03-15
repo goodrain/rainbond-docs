@@ -1,89 +1,37 @@
 ---
-title: 部署引导
-summary: 用户通过此引导，被导航到单节点demo部署、三节点测试部署、5+节点生产部署文档
+title: Rainbond安装引导
+summary: 本文引导用户根据自己的需要和具备的不同环境选择合理的安装方式
 toc: true
-toc_not_nested: true
 asciicast: true
+
 ---
-<div id="toc"></div>
 
-## 1 约定要求
+# 快速安装Rainbond
 
-###1.1 系统需求
+> 此方式适用于你想快速安装和试用Rainbond平台,  最少只需要单台裸系统机器即可安装完成。此方式为基础安装方式，后续安装方案都是在本方案基础上的扩展和延伸。
 
-| 系统   | 版本  | 说明           |
-| :----- | :---- | :------------- |
-| CentOS | 7.3/7.4/7.5   | 64位 |
-| Debian | 9.6  | 64位           |
-| Ubuntu | 16.04 | 64位           |
+安装请阅读： [快速安装](./online-installation.html)
 
-{{site.data.alerts.callout_danger}}
+# 阿里云安装Rainbond
 
-目前仅支持root用户，支持Systemd守护
+> 此方式适用于你使用阿里云服务资源，此方式我们将使用阿里云 ECS+NAS+专有网络(弹性IP)等资源。
 
-{{site.data.alerts.end}}
+安装请阅读： [基于阿里云资源安装Rainbond](/docs/v5.0/operation-manual/install/alicloud/install-base-alicloud.html)
 
-###1.2 服务器配置需求
+# Rainbond高可用集群安装
 
-| 环境     | CPU  | 内存   | 磁盘    | 
-| :----- | :--- | :--- | :---- | 
-| 最低搭建配置 | 2核   | 4G  | 50G  |
-| 最低运行配置   | 4核   | 8G  | 100G  | 
+> 此方式将首先引导你进行相关资源的规划和准备，以完成高可用集群的快速安装。
 
-{{site.data.alerts.callout_danger}}
+安装请阅读： [从零开始搭建Rainbond高可用集群](/docs/v5.0/operation-manual/install/HA/install-base-ha.html)
 
-CPU、内存和磁盘的需求指的是一台机器的配置，而不是整个集群的总需求。
-如果配置低于最低搭建配置，安装程序会终止安装。
+# Rainbond与已存在Kubernetes集群对接安装
 
-{{site.data.alerts.end}}
+> 此方式适用于已安装Kubernetes集群的用户，此安装方式Rainbond将使用用户提供的Kubernetes集群。
 
-###1.3 磁盘需求
+安装请阅读： [基于已有Kubernetes集群安装](/docs/v5.0/operation-manual/install/kubernetes/install-base-kubernetes.html)
 
-| 节点类型      | 分区目录        | 分区大小(最小值)                          | 分区说明                                      |
-| :------------ | :-------------- | :-------------------------------- | :-------------------------------------------- |
-| 管理/计算节点 | /               | 40G                               | 系统的根分区                                  |
-| 管理/计算节点 | /var/lib/docker | 50G(测试)</br>100G+(生产) | 储存docker镜像                                |
-| 管理/计算节点 | /opt/rainbond   | 50G(测试)</br>100G+(生产) | 云帮安装目录；</br>存储集群管理程序日志和数据 |
-| 管理节点      | /grdata         | 50G(测试)</br>500G+(生产) | 集群公共数据，应用公共持久化存储，使用NFS或其它分布式共享存储共享数据|
-| 管理节点      | /cache          | 20G(测试)</br>100G+(生产) | 源码构建缓存，使用NFS或其它分布式共享存储共享数据 |
-| 计算节点      | /grlocaldata    | 20G(测试)</br>100G+(生产) | 应用本地持久化存储数据，务必使用本地磁盘           |
+# 离线安装Rainbond
 
-{{site.data.alerts.callout_danger}}
+> 此方式适用于外网网络受到严格限制的用户，此版本目前仅支持CentOS 7.4.1708系统。
 
-/grdata目录在开源版中默认使用nfs作为共享存储，生产环境便于配置分布式文件系统，企业版支持块设备存储.
-
-{{site.data.alerts.end}}
-
-<!--
-
-###1.4 云服务商支持说明
-
-| 云服务商   | 测试区域  | 说明           |
-| :----- | :---- | :------------- |
-| 阿里云 | 中国  | 推荐 |
-| 腾讯云 | 中国  | 测试通过           |
-| AWS | 中国 | 测试通过          |
-| vultr | 日本 | 测试通过          |
-| 滴滴云 | 中国  | 测试通过           |
-| 华为云 | 中国  | 测试通过           |
-
-
-###1、5 自定义配置项说明
-
-- 支持自定义配置域名 & 公网ip - Aug 20, 2018
-
-具体请参考 [Rainbond自定义配置](../operation-manual/install/config/custom-config.html)
-
--->
-
-## 2 部署方式选择：
-
-请选择部署方式：
-
-<div class="btn-group btn-group-justified">
-  <a href="online-installation.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">单机环境</a>
-  <!--
-  <a href="../operation-manual/cluster-management/three-nodes-deployment.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">三节点测试</a>
-  <a href="../operation-manual/cluster-management/five-nodes-deployment.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">5+节点生产</a>
-  -->
-</div>
+安装请阅读： [离线安装](/docs/v5.0/operation-manual/install/offline/install.html)

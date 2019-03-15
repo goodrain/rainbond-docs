@@ -120,7 +120,90 @@ Rainbond各组件的配置文件存放于 `/opt/rainbond/conf` 目录下，配�
     --websocket.bind.ip=10.10.10.19
 ```
 
-## 九、 查看一个组件的所有配置项
+## 九、rbd-gateway
+
+```bash
+    # kubernetes 集群配置文件路径
+    --kube-conf="/etc/goodrain/kubernetes/admin.kubeconfig"
+    # etcd 地址，当前使用默认集群地址，可更改为指定的地址,格式为 http://ETCD1:2379,http://ETCD2:2379,http://ETCD3:2379
+    --etcd-endpoints=${ETCD_ENDPOINTS}
+    # etcd 连接超时时间, 单位'秒'
+    --etcd-timeout=5
+    # Gateway 健康检查端口
+    --healthz-port=10254
+    # Gateway 健康检查URI
+    --health-path="/healthz"
+    # Gateway 健康检查超时时间, 单位'秒'
+    --health-check-timeout=10
+    # Nginx 中 worker 的数量, 默认获取当前节点 CPU 的核心数, 最多应为节点上的 CPU 核心数。
+    --worker-processes=0
+    # Nginx 中每个 worker 的最大连接数
+    --worker-connections=4000
+    # Nginx可用的文件描述符数
+    --worker-rlimit-nofile=200000
+    # 让每个线程可以处理更多的 client. 只能在 Linux 上使用
+    --enable-epool=true
+    # 在nginx获得有关新连接的通知后，接受尽可能多的连接
+    --enable-multi-accept=true
+    # 只打印 critical 级别的日志
+    --error-log=/dev/stderr crit
+    # nginx 的用户和组
+    --nginx-user=root
+    # 客户端可以通过 keep-alive 连接发出的请求数
+    --keepalive-requests=10000
+    # 保持连接的超时. 服务器将在此时间后关闭连接
+    --keepalive-timeout=30
+    # 开启对 rbd-gateway 指标的收集
+    --enable-metrics=true
+    # 日志级别
+    --log.level=info
+    # HTTP 服务的 80, 443 端口绑定的IP
+    --ip=0.0.0.0
+    # 是否开启 Rainbond 的默认服务
+    --enable-rbd-endpoints=true
+    # Rainbond 默认服务在 ETCD 中的Key
+    --rbd-endpoints=/rainbond/endpoint/
+    # 是否开启kube-apiserver的负载均衡
+    --enable-kubeapi=false
+    # kube-apiserver绑定的IP
+    --kubeapi-ip=0.0.0.0
+    # 是否开启lang.goodrain.me的负载均衡
+    --enable-lang-grme=true
+    # lang.goodrain.me 绑定的IP
+    --lang-grme-ip=0.0.0.0
+    # 是否开启maven.goodrain.me的负载均衡
+    --enable-mvn-grme=true
+    # maven.goodrain.me 绑定的IP
+    --mvn-grme-ip=0.0.0.0
+    # 是否开启goodrain.me的负载均衡
+    --enable-grme=true
+    # goodrain.me 绑定的IP
+    --grme-ip=0.0.0.0
+    # 是否开启 repo.goodrain.me 服务
+    --enable-repo-grme=true
+    # repo.goodrain.me 绑定的IP
+    --repo-grme-ip=0.0.0.0
+```
+
+## 十、 node
+
+```bash
+   # API监听地址，此端口请勿随意修改
+   --api-addr=:6100
+   # 是否自动注册节点
+   --auto-registnode=true
+   # 如果设置为true,当节点不健康后自动设置为不可调度
+   --auto-scheduler=true
+   --autounscheduler-unhealty-dura=5m
+   # kube-apiserver配置文件地址
+   --kube-conf=/opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig
+   # 运行模式，master 或者 worker
+   --run-mode=worker
+   # 节点属性，支持多个属性，compute manage storage 
+   --noderule=compute
+```
+
+## 十、 查看一个组件的所有配置项
 
 当你希望获取某个组件的所有可配置信息的时候，下面的方法可以帮助你实现目的：
 
@@ -137,7 +220,7 @@ ps -ef
 
 <img src="https://static.goodrain.com/images/docs/5.0/operation-manual/get-all-para.png" width="100%"  />
 
-## 十、 修改配置后如何生效
+## 十一、 修改配置后如何生效
 
 当你修改了配置文件，执行以下操作可以使变更生效：
 

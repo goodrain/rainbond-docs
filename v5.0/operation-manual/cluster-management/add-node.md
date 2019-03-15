@@ -4,7 +4,73 @@ summary: 扩容管理或计算节点
 toc: true
 ---
 
-## 一、 扩容管理节点
+## 一、 命令行模式
+
+{{site.data.alerts.callout_danger}}
+
+1. host/hostname不能重复，可以是其他
+2. 安装节点时，请勿使用之前wget下载的grctl工具即(./grctl)，直接使用grctl命令
+  
+{{site.data.alerts.end}}
+
+```
+# 添加管理节点
+grctl node add --host <managexx> --iip <管理节点内网ip> -p <root密码> --role manage
+## 法2默认已经配置ssh信任登陆
+grctl node add --host <managexx> --iip <管理节点内网ip> --key /root/.ssh/id_rsa.pub --role manage
+
+# 添加计算节点
+grctl node add --host <computexx> --iip <计算节点内网ip> -p <root密码> --role compute
+## 法2默认已经配置ssh信任登陆
+grctl node add --host <computexx> --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role compute
+
+
+# 安装节点，节点uid可以通过grctl node list获取
+grctl node install <新增节点uid> 
+# 确定计算节点处于health状态
+grctl node up <新增节点uid> 
+
+```
+
+## 二、 通过源码的方式
+
+### 2.1 准备工作
+
+
+```bash
+# 在ansible控制节点，修改/opt/rainbond/rainbond-ansible/inventory/hosts文件
+如新增多个计算节点, compute01 需要配置相关密码，manage02 需要提前配置ssh信任
+[all]
+manage01 ansible_host=192.168.56.3 ip=192.168.56.3 ansible_user=root ansible_ssh_pass=12345678 ansible_become=true
+compute01 ansible_host=192.168.56.4 ip=192.168.56.4 ansible_user=root ansible_ssh_pass=12345678 ansible_become=true
+manage02 ansible_host=192.168.56.5 ip=192.168.56.5
+
+[deploy]
+manage01 NTP_ENABLED=no
+
+[etcd]
+manage01 NODE_NAME=etcd1
+
+[master]
+manage01
+
+[worker]
+manage01
+
+[storage]
+manage01
+
+[lb]
+manage01
+
+[new-master]
+manage02
+
+[new-worker]
+compute01
+```
+
+### 2.2 扩容管理节点
 
 {{site.data.alerts.callout_danger}}
 
@@ -14,27 +80,19 @@ toc: true
 {{site.data.alerts.end}}
 
 ```bash
-# 在管理节点node01执行如下操作
-# ssh安装
-grctl node add --hostname <主机名> --iip <内网ip> --private-key <信任私钥(/root/.ssh/id_rsa)> --role master
-# 密码安装(仅支持root用户)
-grctl node add --hostname <主机名> --iip <内网ip> --root-pass <root用户密码> --role master
+cd /opt/rainbond/rainbond-ansible
+ansible-playbook -i inventory/hosts addmaster.yml
 ```
 
-## 二、 扩容计算节点
 
-{{site.data.alerts.callout_danger}}
+### 2.3 扩容计算节点
 
-- 计算节点主机名(hostname)推荐以compute命名开头，如computexxx.
-
-{{site.data.alerts.end}}
 
 ```bash
-# 在管理节点node01执行如下操作
-# ssh安装
-grctl node add --hostname <主机名> --iip <内网ip> --private-key <信任私钥(/root/.ssh/id_rsa)> --role worker
-# 密码安装(仅支持root用户)
-grctl node add --hostname <主机名> --iip <内网ip> --root-pass <root用户密码> --role worker
+
+# 扩容节点
+cd /opt/rainbond/rainbond-ansible
+ansible-playbook -i inventory/hosts addnode.yml
 ```
 
 ## 三、 管理后台添加

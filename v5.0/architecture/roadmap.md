@@ -4,16 +4,115 @@ summary: This document defines the roadmap for Rainbond development.
 toc: true
 ---
 <div class="filters filters-big clearfix">
-    <a href="edition.html"><button class="filter-button">功能列表</button></a>
+    <a href="edition.html"><button class="filter-button">基础功能列表</button></a>
     <a href="roadmap.html"><button class="filter-button current"><strong>开发计划</strong></button></a>
     <a href="release-cycle.html"><button class="filter-button">发布周期</button></a>
 </div>
+本文档定义了Rainbond开发的路线图。
 
-# Rainbond Roadmap
-This document defines the roadmap for Rainbond development.
+### V5.1版本规划
 
+#### 应用运行时
+
+- [ ] 支持基于Helm-Chart源码创建服务组件
+- [ ] 基于业务级监控指标（吞吐率、响应时间）的从0开始的服务自动伸缩
+- [ ] 支持第三方服务管理集成
+    - [ ] 支持内部服务ServiceMesh架构集成
+    - [ ] 支持网关对接集成
+    - [ ] 支持基于Etcd,Zookeeper,Consul发现第三方服务
+    - [ ] 支持对第三方服务进行健康检查和状态维护
+
+#### 应用网关
+
+- [ ] 支持集群虚拟IP资源池管理
+- [ ] 支持暴露域名、服务的访问情况实时监控数据
+- [ ] 支持插件化扩展应用网关业务功能（安全控制体系）
+
+#### Windows支持（windows支持整体进入Beta版本）
+
+- [ ] 支持Windows服务组件Dockerfile构建
+- [ ] 支持Windows插件构建,默认提供性能分析插件和网络治理插件
+- [ ] 支持智能Windows服务类型检测
+- [ ] 支持Windows节点安装
+
+#### UI控制台
+- [ ] 团队总览改版，支持更多监控数据可视化
+- [ ] 支持各语言编译参数设置
+- [ ] 新增第三方服务管理和升级为内部服务的流程交互
+
+#### 源码构建
+- [ ] 支持NodeJS前端项目源码构建
+- [ ] 静态语言类型增加对Nginx的支持
+
+
+关于5.1版本规划如果你有建议请于Rainbond社区[t.goodrain.com](t.goodrain.com)反馈
+
+### V5.0版本规划（已发布Release）
+
+#### 应用网关
+
+- [x] HTTP、TCP服务访问策略管理
+- [x] HTTP策略支持基于域名、访问路径、请求头、Cookie访问路由控制
+- [x] 配置HTTPs规则、HTTP转HTTPs规则
+- [x] 支持泛域名规则
+- [x] 支持SSL证书管理
+- [x] 支持A/B测试、灰度发布控制
+- [x] TCP策略支持基于IP、端口访问控制
+- [x] 自定义负载均衡算法，目前支持支持轮询算法，后续测试版本支持一致性Hash算法，Session粘连算法
+- [x] 支持集群部署，高可用与流量均摊，可工作于4层高性能软硬件负载均衡之后。
+
+#### 应用运行时
+
+- [x] 应用运行时完整重构，提供以应用为核心的控制器抽象
+- [x] 无状态服务部署类型更改为Kubernetes Deployment资源
+- [x] 有状态服务本地存储、共享存储提供更改为动态PV，运行时提供Provider
+- [x] 应用状态维护由集中式更改为分布式，去除单点间歇性故障
+- [x] 有状态服务、无状态服务皆提供自动化滚动升级策略
+- [x] 默认Kubernetes版本升级到1.10版本 Docker版本升级到17.06版本
+- [x] 支持社区版本Kubernetes集群对接
+
+#### 应用构建（CI）
+
+- [x] `Java` `PHP` `Python` `NodeJS` `Golang` `.NetCore` 各语言可选Runtime版本全面升级
+- [x] 支持UI配置各语言编译参数选项
+- [x] Java语言支持`Gradle`源码构建 ，支持War、Jar包部署
+- [x] Dockerfile支持多阶段构建
+- [x] 支持离线环境下的源码持续构建（离线环境已具有必要的使用语言包仓库）
+
+#### 控制台UI
+
+- [x] 明确定义 应用/服务 两级抽象
+- [x] 应用Dashboard页面拓扑图应用状态实时刷新
+- [x] 应用Dashboard页面增加快捷创建服务组件的流程
+- [x] 应用Dashboard页面增加应用级启动、停止、升级控制
+- [x] 增加应用网关完整的控制流程页面
+- [x] 服务组件支持（更新升级）操作, 取代原重启操作。
+- [x] 服务组件支持源码构建配置
+- [x] 服务组件支持CI/CD流程分离
+- [x] 拓扑图增加编辑模式，动态编辑服务依赖关系
+- [x] 支持服务组件UI添加配置文件或模版
+
+#### Windows 支持
+
+- [x] node 组件支持windows节点部署，管理windows节点和平台服务
+- [x] rbd-chao 组件支持windows节点部署，构建windows应用 
+- [x] 服务构建调度支持区分windows和linux应用。
+- [x] 服务运行调度，存储支持Windows节点。 
+- [x] 数据中心镜像仓库升级支持Windows镜像。
+
+#### 安装与运维
+
+- [x] 系统安装策略由SaltStack更换为Ansible
+- [x] 新加windowsutil组件支持传统程序或脚本部署为windows服务
+- [x] 支持多配置文件配置节点服务
+- [x] 支持Windows节点下服务守护和健康检查
+- [x] grctl多个命令升级改造
+- [x] 内置支持安装flannel host-gateway网络
+
+# History version
 
 ## V3.7 2018-08-15
+
 About system stability
 
 - [x] management service progress guardian by systemd uniformly.
@@ -31,45 +130,17 @@ About application manage
 - [x] support application + plugin share to market
 
 About Security policy upgrade
+
 - [x] Region api support TLS Two-way authentication
 - [x] [UI] support user registration for secondary verification by manager.
 
 About install
+
 - [x] Support complete offline installation
 - [x] Support install mulit manage nodes
 
-
-## V5.0
-The current version focuses on upgrade kubernetes and docker,  full support `.net ` application management and operation.
-
-- [ ] upgrade docker version to 17.04.x and kubernetes version to 1.10.3.
-- [ ] Support .net application manage
-    - [ ] Support Windows system compute nodes
-    - [ ] Windows system nodes communicate with Linux system node networks
-    - [ ] NFS storage is supported in Windows
-    - [ ] Support `.net` source building applications
-    - [ ] Support `.net` applications to connect to other applications.
-- [ ] upgrade source code buildpack
-    - [ ] `java` support java7,java8,java9,java10
-    - [ ] `python` support python-3.6.4 and python-2.7.15
-    - [ ] `nodejs` support 6.x, 8.x, 9.x, and 10.x
-    - [ ] `golang` support dep,govendor,glide,GB,Godep dependence define.
-    - [ ] `php` uses Composer for dependency management, supports PHP or HHVM (experimental) as runtimes, and offers a choice of Apache2 or Nginx web servers.
-    - [ ] `ruby` support MRI and JRuby
-- [ ] Dockerfile source build supports multi-stage builds.  
-- [ ] Support auto-building based on docker image hub webhook.
-- [ ] Support the definition of alarm rules.
-- [ ] Support GroupApplication Life cycle control
-    - [ ] Support GroupApplication start control
-    - [ ] Support GroupApplication build control
-- [ ] Security policy upgrade
-    - [ ] region api authorization base on RBAC
-    - [ ] access the etcd cluster based on certificates
-    
-
-# History version
-
 ## V3.6
+
 *Estimated release time: 2018-06-15*   
 The current version focuses on supporting the infrastructure of the microservice architecture, service governance, service backup & restore & migration.
 
@@ -100,3 +171,6 @@ The current version focuses on supporting the infrastructure of the microservice
     - [x] Management service monitoring
 - [x] Accurate user permission control, support custom roles
 - [x] Update rbd-dns to support for custom generic domain name resolution and cluster level one domain default resolution
+
+<div class="step"><a href="edition.html"><button class="btn">查看基础功能列表</button></a></div>
+<div class="step"><a href="release-cycle.html"><button class="btn">查看版本发布周期</button></a></div>

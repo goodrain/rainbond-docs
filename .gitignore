@@ -9,5 +9,7 @@ bootstrap
 vendor/
 .bundle
 node_modules
-update_search_index.sh
+update_index.sh
 .idea/
+.vscode/
+Gemfile.lock

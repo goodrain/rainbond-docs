@@ -6,7 +6,7 @@ toc: true
 
 ## 一、代码识别
 
-您的代码根目录下需要有 `Dockerfile` 文件，云帮会识别代码语言类型为**Dockerfile**
+您的代码主目录下需要有 `Dockerfile` 文件，云帮会识别代码语言类型为**Dockerfile**
 
 ## 二、云帮Dockerfile约定规范
 
@@ -150,7 +150,26 @@ CMD command param1 param2 (shell form)
 
 - `CMD` 会在启动容器的时候执行，构建(build) 时不执行。
 - `RUN` 只是在构建(build)镜像的时候执行
-{{site.data.alerts.end}}
+  {{site.data.alerts.end}}
+
+### 2.13 多阶段构建
+
+Rainbond 5.0及以后版本支持多阶段Dockerfile构建，适用于Golang, NodeJS等编译语言。事例代码如下：
+
+```
+FROM muninn/glide:alpine AS build-env
+ADD . /go/src/app
+WORKDIR /go/src/app
+RUN glide install
+RUN go build -v -o /go/src/app/app-server
+
+FROM alpine
+RUN apk add -U tzdata
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
+COPY --from=build-env /go/src/app/app-server /usr/local/bin/app-server
+EXPOSE 80
+CMD ["app-server"]
+```
 
 ## 三、示例代码
 

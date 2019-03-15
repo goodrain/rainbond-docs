@@ -5,97 +5,74 @@
                 "title": "组件架构和部署结构",
                 "items": [{
                     "title": "组件架构",
-                    "urls": [
-                        "/${VERSION}/operation-manual/component-description.html"
+                    "items": [{
+                            "title": "组件架构概述",
+                            "urls": [
+                                "/${VERSION}/operation-manual/component-description.html"
+                            ]
+                        },
+                        {
+                            "title": "服务组件参数说明",
+                            "urls": [
+                                "/${VERSION}/operation-manual/rbd-parameter.html"
+    
+                            ]
+                        }
                     ]
                 },
                 {
-                    "title": "部署结构",
+                    "title": "平台安装方案",
+                    "items": [
+                        {
+                            "title": "基于阿里云资源安装",
+                            "urls": [
+                                "/${VERSION}/operation-manual/install/alicloud/install-base-alicloud.html"
+                            ]
+                        },
+                        {
+                            "title": "基于已有Kubernetes集群安装",
+                            "urls": [
+                                "/${VERSION}/operation-manual/install/kubernetes/install-base-kubernetes.html"
+                            ]
+                        },
+                        {
+                            "title": "从零开始搭建高可用Rainbond集群",
+                            "urls": [
+                                "/${VERSION}/operation-manual/install/HA/install-base-ha.html"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "数据中心",
                     "items": [{
-                            "title": "单节点部署方案",
+                            "title": "数据中心概述",
                             "urls": [
-                                "/${VERSION}/operation-manual/cluster-management/one-node-deployment.html"
+                                "/${VERSION}/operation-manual/data-center.html"
                             ]
                         },
                         {
-                            "title": "三节点高可用部署方案",
+                            "title": "数据中心初始化",
                             "urls": [
-                                "/${VERSION}/operation-manual/cluster-management/three-nodes-deployment.html"
-    
-                            ]
-                        },
-                        {
-                            "title": "五节点高可用部署方案",
-                            "urls": [
-                                "/${VERSION}/operation-manual/cluster-management/five-nodes-deployment.html"
+                                "/${VERSION}/operation-manual/init-datacenter.html"
     
                             ]
                         }
                     ]
-                }]
+                }
+            ]
             },
             {
-                "title": "数据中心概述",
-                "urls": [
-                    "/${VERSION}/operation-manual/deployment-architecture.html"
-                ]
-            },
-            {
-                "title": "系统服务部署参数说明",
-                "urls": [
-                    "/${VERSION}/operation-manual/rbd-parameter.html"
-                ]
-            },
-            {
-                "title": "数据中心初始化",
-                "urls": [
-                    "/${VERSION}/operation-manual/deployment-architecture.html"
-                ]
-            },
-            {
-                "title": "分布式存储系统",
-                "items": [{
-                    "title": "GlusterFS",
-                    "items": [{
-                            "title": "介绍",
-                            "urls": [
-                                "/${VERSION}/operation-manual/storage/GlusterFS/introduce.html"
-                            ]
-                        }, {
-                            "title": "安装",
-                            "urls": [
-                                "/${VERSION}/operation-manual/storage/GlusterFS/install.html"
-                            ]
-                        }, {
-                            "title": "维护",
-                            "urls": [
-                                "/${VERSION}/operation-manual/storage/GlusterFS/maintain.html"
-                            ]
-                        }, {
-                            "title": "基准测试",
-                            "urls": [
-                                "/${VERSION}/operation-manual/storage/GlusterFS/test.html"
-                            ]
-                        }
-                    ]
-                }]
-            },
-            {
-                "title": "软件定义网络",
-                "urls": [
-                    "/${VERSION}/operation-manual/network/calico.html"
-                ]
-            },
-            {
-                "title": "节点管理",
-                "items": [{
+                "title": "数据中心节点管理",
+                "items": [
+                    {
                     "title": "节点类型",
                     "urls": [
                         "/${VERSION}/operation-manual/cluster-management/type-of-node.html"
                     ]
                     },
                     {
-                        "title": "扩容节点",
+                        "title": "添加节点",
                         "urls": [
                             "/${VERSION}/operation-manual/cluster-management/add-node.html"
                         ]
@@ -104,13 +81,69 @@
                         "title": "删除节点",
                         "urls": [
                             "/${VERSION}/operation-manual/cluster-management/del-node.html"
-
+                        ]
+                    },
+                    {
+                        "title": "节点健康检查",
+                        "urls": [
+                            "/${VERSION}/operation-manual/cluster-management/node-health.html"
                         ]
                     }
                 ]
             },
             {
-                "title": "监控与报警管理",
+                "title": "配置集群",
+                "items": [            {
+                    "title": "对接分布式存储",
+                    "items": [{
+                        "title": "GlusterFS",
+                        "items": [{
+                                "title": "介绍",
+                                "urls": [
+                                    "/${VERSION}/operation-manual/storage/GlusterFS/introduce.html"
+                                ]
+                            }, {
+                                "title": "安装",
+                                "urls": [
+                                    "/${VERSION}/operation-manual/storage/GlusterFS/install.html"
+                                ]
+                            }, {
+                                "title": "维护",
+                                "urls": [
+                                    "/${VERSION}/operation-manual/storage/GlusterFS/maintain.html"
+                                ]
+                            }, {
+                                "title": "基准测试",
+                                "urls": [
+                                    "/${VERSION}/operation-manual/storage/GlusterFS/test.html"
+                                ]
+                            }
+                        ]
+                    },{
+                        "title": "文件存储NAS",
+                        "items": [{
+                            "title": "对接阿里云NAS",
+                            "urls": [
+                                "/${VERSION}/operation-manual/storage/nas/alinas-install.html"
+                            ]
+                        }]
+                    }
+                ]
+                },
+                {
+                    "title": "软件定义网络",
+                    "items": [{
+                            "title": "Calico",
+                            "urls": [
+                                "/${VERSION}/operation-manual/network/calico.html"
+                            ]
+                        }
+                    ]
+                }
+            ]
+            },
+            {
+                "title": "监控集群",
                 "items": [
                     {
                         "title": "监控",
@@ -131,15 +164,28 @@
                 ]
             },
             {
-                "title": "日常维护工具集",
-                "urls": [
-                    "/${VERSION}/operation-manual/cli.html"
-                ]
+                "title": "运维集群",
+                "items": [
+                    {
+                        "title": "软硬件环境需求",
+                        "urls": [ "/${VERSION}/operation-manual/op-guide/recommendation.html" ]
+                    },
+                {
+                    "title": "组件运维",
+                    "urls": [ "/${VERSION}/operation-manual/op-guide/component-op.html" ]
+                },{
+                    "title": "检查所需端口",
+                    "urls": [ "/${VERSION}/operation-manual/op-guide/check_required_ports.html" ]
+                },{
+                    "title": "集群故障诊断",
+                    "urls": [ "/${VERSION}/operation-manual/op-guide/trouble-shooting.html" ]
+                }
+            ]
             },
             {
-                "title": "常见故障",
+                "title": "周边工具集",
                 "urls": [
-                    "/${VERSION}/operation-manual/FAQs.html"
+                    "/${VERSION}/operation-manual/cli.html"
                 ]
             },
             {

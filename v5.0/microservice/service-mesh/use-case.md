@@ -51,10 +51,8 @@ asciicast: true
 
 > 需要注意的是检测和创建过程由于获取大量镜像需要一定时间，请耐心等候完成！
 
-- **docker-compose 源码: [下载](/docs/attachments/yaml/sockshop.yaml)**
-
 ```yaml
-version: '2'
+version: '3'
 
 services:
   front-end:

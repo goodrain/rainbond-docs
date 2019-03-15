@@ -4,9 +4,9 @@ summary: 。
 toc: true
 ---
 
-通过 应用的定义 和 应用的创建方式 两篇文章, 我们知道了什么是应用, 以及应用的3种创建方式. 
+通过 [应用的定义](./app-definition.html) 和 [应用的创建方式](./way-of-creation.html) 两篇文章, 我们知道了什么是应用, 以及应用的3种创建方式.
 
-那么, *如何在 Rainbond 创建应用呢?* 这就是接下来要讲的内容.
+那么, *如何在 Rainbond 创建应用呢?* 这就是接下来要介绍的内容.
 
 ## 1. 从源码创建
 
@@ -14,17 +14,19 @@ toc: true
 
 ### 1.1 HTML 源码创建应用
 
-源码地址: https://github.com/goodrain/static-demo.git
+> 源码地址: https://github.com/goodrain/static-demo.git
 
 Step 1: 点击 **创建应用** -> **从源码创建**
 
-Step 2: 输入 **应用名称, 服务组件名称, 仓库地址, 代码分支**等信息. 确认信息后, 点击 **新建应用**. 
+Step 2: 输入 **应用名称, 服务组件名称, 仓库地址, 代码分支**等信息. 确认信息后, 点击 **新建应用**.
 
 Step 3: 应用检测通过后, 点击 **构建应用**.
 
-Step 4: 构建完成后, 点击 **访问**,  验证应用是否创建成功.
+Step 4: 构建完成后, 点击 **访问**, 验证应用是否创建成功.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/HTML%E6%BA%90%E7%A0%81%E5%88%9B%E5%BB%BA.gif" width="100%" />
+
+这样, 一个由HTML源码创建的应用就完成了.
 
 ### 1.2 其他语言源码创建应用
 
@@ -32,12 +34,10 @@ Step 4: 构建完成后, 点击 **访问**,  验证应用是否创建成功.
 - <a href="language-support/php.html" target="_blank">PHP源码创建应用</a>
 - <a href="language-support/python.html" target="_blank">Python源码创建应用</a>
 - <a href="language-support/nodejs.html" target="_blank">Node.js源码创建应用</a>
-- <a href="language-support/ruby.html" target="_blank">Ruby源码创建应用</a>
 - <a href="language-support/golang.html" target="_blank">Golang源码创建应用</a>
+- <a href="language-support/netcore.html" target="_blank">.Net源码创建应用</a>
 - <a href="language-support/html.html" target="_blank">Html静态源码创建应用</a>
 - <a href="language-support/dockerfile.html" target="_blank">Dockerfile源码创建应用</a>
-
-这样, 一个由源码创建的应用就完成了.
 
 ### 1.3 Git 和 SVN 的使用
 在创建应用时，根据代码仓库的类型选择 Git 或 SVN, 并正确填写该应用的代码仓库地址以及要使用的代码`分支`或 `tag`. Git的默认分支是 `master`, SVN 的默认 tag 是 `trunk`.

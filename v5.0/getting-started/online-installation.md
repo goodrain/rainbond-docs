@@ -1,39 +1,71 @@
 ---
-title: 安装
-summary: 快速在线安装云帮.
+title: 快速安装
+summary: 快速在线安装Rainbond，使用默认的配置形式
 toc: true
 toc_not_nested: true
 asciicast: true
 ---
 
-<div class="filters filters-big clearfix">
-    <a href="before-installation.html"><button class="filter-button ">安装前准备</button></a>
-    <a href="online-installation.html"><button class="filter-button current"><strong>安装</strong></button></a>
-</div>
+
+
+## 一、操作系统准备和检查
+
+### 1.1 检查操作系统，目前版本支持以下操作系统
+
+| 系统     | 版本         | 说明                     |
+| :------- | :----------- | :----------------------- |
+| CentOS   | 7.3/7.4      | 64位，推荐安装([7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)) |
+| Debian   | 9.6          | 64位                     |
+| Ubuntu   | 16.04        | 64位                     |
+| 中标麒麟 | 服务器版V7.4 | 64位                     |
 
 {{site.data.alerts.callout_danger}}
-
-- 安装前请务必阅读[安装前准备](before-installation.html)，在确定符合安装相关条件后执行安装操作。
-
+CentOS 7.5/7.6版本需要内核版本升级到4.x,具体可以参考[社区方案](https://t.goodrain.com/t/centos-check-unpack/628)
 {{site.data.alerts.end}}
 
-## 一、版本信息
+更多关于软硬件要求请参考 [软件和硬件环境要求](../operation-manual/op-guide/recommendation.html)
 
-| 版本          | 说明         |
-| ------------- | ------------ |
-| Dev v5.0 | 最新版本 |
+### 1.2 下载系统安装工具
 
-## 二、一键部署
-
-一键部署 Rainbond 是为了简化 Rainbond 安装步骤，通过 shell 脚本将 Rainbond 及其所需要的组件，统一进行安装及配置。用户仅需要简单的配置相关参数，运行 shell 命令即可。一键部署 Rainbond 适合仅简单了解 Rainbond 架构，想迅速搭建 Rainbond 的人群。
-
-```bash
+```
 wget https://pkg.rainbond.com/releases/common/v5.0/grctl
 chmod +x ./grctl
-./grctl init --iip <管理节点内网ip>
 ```
 
-安装完成后检查,当所有项目都是健康状态时平台即可正常使用。
+### 1.3 检查操作系统基础设置
+
+   * 确保机器重启，服务器IP地址和nameserver不发生改变，推荐[配置静态ip](../operation-manual/install/config/static-ip.html)
+
+   * 确定系统时间与时区(Asia/Shanghai)同步，参考[配置时区与时间同步](../operation-manual/install/config/timezone.html)
+
+   * 如果已经装有docker, 需要在安装前配置`insecure registry: goodrain.me`,可以通过docker info查看`Insecure Registries`
+   
+   * 确定系统可以正常yum/apt-get install相关软件包，需要提前配置系统相关软件源
+   
+   * 确定系统已禁用`NetworkManager`或者[配置NetworkManager](https://t.goodrain.com/t/calico-networkmanager/591)
+   
+   * 节点资源：磁盘最低要求 40GB,内存要求最低2核4G, 默认情况下节点会给系统预留1.5核CPU1.5G内存的资源
+   
+   * 确定网络没有限制，如有请加如下域名添加到白名单
+
+     repo.goodrain.com, api.goodrain.com, hub.goodrain.com, docker.io, domain.grapps.cn, aliyun.com,aliyuncs.com
+
+
+## 二、初始化数据中心
+
+[数据中心](/docs/v5.0/architecture/abstraction.html#region) 是Rainbond资源集合的核心抽象。初始化数据中心操作需要在第一台服务器上执行安装命令。
+
+* 初始化安装第一个节点
+
+> 快速安装无需设置过多的参数，重点注意IP地址的设定。若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址(eip)，若无则无需指定。如果想跳过系统配置检查，安装时指定`--enable-check disable`,如果配置过低可能会无法正常部署运行应用。如果需要安装特定docker版本，在安装前指定docker版本，如`export DOCKER_VERSION=18.06`
+
+```bash
+./grctl init --iip 内网ip --eip 公网ip
+```
+
+安装过程需要下载和处理大约2G的文件，需要一定时间，请耐心等待。若遇到无法解决的错误请于[Rainbond社区](https://t.goodrain.com)留言。
+
+* 安装完成后检查, 当所有服务和节点皆处于健康状态时平台即可正常使用。
 
 ```bash
 # 集群整体状态
@@ -43,71 +75,33 @@ grctl cluster
 grctl node list
 
 # 控制台访问地址
-<管理节点>:7070
+http://<节点IP地址>:7070
+```
+如果集群状态是不健康的，参考[节点健康检测](/docs/v5.0/operation-manual/cluster-management/node-health.html) 文档解决故障。
+
+## 三、数据中心添加节点
+
+上诉步骤完成默认将第一个节点安装成为第一个[管理节点](/docs/v5.0/architecture/abstraction.html#node) 和第一个 [计算节点](/docs/v5.0/architecture/abstraction.html#node)
+
+若你需要增加你的集群计算资源池，可以快速扩容计算节点：
+
+> 其中host/hostname可以根据排序顺序依次compute01-computeN,host/hostname不要重复。
+
+```bash
+grctl node add --host computexx --iip 计算节点IP --root-pass root用户密码 --role compute
+示例：
+grctl node add --host compute01 --iip 192.168.1.1 --root-pass 12345678 --role compute
+# 获取添加节点的NodeID，此时节点应处于未安装状态
+grctl node list
+# 指定节点ID开始安装
+grctl node install NodeID
+# 确定节点处于健康状态上线节点
+grctl node up <NodeID>
+
 ```
 
-## 三、手动部署
+更多细节可以参考文档 [运维手册, 节点扩容](../operation-manual/cluster-management/add-node.html) 
 
-通过执行ansible相关命令来执行安装
-
-```
-# 默认配置在目录下 rainbond-ansible/scripts/installer/global.sh
-## 自定义项
-IIP="" #内网ip
-DOMAIN="" #域名，如果需要指定自定义域名
-NETWORK_TYPE="calico" #支持calico和flannel
-
-## 默认项，也需定义
-INSTALL_TYPE="online"
-DEPLOY_TYPE="onenode"
-
-# 节点信息 rainbond-ansible/inventory/hosts
-```
-
-安装操作
-
-```
-# 项目需要git clone到/opt/rainbond目录下
-cd /opt/rainbond/rainbond-ansible
-# 更新global.sh后执行安装
-./setup.sh
-```
-
-<!--
-## 三、离线部署
-离线安装具体流程请参考[离线部署](../operation-manual/install/offline/setup.html)
-
-## 四、分步部署
-
-分步部署Rainbond是分组件一步一步的安装Rainbond及所需组件，用户可以定制相关的安装。分步部署Rainbond适合非常了解Rainbond架构，需要定制部署Rainbond的人群。
-
-具体安装流程请参考[分步部署](../operation-manual/install/step/part-salt.html)
-
-
-## 五、源码部署
-
-从源码安装具体流程请参考[源码部署](../operation-manual/install/source/setup.html)
-
--->
-
-{{site.data.alerts.callout_danger}}
-5.0 版本安装有所调整,如果安装过程中有报错且提示ignore,可忽略此报错。如有报错，请与我们反馈 [Github](https://github.com/goodrain/rainbond-ansible/issues)。
-{{site.data.alerts.end}}
-
-<!--
-{{site.data.alerts.callout_success}}
-云帮安装程序通过 shell 脚本 + ansible 实现，包括后续集群的扩容、升级及管理。相关源码参见：[rainbond-install](https://github.com/goodrain/rainbond-install)  
-节点扩容, 请参照 [运维手册, 节点扩容](../operation-manual/cluster-management/add-compute-node.html)  
-安装问题, 请参照 [运维手册，安装部署-集群安装问题排查](../operation-manual/trouble-shooting/install-issue.html)  
-使用问题, 请参照 [运维手册，平台维护-集群故障排查](../operation-manual/trouble-shooting/issue.html)  
-{{site.data.alerts.end}}
-
--->
-
-## 四、部署完成后的引导
-
-平台部署完成后，下面的文章可以引导你快速上手Rainbond。
-
-<div class="btn-group btn-group-justified">
-<a href="./quick-learning.html" class="btn" style="background-color:#F0FFE8;border:1px solid #28cb75">快速上手</a>
+<div class="step">
+  <a href="./quick-learning.html"><button class="btn">安装完成，开始部署管理你的应用</button></a>
 </div>
