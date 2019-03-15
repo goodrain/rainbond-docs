@@ -46,3 +46,4 @@ Rainbond版本:
 #### 快速索引
 
 - [重置企业管理员密码](/user-operations/op-guide/reset_enterprise_password/)
+- [rbd-repo指南](/user-operations/op-guide/op-repo/)
