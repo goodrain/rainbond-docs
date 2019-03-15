@@ -29,10 +29,6 @@ hidden: true
 |---|---|
 |CentOS|[7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)(建议安装此版本)|
 
-{{% notice warning %}}
-当前版本不推荐选用CentOS 7.5/7.6版本，如果必须使用上述版本，请将内核版本升级到4.x,具体可以参考[社区方案](https://t.goodrain.com/t/centos-check-unpack/628)
-{{% /notice %}}
-
 > 单台服务器计算资源配置要求
 
 |服务器角色|CPU|内存|
@@ -151,18 +147,14 @@ grctl init --network flannel 其他参数
 
 这一步将初始化Rainbond数据中心，即安装首个管理节点。这一步非常重要，会配置访问应用所使用的IP、集群网络解决方案等信息。
 
-```bash
-wget https://pkg.rainbond.com/releases/common/v5.0/grctl
-```
+> 更多初始化参数，请阅读[节点初始化重要参数说明](/user-operations/tools/grctl/#节点初始化重要参数说明)
+
 
 ```bash
+wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
-```
-
-> 更多初始化参数，请执行 ./grctl init -h 获取
-
-```bash
 ./grctl init --role master --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> 
+
 ```
 
 #### 5.2 手动校验
@@ -188,22 +180,14 @@ grctl cluster
 - 未做ssh免密操作时，需要知悉节点root密码
 
 ```bash
-grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role manage
+grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role manage --install
 
-```
-
-```bash
-grctl node install <Uid>
 ```
 
 - 配置好ssh免密后
 
 ```bash
-grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage
-```
-
-```bash
-grctl node install <Uid>
+grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage --install
 ```
 
 > 更多扩容参数，请执行 grctl node add -h 获取
@@ -416,21 +400,13 @@ ip a
 - 未做ssh免密操作时，需要知悉节点root密码
 
 ```bash
-grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role compute
-```
-
-```bash
-grctl node install  <Uid>
+grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role compute --install
 ```
 
 - 配置好ssh免密后
 
 ```bash
-grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role compute
-```
-
-```bash
-grctl node install <Uid>
+grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role compute --install
 ```
 
 #### 8.2 手动校验

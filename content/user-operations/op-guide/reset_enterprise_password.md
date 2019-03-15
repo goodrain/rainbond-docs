@@ -2,7 +2,7 @@
 title: "重置企业管理员密码"
 date: 2019-03-11T12:50:54+08:00
 draft: false
-weight: 9001
+weight: 804
 hidden: true
 description: 命令行快速重置企业管理员密码
 ---
