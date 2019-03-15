@@ -1,8 +1,0 @@
-.modal-video-wrap {display: none;}
-.modal-video-wrap .bg{position: fixed;left:0;top:0;right:0;bottom:0;background: #000;opacity:0.3;z-index:999999}
-.modal-video-wrap .close {cursor:pointer;z-index:999;width:40px;height:40px;position:absolute;right:8px;top:8px;}
-.modal-video-wrap .close:before {position:absolute;left:0;top:50%;display: block;content:'';height:0;width:100%;border-top:1px solid #fff;transform: rotate(45deg)}
-.modal-video-wrap .close:after {position:absolute;left:0;top:50%;position:absolute;display: block;content:'';height:0;width:100%;border-top:1px solid #fff;transform: rotate(-45deg)}
-
-.modal-video {border-radius:8px;overflow:hidden;position: fixed;z-index: 99999999;transform: translate(-50%, -50%);top: 50%;left: 50%;background:#000;max-width: 100%;max-height: 100%}
-.modal-video video {height: 100%;width:100%;}
