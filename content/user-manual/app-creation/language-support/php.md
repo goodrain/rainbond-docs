@@ -26,7 +26,7 @@ composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 1. 本地可以正常运行的PHP程序
 2. 源码程序必须托管在gitlab等相关git或者svn服务上
 3. 源码程序根目录下必须需要存在php文件
-4. 源码程序根目录下必须存在`composer.json`,用来管理PHP项目的依赖,也是Rainbond识别为PHP语言的必要条件
+4. 源码程序根目录下必须存在`composer.json`,用来管理PHP项目的依赖,也是Rainbond识别为PHP语言的必要条件,同时文件中必须定义项目需要的php版本，定义方式见下文。
 5. 源码程序项目根目录下必须存在`composer.lock`文件  
 6. 源码程序项目根目录下需要定义`Procfile`,用来定义程序启动方式
 
