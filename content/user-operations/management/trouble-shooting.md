@@ -40,6 +40,7 @@ Rainbond版本:
 6. 是否尝试过更新部分组件的镜像，是否有效
 7. 当前正在进行什么操作
 8. 最近一段时间的网络/IO监控数据是否有异常
+9. 系统异常是哪个接口报错,提供rbd-app-ui日志(`/opt/rainbond/logs/rbd-app-ui/goodrain.log`)
 
 ```
 
