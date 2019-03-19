@@ -51,8 +51,15 @@ web: vendor/bin/heroku-php-nginx
 composer update --ignore-platform-reqs
 ```
 
-{{% notice warning %}}
+{{% notice info %}}
 PHP应用程序可以使用Composer安装的依赖项,通常会将依赖项安装到`vendor/`目录，但是部分项目会重新定义这个目录，执行`composer config vendor-dir`配置正确的路径。大多数情况下避免本地安装影响，通常需要将Composer `vendor`目录添加到你的`.gitignore`
+当在composer.json中定义了verndor-dir时需注意,需要自行定义Procfile否则会导致应用无法正常运行，Procfile格式类似`web: <vendor-dir>/heroku/heroku-buildpack-php/bin/heroku-php-apache2`
+```json
+   "config" : {
+        "vendor-dir": "lib/composer",
+        "optimize-autoloader": true
+    },
+```
 {{% /notice %}}
 
 
