@@ -154,7 +154,7 @@ gitlab服务提供80端口的HTTP访问和22端口的SSH代码访问，分别为
 
 * 上述过程还是有点复杂，能不能直接一键部署。
 
-> 那当然是可以的，我已将Gitlab服务分享到Rainbond公有应用市场，供给Rainbond用户一键安装，应用市场搜索""，需要注意的是，安装完成后需要根据你的网关访问策略重新配置Gitlab的GITLAB_HOST、GITLAB_SSH_HOST等信息。
+> 那当然是可以的，我已将Gitlab服务分享到Rainbond公有应用市场，供给Rainbond用户一键安装，应用市场搜索"Gitlab代码仓库服务" 选择版本v11.8.2，同步后直接安装即可。需要注意的是，安装完成后需要根据你的网关访问策略重新配置Gitlab的GITLAB_HOST、GITLAB_SSH_HOST等信息。
 
 暂无其他答疑，如你有疑问，请留言。
 
