@@ -5,43 +5,58 @@ description: "此方式适用于外网网络受到严格限制的用户，此版
 hidden: true
 ---
 
-## 一、操作系统准备和检查
+{{% notice warning %}}
+目前我们仅提供CentOS 7.4.1708版本的离线包，其他版本离线包制作请参考[离线包制作文档](/user-operations/op-guide/offline-package/)
+{{% /notice %}}
 
-### 1.1 检查操作系统，目前版本支持以下操作系统
+#### 软硬件要求
 
-| 系统     | 版本         | 说明                     |
-| :------- | :----------- | :----------------------- |
-| CentOS   | 7.3及以上      | 64位，推荐安装([7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)) |
-| Debian   | 9.6及以上          | 64位                     |
-| Ubuntu   | 16.04        | 64位                     |
-| 中标麒麟 | 服务器版V7.4 | 64位                     |
+1. 检查操作系统，目前离线版本仅支持[CentOS 7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)版本
+2. 确保机器重启，服务器IP地址和nameserver不发生改变，推荐配置静态ip
+3. 多节点部署时，需要确保机器间时间要同步
+4. 多节点时，机器间网络访问没有限制
 
-更多关于软硬件要求请参考 [软件和硬件环境要求](/user-operations/op-guide/recommendation/)
+更多关于软硬件要求请参考 [软件和硬件环境要求](/user-operations/op-guide/recommendation/),安装前请务必确定是否满足条件。
 
-### 1.2 下载系统安装工具
+#### 同步离线包
 
 ```
-wget https://pkg.rainbond.com/releases/common/v5.1/grctl
-chmod +x ./grctl
+# 有网环境下载离线包并同步到离线环境
+wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-03-15-5.1.0.tgz
 ```
 
-## 二、初始化数据中心
+#### 离线安装操作
 
-[数据中心](/architecture/architecture/#二-数据中心服务组件说明) 是Rainbond资源集合的核心抽象。初始化数据中心操作需要在第一台服务器上执行安装命令。
+##### 准备工作
+```bash
+# 需要移除默认源
+mv /etc/yum.repos.d/*.repo /tmp/
+# 解压离线包
+tar xf <离线包>
+# 进入解压目录下
+cd offline
+# 执行准备工作
+./offline.sh
+# 安装前检查工作
+1. ls /grdata/services/offline/ 目录下有base.images.tgz rainbond.images.tgz这两个文件
+2. ls /grdata/services/offline/pkgs/rpm/centos/7/repodata/repomd.xml 存在这个文件
+3. ls /opt/rainbond/rainbond-ansible/roles/prepare/templates/rainbond.repo.j2 存在这个文件
+# 确定上述文件都存在后执行后续安装操作
+```
 
-* 初始化安装第一个节点
-
-> 快速安装无需设置过多的参数，重点注意IP地址的设定。若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);  
-> 若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址(eip)，若无则无需指定;  
-> 如果想跳过系统配置检查，安装时指定`--enable-check disable`,如果配置过低可能会无法正常部署运行应用;  
-> 如果需要安装特定docker版本，在安装前指定docker版本，如`export DOCKER_VERSION=17.06`  
-> 更多参数说明请阅读[grctl工具](/user-operations/tools/grctl/)
+##### 初始化数据中心
+ 
+{{% notice info %}}
+离线情况下，初始化数据中心必须指定参数要求： 必须指定install-type为offline 可选参数要求：  
+1. 如果是多网卡情况下，需要指定iip  
+2. 离线情况下，默认使用`pass.grapps.cn`域名，需要自行指定离线域名，并需要配置相关解析工作如`*.pass.grapps.cn`解析到数据中心节点  
+3. role身份,赋予当前节点身份属性,默认为管理和计算节点复用，指定为master，则表示当前节点仅具有管理节点属性  
+{{% /notice %}}
 
 ```bash
-./grctl init --iip 内网ip --eip 公网ip
+# 当前节点仅具有管理属性
+ ./grctl init --install-type offline  --iip <当前机器内网ip>  --domain <自定义域名> [--role master]
 ```
-
-安装过程需要下载和处理大约2G的文件，需要一定时间，请耐心等待。若遇到无法解决的错误请于[Rainbond社区](https://t.goodrain.com)留言。
 
 * 安装完成后检查, 当所有服务和节点皆处于健康状态时平台即可正常使用。
 
@@ -55,26 +70,25 @@ grctl node list
 # 控制台访问地址
 http://<节点IP地址>:7070
 ```
-如果集群状态是不健康的，参考[节点健康检测](../operation-manual/cluster-management/node-health.html) 文档解决故障。
+如果集群状态是不健康的，参考[节点健康检测](/user-operations/management/node-health/) 文档解决故障。
 
-## 三、数据中心添加节点
+##### 添加节点
 
-上诉步骤完成默认将第一个节点安装成为第一个[管理节点](../architecture/abstraction.html#node) 和第一个 [计算节点](../architecture/abstraction.html#node)
-
-若你需要增加你的集群计算资源池，可以快速扩容计算节点：
-
-> 其中host/hostname可以根据排序顺序依次compute01-computeN,host/hostname不要重复。
-
-```bash
-grctl node add --host computexx --iip 计算节点IP --root-pass root用户密码 --role compute --install
-示例：
-grctl node add --host compute01 --iip 192.168.1.1 --root-pass 12345678 --role compute --install
-# 获取添加节点的NodeID，此时节点应处于未安装状态
-grctl node list
-# 确定节点处于健康状态上线节点
-grctl node up <NodeID>
+```
+# 添加计算节点,请不用使用offline目录下的grctl执行相关节点添加删除操作
+## 法一 密码
+grctl node add --host <计算节点主机名> --iip <计算节点内网ip> --root-pass <计算节点root密码> --role compute
+## 法二 key
+grctl node add --host <计算节点主机名> --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role compute
+# 安装计算节点
+grctl node install <新添加计算节点的Uid>
+# 确定计算节点ok后，上线节点
+当节点处于offline(unschedulable)状态后可以up
+grctl node up <新添加计算节点的Uid>
 ```
 
-更多细节可以参考文档 [运维手册, 节点扩容](../operation-manual/cluster-management/add-node.html) 
+更多细节可以参考文档 [运维手册, 节点扩容](/user-operations/management/add-node/) 
 
 {{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}
+
+

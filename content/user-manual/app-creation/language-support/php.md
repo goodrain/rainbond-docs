@@ -43,13 +43,18 @@ web: vendor/bin/heroku-php-nginx
 
 上述是默认Procfile,如果需要扩展,可以自定义Procfile。
 
-##### composer文件
+##### Composer文件
 
-默认源码根目录需要存在`composer.json`和`composer.lock`文件。`composer.lock`其中可以通过如下命令生成
+默认源码根目录需要存在`composer.json`和`composer.lock`文件, 即使应用程序没有Composer依赖项，它也必须至少包含一个空（`{}`）。`composer.lock`其中可以通过如下命令生成
 
 ```php
 composer update --ignore-platform-reqs
 ```
+
+{{% notice warning %}}
+PHP应用程序可以使用Composer安装的依赖项,通常会将依赖项安装到`vendor/`目录，但是部分项目会重新定义这个目录，执行`composer config vendor-dir`配置正确的路径。大多数情况下避免本地安装影响，通常需要将Composer `vendor`目录添加到你的`.gitignore`
+{{% /notice %}}
+
 
 #### 编译运行环境设置
 
@@ -58,9 +63,18 @@ composer update --ignore-platform-reqs
 ##### PHP版本支持
 
 - PHP 5.5.38 (5.5.38)
-- PHP 5.6.35 (5.6.35)(默认)
+- PHP 5.6.35 (5.6.35)
 - PHP 7.0.29 (7.0.29)
 - PHP 7.1.16 (7.1.16)
+
+<!--
+- PHP 7.3.3, 7.3.2, 7.3.1, 7.3.0, 
+- PHP 7.2.16, 7.2.15, 7.2.14, 7.2.13
+- PHP 7.1.27, 7.1.26, 7.1.25, 7.1.21, 7.1.16
+- PHP 7.0.33, 7.0.29
+- PHP 5.6.40, 5.6.39, 5.6.35
+- PHP 5.5.38
+-->
 
 <!--
 ##### HHVM版本
@@ -152,7 +166,7 @@ PHP 的版本支持 ~5.5.35 这种 [Semantic Versioning](http://semver.org/) 的
 
 {{% notice info %}}
 
-composer是PHP的依赖管理器，composer.json则是composer的配置文件，强烈建议使用 “*” 来标识扩展包的版本号。
+Composer是PHP的依赖管理器，composer.json则是Composer的配置文件，强烈建议使用 “*” 来标识扩展包的版本号。
 
 {{% /notice %}}
 
@@ -211,7 +225,7 @@ composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
 {{% notice info %}}
 
-系统会在每次运行的时候使用`composer self-update` 将composer自动更新到最新版本。
+系统会在每次运行的时候使用`composer self-update` 将Composer自动更新到最新版本。
 
 {{% /notice %}}
 
