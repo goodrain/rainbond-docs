@@ -14,7 +14,7 @@ Hidden: true
 
 完成这个操作需要两套Rainbond环境。一套作为应用的发布平台，用于应用的发布与升级；另一套作为部署平台，我们将会通过离线导出/导入市场应用的方式，实现应用的交付与升级操作。
 
-本文在写作的时候搭建了两套Rainbond v3.7.2 作为测试环境，来演示与验证通过应用市场做应用交付与升级。
+本文在写作的时候搭建了两套Rainbond v5.1.0 作为测试环境，来演示与验证通过应用市场做应用交付与升级。
 
 #### 应用的发布与导出
 
@@ -48,15 +48,17 @@ Hidden: true
 
 重新发布来升级应用市场中的应用
 
-> 需要注意的是，重新发布同一个应用的时候，`版本` 应与原应用保持一致，方视为对原应用的升级；否则，会发布出一个新的应用。
+> 需要注意的是，重新发布同一个应用的时候，`版本` 应与原应用保持一致，方视为对原应用的升级；否则，会发布出一个新的应用， 但是在应用升级构建中，可以找到不同版本的相同应用，进行跨版本升级。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/app-delivery-5.gif" width="100%">
 
 #### 同Rainbond下应用市场部署应用的升级
 
-对于使用了应用市场中应用的首个版本部署的应用 `app_delivery` 。在重新发布应用后，就可以进行升级操作了。Rainbond会自动检测应用市场应用的版本，并体现 `应用升级 `按钮。
+对于使用了应用市场中应用的首个版本部署的应用 `app_delivery` 。在重新发布应用后，就可以进行升级操作了。Rainbond会自动检测应用市场应用的版本，并在`构建 `按钮中进行特殊提示，如没有版本可升级，便无特殊提示，但也可进行强制升级，将当前版本进行重新构建一遍。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/app-delivery-6.gif" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/console/V5.1/team-operation11.gif" width="100%">
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/console/V5.1/team-operation12.gif" width="100%">
 
 #### 不同Rainbond下应用市场应用的升级
 
