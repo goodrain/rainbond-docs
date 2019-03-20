@@ -2,7 +2,7 @@
 title: "如何构建离线安装包"
 date: 2019-03-11T12:50:54+08:00
 draft: false
-weight: 804
+weight: 806
 hidden: true
 description: 如何构建离线安装包
 ---

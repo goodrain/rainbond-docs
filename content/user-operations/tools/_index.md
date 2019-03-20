@@ -1,7 +1,7 @@
 ---
 title: "周边工具集"
 menu: "tools"
-weight: 8000
+weight: 1601
 chapter: true
 ---
 

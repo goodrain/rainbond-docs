@@ -2,7 +2,7 @@
 title: "rbd-repo指南"
 date: 2019-03-11T12:50:54+08:00
 draft: false
-weight: 804
+weight: 805
 hidden: true
 description: rbd-repo指南
 ---

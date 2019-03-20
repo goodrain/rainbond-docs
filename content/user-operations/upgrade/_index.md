@@ -1,7 +1,7 @@
 ---
 title: "版本升级"
 menu: "upgrade"
-weight: 9000
+weight: 1801
 chapter: true
 ---
 
