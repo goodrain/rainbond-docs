@@ -9,13 +9,13 @@ RUN apk add --no-cache bash net-tools && \
 # copy doc
 ADD . /app
 WORKDIR /app
-ARG PATH="/docs/"
-ARG BASEURL="https://www.rainbond.com${PATH}"
-RUN hugo --baseURL=${BASEURL} 
+ARG LOCATION="/docs/"
+ARG BASEURL="https://www.rainbond.com${LOCATION}"
+RUN hugo --baseURL=${BASEURL}
 
 FROM nginx:1.15.9-alpine as runtime
-
-COPY --from=builder /app/public /usr/share/nginx/html${PATH}
+ARG LOCATION="/docs/"
+COPY --from=builder /app/public /usr/share/nginx/html${LOCATION}
 COPY nginx.conf /etc/nginx/nginx.conf
 
 
