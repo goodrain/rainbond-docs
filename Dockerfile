@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.9 as builder
 
 # install hugo
 RUN apk add --no-cache bash net-tools && \
@@ -9,8 +9,14 @@ RUN apk add --no-cache bash net-tools && \
 # copy doc
 ADD . /app
 WORKDIR /app
-EXPOSE 1313
+ARG PATH="/docs/"
+ARG BASEURL="https://www.rainbond.com${PATH}"
+RUN hugo --baseURL=${BASEURL} 
 
-CMD ["/app/start.sh"]
+FROM nginx:1.15.9-alpine as runtime
+
+COPY --from=builder /app/public /usr/share/nginx/html${PATH}
+COPY nginx.conf /etc/nginx/nginx.conf
+
 
 
