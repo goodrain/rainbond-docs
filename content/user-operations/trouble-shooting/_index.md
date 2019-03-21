@@ -9,7 +9,7 @@ chapter: true
 
 ```yaml
 # 参考模板
-Rainbond版本(grctl version/docker run --rm goodrain.me/rbd-api:5.1.0 version):
+Rainbond版本(grctl version/docker run --rm goodrain.me/rbd-api:5.1.1 version):
 操作系统/内核版本:
 节点配置(CPU核数,内存大小,硬盘类型(SSD/机械硬盘),网络类型,网络拓扑):
 安装类型(是否离线或者对接已有集群):

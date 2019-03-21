@@ -27,7 +27,7 @@ USAGE:
    grctl [global options] command [command options] [arguments...]
 
 VERSION:
-   5.1.0-742a75d-2019-03-11-08
+   5.1.1-5cb66ee-2019-03-21-10
 
 COMMANDS:
      alerting   alerting rule manage
