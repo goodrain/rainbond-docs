@@ -3,7 +3,10 @@ var lunrIndex, pagesIndex;
 function endsWith(str, suffix) {
     return str.indexOf(suffix, str.length - suffix.length) !== -1;
 }
-
+function isChineseChar(str){     
+    var reg = /[\u4E00-\u9FA5\uF900-\uFA2D]/;  
+    return reg.test(str);  
+}
 // Initialize lunrjs using our generated index file
 function initLunr() {
     if (!endsWith(baseurl,"/")){
@@ -27,6 +30,15 @@ function initLunr() {
             lunrIndex.field("content", {
                 boost: 5
             });
+            lunrIndex.trimmer = function (token) {
+                //check token is chinese then not replace 
+                if(isChineseChar(token)){
+                return token;
+                }
+                return token
+                .replace(/^\W+/, '')
+                .replace(/\W+$/, '')
+            }
 
             // Feed lunr with each file and let lunr actually index them
             pagesIndex.forEach(function(page) {
