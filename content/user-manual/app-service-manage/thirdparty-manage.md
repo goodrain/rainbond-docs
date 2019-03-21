@@ -33,7 +33,7 @@ Weight: 5200
 
 ### 端口
 
-端口的功能基本上和内部的服务保持一致, 唯一的不同点是, 第三方服务`只能添加一个端口`. 详情参考: [服务端口](第三方服务)
+端口的功能基本上和内部的服务保持一致, 唯一的不同点是, 第三方服务`只能添加一个端口`. 详情参考: [服务端口](/user-manual/app-service-manage/service-port-domain/)
 
 ### 连接信息
 
@@ -41,4 +41,4 @@ Weight: 5200
 
 ### 更多设置
 
-在更多设置中, 第三方服务保留了[健康检测](/user-manual/app-service-manage/service-other-set/#健康检查)和[成员服务权限](/v5.1/user-manual/app-service-manage/service-other-set/#成员服务权限). 在这两者中, [成员服务权限](/v5.1/user-manual/app-service-manage/service-other-set/#成员服务权限)跟内部服务保持一致, 有变化的是健康检测. 第三方服务不健康处理方式有`下线` 和 `忽略`(内部服务为`下线`和`重启`).
+在更多设置中, 第三方服务保留了[健康检测](/user-manual/app-service-manage/service-other-set/#健康检查)和[成员服务权限](/user-manual/app-service-manage/service-other-set/#成员服务权限). 在这两者中, [成员服务权限](/user-manual/app-service-manage/service-other-set/#成员服务权限)跟内部服务保持一致, 有变化的是健康检测. 第三方服务不健康处理方式有`下线` 和 `忽略`(内部服务为`下线`和`重启`).
