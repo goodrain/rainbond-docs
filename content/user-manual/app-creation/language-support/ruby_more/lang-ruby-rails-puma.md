@@ -3,6 +3,7 @@ title: 使用Puma部署Rails应用
 description: 使用Puma部署Rails应用
 hidden: true
 draft: true
+prehidden: true
 ---
 
 ## 前言

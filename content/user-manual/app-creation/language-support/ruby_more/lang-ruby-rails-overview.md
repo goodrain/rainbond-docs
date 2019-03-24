@@ -3,6 +3,7 @@ title: Rails应用概述
 description: rails应用概述
 hidden: true
 draft: true
+prehidden: true
 ---
 
 ## 代码识别

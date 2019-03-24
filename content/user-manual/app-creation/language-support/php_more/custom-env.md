@@ -3,6 +3,7 @@ title: 自定义Web Server与PHP环境
 description: 运行时环境设置与调试
 hidden: true
 draft: true
+prehidden: true
 ---
 
 PHP 有内置的Web Server，但它只适用于debug，生产环境中我们推荐大家通过Procfile文件来描述PHP 使用的Web Server，当然如果你的代码中没有包含Procfile，我们在创建应用向导中会提示你选择一个Web Server。

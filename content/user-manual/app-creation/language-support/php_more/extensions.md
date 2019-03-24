@@ -3,6 +3,7 @@ title: PHP Extensions说明
 description: PHP具体扩展支持说明
 hidden: true
 draft: false
+prehidden: true
 ---
 
 #### PHP 5.6
