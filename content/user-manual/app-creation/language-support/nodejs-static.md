@@ -68,7 +68,7 @@ web: sh boot.sh
 
 #### Web服务支持
 
-Web默认支持Nginx,目前Nginx版本为1.14.2。如果需要自定义配置Nginx，需要在源代码根目录添加`web.conf`(需要符合Nginx配置文件语法)。
+Web默认支持Nginx,目前Nginx版本为1.14.2。如果需要自定义配置Nginx，需要在源代码根目录添加`web.conf`或者`www/web.conf`(需要符合Nginx配置文件语法)。
 
 默认配置文件`web.conf`
 
