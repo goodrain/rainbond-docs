@@ -5,7 +5,6 @@ Description: "讲解Rainbond源码构建系统对接企业私有Maven仓库的�
 Weight: 22005
 ---
 
-
 ### Maven仓库镜像
 
 #### Maven仓库
@@ -83,11 +82,13 @@ mirror相当于一个拦截器，它会拦截Maven对remote仓库的相关请求
 其中仅当未禁用Maven Mirror时MAVEN MIRROROF和MIRROR_URL才生效
 ```
 
+> 更多[构建源参数](/user-manual/app-service-manage/service-source/)说明参考
+
 {{% notice note %}}
 `maven.goodrain.me`默认是由Rainbond内置的rbd-repo提供服务的。
 {{% /notice %}}
 
-### Rainbond组件rbd-repo简介
+### Rainbond组件rbd-repo简述
 
 Rainbond通过rbd-repo组件实现了Maven仓库管理功能，该组件基于 [Artifactory](https://www.jfrog.com/open-source/) 开源版本实现,其源码托管于[goodrain/rbd-repo](https://github.com/goodrain/rbd-repo.git),如果需要自定义自己的rbd-repo可以参考[rbd-repo指南](/user-operations/op-guide/op-repo/)
 
@@ -99,63 +100,51 @@ rbd-repo默认内置镜像了如下远程仓库:
 - spring
 - spring-plugin
 
-<!--
+如果需要镜像如上仓库，可以通过[构建源](/user-manual/app-service-manage/service-source/)配置MirrorOF值为`central,jcenter`
 
-如果您已经部署了Maven仓库管理系统，如 [Artifactory](https://www.jfrog.com/open-source/) 或 [Nexus](http://www.sonatype.org/nexus/)，可以通过配置云帮的rbd-repo组件与您本地的Maven仓库对接。如果您还没有Maven仓库，可以直接使用云帮内置的Maven仓库进行应用的构建。
+默认rbd-repo访问地址为：`http://管理节点IP:8081`, 管理员用户名密码：`admin/password`
 
-本文介绍对接云帮外部Maven仓库，实际上就是配置云帮的Artifactory与外部Artifactory或者Nexus对接，同时还会介绍如何使用云帮内置的Maven仓库来上传jar包，最终通过云帮构建java应用。
+如果是多管理节点时，对接私有仓库时需要同时配置所有管理节点
 
-云帮的Java源码构建模块是通过[Maven](https://maven.apache.org/)进行编译和打包的，云帮会把所有的仓库地址都镜像（mirror）到内部maven仓库地址 `maven.goodrain.me`，云帮Maven的`settings.xml`信息如下：
+另外rbd-repo中的仓库主要有三种类型，后面会详细介绍Local仓库和Remote仓库使用：
 
-```
-<mirror>
-  <id>acp-repo</id>
-  <mirrorOf>*</mirrorOf>
-  <name>acp repo</name>
-  <url>http://maven.goodrain.me/</url>
-</mirror>
-```
+- Local: 本地私有仓库，用于内部使用，上传的组件不会与外部进行同步(作为公司内部私服使用);
+- Remote: 远程仓库, 用于代理及缓存公共仓库, 不能向此类型的仓库上传私有组件(对接公司已有私服使用);
+- Virtual: 虚拟仓库, 不是真实在存储上的仓库，它用于组织本地仓库和远程仓库(maven.goodrain.me)。
 
--->
 
-### 对接外部的Maven仓库
+### Rainbond对接私有Maven仓库
 
-<!--
-<img src="https://static.goodrain.com/images/acp/docs/bestpractice/maven/connect-external-maven.png" width="80%" />
+公司内部有自己的Maven私服仓库，可以通过rbd-repo组件来实现与Rainbond的对接。
 
-如上图所示，只需要在云帮内部Maven仓库管理系统中创建Remote（远程）类型的仓库，指向您现有Maven仓库地址，就可以实现与云帮平台的对接。
+{{% notice warning %}}
+需要注意: 如果你的私服是Nexus3或者是阿里云Maven仓库则无法使用rbd-repo进行镜像代理缓存。  
+解决方案:  
+法1. 禁用Rainbond的Mirror配置,项目[构建源](/user-manual/app-service-manage/service-source/)里设置并同时启用开启清除构建缓存配置项, pom.xml里定义相关仓库信息  
+法2. 使用Nexus2或者使用Rainbond内置的rbd-repo服务  
+{{% /notice %}}
 
--->
-
-> 云帮内置Maven仓库管理系统登录信息：
-
-> 地址：http://管理节点IP:8081
-
->  用户名：`admin`
-
-> 密码：`password`
-
-出于安全考虑，建议您第一时间修改Maven仓库的管理员密码
+#### 示例对接内部私有Maven仓库
 
 下面以一个示例来说明一下对接方法：
 
-* 1. 创建Remote类型的仓库
+##### 1. 创建Remote类型的仓库
 
-\- 访问 `http://管理节点IP:8081` 并用管理员账号登录。
+> 访问 `http://管理节点IP:8081` 并用管理员账号(`admin/password`)登录。
 
-\- Admin-Repositories 选择 `Remote`
+Admin Repositories 选择添加`Remote`仓库
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/maven/connect-external-maven02.png" width="50%" />
 
-\- 新建Remote（远程）仓库
+选择新建Remote（远程）仓库
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/maven/connect-external-maven03.png" width="80%" />
 
-\- Remote（远程）仓库类型选择Maven
+Remote（远程）仓库类型选择Maven
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/maven/connect-external-maven04.png" width="80%" />
 
-* 2. 配置Remote（远程）仓库,其中需要注意Maven的URL可以通过浏览器访问能够正常列出相关构件
+配置Remote（远程）仓库,其中需要注意Maven的URL可以通过浏览器访问能够正常列出相关构件
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/maven/connect-external-maven05.png" width="85%" />
 
@@ -163,9 +152,9 @@ rbd-repo默认内置镜像了如下远程仓库:
 
 ***URL ：***远程仓库的地址  如果您外部的Maven仓库是Artifactory搭建，地址类似于 `http://<maven域名>/artifactory/list/<仓库名>/`  ，如果您的外部仓库是Nexus搭建，地址类似于 `http://maven域名/nexus/content/repositories/<仓库名>/`
 
-URL地址填写完成后，可以点击 ***\*Test\**** 按钮测试连接的有效性，如果连接有效可以点击 “***\*Save & Finish\****” 按钮完成创建。
+URL地址填写完成后，可以点击 ***Test*** 按钮测试连接的有效性，如果连接有效可以点击 “***Save & Finish***” 按钮完成创建。
 
-3. 将新建仓库添加到`libs-release`虚拟仓库中（重要）**
+##### 2. 将新建仓库添加到`libs-release`虚拟仓库中（重要）
 
 内部仓库默认会创建一个名为 `libs-release`的虚拟仓库，虚拟仓库（virtual）并不是真实的仓库，它是用于组织本地仓库和远程仓库的逻辑单元。由于云帮镜像了所有仓库地址，因此需要将远程仓库加到虚拟仓库中。
 
@@ -173,30 +162,26 @@ Admin——>Repositories——>Virtual  选择 `libs-release`
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/maven/connect-external-maven06.png" width="85%" />
 
-{{% notice warning %}}
-如果你的私服是Nexus3或者是阿里云Maven仓库则无法使用rbd-repo进行代理镜像。这时需要请禁用Mirror功能，在pom.xml里定义相关仓库信息或者使用Nexus2或者使用Rainbond内置的rbd-repo服务
-{{% /notice %}}
+
+##### 3. 验证添加是否成功
+
+访问`http://<管理节点>:8081/artifactory/list/libs-release/`或者管理节点访问`maven.goodrain.me`看能否列出你新添加私服的构件。
 
 ### 使用Rainbond内置的Maven仓库
 
 如果您没有Maven仓库管理系统，可以直接使用Rainbond内置的Maven仓库管理系统。下面介绍操作步骤：
 
-- 1. 创建 **Local** 类型的Maven仓库
-
- 创建一个`Local` 类型的Maven仓库，名称为 `repo-local`
-
-- 2. 上传自己的jar包
-
-\- 选择本地仓库 `repo-local`
+1. 创建 **Local** 类型的Maven仓库。示例创建一个`Local` 类型的Maven仓库，名称为 `repo-local`
+2. 向本地仓库`repo-local`上传自己的jar包
+3. 查看依赖声明信息
+4. 将repo-local添加到`libs-release` 虚拟仓库中
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/maven/connect-external-maven07.png" width="85%" />
 
-\- 上传jar包
-
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/maven/connect-external-maven08.png" width="80%" />
 
-- 3. 查看依赖声明信息
+
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/maven/connect-external-maven09.png" width="90%" />
 
-- 4. 将repo-local添加到`libs-release` 虚拟仓库中
+访问`http://<管理节点>:8081/artifactory/list/libs-release/`或者管理节点访问`maven.goodrain.me`看能否列出你新添加的构件。

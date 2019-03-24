@@ -92,6 +92,8 @@ java.runtime.version=1.8
 平台目前也支持OracleJDK,但此特性需要在平台里启用才会生效。  
 默认不内置提供OracleJDK下载,需要在设置里启用OracleJDK后配置相关OracleJDK下载地址。
 
+OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.tar.gz`
+
 ##### 配置Maven版本
 
 Rainbond默认的推荐Maven版本为`3.3.1`,支持如下版本: `3.0.5`, `3.1.1`, `3.2.5`, `3.3.1`, `3.3.9`.    
