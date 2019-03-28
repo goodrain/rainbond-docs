@@ -117,7 +117,8 @@ OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.ta
 
 #### 其他说明
 
-1. 默认会将war文件解压至`/app/target/tomcat.<port>`目录下,不支持添加存储路径为/app/target/目录,否则会导致应用无法正常解压
+1. 默认会将war文件解压至`/app/target/tomcat.<port>`目录下,不支持添加存储路径为/app/target/目录,否则会导致应用无法正常启动
+2. 不支持添加存储到war解压目录路径下
 
 #### 示例demo程序
 
@@ -130,3 +131,4 @@ OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.ta
 - [Java-Gradle源码构建应用](../java-gradle/)
 - [Spring Boot项目配置MySQL](../spring-boot-mysql/)
 - [Tomcat配置Redis实现Session共享](../tomcat-redis-session)
+- [Webapp Runner配置说明](/user-manual/app-creation/language-support/java_more/webapp-runner/)
