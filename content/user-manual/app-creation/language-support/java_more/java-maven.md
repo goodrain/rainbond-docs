@@ -122,8 +122,8 @@ maven.version=3.3.1
 
 1. 控制台构建源配置支持版本 `tomcat7,tomcat8,tomcat85,tomcat9,jetty7,jetty9`  
 2. 源码根目录下定义webserver版本 
-    - `webapp-runner-7.0.57.2.jar`
-    - `webapp-runner-8.0.18.0-M1.jar`,`webapp-runner-8.5.38.0.jar`
+    - `webapp-runner-7.0.91.0.jar`
+    - `webapp-runner-8.0.52.0.jar`,`webapp-runner-8.5.38.0.jar`
     - `webapp-runner-9.0.16.0.jar`
     - `jetty-runner-7.5.4.v20111024.jar`,`jetty-runner-9.4.0.v20161208.jar`  
 
@@ -131,12 +131,16 @@ maven.version=3.3.1
 
 | web服务支持     | web服务版本        | 自定义Procfile中jar文件名                    |
 | :------- | :----------- | :----------------------- |
-| tomcat7   |  webapp-runner-7.0.57.2.jar       | webapp-runner.jar |
-| tomcat8 | webapp-runner-8.0.18.0-M1.jar | webapp-runner.jar |
+| tomcat7 | webapp-runner-7.0.91.0.jar | webapp-runner.jar |
+| tomcat8 | webapp-runner-8.0.52.0.jar | webapp-runner.jar |
 | tomcat85 (默认) | webapp-runner-8.5.38.0.jar | webapp-runner.jar |
 | tomcat9 | webapp-runner-9.0.16.0.jar | webapp-runner.jar |
 | jetty7 | jetty-runner-7.5.4.v20111024.jar | jetty-runner.jar |
 | jetty9 | jetty-runner-9.4.0.v20161208.jar | jetty-runner.jar |
+
+{{% notice info %}}
+选择tomcat7版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行
+{{% /notice %}}
 
 #### 高级构建选项
 
@@ -159,6 +163,9 @@ maven.version=3.3.1
 | BUILD_MAVEN_SETTINGS_URL||默认为空Maven配置地址|
 | BUILD_MAVEN_JAVA_OPTS|`-Xmx1024m`|默认|
 
+#### 其他说明
+
+如果编译成war包，运行时默认会将war文件解压至`/app/target/`目录下,不支持通过添加配置文件的方式到war解压路径下,否则会导致应用无法正常启动
 
 #### 示例demo程序
 
