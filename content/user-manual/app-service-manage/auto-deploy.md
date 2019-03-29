@@ -51,20 +51,18 @@ weight: 5015
 
 ### 镜像仓库自动化构建说明
 
-镜像仓库自动构建目前仅支持Docker官方仓库，可以实现推送镜像后应用的自动构建，方便的对接第三方自动化流程。只需要通过简单的设置，就可以持续构建应用。
+镜像仓库自动构建可以实现推送镜像后应用的自动构建，方便的对接第三方自动化流程。当镜像更新事件到达时判断以下条件，都满足时触发自动构建。
 
-开启镜像自动构建，需要应用具备如下条件：
-
-- 应用是由镜像创建，目前支持的镜像仓库为`Docker Hub`， 其他私有镜像仓库根据其支持hook情况后期支持。
-- 确定服务已经 `开启` 了镜像仓库Webhook功能
-- 需要在镜像仓库的项目中配置正确的 `webhooks`
-- 应用状态必须是`运行中`或`运行异常`
+- 应用是由镜像创建，镜像仓库为`Docker Hub`， 5.1.2版本及以后支持阿里云镜像仓库。
+- 更新的镜像名称和tag是否与当前服务构建源镜像名称一致（判断时不包含镜像仓库域名）。
+- 服务已经 `开启` 了镜像仓库Webhook功能。
+- 应用状态不是`未部署`和`已关闭`
 
 #### 开启镜像仓库Webhook自动构建
 
-  需要在应用中启用自动构建功能，并且需要将应用的webhooks url配置到目标镜像仓库的webhooks中
+需要在应用中启用自动构建功能，并且需要将应用的webhooks url配置到目标镜像仓库的webhooks中。
 
-  <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548422517293.jpg" style="border:1px solid #eee;width:80%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548422517293.jpg" style="border:1px solid #eee;width:80%"/></center>
 
 #### 配置镜像仓库
 
