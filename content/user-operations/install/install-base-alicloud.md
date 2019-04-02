@@ -50,10 +50,10 @@ hidden: true
 
 ```
 # /etc/fstab 管理节点
-UUID=960fc26b-4394-4071-a013-0efa5eed3221 /var/lib/docker    ext4 defaults,noatime 0 0
-UUID=3da7bd72-acb2-46b6-93bc-d5e3956ee59e /opt/rainbond/data ext4 defaults,noatime 0 0
+UUID=<uuid> /var/lib/docker    ext4 defaults,noatime 0 0
+UUID=<uuid> /opt/rainbond/data ext4 defaults,noatime 0 0
 # /etc/fstab 计算节点
-UUID=960fc26b-4394-4071-a013-0efa5eed3221 /var/lib/docker    ext4 defaults,noatime 0 0
+UUID=<uuid> /var/lib/docker    ext4 defaults,noatime 0 0
 ```
 
 > NAS选型
