@@ -3,7 +3,7 @@ title: 删除节点
 date: 2019-03-11T12:50:54+08:00
 draft: false
 weight: 1303
-description: 删除节点
+description: 删除节点,重置节点
 hidden: true
 ---
 
@@ -36,3 +36,27 @@ grctl reset
 {{% notice info %}}
 如果单管理节点，多计算节点时，请勿操作否则会导致计算节点不可用
 {{% /notice %}}
+
+
+#### 重置节点
+
+{{% notice warning %}}
+当重置为计算节点时需要注意请勿删除grdata目录下数据
+{{% /notice %}}
+
+##### 重置计算节点
+
+```bash
+systemctl stop node
+systemctl disable node
+systemctl stop kubelet
+systemctl disable kubelet
+dps | grep goodrain.me | grep -v 'k8s' | awk '{print $NF}' | xargs -I {} systemctl disable {}
+dps | grep goodrain.me | grep -v 'k8s' | awk '{print $NF}' | xargs -I {} systemctl stop {}
+cclear
+rm -rf /root/.kube/config
+rm -rf /root/.rbd/grctl.yaml
+rm -rf /tmp/*
+rm -rf /usr/local/bin/grctl
+rm -rf /usr/local/bin/node
+```
