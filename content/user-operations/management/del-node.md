@@ -60,3 +60,24 @@ rm -rf /tmp/*
 rm -rf /usr/local/bin/grctl
 rm -rf /usr/local/bin/node
 ```
+
+##### 重置管理节点
+
+```bash
+systemctl stop node
+systemctl disable node
+systemctl stop kubelet
+systemctl disable kubelet
+grclis stop
+dps | grep goodrain.me | grep -v 'k8s' | awk '{print $NF}' | xargs -I {} systemctl disable {}
+dps | grep goodrain.me | grep -v 'k8s' | awk '{print $NF}' | xargs -I {} systemctl stop {}
+cclear
+rm -rf /root/.kube/config
+rm -rf /root/.rbd/grctl.yaml
+rm -rf /tmp/*
+rm -rf /usr/local/bin/grctl
+rm -rf /usr/local/bin/node
+rm -rf /opt/rainbond
+rm -rf /grdata
+rm -rf /grlocaldata
+```
