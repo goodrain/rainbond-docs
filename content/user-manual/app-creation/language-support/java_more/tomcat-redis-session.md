@@ -26,7 +26,7 @@ hidden: true
 
 3. 从应用市场安装Redis服务，并设置当前服务依赖创建的Redis服务，参考文档 [依赖服务](/user-manual/app-service-manage/service-rely/#服务如何连接依赖服务)
 
-4. 应用配置redis：将`REDIS_URL`新增至应用环境变量中，值为 `127.0.0.1:6379`。
+4. 应用配置redis：将`REDIS_URL`新增至应用环境变量中，值为 `redis://:${REDIS_PASS}@127.0.0.1:6379`。
 
 5. 重启应用以适配
 
