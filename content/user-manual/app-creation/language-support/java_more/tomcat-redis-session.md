@@ -19,33 +19,10 @@ hidden: true
 1. 配置[Procfile](../../etc/procfile/)：将如下命令添加到您的Procfile中，并源码根目录下添加Procfile。
 
    ```
-   web: java -jar ./webapp-runner.jar --port 5000 --session-store redis ./*.war
+   web: java -jar ./webapp-runner.jar --port $PORT --session-store redis ./*.war
    ```
-
-   - 应用端口8080，平台默认开启应用5000端口，为了端口映射正常：
-     - 在Procfile中指定端口`--port 5000`
-     - 在[应用控制台-端口](/user-manual/app-service-manage/service-port-domain/)设置8080端口
+   - 指定了监听端口，通过获取环境变量 $PORT,此变量Rainbond根据平台设置的服务端口进行自动注入
    - 指定session存储`--session-store redis`
-
-2. 配置webserver：在源码根目录下添加webserver文件，写入现平台支持webapp-runner版本：
-
-   
-
-   ```
-   webapp-runner-7.0.57.2.jar
-   ```
-
-   
-
-   ```
-   webapp-runner-8.0.18.0-M1.jar
-   ```
-
-   
-
-   ```
-   webapp-runner-8.5.5.2.jar
-   ```
 
 3. 从应用市场安装Redis服务，并设置当前服务依赖创建的Redis服务，参考文档 [依赖服务](/user-manual/app-service-manage/service-rely/#服务如何连接依赖服务)
 
