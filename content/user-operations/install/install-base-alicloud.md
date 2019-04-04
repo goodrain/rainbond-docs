@@ -44,6 +44,18 @@ hidden: true
 
 磁盘推荐使用`SSD云盘`,根分区可以考虑高效云盘。
 
+{{% notice info %}}
+安装前需要格式化云盘，将分别挂载到`/var/lib/docker`,`/opt/rainbond/data`(仅管理节点需要),并向fstab添加相关挂载信息，方便开机挂载
+{{% /notice %}}
+
+```
+# /etc/fstab 管理节点
+UUID=<uuid> /var/lib/docker    ext4 defaults,noatime 0 0
+UUID=<uuid> /opt/rainbond/data ext4 defaults,noatime 0 0
+# /etc/fstab 计算节点
+UUID=<uuid> /var/lib/docker    ext4 defaults,noatime 0 0
+```
+
 > NAS选型
 
 NAS默认选择 `SSD性能型`即可,推荐，满足Rainbond使用。也可以根据需求选用NASPlus等产品
@@ -104,13 +116,17 @@ mount -l | grep grdata
 
 #### 2.2 初始化数据中心
 
-在第一个管理节点执行初始化数据中心命令,默认情况下第一个节点管理节点和计算节点复用
+在第一个管理节点执行初始化数据中心命令
 
 ```bash
 wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
+
+## 第一个节点管理节点和计算节点复用
 ./grctl init --iip <内网ip> --eip <弹性ip/lb所在公网ip> --role master,compute --storage nas --storage-args "goodrain-rainbond.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
 
+## 第一个节点仅作为管理节点
+./grctl init --iip <内网ip> --eip <弹性ip/lb所在公网ip> --role master --storage nas --storage-args "goodrain-rainbond.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
 ```
 
 #### 2.3 添加节点
