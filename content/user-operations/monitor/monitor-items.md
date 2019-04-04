@@ -67,7 +67,6 @@ hidden: true
 | gateway_response_duration_seconds_bucket|rbd-gateway|||
 | gateway_response_duration_seconds_count |rbd-gateway|||
 | gateway_response_duration_seconds_sum |rbd-gateway|||
-| gateway_response_duration_seconds_sum |rbd-gateway|||
 | gateway_response_size_count |rbd-gateway|||
 | gateway_response_size_sum |rbd-gateway|||
 | gateway_upstream_latency_seconds |rbd-gateway|||
@@ -81,6 +80,14 @@ hidden: true
 | worker_exporter_worker_task_error |rbd-worker|||
 | worker_exporter_worker_task_number |rbd-worker|||
 | worker_up |rbd-worker|||
+| app_resource_appfs |应用|||
+| app_resource_appmemory |应用|||
+| app_client_request|应用|||
+| app_client_requesttime|应用|||
+| app_request|应用|||
+| app_request_unusual|应用|||
+| app_requestclient|应用|||
+| app_requesttime|应用|||
 | up|||组件状态|
 
 ### k8s集群监控项
