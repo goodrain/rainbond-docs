@@ -88,6 +88,26 @@ hidden: true
 | app_request_unusual|应用|||
 | app_requestclient|应用|||
 | app_requesttime|应用|||
+| scrape_samples_scraped||||
+| scrape_samples_post_metric_relabeling||||
+| scrape_duration_seconds ||||
+| statsd_exporter_build_info ||||
+| statsd_exporter_events_total||||
+| statsd_exporter_lines_total ||||
+| statsd_exporter_loaded_mappings||||
+| statsd_exporter_samples_total||||
+| statsd_exporter_tag_errors_total||||
+| statsd_exporter_tags_total||||
+| statsd_exporter_tcp_connection_errors_total||||
+| statsd_exporter_tcp_connections_total||||
+| statsd_exporter_tcp_too_long_lines_total||||
+| statsd_exporter_udp_packets_total||||
+|process_virtual_memory_bytes||||
+|process_start_time_seconds||||
+|process_resident_memory_bytes||||
+|process_open_fds||||
+|process_max_fds||||
+|process_cpu_seconds_total||||
 | up|||组件状态|
 
 ### k8s集群监控项
