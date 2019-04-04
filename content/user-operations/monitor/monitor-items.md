@@ -25,7 +25,7 @@ hidden: true
 
 | 监控项     | 所属组件        | 监控值|说明                     |
 | :------- | :----------- | :-------- |:----------------------- |
-| acp_mq_build_info     | rbd-mq | 1 |                  |
+| acp_mq_build_info     | rbd-mq |  |                  |
 | acp_mq_dequeue_number | rbd-mq |  |
 | acp_mq_enqueue_number | rbd-mq |  |
 | acp_mq_exporter_health_status| rbd-mq|1||
@@ -35,15 +35,52 @@ hidden: true
 | builder_exporter_builder_task_number| rbd-chaos| |源码构建任务数|
 | builder_exporter_health_status| rbd-chaos|1|chaos组件状态1为健康|
 | event_log_build_info| rbd-eventlog|1||
-| event_log_exporter_health_status| rbd-eventlog|1||
-| event_log_exporter_event_store_log_count| rbd-eventlog|||
-| event_log_exporter_container_log_store_log_count| rbd-eventlog|||
-| event_log_exporter_monitor_store_log_count| rbd-eventlog|||
-| gateway_active_server|rbd-gateway||http & tcp活跃服务|
-| node_exporter_build_info|node|||
-| worker_exporter_health_status|worker||
-| worker_up|worker|||
-| worker_exporter_worker_task_number|worker|||
+| event_log_exporter_chan_cache_size| rbd-eventlog|||
+| event_log_exporter_collector_duration_seconds|rbd-eventlog|||
+| event_log_exporter_container_log_store_cache_barrel_count |rbd-eventlog|||
+| event_log_exporter_container_log_store_log_count|rbd-eventlog|||
+| event_log_exporter_event_store_barrel_count|rbd-eventlog|||
+| event_log_exporter_event_store_cache_barrel_count|rbd-eventlog|||
+| event_log_exporter_event_store_log_count |rbd-eventlog|||
+| event_log_exporter_health_status |rbd-eventlog|||
+| event_log_exporter_last_scrape_error |rbd-eventlog|||
+| event_log_exporter_monitor_store_barrel_count |rbd-eventlog|||
+| event_log_exporter_monitor_store_log_count |rbd-eventlog|||
+| event_log_exporter_scrapes_total |rbd-eventlog|||
+| gateway_active_server|rbd-gateway|||
+| gateway_bytes_sent_bucket|rbd-gateway|||
+| gateway_bytes_sent_count |rbd-gateway|||
+| gateway_bytes_sent_sum   |rbd-gateway|||
+| gateway_process_cpu_seconds_total |rbd-gateway|||
+| gateway_process_max_fds|rbd-gateway|||
+| gateway_process_open_fds |rbd-gateway|||
+| gateway_process_resident_memory_bytes|rbd-gateway|||
+| gateway_process_start_time_seconds |rbd-gateway|||
+| gateway_process_virtual_memory_bytes|rbd-gateway|||
+| gateway_request_duration_seconds_bucket|rbd-gateway|||
+| gateway_request_duration_seconds_count |rbd-gateway|||
+| gateway_request_duration_seconds_sum |rbd-gateway|||
+| gateway_request_size_bucket |rbd-gateway|||
+| gateway_request_size_count |rbd-gateway|||
+| gateway_request_size_sum |rbd-gateway|||
+| gateway_requests|rbd-gateway|||
+| gateway_response_duration_seconds_bucket|rbd-gateway|||
+| gateway_response_duration_seconds_count |rbd-gateway|||
+| gateway_response_duration_seconds_sum |rbd-gateway|||
+| gateway_response_duration_seconds_sum |rbd-gateway|||
+| gateway_response_size_count |rbd-gateway|||
+| gateway_response_size_sum |rbd-gateway|||
+| gateway_upstream_latency_seconds |rbd-gateway|||
+| gateway_upstream_latency_seconds_count |rbd-gateway|||
+| gateway_upstream_latency_seconds_sum |rbd-gateway|||
+| worker_exporter_health_status |rbd-worker|||
+| worker_exporter_worker_task_number |rbd-worker|||
+| worker_exporter_collector_duration_seconds |rbd-worker|||
+| worker_exporter_last_scrape_error |rbd-worker|||
+| worker_exporter_scrapes_total |rbd-worker|||
+| worker_exporter_worker_task_error |rbd-worker|||
+| worker_exporter_worker_task_number |rbd-worker|||
+| worker_up |rbd-worker|||
 | up|||组件状态|
 
 ### k8s集群监控项
