@@ -57,9 +57,22 @@ grctl node get <unhealth节点的UID>
 
 #### 常见的异常错误处理方式
 
+##### grctl cluster 或 grctl node list 报 500错误
+
+此错误一般是由于node组件或api组件运行异常导致，查询node组件日志查询原因。
+```
+# 查询node组件日志
+journalctl -fu node 
+
+# 查询api组件日志
+journalctl -fu rbd-api
+```
+查询日志若不能自己解决问题，请到Rainbond社区发帖咨询。
+
 ##### 存储健康检测不通过
 
 大部分情况下，存储健康检测不通过主要是存储同步有问题。
+
 * 确定异常节点是否挂载了/grdata  
 * 确定存储是否同步  
 * 手动执行`/opt/rainbond/health/storage.sh`,看退出码是否为0  
