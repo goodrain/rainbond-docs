@@ -37,6 +37,7 @@ export INSTALL_SSH_PORT=12306
 1. [企业管理员密码忘记如何处理](/user-operations/op-guide/reset_enterprise_password/)
 2. [对接自己私有Artifactory指南](/user-operations/op-guide/op-repo/)
 3. [控制台报系统等错误服务排查](/user-operations/op-guide/console_error/)
+4. [web容器管理报错](/user-operations/op-guide/error_dialing_backend/)
 
 <!--
 1. 集群是否正常（grctl node list）

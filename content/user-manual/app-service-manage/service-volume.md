@@ -13,8 +13,8 @@ hidden: true
 
 Rainbond 默认支持以下几种存储类型:
 
-- 共享存储
-- 本地存储
+- 共享存储(宿主机路径/grdata)
+- 本地存储(宿主机路径/grlocaldata)
 - 配置文件
 - 内存文件存储
 
