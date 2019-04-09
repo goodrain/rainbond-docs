@@ -32,19 +32,19 @@ weight: 801
 |[etcd](/user-operations/component/etcd/)|3.2.25|Master||
 |[etcd-proxy](/user-operations/component/etcd/)|3.2.25|worker|管理节点etcd服务的代理|
 |[calico](/user-operations/component/calico/)|v3.3.1|Master/Worker|集群SDN服务，为应用提供网络支持|
-|rbd-dns|5.x|Master|Rainbond内部dns服务，可作为集群dns服务使用 [源码](https://github.com/goodrain/dns)|
-|rbd-db|5.x|Master|云帮数据库服务，支持MySQL，[Tidb](https://pingcap.com/docs-cn/)与[CockroachDB](https://www.cockroachlabs.com/)|
-|rbd-mq|5.x|Master|消息队列服务|
-|rbd-hub|2.6.2|Master|基于[Docker Registry](https://docs.docker.com/registry/)封装，提供docker镜像存储服务|
-|rbb-repo|6.5.9|Master|源码构建仓库服务，基于[Artifactory OSS](https://jfrog.com/open-source/)封装|
-|rbd-eventlog|5.x|Master|云帮事件处理与日志汇聚服务|
-|rbd-worker|5.x|Master|云帮应用操作与处理服务|
-|rbd-webcli|5.x|Master|提供应用web方式进入容器命令行的服务|
-|rbd-chaos|5.x|Master|应用构建服务，提供源码，Docker镜像等方式创建应用|
-|rbd-monitor|5.x|Master|云帮服务监控组件，基于[Prometheus](https://prometheus.io/)封装|
-|rbd-api|5.x|Master|云帮区域中心API服务，提供底层服务接口|
-|rbd-app-ui|5.x|Master|应用控制台web服务|
-|rbd-gateway|5.x|Master/Lb|通向应用的全局网关，提供A/B测试、灰度发布等高级功能|
+|[rbd-dns](/user-operations/component/rbd-dns/)|5.x|Master|Rainbond内部dns服务，可作为集群dns服务使用 [源码](https://github.com/goodrain/dns)|
+|[rbd-db](/user-operations/component/rbd-db/)|5.x|Master|云帮数据库服务，支持MySQL，[Tidb](https://pingcap.com/docs-cn/)与[CockroachDB](https://www.cockroachlabs.com/)|
+|[rbd-mq](/user-operations/component/rbd-mq/)|5.x|Master|消息队列服务|
+|[rbd-hub](/user-operations/component/rbd-hub/)|2.6.2|Master|基于[Docker Registry](https://docs.docker.com/registry/)封装，提供docker镜像存储服务|
+|[rbd-repo](/user-operations/component/rbd-repo/)|6.5.9|Master|源码构建仓库服务，基于[Artifactory OSS](https://jfrog.com/open-source/)封装|
+|[rbd-eventlog](/user-operations/component/rbd-eventlog/)|5.x|Master|云帮事件处理与日志汇聚服务|
+|[rbd-worker](/user-operations/component/rbd-worker/)|5.x|Master|云帮应用操作与处理服务|
+|[rbd-webcli](/user-operations/component/rbd-webcli/)|5.x|Master|提供应用web方式进入容器命令行的服务|
+|[rbd-chaos](/user-operations/component/rbd-chaos/)|5.x|Master|应用构建服务，提供源码，Docker镜像等方式创建应用|
+|[rbd-monitor](/user-operations/component/rbd-monitor/)|5.x|Master|云帮服务监控组件，基于[Prometheus](https://prometheus.io/)封装|
+|[rbd-api](/user-operations/component/rbd-api/)|5.x|Master|云帮区域中心API服务，提供底层服务接口|
+|[rbd-app-ui](/user-operations/component/rbd-app-ui/)|5.x|Master|应用控制台web服务|
+|[rbd-gateway](/user-operations/component/rbd-gateway/)|5.x|Master/Lb|通向应用的全局网关，提供A/B测试、灰度发布等高级功能|
 
 ### 二、逻辑架构图
 
