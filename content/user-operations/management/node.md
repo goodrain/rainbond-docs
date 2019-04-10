@@ -85,6 +85,8 @@ rm -rf /root/.rbd/grctl.yaml
 rm -rf /tmp/*
 rm -rf /usr/local/bin/grctl
 rm -rf /usr/local/bin/node
+# 删除镜像
+docker images -q | xargs docker rmi -f
 ```
 
 ##### 重置管理节点
