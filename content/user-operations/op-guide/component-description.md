@@ -11,26 +11,15 @@ weight: 801
 
 ### 一、服务组件概述
 
-|组件|版本|说明|
-|-----------|-------|------------|
-|Docker|18.06|容器引擎服务，支持社区版|
-|Kubernetes|v1.10.13|容器的编排和管理，支持社区版|
-|Rainbond|5.1.0|Rainbond组件 [源码](https://github.com/goodrain/rainbond)|
-|etcd/etcd-proxy|3.2.25|存储配置信息与实现服务发现机制|
-|Calico|v3.3.1|网络服务，负责维护容器内部网络与跨主机通讯|
-
 以下是通过一键部署方式将会在服务器安装的Rainbond各服务组件及其版本信息。
 
 |组件|版本|安装属性|说明|
 |---|-----|-----|---------------|
-|docker|18.06|Master/Worker|应用容器引擎|
+|[docker](/user-operations/component/docker/)|18.06|Master/Worker|应用容器引擎|
 |[node](/user-operations/component/node/)|5.x|Master/Worker|集群监控与控制服务|
-|[kubelet](/user-operations/component/kubelet/)|v1.10.13|Master/Worker|管理节点默认仅manage01节点启用|
-|kube-controller-manager|v1.10.13|Master||
-|kube-apiserver|v1.10.13|Master||
-|kube-scheduler|v1.10.13|Master||
-|[etcd](/user-operations/component/etcd/)|3.2.25|Master||
-|[etcd-proxy](/user-operations/component/etcd/)|3.2.25|worker|管理节点etcd服务的代理|
+|[kube-apiserver/kube-controller-manager/kube-scheduler](/user-operations/component/k8s/)|v1.10.13|Master|应用编排和管理|
+|[kubelet](/user-operations/component/kubelet/)|v1.10.13|Master/Worker|节点复用时仅第一个管理节点启用|
+|[etcd/etcd-proxy](/user-operations/component/etcd/)|3.2.25|Master/Worker|管理节点etcd/计算节点etcd-proxy|
 |[calico](/user-operations/component/calico/)|v3.3.1|Master/Worker|集群SDN服务，为应用提供网络支持|
 |[rbd-dns](/user-operations/component/rbd-dns/)|5.x|Master|Rainbond内部dns服务，可作为集群dns服务使用 [源码](https://github.com/goodrain/dns)|
 |[rbd-db](/user-operations/component/rbd-db/)|5.x|Master|云帮数据库服务，支持MySQL，[Tidb](https://pingcap.com/docs-cn/)与[CockroachDB](https://www.cockroachlabs.com/)|
