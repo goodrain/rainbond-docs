@@ -6,6 +6,8 @@ asciicast: true
 
 ---
 
+> 目前Rainbond最新稳定版本是5.1.x版本,安装方式[5.1版本快速安装](https://www.rainbond.com/docs/quick-start/rainbond_install/)
+
 # 快速安装Rainbond
 
 > 此方式适用于你想快速安装和试用Rainbond平台,  最少只需要单台裸系统机器即可安装完成。此方式为基础安装方式，后续安装方案都是在本方案基础上的扩展和延伸。
