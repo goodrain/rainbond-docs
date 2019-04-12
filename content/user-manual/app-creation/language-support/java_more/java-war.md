@@ -107,7 +107,8 @@ OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.ta
 | jetty9 | jetty-runner-9.4.0.v20161208.jar | jetty-runner.jar |
 
 {{% notice info %}}
-选择tomcat7版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行
+选择tomcat7版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行  
+关于webapp-runner详细配置请参考[webapp-runner使用说明](/user-manual/app-creation/language-support/java_more/webapp-runner/)
 {{% /notice %}}
 
 #### 高级构建选项
@@ -134,4 +135,4 @@ OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.ta
 - [Java-Gradle源码构建应用](../java-gradle/)
 - [Spring Boot项目配置MySQL](../spring-boot-mysql/)
 - [Tomcat配置Redis实现Session共享](../tomcat-redis-session)
-- [Webapp Runner配置说明](/user-manual/app-creation/language-support/java_more/webapp-runner/)
+- [webapp-runner使用说明](/user-manual/app-creation/language-support/java_more/webapp-runner/)

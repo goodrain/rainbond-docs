@@ -13,3 +13,8 @@ hidden: true
 rbd-eventlog默认配置文件`/opt/rainbond/conf/master.yaml`
 
 
+### 环境变量
+
+```
+DOCKER_LOG_SAVE_DAY: 日志保留时间(默认7天)
+```

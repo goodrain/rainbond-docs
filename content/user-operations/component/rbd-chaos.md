@@ -12,6 +12,10 @@ hidden: true
 
 rbd-chaos默认配置文件`/opt/rainbond/conf/master.yaml`
 
+### 环境变量
 
+```
+GITHUB_PROXY
+```
 
 

@@ -1,5 +1,5 @@
 ---
-title: "常见问题排查FAQ"
+title: "平台问题排查FAQ"
 weight: 1701
 chapter: true
 ---

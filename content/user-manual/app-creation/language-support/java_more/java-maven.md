@@ -50,7 +50,7 @@ web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 上述是默认Procfile,如果需要扩展更多启动参数,可以自定义Procfile。
 
 {{% notice note %}}
-1. `web:`和`java`之间有一个空格
+1. `web:`和`java`之间有一个空格  
 2. 文件结尾不能包含特殊字符
 3. 如果是多模块项目,需注意编译后jar包或者war包路径，其路径为`<子模块名>/targets/*.jar`或`<子模块名>/targets/*.war`  
 4. JAVA_OPTS: 平台会根据应用的内存大小，自动设置Xmx和Xms的值
@@ -139,8 +139,12 @@ maven.version=3.3.1
 | jetty9 | jetty-runner-9.4.0.v20161208.jar | jetty-runner.jar |
 
 {{% notice info %}}
-选择tomcat7版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行
+选择tomcat7版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行  
+关于webapp-runner详细配置请参考[webapp-runner使用说明](/user-manual/app-creation/language-support/java_more/webapp-runner/)
+
 {{% /notice %}}
+
+
 
 #### 高级构建选项
 
@@ -194,4 +198,4 @@ grctl buildtest
 - [Java-Gradle源码构建应用](../java-gradle)
 - [Spring Boot项目配置MySQL](../spring-boot-mysql/)
 - [Tomcat配置Redis实现Session共享](../tomcat-redis-session/)
-- [Webapp Runner配置说明](/user-manual/app-creation/language-support/java_more/webapp-runner/)
+- [webapp-runner使用说明](/user-manual/app-creation/language-support/java_more/webapp-runner/)
