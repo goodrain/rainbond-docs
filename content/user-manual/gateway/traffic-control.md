@@ -164,3 +164,11 @@ hidden: true
 #### 自定义请求头
 
 设置了自定义请求头后, 每个发往上游服务器(upstream)的请求都会带上这些请求头.
+
+#### 后端响应缓冲区
+
+对应 Nginx 的 [proxy_buffering](http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering) 参数, 默认关闭. 如果关闭了后端响应缓冲区，那么 Nginx 会立即把从后端收到的响应内容传送给客户端;. 如果开启了后端响应缓冲区, 那么 Nignx 会把后端返回的内容先放到缓冲区当中，然后再返回给客户端; 并且这个过程是边收边传，不是全部接收完再传给客户端.
+
+#### Websoket
+
+在网关支持的 WebSocket 与单纯的 WebSocket 不同, 是在 HTTP 的基础上, 使用 HTTP Upgrade 机制将连接从 HTTP 升级到 WebSocket. 这个 HTTP Upgrade 机制是在请求中添加两个自定义请求头, 分别是 'Upgrade $http_upgrade' 和 'Connection "Upgrade"', 当勾选了 Websoket, 网关会自动为当前的策加上这两个请求头. 更多的信息可以参考: [NGINX as a WebSocket Proxy](https://www.nginx.com/blog/websocket-nginx/)
