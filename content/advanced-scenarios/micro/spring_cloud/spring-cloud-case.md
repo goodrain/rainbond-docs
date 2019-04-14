@@ -85,6 +85,12 @@ pig
 
 获取项目克隆/下载地址： https://gitee.com/log4j/pig.git
 
+#### Java多模块部署Pig项目
+
+参考[JAVA多模块源码构建](/advanced-scenarios/devops/java-multi-module-build/)
+
+#### 分步部署Pig项目
+
 以[pig-eureka](https://gitee.com/log4j/pig/tree/master/pig-eureka)为例，演示从源码开始构建流程：
 
 - 为 `spring-cloud` 添加服务组件 —— 从源码开始 —— 自定义仓库：
