@@ -43,15 +43,49 @@ Rainbond基于已有标准制作镜像创建服务的方式是最快，兼容性
 
 ### 镜像检测规范
 
-1. 镜像是可以被Rainbond管理节点正常获取的
+* 镜像是可以被Rainbond管理节点正常获取的
+  * 提供的镜像名称准确，且存在于对应的镜像仓库中
 
-* 提供的镜像名称准确，且存在于对应的镜像仓库中
+  * 私有仓库镜像请务必提高账号密码
+  * 自建仓库请配置HTTPs或为Rainbond管理节点Docker配置信任
 
-* 私有仓库镜像请务必提高账号密码
-* 自建仓库请配置HTTPs或为Rainbond管理节点Docker配置信任
+* Rainbond将从镜像中获取以下属性信息：
+  * 端口，dockerfile中配置的Expose端口信息将被获取。
+  * 环境变量，环境变量是云原生下推荐的自定义配置方式，也是Docker镜像自定义配置的推荐用户。
+  * 存储挂载，dockerfile中配置的volume信息将被获取
 
-2. 我们将从镜像中获取以下配置信息：
+  > Docker compose创建的服务只从compose配置中获取，docker run创建从创建命令和镜像中获取。
 
-* 端口，dockerfile中配置的Expose端口信息将被获取。
-* 环境变量，环境变量是云原生下推荐的自定义配置方式，也是Docker镜像自定义配置的推荐用户。
-* 存储挂载，dockerfile中配置的volume信息将被获取
+* 服务内存分配的设定：
+
+  以镜像创建的服务默认使用512M内存分配，通过dockerrun或者docker compose创建的服务如果显示设置了内存参数的，将以设定的为准。
+
+* 服务部署类型的设定：
+
+  以镜像创建的服务默认设定为`无状态部署类型`，5.1.3版本以后，镜像名称为以下值时默认设置为`有状态部署类型` :
+  * mysql
+  * mariadb
+  * mongo
+  * redis
+  * tidb
+  * zookeeper
+  * kafka
+  * mysqldb
+  * mongodb
+  * memcached
+  * cockroachdb
+  * cockroach
+  * etcd
+  * postgres
+  * postgresql
+  * elasticsearch
+  * consul
+  * percona
+  * mysql-server
+  * mysql-cluster
+
+  例如以下镜像将部署为有状态类型：
+
+  * mysql:latest
+  * hub.example.com/xxx/mysql:5.5
+  * xxx/mysql:5.7

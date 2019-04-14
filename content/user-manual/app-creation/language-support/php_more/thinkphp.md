@@ -3,7 +3,7 @@ title: 部署ThinkPHP框架程序
 description: 在云帮部署ThinkPHP框架程序
 hidden: true
 draft: true
-draft: true
+prehidden: true
 ---
 
 ## 前言

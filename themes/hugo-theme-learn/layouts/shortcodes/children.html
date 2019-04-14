@@ -33,40 +33,31 @@
 	{{ range .menu }}
 		{{ if and .Params.hidden (not $.showhidden) }} 
 		{{else}}
-  
+{{ if .Params.Title }} 
 
 {{if hasPrefix $.style "h"}}
 	{{$num := sub ( int (trim $.style "h") ) 1 }}
 	{{$numn := add $num $.count }}
-
-{{(printf "<h%d>" $numn)|safeHTML}}
-<a href="{{.URL}}" >{{ .Title }}</a>
-{{(printf "</h%d>" $numn)|safeHTML}}
-
+	{{(printf "<h%d>" $numn)|safeHTML}}
+	<a href="{{.URL}}" >{{ .Title }}</a>
+	{{(printf "</h%d>" $numn)|safeHTML}}
 {{else}}
-{{(printf "<%s>" $.style)|safeHTML}}
-<a href="{{.URL}}" >{{ .Title }}</a>
-{{(printf "</%s>" $.style)|safeHTML}}
+	{{(printf "<%s>" $.style)|safeHTML}}
+	<a href="{{.URL}}" >{{ .Title }}</a>
+	{{(printf "</%s>" $.style)|safeHTML}}
 {{end}}
-
-
-
-
-
-			{{if $.description}}
-				{{if .Description}}
-<p>{{.Description}}</p>
-				{{else}}
-<p>{{.Summary}}</p>
-				{{end}}
-			{{end}}
-		
-
-		
-			{{ if lt $.count $.depth}}
-{{if eq $.style "li"}}
-<ul>
+{{if $.description}}
+	{{if .Description}}
+		<p>{{.Description}}</p>
+	{{else}}
+		<p>{{.Summary}}</p>
+	{{end}}
 {{end}}
+		
+{{ if lt $.count $.depth}}
+	{{if eq $.style "li"}}
+		<ul>
+	{{end}}
 	{{ $.Page.Scratch.Set "pages" .Pages }}
     {{ if .Sections}}
 	    {{ $.Page.Scratch.Set "pages" (.Pages | union .Sections) }}
@@ -92,5 +83,6 @@
 			{{end}}
 
 		{{end}}
+	{{end}}	
 	{{end}}
 {{end}}

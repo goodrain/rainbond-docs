@@ -7,7 +7,7 @@ hidden: true
 
 ### 一、部署说明
 
-通过阿里云相关产品快速部署Rainbond,主要使用阿里云ECS和NAS,弹性IP,NAT网关可以选用。
+通过阿里云相关产品快速部署Rainbond,主要使用阿里云ECS和NAS,弹性IP,NAT网关,负载均衡SLB可以选用。
 
 #### 机器资源准备
 
@@ -21,11 +21,11 @@ hidden: true
 |Debian|9.6|
 |Ubuntu|16.04|
 
-> 单台服务器配置要求
+> 单台服务器最低配置要求
 
 |服务器角色|CPU|内存|
 |------|-----|-----|
-|管理节点| 4核|16G|
+|管理节点| 4核|8G|
 |计算节点| 16核|64G|
 
 > 单台服务器磁盘配置
@@ -34,7 +34,7 @@ hidden: true
 管理节点:
 / 100G
 /cache 50G-100G #源码构建cache
-/opt/rainbond/data 100G #etcd,数据库等相关数据持久化目录
+/opt/rainbond/data 100G #etcd,数据库等相关数据持久化目录 (推荐使用SSD)
 /var/lib/docker 100G+ (至少100G起)
 
 计算节点:
@@ -42,15 +42,31 @@ hidden: true
 /var/lib/docker 100G+ /var/lib/docker
 ```
 
-磁盘推荐使用`SSD云盘`,根分区可以考虑高效云盘。
+磁盘推荐都使用`SSD云盘`
+
+{{% notice info %}}
+安装前需要格式化云盘，将分别挂载到`/var/lib/docker`,`/opt/rainbond/data`(仅管理节点需要),并向fstab添加相关挂载信息，方便开机挂载
+{{% /notice %}}
+
+```
+# /etc/fstab 管理节点
+UUID=<uuid> /var/lib/docker    ext4 defaults,noatime 0 0
+UUID=<uuid> /opt/rainbond/data ext4 defaults,noatime 0 0
+# /etc/fstab 计算节点
+UUID=<uuid> /var/lib/docker    ext4 defaults,noatime 0 0
+```
 
 > NAS选型
 
-NAS默认选择 `SSD性能型`即可,推荐，满足Rainbond使用。也可以根据需求选用NASPlus等产品
+NAS默认选择 `SSD性能型`即可,满足Rainbond使用。也可以根据需求选用NASPlus等产品
 
 > 网络选项
 
-专有网络,确保管理节点和计算节点,NAS在同一地域,且所有节点在同一个ip段下.可以考虑NAT网关.
+专有网络,确保管理节点和计算节点,NAS在同一地域,且所有节点可以互相通信.可以考虑使用NAT网关.
+
+> 负载均衡SLB
+
+http,https应用推荐使用，即SLB对接后端管理节点80,443端口
 
 > 安全方面限制
 
@@ -104,13 +120,17 @@ mount -l | grep grdata
 
 #### 2.2 初始化数据中心
 
-在第一个管理节点执行初始化数据中心命令,默认情况下第一个节点管理节点和计算节点复用
+在第一个管理节点执行初始化数据中心命令
 
 ```bash
 wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
-./grctl init --iip <内网ip> --eip <弹性ip/lb所在公网ip> --role master,compute --storage nas --storage-args "goodrain-rainbond.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
 
+## 第一个节点管理节点和计算节点复用
+./grctl init --iip <内网ip> --eip <弹性ip/所在公网ip/slb ip> --role master,compute --storage nas --storage-args "goodrain-rainbond.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
+
+## 第一个节点仅作为管理节点
+./grctl init --iip <内网ip> --eip <弹性ip/lb所在公网ip/slb ip> --role master --storage nas --storage-args "goodrain-rainbond.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
 ```
 
 #### 2.3 添加节点
@@ -144,5 +164,34 @@ grctl cluster
 ```
 如果有节点处于unhealth,通过`grctl node get <unhealth节点uid>`确定哪个服务异常，来排查哪个服务异常。
 
+#### 2.5 阿里云slb配置(可选)
+
+1. 如果指定eip为slb的ip时:
+
+slb健康检查配置如下,其他默认即可
+
+```bash
+    - 检查端口为：10254
+    - 检查路径为：/healthz
+    - 健康状态返回码: http_2xx
+```
+
+目前阿里云slb负载均衡仅支持单一端口，故tcp/udp协议应用使用负载均衡操作比较麻烦。tcp协议应用不推荐使用slb，可以通过修改rbd-db的console.region_info表的tcpdomain值为rbd-gateway所在节点的公网ip或者其他自建负载均衡的ip地址。
+
+2. 如果指定eip为gateway所在节点公网ip或者其他自建负载均衡的ip地址
+
+slb健康检查配置如下,其他默认即可
+
+```bash
+    - 检查端口为：10254
+    - 检查路径为：/healthz
+    - 健康状态返回码: http_2xx
+```
+
+需要调整域名解析,将默认域名解析由eip改为slb的ip，`grctl domain --ip <slb的ip>`
+
+<!--
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/install/slb.health.jpg)
+-->
 
 {{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}

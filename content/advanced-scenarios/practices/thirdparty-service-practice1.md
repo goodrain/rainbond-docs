@@ -1,18 +1,20 @@
 ---
-Title: 第三方服务实践-通过网关访问集群内其他服务
-Description: 使用第三方服务, 让应用网关访问集群内其他服务
+Title: 第三方服务实践-通过Rainbond应用网关访问企业内网应用
+Description: 使用Rainbond第三方服务管理, 让应用网关访问企业内网的其他服务
 Hidden: true
 ---
 
-假设有这样一个场景, 在公司, 有一个需要被公网访问的网站尚未迁移到 Rainbond 中, 且公司只有一个公网 IP. 但是, 这个 IP 的 80 和 443 端口已经被应用网关给占用了, 网站无法直接使用这个公网 IP. 过去, 为了复用这个 IP 的 80 和 443 端口, 需要在应用网关的前面再配置一层 Nginx, 代理应用网关和网站. 现在, Rainbond 5.1 以后, 这个工作就变简单了; 可以先将网站通过第三方服务注册到 Rainbond 中, 然后使用应用网关代理, 从而复用被占用的 80 和 443 端口.
+企业基于Rainbond建设自己的私有云，管理企业所有的应用的过程中，会遇到这样一个问题，有一些应用需要被公网访问，但是由于各种原因，应用尚未迁移到 Rainbond 中。但是 公司只有一个公网 IP。用户为了能够使Rainbond集群内外的应用可以同时对外网提供服务，不得不单独部署一个nginx服务来作为最外层的应用负载。这样带来的问题就是没办法直接方便的使用Rainbond网关，每开放一个应用都需要手动配置nginx的规则，如果不了解Rainbond网关的工作原理，这个过程将更加复杂。
 
-本文将会演示如何使用第三方服务, 让应用网关访问集群内的其他服务.
+为了解决这个问题，结合其他方面的需求，Rainbond第三方服务管理集成功能应运而生。参考[第三方服务定义](/user-manual/app-creation/thirdparty-service/thirdparty-define/)
+
+本文将会实践如何使用第三方服务, 让未迁移到Rainbond集群的应用也能够直接动态注册到Rainbond网关，从而实现基于Rainbond网关来管理企业所有的对外提供服务的应用。
 
 ### 前期准备
 
-- 请确保你已经安装了 [Rainbond V5.1](/user-operations/install/online_install/) 或更高的版本.
+- 请确保你已经安装了 [Rainbond V5.1](/user-operations/install/online_install/) 或更高的版本。
 
-- 集群内的其他服务, 本文使用的是 Nginx 的默认页面.
+- 企业内网的其他服务, 本文使用一个Nginx应用来说明。
 
 ### 步骤 1: 填写第三方服务信息
 
@@ -38,7 +40,11 @@ Hidden: true
 
 ### 步骤 3: 确认服务
 
-打开`对外服务`后, 你会得到一个类似`http://80.grf53077.ex05o2yt.2cbcac.grapps.cn/`的域名, 这是 Rainbond 为该服务会分配一个默认的域名, 当然也可以在[网关](/user-manual/gateway/)中为该服务自定义域名.
+打开`对外服务`后, 你会得到一个类似`http://80.grf53077.ex05o2yt.2cbcac.grapps.cn/`的域名, 这是 Rainbond 为该服务会分配一个默认的域名, 最关键的是这时候你可以在[网关](/user-manual/gateway/)中为该服务自定义域名和设置需要的访问策略参数。
+
+参考文档 [网关访问策略管理](/user-manual/gateway/traffic-control/)
+
+如果需要设置Https证书，参考文档 [证书管理](/user-manual/gateway/cert-management/)
 
 在浏览器中输入平台分配的默认域名, 以查看服务是否正在运行.
 

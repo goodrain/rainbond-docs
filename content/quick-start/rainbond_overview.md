@@ -50,5 +50,4 @@ Rainbond支撑企业应用的开发、架构、交付和运维的全流程，通
 4. 系统兼容性强，Windows、国产系统均可支持。
 
 
-{{% button href="../rainbond_install/" %}}我已经了解，开始安装{{% /button %}}
-
+{{% button href="../rainbond_install/" %}}我已经了解，开始安装{{% /button %}} {{% button href="/enterprise_service/" %}}了解企业服务{{% /button %}}

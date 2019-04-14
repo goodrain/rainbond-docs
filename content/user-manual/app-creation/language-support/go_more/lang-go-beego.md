@@ -3,6 +3,7 @@ title: 使用Beego等框架
 description: 使用Beego等框架
 hidden: true
 draft: true
+prehidden: true
 ---
 
 ## 前提说明
