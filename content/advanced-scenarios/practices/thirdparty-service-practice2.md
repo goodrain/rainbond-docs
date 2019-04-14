@@ -1,16 +1,18 @@
 ---
-Title: 第三方服务实践-集群内服务访问集群外数据库
-Description: 集群内服务访问无法或尚未迁移到 Rainbond 的集群外数据库
+Title: 第三方服务实践-统一管理集群内服务访问集群外数据库
+Description: 集群内服务访问无法或尚未迁移到 Rainbond 的集群外数据库或其他服务。
 Hidden: true
 ---
 
-如果在公有云(比如阿里云, AWS)上的数据库, 无法迁移到 Rainbond 上; 或是其他尚未迁移到 Rainbond 的数据库, 那么你可以使用`第三方服务`将它们注册到 Rainbond 中, 从而使得集群内服务也可以访问它们. 本文将演示如何把集群外的 MySQL 通过第三方服务注册到 Rainbond 集群中, 并为其定义和共享环境变量.
+如果在公有云(比如阿里云, AWS)上的分布式数据库, 无法迁移到 Rainbond 上;  或是其他尚未迁移到 Rainbond 的数据库, 那么你可以使用`第三方服务`将它们注册到 Rainbond 中, 从而使得集群内服务也可以访问它们。本文将演示如何把集群外的 MySQL 通过第三方服务注册到 Rainbond 集群中, 并为其定义共享环境变量，从而解决多个服务重复定义数据库连接信息变量的问题。
+
+> 如果Rainbond安装在阿里云，请注意使用阿里云RDS云数据库时必须与Rainbond集群处于同一个区域。
 
 ### 前期准备
 
-- 请确保你已经安装了 [Rainbond V5.1](/docs/user-operations/install/online_install/) 或更高的版本.
+- 请确保你已经安装了 [Rainbond V5.1](/docs/user-operations/install/online_install/) 或更高的版本。
 
-- 需要添加的服务, 本文使用的是 Rainbond 集群外的一个 MySQL.
+- 需要添加的服务, 本文使用的是 Rainbond 集群外的一个 MySQL。
 
 - phpMyAdmin, 可以在应用云市中安装, 也可以通过[镜像](https://hub.docker.com/r/phpmyadmin/phpmyadmin)的方式创建.
 

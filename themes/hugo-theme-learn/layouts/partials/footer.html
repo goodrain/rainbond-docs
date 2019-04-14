@@ -13,7 +13,7 @@
         
         {{ define "menu-nextprev" }}
             {{$currentNode := .currentnode }}
-            {{ if ne .menu.Params.hidden true}}
+            {{ if ne .menu.Params.prehidden true}}
                 {{if hasPrefix $currentNode.URL .menu.URL }}
                     {{ $currentNode.Scratch.Set "NextPageOK" "OK" }}
                     {{ $currentNode.Scratch.Set "prevPage" ($currentNode.Scratch.Get "prevPageTmp") }}

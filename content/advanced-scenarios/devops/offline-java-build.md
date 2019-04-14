@@ -44,13 +44,13 @@ Java源码基于Maven构建过程中，会根据 `pom.xml` 文件解析依赖关
 ### 离线配置应用运行时
 
 本节提供一个在应用中离线安装运行时（Jdk）的方案，这个方案会运行起一个私服仓库服务，这个私服仓库可以负责安装java运行所需要的Jdk环境。
-需要事先获取离线资源：[Java运行时私服仓库服务镜像](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/java-v5.1.0.tgz)
+需要事先获取离线资源：[Java运行时私服仓库服务镜像](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/java-v5.1.1.tgz)
 
 - 有网环境下载离线资源镜像
 
 ```bash
-docker pull rainbond/buildpack:java-v5.1.0
-docker save rainbond/buildpack:java-v5.1.0 > rainbond-buildpack-java-v5.1.0.tgz
+docker pull rainbond/buildpack:java-v5.1.1
+docker save rainbond/buildpack:java-v5.1.1 > rainbond-buildpack-java-v5.1.1.tgz
 ```
 
 - 导入镜像
@@ -58,9 +58,9 @@ docker save rainbond/buildpack:java-v5.1.0 > rainbond-buildpack-java-v5.1.0.tgz
 首先，将镜像导入首个管理节点。
 
 ```bash
-docker load -i rainbond-buildpack-java-v5.1.0.tgz
-docker tag rainbond/buildpack:java-v5.1.0 goodrain.me/buildpack:java-v5.1.0
-docker push goodrain.me/buildpack:java-v5.1.0
+docker load -i rainbond-buildpack-java-v5.1.1.tgz
+docker tag rainbond/buildpack:java-v5.1.1 goodrain.me/buildpack:java-v5.1.1
+docker push goodrain.me/buildpack:java-v5.1.1
 ```
 
 - 运行私服仓库服务
@@ -92,7 +92,7 @@ vi /opt/rainbond/conf/base.yaml
   start: >-
     docker run --name rbd-java-buildpack
     --network host
-    -i goodrain.me/buildpack:java-v5.1.0
+    -i goodrain.me/buildpack:java-v5.1.1
   stop: docker stop rbd-java-buildpack
   restart_policy: always
 ```

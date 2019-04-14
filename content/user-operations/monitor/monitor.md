@@ -83,7 +83,7 @@ grafana是用于可视化大型测量数据的开源程序，他提供了强大�
 
 ##### 导入Node主机监控模版
 
-Grafana支持通过json文件快速导入你需要的仪表盘模版。[点击这里](https://static.goodrain.com/images/docs/3.7/monitor/Node_Exporter_Full.json)获取Node Exporter的json文件，点击左侧菜单栏的加号，选择`Import`，将json数据复制粘贴到`Or paste JSON`一栏中，点击load按钮，输入名称，选择刚才添加的Prometheus数据源，点击`Import`即可添加模版。
+Grafana支持通过json文件快速导入你需要的仪表盘模版。[点击这里](https://static.goodrain.com/images/docs/3.7/monitor/Node_Exporter_Full.json)获取Node Exporter的json文件，点击左侧菜单栏的加号，选择`Import`，将json数据复制粘贴到`Or paste JSON`一栏中，点击load按钮，输入名称，选择刚才添加的Prometheus数据源，点击`Import`即可添加模版或者输入我们提供的基础资源可视化Dashboard id(`10014`)
 
 <img src="https://static.goodrain.com/images/docs/3.7/monitor/import1.jpg" width="100%" />
 

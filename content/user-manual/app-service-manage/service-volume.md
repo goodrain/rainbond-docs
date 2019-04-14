@@ -13,8 +13,8 @@ hidden: true
 
 Rainbond 默认支持以下几种存储类型:
 
-- 共享存储
-- 本地存储
+- 共享存储(宿主机路径/grdata)
+- 本地存储(宿主机路径/grlocaldata)
 - 配置文件
 - 内存文件存储
 
@@ -136,3 +136,21 @@ PodVolumePath 结构说明：`<本地存储/分布式存储><存储路径>:<应�
 ### 其他持久化存储的支持
 
 上诉提到的存储类型主要以文件系统类为主，对于块设备的支持也将是我们的终点方向，特别是在公有云环境下，高性能磁盘的存储挂载也是支持高性能服务的重点。目前在企业版本中我们支持对存储类型支持的定制开发，比如私有存储ceph、阿里云的共享块设备和高性能磁盘设备等。
+
+
+### 已有本地docker运行服务持久化数据迁移到Rainbond
+
+示例gogs:
+
+* step 1 本地通过docker run 方式将gogs运行启动，并且持久化了相关目录。
+
+```
+docker run -d --net=host -v /var/gogs:/data gogs/gogs
+```
+
+* step 2 Rainbond平台通过docker run方式同样运行如上命令即可,应用部署完成后可以通过grctl命令获取存储路径
+
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/service-volume/gogs.png)
+
+
+* step 3 把需要迁移的gogs数据(data1)备份，然后把平台上的gogs停了，然后用备份的data1数据替换了平台上运行的gogs的数据，启动平台上的gogs
