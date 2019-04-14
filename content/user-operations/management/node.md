@@ -58,6 +58,7 @@ grctl reset
 2. 停管理节点服务 `grclis stop`
 3. 卸载/grdata存储 `umount /grdata`
 4. 重置节点 `grctl reset`
+5. 如果多管理节点时需要手动清理etcd中已删除管理节点的数据 `ETCDCTL_API=3 etcdctl get /rainbond/endpoint --prefix`,具体可以参考[删除冗余数据](https://t.goodrain.com/t/topic/834/2)
 
 {{% notice info %}}
 如果单管理节点，多计算节点时，请勿操作否则会导致计算节点不可用

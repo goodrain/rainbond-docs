@@ -153,6 +153,17 @@ OPTIONS:
    --network value                Network type, support calico/flannel/midonet,default: calico (default: "calico")
    --enable-check value           enable check cpu/mem. default: enable/disable (default: "enable")
    --storage-args value           Stores mount parameters (default: "/grdata nfs rw 0 0")
+   --enable-exdb value            default disable external database
+   --exdb-type value              external database type(mysql,postgresql)
+   --exdb-host value              external database host
+   --exdb-port value              external database port (default: "3306")
+   --exdb-user value              external database user
+   --exdb-passwd value            external database password
+   --excsdb-host value            external console database host
+   --excsdb-port value            external console database port (default: "3306")
+   --excsdb-user value            external console database user
+   --excsdb-passwd value          external console database password
+   --enable-excsdb-only value     Additional support for the console to configure the database separately
 ```
 
 |参数|默认值|可选值|说明|
@@ -174,4 +185,29 @@ OPTIONS:
 ```bash
 # 示例初始化集群，使用阿里云NAS
 ./grctl init --iip 172.24.202.225 --eip 39.104.75.32 --rainbond-version devel --rainbond-repo https://github.com/ysicing/rainbond-ansible.git --storage nas --storage-args "82b554a292-rvg38.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
+```
+
+#### 初始化时对接外部数据库
+
+> 5.1.3版本支持
+
+|参数|说明|
+|-----------|-------------|
+|--enable-exdb| 默认禁用使用外部数据库，启动值为true|
+|--exdb-type| 默认数据库类型，目前只支持mysql|
+|--exdb-host/--exdb-port/--exdb-user/--exdb-passwd| 外部数据库连接信息|
+|--enable-excsdb-only| console使用外部数据库|
+|--excsdb-host/--excsdb-port/--excsdb-user/--excsdb-passwd| 外部数据库(console)连接信息|
+
+{{% notice info %}}
+当启用外部数据库时,其他配置项才生效
+{{% /notice %}}
+
+```bash
+#  此示例表示, 数据中心数据库和控制台数据库都使用外部数据库(不分离)
+./grctl init --enable-exdb true --exdb-host 139.196.72.60 --exdb-port 21355 --exdb-user admin   --exdb-passwd  c13dc213
+# 此示例表示, 数据中心数据库使用本地数据库(rbd-db), 控制台数据库都使用外部数据库
+./grctl init --enable-exdb true --enable-excsdb-only true --excsdb-host 139.196.72.60 --excsdb-port 21355 --excsdb-user admin   --excsdb-passwd  c13dc213
+# 此示例表示, 数据中心数据库和控制台数据库都使用外部数据库(分离)
+./grctl init --enable-exdb true --exdb-host 139.196.72.60 --exdb-port 21356 --exdb-user admin   --exdb-passwd c13dc213 --enable-excsdb-only true --excsdb-host 139.196.72.60 --excsdb-port 21355 --excsdb-user admin   --excsdb-passwd  c13dc213
 ```
