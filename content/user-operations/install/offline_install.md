@@ -13,7 +13,7 @@ hidden: true
 
 1. 检查操作系统，目前离线版本仅支持[CentOS 7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)版本
 2. 确保机器重启，服务器IP地址和nameserver不发生改变，推荐配置静态ip
-3. 多节点部署时，需要确保机器间时间要同步
+3. 多节点部署时，需要确保所有机器间时间要同步(很重要)
 4. 多节点时，机器间网络访问没有限制
 
 更多关于软硬件要求请参考 [软件和硬件环境要求](/user-operations/op-guide/recommendation/),安装前请务必确定是否满足条件。
@@ -22,7 +22,7 @@ hidden: true
 
 ```
 # 有网环境下载离线包并同步到离线环境
-wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-04-01-5.1.2.tgz
+wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-04-15-5.1.3.tgz
 ```
 
 #### 离线安装操作

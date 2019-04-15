@@ -113,4 +113,4 @@ systemctl start node
 
 ### 对接阿里云slb
 
-可以参考 [阿里云slb配置-可选](http://localhost:1313/docs/user-operations/install/install-base-alicloud/#2-5-阿里云slb配置-可选)
+可以参考 [阿里云slb配置-可选](/user-operations/install/install-base-alicloud/#2-5-阿里云slb配置-可选)
