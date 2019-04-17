@@ -35,6 +35,10 @@ weight: 801
 |[rbd-app-ui](/user-operations/component/rbd-app-ui/)|5.x|Master|应用控制台web服务|
 |[rbd-gateway](/user-operations/component/rbd-gateway/)|5.x|Master/Lb|通向应用的全局网关，提供A/B测试、灰度发布等高级功能|
 
+{{% notice info %}}
+组件高级用法可以通过点击组件的链接方式阅读。
+{{% /notice %}}
+
 ### 二、逻辑架构图
 
 <a href="https://static.goodrain.com/images/docs/5.0/operation-manual/deploy-logic.png" target="_blank"><img src="https://static.goodrain.com/images/docs/5.0/operation-manual/deploy-logic.png" width="100%"  /></a>
