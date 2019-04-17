@@ -21,3 +21,4 @@ chapter: true
 #### 使用指南
 
 1. [源码构建失败提示gzip stdin not in gzip format](/user-operations/op-guide/code_build_failure_download_gzip/)
+2. [应用状态处于启动中排查](/user-operations/op-guide/app_startup/)
