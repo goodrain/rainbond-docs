@@ -177,3 +177,25 @@ curl -X DELETE \
 {{% notice note %}}
 PUT 和 DELETE 方法的请求内容的类型为 application/json
 {{% /notice %}}
+
+### 第三方服务创建示例
+
+#### 对接内部服务
+
+> 如Rainbond平台的rbd-app-ui或者rbd-monitor组件
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/thirdparty-create/dsffwex1.jpg" width="100%" />
+
+创建完成后,需要手动上线。
+
+针对示例来说，如果不想对外开放7070端口或者想通过80/443访问控制台可以通过此方式实现。
+
+#### 对接阿里云RDS
+
+{{% notice info %}}
+目前不支持添加第三方服务地址为域名，将在下个版本里支持。
+{{% /notice %}}
+
+调整流程和对接平台内部服务一样，有几点需要注意，如果平台应用需要依赖第三服务安装的MYSQL,需要开启对内访问，同时需要手动添加应用连接信息。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/thirdparty-create/dsffwex2.jpg" width="100%" />
