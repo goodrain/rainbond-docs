@@ -87,7 +87,7 @@ grctl node install <新添加计算节点的Uid>
 grctl node up <新添加计算节点的Uid>
 ```
 
-更多细节可以参考文档 [运维手册, 节点扩容](/user-operations/management/add-node/) 
+更多细节可以参考文档 [运维手册, 节点扩容](/user-operations/management/node/#添加节点) 
 
 {{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}
 

@@ -54,7 +54,7 @@ grctl node list
 # 控制台访问地址
 http://<节点IP地址>:7070
 ```
-如果集群状态是不健康的，参考[节点健康检测](/user-operations/monitor/node-health/) 文档解决故障。
+如果集群状态是不健康的，参考[节点健康检测](/user-operations/management/component-op/#节点健康检查机制) 文档解决故障。
 
 ## 三、数据中心添加节点
 
@@ -73,6 +73,6 @@ grctl node list
 grctl node up <NodeID>
 ```
 
-更多细节可以参考文档 [节点扩容](/user-operations/management/add-node/) 
+更多细节可以参考文档 [节点扩容](/user-operations/management/node/#添加节点) 
 
 {{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}
