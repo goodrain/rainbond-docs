@@ -54,31 +54,22 @@ hidden: true
 | event_log_exporter_monitor_store_barrel_count |rbd-eventlog||
 | event_log_exporter_monitor_store_log_count |rbd-eventlog||
 | event_log_exporter_scrapes_total |rbd-eventlog||
-| gateway_active_server|rbd-gateway||
-| gateway_bytes_sent_bucket|rbd-gateway||
-| gateway_bytes_sent_count |rbd-gateway||
-| gateway_bytes_sent_sum   |rbd-gateway||
-| gateway_process_cpu_seconds_total |rbd-gateway||
-| gateway_process_max_fds|rbd-gateway||
-| gateway_process_open_fds |rbd-gateway||
-| gateway_process_resident_memory_bytes|rbd-gateway||
-| gateway_process_start_time_seconds |rbd-gateway||
-| gateway_process_virtual_memory_bytes|rbd-gateway||
-| gateway_request_duration_seconds_bucket|rbd-gateway||
-| gateway_request_duration_seconds_count |rbd-gateway||
-| gateway_request_duration_seconds_sum |rbd-gateway||
-| gateway_request_size_bucket |rbd-gateway||
-| gateway_request_size_count |rbd-gateway||
-| gateway_request_size_sum |rbd-gateway||
-| gateway_requests|rbd-gateway||
-| gateway_response_duration_seconds_bucket|rbd-gateway||
-| gateway_response_duration_seconds_count |rbd-gateway||
-| gateway_response_duration_seconds_sum |rbd-gateway||
-| gateway_response_size_count |rbd-gateway||
-| gateway_response_size_sum |rbd-gateway||
-| gateway_upstream_latency_seconds |rbd-gateway||
-| gateway_upstream_latency_seconds_count |rbd-gateway||
-| gateway_upstream_latency_seconds_sum |rbd-gateway||
+| gateway_request_duration_seconds_bucket|rbd-gateway|在规定请求时间(bucket)内, 客户端请求的数量|
+| gateway_request_duration_seconds_count |rbd-gateway|客户端请求的总数|
+| gateway_request_duration_seconds_sum |rbd-gateway|客户端请求时间的总数|
+| gateway_request_size_bucket |rbd-gateway|在规定出请求大小(bucket)内, 满足条件的请求的数量|
+| gateway_request_size_count |rbd-gateway|客户端请求的总数|
+| gateway_request_size_sum |rbd-gateway|客户端请求大小的总数|
+| gateway_requests|rbd-gateway|客户端访问的次数|
+| gateway_response_duration_seconds_bucket|rbd-gateway|在规定响应时间(bucket)内, 响应的次数|
+| gateway_response_duration_seconds_count |rbd-gateway|响应的总次数|
+| gateway_response_duration_seconds_sum |rbd-gateway|响应的总时间|
+| gateway_response_size_bucket |rbd-gateway|在规定出响应大小(bucket)内, 满足条件的响应的次数|
+| gateway_response_size_count |rbd-gateway|响应的总次数|
+| gateway_response_size_sum |rbd-gateway|响应的总大小|
+| gateway_upstream_latency_seconds |rbd-gateway|在规定出延迟时间(bucket)内, 满足条件的延迟的次数|
+| gateway_upstream_latency_seconds_count |rbd-gateway|延迟的总次数|
+| gateway_upstream_latency_seconds_sum |rbd-gateway|延迟时间的总和|
 | worker_exporter_health_status |rbd-worker||
 | worker_exporter_worker_task_number |rbd-worker||
 | worker_exporter_collector_duration_seconds |rbd-worker||
