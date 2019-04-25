@@ -152,6 +152,7 @@ grctl init --network flannel 其他参数
 
 
 ```bash
+# 建议使用root执行安装操作
 wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 ./grctl init --role master --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> 

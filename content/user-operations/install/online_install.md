@@ -37,6 +37,7 @@ chmod +x ./grctl
     * 更多参数说明请阅读[节点初始化重要参数说明](/user-operations/tools/grctl/#节点初始化重要参数说明)
 
 ```bash
+# 建议使用root执行安装操作
 ./grctl init --iip 内网ip --eip 公网ip
 ```
 
@@ -65,6 +66,7 @@ http://<节点IP地址>:7070
 > 其中host/hostname可以根据排序顺序依次compute01-computeN,host/hostname不要重复。
 
 ```bash
+# 建议使用root执行安装操作
 grctl node add --host computexx --iip 计算节点IP --root-pass root用户密码 --role compute --install
 示例：
 grctl node add --host compute01 --iip 192.168.1.1 --root-pass 12345678 --role compute --install
