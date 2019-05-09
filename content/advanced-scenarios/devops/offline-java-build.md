@@ -113,6 +113,10 @@ grctl cluster
 
 - 对接rbd-repo并修改远程仓库
 
+{{% notice note %}}
+所有节点rbd-repo都需要调整
+{{% /notice %}}
+
 修改远程仓库 `pkg_lang` 对应URL为 `http://<首个管理节点IP>:2017/lang/`
 
 <img src="https://static.goodrain.com/images/docs/5.0/advanced-scenarios/docking-rbd-repo.gif" style="border:1px solid #eee;width:100%">
