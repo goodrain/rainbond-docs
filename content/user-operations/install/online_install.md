@@ -21,7 +21,7 @@ hidden: true
 ### 1.2 下载系统安装工具
 
 ```
-wget https://pkg.rainbond.com/releases/common/v5.1/grctl
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 ```
 
