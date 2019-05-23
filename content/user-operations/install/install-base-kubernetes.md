@@ -107,7 +107,7 @@ kubectl -n kube-system get secret | grep kube-proxy | awk '{print "secret/"$1}' 
 在k8s管理节点执行安装，进行初始化Rainbond数据中心,安装Rainbond管理节点服务,如果有外网ip，则需要指定外网ip
 
 ```bash
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/common/v5.1/grctl
+wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 ./grctl init --iip <必须指定内网ip> --eip <可选外网ip> --deploy-type thirdparty 
 ```

@@ -124,7 +124,7 @@ mount -l | grep grdata
 
 ```bash
 # 建议使用root执行安装操作
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/common/v5.1/grctl
+wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 
 ## 第一个节点管理节点和计算节点复用
