@@ -26,7 +26,6 @@ $(document).ready(function() {
     source: search,
     /* renderItem displays individual search results */
     renderItem: function(item, term) {
-      console.log("renderItem");
       var numContextWords = 2;
       var text = item.content.match(
         "(?:\\s?(?:[\\w]+)\\s?){0," +

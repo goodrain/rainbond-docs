@@ -31,7 +31,7 @@ var autoComplete = (function(){
         var o = {
             selector: 0,
             source: 0,
-            minChars: 3,
+            minChars: 2,
             delay: 150,
             offsetLeft: 0,
             offsetTop: 1,
