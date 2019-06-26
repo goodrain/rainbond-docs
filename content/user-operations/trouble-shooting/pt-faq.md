@@ -38,16 +38,4 @@ export INSTALL_SSH_PORT=12306
 2. [对接自己私有Artifactory指南](/user-operations/op-guide/op-repo/)
 3. [控制台报系统等错误服务排查](/user-operations/op-guide/console_error/)
 4. [web容器管理报错](/user-operations/op-guide/error_dialing_backend/)
-
-<!--
-1. 集群是否正常（grctl node list）
-2. 应用是否正常  (grctl service get <应用概览url>)
-3. 应用监听端口是否正确，是否开启了健康检测，持久化目录是否设置正确
-4. 集群状态
-5. 操作流程，能否复现
-6. 是否尝试过更新部分组件的镜像，是否有效
-7. 当前正在进行什么操作
-8. 最近一段时间的网络/IO监控数据是否有异常
-9. 系统异常是哪个接口报错,提供rbd-app-ui日志(`/opt/rainbond/logs/rbd-app-ui/goodrain.log`)
-
--->
+5. [创建应用提示Table 'region.tenants' doesn't exist](/user-operations/op-guide/table_region_tenants_not_exist/)

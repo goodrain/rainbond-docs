@@ -15,9 +15,9 @@ description: "Rainbond安装教程引导"
 
 安装请阅读： [基于阿里云资源安装Rainbond](/user-operations/install/install-base-alicloud/)
 
-#### Rainbond高可用集群安装
+#### Rainbond高可用部署方案
 
-> 此方式将首先引导你进行相关资源的规划和准备，以完成高可用集群的快速安装。
+> 此方式将首先引导你进行相关资源的规划和准备，以完成高可用集群的部署。
 
 安装请阅读： [从零开始搭建Rainbond高可用集群](/user-operations/install/install-base-ha/)
 

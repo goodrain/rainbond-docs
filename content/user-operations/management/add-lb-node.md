@@ -8,10 +8,10 @@ hidden: true
 ---
 
 {{% notice info %}}
-目前版本只支持手动扩容网关节点
+5.1.4版本之后支持扩容网关节点(具体可参考节点管理部分),历史版本只能手动扩容添加网关节点
 {{% /notice %}}
 
-### 添加网关节点
+### 手动添加网关节点
 
 #### 1. 准备工作
 
@@ -61,7 +61,7 @@ EOF
 ```
 
 * 从管理节点同步文件
-    * 从第一个管理节点同步/opt/rainbond/conf目录下的network.yaml,lb.yaml文件到新增网关节点同样目录西下
+    * 从第一个管理节点同步/opt/rainbond/conf目录下的network.yaml,lb.yaml文件到新增网关节点同样目录下
     * 从第一个管理节点同步/opt/rainbond/etc/kubernetes/kubecfg目录到新增网关节点同样目录下
     * 从第一个管理节点同步/opt/rainbond/health目录到新增网关节点同样目录下
     * 从第一个管理节点同步/opt/rainbond/etc/tools/bin/node到新增网关节点/usr/local/bin/node
@@ -72,6 +72,10 @@ EOF
 IP为新增网关节点
 NODENAME为新增网关节点node的uuid
 ```
+
+{{% notice note %}}
+如果计算节点复用情况下,仅需要copy lb.yaml到计算节点
+{{% /notice %}}
 
 * 安装docker并启动
 
@@ -111,6 +115,29 @@ systemctl start node
 # node启动后根据/opt/rainbond/conf目录下配置文件生成对应服务systemd配置文件并启动
 ```
 
-### 对接阿里云slb
+### 调整配置
 
-可以参考 [阿里云slb配置-可选](/user-operations/install/install-base-alicloud/#2-5-阿里云slb配置-可选)
+有两种方案:
+
+- 1. 对接外部负载均衡设备(如阿里云slb) 可以参考 [阿里云slb配置-可选](/user-operations/install/install-base-alicloud/#2-5-阿里云slb配置-可选)
+- 2. 使用vip
+
+{{% notice note %}}
+阿里云slb目前仅支持http或者https应用负载均衡
+{{% /notice %}}
+
+#### 更新配置
+
+1. 调整域名解析 将域名解析到vip或者是slb的ip
+
+```
+grctl domain --ip <vip/slb>
+```
+
+2. 更新数据库信息
+
+```
+# 仅vip方案
+docker exec -it rbd-db mysql -e "update console.region_info set tcpdomain='<vip>';"
+```
+

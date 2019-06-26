@@ -123,6 +123,7 @@ mount -l | grep grdata
 在第一个管理节点执行初始化数据中心命令
 
 ```bash
+# 建议使用root执行安装操作
 wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 

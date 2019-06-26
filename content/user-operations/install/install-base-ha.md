@@ -5,6 +5,7 @@ description: "此方式将首先引导你进行相关资源的规划和准备，
 hidden: true
 ---
 
+
 ### 一、集群高可用说明
 
 在生产环境下，可以调整Rainbond的部署结构，来提高其高可用性。Rainbond高可用性可以从以下几个层面提升：
@@ -151,6 +152,7 @@ grctl init --network flannel 其他参数
 
 
 ```bash
+# 建议使用root执行安装操作
 wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 ./grctl init --role master --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> 
@@ -190,79 +192,7 @@ grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role man
 grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage --install
 ```
 
-> 更多扩容参数，请执行 grctl node add -h 获取
-
-<!-- ### 6.2 调整集群内部服务
-
-> 集群内部服务由rbd-gateway进行负载均衡，在多管理节点部署时，需要进行端口调整。
-
-- 调整kube-apiserver
-
-kube-apiserver默认监听6443端口，为了不与rbd-gateway监听端口冲突，需要将监听端口修改至其它值，下面以6442为例，修改这个端口
-
-在所有管理节点均执行
-
-```bash
-vi /opt/rainbond/conf/k8s-master.yaml
-
-version: '2.1'
-services:
-- name: kube-apiserver
-  disable: false
-  endpoints:
-  - name: APISERVER_ENDPOINTS
-    protocol: http
-    #修改健康检测端口
-    port: 6442
-  health:
-    name: kube-apiserver
-    model: http
-    address: http://127.0.0.1:8181/version
-    time_interval: 5
-    max_errors_num: 3
-  after:
-    - docker
-  type: simple
-  pre_start: docker rm kube-apiserver
-  start: >-
-    /usr/bin/docker
-    run
-    --privileged
-    --restart=always
-    --net=host
-    --name kube-apiserver
-    --volume=/opt/rainbond/etc/kubernetes:/opt/rainbond/etc/kubernetes
-    goodrain.me/kube-apiserver:v1.10.11
-    #添加一行，指定监听端口 6442
-    --secure-port=6442
-    --insecure-bind-address=127.0.0.1
-    --insecure-port=8181
-    --advertise-address=10.10.10.221 --bind-address=10.10.10.221
-    --etcd-servers=${ETCD_ENDPOINTS}
-    --enable-admission-plugins=ServiceAccount,NamespaceLifecycle,LimitRanger,DefaultStorageClass,DefaultTolerationSeconds,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota
-    --authorization-mode=Node,RBAC
-    --runtime-config=rbac.authorization.k8s.io/v1beta1
-    --enable-bootstrap-token-auth
-    --token-auth-file=/opt/rainbond/etc/kubernetes/kubecfg/token.csv
-    --tls-cert-file=/opt/rainbond/etc/kubernetes/ssl/kubernetes.pem
-    --tls-private-key-file=/opt/rainbond/etc/kubernetes/ssl/kubernetes-key.pem
-    --client-ca-file=/opt/rainbond/etc/kubernetes/ssl/ca.pem
-    --service-account-key-file=/opt/rainbond/etc/kubernetes/ssl/ca-key.pem
-    --logtostderr=true
-    --service-cluster-ip-range=11.1.0.1/12
-  stop: docker stop kube-apiserver
-  restart_policy: always
-  restart_sec: 10
-```
-
-重启服务
-
-{% include copy-clipboard.html %}
-
-```bash
-systemctl restart node
-systemctl restart kube-apiserver
-``` -->
+> 更多扩容参数，请执行 `grctl node add -h` 获取
 
 #### 6.2 手动校验
 

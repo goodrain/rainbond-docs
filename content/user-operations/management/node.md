@@ -13,6 +13,8 @@ hidden: true
 1. 安装节点时，请勿使用之前wget下载的grctl工具即(./grctl)，直接使用grctl命令。
 2. 管理节点不支持批量扩容操作，只能依次扩容。
 3. 管理节点数目推荐为奇数1,3,5,7，两个节点无法保证高可用。
+4. 支持使用root执行安装操作
+
 {{% /notice %}}
 
 ```bash
@@ -20,6 +22,12 @@ hidden: true
 grctl node add --host <managexx> --iip <管理节点内网ip> -p <root密码> --role manage 
 ## 法2默认已经配置ssh信任登陆
 grctl node add --host <managexx> --iip <管理节点内网ip> --key /root/.ssh/id_rsa.pub --role manage
+
+# 添加计算节点
+grctl node add --host <gatewayxx> --iip <网关节点内网ip> -p <root密码> --role gateway 
+## 法2默认已经配置ssh信任登陆
+grctl node add --host <gatewayxx> --iip <网关节点内网ip> --key /root/.ssh/id_rsa.pub --role gateway
+
 
 # 添加计算节点
 grctl node add --host <computexx> --iip <计算节点内网ip> -p <root密码> --role compute

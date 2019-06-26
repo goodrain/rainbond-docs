@@ -22,5 +22,5 @@ rbd-dns默认配置文件`/opt/rainbond/conf/dns.yaml`
 如果需要通过rbd-dns解析某个域名
 
 ```
---recoders=buhuibaidu.me=172.20.0.101,*.buhuigoogle.me=172.20.0.102
+--recoders=goodrain.me=192.168.195.1,*.goodrain.me=192.168.195.1,buhuibaidu.me=172.20.0.101,*.buhuigoogle.me=172.20.0.102
 ```

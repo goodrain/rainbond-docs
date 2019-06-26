@@ -15,6 +15,8 @@ hidden: true
 2. 确保机器重启，服务器IP地址和nameserver不发生改变，推荐配置静态ip
 3. 多节点部署时，需要确保所有机器间时间要同步(很重要)
 4. 多节点时，机器间网络访问没有限制
+5. 支持使用root执行安装操作
+
 
 更多关于软硬件要求请参考 [软件和硬件环境要求](/user-operations/op-guide/recommendation/),安装前请务必确定是否满足条件。
 
@@ -22,7 +24,7 @@ hidden: true
 
 ```
 # 有网环境下载离线包并同步到离线环境
-wget http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-04-15-5.1.3.tgz
+wget https://pkg.rainbond.com/offline/dev/offline.2019-05-20-5.1.4.tgz
 ```
 
 #### 离线安装操作
@@ -38,9 +40,7 @@ cd offline
 # 执行准备工作
 ./offline.sh
 # 安装前检查工作
-1. ls /grdata/services/offline/ 目录下有base.images.tgz rainbond.images.tgz这两个文件
-2. ls /grdata/services/offline/pkgs/rpm/centos/7/repodata/repomd.xml 存在这个文件
-3. ls /opt/rainbond/rainbond-ansible/roles/prepare/templates/rainbond.repo.j2 存在这个文件
+yum makecache
 # 确定上述文件都存在后执行后续安装操作
 ```
 
@@ -50,12 +50,12 @@ cd offline
 离线情况下，初始化数据中心必须指定参数要求： 必须指定install-type为offline 可选参数要求：  
 1. 如果是多网卡情况下，需要指定iip  
 2. 离线情况下，默认使用`pass.grapps.cn`域名，需要自行指定离线域名，并需要配置相关解析工作如`*.pass.grapps.cn`解析到数据中心节点  
-3. role身份,赋予当前节点身份属性,默认为管理和计算节点复用，指定为master，则表示当前节点仅具有管理节点属性  
+3. role身份,赋予当前节点身份属性,默认为管理和计算节点复用;若role指定为manage，则表示当前节点仅具有管理节点属性  
 {{% /notice %}}
 
 ```bash
 # 当前节点仅具有管理属性
- ./grctl init --install-type offline  --iip <当前机器内网ip>  --domain <自定义域名> [--role master]
+ ./grctl init --install-type offline  --iip <当前机器内网ip>  --domain <自定义域名> [--role manage]
 ```
 
 * 安装完成后检查, 当所有服务和节点皆处于健康状态时平台即可正常使用。
