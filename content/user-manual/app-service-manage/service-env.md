@@ -12,8 +12,6 @@ Rainbond平台启动服务时默认注入以下环境变量信息以供应用使
 | ------------------- | ------------------------------------------- | ------------------------------------------------------------ |
 | PORT                | 应用设置的第一个端口号                      | 应用建立端口监听时尽量获取 PORT 环境变量值进行监听           |
 | PROTOCOL            | http\tcp\mysql 等                           | 对应上诉端口的协议类型                                       |
-| DEFAULT_DOMAIN      | 默认域名                                    | 第一个 http 协议的端口的平台默认域名                         |
-| DOMAIN | 自定义域名 | `最小`的http端口对应的域名 |
 | TENANT_ID           | 租户 ID                                     | 租户 ID                                                      |
 | SERVICE_ID          | 应用 ID                                     | 应用 ID                                                      |
 | MEMORY_SIZE         | micro， small， medium， large， 2xlarge 等 | 表示当前应用实例的内存大小设置，一般用于应用内存相关设置的初始化，例如 JAVA_OPTS |
@@ -22,15 +20,20 @@ Rainbond平台启动服务时默认注入以下环境变量信息以供应用使
 | HOST_IP             | ip地址                                      | 服务运行时所在宿主机IP地址                                   |
 | POD_IP              | ip地址                                      | 服务运行时的IP地址                                           |
 | DISCOVER_URL        | http://xxxxxxx/v1/resources/xxx             | 配置发现接口地址,插件运行环境有效                            |
-| DISCOVER_URL_NOHOST | /v1/resources/xxx                           | 不带IP地址的配置发现URL, 地址使用HOST_IP：6100               |
+| DISCOVER_URL_NOHOST | /v1/resources/xxx                           | 不带IP地址的配置发现URL, 地址使用HOST_IP：6100 |
+|  |  |  |
 
-{{% notice note %}}
-自定义域名注入的补充说明:
-<br/>
-1. 如果有多个端口, 则会在环境变量名后面加上`_端口号`, 即`DOMAIN_端口号`. 比如: DOMAIN_80, DOMAIN_8080.
-<br/>
-2. 如果端口有多个自定义的域名,  则会在环境变量名后面加上`_序号`,  即`DOMAIN_序号`或`DOMAIN_端口号_序号`. 比如: DOMAIN, DOMAIN_1, DOMAIN_2; 或 DOMAIN_80, DOMAIN_1, DOMAIN_2;
-{{% /notice %}}
+#### 域名自动注入的环境变量说明:
+
+应用默认注入当前服务的访问域名环境变量信息：DOMIAN和DOMAIN_PROTOCOL，如果服务具有多个端口，注入策略如下
+
+1. 如果有多个端口, 则会在环境变量名后面加上`_端口号`, 即`DOMAIN_端口号`. 比如: DOMAIN_80, DOMAIN_8080
+
+  对应的域名协议则为 DOMAIN_PROTOCOL_80
+
+2. DOMIAN变量的值为服务端口号从小到大，自定义域名优先的值。比如有端口80,8080,如果8080绑定了自定义域名，则DOMIAN的值为8080端口的自定义域名。如果都没有绑定自定义域名，则为80端口的默认域名。
+
+
 
 使用以下高级环境变量可以解锁更多高级功能：
 
