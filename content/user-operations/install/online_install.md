@@ -20,6 +20,7 @@ hidden: true
 
 ### 1.2 下载系统安装工具
 
+目前最新安装的版本是: v5.1.5-release
 ```
 wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
