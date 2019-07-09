@@ -64,23 +64,8 @@ hidden: true
 <img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-6.jpg" width='100%' />
 
 
-**上架应用**
+**编辑应用发布信息**
 
-如果想要可以在公有云市中找到发布的应用，那么需要在云市中上架该应用。上架后的应用可以被连接好雨公有云市的所有企业及用户看到。
+发布到云端应用市场的应用，完成发布后会自动调整到应用的展示页面，你需要登录云端市场后即可编辑应用的基础信息。或操作是否将词应用交付给某个其他Rainbond用户。
 
-- 登录[Goodrain](https://www.goodrain.com/)官网,进入 企业中心 > 应用市场 > 自有市场 > 分享应用管理。
-> 登录的时候需要用该企业管理员的Rainbond账号登陆。
 
-- 信息编辑。使用Markdown编写应用的详细介绍，完善应用`README`，让用户可以更好地去了解使用应用。
-
-<img src="https://static.goodrain.com/images/docs/3.7/user-manual/market.gif" width='100%' />
-
-- 设置价格。
-
-<img src='https://t.goodrain.com/uploads/default/original/2X/3/3e0aa3de5b0b0970a171680fc624fe4c6e3377d6.jpg' width='100%'/>
-
-- 上架。
-
-<img src='https://t.goodrain.com/uploads/default/original/2X/5/5cdfffcd677910f5fea98215efeaeb8af7e2b935.gif' width='100%'/>
-
-完成上架之后，我们就可以在云端中找到你上架的应用。
