@@ -45,7 +45,7 @@ $ java -jar ./webapp-runner.jar --help
 $ java -jar ./webapp-runner.jar target/<appname>.war
 ```
 
-webapp-unner 会利用给定的war文件启动一个Tomcat实例。它会使用Tomcat提供的内嵌API来把程序跑起来，与[jetty-runner](https://webtide.com/)提供的选项有些类似。 webapp-runner 是 [开源](https://github.com/jsimone/webapp-runner) 软件，你可以随时查阅项目源码。
+webapp-runner 会利用给定的war文件启动一个Tomcat实例。它会使用Tomcat提供的内嵌API来把程序跑起来，与[jetty-runner](https://webtide.com/)提供的选项有些类似。 webapp-runner 是 [开源](https://github.com/jsimone/webapp-runner) 软件，你可以随时查阅项目源码。
 
 
 #### 高级特性配置
