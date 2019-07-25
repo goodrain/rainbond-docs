@@ -3,7 +3,8 @@ title: Java Maven源码构建应用
 description: Java Maven源码构建应用
 hidden: true
 ---
-
+#### 原理文档阅读
+[Rainbond构建Java Maven项目原理解读](./java-maven-de)
 #### Maven项目识别策略
 平台默认会通过pom.xml来识别源码项目为Java Maven项目。
 
