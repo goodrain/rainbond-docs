@@ -14,3 +14,7 @@ Rainbond支持以下几种程序部署类型：
 {{% button href="../java_more/java-gradle/" %}}部署Java Gradle源码项目{{% /button %}}
 {{% button href="../java_more/java-jar/" %}}直接部署Java Jar包{{% /button %}}
 {{% button href="../java_more/java-war/" %}}直接部署Java War包{{% /button %}}
+
+通用配置文档：
+
+{{% button href="/advanced-scenarios/devops/how-to-select-jdk/" %}}RAINBOND源码构建JAVA项目选取JDK{{% /button %}}
