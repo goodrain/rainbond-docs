@@ -1,21 +1,28 @@
 ---
 title: "离线部署"
 weight: 1005
-description: "此方式适用于外网网络受到严格限制的用户，此版本目前仅支持CentOS 7.4.1708系统。"
+description: "此方式适用于外网网络受到严格限制的用户，此版本目前支持CentOS 7.4.1708系统，Ubuntu 16.04 系统"
 hidden: true
 ---
 
 {{% notice warning %}}
-目前我们仅提供CentOS 7.4.1708版本的离线包，其他版本离线包制作请参考[离线包制作文档](/user-operations/op-guide/offline-package/)
+目前我们提供了CentOS 7.4.1708版本，Ubuntu 16.04版本 的离线包，其他版本离线包制作请参考[离线包制作文档](/user-operations/op-guide/offline-package/)
 {{% /notice %}}
 
-#### 软硬件要求
+### 软硬件要求
 
-1. 检查操作系统，目前离线版本仅支持[CentOS 7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)版本
-2. 确保机器重启，服务器IP地址和nameserver不发生改变，推荐配置静态ip
-3. 多节点部署时，需要确保所有机器间时间要同步(很重要)
-4. 多节点时，机器间网络访问没有限制
-5. 支持使用root执行安装操作
+#### 1. 检查操作系统，目前离线版本支持以下操作系统
+
+| 系统     | 版本         | 说明                     |
+| :------- | :----------- | :----------------------- |
+| CentOS   | 7.3及以上      | 64位，[7.4.1708下载](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-07-26-5.1.5.tgz)) |
+| Ubuntu   | 16.04        | 64位  推荐安装             |
+
+更多关于软硬件要求请参考 [软件和硬件环境要求](/user-operations/op-guide/recommendation/)  
+#### 2. 确保机器重启，服务器IP地址和nameserver不发生改变，推荐配置静态ip  
+#### 3. 多节点部署时，需要确保所有机器间时间要同步(很重要)  
+#### 4. 多节点时，机器间网络访问没有限制  
+#### 5. 支持使用root执行安装操作  
 
 
 更多关于软硬件要求请参考 [软件和硬件环境要求](/user-operations/op-guide/recommendation/),安装前请务必确定是否满足条件。
@@ -23,29 +30,27 @@ hidden: true
 #### 同步离线包
 
 ```
-# 有网环境下载离线包并同步到离线环境
-wget https://pkg.rainbond.com/offline/dev/offline.2019-05-20-5.1.4.tgz
+# 有网环境下载离线包,并同步到离线环境
+wget https://pkg.rainbond.com/offline/dev/offline.2019-07-26-5.1.5.tgz
+
 ```
+
 
 #### 离线安装操作
 
 ##### 准备工作
 ```bash
-# 需要移除默认源
-mv /etc/yum.repos.d/*.repo /tmp/
 # 解压离线包
 tar xf <离线包>
 # 进入解压目录下
 cd offline
 # 执行准备工作
 ./offline.sh
-# 安装前检查工作
-yum makecache
 # 确定上述文件都存在后执行后续安装操作
 ```
 
 ##### 初始化数据中心
- 
+
 {{% notice info %}}
 离线情况下，初始化数据中心必须指定参数要求： 必须指定install-type为offline 可选参数要求：  
 1. 如果是多网卡情况下，需要指定iip  
@@ -70,7 +75,7 @@ grctl node list
 # 控制台访问地址
 http://<节点IP地址>:7070
 ```
-如果集群状态是不健康的，参考[节点健康检测](/user-operations/management/node-health/) 文档解决故障。
+如果集群状态是不健康的，参考[Rainbond组件运维](/user-operations/management/component-op/) 文档解决故障。
 
 ##### 添加节点
 
