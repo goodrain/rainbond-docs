@@ -24,91 +24,226 @@ hidden: true
 
 - master节点和slave节点的uuid不同
 - master节点和slave节点的server_id不同
+- slave节点需要自动执行向master节点注册的操作
 
 ### 制作Mysql容器镜像
 
-#### 同一镜像区创建不同容器的uuid
+#### 同一镜像创建不同容器的uuid
 
 用同一mysql镜像创建mysql主从集群时，发现每台mysql服务的uuid都是相同的，是因为在数据初始化时将uuid写在了/var/lib/mysql/auto.cnf文件中，造成每个容器的uuid都是相同的。
 
 为了解决不同容器的uuid不同问题，需要在mysql启动生成配置文件后并在启动前 随机生成一个uuid写入到/var/lib/mysql/auto.cnf，这样就可以确保同一镜像生成的容器的uuid都不相同。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204150516315-2036744547.png" width="80%">
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204150036757-1490641186.png" width="80%">
+为了达成这一目标，我们修改了mysql镜像自带的启动脚本`/usr/local/bin/docker-entrypoint.sh`：
 
+```bash
+if [ ! -d "$DATADIR/mysql" ]; then
+		file_env 'MYSQL_ROOT_PASSWORD'
+		if [ -z "$MYSQL_ROOT_PASSWORD" -a -z "$MYSQL_ALLOW_EMPTY_PASSWORD" -a -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
+			echo >&2 '  You need to specify one of MYSQL_ROOT_PASSWORD, MYSQL_ALLOW_EMPTY_PASSWORD and MYSQL_RANDOM_ROOT_PASSWORD'
+			exit 1
+		fi
+
+		mkdir -p "$DATADIR"
+
+		echo 'Initializing database'
+		"$@" --initialize-insecure
+		echo 'Database initialized'
+                # 位于mysql启动脚本90行，新增如下语句
+                psd="/proc/sys/kernel/random/uuid"
+                str=$(cat $psd)
+                uuid="server-uuid="${str}
+                echo "[auto]" > /var/lib/mysql/auto.cnf
+                echo $uuid >> /var/lib/mysql/auto.cnf
+
+
+```
 
 #### 同一服务不同实例的server_id处理
 
-用同一mysql镜像创建mysql主从集群时，如何确保每个mysql服务的server_id不同？
+用同一MYSQL镜像创建MYSQL主从集群时，如何确保每个MYSQL服务的server_id不同？
 
-k8s在创建容器时，会为每个容器创建创建一个主机名( 如：gr78648d-0)，创建多个容器后面的数字会依次递增，所以可以利用这一特性生成不同的server_id（主机名数字部分 + 环境变量数字），然后在maser和slave使用不同的环境变量数字数字即可。
+k8s在创建容器时，会为每个容器创建创建一个主机名( 如：gr78648d-0)，创建多个容器后面的数字会依次递增，所以可以利用这一特性生成不同的server_id（主机名数字部分 + 指定数字），然后在maser和slave使用不同的数字即可。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204163244948-412477359.png" width="80%">
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204163802551-863760048.png" width="80%">
+#### 从库自动初始化
+
+创建slave数据库时，我们希望salve应用下的每个实例，在扩容后，会自动向主库注册。
+
+这需要salve应用中实例初始化时，自动执行指定的SQL脚本。这要借助于官方MYSQL镜像所提供的特定功能：数据库初始化时，会自动读取`/docker-entrypoint-initdb.d/`中*.sql 文件并执行。
+
+为了实现上述两个目标，我们在镜像的自定义启动脚本 `/run/docker-entrypoint.sh`进行指定：
+
+```bash
+# define server_id and anyother cluster configuration
+# 通过环境变量来区分当前镜像创建主库或从库
+if [ ${MYSQL_ROLE} == "master" ];then
+   # 借助有状态应用主机名特点，截取其中的数字
+   server_id=${HOSTNAME#*-}
+   # 主库ID设置为1
+   MYSQLC_MYSQLD_SERVER_ID=`expr $server_id + 1`
+   export MYSQLC_MYSQLD_SERVER_ID
+   # 指定生成主库特定的配置
+   export MYSQLC_MYSQLD_binlog_ignore_db=mysql
+   export MYSQLC_MYSQLD_log_bin=mysql-bin
+else 
+   # 借助有状态应用主机名特点，截取其中的数字
+   server_id=${HOSTNAME#*-}
+   # 从库各实例ID，从2开始排序
+   MYSQLC_MYSQLD_SERVER_ID=`expr $server_id + 2`
+   export MYSQLC_MYSQLD_SERVER_ID
+   # 指定生成从库特定配置
+   export MYSQLC_MYSQLD_replicate_ignore_db=mysql
+   export MYSQLC_MYSQLD_log_bin=mysql-bin
+   # 将从库所需要的初始化脚本模版拷贝到指定目录
+   cp -a /tmp/init-slave.sql /docker-entrypoint-initdb.d/
+   # 根据实例特定的环境变量，对初始化脚本模版进行更改
+   sed -i -r -e "s/MYSQL_ROOT_PASSWORD/${MYSQL_ROOT_PASSWORD}/g" \
+             -e "s/MYSQL_USER/${MYSQL_USER}/g" /docker-entrypoint-initdb.d/init-slave.sql
+fi
+```
+
+{{% notice notice %}}
+
+关于脚本中通过环境变量生成指定配置，参考项目 [env2file](https://github.com/barnettZQG/env2file)
+
+{{% /notice %}}
+
+#### 制作镜像的Dockerfile解析
+
+```Dockerfile
+FROM percona:5.7.23-stretch
+LABEL creater="barnett"
+ENV MYSQL_VERSION=5.7.23
+ENV TZ=Asia/Shanghai
+
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list; \
+    rm -rf /etc/apt/sources.list.d/percona.list && apt-get update; \
+    apt-get install -y --no-install-recommends wget net-tools vim; \
+    rm -rf /var/lib/apt/lists/*; \
+    wget -O /usr/local/bin/env2file -q https://github.com/barnettZQG/env2file/releases/download/0.1.1/env2file-linux; \
+    chmod +x /usr/local/bin/env2file;
+# 自定义启动脚本
+ADD docker-entrypoint.sh /run/docker-entrypoint.sh
+# mysql官方启动脚本
+ADD ./run/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+ADD ./run/mysqld.cnf /etc/mysql/percona-server.conf.d/mysqld.cnf
+# 拷贝slave初始化脚本模版到镜像中，以备调用
+ADD ./sql /tmp/
+EXPOSE 3306
+VOLUME ["/var/lib/mysql", "/var/log/mysql"]
+ENV MYSQL_ROOT_PASSWORD=changeme
+ENTRYPOINT [ "/run/docker-entrypoint.sh" ]
+CMD [ "mysqld" ]
+
+```
+
+### 创建并配置mysql-master服务
+
+#### 创建mysql-master服务组件
+
+代码地址：https://github.com/goodrain-apps/percona-mysql.git?dir=5.7
+
+代码分支：cluster
+
+通过Dockerfile创建服务 参考文档 [基于Dockerfile源码创建服务](/user-manual/app-creation/language-support/dockerfile/)
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/mysql-cluster/mysql-cluster1.png" width="100%">
+
+#### mysql-master服务 相关配置
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/mysql-cluster/mysql-cluster2.png" width="100%">
+
+- 开启3306端口对内服务，并更改使用别名为`MYSQL`
+
+- 配置关键环境变量
+
+| 环境变量            | 值                       | 说明             |
+| ------------------- | ------------------------ | ---------------- |
+| MYSQL_ROOT_PASSWORD | changeme（默认）自行指定 | root密码         |
+| MYSQL_USER          | 自行指定，如admin        | mysql工作用户    |
+| MYSQL_PASSWORD      | 自行指定                 | 工作用户密码     |
+| MYSQL_DATABASE      | 自行指定                 | 初始化生成数据库 |
+| MYSQL_ROLE          | master                   | 指定角色         |
+
+  其中 除`MYSQL_ROLE`外，其他环境变量要在服务创建完成后，转移到连接信息中去。
+
+- 部署属性中，修改应用类型为 `有状态应用`
 
 
-#### 3.3 创建镜像，并将镜像推到dockerhub上
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204165341591-661130452.png" width="80%">
+### 创建Slave服务
 
-### 基于镜像创建服务
+#### 创建mysql-slave服务组件
 
-#### 创建master服务 
+创建方式同mysql-master服务组件一致。
 
-通过指定镜像创建服务 参考文档 [基于镜像创建服务](/user-manual/app-creation/creation-process/#从docker镜像创建)
+#### mysql-slave服务 相关配置
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204165458195-1943796474.png" width="80%">
+区别于mysql-master服务组件，mysql-slave服务组件配置如下：
 
-#### master服务 开启内部的3306端口
+- 开启3307端口对内服务，并更改使用别名为 `MYSQL_SLAVE`
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204165851398-1060115755.png" width="80%">
+- 配置环境变量
 
-#### master服务 设置依赖所需要连接的配置信息
+| 环境变量           | 值   | 说明                    |
+| ------------------ | ---- | ----------------------- |
+| MYSQLC_MYSQLD_PORT | 3307 | mysql-slave监听3307端口 |
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204170647972-1386843096.png" width="80%">
+- mysql-slave服务依赖于mysql-master服务
 
-#### Master节点设置同步的数据库名称
+{{% notice notice %}}
 
-通过设置环境变量 MYSQLC_MYSQLD_binlog_do_db 设置同步数据库名。
+mysql-slave服务组件，可以随意扩容，脚本中写好的逻辑会让其自动向mysql-master注册。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204170947089-254583499.png" width="80%">
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204174500759-712862357.png" width="80%">
+{{% /notice %}}
 
-#### 创建Slave服务
+至此，一个基本的 MYSQL主从集群就已经搭建完成，如需要发布到应用市场供随时下载使用，请参考[应用分享与发布](<https://www.rainbond.com/docs/user-manual/app-manage/share-app/>)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204171716660-1576150647.png" width="80%">
+### 读写分离
 
- slave服务 开启内部的3306端口
+#### 机制
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204171828093-557947870.png" width="80%">
+MYSQL主从集群的一个好处就是，可以配置master库负责写入，slave库负责查询，slave自动从master同步数据的读写分离结构。
 
-​    slave服务设置依赖所需要连接的配置信息
+如果设置得当，这样的结构可以大幅度提高数据库性能的同时，降低主库的压力。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204172224645-978212103.png" width="80%">
+#### 使用方法
 
-​        设置slave依赖master
+如果用户的业务程序已经支持读写分离，那么只需要设置：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204172730312-1438566530.png" width="80%">
+- 数据库写入地址为mysql-master服务地址，如果使用Rainbond服务依赖，则可以用  `${MYSQL_HOST}:​${MYSQL_PORT}`的方式指定连接地址。
+- 数据库查询地址为mysql-slave服务地址，如果使用Rainbond服务依赖，则可以用`${MYSQL_SLAVE_HOST}:${MYSQL_SLAVE_PORT}`的方式指定连接地址。
 
-将slave服务实例水平伸缩为2
+如果用户的业务程序不支持读写分离，那么就要靠支持读写分离的中间件实现。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204172909766-502732935.png" width="80%">
+#### Atlas中间件
+
+Atlas是由奇虎360开源的数据库中间件，基于mysql官方提供的mysql-proxy改良而来。通过将mysql-proxy的LUA脚本，用C语言重新实现，Atlas提供了比mysql-proxy更强大的性能。经由中间件的代理，用户只需要配置数据库连接地址为 Atlas 服务地址，对于数据库的写入和查询，则由 Atlas 来管理。
+
+[详细了解Atlas](https://github.com/Qihoo360/Atlas)
+
+我们提供的docker化的Atlas组件，用户可以直接基于Dockerfile源码构建这个项目：
+
+[Atlas-docker项目地址](https://github.com/goodrain-apps/altas-docker.git)
+
+Rainbond已经发布的 [Mysql主从集群](<https://market.goodrain.com/apps/1c66f46d2bf34070b599fc81d0bbf248>) 应用，已经集成了该中间件。
 
 
 
-### 从应用市场安装Mysql主从集群应用
+### 高阶实现
 
-应用市场安装mysql主从集群应用。
+#### 当前架构缺点
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/create_mysql_cluster_instance.jpg" width="80%">
+目前搭建的 MYSQL主从集群，是一个master节点，对接多个slave节点。这样的架构在小规模集群下没有问题。但是如果集群规模很大、slave节点过多的时候，由master向所有slave节点同步数据这一过程将变成性能的瓶颈。
 
-### mysql主从同步配置
+#### 架构的优化
 
-​    查看master节点状态，记录二进制文件名(mysql-bin.000003)和位置(154)
+当用户完全掌握了如何基于Rainbond搭建MYSQL主从集群后，可以自己尝试，专门创建一个slave节点，作为数据同步节点使用。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204175039003-207802438.png" width="80%">
+该节点向上对接 master节点，来同步数据；向下对接slave集群，分发由master节点同步来的数据。
 
-​    slave节点执行同步SQL语句(需要主服务器主机名，登陆凭据，二进制文件的名称和位置)
+这样做的好处是，master节点只需要对接一个数据同步节点来同步数据，可以更加专注于数据的写入。其他slave节点从数据同步节点来同步数据。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204175242854-1718088857.png" width="80%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/mysql-cluster/master-new-arch.png" width="80%">
 
+如果有用户实现了这种优化，欢迎将其分享到应用市场中，供更多的人来使用。
