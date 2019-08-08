@@ -14,7 +14,9 @@ systemctl stop node
 systemctl stop rbd-db 
 rm -rf /opt/rainbond/data/rbd-db
 systemctl start node
-/opt/rainbond/.init/updatedb.sh
+/opt/rainbond/.init/updatedb.sh prepare
+/opt/rainbond/.init/updatedb.sh migrate
+/opt/rainbond/.init/updatedb.sh config
 ``` 
 
 ### 使用外部数据库时
@@ -26,5 +28,7 @@ Rainbond提供方式指定外部数据库用于存储集群元数据。当需要
 - 在首个管理节点执行：
 
 ```bash
-/opt/rainbond/.init/updatedb.sh
+/opt/rainbond/.init/updatedb.sh prepare
+/opt/rainbond/.init/updatedb.sh migrate
+/opt/rainbond/.init/updatedb.sh config
 ```

@@ -28,10 +28,10 @@ grctl node add ···
 grctl node install ···
 ```
 
-这类情况请参考 [安装问题排查](/Troubleshoot/install-problem/)
+这类情况请参考 [安装问题排查](/troubleshoot/install-problem/)
 
 #### 集群状态确认
 
 安装完成后，通过命令 `grctl cluster` 确认集群状态。
 
-在返回结果列表中发现有任意 **红色字体**，请参考 [集群问题排查](/Troubleshoot/cluster-problem/)
+在返回结果列表中发现有任意 **红色字体**，请参考 [集群问题排查](/troubleshoot/cluster-problem/)
