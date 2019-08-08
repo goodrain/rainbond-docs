@@ -7,18 +7,20 @@ description: 存储对接GlusterFS
 hidden: true
 ---
 
+#### Ubuntu 对接GlusterFS
+
 存储节点部署示例环境，仅供参考
 
 | 主机名     | IP         | 系统                    |
 | :------- | :----------- | :----------------------- |
-|gfs01 |10.10.10.13|CentOS 7.4.1708|
-|gfs02 |10.10.10.14|CentOS 7.4.1708|
+|gfs01 |10.10.10.13|Ubuntu 16.04.3 LTS|
+|gfs02 |10.10.10.14|Ubuntu 16.04.3 LTS|
 
 ### 一、GlusterFS的安装
 
 #### 1.1 存储节点配置hostname解析
 
-所有节点都需要配置存储节点hostname解析
+**所有节点都需要配置存储节点hostname解析**
 
 ```
 # gfs01节点更新hostname
@@ -41,7 +43,7 @@ echo "gfs02" > /etc/hostname
 # 查看可用磁盘
 fdisk -l
 # 分区并格式化
-mkfs.xfs  /dev/vdb1
+mkfs.xfs  /dev/vdb
 mkdir  -p /data
 echo "/dev/vdb1  /data  xfs  defaults 1 2" >>/etc/fstab
 # 挂载
@@ -58,11 +60,10 @@ df -h | grep data
 #### 1.3 安装启动glusterfs服务
 
 ```bash
-yum install centos-release-gluster -y
-yum install glusterfs-server -y
-systemctl start glusterd.service
-systemctl enable glusterd.service
-systemctl status glusterd.service
+apt-get -y install glusterfs-server
+systemctl start glusterfs-server
+systemctl enable glusterfs-server
+systemctl status glusterfs-server
 ```
 
 #### 1.4 配置信任池
@@ -81,7 +82,7 @@ peer probe: success.
 Number of Peers: 1
 
 Hostname: gfs01
-Uuid: f88992e2-4a3f-4cbd-b79b-a5b7e28881dd
+Uuid: ba10c6e2-2266-40a4-aaa2-0d26ea2d8786
 State: Peer in Cluster (Connected)
 ```
 
@@ -92,32 +93,29 @@ State: Peer in Cluster (Connected)
 mkdir  -p /data/glusterfs
 
 # 在gfs01执行创建卷操作
-gluster volume create data replica 2 gfs02:/data/glusterfs gfs01:/data/glusterfs
+[root@gfs01 ~]# gluster volume create data replica 2 gfs02:/data/glusterfs gfs01:/data/glusterfs
 
-Replica 2 volumes are prone to split-brain. Use Arbiter or Replica 3 to avoid this. See: http://docs.gluster.org/en/latest/Administrator%20Guide/Split%20brain%20and%20ways%20to%20deal%20with%20it/.
-Do you still want to continue?
- (y/n) y
 volume create: data: success: please start the volume to access data
 
 # 在gfs02 查看卷信息
 [root@gfs02 ~]# gluster volume info
-
 Volume Name: data
 Type: Replicate
-Volume ID: 1c27e490-af0c-4794-af45-60e960c6eb47
+Volume ID: 25ba3181-6a7e-412f-98b3-2f3aa317281c
 Status: Created
-Snapshot Count: 0
 Number of Bricks: 1 x 2 = 2
 Transport-type: tcp
 Bricks:
 Brick1: gfs02:/data/glusterfs
 Brick2: gfs01:/data/glusterfs
 Options Reconfigured:
-transport.address-family: inet
-nfs.disable: on
-performance.client-io-threads: off
+performance.readdir-ahead: on
+
+root@gfs02:~# gluster volume start data
+volume start: data: success
 # 启动卷
-gluster volume start data
+[root@gfs02 ~]# gluster volume start data
+volume start: data: success
 ```
 
 #### 1.6 简单挂载测试
@@ -136,15 +134,15 @@ ls /mnt/ | wc -l
 
 ### 二、 对接存储GlusterFS
 
-> 此步骤应该在执行安装前操作，避免安装完成后切换存储不正确导致集群不可用，下述步骤集群所属节点都需要执行。
+**此步骤应该在执行安装前操作，避免安装完成后切换存储不正确导致集群不可用，下述步骤集群所属节点都需要执行。**
 
 #### 2.1 所有节点配置存储节点hostname解析
 
 所有节点(管理，计算，网关)都更新配置hosts文件
 
 ```bash
-10.10.10.13 gfs02
-10.10.10.14 gfs01
+10.10.10.13 gfs01
+10.10.10.14 gfs02
 ```
 
 > 验证方式： 任意集群中节点都可以正常ping通gfs01和gfs02
@@ -152,7 +150,8 @@ ls /mnt/ | wc -l
 #### 2.2 安装GlusterFS客户端程序
 
 ```bash
-yum install -y glusterfs-fuse
+apt-get install glusterfs-server -y
+
 ```
 
 #### 2.3 挂载GlusterFS数据卷
@@ -160,7 +159,7 @@ yum install -y glusterfs-fuse
 ```
 # 创建挂载点
 mkdir /grdata
-# 开机挂载,更新/etc/fstab
+# 开机挂载,将以下配置写入/etc/fstab
 gfs01:/data /grdata glusterfs   backupvolfile-server=gfs02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
 # 挂载
 mount -a
