@@ -15,8 +15,8 @@ hidden: true
 
 | 系统     | 版本         | 说明                     |
 | :------- | :----------- | :----------------------- |
-| CentOS   | 7.3及以上      | 64位，[7.4.1708下载](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-07-26-5.1.5.tgz)) |
-| Ubuntu   | 16.04        | 64位  推荐安装             |
+| CentOS   | 7.3及以上      | 64位，[ISO下载](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-07-26-5.1.5.tgz)) |
+| Ubuntu   | 16.04        | 64位  推荐安装   [ISO下载](https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/ubuntu-16.04.6-server-amd64.iso)          |
 
 更多关于软硬件要求请参考 [软件和硬件环境要求](/user-operations/op-guide/recommendation/)  
 #### 2. 确保机器重启，服务器IP地址和nameserver不发生改变，推荐配置静态ip  

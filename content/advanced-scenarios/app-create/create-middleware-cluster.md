@@ -198,7 +198,7 @@ mysql-slave服务组件，可以随意扩容，脚本中写好的逻辑会让其
 
 {{% /notice %}}
 
-至此，一个基本的 MYSQL主从集群就已经搭建完成，如需要发布到应用市场供随时下载使用，请参考[应用分享与发布](<https://www.rainbond.com/docs/user-manual/app-manage/share-app/>)
+至此，一个基本的 MYSQL主从集群就已经搭建完成，如需要发布到应用市场供随时下载使用，请参考[应用分享与发布](/user-manual/app-manage/share-app/)
 
 ### 读写分离
 

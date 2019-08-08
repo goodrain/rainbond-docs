@@ -13,7 +13,7 @@ hidden: true
 | :------- | :----------- | :----------------------- |
 | CentOS   | 7.3及以上      | 64位，[7.4.1708下载](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)) |
 | Debian   | 9.6及以上          | 64位                     |
-| Ubuntu   | 16.04        | 64位      推荐安装               |
+| Ubuntu   | 16.04        | 64位      推荐安装  [ISO下载](https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/ubuntu-16.04.6-server-amd64.iso)             |
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
 更多关于软硬件要求请参考 [软件和硬件环境要求](/user-operations/op-guide/recommendation/)
