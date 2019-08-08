@@ -101,7 +101,13 @@ The root user must be used by default
 
 {{% notice note %}}
 
-手动以调试模式执行这个脚本 `bash -x /opt/rainbond/.init/initr6d.sh`，查看脚本执行过程，到哪里有报错。
+阅读脚本 `/opt/rainbond/.init/initr6d.sh`，了解其工作内容。
+
+{{% /notice %}}
+
+{{% notice note %}}
+
+实际上，当前脚本运行的目的是初始化集群数据库 `rbd-db` 服务（或是用户指定的外部数据库）。在服务器内存不足或者磁盘性能低下时，容易出现这个问题。解决的具体方式，是安装流程结束后[手动初始化数据库](/troubleshoot/concrete-operations/manual-init-db/)
 
 {{% /notice %}}
 
@@ -140,3 +146,4 @@ The root user must be used by default
 - 移步 [GitHub](https://github.com/goodrain/rainbond-ansible/issues) 查询是否有相关的 issue ，如没有则提交 issues
 
 - 前往[社区](https://t.goodrain.com/) 阅读前缀名为【安装问题】的帖子，寻找相似问题的答案
+

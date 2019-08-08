@@ -115,7 +115,7 @@ Rainbond为集群中每一个节点上运行的每一个与集群相关的服务
 {{% /notice %}}
 
 ```bash 
-| rbd-grafana |  0/1 | manage01:Get http://127.0.0.1:3000: dial tcp 127.0.0.1:3000: connect: connection refused/ |
+| rbd-api |  0/1 | manage01:Get http://127.0.0.1:8443: dial tcp 127.0.0.1:8443: connect: connection refused/ |
 ```
 
 ```bash
@@ -127,7 +127,7 @@ Rainbond为集群中每一个节点上运行的每一个与集群相关的服务
 ```
 
 {{% notice warning %}}
-上述信息表明：manage01节点上，名为 `rbd-grafana` 的服务处于异常状态。详细信息说明manage01节点连接本地 3000 端口失败，而 3000 端口正是 `rbd-grafana` 服务监听端口。
+上述信息表明：manage01节点上，名为 `rbd-api` 的服务处于异常状态。详细信息说明manage01节点连接本地 8443 端口失败，而 8443 端口正是 `rbd-api` 服务监听端口。
 {{% /notice %}}
 
 {{% notice info %}}
@@ -137,14 +137,14 @@ Rainbond为集群中每一个节点上运行的每一个与集群相关的服务
 查询该服务运行状态
 
 ```bash
-systemctl status rbd-grafana
+systemctl status rbd-api
 ```
 返回
 ```bash 
-● rbd-grafana.service - rbd-grafana
-   Loaded: loaded (/etc/systemd/system/rbd-grafana.service; enabled; vendor preset: enabled)
+● rbd-api.service - rbd-api
+   Loaded: loaded (/etc/systemd/system/rbd-api.service; enabled; vendor preset: enabled)
    Active: inactive (dead) since Tue 2019-08-06 17:17:02 CST; 13s ago
-  Process: 24249 ExecStop=/bin/bash -c docker stop rbd-grafana (code=exited, status=0/SUCCESS)
+  Process: 24249 ExecStop=/bin/bash -c docker stop rbd-api (code=exited, status=0/SUCCESS)
  Main PID: 8491 (code=killed, signal=TERM)
 ```
 发现该服务处于 `inactive (dead)` 状态。至此，问题定位完成。
@@ -169,7 +169,7 @@ Rainbond组件日志全部托管于 `journal` ，日志查询方式： `journalc
 比如：
 
 ```bash
-journalctl -fu rbd-grafana
+journalctl -fu rbd-api
 ```
 
 查询日志后，引起错误的原因将会有所提示，下面是一些日志中可能出现的关键字：
@@ -177,23 +177,23 @@ journalctl -fu rbd-grafana
 ##### Unable to find image
 
 ```bash
-Error response from daemon: No such container: rbd-grafana
+Error response from daemon: No such container: rbd-api
 Started rbd-grafana.
-Unable to find image 'goodrain.me/rbd-grafana:v5.1.5-release' locally
-docker: Error response from daemon: manifest for goodrain.me/rbd-grafana:v5.1.5-release not found.
+Unable to find image 'goodrain.me/rbd-api:v5.1.5-release' locally
+docker: Error response from daemon: manifest for goodrain.me/rbd-api:v5.1.5-release not found.
 ```
 
 该报错表征本地不存在指定的镜像。
 
 - 解决方案：
     - 检查配置文件，是否写错了镜像地址
-    - 确认其他节点（多数情况下是首个管理节点）是否存在该镜像，如果有，执行 `docker push goodrain.me/rbd-grafana:v5.1.5-release`
+    - 确认其他节点（多数情况下是首个管理节点）是否存在该镜像，如果有，执行 `docker push goodrain.me/rbd-api:v5.1.5-release`
     - 获取Rainbond指定版本镜像包来抽取对应镜像。[v5.1.5版本对应镜像离线包](/user-operations/upgrade/5.1.4-5.1.5/#下载-5-1-5-更新包)
 
 ##### error: dial tcp xx.xx.xx.xx:3306: connect: connection refused
 
 ```bash
-Started rbd-chaos.
+Started rbd-api.
 error: dial tcp 192.168.195.1:3306: connect: connection refused
 main process exited, code=exited, status=1/FAILURE
 ```
@@ -204,6 +204,13 @@ main process exited, code=exited, status=1/FAILURE
     - `systemctl status rbd-db` 检查数据库服务是否正常/检查自定义对接的外部数据库运行是否正常
     - 检查当前服务配置文件，连接mysql的地址、用户名、密码
     - 检查到当前数据库的网络是否有限制
+
+{{% notice warning %}}
+
+Rainbond 中的服务存在相互依赖的关系。这导致有的服务启动失败，其根本原因是其他组件没有正常提供服务。参见[组件间相互依赖关系](/troubleshoot/concrete-operations/service-depend/)
+
+{{% /notice %}}
+
 
 ##### The contailer name "XXXX" is already in use by container " ···· "
 
@@ -217,11 +224,11 @@ etcd-proxy.service: main process exited, code=exited, status=125/n/a
 
 - 解决方案：
     - 尝试手动清理同名容器 `docker rm -f etcd-proxy`
-    - 手动清理失败，考虑重启docker服务。[docker服务重启策略](#docker服务重启策略)
+    - 手动清理失败，考虑重启docker服务。[docker服务重启策略](/troubleshoot/concrete-operations/how-to-restart/#docker服务重启策略)
 
-#### 其他报错排查
+### 其他报错排查
 
-##### grctl cluster反馈异常
+#### grctl cluster反馈异常
 
 在执行 `grctl cluster` 后，返回以下信息：
 
@@ -247,7 +254,7 @@ grctl cluster 命令的执行，依赖于 node 、 rbd-api 两个服务。无论
     - 根据日志提示，先解决 `node/rbd-api` 的问题。参见 [基于服务日志排查问题](#基于服务日志排查问题)
 
 
-##### storage服务报错
+#### storage服务报错
 
 storage服务如有报错，一般情况是文件挂载出了问题，应按照如下步骤操作：
 
@@ -256,7 +263,9 @@ storage服务如有报错，一般情况是文件挂载出了问题，应按照�
     - 挂载依然失败，根据报错检查系统环境
     - 挂载成功，则重启所有对存储有依赖的服务 rbd-app-ui rbd-hub rbd-api rbd-gateway rbd-worker
 
+#### 我的集群服务器需要重启怎么办
 
+参见 [集群服务器重启策略](/troubleshoot/concrete-operations/how-to-restart/#集群服务器重启策略)
 
 ### 我的问题没有被涵盖
 
@@ -265,49 +274,3 @@ storage服务如有报错，一般情况是文件挂载出了问题，应按照�
 - 移步 [GitHub](https://github.com/goodrain/rainbond/issues) 查询是否有相关的 issue ，如没有则提交 issues
 
 - 前往[社区](https://t.goodrain.com/) 阅读前缀名为【运维问题】的帖子，寻找相似问题的答案
-
-
-
-### 相关操作
-
-#### docker服务重启策略
-
-当我们遇到问题，需要通过重启docker服务来解决的时候，请遵循如下规则。
-
-##### 管理节点docker重启策略
-
-管理节点在集群中的地位特殊，生产环境中，务必安装高可用架构。否则，docker服务一旦重启，将不可避免的导致集群管理功能中断。
-
-如果确定需要重启，则执行如下操作：
-
-```bash
-systemctl stop node 
-systemctl stop rbd*
-systemctl stop kube*
-systemctl stop calico 
-systemctl stop etcd
-systemctl restart docker
-systemctl start node
-```
-
-##### 计算节点docker重启策略
-
-计算节点重启docker服务前，应先将运行在其上的实例迁移，再执行重启操作。
-
-```bash
-# 管理节点执行以下命令，云上实例会自动迁移，等待迁移完毕后继续
-grctl node down <指定计算节点Uid>
-
-# 计算节点执行
-systemctl restart docker
-```
-
-##### 网关节点docker服务可以直接重启
-
-#### 集群重启策略
-
-某些环境下（比如机房断电），Rainbond集群需要重启所有的服务器，这个流程需要注意的点如下：
-
-- 启动顺序为： 存储节点优先重启，启动后其他节点启动顺序随意
-    - 如果没有存储节点，使用了默认提供的NFS，则先启动首个管理节点，然后启动其他节点
-- 时间同步： 服务器启动后，需确认所有节点之间时间同步
