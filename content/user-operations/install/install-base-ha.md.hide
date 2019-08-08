@@ -29,8 +29,8 @@ hidden: true
 
 |操作系统|版本|
 |---|---|
-|CentOS|[7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)(建议安装此版本)|
-|Ubuntu|16.04|> 
+|CentOS|[7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)|
+|Ubuntu|[16.04](https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/ubuntu-16.04.6-server-amd64.iso) (建议安装此版本)|> 
 单台服务器计算资源配置要求
 
 |服务器角色|CPU|内存|
@@ -73,7 +73,7 @@ hidden: true
 #### 2.2 外部数据库Mysql
 
   
->Rainbond默认为我们提供了rbd-db数据库服务，但管理节点扩容的同时并不会同步扩容rbd-db数据库服务，所以在高可用集群当中我们推荐您使用外部数据库
+> Rainbond默认为我们提供了rbd-db数据库服务，但管理节点扩容的同时并不会同步扩容rbd-db数据库服务，所以在高可用集群当中务必使用外部数据库
 
 使用外部数据库的特性：
 
@@ -85,7 +85,7 @@ hidden: true
  
  Mysql作为世界上最流行的开源数据库，稳定性，连接性，安全性都给予了我们可靠的保障。
 
->对于 Mysql 数据库，我们建议用户独立安装 Mysql 数据库并提供给 Rainbond 安装脚本，Mysql主从配置请参阅[官方文档](https://dev.mysql.com/doc/refman/5.6/en/replication-howto.html)
+> 对于 Mysql 数据库，我们建议用户独立安装 Mysql 数据库并提供给 Rainbond 安装脚本，Mysql主从配置请参阅[官方文档](https://dev.mysql.com/doc/refman/5.6/en/replication-howto.html)
 
 
 #### 2.3 节点规划
@@ -123,7 +123,7 @@ hidden: true
 使用GlusterFS作为底层存储，Mysql作为外部存储，上层采用管理节点，计算节点，网关节点并存的方式进行高可用部署；使得同一服务器兼具多种功能,节省资源。
 
 
->考虑到 etcd 集群选举机制，所以推荐最少三台主机配置高可用。
+> 考虑到 etcd 集群选举机制，所以推荐最少三台主机配置高可用。
 
 |服务器1|服务器2|服务器3|
 |------|-----|-----|
@@ -133,18 +133,27 @@ hidden: true
 |GlusterFS|GlusterFS|GlusterFS|
 
 
-在新的发行版本中，我们支持对单一节点的单独扩容，扩容时指定一些参数可以使该节点具有多种节点类型,例：
+在新的发行版本中，我们支持对数据中心初始化时指定一些参数可以使首个管理节点具有多种节点类型,例：
 
 ```
-# 第一个节点仅作为管理节点
-./grctl init --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> --role master 
-# 管理节点，计算节点复用
-./grctl init --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> --role master,compute
-# 管理节点，计算节点和网关节点复用
-./grctl init --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> --role master,compute，gateway
+# 首个管理节点，至少具备 manage、gateway 属性
+./grctl init --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> --role master,gateway
+# 默认情况下，管理节点，计算节点和网关节点复用
+./grctl init --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP>
 # 支持多种方式灵活搭配，只需在 --role 后面指定不同的参数
 ```
 具体初始化参数，请阅读[节点初始化重要参数说明](/user-operations/tools/grctl/#节点初始化重要参数说明)
+
+也会支持在扩容时，灵活指定被扩容节点的角色灵活搭配，例：
+
+```
+# 扩容全属性节点
+grctl node add --role master,compute,gateway ···
+# 单独扩容网关节点
+grctl node add --role gateway ···
+# 扩容网关计算节点
+grctl node add --role gateway,compute ···
+```
 
 更多扩容参数，请执行 `grctl node add -h` 获取
 

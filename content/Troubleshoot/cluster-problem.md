@@ -156,7 +156,7 @@ Rainbond所有服务监听端口参见 [服务组件端口说明](/user-operatio
 {{% /notice %}}
 
 
-#### 基于服务日志排查问题
+### 基于服务日志排查问题
 
 {{% notice note %}}
 
@@ -174,7 +174,7 @@ journalctl -fu rbd-api
 
 查询日志后，引起错误的原因将会有所提示，下面是一些日志中可能出现的关键字：
 
-##### Unable to find image
+#### Unable to find image
 
 ```bash
 Error response from daemon: No such container: rbd-api
@@ -190,7 +190,7 @@ docker: Error response from daemon: manifest for goodrain.me/rbd-api:v5.1.5-rele
     - 确认其他节点（多数情况下是首个管理节点）是否存在该镜像，如果有，执行 `docker push goodrain.me/rbd-api:v5.1.5-release`
     - 获取Rainbond指定版本镜像包来抽取对应镜像。[v5.1.5版本对应镜像离线包](/user-operations/upgrade/5.1.4-5.1.5/#下载-5-1-5-更新包)
 
-##### error: dial tcp xx.xx.xx.xx:3306: connect: connection refused
+#### error: dial tcp xx.xx.xx.xx:3306: connect: connection refused
 
 ```bash
 Started rbd-api.
@@ -212,7 +212,7 @@ Rainbond 中的服务存在相互依赖的关系。这导致有的服务启动�
 {{% /notice %}}
 
 
-##### The contailer name "XXXX" is already in use by container " ···· "
+#### The contailer name "XXXX" is already in use by container " ···· "
 
 ```bash
 /usr/bin/docker: Error response from daemon: Conflict. The container name "/etcd-proxy" is already use by container "d2cb3ce793ef764ae0525ccc". You have to remove (or rename) that container to be able to reuse that name.

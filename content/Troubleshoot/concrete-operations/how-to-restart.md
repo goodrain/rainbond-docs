@@ -35,6 +35,9 @@ grctl node down <指定计算节点Uid>
 
 # 计算节点执行
 systemctl restart docker
+
+# 重启完毕后，在管理节点重新上线这个节点
+grctl node up <指定计算节点Uid>
 ```
 
 #### 网关节点docker服务可以直接重启
