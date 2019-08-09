@@ -182,6 +182,8 @@ OPTIONS:
 |network|calico|flannel|应用网络类型|
 |enable-check|enable|disable|默认开启系统检查|
 
+#### 初始化时对接外部存储
+
 ```bash
 # 示例初始化集群，使用阿里云NAS
 ./grctl init --iip 172.24.202.225 --eip 39.104.75.32 --rainbond-version devel --rainbond-repo https://github.com/ysicing/rainbond-ansible.git --storage nas --storage-args "82b554a292-rvg38.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
