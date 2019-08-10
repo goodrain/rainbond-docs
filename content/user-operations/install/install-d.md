@@ -20,7 +20,7 @@ hidden: true
 
 | 角色       | 组件                                             | 说明                                                                         |
 | ---------- | ------------------------------------------------ | ---------------------------------------------------------------------------- |
-| rbd-dns    | 提供本地 dns 服务，服务于集群内应用的 DNS 解析。 |                                                                              |
+| manage | rbd-dns    | 提供本地 dns 服务，服务于集群内应用的 DNS 解析。 |                                                                              |
 |            | etcd                                             | 管理节点 etcd                                                                |
 |            | kube-controller-manager                          | Kubernetes 管理组件之一, Pod 编排器                                          |
 |            | rbd-webcli                                       | 提供应用 web 方式进入容器命令行的服务                                        |
@@ -40,7 +40,7 @@ hidden: true
 |            | rbd-app-ui                                       | 应用控制台 web 服务                                                          |
 |            | rbd-repo                                         | 源码构建仓库服务，基于 Artifactory OSS 封装                                  |
 |            | node                                             | Rainbond 集群和节点控制器服务                                                |
-| etcd-proxy | 计算节点 etcd-proxy                              |                                                                              |
+| compute | etcd-proxy | 计算节点 etcd-proxy                              |                                                                              |
 |            | rbd-dns                                          | Rainbond 内部 dns 服务，与管理节点 DNS 服务共同对当前节点的应用提供 DNS 解析 |
 |            | kubelet                                          | Kubernetes 计算负载节点组件                                                  |
 |            | docker                                           | 应用容器引擎                                                                 |

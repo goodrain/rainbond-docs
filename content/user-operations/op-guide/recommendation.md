@@ -15,7 +15,7 @@ Rainbond 作为一款开源PaaS平台，可以很好的部署和运行在 Intel 
 |--------|------------|
 |Red Hat Enterprise Linux|7.4 64位|
 |CentOS  | [7.4.1708](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso) 64位|
-|Ubuntu  | 16.04 64位|
+|Ubuntu  | [16.04 64位](https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/ubuntu-16.04.6-server-amd64.iso) 推荐安装|
 |Debian  | 9 64位|
 |中标麒麟 | 服务器版V7.4 64位|
 

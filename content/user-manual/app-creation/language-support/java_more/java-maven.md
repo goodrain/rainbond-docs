@@ -205,3 +205,5 @@ grctl buildtest
 - [Spring Boot 项目配置 MySQL](../spring-boot-mysql/)
 - [Tomcat 配置 Redis 实现 Session 共享](../tomcat-redis-session/)
 - [webapp-runner 使用说明](/user-manual/app-creation/language-support/java_more/webapp-runner/)
+- [RAINBOND源码构建JAVA项目选取JDK](/advanced-scenarios/devops/how-to-select-jdk/)
+- [Rainbond源码构建JAVA项目配置Maven仓库](/advanced-scenarios/devops/how-to-config-maven/)

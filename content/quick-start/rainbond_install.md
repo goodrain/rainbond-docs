@@ -16,17 +16,17 @@ description: "Rainbond安装教程引导"
 
 安装请阅读： [基于阿里云资源安装 Rainbond](/user-operations/install/install-base-alicloud/)
 
-#### Rainbond 高可用部署方案
+<!-- #### Rainbond 高可用部署方案
 
 > 此方式将首先引导你进行相关资源的规划和准备，以完成高可用集群的部署。
 
-安装请阅读： [从零开始搭建 Rainbond 高可用集群](/user-operations/install/install-base-ha/)
+安装请阅读： [从零开始搭建 Rainbond 高可用集群](/user-operations/install/install-base-ha/) -->
 
-#### Rainbond 与已存在 Kubernetes 集群对接安装
+<!-- #### Rainbond 与已存在 Kubernetes 集群对接安装
 
 > 此方式适用于已安装 Kubernetes 集群的用户，此安装方式 Rainbond 将使用用户提供的 Kubernetes 集群。
 
-安装请阅读： [基于已有 Kubernetes 集群安装](/user-operations/install/install-base-kubernetes/)
+安装请阅读： [基于已有 Kubernetes 集群安装](/user-operations/install/install-base-kubernetes/) -->
 
 #### 离线安装 Rainbond
 
