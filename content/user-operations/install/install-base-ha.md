@@ -288,6 +288,7 @@ grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.p
 
 详细请参阅[应用控制台高可用部署](/user-operations/app-ui/app-ui/)
 
+
 ### 九、手动调整过程
 
 高可用集群搭建到了这里，还有些细节，要手动调整。
@@ -309,6 +310,5 @@ update console.region_info set url="https://<VIP_OF_MANAGE>:8443",wsurl="ws://<V
 <VIP_OF_GATEWAY> kubeapi.goodrain.me goodrain.me repo.goodrain.me lang.goodrain.me maven.goodrain.me 
 <VIP_OF_MANAGE> region.goodrain.me
 ```
-
 
 {{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}
