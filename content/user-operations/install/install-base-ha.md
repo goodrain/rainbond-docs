@@ -286,7 +286,7 @@ grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.p
 
 > rbd-app-ui服务（应用控制台Web服务）默认只在第一个管理节点安装。对于控制台组件的高可用，我们推荐将其以应用的形式运行在平台上。利用平台对无状态服务可以动态伸缩的特性，来保证其高可用性。
 
-详细请参阅[应用控制台高可用部署](/user-operations/app-ui/app-ui/)
+详细请参阅[应用控制台高可用部署](/user-operations/component/app-ui/)
 
 
 ### 九、手动调整过程
