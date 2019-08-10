@@ -343,6 +343,6 @@ grctl cluster
 
 - rbd-app-ui服务（应用控制台Web服务）默认只在第一个管理节点安装，我们给您提供了更好的高可用方案
 
- 详细请参阅[应用控制台高可用部署](/user-operations/gha/centos_keepalived/)
+ 详细请参阅[应用控制台高可用部署](/user-operations/app-ui/app-ui/)
 
 {{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}】
