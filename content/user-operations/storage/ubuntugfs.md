@@ -111,8 +111,6 @@ Brick2: gfs01:/data/glusterfs
 Options Reconfigured:
 performance.readdir-ahead: on
 
-root@gfs02:~# gluster volume start data
-volume start: data: success
 # 启动卷
 [root@gfs02 ~]# gluster volume start data
 volume start: data: success
