@@ -1,198 +1,201 @@
 ---
-title: "阿里云部署"
+title: "阿里云高可用部署Rainbond"
 weight: 1002
-description: "此方式适用于你使用阿里云服务资源，此方式我们将使用阿里云 ECS+NAS+专有网络(弹性IP)等资源。"
+description: "适用于你使用阿里云服务资源，此教程将使用阿里云 ECS+NAS+专有网络(弹性IP)等资源指导你部署高可用Rainbond集群"
 hidden: true
 ---
 
-### 一、部署说明
+#### 部署说明
 
-通过阿里云相关产品快速部署Rainbond,主要使用阿里云ECS和NAS,弹性IP,NAT网关,负载均衡SLB可以选用。
+本教程将完全基于阿里云环境部署一套高可用的Rainbond平台，主要使用阿里云ECS、NAS、SLB、RDS四类资源。在此之前建议你阅读[Rainbond高可用安装说明文档](/user-operations/install/install-base-ha/)，然后跟随本文档教程的步骤安装一个具有3管理+2网关+2计算的最小高可用Rainbond平台。
 
-#### 机器资源准备
+{{% notice note %}}
 
-我们在阿里云有大量生产实践经验，如下配置为推荐配置，建议参考
+该文档适用于Rainbond 5.1.6及以后版本。
 
-> 操作系统推荐,经过我们线上验证推荐
-
-|操作系统|版本|
-|---|------|
-|CentOS|7.4(推荐)|
-|Debian|9.6|
-|Ubuntu|16.04|
-
-> 单台服务器最低配置要求
-
-|服务器角色|CPU|内存|
-|------|-----|-----|
-|管理节点| 4核|8G|
-|计算节点| 16核|64G|
-
-> 单台服务器磁盘配置
-
-```
-管理节点:
-/ 100G
-/cache 50G-100G #源码构建cache
-/opt/rainbond/data 100G #etcd,数据库等相关数据持久化目录 (推荐使用SSD)
-/var/lib/docker 100G+ (至少100G起)
-
-计算节点:
-/ 100G
-/var/lib/docker 100G+ /var/lib/docker
-```
-
-磁盘推荐都使用`SSD云盘`
-
-{{% notice info %}}
-安装前需要格式化云盘，将分别挂载到`/var/lib/docker`,`/opt/rainbond/data`(仅管理节点需要),并向fstab添加相关挂载信息，方便开机挂载
 {{% /notice %}}
 
-```
-# /etc/fstab 管理节点
-UUID=<uuid> /var/lib/docker    ext4 defaults,noatime 0 0
-UUID=<uuid> /opt/rainbond/data ext4 defaults,noatime 0 0
-# /etc/fstab 计算节点
-UUID=<uuid> /var/lib/docker    ext4 defaults,noatime 0 0
-```
+#### 资源准备
 
-> NAS选型
+##### ECS虚拟机资源准备
 
-NAS默认选择 `SSD性能型`即可,满足Rainbond使用。也可以根据需求选用NASPlus等产品
+注意磁盘等做好提前格式化和生产配置
 
-> 网络选项
+| 用途     | 数量 | 操作系统     | 参数配置                                                     |
+| -------- | ---- | ------------ | ------------------------------------------------------------ |
+| 管理节点 | 3    | Ubuntu 16.04 | 8核/16GB<br />/var/lib/docker 挂载磁盘 200G+<br />/opt/rainbond 挂载磁盘 50G+<br />/cache 挂载磁盘 100G+ |
+| 计算节点 | 2+   | Ubuntu 16.04 | 16核/64GB<br />/var/lib/docker 独立挂载磁盘 200G+            |
+| 网关节点 | 2    | Ubuntu 16.04 | 4核/8GB                                                      |
 
-专有网络,确保管理节点和计算节点,NAS在同一地域,且所有节点可以互相通信.可以考虑使用NAT网关.
+创建的专有网络：
 
-> 负载均衡SLB
+![image-20190810171455934](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/image-20190810171455934.png)
 
-http,https应用推荐使用，即SLB对接后端管理节点80,443端口
 
-> 安全方面限制
 
-如果需要公网访问，安全组需要对外放行80,6060,7070端口，以及ssh端口,内部网络不限制。
+安装组配置：
 
-更多关于软硬件要求请参考 [软件和硬件环境要求](../../op-guide/recommendation/)
+![image-20190810172102648](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/image-20190810172102648.png)
 
-### 二、 部署流程
+创建的ECS（这里只作为演示，资源选择最小化）
 
-在阿里云同一个区域内开通ECS,NAS服务, 服务器内部网络未限制。
+![image-20190810173208530](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/image-20190810173208530.png)
 
-创建ECS 参考[ECS入门](https://help.aliyun.com/document_detail/58282.html?spm=a2c4g.11186623.6.611.3a183002dRnSqd)  
-创建NAS 参考[NAS](https://help.aliyun.com/document_detail/27526.html?spm=a2c4g.11186623.3.2.53a67a66p9mopj)  
+注意：
 
-#### 2.1 节点规划
+> ECS我们将外网弹性IP绑定到了第一个节点，将第一个节点接入互联网，其他节点通过配置转发到第一个节点接入互联网。你也可以选择创建NAT网关，将弹性IP绑定到NAT网关上，然后配置ECS通过NAT网关访问互联网，本教程为在线安装Rainbond，因此要求所有ECS必须具备请求公网的能力。
+>
+> 参考文档 [如何通过EIP实现VPC下的SNAT以及DNAT](https://yq.aliyun.com/articles/112497)
+>
+> 需要注意的是iptables的设置注意持久化，机器重启后依然生效。
 
-根据需求具体规划节点数目。  
-管理节点：主要运行k8s组件和rainbond相关组件，推荐1或3节点，奇数节点；  
-计算节点：主要运行应用节点，不作限制,在计算资源不足时可以方便扩容；  
-网关节点：默认情况下是和管理节点复用，要求弹性ip需要绑定到网关节点所在机器，必要时可单独部署rbd-gateway服务。  
+##### 分布式文件存储NAS准备
 
-<!--
-### 2.2 配置NAS
+NAS购买时注意选择与ECS在同一个可用区，NAS默认选择 `SSD性能型`即可。
 
-{{% notice info %}}
-阿里云推荐使用NAS,经过我们大量的生产测试环境使用，挂载NAS需要使用v3版本，切勿使用v4版本，否则会存在文件锁问题。
-{{% /notice %}}
+![image-20190810174302771](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/image-20190810174302771.png)
 
-要在 Linux 系统中将 NAS 的 NFS 文件系统挂载至 ECS 实例，您需要安装 NFS 客户端，目前所有节点都需要提前挂载好NAS。
-操作步骤：
-
-```bash
-# 登陆ECS实例
-# 安装NFS客户端
-## CentOS系统
-sudo yum install -y nfs-utils
-## Debian/Ubuntu系统
-sudo apt-get install -y nfs-common
-## 创建NAS挂载点
-mkdir /grdata
-## 更新/etc/fstab示例,挂载点域名需要替换成在创建文件系统时自动生成的挂载点域名
-vi /etc/fstab
-## 添加以下配置信息，其中NAS挂载点地址在阿里云控制台获取
-rainbond-test.cn-shanghai.nas.aliyuncs.com:/   /grdata    nfs vers=3,nolock,noatime   0 0
-## 挂载
-mount -a
-# 查看挂载信息
-mount -l | grep grdata
-```
--->
-
-#### 2.2 初始化数据中心
-
-在第一个管理节点执行初始化数据中心命令
-
-```bash
-# 建议使用root执行安装操作
-wget https://pkg.rainbond.com/releases/common/v5.1/grctl
-chmod +x ./grctl
-
-## 第一个节点管理节点和计算节点复用
-./grctl init --iip <内网ip> --eip <弹性ip/所在公网ip/slb ip> --role master,compute --storage nas --storage-args "goodrain-rainbond.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
-
-## 第一个节点仅作为管理节点
-./grctl init --iip <内网ip> --eip <弹性ip/lb所在公网ip/slb ip> --role master --storage nas --storage-args "goodrain-rainbond.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
-```
-
-#### 2.3 添加节点
+创建NAS文件系统，并选择上文创建的专有网络创建挂载点，获取到下述挂载信息备用。
 
 ```
-# 添加管理节点
-grctl node add --host <managexx> --iip <管理节点内网ip> -p <root密码> --role master 
-## 法2默认已经配置ssh信任登陆
-grctl node add --host  <managexx>  --iip <管理节点内网ip> --key /root/.ssh/id_rsa.pub --role master
-
-# 添加计算节点
-grctl node add --host <computexx> --iip <计算节点内网ip> -p <root密码> --role compute
-## 法2默认已经配置ssh信任登陆
-grctl node add --host <computexx> --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role compute
-
-# 安装节点，节点uid可以通过grctl node list获取
-grctl node install <新增节点uid> 
-
-# 确定计算节点处于非unhealth状态下，可以上线节点
-grctl node up <新增节点uid>
+sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport 9232f49391-nxt27.cn-zhangjiakou.nas.aliyuncs.com:/ /mnt
 ```
 
-节点安装日志在/grdata/downloads/log/目录下
+##### 负载均衡SLB
 
-#### 2.4 确定集群状态
+我们需要针对Rainbond数据中心管理入口API，应用网关的80/443端口或其他自定义的TCP端口进行外部负载均衡。
 
-安装完成后，在当前节点执行：
+| SLB IP/端口              | 后端ECS端口                                              |                           |
+| ------------------------ | -------------------------------------------------------- | ------------------------- |
+| 106.15.131.130:443(TCP)  | 192.168.10.99:443/192.168.10.96:443                      | HTTPS应用访问             |
+| 106.15.131.130:80(TCP)   | 192.168.10.99:80/192.168.10.96:80                        | HTTP应用访问              |
+| 106.15.131.130:8443(TCP) | 192.168.10.99:8443/192.168.10.98:8443/192.168.10.97:8443 | 数据中心API负载均衡       |
+| 106.15.131.130:6060(TCP) | 192.168.10.99:6060/192.168.10.98:6060/192.168.10.97:6060 | 数据中心Websocket负载均衡 |
 
-```bash
+##### RDS准备
+
+购买RDS Mysql 5.6版本数据库，Rainbond应用控制台和数据中心都会使用到Mysql数据库，可以使用一个或分离创建，这里采用同一个数据库，如图为创建的RDS实例：
+![image-20190810175753014](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/image-20190810175753014.png)
+
+开通完成后创建账号/密码，设置连接白名单，创建两个数据库：
+
+![image-20190810181153287](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/image-20190810181153287.png)
+
+#### 开始部署流程
+
+##### 初始化第一个节点
+
+SSH进入192.168.10.99 ECS服务器，执行下面的初始化命令：
+
+```
+# 下载Rainbond安装命令
+wget https://pkg.rainbond.com/releases/common/rainbond-install
+# 赋予执行权限
+chmod +x ./rainbond-install
+# 执行初始化命令
+./rainbond-install init \
+--eip=47.92.55.148 \
+--iip=192.168.10.99 \
+--vip=106.15.131.130 \
+--role=manage,gateway  \
+--network=calico \
+--install-type=online \
+--storage=nas \
+--storage-args="9232f49391-nxt27.cn-zhangjiakou.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,proto=tcp,noresvport" \
+--enable-exdb \
+--exdb-type=mysql \
+--exdb-host=rm-8vbxc1qjs02t37to3.mysql.zhangbei.rds.aliyuncs.com \
+--exdb-port=3306 \
+--exdb-user=rainbond_console \
+--exdb-passwd=*****
+```
+
+你需要根据你创建的资源实际情况更改上诉命令，需要修改的命令参数说明：
+
+* eip	节点外网IP地址
+* iip     节点内网IP地址
+* vip    创建的SLB IP地址
+* storage-args   NAS创建完成获取到的挂载点参数
+* exdb开头的参数则是创建的RDS数据库的相关连接信息。
+
+执行后等待安装完成，预计20分钟左右。如果遇到安装故障，请参考 [安装问题排除文档](/troubleshoot/install-problem/) 解决。
+
+> 注意，安装完成后可以调整SSH server的配置。
+
+执行成功结束后执行下述命令查看集群状态，一切正常后即可进入下述流程。
+
+```
 grctl cluster
 ```
-如果有节点处于unhealth,通过`grctl node get <unhealth节点uid>`确定哪个服务异常，来排查哪个服务异常。
 
-#### 2.5 阿里云slb配置(可选)
+![image-20190810204152325](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/image-20190810204152325.png)
 
-1. 如果指定eip为slb的ip时:
+##### 扩容其他两个管理节点
 
-slb健康检查配置如下,其他默认即可
+在刚刚初始化完成的节点执行下述命令扩容管理节点。
 
-```bash
-    - 检查端口为：10254
-    - 检查路径为：/healthz
-    - 健康状态返回码: http_2xx
+安装管理节点192.168.10.98：
+
+```
+grctl node add --iip 192.168.10.98 --role manage --root-pass=***** --install
 ```
 
-目前阿里云slb负载均衡仅支持单一端口，故tcp/udp协议应用使用负载均衡操作比较麻烦。tcp协议应用不推荐使用slb，可以通过修改rbd-db的console.region_info表的tcpdomain值为rbd-gateway所在节点的公网ip或者其他自建负载均衡的ip地址。
+安装管理节点192.168.10.97：
 
-2. 如果指定eip为gateway所在节点公网ip或者其他自建负载均衡的ip地址
-
-slb健康检查配置如下,其他默认即可
-
-```bash
-    - 检查端口为：10254
-    - 检查路径为：/healthz
-    - 健康状态返回码: http_2xx
+```
+grctl node add --iip 192.168.10.97 --role manage --root-pass=***** --install
 ```
 
-需要调整域名解析,将默认域名解析由eip改为slb的ip，`grctl domain --ip <slb的ip>`
+##### 扩容一个网关节点
 
-<!--
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/install/slb.health.jpg)
--->
+在刚刚初始化完成的节点执行下述命令扩容网关节点。
 
-{{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}
+安装网关节点192.168.10.96:
+
+```
+grctl node add --iip 192.168.10.96 --role gateway --root-pass=***** --install
+```
+
+##### 扩容两个计算节点
+
+在刚刚初始化完成的节点执行下述命令扩容网关节点。
+
+安装网关节点192.168.10.95:
+
+```
+grctl node add --iip 192.168.10.95 --role compute --root-pass=***** --install
+```
+
+安装网关节点192.168.10.94:
+
+```
+grctl node add --iip 192.168.10.94 --role compute --root-pass=***** --install
+```
+
+> 注意，计算节点默认安装成功后是处于offline(离线状态)的，我们需要根据需要执行grctl node up <node_id>命令上线计算节点。这里我们执行下述命令：
+
+```
+grctl node up 477ff71d-d9db-4f00-8764-60f0b299a656
+grctl node up 2481e7cf-8047-48fb-92a0-d7e51c0f64c4
+```
+
+##### 平台部署应用控制台
+
+初始化第一个管理节点是默认已经安装了应用控制台服务（rbd-app-ui），但后续管理节点扩容是不处理应用控制台服务的。我们将使用刚刚完成安装的Rainbond来重新部署应用控制台，来保证控制台服务的高可用性。
+
+参考文档 [应用控制台高可用部署](/user-operations/component/app-ui/)
+
+#### 完成
+
+至此，你已经完成了Rainbond高可用部署，开始部署你的业务应用吧。
+
+![image-20190810212228945](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/image-20190810212228945.png)
+
+下一步参考文档：
+
+[平台使用参考文档](/user-manual/) 
+
+[进阶使用参考文档](/advanced-scenarios/)
+
+[故障诊断参考文档](/troubleshoot/)
+
