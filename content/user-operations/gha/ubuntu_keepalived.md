@@ -8,22 +8,23 @@
 
 ```
 #安装所需依赖包
-apt-get install libssl-dev
-apt-get install openssl
-apt-get install libpopt-dev
+apt-get -y install libssl-dev
+apt-get -y install openssl
+apt-get -y install libpopt-dev
 
 #安装keepalived
-apt-get install keepalived
+apt-get -y install keepalived
 
 ```
 
 - 编辑配置文件
 
-```bash
-##备份原有配置文件，如果没有则自行创建
+```
+#备份原有配置文件，如果没有则自行创建
 cp /etc/keepalived/keepalived.conf /etc/keepalived/keepalived.conf.bak
-##编辑配置文件内容如下
-##manage01
+#编辑配置文件内容如下
+#主节点
+
 ! Configuration File for keepalived
 
 global_defs {
@@ -45,8 +46,8 @@ vrrp_instance VI_1 {
         auth_pass 1111
     }
     virtual_ipaddress {
-        <VIP>
-    }
+        <VIP>				#VIP
+     }
      track_script {
     check_gateway  #必须与上面一致
     }
@@ -73,17 +74,18 @@ vrrp_script check_gateway {
         auth_pass 1111
     }
     virtual_ipaddress {
-        <VIP>
+        <VIP>				#VIP
     }
      track_script {
     check_gateway  #必须与上面一致
     }
 }
 
-#扩展对gateway节点健康检查的脚本，脚本的功能是当该gateway节点宕机，则关闭本机的Keepalived，切换VIP
+#扩展对gateway节点健康检查的脚本，脚本的功能是当该rbd-gateway,rbd-api组件停止服务，则关闭本机的Keepalived，切换VIP
+#注意脚本需加执行权限
 [root@gateway01 ~]# cat /etc/keepalived/check_gateway_status.sh 
 #!/bin/bash                                                                                             
-/usr/bin/curl -I http://localhost:10254/healthz &>/dev/null
+/usr/bin/curl -I http://localhost:10254/healthz && /usr/bin/curl -I http://localhost:8888/v2/health
 
 if [ $? -ne 0 ];then                                                                   
         systemctl stop keepalived.service
@@ -123,12 +125,12 @@ node service update
 100.100.100.16  kubeapi.goodrain.me goodrain.me repo.goodrain.me lang.goodrain.me maven.goodrain.me region.goodrain.me
 ```
 
-###  手动校验
+### 手动校验
 
 在网关节点执行如下命令：
 
 ```bash
-docker stop rbd-gateway #关闭keepalived
+docker stop rbd-gateway #关闭rbd-gateway组件
 ip a		#查看VIP状况
 ```
 
