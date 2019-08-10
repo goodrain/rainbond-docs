@@ -310,5 +310,9 @@ update console.region_info set url="https://<VIP_OF_MANAGE>:8443",wsurl="ws://<V
 <VIP_OF_MANAGE> region.goodrain.me
 ```
 
+<<<<<<< HEAD
+=======
+ 详细请参阅[应用控制台高可用部署](/user-operations/app-ui/app-ui/)
+>>>>>>> master
 
 {{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}
