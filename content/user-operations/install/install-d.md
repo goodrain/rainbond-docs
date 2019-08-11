@@ -344,7 +344,7 @@ ansible-playbook 使用`setup.yml`进行初始化，首先会找到当前主机�
 
 ### 3.4 其他角色节点扩容安装
 
-1. `grctl node add --host <计算节点主机名> --iip <计算节点内网ip> --root-pass <计算节点root密码> --role gateway,compute`指定新增节点的`主机名、内网地址、连接密码、角色` , grctl 命令行首先将节点数据加入集群元数据。通过`grctl node list`命令即可查询节点状态。
+1. `grctl node add --iip <计算节点内网ip> --root-pass <计算节点root密码> --role gateway,compute`指定新增节点的`主机名、内网地址、连接密码、角色` , grctl 命令行首先将节点数据加入集群元数据。通过`grctl node list`命令即可查询节点状态。
 
 2. 使用`grctl node install host-uuid`命令安装节点，grclt 从 API 中读取相应的主机信息传递给`node.sh`脚本进行节点的安装。
 

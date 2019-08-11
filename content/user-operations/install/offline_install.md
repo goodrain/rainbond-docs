@@ -82,9 +82,9 @@ http://<节点IP地址>:7070
 ```
 # 添加计算节点,请不用使用offline目录下的grctl执行相关节点添加删除操作
 ## 法一 密码
-grctl node add --host <计算节点主机名> --iip <计算节点内网ip> --root-pass <计算节点root密码> --role compute
+grctl node add  --iip <计算节点内网ip> --root-pass <计算节点root密码> --role compute
 ## 法二 key
-grctl node add --host <计算节点主机名> --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role compute
+grctl node add  --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role compute
 # 安装计算节点
 grctl node install <新添加计算节点的Uid>
 # 确定计算节点ok后，上线节点

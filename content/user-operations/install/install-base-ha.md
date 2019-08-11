@@ -232,14 +232,14 @@ grctl node add --role gateway,compute ···
 
 ```bash
 #单独扩容管理节点
-grctl node add --host manage02 --iip <管理节点ip> -p <root密码> --role manage  --install
+grctl node add  --iip <管理节点ip> -p <root密码> --role manage  --install
 
 ```
 
 - 配置好ssh免密后
 
 ```bash
-grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage --install
+grctl node add --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage --install
 ```
 
 > 更多扩容参数，请执行 `grctl node add -h` 获取
@@ -249,7 +249,7 @@ grctl node add --host manage03 --iip <管理节点ip> --key /root/.ssh/id_rsa.pu
 - 如需要单独扩容网关节点，则执行以下命令
 
 ```bash
-grctl node add --host gateway02 --iip <网关节点ip> --eip <访问应用使用的公网IP/网关节点IP> -p <root密码> --role gateway --install
+grctl node add --iip <网关节点ip> --eip <访问应用使用的公网IP/网关节点IP> -p <root密码> --role gateway --install
 
 ```
 
@@ -273,13 +273,13 @@ grctl node add --host gateway02 --iip <网关节点ip> --eip <访问应用使用
 
 ```bash
 #单独扩容计算节点
-grctl node add --host compute01 --iip <计算节点ip> -p <root密码> --role compute --install
+grctl node add --iip <计算节点ip> -p <root密码> --role compute --install
 ```
 
 - 配置好ssh免密后
 
 ```bash
-grctl node add --host compute01 --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role compute --install
+grctl node add --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role compute --install
 ```
 
 ### 八、应用控制台高可用

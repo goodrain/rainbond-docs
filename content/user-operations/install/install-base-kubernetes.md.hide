@@ -121,11 +121,11 @@ chmod +x ./grctl
 kubectl get node -o wide 
 
 # 添加已有k8s worker计算节点
-grctl node add --host <worker节点hostname> --iip <worker内网ip> --key /root/.ssh/id_rsa.pub --role compute --id <worker节点NAME>
+grctl node add --iip <worker内网ip> --key /root/.ssh/id_rsa.pub --role compute --id <worker节点NAME>
 grctl node install <worker节点NAME>
 
 # 添加已有k8s master管理节点
-grctl node add --host <master节点hostname> --iip <worker内网ip> --key /root/.ssh/id_rsa.pub --role manage --id <master节点NAME>
+grctl node add --iip <worker内网ip> --key /root/.ssh/id_rsa.pub --role manage --id <master节点NAME>
 grctl node install <master节点NAME>
 ```
 
@@ -136,7 +136,7 @@ root@iZj6caqbup3uo1me2vt0qqZ:~# kubectl get node -o wide
 NAME                      STATUS   ROLES    AGE    VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION   CONTAINER-RUNTIME
 izj6caqbup3uo1me2vt0qrz   Ready    <none>   117m   v1.13.1   10.10.10.230   <none>        Debian GNU/Linux 9 (stretch)   4.9.0-8-amd64    docker://17.3.3
 
-grctl node add --host izj6caqbup3uo1me2vt0qrz --iip 10.10.10.230 --key /root/.ssh/id_rsa.pub --role compute --id izj6caqbup3uo1me2vt0qrz
+grctl node add --iip 10.10.10.230 --key /root/.ssh/id_rsa.pub --role compute --id izj6caqbup3uo1me2vt0qrz
 grctl node install izj6caqbup3uo1me2vt0qrz
 ```
 

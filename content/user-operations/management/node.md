@@ -19,20 +19,20 @@ hidden: true
 
 ```bash
 # 添加管理节点
-grctl node add --host <managexx> --iip <管理节点内网ip> -p <root密码> --role manage 
+grctl node add --iip <管理节点内网ip> -p <root密码> --role manage 
 ## 法2默认已经配置ssh信任登陆
-grctl node add --host <managexx> --iip <管理节点内网ip> --key /root/.ssh/id_rsa.pub --role manage
+grctl node add --iip <管理节点内网ip> --key /root/.ssh/id_rsa.pub --role manage
 
 # 添加计算节点
-grctl node add --host <gatewayxx> --iip <网关节点内网ip> -p <root密码> --role gateway 
+grctl node add --iip <网关节点内网ip> -p <root密码> --role gateway 
 ## 法2默认已经配置ssh信任登陆
-grctl node add --host <gatewayxx> --iip <网关节点内网ip> --key /root/.ssh/id_rsa.pub --role gateway
+grctl node add --iip <网关节点内网ip> --key /root/.ssh/id_rsa.pub --role gateway
 
 
 # 添加计算节点
-grctl node add --host <computexx> --iip <计算节点内网ip> -p <root密码> --role compute
+grctl node add --iip <计算节点内网ip> -p <root密码> --role compute
 ## 法2默认已经配置ssh信任登陆
-grctl node add --host <computexx> --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role compute
+grctl node add --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role compute
 
 # 安装节点，节点uid可以通过grctl node list获取
 grctl node install <新增节点uid> 

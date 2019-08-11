@@ -20,8 +20,9 @@ hidden: true
 
 ### 1.2 下载系统安装工具
 
-目前最新安装的版本是: v5.1.5-release
-```
+目前最新安装的版本是: v5.1.6-release
+
+```shell
 wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 ```
@@ -68,9 +69,9 @@ http://<节点IP地址>:7070
 
 ```bash
 # 建议使用root执行安装操作
-grctl node add --host computexx --iip 计算节点IP --root-pass root用户密码 --role compute --install
+grctl node add  --iip 计算节点IP --root-pass root用户密码 --role compute --install
 示例：
-grctl node add --host compute01 --iip 192.168.1.1 --root-pass 12345678 --role compute --install
+grctl node add  --iip 192.168.1.1 --root-pass 12345678 --role compute --install
 grctl node list
 # 确定节点处于健康状态上线节点
 grctl node up <NodeID>
