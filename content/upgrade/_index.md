@@ -2,7 +2,7 @@
 title: '更新记录'
 menu: 'upgrade'
 weight: 40000
-pre = "<b>8. </b>"
+pre: "<b>8. </b>"
 ---
 
 # 版本更新记录
