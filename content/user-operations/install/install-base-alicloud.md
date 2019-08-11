@@ -110,11 +110,12 @@ chmod +x ./rainbond-install
 --exdb-passwd=*****
 ```
 
+特别注意：复制命令时--storage-args不要有换行。
 你需要根据你创建的资源实际情况更改上诉命令，需要修改的命令参数说明：
 
-* eip	节点外网IP地址
-* iip     节点内网IP地址
-* vip    创建的SLB IP地址
+* eip   节点外网IP地址
+* iip   节点内网IP地址
+* vip   创建的SLB IP地址
 * storage-args   NAS创建完成获取到的挂载点参数
 * exdb开头的参数则是创建的RDS数据库的相关连接信息。
 
@@ -124,7 +125,7 @@ chmod +x ./rainbond-install
 
 执行成功结束后执行下述命令查看集群状态，一切正常后即可进入下述流程。
 
-```
+```bash
 grctl cluster
 ```
 
