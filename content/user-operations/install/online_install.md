@@ -65,8 +65,6 @@ http://<节点IP地址>:7070
 
 若你需要增加你的集群计算资源池，可以快速扩容计算节点：
 
-> 其中host/hostname可以根据排序顺序依次compute01-computeN,host/hostname不要重复。
-
 ```bash
 # 建议使用root执行安装操作
 grctl node add  --iip 计算节点IP --root-pass root用户密码 --role compute --install
