@@ -3,7 +3,7 @@ title: 安装问题排查
 weight: 30003
 Description: "安装问题排查、诊断、解决"
 hidden: false
-pre: "<b>7.2 </b>"
+pre: "<b>6.2 </b>"
 ---
 
 <div id="toc"></div>

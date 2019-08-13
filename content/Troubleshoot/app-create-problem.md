@@ -3,7 +3,7 @@ title: 应用构建排查
 weight: 30007
 Description: "集群正常后，创建属于自己的应用时遇到问题的排查"
 hidden: false
-pre: "<b>7.4 </b>"
+pre: "<b>6.4 </b>"
 ---
 
 <div id="toc"></div>

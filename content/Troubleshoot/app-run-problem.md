@@ -3,7 +3,7 @@ title: 应用运行排查
 weight: 30009
 Description: "操作日志显示构建成功后，应用状态却显示运行异常"
 hidden: false
-pre: "<b>7.5 </b>"
+pre: "<b>6.5 </b>"
 ---
 
 <div id="toc"></div>
