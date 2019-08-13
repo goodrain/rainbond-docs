@@ -12,6 +12,7 @@ Rainbond支撑企业应用的开发、架构、交付和运维的全流程，通
 > 企业应用包括：
 各类信息系统、OA、CRM、ERP、数据库、大数据、物联网、互联网平台、微服务架构等运行在企业内部的各种系统。
 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/Rainbond%E4%BA%A7%E5%93%81%E6%9E%B6%E6%9E%84.png" width="100%">
 
 #### Rainbond可以做什么
 
