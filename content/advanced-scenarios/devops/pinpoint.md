@@ -39,7 +39,6 @@ Pinpoint是一个APM（应用程序性能管理）工具，适用于用Java / PH
 | Pinpoint-Web      | 将收集到的数据层现在 web 展示  |
 
 
-
 ### 二. 快速在Rainbond部署 pinpoint
 
 >基于Rainbond应用市场⼀键安装。
