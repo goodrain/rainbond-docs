@@ -12,7 +12,7 @@ Rainbond默认安装指定的数据库运行于 `rbd-db` 容器内。当用户�
 ```bash
 systemctl stop node
 systemctl stop rbd-db 
-rm -rf /opt/rainbond/data/rbd-db
+rm -rf /opt/rainbond/data/mysql/
 systemctl start node
 /opt/rainbond/.init/updatedb.sh prepare
 /opt/rainbond/.init/updatedb.sh migrate

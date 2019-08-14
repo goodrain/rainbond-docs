@@ -1,7 +1,7 @@
 +++
 title = "FAQs"
-weight = 30000
-pre = "<b>6. </b>"
+weight = 60000
+pre = "<b>8. </b>"
 +++
 
 #### 一般问题

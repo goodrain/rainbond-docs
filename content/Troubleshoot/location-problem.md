@@ -3,7 +3,7 @@ title: 问题定位
 weight: 30001
 Description: "定位当前问题，并引导向指定的问题诊断文档"
 hidden: false
-pre: "<b>7.1 </b>"
+pre: "<b>6.1 </b>"
 ---
 
 <div id="toc"></div>
@@ -30,8 +30,24 @@ grctl node install ···
 
 这类情况请参考 [安装问题排查](/troubleshoot/install-problem/)
 
+一旦安装过程正常完成，没有任何报错，则进入下一阶段。
+
 #### 集群状态确认
 
 安装完成后，通过命令 `grctl cluster` 确认集群状态。
 
 在返回结果列表中发现有任意 **红色字体**，请参考 [集群问题排查](/troubleshoot/cluster-problem/)
+
+集群状态如果确认为正常，则进入下一阶段。
+
+#### 应用构建问题排查
+
+当我们确认集群已经运行正常，接下来，就该进入构建自己应用的阶段。在构建过程中如果遇到任何报错，请参考 [应用构建排查](/troubleshoot/location-problem-copy/) 。
+
+一旦所构建的应用总览页面中的操作日志，显示 **构建完成** ，则进入下一阶段。
+
+#### 应用运行问题排查
+
+当一个应用的操作日志显示 **构建完成** ，但是应用运行状态却显示 **运行异常** 或者 **部分实例运行异常**。请参考 [应用运行排查](/troubleshoot/app-run-problem/) 。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/Troubleshoot/location-problem-1.png" width="100%">

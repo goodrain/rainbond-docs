@@ -171,7 +171,7 @@ Rainbond在执行集群初始化的时候，可以通过指定参数对接已存
 
 ```bash
 # 首个管理节点，至少具备 manage、gateway 属性
-./grctl init --role master,gateway
+./grctl init --role manage,gateway
 # 默认情况下，如果不指定这个参数，则管理节点，计算节点和网关节点复用
 ```
 
@@ -193,14 +193,37 @@ wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 
 # 此示例表示, 数据中心数据库和控制台数据库都使用外部数据库(不分离)
-./grctl init --role master --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> --vip <为网关节点集群预置的虚拟IP>  --enable-exdb true <默认禁用使用外部数据库，启动值为true> --exdb-host <数据库IP地址> --exdb-port <数据库端口号> --exdb-user <数据库用户名>   --exdb-passwd  <数据库密码>
+./grctl init --role manage --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> --vip <为网关节点集群预置的虚拟IP>  --enable-exdb true <默认禁用使用外部数据库，启动值为true> --exdb-host <数据库IP地址> --exdb-port <数据库端口号> --exdb-user <数据库用户名>   --exdb-passwd  <数据库密码>
 
 # 此示例表示, 数据中心数据库使用本地数据库(rbd-db), 控制台数据库都使用外部数据库
-./grctl init --role master --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP>  --vip <为网关节点集群预置的虚拟IP> --enable-exdb true <默认禁用使用外部数据库，启动值为true> --enable-excsdb-only true <控制台数据库使用外部数据库> --excsdb-host <数据库IP地址> --excsdb-port <数据库端口号> --excsdb-user <数据库用户名>   --excsdb-passwd  <数据库密码>
+./grctl init --role manage --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP>  --vip <为网关节点集群预置的虚拟IP> --enable-exdb true <默认禁用使用外部数据库，启动值为true> --enable-excsdb-only true <控制台数据库使用外部数据库> --excsdb-host <数据库IP地址> --excsdb-port <数据库端口号> --excsdb-user <数据库用户名>   --excsdb-passwd  <数据库密码>
 
 # 此示例表示, 数据中心数据库和控制台数据库都使用外部数据库(分离)
-./grctl init --role master --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP>  --vip <为网关节点集群预置的虚拟IP> --enable-exdb true <默认禁用使用外部数据库，启动值为true> -exdb-host <数据中心数据库IP地址> --exdb-port <数据中心数据库端口号> --exdb-user <数据中心数据库用户名>    --exdb-passwd <数据中心数据库密码> --enable-excsdb-only true <控制台数据库使用外部数据库>-excsdb-host <控制台数据库IP地址> --excsdb-port <控制台数据库端口号> --excsdb-user <控制台数据库用户名>   --excsdb-passwd  <控制台数据库密码>
+./grctl init --role manage --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP>  --vip <为网关节点集群预置的虚拟IP> --enable-exdb true <默认禁用使用外部数据库，启动值为true> -exdb-host <数据中心数据库IP地址> --exdb-port <数据中心数据库端口号> --exdb-user <数据中心数据库用户名>    --exdb-passwd <数据中心数据库密码> --enable-excsdb-only true <控制台数据库使用外部数据库>-excsdb-host <控制台数据库IP地址> --excsdb-port <控制台数据库端口号> --excsdb-user <控制台数据库用户名>   --excsdb-passwd  <控制台数据库密码>
 
+```
+
+如果**首个管理节点指定了预置的VIP**，还需做如下操作：
+
+在第一个管理节点执行
+
+```bash
+#切换到外部数据库
+use console;
+UPDATE region_info set tcpdomain="<VIP>";
+```
+
+调整rbd-dns关于goodrain.me的解析(100.100.100.16为示例VIP,根据实际情况调整)
+
+```bash
+# 编辑/opt/rainbond/conf/dns.yaml,将recoders修改为vip地址
+
+ --recoders=goodrain.me=100.100.100.16,*.goodrain.me=100.100.100.16
+
+# 更新服务
+node service update
+# 编辑 /etc/hosts
+100.100.100.16  kubeapi.goodrain.me goodrain.me repo.goodrain.me lang.goodrain.me maven.goodrain.me region.goodrain.me
 ```
 
 > 更多初始化参数，请阅读[节点初始化重要参数说明](/user-operations/tools/grctl/#节点初始化重要参数说明)
@@ -217,7 +240,7 @@ Rainbond支持在扩容时，灵活指定被扩容节点的角色灵活搭配，
 
 ```bash
 # 扩容全属性节点
-grctl node add --role master,compute,gateway ···
+grctl node add --role manage,compute,gateway ···
 # 单独扩容网关节点
 grctl node add --role gateway ···
 # 扩容网关计算节点

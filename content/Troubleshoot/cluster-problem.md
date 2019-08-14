@@ -3,7 +3,7 @@ title: 集群问题排查
 weight: 30005
 Description: "集群问题排查、诊断、解决"
 hidden: false
-pre: "<b>7.3 </b>"
+pre: "<b>6.3 </b>"
 ---
 
 <div id="toc"></div>

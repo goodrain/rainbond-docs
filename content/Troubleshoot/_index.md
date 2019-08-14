@@ -2,7 +2,7 @@
 title: "问题诊断"
 menu: "Troubleshoot"
 weight: 30000
-pre: "<b>7. </b>"
+pre: "<b>6. </b>"
 ---
 
 # Troubleshoot
