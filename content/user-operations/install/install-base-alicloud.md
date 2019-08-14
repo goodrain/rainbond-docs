@@ -186,6 +186,10 @@ grctl node up 2481e7cf-8047-48fb-92a0-d7e51c0f64c4
 
 参考文档 [应用控制台高可用部署](/user-operations/component/app-ui/)
 
+##### 手动调整
+
+安装到这里，还有一些配置需要手动调整，参考 [手动调整过程](/user-operations/install/install-base-ha/#九-手动调整过程)
+
 #### 完成
 
 至此，你已经完成了Rainbond高可用部署，开始部署你的业务应用吧。

@@ -311,4 +311,33 @@ update console.region_info set url="https://<VIP_OF_MANAGE>:8443",wsurl="ws://<V
 <VIP_OF_MANAGE> region.goodrain.me
 ```
 
+> 调整网络组件配置
+
+以calico网络为例，修改配置文件中指向etcd的地址
+
+```json
+vi /opt/rainbond/etc/cni/10-calico.conf
+
+{
+    "name": "calico-k8s-network",
+    "cniVersion": "0.1.0",
+    "type": "calico",
+    "etcd_endpoints": "http://<管理节点1IP>:2379,<管理节点2IP>:2379,<管理节点3IP>:2379",
+    "log_level": "info",
+    "ipam": {
+        "type": "calico-ipam"
+    },
+    "kubernetes": {
+        "kubeconfig": "/opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig"
+    }
+}
+```
+
+重启服务
+
+```bash
+systemctl restart calico
+systemctl restart kubelet
+```
+
 {{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}
