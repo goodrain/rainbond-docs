@@ -46,13 +46,14 @@ UI服务安装了服务⽹络治理插件，该插件作⽤于流量的出⼝，
 
 #### 服务熔断实践
 
-**实验目的：**对todoshow入站方向实现服务熔断
+**实验目的：**对todoshow出站方向实现服务熔断
 
 **实验环境：**
 
 <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/05.png" width="100%">
 
 **实验配置：**
+
 
 <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/06.png" width="100%">
 
@@ -94,7 +95,23 @@ UI服务安装了服务⽹络治理插件，该插件作⽤于流量的出⼝，
 
 #### 全局限流实践
 
-- 配置
+使用第三方服务[Ratelimit](https://github.com/lyft/ratelimit)，构建镜像，底层依赖的redis，可直接从应用市场安装。
+
+- ratelimit环境配置
+
+<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra01.png" width="100%">
+
+<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra02.png" width="100%">
+
+**Rate-limit需持久化挂载目录，方便在持久化目录里写规则**
+
+<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra03.png" width="100%">
+
+进入rate-limit容器里查看配置
+
+<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra04.png" width="100%">
+
+开启限流
 
 <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/09.png" width="100%">
 
