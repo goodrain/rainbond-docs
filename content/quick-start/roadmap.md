@@ -74,6 +74,6 @@ weight: 208
 - [x] 支持安装时指定NFS Server地址
 
 
-关于5.1版本规划如果你有建议请于Rainbond社区[t.goodrain.com](t.goodrain.com)反馈
+关于5.1版本规划如果你有建议请于Rainbond社区[t.goodrain.com](https://t.goodrain.com)反馈
 
 [5.1以前版本规划详情](../roadmap.5.0/)
