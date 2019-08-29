@@ -66,21 +66,21 @@ Rainbond源码构建java-maven项目时，提供了默认的构建运行环境�
 - MAVEN构建Java参数配置： 
   默认配置为 `-Xmx1024m`。该选项指定了maven构建时使用的内存，根据用户环境自行设置。
 
-> 需要指出的是，指定`MAVEN MIRROR OF` 参数的时候，需要考虑所指定的仓库是否可以被识别。仓库名是在 maven所使用的 `setting.xml` 文件中指定的，而Rainbond默认使用的 `setting.xml` 中只会添加上述的各项配置！！！所以用户日常构建所使用的自定义的仓库名不会被识别。这种情况下，可以指定为 * 即可缓存所有的构件；或者，使用用户自己的 `setting.xml` 文件来替换Rainbond默认文件。
+> 需要指出的是，指定`MAVEN MIRROR OF` 参数的时候，需要考虑所指定的仓库是否可以被识别。仓库名是在 maven所使用的 `settings.xml` 文件中指定的，而Rainbond默认使用的 `settings.xml` 中只会添加上述的各项配置！！！所以用户日常构建所使用的自定义的仓库名不会被识别。这种情况下，可以指定为 * 即可缓存所有的构件；或者，使用用户自己的 `settings.xml` 文件来替换Rainbond默认文件。
 
-###自定义Setting.xml
+### 自定义Settings.xml
 
-用户可以配置特殊的环境变量，来指定自己在本地构建项目时所使用的 `setting.xml`，指定后，默认构建环境配置中的选项都将失效。
+用户可以配置特殊的环境变量，来指定自己在本地构建项目时所使用的 `settings.xml`，指定后，默认构建环境配置中的选项都将失效。
 
 这样的配置将会是一个终极解决方案，用户在本地可以构建，那么在Rainbond就也可以构建。因为使用指定的setting.xml文件后，Rainbond构建环境的一切，都和本地不再有区别。
 
-- 用户可以将自己以往使用的`setting.xml` 放在项目源码目录中，当该文件处于源码根目录下的时候，请这么做：
-  设置环境变量 `BUILD_MAVEN_SETTINGS_PATH=/app/setting.xml`，即可使用到该文件。
+- 用户可以将自己以往使用的`settings.xml` 放在项目源码目录中，当该文件处于源码根目录下的时候，请这么做：
+  设置环境变量 `BUILD_MAVEN_SETTINGS_PATH=/app/settings.xml`，即可使用到该文件。
 
-  >  Rainbond源码构建时，默认会将源码目录全部文件存放在 /app 目录下，故而该文件的路径变为了 /app/setting.xml
+  >  Rainbond源码构建时，默认会将源码目录全部文件存放在 /app 目录下，故而该文件的路径变为了 /app/settings.xml
 
 - 如果`setting.xml`中存在敏感信息，不宜出现在源码目录中。那么可以将其上传到诸如对象存储等处，提供下载地址。然后：
-  设置环境变量 `MAVEN_SETTINGS_URL=http://somewhere/setting.xml`来使用该文件。
+  设置环境变量 `MAVEN_SETTINGS_URL=http://somewhere/settings.xml`来使用该文件。
 
 ### 部署本地私服仓库
 
@@ -88,13 +88,13 @@ Rainbond源码构建java-maven项目时，提供了默认的构建运行环境�
 
 - 访问 `http://管理节点IP:8081` 并用管理员账号(`admin/password`)登录。
 
--  创建 **Local** 类型的Maven仓库。示例创建一个`Local` 类型的Maven仓库，名称为 `repo-local`
+- 创建 **Local** 类型的Maven仓库。示例创建一个`Local` 类型的Maven仓库，名称为 `repo-local`
 
 - 向本地仓库`repo-local`上传自己的jar包
 
 - 查看依赖声明信息
 
--  将repo-local添加到`libs-release` 虚拟仓库中
+- 将repo-local添加到`libs-release` 虚拟仓库中
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/maven/connect-external-maven07.png" width="85%" />
 
@@ -140,14 +140,14 @@ Rainbond源码构建java-maven项目时，提供了默认的构建运行环境�
 
   - 如果未禁用Mirror功能，并且使用了用户自定义私服。则需要判断网络是否可以访问到指定的仓库私服，当前构件是否在指定仓库私服中存在。
 
-- 401认证失败： 
+- 401认证失败：
     如果构建报错：
 
     ```bash
     [ERROR] Failed to execute goal org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy (default-deploy) on project dx-id: Failed to deploy artifacts: Could not transfer artifact com.dx.application:dx-id:pom:0.0.1-20190727.012351-2 from/to snapshots (http://******:8081/artifactory/libs-release): Failed to transfer file: http://*******:8081/artifactory/libs-release/com/dx/application/dx-id/0.0.1-SNAPSHOT/dx-id-0.0.1-20190727.012351-2.pom. Return code is: 401, ReasonPhrase: Unauthorized. -> [Help 1]
     ```
 
-    说明访问用户指定的仓库私服是需要认证信息的，而认证信息一般储存在用户日常使用的 `setting.xml` 文件中。故而，解决这个问题最好的方式，是使用上文中提到的 **自定义Setting.xml** 的方式。再次强调， **自定义Setting.xml** 是作为终极解决方案存在的，同样适用于其他由于用户仓库私服特殊设置所导致的构件获取失败。
+    说明访问用户指定的仓库私服是需要认证信息的，而认证信息一般储存在用户日常使用的 `settings.xml` 文件中。故而，解决这个问题最好的方式，是使用上文中提到的 **自定义Settings.xml** 的方式。再次强调， **自定义Settings.xml** 是作为终极解决方案存在的，同样适用于其他由于用户仓库私服特殊设置所导致的构件获取失败。
 
 - 我的仓库足够我的项目构建所需，却依然报错有构件找不到： 
   Rainbond默认的 `Maven构件全局参数`为 `clean dependency:list install` 。需要注意的是，`dependency:list` 需要下载特定的maven plugin，故而，当用户处于一个离线环境，并且使用的私服中没有对应的构件时，必然会发生构建失败的情况。请更改为 `clean install`。

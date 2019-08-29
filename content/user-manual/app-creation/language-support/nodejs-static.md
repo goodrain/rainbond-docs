@@ -5,13 +5,27 @@ weight: 3322
 hidden: true
 ---
 
-#### NOdeJS前端项目识别方式
-平台默认会根据源码根目录是否有`package.json`和`nodestatic.json`文件来识别为NodeJS前端类项目.
+#### NodeJS前端项目识别方式
+
+平台默认会根据源码根目录是否有`package.json`和`nodestatic.json`文件来识别为NodeJS前端类项目。
+
+- 默认会使用 npm 包管理器
+
+- 如代码根目录下存在`yarn.lock`文件，则使用yarn包管理器
 
 #### 编译原理
 
-1. 预编译处理完成后,会根据语言类型选择nodejstatic的buildpack去编译项目.在编译过程中会安装定义的Node版本以及Nodejs相关依赖,安装默认web服务nginx;
-2. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
+##### npm编译原理
+
+1. 预编译处理完成后,会根据语言类型选择nodejstatic的buildpack去编译项目.在编译过程中会安装定义的Node版本以及相关依赖,安装默认web服务nginx;
+2. 编译过程中，会使用 `npm run build` 命令，所以要关注 `package.json` 文件中，有没有通过 `scripts` 中的 `build` 关键字，指定构建方式。
+3. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
+
+##### yarn编译原理
+
+1. 预编译处理完成后,会根据语言类型选择nodejstatic的buildpack去编译项目.在编译过程中会安装指定版本的Node、yarn、以及相关依赖,安装默认web服务nginx;
+2. 编译过程中，会使用 `yarn build` 命令，所以要关注 `package.json` 文件中，有没有通过 `scripts` 中的 `build` 关键字，指定构建方式。
+3. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
 
 #### NodeJS前端项目源码规范
 
@@ -21,7 +35,6 @@ hidden: true
 2. 源码程序必须托管在gitlab等相关git或者svn服务上
 3. 源码程序根路径下必须存在`package.json`,用来管理NodeJS项目的依赖,是Rainbond识别为NodeJS前端类语言的必要条件
 4. 代码的根目录下必须有`nodestatic.json`文件，是Rainbond识别为NodeJS前端类语言的必要条件
-
 
 ##### nodestatic.json规范
 
@@ -43,8 +56,11 @@ web: sh boot.sh
 上述是默认Procfile,如果需要扩展更多启动参数,可以自定义Procfile。
 
 {{% notice info %}}
+
 1. `web:`和`sh`之间有一个空格
+<br>
 2. 文件结尾不能包含特殊字符
+
 {{% /notice %}}
 
 #### 编译运行环境设置
@@ -65,6 +81,26 @@ web: sh boot.sh
 ```
 
 平台默认版本使用`8.12.0`,具体配置参考[NodeJS源码构建](../nodejs/)
+
+##### 仓库私服设置
+
+通过 `preinstall` 关键字，可以设置私服地址。
+
+```json
+"scripts": {
+	"preinstall": "bash preinstall.sh",
+	"build": "/tmp/build/node_modules/.bin/vue-cli-service build --mode test"
+},
+```
+
+在上述的 `package.json` 文件中，关键字 `preinstall` 指定了在安装依赖前所做的操作。示例中问执行代码根目录下的一个脚本文件，其内容为设置构建私服：
+
+```bash
+#!/bin/bash
+yarn config set registry http://X.X.X.X:8080/repository/wlsj-npm-group/ --global
+```
+
+npm 同理。
 
 #### Web服务支持
 
