@@ -1,7 +1,6 @@
 ---
 title: "平台问题排查FAQ"
 weight: 1701
-chapter: true
 ---
 
 {{% notice note %}}
