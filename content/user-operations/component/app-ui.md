@@ -35,7 +35,7 @@ start: >-
  
 ```
 #app-ui镜像地址
-goodrain.me/rbd-app-ui:v5.1.5-release
+goodrain.me/rbd-app-ui:v5.1.6-release
 ```
 
 <img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication01.png" width="100%" />
