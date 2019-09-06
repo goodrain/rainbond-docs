@@ -24,13 +24,54 @@ Rainbond版本(grctl version/docker run --rm goodrain.me/rbd-api:5.1.1 version):
 
 > 安装问题建议反馈至 [rainbond-ansible](https://github.com/goodrain/rainbond-ansible.git)
 
-1. 安装如何自定ssh port
+* 安装如何自定ssh port
+如果企业提供的机器不支持SSH 22端口的话，目前需用用户手动设置需要安装节点的SSH端口信息，有两种设置方式：
+1. 禁用自动生成ansible host文件，手动配置
+```
+export NOT_WRITE_ANSIBLE_HOSTS=true
+vi /opt/rainbond/rainbond-ansible/inventory/hosts
+```
+类似如下，更改 [all] 分组中每个节点的端口信息：
+```
+[manage]
+959eba4b-6bbe-4ad5-ba0f-ecfad17d378d
 
+[new-manage]
+
+[gateway]
+
+[new-gateway]
+
+[compute]
+b4e3a2dd-ccef-410b-93a8-95d19a18b282
+4756d361-afbc-4283-b60e-1bfdcd8e4b5e
+e96f51b7-5c12-4b48-a126-8a91e9df5165
+
+[new-compute]
+
+[etcd]
+959eba4b-6bbe-4ad5-ba0f-ecfad17d378d
+
+[all]
+959eba4b-6bbe-4ad5-ba0f-ecfad17d378d ansible_host=10.10.10.10 ansible_port=2222 ip=10.10.10.10 port=2222 role=manage
+b4e3a2dd-ccef-410b-93a8-95d19a18b282 ansible_host=10.10.20.10 ansible_port=2222 ip=10.10.20.10 port=2222 role=compute ansible_ssh_private_key_file=/root/.ssh/id_rsa.pub
+4756d361-afbc-4283-b60e-1bfdcd8e4b5e ansible_host=10.10.20.11 ansible_port=2222 ip=10.10.20.11 port=2222 role=compute ansible_ssh_private_key_file=/root/.ssh/id_rsa.pub
+e96f51b7-5c12-4b48-a126-8a91e9df5165 ansible_host=10.10.20.12 ansible_port=2222 ip=10.10.20.12 port=2222 role=compute ansible_ssh_private_key_file=/root/.ssh/id_rsa.pub
 ```
-# 目前不支持多节点的SSH端口都不同
-export INSTALL_SSH_PORT=12306
-./grctl init
-```
+
+2. 全局定义SSH端口。
+> 此方式缺陷时要求安装的节点都是相同的SSH端口
+ 修改/opt/rainbond/rainbond-ansible/scripts/installer/global.sh配置，添加如下内容：
+ ```
+ INSTALL_SSH_PORT=2222
+ ```
+ 其中实际端口根据你的实际情况修改，定义完成后可以执行下述命令重新生成host文件并验证：
+ ```
+ grctl ansible hosts
+ cat /opt/rainbond/rainbond-ansible/inventory/hosts
+ ```
+ 如果配置文件中的端口信息已经修改。则证明方法有效，可以开始安装节点了。
+ 
 
 #### 使用指南
 
