@@ -26,12 +26,15 @@ Rainbond版本(grctl version/docker run --rm goodrain.me/rbd-api:5.1.1 version):
 * 安装如何自定ssh port
 如果企业提供的机器不支持SSH 22端口的话，目前需用用户手动设置需要安装节点的SSH端口信息，有两种设置方式：
 1. 禁用自动生成ansible host文件，手动配置
-```
+
+```bash
 export NOT_WRITE_ANSIBLE_HOSTS=true
 vi /opt/rainbond/rainbond-ansible/inventory/hosts
 ```
+
 类似如下，更改 [all] 分组中每个节点的端口信息：
-```
+
+```bash
 [manage]
 959eba4b-6bbe-4ad5-ba0f-ecfad17d378d
 
@@ -61,14 +64,18 @@ e96f51b7-5c12-4b48-a126-8a91e9df5165 ansible_host=10.10.20.12 ansible_port=2222 
 2. 全局定义SSH端口。
 > 此方式缺陷时要求安装的节点都是相同的SSH端口
  修改/opt/rainbond/rainbond-ansible/scripts/installer/global.sh配置，添加如下内容：
- ```
+ 
+ ```bash
  INSTALL_SSH_PORT=2222
  ```
+
  其中实际端口根据你的实际情况修改，定义完成后可以执行下述命令重新生成host文件并验证：
- ```
+
+ ```bash
  grctl ansible hosts
  cat /opt/rainbond/rainbond-ansible/inventory/hosts
  ```
+
  如果配置文件中的端口信息已经修改。则证明方法有效，可以开始安装节点了。
  
 
