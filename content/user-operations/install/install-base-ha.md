@@ -204,30 +204,6 @@ chmod +x ./grctl
 
 ```
 
-如果**首个管理节点指定了预置的VIP**，还需做如下操作：
-
-在第一个管理节点执行
-
-```bash
-#切换到外部数据库
-use console;
-UPDATE region_info set tcpdomain="<VIP>";
-```
-
-调整rbd-dns关于goodrain.me的解析(100.100.100.16为示例VIP,根据实际情况调整)
-
-```bash
-# 编辑/opt/rainbond/conf/dns.yaml,将recoders修改为vip地址
-
- --recoders=goodrain.me=100.100.100.16,*.goodrain.me=100.100.100.16
-
-# 更新服务
-node service update
-# 编辑 /etc/hosts
-100.100.100.16  kubeapi.goodrain.me goodrain.me repo.goodrain.me lang.goodrain.me maven.goodrain.me region.goodrain.me
-```
-
-> 更多初始化参数，请阅读[节点初始化重要参数说明](/user-operations/tools/grctl/#节点初始化重要参数说明)
 
 ### 五、管理节点扩容
 
