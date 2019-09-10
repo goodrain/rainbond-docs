@@ -11,7 +11,7 @@ pre: "<b>6.5 </b>"
 ### 初步排查
 
 {{% notice note %}}
-在遇到了应用 **运行异常** 的时候，首先应该按照本节文档，进行初步排查。
+在遇到了实例 **运行异常** 的时候，首先应该按照本节文档，进行初步排查。
 {{% /notice %}}
 
 #### 镜像类型
@@ -29,7 +29,9 @@ Rainbond会默认为应用分配内存：
 
 该值可以在创建应用时定义，也可以在应用伸缩界面随时修改。然而，不是所有应用都可以用默认内存运行。当内存分配的过小时，会导致应用实例内存使用率过高，甚至根本不会继续启动。
 
-具体排查方式参考 [grctl msg get 命令使用](#grctl-msg-get-命令使用)
+具体表现为：
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/Troubleshoot/app-run-problem-6.png" width="100%">
 
 #### 应用部署类型选择错误
 
@@ -50,8 +52,6 @@ Rainbond支持 **有状态服务类型** 和 **无状态服务类型** 的部署
 
 如果没有指定这种特定的初始化条件，应用不会进入初始化流程。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/Troubleshoot/location-problem-1.png" width="100%">
-
 需要确定当前应用到底发生了什么，可以查看日志：
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/Troubleshoot/app-run-problem-1.png" width="100%">
@@ -60,7 +60,9 @@ Rainbond支持 **有状态服务类型** 和 **无状态服务类型** 的部署
 
 Rainbond应用默认配置了健康检查机制。应用启动时，会根据健康检查中配置的端口，以特定的方式检查应用是否正常启动。如检测不通过，则会有运行异常状态。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/Troubleshoot/app-run-problem-2.png" width="60%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/Troubleshoot/app-run-problem-7.png" width="60%">
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/Troubleshoot/app-run-problem-8.png" width="60%">
 
 {{% notice warning %}}
 健康检查的端口，来自于应用开启的端口，默认开启5000端口。所以，务必确认平台上应用开启的端口，和应用运行监听的端口一致。
