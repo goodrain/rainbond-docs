@@ -26,6 +26,8 @@ docker pull rainbond/rbd-db:latest
 docker tag rainbond/rbd-db:latest goodrain.me/rbd-db:latest
 # 提前在数据库节点创建持久化目录
 mkdir -p /opt/rainbond/data/
+# 创建数据库配置文件目录
+mkdir -p /opt/rainbond/etc/
 
 ```
 
@@ -57,8 +59,10 @@ ls /opt/rainbond/data/mysql/
 all.sql data logs tmp 
 # 将数据拷贝到存储节点中
 scp /opt/rainbond/data/mysql/all.sql  10.10.10.11:/tmp/
+# 在管理节点拷贝rbd-db的启动文件至数据库节点
+scp /etc/systemd/system/rbd-db.service 10.10.10.11:/etc/systemd/system/
 # 在管理节点拷贝rbd-db的配置文件至数据库节点
-scp /etc/systemd/system/rbd-db.service 10.10.10.11:/etc/systemd/system/rbd-db.service
+scp -r /opt/rainbond/etc/rbd-db 10.10.10.11:/opt/rainbond/etc/
 ```
 
 - 在存储节点的Mysql导入数据
