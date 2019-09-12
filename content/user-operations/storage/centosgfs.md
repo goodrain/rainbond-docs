@@ -1,5 +1,5 @@
 ---
-title: "对接GlusterFS"
+title: "CentOS对接GlusterFS"
 date: 2019-03-11T12:50:54+08:00
 draft: false
 weight: 1402
@@ -7,7 +7,7 @@ description: 存储对接GlusterFS
 hidden: true
 ---
 
-#### CentOS 对接GlusterFS
+
 
 存储节点部署示例环境，仅供参考
 
