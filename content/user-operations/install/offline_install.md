@@ -11,18 +11,18 @@ hidden: true
 
 ### 软硬件要求
 
-#### 1. 检查操作系统，目前离线版本支持以下操作系统
+##### 1. 检查操作系统，目前离线版本支持以下操作系统
 
 | 系统     | 版本         | 说明                     |
 | :------- | :----------- | :----------------------- |
-| CentOS   | 7.3及以上      | 64位，[ISO下载](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-07-26-5.1.5.tgz)) |
+| CentOS   | 7.3及以上      | 64位，[ISO下载](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-07-26-5.1.5.tgz) |
 | Ubuntu   | 16.04        | 64位  推荐安装   [ISO下载](https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/ubuntu-16.04.6-server-amd64.iso)          |
 
 更多关于软硬件要求请参考 [软件和硬件环境要求](/user-operations/op-guide/recommendation/)  
-#### 2. 确保机器重启，服务器IP地址和nameserver不发生改变，推荐配置静态ip  
-#### 3. 多节点部署时，需要确保所有机器间时间要同步(很重要)  
-#### 4. 多节点时，机器间网络访问没有限制  
-#### 5. 支持使用root执行安装操作  
+##### 2. 确保机器重启，服务器IP地址和nameserver不发生改变，推荐配置静态ip  
+##### 3. 多节点部署时，需要确保所有机器间时间要同步(很重要)  
+##### 4. 多节点时，机器间网络访问没有限制  
+##### 5. 支持使用root执行安装操作  
 
 
 更多关于软硬件要求请参考 [软件和硬件环境要求](/user-operations/op-guide/recommendation/),安装前请务必确定是否满足条件。
