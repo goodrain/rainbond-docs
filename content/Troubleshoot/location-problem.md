@@ -51,3 +51,9 @@ grctl node install ···
 当一个应用的操作日志显示 **构建完成** ，但是应用运行状态却显示 **运行异常** 或者 **部分实例运行异常**。请参考 [应用运行排查](/troubleshoot/app-run-problem/) 。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/Troubleshoot/location-problem-1.png" width="100%">
+
+#### 控制台问题排查
+
+当在控制台执行一项操作，但是操作执行失败并提示 **请求错误**。请参考 [控制台问题排查](/troubleshoot/app-ui-problem/)。
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/Troubleshoot/app-ui-problem-1.png" width="100%">
+
