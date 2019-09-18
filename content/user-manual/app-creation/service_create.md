@@ -28,8 +28,8 @@ Rainbond目前支持的语言有:
 通过源码的方式创建服务组件,需要把源码托管在版本控制系统上,Rainbond目前支持的版本控制系统有*Git*和*SVN*,也是目前大家常用的版本控制系统。相应的源码必须符合Rainbond的源码支持规范，当然定义的规范都是与各语言推荐规范一致。
 需要注意的是对于一些聚合工程,我们想要构建服务所需的源码,可能位于仓库下的某一个子目录下，获取对应子目录下的源码的方式如下：
 
-* Git:使用`dir`请求参数指定源码主目录。例如：
-源码仓库地址为: https://github.com/demo/demo.git, 所需源码位于子目录`/subdir1/subdir2`下，则构建应用使用的仓库地址为: https://github.com/demo/demo.git?dir=subdir1/subdir2
+* Git:填写`子目录路径`，指定源码主目录。例如：
+源码仓库地址为: https://github.com/demo/demo.git, 所需源码位于子目录`/subdir1/subdir2`下，则构建应用使用的仓库地址为: https://github.com/demo/demo.git 子目录路径填写为`subdir1/subdir2`
 
 >我们不推荐使用子目录的方式对项目进行区分,应该尽可能地给每个项目建立独立的Git仓库.这样可以使代码的结构更加地清晰,不至于太臃肿,方便管理。
 
