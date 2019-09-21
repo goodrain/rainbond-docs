@@ -10,6 +10,7 @@ weight: 3102
 #### 从源码创建
 
 下面将会以Java源码创建服务为例, 介绍在Rainbond上用源码创建服务流程。
+
 > 源码地址: https://github.com/goodrain/java-maven-demo.git
 
 服务的创建目前有两个入口，分别是左部导航的创建应用入口和应用管理的添加服务组件入口，创建流程一致。

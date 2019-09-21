@@ -62,7 +62,8 @@ e96f51b7-5c12-4b48-a126-8a91e9df5165 ansible_host=10.10.20.12 ansible_port=2222 
 ```
 
 2. 全局定义SSH端口。
-> 此方式缺陷时要求安装的节点都是相同的SSH端口
+
+> 此方式缺陷是要求安装的节点都是相同的SSH端口
  修改/opt/rainbond/rainbond-ansible/scripts/installer/global.sh配置，添加如下内容：
  
  ```bash
