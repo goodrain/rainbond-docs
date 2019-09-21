@@ -279,7 +279,7 @@ grctl node add --iip <计算节点ip> -p <root密码> --role compute --install
 - 配置好ssh免密后
 
 ```bash
-grctl node add --iip <计算节点ip> --key /root/.ssh/id_rsa.pub --role compute --install
+grctl node add --iip <计算节点ip> --key /root/.ssh/id_rsa  --role compute --install
 ```
 
 ### 八、应用控制台高可用
