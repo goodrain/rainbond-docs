@@ -51,7 +51,7 @@ NET_TYPE=internal
 
 # 使用命令dps在管理节点查看rbd-db容器并进入容器，备份当前数据
 # 备份数据,直接将数据重定向至持久化目录中
-mysqldump -u 用户 -p 密码 --all-databases > /data/all.sql
+mysqldump -u用户 -p密码 --all-databases > /data/all.sql
 # 查看数据备份是否成功
 cat /data/all.sql
 # 退出容器，在宿主机持久化目录查看备份的数据
