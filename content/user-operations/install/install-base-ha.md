@@ -114,11 +114,11 @@ Rainbond默认提供 rbd-db 组件作为平台数据库使用。这个组件只�
 
 - 可以将所有的角色分配给不同的服务器，实现一个完全拆分，各自功能专一的架构：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/innstall-base-ha-1.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/innstall-base-ha-1.png" width="80%">
 
 - 可以将角色属性复用，用少量的服务器搭建一个复用式的集群：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/innstall-base-ha-2.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/innstall-base-ha-2.png" width="80%">
 
 ### 三、存储节点选择
 
@@ -282,14 +282,8 @@ grctl node add --iip <计算节点ip> -p <root密码> --role compute --install
 grctl node add --iip <计算节点ip> --key /root/.ssh/id_rsa  --role compute --install
 ```
 
-### 八、应用控制台高可用
 
-> rbd-app-ui服务（应用控制台Web服务）默认只在第一个管理节点安装。对于控制台组件的高可用，我们推荐将其以应用的形式运行在平台上。利用平台对无状态服务可以动态伸缩的特性，来保证其高可用性。
-
-详细请参阅[应用控制台高可用部署](/user-operations/component/app-ui/)
-
-
-### 九、手动调整过程
+### 八、手动调整过程
 
 高可用集群搭建到了这里，还有些细节，要手动调整。
 
@@ -303,12 +297,10 @@ grctl node add --iip <计算节点ip> --key /root/.ssh/id_rsa  --role compute --
 update console.region_info set url="https://<VIP_OF_MANAGE>:8443",wsurl="ws://<VIP_OF_MANAGE>:6060",tcpdomain="<VIP_OF_GATEWAY>";
 ```
 
-> 调整/etc/hosts
+> 编辑 /etc/hosts
 
-```Bash
-# Rainbond hosts BEGIN
-<VIP_OF_GATEWAY> kubeapi.goodrain.me goodrain.me repo.goodrain.me lang.goodrain.me maven.goodrain.me 
-<VIP_OF_MANAGE> region.goodrain.me
+```
+< VIP >  kubeapi.goodrain.me goodrain.me repo.goodrain.me lang.goodrain.me maven.goodrain.me region.goodrain.me
 ```
 
 > 调整网络组件配置
@@ -333,11 +325,33 @@ vi /opt/rainbond/etc/cni/10-calico.conf
 }
 ```
 
+> 调整dns配置 
+
+```
+# 编辑/opt/rainbond/conf/dns.yaml,将recoders修改为vip地址
+  --recoders=goodrain.me= < VIP >,*.goodrain.me= < VIP >
+
+```
+
 重启服务
 
 ```bash
 systemctl restart calico
+systemctl restart rbd-dns
 systemctl restart kubelet
 ```
+
+查看集群状态
+
+```
+grctl cluster
+```
+确保集群状态正常后登录应用控制台
+
+### 九、应用控制台高可用
+
+> rbd-app-ui服务（应用控制台Web服务）默认只在第一个管理节点安装。对于控制台组件的高可用，我们推荐将其以应用的形式运行在平台上。利用平台对无状态服务可以动态伸缩的特性，来保证其高可用性。
+
+详细请参阅[应用控制台高可用部署](/user-operations/component/app-ui/)
 
 {{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}

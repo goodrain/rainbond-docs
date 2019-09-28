@@ -191,7 +191,7 @@ mv /grdata /backup
 mkdir /grdata
 mount -a 
 6. 同步数据
-cp -a /backup/. /grdata/
+rsync -azvt /backup/* /grdata/
 7. 其他管理节点，修改/etc/fstab重新挂载/grdata(如果有)
 8. 迁移完成确定集群状态: grctl cluster
 9. 第一个管理节点关闭nfs服务
