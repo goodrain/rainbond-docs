@@ -1,7 +1,7 @@
 ---
-title: 与容器管理平台的区别
+title: 与容器平台的区别
 describe: 本章描述Rainbond项目与其他容器管理平台的关键区别和共同点。
-weight: 206
+weight: 103
 ---
 
 ![-w600](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/WechatIMG110.jpeg)
