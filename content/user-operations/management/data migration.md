@@ -334,7 +334,7 @@ grctl cluster
 
 ```
 # 将rbd-db配置文件移走
-cp /opt/rainbond/conf/db.yaml /backup
+mv /etc/systemd/system/rbd-db.service /backup
 # 停止rbd-db服务
 systenctl stop rbd-db
 ```
