@@ -325,6 +325,18 @@ vi /opt/rainbond/etc/cni/10-calico.conf
 }
 ```
 
+> 调整node配置
+
+```
+vi /opt/rainbond/scripts/start-node.sh
+#!/bin/bash
+
+NODE_OPTS="--log-level=info --auto-scheduler=true --kube-conf=/opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig --etcd="http://<管理节点1IP>:2379,http://<管理节点2IP>:2379,http://<管理节点3IP>:2379"   --hostIP=192.168.2.169 --run-mode master --noderule manage,compute,gateway"
+
+exec /usr/local/bin/node $NODE_OPTS
+
+```
+
 > 调整dns配置 
 
 ```
@@ -336,6 +348,7 @@ vi /opt/rainbond/etc/cni/10-calico.conf
 重启服务
 
 ```bash
+systemctl restart node.service
 systemctl restart calico
 systemctl restart rbd-dns
 systemctl restart kubelet
