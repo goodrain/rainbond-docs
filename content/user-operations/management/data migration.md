@@ -7,6 +7,7 @@ hidden: true
 
 #### 准备工作，使用rainbond平台默认的rbd-db组件搭建外部数据库
 
+
 - 在数据库节点安装docker
 
 ```
@@ -336,7 +337,7 @@ grctl cluster
 # 将rbd-db配置文件移走
 mv /etc/systemd/system/rbd-db.service /backup
 # 停止rbd-db服务
-systenctl stop rbd-db
+systemctl stop rbd-db
 ```
 
 到此完成数据迁移

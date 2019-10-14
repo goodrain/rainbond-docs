@@ -57,7 +57,7 @@ hidden: true
 
 {{% notice warning %}}
 
-Rainbond在高可用集群部署过程当中务必使用外部数据库
+Rainbond在高可用集群部署过程当中务必使用外部数据库,Rainbond目前支持的数据库版本为Mysql5.6，后续我们将开放更多Mysql版本的支持
 
 {{% /notice %}}
 
