@@ -11,8 +11,8 @@ hidden: true
 
 | 系统     | 版本         | 说明                     |
 | :------- | :----------- | :----------------------- |
-| CentOS   | 7.3及以上      | 64位，[7.4.1708下载](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso) |
-| Debian   | 9.6及以上          | 64位                     |
+| CentOS   | 7.3-7.5      | 64位，[7.4.1708下载](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso) |
+| Debian   | 9.6          | 64位                     |
 | Ubuntu   | 16.04        | 64位      推荐安装  [ISO下载](https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/ubuntu-16.04.6-server-amd64.iso)             |
 | 中标麒麟 | 服务器版V7.4 | 64位                     |
 
