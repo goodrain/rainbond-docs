@@ -15,7 +15,15 @@ hidden: true
 
 #### 1. 准备工作
 
-* 生成node的systemd文件
+准备用于生成配置文件的文件夹
+
+```
+mkdir /opt/rainbond/scripts/ -p
+mkdir /opt/rainbond/etc/node/ -p
+mkdir /opt/rainbond/etc/kubernetes/ -p
+```
+
+- 生成node的systemd文件
 
 ```yaml
 cat > /etc/systemd/system/node.service <<EOF
@@ -46,22 +54,32 @@ EOF
 cat > /opt/rainbond/scripts/start-node.sh <<EOF
 #!/bin/bash
 
-NODE_OPTS="--log-level=info --auto-scheduler=true --kube-conf=/opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig --etcd=http://<etcd地址>  --hostIP=<新增网关节点ip> --run-mode master --noderule manage"
+NODE_OPTS="--log-level=info --auto-scheduler=true --kube-conf=/opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig --etcd=http://<管理节点ip>:2379   --hostIP=<本机ip> --run-mode worker --noderule gateway"
 
 exec /usr/local/bin/node $NODE_OPTS
 EOF
+
+# 添加执行权限
+chmod +x /opt/rainbond/scripts/start-node.sh
 ```
 
 * 生成node的uuid
 
 ```bash
+
+[root@localhost ~]# uuidgen
+8b5ccedc-8d8d-4ce7-aaaa-e8fc1439d288
+```
+
+```
 cat > /opt/rainbond/etc/node/node_host_uuid.conf <<EOF
-host_uuid=<node_uuid, 可以用uuidgen生成>
+host_uuid=8b5ccedc-8d8d-4ce7-aaaa-e8fc1439d288
 EOF
+
 ```
 
 * 从管理节点同步文件
-    * 从第一个管理节点同步/opt/rainbond/conf目录下的network.yaml,lb.yaml文件到新增网关节点同样目录下
+    * 从第一个管理节点同步/opt/rainbond/conf目录下的network.yaml,gateway.yaml文件到新增网关节点同样目录下
     * 从第一个管理节点同步/opt/rainbond/etc/kubernetes/kubecfg目录到新增网关节点同样目录下
     * 从第一个管理节点同步/opt/rainbond/health目录到新增网关节点同样目录下
     * 从第一个管理节点同步/opt/rainbond/etc/tools/bin/node到新增网关节点/usr/local/bin/node
@@ -73,22 +91,24 @@ IP为新增网关节点
 NODENAME为新增网关节点node的uuid
 ```
 
-{{% notice note %}}
-如果计算节点复用情况下,仅需要copy lb.yaml到计算节点
-{{% /notice %}}
-
 * 安装docker并启动
 
 ```bash
 # 安装docker
 export VERSION=18.06 && curl -fsSL http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/docker/install-docker.sh | bash -s docker 
+# 启动docker
+systemctl start docker
+
 cat > /etc/docker/daemon.json <<EOF
 {
   "insecure-registries": ["goodrain.me"],
   "bip": "172.30.42.1/16",
   "userland-proxy": false,
-  "storage-driver": "overlay2",
   "max-concurrent-downloads": 10,
+  "storage-driver": "overlay2",
+  "storage-opts": [
+    "overlay2.override_kernel_check=true"
+  ],
   "log-driver": "json-file",
   "log-level": "warn",
   "log-opts": {
@@ -98,14 +118,15 @@ cat > /etc/docker/daemon.json <<EOF
 }
 EOF
 
-# 启动docker
+# 重新启动docker
 systemctl daemon-reload
 systemctl restart docker
 ```
 
-* 更新dns或许更新hosts
+* 更新dns或更新hosts
     * 编辑 `/etc/resolv.conf`,添加管理节点ip,支持goodrain.me等域名解析
-    * 编辑 `/etc/hosts`,添加域名解析`<管理节点ip>  kubeapi.goodrain.me goodrain.me repo.goodrain.me lang.goodrain.me maven.goodrain.me region.goodrain.me`
+    * 编辑 `/etc/hosts`,添加域名解析
+ `<管理节点ip>  kubeapi.goodrain.me goodrain.me repo.goodrain.me lang.goodrain.me maven.goodrain.me region.goodrain.me`
 
 #### 2. 启动node
 
@@ -114,6 +135,7 @@ systemctl enable node
 systemctl start node
 # node启动后根据/opt/rainbond/conf目录下配置文件生成对应服务systemd配置文件并启动
 ```
+
 
 ### 调整配置
 
