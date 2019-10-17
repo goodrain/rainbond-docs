@@ -84,6 +84,44 @@ cmd: dotnet aspnetapp.dll
 
 `cmd`定义项目启动方式，根据项目 publish 后生成的入口运行文件为准。
 
+##### 如何适应rainbondfile中设置的端口
+
+通常情况下，程序开发者并没有添加自定义程序监听端口的逻辑。这种情况下，程序启动时会监听默认地址 `http://[::]:80`
+那么如何让自己的程序可以自定义监听端口，并使之动态匹配rainbondfile中设置好的 port 呢？
+下面是一个具体的方案：
+
+修改项目的 `Program.cs`
+
+```cs
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+
+namespace aspnetapp {
+    public class Program {
+        public static void Main (string[] args) {
+            // 由环境变量 ${PORT} 定义启动端口
+            string port = "5000";
+            if (Environment.GetEnvironmentVariable("PORT") != null) {
+                port = Environment.GetEnvironmentVariable("PORT");
+            }
+            Console.WriteLine("Listing :{0}", port);
+            CreateWebHostBuilder (port, args).Build ().Run();
+        }
+        public static IWebHostBuilder CreateWebHostBuilder (string port, string[] args) =>
+            WebHost.CreateDefaultBuilder (args)
+            // 定义访问路径
+            .UseUrls ($"http://0.0.0.0:{port}")
+            .UseStartup<Startup> ();
+    }
+}
+```
 #### 示例代码
 
 [https://github.com/goodrain/dotnet-demo](https://github.com/goodrain/dotnet-demo)
