@@ -133,6 +133,35 @@ Node项目支持使用[npm package manager](https://www.npmjs.com/) 和 [yarn pa
 系统默认不自带 grunt、gulp、bower 这些工具，但是会安装 `package.json` 中 `dependencies` 和`devDependencies` 节点下的依赖，所以自定义执行的命令也需要作为依赖添加到此节点下，否则可能会找不到命令，这些工具执行时需要的依赖也是如此。
 {{% /notice %}}
 
+##### 仓库私服设置
+
+###### npm 私服设置
+
+npm 构建默认使用淘宝私服地址： `https://registry.npm.taobao.org`
+如果希望能够自定义 `npm install` 时使用的私服仓库地址，则需要添加自定义环境变量：
+
+```bash
+BUILD_NPM_REGISTRY=http://X.X.X.X:8080/repository/npm-group/
+```
+
+###### yarn 私服设置
+
+yarn 构建并不支持环境变量设置私服，但是可以通过 `preinstall` 关键字，可以设置私服地址。
+
+```json
+"scripts": {
+	"preinstall": "bash preinstall.sh",
+	"build": "/tmp/build/node_modules/.bin/vue-cli-service build --mode test"
+},
+```
+
+在上述的 `package.json` 文件中，关键字 `preinstall` 指定了在安装依赖前所做的操作。示例中问执行代码根目录下的一个脚本文件，其内容为设置构建私服：
+
+```bash
+#!/bin/bash
+yarn config set registry http://X.X.X.X:8080/repository/npm-group/ --global
+```
+
 #### 示例demo程序
 
 示例[https://github.com/goodrain/nodejs-demo](https://github.com/goodrain/nodejs-demo)

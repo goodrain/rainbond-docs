@@ -84,7 +84,18 @@ web: sh boot.sh
 
 ##### 仓库私服设置
 
-通过 `preinstall` 关键字，可以设置私服地址。
+###### npm 私服设置
+
+npm 构建默认使用淘宝私服地址： `https://registry.npm.taobao.org`
+如果希望能够自定义 `npm install` 时使用的私服仓库地址，则需要添加自定义环境变量：
+
+```bash
+BUILD_NPM_REGISTRY=http://X.X.X.X:8080/repository/npm-group/
+```
+
+###### yarn 私服设置
+
+yarn 构建并不支持环境变量设置私服，但是可以通过 `preinstall` 关键字，可以设置私服地址。
 
 ```json
 "scripts": {
@@ -97,10 +108,8 @@ web: sh boot.sh
 
 ```bash
 #!/bin/bash
-yarn config set registry http://X.X.X.X:8080/repository/wlsj-npm-group/ --global
+yarn config set registry http://X.X.X.X:8080/repository/npm-group/ --global
 ```
-
-npm 同理。
 
 #### Web服务支持
 
