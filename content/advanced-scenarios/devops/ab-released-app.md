@@ -1,6 +1,6 @@
 ---
-title: 应用A/B测试实践
-Description: 基于Rainbond的应用A/B测试操作方案详解
+title: 组件A/B测试实践
+Description: 基于Rainbond的组件A/B测试操作方案详解
 Hidden: true
 ---
 

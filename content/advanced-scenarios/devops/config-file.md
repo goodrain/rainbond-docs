@@ -1,6 +1,6 @@
 ---
-title: 服务配置文件实践
-Description: Rainbond为服务添加配置文件的方法实践
+title: 组件配置文件实践
+Description: Rainbond为组件添加配置文件的方法实践
 Hidden: true
 ---
 
@@ -21,7 +21,7 @@ ${环境变量名}
 ${环境变量名:默认值}
 ```
 
-如果服务中存在指定的`环境变量`, 那么 Rainbond 会将该环境变量的值解析到配置文件中; 如果服务中不存在该环境变量, 那么 Rainbond 会将`默认值`解析到配置文件中。
+如果组件中存在指定的`环境变量`, 那么 Rainbond 会将该环境变量的值解析到配置文件中; 如果组件中不存在该环境变量, 那么 Rainbond 会将`默认值`解析到配置文件中。
 
 {{% notice note %}}
 如果指定的环境变量不存在, 且没有设置默认值, 那么 Rainbond 不会进行解析
@@ -29,15 +29,15 @@ ${环境变量名:默认值}
 
 #### 配置文件共享
 
-可以通过存储共享的机制来共享配置文件, 如果你有多个服务使用同一个配置文件的场景, 可以直接共享, 无需多次编辑设置.共享的配置文件只会解析当前服务的环境变量.
+可以通过存储共享的机制来共享配置文件, 如果你有多个组件使用同一个配置文件的场景, 可以直接共享, 无需多次编辑设置.共享的配置文件只会解析当前组件的环境变量.
 
-### 配置文件在 Mariadb 中的应用
+### 配置文件在 Mariadb 中的组件
 
 [mariadb](https://hub.docker.com/_/mariadb), Docker 的官方镜像, 给出了两种自定义 MySQL 配置文件的方法.
 
 #### Mariadb 官方的配置方法
 
-第一种方法是在宿主机创建一个配置文件, 并将这个配置文件挂载到容器的 `/etc/mysql/conf.d` 目录下. `/etc/mysql/conf.d`下的配置文件就会覆盖默认配置文件 `/etc/mysql/my.cnf`. 这种方法不够灵活, 无法在创建服务时确认 Pod 会被调度在哪个节点上(数据中心通常是集群), 需要服务创建完成后才能挂载配置文件, 然后重启服务使其生效.
+第一种方法是在宿主机创建一个配置文件, 并将这个配置文件挂载到容器的 `/etc/mysql/conf.d` 目录下. `/etc/mysql/conf.d`下的配置文件就会覆盖默认配置文件 `/etc/mysql/my.cnf`. 这种方法不够灵活, 无法在创建组件时确认 Pod 会被调度在哪个节点上(数据中心通常是集群), 需要组件创建完成后才能挂载配置文件, 然后重启组件使其生效.
 
 第二种方法是在 docker run 命令中传入 mysqld 的参数, 比如, 通过 `character-set-server` 和 `collation-server` 两个参数修改l默认的编码和校对规则:
 
@@ -49,7 +49,7 @@ docker run --name some-mariadb -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mariadb:ta
 
 #### Rainbond 的配置方法
 
-第三种方法, 是 Rainbond 结合 k8s 的 ConfigMap 实现的配置文件. 这种方法灵活性比较高, 可以 `动态渲染环境变量`, 还可以共享给其它服务使用. 
+第三种方法, 是 Rainbond 结合 k8s 的 ConfigMap 实现的配置文件. 这种方法灵活性比较高, 可以 `动态渲染环境变量`, 还可以共享给其它组件使用. 
 
 ###### 创建配置文件
 
@@ -88,7 +88,7 @@ default_storage_engine = ${DEFAULT_STORAGE_ENGINE:innodb}
 
 ###### 添加环境变量
 
-为应用添加环境变量 `DEFAULT_STORAGE_ENGINE=myisam` 和 `MYSQL_ROOT_PASSWORD=rainbond`. 等 mariadb 创建成功后, 进入容器, 检查 `/etc/mysql/mariadb` 的内容:
+为组件添加环境变量 `DEFAULT_STORAGE_ENGINE=myisam` 和 `MYSQL_ROOT_PASSWORD=rainbond`. 等 mariadb 创建成功后, 进入容器, 检查 `/etc/mysql/mariadb` 的内容:
 
 ```
 root@gr52b3ee-0:/# cat /etc/mysql/mariadb.cnf 
@@ -169,8 +169,8 @@ MariaDB [(none)]> SHOW STORAGE ENGINES;
 default_storage_engine = innodb
 ```
 
-可以看到, 由于当前应用没有设置 DEFAULT_STORAGE_ENGINE 变量, 所以 Rainbond 使用它的默认值 innodb 进行解析.
+可以看到, 由于当前组件没有设置 DEFAULT_STORAGE_ENGINE 变量, 所以 Rainbond 使用它的默认值 innodb 进行解析.
 
 ### 总结
 
-这篇文章以 mariadb 为例, 演示了 Rainbond 配置文件的使用, 包括对环境变量的渲染和共享配置文件. 希望大家看完这篇文章后, 可以灵活地对应用进行配置.
+这篇文章以 mariadb 为例, 演示了 Rainbond 配置文件的使用, 包括对环境变量的渲染和共享配置文件. 希望大家看完这篇文章后, 可以灵活地对组件进行配置.

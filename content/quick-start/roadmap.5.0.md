@@ -32,7 +32,7 @@ hidden: true
 - [x] 默认Kubernetes版本升级到1.10版本 Docker版本升级到17.06版本
 - [x] 支持社区版本Kubernetes集群对接
 
-#### 应用构建（CI）
+#### 组件构建（CI）
 
 - [x] `Java` `PHP` `Python` `NodeJS` `Golang` `.NetCore` 各语言可选Runtime版本全面升级
 - [x] 支持UI配置各语言编译参数选项
@@ -42,7 +42,7 @@ hidden: true
 
 #### 控制台UI
 
-- [x] 明确定义 应用/服务 两级抽象
+- [x] 明确定义 应用/组件 两级抽象
 - [x] 应用Dashboard页面拓扑图应用状态实时刷新
 - [x] 应用Dashboard页面增加快捷创建服务组件的流程
 - [x] 应用Dashboard页面增加应用级启动、停止、升级控制
@@ -56,8 +56,8 @@ hidden: true
 #### Windows 支持
 
 - [x] node 组件支持windows节点部署，管理windows节点和平台服务
-- [x] rbd-chao 组件支持windows节点部署，构建windows应用 
-- [x] 服务构建调度支持区分windows和linux应用。
+- [x] rbd-chao 组件支持windows节点部署，构建windows组件 
+- [x] 服务构建调度支持区分windows和linux组件。
 - [x] 服务运行调度，存储支持Windows节点。 
 - [x] 数据中心镜像仓库升级支持Windows镜像。
 

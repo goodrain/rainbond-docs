@@ -1,5 +1,5 @@
 +++
-title = "服务管理"
+title = "组件管理"
 chapter = true
 menu = "app-service-manage"
 weight = 5000

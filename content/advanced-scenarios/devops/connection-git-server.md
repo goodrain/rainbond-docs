@@ -5,7 +5,7 @@ hidden: true
 ---
 
 ### 原理解读
-[通过自定义源码的方式创建应用](/user-manual/app-creation/service_create/#从源码创建)
+[通过自定义源码的方式创建组件](/user-manual/app-creation/service_create/#从源码创建)
 当你填写Git地址时，平台会自动判断地址的协议，如果是HTTP的Git地址，平台会提示你输入Git仓库的用户名和密码，如果是公开项目，用户名密码可以省略。当输入的Git地址是SSH协议时，平台会提示你将Rainbond的SSH公钥复制到Git仓库中。Rainbond会为每个团队生成独立的公钥以避免多团队密钥冲突。
 
 当你填写Svn代码地址时，平台提示输入账号名和密码，如果是私有仓库，请务必输入账号。
@@ -32,7 +32,7 @@ hidden: true
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-03.png"  width="90%" />
 
 {{% notice note %}}
-切换到SSH地址后，需要记住项目的SSH地址，后续创建应用时需要用到，这里的地址是 `git@172.16.210.205:test/helloworld.git`
+切换到SSH地址后，需要记住项目的SSH地址，后续创建组件时需要用到，这里的地址是 `git@172.16.210.205:test/helloworld.git`
 {{% /notice %}}
 
 
@@ -44,7 +44,7 @@ hidden: true
 
 ##### 获取公钥
 
-进入【创建应用】-【从源码创建】-【自定义源码】，将项目的SSh协议的地址复制到【Git仓库地址】栏中时，会提示【配置授权Key】连接，点开显示详细信息：
+进入【创建组件】-【从源码创建】-【自定义源码】，将项目的SSh协议的地址复制到【Git仓库地址】栏中时，会提示【配置授权Key】连接，点开显示详细信息：
 
 <img src="https://static.goodrain.com/images/docs/3.6/best-practice/ci-cd/ssh-01.gif" width="100%" />
 
@@ -64,7 +64,7 @@ hidden: true
 
 
 #### 测试对接是否成功
-通过私有仓库创建应用的方式来测试云帮能否通过SSH关于获取Git仓库中的代码。
+通过私有仓库创建组件的方式来测试云帮能否通过SSH关于获取Git仓库中的代码。
 
 - 创建服务
 <img src="https://static.goodrain.com/images/docs/3.6/best-practice/ci-cd/ssh-02.png"  width="100%" />
@@ -83,30 +83,30 @@ hidden: true
 
 #### 配置GitLab
 
-GitLab安装完成后，可以在应用的端口页面看到对外打开的端口号，如下图：
+GitLab安装完成后，可以在组件的端口页面看到对外打开的端口号，如下图：
 
 <img src="https://static.goodrain.com/images/docs/3.6/best-practice/ci-cd/ssh-04.png"  width="100%" />
 
-- 端口号：应用内部监听的端口，本例中监听了`22`和`80`端口
+- 端口号：组件内部监听的端口，本例中监听了`22`和`80`端口
 - 访问地址：云帮映射的地址与端口，本例中 22端口映射的地址为`172.16.210.205`，端口为`20006` ，80端口地址为`	80.grea7fc4.zggk.48mt2.goodrain.org`，端口为`80`
 
 {{% notice note %}}
-- Rainbond为HTTP协议的应用端口默认分配一个访问域名
-- Rainbond为非HTTP协议的应用端口默认分配一个访问地址和一个随机的映射端口，但端口映射与应用端口唯一对应，不会变化，因此本例的端口可能与你实际情况不一致。
+- Rainbond为HTTP协议的组件端口默认分配一个访问域名
+- Rainbond为非HTTP协议的组件端口默认分配一个访问地址和一个随机的映射端口，但端口映射与组件端口唯一对应，不会变化，因此本例的端口可能与你实际情况不一致。
 {{% /notice %}}
 
 #### 设置GitLab的HTTP和SSH地址
 
-GitLab应用通过 `GITLAB_SSH_HOST` 和 `GITLAB_HOST` 环境变量来设置SSH和HTTP的地址，因此需要将这两个变量设置到GitLab应用中。
+GitLab组件通过 `GITLAB_SSH_HOST` 和 `GITLAB_HOST` 环境变量来设置SSH和HTTP的地址，因此需要将这两个变量设置到GitLab组件中。
 
 <img src="https://static.goodrain.com/images/docs/3.6/best-practice/ci-cd/ssh-05.png"  width="100%" />
 
 {{% notice note %}}
-设置环境变量后，需要重启GitLab应用。
+设置环境变量后，需要重启GitLab组件。
 {{% /notice %}}
 
-#### 创建应用时Git地址中的端口配置
-由于SSH协议使用的是非默认的22端口，因此在创建应用时，填写的Git地址也需要加上端口信息，格式如下：
+#### 创建组件时Git地址中的端口配置
+由于SSH协议使用的是非默认的22端口，因此在创建组件时，填写的Git地址也需要加上端口信息，格式如下：
 
 ```bash
 # 默认地址

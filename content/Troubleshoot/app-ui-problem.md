@@ -1,7 +1,7 @@
 ---
 title: 控制台问题排查
 weight: 30011
-Description: "应用控制台执行操作后返回请求失败弹窗"
+Description: "组件控制台执行操作后返回请求失败弹窗"
 hidden: false
 pre: "<b>6.6 </b>"
 ---
@@ -19,7 +19,7 @@ cat /opt/rainbond/logs/rbd-app-ui/goodrain.log
 ```
 查看相关日志
 
-对通过 [应用控制台高可用部署](/user-operations/component/app-ui/) 的控制台服务，可通过 **应用管理** 的 **管理容器** 进入容器
+对通过 [组件控制台高可用部署](/user-operations/component/app-ui/) 的控制台服务，可通过 **组件管理** 的 **管理容器** 进入容器
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/Troubleshoot/app-ui-problem-2.png" width="100%">
 
