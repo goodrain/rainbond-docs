@@ -1,20 +1,20 @@
 ---
 title: "DockerCompose支持规范"
-description: "本章节将带你认识Rainbond基于DockerCompose配置创建多个服务的支持规范"
+description: "本章节将带你认识Rainbond基于DockerCompose配置创建多个组件的支持规范"
 weight: 3200
 ---
 
 ### 支持原理
 
-DockerCompose是Docker生态中的一个子项目，它提出了定义多个容器服务守护启动参数或构建方式的一种规范，它主要应用于单机容器化环境场景，类似于容器环境下的systemd。使用DockerCompose定义的多组件服务从通信方式、依赖关系上限制了只能单机部署，这与Kubernetes对服务的处理方式有一定区别。如何让DockerCompose定义的所有服务能够运行于Kubernetes集群中，这就是Rainbond提供的基于DockerCompose创建服务提供的功能。
+DockerCompose是Docker生态中的一个子项目，它提出了定义多个容器组件守护启动参数或构建方式的一种规范，它主要应用于单机容器化环境场景，类似于容器环境下的systemd。使用DockerCompose定义的多组件组件从通信方式、依赖关系上限制了只能单机部署，这与Kubernetes对组件的处理方式有一定区别。如何让DockerCompose定义的所有组件能够运行于Kubernetes集群中，这就是Rainbond提供的基于DockerCompose创建组件提供的功能。
 
-用户提供可以正常运行的DockerCompose定义文件，Rainbond将解析此文件并分别读取内部的所有服务的关键配置，包括：服务名称、镜像名称及仓库地址、环境变量、依赖关系（启动顺序）、持久化存储、服务端口。基于这些属性创建Rainbond服务抽象，再通过Rainbond的服务抽象模型的管理运行机制部署于底层的Kubernetes集群。从而实现DockerCompose到Kubernetes的转化。
+用户提供可以正常运行的DockerCompose定义文件，Rainbond将解析此文件并分别读取内部的所有组件的关键配置，包括：组件名称、镜像名称及仓库地址、环境变量、依赖关系（启动顺序）、持久化存储、组件端口。基于这些属性创建Rainbond组件抽象，再通过Rainbond的组件抽象模型的管理运行机制部署于底层的Kubernetes集群。从而实现DockerCompose到Kubernetes的转化。
 
-其中较为关键的是依赖关系、DockerCompose中服务之间建立依赖关系使用的是Docker的同网络空间原理，结合Docker默认的DNS服务对依赖服务别名进行域名解析从而实现服务间通信。这种模式在Kubernetes场景中无法直接实现，但是基于Rainbond的默认ServiceMesh机制，就实现了一直的效果，Rainbond dns服务将解析服务别名到127.0.0.1, 服务通过别名访问其他服务时，实际就是访问服务本地的代理，本地的ServiceMesh Sidecar容器完成服务动态发现和负载均衡。 从效果上看与单机运行的DockerCompose是一致的，但是实际上整个应用已经是在集群环境下分布式运行，每一个服务都可以运行多个实例。
+其中较为关键的是依赖关系、DockerCompose中组件之间建立依赖关系使用的是Docker的同网络空间原理，结合Docker默认的DNS组件对依赖组件别名进行域名解析从而实现组件间通信。这种模式在Kubernetes场景中无法直接实现，但是基于Rainbond的默认ServiceMesh机制，就实现了一直的效果，Rainbond dns组件将解析组件别名到127.0.0.1, 组件通过别名访问其他组件时，实际就是访问组件本地的代理，本地的ServiceMesh Sidecar容器完成组件动态发现和负载均衡。 从效果上看与单机运行的DockerCompose是一致的，但是实际上整个应用已经是在集群环境下分布式运行，每一个组件都可以运行多个实例。
 
 ### 创建方式及注意事项
 
-通过导航-创建应用-从Docker镜像创建-选择DockerCompose即可进入DockerCompose创建流程。由于DockerCompose创建出一个完整应用（包含N个服务组件），因此创建时必须创建并指定一个新的应用。
+通过导航-创建应用-从Docker镜像创建-选择DockerCompose即可进入DockerCompose创建流程。由于DockerCompose创建出一个完整应用（包含N个组件），因此创建时必须创建并指定一个新的应用。
 
 有以下几点注意事项
 
@@ -31,7 +31,7 @@ DockerCompose是Docker生态中的一个子项目，它提出了定义多个容�
 
 * 分别设置
 
-分别设置是指在DockerCompose配置中为每个服务增加特殊的环境变量来定义当前服务镜像的镜像仓库账号密码。设置方式是：
+分别设置是指在DockerCompose配置中为每个组件增加特殊的环境变量来定义当前组件镜像的镜像仓库账号密码。设置方式是：
 
 `HUB_USER` 设置账号
 

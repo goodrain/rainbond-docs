@@ -41,7 +41,7 @@ API服务处理三类请求：
 
 <img src="https://static.goodrain.com/images/docs/3.6/architecture/app-ci.png" width="100%" />
 
-Rainbond 应用构建服务处理CI过程，将输入源 包括 `源代码` 或 `Docker镜像` 或 `应用市场应用` 进行解析、编译、打包，最终生成 `应用（服务）抽象` 介质。
+Rainbond 应用构建服务处理CI过程，将输入源 包括 `源代码` 或 `Docker镜像` 或 `应用市场应用` 进行解析、编译、打包，最终生成 `应用（组件）抽象` 介质。
 
 传统意义上说，完整的CI过程会包括：设计、编码、打包、测试和发布，Docker镜像自推出以来逐步成为众多应用代码打包的新形式。现有的CI产品中已经在源码测试和Pipline方面做得非常成熟，例如Jenkins，Gitlab等，因此Rainbond在对于源码或Docker镜像的前置处理方面可以直接对接第三方服务，由第三方服务处理完成的源码或镜像再对接到 Rainbond-Chaos 模块进行应用抽象。
 
