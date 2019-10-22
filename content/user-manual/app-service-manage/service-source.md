@@ -1,13 +1,13 @@
 ---
-title: 服务构建源设置
-description: Rainbond服务的构建源设置和各语言编译参数配置文档
+title: 组件构建源设置
+description: Rainbond组件的构建源设置和各语言编译参数配置文档
 weight: 5017
 hidden: true
 ---
 
-### 服务构建源
+### 组件构建源
 
-Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/service_create/#从源码创建)、[镜像](/user-manual/app-creation/service_create/#从docker镜像创建)和[应用市场](/user-manual/app-creation/service_create/#从应用市场安装)，它们分别具有不同的属性提供配置。
+Rainbond内置组件创建有三种模式：[源码](/user-manual/app-creation/service_create/#从源码创建)、[镜像](/user-manual/app-creation/service_create/#从docker镜像创建)和[应用市场](/user-manual/app-creation/service_create/#从应用市场安装)，它们分别具有不同的属性提供配置。
 
 * 源码
 > 源码的构建源配置参数将是最为丰富的，包括基础的代码仓库信息包括（仓库地址，分支，Tag, 授权信息等)
@@ -18,17 +18,17 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 > 镜像的可配置参数主要是镜像地址，仓库信息和镜像启动命令等
 
 * 应用市场
-> 从应用市场安装的服务不提供更多的参数配置，主要展示来源于哪个云市应用。
+> 从应用市场安装的组件不提供更多的参数配置，主要展示来源于哪个云市应用。
 
 ### 构建源检测
 
-服务创建时对构建源进行语言检测，在后续的持续开发中，如果源码更改了语言类型，比如从Java-Maven类型更改为Dockerfile类型，需用执行重新检测源码操作，让Rainbond重新设定服务的编译方式才能生效。
+组件创建时对构建源进行语言检测，在后续的持续开发中，如果源码更改了语言类型，比如从Java-Maven类型更改为Dockerfile类型，需用执行重新检测源码操作，让Rainbond重新设定组件的编译方式才能生效。
 
 > Rainbond在源码编译过程中不会重新识别语言类型、
 
 ### 自动构建设置
 
-自动构建即通过一种方式自动触发Rainbond服务版本构建的操作，详细文档见[服务自动构建](/user-manual/app-service-manage/auto-deploy/)
+自动构建即通过一种方式自动触发Rainbond组件版本构建的操作，详细文档见[组件自动构建](/user-manual/app-service-manage/auto-deploy/)
 
 ### 构建参数设置
 
@@ -41,7 +41,7 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 | 启用OracleJDK(BUILD_ENABLE_ORACLEJDK)| |true| 默认不启用OracleJDK |
 | OracleJDK下载路径(BUILD_ENABLE_ORACLEJDK)| ||OracleJDK(linux amd64)下载路径|
 | Maven版本(BUILD_RUNTIMES_MAVEN) | 3.3.1 | 3.0.5,3.1.1,3.2.5,3.3.1,3.3.9|Maven版本|
-| Web服务器支持(BUILD_RUNTIMES_SERVER)| tomcat85| tomcat7,tomcat8,tomcat85,tomcat9,jetty7,jetty9||
+| Web组件器支持(BUILD_RUNTIMES_SERVER)| tomcat85| tomcat7,tomcat8,tomcat85,tomcat9,jetty7,jetty9||
 | 禁用Maven Mirror(BUILD_MAVEN_MIRROR_DISABLE) ||true|默认启用Maven mirror,若禁用Mirror则关于Mirror配置不生效|
 | MAVEN MIRROR OF配置(BUILD_MAVEN_MIRROR_OF)|*|||
 | MAVEN MIRROR_URL(BUILD_MAVEN_MIRROR_URL)| maven.goodrain.me|||
@@ -66,7 +66,7 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 | OpenJDK版本(BUILD_RUNTIMES)  | 1.8    | 1.6,1.7,1.8,1.9,10,11| OpenJDK版本     |
 | 启用OracleJDK(BUILD_ENABLE_ORACLEJDK)| |true| 默认不启用OracleJDK |
 | OracleJDK下载路径(BUILD_ENABLE_ORACLEJDK)| ||OracleJDK(linux amd64)下载路径|
-| Web服务器支持(BUILD_RUNTIMES_SERVER)| tomcat85| tomcat7,tomcat8,tomcat85,tomcat9,jetty7,jetty9||
+| Web组件器支持(BUILD_RUNTIMES_SERVER)| tomcat85| tomcat7,tomcat8,tomcat85,tomcat9,jetty7,jetty9||
 | 启动命令(BUILD_PROCFILE)|||`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar`|
 
 
@@ -90,7 +90,7 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 
 | 参数名称 | 默认值 | 可选值 | 说明 |
 | -------- | ------ | ------ | ---- |
-| web服务器支持(BUILD_RUNTIMES_SERVER)| apache |nginx| |
+| web组件器支持(BUILD_RUNTIMES_SERVER)| apache |nginx| |
 | PHP版本(BUILD_RUNTIMES)| 5.6.35 |5.5.38,5.6.35,7.0.29,7.1.16| |
 | 清除构建缓存(NO_CACHE)||true|默认不启用|
 
@@ -102,7 +102,7 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 
 | 参数名称 | 默认值 | 可选值 | 说明 |
 | -------- | ------ | ------ | ---- |
-| web服务器支持(BUILD_RUNTIMES_SERVER)| nginx |apache| |
+| web组件器支持(BUILD_RUNTIMES_SERVER)| nginx |apache| |
 
 #### NodeJS语言类型
 
@@ -124,7 +124,7 @@ Rainbond内置服务创建有三种模式：[源码](/user-manual/app-creation/s
 | -------- | ------ | ------ | ---- |
 | Node版本(BUILD_RUNTIMES)| 8.12.0 |4.9.1,5.12.0,6.14.4,7.10.1, 8.12.0,9.11.2,10.13.0,11.1.0|Node版本| 
 | 清除构建缓存(NO_CACHE)||true|默认不启用|
-| web服务器支持(BUILD_RUNTIMES_SERVER)| nginx|apache| |
+| web组件器支持(BUILD_RUNTIMES_SERVER)| nginx|apache| |
 
 #### .NetCore语言类型
 

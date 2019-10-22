@@ -40,15 +40,15 @@ grctl node install ···
 
 集群状态如果确认为正常，则进入下一阶段。
 
-#### 应用构建问题排查
+#### 组件构建问题排查
 
-当我们确认集群已经运行正常，接下来，就该进入构建自己应用的阶段。在构建过程中如果遇到任何报错，请参考 [应用构建排查](/troubleshoot/location-problem-copy/) 。
+当我们确认集群已经运行正常，接下来，就该进入构建自己组件的阶段。在构建过程中如果遇到任何报错，请参考 [组件构建排查](/troubleshoot/location-problem-copy/) 。
 
-一旦所构建的应用总览页面中的操作日志，显示 **构建完成** ，则进入下一阶段。
+一旦所构建的组件总览页面中的操作日志，显示 **构建完成** ，则进入下一阶段。
 
-#### 应用运行问题排查
+#### 组件运行问题排查
 
-当一个应用的操作日志显示 **构建完成** ，但是应用运行状态却显示 **运行异常** 或者 **部分实例运行异常**。请参考 [应用运行排查](/troubleshoot/app-run-problem/) 。
+当一个组件的操作日志显示 **构建完成** ，但是组件运行状态却显示 **运行异常** 或者 **部分实例运行异常**。请参考 [组件运行排查](/troubleshoot/app-run-problem/) 。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/Troubleshoot/location-problem-1.png" width="100%">
 

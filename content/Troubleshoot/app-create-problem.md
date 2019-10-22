@@ -1,7 +1,7 @@
 ---
-title: 应用构建排查
+title: 组件构建排查
 weight: 30007
-Description: "集群正常后，创建属于自己的应用时遇到问题的排查"
+Description: "集群正常后，创建属于自己的组件时遇到问题的排查"
 hidden: false
 pre: "<b>6.4 </b>"
 ---
@@ -11,7 +11,7 @@ pre: "<b>6.4 </b>"
 ### 镜像构建问题排查
 
 {{% notice note %}}
-由镜像构建，是Rainbond构建应用的一种基本方式，具体操作参见 [DOCKER镜像支持规范](/user-manual/app-creation/image-support/)
+由镜像构建，是Rainbond构建组件的一种基本方式，具体操作参见 [DOCKER镜像支持规范](/user-manual/app-creation/image-support/)
 {{% /notice %}}
 
 在构建的过程中，可能出现如下问题。
@@ -29,7 +29,7 @@ pre: "<b>6.4 </b>"
     - Rainbond服务器到镜像仓库服务器是否有网络限制。检查网络通信，端口是否开放
 
 {{% notice note %}}
-基于镜像构建应用，是一种非常稳健的构建方式。只要能够正常获取镜像，那么构建肯定可以成功。在运行时出现 **运行异常** 请参考[应用运行排查](/troubleshoot/app-run-problem/)
+基于镜像构组件，是一种非常稳健的构建方式。只要能够正常获取镜像，那么构建肯定可以成功。在运行时出现 **运行异常** 请参考[组件运行排查](/troubleshoot/app-run-problem/)
 {{% /notice %}}
 
 ### 基于Dockerfile源码构建问题排查
@@ -93,7 +93,7 @@ Java语言是市面上使用最多的开发语言。Rainbond除了直接部署ja
 在进入maven构建阶段后，操作日志将打印以 `[INFO] [WARNING] [ERROR]` 等字样开头的maven构建信息。在这个阶段报错，原因非常复杂多变。我们准备了专门的文档来描述这个过程的原理，相关设置以及具体排查文档。请依次详读以下文档：
 
 - [RAINBOND构建JAVA MAVEN项目原理解读](/user-manual/app-creation/language-support/java_more/java-maven-de/)
-- [JAVA MAVEN源码构建应用](/user-manual/app-creation/language-support/java_more/java-maven/)
+- [JAVA MAVEN源码构建组件](/user-manual/app-creation/language-support/java_more/java-maven/)
 - [RAINBOND源码构建JAVA项目选取JDK](/advanced-scenarios/devops/how-to-select-jdk/)
 - [RAINBOND源码构建JAVA项目配置MAVEN仓库](/advanced-scenarios/devops/how-to-config-maven/)
 

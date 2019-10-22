@@ -17,8 +17,8 @@ Rainbond官方文档系统部署在我们的公有云环境中。现在以此场
 
 ### 操作配置方式
 
-1. 基于源码创建服务，参考文档 [从源码创建服务](/user-manual/app-creation/creation-process/#从源码创建)
-2. 进入服务管理-构建源管理-打开Git-Webhook功能，可以获取到hook地址。 参考文档 [服务自动构建设置](/user-manual/app-service-manage/auto-deploy/)
+1. 基于源码创建组件，参考文档 [从源码创建组件](/user-manual/app-creation/creation-process/#从源码创建)
+2. 进入组件管理-构建源管理-打开Git-Webhook功能，可以获取到hook地址。 参考文档 [组件自动构建设置](/user-manual/app-service-manage/auto-deploy/)
 3. 前往Github或其他Git server配置Webhooks.
 
 <img src="https://static.goodrain.com/images/docs/5.0/operation-manual/rainbond-docs3.png" style="border:1px solid #eee;width:85%">
