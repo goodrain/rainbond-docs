@@ -16,7 +16,7 @@ Hidden: true
 
 * 不同的服务
 
-  > 一般是指不同的应用的不同版本，在Rainbond平台是不同的服务组件。
+  > 一般是指不同的应用的不同版本，在Rainbond平台是不同的组件。
 
 {{site.data.alerts.callout_success}}
 

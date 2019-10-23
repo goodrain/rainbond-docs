@@ -140,13 +140,13 @@ CMD [ "mysqld" ]
 
 ### 创建并配置mysql-master服务
 
-#### 创建mysql-master服务组件
+#### 创建mysql-master组件
 
 代码地址：https://github.com/goodrain-apps/percona-mysql.git?dir=5.7
 
 代码分支：cluster
 
-通过Dockerfile创建服务 参考文档 [基于Dockerfile源码创建服务](/user-manual/app-creation/language-support/dockerfile/)
+通过Dockerfile创建组件 参考文档 [基于Dockerfile源码创建组件](/user-manual/app-creation/language-support/dockerfile/)
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/mysql-cluster/mysql-cluster1.png" width="100%">
 
@@ -174,13 +174,13 @@ CMD [ "mysqld" ]
 
 ### 创建Slave服务
 
-#### 创建mysql-slave服务组件
+#### 创建mysql-slave组件
 
-创建方式同mysql-master服务组件一致。
+创建方式同mysql-master组件一致。
 
 #### mysql-slave服务 相关配置
 
-区别于mysql-master服务组件，mysql-slave服务组件配置如下：
+区别于mysql-master组件，mysql-slave组件配置如下：
 
 - 开启3307端口对内服务，并更改使用别名为 `MYSQL_SLAVE`
 
@@ -194,7 +194,7 @@ CMD [ "mysqld" ]
 
 {{% notice notice %}}
 
-mysql-slave服务组件，可以随意扩容，脚本中写好的逻辑会让其自动向mysql-master注册。
+mysql-slave组件，可以随意扩容，脚本中写好的逻辑会让其自动向mysql-master注册。
 
 {{% /notice %}}
 
