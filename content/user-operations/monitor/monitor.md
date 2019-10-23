@@ -3,7 +3,7 @@ title: 监控
 date: 2019-03-11T12:50:54+08:00
 draft: false
 weight: 1402
-description: 主机、服务、容器(应用异常)监控
+description: 主机、组件、容器(应用异常)监控
 hidden: true
 ---
 
