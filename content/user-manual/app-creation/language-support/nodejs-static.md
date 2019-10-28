@@ -95,7 +95,7 @@ BUILD_NPM_REGISTRY=http://X.X.X.X:8080/repository/npm-group/
 
 ###### yarn 私服设置
 
-yarn 构建并不支持环境变量设置私服，但是可以通过 `preinstall` 关键字，可以设置私服地址。
+yarn 构建并不支持环境变量设置私服，但是可以通过 `preinstall` 关键字设置私服地址。
 
 ```json
 "scripts": {
@@ -104,7 +104,7 @@ yarn 构建并不支持环境变量设置私服，但是可以通过 `preinstall
 },
 ```
 
-在上述的 `package.json` 文件中，关键字 `preinstall` 指定了在安装依赖前所做的操作。示例中问执行代码根目录下的一个脚本文件，其内容为设置构建私服：
+在上述的 `package.json` 文件中，关键字 `preinstall` 指定了在安装依赖（yarn install）前所做的操作。示例中为执行代码根目录下的一个脚本文件，其内容为设置构建私服：
 
 ```bash
 #!/bin/bash

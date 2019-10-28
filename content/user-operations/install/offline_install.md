@@ -29,7 +29,7 @@ hidden: true
 
 ```bash
 # 有网环境下载离线包,并同步到离线环境
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-09-03-5.1.7.tgz
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-10-20-5.1.8.tgz
 
 ```
 
