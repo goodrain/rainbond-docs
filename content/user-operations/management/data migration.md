@@ -11,14 +11,8 @@ hidden: true
 - 在数据库节点安装docker
 
 ```
-# 安装一些必要的系统工具
-yum install -y yum-utils device-mapper-persistent-data lvm2
-# 添加软件源信息
-yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-# 更新 yum 缓存
-yum makecache fast
-# 安装 Docker-ce
-yum -y install docker-ce
+# 安装docker
+export VERSION=18.06 && curl -fsSL http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/docker/install-docker.sh | bash -s docker
 # 启动docker
 systemctl start docker
 # 拉取rbd-db镜像
@@ -39,10 +33,7 @@ mkdir -p /opt/rainbond/etc/
 
 ```
 # 查看数据库连接信息
-root@rainbond:~# cat /opt/rainbond/.init/updatedb.sh
-#!/bin/bash
-
-set -e
+root@rainbond:~# cat /opt/rainbond/.init/updatedb.sh |grep ^DB
 
 DB_HOST=10.10.10.10
 DB_PORT=3306
@@ -50,7 +41,8 @@ DB_USER=nugh4Z  #数据库用户
 DB_PASS=Eu0aiDee #数据库密码
 NET_TYPE=internal
 
-# 使用命令dps在管理节点查看rbd-db容器并进入容器，备份当前数据
+# 进入rbd-db容器，备份当前数据
+din rbd-db
 # 备份数据,直接将数据重定向至持久化目录中
 mysqldump -u用户 -p密码 --all-databases > /data/all.sql
 # 查看数据备份是否成功
@@ -335,9 +327,14 @@ grctl cluster
 
 ```
 # 将rbd-db配置文件移走
-mv /etc/systemd/system/rbd-db.service /backup
+mv /opt/rainbond/conf/db.yaml /backup
+rm -rf  /etc/systemd/system/rbd-db.service 
 # 停止rbd-db服务
 systemctl stop rbd-db
+# 将rbd-db从组件列表删除
+grctl node condition delete <NODE ID> --name rbd-db
+# 更新组件
+node service update
 ```
 
 到此完成数据迁移
