@@ -66,7 +66,7 @@ hidden: true
 #### 测试对接是否成功
 通过私有仓库创建组件的方式来测试云帮能否通过SSH关于获取Git仓库中的代码。
 
-- 创建服务
+- 创建组件
 <img src="https://static.goodrain.com/images/docs/3.6/best-practice/ci-cd/ssh-02.png"  width="100%" />
 
 - 能够识别语言，代表对接成功

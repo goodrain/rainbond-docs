@@ -57,7 +57,7 @@ hidden: true
    EXPOSE 8080
    ```
 
-2. 确认源码的`<dir_name>`或`<filename>.war`存在，并且与Dockerfile文件存在同一目录，以此目录为根目录开始创建服务
+2. 确认源码的`<dir_name>`或`<filename>.war`存在，并且与Dockerfile文件存在同一目录，以此目录为根目录开始创建组件
 3. 安装Redis服务并建立依赖关系，参考文档 [依赖服务](/user-manual/app-service-manage/service-rely/#服务如何连接依赖服务)
 4. 应用配置redis：配置变量`REDIS_URL`到应用环境变量中，值为 `127.0.0.1:6379`；配置变量`REDIS_SESSION`到应用环境变量中，值为`true`。
 5. 重启应用以适配
