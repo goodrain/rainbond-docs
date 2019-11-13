@@ -154,7 +154,8 @@ ls /mnt/ | wc -l
 #### 2.2 安装GlusterFS客户端程序
 
 ```bash
-yum -y install  glusterfs-fuse
+yum install -y centos-release-gluster
+yum install -y glusterfs glusterfs-server glusterfs-fuse glusterfs-rdma
 ```
 
 #### 2.3 挂载GlusterFS数据卷
