@@ -13,7 +13,7 @@ Rainbond或许是自以为是的，它定义了自己的应用打包规范，应
 
 Rainbond的底层是继承Kubernetes并扩展的资源管理能力，面对Iaas，虚拟机和物理服务器都能够提供强大的自运维能力和故障恢复能力。将各类计算资源合理的组装形成Rainbond数据中心的关键抽象概念，提供租户级的资源隔离和限制能力，它的资源调配和调度、应用的生命周期管理和网络流量的管控都是有机的整体。
 
-这里我们不再详细介绍Rainbond所做的一切，我详细你阅读了后续的所有文档，或观看了[Rainbond的基础使用视频](https://www.rainbond.com/video.html)你能对Rainbond有个全面的理解。
+这里我们不再详细介绍Rainbond所做的一切，我相信你阅读了后续的所有文档，或观看了[Rainbond的基础使用视频](https://www.rainbond.com/video.html)你能对Rainbond有个全面的理解。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/Rainbond%E4%BA%A7%E5%93%81%E6%9E%B6%E6%9E%84.png" width="100%">
 
