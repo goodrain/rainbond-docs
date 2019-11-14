@@ -18,26 +18,8 @@ hidden: true
 
 ### 一、GlusterFS的安装
 
-#### 1.1 存储节点配置hostname解析
 
-**所有节点都需要配置存储节点hostname解析**
-
-```
-# gfs01节点更新hostname
-hostname gfs01
-echo "gfs01" > /etc/hostname
-# gfs02节点更新hostname
-hostname gfs02
-echo "gfs02" > /etc/hostname
-# gfs01/gfs02配置hosts解析
-[root@gfs01 ~]# cat /etc/hosts
-10.10.10.13 gfs02
-10.10.10.14 gfs01
-```
-
-配置完成后确定存储节点可以正常ping通gfs01和gfs02
-
-#### 1.2 格式化磁盘、创建目录并挂载
+#### 1.1 格式化磁盘、创建目录并挂载
 
 ```
 # 查看可用磁盘
@@ -57,7 +39,7 @@ gfs01和gfs02节点都需要执行如上操作。
 df -h | grep data
 ```
 
-#### 1.3 安装启动glusterfs服务
+#### 1.2 安装启动glusterfs服务
 
 ```bash
 apt-get -y install glusterfs-server
@@ -71,7 +53,7 @@ systemctl status glusterfs-server
 仅在其中1个节点执行操作即可
 
 ```bash
-[root@gfs01 ~]# gluster peer probe gfs02
+[root@gfs01 ~]# gluster peer probe 10.10.10.14
 peer probe: success.
 ```
 
@@ -81,7 +63,7 @@ peer probe: success.
 [root@gfs02 ~]# gluster peer status
 Number of Peers: 1
 
-Hostname: gfs01
+Hostname: 10.10.10.13
 Uuid: ba10c6e2-2266-40a4-aaa2-0d26ea2d8786
 State: Peer in Cluster (Connected)
 ```
@@ -93,7 +75,7 @@ State: Peer in Cluster (Connected)
 mkdir  -p /data/glusterfs
 
 # 在gfs01执行创建卷操作
-[root@gfs01 ~]# gluster volume create data replica 2 gfs02:/data/glusterfs gfs01:/data/glusterfs
+[root@gfs01 ~]# gluster volume create data replica 2 10.10.10.14:/data/glusterfs 10.10.10.13:/data/glusterfs
 
 volume create: data: success: please start the volume to access data
 
@@ -106,8 +88,8 @@ Status: Created
 Number of Bricks: 1 x 2 = 2
 Transport-type: tcp
 Bricks:
-Brick1: gfs02:/data/glusterfs
-Brick2: gfs01:/data/glusterfs
+Brick1: 10.10.10.14:/data/glusterfs
+Brick2: 10.10.10.13:/data/glusterfs
 Options Reconfigured:
 performance.readdir-ahead: on
 
@@ -120,8 +102,8 @@ volume start: data: success
 
 ```
 # 挂载
-[root@gfs01 ~]# mount -t glusterfs gfs02:/data /mnt
-[root@gfs02 ~]# mount -t glusterfs gfs01:/data /mnt
+[root@gfs01 ~]# mount -t glusterfs 10.10.10.14:/data /mnt
+[root@gfs02 ~]# mount -t glusterfs 10.10.10.13:/data /mnt
 
 # gfs02 写文件
 touch /mnt/{1..10}.txt
@@ -130,43 +112,9 @@ touch /mnt/{1..10}.txt
 ls /mnt/ | wc -l
 ```
 
-### 二、 对接存储GlusterFS
+> 到此完成GlusterFS的部署
 
-**此步骤应该在执行安装前操作，避免安装完成后切换存储不正确导致集群不可用，下述步骤集群所属节点都需要执行。**
-
-#### 2.1 所有节点配置存储节点hostname解析
-
-所有节点(管理，计算，网关)都更新配置hosts文件
-
-```bash
-10.10.10.13 gfs01
-10.10.10.14 gfs02
-```
-
-> 验证方式： 任意集群中节点都可以正常ping通gfs01和gfs02
-
-#### 2.2 安装GlusterFS客户端程序
-
-```bash
-apt-get install glusterfs-server -y
-
-```
-
-#### 2.3 挂载GlusterFS数据卷
-
-```
-# 创建挂载点
-mkdir /grdata
-# 开机挂载,将以下配置写入/etc/fstab
-gfs01:/data /grdata glusterfs   backupvolfile-server=gfs02,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0
-# 挂载
-mount -a
-# 验证,应该存有安装时的验证文件
-ls /grdata/
-rm -rf /grdata/*.txt
-```
-
-#### 2.4 其他事项说明
+### 二、GlusterFS存储迁移
 
 如果是已经安装好集群想切换到GlusterFS上,请参考如下流程:
 
@@ -199,7 +147,7 @@ systemctl stop nfs-server
 systemctl disable nfs-server
 ```
 
-### 三、 通过ansible安装GlusterFS
+### 三、通过ansible安装GlusterFS
 
 
 ```
