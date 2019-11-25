@@ -194,13 +194,46 @@ wget https://pkg.rainbond.com/releases/common/v5.1/grctl
 chmod +x ./grctl
 
 # 此示例表示, 数据中心数据库和控制台数据库都使用外部数据库(不分离)
-./grctl init --role manage --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP> --vip <为网关节点集群预置的虚拟IP>  --enable-exdb true <默认禁用使用外部数据库，启动值为true> --exdb-host <数据库IP地址> --exdb-port <数据库端口号> --exdb-user <数据库用户名>   --exdb-passwd  <数据库密码>
+./grctl init \
+--role manage,gateway <节点属性> \
+--iip <内网ip>  \
+--eip <访问应用使用的公网IP/网关节点IP> \
+--vip <为网关节点集群预置的虚拟IP>  \
+--enable-exdb true <默认禁用使用外部数据库，启动值为true> \
+--exdb-host <数据库IP地址> \
+--exdb-port <数据库端口号>  \
+--exdb-user <数据库用户名>  \
+--exdb-passwd  <数据库密码>
 
 # 此示例表示, 数据中心数据库使用本地数据库(rbd-db), 控制台数据库都使用外部数据库
-./grctl init --role manage --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP>  --vip <为网关节点集群预置的虚拟IP> --enable-exdb true <默认禁用使用外部数据库，启动值为true> --enable-excsdb-only true <控制台数据库使用外部数据库> --excsdb-host <数据库IP地址> --excsdb-port <数据库端口号> --excsdb-user <数据库用户名>   --excsdb-passwd  <数据库密码>
+./grctl init \
+--role manage,gateway <节点属性> \
+--iip <内网ip> \
+--eip <访问应用使用的公网IP/网关节点IP>  \
+--vip <为网关节点集群预置的虚拟IP> \
+--enable-exdb true <默认禁用使用外部数据库，启动值为true> \
+--enable-excsdb-only true <控制台数据库使用外部数据库> \
+--excsdb-host <数据库IP地址> \
+--excsdb-port <数据库端口号>  \
+--excsdb-user <数据库用户名>   \
+--excsdb-passwd  <数据库密码>
 
 # 此示例表示, 数据中心数据库和控制台数据库都使用外部数据库(分离)
-./grctl init --role manage --iip <内网ip> --eip <访问应用使用的公网IP/网关节点IP>  --vip <为网关节点集群预置的虚拟IP> --enable-exdb true <默认禁用使用外部数据库，启动值为true> -exdb-host <数据中心数据库IP地址> --exdb-port <数据中心数据库端口号> --exdb-user <数据中心数据库用户名>    --exdb-passwd <数据中心数据库密码> --enable-excsdb-only true <控制台数据库使用外部数据库>-excsdb-host <控制台数据库IP地址> --excsdb-port <控制台数据库端口号> --excsdb-user <控制台数据库用户名>   --excsdb-passwd  <控制台数据库密码>
+./grctl init \
+--role manage,gateway <节点属性> \
+--iip <内网ip> \
+--eip <访问应用使用的公网IP/网关节点IP>  \
+--vip <为网关节点集群预置的虚拟IP> \
+--enable-exdb true <默认禁用使用外部数据库，启动值为true> \
+-exdb-host <数据中心数据库IP地址> \
+--exdb-port <数据中心数据库端口号> \
+--exdb-user <数据中心数据库用户名>  \
+--exdb-passwd <数据中心数据库密码> \
+--enable-excsdb-only true <控制台数据库使用外部数据库> \
+--excsdb-host <控制台数据库IP地址> \
+--excsdb-port <控制台数据库端口号>  \
+--excsdb-user <控制台数据库用户名>   \
+--excsdb-passwd  <控制台数据库密码>
 
 ```
 
