@@ -202,8 +202,10 @@ chmod +x ./grctl
 --enable-exdb true <默认禁用使用外部数据库，启动值为true> \
 --exdb-host <数据库IP地址> \
 --exdb-port <数据库端口号>  \
---exdb-user <数据库用户名>  \
---exdb-passwd  <数据库密码>
+--exdb-user <数据库用户名>   \
+--exdb-passwd  <数据库密码>   \
+--storage  gfs  <存储类型>     \  
+--storage-args  "10.10.10.13:/data /grdata glusterfs backupvolfile-server=10.10.10.14,use-readd irp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0"   <挂载已搭建好的gfs集群> 
 
 # 此示例表示, 数据中心数据库使用本地数据库(rbd-db), 控制台数据库都使用外部数据库
 ./grctl init \
@@ -216,7 +218,9 @@ chmod +x ./grctl
 --excsdb-host <数据库IP地址> \
 --excsdb-port <数据库端口号>  \
 --excsdb-user <数据库用户名>   \
---excsdb-passwd  <数据库密码>
+--excsdb-passwd  <数据库密码>   \
+--storage  gfs  <存储类型>       \  
+--storage-args  "10.10.10.13:/data /grdata glusterfs backupvolfile-server=10.10.10.14,use-readd irp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0"   <挂载已搭建好的gfs集群> 
 
 # 此示例表示, 数据中心数据库和控制台数据库都使用外部数据库(分离)
 ./grctl init \
@@ -233,7 +237,9 @@ chmod +x ./grctl
 --excsdb-host <控制台数据库IP地址> \
 --excsdb-port <控制台数据库端口号>  \
 --excsdb-user <控制台数据库用户名>   \
---excsdb-passwd  <控制台数据库密码>
+--excsdb-passwd  <控制台数据库密码>   \
+--storage  gfs  <存储类型>            \  
+--storage-args  "10.10.10.13:/data /grdata glusterfs backupvolfile-server=10.10.10.14,use-readd irp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0"   <挂载已搭建好的gfs集群> 
 
 ```
 
