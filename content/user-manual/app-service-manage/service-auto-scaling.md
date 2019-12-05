@@ -1,5 +1,5 @@
 ---
-title: 组件自动伸缩
+title: 自动伸缩
 description: 自动伸缩会根据观察的指标,自动缩放组件.
 weight: 5007
 hidden: true
@@ -23,15 +23,15 @@ hidden: true
 ### 组件水平自动伸缩
 
 <div>
-  <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/api-doc/rainbond/autoscaler/rbd-autoscaler.png" />
+  <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/autoscaler/%E8%87%AA%E5%8A%A8%E4%BC%B8%E7%BC%A9%E5%8E%9F%E7%90%86%E5%9B%BE.png" width="80%" />
   <p align="center">组件水平伸缩原理图</p>
 </div>
 
 `Horizontal Pod Autoscaler` 由两部分组成, `HPA 资源` 和 `HPA 控制器`. `HPA 资源` 定义了组件的行为, 包括指标, 期望值, 和最大最小副本数等. `HPA 控制器`, 周期性地检查检查组件所设置的指标; 其周期由 `controller manager` 的参数 `--horizontal-pod-autoscaler-sync-period` 控制, 默认是 15 秒.
 
-`rbd-worker` 负责将你在云帮控制台为组件设置的指标, 期望值, 和最大最小副本数等参数, 转化成 kubernetes 集群中的 `HPA 资源`. 供 `HPA 控制器`使用.
+`Rbd Worker` 负责将你在云帮控制台为组件设置的指标, 期望值, 和最大最小副本数等参数, 转化成 kubernetes 集群中的 `HPA 资源`. 供 `HPA 控制器`使用.
 
-在每个周期中, HPA 控制器通过 `mertrics API` 查询用户为每个组件设置的指标; 当指标超过或低于期望阈值时, HPA 控制器会调整 `Deployment/Statefulset` 中的`副本数`, 最后由 `Deployment/Statefulset` 完成组件副本数的增加或减少.
+在每个周期中, HPA 控制器通过 `mertrics API` 查询用户为每个组件设置的指标; 当指标超过或低于期望阈值时, HPA 控制器会调整 `Deployment/Statefulset` 中的`副本数`, 最后由 `Deployment/Statefulset` 完成组件实例数的增加或减少.
 
 HPA 控制器一般从 `metrics.k8s.io`, `custom.metrics.k8s.io` 和 `external.metrics.k8s.io` 三个聚合 API 观察指标.
 
