@@ -42,3 +42,28 @@ node service update <组件名>
 # 启动停止服务
 node service start/stop <组件名>
 ```
+
+### 配置 node 垃圾回收
+
+node 的计算节点包含了 kubernetes 的计算节点, k8s 计算节点的 kubelet 有垃圾回收的功能, 包括 `镜像回收` 和 `容器回收`. 但是 k8s 的 kubelet 不运行在 Rainbond 的管理节点,
+所以 Rainbond 的管理节点缺乏垃圾回收的能力. 一旦平台运行的时间长了, 镜像就会过多, 导致管理节点压力过大. 为了缓解管理节点磁盘的压力, Rainbond 在 5.1.9 赋予了管理节点与 kubelet
+相同的镜像清理能力, 每 5 分钟会清理一遍不再使用的镜像.
+
+{{% notice notice %}}
+
+Rainbond 的管理节点负责镜像的拉取, 将源码和 Dockerfile 构建成相应的镜像, 并不会运行这些镜像; 所以, 管理节点只需镜像回收, 并不需要容器回收.
+
+{{% /notice %}}
+
+镜像回收由 `HighThresholdPercent` 和 `LowThresholdPercent` 两个因素影响, 磁盘的使用率高于 `HighThresholdPercent` 将会触发镜像回收,
+镜像回收会删除最近最少使用的镜像, 直到到达 `LowThresholdPercent` 为止.
+
+#### 垃圾回收配置
+
+用户可以使用以下 node 参数调整镜像垃圾回收：
+
+1. `image-gc-high-threshold`, 触发镜像垃圾回收的磁盘使用率. 默认值为 85％.
+2. `image-gc-low-threshold`, 镜像垃圾回收尝试释放的磁盘使用率. 默认值为 75%.
+3. `minimum-image-ttl-duration`, 镜像的最小存活时间. 默认值为 2 小时.
+4. `image-gc-period`, 执行镜像回收的时间间隔. 默认值为 5 分钟.
+5. `enable-image-gc`, 镜像回收开关. 默认为 true, 即开启.
