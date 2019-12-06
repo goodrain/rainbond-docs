@@ -44,9 +44,20 @@ HPA 控制器一般从 `metrics.k8s.io`, `custom.metrics.k8s.io` 和 `external.m
 
 {{% notice info %}}
 
-目前 5.1.9, Rainbond 只支持 `资源指标`, 即与 CPU 和内存相关的指标. 暂不支持自定义指标和外部指标
+目前 5.1.9, Rainbond 只支持 `资源指标`, 即与 CPU 和内存相关的指标. 虚线框里自定义指标和外部指标, 会在未来的版本中实现.
 
 {{% /notice %}}
+
+### 水平自动伸缩的算法
+
+从最基本的角度来看，Horizo​​ntal Pod Autoscaler 根据 指标目标值 和 指标实际值 的比来计算期望的实例数:
+
+```bash
+desiredReplicas = ceil[currentReplicas * ( currentMetricValue / desiredMetricValue )]
+```
+
+举个例子, 如果指标实际值是 200m, 期望值时100m, 那么实例数将会翻倍, 因为 `200.0 / 100.0 == 2.0`; 如果实际值降低到了 50m, 那么
+实例数不变, 因为 `50.0 / 100.0 == 0.5`(比率接近 1.0, HPA 控制器将会跳过缩放).
 
 ## 组件自动伸缩的使用
 
