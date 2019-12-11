@@ -6,10 +6,11 @@ weight: 6008
 ---
 #### OAuth服务认证
 - 登录前通过第三方用户登录认证
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG61.png)
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG61.png" width = "800"alt=""/>
+
 - 登录后认证
 在平台右上角的用户信息内可以进行OAuth服务认证,与第三方平台互联
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/485890039%2C2872359714173ap.png)
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/485890039%2C2872359714173ap.png" width = "800"alt=""/>
 
 
 
