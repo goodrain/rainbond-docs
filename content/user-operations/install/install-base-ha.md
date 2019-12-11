@@ -174,6 +174,8 @@ wget https://pkg.rainbond.com/releases/common/v5.1/grctl && chmod +x ./grctl
 
 #### 5.1 扩容命令
 
+注意：扩容完第二个管理节点以后需继续扩容第三个管理节点，否则将会造成集群状态异常
+
 ```bash
 方法一 适用于知悉节点root密码
 grctl node add --iip <管理节点ip> -p <root密码> --role manage,gateway --install
@@ -225,7 +227,35 @@ update console.region_info set url="https://<VIP_OF_MANAGE>:8443",wsurl="ws://<V
 < VIP >  kubeapi.goodrain.me goodrain.me repo.goodrain.me lang.goodrain.me maven.goodrain.me region.goodrain.me
 ```
 
-#### 7.3 调整网络组件配置
+#### 7.3 调整etcd配置
+
+分别调整 etcd集群信息
+
+管理节点
+```
+cat /opt/rainbond/scripts/start-etcd.sh |grep ETCD_INITIAL_CLUSTER=
+
+ETCD_INITIAL_CLUSTER="etcd1=http://<管理节点1IP>:2380,etcd2=http://<管理节点2IP>:2380,etcd3=http://<管理节点3IP>:2380"
+```
+计算节点
+```
+cat /opt/rainbond/scripts/start-etcd-proxy.sh
+#!/bin/sh
+
+exec docker \
+  run \
+  --privileged \
+  --restart=always \
+  --net=host \
+  --name etcd-proxy \
+  goodrain.me/etcd:v3.2.25 \
+  /usr/local/bin/etcd \
+  grpc-proxy start \
+  --endpoints=http://<管理节点1IP>:2379,http://<管理节点2IP>:2379,http://<管理节点3IP>:2379 \
+  --listen-addr=127.0.0.1:2379
+```
+
+#### 7.4 调整网络组件配置
 
 以calico网络为例，在管理节点修改配置文件中指向etcd的地址
 
@@ -247,7 +277,7 @@ vi /opt/rainbond/etc/cni/10-calico.conf
 }
 ```
 
-#### 7.4 调整node配置
+#### 7.5 调整node配置
 
 在管理节点调整node配置
 
@@ -268,7 +298,7 @@ exec /usr/local/bin/node $NODE_OPTS
 ```bash
 systemctl restart node.service
 systemctl restart calico
-systemctl restart rbd-dns
+systemctl restart etcd
 ```
 
 计算节点重启以下服务
@@ -276,8 +306,8 @@ systemctl restart rbd-dns
 ```bash
 systemctl restart node.service
 systemctl restart calico
-systemctl restart rbd-dns
 systemctl restart kubelet
+systemctl restart etcd-proxy
 ```
 
 #### 查看集群状态
