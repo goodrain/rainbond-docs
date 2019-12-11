@@ -55,7 +55,7 @@ Rainbond 的管理节点负责镜像的拉取, 将源码和 Dockerfile 构建成
 
 {{% /notice %}}
 
-镜像回收由 `HighThresholdPercent` 和 `LowThresholdPercent` 两个因素影响, 磁盘的使用率高于 `HighThresholdPercent` 将会触发镜像回收,
+镜像回收由磁盘的 `HighThresholdPercent` 和 `LowThresholdPercent` 两个因素影响, 当磁盘的使用率高于 `HighThresholdPercent` 将会触发镜像回收,
 镜像回收会删除最近最少使用的镜像, 直到到达 `LowThresholdPercent` 为止.
 
 #### 垃圾回收配置
