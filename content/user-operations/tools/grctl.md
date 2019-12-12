@@ -10,7 +10,7 @@ hidden: true
 |-----------|-------------|
 |平台应用控制|`grctl service get <应用别名> -t <团队别名>` 查看应用详情<br>`grctl service stop <团队别名>/<应用别名>` 关闭指定团队内某个应用<br>`grctl service start <团队别名>/<应用别名>` 启动指定团队内某个应用<br>`grctl service list -t <团队别名>` 列出应用信息<br>`grctl tenant list`列出所有团队<br>`grctl tenant get <团队别名>`列出该团队所有应用<br>`grctl tenant res <团队别名>`该团队使用资源`grctl tenant batchstop <团队别名>`批量停团队应用<br>`grctl exec <PODNAME> <CMD>`<br>`grctl msg`应用异常处理|
 |集群节点控制|`grctl init`初始化数据中心<br>`grctl cluster` 查看集群情况<br>`grctl node list` 查看集群节点列表<br>`grctl node get <节点ID>`查看节点状态<br>`grctl  node down <节点ID>`下线指定节点<br>`grctl  node up <节点ID>`上线指定节点<br>`grctl  node delete <节点ID>`删除指定节点<br>`grctl  node cordon <节点ID>`将某个节点设置为不可调度<br>`grctl  node uncordon <节点ID>`恢复某个节点的调度<br>`grctl node resource`查看集群资源使用情况<br>`grctl node rule`节点身份属性<br>`grctl node label`节点label标签<br>`grctl node condition`节点condition<br>|
-|集群运维控制|`grctl node add`节点扩容<br>`grctl reset`重置当前节点<br>`grctl domain`调整集群默认解析`grctl msg/alerting`集群报警功能|
+|集群运维控制|`grctl node add`节点扩容<br>`grctl reset`重置当前节点<br>`grclt domain`调整集群默认解析`grctl msg/alerting`集群报警功能|
 
 > 如何得知当前应用的 <团队别名> <应用别名>？
 
@@ -182,20 +182,27 @@ OPTIONS:
 |network|calico|flannel|应用网络类型|
 |enable-check|enable|disable|默认开启系统检查|
 
-#### 初始化时对接外部存储
+#### 初始化对接存储
 
-```bash
-# 示例初始化集群，使用阿里云NAS
-./grctl init --iip 172.24.202.225 --eip 39.104.75.32 --rainbond-version devel --rainbond-repo https://github.com/ysicing/rainbond-ansible.git --storage nas --storage-args "82b554a292-rvg38.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
-```
-
-#### 初始化时对接外部数据库
-
-> 5.1.3版本支持
+Rainbond在执行集群初始化的时候，可以通过指定参数对接已存在的存储（NAS/GlusterFS）
 
 |参数|说明|
 |-----------|-------------|
-|--enable-exdb| 默认禁用使用外部数据库，启动值为true|
+|--storage| 存储类型|
+|--storage-args| 存储挂载参数|
+
+```bash
+# 示例初始化集群，使用阿里云NAS
+./grctl init --storage nas --storage-args "82b554a292-rvg38.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
+# 示例初始化集群，使用GlusterFS
+./grctl init  --storage gfs --storage-args "10.10.10.13:rbdgluster /grdata glusterfs backupvolfile-server=10.10.10.14,use-readdirp=no,log-level=WARNING,log-file=/var/log/gluster.log 0 0"
+```
+
+#### 初始化对接外部数据库
+
+|参数|说明|
+|-----------|-------------|
+| ---enable-exdb | 默认禁用使用外部数据库，启动值为true|
 |--exdb-type| 默认数据库类型，目前只支持mysql|
 |--exdb-host/--exdb-port/--exdb-user/--exdb-passwd| 外部数据库连接信息|
 |--enable-excsdb-only| console使用外部数据库|
