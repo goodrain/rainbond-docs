@@ -1,5 +1,5 @@
 ---
-title: "扩容网关节点"
+title: "手动扩容网关节点"
 date: 2019-03-11T12:50:54+08:00
 draft: false
 weight: 1312
