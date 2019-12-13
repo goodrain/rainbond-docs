@@ -87,7 +87,7 @@ vrrp_script check_gateway {
 ```
 [root@gateway01 ~]# vi /etc/keepalived/check_gateway_status.sh 
 #!/bin/bash                                                                                             
-/usr/bin/curl -I http://localhost:10254/healthz && /usr/bin/curl -I http://localhost:8888/v2/health
+/usr/bin/curl -I http://localhost:18080/healthz && /usr/bin/curl -I http://localhost:8888/v2/health
 
 if [ $? -ne 0 ];then
                                                                    
