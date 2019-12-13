@@ -1,5 +1,5 @@
 ---
-title: 自动伸缩
+title: 组件实例自动伸缩
 description: 自动伸缩会根据观察的指标,自动缩放组件.
 weight: 5007
 hidden: true
