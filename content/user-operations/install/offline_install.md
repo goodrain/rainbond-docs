@@ -48,6 +48,8 @@ cd offline && ./offline.sh
  ./grctl init --install-type offline  --iip <当前机器内网ip>  --domain <自定义域名>
 ```
  
+更多初始化参数，请阅读[节点初始化重要参数说明](/user-operations/tools/grctl/#节点初始化重要参数说明) 或者通过 `grctl init -h` 获取。
+
  提示: 离线部署Rainbond平台，在平台上部署的服务需要通过域名访问时需要配置本地解析，具体步骤请参考[域名解析](https://t.goodrain.com/t/topic/1239)
  
 > 安装过程如有报错，请参照[安装问题排查](/troubleshoot/install-problem/)，排查问题；若遇到无法解决的错误请于[Rainbond社区](https://t.goodrain.com)留言。
