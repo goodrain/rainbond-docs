@@ -21,11 +21,11 @@ hidden: true
 
 #### 2.1 同步离线包
 
-目前最新的离线安装版本是: v5.1.8-release
+目前最新的离线安装版本是: v5.1.9-release
 
 ```
 # 有网环境下载离线包,并同步到离线环境
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-10-20-5.1.8.tgz
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-12-12-5.1.9.tgz 
 
 ```
 
