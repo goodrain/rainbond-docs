@@ -11,19 +11,8 @@ hidden: true
 
 ### 二、安装说明
 
-#### 2.1 操作系统要求
+#### 机器资源要求与规划
 
-
-> 操作系统要求
-
-| 系统     | 版本         | 说明                     |
-| :------- | :----------- | :----------------------- |
-| CentOS   | 7.3及以上（推荐CentOS7.4） | 64位，[ISO下载](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)  |
-| Ubuntu   | 16.04（推荐）| 64位，[ISO下载](https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/ubuntu-16.04.6-server-amd64.iso)             |
-
-在Centos及Ubuntu系统中我们做过大量高可用性测试，所以推荐使用以上两种Linux系统部署高可用集群
-
-#### 2.2 机器资源要求与规划
 
 > 资源要求
 
