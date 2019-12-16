@@ -135,8 +135,8 @@ grctl node add --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage,
 > 阿里云slb配置请参见 [阿里云slb配置](/user-operations/gha/alislb)
 
 > 在此次部署中管理节点和网关节点部署在同一台服务器，所以在管理节点操作即可;网关节点配置Keepalived具体配置请参见 
-[CentOS系统 vip配置](/user-operations/gha/centos_keepalived/)
-[Ubuntu系统 vip配置](/user-operations/gha/ubuntu_keepalived)
+[CentOS系统 vip配置](/user-operations/backstage/centos_keepalived/)
+[Ubuntu系统 vip配置](/user-operations/backstage/ubuntu_keepalived)
 
 ### 六、计算节点扩容
 
