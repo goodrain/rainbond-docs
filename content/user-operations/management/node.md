@@ -24,15 +24,15 @@ grctl node add --iip <管理节点内网ip> -p <root密码> --role manage
 grctl node add --iip <管理节点内网ip> --key /root/.ssh/id_rsa.pub --role manage
 
 # 添加计算节点
+grctl node add --iip <计算节点内网ip> -p <root密码> --role compute
+## 法2默认已经配置ssh信任登陆
+grctl node add --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role compute
+
+# 添加网关节点
 grctl node add --iip <网关节点内网ip> -p <root密码> --role gateway 
 ## 法2默认已经配置ssh信任登陆
 grctl node add --iip <网关节点内网ip> --key /root/.ssh/id_rsa.pub --role gateway
 
-
-# 添加计算节点
-grctl node add --iip <计算节点内网ip> -p <root密码> --role compute
-## 法2默认已经配置ssh信任登陆
-grctl node add --iip <计算节点内网ip> --key /root/.ssh/id_rsa.pub --role compute
 
 # 安装节点，节点uid可以通过grctl node list获取
 grctl node install <新增节点uid> 

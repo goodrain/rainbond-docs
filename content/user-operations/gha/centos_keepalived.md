@@ -33,6 +33,7 @@ vrrp_instance VI_1 {
     #优先级，主节点大于备节点     
     priority 100	
     advert_int 1
+    nopreempt
     authentication {
         auth_type PASS
         auth_pass 1111
