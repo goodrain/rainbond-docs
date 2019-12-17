@@ -72,6 +72,7 @@ vrrp_script check_gateway {
     #优先级，主节点大于备节点   
     priority 50
     advert_int 1
+    nopreempt
     authentication {
         auth_type PASS
         auth_pass 1111
