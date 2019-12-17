@@ -1,3 +1,9 @@
+---
+title: redis
+Description: "redis"
+hidden: true
+---
+
 ### 部署Master服务
 
 ```

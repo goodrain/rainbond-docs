@@ -1,10 +1,25 @@
-#### CentOS Keepalived配置
+---
+title: "Ubuntu keepalived配置"
+description: "Ubuntu keepalived配置"
+hidden: true
+---
+
+> VIP要保证和当前机器ip在同一网段内。
 
 借助 **keepalived** 完成VIP配置
 
 - 安装
 
-`yum install -y keepalived`
+```
+#安装所需依赖包
+apt-get -y install libssl-dev
+apt-get -y install openssl
+apt-get -y install libpopt-dev
+
+#安装keepalived
+apt-get -y install keepalived
+
+```
 
 - 编辑配置文件
 
@@ -129,6 +144,7 @@ RestartSec=10
 WantedBy=multi-user.target
 ```
 
+
 - 启动服务
 
 启动服务，设置开机自启动
@@ -143,7 +159,7 @@ systemctl status keepalived
 
 在网关节点执行如下命令：
 
-```bash
+```
 #关闭rbd-gateway组件
 docker stop rbd-gateway
 #查看VIP漂移状况

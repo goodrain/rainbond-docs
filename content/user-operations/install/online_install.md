@@ -45,7 +45,7 @@ wget https://pkg.rainbond.com/releases/common/v5.1/grctl && chmod +x ./grctl
 
 > 安装过程需要下载和处理大约2G的文件，需要一定时间，请耐心等待。安装过程如有报错，请参照[安装问题排查](/troubleshoot/install-problem/)，排查问题；若遇到无法解决的错误请于[Rainbond社区](https://t.goodrain.com)留言。
 
-##### 安装完成后如何访问应用控制台？ 请点击 [Rainbond控制台访问](/user-operations/install/visit/)
+##### 安装完成后如何访问应用控制台？ 请点击 [Rainbond控制台访问](/user-operations/backstage/visit)
 
 若您需要扩容您的节点资源，请参考[节点管理](/user-operations/management/node/#添加节点)
 
