@@ -3866,4 +3866,15 @@ p .version-tag, .clickable-header .version-tag {
   margin-top: 45px;
   margin-right: 5px; }
 
+.description-old{
+  position: relative;
+  width: 80%;
+  z-index: 1000;
+  background-color: #3333;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 20px;
+}
 /*# sourceMappingURL=customstyles.css.map */
