@@ -183,4 +183,4 @@ DNS服务为集群提供DNS解析服务,  基于Kube-DNS二次开发。
 
 #### 组件部署
 
-[组件部署架构文档](../operation-manual/component-description.html)
+[组件部署架构文档](/user-operations/op-guide/component-description/)
