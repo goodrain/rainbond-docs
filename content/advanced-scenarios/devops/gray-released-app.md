@@ -14,7 +14,7 @@ Hidden: true
 
 * 基于A/B测试的实践
 
-  A/B测试策略本身就是灰度发布的一种实践，在继续下文之前，请务必阅读并掌握  [A/B测试实践](./ab-released-app/)
+  A/B测试策略本身就是灰度发布的一种实践，在继续下文之前，请务必阅读并掌握  [A/B测试实践](/advanced-scenarios/devops/ab-released-app/)
 
 * 基于权重的灰度发布实践
 
