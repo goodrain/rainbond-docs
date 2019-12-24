@@ -1,80 +1,53 @@
 ---
 title: "快速部署"
 weight: 1001
-description: "此方式适用于你想快速安装和试用Rainbond平台, 最少只需要单台裸系统机器即可安装完成。此方式为基础安装方式，后续安装方案都是在本方案基础上的扩展和延伸。"
+description: "此方式适用于快速安装和试用Rainbond平台, 最少只需要单台机器即可完成all-in-one模式的部署。"
 hidden: true
 ---
 
-### 一、操作系统准备和检查
+### 一、安装前必读
 
-#### 1.1 检查操作系统，目前版本支持以下操作系统
+`all-in-one`模式快速安装适用于想要快速安装Rainbond，试用Rainbond，仅作为演示环境使用；如果您想要安装部署一个生产级的Rainbind环境请参阅 [生产级Rainbond高可用环境部署](/user-operations/install/install-base-ha/)
 
-| 系统     | 版本         | 说明                     |
-| :------- | :----------- | :----------------------- |
-| CentOS   | 7.3-7.5      | 64位，[7.4.1708下载](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso) |
-| Debian   | 9.6          | 64位                     |
-| Ubuntu   | 16.04        | 64位      推荐安装  [ISO下载](https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/ubuntu-16.04.6-server-amd64.iso)             |
-| 中标麒麟 | 服务器版V7.4 | 64位                     |
+#### 安装说明
 
-更多关于软硬件要求请参考 [软件和硬件环境要求](/user-operations/op-guide/recommendation/)
+- 安装时必须使用root用户执行安装操作；
+- Rainbond 单节点安装[最低配置要求](/user-operations/op-guide/recommendation/#六-服务器要求)；如果想跳过系统配置检查，安装时指定`--enable-check disable`，如果配置过低可能会无法正常安装部署；
+- 在线安装确定网络没有限制,如有请将[域名](/user-operations/op-guide/recommendation/#在线安装确定网络没有限制-如有请将以下域名添加到白名单)添加到白名单。
 
-#### 1.2 下载系统安装工具
 
-目前最新安装的版本是: v5.1.8-release
+> 在安装前请您务必阅读 [软件和硬件环境要求](/user-operations/op-guide/recommendation/)
+
+### 二、安装Rainbond
+
+#### 2.1 下载Rainbond安装包
+
+目前最新安装的版本是: v5.1.9-release
 
 ```shell
-wget https://pkg.rainbond.com/releases/common/v5.1/grctl
-chmod +x ./grctl
+wget https://pkg.rainbond.com/releases/common/v5.1/grctl && chmod +x ./grctl
 ```
 
-### 二、初始化数据中心
+#### 2.2 初始化数据中心
 
-[数据中心](/architecture/architecture/#二-数据中心服务组件说明) 是Rainbond资源集合的核心抽象。初始化数据中心操作需要在第一台服务器上执行安装命令。
+[数据中心](/architecture/architecture/#二-数据中心服务组件说明) 是Rainbond资源集合的核心抽象，初始化数据中心操作需要在第一台服务器上执行安装命令。
 
-* 初始化安装第一个节点(<b>配置最低2核4G内存40G磁盘</b>)
-    * 快速安装无需设置过多的参数，重点注意IP地址的设定。若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);  
-    * 若当前机器同时具备`内网`和`公网` IP地址时，务必指定公网IP地址(eip)，若无则无需指定;  
-    * 如果想跳过系统配置检查，安装时指定`--enable-check disable`,如果配置过低可能会无法正常安装部署;  
-    * [支持对接外部数据库](/user-operations/tools/grctl/#初始化时对接外部数据库); 
-    * 更多参数说明请阅读[节点初始化重要参数说明](/user-operations/tools/grctl/#节点初始化重要参数说明)
+**开始`all-in-one`模式快速安装**
 
 ```bash
-# 建议使用root执行安装操作
+# 若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);若当前机器同时具备内网和公网IP地址时，务必指定公网IP地址(eip)，若无则无需指定
+
 ./grctl init --iip 内网ip --eip 公网ip
+
 ```
 
-安装过程需要下载和处理大约2G的文件，需要一定时间，请耐心等待。若遇到无法解决的错误请于[Rainbond社区](https://t.goodrain.com)留言。
+上述步骤完成将默认把第一个节点安装成为`all-in-one`模式节点，更多安装参数请使用`./grctl init -h`命令获取
 
-* 安装完成后检查, 当所有服务和节点皆处于健康状态时平台即可正常使用。
+> 安装过程需要下载和处理大约2G的文件，需要一定时间，请耐心等待。安装过程如有报错，请参照[安装问题排查](/troubleshoot/install-problem/)，排查问题；若遇到无法解决的错误请于[Rainbond社区](https://t.goodrain.com)留言。
 
-```bash
-# 集群整体状态
-grctl cluster
+##### 安装完成后如何访问应用控制台？ 请点击 [Rainbond控制台访问](/user-operations/backstage/visit)
 
-# 集群节点状态
-grctl node list
-
-# 控制台访问地址
-http://<节点IP地址>:7070
-```
-如果集群状态是不健康的，参考[节点健康检测](/user-operations/management/component-op/#节点健康检查机制) 文档解决故障。
-
-### 三、数据中心添加节点
-
-上诉步骤完成默认将第一个节点安装成为第一个管理节点和第一个计算节点。
-
-若你需要增加你的集群计算资源池，可以快速扩容计算节点：
-
-```bash
-# 建议使用root执行安装操作
-grctl node add  --iip 计算节点IP --root-pass root用户密码 --role compute --install
-示例：
-grctl node add  --iip 192.168.1.1 --root-pass 12345678 --role compute --install
-grctl node list
-# 确定节点处于健康状态上线节点
-grctl node up <NodeID>
-```
-
-更多细节可以参考文档 [节点扩容](/user-operations/management/node/#添加节点) 
+若您需要扩容您的节点资源，请参考[节点管理](/user-operations/management/node/#添加节点)
 
 {{% button href="/user-manual/" %}}安装完成，开启Rainbond云端之旅{{% /button %}}
+

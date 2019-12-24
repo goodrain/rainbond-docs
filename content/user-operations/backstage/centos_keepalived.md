@@ -1,4 +1,8 @@
-#### CentOS Keepalived配置
+---
+title: "CentOS Keepalived配置"
+description: "CentOS Keepalived配置"
+hidden: true
+---
 
 借助 **keepalived** 完成VIP配置
 
@@ -18,25 +22,32 @@ global_defs {
    router_id LVS_DEVEL
 }
 vrrp_script check_gateway {
-   script "/etc/keepalived/check_gateway_status.sh" #检测脚本
-   interval 5    #执行间隔时间
+   #检测脚本
+   script "/etc/keepalived/check_gateway_status.sh"
+   #执行间隔时间
+   interval 5
 }
 vrrp_instance VI_1 {
     				
-    state MASTER    	 #角色，当前为主节点   
-    interface ens6f0	 #网卡设备名，通过 ifconfig 命令确定         
-    virtual_router_id 51     
-    priority 100		#优先级，主节点大于备节点
+    #角色，当前为主节点
+    state MASTER  
+    #网卡设备名，通过 ifconfig 命令确定  
+    interface ens6f0       
+    virtual_router_id 51
+    #优先级，主节点大于备节点     
+    priority 100	
     advert_int 1
+    nopreempt
     authentication {
         auth_type PASS
         auth_pass 1111
     }
     virtual_ipaddress {
-        <VIP>				#VIP
+        <VIP>				
      }
      track_script {
-    check_gateway  #必须与上面一致
+     #必须与上面一致
+    check_gateway
     }
 }
 
@@ -47,24 +58,31 @@ global_defs {
    router_id LVS_DEVEL
 }
 vrrp_script check_gateway {
-  script "/etc/keepalived/check_gateway_status.sh" #检测脚本
-  interval 5		#执行间隔时间
+  #检测脚本
+  script "/etc/keepalived/check_gateway_status.sh"
+  #执行间隔时间
+  interval 5
   }	
     vrrp_instance VI_1 {
-    state BACKUP		 #角色，当前为备节点    
-    interface ens6f0	 #网卡设备名，通过 ifconfig 命令确定
-    virtual_router_id 51   
-    priority 50			#优先级，主节点大于备节点  
+    #角色，当前为备节点
+    state BACKUP 
+    #网卡设备名，通过 ifconfig 命令确定   
+    interface ens6f0
+    virtual_router_id 51
+    #优先级，主节点大于备节点   
+    priority 50
     advert_int 1
+    nopreempt
     authentication {
         auth_type PASS
         auth_pass 1111
     }
     virtual_ipaddress {
-        <VIP>				#VIP
+        <VIP>			
     }
      track_script {
-    check_gateway  #必须与上面一致
+     #必须与上面一致
+    check_gateway
     }
 }
 ```
@@ -73,16 +91,18 @@ vrrp_script check_gateway {
 - 扩展对gateway节点健康检查的脚本，脚本的功能是当该rbd-gateway,rbd-api组件停止服务，则关闭本机的Keepalived，切换VIP
 
 ```
-# 注意脚本需加执行权限
-[root@gateway01 ~]# cat /etc/keepalived/check_gateway_status.sh 
+[root@gateway01 ~]# vi /etc/keepalived/check_gateway_status.sh 
 #!/bin/bash                                                                                             
-/usr/bin/curl -I http://localhost:10254/healthz && /usr/bin/curl -I http://localhost:8888/v2/health
+/usr/bin/curl -I http://localhost:18080/healthz && /usr/bin/curl -I http://localhost:8888/v2/health
 
 if [ $? -ne 0 ];then
                                                                    
      cat /var/run/keepalived.pid | xargs kill
 
 fi
+
+#添加执行权限
+chmod +x /etc/keepalived/check_gateway_status.sh
 ```
 
 - 更改keepalived systemd启动文件，添加两项配置
@@ -105,8 +125,11 @@ PIDFile=/var/run/keepalived.pid
 EnvironmentFile=-/etc/default/keepalived
 ExecStart=/usr/sbin/keepalived $DAEMON_ARGS
 ExecReload=/bin/kill -HUP $MAINPID
-Restart=always   #总是重启该服务
-RestartSec=10 #重启间隔时间
+#总是重启该服务
+Restart=always
+#重启间隔时间
+RestartSec=10
+
 [Install]
 WantedBy=multi-user.target
 ```
@@ -126,8 +149,10 @@ systemctl status keepalived
 在网关节点执行如下命令：
 
 ```bash
-docker stop rbd-gateway #关闭rbd-gateway组件
-ip a		#查看VIP漂移状况
+#关闭rbd-gateway组件
+docker stop rbd-gateway
+#查看VIP漂移状况
+ip a
 ```
 
 如果在关闭服务后，vip成功在某一台备用节点上启动，则进入下一步；如果vip没有成功漂移，请重新审查本节操作。

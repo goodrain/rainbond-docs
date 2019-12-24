@@ -47,7 +47,7 @@ Rainbond平台启动组件时默认注入以下环境变量信息以供应用使
 | NO_CACHE                 | true                                                         | 构建时不使用缓存包          |
 | BUILD_MAVEN_CUSTOM_OPTS  | -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true | 用于 maven 构建，默认值如前 |
 | BUILD_MAVEN_CUSTOM_GOALS | clean install                                                | 用于 maven 构建，默认值如前 |
-| NO_CACHE                 | true                                                         | 构建时不使用缓存包          |
+
 
 更多组件构建环境设置，请参考 [组件构建源配置](../service-source/)
 

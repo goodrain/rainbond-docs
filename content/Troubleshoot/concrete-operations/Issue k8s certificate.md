@@ -12,7 +12,9 @@ hidden: true
 ```
 # 移走之前的证书
 mv /opt/rainbond/etc/kubernetes /opt/rainbond/etc/kubernetes.bak
+mv /opt/rainbond/etc/rbd-api/region.goodrain.me/ssl  /opt/rainbond/etc/rbd-api/region.goodrain.me/ssl.bak
 mkdir  /opt/rainbond/etc/kubernetes
+
 ```
 重新签发证书
 
@@ -29,7 +31,7 @@ mv ql/k8ssl /opt/rainbond/etc/kubernetes/ssl
 mv ql/kubecfg /opt/rainbond/etc/kubernetes/kubecfg
 cp -a /opt/rainbond/etc/kubernetes/kubecfg/admin.kubeconfig /root/.kube/config
 # 更新api证书
-mv ql/ssl /opt/rainbond/etc/rbd-api/region.goodrain.me/ssl
+mv ql/ssl /opt/rainbond/etc/rbd-api/region.goodrain.me/
 ```
 
 更新计算节点k8s相关配置文件,同管理节点一样，需要从管理节点同步到计算节点(同样的目录，需要在计算节点把对应目录删了，重新拷贝)

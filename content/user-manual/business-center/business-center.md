@@ -1,8 +1,7 @@
 ---
 title: 企业中心
-description: 平台设置、团队管理
-toc: true
-pre: "<b>3.9. </b>"
+
+pre: "<b>3.10 </b>"
 ---
 
 
