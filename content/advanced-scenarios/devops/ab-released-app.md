@@ -18,11 +18,10 @@ Hidden: true
 
   > 一般是指不同的应用的不同版本，在Rainbond平台是不同的组件。
 
-{{site.data.alerts.callout_success}}
 
+{{% notice note %}}
 Rainbond目前支持HTTP协议的A/B测试实践，这也是目前应用面最广的协议。
-
-{{site.data.alerts.end}}
+{{% /notice %}}
 
 服务需要进行A/B测试，需要区分其是属于内部服务还是对外服务。内部服务的A/B测试特性由ServiceMesh层提供，对外服务由[应用网关](/user-manual/gateway/gateway/)提供。
 
@@ -94,11 +93,9 @@ curl --cookie "user=test" www.test.com
 * 为 `外部服务` 开通 <b>服务网络治理插件</b> 
 
 <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/extended.jpg" style="border:1px solid #eee;width:100%"/></center>
-
 * 配置路由策略，与基于应用网关的配置方法类似，不同的是只支持基于Header的处理方式。
 
 <center><img src="https://static.goodrain.com/images/docs/3.6/basic-operation/advanced-operation/config.jpg" style="border:1px solid #eee;width:100%"/></center>
-
 如上配置完成后内部服务同样具备了A/B测试的能力。
 
 ## 4. 数据反馈
