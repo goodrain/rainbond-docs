@@ -30,7 +30,7 @@ vrrp_script check_gateway {
 vrrp_instance VI_1 {
     				
     #角色，当前为主节点
-    state MASTER  
+    state BACKUP  
     #网卡设备名，通过 ifconfig 命令确定  
     interface ens6f0       
     virtual_router_id 51
