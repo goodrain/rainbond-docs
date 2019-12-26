@@ -19,23 +19,24 @@ start: >-
     docker run --name rbd-app-ui
     --network host
     -e MANAGE_SECRET_KEY=eihi5Ijaiv4oL6jeecohfuDeeShideim
-    -e MYSQL_HOST=192.168.2.154   #外部数据库主机IP
-    -e MYSQL_PORT=3306		  #数据库端口
-    -e MYSQL_USER=root		 #数据库用户名
-    -e MYSQL_PASS=gr123465!   #数据库密码
+    -e MYSQL_HOST=39.104.21.207   #外部数据库主机IP
+    -e MYSQL_PORT=3306		   #数据库端口
+    -e MYSQL_USER=root		   #数据库用户名
+    -e MYSQL_PASS=**          #数据库密码
     -e MYSQL_DB=console			#数据库库名
     -v /opt/rainbond/.init:/initdata   
     -v /grdata/services/console:/app/ui/data   
     -v /opt/rainbond/etc/rbd-api:/etc/goodrain #ssl文件
     -v /opt/rainbond/logs/rbd-app-ui:/app/logs #日志
-    -i goodrain.me/rbd-app-ui:v5.1.5-release
+    -i goodrain.me/rbd-app-ui:v5.1.6-release
 ```
     
 - 创建app-ui应用
  
+ 在首个管理节点查看当前使用app-ui镜像地址，使用此镜像地址作为构建源
+ 
 ```
-#app-ui镜像地址
-goodrain.me/rbd-app-ui:v5.1.6-release
+docker ps |grep rbd-app-ui
 ```
 
 <img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication01.png" width="100%" />
