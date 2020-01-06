@@ -23,7 +23,7 @@ Rainbond支持部署在物理服务器以及 VMware、KVM、XEN 等主流虚拟�
 #### 二. 系统环境要求
 
 {{% notice warning %}}
-* CentOS系统在安装前请升级内核版本
+* CentOS系统在安装前请[升级内核版本](https://t.goodrain.com/t/topic/1305)
 * 确保机器重启，服务器IP地址和nameserver不发生改变，推荐配置静态ip
 * 确定系统时间与时区(Asia/Shanghai)同步,节点间时间要同步
 * 在线安装确定系统可以正常`yum/apt-get install`相关软件包，需要提前配置系统相关软件源
