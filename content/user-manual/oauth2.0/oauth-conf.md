@@ -5,8 +5,11 @@ hidden: true
 weight: 6004
 ---
 
+目前Rainbond支持 Github Gitlab Gitee 三种支持Git仓库对接的Oauth类型和钉钉、阿里云两种仅支持登录功能的Oauth类型。若需要更多类型需参考用例进行扩展或贡献代码。[参考实现](https://github.com/goodrain/rainbond-console/tree/master/console/utils/oauth)
 
-### 1. Github配置 
+Rainbond所有支持的Oauth类型需要正常配置权限才能正常使用，比如Github Gitlab Gitee需要授予获取代码仓库列表等权限，钉钉、阿里云需要授予获取用户信息等权限。详情参考下述文档说明：
+
+### Github配置说明 
 ----
 
    **进入 Settings→Developer settings→OAuth Apps→New OAuth App**
@@ -18,7 +21,7 @@ weight: 6004
    - **权限设置** github的权限设置是通过认证url中的scope参数来指定的，不需要在注册客户端的时候指定。
    
 
-### 2. Gitlab配置 
+### Gitlab配置说明 
 ----
    **进入 User Settings→Applications**
    <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG63.png" width = "450"alt=""/>
@@ -28,7 +31,7 @@ weight: 6004
    - **权限设置** gitlab的权限设置需要指定**api**、**read_user**、**read_repository**
 
 
-### 3. Gitee配置
+### Gitee配置说明
 ----
    **进入 设置→第三方应用→创建应用
    <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG64.png" width = "450"alt=""/>
@@ -39,9 +42,7 @@ weight: 6004
    - **权限设置** gitee的权限设置需要指定**user_info**、**projects**、**hook**
 
 
-### 4. oauth认证扩展，正在实现中
-
-### 4.在Rainbond平台认证
+### 在Rainbond平台认证
 ----
    > (管理员才能操作)
 
