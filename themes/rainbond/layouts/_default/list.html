@@ -9,6 +9,13 @@
     {{else}}
     {{ partial "doc-head.html" . }}
     <section class="section content-section">
+        <div class="container">
+            <div class="search-box search-box-global">
+                <input type="text" class="search-ipt J-global-search-input" placeholder="请输入您要搜索的关键词">
+                <button type="button" class="bt-clear J-global-search-clear"></button>
+                <button type="button" id="bt-search-global" class="bt-search J-global-search-btn"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
         <div class="container content-body">
             {{ partial "menu.html" . }}
             <div class="doc-content">
@@ -18,7 +25,7 @@
                     {{ $File := .File }}
                     {{ $Site := .Site }}
                     {{with $File.Path }}
-                    <span class="e"><a
+                    <span class="e is-hidden-mobile"><a
                             href="{{ $Site.Params.editURL }}{{ replace $File.Dir "\\" "/" }}{{ $File.LogicalName }}"
                             target="_blank">编辑此页面</a></span>
                     {{ end }}

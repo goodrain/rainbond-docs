@@ -1,8 +1,7 @@
-+++
-title = "Rainbond文档中心"
-weight = 1
-pre = "<b>1. </b>"
-+++
+---
+title: Rainbond文档中心
+layout: dashboard
+---
 
 # Rainbond文档中心
 

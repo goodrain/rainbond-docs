@@ -2,7 +2,7 @@
 baseurl: "https://www.rainbond.com/docs/"
 languageCode: "zh-cn"
 DefaultContentLanguage: "zh-cn"
-title: "Rainbond文档中心(5.1版)"
+title: "Rainbond-企业应用云操作系统，云原生企业业务中台基座"
 theme: "rainbond"
 baseURL: ""
 canonifyURLs: true
