@@ -30,16 +30,19 @@
                 {{end}}
             {{ end }}
             <li data-count="{{$numberOfPages}}" class="menu-item {{ if and (ge $level 2) (ne $numberOfPages 0) }} canopen {{end}} menu-item-level-{{ $level }}" {{if ge $level 2 }}style="height: 36px; overflow: hidden;"{{end}}> 
-                {{ if ne $numberOfPages 0 }}
-                <span href="{{.RelPermalink}}"> 
-                    {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}} 
-                    {{ if and (ge $level 2) (ne $numberOfPages 0) }}
-                    <img class="menu-toggle" src="/images/arrow_down.png" style="transform: rotate(-90deg);">
-                    {{ end }}
-                </span>
+                {{ if gt $numberOfPages 0 }}
+                    <span href="{{.RelPermalink}}"> 
+                        {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
+                        {{ if and (ge $level 2) (gt $numberOfPages 0) }}
+                        <img class="menu-toggle" src="/images/arrow_down.png" style="transform: rotate(-90deg);">
+                        {{ end }}
+                    </span>
                 {{ else }}
                     <a href="{{.RelPermalink}}"> 
-                        {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}} 
+                        {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
+                        {{ if eq $numberOfPages 0 }}
+                        <img class="menu-toggle" src="/images/arrow_down.png" style="transform: rotate(-90deg);">
+                        {{ end }}
                     </a>
                 {{ end }}
                 {{ if ne $numberOfPages 0 }}

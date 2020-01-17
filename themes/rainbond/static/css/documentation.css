@@ -667,7 +667,8 @@
   background-image: linear-gradient(0deg, #267DF7 0%, #267DF7 51%, #267DF7 100%);
 }
 
-.sidemenu .menu-item-level-1>span {
+.sidemenu .menu-item-level-1>span,
+.sidemenu .menu-item-level-1>a {
   font-family: Avenir-Heavy;
   font-size: 18px;
   color: #333;
@@ -675,7 +676,7 @@
   height: 40px;
   line-height: 40px;
 }
-
+.sidemenu .menu-item-level-1,
 .sidemenu .menu-item-level-2,
 .sidemenu .menu-item-level-3,
 .sidemenu .menu-item-level-4 {
@@ -693,6 +694,8 @@
   color: #666;
 }
 
+.sidemenu .menu-item-level-1>span:hover,
+.sidemenu .menu-item-level-1>a:hover,
 .sidemenu .menu-item-level-2>span:hover,
 .sidemenu .menu-item-level-2>a:hover,
 .sidemenu .menu-item-level-3>span:hover,
@@ -731,6 +734,7 @@
   line-height: 36px;
 }
 
+.sidemenu .menu-item-level-1>a img.menu-toggle,
 .sidemenu .menu-item-level-2>span img.menu-toggle,
 .sidemenu .menu-item-level-2>a img.menu-toggle,
 .sidemenu .menu-item-level-3>span img.menu-toggle,
