@@ -457,8 +457,6 @@
 }
 
 .bar .bar-body {
-  max-width: 1280px;
-  margin: 0 auto;
   height: 200px;
   line-height: 200px;
   font-family: Avenir-Heavy;
@@ -480,14 +478,13 @@
   width: 80px;
   height: 80px;
   vertical-align: middle;
-  margin: 0 28px 0 40px;
 }
 
 .bar .bar-body .back-img {
   width: 160px;
   height: 160px;
   position: absolute;
-  right: 168px;
+  right: 0;
   bottom: 0;
   opacity: 0.15;
 }

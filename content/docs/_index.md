@@ -3,8 +3,6 @@ title: Rainbond文档中心
 layout: dashboard
 ---
 
-# Rainbond文档中心
-
 <div class="item">
     <h4><a href="./quick-start/rainbond_overview/">Rainbond简介</a></h4>
     <p>Rainbond是什么？用在什么场景？</p>
