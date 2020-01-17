@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 {{ partial "head.html" . }}
 <body>
-{{ partial "header.html" . }}
+{{ partial "header.html" (dict "context" .   "active" "doc") }}
 {{ .Content }}
 
 {{ partial "footer.html" . }}

@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 {{ partial "head.html" . }}
-
+{{ $active := "doc" }}
 <body>
-    {{ partial "header.html" . }}
-
-    {{ if eq .Params.Render  "video"}}
-    {{ partial "video.html" . }}
-    {{else}}
+    {{ partial "header.html" (dict "context" .   "active" "doc") }}
     {{ partial "doc-head.html" . }}
     <section class="section content-section">
         <div class="container content-body">
@@ -30,7 +26,6 @@
             </div>
         </div>
     </section>
-    {{end}}
 
     {{ partial "footer.html" . }}
 </body>

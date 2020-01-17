@@ -3,7 +3,8 @@
 {{ partial "head.html" . }}
 
 <body>
-    {{ partial "header.html" . }}
+    {{ $active := "doc" }}
+    {{ partial "header.html" (dict "context" .   "active" "doc") }}
 
     {{ if eq .Params.Render  "video"}}
     {{ partial "video.html" . }}

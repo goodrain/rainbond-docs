@@ -3,7 +3,7 @@
 {{ partial "head.html" . }}
 
 <body>
-    {{ partial "header.html" . }}
+    {{ partial "header.html" (dict "context" .   "active" "") }}
     <section class="hero is-default is-bold has-text-centered">
 
         <h2>你访问的页面不存在</h2>

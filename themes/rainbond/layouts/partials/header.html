@@ -15,7 +15,7 @@
         <div id="navbar-menu" class="navbar-menu is-static">
 
             <div class="navbar column is-half navbar-center">
-                <a href="/#" class="navbar-item is-secondary">
+                <a href="/#" class='navbar-item is-secondary {{if eq .active "index"}} is-active {{end}}'>
                     首页
                 </a>
                 <!-- <a href="/docs/about" class="navbar-item is-secondary">
@@ -24,10 +24,10 @@
                 <a href="https://t.goodrain.com" class="navbar-item is-secondary">
                     社区
                 </a>
-                <a href="/docs/" class="navbar-item is-secondary">
+                <a href="/docs/" class='navbar-item is-secondary {{if eq .active "doc" }} is-active {{end}} '>
                     文档
                 </a>
-                <a href="/video/" class="navbar-item is-secondary">
+                <a href="/video/" class='navbar-item is-secondary {{if eq .active "video" }} is-active {{end}} '>
                     视频
                 </a>
                 <a href="https://www.goodrain.com" class="navbar-item is-secondary">
@@ -61,19 +61,16 @@
         <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
 
             <div class="navbar column is-half navbar-center">
-                <a href="/#" class="navbar-item is-secondary">
+                <a href="/#" class='navbar-item is-secondary {{if eq .active "index" }} is-active {{end}} '>
                     首页
                 </a>
-                <!-- <a href="/#about" class="navbar-item is-secondary">
-                        Rainbond是什么
-                    </a> -->
-                <a href="https://t.goodrain.com" class="navbar-item is-secondary">
+                <a href="https://t.goodrain.com" class='navbar-item is-secondary {{if eq .active "disc" }} is-active {{end}} '>
                     社区
                 </a>
-                <a href="/docs/" class="navbar-item is-secondary">
+                <a href="/docs/" class='navbar-item is-secondary {{if eq .active "doc" }} is-active {{end}} '>
                     文档
                 </a>
-                <a href="/video/" class="navbar-item is-secondary">
+                <a href="/video/" class='navbar-item is-secondary {{if eq .active "video" }} is-active {{end}} '>
                     视频
                 </a>
                 <a href="https://www.goodrain.com" class="navbar-item is-secondary">

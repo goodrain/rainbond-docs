@@ -3,7 +3,8 @@
 {{ partial "head.html" . }}
 
 <body>
-    {{ partial "header.html" . }}
+    {{ $active:="index" }}
+    {{ partial "header.html" (dict "context" .   "active" "index")}}
     <section class="hero is-default is-bold has-text-centered">
         <h1>
             <img src="images/rainbondlog.png" alt="Rainbond" /><br>

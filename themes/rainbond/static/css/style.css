@@ -10227,7 +10227,9 @@ print {
 .navbar .navbar-item {
     color: #4f4d68
 }
-
+.navbar .navbar-item.is-active {
+    color: #3273dc;
+}
 .navbar .navbar-item.is-secondary:hover {
     color: #0d2192 !important
 }

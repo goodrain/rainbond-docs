@@ -2,7 +2,8 @@
 <html lang="zh-cn">
 {{ partial "head.html" . }}
 <body>
-    {{ partial "header.html" . }}
+    {{ $active := "video" }}
+    {{ partial "header.html" (dict "context" .   "active" "video") }}
     {{ partial "video.html" . }}
     {{ partial "footer.html" . }}
 </body>
