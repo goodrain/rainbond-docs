@@ -1,0 +1,61 @@
+<footer class="footer">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-third">
+                <div class="footer-logo">
+                    <img src="/images/rainbondlog.png">
+                </div>
+            </div>
+            <div class="column is-two-thirds">
+                <div class="content">
+                    <p>
+                        以企业云原生应用开发、架构、运维、共享、交付为核心的Kubernetes多云赋能平台
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</footer>
+<div id="backtotop"><a href="#"></a></div>
+<div id="backtotop"><a href="#"></a></div>
+<script src="/js/jquery.js"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="/js/landing.js"></script>
+<script src="/js/jquery.panelslider.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script type="text/javascript" src="/js/video.min.js"></script>
+<script type="text/javascript" src="/js/modal-video.js"></script>
+<script type="text/javascript" src="/js/documentation.js"></script>
+<script>
+    $(function () {
+        var modalVideo = new ModalVideo({ width: 1000, height: 550 });
+        $(".video-show").click(function () {
+            var url = $(this).data("src")
+            console.log(url)
+            if (url) {
+                modalVideo.show({ url: url });
+            }
+        });
+        $(".wechart").hover(function () {
+            $(".wechart-hover")
+                .css({ top: "-96px", left: "-28px" })
+                .removeClass("hide");
+        }, function () {
+            $(".wechart-hover").addClass("hide");
+        });
+    });
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?19583a0ffdf6a67e3798ed126b51af5f";
+        var s = document.getElementsByTagName("script")[0];
+        s
+            .parentNode
+            .insertBefore(hm, s);
+    })();
+</script>

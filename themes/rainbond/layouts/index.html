@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header.html" . }}
+    <section class="hero is-default is-bold has-text-centered">
+        <h1>
+            <img src="images/rainbondlog.png" alt="Rainbond" /><br>
+            <span>Enterprise Application System</span>
+        </h1>
+
+        <h2>以企业云原生应用开发、架构、运维、共享、交付为核心的Kubernetes多云赋能平台</h2>
+
+        <div class="button-cta">
+            <a class="button is-primary is-large" href="/docs/quick-start/rainbond_install/">Get Started</a>
+            <p><a href="/docs/quick-start/rainbond_install/">安装</a>使用Rainbond或者浏览<a href="/docs/">文档</a>学习更多.</p>
+        </div>
+    </section>
+
+    <section class="section section-feature-grey is-medium" id="about">
+        <div class="container">
+            <div class="title-wrapper has-text-centered">
+                <h3 class="title is-6">特性</h3>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="columns is-mobile no-sh is-multiline">
+
+                    <div class="column is-full-mobile card is-half-desktop">
+                        <div class="card-title">
+                            <h4>以应用为中心</h4>
+                        </div>
+                        <div class="card-icon">
+                            <div class="card-icon-b"><img src="/images/app.svg"></div>
+                        </div>
+                        <div class="card-text">
+                            <p>应用部署与资源调度解耦合，开发者仅需以最简单的方式描述应用模型，即可完成应用多云部署和高级运维治理，赋能应用交付。</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-full-mobile card is-half-desktop">
+                        <div class="card-title">
+                            <h4>企业中台基座</h4>
+                        </div>
+                        <div class="card-icon">
+                            <div class="card-icon-b"><img src="/images/center.svg"></div>
+                        </div>
+                        <div class="card-text">
+                            <p>提供通用应用（组件）构建组装和企业共享，通用服务发布和管理，打通企业IT资源，赋能ToB企业业务中台建设。</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-full-mobile card is-half-desktop">
+                        <div class="card-title">
+                            <h4>Kubernetes多云管理</h4>
+                        </div>
+                        <div class="card-icon">
+                            <div class="card-icon-b"><img src="/images/cloud.svg"></div>
+                        </div>
+                        <div class="card-text">
+                            <p>Kubernetes即将成为云原生基础设施，Rainbond管理多套Kubernetes集群提供应用运行环境，屏蔽Kubernetes的技术复杂性，赋能基础设施管理。</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-full-mobile card is-half-desktop">
+                        <div class="card-title">
+                            <h4>微服务架构</h4>
+                        </div>
+                        <div class="card-icon">
+                            <img src="/images/openapi.svg">
+                        </div>
+                        <div class="card-text">
+                            <p>ServiceMesh微服务框架开箱即用，上云即微服务，同时支持其他微服务（SpringCloud, Dubbo）的架构协同，赋能企业微服务架构落地。</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-full-mobile card is-half-desktop">
+                        <div class="card-title">
+                            <h4>无侵入 无限制</h4>
+                        </div>
+                        <div class="card-icon">
+                            <img src="/images/code.svg">
+                        </div>
+                        <div class="card-text">
+                            <p>无侵入支持大多数开发语言持续构建，各种工作负载组件部署，插件化提供微服务治理，支持Windows服务，运行于各种云或裸金属，赋能开发者业务开发。</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-full-mobile card is-half-desktop">
+                        <div class="card-title">
+                            <h4>开 源</h4>
+                        </div>
+                        <div class="card-icon">
+                            <img src="/images/community.svg">
+                        </div>
+                        <div class="card-text">
+                            <p>Rainbond 是一个完整开源的企业级平台。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="columns is-mobile is-multiline">
+                    <div class="column is-half-desktop is-full-mobile">
+
+                        <p><a href="https://github.com/goodrain/rainbond">Rainbond</a>
+                            是以企业云原生应用开发、架构、运维、共享、交付为核心的Kubernetes多云赋能平台,
+                            向下结合Kubernetes云原生资源管理模式，对接管理各类基础设施，通过多维度的软件定义屏蔽了底层资源的差异，甚至包括CPU架构差异和操作系统差异，从而对上层提供以应用为中心的基础设施；
+                            向上定义了标准应用模型（RAM,<a href="https://oam.dev">OAM</a>)，内置ServiceMesh微服务架构框架，
+                            提供用户基于源码/已有镜像构建服务组件的能力，编排服务组件的能力，发布共享完整应用模型的能力，交付运维业务应用的能力。
+                        </p>
+                    </div>
+
+                    <div class="column is-half-desktop is-full-mobile">
+                        <div class="video-wrap">
+                            <div class="start-prompt video-show"
+                                data-src="https://grstatic.oss-cn-shanghai.aliyuncs.com/videos/Rainbond%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%E3%80%81%E6%8B%BC%E8%A3%85%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%87%E7%BA%A7%E6%B5%81%E7%A8%8B%E6%BC%94%E7%A4%BA.mp4?nsukey=4SSGferYPnLbId1KtayGi43MsL1n8WnO03hxix0Ow7nrRB9TkkkSmjuVBNIMeM%2Fw6Du%2FeNl408SxWPOqZwC0TmdpMT9X8q7%2FE3yc7Tz3yUTczkpGBku8OkNDYGRNMPhKFrFJM1QQ%2FHPhegxW%2BzSgBVNEGgnKeCxi5mAOiqsxbMwdtnC7%2BgERzTwJPNQSqtZL2CpcCxIeHt%2FrBc8y8E5Ecw%3D%3D">
+                                <div class="play-button">
+                                    <div>
+                                        <div class="bg"><img src="/images/rainbond-pic.png" /></div>
+                                        <span>
+                                            <svg version="1.1" viewBox="0 0 866.0254037844387 866.0254037844387"
+                                                class="icon">
+                                                <defs>
+                                                    <mask id="small-triangle-mask">
+                                                        <rect width="100%" height="100%" fill="white"></rect>
+                                                        <polygon
+                                                            points="508.01270189221935 433.01270189221935, 208.0127018922194 259.8076211353316, 208.01270189221927 606.217782649107"
+                                                            fill="black"></polygon>
+                                                    </mask>
+                                                </defs>
+                                                <polygon
+                                                    points="808.0127018922194 433.01270189221935, 58.01270189221947 -1.1368683772161603e-13, 58.01270189221913 866.0254037844386"
+                                                    mask="url(#small-triangle-mask)" fill="white"></polygon>
+                                                <polyline
+                                                    points="481.2177826491071 333.0127018922194, 134.80762113533166 533.0127018922194"
+                                                    stroke="white" stroke-width="90"></polyline>
+                                            </svg></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="more">
+                            <a href="/video/" href="_blank">查看更多视频教程</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-feature-grey is-medium" id="old-vs-new">
+        <div class="container">
+
+            <div class="content-wrapper">
+                <div class="columns">
+                    <div class="column is-half oldstuff">
+                        <h3>你可能关注的问题:</h3>
+                        <h2 class="is-2">跟随技术潮流，解决业务障碍</h2>
+                        <ol>
+                            <li>企业业务系统多或交付客户环境多需要统一管理</li>
+                            <li>交付项目，客户需要一个易于使用且成熟的PaaS平台</li>
+                            <li>已搭建Kubernetes集群却困于如何用好Kubernetes</li>
+                            <li>企业开发环境、测试环境，公有云生成环境的基础设施需要统一管理</li>
+                            <li>企业业务、项目重复性大、浪费大，需要建立中台来共享各团队资源</li>
+                            <li>ToB交付自动化低，交付周期长，需要更高效的交付方式</li>
+                            <li>更多。。。</li>
+                        </ol>
+                    </div>
+
+                    <div class="column is-half newstuff">
+                        <h3>通过 Rainbond:</h3>
+                        <h2 class="is-2">一站式解决方案</h2>
+                        <ol>
+                            <li>Rainbond DevOps方案：赋予企业搭建面向应用的持续开发、交付链路的能力</li>
+                            <li>Rainbond 多租户多云资源管理方案：赋予企业灵活的资源分配和管理能力</li>
+                            <li>Rainbond 组件&服务共享库方案：赋予企业搭建业务中台的基础能力</li>
+                            <li>Rainbond 内置ServiceMesh微服务方案：已有业务已最快的速度微服务化</li>
+                            <li>Rainbond Kubernetes集群管理方案：无需学习Kubernetes即可获得其技术价值</li>
+                        </ol>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-feature-grey is-medium" id="testimonial">
+        <div class="container">
+
+            <div class="title-wrapper has-text-centered">
+                <h3 class="title is-6">典型用户</h3>
+            </div>
+
+            <div class="content-wrapper is-mobile columns is-multiline">
+                <div class="column is-full-mobile is-half-desktop ">
+                    <div class="user-list">
+                        <figure class="image">
+                            <a><img src="images/users/pingan.jpeg" alt="平安壹账通" /></a>
+                        </figure>
+                        <figure class=" image"><a><img src="images/users/boe.jpg" alt="BOE" /></a></figure>
+                    </div>
+                    <hr>
+                    <p class="has-text-left">Rainbond帮助京东方、平安壹账通等企业搭建行业(数字)应用市场解决方案</p>
+                </div>
+
+                <div class="column is-full-mobile is-half-desktop">
+                    <div class="user-list">
+                        <figure class="image">
+                            <a><img src="images/users/bkrj.jpg" alt="北控软件" /></a>
+                        </figure>
+                        <figure class="image">
+                            <a><img src="images/users/zggk.jpg" alt="中公高科" /></a>
+                        </figure>
+                    </div>
+                    <hr>
+                    <p class="has-text-left">Rainbond帮助北控软件、中公高科、国防科大等企业搭建DevOps应用开发交付解决方案</p>
+                </div>
+            </div>
+
+            <div class="has-text-centered blog-link">
+                <p><a href="https://t.goodrain.com" target="_blank">浏览社区获取更多用户案例<a></a></p>
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+    <section class="section section-feature-grey is-medium" id="community">
+        <div class="container">
+
+            <div class="title-wrapper has-text-centered">
+                <h3 class="title is-6">参与其中</h3>
+            </div>
+
+            <div class="content-wrapper">
+
+                <div class="columns has-text-centered">
+                    <div class="column is-third social-wrap">
+                        <a href="https://t.goodrain.com" target="_blank" class="social-icon">
+                            <img src="images/discourse.png" alt="Rainbond社区" />
+                            <h4>社区</h5>
+                                <p>参考社区，学习或贡献更多Rainbond用例用法</p>
+                        </a>
+                    </div>
+                    <div class="column is-third social-wrap">
+                        <a href="https://gitter.im/goodrain/rainbond" target="_blank" class="social-icon">
+                            <img src="images/gittr.png" alt="Gittr Chat" />
+                            <h4>Gitter</h4>
+                            <p>加入社区聊天，与开发团队讨论Rainbond.</p>
+                        </a>
+                    </div>
+                    <div class="column is-third social-wrap">
+                        <a href="https://github.com/goodrain/rainbond" target="_blank" class="social-icon">
+                            <span class="icon">
+                                <i class="fa fa-github"></i>
+                            </span>
+                            <h4>贡献</h4>
+                            <p>欢迎参与贡献，你可以从提出Issues和解决Issues开始</p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+
+    {{ partial "footer.html" . }}
+    <script type="text/javascript" src="/js/video.min.js"></script>
+    <script type="text/javascript" src="/js/modal-video.js?20190809"></script>
+    <script>
+        $(function () {
+            var modalVideo = new ModalVideo({ width: 1000, height: 550 });
+            $(".video-show").click(function () {
+                modalVideo.show({ url: $(this).data("src") });
+            });
+        });
+    </script>
+    <script>
+        function openTab(evt, tabTitle) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabTitle).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    <script>
+        var clipboard = new ClipboardJS('.button');
+
+
+        clipboard.on('success', function (e) {
+            e.clearSelection();
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
+            showTooltip(e.trigger, 'Copied!');
+        });
+        clipboard.on('error', function (e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+            showTooltip(e.trigger, fallbackMessage(e.action));
+        });
+    </script>
+</body>
