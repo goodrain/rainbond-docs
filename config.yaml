@@ -7,7 +7,7 @@ theme: "rainbond"
 baseURL: ""
 canonifyURLs: true
 params:
-  editURL: "https://github.com/goodrain/rainbond-docs/edit/master/content/"
+  editURL: "https://github.com/goodrain/rainbond-docs/edit/V5.2/content/"
   showVisitedLinks: true
   disableShortcutsTitle: false
   description: "Rainbond是以应用为中心，面向云原生的企业应用操作系统，将企业数字资产抽象为应用模型（Rainbond Application Model），并通过容器化环境、敏捷DevOps、微服务架构、组件制品库、Serverless部署、底层资源自动化运维等核心技术，通过搭建数字中台、加速前台业务需求响应，帮助企业获得面向未来的创新能力和竞争力。"
