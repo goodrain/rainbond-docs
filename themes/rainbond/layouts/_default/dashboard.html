@@ -11,20 +11,61 @@
         <div class="container content-body">
             {{ partial "menu.html" . }}
             <div class="doc-content">
-                <div class="article-title">
-                    <span class="t">{{ .Title }}</span>
-                    {{ if and (or .IsPage .IsSection) .Site.Params.editURL }}
-                    {{ $File := .File }}
-                    {{ $Site := .Site }}
-                    {{with $File.Path }}
-                    <span class="e is-hidden-mobile"><a
-                            href="{{ $Site.Params.editURL }}{{ replace $File.Dir "\\" "/" }}{{ $File.LogicalName }}"
-                            target="_blank">编辑此页面</a></span>
-                    {{ end }}
-                    {{ end }}
+                <h2 class="center dash-title">常用参考文档导航</h2>
+                <div class="is-multiline columns">
+                    <div class="column is-full-mobile is-half-tablet">
+                        <div class="card">
+                            <h3 class="i-title">刚开始了解Rainbond</h3>
+                            <p>这些文档合集带你了解Rainbond项目定位，适用哪些场景，解决哪些问题</p>
+                            <ul>
+                                <li><a href="/docs/quick-start/rainbond_overview/">Rainbond项目简介</a></li>
+                                <li><a href="/docs/quick-start/edition/">Rainbond功能列表</a></li>
+                                <li><a href="/docs/architecture/flow/">Rainbond试用场景</a></li>
+                                <li><a href="/docs/quick-start/roadmap/">Rainbond开发路线</a></li>
+                                <li><a href="/docs/architecture/architecture/">技术架构</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column is-full-mobile is-half-tablet">
+                        <div class="card">
+                            <h3 class="i-title">准备安装Rainbond</h3>
+                            <p>这些文档帮助你根据你的需要快速的搭建Rainbond平台</p>
+                            <ul>
+                                <li><a href="/docs/user-operations/install/online_install/">单节点快速安装</a></li>
+                                <li><a href="/docs/user-operations/install/install-base-alicloud/">阿里云高可用安装</a></li>
+                                <li><a href="/docs/user-operations/install/install-base-ha/">私有云高可用安装</a></li>
+                                <li><a href="/docs/user-operations/install/offline_install/">离线安装</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column is-full-mobile is-half-tablet">
+                        <div class="card">
+                            <h3 class="i-title">使用Rainbond遇到疑惑</h3>
+                            <p>这些文档合集带你快速了解Rainbond各项功能如何正确使用</p>
+                            <ul>
+                                <li><a href="/docs/user-manual/app-creation/service_create/">各类型应用组件创建方式说明</a></li>
+                                <li><a href="/docs/user-manual/app-creation/language-support/">无侵入源码构建，开发语言支持规范</a></li>
+                                <li><a href="/docs/user-manual/app-creation/image-support/">已有镜像构建，docker镜像支持规范</a></li>
+                                <li><a href="/docs/user-manual/app-creation/thirdparty-service/">集成外部服务，第三方组件创建规范</a></li>
+                                <li><a href="/docs/advanced-scenarios/app-create/ ">应用部署实践</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column is-full-mobile is-half-tablet">
+                        <div class="card">
+                            <h3 class="i-title">运维Rainbond遇到疑惑</h3>
+                            <p>这些文档合集带你了解Rainbond集群运维过程中的各种问题如何解决</p>
+                            <ul>
+                                <li><a href="/docs/user-operations/op-guide/component-description/">平台组件部署架构，知己知彼方能运维好</a></li>
+                                <li><a href="/docs/user-operations/management/">集群管理相关说明</a></li>
+                                <li><a href="/docs/user-operations/tools/">运维相关工具集用法</a></li>
+                                <li><a href="/docs/troubleshoot/cluster-problem/">集群常见问题诊断和解决思路</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="markdown-body">
-                    {{ .Content }}
+                <div class="center">
+                    更多内容查阅左侧导航浏览
                 </div>
             </div>
         </div>

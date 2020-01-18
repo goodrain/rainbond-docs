@@ -2500,6 +2500,25 @@ h6 {
   height:  1.5rem;
   margin: 1rem;
 }
+.doc-content .column .i-title {
+  font-size: 1.2rem;
+}
+.doc-content .column p {
+  color: rgb(26,26,26) !important;
+  font-size: 0.8rem;
+  height: 2rem;
+}
+.doc-content .column .card {
+  padding: 1rem;
+  height: 16rem;
+}
+.center {
+  text-align: center;
+}
+.dash-title {
+  font-size: 2rem;
+  padding: 2rem;
+}
 
 @media screen and (max-width: 640px) {
   .content-section .content-body {
