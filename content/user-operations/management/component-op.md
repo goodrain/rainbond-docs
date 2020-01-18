@@ -30,7 +30,7 @@ hidden: true
 
 需要调整组件配置，只需修改组件对应的`/opt/rainbond/conf/`目录下的yaml文件即可。修改完成后只需执行`node service update`动态更新服务配置。
 
-```bash
+```shell
 # 停某服务
 node service stop <服务名>
 # 更新并启动某服务
@@ -90,7 +90,7 @@ rbd-app-ui的日志默认是写到文件，可以在`/opt/rainbond/logs`目录�
 
 ### 确定节点状态是否健康
 
-```
+```shell
 # 在管理节点执行如下命令,观察节点状态，如果节点处于unhealth,说明节点不健康
 grctl node list
 # 查看不健康节点哪些服务异常
@@ -102,7 +102,8 @@ grctl node get <unhealth节点的UID>
 ##### grctl cluster 或 grctl node list 报 500错误
 
 此错误一般是由于node组件或api组件运行异常导致，查询node组件日志查询原因。
-```
+
+```shell
 # 查询node组件日志
 journalctl -fu node 
 
@@ -124,7 +125,7 @@ journalctl -fu rbd-api
 
 可以通过系统工具来查看服务状态,如
 
-```
+```shell
 systemctl status rbd-worker
 journalctl -fu rbd-worker
 ```

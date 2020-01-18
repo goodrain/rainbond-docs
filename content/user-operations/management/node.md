@@ -17,7 +17,7 @@ hidden: true
 
 {{% /notice %}}
 
-```bash
+```shell
 # 添加管理节点
 grctl node add --iip <管理节点内网ip> -p <root密码> --role manage 
 ## 法2默认已经配置ssh信任登陆
@@ -45,14 +45,14 @@ grctl node up <新增节点uid>
 
 - 1. 当前支持删除计算节点，仅仅将计算节点从集群中移除,不会停计算节点上运行的服务
 
-```
+```shell
 grctl node down  <被删除计算节点UUID>
 grctl node delete <被删除计算节点UUID>
 ```
 
 - 2. 重置计算节点(需要先从集群中删除)
 
-```
+```shell
 # 慎重操作，默认会删除数据
 ssh <被删除计算节点>
 grctl reset
@@ -81,7 +81,7 @@ grctl reset
 
 ##### 重置计算节点
 
-```bash
+```shell
 systemctl stop node
 systemctl disable node
 systemctl stop kubelet
@@ -100,7 +100,7 @@ docker images -q | xargs docker rmi -f
 
 ##### 重置管理节点
 
-```bash
+```shell
 systemctl stop node
 systemctl disable node
 systemctl stop kubelet

@@ -1,7 +1,7 @@
 ---
-title: "阿里云高可用部署Rainbond"
-weight: 1002
-description: "适用于你使用阿里云服务资源，此教程将使用阿里云 ECS+NAS+专有网络(弹性IP)等资源指导你部署高可用Rainbond集群"
+title: "阿里云高可用部署"
+weight: 1004
+description: "此方式适用于使用阿里云服务资源，此教程将使用阿里云 ECS+NAS+专有网络(弹性IP)等资源指导你部署高可用Rainbond集群"
 hidden: true
 ---
 
@@ -31,8 +31,6 @@ hidden: true
 
 ![image-20190810171455934](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/image-20190810171455934.png)
 
-
-
 安装组配置：
 
 ![image-20190810172102648](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-operations/install/image-20190810172102648.png)
@@ -57,7 +55,7 @@ NAS购买时注意选择与ECS在同一个可用区，NAS默认选择 `SSD性能
 
 创建NAS文件系统，并选择上文创建的专有网络创建挂载点，获取到下述挂载信息备用。
 
-```
+```shell
 sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport 9232f49391-nxt27.cn-zhangjiakou.nas.aliyuncs.com:/ /mnt
 ```
 
@@ -86,13 +84,12 @@ sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport 9232f49391-nxt27.cn-zhan
 
 SSH进入192.168.10.99 ECS服务器，执行下面的初始化命令：
 
-```bash
-# 下载Rainbond安装命令
-wget https://pkg.rainbond.com/releases/common/rainbond-install
-# 赋予执行权限
-chmod +x ./rainbond-install
+```shell
+# 下载Rainbond安装包
+wget https://pkg.rainbond.com/releases/common/v5.1/grctl && chmod +x ./grctl
+
 # 执行初始化命令
-./rainbond-install init \
+./grctl init \
 --eip=47.92.55.148 \
 --iip=192.168.10.99 \
 --vip=106.15.131.130 \
@@ -110,7 +107,7 @@ chmod +x ./rainbond-install
 ```
 
 特别注意：复制命令时--storage-args不要有换行。
-你需要根据你创建的资源实际情况更改上诉命令，需要修改的命令参数说明：
+你需要根据你创建的资源实际情况更改上述命令，需要修改的命令参数说明：
 
 * eip   节点外网IP地址
 * iip   节点内网IP地址
@@ -124,7 +121,7 @@ chmod +x ./rainbond-install
 
 执行成功结束后执行下述命令查看集群状态，一切正常后即可进入下述流程。
 
-```bash
+```shell
 grctl cluster
 ```
 
@@ -136,13 +133,13 @@ grctl cluster
 
 安装管理节点192.168.10.98：
 
-```
+```shell
 grctl node add --iip 192.168.10.98 --role manage --root-pass=***** --install
 ```
 
 安装管理节点192.168.10.97：
 
-```
+```shell
 grctl node add --iip 192.168.10.97 --role manage --root-pass=***** --install
 ```
 
@@ -152,7 +149,7 @@ grctl node add --iip 192.168.10.97 --role manage --root-pass=***** --install
 
 安装网关节点192.168.10.96:
 
-```
+```shell
 grctl node add --iip 192.168.10.96 --role gateway --root-pass=***** --install
 ```
 
@@ -162,19 +159,19 @@ grctl node add --iip 192.168.10.96 --role gateway --root-pass=***** --install
 
 安装网关节点192.168.10.95:
 
-```
+```shell
 grctl node add --iip 192.168.10.95 --role compute --root-pass=***** --install
 ```
 
 安装网关节点192.168.10.94:
 
-```
+```shell
 grctl node add --iip 192.168.10.94 --role compute --root-pass=***** --install
 ```
 
 > 注意，计算节点默认安装成功后是处于offline(离线状态)的，我们需要根据需要执行grctl node up <node_id>命令上线计算节点。这里我们执行下述命令：
 
-```
+```shell
 grctl node up 477ff71d-d9db-4f00-8764-60f0b299a656
 grctl node up 2481e7cf-8047-48fb-92a0-d7e51c0f64c4
 ```

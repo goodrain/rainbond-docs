@@ -11,7 +11,7 @@ hidden: true
 
 ### 安装前自定义
 
-```
+```shell
 grctl init --pod-cidr 192.168.0.0/16
 ```
 
@@ -37,13 +37,13 @@ vi /opt/rainbond/conf/network.yaml
 
 * 2. 调整所有节点的calico启动参数
 
-```
+```shell
 ETCDCTL_API=3 etcdctl del /calico --prefix
 ```
 
 * 3. 重启calico服务
 
-```
+```shell
 node service update
 ```
 

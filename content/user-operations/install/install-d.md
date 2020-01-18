@@ -1,5 +1,6 @@
 ---
 title: Rainbond集群安装和运维原理解读
+weight: 1006
 description: Rainbond集群安装和运维原理解读
 hidden: true
 ---
@@ -464,4 +465,3 @@ graph LR
 
 > 移步 [<https://github.com/goodrain/rainbond-ansible/issues>](https://github.com/goodrain/rainbond-ansible/issues) 查找或提交你的问题。
 
-本文作者： Rainbond 开发者：魏美龙

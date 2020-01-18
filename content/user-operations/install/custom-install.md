@@ -1,6 +1,6 @@
 ---
 title: "自定义部署方案"
-weight: 1006
+weight: 1005
 description: "此方式适用于熟悉ansible使用的用户"
 hidden: true
 ---

@@ -8,7 +8,6 @@ hidden: true
 ---
 
 
-
 存储节点部署示例环境，仅供参考
 
 | 主机名     | IP         | 系统                    |
@@ -21,7 +20,7 @@ hidden: true
 
 #### 1.1 格式化磁盘、创建目录并挂载
 
-```
+```shell
 # 查看可用磁盘
 fdisk -l
 # 分区并格式化
@@ -34,14 +33,14 @@ mount -a
 
 存储节点都需要执行如上操作。
 
-```
+```shell
 # 确定/data挂载
 df -h | grep data
 ```
 
 #### 1.3 安装启动glusterfs服务
 
-```bash
+```shell
 yum -y install centos-release-gluster 
 yum -y install glusterfs-server 
 systemctl start glusterd.service
@@ -53,14 +52,14 @@ systemctl status glusterd.service
 
 仅在其中1个节点执行操作即可
 
-```bash
+```shell
 [root@gfs01 ~]# gluster peer probe 10.10.10.14
 peer probe: success.
 ```
 
 在gfs02上验证
 
-```bash
+```shell
 [root@gfs02 ~]# gluster peer status
 Number of Peers: 1
 
@@ -71,7 +70,11 @@ State: Peer in Cluster (Connected)
 
 #### 1.5 创建卷
 
-```bash
+复制集如果副本数设置为2，可能会有脑裂（Split-brain）的风险（在创建时会风险提示，但可配置），推荐加入仲裁或者设置3副本；所以在安装部署时推荐部署3副本的复制集，以规避后期数据迁移所带来的风险，详情请参考[GlusterFS数据存储防脑裂及常见运维技巧](https://t.goodrain.com/t/topic/1321)。
+
+此示例环境副本数为2，仅供参考
+
+```shell
 # 存储节点都需执行  
 mkdir  -p /data/glusterfs
 
@@ -107,7 +110,7 @@ gluster volume start data
 
 #### 1.6 简单挂载测试
 
-```
+```shell
 # 挂载
 [root@gfs01 ~]# mount -t glusterfs 10.10.10.14:/data /mnt
 [root@gfs02 ~]# mount -t glusterfs 10.10.10.13:/data /mnt
@@ -125,7 +128,7 @@ ls /mnt/ | wc -l
 
 如果是已经安装好集群想切换到GlusterFS上,请参考如下流程:
 
-```
+```shell
 1. 先切换计算节点，后切换管理节点
 2. 计算节点将默认的nfs存储摘掉，编辑fstab文件，切换到GlusterFS,重新挂载
 3. 管理节点需要先停服务
@@ -158,7 +161,7 @@ systemctl disable nfs-server
 ### 三、通过ansible安装GlusterFS
 
 
-```
+```shell
 # 下载源码
 git clone https://github.com/goodrain/rainbond-glusterfs.git
 cd rainbond-glusterfs

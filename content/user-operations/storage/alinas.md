@@ -15,7 +15,7 @@ hidden: true
 
 提前准备好NAS，安装时指定存储类型为`nas`,具体示例如下：
 
-```
+```shell
 ./grctl init --storage nas --storage-args "82b554a292-rvg38.cn-huhehaote.nas.aliyuncs.com:/ /grdata nfs vers=3,nolock,noatime 0 0"
 ```
 
@@ -23,7 +23,7 @@ hidden: true
 
 ##### 安装配置NFS客户端程序
 
-```bash
+```shell
 # Debian/Ubuntu
 apt-get update
 apt-get install nfs-common
@@ -33,7 +33,7 @@ yum install nfs-utils
 
 ##### 配置NFS请求数量
 
-```
+```shell
 cat /proc/sys/sunrpc/tcp_slot_table_entries
 ```
 
@@ -41,7 +41,7 @@ cat /proc/sys/sunrpc/tcp_slot_table_entries
 Linux NFS 客户端对于同时发起的NFS请求数量进行了控制，若该参数配置较小，会降低 IO 性能。默认编译的内核中该参数最大值为256。您可以使用root用户执行以下命令来提高该参数的值，取得较好的性能。
 {{site.data.alerts.end}}
 
-```
+```shell
 echo "options sunrpc tcp_slot_table_entries=128" >> /etc/modprobe.d/sunrpc.conf
 echo "options sunrpc tcp_max_slot_table_entries=128" >>  /etc/modprobe.d/sunrpc.conf
 sysctl -w sunrpc.tcp_slot_table_entries=128
@@ -53,7 +53,7 @@ sysctl -w sunrpc.tcp_slot_table_entries=128
 
 > 推荐使用NFS v3协议
 
-```bash
+```shell
 mkdir /grdata
 # 编辑/etc/fstab
 file-system-id-xxxx.region.nas.aliyuncs.com:/  /grdata  nfs vers=3,nolock,noatime,proto=tcp,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport   0 0
@@ -69,7 +69,7 @@ mount -l
 
 - 如果安装后切换/grdata存储操作
 
-```
+```shell
 # 计算节点
 umout /grdata
 # 修改/etc/fstab部分，由NFS调整为阿里云NAS，重新挂载

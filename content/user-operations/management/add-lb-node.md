@@ -17,7 +17,7 @@ hidden: true
 
 准备用于生成配置文件的文件夹
 
-```
+```shell
 mkdir /opt/rainbond/scripts/ -p
 mkdir /opt/rainbond/etc/node/ -p
 mkdir /opt/rainbond/etc/kubernetes/ -p
@@ -50,7 +50,7 @@ EOF
 
 * 生成node启动脚本
 
-```bash
+```shell
 cat > /opt/rainbond/scripts/start-node.sh <<EOF
 #!/bin/bash
 
@@ -65,13 +65,13 @@ chmod +x /opt/rainbond/scripts/start-node.sh
 
 * 生成node的uuid
 
-```bash
+```shell
 
 [root@localhost ~]# uuidgen
 8b5ccedc-8d8d-4ce7-aaaa-e8fc1439d288
 ```
 
-```
+```shell
 cat > /opt/rainbond/etc/node/node_host_uuid.conf <<EOF
 host_uuid=8b5ccedc-8d8d-4ce7-aaaa-e8fc1439d288
 EOF
@@ -93,7 +93,7 @@ NODENAME为新增网关节点node的uuid
 
 * 安装docker并启动
 
-```bash
+```shell
 # 安装docker
 export VERSION=18.06 && curl -fsSL http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/docker/install-docker.sh | bash -s docker 
 # 启动docker
@@ -130,7 +130,7 @@ systemctl restart docker
 
 #### 2. 启动node
 
-```
+```shell
 systemctl enable node
 systemctl start node
 # node启动后根据/opt/rainbond/conf目录下配置文件生成对应服务systemd配置文件并启动
@@ -152,13 +152,13 @@ systemctl start node
 
 1. 调整域名解析 将域名解析到vip或者是slb的ip
 
-```
+```shell
 grctl domain --ip <vip/slb>
 ```
 
 2. 更新数据库信息
 
-```
+```shell
 # 仅vip方案
 docker exec -it rbd-db mysql -e "update console.region_info set tcpdomain='<vip>';"
 ```

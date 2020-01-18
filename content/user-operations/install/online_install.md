@@ -1,22 +1,20 @@
 ---
 title: "快速部署"
 weight: 1001
-description: "此方式适用于快速安装和试用Rainbond平台, 最少只需要单台机器即可完成all-in-one模式的部署。"
+description: "此方式适用于快速安装和试用Rainbond平台, 最少只需要单台机器即可完成all-in-one模式的部署"
 hidden: true
 ---
 
 ### 一、安装前必读
 
-`all-in-one`模式快速安装适用于想要快速安装Rainbond，试用Rainbond，仅作为演示环境使用；如果您想要安装部署一个生产级的Rainbind环境请参阅 [生产级Rainbond高可用环境部署](/user-operations/install/install-base-ha/)
+`all-in-one`模式快速安装适用于想要快速安装Rainbond，试用Rainbond，仅作为演示环境使用。
 
 #### 安装说明
 
 - 安装时必须使用root用户执行安装操作；
-- Rainbond 单节点安装[最低配置要求](/user-operations/op-guide/recommendation/#六-服务器要求)；如果想跳过系统配置检查，安装时指定`--enable-check disable`，如果配置过低可能会无法正常安装部署；
 - 在线安装确定网络没有限制,如有请将[域名](/user-operations/op-guide/recommendation/#在线安装确定网络没有限制-如有请将以下域名添加到白名单)添加到白名单。
 
-
-> 在安装前请您务必阅读 [软件和硬件环境要求](/user-operations/op-guide/recommendation/)
+**在安装前请您务必阅读 [软件和硬件环境要求](/user-operations/op-guide/recommendation/)**
 
 ### 二、安装Rainbond
 
@@ -34,11 +32,10 @@ wget https://pkg.rainbond.com/releases/common/v5.1/grctl && chmod +x ./grctl
 
 **开始`all-in-one`模式快速安装**
 
-```bash
-# 若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);若当前机器同时具备内网和公网IP地址时，务必指定公网IP地址(eip)，若无则无需指定
+若当前机器存在多个内网IP地址时需要请务必指定内网IP地址(iip);若当前机器同时具备内网和公网IP地址时，务必指定公网IP地址(eip)，若无则无需指定。
 
+```shell
 ./grctl init --iip 内网ip --eip 公网ip
-
 ```
 
 上述步骤完成将默认把第一个节点安装成为`all-in-one`模式节点，更多安装参数请使用`./grctl init -h`命令获取

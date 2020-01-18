@@ -1,7 +1,7 @@
 ---
-title: "高可用部署"
-weight: 1001
-description: "此方式将首先引导你进行相关资源的规划和准备，以完成生产级高可用集群的快速安装。"
+title: "私有云高可用部署"
+weight: 1003
+description: "此方式将首先引导你进行相关资源的规划和准备，以完成生产级高可用集群的快速安装"
 hidden: true
 ---
 
@@ -16,7 +16,7 @@ hidden: true
 
 > 资源要求
 
-在安装前请您务必阅读 [软件和硬件环境要求](/user-operations/op-guide/recommendation/)
+**在安装前请您务必阅读 [软件和硬件环境要求](/user-operations/op-guide/recommendation/)**
 
 > 资源规划
 
@@ -89,7 +89,7 @@ Rainbond集群需要为管理节点与计算节点的 `/grdata` 目录配置共�
 这一步将初始化Rainbond数据中心，即安装首个管理节点。这一步非常重要，会配置访问应用所使用的IP、集群网络解决方案等信息。
 
 
-```bash
+```shell
 # 建议使用root执行安装操作
 wget https://pkg.rainbond.com/releases/common/v5.1/grctl && chmod +x ./grctl
 
@@ -123,7 +123,7 @@ wget https://pkg.rainbond.com/releases/common/v5.1/grctl && chmod +x ./grctl
 
 注意：扩容完第二个管理节点以后需继续扩容第三个管理节点，否则将会造成集群状态异常
 
-```bash
+```shell
 方法一 适用于知悉节点root密码
 grctl node add --iip <管理节点ip> -p <root密码> --role manage,gateway --install
 方法二 适用于已经配置好ssh免密
@@ -144,7 +144,7 @@ grctl node add --iip <管理节点ip> --key /root/.ssh/id_rsa.pub --role manage,
 
 #### 扩容命令
 
-```bash
+```shell
 方法一 适用于知悉节点root密码
 grctl node add --iip <计算节点ip> -p <root密码> --role compute --install
 方法二 适用于已经配置好ssh免密
@@ -170,7 +170,7 @@ update console.region_info set url="https://<VIP_OF_MANAGE>:8443",wsurl="ws://<V
 
 在所有节点调整 /etc/hosts
 
-```
+```shell
 < VIP >  kubeapi.goodrain.me goodrain.me repo.goodrain.me lang.goodrain.me maven.goodrain.me region.goodrain.me
 ```
 
@@ -180,7 +180,7 @@ update console.region_info set url="https://<VIP_OF_MANAGE>:8443",wsurl="ws://<V
 
 管理节点
 
-```
+```shell
 cat /opt/rainbond/scripts/start-etcd.sh |grep ETCD_INITIAL_CLUSTER=
 
 ETCD_INITIAL_CLUSTER="etcd1=http://<管理节点1IP>:2380,etcd2=http://<管理节点2IP>:2380,etcd3=http://<管理节点3IP>:2380"
@@ -188,7 +188,7 @@ ETCD_INITIAL_CLUSTER="etcd1=http://<管理节点1IP>:2380,etcd2=http://<管理�
 
 计算节点
 
-```
+```shell
 vi /opt/rainbond/scripts/start-etcd-proxy.sh
 #!/bin/sh
 
@@ -231,7 +231,7 @@ vi /opt/rainbond/etc/cni/10-calico.conf
 
 在管理节点调整node配置
 
-```
+```shell
 vi /opt/rainbond/scripts/start-node.sh
 #!/bin/bash
 
@@ -245,7 +245,7 @@ exec /usr/local/bin/node $NODE_OPTS
 
 管理节点重启以下服务
 
-```bash
+```shell
 systemctl restart node.service
 systemctl restart calico
 systemctl restart etcd
@@ -253,7 +253,7 @@ systemctl restart etcd
 
 计算节点重启以下服务
 
-```bash
+```shell
 systemctl restart node.service
 systemctl restart calico
 systemctl restart kubelet
@@ -262,7 +262,7 @@ systemctl restart etcd-proxy
 
 #### 查看集群状态
 
-```
+```shell
 grctl cluster
 ```
 确保集群状态正常后登录应用控制台

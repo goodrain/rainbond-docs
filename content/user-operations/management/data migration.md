@@ -10,7 +10,7 @@ hidden: true
 
 - 在数据库节点安装docker
 
-```
+```shell
 # 安装docker
 export VERSION=18.06 && curl -fsSL http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/docker/install-docker.sh | bash -s docker
 # 启动docker
@@ -31,7 +31,7 @@ mkdir -p /opt/rainbond/etc/
 
 - 在首个管理节点执行以下操作
 
-```
+```shell
 # 查看数据库连接信息
 root@rainbond:~# cat /opt/rainbond/.init/updatedb.sh |grep ^DB
 
@@ -60,7 +60,7 @@ scp -r /opt/rainbond/etc/rbd-db 10.10.10.11:/opt/rainbond/etc/
 
 - 在存储节点的Mysql导入数据
 
-```
+```shell
 # 启动rbd-db服务
 systemctl start rbd-db
 # 查看rbd-db服务状态
@@ -82,7 +82,7 @@ flush privileges;­
 
 - 在首个管理节点操作，因数据已经导入，只需修改指向数据库主机的IP即可
 
-```
+```shell
 # 需要修改一个地方
 vi /opt/rainbond/conf/ui.yaml
 
@@ -123,7 +123,7 @@ services:
 ```
 master.yaml文件，需要修改四个地方，只修改数据库主机IP即可
 
-```
+```shell
 vi /opt/rainbond/conf/master.yaml
 
 version: '2.1'
@@ -312,20 +312,20 @@ services:
 
 所有节点修改完毕后执行命令
 
-```
+```shell
 node service update
 ```
 
 最后查看集群状态 
 
-```
+```shell
 grctl cluster
 ```
 登录平台查看应用状态
 
 数据迁移完毕停止rbd-db服务
 
-```
+```shell
 # 将rbd-db配置文件移走
 mv /opt/rainbond/conf/db.yaml /backup
 rm -rf  /etc/systemd/system/rbd-db.service 
