@@ -2519,6 +2519,25 @@ h6 {
   font-size: 2rem;
   padding: 2rem;
 }
+.feedback {
+  border-top: 1px solid #cccccc;
+  margin-top: 2rem;
+}
+.feedback p {
+  font-size: 1rem;
+  margin: 0rem;
+  padding: 1rem 0 2rem 0;
+}
+.feedback a {
+  padding: 0.75rem;
+  border: 1px solid #cccccc;
+  margin-right: 2rem;
+  border-radius: 0.3rem;
+}
+.feedback a.important {
+  background-color:#00a4ff;
+  color: #fff;
+}
 
 @media screen and (max-width: 640px) {
   .content-section .content-body {

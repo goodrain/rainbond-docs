@@ -30,6 +30,15 @@
                 <div class="markdown-body">
                     {{ .Content }}
                 </div>
+                <div class="feedback">
+                    <p>你觉得这篇文档对你有用吗，我们希望获取你的反馈以致于提供更好的文档内容</p>
+                    {{ $Site := .Site }}
+                    <a target="_blank" href="{{ $Site.Params.issuesURL }}">提交ISSUES</a>
+                    {{ $File := .File }}
+                    {{with $File.Path }}
+                    <a target="_blank" href="{{ $Site.Params.editURL }}{{ replace $File.Dir "\\" "/" }}{{ $File.LogicalName }}" class="important">编辑此文档</a>
+                    {{ end }}
+                </div>
             </div>
         </div>
     </section>
