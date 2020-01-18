@@ -2494,21 +2494,45 @@ h6 {
   padding-left: 2rem;
   width: calc(100% - 300px);
 }
+.head-logo {
+  display: block;
+  line-height: 2rem;
+  height:  1.5rem;
+  margin: 1rem;
+}
 
 @media screen and (max-width: 640px) {
   .content-section .content-body {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .content-section .content-body .doc-content {
     width: 100%;
+    padding-left: 0rem;
+    margin-top: 1rem;
+  }
+  .article-title .t {
+    font-size: 1.5em;
+    padding-left: 1.5rem;
   }
 
   .content-section .content-body .sidemenu {
     position: absolute;
     z-index: 100;
     left: 0;
-    top: 40px;
+    top: -20px;
+  }
+  .section {
+    padding: 1.5rem 1.5rem;
+  }
+  .sidemenu .menu-item-selected a::before {
+    width: 0;
+  }
+  .sidemenu.sidemenu-open .menu-item-selected a::before {
+    width: 4px;
+  }
+  .article-title {
+    margin-bottom: 1.5rem;
   }
 }
