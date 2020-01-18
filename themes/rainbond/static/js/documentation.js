@@ -85,7 +85,7 @@ function handleSearch() {
           if (item.title) {
             li.append(
               '<h4><a href="' +
-                item.uri +
+                item.url +
                 '" class="links" target="_blank">' +
                 item.title +
                 "</a></h4>"
