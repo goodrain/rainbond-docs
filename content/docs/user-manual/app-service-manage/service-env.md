@@ -62,3 +62,5 @@ Rainbond平台启动组件时默认注入以下环境变量信息以供应用使
 | ES_HOSTNAME    | 主机名         | 设置实例的主机名，适用于单实例组件                           |
 | ES_CPULIMIT    | 1核=1000       |  自定义组件的CPU限制值  5.0.3及以后版本支持                   |
 | ES_CPUREQUEST    | 1核=1000       |  自定义组件的CPU请求值     5.0.3及以后版本支持           |
+| ES_TCPUDP_MESH_MEMORY | MB | 自定义默认的MESH容器内存限制量，默认为128MB |
+| ES_TCPUDP_MESH_CPU | 1核=1000  | 自定义默认的MESH容器CPU限制量，默认为120, 最小为120 |
