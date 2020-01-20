@@ -7,7 +7,7 @@ weight: 3102
 
 本节内容就上文提到的三种创建方式在Rainbond平台上如何操作提供指南。
 
-#### 从源码创建
+### 从源码创建
 
 下面将会以Java源码创建组件为例, 介绍在Rainbond上用源码创建组件流程。
 
@@ -27,7 +27,7 @@ weight: 3102
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/HTML%E6%BA%90%E7%A0%81%E5%88%9B%E5%BB%BA.gif" width="100%" />
 
 
-##### 其他语言源码支持参阅下述文档
+#### 其他语言源码支持参阅下述文档
 
 - <a href="../language-support/java/" target="_blank">Java源码创建组件</a>
 - <a href="../language-support/php/" target="_blank">PHP源码创建组件</a>
@@ -38,7 +38,7 @@ weight: 3102
 - <a href="../language-support/html/" target="_blank">Html静态源码创建组件</a>
 - <a href="../language-support/dockerfile/" target="_blank">Dockerfile源码创建组件</a>
 
-##### Git 和 SVN 的使用
+#### Git 和 SVN 的使用
 在创建组件时，根据代码仓库的类型选择 Git 或 SVN, 并正确填写该应用的代码仓库地址以及要使用的代码`分支`或 `tag`. Git的默认分支是 `master`, SVN 的默认 tag 是 `trunk`.
 
 * 账号密码连接代码仓库
@@ -53,7 +53,7 @@ weight: 3102
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/ssh_login.jpg" width="100%" />
 
-#### 从Docker镜像创建
+### 从Docker镜像创建
 
 下面将会以Nginx的官方镜像为例, 介绍并演示在Rainbond上用Docker镜像创建组件的过程。
 与源码创建流程一样，不同的是提供的构建源信息和类型不同，流程如下：
@@ -74,7 +74,7 @@ weight: 3102
 2. 如果私有仓库使用自签证书，Rainbond管理节点需要配置私有仓库信任，参考运维文档。
 3. 如果镜像仓库是私有的，请提供正确的账号密码信息。
 
-##### 示例部署带启动命令的镜像应用
+#### 示例部署带启动命令的镜像应用
 
 * 通过docker run命令方式部署:  `docker run -p 8490:8490 goodrain.me/test -s "ws://192.168.1.1:8490"`
 * 通过指定镜像方式:
@@ -85,7 +85,7 @@ weight: 3102
 `goodrain.me/test`请替换为自己镜像
 
 
-#### 从应用市场安装
+### 从应用市场安装
 
 从应用市场安装过程非常简单，只需要提供需要安装到的应用即可。
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/%E5%BA%94%E7%94%A8%E5%B8%82%E5%9C%BA%E5%AE%89%E8%A3%85.gif" width="100%" />
