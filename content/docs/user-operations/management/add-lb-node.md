@@ -9,7 +9,7 @@ hidden: true
 
 {{% notice info %}}
 5.1.4版本之后支持扩容网关节点(具体可参考节点管理部分),历史版本只能手动扩容添加网关节点
-{{% /notice %}}
+
 
 ### 手动添加网关节点
 
@@ -144,9 +144,9 @@ systemctl start node
 - 1. 对接外部负载均衡设备(如阿里云slb) 可以参考 [阿里云slb配置-可选](/docs/user-operations/install/install-base-alicloud/#2-5-阿里云slb配置-可选)
 - 2. 使用vip
 
-{{% notice note %}}
+
 阿里云slb目前仅支持http或者https应用负载均衡
-{{% /notice %}}
+
 
 #### 更新配置
 

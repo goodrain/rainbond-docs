@@ -44,7 +44,7 @@ eureka:
 
 {{% notice info %}}
 Rainbond 中会将无法解析的域名，如 `pig-eureka` 解析为 `127.0.0.1`
-{{% /notice %}}
+
 
 在 Rainbond 中，可以借助于依赖关系，将微服务组件和 eureka 连接起来，帮助 Spring Cloud 完成注册这一动作：
 
@@ -68,7 +68,7 @@ Spring Cloud 微服务组件的启动顺序是比较重要的，一个组件在�
 
 {{% notice warning %}}
 必须指出的是，在这个启动控制链条中，pig-gateway 指向 pig-auth 的依赖关系，其意义只作为启动顺序控制策略，不作为正常的依赖关系使用。
-{{% /notice %}}
+
 
 ### Spring Cloud 适配 Rainbond
 
@@ -111,4 +111,3 @@ eureka:
 
 {{% notice warning %}}
 上述配置适用于于测试场景以及调试场景。如果服务已经趋于稳定，并决定应用于生产环境，则建议自行设置合适的配置方案。
-{{% /notice %}}

@@ -11,11 +11,11 @@ weight: 5031
 
 <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/web-console.gif" width="100%" />
 
-{{% notice note %}}
+
 
 当无法正常打开控制台时，请检查组件状态是否正常。</br>Web控制台只用作查看和调试程序，不建议通过控制台部署业务相关的组件。</br>在容器中创建的文件若未存放于持久化目录，重启组件后文件丢失</br>
 
-{{% /notice %}}
+
 
 
 

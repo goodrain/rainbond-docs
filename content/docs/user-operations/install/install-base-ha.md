@@ -155,9 +155,9 @@ grctl node add --iip <计算节点ip> --key /root/.ssh/id_rsa  --role compute --
 
 > 高可用集群搭建到了这里，还有些细节，要手动调整，在调整之前确保使用`grctl cluster`命令查看集群状态正常。
 
-{{% notice note %}}
+
 如果将管理节点集群和网关节点集群分开部署，则需要分别为两个集群配置虚拟IP；如果管理节点集群和网关节点混合部署，则两个虚拟IP统一。
-{{% /notice %}}
+
 
 #### 7.1 调整数据库
 

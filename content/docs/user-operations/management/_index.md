@@ -8,7 +8,7 @@ chapter: true
 
 ## 管理集群
 
-{{% notice note %}}
+
 管理和运维Rainbond集群的知识和经验,主要涉及节点组件的管理配置相关.
-{{% /notice %}}
+
 {{% children showhidden="true" description="true" style="h3"  %}}

@@ -68,9 +68,7 @@ mirror相当于一个拦截器，它会拦截Maven对remote仓库的相关请求
   </mirror>  
 ```
 
-{{% notice info %}}
-由于镜像仓库完全屏蔽了被镜像仓库，当镜像仓库不稳定或者停止服务的时候，Maven仍将无法访问被镜像仓库，因而将无法下载构件。
-{{% /notice %}}
+> 由于镜像仓库完全屏蔽了被镜像仓库，当镜像仓库不稳定或者停止服务的时候，Maven仍将无法访问被镜像仓库，因而将无法下载构件。
 
 #### Rainbond构建源Maven镜像仓库参数说明
 
@@ -84,9 +82,7 @@ mirror相当于一个拦截器，它会拦截Maven对remote仓库的相关请求
 
 > 更多[构建源参数](/docs/user-manual/app-service-manage/service-source/)说明参考
 
-{{% notice note %}}
-`maven.goodrain.me`默认是由Rainbond内置的rbd-repo提供服务的。
-{{% /notice %}}
+> `maven.goodrain.me`默认是由Rainbond内置的rbd-repo提供服务的。
 
 ### Rainbond组件rbd-repo简述
 
@@ -117,12 +113,12 @@ rbd-repo默认内置镜像了如下远程仓库:
 
 公司内部有自己的Maven私服仓库，可以通过rbd-repo组件来实现与Rainbond的对接。
 
-{{% notice warning %}}
-需要注意: 如果你的私服是Nexus3或者是阿里云Maven仓库则无法使用rbd-repo进行镜像代理缓存。  
+
+> 需要注意: 如果你的私服是Nexus3或者是阿里云Maven仓库则无法使用rbd-repo进行镜像代理缓存。  
 解决方案:  
 法1. 禁用Rainbond的Mirror配置,项目[构建源](/docs/user-manual/app-service-manage/service-source/)里设置并同时启用开启清除构建缓存配置项, pom.xml里定义相关仓库信息  
 法2. 使用Nexus2或者使用Rainbond内置的rbd-repo服务  
-{{% /notice %}}
+
 
 #### 示例对接内部私有Maven仓库
 

@@ -55,7 +55,7 @@ prehidden: true
 
 如果代码的根目录下有`composer.lock`文件，务必删掉，否则平台将从这里读取版本信息。云帮在构建的过程中会自动生成这个文件。
 
-{{% /notice %}}
+
 
 ### 多个composer.json
 
@@ -89,9 +89,9 @@ vendor/topthink/think-captcha/composer.json
 您无需自已安装和配置web服务器，云帮会自动提供`apache`和`nginx`服务器供您选择使用，因为ThinkPHP框架会使用`.htaccess`文件来自定义`apache`的跳转规则，所以您应该选择`apache`做为web服务器。
 
 ## 设置Document Root
-{{% notice note %}}
+
 入口文件位于`public/index.php`，入口文件位置的设计是为了让应用部署更安全，`public`目录为web可访问目录，其他的文件都可以放到非`WEB`访问目录下面。
-{{% /notice %}}
+
 很多用户的应用并不是将代码跟目录作为Web Server的主目录，例如`ThinkPHP5`框架要求`Document root`是 `public`目录。这就需要我们将`Document root`设置到 跟目录中下的`public`二级目录中。
 
 配置的方法是在代码的根目录下写一个`Procfile`文件，内容如下：

@@ -13,11 +13,11 @@ hidden: true
 - 源码跟目录存在 config/environment.rb 文件，会被识别为Rails 2 应用。
 - 源码根目录存在 config/application.rb文件且文件中包含Rails::Application 字符串，会被识别为Rails 3应用。
 
-{{% notice note %}}
+
 
 云帮使用`Bundler 1.7.12`来进行项目的依赖管理，用户无法指定版本。
 
-{{% /notice %}}
+
 
 ## 二、环境变量
 
@@ -29,11 +29,11 @@ LANG => en-us
 PATH => bin:vendor/bundle/#{RUBY_ENGINE}/#{RUBY_ABI_VERSION}/bin:/usr/local/bin:/usr/bin:/bin
 ```
 
-{{% notice note %}}
+
 
 `GEM_PATH` 设置`/vendor`目录主要用来帮助`bundler`管理`gem`
 
-{{% /notice %}}
+
 
 ## 三、构建(build)
 
@@ -55,7 +55,7 @@ PATH => bin:vendor/bundle/#{RUBY_ENGINE}/#{RUBY_ABI_VERSION}/bin:/usr/local/bin:
 {{% notice info %}}
   注意：Ruby 1.8.7 和 Ruby 1.9.2 官方已经停止支持，不再提供更新，不推荐使用。
 
-{{% /notice %}}
+
 
 ### 4.2 JRuby
 
@@ -100,11 +100,11 @@ source "https://ruby.taobao.org"
 ruby "1.9.3"
 ```
 
-{{% notice note %}}
+
 
 由于国外的gem源速度比较慢，推荐使用淘宝的gem源
 
-{{% /notice %}}
+
 
 如需指定非 MRI 的 ruby 引擎，需要使用 `:engine` 和 `:engine_version` 。您可以通过以下内容指定 JRuby ：
 

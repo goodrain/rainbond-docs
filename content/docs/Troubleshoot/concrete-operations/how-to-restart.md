@@ -52,11 +52,11 @@ systemctl restart docker
 
 #### 优雅重启策略
 
-{{% notice note %}}
+
 
 当Rainbond集群采用了[高可用安装方式](/docs/user-operations/install/install-base-ha/)时，整个集群可以按照如下顺序优雅重启。
 
-{{% /notice %}}
+
 
 ##### 重启前准备
 
@@ -112,11 +112,11 @@ systemctl restart docker
 #### 节点复用情况下重启策略
 
 
-{{% notice note %}}
+
 
 当Rainbond集群采用了节点复用的方式部署时，重启策略以 **存储节点优雅重启** 判断标准优先。
 
-{{% /notice %}}
+
 
 #### 机房断电重启策略
 

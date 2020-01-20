@@ -141,7 +141,7 @@ development、test 环境的数据库配置请根据本地实际情况填写
 production 的MYSQL_开头的环境变量是在云帮关联mysql服务后自动生成的。
 production 的数据库需要提前创建
 
-{{% /notice %}}
+
 
 ### Rails 插件
 
@@ -178,7 +178,7 @@ Compiled application.css  (0ms)  (pid 1601)
 - 只需要将Gemfile文件中 # gem 'therubyracer', :platform => :ruby 的注释去掉即可，然后执行 bundle install 安装gem并更新依赖文件
 - RAILS_ENV=production bundle exec rake assets:precompile 这条命令设置了RAILS_ENV环境变量为production，是因为部署在云帮上的应用会自动设置RAILS_ENV= production
 
-{{% /notice %}}
+
 
 为了告知云帮不在构建过程中生成 Asset，需要在config/application.rb配置文件中添加如下配置：
 

@@ -46,7 +46,7 @@ HPA 控制器一般从 `metrics.k8s.io`, `custom.metrics.k8s.io` 和 `external.m
 
 目前 5.1.9, Rainbond 只支持 `资源指标`, 即与 CPU 和内存相关的指标. 虚线框里自定义指标和外部指标, 会在未来的版本中实现.
 
-{{% /notice %}}
+
 
 ### 水平自动伸缩的算法
 

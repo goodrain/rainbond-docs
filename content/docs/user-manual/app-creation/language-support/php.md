@@ -60,7 +60,7 @@ PHP应用程序可以使用Composer安装的依赖项,通常会将依赖项安�
         "optimize-autoloader": true
     },
 ```
-{{% /notice %}}
+
 
 
 #### 编译运行环境设置
@@ -108,9 +108,9 @@ PHP应用程序可以使用Composer安装的依赖项,通常会将依赖项安�
 ```
 -->
 
-{{% notice note %}}
+
 PHP 的版本支持 ~5.5.35 这种 [Semantic Versioning](http://semver.org/) 的形式，如果用户指定~5.5.35系统会从平台中选择5.5分支版本最高的版本，因此会选择5.5.35版本。
-{{% /notice %}}
+
 
 #### 扩展支持
 
@@ -349,7 +349,7 @@ PHP 的版本支持 ~5.5.35 这种 [Semantic Versioning](http://semver.org/) 的
 
 Composer是PHP的依赖管理器，composer.json则是Composer的配置文件，强烈建议使用 “*” 来标识扩展包的版本号。
 
-{{% /notice %}}
+
 
 ##### 第三方扩展
 
@@ -384,7 +384,7 @@ Composer是PHP的依赖管理器，composer.json则是Composer的配置文件，
 
 更多细节扩展支持说明请参考：<a href="../php_more/extensions/" target="_blank">不同版本PHP扩展支持说明</a>
 
-{{% /notice %}}
+
 -->
 #### 示例demo程序
 
@@ -408,7 +408,7 @@ composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
 系统会在每次运行的时候使用`composer self-update` 将Composer自动更新到最新版本。
 
-{{% /notice %}}
+
 
 ## 六、配置启动命令
 

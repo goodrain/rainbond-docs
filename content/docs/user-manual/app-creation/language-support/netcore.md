@@ -11,9 +11,9 @@ hidden: true
 
 代码主目录中包含以`.sln`或者`.csproj`结尾的文件并且不包含`Dockerfile`文件时，平台识别项目语言类型为`.NetCore`
 
-{{% notice note %}}
+
 目前仅支持单项目代码维护形式，如果你一个代码仓库维护了多个 Project, 例如一个微服务架构，那么首先建议你将每个 Project 分离到不同仓库或同个仓库不同二级目录下。
-{{% /notice %}}
+
 
 #### 代码规范
 
@@ -23,13 +23,13 @@ hidden: true
 
 对于.NetCore语言的支持与Dockerfile一样将构建出镜像而不是slug程序包，因此.NetCore不能使用Procfile文件定义。
 
-{{% notice note %}}
-NetCore语言构建过程默认使用`microsoft/dotnet:2.2-sdk-alpine` 编译镜像和`microsoft/dotnet:2.2-aspnetcore-runtime`运行环境镜像，若设置其他版本同理。若你未提前下载镜像在构建过程容易出现拉取镜像失败的错误。强烈建议先在Rainbond管理节点提前手动获取上诉镜像。
-{{% /notice %}}
 
-{{% notice note %}}
+NetCore语言构建过程默认使用`microsoft/dotnet:2.2-sdk-alpine` 编译镜像和`microsoft/dotnet:2.2-aspnetcore-runtime`运行环境镜像，若设置其他版本同理。若你未提前下载镜像在构建过程容易出现拉取镜像失败的错误。强烈建议先在Rainbond管理节点提前手动获取上诉镜像。
+
+
+
 如果你的源码对系统环境有依赖，需要单独安装系统类库，目前无法直接使用Rainbond提供的默认编译环境编译，你可以采用直接定义[Dockerfile](../dockerfile)的方式支持。
-{{% /notice %}}
+
 
 ##### 编译环境选择
 

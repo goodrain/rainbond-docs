@@ -24,7 +24,7 @@ Kubernetes是Rainbond调度和运行应用的基础平台，5.0版本开始Rainb
 
 {{% notice warning %}}
 由Rainbond创建的资源都携带Creater=Rainbond 标签，由Rainbond自动管理，你在未完全了解Rainbond工作机制的情况下请勿自行操作Kubernetes资源。
-{{% /notice %}}
+
 
 
 ### 安装Rainbond

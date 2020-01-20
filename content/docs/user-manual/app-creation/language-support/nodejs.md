@@ -5,10 +5,10 @@ weight: 3320
 hidden: true
 ---
 
-{{% notice note %}}
+
 Rainbond 5.1版本已支持源码部署NodeJS前端类项目，你可以直接在Rainbond发布Vue, React, Angular等项目
 查看文档： <a href="../nodejs-static/">部署NodeJS前端项目到Rainbond</a>
-{{% /notice %}}
+
 
 #### NodeJS语言识别规范
 平台默认会根据源码根目录是否有`package.json`来识别为NodeJS项目.
@@ -37,12 +37,12 @@ web: npm start
 
 上述是默认Procfile,如果需要扩展更多启动参数,可以自定义Procfile。
 
-{{% notice note %}}
+
 
 1. `web:`和`npm`之间有一个空格
 2. 文件结尾不能包含特殊字符
 
-{{% /notice %}}
+
 
 
 #### 编译运行环境设置
@@ -87,7 +87,7 @@ web: npm start
 
 {{% notice info %}}
 npm 版本不是必须的，可以省略，因为 npm 是跟 node 绑定的。
-{{% /notice %}}
+
 
 ##### 依赖包安装 
 
@@ -131,7 +131,7 @@ Node项目支持使用[npm package manager](https://www.npmjs.com/) 和 [yarn pa
 
 {{% notice info %}}
 系统默认不自带 grunt、gulp、bower 这些工具，但是会安装 `package.json` 中 `dependencies` 和`devDependencies` 节点下的依赖，所以自定义执行的命令也需要作为依赖添加到此节点下，否则可能会找不到命令，这些工具执行时需要的依赖也是如此。
-{{% /notice %}}
+
 
 ##### 仓库私服设置
 

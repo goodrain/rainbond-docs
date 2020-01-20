@@ -31,18 +31,18 @@ web: java -Dserver.port=$PORT $JAVA_OPTS -jar ./*.jar
 
 上述是默认Procfile,如果需要扩展更多启动参数,可以自定义Procfile。
 
-{{% notice note %}}
+
 1. `web:`和`java`之间有一个空格
 2. 文件结尾不能包含特殊字符
 3. JAVA_OPTS: 平台会根据应用的内存大小，自动设置Xmx和Xms的值
 4. PORT: 根据用户在平台设置的端口决定监听，默认监听端口为 5000
-{{% /notice %}}
+
 
 #### 编译运行环境设置
 
 {{% notice info %}}
 在选择JDK版本或其他组件版本时，需要注意JDK或者其他组件版本不要选择比项目使用的版本过高或者过低以免导致源码编译失败
-{{% /notice %}}
+
 
 ##### OpenJDK支持
 
@@ -69,9 +69,9 @@ java.runtime.version=1.8
 
 OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.tar.gz`
 
-{{% notice note %}}
+
 平台设置的配置优先级要高于程序代码中定义的配置，如Java JDK版本的选择,在程序代码里通过`system.properties`指定了JDK版本为1.9,在平台上选择了JDK版本为11,那么默认在进行源码编译时会优先使用平台指定的版本JDK11
-{{% /notice %}}
+
 
 #### 示例demo程序
 

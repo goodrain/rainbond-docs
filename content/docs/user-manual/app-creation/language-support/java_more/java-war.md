@@ -32,12 +32,12 @@ web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT ./*.war
 
 上述是默认Procfile,如果需要扩展更多启动参数,可以自定义Procfile。
 
-{{% notice note %}}
+
 1. `web:`和`java`之间有一个空格
 2. 文件结尾不能包含特殊字符
 3. JAVA_OPTS: 平台会根据应用的内存大小，自动设置Xmx和Xms的值
 4. PORT: 根据用户在平台设置的端口决定监听，默认监听端口为 5000
-{{% /notice %}}
+
 
 {{% notice warning %}}
 当调整了Web服务器支持后，打包成War需要调整启动命令  
@@ -45,13 +45,13 @@ web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT ./*.war
 - 选择jetty不同版本时 `web: java $JAVA_OPTS -jar ./jetty-runner.jar --port $PORT ./*.war`  
 需要配置context path,可以通过自定义Procfile指定[webapp-runner参数path](https://github.com/jsimone/webapp-runner#options)  
 - 示例 `web: java $JAVA_OPTS -jar ./webapp-runner.jar --path <path路径,示例: /r6d>  --port $PORT ./*.war` 
-{{% /notice %}}
+
 
 #### 编译运行环境设置
 
 {{% notice info %}}
 在选择JDK版本或其他组件版本时，需要注意JDK或者其他组件版本不要选择比项目使用的版本过高或者过低以免导致源码编译失败
-{{% /notice %}}
+
 
 ##### OpenJDK支持
 
@@ -78,9 +78,9 @@ java.runtime.version=1.8
 
 OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.tar.gz`
 
-{{% notice note %}}
+
 平台设置的配置优先级要高于程序代码中定义的配置，如Java JDK版本的选择,在程序代码里通过`system.properties`指定了JDK版本为1.9,在平台上选择了JDK版本为11,那么默认在进行源码编译时会优先使用平台指定的版本JDK11
-{{% /notice %}}
+
 
 ##### Web服务支持
 
@@ -109,7 +109,7 @@ OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.ta
 {{% notice info %}}
 选择tomcat7版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行  
 关于webapp-runner详细配置请参考[webapp-runner使用说明](/docs/user-manual/app-creation/language-support/java_more/webapp-runner/)
-{{% /notice %}}
+
 
 #### 高级构建选项
 

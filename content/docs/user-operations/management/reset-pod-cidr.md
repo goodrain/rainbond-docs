@@ -19,7 +19,7 @@ grctl init --pod-cidr 192.168.0.0/16
 如果不自定义的话,默认会根据宿主机ip段选择对应的pod的cidr.  
 calico 宿主机(`192.168.0.0/16`)则pod的cidr为`10.0.0.0/16`,否则pod的cidr为`192.168.0.0/16`  
 flannel 默认pod cidr为`10.244.0.0/16`
-{{% /notice %}}
+
 
 ### 安装后自定义
 

@@ -50,11 +50,9 @@ docker run --name gitlab-postgresql -d \
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/quxiaoqidong.png" width="50%"/>
 
-{{% notice note %}}
 
-强调一下，取消图中红色框框中的单选框，这一步非常重要
+> 强调一下，取消图中红色框框中的单选框，这一步非常重要
 
-{{%  /notice %}}
 
 确认后页面直接跳转到组件管理页面，我们做以下几步设置：
 

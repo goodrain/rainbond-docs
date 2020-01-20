@@ -30,7 +30,7 @@ gradlew build -x test
 
 {{% notice info %}}
 在选择JDK版本或其他组件版本时，需要注意JDK或者其他组件版本不要选择比项目使用的版本过高或者过低以免导致源码编译失败
-{{% /notice %}}
+
 
 ##### OpenJDK支持
 
@@ -59,7 +59,7 @@ OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.ta
 
 {{% notice info %}}
 平台设置的配置优先级要高于程序代码中定义的配置，如Java JDK版本的选择,在程序代码里通过`system.properties`指定了JDK版本为1.9,在平台上选择了JDK版本为11,那么默认在进行源码编译时会优先使用平台指定的版本JDK11
-{{% /notice %}}
+
 
 #### 示例demo程序
 

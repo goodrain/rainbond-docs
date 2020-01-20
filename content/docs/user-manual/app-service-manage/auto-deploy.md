@@ -44,7 +44,7 @@ weight: 5015
 
 - 开启自动构建后，每次提交代码的Commit信息中必须包含触发自动构建关键字、例如：  `@deploy` 才能触发自动构建, 触发自动构建关键字可自定义设置，设置的仅为关键字，提交信息中在关键字前需加上`@`符号
 
-{{% /notice %}}  
+  
 
 
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548428724539.jpg" style="border:1px solid     #eee;width:80%"/></center>

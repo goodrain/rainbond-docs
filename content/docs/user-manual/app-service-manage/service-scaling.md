@@ -19,7 +19,7 @@ Rainbond平台组件有两种伸缩方式：
 - 垂直伸缩时平台会自动调整资源后重启组件，单节点组件会中断，多节点组件不受影响。
 - 水平伸缩时平台通过滚动新增或者下线节点的方式进行操作，因此操作不会影响现有组件。
 
-{{% /notice %}}
+
 
 #### 垂直伸缩 CPU 与内存比例关系
 
@@ -27,11 +27,11 @@ Rainbond平台组件有两种伸缩方式：
 | ---------------------- | --------------------- |
 | 0.24/1                 | 1.28/1                |
 
-{{% notice note %}}
+
 
 Kubernetes 针对 CPU 和内存分为申请值与限制值，详情参见: [管理容器的计算资源](https://kubernetes.io/cn/docs/concepts/configuration/manage-compute-resources-container/) </br>平台目前调整的 CPU 与内存占比是经过生产环境验证过符合大多数组件类型。如果对某些CPU密集型组件自定义分配CPU，可以配置环境变量：</br>ES_CPULIMIT : CPU限制值 </br>ES_CPUREQUEST：CPU请求值
 
-{{% /notice %}}
+
 
 #### 水平伸缩
 
@@ -58,11 +58,11 @@ Kubernetes 针对 CPU 和内存分为申请值与限制值，详情参见: [管�
 
 组件实例自动水平伸缩功能参考文档：[自动伸缩](../service-auto-scaling/)
 
-{{% notice note %}}
+
 
 有状态组件集群应用的制作方式我们将在主题文档中讲解
 
-{{% /notice %}}
+
 
 
 

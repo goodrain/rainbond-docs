@@ -10,15 +10,15 @@ pre: "<b>6.5 </b>"
 
 ### 初步排查
 
-{{% notice note %}}
+
 在遇到了实例 **运行异常** 的时候，首先应该按照本节文档，进行初步排查。
-{{% /notice %}}
+
 
 #### 镜像类型
 
 {{% notice warning %}}
 注意，[这些镜像](/docs/user-manual/app-creation/image-support/#不能运行的镜像)不可以运行。同时，某些一次性运行后会自动退出的镜像也不可以在平台上运行。
-{{% /notice %}}
+
 
 #### 内存不足
 
@@ -66,7 +66,7 @@ Rainbond组件默认配置了健康检查机制。组件启动时，会根据健
 
 {{% notice warning %}}
 健康检查的端口，来自于组件开启的端口，默认开启5000端口。所以，务必确认平台上组件开启的端口，和组件运行监听的端口一致。
-{{% /notice %}}
+
 
 #### grctl msg get 命令使用
 
@@ -87,9 +87,9 @@ Rainbond组件默认配置了健康检查机制。组件启动时，会根据健
 
 ### 深入排查
 
-{{% notice note %}}
+
 经过 **初步排查** 后，如果并没有发现有异常的原因，请遵循本节，进行针对组件的深入排查。
-{{% /notice %}}
+
 
 #### 获取组件详情
 
@@ -121,9 +121,9 @@ Rainbond组件默认配置了健康检查机制。组件启动时，会根据健
 
 #### PodStatus 异常排查
 
-{{% notice note %}}
+
 根据PodStatus返回值来初步排查问题。
-{{% /notice %}}
+
 
 ##### Ready
 
@@ -139,9 +139,9 @@ Rainbond组件默认配置了健康检查机制。组件启动时，会根据健
 
 #### Containers 异常排查
 
-{{% notice note %}}
+
 根据Containes.State返回值来初步排查问题。
-{{% /notice %}}
+
 
 ##### waiting
 
@@ -149,7 +149,7 @@ Rainbond组件默认配置了健康检查机制。组件启动时，会根据健
 
 {{% notice warning %}}
 在Rainbond平台使用时，用户有时会为组件安装各类插件。需要注意的是，某些插件是不可以同时使用的，比如 **服务综合网络治理插件** **服务网络治理插件** ，二者同时使用，会导致其中的某一个容器处于 Waiting 状态，并最终导致组件运行异常。这和它们同时工作在POD网络出口有关。
-{{% /notice %}}
+
 
 ##### Terminating
 
@@ -157,9 +157,9 @@ Rainbond组件默认配置了健康检查机制。组件启动时，会根据健
 
 #### POD状态查询
 
-{{% notice note %}}
+
 当你不知道pod发生了什么问题的情况下，可以借助 **kubectl** 命令来排查问题。
-{{% /notice %}}
+
 
 ```bash
 kubectl describe pods <PodName> -n <Namespace>
@@ -172,9 +172,9 @@ kubectl describe pods <PodName> -n <Namespace>
 
 #### 容器日志查询
 
-{{% notice note %}}
+
 Rainbond在组件控制台界面上提供了组件日志输出，该日志集成当前组件下所有POD中所有容器的日志输出。
-{{% /notice %}}
+
 
 绝大多数情况下，我们可以在Rainbond组件控制台的日志界面获取到当前组件日志，并借此判断运行异常原因。
 **一旦Rainbond组件控制台日志没有任何推送，我们需要用下面的手段获取日志** 

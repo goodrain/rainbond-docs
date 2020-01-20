@@ -37,7 +37,7 @@ weight: 801
 
 {{% notice info %}}
 组件高级用法可以通过点击组件的链接方式阅读。
-{{% /notice %}}
+
 
 ### 二、逻辑架构图
 
@@ -89,7 +89,7 @@ rbd-dns服务，除提供平台用户应用的域名解析之外，还提供内�
 - kube-apiserver的8181为非安全端口，6442为安全端口, 6443为gateway代理端口
 - rainbond API端口当只有一个数据中心时不需要对外开放，当多数据中心，且在不同网络时需要对外开放,8888非安全端口,8443为安全端口
 - rbd-gateway提供的80与443端口是为HTTP协议应用提供，10001~65535是为TCP协议的应用提供。
-{{% /notice %}}
+
 
 更多具体端口信息请参考[组件端口](/docs/user-operations/op-guide/required_ports/)
 

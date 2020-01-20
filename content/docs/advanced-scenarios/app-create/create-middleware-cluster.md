@@ -103,11 +103,8 @@ else
 fi
 ```
 
-{{% notice notice %}}
+> 关于脚本中通过环境变量生成指定配置，参考项目 [env2file](https://github.com/barnettZQG/env2file)
 
-关于脚本中通过环境变量生成指定配置，参考项目 [env2file](https://github.com/barnettZQG/env2file)
-
-{{% /notice %}}
 
 #### 制作镜像的Dockerfile解析
 
@@ -192,11 +189,8 @@ CMD [ "mysqld" ]
 
 - mysql-slave服务依赖于mysql-master服务
 
-{{% notice notice %}}
+> mysql-slave组件，可以随意扩容，脚本中写好的逻辑会让其自动向mysql-master注册。
 
-mysql-slave组件，可以随意扩容，脚本中写好的逻辑会让其自动向mysql-master注册。
-
-{{% /notice %}}
 
 至此，一个基本的 MYSQL主从集群就已经搭建完成，如需要发布到应用市场供随时下载使用，请参考[应用分享与发布](/docs/user-manual/app-manage/share-app/)
 

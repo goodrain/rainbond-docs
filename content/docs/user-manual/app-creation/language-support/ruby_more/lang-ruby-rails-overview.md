@@ -56,11 +56,11 @@ production:
   pool: 5
 ```
 
-{{% notice note %}}
+
 
 database 配置的myapp数据库必须提前创建
 
-{{% /notice %}}
+
 
 ## 运行
 
@@ -98,7 +98,7 @@ web: bundle exec bin/rails server -p $PORT -e $RAILS_ENV
 ```
 {{% notice info %}}
 虽然针对 Rails 的每个版本都有默认的 web 服务器启动命令，但是我们强烈推荐在正式生产环境中使用Puma 作为 web 服务器。
-{{% /notice %}}
+
 
 ### 执行 Rake 任务
 
@@ -127,9 +127,9 @@ web: bundle exec rake db:migrate && bundle exec rails s -b 127.0.0.1 -p $PORT
 config.assets.initialize_on_precompile = false
 ```
 
-{{% notice note %}}
+
 提示：在 Rails 4.x 中，config.assets.initialize_on_precompile 选项已被移除，不需要配置。
-{{% /notice %}}
+
 
 #### **插件注入**
 

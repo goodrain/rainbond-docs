@@ -174,9 +174,9 @@ curl -X DELETE \
 |msg|string|对该请求的响应结果的详细描述|
 |msg_show|string|对该请求的响应结果的描述, 用于展示|
 
-{{% notice note %}}
+
 PUT 和 DELETE 方法的请求内容的类型为 application/json
-{{% /notice %}}
+
 
 ### 第三方服务创建示例
 

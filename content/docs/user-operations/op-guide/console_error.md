@@ -10,7 +10,7 @@ description: 控制台异常排查
 {{% notice info %}}
 控制台[goodrain/rainbond-console](https://github.com/goodrain/rainbond-console/issues/new)反馈建议  
 控制台UI[goodrain/rainbond-ui](https://github.com/goodrain/rainbond-ui/issues/new)兼容性等问题反馈建议
-{{% /notice %}}
+
 
 #### 控制台异常排查
 

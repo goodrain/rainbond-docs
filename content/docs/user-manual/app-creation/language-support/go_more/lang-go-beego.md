@@ -64,8 +64,8 @@ Godep 要求项目存放的目录结构为标准的 [Go workspace](https://golan
 在beego目录下执行`godep save ./...`
 如果提示`godep: Package (github.com/astaxie/beego) not found`
 只需执行`go get github.com/astaxie/beego`，再执行`godep save ./...`即可
-{{% notice note %}}
-执行`godep save ./...`命令后会把所有项目源码里 import 过的外部依赖代码和版本信息保存到 Godeps 目录的Godeps.json。{{% /notice %}}
+
+执行`godep save ./...`命令后会把所有项目源码里 import 过的外部依赖代码和版本信息保存到 Godeps 目录的Godeps.json。
 
 #### 本地Beego项目结构
 
@@ -127,9 +127,9 @@ $GOPATH
             └── static
                 └── index.html
 ```
-{{% notice note %}}
+
 不同版本的go和godep命令会有所不同，比如上面的命令中godep save -r ./...在go1.6版本中就没有了 -r选项。另外，新版本的godep不会在Godeps目录中生成`/workspace`目录，而是会在与Godeps同级的目录中生成`vendor`文件夹，其作用根`/workspace`类似。详情可以参考[godep官网](https://github.com/tools/godep)
-{{% /notice %}}
+
 
 #### Godep配置说明
 

@@ -19,9 +19,7 @@ Hidden: true
   > 一般是指不同的应用的不同版本，在Rainbond平台是不同的组件。
 
 
-{{% notice note %}}
-Rainbond目前支持HTTP协议的A/B测试实践，这也是目前应用面最广的协议。
-{{% /notice %}}
+> Rainbond目前支持HTTP协议的A/B测试实践，这也是目前应用面最广的协议。
 
 服务需要进行A/B测试，需要区分其是属于内部服务还是对外服务。内部服务的A/B测试特性由ServiceMesh层提供，对外服务由[应用网关](/docs/user-manual/gateway/gateway/)提供。
 

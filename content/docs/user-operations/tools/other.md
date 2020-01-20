@@ -14,7 +14,7 @@ din <容器ID/容器Name>
 
 {{% notice info %}}
 如报错容器中没有bash，则在命令后加 sh
-{{% /notice %}}
+
 
 #### dps
 

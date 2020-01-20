@@ -78,8 +78,7 @@ $ java -jar target/dependency/jetty-runner.jar target/*.war
 
 就这么简单，你的应用程序已经运行并监听8080端口
 
-{{% notice note %}}
+
 
 如果你需要在启动应用之前展开WAR文件，需要在启动命令的 target/*.war选项之前添加 --expand-war
 
-{{% /notice %}}

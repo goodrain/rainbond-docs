@@ -75,11 +75,11 @@ The root user must be used by default
 
 - 在指定外部数据库时，指定参数不足。阅读 [节点初始化重要参数说明](/docs/user-operations/tools/grctl/#节点初始化重要参数说明)
 
-{{% notice note %}}
+
 
 执行安装操作前，在环境中引入指定环境变量，可以开启调试模式。`export DEBUG=true`
 
-{{% /notice %}}
+
 
 #### ansible-playbook执行阶段
 
@@ -91,33 +91,33 @@ The root user must be used by default
 
 由报错信息可知：
 
-{{% notice note %}}
+
 
 在执行 `/opt/rainbond/.init/initr6d.sh` 脚本的过程中，返回非0状态码。
 
-{{% /notice %}}
+
 
 可以尝试的排查操作：
 
-{{% notice note %}}
+
 
 阅读脚本 `/opt/rainbond/.init/initr6d.sh`，了解其工作内容。
 
-{{% /notice %}}
 
-{{% notice note %}}
+
+
 
 实际上，当前脚本运行的目的是初始化集群数据库 `rbd-db` 服务（或是用户指定的外部数据库）。在服务器内存不足或者磁盘性能低下时，容易出现这个问题。解决的具体方式，是安装流程结束后[手动初始化数据库](/docs/Troubleshoot/concrete-operations/manual-init-db/)
 
-{{% /notice %}}
+
 
 如果想要了解该任务的详细信息，可以按照以下对应方式，找到定义该任务的文件
 
-{{% notice note %}}
+
 
 任务 TASK [node/init : init rainbond] 对应了 `/opt/rainbond/rainbond-ansible/roles/node/init/tasks/main.yml` 中，名为 `init rainbond` 的任务
 
-{{% /notice %}}
+
 
 ```yml
 - name: init rainbond 
@@ -132,7 +132,7 @@ The root user must be used by default
 
 将导致任务报错失败的所有原因一一罗列是不可能的。但是绝大多数的任务执行失败后，通过 msg 信息的提示，都可以找到排查的切入点。
 
-{{% /notice %}}
+
 
 ### 推荐阅读
 

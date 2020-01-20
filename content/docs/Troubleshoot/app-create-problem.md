@@ -10,9 +10,7 @@ pre: "<b>6.4 </b>"
 
 ### 镜像构建问题排查
 
-{{% notice note %}}
 由镜像构建，是Rainbond构建组件的一种基本方式，具体操作参见 [DOCKER镜像支持规范](/docs/user-manual/app-creation/image-support/)
-{{% /notice %}}
 
 在构建的过程中，可能出现如下问题。
 
@@ -28,15 +26,15 @@ pre: "<b>6.4 </b>"
     - 检查镜像仓库是否需要用户名密码。如需要，确定是否在构建时填写用户名密码
     - Rainbond服务器到镜像仓库服务器是否有网络限制。检查网络通信，端口是否开放
 
-{{% notice note %}}
+
 基于镜像构组件，是一种非常稳健的构建方式。只要能够正常获取镜像，那么构建肯定可以成功。在运行时出现 **运行异常** 请参考[组件运行排查](/docs/Troubleshoot/app-run-problem/)
-{{% /notice %}}
+
 
 ### 基于Dockerfile源码构建问题排查
 
-{{% notice note %}}
+
 基于Dockerfile源码构建时，具体操作参见 [DOCKERFILE构建规范](/docs/user-manual/app-creation/language-support/dockerfile/)
-{{% /notice %}}
+
 
 在构建过程中，可能出现如下问题。
 
@@ -65,9 +63,9 @@ pre: "<b>6.4 </b>"
 
 ### 基于JAVA语言源码构建问题排查
 
-{{% notice note %}}
+
 基于JAVA语言源码构建时，具体操作参见 [JAVA开发语言支持规范](/docs/user-manual/app-creation/language-support/java/)
-{{% /notice %}}
+
 
 Java语言是市面上使用最多的开发语言。Rainbond除了直接部署jar、war包项目，还支持java-maven项目直接构建。在构建过程中，可能出现如下问题。
 

@@ -161,9 +161,9 @@ location ~ ^/(app|app_dev|config)\.php(/|$) {
     internal;
 }
 ```
-{{% notice note %}}
+
 internal 选项是为了确认到达 `/app.php` 的请求都是通过rewrite过来的。
-{{% /notice %}}
+
 与自定义Apache的配置类似，最终需要在Procfile文件中通过-C 参数指定一下新添加的配置文件：
 
 ```bash
@@ -223,7 +223,7 @@ web: vendor/bin/heroku-php-nginx -F fpm_custom.conf public/
 
 {{% notice info %}}
 通过PHP-FPM设置`PHP.ini`有一定的风险，如果参数配置错误会造成PHP-FPM进程无法运行，最终导致应用启动失败，因此在设置之前最好本地设置测试一下，或者可以从应用的日志信息中找到启动失败的原因。
-{{% /notice %}}
+
 
 ### 2.3 php环境并发调优
 
@@ -268,7 +268,7 @@ echo memory_limit = 8M > .user.ini
 
 {{% notice info %}}
 内存大小单位是M，请使用大写
-{{% /notice %}}
+
 如果用户代码不再根目录，需要在Procfile中指定根目录位置，然后再将.user.ini放在代码根目录中。
 修改完文件后提交代码，部署应用时会看到如下日志信息：
 
@@ -300,7 +300,7 @@ web: vendor/bin/heroku-php-apache2 -F fpm_custom.conf
 
 初级用户 不建议使用`WEB_CONCURRENCY`变量来定义php-fpm进程数，服务的并发处理能力不单单由进程数决定的，如果单示例的内存过小，开过多的进程反而降低处理能力。
 
-{{% /notice %}}
+
 
 ### 3.3 自定义配置的优先级
 
@@ -314,4 +314,3 @@ web: vendor/bin/heroku-php-apache2 -F fpm_custom.conf
 - 水平扩容的效果要好于单独实例的优化效果。建议多开实例数
 - 请选择一种进程调节的方法，不要多个方法同时存在。
 
-{{% /notice %}}

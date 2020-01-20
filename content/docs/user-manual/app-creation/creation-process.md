@@ -83,7 +83,7 @@ weight: 3102
 
 {{% notice info %}}
 `goodrain.me/test`请替换为自己镜像
-{{% /notice %}}
+
 
 #### 从应用市场安装
 

@@ -50,7 +50,7 @@ Rainbond目前支持的语言有:
 发行版及软件包镜像：Debian,Ubuntu,Centos,Fedora,FreeBSD</br>
 编程语言或其他基础运行环境镜像：Golang,Ruby,Openjdk</br>
 命令行工具类软件镜像:Docker,HomebrewBottles
-{{% /notice %}}
+
 
 ##### 指定镜像
 

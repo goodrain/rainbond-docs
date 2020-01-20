@@ -31,9 +31,8 @@ hidden: true
 
 <img src="https://static.goodrain.com/images/acp/docs/bestpractice/gitlab/git-create-project-03.png"  width="90%" />
 
-{{% notice note %}}
-切换到SSH地址后，需要记住项目的SSH地址，后续创建组件时需要用到，这里的地址是 `git@172.16.210.205:test/helloworld.git`
-{{% /notice %}}
+
+> 切换到SSH地址后，需要记住项目的SSH地址，后续创建组件时需要用到，这里的地址是 `git@172.16.210.205:test/helloworld.git`
 
 
 新建一个index.html 的文件，内容为 `hello world,hello goodrain!` 提交。
@@ -90,10 +89,9 @@ GitLab安装完成后，可以在组件的端口页面看到对外打开的端�
 - 端口号：组件内部监听的端口，本例中监听了`22`和`80`端口
 - 访问地址：云帮映射的地址与端口，本例中 22端口映射的地址为`172.16.210.205`，端口为`20006` ，80端口地址为`	80.grea7fc4.zggk.48mt2.goodrain.org`，端口为`80`
 
-{{% notice note %}}
+
 - Rainbond为HTTP协议的组件端口默认分配一个访问域名
 - Rainbond为非HTTP协议的组件端口默认分配一个访问地址和一个随机的映射端口，但端口映射与组件端口唯一对应，不会变化，因此本例的端口可能与你实际情况不一致。
-{{% /notice %}}
 
 #### 设置GitLab的HTTP和SSH地址
 
@@ -101,9 +99,7 @@ GitLab组件通过 `GITLAB_SSH_HOST` 和 `GITLAB_HOST` 环境变量来设置SSH�
 
 <img src="https://static.goodrain.com/images/docs/3.6/best-practice/ci-cd/ssh-05.png"  width="100%" />
 
-{{% notice note %}}
-设置环境变量后，需要重启GitLab组件。
-{{% /notice %}}
+> 设置环境变量后，需要重启GitLab组件。
 
 #### 创建组件时Git地址中的端口配置
 由于SSH协议使用的是非默认的22端口，因此在创建组件时，填写的Git地址也需要加上端口信息，格式如下：

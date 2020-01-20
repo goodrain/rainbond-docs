@@ -44,9 +44,9 @@ node service update
 默认所有服务组件都可以使用`journalctl`或`systemctl`命令来查看服务日志或者服务状态。  
 另外除`node`和`kubelet`服务外，其他服务还可以使用`docker logs`命令来查看服务日志。
 
-{{% notice note %}}
+
 rbd-app-ui的日志默认是写到文件，可以在`/opt/rainbond/logs`目录下看到相关日志信息。
-{{% /notice %}}
+
 
 
 ### 节点健康检查机制

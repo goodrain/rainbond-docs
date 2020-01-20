@@ -32,11 +32,9 @@ Hidden: true
 
 添加完成后, 打开`对外服务`, 让应用网关代理该服务.
 
-{{% notice note %}}
 
-这里需要注意的是, 内部的服务可以添加多个端口, 而第三方服务只能添加一个端口.
 
-{{%  /notice %}}
+> 这里需要注意的是, 内部的服务可以添加多个端口, 而第三方服务只能添加一个端口.
 
 ### 步骤 3: 确认服务
 
@@ -70,11 +68,7 @@ Hidden: true
 
 ![Minion](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/thirdparty/practice-1/%E6%96%B0%E5%A2%9E%E5%AE%9E%E4%BE%8B.png)
 
-{{% notice note %}}
-
-实例地址不能是 127.0.0.1
-
-{{%  /notice %}}
+> 实例地址不能是 127.0.0.1 等本地环回地址
 
 #### 2. 下线
 

@@ -8,11 +8,11 @@ description: "适用于你使用阿里云服务资源，此教程将使用阿里
 
 本教程将完全基于阿里云环境部署一套高可用的Rainbond平台，主要使用阿里云ECS、NAS、SLB、RDS四类资源。在此之前建议你阅读[Rainbond高可用安装说明文档](/docs/user-operations/install/install-base-ha/)，然后跟随本文档教程的步骤安装一个具有3管理+2网关+2计算的最小高可用Rainbond平台。
 
-{{% notice note %}}
+
 
 该文档适用于Rainbond 5.1.6及以后版本。
 
-{{% /notice %}}
+
 
 #### 资源准备
 

@@ -53,7 +53,7 @@ node 的计算节点包含了 kubernetes 的计算节点, k8s 计算节点的 ku
 
 Rainbond 的管理节点负责镜像的拉取, 将源码和 Dockerfile 构建成相应的镜像, 并不会运行这些镜像; 所以, 管理节点只需镜像回收, 并不需要容器回收.
 
-{{% /notice %}}
+
 
 镜像回收由磁盘的 `HighThresholdPercent` 和 `LowThresholdPercent` 两个因素影响, 当磁盘的使用率高于 `HighThresholdPercent` 将会触发镜像回收,
 镜像回收会删除最近最少使用的镜像, 直到到达 `LowThresholdPercent` 为止.

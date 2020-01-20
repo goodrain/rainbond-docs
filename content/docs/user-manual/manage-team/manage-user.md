@@ -45,7 +45,7 @@ weight: 2002
 - 如果您想定义一个角色来参与团队或者应用的相关操作，那请您务必赋予这个角色一些基本的权限，比如`登入团队`，`查看应用信息`。
 - 您添加的角色名称不可以与系统默认的角色名称相同
 - 角色名称是三十个字符内的数字/字母/中文字符/下划线/中划线的任意组合
-{{% /notice %}}
+
 
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/permissions_01.png" style="border:1px solid #eee;width:100%"/></center>
   
@@ -56,7 +56,7 @@ weight: 2002
 
 {{% notice info %}}
 - 如果您的团队中已经有成员拥有此角色，那您不能直接删除该角色
-{{% /notice %}}
+
 
 <center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/permissions_02.png" style="border:1px solid #eee;width:100%"/></center>
 

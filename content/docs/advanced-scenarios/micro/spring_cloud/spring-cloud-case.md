@@ -44,9 +44,7 @@ pig
 - 构建后产生jar包，用来实现各种功能的类的集合，即是类库，如Pig中的`pig-common`模块
 - 构建后产生jar包或者war包，通过 `java -jar` 或者tomcat等方式启动，开放某个端口提供服务的，即是服务，如Pig中的`pig-eureka`模块
 
-{{% notice note %}}
-只需要将服务模块在Rainbond中构建出来即可。
-{{% /notice %}}
+> 只需要将服务模块在Rainbond中构建出来即可。
 
 经过梳理，该项目需要构建的服务组件包括：
 
@@ -111,9 +109,9 @@ pig
 
 由于 Pig 本身是一个多模块的项目，所以需要指定当前服务组件构建的模块。指定的方式是在 `构建运行环境设置` 中的 `Maven构建全局参数：clean dependency:list install -pl pig-eureka -am`
 
-{{% notice note %}}
+
 上述的参数指定了普通的子模块构建方式，对于另一种子模块中的子模块，比如 `pig-codegen` 模块，参数指定的方式为： `clean dependency:list install -pl  pig-visual/pig-codegen -am`
-{{% /notice %}}
+
 
 在v5.1+版本的Rainbond中，可以指定当前服务组件的启动命令。指定的方式是在 `构建运行环境设置` 中的 `启动命令：web: java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app/pig-eureka/target/*.jar` ，命令格式与 `Procfile` 一致。
 
@@ -169,9 +167,9 @@ CMD [ "mysqld" ]
 
 将服务组件命名为 `pig-db`，并指定代码分支 `pig`。
 
-{{% notice note %}}
+
 在代码仓库地址url的最后添加 `?dir=5.7` 可以让Rainbond将构建目录指定为代码仓库根目录下的 `5.7` 文件夹。
-{{% /notice %}}
+
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-6.png" width="100%" />
 

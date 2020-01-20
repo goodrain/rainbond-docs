@@ -71,20 +71,20 @@ DistributedDisk	1461Gb/10485760Gb	0.01%
 +--------------------------------------+-------------+-----------+---------------+----------------+
 ```
 
-{{% notice note %}}
+
 
 集群正常的表现：
 所有服务的Message框为空；
 所有节点的Status为绿色的 running；
 集群中至少同时存在 manage、gateway、compute角色各一个。
 
-{{% /notice %}}
+
 
 {{% notice warning %}}
 
 执行 `grctl cluster` 没有正常反馈上述集群状态信息，请参见 [grctl cluster反馈异常](#其他报错排查)
 
-{{% /notice %}}
+
 
 ### 节点状态问题排查
 
@@ -108,11 +108,11 @@ DistributedDisk	1461Gb/10485760Gb	0.01%
 
 Rainbond为集群中每一个节点上运行的每一个与集群相关的服务，都配置了健康检查。其结果会在 `grctl cluster` 命令的返回中有显示。
 
-{{% notice note %}}
+
 
 如果Rainbond检测到某个节点上有服务处于异常状态，会在异常服务所对应的 Message 列表中显示详细信息，格式为 `HostName:详细错误信息` ；同时，对应的节点 Status 中出现 unhealth 字样。
 
-{{% /notice %}}
+
 
 ```bash 
 | rbd-api |  0/1 | manage01:Get http://127.0.0.1:8443: dial tcp 127.0.0.1:8443: connect: connection refused/ |
@@ -128,11 +128,11 @@ Rainbond为集群中每一个节点上运行的每一个与集群相关的服务
 
 {{% notice warning %}}
 上述信息表明：manage01节点上，名为 `rbd-api` 的服务处于异常状态。详细信息说明manage01节点连接本地 8443 端口失败，而 8443 端口正是 `rbd-api` 服务监听端口。
-{{% /notice %}}
+
 
 {{% notice info %}}
 需要注意的是，这里连接失败的端口号，未必一定是报错服务的端口号，也可能是该服务所依赖的其他服务
-{{% /notice %}}
+
 
 查询该服务运行状态
 
@@ -149,20 +149,20 @@ systemctl status rbd-api
 ```
 发现该服务处于 `inactive (dead)` 状态。至此，问题定位完成。
 
-{{% notice note %}}
+
 
 Rainbond所有服务监听端口参见 [服务组件端口说明](/docs/user-operations/op-guide/component-description/#3-2-服务组件端口说明)，通过报错端口，可以快速定位异常发生位置
 
-{{% /notice %}}
+
 
 
 ### 基于服务日志排查问题
 
-{{% notice note %}}
+
 
 Rainbond 自带的 node 服务会自动维护所有服务失败重启。如果问题持续存在，说明服务遇到了无法通过重启能够解决的问题。
 
-{{% /notice %}}
+
 
 Rainbond组件日志全部托管于 `journal` ，日志查询方式： `journalctl -fu <服务名称>`
 
@@ -209,7 +209,7 @@ main process exited, code=exited, status=1/FAILURE
 
 Rainbond 中的服务存在相互依赖的关系。这导致有的服务启动失败，其根本原因是其他组件没有正常提供服务。参见[组件间相互依赖关系](/docs/Troubleshoot/concrete-operations/service-depend/)
 
-{{% /notice %}}
+
 
 
 #### The contailer name "XXXX" is already in use by container " ···· "

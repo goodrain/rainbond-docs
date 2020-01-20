@@ -14,4 +14,3 @@ rbd-repo默认配置文件`/opt/rainbond/conf/base.yaml`
 
 {{% notice info %}}
 Java程序,推荐配置2核4G起,启动时比较占资源
-{{% /notice %}}

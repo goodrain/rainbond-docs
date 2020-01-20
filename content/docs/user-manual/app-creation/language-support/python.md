@@ -45,7 +45,7 @@ web: gunicorn app:app --log-file - --access-logfile - --error-logfile -
 {{% notice info %}}
 1. `web:`和`gunicorn`之间有一个空格
 2. 文件结尾不能包含特殊字符
-{{% /notice %}}
+
 
 #### 编译运行环境设置
 

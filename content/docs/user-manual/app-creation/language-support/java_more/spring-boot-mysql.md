@@ -67,11 +67,11 @@ $ cd spring-boot-mysql-demo
 $ docker run -it --rm -v $PWD:/app -w /app -p 8080:8080  goodrainapps/openjdk:8u131-jre-alpine java  -jar target/*.jar
 ```
 
-{{% notice note %}}
+
 
 访问[http://localhost:8080](http://localhost:8080)查看运行结果。
 
-{{% /notice %}}
+
 
 ## 配置数据库
 
@@ -259,11 +259,11 @@ $ docker run -it --rm --link mysql \
   goodrainapps/spring-boot-mysql-demo
 ```
 
-{{% notice note %}}
+
 
 访问[http://localhost:5000](http://localhost:5000)查看Spring Boot 框架配置MySQL服务的运行界面
 
 <img src="https://static.goodrain.com/images/acp/docs/code-docs/java/spring-boot-demo2.png" width="50%"/>
 
-{{% /notice %}}
+
 
