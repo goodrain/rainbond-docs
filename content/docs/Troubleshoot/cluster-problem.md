@@ -2,7 +2,7 @@
 title: 集群问题排查
 weight: 30005
 Description: "集群问题排查、诊断、解决"
-hidden: false
+hidden: true
 pre: "<b>6.3 </b>"
 ---
 

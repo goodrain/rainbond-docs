@@ -2,6 +2,7 @@
 title: "离线部署"
 weight: 1005
 description: "此方式适用于外网网络受到严格限制的用户，此版本目前支持CentOS 7.4.1708系统，Ubuntu 16.04 系统"
+hidden: true
 ---
 
 ### 一、安装前必读

@@ -2,7 +2,7 @@
 title: 安装问题排查
 weight: 30003
 Description: "安装问题排查、诊断、解决"
-hidden: false
+hidden: true
 pre: "<b>6.2 </b>"
 ---
 

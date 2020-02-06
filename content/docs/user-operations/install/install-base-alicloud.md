@@ -2,6 +2,7 @@
 title: "阿里云高可用部署"
 weight: 1002
 description: "适用于你使用阿里云服务资源，此教程将使用阿里云 ECS+NAS+专有网络(弹性IP)等资源指导你部署高可用Rainbond集群"
+hidden: true
 ---
 
 #### 部署说明

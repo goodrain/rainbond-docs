@@ -2,7 +2,7 @@
 title: 问题定位
 weight: 30001
 Description: "定位当前问题，并引导向指定的问题诊断文档"
-hidden: false
+hidden: true
 pre: "<b>6.1 </b>"
 ---
 
