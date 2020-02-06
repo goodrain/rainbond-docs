@@ -5,14 +5,14 @@ name = "Rainbond"
 license = "MIT"
 licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
 description = ""
-homepage = "https://www.rainbond.com"
+homepage = "http://v5.2-doc.rainbond.com/"
 tags = []
 features = []
 min_version = "0.41"
 
 [author]
   name = "rainbond"
-  homepage = "https://www.rainbond.com"
+  homepage = "http://v5.2-doc.rainbond.com/"
 
 # If porting an existing theme
 [original]

@@ -1,5 +1,5 @@
 ---
-baseurl: "https://www.rainbond.com/docs/"
+baseurl: "http://v5.2-doc.rainbond.com/docs/"
 languageCode: "zh-cn"
 DefaultContentLanguage: "zh-cn"
 title: "Rainbond-企业应用云操作系统，云原生企业业务中台基座"
