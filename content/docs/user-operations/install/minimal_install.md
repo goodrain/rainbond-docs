@@ -4,10 +4,7 @@ weight: 1001
 description: "此方式适用于快速安装和试用Rainbond平台。"
 ---
 
-
-## 一、基于 Helm 安装 (推荐)
-
-Rainbond目前可以由Helm直接进行安装。
+请根据下述步骤完成Rainbond的安装。
 
 ### 安装 Helm
 
@@ -26,7 +23,7 @@ Rainbond目前可以由Helm直接进行安装。
 
 ```bash
    #获取rainbond-operator并进入指定目录
-   git clone https://github.com/GLYASAI/rainbond-operator.git && cd rainbond-operator
+   git clone https://github.com/goodrain/rainbond-operator.git && cd rainbond-operator
    #创建所需namespace
    kubectl create ns rbd-system
    #通过helm安装operator到指定namespace
@@ -50,7 +47,3 @@ Rainbond目前可以由Helm直接进行安装。
    3. 进入安装等待界面，完成后弹出如下界面，点击访问地址即可访问rainbond平台了
 
       ![image-20200204141936123](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-4.jpg)
-
-## 二、基于YAML文件安装
-
-/todo
