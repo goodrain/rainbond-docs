@@ -22,6 +22,8 @@ mkdir  /opt/rainbond/etc/kubernetes
 docker run --rm -v $PWD/ql/k8ssl:/opt/rainbond/etc/kubernetes/ssl -v $PWD/ql/ssl:/opt/rainbond/etc/rbd-api/region.goodrain.me/ssl -v $PWD/ql/kubecfg:/opt/rainbond/etc/kubernetes/kubecfg -v $PWD/ql/kubernetes:/grdata/kubernetes rainbond/r6dctl:docker-cfg-certs kip  <管理节点IP>
 ```
 
+注：此处填写的<管理节点IP> 有EIP则选择EIP，否则选择IIP
+
 ```
 # 更新kube-proxy.kubeconfig
 mv ql/kubernetes /grdata/kubernetes
