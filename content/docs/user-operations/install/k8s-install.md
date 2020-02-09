@@ -11,9 +11,9 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
 
 - 多节点开发生产环境： [kubernetes的高可用安装](#二、kubernetes的高可用安装)
 
-## 一、kubernetes的all-in-one安装方式
+## kubernetes的all-in-one安装方式
 
-1. #### 下载文件
+### 下载文件
 
    - 下载工具脚本easzup，easzup的不同release影响可以安装的kubernetes版本，具体对应信息可查看[easzup版本](https://github.com/easzlab/kubeasz/releases)
 
@@ -30,38 +30,38 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
      ./easzup -D
 ```
 
-2. #### 配置免密钥登录
+### 配置免密钥登录
 
 ```bash
      ssh-keygen -t rsa -b 2048 -N '' -f ~/.ssh/id_rsa
      ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 yes 和 root 密码
 ```
 
-3. #### 在ansible控制端编排k8s安装
+### 在ansible控制端编排k8s安装
+   - 建议修改/etc/ansible/roles/cluster-addon/defaults/main.yml文件中下述两项，默认为yes，修改为no不进行安装，以免占用不必要的资源
+
+   ```yaml
+        #不安装dashboard,rainbond不依赖dashboard
+        dashboard_install: "no"
+        #不安装ingress，rainbond自带ingress网关
+        ingress_install: "no"
+        #
+   ```
 
    - 容器化运行 kubeasz，详见[文档](https://github.com/easzlab/kubeasz/blob/master/docs/setup/docker_kubeasz.md)
 
-```bash
-     ./easzup -S
-```
-
-   - 建议修改/etc/ansible/roles/cluster-addon/defaults/main.yml文件中下述两项，默认为yes，修改为no不进行安装，以免占用不必要的资源
-
-```yaml
-     #不安装dashboard
-     dashboard_install: "no"
-     #不安装metricsserver
-     metricsserver_install: "no" 
-```
+   ```bash
+        ./easzup -S
+   ```
 
    - 使用默认配置安装 aio 集群
 
-```bash
-     docker exec -it kubeasz easzctl start-aio
-```
+   ```bash
+        docker exec -it kubeasz easzctl start-aio
+   ```
      
 
-4. #### 验证安装
+### 验证安装结果
 
    ***如果提示kubectl: command not found，退出重新ssh登录一下，环境变量生效即可***
 
@@ -72,10 +72,12 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
    $ kubectl get pod --all-namespaces  # 验证集群pod状态，默认已安装网络插件、coredns、metrics-server等
    $ kubectl get svc --all-namespaces  # 验证集群服务状态
 ```
+   完成Kubernetes的安装，[开始Rainbond的安装](../minimal_install/)
 
-## 二、kubernetes的高可用安装
+## kubernetes的高可用安装
 
-1. #### 高可用集群所需节点配置如下
+### 高可用集群所需节点配置如下：
+
 
    | 角色       | 数量 | 描述                                                         |
    | ---------- | ---- | ------------------------------------------------------------ |
@@ -84,7 +86,8 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
    | master节点 | 2    | 高可用集群至少2个master节点                                  |
    | node节点   | 3    | 运行应用负载的节点，可根据需要提升机器配置/增加节点数        |
 
-2. #### 在各节点安装依赖工具
+
+### 在各节点安装依赖工具
 
 - Ubuntu 16.04 请执行以下脚本：
 
@@ -106,7 +109,7 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
       yum install python -y
 ```
 
-3. #### 配置免密码登录
+### 配置免密码登录
 
 ```bash
    ssh-keygen -t rsa -b 2048 -N '' -f ~/.ssh/id_rsa
@@ -114,7 +117,7 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
    ssh-copy-id $IPs #$IPs为所有节点地址包括自身，按照提示输入yes 和root密码
 ```
 
-4. #### 在ansible控制端编排k8s安装
+### 在ansible控制端编排k8s安装
 
 - 下载工具脚本easzup，举例使用kubeasz版本2.1.0
 
@@ -149,3 +152,5 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
 ```bash
       docker exec -it kubeasz ansible-playbook 90.setup.yml
 ```
+
+完成Kubernetes的安装，[开始Rainbond的安装](../minimal_install/)
