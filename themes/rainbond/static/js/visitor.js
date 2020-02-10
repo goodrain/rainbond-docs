@@ -74,7 +74,7 @@
             $(this.$wrap).find('.msg').addClass('error')
         }else{
             $(this.$wrap).find('.msg').removeClass('error')
-            $(this.$wrap).find('.msg').removeClass('success')
+            $(this.$wrap).find('.msg').addClass('success')
         }
         $(this.$wrap).find('.msg').html(msg)
         $(this.$wrap).find(".send").removeClass("disable");
@@ -123,7 +123,7 @@
         source: source
       };
       axios.post(`https://log.rainbond.com/visitors`, data).then(res => {
-        if (data.status == 200){
+        if (res.status == 200){
             self.msg("申请成功，稍后试用方式将发送给您", success=true)
         }
         console.log("send visitor info=>", res);

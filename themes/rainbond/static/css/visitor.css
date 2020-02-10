@@ -101,11 +101,15 @@
     text-align: center;
 }
 .modal-visitor .form .form-item.submit button {
-    padding: 15px 20px;
+    padding: 10px 25px;
     font-size: 15px;
     background: #5ccff5;
     color: #fff;
     border: 0;
+    border-radius: 6px;
+}
+.modal-visitor .form .form-item.submit .send.disable{
+    background: #666;
 }
 .modal-visitor .form .msg {
     text-align: center;
