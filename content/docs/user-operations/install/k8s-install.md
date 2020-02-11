@@ -41,10 +41,10 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
    - 建议修改/etc/ansible/roles/cluster-addon/defaults/main.yml文件中下述两项，默认为yes，修改为no不进行安装，以免占用不必要的资源
 
    ```yaml
-        #不安装dashboard,rainbond不依赖dashboard
-        dashboard_install: "no"
-        #不安装ingress，rainbond自带ingress网关
-        ingress_install: "no"
+   #不安装dashboard,rainbond不依赖dashboard
+   dashboard_install: "no"
+   #不安装ingress，rainbond自带ingress网关
+   ingress_install: "no"
         #
    ```
 
@@ -57,9 +57,15 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
    - 使用默认配置安装 aio 集群
 
    ```bash
-        docker exec -it kubeasz easzctl start-aio
+   docker exec -it kubeasz easzctl start-aio
    ```
-     
+   - 完成后赋值kubectl工具到/usr/bin/kubectl
+   
+   > 注意，这一步如果忽略了将导致rbd-webcli组件无法启动，后续将优化实现解除对kubectl的依赖。
+   
+   ```bash
+   cp -a /opt/kube/bin/kubectl /usr/bin/kubectl 
+   ```
 
 ### 验证安装结果
 
