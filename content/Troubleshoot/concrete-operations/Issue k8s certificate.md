@@ -59,6 +59,7 @@ cp /opt/rainbond/etc/rbd-api/region.goodrain.me/ssl/client.pem   .
 |cert_file  | `/opt/rainbond/etc/rbd-api/region.goodrain.me/ssl/client.pem`|
 |key_file  |`/opt/rainbond/etc/rbd-api/region.goodrain.me/ssl/client.key.pem`|
 
+重新签发证书以后，同步更新数据库中对应的数据
 
 > 更新计算节点k8s相关配置文件,同管理节点一样，需要从管理节点同步到计算节点(同样的目录，需要在计算节点把对应目录删了，重新拷贝)
 
