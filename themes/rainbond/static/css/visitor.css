@@ -71,7 +71,14 @@
     display: none;
 }
 .modal-visitor .head h3 {
-    padding: 10px;
+    padding: 10px !important;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    color: #0d2192;
+    margin: 0;
+    font-size: 100%;
+    display: block;
 }
 .modal-visitor .form {
     width: 100%;
@@ -94,14 +101,14 @@
     line-height: 50px;
     width: calc(100% - 110px);
     font-size: 16px;
-    padding-left: 8px;
+    padding-left: 8px !important;
 }
 
 .modal-visitor .form .form-item.submit {
     text-align: center;
 }
 .modal-visitor .form .form-item.submit button {
-    padding: 10px 25px;
+    padding: 10px 25px !important;
     font-size: 15px;
     background: #5ccff5;
     color: #fff;

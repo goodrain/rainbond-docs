@@ -72,12 +72,12 @@
     msg: function(msg,success=false) {
         if (!success) {
             $(this.$wrap).find('.msg').addClass('error')
+            $(this.$wrap).find(".send").removeClass("disable");
         }else{
             $(this.$wrap).find('.msg').removeClass('error')
             $(this.$wrap).find('.msg').addClass('success')
         }
         $(this.$wrap).find('.msg').html(msg)
-        $(this.$wrap).find(".send").removeClass("disable");
     },
     bind: function() {
       var self = this;
