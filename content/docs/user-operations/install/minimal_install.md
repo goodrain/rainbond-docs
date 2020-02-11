@@ -23,16 +23,22 @@ description: "此方式适用于快速安装和试用Rainbond平台。"
 
 ```bash
    #获取rainbond-operator并进入指定目录
-   git clone https://github.com/goodrain/rainbond-operator.git && cd rainbond-operator
+   git clone --depth 1 https://github.com/goodrain/rainbond-operator.git && cd rainbond-operator
    #创建所需namespace
    kubectl create ns rbd-system
    #通过helm安装operator到指定namespace
    helm install my-release ./mychart --namespace=rbd-system
 ```
 
-> **执行完毕后运行```kubectl get svc -n rbd-system | grep 30008```，验证是否监听30008端口**
+> **执行完毕后,由于获取镜像需要一定时间，请运行```kubectl get pod -n rbd-system```，确认所有Pod都Ready后进行后续步骤**
+```
+NAME                  READY   STATUS    RESTARTS   AGE
+rainbond-operator-0   2/2     Running   0          110s
+```
+
 
 #### 访问UI界面，进行安装操作
+   Rainbond 从5.2版本开始采用UI配置安装方式，通过UI配置Rainbond安装需要的相关参数。
 
    1. 访问 **主机IP:30008**，点击开始安装
 
