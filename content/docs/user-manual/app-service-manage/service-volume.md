@@ -18,6 +18,8 @@ Rainbond 默认支持以下几种存储类型:
 - 配置文件
 - 内存文件存储
 
+除Rainbond默认支持的上述几种存储类型外，Rainbond还支持[自定义存储类型](/docs/user-manual/app-service-manage/service-volume-custom/)。
+
 #### 共享存储
 
 共享存储是一个分布式文件系统, 默认使用的是 NFS, 你也可以自行对接其它的分布式文件系统(比如: [GlusterFS](../../../operation-manual/storage/GlusterFS/introduce.html), NAS 等). 共享存储具有非常高的可靠性和扩展性; 与此同时, 它还具有非常高的灵活性, 可以共享给其它的组件，基于租户、组件两级进行存储空间分配和隔离。
@@ -154,65 +156,3 @@ docker run -d --net=host -v /var/gogs:/data gogs/gogs
 
 
 * step 3 把需要迁移的gogs数据(data1)备份，然后把平台上的gogs停了，然后用备份的data1数据替换了平台上运行的gogs的数据，启动平台上的gogs
-
-### v5.2 新增存储类型
-
-出于对高性能存储的需求，从v5.2版本开始，rainbond拥有了支持更多存储类型的能力，用户可以通过在rainbond平台上使用性能较高的存储构建组件。
-
-> 经测试通过的存储有阿里云盘和ceph-rbd块存储，其他存储后期会逐步增加相应的支持
-
-#### 实现原理
-
-为了更好的管理存储，k8s通过`StorageClass`、`PersistentVolumeClaims`、`PersistentVolume`三种资源类型实现了动态提供存储的能力，在配置有合适的 `StorageClass`且 `PersistentVolumeClaim` 关联了该 `StorageClass` 的情况下，kubernetes 集群可以为应用程序动态创建 `PersistentVolume`。
-
-- `PersistentVolume`
-  
-    简称pv，表示kubernetes集群中的一块存储空间，由集群的管理员手动管理或者`StorageClass`自动管理，pv与node一样，是集群的全局资源，不属于任何的命名空间，
-
-- `PersistentVolumeClaims`
-
-    简称pvc，kubernetes中Volume的一种，代表了用户使用存储的需求。Pod实例消耗节点node的计算资源，pvc存储需求消耗pv存储资源。
-
-- `StorageClass`
-
-    简称sc，表示kubernetes集群中可以提供的存储的类型。代表着kubernetes的一种能力，一种可以使用该种类型存储的能力。
-
-通过`PersistentVolumeClaims`、`PersistentVolume`两种资源类型定义，kubernetes将存储的管理进行合理的抽象，让用户把关注点放在如何提供存储，和如何使用存储两个方面。
-pv描述了如何提供存储的具体信息，如存储的远程服务器地址，所需要的参数等。pvc描述了用户想要一种什么类型的存储，用户想要的存储指明某个`StorageClass`，意味着用户的此需求交由该`StorageClass`提供，由`StorageClass`背后的存储驱动动态的提供支持。
-
-#### rainbond使用新增存储
-
-* 安装驱动
-  
-拿ceph-rbd块存储举例，需要在集群的每个节点安装ceph客户端，由该客户端支持存储的动态创建。
-
-```
-yum install -y ceph-common 
-```
-
-使用阿里云盘需要在kubernetes集群中安装阿里云盘驱动，详情可了解[alicloud-storage-provisioner](https://github.com/AliyunContainerService/alicloud-storage-provisioner)
-
-* 创建`StorageClass`
-  
-驱动安装成功之后，即可创建相应的`StorageClass`来提供相应的能力。此时可通过手动创建pvc执行`StorageClass`的方式测试驱动是否安装成功
-
-* 使用
-
-rainbond控制台添加组件，设置为有状态组件，添加存储，选择阿里云盘或者ceph块存储，设定大小，开始使用
-
-
-
-#### 最优存储的选择
-
-所谓最优存储的选择，是在集群中没有想要的存储时默认选择的存储。
-
-从应用市场安装应用、应用的迁移都有可能发生存储类型不存在的情况。在需要的存储类型不存在时，提供最优的存储类型就显得特别的重要。rainbond会针对存储的特性选择最适合组件的存储类型来支持组件的创建，避免阻碍组件的正常运行
-
-> 最优存储的选择会在后期进行更细致的优化迭代，会综合考虑存储的读写特性、共享特性以及备份恢复策略等相关特性共同决定如何正确且最快的存储类型
-
-#### 新增存储的限制
-
-新增的存储类型在使用上有读写上的限制，和数据备份上的限制。
-
-只允许有状态组件使用是为了解决部分存储类型只能单读单写的限制。所以，新增存储类型不可共享，不可供其他组件共同使用。
-数据备份方面，rainbond针对新增存储类型，会选择跳过备份，仅备份存储类型，在恢复或迁移时尽可能使用相同类型的存储类型。
