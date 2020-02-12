@@ -25,7 +25,7 @@ hidden: true
 
 ```
 # 有网环境下载离线包,并同步到离线环境
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2019-12-12-5.1.9.tgz 
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2020-01-07-5.1.10.tgz 
 
 ```
 
