@@ -9,6 +9,8 @@ hidden: true
 
 上篇文档[组件存储设置](/docs/user-manual/app-service-manage/service-volume)讲到了rainbond默认支持的几种存储类型，结合者互联网行业对高性能存储的需求，rainbond实现了自定义存储类型的需求，用户可以自己安装自定义存储类型供rainbond使用，可以很好的解决rainbond默认存储类型不能满足的高性能存储需求。
 
+现已支持[阿里云盘](/docs/user-manual/app-service-manage/custom-volume/ali-disk)、[ceph-rbd块存储](/docs/user-manual/app-service-manage/custom-volume/ceph-rbd)两种自定义存储，后续会陆续增加对其他类型存储的支持。
+
 ### 实现原理
 
 了解rainbond自定义存储类型实现原理之前，需要先了解kubernetes通过storageClass实现的动态提供存储功能。
@@ -37,36 +39,20 @@ rainbond平台会检测kubernetes集群中存在的storageClass资源，将stora
 
 自定义存储类型最关键的步骤就是创建相应的storageClass资源，以及在storageClass背后默默工作的存储驱动。
 
-以阿里云盘举例，讲解如何通过rainbond平台提供阿里云盘给rainbond平台上的组件使用
+storageClass的创建有两种方式
 
-- 驱动的安装
+* 管理后台自动添加
 
-驱动的安装参考阿里云官方容器服务项目[alicloud-storage-provisioner](https://github.com/AliyunContainerService/alicloud-storage-provisioner)
+用户可通过管理后台存储管理功能，创建自定义存储类型，并开启使用。开启后，Rainbond会在kubernetes集群中自动创建对象的StorageClass资源对象。此时控制台的有状态组件可以选择使用。
 
-- storageClass的创建
+* 用户手动创建
 
-以阿里云盘中的高性能云盘举例，其storageClass如下
+用户也可以通过手动创建storageClass的方式，直接使用。更多关于storageClass的内容可以到kubernetes[官方文档](https://kubernetes.io/docs/concepts/storage/storage-classes/#introduction)了解。
 
-```
-kind: StorageClass
-apiVersion: storage.k8s.io/v1beta1
-metadata:
-  name: alicloud-disk-efficiency
-provisioner: alicloud/disk
-parameters:
-  type: cloud_efficiency
+用户也可以参考下面的文档了解如何对接阿里云盘和ceph块存储到Rainbond平台。
 
-```
-
-- 存储的使用
-
-rainbond控制台创建有状态组件，存储模块选择名称为`alicloud-disk-efficiency`的存储类型，并设定存储大小
-
-> 须通过重启组件或者更新组件来触发存储的生效
-
-- 检查结果
-
-存储是否生效可以通过组件是否可以正常启动来判断，组件正常启动则说明组件已经正常挂载了存储，也可以到阿里云盘管理页面确定存储的现象，确定是否存在对应大小的存储，其状态是否是使用中的状态。
+对接阿里云盘存储到Rainbond平台可参考[Rainbond平台对接阿里云盘](/docs/user-manual/app-service-manage/custom-volume/ali-disk#Rainbond平台对接阿里云盘)
+对接ceph块存储到Rainbond平台可参考[Rainbond平台对接ceph-rbd块存储](/docs/user-manual/app-service-manage/custom-volume/ceph-rbd#Rainbond平台对接ceph-rbd块存储)
 
 
 ### 自定义存储缺陷
