@@ -114,9 +114,10 @@
     color: #fff;
     border: 0;
     border-radius: 6px;
+    cursor:pointer;
 }
 .modal-visitor .form .form-item.submit .send.disable{
-    background: #666;
+    background: #d9d9d9;
 }
 .modal-visitor .form .msg {
     text-align: center;
@@ -126,6 +127,6 @@
 .modal-visitor .form .msg.error {
     color: red;
 }
-.modal-visitor .form .msg.success {
+.modal-visitor .form .msg.success, .modal-visitor .form .msg p.success {
     color: green;
 }
