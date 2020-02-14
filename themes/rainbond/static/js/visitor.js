@@ -85,6 +85,7 @@
       if (!success) {
         $(this.$wrap).find(".msg").addClass("error");
         $(this.$wrap).find(".send").removeClass("disable");
+        $(self.$wrap).find(".send").html("确定");
       } else {
         $(this.$wrap).find(".msg").removeClass("error");
         $(this.$wrap).find(".msg").addClass("success");
@@ -101,7 +102,7 @@
         if ($(self.$wrap).find(".send").hasClass("disable")) {
           return;
         }
-        $(self.$wrap).find(".send").html("确认中");
+        $(self.$wrap).find(".send").html("提交中");
         $(self.$wrap).find(".send").addClass("disable");
         var name = $("input[name='name']").val();
         if (name.length < 2) {
