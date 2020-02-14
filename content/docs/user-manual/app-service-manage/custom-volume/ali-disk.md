@@ -27,6 +27,8 @@ weight: 5015
 git clone https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver.git
 ```
 
+进入到项目中
+
 创建csi-plugin
 
 ```
