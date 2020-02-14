@@ -6,7 +6,7 @@ description: "此方式适用于快速安装和试用Rainbond平台。"
 
 > Rainbond V5.2.0版本处于beta状态，当前仅提供ALL-IN-ONE最小安装模式，在版本Release之前支持完整高可用安装，该安装教程可能修改。
 
-请根据下述步骤完成Rainbond的安装。
+开始Rainbond之前你需要完成Kubernetes集群的安装，若你还没完成，请参考文档[kubernetes集群的安装](../k8s-install/)
 
 ### 安装 Helm（V3）
 
@@ -91,6 +91,7 @@ rainbond-operator-0   2/2     Running   0          110s
 
 ```
 docker run -it --rm -v /:/rootfs registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:V5.2-dev copy
+mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl
 /usr/local/bin/grctl install
 ```
 
