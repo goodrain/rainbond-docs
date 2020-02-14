@@ -85,7 +85,7 @@
       if (!success) {
         $(this.$wrap).find(".msg").addClass("error");
         $(this.$wrap).find(".send").removeClass("disable");
-        $(self.$wrap).find(".send").html("确定");
+        $(this.$wrap).find(".send").html("确定");
       } else {
         $(this.$wrap).find(".msg").removeClass("error");
         $(this.$wrap).find(".msg").addClass("success");
