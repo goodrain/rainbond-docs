@@ -4,6 +4,10 @@ menu: 'upgrade'
 weight: 40000
 ---
 
-本章节记录 Rainbond 至 5.0.4 版本以来的更新记录:
+## Rainbond V5.1更新记录
+
+参考V5.1版本文档：[升级记录](https://www.rainbond.com/docs/upgrade/)
+
+## Rainbond V5.2更新记录
 
 {{% children showhidden="true" description="true" style="h3"  %}}
