@@ -9,7 +9,7 @@ hidden: true
 
 上篇文档[组件存储设置](/docs/user-manual/app-service-manage/service-volume)讲到了rainbond默认支持的几种存储类型，结合者互联网行业对高性能存储的需求，rainbond实现了自定义存储类型的需求，用户可以自己安装自定义存储类型供rainbond使用，可以很好的解决rainbond默认存储类型不能满足的高性能存储需求。
 
-现已支持[阿里云盘](/docs/user-manual/app-service-manage/custom-volume/ali-disk)、[ceph-rbd块存储](/docs/user-manual/app-service-manage/custom-volume/ceph-rbd)两种自定义存储，后续会陆续增加对其他类型存储的支持。
+现已支持的[阿里云盘](/docs/user-manual/app-service-manage/custom-volume/ali-disk)、[ceph-rbd块存储](/docs/user-manual/app-service-manage/custom-volume/ceph-rbd)两种自定义存储，都是经过详细测试并成功的案例。原则上其他存储类型也能正常使用。
 
 ### 实现原理
 
@@ -36,20 +36,6 @@ rainbond平台会检测kubernetes集群中存在的storageClass资源，将stora
 用户在添加存储类型的时候可以自己指定相应的存储回收策略。但rainbond在组件删除时只会删除组件对应的pvc，pvc的删除意味着此时pvc绑定的存储会根据storageClass的回收策略进行选择。
 
 ### 如何使用
-
-自定义存储类型最关键的步骤就是创建相应的storageClass资源，以及在storageClass背后默默工作的存储驱动。
-
-storageClass的创建有两种方式
-
-* 管理后台自动添加
-
-用户可通过管理后台存储管理功能，创建自定义存储类型，并开启使用。开启后，Rainbond会在kubernetes集群中自动创建对象的StorageClass资源对象。此时控制台的有状态组件可以选择使用。
-
-* 用户手动创建
-
-用户也可以通过手动创建storageClass的方式，直接使用。更多关于storageClass的内容可以到kubernetes[官方文档](https://kubernetes.io/docs/concepts/storage/storage-classes/#introduction)了解。
-
-用户也可以参考下面的文档了解如何对接阿里云盘和ceph块存储到Rainbond平台。
 
 对接阿里云盘存储到Rainbond平台可参考[Rainbond平台对接阿里云盘](/docs/user-manual/app-service-manage/custom-volume/ali-disk#Rainbond平台对接阿里云盘)
 对接ceph块存储到Rainbond平台可参考[Rainbond平台对接ceph-rbd块存储](/docs/user-manual/app-service-manage/custom-volume/ceph-rbd#Rainbond平台对接ceph-rbd块存储)
