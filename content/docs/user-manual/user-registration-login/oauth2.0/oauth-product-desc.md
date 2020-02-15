@@ -1,9 +1,10 @@
 ---
-title: 功能介绍
-description: 功能介绍
+title: Oauth2.0集成功能说明
+description: 关于Rainbond平台企业集成Oauth2.0后能够获得的功能说明
 hidden: true
 weight: 6001
 ---
+
 ### 为了帮助用户更加方便的使用产品，基于OAuth2.0协议我们实现以下功能。
 
 #### 第三方认证功能

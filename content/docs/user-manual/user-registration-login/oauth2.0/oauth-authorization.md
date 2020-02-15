@@ -2,7 +2,9 @@
 title: OAuth2.0认证
 description: 提供第三方平台认证登录（Github、Gitlab、Gitee）
 weight: 6008
+hidden: true
 ---
+
 #### OAuth服务认证
 - 登录前通过第三方用户登录认证
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG61.png" width = "800"alt=""/>

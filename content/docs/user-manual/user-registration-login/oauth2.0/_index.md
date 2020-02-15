@@ -1,9 +1,7 @@
 +++
-title = "OAuth2.0服务"
+title = "OAuth2.0集成"
 chapter = true
-menu = "oauth2.0"
-weight = 9000
-pre = "<b>3.9 </b>"
+weight = 20
 +++
 
 本章内容包括：
