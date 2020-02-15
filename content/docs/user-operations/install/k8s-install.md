@@ -7,9 +7,9 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
 这篇文档讲述了如何借助 [easzup](https://github.com/easzlab) 快速部署一个 Kubernetes 集群：
 根据您的场景不同，可以选择下面两种部署模式中的一个：
 
-- 单节点的学习测试环境： [kubernetes的all-in-one安装方式](#一、kubernetes的all-in-one安装方式)
+- 单节点的学习测试环境： [kubernetes的all-in-one安装方式](#kubernetes的all-in-one安装方式)
 
-- 多节点开发生产环境： [kubernetes的高可用安装](#二、kubernetes的高可用安装)
+- 多节点开发生产环境： [kubernetes的高可用安装](#kubernetes的高可用安装)
 
 ## kubernetes的all-in-one安装方式
 
@@ -17,8 +17,17 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
 
    - 下载工具脚本easzup，easzup的不同release影响可以安装的kubernetes版本，具体对应信息可查看[easzup版本](https://github.com/easzlab/kubeasz/releases)
 
+```
+#选择2.1.0版本的easzup，2.1.0版本的easzup默认安装的kubernetes版本为1.16.2
+export release=2.1.0
+curl -C- -fLO --retry 3 https://github.com/easzlab/kubeasz/releases/download/${release}/easzup
+chmod +x ./easzup
+```
+
+> 注：国内访问GitHub较慢，可从Rainbond加速下载，此版本为`1.16.2`
+
 ```bash
-wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/easzup && chmod +x  easzup
+wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/easzup && chmod +x easzup
 ```
 
    - 使用工具脚本下载其他文件，主要包括离线镜像，二进制文件等，保存在/etc/ansible目录中
@@ -126,6 +135,12 @@ ssh-copy-id $IPs #$IPs为所有节点地址包括自身，按照提示输入yes 
 export release=2.1.0
 curl -C- -fLO --retry 3 https://github.com/easzlab/kubeasz/releases/download/${release}/easzup
 chmod +x ./easzup
+```
+
+> 注：国内访问GitHub较慢，可从Rainbond加速下载，此版本为`1.16.2`
+
+```bash
+wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/easzup && chmod +x easzup
 ```
 
 - 使用脚本工具下载离线镜像等文件，文件保存在/etc/ansible目录中
