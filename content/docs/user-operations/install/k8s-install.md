@@ -137,7 +137,7 @@ curl -C- -fLO --retry 3 https://github.com/easzlab/kubeasz/releases/download/${r
 chmod +x ./easzup
 ```
 
-> 注：国内访问GitHub较慢，可从Rainbond加速下载，此版本为`1.16.2`
+> 注：国内访问GitHub较慢，可从Rainbond加速下载，此版本为`2.1.0`
 
 ```bash
 wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/easzup && chmod +x easzup
