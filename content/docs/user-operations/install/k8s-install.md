@@ -18,10 +18,7 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
    - 下载工具脚本easzup，easzup的不同release影响可以安装的kubernetes版本，具体对应信息可查看[easzup版本](https://github.com/easzlab/kubeasz/releases)
 
 ```bash
-#选择2.1.0版本的easzup，2.1.0版本的easzup默认安装的kubernetes版本为1.16.2
-export release=2.1.0
-curl -C- -fLO --retry 3 https://github.com/easzlab/kubeasz/releases/download/${release}/easzup
-chmod +x ./easzup
+wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/easzup && chmod +x  easzup
 ```
 
    - 使用工具脚本下载其他文件，主要包括离线镜像，二进制文件等，保存在/etc/ansible目录中

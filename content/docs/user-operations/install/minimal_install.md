@@ -13,10 +13,7 @@ description: "此方式适用于快速安装和试用Rainbond平台。"
 如果您的环境中还没有安装 Helm ，请安装它。如果已经安装 Helm（3.0+） 请跳过这个步骤。
 
 ```bash
-#获取helm命令并解压
-wget https://get.helm.sh/helm-v3.0.3-linux-amd64.tar.gz && tar xvf helm-v3.0.3-linux-amd64.tar.gz
-#copyhelm命令到指定目录
-cp linux-amd64/helm /usr/local/bin/
+wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
 ```
 
 ### 下载并运行Rainbond-Operator安装控制器
