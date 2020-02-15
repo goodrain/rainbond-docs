@@ -1,18 +1,21 @@
 $(function() {
   var selected = $(".sidemenu").find(".menu-item-selected");
-  initOpen(selected);
+  initOpen(selected, 0);
   $(".canopen").on("click", function(event) {
     event.stopPropagation();
     var item_count = $(this).data("count");
     var current_heitht = $(this).height();
     var height = 36 * (item_count + 1);
+    let mode = "add"
     if (item_count > 0 && current_heitht < height) {
       $(this).height(height);
-      $(this).find(".menu-toggle").css({ transform: "rotate(0deg)" });
+      $(this).find(".menu-toggle").first().css({ transform: "rotate(0deg)" });
     } else {
+      mode = "delete"
       $(this).height(36);
-      $(this).find(".menu-toggle").css({ transform: "rotate(-90deg)" });
+      $(this).find(".menu-toggle").first().css({ transform: "rotate(-90deg)" });
     }
+    changeHeight($(this), 36*item_count, mode)
   });
   $(".sidemenu-toggle").on("click", function() {
     if ($(this).parent().hasClass("sidemenu-open")) {
@@ -54,14 +57,29 @@ $(function() {
     }
   }
 });
-function initOpen(item) {
+
+function changeHeight(target, changeHeightNum, mode) {
+  let parentLi = target.parent().parent()
+  if (parentLi.length>0) {
+     changeHeight(parentLi, changeHeightNum, mode)
+     let current = parentLi.height()
+     if (mode == "add") {
+       parentLi.height(current+changeHeightNum);
+     }else{
+       parentLi.height(current-changeHeightNum);
+     }
+  }
+}
+
+function initOpen(item, add) {
   var parentLi = $(item).parent("ul").parent();
-  if ($(parentLi).height() == 36 && $(parentLi).data("count") > 0) {
-    $(parentLi).height(($(parentLi).data("count") + 1) * 36);
+  var count = $(parentLi).data("count")
+  if ($(parentLi).height() == 36 && count > 0) {
+    $(parentLi).height((count + 1) * 36 + add);
   }
   var p = $(parentLi).parent("ul").parent();
   if (p.length > 0) {
-    initOpen(parentLi);
+    initOpen(parentLi, count*36);
   }
 }
 
