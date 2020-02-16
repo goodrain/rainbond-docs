@@ -31,18 +31,18 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 下载rainbond-operator Chart应用包：
 
 ```bash
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/helm/rainbond-operator-charts.tgz && tar xvf rainbond-operator-charts.tgz
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-charts-V5.2.0-beta1.tgz && tar zxvf rainbond-operator-charts-V5.2.0-beta1.tgz
 
 ```
 
-可选配置参考 `./rainbond-operator-charts/values.yaml`，默认情况下无需修改。
+可选配置参考 `./chart/values.yaml`，默认情况下无需修改。
 
 配置完成即可安装：
 ```bash
 #创建所需namespace
 kubectl create ns rbd-system
 #通过helm安装operator到指定namespace
-helm install rainbond-operator ./rainbond-operator-charts --namespace=rbd-system
+helm install rainbond-operator ./chart --namespace=rbd-system
 ```
 
 执行完毕后, 由于从公网获取镜像需要一定时间，请运行```kubectl get pod -n rbd-system```，确认所有Pod都Ready（如下所示）后进行后续步骤。
