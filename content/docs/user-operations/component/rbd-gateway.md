@@ -5,10 +5,17 @@ hidden: true
 ---
 
 
-### 守护运行方式
+### 运行方式
+ 
+运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理
 
-> node会生成rbd-gateway的systemd配置文件,并通过systemd守护运行,可以通过`systemctl cat rbd-gateway`获取rbd-gateway的systemd配置文件  
-> rbd-gateway服务是通过镜像运行  
 
-rbd-gateway默认配置文件`/opt/rainbond/conf/gateway.yaml`
+### 常用参数说明
+
+```shell 
+    - --log-level        日志级别
+    - --error-log        记录错误日志路径
+    - --enable-kubeapi   是否启用kube apiserver的负载平衡
+    - --etcd-endpoints   etcd集群连接地址
+```
 

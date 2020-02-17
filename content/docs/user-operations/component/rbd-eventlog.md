@@ -5,16 +5,17 @@ hidden: true
 ---
 
 
-### 守护运行方式
+### 运行方式
  
-> node会生成rbd-eventlog的systemd配置文件,并通过systemd守护运行,可以通过`systemctl cat rbd-eventlog`获取rbd-eventlog的systemd配置文件  
-> rbd-eventlog服务是通过镜像运行  
-
-rbd-eventlog默认配置文件`/opt/rainbond/conf/master.yaml`
+运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理
 
 
-### 环境变量
+### 常用参数说明
 
-```
-DOCKER_LOG_SAVE_DAY: 日志保留时间(默认7天)
+```shell
+    - --cluster.bind.ip    集群通信监听IP
+    - --cluster.instance   群集中的当前实例通信IP
+    - --websocket.bind.ip  推送事件消息的websocket绑定ip
+    - --db.url             数据库连接信息
+    - --discover.etcd.addr 为消息提示自动发现群集中的etcd服务器地址
 ```

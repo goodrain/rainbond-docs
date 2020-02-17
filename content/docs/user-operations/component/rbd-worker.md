@@ -5,15 +5,17 @@ hidden: true
 ---
 
 
-### 守护运行方式
+### 运行方式
  
-> node会生成rbd-worker的systemd配置文件,并通过systemd守护运行,可以通过`systemctl cat rbd-worker`获取rbd-worker的systemd配置文件  
-> rbd-worker服务是通过镜像运行  
+运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理
 
-rbd-worker默认配置文件`/opt/rainbond/conf/master.yaml`
 
 ### 常用参数说明
 
-```
---node-name=<当前节点Node的UUID>
+```shell
+    - --log-level   日志级别
+    - --host-ip     此工作进程的ip，必须是全局连接的ip
+    - --node-name   此工作进程的名称，必须是全局唯一名称
+    - --mysql       数据库连接信息
+    - --etcd-endpoints  etcd v3集群连接信息
 ```

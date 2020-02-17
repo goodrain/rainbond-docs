@@ -7,17 +7,22 @@ hidden: true
 
 ### 守护运行方式
 
-> 通过二进制运行,由node生成systemd文件并启动   
+ 通过二进制运行
 
-kubelet默认配置文件`/opt/rainbond/conf/k8s-worker.yaml` (计算节点)
 
 ### 常用参数说明
 
-{{% notice info %}}
-`ExecStart=/bin/bash -c 'NODE_UUID=959eba4b-6bbe-4ad5-ba0f-ecfad17d378d/opt/rainbond/scripts/kubelet.sh'`
-其中NODE_UUID值为当前节点node的uuid
+```
+--config         Kubelet将从此文件加载其初始配置。路径可以是绝对路径或相对路径；相对路径从Kubelet的当前工作目录开始。省略此标志以使用内置的默认配置值。命令行标志覆盖此文件中的配置。
+--cni-bin-dir    CNI插件二进制文件的目录完整路径
+--cni-conf-dir   CNI配置文件的目录的完整路径
+--hostname-override  如果非空，将使用此字符串作为标识，而不是实际的主机名
+--kubeconfig     kubeconfig文件的路径，指定如何连接到API服务器
+--network-plugin kubelet/pod生命周期中的各种事件调用的网络插件的名称
+--root-dir       kubelet文件的目录路径
+--v=2            日志级别详细信息的编号
+```
 
-
-具体参数请参见[k8s官方文档](https://v1-10.docs.kubernetes.io/docs/home/)
+具体参数请执行`kubelet -h`获取或参见[k8s官方文档](https://v1-10.docs.kubernetes.io/docs/home/)
 
 

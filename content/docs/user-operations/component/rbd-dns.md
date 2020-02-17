@@ -5,18 +5,18 @@ hidden: true
 ---
 
 
-### 守护运行方式
+### 运行方式
  
-> node会生成rbd-dns的systemd配置文件,并通过systemd守护运行,可以通过`systemctl cat rbd-dns`获取rbd-dns的systemd配置文件  
-> rbd-dns服务是通过镜像运行  
+运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理
 
-rbd-dns默认配置文件`/opt/rainbond/conf/dns.yaml`
 
 ### 常用参数说明
 
-```
---nameservers 上游dns
---recoders 解析记录
+```shell
+    - --healthz-port     用于健康监测的端口
+    - --dns-bind-address 提供DNS请求的地址
+    - --nameservers      上游dns
+    - --recoders         解析记录
 ```
 
 如果需要通过rbd-dns解析某个域名
@@ -24,3 +24,4 @@ rbd-dns默认配置文件`/opt/rainbond/conf/dns.yaml`
 ```
 --recoders=goodrain.me=192.168.195.1,*.goodrain.me=192.168.195.1,buhuibaidu.me=172.20.0.101,*.buhuigoogle.me=172.20.0.102
 ```
+Rainbond `rbd-dns`[源码地址](https://github.com/goodrain/dns)
