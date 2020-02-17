@@ -10,6 +10,12 @@ description: "Rainbond安装教程引导"
 
 安装请阅读： [快速安装](/docs/user-operations/install/online_install)
 
+## 已有Kubernetes集群安装Rainbond
+
+此方式Rainbond V5.2版本已发布Beta1版本，版本状态适用于非生产以外的需求。
+
+安装请阅读： [已有Kubernetes集群安装Rainbond](https://v5.2-doc.rainbond.com/docs/user-operations/install/minimal_install/)
+
 ## 阿里云高可用安装 Rainbond
 
 
