@@ -16,16 +16,15 @@ hidden: true
 ### slug 包
 
 源码构建的组件, 在构建成镜像前, 都根据源码会生成一个 slug 包, 这个 slug 包在镜像构建完后就不再需要了, 会马上被清理.
-该 slug 包位于 `/grdata/build/tenant/{tenant_id}/slug/{service_id}`, tenant_id 和 service_id 分别为 租户ID 和 组件ID.
+该 slug 包位于 `/grdata/build/tenant/{tenant_id}/slug/{service_id}`, `tenant_id` 和 `service_id` 分别为 租户ID 和 组件ID.
 
 ### 数据库元数据
 
-组件的元数据保存在两个数据库中, 分别是 region 和 console. 它们保存了组件的环境变量, 端口, 健康检查, 资源配置 和 网关策略等信息.
-当你主动发起删除组件的操作时, 这个两个数据库中相应的数据也会被删除掉.
+组件的元数据保存在两个数据库中, 分别是 region 和 console. 它们保存了组件的环境变量, 端口, 健康检查, 资源配置 和 网关策略等信息;当你主动发起删除组件的操作时, 这个两个数据库中相应的数据也会被删除掉。
 
 ### 日志
 
-日志包括`事件日志`和`容器日志`. `事件日志` 即组件的构建, 启动, 更新, 停止等操作产生的日志; `容器日志`则是组件运行时 输出到标准输出的日志, 比如访问日志, 报错日志.
+日志包括`事件日志`和`容器日志`， `事件日志` 即组件的构建, 启动, 更新, 停止等操作产生的日志; `容器日志`则是组件运行时 输出到标准输出的日志, 比如访问日志, 报错日志.
 
 事件日志的清理策略是, 保留最近的 `30 个`和最近 `30 天`的日志. 而容器日志的策略则是保留最近 7 天的内容.
 
@@ -41,4 +40,5 @@ hidden: true
 
 ### 镜像
 
-不管是由源码构建的, 镜像构建的, 还是从应用市场安装的组件, 都会产生一些镜像, 这些镜像的清理由 Rainbond 的 node 服务完成. 详情请参考 [node 垃圾回收](/docs/user-operations/component/node/#配置-node-垃圾回收).
+
+镜像的清理由Kubernetes中的kubelet来完成，详细内容请查看[Kubernetes官方文档](https://kubernetes.io/zh/docs/reference/command-line-tools-reference/kubelet/)

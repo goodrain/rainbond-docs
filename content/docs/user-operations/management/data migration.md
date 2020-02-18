@@ -1,6 +1,6 @@
 ---
 title: "rbd-db数据迁移至外部数据库"
-weight: 1005
+weight: 1007
 description: "将数据由平台默认数据存储中心rbd-db迁移至外部数据库"
 hidden: true
 ---

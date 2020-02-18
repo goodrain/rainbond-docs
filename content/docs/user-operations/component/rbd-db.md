@@ -14,4 +14,8 @@ hidden: true
 
 基于[percona分支](https://hub.docker.com/_/percona) `5.7.26`版本制作的rbd-db镜像
 
+
+
+Rbd-db 数据库持久化目录`/opt/rainbond/data`
+
 Rainbond `rbd-db`[源码地址](https://github.com/goodrain/rbd-db)
