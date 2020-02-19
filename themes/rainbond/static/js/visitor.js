@@ -11,6 +11,7 @@
     this._init();
   }
   ModalVisitor.prototype = {
+    callback: null,
     _init: function() {
       this._create();
       this.bind();
@@ -76,6 +77,9 @@
       if (option.smsg) {
         $(this.$wrap).find("input[name='smsg']").val(option.smsg);
       }
+      if (option.callback) {
+        this.callback = option.callback
+      }
       $(this.$wrap).show();
     },
     hide: function() {
@@ -92,6 +96,10 @@
         $(this.$wrap).find(".send").html("已完成申请");
       }
       $(this.$wrap).find(".msg").html(msg);
+      if (this.callback) {
+        this.callback()
+        console.log("callback")
+      }
     },
     bind: function() {
       var self = this;

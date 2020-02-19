@@ -2376,6 +2376,26 @@ h6 {
   color: #DCDCDC;
 }
 
+.markdown-body .auth .hidden {
+    display: none !important;
+}
+
+.markdown-body .auth .auth-body {
+  display: block;
+}
+
+.markdown-body .auth {
+  text-align: center;
+}
+
+.markdown-body .auth .auth-visitor {
+  padding: 1rem;
+  border: 2px solid #dbdbdb;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor:pointer
+}
+
 .hljs-keyword,
 .hljs-literal,
 .hljs-symbol,

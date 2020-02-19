@@ -42,7 +42,6 @@ eureka:
 
 ```
 
-{{% notice info %}}
 Rainbond 中会将无法解析的域名，如 `pig-eureka` 解析为 `127.0.0.1`
 
 
@@ -66,7 +65,7 @@ Spring Cloud 微服务组件的启动顺序是比较重要的，一个组件在�
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-merge/spring-cloud-merge-2.png" width="100%" />
 
-{{% notice warning %}}
+
 必须指出的是，在这个启动控制链条中，pig-gateway 指向 pig-auth 的依赖关系，其意义只作为启动顺序控制策略，不作为正常的依赖关系使用。
 
 
@@ -109,5 +108,4 @@ eureka:
     lease-renewal-interval-in-seconds: 10 #服务刷新时间配置，每隔这个时间会主动心跳一次
 ```
 
-{{% notice warning %}}
 上述配置适用于于测试场景以及调试场景。如果服务已经趋于稳定，并决定应用于生产环境，则建议自行设置合适的配置方案。

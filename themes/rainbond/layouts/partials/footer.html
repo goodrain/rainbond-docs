@@ -56,6 +56,13 @@
         $(".visitor").click(function () {
             modalVisitor.show({title:"开通在线试用账户", source:"Rainbond官网", smsg: "提交成功，在线试用账户稍后将通过手机告知"});
         });
+        $(".auth-visitor").click(function () {
+            modalVisitor.show({title: $(this).data("title"), source: $(this).data("source"), smsg: "获取下载地址成功", callback: ()=>{
+                modalVisitor.hide()
+                $('.markdown-body .auth .auth-visitor').addClass("hidden")
+                $('.markdown-body .auth .auth-body').removeClass("hidden")
+            }});
+        });
     })
 </script>
 <script>

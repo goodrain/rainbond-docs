@@ -18,15 +18,13 @@ description: "此方式适用于外网网络受到严格限制的用户，此版
 
 ### 二. 离线安装操作
 
-#### 2.1 同步离线包
+#### 2.1 下载离线包
 
 目前最新的离线安装版本是: v5.1.10-release
 
-```
-# 有网环境下载离线包,并同步到离线环境
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2020-01-07-5.1.10.tgz
-
-```
+{{% auth %}}
+<a href="https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/dev/offline.2020-01-07-5.1.10.tgz">点击下载安装包</a>
+{{% /auth %}}
 
 #### 2.2 准备工作
 ```bash

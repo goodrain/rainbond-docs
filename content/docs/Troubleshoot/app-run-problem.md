@@ -16,7 +16,6 @@ pre: "<b>6.5 </b>"
 
 #### 镜像类型
 
-{{% notice warning %}}
 注意，[这些镜像](/docs/user-manual/app-creation/image-support/#不能运行的镜像)不可以运行。同时，某些一次性运行后会自动退出的镜像也不可以在平台上运行。
 
 
