@@ -12,10 +12,12 @@ hidden: true
 
 ### 集群信息
 
-查看当前集群的所有节点信息
+查看当前集群的所有节点信息，ready状态为正常状态
 
 ```bash
-kubectl get nodes 
+$ kubectl get nodes 
+NAME            STATUS   ROLES    AGE   VERSION
+192.168.31.76   Ready    master   14h   v1.16.2
 ```
 
 查看当前集群资源使用信息

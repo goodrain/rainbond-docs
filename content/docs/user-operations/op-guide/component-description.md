@@ -50,14 +50,15 @@ weight: 801
 
 |端口号|说明|公网访问|服务组件|
 |--------|--------|------------|--------|
-|30008|集群安装运维控制台web|需要安全组放行|rainbond-operator|
-|7070|应用控制台web|需要安全组放行|rbd-app-ui|
-|7171|容器命令行界面入口|需要安全组放行|rbd-webcli|
-|6060|Websocket服务，提供日志、性能监控实时推送|需要安全组放行|rbd-api|
 |80/443|全局负载均衡服务|需要安全组放行|rbd-gateway|
+|6060|Websocket服务，提供日志、性能监控实时推送|需要安全组放行|rbd-api|
+|7070|应用控制台web|需要安全组放行|rbd-app-ui|
+|8443|Rainbond API服务|需要安全组放行|rbd-api|
+|30008|集群安装运维控制台web|需要安全组放行|rainbond-operator|
 |10248/10250/10255/42645|kubelet服务||kubelet| 
 |10251|kube-scheduler服务||kube-scheduler|
 |6443/8080|kube-apiserver服务||kube-apiserver| 
+|7171|容器命令行界面入口|需要安全组放行|rbd-webcli|
 |2379,2380,4001|etcd服务||etcd/etcd-proxy|
 |10252/10257|kube-controller服务||kube-controller|
 |53| 集群内部dns服务 ||rbd-dns|
@@ -75,7 +76,6 @@ weight: 801
 
 
 - etcd的4001为非安全端口，2379为安全端口
-- kube-apiserver的8181为非安全端口，6442为安全端口, 6443为gateway代理端口
 - rainbond API端口当只有一个数据中心时不需要对外开放，当多数据中心，且在不同网络时需要对外开放,8888非安全端口,8443为安全端口
 - rbd-gateway提供的80与443端口是为HTTP协议应用提供，10001~65535是为TCP协议的应用提供。
 
@@ -86,4 +86,4 @@ weight: 801
 |部署类型|说明|组件名|
 |--------|------------|------------|
 |二进制或者deb/rpm部署|通常使用apt或者yum方式安装,由systemd守护，详情查看[easzlab](https://github.com/easzlab/kubeasz)|docker,kubelet|
-|容器化部署|通过yaml文件部署，pod方式运行|其他组件都是容器化部署，`Kubernetes`和`Rainbond-Operator`共同维护|
+|容器化部署|在kubernetes中以pod方式运行|其他组件都是容器化部署，`Kubernetes`和`Rainbond-Operator`共同维护|
