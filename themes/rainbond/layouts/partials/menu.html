@@ -29,7 +29,7 @@
                   {{ $numberOfPages = add $numberOfPages 1}}
                 {{end}}
             {{ end }}
-            <li data-count="{{$numberOfPages}}" class="menu-item {{ if and (ge $level 2) (ne $numberOfPages 0) }} canopen {{end}} menu-item-level-{{ $level }}" {{if ge $level 2 }}style="height: 36px; overflow: hidden;"{{end}}> 
+            <li data-count="{{$numberOfPages}}" class="{{if and (ge $level 2)  (eq .UniqueID $currentNode.UniqueID)}}menu-item-selected{{end}} menu-item {{ if and (ge $level 2) (ne $numberOfPages 0) }} canopen {{end}} menu-item-level-{{ $level }}" {{if ge $level 2 }}style="height: 36px; overflow: hidden;"{{end}}> 
                 {{ if gt $numberOfPages 0 }}
                     <span href="{{.RelPermalink}}"> 
                         {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}

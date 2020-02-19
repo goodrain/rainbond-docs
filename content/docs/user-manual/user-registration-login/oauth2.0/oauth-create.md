@@ -2,6 +2,7 @@
 title: 通过OAuth2.0协议构建组件
 description: 代码仓库免密构建组件，自动设置webhook
 weight: 6012
+hidden: true
 ---
 
 ### 通过OAuth2.0协议与代码仓库对接

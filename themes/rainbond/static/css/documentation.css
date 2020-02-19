@@ -458,11 +458,21 @@
 
 .bar .bar-body {
   height: 200px;
-  line-height: 200px;
   font-family: Avenir-Heavy;
   font-size: 36px;
   color: #FFF;
   position: relative;
+}
+.bar .bar-body .bar-title-con {
+  padding-top: 2rem;
+}
+
+.bar .bar-body .desc {
+  padding-left: 1rem;
+}
+
+.bar .bar-body .desc a {
+  color: #000;
 }
 
 .bar .bar-body .bar-title {

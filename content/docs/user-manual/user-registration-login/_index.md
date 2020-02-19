@@ -1,7 +1,7 @@
 +++
 title = "用户管理"
 chapter = true
-weight = 1000
+weight = 10
 pre = "<b>3.1  </b>"
 +++
 
