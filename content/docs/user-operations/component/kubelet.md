@@ -5,9 +5,9 @@ hidden: true
 ---
 
 
-### 守护运行方式
+### 运行方式
 
- 通过二进制运行
+ 通过二进制运行，此组件是运行在每一个集群节点上的代理程序，它确保 Pod 中的容器处于运行状态。
 
 
 ### 常用参数说明
@@ -23,6 +23,6 @@ hidden: true
 --v=2            日志级别详细信息的编号
 ```
 
-具体参数请执行`kubelet -h`获取或参见[k8s官方文档](https://v1-10.docs.kubernetes.io/docs/home/)
+具体参数请执行`kubelet -h`获取或参见[Kubernetes官方文档](https://v1-10.docs.kubernetes.io/docs/home/)
 
 

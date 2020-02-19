@@ -6,7 +6,7 @@ hidden: true
 
 ### 运行方式
  
-运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理
+运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理，运行在每一个节点上
 
 
 ### 常用参数说明
@@ -23,6 +23,3 @@ hidden: true
     - --image-repo-host  镜像仓库主机
     - --hostsfile   /etc/hosts映射容器中的路径
 ```
-
-
-

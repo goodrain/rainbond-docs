@@ -41,4 +41,4 @@ hidden: true
 ### 镜像
 
 
-镜像的清理由Kubernetes中的kubelet来完成，详细内容请查看[Kubernetes官方文档](https://kubernetes.io/zh/docs/reference/command-line-tools-reference/kubelet/)
+镜像的清理由Kubernetes中的kubelet来完成，Kubelet的垃圾回收功能可以清理不再使用的容器和镜像，kubelet对容器进行垃圾回收的频率是每分钟一次，对镜像进行垃圾回收的频率是每五分钟一次。详细内容请查看[Kubernetes官方文档](https://kubernetes.io/zh/docs/reference/command-line-tools-reference/kubelet/)

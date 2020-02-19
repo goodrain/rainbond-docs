@@ -32,12 +32,12 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 
 ```bash
 wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/helm/rainbond-operator-charts.tgz && tar xvf rainbond-operator-charts.tgz
-
 ```
 
 可选配置参考 `./rainbond-operator-charts/values.yaml`，默认情况下无需修改。
 
 配置完成即可安装：
+
 ```bash
 #创建所需namespace
 kubectl create ns rbd-system

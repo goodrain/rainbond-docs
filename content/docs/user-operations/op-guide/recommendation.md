@@ -9,16 +9,8 @@ weight: 802
 
 #### 一. 操作系统要求
 
-| 系统     | 版本         | 说明                     |
-| :------- | :----------- | :----------------------- |
-| CentOS   | 7.3及以上（推荐CentOS7.4）      | 64位，[ISO下载](http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/CentOS-7-x86_64-Minimal-1708.iso)  |
-| Ubuntu   | 16.04（推荐）| 64位，[ISO下载](https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/system/CentOS/ubuntu-16.04.6-server-amd64.iso)             |
-| Debian   | 9.6          | 64位                  |
-| 中标麒麟 | 服务器版V7.4 | 64位                     |
+Rainbond支持对接在已有kubernetes集群，目前支持对接centos，ubuntu系统的kubernetes集群。
 
-Rainbond支持部署在物理服务器以及 VMware、KVM、XEN 等主流虚拟化环境上。
-
-> 在搭建高可用Rainbond集群时，我们在Centos及Ubuntu系统中做过大量高可用性测试，所以推荐使用这两种Linux系统部署高可用集群。
 
 #### 二. 系统环境要求
 

@@ -10,61 +10,38 @@ hidden: true
 
 - 在数据库节点安装docker
 
-```
+```bash
 # 安装docker
 export VERSION=18.06 && curl -fsSL http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/docker/install-docker.sh | bash -s docker
 # 启动docker
 systemctl start docker
 # 拉取rbd-db镜像
 docker pull rainbond/rbd-db:latest
-# 修改tag
-docker tag rainbond/rbd-db:latest goodrain.me/rbd-db:latest
 # 提前在数据库节点创建持久化目录
 mkdir -p /opt/rainbond/data/
 # 创建数据库配置文件目录
 mkdir -p /opt/rainbond/etc/
-
+# 启动数据库
+docker run --name rbd-db -p 3306:3306  -e MYSQL_ALLOW_EMPTY_PASSWORD="yes" -v /opt/rainbond/data/rbd-db:/data -v /opt/rainbond/etc/rbd-db:/etc/mysql -i rainbond/rbd-db:latest
+# 确认是否启动成功
+ss -lntp|grep :3306
 ```
 
 ><font color="#dd0000">注意：数据备份之后请勿在平台上继续进行操作，以免造成数据不一致</font><br />
 
-
-- 在首个管理节点执行以下操作
-
-```
-# 查看数据库连接信息
-root@rainbond:~# cat /opt/rainbond/.init/updatedb.sh |grep ^DB
-
-DB_HOST=10.10.10.10
-DB_PORT=3306
-DB_USER=nugh4Z  #数据库用户
-DB_PASS=Eu0aiDee #数据库密码
-NET_TYPE=internal
-
-# 进入rbd-db容器，备份当前数据
-din rbd-db
-# 备份数据,直接将数据重定向至持久化目录中
-mysqldump -u用户 -p密码 --all-databases > /data/all.sql
+```bash
+# 备份数据
+kubectl exec  -it  rbd-db-0 -n rbd-system  --  mysqldump --all-databases > all.sql
 # 查看数据备份是否成功
-cat /data/all.sql
-# 退出容器，在宿主机持久化目录查看备份的数据
-ls /opt/rainbond/data/mysql/
-all.sql data logs tmp 
-# 将数据拷贝到存储节点中
-scp /opt/rainbond/data/mysql/all.sql  10.10.10.11:/tmp/
-# 在管理节点拷贝rbd-db的启动文件至数据库节点
-scp /etc/systemd/system/rbd-db.service 10.10.10.11:/etc/systemd/system/
-# 在管理节点拷贝rbd-db的配置文件至数据库节点
-scp -r /opt/rainbond/etc/rbd-db 10.10.10.11:/opt/rainbond/etc/
+cat all.sql
+# 将数据拷贝到数据库目的迁移节点中
+scp all.sql  10.10.10.11:/tmp/
 ```
+
 
 - 在存储节点的Mysql导入数据
 
 ```
-# 启动rbd-db服务
-systemctl start rbd-db
-# 查看rbd-db服务状态
-systemctl status rbd-db
 # 查看rbd-db服务容器
 docker ps
 # 拷贝数据库备份文件到容器中
@@ -78,49 +55,29 @@ flush privileges;­
 
 #### 修改数据库连接地址
 
-> 在首个管理节点需要修改两个配置文件ui.yaml,master.yaml，若有多个管理节点其他管理节点只需修改master.yaml文件即可,计算节点无需修改
+> 在首个管理节点需要修改rbd-app-ui配置
 
-- 在首个管理节点操作，因数据已经导入，只需修改指向数据库主机的IP即可
+- 因数据已经导入，只需修改指向数据库主机的IP即可
 
+```bash
+kubectl edit deployment rbd-app-ui -n rbd-system
 ```
-# 需要修改一个地方
-vi /opt/rainbond/conf/ui.yaml
 
-version: '2.1'
-services:
-- name: rbd-app-ui
-  endpoints:
-  - name: APP_UI_ENDPOINTS
-    protocol: http
-    port: 7070
-  health:
-    name: rbd-app-ui
-    model: http
-    address: 127.0.0.1:7070
-    max_errors_num: 3
-    time_interval: 20
-  after:
-    - docker
-  type: simple
-  pre_start: docker rm rbd-app-ui
-  start: >-
-    docker run --name rbd-app-ui
-    --network host
-    -e MANAGE_SECRET_KEY=yee5je8Au4no1ceefe0vu6APhae0be8h 
-    -e MYSQL_HOST=10.10.10.11  #修改数据库主机IP
-    -e MYSQL_PORT=  #数据库端口
-    -e MYSQL_USER=  #数据库用户
-    -e MYSQL_PASS=  #数据库密码
-    -e MYSQL_DB=console
-    -v /opt/rainbond/.init:/initdata
-    -v /grdata/services/console:/app/ui/data
-    -v /opt/rainbond/etc/rbd-api:/etc/goodrain
-    -v /opt/rainbond/logs/rbd-app-ui:/app/logs
-    -i goodrain.me/rbd-app-ui:v5.1.6-release
-  stop: docker stop rbd-app-ui
-  restart_policy: always
-  restart_sec: 10
+```bash
+      containers:
+      - env:
+        - name: MYSQL_HOST
+          value: rbd-db   #修改此处的连接地址
+        - name: MYSQL_PORT
+          value: "3306"
+        - name: MYSQL_USER
+          value: rite
+        - name: MYSQL_PASS
+          value: e59e8773
+        - name: MYSQL_DB
+          value: console
 ```
+
 master.yaml文件，需要修改四个地方，只修改数据库主机IP即可
 
 ```
@@ -306,15 +263,9 @@ services:
   stop: docker stop rbd-eventlog
   restart_policy: always
   restart_sec: 10
-
 ```
 
 
-所有节点修改完毕后执行命令
-
-```
-node service update
-```
 
 最后查看集群状态 
 
@@ -323,18 +274,4 @@ grctl cluster
 ```
 登录平台查看应用状态
 
-数据迁移完毕停止rbd-db服务
-
-```
-# 将rbd-db配置文件移走
-mv /opt/rainbond/conf/db.yaml /backup
-rm -rf  /etc/systemd/system/rbd-db.service 
-# 停止rbd-db服务
-systemctl stop rbd-db
-# 将rbd-db从组件列表删除
-grctl node condition delete <NODE ID> --name rbd-db
-# 更新组件
-node service update
-```
-
-到此完成数据迁移
+#### 数据迁移完毕停止rbd-db服务,到此完成数据迁移

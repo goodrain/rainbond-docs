@@ -6,7 +6,7 @@ hidden: true
 
 ### 安装命令行工具
 
-   命令行工具(grctl)提供一些便于Rainbond运维的工具命令，在`5.2.0`版本该工具不再内置，如有使用，需提前安装安装此命令；用户需进入集群管理节点，在该节点进行以下操作。
+   命令行工具`grctl`提供一些便于Rainbond运维的工具命令，在`5.2.0`版本该工具不再内置，如有使用，需提前安装安装此命令；用户需进入集群管理节点，在该节点进行以下操作。
    
    该节点必须具备以下条件：
 
@@ -44,7 +44,7 @@ mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && /usr/local/bin/grctl in
 grctl  cluster
 ```
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-cluster.png" width="70%" />
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-cluster.png" style="border:1px solid #eee;width:90%"/></center>
 
 - 列出集群节点信息
 
@@ -52,16 +52,7 @@ grctl  cluster
 grctl node list
 ```
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-node-list.png" width="70%" />
-
-
-| 标识  | 注释 |                                                   
-| ----| ---- | 
-| UID|节点唯一标识 |
-|IP | 节点IP|
-|HostName |主机名 |
-|NodeRole|节点属性|
-|Status|节点状态|
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-node-list.png" style="border:1px solid #eee;width:90%"/></center>
 
 - 获取某个节点的详细信息
 
@@ -81,13 +72,20 @@ grctl node uncordon <UID>
 
 ### 应用管理
 
-- 在命令行获取命令的详细信息，在应用的`伸缩`界面复制`查询命令`，在服务器上粘贴，即可查看当前应用的详细信息
+- 在命令行获取应用的详细信息，在应用的`伸缩`界面复制`查询命令`，在服务器主节点上粘贴，即可查看当前应用的详细信息
 
 
 ```bash
 grctl service get grf2ebfd -t b40hkf9y
 ```
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-server-get.png" width="70%" />
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-server-get.png" style="border:1px solid #eee;width:90%"/></center>
 
+如果需要查看该应用的实时日志，使用上述命令得到的`PodName/Namespace`信息，即可查看该应用运行的实时日志
 
+```bash
+root@ubuntu:~# kubectl logs -f fa0a524589beabdc4503acd253f2ebfd-deployment-56dd54844d-m978r -n 1f732b0aadc94bd0ba288deff3a08c3f
+Launching nginx
+```
+
+> 注: 如果在一个pod中有多个容器，需在`PodName`后指定要查询的容器名字
