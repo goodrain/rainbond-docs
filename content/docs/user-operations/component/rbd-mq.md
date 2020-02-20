@@ -5,9 +5,15 @@ hidden: true
 ---
 
 
-### 守护运行方式
+### 运行方式
  
-> node会生成rbd-mq的systemd配置文件,并通过systemd守护运行,可以通过`systemctl cat rbd-mq`获取rbd-mq的systemd配置文件  
-> rbd-mq服务是通过镜像运行  
+运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理
 
-rbd-mq默认配置文件`/opt/rainbond/conf/master.yaml`
+
+### 常用参数说明
+
+```shell
+    - --log-level        日志级别
+    - --etcd-endpoints   集群etcd连接地址
+    - --hostIP           本机ip
+```

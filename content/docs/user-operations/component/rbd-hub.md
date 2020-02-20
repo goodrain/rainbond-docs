@@ -4,12 +4,13 @@ description: "rbd-hub组件参数说明"
 hidden: true
 ---
 
-> rbd-hub基于registry镜像
 
-### 守护运行方式
+### 运行方式
  
-> node会生成rbd-hub的systemd配置文件,并通过systemd守护运行,可以通过`systemctl cat rbd-hub`获取rbd-hub的systemd配置文件  
-> rbd-hub服务是通过镜像运行  
+运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理
 
-rbd-hub默认配置文件`/opt/rainbond/conf/base.yaml`
+
+### 常用参数说明
+
+rbd-hub基于registry镜像，详细参数参阅 [Docker Registry官方文档](https://docs.docker.com/registry/configuration/)
 

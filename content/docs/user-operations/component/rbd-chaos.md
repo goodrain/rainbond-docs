@@ -5,17 +5,18 @@ hidden: true
 ---
 
 
-### 守护运行方式
+### 运行方式
  
-> node会生成rbd-chaos的systemd配置文件,并通过systemd守护运行,可以通过`systemctl cat rbd-chaos`获取rbd-chaos的systemd配置文件   
-> rbd-chaos服务是通过镜像运行   
+运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理
 
-rbd-chaos默认配置文件`/opt/rainbond/conf/master.yaml`
 
-### 环境变量
+### 常用参数说明
 
 ```
-GITHUB_PROXY
+    - --hostIP    当前节点内网IP
+    - --log-level 日志级别（默认“info”)
+    - --mysql     数据库连接信息
+    - --etcd-endpoints  etcd v3集群连接信息。
 ```
 
 
