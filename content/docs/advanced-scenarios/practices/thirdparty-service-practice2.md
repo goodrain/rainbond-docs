@@ -10,11 +10,11 @@ Hidden: true
 
 ### 前期准备
 
-- 请确保你已经安装了 [Rainbond V5.1](/docs/user-operations/install/online_install/) 或更高的版本。
+* 请确保你已经安装了 [Rainbond V5.1](/docs/quick-start/rainbond_install/) 或更高的版本。
 
-- 需要添加的服务, 本文使用的是 Rainbond 集群外的一个 MySQL。
+* 需要添加的服务, 本文使用的是 Rainbond 集群外的一个 MySQL。
 
-- phpMyAdmin, 可以在应用云市中安装, 也可以通过[镜像](https://hub.docker.com/r/phpmyadmin/phpmyadmin)的方式创建.
+* phpMyAdmin, 可以在应用市场中安装, 也可以通过[镜像](https://hub.docker.com/r/phpmyadmin/phpmyadmin)的方式创建.
 
 你可以假设这个 MySQL 是非常复杂的, 比如它是一个分布式, 主从复制, 读写分享的 MySQL, 迁移的难度比较在; 那么你可以先不迁移这个 MySQL, 通过第三方组件将这个 MySQL 的实例添加到 Rainbond 集群中, 让它也可以使用 Rainbond 服务通信治理, 组件拓扑关系等功能.
 
@@ -95,4 +95,4 @@ MYSQL_PORT=3306
 
 ### 总结
 
-至此, 相信你已经了解了如何将 Rainbond 集群外的服务注册到集群中, 并为定义和分享其环境变量. 第三方组件注册到集群后, 可以像内部服务一样, 使用通信治理, 组件拓扑关系等功能.
+至此, 相信你已经了解了如何将 Rainbond 集群外的服务注册到集群中, 并为定义和分享其环境变量；第三方组件注册到集群后, 可以像内部服务一样, 使用通信治理, 组件拓扑关系等功能。

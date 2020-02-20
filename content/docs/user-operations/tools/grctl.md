@@ -1,6 +1,7 @@
 ---
 title: grctl命令行工具
 description: Rainbond CLI工具集
+weight: 1005
 hidden: true
 ---
 

@@ -93,7 +93,7 @@ pig
 
 - 为 `spring-cloud` 添加服务组件 —— 从源码开始 —— 自定义仓库：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-1.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-1.png" width="100%" />
 
 点击 新建服务，Rainbond会自动拉取代码，并根据代码根目录下的 `pom.xml` 自动将代码语言识别为 `Java-maven`。取消 `并构建启动` 选项：
 

@@ -12,7 +12,7 @@ Hidden: true
 
 ### 前期准备
 
-- 请确保你已经安装了 [Rainbond V5.1](/docs/user-operations/install/online_install/) 或更高的版本。
+- 请确保你已经安装了 [Rainbond V5.1](/docs/quick-start/rainbond_install/) 或更高的版本。
 
 - 企业内网的其他组件, 本文使用一个Nginx应用来说明。
 
@@ -80,4 +80,4 @@ Hidden: true
 
 ### 总结
 
-至此, 你应该了解了 Rainbond V5.1 的新特性 `第三方服务` 的基础使用. 并了解了通过网关访问集群内的其他组件.
+至此, 你应该了解了 Rainbond V5.1 的新特性 `第三方服务` 的基础使用； 并了解了通过网关访问集群内的其他组件。
