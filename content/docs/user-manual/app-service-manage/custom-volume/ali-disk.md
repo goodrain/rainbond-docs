@@ -45,11 +45,13 @@ kubectl get sa -n kube-system
 
 > 阿里云平台账户的AccessKey信息到阿里云平台的AccessKey管理页面进行申请。这里不再赘述。
 
+> DaemonSet的apiVersion不能使用版本`apps/v1beta2`，经测试可以使用`apps/v1`。
+
 ```
 kubectl create -f ./deploy/disk/disk-plugin.yaml
 ```
 
-> ，DaemonSet的apiVersion不能使用版本`apps/v1beta2`，经测试可以使用`apps/v1`。
+
 
 确定csi-plugin是否创建成功
 
@@ -62,9 +64,6 @@ kubectl get ds -n kube-system
 
 修改`deploy/disk/disk-provisioner.yaml`中的环境变量`ACCESS_KEY_ID`，`ACCESS_KEY_SECRET`两个参数，替换成阿里云平台账户的accesskey信息。
 
-```
-kubectl create -f ./deploy/disk/disk-provisioner.yaml
-```
 
 > 在kubernetes 1.16版本中StatefulSet的apiVersion不能使用`apps/v1beta1`，经测试可以使用`apps/v1`
 需要在spec下添加selector的信息
@@ -72,6 +71,10 @@ kubectl create -f ./deploy/disk/disk-provisioner.yaml
 selector:
     matchLabels:
       app: csi-disk-provisioner
+```
+
+```
+kubectl create -f ./deploy/disk/disk-provisioner.yaml
 ```
 
 确定csi-provisioner是否创建成功
@@ -85,7 +88,7 @@ kubectl get statefulset -n kube-system
 检查csi-plugin的状态
 
 ```
-kubectl get pods | grep csi
+kubectl get pods -n kube-system | grep csi
 ```
 
 更多驱动安装的请参考[官方教程](https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver/blob/master/docs/disk.md)
@@ -105,6 +108,8 @@ kubectl create -f ./examples/disk/storageclass.yaml
 我们先测试手动创建k8s实例使用storageClass来创建存储实例。
 
 官方项目中使用nginx来演示阿里云盘的创建,examples/disk/deploy.yaml文件中，有要使用25G阿里云盘的需求，我们使用该文件进行测试。
+
+> 需确定，deploy.yaml中使用的storageclassName需与上面创建的storageClass名字保持一致。
 
 ```
 kubectl create -f ./examples/disk/deploy.yaml
