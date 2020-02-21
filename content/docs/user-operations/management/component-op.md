@@ -15,15 +15,19 @@ hidden: true
 查看当前集群的所有节点信息，ready状态为正常状态
 
 ```bash
-$ kubectl get nodes 
-NAME            STATUS   ROLES    AGE   VERSION
-192.168.31.76   Ready    master   14h   v1.16.2
+$ kubectl get node
+NAME             STATUS   ROLES    AGE     VERSION
+192.168.31.157   Ready    master   2d23h   v1.16.2
+192.168.31.239   Ready    node     13m     v1.16.2
 ```
 
 查看当前集群资源使用信息
 
 ```bash
-kubectl top nodes
+$ kubectl top node
+NAME             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
+192.168.31.157   1584m        41%    5048Mi          69%
+192.168.31.239   94m          5%     162Mi           2%
 ```
 
 ### 组件信息
@@ -35,12 +39,16 @@ Rainbond所有组件都位于`rbd-system`同一名称空间下
 ```bash
 kubectl get pod -n rbd-system
 ```
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/component-op/pod.png" style="border:1px solid #eee;width:90%"/></center>
+
 
 - 查看rainbond所有组件的pod信息，并且查看都在哪些节点上运行
  
 ```bash
 kubectl get pods -o wide -n rbd-system
 ```
+
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/component-op/wasnode.png" style="border:1px solid #eee;width:90%"/></center>
 
 ### 查看组件详细信息
 
@@ -53,6 +61,8 @@ kubectl describe pod -l name=rbd-api   -n rbd-system
 
 ### 日志查看
 
+**对于以pod方式运行的组件，可以使用以下方式查看日志**
+
 `rbd-chaos`组件提供应用构建服务，提供源码，Docker镜像等方式创建应用，在构建应用异常失败时可查看该组件日志进行分析
 
 - 实时查看日志
@@ -63,8 +73,8 @@ kubectl logs -fl name=rbd-chaos -n rbd-system
 
 选项解释:
 
- -f, --follow  持续输出日志     
- -l, --label  标签
+  -f, --follow  持续输出日志     
+  -l, --label  标签
     
 
 - 查看最近20行日志
@@ -73,7 +83,7 @@ kubectl logs -fl name=rbd-chaos -n rbd-system
 kubectl logs --tail=20 -l name=rbd-chaos  -n rbd-system
 ```
 
-- 查看容器组 nginx 过去1个小时的日志
+- 查看过去1个小时的日志
  
 ```bash
 kubectl logs --since=1h -l name=rbd-chaos  -n rbd-system
@@ -83,7 +93,30 @@ kubectl logs --since=1h -l name=rbd-chaos  -n rbd-system
 
 `rbd-app-ui`组件的日志持久化目录为`/opt/rainbond/logs/rbd-app-ui`，查看`goodrain.log`即可以看到相关日志信息。
 
-kubelet服务以二进制方式运行，执行命令 `service kubelet status` 可查看 kubelet 的运行状态，使用`journalctl -fu kubelet`命令直接查询kubelet日志即可。
+**以下组件由systemd托管，可使用以下方式查看组件日志**
+
+|服务名称|
+|---|
+|docker.service|
+| kubelet.service|
+| etcd.service|
+|kube-apiserver.service|
+| kube-controller-manager.service|
+| kube-proxy.service|
+| kube-scheduler.service|
+
+#### 以docker服务为例
+
+查看运行状态
+
+```bash
+systemctl status docker.service
+```
+查询日志
+
+```bash
+journalctl -fu docker.service
+```
 
 ### 调整组件配置
 
@@ -106,6 +139,8 @@ kubectl delete pod <podName> -n rbd-system
 
 ### 在pod中的容器环境内执行shell命令
 
+**进入容器执行命令**
+
 以`rbd-gateway`组件为例，进入pod查看nginx配置
 
 ```bash
@@ -119,17 +154,29 @@ kubectl exec -it rbd-gateway-bcjjg -n rbd-system bash
 bash-5.0#  cat /run/nginx/conf/nginx.conf
 ```
 
-### 查看PVC
+**直接在命令行使用`kubectl`执行容器内命令**
+
+示例：
+
+直接在命令行对数据库进行备份
 
 ```bash
-root@ubuntu:~# kubectl get pvc -A
-NAMESPACE    NAME      STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-rbd-system   cache     Bound    pvc-a78e2c32-2fa0-4869-82e7-59a0a9c2689b   1Mi        RWX            rbd-nfs        2d4h
-rbd-system   grdata    Bound    pvc-63476356-df1f-4057-80c2-897741887b96   1Mi        RWX            rbd-nfs        2d4h
-rbd-system   hubdata   Bound    pvc-b0ec90e1-2201-44d1-891b-f2e10127d7cc   1Mi        RWX            rbd-nfs        2d4h
+kubectl exec  -it  rbd-db-0 -n rbd-system  --  mysqldump --all-databases > all.sql
 ```
 
-### 更换镜像
+### 查看PV
+
+```bash
+$ kubectl get pv -A
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                STORAGECLASS   REASON   AGE
+pvc-63476356-df1f-4057-80c2-897741887b96   1Mi        RWX            Delete           Bound    rbd-system/grdata    rbd-nfs                 3d
+pvc-a78e2c32-2fa0-4869-82e7-59a0a9c2689b   1Mi        RWX            Delete           Bound    rbd-system/cache     rbd-nfs                 3d
+pvc-b0ec90e1-2201-44d1-891b-f2e10127d7cc   1Mi        RWX            Delete           Bound    rbd-system/hubdata   rbd-nfs                 3d
+```
+
+### 命令行更换镜像
+
+将daemonset的`rbd-api`容器镜像更新为`goodrain.me/rbd-api:V5.2.0-beta1`
 
 ```bash
 kubectl set image ds rbd-api  rbd-api=goodrain.me/rbd-api:V5.2.0-beta1 -n rbd-system

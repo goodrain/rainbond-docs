@@ -1,6 +1,7 @@
 ---
 title: Kubectl 命令行工具
 description: Kubectl工具集
+weight: 1006
 hidden: true
 ---
 

@@ -93,7 +93,7 @@ pig
 
 - 为 `spring-cloud` 添加服务组件 —— 从源码开始 —— 自定义仓库：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-1.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-1.png" width="100%" />
 
 点击 新建服务，Rainbond会自动拉取代码，并根据代码根目录下的 `pom.xml` 自动将代码语言识别为 `Java-maven`。取消 `并构建启动` 选项：
 
@@ -103,7 +103,7 @@ pig
 
 `pig-eureka` 需要被其它微服务组件访问以进行注册，所以打开对内服务，以便之后创建依赖关系。该组件也提供web页面，显示微服务组件的注册情况与健康情况，所以打开对外服务，以便外部访问。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-3.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-3.png" width="100%" />
 
 - 编辑 构建源 选项卡，指定 `pig-eureka` 构建参数：
 
@@ -121,7 +121,7 @@ pig
 
 各个服务组件之间的依赖关系，可以在创建时指定。所有的 spring cloud 微服务组件都需要依赖 `pig-eureka`，以 `pig-gateway`为例，应添加依赖关系如下：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-5.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-5.png" width="100%" />
 
 - 所有的设置完成后，即可点击 构建 ，构建完成后，服务组件将自动运行起来。
 
@@ -274,7 +274,7 @@ server {
 
 完成部署后，拓扑图如下：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-8.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-8.png" width="100%" />
 
 登陆效果：
 

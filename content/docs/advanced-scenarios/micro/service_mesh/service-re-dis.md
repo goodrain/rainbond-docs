@@ -37,7 +37,7 @@ Rainbond服务注册的粒度是端口级别，也就是说如果服务组件有
 1. 集群化服务，支持水平扩容，实例之间需要通信。比如zookeeper、etcd等
 2. 主从集群服务，从实例需要与主实例通信。比如Mysql主从集群，Redis主从复制集群
 
-对于上诉服务主要涉及到同一个服务的多个实例间通信。此类需求必须将服务类型设置为[有状态服务](/docs/user-manual/app-service-manage/service-other-set/#服务基础信息)
+对于上述服务主要涉及到同一个服务的多个实例间通信。此类需求必须将服务类型设置为[有状态服务](/docs/user-manual/app-service-manage/service-other-set/#服务基础信息)
 
 通过固定的DNS解析的方式进行服务发现：
 
@@ -57,7 +57,7 @@ Rainbond服务注册的粒度是端口级别，也就是说如果服务组件有
 * 服务实例编号，根据实例数量从0开始依次编号。它们的启动顺序和更新数据都会按照编号顺序进行，因此一般编号0会作为特殊实例，比如主从集群的主实例。
 * 租户ID，可以通过获取环境变量`TENANT_ID` 获取
 
-通过上述分析你应该已经理解了，当你需要发现当前服务的所有已运行实例地址时，可以以DNS的nslookup方式获取`服务别名.租户ID.svc.cluster.local`域名的NS记录。此方式有很多现成的实现工具.比如参考：
+通过上述分析你应该已经理解了，当你需要发现当前服务的所有已运行实例地址时，可以以DNS的nslookup方式获取`服务别名.租户ID.svc.cluster.local`域名的DNS记录。此方式有很多现成的实现工具.比如参考：
 [cockroachdb服务源码](<http://git.goodrain.com/apps/cockroachdb>)
 
 如果需要与主节点通信，直接请求主节点的域名即可。比如 `服务别名-0.服务别名.租户ID.svc.cluster.local`

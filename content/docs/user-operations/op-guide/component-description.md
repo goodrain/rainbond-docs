@@ -41,6 +41,8 @@ weight: 801
 ### 二、逻辑架构图
 
 
+<center><img src="https://static.goodrain.com/images/docs/5.0/operation-manual/deploy-logic.png" style="border:1px solid #eee;width:80%"/></center>
+
 
 ### 三、附录
 
