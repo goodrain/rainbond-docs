@@ -7,15 +7,18 @@ Hidden: true
 ---
 
 ## ServiceMesh
- 一般的字面解释是“服务网格”，作为时下最流行的分布式系统架构微服务的动态链接器，处于服务到服务的通信的专用基础设施层，该层独立于应用程序为服务之间的通信提供轻量级的可靠传递。如果简单的描述的话，可以将它比作是应用程序或者说微服务间的 TCP/IP，负责服务之间的网络调用、限流、熔断和监控，同样使用 ServiceMesh 也就无须关系服务之间的那些原来是通过应用程序或者其他框架实现的事情，比如 Spring Cloud架构，现在只要交给 ServiceMesh 就可以了。ServiceMesh的出现主要是由于应用虚拟化技术的发展，例如Kubernetes, Rainbond等项目，大大降低了应用的部署和运维复杂度。
+ 一般的字面解释是“服务网格”，作为时下最流行的分布式系统架构微服务的动态链接器，处于服务到服务的通信的专用基础设施层，该层独立于应用程序为服务之间的通信提供轻量级的可靠传递。如果简单的描述的话，可以将它比作是应用程序或者说微服务间的 TCP/IP，负责服务之间的网络调用、限流、熔断和监控，同样使用 ServiceMesh 也就无须关系服务之间的那些原来是通过应用程序或者其他框架实现的事情，比如 Spring Cloud架构，现在只要交给 ServiceMesh 就可以了。ServiceMesh的出现主要是由于应用虚拟化技术的发展，例如`Kubernetes`, `Rainbond`等项目，大大降低了应用的部署和运维复杂度。
+ 
 <center>
 <img width="80%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/microservice/servicemesh-arch.png"></img>
 </center>
 
 ## 微服务架构对比
+
 <img width="80%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/microservice/servicemesh-compare.png"></img>
 
 ## 为何使用ServiceMesh
+
 ServiceMesh 并没有给我们带来新功能，它是用于解决其他工具已经解决过的问题，只不过这是在 Cloud Native 的云原生环境下将过去复杂的人工运维工作有机的自动化管理。
 
 在传统的 MVC 三层 Web 应用程序架构下，服务之间的通讯并不复杂，在应用程序内部自己管理即可，但是在现今的复杂的大型网站情况下，单体应用被分解为众多的微服务，服务之间的依赖和通讯十分复杂，出现了 twitter 开发的 Finagle、Netflix 开发的 Hystrix 和 Google 的 Stubby 这样的 “胖客户端” 库，这些就是早期的 ServiceMesh，但是它们都近适用于特定的环境和特定的开发语言，并不能作为平台级的 ServiceMesh 支持。

@@ -7,13 +7,13 @@ Weight: 22001
 
 ### 概述
 
-对于从Github、Gitlab、Gogs、Gitee仓库源码构建的应用， `Rainbond` 提供基于WEBHOOKS的自动部署功能。
+对于从Github、Gitlab、Gogs、Gitee仓库源码构建的应用， `Rainbond` 提供基于`WEBHOOKS`的自动部署功能。
 
 ### 实践场景
 
 Rainbond官方文档系统部署在我们的公有云环境中。现在以此场景为例，演示如何实现源码的自动部署。
 
-\- 项目源码地址： [rainbond-docs](https://github.com/goodrain/rainbond-docs)
+项目源码地址： [rainbond-docs](https://github.com/goodrain/rainbond-docs)
 
 ### 操作配置方式
 
@@ -28,17 +28,16 @@ Rainbond官方文档系统部署在我们的公有云环境中。现在以此场
 `Content type` 选项务必选择 `application/json`
 
 
-
 #### 触发方式
 
 webhook配置完成后，再次提交代码，当Commmit信息包含“@deploy”时将自动触发应用自动部署
 
-* 触发测试
+**触发测试**
 
-\- 提交信息
+提交信息
 
 <img src="https://static.goodrain.com/images/docs/5.0/operation-manual/rainbond-docs4.png" style="border:1px solid #eee;width:85%">
 
-\- 成果
+成果
 
 这篇文档在提交代码后无需任何其他操作即可上线，即是触发自动部署的成果。
