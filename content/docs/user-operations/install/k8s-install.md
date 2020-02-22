@@ -166,7 +166,7 @@ cd /etc/ansible && cp example/hosts.multi-node hosts
 - 使用ansible安装kubernetes集群
 
 ```bash
-docker exec -it kubeasz ansible-playbook 90.setup.yml
+docker exec -it kubeasz ansible-playbook /etc/ansible/90.setup.yml
 ```
 
 完成Kubernetes的安装，[开始Rainbond的安装](../minimal_install/)
