@@ -11,7 +11,7 @@ weight: 801
 
 ### 一、服务组件概述
 
-以下是通过一键部署方式将会在服务器安装的Rainbond各服务组件及其版本信息。
+#### 以下是通过一键部署方式将会在服务器安装的Rainbond各服务组件及其版本信息。
 
 |组件|版本|说明|
 |---|-----|---------------|
@@ -27,15 +27,28 @@ weight: 801
 |[rbd-hub](/docs/user-operations/component/rbd-hub/)|v2.6.2|基于[Docker Registry](https://docs.docker.com/registry/)封装，提供docker镜像存储服务|
 |[rbd-mq](/docs/user-operations/component/rbd-mq/)|5.x|消息队列服务|
 |[rbd-nfs](/docs/user-operations/component/rbd-mq/)|v2.2.1|存储服务|
-|[rbd-node](/docs/user-operations/component/rbd-node/)|5.x|集群监控与控制服务|
+|[rbd-node](/docs/user-operations/component/rbd-node/)|5.x|集群监控与控制，docker证书分发|
 |[rbd-repo](/docs/user-operations/component/rbd-repo/)|v6.16.0|源码构建仓库服务，基于[Artifactory OSS](https://jfrog.com/open-source/)封装|
 |[rbd-webcli](/docs/user-operations/component/rbd-webcli/)|5.x|提供应用web方式进入容器命令行的服务|
 |[rbd-worker](/docs/user-operations/component/rbd-worker/)|5.x|云帮应用操作与处理服务|
-|[kubelet](/docs/user-operations/component/kubelet/)|v1.16|节点复用时仅第一个管理节点启用|
+
+
+#### 以下是通过rainbond官方推荐的 [easzup](https://github.com/easzlab) 快速部署Kubernetes安装的各组件及版本信息
+
+|组件|版本|说明|
+|---|-----|---------------|
 |[docker](/docs/user-operations/component/docker/)|v18.09|应用容器引擎|
+|[kubelet](/docs/user-operations/component/kubelet/)|v1.16.2|是在每个 Node 节点上运行的主要节点代理|
+|[kube-apiserver](/docs/user-operations/component/kube-apiserver/)|v1.16.2|为API对象验证和配置数据|
+|[kube-controller-manager](/docs/user-operations/component/kube-controller-manager/)|v1.16.2|Kubernetes集群内部的管理控制中心|
+|[kube-scheduler](/docs/user-operations/component/kube-scheduler/)|v1.16.2|负责分配调度Pod到集群内的node节点|
+|[kube-proxy](/docs/user-operations/component/kube-proxy/)|v1.16.2|Kubernetes的网络代理，在每个node节点上运行|
+|[coredns](/docs/user-operations/component/coredns/)|v1.6.2|为Kubernetes集群中的其他 pods 提供域名解析服务|
+|[kube-flannel](/docs/user-operations/component/kube-flannel/)|v0.11.0|Flannel是最早应用到k8s集群的网络插件之一|
+|[metrics-server](/docs/user-operations/component/metrics-server/)|v0.3.6|Kubernetes 的监控组件，从`Kubelet `公开的`Summary API`采集指标信息|
 
 
-组件高级用法可以通过点击组件的链接方式阅读。
+**组件高级用法可以通过点击组件的链接方式阅读。**
 
 
 ### 二、逻辑架构图
@@ -60,7 +73,7 @@ weight: 801
 |10248/10250/10255/42645|kubelet服务||kubelet| 
 |10251|kube-scheduler服务||kube-scheduler|
 |6443/8080|kube-apiserver服务||kube-apiserver| 
-|7171|容器命令行界面入口|需要安全组放行|rbd-webcli|
+|7171|容器命令行界面入口||rbd-webcli|
 |2379,2380,4001|etcd服务||etcd/etcd-proxy|
 |10252/10257|kube-controller服务||kube-controller|
 |53| 集群内部dns服务 ||rbd-dns|

@@ -23,6 +23,6 @@ hidden: true
 --v=2            日志级别详细信息的编号
 ```
 
-具体参数请执行`kubelet -h`获取或参见[Kubernetes官方文档](https://v1-10.docs.kubernetes.io/docs/home/)
+具体参数请执行`kubelet -h`获取或参见[Kubernetes官方文档](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
 
 
