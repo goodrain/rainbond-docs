@@ -17,7 +17,6 @@ hidden: true
 |TCP|6362-6366|rbd-eventlog|Self
 |TCP|6443/8080|kube-apiserver|Self
 |TCP|7070|rbd-app-ui|Self
-|TCP|7171|rbd-webcli|Self
 |TCP|9999|rbd-monitor|Self
 |TCP|10248/10250/10255/42645|kubelet|Self 
 |TCP|10251|kube-scheduler|Self

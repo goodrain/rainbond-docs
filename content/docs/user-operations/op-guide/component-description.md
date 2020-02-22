@@ -73,7 +73,6 @@ weight: 801
 |10248/10250/10255/42645|kubelet服务||kubelet| 
 |10251|kube-scheduler服务||kube-scheduler|
 |6443/8080|kube-apiserver服务||kube-apiserver| 
-|7171|容器命令行界面入口||rbd-webcli|
 |2379,2380,4001|etcd服务||etcd/etcd-proxy|
 |10252/10257|kube-controller服务||kube-controller|
 |53| 集群内部dns服务 ||rbd-dns|
