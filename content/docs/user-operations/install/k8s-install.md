@@ -66,12 +66,6 @@ docker exec -it kubeasz easzctl start-aio
    ```
    - 完成后赋值kubectl工具到/usr/bin/kubectl
 
-   > 注意，这一步如果忽略了将导致rbd-webcli组件无法启动，后续将优化实现解除对kubectl的依赖。
-
-   ```bash
-cp -a /opt/kube/bin/kubectl /usr/bin/kubectl 
-   ```
-
 ### 验证安装结果
 
    ***如果提示kubectl: command not found，退出重新ssh登录一下，环境变量生效即可***
