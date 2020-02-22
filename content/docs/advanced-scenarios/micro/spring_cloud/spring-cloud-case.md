@@ -133,7 +133,7 @@ Pig 微服务项目需要部署 Mysql 5.7+ 作为数据源。并在代码仓库�
 
 为了能够在数据库启动时即加载初始化脚本，制作了一份 `Dockerfile`:
 
-https://github.com/dazuimao1990/percona-mysql/blob/pig/5.7/Dockerfile
+https://github.com/dazuimao1990/pri-percona-mysql.git
 
 ```bash
 FROM percona:5.7.23-stretch

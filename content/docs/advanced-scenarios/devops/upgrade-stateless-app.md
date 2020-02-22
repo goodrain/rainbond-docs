@@ -24,32 +24,33 @@ Hidden: true
 
 目前只能对已关闭应用进行应用类型修改。
 
-在应用的其他设置基础信息里可配置应用类型,<b>修改应用类型会丢数据</b>。
+在应用的`其他设置`-->`基础信息`里可配置应用类型,需要注意的是<b>修改应用类型会丢失原有数据</b>。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/stateless/wztyy002.jpg" style="border:1px solid #eee;width:85%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/upgrade-stateless-app/wztyy002.jpg" style="border:1px solid #eee;width:85%">
 
 ## 滚动升级(RollingUpdate)
 
-Rainbond默认使用[Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#use-case)类型来部署Web类应用,  应用升级策略方面采用了滚动升级策略.所谓的滚动升级策略就是采用逐步替换的方式，使用新的实例逐步更新替换旧的实例.好处是不会中断服务，但会导致调用时出现应用版本不一致情况，输出内容不一致。
+Rainbond默认使用[Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#use-case)类型来部署Web类应用,  应用升级策略方面采用了滚动升级策略.所谓的滚动升级策略就是采用逐步替换的方式，使用新的实例逐步更新替换旧的实例，好处是不会中断服务，但会导致调用时出现应用版本不一致情况，输出内容不一致。
 
 #### 滚动更新策略
 
-```
+```bash
 # 默认RollingUpdateStrategy
 25% max unavailable, 25% max surge
 ```
-部署可以确保在更新时只有一定数量的实例可能会关闭。默认情况下，它确保至少比所需的实例数量少25％（25% max unavailable,）。
-部署还可以确保在所需数量的实例之上只能创建一定数量的实例。默认情况下，它确保最多比所需数量的实例多25％（25% max surge）。
+部署可以确保在更新时只有一定数量的实例会被关闭，默认情况下，它确保至少比所需的实例数量少25％（25% max unavailable）。
+部署还可以确保在所需数量的实例之上只能创建一定数量的实例，默认情况下，它确保最多比所需数量的实例多25％（25% max surge）。
 如果你的实例数为3,确保可用实例至少为2，并且保证实例数总数最多为4.
 
 #### 操作
 
-滚动升级在平台体现在两个方面的操作流程，一个是构建并启动过程，另外一个就是伸缩过程。
+滚动升级在平台体现在两个方面的操作流程，一个是`构建并启动过程`，另外一个就是`伸缩过程`。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/stateless/gj.gif
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/upgrade-stateless-app/gj.jpg
 " style="border:1px solid #eee;width:85%">
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/stateless/kr.gif
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/upgrade-stateless-app/shensuo.jpg
 " style="border:1px solid #eee;width:85%">
 
 如果仔细查看上面的部署，您将看到它首先创建了一个新的Pod，然后删除了一些旧的Pod并创建了新的Pod。在有足够数量的新Pod出现之前，它不会杀死旧的Pod，并且在足够数量的旧Pod被杀之前不会创建新的Pod。它确保可用Pod的数量至少为2，并且Pod的总数最多为4。
@@ -101,11 +102,10 @@ Rainbond提供应用健康检查功能，用于查看应用和用户业务是否
 - 应用启动时检查(应用实例存活检查): 探测应用实例是否已经启动，该检查方式用于检测实例是否存活或者服务是否启动，类似于执行`ps`检查进程是否存在。如果检查失败，会将应用状态设置为不健康;若检查成功不执行任何操作。
 - 应用运行时检查(应用业务就绪检查): 探测应用业务是否已经就绪，该检查方式用于检测实例是否准备好开始处理用户请求或者运行过程中业务是否异常退出情况。如果检查失败，会重启该实例；若检查成功不执行任何操作。
 
-具体如何配置健康检查请参考:[应用健康检查](../user-manual/app-manage/service-manage/other-set.html#1-4)
 
 #### 微服务架构下分布式session共享
 
 在某些场景下，单实例情况下多数将session存在到内存中,所有用户请求由单实例进行响应处理，达到保持用户状态的需求。随着微服务架构的普及发展,需要对原有单一实例的应用进行改造拆分，实现应用向云平台迁移。拆分每一个微应用都具有自己的Web页面，这些Web页面都会通过浏览器客户端展现给用户，整个微应用架构可以近似地看作是一个大型的分布式应用，所以每个微应用都需要有Session对象，同时整个微应用架构中，同一用户的Session数据应该是一致的。因此，在微服务架构下，对session的处理不再保存在内存中, 而是在架构中引入独立的中间存储介质如redis或memcache，将企业应用的session统一管理。
 
 针对这类场景, 可以参考: [Tomcat基于Redis实现Session共享
-](../user-manual/app-creation/language-support/java/tomcat-redis-session.html)
+](/docs/user-manual/app-creation/language-support/java_more/tomcat-redis-session/)

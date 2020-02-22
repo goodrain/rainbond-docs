@@ -42,9 +42,7 @@ Hidden: true
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/app-delivery-3.png" width="100%">
 
-重新构建来升级原始应用
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/app-delivery-4.gif" width="100%">
+添加完成之后重新构建来升级原始应用
 
 重新发布来升级应用市场中的应用
 
@@ -54,13 +52,17 @@ Hidden: true
 
 #### 同Rainbond下应用市场部署应用的升级
 
-对于使用了应用市场中应用的首个版本部署的应用 `app_delivery` 。在重新发布应用后，就可以进行升级操作了。Rainbond会自动检测应用市场应用的版本，并体现 `应用升级 `按钮。
+对于使用了应用市场中应用的首个版本部署的应用 `app_delivery` ，在重新发布应用后，就可以进行升级操作了，Rainbond会自动检测应用市场应用的版本，并体现 `应用升级 `按钮。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/app-delivery-6.gif" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/application-delivery/app-delivery-6.jpg" width="100%">
+
+从应用控制界面-->`管理容器`进入容器查看
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/application-delivery/app-delivery-8.gif" width="100%">
 
 #### 不同Rainbond下应用市场应用的升级
 
-对于已交付的其他Rainbond环境，我们在升级了应用后，如何在交付环境中升级呢？我们需要将应用重新导出，再导入到交付环境中去。导出的方式以及介绍过了，这里提供本次导出的[测试应用升级包](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/test_app-v1.0%20(1).zip)，以供用户进行测试。
+对于已交付的其他Rainbond环境，我们在升级了应用后，如何在交付环境中升级呢？我们需要将应用重新导出，再导入到交付环境中去，导出的方式以及介绍过了，这里提供本次导出的[测试应用升级包](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/test_app-v1.0%20(1).zip)，以供用户进行测试。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/app-delivery-7.gif" width="100%">
 

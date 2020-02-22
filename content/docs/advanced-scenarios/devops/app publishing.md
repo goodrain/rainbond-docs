@@ -25,31 +25,31 @@ hidden: true
 
 - 切换构建源
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release01.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/app-publishing/01.jpg" width="100%">
 
 - 切换代码分支
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release02.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/app-publishing/02.jpg" width="100%">
 
 - 重新检测
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release03.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/app-publishing/03.jpg" width="100%">
 
 - 伸缩实例数量
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release04.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/app-publishing/07.jpg" width="100%">
 
-- 开始构建
+- 重新构建
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release05.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/app-publishing/04.jpg" width="100%">
 
 - 此时就会产生两个新的实例，查看新的实例是否被创建，若新实例内应用运行正常，旧的实例将会被废除，新的版本上线完成
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release07.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/app-publishing/05.jpg" width="100%">
 
-- 此时再查看构建历史记录，可以回滚到构建成功的任意版本
+- 此时在`总览`-->`查看历史版本`再查看构建历史记录，可以回滚到构建成功的任意版本
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release08.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/app-publishing/06.jpg" width="100%">
 
 
 
@@ -82,11 +82,11 @@ hidden: true
 此时查看流量已经转移到Web V2，蓝绿发布已经完成。
 
 
->更多关于应用网关，访问控制介绍请参阅[应用网关](/docs/user-manual/gateway/gateway/) [访问策略](/docs/user-manual/gateway/traffic-control/)
+> 更多关于应用网关，访问控制介绍请参阅[应用网关](/docs/user-manual/gateway/gateway/) [访问控制](/docs/user-manual/gateway/traffic-control/)
 
 #### 三. 灰度发布
 
->灰度发布是指在黑与白之间，能够平滑过渡的一种发布方式。灰度发布可以保证整体系统的稳定，在初始灰度的时候就可以发现、调整问题，以保证其影响度。
+> 灰度发布是指在黑与白之间，能够平滑过渡的一种发布方式。灰度发布可以保证整体系统的稳定，在初始灰度的时候就可以发现、调整问题，以保证其影响度。
 
 **基于权重的灰度发布实践**
 
@@ -101,7 +101,7 @@ hidden: true
 
 根据需要逐步减少Web V1权重，增加Web V2权重，直到Web V1权重减少到0即可。
 
->更多关于应用网关，访问控制介绍请参阅[应用网关](/docs/user-manual/gateway/gateway/) [访问策略](/docs/user-manual/gateway/traffic-control/)
+> 更多关于应用网关，访问控制介绍请参阅[应用网关](/docs/user-manual/gateway/gateway/) [访问策略](/docs/user-manual/gateway/traffic-control/)
 
 #### 四. A/B测试实践
 
