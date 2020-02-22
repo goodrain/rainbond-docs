@@ -37,16 +37,18 @@ weight: 801
 
 |组件|版本|说明|
 |---|-----|---------------|
-|[kubelet](/docs/user-operations/component/kubelet/)|v1.16|是在每个 Node 节点上运行的主要 `节点代理`|
 |[docker](/docs/user-operations/component/docker/)|v18.09|应用容器引擎|
-|[metrics-server](/docs/user-operations/component/metrics-server/)|v0.3.6|Kubernetes 的监控组件，从`Kubelet `公开的`Summary API`采集指标信息|
+|[kubelet](/docs/user-operations/component/kubelet/)|v1.16.2|是在每个 Node 节点上运行的主要节点代理|
 |[kube-apiserver](/docs/user-operations/component/kube-apiserver/)|v1.16.2|为API对象验证和配置数据|
 |[kube-controller-manager](/docs/user-operations/component/kube-controller-manager/)|v1.16.2|Kubernetes集群内部的管理控制中心|
 |[kube-scheduler](/docs/user-operations/component/kube-scheduler/)|v1.16.2|负责分配调度Pod到集群内的node节点|
+|[kube-proxy](/docs/user-operations/component/kube-proxy/)|v1.16.2|Kubernetes的网络代理，在每个node节点上运行|
 |[coredns](/docs/user-operations/component/coredns/)|v1.6.2|为Kubernetes集群中的其他 pods 提供域名解析服务|
-|[kube-flannel](/docs/user-operations/component/kube-flannel/)|v0.11.0-amd64|Flannel是最早应用到k8s集群的网络插件之一|
+|[kube-flannel](/docs/user-operations/component/kube-flannel/)|v0.11.0|Flannel是最早应用到k8s集群的网络插件之一|
+|[metrics-server](/docs/user-operations/component/metrics-server/)|v0.3.6|Kubernetes 的监控组件，从`Kubelet `公开的`Summary API`采集指标信息|
 
-组件高级用法可以通过点击组件的链接方式阅读。
+
+**组件高级用法可以通过点击组件的链接方式阅读。**
 
 
 ### 二、逻辑架构图
