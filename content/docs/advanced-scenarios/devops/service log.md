@@ -10,9 +10,7 @@ hidden: true
 ### 一. RAINBOND⾃身⽇志管理机制
 
 
-
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log01.png" width="70%">
-
+<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log01.png" style="border:1px solid #eee;width:80%"/></center>
 
 - node服务
 
@@ -24,11 +22,11 @@ hidden: true
  
 >日志没有正常推送的排查思路：
 
-  首先检查node服务的状态，再查看rbd-eventlog服务运行状态,看是否收到node服务推送的日志，如果正常，再查看websocket协议（端口6060）安全组是否开放，推送地址在数据库中console库中region_info表中。
+  首先检查node服务的状态，再查看rbd-eventlog服务运行状态,看是否收到node服务推送的日志，如果正常，再查看websocket端口（端口6060）安全组是否开放，推送地址在数据库中console库中region_info表中。
  
 ####   Rainbond⽇志管理界面
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log02.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-log/ServiceLog02.png" width="100%">
 
   **暂停推送**:
 服务运行时一直在产生日志，对某一段日志特别关心时可以暂停推送，方便仔细查看这一段日志。
@@ -122,12 +120,12 @@ filebeat.modules:
 
 >插件类型分类：
 
-- 入口网络：生效在流量流入应用的最前面，对流量劫持进行处理，可以用来限流，设置黑白名单；    
-- 出口网络：与入口网络相反，工作在出口，方便对下游网络进行治理；     
--  出口入口共治网络：结合前两者共同特点，既可以工作在入口网络，也可以工作在出口网络；    
--  性能分析：默认带性能分析插件，支持Http协议，MySQL协议；  
--  初始化类型：初始化数据库；  
--  一般类型：只在同一个pod里和主体容器一起启动。  
+- **入口网络**：生效在流量流入应用的最前面，对流量劫持进行处理，可以用来限流，设置黑白名单；    
+- **出口网络**：与入口网络相反，工作在出口，方便对下游网络进行治理；     
+- **出口入口共治网络**：结合前两者共同特点，既可以工作在入口网络，也可以工作在出口网络；    
+- **性能分析**：默认带性能分析插件，支持Http协议，MySQL协议；  
+- **初始化类型**：初始化数据库；  
+- **一般类型**：只在同一个pod里和主体容器一起启动。  
 
 （2）添加环境变量配置
 
@@ -151,39 +149,38 @@ filebeat.modules:
 
 <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log08.png" width="100%"> 
 
-- 这里以Nginx应用为例
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log09.png" width="100%"> 
+#### 这里以Nginx应用为例
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log10.png" width="100%"> 
+创建nginx应用，从docker镜像创建，镜像地址为`nginx:1.11`
 
-- 开通对外服务并持久化⽬标应⽤的⽇志路径
+
+在检测成功创建前点击`高级设置`-->`开通对外服务`-->并`持久化⽬标应⽤的⽇志路径`
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-log/ServiceLog10.png" width="100%"> 
 
 >Pod里面同时存在两个容器：nginx与filebeat,资源是互相隔离的，此步骤的目的是挂载Nginx的日志，共享给Filebeat，从而使filebeat收集nginx的日志
 
 <img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log11.png" width="100%"> 
 
-- 建立Nginx与Elasticsearch，kibana的依赖
+- 建立Nginx与Elasticsearch，kibana的依赖，参见[组件依赖](/docs/user-manual/app-service-manage/service-rely/#%E6%9C%8D%E5%8A%A1%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86)
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log12.png" width="100%"> 
+-  最终拓补图如下
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-log/ServiceLog12.png" width="100%"> 
 
 - Nginx添加已经制作好的Filebeat插件
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log13.png" width="100%"> 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-log/ServiceLog13.png" width="100%"> 
 
 - 查看配置信息，更改错误的配置，更新配置
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log14.png" width="100%"> 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-log/ServiceLog14.png" width="100%"> 
 
 - 从这里可以查看kibana的登录信息
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log15.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-log/ServiceLog15.png" width="100%"> 
 
-- 访问 kibana的Web页面
+- 访问 kibana的Web页面，可以查看到Nginx的访问日志已经同步到kibana
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log16.png" width="100%">
-
-- 可以查看到Nginx的访问日志已经同步到kibana
-
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log17.png" width="100%">
-
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-log/ServiceLog16.png" width="100%"> 

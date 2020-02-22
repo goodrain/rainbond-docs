@@ -49,22 +49,14 @@ Rainbond源码构建java-maven项目时，提供了默认的构建运行环境�
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1.5/jdk&maven/maven2.png" style="border:1px solid #eee;width:100%">
 
-- 开启清除构建缓存： 
-  点击即可在每次构建之前清除构建缓存。默认不开启。
-- Maven版本：
-  选择Maven版本，默认3.3.1。
-- 禁用Maven Mirror： 
-  点击后禁用Maven Mirror设置，即获取构件时不再通过rbd-repo（Artifactory）服务，直接前往中央仓库或者`pom.xml`中指定的仓库获取构件。后续的 `MAVEN MIRROR OF` `MAVEN MIRROR URL` 设置失效。默认不会禁用。
-- MAVEN MIRROR OF： 
-  在开启mirror功能后，由该参数来指定对哪些仓库进行镜像缓存。默认为中央仓库（central），当指定为 * 的时候，会将所有仓库进行镜像缓存。
-- MAVEN MIRROR URL： 
-  指定镜像仓库地址，默认为Rainbond自带的 maven.goodrain.me （即rbd-repo服务地址）。如果用户具有公司内部使用的私服，推荐直接指定为其地址，指定格式类似：`http://IP:8081/nexus/content/groups/public/`
-- Maven构件参数：
-  默认设置为忽略单元测试。用户根据项目情况自行设置。
-- Maven构件全局参数：
-   默认值为 `clean dependency:list install` 。需要注意的是，`dependency:list` 需要下载特定的maven plugin，故而，当用户处于一个离线环境，并且使用的私服中没有对应的构件时，必然会发生构建失败的情况。请更改为 `clean install`。
-- MAVEN构建Java参数配置： 
-  默认配置为 `-Xmx1024m`。该选项指定了maven构建时使用的内存，根据用户环境自行设置。
+- **开启清除构建缓存：** 点击即可在每次构建之前清除构建缓存。默认不开启。
+- **Maven版本：** 选择Maven版本，默认3.3.1。
+- **禁用Maven Mirror：** 点击后禁用Maven Mirror设置，即获取构件时不再通过rbd-repo（Artifactory）服务，直接前往中央仓库或者`pom.xml`中指定的仓库获取构件。后续的 `MAVEN MIRROR OF` `MAVEN MIRROR URL` 设置失效。默认不会禁用。
+- **MAVEN MIRROR OF：** 在开启mirror功能后，由该参数来指定对哪些仓库进行镜像缓存。默认为中央仓库（central），当指定为 * 的时候，会将所有仓库进行镜像缓存。
+- **MAVEN MIRROR URL：** 指定镜像仓库地址，默认为Rainbond自带的 maven.goodrain.me （即rbd-repo服务地址）。如果用户具有公司内部使用的私服，推荐直接指定为其地址，指定格式类似：`http://IP:8081/nexus/content/groups/public/`
+- **Maven构建参数：** 默认设置为忽略单元测试。用户根据项目情况自行设置。
+- **Maven构件全局参数：** 默认值为 `clean dependency:list install` 。需要注意的是，`dependency:list` 需要下载特定的maven plugin，故而，当用户处于一个离线环境，并且使用的私服中没有对应的构件时，必然会发生构建失败的情况。请更改为 `clean install`。
+- **MAVEN构建Java参数配置：** 默认配置为 `-Xmx1024m`。该选项指定了maven构建时使用的内存，根据用户环境自行设置。
 
 > 需要指出的是，指定`MAVEN MIRROR OF` 参数的时候，需要考虑所指定的仓库是否可以被识别。仓库名是在 maven所使用的 `settings.xml` 文件中指定的，而Rainbond默认使用的 `settings.xml` 中只会添加上述的各项配置！！！所以用户日常构建所使用的自定义的仓库名不会被识别。这种情况下，可以指定为 * 即可缓存所有的构件；或者，使用用户自己的 `settings.xml` 文件来替换Rainbond默认文件。
 

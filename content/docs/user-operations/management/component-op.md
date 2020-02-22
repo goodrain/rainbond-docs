@@ -176,7 +176,7 @@ pvc-b0ec90e1-2201-44d1-891b-f2e10127d7cc   1Mi        RWX            Delete     
 
 ### 命令行更换镜像
 
-将daemonset的`rbd-api`容器镜像更新为`goodrain.me/rbd-api:V5.2.0-beta1`
+将daemonset的`rbd-api`容器镜像滚动更新为`goodrain.me/rbd-api:V5.2.0-beta1`
 
 ```bash
 kubectl set image ds rbd-api  rbd-api=goodrain.me/rbd-api:V5.2.0-beta1 -n rbd-system

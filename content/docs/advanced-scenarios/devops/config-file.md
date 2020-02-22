@@ -32,15 +32,15 @@ ${环境变量名:默认值}
 
 ### 配置文件在 Mariadb 中的组件
 
-[mariadb](https://hub.docker.com/_/mariadb), Docker 的官方镜像, 给出了两种自定义 MySQL 配置文件的方法.
+[Mariadb](https://hub.docker.com/_/mariadb), Docker 的官方镜像, 给出了两种自定义 MySQL 配置文件的方法.
 
 #### Mariadb 官方的配置方法
 
 第一种方法是在宿主机创建一个配置文件, 并将这个配置文件挂载到容器的 `/etc/mysql/conf.d` 目录下. `/etc/mysql/conf.d`下的配置文件就会覆盖默认配置文件 `/etc/mysql/my.cnf`. 这种方法不够灵活, 无法在创建组件时确认 Pod 会被调度在哪个节点上(数据中心通常是集群), 需要组件创建完成后才能挂载配置文件, 然后重启组件使其生效.
 
-第二种方法是在 docker run 命令中传入 mysqld 的参数, 比如, 通过 `character-set-server` 和 `collation-server` 两个参数修改l默认的编码和校对规则:
+第二种方法是在 docker run 命令中传入 mysqld 的参数, 比如通过 `character-set-server` 和 `collation-server` 两个参数修改默认的编码和校对规则:
 
-```
+```bash
 docker run --name some-mariadb -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mariadb:tag --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 ```
 
@@ -50,15 +50,19 @@ docker run --name some-mariadb -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mariadb:ta
 
 第三种方法, 是 Rainbond 结合 k8s 的 ConfigMap 实现的配置文件. 这种方法灵活性比较高, 可以 `动态渲染环境变量`, 还可以共享给其它组件使用. 
 
-###### 创建配置文件
+##### 创建配置文件
 
-创建 mariadb 时 在高级设置中添加一块类型是 `配置文件` 的存储. 如图所示:
+创建 mariadb 时将构建并启动按钮勾选掉，如图所示：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/Maven%20%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/mariadb.cnf.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/config-file/mariadb.jpg" width="100%" />
+
+在应用页面`环境配置`-->`配置文件设置`中添加 `配置文件` , 挂载路径为`/etc/mysql/mariadb.cnf`；如图所示:
+ 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/config-file/mariadb.cnf.png" width="100%" />
 
 配置文件完整的内容如下:
 
-```
+```bash
 # MariaDB-specific config file.
 # Read by /etc/mysql/my.cnf
 
@@ -83,13 +87,13 @@ default_storage_engine = ${DEFAULT_STORAGE_ENGINE:innodb}
 !includedir /etc/mysql/mariadb.conf.d/
 ```
 
-在这个配置文件中, 我们设置了 DEFAULT_CHARACTER_SET, CHARACTER_SET_SERVER, DEFAULT_STORAGE_ENGINE 等可以解析环境变量的变量, 并给它们设置了默认值.
+在这个配置文件中, 我们设置了 `DEFAULT_CHARACTER_SET`, `CHARACTER_SET_SERVER`, `DEFAULT_STORAGE_ENGINE` 等可以解析环境变量的变量, 并给它们设置了默认值.
 
-###### 添加环境变量
+##### 添加环境变量
 
 为组件添加环境变量 `DEFAULT_STORAGE_ENGINE=myisam` 和 `MYSQL_ROOT_PASSWORD=rainbond`. 等 mariadb 创建成功后, 进入容器, 检查 `/etc/mysql/mariadb` 的内容:
 
-```
+```bash
 root@gr52b3ee-0:/# cat /etc/mysql/mariadb.cnf 
 # MariaDB-specific config file.
 # Read by /etc/mysql/my.cnf
@@ -115,11 +119,11 @@ default_storage_engine = myisam
 !includedir /etc/mysql/mariadb.conf.d/
 ```
 
-可以看到, Rainbond 没有找到 DEFAULT_CHARACTER_SET, CHARACTER_SET_SERVER 等没有对应环境变量的变量, 则使用它们对应的默认值进行了解析; 找到了 DEFAULT_STORAGE_ENGINE 对应的环境变量, 则使用环境变量 DEFAULT_STORAGE_ENGINE 的值 myisam 进行解析.
+可以看到, Rainbond 没有找到 `DEFAULT_CHARACTER_SET`, `CHARACTER_SET_SERVER` 等没有对应环境变量的变量, 则使用它们对应的默认值进行了解析; 找到了 `DEFAULT_STORAGE_ENGINE` 对应的环境变量, 则使用环境变量 `DEFAULT_STORAGE_ENGINE` 的值 myisam 进行解析.
 
 我们再登录 MySQL, 看这些配置有没有生效:
 
-```
+```bash
 # 登录 MySQL
 root@gr52b3ee-0:/# mysql -uroot -prainbond
 
@@ -158,13 +162,13 @@ MariaDB [(none)]> SHOW STORAGE ENGINES;
 
 ##### 共享配置文件
 
-接下来, 我们再创建一个 mariadb, 并挂载上面创建的 mariadb 的配置文件. 如图所示:
+接下来, 我们再创建一个 Mariadb，在应用界面 `环境配置` -->`共享配置文件`--> `挂载共享配置文件` 挂载上面创建的 mariadb 的配置文件. 如图所示:
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/Maven%20%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/share-configuration.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/config-file/share-configuration.png" width="100%" />
 
 创建完成后, 可以看到文件`/etc/mysql/mariadb.cnf`的片段如下: 
 
-```
+```bash
 default_storage_engine = innodb
 ```
 
@@ -172,4 +176,4 @@ default_storage_engine = innodb
 
 ### 总结
 
-这篇文章以 mariadb 为例, 演示了 Rainbond 配置文件的使用, 包括对环境变量的渲染和共享配置文件. 希望大家看完这篇文章后, 可以灵活地对组件进行配置.
+这篇文章以 mariadb 为例, 演示了 Rainbond 配置文件的使用, 包括对环境变量的渲染和共享配置文件. 希望大家看完这篇文章后, 可以灵活地对组件进行配置。
