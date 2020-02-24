@@ -10,7 +10,7 @@ hidden: true
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/article/20181204/1028337-20181204102924349-2125007754.png" width="70%">
 
-1）在Slave 服务器上执行sart slave命令开启主从复制开关，开始进行主从复制。
+1）在Slave 服务器上执行`sart slave`命令开启主从复制开关，开始进行主从复制。
 
 2）此时，Slave服务器的IO线程会通过在master上已经授权的复制用户权限请求连接master服务器，并请求从执行binlog日志文件的指定位置（日志文件名和位置就是在配置主从复制服务时执行change master命令指定的）之后开始发送binlog日志内容。
 
@@ -56,8 +56,6 @@ if [ ! -d "$DATADIR/mysql" ]; then
                 uuid="server-uuid="${str}
                 echo "[auto]" > /var/lib/mysql/auto.cnf
                 echo $uuid >> /var/lib/mysql/auto.cnf
-
-
 ```
 
 #### 同一服务不同实例的server_id处理
@@ -145,13 +143,13 @@ CMD [ "mysqld" ]
 
 通过Dockerfile创建组件 参考文档 [基于Dockerfile源码创建组件](/docs/user-manual/app-creation/language-support/dockerfile/)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/mysql-cluster/mysql-cluster1.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/app-create/create-middleware-cluster/mysql-cluster1.jpg" width="100%">
 
 #### mysql-master服务 相关配置
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/mysql-cluster/mysql-cluster2.png" width="100%">
 
-- 开启3306端口对内服务，并更改使用别名为`MYSQL`
+- 开启`3306`端口对内服务，并更改使用别名为`MYSQL`
 
 - 配置关键环境变量
 

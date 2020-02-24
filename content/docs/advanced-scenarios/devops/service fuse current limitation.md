@@ -17,7 +17,7 @@ hidden: true
 
 ####   Rainbond⽹络治理插件界面
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/01.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-fuse-current-limitation/01.png" width="100%">
 
 #### 1.1 服务网络治理插件-出站治理
 
@@ -50,7 +50,7 @@ UI服务安装了服务⽹络治理插件，该插件作⽤于流量的出⼝，
 
 **实验环境：**
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/05.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-fuse-current-limitation/05.png" width="100%">
 
 **实验配置：**
 
@@ -99,13 +99,13 @@ UI服务安装了服务⽹络治理插件，该插件作⽤于流量的出⼝，
 
 - ratelimit环境配置
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra01.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-fuse-current-limitation/ra01.png" width="100%">
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra02.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-fuse-current-limitation/ra02.png" width="100%">
 
 **Rate-limit需持久化挂载目录，方便在持久化目录里写规则**
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra03.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/service-fuse-current-limitation/ra03.png" width="100%">
 
 进入rate-limit容器里查看配置
 

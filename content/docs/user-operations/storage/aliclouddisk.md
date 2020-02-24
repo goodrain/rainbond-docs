@@ -66,7 +66,7 @@ kubectl get ds -n kube-system
 
 
 > 在kubernetes 1.16版本中StatefulSet的apiVersion不能使用`apps/v1beta1`，经测试可以使用`apps/v1`
-需要修改name为csi-disk-provisioner的statefulset，在其spec下添加selector的信息
+需要在spec下添加selector的信息
 ```
 selector:
     matchLabels:
@@ -135,22 +135,3 @@ Rainbond会检测到StorageClass并同步到数据库中，供Rainbond控制台�
 ### 检查结果
 
 存储是否生效可以通过组件是否可以正常启动来判断，组件正常启动则说明组件已经正常挂载了存储，也可以到阿里云盘管理页面确定存储的情况，确定是否存在对应大小的存储，其状态是否是使用中的状态。
-
-
-### 附录
-
-快速获取阿里云所在地域(regionID)和地区(zoneID)信息
-
-regionID
-
-```
-curl http://100.100.100.200/2016-01-01/meta-data/region-id
-```
-
-zoneID
-
-```
-curl http://100.100.100.200/2016-01-01/meta-data/zone-id
-```
-
-> http://100.100.100.200/2016-01-01/meta-data接口为阿里云ECS元数据接口，需在阿里云ECS实例中触发调用

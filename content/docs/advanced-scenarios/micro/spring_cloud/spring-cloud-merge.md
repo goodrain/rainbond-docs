@@ -31,7 +31,6 @@ eureka 注册中心，是 Spring Cloud 微服务框架中，标准的注册中�
 https://gitee.com/log4j/pig/blob/master/pig-auth/src/main/resources/bootstrap.yml
 
 ```bash
-
 # 注册中心配置
 eureka:
   instance:
@@ -39,10 +38,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://pig:pig@pig-eureka:8761/eureka/
-
 ```
 
-{{% notice info %}}
+
+
 Rainbond 中会将无法解析的域名，如 `pig-eureka` 解析为 `127.0.0.1`
 
 
@@ -56,7 +55,7 @@ Rainbond 中会将无法解析的域名，如 `pig-eureka` 解析为 `127.0.0.1`
 
 一套完整的 Spring Cloud 微服务体系中，必然会采用多种数据中间件。以 PIG 为例，搭配使用 MySQL 作为数据存储、 REDIS 作为缓存。而在 Spring Cloud 中，这类中间件的对接方式也是通过配置文件配置的。并不会在微服务框架中有其它的注册机制。那么同理可以由 Rainbond 的依赖关系来将微服务与服务中间件连接起来。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-merge/spring-cloud-merge-1.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-merge/spring-cloud-merge-1.png" width="100%" />
 
 #### 服务组件启动顺序
 
@@ -64,9 +63,9 @@ Spring Cloud 微服务组件的启动顺序是比较重要的，一个组件在�
 
 在 Rainbond 5.1 版本后，我们支持了基于依赖关系的启动顺序控制。启动先后逻辑为被依赖的服务先启动，只有当前服务所依赖的服务全部正常启动后，才会开始启动流程。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-merge/spring-cloud-merge-2.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-merge/spring-cloud-merge-2.png" width="100%" />
 
-{{% notice warning %}}
+
 必须指出的是，在这个启动控制链条中，pig-gateway 指向 pig-auth 的依赖关系，其意义只作为启动顺序控制策略，不作为正常的依赖关系使用。
 
 
@@ -109,5 +108,5 @@ eureka:
     lease-renewal-interval-in-seconds: 10 #服务刷新时间配置，每隔这个时间会主动心跳一次
 ```
 
-{{% notice warning %}}
+
 上述配置适用于于测试场景以及调试场景。如果服务已经趋于稳定，并决定应用于生产环境，则建议自行设置合适的配置方案。

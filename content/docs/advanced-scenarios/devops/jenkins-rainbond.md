@@ -16,7 +16,7 @@ Rainbond支持[应用持续部署](/docs/user-manual/app-service-manage/auto-dep
 
 ### 源码
 
-我们以Spring Boot demo为例，https://github.com/ITboy6/spring-boot-mysql-demo  对接的点是jenkins进行代码检测（可使用Sonar插件来实现），构建完之后把打包好的jar包和所需文件放在target目录下，rainbond构建时只需要拉target一个目录，进行源码自动部署。
+我们以[Spring Boot demo](https://github.com/goodrain-apps/spring-boot-mysql-demo.git)为例，对接的点是jenkins进行代码检测（可使用Sonar插件来实现），构建完之后把打包好的jar包和所需文件放在target目录下，rainbond构建时只需要拉target一个目录，进行源码自动部署。
 
 #### 1. Jenkins配置
 

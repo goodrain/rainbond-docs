@@ -39,7 +39,7 @@ Rainbond 会把 Spring Cloud 的每个微服务组件单独看待，并可以针
 
 Rainbond 支持插件扩展方式的性能监控方案，支持对基于 Http、Mysql 协议的应用进行 `平均响应时间、吞吐率、在线人数` 的监控。并检测最近5分钟内耗时做多的 url 排行，对于调试系统性能有指导作用：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-advantage/spring-cloud-advantage-1.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-advantage/spring-cloud-advantage-1.png" width="100%" />
 
 > 了解性能监控的详情，请参见文档： [性能监控](/docs/user-manual/app-service-manage/service-monitor/)
 
@@ -54,11 +54,11 @@ Spring Cloud 微服务设计已经将程序与数据分离，所以将服务组�
 
 - 单个服务组件伸缩只需要一键
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-advantage/spring-cloud-advantage-2.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-advantage/spring-cloud-advantage-2.png" width="100%" />
 
 - 多实例服务组件在拓扑图中相应表现
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-advantage/spring-cloud-advantage-3.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-advantage/spring-cloud-advantage-3.png" width="100%" />
 
 - 注册中心正常注册
 

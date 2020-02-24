@@ -49,7 +49,7 @@ Pinpoint是一个APM（应用程序性能管理）工具，适用于用Java / PH
 
 - 通过pinpoint-web应用进入到pinpoint的UI界面
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint02.png" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/pinpoint/pinpoint02.png" width="100%">
 
 - 在默认设置中，pinpoint应用 已经监控了它自身的 collector 、web组件。在进入UI界面后，就可以发现二者已经存在于应用列表中了
 
@@ -130,7 +130,7 @@ exec java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 
 >传统架构下的pinpoint，需要在被监控的对象里附加Agent，并通过修改配置文件使之生效。在云帮平台上，我们将这两个步骤也做了相应的简化。
 
-   云帮平台利用设置 **环境变量** 的方式，代替了配置文件，键值对形式的环境变量非常简单易用。
+   云帮平台利用设置 **环境变量** 的方式，代替了配置文件，`键值对`形式的环境变量非常简单易用。
    
 #### 添加Pinpoint监控对象实践
    
@@ -140,11 +140,11 @@ exec java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 
 - 1. 关联Pinpoint-Collector
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint05.png" style="border:1px solid #eee;max-width:100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/pinpoint/pinpoint05.png" style="border:1px solid #eee;max-width:100%"/></center>
 
-- 2. 查看 **连接信息**
+- 2. 在`todoapi`应用界面点击`依赖`查看与`pinpoint-collector`的连接信息**
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint06.png" style="border:1px solid #eee;max-width:100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/pinpoint/pinpoint06.png" style="border:1px solid #eee;max-width:100%"/></center>
 
 - 3. 访问 Pinpoint-Web查看：
 
@@ -152,19 +152,19 @@ exec java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 
 <center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint13.png" style="border:1px solid #eee;max-width:100%"/></center>
 
-- 对于已部署的应用，也可以通过 [**应用管理界面**](/docs/stable/user-app-docs/myapps/myapp-introduce.html) 中的 **依赖** 、**设置** 选项卡，来配置相应的服务依赖和环境变量。
+- 对于已部署的应用，也可以通过应用管理界面中的 **依赖** 、**设置** 选项卡，来配置相应的服务依赖和环境变量。
 
 **方法二**
 
 - 1. 开启Pinpoint-Collector对外服务后，平台网关会定义一层端口映射关系
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint08.png" style="border:1px solid #eee;max-width:100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/pinpoint/pinpoint08.png" style="border:1px solid #eee;max-width:100%"/></center>
 
 - 2. 查看todoshow变量值，检查端口号是否正确，激活agent的开关
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint09.png" style="border:1px solid #eee;max-width:100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/pinpoint/pinpoint09.png" style="border:1px solid #eee;max-width:100%"/></center>
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint10.png" style="border:1px solid #eee;max-width:100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/devops/pinpoint/pinpoint10.png" style="border:1px solid #eee;max-width:100%"/></center>
 
 - 3. 访问 Pinpoint-Web查看，todoshow已经出现在界面上
 

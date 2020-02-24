@@ -7,7 +7,7 @@ hidden: true
 
 ### 守护运行方式
 
-默认使用官方的安装方式部署docker.
+默认使用[easzup](https://github.com/easzlab/kubeasz) 的安装方式部署docker,详细信息参见[安装docker服务](https://github.com/easzlab/kubeasz/blob/master/docs/setup/03-install_docker.md)
 
 ### 常用参数说明
 
@@ -15,17 +15,19 @@ hidden: true
 
 ```json
 {
-  "insecure-registries": ["goodrain.me"],
-  "bip": "172.30.42.1/16",
-  "userland-proxy": false,
-  "storage-driver": "overlay2",
+  "registry-mirrors": [
+    "https://dockerhub.azk8s.cn",
+    "https://docker.mirrors.ustc.edu.cn",
+    "http://hub-mirror.c.163.com"
+  ],
   "max-concurrent-downloads": 10,
   "log-driver": "json-file",
   "log-level": "warn",
   "log-opts": {
-    "max-size": "20m",
-    "max-file": "2"
-    }
+    "max-size": "10m",
+    "max-file": "3"
+    },
+  "data-root": "/var/lib/docker"
 }
 ```
 
