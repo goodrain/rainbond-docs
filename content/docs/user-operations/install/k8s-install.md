@@ -155,7 +155,75 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/easzup && chmod +x ea
 cd /etc/ansible && cp example/hosts.multi-node hosts
 ```
 
-   将集群配置模版拷贝到指定位置后，按照模版格式，依照自己的节点规划修改内容
+**将集群配置模版拷贝到指定位置后，必须按照模版格式，依照自己的节点规划修改/etc/ansible/hosts文件，否则无法安装集群，该文件中包括主机列表及部分集群配置**
+
+```
+# etcd集群节点数应为1、3、5...等奇数个，不可设置为偶数
+# 变量NODE_NAME为etcd节点在etcd集群中的唯一名称，不可相同
+# etcd节点主机列表
+[etcd] 
+192.168.1.1   NODE_NAME=etcd1
+192.168.1.2   NODE_NAME=etcd2
+192.168.1.3   NODE_NAME=etcd3
+
+# kubernetes master节点主机列表
+[kube-master]
+192.168.1.1
+192.168.1.2
+
+# kubernetes node节点主机列表
+[kube-node]
+192.168.1.3
+192.168.1.4
+
+# [可选] harbor服务，docker 镜像仓库
+# 'NEW_INSTALL':设置为 yes 会安装harbor服务；设置为 no 不安装harbor服务
+# 'SELF_SIGNED_CERT':设置为 no 你需要将 harbor.pem 和 harbor-key.pem 文件放在 down 目录下
+[harbor]
+#192.168.1.8 HARBOR_DOMAIN="harbor.yourdomain.com" NEW_INSTALL=no SELF_SIGNED_CERT=yes
+
+# [可选] 外部负载均衡节点主机列表
+[ex-lb]
+#192.168.1.6 LB_ROLE=backup EX_APISERVER_VIP=192.168.1.250 EX_APISERVER_PORT=8443
+#192.168.1.7 LB_ROLE=master EX_APISERVER_VIP=192.168.1.250 EX_APISERVER_PORT=8443
+
+# [可选] 集群ntp服务器列表
+[chrony]
+#192.168.1.1
+
+[all:vars]
+# --------- Main Variables ---------------
+# 可以选择的kubernetes集群运行时: docker, containerd
+CONTAINER_RUNTIME="docker"
+
+# kubernetes网络插件: calico, flannel, kube-router, cilium, kube-ovn
+CLUSTER_NETWORK="flannel"
+
+# kube-proxy服务代理模式: 'iptables' or 'ipvs'
+PROXY_MODE="ipvs"
+
+# K8S Service CIDR, 不可与主机网络重叠
+SERVICE_CIDR="10.68.0.0/16"
+
+# Cluster CIDR (Pod CIDR), 不可与主机网络重叠
+CLUSTER_CIDR="172.20.0.0/16"
+
+# Node端口范围
+NODE_PORT_RANGE="20000-40000"
+
+# 集群DNS域名
+CLUSTER_DNS_DOMAIN="cluster.local."
+
+# -------- Additional Variables (don't change the default value right now) ---
+# 二进制文件目录
+bin_dir="/opt/kube/bin"
+
+# 证书文件目录
+ca_dir="/etc/kubernetes/ssl"
+
+# 部署目录 (kubeasz工作空间)
+base_dir="/etc/ansible"
+```
 
 - 容器化运行kubeasz
 
