@@ -18,36 +18,41 @@ Rainbond注册的第一个用户是（平台）企业管理员，拥有管理员
 
 在开启用户注册功能的情况下，注册流程由用户完成，过程如下：
 
-1. 从用户登录页面点击注册入口进入用户注册页面
+1. 从用户登录页面点击`注册账户`进入用户注册页面
 
-2. 填写用户名，邮箱，密码，验证码等信息提交注册
+2. 填写`用户名，邮箱，密码，验证码`等信息提交注册
 
-3. 成功后进入团队管理页面，选择其中一个团队加入，等待团队管理员审核
+3.   注册结果反馈
 
-4. 审核通过可进入团队视图参与相关应用和其他资源的管理
+4. 成功后进入`企业视图`页面，选择其中一个团队加入，等待团队管理员审核
 
->提示: 进入到某一个团队才能拥有团队所拥有的资源的操作权限
+5. 审核通过可进入团队视图参与相关应用和其他资源的管理
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/register_1.png" width="100%" />
-
-> 用户登录页面演示
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/register_6.png" width="100%" />
+提示: 进入到某一个团队才能拥有团队所拥有的资源的操作权限
 
 > 用户注册页面演示
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/register_4.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_1.jpg" width="100%" />
 
-> 非管理员用户注册完成后必须加入到某个团队才能进入系统。
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_6.jpg" width="100%" />
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/register_5.png" width="100%" />
+> 注册结果反馈
 
-> 等待团队管理员审核通过
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_4.png" width="100%" />
+
+> 企业视图申请加入团队
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_5.jpg" width="100%" />
+
+> 非管理员用户注册完成后必须加入到某个团队才能进入系统；需等待团队管理员在团队视图团队管理审核通过
 
 
 ### 关闭注册功能
 
-为了适应企业账号管理方式，管理员可以通过 企业管理 页面关闭用户注册功能，采用人工添加用户的方式。
+为了适应企业账号管理方式，管理员可以通过`企业视图`-->`设置`关闭用户注册功能，采用手动添加用户的方式。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_7.jpg" width="100%" />
+
 
 ### 用户管理
 
@@ -55,7 +60,7 @@ Rainbond注册的第一个用户是（平台）企业管理员，拥有管理员
 
 ### 与第三方用户体系集成
 
-Rainbond支持Auth2.0等标准规范的第三方平台用户登录，参考 [Auth2.0相关支持文档](/docs/user-manual/oauth2.0/)
+Rainbond支持Auth2.0等标准规范的第三方平台用户登录，参考 [Auth2.0相关支持文档](/docs/user-manual/user-registration-login/oauth2.0/)
 
 
 
