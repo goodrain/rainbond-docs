@@ -49,7 +49,8 @@ Rainbond支持部署在物理服务器以及 VMware、KVM、XEN 等主流虚拟�
 |aliyun.com|aliyuncs.com|
 |docker.io|domain.grapps.cn|
 |repo.goodrain.com|api.goodrain.com|
-|hub.goodrain.com||
+|hub.goodrain.com|image.goodrain.com|
+|market.goodrain.com||
 
 默认情况下网关节点和管理节点复用;需开放 [相关组件端口](/docs/user-operations/op-guide/required_ports/)
 
