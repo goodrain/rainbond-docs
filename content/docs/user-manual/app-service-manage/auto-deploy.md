@@ -24,7 +24,7 @@ weight: 5015
 
   在组件管理-[构建源管理](../service-source/) 中请打开Git-Webhook 自动构建功能，并复制我们平台提供的URL前往你使用的Git server 配置Webhook。
 
-<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548428389742.jpg" style="border:1px solid #eee;width:80%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/auto-deploy/webhook.png" style="border:1px solid #eee;width:80%"/></center>
 
 #### 配置代码仓库
 
@@ -44,10 +44,8 @@ weight: 5015
 
 - 开启自动构建后，每次提交代码的Commit信息中必须包含触发自动构建关键字、例如：  `@deploy` 才能触发自动构建, 触发自动构建关键字可自定义设置，设置的仅为关键字，提交信息中在关键字前需加上`@`符号
 
-  
 
-
-<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548428724539.jpg" style="border:1px solid     #eee;width:80%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/auto-deploy/webhook2.jpeg" style="border:1px solid     #eee;width:80%"/></center>
 
 ### 镜像仓库自动化构建说明
 
@@ -61,8 +59,6 @@ weight: 5015
 #### 开启镜像仓库Webhook自动构建
 
 需要在应用中启用自动构建功能，并且需要将应用的webhooks url配置到目标镜像仓库的webhooks中。
-
-<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548422517293.jpg" style="border:1px solid #eee;width:80%"/></center>
 
 ##### Tag触发策略
 
@@ -83,7 +79,7 @@ weight: 5015
 
 通过开启API自动构建返回的url，POST方法调用API，携带秘钥即可触发API自动构建，秘钥可以自定义设置
 
-<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1548429560105.jpg" style="border:1px solid #eee;width:80%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/auto-deploy/api.png" style="border:1px solid #eee;width:80%"/></center>
 
 API使用用例：
 

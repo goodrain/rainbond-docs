@@ -16,11 +16,6 @@ Weight: 4003
 
 添加[第三方组件](/docs/user-manual/app-creation/thirdparty-service/) 便捷的添加运行于集群外的服务，同样支持添加静态组件和动态组件。
 
-
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/team-operation5.gif" width="100%">
-
-<center>流程演示</center>
 
 #### 处理依赖关系
 

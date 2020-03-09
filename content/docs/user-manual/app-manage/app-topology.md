@@ -33,8 +33,7 @@ description: 展现应用包含的所有组件的网络关系、业务关系和�
 >  如果组件六方体呈现为叠加状，表明当前组件运行了多个实例。
 
 
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/team-operation4.gif" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-topology/Multiple%20instances.png" width="100%">
 
 
 
@@ -49,5 +48,3 @@ description: 展现应用包含的所有组件的网络关系、业务关系和�
 * 增加动作
 
 点击起点焦点拖拽到终点即可建立两个组件间的依赖关系或打开外网访问。
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/team-operation10.gif" width="100%">

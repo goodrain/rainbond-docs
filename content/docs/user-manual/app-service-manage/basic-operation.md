@@ -153,12 +153,13 @@ hidden: true
 
 - HTTP 协议组件
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-open-http.gif" width="85%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/basic-operation/External%20visit.png" width="85%" />
 
 - TCP 协议组件
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-open-tcp.gif" width="85%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/basic-operation/tcp%20external%20visit.png" width="85%" />
 
+复制推荐的访问地址到浏览器即可访问
 
 
 #### 管理容器操作
@@ -166,4 +167,9 @@ hidden: true
 当需要进入组件的运行环境，查看进程信息、端口监听信息、文件内容或直接Debug源代码的情况下，需要进入组件的容器环境，Rainbond提供了两个入口：
 
 * 组件操作列表中的管理容器操作
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/basic-operation/Container%20entry01.png" width="85%" />
+
 * 组件伸缩管理中的实例列表，点击实例名称即可进入
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/basic-operation/Container%20entry02.png" width="85%" />

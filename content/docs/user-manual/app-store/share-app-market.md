@@ -18,7 +18,7 @@ weight: 6008
 
 > 点击内部市场应用后方的`云端更新`，可将好雨云市中该应用的最新版本下载更新到你的内部市场。
 
-<img src="https://static.goodrain.com/images/docs/3.7/user-manual/download.gif" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-store/app-market-synchronous/Application%20sync.png" width='100%' />
 
 ### 应用交付
 

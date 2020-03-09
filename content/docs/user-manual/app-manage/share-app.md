@@ -20,13 +20,18 @@ description: 讲解Rainbond应用发布到应用市场功能说明
 
 ##### 应用发布流程
 
-**选择要分享的应用，点击`发布到市场`。**
+**选择要分享的应用，点击`发布`**
 
 > 提示：发布应用时，应用内所有组件的状态必须为运行中
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1544492992679.jpg" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/share-app/Application%20Publishing.png" width='100%' />
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/share-app/Local%20release.png" width='100%' />
+
 
 **完善应用信息**
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/share-app/bianji.png" width='100%' />
 
 > 填写应用基本信息
 
@@ -36,27 +41,23 @@ description: 讲解Rainbond应用发布到应用市场功能说明
 * 应用说明：应用的描述，便于使用者了解应用的作用。
 * 图标：应用LOGO
 
-<img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-2.jpg" width='100%' />
-
 > 填写每个组件的配置信息
 
 * 环境变量：编辑该组件默认的环境变量，勾选`可修改`，则其他用户安装此应用后可编辑这个环境的值，反之不可编辑。
 * 伸缩规则：定义该组件可伸缩的最大最小节点数，及节点伸缩步长，最小安装内存限制。
 * 连接信息：通常连接信息中会出现密码类的信息，Rainbond提供了自动生成此类变量的值的功能可选。
 
-<img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-3.jpg" width='100%' />
 
 **提交发布任务**
 
 完善应用信息后，点击`提交`，向数据中心发起同步任务。由数据中心的`rbd-chaos`组件对应用中的每一个服务进行数据同步。如果是发布到`好雨公有云市`，数据中心会将应用所需的镜像或源码包同步到好雨公有仓库及FTP服务器存储，并将应用的模版数据保存到Console数据库并发送到好雨云市保存。如果是发布到`团队`或`公司`，则应用所需的镜像或源码包同步到本数据中心，并将应用的模版数据保存在Console数据库。
 
-<img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-4.jpg" width='100%' />
 
 **确认发布**
 
 当应用中的所有组件及插件全部完成同步后，点击`确认发布`，即可完成应用发布。发布成功后可在`创建应用`下的`从应用市场安装`中对应的范围下看到你发布的应用。
 
-<img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-5.jpg" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/share-app/Application%20sync.png" width='100%' />
 
 
 
