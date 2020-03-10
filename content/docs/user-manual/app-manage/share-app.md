@@ -31,7 +31,7 @@ description: 讲解Rainbond应用发布到应用市场功能说明
 
 **完善应用信息**
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/share-app/bianji.png" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/share-app/edit.png" width='100%' />
 
 > 填写应用基本信息
 
@@ -61,7 +61,7 @@ description: 讲解Rainbond应用发布到应用市场功能说明
 
 
 
-<img src="https://static.goodrain.com/images/docs/3.7/user-manual/share-6.jpg" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/share-app/nginx.png" width='100%' />
 
 
 **编辑应用发布信息**
