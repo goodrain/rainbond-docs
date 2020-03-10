@@ -28,7 +28,7 @@ description: Rainbond应用网关访问策略管理，这是网关最关键的�
 - 点击 应用网关 -> 访问控制 -> 添加策略
 - 填写路由条件等信息
 - 点击 确认
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/%E6%B7%BB%E5%8A%A0http.png" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/gateway/traffic-control/Add%20HTTP%20policy.png" width='100%' />
 
 配置完成后, 就可以通过域名(www.test.com)对应用(Nginx)进行访问了.
 
@@ -41,7 +41,7 @@ description: Rainbond应用网关访问策略管理，这是网关最关键的�
 
 > 如果没有勾选 HTTP Rewrite HTTPs, 那么将会是单纯的HTTPs
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/httptohttps.png" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/gateway/traffic-control/Certificate%20binding.png" width='100%' />
 
 配置完成后, 用 http://www.test.com 进行访问, 将被强制转成 https://www.test.com.
 
@@ -61,7 +61,7 @@ IP地址支持选择目前集群所有网关节点的内外网IP地址或使用0
 
 > TCP 策略会有一个系统自动分配的端口, 你也可以指定端口, 但是要注意端口冲突的问题.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/%E6%B7%BB%E5%8A%A0tcp%E7%AD%96%E7%95%A5.png" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/gateway/traffic-control/TCP%20strategy.png" width='100%' />
 
 配置完成后, 就可以通过 IP+Port(47.92.168.60:20128)访问应用了.
 
@@ -72,9 +72,9 @@ IP地址支持选择目前集群所有网关节点的内外网IP地址或使用0
 - 填写 `泛域名`, 应用(组), 服务组件, 端口
 - 点击 确认
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/%E6%B3%9B%E5%9F%9F%E5%90%8D.png" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/gateway/traffic-control/Pan%20domain%20name.png" width='100%' />
 
-配置完成后, 任何一个解析到47.92.168.60的 test.com 的子域名都会访问同一个应用(Nginx).
+配置完成后, 任何一个解析到39.104.143.70的 test.com 的子域名都会访问同一个应用(Nginx).
 
 ### 高级路由(A/B 测试, 灰度发布)
 
@@ -84,12 +84,12 @@ IP地址支持选择目前集群所有网关节点的内外网IP地址或使用0
 
 在 HTTP 策略中添加两个Cookie信息, branch=v5.0和version=beta, 如下图所示:
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/Cookie.png" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/gateway/traffic-control/cookie.png" width='100%' />
 
 设置了Cookie后, 单纯的通过域名已经无法访问应用了:
 
 ```
-172:~ abe$ curl test.goodrain.com
+172:~ abe$ curl www.test.com
 <html>
 <head><title>502 Bad Gateway</title></head>
 ...
@@ -98,7 +98,7 @@ IP地址支持选择目前集群所有网关节点的内外网IP地址或使用0
 在访问的时候需要带上Cookie信息才能正常地对应用进行访问:
 
 ```
-172:~ abe$ curl --cookie "branch=v5.0;version=beta" test.goodrain.com
+172:~ abe$ curl --cookie "branch=v5.0;version=beta" www.test.com
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,12 +110,12 @@ IP地址支持选择目前集群所有网关节点的内外网IP地址或使用0
 
 在 HTTP 策略中添加两个请求头信息, branch=v5.0 和 version=beta, 如下图所示:
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/Header%E7%AD%96%E7%95%A5.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/gateway/traffic-control/cookie.png" width='100%' />
 
 设置了请求头后, 单纯的通过域名已经无法访问应用了:
 
 ```
-172:~ abe$ curl test.goodrain.com
+172:~ abe$ curl www.test.com
 <html>
 <head><title>502 Bad Gateway</title></head>
 ...
@@ -124,7 +124,7 @@ IP地址支持选择目前集群所有网关节点的内外网IP地址或使用0
 在访问的时候需要带上请求头信息才能正常地对应用进行访问:
 
 ```
-172:~ abe$ curl -H "branch:v5.0" -H "version:beta" test.goodrain.com
+172:~ abe$ curl -H "branch:v5.0" -H "version:beta" www.test.com
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,9 +134,7 @@ IP地址支持选择目前集群所有网关节点的内外网IP地址或使用0
 
 #### 权重
 
-首先, 准备两个应用, 2048和Nginx:
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/traffic-control/%E5%87%86%E5%A4%87%E4%B8%A4%E4%B8%AA%E5%BA%94%E7%94%A8.gif" width="100%" />
+首先, 准备两个应用, 2048和Nginx，打开对外访问
 
 然后, 给这两个应用, 分别添加一条 `除了权重, 其他信息都一样的策略`. 2048的权重设置为75, Nginx的权重设置为25.
 

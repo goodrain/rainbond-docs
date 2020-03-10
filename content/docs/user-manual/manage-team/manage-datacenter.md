@@ -13,8 +13,7 @@ weight: 2008
 
 ### 开通数据中心
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/openDataCenter.gif" width="100%"
-/>
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Data%20center.png" width="100%"/>
   
 
 

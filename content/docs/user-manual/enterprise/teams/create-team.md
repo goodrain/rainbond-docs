@@ -17,12 +17,26 @@ weight: 2002
 ### 团队的创建
 
 ##### 平台管理员新建团队
-平台管理员注册完毕后，可以新建团队。
-<img src="https://static.goodrain.com/images/docs/3.6/basic-operation/create-team.gif" width="100%" />
+
+平台管理员注册完毕后，可以使用两种方式新建团队。
+
+第一种
+
+在企业视图首页团队模块直接点击创建团队
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Create%20team.png" width="100%" />
+
+第二种
+
+在企业视图`团队模块`点击创建团队
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Createteam.png" width="100%" />
 
 #### 团队重命名
 
-<img src="https://static.goodrain.com/images/docs/3.6/basic-operation/rename-team.gif" width="100%"/>
+在团队视图`设置`界面重命名
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/modifyteamname.png" width="100%"/>
 
 ### 数据中心
 
@@ -30,8 +44,7 @@ weight: 2002
 2. 开通数据中心是团队级别的，添加数据中心是企业级别的。
 3. 平台的核心是应用定义一切，但是团队和数据中心是平台的基础。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/register/openDataCenter.gif" width="100%"
-/>
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Data%20center.png" width="100%"/>
 
 
 

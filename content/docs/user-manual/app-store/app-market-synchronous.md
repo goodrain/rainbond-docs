@@ -10,11 +10,7 @@ weight: 6004
 
 企业也可以建立行业公有应用市场，详情参阅 [好雨企业服务](https://www.goodrain.com/industrycloud)
 
-<img src="https://static.goodrain.com/images/docs/3.7.1/rainbond_certification.gif" width='100%' />
-
-<center>与公有云市场互联</center>
-
-<img src="https://static.goodrain.com/images/docs/3.7.1/shichang.jpg" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-store/app-market-synchronous/Application%20sync.png" width='100%' />
 
 <center>市场间应用同步</center>
 

@@ -23,19 +23,21 @@ Rainbond备份功能目前的设计是全量的冷备份机制，传统意义上
 
 只需要添加备份，选择备份模式即可，备份是一个异步的过程，且根据组件的数量的不同耗时不同。如果应用下存在运行中的有状态组件，将拒绝备份操作。
 
-<img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/backup.gif" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/backup.png" width="100%" />
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/localbackup.png" width="100%" />
 
 在5.0以后的版本中新添加`全部备份`页面，进入后会展示出当前团队数据中心下的所有备份记录，以便清晰查看，同时也解决了之前版本应用有备份记录无法删除的问题。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1545546175984.jpg" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/backup02.png" width="100%">
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1545546337853.jpg" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/allbackup.png" width="100%">
 
 #### 备份恢复
 
 恢复对于已经备份成功的一组应用，使用恢复可以将该组应用进行恢复操作。恢复通常是在当前应用出现不可解决的问题。
 恢复操作如下：
-<img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/recover.gif" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/recovery.png" width="100%">
 
 > 恢复操作过程中请勿关闭恢复页面，否则可能会导致恢复失败。为了保证您的数据安全，恢复操作过程我们会生成一份您的备份应用的拷贝，您可以在恢复的最后一步中选择删除原有的应用。
 
@@ -48,7 +50,6 @@ Rainbond备份功能目前的设计是全量的冷备份机制，传统意义上
 应用恢复后网关访问策略需要用户手工配置。
 
 
-
 #### 应用的跨租户和跨数据中心迁移
 
 由于我们做到全局的全量备份，借助此我们可以做到应用的整体迁移，包括跨租户迁移和跨数据中心迁移。
@@ -56,7 +57,7 @@ Rainbond备份功能目前的设计是全量的冷备份机制，传统意义上
 在已经备份的情况下，可以选择迁移操作来进行应用的迁移
 迁移操作如下：
 
-<img src="https://static.goodrain.com/images/docs/3.6/advanced-operation/migrate.gif" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/transfer.png" width="100%">
 
 应用完成迁移以后，会跳转到对应的数据中心和租户以方便您查看迁移后的应用。
 

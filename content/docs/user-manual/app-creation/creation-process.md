@@ -24,7 +24,7 @@ weight: 3102
 * Step 4: 检测完成后用户可以选择构建启动或进行高级设置，设置更多组件属性。若选择构建启动Rainbond将再次获取源代码根据代码检测的语言类型进行源码构建。请注意，源码类型只会在源码检测中读取，因此后续的开发过程如果更改了语言类型，需要触发重新代码检测。
 * Step 5: 组件构建完成后即可通过端口绑定的默认域名进行访问。后续的管理维护流程参阅 [组件管理文档](/docs/user-manual/app-service-manage/)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/HTML%E6%BA%90%E7%A0%81%E5%88%9B%E5%BB%BA.gif" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/Sourcecodeconstruction.png" width="100%" />
 
 
 #### 其他语言源码支持参阅下述文档
@@ -45,7 +45,7 @@ weight: 3102
 
 如果需要用账号密码连接代码仓库, 则点击填写仓库账号密码, 正确填写你的登陆用户名及密码即可.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/password_login.jpg" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/Password%20construction.png" width="100%" />
 
 * SSH 连接代码仓库
 
@@ -66,7 +66,7 @@ weight: 3102
 
 * Step 4: 构建完成后即可访问组件。后续的管理维护流程参阅 [组件管理文档](/docs/user-manual/app-service-manage/)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA.gif" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/dockerconstruction.png" width="100%" />
 
 这样, 一个由 Docker 镜像创建的组件就完成了。如果从私有镜像仓库的镜像创建组件，需要注意下述几类问题：
 
@@ -77,17 +77,22 @@ weight: 3102
 #### 示例部署带启动命令的镜像应用
 
 * 通过docker run命令方式部署:  `docker run -p 8490:8490 goodrain.me/test -s "ws://192.168.1.1:8490"`
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/dockerrun.png" width="100%" />
+
 * 通过指定镜像方式:
     * 镜像地址: `goodrain.me/test` 并构建
     * 应用构建源处修改启动命令为 `-s "ws://192.168.1.1:8490"`
 
-{{% notice info %}}
 `goodrain.me/test`请替换为自己镜像
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/modify.png" width="100%" />
+
 
 
 ### 从应用市场安装
 
 从应用市场安装过程非常简单，只需要提供需要安装到的应用即可。
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/%E5%BA%94%E7%94%A8%E5%B8%82%E5%9C%BA%E5%AE%89%E8%A3%85.gif" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/gongxiangku.png" width="100%" />
 
 这样, 一个从应用市场安装的应用就完成了。从应用市场安装将是应用交付的关键流程，应用市场的应用支持一键安装和持续升级。
