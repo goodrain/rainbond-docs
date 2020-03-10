@@ -31,7 +31,7 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 下载rainbond-operator Chart应用包：
 
 ```bash
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-charts-V5.2.0-beta1.tgz && tar zxvf rainbond-operator-charts-V5.2.0-beta1.tgz
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v0.0.1-beta2-V5.2-dev.tgz && tar xvf rainbond-operator-chart-v0.0.1-beta2-V5.2-dev.tgz
 ```
 
 可选配置参考 `./chart/values.yaml`，默认情况下无需修改。
@@ -40,7 +40,7 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-oper
 
 ```bash
 #创建所需namespace
-kubectl create ns rbd-system
+kubectl create namespace rbd-system
 #通过helm安装operator到指定namespace
 helm install rainbond-operator ./chart --namespace=rbd-system
 ```
@@ -58,7 +58,7 @@ rainbond-operator-0   2/2     Running   0          110s
 
 #### 访问 **主机IP:30008**，点击开始安装
 
-![屏幕快照 2020-02-04 14.11.50](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-1.jpg)
+![image-20200309170854368](https://tva1.sinaimg.cn/large/00831rSTly1gcnsg606zjj31oy0u0juq.jpg)
 
 #### 进入下一步，按照如下方式选择配置，完成后点击配置就绪，开始安装。
 
@@ -72,11 +72,13 @@ rainbond-operator-0   2/2     Running   0          110s
 |*默认域名* |是指Rainbond默认会分配一个泛域名解析地址（grapps.cn结尾），用于HTTP类应用默认分配访问地址。若你希望使用你自己的地址，请提供，并自行做好泛域名解析。|
 |*网关外网IP* |作用于上文讲到的域名解析和数据中心对外提供API的证书签发。若网关节点绑定了外网IP或虚拟IP，请填写。|
 
+##### 安装模式选择最小化安装
 
+![image-20200309171024608](https://tva1.sinaimg.cn/large/00831rSTly1gcnshqdsx5j31p70u00zw.jpg)
 
-![image-20200204141624281](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-2.jpg)
+![image-20200309171137591](https://tva1.sinaimg.cn/large/00831rSTly1gcnsj036uij31z00rq43k.jpg)
 
-![image-20200204141711541](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-3.jpg)
+![image-20200309171247819](https://tva1.sinaimg.cn/large/00831rSTly1gcnsk7njeaj31z20gadj3.jpg)
 
 #### 进入安装等待界面，完成后弹出如下界面，点击访问地址即可访问rainbond平台
 
