@@ -22,13 +22,13 @@ weight: 2002
 
 第一种
 
-在企业视图首页团队模块直接点击创建团队
+在企业视图首页`团队模块`直接点击`创建团队`
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Create%20team.png" width="100%" />
 
 第二种
 
-在企业视图`团队模块`点击创建团队
+在企业视图`团队模块`点击`创建团队`
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Createteam.png" width="100%" />
 

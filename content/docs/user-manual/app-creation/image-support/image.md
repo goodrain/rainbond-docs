@@ -26,27 +26,27 @@ Rainbond基于已有标准制作镜像创建组件的方式是最快，兼容性
 
 除了上述描述的镜像类型外，如下类型的组件我们推荐基于镜像创建：
 
-* 中间价类
+* 中间件类
 
-比如Mysql Mongo Redis Tomcat nginx 等经常使用的中间价组件。
+比如`Mysql Mongo Redis Tomcat nginx `等经常使用的中间价组件。
 
 * web工具类
 
-比如phpmyadmin等
+比如`phpmyadmin`等
 
 * 基础组件类
 
-比如sFTP组件、minio对象存储组件等
+比如`sFTP`组件、`minio`对象存储组件等
 
 * 其他提供TCP或UDP协议组件的各类组件镜像
 
 ### 镜像检测规范
 
-* 镜像是可以被Rainbond管理节点正常获取的
+* 镜像是可以被Rainbond集群服务器正常获取的
   * 提供的镜像名称准确，且存在于对应的镜像仓库中
 
   * 私有仓库镜像请务必提供账号密码
-  * 自建仓库请配置HTTPs或为Rainbond管理节点Docker配置信任
+  * 自建仓库请配置HTTPs或为Rainbond集群节点配置Docker信任
 
 * Rainbond将从镜像中获取以下属性信息：
   * 端口，dockerfile中配置的Expose端口信息将被获取。
@@ -62,6 +62,7 @@ Rainbond基于已有标准制作镜像创建组件的方式是最快，兼容性
 * 组件部署类型的设定：
 
   以镜像创建的组件默认设定为`无状态部署类型`，5.1.3版本以后，镜像名称为以下值时默认设置为`有状态部署类型` :
+  
   * mysql
   * mariadb
   * mongo

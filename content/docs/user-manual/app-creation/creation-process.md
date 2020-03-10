@@ -11,18 +11,19 @@ weight: 3102
 
 下面将会以Java源码创建组件为例, 介绍在Rainbond上用源码创建组件流程。
 
-> 源码地址: https://github.com/goodrain/java-maven-demo.git
-
 组件的创建目前有两个入口，分别是左部导航的创建应用入口和应用管理的添加组件入口，创建流程一致。
 
 * Step 1: 提供组件名称和所属应用，最关键的是提供构建源信息，源码构建即提供代码仓库地址，授权等信息。
 
-* Step 2: 等待Rainbond对源代码进行检测，这个过程Rainbond将根据代码源信息获取源代码并进行语言类型、语言规范等检测，并从[rainbondfile](/docs/user-manual/app-creation/language-support/etc/rainbondfile/)文件中读取组件属性。
+* Step 2: 等待Rainbond对源代码进行检测，这个过程Rainbond将根据代码源信息获取源代码并进行语言类型、语言规范等检测，并从[Rainbondfile](/docs/user-manual/app-creation/language-support/etc/rainbondfile/)文件中读取组件属性。
 
 * Step 3: 如果检测结果通过即会根据检测回的组件属性创建组件，如果不通过用户需要根据提示更改相关信息。
 
 * Step 4: 检测完成后用户可以选择构建启动或进行高级设置，设置更多组件属性。若选择构建启动Rainbond将再次获取源代码根据代码检测的语言类型进行源码构建。请注意，源码类型只会在源码检测中读取，因此后续的开发过程如果更改了语言类型，需要触发重新代码检测。
+
 * Step 5: 组件构建完成后即可通过端口绑定的默认域名进行访问。后续的管理维护流程参阅 [组件管理文档](/docs/user-manual/app-service-manage/)
+
+源码地址: https://github.com/goodrain/java-maven-demo.git
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/Sourcecodeconstruction.png" width="100%" />
 
@@ -90,9 +91,10 @@ weight: 3102
 
 
 
-### 从应用市场安装
+### 从共享库安装
 
-从应用市场安装过程非常简单，只需要提供需要安装到的应用即可。
+从共享库安装过程非常简单，找到要安装的应用，直接点击安装，选择需要安装到的应用即可。
+
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/gongxiangku.png" width="100%" />
 
-这样, 一个从应用市场安装的应用就完成了。从应用市场安装将是应用交付的关键流程，应用市场的应用支持一键安装和持续升级。
+这样, 一个共享库安装的应用就完成了，从共享库安装将是应用交付的关键流程，共享库的应用支持一键安装和持续升级。
