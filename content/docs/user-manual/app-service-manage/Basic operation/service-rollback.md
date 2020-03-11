@@ -1,8 +1,8 @@
 ---
 title: 组件版本管理
 description: Rainbond组件版本的管理和版本回滚文档
-hidden: true
 weight: 5018
+hidden: true
 ---
 
 ### 组件版本管理

@@ -22,6 +22,8 @@ Weight: 4003
 
 #### 应用的其他操作
 
-* 备份、恢复与迁移 [详细文档](../app-backup/)
-* 发布到共享库 [详细文档](../share-app/)
-* 添加服务组件 [详细文档](../add-service/)
+* [发布到共享库](../share-app/)
+* [备份、恢复与迁移](../app-backup/)
+* [应用网关管理](/docs/user-manual/gateway/)
+* [应用升级](/docs/user-manual/app-manage/upgrade_app/)
+* [添加服务组件](../add-service/)

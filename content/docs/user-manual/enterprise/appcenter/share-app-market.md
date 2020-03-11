@@ -1,7 +1,7 @@
 ---
-title: 基于共享库的应用交付
+title: 共享库应用的的导入导出
 description: Rainbond基于共享库的应用交付说明文档
-weight: 6008
+weight: 2004
 ---
 
 ### 应用制作与分享
@@ -20,20 +20,8 @@ weight: 6008
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-store/app-market-synchronous/Application%20sync.png" width='100%' />
 
-### 应用交付
 
-#### 使用公有云市在线交付
-
-对于有在线环境的用户，可以直接使用好雨公有云市进行业务交付，将业务系统发布到好雨公有云市，用户可在公有云市直接下载一件安装整套业务系统。
-应用发布请参考  [应用管理，分享管理](/docs/user-manual/app-manage/share-app/)
-
-应用安装参考 [服务创建](/docs/user-manual/app-creation/service_create/#从应用市场安装)
-
-#### 使用导入导出离线交付
-
-考虑到离线环境的应用交付，我们RainBond设计实现了应用到离线导入和导出功能。复杂的业务系统可以借助网络或离线应用包快速的在不同的环境中交付，安装速度和易用性远远超出传统的交付。除了标准Rainbond应用模型以外，同时还支持导出docker-compose模型脱离Rainbond平台便捷交付。
-
-#### 应用导出
+### 应用导出
 
 
 为了让用户能够更好的管理自己的应用，快捷简单交付业务，我们为平台设计了应用导入导出功能，该功能允许用户通过简单的几次点击，就可以将内部市场的应用打包为一个压缩文件，并可以下载到本地。在导出的时候，支持两种格式，一种为`rainbond-app`格式，另一种为`docker-compose`格式。

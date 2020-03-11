@@ -1,15 +1,14 @@
 ---
 title: 组件依赖
 description: Rainbond组件依赖关系和依赖连接信息管理
-weight: 5009
-hidden: true
+weight: 50
 ---
 
 ### 组件连接信息管理
 
 #### 连接信息的作用
 
-当前组件被其他组件依赖时，如果需要注入相关变量给对方以方便对方连接自己。连接信息的实质是环境变量，只是其生效范围是自身和依赖自己的所有组件。比如一个MYSQL组件拥有连接信息 MYSQL_HOST、MYSQL_PORT、MYSQL_USER、MYSQL_PASSWORD、MYSQL_DATABASE。这些信息是其他组件连接 mysql的关键信息，当组件依赖mysql后会自动得到上诉的环境变量从而动态的获取到相关信息。
+当前组件被其他组件依赖时，如果需要注入相关变量给对方以方便对方连接自己。连接信息的实质是环境变量，只是其生效范围是自身和依赖自己的所有组件。比如一个MYSQL组件拥有连接信息 `MYSQL_HOST、MYSQL_PORT、MYSQL_USER、MYSQL_PASSWORD、MYSQL_DATABASE`。这些信息是其他组件连接 mysql的关键信息，当组件依赖mysql后会自动得到上述的环境变量从而动态的获取到相关信息。
 
 #### 添加连接信息
 

@@ -1,12 +1,9 @@
 +++
-title = "应用市场"
+title = "存储设置"
 chapter = true
-menu = "app-store"
-weight = 6000
-pre = "<b>3.6. </b>"
+weight = 60
 +++
 
 本章内容包括：
 
 {{% children showhidden="true" description="true" style="h3"  %}}
-

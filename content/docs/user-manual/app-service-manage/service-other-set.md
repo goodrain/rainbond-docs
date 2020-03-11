@@ -1,8 +1,7 @@
 ---
 title: 组件其他设置
 description: Rainbond组件基础信息，环境变量，健康检测，用户权限等属性的设置文档
-weight: 5021
-hidden: true
+weight: 100
 ---
 
 ### 组件其他设置

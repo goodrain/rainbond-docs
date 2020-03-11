@@ -1,12 +1,9 @@
 +++
-title = "组件管理"
+title = "组件构建与部署"
 chapter = true
-menu = "app-service-manage"
-weight = 5000
-pre = "<b>3.5. </b>"
+weight = 90
 +++
 
-
+本章内容包括：
 
 {{% children showhidden="true" description="true" style="h3"  %}}
-
