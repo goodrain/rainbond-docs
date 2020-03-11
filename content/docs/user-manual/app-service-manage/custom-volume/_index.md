@@ -1,5 +1,5 @@
 +++
-title = "存储设置"
+title = "组件存储"
 chapter = true
 weight = 60
 +++

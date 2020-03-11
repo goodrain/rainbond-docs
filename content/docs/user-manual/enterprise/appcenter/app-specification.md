@@ -1,7 +1,7 @@
 ---
 title: Rainbond共享库应用制作规范
 description: 具备SaaS化交付能力的Rainbond共享库应用制作规范
-weight: 2005
+weight: 2006
 ---
 
 > 本文档持续完善中...

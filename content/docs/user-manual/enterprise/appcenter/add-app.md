@@ -1,49 +1,25 @@
 ---
-title: 共享库应用添加
-description: 讲解共享库的应用组件资源的三种添加方式
-weight: 2003
+title: 基于共享库的应用交付
+description: 基于共享库的应用导入导出
+weight: 2005
 ---
 
-本文主要介绍Rainbond共享库的应用组件资源的添加方式，并教你如何从Rainbond云端市场同步应用与插件。
 
-### 开发创造
+### 应用交付
 
-参考文档 [应用管理，分享管理](/docs/user-manual/app-manage/share-app/)
+使用公有云端市场在线交付
 
-### 云端同步
+对于有在线环境的用户，可以直接使用好雨公有云端市场进行业务交付，将业务系统发布到好雨公有云市，用户可在公有云端市场直接下载一键安装整套业务系统。 
 
-共享库中的业务系统可以通过离线导出的方式，交付到一个离线的Rainbond平台，也可以通过公有云市场的方式在线交付社区用户或目标企业用户。
 
-私有内部市场内置于Rainbond平台中，公有应用市场目前由好雨科技运营提供。公有云端市场服务于与其对接互联的私有应用市场，提供跨平台，跨云的应用资源同步和升级。
+私有内部市场内置于Rainbond平台中，公有应用市场目前由好雨科技运营提供；公有云端市场服务于与其对接互联的私有应用市场，提供跨平台，跨云的应用资源同步和升级。
 
-对于有在线环境的用户，可以直接使用好雨公有云端市场进行业务交付，将业务系统发布到好雨公有云端市场，用户可从云端市场同步应用并一键安装整套业务系统。
 
-对于使用者而言，通过共享库即可一键安装部署完整业务系统，并且能够持续进行升级。
-
-企业也可以建立行业公有应用市场，详情参阅 [好雨企业服务](https://www.goodrain.com/industrycloud)
-
-> 以下以数据库为例，演示云端同步的整个过程
-
-在企业视图，共享库点击`云端同步`按钮，可以看到好雨公有云端市场的应用
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Cloud%20sync.png
-" width='100%' />
-
-点击`下载`按钮
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/mysqlsync.png" width='100%' />
-
-数据库应用已被一键同步至内部市场，在使用时选择`从共享库创建组件`，即可一键安装该组件
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/mysqlsync01.png" width='100%' />
-
-### 应用导出
-
-目前开源版本暂不支持应用导出功能
-
-### 离线导入
+### 应用导入
 
 考虑到离线环境的应用交付，Rainbond设计实现了应用的离线导入和导出功能。复杂的业务系统可以借助网络或离线应用包快速的在不同的环境中交付，安装速度和易用性远远超出传统的交付。除了标准Rainbond应用模型以外，同时还支持导出docker-compose模型脱离Rainbond平台便捷交付。
+
+* 应用导入流程
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Offline%20import.png" width='100%' />
 
@@ -58,11 +34,16 @@ weight: 2003
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Successful%20import.png" width='100%' />
 
 
+
+### 应用导出
+
+为了让用户能够更好的管理自己的应用，快捷简单交付业务，我们为平台设计了应用导入导出功能，该功能允许用户通过简单的几次点击，就可以将内部市场的应用打包为一个压缩文件，并可以下载到本地。在导出的时候，支持两种格式，一种为rainbond-app格式，另一种为docker-compose格式。
+
+目前开源版本暂不支持应用导出功能
+
+
 ### 应用版本
 
 共享库中的应用支持多个版本共存，应用的操作粒度支持到版本级别。
 
-### 应用更新
-
-已同步的应用若云端市场存在更新的版本，本地共享库即可从云端市场获取最新的版本应用，当本地共享库的应用有更新的版本，安装的服务可进行[构建升级操作](/docs/user-manual/app-service-manage/basic-operation/#构建操作)。
 
