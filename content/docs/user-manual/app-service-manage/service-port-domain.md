@@ -1,8 +1,7 @@
 ---
 title: 组件端口
 description: Rainbond组件端口和注册策略管理文档
-weight: 5013
-hidden: true
+weight: 70
 ---
 
 ### 组件端口管理

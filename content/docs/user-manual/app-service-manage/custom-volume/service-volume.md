@@ -18,11 +18,11 @@ Rainbond 默认支持以下几种存储类型:
 - 配置文件
 - 内存文件存储
 
-除Rainbond默认支持的上述几种存储类型外，Rainbond还支持[自定义存储类型](/docs/user-manual/app-service-manage/service-volume-custom/)。
+除Rainbond默认支持的上述几种存储类型外，Rainbond还支持[自定义存储类型](/docs/user-manual/app-service-manage/custom-volume/service-volume-custom/)。
 
 #### 共享存储
 
-共享存储是一个分布式文件系统, 默认使用的是 NFS, 你也可以自行对接其它的分布式文件系统(比如: [GlusterFS](../../../operation-manual/storage/GlusterFS/introduce.html), NAS 等). 共享存储具有非常高的可靠性和扩展性; 与此同时, 它还具有非常高的灵活性, 可以共享给其它的组件，基于租户、组件两级进行存储空间分配和隔离。
+共享存储是一个分布式文件系统, 默认使用的是 NFS, 你也可以自行对接其它的分布式文件系统(GlusterFS, NAS 等). 共享存储具有非常高的可靠性和扩展性; 与此同时, 它还具有非常高的灵活性, 可以共享给其它的组件，基于租户、组件两级进行存储空间分配和隔离。
 共享存储针对无状态组件和有状态组件呈现的工作模式不同：
 
 * 无状态组件
