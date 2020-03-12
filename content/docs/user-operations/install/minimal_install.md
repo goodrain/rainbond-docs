@@ -6,7 +6,7 @@ description: "此方式适用于快速安装和试用Rainbond平台。"
 
 > Rainbond V5.2.0版本处于beta状态，当前仅提供ALL-IN-ONE最小安装模式，在版本Release之前支持完整高可用安装，该安装教程可能修改。
 
-开始Rainbond之前你需要完成Kubernetes集群的安装，若你还没完成，请参考文档[kubernetes集群的安装](../k8s-install/)
+开始Rainbond之前你需要完成Kubernetes集群的安装，推荐使用1.16及以上版本，若你还没完成，请参考文档[kubernetes集群的安装](../k8s-install/)
 
 ### 安装 Helm（V3）
 
@@ -58,23 +58,17 @@ rainbond-operator-0   2/2     Running   0          110s
 
 #### 访问 **主机IP:30008**，点击开始安装
 
+如果使用的是阿里云的kubernetes资源，请通过SLB将rbd-operator所在节点的30008节点转发至可以访问到的地址
+
 ![image-20200309170854368](https://tva1.sinaimg.cn/large/00831rSTly1gcnsg606zjj31oy0u0juq.jpg)
 
 #### 进入下一步，按照如下方式选择配置，完成后点击配置就绪，开始安装。
 
-
-| 配置 | 配置介绍 |
-| :----: | :--- |
-|*镜像仓库* |Rainbond集群所有应用的版本以镜像的方式存储于镜像仓库中，我们希望在集群内网具备一个可用的镜像仓库，如有请提供，如无Rainbond安装器将自动安装。|
-|*数据库* |数据库需求分为数据中心数据库和控制台数据库，你可以提供已经存在的数据库连接信息，比如阿里云RDS。|
-|*ETCD* |Rainbond默认不会使用Kubernetes使用的ETCD,若你希望自行安装或使用已有的ETCD集群，请提供访问信息。|
-|*网关安装节点*  |网关安装可选节点取自集群中的所有管理节点，安装网关组件会使用宿主机网络并占用 80 443 8443 6060 8888 等端口。若节点这些端口已被占用，则会出现故障。|
-|*默认域名* |是指Rainbond默认会分配一个泛域名解析地址（grapps.cn结尾），用于HTTP类应用默认分配访问地址。若你希望使用你自己的地址，请提供，并自行做好泛域名解析。|
-|*网关外网IP* |作用于上文讲到的域名解析和数据中心对外提供API的证书签发。若网关节点绑定了外网IP或虚拟IP，请填写。|
-
 ##### 安装模式选择最小化安装
 
 ![image-20200309171024608](https://tva1.sinaimg.cn/large/00831rSTly1gcnshqdsx5j31p70u00zw.jpg)
+
+设置网关外网IP后会将默认域名解析到改IP地址上，如果不设置则会解析到第一个网关安装节点，请确保默认域名解析到的IP地址是可以访问的，否则造成应用无法访问的情况
 
 ![image-20200309171137591](https://tva1.sinaimg.cn/large/00831rSTly1gcnsj036uij31z00rq43k.jpg)
 
@@ -83,6 +77,8 @@ rainbond-operator-0   2/2     Running   0          110s
 #### 进入安装等待界面，完成后弹出如下界面，点击访问地址即可访问rainbond平台
 
 安装过程取决于你的配置信息，大致分为6个阶段，每一个阶段都具有进度信息供你参考。
+
+**安装完成后为了确保共享存储的可用性，请继续阅读本文，完成共享存储的挂载操作**
 
 ![image-20200204141936123](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-4.jpg)
 
@@ -104,4 +100,9 @@ mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl
 
 若输出`Install success`则安装成功。
 具体功能参考 `grctl --help`
+
+### 各节点挂载共享存储
+
+- 在具有计算节点属性的所有安装grctl命令，然后执行```grctl grdata --auto```实现共享存储目录挂载
+- 在kubernetes某个节点安装grctl命令，然后执行```garctl grdata```获取到挂载命令，然后在具有计算节点属性的所有节点执行挂载命令即可
 

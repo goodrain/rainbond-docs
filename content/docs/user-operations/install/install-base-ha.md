@@ -4,7 +4,7 @@ weight: 1002
 description: "引导用户安装高可用的Rainbond集群"
 ---
 
-Rainbond 高可用安装基于k8s集群的高可用，所以在安装rainbond集群前，请确保已经安装符合如下某一条件的k8s高可用集群
+Rainbond 高可用安装基于k8s集群的高可用，所以在安装rainbond集群前，请确保已经安装符合如下某一条件的k8s高可用集群，k8s集群推荐使用1.16及以上版本
 
 - 对于尚未安装高可用k8s集群的用户，建议参照[高可用k8s集群安装文档](/docs/user-operations/install/k8s-install)安装高可用的集群。
 
@@ -31,13 +31,9 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 
 
 
-### 集群元数据存储组件高可用
+### 安装Mysq-operator控制器
 
-为保证rainbond集群的高可用，需要对于其中的数据存储组件做出特殊处理，数据存储组件为etcd和mysql数据库
-
-- 对于希望自己提供集群元数据存储资源的用户，请参考对接外部元数据存储组件时Rainbond-Operator的安装方式
-
-- 其他用户请执行以下命令来为etcd高可用集群和mysql高可用集群的安装做好准备工作
+用户可以根据自身需求选择对接外部数据库或通过Mysq-operator控制器来实现数据库的高可用，希望安装Mysq-operator控制器的用户请执行以下操作
 
 
 
@@ -46,27 +42,6 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 ```bash
 kubectl create namespace rbd-system
 ```
-
-#### 安装Etcd-operator控制器
-
-添加etcd-operator所在的helm仓库并安装
-
-```
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-helm install etcd-operator stable/etcd-operator -n rbd-system
-```
-
-确认Etcd-operator所有pod均已经就绪
-
-```bash
-kubectl get pod -n rbd-system
-NAME                                                              READY   STATUS    RESTARTS   AGE
-etcd-operator-etcd-operator-etcd-backup-operator-88d6bc55cd8jqx   1/1     Running   0          7m15s
-etcd-operator-etcd-operator-etcd-operator-56c55d965f-5vt9r        1/1     Running   0          2m9s
-etcd-operator-etcd-operator-etcd-restore-operator-55f6ccbf5889g   1/1     Running   0          7m15s
-```
-
-#### 安装Mysq-operator控制器
 
 下载Mysq-operator Chart应用包并进行安装
 
@@ -82,8 +57,7 @@ mysql-operator-6c5bcbc7fc-4gjvn                                   1/1     Runnin
 ```
 
 
-
-等待Etcd-operator及Mysq-operato均已就绪后，即可开始安装rainbond-operator
+等待Mysq-operato均已就绪后，即可开始安装rainbond-operator
 
 ### 下载并运行Rainbond-Operator安装控制器
 
@@ -97,18 +71,18 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-oper
 
 配置完成即可安装
 
-- 对接外部元数据存储组件时Rainbond-Operator的安装方式
+- 对接外部数据库时Rainbond-Operator的安装方式
 
 ```bash
 #通过helm安装operator到指定namespace
 helm install rainbond-operator ./chart -n rbd-system
 ```
 
-- 使用Rainbond官方提供元数据组件高可用安装时Rainbond-Operator的安装方式
+- 使用Rainbond官方提供数据库高可用安装时Rainbond-Operator的安装方式
 
 ```bash
 #通过helm安装operator到指定namespace
-helm install rainbond-operator ./chart --set enableEtcdOperator=true --set enableMySQLOperator=true -n rbd-system
+helm install rainbond-operator ./chart --set enableMySQLOperator=true -n rbd-system
 ```
 
 执行完毕后, 由于从公网获取镜像需要一定时间，请运行```kubectl get pod -n rbd-system```，确认所有Pod都Ready（如下所示）后进行后续步骤。
@@ -123,29 +97,77 @@ rainbond-operator-0   2/2     Running   0          110s
 
 #### 访问 **主机IP:30008**，点击开始安装
 
+如果使用的是阿里云的kubernetes资源，请通过SLB将rbd-operator所在节点的30008节点转发至可以访问到的地址
+
 ![image-20200309110333545](https://tva1.sinaimg.cn/large/00831rSTly1gcnhw2pbuzj31h50u0q6f.jpg)
 
-#### 进入下一步，按照如下方式选择配置，完成后点击配置就绪，开始安装。
+#### 进入下一步，根据需求选择配置，完成后点击配置就绪，开始安装。
 
+- 安装模式
 
-|      配置      | 配置介绍                                                     |
-| :------------: | :----------------------------------------------------------- |
-|   *镜像仓库*   | Rainbond集群所有应用的版本以镜像的方式存储于镜像仓库中，我们希望在集群内网具备一个可用的镜像仓库，如有请提供，如无Rainbond安装器将自动安装。 |
-|    *数据库*    | 数据库需求分为数据中心数据库和控制台数据库，你可以提供已经存在的数据库连接信息，比如阿里云RDS。 |
-|     *ETCD*     | Rainbond默认不会使用Kubernetes使用的ETCD,若你希望自行安装或使用已有的ETCD集群，请提供访问信息。 |
-| *网关安装节点* | 网关安装可选节点取自集群中的所有管理节点，安装网关组件会使用宿主机网络并占用 80 443 8443 6060 8888 等端口。若节点这些端口已被占用，则会出现故障。 |
-|   *默认域名*   | 是指Rainbond默认会分配一个泛域名解析地址（grapps.cn结尾），用于HTTP类应用默认分配访问地址。若你希望使用你自己的地址，请提供，并自行做好泛域名解析。 |
-|  *网关外网IP*  | 作用于上文讲到的域名解析和数据中心对外提供API的证书签发。若网关节点绑定了外网IP或虚拟IP，请填写。 |
+  - 最小化安装
 
-##### 安装模式选择高可用安装
+    最小化安装适用于对rainbond产品的了解，安装方式简单，占用资源较少
 
-![image-20200307172634890](https://tva1.sinaimg.cn/large/00831rSTgy1gclhq1xvetj31o00u0wll.jpg)
+  - 高可用安装（选择）
+
+    高可用安装适用于生产使用，会尽可能保证rainbond各组件的高可用性，但会占用较多资源
+
+- 镜像仓库
+
+  用于应用运行镜像存储和集群公共镜像存储，用户按照自身需求选择即可
+
+  - 新安装镜像仓库
+
+    由rbd-operator安装镜像仓库，在高可用安装模式下会安装高可用的镜像仓库
+
+  - 提供已有镜像仓库
+
+    由用户提供镜像仓库的相关信息，方便用户管理，由用户自身保证可用性
+
+- 数据中心数据库
+
+  记录数据中心元数据，用户按照自身需求选择即可
+
+  - 新安装数据库
+
+    由rbd-operator安装数据中心数据库，在高可用安装模式下会安装高可用的数据库
+
+  - 提供已有数据库
+
+    由用户提供数据库的相关信息，方便用户管理，由用户自身保证可用性
+
+- 控制台数据库
+
+  记录控制台元数据，用户按照自身需求选择即可
+
+  - 新安装数据库
+
+    由rbd-operator安装控制台数据库，在高可用安装模式下会安装高可用的数据库
+
+  - 提供已有数据库
+
+    由用户提供数据库的相关信息，方便用户管理，由用户自身保证可用性
+
+- ETCD
+
+  为rainbond各组件提供数据存储
+
+  - 新安装ETCD
+
+    由rbd-operator安装ETCD服务，在高可用安装模式下会安装高可用的ETCD集群
+
+  - 提供已有ETCD
+
+    由用户ETCD服务的相关信息，方便用户管理，由用户自身保证可用性
 
 ##### 选择网关管理节点及构建服务运行节点
 
 ![image-20200307172713077](https://tva1.sinaimg.cn/large/00831rSTgy1gclhqm5kpkj31z20c0771.jpg)
 
 ##### 选择外网IP
+
+设置网关外网IP后会将默认域名解析到改IP地址上，如果不设置则会解析到第一个网关安装节点，请确保默认域名解析到的IP地址是可以访问的，否则造成应用无法访问的情况
 
 ![image-20200307172907395](https://tva1.sinaimg.cn/large/00831rSTgy1gclhsl7z0vj31z20b6gmm.jpg)
 
@@ -156,7 +178,7 @@ rainbond-operator-0   2/2     Running   0          110s
 - 使用阿里云k8s集群安装时共享存储建议使用阿里云NAS，块设备建议阿里云盘
 - 使用自有k8s集群安装时共享存储建议使用GFS集群提供资源，块设备建议使用ceph集群提供资源
 
-![image-20200307172822748](https://tva1.sinaimg.cn/large/00831rSTgy1gclhrtkf3qj31z20smdlb.jpg)
+![image-20200307172822748](https://tva1.sinaimg.cn/large/00831rSTgy1gclhrtkf3qj31z20smdlb.jpg) 
 
 配置完成后点击 配置完成，开始安装
 
@@ -167,3 +189,11 @@ rainbond-operator-0   2/2     Running   0          110s
 ![image-20200309180404861](https://tva1.sinaimg.cn/large/00831rSTly1gcnu1kw0z7j31ix0u0n1f.jpg)
 
 ![image-20200309180416672](https://tva1.sinaimg.cn/large/00831rSTly1gcnu1s6fp3j31z20s040z.jpg)
+
+### 各节点挂载共享存储
+
+安装完成在各节点执行以下之一操作，实现共享存储的可用性，grctl命令的安装方式参考[最小化部署Rainbond](../minimal_install.md)安装命令行工具
+
+- 在具有计算节点属性的所有安装grctl命令，然后执行```grctl grdata --auto```实现共享存储目录挂载
+- 在kubernetes某个节点安装grctl命令，然后执行```garctl grdata```获取到挂载命令，然后在具有计算节点属性的所有节点执行挂载命令即可
+
