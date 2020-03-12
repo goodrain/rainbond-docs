@@ -1,11 +1,37 @@
 /*!bulma.io v0.7.0 | MIT License | github.com/jgthms/bulma*/
+
 @keyframes spinAround {
     from {
         transform: rotate(0deg)
     }
-
     to {
         transform: rotate(359deg)
+    }
+}
+
+.select {
+    display: inline-block;
+    margin-left: -5px;
+    position: relative;
+    select {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        border: solid 1px #dfdfdf;
+        /* background: url("../img/sprite.png") no-repeat scroll right center transparent; */
+        background: transparent;
+        width: 340px;
+        height: 36px;
+        line-height: 36px;
+        padding-left: 10px;
+        padding-right: 16px;
+        @include border-radius(0);
+        z-index: 1;
+    }
+    i {
+        position: absolute;
+        top: 15px;
+        right: 10px;
     }
 }
 
@@ -281,7 +307,9 @@
     cursor: not-allowed
 }
 
+
 /*!minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css*/
+
 html,
 body,
 p,
@@ -538,27 +566,21 @@ table th {
     .is-size-1-mobile {
         font-size: 3rem !important
     }
-
     .is-size-2-mobile {
         font-size: 2.5rem !important
     }
-
     .is-size-3-mobile {
         font-size: 2rem !important
     }
-
     .is-size-4-mobile {
         font-size: 1.5rem !important
     }
-
     .is-size-5-mobile {
         font-size: 1.25rem !important
     }
-
     .is-size-6-mobile {
         font-size: 1rem !important
     }
-
     .is-size-7-mobile {
         font-size: .75rem !important
     }
@@ -569,27 +591,21 @@ print {
     .is-size-1-tablet {
         font-size: 3rem !important
     }
-
     .is-size-2-tablet {
         font-size: 2.5rem !important
     }
-
     .is-size-3-tablet {
         font-size: 2rem !important
     }
-
     .is-size-4-tablet {
         font-size: 1.5rem !important
     }
-
     .is-size-5-tablet {
         font-size: 1.25rem !important
     }
-
     .is-size-6-tablet {
         font-size: 1rem !important
     }
-
     .is-size-7-tablet {
         font-size: .75rem !important
     }
@@ -599,27 +615,21 @@ print {
     .is-size-1-touch {
         font-size: 3rem !important
     }
-
     .is-size-2-touch {
         font-size: 2.5rem !important
     }
-
     .is-size-3-touch {
         font-size: 2rem !important
     }
-
     .is-size-4-touch {
         font-size: 1.5rem !important
     }
-
     .is-size-5-touch {
         font-size: 1.25rem !important
     }
-
     .is-size-6-touch {
         font-size: 1rem !important
     }
-
     .is-size-7-touch {
         font-size: .75rem !important
     }
@@ -629,27 +639,21 @@ print {
     .is-size-1-desktop {
         font-size: 3rem !important
     }
-
     .is-size-2-desktop {
         font-size: 2.5rem !important
     }
-
     .is-size-3-desktop {
         font-size: 2rem !important
     }
-
     .is-size-4-desktop {
         font-size: 1.5rem !important
     }
-
     .is-size-5-desktop {
         font-size: 1.25rem !important
     }
-
     .is-size-6-desktop {
         font-size: 1rem !important
     }
-
     .is-size-7-desktop {
         font-size: .75rem !important
     }
@@ -659,27 +663,21 @@ print {
     .is-size-1-widescreen {
         font-size: 3rem !important
     }
-
     .is-size-2-widescreen {
         font-size: 2.5rem !important
     }
-
     .is-size-3-widescreen {
         font-size: 2rem !important
     }
-
     .is-size-4-widescreen {
         font-size: 1.5rem !important
     }
-
     .is-size-5-widescreen {
         font-size: 1.25rem !important
     }
-
     .is-size-6-widescreen {
         font-size: 1rem !important
     }
-
     .is-size-7-widescreen {
         font-size: .75rem !important
     }
@@ -2658,7 +2656,6 @@ a.box:active {
         max-width: 960px;
         width: 960px
     }
-
     .container.is-fluid {
         margin-left: 64px;
         margin-right: 64px;
@@ -4237,21 +4234,17 @@ print {
         margin-right: 1.5rem;
         text-align: right
     }
-
     .field-label.is-small {
         font-size: .75rem;
         padding-top: .375em
     }
-
     .field-label.is-normal {
         padding-top: .375em
     }
-
     .field-label.is-medium {
         font-size: 1.25rem;
         padding-top: .375em
     }
-
     .field-label.is-large {
         font-size: 1.5rem;
         padding-top: .375em
@@ -4270,19 +4263,15 @@ print {
         flex-grow: 5;
         flex-shrink: 1
     }
-
     .field-body .field {
         margin-bottom: 0
     }
-
     .field-body>.field {
         flex-shrink: 1
     }
-
     .field-body>.field:not(.is-narrow) {
         flex-grow: 1
     }
-
     .field-body>.field:not(:last-child) {
         margin-right: .75rem
     }
@@ -5622,7 +5611,6 @@ print {
     .level {
         display: flex
     }
-
     .level>.level-item:not(.is-narrow) {
         flex-grow: 1
     }
@@ -5662,7 +5650,6 @@ print {
 
 @media screen and (min-width:769px),
 print {
-
     .level-left .level-item:not(:last-child),
     .level-right .level-item:not(:last-child) {
         margin-right: .75rem
@@ -6057,7 +6044,6 @@ print {
 
 @media screen and (min-width:769px),
 print {
-
     .modal-content,
     .modal-card {
         margin: 0 auto;
@@ -6157,14 +6143,12 @@ print {
 }
 
 @media screen and (min-width:1088px) {
-
     .navbar.is-white .navbar-start>.navbar-item,
     .navbar.is-white .navbar-start .navbar-link,
     .navbar.is-white .navbar-end>.navbar-item,
     .navbar.is-white .navbar-end .navbar-link {
         color: #0a0a0a
     }
-
     .navbar.is-white .navbar-start>a.navbar-item:hover,
     .navbar.is-white .navbar-start>a.navbar-item.is-active,
     .navbar.is-white .navbar-start .navbar-link:hover,
@@ -6176,18 +6160,15 @@ print {
         background-color: #f2f2f2;
         color: #0a0a0a
     }
-
     .navbar.is-white .navbar-start .navbar-link::after,
     .navbar.is-white .navbar-end .navbar-link::after {
         border-color: #0a0a0a
     }
-
     .navbar.is-white .navbar-item.has-dropdown:hover .navbar-link,
     .navbar.is-white .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #f2f2f2;
         color: #0a0a0a
     }
-
     .navbar.is-white .navbar-dropdown a.navbar-item.is-active {
         background-color: #fff;
         color: #0a0a0a
@@ -6217,14 +6198,12 @@ print {
 }
 
 @media screen and (min-width:1088px) {
-
     .navbar.is-black .navbar-start>.navbar-item,
     .navbar.is-black .navbar-start .navbar-link,
     .navbar.is-black .navbar-end>.navbar-item,
     .navbar.is-black .navbar-end .navbar-link {
         color: #fff
     }
-
     .navbar.is-black .navbar-start>a.navbar-item:hover,
     .navbar.is-black .navbar-start>a.navbar-item.is-active,
     .navbar.is-black .navbar-start .navbar-link:hover,
@@ -6236,18 +6215,15 @@ print {
         background-color: #000;
         color: #fff
     }
-
     .navbar.is-black .navbar-start .navbar-link::after,
     .navbar.is-black .navbar-end .navbar-link::after {
         border-color: #fff
     }
-
     .navbar.is-black .navbar-item.has-dropdown:hover .navbar-link,
     .navbar.is-black .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #000;
         color: #fff
     }
-
     .navbar.is-black .navbar-dropdown a.navbar-item.is-active {
         background-color: #0a0a0a;
         color: #fff
@@ -6277,14 +6253,12 @@ print {
 }
 
 @media screen and (min-width:1088px) {
-
     .navbar.is-light .navbar-start>.navbar-item,
     .navbar.is-light .navbar-start .navbar-link,
     .navbar.is-light .navbar-end>.navbar-item,
     .navbar.is-light .navbar-end .navbar-link {
         color: #363636
     }
-
     .navbar.is-light .navbar-start>a.navbar-item:hover,
     .navbar.is-light .navbar-start>a.navbar-item.is-active,
     .navbar.is-light .navbar-start .navbar-link:hover,
@@ -6296,18 +6270,15 @@ print {
         background-color: #e8e8e8;
         color: #363636
     }
-
     .navbar.is-light .navbar-start .navbar-link::after,
     .navbar.is-light .navbar-end .navbar-link::after {
         border-color: #363636
     }
-
     .navbar.is-light .navbar-item.has-dropdown:hover .navbar-link,
     .navbar.is-light .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #e8e8e8;
         color: #363636
     }
-
     .navbar.is-light .navbar-dropdown a.navbar-item.is-active {
         background-color: #f5f5f5;
         color: #363636
@@ -6337,14 +6308,12 @@ print {
 }
 
 @media screen and (min-width:1088px) {
-
     .navbar.is-dark .navbar-start>.navbar-item,
     .navbar.is-dark .navbar-start .navbar-link,
     .navbar.is-dark .navbar-end>.navbar-item,
     .navbar.is-dark .navbar-end .navbar-link {
         color: #f5f5f5
     }
-
     .navbar.is-dark .navbar-start>a.navbar-item:hover,
     .navbar.is-dark .navbar-start>a.navbar-item.is-active,
     .navbar.is-dark .navbar-start .navbar-link:hover,
@@ -6356,18 +6325,15 @@ print {
         background-color: #292929;
         color: #f5f5f5
     }
-
     .navbar.is-dark .navbar-start .navbar-link::after,
     .navbar.is-dark .navbar-end .navbar-link::after {
         border-color: #f5f5f5
     }
-
     .navbar.is-dark .navbar-item.has-dropdown:hover .navbar-link,
     .navbar.is-dark .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #292929;
         color: #f5f5f5
     }
-
     .navbar.is-dark .navbar-dropdown a.navbar-item.is-active {
         background-color: #363636;
         color: #f5f5f5
@@ -6397,14 +6363,12 @@ print {
 }
 
 @media screen and (min-width:1088px) {
-
     .navbar.is-primary .navbar-start>.navbar-item,
     .navbar.is-primary .navbar-start .navbar-link,
     .navbar.is-primary .navbar-end>.navbar-item,
     .navbar.is-primary .navbar-end .navbar-link {
         color: #fff
     }
-
     .navbar.is-primary .navbar-start>a.navbar-item:hover,
     .navbar.is-primary .navbar-start>a.navbar-item.is-active,
     .navbar.is-primary .navbar-start .navbar-link:hover,
@@ -6416,18 +6380,15 @@ print {
         background-color: #00b89c;
         color: #fff
     }
-
     .navbar.is-primary .navbar-start .navbar-link::after,
     .navbar.is-primary .navbar-end .navbar-link::after {
         border-color: #fff
     }
-
     .navbar.is-primary .navbar-item.has-dropdown:hover .navbar-link,
     .navbar.is-primary .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #00b89c;
         color: #fff
     }
-
     .navbar.is-primary .navbar-dropdown a.navbar-item.is-active {
         background-color: #00d1b2;
         color: #fff
@@ -6457,14 +6418,12 @@ print {
 }
 
 @media screen and (min-width:1088px) {
-
     .navbar.is-link .navbar-start>.navbar-item,
     .navbar.is-link .navbar-start .navbar-link,
     .navbar.is-link .navbar-end>.navbar-item,
     .navbar.is-link .navbar-end .navbar-link {
         color: #fff
     }
-
     .navbar.is-link .navbar-start>a.navbar-item:hover,
     .navbar.is-link .navbar-start>a.navbar-item.is-active,
     .navbar.is-link .navbar-start .navbar-link:hover,
@@ -6476,18 +6435,15 @@ print {
         background-color: #2366d1;
         color: #fff
     }
-
     .navbar.is-link .navbar-start .navbar-link::after,
     .navbar.is-link .navbar-end .navbar-link::after {
         border-color: #fff
     }
-
     .navbar.is-link .navbar-item.has-dropdown:hover .navbar-link,
     .navbar.is-link .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #2366d1;
         color: #fff
     }
-
     .navbar.is-link .navbar-dropdown a.navbar-item.is-active {
         background-color: #3273dc;
         color: #fff
@@ -6517,14 +6473,12 @@ print {
 }
 
 @media screen and (min-width:1088px) {
-
     .navbar.is-info .navbar-start>.navbar-item,
     .navbar.is-info .navbar-start .navbar-link,
     .navbar.is-info .navbar-end>.navbar-item,
     .navbar.is-info .navbar-end .navbar-link {
         color: #fff
     }
-
     .navbar.is-info .navbar-start>a.navbar-item:hover,
     .navbar.is-info .navbar-start>a.navbar-item.is-active,
     .navbar.is-info .navbar-start .navbar-link:hover,
@@ -6536,18 +6490,15 @@ print {
         background-color: #118fe4;
         color: #fff
     }
-
     .navbar.is-info .navbar-start .navbar-link::after,
     .navbar.is-info .navbar-end .navbar-link::after {
         border-color: #fff
     }
-
     .navbar.is-info .navbar-item.has-dropdown:hover .navbar-link,
     .navbar.is-info .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #118fe4;
         color: #fff
     }
-
     .navbar.is-info .navbar-dropdown a.navbar-item.is-active {
         background-color: #209cee;
         color: #fff
@@ -6577,14 +6528,12 @@ print {
 }
 
 @media screen and (min-width:1088px) {
-
     .navbar.is-success .navbar-start>.navbar-item,
     .navbar.is-success .navbar-start .navbar-link,
     .navbar.is-success .navbar-end>.navbar-item,
     .navbar.is-success .navbar-end .navbar-link {
         color: #fff
     }
-
     .navbar.is-success .navbar-start>a.navbar-item:hover,
     .navbar.is-success .navbar-start>a.navbar-item.is-active,
     .navbar.is-success .navbar-start .navbar-link:hover,
@@ -6596,18 +6545,15 @@ print {
         background-color: #20bc56;
         color: #fff
     }
-
     .navbar.is-success .navbar-start .navbar-link::after,
     .navbar.is-success .navbar-end .navbar-link::after {
         border-color: #fff
     }
-
     .navbar.is-success .navbar-item.has-dropdown:hover .navbar-link,
     .navbar.is-success .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #20bc56;
         color: #fff
     }
-
     .navbar.is-success .navbar-dropdown a.navbar-item.is-active {
         background-color: #23d160;
         color: #fff
@@ -6637,14 +6583,12 @@ print {
 }
 
 @media screen and (min-width:1088px) {
-
     .navbar.is-warning .navbar-start>.navbar-item,
     .navbar.is-warning .navbar-start .navbar-link,
     .navbar.is-warning .navbar-end>.navbar-item,
     .navbar.is-warning .navbar-end .navbar-link {
         color: rgba(0, 0, 0, .7)
     }
-
     .navbar.is-warning .navbar-start>a.navbar-item:hover,
     .navbar.is-warning .navbar-start>a.navbar-item.is-active,
     .navbar.is-warning .navbar-start .navbar-link:hover,
@@ -6656,18 +6600,15 @@ print {
         background-color: #ffd83d;
         color: rgba(0, 0, 0, .7)
     }
-
     .navbar.is-warning .navbar-start .navbar-link::after,
     .navbar.is-warning .navbar-end .navbar-link::after {
         border-color: rgba(0, 0, 0, .7)
     }
-
     .navbar.is-warning .navbar-item.has-dropdown:hover .navbar-link,
     .navbar.is-warning .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #ffd83d;
         color: rgba(0, 0, 0, .7)
     }
-
     .navbar.is-warning .navbar-dropdown a.navbar-item.is-active {
         background-color: #ffdd57;
         color: rgba(0, 0, 0, .7)
@@ -6697,14 +6638,12 @@ print {
 }
 
 @media screen and (min-width:1088px) {
-
     .navbar.is-danger .navbar-start>.navbar-item,
     .navbar.is-danger .navbar-start .navbar-link,
     .navbar.is-danger .navbar-end>.navbar-item,
     .navbar.is-danger .navbar-end .navbar-link {
         color: #fff
     }
-
     .navbar.is-danger .navbar-start>a.navbar-item:hover,
     .navbar.is-danger .navbar-start>a.navbar-item.is-active,
     .navbar.is-danger .navbar-start .navbar-link:hover,
@@ -6716,18 +6655,15 @@ print {
         background-color: #ff1f4b;
         color: #fff
     }
-
     .navbar.is-danger .navbar-start .navbar-link::after,
     .navbar.is-danger .navbar-end .navbar-link::after {
         border-color: #fff
     }
-
     .navbar.is-danger .navbar-item.has-dropdown:hover .navbar-link,
     .navbar.is-danger .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #ff1f4b;
         color: #fff
     }
-
     .navbar.is-danger .navbar-dropdown a.navbar-item.is-active {
         background-color: #ff3860;
         color: #fff
@@ -6953,27 +6889,22 @@ a.navbar-item.is-active,
     .navbar>.container {
         display: block
     }
-
     .navbar-brand .navbar-item,
     .navbar-tabs .navbar-item {
         align-items: center;
         display: flex
     }
-
     .navbar-link::after {
         display: none
     }
-
     .navbar-menu {
         background-color: #fff;
         box-shadow: 0 8px 16px rgba(10, 10, 10, .1);
         padding: .5rem 0
     }
-
     .navbar-menu.is-active {
         display: block
     }
-
     .navbar.is-fixed-bottom-touch,
     .navbar.is-fixed-top-touch {
         left: 0;
@@ -6981,31 +6912,25 @@ a.navbar-item.is-active,
         right: 0;
         z-index: 30
     }
-
     .navbar.is-fixed-bottom-touch {
         bottom: 0
     }
-
     .navbar.is-fixed-bottom-touch.has-shadow {
         box-shadow: 0 -2px 3px rgba(10, 10, 10, .1)
     }
-
     .navbar.is-fixed-top-touch {
         top: 0
     }
-
     .navbar.is-fixed-top .navbar-menu,
     .navbar.is-fixed-top-touch .navbar-menu {
         -webkit-overflow-scrolling: touch;
         max-height: calc(100vh - 3.25rem);
         overflow: auto
     }
-
     html.has-navbar-fixed-top-touch,
     body.has-navbar-fixed-top-touch {
         padding-top: 3.25rem
     }
-
     html.has-navbar-fixed-bottom-touch,
     body.has-navbar-fixed-bottom-touch {
         padding-bottom: 3.25rem
@@ -7013,7 +6938,6 @@ a.navbar-item.is-active,
 }
 
 @media screen and (min-width:1088px) {
-
     .navbar,
     .navbar-menu,
     .navbar-start,
@@ -7021,69 +6945,55 @@ a.navbar-item.is-active,
         align-items: stretch;
         display: flex
     }
-
     .navbar {
         min-height: 3.25rem
     }
-
     .navbar.is-spaced {
         padding: 1rem 2rem
     }
-
     .navbar.is-spaced .navbar-start,
     .navbar.is-spaced .navbar-end {
         align-items: center
     }
-
     .navbar.is-spaced a.navbar-item,
     .navbar.is-spaced .navbar-link {
         border-radius: 4px
     }
-
     .navbar.is-transparent a.navbar-item:hover,
     .navbar.is-transparent a.navbar-item.is-active,
     .navbar.is-transparent .navbar-link:hover,
     .navbar.is-transparent .navbar-link.is-active {
         background-color: transparent !important
     }
-
     .navbar.is-transparent .navbar-item.has-dropdown.is-active .navbar-link,
     .navbar.is-transparent .navbar-item.has-dropdown.is-hoverable:hover .navbar-link {
         background-color: transparent !important
     }
-
     .navbar.is-transparent .navbar-dropdown a.navbar-item:hover {
         background-color: #f5f5f5;
         color: #0a0a0a
     }
-
     .navbar.is-transparent .navbar-dropdown a.navbar-item.is-active {
         background-color: #f5f5f5;
         color: #3273dc
     }
-
     .navbar-burger {
         display: none
     }
-
     .navbar-item,
     .navbar-link {
         align-items: center;
         display: flex
     }
-
     .navbar-item {
         display: flex
     }
-
     .navbar-item.has-dropdown {
         align-items: stretch
     }
-
     .navbar-item.has-dropdown-up .navbar-link::after {
         transform: rotate(135deg) translate(0.25em, -0.25em)
     }
-
     .navbar-item.has-dropdown-up .navbar-dropdown {
         border-bottom: 2px solid #dbdbdb;
         border-radius: 6px 6px 0 0;
@@ -7092,12 +7002,10 @@ a.navbar-item.is-active,
         box-shadow: 0 -8px 8px rgba(10, 10, 10, .1);
         top: auto
     }
-
     .navbar-item.is-active .navbar-dropdown,
     .navbar-item.is-hoverable:hover .navbar-dropdown {
         display: block
     }
-
     .navbar.is-spaced .navbar-item.is-active .navbar-dropdown,
     .navbar-item.is-active .navbar-dropdown.is-boxed,
     .navbar.is-spaced .navbar-item.is-hoverable:hover .navbar-dropdown,
@@ -7106,22 +7014,18 @@ a.navbar-item.is-active,
         pointer-events: auto;
         transform: translateY(0)
     }
-
     .navbar-menu {
         flex-grow: 1;
         flex-shrink: 0
     }
-
     .navbar-start {
         justify-content: flex-start;
         margin-right: auto
     }
-
     .navbar-end {
         justify-content: flex-end;
         margin-left: auto
     }
-
     .navbar-dropdown {
         background-color: #fff;
         border-bottom-left-radius: 6px;
@@ -7136,26 +7040,21 @@ a.navbar-item.is-active,
         top: 100%;
         z-index: 20
     }
-
     .navbar-dropdown .navbar-item {
         padding: .375rem 1rem;
         white-space: nowrap
     }
-
     .navbar-dropdown a.navbar-item {
         padding-right: 3rem
     }
-
     .navbar-dropdown a.navbar-item:hover {
         background-color: #f5f5f5;
         color: #0a0a0a
     }
-
     .navbar-dropdown a.navbar-item.is-active {
         background-color: #f5f5f5;
         color: #3273dc
     }
-
     .navbar.is-spaced .navbar-dropdown,
     .navbar-dropdown.is-boxed {
         border-radius: 6px;
@@ -7169,26 +7068,21 @@ a.navbar-item.is-active,
         transition-duration: 86ms;
         transition-property: opacity, transform
     }
-
     .navbar-dropdown.is-right {
         left: auto;
         right: 0
     }
-
     .navbar-divider {
         display: block
     }
-
     .navbar>.container .navbar-brand,
     .container>.navbar .navbar-brand {
         margin-left: -1rem
     }
-
     .navbar>.container .navbar-menu,
     .container>.navbar .navbar-menu {
         margin-right: -1rem
     }
-
     .navbar.is-fixed-bottom-desktop,
     .navbar.is-fixed-top-desktop {
         left: 0;
@@ -7196,49 +7090,39 @@ a.navbar-item.is-active,
         right: 0;
         z-index: 30
     }
-
     .navbar.is-fixed-bottom-desktop {
         bottom: 0
     }
-
     .navbar.is-fixed-bottom-desktop.has-shadow {
         box-shadow: 0 -2px 3px rgba(10, 10, 10, .1)
     }
-
     .navbar.is-fixed-top-desktop {
         top: 0
     }
-
     html.has-navbar-fixed-top-desktop,
     body.has-navbar-fixed-top-desktop {
         padding-top: 3.25rem
     }
-
     html.has-navbar-fixed-bottom-desktop,
     body.has-navbar-fixed-bottom-desktop {
         padding-bottom: 3.25rem
     }
-
     html.has-spaced-navbar-fixed-top,
     body.has-spaced-navbar-fixed-top {
         padding-top: 5.25rem
     }
-
     html.has-spaced-navbar-fixed-bottom,
     body.has-spaced-navbar-fixed-bottom {
         padding-bottom: 5.25rem
     }
-
     a.navbar-item.is-active,
     .navbar-link.is-active {
         color: #0a0a0a
     }
-
     a.navbar-item.is-active:not(:hover),
     .navbar-link.is-active:not(:hover) {
         background-color: rgba(0, 0, 0, 0)
     }
-
     .navbar-item.has-dropdown:hover .navbar-link,
     .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #fafafa
@@ -7356,13 +7240,11 @@ a.navbar-item.is-active,
     .pagination {
         flex-wrap: wrap
     }
-
     .pagination-previous,
     .pagination-next {
         flex-grow: 1;
         flex-shrink: 1
     }
-
     .pagination-list li {
         flex-grow: 1;
         flex-shrink: 1
@@ -7377,40 +7259,31 @@ print {
         justify-content: flex-start;
         order: 1
     }
-
     .pagination-previous {
         order: 2
     }
-
     .pagination-next {
         order: 3
     }
-
     .pagination {
         justify-content: space-between
     }
-
     .pagination.is-centered .pagination-previous {
         order: 1
     }
-
     .pagination.is-centered .pagination-list {
         justify-content: center;
         order: 2
     }
-
     .pagination.is-centered .pagination-next {
         order: 3
     }
-
     .pagination.is-right .pagination-previous {
         order: 1
     }
-
     .pagination.is-right .pagination-next {
         order: 2
     }
-
     .pagination.is-right .pagination-list {
         justify-content: flex-end;
         order: 3
@@ -7906,201 +7779,157 @@ label.panel-block:hover {
     .column.is-narrow-mobile {
         flex: none
     }
-
     .column.is-full-mobile {
         flex: none;
         width: 100%
     }
-
     .column.video-list-item {
         margin: 0.5rem;
     }
-
     .column.is-three-quarters-mobile {
         flex: none;
         width: 75%
     }
-
     .column.is-two-thirds-mobile {
         flex: none;
         width: 66.6666%
     }
-
     .column.is-half-mobile {
         flex: none;
         width: 50%
     }
-
     .column.is-one-third-mobile {
         flex: none;
         width: 33.3333%
     }
-
     .column.is-one-quarter-mobile {
         flex: none;
         width: 25%
     }
-
     .column.is-one-fifth-mobile {
         flex: none;
         width: 20%
     }
-
     .column.is-two-fifths-mobile {
         flex: none;
         width: 40%
     }
-
     .column.is-three-fifths-mobile {
         flex: none;
         width: 60%
     }
-
     .column.is-four-fifths-mobile {
         flex: none;
         width: 80%
     }
-
     .column.is-offset-three-quarters-mobile {
         margin-left: 75%
     }
-
     .column.is-offset-two-thirds-mobile {
         margin-left: 66.6666%
     }
-
     .column.is-offset-half-mobile {
         margin-left: 50%
     }
-
     .column.is-offset-one-third-mobile {
         margin-left: 33.3333%
     }
-
     .column.is-offset-one-quarter-mobile {
         margin-left: 25%
     }
-
     .column.is-offset-one-fifth-mobile {
         margin-left: 20%
     }
-
     .column.is-offset-two-fifths-mobile {
         margin-left: 40%
     }
-
     .column.is-offset-three-fifths-mobile {
         margin-left: 60%
     }
-
     .column.is-offset-four-fifths-mobile {
         margin-left: 80%
     }
-
     .column.is-1-mobile {
         flex: none;
         width: 8.33333333%
     }
-
     .column.is-offset-1-mobile {
         margin-left: 8.33333333%
     }
-
     .column.is-2-mobile {
         flex: none;
         width: 16.66666667%
     }
-
     .column.is-offset-2-mobile {
         margin-left: 16.66666667%
     }
-
     .column.is-3-mobile {
         flex: none;
         width: 25%
     }
-
     .column.is-offset-3-mobile {
         margin-left: 25%
     }
-
     .column.is-4-mobile {
         flex: none;
         width: 33.33333333%
     }
-
     .column.is-offset-4-mobile {
         margin-left: 33.33333333%
     }
-
     .column.is-5-mobile {
         flex: none;
         width: 41.66666667%
     }
-
     .column.is-offset-5-mobile {
         margin-left: 41.66666667%
     }
-
     .column.is-6-mobile {
         flex: none;
         width: 50%
     }
-
     .column.is-offset-6-mobile {
         margin-left: 50%
     }
-
     .column.is-7-mobile {
         flex: none;
         width: 58.33333333%
     }
-
     .column.is-offset-7-mobile {
         margin-left: 58.33333333%
     }
-
     .column.is-8-mobile {
         flex: none;
         width: 66.66666667%
     }
-
     .column.is-offset-8-mobile {
         margin-left: 66.66666667%
     }
-
     .column.is-9-mobile {
         flex: none;
         width: 75%
     }
-
     .column.is-offset-9-mobile {
         margin-left: 75%
     }
-
     .column.is-10-mobile {
         flex: none;
         width: 83.33333333%
     }
-
     .column.is-offset-10-mobile {
         margin-left: 83.33333333%
     }
-
     .column.is-11-mobile {
         flex: none;
         width: 91.66666667%
     }
-
     .column.is-offset-11-mobile {
         margin-left: 91.66666667%
     }
-
     .column.is-12-mobile {
         flex: none;
         width: 100%
     }
-
     .column.is-offset-12-mobile {
         margin-left: 100%
     }
@@ -8108,250 +7937,205 @@ label.panel-block:hover {
 
 @media screen and (min-width:769px),
 print {
-
     .column.video-list-item {
         flex: none;
         width: 50%;
         margin: 0.5rem;
     }
-
     .column.is-narrow,
     .column.is-narrow-tablet {
         flex: none
     }
-
     .column.is-full,
     .column.is-full-tablet {
         flex: none;
         width: 100%
     }
-
     .column.is-three-quarters,
     .column.is-three-quarters-tablet {
         flex: none;
         width: 75%
     }
-
     .column.is-two-thirds,
     .column.is-two-thirds-tablet {
         flex: none;
         width: 66.6666%
     }
-
     .column.is-half,
     .column.is-half-tablet {
         flex: none;
         width: 50%
     }
-
     .column.is-one-third,
     .column.is-one-third-tablet {
         flex: none;
         width: 33.3333%
     }
-
     .column.is-one-quarter,
     .column.is-one-quarter-tablet {
         flex: none;
         width: 25%
     }
-
     .column.is-one-fifth,
     .column.is-one-fifth-tablet {
         flex: none;
         width: 20%
     }
-
     .column.is-two-fifths,
     .column.is-two-fifths-tablet {
         flex: none;
         width: 40%
     }
-
     .column.is-three-fifths,
     .column.is-three-fifths-tablet {
         flex: none;
         width: 60%
     }
-
     .column.is-four-fifths,
     .column.is-four-fifths-tablet {
         flex: none;
         width: 80%
     }
-
     .column.is-offset-three-quarters,
     .column.is-offset-three-quarters-tablet {
         margin-left: 75%
     }
-
     .column.is-offset-two-thirds,
     .column.is-offset-two-thirds-tablet {
         margin-left: 66.6666%
     }
-
     .column.is-offset-half,
     .column.is-offset-half-tablet {
         margin-left: 50%
     }
-
     .column.is-offset-one-third,
     .column.is-offset-one-third-tablet {
         margin-left: 33.3333%
     }
-
     .column.is-offset-one-quarter,
     .column.is-offset-one-quarter-tablet {
         margin-left: 25%
     }
-
     .column.is-offset-one-fifth,
     .column.is-offset-one-fifth-tablet {
         margin-left: 20%
     }
-
     .column.is-offset-two-fifths,
     .column.is-offset-two-fifths-tablet {
         margin-left: 40%
     }
-
     .column.is-offset-three-fifths,
     .column.is-offset-three-fifths-tablet {
         margin-left: 60%
     }
-
     .column.is-offset-four-fifths,
     .column.is-offset-four-fifths-tablet {
         margin-left: 80%
     }
-
     .column.is-1,
     .column.is-1-tablet {
         flex: none;
         width: 8.33333333%
     }
-
     .column.is-offset-1,
     .column.is-offset-1-tablet {
         margin-left: 8.33333333%
     }
-
     .column.is-2,
     .column.is-2-tablet {
         flex: none;
         width: 16.66666667%
     }
-
     .column.is-offset-2,
     .column.is-offset-2-tablet {
         margin-left: 16.66666667%
     }
-
     .column.is-3,
     .column.is-3-tablet {
         flex: none;
         width: 25%
     }
-
     .column.is-offset-3,
     .column.is-offset-3-tablet {
         margin-left: 25%
     }
-
     .column.is-4,
     .column.is-4-tablet {
         flex: none;
         width: 33.33333333%
     }
-
     .column.is-offset-4,
     .column.is-offset-4-tablet {
         margin-left: 33.33333333%
     }
-
     .column.is-5,
     .column.is-5-tablet {
         flex: none;
         width: 41.66666667%
     }
-
     .column.is-offset-5,
     .column.is-offset-5-tablet {
         margin-left: 41.66666667%
     }
-
     .column.is-6,
     .column.is-6-tablet {
         flex: none;
         width: 50%
     }
-
     .column.is-offset-6,
     .column.is-offset-6-tablet {
         margin-left: 50%
     }
-
     .column.is-7,
     .column.is-7-tablet {
         flex: none;
         width: 58.33333333%
     }
-
     .column.is-offset-7,
     .column.is-offset-7-tablet {
         margin-left: 58.33333333%
     }
-
     .column.is-8,
     .column.is-8-tablet {
         flex: none;
         width: 66.66666667%
     }
-
     .column.is-offset-8,
     .column.is-offset-8-tablet {
         margin-left: 66.66666667%
     }
-
     .column.is-9,
     .column.is-9-tablet {
         flex: none;
         width: 75%
     }
-
     .column.is-offset-9,
     .column.is-offset-9-tablet {
         margin-left: 75%
     }
-
     .column.is-10,
     .column.is-10-tablet {
         flex: none;
         width: 83.33333333%
     }
-
     .column.is-offset-10,
     .column.is-offset-10-tablet {
         margin-left: 83.33333333%
     }
-
     .column.is-11,
     .column.is-11-tablet {
         flex: none;
         width: 91.66666667%
     }
-
     .column.is-offset-11,
     .column.is-offset-11-tablet {
         margin-left: 91.66666667%
     }
-
     .column.is-12,
     .column.is-12-tablet {
         flex: none;
         width: 100%
     }
-
     .column.is-offset-12,
     .column.is-offset-12-tablet {
         margin-left: 100%
@@ -8362,197 +8146,154 @@ print {
     .column.is-narrow-touch {
         flex: none
     }
-
     .column.is-full-touch {
         flex: none;
         width: 100%
     }
-
     .column.is-three-quarters-touch {
         flex: none;
         width: 75%
     }
-
     .column.is-two-thirds-touch {
         flex: none;
         width: 66.6666%
     }
-
     .column.is-half-touch {
         flex: none;
         width: 50%
     }
-
     .column.is-one-third-touch {
         flex: none;
         width: 33.3333%
     }
-
     .column.is-one-quarter-touch {
         flex: none;
         width: 25%
     }
-
     .column.is-one-fifth-touch {
         flex: none;
         width: 20%
     }
-
     .column.is-two-fifths-touch {
         flex: none;
         width: 40%
     }
-
     .column.is-three-fifths-touch {
         flex: none;
         width: 60%
     }
-
     .column.is-four-fifths-touch {
         flex: none;
         width: 80%
     }
-
     .column.is-offset-three-quarters-touch {
         margin-left: 75%
     }
-
     .column.is-offset-two-thirds-touch {
         margin-left: 66.6666%
     }
-
     .column.is-offset-half-touch {
         margin-left: 50%
     }
-
     .column.is-offset-one-third-touch {
         margin-left: 33.3333%
     }
-
     .column.is-offset-one-quarter-touch {
         margin-left: 25%
     }
-
     .column.is-offset-one-fifth-touch {
         margin-left: 20%
     }
-
     .column.is-offset-two-fifths-touch {
         margin-left: 40%
     }
-
     .column.is-offset-three-fifths-touch {
         margin-left: 60%
     }
-
     .column.is-offset-four-fifths-touch {
         margin-left: 80%
     }
-
     .column.is-1-touch {
         flex: none;
         width: 8.33333333%
     }
-
     .column.is-offset-1-touch {
         margin-left: 8.33333333%
     }
-
     .column.is-2-touch {
         flex: none;
         width: 16.66666667%
     }
-
     .column.is-offset-2-touch {
         margin-left: 16.66666667%
     }
-
     .column.is-3-touch {
         flex: none;
         width: 25%
     }
-
     .column.is-offset-3-touch {
         margin-left: 25%
     }
-
     .column.is-4-touch {
         flex: none;
         width: 33.33333333%
     }
-
     .column.is-offset-4-touch {
         margin-left: 33.33333333%
     }
-
     .column.is-5-touch {
         flex: none;
         width: 41.66666667%
     }
-
     .column.is-offset-5-touch {
         margin-left: 41.66666667%
     }
-
     .column.is-6-touch {
         flex: none;
         width: 50%
     }
-
     .column.is-offset-6-touch {
         margin-left: 50%
     }
-
     .column.is-7-touch {
         flex: none;
         width: 58.33333333%
     }
-
     .column.is-offset-7-touch {
         margin-left: 58.33333333%
     }
-
     .column.is-8-touch {
         flex: none;
         width: 66.66666667%
     }
-
     .column.is-offset-8-touch {
         margin-left: 66.66666667%
     }
-
     .column.is-9-touch {
         flex: none;
         width: 75%
     }
-
     .column.is-offset-9-touch {
         margin-left: 75%
     }
-
     .column.is-10-touch {
         flex: none;
         width: 83.33333333%
     }
-
     .column.is-offset-10-touch {
         margin-left: 83.33333333%
     }
-
     .column.is-11-touch {
         flex: none;
         width: 91.66666667%
     }
-
     .column.is-offset-11-touch {
         margin-left: 91.66666667%
     }
-
     .column.is-12-touch {
         flex: none;
         width: 100%
     }
-
     .column.is-offset-12-touch {
         margin-left: 100%
     }
@@ -8562,203 +8303,159 @@ print {
     .column.is-narrow-desktop {
         flex: none
     }
-
     .column.is-full-desktop {
         flex: none;
         width: 100%
     }
-
     .column.is-three-quarters-desktop {
         flex: none;
         width: 75%
     }
-
     .column.is-two-thirds-desktop {
         flex: none;
         width: 66.6666%
     }
-
     .column.is-half-desktop {
         flex: none;
         width: 50%
     }
-
     .column.video-list-item {
         flex: none;
         width: 22%;
         margin: 0.5rem;
     }
-
     .column.is-one-third-desktop {
         flex: none;
         width: 33.3333%
     }
-
     .column.is-one-quarter-desktop {
         flex: none;
         width: 25%
     }
-
     .column.is-one-fifth-desktop {
         flex: none;
         width: 20%
     }
-
     .column.is-two-fifths-desktop {
         flex: none;
         width: 40%
     }
-
     .column.is-three-fifths-desktop {
         flex: none;
         width: 60%
     }
-
     .column.is-four-fifths-desktop {
         flex: none;
         width: 80%
     }
-
     .column.is-offset-three-quarters-desktop {
         margin-left: 75%
     }
-
     .column.is-offset-two-thirds-desktop {
         margin-left: 66.6666%
     }
-
     .column.is-offset-half-desktop {
         margin-left: 50%
     }
-
     .column.is-offset-one-third-desktop {
         margin-left: 33.3333%
     }
-
     .column.is-offset-one-quarter-desktop {
         margin-left: 25%
     }
-
     .column.is-offset-one-fifth-desktop {
         margin-left: 20%
     }
-
     .column.is-offset-two-fifths-desktop {
         margin-left: 40%
     }
-
     .column.is-offset-three-fifths-desktop {
         margin-left: 60%
     }
-
     .column.is-offset-four-fifths-desktop {
         margin-left: 80%
     }
-
     .column.is-1-desktop {
         flex: none;
         width: 8.33333333%
     }
-
     .column.is-offset-1-desktop {
         margin-left: 8.33333333%
     }
-
     .column.is-2-desktop {
         flex: none;
         width: 16.66666667%
     }
-
     .column.is-offset-2-desktop {
         margin-left: 16.66666667%
     }
-
     .column.is-3-desktop {
         flex: none;
         width: 25%
     }
-
     .column.is-offset-3-desktop {
         margin-left: 25%
     }
-
     .column.is-4-desktop {
         flex: none;
         width: 33.33333333%
     }
-
     .column.is-offset-4-desktop {
         margin-left: 33.33333333%
     }
-
     .column.is-5-desktop {
         flex: none;
         width: 41.66666667%
     }
-
     .column.is-offset-5-desktop {
         margin-left: 41.66666667%
     }
-
     .column.is-6-desktop {
         flex: none;
         width: 50%
     }
-
     .column.is-offset-6-desktop {
         margin-left: 50%
     }
-
     .column.is-7-desktop {
         flex: none;
         width: 58.33333333%
     }
-
     .column.is-offset-7-desktop {
         margin-left: 58.33333333%
     }
-
     .column.is-8-desktop {
         flex: none;
         width: 66.66666667%
     }
-
     .column.is-offset-8-desktop {
         margin-left: 66.66666667%
     }
-
     .column.is-9-desktop {
         flex: none;
         width: 75%
     }
-
     .column.is-offset-9-desktop {
         margin-left: 75%
     }
-
     .column.is-10-desktop {
         flex: none;
         width: 83.33333333%
     }
-
     .column.is-offset-10-desktop {
         margin-left: 83.33333333%
     }
-
     .column.is-11-desktop {
         flex: none;
         width: 91.66666667%
     }
-
     .column.is-offset-11-desktop {
         margin-left: 91.66666667%
     }
-
     .column.is-12-desktop {
         flex: none;
         width: 100%
     }
-
     .column.is-offset-12-desktop {
         margin-left: 100%
     }
@@ -8768,197 +8465,154 @@ print {
     .column.is-narrow-widescreen {
         flex: none
     }
-
     .column.is-full-widescreen {
         flex: none;
         width: 100%
     }
-
     .column.is-three-quarters-widescreen {
         flex: none;
         width: 75%
     }
-
     .column.is-two-thirds-widescreen {
         flex: none;
         width: 66.6666%
     }
-
     .column.is-half-widescreen {
         flex: none;
         width: 50%
     }
-
     .column.is-one-third-widescreen {
         flex: none;
         width: 33.3333%
     }
-
     .column.is-one-quarter-widescreen {
         flex: none;
         width: 25%
     }
-
     .column.is-one-fifth-widescreen {
         flex: none;
         width: 20%
     }
-
     .column.is-two-fifths-widescreen {
         flex: none;
         width: 40%
     }
-
     .column.is-three-fifths-widescreen {
         flex: none;
         width: 60%
     }
-
     .column.is-four-fifths-widescreen {
         flex: none;
         width: 80%
     }
-
     .column.is-offset-three-quarters-widescreen {
         margin-left: 75%
     }
-
     .column.is-offset-two-thirds-widescreen {
         margin-left: 66.6666%
     }
-
     .column.is-offset-half-widescreen {
         margin-left: 50%
     }
-
     .column.is-offset-one-third-widescreen {
         margin-left: 33.3333%
     }
-
     .column.is-offset-one-quarter-widescreen {
         margin-left: 25%
     }
-
     .column.is-offset-one-fifth-widescreen {
         margin-left: 20%
     }
-
     .column.is-offset-two-fifths-widescreen {
         margin-left: 40%
     }
-
     .column.is-offset-three-fifths-widescreen {
         margin-left: 60%
     }
-
     .column.is-offset-four-fifths-widescreen {
         margin-left: 80%
     }
-
     .column.is-1-widescreen {
         flex: none;
         width: 8.33333333%
     }
-
     .column.is-offset-1-widescreen {
         margin-left: 8.33333333%
     }
-
     .column.is-2-widescreen {
         flex: none;
         width: 16.66666667%
     }
-
     .column.is-offset-2-widescreen {
         margin-left: 16.66666667%
     }
-
     .column.is-3-widescreen {
         flex: none;
         width: 25%
     }
-
     .column.is-offset-3-widescreen {
         margin-left: 25%
     }
-
     .column.is-4-widescreen {
         flex: none;
         width: 33.33333333%
     }
-
     .column.is-offset-4-widescreen {
         margin-left: 33.33333333%
     }
-
     .column.is-5-widescreen {
         flex: none;
         width: 41.66666667%
     }
-
     .column.is-offset-5-widescreen {
         margin-left: 41.66666667%
     }
-
     .column.is-6-widescreen {
         flex: none;
         width: 50%
     }
-
     .column.is-offset-6-widescreen {
         margin-left: 50%
     }
-
     .column.is-7-widescreen {
         flex: none;
         width: 58.33333333%
     }
-
     .column.is-offset-7-widescreen {
         margin-left: 58.33333333%
     }
-
     .column.is-8-widescreen {
         flex: none;
         width: 66.66666667%
     }
-
     .column.is-offset-8-widescreen {
         margin-left: 66.66666667%
     }
-
     .column.is-9-widescreen {
         flex: none;
         width: 75%
     }
-
     .column.is-offset-9-widescreen {
         margin-left: 75%
     }
-
     .column.is-10-widescreen {
         flex: none;
         width: 83.33333333%
     }
-
     .column.is-offset-10-widescreen {
         margin-left: 83.33333333%
     }
-
     .column.is-11-widescreen {
         flex: none;
         width: 91.66666667%
     }
-
     .column.is-offset-11-widescreen {
         margin-left: 91.66666667%
     }
-
     .column.is-12-widescreen {
         flex: none;
         width: 100%
     }
-
     .column.is-offset-12-widescreen {
         margin-left: 100%
     }
@@ -9122,62 +8776,50 @@ print {
     .tile:not(.is-child) {
         display: flex
     }
-
     .tile.is-1 {
         flex: none;
         width: 8.33333333%
     }
-
     .tile.is-2 {
         flex: none;
         width: 16.66666667%
     }
-
     .tile.is-3 {
         flex: none;
         width: 25%
     }
-
     .tile.is-4 {
         flex: none;
         width: 33.33333333%
     }
-
     .tile.is-5 {
         flex: none;
         width: 41.66666667%
     }
-
     .tile.is-6 {
         flex: none;
         width: 50%
     }
-
     .tile.is-7 {
         flex: none;
         width: 58.33333333%
     }
-
     .tile.is-8 {
         flex: none;
         width: 66.66666667%
     }
-
     .tile.is-9 {
         flex: none;
         width: 75%
     }
-
     .tile.is-10 {
         flex: none;
         width: 83.33333333%
     }
-
     .tile.is-11 {
         flex: none;
         width: 91.66666667%
     }
-
     .tile.is-12 {
         flex: none;
         width: 100%
@@ -10111,7 +9753,6 @@ print {
     .hero-buttons .button {
         display: flex
     }
-
     .hero-buttons .button:not(:last-child) {
         margin-bottom: .75rem
     }
@@ -10129,7 +9770,6 @@ print {
         display: flex;
         justify-content: center
     }
-
     .hero-buttons .button:not(:last-child) {
         margin-right: 1.5rem
     }
@@ -10155,11 +9795,9 @@ print {
     .section.is-medium {
         padding: 9rem 1.5rem
     }
-
     .section.is-video {
         padding: 2rem 1.5rem
     }
-
     .section.is-large {
         padding: 18rem 1.5rem
     }
@@ -10227,9 +9865,11 @@ print {
 .navbar .navbar-item {
     color: #4f4d68
 }
+
 .navbar .navbar-item.is-active {
     color: #3273dc;
 }
+
 .navbar .navbar-item.is-secondary:hover {
     color: #0d2192 !important
 }
@@ -10647,7 +10287,9 @@ img.pushed-image {
     background-color: #00efb7
 }
 
+
 /*!_cards.scss v1.0.0 | Commercial License | built on top of bulma.io/Bulmax*/
+
 .feature-card {
     width: 300px;
     height: 320px;
@@ -10764,7 +10406,6 @@ img.pushed-image {
         transform: translate3d(20px, 0, 0);
         opacity: 0
     }
-
     to {
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
@@ -10778,7 +10419,6 @@ img.pushed-image {
         transform: translate3d(20px, 0, 0);
         opacity: 0
     }
-
     to {
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
@@ -10801,7 +10441,6 @@ img.pushed-image {
         -webkit-transform: translate3d(0, 20px, 0);
         transform: translate3d(0, 20px, 0)
     }
-
     to {
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
@@ -10814,7 +10453,6 @@ img.pushed-image {
         -webkit-transform: translate3d(0, 20px, 0);
         transform: translate3d(0, 20px, 0)
     }
-
     to {
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
@@ -10841,20 +10479,16 @@ img.pushed-image {
 }
 
 @keyframes gelatine {
-
     from,
     to {
         transform: scale(1, 1)
     }
-
     25% {
         transform: scale(0.9, 1.1)
     }
-
     50% {
         transform: scale(1.1, 0.9)
     }
-
     75% {
         transform: scale(0.95, 1.05)
     }
@@ -10962,42 +10596,33 @@ img.pushed-image {
     .landing-caption {
         text-align: center
     }
-
     .navbar-menu .is-static {
         position: absolute;
         width: 100%
     }
-
     .navbar-menu .is-fixed {
         position: fixed;
         width: 100%
     }
-
     .navbar-menu .navbar-item {
         text-align: center !important
     }
-
     .navbar-menu .navbar-item .signup-button {
         width: 100% !important
     }
-
     .navbar-menu .navbar-link {
         padding: 10px 20px !important
     }
-
     .title.section-title {
         font-size: 2rem !important
     }
-
     .level-left.level-social {
         display: flex;
         justify-content: flex-start
     }
-
     .pushed-image {
         margin-top: 0 !important
     }
-
     .testimonial {
         margin: 0 auto
     }
@@ -11007,41 +10632,32 @@ img.pushed-image {
     .landing-caption {
         text-align: center
     }
-
     .navbar-menu .is-static {
         position: absolute;
         width: 100%
     }
-
     .navbar-menu .is-fixed {
         position: fixed;
         width: 100%
     }
-
     .navbar-menu .navbar-item {
         text-align: center !important
     }
-
     .navbar-menu .navbar-item .signup-button {
         width: 100% !important
     }
-
     .navbar-menu .navbar-link {
         padding: 10px 20px !important
     }
-
     .pushed-image {
         margin-top: 0 !important
     }
-
     .testimonial {
         margin: 0 auto
     }
-
     .is-centered-tablet-portrait {
         text-align: center !important
     }
-
     .is-centered-tablet-portrait .divider {
         margin: 0 auto !important
     }
@@ -11275,27 +10891,31 @@ h3 {
     margin: 0;
     max-width: 360px
 }
+
 #about .more {
     text-align: center;
     padding-top: 0.5rem;
 }
+
 #about .video-wrap {
     position: relative;
     border: 1px solid #dee6f8;
     background: rgba(255, 255, 255, .2);
     padding: 0 1.25rem
 }
+
 #about .video-wrap .bg {
     width: 100%;
 }
+
 #about .video-wrap img {
     padding-top: 1rem;
 }
+
 #about .video-wrap .play-button {
     text-align: center;
     height: 100%;
 }
-
 
 #about .video-wrap .play-button span {
     position: absolute;
@@ -11313,7 +10933,7 @@ h3 {
     border-radius: 24px;
     display: inline-block;
     background-color: #66676b;
-    opacity:0.8;
+    opacity: 0.8;
 }
 
 #about .video-wrap .play-button span .icon {
@@ -11327,6 +10947,7 @@ h3 {
 #testimonial .user-list {
     display: flex;
 }
+
 #testimonial .user-list figure {
     flex: 1;
 }
@@ -11461,7 +11082,6 @@ h3 {
     from {
         opacity: 0
     }
-
     to {
         opacity: 1
     }
@@ -11508,6 +11128,7 @@ pre {
     position: relative;
     padding-top: 2.25rem
 }
+
 
 /* pre:before {
     background: linear-gradient(180deg, #f2f2f5 0%, #d5d4e0 100%);
@@ -11615,22 +11236,18 @@ pre {
     .navbar {
         background: transparent
     }
-
     .navbar .navbar-center {
         margin: 1rem auto
     }
-
     .navbar .navbar-end {
         position: absolute;
         right: 2vw;
         top: 6.5rem
     }
-
     .navbar .navbar-end .navbar-github {
         box-shadow: none;
         height: 30px
     }
-
     .dapper-dotnet {
         left: 2vw;
         top: 1rem
@@ -11644,6 +11261,7 @@ pre {
 .video-list-item .v-title {
     padding: 0.5rem;
 }
+
 .video-list-item .des {
     padding: 0.5rem;
 }
@@ -11665,8 +11283,9 @@ pre {
     left: 1.6rem;
     top: 1.6rem;
 }
+
 .card-icon-b img {
-    left:  0.1rem !important;
+    left: 0.1rem !important;
     top: 1.6rem !important;
     width: 4rem;
 }
