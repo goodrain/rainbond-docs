@@ -1,8 +1,7 @@
 ---
 title: "第三方组件管理"
 description: "讲解第三方组件类型的管理操作"
-hidden: true
-Weight: 5200
+Weight: 110
 ---
 
 ### 总览

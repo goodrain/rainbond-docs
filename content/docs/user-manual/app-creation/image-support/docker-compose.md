@@ -10,11 +10,11 @@ DockerCompose是Docker生态中的一个子项目，它提出了定义多个容�
 
 用户提供可以正常运行的DockerCompose定义文件，Rainbond将解析此文件并分别读取内部的所有组件的关键配置，包括：组件名称、镜像名称及仓库地址、环境变量、依赖关系（启动顺序）、持久化存储、组件端口。基于这些属性创建Rainbond组件抽象，再通过Rainbond的组件抽象模型的管理运行机制部署于底层的Kubernetes集群。从而实现DockerCompose到Kubernetes的转化。
 
-其中较为关键的是依赖关系、DockerCompose中组件之间建立依赖关系使用的是Docker的同网络空间原理，结合Docker默认的DNS组件对依赖组件别名进行域名解析从而实现组件间通信。这种模式在Kubernetes场景中无法直接实现，但是基于Rainbond的默认ServiceMesh机制，就实现了一直的效果，Rainbond dns组件将解析组件别名到127.0.0.1, 组件通过别名访问其他组件时，实际就是访问组件本地的代理，本地的ServiceMesh Sidecar容器完成组件动态发现和负载均衡。 从效果上看与单机运行的DockerCompose是一致的，但是实际上整个应用已经是在集群环境下分布式运行，每一个组件都可以运行多个实例。
+其中较为关键的是依赖关系、DockerCompose中组件之间建立依赖关系使用的是Docker的同网络空间原理，结合Docker默认的DNS组件对依赖组件别名进行域名解析从而实现组件间通信。这种模式在Kubernetes场景中无法直接实现，但是基于Rainbond的默认ServiceMesh机制，就实现了一直的效果，Rainbond dns组件将解析组件别名到`127.0.0.1`, 组件通过别名访问其他组件时，实际就是访问组件本地的代理，本地的ServiceMesh Sidecar容器完成组件动态发现和负载均衡。 从效果上看与单机运行的DockerCompose是一致的，但是实际上整个应用已经是在集群环境下分布式运行，每一个组件都可以运行多个实例。
 
 ### 创建方式及注意事项
 
-通过导航-创建应用-从Docker镜像创建-选择DockerCompose即可进入DockerCompose创建流程。由于DockerCompose创建出一个完整应用（包含N个组件），因此创建时必须创建并指定一个新的应用。
+在团队视图下通过`创建-->基于镜像创建组件-->选择DockerCompose`即可进入DockerCompose创建流程。由于DockerCompose创建出一个完整应用（包含N个组件），因此创建时必须创建并指定一个新的应用。
 
 有以下几点注意事项
 

@@ -1,5 +1,5 @@
 ---
-title: OAuth2.0配置
+title: OAuth2.0配置及认证
 description: OAuth2.0创建及注意事项
 weight: 6004
 hidden: true
@@ -12,7 +12,8 @@ Rainbond所有支持的Oauth类型需要正常配置权限才能正常使用，�
 ### Github配置说明 
 
 **进入 Settings→Developer settings→OAuth Apps→New OAuth App**
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/d9e1d8d00dd71cf75406b5a2081bef6a.png" width = "450"alt=""/>
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/d9e1d8d00dd71cf75406b5a2081bef6a.png" width="70%" />
    
 - **Application name:** 客户端名称，用户可自己定义
 - **Homepage URI:** Rainbond服务首页,如https://goodrain.me
@@ -23,7 +24,8 @@ Rainbond所有支持的Oauth类型需要正常配置权限才能正常使用，�
 ### Gitlab配置说明 
 
 **进入 User Settings→Applications**
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG63.png" width = "450"alt=""/>
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG63.png" width="70%" />
 
 - **Name:** 客户端名称，用户可自己定义
 - **Redirect URI:** 回跳路径 该路径用于接收第三方平台返回的凭证 **homepage+/console/oauth/redirect** 如https://goodrain.me/console/oauth/redirect
@@ -33,7 +35,8 @@ Rainbond所有支持的Oauth类型需要正常配置权限才能正常使用，�
 ### Gitee配置说明
 
 进入 设置→第三方应用→创建应用
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG64.png" width = "450"alt=""/>
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG64.png" width="70%" />
 
 - **应用名称:** 客户端名称，用户可自己定义
 - **应用主页:** Rainbond服务首页 如https://goodrain.me
@@ -45,9 +48,26 @@ Rainbond所有支持的Oauth类型需要正常配置权限才能正常使用，�
 
 > 企业管理员才能操作
 
-1. 进入Rainbond首页企业视图界面->设置->开启OAuth互联服务
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/oauth2.0/oauth-conf/oauth.jpg" width = "800"alt=""/>
-2. 将注册好的`Client ID`和`Client Secret`填入，选择对应的OAuth类型,点击确定，此时在该企业下的用户就可以使用OAuth2.0协议进行登录了(自定义的oauth认证服务需要填入**认证api**，**scope**，**令牌api**，**用户信息api**等信息)
+进入Rainbond首页企业视图`设置-->开启OAuth互联服务`
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/oauth2.0/oauth-conf/oauth.jpg" width="10%" />
+
+将注册好的`Client ID`和`Client Secret`填入，选择对应的OAuth类型,点击确定，此时在该企业下的用户就可以使用OAuth2.0协议进行登录了(自定义的oauth认证服务需要填入**认证api**，**scope**，**令牌api**，**用户信息api**等信息)
+
+
+### OAuth服务认证
+
+**登录前**
+
+通过第三方用户登录认证
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/oauth-authorization/Authentication01.jpg" width = "800"alt=""/>
+
+**登录后**
+
+在平台右上角的用户信息内可以进行OAuth服务认证,与第三方平台互联
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/oauth-authorization/Authentication.jpg" width = "800"alt=""/>
     
     
 

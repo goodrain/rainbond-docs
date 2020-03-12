@@ -1,8 +1,8 @@
 ---
 title: 组件版本管理
 description: Rainbond组件版本的管理和版本回滚文档
-hidden: true
 weight: 5018
+hidden: true
 ---
 
 ### 组件版本管理
@@ -11,7 +11,8 @@ weight: 5018
 
 通过 `构建版本管理` 功能，可以将组件回滚到指定版本，Rainbond 默认保留组件构建成功的版本。
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-rollback01.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-rollback/Historical%20version.png" width="100%" />
+
 
 版本管理中可以查询当前运行的版本，构建的历史版本和版本构建成功率。每一个版本都可以追溯代码提交记录或源镜像记录。
 
@@ -20,11 +21,9 @@ weight: 5018
 
 ### 版本回滚
 
-### <img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-rollback02.png" width="100%" />
+组件可以随时回滚到历史构建成功的版本，直接点击回滚按钮即可，Rainbond回滚操作与升级类似，采用滚动的方式进行。
 
-组件可以随时回滚到历史构建成功的版本，Rainbond回滚操作与升级类似，采用滚动的方式进行。
-
-{{% notice info %}}
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-rollback/Exhibition.png" width="100%" />
 
 - 多节点组件回滚操作采用滚动升级方式，因此时不会影响组件，但会有较短的时间同时存在 2 种版本的情况。
 - Rainbond 5.X版本中对于组件回滚只会回滚代码和镜像运行环境，对组件配置（端口、环境变量、内存设置等）不会回滚到历史状态。

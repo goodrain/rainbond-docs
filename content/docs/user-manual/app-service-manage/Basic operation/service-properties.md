@@ -1,8 +1,8 @@
 ---
 title: 组件基础属性说明
 description: Rainbond基础属性的说明文档
+weight: 5050
 hidden: true
-weight: 5001
 ---
 
 

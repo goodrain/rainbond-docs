@@ -21,7 +21,7 @@ Ceph块设备完全支持云平台，例如OpenStack、CloudStack等。在这些
 
 由于ceph在安装过程中，使用默认源速度较慢，这里使用阿里云的源
 
-```
+```bash
 echo "deb http://mirrors.aliyun.com/ceph/debian-jewel xenial main" >> /etc/apt/sources.list
 apt-get clean
 apt-get update
@@ -31,7 +31,7 @@ apt-get update
 
 官方推荐使用 `ceph-deploy`执行程序进行ceph集群的安装。
 
-```
+```bash
 apt-get install ceph-deploy
 ```
 
@@ -40,7 +40,7 @@ apt-get install ceph-deploy
 
 所有的操作均在该文件夹中，该文件夹会记录ceph在创建时的配置文件以及admin账户的秘钥。
 
-```
+```bash
 mkdir ceph-cluster && cd ceph-cluster
 ```
 
@@ -50,12 +50,13 @@ mkdir ceph-cluster && cd ceph-cluster
 
 > node1是主机名，必须能够解析到node1主机对应的IP
 
-```
+```bash
 ceph-deploy new node1
 ```
 
 由于使用单节点安装，需要修改配置文件，设置默认数据池大小为1
 
+```bash
 echo "osd pool default size = 1
 osd max object name len = 256
 osd max object namespace len = 64
@@ -63,16 +64,19 @@ mon_pg_warn_max_per_osd = 2000
 mon clock drift allowed = 30
 mon clock drift warn backoff = 30
 rbd cache writethrough until flush = false" >> ceph.conf
+```
 
 - 安装ceph服务
 
-```
+
+
+```bash
 ceph-deploy install node1
 ```
 
 - 部署监控节点
 
-```
+```bash
 ceph-deploy mon create-initial
 ```
 
@@ -80,14 +84,14 @@ ceph-deploy mon create-initial
 
 将`/data/ceph`用作ceph的数据共享目录
 
-```
+```bash
 mkdir -p /data/ceph/osd
 ceph-deploy osd prepare node1:/data/ceph/osd
 ```
 
 - 激活osd服务
 
-```
+```bash
 chown -R ceph:ceph /data/ceph/
 ceph-deploy osd activate node1:/data/ceph/osd
 ```
@@ -97,21 +101,21 @@ ceph-deploy osd activate node1:/data/ceph/osd
 
 - 确认ceph集群状态
 
-```
+```bash
 ceph health
 ```
 结果显示`HEALTH_OK`说明集群部署正常。出现异常可以执行`ceph -s`确定ceph中的异常信息。
 
 如果在某些地方碰到麻烦，想从头再来，可以用下列命令清除配置：
 
-```
+```bash
 ceph-deploy purgedata node1
 ceph-deploy forgetkeys
 ```
 
 用下列命令可以连 Ceph 安装包一起清除：
 
-```
+```bash
 ceph-deploy purge node1
 ```
 
@@ -124,13 +128,13 @@ ceph-deploy purge node1
 
 - 下载项目
 
-```
+```bash
 git clone https://github.com/ceph/ceph-csi.git && cd ceph-csi
 ```
 
 - 创建rbac账户
 
-```
+```bash
 kubectl create -f csi-provisioner-rbac.yaml
 kubectl create -f csi-nodeplugin-rbac.yaml
 ```
@@ -139,7 +143,7 @@ kubectl create -f csi-nodeplugin-rbac.yaml
 
 配置文件内容制定了csi驱动要使用的ceph集群，记录在ConfigMap中。测试例子如下，
 
-```
+```bash
 $ ceph -s
 cluster 9660aec4-16a2-4929-b179-c28cef2b5ab0
 health HEALTH_OK
@@ -155,7 +159,7 @@ pgmap v882: 64 pgs, 1 pools, 7488 kB data, 14 objects
 clusterID为ceph集群的id，通过`ceph -s`可以看到cluster信息
 monitors为ceph服务的监控服务地址，对应着monmap中的节点信息
 
-```
+```bash
 apiVersion: v1
 kind: ConfigMap
 data:
@@ -174,14 +178,14 @@ metadata:
 
 - 创建ConfigMap
 
-```
+```bash
 kubectl create -f csi-config-map.yaml
 ```
 
 - 创建驱动服务
 
 
-```
+```bash
 kubectl create -f csi-rbdplugin-provisioner.yaml
 kubectl create -f csi-rbdplugin.yaml
 ```
@@ -190,7 +194,7 @@ kubectl create -f csi-rbdplugin.yaml
 
 根据文档安装，最后会有这样的pod实例正常运行
 
-```
+```bash
 $ kubectl get po
 NAME                                         READY   STATUS    RESTARTS   AGE
 csi-rbdplugin-provisioner-688c49bd49-7cwcw   6/6     Running   0          59m
@@ -201,7 +205,7 @@ csi-rbdplugin-qsnlb                          3/3     Running   0          58m
 
 使用官方demo测试驱动是否正常，官方项目中`example`目录下给出了测试用例，使用nginx镜像挂载ceph存储。
 
-```
+```bash
 kubectl create -f secret.yaml
 kubectl create -f storageclass.yaml
 kubectl create -f pvc.yaml
@@ -210,7 +214,7 @@ kubectl create -f pod.yaml
 
 确定nginx容器是否正常启动
 
-```
+```bash
 $ kubectl get po
 NAME                                         READY   STATUS    RESTARTS   AGE
 csi-rbd-demo-pod                             1/1     Running   0          46m
@@ -221,7 +225,7 @@ csi-rbdplugin-qsnlb                          3/3     Running   0          58m
 ```
 如果没有启动成功可以通过，观察provisioner组件的日志，确定问题。
 
-```
+```bash
 kubectl logs -f csi-rbdplugin-provisioner-688c49bd49-7cwcw -c csi-provisioner
 ```
 

@@ -1,11 +1,11 @@
 ---
 title: 组件基础操作
 description: Rainbond组件基础生命周期操作说明文档
-weight: 5001
 hidden: true
+weight: 5001
 ---
 
-#### 组件基本操作
+### 组件基本操作
 
 先就组件可进行的操作进行基础说明：
 
@@ -21,7 +21,7 @@ hidden: true
 | 修改所属应用     | 组件可以灵活调整所属的应用                                   |
 | 删除             | 删除组件是一个危险的操作，请谨慎操作。组件删除后持久化数据默认会保留7天。 |
 
-#### 构建操作
+### 构建操作
 
 > 适用场景：组件的任何状态
 
@@ -42,7 +42,7 @@ hidden: true
 
 
 
-##### 云市组件升级支持的属性
+#### 云市组件升级支持的属性
 
 在对云市组件进行升级的时候, 并不是所有的属性都支持升级; 在升级的时候, 各种属性的处理方式又会有所区别. 具体如下表所示:
 
@@ -61,7 +61,7 @@ hidden: true
 | 有无状态类型  |   否  |      |
 | 标签  |   否   |      |
 
-#### 更新操作
+### 更新操作
 
 > 使用场景：运行中组件
 
@@ -83,7 +83,7 @@ hidden: true
 
 
 
-#### 启动操作
+### 启动操作
 
 > 使用场景：构建成功，并处于关闭状态的组件
 
@@ -121,13 +121,13 @@ hidden: true
 > * 组件可访问端口未打开对外组件开关
 > * 组件未配置正确可访问的域名
 
-#### 关闭操作
+### 关闭操作
 
 > 使用场景：运行中或运行异常的组件
 
 触发关闭操作后，组件将首先从应用网关或ServiceMesh网络下线，然后关闭所有运行实例，释放集群资源。
 
-#### 重启操作
+### 重启操作
 
 > 使用场景：运行中或运行异常的组件
 
@@ -140,7 +140,7 @@ hidden: true
 
 
 
-#### 访问操作
+### 访问操作
 
 > 使用场景：运行中的组件 && （打开了对外组件 | 对内组件的端口）
 
@@ -153,17 +153,34 @@ hidden: true
 
 - HTTP 协议组件
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-open-http.gif" width="85%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/basic-operation/External%20visit.png" width="85%" />
 
 - TCP 协议组件
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-open-tcp.gif" width="85%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/basic-operation/tcp%20external%20visit.png" width="85%" />
+
+复制推荐的访问地址到浏览器即可访问
 
 
+### 管理容器操作
 
-#### 管理容器操作
+#### 进入容器命令行
 
-当需要进入组件的运行环境，查看进程信息、端口监听信息、文件内容或直接Debug源代码的情况下，需要进入组件的容器环境，Rainbond提供了两个入口：
+当需要进入组件的运行环境，查看进程信息、端口监听信息、文件内容或直接Debug源代码的情况下，需要进入组件的容器环境，平台提供了通过浏览器的方式登录到组件容器命令行的方式，当组件正常启动后，可以通过`管理容器`按钮，选择某个节点，进入到容器命令行，容器命令行可以更加方便去操作后台进行查看程序日志，数据库查询等；Rainbond提供了两个入口：
 
 * 组件操作列表中的管理容器操作
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-container/Management%20container.png" width="100%" />
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-container/Container%20terminal.png" width="100%" />
+
 * 组件伸缩管理中的实例列表，点击实例名称即可进入
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/basic-operation/Container%20entry02.png" width="85%" />
+
+</br>Web控制台只用作查看和调试程序，不建议通过控制台部署业务相关的组件。</br>在容器中创建的文件若未存放于持久化目录，重启组件后文件丢失</br>
+
+#### 浏览器兼容情况
+
+推荐使用Google Chrome浏览器
+

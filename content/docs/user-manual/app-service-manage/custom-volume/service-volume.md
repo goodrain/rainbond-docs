@@ -18,11 +18,11 @@ Rainbond 默认支持以下几种存储类型:
 - 配置文件
 - 内存文件存储
 
-除Rainbond默认支持的上述几种存储类型外，Rainbond还支持[自定义存储类型](/docs/user-manual/app-service-manage/service-volume-custom/)。
+除Rainbond默认支持的上述几种存储类型外，Rainbond还支持[自定义存储类型](/docs/user-manual/app-service-manage/custom-volume/service-volume-custom/)。
 
 #### 共享存储
 
-共享存储是一个分布式文件系统, 默认使用的是 NFS, 你也可以自行对接其它的分布式文件系统(比如: [GlusterFS](../../../operation-manual/storage/GlusterFS/introduce.html), NAS 等). 共享存储具有非常高的可靠性和扩展性; 与此同时, 它还具有非常高的灵活性, 可以共享给其它的组件，基于租户、组件两级进行存储空间分配和隔离。
+共享存储是一个分布式文件系统, 默认使用的是 NFS, 你也可以自行对接其它的分布式文件系统(GlusterFS, NAS 等). 共享存储具有非常高的可靠性和扩展性; 与此同时, 它还具有非常高的灵活性, 可以共享给其它的组件，基于租户、组件两级进行存储空间分配和隔离。
 共享存储针对无状态组件和有状态组件呈现的工作模式不同：
 
 * 无状态组件
@@ -87,29 +87,29 @@ socket = /tmp/mysql.sock
 
 找到 【存储】页面
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-storage01.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Add%20storage.png" width="100%" />
 
-点击 【添加持久化】按钮
+填写存储挂在信息，点击 【确认】按钮
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-storage02.png" width="60%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/volum.png" width="60%" />
 
-存储添加完成
+存储添加完成为未挂载状态，需更新或重启组件生效
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-storage03.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Add%20finish.png" width="100%" />
 
-- <b>挂载其他组件的存储</b>
+- <b>共享其他组件的存储</b>
 
-在【存储】页面找到 【挂载目录】
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-storage04.png" width="100%" />
+在【存储】页面找到 【挂载共享存储】
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Shared%20memory.png" width="100%" />
 
-点击【挂载目录】按钮后，勾选需要挂载其他组件的名称，并填写挂载到本组件的目录
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-storage05.png" width="90%" />
+点击【挂载g=共享存储】按钮后，勾选需要挂载其他组件的名称，并填写挂载到本组件的目录
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Shared%20volum02.png" width="90%" />
 
 完成挂载其他组件存储
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-storage06.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Completion%20sharing.png" width="100%" />
 
-{{% notice info %}}
 
 - 新增或挂载其他组件的存储后，需要更新或重启组件，挂载其他组件的存储不支持挂载到有状态的组件。
 - 新增或挂载其他组件存储时，本组件的路径不能使用 Linux 系统保留目录，如：/dev、/usr、/bin、/sys、/proc 等
@@ -118,7 +118,7 @@ socket = /tmp/mysql.sock
 
 ### 存储挂载路径查看方式
 
-可以通过grctl命令来查看应用存储挂载路径查看方式 `grctl service get <应用别名> -t <租户id>`。
+可以通过grctl命令来查看应用存储挂载路径查看方式 `grctl service get <应用别名> -t <租户id>`;在组建伸缩界面可直接复制该查询命令。
 
 示例如下: 源码构建python程序，挂载日志目录,应用控制台URL <b>http://172.20.0.101:7070/#/team/lsqbjv5e/region/rainbond/app/grbc2de8/overview</b>
 

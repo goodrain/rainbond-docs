@@ -5,23 +5,21 @@ weight: 5007
 hidden: true
 ---
 
-### 组件伸缩
 
 Rainbond平台组件有两种伸缩方式：
 
 - 垂直伸缩：增加或减少组件的内存（目前组件 CPU 与内存是联动的，按照一定的`比例调整`）
 - 水平伸缩：增加或减少组件的实例数，适用于无状态组件和有状态水平集群组件
 
-<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/app-scaling01.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/automatic-telescoping/service-scaling/Telescopic.png" width="100%" />
 
-{{% notice info %}}
 
 - 垂直伸缩时平台会自动调整资源后重启组件，单节点组件会中断，多节点组件不受影响。
 - 水平伸缩时平台通过滚动新增或者下线节点的方式进行操作，因此操作不会影响现有组件。
 
 
 
-#### 垂直伸缩 CPU 与内存比例关系
+### 垂直伸缩 CPU 与内存比例关系
 
 | 申请值比例（CPU/内存） | 限制值比例（CPU/内存) |
 | ---------------------- | --------------------- |
@@ -33,9 +31,9 @@ Kubernetes 针对 CPU 和内存分为申请值与限制值，详情参见: [管�
 
 
 
-#### 水平伸缩
+### 水平伸缩
 
-##### 组件进行水平伸缩的条件
+#### 组件进行水平伸缩的条件
 
 * 无状态组件
 
@@ -54,11 +52,9 @@ Kubernetes 针对 CPU 和内存分为申请值与限制值，详情参见: [管�
 1. 可进行水平扩展集群的集群化组件，比如 Etcd, Zookeeper, 小强数据库，TiDB等
 2. 主从集群类组件，我们一般可以将从组件进行水平伸缩。比如Mysql、Redis、MongoDB等。
 
-##### 自动伸缩
+### 自动伸缩
 
 组件实例自动水平伸缩功能参考文档：[自动伸缩](../service-auto-scaling/)
-
-
 
 有状态组件集群应用的制作方式我们将在主题文档中讲解
 
