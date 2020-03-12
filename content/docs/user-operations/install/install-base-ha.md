@@ -37,7 +37,7 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 
 - 对于希望自己提供集群元数据存储资源的用户，请参考对接外部元数据存储组件时Rainbond-Operator的安装方式
 
-- 其他用户请执行以下命令来为etcd高可用集群和mysql高可用集群的安装做好准备工作
+- 其他用户请执行以下命令来为mysql高可用集群的安装做好准备工作
 
 
 
@@ -47,24 +47,6 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 kubectl create namespace rbd-system
 ```
 
-#### 安装Etcd-operator控制器
-
-添加etcd-operator所在的helm仓库并安装
-
-```
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-helm install etcd-operator stable/etcd-operator -n rbd-system
-```
-
-确认Etcd-operator所有pod均已经就绪
-
-```bash
-kubectl get pod -n rbd-system
-NAME                                                              READY   STATUS    RESTARTS   AGE
-etcd-operator-etcd-operator-etcd-backup-operator-88d6bc55cd8jqx   1/1     Running   0          7m15s
-etcd-operator-etcd-operator-etcd-operator-56c55d965f-5vt9r        1/1     Running   0          2m9s
-etcd-operator-etcd-operator-etcd-restore-operator-55f6ccbf5889g   1/1     Running   0          7m15s
-```
 
 #### 安装Mysq-operator控制器
 
@@ -82,8 +64,7 @@ mysql-operator-6c5bcbc7fc-4gjvn                                   1/1     Runnin
 ```
 
 
-
-等待Etcd-operator及Mysq-operato均已就绪后，即可开始安装rainbond-operator
+等待Mysq-operato均已就绪后，即可开始安装rainbond-operator
 
 ### 下载并运行Rainbond-Operator安装控制器
 
@@ -156,7 +137,7 @@ rainbond-operator-0   2/2     Running   0          110s
 - 使用阿里云k8s集群安装时共享存储建议使用阿里云NAS，块设备建议阿里云盘
 - 使用自有k8s集群安装时共享存储建议使用GFS集群提供资源，块设备建议使用ceph集群提供资源
 
-![image-20200307172822748](https://tva1.sinaimg.cn/large/00831rSTgy1gclhrtkf3qj31z20smdlb.jpg)
+![image-20200307172822748](https://tva1.sinaimg.cn/large/00831rSTgy1gclhrtkf3qj31z20smdlb.jpg) 
 
 配置完成后点击 配置完成，开始安装
 
@@ -167,3 +148,6 @@ rainbond-operator-0   2/2     Running   0          110s
 ![image-20200309180404861](https://tva1.sinaimg.cn/large/00831rSTly1gcnu1kw0z7j31ix0u0n1f.jpg)
 
 ![image-20200309180416672](https://tva1.sinaimg.cn/large/00831rSTly1gcnu1s6fp3j31z20s040z.jpg)
+
+#### 各节点挂载共享存储
+
