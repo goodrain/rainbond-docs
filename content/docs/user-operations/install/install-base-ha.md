@@ -151,3 +151,4 @@ rainbond-operator-0   2/2     Running   0          110s
 
 #### 各节点挂载共享存储
 
+安装完成
