@@ -154,7 +154,7 @@
 .dropdown.open div {
     opacity: 1;
     z-index: 2;
-    height: 62px !important;
+    height: 72px !important;
 }
 
 
@@ -193,9 +193,9 @@
 
 .dropdown ul li {
     padding: 0;
-    height: 30px;
+    height: 36px;
     padding-left: 9px;
-    line-height: 30px;
+    line-height: 36px;
 }
 
 
@@ -215,5 +215,5 @@
 }
 
 .dropdown li.active {
-    font-weight: 600;
+    /* font-weight: 500; */
 }
