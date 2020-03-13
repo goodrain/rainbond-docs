@@ -14,6 +14,11 @@
                 </div>
             </div>
         </div>
+        <div class="columns">
+            <div class="column">
+                <p style="text-align: center;">© 2020 北京好雨科技有限公司 <a href="http://beian.miit.gov.cn/">京ICP备15028663</a></p>
+            </div>
+        </div>
     </div>
     </div>
 </footer>
@@ -53,6 +58,16 @@
                 });
             }
         });
+
+        $("#switchBranch").change(function() {
+            //code...}); //为Select添加事件，当选择其中一项时触发
+            let value = $("#switchBranch").val();
+            if (value === 'v5.2') {
+                window.location.href = 'https://v5.2-doc.rainbond.com/docs/'
+            } else {
+                window.location.href = 'https://www.rainbond.com/docs/'
+            }
+        })
         $(".wechart").hover(function() {
             $(".wechart-hover")
                 .css({
@@ -74,6 +89,18 @@
                 title: "开通在线试用账户",
                 source: "Rainbond官网",
                 smsg: "提交成功，在线试用账户稍后将通过手机告知"
+            });
+        });
+        $(".auth-visitor").click(function() {
+            modalVisitor.show({
+                title: $(this).data("title"),
+                source: $(this).data("source"),
+                smsg: "获取下载地址成功",
+                callback: () => {
+                    modalVisitor.hide()
+                    $('.markdown-body .auth .auth-visitor').addClass("hidden")
+                    $('.markdown-body .auth .auth-body').removeClass("hidden")
+                }
             });
         });
     })
