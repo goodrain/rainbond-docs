@@ -87,11 +87,9 @@ SSH进入192.168.10.99 ECS服务器，执行下面的初始化命令：
 
 ```bash
 # 下载Rainbond安装命令
-wget https://pkg.rainbond.com/releases/common/rainbond-install
-# 赋予执行权限
-chmod +x ./rainbond-install
+wget https://pkg.rainbond.com/releases/common/v5.1/grctl && chmod +x ./grctl
 # 执行初始化命令
-./rainbond-install init \
+./grctl init \
 --eip=47.92.55.148 \
 --iip=192.168.10.99 \
 --vip=106.15.131.130 \
