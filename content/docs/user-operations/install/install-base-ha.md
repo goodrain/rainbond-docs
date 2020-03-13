@@ -190,9 +190,6 @@ rainbond-operator-0   2/2     Running   0          110s
 
 ![image-20200309180416672](https://tva1.sinaimg.cn/large/00831rSTly1gcnu1s6fp3j31z20s040z.jpg)
 
-
-![image-20200309180416672](https://tva1.sinaimg.cn/large/00831rSTly1gcnu1s6fp3j31z20s040z.jpg)
-
 #### 挂载共享存储
 
 安装完成在各节点执行以下之一操作，实现共享存储的可用性，grctl命令的安装方式参考[最小化部署Rainbond](../minimal_install)安装命令行工具
