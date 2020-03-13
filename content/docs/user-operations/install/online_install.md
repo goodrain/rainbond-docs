@@ -21,7 +21,7 @@ description: "此方式适用于快速安装和试用Rainbond平台, 最少只�
 
 #### 2.1 下载Rainbond安装包
 
-目前最新安装的版本是: v5.1.10-release
+目前最新安装的版本是: v5.1.11-release
 
 ```shell
 wget https://pkg.rainbond.com/releases/common/v5.1/grctl && chmod +x ./grctl
