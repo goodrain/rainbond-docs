@@ -31,7 +31,7 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 下载rainbond-operator Chart应用包：
 
 ```bash
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v0.0.1-beta2-V5.2-dev.tgz && tar xvf rainbond-operator-chart-v0.0.1-beta2-V5.2-dev.tgz
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v5.2.0-beta2.tgz && tar xvf rainbond-operator-chart-v5.2.0-beta2.tgz
 ```
 
 可选配置参考 `./chart/values.yaml`，默认情况下无需修改。
@@ -93,7 +93,7 @@ rainbond-operator-0   2/2     Running   0          110s
 安装方式：
 
 ```
-docker run -it --rm -v /:/rootfs registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:V5.2-dev copy
+docker run -it --rm -v /:/rootfs registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:V5.2.0-beta2 copy
 mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl
 /usr/local/bin/grctl install
 ```

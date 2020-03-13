@@ -17,9 +17,14 @@
     </div>
     </div>
 </footer>
-<div id="backtotop"><a href="#"></a></div>
-<div id="backtotop"><a href="#"></a></div>
+<div id="backtotop">
+    <a href="#"></a>
+</div>
+<div id="backtotop">
+    <a href="#"></a>
+</div>
 <script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/easydropdown.js"></script>
 <script src="https://unpkg.com/feather-icons"></script>
 <script type="text/javascript" src="/js/landing.js"></script>
 <script type="text/javascript" src="/js/jquery.panelslider.min.js"></script>
@@ -34,33 +39,48 @@
 <script type="text/javascript" src="/js/jquery.loading.min.js"></script>
 <script type="text/javascript" src="/js/documentation.js"></script>
 <script>
-    $(function () {
-        var modalVideo = new ModalVideo({ width: 1000, height: 550 });
-        $(".video-show").click(function () {
+    $(function() {
+        var modalVideo = new ModalVideo({
+            width: 1000,
+            height: 550
+        });
+        $(".video-show").click(function() {
             var url = $(this).data("src")
             console.log(url)
             if (url) {
-                modalVideo.show({ url: url });
+                modalVideo.show({
+                    url: url
+                });
             }
         });
-        $(".wechart").hover(function () {
+        $(".wechart").hover(function() {
             $(".wechart-hover")
-                .css({ top: "-96px", left: "-28px" })
+                .css({
+                    top: "-96px",
+                    left: "-28px"
+                })
                 .removeClass("hide");
-        }, function () {
+        }, function() {
             $(".wechart-hover").addClass("hide");
         });
     });
-    $(function () {
-        var modalVisitor = new ModalVisitor({ width: 400, height: 430 });
-        $(".visitor").click(function () {
-            modalVisitor.show({title:"开通在线试用账户", source:"Rainbond官网", smsg: "提交成功，在线试用账户稍后将通过手机告知"});
+    $(function() {
+        var modalVisitor = new ModalVisitor({
+            width: 400,
+            height: 430
+        });
+        $(".visitor").click(function() {
+            modalVisitor.show({
+                title: "开通在线试用账户",
+                source: "Rainbond官网",
+                smsg: "提交成功，在线试用账户稍后将通过手机告知"
+            });
         });
     })
 </script>
 <script>
     var _hmt = _hmt || [];
-    (function () {
+    (function() {
         var hm = document.createElement("script");
         hm.src = "https://hm.baidu.com/hm.js?19583a0ffdf6a67e3798ed126b51af5f";
         var s = document.getElementsByTagName("script")[0];

@@ -64,7 +64,7 @@ mysql-operator-6c5bcbc7fc-4gjvn                                   1/1     Runnin
 下载rainbond-operator Chart应用包：
 
 ```bash
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v0.0.1-beta2-V5.2-dev.tgz && tar xvf rainbond-operator-chart-v0.0.1-beta2-V5.2-dev.tgz
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v5.2.0-beta2.tgz && tar xvf rainbond-operator-chart-v5.2.0-beta2.tgz
 ```
 
 可选配置参考 `./chart/values.yaml`，默认情况下无需修改。
