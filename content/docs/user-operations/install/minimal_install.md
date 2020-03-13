@@ -93,7 +93,7 @@ rainbond-operator-0   2/2     Running   0          110s
 安装方式：
 
 ```
-docker run -it --rm -v /:/rootfs registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:V5.2-dev copy
+docker run -it --rm -v /:/rootfs registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:V5.2.0-beta2 copy
 mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl
 /usr/local/bin/grctl install
 ```
