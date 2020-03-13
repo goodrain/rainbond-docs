@@ -34,6 +34,6 @@
 
 - operator安装包清理
 
-  进入operator下载目录，执行```rm -rf rainbond-operator-chart-v0.0.1-beta2-V5.2-dev.tgz && rm -rf ./chart```即可完成清理，如果安装了mysql-operator，通过```rm -rf mysql-operator-chart.tgz && rm -rf ./mysql-operator```
+  进入operator下载目录，执行```rm -rf rainbond-operator-chart-v5.2.0-beta2.tgz && rm -rf ./chart```即可完成清理，如果安装了mysql-operator，通过```rm -rf mysql-operator-chart.tgz && rm -rf ./mysql-operator```
 
 通过以上操作可以完成卸载过程，如果使用了外部资源，请自行删除或清理
