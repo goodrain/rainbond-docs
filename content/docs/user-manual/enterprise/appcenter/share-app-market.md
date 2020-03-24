@@ -6,7 +6,7 @@ weight: 2004
 
 ### 应用升级
 
-对于从公有云市安装回来的应用，如果分享应用的用户对其分享到云端市场的应用有小版本更新（其应用下组件版本有更新），我们会在控制台对您的安装回来的应用进行更新提醒，如果您更新了内部应用市场应用后，我们会在您安装到本地控制台的应用进行应用升级提醒。
+对于从云端市场安装回来的应用，如果分享应用的用户对其分享到云端市场的应用有小版本更新（其应用下组件版本有更新），我们会在控制台对您的安装回来的应用进行更新提醒，如果您更新了内部应用市场应用后，我们会在您安装到本地控制台的应用进行应用升级提醒。
 流程图如下：
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.7.1/app_upgrade.png" width='100%' />
@@ -14,22 +14,28 @@ weight: 2004
 
 具体流程如下：
 
-1.安装公有云市应用，您可以从公有云市安装，亦可从内部应用市场安装，在创建应用中选择`从应用市场安装`，并搜索您想要安装的应用，安装即可。
+1.安装云端市场的应用，您可以从云端市场安装，亦可从本地应用市场安装，在创建应用中选择`从应用市场安装`，并搜索您想要安装的应用，安装即可。
 
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.7.1/app_install.gif" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/share-app-market/upgrade01.png" width='100%' />
 
 
-2.当其他用户对其分享到公有云市的应用进行小版本升级（即将其应用下的组件进行版本升级），您会在点击`云端同步`的时候显示出来，提示您当前应用是否可更新，如果可更新，您可以通过`云端更新`或`更新新版本`,即可对当前内部应用市场应用进行更新操作。
+2.当其他用户对其分享到云端市场的应用进行小版本升级后（即将其应用下的组件进行版本升级），会在`应用视图`-->`升级`中体现出来，如果有对应新版本可升级，您可以通过点击`升级`，即可对当前应用进行升级操作。
 
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.7.1/app_update.gif" width='100%' />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/share-app-market/upgrade03.png" width='100%' />
+
+当您对内部应用市场应用进行更新升级后，在您本地控制台安装的应用还未进行升级，在您查看服务详情时，我们会对您的服务进行查询是否可更新，如果可更新，在详情页会显示构建按钮，以便操作。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/share-app-market/upgrade05.png" width='100%' />
 
 
-3.当您对内部应用市场应用进行更新升级后，在您本地控制台安装的应用还未进行升级，在您查看服务详情时，我们会对您的服务进行查询是否可更新，如果可更新，在详情页会显示构建按钮，以便操作。
+- 此时当您需要重新从共享库或本地市场安装该应用时，会有清晰的版本体现，在安装时选择想要安装的版本进行安装即可
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/share-app-market/upgrade04.png" width='100%' />
 
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/1544507806029.jpg" width='100%' />
+
 
 
 #### 判断依据(实现原理)
