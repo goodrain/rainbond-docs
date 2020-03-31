@@ -4,9 +4,7 @@ weight: 1001
 description: "此方式适用于快速安装和试用Rainbond平台。"
 ---
 
-> Rainbond V5.2.0版本处于beta状态，当前仅提供ALL-IN-ONE最小安装模式，在版本Release之前支持完整高可用安装，该安装教程可能修改。
-
-开始Rainbond之前你需要完成Kubernetes集群的安装，推荐使用1.16及以上版本，若你还没完成，请参考文档[kubernetes集群的安装](../k8s-install/)
+安装Rainbond之前你需要完成Kubernetes集群的安装，若你还没安装Kubernetes，请参考文档[kubernetes集群的安装](../kubernetes-install/)以安装kubernetes集群，推荐使用1.16及以上版本。
 
 ### 安装 Helm（V3）
 
@@ -15,9 +13,11 @@ description: "此方式适用于快速安装和试用Rainbond平台。"
 ```bash
 #获取helm命令并解压
 wget https://get.helm.sh/helm-v3.0.3-linux-amd64.tar.gz && tar xvf helm-v3.0.3-linux-amd64.tar.gz
-#copyhelm命令到指定目录
+#拷贝helm命令到指定目录
 cp linux-amd64/helm /usr/local/bin/
 ```
+
+提示：`/usr/local/bin` 在 `$PATH` 环境变量中时可将可执行程序放至此目录下，具体视操作系统决定。
 
 > 注: 下载速度较慢的情况下可从Rainbond加速下载，此版本为`3.0.3`
 
@@ -28,7 +28,7 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 
 ### 下载并运行Rainbond-Operator安装控制器
 
-下载rainbond-operator Chart应用包：
+下载Rainbond-operator Chart应用包：
 
 ```bash
 wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v5.2.0-beta2.tgz && tar xvf rainbond-operator-chart-v5.2.0-beta2.tgz
@@ -45,9 +45,10 @@ kubectl create namespace rbd-system
 helm install --set openapi.installMode=WithoutPackage rainbond-operator ./chart --namespace=rbd-system
 ```
 
-执行完毕后, 由于从公网获取镜像需要一定时间，请运行```kubectl get pod -n rbd-system```，确认所有Pod都Ready（如下所示）后进行后续步骤。
+执行完毕后, 由于从公网获取镜像需要一定时间，请运行以下命令，确认所有Pod都Ready（如下所示）后进行后续步骤。
 
 ```
+$ kubectl get pod -n rbd-system
 NAME                  READY   STATUS    RESTARTS   AGE
 rainbond-operator-0   2/2     Running   0          110s
 ```
@@ -68,7 +69,7 @@ rainbond-operator-0   2/2     Running   0          110s
 
 ![image-20200309171024608](https://tva1.sinaimg.cn/large/00831rSTly1gcnshqdsx5j31p70u00zw.jpg)
 
-设置网关外网IP后会将默认域名解析到改IP地址上，如果不设置则会解析到第一个网关安装节点，请确保默认域名解析到的IP地址是可以访问的，否则造成应用无法访问的情况
+设置网关外网IP后会将默认域名解析到该IP地址上，如果不设置则会解析到第一个网关安装节点，请确保默认域名解析到的IP地址是可以访问的，否则造成应用无法访问的情况
 
 ![image-20200309171137591](https://tva1.sinaimg.cn/large/00831rSTly1gcnsj036uij31z00rq43k.jpg)
 
@@ -101,8 +102,6 @@ mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl
 若输出`Install success`则安装成功。
 具体功能参考 `grctl --help`
 
-### 各节点挂载共享存储
+### 挂载共享存储
 
-- 在具有计算节点属性的所有安装grctl命令，然后执行```grctl grdata --auto```实现共享存储目录挂载
-- 在kubernetes某个节点安装grctl命令，然后执行```garctl grdata```获取到挂载命令，然后在具有计算节点属性的所有节点执行挂载命令即可
-
+当前版本需在所有节点手动将集群共享存储挂载至`/grdata`目录，在后续版本将对此功能进行优化，实现自动挂载

@@ -1,16 +1,16 @@
 ---
 title: "Rainbond高可用部署"
 weight: 1002
-description: "引导用户安装高可用的Rainbond集群"
+description: "快速安装一个高可用的Rainbond集群"
 ---
 
-Rainbond 高可用安装基于k8s集群的高可用，所以在安装rainbond集群前，请确保已经安装符合如下某一条件的k8s高可用集群，k8s集群推荐使用1.16及以上版本
+Rainbond 高可用安装基于Kubernetes集群的高可用，所以在安装rainbond集群前，请确保已经安装符合如下某一条件的Kubernetes高可用集群，Kubernetes集群推荐使用1.16及以上版本
 
-- 对于尚未安装高可用k8s集群的用户，建议参照[高可用k8s集群安装文档](/docs/user-operations/install/k8s-install)安装高可用的集群。
+- 对于尚未安装高可用Kubernetes集群的用户，建议参照[高可用Kubernetes集群安装文档](/docs/user-operations/install/kubernetes-install)安装高可用的集群。
 
-- 在阿里云等公有云平台购买k8s集群资源（目前还不支持serverless模式的k8s集群资源，请购买专业模式或托管模式集群）。
+- 在阿里云等公有云平台购买Kubernetes集群资源（目前还不支持serverless模式的Kubernetes集群资源，请购买专业模式或托管模式集群）。
 
-- 对于已经安装好k8s集群的用户，请对照[高可用k8s集群安装文档](/docs/user-operations/install/k8s-install)中的节点配置列表，确认是否满足高可用性。
+- 对于已经安装好Kubernetes集群的用户，请对照[高可用Kubernetes集群安装文档](/docs/user-operations/install/kubernetes-install)中的节点配置列表，确认是否满足高可用性。
 
 ### 安装 Helm（V3）
 
@@ -19,9 +19,11 @@ Rainbond 高可用安装基于k8s集群的高可用，所以在安装rainbond集
 ```bash
 #获取helm命令并解压
 wget https://get.helm.sh/helm-v3.0.3-linux-amd64.tar.gz && tar xvf helm-v3.0.3-linux-amd64.tar.gz
-#copyhelm命令到指定目录
+#拷贝helm命令到指定目录
 cp linux-amd64/helm /usr/local/bin/
 ```
+
+提示：`/usr/local/bin` 在 `$PATH` 环境变量中时可将可执行程序放至此目录下，具体视操作系统决定。
 
 > 注: 下载速度较慢的情况下可从Rainbond加速下载，此版本为`3.0.3`
 
@@ -30,25 +32,26 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 ```
 
 
+### 安装Mysql-operator控制器
 
-### 安装Mysq-operator控制器
-
-用户可以根据自身需求选择对接外部数据库或通过Mysq-operator控制器来实现数据库的高可用，希望安装Mysq-operator控制器的用户请执行以下操作
-
+用户可以根据自身需求选择对接外部数据库或通过`Mysql-operator`控制器来实现数据库的高可用，需要安装`Mysql-operator`控制器的用户请执行以下操作
 
 
-在开始安装前先创建所需的namespace
+在开始安装前先创建namespace资源
 
 ```bash
 kubectl create namespace rbd-system
 ```
 
-下载Mysq-operator Chart应用包并进行安装
+下载Mysql-operator Chart应用包并进行安装
 
-    wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/mysql-operator-chart.tgz
-    tar zxvf mysql-operator-chart.tgz
-    helm install mysql-operator ./mysql-operator -n rbd-system
-确认Mysq-operator所有pod均已经就绪
+```bash
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/mysql-operator-chart.tgz
+tar zxvf mysql-operator-chart.tgz
+helm install mysql-operator ./mysql-operator -n rbd-system
+```    
+    
+确认Mysql-operator所有pod均已经就绪
 
 ```bash
 kubectl get pod -n rbd-system
@@ -57,7 +60,7 @@ mysql-operator-6c5bcbc7fc-4gjvn                                   1/1     Runnin
 ```
 
 
-等待Mysq-operato均已就绪后，即可开始安装rainbond-operator
+等待Mysql-operator均已就绪后，即可开始安装rainbond-operator
 
 ### 下载并运行Rainbond-Operator安装控制器
 
@@ -175,8 +178,8 @@ rainbond-operator-0   2/2     Running   0          110s
 
 高可用安装必须选择高可用存储设备来为应用提供存储
 
-- 使用阿里云k8s集群安装时共享存储建议使用阿里云NAS，块设备建议阿里云盘
-- 使用自有k8s集群安装时共享存储建议使用GFS集群提供资源，块设备建议使用ceph集群提供资源
+- 使用阿里云Kubernetes集群安装时共享存储建议使用阿里云NAS，块设备建议阿里云盘
+- 使用自有Kubernetes集群安装时共享存储建议使用GFS集群提供资源，块设备建议使用ceph集群提供资源
 
 ![image-20200307172822748](https://tva1.sinaimg.cn/large/00831rSTgy1gclhrtkf3qj31z20smdlb.jpg) 
 
@@ -194,7 +197,5 @@ rainbond-operator-0   2/2     Running   0          110s
 
 #### 挂载共享存储
 
-安装完成在各节点执行以下之一操作，实现共享存储的可用性，grctl命令的安装方式参考[最小化部署Rainbond](../minimal_install)安装命令行工具
+当前版本需在所有节点手动将集群共享存储挂载至`/grdata`目录，在后续版本将对此功能进行优化，实现自动挂载
 
-* 在具有计算节点属性的所有节点安装grctl命令，然后执行```grctl grdata --auto```实现共享存储目录挂载
-* 在kubernetes某个节点安装grctl命令，然后执行```garctl grdata```获取到挂载命令，然后在具有计算节点属性的所有节点执行挂载命令即可
