@@ -44,7 +44,7 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
 ```
 
 ### 在ansible控制端编排k8s安装
-   - 建议修改/etc/ansible/roles/cluster-addon/defaults/main.yml文件中下述两项，默认为yes，修改为no不进行安装，以免占用不必要的资源
+   - 建议修改`/etc/ansible/roles/cluster-addon/defaults/main.yml`文件中下述两项，默认为yes，修改为no不进行安装，以免占用不必要的资源
 
    ```yaml
 #不安装dashboard,rainbond不依赖dashboard
@@ -64,7 +64,7 @@ ingress_install: "no"
    ```bash
 docker exec -it kubeasz easzctl start-aio
    ```
-   - 完成后赋值kubectl工具到/usr/bin/kubectl
+   - 完成后赋值kubectl工具到`/usr/bin/kubectl`
 
 ### 验证安装结果
 

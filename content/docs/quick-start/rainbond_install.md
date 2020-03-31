@@ -16,7 +16,7 @@ description: "Rainbond安装教程引导"
 
 如果您还没有自己的 Kubernetes ，那么您需要阅读以下文档。
 
-请先阅读：[快速安装Kubernetes](/docs/user-operations/install/k8s-install)
+请先阅读：[快速安装Kubernetes](/docs/user-operations/install/kubernetes-install)
 
 继续阅读： [最小化部署Rainbond](/docs/user-operations/install/minimal_install)
 

@@ -1,7 +1,7 @@
 ---
-title: "Rainbond集群卸载"
+title: "卸载Rainbond集群"
 weight: 1003
-description: "引导用户卸载Rainbond集群"
+description: "一键卸载Rainbond集群"
 ---
 
 ### 卸载流程
