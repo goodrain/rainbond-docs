@@ -42,7 +42,7 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-oper
 #创建所需namespace
 kubectl create namespace rbd-system
 #通过helm安装operator到指定namespace
-helm install --set openapi.installMode=WithoutPackage rainbond-operator ./chart --namespace=rbd-system
+helm install rainbond-operator ./chart --namespace=rbd-system
 ```
 
 执行完毕后, 由于从公网获取镜像需要一定时间，请运行以下命令，确认所有Pod都Ready（如下所示）后进行后续步骤。
