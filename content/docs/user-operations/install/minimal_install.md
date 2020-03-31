@@ -4,7 +4,7 @@ weight: 1001
 description: "此方式适用于快速安装和试用Rainbond平台。"
 ---
 
-安装Rainbond之前你需要完成Kubernetes集群的安装，若你还没安装Kubernetes，请参考文档[kubernetes集群的安装](../kubernetes-install/)以安装kubernetes集群，推荐使用1.16及以上版本。
+安装Rainbond之前你需要完成Kubernetes集群的安装，若你还没有安装Kubernetes，请参考文档[kubernetes集群的安装](../kubernetes-install/)首先安装kubernetes集群，推荐使用1.16及以上版本。
 
 ### 安装 Helm（V3）
 
