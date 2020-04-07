@@ -1,7 +1,7 @@
 ---
 title: 用户、管理员注册
 description: Rainbond 用户、管理员管理和注册文档说明
-wight: 10
+wight: 20
 ---
 
 ### 功能描述
