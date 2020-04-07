@@ -78,191 +78,52 @@ kubectl edit deployment rbd-app-ui -n rbd-system
           value: console
 ```
 
-master.yaml文件，需要修改四个地方，只修改数据库主机IP即可
-
+```bash
+kubectl edit deployment rbd-api -n rbd-system
 ```
-vi /opt/rainbond/conf/master.yaml
 
-version: '2.1'
-services:
-- name: rbd-api
-  endpoints:
-  - name: API_ENDPOINTS
-    protocol: http
-    port: 8888
-  health:
-    name: rbd-api
-    model: http
-    address: 127.0.0.1:8888/v2/health
-    max_errors_num: 3
-    time_interval: 10
-  after:
-    - docker
-  type: simple
-  pre_start: docker rm rbd-api
-  start: >-
-    docker run --name rbd-api
-    --network host
-    -e LicenseSwitch="off"
-    -e EX_DOMAIN=2b7847.grapps.cn
-    -v /grdata:/grdata
-    -v /grdata/downloads/log:/grdata/logs
-    -v /opt/rainbond/etc/rbd-api:/etc/goodrain
-    -v /opt/rainbond/etc/kubernetes/kubecfg:/opt/rainbond/etc/kubernetes/kubecfg
-    -v /opt/rainbond/logs/docker_logs:/data/docker_logs
-    -v /opt/rainbond/logs/rbd-api:/logs
-    -i goodrain.me/rbd-api:v5.1.6-release
-    --etcd=${ETCD_ENDPOINTS}
-    --api-addr-ssl=0.0.0.0:8443
-    --api-addr=127.0.0.1:8888
-    --log-level=info
-    --mysql="数据库连接用户:数据库密码@tcp(数据库IP:端口)/region"
-    --api-ssl-enable=true
-    --api-ssl-certfile=/etc/goodrain/region.goodrain.me/ssl/server.pem
-    --api-ssl-keyfile=/etc/goodrain/region.goodrain.me/ssl/server.key.pem
-    --client-ca-file=/etc/goodrain/region.goodrain.me/ssl/ca.pem
-  stop: docker stop rbd-api
-  restart_policy: always
-  restart_sec: 10
-- name: rbd-chaos
-  endpoints:
-  - name: CHAOS_ENDPOINTS
-    protocol: http
-    port: 3228
-  health:
-    name: rbd-chaos
-    model: http
-    address: 127.0.0.1:3228/v2/builder/health
-    max_errors_num: 3
-    time_interval: 10
-  after:
-    - docker
-  type: simple
-  pre_start: docker rm rbd-chaos
-  start: >-
-    docker run --name rbd-chaos
-    --network host
-    -e SOURCE_DIR="/cache/source"
-    -e CACHE_DIR="/cache"
-    -v /logs:/logs
-    -v /grdata:/grdata
-    -v /cache:/cache
-    -v /var/run:/var/run
-    -v /grdata/services/ssh:/root/.ssh
-    -i goodrain.me/rbd-chaos:v5.1.6-release
-    --etcd-endpoints=${ETCD_ENDPOINTS} --hostIP=10.63.4.51 --log-level=info --mysql="数据库连接用户名:数据库密码@tcp(数据库IP:端口)/region"
-  stop: docker stop rbd-chaos
-  restart_policy: always
-  restart_sec: 10
-- name: rbd-mq
-  endpoints:
-  - name: MQ_ENDPOINTS
-    protocol: http
-    port: 6301
-  health:
-    name: rbd-mq
-    model: http
-    address: 127.0.0.1:6301/health
-    max_errors_num: 3
-    time_interval: 10
-  after:
-    - docker
-  type: simple
-  pre_start: docker rm rbd-mq
-  start: >-
-    docker run --name rbd-mq
-    --network host
-    -i goodrain.me/rbd-mq:v5.1.6-release
-    --log-level=info --etcd-endpoints=${ETCD_ENDPOINTS} --hostIP=10.63.4.51
-  stop: docker stop rbd-mq
-  restart_policy: always
-  restart_sec: 10
-- name: rbd-webcli
-  endpoints:
-  - name: WEBCLI_ENDPOINTS
-    protocol: http
-    port: 7171
-  health:
-    name: rbd-webcli
-    model: http
-    address: 127.0.0.1:7171/health
-    max_errors_num: 3
-    time_interval: 10
-  after:
-    - docker
-  type: simple
-  pre_start: docker rm rbd-webcli
-  start: >-
-    docker run --name rbd-webcli
-    --network host
-    -v /usr/local/bin/kubectl:/usr/bin/kubectl
-    -v /root/.kube:/root/.kube
-    -i goodrain.me/rbd-webcli:v5.1.6-release
-    --hostIP=10.63.4.51 --etcd-endpoints=${ETCD_ENDPOINTS}
-  stop: docker stop rbd-webcli
-  restart_policy: always
-  restart_sec: 10
-- name: rbd-worker
-  endpoints:
-  - name: WORKER_ENDPOINTS
-    protocol: http
-    port: 6369
-  health:
-    name: rbd-worker
-    model: http
-    address: 127.0.0.1:6369/worker/health
-    max_errors_num: 3
-    time_interval: 10
-  after:
-    - docker
-  type: simple
-  pre_start: docker rm rbd-worker
-  start: >-
-    docker run --name rbd-worker
-    --network host
-    -e K8S_MASTER=http://127.0.0.1:8181
-    -e EX_DOMAIN=2b7847.grapps.cn
-    -e docker_bridge_ip=172.30.42.1
-    -v /opt/rainbond/etc/kubernetes/kubecfg:/etc/goodrain/kubernetes
-    -v /grdata:/grdata
-    -i goodrain.me/rbd-worker:v5.1.6-release
-    --log-level=info
-    --host-ip=10.63.4.51
-    --etcd-endpoints=${ETCD_ENDPOINTS}
-    --node-name=1150c208-cfb7-11e6-03cd-346b5bf2b33e
-    --kube-config="/etc/goodrain/kubernetes/admin.kubeconfig"
-    --mysql="数据库连接用户:数据库密码@tcp(数据库IP:端口)/region"
-  stop: docker stop rbd-worker
-  restart_policy: always
-  restart_sec: 10
-- name: rbd-eventlog
-  endpoints:
-  - name: EVENTLOG_ENDPOINTS
-    protocol: http
-    port: 6363
-  health:
-    name: rbd-eventlog
-    model: http
-    address: 10.63.4.51:6363/health
-    max_errors_num: 3
-    time_interval: 5
-  after:
-    - docker
-  type: simple
-  pre_start: docker rm rbd-eventlog
-  start: >-
-    docker run --name rbd-eventlog
-    --network host
-    -e K8S_MASTER=http://127.0.0.1:8181
-    -e DOCKER_LOG_SAVE_DAY=7
-    -v /opt/rainbond/logs/rbd-eventlog:/var/log
-    -v /grdata/downloads/log:/grdata/logs
-    -v /opt/rainbond/etc/node:/opt/rainbond/etc/node
-    -i goodrain.me/rbd-eventlog:v5.1.6-release
-    --cluster.bind.ip=10.63.4.51 --cluster.instance.ip=10.63.4.51 --db.type=mysql --db.url="数据库连接用户:数据库密码@tcp(数据库IP:端口)/region" --discover.etcd.addr=${ETCD_ENDPOINTS} --eventlog.bind.ip=10.63.4.51 --websocket.bind.ip=10.63.4.51
-  stop: docker stop rbd-eventlog
-  restart_policy: always
-  restart_sec: 10
+```yaml
+      containers:
+      - args:
+				...
+        - --mysql=mysql_user:mysql_pass@tcp(mysql_host:mysql_port)/region #修改mysql_host和mysql_port为新的地址和端口即可
+				...
+```
+
+```bash
+kubectl edit daemonsets rbd-chaos -n rbd-system
+```
+
+```yaml
+      containers:
+      - args:
+				...
+        - --mysql=mysql_user:mysql_pass@tcp(mysql_host:mysql_port)/region #修改mysql_host和mysql_port为新的地址和端口即可
+				...
+```
+
+```bash
+kubectl edit deployments rbd-worker -n rbd-system
+```
+
+```yaml
+      containers:
+      - args:
+				...
+        - --mysql=mysql_user:mysql_pass@tcp(mysql_host:mysql_port)/region #修改mysql_host和mysql_port为新的地址和端口即可
+				...
+```
+
+```bash
+kubectl edit deployments rbd-eventlog -n rbd-system
+```
+
+```yaml
+      containers:
+      - args:
+				...
+        - --db.url=mysql_user:mysql_pass@tcp(mysql_host:mysql_port)/region #修改mysql_host和mysql_port为新的地址和端口即可
+				...
 ```
 
 
