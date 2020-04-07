@@ -1,6 +1,7 @@
 ---
-title: 应用备份管理
+title: 应用备份恢复与迁移
 description: Rainbond应用全量备份、迁移和恢复
+Weight: 4004
 ---
 
 ### 应用备份、恢复与迁移
@@ -46,12 +47,19 @@ Rainbond目前提供了两种备份方式，分别是本地备份及云端备份
 
 > Rainbond企业版本支持，将备份数据存储于云端。
 
+提示：使用阿里云OSS时上传大小限制为5GB，所以超过5GB的应用在上传时会报错。
+
 - 在管理后台打开云端备份功能，填写相关信息
 
-<img src="images" width="100%">
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/opening%20function.png" width="100%">
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/Fill%20in%20information.png" width="100%">
 
 - 在控制台备份应用时即可选择云端备份
 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/Cloud%20Backup.png" width="100%">
+
+云端备份的应用可以一键导出，在其他Rainbond集群中可直接导入，安装使用。
 
 
 ### 备份恢复
@@ -74,6 +82,19 @@ Rainbond目前提供了两种备份方式，分别是本地备份及云端备份
 
 导入备份适用于云端备份所导出的备份文件，云端备份在Rainbond企业版本中支持。
 
+> 导入前请确保需要导入的组中不存在组件
+
+- 点击导入备份，选择云端备份时导出的文件
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/Import%20backup.png" width="100%">
+
+- 导入后将会提示导入成功，并生成相应的备份记录
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/Successful%20import.png" width="100%">
+
+此时即可将应用恢复至当前集群，并可执行`恢复`，`迁移`等操作。
+
+
 ### 应用迁移
 
 由于我们做到全局的全量备份，借此我们可以做到应用的整体迁移，包括跨租户迁移和跨集群迁移；跨租户和跨集群迁移Rainbond开源版暂不支持，企业版提供支持；开源版本支持同数据中心下的跨团队迁移。
@@ -83,6 +104,10 @@ Rainbond目前提供了两种备份方式，分别是本地备份及云端备份
 点击`迁移`按钮，选择要迁移到的团队及数据中心，点击`迁移`即可触发备份迁移操作
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/transfer.png" width="100%">
+
+- 企业版在迁移时可选择不同集群，跨Rainbond集群迁移
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/Cross%20cluster%20migration.png" width="100%">
 
 应用完成迁移以后，会跳转到对应的数据中心和租户以方便您查看迁移后的应用。
 

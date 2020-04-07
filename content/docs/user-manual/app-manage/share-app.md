@@ -1,6 +1,7 @@
 ---
 title: 应用分享与发布
 description: 讲解Rainbond应用发布功能说明
+Weight: 4006
 ---
 
 #### 应用分享
