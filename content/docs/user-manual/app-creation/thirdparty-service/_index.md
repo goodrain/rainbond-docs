@@ -1,5 +1,5 @@
 ---
-title: "第三服务规范"
+title: "第三方服务规范"
 chapter: true
 menu: "app-create-thirdparty"
 weight: 3400

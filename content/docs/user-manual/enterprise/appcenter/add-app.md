@@ -9,10 +9,33 @@ weight: 2005
 
 使用公有云端市场在线交付
 
-对于有在线环境的用户，可以直接使用好雨公有云端市场进行业务交付，将业务系统发布到好雨公有云市，用户可在公有云端市场直接下载一键安装整套业务系统。 
-
+对于在线环境的用户，可以直接使用好雨公有云端市场进行业务交付，将业务系统发布到好雨公有云市，用户可在公有云端市场直接下载一键安装整套业务系统。 
 
 私有内部市场内置于Rainbond平台中，公有应用市场目前由好雨科技运营提供；公有云端市场服务于与其对接互联的私有应用市场，提供跨平台，跨云的应用资源同步和升级。
+
+### 版本管理
+
+共享库中的应用支持多个版本共存，应用的操作粒度支持到版本级别。
+
+### 应用导出
+
+为了让用户能够更好的管理自己的应用，快捷简单交付业务，我们为平台设计了应用导入导出功能，该功能允许用户通过简单的几次点击，就可以将内部市场的应用打包为一个压缩文件，并可以下载到本地。在导出的时候，支持两种格式，一种为rainbond-app格式，另一种为docker-compose格式。
+
+**目前应用导出功能在企业版当中提供支持**
+
+##### 应用导出功能开启流程
+
+* 在管理后台打开应用导出功能
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/open%20export%20app.png" width='100%' />
+
+* 打开后即可使用应用导出功能
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Click%20export01.png" width='100%' />
+
+* 选择要导出的应用版本，即可开始导出，导出时长根据网络情况决定。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Click%20export02.png" width='100%' />
 
 
 ### 应用导入
@@ -33,17 +56,5 @@ weight: 2005
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Successful%20import.png" width='100%' />
 
-
-
-### 应用导出
-
-为了让用户能够更好的管理自己的应用，快捷简单交付业务，我们为平台设计了应用导入导出功能，该功能允许用户通过简单的几次点击，就可以将内部市场的应用打包为一个压缩文件，并可以下载到本地。在导出的时候，支持两种格式，一种为rainbond-app格式，另一种为docker-compose格式。
-
-目前开源版本暂不支持应用导出功能
-
-
-### 应用版本
-
-共享库中的应用支持多个版本共存，应用的操作粒度支持到版本级别。
 
 

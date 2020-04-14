@@ -34,17 +34,23 @@ weight: 2002
 
 #### 团队重命名
 
-在团队视图`设置`界面重命名
+在团队视图`设置`界面对团队进行重命名
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/modifyteamname.png" width="100%"/>
 
-### 数据中心
 
-1. 如果您具有开通数据中心权限，才可以执行开通数据中心操作。
-2. 开通数据中心是团队级别的，添加数据中心是企业级别的。
-3. 平台的核心是应用定义一切，但是团队和数据中心是平台的基础。
+### 团队成员管理
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Data%20center.png" width="100%"/>
+#### 添加团队成员
+
+在团队视图设置中`设置`-->`成员`-->`添加成员`，找到要添加的用户和将要授予的权限，确认添加即可，必须是已经添加到企业中的用户才可以加入团队，添加平台用户参考[用户管理](/docs/user-manual/user-registration-login/user-register/)
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Add%20member.png" width="100%"/>
+
+#### 角色管理
+
+请参考[角色权限管理](/docs/user-manual/manage-team/manage-permision/)
+
 
 
 

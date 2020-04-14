@@ -1,7 +1,7 @@
 +++
 title = "OAuth2.0集成"
 chapter = true
-weight = 20
+weight = 30
 +++
 
 本章内容包括：
