@@ -63,3 +63,59 @@ Rainbond平台启动组件时默认注入以下环境变量信息以供应用使
 | ES_CPUREQUEST    | 1核=1000       |  自定义组件的CPU请求值     5.0.3及以后版本支持           |
 | ES_TCPUDP_MESH_MEMORY | MB | 自定义默认的MESH容器内存限制量，默认为128MB |
 | ES_TCPUDP_MESH_CPU | 1核=1000  | 自定义默认的MESH容器CPU限制量，默认为120, 最小为120 |
+
+
+### 自定义环境变量
+
+当你通过组件【设置】中的自定义环境变量，添加变量后组件更新或重启后生效。
+
+通常情况下，我们将配置信息写到配置文件中供程序读取使用，在Rainbond平台中，我们<b>极力推荐</b>使用环境变量的方式来代替传统的配置文件的方式。
+
+这样做的好处如下：
+
+- 将配置信息与组件绑定，与代码解耦，摆脱不同环境下切换配置文件的麻烦
+- 敏感信息与代码分离，避免程序漏洞造成数据丢失
+- 省去配置管理的工作
+
+下面是一个生产环境的组件使用环境变量进行配置的截图：
+
+<center>
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/custom-env.png" width="90%" />
+</center>
+
+以Python为例介绍在配置读取环境变量的方法：
+
+```python
+# -*- coding: utf8 -*-
+import os
+
+DEBUG = os.environ.get('DEBUG') or False
+
+TEMPLATE_DEBUG = os.environ.get('TEMPLATE_DEBUG') or False
+
+DEFAULT_HANDLERS = [os.environ.get('DEFAULT_HANDLERS') or 'zmq_handler']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'goodrain',
+        'USER': os.environ.get('MYSQL_USER'),
+        'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
+        'HOST': os.environ.get('MYSQL_HOST'),
+        'PORT': os.environ.get('MYSQL_PORT'),
+    }
+}
+...
+```
+
+
+
+基于环境变量除了可以定义上诉所述的用于应用运行的变量以外，还能作为组件编译、组件调度运行的参数指定方式，更多请查看 [环境变量的高级用法](../service-env/)
+
+关于动态值环境变量：
+
+环境变量的值可以基于已存在环境变量的值解析，如果环境变量的值中出现 ${XXX}，平台将尝试查找XXX环境变量的值来替换此字符串，若无法找到具有值的XXX变量，将不做更改。 
+
+为防止出现无法被解析的情况，可以定义为${XXX:yy}的形式，`:`以后的将作为未成功解析的默认值。
+
+例如有已存在环境变量 A=1，环境变量B需要使用A的值，直接定义B=${A}。
