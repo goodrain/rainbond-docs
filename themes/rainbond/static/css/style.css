@@ -9828,10 +9828,6 @@ print {
     height: 4rem
 }
 
-.navbar .navbar-center {
-    margin-right: -10vw
-}
-
 .navbar .navbar-brand {
     min-height: 4rem
 }
@@ -9849,8 +9845,6 @@ print {
     align-items: stretch;
     display: flex;
     text-align: center;
-    margin-left: auto;
-    margin-left: right
 }
 
 .navbar .navbar-center a {
@@ -10127,12 +10121,8 @@ img.pushed-image {
 }
 
 .button-cta .button {
-    padding: 2.5rem 3.5rem;
-    min-width: 20vw;
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    background-color: #5ccff5
+    padding: 1.5rem 2.5rem;
+    margin: 2rem 1rem;
 }
 
 .button-cta p {
@@ -11288,4 +11278,22 @@ pre {
     left: 0.1rem !important;
     top: 1.6rem !important;
     width: 4rem;
+}
+
+.login-zone {
+    margin-left: auto;
+    display: flex;
+    width: 200px;
+    padding: .75rem;
+}
+.login-zone .login, .login-zone .register {
+    flex: auto;
+}
+.login-zone .register a {
+    background-color: #00d1b2;
+    color: #fff;
+}
+.logo-simple {
+    width: 60px;
+    padding: 10px;
 }

@@ -14,8 +14,12 @@
         <h2>以企业云原生应用开发、架构、运维、共享、交付为核心的Kubernetes多云赋能平台</h2>
 
         <div class="button-cta">
-            <a class="button is-primary is-large" href="/docs/quick-start/rainbond_install/">Get Started</a>
-            <p><a href="/docs/quick-start/rainbond_install/">安装</a>使用Rainbond或者浏览<a href="/docs/">文档</a>学习更多</p>
+            <a class="button is-primary" target="_blank" rel="noopener noreferrer"
+                href="https://cloud.goodrain.com">免费试用</a>
+            <a class="button" href="/docs/quick-start/rainbond_install/">安装开源</a>
+            <p> <a class="github-button" href="https://github.com/goodrain/rainbond" data-size="large"
+                    data-show-count="true" data-icon="octicon-star"
+                    aria-label="Star goodrain/rainbond on GitHub">Star</a></p>
         </div>
     </section>
 
@@ -69,7 +73,7 @@
                             <h4>微服务架构</h4>
                         </div>
                         <div class="card-icon">
-                            <img src="/images/openapi.svg">
+                            <img alt="" src="/images/openapi.svg">
                         </div>
                         <div class="card-text">
                             <p>ServiceMesh微服务框架开箱即用，上云即微服务，同时支持其他微服务（SpringCloud, Dubbo）架构协同，赋能企业微服务架构落地。</p>
@@ -81,7 +85,7 @@
                             <h4>无侵入 无限制</h4>
                         </div>
                         <div class="card-icon">
-                            <img src="/images/code.svg">
+                            <img alt="" src="/images/code.svg">
                         </div>
                         <div class="card-text">
                             <p>无侵入支持大多数开发语言持续构建，各种工作负载组件部署，插件化提供微服务治理，支持Windows服务，运行于各种云或裸金属，赋能开发者业务开发。</p>
@@ -93,7 +97,7 @@
                             <h4>开 源</h4>
                         </div>
                         <div class="card-icon">
-                            <img src="/images/community.svg">
+                            <img alt="参与开源" src="/images/community.svg">
                         </div>
                         <div class="card-text">
                             <p>Rainbond 是一个完整开源的企业级平台。</p>
@@ -231,43 +235,7 @@
         </div>
     </section>
 
-    <section class="section section-feature-grey is-medium" id="community">
-        <div class="container">
-
-            <div class="title-wrapper has-text-centered">
-                <h3 class="title is-6">参与其中</h3>
-            </div>
-
-            <div class="content-wrapper">
-
-                <div class="columns has-text-centered">
-                    <div class="column is-third social-wrap">
-                        <a href="https://t.goodrain.com" target="_blank" class="social-icon">
-                            <img src="images/discourse.png" alt="Rainbond社区" />
-                            <h4>社区</h5>
-                                <p>参考社区，学习或贡献更多Rainbond用例用法</p>
-                        </a>
-                    </div>
-                    <div class="column is-third social-wrap">
-                        <a href="https://gitter.im/goodrain/rainbond" target="_blank" class="social-icon">
-                            <img src="images/gittr.png" alt="Gittr Chat" />
-                            <h4>Gitter</h4>
-                            <p>加入社区聊天，与开发团队讨论Rainbond</p>
-                        </a>
-                    </div>
-                    <div class="column is-third social-wrap">
-                        <a href="https://github.com/goodrain/rainbond" target="_blank" class="social-icon">
-                            <span class="icon">
-                                <i class="fa fa-github"></i>
-                            </span>
-                            <h4>贡献</h4>
-                            <p>欢迎参与贡献，你可以从提出Issues和解决Issues开始</p>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-    </section>
+    {{partial "medium.html" }}
 
     {{ partial "footer.html" . }}
     <script type="text/javascript" src="/js/video.min.js"></script>

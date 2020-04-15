@@ -91,6 +91,13 @@
                 smsg: "提交成功，在线试用账户稍后将通过手机告知"
             });
         });
+        $(".visitor-show").click(function() {
+            modalVisitor.show({
+                title: "预约演示",
+                source: "Rainbond官网文档首页",
+                smsg: "提交成功，稍后将与你联系确认演示时间"
+            });
+        });
         $(".auth-visitor").click(function() {
             modalVisitor.show({
                 title: $(this).data("title"),

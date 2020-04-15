@@ -32,7 +32,29 @@ NAME             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
 
 ### 组件信息
 
-Rainbond所有组件都位于`rbd-system`同一名称空间下
+Rainbond所有组件都位于`rbd-system`同一名称空间下，由不同控制器管理
+
+| 控制器类型  | 组件名称                   |
+| ----------- | -------------------------- |
+| statefulset | aliyun-csi-nas-provisioner |
+| statefulset | rainbond-operator          |
+| statefulset | rbd-etcd                   |
+| statefulset | rbd-monitor                |
+| statefulset | rbd-repo                   |
+| deployment  | rbd-api                    |
+| deployment  | rbd-app-ui                 |
+| deployment  | rbd-dns                    |
+| deployment  | rbd-eventlog               |
+| deployment  | rbd-hub                    |
+| deployment  | rbd-mq                     |
+| deployment  | rbd-webcli                 |
+| deployment  | rbd-worker                 |
+| daemonset   | aliyun-csi-nas-plugin      |
+| daemonset   | rbd-chaos                  |
+| daemonset   | rbd-gateway                |
+| daemonset   | rbd-node                   |
+
+
 
 - 查看Rainbond所有组件的pod信息
 
@@ -43,7 +65,7 @@ kubectl get pod -n rbd-system
 
 
 - 查看rainbond所有组件的pod信息，并且查看都在哪些节点上运行
- 
+
 ```bash
 kubectl get pods -o wide -n rbd-system
 ```
@@ -63,12 +85,10 @@ kubectl describe pod -l name=rbd-api   -n rbd-system
 
 **对于以pod方式运行的组件，可以使用以下方式查看日志**
 
-`rbd-chaos`组件提供应用构建服务，提供源码，Docker镜像等方式创建应用，在构建应用异常失败时可查看该组件日志进行分析
-
 - 实时查看日志
 
 ```bash
-kubectl logs -fl name=rbd-chaos -n rbd-system
+kubectl logs -fl name=rbd-api -n rbd-system
 ```
 
 选项解释:
@@ -78,20 +98,22 @@ kubectl logs -fl name=rbd-chaos -n rbd-system
     
 
 - 查看最近20行日志
- 
+
 ```bash
-kubectl logs --tail=20 -l name=rbd-chaos  -n rbd-system
+kubectl logs --tail=20 -l name=rbd-api  -n rbd-system
 ```
 
 - 查看过去1个小时的日志
- 
+
 ```bash
-kubectl logs --since=1h -l name=rbd-chaos  -n rbd-system
+kubectl logs --since=1h -l name=rbd-api  -n rbd-system
 ```
 
 要查看其他组件日志，只需将name后的组件名称替换为想要查看日志的组件即可
 
 `rbd-app-ui`组件的日志持久化目录为`/opt/rainbond/logs/rbd-app-ui`，查看`goodrain.log`即可以看到相关日志信息。
+
+源码构建过程相关日志查看，请参考[grctl命令行工具](../tools/grctl)
 
 **以下组件由systemd托管，可使用以下方式查看组件日志**
 
@@ -176,8 +198,8 @@ pvc-b0ec90e1-2201-44d1-891b-f2e10127d7cc   1Mi        RWX            Delete     
 
 ### 命令行更换镜像
 
-将daemonset的`rbd-api`容器镜像滚动更新为`goodrain.me/rbd-api:V5.2.0-beta1`
+将由deployment控制权管理的`rbd-api`容器镜像滚动更新为`goodrain.me/rbd-api:V5.2.0-beta1`
 
 ```bash
-kubectl set image ds rbd-api  rbd-api=goodrain.me/rbd-api:V5.2.0-beta1 -n rbd-system
+kubectl set image deployment rbd-api  rbd-api=goodrain.me/rbd-api:V5.2.0-beta1 -n rbd-system
 ```
