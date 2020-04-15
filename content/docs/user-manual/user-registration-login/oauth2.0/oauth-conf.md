@@ -57,15 +57,7 @@ Rainbond所有支持的Oauth类型需要正常配置权限才能正常使用，�
 
 ### OAuth服务认证
 
-**登录前**
-
-通过第三方用户登录认证
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/oauth-authorization/Authentication01.jpg" width = "800"alt=""/>
-
-**登录后**
-
-在平台右上角的用户信息内可以进行OAuth服务认证,与第三方平台互联
+在配置Oauth服务后在平台右上角的用户信息内可以进行OAuth服务认证,与第三方平台互联
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/oauth-authorization/Authentication.jpg" width = "800"alt=""/>
     
