@@ -10030,7 +10030,7 @@ img.pushed-image {
 }
 
 .hero {
-    padding-top: 6rem;
+    padding-top: 8rem;
     padding-bottom: 6rem;
     min-height: 48rem;
     max-height: 768px !important;
@@ -10051,7 +10051,7 @@ img.pushed-image {
 .hero h2 {
     font-size: 1.35rem;
     font-weight: 700;
-    margin: 5vh auto 3rem;
+    margin: 12vh auto 0rem;
     padding: 0.5rem;
     color: #0d2192
 }
@@ -10124,10 +10124,12 @@ img.pushed-image {
     padding: 1.5rem 2.5rem;
     margin: 2rem 1rem;
 }
-
+.button-cta {
+    margin-top: 2rem;
+}
 .button-cta p {
     font-size: 1.25rem;
-    margin-bottom: 2.5rem
+    margin: 2.5rem 0;
 }
 
 .footer {

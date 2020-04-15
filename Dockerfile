@@ -9,7 +9,6 @@ RUN apk add --no-cache bash net-tools && \
 # copy doc
 ADD . /app
 WORKDIR /app
-ARG LOCATION=""
 ARG BASEURL="https://v5.2-doc.rainbond.com${LOCATION}"
 RUN hugo --baseURL=${BASEURL}
 
