@@ -2,7 +2,7 @@
 title: "组件资源清理"
 description: "清理磁盘上无用的数据, 减轻磁盘的压力"
 draft: false
-weight: 1312
+weight: 1009
 hidden: true
 ---
 
