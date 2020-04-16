@@ -56,6 +56,13 @@ $(function() {
       handleSearch();
     }
   }
+  $('.problem-item').on('click', function() {	
+    if ($(this).hasClass('active')) {	
+      $(this).removeClass('active')	
+    } else {	
+      $('.problem-item').removeClass('active')	
+      $(this).addClass('active')	
+    }
   initCopyCode()
 });
 
