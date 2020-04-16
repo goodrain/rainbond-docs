@@ -47,19 +47,12 @@ weight: 801
 |[kube-flannel](/docs/user-operations/component/kube-flannel/)|v0.11.0|Flannel是最早应用到k8s集群的网络插件之一|
 |[metrics-server](/docs/user-operations/component/metrics-server/)|v0.3.6|Kubernetes 的监控组件，从`Kubelet `公开的`Summary API`采集指标信息|
 
-
 **组件高级用法可以通过点击组件的链接方式阅读。**
 
 
-### 二、逻辑架构图
+### 二、附录
 
-
-<center><img src="https://static.goodrain.com/images/docs/5.0/operation-manual/deploy-logic.png" style="border:1px solid #eee;width:80%"/></center>
-
-
-### 三、附录
-
-#### 3.1 服务组件端口说明
+#### 2.1 服务组件端口说明
 
 > 公网访问: 如部署在公有云环境需要公网访问需要安全组放行
 
@@ -70,9 +63,9 @@ weight: 801
 |7070|应用控制台web|需要安全组放行|rbd-app-ui|
 |8443|Rainbond API服务|需要安全组放行|rbd-api|
 |30008|集群安装运维控制台web|需要安全组放行|rainbond-operator|
-|10248/10250/10255/42645|kubelet服务||kubelet| 
+|10248/10250/10255/42645|kubelet服务||kubelet|
 |10251|kube-scheduler服务||kube-scheduler|
-|6443/8080|kube-apiserver服务||kube-apiserver| 
+|6443/8080|kube-apiserver服务||kube-apiserver|
 |2379,2380,4001|etcd服务||etcd/etcd-proxy|
 |10252/10257|kube-controller服务||kube-controller|
 |53| 集群内部dns服务 ||rbd-dns|
@@ -85,7 +78,7 @@ weight: 801
 |10259|kube-scheduler服务||kube-scheduler|
 |53| 集群内部dns服务 ||rbd-dns|
 |8089|集群域名解析服务监听端口||kube-dns|
-|9999|集群监控||rbd-monitor| 
+|9999|集群监控||rbd-monitor|
 |3306|集群数据库||rbd-db|
 
 
@@ -95,7 +88,7 @@ weight: 801
 
 更多具体端口信息请参考[组件端口](/docs/user-operations/op-guide/required_ports/)
 
-#### 3.2 服务部署类型说明
+#### 2.2 服务部署类型说明
 
 |部署类型|说明|组件名|
 |--------|------------|------------|

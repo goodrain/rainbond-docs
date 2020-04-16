@@ -1,6 +1,6 @@
 ---
-title: 对接公有云
-description: Rainbond集群对接公有云说明
+title: 公有云配置WebSocket TLS证书
+description: 公有云配置WebSocket TLS证书
 weight: 1011
 ---
 
@@ -16,11 +16,18 @@ weight: 1011
 
 从证书签发机构获取证书后，创建`wsssecert.yaml`文件，通过kubernetes创建证书文件资源
 
-```yaml
+```bash
+#使用base64加密证书文件
+cat 公钥证书.pem | base64 > 公钥证书base64.txt
+cat 私钥证书.pem | base64 > 私钥证书base64.txt
+
+#创建wsssecert.yaml文件
+vim wsssecert.yaml
+
 apiVersion: v1
 data:
-  websocket域名.crt: #将域名公钥证书文件内容经base64加密后填写到此处
-  websocket域名.key: #将域名私钥文件内容经base64加密后填写到此处
+  websocket域名.crt: #将公钥证书base64.txt内容填写到此处
+  websocket域名.key: #将私钥证书base64.txt内容填写到此处
 kind: Secret
 metadata:
   labels:
@@ -95,6 +102,8 @@ spec:
 #### 修改集群配置
 
 通过 企业视图 >> 集群 >> 编辑，修改对应集群的websocket设置
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/component-op/wss.jpg" width="100%"/>
 
 
 
