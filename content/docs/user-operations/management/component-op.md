@@ -198,8 +198,8 @@ pvc-b0ec90e1-2201-44d1-891b-f2e10127d7cc   1Mi        RWX            Delete     
 
 ### 命令行更换镜像
 
-将由deployment控制权管理的`rbd-api`容器镜像滚动更新为`goodrain.me/rbd-api:V5.2.0-beta1`
+将由deployment控制权管理的`rbd-api`容器镜像滚动更新为`goodrain.me/rbd-api:V5.2.0-release`
 
 ```bash
-kubectl set image deployment rbd-api  rbd-api=goodrain.me/rbd-api:V5.2.0-beta1 -n rbd-system
+kubectl set image deployment rbd-api  rbd-api=goodrain.me/rbd-api:V5.2.0-release -n rbd-system
 ```

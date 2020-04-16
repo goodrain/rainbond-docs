@@ -49,8 +49,8 @@ kubectl create namespace rbd-system
 wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/mysql-operator-chart.tgz
 tar zxvf mysql-operator-chart.tgz
 helm install mysql-operator ./mysql-operator -n rbd-system
-```    
-    
+```
+
 确认Mysql-operator所有pod均已经就绪
 
 ```bash
@@ -67,7 +67,7 @@ mysql-operator-6c5bcbc7fc-4gjvn                                   1/1     Runnin
 下载rainbond-operator Chart应用包：
 
 ```bash
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v5.2.0-beta2.tgz && tar xvf rainbond-operator-chart-v5.2.0-beta2.tgz
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v5.2.0-release.tgz && tar xvf rainbond-operator-chart-v5.2.0-release.tgz
 ```
 
 可选配置参考 `./chart/values.yaml`，默认情况下无需修改。
@@ -102,7 +102,7 @@ rainbond-operator-0   2/2     Running   0          110s
 
 如果使用的是阿里云的kubernetes资源，请通过SLB将rbd-operator所在节点的30008节点转发至可以访问到的地址
 
-![image-20200309110333545](https://tva1.sinaimg.cn/large/00831rSTly1gcnhw2pbuzj31h50u0q6f.jpg)
+![image-20200309110333545](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/install/install.jpg)
 
 #### 进入下一步，根据需求选择配置，完成后点击配置就绪，开始安装。
 
@@ -189,13 +189,9 @@ rainbond-operator-0   2/2     Running   0          110s
 
 等待安装完成后即可进入如下界面，确定所有组件的组件副本数和已就绪副本数相等，说明集群安装完成且正常运行，点击访问地址登录即可
 
-**安装完成后为了确保共享存储的可用性，请继续阅读本文，完成共享存储的挂载操作**
+**安装完成后为了确保集群的安全，请关闭30008端口，防止误操作卸载集群**
 
 ![image-20200309180404861](https://tva1.sinaimg.cn/large/00831rSTly1gcnu1kw0z7j31ix0u0n1f.jpg)
 
 ![image-20200309180416672](https://tva1.sinaimg.cn/large/00831rSTly1gcnu1s6fp3j31z20s040z.jpg)
-
-#### 挂载共享存储
-
-当前版本需在所有节点手动将集群共享存储挂载至`/grdata`目录，在后续版本将对此功能进行优化，实现自动挂载
 
