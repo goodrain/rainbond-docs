@@ -64,6 +64,8 @@ $(function () {
       handleSearch()
     }
   }
+  // code copy
+  initCopyCode();
 })
 
 function changeHeight (target, changeHeightNum, mode) {
@@ -77,6 +79,19 @@ function changeHeight (target, changeHeightNum, mode) {
       parentLi.height(current - changeHeightNum)
     }
   }
+}
+//code copy
+function initCopyCode(){
+  var copyHtml = '';
+  copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+  copyHtml += ' <span>copy</span>';
+  copyHtml += '</button>';
+  $(".markdown-body pre code").before(copyHtml);
+  new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+          return trigger.nextElementSibling;
+      }
+  });
 }
 
 function initOpen (item, add) {
