@@ -63,6 +63,7 @@ $(function() {
       $('.problem-item').removeClass('active')	
       $(this).addClass('active')	
     }
+  });
   initCopyCode()
 });
 
