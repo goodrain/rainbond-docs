@@ -11299,3 +11299,21 @@ pre {
     width: 60px;
     padding: 10px;
 }
+
+.topshow {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    overflow: hidden;
+    min-height: 40px !important;
+    height: 40px;
+    text-align: center;
+}
+.topshow span {
+    width: 100%;
+}
+.top {
+    background: black;
+    min-height: 40px !important;
+}
