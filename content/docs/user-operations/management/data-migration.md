@@ -1,8 +1,7 @@
 ---
-title: "rbd-db数据迁移至外部数据库"
+title: rbd-db数据迁移至外部数据库
 weight: 1007
-description: "将数据由平台默认数据存储中心rbd-db迁移至外部数据库"
-hidden: true
+description: 将数据由平台默认数据存储中心rbd-db迁移至外部数据库
 ---
 
 #### 准备工作，使用rainbond平台默认的rbd-db组件搭建外部数据库
@@ -59,11 +58,11 @@ flush privileges;­
 
 - 因数据已经导入，只需修改指向数据库主机的IP即可
 
-```bash
-kubectl edit deployment rbd-app-ui -n rbd-system
-```
+  修改rbd-app-ui组件连接地址
 
 ```bash
+kubectl edit deployment rbd-app-ui -n rbd-system
+
       containers:
       - env:
         - name: MYSQL_HOST
@@ -78,35 +77,35 @@ kubectl edit deployment rbd-app-ui -n rbd-system
           value: console
 ```
 
+修改rbd-api组件连接地址
+
 ```bash
 kubectl edit deployment rbd-api -n rbd-system
-```
 
-```yaml
       containers:
       - args:
 				...
         - --mysql=mysql_user:mysql_pass@tcp(mysql_host:mysql_port)/region #修改mysql_host和mysql_port为新的地址和端口即可
 				...
 ```
+
+修改rbd-chaos组件连接地址
 
 ```bash
 kubectl edit daemonsets rbd-chaos -n rbd-system
-```
 
-```yaml
       containers:
       - args:
 				...
         - --mysql=mysql_user:mysql_pass@tcp(mysql_host:mysql_port)/region #修改mysql_host和mysql_port为新的地址和端口即可
 				...
 ```
+
+修改rbd-worker组件连接地址
 
 ```bash
 kubectl edit deployments rbd-worker -n rbd-system
-```
 
-```yaml
       containers:
       - args:
 				...
@@ -114,11 +113,11 @@ kubectl edit deployments rbd-worker -n rbd-system
 				...
 ```
 
+修改rbd-eventlog组件连接地址
+
 ```bash
 kubectl edit deployments rbd-eventlog -n rbd-system
-```
 
-```yaml
       containers:
       - args:
 				...

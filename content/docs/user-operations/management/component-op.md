@@ -1,10 +1,7 @@
 ---
 title: Rainbond组件运维
-date: 2020-02-18T15:42:54+08:00
-draft: false
 weight: 1005
 description: Rainbond组件运维
-hidden: true
 ---
 
 本章主要讲述Rainbond系统组件的常见运维方式，以帮助用户更快速，高效的运维Rainbond。
@@ -34,25 +31,26 @@ NAME             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
 
 Rainbond所有组件都位于`rbd-system`同一名称空间下，由不同控制器管理
 
-| 控制器类型  | 组件名称                   |
-| ----------- | -------------------------- |
-| statefulset | aliyun-csi-nas-provisioner |
-| statefulset | rainbond-operator          |
-| statefulset | rbd-etcd                   |
-| statefulset | rbd-monitor                |
-| statefulset | rbd-repo                   |
-| deployment  | rbd-api                    |
-| deployment  | rbd-app-ui                 |
-| deployment  | rbd-dns                    |
-| deployment  | rbd-eventlog               |
-| deployment  | rbd-hub                    |
-| deployment  | rbd-mq                     |
-| deployment  | rbd-webcli                 |
-| deployment  | rbd-worker                 |
-| daemonset   | aliyun-csi-nas-plugin      |
-| daemonset   | rbd-chaos                  |
-| daemonset   | rbd-gateway                |
-| daemonset   | rbd-node                   |
+| 控制器类型  | 组件名称                   | 所属部署类型                 |
+| ----------- | -------------------------- | ---------------------------- |
+| statefulset | aliyun-csi-nas-provisioner | 使用阿里云NAS提供存储支持    |
+| statefulset | rainbond-operator          | 所有版本                     |
+| statefulset | rbd-db                     | 开源版、企业版               |
+| statefulset | rbd-etcd                   | 所有版本                     |
+| statefulset | rbd-monitor                | 所有版本                     |
+| statefulset | rbd-repo                   | 所有版本                     |
+| deployment  | mysql-operator             | 使用mysql-operator高可用安装 |
+| deployment  | rbd-api                    | 所有版本                     |
+| deployment  | rbd-app-ui                 | 开源版、企业版               |
+| deployment  | rbd-eventlog               | 所有版本                     |
+| deployment  | rbd-hub                    | 所有版本                     |
+| deployment  | rbd-mq                     | 所有版本                     |
+| deployment  | rbd-webcli                 | 所有版本                     |
+| deployment  | rbd-worker                 | 所有版本                     |
+| daemonset   | aliyun-csi-nas-plugin      | 使用阿里云NAS提供存储支持    |
+| daemonset   | rbd-chaos                  | 所有版本                     |
+| daemonset   | rbd-gateway                | 所有版本                     |
+| daemonset   | rbd-node                   | 所有版本                     |
 
 
 
@@ -142,10 +140,12 @@ journalctl -fu docker.service
 
 ### 调整组件配置
 
-这里以`rbd-api`组件为例，修改其他组件配置时将名称替换即可
+这里以不同控制器类型的组件为例，修改其他组件配置时将名称及控制器类型替换即可
 
 ```bash
-kubectl edit rbdcomponent rbd-api -n rbd-system
+kubectl edit deployment rbd-api -n rbd-system
+kubectl edit statefulset rbd-db -n rbd-system
+kubectl edit daemonset rbd-node -n rbd-system
 ```
 
 配置修改完成之后，保存退出，pod将自动重启更新配置
