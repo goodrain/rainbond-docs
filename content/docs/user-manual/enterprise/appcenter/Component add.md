@@ -1,7 +1,8 @@
 ---
 title: 共享库应用的同步
-description: Rainbond基于共享库的应用同步
+description: 基于共享库的应用同步
 weight: 2003
+hidden: true
 ---
 
 本文主要介绍Rainbond共享库的应用组件资源的添加方式

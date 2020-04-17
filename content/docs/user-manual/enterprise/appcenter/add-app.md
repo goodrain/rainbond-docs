@@ -1,9 +1,9 @@
 ---
 title: 基于共享库的应用交付
-description: 基于共享库的应用导入导出
+description: 基于共享库的应用交付体验
 weight: 2005
+hidden: true
 ---
-
 
 ### 应用交付
 

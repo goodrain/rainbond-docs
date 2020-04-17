@@ -2,6 +2,7 @@
 title: 共享库功能说明
 description: 讲解共享库的功能和使用场景
 weight: 2001
+hidden: true
 ---
 
 ### 企业中台共享库
