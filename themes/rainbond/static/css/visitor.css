@@ -1,0 +1,132 @@
+.modal-visitor-wrap {
+    display: none;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, .4);
+}
+
+.modal-visitor-wrap .head {
+    background: #F8F8F8;
+    height: 40px;
+    width: 100%;
+}
+
+.modal-visitor-wrap .bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    opacity: 0.4;
+    z-index: 999999
+}
+
+.modal-visitor-wrap .close {
+    cursor: pointer;
+    z-index: 999;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+
+.modal-visitor-wrap .close:before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    display: block;
+    content: '';
+    height: 0;
+    width: 100%;
+    border-top: 1.5px solid #000;
+    transform: rotate(45deg)
+}
+
+.modal-visitor-wrap .close:after {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    position: absolute;
+    display: block;
+    content: '';
+    height: 0;
+    width: 100%;
+    border-top: 1.5px solid #000;
+    transform: rotate(-45deg)
+}
+
+.modal-visitor {
+    border-radius: 8px;
+    overflow: hidden;
+    position: fixed;
+    z-index: 99999999;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    max-width: 100%;
+    max-height: 100%
+}
+.modal-visitor .hidden {
+    display: none;
+}
+.modal-visitor .head h3 {
+    padding: 10px !important;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    color: #0d2192;
+    margin: 0;
+    font-size: 100%;
+    display: block;
+}
+.modal-visitor .form {
+    width: 100%;
+    padding: 15px;
+}
+.modal-visitor .form .form-item {
+    height: 50px;
+    width: 100%;
+    margin-top: 15px;
+}
+.modal-visitor .form .form-item span {
+    float: left;
+    width: 80px;
+    height: 50px;
+    line-height: 50px;
+}
+.modal-visitor .form .form-item input {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    width: calc(100% - 110px);
+    font-size: 16px;
+    padding-left: 8px !important;
+}
+
+.modal-visitor .form .form-item.submit {
+    text-align: center;
+}
+.modal-visitor .form .form-item.submit button {
+    padding: 10px 25px !important;
+    font-size: 15px;
+    background: #5ccff5;
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor:pointer;
+}
+.modal-visitor .form .form-item.submit .send.disable{
+    background: #d9d9d9;
+}
+.modal-visitor .form .msg {
+    text-align: center;
+    line-height: 15px;
+    padding: 15px 0;
+}
+.modal-visitor .form .msg.error {
+    color: red;
+}
+.modal-visitor .form .msg.success, .modal-visitor .form .msg p.success {
+    color: green;
+}

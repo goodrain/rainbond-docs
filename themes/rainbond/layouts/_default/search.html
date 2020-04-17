@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+{{ partial "head.html" . }}
+{{ $active := "doc" }}
+<body>
+    {{ partial "header.html" (dict "context" .   "active" "doc") }}
+    {{ partial "doc-head.html" . }}
+    <section class="section content-section">
+        <div class="container content-body">
+            {{ partial "menu.html" . }}
+            <div class="doc-search doc-content ">
+                <div class="search-box">
+                    <input type="text" class="search-ipt J-global-search-input" placeholder="请输入您要搜索的关键词">
+                    <button type="button" class="bt-clear J-global-search-clear"></button>
+                    <button id="bt-search" type="button" class="bt-search J-global-search-btn"><i class="fa fa-search"></i></button>
+                    <ul class="keyword-list J-global-search-tips"></ul>
+                </div>
+                <div class="search-list">
+                    <div class="tips hidden">
+                        <div class="icon-search-none"><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/12141565594759_.pic_hd.jpg"/></div>
+                        <p>没有找到您要查询的内容，请添加微信"979885495"加入微信群</p>
+                    </div>
+                    <ul class="hidden">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{ partial "footer.html" . }}
+</body>

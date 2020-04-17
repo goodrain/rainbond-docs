@@ -1,0 +1,86 @@
+{{ $currentNode := . }}
+{{ $showvisitedlinks := .Site.Params.showVisitedLinks }}
+<div class="sidemenu">
+    <div class="sidemenu-toggle">
+        <img src="https://img.alicdn.com/tfs/TB1E6apXHGYBuNjy0FoXXciBFXa-200-200.png"></div>
+    <div class="versions">
+        <select id="switchBranch">
+            <option data-default="true" value="v5.2">v5.2</option>
+            <option value="v5.1">v5.1</option>
+        </select>  
+    </div>      
+    <ul>
+        {{range .Site.Home.Sections.ByWeight}}
+            {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "level" 0}}
+        {{end}}
+    </ul>
+</div>
+
+{{ define "section-tree-nav" }}
+    {{ $level := .level }}
+    {{ $next_level := add .level 1 }}
+    {{ $showvisitedlinks := .showvisitedlinks }}
+    {{ $currentNode := .currentnode }}
+    {{with .sect}}
+        {{if .IsSection }}
+            {{ $numberOfPages := 0 }}
+            {{ $currentNode.Scratch.Set "pages" .Pages }}
+            {{ if .Sections}}
+            {{ $currentNode.Scratch.Set "pages" (.Pages | union .Sections) }}
+            {{end}}
+            {{ $pages := ($currentNode.Scratch.Get "pages") }}
+            {{ range $pages.ByWeight }}
+                {{ if and .Params.hidden (not $.showhidden) }}
+                {{else}}
+                  {{ $numberOfPages = add $numberOfPages 1}}
+                {{end}}
+            {{ end }}
+            <li data-count="{{$numberOfPages}}" class="{{if and (ge $level 2)  (eq .UniqueID $currentNode.UniqueID)}}menu-item-selected{{end}} menu-item {{ if and (ge $level 2) (ne $numberOfPages 0) }} canopen {{end}} menu-item-level-{{ $level }}" {{if ge $level 2 }}style="height: 36px; overflow: hidden;"{{end}}> 
+                {{ if gt $numberOfPages 0 }}
+                    <span href="{{.RelPermalink}}"> 
+                        {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
+                        {{ if and (ge $level 2) (gt $numberOfPages 0) }}
+                        <img class="menu-toggle" src="/images/arrow_down.png" style="transform: rotate(-90deg);">
+                        {{ end }}
+                    </span>
+                {{ else }}
+                    <a href="{{.RelPermalink}}"> 
+                        {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
+                        {{ if eq $numberOfPages 0 }}
+                        <img class="menu-toggle" src="/images/arrow_down.png" style="transform: rotate(-90deg);">
+                        {{ end }}
+                    </a>
+                {{ end }}
+                {{ if ne $numberOfPages 0 }}
+                    <ul>
+                    
+                        {{if eq .Site.Params.ordersectionsby "title"}}
+                        {{ range $pages.ByTitle }}
+                        {{ if and .Params.hidden (not $.showhidden) }}
+                        {{else}}
+                        {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "level" $next_level }}
+                        {{end}}
+                        {{ end }}
+                        {{else}}
+                        {{ range $pages.ByWeight }}
+                        {{ if and .Params.hidden (not $.showhidden) }}
+                        {{else}}
+                        {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "level" $next_level }}
+                        {{end}}
+                        {{ end }}
+                        {{end}}
+                    </ul>
+                {{end}}
+            </li>
+        {{else if ge $level 1}}
+            {{ if not .Params.Hidden }}
+            <li class="menu-item menu-item-level-{{ $level }}
+            {{if eq .UniqueID $currentNode.UniqueID}}menu-item-selected{{end}}" > 
+                <a href="{{.RelPermalink}}" target="_self">
+                    {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
+                </a>
+            </li>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}

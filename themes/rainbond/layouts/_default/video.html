@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+{{ partial "head.html" . }}
+<body>
+    {{ $active := "video" }}
+    {{ partial "header.html" (dict "context" .   "active" "video") }}
+    {{ partial "video.html" . }}
+    {{ partial "footer.html" . }}
+</body>
