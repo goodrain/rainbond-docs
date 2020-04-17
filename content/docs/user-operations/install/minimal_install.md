@@ -31,7 +31,7 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 下载Rainbond-operator Chart应用包：
 
 ```bash
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v5.2.0-beta2.tgz && tar xvf rainbond-operator-chart-v5.2.0-beta2.tgz
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v5.2.0-release.tgz && tar xvf rainbond-operator-chart-v5.2.0-release.tgz
 ```
 
 可选配置参考 `./chart/values.yaml`，默认情况下无需修改。
@@ -61,7 +61,7 @@ rainbond-operator-0   2/2     Running   0          110s
 
 如果使用的是阿里云的kubernetes资源，请通过SLB将rbd-operator所在节点的30008节点转发至可以访问到的地址
 
-![image-20200309170854368](https://tva1.sinaimg.cn/large/00831rSTly1gcnsg606zjj31oy0u0juq.jpg)
+![image-20200309170854368](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/install/install.jpg)
 
 #### 进入下一步，按照如下方式选择配置，完成后点击配置就绪，开始安装。
 
@@ -79,7 +79,7 @@ rainbond-operator-0   2/2     Running   0          110s
 
 安装过程取决于你的配置信息，大致分为6个阶段，每一个阶段都具有进度信息供你参考。
 
-**安装完成后为了确保共享存储的可用性，请继续阅读本文，完成共享存储的挂载操作**
+**安装完成后为了确保集群的安全，请关闭30008端口，防止误操作卸载集群**
 
 ![image-20200204141936123](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-4.jpg)
 
@@ -94,14 +94,9 @@ rainbond-operator-0   2/2     Running   0          110s
 安装方式：
 
 ```
-docker run -it --rm -v /:/rootfs registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:V5.2.0-beta2 copy
-mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl
-/usr/local/bin/grctl install
+wget https://pkg.rainbond.com/releases/common/v5.2/grctl && chmod +x ./grctl
+mv ./grctl /usr/local/bin/grctl && /usr/local/bin/grctl install
 ```
 
 若输出`Install success`则安装成功。
-具体功能参考 `grctl --help`
-
-### 挂载共享存储
-
-当前版本需在所有节点手动将集群共享存储挂载至`/grdata`目录，在后续版本将对此功能进行优化，实现自动挂载
+具体功能参考 `grctl --help`及[grctl命令行工具](../../tools/grctl)

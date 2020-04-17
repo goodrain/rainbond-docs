@@ -18,8 +18,8 @@ hidden: true
 安装方式：
 
 ```shell
-docker run -it --rm -v /:/rootfs registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:V5.2-dev copy
-mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && /usr/local/bin/grctl install
+wget https://pkg.rainbond.com/releases/common/v5.2/grctl && chmod +x ./grctl
+mv ./grctl /usr/local/bin/grctl && /usr/local/bin/grctl install
 ```
 
 若输出`Install success`则安装成功。

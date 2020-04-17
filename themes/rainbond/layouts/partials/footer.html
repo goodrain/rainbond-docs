@@ -30,18 +30,19 @@
 </div>
 <script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript" src="/js/easydropdown.js"></script>
-<script src="https://unpkg.com/feather-icons"></script>
+<script src="/js/feather-icons"></script>
 <script type="text/javascript" src="/js/landing.js"></script>
 <script type="text/javascript" src="/js/jquery.panelslider.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="/js/modernizr.min.js"></script>
+<script src="/js/clipboard.min.js"></script>
+<script async defer src="/js/github.buttons.js"></script>
 <script type="text/javascript" src="/js/video.min.js"></script>
 <script type="text/javascript" src="/js/modal-video.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/js/axios.min.js"></script>
 <script type="text/javascript" src="/js/visitor.js"></script>
 <script type="text/javascript" src="/js/algoliasearch.min.js"></script>
 <script type="text/javascript" src="/js/jquery.loading.min.js"></script>
+<script type="text/javascript" src="/js/clipboard.js"></script>
 <script type="text/javascript" src="/js/documentation.js"></script>
 <script>
     $(function() {
@@ -60,10 +61,9 @@
         });
 
         $("#switchBranch").change(function() {
-            //code...}); //为Select添加事件，当选择其中一项时触发
             let value = $("#switchBranch").val();
-            if (value === 'v5.2') {
-                window.location.href = 'https://v5.2-doc.rainbond.com/docs/'
+            if (value === 'v5.1') {
+                window.location.href = 'http://v5.1-doc.rainbond.com/docs/'
             } else {
                 window.location.href = 'https://www.rainbond.com/docs/'
             }

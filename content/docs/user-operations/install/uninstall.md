@@ -41,7 +41,9 @@ description: "一键卸载Rainbond集群"
 
   清理集群所有数据
 
-  ```rm -rf /opt/rainbond```，清理集群所有数据
+  ```
+  rm -rf /opt/rainbond
+  ```
 
 - operator卸载
 
