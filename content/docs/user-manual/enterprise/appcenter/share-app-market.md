@@ -1,7 +1,8 @@
 ---
 title: 共享库应用的升级
-description: Rainbond基于共享库的应用升级
+description: 基于共享库的应用升级
 weight: 2004
+hidden: true
 ---
 
 ### 应用升级
