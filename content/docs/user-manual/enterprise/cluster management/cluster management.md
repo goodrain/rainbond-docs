@@ -76,7 +76,7 @@ Rainbond运行的所有服务组件其本质都是运行在Rainbond集群中，R
 
 ### 从云服务商托管Kubernetes集群添加
 
-目前支持使用`阿里云ACK`自助添加，将逐步支持使用`Amazon EKS，华为云 CCE，腾讯云CVM`等方式添加。
+目前支持使用`阿里云ACK`自助添加，将逐步支持使用`Amazon EKS，华为云 CCE，腾讯云 EKS`等方式添加。
 
 在安装过程中会创建相关阿里云资源，故需要提供完整的`AccessKey`及`Secret Key`权限，获取方式请参考[阿里云官方文档](https://help.aliyun.com/document_detail/154851.html?spm=5176.2020520101.0.0.5a454df5FMWZNS)。
 
