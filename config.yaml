@@ -21,6 +21,8 @@ params:
         url: /docs/architecture/architecture/
       - title: Rainbond功能概述
         url: /docs/quick-start/edition/
+      - title: Rainbond Cloud介绍
+        url: /docs/quick-start/rainbond-cloud/
       - title: 集群管理
         url: /docs/user-manual/enterprise/cluster-management/
       - title: 组件部署实践
@@ -37,8 +39,6 @@ params:
         url: /docs/advanced-scenarios/micro/spring_cloud/
       - title: 问题排查定位
         url: /docs/troubleshoot/location-problem/
-      - title: 周边工具集
-        url: /docs/user-operations/tools/
     faqs:
       - q: Rainbond是否开源
         a: 当然，Rainbond是一个完整开源的以企业云原生应用开发、架构、运维、共享、交付为核心的Kubernetes多云赋能平台，企业级支持的国产开源项目，订阅企业服务可以解锁更多便捷功能体验和获得专业的支持。
