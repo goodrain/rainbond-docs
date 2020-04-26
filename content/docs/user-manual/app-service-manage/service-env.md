@@ -13,7 +13,7 @@ Rainbond平台启动组件时默认注入以下环境变量信息以供应用使
 | PROTOCOL            | http\tcp\mysql 等                           | 对应上诉端口的协议类型                                       |
 | TENANT_ID           | 租户 ID                                     | 租户 ID                                                      |
 | SERVICE_ID          | 应用 ID                                     | 应用 ID                                                      |
-| MEMORY_SIZE         | micro， small， medium， large， 2xlarge 等 | 表示当前应用实例的内存大小设置，一般用于应用内存相关设置的初始化，例如 JAVA_OPTS |
+| MEMORY_SIZE         | micro， small， medium， large， 2xlarge 等,对应关系见下文 | 表示当前应用实例的内存大小设置，一般用于应用内存相关设置的初始化，例如 JAVA_OPTS |
 | SERVICE_POD_NUM     | 应用实例数量                                | 应用实例的数量                                               |
 | DEPEND_SERVICE      | serviceAlias:serviceID,                     | 依赖的应用                                                   |
 | HOST_IP             | ip地址                                      | 组件运行时所在宿主机IP地址                                   |
@@ -22,6 +22,21 @@ Rainbond平台启动组件时默认注入以下环境变量信息以供应用使
 | DISCOVER_URL_NOHOST | /v1/resources/xxx                           | 不带IP地址的配置发现URL, 地址使用HOST_IP：6100 |
 |  |  |  |
 
+##### MEMORY_SIZE大小与环境变量值的关系
+
+|内存/Mb|环境变量值|
+| --- | --- |
+|128|   micro|
+|256| small|
+|512|   medium|
+|1024|  large|
+|2048|  2xlarge|
+|4096|  4xlarge|
+|8192|  8xlarge|
+|16384| 16xlarge|
+|32768| 32xlarge|
+|65536| 64xlarge|
+ 
 #### 域名自动注入的环境变量说明:
 
 应用默认注入当前组件的访问域名环境变量信息：DOMIAN和DOMAIN_PROTOCOL，如果组件具有多个端口，注入策略如下
