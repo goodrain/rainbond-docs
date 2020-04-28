@@ -149,7 +149,7 @@ function handleSearch () {
 }
 
 var client = algoliasearch('RITXU8D7M1', '821093c5255b7d4d40129bc13a12882f')
-var index = client.initIndex('rainbond-v5.1')
+var index = client.initIndex('rainbond-v5.2')
 function search (term, response) {
   index.search(
     {

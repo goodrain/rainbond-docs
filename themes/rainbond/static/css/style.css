@@ -10889,27 +10889,27 @@ h3 {
     padding-top: 0.5rem;
 }
 
-#about .video-wrap {
+.video-wrap {
     position: relative;
     border: 1px solid #dee6f8;
     background: rgba(255, 255, 255, .2);
     padding: 0 1.25rem
 }
 
-#about .video-wrap .bg {
+.video-wrap .bg {
     width: 100%;
 }
 
-#about .video-wrap img {
+.video-wrap img {
     padding-top: 1rem;
 }
 
-#about .video-wrap .play-button {
+.video-wrap .play-button {
     text-align: center;
     height: 100%;
 }
 
-#about .video-wrap .play-button span {
+.video-wrap .play-button span {
     position: absolute;
     font-size: 60px;
     top: 50%;
@@ -10928,7 +10928,7 @@ h3 {
     opacity: 0.8;
 }
 
-#about .video-wrap .play-button span .icon {
+.video-wrap .play-button span .icon {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -11019,10 +11019,6 @@ h3 {
     font-size: 1.125rem
 }
 
-#download p {
-    padding-right: 8.5%
-}
-
 #download .tabcontent {
     display: none;
     animation: fadeEffect 1s;
@@ -11091,6 +11087,9 @@ h3 {
     color: #fff;
     left: -.2rem;
     top: .525rem
+}
+#download p {
+    margin: 1.0rem 0 !important;
 }
 
 p {
@@ -11290,6 +11289,7 @@ pre {
 }
 .login-zone .login, .login-zone .register {
     flex: auto;
+    margin-left: 16px;
 }
 .login-zone .register a {
     background-color: #00d1b2;
