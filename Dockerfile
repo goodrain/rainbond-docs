@@ -1,4 +1,4 @@
-FROM registry.cn-hangzhou.aliyuncs.com/goodrain/hugo:0.54.0
+FROM registry.cn-hangzhou.aliyuncs.com/goodrain/hugo:0.54.0 as builder
 
 # copy doc
 ADD . /app
