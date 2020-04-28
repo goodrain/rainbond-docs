@@ -2,7 +2,6 @@
 title: Rainbond-Cloud
 description: 本篇文章主要讲解Rainbond Cloud 架构模式，用户价值和使用方式
 weight: 208
-hidden: true
 ---
 
 Rainbond Cloud 是Rainbond产品SaaS化在线服务平台，由好雨科技运营。Rainbond Cloud可以认为是Rainbond集群的托管服务，依托于IaaS厂商的计算资源，比如用户购买阿里云的托管Kubernetes集群，通过API对接到Rainbond Cloud，由Rainbond Cloud来管理用户的Kubernetes集群，并提供给用户多云应用管理体验。Rainbond Cloud有如下优势：
