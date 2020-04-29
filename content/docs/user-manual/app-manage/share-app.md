@@ -5,7 +5,7 @@ Weight: 4006
 ---
 
 
-应用的迭代伴随着应用的整个生命周期，为了解决相应的问题，保持应用生态的活性，需要不停的进行分享、发布。Rainbond针对应用的分享与发布，提供了两种不同的方案，[共享库](docs/user-manual/enterprise/appcenter/)和[云应用商店](http://market.goodrain.com/)。
+针对对于交付和对外交付两种交付方式，Rainbond提供了两种不同的方案，[共享库](docs/user-manual/enterprise/appcenter/)和[云应用商店](http://market.goodrain.com/)。
 
 
 Rainbond定义的应用模型支持各类大型分布式的、数字化业务系统的标准云原生应用模型。应用中可以包含1-N个服务组件和插件，以及服务组件和插件的资源及配置、拓扑关系和部署关系等。
