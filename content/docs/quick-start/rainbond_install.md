@@ -14,13 +14,13 @@ description: "Rainbond安装教程引导"
 
 ### 阿里云用户
 
-无需手动部署，使用阿里云ACK全程自动化安装对接Rainbond Cloud，简单快捷
+无需手动部署，使用阿里云ACK全程自动化安装对接Rainbond Cloud，简单快捷。
 
 请阅读：[使用阿里云ACK安装对接Rainbond Cloud](/docs/user-operations/install/rainbond-cloud/)
 
 ### 云服务商Kubernetes用户
 
-已有公网Kubernetes集群，直接部署Rainbond，对接Rainbond Cloud
+已有公网Kubernetes集群，直接部署Rainbond，对接Rainbond Cloud。
 
 请阅读：[在Kubernetes基础上安装对接Rainbond Cloud](/docs/user-operations/install/cloud_install) 
 
