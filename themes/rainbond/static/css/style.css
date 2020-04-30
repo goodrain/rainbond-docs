@@ -11325,3 +11325,51 @@ pre {
     height: 30px;
     font-size: 17px;
 }
+.video-box {
+    padding-top: 1rem;
+    padding-bottom: 0;
+}
+.video-item {
+    border: 1px solid #e6e5e5;
+    padding: 8px;
+}
+.video-footer .title {
+    margin-bottom: 0.5rem;
+}
+.video-footer .title a {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    font-size: 14px;
+    height: 16px;
+    line-height: 16px;
+}
+.video-footer .title a:hover {
+    height: 32px;
+}
+
+.video-footer p{
+    margin: 0;
+    line-height: 1rem;
+    text-align: right;
+}
+.video-title svg {
+    margin-bottom: -7px;
+}
+.video-title .name {
+    font-size: 18px;
+    line-height: 24px;
+    color: #222;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+.video-title .desc {
+    font-size: 14px;
+    vertical-align: bottom;
+    color: #99a2aa;
+}
+
+.play {
+    width: 800px;
+    margin: 0 auto;
+}
