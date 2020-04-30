@@ -6,7 +6,7 @@ description: "此方式适用于快速安装和试用Rainbond平台。"
 
 安装Rainbond之前你需要完成Kubernetes集群的安装，若你还没有安装Kubernetes，请参考文档[kubernetes集群的安装](../kubernetes-install/)首先安装kubernetes集群，推荐使用1.16及以上版本。
 
-### 安装 Helm（V3）
+### 一.安装 Helm（V3）
 
 如果您的环境中还没有安装 Helm ，请安装它。如果已经安装 Helm（3.0+） 请跳过这个步骤。
 
@@ -26,7 +26,7 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 ```
 
 
-### 下载并运行Rainbond-Operator安装控制器
+### 二. 下载并运行Rainbond-Operator安装控制器
 
 下载Rainbond-operator Chart应用包：
 
@@ -54,7 +54,7 @@ rainbond-operator-0   2/2     Running   0          110s
 ```
 
 
-### 访问UI界面，进行安装操作
+### 三.访问UI界面，进行安装操作
    Rainbond 从5.2版本开始采用UI配置安装方式，通过UI配置Rainbond安装需要的相关参数。
 
 #### 访问 **主机IP:30008**，点击开始安装
@@ -84,19 +84,7 @@ rainbond-operator-0   2/2     Running   0          110s
 ![image-20200204141936123](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-4.jpg)
 
 
-### 安装命令行工具
 
-   命令行工具(grctl)提供一些便于Rainbond运维的工具命令，安装此命令需要用户操作集群管理节点机器。进入集群管理节点，该节点必须具备以下条件：
+### 四. 安装命令行工具
 
-1. 具有kubectl命令，且可用。
-2. 存在访问Kubernetes集群的 ~/.kube/conf文件。
-
-安装方式：
-
-```
-wget https://pkg.rainbond.com/releases/common/v5.2/grctl && chmod +x ./grctl
-mv ./grctl /usr/local/bin/grctl && /usr/local/bin/grctl install
-```
-
-若输出`Install success`则安装成功。
-具体功能参考 `grctl --help`及[grctl命令行工具](../../tools/grctl)
+ 为了方便运维管理集群请参照[文档](/docs/user-operations/tools/grctl/)安装`grctl`命令行工具
