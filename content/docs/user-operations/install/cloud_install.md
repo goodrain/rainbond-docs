@@ -1,12 +1,8 @@
----
-title: "最小化部署Rainbond"
-weight: 1001
-description: "此方式适用于快速安装和试用Rainbond平台。"
----
+## 在已有Kubernetes基础上安装对接Rainbond Cloud
 
-安装Rainbond之前你需要完成Kubernetes集群的安装，若你还没有安装Kubernetes，请参考文档[kubernetes集群的安装](../kubernetes-install/)首先安装kubernetes集群，推荐使用1.16及以上版本。
 
-### 一.安装 Helm（V3）
+
+### 一. 安装 Helm（V3）
 
 如果您的环境中还没有安装 Helm ，请安装它。如果已经安装 Helm（3.0+） 请跳过这个步骤。
 
@@ -31,7 +27,7 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 下载Rainbond-operator Chart应用包：
 
 ```bash
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v5.2.0-release.tgz && tar xvf rainbond-operator-chart-v5.2.0-release.tgz
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v5.2.0-cloud.tgz && tar xvf rainbond-operator-chart-v5.2.0-cloud.tgz
 ```
 
 可选配置参考 `./chart/values.yaml`，默认情况下无需修改。
@@ -54,7 +50,7 @@ rainbond-operator-0   2/2     Running   0          110s
 ```
 
 
-### 三.访问UI界面，进行安装操作
+### 三. 访问UI界面，进行安装操作
    Rainbond 从5.2版本开始采用UI配置安装方式，通过UI配置Rainbond安装需要的相关参数。
 
 #### 访问 **主机IP:30008**，点击开始安装
@@ -82,7 +78,6 @@ rainbond-operator-0   2/2     Running   0          110s
 **安装完成后为了确保集群的安全，请关闭30008端口，防止误操作卸载集群**
 
 ![image-20200204141936123](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-4.jpg)
-
 
 
 ### 四. 安装命令行工具
