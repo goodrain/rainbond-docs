@@ -7,6 +7,7 @@ theme: "rainbond"
 baseURL: ""
 canonifyURLs: true
 params:
+  version: 20200430
   editURL: "https://github.com/goodrain/rainbond-docs/edit/V5.2/content/"
   issuesURL: "https://github.com/goodrain/rainbond-docs/issues/new"
   showVisitedLinks: true
