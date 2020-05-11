@@ -1,35 +1,14 @@
 $(function() {
   var selected = $(".sidemenu").find(".menu-item-selected");
-  initOpen(selected, 0);
+  initOpen(selected);
   $(".canopen").on("click", function(event) {
     event.stopPropagation();
-    var item_count = $(this).data("count");
-    var current_heitht = $(this).height();
-    var height = 36 * (item_count + 1);
-    let mode = "add"
-    if (item_count > 0 && current_heitht < height) {
-      $(this).height(height);
-      $(this).find(".menu-toggle").first().css({ transform: "rotate(0deg)" });
-    } else {
-      mode = "delete"
-      $(this).height(36);
-      $(this).find(".menu-toggle").first().css({ transform: "rotate(-90deg)" });
-    }
-    changeHeight($(this), 36*item_count, mode)
-  });
-  $(".sidemenu-toggle").on("click", function() {
-    if ($(this).parent().hasClass("sidemenu-open")) {
-      $(this).parent().removeClass("sidemenu-open");
-      $(this).find("img").attr({
-        src:
-          "https://img.alicdn.com/tfs/TB1E6apXHGYBuNjy0FoXXciBFXa-200-200.png"
-      });
-    } else {
-      $(this).parent().addClass("sidemenu-open");
-      $(this).find("img").attr({
-        src:
-          "https://img.alicdn.com/tfs/TB1I5itXQyWBuNjy0FpXXassXXa-200-200.png"
-      });
+    if ($(this).hasClass("open")) {
+      $(this).removeClass("open")
+    }else {
+      $(".canopen").removeClass("open")
+      initOpen($(this))
+      $(this).addClass("open")
     }
   });
   $("#bt-search").on("click", function() {
@@ -80,18 +59,6 @@ function changeHeight(target, changeHeightNum, mode) {
   }
 }
 
-function initOpen(item, add) {
-  var parentLi = $(item).parent("ul").parent();
-  var count = $(parentLi).data("count")
-  if ($(parentLi).height() == 36 && count > 0) {
-    $(parentLi).height((count + 1) * 36 + add);
-  }
-  var p = $(parentLi).parent("ul").parent();
-  if (p.length > 0) {
-    initOpen(parentLi, count*36);
-  }
-}
-
 //code copy
 function initCopyCode(){
   var copyHtml = '';
@@ -105,7 +72,9 @@ function initCopyCode(){
       }
   });
 }
-
+function initOpen(selected) {
+  selected.parents(".canopen").addClass("open")
+}
 function handleSearch () {
   if ($('.search-ipt').length > 0) {
     var query = $('.search-ipt').val()

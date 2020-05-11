@@ -1,5 +1,6 @@
 +++
 title = "应用管理"
+hidden = true
 menu = "app-manage"
 weight = 4000
 pre = "<b>3.4. </b>"

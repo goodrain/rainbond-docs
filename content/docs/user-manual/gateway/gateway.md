@@ -1,5 +1,6 @@
 ---
 title: 应用网关说明
+hidden: true
 description: Rainbond默认提供的应用网关功能说明文档
 ---
 

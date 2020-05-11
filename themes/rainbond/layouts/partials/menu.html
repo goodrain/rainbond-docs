@@ -9,7 +9,7 @@
             <option value="v5.1">v5.1</option>
         </select>  
     </div>      
-    <ul>
+    <ul class="top-menu">
         {{range .Site.Home.Sections.ByWeight}}
             {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "level" 0}}
         {{end}}
@@ -35,25 +35,24 @@
                   {{ $numberOfPages = add $numberOfPages 1}}
                 {{end}}
             {{ end }}
-            <li data-count="{{$numberOfPages}}" class="{{if and (ge $level 2)  (eq .UniqueID $currentNode.UniqueID)}}menu-item-selected{{end}} menu-item {{ if and (ge $level 2) (ne $numberOfPages 0) }} canopen {{end}} menu-item-level-{{ $level }}" {{if ge $level 2 }}style="height: 36px; overflow: hidden;"{{end}}> 
+            <li data-count="{{$numberOfPages}}" class="{{if and (ge $level 2)  (eq .UniqueID $currentNode.UniqueID)}}menu-item-selected{{end}} menu-item {{ if and (ge $level 2) (ne $numberOfPages 0) }} canopen {{end}} menu-item-level-{{ $level }}"> 
                 {{ if gt $numberOfPages 0 }}
                     <span href="{{.RelPermalink}}"> 
                         {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
                         {{ if and (ge $level 2) (gt $numberOfPages 0) }}
-                        <img class="menu-toggle" src="/images/arrow_down.png" style="transform: rotate(-90deg);">
+                        <img class="menu-toggle" src="/images/arrow_down.png">
                         {{ end }}
                     </span>
                 {{ else }}
                     <a href="{{.RelPermalink}}"> 
                         {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
-                        {{ if eq $numberOfPages 0 }}
-                        <img class="menu-toggle" src="/images/arrow_down.png" style="transform: rotate(-90deg);">
+                        {{ if ge $numberOfPages 1 }}
+                        <img class="menu-toggle" src="/images/arrow_down.png">
                         {{ end }}
                     </a>
                 {{ end }}
                 {{ if ne $numberOfPages 0 }}
                     <ul>
-                    
                         {{if eq .Site.Params.ordersectionsby "title"}}
                         {{ range $pages.ByTitle }}
                         {{ if and .Params.hidden (not $.showhidden) }}

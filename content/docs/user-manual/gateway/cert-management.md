@@ -1,6 +1,7 @@
 ---
-title: 证书管理
+title: HTTPS证书管理
 description: Rainbond网关管理之Https证书管理文档
+weight: 100
 ---
 
 证书管理的作用是管理 HTTPs 所需的证书. 包括 添加证书, 编辑证书和删除证书.

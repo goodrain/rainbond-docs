@@ -22,7 +22,7 @@
                     {{ end }}
                     {{ end }}
                 </div>
-                <div class="markdown-body chapter">
+                <div class="markdown-body {{if ge (len .Page.Pages ) 1}} chapter {{end}}">
                     {{ .Content }}
                 </div>
             </div>
