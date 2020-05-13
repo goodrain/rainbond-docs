@@ -68,6 +68,8 @@ weight: 10
 
 ### 参考视频
 
+{{<bibili-video src="//player.bilibili.com/player.html?aid=370629782&bvid=BV1qZ4y1s7nH&cid=190486373&page=1" href="https://www.bilibili.com/video/BV1qZ4y1s7nH/" title="组件间通信操作教程视频">}}
+
 ### 进阶内容
 
 1. [组件之间网络治理之动态路由](/docs/user-manual/best-practices/auto_router/)
