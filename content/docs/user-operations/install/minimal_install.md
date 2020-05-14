@@ -45,6 +45,8 @@ kubectl create namespace rbd-system
 helm install rainbond-operator ./chart --namespace=rbd-system
 ```
 
+> 注意，namespace 目前只支持 `rbd-system`，暂不支持其他的 namespace。
+
 执行完毕后, 由于从公网获取镜像需要一定时间，请运行以下命令，确认所有Pod都Ready（如下所示）后进行后续步骤。
 
 ```
