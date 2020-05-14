@@ -55,14 +55,11 @@ web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 
 上述是默认 Procfile,如果需要扩展更多启动参数,可以自定义 Procfile。
 
-
-
 1. `web:`和`java`之间有一个空格
 2. 文件结尾不能包含特殊字符
 3. 如果是多模块项目,需注意编译后 jar 包或者 war 包路径，其路径为`<子模块名>/targets/*.jar`或`<子模块名>/targets/*.war`
 4. JAVA_OPTS: 平台会根据应用的内存大小，自动设置 Xmx 和 Xms 的值
 5. PORT: 根据用户在平台设置的端口决定监听，默认监听端口为 5000
-   
 
 当调整了 Web 服务器支持后，打包成 War 需要调整启动命令
 
@@ -70,13 +67,11 @@ web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 - 选择 jetty 不同版本时 `web: java $JAVA_OPTS -jar ./jetty-runner.jar --port $PORT ./*.war`  
   需要配置 context path,可以通过自定义 Procfile 指定[webapp-runner 参数 path](https://github.com/jsimone/webapp-runner#options)
 - 示例 `web: java $JAVA_OPTS -jar ./webapp-runner.jar --path <path路径,示例: /r6d> --port $PORT ./*.war`
-  
 
 ### 编译运行环境设置
 
 {{% notice info %}}
 在选择 JDK 版本或其他组件版本时，需要注意 JDK 或者其他组件版本不要选择比项目使用的版本过高或者过低以免导致源码编译失败
-
 
 #### OpenJDK 支持
 
@@ -115,9 +110,7 @@ maven.version=3.3.1
 
 如果指定了 Maven 版本，则会忽略`mvnw`
 
-
 平台设置的配置优先级要高于程序代码中定义的配置，如 Java JDK 版本的选择,在程序代码里通过`system.properties`指定了 JDK 版本为 1.9,在平台上选择了 JDK 版本为 11,那么默认在进行源码编译时会优先使用平台指定的版本 JDK11
-
 
 #### Web 服务支持
 
@@ -147,9 +140,7 @@ maven.version=3.3.1
 
 {{% notice info %}}
 选择 tomcat7 版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行  
-关于 webapp-runner 详细配置请参考[webapp-runner 使用说明](/docs/user-manual/app-creation/language-support/java_more/webapp-runner/)
-
-
+关于 webapp-runner 详细配置请参考[webapp-runner 使用说明](/docs/user-manual/component-create/language-support/java_more/webapp-runner/)
 
 ### 高级构建选项
 
@@ -203,6 +194,6 @@ grctl buildtest
 - [Java-Gradle 源码构建应用](../java-gradle)
 - [Spring Boot 项目配置 MySQL](../spring-boot-mysql/)
 - [Tomcat 配置 Redis 实现 Session 共享](../tomcat-redis-session/)
-- [webapp-runner 使用说明](/docs/user-manual/app-creation/language-support/java_more/webapp-runner/)
-- [RAINBOND源码构建JAVA项目选取JDK](/docs/advanced-scenarios/devops/how-to-select-jdk/)
-- [Rainbond源码构建JAVA项目配置Maven仓库](/docs/advanced-scenarios/devops/how-to-config-maven/)
+- [webapp-runner 使用说明](/docs/user-manual/component-create/language-support/java_more/webapp-runner/)
+- [RAINBOND 源码构建 JAVA 项目选取 JDK](/docs/advanced-scenarios/devops/how-to-select-jdk/)
+- [Rainbond 源码构建 JAVA 项目配置 Maven 仓库](/docs/advanced-scenarios/devops/how-to-config-maven/)
