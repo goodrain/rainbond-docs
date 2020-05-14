@@ -6,6 +6,4 @@ weight: 3100
 
 # 应用网关管理
 
-本章内容包括：
-
 {{% children showhidden="true" description="true" style="h3"  %}}

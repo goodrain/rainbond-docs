@@ -225,6 +225,10 @@
 .chapter h3,
 .chapter .children-h3 h3 {
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  height: 28px;
 }
 
 .chapter .children-h3 p {
@@ -672,11 +676,11 @@
   white-space: nowrap;
 }
 
-.sidemenu .menu-item-selected a {
+/* .sidemenu .menu-item-selected a {
   background: white;
-}
+} */
 
-.sidemenu .menu-item-selected a::before {
+.sidemenu .menu-item-selected>a::before {
   content: '';
   position: absolute;
   left: 0;
@@ -798,7 +802,7 @@
   transform: rotate(-90deg);
 }
 
-.sidemenu .menu-item.open>span>.menu-toggle {
+.sidemenu .menu-item.open>a>.menu-toggle {
   transform: rotate(0deg);
 }
 
