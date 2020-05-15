@@ -1,7 +1,7 @@
 ---
-title: "Spring Cloud 微服务部署在 Rainbond 的优势"
-description: "讲解传统springcloud微服务为何要部署在Rainbond" 
-menu: "micro-service-springcloud"
+title: 'Spring Cloud 微服务部署在 Rainbond 的优势'
+description: '讲解传统springcloud微服务为何要部署在Rainbond'
+menu: 'micro-service-springcloud'
 weight: 22001
 hidden: true
 ---
@@ -16,7 +16,7 @@ hidden: true
 - 难以灵活的伸缩以适应业务并发
 - 部署起来比较麻烦，包括微服务组件本身以及相关的数据库、中间件
 
-针对以上4点，Rainbond平台可以进行天然的补足。
+针对以上 4 点，Rainbond 平台可以进行天然的补足。
 
 ### 支持单个组件的全生命周期管理
 
@@ -33,15 +33,15 @@ Rainbond 会把 Spring Cloud 的每个微服务组件单独看待，并可以针
 - 构建源设置，包括 MAVEN 各种详细参数的设置、配置自动触发构建机制
 - 自定义环境变量配置、健康检测机制、权限管理
 
-> 了解服务管理的详情，请参见文档： [服务管理](/docs/user-manual/app-service-manage/)
+> 了解服务管理的详情，请参见文档： [服务管理](/docs/user-manual/component-op/)
 
 ### 性能监控
 
-Rainbond 支持插件扩展方式的性能监控方案，支持对基于 Http、Mysql 协议的应用进行 `平均响应时间、吞吐率、在线人数` 的监控。并检测最近5分钟内耗时做多的 url 排行，对于调试系统性能有指导作用：
+Rainbond 支持插件扩展方式的性能监控方案，支持对基于 Http、Mysql 协议的应用进行 `平均响应时间、吞吐率、在线人数` 的监控。并检测最近 5 分钟内耗时做多的 url 排行，对于调试系统性能有指导作用：
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-advantage/spring-cloud-advantage-1.png" width="100%" />
 
-> 了解性能监控的详情，请参见文档： [性能监控](/docs/user-manual/app-service-manage/service-monitor/)
+> 了解性能监控的详情，请参见文档： [性能监控](/docs/user-manual/component-op/service-monitor/)
 
 ### 垂直/水平伸缩
 

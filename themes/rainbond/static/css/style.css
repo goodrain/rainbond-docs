@@ -10828,7 +10828,7 @@ body #backtotop a {
 }
 
 h3 {
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: .15em;
     color: #0d2192
 }
@@ -11095,7 +11095,6 @@ h3 {
 p {
     line-height: 1.6;
     margin: 1.5rem 0;
-    font-size: 1.125rem
 }
 
 code,

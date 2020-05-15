@@ -1,19 +1,19 @@
 ---
-baseurl: "http://v5.2-doc.rainbond.com/docs/"
-languageCode: "zh-cn"
-DefaultContentLanguage: "zh-cn"
-title: "Rainbond-企业应用云操作系统，云原生企业业务中台基座"
-theme: "rainbond"
-baseURL: ""
+baseurl: 'http://v5.2-doc.rainbond.com/docs/'
+languageCode: 'zh-cn'
+DefaultContentLanguage: 'zh-cn'
+title: 'Rainbond-企业应用云操作系统，云原生企业业务中台基座'
+theme: 'rainbond'
+baseURL: ''
 canonifyURLs: true
 params:
-  version: 20200430
-  editURL: "https://github.com/goodrain/rainbond-docs/edit/V5.2/content/"
-  issuesURL: "https://github.com/goodrain/rainbond-docs/issues/new"
+  version: 20200514
+  editURL: 'https://github.com/goodrain/rainbond-docs/edit/master/content/'
+  issuesURL: 'https://github.com/goodrain/rainbond-docs/issues/new'
   showVisitedLinks: true
   disableShortcutsTitle: false
-  description: "Rainbond是以应用为中心，面向云原生的企业应用操作系统，将企业数字资产抽象为应用模型（Rainbond Application Model），并通过容器化环境、敏捷DevOps、微服务架构、组件制品库、Serverless部署、底层资源自动化运维等核心技术，通过搭建数字中台、加速前台业务需求响应，帮助企业获得面向未来的创新能力和竞争力。"
-  keywords: "视频教程，好雨, goodrain, Rainbond, 云帮, 以应用为中心, serverless, PaaS, SaaS, Kubernetes, 微服务架构, servicemesh, DevOps, CI/CD, 高效运维, 云原生, 公有云, 私有云, 混合云, 应用交付, 微服务, 容器云, 容器云平台, 容器云服务, 镜像构建, 源码构建, 云原生应用, 微服务, 微服务平台, springcloud微服务架构, service mesh, 服务网格, 微服务设计, sidecar, 行业云, 开发云, 智慧云, 云计算解决方案"
+  description: 'Rainbond是以应用为中心，面向云原生的企业应用操作系统，将企业数字资产抽象为应用模型（Rainbond Application Model），并通过容器化环境、敏捷DevOps、微服务架构、组件制品库、Serverless部署、底层资源自动化运维等核心技术，通过搭建数字中台、加速前台业务需求响应，帮助企业获得面向未来的创新能力和竞争力。'
+  keywords: '视频教程，好雨, goodrain, Rainbond, 云帮, 以应用为中心, serverless, PaaS, SaaS, Kubernetes, 微服务架构, servicemesh, DevOps, CI/CD, 高效运维, 云原生, 公有云, 私有云, 混合云, 应用交付, 微服务, 容器云, 容器云平台, 容器云服务, 镜像构建, 源码构建, 云原生应用, 微服务, 微服务平台, springcloud微服务架构, service mesh, 服务网格, 微服务设计, sidecar, 行业云, 开发云, 智慧云, 云计算解决方案'
   dashboard:
     recommended:
       - title: Rainbond设计思想
@@ -26,8 +26,8 @@ params:
         url: /docs/quick-start/rainbond-cloud/
       - title: 集群管理
         url: /docs/user-manual/enterprise/cluster-management/
-      - title: 组件部署实践
-        url: /docs/advanced-scenarios/app-create/
+      - title: 学习Rainbond应用开发相关概念
+        url: /docs/user-manual/concept/
       - title: 应用管理实践
         url: /docs/advanced-scenarios/practices/
       - title: DevOps实践
@@ -46,11 +46,11 @@ params:
       - q: Rainbond除了开源版本外还有哪些版本
         a: Rainbond目前提供<a href="https://cloud.goodrain.com">Rainbond Cloud服务</a>，<a href="https://www.goodrain.com">Rainbond Enterprise版本</a>
       - q: Rainbond与Rancher的区别
-        a: Rancher，Kubernetes生态中成功的开源项目，其定位“Run Kubernetes Everywhere”，Rancher可以帮助我们快速搭建Kubernetes集群并提供集群资源很好的管理体系。Rainbond定位“企业应用全生命周期管理“，可以这么认为Rainbond在Rancher之上的维度，用Rancher更好的管理Kubernetes，用Rainbond更好、更方便的使用Kubernets。因此Rainbond与Rancher甚至可以并存，各司其职。
+        a: Rancher，Kubernetes生态中成功的开源项目，其定位“Run Kubernetes Everywhere”，Rancher可以帮助我们快速搭建Kubernetes集群并提供集群资源很好的管理体系。Rainbond定位“企业应用全生命周期管理“，可以这么认为Rainbond在Rancher之上的维度，用Rancher更好的管理Kubernetes，用Rainbond更好、更方便的使用Kubernetes。因此Rainbond与Rancher甚至可以并存，各司其职。
       - q: Rainbond支持管理各类公有云资源吗
         a: Rainbond从5.2版本开始适用于公有云资源以应用为中心的统一管理，Rainbond Cloud版本已支持对阿里云资源的对接、逐步支持aws、华为云等。资源对接包括Kubernetes集群、数据库、存储等
       - q: Rainbond支持多云管理吗
-        a: 当然，Rainbond支持便捷的管理多云应用。 
+        a: 当然，Rainbond支持便捷的管理多云应用。
   video:
     news:
       title: 最新上线视频
@@ -114,14 +114,14 @@ params:
           bilibili: https://www.bilibili.com/video/av78830420/
           src: //player.bilibili.com/player.html?aid=78830420&cid=134888098&page=1
 outputs:
-  home: 
+  home:
     - HTML
-    - RSS 
+    - RSS
     - JSON
     - Algolia
 outputFormats:
   Algolia:
-    baseName: "algolia"
+    baseName: 'algolia'
     isPlainText: true
-    mediaType: "application/json"
+    mediaType: 'application/json'
     notAlternative: true

@@ -4,19 +4,19 @@ Description: 集群内服务访问无法或尚未迁移到 Rainbond 的集群外
 Hidden: true
 ---
 
-如果在公有云(比如阿里云, AWS)上的分布式数据库, 无法迁移到 Rainbond 上;  或是其他尚未迁移到 Rainbond 的数据库, 那么你可以使用`第三方组件`将它们注册到 Rainbond 中, 从而使得集群内服务也可以访问它们。本文将演示如何把集群外的 MySQL 通过第三方组件注册到 Rainbond 集群中, 并为其定义共享环境变量，从而解决多个服务重复定义数据库连接信息变量的问题。
+如果在公有云(比如阿里云, AWS)上的分布式数据库, 无法迁移到 Rainbond 上; 或是其他尚未迁移到 Rainbond 的数据库, 那么你可以使用`第三方组件`将它们注册到 Rainbond 中, 从而使得集群内服务也可以访问它们。本文将演示如何把集群外的 MySQL 通过第三方组件注册到 Rainbond 集群中, 并为其定义共享环境变量，从而解决多个服务重复定义数据库连接信息变量的问题。
 
-> 如果Rainbond安装在阿里云，请注意使用阿里云RDS云数据库时必须与Rainbond集群处于同一个区域。
+> 如果 Rainbond 安装在阿里云，请注意使用阿里云 RDS 云数据库时必须与 Rainbond 集群处于同一个区域。
 
 ### 前期准备
 
-* 请确保你已经安装了 [Rainbond V5.1](/docs/quick-start/rainbond_install/) 或更高的版本。
+- 请确保你已经安装了 [Rainbond V5.1](/docs/quick-start/rainbond_install/) 或更高的版本。
 
-* 需要添加的服务, 本文使用的是 Rainbond 集群外的一个 MySQL。
+- 需要添加的服务, 本文使用的是 Rainbond 集群外的一个 MySQL。
 
-* phpMyAdmin, 可以在应用市场中安装, 也可以通过[镜像](https://hub.docker.com/r/phpmyadmin/phpmyadmin)的方式创建.
+- phpMyAdmin, 可以在应用市场中安装, 也可以通过[镜像](https://hub.docker.com/r/phpmyadmin/phpmyadmin)的方式创建.
 
-你可以假设这个 MySQL 是非常复杂的, 比如它是一个分布式, 主从复制, 读写分享的 MySQL, 迁移的难度比较在; 那么你可以先不迁移这个 MySQL, 通过第三方组件将这个 MySQL 的实例添加到 Rainbond 集群中, 让它也可以使用 Rainbond 服务通信治理, 组件拓扑关系等功能.
+你可以  假设这个 MySQL 是非常复杂的, 比如它是一个分布式, 主从复制, 读写分享的 MySQL, 迁移的难度比较在; 那么你可以先不迁移这个 MySQL, 通过第三方组件将这个 MySQL 的实例添加到 Rainbond 集群中, 让它也可以使用 Rainbond 服务通信治理, 组件拓扑关系等功能.
 
 ### 步骤 1: 填写第三方服务信息
 
@@ -46,7 +46,7 @@ curl -X PUT \
 {"msg":"success","code":200,"data":{"bean":{},"list":[]},"msg_show":"修改成功"}
 ```
 
-详细的 API 注册请参考: [基于API注册的第三方组件](/docs/user-manual/app-creation/thirdparty-service/thirdparty-create/#创建基于api注册的第三方组件)
+详细的 API 注册请参考: [基于 API 注册的第三方组件](/docs/user-manual/component-create/thirdparty-service/thirdparty-create/#创建基于api注册的第三方组件)
 
 ### 步骤 3: 添加端口
 
@@ -56,9 +56,7 @@ curl -X PUT \
 
 添加完成后, 打开`对内服务`, 开启服务的组件通信治理功能.
 
-
 > 这里需要注意的是, 内部的服务可以添加多个端口, 而第三方组件只能添加一个端口.
-
 
 ### 步骤 4: 定义和分享连接信息
 
@@ -91,6 +89,7 @@ MYSQL_HOST=127.0.0.1
 MYSQL_USER=root
 MYSQL_PORT=3306
 ```
+
 这表明, MySQL 的连接信息已经成功地被分享给 phpMyAdmin 了. 在这个例子中, phpMyAdmin 没有使用这些连接信息, 你实际的使用过程中, 你可以根据实际的情况对这些连接信息进行利用.
 
 ### 总结

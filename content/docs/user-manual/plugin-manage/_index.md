@@ -1,11 +1,7 @@
-+++
-title = "插件管理"
-chapter = true
-menu = "app-plugin"
-weight = 8000
-pre = "<b>3.8. </b>"
-+++
-
-# 插件管理
+---
+title: 插件开发
+description: 该章文档主要介绍多种类型的插件的设计和开发
+weight: 8000
+---
 
 {{% children showhidden="true" description="true" style="h3"  %}}
