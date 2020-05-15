@@ -1,13 +1,7 @@
 ---
-title: "存储解决方案"
-date: 2020-02-19T12:50:54+08:00
-draft: false
+title: 存储解决方案
 weight: 1501
-chapter: true
+description: Rainbond存储类型扩充方案说明
 ---
 
-## 对接已有存储
-
-
 {{% children showhidden="true" description="true" style="h3"  %}}
-

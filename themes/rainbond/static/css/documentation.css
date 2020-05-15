@@ -2685,6 +2685,7 @@ h6 {
   border-radius: 5px;
   background: #cfd9df;
   padding: 5px;
+  margin-bottom: 16px;
 }
 
 .markdown-body .image figcaption {

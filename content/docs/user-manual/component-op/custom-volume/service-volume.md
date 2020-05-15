@@ -13,16 +13,17 @@ hidden: true
 
 Rainbond 默认支持以下几种存储类型:
 
-- 共享存储(宿主机路径/grdata)
+- 共享存储
 - 本地存储(宿主机路径/grlocaldata)
 - 配置文件
 - 内存文件存储
 
-除 Rainbond 默认支持的上述几种存储类型外，Rainbond 还支持[自定义存储类型](/docs/user-manual/component-op/custom-volume/service-volume-custom/)。
+除 Rainbond 默认支持的上述几种存储类型外，Rainbond 还支持[自定义存储类型](../service-volume-custom/)来根据需要扩充其他存储。
 
 #### 共享存储
 
-共享存储是一个分布式  文件系统, 默认使用的是 NFS, 你也可以自行对接其它的分布式  文件系统(GlusterFS, NAS 等). 共享存储具有非常高的可靠性和扩展性; 与此同时, 它还具有非常高的灵活性, 可以共享给  其它的组件，基于租户、组件两级进行存储空间分配和隔离。
+共享存储是一个分布式文件系统, 默认使用的是 NFS, 你也可以自行对接其它的分布式文件系统(GlusterFS, NAS 等). 共享存储具有非常高的可靠性和扩展性; 与此同时, 它还具有非常高的灵活性, 可以共享给其它的组件，基于租户、组件两级进行存储空间分配和隔离。
+
 共享存储针对无状态组件和有状态组件呈现的工作模式不同：
 
 - 无状态组件
@@ -34,7 +35,7 @@ Rainbond 默认支持以下几种存储类型:
 
 #### 本地存储
 
-本地存储使用的是  当前组件对应的运行实例所在宿主机的一块本地磁盘（通常可以是 SSD 磁盘），其不具备跨宿主机可用的属性。本地存储只支持`有状态组件`类型。本地存储通常组件于对存储性能要求非常高的组件，比如数据库类组件。它们可以从应用层面来处理数据在多个实例间的同步，比如 Mysql 使用主从同步，TiDB 基于 raft 协议的等价集群等。这些组件通常不需要存储层面进行数据同步。
+本地存储使用的是当前组件对应的运行实例所在宿主机的一块本地磁盘（通常可以是 SSD 磁盘），其不具备跨宿主机可用的属性。本地存储只支持`有状态组件`类型。本地存储通常组件于对存储性能要求非常高的组件，比如数据库类组件。它们可以从应用层面来处理数据在多个实例间的同步，比如 Mysql 使用主从同步，TiDB 基于 raft 协议的等价集群等。这些组件通常不需要存储层面进行数据同步。
 
 配置了本地存储的组件调度将跟随存储所在宿主机，是一种受限的调度机制。对于集群类的数据库组件，从应用层处理存储数据的多节点同步，使用本地存储将是一种较优的选择。
 
@@ -44,7 +45,8 @@ Rainbond 默认支持以下几种存储类型:
 Rainbond 支持配置文件有两大特性：
 
 - 动态渲染
-  动态渲染配置文件解析环境变量的语法:
+
+动态渲染配置文件解析环境变量的语法:
 
 ```
 ${环境变量名}
@@ -59,7 +61,7 @@ port = ${PORT:3306}
 socket = /tmp/mysql.sock
 ```
 
-如果组件中存在环境变量 PORT, 那么 Rainbond 会  将 PORT 的值解析到配置文件中; 如果组件中不存在环境变量 PORT, 那么 Rainbond 会  将 3306 解析到配置文件中。
+如果组件中存在环境变量 PORT, 那么 Rainbond 会将 PORT 的值解析到配置文件中; 如果组件中不存在环境变量 PORT, 那么 Rainbond 会  将 3306 解析到配置文件中。
 
 如果指定的环境变量不存在, 且没有设置默认值, 那么 Rainbond 不会进行解析
 
@@ -71,7 +73,7 @@ socket = /tmp/mysql.sock
 
 #### 内存文件存储
 
-内存文件存储的本质是一块 tmpfs (RAM-backed filesystem), 它是`临时`的, 会随组件的创建  而创建, 随组件的  停止而销毁. 虽然 tmpfs 非常快, 但请注意, 你编写的任何文件都将计入组件的内存限制.
+内存文件存储的本质是一块 tmpfs (RAM-backed filesystem), 它是`临时`的, 会随组件的启动而创建, 随组件的停止而销毁. 虽然 tmpfs 非常快, 但请注意, 你写入的任何文件都将计入组件的内存限制。因此其一般适用于基于磁盘的临时计算场景。
 
 ### 如何为组件添加存储
 
@@ -79,54 +81,30 @@ socket = /tmp/mysql.sock
 
 - <b>新增组件存储</b>
 
-找到 【存储】页面
+在 _管理面板/存储_ 页面点击添加存储，根据表单提示填写存储的相关信息确认即可。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Add%20storage.png" width="100%" />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Add%20storage.png" width="100%">}}
 
-填写存储挂在信息，点击 【确认】按钮
+> 存储添加完成为未挂载状态，需更新或重启组件才能生效。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/volum.png" width="60%" />
-
-存储添加完成为未挂载状态，需更新或重启组件生效
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Add%20finish.png" width="100%" />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Add%20finish.png" width="100%" >}}
 
 - <b>共享其他组件的存储</b>
 
-在【存储】页面找到 【挂载共享存储】
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Shared%20memory.png" width="100%" />
+在 _管理面板/存储_ 页面共享组件存储管理中
 
-点击【挂载 g=共享存储】按钮后，勾选需要挂载其他组件的名称，并填写挂载到本组件的目录
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Shared%20memory.png" width="100%" >}}
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Shared%20volum02.png" width="90%" />
+点击【挂载共享存储】按钮后，勾选需要挂载其他组件的名称，并填写挂载到本组件的目录
+
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Shared%20volum02.png" width="90%">}}
 
 完成挂载其他组件存储
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Completion%20sharing.png" width="100%" />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Completion%20sharing.png" width="100%" >}}
 
 - 新增或挂载其他组件的存储后，需要更新或重启组件，挂载其他组件的存储不支持挂载到有状态的组件。
-- 新增或挂载其他组件存储时，本组件的路径不能使用 Linux 系统保留目录，如：/dev、/usr、/bin、/sys、/proc 等
-
-### 存储挂载路径查看方式
-
-可以通过 grctl 命令来查看应用存储挂载路径查看方式 `grctl service get <应用别名> -t <租户id>`;在组建伸缩界面可直接复制该查询命令。
-
-示例如下: 源码构建 python 程序，挂载日志目录,应用控制台 URL <b>http://172.20.0.101:7070/#/team/lsqbjv5e/region/rainbond/app/grbc2de8/overview</b>
-
-```bash
-grctl service get grbc2de8 -t lsqbjv5e
-# 存储部分
-PodVolumePath:	/grdata/tenant/b03170a64738460e894f7288fe54c3d6/service/1f1efa8fcaf32156989142e93ebc2de8/logs:/logs:/logs
-              	/grdata/build/tenant/b03170a64738460e894f7288fe54c3d6/slug/1f1efa8fcaf32156989142e93ebc2de8/20190213191750.tgz:/tmp/slug/slug.tgz:/tmp/slug/slug.tgz
-```
-
-PodVolumePath 结构说明：`<本地存储/分布式存储><存储路径>:<应用存储路径>:<插件存储路径(仅启用插件后显示)>`
-
-其中 slug.tgz 为源码构建生成物,源码构建应用必须挂载。
-
-### 其他持久化存储的支持
-
-上诉提到的存储类型主要以文件系统类为主，对于块设备的支持也将是我们的终点方向，特别是在公有云环境下，高性能磁盘的存储挂载也是支持高性能组件的重点。目前在企业版本中我们支持对存储类型支持的定制开发，比如私有存储 ceph、阿里云的共享块设备和高性能磁盘设备等。
+- 新增或挂载其他组件存储时，本组件的路径不能使用 Linux 系统保留目录，如：/dev、/usr、/bin、/sys、/proc 等。
 
 ### 已有本地 docker 运行组件持久化数据迁移到 Rainbond
 
@@ -142,4 +120,16 @@ docker run -d --net=host -v /var/gogs:/data gogs/gogs
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/service-volume/gogs.png)
 
-- step 3 把需要迁移的 gogs 数据(data1)备份，然后把平台上的 gogs 停了，然后用备份的 data1 数据替换了平台上运行的 gogs 的数据，启动平台上的 gogs
+- step 3 把需要迁移的 gogs 数据(data1)备份，然后把平台上的 gogs 关闭，然后用备份的 data1 数据替换了平台上运行的 gogs 的数据，启动平台上的 gogs
+
+> 从 Rainbond 5.2 版本开始，由于操作权限原因，宿主机下不再默认挂载/grdata 目录，因此查询到组件存储在分布式文件系统中的实际目录后可在 rbd-chaos 组件中进行操作。
+
+### 常见问题
+
+- 组件间共享存储的意义
+
+> 你是否有这样一个业务场景，一个业务组件产生数据并存储到本地目录，另一个业务组件读取数据进行处理。在传统部署模式中你只能受限的将这两个组件部署到同一个节点下，更别谈多实例高可用部署。使用组件间共享存储，程序不做任何修改。业务运行到任何节点都可以正常共享读取数据。
+
+- Kubernetes 各类存储类型 Rainbond 是否支持
+
+> Rainbond 通过扩展存储的方式对接支持 Kubernetes 已有的存储类型。详情参考 [自定义存储类型](../service-volume-custom/)
