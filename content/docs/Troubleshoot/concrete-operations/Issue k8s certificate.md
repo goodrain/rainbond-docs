@@ -66,22 +66,26 @@ cp /opt/rainbond/etc/rbd-api/region.goodrain.me/ssl/client.pem   .
 
 #### 4. 重启服务,验证是否生效
 
-- 重启服务
+- 在管理`manage`节点重启以下服务
 
 ```shell
 grclis stop
 grclis start
+systemctl restart node
 ```
 
-- 如果带有计算属性则重启kubelet服务
+- 在计算节点重启以下服务
 
 ```shell
+grclis stop
+grclis start
+systemctl restart node
 systemctl restart kubelet.service
 ```
 
-- 验证
+**在管理节点验证**
 
-查看各组件是否正常,到控制台查看运行是否正常
+查看各组件是否正常,到控制台查看服务运行是否正常
 
 ```shell
 [root@manage ~]# grctl cluster
