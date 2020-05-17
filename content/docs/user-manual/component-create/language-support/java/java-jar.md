@@ -82,7 +82,6 @@ OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.ta
 - [Java-Maven源码构建应用](../java-maven/)
 - [Java-War源码构建应用](../java-war/)
 - [Java-Gradle源码构建应用](../java-gradle/)
-- [Spring Boot项目配置MySQL](../spring-boot-mysql/)
 - [Tomcat配置Redis实现Session共享](../tomcat-redis-session/)
 - [RAINBOND源码构建JAVA项目选取JDK](/docs/advanced-scenarios/devops/how-to-select-jdk/)
 - [Rainbond源码构建JAVA项目配置Maven仓库](/docs/advanced-scenarios/devops/how-to-config-maven/)
