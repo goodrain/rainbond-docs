@@ -1,6 +1,6 @@
 ---
 title: 在 Rainbond 部署 API-Gateway
-description: 本篇最佳实践讲解Rainbond微服务通信治理的熔断部分，适用于开发者和应用运维人员。
+description: 本篇最佳实践讲解在 Rainbond 部署 API-Gateway，适用于开发者和应用运维人员。
 weight: 20
 ---
 
@@ -24,11 +24,11 @@ Api-Gateway 是一种微服务架构，通过 Kong（Api-Gateway 的一种成熟
 
 - **安装 API-Gateway 演示用例**
 
-![image-20200510123502260](https://tva1.sinaimg.cn/large/007S8ZIlly1gen8ydu5pnj31j20u0mzm.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gen8ydu5pnj31j20u0mzm.jpg" title="安装示例" width="100%">}}
 
 - **运行效果**
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gen90hsdkcj30ok0uk755.jpg" alt="image-20200510123659226" style="zoom:50%;" />
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gen90hsdkcj30ok0uk755.jpg" title="安装示例" width="80%">}}
 
 #### 配置 Konga
 
@@ -150,9 +150,9 @@ newinfo 测试业务组件，是一个基于 Golang 语言编写的 API，GET �
 
 所有的配置完成后，可以在 Konga 面板中看到下面的信息：
 
-![image-20200510132304111](https://tva1.sinaimg.cn/large/007S8ZIlly1genacfou6cj31l10u0jug.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genacfou6cj31l10u0jug.jpg" title="配置 Services" width="100%">}}
 
-![image-20200510132328040](https://tva1.sinaimg.cn/large/007S8ZIlly1genacr9pkij31kw0u0adk.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genacr9pkij31kw0u0adk.jpg" title="配置 Routes" width="100%">}}
 
 
 
@@ -162,10 +162,10 @@ newinfo 测试业务组件，是一个基于 Golang 语言编写的 API，GET �
 
 - **WebService**
 
-![image-20200510132629749](https://tva1.sinaimg.cn/large/007S8ZIlly1genafx9ruqj31qr0u0af7.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genafx9ruqj31qr0u0af7.jpg" title="效果展示" width="100%">}}
 
 
 
 - **newinfo**
 
-![image-20200510132652561](https://tva1.sinaimg.cn/large/007S8ZIlly1genagan3ruj327y0eun2k.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genagan3ruj327y0eun2k.jpg" title="效果展示" width="100%">}}

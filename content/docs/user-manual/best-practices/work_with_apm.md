@@ -1,6 +1,6 @@
 ---
 title: 基于 PinPoint 实现微服务无侵入的监控与链路追踪
-description: 本篇最佳实践讲解Rainbond微服务通信治理的熔断部分，适用于开发者和应用运维人员。
+description: 基于 PinPoint 实现微服务无侵入的监控与链路追踪，适用于开发者和应用运维人员。
 weight: 20
 ---
 
@@ -20,8 +20,7 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
 
 - 主要组件
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" width="80%">
-
+{{<image src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%">}}
 
 |      组件   |   组件功能 |
 | :-------------: | :-----------------: | ---- |
@@ -56,8 +55,7 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
 
 这种部署方式对于像 pinpoint 这种多组件的复杂应用来说，最大程度的降低了部署难度与工作量
 
-![image-20200510204119884](https://tva1.sinaimg.cn/large/007S8ZIlly1genn0drg6pj320b0u0424.jpg)
-
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genn0drg6pj320b0u0424.jpg" title="安装示例" width="100%">}}
 
 
 - **配置 websocket**
@@ -66,11 +64,11 @@ PinPoint 支持实时显示链路追踪数据，这需要 pinpoint-web 的访问
 
 在 **网关** 中找到 pinpoint-web 的域名，点击 **参数设置**，打开 websocket 支持。
 
-![image-20200510204810433](https://tva1.sinaimg.cn/large/007S8ZIlly1genn7lmykij31is0u0whx.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genn7lmykij31is0u0whx.jpg" title="开启 WebSocket" width="100%">}}
 
 - **运行效果**
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1genn2hhm43j30u00uewfs.jpg" alt="image-20200510204317218" style="zoom:50%;" />
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genn2hhm43j30u00uewfs.jpg" title="运行效果" width="50%">}}
 
 ### 效果展示
 
@@ -82,13 +80,11 @@ todo＿view 会通过特定的路径访问 todo＿api，并借此和数据库交
 
 - **调用链路显示**
 
-![image-20200510205831735](https://tva1.sinaimg.cn/large/007S8ZIlly1genni900kfj31e70u0acf.jpg)
-
-
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genni900kfj31e70u0acf.jpg" title="调用链路展示" width="100%">}}
 
 - **监控详情**
 
-![image-20200510205948830](https://tva1.sinaimg.cn/large/007S8ZIlly1gennjjycw7j31qh0u0wpp.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gennjjycw7j31qh0u0wpp.jpg" title="监控详情" width="100%">}}
 
 
 
@@ -163,7 +159,7 @@ fi
 
   1）事先将 pinpoint-agent 资源放进源码仓库，将该目录放置在代码根目录下即可。
 
-![image-20200510212758950](https://tva1.sinaimg.cn/large/007S8ZIlly1genocwlizoj31ah0u0gq1.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genocwlizoj31ah0u0gq1.jpg" title="代码目录" width="100%">}}
 
   2）关键代码：
 

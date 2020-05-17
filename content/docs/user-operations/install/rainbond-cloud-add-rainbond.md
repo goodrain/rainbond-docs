@@ -12,8 +12,8 @@ keywords: ["rainbond cloud", "rainbond"]
 开始之前，请检查以下前提条件：
 
 1. 了解 [Rainbond Cloud](../../../quick-start/rainbond-cloud/) ，并进行[注册](https://cloud.goodrain.com/enterprise-server/registered)和[登陆](https://cloud.goodrain.com/enterprise-server/login)。
-1. 安装好的 Rainbond 集群，安装请参考[高可用部署 Rainbond](./install-base-ha)或[最小化部署 Rainbond](./minimal_install)。
-1. [grctl 命令行工具](https://www.rainbond.com/docs/user-operations/tools/grctl/)。
+1. 安装好的 Rainbond 集群，安装请参考[高可用部署 Rainbond](../install-base-ha)或[最小化部署 Rainbond](../minimal_install)。
+1. [grctl 命令行工具](/docs/user-operations/tools/grctl/)。
 
 ### 开始对接
 
