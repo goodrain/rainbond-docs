@@ -12,57 +12,70 @@ Rainbond 定位“企业应用全生命周期管理“，类似于 Rancher 的�
 
 接下来将带你在 Rancher 之上完成 Rainbond 系统的安装。
 
-## 前提条件
+### 前提条件
 
 1. 具有一套稳定可用的 Rancher 环境，若还没有可参考 [Rancher 安装部署文档](https://rancher.com/docs/rancher/v2.x/en/installation/)
 1. Kubernetes 集群具有至少 4GB 以上的空闲调度内存
 1. Kubernetes 版本在 1.13 及以上
 1. Kubernetes 集群至少有一个 80/443 端口未被占用的节点
 
-## 开始安装
+### 开始安装
 
-### 添加 Rainbond Operator 到应用商店
+#### 添加 Rainbond Operator 到应用商店
 
 将 Rainbond Operator 添加到 Rancher 的应用商店中。
 
-1. 在**应用商店**页面中，单击**添加应用商店**
-1. 输入**名称**
-1. **商店URL地址**输入 `https://gitee.com/rainbond/rainbond-operator`
-1. **Helm 版本**选择**Helm v3**
-1. 单击**创建**
-1. 回到**应用商店**页面中，单击**启动**
-1. 单击**刷新**
+1.在**应用商店**页面中，单击**添加应用商店**
 
-等 Rancher 同步完后，就可以看到刚才新加的 Rainbond Operator 了。
+2.输入**名称**（比如 Rainbond-Operator）和 **商店 URL 地址** 输入 `https://gitee.com/rainbond/rainbond-operator`
 
-### 安装 Rainbond Operator
+> Rancher 会在指定的代码仓库中搜寻存在的 Helm Chart，由于国内网络原因，使用 rainbond-operator 在 gitee 的地址。
+
+4.**Helm 版本**选择**Helm v3**
+
+> Rainbond-operator chart 使用 Helm v3 规范定义，因此必须选择 Helm v3 版本。
+
+5.单击**创建**完成应用商店添加。
+
+6.回到**应用商店**页面中，单击**启动**
+
+7.单击**刷新**，等 Rancher 同步完后，就可以看到刚才新加的 Rainbond Operator 了。
+
+#### 安装 Rainbond Operator
 
 在 Rancher 中启动 Rainbond Operator。
 
-1. 单击**rainbond-operator**
-1. 将**命名空间**修改为`rbd-system`。注意，目前命名空间只能设置为 `rbd-system`
-1. 单击**启动**
+1.单击识别出的 _rainbond-operator_ Chart,开始 Chart 的安装。
 
-这时会跳转到应用列表页面，等待`rainbond-operator`的状态到 `Active`。
+2.将**命名空间**修改为`rbd-system`
 
-### 访问 Rainbond 安装 UI，完善集群配置
+> 注意，目前命名空间只能设置为 `rbd-system`, 根据*rainbond-operator* Chart 默认的配置进行安装。
 
-在配置集群时，需要给 `rbd-gateway` 准备一个 80, 443, 6060, 7070, 10245, 18080, 18081 端口没有被占用的节点。
+3.单击**启动**，会跳转到应用列表页面，等待`rainbond-operator`的状态到 `Active`。
 
-如果你的集群都安装了 `Ingress Controller`，比如 `ingress-nginx`, `trafix`)；那么至少需要在其中的一个节点驱逐它，让出 80，443端口。至于怎么驱逐，可以参考 [Assigning Pods to Nodes]，让它不跑在需要安装 `rbd-gateway` 的节点上。
+> 这个过程会从公网获取 rainbond-operator 的相关镜像，因此其启动时间极大的取决于您的网络环境。
 
-如果你的集群只有一个节点，那么你可以修改 `Ingress Controller` 的 `hostNetwork` 设为 false，或者修改它的端口为非 80, 443 端口。
+#### 访问 Rainbond 安装 UI，完善集群配置
 
-完成配置后，单击 **配置完成，开始安装**。
+rainbond-operator 启动完成后在暴露 `30008` 提供集群配置和安装过程的 UI 展示服务。因此请访问`主机IP:30008`进入 Rainbond Operator UI 页面。
 
-### 基于 Rancher 的 Rainbond 运维参考
+配置项目中包括镜像仓库配置、数据库配置和存储配置，请根据你所在环境的实际情况考虑是否自助提供以上服务（高可用生产环境我们建议自助提供）。当然默认情况下 Rainbond 会自动安装以上服务。
+
+另外两个关键性配置是`网关节点`和`构建节点`的选择。默认情况下 Rainbond 将自动选择 Kubernetes 的适合的管理节点。网关节点安装`rbd-gateway`网关服务，因此需要占用`80, 443`等关键端口。构建节点作为 Rainbond 进行镜像构建的节点，最好选择存储和计算资源充足的节点。 倘若以上两个配置项没有获取的默认值，比如你的集群中已经没有`80`端口空闲的节点时，你可能需要进行以下操作：
+
+1. 使用 IP 地址搜索其他可用节点并选择。
+2. 若集群中已无可用节点，比如你只有一个节点且已安装`Ingress Controller`，那么你可以修改 `Ingress Controller` 的 `hostNetwork` 设为 false，或者修改它的端口为非 80, 443 端口。然后重新进行 Rainbond 安装。若有多个节点时可考虑将`Ingress Controller`从某个节点驱离，让出端口资源给 Rainbond 使用。
+
+完成配置后，即可单击 **配置完成，开始安装**。安装过程中 Rainbond 将获取所有需要的镜像并上传到本地镜像仓库中，然后启动所有 Rainbond 的组件。此过程大概`20`分钟, 与您的网络环境相关。
+
+#### 基于 Rancher 的 Rainbond 运维参考
 
 在 Rainbond 的安装和使用过程中，都可以使用 Rancher 运维 Rainbond。比如`查看 Rainbond 各组件运行状态与日志`，`按需扩容 Rainbond 各组件`。
 
 #### 查看 Rainbond 各组件运行状态与日志
 
 在**工作负载**页面中，找到命名空间 `rbd-system`，查看 Rainbond 各组件的状态，事件和日志。也可以实时监控某个组件工作负载，包括 CPU，内存，网络数据包等。
-如果某个组件异常了，可以通过以上的信息进行排查；必要的时候，可以把其上传到[社区](https://t.goodrain.com/)，或发送到 `Rainbond 的开源交流群`求助。
+如果某个组件异常了，可以通过以上的信息进行排查；必要的时候，可以把其上传到[社区](https://t.goodrain.com/)，或提交 Issues 到[Rainbond-Operator](https://github.com/goodrain/rainbond-operator/issues)
 
 #### 按需扩容 Rainbond 各组件
 
@@ -70,7 +83,7 @@ Rainbond 定位“企业应用全生命周期管理“，类似于 Rancher 的�
 
 当需要对 Rainbond 组件进行排错的时候，可能需要修改组件的启动参数，或者环境变量。这时候，就可以使用 Rancher 进行修改。
 
-## 了解 Rancher 用户使用 Rainbond 的优势
+### 了解 Rancher 用户使用 Rainbond 的优势
 
 - 无需深入学习 Kubernetes 各类资源的使用方式
 
@@ -92,9 +105,11 @@ Rainbond 定位“企业应用全生命周期管理“，类似于 Rancher 的�
 
 > Rainbond 内置 ServiceMesh 微服务架构治理框架，所有部署组件按照微服务的治理思路进行管理，微服务治理功能开箱即用的。
 
-## 参考视频
+### 参考视频
 
-## 常见问题
+{{<bibili-video src="//player.bilibili.com/player.html?aid=625675438&bvid=BV1kt4y117Gu&cid=191668386&page=1" href="https://www.bilibili.com/video/BV1kt4y117Gu/" title="Rancher安装Rainbond, 并做应用部署的简单对比演示">}}
+
+### 常见问题
 
 - Rancher 已经部署的应用能否直接由 Rainbond 接管
 

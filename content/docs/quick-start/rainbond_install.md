@@ -1,30 +1,24 @@
 ---
-title: "平台安装"
+title: '平台安装'
 weight: 104
-description: "Rainbond安装教程引导"
+description: 'Rainbond安装教程引导'
 ---
 
-欢迎！跟随以下文档，您将可以快速地部署 Rainbond 及使用 Rainbond Cloud 服务。
+Rainbond 提供多种安装使用模式，跟随以下文档，您将可以快速地本地化部署 Rainbond 或使用 Rainbond Cloud 服务。
 
-以下几种安装方式请根据需求自行选择
+## 使用 Rainbond 在线托管服务
 
-### 已有阿里云资源（极速安装）
+### 基于阿里云公有云资源
 
-> 此方式适合已有阿里云资源的用户，不需要懂技术，最简单的方式自动部署并对接到 Rainbond Cloud，其他公有云资源安装请电话咨询`18501030060`（曾庆国）获取技术支持
+> 此方式适合阿里云公有云用户，Rainbond 将辅助您自动化完成 Kubernetes 集群搭建和 Rainbond 系统安装。
 
 请阅读：[自动对接阿里云 ACK](/docs/user-operations/install/aliyun-ack/)。
 
-### 已有 kubernetes 集群
-
-> 此方式适合已有 Kubernetes 集群的用户，在不影响现有业务的情况下，进行简单的操作，即可完成 Rainbond 的部署。
-
-请阅读：[快速部署 Rainbond](/docs/user-operations/install/minimal_install)。
-
-延伸阅读：[对接已有 Rainbond 集群](/docs/user-operations/install/rainbond-cloud-add-rainbond)。
+## 本地化部署 Rainbond
 
 ### 单节点部署
 
-> 此方式适合只有虚拟机或物理服务器，需要先完成 Kubernetes 的安装再进行 Rainbond  的部署。
+> 此方式适合只有虚拟机或物理服务器，需要先完成 Kubernetes 的安装再进行 Rainbond 的部署。
 
 安装 Rainbond 前需要先安装 Kubernetes 集群，请阅读：[快速安装 Kubernetes](/docs/user-operations/install/kubernetes-install)。
 
@@ -37,3 +31,9 @@ description: "Rainbond安装教程引导"
 如果您还没有自己的 Kubernetes 高可用集群，请先安装高可用的 Kubernetes 环境，请阅读：[高可用部署 Kubernetes](/docs/user-operations/install/kubernetes-install/#kubernetes的高可用安装)。
 
 如果您使用了阿里云 kubernetes 集群服务或已有高可用 Kubernetes 集群，请阅读：[高可用部署 Rainbond](/docs/user-operations/install/install-base-ha)。
+
+### Rancher 用户部署 Rainbond
+
+> 此方式适合 Rancher 使用用户
+
+请阅读：[基于 Rancher 部署 Rainbond](/docs/user-operations/install/install-from-rancher/)
