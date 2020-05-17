@@ -121,19 +121,18 @@ filebeat.modules:
 
 - **访问插件页面，点击新建插件**
 
-![image-20200509130437504](https://tva1.sinaimg.cn/large/007S8ZIlly1gem46wsgn3j31lb0u00wl.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem46wsgn3j31lb0u00wl.jpg" title="新建插件" width="100%">}}
+
 
 - **输入基础信息**
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4a2l2pzj30zr0u0766.jpg" alt="image-20200509130743583" style="zoom: 50%;" />
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4a2l2pzj30zr0u0766.jpg" title="" style="zoom: 50%" >}}
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4a2l2pzj30zr0u0766.jpg" title="新建插件" width="80%">}}
 
 > 如果选择安装来源为镜像，则需要输入可获取的镜像地址。
 
 - **生成配置组**
 
-![image-20200509131056597](https://tva1.sinaimg.cn/large/007S8ZIlly1gem4dew7oej31hk0u077m.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4dew7oej31hk0u077m.jpg" title="配置组" width="100%">}}
 
 所有环境变量、及其默认值设置见下表：
 
@@ -159,7 +158,7 @@ filebeat.modules:
 
 - **运行于 Rainbond 的 Nginx 服务，需要开启存储中的持久化功能，将 Nginx 日志目录持久化保存**
 
-![image-20200509131843531](https://tva1.sinaimg.cn/large/007S8ZIlly1gem4ljk7msj327m0scwhr.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4ljk7msj327m0scwhr.jpg" title="日志目录持久化" width="100%">}}
 
 
 
@@ -167,11 +166,11 @@ filebeat.modules:
 
 - **安装插件**
 
-![image-20200509132140681](https://tva1.sinaimg.cn/large/007S8ZIlly1gem4ol42bbj31j70u0jun.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4ol42bbj31j70u0jun.jpg" title="安装插件" width="100%">}}
 
 - **配置插件**
 
-![image-20200509132329680](https://tva1.sinaimg.cn/large/007S8ZIlly1gem4qhlfmwj31qq0u0n0u.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4qhlfmwj31qq0u0n0u.jpg" title="配置插件" width="100%">}}
 
 > 在插件的配置项中，所有的变量都已经有了默认值。如需要，需要我们加以修改。其中 **ES＿HOST、ES＿PORT、ES＿USERNAME、ES＿PASS** 四个变量定义 Elasticsearch 的连接信息。**KIBANA＿HOST、KIBANA＿PORT** 指定了 Kibana 的连接地址。这里使用默认也可以生效的原因，是 Nginx 已经依赖了部署于 Rainbond 的 Elasticsearch、Kibana。
 
@@ -187,13 +186,13 @@ filebeat.modules:
 
 Rainbond 云应用市场中已经集成了 Elasticsearch + Kibana 的应用模版，只需同步到本地即可一键安装。将 Nginx 依赖于前者之后，可见整体服务拓扑如下：
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4x80bwoj30lc0ssaar.jpg" alt="image-20200509132958224" style="zoom:50%;" />
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4x80bwoj30lc0ssaar.jpg" title="配置插件" width="80%">}}
 
 插件安装配置完成后，访问 Nginx 造成流量，以激活访问日志输出。打开 Kibana 的面板，即可展示已收集到的 Nginx 日志：
 
-![image-20200509133152607](https://tva1.sinaimg.cn/large/007S8ZIlly1gem4z77rhuj31j00u0jy6.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4z77rhuj31j00u0jy6.jpg" title="效果展示" width="100%">}}
 
-![image-20200509133220062](https://tva1.sinaimg.cn/large/007S8ZIlly1gem4zom84zj31j20u0juk.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4zom84zj31j20u0juk.jpg" title="效果展示" width="100%">}}
 
 
 
