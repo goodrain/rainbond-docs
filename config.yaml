@@ -24,22 +24,16 @@ params:
         url: /docs/quick-start/edition/
       - title: Rainbond Cloud介绍
         url: /docs/quick-start/rainbond-cloud/
-      - title: 集群管理
-        url: /docs/user-manual/enterprise/cluster-management/
-      - title: 学习Rainbond应用开发相关概念
+      - title: 关键概念
         url: /docs/user-manual/concept/
-      - title: 应用管理实践
-        url: /docs/advanced-scenarios/practices/
-      - title: DevOps实践
-        url: /docs/advanced-scenarios/devops/
-      - title: 企业中台共享库实践
-        url: /docs/user-manual/enterprise/appcenter/
-      - title: ServiceMesh微服务原理及实践
-        url: /docs/advanced-scenarios/micro/service_mesh/
-      - title: Spring Cloud微服务部署实践
-        url: /docs/advanced-scenarios/micro/spring_cloud/
-      - title: 问题排查定位
-        url: /docs/troubleshoot/location-problem/
+      - title: 组件开发
+        url: /docs/user-manual/component-dev/
+      - title: 构建微服务架构
+        url: /docs/user-manual/architecture/
+      - title: 最佳实践
+        url: /docs/user-manual/best-practices/
+      - title: 查看更多
+        url: /docs/user-manual
     faqs:
       - q: Rainbond是否开源
         a: 当然，Rainbond是一个完整开源的以企业云原生应用开发、架构、运维、共享、交付为核心的Kubernetes多云赋能平台，企业级支持的国产开源项目，订阅企业服务可以解锁更多便捷功能体验和获得专业的支持。
@@ -55,11 +49,29 @@ params:
     news:
       title: 最新上线视频
       items:
+        - title: Rancher安装Rainbond, 并做应用部署的简单对比演示
+          src: //player.bilibili.com/player.html?aid=625675438&bvid=BV1kt4y117Gu&cid=191668386&page=1
+          bilibili: https://www.bilibili.com/video/BV1kt4y117Gu/
+          doc: /docs/user-operations/install/install-from-rancher
+          default: true
+        - title: Rainbond 应用复制-快速搭建开发环境
+          src: //player.bilibili.com/player.html?aid=668179307&bvid=BV1da4y1i7tQ&cid=190877377&page=1
+          bilibili: https://www.bilibili.com/video/BV1da4y1i7tQ
+          doc: /docs/user-manual/component-dev/app_copy/
+        - title: 基于应用市场的应用SaaS化交付流程演示
+          src: //player.bilibili.com/player.html?aid=968145936&bvid=BV1xp4y1Q7CX&cid=190508594&page=1
+          bilibili: https://www.bilibili.com/video/BV1xp4y1Q7CX
+        - title: Rainbond配置域名访问组件
+          src: //player.bilibili.com/player.html?aid=200637879&bvid=BV1Wz411q7Rm&cid=190491579&page=1
+          bilibili: https://www.bilibili.com/video/BV1Wz411q7Rm
+          doc: /docs/user-manual/gateway/domain/
+        - title: Rainbond 组件间通信设置操作演示
+          bilibili: https://www.bilibili.com/video/BV1qZ4y1s7nH
+          src: //player.bilibili.com/player.html?aid=370629782&bvid=BV1qZ4y1s7nH&cid=190486373&page=1
         - title: 基于Rainbond实现企业DevOps全流程体验
           pdf: https://grstatic.oss-cn-shanghai.aliyuncs.com/mp4/ppt/%E5%9F%BA%E4%BA%8ERainbond%E5%AE%9E%E7%8E%B0DevOps%E5%85%A8%E6%B5%81%E7%A8%8B.pdf
           src: //player.bilibili.com/player.html?aid=667994901&bvid=BV1Ua4y1v7ob&cid=185062763&page=1
           bilibili: https://www.bilibili.com/video/BV1Ua4y1v7ob/
-          default: true
         - title: 3分钟速览RainbondCloud对接阿里云资源
           src: //player.bilibili.com/player.html?aid=837884755&bvid=BV1hg4y1z7WC&cid=184669028&page=1
           bilibili: https://www.bilibili.com/video/BV1hg4y1z7WC

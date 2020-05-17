@@ -12,6 +12,14 @@ Rainbond 高可用安装基于Kubernetes集群的高可用，所以在安装Rain
 
 - 对于已经安装好Kubernetes集群的用户，请对照[高可用Kubernetes集群安装文档](/docs/user-operations/install/kubernetes-install)中的节点配置列表，确认是否满足高可用性。
 
+### 先决条件
+
+- `1.13` 及以上版本的 Kubernetes
+- 集群至少剩余 `2G` 内存
+- 主机 DNS 能够正常解析公网地址
+- 确保跨主机的容器之间能够通信
+- 拥有开放了 `80`, `443`, `7070`, `6060`, `8443`, `10254`, `18080`, `18081` 的端口的节点，拥有部署 `rbd-gateway`
+
 ### 安装 Helm（V3）
 
 如果您的环境中还没有安装 Helm ，请安装它。如果已经安装 Helm（3.0+） 请跳过这个步骤。

@@ -1,15 +1,15 @@
-
 {{range .Site.Params.video}}
 {{range .items}}
-  {{if .default}}
-  <section class="section section-feature-grey">
-    <div class="container">
-      <div class="play">
-        <iframe src="{{.src}}" title="" width="100%" height="400px" scrolling="no" border="0" frameborder="no" framespacing="0"allowfullscreen="true"></iframe>
-      </div>
+{{if .default}}
+<section class="section section-feature-grey">
+  <div class="container">
+    <div class="play">
+      <iframe src="{{.src}}" title="" width="100%" height="400px" scrolling="no" border="0" frameborder="no"
+        framespacing="0" allowfullscreen="true"></iframe>
     </div>
-  </section>
-  {{end}}
+  </div>
+</section>
+{{end}}
 {{end}}
 <section class="section section-feature-grey is-medium is-video">
   <div class="container">
@@ -54,6 +54,19 @@
                     <path
                       d="M682.666667 21.333333l128 117.333334 128 117.333333h-170.666667a85.333333 85.333333 0 0 1-85.333333-85.333333V21.333333z"
                       fill="#d81e06" p-id="1915"></path>
+                  </svg></a>
+                {{end}}
+                {{if .doc}}
+                <a href="{{.doc}}"><svg t="1589694936710" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="2521" width="200" height="200">
+                    <path
+                      d="M114.24 0A47.616 47.616 0 0 0 79.36 15.36 55.296 55.296 0 0 0 64.32 51.2v921.6c0 13.568 5.376 26.496 14.976 35.84a48.64 48.64 0 0 0 34.944 15.36h732.16a47.616 47.616 0 0 0 35.008-15.36 51.136 51.136 0 0 0 14.912-35.84V290.112L613.44 0h-499.2z"
+                      fill="#4091FF" p-id="2522"></path>
+                    <path d="M896.32 290.112h-230.4a53.632 53.632 0 0 1-52.48-52.48V0l282.88 290.112z" fill="#B7D6FF"
+                      p-id="2523"></path>
+                    <path
+                      d="M450.816 538.752l-119.04-166.144H414.08l77.888 119.04 81.28-119.04H652.8L531.264 538.752l127.68 176.704H575.936l-85.76-125.888-85.696 126.72H323.072z"
+                      fill="#FFFFFF" p-id="2524"></path>
                   </svg></a>
                 {{end}}
               </p>
