@@ -1,6 +1,6 @@
 ---
 title: 基于 PinPoint 实现微服务无侵入的监控与链路追踪
-description: 本篇最佳实践讲解Rainbond微服务通信治理的熔断部分，适用于开发者和应用运维人员。
+description: 基于 PinPoint 实现微服务无侵入的监控与链路追踪，适用于开发者和应用运维人员。
 weight: 20
 ---
 
