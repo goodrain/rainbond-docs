@@ -43,6 +43,21 @@ $(function () {
       $(this).addClass('active');
     }
   });
+  $('.sidemenu-toggle').on('click', function () {
+    if ($(this).parent().hasClass('sidemenu-open')) {
+      $(this).parent().removeClass('sidemenu-open');
+      $(this).find('img').attr({
+        src:
+          'https://img.alicdn.com/tfs/TB1E6apXHGYBuNjy0FoXXciBFXa-200-200.png',
+      });
+    } else {
+      $(this).parent().addClass('sidemenu-open');
+      $(this).find('img').attr({
+        src:
+          'https://img.alicdn.com/tfs/TB1I5itXQyWBuNjy0FpXXassXXa-200-200.png',
+      });
+    }
+  });
   initCopyCode();
 });
 
