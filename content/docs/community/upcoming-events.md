@@ -7,6 +7,31 @@ aliases:
 description: 'Rainbond社区活动预告'
 ---
 
+【在线沙龙】Rainbond 与 API-Gateway 结合的最佳实践
+
+大纲：
+
+概念解读
+
+- Api-Gateway 解读
+- Kong 概念解读
+- Kong 插件概念解读
+
+Rainbond 与 API-Gateway 结合的价值
+
+实操
+
+- 在平台的安装，一键部署（两种安装方式，支持离线安装）
+- 使用方式，配置 service rules
+- 插件使用及配置
+
+时间：5 月 20 日晚 20:00
+
+沙龙会议室（可发言交流）：https://meeting.tencent.com/s/RXnFPyWyerER ，会议室提前 15min 开放
+B 站直播间（可弹幕互动）： http://live.bilibili.com/22189300
+
+---
+
 【在线沙龙】基于 Rancher 安装 Rainbond
 
 📒 大纲：
