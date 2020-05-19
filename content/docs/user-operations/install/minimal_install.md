@@ -6,6 +6,14 @@ description: "此方式适用于快速安装和试用Rainbond平台。"
 
 安装Rainbond之前你需要完成Kubernetes集群的安装，若你还没有安装Kubernetes，请参考文档[kubernetes集群的安装](../kubernetes-install/)首先安装kubernetes集群，推荐使用1.16及以上版本。
 
+### 先决条件
+
+- `1.13` 及以上版本的 Kubernetes
+- 集群至少剩余 `2G` 内存
+- 主机 DNS 能够正常解析公网地址
+- 确保跨主机的容器之间能够通信
+- 拥有开放了 `80`, `443`, `7070`, `6060`, `8443`, `10254`, `18080`, `18081` 的端口的节点，拥有部署 `rbd-gateway`
+
 ### 一.安装 Helm（V3）
 
 如果您的环境中还没有安装 Helm ，请安装它。如果已经安装 Helm（3.0+） 请跳过这个步骤。
@@ -44,6 +52,8 @@ kubectl create namespace rbd-system
 #通过helm安装operator到指定namespace
 helm install rainbond-operator ./chart --namespace=rbd-system
 ```
+
+> 注意，namespace 目前只支持 `rbd-system`，暂不支持其他的 namespace。
 
 执行完毕后, 由于从公网获取镜像需要一定时间，请运行以下命令，确认所有Pod都Ready（如下所示）后进行后续步骤。
 
