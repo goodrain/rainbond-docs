@@ -4,7 +4,7 @@ description: Rainbond默认安装的ServiceMesh网络治理插件的原理和使
 weight: 8007
 ---
 
-### ServiceMesh网络治理插件
+## ServiceMesh网络治理插件
 
 5.1.5版本后，Rainbond默认提供了综合网络治理插件（同时处理入站和出站网络）和出站网络治理插件两个插件可用。 
 
@@ -12,9 +12,9 @@ weight: 8007
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1.5/mesh-de.png)
 
 
-### 插件使用实践
+## 插件使用实践
 
-#### 综合网络治理插件
+### 综合网络治理插件
 
 > 使用前提 1：组件依赖其他组件；2：平台安装了综合网络治理插件。
 
@@ -124,70 +124,7 @@ weight: 8007
 
   拒绝访问的时间间隔，即在interval（1s）内连续发生1个consecutiveErrors错误，则触发服务熔断，格式是1h/1m/1s/1ms，但必须大于等于1ms。即分析是否需要剔除的频率，多久分析一次，默认10秒。单位毫秒。
 
-#### 出站网络治理插件
+### 出站网络治理插件
 
 当服务无需使用入站方向的治理功能时，可只使用出站治理插件，配置参数与综合治理插件的出站方向一致。
-
-
-### 插件制作实践
-
-
-对于插件的开发者来说需要关注如下两点：
-
-* 入站治理插件需要根据系统分配的端口转发规则进行流量转发，比如UI服务本身是监听的8080端口，这是不能改变的，但是我们可以改变从边缘网关访问UI服务时的访问端口，因此Rainbond应用运行时为动态为入站网络治理插件生成监听端口对，比如下述配置：
-
-  ```
-  "base_ports":[
-        {
-            "service_alias":"gre484d9",
-            "service_id":"9703228e9b42cde3e3a72f4826e484d9",
-            "port":8080,
-            "listen_port":65301,
-            "protocol":"http",
-            "options":{
-                "LIMIT_DOMAIN":"limit.common",
-                "OPEN_LIMIT":"NO"
-            }
-        }
-    ]
-  ```
-插件运行时会自动注入DISCOVER_URL变量，通过此变量值的地址可以动态获取到如上的配置信息，入站网络治理插件必须通过以上配置来监听65301端口，将流量负载到127.0.0.1:8080端口。
-
-* 出站治理插件不存在端口映射的问题，出站治理插件根据下属的动态配置信息生成本地监听负载到远程地址。
-
-```
-"base_services":[
-        {
-            "service_alias":"gre484d9",
-            "service_id":"9703228e9b42cde3e3a72f4826e484d9",
-            "depend_service_alias":"grcff92d",
-            "depend_service_id":"c81923991ff2428082a5d9d478cff92d",
-            "port":5000,
-            "protocol":"http",
-            "options":{
-                "BaseEjectionTimeMS":"30000",
-                "ConsecutiveErrors":"5",
-                "Domains":"todos",
-                "Headers":"",
-                "IntervalMS":"10",
-                "MaxActiveRetries":"5",
-                "MaxConnections":"10",
-                "MaxEjectionPercent":"20",
-                "MaxPendingRequests":"1024",
-                "MaxRequests":"1024",
-                "MaxRequestsPerConnection":"",
-                "PROXY":"YES",
-                "Prefix":"/",
-                "Weight":"80"
-            }
-        }
-]        
-```
-
-使用上诉原生配置发现和服务发现来让自定义插件工作，插件层面需要做较多的数据适配工作。Rainbond同时提供了基于envoy XDS（grpc）规范的动态配置发现服务，在插件中通过XDS_HOST_IP XDS_HOST_PORT两个变量来获取XDS服务的地址。
-
-
-
-对用用户来说插件层的网络治理对于业务层是完全透明的，所有有依赖关系的分布式服务类似于运行同一台主机一样。
-
 
