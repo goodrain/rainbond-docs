@@ -2,6 +2,7 @@
 title: Rancher 用户安装 Rainbond
 description: 本文用于Rancher用户安装Rainbond的参考
 keywords: Rainbond Rancher Rancher安装Rainbond
+weight: 1888
 ---
 
 > 本文适用于正在使用 Rancher 或对 Rancher 有所了解的用户
