@@ -54,6 +54,10 @@ params:
           bilibili: https://www.bilibili.com/video/BV1kt4y117Gu/
           doc: /docs/user-operations/install/install-from-rancher
           default: true
+        - title: 配置服务请求速率限制
+          src: //player.bilibili.com/player.html?aid=540728010&bvid=BV1ai4y14718&cid=193184140&page=1
+          bilibili: https://www.bilibili.com/video/BV1ai4y14718/
+          doc: /docs/user-manual/architecture/rate-limiting/
         - title: Rainbond 应用复制-快速搭建开发环境
           src: //player.bilibili.com/player.html?aid=668179307&bvid=BV1da4y1i7tQ&cid=190877377&page=1
           bilibili: https://www.bilibili.com/video/BV1da4y1i7tQ
