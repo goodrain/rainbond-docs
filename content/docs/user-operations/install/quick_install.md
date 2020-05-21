@@ -12,7 +12,7 @@ description: '使用最简单，方便的方式部署 Rainbond。'
 
 在安装 Rainbond 之前，需要一个 `1.13` 及以上版本的 Kubernetes。
 
-如果你没有准备好的 Kubernetes，可以参考[快速安装 Kubernetes](/docs/user-operations/install/)。
+如果你没有准备好的 Kubernetes，可以参考[快速安装 Kubernetes](/docs/user-operations/install/kubernetes-install/#kubernetes的all-in-one安装方式)。
 
 请确保该 Kubernetes 满足以下条件：
 
@@ -57,6 +57,8 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
     ```bash
     helm install rainbond-operator ./chart --namespace=rbd-system
     ```
+
+    如果想了解 Rainbond Operator 的参数，请查阅[这里](http://localhost:1313/docs/user-operations/rainbond-operator/configuration/)。
 
 1. 确认 Rainbond Operator 状态
 
