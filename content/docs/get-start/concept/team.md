@@ -1,6 +1,8 @@
 ---
 title: "团队"
 description: 介绍Rainbond团队的概念和设计思考
+aliases:
+  - /docs/user-manual/concept/team/
 weight: 11
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: "应用"
 description: 介绍Rainbond应用的概念和设计思考
+aliases:
+  - /docs/user-manual/concept/app/
 weight: 11
 ---
 

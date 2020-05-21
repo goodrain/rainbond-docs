@@ -1,6 +1,8 @@
 ---
 title: "网关"
 description: 介绍Rainbond网关的概念和设计思考
+aliases:
+  - /docs/user-manual/concept/gateway/
 weight: 14
 ---
 
