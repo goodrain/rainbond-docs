@@ -7,6 +7,18 @@ aliases:
 description: 'Rainbond社区活动预告'
 ---
 
+Rainbond 社区在线沙龙固定是北京时间每周三晚上 8:00 开始。
+
+下期预告：探讨在 Rainbond 中如何将组件日志收集发送到阿里云日志服务
+
+参加方式如下：
+
+沙龙会议室（可发言交流）：https://meeting.tencent.com/s/RXnFPyWyerER ，会议室提前 15min 开放
+
+B 站直播间（可弹幕互动）： http://live.bilibili.com/22189300
+
+---
+
 【在线沙龙】Rainbond 与 API-Gateway 结合的最佳实践
 
 大纲：

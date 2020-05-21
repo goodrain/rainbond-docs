@@ -49,11 +49,15 @@ params:
     news:
       title: 最新上线视频
       items:
+        - title: Rainbond结合Kong实现API-Gateway
+          src: //player.bilibili.com/player.html?aid=200652814&bvid=BV1zz411q7m7&cid=193486378&page=1
+          bilibili: https://www.bilibili.com/video/BV1zz411q7m7/
+          default: true
+          doc: /docs/user-manual/best-practices/work_with_kong/
         - title: Rancher安装Rainbond, 并做应用部署的简单对比演示
           src: //player.bilibili.com/player.html?aid=625675438&bvid=BV1kt4y117Gu&cid=191668386&page=1
           bilibili: https://www.bilibili.com/video/BV1kt4y117Gu/
           doc: /docs/user-operations/install/install-from-rancher
-          default: true
         - title: 配置服务请求速率限制
           src: //player.bilibili.com/player.html?aid=540728010&bvid=BV1ai4y14718&cid=193184140&page=1
           bilibili: https://www.bilibili.com/video/BV1ai4y14718/
