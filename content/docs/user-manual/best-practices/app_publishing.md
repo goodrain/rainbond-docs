@@ -1,6 +1,6 @@
 ---
 title: 滚动发布，灰度发布及蓝绿发布
-Description: "基于Rainbond实现三种微服务的发布"
+Description: "基于 Rainbond 实现三种微服务的发布"
 weight: 30
 ---
 
@@ -108,6 +108,6 @@ Rainbond平台无状态组件滚动更新与有状态组件滚动更新区别：
 
 **您可能还需要阅读：**
 
-[基于版本号一键上线/回滚](/docs/user-manual/best-practices/update-rollback/)
+[基于版本号一键上线/回滚](/docs/user-manual/best-practices/update_rollback/)
 
 [基于Rainbond的组件A/B测试实践](/docs/user-manual/best-practices/ab_testing/)
