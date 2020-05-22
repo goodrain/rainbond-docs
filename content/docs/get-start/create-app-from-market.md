@@ -1,5 +1,5 @@
 ---
-title: 从共享库部署一个应用
+title: 3.部署一个 Mysql 服务
 description: 基于共享库一键构建并部署一个应用
 keywords: 应用 业务组件 共享库 构建 部署
 weight: 203

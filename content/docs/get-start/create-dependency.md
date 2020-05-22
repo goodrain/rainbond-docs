@@ -1,5 +1,5 @@
 ---
-title: 建立依赖关系
+title: 4.拼装一个 Service Mesh 微服务架构
 description: 不修改代码实现 Service Mesh 微服务架构
 keywords: 依赖关系 SrviceMesh 微服务
 weight: 204

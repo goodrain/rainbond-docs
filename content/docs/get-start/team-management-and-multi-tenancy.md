@@ -1,5 +1,5 @@
 ---
-title: 团队管理与多租户
+title: 1.团队管理与多租户
 description: 创建多个团队，通过多租户技术隔离资源
 keywords: 团队 多租户 资源隔离
 weight: 201
