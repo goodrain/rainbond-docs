@@ -14,13 +14,6 @@ description: '使用最简单，方便的方式部署 Rainbond。'
 
 如果你没有准备好的 Kubernetes，可以参考[快速安装 Kubernetes](/docs/user-operations/install/kubernetes-install/#kubernetes的all-in-one安装方式)。
 
-请确保该 Kubernetes 满足以下条件：
-
-- 集群至少剩余 `4G` 调度内存
-- 主机 DNS 能够正常解析公网地址
-- 确保跨主机的容器之间能够通信
-- 集群中至少存在一台机器的 `80`, `443`, `7070`, `6060`, `8443`, `10254`, `18080`, `18081` 端口没有被占用
-
 ## 使用 Helm 3 安装 Rainbond Operator
 
 推荐使用 [Helm](https://helm.sh/) 来安装 Rainbond Opeartor。
