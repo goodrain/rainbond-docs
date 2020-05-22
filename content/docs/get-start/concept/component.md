@@ -1,6 +1,8 @@
 ---
 title: "组件"
 description: 介绍Rainbond组件的概念和设计思考
+aliases:
+  - /docs/user-manual/concept/component/
 weight: 12
 ---
 
