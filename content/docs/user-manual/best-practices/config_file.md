@@ -1,6 +1,6 @@
 ---
 title: 组件配置文件实践
-Description: Rainbond为组件添加配置文件的方法实践
+Description: Rainbond 为组件添加配置文件的方法实践
 weight: 60
 ---
 
