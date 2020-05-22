@@ -16,13 +16,11 @@ Rainbond 提供多种安装使用模式，跟随以下文档，您将可以快�
 
 ## 本地化部署 Rainbond
 
-### 单节点部署
+### 快速部署
 
-> 此方式适合只有虚拟机或物理服务器，需要先完成 Kubernetes 的安装再进行 Rainbond 的部署。
+> 此方式适合刚接触 Rainbond 的用户，它会帮助你快速地评估 Rainbond。
 
-安装 Rainbond 前需要先安装 Kubernetes 集群，请阅读：[快速安装 Kubernetes](/docs/user-operations/install/kubernetes-install)。
-
-安装 Kubernetes 集群之后可以直接部署 Rainbond，请阅读：[快速部署 Rainbond](/docs/user-operations/install/minimal_install)。
+请阅读：[快速部署](/docs/user-operations/install/quick_install/)。
 
 ### 高可用部署
 

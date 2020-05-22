@@ -1,7 +1,7 @@
 ---
 title: 对接已有 Rainbond 集群
 description: 基于 Rainbond Cloud 对接已有的 Rainbond 集群
-weight: 1
+weight: 2
 keywords: ["rainbond cloud", "rainbond"]
 ---
 
