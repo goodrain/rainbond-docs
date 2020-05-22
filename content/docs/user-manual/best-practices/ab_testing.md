@@ -1,6 +1,6 @@
 ---
-title: 基于Rainbond实现组件A/B测试
-Description: 基于Rainbond的组件A/B测试方案详解
+title: 基于 Rainbond 实现组件A/B测试
+Description: 基于 Rainbond 的组件 A/B测试 方案详解
 weight: 40
 ---
 
