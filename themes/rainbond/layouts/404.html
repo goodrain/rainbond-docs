@@ -4,12 +4,12 @@
 
 <body>
     {{ partial "header.html" (dict "context" .   "active" "") }}
-    <section class="hero is-default is-bold has-text-centered">
+    <section class="hero is-default is-bold has-text-centered" style="min-height: 40rem">
 
         <h2>你访问的页面不存在</h2>
-
+        <p>可能是你访问的文档已经废弃或改变地址，请从最新的文档系统中查阅</p>
         <div class="button-cta">
-            <a class="button is-primary is-large" href="/">返回首页</a>
+            <a class="button is-primary is-large" href="/docs">去文档首页</a>
         </div>
     </section>
 

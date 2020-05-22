@@ -1,5 +1,5 @@
 ---
-title: "快速安装Kubernetes"
+title: "快速安装 Kubernetes"
 weight: 1000
 description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes 集群"
 ---

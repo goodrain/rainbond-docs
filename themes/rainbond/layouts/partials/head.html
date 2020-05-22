@@ -4,14 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ .Title }} :: {{ .Site.Title }} </title>
-    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}"> {{ with .Site.Params.author }}
+    <meta name="description"
+        content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+    {{ with .Site.Params.author }}
     <meta name="author" content="{{ . }}">{{ end }}
-    <meta name="keywords" content="{{.Site.Params.keywords }}" />
+    <meta name="keywords" content="{{ with .Keywords }}{{ . }}{{ else }}{{.Site.Params.keywords }}{{end}}" />
     <link rel="shortcut icon" href="/images/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/css/easydropdown.css" />
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/modal-video.css" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/css/documentation.css">
-    <link rel="stylesheet" type="text/css" href="/css/visitor.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css?version={{.Site.Params.version}}">
+    <link rel="stylesheet" type="text/css" href="/css/documentation.css?version={{.Site.Params.version}}">
+    <link rel="stylesheet" type="text/css" href="/css/visitor.css?version={{.Site.Params.version}}">
 </head>

@@ -1,11 +1,8 @@
-+++
-title = "使用手册"
-chapter = true
-menu = "user-manual"
-weight = 1000
-pre = "<b>3. </b>"
-+++
+---
+title: '应用管理员'
+chapter: true
+description: 该章节下的所有参考文档适用于应用开发者、应用运维和了解Rainbond如何管理应用的相关人员。
+weight: 1000
+---
 
-### 应用管理终端控制台功能及设计说明
-
-本章节建议详细阅读，获取最全面的Rainbond功能设计思路、使用方式和应用场景
+{{% children showhidden="true" description="true" style="h3"  %}}

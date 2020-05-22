@@ -1,13 +1,9 @@
-+++
-title = "应用网关管理"
-chapter = true
-menu = "app-gateway"
-weight = 7000
-pre = "<b>3.7. </b>"
-+++
+---
+title: 外网访问组件
+description: 该章节文档介绍如何通过配置网关策略访问Rainbond组件提供的服务
+weight: 3100
+---
 
 # 应用网关管理
-
-本章内容包括：
 
 {{% children showhidden="true" description="true" style="h3"  %}}

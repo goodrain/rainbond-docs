@@ -19,7 +19,7 @@ hidden: true
 
 ```shell
 wget https://pkg.rainbond.com/releases/common/v5.2/grctl && chmod +x ./grctl
-mv ./rainbond-grctl /usr/local/bin/grctl && /usr/local/bin/grctl install
+mv ./grctl /usr/local/bin/grctl && /usr/local/bin/grctl install
 ```
 
 若输出`Install success`则安装成功。

@@ -1,18 +1,19 @@
 ---
-baseurl: "http://v5.2-doc.rainbond.com/docs/"
-languageCode: "zh-cn"
-DefaultContentLanguage: "zh-cn"
-title: "Rainbond-企业应用云操作系统，云原生企业业务中台基座"
-theme: "rainbond"
-baseURL: ""
+baseurl: 'http://v5.2-doc.rainbond.com/docs/'
+languageCode: 'zh-cn'
+DefaultContentLanguage: 'zh-cn'
+title: 'Rainbond-企业应用云操作系统，云原生企业业务中台基座'
+theme: 'rainbond'
+baseURL: ''
 canonifyURLs: true
 params:
-  editURL: "https://github.com/goodrain/rainbond-docs/edit/V5.2/content/"
-  issuesURL: "https://github.com/goodrain/rainbond-docs/issues/new"
+  version: 20200518
+  editURL: 'https://github.com/goodrain/rainbond-docs/edit/master/content/'
+  issuesURL: 'https://github.com/goodrain/rainbond-docs/issues/new'
   showVisitedLinks: true
   disableShortcutsTitle: false
-  description: "Rainbond是以应用为中心，面向云原生的企业应用操作系统，将企业数字资产抽象为应用模型（Rainbond Application Model），并通过容器化环境、敏捷DevOps、微服务架构、组件制品库、Serverless部署、底层资源自动化运维等核心技术，通过搭建数字中台、加速前台业务需求响应，帮助企业获得面向未来的创新能力和竞争力。"
-  keywords: "视频教程，好雨, goodrain, Rainbond, 云帮, 以应用为中心, serverless, PaaS, SaaS, Kubernetes, 微服务架构, servicemesh, DevOps, CI/CD, 高效运维, 云原生, 公有云, 私有云, 混合云, 应用交付, 微服务, 容器云, 容器云平台, 容器云服务, 镜像构建, 源码构建, 云原生应用, 微服务, 微服务平台, springcloud微服务架构, service mesh, 服务网格, 微服务设计, sidecar, 行业云, 开发云, 智慧云, 云计算解决方案"
+  description: 'Rainbond是以应用为中心，面向云原生的企业应用操作系统，将企业数字资产抽象为应用模型（Rainbond Application Model），并通过容器化环境、敏捷DevOps、微服务架构、组件制品库、Serverless部署、底层资源自动化运维等核心技术，通过搭建数字中台、加速前台业务需求响应，帮助企业获得面向未来的创新能力和竞争力。'
+  keywords: '视频教程，好雨, goodrain, Rainbond, 云帮, 以应用为中心, serverless, PaaS, SaaS, Kubernetes, 微服务架构, servicemesh, DevOps, CI/CD, 高效运维, 云原生, 公有云, 私有云, 混合云, 应用交付, 微服务, 容器云, 容器云平台, 容器云服务, 镜像构建, 源码构建, 云原生应用, 微服务, 微服务平台, springcloud微服务架构, service mesh, 服务网格, 微服务设计, sidecar, 行业云, 开发云, 智慧云, 云计算解决方案'
   dashboard:
     recommended:
       - title: Rainbond设计思想
@@ -21,44 +22,126 @@ params:
         url: /docs/architecture/architecture/
       - title: Rainbond功能概述
         url: /docs/quick-start/edition/
-      - title: 集群管理
-        url: /docs/user-manual/enterprise/cluster-management/
-      - title: 组件部署实践
-        url: /docs/advanced-scenarios/app-create/
-      - title: 应用管理实践
-        url: /docs/advanced-scenarios/practices/
-      - title: DevOps实践
-        url: /docs/advanced-scenarios/devops/
-      - title: 企业中台共享库实践
-        url: /docs/user-manual/enterprise/appcenter/
-      - title: ServiceMesh微服务原理及实践
-        url: /docs/advanced-scenarios/micro/service_mesh/
-      - title: Spring Cloud微服务部署实践
-        url: /docs/advanced-scenarios/micro/spring_cloud/
-      - title: 问题排查定位
-        url: /docs/troubleshoot/location-problem/
-      - title: 周边工具集
-        url: /docs/user-operations/tools/
+      - title: Rainbond Cloud介绍
+        url: /docs/quick-start/rainbond-cloud/
+      - title: 关键概念
+        url: /docs/user-manual/concept/
+      - title: 组件开发
+        url: /docs/user-manual/component-dev/
+      - title: 构建微服务架构
+        url: /docs/user-manual/architecture/
+      - title: 最佳实践
+        url: /docs/user-manual/best-practices/
+      - title: 查看更多
+        url: /docs/user-manual
     faqs:
       - q: Rainbond是否开源
         a: 当然，Rainbond是一个完整开源的以企业云原生应用开发、架构、运维、共享、交付为核心的Kubernetes多云赋能平台，企业级支持的国产开源项目，订阅企业服务可以解锁更多便捷功能体验和获得专业的支持。
       - q: Rainbond除了开源版本外还有哪些版本
         a: Rainbond目前提供<a href="https://cloud.goodrain.com">Rainbond Cloud服务</a>，<a href="https://www.goodrain.com">Rainbond Enterprise版本</a>
       - q: Rainbond与Rancher的区别
-        a: Rancher，Kubernetes生态中成功的开源项目，其定位“Run Kubernetes Everywhere”，Rancher可以帮助我们快速搭建Kubernetes集群并提供集群资源很好的管理体系。Rainbond定位“企业应用全生命周期管理“，可以这么认为Rainbond在Rancher之上的维度，用Rancher更好的管理Kubernetes，用Rainbond更好、更方便的使用Kubernets。因此Rainbond与Rancher甚至可以并存，各司其职。
+        a: Rancher，Kubernetes生态中成功的开源项目，其定位“Run Kubernetes Everywhere”，Rancher可以帮助我们快速搭建Kubernetes集群并提供集群资源很好的管理体系。Rainbond定位“企业应用全生命周期管理“，可以这么认为Rainbond在Rancher之上的维度，用Rancher更好的管理Kubernetes，用Rainbond更好、更方便的使用Kubernetes。因此Rainbond与Rancher甚至可以并存，各司其职。
       - q: Rainbond支持管理各类公有云资源吗
         a: Rainbond从5.2版本开始适用于公有云资源以应用为中心的统一管理，Rainbond Cloud版本已支持对阿里云资源的对接、逐步支持aws、华为云等。资源对接包括Kubernetes集群、数据库、存储等
       - q: Rainbond支持多云管理吗
-        a: 当然，Rainbond支持便捷的管理多云应用。  
+        a: 当然，Rainbond支持便捷的管理多云应用。
+  video:
+    news:
+      title: 最新上线视频
+      items:
+        - title: Rainbond结合Kong实现API-Gateway
+          src: //player.bilibili.com/player.html?aid=200652814&bvid=BV1zz411q7m7&cid=193486378&page=1
+          bilibili: https://www.bilibili.com/video/BV1zz411q7m7/
+          default: true
+          doc: /docs/user-manual/best-practices/work_with_kong/
+        - title: Rancher安装Rainbond, 并做应用部署的简单对比演示
+          src: //player.bilibili.com/player.html?aid=625675438&bvid=BV1kt4y117Gu&cid=191668386&page=1
+          bilibili: https://www.bilibili.com/video/BV1kt4y117Gu/
+          doc: /docs/user-operations/install/install-from-rancher
+        - title: 配置服务请求速率限制
+          src: //player.bilibili.com/player.html?aid=540728010&bvid=BV1ai4y14718&cid=193184140&page=1
+          bilibili: https://www.bilibili.com/video/BV1ai4y14718/
+          doc: /docs/user-manual/architecture/rate-limiting/
+        - title: Rainbond 应用复制-快速搭建开发环境
+          src: //player.bilibili.com/player.html?aid=668179307&bvid=BV1da4y1i7tQ&cid=190877377&page=1
+          bilibili: https://www.bilibili.com/video/BV1da4y1i7tQ
+          doc: /docs/user-manual/component-dev/app_copy/
+        - title: 基于应用市场的应用SaaS化交付流程演示
+          src: //player.bilibili.com/player.html?aid=968145936&bvid=BV1xp4y1Q7CX&cid=190508594&page=1
+          bilibili: https://www.bilibili.com/video/BV1xp4y1Q7CX
+        - title: Rainbond配置域名访问组件
+          src: //player.bilibili.com/player.html?aid=200637879&bvid=BV1Wz411q7Rm&cid=190491579&page=1
+          bilibili: https://www.bilibili.com/video/BV1Wz411q7Rm
+          doc: /docs/user-manual/gateway/domain/
+        - title: Rainbond 组件间通信设置操作演示
+          bilibili: https://www.bilibili.com/video/BV1qZ4y1s7nH
+          src: //player.bilibili.com/player.html?aid=370629782&bvid=BV1qZ4y1s7nH&cid=190486373&page=1
+        - title: 基于Rainbond实现企业DevOps全流程体验
+          pdf: https://grstatic.oss-cn-shanghai.aliyuncs.com/mp4/ppt/%E5%9F%BA%E4%BA%8ERainbond%E5%AE%9E%E7%8E%B0DevOps%E5%85%A8%E6%B5%81%E7%A8%8B.pdf
+          src: //player.bilibili.com/player.html?aid=667994901&bvid=BV1Ua4y1v7ob&cid=185062763&page=1
+          bilibili: https://www.bilibili.com/video/BV1Ua4y1v7ob/
+        - title: 3分钟速览RainbondCloud对接阿里云资源
+          src: //player.bilibili.com/player.html?aid=837884755&bvid=BV1hg4y1z7WC&cid=184669028&page=1
+          bilibili: https://www.bilibili.com/video/BV1hg4y1z7WC
+        - title: Rainbond V5.2.0 BETA1 解读
+          src: //player.bilibili.com/player.html?aid=89807690&cid=153384707&page=1
+          bilibili: https://www.bilibili.com/video/av89807690/
+          pdf: https://grstatic.oss-cn-shanghai.aliyuncs.com/mp4/ppt/Rainbond%205.2%20beta1%20.pdf
+    v5.1:
+      title: V5.1版本参考视频
+      description: V5.1版本集群安装相关参考视频已不适用于V5.2版本
+      items:
+        - title: Rainbond开源两周年线上沙龙
+          src: //player.bilibili.com/player.html?aid=79059089&cid=135299440&page=1
+          bilibili: https://www.bilibili.com/video/av79059089?p=1
+        - title: Jenkins Pipeline 对接Rainbond用法培训
+          src: //player.bilibili.com/player.html?aid=54042295&cid=94538571&page=1
+          bilibili: https://www.bilibili.com/video/av54042295/
+        - title: SpringCloud微服务架构应用部署到Rainbond用法培训
+          src: //player.bilibili.com/player.html?aid=54682957&cid=95656299&page=1
+          bilibili: https://www.bilibili.com/video/av54682957/
+        - title: Eureka集群部署，SpringCloud微服务架构升级培训
+          bilibili: https://www.bilibili.com/video/av55425832/
+          src: //player.bilibili.com/player.html?aid=55425832&cid=96911217&page=1
+        - title: Java生态的微服务无侵入链路追踪
+          bilibili: https://www.bilibili.com/video/av56157222/
+          src: //player.bilibili.com/player.html?aid=56157222&cid=98157334&page=1
+          pdf: https://grstatic.oss-cn-shanghai.aliyuncs.com/mp4/ppt/Java%E7%94%9F%E6%80%81%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%97%A0%E4%BE%B5%E5%85%A5%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA.pdf
+        - title: 如何将企业应用制作为SaaS化应用并打通开发测试交付链路
+          bilibili: https://www.bilibili.com/video/av56969937/
+          src: //player.bilibili.com/player.html?aid=56969937&cid=99503149&page=1
+          pdf: https://grstatic.oss-cn-shanghai.aliyuncs.com/mp4/ppt/%E7%BA%BF%E4%B8%8A%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%BA%94%E6%9C%9FRainbond%E5%BA%94%E7%94%A8%E5%B8%82%E5%9C%BA%E8%A7%A3%E8%AF%BB.pdf
+        - title: 滚动、蓝绿、灰度如何在Rainbond实现
+          src: //player.bilibili.com/player.html?aid=57780580&cid=100850214&page=1
+          pdf: https://grstatic.oss-cn-shanghai.aliyuncs.com/mp4/ppt/%E7%BA%BF%E4%B8%8A%E5%9F%B9%E8%AE%AD%E7%AC%AC%E5%85%AD%E6%9C%9F%E5%9F%BA%E4%BA%8Erainbond%E5%AE%9E%E7%8E%B0%E4%B8%89%E7%A7%8D%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%8F%91%E5%B8%83%E6%96%B9%E5%BC%8F%20.pdf
+          bilibili: https://www.bilibili.com/video/av57780580/
+        - title: 服务熔断和全局限流如何在Rainbond实现
+          bilibili: https://www.bilibili.com/video/av60657760/
+          src: //player.bilibili.com/player.html?aid=60657760&cid=105575102&page=1
+          pdf: https://grstatic.oss-cn-shanghai.aliyuncs.com/mp4/ppt/%E7%BA%BF%E4%B8%8A%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%83%E6%9C%9F%E5%9F%BA%E4%BA%8ERainbond%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E7%86%94%E6%96%AD%E5%92%8C%E5%85%A8%E5%B1%80%E9%99%90%E6%B5%81.pdf
+        - title: Rainbond日志管理与插件制作教程
+          src: //player.bilibili.com/player.html?aid=61677518&cid=107266444&page=1
+          bilibili: https://www.bilibili.com/video/av61677518/
+          pdf: https://grstatic.oss-cn-shanghai.aliyuncs.com/mp4/ppt/Rainbond%E6%9C%8D%E5%8A%A1%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86.pdf
+        - title: Rainbond安装与运维原理解读
+          src: //player.bilibili.com/player.html?aid=62878710&cid=109233154&page=1
+          bilibili: https://www.bilibili.com/video/av62878710/
+          pdf: https://grstatic.oss-cn-shanghai.aliyuncs.com/mp4/ppt/Rainbond%E5%AE%89%E8%A3%85%E4%B8%8E%E8%BF%90%E7%BB%B4%E5%8E%9F%E7%90%86%E8%A7%A3%E8%AF%BB.pdf
+        - title: Rainbond高可用集群搭建
+          bilibili: https://www.bilibili.com/video/av63784929/
+          src: //player.bilibili.com/player.html?aid=63784929&cid=110739423&page=1
+        - title: Rainbond应用构建、拼装、安装与升级流程演示
+          bilibili: https://www.bilibili.com/video/av78830420/
+          src: //player.bilibili.com/player.html?aid=78830420&cid=134888098&page=1
 outputs:
-  home: 
+  home:
     - HTML
-    - RSS 
+    - RSS
     - JSON
     - Algolia
 outputFormats:
   Algolia:
-    baseName: "algolia"
+    baseName: 'algolia'
     isPlainText: true
-    mediaType: "application/json"
+    mediaType: 'application/json'
     notAlternative: true
