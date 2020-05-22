@@ -1,5 +1,6 @@
 +++
 title = "进阶场景"
+hidden = true
 chapter = true
 menu = "advanced-scenarios"
 weight = 20000

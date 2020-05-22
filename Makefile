@@ -1,4 +1,4 @@
-VERSION=5.1
+VERSION=5.2
 build:
 	docker build -t rainbond/rbd-docs:${VERSION} .
 debug:

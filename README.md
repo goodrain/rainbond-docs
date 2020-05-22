@@ -1,6 +1,6 @@
 # Rainbond Docs
 
-This repository contains the source files for the Rainbond documentation available at [www.rainbond.com](/docs/v5.1).
+This repository contains the source files for the Rainbond documentation available at [www.rainbond.com](/docs/v5.2).
 
 ## Suggest Improvements
 
