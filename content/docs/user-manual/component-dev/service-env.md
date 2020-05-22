@@ -77,7 +77,7 @@ weight: 90
 | ES_CPUREQUEST         | 1 核=1000       | 自定义组件的 CPU 请求值 5.0.3 及以后版本支持                              |
 | ES_TCPUDP_MESH_MEMORY | MB              | 自定义默认的 MESH 容器内存限制量，默认为 128MB                            |
 | ES_TCPUDP_MESH_CPU    | 1 核=1000       | 自定义默认的 MESH 容器 CPU 限制量，默认为 120, 最小为 120                 |
-| ES_EMPTYDIR_MEDIUM_MEMORY | enable | 设置是否使用内存作为临时存储的介质|
+| ES_ENABLE_EMPTYDIR_MEDIUM_MEMORY | true | 设置是否使用内存作为临时存储的介质|
 
 ### 有效使用环境变量进行软件配置
 
