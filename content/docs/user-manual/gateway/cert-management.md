@@ -1,15 +1,23 @@
 ---
-title: 证书管理
-description: Rainbond网关管理之Https证书管理文档
+title: HTTPS证书管理
+description: Rainbond网关管理之HTTPs证书管理文档
+weight: 100
 ---
 
-证书管理的作用是管理 HTTPs 所需的证书. 包括 添加证书, 编辑证书和删除证书.
+Rainbond 目前支持服务端证书管理，用于支持配置 HTTPS 访问策略。
 
-### 添加证书
+### 前提条件
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/gateway/cert-management/Certificate%20management.png" width="100%" />
+1. 购买或自签发一个指定域名的证书，该证书必须是 nginx 支持的类型。
 
-### 证书管理
+### 操作流程
 
-正确的证书添加后Rainbond会自动识别签发的域名和过期时间，以确保用户绑定域名时选择正确的域名证书。过期时间可以让用户便捷的发现证书的有效期，及时更新证书。
+1. 进入 _团队视图/网关/证书管理_ 页面，页面中可以查询到已经添加的证书和证书的过期时间和签发域名。
+2. 点击添加证书，将购买或签发的证书进行上传，确认添加即可。
+3. 进入访问策略管理，添加访问策略时在高级路由参数选择上一步添加的证书  完成策略添加，需要注意的是策略的域名与证书签发的域名必须匹配。
 
+### 常见问题
+
+- 是否支持自动证书签发
+
+> 自动证书签发功能已经由 Rainbond 贡献者在 Rainbond 开放体系下完成开发贡献，支持 Let’s Encrypt 免费证书自动签发和维护。目前在 Rainbond Cloud 版本中可用，将在 Rainbond 5.3 开源版本中开源。

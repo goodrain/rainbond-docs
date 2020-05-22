@@ -1,11 +1,6 @@
-+++
-title = "应用管理"
-menu = "app-manage"
-weight = 4000
-pre = "<b>3.4. </b>"
-chapter = true
-+++
-
-本章内容包括：
+---
+title: 应用运维
+weight: 9000
+---
 
 {{% children showhidden="true" description="true" style="h3"  %}}

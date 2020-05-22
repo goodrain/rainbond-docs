@@ -1,7 +1,5 @@
-<div class="column is-full-mobile card  video-list-item video-show">
-    <iframe src="{{.Get `src`}}" width="100%" title="{{.Get `title`}}"
-      scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-    <div>
-      <a target="_blank" href="https://www.bilibili.com/video/av79059089?p=1" title="Rainbond开源两周年线上沙龙">{{.Get `title`}}</a>
-    </div>
-  </div>
+<figure class="image">
+  <iframe src="{{.Get `src`}}" width="100%" height="400px" title="{{.Get `title`}}" scrolling="no" border="0"
+    frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <figcaption><a target="_blank" href="{{.Get `href`}}" title="{{.Get `title`}}">{{.Get `title`}}</a></figcaption>
+</figure>
