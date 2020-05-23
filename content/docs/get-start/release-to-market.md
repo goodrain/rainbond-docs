@@ -1,5 +1,5 @@
 ---
-title: 将应用发布为应用模版
+title: 5.制作可复制的模版
 description: 将组件、应用、解决方案发布成为可复用的应用模版
 keywords: 应用模版 共享库 发布
 weight: 205

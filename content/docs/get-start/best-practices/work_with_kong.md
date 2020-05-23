@@ -76,7 +76,7 @@ WebService 测试业务组件，是一个基于 java 语言编写的 web 页面�
 | Methods   | 默认留空         | Http 方法，可根据需要自行填写 GET、POST 等方法，默认无限制               |
 | Path      | /web             | 自定义访问路径，该路径被代理到上游服务的 /                               |
 
-继续为 Static 资源配置代理，**WebService** 的静态页面部分是需要单独代理的。
+需要注意的是，在添加完 Path 之后需要回车才能生效，继续为 Static 资源配置代理，**WebService** 的静态页面部分是需要单独代理的。
 
 - **为 Static 资源配置**
 
@@ -159,3 +159,102 @@ newinfo 测试业务组件，是一个基于 Golang 语言编写的 API，GET �
 - **newinfo**
 
 {{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genagan3ruj327y0eun2k.jpg" title="效果展示" width="100%">}}
+  
+## 插件功能拓展
+
+### 概述
+
+插件之于 Kong ，就像 Spring 中的 aop 功能；在请求到达 Kong 之后，转发给后端应用之前，使用 Kong 自带的插件对请求进行处理，身份认证，熔断限流，黑白名单校验，日志采集等；同时，也可以按照 Kong 的教程文档，定制开发自己的插件。
+
+这里将演示基于 Kong 的插件机制实现 Api-Key验证 以及 ACL策略验证（访问控制）。
+
+### 前提条件
+
+已经通过上述操作将 WebService 或 newinfo 代理出来
+
+
+### 操作步骤
+
+#### Key Auth插件
+
+- 添加插件
+
+在 Konga 中，选择 **PLUGINS** ，点击 **ADD GLOAL PLUGINS** ，选择 **Key Auth** 插件，点击 **ADD PLUGIN**；
+
+填写内容
+
+| 选项名    | 填写内容      | 说明                                                         |
+| --------- | ------------- | ------------------------------------------------------------ |
+| consumer     | 默认留空 | 填写自定义用户名称                    |
+| key names | api_key    | 填写自定义key名称         |
+
+注：填写 key names 内容后回车才可生效
+
+- 创建用户
+
+点击 **Consumers** ，选择 **CREATE CONSUMER** ，输入 **自定义用户名** ，点击  **SUBIT CONUMER** 提交；
+
+- 填写 api_key
+
+点击 **Credentials** ，选择 **API KEYS** ，点击 **CREATE API KEY** ，填写 **自定义 key** ，填写之后提交。
+
+到这里即完成 基于Key Auth插件 实现 Api-Key验证，具体效果参考下方效果展示。
+
+#### ACL+Basic Auth插件
+
+ACL授权策略分组，必须建立在认证机制上，该策略生效的前提，api至少要开启任意一个auth认证插件，这里我们采用 **ACL插件** 与 **Basic Auth插件** 结合的方式 。
+
+> 在开始之前，需要将之前开通的 api_key插件 禁用或者删除，以免有影响
+
+- 开通授权策略分组插件
+
+在 Konga 中，选择 **PLUGINS** ，点击 **ADD GLOAL PLUGINS** ，选择 **Basic Auth** 插件，点击 **ADD PLUGIN** ，无需填写内容，开通即可；
+
+同样的方式在 **Seeurity** 中找到 **Acl插件** ，点击 **ADD PLUGIN**
+
+填写内容
+
+| 选项名    | 填写内容      | 说明                                                         |
+| --------- | ------------- | ------------------------------------------------------------ |
+| consumer | 默认留空 | 填写自定义用户名称         |
+| whitelist| open   | 自定义白名单 |
+| blacklist| 默认留空   | 自定义黑名单 |
+
+需要注意的是，在添加完 黑白名单 之后需要回车才能生效
+
+- 创建用户
+
+点击 **Consumers** ，选择 **CREATE CONSUMER** ，输入 **自定义用户名** ，点击 **SUBIT CONUMER** 提交；同样的操作创建两个用户。
+
+- 为用户分配授权策略组
+
+两个用户都需操作
+
+点击 **Groups** ，**Add a group** ，自定义一个 **组名** ，需要与黑白名单对应
+
+- 添加Basic Auth认证用户及密码
+
+两个用户都需要操作
+
+点击 **Consumers** ，**Credentials** ，找到 **Basic** ，点击 **CREATE CREDENTIALS** ，自定义 **用户名及密码** ，后续浏览器访问时会用到。
+
+### 效果展示
+
+**Key Auth插件**
+
+访问 WebService 或 newinfo 服务，必须添加已定义的 api_key 才能访问。
+
+![image-20200510132621749](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/best-practices/work_with_kong/key.jpg)
+
+**ACL+Basic Auth插件**
+
+访问 WebService 或 newinfo 服务，访问时须填写用户及密码，填写上面定义的 Basic Auth认证用户及密码即可，使用 black用户 访问时不能访问，使用 open用户 访问时可正常访问，说明只有拥有 api授权策略分组的用户 才可以调用该 api。
+
+- 使用 black 用户访问
+
+![image-20200510132629249](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/best-practices/work_with_kong/auth.jpg)
+
+- 使用 open 用户可正常访问
+
+![image-20200510132612249](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/best-practices/work_with_kong/open.jpg)
+

@@ -36,11 +36,11 @@
 {{end}}
 {{ end }}
 <li data-count="{{$numberOfPages}}"
-    class="{{if and (ge $level 2)  (eq .UniqueID $currentNode.UniqueID)}}menu-item-selected{{end}} menu-item {{ if and (ge $level 2) (ne $numberOfPages 0) }} canopen {{end}} menu-item-level-{{ $level }}">
+    class="{{if and (ge $level 1)  (eq .UniqueID $currentNode.UniqueID)}}menu-item-selected{{end}} menu-item {{ if and (ge $level 1) (ne $numberOfPages 0) }} canopen {{end}} menu-item-level-{{ $level }} {{if .Params.DefaultOpen}} open {{end}}">
     {{ if gt $numberOfPages 0 }}
-    <a href="{{.RelPermalink}}">
+    <a>
         {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
-        {{ if and (ge $level 2) (gt $numberOfPages 0) }}
+        {{ if and (ge $level 1) (gt $numberOfPages 0) }}
         <img class="menu-toggle" src="/images/arrow_down.png">
         {{ end }}
     </a>

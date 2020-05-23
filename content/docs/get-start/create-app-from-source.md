@@ -1,5 +1,5 @@
 ---
-title: 从源码部署一个服务组件
+title: 2.从源码部署一个Java服务
 description: 基于源代码一键构建并部署业务组件
 keywords: 服务组件 业务组件 源代码 构建 部署
 weight: 202

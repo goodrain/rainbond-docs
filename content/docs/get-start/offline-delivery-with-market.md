@@ -1,5 +1,5 @@
 ---
-title: 通过共享库实现离线交付
+title: 7.离线交付
 description: 在离线生产环境中，通过共享库交付。
 keywords: 应用模版 共享库 交付
 weight: 207
