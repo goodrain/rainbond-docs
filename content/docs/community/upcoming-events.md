@@ -19,6 +19,25 @@ B 站直播间（可弹幕互动）： http://live.bilibili.com/22189300
 
 ---
 
+
+【在线沙龙】Rainbond 组件日志收集对接到阿里云日志服务实践分享
+
+大纲：
+
+- 日志收集背景
+- 第三方日志收集方案
+- Sidecar日志收集原理
+- Rainbond 插件简介
+- Rainbond 集成阿里云日志服务
+
+时间：5月27日晚  20:00
+
+沙龙会议室（可发言交流）：https://meeting.tencent.com/s/tBOWeCZJ3ECl ，会议室提前15min开放
+
+B站直播间（可弹幕互动）： http://live.bilibili.com/22189300
+
+---
+
 【在线沙龙】Rainbond 与 API-Gateway 结合的最佳实践
 
 大纲：

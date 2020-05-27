@@ -790,10 +790,6 @@
   display: block;
 }
 
-.sidemenu .menu-item-level-1>ul {
-  display: block;
-}
-
 .sidemenu .menu-item.open>ul {
   display: block;
 }

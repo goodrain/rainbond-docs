@@ -6,137 +6,34 @@ weight: 20
 
 本文档适合同时使用 Rainbond、ELK 体系企业的 **应用开发运维人员** 阅读。
 
-本文档适合的场景是：将运行于 Rainbond 的服务组件的日志通过安装专门制作的插件，对接 ELK 体系进行日志收集与分析。
-
+本文档适合的场景是：将运行于 Rainbond 的服务组件的日志通过`fileBeat日志收集插件`，对接 ELK 体系进行日志收集与分析。
 
 
 ### 前提条件
 
 - 部署好的 Nginx 示例服务组件。
 - 通过共享库一键安装的 elasticsearch＿kibana 应用。
+- 团队中有`fileBeat日志收集插件`默认插件。
 
-### 操作步骤
+以 Nginx 服务组件日志的收集为例，通过`fileBeat日志收集插件`，将 Nginx 的访问日志、错误日志上报 ElasticSearch，并通过 Kibana 展示。
 
-以 Nginx 服务组件日志的收集为例，通过制作插件的方式，将 Nginx 的访问日志、错误日志上报 ElasticSearch，并通过 Kibana 展示。
+### 连接 ELK
 
-#### 插件源码
+需要将 Nginx 组件依赖 Elasticsearch 和 Kibana，使 Nginx组件可以通过`fileBeat日志收集插件`默认配置的方式将日志推送到 ElasticSearch 中。
 
-以 Elastic 出品的轻量级日志采集器 [FileBeat](https://www.elastic.co/cn/beats/filebeat) 为基础，可以制作出专门用来收集 Apache、Mongo、NGINX、MySQL 等服务的日志收集插件。
+> 依赖其他组件后，需要更新组件该依赖关系才会生效。
 
-插件源码地址：https://github.com/goodrain-apps/filebeat/tree/nginx
+### 插件的安装与开通
 
-关键代码解读：
+在团队视图中的我的插件页面中，选择`fileBeat日志收集插件`，点击安装，安装完成后，组件才可以使用该插件。
 
-**Dockerfile**
+安装完成之后在组件管理页面的插件页面，在`未开通`列表中，找到`fileBeat日志收集插件`，点击右侧的`开通`按钮，开通该插件。之后该插件会出现在`已开通`列表中。
 
-```dockerfile
-#基础镜像选择filebeat官方镜像
-FROM docker.elastic.co/beats/filebeat:6.3.2
-#将filebeat全局配置文件拷贝到指定位置
-COPY filebeat.yml /usr/share/filebeat/filebeat.yml
-#将模块库拷贝到指定位置
-COPY modules.d /usr/share/filebeat/modules.d
-#指定运行用户
-USER root
-VOLUME ["/volume"]
-#指定权限与属主
-RUN chmod 777 /volume && \
-chown root:filebeat /usr/share/filebeat/filebeat.yml
-```
+### 参数配置
 
-**filebeat.yml**
+可以点击该插件右侧的`查看配置`按钮，查看该插件的配置参数信息。
 
-```yaml
-filebeat.config:
-  prospectors:
-    path: ${path.config}/prospectors.d/*.yml
-    reload.enabled: true
-  modules:
-    path: ${path.config}/modules.d/*.yml
-    reload.enabled: true
-
-# config file input
-filebeat.inputs:
-- type: log
-  enabled: true
-  paths:
-    #全局设置日志路径
-    - ${INPUT_PATH:/volume/*.log}
-
-processors:
-- add_cloud_metadata:
-
-# elasticsearch output info
-output.elasticsearch:
-  # 环境变量的方式指定了ES连接信息
-  hosts: ['${ES_HOST:127.0.0.1}:${ES_PORT:9200}']
-  username: ${ES_USERNAME:elastic}
-  password: ${ES_PASS:changeme}
-  timeout: 180
-  backoff.max: 120
-
-# kibanan setup
-setup.kibana:
-  # 环境变量的方式指定了Kibana连接方式
-  host: "${KIBANA_HOST:127.0.0.1}:${KIBANA_PORT:5601}"
-  username: "${ES_USERNAME:elastic}"
-  password: "${ES_PASS:changeme}"
-
-setup.template.enabled: true
-
-# if you change output.elasticsearch you have to change this two settings
-# setup.template.name: "${INDEX_NAME:filebeat}"
-# setup.template.pattern: "${INDEX_NAME:filebeat}-*"
-
-# enable dashboards
-setup.dashboards.enabled: true
-# setup.dashboards.index: "${INDEX_NAME:filebeat}-*"
-setup.dashboards.retry.enabled: true
-setup.dashboards.retry.interval: 3
-setup.dashboards.retry.maximum: 20
-
-# enable modules
-filebeat.modules:
-# 指定选用的模块，如果为其他服务制作插件，此处应修改，如 mysql
-- module: nginx
-```
-
-**modules.d/nginx.yml**
-
-```yaml
-- module: nginx
-  access:
-    enabled: true
-    # 指定nginx访问日志路径
-    var.paths: ["${NGINX_ACCESS_PATH:/var/log/nginx/access.log}"]
-  error:
-    enabled: true
-    # 指定nginx错误日志路径
-    var.paths: ["${NGINX_ERROR_PATH:/var/log/nginx/error.log}"]
-```
-
-
-
-#### 构建插件
-
-- **访问插件页面，点击新建插件**
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem46wsgn3j31lb0u00wl.jpg" title="新建插件" width="100%">}}
-
-
-- **输入基础信息**
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4a2l2pzj30zr0u0766.jpg" title="新建插件" width="80%">}}
-
-> 如果选择安装来源为镜像，则需要输入可获取的镜像地址。
-
-- **生成配置组**
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4dew7oej31hk0u077m.jpg" title="配置组" width="100%">}}
-
-所有环境变量、及其默认值设置见下表：
-
-| 环境变量名称      | 默认值                    | 说明           |
+| 参数名称      | 默认值                    | 说明           |
 | ----------------- | ------------------------- | -------------- |
 | NGINX_ACCESS_PATH | /var/log/nginx/access.log | 访问日志路径   |
 | NGINX_ERROR_PATH  | /var/log/nginx/error.log  | 错误日志路径   |
@@ -148,54 +45,32 @@ filebeat.modules:
 | KIBANA_HOST       | 127.0.0.1                 | KB地址         |
 | KIBANA_PORT       | 5601                      | KB端口         |
 
-- **构建插件**
-
-设置完毕后，点击右上角的构建即可。
-
-
-
-### 安装使用插件
-
-- **运行于 Rainbond 的 Nginx 服务，需要开启存储中的持久化功能，将 Nginx 日志目录持久化保存**
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4ljk7msj327m0scwhr.jpg" title="日志目录持久化" width="100%">}}
-
-
-
-
-
-- **安装插件**
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4ol42bbj31j70u0jun.jpg" title="安装插件" width="100%">}}
-
-- **配置插件**
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4qhlfmwj31qq0u0n0u.jpg" title="配置插件" width="100%">}}
-
 > 在插件的配置项中，所有的变量都已经有了默认值。如需要，需要我们加以修改。其中 **ES＿HOST、ES＿PORT、ES＿USERNAME、ES＿PASS** 四个变量定义 Elasticsearch 的连接信息。**KIBANA＿HOST、KIBANA＿PORT** 指定了 Kibana 的连接地址。这里使用默认也可以生效的原因，是 Nginx 已经依赖了部署于 Rainbond 的 Elasticsearch、Kibana。
 
+### 共享存储
 
+插件收集日志需要共享组件的日志文件目录，需要将组件的日志文件目录共享给插件。可以通过挂载存储进行实现。
 
-- **更新 Nginx**
+**在组件管理页面的存储页面，添加*`临时存储`*类型的存储，挂载路径填写组件会产生日志文件的路径。如 `/var/log/nginx` 。**
 
-点击右上角的更新，让所有的配置修改生效。
+> 挂在存储后需要更新重启组件使其生效。
 
-
-
-### 效果展示
-
-Rainbond 云应用市场中已经集成了 Elasticsearch + Kibana 的应用模版，只需同步到本地即可一键安装。将 Nginx 依赖于前者之后，可见整体服务拓扑如下：
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4x80bwoj30lc0ssaar.jpg" title="配置插件" width="80%">}}
-
-插件安装配置完成后，访问 Nginx 造成流量，以激活访问日志输出。打开 Kibana 的面板，即可展示已收集到的 Nginx 日志：
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4z77rhuj31j00u0jy6.jpg" title="效果展示" width="100%">}}
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem4zom84zj31j20u0juk.jpg" title="效果展示" width="100%">}}
-
-
+至此，通过默认插件`fileBeat日志收集插件`对接 ELK 体系进行日志收集与分析已经完成，如果发现 Kibana 中持续收集不到日志，请检查操作是否有误。
 
 ### 了解原理
 
 FileBeat 通过类似于 `tail -f sth.log` 的方式，监控日志输出并上传到指定的 Elasticsearch。运行于 Rainbond 的服务组件，可以通过将日志目录持久化的方式，将日志文件和插件共享。通过这样的机制，基于 FileBeat 制作的插件，就可以监视到 Nginx 的日志。插件中的配置，是为了确定日志路径、以及指定 Elasticsearch、Kibana 的连接地址。
+
+### 常见问题
+
+- 组件未依赖 Elasticsearch 和 Kibana 导致收集不到日志
+
+  可以在组件管理页面的依赖页面，选择从共享库安装的 Elasticsearch 和 Kibana 进行依赖，重启更新后使其生效。
+
+- 插件配置中，ES 密码 不匹配导致收集不到日志
+
+  可以到 Elasticsearch 组件中查看其环境变量，确认 ES 密码，或者在组件的依赖页面查看，确认密码是否匹配。重启更新后使其生效。
+
+- 依赖关系都存在，插件配置都正确收集不到日志
+
+  可以尝试重启组件，确认所有的配置都生效了，再确认日志是否收集成功。
