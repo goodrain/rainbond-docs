@@ -105,15 +105,7 @@ ssh-copy-id $IPs #$IPs为所有节点地址包括自身，按照提示输入yes 
 
 ### 在ansible控制端编排k8s安装
 
-- 下载工具脚本easzup，举例使用kubeasz版本2.1.0
-
-```bash
-export release=2.1.0
-curl -C- -fLO --retry 3 https://github.com/easzlab/kubeasz/releases/download/${release}/easzup
-chmod +x ./easzup
-```
-
-> 注：国内访问GitHub较慢，可从Rainbond加速下载，此版本为`2.1.0`
+- 通过 Rainbond 加速下载工具脚本 easzup  `2.1.0`版本
 
 ```bash
 wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/easzup && chmod +x easzup
