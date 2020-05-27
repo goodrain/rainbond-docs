@@ -1,5 +1,5 @@
 ---
-title: 8.持续集成、构建、交付
+title: 8.多环境下持续构建与持续交付
 description: 通过 Rainbond 实现企业的开发、测试、生产持续交付体系，快速搭建 DevOps 体系。 
 weight: 208
 ---
