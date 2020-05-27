@@ -1,12 +1,18 @@
 ---
 title: '最小化安装'
 weight: 1
-description: '使用最简单，方便的方式部署 Rainbond。'
+description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond。'
 ---
 
-本指南会使用最简单，最方便的方式部署 Rainbond。帮助你快速地评估 Rainbond。
+最小化安装会把 Kubernetes 和 Rainbond 全安装在一个 Linux 节点上，可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要部署一个生产集群，请产考[在 Linux 上安装高可用的 Rainbond](/docs/install/install-from-linux/high-availability/)。
 
-如果你已经熟悉 Rainbond 或想了解其他更高级的安装方式，请查阅[部署集群](/docs/user-operations/install/)。
+## 前提条件
+
+- 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements/#port-requirements)。
+- 硬件：2 核 CPU，8G 内存，50G 磁盘。
+- 操作系统：`64 bit CentOS 7`, `64 bit Ubuntu 1604/1804`, `64 bit Debian 9/10`
+
+详情请参考[安装要求](/docs/install/requirements/)。
 
 ## 搭建 Kubernetes
 
