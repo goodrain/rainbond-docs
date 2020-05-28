@@ -18,8 +18,6 @@ description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond�
 
 在安装 Rainbond 之前，需要一个 `1.13` 及以上版本的 Kubernetes。
 
-如果你没有准备好的 Kubernetes，可以参考[快速安装 Kubernetes](/docs/user-operations/install/kubernetes-install/#kubernetes的all-in-one安装方式)。
-
 ## 使用 Helm 3 安装 Rainbond Operator
 
 推荐使用 [Helm](https://helm.sh/) 来安装 Rainbond Opeartor。

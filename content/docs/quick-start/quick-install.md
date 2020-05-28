@@ -2,6 +2,8 @@
 title: '快速安装'
 weight: 104
 description: '使用最简单，方便的方式安装 Rainbond。'
+aliases:
+    - /docs/quick-start/rainbond_install
 ---
 
 本指南会使用最简单，最方便的方式部署 Rainbond。帮助你快速地评估 Rainbond。

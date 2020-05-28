@@ -17,8 +17,6 @@ description: '在 Linux 服务器上安装高可用的，生产可用的 Rainbon
 
 在安装 Rainbond 之前，需要一个 `1.13` 及以上版本的高可用 Kubernetes。
 
-如果你没有准备好的 Kubernetes，可以参考[安装高可用 Kubernetes](/docs/user-operations/install/kubernetes-install/#kubernetes的高可用安装)。
-
 ## 使用 Helm 3 安装 Rainbond Operator
 
 推荐使用 [Helm](https://helm.sh/) 来安装 Rainbond Opeartor。
