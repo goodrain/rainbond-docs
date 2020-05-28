@@ -25,10 +25,7 @@ Rainbond 高可用安装基于 Kubernetes 集群的高可用，所以在安装 R
 如果您的环境中还没有安装 Helm ，请安装它。如果已经安装 Helm（3.0+） 请跳过这个步骤。
 
 ```bash
-#获取helm命令并解压
-wget https://get.helm.sh/helm-v3.0.3-linux-amd64.tar.gz && tar xvf helm-v3.0.3-linux-amd64.tar.gz
-#拷贝helm命令到指定目录
-cp linux-amd64/helm /usr/local/bin/
+wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
 ```
 
 提示：`/usr/local/bin` 在 `$PATH` 环境变量中时可将可执行程序放至此目录下，具体视操作系统决定。

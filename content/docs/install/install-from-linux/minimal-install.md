@@ -16,7 +16,7 @@ description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond�
 
 ## 搭建 Kubernetes
 
-在安装 Rainbond 之前，需要一个 `1.13` 及以上版本的 Kubernetes。
+在安装 Rainbond 之前，需要一个 `1.13` 及以上版本的 Kubernetes。请参考 [Kubernetes 的 all-in-one安装方式](/docs/user-operations/install/kubernetes-install/#kubernetes的all-in-one安装方式)。
 
 ## 使用 Helm 3 安装 Rainbond Operator
 
@@ -27,10 +27,7 @@ description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond�
 使用以下命令镜像安装：
 
 ```bash
-# 下载 helm 的 release 包并解压
-wget https://get.helm.sh/helm-v3.0.3-linux-amd64.tar.gz && tar xvf helm-v3.0.3-linux-amd64.tar.gz
-# 拷贝 helm 命令到指定目录
-cp linux-amd64/helm /usr/local/bin/
+wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
 ```
 
 helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/install/)。

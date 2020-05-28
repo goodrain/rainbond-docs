@@ -21,10 +21,7 @@ description: '在已有的 Kubernetes 集群上安装最小化的 Rainbond。'
 使用以下命令镜像安装（如果已安装了 Helm 3，可以跳过这一步骤）：
 
 ```bash
-# 下载 helm 的 release 包并解压
-wget https://get.helm.sh/helm-v3.0.3-linux-amd64.tar.gz && tar xvf helm-v3.0.3-linux-amd64.tar.gz
-# 拷贝 helm 命令到指定目录
-cp linux-amd64/helm /usr/local/bin/
+wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
 ```
 
 helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/install/)。

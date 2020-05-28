@@ -4,7 +4,7 @@ weight: 1
 description: '在已有的高可用 Kubernetes 集群上安装高可用的 Rainbond 集群。'
 ---
 
-本文会将 Rainbond 以最小化的方式安装 Kubernetes 上，这样可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要部署一个生产集群，请产考[在 Kubernetes 上安装高可用的 Rainbond](/docs/install/install-from-k8s/high-availability/)。
+本文会将在已有的高可用 Kubernetes 集群上安装高可用的 Rainbond 集群，适用于生产环境。
 
 ## 开始之前
 
@@ -22,10 +22,7 @@ description: '在已有的高可用 Kubernetes 集群上安装高可用的 Rainb
 使用以下命令镜像安装（如果已安装了 Helm 3，可以跳过这一步骤）：
 
 ```bash
-# 下载 helm 的 release 包并解压
-wget https://get.helm.sh/helm-v3.0.3-linux-amd64.tar.gz && tar xvf helm-v3.0.3-linux-amd64.tar.gz
-# 拷贝 helm 命令到指定目录
-cp linux-amd64/helm /usr/local/bin/
+wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
 ```
 
 helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/install/)。
