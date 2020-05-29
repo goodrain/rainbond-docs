@@ -15,16 +15,7 @@ description: "借助 Rainbond 推荐的方式快速自动化部署 Kubernetes �
 
 ### 下载文件
 
-   - 下载工具脚本easzup，easzup的不同release影响可以安装的kubernetes版本，具体对应信息可查看[easzup版本](https://github.com/easzlab/kubeasz/releases)
-
-```
-#选择2.1.0版本的easzup，2.1.0版本的easzup默认安装的kubernetes版本为1.16.2
-export release=2.1.0
-curl -C- -fLO --retry 3 https://github.com/easzlab/kubeasz/releases/download/${release}/easzup
-chmod +x ./easzup
-```
-
-> 注：国内访问GitHub较慢，可从Rainbond加速下载，此版本为`2.1.0`
+   - 通过 Rainbond 加速下载工具脚本 easzup  `2.1.0`版本，easzup 的不同 release 影响可以安装的 kubernetes 版本，具体对应信息可查看[easzup版本](https://github.com/easzlab/kubeasz/releases)
 
 ```bash
 wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/easzup && chmod +x easzup
@@ -44,15 +35,6 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
 ```
 
 ### 在ansible控制端编排k8s安装
-   - 建议修改`/etc/ansible/roles/cluster-addon/defaults/main.yml`文件中下述两项，默认为yes，修改为no不进行安装，以免占用不必要的资源
-
-   ```yaml
-#不安装dashboard,rainbond不依赖dashboard
-dashboard_install: "no"
-#不安装ingress，rainbond自带ingress网关
-ingress_install: "no"
-   ```
-
    - 容器化运行 kubeasz，详见[文档](https://github.com/easzlab/kubeasz/blob/master/docs/setup/docker_kubeasz.md)
 
    ```bash
@@ -123,15 +105,7 @@ ssh-copy-id $IPs #$IPs为所有节点地址包括自身，按照提示输入yes 
 
 ### 在ansible控制端编排k8s安装
 
-- 下载工具脚本easzup，举例使用kubeasz版本2.1.0
-
-```bash
-export release=2.1.0
-curl -C- -fLO --retry 3 https://github.com/easzlab/kubeasz/releases/download/${release}/easzup
-chmod +x ./easzup
-```
-
-> 注：国内访问GitHub较慢，可从Rainbond加速下载，此版本为`2.1.0`
+- 通过 Rainbond 加速下载工具脚本 easzup  `2.1.0`版本
 
 ```bash
 wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/easzup && chmod +x easzup
