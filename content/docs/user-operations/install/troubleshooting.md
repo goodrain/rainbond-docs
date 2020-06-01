@@ -14,6 +14,7 @@ description: "安装过程中常见故障的排除"
 ### 无法选择网关节点
 
 网关需要占用 80, 443, 6060, 7070, 8443, 10254, 18080, 18081 这些端口，所以安装网关的节点必须要确保这些端口没有被占用。否则无法被识别出来，并供搜索选择。
+你可以将占用以上端口的应用部署到其他节点，或将相应端口改成其他端口。
 
 ### 10001 错误
 
@@ -48,18 +49,3 @@ kubectl create -f rbd-pkg.yaml
     kubectl delete -f rbd-pkg.yaml
     kubectl create -f rbd-pkg.yaml
     ```
-
-### DNS 无法解析外部
-
-```bash
-# x.x.x.x 是 kube-dns 的 Service IP
-push image goodrain.me/builder failure error detail: Get https://goodrain.me/v2/: 
-dial tcp: lookup goodrain.me on x.x.x.x:53: no such host
-```
-
-如果遇到上面的错误，说明是 DNS 无法解析镜像仓库的域名 `goodrain.me`。
-
-原因一般是宿主机的 `/etc/resolv.conf` 里的 nameserver 是 `127.*.*.*` 之类地址（比如：127.0.0.53, 127.0.1.1），这类地址是回环地址，
-会导致 kube-dns 在解析域名的时候出现死循环，最终无法为 Pod 解析外部域名。
-
-为了解决这个问题，可以把 `/etc/resolv.conf` 的 nameserver 改成 `114.114.114.114`。
