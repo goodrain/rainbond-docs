@@ -79,6 +79,8 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
     Rainbond Operator 默认会选择 Kubernetes 集群中符合条件的 master 节点去安装**网关**。
     如果你的集群中没有 master 节点，那么你可以`搜索选择`一个 `80`，`443` 等端口没有被占用的 node 节点，作为网关节点。
 
+    > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](/docs/user-operations/install/troubleshooting/#无法选择网关节点)。
+
 1. 配置**构建服务运行节点**
 
     Rainbond Operator 默认会选择 Kubernetes 集群中的 master 节点去安装**构建服务**。
