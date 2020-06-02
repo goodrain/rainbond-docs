@@ -49,10 +49,14 @@ params:
     news:
       title: 最新上线视频
       items:
+        - title: Rainbond线上沙龙-组件日志对接到阿里云日志服务
+          src: //player.bilibili.com/player.html?aid=883344773&bvid=BV1yK4y1t7cY&cid=195923930&page=1
+          bilibili: https://www.bilibili.com/video/BV1yK4y1t7cY/
+          default: true
+          doc: /docs/get-start/best-practices/collect_log/
         - title: Rainbond结合Kong实现API-Gateway
           src: //player.bilibili.com/player.html?aid=200652814&bvid=BV1zz411q7m7&cid=193486378&page=1
           bilibili: https://www.bilibili.com/video/BV1zz411q7m7/
-          default: true
           doc: /docs/user-manual/best-practices/work_with_kong/
         - title: Rancher安装Rainbond, 并做应用部署的简单对比演示
           src: //player.bilibili.com/player.html?aid=625675438&bvid=BV1kt4y117Gu&cid=191668386&page=1
