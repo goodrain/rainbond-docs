@@ -95,7 +95,7 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
 
 1. 完成了上述配置后，单击 **配置就绪，开始安装**。
 
-> 如果安装受阻，可以参考[故障排除](/docs/user-operations/install/troubleshooting/)，或联系相应管理人员。
+> 如果安装受阻，可以参考[故障排查](/docs/user-operations/install/troubleshooting/)，或联系相应管理人员。
 
 ## 验证安装
 
