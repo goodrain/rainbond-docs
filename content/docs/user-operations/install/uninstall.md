@@ -41,10 +41,6 @@ description: "一键卸载Rainbond集群"
 
   清理集群所有数据
 
-  ```
-  rm -rf /opt/rainbond
-  ```
-
 - operator卸载
 
   在k8s集群的客户端执行
