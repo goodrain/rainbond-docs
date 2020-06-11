@@ -22,11 +22,19 @@ aliases:
 
 ### 下载安装包
 
-1. 获取二进制命令 easzup ，通过此命令完成后续安装操作
+1. 在线方式安装时，执行以下操作获取二进制命令 easzup ，通过此命令完成后续安装操作
 
-```bash
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chmod +x easzup
-```
+   ```bash
+   wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chmod +x easzup
+   ```
+
+2. 在离线环境下，通过以下方式获取离线包，发送到安装节点后，解压至指定目录
+
+   ```bash
+   wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/Rainbond-5.2.0-release-offline.tgz
+   mkdir /etc/ansible
+   tar xvf Rainbond-5.2.0-release-offline.tgz -C /etc/ansible && cd /etc/ansible/tools
+   ```
 
 ### 配置免密钥登录
 
