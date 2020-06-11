@@ -1,12 +1,14 @@
 ---
-title: '快速部署'
-weight: 1
-description: '使用最简单，方便的方式部署 Rainbond。'
+title: '快速安装'
+weight: 104
+description: '使用最简单，方便的方式安装 Rainbond。'
+aliases:
+    - /docs/quick-start/rainbond_install
 ---
 
 本指南会使用最简单，最方便的方式部署 Rainbond。帮助你快速地评估 Rainbond。
 
-如果你已经熟悉 Rainbond 或想了解其他更高级的安装方式，请查阅[部署集群](/docs/user-operations/install/)。
+如果你已经熟悉 Rainbond 或想了解其他更高级的安装方式，请查阅[安装 Rainbond](/docs/install/overview/)。
 
 ## 搭建 Kubernetes
 
@@ -23,10 +25,7 @@ description: '使用最简单，方便的方式部署 Rainbond。'
 使用以下命令镜像安装：
 
 ```bash
-# 下载 helm 的 release 包并解压
-wget https://get.helm.sh/helm-v3.0.3-linux-amd64.tar.gz && tar xvf helm-v3.0.3-linux-amd64.tar.gz
-# 拷贝 helm 命令到指定目录
-cp linux-amd64/helm /usr/local/bin/
+wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
 ```
 
 helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/install/)。
@@ -79,6 +78,8 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
 
     Rainbond Operator 默认会选择 Kubernetes 集群中符合条件的 master 节点去安装**网关**。
     如果你的集群中没有 master 节点，那么你可以`搜索选择`一个 `80`，`443` 等端口没有被占用的 node 节点，作为网关节点。
+
+    > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](/docs/user-operations/install/troubleshooting/#无法选择网关节点)。
 
 1. 配置**构建服务运行节点**
 

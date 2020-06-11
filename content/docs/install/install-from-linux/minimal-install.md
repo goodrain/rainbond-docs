@@ -1,18 +1,22 @@
 ---
-title: '快速部署'
+title: '最小化安装'
 weight: 1
-description: '使用最简单，方便的方式部署 Rainbond。'
+description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond。'
 ---
 
-本指南会使用最简单，最方便的方式部署 Rainbond。帮助你快速地评估 Rainbond。
+最小化安装会把 Kubernetes 和 Rainbond 全安装在一个 Linux 节点上，可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要部署一个生产集群，请产考[在 Linux 上安装高可用的 Rainbond](/docs/install/install-from-linux/high-availability/)。
 
-如果你已经熟悉 Rainbond 或想了解其他更高级的安装方式，请查阅[部署集群](/docs/user-operations/install/)。
+## 前提条件
+
+- 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements/#port-requirements)。
+- 硬件：2 核 CPU，8G 内存，50G 磁盘。
+- 操作系统：`64 bit CentOS 7`, `64 bit Ubuntu 1604/1804`, `64 bit Debian 9/10`
+
+详情请参考[安装要求](/docs/install/requirements/)。
 
 ## 搭建 Kubernetes
 
-在安装 Rainbond 之前，需要一个 `1.13` 及以上版本的 Kubernetes。
-
-如果你没有准备好的 Kubernetes，可以参考[快速安装 Kubernetes](/docs/user-operations/install/kubernetes-install/#kubernetes的all-in-one安装方式)。
+在安装 Rainbond 之前，需要一个 `1.13` 及以上版本的 Kubernetes。请参考 [Kubernetes 的 all-in-one安装方式](/docs/user-operations/install/kubernetes-install/#kubernetes的all-in-one安装方式)。
 
 ## 使用 Helm 3 安装 Rainbond Operator
 
@@ -23,10 +27,7 @@ description: '使用最简单，方便的方式部署 Rainbond。'
 使用以下命令镜像安装：
 
 ```bash
-# 下载 helm 的 release 包并解压
-wget https://get.helm.sh/helm-v3.0.3-linux-amd64.tar.gz && tar xvf helm-v3.0.3-linux-amd64.tar.gz
-# 拷贝 helm 命令到指定目录
-cp linux-amd64/helm /usr/local/bin/
+wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
 ```
 
 helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/install/)。
@@ -79,6 +80,8 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
 
     Rainbond Operator 默认会选择 Kubernetes 集群中符合条件的 master 节点去安装**网关**。
     如果你的集群中没有 master 节点，那么你可以`搜索选择`一个 `80`，`443` 等端口没有被占用的 node 节点，作为网关节点。
+
+    > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](/docs/user-operations/install/troubleshooting/#无法选择网关节点)。
 
 1. 配置**构建服务运行节点**
 
