@@ -55,7 +55,7 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
    docker exec -it kubeasz easzctl start-aio
    ```
 
-4. 命令行安装完成后，出现以下提示：
+4. 执行完成后，出现以下提示：
 
    ```bash
    [INFO] save context: aio
@@ -68,7 +68,7 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
    [INFO] Visit http://$IP:30008 to view the installation progress
    ```
 
-   根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
+5. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
 
    ![image-20200611114421212](https://tva1.sinaimg.cn/large/007S8ZIlly1gfo7bjpmjxj31rw0u00wd.jpg)显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
 
