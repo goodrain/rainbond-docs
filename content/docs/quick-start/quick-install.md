@@ -10,101 +10,67 @@ aliases:
 
 如果你已经熟悉 Rainbond 或想了解其他更高级的安装方式，请查阅[安装 Rainbond](/docs/install/overview/)。
 
-## 搭建 Kubernetes
+## 前提条件
 
-在安装 Rainbond 之前，需要一个 `1.13` 及以上版本的 Kubernetes。
+- 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements/#port-requirements)。
+- 硬件：2 核 CPU，8G 内存，50G 磁盘。
+- 操作系统：`64 bit CentOS 7`, `64 bit Ubuntu 1604/1804`, `64 bit Debian 9/10`
 
-如果你没有准备好的 Kubernetes，可以参考[快速安装 Kubernetes](/docs/user-operations/install/kubernetes-install/#kubernetes的all-in-one安装方式)。
+详情请参考[安装要求](/docs/install/requirements/)。
 
-## 使用 Helm 3 安装 Rainbond Operator
+## 安装步骤
 
-推荐使用 [Helm](https://helm.sh/) 来安装 Rainbond Opeartor。
+### 下载安装包
 
-### 安装 Helm 3
-
-使用以下命令镜像安装：
+1. 获取二进制命令 easzup ，通过此命令完成后续安装操作
 
 ```bash
-wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chmod +x easzup
 ```
 
-helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/install/)。
+### 配置免密钥登录
 
-### 安装 Rainbond Operator
+```bash
+ssh-keygen -t rsa -b 2048 -N '' -f ~/.ssh/id_rsa
+ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 yes 和 root 密码
+```
 
-1. 创建 namespace, 推荐使用 `rbd-system`：
+### 开始安装
 
-    ```bash
-    kubectl create ns rbd-system
-    ```
+1. 下载或检测离线镜像，二进制文件等，保存在`/etc/ansible`目录中
 
-1. 下载 Rainbond Operator 的 chart 包：
+   ```bash
+   ./easzup -D
+   ```
 
-    ```bash
-    wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v5.2.0-release.tgz && tar xvf rainbond-operator-chart-v5.2.0-release.tgz
-    ```
+1. 容器化运行 kubeasz
 
-1. 安装 Rainbond Operator
+   ```bash
+   ./easzup -S
+   ```
 
-    ```bash
-    helm install rainbond-operator ./chart --namespace=rbd-system
-    ```
+1. 使用默认配置安装最小化 Rainbond 集群
 
-    如果想了解 Rainbond Operator 的参数，请查阅[这里](http://localhost:1313/docs/user-operations/rainbond-operator/configuration/)。
+   ```bash
+   docker exec -it kubeasz easzctl start-aio
+   ```
 
-1. 确认 Rainbond Operator 状态
+1. 执行完成后，出现以下提示：
 
-    ```bash
-    $ kubectl get pod -n rbd-system
-    NAME                  READY   STATUS    RESTARTS   AGE
-    rainbond-operator-0   2/2     Running   0          110s
-    ```
+   ```bash
+   [INFO] save context: aio
+   [INFO] save aio roles' configration
+   [INFO] save aio ansible hosts
+   [INFO] save aio kubeconfig
+   [INFO] save aio kube-proxy.kubeconfig
+   [INFO] save aio certs
+   [INFO] Action successed : start-aio
+   [INFO] Visit http://$IP:30008 to view the installation progress
+   ```
 
-    稍微等待一会（根据具体的网络环境而定），直到 rainbond-operator-0 的状态（STATUS）变为 `Running`。
+1. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
 
-## 安装 Rainbond
-
-访问 Rainbond Operator，开始安装 Rainbond。
-
-1. 打开浏览器，输入主机 IP 地址：`http://<SERVER_IP>:30008`. 可以通过以下命令获取 `SERVER_IP`：
-
-    ```bash
-    echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}")
-    ```
-
-    > 注意，获取到的 `SERVER_IP` 是内网地址，请根据实际情况直接使用或替换为外网地址。
-
-1. 配置**网关安装节点**
-
-    Rainbond Operator 默认会选择 Kubernetes 集群中符合条件的 master 节点去安装**网关**。
-    如果你的集群中没有 master 节点，那么你可以`搜索选择`一个 `80`，`443` 等端口没有被占用的 node 节点，作为网关节点。
-
-    > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](/docs/user-operations/install/troubleshooting/#无法选择网关节点)。
-
-1. 配置**构建服务运行节点**
-
-    Rainbond Operator 默认会选择 Kubernetes 集群中的 master 节点去安装**构建服务**。
-    如果你的集群中没有 master 节点，那么你可以`搜索选择`一个 node 节点, 作为**构建服务运行节点**。
-
-1. 可选项：**网关外网 IP**
-
-    Rainbond Operator 默认会选择第一个**网关节点** 的 IP 地址作为 **网关外网 IP**。你也填写合适其他的 **网关节点 IP** 或 **公网 IP**.
-
-1. 其他配置
-
-    跳过其他的配置项，它们现在不重要。
-
-1. 完成了上述配置后，单击 **配置就绪，开始安装**。
-
-> 如果安装受阻，可以参考[故障排查](/docs/user-operations/install/troubleshooting/)，或联系相应管理人员。
-
-## 验证安装
-
-当安装的进度全部走完，会跳转到以下页面：
-
-![image-20200204141936123](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-4.jpg)
-
-说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
+   ![image-20200611114421212](https://tva1.sinaimg.cn/large/007S8ZIlly1gfo7bjpmjxj31rw0u00wd.jpg)显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
 
 ## 安装命令行工具
 
@@ -122,4 +88,11 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
 
 ```bash
 helm delete rainbond-operator -n rbd-system
+```
+
+### 清理相关文件
+
+```bash
+rm -rf /opt/rainbond
+rm -rf /opt/kube/rainbond
 ```
