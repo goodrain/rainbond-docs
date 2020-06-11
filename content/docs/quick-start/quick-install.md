@@ -20,7 +20,7 @@ aliases:
 
 ## 安装步骤
 
-### 下载文件
+### 下载安装包
 
 1. 获取二进制命令 easzup ，通过此命令完成后续安装操作
 
@@ -35,7 +35,7 @@ ssh-keygen -t rsa -b 2048 -N '' -f ~/.ssh/id_rsa
 ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 yes 和 root 密码
 ```
 
-### 开始快速安装
+### 开始安装
 
 1. 下载或检测离线镜像，二进制文件等，保存在`/etc/ansible`目录中
 
@@ -43,19 +43,19 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
    ./easzup -D
    ```
 
-2. 容器化运行 kubeasz
+1. 容器化运行 kubeasz
 
    ```bash
    ./easzup -S
    ```
 
-3. 使用默认配置安装最小化 Rainbond 集群
+1. 使用默认配置安装最小化 Rainbond 集群
 
    ```bash
    docker exec -it kubeasz easzctl start-aio
    ```
 
-4. 执行完成后，出现以下提示：
+1. 执行完成后，出现以下提示：
 
    ```bash
    [INFO] save context: aio
@@ -68,7 +68,7 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
    [INFO] Visit http://$IP:30008 to view the installation progress
    ```
 
-5. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
+1. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
 
    ![image-20200611114421212](https://tva1.sinaimg.cn/large/007S8ZIlly1gfo7bjpmjxj31rw0u00wd.jpg)显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
 
