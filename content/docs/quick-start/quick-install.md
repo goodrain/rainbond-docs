@@ -65,10 +65,10 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
    [INFO] save aio kube-proxy.kubeconfig
    [INFO] save aio certs
    [INFO] Action successed : start-aio
-   [INFO] Visit http://172.24.205.183:30008 to view the installation progress
+   [INFO] Visit http://$IP:30008 to view the installation progress
    ```
 
-   根据提示访问对应地址`http://172.24.205.183:30008`，查看 Rainbond 平台安装进度：
+   根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
 
    ![image-20200611114421212](https://tva1.sinaimg.cn/large/007S8ZIlly1gfo7bjpmjxj31rw0u00wd.jpg)显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
 
