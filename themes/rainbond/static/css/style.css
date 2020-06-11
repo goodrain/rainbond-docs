@@ -8,6 +8,18 @@
         transform: rotate(359deg)
     }
 }
+#wechatimg {
+    position: absolute !important;
+    display: none;
+    top: -185px !important;
+    left: 20% !important;
+    max-width: fit-content !important;
+    height: 200px !important;
+}
+
+#WeChat:hover #wechatimg {
+    display: block !important;
+}
 
 .select {
     display: inline-block;
