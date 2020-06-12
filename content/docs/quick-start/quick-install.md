@@ -36,20 +36,20 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
 ### 开始安装
 
 1. 使用默认配置安装最小化 Rainbond 集群
-		```bash
-		./easzup -S && docker exec -it kubeasz easzctl start-aio
+	```bash
+	./easzup -S && docker exec -it kubeasz easzctl start-aio
 	```
 	
 1. 执行完成后，出现以下提示：
-		```bash
-		[INFO] save context: aio
-		[INFO] save aio roles' configration
-		[INFO] save aio ansible hosts
-		[INFO] save aio kubeconfig
-		[INFO] save aio kube-proxy.kubeconfig
-		[INFO] save aio certs
-		[INFO] Action successed : start-aio
-		[INFO] Visit http://$IP:30008 to view the installation progress
+	```bash
+	[INFO] save context: aio
+	[INFO] save aio roles' configration
+	[INFO] save aio ansible hosts
+	[INFO] save aio kubeconfig
+	[INFO] save aio kube-proxy.kubeconfig
+	[INFO] save aio certs
+	[INFO] Action successed : start-aio
+	[INFO] Visit http://$IP:30008 to view the installation progress
 	```
 	
 1. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
