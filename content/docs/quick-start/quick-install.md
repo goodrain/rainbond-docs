@@ -39,25 +39,22 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
 
 1. 下载或检测离线镜像，二进制文件等，保存在`/etc/ansible`目录中
 
-   ```bash
-   ./easzup -D
-   ```
+    ```bash
+    ./easzup -D
+    ```
 
 1. 容器化运行 kubeasz
-
-   ```bash
-   ./easzup -S
-   ```
+    ```bash
+    ./easzup -S
+    ```
 
 1. 使用默认配置安装最小化 Rainbond 集群
-
-   ```bash
-   docker exec -it kubeasz easzctl start-aio
-   ```
+    ```bash
+    docker exec -it kubeasz easzctl start-aio
+    ```
 
 1. 执行完成后，出现以下提示：
-
-   ```bash
+    ```bash
    [INFO] save context: aio
    [INFO] save aio roles' configration
    [INFO] save aio ansible hosts
@@ -70,7 +67,7 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
 
 1. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
 
-   ![image-20200611114421212](https://tva1.sinaimg.cn/large/007S8ZIlly1gfo7bjpmjxj31rw0u00wd.jpg)显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
+    ![image-20200611114421212](https://tva1.sinaimg.cn/large/007S8ZIlly1gfo7bjpmjxj31rw0u00wd.jpg)显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
 
 ## 安装命令行工具
 
