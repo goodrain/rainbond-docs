@@ -35,9 +35,9 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
 
 1. 下载或检测离线镜像，二进制文件等，保存在`/etc/ansible`目录中
 
-   ```bash
-   ./easzup -D
-   ```
+	```bash
+	./easzup -D
+ 	```
 
 1. 容器化运行 kubeasz
 
