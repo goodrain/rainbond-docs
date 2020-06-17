@@ -4,7 +4,7 @@ weight: 1
 description: '在已有的 Kubernetes 集群上安装最小化的 Rainbond。'
 ---
 
-本文会将 Rainbond 以最小化的方式安装 Kubernetes 上，这样可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要部署一个生产集群，请产考[在 Kubernetes 上安装高可用的 Rainbond](/docs/install/install-from-k8s/high-availability/)。
+本文会将 Rainbond 以最小化的方式安装 Kubernetes 上，这样可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要安装一个生产集群，请产考[在 Kubernetes 上安装高可用的 Rainbond](/docs/install/install-from-k8s/high-availability/)。
 
 ## 前提条件
 
