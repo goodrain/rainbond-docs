@@ -6,7 +6,7 @@ aliases:
     - /docs/quick-start/rainbond_install
 ---
 
-本指南会使用最简单，最方便的方式部署 Rainbond。帮助你快速地评估 Rainbond。
+本指南会使用最简单，最方便的方式安装 Rainbond。帮助你快速地评估 Rainbond。
 
 如果你已经熟悉 Rainbond 或想了解其他更高级的安装方式，请查阅[安装 Rainbond](/docs/install/overview/)。
 
