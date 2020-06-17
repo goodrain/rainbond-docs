@@ -46,7 +46,7 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
    ```bash
 docker exec -it kubeasz easzctl start-aio
    ```
-   - 完成后赋值kubectl工具到`/usr/bin/kubectl`
+   - 完成后复制kubectl工具到`/usr/bin/kubectl`
 
 ### 验证安装结果
 
