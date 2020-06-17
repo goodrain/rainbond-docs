@@ -4,7 +4,7 @@ weight: 1
 description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond。'
 ---
 
-最小化安装会把 Kubernetes 和 Rainbond 全安装在一个 Linux 节点上，可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要部署一个生产集群，请产考[在 Linux 上安装高可用的 Rainbond](/docs/install/install-from-linux/high-availability/)。
+最小化安装会把 Kubernetes 和 Rainbond 全安装在一个 Linux 节点上，可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要安装一个生产集群，请产考[在 Linux 上安装高可用的 Rainbond](/docs/install/install-from-linux/high-availability/)。
 
 ## 前提条件
 
