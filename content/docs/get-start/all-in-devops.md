@@ -44,15 +44,15 @@ Rainbond 可以在企业的开发、测试、生产各个环节体现价值。�
 
 #### 整合 Gitlab
 
-参考 [整合 Git 仓库快速部署组件](/docs/user-manual/best-practices/work_with_git/) 来整合已有的 Gitlab 。如果还没有自己的代码仓库，建议通过云端同步到本地共享库安装。
+参考 [整合 Git 仓库快速部署组件](/docs/get-start/best-practices/work_with_git/) 来整合已有的 Gitlab 。如果还没有自己的代码仓库，建议通过云端同步到本地共享库安装。
 
 #### 整合 Jenkins CI/CD 体系
 
-参考 [对接 Jenkins CI/CD 体系](/docs/user-manual/best-practices/work_with_jenkins/) 来接入企业已有的 Jenkins CI/CD 体系。如果还没有自己的 Jenkins ，还希望能够快速使用，建议通过云端同步到本地共享库安装。
+参考 [对接 Jenkins CI/CD 体系](/docs/get-start/best-practices/work_with_jenkins/) 来接入企业已有的 Jenkins CI/CD 体系。如果还没有自己的 Jenkins ，还希望能够快速使用，建议通过云端同步到本地共享库安装。
 
 #### 整合 SonarQube 
 
-参考 [对接 SonarQube 完成静态代码检测](/docs/user-manual/best-practices/work_with_sonar/) ,如果还没有自己的 SonarQube ，建议通过云端同步到本地共享库安装。
+参考 [对接 SonarQube 完成静态代码检测](/docs/get-start/best-practices/work_with_sonar/) ,如果还没有自己的 SonarQube ，建议通过云端同步到本地共享库安装。
 
 ### 持续集成/持续构建
 
@@ -64,7 +64,7 @@ Rainbond 可以在企业的开发、测试、生产各个环节体现价值。�
 
 整个业务系统可以细分为下面的四个服务组件：
 
-- 前端项目：[NiceFish-UI](https://gitee.com/dazuimao1990/NiceFish) 项目会基于[镜像部署]([https://www.rainbond.com/docs/user-manual/app-creation/service_create/#Docker%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA](https://www.rainbond.com/docs/user-manual/app-creation/service_create/#Docker镜像创建))，整个 CI/CD 流程是：提交代码后，Jenkins 调度远端服务器拉取最新代码并制作镜像，制作完成后推送到开发环境中的 HarBor 镜像仓库。推送完成后触发测试环境中的 NiceFish-UI 服务组件自动拉取镜像持续构建。
+- 前端项目：[NiceFish-UI](https://gitee.com/dazuimao1990/NiceFish) 项目会基于[镜像部署](/docs/user-manual/component-create/image-support/)，整个 CI/CD 流程是：提交代码后，Jenkins 调度远端服务器拉取最新代码并制作镜像，制作完成后推送到开发环境中的 HarBor 镜像仓库。推送完成后触发测试环境中的 NiceFish-UI 服务组件自动拉取镜像持续构建。
 
 - 后端项目：[NiceFish-cms](https://gitee.com/dazuimao1990/nicefish-spring-boot) 项目基于源码部署，整个 Ci/CD 流程是：提交代码后，Jenkins 调度 SonarQube 进行静态代码质量检测，检测通过后触发测试环境中的 NiceFish-cms 服务组件自动拉取源代码持续构建。
 
@@ -74,7 +74,7 @@ Rainbond 可以在企业的开发、测试、生产各个环节体现价值。�
 
 按照上述说明，将测试业务部署在 **测试环境** 中。
 
-对于 NiceFish-UI、NiceFish-cms、NiceFish-DB 这三个项目，开启基于[ API 触发自动构建]([https://www.rainbond.com/docs/user-manual/app-service-manage/deploy/auto-deploy/#API%E8%A7%A6%E5%8F%91%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA](https://www.rainbond.com/docs/user-manual/app-service-manage/deploy/auto-deploy/#API触发自动构建）)) 功能：
+对于 NiceFish-UI、NiceFish-cms、NiceFish-DB 这三个项目，开启基于[ API 触发自动构建](/docs/user-manual/component-dev/auto_build/) 功能：
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/all-in-devops/all-in-devops-1.png" title="自定义 API 构建" width="100%">}}
 
@@ -159,7 +159,7 @@ GitLab中的设置：
 
 - 生命周期管理：可以管理应用以及服务组件的开启、关闭、重启、更新、构建全生命周期。
 
-- 版本管理：Rainbond 自带的版本管理系统，可以快速进行 [基于版本号一键上线/回滚](/docs/user-manual/best-practices/update-rollback/)。
+- 版本管理：Rainbond 自带的版本管理系统，可以快速进行 [基于版本号一键上线/回滚](/docs/get-start/best-practices/update-rollback/)。
 
 - 操作记录审计：明确每个服务组件的关键操作的执行人与执行时间。
 
@@ -167,7 +167,7 @@ GitLab中的设置：
 
 - 监控：针对 WEB 类和 Mysql 提供实时性能分析，提供可视化的平均响应时间、吞吐率、在线人数等信息，实时监控服务状态。
 
-- 日志：提供服务组件日志实时推送功能，支持日志分割与下载，并可以[通过插件支持 ELK 日志收集](/docs/user-manual/best-practices/work_with_elk/)
+- 日志：提供服务组件日志实时推送功能，支持日志分割与下载，并可以[通过插件支持 ELK 日志收集](/docs/get-start/best-practices/work_with_elk/)
 
 - 伸缩：支持内存、实例数量实时伸缩，并可以配置自动伸缩，以及自动负载均衡。保证线上业务弹性应对流量。
 
