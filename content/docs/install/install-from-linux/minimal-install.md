@@ -8,11 +8,9 @@ description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond�
 
 ## 前提条件
 
-- 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements/#port-requirements)。
+- 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements)。
 - 硬件：2 核 CPU，8G 内存，50G 磁盘。
 - 操作系统：`64 bit CentOS 7`, `64 bit Ubuntu 1604/1804`, `64 bit Debian 9/10`
-
-详情请参考[安装要求](/docs/install/requirements/)。
 
 ## 安装步骤
 
