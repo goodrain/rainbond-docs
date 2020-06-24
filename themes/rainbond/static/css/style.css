@@ -1974,11 +1974,12 @@ a.box:active {
     border-color: transparent;
     color: #fff
 }
-.button.is-light {
-    background-color: #94a7d5;
+.button.is-lights {
+    background-color: #94a7d5 !important;
     border-color: transparent;
-    color: #fff
+    color: #fff !important;
 }
+
 
 .button.is-primary:hover,
 .button.is-primary.is-hovered {
