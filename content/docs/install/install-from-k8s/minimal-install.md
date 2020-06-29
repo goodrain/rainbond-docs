@@ -9,6 +9,13 @@ description: '在已有的 Kubernetes 集群上安装最小化的 Rainbond。'
 ## 前提条件
 
 - Kubernetes 的版本需要大于等于 **1.13**
+- NFS 客户端。如果没有安装，可以参考：
+    ```bash
+    # CentOS 系统
+    yum install -y nfs-utils
+    # Ubuntu/Debian 系统
+    apt install -y nfs-common
+    ```
 - 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements/#port-requirements)
 - 硬件：2 核 CPU，8G 内存，50G 磁盘
 
