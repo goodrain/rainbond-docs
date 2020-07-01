@@ -16,6 +16,13 @@ Rainbond 定位“企业应用全生命周期管理“，类似于 Rancher 的�
 ### 前提条件
 
 1. 具有一套稳定可用的 Rancher 环境，若还没有可参考 [Rancher 安装部署文档](https://rancher.com/docs/rancher/v2.x/en/installation/)
+1. NFS 客户端。如果没有安装，可以参考：
+    ```bash
+    # CentOS 系统
+    yum install -y nfs-utils
+    # Ubuntu/Debian 系统
+    apt install -y nfs-common
+    ```
 1. Kubernetes 集群具有至少 4GB 以上的空闲调度内存
 1. Kubernetes 版本在 1.13 及以上
 1. Kubernetes 集群至少有一个 80/443 端口未被占用的节点

@@ -4,11 +4,18 @@ weight: 1
 description: '在已有的 Kubernetes 集群上安装最小化的 Rainbond。'
 ---
 
-本文会将 Rainbond 以最小化的方式安装 Kubernetes 上，这样可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要部署一个生产集群，请产考[在 Kubernetes 上安装高可用的 Rainbond](/docs/install/install-from-k8s/high-availability/)。
+本文会将 Rainbond 以最小化的方式安装 Kubernetes 上，这样可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要安装一个生产集群，请产考[在 Kubernetes 上安装高可用的 Rainbond](/docs/install/install-from-k8s/high-availability/)。
 
 ## 前提条件
 
 - Kubernetes 的版本需要大于等于 **1.13**
+- NFS 客户端。如果没有安装，可以参考：
+    ```bash
+    # CentOS 系统
+    yum install -y nfs-utils
+    # Ubuntu/Debian 系统
+    apt install -y nfs-common
+    ```
 - 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements/#port-requirements)
 - 硬件：2 核 CPU，8G 内存，50G 磁盘
 

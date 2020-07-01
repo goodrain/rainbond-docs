@@ -99,6 +99,13 @@
                 smsg: "提交成功，稍后将与你联系确认演示时间"
             });
         });
+        $(".business-consulting").click(function () {
+            modalVisitor.show({
+                title: "商业咨询",
+                source: "Rainbond官网商业咨询",
+                smsg: "提交成功，稍后将与你联系"
+            });
+        });
         $(".auth-visitor").click(function () {
             modalVisitor.show({
                 title: $(this).data("title"),
