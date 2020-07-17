@@ -112,6 +112,10 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
 
 说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
 
+## 问题排查
+
+在安装和使用过程中出现问题请参考[安装过程故障排除文档](/docs/user-operations/install/troubleshooting)和[集群问题诊断文档](/docs/user-operations/troubleshoot/cluster_troubleshooting)
+
 ## 安装命令行工具
 
 为了方便运维管理集群请参照[文档](/docs/user-operations/tools/grctl/)安装 `grctl` 命令行工具。

@@ -55,3 +55,7 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
 	
 1. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
 		![image-20200611114421212](https://tva1.sinaimg.cn/large/007S8ZIlly1gfo7bjpmjxj31rw0u00wd.jpg)显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
+
+## 问题排查
+
+在安装和使用过程中出现问题请参考[安装过程故障排除文档](/docs/user-operations/install/troubleshooting)和[集群问题诊断文档](/docs/user-operations/troubleshoot/cluster_troubleshooting)
