@@ -4,14 +4,16 @@ weight: 1
 description: '在已有的高可用 Kubernetes 集群上安装高可用的 Rainbond 集群。'
 ---
 
-本文会将在已有的高可用 Kubernetes 集群上安装高可用的 Rainbond 集群，适用于生产环境。
+本文描述如何在已有的高可用 Kubernetes 集群上安装高可用的 Rainbond 集群，适用于生产环境。
 
 ## 开始之前
 
-- 高可用的 Kubernetes 集群， 且版本大于等于 **1.13**
-- 高可用的共享存储
-- 可选：高可用的 MySQL 数据库
-- 可选：高可用的 ETCD
+在开始安装部署之前，需要准备以下资源：
+
+- 高可用的 Kubernetes 集群， 且版本大于等于 **1.13** 。
+- 高可用的共享存储，本文以 Glusterfs 为例，参考 [Glusterfs分布式存储](/docs/user-operations/storage/deploy-glusterfs/)。
+- 高可用的数据库，如 MySQL 8.0 数据库集群或 RDS 数据库服务，创建 `console`、`region` 两个数据库。
+- ETCD 集群，可以复用 Kubernetes 集群已有的 ETCD 集群。
 
 ## 使用 Helm 3 安装 Rainbond Operator
 
@@ -24,8 +26,11 @@ description: '在已有的高可用 Kubernetes 集群上安装高可用的 Rainb
 ```bash
 wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
 ```
+通过以下方式，验证 Helm 已经安装成功：
 
-helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/install/)。
+```bash
+helm version
+```
 
 ### 安装 Rainbond Operator
 
@@ -47,8 +52,6 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
     helm install rainbond-operator ./chart --namespace=rbd-system
     ```
 
-    更多的 Rainbond Operator 参数，请查阅[这里](http://localhost:1313/docs/user-operations/rainbond-operator/configuration/)。
-
 1. 确认状态
 
     ```bash
@@ -57,41 +60,6 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
     rainbond-operator-0   2/2     Running   0          110s
     ```
 
-    稍微等待一会（根据具体的网络环境而定），直到 rainbond-operator-0 的状态变为 `Running`。
-
-### 安装 MySQL Operator
-
-如果你没有准备高可用的 MySQL 数据库，那么我们推荐你使用 MySQL Operator 来保证 MySQL 的高可用。
-如果你已经准备好了高可用的 MySQL 数据库，比如 RDS，那么请跳过该步骤。
-
-1. 下载 MySQL Operator 的 Chart 包
-
-    ```bash
-    wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/mysql-operator-chart.tgz
-    tar zxvf mysql-operator-chart.tgz
-    ```
-
-1. 安装 MySQL Operator
-
-    ```bash
-    helm install mysql-operator ./mysql-operator -n rbd-system
-    ```
-
-1. 确认状态
-
-    ```bash
-    kubectl get pod -n rbd-system
-    NAME                                                              READY   STATUS    RESTARTS   AGE
-    mysql-operator-6c5bcbc7fc-4gjvn                                   1/1     Running   0          5m7s
-    ```
-
-1. 让 Rainbond Operator 使用 MySQL Operator
-
-    在安装完 MySQL Operator 后，还需要修改 Rainbond Operator 的参数，让 Rainbond Operator 使用它去安 MySQL 数据库。
-
-    ```bash
-    helm upgrade rainbond-operator ./chart -n rbd-system --set enableMySQLOperator=true
-    ```
 
 ## 安装 Rainbond
 
