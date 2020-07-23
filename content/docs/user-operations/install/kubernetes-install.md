@@ -50,7 +50,7 @@ docker exec -it kubeasz easzctl start-aio
    - 需要扩展node节点时，配置对应节点免密钥登录后执行以下操作添加node节点
 
 ```bash
-docker exec -it kubeasz easzctl add-node 192.168.1.11
+docker exec -it kubeasz easzctl add-node $NEW_NODE_IP
 ```
 
 ### 验证安装结果
