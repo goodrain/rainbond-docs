@@ -47,6 +47,11 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
 docker exec -it kubeasz easzctl start-aio
    ```
    - 完成后复制kubectl工具到`/usr/bin/kubectl`
+   - 需要扩展node节点时，配置对应节点免密钥登录后执行以下操作添加node节点
+
+```bash
+docker exec -it kubeasz easzctl add-node 192.168.1.11
+```
 
 ### 验证安装结果
 
