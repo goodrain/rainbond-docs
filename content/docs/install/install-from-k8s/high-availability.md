@@ -65,7 +65,9 @@ helm version
 
 访问 Rainbond Operator，开始安装 Rainbond。
 
-1. 打开浏览器，输入主机 IP 地址：`http://<SERVER_IP>:30008`. 可以通过以下命令获取 `SERVER_IP`：
+**1 访问 Rainbond Operator**
+
+   打开浏览器，输入主机 IP 地址：`http://<SERVER_IP>:30008`. 可以通过以下命令获取 `SERVER_IP`：
 
     ```bash
     echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}")
@@ -73,11 +75,11 @@ helm version
 
     > 注意，获取到的 `SERVER_IP` 是内网地址，请根据实际情况直接使用或替换为外网地址。
 
-1. 配置 **安装模式**
+**2 配置安装模式**
 
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-1.png" title="安装模式" width="100%">}}
 
-1. 配置 **镜像仓库**
+**3 配置镜像仓库**
    
    选择 **新安装镜像仓库（支持HA）**，将会在安装过程中自动安装支持高可用的镜像仓库。
 
@@ -87,21 +89,21 @@ helm version
 
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-3.png" title="已有镜像仓库" width="100%">}}
 
-1. 配置 **数据中心数据库**
+**4 配置数据中心数据库**
 
    高可用安装环境下，用户务必提供外接高可用的 Mysql 8.0 数据库，该数据库中需要提前创建 `region` 数据库：
 
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-4.png" title="数据中心数据库" width="100%">}}
 
 
-1. 配置 **控制台数据库**
+**5 配置控制台数据库**
 
    高可用安装环境下，用户务必提供外接高可用的 Mysql 8.0 数据库，该数据库中需要提前创建 `console` 数据库：
 
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-5.png" title="控制台数据库" width="100%">}}
 
 
-1. 配置 **ETCD**
+**6 配置 ETCD**
 
    选择 **新安装ETCD（支持HA）**，将会在安装过程中自动安装支持高可用的 ETCD 集群：
 
@@ -114,7 +116,7 @@ helm version
    ETCD地址格式为： **IP:PORT** 或者 **Domain:PORT**
 
 
-1. 配置 **网关安装节点**
+**7 配置网关节点**
 
    高可用环境中，至少选择 `2` 个节点作为集群 **网关节点** ， 默认会选择 Kubernetes 集群中符合条件的 master 节点作为网关节点。
    
@@ -124,7 +126,7 @@ helm version
     
    > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](/docs/user-operations/install/troubleshooting/#无法选择网关节点)。
 
-1. 配置**构建服务运行节点**
+**8 配置构建服务运行节点**
 
    高可用环境中，至少选择 `2` 个节点作为集群 **构建服务运行节点** ， 默认会选择 Kubernetes 集群中符合条件的 master 节点作为网关节点。
 
@@ -132,7 +134,7 @@ helm version
 
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-9.png" title="构建服务运行节点" width="100%">}}
 
-1. 配置 **分配默认域名**
+**9 配置分配默认域名**
 
    当集群具备访问公网的能力时，开启此项功能（默认），该功能可以为集群分配一个可以被公网解析的泛解析域名。
 
@@ -140,7 +142,7 @@ helm version
 
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-10.png" title="分配默认域名" width="100%">}}
 
-1. 配置 **网关公网IP**
+**10 配置网关公网IP**
 
    高可用环境中，该选项为 **必填**，且只可以在以下两个选项中选择：
 
@@ -149,7 +151,7 @@ helm version
    - 当多个网关节点部署诸如 Keepalived 等基于 VIP 的高可用服务时，填写 VIP，参考 [为 CentOS 安装 Keepalived 服务](/docs/user-operations/install/centos_keepalived/)、 [为 Ubuntu 安装 Keepalived 服务](/docs/user-operations/install/ubuntu_keepalived/)。
 
 
-1. 配置 **共享存储**
+**11 配置共享存储**
 
     在高可用环境，务必提供已有的共享存储：
     
@@ -161,7 +163,7 @@ helm version
 
     {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-12.png" title="阿里云 NAS 存储" width="100%">}}
 
-1. 配置 **块设备存储**
+**12 配置块设备存储**
 
    该选项非必填。
    
@@ -169,9 +171,9 @@ helm version
 
    如果是阿里云环境，可以选择 [阿里云盘](/docs/user-operations/storage/ali-disk/)。
 
-1. 单击 **下一步**。
+   配置完成后，单击 **下一步** 。
 
-1. 安装环境 **检测**
+**13 安装环境检测**
 
    Rainbond-Operator 将会自动检测安装环境，全部通过后，点击 **检测通过，开始安装**。
    
