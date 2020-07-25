@@ -2,6 +2,7 @@
 title: '高可用部署Rainbond'
 weight: 1002
 description: '快速安装一个高可用的Rainbond集群'
+hidden: true
 ---
 
 Rainbond 高可用安装基于 Kubernetes 集群的高可用，所以在安装 Rainbond 集群前，请确保已经安装符合如下某一条件的 Kubernetes 高可用集群，Kubernetes 集群推荐使用 1.16 及以上版本

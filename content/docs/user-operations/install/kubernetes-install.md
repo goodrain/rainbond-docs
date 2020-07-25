@@ -47,7 +47,7 @@ ssh-copy-id $IP  # $IP 为所有节点地址包括自身，按照提示输入 ye
 docker exec -it kubeasz easzctl start-aio
    ```
    - 完成后复制kubectl工具到`/usr/bin/kubectl`
-   - 需要扩展node节点时，配置对应节点免密钥登录后执行以下操作添加node节点
+   - 需要扩展node节点时，配置对应节点免密钥登录后，执行以下操作添加node节点
 
 ```bash
 docker exec -it kubeasz easzctl add-node $NEW_NODE_IP
@@ -73,7 +73,7 @@ $ kubectl get svc --all-namespaces  # 验证集群服务状态
 
 | 角色       | 数量 | 描述                                                         |
 | ---------- | ---- | ------------------------------------------------------------ |
-| 管理节点   | 1    | 运行ansible/easzctl脚本，可以复用master，建议使用独立节点 |
+| 部署节点   | 1    | 运行ansible/easzctl脚本，可以复用master，建议使用独立节点 |
 | etcd节点   | 3    | 注意etcd集群需要1,3,5,7...奇数个节点，一般复用master节点     |
 | master节点 | 2    | 高可用集群至少2个master节点                                  |
 | node节点   | 3    | 运行应用负载的节点，可根据需要提升机器配置/增加节点数        |
@@ -102,6 +102,8 @@ yum install python -y
 ```
 
 ### 配置免密码登录
+
+- 在部署节点执行以下操作：
 
 ```bash
 ssh-keygen -t rsa -b 2048 -N '' -f ~/.ssh/id_rsa
@@ -210,4 +212,9 @@ base_dir="/etc/ansible"
 docker exec -it kubeasz ansible-playbook /etc/ansible/90.setup.yml
 ```
 
-完成Kubernetes的安装，[开始Rainbond的安装](../minimal_install/)
+- 需要扩展node节点时，配置对应节点免密钥登录后，执行以下操作添加node节点
+
+```bash
+docker exec -it kubeasz easzctl add-node $NEW_NODE_IP
+```
+完成Kubernetes的安装，[开始Rainbond的安装](/docs/install/install-from-k8s/high-availability/)

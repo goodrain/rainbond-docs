@@ -62,7 +62,7 @@ weight: 801
 |6060|Websocket服务，提供日志、性能监控实时推送|需要安全组放行|rbd-api|
 |7070|应用控制台web|需要安全组放行|rbd-app-ui|
 |8443|Rainbond API服务|需要安全组放行|rbd-api|
-|30008|集群安装运维控制台web|需要安全组放行|rainbond-operator|
+|30008|集群安装运维控制台web|需要安全组放行，集群安装后关闭|rainbond-operator|
 |10248/10250/10255/42645|kubelet服务||kubelet|
 |10251|kube-scheduler服务||kube-scheduler|
 |6443/8080|kube-apiserver服务||kube-apiserver|

@@ -1,10 +1,10 @@
 ---
-title: '阿里云 ACK'
+title: '基于阿里云 ACK创建并对接 Rainbond Cloud'
 weight: 1
 description: '基于阿里云 Kubernetes 托管集群安装 Rainbond。'
 ---
 
-本文将会介绍如果基于 [Rainbond Cloud](../../../quick-start/rainbond-cloud/) 自动地 **对接** 或 **创建** 阿里云 Kubernetes 托管集群，并此基础上安装处高可用的 Rainbond 集群。
+本文将会介绍如何基于 [Rainbond Cloud](../../../quick-start/rainbond-cloud/) 自动地 **对接** 或 **创建** 阿里云 Kubernetes 托管集群，并此基础上安装处高可用的 Rainbond 集群。
 
 ## 前提条件
 

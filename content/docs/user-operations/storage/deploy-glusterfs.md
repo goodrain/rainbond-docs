@@ -29,13 +29,19 @@ weight: 5015
 
 - 在 Kubernetes 所有节点安装对应版本的 Glusterfs 客户端工具并加载所需内核模块
 
+  - Ubuntu 1604/1804
+  
   ```bash
-  #ubuntu16.04/18.04
+  apt install software-properties-common
   add-apt-repository ppa:gluster/glusterfs-7
-  apt-get update
-  apt-get install glusterfs-client -d 
+  apt update
+  apt install glusterfs-client -y
   modprobe dm_thin_pool
-  #centos7
+  ```
+
+  - CentOS 7
+
+  ```bash  
   yum -y install centos-release-gluster
   yum -y install glusterfs-client
   modprobe dm_thin_pool
@@ -107,18 +113,24 @@ weight: 5015
   kubectl create -f storageclass.yaml
   ```
 
-- 创建pvc验证
+- 创建 pvc 验证
 
   ```bash
   kubectl create -f pvc.yaml
   kubectl get pvc | grep gluster-simple-claim #创建成功时STATUS为Bound
   ```
 
-- 创建pod验证
+- 创建 pod 验证
 
   ```bash
   kubectl create -f pod.yaml
   kubectl get po | grep gluster-simple-pod #运行正常时STATUS为Running
   ```
 
-  
+- 移除验证 pod
+ 
+  ```bash
+  kubectl delete -f pod.yaml
+  ```
+
+完成 Glusterfs 的安装，继续进行 [Rainbond 高可用安装](/docs/install/install-from-k8s/high-availability/)。

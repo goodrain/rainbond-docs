@@ -14,7 +14,10 @@ aliases:
 
 - 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements)。
 - 硬件：2 核 CPU，8G 内存，50G 磁盘。
-- 操作系统：`64 bit CentOS 7`, `64 bit Ubuntu 1604/1804`, `64 bit Debian 9/10`
+- 操作系统：
+  - `CentOS 7` [升级内核到最新稳定版](https://t.goodrain.com/t/topic/1305)
+  - `Ubuntu 1604/1804`
+  - `Debian 9/10`
 - NFS 客户端。如果没有安装，可以参考：
     ```bash
     # CentOS 系统
