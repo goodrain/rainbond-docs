@@ -1,5 +1,5 @@
 ---
-title: '最小化安装'
+title: '基于 Linux 最小化安装'
 weight: 1
 description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond。'
 ---

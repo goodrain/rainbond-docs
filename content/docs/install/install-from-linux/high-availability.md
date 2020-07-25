@@ -1,5 +1,5 @@
 ---
-title: '高可用安装'
+title: '基于 Linux 高可用安装'
 weight: 1
 description: '在 Linux 服务器上安装高可用的，生产可用的 Rainbond。'
 ---
@@ -22,4 +22,5 @@ description: '在 Linux 服务器上安装高可用的，生产可用的 Rainbon
 
 ## 基于已有 Kubernetes 安装高可用 Rainbond 环境
 
-参见 [高可用安装](/docs/install/install-from-k8s/high-availability/)。
+
+接下来的安装步骤，参见 [基于 K8s 高可用安装](/docs/install/install-from-k8s/high-availability/)。

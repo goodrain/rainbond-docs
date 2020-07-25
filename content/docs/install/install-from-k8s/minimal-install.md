@@ -1,5 +1,5 @@
 ---
-title: '最小化安装'
+title: '基于 K8s 最小化安装'
 weight: 1
 description: '在已有的 Kubernetes 集群上安装最小化的 Rainbond。'
 aliases: 
