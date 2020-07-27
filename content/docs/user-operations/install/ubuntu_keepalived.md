@@ -20,15 +20,11 @@ apt-get -y install keepalived
 
       注意！当前调用健康监测脚本内容为注释状态，原因是在安装 Rainbond 前 需要确保 VIP 已经存在；在 Rainbond 安装完成之后需将注释取消，才能实现健康监测，确保 网关高可用。
 
-       **主节点** 
+       - 主节点
 
 ```bash
 $ vi /etc/keepalived/keepalived.conf
-```
 
-    内容如下
-
-```bash
 ! Configuration File for keepalived
 
 global_defs {
@@ -66,15 +62,11 @@ vrrp_instance VI_1 {
 ```
 
 
-       **从节点** 
+   - 从节点
 
 ```bash
 $ vi /etc/keepalived/keepalived.conf
-```
 
-    内容如下
-
-```bash
 ! Configuration File for keepalived
 
 global_defs {
@@ -111,7 +103,9 @@ global_defs {
 ```
 
 
-- 扩展对网关节点健康检查的脚本，脚本的功能是当 rbd-gateway 组件停止服务，则关闭本机的 Keepalived，切换 VIP 。(主从都需操作)
+- 健康监测脚本
+
+ 扩展对网关节点健康检查的脚本，脚本的功能是当 rbd-gateway 组件停止服务，则关闭本机的 Keepalived，切换 VIP 。(主从都需操作)
 
 ```bash
 $ vi /etc/keepalived/check_gateway_status.sh 
@@ -127,7 +121,7 @@ fi
 ```
 
 
-    添加执行权限
+   添加执行权限
 
 ```bash
 $ chmod +x /etc/keepalived/check_gateway_status.sh
@@ -178,9 +172,8 @@ systemctl status keepalived
 - 检测 VIP 是否启动
 
 ```bash
-$ ip a |grep <VIP>
+ip a |grep <VIP>
 ```
 
 
 **在进行下一步操作前请确保 VIP 已经存在，如果 VIP 不存在，请重新审查本节操作；在 Rainbond 安装完成之后请将配置文件中注释取消并重启 Keepalived 服务，实现健康监测，以此确保 网关高可用。**
-
