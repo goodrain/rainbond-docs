@@ -69,11 +69,11 @@ helm version
 
    打开浏览器，输入主机 IP 地址：`http://<SERVER_IP>:30008`. 可以通过以下命令获取 `SERVER_IP`：
 
-    ```bash
-    echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}")
-    ```
+```bash
+echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}")
+```
 
-    > 注意，获取到的 `SERVER_IP` 是内网地址，请根据实际情况直接使用或替换为外网地址。
+> 注意，获取到的 `SERVER_IP` 是内网地址，请根据实际情况直接使用或替换为外网地址。
 
 **2 配置安装模式**
 
