@@ -1,14 +1,23 @@
 ---
-title: '最小化安装'
+title: '基于 K8s 最小化安装'
 weight: 1
 description: '在已有的 Kubernetes 集群上安装最小化的 Rainbond。'
+aliases: 
+  - /docs/user-operations/install/minimal_install/
 ---
 
-本文会将 Rainbond 以最小化的方式安装 Kubernetes 上，这样可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要部署一个生产集群，请产考[在 Kubernetes 上安装高可用的 Rainbond](/docs/install/install-from-k8s/high-availability/)。
+本文会将 Rainbond 以最小化的方式安装 Kubernetes 上，这样可以帮助你节省资源。
 
 ## 前提条件
 
 - Kubernetes 的版本需要大于等于 **1.13**
+- NFS 客户端。如果没有安装，可以参考：
+    ```bash
+    # CentOS 系统
+    yum install -y nfs-utils
+    # Ubuntu/Debian 系统
+    apt install -y nfs-common
+    ```
 - 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements/#port-requirements)
 - 硬件：2 核 CPU，8G 内存，50G 磁盘
 
@@ -18,17 +27,16 @@ description: '在已有的 Kubernetes 集群上安装最小化的 Rainbond。'
 
 ### 安装 Helm 3
 
-使用以下命令镜像安装（如果已安装了 Helm 3，可以跳过这一步骤）：
+使用以下命令安装（如果已安装了 Helm 3，可以跳过这一步骤）：
 
 ```bash
 wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
 ```
 
-helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/install/)。
 
 ### 安装 Rainbond Operator
 
-1. 创建 namespace, 推荐使用 `rbd-system`：
+1. 创建 Rainbond 使用的 namespace: `rbd-system`:
 
     ```bash
     kubectl create ns rbd-system
@@ -46,7 +54,7 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
     helm install rainbond-operator ./chart --namespace=rbd-system
     ```
 
-    如果想了解 Rainbond Operator 的参数，请查阅[这里](http://localhost:1313/docs/user-operations/rainbond-operator/configuration/)。
+    了解更多 Rainbond Operator 的参数，请查阅[这里](http://localhost:1313/docs/user-operations/rainbond-operator/configuration/)。
 
 1. 确认 Rainbond Operator 状态
 
@@ -75,6 +83,8 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
     Rainbond Operator 默认会选择 Kubernetes 集群中符合条件的 master 节点去安装**网关**。
     如果你的集群中没有 master 节点，那么你可以`搜索选择`一个 `80`，`443` 等端口没有被占用的 node 节点，作为网关节点。
 
+    > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](/docs/user-operations/install/troubleshooting/#无法选择网关节点)。
+
 1. 配置**构建服务运行节点**
 
     Rainbond Operator 默认会选择 Kubernetes 集群中的 master 节点去安装**构建服务**。
@@ -93,7 +103,7 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
 
 1. 完成了上述配置后，单击 **配置就绪，开始安装**。
 
-> 如果安装受阻，可以参考[故障排除](/docs/user-operations/install/troubleshooting/)，或联系相应管理人员。
+> 如果安装受阻，可以参考[故障排查](/docs/user-operations/install/troubleshooting/)，或联系相应管理人员。
 
 ## 验证安装
 
@@ -102,6 +112,10 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
 ![image-20200204141936123](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-4.jpg)
 
 说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
+
+## 问题排查
+
+在安装和使用过程中出现问题请参考[安装过程故障排除文档](/docs/user-operations/install/troubleshooting)和[集群问题诊断文档](/docs/user-operations/troubleshoot/cluster_troubleshooting)
 
 ## 安装命令行工具
 

@@ -19,7 +19,7 @@ hidden: true
 
 对于.NetCore 语言的支持与 Dockerfile 一样将构建出镜像而不是 slug 程序包，因此.NetCore 不能使用 Procfile 文件定义。
 
-NetCore 语言构建过程默认使用`microsoft/dotnet:2.2-sdk-alpine` 编译镜像和`microsoft/dotnet:2.2-aspnetcore-runtime`运行环境镜像，若设置其他版本同理。若你未提前下载镜像在构建过程容易出现拉取镜像失败的错误。强烈建议先在 Rainbond 管理节点提前手动获取上诉镜像。
+NetCore 语言构建过程默认使用`microsoft/dotnet:2.2-sdk-alpine` 编译镜像和`microsoft/dotnet:2.2-aspnetcore-runtime`运行环境镜像，若设置其他版本同理。若你未提前下载镜像在构建过程容易出现拉取镜像失败的错误。强烈建议先在 Rainbond 管理节点提前手动获取上述镜像。
 
 如果你的源码对系统环境有依赖，需要单独安装系统类库，目前无法直接使用 Rainbond 提供的默认编译环境编译，你可以采用直接定义[Dockerfile](../dockerfile)的方式支持。
 

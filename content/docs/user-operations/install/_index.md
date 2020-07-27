@@ -1,5 +1,5 @@
 ---
-title: "部署集群"
+title: "部署集群扩展文档"
 menu: "tools"
 weight: 1001
 chapter: true

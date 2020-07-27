@@ -2,6 +2,8 @@
 title: "卸载Rainbond集群"
 weight: 1003
 description: "一键卸载Rainbond集群"
+aliases:
+- /docs/user-operations/install/uninstall/
 ---
 
 ### 卸载流程
@@ -40,10 +42,6 @@ description: "一键卸载Rainbond集群"
   ```
 
   清理集群所有数据
-
-  ```
-  rm -rf /opt/rainbond
-  ```
 
 - operator卸载
 

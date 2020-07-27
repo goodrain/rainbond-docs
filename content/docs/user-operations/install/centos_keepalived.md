@@ -1,25 +1,13 @@
 ---
-title: "Ubuntu keepalived配置"
-description: "Ubuntu keepalived配置"
-hidden: true
+title: "CentOS Keepalived配置"
+description: "CentOS Keepalived配置"
 ---
-
-> VIP要保证和当前机器ip在同一网段内。
 
 借助 **keepalived** 完成VIP配置
 
 - 安装
 
-```
-#安装所需依赖包
-apt-get -y install libssl-dev
-apt-get -y install openssl
-apt-get -y install libpopt-dev
-
-#安装keepalived
-apt-get -y install keepalived
-
-```
+`yum install -y keepalived`
 
 - 编辑配置文件
 
@@ -104,7 +92,7 @@ vrrp_script check_gateway {
 ```
 [root@gateway01 ~]# vi /etc/keepalived/check_gateway_status.sh 
 #!/bin/bash                                                                                             
-/usr/bin/curl -I http://localhost:18080/healthz && /usr/bin/curl -I http://localhost:8888/v2/health
+/usr/bin/curl -I http://localhost:10254/healthz 
 
 if [ $? -ne 0 ];then
                                                                    
@@ -145,7 +133,6 @@ RestartSec=10
 WantedBy=multi-user.target
 ```
 
-
 - 启动服务
 
 启动服务，设置开机自启动
@@ -154,17 +141,6 @@ WantedBy=multi-user.target
 systemctl start keepalived
 systemctl enable keepalived
 systemctl status keepalived
-```
-
-### 手动校验
-
-在网关节点执行如下命令：
-
-```
-#关闭rbd-gateway组件
-docker stop rbd-gateway
-#查看VIP漂移状况
-ip a
 ```
 
 如果在关闭服务后，vip成功在某一台备用节点上启动，则进入下一步；如果vip没有成功漂移，请重新审查本节操作。

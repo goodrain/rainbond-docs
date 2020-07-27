@@ -107,7 +107,7 @@ maven.version=3.2.5
 
 1.1 JDK 的下载
 
-如果开启了 ORACLEJDK 的支持，通过指定的 BUILD_ORACLEJDK_URL 路径下载 JDK, 如果未指定，Maven 构建脚本默认根据上诉设置变量指定的版本来构建 JDK 的下载路径，比如：
+如果开启了 ORACLEJDK 的支持，通过指定的 BUILD_ORACLEJDK_URL 路径下载 JDK, 如果未指定，Maven 构建脚本默认根据上述设置变量指定的版本来构建 JDK 的下载路径，比如：
 
 ```bash
 http://lang.goodrain.me/jdk/openjdk1.8.0_20.tar.gz
@@ -143,9 +143,9 @@ Maven 的下载与 JDK 是原理一致的，根据指定的版本构建下载路
   </mirrors>
 ```
 
-用户也可以通过如下参数设置上诉配置：
+用户也可以通过如下参数设置上述配置：
 
-- BUILD_MAVEN_MIRROR_DISABLE 设置为 true 则上诉配置不生效。不再使用 rbd-repo 服务缓存 maven 包。
+- BUILD_MAVEN_MIRROR_DISABLE 设置为 true 则上述配置不生效。不再使用 rbd-repo 服务缓存 maven 包。
 
 - MAVEN_MIRROR_OF 设置代理范围，默认为\*, 全部代理。
 - MAVEN_MIRROR_URL 设置代理仓库服务地址，默认为 rbd-repo 服务提供的 maven.goodrain.me，用户可以设置切换为企业内部支持 mirror 的私服地址。
@@ -185,7 +185,7 @@ clean install -pl module_name -am
 
 构建命令确定后编译程序将执行 Maven 构建，实时输出构建过程日志。
 
-> 注意，请务必在使用 Rainbond 构建项目之前使用上诉的命令本地执行测试。
+> 注意，请务必在使用 Rainbond 构建项目之前使用上述的命令本地执行测试。
 
 #### 4. 运行环境处理
 
@@ -227,7 +227,7 @@ web: java -Dswarm.http.port=$PORT $JAVA_OPTS -jar target/*.jar
 - 项目设置不符合 Rainbond 自动识别策略。
 - 启动命令需要自定义。
 
-从上诉自动生成的启动命令可以看出，Rainbond 运行 War 时采用的是[webapp-runner](https://github.com/jsimone/webapp-runner)项目，如果需要设置 Tomcat 版本或其他参数时，需要根据 webapp-runner 的相关参数来对应设置启动命令。比如设置会话路径时：
+从上述自动生成的启动命令可以看出，Rainbond 运行 War 时采用的是[webapp-runner](https://github.com/jsimone/webapp-runner)项目，如果需要设置 Tomcat 版本或其他参数时，需要根据 webapp-runner 的相关参数来对应设置启动命令。比如设置会话路径时：
 
 ```yaml
 web: java $JAVA_OPTS -jar ./webapp-runner.jar --path /test  --port $PORT target/*.war
@@ -237,7 +237,7 @@ web: java $JAVA_OPTS -jar ./webapp-runner.jar --path /test  --port $PORT target/
 
 #### 5. 运行环境打包
 
-上诉流程完成后编译脚本将代码目录进行打包，打包命令如下：
+上述流程完成后编译脚本将代码目录进行打包，打包命令如下：
 
 ```yaml
 tar -z --exclude='.git' -X "$build_root/.slugignore" -C $build_root -cf $slug_file .
@@ -245,7 +245,7 @@ tar -z --exclude='.git' -X "$build_root/.slugignore" -C $build_root -cf $slug_fi
 
 默认的情况下会将整个源码、编译过程下载的 JDK 等执行程序、编译生成的介质文件一起打包。目的是不遗漏任何文件，特别是静态文件、配置文件等。如果用户不想将运行态无用的源代码打包，需要定义**.slugignore** 文件。
 
-**.slugignore** 文件与常见的.gitignore 文件语法类似。从上诉打包命令可以看出此文件是在 tar 命令打包时生效。
+**.slugignore** 文件与常见的.gitignore 文件语法类似。从上述打包命令可以看出此文件是在 tar 命令打包时生效。
 
 #### 6. 生成 Docker 镜像
 
@@ -264,7 +264,7 @@ tar -z --exclude='.git' -X "$build_root/.slugignore" -C $build_root -cf $slug_fi
 
 2. 离线环境下能否进行 Maven 源码构建。
 
-   > 由于构建过程需要从公网下载 JDK、Maven、依赖包等资源，默认情况下无法离线使用源码构建，你可以根据上诉说明操作 rbd-repo 准备对应的资源，企业版本中提供了具备完整离线资源的 rbd-repo 服务。
+   > 由于构建过程需要从公网下载 JDK、Maven、依赖包等资源，默认情况下无法离线使用源码构建，你可以根据上述说明操作 rbd-repo 准备对应的资源，企业版本中提供了具备完整离线资源的 rbd-repo 服务。
 
 3. 依赖包下载失败怎么排查。
 

@@ -1,17 +1,19 @@
 ---
-title: '高可用安装'
+title: '基于 K8s 高可用安装'
 weight: 1
 description: '在已有的高可用 Kubernetes 集群上安装高可用的 Rainbond 集群。'
 ---
 
-本文会将在已有的高可用 Kubernetes 集群上安装高可用的 Rainbond 集群，适用于生产环境。
+本文描述如何在已有的高可用 Kubernetes 集群上安装高可用的 Rainbond 集群，适用于生产环境。
 
 ## 开始之前
 
-- 高可用的 Kubernetes 集群， 且版本大于等于 **1.13**
-- 高可用的共享存储
-- 可选：高可用的 MySQL 数据库
-- 可选：高可用的 ETCD
+在开始安装部署之前，需要准备以下资源：
+
+- 高可用的 Kubernetes 集群， 且版本大于等于 **1.13** 。
+- 高可用的共享存储，本文以 Glusterfs 为例，参考 [Glusterfs分布式存储](/docs/user-operations/storage/deploy-glusterfs/)。
+- 高可用的数据库，如 MySQL 8.0 数据库集群或 RDS 数据库服务，创建 `console`、`region` 两个数据库。
+- ETCD 集群，可以复用 Kubernetes 集群已有的 ETCD 集群。
 
 ## 使用 Helm 3 安装 Rainbond Operator
 
@@ -24,8 +26,11 @@ description: '在已有的高可用 Kubernetes 集群上安装高可用的 Rainb
 ```bash
 wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
 ```
+通过以下方式，验证 Helm 已经安装成功：
 
-helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/install/)。
+```bash
+helm version
+```
 
 ### 安装 Rainbond Operator
 
@@ -47,8 +52,6 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
     helm install rainbond-operator ./chart --namespace=rbd-system
     ```
 
-    更多的 Rainbond Operator 参数，请查阅[这里](http://localhost:1313/docs/user-operations/rainbond-operator/configuration/)。
-
 1. 确认状态
 
     ```bash
@@ -57,47 +60,14 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
     rainbond-operator-0   2/2     Running   0          110s
     ```
 
-    稍微等待一会（根据具体的网络环境而定），直到 rainbond-operator-0 的状态变为 `Running`。
 
-### 安装 MySQL Operator
-
-如果你没有准备高可用的 MySQL 数据库，那么我们推荐你使用 MySQL Operator 来保证 MySQL 的高可用。
-如果你已经准备好了高可用的 MySQL 数据库，比如 RDS，那么请跳过该步骤。
-
-1. 下载 MySQL Operator 的 Chart 包
-
-    ```bash
-    wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/mysql-operator-chart.tgz
-    tar zxvf mysql-operator-chart.tgz
-    ```
-
-1. 安装 MySQL Operator
-
-    ```bash
-    helm install mysql-operator ./mysql-operator -n rbd-system
-    ```
-
-1. 确认状态
-
-    ```bash
-    kubectl get pod -n rbd-system
-    NAME                                                              READY   STATUS    RESTARTS   AGE
-    mysql-operator-6c5bcbc7fc-4gjvn                                   1/1     Running   0          5m7s
-    ```
-
-1. 让 Rainbond Operator 使用 MySQL Operator
-
-    在安装完 MySQL Operator 后，还需要修改 Rainbond Operator 的参数，让 Rainbond Operator 使用它去安 MySQL 数据库。
-
-    ```bash
-    helm upgrade rainbond-operator ./chart -n rbd-system --set enableMySQLOperator=true
-    ```
-
-## 安装 Rainbond
+## 高可用安装 Rainbond
 
 访问 Rainbond Operator，开始安装 Rainbond。
 
-1. 打开浏览器，输入主机 IP 地址：`http://<SERVER_IP>:30008`. 可以通过以下命令获取 `SERVER_IP`：
+**1 访问 Rainbond Operator**
+
+   打开浏览器，输入主机 IP 地址：`http://<SERVER_IP>:30008`. 可以通过以下命令获取 `SERVER_IP`：
 
     ```bash
     echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}")
@@ -105,32 +75,111 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
 
     > 注意，获取到的 `SERVER_IP` 是内网地址，请根据实际情况直接使用或替换为外网地址。
 
-1. 安装模式选择**高可用安装**
+**2 配置安装模式**
 
-1. 配置**网关安装节点**
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-1.png" title="安装模式" width="100%">}}
 
-    Rainbond Operator 默认会选择 Kubernetes 集群中符合条件的 master 节点去安装**网关**。
-    如果你的集群中没有 master 节点，那么你可以`搜索选择`一个 `80`，`443` 等端口没有被占用的 node 节点，作为网关节点。
+**3 配置镜像仓库**
+   
+   选择 **新安装镜像仓库（支持HA）**，将会在安装过程中自动安装支持高可用的镜像仓库。
 
-1. 配置**构建服务运行节点**
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-2.png" title="新安装镜像仓库" width="100%">}}
 
-    Rainbond Operator 默认会选择 Kubernetes 集群中的 master 节点去安装**构建服务**。
-    如果你的集群中没有 master 节点，那么你可以`搜索选择`一个 node 节点, 作为**构建服务运行节点**。
+   选择 **提供已有的镜像仓库**，则需要用户提供已存在的镜像仓库的 域名、空间名称、用户名以及密码。
 
-1. **共享存储**
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-3.png" title="已有镜像仓库" width="100%">}}
 
-    在高可用模式下，你在安装前准备好存储。如果是阿里云环境，推荐使用 `阿里云 NAS`。
-    当然也可以使用集群中已有的 `StorageClass`，主要它支持多读多写(`RWX`)。
+**4 配置数据中心数据库**
 
-1. 可选项：**网关外网 IP**
+   高可用安装环境下，用户务必提供外接高可用的 Mysql 8.0 数据库，该数据库中需要提前创建 `region` 数据库：
 
-    Rainbond Operator 默认会选择第一个**网关节点** 的 IP 地址作为 **网关外网 IP**。你也填写合适其他的 **网关节点 IP** 或 **公网 IP**.
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-4.png" title="数据中心数据库" width="100%">}}
 
-    > 注意，如果是公有云环境，请务必用**公网 IP** 作为网关外网 IP。
 
-1. 完成了上述配置后，单击 **配置就绪，开始安装**。
+**5 配置控制台数据库**
 
-> 如果安装受阻，可以参考[故障排除](/docs/user-operations/install/troubleshooting/)，或联系相应管理人员。
+   高可用安装环境下，用户务必提供外接高可用的 Mysql 8.0 数据库，该数据库中需要提前创建 `console` 数据库：
+
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-5.png" title="控制台数据库" width="100%">}}
+
+
+**6 配置 ETCD**
+
+   选择 **新安装ETCD（支持HA）**，将会在安装过程中自动安装支持高可用的 ETCD 集群：
+
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-6.png" title="新安装 ETCD " width="100%">}}
+
+   选择 **提供已有的 ETCD**，则需要用户提供已存在的 ETCD 集群实例地址列表：
+
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-7.png" title="已有 ETCD" width="100%">}}
+
+   ETCD地址格式为： **IP:PORT** 或者 **Domain:PORT**
+
+
+**7 配置网关节点**
+
+   高可用环境中，至少选择 `2` 个节点作为集群 **网关节点** ， 默认会选择 Kubernetes 集群中符合条件的 master 节点作为网关节点。
+   
+   如果你的集群中没有 master 节点（比如使用了各类公有云服务商提供的托管集群），那么你可以 `搜索选择 2` 个 80、443、6060、7070、8443、10254、18080、18081 端口没有被占用的 node 节点，作为网关节点。
+
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-8.png" title="网关节点" width="100%">}}
+    
+   > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](/docs/user-operations/install/troubleshooting/#无法选择网关节点)。
+
+**8 配置构建服务运行节点**
+
+   高可用环境中，至少选择 `2` 个节点作为集群 **构建服务运行节点** ， 默认会选择 Kubernetes 集群中符合条件的 master 节点作为网关节点。
+
+   如果你的集群中没有 master 节点（比如使用了各类公有云服务商提供的托管集群），那么你可以 `搜索选择 2` 个 node 节点（建议节点具备访问公网的能力），作为构建服务运行节点。
+
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-9.png" title="构建服务运行节点" width="100%">}}
+
+**9 配置分配默认域名**
+
+   当集群具备访问公网的能力时，开启此项功能（默认），该功能可以为集群分配一个可以被公网解析的泛解析域名。
+
+   当集群不具备访问公网的能力时，关闭该功能。
+
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-10.png" title="分配默认域名" width="100%">}}
+
+**10 配置网关公网IP**
+
+   高可用环境中，该选项为 **必填**，且只可以在以下两个选项中选择：
+
+   - 当多个网关节点被统一负载均衡时，填写负载均衡的 IP 地址，如阿里云 SLB 服务地址。
+
+   - 当多个网关节点部署诸如 Keepalived 等基于 VIP 的高可用服务时，填写 VIP，参考 [为 CentOS 安装 Keepalived 服务](/docs/user-operations/install/centos_keepalived/)、 [为 Ubuntu 安装 Keepalived 服务](/docs/user-operations/install/ubuntu_keepalived/)。
+
+
+**11 配置共享存储**
+
+    在高可用环境，务必提供已有的共享存储：
+    
+    使用集群中已有的 `StorageClass`，该存储必须支持多读多写(`RWX`)，如果用户已经安装 [Glusterfs分布式存储](/docs/user-operations/storage/deploy-glusterfs/)，则可以直接选择：
+
+    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-11.png" title="已有存储驱动选择" width="100%">}}
+    
+    如果是阿里云环境，推荐使用 `阿里云 NAS`：
+
+    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-12.png" title="阿里云 NAS 存储" width="100%">}}
+
+**12 配置块设备存储**
+
+   该选项非必填。
+   
+   如集群内存在已部署好的 **块设备存储驱动** 则可以直接选择，如 [ceph-rbd块存储](/docs/user-operations/storage/ceph-rbd/)。
+
+   如果是阿里云环境，可以选择 [阿里云盘](/docs/user-operations/storage/ali-disk/)。
+
+   配置完成后，单击 **下一步** 。
+
+**13 安装环境检测**
+
+   Rainbond-Operator 将会自动检测安装环境，全部通过后，点击 **检测通过，开始安装**。
+   
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-13.png" title="安装环境检测" width="100%">}}
+
+   > 如果安装受阻，可以参考[故障排查](/docs/user-operations/install/troubleshooting/)，或联系相应管理人员。
 
 ## 验证安装
 
@@ -139,6 +188,10 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
 ![image-20200204141936123](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-4.jpg)
 
 说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
+
+## 问题排查
+
+在安装和使用过程中出现问题请参考[安装过程故障排除文档](/docs/user-operations/install/troubleshooting)和[集群问题诊断文档](/docs/user-operations/troubleshoot/cluster_troubleshooting)
 
 ## 安装命令行工具
 

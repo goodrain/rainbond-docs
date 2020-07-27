@@ -9,6 +9,18 @@
         transform: rotate(359deg)
     }
 }
+#wechatimg {
+    position: absolute !important;
+    display: none;
+    top: -185px !important;
+    left: 20% !important;
+    max-width: fit-content !important;
+    height: 200px !important;
+}
+
+#WeChat:hover #wechatimg {
+    display: block !important;
+}
 
 .select {
     display: inline-block;
@@ -1962,6 +1974,12 @@ a.box:active {
     border-color: transparent;
     color: #fff
 }
+.button.is-lights {
+    background-color: #94a7d5 !important;
+    border-color: transparent;
+    color: #fff !important;
+}
+
 
 .button.is-primary:hover,
 .button.is-primary.is-hovered {
@@ -10186,7 +10204,7 @@ print {
 
 @media screen and (min-width:1088px) {
     .section.is-medium {
-        padding: 9rem 1.5rem
+        padding: 9rem  1.5rem 3rem;
     }
 
     .section.is-video {
