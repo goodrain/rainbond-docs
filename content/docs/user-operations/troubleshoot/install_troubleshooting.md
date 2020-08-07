@@ -1,7 +1,9 @@
 ---
-title: "故障排查"
+title: "安装故障排查"
 weight: 1999
 description: "安装过程中常见故障的排查"
+aliases:
+- /docs/user-operations/install/troubleshooting/
 ---
 
 本文主要是帮助你解决在安装过程中遇到的问题。

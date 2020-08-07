@@ -62,7 +62,7 @@ weight: 8007
 ]        
 ```
 
-使用上诉原生配置发现和服务发现来让自定义插件工作，插件层面需要做较多的数据适配工作。Rainbond同时提供了基于envoy XDS（grpc）规范的动态配置发现服务，在插件中通过XDS_HOST_IP XDS_HOST_PORT两个变量来获取XDS服务的地址。
+使用上述原生配置发现和服务发现来让自定义插件工作，插件层面需要做较多的数据适配工作。Rainbond同时提供了基于envoy XDS（grpc）规范的动态配置发现服务，在插件中通过XDS_HOST_IP XDS_HOST_PORT两个变量来获取XDS服务的地址。
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: '最小化安装'
+title: '基于 Linux 最小化安装'
 weight: 1
 description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond。'
 ---
@@ -10,7 +10,10 @@ description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond�
 
 - 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements)。
 - 硬件：2 核 CPU，8G 内存，50G 磁盘。
-- 操作系统：`64 bit CentOS 7`, `64 bit Ubuntu 1604/1804`, `64 bit Debian 9/10`
+- 操作系统：
+  - `CentOS 7` [升级内核到最新稳定版](https://t.goodrain.com/t/topic/1305)
+  - `Ubuntu 1604/1804`
+  - `Debian 9/10`
 - NFS 客户端。如果没有安装，可以参考：
     ```bash
     # CentOS 系统
@@ -54,7 +57,10 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
 	```
 	
 1. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
-		![image-20200611114421212](https://tva1.sinaimg.cn/large/007S8ZIlly1gfo7bjpmjxj31rw0u00wd.jpg)显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
+
+   {{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfo7bjpmjxj31rw0u00wd.jpg" title="安装验证" width="100%">}}
+
+   显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
 
 ## 问题排查
 

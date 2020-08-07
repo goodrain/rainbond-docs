@@ -2,6 +2,7 @@
 title: '快速部署'
 weight: 1
 description: '使用最简单，方便的方式部署 Rainbond。'
+hidden: true
 ---
 
 本指南会使用最简单，最方便的方式部署 Rainbond。帮助你快速地评估 Rainbond。

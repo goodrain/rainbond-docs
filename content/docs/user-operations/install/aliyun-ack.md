@@ -4,7 +4,7 @@ weight: 999
 description: '基于 Rainbond Cloud 自动创建阿里云的 Kubernetes 托管集群, 并创建 Rainbond 集群'
 ---
 
-本文将会介绍如果基于 [Rainbond Cloud](../../../quick-start/rainbond-cloud/) 自动地 **对接** 或 **创建** 阿里云 Kubernetes 托管集群也叫 **ACK**，并此基础上安装处高可用的 Rainbond 集群。如果你刚接触 Rainbond 或者只是要简单试用，请参考[最小化部署 Rainbond](../minimal_install/)文档进行操作。
+本文将会介绍如何基于 [Rainbond Cloud](../../../quick-start/rainbond-cloud/) 自动地 **对接** 或 **创建** 阿里云 Kubernetes 托管集群也叫 **ACK**，并此基础上安装处高可用的 Rainbond 集群。如果你刚接触 Rainbond 或者只是要简单试用，请参考[最小化部署 Rainbond](../minimal_install/)文档进行操作。
 
 ### 前提条件
 
