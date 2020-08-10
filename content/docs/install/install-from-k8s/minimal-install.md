@@ -45,7 +45,7 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 1. 下载 Rainbond Operator 的 chart 包：
 
     ```bash
-    wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-chart-v5.2.0-release.tgz && tar xvf rainbond-operator-chart-v5.2.0-release.tgz
+    wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-v1.1.0-v5.2.1.tgz && tar xvf rainbond-operator-v1.1.0-v5.2.1.tgz
     ```
 
 1. 安装 Rainbond Operator
