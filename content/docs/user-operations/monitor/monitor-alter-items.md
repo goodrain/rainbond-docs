@@ -1,25 +1,25 @@
 ---
-title: 监控报警配置项说明
-date: 2019-03-11T12:50:54+08:00
+title: 监控报警说明
 draft: false
 weight: 1402
 description: 基于Prometheus监控说明
-hidden: true
 ---
 
-### 监控组件说明
+### 概述
 
-> rbd-monitor组件基于Prometheus，默认监听端口9999  
-> 具体支持监控报警请访问 `http://<rbd-monitor所在节点ip>:9999`  
-> 以下仅作为参考  
+Rainbond 监控服务由组件 `rbd-monitor` 完成，在 monitor 组件中采用 Sidecar 设计模式思想整合 [Prometheus](https://prometheus.io/) 服务，并基于 ETCD动态发现 需要监控的 targets，自动配置与管理 Prometheus 服务。monitor 会定期到每个 targets 刮取指标数据，并将数据持久化在本地，提供灵活的PromQL查询与RESTful API查询。
 
+#### 架构图：
 
-### 监控项说明
+<image src="https://static.goodrain.com/images/docs/3.7/monitor/monitor-structure.jpg" title="组件间通信结构图" width="100%">
+
+### 监控项
 
 #### 节点资源监控项
+
 | 监控项     | 所属组件        |说明                     |
 | :------- | :----------- |:----------------------- |
-|cadvisor_version_info|cadvisor|计算节点系统信息|
+|cadvisor_version_info|cadvisor|节点系统信息|
 |machine_memory_bytes|cadvisor|当前主机内存大小|
 |machine_cpu_cores|cadvisor|当前节点CPU数目|
 |node_filesystem_size|node|存储|
@@ -94,14 +94,7 @@ hidden: true
 | statsd_exporter_udp_packets_total|||
 | up||组件状态|
 
-#### k8s集群监控项
 
-| 监控项     | 所属组件        | 监控值|说明                     |
-| :------- | :----------- | :-------- |:----------------------- |
-| etcd*|etcd|etcd监控项|
-|kube_node_*|k8s|节点监控项
-|kube_pod_*|k8s|应用实例监控项
-|kube_deployment_*|k8s|应用部署监控项
 
 #### 应用级监控项
 | 监控项            |说明                     |
@@ -152,20 +145,30 @@ hidden: true
 
 #### 组件监控报警
 
-1. 源码构建异常任务数大于30 `BuilderTaskError`
-2. 源码构建组件状态异常 `BuilderUnhealthy`
-3. eventlog服务下线 `EventLogDown`
-4. eventlog组件状态异常 `EventLogUnhealthy`
-5. mq组件状态异常 `MqUnhealthy`
-6. mq队列数大于200 `TeamTaskMany`
-7. webcli组件状态异常 `WebcliUnhealthy`
-8. worker执行任务错误数大于50 `WorkerTaskError`
-9. worker组件状态异常 `WorkerUnhealthy`
-10. 服务下线 `monitoring_service_down`
+| 报警项     | 报警信息                   |
+| :------- | :----------------------- |
+| 源码构建异常任务数大于30|BuilderTaskError|
+| chaos组件状态异常|BuilderUnhealthy|
+| eventlog服务下线|EventLogDown|
+| eventlog组件状态异常|EventLogUnhealthy|
+| api服务下线|APIDown|
+| mq消息队列中存在时间大于1分钟的任务|MqMessageQueueBlock|
+| mq组件状态异常|MqUnhealthy|
+| mq队列数大于200|TeamTaskMany|
+| webcli组件状态异常|WebcliUnhealthy|
+| worker执行任务错误数大于50|WorkerUnhealthy|
+| monitor服务下线|monitoring_service_down|
 
-#### 节点监控报警
 
-1. 节点CPU使用率高于70 `high_cpu_usage_on_node`
-2. 节点5分钟内负载大于5 `high_la_usage_on_node`
-3. 节点内存使用率大于80 `high_memory_usage_on_node`
-4. 节点根分区磁盘使用率大于80 `node_running_out_of_disk_space`
+#### 集群监控报警
+
+
+| 报警项     | 报警信息                   |
+| :------- | :----------------------- |
+| 节点CPU使用率高于70|high_cpu_usage_on_node|
+| 节点5分钟内负载大于5|high_la_usage_on_node|
+| 节点内存使用率大于80|high_memory_usage_on_node|
+| 节点根分区磁盘使用率大于80|node_running_out_of_disk_space|
+| 集群内存资源低于2G|InsufficientClusteMemoryResources|
+| 集群CPU使用量低于500m|InsufficientClusteCPUResources|
+| 租户使用资源超出资源限额|InsufficientTenantResources|

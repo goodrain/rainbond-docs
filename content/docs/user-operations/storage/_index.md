@@ -1,6 +1,6 @@
 ---
 title: 存储解决方案
-weight: 1501
+weight: 1300
 description: Rainbond存储类型扩充方案说明
 ---
 
