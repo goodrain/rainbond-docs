@@ -1,8 +1,8 @@
 ---
-title: 监控报警说明
+title: 监控报警项说明
 draft: false
-weight: 1402
-description: 基于Prometheus监控说明
+weight: 1401
+description: 基于Prometheus的集群监控报警项说明
 ---
 
 ### 概述
@@ -11,7 +11,8 @@ Rainbond 监控服务由组件 `rbd-monitor` 完成，在 monitor 组件中采�
 
 #### 架构图：
 
-<image src="https://static.goodrain.com/images/docs/3.7/monitor/monitor-structure.jpg" title="组件间通信结构图" width="100%">
+
+{{<image src="https://static.goodrain.com/images/docs/3.7/monitor/monitor-structure.jpg" title="组件间通信结构图" width="100%">}}
 
 ### 监控项
 
@@ -145,30 +146,58 @@ Rainbond 监控服务由组件 `rbd-monitor` 完成，在 monitor 组件中采�
 
 #### 组件监控报警
 
+
 | 报警项     | 报警信息                   |
 | :------- | :----------------------- |
-| 源码构建异常任务数大于30|BuilderTaskError|
-| chaos组件状态异常|BuilderUnhealthy|
-| eventlog服务下线|EventLogDown|
-| eventlog组件状态异常|EventLogUnhealthy|
 | api服务下线|APIDown|
-| mq消息队列中存在时间大于1分钟的任务|MqMessageQueueBlock|
+| chaos服务下线|BuilderDown|
+| chaos组件状态异常|BuilderUnhealthy|
+| 源码构建异常任务数大于30|BuilderTaskError|
+| ETCD服务下线|EtcdDown|
+| ETCD Leader节点下线|EtcdLoseLeader|
+| ETCD集群成员异常|InsufficientMembers|
+| ETCD集群Leader变更|HighNumberOfLeaderChanges|
+| ETCD GPRC失败请求大于0.05|HighNumberOfFailedGRPCRequests|
+| ETCD 1分钟内HTTP请求失败数大于0.05| HighNumberOfFailedHTTPRequests|
+| ETCD 1分钟内GPRC慢查询数量大于0.15| GRPCRequestsSlow|
+| ETCD磁盘空间占用超过80%| DatabaseSpaceExceeded|
+| eventlog组件状态异常|EventLogUnhealthy|
+| eventlog服务下线|EventLogDown|
+| gateway服务下线| GatewayDown|
+| gateway请求大小超过10M| RequestSizeTooMuch|
+| gateway每秒请求数量超过200| RequestMany|
+| gateway 10s内错误请求数量大于5| FailureRequestMany|
+| mq服务下线|MqDown|
 | mq组件状态异常|MqUnhealthy|
-| mq队列数大于200|TeamTaskMany|
+| mq消息队列中存在时间大于1分钟的任务|MqMessageQueueBlock|
+| webcli服务下线|WebcliDown|
 | webcli组件状态异常|WebcliUnhealthy|
-| worker执行任务错误数大于50|WorkerUnhealthy|
-| monitor服务下线|monitoring_service_down|
+| webcli执行命令时发生的错误数大于每秒5次| WebcliUnhealthy|
+| worker服务下线| WorkerDown|
+| worker组件状态异常|WorkerUnhealthy|
+| worker执行任务错误数大于50 | WorkerTaskError|
 
 
 #### 集群监控报警
 
-
 | 报警项     | 报警信息                   |
 | :------- | :----------------------- |
-| 节点CPU使用率高于70|high_cpu_usage_on_node|
-| 节点5分钟内负载大于5|high_la_usage_on_node|
-| 节点内存使用率大于80|high_memory_usage_on_node|
-| 节点根分区磁盘使用率大于80|node_running_out_of_disk_space|
-| 集群内存资源低于2G|InsufficientClusteMemoryResources|
-| 集群CPU使用量低于500m|InsufficientClusteCPUResources|
+| Rainbond 集群node节点不健康|RbdNodeUnhealth|
+| K8s集群node节点不健康|KubeNodeUnhealth|
+| 收集集群信息时间超过10s|ClusterCollectorTimeout|
 | 租户使用资源超出资源限额|InsufficientTenantResources|
+| Node节点下线|NodeDown|
+| 节点5分钟内CPU使用率大于70%|HighCpuUsageOnNode|
+| 集群可用内存资源小于2GB|InsufficientClusteMemoryResources|
+| 集群CPU可用量小于500m|InsufficientClusteCPUResources|
+| 节点5分钟内负载大于5| HighLoadOnNode|
+| 节点Inode剩余可用量小于0.3|InodeFreerateLow|
+| 节点根分区磁盘使用率大于85%|HighRootdiskUsageOnNode|
+| 节点Docker磁盘分区使用率大于85%|HighDockerdiskUsageOnNode|
+| 节点内存使用量大于80%|HighMemoryUsageOnNode|
+
+
+**集群监控报警配置参见 [集群监控报警配置说明](/docs/user-operations/monitor/monitoring-alarm-configuration/)**
+
+
+

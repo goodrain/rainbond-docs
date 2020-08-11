@@ -15,6 +15,8 @@ Rainbond 监控报警系统基于 Alertmanager 服务， Alertmanager 主要用�
 
 目前支持的报警方式：钉钉报警 及 邮件报警。
 
+集群监控报警项说明参见 [集群监控报警项说明](/docs/user-operations/monitor/monitor-alter-items/)
+
 ### 前提条件
 
 1. 使用钉钉报警的用户需要拥有钉钉机器人 Webhook 地址，通过 Webhook 接收报警信息，获取方式参阅 [官方文档](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq)；
@@ -23,35 +25,46 @@ Rainbond 监控报警系统基于 Alertmanager 服务， Alertmanager 主要用�
 
 ### 操作步骤
 
-通过应用市场一键安装的方式，可以将 Alertmanager，dingdingtalk，一并部署到你的 Rainbond 环境中。
+通过应用市场一键安装的方式，可以将 Alertmanager，DingTalk，一并部署到你的 Rainbond 环境中。
 
 **安装部署**
 
 - **安装 报警服务**
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/appmarketinstall.jpg"  width="100%">
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/appmarketinstall.jpg"  width="100%">}}
 
 - **运行效果**
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/monitoring-alarm.jpg"  width="100%">
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/monitoring-alarm.jpg"  width="100%">}}
 
 - **在集群中修改 Prometheus配置**
 
 首先查看Alertmanager的对外端口
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/altermanagerport.jpg"  width="100%">
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/altermanagerport.jpg"  width="100%">}}
 
-在集群中修改monitor的配置，修改连接 alertmanager 的地址，添加如下两个启动参数，参数值为上面的 Alertmanager 对外端口。
+在集群中修改monitor的配置，修改连接 alertmanager 的地址，添加如下参数，参数值为上面的 Alertmanager 对外端口。
 
 ```bash
 $ kubectl edit rbdcomponents.rainbond.io rbd-monitor -n rbd-system
+spec:
   args:
-  - --alertmanager-address=172.24.206.23:10000
+  - --alertmanager-address=39.99.54.241:10000
+  env:
+  - name: REGION_NAME
+    value: Rainbond
 ```
+
+参数解释：
+
+`--alertmanager-address `：rbd-monitor 向 alertmanager 推送消息的地址；
+
+`REGION_NAME`：  自定义集群名字，用以区分多集群同时向一个钉钉群推送消息时分辩不同集群。
+
 
 如下
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/monitorconf.jpg"  width="100%">
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/monitorconf.jpg"  width="100%">}}
 
 删除资源后将会自动重启生效
 
@@ -64,9 +77,9 @@ kubectl delete statefulsets.apps rbd-monitor -n rbd-system
    
    需要修改 Alertmanager 配置文件，在 环境配置-->配置文件配置 中点击编辑
    
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/manager.jpg"  width="100%">
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/manager.jpg"  width="100%">}}
    
-   以下是需要修改的信息，修改完成之后更新组件即可。
+   以下是模板文件，修改完成之后复制粘贴更新组件即可。
    
 ```bash
 global:
@@ -102,13 +115,13 @@ receivers:
   
 1.获取钉钉 Webhook 地址时的安全设置建议设置如下：
   
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/dingding.jpg"  width="70%">
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/dingding.jpg"  width="70%">}}
      
-2.获取到钉钉 Webhook 地址后手动修改DingTalk 组件的 Webhook 地址
+2.获取到钉钉 Webhook 地址后手动修改 DingTalk 组件的 Webhook 地址
 
-3.在 DingTalk 组件页面-->环境配置 中修改 `WEBHOOK_ADDRESS` 变量值，修改完成之后更新即可生效。
+在 DingTalk 组件页面-->环境配置 中修改 `WEBHOOK_ADDRESS` 变量值，修改完成之后更新即可生效。
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/setaddress.jpg"  width="100%">
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/setaddress.jpg"  width="100%">}}
 
  
 到此完成钉钉报警的部署。 
