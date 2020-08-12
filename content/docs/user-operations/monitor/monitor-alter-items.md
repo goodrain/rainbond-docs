@@ -12,7 +12,23 @@ Rainbond 监控服务由组件 `rbd-monitor` 完成，在 monitor 组件中采�
 #### 架构图：
 
 
-{{<image src="https://static.goodrain.com/images/docs/3.7/monitor/monitor-structure.jpg" title="组件间通信结构图" width="100%">}}
+{{<image src="https://static.goodrain.com/images/docs/3.7/monitor/monitor-structure.jpg" title="monitor服务架构图" width="100%">}}
+
+#### 访问方式
+
+默认监听端口9999，默认安装已添加  Service 对象，在集群获取到 `ServiceIP` 后在平台添加 第三方服务 打开对外端口即可访问。
+
+获取`ServiceIP`方式
+
+```bash
+$ kubectl get service rbd-monitor -n rbd-system
+NAME          TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
+rbd-monitor   ClusterIP   10.68.140.5   <none>        9999/TCP   7h11m
+```
+
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/monitorservice.jpg" title="添加第三方服务打开对外端口访问" width="100%">}}
+
+具体监控报警项请访问 rbd-monitor 查看，以下仅作为参考。
 
 ### 监控项
 
@@ -40,9 +56,9 @@ Rainbond 监控服务由组件 `rbd-monitor` 完成，在 monitor 组件中采�
 | acp_mq_exporter_health_status| rbd-mq||
 | acp_mq_exporter_last_scrape_error| rbd-mq||
 | acp_mq_exporter_scrapes_total| rbd-mq|
-| builder_exporter_builder_task_error| rbd-chaos| |源码构建任务失败数|
-| builder_exporter_builder_task_number| rbd-chaos| |源码构建任务数|
-| builder_exporter_health_status| rbd-chaos|1|chaos组件状态1为健康|
+| builder_exporter_builder_task_error| rbd-chaos| 源码构建任务失败数|
+| builder_exporter_builder_task_number| rbd-chaos| 源码构建任务数|
+| builder_exporter_health_status| rbd-chaos|组件状态1为健康|
 | event_log_exporter_chan_cache_size| rbd-eventlog||
 | event_log_exporter_collector_duration_seconds|rbd-eventlog||
 | event_log_exporter_container_log_store_cache_barrel_count |rbd-eventlog||

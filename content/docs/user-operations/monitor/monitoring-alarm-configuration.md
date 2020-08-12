@@ -1,5 +1,5 @@
 ---
-title: 监控报警配置说明
+title: 监控报警部署
 draft: false
 weight: 1402
 description: Rainbond平台监控报警配置说明
@@ -79,7 +79,7 @@ kubectl delete statefulsets.apps rbd-monitor -n rbd-system
    
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/manager.jpg"  width="100%">}}
    
-   以下是模板文件，修改完成之后复制粘贴更新组件即可。
+   以下是模板文件，修改完成之后覆盖原配置文件更新组件即可。
    
 ```bash
 global:
