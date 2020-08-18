@@ -1,25 +1,42 @@
 ---
-title: 监控报警配置项说明
-date: 2019-03-11T12:50:54+08:00
+title: 监控报警项说明
 draft: false
-weight: 1402
-description: 基于Prometheus监控说明
-hidden: true
+weight: 1401
+description: 基于Prometheus的集群监控报警项说明
 ---
 
-### 监控组件说明
+### 概述
 
-> rbd-monitor组件基于Prometheus，默认监听端口9999  
-> 具体支持监控报警请访问 `http://<rbd-monitor所在节点ip>:9999`  
-> 以下仅作为参考  
+Rainbond 监控服务由组件 `rbd-monitor` 完成，在 monitor 组件中采用 Sidecar 设计模式思想整合 [Prometheus](https://prometheus.io/) 服务，并基于 ETCD动态发现 需要监控的 targets，自动配置与管理 Prometheus 服务。monitor 会定期到每个 targets 刮取指标数据，并将数据持久化在本地，提供灵活的PromQL查询与RESTful API查询。
+
+#### 架构图：
 
 
-### 监控项说明
+{{<image src="https://static.goodrain.com/images/docs/3.7/monitor/monitor-structure.jpg" title="monitor服务架构图" width="100%">}}
+
+#### 访问方式
+
+默认监听端口9999，默认安装已添加  Service 对象，在集群获取到 `ServiceIP` 后在平台添加 第三方服务 打开对外端口即可访问。
+
+获取`ServiceIP`方式
+
+```bash
+$ kubectl get service rbd-monitor -n rbd-system
+NAME          TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
+rbd-monitor   ClusterIP   10.68.140.5   <none>        9999/TCP   7h11m
+```
+
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/monitorservice.jpg" title="添加第三方服务打开对外端口访问" width="100%">}}
+
+具体监控报警项请访问 rbd-monitor 查看，以下仅作为参考。
+
+### 监控项
 
 #### 节点资源监控项
+
 | 监控项     | 所属组件        |说明                     |
 | :------- | :----------- |:----------------------- |
-|cadvisor_version_info|cadvisor|计算节点系统信息|
+|cadvisor_version_info|cadvisor|节点系统信息|
 |machine_memory_bytes|cadvisor|当前主机内存大小|
 |machine_cpu_cores|cadvisor|当前节点CPU数目|
 |node_filesystem_size|node|存储|
@@ -39,9 +56,9 @@ hidden: true
 | acp_mq_exporter_health_status| rbd-mq||
 | acp_mq_exporter_last_scrape_error| rbd-mq||
 | acp_mq_exporter_scrapes_total| rbd-mq|
-| builder_exporter_builder_task_error| rbd-chaos| |源码构建任务失败数|
-| builder_exporter_builder_task_number| rbd-chaos| |源码构建任务数|
-| builder_exporter_health_status| rbd-chaos|1|chaos组件状态1为健康|
+| builder_exporter_builder_task_error| rbd-chaos| 源码构建任务失败数|
+| builder_exporter_builder_task_number| rbd-chaos| 源码构建任务数|
+| builder_exporter_health_status| rbd-chaos|组件状态1为健康|
 | event_log_exporter_chan_cache_size| rbd-eventlog||
 | event_log_exporter_collector_duration_seconds|rbd-eventlog||
 | event_log_exporter_container_log_store_cache_barrel_count |rbd-eventlog||
@@ -94,14 +111,7 @@ hidden: true
 | statsd_exporter_udp_packets_total|||
 | up||组件状态|
 
-#### k8s集群监控项
 
-| 监控项     | 所属组件        | 监控值|说明                     |
-| :------- | :----------- | :-------- |:----------------------- |
-| etcd*|etcd|etcd监控项|
-|kube_node_*|k8s|节点监控项
-|kube_pod_*|k8s|应用实例监控项
-|kube_deployment_*|k8s|应用部署监控项
 
 #### 应用级监控项
 | 监控项            |说明                     |
@@ -152,20 +162,58 @@ hidden: true
 
 #### 组件监控报警
 
-1. 源码构建异常任务数大于30 `BuilderTaskError`
-2. 源码构建组件状态异常 `BuilderUnhealthy`
-3. eventlog服务下线 `EventLogDown`
-4. eventlog组件状态异常 `EventLogUnhealthy`
-5. mq组件状态异常 `MqUnhealthy`
-6. mq队列数大于200 `TeamTaskMany`
-7. webcli组件状态异常 `WebcliUnhealthy`
-8. worker执行任务错误数大于50 `WorkerTaskError`
-9. worker组件状态异常 `WorkerUnhealthy`
-10. 服务下线 `monitoring_service_down`
 
-#### 节点监控报警
+| 报警项     | 报警信息                   |
+| :------- | :----------------------- |
+| api服务下线|APIDown|
+| chaos服务下线|BuilderDown|
+| chaos组件状态异常|BuilderUnhealthy|
+| 源码构建异常任务数大于30|BuilderTaskError|
+| ETCD服务下线|EtcdDown|
+| ETCD Leader节点下线|EtcdLoseLeader|
+| ETCD集群成员异常|InsufficientMembers|
+| ETCD集群Leader变更|HighNumberOfLeaderChanges|
+| ETCD GPRC失败请求大于0.05|HighNumberOfFailedGRPCRequests|
+| ETCD 1分钟内HTTP请求失败数大于0.05| HighNumberOfFailedHTTPRequests|
+| ETCD 1分钟内GPRC慢查询数量大于0.15| GRPCRequestsSlow|
+| ETCD磁盘空间占用超过80%| DatabaseSpaceExceeded|
+| eventlog组件状态异常|EventLogUnhealthy|
+| eventlog服务下线|EventLogDown|
+| gateway服务下线| GatewayDown|
+| gateway请求大小超过10M| RequestSizeTooMuch|
+| gateway每秒请求数量超过200| RequestMany|
+| gateway 10s内错误请求数量大于5| FailureRequestMany|
+| mq服务下线|MqDown|
+| mq组件状态异常|MqUnhealthy|
+| mq消息队列中存在时间大于1分钟的任务|MqMessageQueueBlock|
+| webcli服务下线|WebcliDown|
+| webcli组件状态异常|WebcliUnhealthy|
+| webcli执行命令时发生的错误数大于每秒5次| WebcliUnhealthy|
+| worker服务下线| WorkerDown|
+| worker组件状态异常|WorkerUnhealthy|
+| worker执行任务错误数大于50 | WorkerTaskError|
 
-1. 节点CPU使用率高于70 `high_cpu_usage_on_node`
-2. 节点5分钟内负载大于5 `high_la_usage_on_node`
-3. 节点内存使用率大于80 `high_memory_usage_on_node`
-4. 节点根分区磁盘使用率大于80 `node_running_out_of_disk_space`
+
+#### 集群监控报警
+
+| 报警项     | 报警信息                   |
+| :------- | :----------------------- |
+| Rainbond 集群node节点不健康|RbdNodeUnhealth|
+| K8s集群node节点不健康|KubeNodeUnhealth|
+| 收集集群信息时间超过10s|ClusterCollectorTimeout|
+| 租户使用资源超出资源限额|InsufficientTenantResources|
+| Node节点下线|NodeDown|
+| 节点5分钟内CPU使用率大于70%|HighCpuUsageOnNode|
+| 集群可用内存资源小于2GB|InsufficientClusteMemoryResources|
+| 集群CPU可用量小于500m|InsufficientClusteCPUResources|
+| 节点5分钟内负载大于5| HighLoadOnNode|
+| 节点Inode剩余可用量小于0.3|InodeFreerateLow|
+| 节点根分区磁盘使用率大于85%|HighRootdiskUsageOnNode|
+| 节点Docker磁盘分区使用率大于85%|HighDockerdiskUsageOnNode|
+| 节点内存使用量大于80%|HighMemoryUsageOnNode|
+
+
+**集群监控报警配置参见 [集群监控报警配置说明](/docs/user-operations/monitor/monitoring-alarm-configuration/)**
+
+
+
