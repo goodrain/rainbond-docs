@@ -8607,6 +8607,13 @@ print {
 }
 
 @media screen and (min-width:1088px) {
+
+    .columns > div:nth-of-type(1){
+        width: 35%;
+    }
+    .columns > div:nth-of-type(2){
+        width: 65%;
+    }
     .column.is-narrow-desktop {
         flex: none
     }
@@ -8628,7 +8635,6 @@ print {
 
     .column.is-half-desktop {
         flex: none;
-        width: 50%
     }
 
     .column.video-list-item {
