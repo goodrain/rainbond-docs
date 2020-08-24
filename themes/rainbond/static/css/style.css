@@ -11415,11 +11415,7 @@ h3 {
     margin-left: -0.55rem;
 }
 
-#testimonial .user-list {
-    display: flex;
-}
-
-#testimonial .user-list figure {
+#testimonial figure {
     flex: 1;
     align-items: center;
     justify-content: center;
