@@ -34,24 +34,24 @@ weight: 20
 
   进入 User Settings → Applications
 
-  | 选项名       | 填写内容                                             | 说明                                                         |
-  | ------------ | ---------------------------------------------------- | ------------------------------------------------------------ |
-  | Name         | Rainbond                                             | 填写自定义的 Application 名称                                |
-  | Redirect URI | https://goodrain.goodrain.com/console/oauth/redirect | 回跳路径，用于接收第三方平台返回的凭证<br />使用公有云格式为 https://xxx.goodrain.com/console/oauth/redirect<br />使用私有化部署格式为 https://IP:7070/console/oauth/redirect |
-  | Scopes       | api**、**read_user**、**read_repository              | GitLab的权限设置，需要开启 api**、**read_user**、**read_repository |
+| 选项名       | 填写内容                                             | 说明                                                         |
+| ------------ | ---------------------------------------------------- | ------------------------------------------------------------ |
+| Name         | Rainbond                                             | 填写自定义的 Application 名称                                |
+| Redirect URI | https://goodrain.goodrain.com/console/oauth/redirect | 回跳路径，用于接收第三方平台返回的凭证<br />使用公有云格式为 https://xxx.goodrain.com/console/oauth/redirect<br />使用私有化部署格式为 https://IP:7070/console/oauth/redirect |
+| Scopes       | api**、**read_user**、**read_repository              | GitLab的权限设置，需要开启 api**、**read_user**、**read_repository |
 
 - Rainbond 平台认证
 
   进入 Rainbond 首页企业视图 → 设置 → OAuth 互联服务 → 查看设置 → 添加
 
-  | 选项名       | 填写内容                | 说明                             |
-  | ------------ | ----------------------- | -------------------------------- |
-  | OAuth类型    | gitlab                  | 认证的 Oauth 类型                |
-  | OAuth类型    | 自定义（GitLab-Demo）   | 填写自定义的 Oauth 服务名称      |
-  | 服务地址     | http://rainbond.gitlab/ | GitLab 服务访问地址              |
-  | 客户端ID     | 依据具体信息填写        | GitLab 生成的 Application ID     |
-  | 客户端密钥   | 依据具体信息填写        | GitLab 生成的 Application Secret |
-  | 平台访问域名 | 使用默认填写内容        | 用于OAuth认证完回跳时的访问地址  |
+| 选项名       | 填写内容                | 说明                             |
+| ------------ | ----------------------- | -------------------------------- |
+| OAuth类型    | gitlab                  | 认证的 Oauth 类型                |
+| OAuth类型    | 自定义（GitLab-Demo）   | 填写自定义的 Oauth 服务名称      |
+| 服务地址     | http://rainbond.gitlab/ | GitLab 服务访问地址              |
+| 客户端ID     | 依据具体信息填写        | GitLab 生成的 Application ID     |
+| 客户端密钥   | 依据具体信息填写        | GitLab 生成的 Application Secret |
+| 平台访问域名 | 使用默认填写内容        | 用于OAuth认证完回跳时的访问地址  |
 
 - OAuth 认证
 
