@@ -41,6 +41,7 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
 
 1. 使用默认配置安装最小化 Rainbond 集群
 	```bash
+	#若需要设置公网IP为 Rainbond 集群的访问地址，请通过执行 export EIP=公网IP 操作，将环境变量 EIP 设置为对应公网IP后，再执行以下操作
 	./easzup -S && docker exec -it kubeasz easzctl start-aio
 	```
 	
