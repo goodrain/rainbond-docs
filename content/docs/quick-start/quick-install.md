@@ -43,7 +43,7 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
 
 ### 开始安装
 
-1. 若需要设置公网IP为 Rainbond 集群的访问地址，请执行以下命令
+1. **可选项**，在需要设置公网IP为 Rainbond 集群的访问地址时，请执行以下命令
 	
 	```bash
 	export EIP=公网IP
