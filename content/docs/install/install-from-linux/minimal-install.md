@@ -10,17 +10,11 @@ description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond�
 
 - 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements)。
 - 硬件：2 核 CPU，8G 内存，50G 磁盘。
+- 设置服务器时区为`shanghai`，并同步时间
 - 操作系统：
   - `CentOS 7` [升级内核到最新稳定版](https://t.goodrain.com/t/topic/1305)
   - `Ubuntu 1604/1804`
   - `Debian 9/10`
-- NFS 客户端。如果没有安装，可以参考：
-    ```bash
-    # CentOS 系统
-    yum install -y nfs-utils
-    # Ubuntu/Debian 系统
-    apt install -y nfs-common
-    ```
 
 ## 安装步骤
 
@@ -69,6 +63,45 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
 
    显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
 
-## 问题排查
+## 常见问题排查
 
-在安装和使用过程中出现问题请参考[安装过程故障排除文档](/docs/user-operations/install/troubleshooting)和[集群问题诊断文档](/docs/user-operations/troubleshoot/cluster_troubleshooting)
+1. `http://$IP:30008`或`http://$IP:7070`无法访问：
+
+   导致此问题的原因可能是访问地址所提示的 IP 地址或端口无法访问，建议检查从客户端到访问地址 IP 的网络是否正常，网络正常时检查防火墙安全组策略等是否开发对应端口的访问权限，如果使用的是阿里云的 ECS 资源，确定显示的 IP 地址是否为外网 IP
+
+2. 访问控制台后无法注册用户：
+
+   导致此问题的原因可能是 console 数据库初始化失败，通过以下操作重新初始化 console 数据库后再次注册
+
+   - 进入 rbd-db 的 pod 
+
+     ```bash
+     kubectl exec -it -n rbd-system rbd-db-0 bash
+     ```
+
+   - 登录数据库
+
+     ```bash
+     mysql -p$MYSQL_ROOT_PASSWORD
+     ```
+
+   - 删除 console 库
+
+     ```mysql
+     drop console;
+     ```
+
+   - 删除数据库初始化 job ，使其再次运行
+
+     ```bash
+     kubectl delete job -n rbd-system rbd-app-ui-migrations
+     ```
+
+   - 等待数据库初始化完成，完成后 STATUS 为 Completed
+
+     ```bash
+     kubectl get po -n rbd-system -l name=rbd-app-ui-migrations
+     ```
+
+在安装和使用过程中出现的其他问题请参考[安装过程故障排除文档](/docs/user-operations/install/troubleshooting)和[集群问题诊断文档](/docs/user-operations/troubleshoot/cluster_troubleshooting)
+
