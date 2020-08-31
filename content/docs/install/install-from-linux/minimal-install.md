@@ -90,7 +90,7 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
    - 删除 console 库
 
      ```mysql
-     drop console;
+     drop database console;
      ```
 
    - 删除数据库初始化 job ，使其再次运行
