@@ -72,7 +72,7 @@ Rainbond源码构建java-maven项目时，提供了默认的构建运行环境�
   >  Rainbond源码构建时，默认会将源码目录全部文件存放在 /app 目录下，故而该文件的路径变为了 /app/settings.xml
 
 - 如果`setting.xml`中存在敏感信息，不宜出现在源码目录中。那么可以将其上传到诸如对象存储等处，提供下载地址。然后：
-  设置环境变量 `MAVEN_SETTINGS_URL=http://somewhere/settings.xml`来使用该文件。
+  设置环境变量 `BUILD_MAVEN_SETTINGS_URL=http://somewhere/settings.xml`来使用该文件。
 
 ### 部署本地私服仓库
 

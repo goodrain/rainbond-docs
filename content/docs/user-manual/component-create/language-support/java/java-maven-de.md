@@ -128,9 +128,9 @@ Maven 的下载与 JDK 是原理一致的，根据指定的版本构建下载路
 **settings.xml**文件中可以定义远程仓库和认证信息，镜像仓库信息等。用户可以通过设置如下变量来自定义配置：
 
 - BUILD_MAVEN_SETTINGS_PATH 直接定义 settings.xml 的本地路径，此路径用户只能使用源代码目录下，即路径是以`/app`开头， 比如如果在源码主目录下，路径应该为：`/app/settings.xml`
-- MAVEN_SETTINGS_URL 定义 settings.xml 的远程下载路径，由于 settings.xml 文件可能含有账号信息不适合存放到代码仓库中，可以存放于对象存储中提供下载路径。
+- BUILD_MAVEN_SETTINGS_URL 定义 settings.xml 的远程下载路径，由于 settings.xml 文件可能含有账号信息不适合存放到代码仓库中，可以存放于对象存储中提供下载路径。
 
-  构建脚本将优先使用 BUILD_MAVEN_SETTINGS_PATH 变量，再使用 MAVEN_SETTINGS_URL 变量，如果都未定义，将使用默认的 settings.xml 文件。默认的 settings.xml 定义了使用 maven.goodrain.me 全局代理所有远程库。这样做的目的是能够缓存用户所有项目需要使用到的依赖包，作为构建流程中的二级缓存。 如下配置：
+  构建脚本将优先使用 BUILD_MAVEN_SETTINGS_PATH 变量，再使用 BUILD_MAVEN_SETTINGS_URL 变量，如果都未定义，将使用默认的 settings.xml 文件。默认的 settings.xml 定义了使用 maven.goodrain.me 全局代理所有远程库。这样做的目的是能够缓存用户所有项目需要使用到的依赖包，作为构建流程中的二级缓存。 如下配置：
 
 ```xml
   <mirrors>
