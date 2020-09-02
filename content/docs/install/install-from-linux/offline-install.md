@@ -18,6 +18,7 @@ description: '在单节点的 Linux 服务器上离线安装 Kubernetes 和 Rain
 
 ### 配置免密钥登录
 **`$IP`为所有节点地址包括自身，按照提示输入 yes 和 root 密码**
+
 ```bash
 ssh-keygen -t rsa -b 2048 -N '' -f ~/.ssh/id_rsa
 ssh-copy-id $IP
@@ -25,14 +26,19 @@ ssh-copy-id $IP
 
 ### 下载安装包
 1. 在有网环境获取离线包
+	
 	```bash
 	wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/Rainbond-5.2.1-release-offline.tgz
 	```
+	
 2. 解压至需安装节点的`/etc/ansible`目录中
+	
 	```bash
 	mkdir /etc/ansible && tar xvf Rainbond-5.2.1-release-offline.tgz -C /etc/ansible
 	```
+	
 3. 验证安装包完整性
+	
 	```bash
 	cd /etc/ansible/tools && ./easzup -D
 	```
@@ -40,20 +46,22 @@ ssh-copy-id $IP
 ### 开始安装
 
 1. 使用默认配置安装最小化 Rainbond 集群
+	
 	```bash
 	./easzup -S && docker exec -it kubeasz easzctl start-aio
 	```
 	
 1. 执行完成后，出现以下提示：
+	
 	```bash
 	[INFO] save context: aio
 	[INFO] save aio roles' configration
-  [INFO] save aio ansible hosts
-  [INFO] save aio kubeconfig
-  [INFO] save aio kube-proxy.kubeconfig
-  [INFO] save aio certs
-  [INFO] Action successed : start-aio
-  [INFO] Visit http://$IP:30008 to view the installation progress
+	[INFO] save aio ansible hosts
+	[INFO] save aio kubeconfig
+	[INFO] save aio kube-proxy.kubeconfig
+	[INFO] save aio certs
+	[INFO] Action successed : start-aio
+	[INFO] Visit http://$IP:30008 to view the installation progress
   ```
 	
 1. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
