@@ -2,7 +2,7 @@
 title: 组件存储设置
 description: Rainbond组件存储的管理文档
 weight: 5011
-hidden: true
+hidden: false
 ---
 
 ### 组件为什么需要存储

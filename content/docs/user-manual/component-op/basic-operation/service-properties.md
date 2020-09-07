@@ -2,7 +2,7 @@
 title: 组件基础属性说明
 description: Rainbond基础属性的说明文档
 weight: 5050
-hidden: true
+hidden: false
 ---
 
 本文讲解与应用相关的属性及名词，从而让你更清晰的了解应用的概念。

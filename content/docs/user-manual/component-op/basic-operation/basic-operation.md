@@ -1,7 +1,7 @@
 ---
 title: 组件基础操作
 description: Rainbond组件基础生命周期操作说明文档
-hidden: true
+hidden: false
 weight: 5001
 ---
 

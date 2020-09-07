@@ -2,7 +2,7 @@
 title: 基于共享库的应用交付
 description: 基于共享库的应用交付体验
 weight: 2005
-hidden: true
+hidden: false
 ---
 
 ### 应用交付

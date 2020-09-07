@@ -2,7 +2,7 @@
 title: 应用模版
 description: 讲解应用模版的定义及使用
 weight: 2002
-hidden: true
+hidden: false
 ---
 
 ### 应用模版定义

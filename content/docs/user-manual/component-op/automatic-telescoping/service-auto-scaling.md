@@ -2,7 +2,7 @@
 title: 组件实例自动伸缩
 description: 自动伸缩会根据观察的指标,自动缩放组件.
 weight: 5007
-hidden: true
+hidden: false
 ---
 
 组件的负载会不停的变化, 时高时低, 很难为其配置合适的资源; Rainbond 引入自动伸缩, 可以很好地解决这个问题.

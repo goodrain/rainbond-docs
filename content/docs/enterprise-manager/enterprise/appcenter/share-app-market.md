@@ -2,7 +2,7 @@
 title: 共享库应用的升级
 description: 基于共享库的应用升级
 weight: 2004
-hidden: true
+hidden: false
 ---
 
 ### 应用升级

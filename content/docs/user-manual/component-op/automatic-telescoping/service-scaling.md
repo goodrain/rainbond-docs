@@ -2,7 +2,7 @@
 title: 组件伸缩
 description: Rainbond组件的水平伸缩和垂直伸缩文档
 weight: 5007
-hidden: true
+hidden: false
 ---
 
 Rainbond 平台组件有两种伸缩方式：
