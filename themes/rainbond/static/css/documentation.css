@@ -2220,7 +2220,8 @@ h6 {
 }
 
 .markdown-body h3 {
-  font-size: 1.25em;
+  font-size: 1.5em;
+  margin-top: 48px;
 }
 
 .markdown-body h4 {

@@ -7,7 +7,7 @@ hidden: false
 
 ### 安装命令行工具
 
-   命令行工具`grctl`提供一些便于Rainbond运维的工具命令，在`5.2.0`版本该工具不再内置，如有使用，需提前安装安装此命令；用户需进入集群管理节点，在该节点进行以下操作。
+   命令行工具 `grctl` 提供一些便于Rainbond运维的工具命令，在 `5.2.0` 版本该工具不再内置，如有使用，需提前安装安装此命令；用户需进入集群管理节点，在该节点进行以下操作。
 
    该节点必须具备以下条件：
 
@@ -22,7 +22,7 @@ wget https://pkg.rainbond.com/releases/common/v5.2/grctl && chmod +x ./grctl
 mv ./grctl /usr/local/bin/grctl && /usr/local/bin/grctl install
 ```
 
-若输出`Install success`则安装成功。
+若输出 `Install success` 则安装成功。
 
 
 ### 功能特性
@@ -36,7 +36,7 @@ mv ./grctl /usr/local/bin/grctl && /usr/local/bin/grctl install
 |||
 
 
-> 更多信息可通过`grctl -h`命令获取
+> 更多信息可通过 `grctl -h` 命令获取
 
 ### 集群管理
 
@@ -46,7 +46,7 @@ mv ./grctl /usr/local/bin/grctl && /usr/local/bin/grctl install
 grctl  cluster
 ```
 
-<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-cluster.png" style="border:1px solid #eee;width:90%"/></center>
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-cluster.png" width="100%" >}}
 
 - 列出集群节点信息
 
@@ -54,7 +54,7 @@ grctl  cluster
 grctl node list
 ```
 
-<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-node-list.png" style="border:1px solid #eee;width:90%"/></center>
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-node-list.png" width="100%" >}}
 
 - 获取某个节点的详细信息
 
@@ -74,20 +74,20 @@ grctl node uncordon <UID>
 
 ### 应用管理
 
-- 在命令行获取应用的详细信息，在应用的`伸缩`界面复制`查询命令`，在服务器主节点上粘贴，即可查看当前应用的详细信息
+- 在命令行获取应用的详细信息，在应用的 `伸缩` 界面复制 `查询命令` ，在服务器主节点上粘贴，即可查看当前应用的详细信息
 
 
 ```bash
 grctl service get grf2ebfd -t b40hkf9y
 ```
 
-<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-server-get.png" style="border:1px solid #eee;width:90%"/></center>
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-server-get.png" width="100%" >}}
 
-如果需要查看该应用的实时日志，使用上述命令得到的`PodName/Namespace`信息，即可查看该应用运行的实时日志
+如果需要查看该应用的实时日志，使用上述命令得到的 `PodName/Namespace` 信息，即可查看该应用运行的实时日志
 
 ```bash
 root@ubuntu:~# kubectl logs -f fa0a524589beabdc4503acd253f2ebfd-deployment-56dd54844d-m978r -n 1f732b0aadc94bd0ba288deff3a08c3f
 Launching nginx
 ```
 
-> 注: 如果在一个pod中有多个容器，需在`PodName`后指定要查询的容器名字
+> 注: 如果在一个pod中有多个容器，需在 `PodName` 后指定要查询的容器名字

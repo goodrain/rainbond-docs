@@ -8,7 +8,7 @@ aliases:
 ---
 
 #### Golang语言识别方式
-平台默认会根据源码根目录是否有`go.mod`或`Gopkg.lock`或`glide.yaml`或`src`目录含有go文件来识别为Golang项目.
+平台默认会根据源码根目录是否有 `go.mod` 或 `Gopkg.lock` 或 `glide.yaml` 或 `src` 目录含有go文件来识别为Golang项目.
 
 #### 编译原理
 
@@ -31,7 +31,6 @@ aliases:
 web: hello
 ```
 
-{{% notice info %}}
 1. `web:`和`hello`之间有一个空格
 2. 文件结尾不能包含特殊字符
 3. `hello`为编译后的二进制

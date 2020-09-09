@@ -17,7 +17,7 @@ Rainbond 5.1版本已支持源码部署NodeJS前端类项目，你可以直接�
 
 #### 平台编译运行机制
 
-1. 预编译处理会探测是否定义了启动命令配置文件[Procfile](../etc/procfile/),如果未定义会读取`package.json`文件中的`script.start`值来生成启动配置文件;
+1. 预编译处理会探测是否定义了启动命令配置文件[Procfile](../procfile/),如果未定义会读取`package.json`文件中的`script.start`值来生成启动配置文件;
 2. 预编译处理完成后,会根据语言类型选择nodejs的buildpack去编译项目.在编译过程中会安装定义的Node版本以及Nodejs相关依赖;
 3. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
 
@@ -93,7 +93,7 @@ npm 版本不是必须的，可以省略，因为 npm 是跟 node 绑定的。
 
 ##### 依赖包安装 
 
-Node项目支持使用[npm package manager](https://www.npmjs.com/) 和 [yarn package manager](https://yarnpkg.com/) 安装依赖包，如果存在`yarn.lock` 文件，使用yarn(默认支持版本1.9.4)安装依赖和运行脚本，否则使用npm。
+Node项目支持使用 [npm package manager](https://www.npmjs.com/) 和 [yarn package manager](https://yarnpkg.com/) 安装依赖包，如果存在`yarn.lock` 文件，使用yarn(默认支持版本1.9.4)安装依赖和运行脚本，否则使用npm。
 
 * yarn定义方式
 

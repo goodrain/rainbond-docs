@@ -7,7 +7,7 @@ aliases:
 ---
 
 ## rainbondfile介绍
-rainbondfile 是Rainbond基于代码指定服务运行环境的策略。其本身是一个普通的yaml格式的文本文件，需要将其放到代码的根目录中，其适用于所有基于源码构建的服务类型。目前rainbondfile支持定义`环境变量` `端口` `持久化存储` `启动命令`四个项目。Rainbond在创建组件的过程中将识别其中定义的内容自动设置到服务属性中，在Rainbond控制台可以查阅。
+rainbondfile 是Rainbond基于代码指定服务运行环境的策略。其本身是一个普通的yaml格式的文本文件，需要将其放到代码的根目录中，其适用于所有基于源码构建的服务类型。目前rainbondfile支持定义 `环境变量` `端口` `持久化存储` `启动命令` 四个项目。Rainbond在创建组件的过程中将识别其中定义的内容自动设置到服务属性中，在Rainbond控制台可以查阅。
 完整用例如下：
 
 ```bash
@@ -35,4 +35,4 @@ cmd: java -jar xxxx.jar
 * ports 服务端口列表
 * envs 服务环境变量列表
 * buildpath 服务主目录不在当前目录时有用，指定二级目录地址
-* cmd 指定服务运行方式，适用于Dockerfile、NetCore源码类型，其他语言通过[Procfile](../procfile/)指定运行方式
+* cmd 指定服务运行方式，适用于Dockerfile、NetCore源码类型，其他语言通过 [Procfile](../procfile/) 指定运行方式

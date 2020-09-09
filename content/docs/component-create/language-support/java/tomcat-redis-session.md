@@ -13,9 +13,9 @@ aliases:
 
 ### 使用 Webapp-Runner 或 Jetty-Runner
 
-Rainbond 使用 [webapp-Runner]() 内嵌的 tomcat 或 [jetty-Runner]() 内嵌的 jetty 实现服务器功能。在您不创建其他服务器情况下即可轻松将应用部署在 Rainbond。通过以下步骤可实现 **配置 redis 实现 session 共享**。
+Rainbond 使用 [webapp-Runner](/docs/component-create/language-support/java/webapp-runner/) 内嵌的 tomcat 或 [jetty-Runner]() 内嵌的 jetty 实现服务器功能。在您不创建其他服务器情况下即可轻松将应用部署在 Rainbond。通过以下步骤可实现 **配置 redis 实现 session 共享**。
 
-1. 配置[Procfile](../../etc/procfile/)：将如下命令添加到您的 Procfile 中，并源码根目录下添加 Procfile。
+1. 配置 [Procfile](/docs/component-create/language-support/procfile/)：将如下命令添加到您的 Procfile 中，并源码根目录下添加 Procfile。
 
    ```
    web: java -jar ./webapp-runner.jar --port $PORT --session-store redis ./*.war

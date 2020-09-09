@@ -13,7 +13,7 @@ aliases:
 
 #### 平台编译运行机制
 
-1. 预编译处理会探测是否定义了启动命令配置文件[Procfile](../../etc/procfile/),如果未定义会生成默认 War 包启动配置文件;
+1. 预编译处理会探测是否定义了启动命令配置文件 [Procfile](/docs/component-create/language-support/procfile/) ,如果未定义会生成默认 War 包启动配置文件;
 2. 预编译处理完成后,会根据语言类型选择 Java-war 的 buildpack 去编译项目.在编译过程中会安装定义的 JDK 版本,Web 服务;
 3. 编译完成后会检查是否在平台设置了 Procfile 参数,若配置了会重写启动命令配置文件 Procfile.
 
@@ -40,17 +40,15 @@ web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT ./*.war
 3. JAVA_OPTS: 平台会根据应用的内存大小，自动设置 Xmx 和 Xms 的值
 4. PORT: 根据用户在平台设置的端口决定监听，默认监听端口为 5000
 
-{{% notice warning %}}
 当调整了 Web 服务器支持后，打包成 War 需要调整启动命令
 
 - 选择 tomcat 不同版本时 `web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT ./*.war`
 - 选择 jetty 不同版本时 `web: java $JAVA_OPTS -jar ./jetty-runner.jar --port $PORT ./*.war`  
-  需要配置 context path,可以通过自定义 Procfile 指定[webapp-runner 参数 path](https://github.com/jsimone/webapp-runner#options)
+  需要配置 context path,可以通过自定义 Procfile 指定 [webapp-runner 参数 path](https://github.com/jsimone/webapp-runner#options)
 - 示例 `web: java $JAVA_OPTS -jar ./webapp-runner.jar --path <path路径,示例: /r6d> --port $PORT ./*.war`
 
 #### 编译运行环境设置
 
-{{% notice info %}}
 在选择 JDK 版本或其他组件版本时，需要注意 JDK 或者其他组件版本不要选择比项目使用的版本过高或者过低以免导致源码编译失败
 
 ##### OpenJDK 支持
@@ -104,9 +102,9 @@ OracleJDK 下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.t
 | jetty7          | jetty-runner-7.5.4.v20111024.jar | jetty-runner.jar              |
 | jetty9          | jetty-runner-9.4.0.v20161208.jar | jetty-runner.jar              |
 
-{{% notice info %}}
+
 选择 tomcat7 版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行  
-关于 webapp-runner 详细配置请参考[webapp-runner 使用说明](/docs/user-manual/component-create/language-support/java_more/webapp-runner/)
+关于 webapp-runner 详细配置请参考 [webapp-runner 使用说明](/docs/component-create/language-support/java/webapp-runner/)
 
 #### 高级构建选项
 
@@ -123,7 +121,7 @@ OracleJDK 下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.t
 
 #### 示例 demo 程序
 
-示例[https://github.com/goodrain/java-war-demo](https://github.com/goodrain/java-war-demo.git)
+示例 [https://github.com/goodrain/java-war-demo](https://github.com/goodrain/java-war-demo.git)
 
 #### 推荐阅读
 

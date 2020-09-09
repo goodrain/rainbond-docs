@@ -9,10 +9,10 @@ aliases:
 
 #### Dockerfile类型识别策略
 
-代码主目录下有 `Dockerfile` 文件，Rainbond会识别代码语言类型为**Dockerfile**，此策略优先级最高，当代码同时符合其他语言类型识别策略时，依然以**Dockerfile**为主。
+代码主目录下有 `Dockerfile` 文件，Rainbond会识别代码语言类型为 **Dockerfile** ，此策略优先级最高，当代码同时符合其他语言类型识别策略时，依然以**Dockerfile**为主。
 
 #### 编译原理
-识别为Dockerfile类型的源码将使用类似于`docker build -t xxx/xxx .`的命令进行镜像构建，因此此方式是灵活性最高的源码编译方式，理论上可以应用于所有开发语言的支持（如果Docker支持）。
+识别为Dockerfile类型的源码将使用类似于 `docker build -t xxx/xxx .` 的命令进行镜像构建，因此此方式是灵活性最高的源码编译方式，理论上可以应用于所有开发语言的支持（如果Docker支持）。
 
 构建过程支持 docker multi-stage(多阶段构建)和 ARG参数指定。
 

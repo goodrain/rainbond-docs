@@ -2,7 +2,7 @@
 title: 通过OAuth2.0协议构建组件
 description: 代码仓库免密构建组件，自动设置webhook
 weight: 6012
-hidden: true
+hidden: false
 ---
 
 ### 通过 OAuth2.0 协议与代码仓库对接
@@ -23,4 +23,4 @@ hidden: true
 
 通过 oauth 创建的组件我们可以在构建源处更换指定仓库的指定项目的指定版本进行构建
 
-> 关于构建组件细节问题，请参阅[应用与组件创建](/docs/user-manual/component-create/creation-process/)
+> 关于构建组件细节问题，请参阅 [应用与组件创建](/docs/user-manual/component-create/creation-process/)

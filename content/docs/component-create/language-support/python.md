@@ -8,10 +8,10 @@ aliases:
 ---
 
 #### Python语言识别策略
-平台默认会根据源码根目录是否有`requirements.txt`文件来识别为Python项目.
+平台默认会根据源码根目录是否有 `requirements.txt` 文件来识别为Python项目.
 
 #### 平台编译运行机制
-1. 预编译处理会探测是否定义了启动命令配置文件[Procfile](../etc/procfile/),如果未定义会生成默认Flask/Django启动配置文件;
+1. 预编译处理会探测是否定义了启动命令配置文件 [Procfile](../procfile/),如果未定义会生成默认Flask/Django启动配置文件;
 2. 预编译处理完成后,会根据语言类型选择Python的buildpack去编译项目.在编译过程中会安装定义的Python版本以及相关Python依赖;
 3. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
 
@@ -21,14 +21,14 @@ aliases:
 
 - 本地可以正常运行部署的Python程序  
 - 项目可以托管到git仓库  
-- 项目根目录下必须存在`requirements.txt`,用来管理Python项目的依赖,也是Rainbond识别为Python语言的必要条件  
-- 项目根目录下需要定义`Procfile`,用来定义程序启动方式
-- 项目根目录下存在`runtime.txt`,用来定义当前项目的Python使用版本  
+- 项目根目录下必须存在 `requirements.txt` ,用来管理Python项目的依赖,也是Rainbond识别为Python语言的必要条件  
+- 项目根目录下需要定义 `Procfile` ,用来定义程序启动方式
+- 项目根目录下存在 `runtime.txt` ,用来定义当前项目的Python使用版本  
 
 ##### requirements.txt 规范
 
-若程序没有依赖关系，可使`requirements.txt`为空文件。
-若无`requirements.txt`可用如下命令生成
+若程序没有依赖关系，可使 `requirements.txt` 为空文件。
+若无 `requirements.txt` 可用如下命令生成
 
 ```bash
 pip freeze > requirements.txt
@@ -44,8 +44,7 @@ web: gunicorn app:app --log-file - --access-logfile - --error-logfile -
 
 上述是默认Procfile,如果需要扩展更多启动参数,可以自定义Procfile。
 
-{{% notice info %}}
-1. `web:`和`gunicorn`之间有一个空格
+1. `web:` 和 `gunicorn`之 间有一个空格
 2. 文件结尾不能包含特殊字符
 
 
@@ -53,7 +52,7 @@ web: gunicorn app:app --log-file - --access-logfile - --error-logfile -
 
 ##### 配置Python版本
 
-推荐使用runtime.txt来定义Python版本,若未定义,Rainbond将会默认使用`python-3.6.6`版本。
+推荐使用runtime.txt来定义Python版本,若未定义,Rainbond将会默认使用 `python-3.6.6` 版本。
 
 ```bash
 $ cat runtime.txt
@@ -121,7 +120,7 @@ $ python manage.py collectstatic --noinput
 
 #### 示例demo程序
 
-示例[https://github.com/goodrain/python-demo](https://github.com/goodrain/python-demo.git)
+示例 [https://github.com/goodrain/python-demo](https://github.com/goodrain/python-demo.git)
 
 <!--
 ## 七、Whitenoise

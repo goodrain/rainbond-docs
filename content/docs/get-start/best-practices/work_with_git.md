@@ -37,8 +37,8 @@ weight: 20
 | 选项名       | 填写内容                                             | 说明                                                         |
 | ------------ | ---------------------------------------------------- | ------------------------------------------------------------ |
 | Name         | Rainbond                                             | 填写自定义的 Application 名称                                |
-| Redirect URI | https://goodrain.goodrain.com/console/oauth/redirect | 回跳路径，用于接收第三方平台返回的凭证<br />使用公有云格式为 https://xxx.goodrain.com/console/oauth/redirect<br />使用私有化部署格式为 https://IP:7070/console/oauth/redirect |
-| Scopes       | api**、**read_user**、**read_repository              | GitLab的权限设置，需要开启 api**、**read_user**、**read_repository |
+| Redirect URI | https://goodrain.goodrain.com/console/oauth/redirect | 回跳路径，用于接收第三方平台返回的凭证使用公有云格式为 https://xxx.goodrain.com/console/oauth/redirect使用私有化部署格式为 https://IP:7070/console/oauth/redirect |
+| Scopes       | api、read_user、read_repository              | GitLab的权限设置，需要开启 api、read_user、read_repository |
 
 - Rainbond 平台认证
 

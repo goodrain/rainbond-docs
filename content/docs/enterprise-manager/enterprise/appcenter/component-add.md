@@ -2,7 +2,7 @@
 title: 共享库应用的同步
 description: 基于共享库的应用同步
 weight: 2003
-hidden: false
+hidden: true
 ---
 
 本文主要介绍Rainbond共享库的应用组件资源的添加方式
@@ -23,15 +23,15 @@ hidden: false
 
 在企业视图，共享库点击`云端同步`按钮，可以看到好雨公有云端市场的应用
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Cloud%20sync.png
-" width='100%' />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Cloud%20sync.png" title="云端同步" width="100%">}} 
 
 点击`下载`按钮
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/mysqlsync.png" width='100%' />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/mysqlsync.png" title="下载" width="100%">}}
 
-数据库应用已被一键同步至内部市场，在使用时选择`从共享库创建组件`，即可一键安装该组件
+数据库应用已被一键同步至内部市场，在使用时选择 `从共享库创建组件`，即可一键安装该组件
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/mysqlsync01.png" width='100%' />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/mysqlsync01.png" title="一键安装" width="100%">}}
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/component-add/One%20button%20installation.png" width='100%' />
+
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/component-add/One%20button%20installation.png" title="一键安装" width="100%">}}

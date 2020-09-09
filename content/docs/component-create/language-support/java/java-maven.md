@@ -17,7 +17,7 @@ aliases:
 
 ### 编译原理
 
-1. 预编译处理会探测是否定义了启动命令配置文件[Procfile](../../etc/procfile/),如果未定义会根据打包类型或者项目框架生成默认 Procfile 文件;
+1. 预编译处理会探测是否定义了启动命令配置文件 [Procfile](/docs/component-create/language-support/procfile/) ,如果未定义会根据打包类型或者项目框架生成默认 Procfile 文件;
 2. 预编译处理完成后,会根据语言类型选择 Java 的 buildpack 去编译项目.在编译过程中会安装定义的 JDK 版本，Maven 版本，然后构建编译 Maven 源码项目;
 3. 编译完成后会检查是否在平台设置了 Procfile 参数,若配置了会重写启动命令配置文件 Procfile.
 

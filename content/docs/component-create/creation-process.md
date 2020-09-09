@@ -2,6 +2,8 @@
 title: 组件创建流程说明
 description: 本文介绍Rainbond创建组件的主要过程
 weight: 3102
+aliases:
+- /docs/user-manual/component-create/creation-process/
 ---
 
 本篇文档介绍在 Rainbond 中创建组件的基础流程。
@@ -19,7 +21,7 @@ weight: 3102
 
 1. 提供组件名称和所属应用，最关键的是提供构建源信息，源码构建即提供代码仓库地址，授权等信息。
 
-2. 等待 Rainbond 对源代码进行检测，这个过程 Rainbond 将根据代码源信息获取源代码并进行语言类型、语言规范等检测，并从[Rainbondfile](../language-support/etc/rainbondfile/)文件中读取组件属性。
+2. 等待 Rainbond 对源代码进行检测，这个过程 Rainbond 将根据代码源信息获取源代码并进行语言类型、语言规范等检测，并从 [Rainbondfile](/docs/component-create/language-support/rainbondfile/) 文件中读取组件属性。
 
 3. 如果检测结果通过即会根据检测回的组件属性创建组件，如果不通过用户需要根据提示更改相关信息。
 

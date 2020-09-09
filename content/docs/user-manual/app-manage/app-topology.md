@@ -34,8 +34,7 @@ Weight: 4001
 >  如果组件六方体呈现为叠加状，表明当前组件运行了多个实例。
 
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-topology/Multiple%20instances.png" width="100%">
-
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-topology/Multiple%20instances.png" width="100%" >}}
 
 
 #### 编辑模式
@@ -44,7 +43,7 @@ Weight: 4001
 
 * 删除动作
 
-点击连接线按下`delete`键快速删除组件依赖关系、关闭服务组件所有对外端口，方便快捷；
+点击连接线按下 `delete` 键快速删除组件依赖关系、关闭服务组件所有对外端口，方便快捷；
 
 * 增加动作
 

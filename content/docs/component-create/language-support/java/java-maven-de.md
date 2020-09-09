@@ -194,7 +194,7 @@ clean install -pl module_name -am
 
 mvn 完成编译打包后有两种介质，分别为 war 包和 jar 包。
 
-生成的介质如何运行，即启动命令配置，是在代码主目录`Procfile`文件中定义，如果代码中做了定义，服务创建时会识别配置内容来初始化 BUILD_PROCFILE 变量。 `Procfile` 文件的规范请参考[文档](/docs/user-manual/component-create/language-support/etc/procfile/)
+生成的介质如何运行，即启动命令配置，是在代码主目录`Procfile`文件中定义，如果代码中做了定义，服务创建时会识别配置内容来初始化 BUILD_PROCFILE 变量。 `Procfile` 文件的规范请参考 [文档](/docs/user-manual/component-create/language-support/etc/procfile/)
 
 BUILD_PROCFILE 未定义的情况下 Rainbond 编译脚本会做如下判断来生成默认的启动命令配置：
 
@@ -279,4 +279,4 @@ tar -z --exclude='.git' -X "$build_root/.slugignore" -C $build_root -cf $slug_fi
 
 5. 其他问题如何反馈。
 
-   > 遇到源码构建问题无法自己解决，可移步[github](https://github.com/goodrain/builder) 提交你的 issues。我们非常乐于解决各类场景性问题，提供 Rainbond 源码 CI 的兼容性。
+   > 遇到源码构建问题无法自己解决，可移步 [github](https://github.com/goodrain/builder) 提交你的 issues。我们非常乐于解决各类场景性问题，提供 Rainbond 源码 CI 的兼容性。

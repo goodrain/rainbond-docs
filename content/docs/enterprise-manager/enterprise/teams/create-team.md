@@ -24,32 +24,32 @@ weight: 2002
 
 在企业视图首页`团队模块`直接点击`创建团队`
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Create%20team.png" width="100%" />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Create%20team.png" title="创建团队" width="100%">}} 
 
 第二种
 
 在企业视图`团队模块`点击`创建团队`
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Createteam.png" width="100%" />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Createteam.png" title="创建团队" width="100%">}} 
 
 #### 团队重命名
 
 在团队视图`设置`界面对团队进行重命名
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/modifyteamname.png" width="100%"/>
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/modifyteamname.png" title="团队名称管理" width="100%">}} 
 
 
 ### 团队成员管理
 
 #### 添加团队成员
 
-在团队视图设置中`设置`-->`成员`-->`添加成员`，找到要添加的用户和将要授予的权限，确认添加即可，必须是已经添加到企业中的用户才可以加入团队，添加平台用户参考[用户管理](/docs/enterprise-manager/user-registration-login/user-register/)
+在团队视图设置中`设置`-->`成员`-->`添加成员`，找到要添加的用户和将要授予的权限，确认添加即可，必须是已经添加到企业中的用户才可以加入团队，添加平台用户参考 [用户管理](/docs/enterprise-manager/user-registration-login/user-register/)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Add%20member.png" width="100%"/>
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Add%20member.png" title="团队成员管理" width="100%">}}
 
 #### 角色管理
 
-请参考[角色权限管理](/docs/user-manual/manage-team/manage-permision/)
+请参考 [角色权限管理](/docs/user-manual/manage-team/manage-permision/)
 
 
 
