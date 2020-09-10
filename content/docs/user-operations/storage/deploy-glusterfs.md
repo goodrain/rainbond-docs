@@ -47,7 +47,7 @@ weight: 5015
   modprobe dm_thin_pool
   ```
 
-#### 部署 Glusterfs 集群
+### 部署 Glusterfs 集群
 
 以下操作在 Kubernetes 的任一 master 节点执行一次即可
 

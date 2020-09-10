@@ -1,7 +1,7 @@
 ---
 title: Oauth2.0集成功能说明
 description: 关于Rainbond平台企业集成Oauth2.0后能够获得的功能说明
-hidden: true
+hidden: false
 weight: 6001
 ---
 

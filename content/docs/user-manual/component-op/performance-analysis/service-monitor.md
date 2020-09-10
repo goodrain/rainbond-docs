@@ -1,7 +1,7 @@
 ---
 title: 性能分析
 description: Rainbond组件性能分析功能解读
-hidden: true
+hidden: false
 weight: 5005
 ---
 

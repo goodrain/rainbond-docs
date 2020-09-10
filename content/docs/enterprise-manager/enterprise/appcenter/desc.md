@@ -2,7 +2,7 @@
 title: 共享库功能说明
 description: 讲解共享库的功能和使用场景
 weight: 2001
-hidden: true
+hidden: false
 ---
 
 ### 企业中台共享库
@@ -13,7 +13,7 @@ hidden: true
 
 **共享库是Rainbond定义的一种对于Rainbond应用的存储、共享、交付、管理途径。**
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/desc/shared%20library.png" width='100%' />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/desc/shared%20library.png" title="组件库" width="100%">}} 
 
 Rainbond共享库与传统意义上的镜像仓库不同之处在于，它基于镜像仓库、包仓库和对象存储等存储系统支持，定义了支持大型、分布式数字化业务系统的标准云原生应用模型，并针对应用模型提供创建、发布、存储、交付、安装、升级等一系列业务支持，对内可作为以便捷灵活的方式共享企业创造的业务系统、中间件的业务性管理平台，对外可作为根据行业特性构建行业话交付标准、交付流程和交付路径的基础，共享库的最大优点在于它涵盖的不仅是服务组件和应用（业务系统），甚至于解决方案都可以支持一键分享、一键安装使用，极大的便利用户，只需安装使用，覆盖几乎所有的用户，而不仅仅是技术性人员。
 

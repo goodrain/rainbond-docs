@@ -2,16 +2,16 @@
 title: 应用模版
 description: 讲解应用模版的定义及使用
 weight: 2002
-hidden: true
+hidden: false
 ---
 
 ### 应用模版定义
 
-应用模版是应用的身份证，记录了此应用的相关信息，在应用发布或升级时可`选择或创建`相应应用的应用模版，升级操作时，将会在原有应用模版的基础上累加版本信息。
+应用模版是应用的身份证，记录了此应用的相关信息，在应用发布或升级时可 `选择或创建` 相应应用的应用模版，升级操作时，将会在原有应用模版的基础上累加版本信息。
 
 ### 应用模板解析
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/template%20resolution.png" width='100%' />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/template%20resolution.png" title="应用模版" width="100%">}} 
 
 * 名称：应用模板名称（一般为应用名称）
 * 发布范围：定义应用的发布范围
@@ -25,13 +25,13 @@ hidden: true
 
 应用模版的创建有两种方式；第一种方式是在企业视图，共享库界面，点击右边的`+`号，创建应用模版，
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/Create%20application%20template.png" width='100%' />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/Create%20application%20template.png" title="应用模版创建" width="100%">}} 
 
 第二种方式
 
 应用发布时直接选择创建`新的应用模版`
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/Create%20application%20template02.png" width='100%' />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/Create%20application%20template02.png" title="应用模版创建" width="100%">}} 
 
 #### 应用模版删除
 
@@ -41,9 +41,7 @@ hidden: true
 
 在企业视图`共享库`界面选择要编辑的应用模版，点击末尾的导航符，弹出编辑应用模板，即可对模版进行编辑；包含了是否release信息，在版本release时，可勾选，勾选后在共享库界面将会有相关展示信息。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/Edit%20template.png" width='100%' />
-
-
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/Edit%20template.png" title="应用模版编辑" width="100%">}} 
 
 
 

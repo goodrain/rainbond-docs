@@ -2,6 +2,7 @@
 title: 应用性能分析插件说明
 description: Rainbond默认安装的服务性能插件的原理和使用说明
 weight: 8009
+hidden: true
 ---
 
 > 当前文档持续完整中

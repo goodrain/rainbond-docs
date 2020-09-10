@@ -2,6 +2,7 @@
 title: "共享库"
 description: "全面讲解基于共享库的应用交付体验"
 menu: "micro-service-springcloud"
+chapter: true
 weight: 10
 ---
 

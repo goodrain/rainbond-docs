@@ -4,9 +4,11 @@ weight: 206
 describe: Rainbond 技术架构
 ---
 
-# Rainbond 技术架构
+### Rainbond 技术架构
 
-<img width="100%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/architecture.svg"></img>
+
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/architecture.svg" width="100%">}}
+
 
 Rainbond 践行以应用为中心的理念，吸纳优秀的社区解决方案，形成了应用控制、应用运行时，集群控制三大模块结合的数据中心逻辑技术架构，结合以管理节点、计算节点、网关节点、存储节点给类节点类型划分的物理架构形成高可用、高扩展性的数据中心架构体系。
 
@@ -18,7 +20,7 @@ Rainbond 践行以应用为中心的理念，吸纳优秀的社区解决方案�
 
 API 服务作为数据中心级抽象的核心控制服务，对外提供 Restful 风格的 API 服务，是数据中心控制请求的唯一入口，安全控制基于 TLS 双向安全认证。自主签发证书后分发到客户端。
 
-<img width="80%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png"></img>
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png" width="100%">}}
 
 API 服务请求进入后由 router 模块进行请求分发，普通请求进入 Handle 请求处理模块，这类请求主要是操作数据库模型的请求，API 服务基于 ORM 支持 Mysql 数据库和 CockroachDB 数据库。进入 Proxy 的请求分为 API 请求和 Websocket 请求。由 Discover 模块通过 etcd 服务发现其代理目标并转发请求。因此其他组件提供的 API 可通过服务注册由 API 服务代理转发请求。
 
@@ -30,11 +32,11 @@ API 服务请求进入后由 router 模块进行请求分发，普通请求进�
 
 应用网关可以通过水平扩展的方式来增加并发能力和基础性能，通用配置在所有网关节点中同步生效。对于 74IP+
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/gw.png" width="80%"/>
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/gw.png" width="100%">}}
 
 单节点应用网关服务的架构目标是支持多种数据源、支持多 IP、支持高并发能力、支持多 Server 能力、支持动态配置变化能力。基于此需要应用网关架构设计如下：
 
-<img width="80%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/gateway.png"></img>
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/gateway.png" width="100%">}}
 
 应用网关服务集成 Openresty 服务作为前置流量代理服务，基于 lua 对 Openresty 实现功能扩展，Lua-Config-Controller 实现对 Openresty 的动态配置、Upstream 管理、负载均衡策略实现, Lua-Monitor-Controller 实现对请求数据的记录和汇总上报、Lua-Security-Controller 实现对请求的安全控制。三个 Lua 模块由 Openresty-Controller 驱动工作，Metric-Controller 模块汇聚网关的各类监控数据并向外暴露 Prometheus 规范的 Metric-Server。Openresty-Controller 由数据驱动，数据来源于 Gateway-Model-Controller，两层无耦合关系，其实现了标准的接口规范。根据需要我们可以实现基于其他 proxy 服务的驱动器，比如 F5。
 
@@ -42,7 +44,7 @@ API 服务请求进入后由 router 模块进行请求分发，普通请求进�
 
 ### 应用构建服务
 
-<img src="https://static.goodrain.com/images/docs/3.6/architecture/app-ci.png" width="80%" />
+{{<image src="https://static.goodrain.com/images/docs/3.6/architecture/app-ci.png" width="100%">}}
 
 Rainbond 应用构建服务处理 CI 过程，将输入源包括 `源代码` 或 ` Docker``镜像 ` 或 `应用市场应用` 进行解析、编译、打包，最终生成 应用（组件）的版本介质。
 
@@ -54,14 +56,14 @@ Chaos 的输入源是支持 Git、Svn 协议的代码仓库，Docker 镜像仓�
 
 源码构建过程是一个非常消耗资源的过程，因此应用构建服务支持多节点部署来增加并发支持的构建任务数量，每一个节点支持的最大并发构建数量由节点 CPU 核数确定或运维人员手工设置。
 
-> - 关于源码编译的 BuildingPack 参考[各语言支持文档](/docs/user-manual/component-create/language-support/)。
+> - 关于源码编译的 BuildingPack 参考 [各语言支持文档](/docs/component-create/language-support/)。
 > - 应用构建服务支持多点高可用部署，多点部署从消息中间件获取应用构建任务。
 
 ### 应用运行时控制服务
 
 应用运行时控制服务将 Rainbond-Application Model 进行实例化转化为 Kubernetes 资源模型，配属应用运行需要的各类资源，完成应用生命周期中的运行态部分，可以理解为 CD 控制服务，该服务的设计要点是支撑大量应用的生命周期监管。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/worker-arch.svg">
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/worker-arch.svg" width="100%">}}
 
 应用生命周期中可能经历启停、升级与回滚。不同的应用类型需要进行不同的控制策略，例如无状态应用能够进行无序的滚动升级，而有状态应用的升级控制策略将更加复杂。Worker 服务中实现各类组件类型的生命周期控制器器、包含启动、停止、更新、伸缩等待。
 
@@ -127,7 +129,7 @@ Node 组件是 Rainbond 集群组建的基础服务，集群内所有节点都�
 
 Node 组件有两种角色，分别是 master 角色和 worker 角色。一般运行于管理节点的 Node 具有 master 角色，master 角色维护所有节点的状态和信息汇聚，并提供 API 查询服务，worker 角色的节点定时向 master 节点汇报状态。
 
-<center><img width="80%" src="https://static.goodrain.com/images/docs/3.6/architecture/rainbond-cluster-ctl.png" /></center>
+{{<image src="https://static.goodrain.com/images/docs/3.6/architecture/rainbond-cluster-ctl.png" width="100%">}}
 
 节点控制器首先充当当前节点运行服务的守护任务，这方面类似于 Kubelet。每个节点需要运行的服务或健康检测项目，通过 yaml 的格式在/opt/rainbond/conf 目录中定义。控制器启动后将读取此目录下的配置，对于需要启动的服务调用 systemd 守护进程来启动服务， 对于健康检测项目则根据配置生成健康检测控制器。这里的设计主要是为了实现集群的自动化运维和扩充 kubernetes 节点的监控项目。节点控制器将维护所有配置项的状态并汇报给 master 节点。对于异常的服务控制器将根据规则尝试重启恢复服务，若无法恢复时将建议 master 节点将当前节点设置为不健康状态并脱离调度可用范围，直到节点恢复。
 
@@ -135,8 +137,7 @@ Node 组件有两种角色，分别是 master 角色和 worker 角色。一般�
 
 所有计算节点运行的 Node 服务组建起租户网络内运行应用的运行环境支持，特别是 ServiceMesh 支持和插件动态配置查询的支持。Node 服务提供通用的配置发现 API 和服务发现 API 支持当前节点运行的应用架构，在此基础上提供 XDS Server 服务，为内置的 ServiceMesh 架构提供动态配置。
 
-<center>
-<img width="80%" src="https://static.goodrain.com/images/docs/3.6/architecture/ServiceMesh.png" /></center>
+{{<image src="https://static.goodrain.com/images/docs/3.6/architecture/ServiceMesh.png" width="100%">}}
 
 节点控制器日志收集模块实现对当前节点所有应用容器运行日志收集。通过从 Dockerd 实时获取容器的列表和日志驱动配置，生成针对每一个容器的日志 copyer 驱动，日志 copyer 驱动有多种实现，默认的实现是将日志传输到 eventlog 服务中。也支持时间其他日志收集服务的驱动，比如 ES。
 
@@ -164,7 +165,7 @@ DNS 服务为集群提供 DNS 解析服务, 基于 Kube-DNS 二次开发。
 
 ### 镜像仓库服务
 
-基于开源[Distribution](https://github.com/docker/distribution)项目，用于当前数据中心下的容器镜像存储。
+基于开源 [Distribution](https://github.com/docker/distribution) 项目，用于当前数据中心下的容器镜像存储。
 
 ### 包仓库（Artifactory）
 

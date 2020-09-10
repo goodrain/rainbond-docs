@@ -29,7 +29,7 @@ NAME             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
 
 ### 组件信息
 
-Rainbond所有组件都位于`rbd-system`同一名称空间下，由不同控制器管理
+Rainbond所有组件都位于 `rbd-system` 同一名称空间下，由不同控制器管理
 
 | 控制器类型  | 组件名称                   | 所属部署类型                 |
 | ----------- | -------------------------- | ---------------------------- |
@@ -57,7 +57,8 @@ Rainbond所有组件都位于`rbd-system`同一名称空间下，由不同控制
 ```bash
 kubectl get pod -n rbd-system
 ```
-<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/component-op/pod.png" style="border:1px solid #eee;width:90%"/></center>
+
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/component-op/pod.png" width="100%" >}}
 
 
 - 查看rainbond所有组件的pod信息，并且查看都在哪些节点上运行
@@ -66,11 +67,11 @@ kubectl get pod -n rbd-system
 kubectl get pods -o wide -n rbd-system
 ```
 
-<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/component-op/wasnode.png" style="border:1px solid #eee;width:90%"/></center>
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/component-op/wasnode.png" width="100%" >}}
 
 ### 查看组件详细信息
 
-这里以`rbd-api`组件为例,查看详细信息
+这里以 `rbd-api` 组件为例,查看详细信息
 
 ```bash
 kubectl describe pod -l name=rbd-api   -n rbd-system
@@ -107,9 +108,9 @@ kubectl logs --since=1h -l name=rbd-api  -n rbd-system
 
 要查看其他组件日志，只需将name后的组件名称替换为想要查看日志的组件即可
 
-`rbd-app-ui`组件的日志持久化目录为`/opt/rainbond/logs/rbd-app-ui`，查看`goodrain.log`即可以看到相关日志信息。
+`rbd-app-ui` 组件的日志持久化目录为 `/opt/rainbond/logs/rbd-app-ui` ，查看 `goodrain.log` 即可以看到相关日志信息。
 
-源码构建过程相关日志查看，请参考[grctl命令行工具](/docs/user-operations/tools/grctl/)
+源码构建过程相关日志查看，请参考 [grctl命令行工具](/docs/user-operations/tools/grctl/)
 
 **以下组件由systemd托管，可使用以下方式查看组件日志**
 
@@ -161,7 +162,7 @@ kubectl delete pod <podName> -n rbd-system
 
 **进入容器执行命令**
 
-以`rbd-gateway`组件为例，进入pod查看nginx配置
+以 `rbd-gateway` 组件为例，进入pod查看nginx配置
 
 ```bash
 # 首先查看gateway组件的PodName
@@ -174,7 +175,7 @@ kubectl exec -it rbd-gateway-bcjjg -n rbd-system bash
 bash-5.0#  cat /run/nginx/conf/nginx.conf
 ```
 
-**直接在命令行使用`kubectl`执行容器内命令**
+**直接在命令行使用 `kubectl` 执行容器内命令**
 
 示例：
 
@@ -196,7 +197,7 @@ pvc-b0ec90e1-2201-44d1-891b-f2e10127d7cc   1Mi        RWX            Delete     
 
 ### 命令行更换镜像
 
-将由deployment控制权管理的`rbd-api`容器镜像滚动更新为`goodrain.me/rbd-api:V5.2.0-release`
+将由deployment控制权管理的 `rbd-api` 容器镜像滚动更新为 `goodrain.me/rbd-api:V5.2.0-release`
 
 ```bash
 kubectl set image rbdcomponents rbd-api  rbd-api=goodrain.me/rbd-api:V5.2.0-release -n rbd-system

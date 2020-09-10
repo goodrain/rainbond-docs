@@ -2,7 +2,7 @@
 title: 基于共享库的应用交付
 description: 基于共享库的应用交付体验
 weight: 2005
-hidden: true
+hidden: false
 ---
 
 ### 应用交付
@@ -21,21 +21,11 @@ hidden: true
 
 为了让用户能够更好的管理自己的应用，快捷简单交付业务，我们为平台设计了应用导入导出功能，该功能允许用户通过简单的几次点击，就可以将内部市场的应用打包为一个压缩文件，并可以下载到本地。在导出的时候，支持两种格式，一种为rainbond-app格式，另一种为docker-compose格式。
 
-**目前应用导出功能在企业版当中提供支持**
-
-##### 应用导出功能开启流程
-
-* 在管理后台打开应用导出功能
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/open%20export%20app.png" width='100%' />
-
-* 打开后即可使用应用导出功能
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Click%20export01.png" width='100%' />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Click%20export01.png" title="应用导出" width="100%">}}
 
 * 选择要导出的应用版本，即可开始导出，导出时长根据网络情况决定。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Click%20export02.png" width='100%' />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Click%20export02.png" title="应用导出" width="100%">}}
 
 
 ### 应用导入
@@ -44,17 +34,15 @@ hidden: true
 
 * 应用导入流程
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Offline%20import.png" width='100%' />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Offline%20import.png" title="应用导入" width="100%">}}
 
 **应用模版导入界面**
 
 点击`上传`按钮即可选择要导入的应用模版，上传完毕后将会在已上传文件列表展示已上传的应用，勾选之后可以根据自己的需要选择导入团队或是企业，点击`确认导入`，即进入应用模版导入流程，在此页面请耐心等待，直到提示导入成功，具体速度根据网络速度决定。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Import%20page.png" width='100%' />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Import%20page.png" title="应用导入" width="100%">}}
 
 导入成功之后将会自动跳转至导入的应用模版界面，在创建组件时选择`从共享库创建`一键安装该组件即可
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Successful%20import.png" width='100%' />
-
-
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Successful%20import.png" title="应用导入" width="100%">}}
 

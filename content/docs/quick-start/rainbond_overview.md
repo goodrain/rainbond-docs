@@ -9,7 +9,7 @@ Description: "Rainbond 是以企业云原生应用开发、架构、运维、共
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/Rainbond%E4%BA%A7%E5%93%81%E6%9E%B6%E6%9E%84.png" width="60%">
 
-## 应用场景
+### 应用场景
 
 * 企业云原生DevOps
 
@@ -31,7 +31,7 @@ Kubernetes技术复杂上手难；大量Deployment、Statefulset或Operator资�
 
 Rainbond完成与龙芯、飞腾、麒麟操作系统等为代表的国产化计算基座的双向认证，使Rainbond具有屏蔽底层CPU架构、操作系统的差异，对用户提供统一的国产化业务应用管理平台。
 
-## 主要功能特性
+### 主要功能特性
 
 | 特性                   | 描述                                                         |
 | ---------------------- | ------------------------------------------------------------ |
@@ -48,10 +48,10 @@ Rainbond完成与龙芯、飞腾、麒麟操作系统等为代表的国产化计
 | 应用描述模型           | 以应用为中心描述应用包含的组件特性，应用特性，部署运维特性，实现复杂应用的标准化交付。 |
 
 
-* 更多特性请见 [功能列表](../edition/)
-* 版本计划详见 [开发计划](../roadmap/)
+* 更多特性请见 [功能列表](/docs/quick-start/edition/)
+* 版本计划详见 [开发计划](/docs/quick-start/roadmap/)
 
-#### Rainbond的优势
+### Rainbond的优势
 
 1. 用户只需要关注自身业务，业务之外的技术问题（资源管理、运维、架构、治理、环境等），一站式解决。
 2. Rainbond结合行业应用，通过模块化组装和少量定制开发，就可实现行业专属开发、交付、运维平台，俗称行业PaaS
@@ -59,4 +59,4 @@ Rainbond完成与龙芯、飞腾、麒麟操作系统等为代表的国产化计
 4. 系统兼容性强，Windows、国产系统均可支持。
 5. 国产化、私有化能力强，离线安装使用几乎没有外界依赖, 积极参与国家”安可“项目计划。
 
-{{% button href="../rainbond_install/" %}}我已经了解，开始安装{{% /button %}} {{% button href="/enterprise_service/" %}}了解企业服务{{% /button %}}
+{{% button href="/docs/quick-start/quick-install/" %}}我已经了解，开始安装{{% /button %}} {{% button href="/docs/enterprise_service/" %}}了解企业服务{{% /button %}}

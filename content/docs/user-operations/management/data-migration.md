@@ -4,7 +4,7 @@ weight: 1007
 description: 将数据由平台默认数据存储中心rbd-db迁移至外部数据库
 ---
 
-#### 操作步骤
+### 操作步骤
 
 #### 可选项，通过docker部署外部数据库
 
@@ -24,7 +24,7 @@ description: 将数据由平台默认数据存储中心rbd-db迁移至外部数�
 
 ><font color="#dd0000">注意：数据备份之后请勿在平台上继续进行操作，以免造成数据不一致</font><br />
 
-#### 迁移数据
+### 迁移数据
 
 - 获取原来的数据库密码
 
@@ -32,7 +32,7 @@ description: 将数据由平台默认数据存储中心rbd-db迁移至外部数�
   kubectl exec -it -n rbd-system rbd-db-0 -- env|grep MYSQL_ROOT_PASSWORD
   ```
 
-- 替换变量`MYSQL_ROOT_PASSWORD`后，备份数据库并确认数据是否完整
+- 替换变量 `MYSQL_ROOT_PASSWORD` 后，备份数据库并确认数据是否完整
 
   ```bash
   kubectl exec  -it  rbd-db-0 -n rbd-system  --  mysqldump -p$MYSQL_ROOT_PASSWORD --all-databases > all.sql && cat all.sql
