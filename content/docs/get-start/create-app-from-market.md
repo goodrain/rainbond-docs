@@ -1,17 +1,17 @@
 ---
 title: 3.部署一个 Mysql 服务
-description: 基于共享库一键构建并部署一个应用
-keywords: 应用 业务组件 共享库 构建 部署
+description: 基于应用市场一键构建并部署一个应用
+keywords: 应用 业务组件 应用市场 构建 部署
 weight: 203
 ---
 
 ### 目的
 
-通过文档学习如何通过 Rainbond 特有的共享库机制一键部署应用。
+通过文档学习如何通过 Rainbond 特有的应用市场机制一键部署应用。
 
 ### 意义
 
-这是一种非常快捷的部署方式，相对于部署一个单个的服务组件，这种部署方式可以快速部署包含多个服务组件的完整业务系统。基于 Rainbond 实现的多种高级场景都以共享库为基础。
+这是一种非常快捷的部署方式，相对于部署一个单个的服务组件，这种部署方式可以快速部署包含多个服务组件的完整业务系统。基于 Rainbond 实现的多种高级场景都以应用市场为基础。
  
 ### 前提条件
 
@@ -19,11 +19,11 @@ weight: 203
 
 - 已经安装好的 Rainbond 集群，或者已经对接好 Rainbond Cloud 公有云服务。
 
-- 完成 **共享库** —— **云端同步** 的认证。
+- 完成 **应用市场** —— **云端同步** 的认证。
 
-### 基于共享库创建组件
+### 基于应用市场创建组件
 
-- 在指定团队页面下，依次点击 **新增**、**基于共享库创建组件**。
+- 在指定团队页面下，依次点击 **新增**、**基于应用市场创建组件**。
 
 - 选择希望安装的应用模版，在文档的示例中，以 **MYSQL-Percona分支单机版 v5.7.23** 为例。
 
@@ -31,9 +31,9 @@ weight: 203
 
 - **确认安装**
 
-{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-1.png" title="从共享库安装" width="100%">}}
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-1.png" title="从应用市场安装" width="100%">}}
 
-{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-2.png" title="从共享库安装" width="100%">}}
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-2.png" title="从应用市场安装" width="100%">}}
 
 
 ### 安装完成
@@ -42,7 +42,7 @@ weight: 203
 
 到这里，**我的第一个应用** 中已经有了两个服务组件。
 
-{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-3.png" title="从共享库安装" width="100%">}}
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-3.png" title="从应用市场安装" width="100%">}}
 
 
 ### 下一步

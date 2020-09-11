@@ -14,7 +14,7 @@ weight: 20
 
 ### 操作步骤
 
-通过共享库一键安装的方式，可以将 GitLab 直接部署到你的 Rainbond 环境中。
+通过应用市场一键安装的方式，可以将 GitLab 直接部署到你的 Rainbond 环境中。
 
 #### GitLab 快速部署
 

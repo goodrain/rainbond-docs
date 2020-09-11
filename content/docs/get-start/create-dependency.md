@@ -11,7 +11,7 @@ weight: 204
 
 Rainbond 支持原生的 Service Mesh 微服务架构，应用一旦部署到 Rainbond 平台上，就已经接入了这一微服务架构。
 
-经过了 [从源码部署一个服务组件](/docs/get-start/create-app-from-source/) 以及 [从共享库部署一个应用](/docs/get-start/create-app-from-market/)，我们已经成功的部署了两个服务组件，现在，我们来创建他们之间的依赖关系。
+经过了 [从源码部署一个服务组件](/docs/get-start/create-app-from-source/) 以及 [从应用市场部署一个应用](/docs/get-start/create-app-from-market/)，我们已经成功的部署了两个服务组件，现在，我们来创建他们之间的依赖关系。
 
 这么做的意义，是让 **Java演示示例** 可以和 **Mysql5.7（单机版）** 通信，业务层面可以正常调用数据库。
 
@@ -23,7 +23,7 @@ Rainbond 支持原生的 Service Mesh 微服务架构，应用一旦部署到 Ra
 
 - 完成 [从源码部署一个服务组件](/docs/get-start/create-app-from-source/) 获得 **Java演示示例**。
 
-- 完成 [从共享库部署一个应用](/docs/get-start/create-app-from-market/) 获得 **Mysql5.7（单机版）**。
+- 完成 [从应用市场部署一个应用](/docs/get-start/create-app-from-market/) 获得 **Mysql5.7（单机版）**。
 
 ### 建立依赖关系
 
@@ -45,4 +45,4 @@ Rainbond 支持原生的 Service Mesh 微服务架构，应用一旦部署到 Ra
 
 ### 下一步
 
-接下来，我们会探索如何将当前这组用户自己制作的应用，发布到 Rainbond 提供的共享库中，形成自己的应用模版。
+接下来，我们会探索如何将当前这组用户自己制作的应用，发布到 Rainbond 提供的应用市场中，形成自己的应用模版。

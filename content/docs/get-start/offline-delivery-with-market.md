@@ -1,13 +1,13 @@
 ---
 title: 7.把应用交付给客户
-description: 在离线生产环境中，通过共享库交付。
-keywords: 应用模版 共享库 交付
+description: 在离线生产环境中，通过应用市场交付。
+keywords: 应用模版 应用市场 交付
 weight: 207
 ---
 
 ### 目的
 
-通过文档学习在实际生产环境中，如果遇到完全离线的情况下 Rainbond 如何通过共享库将应用交付给客户，以及后续的升级。
+通过文档学习在实际生产环境中，如果遇到完全离线的情况下 Rainbond 如何通过应用市场将应用交付给客户，以及后续的升级。
 
 ### 意义
 
@@ -23,7 +23,7 @@ weight: 207
 
 已发布的应用模版，可以直接导出为两种形式的离线应用包，这种离线应用包，可以在完全离线的环境下进行交付。
 
-- **RainbondApp规范** 离线应用包，可以在其他 Rainbond 平台进行应用模版导入，一旦导入，就可以从共享库进行部署。
+- **RainbondApp规范** 离线应用包，可以在其他 Rainbond 平台进行应用模版导入，一旦导入，就可以从应用市场进行部署。
 
 - **DockerComposeApp规范** 离线应用包，可以在具备 Docker Compose 的离线环境中进行部署，这个包中会包含组件基础镜像以及相应的 **docker-compose.yaml** 文件。
 
@@ -41,7 +41,7 @@ weight: 207
 
 导出的应用模版，以离线应用包的模式存在。这个包可以用其他介质（光盘、移动硬盘等）转移到离线生产环境中。接下来，我们需要将这个包导入离线 Rainbond 中去。
 
-- 进入 **共享库** 页面，点击 **+** 、**导入应用模版**。
+- 进入 **应用市场** 页面，点击 **+** 、**导入应用模版**。
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/offline-delivery-with-market/offline-delivery-with-market-1.png" title="导入应用模版" width="100%">}}
 
@@ -51,7 +51,7 @@ weight: 207
 
 经过上述操作，应用模版就被导入离线生产环境的 Rainbond 中去了。
 
-接下来，参照 [从共享库部署一个应用](/docs/get-start/create-app-from-market/) 的操作，即可将应用模版安装到生产环境中。
+接下来，参照 [从应用市场部署一个应用](/docs/get-start/create-app-from-market/) 的操作，即可将应用模版安装到生产环境中。
 
 ### 离线环境下的应用模版升级
 

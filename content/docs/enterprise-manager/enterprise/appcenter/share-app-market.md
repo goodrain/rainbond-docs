@@ -1,6 +1,6 @@
 ---
-title: 共享库应用的升级
-description: 基于共享库的应用升级
+title: 应用市场应用的升级
+description: 基于应用市场的应用升级
 weight: 2004
 hidden: false
 ---
