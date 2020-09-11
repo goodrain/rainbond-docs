@@ -1372,7 +1372,7 @@ a {
       align-items: center;
       margin-top: 20px; }
       .main-section .main-content .feature-guide .feature-box .left-box {
-        width: 840px;
+        width: 100%;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;
@@ -1381,7 +1381,7 @@ a {
         justify-content: flex-start;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-        border-right: 1px solid rgba(118, 128, 142, 0.1); }
+      }
         .main-section .main-content .feature-guide .feature-box .left-box .feature-item {
           display: -ms-flexbox;
           display: flex;
@@ -1389,10 +1389,9 @@ a {
           justify-content: flex-start;
           -ms-flex-align: center;
           align-items: center;
-          width: 261px;
+          width: 25%;
           height: 40px;
           padding-left: 10px;
-          margin-right: 20px;
           margin-top: 6px;
           margin-bottom: 6px;
           position: relative;

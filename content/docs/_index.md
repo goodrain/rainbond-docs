@@ -1,5 +1,5 @@
 ---
-title: Rainbond文档中心
+title: BOE 产品云文档中心
 layout: dashboard
 ---
 

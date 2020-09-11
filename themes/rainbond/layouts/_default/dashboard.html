@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    {{ partial "header.html" (dict "context" .   "active" "doc") }}
+    <!-- {{ partial "header.html" (dict "context" .   "active" "doc") }} -->
 
     {{ partial "doc-head.html" }}
     <section style="padding: 2rem 0;background: #f3f7ff;">
@@ -283,40 +283,6 @@
                             </div>
                             {{end}}
                         </div>
-                        <div class="right-box">
-                            <div class="txt">
-                                <h2>组织一个分享会</h2>
-                                <p class="p1">20min+远程会议+讲解演示</p>
-                                <p>跟随架构师快速了解Rainbond项目</p>
-                            </div>
-                            <div class="btn-area visitor-show">
-                                <div class="btn book">
-                                    <div class="img">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                            <g id="Support" fill="none" fill-rule="evenodd" stroke="none"
-                                                stroke-width="1">
-                                                <g id="Desktop-HD" fill="#202D40" fill-rule="nonzero"
-                                                    transform="translate(-1176 -1061)">
-                                                    <g id="read-this-documents" transform="translate(168 845)">
-                                                        <g id="download-ppt" transform="translate(843 63)">
-                                                            <g id="button-booking" transform="translate(151 142)">
-                                                                <g id="icons/presentation" transform="translate(14 11)">
-                                                                    <circle id="Oval" cx="4" cy="3" r="2" />
-                                                                    <path id="Path"
-                                                                        d="M10 8a1 1 0 0 0 0-2H3a2 2 0 0 0-2 2v8a1 1 0 0 0 2 0v-4h1v4a1 1 0 0 0 2 0V8h4z" />
-                                                                    <path id="Path"
-                                                                        d="M16 2H8v2h7v7H8v2h3.382l1.723 3.447a1 1 0 1 0 1.79-.894L13.618 13H16a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
-                                                                </g>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                    </div>预约演示
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -324,7 +290,7 @@
     </section>
 
     <!-- faq -->
-    <section class="problem-section">
+    <!-- <section class="problem-section">
         <div class="section-content container">
             <h2 class="title">常见问题</h2>
             <div class="problem-content">
@@ -370,10 +336,10 @@
                 {{end}}
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- support section -->
-    {{partial "medium.html" }}
+    <!-- {{partial "medium.html" }} -->
 
     {{ partial "footer.html" . }}
 </body>

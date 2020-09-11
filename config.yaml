@@ -16,14 +16,14 @@ params:
   keywords: '视频教程，好雨, goodrain, Rainbond, 云帮, 以应用为中心, serverless, PaaS, SaaS, Kubernetes, 微服务架构, servicemesh, DevOps, CI/CD, 高效运维, 云原生, 公有云, 私有云, 混合云, 应用交付, 微服务, 容器云, 容器云平台, 容器云服务, 镜像构建, 源码构建, 云原生应用, 微服务, 微服务平台, springcloud微服务架构, service mesh, 服务网格, 微服务设计, sidecar, 行业云, 开发云, 智慧云, 云计算解决方案'
   dashboard:
     recommended:
-      - title: Rainbond设计思想
-        url: /docs/architecture/design-concept/
-      - title: Rainbond技术架构
-        url: /docs/architecture/architecture/
-      - title: Rainbond功能概述
-        url: /docs/quick-start/edition/
-      - title: Rainbond Cloud介绍
-        url: /docs/quick-start/rainbond-cloud/
+      - title: 部署Java Maven项目
+        url: /docs/component-create/language-support/java/java-maven/
+      - title: 部署Golang 项目
+        url: /docs/component-create/language-support/golang/
+      - title: 部署React、Vue项目
+        url: /docs/component-create/language-support/nodejs-static/
+      - title: 部署自定义Dockerfile的项目
+        url: /docs/component-create/language-support/dockerfile/
       - title: 关键概念
         url: /docs/user-manual/concept/
       - title: 组件开发

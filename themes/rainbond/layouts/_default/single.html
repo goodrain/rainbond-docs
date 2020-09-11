@@ -4,7 +4,7 @@
 
 <body>
     {{ $active := "doc" }}
-    {{ partial "header.html" (dict "context" .   "active" "doc") }}
+    <!-- {{ partial "header.html" (dict "context" .   "active" "doc") }} -->
 
     {{ if eq .Params.Render  "video"}}
     {{ partial "video.html" . }}
