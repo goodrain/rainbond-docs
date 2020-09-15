@@ -1,6 +1,6 @@
 ---
-title: 基于共享库的应用交付
-description: 基于共享库的应用交付体验
+title: 基于应用市场的应用交付
+description: 基于应用市场的应用交付体验
 weight: 2005
 hidden: false
 ---
@@ -15,7 +15,7 @@ hidden: false
 
 ### 版本管理
 
-共享库中的应用支持多个版本共存，应用的操作粒度支持到版本级别。
+应用市场中的应用支持多个版本共存，应用的操作粒度支持到版本级别。
 
 ### 应用导出
 
@@ -42,7 +42,7 @@ hidden: false
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Import%20page.png" title="应用导入" width="100%">}}
 
-导入成功之后将会自动跳转至导入的应用模版界面，在创建组件时选择`从共享库创建`一键安装该组件即可
+导入成功之后将会自动跳转至导入的应用模版界面，在创建组件时选择`从应用市场创建`一键安装该组件即可
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/add-app/Successful%20import.png" title="应用导入" width="100%">}}
 

@@ -38,11 +38,10 @@ Rainbond所有组件都位于 `rbd-system` 同一名称空间下，由不同控�
 | statefulset | rbd-db                     | 开源版、企业版               |
 | statefulset | rbd-etcd                   | 所有版本                     |
 | statefulset | rbd-monitor                | 所有版本                     |
-| statefulset | rbd-repo                   | 所有版本                     |
-| deployment  | mysql-operator             | 使用mysql-operator高可用安装 |
+| statefulset | rbd-repo                   | 所有版本                      |
+| statefulset  | rbd-eventlog               | 所有版本                     |
 | deployment  | rbd-api                    | 所有版本                     |
 | deployment  | rbd-app-ui                 | 开源版、企业版               |
-| deployment  | rbd-eventlog               | 所有版本                     |
 | deployment  | rbd-hub                    | 所有版本                     |
 | deployment  | rbd-mq                     | 所有版本                     |
 | deployment  | rbd-webcli                 | 所有版本                     |
@@ -51,7 +50,6 @@ Rainbond所有组件都位于 `rbd-system` 同一名称空间下，由不同控�
 | daemonset   | rbd-chaos                  | 所有版本                     |
 | daemonset   | rbd-gateway                | 所有版本                     |
 | daemonset   | rbd-node                   | 所有版本                     |
-
 
 
 - 查看Rainbond所有组件的pod信息
@@ -144,9 +142,9 @@ journalctl -fu docker.service
 这里以不同控制器类型的组件为例，修改其他组件配置时将名称及控制器类型替换即可
 
 ```bash
-kubectl edit deployment rbd-api -n rbd-system
-kubectl edit statefulset rbd-db -n rbd-system
-kubectl edit daemonset rbd-node -n rbd-system
+kubectl edit rbdcomponents rbd-api -n rbd-system
+kubectl edit rbdcomponents rbd-db -n rbd-system
+kubectl edit rbdcomponents rbd-node -n rbd-system
 ```
 
 配置修改完成之后，保存退出，pod将自动重启更新配置
@@ -181,10 +179,10 @@ bash-5.0#  cat /run/nginx/conf/nginx.conf
 
 示例：
 
-直接在命令行对数据库进行备份
+查看`rbd-app-ui`的控制台日志
 
 ```bash
-kubectl exec  -it  rbd-db-0 -n rbd-system  --  mysqldump --all-databases > all.sql
+kubectl exec -it -n rbd-system rbd-app-ui-684d67d8f5-8k4bb -- tail -f /app/logs/goodrain.log
 ```
 
 ### 查看PV
@@ -202,5 +200,5 @@ pvc-b0ec90e1-2201-44d1-891b-f2e10127d7cc   1Mi        RWX            Delete     
 将由deployment控制权管理的 `rbd-api` 容器镜像滚动更新为 `goodrain.me/rbd-api:V5.2.0-release`
 
 ```bash
-kubectl set image deployment rbd-api  rbd-api=goodrain.me/rbd-api:V5.2.0-release -n rbd-system
+kubectl set image rbdcomponents rbd-api  rbd-api=goodrain.me/rbd-api:V5.2.0-release -n rbd-system
 ```

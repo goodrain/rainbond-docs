@@ -14,7 +14,7 @@ weight: 10
 |功能|简介|
 | ---- | --- |
 |总览|展示`企业信息，应用，团队，集群资源`等信息|
-|共享库|展示该企业下的应用模型，是企业数字资产的应用化产物，可以通过标准的方式安装到任何Rainbond平台或其他支持的云原生平台 ,参见 [共享库](/docs/enterprise-manager/enterprise/appcenter/desc/) |
+|应用市场|展示该企业下的应用模型，是企业数字资产的应用化产物，可以通过标准的方式安装到任何Rainbond平台或其他支持的云原生平台 ,参见 [应用市场](/docs/enterprise-manager/enterprise/appcenter/desc/) |
 |团队|在Rainbond中，团队是一个资源集合的概念，参见 [团队管理](/docs/enterprise-manager/enterprise/teams/create-team/) |
 |集群|在Rainbond企业版和公有云版本中，一个企业可以对接多个集群，参见 [集群管理](/docs/enterprise-manager/cluster-management/cluster-management/)|
 |用户|展示企业用户信息，`删除，添加，修改密码` 等，参见 [用户管理](/docs/enterprise-manager/user-registration-login/user-register/)|

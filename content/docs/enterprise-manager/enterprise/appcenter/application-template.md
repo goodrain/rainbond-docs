@@ -11,7 +11,7 @@ hidden: false
 
 ### 应用模板解析
 
-{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/template%20resolution.png" title="应用模版" width="100%">}} 
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/template_resolution.png" title="应用模版" width="100%">}} 
 
 * 名称：应用模板名称（一般为应用名称）
 * 发布范围：定义应用的发布范围
@@ -23,9 +23,9 @@ hidden: false
 
 #### 应用模版创建
 
-应用模版的创建有两种方式；第一种方式是在企业视图，共享库界面，点击右边的`+`号，创建应用模版，
+应用模版的创建有两种方式；第一种方式是在企业视图，应用市场界面，点击右边的`+`号，创建应用模版，
 
-{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/Create%20application%20template.png" title="应用模版创建" width="100%">}} 
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/Create_application_template.jpg" title="应用模版创建" width="100%">}} 
 
 第二种方式
 
@@ -35,13 +35,13 @@ hidden: false
 
 #### 应用模版删除
 
-在企业视图`共享库`界面选择将要删除的应用模板，点击末尾的导航符，弹出`删除应用模版`，点击即可删除。
+在企业视图`应用市场`界面选择将要删除的应用模板，点击末尾的导航符，弹出`删除应用模版`，点击即可删除。
 
 #### 应用模版编辑
 
-在企业视图`共享库`界面选择要编辑的应用模版，点击末尾的导航符，弹出编辑应用模板，即可对模版进行编辑；包含了是否release信息，在版本release时，可勾选，勾选后在共享库界面将会有相关展示信息。
+在企业视图`应用市场`界面选择要编辑的应用模版，点击末尾的导航符，弹出编辑应用模板，即可对模版进行编辑；包含了是否release信息，在版本release时，可勾选，勾选后在应用市场界面将会有相关展示信息。
 
-{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/Edit%20template.png" title="应用模版编辑" width="100%">}} 
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/appcenter/application-template/Edit_template.jpg" title="应用模版编辑" width="100%">}} 
 
 
 
