@@ -2,7 +2,7 @@
 title: Tomcat配置Redis实现Session共享
 description: how-to-use-rainbond
 hidden: false
-weight: 806
+weight: 809
 aliases:
 - /docs/user-manual/component-create/language-support/java/tomcat-redis-session/
 ---

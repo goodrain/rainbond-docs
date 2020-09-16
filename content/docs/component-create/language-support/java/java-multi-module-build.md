@@ -1,8 +1,9 @@
 ---
-Title: "Maven 多模块源码构建"
+Title: "Java Maven 多模块源码构建"
 Description: "Rainbond Java源码多模块构建"
-Hidden: true
-Weight: 22004
+Weight: 804
+aliases:
+- /docs/advanced-scenarios/devops/java-multi-module-build/
 ---
 
 ### Maven 多模块项目构建识别策略

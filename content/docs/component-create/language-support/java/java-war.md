@@ -2,22 +2,22 @@
 title: Java War包部署组件
 description: 讲述Java War包部署组件要点，适用于开发者和运维人员参考。
 hidden: false
-weight: 805
+weight: 806
 aliases:
 - /docs/user-manual/component-create/language-support/java/java-war/
 ---
 
-#### War 项目识别策略
+### War 项目识别策略
 
 平台默认会根据源码根目录下是否有 War 文件来识别为 Java War 项目。
 
-#### 平台编译运行机制
+### 平台编译运行机制
 
 1. 预编译处理会探测是否定义了启动命令配置文件 [Procfile](/docs/component-create/language-support/procfile/) ,如果未定义会生成默认 War 包启动配置文件;
 2. 预编译处理完成后,会根据语言类型选择 Java-war 的 buildpack 去编译项目.在编译过程中会安装定义的 JDK 版本,Web 服务;
 3. 编译完成后会检查是否在平台设置了 Procfile 参数,若配置了会重写启动命令配置文件 Procfile.
 
-#### War 项目源码规范
+### War 项目源码规范
 
 在此步骤中，你需要提供一个可用的 Java War 源码程序用来部署在 Rainbond 平台上,此应用程序至少需要满足如下条件:
 
@@ -25,7 +25,7 @@ aliases:
 2. 源码程序必须托管在 gitlab 等相关 git 或者 svn 服务上
 3. 源码程序根路径下必须需要存在 War 文件(即项目已经打成 war 文件)
 
-##### Procfile 规范
+#### Procfile 规范
 
 如果项目未定义 Procfile 文件,平台默认会生成默认 Procfile 来运行 War 包。
 
@@ -47,11 +47,11 @@ web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT ./*.war
   需要配置 context path,可以通过自定义 Procfile 指定 [webapp-runner 参数 path](https://github.com/jsimone/webapp-runner#options)
 - 示例 `web: java $JAVA_OPTS -jar ./webapp-runner.jar --path <path路径,示例: /r6d> --port $PORT ./*.war`
 
-#### 编译运行环境设置
+### 编译运行环境设置
 
 在选择 JDK 版本或其他组件版本时，需要注意 JDK 或者其他组件版本不要选择比项目使用的版本过高或者过低以免导致源码编译失败
 
-##### OpenJDK 支持
+#### OpenJDK 支持
 
 当前 Rainbond 支持 OpenJDK 如下版本为：
 
@@ -69,7 +69,7 @@ web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT ./*.war
 java.runtime.version=1.8
 ```
 
-##### OracleJDK 支持
+#### OracleJDK 支持
 
 平台目前也支持 OracleJDK,但此特性需要在平台里启用才会生效。  
 默认不内置提供 OracleJDK 下载,需要在设置里启用 OracleJDK 后配置相关 OracleJDK 下载地址。
@@ -78,7 +78,7 @@ OracleJDK 下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.t
 
 平台设置的配置优先级要高于程序代码中定义的配置，如 Java JDK 版本的选择,在程序代码里通过`system.properties`指定了 JDK 版本为 1.9,在平台上选择了 JDK 版本为 11,那么默认在进行源码编译时会优先使用平台指定的版本 JDK11
 
-##### Web 服务支持
+#### Web 服务支持
 
 通过 web 服务(tomcat 或者 jetty)将 war 包运行起来,即通过`java -jar ./webapp-runner.jar ./*.war`或者`java -jar ./jetty-runner.jar ./*.war`方式运行.
 
@@ -106,7 +106,7 @@ OracleJDK 下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.t
 选择 tomcat7 版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行  
 关于 webapp-runner 详细配置请参考 [webapp-runner 使用说明](/docs/component-create/language-support/java/webapp-runner/)
 
-#### 高级构建选项
+### 高级构建选项
 
 在构建高级设置或构建源处启用高级构建特性
 
@@ -115,15 +115,15 @@ OracleJDK 下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.t
 | BUILD_WEBSERVER_URL |        | 自定义 WEBAPP-RUNNER 下载地址        |
 | BUILD_ONLINE        |        | 默认下载 Rainbond 内置 Webapp-Runner |
 
-#### 其他说明
+### 其他说明
 
 1. 默认会将 war 文件解压至`/app/target/tomcat.<port>`目录下,不支持通过添加配置文件的方式到 war 解压路径下,否则会导致应用无法正常启动
 
-#### 示例 demo 程序
+### 示例 demo 程序
 
 示例 [https://github.com/goodrain/java-war-demo](https://github.com/goodrain/java-war-demo.git)
 
-#### 推荐阅读
+### 推荐阅读
 
 - [Java-Maven 源码构建应用](../java-maven/)
 - [Java-Jar 源码构建应用](../java-jar/)
