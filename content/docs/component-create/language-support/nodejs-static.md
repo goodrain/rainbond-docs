@@ -115,16 +115,22 @@ Nodejs 前端语言项目的编译运行环境可以通过代码进行设置。
 upstream upstream-server {
     server 127.0.0.1:8080;
 }
-   
+
 server {
     listen 5000;
-       
-    location /manage-server {
+    
+    location /api {
         proxy_http_version 1.1;
         proxy_set_header Host manage-server;
         proxy_pass http://upstream-server;
     }
-   
+
+    location /index.html {
+        add_header Cache-Control "private, no-store, no-cache, must-revalidate, proxy-revalidate";
+        try_files $uri $uri/ /index.html;
+        root   /app/www;
+        index  index.html index.htm;
+    }
     location / {
         try_files $uri $uri/ /index.html;
         root   /app/www;
