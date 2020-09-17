@@ -5,27 +5,41 @@
 <body>
     {{ $active:="index" }}
     {{ partial "header.html" (dict "context" .   "active" "index")}}
-    <section class="hero is-default is-bold has-text-centered">
-        <h1>
-            <img src="images/rainbondlog.png" alt="Rainbond" /><br>
-            <span>Enterprise Application System</span>
-        </h1>
-
-        <h2>云原生应用开发、架构、共享、交付、运维平台</h2>
-        <p>对接多个Kubernetes集群，让Kubernetes成为透明的基础设施，更加易用，加速企业云原生转型</p>
-        <div class="button-cta">
-            <a class="button is-primary" href="/docs/quick-start/quick-install/" target="_blank" rel="noopener noreferrer">
-                安装使用
-                <br/>
-                Rainbond
-            </a>
-            <a class="button is-lights" href="#download">注册使用<br/>Rainbond Cloud</a>
-            <p> <a class="github-button" href="https://github.com/goodrain/rainbond" data-size="large"
-                    data-show-count="true" data-icon="octicon-star"
-                    aria-label="Star goodrain/rainbond on GitHub">Star</a></p>
+    <section class="hero is-default is-bold">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="columns">
+                    <div class="column is-half-desktop is-full-mobile lw35" style="padding: 16px;">
+                        <h1 class="is-hidden-mobile">
+                            <img src="images/rainbondlog.png" alt="Rainbond" /><br>
+                        </h1>
+                        <h2>云原生应用管理平台</h2>
+                        <p>实现微服务架构不用改代码，管理K8s不用学容器，帮企业实现应用上云，一站式将任何企业应用持续交付到K8s集群、混合云、多云等基础设施。</p>
+                        <div class="button-cta">
+                            <a class="button is-primary" href="/docs/quick-start/quick-install/" target="_blank"
+                                rel="noopener noreferrer">
+                                安装使用
+                            </a>
+                            <a class="button is-lights"
+                                href="https://cloud.goodrain.com/enterprise-server/trial">在线试用</a>
+                        </div>
+                    </div>
+                    <div class="column is-half-desktop is-full-mobile rw65">
+                        <div class="video-wrapper">
+                            <div class="video ui">
+                                <video id="video" playsinline="" webkit-playsinline controls preload="metadata">
+                                    <source
+                                        src="https://grstatic.oss-cn-shanghai.aliyuncs.com/videos/demo-video-5.2.mp4"
+                                        type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="section section-feature-grey is-medium" id="download">
+    <!-- <section class="section section-feature-grey is-medium" id="download">
         <div class="container">
 
             <div class="title-wrapper has-text-centered">
@@ -100,11 +114,11 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
     <section class="section section-feature-grey is-medium" id="about">
         <div class="container">
             <div class="title-wrapper has-text-centered">
-                <h3 class="title is-6">特性</h3>
+                <h3 class="title is-6">产品特性</h3>
             </div>
 
             <div class="content-wrapper">
@@ -182,55 +196,6 @@
                         </div>
                     </div>
                 </div>
-
-                <hr>
-
-                <div class="columns is-mobile is-multiline">
-                    <div class="column is-half-desktop is-full-mobile">
-
-                        <p><a href="https://github.com/goodrain/rainbond">Rainbond</a>
-                            是以企业云原生应用开发、架构、运维、共享、交付为核心的Kubernetes多云赋能平台,
-                            向下结合Kubernetes云原生资源管理模式，对接管理各类基础设施，通过多维度的软件定义屏蔽了底层资源的差异，甚至包括CPU架构差异和操作系统差异，从而对上层提供以应用为中心的基础设施；
-                            向上定义了标准应用模型（RAM,<a href="https://oam.dev">OAM</a>)，内置ServiceMesh微服务架构框架，
-                            提供用户基于源码/已有镜像构建服务组件的能力，编排服务组件的能力，发布共享完整应用模型的能力，交付运维业务应用的能力。
-                        </p>
-                    </div>
-
-                    <div class="column is-half-desktop is-full-mobile">
-                        <div class="video-wrap">
-                            <div class="start-prompt video-show"
-                                data-src="https://grstatic.oss-cn-shanghai.aliyuncs.com/videos/Rainbond%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%E3%80%81%E6%8B%BC%E8%A3%85%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%87%E7%BA%A7%E6%B5%81%E7%A8%8B%E6%BC%94%E7%A4%BA.mp4?nsukey=4SSGferYPnLbId1KtayGi43MsL1n8WnO03hxix0Ow7nrRB9TkkkSmjuVBNIMeM%2Fw6Du%2FeNl408SxWPOqZwC0TmdpMT9X8q7%2FE3yc7Tz3yUTczkpGBku8OkNDYGRNMPhKFrFJM1QQ%2FHPhegxW%2BzSgBVNEGgnKeCxi5mAOiqsxbMwdtnC7%2BgERzTwJPNQSqtZL2CpcCxIeHt%2FrBc8y8E5Ecw%3D%3D">
-                                <div class="play-button">
-                                    <div>
-                                        <div class="bg"><img src="/images/rainbond-pic.png" /></div>
-                                        <span>
-                                            <svg version="1.1" viewBox="0 0 866.0254037844387 866.0254037844387"
-                                                class="icon">
-                                                <defs>
-                                                    <mask id="small-triangle-mask">
-                                                        <rect width="100%" height="100%" fill="white"></rect>
-                                                        <polygon
-                                                            points="508.01270189221935 433.01270189221935, 208.0127018922194 259.8076211353316, 208.01270189221927 606.217782649107"
-                                                            fill="black"></polygon>
-                                                    </mask>
-                                                </defs>
-                                                <polygon
-                                                    points="808.0127018922194 433.01270189221935, 58.01270189221947 -1.1368683772161603e-13, 58.01270189221913 866.0254037844386"
-                                                    mask="url(#small-triangle-mask)" fill="white"></polygon>
-                                                <polyline
-                                                    points="481.2177826491071 333.0127018922194, 134.80762113533166 533.0127018922194"
-                                                    stroke="white" stroke-width="90"></polyline>
-                                            </svg></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="more">
-                            <a href="/video/" href="_blank">查看更多视频教程</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -250,6 +215,7 @@
                             <li>企业开发环境、测试环境，公有云生成环境的基础设施需要统一管理</li>
                             <li>企业业务、项目重复性大、浪费大，需要建立中台来共享各团队资源</li>
                             <li>ToB交付自动化低，交付周期长，需要更高效的交付方式</li>
+                            <li>培养团队从做项目到产出标准化产品</li>
                             <li>更多...</li>
                         </ol>
                     </div>
@@ -280,34 +246,37 @@
             </div>
 
             <div class="content-wrapper is-mobile columns is-multiline">
-                <div class="column is-full-mobile is-half-desktop ">
-                    <div class="user-list">
-                        <figure class="image">
-                            <a><img src="images/users/pingan.jpeg" alt="平安壹账通" /></a>
-                        </figure>
-                        <figure class=" image"><a><img src="images/users/boe.jpg" alt="BOE" /></a></figure>
-                    </div>
-                    <!-- <hr> -->
-                    <!-- <p class="has-text-left">Rainbond帮助京东方、平安壹账通等企业搭建行业(数字)应用市场解决方案</p> -->
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image"><a title="京东方科技集团股份有限公司"><img src="images/users/boe.jpg" alt="BOE" /></a>
+                    </figure>
                 </div>
-
-                <div class="column is-full-mobile is-half-desktop">
-                    <div class="user-list">
-                        <figure class="image">
-                            <a><img src="images/users/bkrj.jpg" alt="北控软件" /></a>
-                        </figure>
-                        <figure class="image">
-                            <a><img src="images/users/zggk.jpg" alt="中公高科" /></a>
-                        </figure>
-                    </div>
-                    <!-- <hr> -->
-                    <!-- <p class="has-text-left">Rainbond帮助北控软件、中公高科、国防科大等企业搭建DevOps应用开发交付解决方案</p> -->
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="百盛中国"><img src="http://www.yumchina.com/img/logo.c306df21.png" alt="百盛中国" /></a>
+                    </figure>
+                </div>
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="北控软件"><img src="images/users/bkrj.jpg" alt="北控软件" /></a>
+                    </figure>
+                </div>
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="中公高科"><img src="images/users/zggk.jpg" alt="中公高科" /></a>
+                    </figure>
+                </div>
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="青椒课堂"><img src="https://cdn.qingjiao.pub/20200814/img/logo_primary.6426014d.png"
+                                alt="青椒课堂" /></a>
+                    </figure>
+                </div>
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="电信科学技术第五研究所"><img src="images/users/5suo.jpg" alt="电信科学技术第五研究所" /></a>
+                    </figure>
                 </div>
             </div>
-
-            <!-- <div class="has-text-centered blog-link">
-                <p><a href="https://t.goodrain.com" target="_blank">浏览社区获取更多用户案例<a></a></p>
-            </div> -->
 
         </div>
         </div>

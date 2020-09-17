@@ -10,7 +10,7 @@ Ceph 引入了一个新的 RBD 协议，也就是 Ceph 块设备（Ceph Block De
 
 Ceph 块设备完全支持云平台，例如 OpenStack、CloudStack 等。在这些云平台中它已经被证明是成功的，并且具有丰富的特性。
 
-> 需用户自己准备 ceph 环境，可参考[官方安装文档](http://docs.ceph.com/docs/master/start/)
+> 需用户自己准备 ceph 环境，可参考 [官方安装文档](http://docs.ceph.com/docs/master/start/)
 
 ### 安装 ceph 集群
 
@@ -28,7 +28,7 @@ apt-get update
 
 - 安装部署程序
 
-官方推荐使用 `ceph-deploy`执行程序进行 ceph 集群的安装。
+官方推荐使用 `ceph-deploy` 执行程序进行 ceph 集群的安装。
 
 ```bash
 apt-get install ceph-deploy
@@ -78,7 +78,7 @@ ceph-deploy mon create-initial
 
 - 准备 ceph 存储路径并准备 osd 服务
 
-将`/data/ceph`用作 ceph 的数据共享目录
+将 `/data/ceph` 用作 ceph 的数据共享目录
 
 ```bash
 mkdir -p /data/ceph/osd
@@ -100,7 +100,7 @@ ceph-deploy osd activate node1:/data/ceph/osd
 ceph health
 ```
 
-结果显示`HEALTH_OK`说明集群部署正常。出现异常可以执行`ceph -s`确定 ceph 中的异常信息。
+结果显示 `HEALTH_OK` 说明集群部署正常。出现异常可以执行 `ceph -s` 确定 ceph 中的异常信息。
 
 如果在某些地方碰到麻烦，想从头再来，可以用下列命令清除配置：
 
@@ -197,7 +197,7 @@ csi-rbdplugin-provisioner-688c49bd49-s4nh2   6/6     Running   0          59m
 csi-rbdplugin-qsnlb                          3/3     Running   0          58m
 ```
 
-使用官方 demo 测试驱动是否正常，官方项目中`example`目录下给出了测试用例，使用 nginx 镜像挂载 ceph 存储。
+使用官方 demo 测试驱动是否正常，官方项目中 `example` 目录下给出了测试用例，使用 nginx 镜像挂载 ceph 存储。
 
 ```bash
 kubectl create -f secret.yaml
@@ -226,12 +226,12 @@ kubectl logs -f csi-rbdplugin-provisioner-688c49bd49-7cwcw -c csi-provisioner
 
 > 请注意替换 pod 的名字。 -c 指定 provisoner 实例中的容器，provisoner 实例中会启动 csi-provisioner 实例负责提供存储
 
-#### 存储的使用
+### 存储的使用
 
 上面使用官方 demo 时创建了 storageClass 对象，此时 Rainbond 平台会监控 storageClass 的创建，并将其记录到数据库中，用户可以通过 Rainbond 控制台选择 storageClass 对应的存储类型用在有状态组件上。
 
 > 须通过重启组件或者更新组件来触发存储的生效
 
-#### 检查结果
+### 检查结果
 
 存储是否生效可以通过组件是否可以正常启动来判断，组件正常启动则说明组件已经正常挂载了存储，也可以到 ceph 集群中确定存储的情况，确定是否存在对应大小的存储，其状态是否是使用中的状态。

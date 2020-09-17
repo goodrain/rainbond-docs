@@ -20,7 +20,7 @@ AB测试是为应用制作两个（A/B）或多个（A/B/n）版本，在同一�
 
 **Rainbond目前支持HTTP协议的A/B测试实践，这也是目前应用面最广的协议。**
 
-服务需要进行A/B测试，需要区分其是属于内部服务还是对外服务。内部服务的A/B测试特性由 ServiceMesh 层提供，对外服务由 [应用网关](/docs/user-manual/gateway/gateway/)提供。
+服务需要进行A/B测试，需要区分其是属于内部服务还是对外服务。内部服务的A/B测试特性由 ServiceMesh 层提供，对外服务由 [应用网关](/docs/get-start/concept/gateway/)提供。
 
 <br>
 
@@ -31,7 +31,7 @@ AB测试是为应用制作两个（A/B）或多个（A/B/n）版本，在同一�
 
 ### 前提条件
 
-1. 运行中的两个版本测试组件，模拟为同一个业务程序的两个版本，参考 [源码构建](/docs/user-manual/component-create/language-support/)直接构建 [该项目](https://github.com/Aaron-23/teststatic)即可（在这里使用分支 master,devel 区分不同版本），
+1. 运行中的两个版本测试组件，模拟为同一个业务程序的两个版本，参考 [源码构建](/docs/component-create/language-support/) 直接构建 [该项目](https://github.com/Aaron-23/teststatic) 即可（在这里使用分支 master,devel 区分不同版本），
 2. 拥有一个测试域名，两个组件都绑定此域名。
 
 ### 操作步骤
@@ -119,7 +119,7 @@ $ curl --cookie "user=test" www.test.goodrain.com
 
 ## 数据反馈
 
-在A/B测试过程中最关键的环节就是数据反馈，及时调整策略；Rainbond提供的业务级 [性能分析监控](/docs/user-manual/plugin-manage/tcm-plugin/)可以为你提供实时的请求情况分析，以辅助你的决策；在此之外，如果你有自己的监控方式，请根据你的监控结果合理调整策略，上述的所有控制策略都能够修改动态生效。
+在A/B测试过程中最关键的环节就是数据反馈，及时调整策略；Rainbond提供的业务级 [性能分析监控](/docs/user-manual/plugin-manage/tcm-plugin/) 可以为你提供实时的请求情况分析，以辅助你的决策；在此之外，如果你有自己的监控方式，请根据你的监控结果合理调整策略，上述的所有控制策略都能够修改动态生效。
 
 ## 存在的缺陷和改进计划
 
@@ -129,7 +129,7 @@ $ curl --cookie "user=test" www.test.goodrain.com
 
 **您可能还需要阅读：**
 
-[基于Rainbond的滚动发布，灰度发布及蓝绿发布实践](/docs/user-manual/best-practices/app_publishing/)
+[基于Rainbond的滚动发布，灰度发布及蓝绿发布实践](/docs/get-start/best-practices/app_publishing/)
 
-[基于版本号一键上线/回滚](/docs/user-manual/best-practices/update_rollback/)
+[基于版本号一键上线/回滚](/docs/get-start/best-practices/update-rollback/)
 

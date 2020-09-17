@@ -2,7 +2,7 @@
 title: 组件伸缩
 description: Rainbond组件的水平伸缩和垂直伸缩文档
 weight: 5007
-hidden: true
+hidden: false
 ---
 
 Rainbond 平台组件有两种伸缩方式：
@@ -21,7 +21,7 @@ Rainbond 平台组件有两种伸缩方式：
 | ---------------------- | --------------------- |
 | 0.24/1                 | 1.28/1                |
 
-Kubernetes 针对 CPU 和内存分为申请值与限制值，详情参见: [管理容器的计算资源](https://kubernetes.io/cn/docs/concepts/configuration/manage-compute-resources-container/) </br>平台目前调整的 CPU 与内存占比是经过生产环境验证过符合大多数组件类型。如果对某些 CPU 密集型组件自定义分配 CPU，可以配置环境变量：</br>ES_CPULIMIT : CPU 限制值 </br>ES_CPUREQUEST：CPU 请求值
+Kubernetes 针对 CPU 和内存分为申请值与限制值，详情参见: [管理容器的计算资源](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) </br>平台目前调整的 CPU 与内存占比是经过生产环境验证过符合大多数组件类型。如果对某些 CPU 密集型组件自定义分配 CPU，可以配置环境变量：</br>ES_CPULIMIT : CPU 限制值 </br>ES_CPUREQUEST：CPU 请求值
 
 ### 水平伸缩
 

@@ -18,9 +18,9 @@ apt-get -y install keepalived
 
 - 编辑配置文件
 
-      注意！当前调用健康监测脚本内容为注释状态，原因是在安装 Rainbond 前 需要确保 VIP 已经存在；在 Rainbond 安装完成之后需将注释取消，才能实现健康监测，确保 网关高可用。
+    注意！当前调用健康监测脚本内容为注释状态，原因是在安装 Rainbond 前 需要确保 VIP 已经存在；在 Rainbond 安装完成之后需将注释取消，才能实现健康监测，确保 网关高可用。
 
-       - 主节点
+    - 主节点
 
 ```bash
 $ vi /etc/keepalived/keepalived.conf
@@ -130,7 +130,7 @@ $ chmod +x /etc/keepalived/check_gateway_status.sh
 
 - 更改 Keepalived systemd 配置文件，添加两项配置
 
-       添加两项参数
+    添加两项参数
 
 ```bash
 $  vi /lib/systemd/system/keepalived.service
@@ -161,7 +161,7 @@ WantedBy=multi-user.target
 
 - 启动服务
 
-       启动服务并设置开机自启动
+    启动服务并设置开机自启动
 
 ```bash
 systemctl start keepalived

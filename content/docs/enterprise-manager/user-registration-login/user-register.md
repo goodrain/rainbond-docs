@@ -37,28 +37,29 @@ wight: 20
 
 > 用户注册页面演示
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_1.jpg" width="100%" />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_1.jpg" title="注册页面" width="100%">}}
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_6.jpg" width="100%" />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_6.jpg" title="注册页面" width="100%">}}
 
 > 注册结果反馈
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_4.png" width="100%" />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_4.png" title="注册页面" width="100%">}}
 
 > 企业视图申请加入团队
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_5.jpg" width="100%" />
+
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_5.jpg" title="加入团队" width="100%">}}
 
 > 非管理员用户注册完成后必须加入到某个团队才能进入系统；需等待团队管理员在团队视图团队管理审核通过。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/shenhe.png" width="100%" />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/shenhe.png" title="审核" width="100%">}}
 
 
 ### 关闭注册功能
 
 为了适应企业账号管理方式，管理员可以通过`企业视图`-->`设置`关闭用户注册功能，在登录界面将不会再有`注册账户`按钮，采用手动添加用户的方式。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_7.jpg" width="100%" />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_7.jpg" title="关闭注册功能" width="100%">}}
 
 ### 管理员手动添加用户
 
@@ -66,8 +67,7 @@ wight: 20
 
 在企业视图中，点击`用户-->新增-->填写用户信息-->确定-->完成注册`，即可使用注册的新用户登录Rainbond控制台。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/adduser.png" width="100%" />
-
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/adduser.png" title="添加用户" width="100%">}}
 
 ### 用户管理
 
@@ -75,9 +75,9 @@ wight: 20
 
 （平台）企业管理员在企业视图`用户-->删除`删除对应的用户，点击`用户-->编辑`对普通用户的密码进行修改。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/Change%20Password.png" width="100%" />
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/Change%20Password.png" title="编辑用户" width="100%">}}
 
 
 ### 与第三方用户体系集成
 
-Rainbond支持Auth2.0等标准规范的第三方平台用户登录，参考 [Auth2.0相关支持文档](/docs/user-manual/user-registration-login/oauth2.0/)
+Rainbond支持Auth2.0等标准规范的第三方平台用户登录，参考 [Auth2.0相关支持文档](/docs/enterprise-manager/user-registration-login/oauth2.0/)

@@ -10,16 +10,16 @@ description: '为集群内的团队进行资源限额'
 
 ### 设置方式
 
-- 在安装好的 Rainbond 平台企业视图`集群`界面点击`集群限额`
+- 在安装好的 Rainbond 平台企业视图 `集群` 界面点击 `集群限额`
 
-  ![image-20200811162652928](https://tva1.sinaimg.cn/large/007S8ZIlly1ghmyadbeg5j30zl0ey0vt.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghmyadbeg5j30zl0ey0vt.jpg" width="100%" >}}
 
 - 点击对应团队设置限额
 
-  ![image-20200811163123001](https://tva1.sinaimg.cn/large/007S8ZIlly1ghmyexlzyyj318c0oa76n.jpg)
-
-  ![image-20200811163156494](https://tva1.sinaimg.cn/large/007S8ZIlly1ghmyfhck4hj318c0duwfp.jpg)
-
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghmyexlzyyj318c0oa76n.jpg" width="100%" >}}
+  
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghmyfhck4hj318c0duwfp.jpg" width="100%" >}}
+  
 - 设置完成后，如果集群所需资源超过设置上限，会出现如下提示
 
-  ![image-20200811163655682](https://tva1.sinaimg.cn/large/007S8ZIlly1ghmykpa7qlj31z00to798.jpg)
+{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghmykpa7qlj31z00to798.jpg" width="100%" >}}

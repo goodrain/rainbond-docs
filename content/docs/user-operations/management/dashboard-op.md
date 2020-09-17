@@ -4,7 +4,7 @@ weight: 1005
 description: 基于Dashboard界面查看集群资源，快速运维
 ---
 
-## 概述
+### 概述
 
 本章主要讲述 集群Dashboard 相关功能，查看集群资源，帮助用户基于 Dashboard 更快速，高效的运维 Rainbond。
 
@@ -31,9 +31,9 @@ Dashboard图形面板具有以下功能：
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/dashboard-op/overview.jpg" title="界面总览" width="100%">}}
 
 
-## 查看资源
+### 查看资源
 
-### 查看node节点信息
+#### 查看node节点信息
 
 - 资源使用及节点健康情况
 
@@ -55,13 +55,13 @@ Dashboard图形面板具有以下功能：
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/dashboard-op/resource.jpg" title="资源分配情况" width="100%">}}
 
-###  组件信息
+####  组件信息
 
 Rainbond 的所有组件都位于 rbd-system 名称空间下，根据组件部署类型可查看各组件信息，组件部署类型请参考[Rainbond组件运维](/docs/user-operations/management/component-op/)。
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/dashboard-op/information.jpg" title="Component information" width="100%">}}
 
-### 存储
+#### 存储
 
 示例:
 
@@ -74,9 +74,9 @@ Rainbond 的所有组件都位于 rbd-system 名称空间下，根据组件部�
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/dashboard-op/view.jpg" title="存储详情页" width="100%">}}
 
 
-##  管理资源对象
+###  管理资源对象
 
-### 远程登录容器
+#### 远程登录容器
 
 示例:
 
@@ -88,7 +88,7 @@ Rainbond 的所有组件都位于 rbd-system 名称空间下，根据组件部�
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/dashboard-op/Insidecontainer.jpg" title="容器命令行" width="100%">}}
 
-### 查看容器运行日志
+#### 查看容器运行日志
 
 示例:
 
@@ -96,13 +96,13 @@ Rainbond 的所有组件都位于 rbd-system 名称空间下，根据组件部�
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/dashboard-op/logs.jpg" title="容器运行日志" width="100%">}}
 
-### 修改组件配置
+#### 修改组件配置
 
 示例：
 
 以更新 node组件 镜像为例
 
-点击左侧 **定义自定义资源**-->选择**RbdComponent**-->在 **Objects** 中找到需要修改配置的组件，点击 **编辑** 即可对组件进行配置的修改，修改完成之后点击更新即可。
+点击左侧 **定义自定义资源** -->选择 **RbdComponent** -->在 **Objects** 中找到需要修改配置的组件，点击 **编辑** 即可对组件进行配置的修改，修改完成之后点击更新即可。
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/dashboard-op/component.jpg" title="编辑资源" width="100%">}}
 

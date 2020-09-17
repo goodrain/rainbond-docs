@@ -153,15 +153,15 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
 **11 配置共享存储**
 
-    在高可用环境，务必提供已有的共享存储：
+   在高可用环境，务必提供已有的共享存储：
     
-    使用集群中已有的 `StorageClass`，该存储必须支持多读多写(`RWX`)，如果用户已经安装 [Glusterfs分布式存储](/docs/user-operations/storage/deploy-glusterfs/)，则可以直接选择：
+   使用集群中已有的 `StorageClass`，该存储必须支持多读多写(`RWX`)，如果用户已经安装 [Glusterfs分布式存储](/docs/user-operations/storage/deploy-glusterfs/)，则可以直接选择：
 
-    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-11.png" title="已有存储驱动选择" width="100%">}}
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-11.png" title="已有存储驱动选择" width="100%">}}
     
-    如果是阿里云环境，推荐使用 `阿里云 NAS`：
+   如果是阿里云环境，推荐使用 `阿里云 NAS`：
 
-    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-12.png" title="阿里云 NAS 存储" width="100%">}}
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-12.png" title="阿里云 NAS 存储" width="100%">}}
 
 **12 配置块设备存储**
 

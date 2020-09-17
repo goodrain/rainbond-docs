@@ -7,9 +7,9 @@ weight: 801
 
 本文主要介绍完整部署Rainbond所需要的所有服务组件，帮助用户了解Rainbond技术栈与组件架构。
 
-目前版本，系统组件生命周期由`Kubernetes`和`Rainbond-Operator`共同维护和管理。
+目前版本，系统组件生命周期由 `Kubernetes` 和 `Rainbond-Operator` 共同维护和管理。
 
-### 一、服务组件概述
+### 服务组件概述
 
 #### 以下是通过一键部署方式将会在服务器安装的Rainbond各服务组件及其版本信息。
 
@@ -50,9 +50,9 @@ weight: 801
 **组件高级用法可以通过点击组件的链接方式阅读。**
 
 
-### 二、附录
+### 附录
 
-#### 2.1 服务组件端口说明
+#### 服务组件端口说明
 
 > 公网访问: 如部署在公有云环境需要公网访问需要安全组放行
 
@@ -86,11 +86,11 @@ weight: 801
 - rainbond API端口当只有一个数据中心时不需要对外开放，当多数据中心，且在不同网络时需要对外开放,8888非安全端口,8443为安全端口
 - rbd-gateway提供的80与443端口是为HTTP协议应用提供，10001~65535是为TCP协议的应用提供。
 
-更多具体端口信息请参考[组件端口](/docs/user-operations/op-guide/required_ports/)
+更多具体端口信息请参考 [组件端口](/docs/user-operations/op-guide/required_ports/)
 
-#### 2.2 服务部署类型说明
+#### 服务部署类型说明
 
 |部署类型|说明|组件名|
 |--------|------------|------------|
-|二进制或者deb/rpm部署|通常使用apt或者yum方式安装,由systemd守护，详情查看[easzlab](https://github.com/easzlab/kubeasz)|docker,kubelet|
-|容器化部署|在kubernetes中以pod方式运行|其他组件都是容器化部署，`Kubernetes`和`Rainbond-Operator`共同维护|
+|二进制或者deb/rpm部署|通常使用apt或者yum方式安装,由systemd守护，详情查看 [easzlab](https://github.com/easzlab/kubeasz) |docker,kubelet|
+|容器化部署|在kubernetes中以pod方式运行|其他组件都是容器化部署，`Kubernetes` 和 `Rainbond-Operator`共同维护|

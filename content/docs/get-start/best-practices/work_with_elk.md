@@ -12,7 +12,7 @@ weight: 20
 ### 前提条件
 
 - 部署好的 Nginx 示例服务组件。
-- 通过共享库一键安装的 elasticsearch＿kibana 应用。
+- 通过应用市场一键安装的 elasticsearch＿kibana 应用。
 - 团队中有`fileBeat日志收集插件`默认插件。
 
 以 Nginx 服务组件日志的收集为例，通过`fileBeat日志收集插件`，将 Nginx 的访问日志、错误日志上报 ElasticSearch，并通过 Kibana 展示。
@@ -65,7 +65,7 @@ FileBeat 通过类似于 `tail -f sth.log` 的方式，监控日志输出并上�
 
 - 组件未依赖 Elasticsearch 和 Kibana 导致收集不到日志
 
-  可以在组件管理页面的依赖页面，选择从共享库安装的 Elasticsearch 和 Kibana 进行依赖，重启更新后使其生效。
+  可以在组件管理页面的依赖页面，选择从应用市场安装的 Elasticsearch 和 Kibana 进行依赖，重启更新后使其生效。
 
 - 插件配置中，ES 密码 不匹配导致收集不到日志
 
