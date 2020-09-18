@@ -40,16 +40,18 @@ helm version
     kubectl create ns rbd-system
     ```
 
-1. 下载 Rainbond Operator 的 chart 包：
+1. 添加 Rainbond Operator 的 chart 仓库：
 
     ```bash
-    wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-v1.1.0-v5.2.1.tgz && tar xvf rainbond-operator-v1.1.0-v5.2.1.tgz
+    helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
     ```
 
 1. 安装 Rainbond Operator
 
     ```bash
-    helm install rainbond-operator ./chart --namespace=rbd-system
+    helm install rainbond-operator rainbond/rainbond-operator \
+    --namespace rbd-system \
+    --version 1.1.0    
     ```
 
 1. 确认状态
