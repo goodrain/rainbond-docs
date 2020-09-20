@@ -1,79 +1,52 @@
 ---
-title: '在华为云 CCE 上安装 Rainbond Cloud'
+title: '在腾讯云 TKE 上安装 Rainbond Cloud'
 weight: 1
-description: '在华为云的云容器引擎(Cloud Container Engine)上安装 Rainbond，并对接到 Rainbond Cloud。'
+description: '在腾讯云容器服务（Tencent Kubernetes Engine，TKE）上安装 Rainbond，并对接到 Rainbond Cloud。'
 ---
 
-这篇文章主要是说明如何在在华为云的[云容器引擎(Cloud Container Engine)](https://support.huaweicloud.com/productdesc-cce/cce_productdesc_0001.html)上安装 Rainbond，并对接到 Raibnond Cloud。
+这篇文章主要是说明如何在[腾讯云容器服务（Tencent Kubernetes Engine，TKE）](https://cloud.tencent.com/document/product/457)上安装 Rainbond，并对接到 Raibnond Cloud。
 
 ## 前提条件
 
 开始之前，请检查以下前提条件：
 
 1. 了解 [Rainbond Cloud](../../../quick-start/rainbond-cloud/) ，并进行[注册](https://cloud.goodrain.com/enterprise-server/registered)和[登陆](https://cloud.goodrain.com/enterprise-server/login)。
-1. 确保你的华为云账户支持按需购买资源，比如账户余额大于 100 元并通过实名认证。
+1. 确保你的腾讯云账户支持按需购买资源，比如账户余额大于 100 元并通过实名认证。
 
-## 准备一个 CCE 集群
+## 准备一个 TKE 集群
 
-在安装 Rainbond 前，需要一个在 CCE 上的标准 kubernetes。我们集群的版本选 `v1.17.9`，节点规格选择 `s6.large.4(2核，8GB)`和 控制节点选择 `3`，计算节点选择 `2`。
+在安装 Rainbond 前，需要一个在 TKE 上的标准 kubernetes。我们集群的版本选 `1.18.4`，Worker 节点规格选择 `S3.MEDIUM8`, 节点数量选择 `2`。
 
-1. 3 个控制节点才能保证 kubernetes 集群的高可用。
-1. `s6.large.4(2核，8GB)`，2 个节点是最低配置。在生产环境，建议根据实际情况选择更高的配置。
-1. Rainbond 对 Kubernetes 版本的最低要求是 1.13。建议选择 CCE 支持的最高版本 `v1.17.9`。
+1. `S3.MEDIUM8`，2 个节点是最低配置。在生产环境，建议根据实际情况选择更高的配置。
+1. Rainbond 对 Kubernetes 版本的最低要求是 1.13。建议选择 TKE 支持的最高版本 `1.18.4`。
 
-{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E8%B4%AD%E4%B9%B0%E6%B7%B7%E5%90%88%E9%9B%86%E7%BE%A4-%E5%88%9B%E5%BB%BA%E8%8A%82%E7%82%B9.png" width="100%" >}}
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E6%89%98%E7%AE%A1%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%20Rainbond%20Cloud/%E8%85%BE%E8%AE%AF%E4%BA%91%20TKE%20%E5%88%9B%E5%BB%BA%E9%9B%86%E7%BE%A4.png" width="100%" >}}
 
-{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E8%B4%AD%E4%B9%B0%E6%B7%B7%E5%90%88%E9%9B%86%E7%BE%A4-%E5%88%9B%E5%BB%BA%E8%8A%82%E7%82%B9.png" width="100%" >}}
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E6%89%98%E7%AE%A1%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%20Rainbond%20Cloud/%E8%85%BE%E8%AE%AF%E4%BA%91%20TKE%20%E9%80%89%E6%8B%A9%E6%9C%BA%E5%9E%8B.png" width="100%" >}}
 
 ## 准备一个弹性负载均衡 ELB
 
-为了保证 Rainbond 集群的高可用，需要在流量进入到 Rainbond 的网关节点前，加一层负载均衡。详情请参考[弹性负载均衡 ELB](https://support.huaweicloud.com/elb/index.html)。
+为了保证 Rainbond 集群的高可用，需要在流量进入到 Rainbond 的网关节点前，加一层负载均衡。详情请参考[负载均衡（Cloud Load Balancer，CLB](https://cloud.tencent.com/document/product/214)。
 
 ELB 需要开放 `80`，`443`，`8443`，`6060` 这 4 个端口。
 
 ## 准备一个 RDS
 
-准备一个数据库引擎是 `MySQL`，版本是 `5.7` 的 RDS。
+准备一个云数据库 MySQL， 版本选择是 `5.7`。
 
-{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E5%8D%8E%E4%B8%BA%E4%BA%91%E5%88%9B%E5%BB%BA%20RDS.png" width="100%" >}}
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E6%89%98%E7%AE%A1%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%20Rainbond%20Cloud/%E8%85%BE%E8%AE%AF%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93%20MySQL.png" width="100%" >}}
 
 另外，需要为 Rainbond 创建一个数据库，数据库名为 `region`。
 
-## 通过 kbuectl 连接 CCE 集群
-
-CCE 提供了两种连接集群的方式，分别是 `kubectl` 和 `web-terminal 插件`。`web-terminal` 是一款支持在 Web 界面上使用 kubectl 的插件，使用 linux 命令时会有所限制，推荐直接使用 `kubectl`。详情请参考[通过kubectl或web-terminal插件连接CCE集群](https://support.huaweicloud.com/usermanual-cce/cce_01_0107.html)。
-
-## 安装 Helm
-
-使用以下命令安装：
-
-```bash
-wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
-```
-
-> 注意：helm 的版本需要是 3.0 及以上，不支持 helm 2.0+。
-
 ## 安装 Rainbond Operator
 
-1. 创建 namespace: `rbd-system`:
+使用 TKE 的应用功能创建 Rainbond Operator。
 
-    ```bash
-    kubectl create ns rbd-system
-    ```
+> 应用功能是指腾讯云容器服务（Tencent Kubernetes Engine，TKE）集成的 Helm 3.0 相关功能，提供创建 helm chart、容器镜像、软件服务等各种产品和服务的能力。详情请参考[这里](https://cloud.tencent.com/document/product/457/32729)。
 
-1. 安装 Rainbond Operator
-
-    ```bash
-    # 添加仓库
-    helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
-    # 安装
-    helm install rainbond-operator-cloud rainbond/rainbond-operator \
-    --namespace rbd-system \
-    --version 1.1.0-cloud
-    ```
-
-    了解更多 Rainbond Operator 的参数，请查阅[这里](http://localhost:1313/docs/user-operations/rainbond-operator/configuration/)。
-
+1. 创建 namespace: `rbd-system`
+1. 添加第三方 helm 仓库：`https://storageclass.oss-cn-shanghai.aliyuncs.com/goodrain/rainbond/rainbond-operator-1.1.0-cloud.tgz`。
+1. 创建应用。详情请参考[应用管理](https://cloud.tencent.com/document/product/457/32730)。
 1. 确认 Rainbond Operator 状态
 
     ```bash
@@ -101,12 +74,14 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 ### 参数配置
 
 1. `安装模式`选择高可用
-1. 将准备好的 RDS 信息填入`数据中心数据库`
+1. 将准备好的 MySQL 信息填入`数据中心数据库`
 1. `网关节点`，`构建服务运行节点` 选择准备好的两个计算节点
-1. `网关公网 IP` 填准备好的 ELB
-1. 共享存储: 选择 `选择集群已有存储驱动` -> `csi-nas`
-1. 块存储: 选择 `选择集群已有存储驱动` -> `csi-disk`
+1. `网关公网 IP` 填准备好的 CLB
+1. 共享存储: 选择 `选择集群已有存储驱动` -> `cfs`
+1. 块存储: 选择 `选择集群已有存储驱动` -> `cfs`
 1. 完成了上述配置后，单击 配置就绪，开始安装
+
+> cfs 是腾讯云的文件存储，详情请参考[文件存储](https://cloud.tencent.com/document/product/582)。
 
 ### 验证安装
 
