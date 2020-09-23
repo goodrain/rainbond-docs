@@ -39,7 +39,7 @@ ELB 需要开放 `80`，`443`，`8443`，`6060` 这 4 个端口。
 
 另外，需要为 Rainbond 创建一个数据库，数据库名为 `region`。
 
-### 通过 kbuectl 连接 CCE 集群
+### 通过 kubectl 连接 CCE 集群
 
 CCE 提供了两种连接集群的方式，分别是 `kubectl` 和 `web-terminal 插件`。`web-terminal` 是一款支持在 Web 界面上使用 kubectl 的插件，使用 linux 命令时会有所限制，推荐直接使用 `kubectl`。详情请参考[通过kubectl或web-terminal插件连接CCE集群](https://support.huaweicloud.com/usermanual-cce/cce_01_0107.html)。
 
