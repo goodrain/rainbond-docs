@@ -6,14 +6,14 @@ description: '在腾讯云容器服务（Tencent Kubernetes Engine，TKE）上�
 
 这篇文章主要是说明如何在[腾讯云容器服务（Tencent Kubernetes Engine，TKE）](https://cloud.tencent.com/document/product/457)上安装 Rainbond，并对接到 Raibnond Cloud。
 
-## 前提条件
+### 前提条件
 
 开始之前，请检查以下前提条件：
 
 1. 了解 [Rainbond Cloud](../../../quick-start/rainbond-cloud/) ，并进行[注册](https://cloud.goodrain.com/enterprise-server/registered)和[登陆](https://cloud.goodrain.com/enterprise-server/login)。
 1. 确保你的腾讯云账户支持按需购买资源，比如账户余额大于 100 元并通过实名认证。
 
-## 准备一个 TKE 集群
+### 准备一个 TKE 集群
 
 在安装 Rainbond 前，需要一个在 TKE 上的标准 kubernetes。我们集群的版本选 `1.18.4`，Worker 节点规格选择 `S3.MEDIUM8`, 节点数量选择 `2`。
 
@@ -24,13 +24,13 @@ description: '在腾讯云容器服务（Tencent Kubernetes Engine，TKE）上�
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E6%89%98%E7%AE%A1%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%20Rainbond%20Cloud/%E8%85%BE%E8%AE%AF%E4%BA%91%20TKE%20%E9%80%89%E6%8B%A9%E6%9C%BA%E5%9E%8B.png" width="100%" >}}
 
-## 准备一个弹性负载均衡 ELB
+### 准备一个弹性负载均衡 ELB
 
 为了保证 Rainbond 集群的高可用，需要在流量进入到 Rainbond 的网关节点前，加一层负载均衡。详情请参考[负载均衡（Cloud Load Balancer，CLB](https://cloud.tencent.com/document/product/214)。
 
 ELB 需要开放 `80`，`443`，`8443`，`6060` 这 4 个端口。
 
-## 准备一个 RDS
+### 准备一个 RDS
 
 准备一个云数据库 MySQL， 版本选择是 `5.7`。
 
@@ -38,7 +38,7 @@ ELB 需要开放 `80`，`443`，`8443`，`6060` 这 4 个端口。
 
 另外，需要为 Rainbond 创建一个数据库，数据库名为 `region`。
 
-## 安装 Rainbond Operator
+### 安装 Rainbond Operator
 
 使用 TKE 的应用功能创建 Rainbond Operator。
 
@@ -57,11 +57,11 @@ ELB 需要开放 `80`，`443`，`8443`，`6060` 这 4 个端口。
 
     稍微等待一会（根据具体的网络环境而定），直到 rainbond-operator-0 的状态变为 `Running`。
 
-## 安装 Rainbond
+### 安装 Rainbond
 
 访问 Rainbond Operator，开始安装 Rainbond。
 
-### 访问 Rainbond Operator
+#### 访问 Rainbond Operator
 
    打开浏览器，输入主机 IP 地址：`http://<SERVER_IP>:30008`. 可以通过以下命令获取 `SERVER_IP`：
 
@@ -71,7 +71,7 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
 > 注意，获取到的 `SERVER_IP` 是内网地址，请根据实际情况直接使用或替换为外网地址。
 
-### 参数配置
+#### 参数配置
 
 1. `安装模式`选择高可用
 1. 将准备好的 MySQL 信息填入`数据中心数据库`
@@ -83,21 +83,21 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
 > cfs 是腾讯云的文件存储，详情请参考[文件存储](https://cloud.tencent.com/document/product/582)。
 
-### 验证安装
+#### 验证安装
 
 当安装的进度全部走完，会跳转到以下页面：
 
-![image-20200204141936123](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-4.jpg)
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.2/rainbond-install-4.jpg" width="100%" >}}
 
 说明已经安装完成。
 
-## 安装命令行工具
+### 安装命令行工具
 
 为了方便运维管理集群请参照[文档](/docs/user-operations/tools/grctl/)安装 `grctl` 命令行工具。
 
 安装完成后，执行 `grctl config`，获取 `Region Config`。`Region Config` 用在下一步 `对接 Rainbond Cloud` 中。
 
-## 对接 Rainbond Cloud
+### 对接 Rainbond Cloud
 
 具体对接方式如下，在已注册的企业中企业视图集群界面添加集群；流程如下：
 
@@ -121,7 +121,7 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
     **Region Config：**  `Region Config`文件定义了当前集群配置信息，包括集群`API地址`，`Web Socket通信地址`，`HTTP应用默认域名后缀`，`TCP应用默认访问IP`等，在添加集群时添加 Region Config 文件后，将会自动读取以上信息。
 
-## 如何使用该集群
+### 如何使用该集群
 
 在 [创建团队](/docs/enterprise-manager/enterprise/teams/create-team/) 时选择该集群，创建属于该集群的团队，自此在该团队下创建组件时将会使用该集群的资源。
 
