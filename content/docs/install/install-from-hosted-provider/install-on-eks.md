@@ -28,9 +28,10 @@ description: '在 Amazon EKS 上安装 Rainbond，并对接到 Raibnond Cloud'
 
 ### 准备一个弹性负载均衡 ELB
 
-为了保证 Rainbond 集群的高可用，需要在流量进入到 Rainbond 的网关节点前，加一层负载均衡。详情请参考[负载均衡器 ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/load-balancer-getting-started.html)。
+为了保证 Rainbond 网关节点（rbd-gateway）的高可用，需要准备至少两个网关节点，并且在流量进入到 Rainbond 的网关节点前，
+加一个 4 层的负载均衡。我们使用 AWS 的 ELB 作为网关节点的 4 层负载均衡器，并将 ELB 的 `80`，`443`，`6060`, `8443`, `30008` 这个 5 个端口映射到网关节点相应的端口上。 创建方式请参考[负载均衡器 ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/load-balancer-getting-started.html)。
 
-ELB 需要开放 `80`，`443`，`6060`, `8443`, `30008` 这 4 个端口。
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E6%89%98%E7%AE%A1%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%20Rainbond%20Cloud/elb-before-rbd-gateway.png" width="100%" >}}
 
 ### 准备一个 RDS
 
