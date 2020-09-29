@@ -37,10 +37,10 @@ k3s是完全兼容的Kubernetes发行版，有以下更改：
 * 1.安装最新稳定版k3s，更多请参考k3s[官网](www.rancher.com)
 
 ```shell
-curl -sfL https://docs.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn INSTALL_K3S_EXEC="--docker --no-deploy traefik" sh -
+curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn INSTALL_K3S_EXEC="--docker --disable traefik" sh -
 ```
 
-> --no-deploy traefik : 不安装traefik （避免80 443被占用）
+> --disable traefik : 不安装traefik （避免80 443被占用）
 >
 > --docker：使用docker ，k3s默认使用containerd，rainbond暂不支持containerd
 

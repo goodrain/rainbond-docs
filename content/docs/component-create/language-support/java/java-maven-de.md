@@ -2,7 +2,7 @@
 title: Rainbond构建Java Maven项目原理解读
 description: Rainbond构建Java Maven项目原理解读
 hidden: false
-weight: 804
+weight: 808
 aliases:
 - /docs/user-manual/component-create/language-support/java/java-maven-de/
 ---

@@ -2226,6 +2226,8 @@ h6 {
 
 .markdown-body h4 {
   font-size: 1em;
+  margin-top: 48px;
+  color: #0d2192;
 }
 
 .markdown-body h5 {

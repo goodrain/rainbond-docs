@@ -15,6 +15,7 @@ aliases:
 - 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements)。
 - 硬件：2 核 CPU，8G 内存，50G 磁盘。
 - 设置服务器时区为`shanghai`，并同步时间
+- 未安装 docker，kubernetes。
 - 操作系统：
   - `CentOS 7` [升级内核到最新稳定版](https://t.goodrain.com/t/topic/1305)
   - `Ubuntu 1604/1804`

@@ -18,7 +18,7 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
    5）使用字节码增强技术，添加新功能而无需修改代码。  
 
 
-- 主要组件
+- 本文档适合需要通过 PinPoint 实施微服务监控与链路追踪的企业开发、测试、运维人员阅读。
 
 {{<image src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%">}}
 
@@ -35,154 +35,86 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
 
 
 
-### 前提条件
-
-
-
-- 本地共享库中已存在 **Java 性能分析示例** 应用模版，可以通过 [Java 性能分析示例离线包](https://goodrain-delivery.oss-cn-hangzhou.aliyuncs.com/zhongyijicheng/Java%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E7%A4%BA%E4%BE%8B-1.0.zip)导入。
-
-
-
 ### 操作步骤
 
 
+通过官方应用市场一键部署的方式，可以将 PinPoint部署到你的 Rainbond 环境中去。
 
-通过共享库一键部署的方式，可以将 PinPoint、todo＿view、todo＿api 部署到你的 Rainbond 环境中去，其中 todo＿view、todo＿api 是用于验证的测试业务。
+- **安装Pinpoint**
 
+  ​	1）进入团队视图 > 新增 > 基于应用市场创建组件 。
 
+  ​	2）在Rainbond社区开源商店中搜索 **pinpoint** > 安装 ，安装最新版本 **2.1.0**。
 
-- **安装 Java 性能分析示例**
-
-这种部署方式对于像 pinpoint 这种多组件的复杂应用来说，最大程度的降低了部署难度与工作量
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genn0drg6pj320b0u0424.jpg" title="安装示例" width="100%">}}
-
+  {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/get-start/best-practices/work_with_apm/install-pinpoint.jpg" title="安装示例" width="100%">}}
 
 - **配置 websocket**
 
-PinPoint 支持实时显示链路追踪数据，这需要 pinpoint-web 的访问地址支持 websocket 协议。
+  PinPoint 支持实时显示链路追踪数据，这需要 pinpoint 的访问地址支持 websocket 协议。
 
-在 **网关** 中找到 pinpoint-web 的域名，点击 **参数设置**，打开 websocket 支持。
+  在 **网关** 中找到 **pinpoint-web 8080端口**的域名，点击 **参数设置**，打开 websocket 支持。
 
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genn7lmykij31is0u0whx.jpg" title="开启 WebSocket" width="100%">}}
+  {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/get-start/best-practices/work_with_apm/port-websocket.jpg" title="开启WebSocket" width="100%">}}
 
 - **运行效果**
 
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genn2hhm43j30u00uewfs.jpg" title="运行效果" width="50%">}}
+  {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/get-start/best-practices/work_with_apm/pinpoint.jpg" title="运行效果" width="100%">}}
 
-### 效果展示
+- **使用官方DEMO演示 Pinpoint-agent**
 
-todo＿view 会通过特定的路径访问 todo＿api，并借此和数据库交互。演示的效果就是监控并追踪这一条访问链路，todo＿view、todo＿api 使用的镜像已经集成 pinpoint-agent，具体集成方式见后文描述。
+  > 基于源码构建的 Java项目默认都会集成 pinpoint-agent
 
-打开 pinpoint-web 的页面，就可以选择到 todo＿view 的相关链路，打开实时监控。
+  ​	1）参考 [快速入门](https://www.rainbond.com/docs/get-start/) 安装基于源码创建的组件
 
-访问 todo＿view 指定路径 `/api/todos`、`/api/req`即可触发调用链路。最终效果显示如下：
+  ​	2）进入第一步创建的组件视图 > 依赖 > 添加依赖组件名称**Pinpoint-collector** 。
 
-- **调用链路显示**
+  ​	3）进入组件监控 > 链路追踪 > 开启 。
 
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genni900kfj31e70u0acf.jpg" title="调用链路展示" width="100%">}}
+  ​	4）更新组件 。
 
-- **监控详情**
+  **效果展示：**
 
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1gennjjycw7j31qh0u0wpp.jpg" title="监控详情" width="100%">}}
+  ​		访问 **Pinpoint-web**，会看到上一步的应用名称。至此，完成。
 
+  {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/get-start/best-practices/work_with_apm/java-pinpoint.png" title="运行效果" width="100%">}}
 
+  **Spring Cloud Pig** 效果展示：
 
-### 集成 pinpoint-agent 的方法
+  {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/get-start/best-practices/work_with_apm/springcloud_pig-pinpoint.png" title="Spring Cloud Pig运行效果" width="100%">}}
 
-PinPoint 是通过在 java 服务启动时，通过启动参数指定 pinpoint-agent 的路径以及参数来实现监控与链路追踪的。通过并行启动 agent，来实现不修改代码的无侵入链路追踪。按照下文，理解如何集成 agent。
+- **Pinpoint说明**
 
-当前 PinPoint 的版本为 v1.7.2，适配的 [pinpoint-agent 下载地址](https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/apps/pinpoint/pinpoint-agent-1.7.2-SNAPSHOT.tar.gz)。
+  | Pinpoint版本 | 2.1.0 |
+  | :--: | :--: |
+  | applicationName | 默认取值组件应用名称 （注意不能使用中文名称） |
+  |  | 如不想改变组件名称，可修改组件环境变量 ES_TRACE_APP_NAME 来更改 applicationName |
+  | agentId | 取值POD变量HOSTNAME |
 
+- **常见问题**
 
+  1）**pinpoint-hbase**组件一直初始化或不健康状态
 
-- 在 war 启动过程中插⼊agent
+  尝试把 **pinpoint-hbase**  组件的存储改为本地存储。如还是起不来，建议换掉08年的硬盘。
 
- 对于 war 包启动的项目，推荐使用 Dockerfile 或镜像部署。
+  2）依赖添加了，也在监控 > 链路追踪 开启了，为啥Pinpoint web页面 APP_LIST 没有我的应用
 
- 1）事先将 pinpoint-agent 资源打进镜像，示例代码中，pinpoint-agent 目录位于 /usr/local 下。
+  请检查是否更新了组件。如更新了组件请查看日志是否有 **pinpoint-agent**启动日志。
 
- 2）关键代码：
+  3）用了一段时间**pinpoint**突然不能访问了
 
-**/usr/local/tomcat/bin/pinpoint-agent.sh**
+  在**伸缩** > 查看实例内存占用情况，尝试加大内存，默认给的1G。
+  
+  4）为什么我的源码构建没有默认集成**pinpoint-agent**
+  
+  请更新builder镜像：
+  
+  ```shell
+  #拉取最新builder镜像
+  docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:5.2.0
+  #重新打tag，推送到默认镜像仓库
+  docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:5.2.0 goodrain.me/builder:latest
+  docker push goodrain.me/builder:latest
+  ```
+  
+  新安装的则不需要更新镜像。
 
-```bash
-#pinpoint-agent.sh
-#指定pinpoint-agent资源
-CATALINA_OPTS="$CATALINA_OPTS -javaagent:$PINPOINT_AGENT_PATH/pinpoint-bootstrap-${PINPOINT_AGETN_VERSION}-SNAPSHOT.jar"  
-#指定pinpoint-agent ID
-CATALINA_OPTS="$CATALINA_OPTS -Dpinpoint.agentId=${AGENT_ID}" 
-#指定应用名字
-CATALINA_OPTS="$CATALINA_OPTS -Dpinpoint.applicationName=${APP_NAME}" 
-```
-
-**docker-entrypoint.sh**
-
-```bash
-#docker-entrypoint.sh  
-#判断是否开启pinpoint-agent
-if [ "$ENABLE_APM" == "true" ];then  
-#collector地址
- COLLECTOR_TCP_HOST=${COLLECTOR_TCP_HOST:-127.0.0.1} 
- COLLECTOR_TCP_PORT=${COLLECTOR_TCP_PORT:-9994}       
- COLLECTOR_UDP_SPAN_LISTEN_HOST=${COLLECTOR_UDP_SPAN_LISTEN_HOST:-127.0.0.1}
- COLLECTOR_UDP_SPAN_LISTEN_PORT=${COLLECTOR_UDP_SPAN_LISTEN_PORT:-9996}       
- COLLECTOR_UDP_STAT_LISTEN_HOST=${COLLECTOR_UDP_STAT_LISTEN_HOST:-127.0.0.1}
- COLLECTOR_UDP_STAT_LISTEN_PORT=${COLLECTOR_UDP_STAT_LISTEN_PORT:-9995}
-#启动时加载agent
- sed -i "2 a. /usr/local/tomcat/bin/pinpoint-agent.sh" /usr/local/tomcat/bin/catalina.sh  
-#导入到pinpoint-agent配置文件
- sed -i -r -e "s/(profiler.collector.ip)=.*/\1=${COLLECTOR_TCP_HOST}/" \     
- -e "s/(profiler.collector.tcp.port)=.*/\1=${COLLECTOR_TCP_PORT}/" \
- -e "s/(profiler.collector.span.port)=.*/\1=${COLLECTOR_UDP_SPAN_LISTEN_PORT}/" \
- -e "s/(profiler.collector.stat.port)=.*/\1=${COLLECTOR_UDP_STAT_LISTEN_PORT}/" /usr/local/pinpoint-agent/pinpoint.config
-#默认值，在平台的每一个应用都会生成
-export APP_NAME=${APP_NAME:-${SERVICE_NAME:-${HOSTNAME}}}
-#通过APP_NAME，POD_IP区分一个服务下每一个实例的Agent-ID
-export AGENT_ID=${APP_NAME}-${POD_IP} 
-fi
-```
-
-> todo＿view、todo＿api 使用的基础镜像，是我们的技术人员专门制作的 tomcat 镜像，该镜像已经集成了上述功能，并支持 redis 缓存 session 功能，支持一键水平伸缩。
->
-> 镜像地址：goodrainapps/tomcat:8.5.20-jre8-alpine
->
-> ​                    goodrainapps/tomcat:7.0.82-jre7-alpine 
->
-> 使用镜像时，指定环境变量 ENABLE＿APM = true 即可开启 pinpoint-agent。
-
-
-
-- 在 jar 启动过程中插⼊agent
-
-  对于 jar 包启动的项目，除了制作镜像与 Dockerfile 部署之外，也可以使用以下关键代码，用源码构建的方式部署。
-
-  1）事先将 pinpoint-agent 资源放进源码仓库，将该目录放置在代码根目录下即可。
-
-{{<image src="https://tva1.sinaimg.cn/large/007S8ZIlly1genocwlizoj31ah0u0gq1.jpg" title="代码目录" width="100%">}}
-
-  2）关键代码：
-
-**Procfile**
-
-```bash
-web: bash run.sh
-```
-
-**run.sh**
-
-```bash
-#!/bin/bash
-#通过特定环境变量判断是否启动 pinpoint agent
-if [[ $ENABLE_APM == "true" ]];then 
- AGENT_ID=${SERVICE_ID:0:10}
- PINPOINT_AGETN_VERSION=1.7.2
- PINPOINT_AGENT_PATH=/app/pinpoint
-#将 pinpoint agent 启动参数加⼊到 $JAVA_OPTS 中 
-export JAVA_OPTS="$JAVA_OPTS -javaagent:${PINPOINT_AGENT_PATH}/pinpoint-bootstrap-${PINPOINT_AGETN_VERSION}-SNAPSHOT.jar -Dpinpoint.agentId=${AGENT_ID:-${SERVICE_ID:0:10}} -Dpinpoint.applicationName=${APP_NAME:-${SERVICE_NAME:-$HOSTNAME}}"
-fi
-PORT=${PORT:-5000}
-sleep ${PAUSE:-0}
-#最终启动命令
-exec java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
-```
