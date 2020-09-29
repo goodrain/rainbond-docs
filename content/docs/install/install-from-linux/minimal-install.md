@@ -67,11 +67,22 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
 
 ## 常见问题排查
 
-1. `http://$IP:30008`或`http://$IP:7070`无法访问：
+1. 若服务器的 `sshd` 服务不使用默认 22 端口安装时，在执行安装步骤 2 前按如下格式修改 `/etc/ansible/example/hosts.allinone` 文件，其中`$PORT`为 `sshd` 服务端口
+
+   ```bash
+   [etcd]
+   192.168.1.1 NODE_NAME=etcd1 ansible_ssh_port=$PORT
+   [kube-master]
+   192.168.1.1 ansible_ssh_port=$PORT
+   [kube-node]
+   192.168.1.1 ansible_ssh_port=$PORT
+   ```
+
+2. `http://$IP:30008`或`http://$IP:7070`无法访问：
 
    导致此问题的原因可能是访问地址所提示的 IP 地址或端口无法访问，建议检查从客户端到访问地址 IP 的网络是否正常，网络正常时检查防火墙安全组策略等是否开发对应端口的访问权限，如果使用的是阿里云的 ECS 资源，确定显示的 IP 地址是否为外网 IP
 
-2. 访问控制台后无法注册用户：
+3. 访问控制台后无法注册用户：
 
    导致此问题的原因可能是 console 数据库初始化失败，通过以下操作重新初始化 console 数据库后再次注册
 

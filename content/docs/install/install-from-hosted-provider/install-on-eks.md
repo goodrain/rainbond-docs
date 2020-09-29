@@ -1,6 +1,7 @@
 ---
 title: '在 Amazon EKS 上安装 Rainbond Cloud'
 weight: 1
+draft: true
 description: '在 Amazon EKS 上安装 Rainbond，并对接到 Raibnond Cloud'
 ---
 

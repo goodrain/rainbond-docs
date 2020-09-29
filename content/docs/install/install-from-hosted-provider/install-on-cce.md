@@ -1,6 +1,7 @@
 ---
 title: '在华为云 CCE 上安装 Rainbond Cloud'
 weight: 1
+draft: true
 description: '在华为云的云容器引擎(Cloud Container Engine)上安装 Rainbond，并对接到 Rainbond Cloud。'
 ---
 

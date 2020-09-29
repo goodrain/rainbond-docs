@@ -25,13 +25,13 @@ params:
       - title: Rainbond Cloud介绍
         url: /docs/quick-start/rainbond-cloud/
       - title: 关键概念
-        url: /docs/user-manual/concept/
+        url: /docs/get-start/concept/
       - title: 组件开发
         url: /docs/user-manual/component-dev/
       - title: 构建微服务架构
         url: /docs/user-manual/architecture/
       - title: 最佳实践
-        url: /docs/user-manual/best-practices/
+        url: /docs/get-start/best-practices/
       - title: 查看更多
         url: /docs/user-manual
     faqs:
