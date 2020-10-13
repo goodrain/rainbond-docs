@@ -1372,7 +1372,7 @@ a {
       align-items: center;
       margin-top: 20px; }
       .main-section .main-content .feature-guide .feature-box .left-box {
-        width: 840px;
+        width: 825px;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;
@@ -1381,7 +1381,7 @@ a {
         justify-content: flex-start;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-        border-right: 1px solid rgba(118, 128, 142, 0.1); }
+        }
         .main-section .main-content .feature-guide .feature-box .left-box .feature-item {
           display: -ms-flexbox;
           display: flex;
@@ -1440,7 +1440,9 @@ a {
             .main-section .main-content .feature-guide .feature-box .left-box .feature-item:hover .arrow {
               display: inline-block; }
       .main-section .main-content .feature-guide .feature-box .right-box {
-        margin-left: 30px; }
+        padding-right: 30px;
+        border-right: 1px solid rgba(118, 128, 142, 0.1);
+        margin-right: 28px;}
         .main-section .main-content .feature-guide .feature-box .right-box .icon {
           width: 58px;
           height: 58px; }
@@ -2238,7 +2240,7 @@ a {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
     .main-section .main-content .feature-guide .feature-box .left-box {
-      width: 840px;
+      width: 825px;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-align: center;
@@ -2247,7 +2249,7 @@ a {
       justify-content: flex-start;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-      border-right: 1px solid rgba(118, 128, 142, 0.1); }
+      }
       .main-section .main-content .feature-guide .feature-box .left-box .feature-item {
         display: -ms-flexbox;
         display: flex;
@@ -2306,7 +2308,9 @@ a {
           .main-section .main-content .feature-guide .feature-box .left-box .feature-item:hover .arrow {
             display: inline-block; }
     .main-section .main-content .feature-guide .feature-box .right-box {
-      margin-left: 30px; }
+      padding-right: 30px;
+      border-right: 1px solid rgba(118, 128, 142, 0.1);
+      margin-right: 28px;}
       .main-section .main-content .feature-guide .feature-box .right-box .icon {
         width: 58px;
         height: 58px; }
