@@ -23,7 +23,7 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
 {{<image src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%">}}
 
 |      组件   |   组件功能 |
-| :-------------: | :-----------------: | ---- |
+| ------------- | ----------------- |
 | Pinpoint-Collector| 收集各种性能数据 |
 | Pinpoint-Agent        | 探针与应用服务器（例如 tomcat) 关联，部署到同一台服务器上        |
 | HBase Storage      | 收集到数据存到 HBase 中   |
@@ -33,7 +33,9 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
 
 本文档预设的场景是通过演示用例，学习如何将 PinPoint 部署在 Rainbond 环境中，并监控测试业务，并追踪其链路。
 
+### 前提条件
 
+* 必须是基于源码构建的 Java项目，默认都会集成 pinpoint-agent。
 
 ### 操作步骤
 
@@ -62,8 +64,6 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
 
 - **使用官方DEMO演示 Pinpoint-agent**
 
-  > 基于源码构建的 Java项目默认都会集成 pinpoint-agent
-
   ​	1）参考 [快速入门](https://www.rainbond.com/docs/get-start/) 安装基于源码创建的组件
 
   ​	2）进入第一步创建的组件视图 > 依赖 > 添加依赖组件名称**Pinpoint-collector** 。
@@ -85,36 +85,35 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
 - **Pinpoint说明**
 
   | Pinpoint版本 | 2.1.0 |
-  | :--: | :--: |
+  | -- | -- |
   | applicationName | 默认取值组件应用名称 （注意不能使用中文名称） |
   |  | 如不想改变组件名称，可修改组件环境变量 ES_TRACE_APP_NAME 来更改 applicationName |
   | agentId | 取值POD变量HOSTNAME |
 
-- **常见问题**
+### 常见问题
 
-  1）**pinpoint-hbase**组件一直初始化或不健康状态
+  - **pinpoint-hbase**组件一直初始化或不健康状态
 
-  尝试把 **pinpoint-hbase**  组件的存储改为本地存储。如还是起不来，建议换掉08年的硬盘。
+    >  尝试把 **pinpoint-hbase**  组件的存储改为本地存储。如还是起不来，建议换掉08年的硬盘。
 
-  2）依赖添加了，也在监控 > 链路追踪 开启了，为啥Pinpoint web页面 APP_LIST 没有我的应用
+* 依赖添加了，也在监控 > 链路追踪 开启了，为啥Pinpoint web页面 APP_LIST 没有我的应用
 
-  请检查是否更新了组件。如更新了组件请查看日志是否有 **pinpoint-agent**启动日志。
+  >  请检查是否更新了组件。如更新了组件请查看日志是否有 **pinpoint-agent**启动日志。
 
-  3）用了一段时间**pinpoint**突然不能访问了
+* 用了一段时间**pinpoint**突然不能访问了
 
-  在**伸缩** > 查看实例内存占用情况，尝试加大内存，默认给的1G。
-  
-  4）为什么我的源码构建没有默认集成**pinpoint-agent**
-  
+  >  在**伸缩** > 查看实例内存占用情况，尝试加大内存，默认给的1G。
+  >
+* 为什么我的源码构建没有默认集成**pinpoint-agent**
+
   请更新builder镜像：
-  
+
   ```shell
   #拉取最新builder镜像
   docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:5.2.0
   #重新打tag，推送到默认镜像仓库
   docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:5.2.0 goodrain.me/builder:latest
   docker push goodrain.me/builder:latest
+  #新安装的则不需要更新镜像。
   ```
-  
-  新安装的则不需要更新镜像。
 

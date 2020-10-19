@@ -32,6 +32,16 @@ k3s是完全兼容的Kubernetes发行版，有以下更改：
    apt install -y nfs-common
    ```
 
+2. 安装Docker。如果已安装，请跳过：
+
+   ```shell
+   wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/install-docker.sh && sh install-docker.sh
+   #启动docker并开机启动docker
+   systemctl start docker && systemctl enable docker
+   ```
+   
+   
+
 ### 开始安装K3s
 
 * 1.安装最新稳定版k3s，更多请参考k3s[官网](www.rancher.com)
@@ -44,7 +54,7 @@ curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh | INSTALL_K3S_M
 >
 > --docker：使用docker ，k3s默认使用containerd，rainbond暂不支持containerd
 
-* 2.配置k3s kubeconfig文件，[请参考官方文档](https://docs.rancher.cn/k3s/configuration.html)
+* 2.配置k3s kubeconfig文件，[请参考官方文档](https://docs.rancher.cn/docs/k3s/cluster-access/_index)
 
 ```bash
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
