@@ -28,13 +28,13 @@ ssh-copy-id $IP
 1. 在有网环境获取离线包
 	
 	```bash
-	wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/Rainbond-5.2.1-release-offline.tgz
+	wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/Rainbond-5.2.2-release-offline.tgz
 	```
 	
 2. 解压至需安装节点的`/etc/ansible`目录中
 	
 	```bash
-	mkdir /etc/ansible && tar xvf Rainbond-5.2.1-release-offline.tgz -C /etc/ansible
+	mkdir /etc/ansible && tar xvf Rainbond-5.2.2-release-offline.tgz -C /etc/ansible
 	```
 	
 3. 验证安装包完整性
