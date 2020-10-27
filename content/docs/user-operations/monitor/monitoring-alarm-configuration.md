@@ -21,7 +21,7 @@ Rainbond 监控报警系统基于 Alertmanager 服务， Alertmanager 主要用�
 
 1. 使用钉钉报警的用户需要拥有钉钉机器人 Webhook 地址，通过 Webhook 接收报警信息，获取方式参阅 [官方文档](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq)；
 2. 使用邮件报警的用户需要拥有 发送邮箱及接收邮箱 账户信息；
-3. 应用市场中已存在 监控报警服务 应用模版，在线安装的用户可以通过应用市场进行安装，离线用户可以通过下载 [监控报警服务](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/appmarket/%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E6%9C%8D%E5%8A%A1-5.2.1.zip) 离线包[导入](https://www.rainbond.com/docs/enterprise-manager/enterprise/appcenter/add-app/)。
+3. 应用市场中已存在 监控报警服务 应用模版，在线安装的用户可以通过应用市场进行安装，离线用户可以通过下载 [监控报警服务](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/appmarket/%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E6%9C%8D%E5%8A%A1-5.2.1.zip) 离线包 [导入](/docs/enterprise-manager/enterprise/appcenter/add-app/#应用导入)。
 
 ### 操作步骤
 
@@ -29,7 +29,7 @@ Rainbond 监控报警系统基于 Alertmanager 服务， Alertmanager 主要用�
 
 **安装部署**
 
-- **安装 报警服务**
+- **安装报警服务**
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/appmarketinstall.jpg"  width="100%">}}
 

@@ -40,16 +40,18 @@ helm version
     kubectl create ns rbd-system
     ```
 
-1. 下载 Rainbond Operator 的 chart 包：
+1. 添加 Rainbond Operator 的 chart 仓库：
 
     ```bash
-    wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/rainbond-operator-v1.1.0-v5.2.1.tgz && tar xvf rainbond-operator-v1.1.0-v5.2.1.tgz
+    helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
     ```
 
 1. 安装 Rainbond Operator
 
     ```bash
-    helm install rainbond-operator ./chart --namespace=rbd-system
+    helm install rainbond-operator rainbond/rainbond-operator \
+    --namespace rbd-system \
+    --version 1.1.0    
     ```
 
 1. 确认状态
@@ -80,7 +82,7 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-1.png" title="安装模式" width="100%">}}
 
 **3 配置镜像仓库**
-   
+
    选择 **新安装镜像仓库（支持HA）**，将会在安装过程中自动安装支持高可用的镜像仓库。
 
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-2.png" title="新安装镜像仓库" width="100%">}}
@@ -111,15 +113,23 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
    选择 **提供已有的 ETCD**，则需要用户提供已存在的 ETCD 集群实例地址列表：
 
-   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-7.png" title="已有 ETCD" width="100%">}}
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-7.jpg" title="已有 ETCD" width="100%">}}
 
-   ETCD地址格式为： **IP:PORT** 或者 **Domain:PORT**
+复用Kubernetes ETCD
 
+* ETCD地址格式为： **IP:PORT** 或者 **Domain:PORT**  
+
+  > 请确认是否通过文档 [kubernetes的高可用安装](/docs/user-operations/install/kubernetes-install/#kubernetes的高可用安装)，如不是请确认ETCD地址 **Domain:PORT** 是否正常或更换ETCD地址为 IP:PORT
+
+* TLS认证打开：
+  * CA证书：/etc/kubernetes/ssl/ca.pem
+  * 客户端证书：/etc/etcd/ssl/etcd.pem
+  * 客户端密钥：/etc/etcd/ssl/etcd-key.pem  
 
 **7 配置网关节点**
 
    高可用环境中，至少选择 `2` 个节点作为集群 **网关节点** ， 默认会选择 Kubernetes 集群中符合条件的 master 节点作为网关节点。
-   
+
    如果你的集群中没有 master 节点（比如使用了各类公有云服务商提供的托管集群），那么你可以 `搜索选择 2` 个 80、443、6060、7070、8443、10254、18080、18081 端口没有被占用的 node 节点，作为网关节点。
 
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-8.png" title="网关节点" width="100%">}}
@@ -153,20 +163,20 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
 **11 配置共享存储**
 
-    在高可用环境，务必提供已有的共享存储：
+   在高可用环境，务必提供已有的共享存储：
     
-    使用集群中已有的 `StorageClass`，该存储必须支持多读多写(`RWX`)，如果用户已经安装 [Glusterfs分布式存储](/docs/user-operations/storage/deploy-glusterfs/)，则可以直接选择：
+   使用集群中已有的 `StorageClass`，该存储必须支持多读多写(`RWX`)，如果用户已经安装 [Glusterfs分布式存储](/docs/user-operations/storage/deploy-glusterfs/)  或 已经 [对接外部NFS存储](/docs/user-operations/storage/deploy-nfs_client/) 则可以直接选择：
 
-    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-11.png" title="已有存储驱动选择" width="100%">}}
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-11.png" title="已有存储驱动选择" width="100%">}}
     
-    如果是阿里云环境，推荐使用 `阿里云 NAS`：
+   如果是阿里云环境，推荐使用 `阿里云 NAS`：
 
-    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-12.png" title="阿里云 NAS 存储" width="100%">}}
+   {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-12.png" title="阿里云 NAS 存储" width="100%">}}
 
 **12 配置块设备存储**
 
    该选项非必填。
-   
+
    如集群内存在已部署好的 **块设备存储驱动** 则可以直接选择，如 [ceph-rbd块存储](/docs/user-operations/storage/ceph-rbd/)。
 
    如果是阿里云环境，可以选择 [阿里云盘](/docs/user-operations/storage/ali-disk/)。
@@ -176,7 +186,7 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 **13 安装环境检测**
 
    Rainbond-Operator 将会自动检测安装环境，全部通过后，点击 **检测通过，开始安装**。
-   
+
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-13.png" title="安装环境检测" width="100%">}}
 
    > 如果安装受阻，可以参考[故障排查](/docs/user-operations/install/troubleshooting/)，或联系相应管理人员。

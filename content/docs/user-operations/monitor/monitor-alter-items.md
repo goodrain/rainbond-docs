@@ -18,7 +18,7 @@ Rainbond 监控服务由组件 `rbd-monitor` 完成，在 monitor 组件中采�
 
 默认监听端口9999，默认安装已添加  Service 对象，在集群获取到 `ServiceIP` 后在平台添加 第三方服务 打开对外端口即可访问。
 
-获取`ServiceIP`方式
+获取 `ServiceIP` 方式
 
 ```bash
 $ kubectl get service rbd-monitor -n rbd-system
@@ -213,7 +213,7 @@ rbd-monitor   ClusterIP   10.68.140.5   <none>        9999/TCP   7h11m
 | 节点内存使用量大于80%|HighMemoryUsageOnNode|
 
 
-**集群监控报警配置参见 [集群监控报警配置说明](/docs/user-operations/monitor/monitoring-alarm-configuration/)**
+**集群监控报警配置参见 [监控报警部署](/docs/user-operations/monitor/monitoring-alarm-configuration/)**
 
 
 

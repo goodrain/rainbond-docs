@@ -81,7 +81,7 @@ weight: 8007
 全局限流：
 
 - OPEN_LIMIT
-  开启全局限流功能，全局限流功能依赖于第三方的限流服务，比如[ratelimit](https://github.com/lyft/ratelimit), 当前服务需要依赖ratelimit服务，并设置RATE_LIMIT_SERVER_HOST和RATE_LIMIT_SERVER_PORT环境变量。
+  开启全局限流功能，全局限流功能依赖于第三方的限流服务，比如 [ratelimit](https://github.com/lyft/ratelimit) , 当前服务需要依赖ratelimit服务，并设置RATE_LIMIT_SERVER_HOST和RATE_LIMIT_SERVER_PORT环境变量。
 - LIMIT_DOMAIN
   限流链路的domain key,与全局限流服务的配置对应
 

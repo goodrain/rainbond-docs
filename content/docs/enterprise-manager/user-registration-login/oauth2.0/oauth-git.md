@@ -2,7 +2,7 @@
 title: OAuth2.0代码仓库对接
 description: 提供第三方平台认证登录（Github、Gitlab、Gitee）
 weight: 6010
-hidden: true
+hidden: false
 ---
 
 ### 平台内置了github,gitlab,gitee三个常用的代码仓库

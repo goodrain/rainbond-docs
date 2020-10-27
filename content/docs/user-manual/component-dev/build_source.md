@@ -24,11 +24,11 @@ Rainbond 组件创建有三种模式：[源码](/docs/user-manual/component-crea
 
 ### 自动构建设置
 
-自动构建即通过一种方式自动触发 Rainbond 组件版本构建的操作，详细文档见[组件自动构建](../auto_build/)
+自动构建即通过一种方式自动触发 Rainbond 组件版本构建的操作，详细文档见 [组件自动构建](../auto_build/)
 
 ### 构建参数设置
 
-> 请注意，各语言配置项可能随着版本的升级而变更，因此请以产品体现为主。或参考[各开发语言支持规范](/docs/user-manual/component-create/language-support/)
+> 请注意，各语言配置项可能随着版本的升级而变更，因此请以产品体现为主。或参考 [各开发语言支持规范](/docs/user-manual/component-create/language-support/)
 
 #### JAVA Maven 语言类型
 
@@ -46,7 +46,7 @@ Rainbond 组件创建有三种模式：[源码](/docs/user-manual/component-crea
 | Maven 构建参数(BUILD_MAVEN_CUSTOM_OPTS)         | -DskipTests                   |                                                | Maven 构建参数                                                                                                                                                         |
 | Maven 构建全局参数(BUILD_MAVEN_CUSTOM_GOALS)    | clean dependency:list install |                                                | Maven 构建参数                                                                                                                                                         |
 | MAVEN 构建 Java 参数配置(BUILD_MAVEN_JAVA_OPTS) | -Xmx1024m                     |                                                |                                                                                                                                                                        |
-| 启动命令(BUILD_PROCFILE)                        |                               |                                                | War 包:<br \>`web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT target/*.war`;<br \>Jar 包:<br \>`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar` |
+| 启动命令(BUILD_PROCFILE)                        |                               |                                                | War 包:`web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT target/*.war`;Jar 包:`web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar` |
 
 #### JAVA Jar 语言类型
 

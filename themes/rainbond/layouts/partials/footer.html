@@ -66,7 +66,7 @@
             if (value === 'v5.1') {
                 window.location.href = 'http://v5.1-doc.rainbond.com/docs/'
             } else {
-                window.location.href = 'https://www.rainbond.com/docs/'
+                window.location.href = 'https://www.rainbond.com/docs/quick-start/quick-install/'
             }
         })
         $(".wechart").hover(function () {
@@ -93,11 +93,12 @@
             });
         });
         $(".visitor-show").click(function () {
-            modalVisitor.show({
-                title: "预约演示",
-                source: "Rainbond官网文档首页",
-                smsg: "提交成功，稍后将与你联系确认演示时间"
-            });
+            window.location.href = 'https://cloud.goodrain.com/page/price#poc'
+            // modalVisitor.show({
+            //     title: "预约演示",
+            //     source: "Rainbond官网文档首页",
+            //     smsg: "提交成功，稍后将与你联系确认演示时间"
+            // });
         });
         $(".business-consulting").click(function () {
             modalVisitor.show({
