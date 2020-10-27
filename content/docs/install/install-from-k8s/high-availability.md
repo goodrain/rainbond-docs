@@ -51,7 +51,7 @@ helm version
     ```bash
     helm install rainbond-operator rainbond/rainbond-operator \
     --namespace rbd-system \
-    --version 1.1.0    
+    --version 1.1.1    
     ```
 
 1. 确认状态

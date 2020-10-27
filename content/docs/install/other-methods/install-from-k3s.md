@@ -37,7 +37,8 @@ k3s是完全兼容的Kubernetes发行版，有以下更改：
    ```shell
    wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/install-docker.sh && sh install-docker.sh
    #启动docker并开机启动docker
-   systemctl start docker && systemctl enable docker
+   systemctl daemon-reload && systemctl start docker && systemctl enable docker
+   
    ```
    
    

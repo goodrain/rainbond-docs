@@ -14,12 +14,13 @@ aliases:
 
 - 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements)。
 - 硬件：2 核 CPU，8G 内存，50G 磁盘。
-- 设置服务器时区为`shanghai`，并同步时间
+- 设置服务器时区为`shanghai`，并同步时间。
 - 未安装 docker，kubernetes。
 - 操作系统：
   - `CentOS 7` [升级内核到最新稳定版](https://t.goodrain.com/t/topic/1305)
   - `Ubuntu 1604/1804`
   - `Debian 9/10`
+-  确保服务器可正常连接互联网，如需离线安装请参考[离线安装文档](/docs/install/install-from-linux/offline-install/)。
 
 ## 安装步骤
 
@@ -116,5 +117,7 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
      ```bash
      kubectl get po -n rbd-system -l name=rbd-app-ui-migrations
      ```
+
+
 
 在安装和使用过程中出现的其他问题请参考[安装过程故障排除文档](/docs/user-operations/install/troubleshooting)和[集群问题诊断文档](/docs/user-operations/troubleshoot/cluster_troubleshooting)
