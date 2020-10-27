@@ -53,7 +53,7 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
     ```bash
     helm install rainbond-operator rainbond/rainbond-operator \
     --namespace rbd-system \
-    --version 1.1.0
+    --version 1.1.1
     ```
 
     了解更多 Rainbond Operator 的参数，请查阅[这里](http://localhost:1313/docs/user-operations/rainbond-operator/configuration/)。
