@@ -3,6 +3,7 @@ title: '微服务架构方面'
 chapter: true
 menu: 'advanced-scenarios-devops'
 weight: 23000
+draft: true
 pre: '<b>5.3 </b>'
 ---
 

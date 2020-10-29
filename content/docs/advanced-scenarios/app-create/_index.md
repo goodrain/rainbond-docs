@@ -2,6 +2,7 @@
 title: '应用部署实践'
 menu: 'micro-service-mesh'
 weight: 21000
+draft: true
 pre: '<b>5.1 </b>'
 ---
 

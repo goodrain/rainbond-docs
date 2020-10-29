@@ -1,11 +1,12 @@
-+++
-title = "进阶场景"
-hidden = true
-chapter = true
-menu = "advanced-scenarios"
-weight = 20000
-pre = "<b>5. </b>"
-+++
+---
+title: "进阶场景"
+hidden: true
+chapter: true
+menu: "advanced-scenarios"
+weight: 20000
+draft: true
+pre: "<b>5. </b>"
+---
 
 # 进阶场景
 
