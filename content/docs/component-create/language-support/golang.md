@@ -5,6 +5,7 @@ weight: 3310
 hidden: false
 aliases:
 - /docs/user-manual/component-create/language-support/golang/
+- /docs/user-manual/app-creation/language-support/golang/
 ---
 
 ### Golang语言识别方式

@@ -5,6 +5,7 @@ weight: 3308
 hidden: false
 aliases:
 - /docs/user-manual/component-create/language-support/php/
+- /docs/user-manual/app-creation/language-support/php/
 ---
 
 #### PHP语言识别策略

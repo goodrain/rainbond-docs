@@ -5,6 +5,7 @@ weight: 3320
 hidden: false
 aliases:
 - /docs/user-manual/component-create/language-support/nodejs/
+- /docs/user-manual/app-creation/language-support/nodejs/
 ---
 
 

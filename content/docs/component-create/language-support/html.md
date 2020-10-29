@@ -5,6 +5,7 @@ weight: 3312
 hidden: false
 aliases:
 - /docs/user-manual/component-create/language-support/html/
+- /docs/user-manual/app-creation/language-support/html/
 ---
 
 #### 静态HTML识别策略

@@ -5,6 +5,7 @@ weight: 3310
 hidden: false
 aliases:
 - /docs/user-manual/component-create/language-support/netcore/
+- /docs/user-manual/app-creation/language-support/netcore/
 ---
 
 #### .NetCore 语言类型识别策略

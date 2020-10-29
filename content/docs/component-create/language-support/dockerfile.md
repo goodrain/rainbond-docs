@@ -5,6 +5,7 @@ weight: 3302
 hidden: false
 aliases:
 - /docs/user-manual/component-create/language-support/dockerfile/
+- /docs/user-manual/app-creation/language-support/dockerfile/
 ---
 
 #### Dockerfile类型识别策略
