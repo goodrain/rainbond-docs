@@ -8614,6 +8614,14 @@ print {
     .rw65{
         width: 65%;
     }
+
+    .lw40{
+        width: 40%;
+    }
+    .rw60{
+        width: 60%;
+    }
+
     .column.is-narrow-desktop {
         flex: none
     }
