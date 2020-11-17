@@ -10576,11 +10576,11 @@ img.pushed-image {
 }
 .button-cta .button:first-child {
     margin-left: 0 !important;
+    margin-right: 1rem;
 }
 
 .button-cta .button {
     padding: 1.5rem 2.5rem;
-    margin: 2rem 1rem;
 }
     
 
