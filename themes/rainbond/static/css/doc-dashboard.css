@@ -1111,12 +1111,12 @@ a {
   margin: 0 auto;
   padding: 0; }
   .section-content .title {
-    color: #000;
-    font-size: 40px;
-    font-weight: normal;
-    letter-spacing: 0px;
-    line-height: 1;
-    text-align: center; }
+    text-align: center;
+    font-size: 24px;
+    color: #202D40;
+    font-weight: 400;
+    line-height: 32px;
+  }
   .section-content .description {
     color: #76808e;
     font-size: 16px;
@@ -1271,8 +1271,8 @@ a {
     -webkit-transform: translateZ(0);
     transform: translateZ(0); }
     .main-section .main-content .guide-box .guide-item {
-      width: 261px;
-      height: 280px;
+      width: 50%;
+      margin: 16px;
       -webkit-box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1);
       box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1);
       border-radius: 8px;
@@ -1326,7 +1326,6 @@ a {
           font-size: 20px;
           color: #FFFFFF; }
         .main-section .main-content .guide-box .guide-item .txt p {
-          width: 192px;
           opacity: 0.7;
           font-size: 13px;
           color: #FFFFFF;
@@ -1360,19 +1359,28 @@ a {
   .main-section .main-content .feature-guide {
     margin-top: 56px; }
     .main-section .main-content .feature-guide .tips {
+      text-align: center;
       font-size: 24px;
       color: #202D40;
       line-height: 32px; }
     .main-section .main-content .feature-guide .feature-box {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: start;
-      justify-content: flex-start;
-      -ms-flex-align: center;
-      align-items: center;
       margin-top: 20px; }
+      .main-section .main-content .feature-guide .feature-box .practice-title {
+        width: 100%;
+        font-size: 18px;
+        color: #202D40;
+        font-weight: 500;
+      }
+      .main-section .main-content .feature-guide .feature-box .practice-title svg {
+        height: 14px;
+      }
       .main-section .main-content .feature-guide .feature-box .left-box {
-        width: 825px;
+        padding: 8px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        border-radius: 5px;
+        border: #ddd solid 1px;
+        width: 100%;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;
@@ -1389,10 +1397,9 @@ a {
           justify-content: flex-start;
           -ms-flex-align: center;
           align-items: center;
-          width: 261px;
+          width: 25%;
           height: 40px;
           padding-left: 10px;
-          margin-right: 20px;
           margin-top: 6px;
           margin-bottom: 6px;
           position: relative;
@@ -2240,7 +2247,7 @@ a {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
     .main-section .main-content .feature-guide .feature-box .left-box {
-      width: 825px;
+      width: 100%;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-align: center;
@@ -2257,10 +2264,9 @@ a {
         justify-content: flex-start;
         -ms-flex-align: center;
         align-items: center;
-        width: 261px;
+        width: 25%;
         height: 40px;
         padding-left: 10px;
-        margin-right: 20px;
         margin-top: 6px;
         margin-bottom: 6px;
         position: relative;
