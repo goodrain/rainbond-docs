@@ -2945,6 +2945,19 @@ a {
   display: block;
 }
 
+.btn {
+  width: 110px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #267df7;
+  display: block;
+  padding: 8px 16px;
+  margin: 0 auto;
+}
+
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -3166,14 +3179,6 @@ a {
     align-items: center;
     justify-items: flex-start;
     margin-top: 8px;
-  }
-
-  .main-section .main-content .feature-guide .feature-box .right-box .btn-area .btn {
-    width: 110px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
   }
 
   .main-section .main-content .feature-guide .feature-box .right-box .btn-area .btn.download {

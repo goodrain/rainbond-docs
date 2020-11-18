@@ -22,8 +22,16 @@ params:
             url: /docs/practices/app-dev/statefulset
           - title: 用 Dockerfile 构建运行应用
             url: /docs/practices/app-dev/build_by_dockerfile
+          - title: 部署Vue、React前端项目
+            url: /docs/practices/app-dev/build-react-and-vue
+          - title: Vue、React项目调用后端接口
+            url: /docs/practices/app-dev/connect-api
           - title: 部署 API-Gateway
             url: /docs/get-start/best-practices/work_with_kong
+          - title: 组件依赖端口冲突处理
+            url: /docs/practices/app-dev/port-conflict
+          - title: 应用复制快速搭建开发环境
+            url: /docs/user-manual/component-dev/app_copy/
           
       - title: 应用运维	
         docs:
@@ -37,6 +45,12 @@ params:
         docs:
       - title: 集群管理
         docs:
+          - title: Rainbond系统运维
+            url: /docs/user-operations/management/component-op/
+          - title: 监控报警部署
+            url: /docs/user-operations/monitor/monitoring-alarm-configuration/
+          - title: 存储系统扩展对接
+            url: /docs/user-operations/storage/
     faqs:
       - q: Rainbond是否开源
         a: 当然，Rainbond是一个完整开源的以企业云原生应用开发、架构、运维、共享、交付为核心的Kubernetes多云赋能平台，企业级支持的国产开源项目，订阅企业服务可以解锁更多便捷功能体验和获得专业的支持。

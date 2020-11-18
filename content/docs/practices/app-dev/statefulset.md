@@ -1,6 +1,6 @@
 ---
 title: 使用 Statefulset 部署组件
-weight: 4001
+weight: 4002
 ---
 
 对于kubernetes老玩家而言，StatefulSet这种资源类型并不陌生。对于很多有状态服务而言，都可以使用 StatefulSet 这种资源类型来部署。那么问题来了：挖掘机技术哪家强？额，不对。
