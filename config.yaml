@@ -34,6 +34,8 @@ params:
             url: /docs/user-manual/component-dev/app_copy/
           - title: 部署自动初始化Schema的数据库
             url: /docs/practices/app-dev/auto-schema
+          - title: 部署Spark Standalone集群
+            url: /docs/practices/app-dev/deploy-spark
           
       - title: 应用运维	
         docs:
