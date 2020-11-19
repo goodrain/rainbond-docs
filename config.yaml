@@ -32,6 +32,8 @@ params:
             url: /docs/practices/app-dev/port-conflict
           - title: 应用复制快速搭建开发环境
             url: /docs/user-manual/component-dev/app_copy/
+          - title: 部署自动初始化Schema的数据库
+            url: /docs/practices/app-dev/auto-schema
           
       - title: 应用运维	
         docs:
