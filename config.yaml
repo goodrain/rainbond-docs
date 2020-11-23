@@ -36,6 +36,8 @@ params:
             url: /docs/practices/app-dev/auto-schema
           - title: 部署Spark Standalone集群
             url: /docs/practices/app-dev/deploy-spark
+          - title: 服务间通信,端口别名的使用
+            url: /docs/practices/app-dev/port-alias
           
       - title: 应用运维	
         docs:
@@ -55,6 +57,8 @@ params:
             url: /docs/user-operations/monitor/monitoring-alarm-configuration/
           - title: 存储系统扩展对接
             url: /docs/user-operations/storage/
+          - title: 重新指定Gateway节点
+            url: /docs/practices/operator/gateway-node/
     faqs:
       - q: Rainbond是否开源
         a: 当然，Rainbond是一个完整开源的以企业云原生应用开发、架构、运维、共享、交付为核心的Kubernetes多云赋能平台，企业级支持的国产开源项目，订阅企业服务可以解锁更多便捷功能体验和获得专业的支持。
