@@ -8620,6 +8620,7 @@ print {
     }
     .rw60{
         width: 60%;
+        padding: 0 32px;
     }
 
     .column.is-narrow-desktop {
@@ -10462,7 +10463,7 @@ img.pushed-image {
 
 .hero {
     padding-top: 8rem;
-    padding-bottom: 4rem;
+    padding-bottom: 8rem;
     min-height: 40rem;
     background: #f8f8fc url(../images/hero.png) no-repeat 50% 100%;
     -moz-background-size: 100% 100%; 
@@ -11464,14 +11465,6 @@ h3 {
     padding-left: 2rem
 }
 
-#old-vs-new .newstuff ol li {
-    padding-right: 12.5%
-}
-
-#old-vs-new h3 {
-    font-size: .75rem
-}
-
 #old-vs-new h2 {
     font-size: 1.5rem;
     font-weight: 700
@@ -11485,7 +11478,6 @@ h3 {
 
 #old-vs-new ol li {
     margin: 1.5rem 0;
-    padding-right: 7.5%;
     line-height: 1.6
 }
 
@@ -11775,7 +11767,12 @@ pre {
 .login-zone {
     margin-left: auto;
     display: flex;
+    align-items: center;
     padding: .75rem;
+}
+
+.login-zone span {
+    line-height: 1;
 }
 
 .login-zone .login,
@@ -11878,4 +11875,19 @@ pre {
 .play {
     width: 800px;
     margin: 0 auto;
+}
+
+.git-project-gvp-badge {
+    border: 1px solid rgba(210,191,134,0.5) !important;
+    color: #C19A26 !important;
+    font-weight: 500 !important;
+    background: linear-gradient(to right, rgba(253,235,144,0.5), rgba(238,218,160,0.5)) !important;
+    margin-left: 16px;
+    line-height: 24px;
+    white-space: nowrap;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 2px;
+    vertical-align: text-bottom;
+    height: 28px;
 }

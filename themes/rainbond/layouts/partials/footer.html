@@ -9,7 +9,7 @@
             <div class="column is-two-thirds">
                 <div class="content">
                     <p>
-                        以企业云原生应用开发、架构、运维、共享、交付为核心的Kubernetes多云赋能平台
+                        专注于以应用为中心的理念。赋能企业搭建云原生开发云、云原生交付云。
                     </p>
                 </div>
             </div>
@@ -124,9 +124,11 @@
 <script>
     var _hmt = _hmt || [];
     (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?19583a0ffdf6a67e3798ed126b51af5f";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        if (document.domain.indexOf('rainbond.com') != -1){
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?19583a0ffdf6a67e3798ed126b51af5f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        }
     })();
 </script>
