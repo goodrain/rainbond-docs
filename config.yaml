@@ -2,7 +2,7 @@
 baseurl: 'http://v5.2-doc.rainbond.com/docs/'
 languageCode: 'zh-cn'
 DefaultContentLanguage: 'zh-cn'
-title: 'Rainbond-企业应用云操作系统，云原生企业业务中台基座'
+title: 'Rainbond-云原生且易用的应用管理平台'
 theme: 'rainbond'
 baseURL: ''
 canonifyURLs: true
@@ -12,8 +12,8 @@ params:
   issuesURL: 'https://github.com/goodrain/rainbond-docs/issues/new'
   showVisitedLinks: true
   disableShortcutsTitle: false
-  description: 'Rainbond是以应用为中心，面向云原生的企业应用操作系统，将企业数字资产抽象为应用模型（Rainbond Application Model），并通过容器化环境、敏捷DevOps、微服务架构、组件制品库、Serverless部署、底层资源自动化运维等核心技术，通过搭建数字中台、加速前台业务需求响应，帮助企业获得面向未来的创新能力和竞争力。'
-  keywords: '视频教程，好雨, goodrain, Rainbond, 云帮, 以应用为中心, serverless, PaaS, SaaS, Kubernetes, 微服务架构, servicemesh, DevOps, CI/CD, 高效运维, 云原生, 公有云, 私有云, 混合云, 应用交付, 微服务, 容器云, 容器云平台, 容器云服务, 镜像构建, 源码构建, 云原生应用, 微服务, 微服务平台, springcloud微服务架构, service mesh, 服务网格, 微服务设计, sidecar, 行业云, 开发云, 智慧云, 云计算解决方案'
+  description: '云原生应用交付的最佳实践，简单易用。专注于以应用为中心的理念。赋能企业搭建云原生开发云、云原生交付云。'
+  keywords: '云原生,云原生应用,视频教程,好雨, goodrain, Rainbond, 云帮, 以应用为中心, serverless, PaaS, SaaS, Kubernetes, 微服务架构, servicemesh, DevOps, CI/CD, 高效运维, 云原生, 公有云, 私有云, 混合云, 应用交付, 微服务, 容器云, 容器云平台, 容器云服务, 镜像构建, 源码构建, 云原生应用, 微服务, 微服务平台, springcloud微服务架构, service mesh, 服务网格, 微服务设计, sidecar, 行业云, 开发云, 智慧云, 云计算解决方案'
   dashboard:
     recommended:
       - title: 应用开发
