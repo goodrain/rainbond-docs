@@ -14,7 +14,7 @@
                             <img src="images/rainbondlog.png" alt="Rainbond" /><br>
                         </h1>
                         <h2>云原生且易用的应用管理平台</h2>
-                        <p>云原生应用交付的最佳实践，简单易用。专注于以应用为中心的理念。赋能企业搭建云原生开发云、云原生交付云。是 <a href="https://store.goodrain.com" target="_blank">Rainstore</a> 云原生应用商店的交付端实现。</p>
+                        <p>云原生应用交付的最佳实践，简单易用。专注于以应用为中心的理念。赋能企业搭建云原生开发云、云原生交付云。是 <a href="https://store.goodrain.com" target="_blank">Rainstore</a> 云原生应用商店的最佳交付支撑平台。</p>
                         <div class="button-cta">
                             <a class="button is-primary" href="/docs/quick-start/quick-install/" target="_blank"
                                 rel="noopener noreferrer">
@@ -309,6 +309,43 @@
                         <a title="山东鲁能软件"><img src="/images/users/luneng.png" alt="山东鲁能软件" /></a>
                     </figure>
                 </div> 
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="西南民族大学"><img src="/images/users/xinanmingzu.jpg" alt="西南民族大学" /></a>
+                    </figure>
+                </div> 
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="广西体育高等专科学校"><img src="/images/users/guangxitizhuan.png" alt="广西体育高等专科学校" /></a>
+                    </figure>
+                </div> 
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="清能互联"><img src="/images/users/qingnenghulian.png" alt="清能互联" /></a>
+                    </figure>
+                </div> 
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="厦门吉联"><img src="/images/users/jilian.png" alt="厦门吉联" /></a>
+                    </figure>
+                </div> 
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="江苏荣泽信息科技"><img src="/images/users/rongze.png" alt="江苏荣泽信息科技" /></a>
+                    </figure>
+                </div> 
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="青岛迪迪科技"><img src="/images/users/didi.png" alt="青岛迪迪科技" /></a>
+                    </figure>
+                </div> 
+                {{range .Site.Params.users}}
+                <div class="column is-half-mobile is-2-desktop">
+                    <figure class="image">
+                        <a title="{{ .title }}"><img src="{{ .logo }}" alt="{{ .title }}" /></a>
+                    </figure>
+                </div> 
+                {{end}}
             </div>
 
         </div>

@@ -162,6 +162,19 @@ params:
         - title: Rainbond应用构建、拼装、安装与升级流程演示
           bilibili: https://www.bilibili.com/video/av78830420/
           src: //player.bilibili.com/player.html?aid=78830420&cid=134888098&page=1
+  users:
+    - title: 苏州不木网络科技有限公司 
+      logo: /images/users/bumu.png
+    - title: 上海熙菱信息 
+      logo: /images/users/xiling.png
+    - title: 上海勤和互联网技术软件开发有限公司 
+      logo: /images/users/qinghehulian.png
+    - title: 福州众享家信息科技有限公司
+      logo: /images/users/zhongxiangjia.png  
+    - title: 壹米滴答供应链集团有限公司
+      logo: /images/users/yimidida.png  
+    - title: 四川万江港利水务有限公司
+      logo: /images/users/wanjiang.png  
 outputs:
   home:
     - HTML
