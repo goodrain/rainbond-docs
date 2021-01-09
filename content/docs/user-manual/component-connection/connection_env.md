@@ -2,6 +2,8 @@
 title: 通信变量注入
 description: 本文讲解服务直接依赖时的变量传递
 weight: 20
+aliases:
+  - /docs/user-manual/app-service-manage/service-rely/#服务连接信息管理
 ---
 
 > 本文适用于应用开发者和运维人员

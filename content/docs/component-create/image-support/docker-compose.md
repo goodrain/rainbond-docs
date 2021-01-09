@@ -3,6 +3,8 @@ title: "DockerCompose支持规范"
 hidden: false
 description: "本章节将带你认识Rainbond基于DockerCompose配置创建多个组件的支持规范"
 weight: 3200
+aliases:
+  - /docs/user-manual/app-creation/image-support/docker-compose/
 ---
 
 ### 支持原理
