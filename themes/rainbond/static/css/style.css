@@ -9,6 +9,7 @@
         transform: rotate(359deg)
     }
 }
+
 #wechatimg {
     position: absolute !important;
     display: none;
@@ -1974,6 +1975,7 @@ a.box:active {
     border-color: transparent;
     color: #fff
 }
+
 .button.is-lights {
     background-color: #94a7d5 !important;
     border-color: transparent;
@@ -8608,17 +8610,19 @@ print {
 
 @media screen and (min-width:1088px) {
 
-    .lw35{
+    .lw35 {
         width: 35%;
     }
-    .rw65{
+
+    .rw65 {
         width: 65%;
     }
 
-    .lw40{
+    .lw40 {
         width: 40%;
     }
-    .rw60{
+
+    .rw60 {
         width: 60%;
         padding: 0 32px;
     }
@@ -10186,7 +10190,7 @@ print {
 
     .hero {
         padding-top: 2rem !important;
-        background: #f8f8fc !important; 
+        background: #f8f8fc !important;
         padding-bottom: 1rem !important;
         text-align: center !important;
     }
@@ -10222,7 +10226,7 @@ print {
 
 @media screen and (min-width:1088px) {
     .section.is-medium {
-        padding: 6rem  1.5rem 3rem;
+        padding: 6rem 1.5rem 3rem;
     }
 
     .section.is-video {
@@ -10466,7 +10470,7 @@ img.pushed-image {
     padding-bottom: 8rem;
     min-height: 40rem;
     background: #f8f8fc url(../images/hero.png) no-repeat 50% 100%;
-    -moz-background-size: 100% 100%; 
+    -moz-background-size: 100% 100%;
     background-size: 100% 100%;
 }
 
@@ -10517,9 +10521,10 @@ img.pushed-image {
     margin-right: 7px;
     width: 9px;
 }
+
 .video-wrapper {
     transform: translateX(0);
-    transition: opacity .5s,transform .5s;
+    transition: opacity .5s, transform .5s;
     transition-timing-function: ease-out;
 }
 
@@ -10575,6 +10580,7 @@ img.pushed-image {
     float: left;
     margin: -1rem 0 0 .5rem
 }
+
 .button-cta .button:first-child {
     margin-left: 0 !important;
     margin-right: 1rem;
@@ -10583,7 +10589,7 @@ img.pushed-image {
 .button-cta .button {
     padding: 1.5rem 2.5rem;
 }
-    
+
 
 .button-cta {
     margin-top: 2rem;
@@ -11687,7 +11693,6 @@ pre {
 #community .social-wrap h4 {
     font-size: 1.25rem;
     font-weight: 700;
-    min-width: 15vw;
     color: #6681c3;
     margin: .5rem 0 .25rem
 }
@@ -11878,10 +11883,10 @@ pre {
 }
 
 .git-project-gvp-badge {
-    border: 1px solid rgba(210,191,134,0.5) !important;
+    border: 1px solid rgba(210, 191, 134, 0.5) !important;
     color: #C19A26 !important;
     font-weight: 500 !important;
-    background: linear-gradient(to right, rgba(253,235,144,0.5), rgba(238,218,160,0.5)) !important;
+    background: linear-gradient(to right, rgba(253, 235, 144, 0.5), rgba(238, 218, 160, 0.5)) !important;
     margin-left: 16px;
     line-height: 24px;
     white-space: nowrap;
