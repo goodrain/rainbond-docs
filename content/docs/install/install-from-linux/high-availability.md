@@ -2,6 +2,7 @@
 title: '基于 Linux 高可用安装'
 weight: 1
 description: '在 Linux 服务器上安装高可用的，生产可用的 Rainbond。'
+draft: true
 ---
 
 本文会将在 Linux 服务器上安装高可用的 Rainbond，适用于生存环境。
@@ -21,6 +22,5 @@ description: '在 Linux 服务器上安装高可用的，生产可用的 Rainbon
 在安装 Rainbond 之前，需要一个 `1.13` 及以上版本的高可用 Kubernetes。请参考 [Kubernetes 的高可用安装](/docs/user-operations/install/kubernetes-install/#kubernetes的高可用安装)。
 
 ## 基于已有 Kubernetes 安装高可用 Rainbond 环境
-
 
 接下来的安装步骤，参见 [基于 K8s 高可用安装](/docs/install/install-from-k8s/high-availability/)。

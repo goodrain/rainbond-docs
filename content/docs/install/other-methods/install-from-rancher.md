@@ -3,6 +3,7 @@ title: 基于 Rancher 安装
 description: 本文用于 Rancher 用户安装 Rainbond 的参考
 keywords: [Rainbond, Rancher]
 weight: 10
+draft: true
 ---
 
 > 本文适用于正在使用 Rancher 或对 Rancher 有所了解的用户
@@ -20,12 +21,12 @@ Rainbond 定位“企业应用全生命周期管理“，类似于 Rancher 的�
 1. Kubernetes 版本在 1.13 及以上
 1. Kubernetes 集群至少有一个 80/443 端口未被占用的节点
 1. NFS 客户端。如果没有安装，可以参考：
-    ```bash
-    # CentOS 系统
-    yum install -y nfs-utils
-    # Ubuntu/Debian 系统
-    apt install -y nfs-common
-    ```
+   ```bash
+   # CentOS 系统
+   yum install -y nfs-utils
+   # Ubuntu/Debian 系统
+   apt install -y nfs-common
+   ```
 
 ### 开始安装
 

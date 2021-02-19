@@ -1,7 +1,7 @@
 ---
 title: '更新记录'
 menu: 'upgrade'
-weight: 4000
+weight: 5000
 ---
 
 ## Rainbond V5.1 更新记录

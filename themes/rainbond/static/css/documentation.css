@@ -1338,7 +1338,7 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin-top: 24px;
+  padding-top: 66px;
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
@@ -2170,7 +2170,6 @@ h6 {
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin-top: 24px;
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
@@ -2219,12 +2218,10 @@ h6 {
 
 .markdown-body h3 {
   font-size: 1.5em;
-  margin-top: 48px;
 }
 
 .markdown-body h4 {
   font-size: 1em;
-  margin-top: 48px;
   color: #0d2192;
 }
 
@@ -2577,8 +2574,7 @@ h6 {
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
-  padding-left: 2rem;
-  padding-top: 1rem;
+  padding: 2rem;
   width: calc(100% - 600px);
 }
 
@@ -2669,6 +2665,10 @@ h6 {
 
 .post-toc ul {
   margin-top: 1rem;
+}
+
+.post-toc .toc-h3 {
+  margin-top: 0rem;
 }
 
 .post-toc li a {

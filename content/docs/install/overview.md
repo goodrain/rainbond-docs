@@ -2,6 +2,7 @@
 title: '概览'
 weight: 1
 description: '对整个安装 Rainonbd 的概览'
+draft: true
 ---
 
 本节概述了安装 Rainbond 的方式，并介绍了每种方式的优点。
