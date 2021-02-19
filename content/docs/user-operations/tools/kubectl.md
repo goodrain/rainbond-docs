@@ -1,0 +1,22 @@
+---
+title: kubectl命令行工具
+description: Kubernetes 集群管理命令行工具
+weight: 1004
+hidden: false
+---
+
+### 安装 kubectl 命令
+
+```
+wget https://grstatic.oss-cn-shanghai.aliyuncs.com/binary/kubectl -O /usr/bin/kubectl
+chmod +x kubectl
+```
+
+![image-20210219183628565](https://static.goodrain.com/images/5.3/kubeconfig.png)
+
+如上图所示，从集群列表中 Copy kubeconfig 文件写到`~/.kube/config`路径下。
+
+```
+mkdir ~/.kube/
+vi ~/.kube/config
+```

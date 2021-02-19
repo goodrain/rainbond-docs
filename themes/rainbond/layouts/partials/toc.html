@@ -12,10 +12,6 @@
             {{- $anchorId := ($header | plainify | htmlUnescape | anchorize) -}}
             {{- $href := delimit (slice $base $anchorId) "#" | string -}}
             {{- range findRE "[2-4]" . 1 -}}
-                {{- if eq  (int .) 4 }}
-                  {{- $anchorId = printf "b-%s-b" $anchorId -}} 
-                  {{- $href = delimit (slice $base $anchorId) "#" | string -}}
-                {{- end -}}
                 {{- $next_level := (int .) -}}
                 {{- if eq $last_level -1 -}}
                     <ul class="toc-h{{ . }}">
