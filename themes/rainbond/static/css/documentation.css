@@ -2570,11 +2570,7 @@ h6 {
 }
 
 .content-section .content-body {
-  box-sizing: border-box;
-  max-width: 1280px;
-  margin: 0 auto;
-  position: relative;
-  min-height: 1100px;
+  display: flex;
 }
 
 .content-section .content-body .doc-content {
@@ -2582,7 +2578,8 @@ h6 {
   vertical-align: top;
   box-sizing: border-box;
   padding-left: 2rem;
-  width: calc(100% - 300px);
+  padding-top: 1rem;
+  width: calc(100% - 600px);
 }
 
 .head-logo {
@@ -2654,6 +2651,34 @@ h6 {
   color: #fff;
 }
 
+.post-toc {
+  padding: 1rem;
+  flex: 1;
+  border-left: #ccc 1px solid;
+}
+
+.post-toc .toc-header {
+  color: #000;
+  font-size: 20px;
+}
+
+.post-toc .toc-h4 {
+  margin-left: 0.5rem;
+  margin-top: 0px;
+}
+
+.post-toc ul {
+  margin-top: 1rem;
+}
+
+.post-toc li a {
+  color: #666;
+}
+
+.post-toc li a:hover {
+  color: #267df7;
+}
+
 @media screen and (max-width: 640px) {
   .content-section .content-body {
     padding-left: 0px;
@@ -2676,10 +2701,6 @@ h6 {
     z-index: 100;
     left: 0;
     top: -20px;
-  }
-
-  .section {
-    padding: 1.5rem 1.5rem;
   }
 
   .sidemenu .menu-item-selected a::before {

@@ -6,7 +6,6 @@ $(function () {
     if ($(this).hasClass('open')) {
       $(this).removeClass('open');
     } else {
-      $('.canopen').removeClass('open');
       initOpen($(this));
       $(this).addClass('open');
     }

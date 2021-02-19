@@ -11,24 +11,26 @@
     {{else}}
     {{ partial "doc-head.html" . }}
     <section class="section content-section">
-        {{ partial "search.html" . }}
-        <div class="container content-body">
+        <div class="container-full content-body">
             {{ partial "menu.html" . }}
             <div class="doc-content">
-                <div class="article-title">
-                    <span class="t">{{ .Title }}</span>
-                    {{ if and (or .IsPage .IsSection) .Site.Params.editURL }}
-                    {{ $File := .File }}
-                    {{ $Site := .Site }}
-                    {{with $File.Path }}
-                    <span class="e is-hidden-mobile"><a
-                            href="{{ $Site.Params.editURL }}{{ replace $File.Dir "\\" "/" }}{{ $File.LogicalName }}"
-                            target="_blank">编辑此页面</a></span>
-                    {{ end }}
-                    {{ end }}
-                </div>
-                <div class="markdown-body">
-                    {{ .Content }}
+                {{ partial "search.html" . }}
+                <div>
+                    <div class="article-title">
+                        <span class="t">{{ .Title }}</span>
+                        {{ if and (or .IsPage .IsSection) .Site.Params.editURL }}
+                        {{ $File := .File }}
+                        {{ $Site := .Site }}
+                        {{with $File.Path }}
+                        <span class="e is-hidden-mobile"><a
+                                href="{{ $Site.Params.editURL }}{{ replace $File.Dir "\\" "/" }}{{ $File.LogicalName }}"
+                                target="_blank">编辑此页面</a></span>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                    <div class="markdown-body">
+                        {{ .Content }}
+                    </div>
                 </div>
                 <div class="feedback">
                     <p>您对当前文档有任何疑问或使用Rainbond过程中遇到问题，请通过以下方式联系我们</p>
@@ -41,6 +43,9 @@
                     {{ end }} -->
                 </div>
             </div>
+            {{ if .Site.Params.toc | default true }}
+                {{ partial "toc.html" . }}
+            {{ end }}
         </div>
     </section>
     {{end}}

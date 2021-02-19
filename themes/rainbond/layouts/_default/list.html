@@ -6,10 +6,10 @@
     {{ partial "header.html" (dict "context" .   "active" "doc") }}
     {{ partial "doc-head.html" . }}
     <section class="section content-section">
-        {{ partial "search.html" . }}
-        <div class="container content-body">
+        <div class="container-full content-body">
             {{ partial "menu.html" . }}
             <div class="doc-content">
+                {{ partial "search.html" . }}
                 <div class="article-title">
                     <span class="t">{{ .Title }}</span>
                     {{ if and (or .IsPage .IsSection) .Site.Params.editURL }}
