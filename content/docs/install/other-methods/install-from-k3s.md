@@ -23,43 +23,31 @@ k3s是完全兼容的Kubernetes发行版，有以下更改：
 
 ### 前提条件
 
-1. NFS 客户端。如果没有安装，可以参考：
+1. 安装Docker。如果已安装，请跳过：
 
-   ```bash
-   # CentOS 系统
-   yum install -y nfs-utils
-   # Ubuntu/Debian 系统
-   apt install -y nfs-common
-   ```
+```shell
+curl http://sh.rainbond.com/install_docker | bash
+```
 
-2. 安装Docker。如果已安装，请跳过：
 
-   ```shell
-   wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/install-docker.sh && sh install-docker.sh
-   #启动docker并开机启动docker
-   systemctl daemon-reload && systemctl start docker && systemctl enable docker
-   
-   ```
-   
-   
 
 ### 开始安装K3s
 
-* 1.安装最新稳定版k3s，更多请参考k3s[官网](www.rancher.com)
+1. 安装`v1.18.13-k3s1`版本的k3s，更多详情参考k3s[官网](www.rancher.com)
 
 ```shell
-curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn INSTALL_K3S_EXEC="--docker --disable traefik" sh -
+curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn INSTALL_K3S_EXEC="--docker --disable traefik" INSTALL_K3S_VERSION="v1.18.13-k3s1" sh -
 ```
 
 > --disable traefik : 不安装traefik （避免80 443被占用）
 >
 > --docker：使用docker ，k3s默认使用containerd，rainbond暂不支持containerd
 
-* 2.配置k3s kubeconfig文件，[请参考官方文档](https://docs.rancher.cn/docs/k3s/cluster-access/_index)
+2. 拷贝`k3s kubeconfig` 到 `~/.kube/config`，配置`k3s kubeconfig`文件，[详情参考官方文档](https://docs.rancher.cn/docs/k3s/cluster-access/_index)
 
 ```bash
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-kubectl get pods --all-namespaces
+mkdir ~/.kube
+cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 ```
 
 ### 安装rainbond
