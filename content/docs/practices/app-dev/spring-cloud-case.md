@@ -3,6 +3,8 @@ title: 'Spring Cloud 微服务部署在 Rainbond 的案例'
 description: '一个部署在Rainbond的真实Spring Cloud案例'
 menu: 'micro-service-springcloud'
 weight: 22003
+aliases:
+  - /docs/get-start/best-practices/spring_cloud/spring-cloud-case/
 ---
 
 ### 示例项目详情

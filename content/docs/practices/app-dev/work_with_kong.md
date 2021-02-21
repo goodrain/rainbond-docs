@@ -2,6 +2,8 @@
 title: 在 Rainbond 部署 API-Gateway
 description: 本篇最佳实践讲解在 Rainbond 部署 API-Gateway，适用于开发者和应用运维人员。
 weight: 20
+aliases:
+  - /docs/get-start/best-practices/work_with_kong/
 ---
 
 Api-Gateway 是一种微服务架构，通过 Kong（Api-Gateway 的一种成熟实现）将真正的业务服务组件，保护在身后。通过丰富的插件，Kong 可以为后端业务组件提供全面的保护及治理，包括 ACL 访问控制、Basic Auth Oauth2 等认证机制、Rate Limiting 限流机制等等优秀的功能。如何将 Kong 部署在 Rainbond，并简要介绍 Service、Route 的配置，就是当前文档的主题。
