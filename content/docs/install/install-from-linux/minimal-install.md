@@ -2,6 +2,7 @@
 title: '基于 Linux 最小化安装'
 weight: 1
 description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond。'
+draft: true
 ---
 
 最小化安装会把 Kubernetes 和 Rainbond 全安装在一个 Linux 节点上，可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要安装一个生产集群，请产考[在 Linux 上安装高可用的 Rainbond](/docs/install/install-from-linux/high-availability/)。
@@ -35,30 +36,29 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
 
 ### 开始安装
 
-1. **可选项**，在需要设置公网IP为 Rainbond 集群的访问地址时，请执行以下命令
-	
-	```bash
-	export EIP=公网IP
-	```
-	
+1. **可选项**，在需要设置公网 IP 为 Rainbond 集群的访问地址时，请执行以下命令
+
+   ```bash
+   export EIP=公网IP
+   ```
+
 1. 使用默认配置安装最小化 Rainbond 集群
-	
-	```bash
-	./easzup -S && docker exec -it kubeasz easzctl start-aio
-	```
-	
+
+   ```bash
+   ./easzup -S && docker exec -it kubeasz easzctl start-aio
+   ```
+
 1. 执行完成后，出现以下提示：
-	```bash
-	[INFO] save context: aio
-	[INFO] save aio roles' configration
-	[INFO] save aio ansible hosts
-	[INFO] save aio kubeconfig
-	[INFO] save aio kube-proxy.kubeconfig
-	[INFO] save aio certs
-	[INFO] Action successed : start-aio
-	[INFO] Visit http://$IP:30008 to view the installation progress
-	```
-	
+   ```bash
+   [INFO] save context: aio
+   [INFO] save aio roles' configration
+   [INFO] save aio ansible hosts
+   [INFO] save aio kubeconfig
+   [INFO] save aio kube-proxy.kubeconfig
+   [INFO] save aio certs
+   [INFO] Action successed : start-aio
+   [INFO] Visit http://$IP:30008 to view the installation progress
+   ```
 1. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
 
    {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/install/install-from-linux/install-success.jpg" title="安装验证" width="100%">}}
@@ -86,7 +86,7 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
 
    导致此问题的原因可能是 console 数据库初始化失败，通过以下操作重新初始化 console 数据库后再次注册
 
-   - 进入 rbd-db 的 pod 
+   - 进入 rbd-db 的 pod
 
      ```bash
      kubectl exec -it -n rbd-system rbd-db-0 bash
@@ -117,4 +117,3 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
      ```
 
 在安装和使用过程中出现的其他问题请参考[安装过程故障排除文档](/docs/user-operations/install/troubleshooting)和[集群问题诊断文档](/docs/user-operations/troubleshoot/cluster_troubleshooting)
-

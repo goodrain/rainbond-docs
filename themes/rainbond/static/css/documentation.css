@@ -1338,7 +1338,7 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin-top: 24px;
+  padding-top: 66px;
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
@@ -2170,7 +2170,6 @@ h6 {
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin-top: 24px;
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
@@ -2219,12 +2218,10 @@ h6 {
 
 .markdown-body h3 {
   font-size: 1.5em;
-  margin-top: 48px;
 }
 
 .markdown-body h4 {
   font-size: 1em;
-  margin-top: 48px;
   color: #0d2192;
 }
 
@@ -2570,19 +2567,15 @@ h6 {
 }
 
 .content-section .content-body {
-  box-sizing: border-box;
-  max-width: 1280px;
-  margin: 0 auto;
-  position: relative;
-  min-height: 1100px;
+  display: flex;
 }
 
 .content-section .content-body .doc-content {
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
-  padding-left: 2rem;
-  width: calc(100% - 300px);
+  padding: 2rem;
+  width: calc(100% - 600px);
 }
 
 .head-logo {
@@ -2654,6 +2647,38 @@ h6 {
   color: #fff;
 }
 
+.post-toc {
+  padding: 1rem;
+  flex: 1;
+  border-left: #ccc 1px solid;
+}
+
+.post-toc .toc-header {
+  color: #000;
+  font-size: 20px;
+}
+
+.post-toc .toc-h4 {
+  margin-left: 0.5rem;
+  margin-top: 0px;
+}
+
+.post-toc ul {
+  margin-top: 1rem;
+}
+
+.post-toc .toc-h3 {
+  margin-top: 0rem;
+}
+
+.post-toc li a {
+  color: #666;
+}
+
+.post-toc li a:hover {
+  color: #267df7;
+}
+
 @media screen and (max-width: 640px) {
   .content-section .content-body {
     padding-left: 0px;
@@ -2676,10 +2701,6 @@ h6 {
     z-index: 100;
     left: 0;
     top: -20px;
-  }
-
-  .section {
-    padding: 1.5rem 1.5rem;
   }
 
   .sidemenu .menu-item-selected a::before {

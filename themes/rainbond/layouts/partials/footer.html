@@ -63,10 +63,13 @@
 
         $("#switchBranch").change(function () {
             let value = $("#switchBranch").val();
+            $("#switchBranch").val("v5.3")
             if (value === 'v5.1') {
                 window.location.href = 'http://v5.1-doc.rainbond.com/docs/'
-            } else {
-                window.location.href = 'https://www.rainbond.com/docs/quick-start/quick-install/'
+            } else if (value === 'v5.2') {
+                window.location.href = 'https://v5.2-doc.rainbond.com/docs/'
+            }else {
+                window.location.href = 'https://www.rainbond.com/docs/'
             }
         })
         $(".wechart").hover(function () {
@@ -120,6 +123,7 @@
             });
         });
     })
+    
 </script>
 <script>
     var _hmt = _hmt || [];

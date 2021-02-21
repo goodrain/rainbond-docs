@@ -7,11 +7,11 @@ weight: 208
 
 本文档定义了 Rainbond 开发的路线图。该文档更新可能不及时，最新规划关注 [Github](https://github.com/goodrain/rainbond/issues)
 
-当前最新版本：5.2.2   
-
-即将发布版本：5.3.0
+当前最新版本：5.3.0
 
 #### V5.3 版本规划
+
+> 已发布 Release
 
 - [x] 新增支持组件业务级监控可视化
   - [x] 组件自定义监控端点，支持 Prometheus 规范。
@@ -20,15 +20,17 @@ weight: 208
 - [ ] 组件支持基于自定义业务指标自动伸缩。
 - [x] 应用网关支持会话保持负载均衡算法。
 - [ ] 应用支持切换服务治理模式。
-  - [x] 内置ServiceMesh模式
+  - [x] 内置 ServiceMesh 模式
   - [x] Kubernetes 原生模式
   - [ ] Istio 模式
 - [ ] 应用模型兼容[OAM 模型](https://github.com/oam-dev/spec)
   - [ ] 应用支持发布 OAM 模型到组件市场
-- [ ] 支持基于Operator扩展自定义组件类型。
+- [ ] 支持基于 Operator 扩展自定义组件类型。
   - [ ] 内置支持 RDS 云数据库组件类型。
 
 #### V5.2 版本规划
+
+> 已发布 Release
 
 - [x] 组件持久化存储类型支持基于 Kubernetes StorageClass 扩展。
   - [x] 支持 Ceph-RBD 块存储
@@ -43,6 +45,7 @@ weight: 208
   - [x] 新增企业服务管理功能，企业维度可视化业务状态。
   - [x] 应用发布时支持选择目标应用。
   - [x] 应用发布支持发布为服务。
+
 #### V5.1 版本规划
 
 > 已发布 Release

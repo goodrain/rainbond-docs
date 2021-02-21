@@ -1,5 +1,5 @@
 ---
-baseurl: 'http://v5.2-doc.rainbond.com/docs/'
+baseurl: 'http://v5.3-doc.rainbond.com/docs/'
 languageCode: 'zh-cn'
 DefaultContentLanguage: 'zh-cn'
 title: 'Rainbond-云原生且易用的应用管理平台'
@@ -7,7 +7,7 @@ theme: 'rainbond'
 baseURL: ''
 canonifyURLs: true
 params:
-  version: 20201107
+  version: 20210221
   editURL: 'https://github.com/goodrain/rainbond-docs/edit/master/content/'
   issuesURL: 'https://github.com/goodrain/rainbond-docs/issues/new'
   showVisitedLinks: true
@@ -38,19 +38,27 @@ params:
             url: /docs/practices/app-dev/deploy-spark
           - title: 服务间通信,端口别名的使用
             url: /docs/practices/app-dev/port-alias
-          
-      - title: 应用运维	
+
+      - title: 应用运维
         docs:
+          - title: 业务自定义监控
+            url: /docs/user-manual/component-op/custom-monitor/
           - title: Java类组件监控与链路追踪
             url: /docs/get-start/best-practices/work_with_apm/
           - title: 为组件添加配置文件
             url: /docs/get-start/best-practices/config_file/
           - title: 组件日志发送到阿里云
             url: /docs/get-start/best-practices/collect_log/
-      - title: 应用交付	
+          - title: 应用级配置组管理
+            url: /docs/user-manual/app-manage/config-group/
+      - title: 应用交付
         docs:
       - title: 集群管理
         docs:
+          - title: 新增集群
+            url: /docs/user-operations/cluster-manage/add-cluster/
+          - title: 集群基础管理
+            url: /docs/user-operations/cluster-manage/manage-cluster/
           - title: Rainbond系统运维
             url: /docs/user-operations/management/component-op/
           - title: 监控报警部署
@@ -163,18 +171,18 @@ params:
           bilibili: https://www.bilibili.com/video/av78830420/
           src: //player.bilibili.com/player.html?aid=78830420&cid=134888098&page=1
   users:
-    - title: 苏州不木网络科技有限公司 
+    - title: 苏州不木网络科技有限公司
       logo: /images/users/bumu.png
-    - title: 上海熙菱信息 
+    - title: 上海熙菱信息
       logo: /images/users/xiling.png
-    - title: 上海勤和互联网技术软件开发有限公司 
+    - title: 上海勤和互联网技术软件开发有限公司
       logo: /images/users/qinghehulian.png
     - title: 福州众享家信息科技有限公司
-      logo: /images/users/zhongxiangjia.png  
+      logo: /images/users/zhongxiangjia.png
     - title: 壹米滴答供应链集团有限公司
-      logo: /images/users/yimidida.png  
+      logo: /images/users/yimidida.png
     - title: 四川万江港利水务有限公司
-      logo: /images/users/wanjiang.png  
+      logo: /images/users/wanjiang.png
 outputs:
   home:
     - HTML

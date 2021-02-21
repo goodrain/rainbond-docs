@@ -3,121 +3,63 @@ title: '快速安装'
 weight: 104
 description: '使用最简单，方便的方式安装 Rainbond。'
 aliases:
-    - /docs/quick-start/rainbond_install
+  - /docs/quick-start/rainbond_install
 ---
 
 本指南会使用最简单，最方便的方式安装 Rainbond。帮助你快速地评估 Rainbond。
 
-如果你已经熟悉 Rainbond 或想了解其他更高级的安装方式，请查阅[安装 Rainbond](/docs/install/overview/)。
+### 启动 Rainbond 控制台
 
-## 前提条件
+需要您准备一台可运行 Docker 容器的机器，可以是 Linux、Windows 和 Mac。当然我们推荐使用 Linux 服务器。如果您还未安装 Docker 服务，可先通过以下命令安装 Docker 服务。
 
-- 如果开启了防火墙，确保其满足[端口要求](/docs/install/requirements)。
-- 硬件：2 核 CPU，8G 内存，50G 磁盘。
-- 设置服务器时区为`shanghai`，并同步时间。
-- 未安装 docker，kubernetes。
-- 操作系统：
-  - `CentOS 7` [升级内核到最新稳定版](https://t.goodrain.com/t/topic/1305)
-  - `Ubuntu 1604/1804`
-  - `Debian 9/10`
--  确保服务器可正常连接互联网，如需离线安装请参考[离线安装文档](/docs/install/install-from-linux/offline-install/)。
-
-## 安装步骤
-
-### 配置免密钥登录
-
-**`$IP`为所有节点地址包括自身，按照提示输入 yes 和 root 密码**
-
-```bash
-ssh-keygen -t rsa -b 2048 -N '' -f ~/.ssh/id_rsa
-ssh-copy-id $IP
+```
+curl sh.rainbond.com/install_docker | bash
 ```
 
-### 下载安装包
+> 请注意，该命令仅支持 Linux x86 操作系统。
 
-```bash
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chmod +x easzup && ./easzup -D
+#### All-In-One 模式启动控制台
+
+国内用户：
+
+```
+docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
+      --name=rainbond-allinone --restart=always \
+      registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.3.0-release-allinone
 ```
 
-### 开始安装
+国外用户：
 
-1. **可选项**，在需要设置公网IP为 Rainbond 集群的访问地址时，请执行以下命令
-	
-	```bash
-	export EIP=公网IP
-	```
-	
-1. 使用默认配置安装最小化 Rainbond 集群
-	
-	```bash
-	./easzup -S && docker exec -it kubeasz easzctl start-aio
-	```
-	
-1. 执行完成后，出现以下提示：
-	```bash
-	[INFO] save context: aio
-	[INFO] save aio roles' configration
-	[INFO] save aio ansible hosts
-	[INFO] save aio kubeconfig
-	[INFO] save aio kube-proxy.kubeconfig
-	[INFO] save aio certs
-	[INFO] Action successed : start-aio
-	[INFO] Visit http://$IP:30008 to view the installation progress
-	```
-	
-1. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
-		{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/install/install-from-linux/install-success.jpg" title="安装验证" width="100%">}}显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
+```
+docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
+      --name=rainbond-allinone --restart=always \
+      rainbond/rainbond:v5.3.0-release-allinone
+```
 
-## 常见问题排查
+> 默认使用 sqlite3 作为数据库，数据存储于用户主目录下的 rainbonddata 目录。Rainbond 5.3 支持控制台数据迁移，便于后续迁移数据到生产环境，请放心体验。
 
-1. 若服务器的 `sshd` 服务不使用默认 22 端口安装时，在执行安装步骤 2 前按如下格式修改 `/etc/ansible/example/hosts.allinone` 文件，其中`$PORT`为 `sshd` 服务端口
+待容器创建启动成功后，访问机器 <b>7070</b> 端口即可访问到 Rainbond 控制台。
 
-   ```bash
-   [etcd]
-   192.168.1.1 NODE_NAME=etcd1 ansible_ssh_port=$PORT
-   [kube-master]
-   192.168.1.1 ansible_ssh_port=$PORT
-   [kube-node]
-   192.168.1.1 ansible_ssh_port=$PORT
-   ```
+![image-20210219110137479](https://static.goodrain.com/images/5.3/regist.png)
 
-2. `http://$IP:30008`或`http://$IP:7070`无法访问：
-   导致此问题的原因可能是访问地址所提示的 IP 地址或端口无法访问，建议检查从客户端到访问地址 IP 的网络是否正常，网络正常时检查防火墙安全组策略等是否开发对应端口的访问权限，如果使用的是阿里云的 ECS 资源，确定显示的 IP 地址是否为外网 IP
+### 初始化 Rainbond 集群资源
 
-2. 访问控制台后无法注册用户：
+首次注册完成后将导航到添加集群的页面。Rainbond 需要对接计算资源后即可创建并管理云原生应用。5.3 版本开始支持直接对接云资源（阿里云 ACK 集群）、已经安装的 Kubernetes 集群资源和用户提供的裸机资源。
 
-   导致此问题的原因可能是 console 数据库初始化失败，通过以下操作重新初始化 console 数据库后再次注册
+![image-20210219110808088](https://static.goodrain.com/images/5.3/add-cluster.png)
 
-   - 进入 rbd-db 的 pod 
+1）对接云资源适合使用阿里云资源的用户（华为云、腾讯云或其他云用户可自行购买 Kubernetes 服务后使用`接入Kubernetes集群方式进行对接`）使用云资源方式将自动购买 RDS、ACK、NAS、SLB 等资源，为你快速搭建高可用的生产环境。
 
-     ```bash
-     kubectl exec -it -n rbd-system rbd-db-0 bash
-     ```
+2）接入 Kubernetes 集群适合已搭建有 Kubernetes 集群的用户，你应该具有一定的 Kubernetes 管理能力。该方式需要集群版本在 1.16 以上。
 
-   - 登录数据库
+3）如果你只有 Linux 机器，请使用从主机开始安装入口，Rainbond 为你自动安装 Kubernetes 集群。
 
-     ```bash
-     mysql -p$MYSQL_ROOT_PASSWORD
-     ```
+请基于产品引导选择合适的方式进行集群的安装和初始化。 或参考 [添加集群](/docs/user-operations/cluster-manage/add-cluster/)
 
-   - 删除 console 库
+> 请注意，集群安装初始化可以并行进行，你可以同时进行多个集群的安装和初始化。
 
-     ```mysql
-     drop database console;
-     ```
+体验完成后建议将控制迁移到 Rainbond 中管理，[参考文档](/docs/user-operations/ha-deploy/console-recover/)
 
-   - 删除数据库初始化 job ，使其再次运行
+### 离线环境安装
 
-     ```bash
-     kubectl delete job -n rbd-system rbd-app-ui-migrations
-     ```
-
-   - 等待数据库初始化完成，完成后 STATUS 为 Completed
-
-     ```bash
-     kubectl get po -n rbd-system -l name=rbd-app-ui-migrations
-     ```
-
-
-
-在安装和使用过程中出现的其他问题请参考[安装过程故障排除文档](/docs/user-operations/install/troubleshooting)和[集群问题诊断文档](/docs/user-operations/troubleshoot/cluster_troubleshooting)
+请注意，v5.3.0 版本暂不支持离线环境安装，离线环境请参考 [5.2 离线安装](https://v5.2-doc.rainbond.com/docs/install/install-from-linux/offline-install/)

@@ -2,6 +2,7 @@
 title: '基于 Linux 最小化离线安装'
 weight: 1
 description: '在单节点的 Linux 服务器上离线安装 Kubernetes 和 Rainbond。'
+draft: true
 ---
 
 ## 前提条件
@@ -17,6 +18,7 @@ description: '在单节点的 Linux 服务器上离线安装 Kubernetes 和 Rain
 ## 安装步骤
 
 ### 配置免密钥登录
+
 **`$IP`为所有节点地址包括自身，按照提示输入 yes 和 root 密码**
 
 ```bash
@@ -25,46 +27,50 @@ ssh-copy-id $IP
 ```
 
 ### 下载安装包
+
 1. 在有网环境获取离线包
-	
-	```bash
-	wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/Rainbond-5.2.2-release-offline.tgz
-	```
-	
+
+   ```bash
+   wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/Rainbond-5.2.2-release-offline.tgz
+   ```
+
 2. 解压至需安装节点的`/etc/ansible`目录中
-	
-	```bash
-	mkdir /etc/ansible && tar xvf Rainbond-5.2.2-release-offline.tgz -C /etc/ansible
-	```
-	
+
+   ```bash
+   mkdir /etc/ansible && tar xvf Rainbond-5.2.2-release-offline.tgz -C /etc/ansible
+   ```
+
 3. 验证安装包完整性
-	
-	```bash
-	cd /etc/ansible/tools && ./easzup -D
-	```
+
+   ```bash
+   cd /etc/ansible/tools && ./easzup -D
+   ```
 
 ### 开始安装
 
 1. 使用默认配置安装最小化 Rainbond 集群
-	
-	```bash
-	./easzup -S && docker exec -it kubeasz easzctl start-aio
-	```
-	
+
+   ```bash
+   ./easzup -S && docker exec -it kubeasz easzctl start-aio
+   ```
+
 1. 执行完成后，出现以下提示：
-	
-	```bash
-	[INFO] save context: aio
-	[INFO] save aio roles' configration
-	[INFO] save aio ansible hosts
-	[INFO] save aio kubeconfig
-	[INFO] save aio kube-proxy.kubeconfig
-	[INFO] save aio certs
-	[INFO] Action successed : start-aio
-	[INFO] Visit http://$IP:30008 to view the installation progress
-  ```
-	
+
+   ```bash
+   [INFO] save context: aio
+   [INFO] save aio roles' configration
+   [INFO] save aio ansible hosts
+   [INFO] save aio kubeconfig
+   [INFO] save aio kube-proxy.kubeconfig
+   [INFO] save aio certs
+   [INFO] Action successed : start-aio
+   [INFO] Visit http://$IP:30008 to view the installation progress
+   ```
+
+```
+
 1. 根据提示访问对应地址`http://$IP:30008`，查看 Rainbond 平台安装进度：
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/install/install-from-linux/install-success.jpg" title="安装验证" width="100%">}}
 
 显示以上页面说明已经安装完成。点击 **访问地址**，注册并开始使用 Rainbond。
+```

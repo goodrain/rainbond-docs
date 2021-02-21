@@ -2,6 +2,7 @@
 title: '基于阿里云 ACK创建并对接 Rainbond Cloud'
 weight: 1
 description: '基于阿里云 Kubernetes 托管集群安装 Rainbond。'
+draft: true
 ---
 
 本文将会介绍如何基于 [Rainbond Cloud](../../../quick-start/rainbond-cloud/) 自动地 **对接** 或 **创建** 阿里云 Kubernetes 托管集群，并此基础上安装处高可用的 Rainbond 集群。
@@ -24,46 +25,46 @@ description: '基于阿里云 Kubernetes 托管集群安装 Rainbond。'
 
 1. 选择供应商：
 
-    目前只支持对接阿里云，本文的主题也是围绕阿里云进行的。陆续会开放对华为云，腾讯云等供应商的支持。
+   目前只支持对接阿里云，本文的主题也是围绕阿里云进行的。陆续会开放对华为云，腾讯云等供应商的支持。
 
 1. 选择或自动创建 Kubernetes 托管集群：
 
-    你可以选择一个已存在的 ACK 集群来安装 Rainbond。在这种情况下，Rainbond 的安装不会影响集群中已有服务的运行。
+   你可以选择一个已存在的 ACK 集群来安装 Rainbond。在这种情况下，Rainbond 的安装不会影响集群中已有服务的运行。
 
-    当然，如果你还没有 ACK 集群，也可以让 Rainbond Cloud 去调用阿里云的 API 去购买一个。在购买前，你需要选择想要的配置：
+   当然，如果你还没有 ACK 集群，也可以让 Rainbond Cloud 去调用阿里云的 API 去购买一个。在购买前，你需要选择想要的配置：
 
-    - 区域：机器所在的区域，比如：华东1（杭州）。
-    - 名称：集群名称，请确保其唯一性。
-    - 资源配置：
+   - 区域：机器所在的区域，比如：华东 1（杭州）。
+   - 名称：集群名称，请确保其唯一性。
+   - 资源配置：
 
-        默认有 3 种配置：
+     默认有 3 种配置：
 
-        - 最小配置：单节点 `2Core/8GB RAM`, 按需预计 `2 元/小时`。
-        - 普通配置：单节点 `4Core/16GB RAM`, 按需预计 `4 元/小时`。
-        - 生产配置：单节点 `4Core/32GB RAM`, 按需预计 `8 元/小时`。
+     - 最小配置：单节点 `2Core/8GB RAM`, 按需预计 `2 元/小时`。
+     - 普通配置：单节点 `4Core/16GB RAM`, 按需预计 `4 元/小时`。
+     - 生产配置：单节点 `4Core/32GB RAM`, 按需预计 `8 元/小时`。
 
-        当然，你也可以根据实际需求选择自定义规格，这时提供一个 `阿里云 ECS 规格` 即可。ECS 实例规格参考[实例规格族](https://help.aliyun.com/document_detail/25378.html?spm=a2c4g.11186623.2.143.88676f0fNQG23P#section-e9r-xkf-z15)。
+     当然，你也可以根据实际需求选择自定义规格，这时提供一个 `阿里云 ECS 规格` 即可。ECS 实例规格参考[实例规格族](https://help.aliyun.com/document_detail/25378.html?spm=a2c4g.11186623.2.143.88676f0fNQG23P#section-e9r-xkf-z15)。
 
-    - 实例数量：
+   - 实例数量：
 
-        Kubernetes 集群节点的数量，最小需要两个节点。
+     Kubernetes 集群节点的数量，最小需要两个节点。
 
 1. 初始化 Rainbond 集群：
 
-    在初始化 Rainbond 集群前，Rainbond Cloud 会调用阿里云的 API 购买 `RDS(1个)`，`NAS(1个)`，`SLB(1个)`，预计每小时费用 0.5 元。
+   在初始化 Rainbond 集群前，Rainbond Cloud 会调用阿里云的 API 购买 `RDS(1个)`，`NAS(1个)`，`SLB(1个)`，预计每小时费用 0.5 元。
 
-    - RDS：数据库类型为 `MySQL`，用于存储 Rainbond 的元数据。
-    - NAS：Rainbond 会利用该 NAS 创建出 [Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/)，为整个 Rainbond 集群提供数据的持久化能力。
-    - SLB：SLB 的作用则是为 `rbd-gateway` 提供负载均衡能力。
+   - RDS：数据库类型为 `MySQL`，用于存储 Rainbond 的元数据。
+   - NAS：Rainbond 会利用该 NAS 创建出 [Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/)，为整个 Rainbond 集群提供数据的持久化能力。
+   - SLB：SLB 的作用则是为 `rbd-gateway` 提供负载均衡能力。
 
-    随后，Rainbond Cloud 会调用 kube-apiserver 的 API，创建出 [rainbond operator](https://github.com/goodrain/rainbond-operator) 和 Rainbond 相应的 k8s 资源。
+   随后，Rainbond Cloud 会调用 kube-apiserver 的 API，创建出 [rainbond operator](https://github.com/goodrain/rainbond-operator) 和 Rainbond 相应的 k8s 资源。
 
 1. 完成对接
 
-    初始化 Rainbond 集群完成后，还需要配置该 `集群 ID` 和 `集群名称`。
+   初始化 Rainbond 集群完成后，还需要配置该 `集群 ID` 和 `集群名称`。
 
-    - 集群 ID：集群在 Rainbond Cloud 中的唯一标识，一旦确认不可以再修改，比如：`rainbond`。
-    - 集群名称：集群在 Rainbond Cloud 中的名称，可以随意修改，比如：`开发测试集群`。
+   - 集群 ID：集群在 Rainbond Cloud 中的唯一标识，一旦确认不可以再修改，比如：`rainbond`。
+   - 集群名称：集群在 Rainbond Cloud 中的名称，可以随意修改，比如：`开发测试集群`。
 
 ## 验证安装
 
