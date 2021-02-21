@@ -1,7 +1,7 @@
 ---
-title: "集群监控"
-menu: "monitor"
-weight: 1570
+title: "报警配置项"
+menu: "alert"
+weight: 1670
 chapter: true
 ---
 

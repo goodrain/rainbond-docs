@@ -213,7 +213,7 @@ rbd-monitor   ClusterIP   10.68.140.5   <none>        9999/TCP   7h11m
 | 节点内存使用量大于80%|HighMemoryUsageOnNode|
 
 
-**集群监控报警配置参见 [监控报警部署](/docs/user-operations/monitor/monitoring-alarm-configuration/)**
+**集群监控报警配置参见 [监控报警部署](/docs/user-operations/monitor/monitor-alert-deploy/)**
 
 
 
