@@ -20,3 +20,9 @@ chmod +x kubectl
 mkdir ~/.kube/
 vi ~/.kube/config
 ```
+
+安装完成后执行以下命令，成功即代码安装成功：
+
+```
+kubectl get node
+```
