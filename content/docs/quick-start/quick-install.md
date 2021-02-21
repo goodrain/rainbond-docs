@@ -59,3 +59,7 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 > 请注意，集群安装初始化可以并行进行，你可以同时进行多个集群的安装和初始化。
 
 体验完成后建议将控制迁移到 Rainbond 中管理，[参考文档](/docs/user-operations/ha-deploy/console-recover/)
+
+### 离线环境安装
+
+请注意，v5.3.0 版本暂不支持离线环境安装，离线环境请参考 [5.2 离线安装](https://v5.2-doc.rainbond.com/docs/install/install-from-linux/offline-install/)
