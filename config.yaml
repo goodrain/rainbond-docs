@@ -38,6 +38,10 @@ params:
             url: /docs/practices/app-dev/deploy-spark
           - title: 服务间通信,端口别名的使用
             url: /docs/practices/app-dev/port-alias
+          - title: 部署SpringCloud微服务
+            url: /docs/practices/app-dev/spring-cloud-case/
+          - title: 整合Git仓库快速部署组件
+            url: /docs/practices/app-dev/work_with_git/
 
       - title: 应用运维
         docs:
@@ -51,6 +55,16 @@ params:
             url: /docs/get-start/best-practices/collect_log/
           - title: 应用级配置组管理
             url: /docs/user-manual/app-manage/config-group/
+          - title: 实现A/B测试
+            url: /docs/practices/app-dev/ab_testing/
+          - title: 实现一键上线/回滚
+            url: /docs/practices/app-dev/update-rollback/
+          - title: 滚动发布，灰度发布及蓝绿发布
+            url: /docs/practices/app-dev/app_publishing/
+          - title: Java类组件自定义监控
+            url: /docs/practices/app-dev/java-exporter/
+          - title: 组件日志发送到ELK
+            url: /docs/practices/app-dev/work_with_elk/
       - title: 应用交付
         docs:
       - title: 集群管理
