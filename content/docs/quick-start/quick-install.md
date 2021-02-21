@@ -16,7 +16,7 @@ aliases:
 curl sh.rainbond.com/install_docker | bash
 ```
 
-> 请注意，该命令仅支持 Linux 操作系统。
+> 请注意，该命令仅支持 Linux x86 操作系统。
 
 #### All-In-One 模式启动控制台
 
@@ -25,7 +25,7 @@ curl sh.rainbond.com/install_docker | bash
 ```
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
       --name=rainbond-allinone --restart=always \
-      registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-app-ui:master-dev-allinone
+      registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.3.0-release-allinone
 ```
 
 国外用户：
@@ -33,7 +33,7 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 ```
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
       --name=rainbond-allinone --restart=always \
-      rainbond/rbd-app-ui:master-dev-allinone
+      rainbond/rainbond:v5.3.0-release-allinone
 ```
 
 > 默认使用 sqlite3 作为数据库，数据存储于用户主目录下的 rainbonddata 目录。Rainbond 5.3 支持控制台数据迁移，便于后续迁移数据到生产环境，请放心体验。
@@ -57,3 +57,5 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 请基于产品引导选择合适的方式进行集群的安装和初始化。 或参考 [添加集群](/docs/user-operations/cluster-manage/add-cluster/)
 
 > 请注意，集群安装初始化可以并行进行，你可以同时进行多个集群的安装和初始化。
+
+体验完成后建议将控制迁移到 Rainbond 中管理，[参考文档](/docs/user-operations/ha-deploy/console-recover/)
