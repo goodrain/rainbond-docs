@@ -2,6 +2,8 @@
 title: 滚动发布，灰度发布及蓝绿发布
 Description: "基于 Rainbond 实现三种微服务的发布"
 weight: 30
+aliases:
+  - /docs/get-start/best-practices/app_publishing/
 ---
 
 在软件上线之前，不可避免地要对软件的可用性、可靠性进行测试，又不能停机维护，影响用户体验，并且在新版本出现问题的时候能够及时回滚；所以需要有一套完整的部署方案，在这里对基于 Rainbond 的**滚动发布，灰度发布及蓝绿发布**阐述相关原理、思路、实现方式。

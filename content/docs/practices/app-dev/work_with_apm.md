@@ -2,6 +2,8 @@
 title: 基于 PinPoint 实现微服务无侵入的监控与链路追踪
 description: 基于 PinPoint 实现微服务无侵入的监控与链路追踪，适用于开发者和应用运维人员。
 weight: 20
+aliases:
+  - /docs/get-start/best-practices/work_with_apm/
 ---
 
 应⽤性能管理（Application Performance Management，APM）是指对企业的关键业务应⽤进⾏监测、优化，提⾼企业应⽤的可靠性和质量，保证⽤户得到良好的服务，降低 IT 总运维成本，为企业带来更多的商业利益。

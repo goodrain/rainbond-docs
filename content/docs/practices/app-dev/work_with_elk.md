@@ -2,6 +2,8 @@
 title: 日志对接 ELK 体系
 description: 本篇最佳实践讲解通过插件机制将日志对接 ELK 体系，适用于开发者和应用运维人员。
 weight: 20
+aliases:
+  - /docs/get-start/best-practices/work_with_elk/
 ---
 
 本文档适合同时使用 Rainbond、ELK 体系企业的 **应用开发运维人员** 阅读。
