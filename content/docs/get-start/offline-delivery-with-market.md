@@ -32,10 +32,12 @@ weight: 207
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-7.png" title="导出应用模版" width="50%">}}
 
 - 选择 **导出版本**。
-
 - 点击 **RainbondApp规范** 中 **导出**，等待一段时间后，导出会自动完成。
-
 - 点击 **下载**，即可下载离线应用包。
+
+> 请注意，5.3版本对导出的应用包规范进行了调整，因此无法向下兼容。只能导入到5.3及后续版本平台中。
+>
+> 但5.2版本导出的应用包可以导入到5.3平台中。
 
 ### 导入应用模版
 
