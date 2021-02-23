@@ -54,7 +54,7 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 
 3）如果你只有 Linux 机器，请使用从主机开始安装入口，Rainbond 为你自动安装 Kubernetes 集群。
 
-请基于产品引导选择合适的方式进行集群的安装和初始化。 或参考 [添加集群](/docs/user-operations/cluster-manage/add-cluster/)
+请基于产品引导选择合适的方式进行集群的安装和初始化。 参考文档 [添加集群](/docs/user-operations/cluster-manage/add-cluster/)
 
 > 请注意，集群安装初始化可以并行进行，你可以同时进行多个集群的安装和初始化。
 
