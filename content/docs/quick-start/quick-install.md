@@ -63,3 +63,18 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 ### 离线环境安装
 
 请注意，v5.3.0 版本暂不支持离线环境安装，离线环境请参考 [5.2 离线安装](https://v5.2-doc.rainbond.com/docs/install/install-from-linux/offline-install/)
+
+### 常见问题
+
+- 安装集群时报错 `failed to connect to following etcd hosts`
+
+> 该问题属于控制台无法连接报错的节点。首先确定在配置规划集群节点时，正确的对所有节点执行了节点初始化，完成了免密登录设置。检查方式时在控制台容器中执行 `ssh docker@节点IP` 能够直接免密登录。
+
+- 初始化 Rainbond 集群时长时间阻塞在 `系统所需非组件化镜像本地处理` 步骤
+
+> 该问题可能出现在对接自建 Kubernetes 集群中，请通过以下命令的输出内容判断问题。常见情况是由于端口冲突导致网关组件无法启动。
+
+```
+kubectl get rainbondcluster rainbondcluster -n rbd-system -o yaml
+kubectl get pod -n rbd-system
+```
