@@ -1,7 +1,6 @@
 ---
 title: RoadMap
 description: This document defines the roadmap for Rainbond development.
-draft: true
 weight: 208
 ---
 
@@ -23,6 +22,7 @@ weight: 208
   - [x] 内置 ServiceMesh 模式
   - [x] Kubernetes 原生模式
   - [ ] Istio 模式
+- [ ] 支持安装 Helm 应用
 - [ ] 应用模型兼容[OAM 模型](https://github.com/oam-dev/spec)
   - [ ] 应用支持发布 OAM 模型到组件市场
 - [ ] 支持基于 Operator 扩展自定义组件类型。
