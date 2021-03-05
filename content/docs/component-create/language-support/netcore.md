@@ -4,8 +4,8 @@ description: .NetCore语言类型Rainbond支持规范介绍
 weight: 3310
 hidden: false
 aliases:
-- /docs/user-manual/component-create/language-support/netcore/
-- /docs/user-manual/app-creation/language-support/netcore/
+  - /docs/user-manual/component-create/language-support/netcore/
+  - /docs/user-manual/app-creation/language-support/netcore/
 ---
 
 #### .NetCore 语言类型识别策略
@@ -13,10 +13,6 @@ aliases:
 代码主目录中包含以`.sln`或者`.csproj`结尾的文件并且不包含`Dockerfile`文件时，平台识别项目语言类型为`.NetCore`
 
 目前仅支持单项目代码维护形式，如果你一个代码仓库维护了多个 Project, 例如一个微服务架构，那么首先建议你将每个 Project 分离到不同仓库或同个仓库不同二级目录下。
-
-#### 代码规范
-
-源码主目录必须具有 [Procfile](/docs/component-create/language-support/procfile/) 文件定义服务启动方式，详见 [项目运行](#项目运行) 部分
 
 #### 编译原理
 
