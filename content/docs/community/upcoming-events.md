@@ -29,15 +29,23 @@ description: '记录Rainbond社区周期性分享和会议的记录'
 
 ### 分享（会议）预告和记录
 
-#### 2021 年 3 月 11 日（预告）
+#### 2021 年 3 月 25 日（预告）
 
-分享主题：统一管理应用环境配置的实践
+分享主题：解读近期项目规划和进度&&统一管理应用环境配置的实践
 
 主要内容：
 
 - （1）解读 Rainbond 5.3.0 应用配置组功能，统一管理应用配置
 - （2）解读 多版本多环境配置组实践
 - （3）解读 环境配置的引用和传递用法
+
+#### 2021 年 3 月 11 日
+
+分享主题：从 Rainbond 5.2.2-release 升级到 5.3.0
+
+视频回顾：
+
+{{<bibili-video src="//player.bilibili.com/player.html?aid=247098830&bvid=BV1Rv411h7Gx&cid=309105912&page=1" href="https://www.bilibili.com/video/BV1Rv411h7Gx/" title="从 Rainbond 5.2.2-release 升级到 5.3.0">}}
 
 #### 2021 年 3 月 4 日
 
