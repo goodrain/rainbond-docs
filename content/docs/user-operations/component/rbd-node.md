@@ -5,8 +5,34 @@ hidden: true
 ---
 
 ### 运行方式
- 
+
 运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理，运行在每一个节点上
+
+### 修改Docker目录收集日志
+
+默认从`/var/lib/docker`收集日志，如果您更改了默认存储目录，则需要修改`rbd-node`组件。
+
+执行以下命令：
+
+```shell
+kubectl edit -n rbd-system rbdcomponents.rainbond.io rbd-node
+```
+
+在 `spec:` 下添加以下内容，其中 **path**、**mountPath** 填写实际的docker目录
+
+```yaml
+spec:
+  volumes:
+  - hostPath:
+      path: /var/lib/docker
+      type: DirectoryOrCreate
+    name: docker
+  volumeMounts:
+  - mountPath: /home/docker
+    name: docker
+```
+
+
 
 
 ### 常用参数说明
@@ -23,3 +49,4 @@ hidden: true
     - --image-repo-host  镜像仓库主机
     - --hostsfile   /etc/hosts映射容器中的路径
 ```
+
