@@ -78,3 +78,5 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 kubectl get rainbondcluster rainbondcluster -n rbd-system -o yaml
 kubectl get pod -n rbd-system
 ```
+
+> 如果基于主机安装的 Kubernetes 集群，没有 kubectl 命令，请参考[安装 kubectl 命令](/docs/user-operations/tools/kubectl/)
