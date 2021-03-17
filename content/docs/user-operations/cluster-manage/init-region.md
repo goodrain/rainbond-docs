@@ -14,16 +14,27 @@ weight: 107
 
 配置事例如下：
 
-```
+```yaml
 metadata:
   creationTimestamp: null
   name: rainbondcluster
 spec:
+  enableHA: true
   etcdConfig:
     endpoints:
-      - 192.168.3.3:2379
-      - 192.168.3.4:2379
-      - 192.168.3.5:2379
+    - 192.168.3.103:2379
+    - 192.168.3.102:2379
+    - 192.168.3.101:2379
+    secretName: rbd-etcd-secret
+  gatewayIngressIPs:
+  - 192.168.3.104
+  nodesForGateway:
+  - internalIP: 192.168.3.101
+    name: 192.168.3.101
+  - internalIP: 192.168.3.102
+    name: 192.168.3.102
+  - internalIP: 192.168.3.103
+    name: 192.168.3.103
   imageHub:
     domain: image.xxxxx.com
     namespace: test
@@ -34,6 +45,7 @@ spec:
     imageRepository: ""
     storageClassParameters: {}
   rainbondVolumeSpecRWX:
+    storageClassName: glusterfs-simple
     csiPlugin: 
     	aliyunNas: {}
     storageClassParameters: 
@@ -57,8 +69,8 @@ spec:
 | 参数                      | 二级参数                       | 说明                                                         |
 | ------------------------- | ------------------------------ | ------------------------------------------------------------ |
 | etcdConfig (struct)       | endpoints（array）             | ETCD 的实例列表                                              |
-|                           | secretName (string)            | ETCD 的 SSL 证书 secret                                      |
-| enableHA (bool)           |                                | 是否高可用部署                                               |
+|                           | secretName (string)            | ETCD 的 SSL 证书 secret name，secret如何生成参考下方"生成ETCD证书的secret" |
+| enableHA (bool)           |                                | 是否高可用部署，true/false，默认false                        |
 | suffixHTTPHost（string）  |                                | 集群 HTTP 默认域名后缀，留空则自动分配                       |
 | gatewayIngressIPs (array) |                                | 网关外网 IP 地址，一般是指 SLB 或 VIP                        |
 | nodesForGateway (array)   | name(string)                   | 节点名称(以 kubernetes 节点信息为准)                         |
@@ -80,3 +92,35 @@ spec:
 |                           | csiPlugin(struct)              |                                                              |
 |                           | storageRequest(int)            |                                                              |
 | rainbondVolumeSpecRWO     | 与rainbondVolumeSpecRWX一致。  | 单读单写存储，一般是指块存储设备。如果提供则有状态服务默认将使用。 |
+
+
+
+### 生成Etcd证书的secret
+
+RKE：
+
+- CA证书：/etc/kubernetes/ssl/kube-ca.pem
+- 客户端证书：/etc/etcd/ssl/kube-etcd.pem
+- 客户端密钥：/etc/etcd/ssl/kube-etcd-key.pem
+
+```shell
+kubectl create secret generic rbd-etcd-secret -n rbd-system \
+--from-file=ca-file=/etc/kubernetes/ssl/kube-ca.pem \
+--from-file=cert-file=/etc/kubernetes/ssl/kube-etcd.pem \
+--from-file=key-file=/etc/kubernetes/ssl/kube-etcd-key.pem
+```
+
+
+
+kubeasz：
+
+- CA证书：/etc/kubernetes/ssl/ca.pem
+- 客户端证书：/etc/etcd/ssl/etcd.pem
+- 客户端密钥：/etc/etcd/ssl/etcd-key.pem
+
+```shell
+kubectl create secret generic rbd-etcd-secret -n rbd-system \
+--from-file=ca-file=/etc/kubernetes/ssl/ca.pem \
+--from-file=cert-file=/etc/kubernetes/ssl/etcd.pem \
+--from-file=key-file=/etc/kubernetes/ssl/etcd-key.pem
+```
