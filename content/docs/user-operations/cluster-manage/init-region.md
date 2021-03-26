@@ -100,14 +100,14 @@ spec:
 RKE：
 
 - CA证书：/etc/kubernetes/ssl/kube-ca.pem
-- 客户端证书：/etc/etcd/ssl/kube-etcd.pem
-- 客户端密钥：/etc/etcd/ssl/kube-etcd-key.pem
+- 客户端证书：/etc/etcd/ssl/kube-node.pem
+- 客户端密钥：/etc/etcd/ssl/kube-node-key.pem
 
 ```shell
 kubectl create secret generic rbd-etcd-secret -n rbd-system \
 --from-file=ca-file=/etc/kubernetes/ssl/kube-ca.pem \
---from-file=cert-file=/etc/kubernetes/ssl/kube-etcd.pem \
---from-file=key-file=/etc/kubernetes/ssl/kube-etcd-key.pem
+--from-file=cert-file=/etc/kubernetes/ssl/kube-node.pem \
+--from-file=key-file=/etc/kubernetes/ssl/kube-node-key.pem
 ```
 
 
