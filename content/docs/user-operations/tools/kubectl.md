@@ -9,7 +9,7 @@ hidden: false
 
 ```
 wget https://grstatic.oss-cn-shanghai.aliyuncs.com/binary/kubectl -O /usr/bin/kubectl
-chmod +x kubectl
+chmod +x /usr/bin/kubectl
 ```
 
 ![image-20210219183628565](https://static.goodrain.com/images/5.3/kubeconfig.png)

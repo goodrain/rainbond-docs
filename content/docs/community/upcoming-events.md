@@ -1,101 +1,80 @@
 ---
-title: '社区活动预告'
+title: '社区分享活动记录'
 weight: 105
-hidden: true
 aliases:
   - /docs/upcoming-events
-description: 'Rainbond社区活动预告'
+description: '记录Rainbond社区周期性分享和会议的记录'
 ---
 
-Rainbond 社区在线沙龙固定是北京时间每周三晚上 8:00 开始。
+### Rainbond 社区分享说明
 
-上期回顾（5-27）：[探讨在 Rainbond 中如何将组件日志收集发送到阿里云日志服务](/docs/get-start/best-practices/collect_log/)
+#### 社区分享时间说明
 
-参加方式如下：
+(每双周) 周四晚上 8:00 - 9:00 北京时间（常规）
 
-沙龙会议室（可发言交流）：https://meeting.tencent.com/s/RXnFPyWyerER ，会议室提前 15min 开放
+(单周) 周四晚上 8:00 - 9:00 北京时间（灵活安排，提前通知）
 
-B 站直播间（可弹幕互动）： http://live.bilibili.com/22189300
+#### 分享方式说明
 
----
+主要采用钉钉群直播的形式进行分享和探讨，参与者和组织者可进行连麦对话。请参与者提前进入 Rainbond 社区钉钉群。
 
-【在线沙龙】Rainbond 组件日志收集对接到阿里云日志服务实践分享
+<img src="https://static.goodrain.com/images/5.3/dingding.png" style="width:200px"/>
 
-大纲：
+#### 分享内容包括
 
-- 日志收集背景
-- 第三方日志收集方案
-- Sidecar 日志收集原理
-- Rainbond 插件简介
-- Rainbond 集成阿里云日志服务
+- 近期 Rainbond 产品的特性变更
+- 社区用户的需求提案
+- Rainbond 产品的最佳实践
+- Rainbond 的用户案例
 
-时间：5 月 27 日晚 20:00
+### 分享（会议）预告和记录
 
-沙龙会议室（可发言交流）：https://meeting.tencent.com/s/tBOWeCZJ3ECl ，会议室提前 15min 开放
+#### 2021 年 3 月 25 日（预告）
 
-B 站直播间（可弹幕互动）： http://live.bilibili.com/22189300
+分享主题：解读近期项目规划和进度&&统一管理应用环境配置的实践
 
----
+主要内容：
 
-【在线沙龙】Rainbond 与 API-Gateway 结合的最佳实践
+- （1）解读 Rainbond 5.3.0 应用配置组功能，统一管理应用配置
+- （2）解读 多版本多环境配置组实践
+- （3）解读 环境配置的引用和传递用法
 
-大纲：
+#### 2021 年 3 月 11 日
 
-概念解读
+分享主题：从 Rainbond 5.2.2-release 升级到 5.3.0
 
-- Api-Gateway 解读
-- Kong 概念解读
-- Kong 插件概念解读
+视频回顾：
 
-Rainbond 与 API-Gateway 结合的价值
+{{<bibili-video src="//player.bilibili.com/player.html?aid=247098830&bvid=BV1Rv411h7Gx&cid=309105912&page=1" href="https://www.bilibili.com/video/BV1Rv411h7Gx/" title="从 Rainbond 5.2.2-release 升级到 5.3.0">}}
 
-实操
+#### 2021 年 3 月 4 日
 
-- 在平台的安装，一键部署（两种安装方式，支持离线安装）
-- 使用方式，配置 service rules
-- 插件使用及配置
+分享主题：基于 Rainbond 5.3.0 实现业务全方位监控。
 
-时间：5 月 20 日晚 20:00
+主要内容：
 
-沙龙会议室（可发言交流）：https://meeting.tencent.com/s/RXnFPyWyerER ，会议室提前 15min 开放
-B 站直播间（可弹幕互动）： http://live.bilibili.com/22189300
+- （1）解读 Rainbond 5.3.0 自定义业务监控功能
+- （2）实现 JVM 监控的演示和解读
+- （3）实现 Mysql 监控的演示和解读
+- （4）获取应用全访问监控数据，进行可视化。
+- （5）探讨社区用户建议。
 
----
+视频回顾：
 
-【在线沙龙】基于 Rancher 安装 Rainbond
+{{<bibili-video src="//player.bilibili.com/player.html?aid=331943093&bvid=BV11A411K7Pd&cid=306022663&page=1" href="https://www.bilibili.com/video/BV11A411K7Pd/" title="【Rainbond 社区分享回放】应用全方位监控、可视化实践">}}
 
-📒 大纲：
+#### 2021 年 2 月 25 日
 
-1. Rancher + Rainbond 带来的价值；
-2. 使用 Rancher 安装 Kubernetes；
-3. 在 Rancher 中利用 helm 安装 Rainbond Operator；
-4. 安装 Rainbond, 并在 Rancher 上观察日志；
-5. 使用 Rancher 监控 Rainbond 和 Kubernetes 的状态；
-   🤔Rainbond 更适合做应用级管理和中台建设底座。
+分享人：曾庆国
 
-时间：2020 年 5 月 13 日晚 20:00
+分享主题：Rainbond 5.3.0 架构变化和集群安装相关的设计和使用方式。
 
-沙龙会议室（可发言交流）：https://meeting.tencent.com/s/al1vpC22BeTx (会议室提前 15min 开放)
+主要内容：
 
-B 站直播间（可弹幕互动）： http://live.bilibili.com/22189300
+- （1）解读 Rainbond 5.3.0 在安装和集群管理方面改进的背景和技术思路。
+- （2）演示并讲解从主机开始安装和从阿里云 ACK 开始安装两种途径。
+- （3）探讨社区用户建议。
 
-参考文档：[Rancher 安装 Rainbond](/docs/user-operations/install/install-from-rancher/)
+视频回顾：
 
----
-
-【在线沙龙】通过 Rainbond 实现全流程 DevOps（2020-4-29）
-
-沙龙主题：通过演示示例和原理分析，深入讲解 DevOps 的实现过程  
-实现效果：
-
-- 对接 Jenkins
-- 代码和账户对接 gitlab
-- 开发、测试、生产持续交付流程
-- 日志对接 ELK
-- 生产环境的运维
-
-时间：2020 年 4 月 29 日晚 20:00
-参与方式：https://zoom.com.cn/j/7669452598  
-会议室提前 15min 开放
-
----
+{{<bibili-video src="//player.bilibili.com/player.html?aid=544440225&bvid=BV1di4y1T72M&cid=305156874&page=1" href="https://www.bilibili.com/video/BV1di4y1T72M/" title="Rainbond 5.3.0 架构变化和集群安装相关的设计和使用方式">}}

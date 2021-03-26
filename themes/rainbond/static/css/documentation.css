@@ -2687,7 +2687,7 @@ h6 {
 
   .content-section .content-body .doc-content {
     width: 100%;
-    padding-left: 0rem;
+    padding: 1rem;
     margin-top: 1rem;
   }
 
@@ -2700,7 +2700,10 @@ h6 {
     position: absolute;
     z-index: 100;
     left: 0;
-    top: -20px;
+  }
+
+  .post-toc {
+    display: none;
   }
 
   .sidemenu .menu-item-selected a::before {

@@ -11709,7 +11709,8 @@ pre {
     }
 
     .navbar .navbar-center {
-        margin: 1rem auto
+        margin: 1rem auto;
+        display: block;
     }
 
     .navbar .navbar-end {

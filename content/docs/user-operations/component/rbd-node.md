@@ -49,3 +49,4 @@ spec:
     - --image-repo-host  镜像仓库主机
     - --hostsfile   /etc/hosts映射容器中的路径
 ```
+
