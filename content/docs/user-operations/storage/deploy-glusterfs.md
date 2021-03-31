@@ -133,4 +133,4 @@ weight: 5015
   kubectl delete -f pod.yaml
   ```
 
-完成 Glusterfs 的安装，继续进行 [Rainbond 高可用安装](/docs/install/install-from-k8s/high-availability/)。
+完成 Glusterfs 的安装，参考 [初始化Rainbond集群参数说明](/docs/user-operations/cluster-manage/init-region/) 对接该存储。
