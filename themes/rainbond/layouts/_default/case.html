@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "head.html" . }}
+
+<body>
+    {{ $active := "case" }}
+    {{ partial "header.html" (dict "context" . "active" "case") }}
+    <div id=page-container>
+        <!-- banner区域 -->
+        <div class="banner">
+            <div class="banner_inner">
+                <h1 class="banner_title">Make Data Creative</h1>
+            </div>
+        </div>
+        <!-- 主体内容区域 -->
+        <div class="main-container">
+            <!-- 列表区域 -->
+            <div class="tabs_list_container">
+                <!-- tab导航区域 -->
+                <div class="tabs_nav">
+                    <ul class="tabs-nav">
+                        {{ $index := 1}}
+                        {{ range .Pages }}
+                        <li class="{{if eq $index 1 }}isActive{{end}}">
+                            <!-- 条件判断是否存在图标 -->
+                            {{ if .Params.icon }}
+                            <img class="svg-img" src="/images/icon/{{ .Params.icon }}.svg" onload="SVGInject(this)" />
+                            {{ end }}
+                            <!-- 标题 -->
+                            <span>{{.Title}}</span>
+                        </li>
+                        {{ $index = add $index 1 }}
+                        {{end}}
+                    </ul>
+                </div>
+                <!-- 对应的主体区域 -->
+                <div class="tabs_list">
+                    <!-- 互联网 -->
+                    {{ $index := 1}}
+                    {{ range .Pages }}
+                    <div class="every_tabs_container" {{if eq $index 1 }}style="display: block;" {{end}}>
+                        <div class="cards">
+                            {{range .Pages}}
+                            <div class="flap-card">
+                                <!-- 顶部的图片 -->
+                                <div class="top" style="background-image: url({{.Params.img}})">
+                                </div>
+                                <!-- 底部的描述 -->
+                                <div class="footer">
+                                    <!-- 下拉的按钮 -->
+                                    <a href="#" class="btns">
+                                        <span class="left"></span>
+                                        <span class="right"></span>
+                                    </a>
+                                    <h2>{{ .Params.title }}</h2>
+                                </div>
+                                <!-- 隐藏的下拉 -->
+                                <div class="desc">
+                                    <div class="hideTop">
+                                        {{ .Params.desc }}
+                                    </div>
+                                    <div class="hideFooter">
+                                        <div class="actions">
+                                            <a href="{{.Permalink}}">ReadMore</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{end}}
+                        </div>
+                    </div>
+                    {{ $index = add $index 1 }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ partial "footer.html" . }}
+</body>
+
+
+</html>
