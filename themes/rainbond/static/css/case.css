@@ -14,6 +14,55 @@ body {
     'Apple Color Emoji';
   background-color: #fff;
 }
+/* 媒体查询适配750像素 */
+@media screen and (max-width: 767px) {
+  /* 列表项每行显示一个 */
+  .flap-card {
+    width: 100% !important;
+  }
+  /* 居中显示 */
+  .every_tabs_container .cards {
+    display: flex;
+    justify-content: center;
+  }
+  .tabs_nav {
+    margin-top: 40px;
+  }
+  /* tab的字体 */
+  .tabs_nav li span {
+    font-size: 13px;
+  }
+  /* 标题的大小 */
+  #page-container .banner .banner_inner h1 {
+    font-size: 21px !important;
+    padding: 0px 10px;
+    margin-bottom: -33px;
+  }
+  #page-container .banner {
+    height: 215px !important;
+  }
+}
+/* 媒体查询750px到1087px */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  #page-container .banner .banner_inner h1 {
+    font-size: 28px !important;
+    padding: 0px 10px;
+    margin-bottom: 50px !important;
+  }
+  .every_tabs_container .cards {
+    display: flex;
+    justify-content: space-around;
+  }
+  .flap-card {
+    width: 50% !important;
+  }
+  .tabs_nav {
+    margin-top: 40px;
+  }
+  .tabs_nav li span {
+    font-size: 18px;
+  }
+}
 /* banner区域 */
 #page-container .banner {
   position: relative;
@@ -32,10 +81,10 @@ body {
 #page-container .banner .banner_inner h1 {
   position: absolute;
   left: 0;
-  bottom: 140px;
+  bottom: 174px;
   font-weight: 600;
   color: #fff;
-  font-size: 48px;
+  font-size: 32px;
   font-family: TitilliumWeb, -apple-system, BlinkMacSystemFont, Helvetica,
     'Segoe UI', 'Hiragino Sans GB', 'Noto Sans CJK SC', Arial, Ubuntu,
     sans-serif, 'Apple Color Emoji';
