@@ -4,9 +4,9 @@
 
 <body>
     {{ $active := "doc" }}
-    {{ partial "header.html" (dict "context" .   "active" "doc") }}
+    {{ partial "header.html" (dict "context" . "active" "doc") }}
 
-    {{ if eq .Params.Render  "video"}}
+    {{ if eq .Params.Render "video"}}
     {{ partial "video.html" . }}
     {{else}}
     {{ partial "doc-head.html" . }}
@@ -22,9 +22,10 @@
                         {{ $File := .File }}
                         {{ $Site := .Site }}
                         {{with $File.Path }}
-                        <span class="e is-hidden-mobile"><a
-                                href="{{ $Site.Params.editURL }}{{ replace $File.Dir "\\" "/" }}{{ $File.LogicalName }}"
-                                target="_blank">编辑此页面</a></span>
+                        <span class="e is-hidden-mobile">
+                            <a href='{{ $Site.Params.editURL }}{{ replace $File.Dir 
+                                "\\" "/" }}{{ $File.LogicalName }}' target="_blank">编辑此页面</a>
+                        </span>
                         {{ end }}
                         {{ end }}
                     </div>
@@ -38,7 +39,7 @@
                 </div>
             </div>
             {{ if .Site.Params.toc | default true }}
-                {{ partial "toc.html" . }}
+            {{ partial "toc.html" . }}
             {{ end }}
         </div>
     </section>

@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: Lato, -apple-system, BlinkMacSystemFont, Helvetica, 'Segoe UI',
+    'Hiragino Sans GB', 'Noto Sans CJK SC', Arial, Ubuntu, sans-serif,
+    'Apple Color Emoji';
+  background-color: #fff;
+  color: #0d2192;
+}
+.page_container {
+  padding: 0 12px;
+  min-height: 70vh;
+}
+
+.page_container .right_container {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 0.8rem 1.5rem;
+  /* padding: 20px; */
+  position: relative;
+}
+/* 右边的主体内容部分 */
+.right_container .markdown-body {
+  width: 100%;
+  margin: 0 auto;
+  line-height: 1.5;
+  color: #24292e;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 16px;
+  word-wrap: break-word;
+}
+/* 标题 */
+.right_container .markdown-body h1 {
+  border-bottom: none;
+  margin-bottom: 1.5rem;
+  font-size: 24px;
+  font-weight: 400;
+  color: #0d2192;
+  padding-bottom: 0.8em;
+  line-height: 1.25;
+}
+/* 列表 */
+.right_container .markdown-body ul {
+  padding-left: 0;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  color: #6a737d;
+  list-style: none;
+  line-height: 1.7;
+  margin: 0.7rem 0;
+  font-weight: 400;
+}
+.right_container .markdown-body ul .meta-item {
+  display: inline-block;
+  box-sizing: border-box;
+  padding-right: 1rem;
+}
+.right_container .markdown-body ul .meta-item img {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  margin-top: -2px;
+  margin-right: 5px;
+  vertical-align: middle;
+  margin: auto;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+/* 主要内容部分 */
+.right_container .markdown-body .main_contant p {
+  margin: 0.7rem 0;
+  line-height: 1.7;
+  font-size: 16px;
+  font-weight: 400;
+  color: #3e3e3e;
+}
+.right_container .markdown-body .main_contant h2 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  padding: 0;
+  border-bottom: none;
+  font-size: 22px;
+  font-weight: 400;
+  color: #0d2192;
+}
+.right_container .markdown-body .main_contant img {
+  display: block;
+  max-width: 100%;
+  margin: auto;
+  box-sizing: content-box;
+  background-color: #fff;
+  border-style: none;
+}
+.right_container .markdown-body .main_contant .caption-center {
+  font-size: 80%;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+}

@@ -1,0 +1,426 @@
+* {
+  list-style: none;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: Lato, -apple-system, BlinkMacSystemFont, Helvetica, 'Segoe UI',
+    'Hiragino Sans GB', 'Noto Sans CJK SC', Arial, Ubuntu, sans-serif,
+    'Apple Color Emoji';
+  background-color: #fff;
+}
+/* 媒体查询适配750像素 */
+@media screen and (max-width: 767px) {
+  /* 列表项每行显示一个 */
+  .flap-card {
+    width: 100% !important;
+  }
+  /* 居中显示 */
+  .every_tabs_container .cards {
+    display: flex;
+    justify-content: center;
+  }
+  .tabs_nav {
+    margin-top: 40px;
+  }
+  /* tab的字体 */
+  .tabs_nav li span {
+    font-size: 13px;
+  }
+  /* 标题的大小 */
+  #page-container .banner .banner_inner h1 {
+    font-size: 21px !important;
+    padding: 0px 10px;
+    margin-bottom: -33px;
+  }
+  #page-container .banner {
+    height: 215px !important;
+  }
+}
+/* 媒体查询750px到1087px */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  #page-container .banner .banner_inner h1 {
+    font-size: 28px !important;
+    padding: 0px 10px;
+    margin-bottom: 50px !important;
+  }
+  .every_tabs_container .cards {
+    display: flex;
+    justify-content: space-around;
+  }
+  .flap-card {
+    width: 50% !important;
+  }
+  .tabs_nav {
+    margin-top: 40px;
+  }
+  .tabs_nav li span {
+    font-size: 18px;
+  }
+}
+/* banner区域 */
+#page-container .banner {
+  position: relative;
+  height: 320px;
+  background-color: #1e2969;
+}
+#page-container .banner .banner_inner {
+  position: relative;
+  max-width: 872px;
+  height: 100%;
+  margin: 0 auto;
+  background: url(https://pingcap.com/images/svgs/banner-cases-cn.svg) no-repeat
+    center;
+  background-size: cover;
+}
+#page-container .banner .banner_inner h1 {
+  position: absolute;
+  left: 0;
+  bottom: 174px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 32px;
+  font-family: TitilliumWeb, -apple-system, BlinkMacSystemFont, Helvetica,
+    'Segoe UI', 'Hiragino Sans GB', 'Noto Sans CJK SC', Arial, Ubuntu,
+    sans-serif, 'Apple Color Emoji';
+}
+/* 主体内容区域 */
+.main-container {
+  max-width: 1288px;
+  margin: 0 auto;
+}
+/* tab列表主体区域 */
+.main-container .tabs_list_container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 10px 0 0 1px;
+  position: relative;
+  border: 0 solid;
+}
+/* tab导航区域 */
+.tabs_list_container .tabs_nav .tabs-nav {
+  overflow: hidden;
+  padding-left: 0px;
+}
+.tabs_list_container .tabs_nav .tabs-nav li {
+  float: left;
+  min-width: 10px;
+  position: relative;
+  width: auto;
+  margin: 8px;
+  padding: 2px 12px 2px 2.8em;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1.8;
+  transition: all 0.3s 0s ease-in;
+  transition: background 1s;
+}
+/* tab前面的图标部分 */
+.tabs_list_container .tabs_nav .tabs-nav li .svg-img {
+  position: absolute;
+  content: ' ';
+  top: 50%;
+  margin-top: -0.7em;
+  left: 1em;
+  width: 21px;
+  height: 21px;
+}
+/* 默认激活的tab的样式 */
+.isActive {
+  background: #0d2192 !important;
+  color: #fff !important;
+}
+/* 修改颜色 */
+.isActive .svg-img path {
+  fill: #fff !important;
+}
+/* tab导航对应的每一项 */
+.tabs_list_container .tabs_list .every_tabs_container {
+  display: none;
+  position: relative;
+  z-index: 1;
+  min-width: calc(100% + 1px);
+  max-width: calc(100% + 1px);
+  margin: -1px 0 0 -1px !important;
+  padding: 0px;
+  background: #fff;
+  min-height: 500px;
+  border: 1px solid transparent;
+}
+.tabs_list_container .tabs_list .every_tabs_container .cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.5em auto 12.5em;
+}
+.tabs_list_container .tabs_list .every_tabs_container .cards .flap-card {
+  width: 30%;
+  max-width: 300px;
+  box-shadow: rgb(0 0 0 / 10%) 0 10px 20px -2px;
+  background: #fff;
+  margin: 20px 1.6%;
+  position: relative;
+  text-align: left;
+  transition: all 0.3s 0s ease-in;
+}
+.tabs_list_container .tabs_list .every_tabs_container .cards .flap-card .top {
+  width: 55%;
+  height: 120px;
+  margin: 0 auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff;
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer {
+  border-top: 1px solid #f5f7f8;
+  background: #fff;
+  padding: 15px;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+/* 下拉的按钮 */
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer
+  .btns {
+  border-radius: 26px;
+  height: 26px;
+  width: 26px;
+  padding: 0;
+  position: absolute;
+  right: -25px;
+  top: 15px;
+  background: #0d2192;
+  box-shadow: 0 2px 0 0 rgb(0 0 0 / 10%);
+  color: #fff;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.2s 0s ease-out;
+}
+/* 鼠标悬停的效果 */
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer
+  .btns:hover {
+  box-shadow: 0 8px 1px 0 rgb(0 0 0 / 8%);
+  transform: translateY(-2px);
+  transition: all 0.25s 0s ease-out;
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer
+  .btns
+  span {
+  background: #fff;
+  display: block;
+  height: 2px;
+  position: absolute;
+  top: 13px;
+  transition: all 0.15s 0s ease-out;
+  width: 9px;
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer
+  .btns
+  .left {
+  right: 11px;
+  transform: rotate(45deg);
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer
+  .btns
+  .right {
+  left: 11px;
+  transform: rotate(-45deg);
+}
+/* 红色的按钮 */
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer
+  .errorBtns {
+  border-radius: 26px;
+  height: 26px;
+  width: 26px;
+  padding: 0;
+  position: absolute;
+  right: -25px;
+  top: 15px;
+  background: #f66 !important;
+  box-shadow: 0 2px 0 0 rgb(0 0 0 / 10%);
+  color: #fff;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 2s 0s ease-out;
+}
+/* 鼠标悬停 */
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer
+  .errorBtns:hover {
+  box-shadow: 0 8px 1px 0 rgb(0 0 0 / 8%);
+  transform: translateY(-2px);
+  transition: all 0.25s 0s ease-out;
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer
+  .errorBtns
+  .left {
+  left: 8px;
+  transform: rotate(-45deg);
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer
+  .errorBtns
+  .right {
+  transform: rotate(45deg);
+  right: 8px;
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer
+  .errorBtns
+  span {
+  width: 10px;
+  background: #fff;
+  display: block;
+  height: 2px;
+  position: absolute;
+  top: 13px;
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .footer
+  h2 {
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  margin: 0 32px 0 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 26px;
+  color: #142848;
+}
+/* 隐藏区域的内容 */
+.tabs_list_container .tabs_list .every_tabs_container .cards .flap-card .desc {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  background-color: white;
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .desc
+  .hideTop {
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #666;
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .desc
+  .hideFooter {
+  background: #fff;
+  transform: rotateX(0);
+  width: 100%;
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .desc
+  .hideFooter
+  .actions {
+  box-shadow: 0 10px 20px -2px rgb(0 0 0 / 10%);
+  padding: 15px;
+  text-align: center;
+}
+.tabs_list_container
+  .tabs_list
+  .every_tabs_container
+  .cards
+  .flap-card
+  .desc
+  .hideFooter
+  .actions
+  a {
+  background: #1e2969;
+  border-radius: 4px;
+  box-shadow: 0 2px 0 0 rgb(0 0 0 / 10%);
+  color: #fff;
+  display: inline-block;
+  padding: 6px 30px 8px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.1s 0s ease-out;
+  cursor: pointer;
+}
+.other {
+  opacity: 0.6;
+  transform: scale(0.88);
+  transition: all 0.5s linear;
+}
+.active:hover {
+  opacity: 1;
+  transform: scale(0.9);
+}
