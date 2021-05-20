@@ -28,7 +28,7 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
       registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.3.0-release-allinone
 ```
 
-国外用户：
+If you are not in China：
 
 ```
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
@@ -62,7 +62,7 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 
 ### 离线环境安装
 
-请注意，v5.3.0 版本暂不支持离线环境安装，离线环境请参考 [5.2 离线安装](https://v5.2-doc.rainbond.com/docs/install/install-from-linux/offline-install/)
+离线环境安装具有一定的功能损耗，主要体现在源码 CI 层面，请通过页面下方展示的方式加入 Rainbond 微信群或钉钉群向开发者获取并取得支持。
 
 ### 常见问题
 
