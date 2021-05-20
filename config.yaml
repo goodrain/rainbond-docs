@@ -206,6 +206,18 @@ params:
       logo: /images/users/yimidida.png
     - title: 四川万江港利水务有限公司
       logo: /images/users/wanjiang.png
+    - title: 北京宏诚创新科技有限公司
+      logo: https://www.honortrends.com/template/new-blue/img/logos/logo-blue.png
+    - title: 苏美达集团
+      logo: /images/users/sumeida.png
+    - title: 拓维信息系统股份有限公司
+      logo: https://www.talkweb.com.cn/static/img/logo.png
+    - title: 北京胜顶智控科技有限公司
+      logo: /images/users/sdzk.png
+    - title: 北京金楼世纪科技有限公司
+      logo: https://www.yuexin.cn/_nuxt/img/da3a284.png
+    - title: 医家医健康
+      logo: /images/users/yijiayi.png
 outputs:
   home:
     - HTML
