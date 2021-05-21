@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "head.html" . }}
+
+<body>
+    {{ $active := "case" }}
+    {{ partial "header.html" (dict "context" . "active" "case") }}
+
+
+    <div class="page_container">
+        <div class="right_container">
+            <!-- main主体部分 -->
+            <div class="markdown-body">
+                <!-- 标题部分 -->
+                <h1 class="title">{{ .Title }}</h1>
+                <!-- 日期部分 -->
+                <ul>
+                    <li class="meta-item">
+                        <img src="https://pingcap.com/images/svgs/icon-date.svg" alt="">
+                        {{ .Params.dateTime }}
+                    </li>
+                    <li class="meta-item">
+                        <img src="https://pingcap.com/images/svgs/icon-writer.svg" alt="">
+                        {{ .Params.author }}
+                    </li>
+                </ul>
+                <!-- 文本内容部分 -->
+                <div class="main_contant">
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ partial "footer.html" . }}
+</body>
+
+</html>

@@ -16,7 +16,8 @@
         </div>
         <div class="columns">
             <div class="column">
-                <p style="text-align: center;">© 2020 北京好雨科技有限公司 <a href="http://beian.miit.gov.cn/">京ICP备15028663号-4</a>
+                <p style="text-align: center;">© 2021 北京好雨科技有限公司 <a
+                        href="http://beian.miit.gov.cn/">京ICP备15028663号-4</a>
                 </p>
             </div>
         </div>
@@ -45,6 +46,7 @@
 <script type="text/javascript" src="/js/jquery.loading.min.js"></script>
 <script type="text/javascript" src="/js/clipboard.js"></script>
 <script type="text/javascript" src="/js/documentation.js?version={{.Site.Params.version}}"></script>
+<script type="text/javascript" src="/js/case.js?version={{.Site.Params.version}}"></script>
 <script>
     $(function () {
         var modalVideo = new ModalVideo({
@@ -53,7 +55,6 @@
         });
         $(".video-show").click(function () {
             var url = $(this).data("src")
-            console.log(url)
             if (url) {
                 modalVideo.show({
                     url: url
@@ -68,7 +69,7 @@
                 window.location.href = 'http://v5.1-doc.rainbond.com/docs/'
             } else if (value === 'v5.2') {
                 window.location.href = 'https://v5.2-doc.rainbond.com/docs/'
-            }else {
+            } else {
                 window.location.href = 'https://www.rainbond.com/docs/'
             }
         })
@@ -82,6 +83,21 @@
         }, function () {
             $(".wechart-hover").addClass("hide");
         });
+        // $(".user-item").click(function (e){
+        //     e.stopPropagation()
+        //     if ($(this).hasClass("active")) {
+        //         $(this).removeClass("active")
+        //         $(".user-items").removeClass("show")
+        //         return
+        //     }
+        //     $(".user-item").removeClass("active")
+        //     $(".user-items").addClass("show")
+        //     $(this).addClass("active")
+        // })
+        // $("#testimonial").click(function (){
+        //     $(".user-item").removeClass("active")
+        //     $(".user-items").removeClass("show")
+        // })
     });
     $(function () {
         var modalVisitor = new ModalVisitor({
@@ -110,6 +126,13 @@
                 smsg: "提交成功，稍后将与你联系"
             });
         });
+        $(".user-case").click(function () {
+            modalVisitor.show({
+                title: "用户案例详情咨询",
+                source: "Rainbond官网案例咨询",
+                smsg: "提交成功，稍后将与你联系"
+            });
+        });
         $(".auth-visitor").click(function () {
             modalVisitor.show({
                 title: $(this).data("title"),
@@ -123,12 +146,12 @@
             });
         });
     })
-    
+
 </script>
 <script>
     var _hmt = _hmt || [];
     (function () {
-        if (document.domain.indexOf('rainbond.com') != -1){
+        if (document.domain.indexOf('rainbond.com') != -1) {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?19583a0ffdf6a67e3798ed126b51af5f";
             var s = document.getElementsByTagName("script")[0];

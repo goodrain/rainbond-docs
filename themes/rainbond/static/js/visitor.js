@@ -26,7 +26,7 @@
         .css({ width: this.option.width, height: this.option.height });
       $(this.$wrap).find(".modal-visitor").append("<div class='form'></div>");
       if (getCookie("visitors") == "true") {
-        $(this.$wrap).find(".form").append('<div class="msg"><p class="success">你已完成申请</p><p>请您稍后，我们将尽快与您取得联系</p></div>');
+        $(this.$wrap).find(".form").append('<div class="msg"><p class="success">你已完成申请</p><p>请您稍后，我们将尽快与您取得联系。若之前已有过联系，请直接与联系人沟通。</p></div>');
       } else {
         $(this.$wrap)
           .find(".form")

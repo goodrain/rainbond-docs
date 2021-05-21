@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    {{ partial "header.html" (dict "context" .   "active" "doc") }}
+    {{ partial "header.html" (dict "context" . "active" "doc") }}
 
     {{ partial "doc-head.html" }}
     <section style="padding: 2rem 0;background: #f3f7ff;">
@@ -69,84 +69,90 @@
                     <h2 class="tips">跟随这些文档实践</h2>
                     <div class="feature-box">
                         {{range .Site.Params.dashboard.recommended}}
-                            {{if .docs}}
-                                <div>
-                                    <div class="practice-title">
-                                        <h5><svg t="1605594293884" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1764"><path d="M315.1 0H157.5C70.9 0 0 70.9 0 157.5V315c0 86.6 70.9 157.5 157.5 157.5H315c86.6 0 157.5-70.9 157.5-157.5V157.5C472.6 70.9 401.7 0 315.1 0z m551.4 0H708.9c-86.6 0-157.5 70.9-157.5 157.5V315c0 86.6 70.9 157.5 157.5 157.5h157.5c86.6 0 157.5-70.9 157.5-157.5V157.5C1024 70.9 953.1 0 866.5 0zM315.1 551.4H157.5C70.9 551.4 0 622.3 0 708.9v157.5C0 953.1 70.9 1024 157.5 1024H315c86.6 0 157.5-70.9 157.5-157.5V708.9c0.1-86.6-70.8-157.5-157.4-157.5z m551.4 0H708.9c-86.6 0-157.5 70.9-157.5 157.5v157.5c0 86.6 70.9 157.5 157.5 157.5h157.5c86.6 0 157.5-70.9 157.5-157.5V708.9c0.1-86.6-70.8-157.5-157.4-157.5z" fill="#202D40" p-id="1765"></path></svg> {{ .title }}</h5>
+                        {{if .docs}}
+                        <div>
+                            <div class="practice-title">
+                                <h5><svg t="1605594293884" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" p-id="1764">
+                                        <path
+                                            d="M315.1 0H157.5C70.9 0 0 70.9 0 157.5V315c0 86.6 70.9 157.5 157.5 157.5H315c86.6 0 157.5-70.9 157.5-157.5V157.5C472.6 70.9 401.7 0 315.1 0z m551.4 0H708.9c-86.6 0-157.5 70.9-157.5 157.5V315c0 86.6 70.9 157.5 157.5 157.5h157.5c86.6 0 157.5-70.9 157.5-157.5V157.5C1024 70.9 953.1 0 866.5 0zM315.1 551.4H157.5C70.9 551.4 0 622.3 0 708.9v157.5C0 953.1 70.9 1024 157.5 1024H315c86.6 0 157.5-70.9 157.5-157.5V708.9c0.1-86.6-70.8-157.5-157.4-157.5z m551.4 0H708.9c-86.6 0-157.5 70.9-157.5 157.5v157.5c0 86.6 70.9 157.5 157.5 157.5h157.5c86.6 0 157.5-70.9 157.5-157.5V708.9c0.1-86.6-70.8-157.5-157.4-157.5z"
+                                            fill="#202D40" p-id="1765"></path>
+                                    </svg> {{ .title }}</h5>
+                            </div>
+                            <div class="left-box">
+                                {{range .docs}}
+                                <div class="feature-item">
+                                    <a href="{{.url}}"></a>
+                                    <div class="icon default">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                            <g id="Support" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+                                                <g id="Desktop-HD" stroke="#202D40" transform="translate(-180 -917)">
+                                                    <g id="read-this-documents" transform="translate(168 845)">
+                                                        <g id="docs-content" transform="translate(0 68)">
+                                                            <g id="icons/document" transform="translate(12 4)">
+                                                                <g id="book-bookmark">
+                                                                    <path id="Path" fill="#202D40" fill-opacity=".08"
+                                                                        d="M8.5.5v7L6 5.5l-2.5 2v-7" />
+                                                                    <path id="Path"
+                                                                        d="M.5 14V2.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2V14" />
+                                                                    <rect id="Rectangle" width="15" height="3" x=".5"
+                                                                        y="12.5" fill="#202D40" fill-opacity=".08"
+                                                                        rx="1.5" />
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
                                     </div>
-                                    <div class="left-box">
-                                        {{range .docs}}
-                                            <div class="feature-item">
-                                                <a href="{{.url}}"></a>
-                                                <div class="icon default">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                                        <g id="Support" fill="none" fill-rule="evenodd" stroke="none"
-                                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
-                                                            <g id="Desktop-HD" stroke="#202D40" transform="translate(-180 -917)">
-                                                                <g id="read-this-documents" transform="translate(168 845)">
-                                                                    <g id="docs-content" transform="translate(0 68)">
-                                                                        <g id="icons/document" transform="translate(12 4)">
-                                                                            <g id="book-bookmark">
-                                                                                <path id="Path" fill="#202D40" fill-opacity=".08"
-                                                                                    d="M8.5.5v7L6 5.5l-2.5 2v-7" />
-                                                                                <path id="Path"
-                                                                                    d="M.5 14V2.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2V14" />
-                                                                                <rect id="Rectangle" width="15" height="3" x=".5"
-                                                                                    y="12.5" fill="#202D40" fill-opacity=".08"
-                                                                                    rx="1.5" />
-                                                                            </g>
-                                                                        </g>
-                                                                    </g>
+                                    <div class="icon blue">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                            <g id="Support" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+                                                <g id="Desktop-HD" stroke="#06F" transform="translate(-180 -967)">
+                                                    <g id="read-this-documents" transform="translate(168 845)">
+                                                        <g id="docs-content" transform="translate(0 68)">
+                                                            <g id="icons/document" transform="translate(12 54)">
+                                                                <g id="book-bookmark">
+                                                                    <path id="Path" fill="#06F" fill-opacity=".08"
+                                                                        d="M8.5.5v7L6 5.5l-2.5 2v-7" />
+                                                                    <path id="Path"
+                                                                        d="M.5 14V2.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2V14" />
+                                                                    <rect id="Rectangle" width="15" height="3" x=".5"
+                                                                        y="12.5" fill="#06F" fill-opacity=".08"
+                                                                        rx="1.5" />
                                                                 </g>
                                                             </g>
                                                         </g>
-                                                    </svg>
-                                                </div>
-                                                <div class="icon blue">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                                        <g id="Support" fill="none" fill-rule="evenodd" stroke="none"
-                                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
-                                                            <g id="Desktop-HD" stroke="#06F" transform="translate(-180 -967)">
-                                                                <g id="read-this-documents" transform="translate(168 845)">
-                                                                    <g id="docs-content" transform="translate(0 68)">
-                                                                        <g id="icons/document" transform="translate(12 54)">
-                                                                            <g id="book-bookmark">
-                                                                                <path id="Path" fill="#06F" fill-opacity=".08"
-                                                                                    d="M8.5.5v7L6 5.5l-2.5 2v-7" />
-                                                                                <path id="Path"
-                                                                                    d="M.5 14V2.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2V14" />
-                                                                                <rect id="Rectangle" width="15" height="3" x=".5"
-                                                                                    y="12.5" fill="#06F" fill-opacity=".08" rx="1.5" />
-                                                                            </g>
-                                                                        </g>
-                                                                    </g>
-                                                                </g>
-                                                            </g>
-                                                        </g>
-                                                    </svg>
-                                                </div>
-                                                <div class="txt">{{.title}}</div>
-                                                <div class="arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                                        <g id="Support" fill="none" fill-rule="evenodd" stroke="none"
-                                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
-                                                            <g id="Desktop-HD" stroke="#06F" transform="translate(-276 -1727)">
-                                                                <g id="section-case" transform="translate(0 1185)">
-                                                                    <g id="article-card" transform="translate(200 176)">
-                                                                        <g id="read-more" transform="translate(20 364)">
-                                                                            <g id="icons/read-more" transform="translate(56 2)">
-                                                                                <path id="Path" d="M5.5 3.5L10 8l-4.5 4.5" />
-                                                                            </g>
-                                                                        </g>
-                                                                    </g>
-                                                                </g>
-                                                            </g>
-                                                        </g>
-                                                    </svg></div>
-                                            </div>
-                                        {{end}}
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
                                     </div>
+                                    <div class="txt">{{.title}}</div>
+                                    <div class="arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                            <g id="Support" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+                                                <g id="Desktop-HD" stroke="#06F" transform="translate(-276 -1727)">
+                                                    <g id="section-case" transform="translate(0 1185)">
+                                                        <g id="article-card" transform="translate(200 176)">
+                                                            <g id="read-more" transform="translate(20 364)">
+                                                                <g id="icons/read-more" transform="translate(56 2)">
+                                                                    <path id="Path" d="M5.5 3.5L10 8l-4.5 4.5" />
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></div>
                                 </div>
-                            {{end}}   
+                                {{end}}
+                            </div>
+                        </div>
+                        {{end}}
                         {{end}}
                     </div>
                 </div>
@@ -201,7 +207,6 @@
                 </div>
                 {{end}}
             </div>
-        </div>
     </section>
 
     <!-- support section -->
