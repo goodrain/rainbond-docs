@@ -58,6 +58,10 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 
 > 请注意，集群安装初始化可以并行进行，你可以同时进行多个集群的安装和初始化。
 
+集群初始化不成功，出现错误：waiting rainbond region ready timeout. 请参考[排查文档](/docs/user-operations/cluster-manage/check/)
+
+### 控制台迁移
+
 体验完成后建议将控制迁移到 Rainbond 中管理，[参考文档](/docs/user-operations/ha-deploy/console-recover/)
 
 ### 离线环境安装
@@ -72,11 +76,4 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 
 - 初始化 Rainbond 集群时长时间阻塞在 `系统所需非组件化镜像本地处理` 步骤
 
-> 该问题可能出现在对接自建 Kubernetes 集群中，请通过以下命令的输出内容判断问题。常见情况是由于端口冲突导致网关组件无法启动。
-
-```
-kubectl get rainbondcluster rainbondcluster -n rbd-system -o yaml
-kubectl get pod -n rbd-system
-```
-
-> 如果基于主机安装的 Kubernetes 集群，没有 kubectl 命令，请参考[安装 kubectl 命令](/docs/user-operations/tools/kubectl/)
+参考[排查文档](/docs/user-operations/cluster-manage/check/)排查解决
