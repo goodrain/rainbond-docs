@@ -28,7 +28,7 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
       registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.3.0-release-allinone
 ```
 
-国外用户：
+If you are not in China：
 
 ```
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
@@ -58,11 +58,15 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 
 > 请注意，集群安装初始化可以并行进行，你可以同时进行多个集群的安装和初始化。
 
+集群初始化不成功，出现错误：waiting rainbond region ready timeout. 请参考[排查文档](/docs/user-operations/cluster-manage/check/)
+
+### 控制台迁移
+
 体验完成后建议将控制迁移到 Rainbond 中管理，[参考文档](/docs/user-operations/ha-deploy/console-recover/)
 
 ### 离线环境安装
 
-请注意，v5.3.0 版本暂不支持离线环境安装，离线环境请参考 [5.2 离线安装](https://v5.2-doc.rainbond.com/docs/install/install-from-linux/offline-install/)
+离线环境安装具有一定的功能损耗，主要体现在源码 CI 层面，请通过页面下方展示的方式加入 Rainbond 微信群或钉钉群向开发者获取并取得支持。
 
 ### 常见问题
 
@@ -72,9 +76,4 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 
 - 初始化 Rainbond 集群时长时间阻塞在 `系统所需非组件化镜像本地处理` 步骤
 
-> 该问题可能出现在对接自建 Kubernetes 集群中，请通过以下命令的输出内容判断问题。常见情况是由于端口冲突导致网关组件无法启动。
-
-```
-kubectl get rainbondcluster rainbondcluster -n rbd-system -o yaml
-kubectl get pod -n rbd-system
-```
+参考[排查文档](/docs/user-operations/cluster-manage/check/)排查解决

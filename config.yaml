@@ -194,6 +194,47 @@ params:
           bilibili: https://www.bilibili.com/video/av78830420/
           src: //player.bilibili.com/player.html?aid=78830420&cid=134888098&page=1
   users:
+    - title: 京东方科技集团股份有限公司
+      logo: images/users/boe.jpg
+      description: 使用 Rainbond 2年，服务 100+ 开发者和 40 多个业务系统研发和交付。
+    - title: 中国煤炭科工集团
+      logo: images/users/meike.png
+      description: 使用 Rainbond 1年，搭建了煤炭行业云基础平台，统一管理各类工业互联网应用。
+    - title: 北控软件
+      logo: images/users/bkrj.jpg
+      description: 使用 Rainbond 3年，支撑开发者进行高效的应用研发和交付。
+    - title: 中公高科
+      logo: images/users/zggk.jpg
+      description: 使用 Rainbond 3年
+    - title: 青椒课堂
+      logo: https://cdn.qingjiao.pub/20200814/img/logo_primary.6426014d.png
+      description: 使用 Rainbond 2年，从云原生改造到生产环境运维，帮助团队完成运维模式转型。
+    - title: 电信科学技术第五研究所
+      logo: images/users/5suo.jpg
+    - title: 联影医疗
+      logo: https://www.united-imaging.com/assets/image/font_img/UIHC_whiteBG_CN_logo.svg
+    - title: 武汉绿之云
+      logo: https://cdn-store.goodrain.com/assets/images/lvzhiyun.png
+    - title: 简帛信息科技有限公司
+      logo: images/users/jianbo.jpg
+    - title: 北京滴普科技有限公司
+      logo: images/users/dipu.jpeg
+    - title: 中海创科技
+      logo: images/users/zhonghai.png
+    - title: 山东鲁能软件
+      logo: /images/users/luneng.png
+    - title: 西南民族大学
+      logo: /images/users/xinanmingzu.jpg
+    - title: 广西体育高等专科学校
+      logo: /images/users/guangxitizhuan.png
+    - title: 清能互联
+      logo: /images/users/qingnenghulian.png
+    - title: 厦门吉联
+      logo: /images/users/jilian.png
+    - title: 江苏荣泽信息科技
+      logo: /images/users/rongze.png
+    - title: 青岛迪迪科技
+      logo: /images/users/didi.png
     - title: 苏州不木网络科技有限公司
       logo: /images/users/bumu.png
     - title: 上海熙菱信息
@@ -206,6 +247,18 @@ params:
       logo: /images/users/yimidida.png
     - title: 四川万江港利水务有限公司
       logo: /images/users/wanjiang.png
+    - title: 北京宏诚创新科技有限公司
+      logo: https://www.honortrends.com/template/new-blue/img/logos/logo-blue.png
+    - title: 苏美达集团
+      logo: /images/users/sumeida.png
+    - title: 拓维信息系统股份有限公司
+      logo: https://www.talkweb.com.cn/static/img/logo.png
+    - title: 北京胜顶智控科技有限公司
+      logo: /images/users/sdzk.png
+    - title: 北京金楼世纪科技有限公司
+      logo: https://www.yuexin.cn/_nuxt/img/da3a284.png
+    - title: 医家医健康
+      logo: /images/users/yijiayi.png
 outputs:
   home:
     - HTML

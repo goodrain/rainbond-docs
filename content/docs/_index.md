@@ -32,5 +32,3 @@ layout: dashboard
     <h4><a href="//t.goodrain.com">社区</a></h4>
     <p>使用过程中遇到了问题？想与大家分享经验？吐槽？我们在此恭候。</p>
 </div>
-
-
