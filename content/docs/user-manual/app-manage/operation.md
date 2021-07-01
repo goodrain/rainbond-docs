@@ -1,5 +1,5 @@
 ---
-title: 基础操作
+title: 生命周期管理
 description: 讲述Rainbond应用的基础操作
 Weight: 4002
 ---
