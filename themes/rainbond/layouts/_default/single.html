@@ -23,8 +23,7 @@
                         {{ $Site := .Site }}
                         {{with $File.Path }}
                         <span class="e is-hidden-mobile">
-                            <a href='{{ $Site.Params.editURL }}{{ replace $File.Dir 
-                                "\\" "/" }}{{ $File.LogicalName }}' target="_blank">编辑此页面</a>
+                            <a href='{{ $Site.Params.editURL }}{{ replace $File.Dir "\\" "/" }}{{ $File.LogicalName }}' target="_blank">编辑此页面</a>
                         </span>
                         {{ end }}
                         {{ end }}
