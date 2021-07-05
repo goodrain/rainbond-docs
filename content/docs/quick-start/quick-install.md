@@ -25,7 +25,7 @@ curl sh.rainbond.com/install_docker | bash
 ```
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
       --name=rainbond-allinone --restart=always \
-      registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.3.0-release-allinone
+      registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.3.1-release-allinone
 ```
 
 If you are not in China：
@@ -33,7 +33,7 @@ If you are not in China：
 ```
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
       --name=rainbond-allinone --restart=always \
-      rainbond/rainbond:v5.3.0-release-allinone
+      rainbond/rainbond:v5.3.1-release-allinone
 ```
 
 > 默认使用 sqlite3 作为数据库，数据存储于用户主目录下的 rainbonddata 目录。Rainbond 5.3 支持控制台数据迁移，便于后续迁移数据到生产环境，请放心体验。
@@ -62,7 +62,7 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 
 ### 控制台迁移
 
-体验完成后建议将控制迁移到 Rainbond 中管理，[参考文档](/docs/user-operations/ha-deploy/console-recover/)
+All-In-One 模式部署的控制台不具有生产可用性，体验完成后强烈建议将控制迁移到 Rainbond 中管理 [参考文档](/docs/user-operations/ha-deploy/console-recover/)
 
 ### 离线环境安装
 
