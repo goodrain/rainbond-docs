@@ -18,6 +18,8 @@ curl sh.rainbond.com/install_docker | bash
 
 > 请注意，该命令仅支持 Linux x86 操作系统。
 
+如果您是 Rancher 用户，请参考 [基于 Rancher 部署 Rainbond](/docs/install/other-methods/install-from-rancher/)
+
 #### All-In-One 模式启动控制台
 
 国内用户：

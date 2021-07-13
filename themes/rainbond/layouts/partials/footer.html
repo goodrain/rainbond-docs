@@ -83,21 +83,6 @@
         }, function () {
             $(".wechart-hover").addClass("hide");
         });
-        // $(".user-item").click(function (e){
-        //     e.stopPropagation()
-        //     if ($(this).hasClass("active")) {
-        //         $(this).removeClass("active")
-        //         $(".user-items").removeClass("show")
-        //         return
-        //     }
-        //     $(".user-item").removeClass("active")
-        //     $(".user-items").addClass("show")
-        //     $(this).addClass("active")
-        // })
-        // $("#testimonial").click(function (){
-        //     $(".user-item").removeClass("active")
-        //     $(".user-items").removeClass("show")
-        // })
     });
     $(function () {
         var modalVisitor = new ModalVisitor({
@@ -110,14 +95,6 @@
                 source: "Rainbond官网-申请离线安装包",
                 smsg: "提交成功，稍后将与你联系提供离线环境安装包下载方式"
             });
-        });
-        $(".visitor-show").click(function () {
-            window.location.href = 'https://cloud.goodrain.com/page/price#poc'
-            // modalVisitor.show({
-            //     title: "预约演示",
-            //     source: "Rainbond官网文档首页",
-            //     smsg: "提交成功，稍后将与你联系确认演示时间"
-            // });
         });
         $(".business-consulting").click(function () {
             modalVisitor.show({
