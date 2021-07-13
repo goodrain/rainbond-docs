@@ -94,10 +94,14 @@ params:
     news:
       title: 最新上线视频
       items:
+        - title: 基于Rancher安装Rainbondv5.3.1控制台
+          bilibili: https://www.bilibili.com/video/BV1a54y1n7Ch/
+          src: //player.bilibili.com/player.html?aid=846645893&bvid=BV1a54y1n7Ch&cid=368992863&page=1
+          default: true
+          doc: /docs/install/other-methods/install-from-rancher/
         - title: 【Rainbond 社区分享回放】5.2.2 升级到 5.3.0 实践
           bilibili: https://www.bilibili.com/video/BV1Rv411h7Gx/
           src: //player.bilibili.com/player.html?aid=247098830&bvid=BV1Rv411h7Gx&cid=309105912&page=1
-          default: true
         - title: 【Rainbond 社区分享回放】应用全方位监控、可视化实践
           bilibili: https://www.bilibili.com/video/BV11A411K7Pd/
           src: //player.bilibili.com/player.html?aid=331943093&bvid=BV11A411K7Pd&cid=306022663&page=1
