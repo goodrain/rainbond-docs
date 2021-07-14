@@ -1,44 +1,34 @@
 ---
-title: 在Rainbond上部署并使用helm应用
-Description: 如何在Rainbond上快速部署helm应用，并可被Rainbond服务调用
-weight: 22005
+title: "部署Helm应用"
+hidden: false
+description: "根据文档完成Helm应用在Rainbond中的部署"
+weight: 3100
 aliases:
-  - /docs/practices/app-dev/work-helm-app/
+  - /docs/user-manual/app-creation/helm-support/creation-process/
 ---
 
-Helm 是 Kubernetes 中的一个开源软件包管理工具。通过软件打包的形式，支持软件包的版本管理和控制，很大程度上简化了 Kubernetes 应用部署和管理的复杂性，类似于 Ubuntu 的 APT 和 CentOS 中的 YUM。
-
-本文将介绍 Rainbond 平台对接 Helm 进行应用的安装及管理，通过一个具体的示例学习如何对接 Helm 仓库，安装及管理 Helm 仓库中的应用。
+跟随本文档使开发者或运维人员能够基于Helm仓库在Rainbond中部署应用。
 
 ### 前提条件
 
-1.已部署完成的 `v5.3.1-release` 版本 Rainbond 平台    
-2.拥有一个可对接使用的Helm仓库，示例 https://charts.bitnami.com/bitnami 仓库    
+开始之前，你需要满足以下条件：
 
+1.已对接[Helm应用商店](/docs/component-create/helm-support/docking_helm_store/)    
+2.拥有一个可用的团队
 
-### 操作步骤
+### 操作流程
 
-#### Rainbond对接Helm仓库
+应用安装有两个入口：
 
-使用 **企业管理员账号** 在 **企业视图** 点击 **应用市场**，点击 `+` 号对接新的应用市场，选择Helm商店，输入以下信息，点击创建即可对接，如果是私有商店则选择私有商店输入 **商店用户名** 及 **商店密码**。
+**No.1** 在企业视图应用市场中直接安装
 
-商店名称：自定义  
-商店地址：Helm仓库地址
-
-{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/dockinghelmstore.jpg" title="对接helm仓库" width="100%">}}
-
-对接完成后将自动获取并展示当前 Helm 仓库中的应用
-
-{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/dockingcomplete.jpg" title="对接完成" width="100%">}}
-
-#### 基于Helm应用商店在Rainbond中部署应用
-
-**以部署Wordpress应用为例**
-
-在企业视图Helm应用市场中选择Wordpress，点击应用后面的 **安装** 按钮，选择需要安装到的 **团队**，定义 **应用名称**，点击 **确定** 即会自动开始安装。
+点击 **Helm商店** 中应用后面的 **安装** 按钮，选择需要安装到的 **团队**，定义 **应用名称**，点击 **确定** 即会自动开始安装。
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/Install_helm_app.jpg" title="安装helm商店中的应用" width="100%">}}
 
+**No.2** 在团队视图 **基于应用市场创建组件** 中选择应用进行安装
+
+在团队视图点击 **新增** --> **基于应用市场创建组件**，选择对接的Helm应用商店中的应用，点击 **安装** 即会自动开始安装。
 
 #### 安装流程
 
@@ -84,4 +74,7 @@ kubectl patch storageclass rainbondvolumerwx  -p '{"metadata": {"annotations":{"
 
 {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/access.jpg" title="访问" width="100%">}}
 
-点击 **访问策略** 中生成的域名即可访问 Wordpress web页面。
+
+
+
+
