@@ -42,6 +42,10 @@ params:
             url: /docs/practices/app-dev/spring-cloud-case/
           - title: 整合Git仓库快速部署组件
             url: /docs/practices/app-dev/work_with_git/
+          - title: 前端服务使用 CDN 进行静态文件加速
+            url: /docs/practices/app-dev/shell-hook-cdn/
+          - title: 基于 Helm 应用仓库安装应用
+            url: /docs/component-create/helm-support/
 
       - title: 应用运维
         docs:
