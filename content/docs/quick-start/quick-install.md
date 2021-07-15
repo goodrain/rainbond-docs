@@ -117,10 +117,16 @@ Rainbond 可在离线环境安装和运行，但在源码构建（CI）功能上
 
 ### 常见问题
 
+- Rainbond 支持 ARM CPU 架构部署吗？
+
+> Rainbond 企业版支持在华为鲲鹏、飞腾等国产服务器部署，需求请[申请企业服务 POC](https://www.goodrain.com/poc/)。
+
 - 安装集群时报错 `failed to connect to following etcd hosts`
 
 > 该问题属于控制台无法连接报错的节点。首先确定在配置规划集群节点时，正确的对所有节点执行了节点初始化，完成了免密登录设置。检查方式时在控制台容器中执行 `ssh docker@节点IP` 能够直接免密登录。
 
 - 初始化 Rainbond 集群时长时间阻塞在 `系统所需非组件化镜像本地处理` 步骤
+
+> 通过 kubectl 查询 rbd-system 这个 namespace 下 pod 启动状态，参考 [排查文档](/docs/user-operations/cluster-manage/check/)
 
 其他问题参考[排查文档](/docs/user-operations/cluster-manage/check/)排查解决。或添加 Rainbond 社区钉钉群咨询。

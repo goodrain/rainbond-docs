@@ -2623,6 +2623,11 @@ h6 {
 
 .post-toc li a {
     color: #666;
+    display: block;
+    width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .post-toc li a:hover {
