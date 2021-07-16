@@ -6,14 +6,13 @@ aliases:
   - /docs/practices/app-dev/work-helm-app/
 ---
 
-Helm 是 Kubernetes 中的一个开源软件包管理工具。通过软件打包的形式，支持软件包的版本管理和控制，很大程度上简化了 Kubernetes 应用部署和管理的复杂性，类似于 Ubuntu 的 APT 和 CentOS 中的 YUM。
+Helm 是 Kubernetes 中的一个开源软件包管理工具，Rainbond 从 5.3.1 版本开始支持部署 Helm 应用。实现 Helm 应用的便捷部署，访问控制。使 Rainbond 用户可以使用 Kubernetes 生态定义的应用，其主要场景是安装使用中间件应用。
 
 本文将介绍 Rainbond 平台对接 Helm 进行应用的安装及管理，通过一个具体的示例学习如何对接 Helm 仓库，安装及管理 Helm 仓库中的应用。
 
 ### 前提条件
 
 1. 已部署完成的 `v5.3.1-release` 版本 Rainbond 平台。
-
 2. 拥有一个可对接使用的 Helm 仓库，示例 https://charts.bitnami.com/bitnami 仓库。
 
 ### 操作步骤
