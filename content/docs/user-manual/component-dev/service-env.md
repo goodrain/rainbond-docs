@@ -77,6 +77,8 @@ weight: 90
 | ES_CPUREQUEST         | 1 核=1000       | 自定义组件的 CPU 请求值 5.0.3 及以后版本支持                              |
 | ES_TCPUDP_MESH_MEMORY | MB              | 自定义默认的 MESH 容器内存限制量，默认为 128MB                            |
 | ES_TCPUDP_MESH_CPU    | 1 核=1000       | 自定义默认的 MESH 容器 CPU 限制量，默认为 120, 最小为 120                 |
+| ES_HOST_DOMAINNAME    | IP地址          | 自定义域名解析，在 /etc/hosts 生成对应 DOMAINNAME 到 IP地址 的解析记录       |
+| ES_DISABLE_SIDECAR_CHECK | true         | 关闭 MESH 插件对依赖服务的端口检测，即使依赖组件对应端口未准备就绪，依然启动自身组件                                                       |
 
 ### 有效使用环境变量进行软件配置
 
