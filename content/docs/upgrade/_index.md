@@ -1,5 +1,5 @@
 ---
-title: '更新记录'
+title: '版本升级'
 menu: 'upgrade'
 weight: 5000
 ---
