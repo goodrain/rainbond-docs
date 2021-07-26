@@ -6,7 +6,7 @@ weight: 208
 
 本文档定义了 Rainbond 开发的路线图。该文档更新可能不及时，最新规划关注 [Github](https://github.com/goodrain/rainbond/issues)
 
-当前最新版本：5.3.1
+当前最新版本：5.3.2
 
 #### V5.3 版本规划
 
@@ -25,7 +25,7 @@ weight: 208
 - [x] 支持安装 Helm 应用
 - [ ] 应用模型兼容[OAM 模型](https://github.com/oam-dev/spec)
   - [ ] 应用支持发布 OAM 模型到组件市场
-- [ ] 支持基于OAM规范扩展自定义组件类型。
+- [ ] 支持基于 OAM 规范扩展自定义组件类型。
   - [ ] 内置支持 RDS 云数据库组件类型。
 
 #### V5.2 版本规划
