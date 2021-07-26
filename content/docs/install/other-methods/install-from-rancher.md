@@ -43,7 +43,7 @@ hidden: true
 
 1. 在**应用商店**页面中，单击**添加应用商店**
 
-2. 输入**名称**（比如 Rainbond-Console）和 **商店 URL 地址** 输入 `https://gitee.com/rainbond/rainbond-console.git`
+2. 输入**名称**（比如 Rainbond-Console）和 **商店 URL 地址** 输入 `https://github.com/goodrain/rainbond-chart.git`
 
 3. 分支选择**master**、 **Helm 版本**选择**Helm v3**
 
