@@ -12,7 +12,7 @@ Helm 是 Kubernetes 中的一个开源软件包管理工具，Rainbond 从 5.3.1
 
 ### 前提条件
 
-1. 已部署完成的 `v5.3.1-release` 版本 Rainbond 平台。
+1. 已部署完成的 `v5.3.1-release` 及以上版本 Rainbond 平台。
 2. 拥有一个可对接使用的 Helm 仓库，示例 https://charts.bitnami.com/bitnami 仓库。
 
 ### 操作步骤

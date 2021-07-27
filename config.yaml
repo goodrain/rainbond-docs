@@ -98,7 +98,7 @@ params:
     news:
       title: 最新上线视频
       items:
-        - title: 基于Rancher安装Rainbondv5.3.1控制台
+        - title: 基于Rancher安装Rainbondv5.3.X控制台
           bilibili: https://www.bilibili.com/video/BV1a54y1n7Ch/
           src: //player.bilibili.com/player.html?aid=846645893&bvid=BV1a54y1n7Ch&cid=368992863&page=1
           default: true

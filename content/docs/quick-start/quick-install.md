@@ -45,7 +45,7 @@ curl sh.rainbond.com/install_docker | bash
 ```
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
       --name=rainbond-allinone --restart=always \
-      registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.3.1-release-allinone
+      registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.3.2-release-allinone
 ```
 
 > 请注意，控制台将产生需要持久化的数据，存储于您部署节点的`~/rainbonddata`目录中。
