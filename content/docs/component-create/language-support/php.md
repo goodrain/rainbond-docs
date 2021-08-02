@@ -412,9 +412,30 @@ composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
 系统会在每次运行的时候使用`composer self-update` 将Composer自动更新到最新版本。
 
+## 六、hook 支持
 
+在执行 install 前后需要调用执行脚本时，可以通过配置 `composer.json` 进行调用
 
-## 六、配置启动命令
+```json
+{
+    "scripts": {
+        "pre-install-cmd": [
+            "bash ./pre-install-cmd.sh"
+        ],
+        "post-install-cmd": [
+            "bash ./post-install-cmd.sh"
+        ]
+    },
+    "require": {
+        "php": "7.1.21",
+        "ext-memcached": "*"
+    }
+}
+```
+
+其中 `pre-install-cmd` 定义内容会在 install 前执行，`pre-install-cmd` 定义内容会在 install 后执行，定义脚本必须提前创建并赋予执行权限
+
+## 七、配置启动命令
 
 云帮支持 [Apache](http://httpd.apache.org/)，如果您在Profile文件中没有设置加载其中任一服务器，或代码根目录没有 Procfile 文件，应用创建向导会提示用户选择Apache作为Web服务器。
 
