@@ -437,7 +437,7 @@ composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
 
 
-## 七、配置启动命令
+## 六、配置启动命令
 
 云帮支持 [Apache](http://httpd.apache.org/)，如果您在Profile文件中没有设置加载其中任一服务器，或代码根目录没有 Procfile 文件，应用创建向导会提示用户选择Apache作为Web服务器。
 
