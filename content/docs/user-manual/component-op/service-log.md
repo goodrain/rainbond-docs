@@ -32,4 +32,10 @@ Rainbond 平台对组件日志采用实时推送的形式进行展示，便于�
 
 我们推荐用户将组件运行日志区分为访问日志和程序 Debug 日志，访问日志一般希望被统计分析，因此需要更多的处理。建议将其输出到持久化文件，然后对接其他日志分析组件进行日志分析。 程序 Debug 日志直接输出，快速的呈现给开发者及时发现和定位问题。
 
+### 容器日志
+
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-manual/component-log/%E7%BB%84%E4%BB%B6%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97.png" width="100%">}}
+
+我们也可以只查看指定实例容器的日志, 容器日志的实时性会比较高. 默认情况下, 每 5 秒刷新一次.
+
 在 Rainbond 中也可将日志收集对接`ELASTICSEARCH`等日志分析系统，将日志直接传输到分析系统中进行分析；详情参阅 [日志对接ELK体系](/docs/get-start/best-practices/work_with_elk/)。
