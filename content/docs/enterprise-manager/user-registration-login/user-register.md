@@ -71,6 +71,12 @@ wight: 20
 
 ### 用户管理
 
+* 用户授权
+
+（平台）企业管理员在企业视图 用户名称 一栏，点击 用户名 即可对用户在不同团队中的 角色 进行分配。
+
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/enterprise-manager/user-registration-login/user-register/role_authorization.jpg" title="用户授权" width="100%">}}
+
 * 用户删除与密码修改
 
 （平台）企业管理员在企业视图`用户-->删除`删除对应的用户，点击`用户-->编辑`对普通用户的密码进行修改。

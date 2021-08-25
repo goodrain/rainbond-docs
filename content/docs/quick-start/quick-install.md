@@ -45,7 +45,7 @@ curl sh.rainbond.com/install_docker | bash
 ```
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
       --name=rainbond-allinone --restart=always \
-      registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.3.2-release-allinone
+      registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.3.3-release-allinone
 ```
 
 > 请注意，控制台将产生需要持久化的数据，存储于您部署节点的`~/rainbonddata`目录中。
@@ -73,7 +73,7 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 - 2）接入 Kubernetes 集群适合已搭建有 Kubernetes 集群的用户，你应该具有一定的 Kubernetes 管理能力。
 
       > 使用该方式对接已有 Kubernetes 集群请注意确保使用的 kubeconfig 文件中定义的 KubeApiServer 地址是可被控制台访问的。
-      > Kubernetes 版本要求为 1.16.X - 1.19.X。
+      > Kubernetes 版本要求为 1.19.X+。
 
 - 3）如果你只有 Linux 机器，请使用从主机开始安装入口，Rainbond 为你自动安装 Kubernetes 集群。
 
@@ -124,6 +124,8 @@ Rainbond 可在离线环境安装和运行，但在源码构建（CI）功能上
 - 安装集群时报错 `failed to connect to following etcd hosts`
 
 > 该问题属于控制台无法连接报错的节点。首先确定在配置规划集群节点时，正确的对所有节点执行了节点初始化，完成了免密登录设置。检查方式时在控制台容器中执行 `ssh docker@节点IP` 能够直接免密登录。
+>
+> 如果容器中能正常登录，请检查节点 OpenSSH 的版本，检查方式为 `ssh -V`， OpenSSH 的版本要求为 **OpenSSH 7.0+**。如果低于该版本，请升级 OpenSSH 后重试。
 
 - 初始化 Rainbond 集群时长时间阻塞在 `系统所需非组件化镜像本地处理` 步骤
 
