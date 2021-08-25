@@ -18,7 +18,7 @@ hidden: true
 
 2. Kubernetes 集群具有至少 4GB 以上的空闲调度内存
 
-3. Kubernetes 版本在 1.13 ~1.19 区间
+3. Kubernetes 版本最低要求1.19.x
 
 4. Kubernetes 集群至少有一个 80⁄443 端口未被占用的节点，用于 Rainbond 网关部署。
 
@@ -49,7 +49,7 @@ hidden: true
 
 4. 单击**创建**完成应用商店添加。
 
-![image-20210708163003499](https://i.loli.net/2021/07/09/DE3zQaFRtVkeXZU.png)
+![image-20210825181925415](https://i.loli.net/2021/08/25/curg1wEBOl5NdC7.png)
 
 5. 回到**应用商店**页面中，单击**启动**
 
