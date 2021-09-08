@@ -23,13 +23,16 @@ helm repo update
 ```
 
 * 编写参数配置文件 nfs-client.yaml
+
 ```yaml
 nfs:
   server: you-nfs-server  #nfs server地址
   path: /ifs/kubernetes   #nfs server 的路径
   mountOptions:           #添加参数
 ```
+
 * 部署NFS-Client-Provisioner
+
 ```shell 
 helm install nfs-client-provisioner rainbond/nfs-client-provisioner \ 
 -f nfs-client.yaml \ 
