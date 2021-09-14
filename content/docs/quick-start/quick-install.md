@@ -12,7 +12,10 @@ aliases:
 
 如果您是新用户，希望快速搭建集群尝试，请按照下述流程进行：
 
-- 准备一台或多台虚拟机或物理机【配置 4GB(内存)/2Core(CPU)/40GB(磁盘) 以上】，安装 ubuntu 16.04 操作系统。
+- 准备一台或多台虚拟机或物理机【配置 4GB(内存)/2Core(CPU)/40GB(磁盘) 以上，OpenSSH 7.0+】，安装 ubuntu 16.04 操作系统。
+
+  > 如果您使用 centos 7 操作系统，请提前升级内核版本。
+
 - 在该节点中安装 Docker，启动 Rainbond All-In-One 控制台。
 - 基于产品引导使用准备的节点安装集群。
 - 集群安装成功即可开始使用。
@@ -45,12 +48,12 @@ curl sh.rainbond.com/install_docker | bash
 ```
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
       --name=rainbond-allinone --restart=always \
-      registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.3.3-release-allinone
+      registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.4.0-release-allinone
 ```
 
 > 请注意，控制台将产生需要持久化的数据，存储于您部署节点的`~/rainbonddata`目录中。
 
-> All-In-One 控制台默认使用 sqlite3 作为数据库，数据存储于用户主目录下的 rainbonddata 目录。Rainbond 5.3 支持控制台数据迁移，便于后续迁移数据到生产环境，请放心体验。
+> All-In-One 控制台默认使用 sqlite3 作为数据库，数据存储于用户主目录下的 rainbonddata 目录。Rainbond 5.3 以上版本支持控制台数据迁移，便于后续迁移数据到生产环境，请放心体验。
 
 待容器创建启动成功后，稍等片刻即可访问机器 <b>7070</b> 端口，打开 Rainbond 控制台注册页面。
 
@@ -73,7 +76,7 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 - 2）接入 Kubernetes 集群适合已搭建有 Kubernetes 集群的用户，你应该具有一定的 Kubernetes 管理能力。
 
       > 使用该方式对接已有 Kubernetes 集群请注意确保使用的 kubeconfig 文件中定义的 KubeApiServer 地址是可被控制台访问的。
-      > Kubernetes 版本要求为 1.19.X+。
+      > Kubernetes 版本要求为 1.16.X-1.19.X。
 
 - 3）如果你只有 Linux 机器，请使用从主机开始安装入口，Rainbond 为你自动安装 Kubernetes 集群。
 
