@@ -6,7 +6,7 @@ weight: 208
 
 本文档定义了 Rainbond 开发的路线图。该文档更新可能不及时，最新规划关注 [Github](https://github.com/goodrain/rainbond/issues)
 
-当前最新版本：5.3.3
+当前最新版本：5.4.0
 
 #### V5.3 版本规划
 
