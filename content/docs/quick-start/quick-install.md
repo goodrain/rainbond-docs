@@ -6,9 +6,8 @@ aliases:
   - /docs/quick-start/rainbond_install
 ---
 
-欢迎来到 Rainbond 云原生应用管理的世界！
 
-首先我们先预览一下 Rainbond 的完整安装步骤。
+欢迎来到 Rainbond 云原生应用管理的世界！
 
 如果您是新用户，希望快速搭建集群尝试，请按照下述流程进行：
 
@@ -18,9 +17,8 @@ aliases:
 | --- | --- | --- | --- | --- |--- |
 |Ubuntu16.04/CentOS 7.*|2|8|50G+|4.0+|7.0+|
 
-如果您使用 CentOS 7.* 操作系统，请务必提前 [升级内核版本](https://t.goodrain.com/t/topic/1305)。
-
-- 确保 `80、443、6443、8443、6060` 端口能够访问；
+- 如果您使用 CentOS 7.* 操作系统，请务必提前 [升级内核版本](https://t.goodrain.com/t/topic/1305)；
+- 确保 `80、443、6060、6443、7070、8443` 端口能够访问；
 - 服务器能够正常连接互联网，安装过程将从互联网下载所需资源。
 
 
@@ -32,7 +30,7 @@ aliases:
 
 Rainbond 控制台支持在 Linux、Windows 和 Mac 中运行；为避免网络因素影响您的体验，推荐使用您准备的 Linux 服务器进行部署。
 
-```
+```bash
 curl sh.rainbond.com/install_docker | bash
 ```
 
@@ -42,7 +40,7 @@ curl sh.rainbond.com/install_docker | bash
 
 #### 启动 All-In-One 控制台
 
-```
+```bash
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
       --name=rainbond-allinone --restart=always \
       registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.4.0-release-allinone
@@ -54,7 +52,7 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 - Rainbond 5.3 及以上版本支持控制台数据迁移，便于后续迁移数据到生产环境，请放心体验。
 
 
-待容器启动成功后，稍等片刻即可访问服务器 `7070` 端口，打开 Rainbond 控制台注册页面。
+待容器启动成功后，稍等片刻即可在浏览器中访问服务器 `7070` 端口，打开 Rainbond 控制台`注册页面`。
 
 ![image-20210219110137479](https://static.goodrain.com/images/5.3/regist.png)
 
@@ -65,7 +63,7 @@ docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 Rainbond 需要对接计算资源后即可创建并管理应用。
 
 
-如果您是执行快速安装希望部署单节点Rainbond的用户，后续在控制台页面 `根据导航` 即可完成集群的对接，创建并管理云原生应用；如果您想要更多方式对接集群，请参阅后续文档
+如果您是执行快速安装希望部署单节点Rainbond的用户，后续在控制台页面 `根据导航` 即可完成集群的对接，创建并管理云原生应用；**如果您想要更多方式对接集群，请参阅后续文档**
 
 - 接入Kubernetes集群
 
@@ -86,14 +84,10 @@ Rainbond 需要对接计算资源后即可创建并管理应用。
 请参考文档：
 
 
-
 ### 控制台迁移
 
-All-In-One 模式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制迁移到 Rainbond 中管理 [参考文档](/docs/user-operations/ha-deploy/console-recover/)。
+All-In-One 模式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理 [参考文档](/docs/user-operations/ha-deploy/console-recover/)。
 
-### 离线环境安装
-
-Rainbond 可在离线环境安装和运行，但在源码构建（CI）功能上具有一定的功能损耗，请通过页面下方展示的方式加入 Rainbond 微信群或钉钉群向开发者获取并取得支持。
 
 ### 常见问题
 

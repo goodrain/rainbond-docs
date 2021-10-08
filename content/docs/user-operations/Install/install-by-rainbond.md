@@ -1,0 +1,48 @@
+---
+title: "接入已安装平台集群"
+description: "接入已安装平台集群"
+weight: 1001
+---
+
+此方式适合已经完成Rainbond集群端部署，希望接入控制台进行应用调度管理。
+
+### 前提条件
+
+- 集群端`8443`端口与控制台网络保持畅通；
+
+- 已安装[grctl命令行工具](/docs/user-operations/tools/grctl/#安装命令行工具)。
+
+## 安装部署
+
+- 在集群页面选择 `接入已安装平台集群`
+
+
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/user-operations/install/install-by-rainbond/from-rainbond.jpg" title="组件间通信结构图" width="100%">
+
+- 填写集群ID、集群名称及Region Config文件内容
+
+
+自定义集群ID及集群名称，Region Config文件内容获取方式如下：
+
+在已安装[grctl命令行工具](/docs/user-operations/tools/grctl/#安装命令行工具)的节点上执行以下命令
+
+```bash
+grctl config
+```
+
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/user-operations/install/install-by-rainbond/config.jpg" title="组件间通信结构图" width="100%">
+
+
+- 完成对接
+
+添加完成后集群处于运行中状态即完成对接，可以进行使用。
+ 
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/user-operations/install/install-by-rainbond/direct-docking.jpg" title="组件间通信结构图" width="100%">
+
+## 控制台迁移
+
+使用该方式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理  [参考文档](/docs/user-operations/ha-deploy/console-recover/)。
+
+
+
+
