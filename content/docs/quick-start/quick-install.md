@@ -30,6 +30,8 @@ aliases:
 
 Rainbond 控制台支持在 Linux、Windows 和 Mac 中运行；为避免网络因素影响您的体验，推荐使用您准备的 Linux 服务器进行部署。
 
+- 安装Docker
+
 ```bash
 curl sh.rainbond.com/install_docker | bash
 ```
