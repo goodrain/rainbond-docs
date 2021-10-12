@@ -1,6 +1,7 @@
 ---
 title: "Ubuntu keepalived配置"
 description: "Ubuntu keepalived配置"
+weight: 1010
 ---
 
 > VIP要保证和当前机器ip在同一网段内。

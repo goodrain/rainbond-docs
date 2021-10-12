@@ -1,6 +1,7 @@
 ---
 title: "CentOS Keepalived配置"
 description: "CentOS Keepalived配置"
+weight: 1000
 ---
 
 借助 **Keepalived** 完成VIP配置
