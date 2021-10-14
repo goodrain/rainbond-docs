@@ -19,7 +19,7 @@ aliases:
 - 确保服务器 `80、443、6060、6443、7070、8443` 端口能够访问；
 - 服务器能够正常连接互联网，安装过程将从互联网下载所需资源。
 
-如果您希望部署生产级别高可用的Rainbond集群，请参考 [高可用部署文档](/docs/user-operations/install/ha-deployment/resource-prepare) 进行部署。
+如果您希望部署生产级别高可用的Rainbond集群，请参考 [高可用部署文档](/docs/user-operations/deploy/ha-deployment/resource-prepare) 进行部署。
 
 阅读完上面的信息后，下面让我们开始 Rainbond 的部署：
 
@@ -76,13 +76,13 @@ Rainbond 需要对接计算资源后即可创建并管理应用。
 
 此方式适合已经安装了 Kubernetes 集群，希望对接Rainbond平台，此过程将初始化安装平台并接入，初始化及接入过程不会影响集群已有的业务形态。
 
-请参考文档：[接入已安装Kubernetes集群](/docs/user-operations/install/install-from-k8s/)
+请参考文档：[接入已安装Kubernetes集群](/docs/user-operations/deploy/install-from-k8s/)
 
 - 接入已安装平台集群
 
 此方式适合已经完成部署Rainbond，希望接入控制台进行应用的调度管理。
 
-请参考文档：[接入已安装平台集群](/docs/user-operations/install/install-by-rainbond/)
+请参考文档：[接入已安装平台集群](/docs/user-operations/deploy/install-by-rainbond/)
 
 
 ### 控制台迁移
