@@ -70,7 +70,6 @@ Rainbond 需要对接计算资源后即可创建并管理应用。
 1. 根据填写的服务器信息安装部署 Kubernetes 集群；
 2. 在已安装的 Kubernetes 集群中初始化 Rainbond ，在 `rbd-system` 命名空间下部署 Rainbond 相关组件。
 
-
 **如果您想要更多方式对接集群，请参阅后续文档：**
 
 - 接入已有Kubernetes集群

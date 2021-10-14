@@ -24,5 +24,5 @@ Rainbond 中文档分为 _概念性文档_ 、 _操作指引性文档_ 和 _最�
 - 文档引入图片时请使用如下方式：
 
 ```
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/connection.png" title="组件间通信结构图" width="100%">
+{{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/connection.png" title="组件间通信结构图" width="100%">}}
 ```
