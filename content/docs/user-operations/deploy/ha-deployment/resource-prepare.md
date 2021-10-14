@@ -118,11 +118,12 @@ Rainbond 支持基于多种 Linux 发行版部署，如果使用 CentOS 7 操作
 
 Rainbond网关节点需要使用 **Keepalived** 或 **负载均衡** 保证高可用性，若服务器网络不支持Keepalived服务，则需了解是否有其他的负载均衡服务可用，如阿里云 SLB 负载均衡。
 
-使用Keepalived 服务时需要以下资源：
+使用 Keepalived 服务时需要准备以下资源：
 
-| 节点类型 | 资源 | 数量    | 
-| :----: | :----: | :----: |
-| 网关节点 | 同网段虚拟IP | 1 | 
+| 节点类型 | 资源 | 数量   |
+|  :----: |  :----: | :----: |
+| 网关节点 | 同网段虚拟IP | 1 |
+
 
 使用已有负载均衡服务时负载均衡服务需要代理网关节点的`80、443、6060、6443、7070、8443` 端口。
 
@@ -137,4 +138,4 @@ Rainbond网关节点需要使用 **Keepalived** 或 **负载均衡** 保证高�
 平台会为HTTP类型的应用提供泛解析的域名，默认使用 `*.grapps.cn`的域名，安装时可自定义该域名，如果使用自定义域名，需要配置自定义泛域名的解析。
 
 
-**集群资源准备完毕后请参考 [高可用安装Rainbond集群](/docs/user-operations/install/ha-deployment/ha-installation/) 文档进行集群部署。**
+**集群资源准备完毕后请参考 [高可用安装Rainbond集群](/docs/user-operations/deploy/ha-deployment/ha-installation/) 文档进行集群部署。**

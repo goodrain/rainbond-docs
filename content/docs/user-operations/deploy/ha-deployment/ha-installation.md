@@ -9,7 +9,7 @@ weight: 1010
 
 ### 前提条件
 
-- 根据 [软件和硬件环境要求](/docs/user-operations/install/ha-installation/resource-prepare/) 准备相关资源； 
+- 根据 [软件和硬件环境要求](/docs/user-operations/deploy/ha-deployment/resource-prepare/) 准备相关资源； 
 - 如果您使用 CentOS 7.* 操作系统，请务必提前 [升级内核版本](https://t.goodrain.com/t/topic/1305)；
 - 确保服务器 `80、443、6060、6443、7070、8443` 端口能够访问；
 - 服务器需配置静态IP；
@@ -146,7 +146,7 @@ Rainbond网关节点需要 VIP 或 负载均衡 保证高可用性。
 1.创建ETCD的`secret`证书文件
 
 - Rainbond集群需要使用ETCD用来存储集群的元数据信息，集群状态和网络配置，通常情况下复用Kubernetes集群ETCD即可；
-- ETCD对磁盘性能要求较高，所以请务必按照 [软件和硬件环境要求](/docs/user-operations/install/ha-installation/resource-prepare/) 准备相关资源，以免后续使用过程中出现不稳定情况；如果ETCD节点与其他属性节点复用，强烈建议存储使用SSD磁盘；
+- ETCD对磁盘性能要求较高，所以请务必按照 [软件和硬件环境要求](/docs/user-operations/deploy/ha-deployment/resource-prepare/) 准备相关资源，以免后续使用过程中出现不稳定情况；如果ETCD节点与其他属性节点复用，强烈建议存储使用SSD磁盘；
 - 采用默认方式安装的 Kubernetes 集群，ETCD证书文件位于`/etc/kubernetes/ssl` 目录下，分别为`kube-ca.pem、kube-node.pen、kube-node-key.pem`；使用以下命令创建secret，方便在Rainbond安装时直接使用:
 
 ```bash
@@ -178,10 +178,12 @@ metadata:
  name: rainbondcluster
  namespace: rbd-system
 spec:
+#安装高可用集群
   enableHA: true
 #定义ETCD节点信息
   etcdConfig:
     endpoints:
+    #服务器内网IP:2379
       - 192.168.0.58:2379
       - 192.168.0.65:2379
       - 192.168.0.66:2379
@@ -191,20 +193,32 @@ spec:
     - 47.104.140.37
 #定义源码构建服务的服务器地址
   nodesForChaos:
-    - internalIP: 192.168.0.58
-      name: 192.168.0.58 
-    - internalIP: 192.168.0.65
-      name: 192.168.0.65
-    - internalIP: 192.168.0.66
-      name: 192.168.0.66
+    #填写服务器外网IP地址
+    - externalIP: 47.104.110.22
+    #填写服务器内网IP地址
+      internalIP: 192.168.0.58
+    #填写通过kubectl get node命令查询到的节点NAME
+      name: 47.104.110.22
+    - externalIP: 47.104.139.60
+      internalIP: 192.168.0.65
+      name: 47.104.139.60
+    - externalIP: 47.104.80.93
+      internalIP: 192.168.0.66
+      name: 47.104.80.93
 #定义网关服务的服务器地址
   nodesForGateway:
-    - internalIP: 192.168.0.58
-      name: 192.168.0.58 
-    - internalIP: 192.168.0.65
-      name: 192.168.0.65
-    - internalIP: 192.168.0.66
-      name: 192.168.0.66
+    #填写服务器外网IP地址
+    - externalIP: 47.104.110.22
+    #填写服务器内网IP地址
+      internalIP: 192.168.0.58
+    #填写通过kubectl get node命令查询到的节点NAME
+      name: 47.104.110.22
+    - externalIP: 47.104.139.60
+      internalIP: 192.168.0.65
+      name: 47.104.139.60
+    - externalIP: 47.104.80.93
+      internalIP: 192.168.0.66
+      name: 47.104.80.93
   rainbondVolumeSpecRWX:
 #定义GFS共享存储的storageClass名称
     storageClassName: glusterfs-simple
@@ -212,7 +226,7 @@ spec:
   regionDatabase:
     host: 192.168.0.58
     name: region
-    password: geewae6B
+    password: Gz1ea3.G
     port: 3306
     username: rainbond
 ```

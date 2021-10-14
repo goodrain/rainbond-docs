@@ -221,7 +221,8 @@ mysql>  show databases;
 
 ```mysql
 mysql>  CREATE USER rainbond;
-mysql>  ALTER USER 'rainbond'@'%' IDENTIFIED WITH mysql_native_password BY 'poh=z1ea3G';
+mysql>  ALTER USER 'rainbond'@'%' IDENTIFIED WITH mysql_native_password BY 'Gz1ea3.G';
+mysql>  GRANT ALL PRIVILEGES ON *.* TO 'rainbond'@'%';
 ```
 
 ### 从节点配置备份任务
@@ -234,7 +235,7 @@ $  vi /var/lib/mysql/backup/mysql-backup.sh
 #!/bin/bash
 DATE=`date +%Y%m%d%H%M`
 DB_USER=rainbond  #数据库用户名
-DB_PASS="poh=z1ea3G"     #数据库密码
+DB_PASS="Gz1ea3.G"     #数据库密码
 BACKUP=/var/lib/mysql/backup/   #备份文件存储路径
       
 #备份
