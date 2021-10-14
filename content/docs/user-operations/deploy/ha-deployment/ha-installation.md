@@ -178,10 +178,12 @@ metadata:
  name: rainbondcluster
  namespace: rbd-system
 spec:
+#安装高可用集群
   enableHA: true
 #定义ETCD节点信息
   etcdConfig:
     endpoints:
+    #服务器内网IP:2379
       - 192.168.0.58:2379
       - 192.168.0.65:2379
       - 192.168.0.66:2379
@@ -191,20 +193,32 @@ spec:
     - 47.104.140.37
 #定义源码构建服务的服务器地址
   nodesForChaos:
-    - internalIP: 192.168.0.58
-      name: 192.168.0.58 
-    - internalIP: 192.168.0.65
-      name: 192.168.0.65
-    - internalIP: 192.168.0.66
-      name: 192.168.0.66
+    #填写服务器外网IP地址
+    - externalIP: 47.104.110.22
+    #填写服务器内网IP地址
+      internalIP: 192.168.0.58
+    #填写通过kubectl get node命令查询到的节点NAME
+      name: 47.104.110.22
+    - externalIP: 47.104.139.60
+      internalIP: 192.168.0.65
+      name: 47.104.139.60
+    - externalIP: 47.104.80.93
+      internalIP: 192.168.0.66
+      name: 47.104.80.93
 #定义网关服务的服务器地址
   nodesForGateway:
-    - internalIP: 192.168.0.58
-      name: 192.168.0.58 
-    - internalIP: 192.168.0.65
-      name: 192.168.0.65
-    - internalIP: 192.168.0.66
-      name: 192.168.0.66
+    #填写服务器外网IP地址
+    - externalIP: 47.104.110.22
+    #填写服务器内网IP地址
+      internalIP: 192.168.0.58
+    #填写通过kubectl get node命令查询到的节点NAME
+      name: 47.104.110.22
+    - externalIP: 47.104.139.60
+      internalIP: 192.168.0.65
+      name: 47.104.139.60
+    - externalIP: 47.104.80.93
+      internalIP: 192.168.0.66
+      name: 47.104.80.93
   rainbondVolumeSpecRWX:
 #定义GFS共享存储的storageClass名称
     storageClassName: glusterfs-simple
@@ -212,7 +226,7 @@ spec:
   regionDatabase:
     host: 192.168.0.58
     name: region
-    password: geewae6B
+    password: Gz1ea3.G
     port: 3306
     username: rainbond
 ```
