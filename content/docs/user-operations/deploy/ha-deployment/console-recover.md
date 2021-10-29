@@ -1,7 +1,9 @@
 ---
-title: 控制台迁移
-descrition: 该文档描述控制台迁移方式，适用于从体验环境迁移控制台到高可用集群环境。
-weight: 3000
+title: "控制台迁移"
+description: "该文档描述控制台迁移方式，适用于从体验环境迁移控制台到高可用集群环境。"
+aliases:
+  - /docs/user-operations/ha-deploy/console-recover/
+weight: 1020
 ---
 
 我们建议在您通过[快速部署](/docs/quick-start/quick-install/) 完成 Rainbond 和集群的部署，已经基本体验了 Rainbond 后，将单机部署的控制台迁移到 Rainbond 中进行管理。
@@ -51,3 +53,16 @@ weight: 3000
 > 请注意定期备份平台数据，以方便在紧急情况下异地恢复控制台服务。
 
 > 请记住控制台所有组件在伸缩管理页面中的`grctl service get` 查询命令，有助于在紧急情况下在集群端操作该组件。
+
+### 已知问题
+
+* 迁移控制台后，恢复备份时安装集群信息不会被恢复，需手动拷贝集群安装信息。
+
+  * 1.安装 [grctl](/docs/user-operations/tools/grctl/) 工具。
+
+  * 2.进入`集群安装驱动服务` 组件内 > 伸缩复制`grctl`查询命令，并在服务器上执行找到 `/app/data` 对应的存储位置。
+
+  * 3.将 `～/rainbonddata/cloudadaptor/enterprise` 下的数据拷贝至上一步 `集群安装驱动服务` 组件的存储路径中。
+
+  * 4.进入企业视图  > 集群 > 节点配置，节点信息存在则成功。
+
