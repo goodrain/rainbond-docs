@@ -85,5 +85,4 @@ aliases:
 
 ### 进阶内容
 
-1. [组件之间网络治理之动态路由](/docs/get-start/best-practices/auto_router/)
-2. [组件之间网络治理之熔断](/docs/get-start/best-practices/circuit/)
+[组件之间网络治理之熔断](/docs/advanced-scenarios/devops/service-fuse-current-limitation/)

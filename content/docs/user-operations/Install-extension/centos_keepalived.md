@@ -1,19 +1,16 @@
 ---
-title: "Ubuntu keepalived配置"
-description: "Ubuntu keepalived配置"
+title: "CentOS Keepalived配置"
+description: "CentOS Keepalived配置"
+weight: 1000
 ---
-
-> VIP要保证和当前机器ip在同一网段内。
 
 借助 **Keepalived** 完成VIP配置
 
-- 安装Keepalived
+- 在网关节点安装 Keepalived
 
-```
-apt-get -y install libssl-dev
-apt-get -y install openssl
-apt-get -y install libpopt-dev
-apt-get -y install keepalived
+
+```bash
+$ yum install -y keepalived
 ```
 
 - 编辑配置文件
