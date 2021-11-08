@@ -1,18 +1,20 @@
-```
-title: TDengine（数据库）
+---
+title: TDengine(数据库)
 description: 本文介绍开源应用TDengine
 weight: 7002
-```
+---
 
 #### 1.TDengine简介：
 
-​		TDengine  是涛思数据面对高速增长的物联网大数据市场和技术挑战推出的创新性的大数据处理产品，它不依赖任何第三方 软件，也不是优化或包装了一个开源的数据库或流式计算产品，而是在吸取众多传统关系型数据库、NoSQL 数据库、流式计算引擎、消息队列等软件的优点之后自主开发的产品，在时序空间大数据处理上，有着自己独到的优势，可将典型的物联网、车联网、工业互联网大数据平台的总拥有成本大幅降低。![](https://pic.imgdb.cn/item/6177a00a2ab3f51d91c9ce88.png)		                                          			
+​		TDengine  是涛思数据面对高速增长的物联网大数据市场和技术挑战推出的创新性的大数据处理产品，它不依赖任何第三方 软件，也不是优化或包装了一个开源的数据库或流式计算产品，而是在吸取众多传统关系型数据库、NoSQL 数据库、流式计算引擎、消息队列等软件的优点之后自主开发的产品，在时序空间大数据处理上，有着自己独到的优势，可将典型的物联网、车联网、工业互联网大数据平台的总拥有成本大幅降低。{{<image src="https://static.goodrain.com/docs/5.4/opensource-app/tdengine/TDjiagou.png" title="" width="100%">}}
+
+​		                                          			
 
 #### 2.认识TDengine集群：
 
 ​		TDengine 的设计是基于单个硬件、软件系统不可靠，基于任何单台计算机都无法提供足够计算能力和存储能力处理海量数据的假设进行设计的。因此按照分布式高可靠架构进行设计，是支持水平扩展的，这样任何单台或多台服务器发生硬件故障或软件错误都不影响系统的可用性和可靠性，完整的 TDengine 系统是运行在一到多个物理节点上的，逻辑上，它包含数据节点(dnode)，TDengine 应用驱动(taosc)以及应用(app)。系统中存在一到多个数据节点，这些数据节点组成一个集群(cluster)，逻辑单元又划分为**物理节点(pnode)**，**数据节点(dnode)**，**虚拟节点(vnode)**，**管理节点(mnode)**，**虚拟节点组(VGroup)**。
 
-![](https://pic.imgdb.cn/item/6183790f2ab3f51d91a00997.png)
+{{<image src="https://static.goodrain.com/docs/5.4/opensource-app/tdengine/jiagou.png" title="集群与原理架构" width="100%">}}
 
 ​		TDengine集群是由mnode (taosd的一个模块，管理节点)  负责管理的，vnode(虚拟节点，保证数据高可用)负责数据的。
 
@@ -44,13 +46,13 @@ weight: 7002
 
 ​		`TDengine`数据库集群版已经在开源应用商店上线，直接搜索`TDengine`安装即可。
 
-![](https://pic.imgdb.cn/item/618353f72ab3f51d917a49b1.png)
+{{<image src="https://static.goodrain.com/docs/5.4/opensource-app/tdengine/sousuo.png" title="" width="100%">}}
 
 
 
 #### 5.安装成功后的拓扑图：
 
-![](https://pic.imgdb.cn/item/618381c32ab3f51d91a869cb.png)
+{{<image src="https://static.goodrain.com/docs/5.4/opensource-app/tdengine/install.png" title="安装完成" width="100%">}}
 
 ​		`TDengine`默认用户：**root**  默认密码：**taosdata**
 
@@ -62,7 +64,7 @@ weight: 7002
 
 ​		安装成功以后，我们可以在实例里面的web终端进入容器，然后操作数据库，在终端直接输入taos 即可登录，登录后输入，``` show dnodes;``` 即可查看节点信息，出现下图即为成功：
 
-![](https://pic.imgdb.cn/item/617a0a042ab3f51d919bf6a3.png)  
+{{<image src="https://static.goodrain.com/docs/5.4/opensource-app/tdengine/server.png" title="启动成功" width="100%">}}  
 
 ​		登录成功以后，自己可以根据工作要求进行创建库，表，超级表，等等..
 
@@ -81,15 +83,10 @@ weight: 7002
 
 ​		Rainbond已经把Grafana与TDengine集成了，使用的时候只需要去进行选择就可以，登录进入界面以后，点击左侧Dashboards选择已经配置完成的展示界面即可。
 
-![](https://pic.imgdb.cn/item/617a1b842ab3f51d91a8016b.png)
+{{<image src="https://static.goodrain.com/docs/5.4/opensource-app/tdengine/monrtor0.png" title="可视界面" width="100%">}}
 
 
 
 #### 8.文章小结：
 
 ​		本文讲述了`TDengine`数据库的集群架构原理，性能测试，在`Rainbond`上的快速部署应用，使用`Rainbond`过程中有任何问题，都可以进我们官方的交流群探讨交流或者参考[Rainbond官方文档](https://www.rainbond.com/docs/)。
-
-
-
-
-
