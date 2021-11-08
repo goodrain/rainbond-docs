@@ -64,7 +64,7 @@ weight: 7002
 
 ​		安装成功以后，我们可以在实例里面的web终端进入容器，然后操作数据库，在终端直接输入taos 即可登录，登录后输入，``` show dnodes;``` 即可查看节点信息，出现下图即为成功：
 
-{{<image src="https://static.goodrain.com/docs/5.4/opensource-app/tdengine/server.png" title="启动成功" width="100%">}}  
+{{<image src="https://static.goodrain.com/docs/5.4/opensource-app/tdengine/4293197b1fa638359ff8faaa45187df.png" title="启动成功" width="100%">}}  
 
 ​		登录成功以后，自己可以根据工作要求进行创建库，表，超级表，等等..
 
