@@ -1,5 +1,5 @@
 ---
-title: MaxKey(统一认证)
+title:MaxKey(统一认证)
 description: 本文介绍开源应用MaxKey
 weight: 7002
 ---
