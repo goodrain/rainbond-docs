@@ -9,7 +9,7 @@ Weight: 4008
 
 在当前版本Rainbond中，Istio以"插件"的模式存在，当用户需要使用Istio治理模式时，如果未安装Istio的控制平面，则会提示需要安装对应的控制平面。因此在使用前需要部署Istio的控制平面，控制平面在一个集群中只需安装一次，它提供了统一的上层运维入口，将用来管理工作在Istio治理模式下的服务，完成配置下发等功能。结合Rainbond现有的helm安装方式，我们可以便捷的安装好对应的组件。
 
-## 部署Istio控制层面
+## 部署Istio控制平面
 
 ### 准备工作
 
@@ -53,47 +53,24 @@ Rainbond支持基于helm直接部署应用，所以接下来对接Rainbond官方
 
 在Istio中，各个组件通过暴露HTTP接口的方式让Prometheus定时抓取数据（采用了Exporters的方式）。所以Istio控制平面安装完成后，需要在istio-system的命名空间中部署Prometheus，将Istio组件的各相关指标的数据源默认配置在Prometheus中。
 
-在Kubernetes集群中执行该操作，进行该操作之前，用户需要拥有 [kubectl 命令](https://www.rainbond.com/docs/user-operations/tools/kubectl/)。
+同上述base应用一样，选择正确的团队，安装 `Prometheus`应用。
 
-```bash
-kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.11/samples/addons/prometheus.yaml
-```
 
 - 安装kiali
 
 Istio为我们查看相关服务与配置提供了统一化的可视化界面 [Kiali](www.kiali.io) ，能够在可视化界面中展示服务拓补关系，进行服务配置。
 
-安装kiali，仍然采用helm安装的方式，在之前对接的helm商店中，选择之前创建的团队，选择 kiali-operator 应用进行安装,在安装过程中需要更改一些配置；在Values配置中增加配置`cr.create:true`,继续进行部署：
+同上述base应用一样，选择正确的团队，安装 kiali-operator 应用。
 
-
-
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/kiali.png)
-
-由于默认镜像在istio官方仓库中已删除，所以此处完成部署后需要在Kubernetes集群中手动拉取镜像并替换镜像，在Kubernetes集群中执行以下操作：
-
-```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/kiali:v1.42.0
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/kiali:v1.42.0 quay.io/kiali/kiali:1.42.0
-kubectl delete po -l  app=kiali -n istio-system
-```
-
-验证pod为running状态则部署成功。
-
-```bash
-$ kubectl get po -l app=kiali -n istio-system
-NAME                    READY   STATUS    RESTARTS   AGE
-kiali-b99d8d495-4kbz9   1/1     Running   0          48s
-```
 
 安装过程将自动创建Service，通过Rainbond平台第三方组件的形式可将 kiali 的访问端口暴露出来。如下图所示：
-
 
 ![image-20211212212924071](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212212924071.png)
 
 |配置项|值|
 | --- | --- |
-|组件名称|kiali|
-|组件英文名称|kiali|
+|组件名称|自定义|
+|组件英文名称|自定义|
 |组件注册方式|Kubernetes|
 |Namespace|istio-system|
 |Service|kiali|
@@ -104,14 +81,15 @@ kiali-b99d8d495-4kbz9   1/1     Running   0          48s
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/port.jpg)
 
 
-
-kiali访问时需要身份认证token，使用以下命令获取token：
+kiali登录时需要身份认证token，使用以下命令获取token：
 
 ```
 kubectl describe secret $(kubectl get secret -n istio-system|grep istiod-token |awk '{print $1}') -n istio-system
 ```
 
-登陆至kiali可视化界面，到此完成istio控制平面的部署。
+没有kubectl命令时参考[命令行工具](/docs/user-operations/tools/kubectl/)文档进行安装。
+
+获取到token登陆至kiali可视化界面，到此完成Istio控制平面的部署。
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/dashboard.jpg)
 
@@ -121,35 +99,37 @@ kubectl describe secret $(kubectl get secret -n istio-system|grep istiod-token |
 
 **1. 切换治理模式**
 
-我们以一个Rainbond控制台为例，如下图所示，用户可以先从开源应用商店安装一个`Rainbond控制台`应用，点击治理模式切换，选择Istio治理模式。
+我们以SpringBoot后台管理系统[若依](https://gitee.com/y_project/RuoYi)为例，如下图所示，用户可以先从开源应用商店安装一个`若依SpringBoot`应用，版本选择3.6.0，点击治理模式切换，选择Istio治理模式。
 
-![image-20211212205811460](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212205811460.png)
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/network.jpg)
 
 在点击切换为Istio治理模式后，会需要用户手动设置内部域名，此处的内部域名将会是该组件在Kubernetes集群中的service名称，在同一个团队下唯一。这里我们修改为可读性较高的内部域名。
 
-![image-20211212210008895](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212210008895.png)
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/model.png)
 
 **2. 修改配置文件**
 
-在这一步完成后，我们还需要进入 `控制台-UI` 挂载一个新的配置文件。这主要是因为默认情况下，`控制台-UI` 的配置文件 `web.conf`  写入的地址为 127.0.0.1，在之前使用 Rainbond 内置 ServiceMesh 模式时，由于 Rainbond 会获取到控制台的地址，注入到 `控制台-UI` 内部, 赋予 `控制台-UI` 一个本地访问地址（127.0.0.1）访问 `控制台`。所以无需修改就能使用。
+在这一步完成后，我们还需要进入 `ruoyi-ui` 挂载一个新的配置文件。这主要是因为默认情况下，`ruoyi-ui` 的nginx配置文件 `web.conf`  中后端服务地址为 127.0.0.1，在之前使用 Rainbond 内置 ServiceMesh 模式时，该地址可用。
 
-但使用 Istio 治理模式时，组件间通过内部域名进行通信，因此需要通过挂载配置文件的方式修改对应的代理地址，`控制台-UI` 的配置文件可以通过右上方的 `Web终端` 访问到容器中，复制 `/app/nginx/conf.d/web.conf` 这个文件的内容。修改代理地址后保存，如下图所示。之前我们设置了控制台的内部域名为 `console`，所以这里统一替换为 `console`。
+但使用 Istio 治理模式时，组件间通过内部域名进行通信，因此需要通过挂载配置文件的方式修改对应的代理地址，`ruoyi-ui` 的配置文件可以通过右上方的 `Web终端` 访问到容器中，复制 `/app/nginx/conf.d/web.conf` 这个文件的内容。修改代理地址后保存，如下图所示。之前我们设置了控制台的内部域名为 `ruoyi-admin`，所以这里替换为 `ruoyi-admin`。
 
-![image-20211212211158509](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212211158509.png)
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/conf.jpg)
 
 **3. 重启应用**
 
-在完成以上两步后，我们需要重启整个应用。在启动应用后，进入组件页面查看，应该可以看到每个组件都有一个类似的Sidecar容器，这就是Istio的数据平面，在应用切换为Istio治理模式以后，该应用下的所有组件都会自动注入对应的Sidecar容器，不需要用户额外设置。
+在完成以上两步后，我们需要重启整个应用。在启动应用后，进入组件页面查看，可以看到每个组件都有一个类似的Sidecar容器，这就是Istio的数据平面，在应用切换为Istio治理模式以后，该应用下的所有组件都会自动注入对应的Sidecar容器，不需要用户额外设置。
 
 至此，该应用已纳入Istio治理范围，用户如果需要对该应用有更多的配置，则可以参考 [Istio官方文档](https://istio.io/latest/docs/setup/getting-started/#dashboard) 进行扩展。
 
-![image-20211212211607019](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212211607019.png)
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/overview.png)
 
 **4.服务可观测性拓展**
 
-访问kiali可视化界面，在Applications一栏，选中应用所在的命名空间，就可以看到我们刚刚创建的应用，点击进入，可以看到如下的流量路线。
+访问kiali可视化界面，在Applications一栏，选中应用所在的命名空间，就可以看到我们之前创建的应用，点击进入，可以看到如下的流量路线。
 
 ![image-20211212213849724](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212213849724.png)
 
-在 Graph 一栏，也可以看到对应的应用内的流量请求。更多的配置及相关功能参考 [Kiali官方文档](https://kiali.io/docs/installation/quick-start/)。![image-20211212214035677](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212214035677.png)
+在 Graph 一栏，也可以看到对应的应用内的流量请求。更多的配置及相关功能参考 [Kiali官方文档](https://kiali.io/docs/installation/quick-start/)。
+
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/display.png)
 
