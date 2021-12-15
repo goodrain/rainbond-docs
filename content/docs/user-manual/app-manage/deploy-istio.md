@@ -121,7 +121,7 @@ kubectl describe secret $(kubectl get secret -n istio-system|grep istiod-token |
 
 至此，该应用已纳入Istio治理范围，用户如果需要对该应用有更多的配置，则可以参考 [Istio官方文档](https://istio.io/latest/docs/setup/getting-started/#dashboard) 进行扩展。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/overview.png)
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/dataplane.png)
 
 **4.服务可观测性拓展**
 
