@@ -127,7 +127,7 @@ kubectl describe secret $(kubectl get secret -n istio-system|grep istiod-token |
 
 访问kiali可视化界面，在Applications一栏，选中应用所在的命名空间，就可以看到我们之前创建的应用，点击进入，可以看到如下的流量路线。
 
-![image-20211212213849724](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212213849724.png)
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/overview.png)
 
 在 Graph 一栏，也可以看到对应的应用内的流量请求。更多的配置及相关功能参考 [Kiali官方文档](https://kiali.io/docs/installation/quick-start/)。
 
