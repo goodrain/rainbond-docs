@@ -27,14 +27,14 @@ docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 844
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
---env ENABLE_K3S=true \
---env EIP= 必填项 \
+-e ENABLE_K3S=true \
+-e EIP= 必填项 \
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone
 ```
 
 | 启动参数       | 说明                                                   | 是否必填项 |
 | :------------- | :----------------------------------------------------- | ---------- |
-| -- env EIP     | 优先公网IP，其次内网IP                                 | 是         |
+| -e EIP     | 优先公网IP，其次内网IP                                 | 是         |
 | -p 10000:10000 | 如果通过TCP策略访问内部应用，需要进行映射10000以上端口 | 否         |
 
 - 以下命令查询安装进度：
