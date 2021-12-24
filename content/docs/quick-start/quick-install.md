@@ -29,7 +29,7 @@ curl sh.rainbond.com/install_docker | bash
 #### 第三步：启动 Rainbond 控制台
 
 ```bash
-docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
+docker run --privileged -d --network=host \
 --name=rainbond-allinone --restart=unless-stopped \
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
