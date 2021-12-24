@@ -17,10 +17,14 @@ curl sh.rainbond.com/install_docker | bash
 ```
 
 - 该docker安装方式仅支持 Linux x86 操作系统。
-#### 第二步：设置EIP环境变量
-``` export EIP=IP
 
-** 注意：EIP环境变量为必填项，优先填写公网IP，其次内网IP **
+#### 第二步：设置EIP环境变量
+
+``` 
+ export EIP=IP
+```
+
+注意：EIP环境变量为必填项，优先填写公网IP，其次内网IP 
 
 #### 第三步：启动 Rainbond 控制台
 
@@ -30,7 +34,7 @@ docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 844
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
--e ENABLE_K3S=true \
+-e ENABLE_CLUSTER=true \
 -e EIP=$EIP \
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone
 ```
