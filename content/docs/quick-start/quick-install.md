@@ -29,7 +29,7 @@ docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 844
 -v /opt/rainbond:/opt/rainbond \
 --env ENABLE_K3S=true \
 --env EIP= 必填项 \
-registry.cn-hangzhou.aliyuncs.com/yangkaa/rainbond:v5.5.0-dind-allinone
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone
 ```
 
 | 启动参数       | 说明                                                   | 是否必填项 |
@@ -46,16 +46,17 @@ docker logs -f rainbond-allinone
 - 看到以下三条提示，表示Rainbond安装成功。
 
 ```
-1.正在加载数据，预计3分钟，时间取决于磁盘性能...
-2.正在启动Rainbond，预计5分钟...
-3.Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制台
+正在加载数据，预计3分钟，时间取决于磁盘性能...
+正在启动Rainbond，预计5分钟...
+Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制台
 ```
 
 `备注:`
 
 - 控制台将产生需要持久化的数据，存储于您部署节点的 `~/rainbonddata` 以及 ``` /opt/rainbond``` 目录中；
 
-
+- 安装成功后，默认会有示例应用，点击团队界面，进入admin团队，进入默认应用，即可查看Ghost示例，示例初次启动大概2分钟左右，待变成绿色，即可访问。
+- 点击六边形示例组件，点击对话框示例名称，即可进入示例管理界面。
 
 
 
