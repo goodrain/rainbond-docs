@@ -10843,6 +10843,7 @@ body #backtotop a {
   top: 50%;
   -webkit-transform: translateY(-55%);
   transform: translateY(-55%);
+  z-index: 9999;
 }
 
 .is-disabled {
