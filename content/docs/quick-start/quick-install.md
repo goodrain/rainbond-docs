@@ -18,36 +18,31 @@ curl sh.rainbond.com/install_docker | bash
 
 - 该docker安装方式仅支持 Linux x86 操作系统。
 
-#### 第二步：设置EIP环境变量
+#### 第二步：设置EIP环境变量（可选）
 
 ``` 
- export EIP=IP
+ export EIP=IP地址
 ```
 
-注意：EIP环境变量为必填项，优先填写公网IP，其次内网IP 
+注意：服务器为单网卡时，直接跳过此步设置即可，多网卡时，优先填写公网IP，其次内网IP ,禁止填写127.0.0.1
 
 #### 第三步：启动 Rainbond 控制台
 
 ```bash
-docker run --privileged -d --network=host \
+docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
 --name=rainbond-allinone --restart=unless-stopped \
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
 -e ENABLE_CLUSTER=true \
--e EIP=$EIP \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone
+-e EIP=${EIP:-$(hostname -i)} \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
+&& docker logs -f rainbond-allinone
 ```
 
 | 启动参数       | 说明                                                   | 是否必填项 |
 | :------------- | :----------------------------------------------------- | ---------- |
 | -p 10000:10000 | 如果通过TCP策略访问内部应用，需要进行映射10000以上端口 | 否         |
-
-- 以下命令查询安装进度：
-
-```
-docker logs -f rainbond-allinone
-```
 
 - 看到以下三条提示，表示Rainbond安装成功。
 
@@ -61,8 +56,6 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 
 - 控制台将产生需要持久化的数据，存储于您部署节点的 `~/rainbonddata` 以及 ``` /opt/rainbond``` 目录中；
 
-- 安装成功后，默认会有示例应用，点击团队界面，进入admin团队，进入默认应用，即可查看Ghost示例，示例初次启动大概2分钟左右，待变成绿色，即可访问。
+- 安装成功后，默认会有示例应用，点击团队界面，进入ad       j'h'b'bmin团队，进入默认应用，即可查看Ghost示例，示例初次启动大概2分钟左右，待变成绿色，即可访问。
 - 点击六边形示例组件，点击对话框示例名称，即可进入示例管理界面。
-
-
 
