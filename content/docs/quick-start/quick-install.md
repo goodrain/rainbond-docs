@@ -21,7 +21,7 @@ curl sh.rainbond.com/install_docker | bash
 #### 第二步：设置EIP环境变量（可选）
 
 ``` 
- export EIP=IP地址
+export EIP=IP地址
 ```
 
 注意：服务器为单网卡时，直接跳过此步设置即可，多网卡时，优先填写公网IP，其次内网IP ,禁止填写127.0.0.1
@@ -29,7 +29,7 @@ curl sh.rainbond.com/install_docker | bash
 #### 第三步：启动 Rainbond 控制台
 
 ```bash
-docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
+docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
 --name=rainbond-allinone --restart=unless-stopped \
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \

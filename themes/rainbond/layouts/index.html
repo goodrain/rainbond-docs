@@ -4,7 +4,7 @@
 
 <body>
     {{ $active:="index" }}
-    {{ partial "header.html" (dict "context" .   "active" "index")}}
+    {{ partial "header.html" (dict "context" . "active" "index")}}
     <section class="hero is-default is-bold">
         <div class="container">
             <div class="content-wrapper">
@@ -14,15 +14,16 @@
                             <img src="images/rainbondlog.png" alt="Rainbond" /><br>
                         </h1>
                         <h2>云原生且易用的应用管理平台</h2>
-                        <p>云原生应用交付的最佳实践，简单易用。专注于以应用为中心的理念。赋能企业搭建云原生开发云、云原生交付云。是 <a href="https://store.goodrain.com" target="_blank">Rainstore</a> 云原生应用商店的最佳交付支撑平台。</p>
+                        <p>云原生应用交付的最佳实践，简单易用。专注于以应用为中心的理念。赋能企业搭建云原生开发云、云原生交付云。是 <a href="https://store.goodrain.com"
+                                target="_blank">Rainstore</a> 云原生应用商店的最佳交付支撑平台。</p>
                         <div class="button-cta">
                             <a class="button is-primary" href="/docs/quick-start/quick-install/" target="_blank"
                                 rel="noopener noreferrer">
                                 安装使用
                             </a>
-                            <a class="button" href="https://github.com/goodrain/rainbond/issues" target="_blank"
+                            <a class="button" href="https://cloud.goodrain.com/enterprise-server/trial" target="_blank"
                                 rel="noopener noreferrer">
-                                提交创意
+                                在线demo
                             </a>
                         </div>
                     </div>
@@ -58,7 +59,8 @@
                             <div class="card-icon-b"><img src="/images/app.svg"></div>
                         </div>
                         <div class="card-text">
-                            <p>开发者仅需围绕符合<a href="https://12factor.net/zh_cn/" target="_blank">12要素</a>的应用（组件）进行开发和运维管理，无需面对复杂的底层资源，包括Kubernetes资源。</p>
+                            <p>开发者仅需围绕符合<a href="https://12factor.net/zh_cn/"
+                                    target="_blank">12要素</a>的应用（组件）进行开发和运维管理，无需面对复杂的底层资源，包括Kubernetes资源。</p>
                         </div>
                     </div>
 
@@ -82,7 +84,8 @@
                             <div class="card-icon-b"><img src="/images/cloud.svg"></div>
                         </div>
                         <div class="card-text">
-                            <p>Kubernetes 即将成为云原生基础设施，Rainbond 支持对接管理多个 Kubernetes 集群，提供应用运行环境，屏蔽 Kubernetes 技术复杂性，赋能基础设施管理。</p>
+                            <p>Kubernetes 即将成为云原生基础设施，Rainbond 支持对接管理多个 Kubernetes 集群，提供应用运行环境，屏蔽 Kubernetes
+                                技术复杂性，赋能基础设施管理。</p>
                         </div>
                     </div>
 
@@ -172,7 +175,7 @@
             <div class="title-wrapper has-text-centered">
                 <h3 class="title is-6">社区用户案例</h3>
             </div>
-            <div class="user-items content-wrapper is-mobile columns is-multiline"> 
+            <div class="user-items content-wrapper is-mobile columns is-multiline">
                 {{range .Site.Params.users}}
                 <div class="user-item column is-half-mobile is-2-desktop">
                     <figure class="image">
@@ -183,7 +186,7 @@
                         {{ .description }}
                     </div>
                     {{ end }} -->
-                </div> 
+                </div>
                 {{end}}
             </div>
             <div class="has-text-centered">
@@ -194,7 +197,21 @@
         </div>
         </div>
     </section>
-
+    <!-- 弹窗 -->
+    <div class="home-modal">
+        <div class="logo">
+            <img src="/images/logo.png" alt="">
+        </div>
+        <div class="close"><img src="/images/close.svg" alt=""></div>
+        <div class="desc_text">
+            <h2>关注Rainbond</h2>
+            <p>关注Rainbond订阅号,了解Rainbond动态</p>
+        </div>
+        <div class="er_code">
+            <img src="/images/er_code.jpg" alt="">
+            <span>扫描关注Rainbond</span>
+        </div>
+    </div>
     {{partial "medium.html" }}
 
     {{ partial "footer.html" . }}
@@ -206,6 +223,14 @@
             $(".video-show").click(function () {
                 modalVideo.show({ url: $(this).data("src") });
             });
+            // 延迟10S弹窗
+            setTimeout(() => {
+                $('.home-modal').fadeIn(1000)
+            }, 10000)
+            //  关闭弹窗
+            $('.close').click(() => {
+                $('.home-modal').fadeOut(1000)
+            })
         });
     </script>
     <script>
