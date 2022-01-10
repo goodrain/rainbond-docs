@@ -276,3 +276,10 @@ outputFormats:
     isPlainText: true
     mediaType: 'application/json'
     notAlternative: true
+blackfriday:
+    extensionsmask: ["noIntraEmphasis"]
+    fractions: false
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
