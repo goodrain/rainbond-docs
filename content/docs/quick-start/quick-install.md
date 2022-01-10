@@ -7,7 +7,7 @@ aliases:
 ---
 
 **注意：**
-- 快速安装为单节点体验版，不适用于生产环境，如果您希望在生产环境使用，请参考[Rainbond安装文档](https://www.rainbond.com/docs/user-operations/deploy/)
+快速安装为单节点体验版，不适用于生产环境，如果您希望在生产环境使用，请参考[Rainbond安装文档](https://www.rainbond.com/docs/user-operations/deploy/)
 
 
 <style scoped>
@@ -64,14 +64,19 @@ aliases:
             <div class="tab-content">
 
 #### 安装Docker
+
 ```bash
 curl sh.rainbond.com/install_docker | bash
 ```
+
 - 该docker安装方式仅支持 Linux x86 操作系统。
+
 #### 设置EIP环境变量（可选）
+
 ``` 
- export EIP=IP地址
+- export EIP=IP地址
 ```
+
 - 注意：服务器为单网卡时，直接跳过此步设置即可，多网卡时，优先填写公网IP，其次内网IP ,禁止填写127.0.0.1
 
 
@@ -99,17 +104,25 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
             <div class="tab-content">
 
 #### 安装条件：
+
 | Docekr Desktop版本 | 内存 | CPU  |
 | --------------- | ---- | ---- |
 | 4.2及以下       | 8G   | 2    |
+
+点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/mac/release-notes/)版本
+
 #### 设置EIP环境变量（必填）
+
 ``` 
  export EIP=IP地址
 ```
+
 - 注意：IP地址可以通过执行``` ifconfig```命令获得，或者按住Option的同时点击右上角WFIL图标即可，禁止填写127.0.0.1。
+
 #### 启动控制台：
 
 **启动命令需要在MAC终端命令行执行**
+
 ```
 docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
 --name=rainbond-allinone --restart=unless-stopped \
@@ -129,16 +142,25 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
             <div class="tab-content">
             
 #### 安装条件：
+
 | Docekr Desktop版本 | 内存 | CPU  |
 | ----------- | ---- | ---- |
 | 4.2及以下   | 8G   | 2    |
+
+点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/mac/release-notes/)版本
+
 #### 设置EIP环境变量（必填）
+
 ``` 
  export EIP=IP地址
 ```
+
 - 注意：IP地址可以通过执行``` ifconfig```命令获得，或者按住Option的同时点击右上角WFIL图标即可，禁止填写127.0.0.1。
+
 #### 启动控制台：
+
 **启动命令需要在MAC终端命令行执行**
+
 ```
 docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
 --name=rainbond-allinone --restart=unless-stopped \
@@ -149,6 +171,7 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-arm64-allinone \
 && docker logs -f rainbond-allinone
 ```
+
 <b> </b>
             </div>
       </div>
@@ -158,17 +181,25 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-arm64-allinone \
             <div class="tab-content">
 
 #### 安装条件：
+
 | Docekr Desktop版本 | 内存 | CPU  |
 | --------------- | ---- | ---- |
 | 4.2及以下       | 8G   | 2    |
+
+点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/windows/release-notes/)版本
+
 #### 设置EIP（必填）
+
 ```
 -e EIP=IP地址
 ```
+
 - 注意：IP地址为必填项，可以通过```ipconfig```命令，或者点击右下角网络图标>查看其属性获得IP地址，禁止填写127.0.0.1
+
 #### 启动控制台：
 
 **启动命令需要在CMD命令行执行**
+
 ```bash
 docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 ^
 --name=rainbond-allinone --restart=unless-stopped ^
