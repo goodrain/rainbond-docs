@@ -74,7 +74,7 @@ curl sh.rainbond.com/install_docker | bash
 #### 设置EIP环境变量（可选）
 
 ``` 
-- export EIP=IP地址
+export EIP=IP地址
 ```
 
 - 注意：服务器为单网卡时，直接跳过此步设置即可，多网卡时，优先填写公网IP，其次内网IP ,禁止填写127.0.0.1
