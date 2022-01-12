@@ -74,7 +74,7 @@ curl sh.rainbond.com/install_docker | bash
 #### 设置EIP环境变量（可选）
 
 ``` 
-- export EIP=IP地址
+export EIP=IP地址
 ```
 
 - 注意：服务器为单网卡时，直接跳过此步设置即可，多网卡时，优先填写公网IP，其次内网IP ,禁止填写127.0.0.1
@@ -109,7 +109,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
 | --------------- | ---- | ---- |
 | 4.2及以下       | 8G   | 2    |
 
-点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/mac/release-notes/)版本
+点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop-420)版本
 
 #### 设置EIP环境变量（必填）
 
@@ -147,7 +147,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
 | ----------- | ---- | ---- |
 | 4.2及以下   | 8G   | 2    |
 
-点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/mac/release-notes/)版本
+点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop-420)版本
 
 #### 设置EIP环境变量（必填）
 
@@ -186,7 +186,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-arm64-allinone \
 | --------------- | ---- | ---- |
 | 4.2及以下       | 8G   | 2    |
 
-点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/windows/release-notes/)版本
+点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/windows/release-notes/#docker-desktop-420)版本
 
 #### 设置EIP（必填）
 
