@@ -53,7 +53,7 @@ web: gunicorn app:app --log-file - --access-logfile - --error-logfile -
 
 ##### 配置Python版本
 
-推荐使用runtime.txt来定义Python版本,若未定义,Rainbond将会默认使用 `python-3.6.6` 版本。
+推荐通过代码根目录下的 `runtime.txt` 文件来定义 `Python` 版本,若未定义,Rainbond 将会默认使用 `python-3.6.6` 版本。
 
 ```bash
 $ cat runtime.txt
@@ -62,20 +62,19 @@ python-3.6.6
 
 推荐的python版本
 
-- Python-2.7.15
-- Python-3.6.6
+- python-2.7.17
+- python-3.6.6
 
 默认支持python版本
 
 ```bash
 # python 2.7.x
-python-2.7.9 python-2.7.10 python-2.7.13 python-2.7.14 python-2.7.15 
+python-2.7.9 python-2.7.17
 # python 3.x
-python-3.4.3
-python-3.5.3 
-python-3.6.0 python-3.6.1 python-3.6.2 python-3.6.3 python-3.6.4 python-3.6.5 python-3.6.6 
-python-3.7.0
-```
+python-3.4.9
+python-3.5.7
+python-3.6.6 python-3.6.10
+``` 
 
 
 #### 高级构建选项
@@ -122,39 +121,4 @@ $ python manage.py collectstatic --noinput
 #### 示例demo程序
 
 示例 [https://github.com/goodrain/python-demo](https://github.com/goodrain/python-demo.git)
-
-<!--
-## 七、Whitenoise
-
-默认情况下，Django 在生产模式下不支持托管静态文件，我们推荐在生产环境下使用 [Whitenoise](https://pypi.io/project/whitenoise/)
-项目托管静态文件作为最佳实践，以下是具体的安装和配置方式：
-
-> 参考文档： 具体细节请查看 Django 文档的 [Managing static files](https://docs.djangoproject.com/en/1.7/howto/static-files/) 和[Deploying static files](https://docs.djangoproject.com/en/1.7/howto/static-files/) 章节。
-
-### 7.1 安装 Whitenoise
-
-```bash
-$ pip install whitenoise
-...
-$ pip freeze > requirements.txt
-```
-
-**settings.py**
-
-```python
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-```
-
-**wsgi.py**
-
-```python
-from django.core.wsgi import get_wsgi_application
-from whitenoise.django import DjangoWhiteNoise
-
-application = get_wsgi_application()
-application = DjangoWhiteNoise(application)
-```
--->
 
