@@ -89,7 +89,7 @@ docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 844
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
--v ~/rainbonddata:/var/lib/docker \
+-v ~/dockerdata:/var/lib/docker \
 -e ENABLE_CLUSTER=true \
 -e EIP=${EIP:-$(hostname -i)} \
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
@@ -128,6 +128,7 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 --name=rainbond-allinone --restart=unless-stopped \
 -v ~/.ssh:/root/.ssh \
 -v ~/opt/rainbond:/opt/rainbond \
+-v ~/rainbonddata:/app/data \
 -e ENABLE_CLUSTER=true \
 -e EIP=$EIP \
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
@@ -166,6 +167,7 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 --name=rainbond-allinone --restart=unless-stopped \
 -v ~/.ssh:/root/.ssh \
 -v ~/opt/rainbond:/opt/rainbond \
+-v ~/rainbonddata:/app/data \
 -e ENABLE_CLUSTER=true \
 -e EIP=$EIP \
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-arm64-allinone \
