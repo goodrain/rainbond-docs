@@ -237,10 +237,13 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 ```
 
 #### 问题排查思路
-- 卡在加载数据超过5分钟
+- 加载数据超过5分钟
+
 > 1. 请手动进入 `rainbond-allinone` 容器，执行 `docker ps`, 确认docker是否启动。
 > 2. 查看 `/app/logs/dind.log` 和 `/app/logs/k3s.log` 日志文件。其中 `/app/logs/dind.log` 记录了docker相关的日志信息。`/app/logs/k3s.log` 则记录了 k3s 相关的日志信息。
-- 卡在正在启动Rainbond，超过10分钟
+
+- 启动Rainbond超过10分钟
+
 > 1. 使用 `kubectl get po -n rbd-system`, 查看 `rbd-system` 下的 `pod` 运行状态，查看未Ready的`pod`日志信息和事件信息。
 
 
