@@ -17,10 +17,10 @@
   max-width: fit-content !important;
   height: 200px !important;
 }
-
+/* 
 #WeChat:hover #wechatimg {
   display: block !important;
-}
+} */
 
 .select {
   display: inline-block;
