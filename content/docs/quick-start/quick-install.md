@@ -12,7 +12,7 @@ aliases:
 
 <style scoped>
 .tabes {
-    width: 770px;
+    width: 100%;
     height: 830px;
     padding: 0;
     list-style: none;
@@ -24,12 +24,15 @@ aliases:
     display: none;
 }
 .tab-item {
-    width: 130px;
+    margin-left:30px;
+    padding:0px 20px;
     height: 50px;
     text-align: center;
 }
 .tab-item:hover{
     background-color:#ebedf0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 .tab-tit {
     display: block;
