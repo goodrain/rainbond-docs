@@ -13,7 +13,7 @@ aliases:
 <style scoped>
 .tabes {
     width: 770px;
-    height: 755px;
+    height: 830px;
     padding: 0;
     list-style: none;
     display: flex;
