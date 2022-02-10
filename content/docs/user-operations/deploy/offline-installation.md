@@ -2,6 +2,7 @@
 title: '离线安装'
 description: '离线安装部署 Rainbond。'
 weight: 1000
+hidden: true
 ---
 
 

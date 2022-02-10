@@ -1,7 +1,7 @@
 ---
-title: '在线安装'
-weight: 104
-description: '在线安装 Rainbond。'
+title: '基于主机安装'
+weight: 100
+description: '基于图形化界面，从主机开始安装 Rainbond '
 ---
 
 
