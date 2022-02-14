@@ -182,7 +182,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-arm64-allinone \
 
 #### 安装条件：
 
-保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)
+保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/windows/install/)
 
 #### 设置EIP环境变量（必填）
 
