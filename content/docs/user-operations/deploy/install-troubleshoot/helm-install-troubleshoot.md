@@ -1,5 +1,5 @@
 ---
 title: 'helm 安装问题排查指南'
-weight: 204
+weight: 202
 description: 'troubleshot'
 ---
