@@ -109,11 +109,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
 
 #### 安装条件：
 
-| Docekr Desktop版本 | 内存 | CPU  |
-| --------------- | ---- | ---- |
-| 4.2及以下       | 8G   | 2    |
-
-点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop-420)版本
+保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)
 
 #### 设置EIP环境变量（必填）
 
@@ -149,11 +145,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
             
 #### 安装条件：
 
-| Docekr Desktop版本 | 内存 | CPU  |
-| ----------- | ---- | ---- |
-| 4.2及以下   | 8G   | 2    |
-
-点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop-420)版本
+保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)
 
 #### 设置EIP环境变量（必填）
 
@@ -190,11 +182,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-arm64-allinone \
 
 #### 安装条件：
 
-| Docekr Desktop版本 | 内存 | CPU  |
-| --------------- | ---- | ---- |
-| 4.2及以下       | 8G   | 2    |
-
-点击此处下载[Docker Desktop4.2](https://docs.docker.com/desktop/windows/release-notes/#docker-desktop-420)版本
+保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)
 
 #### 设置EIP环境变量（必填）
 
