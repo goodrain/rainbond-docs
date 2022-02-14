@@ -4,10 +4,11 @@ weight: 100
 description: '基于图形化界面，从主机开始安装 Rainbond '
 ---
 
+当前安装方式，会引导用户从一台服务器开始安装 Rainbond ，服务器可以是物理机、虚拟机或各种云主机。
 
-如果您是新用户，希望快速搭建集群尝试，请按照下述流程进行：
+安装过程中，会首先通过一条命令启动图形化的控制台，后续基于图形化界面，即可完成整个 Rainbond 集群的安装。
 
-- 准备一台干净的虚拟机或物理机，配置如下
+- 最低配置
 
 |操作系统|CPU|内存|磁盘|内核版本|OpenSSH版本|
 | :----: | :----: | :----: | :----: | :----: | :----: |
@@ -17,15 +18,9 @@ description: '基于图形化界面，从主机开始安装 Rainbond '
 - 确保服务器 `80、443、6060、6443、7070、8443` 端口能够访问；
 - 服务器能够正常连接互联网，安装过程将从互联网下载所需资源。
 
-如果您希望部署生产级别高可用的Rainbond集群，请参考 [高可用部署文档](/docs/user-operations/deploy/ha-deployment/resource-prepare) 进行部署。
-
-阅读完上面的信息后，下面让我们开始 Rainbond 的部署：
-
 ### 部署 Rainbond 控制台
 
-如果您是 Rancher 用户，可参考 [基于 Rancher 部署 Rainbond 控制台](/docs/install/other-methods/install-from-rancher/)。
-
-Rainbond 控制台支持在 Linux、Windows 和 Mac 中运行；为避免网络因素影响您的体验，推荐使用已准备的 Linux 服务器进行部署。
+Rainbond 控制台支持在 Linux、Windows(Docker Desktop) 或 Mac(Docker Desktop) 中运行。
 
 - 安装Docker
 
@@ -53,35 +48,49 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-release-allinone
 - Rainbond 5.3 及以上版本支持控制台数据迁移，便于后续迁移数据到生产环境，请放心体验。
 
 
-待容器启动成功后，稍等片刻即可在浏览器中访问服务器 `7070` 端口，打开 Rainbond 控制台`注册页面`。
+待容器启动成功后，稍等片刻即可在浏览器中访问服务器 `7070` 端口，打开 Rainbond 控制台`注册页面`。请根据提示完成注册操作。
 
-![image-20210219110137479](https://static.goodrain.com/images/5.3/regist.png)
+{{<image src="https://static.goodrain.com/images/5.3/regist.png" title="注册页面" width="100%">}}
 
 到此，恭喜您已经完成了第一步，你还需要继续完成集群的部署。
 
-### 安装或添加集群
+### 从主机开始安装
 
-Rainbond 需要对接计算资源后即可创建并管理应用。
+登录控制台后，根据左侧导航栏切换到 `集群` 页面，点击 `添加集群` ，进入图形化安装页面。
 
-如果您是执行快速安装希望部署单节点Rainbond的用户，后续在控制台页面 `根据导航` 即可完成集群的对接，创建并管理云原生应用，在该过程中将会进行以下操作：
+{{<image src="https://static.goodrain.com/docs/5.5/user-operations/deploy/install-with-ui/host-install-with-ui/host-install-with-ui-1.png" title="从主机开始安装" width="100%">}}
 
-1. 根据填写的服务器信息安装部署 Kubernetes 集群；
-2. 在已安装的 Kubernetes 集群中初始化 Rainbond ，在 `rbd-system` 命名空间下部署 Rainbond 相关组件。
+选择 `从主机开始安装` 进入基于主机的安装流程。
 
-**如果您想要更多方式对接集群，请参阅后续文档：**
+`备注:`
 
-- 接入已有Kubernetes集群
+- 当前使用的为阿里云服务器，拥有外网IP，在私有部署时服务器没有外网IP的情况下 IP地址和内网IP地址 **统一填写服务器IP地址** 即可。
+- 当前演示集群为3个节点，Kubernetes属性 ETCD、管理、计算属性 复用，在自行部署时**根据自身规划**选择节点属性即可。
+- kubernetes 集群的安装过程中可以自定义参数，请参考文档 [RKE集群配置](/docs/user-operations/cluster-manage/manage-rke-cluster/)。
 
-此方式适合已经安装了 Kubernetes 集群，希望对接Rainbond平台，此过程将初始化安装平台并接入，初始化及接入过程不会影响集群已有的业务形态。
+{{<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/add-host.png" title="节点列表" width="100%">}}
 
-请参考文档：[接入已安装Kubernetes集群](/docs/user-operations/deploy/install-from-k8s/)
 
-- 接入已安装平台集群
+节点信息填写完毕后，根据页面提示复制节点初始化命令在集群内所有服务器上执行
 
-此方式适合已经完成部署Rainbond，希望接入控制台进行应用的调度管理。
+{{<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init.jpg" title="节点初始化" width="100%">}}
 
-请参考文档：[接入已安装平台集群](/docs/user-operations/deploy/install-by-rainbond/)
 
+初始化完成后，点击 **下一步**，等待 Kubernetes 集群安装成功即可，待状态为 **运行中** 状态时进行下一步操作
+
+{{<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/installed-successfully.png" title="Kubernetes集群状态" width="100%">}}
+
+执行完以上操作后在控制台页面选中当前集群，点击进行下一步
+
+{{<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init-rainbond.jpg" title="初始化Rainbond集群" width="100%">}}
+
+**自定义集群初始化参数**
+
+Rainbond 的安装部署过程中可以自定义集群初始化参数，在初始化平台集群界面进行配置，具体参数参考文档 [初始化Rainbond集群参数说明](/docs/user-operations/cluster-manage/init-region/)。
+
+{{<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/custom-parameters.jpg" title="自定义集群参数" width="100%">}}
+
+勾选 **我已阅读并已清楚认识上述注意事项** 后，点击 `开始初始化` ，等待安装完成即可。
 
 ### 控制台迁移
 
@@ -90,7 +99,9 @@ All-In-One 模式部署的控制台不具有生产可用性，体验完成后如
 
 ### 常见问题
 
-> Rainbond 支持 ARM CPU 架构部署吗？
+通过图形化界面基于主机安装 Rainbond 的过程中遭遇了任何问题，都可以参考文档 [Web界面安装问题排查指南](/docs/user-operations/deploy/install-troubleshoot/ui-install-troubleshoot/) 进行问题排查。
+
+<!-- > Rainbond 支持 ARM CPU 架构部署吗？
 
 Rainbond 企业版支持在华为鲲鹏、飞腾等国产服务器部署，需求请[申请企业服务 POC](https://www.goodrain.com/poc/)。
 
@@ -104,4 +115,4 @@ Rainbond 企业版支持在华为鲲鹏、飞腾等国产服务器部署，需�
 
 通过 kubectl 查询 rbd-system 这个 namespace 下 pod 启动状态，参考 [排查文档](/docs/user-operations/cluster-manage/check/)
 
-其他问题参考[排查文档](/docs/user-operations/cluster-manage/check/)排查解决。或添加 Rainbond 社区钉钉群咨询。
+其他问题参考[排查文档](/docs/user-operations/cluster-manage/check/)排查解决。或添加 Rainbond 社区钉钉群咨询。 -->
