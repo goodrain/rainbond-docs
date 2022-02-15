@@ -25,8 +25,14 @@ kubectl create namespace rbd-system
 helm repo add rainbond https://openchart.goodrain.com/goodrain/private
 ```
 
-- 安装ranibond
+- 安装rainbond
 
 ```
-helm install rainbond rainbond/rainbond-cluster -f value.yaml -n rbd-system
+helm install rainbond rainbond/rainbond-cluster -n rbd-system \
+--set Cluster.gatewayIngressIPs=47.104.73.84 \
+--set Cluster.nodesForGateway[0].externalIP=47.104.73.84 \
+--set Cluster.nodesForGateway[0].internalIP=172.31.112.135 \
+--set Cluster.nodesForGateway[0].name=172.31.112.135 \
+--set Cluster.nodesForChaos[0].name=172.31.112.135
+
 ```
