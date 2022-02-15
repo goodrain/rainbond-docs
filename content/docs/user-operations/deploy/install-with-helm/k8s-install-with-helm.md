@@ -22,17 +22,11 @@ kubectl create namespace rbd-system
 - 添加chart仓库
 
 ```
-helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
-```
-
-- 更新仓库
-
-```
-helm repo update
+helm repo add rainbond https://openchart.goodrain.com/goodrain/private
 ```
 
 - 安装ranibond
 
 ```
-helm install rainbond ./rainbond-chart -f value.yaml -n rbd-system
+helm install rainbond rainbond/rainbond-cluster -f value.yaml -n rbd-system
 ```
