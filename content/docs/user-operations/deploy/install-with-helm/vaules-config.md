@@ -39,7 +39,7 @@ operator:
     - enable：是否启用外部ETCD，默认为 false ，设置为 true 则启用
     - endpoints：外部 ETCD 集群访问列表
     - secretName：访问 ETCD 集群的证书 secret 文件，创建时需要指定和 rainbond 集群相同的 namespace 
-- RWX：
+- RWX：搭建外部存储请参考 [Glusterfs分布式存储文档](/docs/user-operations/storage/deploy-glusterfs/)
     - enable：是否开启外部共享存储，默认为 false ，设置为 true 则启用
     - storageClassName：外部共享存储的 storageClass 名称
 - RWO：
