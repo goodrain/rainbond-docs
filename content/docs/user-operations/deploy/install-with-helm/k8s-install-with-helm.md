@@ -34,5 +34,4 @@ helm install rainbond rainbond/rainbond-cluster -n rbd-system \
 --set Cluster.nodesForGateway[0].internalIP=172.31.112.135 \
 --set Cluster.nodesForGateway[0].name=172.31.112.135 \
 --set Cluster.nodesForChaos[0].name=172.31.112.135
-
 ```
