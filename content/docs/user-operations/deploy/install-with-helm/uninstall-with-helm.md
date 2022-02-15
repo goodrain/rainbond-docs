@@ -31,5 +31,5 @@ kubectl get pv | grep rbd-system  | awk '{print $1}' | xargs kubectl delete pv
 - 删除rbd-system命名空间
 
 ```
-`kubectl delete ns rbd-system
+kubectl delete ns rbd-system
 ```

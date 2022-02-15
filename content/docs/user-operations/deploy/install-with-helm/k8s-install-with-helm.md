@@ -33,6 +33,8 @@ helm repo update
 
 - 安装ranibond
 
+> 安装之前，参考 [value.yaml 详解](/docs/user-operations/deploy/install-with-helm/vaules-config/) 编辑 `value.yaml` 文件定义集群配置。
+
 ```
 helm install rainbond ./rainbond-chart -f value.yaml -n rbd-system
 ```
