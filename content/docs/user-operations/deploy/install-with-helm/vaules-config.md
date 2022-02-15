@@ -1,10 +1,10 @@
 ---
 title: 'values.yaml 详解'
 weight: 203
-description: '详细介绍 helm 安装过程中的 values 参数设置'
+description: '详细介绍 helm 安装过程中的 values 参数设置及如何变更已安装集群配置'
 ---
 
-本文档对基于 Helm 安装 Rainbond 集群支持的所有参数进行说明
+本文档对基于 Helm 安装 Rainbond 集群支持的所有参数进行说明，并说明如何变更已安装 Rainbond 集群配置
 
 ## 变更配置项
 
