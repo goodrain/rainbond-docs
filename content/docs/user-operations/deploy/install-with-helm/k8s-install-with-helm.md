@@ -7,7 +7,7 @@ description: '基于已有的 k8s 集群，使用 helm 从零开始安装 Rainbo
 #### 安装前提
 
 - 推荐[helm版本](https://helm.sh/docs/intro/install/)：3.0+
-- 推荐k8s版本：1.19+
+- 推荐[k8s版本](https://kubernetes.io/)：1.19+
 - 根分区磁盘保证50G+
 - 确保服务器 `80、443、6060、6443、7070、8443` 端口能够访问
 
