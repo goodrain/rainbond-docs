@@ -108,8 +108,8 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
             <div class="tab-content">
 
 #### 安装条件：
-
-保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)
+- 根分区磁盘保证50G+
+- 保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)
 
 #### 设置EIP环境变量（必填）
 
@@ -143,9 +143,9 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
             <label for="active3" class="tab-tit">Mac with M1</label>
             <div class="tab-content">
             
-#### 安装条件：
-
-保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)
+#### 安装条件：              
+- 根分区磁盘保证50G+
+- 保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)
 
 #### 设置EIP环境变量（必填）
 
@@ -181,8 +181,8 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-arm64-allinone \
             <div class="tab-content">
 
 #### 安装条件：
-
-保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/windows/install/)
+- 根分区磁盘保证50G+
+- 保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/windows/install/)
 
 #### 设置EIP环境变量（必填）
 
