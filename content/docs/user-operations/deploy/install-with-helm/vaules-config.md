@@ -6,6 +6,14 @@ description: '详细介绍 helm 安装过程中的 values 参数设置'
 
 本文档对基于 Helm 安装 Rainbond 集群支持的所有参数进行说明
 
+## 变更配置项
+
+对于支持动态变更的配置项，可通过以下命令进行动态变更，变更文件内需要指定创建时的所有配置项，如不指定则会被默认值覆盖，对于不支持变更的配置项请勿随意修改，避免造成数据丢失等问题
+
+```bash
+helm upgrade rainbond ./rainbond-chart -f value_change.yaml -n rbd-system
+```
+
 ## Operator 配置
 
 以下配置项均支持动态变更
