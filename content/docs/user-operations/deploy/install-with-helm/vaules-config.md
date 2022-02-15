@@ -8,6 +8,8 @@ description: '详细介绍 helm 安装过程中的 values 参数设置'
 
 ## Operator 配置
 
+以下配置项均支持动态变更
+
 - name：operator 的 deployment 资源名称
 - image：
     - name：operator 的镜像下载地址，默认为 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond-operator
@@ -29,30 +31,30 @@ operator:
 ## Cluster 配置
 
 - enableHA：是否启用高可用模式，默认为 false ，设置为 true 则启用高可用安装，高可用模式下必须提供外部数据库、外部 Etcd 、外部共享存储（RWX）
-- imageHub：
+- imageHub：此配置项不支持动态变更
     - enable：是否启用外部镜像仓库，默认为 false ，设置为 true 则启用
     - domain：外部镜像仓库的访问地址
     - namespace：外部镜像仓库的名称空间
     - password：外部镜像仓库的访问密码
     - username：外部镜像仓库的访问用户
-- etcd：
+- etcd：此配置项不支持动态变更
     - enable：是否启用外部ETCD，默认为 false ，设置为 true 则启用
     - endpoints：外部 ETCD 集群访问列表
     - secretName：访问 ETCD 集群的证书 secret 文件，创建时需要指定和 rainbond 集群相同的 namespace 
-- RWX：搭建外部存储请参考 [Glusterfs分布式存储文档](/docs/user-operations/storage/deploy-glusterfs/)
+- RWX：搭建外部存储请参考 [Glusterfs分布式存储文档](/docs/user-operations/storage/deploy-glusterfs/)，此配置项不支持动态变更
     - enable：是否开启外部共享存储，默认为 false ，设置为 true 则启用
     - storageClassName：外部共享存储的 storageClass 名称
-- RWO：
+- RWO：此配置项不支持动态变更
     - enable：是否开启外部块存储，默认为 false ，设置为 true 则启用
     - storageClassName：外部块存储的 storageClass 名称
-- regionDatabase：
+- regionDatabase：此配置项不支持动态变更
     - enable：是否启用外部集群数据库，默认为 false ，设置为 true 则启用
     - host：外部集群数据库访问地址
     - name：外部集群数据库库名称
     - password：外部集群数据库访问密码
     - port：外部集群数据库访问端口
     - username：外部集群数据库访问用户
-- uiDatabase
+- uiDatabase：此配置项不支持动态变更
     - enable：是否启用外部控制台数据库，默认为 false ，设置为 true 则启用
     - host：外部控制台数据库访问地址
     - name：外部控制台数据库库名称
@@ -60,16 +62,16 @@ operator:
     - port：外部控制台数据库访问端口
     - username：外部控制台数据库访问用户
 - gatewayIngressIPs：集群对外IP，必须填写
-- nodesForChaos
+- nodesForChaos：此配置项支持动态变更
     - name：运行集群构建服务的 Kubernetes 节点名称
-- nodesForGateway
+- nodesForGateway：此配置项支持动态变更
     - externalIP：运行网关服务的 Kubernetes 节点外部 IP
     - internalIP：运行网关服务的 Kubernetes 节点内部 IP
     - name：运行网关服务的 Kubernetes 节点名称
-- rainbondImageRepository：集群服务镜像拉取地址，默认为 registry.cn-hangzhou.aliyuncs.com/goodrain
-- installVersion：集群服务镜像拉取 tag，默认为 v5.5.0-release
-- imagePullPolicy：集群服务镜像拉取策略，默认为 IfNotPresent
-- replicas：集群服务组件副本数，启用高可用的情况下生效，默认为2
+- rainbondImageRepository：集群服务镜像拉取地址，默认为 registry.cn-hangzhou.aliyuncs.com/goodrain，此配置项不支持动态变更
+- installVersion：集群服务镜像拉取 tag，默认为 v5.5.0-release，此配置项不支持动态变更
+- imagePullPolicy：集群服务镜像拉取策略，默认为 IfNotPresent，此配置项不支持动态变更
+- replicas：集群服务组件副本数，启用高可用的情况下生效，默认为2，此配置项不支持动态变更aa
 
 ```yaml
 #Rainbondcluster
