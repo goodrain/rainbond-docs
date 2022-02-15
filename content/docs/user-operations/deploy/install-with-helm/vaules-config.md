@@ -3,7 +3,8 @@ title: 'values.yaml 详解'
 weight: 203
 description: '详细介绍 helm 安装过程中的 values 参数设置'
 ---
-Helm 安装集群所有支持的配置项均由 values.yaml 文件定义，本文档对其中所有配置项进行说明
+
+本文档对基于 Helm 安装 Rainbond 集群支持的所有参数进行说明
 
 ## Operator 配置
 
