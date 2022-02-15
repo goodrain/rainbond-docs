@@ -26,7 +26,7 @@ helm repo add rainbond https://openchart.goodrain.com/goodrain/private
 ```
 
 - 编辑values.yaml文件
-  - 以下配置为必填项，如果需要增加其他配置，或者安装高可用集群，可以参考[values.yaml](/docs/user-operations/deploy/install-with-helm/vaules-config/) 详解，编辑``` values.yaml  ```文件自定义定义集群配置
+  - 以下配置为必填项，如果需要增加其他配置，或者安装高可用集群，可以参考[values.yaml](/docs/user-operations/deploy/install-with-helm/vaules-config/) 详解，编辑``` values.yaml  ```文件自定义集群配置
 
 ```
 $vi values.yaml
