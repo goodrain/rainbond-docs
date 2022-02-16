@@ -26,12 +26,11 @@ rbd-node-7gsgl                      0/1     Running   0          113s
 
 #### 排查思路
 
-通过helm安装rainbond，整个的安装过程可以细化分为几个任务：
+通过helm安装rainbond，整个的安装过程可以细化分为几个任务，知道整个安装的过程以后，出现问题也将围绕这些任务的执行情况进行开展。
 
-1. helm install 会首先安装rain bond控制器，也就是rainbond-operator。
+1. helm install 会首先安装rainbond控制器，也就是rainbond-operator。
 2. 控制器启动成功以后，rainbond的组件会在operator的控制下，进行逐步安装。
-
-整个排查的过程，也将围绕这些任务的执行情况进行开展。
+2. rainbond组件的安装通常是有顺序依赖的，pod 启动时会先向数据库进行连接，或者查看存储是否准备完毕，所以当单个组件出现不是 Running 时，首先可以查看 rbd-etcd , nfs-provisioner , rbd-db 等pod日志。
 
 #### 启动组件阶段
 
@@ -55,12 +54,9 @@ kubectl logs -f rainbond-operator -n rbd-system
 
 #### 常见问题
 
-- Readiness probe failed: Get "http://172.31.112.135:6100/v2/ping": dial tcp 172.31.112.135:6100: connect: connection refused
-  - 这个问题一般是，因为网络不通造成的，可以通过查看values.yaml 文件，确定所有必填项IP地址是否填写正确。
 - level=error msg="create etcd.v3 client failed, try time is 10,dial tcp: lookup rbd-etcd on 10.43.0.10:53: no such host
-  - 通常是因为无法连接主机，可以通过查看values.yaml 文件，确定所有必填项IP地址是否填写正确。
-- rbd-app-ui Pod 出现 ImagePullBackOff。
-  - 这个时候通常是因为网络原因，造成的镜像下载失败。
+
+>以此报错为例，可以看出时域名解析时，并没有找到主机IP，是因为 etcd 这个 pod 处于pending 的状态，也就是启动之前就出现了问题，没有在 K8S 集群的 coredns 进行注册，通常通过查询 pod 的详细信息，K8S集群的信息来进行排查。
 
 #### 启动成功的Pod状态
 
@@ -89,11 +85,27 @@ rbd-webcli-6d64c66cb7-vhz44                  1/1     Running     0          5h44
 rbd-worker-8485f9ff56-hnnwt                  1/1     Running     0          5h43m
 ```
 
-当以上的某些 pod 并非处于 Running 状态时，就需要根据其当前状态进行排查。异常的状态可能包含：Pending 、CrashLoopBackOff 、Evicted 等.
+当以上的某些 pod 并非处于 Running 状态时，就需要根据其当前状态进行排查。异常的状态可能包含：Pending 、CrashLoopBackOff 、Evicted 、ImagePullBackOff等.
+
+- Pending
+
+>当组件处于pending状态时，代表其没有进入正常的启动流程，可能是启动之前的任务有阻塞，所以一直处于pending状态。要了解pod启动为何会受到阻塞，以 rbd-etcd-0 为例，可以执行命令``` kubectl describe pod rbd-etcd-0 -n rbd-system``` 观察时间详情，来进一步进行排查。
+
+- CrashLoopBackOff
+
+>CrashLoopBackOff 状态意味着当前 pod 已经可以正常启动，但是其内部的容器自行退出，这通常是因为内部的服务出了问题。要了解 pod (以 rbd-etcd-0 为例)的启动为何失败，可以执行命令 `kubectl logs -f rbd-etcd-0 -n rbd-system` ，观察日志的输出，通过业务日志来确定问题原因。
+
+- Evicted
+
+>Evicted 状态意味着当前 pod 遭到了调度系统的驱逐，触发驱逐的原因可能包括根分区磁盘占用率过高、容器运行时数据分区磁盘占用率过高等，根据经验，上述原因最为常见，需要进行磁盘空间清理解除驱逐状态。可以通过执行命令 `kubectl describe node` ，观察返回中的 `Conditions` 段落输出来确定当前节点的状态。
+
+- ImagePullBackOff
+
+>ImagePullBackOff 状态意味着 pod 镜像下载失败退出，通常是因为镜像过大，或者网络查引起的，以 rbd-etcd-0 为例，可以执行命令``` kubectl describe pod rbd-etcd-0 -n rbd-system``` 观察时间详情，来进一步进行排查。
+
+
 
 #### 问题报告
 
 当前的安装问题排查文档也许并没有能够指引你完成安装问题的故障排除，欢迎到 Rainbond 的官方仓库 https://github.com/goodrain/rainbond/issues 搜索其他人的问题经历，或者提交自己的安装问题，会有工程师跟进问题的解决。
-
-<details class="details-reset details-overlay details-overlay-dark" id="jumpto-line-details-dialog" style="box-sizing: border-box; display: block;"><summary data-hotkey="l" aria-label="Jump to line" role="button" style="box-sizing: border-box; display: list-item; cursor: pointer; list-style: none;"></summary></details>
 
