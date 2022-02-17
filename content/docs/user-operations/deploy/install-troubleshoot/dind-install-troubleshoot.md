@@ -116,7 +116,8 @@ k3s 服务的启动日志位于文件 `/app/logs/k3s.log` 中，查询日志内�
 - level=info msg="Set sysctl 'net/netfilter/nf_conntrack_max' to 196608
 - level=error msg="Failed to set sysctl: open /proc/sys/net/netfilter/nf_conntrack_max: permission denied
 
-> 遭遇以上问题时，可以在主机中修改对应的参数为日志中的相同值，比如在 linux 操作系统中，执行 `sysctl -w net/netfilter/nf_conntrack_max=196608`
+> 遭遇以上问题时，可以在主机中修改对应的参数为日志中的相同值，在 linux 操作系统中，执行 `sysctl -w net/netfilter/nf_conntrack_max=196608` ;
+> 如果上述操作没有能够解决问题，或者在非 linux 操作系统中遭遇这个问题，可以在 `docker run ...` 启动命令中添加环境变量 `-e K3S_ARGS="--kube-proxy-arg=conntrack-max-per-core=0"`。
 
 - /usr/lib/libbz2.so.1.0.8: no space left on device
 
