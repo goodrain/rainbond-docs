@@ -5,3 +5,4 @@ weight: 1000
 chapter: true
 ---
 
+{{% children showhidden="false" description="true" style="h3"  %}}

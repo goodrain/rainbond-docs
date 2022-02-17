@@ -4,4 +4,4 @@ descrition: 该章节文档介绍基于已有的 k8s 集群，使用 helm 安装
 weight: 3000
 ---
 
-{{% children showhidden="true" description="true" style="h3"  %}}
+{{% children showhidden="false" description="true" style="h3"  %}}
