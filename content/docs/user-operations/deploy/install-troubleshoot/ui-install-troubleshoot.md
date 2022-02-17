@@ -1,8 +1,7 @@
 ---
-title: 集群安装异常检查
-description: 该章节文档介绍Rainbond集群安装过程中Kubernetes的安装或Rainbond集群初始化的障碍问题排查和解决
-weight: 109
-hidden: true
+title: 'Web界面安装问题排查指南'
+weight: 203
+description: 'troubleshot'
 ---
 
 ### Kubernetes 集群安装异常情况分析

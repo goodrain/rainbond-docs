@@ -233,20 +233,6 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone ^
 Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制台
 ```
 
-#### 问题排查思路
-- 加载数据超过5分钟
+#### 问题排查
 
-> 1. 请手动进入 `rainbond-allinone` 容器，执行 `docker ps`, 确认docker是否启动。
-> 2. 查看 `/app/logs/dind.log` 和 `/app/logs/k3s.log` 日志文件。其中 `/app/logs/dind.log` 记录了docker相关的日志信息。`/app/logs/k3s.log` 则记录了 k3s 相关的日志信息。
-
-- 启动Rainbond超过10分钟
-
-> 1. 使用 `kubectl get po -n rbd-system`, 查看 `rbd-system` 下的 `pod` 运行状态，查看未Ready的`pod`日志信息和事件信息。
-
-
-`备注:`
-
-- 控制台将产生需要持久化的数据，存储于您部署节点的 `~/rainbonddata` 以及 ``` /opt/rainbond``` 目录中。
-- 持久化数据并不包括docker的数据，一但执行删除容器命令以后，数据将不再存在。
-- 安装成功后，默认会有示例应用，点击团队界面，进入admin团队，进入默认应用，即可查看Ghost示例，示例初次启动大概2分钟左右，待变成绿色，即可访问。
-- 点击六边形示例组件，点击对话框示例名称，即可进入示例管理界面。
+单节点体验版本安装过程中如果长时间未完成，那么请参考文档 [单机体验版本安装问题排查指南](/docs/user-operations/deploy/install-troubleshoot/dind-install-troubleshoot/) 进行故障排查。
