@@ -6,7 +6,7 @@ description: '详细介绍 helm 安装过程中的 values 参数设置及如何�
 
 本文档对基于 Helm 安装 Rainbond 集群支持的所有参数进行说明，并说明如何变更已安装 Rainbond 集群配置
 
-## 变更配置项
+### 变更配置项
 
 对于支持动态变更的配置项，可通过以下命令进行动态变更，变更文件内需要指定创建时的所有配置项，如不指定则会被默认值覆盖，对于不支持变更的配置项请勿随意修改，避免造成数据丢失等问题
 
@@ -14,7 +14,7 @@ description: '详细介绍 helm 安装过程中的 values 参数设置及如何�
 helm upgrade rainbond ./rainbond-chart -f value_change.yaml -n rbd-system
 ```
 
-## Operator 配置
+### Operator 配置
 
 以下配置项均支持动态变更
 
@@ -36,7 +36,7 @@ operator:
   logLevel: 4
 ```
 
-## Cluster 配置
+### Cluster 配置
 
 - enableHA：是否启用高可用模式，默认为 false ，设置为 true 则启用高可用安装，高可用模式下必须提供外部数据库、外部 Etcd 、外部共享存储（RWX）
 - imageHub：此配置项不支持动态变更
@@ -79,7 +79,9 @@ operator:
 - rainbondImageRepository：集群服务镜像拉取地址，默认为 registry.cn-hangzhou.aliyuncs.com/goodrain，此配置项不支持动态变更
 - installVersion：集群服务镜像拉取 tag，默认为 v5.5.0-release，此配置项不支持动态变更
 - imagePullPolicy：集群服务镜像拉取策略，默认为 IfNotPresent，此配置项不支持动态变更
-- replicas：集群服务组件副本数，启用高可用的情况下生效，默认为2，此配置项不支持动态变更aa
+- replicas：集群服务组件副本数，启用高可用的情况下生效，默认为2，此配置项不支持动态变更
+
+### 示例配置
 
 ```yaml
 #Rainbondcluster

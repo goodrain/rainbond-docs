@@ -33,6 +33,7 @@ helm install rainbond rainbond/rainbond-cluster -n rbd-system
 ```
 
 > 需要自定义 Rainbond 集群配置的时候，参考 [values.yaml 详解](/docs/user-operations/deploy/install-with-helm/vaules-config/) 创建 `values.yaml` 配置文件，并在安装 Rainbond 集群的命令中指定 `-f values.yaml`
+
 #### 验证安装
 
 - 查看pod状态
