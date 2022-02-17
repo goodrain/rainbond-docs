@@ -239,7 +239,7 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 快速安装为单节点体验版，适用于体验 Rainbond 功能或者个人开发环境。
 在其它场景中，我们提供了其它类型的安装方式：
 
-- [基于 Helm 安装](/docs/user-operations/deploy/install-with-helm/)
+- [基于 Helm 安装](/docs/user-operations/deploy/install-with-helm/k8s-install-with-helm/)
 
 > 从已有 Kubernetes 集群开始安装高度自定义的 Rainbond 集群。操作人员对 Kubernetes 、Helm 有深入了解，并乐于使用命令行的方式与系统交互，企业 IT 运维管理人员是这类人群的代表。
 
