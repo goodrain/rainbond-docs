@@ -4,6 +4,8 @@ weight: 100
 description: '基于已有的 k8s 集群，使用 helm 从零开始安装 Rainbond'
 ---
 
+
+
 #### 安装前提
 
 - 推荐[helm版本](https://helm.sh/docs/intro/install/)：3.0+
@@ -25,33 +27,11 @@ kubectl create namespace rbd-system
 helm repo add rainbond https://openchart.goodrain.com/goodrain/private
 ```
 
-- 编辑values.yaml文件
-  - 以下配置为必填项，如果需要增加其他配置，或者安装高可用集群，可以参考[values.yaml](/docs/user-operations/deploy/install-with-helm/vaules-config/) 详解，编辑``` values.yaml  ```文件自定义集群配置
-
-```
-$vi values.yaml
-
-## Rainbondcluster
-Cluster:
-
-## 对外网关，填写IP
-  gatewayIngressIPs: 47.104.1.82
-
-## chaos对应配置，name为Chaos节点node名称
-  nodesForChaos:
-  - name: node1
-  
-## 网关节点对应配置，externalIP为网关节点外部IP，internalIP为网关节点内部IP，name为网关节点node名称
-  nodesForGateway:
-  - externalIP: 47.104.1.82
-    internalIP: 192.168.0.1
-    name: node1
-```
-
 - 安装rainbond
+  - 参考 [values.yaml 详解](https://www.rainbond.com/docs/user-operations/deploy/install-with-helm/vaules-config/)  了解更多自定义配置项，以及如何为已有 Rainbond 集群变更配置。
 
 ```
-helm install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
+helm install rainbond rainbond/rainbond-cluster -n rbd-system
 ```
 
 #### 验证安装
