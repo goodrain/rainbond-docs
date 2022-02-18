@@ -24,10 +24,11 @@ aliases:
     display: none;
 }
 .tab-item {
-    margin-left:30px;
+    margin-left:0px;
     padding:0px 20px;
     height: 50px;
     text-align: center;
+    border-bottom:1px solid #e3e3e3;
 }
 .tab-item:hover{
     background-color:#ebedf0;
@@ -72,8 +73,6 @@ aliases:
 curl sh.rainbond.com/install_docker | bash
 ```
 
-- 该docker安装方式仅支持 Linux x86 操作系统。
-
 #### 设置EIP环境变量(必填)
 
 ``` 
@@ -104,7 +103,46 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
         </div>
         <div class="tab-item">
             <input type="radio" name="check" id="active2" class="tab-input">
-            <label for="active2" class="tab-tit">Mac with intel</label>
+            <label for="active2" class="tab-tit">Linux with arm</label>
+            <div class="tab-content">
+
+#### 安装Docker
+
+```bash
+curl sh.rainbond.com/install_docker | bash
+```
+
+#### 设置EIP环境变量(必填)
+
+``` 
+export EIP=IP地址
+```
+
+- EIP是对外提供服务的IP地址，可以为主机的公网IP或内网IP，请不要填写本地回环地址[127.0.0.1]。
+- IP地址可以通过执行```ifconfig```命令获得。
+
+
+#### 启动 Rainbond 控制台
+
+
+```bash
+docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
+--name=rainbond-allinone --restart=unless-stopped \
+-v ~/.ssh:/root/.ssh \
+-v ~/rainbonddata:/app/data \
+-v /opt/rainbond:/opt/rainbond \
+-v ~/dockerdata:/var/lib/docker \
+-e ENABLE_CLUSTER=true \
+-e EIP=$EIP \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-arm64-allinone \
+&& docker logs -f rainbond-allinone
+```
+
+</div>
+        </div>
+        <div class="tab-item">
+            <input type="radio" name="check" id="active3" class="tab-input">
+            <label for="active3" class="tab-tit">Mac with intel</label>
             <div class="tab-content">
 
 #### 安装条件：
@@ -141,8 +179,8 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
 </div>
         </div>
         <div class="tab-item">
-            <input type="radio" name="check" id="active3" class="tab-input">
-            <label for="active3" class="tab-tit">Mac with M1</label>
+            <input type="radio" name="check" id="active4" class="tab-input">
+            <label for="active4" class="tab-tit">Mac with M1</label>
             <div class="tab-content">
             
 #### 安装条件：
@@ -150,7 +188,6 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-allinone \
 - 推荐内存：8G 
 - 根分区磁盘保证50G+
 - 保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)
-
 #### 设置EIP环境变量（必填）
 
 ``` 
@@ -180,8 +217,8 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-arm64-allinone \
             </div>
       </div>
       <div class="tab-item">
-            <input type="radio" name="check" id="active4" class="tab-input">
-            <label for="active4" class="tab-tit">Windows</label>
+            <input type="radio" name="check" id="active5" class="tab-input">
+            <label for="active5" class="tab-tit">Windows</label>
             <div class="tab-content">
 
 #### 安装条件：
@@ -189,7 +226,6 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-dind-arm64-allinone \
 - 推荐内存：8G 
 - 根分区磁盘保证50G+
 - 保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/windows/install/)
-
 #### 设置EIP环境变量（必填）
 
 ```
