@@ -45,6 +45,6 @@ kubectl get po -n rbd-system | grep rbd-app-ui
 - 等待 ``` rbd-app-ui ``` 为 Running 状态即安装成功。
 - 安装成功以后，可通过 `` $gatewayIngressIPs:7070 `` 访问rainbond控制台。
 
-#### 安装问题排查        rainbond-docs/content/docs/user-operations/deploy/install-troubleshoot/helm-install-troubleshoot.md
+#### 安装问题排查    
 
 - 安装过程中如果长时间未完成，那么请参考文档[helm 安装问题排查指南](/docs/user-operations/deploy/install-troubleshoot/helm-install-troubleshoot.md)，进行故障排查。
