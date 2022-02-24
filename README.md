@@ -1,11 +1,41 @@
-# Rainbond Docs
+# Website
 
-This repository contains the source files for the Rainbond documentation available at [www.rainbond.com](/docs/v5.2).
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-## Suggest Improvements
+### Installation
 
-Want a topic added to the docs? Need additional details or clarification? See an error or other problem? Please [open an issue](https://github.com/goodrain/rainbond-docs/issues).
+```
+$ yarn
+```
 
-## Write Docs
+### Local Development
 
-We welcome your contributions to the Rainbond documentation and look forward to your PR.
+```
+$ yarn start
+```
+
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```
+$ yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+### Deployment
+
+Using SSH:
+
+```
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
