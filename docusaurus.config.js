@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
+  title: 'Rainbond',
   tagline: 'Dinosaurs are cool',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
@@ -24,8 +24,10 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/'
+            'https://github.com/goodrain/rainbond-docs/tree/V5.5-dev'
         },
         theme: {
           customCss: [
@@ -41,9 +43,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'Rainbond',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Rainbond Logo',
           src: 'img/rainbond.png'
         },
         // navbar的选项卡
@@ -64,37 +66,37 @@ const config = {
             href: 'http://www.baidu.com'
           },
           {
-            position: 'left',
+            position: 'right',
             label: '视频',
             href: 'http://www.baidu.com'
           },
           {
-            position: 'left',
+            position: 'right',
             label: '社区',
             href: 'https://t.goodrain.com/'
           },
           {
-            position: 'left',
+            position: 'right',
             label: '案例',
             href: 'http://www.baidu.com'
           },
           {
-            position: 'left',
+            position: 'right',
             label: '应用商店',
             href: 'https://store.goodrain.com/'
           },
           {
-            position: 'left',
+            position: 'right',
             label: '企业服务',
             href: 'https://www.goodrain.com/'
           },
           {
-            position: 'left',
+            position: 'right',
             label: '加入我们',
             href: 'http://www.goodrain.com/position/'
           },
           {
-            href: 'https://github.com/goodrain/rainbond-ui',
+            href: 'https://github.com/goodrain/rainbond',
             label: 'GitHub',
             position: 'right'
           }
@@ -102,48 +104,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro'
-              }
-            ]
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus'
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus'
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus'
-              }
-            ]
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog'
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus'
-              }
-            ]
-          }
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`
+        copyright: `Copyright © ${new Date().getFullYear()} 北京好雨科技有限公司, Inc. All Rights Reserved. 京ICP备15028663号-4`
       },
       prism: {
         darkTheme: darkCodeTheme
