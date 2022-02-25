@@ -4,52 +4,81 @@ const sidebars = {
     {
       type: 'category',
       label: '快速开始',
-      items: ['docs/quick-start']
+      collapsible: false,
+      items: [
+        'quick-start/start',
+        'quick-start/startcopy'
+      ]
+    },
+    {
+      type: 'category',
+      label: '快速入门',
+      items: [
+        'get-start/get-start'
+      ]
     },
     {
       type: 'category',
       label: '架构',
-      items: ['docs/quick-start']
+      items: [
+        'architecture/architecture'
+      ]
     },
     {
       type: 'category',
       label: '部署服务组件',
-      items: ['docs/quick-start']
+      items: [
+        'component-create/component-create'
+      ]
     },
     {
       type: 'category',
       label: '管理应用与服务组件',
-      items: ['docs/quick-start']
+      items: [
+        'user-manual/user-manual'
+      ]
     },
     {
       type: 'category',
-      label: '集群运维',
-      items: ['docs/quick-start']
+      label: '安装与运维',
+      items: [
+        'user-operations/user-operations'
+      ]
     },
     {
       type: 'category',
       label: '常见场景最佳实践',
-      items: ['docs/quick-start']
+      items: [
+        'practices/practices'
+      ]
     },
     {
       type: 'category',
       label: '管理企业',
-      items: ['docs/quick-start']
+      items: [
+        'enterprise-manager/enterprise-manager'
+      ]
     },
     {
       type: 'category',
       label: '版本升级',
-      items: ['docs/quick-start']
+      items: [
+        'upgrade/upgrade'
+      ]
     },
     {
       type: 'category',
       label: '社区',
-      items: ['docs/quick-start']
+      items: [
+        'community/community'
+      ]
     },
     {
       type: 'category',
       label: '开源应用精选专区',
-      items: ['docs/quick-start']
+      items: [
+        'opensource-app/opensource-app'
+      ]
     }
   ]
 };
