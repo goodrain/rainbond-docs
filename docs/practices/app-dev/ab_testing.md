@@ -109,7 +109,7 @@ $ curl --cookie "user=test" www.test.goodrain.com
 
 3. 配置路由策略，与基于应用网关的配置方法类似，不同的是只支持基于Header的处理方式。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/best-practices/ab_testing/ab.png" style="border:1px solid #eee;width:100%" />
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/best-practices/ab_testing/ab.png)
 
 ### 效果展示
 

@@ -1,41 +1,51 @@
-# Website
+# Rainbond 文档
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Rainbond 文档，包含 Rainbond 5.x 所有文档
 
-### Installation
+本网站使用了 ~~Hugo框架~~ [Docusaurus 2](https://docusaurus.io/) 文档框架。
+
+## 如何开发？
+
+### 准备
+
+确保您的开发环境有如下软件：
+
+- [Git](http://git-scm.com/)
+- [Node.js](http://nodejs.org/) \>= 14 (with NPM)
+- [Yarn](https://yarnpkg.com/en/docs/install) \>= 1.5
+
+### 安装
+
+如果yarn install的速度很慢，可以尝试配置淘宝Registry。
 
 ```
-$ yarn
+$ yarn config set registry https://registry.npm.taobao.org
 ```
 
-### Local Development
+安装初始化
 
+```bash
+$ git clone https://github.com/goodrain/rainbond-docs.git
+$ cd rainbond-docs
+$ yarn install
 ```
+
+### 本地启动
+
+```bash
 $ yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+将在浏览器中自动打开http://localhost:3000/
 
-### Build
+### 构建
 
-```
+```bash
 $ yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Deployment
 
-Using SSH:
+## 参与贡献
 
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+欢迎提交 Pull Request，参考 [Docusaurus 2](https://docusaurus.io/) Markdown语法格式。
