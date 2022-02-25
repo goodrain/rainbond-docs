@@ -1,0 +1,4 @@
+/* navbar的link链接图标 */
+.navbar__item span svg {
+  display: none !important;
+}

@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/rainbond.png',
   organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
 
@@ -22,21 +22,19 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/'
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-      }),
-    ],
+          customCss: [
+            require.resolve('./src/css/custom.css'),
+            require.resolve('./src/css/base.css')
+          ]
+        }
+      })
+    ]
   ],
 
   themeConfig:
@@ -46,22 +44,61 @@ const config = {
         title: 'My Site',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/rainbond.png'
         },
+        // navbar的选项卡
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Rainbond是什么?',
+            href: 'http://www.baidu.com'
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
+            position: 'left',
+            label: '安装',
+            href: 'http://www.baidu.com'
           },
-        ],
+          {
+            position: 'left',
+            label: '文档',
+            href: 'http://www.baidu.com'
+          },
+          {
+            position: 'left',
+            label: '视频',
+            href: 'http://www.baidu.com'
+          },
+          {
+            position: 'left',
+            label: '社区',
+            href: 'https://t.goodrain.com/'
+          },
+          {
+            position: 'left',
+            label: '案例',
+            href: 'http://www.baidu.com'
+          },
+          {
+            position: 'left',
+            label: '应用商店',
+            href: 'https://store.goodrain.com/'
+          },
+          {
+            position: 'left',
+            label: '企业服务',
+            href: 'https://www.goodrain.com/'
+          },
+          {
+            position: 'left',
+            label: '加入我们',
+            href: 'http://www.goodrain.com/position/'
+          },
+          {
+            href: 'https://github.com/goodrain/rainbond-ui',
+            label: 'GitHub',
+            position: 'right'
+          }
+        ]
       },
       footer: {
         style: 'dark',
@@ -71,48 +108,47 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
+                to: '/docs/intro'
+              }
+            ]
           },
           {
             title: 'Community',
             items: [
               {
                 label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                href: 'https://stackoverflow.com/questions/tagged/docusaurus'
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discordapp.com/invite/docusaurus'
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
+                href: 'https://twitter.com/docusaurus'
+              }
+            ]
           },
           {
             title: 'More',
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                to: '/blog'
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
+                href: 'https://github.com/facebook/docusaurus'
+              }
+            ]
+          }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-    }),
+        darkTheme: darkCodeTheme
+      }
+    })
 };
 
 module.exports = config;
