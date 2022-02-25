@@ -1,15 +1,9 @@
 const sidebars = {
   // But you can create a sidebar manually
   docs: [
-    'Rainbond文档',
     {
       type: 'category',
       label: '快速开始',
-      items: ['docs/quick-begin']
-    },
-    {
-      type: 'category',
-      label: '快速入门',
       items: ['docs/quick-start']
     },
     {
