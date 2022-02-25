@@ -35,7 +35,113 @@ const sidebars = {
       type: "category",
       label: "管理应用与服务组件",
       items: [
-        "user-manual/user-manual"
+        "user-manual/join-team/join-team",
+        "user-manual/app-create/app-create",
+        {
+          type: "category",
+          label: "外网访问组件",
+          items: [
+            "user-manual/gateway/domain",
+            "user-manual/gateway/tcpip",
+            "user-manual/gateway/cert-management",
+          ]
+        },
+        {
+          type: "category",
+          label: "组件间通信",
+          items: [
+            "user-manual/component-connection/regist_and_discover",
+            "user-manual/component-connection/regist_and_discover_grpc",
+            "user-manual/component-connection/connection_env",
+          ]
+        },
+        {
+          type: "category",
+          label: "组件开发",
+          items: [
+            "user-manual/component-dev/build_and_version",
+            "user-manual/component-dev/build_source",
+            "user-manual/component-dev/auto_build",
+            "user-manual/component-dev/app_copy",
+            "user-manual/component-dev/service-env",
+          ]
+        },
+        {
+          type: "category",
+          label: "组件运维",
+          items: [
+            {
+              type: "category",
+              label: "组件基本操作",
+              items: [
+                "user-manual/component-op/basic-operation/basic-operation",
+                "user-manual/component-op/basic-operation/service-properties",
+              ]
+            },
+            "user-manual/component-op/service-log",
+            {
+              type: "category",
+              label: "组件伸缩",
+              items: [
+                "user-manual/component-op/automatic-telescoping/service-scaling",
+                "user-manual/component-op/automatic-telescoping/service-auto-scaling",
+              ]
+            },
+            {
+              type: "category",
+              label: "组件存储",
+              items: [
+                "user-manual/component-op/custom-volume/service-volume",
+                "user-manual/component-op/custom-volume/service-volume-custom",
+              ]
+            },
+            "user-manual/component-op/service-port-domain",
+            "user-manual/component-op/custom-monitor",
+            "user-manual/component-op/health",
+            {
+              type: "category",
+              label: "组件性能分析与监控",
+              items: [
+                "user-manual/component-op/performance-analysis/service-monitor",
+              ]
+            },
+            "user-manual/component-op/service-other-set",
+            "user-manual/component-op/service-plugins",
+          ]
+        },
+        {
+          type: "category",
+          label: "插件开发",
+          items: [
+            "user-manual/plugin-manage/plugin-design-develop",
+            "user-manual/plugin-manage/mesh-plugin",
+            "user-manual/plugin-manage/new-plugin",
+          ]
+        },
+        {
+          type: "category",
+          label: "应用运维",
+          items: [
+            "user-manual/app-manage/app-topology",
+            "user-manual/app-manage/operation",
+            "user-manual/app-manage/add-service",
+            "user-manual/app-manage/upgrade_app",
+            "user-manual/app-manage/share-app",
+            "user-manual/app-manage/config-group",
+            "user-manual/app-manage/governance-model",
+            "user-manual/app-manage/deploy-istio",
+          ]
+        },
+        {
+          type: "category",
+          label: "构建微服务架构",
+          items: [
+            "user-manual/architecture/service_assembly",
+            "user-manual/architecture/rate-limiting",
+            "user-manual/architecture/traffic-management",
+            "user-manual/architecture/network-visualization",
+          ]
+        },
       ]
     },
     {
