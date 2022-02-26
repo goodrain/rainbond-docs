@@ -16,7 +16,7 @@ weight: 108
 
 * 首先需在阿里云创建NAS，可参考阿里云[文件存储NAS](https://help.aliyun.com/product/27516.html)文档
 
-在集群初始化时修改以下参数，参考[集群初始化配置](/docs/user-operations/cluster-manage/init-region/)。
+在集群初始化时修改以下参数，参考[集群初始化配置](./init-region/)。
 
 > 在阿里云NAS页面获取server地址，替换下面 NAS_SERVER_ADDR。
 
@@ -50,9 +50,9 @@ spec:
 
 ### 对接GlusterFS
 
-参考[安装Gluster分布式存储](/docs/user-operations/storage/deploy-glusterfs/)文档进行安装。
+参考[安装Gluster分布式存储](../storage/deploy-glusterfs/)文档进行安装。
 
-安装完成后，在集群初始化时修改以下参数，参考[集群初始化配置](/docs/user-operations/cluster-manage/init-region/)。
+安装完成后，在集群初始化时修改以下参数，参考[集群初始化配置](../cluster-manage/init-region/)。
 
 > 通过命令 `kubectl get sc` 获取 storageClassName 替换 GFS_CLASS_NAME。
 >
@@ -95,7 +95,7 @@ spec:
   volumeMode: Filesystem
 ```
 
-如上述内容确认没问题，在集群初始化时修改以下参数，参考[集群初始化配置](/docs/user-operations/cluster-manage/init-region/)。
+如上述内容确认没问题，在集群初始化时修改以下参数，参考[集群初始化配置](./init-region)。
 
 > 通过命令 `kubectl get sc` 获取 storageClassName 替换 CLASS_NAME。
 
@@ -115,5 +115,5 @@ spec:
     #  - "vers=4"
 ```
 
-* 如需对接外部NFS存储请参考[文档](/docs/user-operations/storage/deploy-nfsclient/)
+* 如需对接外部NFS存储请参考[文档](../storage/deploy-nfsclient/)
 

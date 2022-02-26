@@ -110,7 +110,7 @@ kubectl logs --since=1h -l name=rbd-api  -n rbd-system
 
 `rbd-app-ui` 组件的日志持久化目录为 `/opt/rainbond/logs/rbd-app-ui` ，查看 `goodrain.log` 即可以看到相关日志信息。
 
-源码构建过程相关日志查看，请参考 [grctl命令行工具](/docs/user-operations/tools/grctl/)
+源码构建过程相关日志查看，请参考 [grctl命令行工具](../tools/grctl)
 
 **以下组件由systemd托管，可使用以下方式查看组件日志**
 
@@ -155,7 +155,7 @@ kubectl edit rbdcomponents rbd-node -n rbd-system
 kubectl delete pod <podName> -n rbd-system
 ```
 
-关于更多组件配置介绍请查看 [平台组件架构](/docs/user-operations/op-guide/component-description/)
+关于更多组件配置介绍请查看 [平台组件架构](../op-guide/component-description)
 
 
 ### 在pod中的容器环境内执行shell命令

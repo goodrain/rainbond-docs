@@ -16,7 +16,7 @@ Rainbond 默认支持以下几种存储类型:
 - 配置文件
 - 内存文件存储
 
-除 Rainbond 默认支持的上述几种存储类型外，Rainbond 还支持 [自定义存储类型](../service-volume-custom/) 来根据需要扩充其他存储。
+除 Rainbond 默认支持的上述几种存储类型外，Rainbond 还支持 [自定义存储类型](./service-volume-custom/) 来根据需要扩充其他存储。
 
 #### 共享存储
 
@@ -130,4 +130,4 @@ docker run -d --net=host -v /var/gogs:/data gogs/gogs
 
 - Kubernetes 各类存储类型 Rainbond 是否支持
 
-> Rainbond 通过扩展存储的方式对接支持 Kubernetes 已有的存储类型。详情参考 [自定义存储类型](../service-volume-custom/)
+> Rainbond 通过扩展存储的方式对接支持 Kubernetes 已有的存储类型。详情参考 [自定义存储类型](./service-volume-custom/)

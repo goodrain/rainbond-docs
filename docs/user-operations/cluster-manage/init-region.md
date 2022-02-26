@@ -86,7 +86,7 @@ spec:
 |                           | username(string)               | 集群账号                                                     |
 |                           | password(string)               | 集群密码                                                     |
 |                           | name(string)                   | 集群数据库名称                                               |
-| rainbondVolumeSpecRWX     |                                | 共享存储配置，留空则使用默认存储。如[对接外部存储](/docs/user-operations/cluster-manage/init-region-storage/)请参考文档             |
+| rainbondVolumeSpecRWX     |                                | 共享存储配置，留空则使用默认存储。如[对接外部存储](../cluster-manage/init-region-storage/)请参考文档             |
 |                           | storageClassName(string)       | 集群中存在的storageclass名称，非必填                         |
 |                           | storageClassParameters(struct) |                                                              |
 |                           | csiPlugin(struct)              |                                                              |

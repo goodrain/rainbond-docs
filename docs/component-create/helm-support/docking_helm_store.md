@@ -27,4 +27,4 @@ aliases:
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/dockingcomplete.jpg" title="对接完成" width="100%"/>
 
-完成该章节中的步骤即可基于 Helm 应用商店在 Rainbond 中部署应用，后续请参考文档 [在 Rainbond 中部署 Helm 应用](/docs/component-create/helm-support/creation-process/)。
+完成该章节中的步骤即可基于 Helm 应用商店在 Rainbond 中部署应用，后续请参考文档 [在 Rainbond 中部署 Helm 应用](./creation-process/)。

@@ -12,7 +12,7 @@ aliases:
 
 #### 平台编译运行机制
 
-1. 预编译处理会探测是否定义了启动命令配置文件 [Procfile](../procfile/) ,如果未定义会生成默认 War 包启动配置文件;
+1. 预编译处理会探测是否定义了启动命令配置文件 [Procfile](./procfile/) ,如果未定义会生成默认 War 包启动配置文件;
 2. 预编译处理完成后,会根据语言类型选择 PHP 的 buildpack 去编译项目.在编译过程中会安装定义的 PHP 版本,安装相关依赖包;
 3. 编译完成后会检查是否在平台设置了 Procfile 参数,若配置了会重写启动命令配置文件 Procfile.
 
@@ -412,8 +412,8 @@ Composer是PHP的依赖管理器，composer.json则是Composer的配置文件，
 
 #### 推荐阅读
 
-- <a href="../php_more/custom-env/" target="_blank" >自定义 Web Server 与 PHP 环境</a>
-- <a href="../etc/procfile/" target="_blank" >Procfile 文件说明</a>
+自定义 Web Server 与 PHP 环境
+[Procfile 文件说明](./procfile)
 
 <!--
 ## 五、源码编译构建

@@ -7,13 +7,13 @@ aliases:
 
 ### 原理文档阅读
 
-[Rainbond 构建 Java Maven 项目原理解读](../java-maven-de/)
+[Rainbond 构建 Java Maven 项目原理解读](./java-maven-de)
 
 ### Maven 项目识别策略
 
 当源代码根目录下存在 pom.xml 文件，且不存在 Dockerfile 文件时，Rainbond 会将源代码识别为 Java Maven 项目。
 
-Maven 多模块项目构建，请直接参考 [Java Maven 多模块源码构建](/docs/component-create/language-support/java/java-multi-module-build/)。
+Maven 多模块项目构建，请直接参考 [Java Maven 多模块源码构建](./java-multi-module-build)。
 
 ### 验证准备
 
@@ -51,7 +51,7 @@ mvn -DskipTests clean dependency:list install
 
 #### 图形化设置
 
-Rainbond 支持图形化定义编译运行环境，配置位于服务组件的构建源页面。**对这些配置的修改，需要通过 [构建](/docs/user-manual/component-op/basic-operation/basic-operation/) 来生效！**
+Rainbond 支持图形化定义编译运行环境，配置位于服务组件的构建源页面。**对这些配置的修改，需要通过 [构建](../../../user-manual/component-op/basic-operation) 来生效！**
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/component-create/language-support/java/java-maven-1.png" title="编译运行环境定义" />
 
@@ -63,7 +63,7 @@ Rainbond 支持图形化定义编译运行环境，配置位于服务组件的�
 
 - 当构建产物为 `war` 文件时，还提供了 Tomcat、Jetty 的版本选择。
 
-- 禁用 Maven Mirror，该开关决定是否通过 [rbd-repo](/docs/user-operations/component/rbd-repo/) 进行代理（默认代理至阿里云 maven 仓库），一旦开关打开，**下方定义的 MAVEN MIRROR OF 配置与 MAVEN MIRROR URL 配置全部失效**，构建过程中使用的仓库地址将只取决于 `pom.xml` 文件中的定义（如文件中无 `repositories` 定义，则从 Maven 中央仓库拉取依赖）。
+- 禁用 Maven Mirror，该开关决定是否通过 [rbd-repo](../../../user-operations/component/rbd-repo/) 进行代理（默认代理至阿里云 maven 仓库），一旦开关打开，**下方定义的 MAVEN MIRROR OF 配置与 MAVEN MIRROR URL 配置全部失效**，构建过程中使用的仓库地址将只取决于 `pom.xml` 文件中的定义（如文件中无 `repositories` 定义，则从 Maven 中央仓库拉取依赖）。
 
 - MAVEN MIRROR OF 配置，与 MAVEN MIRROR URL 配置一起使用，可以定义构建过程中从镜像私服中拉取依赖的行为。默认配置为 `central`，如设置为 `*`，则所有的依赖包都会从 MAVEN MIRROR URL 配置中定义的镜像仓库地址拉取。
 
@@ -73,7 +73,7 @@ Rainbond 支持图形化定义编译运行环境，配置位于服务组件的�
 
 - MAVEN 构建 java 参数配置，主要用来指定构建过程中分配的堆栈内存，**该配置只影响 maven 构建过程，构建完成的组件运行时指定的堆栈内存由 ${JAVA_OPTS} 变量指定**。
 
-- 启动命令，规定了构建过程完成后，Rainbond 如何启动当前服务组件，详细内容见后文 [启动命令配置](/docs/component-create/language-support/java/java-maven/#启动命令配置) 章节。
+- 启动命令，规定了构建过程完成后，Rainbond 如何启动当前服务组件，详细内容见后文 [启动命令配置](../../../component-create/language-support/java/java-maven#启动命令配置) 章节。
 
 #### 通过代码设置(推荐)
 
@@ -107,7 +107,7 @@ maven.version=3.3.1
 
 **rainbondfile**
 
-在源代码根目录下加入 [rainbondfile](/docs/component-create/language-support/rainbondfile/) 可以为服务组件定义环境变量，构建过程中更多的配置，可以通过环境变量的方式定义。
+在源代码根目录下加入 [rainbondfile](../rainbondfile) 可以为服务组件定义环境变量，构建过程中更多的配置，可以通过环境变量的方式定义。
 
 在 Rainbond 源码构建的过程中，为服务组件定义的 `BUILD_` 开头的变量，可以被传入构建环境中使用。部分常用的环境变量如下:
 
@@ -130,7 +130,7 @@ Java Maven 源码构建过程完成后，Rainbond 会自动将服务组件运行
 
 #### Procfile 规范
 
-Rainbond 通过源代码根目录下的 `Procfile` 文件来定义项目启动命令，`Procfile` 文件定义规范详见 [Procfile](/docs/component-create/language-support/procfile/) 。
+Rainbond 通过源代码根目录下的 `Procfile` 文件来定义项目启动命令，`Procfile` 文件定义规范详见 [Procfile](../procfile) 。
 
 服务组件构建源页面中可以图形化输入启动命令，这里输入的命令格式要求与 `Procfile` 一致，优先级高于源代码根目录中的 `Procfile` 。输入完成后，下一次构建当前服务组件时生效。
 
@@ -190,7 +190,7 @@ web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 | jetty9          | jetty-runner-9.4.0.v20161208.jar | jetty-runner.jar              |
 
 选择 tomcat7 版本需要注意确定本地可以通过 `java -jar ./webapp-runner-7.0.91.0.jar ./*.war` 运行 。
-关于 webapp-runner 详细配置请参考 [webapp-runner 使用说明](/docs/user-manual/component-create/language-support/java_more/webapp-runner/)
+关于 webapp-runner 详细配置请参考 [webapp-runner 使用说明](./webapp-runner)
 
 ### 其他说明
 
@@ -228,10 +228,11 @@ web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 
 ### 推荐阅读
 
-- [Java-Jar 源码构建应用](../java-jar/)
-- [Java-War 源码构建应用](../java-war/)
-- [Java-Gradle 源码构建应用](../java-gradle)
-- [Tomcat 配置 Redis 实现 Session 共享](../tomcat-redis-session/)
-- [webapp-runner 使用说明](../webapp-runner/)
-- [RAINBOND 源码构建 JAVA 项目选取 JDK](/docs/advanced-scenarios/devops/how-to-select-jdk/)
-- [Rainbond 源码构建 JAVA 项目配置 Maven 仓库](/docs/advanced-scenarios/devops/how-to-config-maven/)
+- [Java-Jar 源码构建应用](./java-jar/)
+- [Java-War 源码构建应用](./java-war/)
+- [Java-Gradle 源码构建应用](./java-gradle)
+- [Tomcat 配置 Redis 实现 Session 共享](./tomcat-redis-session/)
+- [webapp-runner 使用说明](./webapp-runner/)
+
+<!-- - [RAINBOND 源码构建 JAVA 项目选取 JDK](../advanced-scenarios/devops/how-to-select-jdk/)
+- [Rainbond 源码构建 JAVA 项目配置 Maven 仓库](../advanced-scenarios/devops/how-to-config-maven/) -->

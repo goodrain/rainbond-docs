@@ -57,7 +57,7 @@ Dashboard图形面板具有以下功能：
 
 ####  组件信息
 
-Rainbond 的所有组件都位于 rbd-system 名称空间下，根据组件部署类型可查看各组件信息，组件部署类型请参考[Rainbond组件运维](/docs/user-operations/management/component-op/)。
+Rainbond 的所有组件都位于 rbd-system 名称空间下，根据组件部署类型可查看各组件信息。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/management/dashboard-op/information.jpg" title="Component information" width="100%" />
 

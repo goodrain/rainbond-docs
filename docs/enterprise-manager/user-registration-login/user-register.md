@@ -85,4 +85,4 @@ description: Rainbond 用户、管理员管理和注册文档说明
 
 ### 与第三方用户体系集成
 
-Rainbond支持Auth2.0等标准规范的第三方平台用户登录，参考 [Auth2.0相关支持文档](/docs/enterprise-manager/user-registration-login/oauth2.0/)
+Rainbond支持Auth2.0等标准规范的第三方平台用户登录，参考 [Auth2.0相关支持文档](oauth2.0/oauth-create)

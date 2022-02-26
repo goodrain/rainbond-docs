@@ -57,7 +57,7 @@ Rainbond支持基于helm直接部署应用，所以接下来对接Rainbond官方
 
 - 安装kiali
 
-Istio为我们查看相关服务与配置提供了统一化的可视化界面 [Kiali](www.kiali.io) ，能够在可视化界面中展示服务拓补关系，进行服务配置。
+Istio为我们查看相关服务与配置提供了统一化的可视化界面Kiali ，能够在可视化界面中展示服务拓补关系，进行服务配置。
 
 同上述base应用一样，选择正确的团队，安装 kiali-operator 应用。
 
@@ -86,7 +86,7 @@ kiali登录时需要身份认证token，使用以下命令获取token：
 kubectl describe secret $(kubectl get secret -n istio-system|grep istiod-token |awk '{print $1}') -n istio-system
 ```
 
-没有kubectl命令时参考[命令行工具](/docs/user-operations/tools/kubectl/)文档进行安装。
+没有kubectl命令时参考[命令行工具](../../user-operations/tools/kubectl/)文档进行安装。
 
 获取到token登陆至kiali可视化界面，到此完成Istio控制平面的部署。
 

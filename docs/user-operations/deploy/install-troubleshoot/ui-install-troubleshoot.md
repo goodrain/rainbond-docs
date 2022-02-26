@@ -10,7 +10,7 @@ description: 'troubleshot'
 
 - 报错信息提示“Cluster must have at least one etcd plane host”
 
-<img src="https://static.goodrain.com/docs/5.3/operator/error.png" width="100%" />
+  <image src="https://static.goodrain.com/docs/5.3/operator/error.png" width="100%"/>
 
 > 这种情况一般是你配置的节点 IP 地址或 SSH 端口不正确或端口有防火墙策略，导致控制台无法连接指定的节点。重新配置正确的节点 IP 地址和 SSH 端口，或开启 SSH 端口的防火墙策略。
 
@@ -24,7 +24,7 @@ Rainbond 集群初始化控制过程如下：
 - 等待 rainbond-operator 完成集群初始化。
 
 因此大多数情况下用户遇到的表象问题就是在等待集群完成初始化超时了。waiting rainbond region ready timeout.
-<img src="https://static.goodrain.com/docs/5.3/operator/timeout.png" width="60%" />
+<image src="https://static.goodrain.com/docs/5.3/operator/timeout.png" width="60%"/>
 但表象之下的实际原因有很多。我们首先给出一个排查问题的思路，然后重点列举一些常见问题：
 
 排查思路如下：
@@ -41,7 +41,7 @@ Rainbond 集群初始化控制过程如下：
 
 常见问题有：
 
-- rbd-gateway 无法正常运行。一般是端口冲突，特别是集群中已经存在 ingress-controller 的情况下很大可能出现冲突。rbd-gateway 运行需要节点以下端口必须空闲：80，443，8443，6060，10254, 18080, 18081。如果存在 ingress-controller，需要选择无 ingress-controller 作为 Rainbond 网关节点，在 rainbondcluster 集群初始化配置资源中指定 nodesForGateway，[参考文档](../init-region)。
+- rbd-gateway 无法正常运行。一般是端口冲突，特别是集群中已经存在 ingress-controller 的情况下很大可能出现冲突。rbd-gateway 运行需要节点以下端口必须空闲：80，443，8443，6060，10254, 18080, 18081。如果存在 ingress-controller，需要选择无 ingress-controller 作为 Rainbond 网关节点，在 rainbondcluster 集群初始化配置资源中指定 nodesForGateway，[参考文档](../../cluster-manage/init-region)。
 
 - rbd-etcd 无法正常运行。主要原因有运行该组件的节点磁盘性能低或 IO 紧张。etcd 服务是集群稳定的关键服务，需要尽可能配置 SSD 磁盘。
 

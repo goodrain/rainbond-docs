@@ -52,7 +52,7 @@ Rainbond 采用 RKE 集群安装方案进行 Kubernetes 集群的自动化安装
 
 ![image-20210219134301992](https://static.goodrain.com/images/5.3/rke-cluster-list.png)
 
-该方式安装的集群宿主机中默认不存在 kubectl 命令行工具，如需使用请参考[kubectl 安装](/docs/user-operations/tools/kubectl/)
+该方式安装的集群宿主机中默认不存在 kubectl 命令行工具，如需使用请参考[kubectl 安装](../tools/kubectl/)
 
 #### 接入 Kubernetes 集群
 
@@ -107,6 +107,6 @@ Rainbond 采用 RKE 集群安装方案进行 Kubernetes 集群的自动化安装
 kubectl get rainbondcluster rainbondcluster -n rbd-system
 ```
 
-> 若通过主机安装的集群，kubectl 命令不存在请参考 [kubectl 安装](/docs/user-operations/tools/kubectl/) 安装该命令。
+> 若通过主机安装的集群，kubectl 命令不存在请参考 [kubectl 安装](../tools/kubectl/) 安装该命令。
 >
-> 若需了解自定义集群初始化参数，请参考文档 [自定义集群初始化参数](../init-region)
+> 若需了解自定义集群初始化参数，请参考文档 [自定义集群初始化参数](./init-region)

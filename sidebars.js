@@ -63,54 +63,54 @@ const sidebars = {
               type: 'category',
               label: 'Java语言参考',
               items: [
-                'component-create/source-create/language-support/java-maven',
-                'component-create/source-create/language-support/java-multi-module-build',
-                'component-create/source-create/language-support/java-jar',
-                'component-create/source-create/language-support/java-war',
-                'component-create/source-create/language-support/java-gradle',
-                'component-create/source-create/language-support/java-maven-de',
-                'component-create/source-create/language-support/tomcat-redis-session',
-                'component-create/source-create/language-support/webapp-runner'
+                'component-create/language-support/java/java-maven',
+                'component-create/language-support/java/java-multi-module-build',
+                'component-create/language-support/java/java-jar',
+                'component-create/language-support/java/java-war',
+                'component-create/language-support/java/java-gradle',
+                'component-create/language-support/java/java-maven-de',
+                'component-create/language-support/java/tomcat-redis-session',
+                'component-create/language-support/java/webapp-runner'
               ]
             },
-            'component-create/source-create/docke-file',
-            'component-create/source-create/python',
-            'component-create/source-create/php',
-            'component-create/source-create/netcore',
-            'component-create/source-create/golang',
-            'component-create/source-create/html',
-            'component-create/source-create/nodejs',
-            'component-create/source-create/nodejs-static',
-            'component-create/source-create/slugignore',
-            'component-create/source-create/procfile',
-            'component-create/source-create/rainbondfile',
-            'component-create/source-create/envs'
+            'component-create/language-support/dockefile',
+            'component-create/language-support/python',
+            'component-create/language-support/php',
+            'component-create/language-support/netcore',
+            'component-create/language-support/golang',
+            'component-create/language-support/html',
+            'component-create/language-support/nodejs',
+            'component-create/language-support/nodejs-static',
+            'component-create/language-support/slugignore',
+            'component-create/language-support/procfile',
+            'component-create/language-support/rainbondfile',
+            'component-create/language-support/envs'
           ]
         },
         {
           type: 'category',
           label: '基于Docker镜像创建组件',
           items: [
-            'component-create/docker-create/docker-compose',
-            'component-create/docker-create/image'
+            'component-create/image-support/docker-compose',
+            'component-create/image-support/image'
           ]
         },
         {
           type: 'category',
           label: '接入外部服务作为第三方组件',
           items: [
-            'component-create/third-create/thirdparty-define',
-            'component-create/third-create/thirdparty-design',
-            'component-create/third-create/thirdparty-create'
+            'component-create/thirdparty-service/thirdparty-define',
+            'component-create/thirdparty-service/thirdparty-design',
+            'component-create/thirdparty-service/thirdparty-create'
           ]
         },
         {
           type: 'category',
           label: '基于Helm应用市场创建组件',
           items: [
-            'component-create/helm-create/docking_helm_store',
-            'component-create/helm-create/creation-process',
-            'component-create/helm-create/manage-helm-app'
+            'component-create/helm-support/docking_helm_store',
+            'component-create/helm-support/creation-process',
+            'component-create/helm-support/manage-helm-app'
           ]
         }
       ]
@@ -253,9 +253,10 @@ const sidebars = {
               label: '基于 Web 界面安装',
               items: [
                 'user-operations/deploy/install-with-ui/host-install-with-ui',
+                'user-operations/deploy/install-with-ui/ha-installation',
                 'user-operations/deploy/install-with-ui/install-by-rainbond',
                 'user-operations/deploy/install-with-ui/install-from-k8s',
-                'user-operations/deploy/install-with-ui/console-recover'
+                'user-operations/deploy/install-with-ui/console-recover',                
               ]
             },
             {
@@ -290,12 +291,16 @@ const sidebars = {
             'user-operations/cluster-manage/resource-limit'
           ]
         },
+        'user-operations/management/resource-cleanup',
+        'user-operations/management/component-op',
+        'user-operations/management/dashboard-op',
+        'user-operations/management/data-migration',
         {
           type: 'category',
           label: '存储解决方案',
           items: [
-            'user-operations/storage/ceph-rbd',
             'user-operations/storage/deploy-glusterfs',
+            'user-operations/storage/ceph-rbd',
             'user-operations/storage/deploy-nfsclient',
             'user-operations/storage/ali-disk'
           ]

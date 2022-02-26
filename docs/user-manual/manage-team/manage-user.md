@@ -64,4 +64,4 @@ description: 团队成员管理方式和角色管理方式
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/manage-team/manage-user/Modifying%20roles2.png" width="100%" />
   
 参考：
-[团队权限管理](../manage-permision/)
+[团队权限管理](./manage-permision/)

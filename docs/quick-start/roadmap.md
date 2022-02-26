@@ -7,7 +7,7 @@ description: This document defines the roadmap for Rainbond development.
 
 当前最新版本：5.5.0
 
-#### V5.3 版本规划
+## V5.3 版本规划
 
 > 已发布 Release
 
@@ -26,7 +26,7 @@ description: This document defines the roadmap for Rainbond development.
 - [ ] 支持基于 OAM 规范扩展自定义组件类型。
   - [ ] 内置支持 RDS 云数据库组件类型。
 
-#### V5.2 版本规划
+## V5.2 版本规划
 
 > 已发布 Release
 
@@ -44,7 +44,7 @@ description: This document defines the roadmap for Rainbond development.
   - [x] 应用发布时支持选择目标应用。
   - [x] 应用发布支持发布为服务。
 
-#### V5.1 版本规划
+## V5.1 版本规划
 
 > 已发布 Release
 
@@ -61,7 +61,7 @@ description: This document defines the roadmap for Rainbond development.
 - [x] 支持完整的服务生命操作和属性变更操作的记录和跟踪
 - [x] 支持服务运行实例信息可视化展示和详细查询
 
-##### 应用运行时
+## 应用运行时
 
 - [x] 支持第三方组件管理集成
   - [x] 支持内部服务 ServiceMesh 架构集成
@@ -71,30 +71,30 @@ description: This document defines the roadmap for Rainbond development.
 - [x] ServiceMesh 支持 envoy XDS 规范
 - [x] 支持组件批量操作时控制组件批量启动顺序
 
-#### 应用网关
+## 应用网关
 
 - [x] 支持暴露域名、组件的访问情况实时监控数据
 - [x] 支持访问策略的高级配置参数（超时时间，上传限制等）
 - [x] 支持多 IP 管理功能，TCP 协议支持选择不同 IP 地址
 
-#### UI 控制台
+## UI 控制台
 
 - [x] 团队总览改版，支持更多监控数据可视化
 - [x] 支持各语言编译参数设置
 - [x] 支持从应用市场跨版本进行应用升级
 - [x] 支持组件构建源的重新检测
 
-#### 源码构建
+## 源码构建
 
 - [x] 支持 NodeJS 前端项目源码构建
 - [x] 静态语言类型增加对 Nginx 的支持
 - [x] 支持各语言编译参数的 UI 设置
 
-#### 安装&基础环境
+## 安装&基础环境
 
 - [x] 默认安装 Docker 版本升级到`18.06.3-ce`
 - [x] 支持安装时指定 NFS Server 地址
 
 关于 5.1 版本规划如果你有建议请于 Rainbond 社区[t.goodrain.com](https://t.goodrain.com)反馈
 
-[5.1 以前版本规划详情](../roadmap.5.0/)
+<!-- [5.1 以前版本规划详情](../roadmap.5.0/) -->

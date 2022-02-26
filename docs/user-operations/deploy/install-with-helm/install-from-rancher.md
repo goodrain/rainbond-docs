@@ -3,7 +3,6 @@ title: 基于Rancher安装
 description: 本文适用于正在使用 Rancher 或对 Rancher 有所了解的用户, 参考如何在 Rancher 中安装 Rainbond 控制台。
 aliases:
   - /docs/install/other-methods/install-from-rancher/
-hidden: true
 ---
 
 > 本文适用于正在使用 Rancher 或对 Rancher 有所了解的用户。
@@ -136,7 +135,7 @@ spec:
 
 ### 参考视频
 
-<!-- {{<bibili-video src="//player.bilibili.com/player.html?aid=846645893&bvid=BV1a54y1n7Ch&cid=368992863&page=1" href="https://www.bilibili.com/video/BV1a54y1n7Ch/" title="基于Rancher安装Rainbond">}} -->
+基于Rancher安装Rainbond: https://www.bilibili.com/video/BV1a54y1n7Ch/
 
 ### 常见问题
 

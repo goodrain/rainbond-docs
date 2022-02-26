@@ -37,7 +37,7 @@ Rainbond 是云原生且易用的云原生应用管理平台。云原生应用�
 
 ### 编译项目
 
-Rainbond 主要由以下三个项目组成。点击查看[技术架构](https://www.rainbond.com/docs/architecture/architecture/)
+Rainbond 主要由以下三个项目组成。点击查看[技术架构](../architecture/)
 
 ![rainbond-compile-arch](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/quick-start/rainbond-compile-architecture.png)
 
@@ -187,7 +187,7 @@ git clone https://github.com/goodrain/rainbond.git
 ##### 前提条件
 
 1. 已经安装好 Rainbond 的测试环境
-2. Kubectl 命令，可参考[该文档](https://www.rainbond.com/docs/user-operations/tools/kubectl/)安装
+2. Kubectl 命令，可参考[该文档](../user-operations/tools/kubectl/)安装
 
 ##### 运行镜像
 

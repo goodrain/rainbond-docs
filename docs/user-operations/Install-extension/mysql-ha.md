@@ -18,7 +18,7 @@ weight: 1020
 
 - 硬件资源
 
-根据 [软件和硬件环境要求](/docs/user-operations/install/ha-deployment/resource-prepare/) 准备硬件资源。
+根据 软件和硬件环境要求 准备硬件资源。
 
 - 获取镜像
 

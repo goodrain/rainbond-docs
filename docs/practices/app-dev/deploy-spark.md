@@ -17,7 +17,7 @@ Standalone 是 Spark 自身提供的一种主从集群部署模式。本文讲�
 
 ### 部署步骤
 
-> 开始前，你需要完成Rainbond平台的安装和搭建，参考[Rainbond 安装与部署](https://www.rainbond.com/docs/quick-start/quick-install/) 本参考文档适合已掌握Rainbond 基础操作的同学，因此如果你还刚接触Rainbond平台，请先参考 [Rainbond 快速入门指南](https://www.rainbond.com/docs/get-start/)
+> 开始前，你需要完成Rainbond平台的安装和搭建，参考[Rainbond 安装与部署](../../quick-start/quick-install/) 本参考文档适合已掌握Rainbond 基础操作的同学，因此如果你还刚接触Rainbond平台，请先参考 [Rainbond 快速入门指南](../../get-start/team-management-and-multi-tenancy)
 
 #### 部署单实例的master服务
 

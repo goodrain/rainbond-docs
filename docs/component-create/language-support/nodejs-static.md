@@ -46,7 +46,7 @@ yarn run build
 
 #### 图形化设置
 
-Rainbond 支持图形化定义编译运行环境，配置位于服务组件的构建源页面。**对这些配置的修改，需要通过 [构建](/docs/user-manual/component-op/basic-operation/basic-operation/) 来生效！**
+Rainbond 支持图形化定义编译运行环境，配置位于服务组件的构建源页面。**对这些配置的修改，需要通过 [构建](../../user-manual/component-op/basic-operation) 来生效！**
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/component-create/language-support/nodejsstatic/nodejsstatic-1.png" title="编译运行环境定义"/>
 
@@ -142,7 +142,7 @@ server {
 
 **rainbondfile**
 
-在源代码根目录下加入 [rainbondfile](/docs/component-create/language-support/rainbondfile/) 可以为服务组件定义环境变量，构建过程中更多的配置，可以通过环境变量的方式定义。
+在源代码根目录下加入 [rainbondfile](../language-support/rainbondfile) 可以为服务组件定义环境变量，构建过程中更多的配置，可以通过环境变量的方式定义。
 
 在 Rainbond 源码构建的过程中，为服务组件定义的 `BUILD_` 开头的变量，可以被传入构建环境中使用。部分常用的环境变量如下:
 
@@ -160,7 +160,7 @@ Nodejs 前端项目源码构建过程完成后，Rainbond 会自动将服务组�
 
 #### Procfile 规范
 
-Rainbond 通过源代码根目录下的 `Procfile` 文件来定义项目启动命令，`Procfile` 文件定义规范详见 [Procfile](/docs/component-create/language-support/procfile/) 。
+Rainbond 通过源代码根目录下的 `Procfile` 文件来定义项目启动命令，`Procfile` 文件定义规范详见 [Procfile](../language-support/procfile) 。
 
 如果未定义 Procfile，会生成如下默认 Procfile
 

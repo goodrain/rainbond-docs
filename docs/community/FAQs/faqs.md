@@ -11,7 +11,7 @@ toc: true
 
 #### Rainbond 是什么？
 
-参考 [Rainbond 是什么](/docs/quick-start/rainbond_overview/)
+参考 [Rainbond 是什么](/)
 
 #### 跟 IaaS 区别
 

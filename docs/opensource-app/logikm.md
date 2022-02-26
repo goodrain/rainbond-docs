@@ -10,7 +10,7 @@ weight: 7005
 
 ### 快速部署Logikm
 
-首先根据快速安装文档部署 [Rainbond](/docs/quick-start/quick-install/)
+首先根据快速安装文档部署 [Rainbond](../quick-start/quick-install/)
 
 LogiKm 已发布至 `开源应用商店` ，用户可搜索 `logikm`，一键安装 Logikm Kafka Manager
 

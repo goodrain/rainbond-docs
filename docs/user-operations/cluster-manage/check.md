@@ -34,7 +34,7 @@ Rainbond 集群初始化控制过程如下：
 
 > rainbond 系统组件都安装在 rbd-system namespace 下，基于一定顺序进行安装。`kubectl get pod -n rbd-system` 进行 pod 信息查询。
 
-> 通过指定节点按照的集群节点中默认不带`kubectl`命令，参考[文档](/docs/user-operations/tools/kubectl/)进行安装。
+> 通过指定节点按照的集群节点中默认不带`kubectl`命令，参考[文档](../tools/kubectl/)进行安装。
 
 > 第一步安装基础组件包括：rainbond-operator, nfs-provider(如果初始化参数中指定了外部存储服务，无该组件), rbd-hub（如果初始化参数中指定了外部镜像仓库服务，无该组件）,rbd-etcd（如果初始化参数中指定了外部 etcd 服务，无该组件）,rbd-gateway, rbd-node
 
@@ -42,7 +42,7 @@ Rainbond 集群初始化控制过程如下：
 
 常见问题有：
 
-- rbd-gateway 无法正常运行。一般是端口冲突，特别是集群中已经存在 ingress-controller 的情况下很大可能出现冲突。rbd-gateway 运行需要节点以下端口必须空闲：80，443，8443，6060，10254, 18080, 18081。如果存在 ingress-controller，需要选择无 ingress-controller 作为 Rainbond 网关节点，在 rainbondcluster 集群初始化配置资源中指定 nodesForGateway，[参考文档](../init-region)。
+- rbd-gateway 无法正常运行。一般是端口冲突，特别是集群中已经存在 ingress-controller 的情况下很大可能出现冲突。rbd-gateway 运行需要节点以下端口必须空闲：80，443，8443，6060，10254, 18080, 18081。如果存在 ingress-controller，需要选择无 ingress-controller 作为 Rainbond 网关节点，在 rainbondcluster 集群初始化配置资源中指定 nodesForGateway，[参考文档](./init-region)。
 
 - rbd-etcd 无法正常运行。主要原因有运行该组件的节点磁盘性能低或 IO 紧张。etcd 服务是集群稳定的关键服务，需要尽可能配置 SSD 磁盘。
 

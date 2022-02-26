@@ -42,13 +42,13 @@ description: Rainbond团队概念讲解和创建方式说明
 
 #### 添加团队成员
 
-在团队视图设置中`设置`-->`成员`-->`添加成员`，找到要添加的用户和将要授予的权限，确认添加即可，必须是已经添加到企业中的用户才可以加入团队，添加平台用户参考 [用户管理](/docs/enterprise-manager/user-registration-login/user-register/)
+在团队视图设置中`设置`-->`成员`-->`添加成员`，找到要添加的用户和将要授予的权限，确认添加即可，必须是已经添加到企业中的用户才可以加入团队，添加平台用户参考 [用户管理](../../../enterprise-manager/user-registration-login/user-register/)
 
 ![团队成员管理](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Add%20member.png)
 
 #### 角色管理
 
-请参考 [角色权限管理](/docs/user-manual/manage-team/manage-permision/)
+请参考 [角色权限管理](../../../user-manual/manage-team/manage-permision/)
 
 
 

@@ -3,7 +3,7 @@ title: 构建源管理
 description: 本文讲解Rainbond组件各类型构建源管理方式，包括更改代码地址、分支、账号密码，设置构建参数等功能
 ---
 
-Rainbond 组件创建有三种模式：[源码](/docs/user-manual/component-create/language-support/)、[镜像](/docs/user-manual/component-create/image-support/)和应用市场，不同的创建方式对应组件不同的构建源类型。 对于开发者来说可能需要经常修改代码分支、镜像 Tag，构建环境参数等。这些需求通过对组件构建源的相关设置完成。
+Rainbond 组件创建有三种模式：[源码](../../component-create/language-support/java/java-maven)、[镜像](../../component-create/image-support/image)和应用市场，不同的创建方式对应组件不同的构建源类型。 对于开发者来说可能需要经常修改代码分支、镜像 Tag，构建环境参数等。这些需求通过对组件构建源的相关设置完成。
 
 - 源码
 
@@ -23,11 +23,11 @@ Rainbond 组件创建有三种模式：[源码](/docs/user-manual/component-crea
 
 ### 自动构建设置
 
-自动构建即通过一种方式自动触发 Rainbond 组件版本构建的操作，详细文档见 [组件自动构建](../auto_build/)
+自动构建即通过一种方式自动触发 Rainbond 组件版本构建的操作，详细文档见 [组件自动构建](./auto_build)
 
 ### 构建参数设置
 
-> 请注意，各语言配置项可能随着版本的升级而变更，因此请以产品体现为主。或参考 [各开发语言支持规范](/docs/user-manual/component-create/language-support/)
+> 请注意，各语言配置项可能随着版本的升级而变更，因此请以产品体现为主。
 
 #### JAVA Maven 语言类型
 

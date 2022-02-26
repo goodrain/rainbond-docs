@@ -1,7 +1,5 @@
 ---
 title: '社区分享活动记录'
-# aliases:
-#   - /docs/upcoming-events
 description: '记录Rainbond社区周期性分享和会议的记录'
 ---
 
@@ -17,7 +15,7 @@ description: '记录Rainbond社区周期性分享和会议的记录'
 
 主要采用钉钉群直播的形式进行分享和探讨，参与者和组织者可进行连麦对话。请参与者提前进入 Rainbond 社区钉钉群。
 
-![](https://static.goodrain.com/images/5.3/dingding.png)
+<img src="https://static.goodrain.com/images/5.3/dingding.png" width="30%" />
 
 #### 分享内容包括
 

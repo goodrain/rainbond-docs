@@ -1,10 +1,12 @@
-<!-- ---
-title: "高可用安装Rainbond集群"
+---
+title: "基于主机高可用安装"
 description: "高可用安装Rainbond集群"
+aliases:
+  - /docs/user-operations/ha-deployment/ha-installation/
 ---
 
 
-本文描述如何部署高可用的 Rainbond 集群，适用于生产环境。
+本文描述如何在没有提供 Kubernetes 集群的情况下，部署高可用的 Rainbond 集群，适用于生产环境。
 
 ### 前提条件
 
@@ -75,31 +77,31 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-release-allinone
 待容器启动成功后，稍等片刻即可在浏览器中访问服务器 `7070` 端口，打开 Rainbond 控制台 **注册页面**。
 
 
-<image src="https://static.goodrain.com/images/5.3/regist.png" title="控制台注册页面" width="100%"/>
+<images src="https://static.goodrain.com/images/5.3/regist.png" title="控制台注册页面" width="100%"/>
 
 到此，恭喜您已经完成了第一步，你还需要继续完成集群的部署。
- 
+
 
 
 ### 五. 部署Kubernetes
 
 
-1.在左侧导航栏选择 **集群->添加集群->从主机开始安装**，填写相关信息
+1.在左侧导航栏选择 **集群-->添加集群-->从主机开始安装**，填写相关信息
 
 - 当前使用的为阿里云服务器，拥有外网IP，在私有部署时服务器没有外网IP的情况下 IP地址和内网IP地址 **统一填写服务器IP地址** 即可；
 - 当前演示集群为3个节点，Kubernetes属性 ETCD、管理、计算属性 复用，在自行部署时**根据自身规划**选择节点属性即可。
 
-<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/add-host.png" title="控制台注册页面" width="100%"/>
+<images src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/add-host.png" title="控制台注册页面" width="100%"/>
 
 
 2.节点信息填写完毕后，根据页面提示复制节点初始化命令在集群内所有服务器上执行
 
-<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init.jpg" title="节点初始化" width="100%"/>
+<images src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init.jpg" title="节点初始化" width="100%"/>
 
 
 3.初始化完成后，点击 **下一步**，等待 Kubernetes 集群安装成功即可，待状态为 **运行中** 状态时进行下一步操作
 
-<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/installed-successfully.png" title="Kubernetes集群状态" width="100%"/>
+<images src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/installed-successfully.png" title="Kubernetes集群状态" width="100%"/>
 
 
 4.安装`kubectl`命令。
@@ -243,4 +245,4 @@ spec:
 
 部署完成后将 All-In-One 模式部署的控制台迁移至 Rainbond 中管理，使其具有高可用特性  参考文档[控制台迁移](../install-with-ui/console-recover)。
 
--->
+ 

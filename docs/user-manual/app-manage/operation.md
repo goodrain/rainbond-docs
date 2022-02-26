@@ -21,8 +21,8 @@ description: 讲述Rainbond应用的基础操作
 
 #### 应用的其他操作
 
-* [发布到共享库](../share-app/)
-* [备份、恢复与迁移](../app-backup/)
-* [应用网关管理](/docs/user-manual/gateway/)
-* [应用升级](/docs/user-manual/app-manage/upgrade_app/)
-* [添加服务组件](../add-service/)
+* [发布到共享库](./share-app/)
+* [备份、恢复与迁移](./app-backup/)
+* [应用网关管理](../gateway/domain)
+* [应用升级](./upgrade_app)
+* [添加服务组件](./add-service)

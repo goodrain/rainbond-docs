@@ -17,26 +17,26 @@ description: "接入已安装Kubernetes集群"
 
 - 在集群页面选择 `接入Kubernetes集群`
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/install-fromk8s.png" title="接入Kubernetes集群" width="100%" />
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/install-fromk8s.png" title="接入Kubernetes集群" width="100%"/>
 
 - 填写集群名称及KubeConfig文件内容
 
 自定义集群名称即可，KubeConfig文件一般情况下在Kubernetes集群master节点的`~/.kube/config`路径下。
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/docking-k8s.png" title="对接Kubernetes集群" width="100%" />
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/docking-k8s.png" title="对接Kubernetes集群" width="100%"/>
 
 - 初始化Rainbond
 
 添加Kubernetes集群以后，健康状态显示运行中，此时根据引导即可完成Rainbond的安装，待平台集群初始化后即完成对接。
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/state.png" title="健康状态" width="100%" />
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/state.png" title="健康状态" width="100%"/>
 
 - 完成对接
 
 添加完成后集群处于运行中状态即完成对接，可以进行使用。
  
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/verify.png" title="完成对接" width="100%" />
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/verify.png" title="完成对接" width="100%"/>
 
 ## 控制台迁移
 
-使用该方式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理  [参考文档](/docs/user-operations/ha-deploy/console-recover/)。
+使用该方式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理  [参考文档](../install-with-ui/console-recover/)。

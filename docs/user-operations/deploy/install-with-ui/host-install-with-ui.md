@@ -1,5 +1,6 @@
 ---
 title: '基于主机安装'
+weight: 100
 description: '基于图形化界面，从主机开始安装 Rainbond '
 ---
 
@@ -49,7 +50,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-release-allinone
 
 待容器启动成功后，稍等片刻即可在浏览器中访问服务器 `7070` 端口，打开 Rainbond 控制台`注册页面`。请根据提示完成注册操作。
 
-<img src="https://static.goodrain.com/images/5.3/regist.png" title="注册页面" width="100%" />
+<image src="https://static.goodrain.com/images/5.3/regist.png" title="注册页面" width="100%"/>
 
 到此，恭喜您已经完成了第一步，你还需要继续完成集群的部署。
 
@@ -57,7 +58,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-release-allinone
 
 登录控制台后，根据左侧导航栏切换到 `集群` 页面，点击 `添加集群` ，进入图形化安装页面。
 
-<img src="https://static.goodrain.com/docs/5.5/user-operations/deploy/install-with-ui/host-install-with-ui/host-install-with-ui-1.png" title="从主机开始安装" width="100%" />
+<image src="https://static.goodrain.com/docs/5.5/user-operations/deploy/install-with-ui/host-install-with-ui/host-install-with-ui-1.png" title="从主机开始安装" width="100%"/>
 
 选择 `从主机开始安装` 进入基于主机的安装流程。
 
@@ -67,33 +68,33 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.5.0-release-allinone
 - 当前演示集群为3个节点，Kubernetes属性 ETCD、管理、计算属性 复用，在自行部署时**根据自身规划**选择节点属性即可。
 - kubernetes 集群的安装过程中可以自定义参数，请参考文档 [RKE集群配置](/docs/user-operations/cluster-manage/manage-rke-cluster/)。
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/add-host.png" title="节点列表" width="100%" />
+<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/add-host.png" title="节点列表" width="100%"/>
 
 
 节点信息填写完毕后，根据页面提示复制节点初始化命令在集群内所有服务器上执行
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init.jpg" title="节点初始化" width="100%" />
+<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init.jpg" title="节点初始化" width="100%"/>
 
 
 初始化完成后，点击 **下一步**，等待 Kubernetes 集群安装成功即可，待状态为 **运行中** 状态时进行下一步操作
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/installed-successfully.png" title="Kubernetes集群状态" width="100%" />
+<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/installed-successfully.png" title="Kubernetes集群状态" width="100%"/>
 
 执行完以上操作后在控制台页面选中当前集群，点击进行下一步
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init-rainbond.jpg" title="初始化Rainbond集群" width="100%" />
+<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init-rainbond.jpg" title="初始化Rainbond集群" width="100%"/>
 
 **自定义集群初始化参数**
 
 Rainbond 的安装部署过程中可以自定义集群初始化参数，在初始化平台集群界面进行配置，具体参数参考文档 [初始化Rainbond集群参数说明](/docs/user-operations/cluster-manage/init-region/)。
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/custom-parameters.jpg" title="自定义集群参数" width="100%" />
+<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/custom-parameters.jpg" title="自定义集群参数" width="100%"/>
 
 勾选 **我已阅读并已清楚认识上述注意事项** 后，点击 `开始初始化` ，等待安装完成即可。
 
 ### 控制台迁移
 
-All-In-One 模式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理 [参考文档](/docs/user-operations/ha-deploy/console-recover/)。
+All-In-One 模式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理 [参考文档](../install-with-ui/console-recover)。
 
 
 ### 常见问题

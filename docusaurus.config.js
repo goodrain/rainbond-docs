@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Rainbond',
   tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  url: 'https://www.rainbond.com',
+  baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/rainbond.png',
@@ -51,23 +51,18 @@ const config = {
         items: [
           {
             position: 'left',
-            label: 'Rainbond是什么?',
-            href: 'http://www.baidu.com'
-          },
-          {
-            position: 'left',
             label: '安装',
-            href: 'http://www.baidu.com'
+            to: '/docs/quick-start/quick-install/'
           },
           {
             position: 'left',
             label: '文档',
-            href: 'http://www.baidu.com'
+            to: '/docs/',
           },
           {
             position: 'right',
             label: '视频',
-            href: 'http://www.baidu.com'
+            href: 'https://www.rainbond.com/video/'
           },
           {
             position: 'right',
@@ -77,7 +72,7 @@ const config = {
           {
             position: 'right',
             label: '案例',
-            href: 'http://www.baidu.com'
+            href: 'https://www.goodrain.com/#refer-case'
           },
           {
             position: 'right',
@@ -88,11 +83,6 @@ const config = {
             position: 'right',
             label: '企业服务',
             href: 'https://www.goodrain.com/'
-          },
-          {
-            position: 'right',
-            label: '加入我们',
-            href: 'http://www.goodrain.com/position/'
           },
           {
             href: 'https://github.com/goodrain/rainbond',
@@ -107,8 +97,37 @@ const config = {
       },
       prism: {
         darkTheme: darkCodeTheme
-      }
-    })
+      },
+      announcementBar: {
+        id: "start",
+        content:
+          '⭐️ If you like Rainbond, give it a star on <a target="_blank" href="https://github.com/goodrain/rainbond">GitHub</a> !',
+      },
+    }),
+    plugins: [
+      [
+        '@docusaurus/plugin-client-redirects',
+        {
+          redirects: [
+            {
+              // 社区分享活动记录
+              to: '/community/upcoming-events',
+              from: ['/docs/upcoming-events'],
+            },
+            {
+              // 技术架构
+              to: '/architecture/',
+              from: ['/docs/architecture/architecture'],
+            },
+            {
+              // 组件基础操作
+              to: '/user-manual/component-op/basic-operation/service-properties',
+              from: ['/docs/user-manual/component-op/basic-operation/service-properties'],
+            },
+          ],
+        },
+      ],
+    ],
 };
 
 module.exports = config;

@@ -57,7 +57,6 @@ java.runtime.version=1.8
 
 OracleJDK 下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.tar.gz`
 
-{{% notice info %}}
 平台设置的配置优先级要高于程序代码中定义的配置，如 Java JDK 版本的选择,在程序代码里通过`system.properties`指定了 JDK 版本为 1.9,在平台上选择了 JDK 版本为 11,那么默认在进行源码编译时会优先使用平台指定的版本 JDK11
 
 ### 示例 demo 程序
@@ -66,9 +65,10 @@ OracleJDK 下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.t
 
 ### 推荐阅读
 
-- [Java-Maven 源码构建应用](../java-maven/)
-- [Java-War 源码构建应用](../java-war/)
-- [Java-Jar 源码构建应用](../java-jar/)
-- [Tomcat 配置 Redis 实现 Session 共享](../tomcat-redis-session/)
-- [RAINBOND 源码构建 JAVA 项目选取 JDK](/docs/advanced-scenarios/devops/how-to-select-jdk/)
-- [Rainbond 源码构建 JAVA 项目配置 Maven 仓库](/docs/advanced-scenarios/devops/how-to-config-maven/)
+- [Java-Maven 源码构建应用](./java-maven)
+- [Java-War 源码构建应用](./java-war)
+- [Java-Jar 源码构建应用](./java-jar)
+- [Tomcat 配置 Redis 实现 Session 共享](./tomcat-redis-session)
+
+<!-- - [RAINBOND 源码构建 JAVA 项目选取 JDK](./advanced-scenarios/devops/how-to-select-jdk/)
+- [Rainbond 源码构建 JAVA 项目配置 Maven 仓库](../advanced-scenarios/devops/how-to-config-maven/) -->

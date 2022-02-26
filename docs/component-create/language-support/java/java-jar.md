@@ -11,7 +11,7 @@ aliases:
 
 ### 平台编译运行机制
 
-1. 预编译处理会探测是否定义了启动命令配置文件 [Procfile](/docs/component-create/language-support/procfile/) ,如果未定义会生成默认 Jar 包启动配置文件;
+1. 预编译处理会探测是否定义了启动命令配置文件 [Procfile](../procfile) ,如果未定义会生成默认 Jar 包启动配置文件;
 2. 预编译处理完成后,会根据语言类型选择 Java-jar 的 buildpack 去编译项目.在编译过程中会安装定义的 JDK 版本;
 3. 编译完成后会检查是否在平台设置了 Procfile 参数,若配置了会重写启动命令配置文件 Procfile.
 
@@ -83,9 +83,10 @@ OracleJDK 下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.t
 
 ### 推荐阅读
 
-- [Java-Maven 源码构建应用](../java-maven/)
-- [Java-War 源码构建应用](../java-war/)
-- [Java-Gradle 源码构建应用](../java-gradle/)
-- [Tomcat 配置 Redis 实现 Session 共享](../tomcat-redis-session/)
-- [RAINBOND 源码构建 JAVA 项目选取 JDK](/docs/advanced-scenarios/devops/how-to-select-jdk/)
-- [Rainbond 源码构建 JAVA 项目配置 Maven 仓库](/docs/advanced-scenarios/devops/how-to-config-maven/)
+- [Java-Maven 源码构建应用](./java-maven/)
+- [Java-War 源码构建应用](./java-war/)
+- [Java-Gradle 源码构建应用](./java-gradle/)
+- [Tomcat 配置 Redis 实现 Session 共享](./tomcat-redis-session/)
+
+<!-- - [RAINBOND 源码构建 JAVA 项目选取 JDK](../advanced-scenarios/devops/how-to-select-jdk/)
+- [Rainbond 源码构建 JAVA 项目配置 Maven 仓库](../advanced-scenarios/devops/how-to-config-maven/) -->
