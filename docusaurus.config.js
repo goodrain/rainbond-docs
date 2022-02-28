@@ -26,7 +26,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          editUrl: 'https://github.com/goodrain/rainbond-docs/tree/V5.5-dev',
+          editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
           includeCurrentVersion: false,
           lastVersion: "current",
           versions: {
