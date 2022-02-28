@@ -26,7 +26,14 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          editUrl: 'https://github.com/goodrain/rainbond-docs/tree/V5.5-dev'
+          editUrl: 'https://github.com/goodrain/rainbond-docs/tree/V5.5-dev',
+          includeCurrentVersion: false,
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: 'v5.3-v5.5',
+            },
+          },
         },
         theme: {
           customCss: [
@@ -58,6 +65,10 @@ const config = {
             position: 'left',
             label: '文档',
             to: '/docs/',
+          },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
           },
           {
             position: 'right',
