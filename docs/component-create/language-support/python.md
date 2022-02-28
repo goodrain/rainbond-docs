@@ -1,9 +1,6 @@
 ---
 title: Python
 description: Python语言类型Rainbond支持规范介绍
-aliases:
-  - /docs/user-manual/component-create/language-support/python/
-  - /docs/user-manual/app-creation/language-support/python/
 ---
 
 #### Python 语言识别策略

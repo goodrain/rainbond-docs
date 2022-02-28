@@ -1,8 +1,6 @@
 ---
 title: '对接Helm仓库'
 description: '在Rainbond中对接Helm仓库'
-aliases:
-  - /docs/user-manual/app-creation/helm-support/docking_helm_store/
 ---
 
 跟随本文档完成 Helm 仓库的对接，使开发者或运维人员能够基于 Helm 仓库部署应用

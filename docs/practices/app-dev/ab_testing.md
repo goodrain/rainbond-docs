@@ -2,8 +2,6 @@
 title: 基于 Rainbond 实现组件A/B测试
 Description: 基于 Rainbond 的组件 A/B测试 方案详解
 weight: 40
-aliases:
-  - /docs/get-start/best-practices/ab_testing/
 ---
 
 ## 一. 概述

@@ -1,9 +1,6 @@
 ---
 title: 静态HTML
 description: 静态Html语言类型Rainbond支持规范介绍
-aliases:
-  - /docs/user-manual/component-create/language-support/html/
-  - /docs/user-manual/app-creation/language-support/html/
 ---
 
 #### 静态 HTML 识别策略

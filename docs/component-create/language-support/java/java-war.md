@@ -1,8 +1,6 @@
 ---
 title: Java War包部署组件
 description: 讲述Java War包部署组件要点，适用于开发者和运维人员参考。
-aliases:
-  - /docs/user-manual/component-create/language-support/java/java-war/
 ---
 
 ### War 项目识别策略

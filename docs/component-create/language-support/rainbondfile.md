@@ -1,8 +1,6 @@
 ---
 title: rainbondfile源码定义环境配置文件
 description: 讲解rainbondfile文件的用法
-aliases:
-  - /docs/user-manual/component-create/language-support/etc/rainbondfile/
 ---
 
 ## rainbondfile 介绍

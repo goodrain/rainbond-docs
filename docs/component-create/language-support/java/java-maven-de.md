@@ -1,8 +1,6 @@
 ---
 title: Rainbond构建Java Maven项目原理解读
 description: Rainbond构建Java Maven项目原理解读
-aliases:
-  - /docs/user-manual/component-create/language-support/java/java-maven-de/
 ---
 
 ### Apache Maven 相关知识说明

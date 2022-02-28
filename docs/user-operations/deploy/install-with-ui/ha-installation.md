@@ -1,8 +1,6 @@
 ---
 title: "基于主机高可用安装"
 description: "高可用安装Rainbond集群"
-aliases:
-  - /docs/user-operations/ha-deployment/ha-installation/
 ---
 
 

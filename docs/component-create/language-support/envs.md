@@ -1,8 +1,6 @@
 ---
 title: 其他环境变量设置
 description: 其他环境变量设置
-aliases:
-  - /docs/user-manual/component-create/language-support/etc/envs/
 ---
 
 ### 源码应用设置 locale

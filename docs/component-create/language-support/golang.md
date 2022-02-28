@@ -1,9 +1,6 @@
 ---
 title: Golang
 description: Golang语言类型Rainbond支持规范介绍
-aliases:
-  - /docs/user-manual/component-create/language-support/golang/
-  - /docs/user-manual/app-creation/language-support/golang/
 ---
 
 ### Golang 语言识别方式

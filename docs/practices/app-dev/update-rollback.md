@@ -1,8 +1,6 @@
 ---
 title: 基于Rainbond实现一键上线/回滚
 description: 本篇最佳实践讲解基于Rainbond实现应用的一键上线/回滚。
-aliases:
-  - /docs/get-start/best-practices/update-rollback/
 ---
 
 

@@ -1,8 +1,6 @@
 ---
 title: 服务间通信（服务注册与服务发现）
 description: 本文解读Rainbond内置的服务注册与服务发现机制对组件间通信的作用。
-# aliases:
-#   - /docs/user-manual/app-service-manage/service-rely/
 ---
 
 > 本文适用于应用开发者和运维人员

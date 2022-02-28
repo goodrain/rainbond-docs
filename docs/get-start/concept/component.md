@@ -1,8 +1,6 @@
 ---
 title: '组件'
 description: 介绍Rainbond组件的概念和设计思考
-aliases:
-  - /docs/user-manual/concept/component/
 ---
 
 组件的作用是使开发人员能够不用关注底层基础架构的情况下定义业务单元的部署模式，组件描述了可以作为大型分布式应用程序的一部分进行实例化的功能单元。例如，应用程序中的每个微服务都被描述为一个组件。再例如 Wordpress+Mysql 的业务系统 Wordpress 和 Mysql 被分别描述为组件。

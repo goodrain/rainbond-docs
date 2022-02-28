@@ -1,8 +1,6 @@
 ---
 title: .slugignore文件
 description: 讲解.slugignore文件的用法和作用
-aliases:
-  - /docs/user-manual/component-create/language-support/etc/slugignore/
 ---
 
 ### .slugignore 文件作用介绍

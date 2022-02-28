@@ -1,8 +1,6 @@
 ---
 title: Procfile文件
 description: 讲解Procfile文件的用法
-aliases:
-  - /docs/user-manual/component-create/language-support/etc/procfile/
 ---
 
 ### Procfile 介绍

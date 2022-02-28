@@ -1,9 +1,6 @@
 ---
 title: .NetCore
 description: .NetCore语言类型Rainbond支持规范介绍
-aliases:
-  - /docs/user-manual/component-create/language-support/netcore/
-  - /docs/user-manual/app-creation/language-support/netcore/
 ---
 
 #### .NetCore 语言类型识别策略

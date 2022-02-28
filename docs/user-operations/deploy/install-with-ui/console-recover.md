@@ -1,9 +1,6 @@
 ---
 title: "控制台迁移"
 description: "该文档描述控制台迁移方式，适用于从体验环境迁移控制台到高可用集群环境。"
-aliases:
-  - /docs/user-operations/ha-deploy/console-recover/
-weight: 1020
 ---
 
 我们建议在您通过[快速部署](/docs/quick-start/quick-install/) 完成 Rainbond 和集群的部署，已经基本体验了 Rainbond 后，将单机部署的控制台迁移到 Rainbond 中进行管理。
