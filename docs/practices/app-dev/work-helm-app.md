@@ -1,9 +1,6 @@
 ---
 title: 基于 Helm 应用部署 Wordpress
 Description: 在 Rainbond 5.3.1 版本中基于 Helm 应用安装方式部署 Wordpress 参考文档
-weight: 22005
-aliases:
-  - /docs/practices/app-dev/work-helm-app/
 ---
 
 Helm 是 Kubernetes 中的一个开源软件包管理工具，Rainbond 从 5.3.1 版本开始支持部署 Helm 应用。实现 Helm 应用的便捷部署，访问控制。使 Rainbond 用户可以使用 Kubernetes 生态定义的应用，其主要场景是安装使用中间件应用。

@@ -1,8 +1,6 @@
 ---
 title: '应用'
 description: 介绍Rainbond应用的概念和设计思考
-aliases:
-  - /docs/user-manual/concept/app/
 ---
 
 应用级作用域属于团队下级资源，是由多个组件构建的逻辑应用程序，通常意义讲，应用可以是一个业务系统，一个业务架构或者一些同类属性的组件集合。

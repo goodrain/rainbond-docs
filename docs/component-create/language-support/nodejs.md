@@ -1,9 +1,6 @@
 ---
 title: Node.JS
 description: NodeJS语言类型Rainbond支持规范介绍
-aliases:
-  - /docs/user-manual/component-create/language-support/nodejs/
-  - /docs/user-manual/app-creation/language-support/nodejs/
 ---
 
 Rainbond 5.1 版本已支持源码部署 NodeJS 前端类项目，你可以直接在 Rainbond 发布 Vue, React, Angular 等项目

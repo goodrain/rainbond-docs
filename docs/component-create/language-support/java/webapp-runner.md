@@ -1,8 +1,6 @@
 ---
 title: webapp-runner使用指南
 description: how-to-use-rainbond
-aliases:
-  - /docs/user-manual/component-create/language-support/java/webapp-runner/
 ---
 
 webapp-runner 可以在任何安装有 JRE 环境的系统中利用 Tomcat 将应用程序启动。使用 webapp-runner 不需要安装 Tomcat。它只是一个 jar 文件可以用`java`命令运行和配置。Rainbond 运行 War 包、或 Maven 打包成 War 包的项目都默认使用 webapp-runner。

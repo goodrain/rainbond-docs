@@ -1,8 +1,6 @@
 ---
 title: 组件创建流程说明
 description: 本文介绍Rainbond创建组件的主要过程
-aliases:
-  - /docs/user-manual/component-create/creation-process/
 ---
 
 本篇文档介绍在 Rainbond 中创建组件的基础流程。

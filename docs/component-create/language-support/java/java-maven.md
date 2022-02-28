@@ -1,8 +1,6 @@
 ---
 title: Java Maven源码部署组件
 description: 本文介绍Java Maven源码部署组件的要点，适用于开发者参考。
-aliases:
-  - /docs/user-manual/component-create/language-support/java/java-maven/
 ---
 
 ### 原理文档阅读

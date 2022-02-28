@@ -1,8 +1,6 @@
 ---
 title: 'Helm应用管理'
 description: '在Rainbond中管理Helm应用'
-aliases:
-  - /docs/user-manual/app-creation/helm-support/manage-helm-app/
 ---
 
 跟随文档了解 Helm 应用在 Rainbond 平台中的管理，使开发者或运维人员能够管理及运维 Helm 应用。

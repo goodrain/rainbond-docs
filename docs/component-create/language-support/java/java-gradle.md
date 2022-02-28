@@ -1,8 +1,6 @@
 ---
 title: Java Gradle源码部署组件
 description: 本文介绍Java Gradle源码部署组件的要点，适用于开发者参考。
-aliases:
-  - /docs/user-manual/component-create/language-support/java/java-gradle/
 ---
 
 ### Gradle 项目识别策略

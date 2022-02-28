@@ -1,8 +1,6 @@
 ---
 title: '部署Helm应用'
 description: '根据文档完成Helm应用在Rainbond中的部署'
-aliases:
-  - /docs/user-manual/app-creation/helm-support/creation-process/
 ---
 
 跟随本文档使开发者或运维人员能够基于 Helm 仓库在 Rainbond 中部署应用。

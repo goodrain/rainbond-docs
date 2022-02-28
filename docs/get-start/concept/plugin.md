@@ -1,8 +1,6 @@
 ---
 title: '插件'
 description: 介绍Rainbond插件的概念和设计思考
-aliases:
-  - /docs/user-manual/concept/plugin/
 ---
 
 ### 插件的定义

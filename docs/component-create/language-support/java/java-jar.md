@@ -1,8 +1,6 @@
 ---
 title: Java Jar包部署组件
 description: 本文讲述Java Jar包部署组件的要点，适用于开发者和运维人员。
-aliases:
-  - /docs/user-manual/component-create/language-support/java/java-jar/
 ---
 
 ### Jar 项目识别策略

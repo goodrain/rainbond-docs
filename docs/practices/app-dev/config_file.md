@@ -1,9 +1,6 @@
 ---
 title: 组件配置文件实践
 Description: Rainbond 为组件添加配置文件的方法实践
-weight: 60
-aliases:
-  - /docs/get-start/best-practices/config_file/
 ---
 
 本篇文章将会介绍如何在 Rainbond 中为组件挂载配置文件以及多组件之间配置文件共享，适用于有多个组件需要使用同一个配置文件的场景, 可以直接共享, 无需多次编辑设置；共享的配置文件只会解析当前组件的环境变量；以下将会以 MariaDB 为例, 演示配置文件的使用。

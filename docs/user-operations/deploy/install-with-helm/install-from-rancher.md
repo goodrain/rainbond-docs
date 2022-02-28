@@ -1,8 +1,6 @@
 ---
 title: 基于Rancher安装
 description: 本文适用于正在使用 Rancher 或对 Rancher 有所了解的用户, 参考如何在 Rancher 中安装 Rainbond 控制台。
-aliases:
-  - /docs/install/other-methods/install-from-rancher/
 ---
 
 > 本文适用于正在使用 Rancher 或对 Rancher 有所了解的用户。

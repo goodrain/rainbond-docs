@@ -1,8 +1,6 @@
 ---
 title: '团队'
 description: 介绍Rainbond团队的概念和设计思考
-aliases:
-  - /docs/user-manual/concept/team/
 ---
 
 Rainbond 团队是企业下多租户资源划分的一个层级，在 Rainbond 多租户体系中，将资源划分为以下层级：

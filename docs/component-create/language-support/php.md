@@ -1,9 +1,6 @@
 ---
 title: PHP
 description: PHP语言类型Rainbond支持规范介绍
-aliases:
-  - /docs/user-manual/component-create/language-support/php/
-  - /docs/user-manual/app-creation/language-support/php/
 ---
 
 #### PHP 语言识别策略
