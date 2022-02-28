@@ -419,7 +419,8 @@ const sidebars = {
         'upgrade/5.3.1-upgrade',
         'upgrade/5.3.2-upgrade',
         'upgrade/5.4.0-upgrade',
-        'upgrade/5.5.0-upgrade'
+        'upgrade/5.5.0-upgrade',
+        'upgrade/5.6.0-upgrade'
       ]
     },
     {
@@ -434,7 +435,8 @@ const sidebars = {
         'community/change/5.3.1-5.3.2',
         'community/change/5.3.2-5.3.3',
         'community/change/5.3.3-5.4.0',
-        'community/change/5.4.0-5.5.0'
+        'community/change/5.4.0-5.5.0',
+        'community/change/5.5.0-5.6.0'
       ]
     },
     {
