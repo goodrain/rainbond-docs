@@ -98,11 +98,11 @@ const config = {
           }
         ]
       },
-      // algolia: {
-      //   appId: "4EFG0MCBR2",
-      //   apiKey: "449c9313e5dfd0ebb2c330a105b302b9",
-      //   indexName: "rainbond",
-      // },
+      algolia: {
+        appId: "4EFG0MCBR2",
+        apiKey: "449c9313e5dfd0ebb2c330a105b302b9",
+        indexName: "rainbond",
+      },
       footer: {
         style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} 北京好雨科技有限公司, Inc. All Rights Reserved. 京ICP备15028663号-4`
