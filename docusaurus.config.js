@@ -7,14 +7,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Rainbond',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Application Delivery Center',
   url: 'https://www.rainbond.com',
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/rainbond.png',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'goodrain', // Usually your GitHub org/user name.
+  projectName: 'rainbond-docs', // Usually your repo name.
 
   presets: [
     [
@@ -91,6 +91,11 @@ const config = {
           }
         ]
       },
+      // algolia: {
+      //   appId: "4EFG0MCBR2",
+      //   apiKey: "449c9313e5dfd0ebb2c330a105b302b9",
+      //   indexName: "rainbond",
+      // },
       footer: {
         style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} 北京好雨科技有限公司, Inc. All Rights Reserved. 京ICP备15028663号-4`

@@ -11,39 +11,39 @@ description: 本文主要介绍完整部署Rainbond所需要的所有服务组�
 
 #### 以下是通过一键部署方式将会在服务器安装的Rainbond各服务组件及其版本信息。
 
-<!-- |组件|版本|说明|
+|组件|版本|说明|
 |---|-----|---------------|
-|[rainbond-operator](../user-operations/component/rainbond-operator/)|v0.01|维护rainbond组件的配置与运行状态|
-|[rbd-api](../user-operations/component/rbd-api/)|5.x|rainbond区域中心API服务，提供底层服务接口|
-|[rbd-app-ui](../user-operations/component/rbd-app-ui/)|5.x|应用控制台web服务|
-|[rbd-chaos](../user-operations/component/rbd-chaos/)|5.x|应用构建服务，提供源码，Docker镜像等方式创建应用|
-|[rbd-db](../user-operations/component/rbd-db/)|5.x|云帮数据库服务，支持MySQL`5.6``5.7``8.0`|
-|[rbd-dns](../user-operations/component/rbd-dns/)|5.x|rainbond内部dns服务，可作为集群dns服务使用|
-|[etcd](../user-operations/component/etcd/)|v3.3.18|`etcd`存储集群的元数据信息，集群状态和网络配置|
-|[rbd-eventlog](../user-operations/component/rbd-eventlog/)|5.x|rainbond事件处理与日志汇聚服务|
-|[rbd-gateway](../user-operations/component/rbd-gateway/)|5.x|通向应用的全局网关，提供A/B测试、灰度发布等高级功能|
-|[rbd-hub](../user-operations/component/rbd-hub/)|v2.6.2|基于[Docker Registry](https://docs.docker.com/registry/)封装，提供docker镜像存储服务|
-|[rbd-mq](../user-operations/component/rbd-mq/)|5.x|消息队列服务|
-|[rbd-nfs](../user-operations/component/rbd-mq/)|v2.2.1|存储服务|
-|[rbd-node](../user-operations/component/rbd-node/)|5.x|集群监控与控制，docker证书分发|
-|[rbd-repo](../user-operations/component/rbd-repo/)|v6.16.0|源码构建仓库服务，基于[Artifactory OSS](https://jfrog.com/open-source/)封装|
-|[rbd-webcli](../user-operations/component/rbd-webcli/)|5.x|提供应用web方式进入容器命令行的服务|
-|[rbd-worker](../user-operations/component/rbd-worker/)|5.x|云帮应用操作与处理服务| -->
+|[rainbond-operator](../component/rainbond-operator/)|v0.01|维护rainbond组件的配置与运行状态|
+|[rbd-api](../component/rbd-api/)|5.x|rainbond区域中心API服务，提供底层服务接口|
+|[rbd-app-ui](../component/rbd-app-ui/)|5.x|应用控制台web服务|
+|[rbd-chaos](../component/rbd-chaos/)|5.x|应用构建服务，提供源码，Docker镜像等方式创建应用|
+|[rbd-db](../component/rbd-db/)|5.x|云帮数据库服务，支持MySQL`5.6``5.7``8.0`|
+|[rbd-dns](../component/rbd-dns/)|5.x|rainbond内部dns服务，可作为集群dns服务使用|
+|[etcd](../component/etcd/)|v3.3.18|`etcd`存储集群的元数据信息，集群状态和网络配置|
+|[rbd-eventlog](../component/rbd-eventlog/)|5.x|rainbond事件处理与日志汇聚服务|
+|[rbd-gateway](../component/rbd-gateway/)|5.x|通向应用的全局网关，提供A/B测试、灰度发布等高级功能|
+|[rbd-hub](../component/rbd-hub/)|v2.6.2|基于[Docker Registry](https://docs.docker.com/registry/)封装，提供docker镜像存储服务|
+|[rbd-mq](../component/rbd-mq/)|5.x|消息队列服务|
+|[rbd-nfs](../component/rbd-mq/)|v2.2.1|存储服务|
+|[rbd-node](../component/rbd-node/)|5.x|集群监控与控制，docker证书分发|
+|[rbd-repo](../component/rbd-repo/)|v6.16.0|源码构建仓库服务，基于[Artifactory OSS](https://jfrog.com/open-source/)封装|
+|[rbd-webcli](../component/rbd-webcli/)|5.x|提供应用web方式进入容器命令行的服务|
+|[rbd-worker](../component/rbd-worker/)|5.x|云帮应用操作与处理服务|
 
 
 #### 以下是通过rainbond官方推荐的 [easzup](https://github.com/easzlab) 快速部署Kubernetes安装的各组件及版本信息
 
-<!-- |组件|版本|说明|
+|组件|版本|说明|
 |---|-----|---------------|
-|[docker](../user-operations/component/docker/)|v18.09|应用容器引擎|
-|[kubelet](../user-operations/component/kubelet/)|v1.16.2|是在每个 Node 节点上运行的主要节点代理|
-|[kube-apiserver](../user-operations/component/kube-apiserver/)|v1.16.2|为API对象验证和配置数据|
-|[kube-controller-manager](../user-operations/component/kube-controller-manager/)|v1.16.2|Kubernetes集群内部的管理控制中心|
-|[kube-scheduler](../user-operations/component/kube-scheduler/)|v1.16.2|负责分配调度Pod到集群内的node节点|
-|[kube-proxy](../user-operations/component/kube-proxy/)|v1.16.2|Kubernetes的网络代理，在每个node节点上运行|
-|[coredns](../user-operations/component/coredns/)|v1.6.2|为Kubernetes集群中的其他 pods 提供域名解析服务|
-|[kube-flannel](../user-operations/component/kube-flannel/)|v0.11.0|Flannel是最早应用到k8s集群的网络插件之一|
-|[metrics-server](../user-operations/component/metrics-server/)|v0.3.6|Kubernetes 的监控组件，从`Kubelet `公开的`Summary API`采集指标信息| -->
+|[docker](../component/docker/)|v18.09|应用容器引擎|
+|[kubelet](../component/kubelet/)|v1.16.2|是在每个 Node 节点上运行的主要节点代理|
+|[kube-apiserver](../component/kube-apiserver/)|v1.16.2|为API对象验证和配置数据|
+|[kube-controller-manager](../component/kube-controller-manager/)|v1.16.2|Kubernetes集群内部的管理控制中心|
+|[kube-scheduler](../component/kube-scheduler/)|v1.16.2|负责分配调度Pod到集群内的node节点|
+|[kube-proxy](../component/kube-proxy/)|v1.16.2|Kubernetes的网络代理，在每个node节点上运行|
+|[coredns](../component/coredns/)|v1.6.2|为Kubernetes集群中的其他 pods 提供域名解析服务|
+|[kube-flannel](../component/kube-flannel/)|v0.11.0|Flannel是最早应用到k8s集群的网络插件之一|
+|[metrics-server](../component/metrics-server/)|v0.3.6|Kubernetes 的监控组件，从`Kubelet `公开的`Summary API`采集指标信息|
 
 **组件高级用法可以通过点击组件的链接方式阅读。**
 
