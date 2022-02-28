@@ -1,0 +1,13 @@
+{
+    "version-v5.2/docs": [
+      {
+        "collapsed": false,
+        "type": "category",
+        "label": "快速开始",
+        "items": [
+            "version-v5.2/quick-install"
+        ]
+      }
+    ]
+}
+  
