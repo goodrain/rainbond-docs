@@ -32,7 +32,7 @@ helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
 helm install rainbond rainbond/rainbond-cluster -n rbd-system
 ```
 
-> 需要自定义 Rainbond 集群配置的时候，参考 [values.yaml 详解](/docs/user-operations/deploy/install-with-helm/vaules-config/) 创建 `values.yaml` 配置文件，并在安装 Rainbond 集群的命令中指定 `-f values.yaml`
+> 需要自定义 Rainbond 集群配置的时候，参考 [values.yaml 详解](../../../user-operations/deploy/install-with-helm/vaules-config/) 创建 `values.yaml` 配置文件，并在安装 Rainbond 集群的命令中指定 `-f values.yaml`
 
 #### 验证安装
 
@@ -47,4 +47,4 @@ kubectl get po -n rbd-system | grep rbd-app-ui
 
 #### 安装问题排查
 
-- 安装过程中如果长时间未完成，那么请参考文档[helm 安装问题排查指南](/docs/user-operations/deploy/install-troubleshoot/helm-install-troubleshoot/)，进行故障排查。
+- 安装过程中如果长时间未完成，那么请参考文档[helm 安装问题排查指南](../install-troubleshoot/helm-install-troubleshoot)，进行故障排查。
