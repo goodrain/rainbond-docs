@@ -3,7 +3,7 @@ title: "控制台迁移"
 description: "该文档描述控制台迁移方式，适用于从体验环境迁移控制台到高可用集群环境。"
 ---
 
-我们建议在您通过[快速部署](/docs/quick-start/quick-install/) 完成 Rainbond 和集群的部署，已经基本体验了 Rainbond 后，将单机部署的控制台迁移到 Rainbond 中进行管理。
+我们建议在您通过[快速部署](../quick-start/quick-install/) 完成 Rainbond 和集群的部署，已经基本体验了 Rainbond 后，将单机部署的控制台迁移到 Rainbond 中进行管理。
 
 ### 部署控制台到 Rainbond
 
@@ -45,7 +45,7 @@ description: "该文档描述控制台迁移方式，适用于从体验环境迁
 
 > 请注意，若恢复后平台自动退出登录，请重新访问新控制台域名，不要携带 path 路径，使用老控制台的账号进行登录。因为历史数据已经失效。
 
-到此控制台迁移已经完成，你可以使用平台网关策略管理为控制台绑定你自己的域名，或 TCP 策略。[参考文档](/docs/user-manual/gateway/domain/)
+到此控制台迁移已经完成，你可以使用平台网关策略管理为控制台绑定你自己的域名，或 TCP 策略。[参考文档](../user-manual/gateway/domain/)
 
 > 请注意定期备份平台数据，以方便在紧急情况下异地恢复控制台服务。
 
@@ -55,7 +55,7 @@ description: "该文档描述控制台迁移方式，适用于从体验环境迁
 
 * 迁移控制台后，恢复备份时安装集群信息不会被恢复，需手动拷贝集群安装信息。
 
-  * 1.安装 [grctl](/docs/user-operations/tools/grctl/) 工具。
+  * 1.安装 [grctl](../user-operations/tools/grctl/) 工具。
 
   * 2.进入`集群安装驱动服务` 组件内 > 伸缩复制`grctl`查询命令，并在服务器上执行找到 `/app/data` 对应的存储位置。
 
