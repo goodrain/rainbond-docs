@@ -10,13 +10,13 @@ keywords: [微服务架构, 服务组装, 服务拆分]
 
 ### 前提条件
 
-1. 已掌握 Rainbond 各种组件创建方式 [参考文档](../user-manual/component-create/)
-2. 已掌握 Rainbond 组件间通信的原理和用法 [参考文档](../user-manual/component-connection/)
-3. 已掌握 Rainbond 服务网络治理插件用法 [参考文档](../user-manual/plugin-manage/mesh-plugin/)
+1. 已掌握 Rainbond 各种组件创建方式 [参考文档](../../component-create/creation-process/)
+2. 已掌握 Rainbond 组件间通信的原理和用法 [参考文档](../component-connection/connection_env)
+3. 已掌握 Rainbond 服务网络治理插件用法 [参考文档](../plugin-manage/mesh-plugin/)
 
 ### 基于 ServiceMesh 组装
 
-服务组装的关键是理清楚服务直接的通信依赖关系。基于通信关系来建立组件的依赖关系。 在应用中可以根据需要随时增加或减少业务组件，组件间的依赖关系可以动态的增加和移除。通过 ServiceMesh [流量路由管理](../network-visualization) 来管控组件间的通信。
+服务组装的关键是理清楚服务直接的通信依赖关系。基于通信关系来建立组件的依赖关系。 在应用中可以根据需要随时增加或减少业务组件，组件间的依赖关系可以动态的增加和移除。通过 ServiceMesh [流量路由管理](./network-visualization) 来管控组件间的通信。
 
 只有通过 ServiceMesh 组装的微服务架构，可以在应用拓扑中查看到组件间的关系。
 

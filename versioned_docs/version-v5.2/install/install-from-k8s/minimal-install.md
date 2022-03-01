@@ -18,7 +18,7 @@ aliases:
     # Ubuntu/Debian 系统
     apt install -y nfs-common
     ```
-- 如果开启了防火墙，确保其满足[端口要求](../install/requirements/#port-requirements)
+- 如果开启了防火墙，确保其满足[端口要求](../requirements)
 - 硬件：2 核 CPU，8G 内存，50G 磁盘
 
 ## 使用 Helm 3 安装 Rainbond Operator
@@ -85,7 +85,7 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
     Rainbond Operator 默认会选择 Kubernetes 集群中符合条件的 master 节点去安装**网关**。
     如果你的集群中没有 master 节点，那么你可以`搜索选择`一个 `80`，`443` 等端口没有被占用的 node 节点，作为网关节点。
 
-    > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](../user-operations/install/troubleshooting/#无法选择网关节点)。
+    > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](../../user-operations/install/troubleshooting/#无法选择网关节点)。
 
 1. 配置**构建服务运行节点**
 
@@ -105,7 +105,7 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 
 1. 完成了上述配置后，单击 **配置就绪，开始安装**。
 
-> 如果安装受阻，可以参考[故障排查](../user-operations/install/troubleshooting/)，或联系相应管理人员。
+> 如果安装受阻，可以参考[故障排查](../../user-operations/install/troubleshooting/)，或联系相应管理人员。
 
 ## 验证安装
 
@@ -117,11 +117,11 @@ wget https://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/pkg/helm && chmod +x helm
 
 ## 问题排查
 
-在安装和使用过程中出现问题请参考[安装过程故障排除文档](../user-operations/install/troubleshooting)和[集群问题诊断文档](../user-operations/troubleshoot/cluster_troubleshooting)
+在安装和使用过程中出现问题请参考[安装过程故障排除文档](../../user-operations/install/troubleshooting)和[集群问题诊断文档](../../user-operations/troubleshoot/cluster_troubleshooting)
 
 ## 安装命令行工具
 
-为了方便运维管理集群请参照[文档](../user-operations/tools/grctl/)安装 `grctl` 命令行工具。
+为了方便运维管理集群请参照[文档](../../user-operations/tools/grctl/)安装 `grctl` 命令行工具。
 
 ## 卸载
 

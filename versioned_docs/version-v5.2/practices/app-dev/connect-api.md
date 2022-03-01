@@ -4,7 +4,7 @@ weight: 4004
 ---
 
 ### 前言
-部署 Vue 、React 项目请参考 [Rainbond部署Vue、React项目](../build-react-and-vue)
+部署 Vue 、React 项目请参考 [Rainbond部署Vue、React项目](./build-react-and-vue)
 
 以往我们在部署前端项目后，调用后端接口有以下几种场景：
 

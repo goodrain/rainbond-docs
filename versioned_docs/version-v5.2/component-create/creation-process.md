@@ -21,13 +21,13 @@ aliases:
 
 1. 提供组件名称和所属应用，最关键的是提供构建源信息，源码构建即提供代码仓库地址，授权等信息。
 
-2. 等待 Rainbond 对源代码进行检测，这个过程 Rainbond 将根据代码源信息获取源代码并进行语言类型、语言规范等检测，并从 [Rainbondfile](../component-create/language-support/rainbondfile/) 文件中读取组件属性。
+2. 等待 Rainbond 对源代码进行检测，这个过程 Rainbond 将根据代码源信息获取源代码并进行语言类型、语言规范等检测，并从 [Rainbondfile](../language-support/rainbondfile/) 文件中读取组件属性。
 
 3. 如果检测结果通过即会根据检测回的组件属性创建组件，如果不通过用户需要根据提示更改相关信息。
 
 4. 检测完成后用户可以选择构建启动或进行高级设置，设置更多组件属性。若选择构建启动 Rainbond 将再次获取源代码根据代码检测的语言类型进行源码构建。请注意，源码类型只会在源码检测中读取，因此后续的开发过程如果更改了语言类型，需要触发重新代码检测。
 
-5. 组件构建完成后即可通过端口绑定的默认域名进行访问。后续的管理维护流程参阅 [组件开发](../user-manual/component-dev/) [组件运维](../user-manual/component-op)
+5. 组件构建完成后即可通过端口绑定的默认域名进行访问。后续的管理维护流程参阅 [组件开发](../user-manual/component-dev/build_and_version/) [组件运维](../user-manual/component-op/basic-operation)
 
 源码地址: https://github.com/goodrain/java-maven-demo.git
 
@@ -35,14 +35,13 @@ aliases:
 
 <b>各类语言的详细参考文档如下</b>：
 
-- <a href="../language-support/java/" target="_blank">Java 语言参考</a>
-- <a href="../language-support/php/" target="_blank">PHP 语言参考</a>
-- <a href="../language-support/python/" target="_blank">Python 语言参考</a>
-- <a href="../language-support/nodejs/" target="_blank">NodeJS 语言参考</a>
-- <a href="../language-support/golang/" target="_blank">Golang 语言参考</a>
-- <a href="../language-support/netcore/" target="_blank">.Net 语言参考</a>
-- <a href="../language-support/html/" target="_blank">Html 静态语言参考</a>
-- <a href="../language-support/dockerfile/" target="_blank">定义 Dockerfile 的任意源代码参考</a>
+[Java 语言参考](../component-create/language-support/java/java-maven)  
+[PHP 语言参考](../component-create/language-support/php)  
+[Python 语言参考](../component-create/language-support/python)  
+[NodeJS 语言参考](../component-create/language-support/nodejs.md)  
+[.Net 语言参考](../component-create/language-support/netcore)  
+[Html 语言参考](../component-create/language-support/html)  
+[定义 Dockerfile 的任意源代码参考](../component-create/language-support/dockefile) 
 
 #### Git 和 Svn 的使用
 
@@ -81,7 +80,7 @@ git 获取代码时支持账号认证、Key 认证和 Oauth2.0 认证。
 
 3. 应用检测通过后即可创建组件。
 
-4. 构建完成后即可访问组件。后续的管理维护流程参阅 后续的管理维护流程参阅 [组件开发](../user-manual/component-dev/) [组件运维](../user-manual/component-op)
+4. 构建完成后即可访问组件。后续的管理维护流程参阅 后续的管理维护流程参阅 [组件开发](../user-manual/component-dev/build_and_version/) [组件运维](../user-manual/component-op/basic-operation/)
 
 <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/dockerconstruction.png" title="基于Docker镜像创建组件示意图" />
 

@@ -136,7 +136,7 @@ helm version
 
    <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-8.png" title="网关节点" width="100%" />
     
-   > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](../user-operations/install/troubleshooting/#无法选择网关节点)。
+   > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](../../user-operations/install/troubleshooting/#无法选择网关节点)。
 
 **8 配置构建服务运行节点**
 
@@ -165,9 +165,9 @@ helm version
 
    该选项非必填。
 
-   如集群内存在已部署好的 **块设备存储驱动** 则可以直接选择，如 [ceph-rbd块存储](../user-operations/storage/ceph-rbd/)。
+   如集群内存在已部署好的 **块设备存储驱动** 则可以直接选择，如 [ceph-rbd块存储](../../user-operations/storage/ceph-rbd/)。
 
-   如果是阿里云环境，可以选择 [阿里云盘](../user-operations/storage/ali-disk/)。
+   如果是阿里云环境，可以选择 [阿里云盘](../../user-operations/storage/ali-disk/)。
 
    配置完成后，单击 **下一步** 。
 
@@ -177,7 +177,7 @@ helm version
 
    <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-13.png" title="安装环境检测" width="100%" />
 
-   > 如果安装受阻，可以参考[故障排查](../user-operations/install/troubleshooting/)，或联系相应管理人员。
+   > 如果安装受阻，可以参考[故障排查](../../user-operations/install/troubleshooting/)，或联系相应管理人员。
 
 ### 验证安装
 
@@ -189,4 +189,4 @@ helm version
 
 ### 安装命令行工具
 
-为了方便运维管理集群请参照 [文档](../user-operations/tools/grctl/) 安装 `grctl` 命令行工具。
+为了方便运维管理集群请参照 [文档](../../user-operations/tools/grctl/) 安装 `grctl` 命令行工具。

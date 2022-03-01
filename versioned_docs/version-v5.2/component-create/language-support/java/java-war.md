@@ -13,7 +13,7 @@ aliases:
 
 ### 平台编译运行机制
 
-1. 预编译处理会探测是否定义了启动命令配置文件 [Procfile](../component-create/language-support/procfile/) ,如果未定义会生成默认 War 包启动配置文件;
+1. 预编译处理会探测是否定义了启动命令配置文件 [Procfile](../procfile/) ,如果未定义会生成默认 War 包启动配置文件;
 2. 预编译处理完成后,会根据语言类型选择 Java-war 的 buildpack 去编译项目.在编译过程中会安装定义的 JDK 版本,Web 服务;
 3. 编译完成后会检查是否在平台设置了 Procfile 参数,若配置了会重写启动命令配置文件 Procfile.
 
@@ -104,7 +104,7 @@ OracleJDK 下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.t
 
 
 选择 tomcat7 版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行  
-关于 webapp-runner 详细配置请参考 [webapp-runner 使用说明](../component-create/language-support/java/webapp-runner/)
+关于 webapp-runner 详细配置请参考 [webapp-runner 使用说明](./webapp-runner/)
 
 ### 高级构建选项
 
@@ -125,10 +125,8 @@ OracleJDK 下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.t
 
 ### 推荐阅读
 
-- [Java-Maven 源码构建应用](../java-maven/)
-- [Java-Jar 源码构建应用](../java-jar/)
-- [Java-Gradle 源码构建应用](../java-gradle/)
-- [Tomcat 配置 Redis 实现 Session 共享](../tomcat-redis-session)
-- [webapp-runner 使用说明](../webapp-runner/)
-- [RAINBOND 源码构建 JAVA 项目选取 JDK](../advanced-scenarios/devops/how-to-select-jdk/)
-- [Rainbond 源码构建 JAVA 项目配置 Maven 仓库](../advanced-scenarios/devops/how-to-config-maven/)
+- [Java-Jar 源码构建应用](./java-jar/)
+- [Java-War 源码构建应用](./java-war/)
+- [Java-Gradle 源码构建应用](./java-gradle)
+- [Tomcat 配置 Redis 实现 Session 共享](./tomcat-redis-session/)
+- [webapp-runner 使用说明](./webapp-runner/)

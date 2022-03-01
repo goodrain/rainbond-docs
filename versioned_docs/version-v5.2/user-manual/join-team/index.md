@@ -10,13 +10,13 @@ weight: 1000
 
 开始之前，你需要满足以下条件：
 
-1. Rainbond集群已安装成功，若未安装请参考 [Rainbond 集群安装](../quick-start/rainbond_install/)
+1. Rainbond集群已安装成功，若未安装请参考 [Rainbond 集群安装](../../quick-start/quick-install/)
 2. 已完成账号注册或企业管理员已完成账号添加
-3. 阅读 [团队](../user-manual/concept/team/) 文档知晓团队的相关概念
+3. 阅读 [团队](../../get-start/concept/team/) 文档知晓团队的相关概念
 
 ### 团队创建
 
-企业管理员可以创建团队，你阅读完 [团队](../user-manual/concept/team/) 文档后选择合适的团队规划，创建建团队的流程如下：
+企业管理员可以创建团队，你阅读完 [团队](../../get-start/concept/team/) 文档后选择合适的团队规划，创建建团队的流程如下：
 
 1. 在 *企业视图/集群* 中确认已经存在至少一个集群。
 2. 在 *企业视图/团队* 中点击创建团队，填写团队名称和默认开通的集群。

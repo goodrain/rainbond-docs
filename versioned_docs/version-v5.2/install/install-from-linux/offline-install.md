@@ -6,7 +6,7 @@ description: '在单节点的 Linux 服务器上离线安装 Kubernetes 和 Rain
 
 ## 前提条件
 
-- 如果开启了防火墙，确保其满足[端口要求](../install/requirements)。
+- 如果开启了防火墙，确保其满足[端口要求](../requirements)。
 - 硬件：2 核 CPU，8G 内存，50G 磁盘。
 - 设置服务器时区为`shanghai`，并同步时间
 - 操作系统：

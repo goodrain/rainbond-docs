@@ -18,7 +18,7 @@ Rainbond 默认支持以下几种存储类型:
 - 配置文件
 - 临时存储
 
-除 Rainbond 默认支持的上述几种存储类型外，Rainbond 还支持 [自定义存储类型](../service-volume-custom/) 来根据需要扩充其他存储。
+除 Rainbond 默认支持的上述几种存储类型外，Rainbond 还支持 [自定义存储类型](./service-volume-custom/) 来根据需要扩充其他存储。
 
 #### 共享存储
 
@@ -75,7 +75,7 @@ socket = /tmp/mysql.sock
 
 临时存储是实例调度到节点上之后，节点分配的新的、空的存储类型，只要实例在该节点上一直运行，则该存储就会一直存在。当实例因为某些原因被从节点上删除时，临时存储中的数据也会永久删除。
 
-默认情况下， 临时存储使用调度节点上支持的存储介质；这里的介质可以是磁盘或 SSD 或网络存储，这取决于您的环境。也可以使用内存作为存储介质，可以参考文档[添加高级环境变量](../user-manual/component-dev/service-env/) 添加 `ES_ENABLE_EMPTYDIR_MEDIUM_MEMORY` ，以告诉 Kubernetes 为您安装 tmpfs（基于 RAM 的文件系统）。 虽然 tmpfs 速度非常快，但是要注意它与磁盘不同。 tmpfs 在节点重启时会被清除，并且您所写入的所有文件都会计入容器的内存消耗，受容器内存限制约束。
+默认情况下， 临时存储使用调度节点上支持的存储介质；这里的介质可以是磁盘或 SSD 或网络存储，这取决于您的环境。也可以使用内存作为存储介质，可以参考文档[添加高级环境变量](../../component-dev/service-env/) 添加 `ES_ENABLE_EMPTYDIR_MEDIUM_MEMORY` ，以告诉 Kubernetes 为您安装 tmpfs（基于 RAM 的文件系统）。 虽然 tmpfs 速度非常快，但是要注意它与磁盘不同。 tmpfs 在节点重启时会被清除，并且您所写入的所有文件都会计入容器的内存消耗，受容器内存限制约束。
 
 > 容器崩溃并不会导致实例被从节点上移除，因此容器崩溃时临时存储中的数据是安全的。
 
@@ -145,4 +145,4 @@ docker run -d --net=host -v /var/gogs:/data gogs/gogs
 
 - Kubernetes 各类存储类型 Rainbond 是否支持
 
-> Rainbond 通过扩展存储的方式对接支持 Kubernetes 已有的存储类型。详情参考 [自定义存储类型](../service-volume-custom/)
+> Rainbond 通过扩展存储的方式对接支持 Kubernetes 已有的存储类型。详情参考 [自定义存储类型](./service-volume-custom/)

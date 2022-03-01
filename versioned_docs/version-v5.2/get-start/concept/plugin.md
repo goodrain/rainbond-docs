@@ -35,4 +35,4 @@ weight: 13
 
 ### 更多阅读
 
-[插件开发说明](../user-manual/plugin-manage/plugin-design-develop/)
+[插件开发说明](../../user-manual/plugin-manage/plugin-design-develop/)

@@ -11,7 +11,7 @@ description: '在已有的高可用 Kubernetes 集群上安装高可用的 Rainb
 在开始安装部署之前，需要准备以下资源：
 
 - 高可用的 Kubernetes 集群， 且版本大于等于 **1.13** 。
-- 高可用的共享存储，本文以 Glusterfs 为例，参考 [Glusterfs分布式存储](../user-operations/storage/deploy-glusterfs/)。
+- 高可用的共享存储，本文以 Glusterfs 为例，参考 [Glusterfs分布式存储](../../user-operations/storage/deploy-glusterfs/)。
 - 高可用的数据库，如 MySQL 8.0 数据库集群或 RDS 数据库服务，创建 `console`、`region` 两个数据库。
 - ETCD 集群，可以复用 Kubernetes 集群已有的 ETCD 集群。
 
@@ -119,7 +119,7 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
 * ETCD地址格式为： **IP:PORT** 或者 **Domain:PORT**  
 
-  > 请确认是否通过文档 [kubernetes的高可用安装](../user-operations/install/kubernetes-install/#kubernetes的高可用安装)，如不是请确认ETCD地址 **Domain:PORT** 是否正常或更换ETCD地址为 IP:PORT
+  > 请确认是否通过文档 [kubernetes的高可用安装](../../user-operations/install/kubernetes-install/#kubernetes的高可用安装)，如不是请确认ETCD地址 **Domain:PORT** 是否正常或更换ETCD地址为 IP:PORT
 
 * TLS认证打开：
   * CA证书：/etc/kubernetes/ssl/ca.pem
@@ -134,7 +134,7 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
    <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-8.png" title="网关节点" width="100%" />
     
-   > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](../user-operations/install/troubleshooting/#无法选择网关节点)。
+   > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](../../user-operations/install/troubleshooting/#无法选择网关节点)。
 
 **8 配置构建服务运行节点**
 
@@ -158,14 +158,14 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
    - 当多个网关节点被统一负载均衡时，填写负载均衡的 IP 地址，如阿里云 SLB 服务地址。
 
-   - 当多个网关节点部署诸如 Keepalived 等基于 VIP 的高可用服务时，填写 VIP，参考 [为 CentOS 安装 Keepalived 服务](../user-operations/install/centos_keepalived/)、 [为 Ubuntu 安装 Keepalived 服务](../user-operations/install/ubuntu_keepalived/)。
+   - 当多个网关节点部署诸如 Keepalived 等基于 VIP 的高可用服务时，填写 VIP，参考 [为 CentOS 安装 Keepalived 服务](../../user-operations/install/centos_keepalived/)、 [为 Ubuntu 安装 Keepalived 服务](../../user-operations/install/ubuntu_keepalived/)。
 
 
 **11 配置共享存储**
 
    在高可用环境，务必提供已有的共享存储：
     
-   使用集群中已有的 `StorageClass`，该存储必须支持多读多写(`RWX`)，如果用户已经安装 [Glusterfs分布式存储](../user-operations/storage/deploy-glusterfs/)  或 已经 [对接外部NFS存储](../user-operations/storage/deploy-nfs_client/) 则可以直接选择：
+   使用集群中已有的 `StorageClass`，该存储必须支持多读多写(`RWX`)，如果用户已经安装 [Glusterfs分布式存储](../../user-operations/storage/deploy-glusterfs/)  或 已经 [对接外部NFS存储](../../user-operations/storage/deploy-nfs_client/) 则可以直接选择：
 
    <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-11.png" title="已有存储驱动选择" width="100%" />
     
@@ -177,9 +177,9 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
    该选项非必填。
 
-   如集群内存在已部署好的 **块设备存储驱动** 则可以直接选择，如 [ceph-rbd块存储](../user-operations/storage/ceph-rbd/)。
+   如集群内存在已部署好的 **块设备存储驱动** 则可以直接选择，如 [ceph-rbd块存储](../../user-operations/storage/ceph-rbd/)。
 
-   如果是阿里云环境，可以选择 [阿里云盘](../user-operations/storage/ali-disk/)。
+   如果是阿里云环境，可以选择 [阿里云盘](../../user-operations/storage/ali-disk/)。
 
    配置完成后，单击 **下一步** 。
 
@@ -189,7 +189,7 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
    <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-13.png" title="安装环境检测" width="100%" />
 
-   > 如果安装受阻，可以参考[故障排查](../user-operations/install/troubleshooting/)，或联系相应管理人员。
+   > 如果安装受阻，可以参考[故障排查](../../user-operations/install/troubleshooting/)，或联系相应管理人员。
 
 ## 验证安装
 
@@ -201,11 +201,11 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
 ## 问题排查
 
-在安装和使用过程中出现问题请参考[安装过程故障排除文档](../user-operations/install/troubleshooting)和[集群问题诊断文档](../user-operations/troubleshoot/cluster_troubleshooting)
+在安装和使用过程中出现问题请参考[安装过程故障排除文档](../../user-operations/install/troubleshooting)和[集群问题诊断文档](../../user-operations/troubleshoot/cluster_troubleshooting)
 
 ## 安装命令行工具
 
-为了方便运维管理集群请参照[文档](../user-operations/tools/grctl/)安装 `grctl` 命令行工具。
+为了方便运维管理集群请参照[文档](../../user-operations/tools/grctl/)安装 `grctl` 命令行工具。
 
 ## 卸载
 

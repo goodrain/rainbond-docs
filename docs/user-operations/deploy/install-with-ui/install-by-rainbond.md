@@ -9,7 +9,7 @@ weight: 1001
 ### 前提条件
 
 - 集群端服务器`8443`端口与控制台网络保持畅通；
-- 已安装 [grctl命令行工具](../user-operations/tools/grctl/#安装命令行工具)。
+- 已安装 [grctl命令行工具](../../tools/grctl/#安装命令行工具)。
 
 ## 安装部署
 
@@ -22,7 +22,7 @@ weight: 1001
 
 Region Config文件内容获取方式如下：
 
-在已安装[grctl命令行工具](../user-operations/tools/grctl/#安装命令行工具)的节点上执行以下命令
+在已安装[grctl命令行工具](../../tools/grctl/#安装命令行工具)的节点上执行以下命令
 
 ```bash
 grctl config
@@ -39,7 +39,7 @@ grctl config
 
 ## 控制台迁移
 
-使用该方式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理  [参考文档](../install-with-ui/console-recover)。
+使用该方式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理  [参考文档](./console-recover)。
 
 
 

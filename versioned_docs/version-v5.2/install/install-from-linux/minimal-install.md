@@ -4,11 +4,11 @@ weight: 1
 description: '在单节点的 Linux 服务器上安装 Kubernetes 和 Rainbond。'
 ---
 
-最小化安装会把 Kubernetes 和 Rainbond 全安装在一个 Linux 节点上，可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要安装一个生产集群，请产考[在 Linux 上安装高可用的 Rainbond](../install/install-from-linux/high-availability/)。
+最小化安装会把 Kubernetes 和 Rainbond 全安装在一个 Linux 节点上，可以帮助你节省资源。但是对生产环境确实不友好的，如果你需要安装一个生产集群，请产考[在 Linux 上安装高可用的 Rainbond](./high-availability/)。
 
 ## 前提条件
 
-- 如果开启了防火墙，确保其满足[端口要求](../install/requirements)。
+- 如果开启了防火墙，确保其满足[端口要求](../requirements)。
 - 硬件：2 核 CPU，8G 内存，50G 磁盘。
 - 设置服务器时区为`shanghai`，并同步时间
 - 操作系统：
@@ -116,5 +116,5 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
      kubectl get po -n rbd-system -l name=rbd-app-ui-migrations
      ```
 
-在安装和使用过程中出现的其他问题请参考[安装过程故障排除文档](../user-operations/install/troubleshooting)和[集群问题诊断文档](../user-operations/troubleshoot/cluster_troubleshooting)
+在安装和使用过程中出现的其他问题请参考[安装过程故障排除文档](../../user-operations/install/troubleshooting)和[集群问题诊断文档](../../../user-operations/troubleshoot/cluster_troubleshooting)
 

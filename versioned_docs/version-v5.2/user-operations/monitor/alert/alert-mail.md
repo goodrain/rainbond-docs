@@ -10,7 +10,7 @@ description: Rainbond邮件报警配置说明
 
 本文主要介绍如何配置Alertmanager发送消息到邮件报警。
 
-集群监控报警部署请参见 [集群监控报警部署](../user-operations/monitor/monitor-alert-deploy/)
+集群监控报警部署请参见 [集群监控报警部署](../monitor-alert-deploy/)
 
 ### 前提条件
 

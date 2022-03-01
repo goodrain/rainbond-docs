@@ -5,15 +5,15 @@ weight: 2
 keywords: ["rainbond cloud", "rainbond"]
 ---
 
-本文将会介绍如何将已有的 Rainbond 集群，添加到 [Rainbond Cloud](../../../quick-start/rainbond-cloud/) 中。
+本文将会介绍如何将已有的 Rainbond 集群，添加到 [Rainbond Cloud](../../quick-start/rainbond-cloud/) 中。
 
 ### 前提条件
 
 开始之前，请检查以下前提条件：
 
-1. 了解 [Rainbond Cloud](../../../quick-start/rainbond-cloud/) ，并进行[注册](https://cloud.goodrain.com/enterprise-server/registered)和[登陆](https://cloud.goodrain.com/enterprise-server/login)。
-1. 安装好的 Rainbond 集群，安装请参考[高可用部署 Rainbond](../install-base-ha)或[最小化部署 Rainbond](../minimal_install)。
-1. [grctl 命令行工具](../user-operations/tools/grctl/)。
+1. 了解 [Rainbond Cloud](../../quick-start/rainbond-cloud/) ，并进行[注册](https://cloud.goodrain.com/enterprise-server/registered)和[登陆](https://cloud.goodrain.com/enterprise-server/login)。
+1. 安装好的 Rainbond 集群，安装请参考[高可用部署 Rainbond](../../install/install-from-k8s/high-availability)或[最小化部署 Rainbond](../../install/install-from-k8s/minimal-install)。
+1. [grctl 命令行工具](../tools/grctl/)。
 
 ### 开始对接
 

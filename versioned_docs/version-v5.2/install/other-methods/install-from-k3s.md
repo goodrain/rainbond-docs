@@ -6,7 +6,7 @@ weight: 11
 ---
 
 > 本文档适用于熟悉 k3s 的用户阅读。
-> 基于 k3s 安装 Rainbond 的方式适用于快速了解 Rainbond 功能特性，生产环境建议 [基于 k8s 高可用安装](../install/install-from-k8s/high-availability/)
+> 基于 k3s 安装 Rainbond 的方式适用于快速了解 Rainbond 功能特性，生产环境建议 [基于 k8s 高可用安装](../install-from-k8s/high-availability/)
 
 k3s是完全兼容的Kubernetes发行版，有以下更改：
 
@@ -33,7 +33,7 @@ curl http://sh.rainbond.com/install_docker | bash
 
 ### 开始安装K3s
 
-1. 安装`v1.18.13-k3s1`版本的k3s，更多详情参考k3s[官网](www.rancher.com)
+1. 安装`v1.18.13-k3s1`版本的k3s，更多详情参考k3s[官网](https://www.rancher.com)
 
 ```shell
 curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn INSTALL_K3S_EXEC="--docker --disable traefik" INSTALL_K3S_VERSION="v1.18.13-k3s1" sh -
@@ -52,4 +52,4 @@ cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 
 ### 安装rainbond
 
-参考 [基于k8s最小化安装](../install/install-from-k8s/minimal-install/)  继续安装 helm 以及 Rainbond。 
+参考 [基于k8s最小化安装](../install-from-k8s/minimal-install/)  继续安装 helm 以及 Rainbond。 

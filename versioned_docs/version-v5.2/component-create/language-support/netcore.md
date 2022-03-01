@@ -16,7 +16,7 @@ aliases:
 
 #### 代码规范
 
-源码主目录必须具有 [Procfile](../component-create/language-support/procfile/) 文件定义服务启动方式，详见 [项目运行](#项目运行) 部分
+源码主目录必须具有 Procfile 文件定义服务启动方式，详见 [项目运行](#项目运行) 部分
 
 #### 编译原理
 
@@ -24,7 +24,7 @@ aliases:
 
 NetCore 语言构建过程默认使用`microsoft/dotnet:2.2-sdk-alpine` 编译镜像和`microsoft/dotnet:2.2-aspnetcore-runtime`运行环境镜像，若设置其他版本同理。若你未提前下载镜像在构建过程容易出现拉取镜像失败的错误。强烈建议先在 Rainbond 管理节点提前手动获取上述镜像。
 
-如果你的源码对系统环境有依赖，需要单独安装系统类库，目前无法直接使用 Rainbond 提供的默认编译环境编译，你可以采用直接定义 [Dockerfile](../dockerfile) 的方式支持。
+如果你的源码对系统环境有依赖，需要单独安装系统类库，目前无法直接使用 Rainbond 提供的默认编译环境编译，你可以采用直接定义 Dockerfile 的方式支持。
 
 ##### 编译环境选择
 
@@ -52,7 +52,7 @@ dotnet publish -c Release
 BUILD_DOTNET_RESTORE_PRE=dotnet restore --ignore-failed-sources
 ```
 
-关于环境变量的设置参考 [服务环境变量](../user-manual/component-dev/service-env/)
+关于环境变量的设置参考 [服务环境变量](../../user-manual/component-dev/service-env/)
 
 #### 项目运行
 
@@ -66,7 +66,7 @@ BUILD_DOTNET_RESTORE_PRE=dotnet restore --ignore-failed-sources
 
 通过设置环境变量`BUILD_DOTNET_RUNTIME_VERSION` 设置你需要的版本
 
-编译的结果文件存放于运行环境的`/app`目录下。由于平台咱无法很好的感知项目的入口运行文件，需要在源码主目录中定义 [rainbondfile](../component-create/language-support/rainbondfile/) 定义项目的运行启动方式，例如：
+编译的结果文件存放于运行环境的`/app`目录下。由于平台咱无法很好的感知项目的入口运行文件，需要在源码主目录中定义 [rainbondfile](../language-support/rainbondfile/) 定义项目的运行启动方式，例如：
 
 ```
 ports:

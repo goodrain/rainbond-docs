@@ -64,7 +64,7 @@ $ kubectl get node                  # 验证节点就绪 (Ready) 状态
 $ kubectl get pod --all-namespaces  # 验证集群pod状态，默认已安装网络插件、coredns、metrics-server等
 $ kubectl get svc --all-namespaces  # 验证集群服务状态
 ```
-   完成Kubernetes的安装，[开始Rainbond的安装](../minimal_install/)
+   完成Kubernetes的安装，[开始Rainbond的安装](../../install/install-from-k8s/minimal-install)
 
 ## kubernetes的高可用安装
 
@@ -217,4 +217,4 @@ docker exec -it kubeasz ansible-playbook /etc/ansible/90.setup.yml
 ```bash
 docker exec -it kubeasz easzctl add-node $NEW_NODE_IP
 ```
-完成Kubernetes的安装，[开始Rainbond的安装](../install/install-from-k8s/high-availability/)
+完成Kubernetes的安装，[开始Rainbond的安装](../../install/install-from-k8s/high-availability/)

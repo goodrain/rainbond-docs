@@ -41,4 +41,4 @@ weight: 5015
   --version 1.2.8
   ```
 
-完成 NFS-Client 的安装，继续进行 [Rainbond 高可用安装](../install/install-from-k8s/high-availability/)。
+完成 NFS-Client 的安装，继续进行 [Rainbond 高可用安装](../../install/install-from-k8s/high-availability/)。

@@ -10,7 +10,7 @@ aliases:
 
 
 Rainbond 5.1版本已支持源码部署NodeJS前端类项目，你可以直接在Rainbond发布Vue, React, Angular等项目
-查看文档： <a href="../nodejs-static/">部署NodeJS前端项目到Rainbond</a>
+查看文档： <a href="./nodejs-static/">部署NodeJS前端项目到Rainbond</a>
 
 
 #### NodeJS语言识别规范
@@ -18,7 +18,7 @@ Rainbond 5.1版本已支持源码部署NodeJS前端类项目，你可以直接�
 
 #### 平台编译运行机制
 
-1. 预编译处理会探测是否定义了启动命令配置文件[Procfile](../procfile/),如果未定义会读取`package.json`文件中的`script.start`值来生成启动配置文件;
+1. 预编译处理会探测是否定义了启动命令配置文件[Procfile](./procfile/),如果未定义会读取`package.json`文件中的`script.start`值来生成启动配置文件;
 2. 预编译处理完成后,会根据语言类型选择nodejs的buildpack去编译项目.在编译过程中会安装定义的Node版本以及Nodejs相关依赖;
 3. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
 

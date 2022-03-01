@@ -62,7 +62,7 @@ rbd-worker-68c6c97ddb-p68tx       1/1     Running     3          4d2h
 kubectl logs -f  <pod name>  -n rbd-system
 ```
 
-关于 Rainbond 组件详情请阅读 [平台组件架构](../user-operations/op-guide/component-description/)
+关于 Rainbond 组件详情请阅读 [平台组件架构](../op-guide/component-description/)
 
 ### 常见 Pod 异常状态
 
