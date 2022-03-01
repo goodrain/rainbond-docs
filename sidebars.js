@@ -425,6 +425,10 @@ const sidebars = {
     {
       type: 'category',
       label: '社区',
+      link: {
+        type: 'doc',
+        id: 'community/index',
+      },
       items: [
         'community/FAQs/faqs',
         'community/contribution/contribution',
