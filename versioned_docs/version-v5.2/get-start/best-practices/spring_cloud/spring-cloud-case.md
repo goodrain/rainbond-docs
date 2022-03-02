@@ -84,7 +84,7 @@ pig
 
 #### Java 多模块部署 Pig 项目
 
-参考[JAVA 多模块源码构建](../advanced-scenarios/devops/java-multi-module-build/)
+参考[JAVA 多模块源码构建](../../../component-create/language-support/java/java-multi-module-build)
 
 #### 分步部署 Pig 项目
 
@@ -222,7 +222,7 @@ spring:
 
 ### 部署 pig-ui
 
-`pig-ui` 是一个由 nodejs 语言编写的 vue 项目，作为整个系统的前端静态页面。Rainbond 目前已经支持源码构建 `nodejs前端` 项目，参考文档：[NodeJS 前端语言](../user-manual/component-create/language-support/nodejs-static/)
+`pig-ui` 是一个由 nodejs 语言编写的 vue 项目，作为整个系统的前端静态页面。Rainbond 目前已经支持源码构建 `nodejs前端` 项目，参考文档：[NodeJS 前端语言](../../../component-create/language-support/nodejs-static)
 
 为了便于改造项目，所以将项目 fork 了一份进行修改，代码地址：https://gitee.com/dazuimao1990/pig-ui
 

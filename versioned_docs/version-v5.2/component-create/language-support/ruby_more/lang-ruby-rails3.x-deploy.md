@@ -6,7 +6,7 @@ draft: true
 prehidden: true
 ---
 
-本篇文档帮助您将基于Rails3.x的应用快速部署到云帮。Sinatra 或其他类型的Ruby应用请参考[构建语言-Ruby](../lang-ruby-overview.html)
+本篇文档帮助您将基于Rails3.x的应用快速部署到云帮。Sinatra 或其他类型的Ruby应用请参考[构建语言-Ruby](./lang-ruby-rails-overview)
 
 ## 环境设置
 
@@ -263,7 +263,7 @@ echo "web: bundle exec puma -C config/puma.rb" > ./Procfile
 
 ### 创建应用
 
-操作方法参见：[新建应用-源码构建](../stable/user-app-docs/addapp/addapp-code.html)
+操作方法参见：新建应用-源码构建
 
 ### 提交代码
 
@@ -298,7 +298,7 @@ To http://code.goodrain.com/app/团队名_应用名.git
 
 ### 查看日志
 
-部署过程中，部署完成后，应用操作时，可进入[应用控制台-日志](../stable/user-app-docs/myapps/myapp-platform-logs.html)查看日志信息。
+部署过程中，部署完成后，应用操作时，可进入应用控制台-日志 查看日志信息。
 
 ### 访问应用
 

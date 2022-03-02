@@ -3,7 +3,7 @@ title: 应用控制台高可用部署
 description: '应用控制台高可用部署'
 hidden: true
 ---
-
+<!-- 
 ## 应用控制台高可用部署
 
 > 我们给您的建议是在平台搭建完成以后，登录平台，在平台内部搭建 rbd-app-ui 服务，对接第三方数据库；既增加了应用控制台 Web 服务的灵活性，便于监控，又保证了应用控制台 Web 服务的高可用性。
@@ -82,4 +82,4 @@ cp -a /opt/rainbond/etc/rbd-api/ /grdata/tenant/7b0e4bed6a1f4b9498fdf48abcd18612
 
 ```
 
-更多平台服务创建方式请参阅[用户使用手册](../user-manual/component-create/creation-process)
+更多平台服务创建方式请参阅[用户使用手册](../user-manual/component-create/creation-process) -->

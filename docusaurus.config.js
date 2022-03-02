@@ -98,6 +98,8 @@ const config = {
           }
         ]
       },
+      hideableSidebar: true,
+      autoCollapseSidebarCategories: true,
       algolia: {
         appId: "4EFG0MCBR2",
         apiKey: "449c9313e5dfd0ebb2c330a105b302b9",
@@ -373,6 +375,11 @@ const config = {
               // 安装故障排查
               to: '/user-operations/deploy/install-troubleshoot/ui-install-troubleshoot',
               from: ['/user-operations/install/troubleshooting'],
+            },
+            {
+              // 简介
+              to: '/',
+              from: ['/quick-start/rainbond_overview'],
             },
           ],
         },

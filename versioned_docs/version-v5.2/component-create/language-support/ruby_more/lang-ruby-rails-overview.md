@@ -34,7 +34,7 @@ prehidden: true
 
 ## 数据库配置
 
-目前云帮支持MySQL数据库服务，用户可以通过创建Ruby 应用关联MySQL服务来使用。参阅[应用控制台-依赖](../stable/user-app-docs/myapps/myapp-platform-reliance.html)。
+目前云帮支持MySQL数据库服务，用户可以通过创建Ruby 应用关联MySQL服务来使用。参阅 应用控制台-依赖。
 
 ### 利用phpmyadmin创建数据库 myapp
 

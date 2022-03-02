@@ -11,7 +11,7 @@ description: '在 Amazon EKS 上安装 Rainbond，并对接到 Raibnond Cloud'
 
 开始之前，请检查以下前提条件：
 
-1. 了解 [Rainbond Cloud](../../../quick-start/rainbond-cloud/) ，并进行[注册](https://cloud.goodrain.com/enterprise-server/registered)和[登陆](https://cloud.goodrain.com/enterprise-server/login)
+1. 了解 [Rainbond Cloud](../../quick-start/rainbond-cloud/) ，并进行[注册](https://cloud.goodrain.com/enterprise-server/registered)和[登陆](https://cloud.goodrain.com/enterprise-server/login)
 1. 可用的 AWS 账号
 
 ### 准备一个 EKS 集群
@@ -160,6 +160,6 @@ sudo mv ./grctl /usr/local/bin/grctl && /usr/local/bin/grctl install
 
 ### 如何使用该集群
 
-在 [创建团队](../enterprise-manager/enterprise/teams/create-team/) 时选择该集群，创建属于该集群的团队，自此在该团队下创建组件时将会使用该集群的资源。
+在 [创建团队](../../enterprise-manager/enterprise/teams/create-team/) 时选择该集群，创建属于该集群的团队，自此在该团队下创建组件时将会使用该集群的资源。
 
 <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/cluster-management/cluster-management/Create%20team.png" title="选择已有kubernetes" width="100%" />

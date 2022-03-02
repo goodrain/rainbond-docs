@@ -7,11 +7,11 @@ hidden: true
 
 Rainbond 高可用安装基于 Kubernetes 集群的高可用，所以在安装 Rainbond 集群前，请确保已经安装符合如下某一条件的 Kubernetes 高可用集群，Kubernetes 集群推荐使用 1.16 及以上版本
 
-- 对于尚未安装高可用 Kubernetes 集群的用户，建议参照[高可用 Kubernetes 集群安装文档](../user-operations/install/kubernetes-install)安装高可用的集群。
+- 对于尚未安装高可用 Kubernetes 集群的用户，建议参照[高可用 Kubernetes 集群安装文档](../../user-operations/install/kubernetes-install)安装高可用的集群。
 
 - 在阿里云等公有云平台购买 Kubernetes 集群资源（目前还不支持 serverless 模式的 Kubernetes 集群资源，请购买专业模式或托管模式集群）。
 
-- 对于已经安装好 Kubernetes 集群的用户，请对照[高可用 Kubernetes 集群安装文档](../user-operations/install/kubernetes-install)中的节点配置列表，确认是否满足高可用性。
+- 对于已经安装好 Kubernetes 集群的用户，请对照[高可用 Kubernetes 集群安装文档](../../user-operations/install/kubernetes-install)中的节点配置列表，确认是否满足高可用性。
 
 ### 先决条件
 

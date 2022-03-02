@@ -38,7 +38,7 @@ description: 本文介绍Rainbond创建组件的主要过程
 [NodeJS 语言参考](../component-create/language-support/nodejs.md)  
 [.Net 语言参考](../component-create/language-support/netcore)  
 [Html 语言参考](../component-create/language-support/html)  
-[定义 Dockerfile 的任意源代码参考](../component-create/language-support/dockefile)  
+[定义 Dockerfile 的任意源代码参考](./language-support/dockefile)  
 
 #### Git 和 Svn 的使用
 

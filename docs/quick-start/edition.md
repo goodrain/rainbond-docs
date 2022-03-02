@@ -26,7 +26,7 @@ description: Rainbond功能列表
 | 支持 Helm 应用安装     | 支持从 Helm 应用商店安装应用                                                                                           |
 |                        | 支持 Helm 应用配置和持续升级                                                                                           |
 |                        |                                                                                                                        |
-| 支持源代码持续构建     | 支持 PHP 源码编译，支持 PHP 源代码、PHP5.3~7 版本运行时，apace、nginx 构建应用，并支持流行的 PHP 开发框架              |
+| 支持源代码持续构建     | 支持 PHP 源码编译，支持 PHP 源代码、PHP5.3~7 版本运行时，apache、nginx 构建应用，并支持流行的 PHP 开发框架              |
 |                        | 支持 Java 源码编译，支持 Java（maven）源代码、war 包、jar 包构建应用，并支持流行的 java 开发框架                       |
 |                        | 支持 Python 源码编译，支持 Python 源代码、Python 2.6~3.2 运行时构建应用，并支持流行的 Python 开发框架                  |
 |                        | 支持 Node.js 源码编译，支持 Node.js 源代码、Nods.js 6.x~10.x 运行时构建应用，流行的 Node.js 开发框架，包括前端类项目。 |

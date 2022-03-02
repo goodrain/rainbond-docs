@@ -63,7 +63,7 @@ Rainbond 可以在企业的开发、测试、生产各个环节体现价值。�
 
 整个业务系统可以细分为下面的四个服务组件：
 
-- 前端项目：[NiceFish-UI](https://gitee.com/dazuimao1990/NiceFish) 项目会基于[镜像部署](../user-manual/component-create/image-support/)，整个 CI/CD 流程是：提交代码后，Jenkins 调度远端服务器拉取最新代码并制作镜像，制作完成后推送到开发环境中的 HarBor 镜像仓库。推送完成后触发测试环境中的 NiceFish-UI 服务组件自动拉取镜像持续构建。
+- 前端项目：[NiceFish-UI](https://gitee.com/dazuimao1990/NiceFish) 项目会基于镜像部署，整个 CI/CD 流程是：提交代码后，Jenkins 调度远端服务器拉取最新代码并制作镜像，制作完成后推送到开发环境中的 HarBor 镜像仓库。推送完成后触发测试环境中的 NiceFish-UI 服务组件自动拉取镜像持续构建。
 
 - 后端项目：[NiceFish-cms](https://gitee.com/dazuimao1990/nicefish-spring-boot) 项目基于源码部署，整个 Ci/CD 流程是：提交代码后，Jenkins 调度 SonarQube 进行静态代码质量检测，检测通过后触发测试环境中的 NiceFish-cms 服务组件自动拉取源代码持续构建。
 
@@ -140,7 +140,7 @@ GitLab中的设置：
 
 ### 持续交付
 
-基于 Rainbond 实现持续交付体系，推荐使用 [共享库](../enterprise-manager/enterprise/appcenter/) 实现。
+基于 Rainbond 实现持续交付体系，推荐使用 [共享库](../enterprise-manager/enterprise/appcenter/add-app) 实现。
 
 经过上文中的 **持续集成/持续构建** 后，产生的业务可以不断的发布到共享库中形成不同的版本。重复执行 [应用模版的升级])(/docs/get-start/upgrade-from-market/)，即可完成应用的持续交付。
 

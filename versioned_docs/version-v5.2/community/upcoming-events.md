@@ -79,7 +79,6 @@ B 站直播间（可弹幕互动）： http://live.bilibili.com/22189300
 
 B 站直播间（可弹幕互动）： http://live.bilibili.com/22189300
 
-参考文档：[Rancher 安装 Rainbond](../user-operations/install/install-from-rancher/)
 
 ---
 

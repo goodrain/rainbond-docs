@@ -7,13 +7,13 @@ hidden: true
 
 本指南会使用最简单，最方便的方式部署 Rainbond。帮助你快速地评估 Rainbond。
 
-如果你已经熟悉 Rainbond 或想了解其他更高级的安装方式，请查阅[部署集群](../user-operations/install/)。
+如果你已经熟悉 Rainbond 或想了解其他更高级的安装方式，请查阅[部署集群](../install/kubernetes-install)。
 
 ## 搭建 Kubernetes
 
 在安装 Rainbond 之前，需要一个 `1.13` 及以上版本的 Kubernetes。
 
-如果你没有准备好的 Kubernetes，可以参考[快速安装 Kubernetes](../user-operations/install/kubernetes-install/#kubernetes的all-in-one安装方式)。
+如果你没有准备好的 Kubernetes，可以参考[快速安装 Kubernetes](../install/kubernetes-install/#kubernetes的all-in-one安装方式)。
 
 ## 使用 Helm 3 安装 Rainbond Operator
 
@@ -96,7 +96,7 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
 
 1. 完成了上述配置后，单击 **配置就绪，开始安装**。
 
-> 如果安装受阻，可以参考[故障排查](../user-operations/install/troubleshooting/)，或联系相应管理人员。
+> 如果安装受阻，可以参考[故障排查](../install/troubleshooting/)，或联系相应管理人员。
 
 ## 验证安装
 
@@ -108,7 +108,7 @@ helm 的安装详情，请查阅 [Installing Helm](https://helm.sh/docs/intro/in
 
 ## 安装命令行工具
 
-为了方便运维管理集群请参照[文档](../user-operations/tools/grctl/)安装 `grctl` 命令行工具。
+为了方便运维管理集群请参照[文档](../tools/grctl/)安装 `grctl` 命令行工具。
 
 ## 卸载
 
