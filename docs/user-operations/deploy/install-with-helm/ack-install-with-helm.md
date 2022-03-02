@@ -48,7 +48,7 @@ hidden: true
 
 ### 安装kubectl
 
-```
+```bash
 wget https://grstatic.oss-cn-shanghai.aliyuncs.com/binary/kubectl -O /usr/bin/kubectl
 chmod +x /usr/bin/kubectl
 ```
@@ -59,14 +59,14 @@ chmod +x /usr/bin/kubectl
 
 如上图所示， 复制 kubeconfig 文件写到`~/.kube/config`文件里。
 
-```
+```bash
 mkdir ~/.kube/
 vi ~/.kube/config
 ```
 
 ### 安装helm
 
-```
+```bash
 wget https://pkg.goodrain.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
 ```
 
@@ -74,7 +74,7 @@ wget https://pkg.goodrain.com/pkg/helm && chmod +x helm && mv helm /usr/local/bi
 
 - 通过自定义的形式，选择rainbond 集群的配置以及是否对接已有的阿里云RDS，NAS，镜像仓库等。
 
-```
+```bash
 $ vi values.yaml
 
 ##Rainbondcluster
@@ -161,19 +161,19 @@ Cluster:
 
 - 创建rbd-system 命名空间
 
-```
+```bash
 kubectl create namespace rbd-system
 ```
 
 - 添加chart仓库
 
-```
+```bash
 helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
 ```
 
 - 安装rainbond
 
-```
+```bash
 helm install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
 ```
 
@@ -181,7 +181,7 @@ helm install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
 
 - 查看pod状态
 
-```
+```bash
 kubectl get po -n rbd-system | grep rbd-app-ui
 ```
 
