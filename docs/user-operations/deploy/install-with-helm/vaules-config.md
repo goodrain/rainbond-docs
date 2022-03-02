@@ -77,7 +77,7 @@ operator:
     - internalIP：运行网关服务的 Kubernetes 节点内部 IP
     - name：运行网关服务的 Kubernetes 节点名称
 - rainbondImageRepository：集群服务镜像拉取地址，默认为 registry.cn-hangzhou.aliyuncs.com/goodrain，此配置项不支持动态变更
-- installVersion：集群服务镜像拉取 tag，默认为 v5.5.0-release，此配置项不支持动态变更
+- installVersion：集群服务镜像拉取 tag，默认为 v5.6.0-release，此配置项不支持动态变更
 - imagePullPolicy：集群服务镜像拉取策略，默认为 IfNotPresent，此配置项不支持动态变更
 - replicas：集群服务组件副本数，启用高可用的情况下生效，默认为2，此配置项不支持动态变更
 
@@ -154,7 +154,7 @@ Cluster:
 ## 系统组件统一镜像仓库拉取地址及名称空间
   rainbondImageRepository: registry.cn-hangzhou.aliyuncs.com/goodrain
 ## 系统组件统一镜像版本
-  installVersion: v5.5.0-release
+  installVersion: v5.6.0-release
 ## 系统组件统一镜像拉取策略
   imagePullPolicy: IfNotPresent
 ## 高可用安装模式下，系统组件副本数
