@@ -31,7 +31,6 @@ web: sh target/bin/webapp
  bundle exec bin/rails server -p $PORT -e $RAILS_ENV
 ```
 
-{{% notice info %}}
 您可能注意到了 `$PORT` 这个环境变量，指定服务的监听端口。Rainbond 运行服务时将自动通过用户设置的端口信息注入此环境变量。通过上述类型的启动命令，实现服务监听端口的灵活配置。类似的机制还可以被使用到例如 Tomcat 启动等几乎所有语言服务类型中。
 
 ### Procfile 格式说明

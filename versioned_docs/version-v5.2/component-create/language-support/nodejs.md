@@ -88,7 +88,7 @@ web: npm start
 }
 ```
 
-{{% notice info %}}
+
 npm 版本不是必须的，可以省略，因为 npm 是跟 node 绑定的。
 
 
@@ -132,7 +132,7 @@ Node项目支持使用 [npm package manager](https://www.npmjs.com/) 和 [yarn p
 }
 ```
 
-{{% notice info %}}
+
 系统默认不自带 grunt、gulp、bower 这些工具，但是会安装 `package.json` 中 `dependencies` 和`devDependencies` 节点下的依赖，所以自定义执行的命令也需要作为依赖添加到此节点下，否则可能会找不到命令，这些工具执行时需要的依赖也是如此。
 
 
