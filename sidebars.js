@@ -332,6 +332,8 @@ const sidebars = {
               },
               items: [
                 'user-operations/deploy/install-with-helm/k8s-install-with-helm',
+                'user-operations/deploy/install-with-helm/k3s-install-with-helm',
+                'user-operations/deploy/install-with-helm/ack-install-with-helm',
                 'user-operations/deploy/install-with-helm/vaules-config',
                 'user-operations/deploy/install-with-helm/uninstall-with-helm'
               ]
