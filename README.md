@@ -38,14 +38,66 @@ $ yarn start
 
 将在浏览器中自动打开http://localhost:3000/
 
-### 构建
+### 本地生产测试启动
+
+使用以下命令在本地模拟生产测试启动
 
 ```bash
-$ yarn build
+$ yarn serve --build .
 ```
 
 
 
 ## 参与贡献
 
-欢迎提交 Pull Request，参考 [Docusaurus 2](https://docusaurus.io/) Markdown语法格式。
+旧版本文档不再维护，只维护 Current 版。
+
+将 [Rainbond-docs](https://github.com/goodrain/rainbond-docs.git) 仓库 Fork 到自己的仓库，修改文档并提交至自己的仓库，提交  Pull Request 到 [Rainbond-docs](https://github.com/goodrain/rainbond-docs.git)
+
+
+
+### 内容要求
+
+Rainbond 中文档分为 **概念性文档** **操作指引性文档** 和 **最佳实践性文档** 不同的文档类型。编写文档请明确文档的类型，根据不同的类型需要达成的效果进行文章内容的确定。
+
+
+
+### 排版要求
+
+* 中英文夹杂要有空格区分，也可使用反引号包裹起来 ``
+
+  例如：我在 Rainbond 上部署xxx，我在 `Rainbond` 上部署xxx
+
+* 文档中出现 Rainbond 字样，R 必须是大写。
+
+* 标题最好是 1 2 3 4 级，五六级标题尽量避免，如果内容太多确实需要可以加上。
+
+* 标题的命名要一目了然
+
+* 引入图片格式如下
+
+  ```html
+  ![API架构](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png)
+  
+  <!-- 也可以使用  -->
+  <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png" width="100%" title="API架构" />
+  ```
+
+* 链接的引用格式如下
+
+  1. 引用文档内其他文档要使用相对路径，参考 [docusaurus文档](https://docusaurus.io/zh-CN/docs/markdown-features/assets)
+  2. 引用外部链接必须要带 http or https
+
+  ```html
+  [Rainbond](https://www.rainbond.com)
+  
+  <!-- 也可以使用  -->
+  <a href="https://www.rainbond.com" target="_blank" />
+  ```
+
+  > 禁止
+
+* 代码块的使用参考 [Docusaurus 代码块](https://docusaurus.io/zh-CN/docs/markdown-features/code-blocks)
+
+* 文档中如有 "用户须知" 要使用 [Docusaurus 告示](https://docusaurus.io/zh-CN/docs/markdown-features/admonitions)
+
