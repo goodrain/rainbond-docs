@@ -52,7 +52,7 @@ PATH => bin:vendor/bundle/#{RUBY_ENGINE}/#{RUBY_ABI_VERSION}/bin:/usr/local/bin:
 - 2.1.6 : patchlevel 336, Rubygems : 2.2.2
 - 2.2.2 : patchlevel 95, Rubygems: ; 2.4.5
 
-{{% notice info %}}
+
   注意：Ruby 1.8.7 和 Ruby 1.9.2 官方已经停止支持，不再提供更新，不推荐使用。
 
 

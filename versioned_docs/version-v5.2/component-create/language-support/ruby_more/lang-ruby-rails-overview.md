@@ -96,7 +96,7 @@ web: bundle exec rails server -p $PORT
 ```bash
 web: bundle exec bin/rails server -p $PORT -e $RAILS_ENV
 ```
-{{% notice info %}}
+
 虽然针对 Rails 的每个版本都有默认的 web 服务器启动命令，但是我们强烈推荐在正式生产环境中使用Puma 作为 web 服务器。
 
 
