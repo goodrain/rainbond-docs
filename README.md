@@ -101,3 +101,7 @@ Rainbond 中文档分为 **概念性文档** **操作指引性文档** 和 **最
 
 * 文档中如有 "用户须知" 要使用 [Docusaurus 告示](https://docusaurus.io/zh-CN/docs/markdown-features/admonitions)
 
+#### 新增MD文件
+
+如果需要新增文件，在 `docs/` 目录下增加至对应的目录内，并在 `sidebars.js` 中按照顺序填写新增的文件名，可参考 [Docusaurus Sidebar](https://docusaurus.io/zh-CN/docs/sidebar)。
+
