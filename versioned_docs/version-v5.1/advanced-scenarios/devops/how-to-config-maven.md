@@ -1,8 +1,6 @@
 ---
-Title: "Rainbond源码构建JAVA项目配置Maven仓库"
+title: "Rainbond源码构建JAVA项目配置Maven仓库"
 Description: "源码构建JAVA项目如何灵活配置Maven环境"
-Hidden: true
-Weight: 22010
 ---
 
 ### 概述

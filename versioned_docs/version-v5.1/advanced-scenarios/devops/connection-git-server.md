@@ -1,7 +1,6 @@
 ---
 title: 对接私有源码仓库（Git、Svn）
 description: 讲解Rainbond如何获取私有源代码仓库进行源码构建
-hidden: true
 ---
 
 ### 原理解读

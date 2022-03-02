@@ -1,5 +1,5 @@
 ---
-Title: 快速部署Gitlab源码管理组件
+title: 快速部署Gitlab源码管理组件
 Description: "基于Rainbond快速部署生产可用的源代码管理组件"
 Key: "rainbond 应用部署 gitlab 开始部署"
 ---

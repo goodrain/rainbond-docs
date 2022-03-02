@@ -1,7 +1,6 @@
 ---
 title: 基于Rainbond实现服务熔断和全局限流
 Description: "Rainbond网络治理插件，服务熔断与全局限流"
-hidden: true
 ---
 
 

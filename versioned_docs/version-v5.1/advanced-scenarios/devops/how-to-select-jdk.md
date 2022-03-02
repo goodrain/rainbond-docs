@@ -1,8 +1,6 @@
 ---
-Title: "Rainbond源码构建JAVA项目选取JDK"
+title: "Rainbond源码构建JAVA项目选取JDK"
 Description: "源码构建JAVA项目如何灵活指定JDK"
-Hidden: true
-Weight: 22009
 ---
 
 ### 默认提供的JDK

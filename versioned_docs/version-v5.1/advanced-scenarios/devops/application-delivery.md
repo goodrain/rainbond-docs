@@ -1,7 +1,6 @@
 ---
 title: 通过应用市场做应用交付与升级
 Description: 基于Rainbond做应用交付与升级
-Hidden: true
 ---
 
 ### 概述

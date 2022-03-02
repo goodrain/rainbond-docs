@@ -1,8 +1,6 @@
 ---
-Hidden: true
-Title: "Maven项目源码构建实践之私有仓库对接"
+title: "Maven项目源码构建实践之私有仓库对接"
 Description: "讲解Rainbond源码构建系统对接企业私有Maven仓库的实践"
-Weight: 22005
 ---
 
 ### Maven仓库镜像

@@ -1,7 +1,6 @@
 ---
 title: JAVA⽣态的微服务⽆侵⼊链路追踪
 Description: "⽆侵⼊链路追踪APM⼯具Pinpoint"
-hidden: true
 ---
 
 

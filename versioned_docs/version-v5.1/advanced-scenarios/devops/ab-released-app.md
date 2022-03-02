@@ -1,7 +1,6 @@
 ---
 title: 组件A/B测试实践
 Description: 基于Rainbond的组件A/B测试操作方案详解
-Hidden: true
 ---
 
 ### 功能说明

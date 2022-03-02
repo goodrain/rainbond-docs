@@ -1,7 +1,6 @@
 ---
 title: Rainbond服务⽇志管理
 Description: "Rainbond服务日志管理及使用Filebeat插件对接 Elasticsearch"
-hidden: true
 ---
 
 

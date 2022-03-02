@@ -1,7 +1,6 @@
 ---
 title: 应用灰度发布实践方案
 Description: Rainbond应用灰度发布操作方案详解
-Hidden: true
 ---
 
 ### 功能说明

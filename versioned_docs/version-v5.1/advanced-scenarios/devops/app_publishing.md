@@ -1,7 +1,6 @@
 ---
 title: 基于Rainbond实现三种微服务的发布
 Description: "基于Rainbond实现微服务的滚动发布，蓝绿发布及灰度发布"
-hidden: true
 ---
 
 
