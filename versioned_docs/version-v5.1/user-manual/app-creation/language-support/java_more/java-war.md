@@ -10,7 +10,7 @@ menu: "java"
 
 #### 平台编译运行机制
 
-1. 预编译处理会探测是否定义了启动命令配置文件[Procfile](../../etc/procfile/),如果未定义会生成默认War包启动配置文件;
+1. 预编译处理会探测是否定义了启动命令配置文件[Procfile](../etc/procfile/),如果未定义会生成默认War包启动配置文件;
 2. 预编译处理完成后,会根据语言类型选择Java-war的buildpack去编译项目.在编译过程中会安装定义的JDK版本,Web服务;
 3. 编译完成后会检查是否在平台设置了Procfile参数,若配置了会重写启动命令配置文件Procfile.
 
@@ -108,7 +108,7 @@ OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.ta
 
 
 选择tomcat7版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行  
-关于webapp-runner详细配置请参考[webapp-runner使用说明](/docs/user-manual/app-creation/language-support/java_more/webapp-runner/)
+关于webapp-runner详细配置请参考[webapp-runner使用说明](./webapp-runner/)
 
 
 #### 高级构建选项
@@ -130,11 +130,11 @@ OracleJDK下载地址格式要求: `http://<web服务URL>/jdk-8u201-linux-x64.ta
 
 #### 推荐阅读
 
-- [Java-Maven源码构建应用](../java-maven/)
-- [Java-Jar源码构建应用](../java-jar/)
-- [Java-Gradle源码构建应用](../java-gradle/)
-- [Spring Boot项目配置MySQL](../spring-boot-mysql/)
-- [Tomcat配置Redis实现Session共享](../tomcat-redis-session)
-- [webapp-runner使用说明](/docs/user-manual/app-creation/language-support/java_more/webapp-runner/)
-- [RAINBOND源码构建JAVA项目选取JDK](/docs/advanced-scenarios/devops/how-to-select-jdk/)
-- [Rainbond源码构建JAVA项目配置Maven仓库](/docs/advanced-scenarios/devops/how-to-config-maven/)
+- [Java-Maven源码构建应用](./java-maven/)
+- [Java-Jar源码构建应用](./java-jar/)
+- [Java-Gradle源码构建应用](./java-gradle/)
+- [Spring Boot项目配置MySQL](./spring-boot-mysql/)
+- [Tomcat配置Redis实现Session共享](./tomcat-redis-session)
+- [webapp-runner使用说明](./webapp-runner/)
+- [RAINBOND源码构建JAVA项目选取JDK](../../../../advanced-scenarios/devops/how-to-select-jdk/)
+- [Rainbond源码构建JAVA项目配置Maven仓库](../../../../advanced-scenarios/devops/how-to-config-maven/)

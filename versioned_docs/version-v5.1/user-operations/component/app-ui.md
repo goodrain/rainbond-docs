@@ -86,4 +86,4 @@ cp -a /opt/rainbond/etc/rbd-api/ /grdata/tenant/7b0e4bed6a1f4b9498fdf48abcd18612
 ```
 
 
-更多平台服务创建方式请参阅[用户使用手册](/docs/user-manual/app-creation/creation-process)
+更多平台服务创建方式请参阅[用户使用手册](../../user-manual/app-creation/creation-process)

@@ -1,4 +1,3 @@
-
 ---
 title: Rainbond应用控制台访问
 description: "Rainbond应用控制台访问"
@@ -19,10 +18,10 @@ hidden: true
 若有使用问题或遇到无法解决的错误请于[Rainbond开源社区](https://t.goodrain.com)留言，期待您的参与！
 
 
-下一步参考文档：
+<!-- 下一步参考文档：
 
 [平台使用参考文档](/docs/user-manual/) 
 
 [进阶使用参考文档](/docs/advanced-scenarios/)
 
-[故障诊断参考文档](/docs/Troubleshoot/)
+[故障诊断参考文档](/docs/Troubleshoot/) -->

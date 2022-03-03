@@ -588,9 +588,9 @@ const sidebars = {
       },
       items: [
         'community/FAQs/faqs',
-        'community/contribution/contribution',
+        // 'community/contribution/contribution',
         'community/upcoming-events',
-        'community/doc-style',
+        // 'community/doc-style',
         'community/change/5.3.0-5.3.1',
         'community/change/5.3.1-5.3.2',
         'community/change/5.3.2-5.3.3',

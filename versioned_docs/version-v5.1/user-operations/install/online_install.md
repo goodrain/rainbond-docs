@@ -29,7 +29,7 @@ wget https://pkg.rainbond.com/releases/common/v5.1/grctl && chmod +x ./grctl
 
 #### 2.2 初始化数据中心
 
-[数据中心](../../architecture/architecture/#二-数据中心服务组件说明) 是Rainbond资源集合的核心抽象，初始化数据中心操作需要在第一台服务器上执行安装命令。
+[数据中心](../../architecture/architectures) 是Rainbond资源集合的核心抽象，初始化数据中心操作需要在第一台服务器上执行安装命令。
 
 **开始`all-in-one`模式快速安装**
 

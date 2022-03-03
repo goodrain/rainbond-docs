@@ -16,7 +16,7 @@ hidden: true
 
 云帮使用 [webapp-Runner] 内嵌的 tomcat 或 [jetty-Runner] 内嵌的 jetty 实现服务器功能。在您不创建其他服务器情况下即可轻松将应用部署在云帮。通过以下步骤可实现 **配置redis实现session共享**。
 
-1. 配置[Procfile](../../etc/procfile/)：将如下命令添加到您的Procfile中，并源码根目录下添加Procfile。
+1. 配置[Procfile](../etc/procfile/)：将如下命令添加到您的Procfile中，并源码根目录下添加Procfile。
 
    ```
    web: java -jar ./webapp-runner.jar --port $PORT --session-store redis ./*.war
@@ -24,7 +24,7 @@ hidden: true
    - 指定了监听端口，通过获取环境变量 $PORT,此变量Rainbond根据平台设置的服务端口进行自动注入
    - 指定session存储`--session-store redis`
 
-3. 从应用市场安装Redis服务，并设置当前服务依赖创建的Redis服务，参考文档 [依赖服务](/docs/user-manual/app-service-manage/service-rely/#服务如何连接依赖服务)
+3. 从应用市场安装Redis服务，并设置当前服务依赖创建的Redis服务，参考文档 [依赖服务](../../../app-service-manage/service-rely/#服务如何连接依赖服务)
 
 4. 应用配置redis：将`REDIS_URL`新增至应用环境变量中，值为 `redis://:${REDIS_PASS}@127.0.0.1:6379`。
 
@@ -58,6 +58,6 @@ hidden: true
    ```
 
 2. 确认源码的`<dir_name>`或`<filename>.war`存在，并且与Dockerfile文件存在同一目录，以此目录为根目录开始创建组件
-3. 安装Redis服务并建立依赖关系，参考文档 [依赖服务](/docs/user-manual/app-service-manage/service-rely/#服务如何连接依赖服务)
+3. 安装Redis服务并建立依赖关系，参考文档 [依赖服务](../../../app-service-manage/service-rely/#服务如何连接依赖服务)
 4. 应用配置redis：配置变量`REDIS_URL`到应用环境变量中，值为 `127.0.0.1:6379`；配置变量`REDIS_SESSION`到应用环境变量中，值为`true`。
 5. 重启应用以适配

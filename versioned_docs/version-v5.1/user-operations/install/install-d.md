@@ -420,7 +420,7 @@ graph LR
 
 ### 4.2 node 组件的健康检测机制
 
-每一个安装服务的健康检查配置见文档： [详细配置](/docs/user-operations/monitor/monitor-alter-items/)
+每一个安装服务的健康检查配置见文档： [详细配置](../monitor/monitor-alter-items)
 
 若某项检查项目标识为不健康状态，当前节点将被标识为不健康状态。
 

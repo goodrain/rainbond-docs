@@ -6,7 +6,7 @@ hidden: true
 
 ### 原理文档阅读
 
-[Rainbond 构建 Java Maven 项目原理解读](../java-maven-de/)
+[Rainbond 构建 Java Maven 项目原理解读](./java-maven-de/)
 
 ### Maven 项目识别策略
 
@@ -14,7 +14,7 @@ hidden: true
 
 ### 编译原理
 
-1. 预编译处理会探测是否定义了启动命令配置文件[Procfile](../../etc/procfile/),如果未定义会根据打包类型或者项目框架生成默认 Procfile 文件;
+1. 预编译处理会探测是否定义了启动命令配置文件[Procfile](../etc/procfile/),如果未定义会根据打包类型或者项目框架生成默认 Procfile 文件;
 2. 预编译处理完成后,会根据语言类型选择 Java 的 buildpack 去编译项目.在编译过程中会安装定义的 JDK 版本，Maven 版本，然后构建编译 Maven 源码项目;
 3. 编译完成后会检查是否在平台设置了 Procfile 参数,若配置了会重写启动命令配置文件 Procfile.
 
@@ -147,7 +147,7 @@ maven.version=3.3.1
 
 
 选择 tomcat7 版本需要注意确定本地可以通过`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`运行  
-关于 webapp-runner 详细配置请参考[webapp-runner 使用说明](/docs/user-manual/app-creation/language-support/java_more/webapp-runner/)
+关于 webapp-runner 详细配置请参考[webapp-runner 使用说明](./webapp-runner)
 
 
 
@@ -198,11 +198,11 @@ grctl buildtest
 
 ### 推荐阅读
 
-- [Java-Jar 源码构建应用](../java-jar/)
-- [Java-War 源码构建应用](../java-war/)
-- [Java-Gradle 源码构建应用](../java-gradle)
-- [Spring Boot 项目配置 MySQL](../spring-boot-mysql/)
-- [Tomcat 配置 Redis 实现 Session 共享](../tomcat-redis-session/)
-- [webapp-runner 使用说明](/docs/user-manual/app-creation/language-support/java_more/webapp-runner/)
-- [RAINBOND源码构建JAVA项目选取JDK](/docs/advanced-scenarios/devops/how-to-select-jdk/)
-- [Rainbond源码构建JAVA项目配置Maven仓库](/docs/advanced-scenarios/devops/how-to-config-maven/)
+- [Java-Jar 源码构建应用](./java-jar/)
+- [Java-War 源码构建应用](./java-war/)
+- [Java-Gradle 源码构建应用](./java-gradle)
+- [Spring Boot 项目配置 MySQL](./spring-boot-mysql/)
+- [Tomcat 配置 Redis 实现 Session 共享](./tomcat-redis-session/)
+- [webapp-runner 使用说明](./webapp-runner/)
+- [RAINBOND源码构建JAVA项目选取JDK](../../../../advanced-scenarios/devops/how-to-select-jdk/)
+- [Rainbond源码构建JAVA项目配置Maven仓库](../../../../advanced-scenarios/devops/how-to-config-maven/)
