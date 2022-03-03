@@ -104,7 +104,6 @@
       {
         "type": "category",
          "label": "架构",
-         "collapsible": true,
          "items": [
            "architecture/design-concept",
            "architecture/flow",

@@ -54,7 +54,7 @@ web: vendor/bin/heroku-php-nginx
 composer update --ignore-platform-reqs
 ```
 
-{{% notice info %}}
+
 PHP应用程序可以使用Composer安装的依赖项,通常会将依赖项安装到 `vendor/` 目录，但是部分项目会重新定义这个目录，执行 `composer config vendor-dir` 配置正确的路径。大多数情况下避免本地安装影响，通常需要将Composer `vendor` 目录添加到你的 `.gitignore`
 当在composer.json中定义了verndor-dir时需注意,需要自行定义Procfile否则会导致应用无法正常运行，Procfile格式类似 `web: <vendor-dir>/heroku/heroku-buildpack-php/bin/heroku-php-apache2`
 
@@ -349,7 +349,7 @@ PHP 的版本支持 ~5.5.35 这种 [Semantic Versioning](http://semver.org/) 的
 }
 ```
 
-{{% notice info %}}
+
 
 Composer是PHP的依赖管理器，composer.json则是Composer的配置文件，强烈建议使用 “*” 来标识扩展包的版本号。
 
@@ -384,7 +384,7 @@ Composer是PHP的依赖管理器，composer.json则是Composer的配置文件，
 }
 ```
 
-{{% notice info %}}
+
 
 更多细节扩展支持说明请参考：<a href="../php_more/extensions/" target="_blank">不同版本PHP扩展支持说明</a>
 
@@ -408,7 +408,7 @@ Composer是PHP的依赖管理器，composer.json则是Composer的配置文件，
 composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 ```
 
-{{% notice info %}}
+
 
 系统会在每次运行的时候使用`composer self-update` 将Composer自动更新到最新版本。
 

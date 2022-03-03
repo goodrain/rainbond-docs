@@ -169,7 +169,7 @@ Compiled application.js  (0ms)  (pid 1601)
 Compiled application.css  (0ms)  (pid 1601)
 ```
 
-{{% notice info %}}
+
 
 如果执行bundle exec rake assets:precompile 有如下报错：
 
