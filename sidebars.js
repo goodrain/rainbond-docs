@@ -574,6 +574,7 @@ const sidebars = {
         'upgrade/5.3.0-upgrade',
         'upgrade/5.3.1-upgrade',
         'upgrade/5.3.2-upgrade',
+        'upgrade/5.3.3-upgrade',
         'upgrade/5.4.0-upgrade',
         'upgrade/5.5.0-upgrade',
         'upgrade/5.6.0-upgrade'
