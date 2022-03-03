@@ -95,7 +95,6 @@ Rainbond 中文档分为 **概念性文档** **操作指引性文档** 和 **最
   <a href="https://www.rainbond.com" target="_blank" />
   ```
 
-  > 禁止
 
 * 代码块的使用参考 [Docusaurus 代码块](https://docusaurus.io/zh-CN/docs/markdown-features/code-blocks)
 
