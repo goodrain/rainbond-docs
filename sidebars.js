@@ -14,7 +14,6 @@ const sidebars = {
         'quick-start/roadmap'
       ]
     },
-
     {
       type: 'category',
       label: '快速入门',
