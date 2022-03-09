@@ -3,7 +3,7 @@ title: 与容器平台的区别
 description: 本章描述Rainbond项目与其他容器管理平台的关键区别和共同点。
 ---
 
-<!-- {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/WechatIMG110.jpeg" title="产品定位图例说明">}} -->
+<!-- <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/WechatIMG110.jpeg" title="产品定位图例说明" /> -->
 
 ### 定位差异
 

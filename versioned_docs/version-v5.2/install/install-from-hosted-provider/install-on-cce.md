@@ -11,7 +11,7 @@ description: '在华为云的云容器引擎(Cloud Container Engine)上安装 Ra
 
 开始之前，请检查以下前提条件：
 
-1. 了解 [Rainbond Cloud](../../quick-start/rainbond-cloud.md) ，并进行[注册](https://cloud.goodrain.com/enterprise-server/registered)和[登陆](https://cloud.goodrain.com/enterprise-server/login)。
+1. 了解 [Rainbond Cloud](../../quick-start/rainbond-cloud) ，并进行[注册](https://cloud.goodrain.com/enterprise-server/registered)和[登陆](https://cloud.goodrain.com/enterprise-server/login)。
 1. 确保你的华为云账户支持按需购买资源，比如账户余额大于 100 元并通过实名认证。
 
 ### 准备一个 CCE 集群

@@ -7,7 +7,7 @@ hidden: true
 
 ### 守护运行方式
 
-默认使用[easzup](https://github.com/easzlab/kubeasz) 的安装方式部署docker,详细信息参见[安装docker服务](https://github.com/easzlab/kubeasz/blob/master/docs/setup/03-install_docker.md)
+默认使用[easzup](https://github.com/easzlab/kubeasz) 的安装方式部署docker,详细信息参见[安装docker服务](https://github.com/easzlab/kubeasz/blob/master/docs/setup/03-install_docker)
 
 ### 常用参数说明
 
