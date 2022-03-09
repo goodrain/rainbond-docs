@@ -3,7 +3,7 @@ title: 功能列表
 description: Rainbond功能列表
 ---
 
-[开发计划](./roadmap.md)
+[开发计划](./roadmap)
 
 本文档列举`Rainbond开源版`具备的重点基础功能，随着版本升级本文档列举不一定完全，如有疑问请于社区留言咨询。
 

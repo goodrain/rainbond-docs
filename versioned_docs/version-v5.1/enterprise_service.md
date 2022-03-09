@@ -14,10 +14,10 @@ Rainbond和容器平台最大的差异是抽象层次，Rainbond核心抽象是�
 
 Rainbond企业服务在Rainbond之上，建设面向企业应用的业务交付流程，核心提升企业应用交付效率，并且支持各种复杂交付流程：
 
-* [互联网公司交付流程](/docs/architecture/flow/#互联网公司交付流程)
-* [企业软件公司交付流程](/docs/architecture/flow/#企业软件公司交付流程)
-* [行业云交付流程](/docs/architecture/flow/#行业云交付流程)
-* [大型企事业单位IT流程](/docs/architecture/flow/#大型企事业单位it流程)
+* [互联网公司交付流程](./architecture/flow/#互联网公司交付流程)
+* [企业软件公司交付流程](./architecture/flow/#企业软件公司交付流程)
+* [行业云交付流程](./architecture/flow/#行业云交付流程)
+* [大型企事业单位IT流程](./architecture/flow/#大型企事业单位it流程)
 
 Rainbond企业服务实现企业应用、企业计算资源和租户的互联互通，根据交付场景需要自定义交付流程。
 

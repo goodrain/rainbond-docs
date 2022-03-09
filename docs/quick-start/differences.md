@@ -3,7 +3,7 @@ title: 与容器平台的区别
 description: 本章描述Rainbond项目与其他容器管理平台的关键区别和共同点。
 ---
 
-<!-- {{<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/WechatIMG110.jpeg" title="产品定位图例说明">}} -->
+<!-- <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/WechatIMG110.jpeg" title="产品定位图例说明" /> -->
 
 ### 定位差异
 
@@ -25,4 +25,4 @@ Rainbond 根据不同人群有不同的管理界面，面向开发、测试和�
 
 Kubernetes 是 Rainbond 底层一个技术组件，使用 Rainbond 不需要学习容器和 k8s，Rainbond 兼容容器和 K8s 的标准, Rainbond 运行在 k8s 上，k8s 负责所有应用的运行和调度。
 
-参考 [技术架构](../architecture/)
+参考 [技术架构](../quick-start/architecture/)

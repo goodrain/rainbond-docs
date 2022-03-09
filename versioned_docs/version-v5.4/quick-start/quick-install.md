@@ -87,7 +87,7 @@ Rainbond 需要对接计算资源后即可创建并管理应用。
 
 ### 控制台迁移
 
-All-In-One 模式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理 [参考文档](../user-operations/ha-deploy/console-recover/)。
+All-In-One 模式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理 [参考文档](../user-operations/deploy/ha-deployment/console-recover/)。
 
 
 ### 常见问题

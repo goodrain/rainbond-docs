@@ -95,7 +95,12 @@ Rainbond 中文档分为 **概念性文档** **操作指引性文档** 和 **最
   <a href="https://www.rainbond.com" target="_blank" />
   ```
 
-  > 禁止
+* 引入视频格式如下
+
+  ```html
+  import Bvideo from "@site/src/components/Bvideo";
+  <Bvideo src="//player.bilibili.com/player.html?aid=550933549&bvid=BV1Vq4y1w7FQ&cid=492223110&page=1"/>
+  ```
 
 * 代码块的使用参考 [Docusaurus 代码块](https://docusaurus.io/zh-CN/docs/markdown-features/code-blocks)
 

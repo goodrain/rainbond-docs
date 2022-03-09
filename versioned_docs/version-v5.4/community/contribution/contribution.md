@@ -21,4 +21,3 @@ Rainbond 项目的终极目标是建设成为"企业应用操作系统",因此�
 ### 贡献 Rainbond 应用
 
 如果你是 Rainbond 的使用用户，你一定体验到了 Rainbond 应用市场带来的便利，我们非常欢迎你将你创造的有用的、有趣的应用或解决方案发布到社区。
-[贡献应用参考文档](http://t.goodrain.com/t/rainbond/486)
