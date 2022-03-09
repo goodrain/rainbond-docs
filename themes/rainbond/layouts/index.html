@@ -21,8 +21,7 @@
                                 rel="noopener noreferrer">
                                 安装使用
                             </a>
-                            <a class="button" href="http://demo.c9f961.grapps.cn/" target="_blank"
-                                rel="noopener noreferrer">
+                            <a class="button" id="jump_demo" href="javascript:;" rel="noopener noreferrer">
                                 在线体验
                             </a>
                         </div>
@@ -264,5 +263,13 @@
             console.error('Trigger:', e.trigger);
             showTooltip(e.trigger, fallbackMessage(e.action));
         });
+    </script>
+    <script>
+        const jump_btn = document.querySelector('#jump_demo')
+        jump_btn.onclick = function () {
+            axios.get('https://cloud.goodrain.com/enterprise-server/onlineTrial').finally(() => {
+                window.open('http://demo.c9f961.grapps.cn/')
+            })
+        }
     </script>
 </body>
