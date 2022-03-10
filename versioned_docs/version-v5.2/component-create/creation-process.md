@@ -38,7 +38,7 @@ aliases:
 [Java 语言参考](../component-create/language-support/java/java-maven)  
 [PHP 语言参考](../component-create/language-support/php)  
 [Python 语言参考](../component-create/language-support/python)  
-[NodeJS 语言参考](../component-create/language-support/nodejs.md)  
+[NodeJS 语言参考](../component-create/language-support/nodejs)  
 [.Net 语言参考](../component-create/language-support/netcore)  
 [Html 语言参考](../component-create/language-support/html)  
 [定义 Dockerfile 的任意源代码参考](../component-create/language-support/dockerfile) 
