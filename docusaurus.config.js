@@ -28,12 +28,12 @@ const config = {
           showLastUpdateTime: true,
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
           includeCurrentVersion: false,
-          lastVersion: "current",
+          lastVersion: 'current',
           versions: {
             current: {
-              label: 'Current',
-            },
-          },
+              label: 'Current'
+            }
+          }
         },
         theme: {
           customCss: [
@@ -65,11 +65,11 @@ const config = {
           {
             position: 'left',
             label: '文档',
-            to: '/docs/',
+            to: '/docs/'
           },
           {
-            type: "docsVersionDropdown",
-            position: "right",
+            type: 'docsVersionDropdown',
+            position: 'right'
           },
           {
             position: 'right',
@@ -101,9 +101,9 @@ const config = {
       hideableSidebar: true,
       autoCollapseSidebarCategories: true,
       algolia: {
-        appId: "4EFG0MCBR2",
-        apiKey: "449c9313e5dfd0ebb2c330a105b302b9",
-        indexName: "rainbond",
+        appId: '4EFG0MCBR2',
+        apiKey: '449c9313e5dfd0ebb2c330a105b302b9',
+        indexName: 'rainbond'
       },
       footer: {
         style: 'dark',
@@ -113,81 +113,83 @@ const config = {
         darkTheme: darkCodeTheme
       },
       announcementBar: {
-        id: "start",
+        id: 'start',
         content:
-          '⭐️ If you like Rainbond, give it a star on <a target="_blank" href="https://github.com/goodrain/rainbond">GitHub</a> !',
-      },
+          '⭐️ If you like Rainbond, give it a star on <a target="_blank" href="https://github.com/goodrain/rainbond">GitHub</a> !'
+      }
     }),
-    scripts: [
-      'https://static.goodrain.com/docusaurus/baidu-statistics.js',
-    ],
-    plugins: [
-      [
-        '@docusaurus/plugin-client-redirects',
-        {
-          createRedirects(existingPath) {
-            if (existingPath.includes('/use-manual/component-create')) {
-              return [
-                existingPath.replace('/use-manual/component-create', '/component-create'),
-              ];
-            }
-            if (existingPath.includes('/use-manual/enterprise-manager')) {
-              return [
-                existingPath.replace('/use-manual/enterprise-manager', '/enterprise-manager'),
-              ];
-            }
-            if (existingPath.includes('/use-manual/user-manual')) {
-              return [
-                existingPath.replace('/use-manual/user-manual', '/user-manual'),
-              ];
-            }
-            if (existingPath.includes('/quick-start/get-start')) {
-              return [
-                existingPath.replace('/quick-start/get-start', '/get-start'),
-              ];
-            }
-            if (existingPath.includes('/quick-start/architecture')) {
-              return [
-                existingPath.replace('/quick-start/architecture', '/architecture'),
-              ];
-            }
-            if (existingPath.includes('/expand/practices')) {
-              return [
-                existingPath.replace('/expand/practices', '/practices'),
-              ];
-            }
-            if (existingPath.includes('/expand/opensource-app')) {
-              return [
-                existingPath.replace('/expand/opensource-app', '/opensource-app'),
-              ];
-            }
-            return undefined;
-          },
-          redirects: [
-            {
-              // 社区分享活动记录
-              to: '/community/upcoming-events',
-              from: ['/upcoming-events'],
-            },
-            {
-              // 技术架构
-              to: '/quick-start/architecture/',
-              from: ['/architecture/architecture'],
-            },
-            {
-              // 快速安装
-              to: '/quick-start/quick-install',
-              from: ['/quick-start/rainbond_install'],
-            },
-            {
-              // 简介
-              to: '/',
-              from: ['/quick-start/rainbond_overview'],
-            },
-          ],
+  scripts: ['https://static.goodrain.com/docusaurus/baidu-statistics.js'],
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        createRedirects(existingPath) {
+          if (existingPath.includes('/use-manual/component-create')) {
+            return [
+              existingPath.replace(
+                '/use-manual/component-create',
+                '/component-create'
+              )
+            ];
+          }
+          if (existingPath.includes('/use-manual/enterprise-manager')) {
+            return [
+              existingPath.replace(
+                '/use-manual/enterprise-manager',
+                '/enterprise-manager'
+              )
+            ];
+          }
+          if (existingPath.includes('/use-manual/user-manual')) {
+            return [
+              existingPath.replace('/use-manual/user-manual', '/user-manual')
+            ];
+          }
+          if (existingPath.includes('/quick-start/get-start')) {
+            return [
+              existingPath.replace('/quick-start/get-start', '/get-start')
+            ];
+          }
+          if (existingPath.includes('/quick-start/architecture')) {
+            return [
+              existingPath.replace('/quick-start/architecture', '/architecture')
+            ];
+          }
+          if (existingPath.includes('/expand/practices')) {
+            return [existingPath.replace('/expand/practices', '/practices')];
+          }
+          if (existingPath.includes('/expand/opensource-app')) {
+            return [
+              existingPath.replace('/expand/opensource-app', '/opensource-app')
+            ];
+          }
+          return undefined;
         },
-      ],
-    ],
+        redirects: [
+          {
+            // 社区分享活动记录
+            to: '/community/upcoming-events',
+            from: ['/upcoming-events']
+          },
+          {
+            // 技术架构
+            to: '/quick-start/architecture/',
+            from: ['/architecture/architecture']
+          },
+          {
+            // 快速安装
+            to: '/quick-start/quick-install',
+            from: ['/quick-start/rainbond_install']
+          },
+          {
+            // 简介
+            to: '/',
+            from: ['/quick-start/rainbond_overview']
+          }
+        ]
+      }
+    ]
+  ]
 };
 
 module.exports = config;

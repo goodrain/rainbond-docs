@@ -6,7 +6,7 @@ weight: 70
 
 云原生应用“12 要素”中关于端口的部分的描述“通过端口绑定(Port binding)来提供服务，互联网应用通过端口绑定来提供服务”。在 Rainbond 中同样的概念，组件定义端口实则是定义当前组件对外提供的服务。端口控制包括端口号，端口协议，端口访问控制、对内组件端口别名变量设置等操作，下图是不同团队、不同端口的组件开启了不同访问控制后的示意图：
 
-<image src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/port-manage.png" width="100%" />
+<img src="https://static.goodrain.com/images/docs/3.6/user-manual/manage/port-manage.png" width="100%" />
 
 ### 端口号设置
 
