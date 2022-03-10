@@ -4,9 +4,7 @@ description: 本篇最佳实践讲解基于Rainbond实现应用的一键上线/�
 weight: 50
 ---
 
-
-在实际生产环境中，由于业务升级，代码上线发生意外时需要进行回滚（Rollback），Rainbond  实现了发布版本一键回滚，针对不同业务场景在发生意外时均可以使用回滚功能快速将应用回滚至上一版本，减小业务损失；Rainbond支持对应用内单一组件进行一键式快速回滚，同时也支持对应用内多个组件同时执行回滚操作。
-
+在实际生产环境中，由于业务升级，代码上线发生意外时需要进行回滚（Rollback），Rainbond 实现了发布版本一键回滚，针对不同业务场景在发生意外时均可以使用回滚功能快速将应用回滚至上一版本，减小业务损失；Rainbond 支持对应用内单一组件进行一键式快速回滚，同时也支持对应用内多个组件同时执行回滚操作。
 
 ## 对组件进行一键式快速回滚
 
@@ -14,7 +12,7 @@ weight: 50
 
 ### 前提条件
 
-部署好的 Nginx 示例服务组件，通过Docker镜像构建，镜像地址为 `nginx:1.11`。
+部署好的 Nginx 示例服务组件，通过 Docker 镜像构建，镜像地址为 `nginx:1.11`。
 
 ### 操作步骤
 
@@ -22,12 +20,13 @@ weight: 50
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/best-practices/update_rollback/source.jpg" width="100%" />
 
-2.通过 **Web终端** 进入容器，查看nginx版本；
+2.通过 **Web 终端** 进入容器，查看 nginx 版本；
 
 ```bash
 $ nginx -v
 nginx version: nginx/1.12.2
 ```
+
 3.在组件总览页面点击 **查看更多版本**，查看之前构建版本历史；
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/best-practices/update_rollback/version.jpg" width="100%" />
@@ -38,13 +37,12 @@ nginx version: nginx/1.12.2
 
 ### 效果展示
 
-通过  **Web终端** 进入容器，查看nginx版本，已经回归至之前版本
+通过 **Web 终端** 进入容器，查看 nginx 版本，已经回归至之前版本
 
 ```bash
 $ nginx -v
 nginx version: nginx/1.11.13
 ```
-
 
 ## 基于版本号一键上线/回滚
 
@@ -61,11 +59,11 @@ nginx version: nginx/1.11.13
 
 ### 前提条件
 
-完成 [将应用发布为应用模版](../../get-start/release-to-market/) ，拥有基于示例应用模版安装的应用
+完成 [将应用发布为应用模版](../../get_start/release-to-market/) ，拥有基于示例应用模版安装的应用
 
 ### 操作步骤
 
-1.模拟测试环境代码改动，进行构建后再次将应用发布至共享库，定义 应用版本2.0，
+1.模拟测试环境代码改动，进行构建后再次将应用发布至共享库，定义 应用版本 2.0，
 
 2.发布完成后在生产环境该应用 升级 界面将会提示当前应用可升级，点击升级按钮进行升级，
 
@@ -74,5 +72,3 @@ nginx version: nginx/1.11.13
 3.升级界面查看 **云市应用升级记录** ，点击查看组件详情，点击 **回滚** 按钮即可对升级操作一键回滚。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/best-practices/update_rollback/rollback02.jpg" width="100%" />
-
-

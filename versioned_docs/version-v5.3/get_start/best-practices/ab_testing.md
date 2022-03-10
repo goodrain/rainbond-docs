@@ -119,6 +119,6 @@ $ curl --cookie "user=test" www.test.goodrain.com
 
 **您可能还需要阅读：**
 
-[基于 Rainbond 的滚动发布，灰度发布及蓝绿发布实践](../../get-start/best-practices/app_publishing/)
+[基于 Rainbond 的滚动发布，灰度发布及蓝绿发布实践](../../get_start/best-practices/app_publishing/)
 
-[基于版本号一键上线/回滚](../../get-start/best-practices/update-rollback/)
+[基于版本号一键上线/回滚](../../get_start/best-practices/update-rollback/)

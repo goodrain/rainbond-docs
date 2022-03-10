@@ -19,7 +19,7 @@ Description: 基于Rainbond的组件A/B测试操作方案详解
 
 > Rainbond 目前支持 HTTP 协议的 A/B 测试实践，这也是目前应用面最广的协议。
 
-服务需要进行 A/B 测试，需要区分其是属于内部服务还是对外服务。内部服务的 A/B 测试特性由 ServiceMesh 层提供，对外服务由[应用网关](../../user-manual/gateway/traffic-control//)提供。
+服务需要进行 A/B 测试，需要区分其是属于内部服务还是对外服务。内部服务的 A/B 测试特性由 ServiceMesh 层提供，对外服务由[应用网关](../../user-manual/gateway/traffic-control/)提供。
 
 我们以下述场景为例，分别对 `外部服务` `外部服务2` `内部服务` `内部服务2` 进行 A/B 测试实践。
 

@@ -84,7 +84,7 @@ pig
 
 #### Java 多模块部署 Pig 项目
 
-参考[JAVA 多模块源码构建](../../../component-create/language-support/java/java-multi-module-build)
+参考[JAVA 多模块源码构建](../../../component-create/language_support/java/java-multi-module-build/)
 
 #### 分步部署 Pig 项目
 
@@ -92,17 +92,17 @@ pig
 
 - 为 `spring-cloud` 添加服务组件 —— 从源码开始 —— 自定义仓库：
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-1.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-1.png" width="100%" />
 
 点击 新建服务，Rainbond 会自动拉取代码，并根据代码根目录下的 `pom.xml` 自动将代码语言识别为 `Java-maven`。取消 `并构建启动` 选项：
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-2.png" width="100%" /> 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-2.png" width="100%" />
 
 - 点击 创建，进入服务组件未部署的页面。编辑 端口 选项卡，开放 `pig-eureka` 自身端口 `8761`：
 
 `pig-eureka` 需要被其它微服务组件访问以进行注册，所以打开对内服务，以便之后创建依赖关系。该组件也提供 web 页面，显示微服务组件的注册情况与健康情况，所以打开对外服务，以便外部访问。
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-3.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-3.png" width="100%" />
 
 - 编辑 构建源 选项卡，指定 `pig-eureka` 构建参数：
 
@@ -112,13 +112,13 @@ pig
 
 在 v5.1+版本的 Rainbond 中，可以指定当前服务组件的启动命令。指定的方式是在 `构建运行环境设置` 中的 `启动命令：web: java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app/pig-eureka/target/*.jar` ，命令格式与 `Procfile` 一致。
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-4.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-4.png" width="100%" />
 
 - 编辑 依赖 选项卡，指定当前服务组件依赖其它服务组件：
 
 各个服务组件之间的依赖关系，可以在创建时指定。所有的 spring cloud 微服务组件都需要依赖 `pig-eureka`，以 `pig-gateway`为例，应添加依赖关系如下：
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-5.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-5.png" width="100%" />
 
 - 所有的设置完成后，即可点击 构建 ，构建完成后，服务组件将自动运行起来。
 
@@ -166,7 +166,7 @@ CMD [ "mysqld" ]
 
 在代码仓库地址 url 的最后添加 `?dir=5.7` 可以让 Rainbond 将构建目录指定为代码仓库根目录下的 `5.7` 文件夹。
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-6.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-6.png" width="100%" />
 
 为了让数据库正常工作,并且可以被其它依赖的本数据库的应用获取连接信息，需要设置若干环境变量：
 
@@ -222,7 +222,7 @@ spring:
 
 ### 部署 pig-ui
 
-`pig-ui` 是一个由 nodejs 语言编写的 vue 项目，作为整个系统的前端静态页面。Rainbond 目前已经支持源码构建 `nodejs前端` 项目，参考文档：[NodeJS 前端语言](../../../component-create/language-support/nodejs-static)
+`pig-ui` 是一个由 nodejs 语言编写的 vue 项目，作为整个系统的前端静态页面。Rainbond 目前已经支持源码构建 `nodejs前端` 项目，参考文档：[NodeJS 前端语言](../../../component-create/language_support/nodejs-static/)
 
 为了便于改造项目，所以将项目 fork 了一份进行修改，代码地址：https://gitee.com/dazuimao1990/pig-ui
 
@@ -269,11 +269,11 @@ server {
 
 完成部署后，拓扑图如下：
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-8.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-case/spring-cloud-case-8.png" width="100%" />
 
 登陆效果：
 
-<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-9.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/micro/spring-cloud/spring-cloud-case/spring-cloud-case-9.png" width="100%" />
 
 ```bash
 登陆账户密码：
