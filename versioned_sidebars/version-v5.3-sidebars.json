@@ -1,0 +1,447 @@
+{
+    "version-v5.3/docs": [
+        {
+            "type": "category",
+            "label": "快速开始",
+            "collapsible": true,
+            "items": [
+                "quick_start/rainbond_overview",
+                "quick_start/differences",
+                "quick_start/quick-install",
+                "quick_start/edition",
+                "quick_start/roadmap.5.0"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "快速入门",
+            "collapsible": true,
+            "items": [
+                {
+                    "type": "category",
+                    "label": "学习概念",
+                    "collapsible": true,
+                    "items": [
+                        "get_start/concept/team",
+                        "get_start/concept/app",
+                        "get_start/concept/componment",
+                        "get_start/concept/plugin",
+                        "get_start/concept/gateway"
+                    ]
+                },
+                "get_start/team-management-and-multi-tenancy",
+                "get_start/create-app-from-source",
+                "get_start/create-app-from-market",
+                "get_start/create-dependency",
+                "get_start/release-to-market",
+                "get_start/upgrade-from-market",
+                "get_start/offline-delivery-with-market"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "架构",
+            "collapsible": true,
+            "items": [
+                "architecture/design-concept",
+                "architecture/flow",
+                "architecture/architectures"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "部署服务组件",
+            "collapsible": true,
+            "items": [
+                "component-create/creation-process",
+                {
+                    "type": "category",
+                    "label": "基于源代码创建组件",
+                    "collapsible": true,
+                    "items": [
+                        {
+                            "type": "category",
+                            "label": "Java语言参考",
+                            "collapsible": true,
+                            "items": [
+                                "component-create/language_support/java/java-maven",
+                                "component-create/language_support/java/java-multi-module-build",
+                                "component-create/language_support/java/java-jar",
+                                "component-create/language_support/java/java-war",
+                                "component-create/language_support/java/java-gradle",
+                                "component-create/language_support/java/java-maven-de",
+                                "component-create/language_support/java/tomcat-redis-session",
+                                "component-create/language_support/java/webapp-runner"
+                            ]
+                        },
+                        "component-create/language_support/Dockfile",
+                        "component-create/language_support/python",
+                        "component-create/language_support/php",
+                        "component-create/language_support/netcore",
+                        "component-create/language_support/golang",
+                        "component-create/language_support/html",
+                        "component-create/language_support/nodejs",
+                        "component-create/language_support/nodejs-static",
+                        "component-create/language_support/slugignore",
+                        "component-create/language_support/procfile",
+                        "component-create/language_support/rainbondfile",
+                        "component-create/language_support/envs"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "基于Docker镜像创建组件",
+                    "collapsible": true,
+                    "items": [
+                        "component-create/image_support/docker-compose",
+                        "component-create/image_support/image"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "接入外部服务作为第三方组件",
+                    "collapsible": true,
+                    "items": [
+                        "component-create/thirdparty_service/thirdparty-define",
+                        "component-create/thirdparty_service/thirdparty-design",
+                        "component-create/thirdparty_service/thirdparty-create"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "基于Helm应用市场创建组件",
+                    "collapsible": true,
+                    "items": [
+                        "component-create/helm_support/docking_helm_store",
+                        "component-create/helm_support/creation-process",
+                        "component-create/helm_support/manage-helm-app"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "category",
+            "label": "管理应用与服务组件",
+            "collapsible": true,
+            "items": [
+                "user-manual/join_team",
+                "user-manual/app_create",
+                {
+                    "type": "category",
+                    "label": "外网访问组件",
+                    "collapsible": true,
+                    "items": [
+                        "user-manual/gateway/domain",
+                        "user-manual/gateway/tcpip",
+                        "user-manual/gateway/cert-management"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "组件间通信",
+                    "collapsible": true,
+                    "items": [
+                        "user-manual/component-connection/regist_and_discover",
+                        "user-manual/component-connection/regist_and_discover_grpc",
+                        "user-manual/component-connection/connection_env"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "组件开发",
+                    "collapsible": true,
+                    "items": [
+                        "user-manual/component-dev/build_and_version",
+                        "user-manual/component-dev/build_source",
+                        "user-manual/component-dev/auto_build",
+                        "user-manual/component-dev/app_copy",
+                        "user-manual/component-dev/service-env"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "组件运维",
+                    "collapsible": true,
+                    "items": [
+                        {
+                            "type": "category",
+                            "label": "组件基础操作",
+                            "collapsible": true,
+                            "items": [
+                                "user-manual/component-op/basic-operations/basic-operation",
+                                "user-manual/component-op/basic-operations/service-properties"
+                            ]
+                        },
+                        "user-manual/component-op/service-log",
+                        {
+                            "type": "category",
+                            "label": "组件伸缩",
+                            "collapsible": true,
+                            "items": [
+                                "user-manual/component-op/automatic-telescoping/service-scaling",
+                                "user-manual/component-op/automatic-telescoping/service-auto-scaling"
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "label": "组件储存",
+                            "collapsible": true,
+                            "items": [
+                                "user-manual/component-op/custom-volume/service-volume",
+                                "user-manual/component-op/custom-volume/service-volume-custom"
+                            ]
+                        },
+                        "user-manual/component-op/service-port-domain",
+                        "user-manual/component-op/custom-monitor",
+                        "user-manual/component-op/health",
+                        {
+                            "type": "category",
+                            "label": "组件性能分析与监控",
+                            "collapsible": true,
+                            "items": [
+                                "user-manual/component-op/performance-analysis/service-monitor"
+                            ]
+                        },
+                        "user-manual/component-op/service-other-set",
+                        "user-manual/component-op/service-plugins"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "插件开发",
+                    "collapsible": true,
+                    "items": [
+                        "user-manual/plugin-manage/plugin-design-develop",
+                        "user-manual/plugin-manage/mesh-plugin",
+                        "user-manual/plugin-manage/new-plugin"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "应用运维",
+                    "collapsible": true,
+                    "items": [
+                        "user-manual/app-manage/app-topology",
+                        "user-manual/app-manage/operation",
+                        "user-manual/app-manage/add-service",
+                        "user-manual/app-manage/upgrade_app",
+                        "user-manual/app-manage/share-app",
+                        "user-manual/app-manage/config-group",
+                        "user-manual/app-manage/governance-model"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "构建微服务架构",
+                    "collapsible": true,
+                    "items": [
+                        "user-manual/architecture/service_assembly",
+                        "user-manual/architecture/rate-limiting",
+                        "user-manual/architecture/traffic-management",
+                        "user-manual/architecture/network-visualization"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "category",
+            "label": "集群运维",
+            "collapsible": true,
+            "items": [
+                "user-operations/op-guide/component-description",
+                {
+                    "type": "category",
+                    "label": "部署集群扩展文档",
+                    "collapsible": true,
+                    "items": [
+                        "user-operations/install/centos_keepalived",
+                        "user-operations/install/ubuntu_keepalived"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "集群管理",
+                    "collapsible": true,
+                    "items": [
+                        "user-operations/cluster-manage/add-cluster",
+                        "user-operations/cluster-manage/manage-cluster",
+                        "user-operations/cluster-manage/manage-rke-cluster",
+                        "user-operations/cluster-manage/init-region",
+                        "user-operations/cluster-manage/init-region-storage",
+                        "user-operations/cluster-manage/check",
+                        "user-operations/cluster-manage/resource-limit"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "储存解决方案",
+                    "collapsible": true,
+                    "items": [
+                        "user-operations/storage/ceph-rbd",
+                        "user-operations/storage/deploy-glusterfs",
+                        "user-operations/storage/deploy-nfsclient",
+                        "user-operations/storage/ali-disk"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "集群监控",
+                    "collapsible": true,
+                    "items": [
+                        "user-operations/monitor/monitor-alert-items",
+                        "user-operations/monitor/monitor-alert-deploy",
+                        {
+                            "type": "category",
+                            "label": "报警配置项",
+                            "collapsible": true,
+                            "items": [
+                                "user-operations/monitor/alert/alert-wechat",
+                                "user-operations/monitor/alert/alert-dingtalk",
+                                "user-operations/monitor/alert/alert-mail"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "周边工具集",
+                    "collapsible": true,
+                    "items": [
+                        "user-operations/tools/kubectl",
+                        "user-operations/tools/grctl"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "高可用部署相关",
+                    "collapsible": true,
+                    "items": [
+                        "user-operations/ha-deploy/console"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "问题诊断",
+                    "collapsible": true,
+                    "items": [
+                        "user-operations/troubleshoot/install_troubleshooting",
+                        "user-operations/troubleshoot/cluster_troubleshooting"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "category",
+            "label": "常见场景最佳实践",
+            "collapsible": true,
+            "items": [
+                "practices/app-dev/work_with_kong",
+                "practices/app-dev/work_with_apm",
+                "practices/app-dev/work_with_git",
+                "practices/app-dev/work_with_elk",
+                "practices/app-dev/app_publishing",
+                "practices/app-dev/ab_testing",
+                "practices/app-dev/update-rollback",
+                "practices/app-dev/config_file",
+                "practices/app-dev/collect_log",
+                "practices/app-dev/java-exporter",
+                "practices/app-dev/build_by_dockerfile",
+                "practices/app-dev/statefulset",
+                "practices/app-dev/build-react-and-vue",
+                "practices/app-dev/connect-api",
+                "practices/app-dev/port-conflict",
+                "practices/app-dev/auto-schema",
+                "practices/app-dev/deploy-spark",
+                "practices/app-dev/port-alias",
+                "practices/operator/gateway-node",
+                "practices/app-dev/spring-cloud-advantage",
+                "practices/app-dev/spring-cloud-merge",
+                "practices/app-dev/spring-cloud-case",
+                "practices/app-dev/data-initialization",
+                "practices/app-dev/work-helm-app",
+                "practices/app-dev/shell-hook-cdn"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "管理企业",
+            "collapsible": true,
+            "items": [
+                {
+                    "type": "category",
+                    "label": "用户管理",
+                    "collapsible": true,
+                    "items": [
+                        {
+                            "type": "category",
+                            "label": "OAuth2.0集成",
+                            "collapsible": true,
+                            "items": [
+                                "enterprise-manager/user-registration-login/oauth2.0/oauth-product-desc",
+                                "enterprise-manager/user-registration-login/oauth2.0/oauth-conf",
+                                "enterprise-manager/user-registration-login/oauth2.0/oauth-git",
+                                "enterprise-manager/user-registration-login/oauth2.0/oauth-create"
+                            ]
+                        },
+                        "enterprise-manager/user-registration-login/user-register",
+                        "enterprise-manager/user-registration-login/reset_admin_user_password"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "企业中台",
+                    "collapsible": true,
+                    "items": [
+                        "enterprise-manager/enterprise/dashboad",
+                        {
+                            "type": "category",
+                            "label": "应用市场",
+                            "collapsible": true,
+                            "items": [
+                                "enterprise-manager/enterprise/appcenter/desc",
+                                "enterprise-manager/enterprise/appcenter/application-template",
+                                "enterprise-manager/enterprise/appcenter/share-app-market",
+                                "enterprise-manager/enterprise/appcenter/add-app",
+                                "enterprise-manager/enterprise/appcenter/app-specification"
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "label": "团队管理",
+                            "collapsible": true,
+                            "items": [
+                                "enterprise-manager/enterprise/teams/create-team"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "category",
+            "label": "版本升级",
+            "collapsible": true,
+            "items": [
+                "upgrade/5.3.3-upgrade",
+                "upgrade/5.3.2-upgrade",
+                "upgrade/5.3.1-upgrade",
+                "upgrade/5.3.0-upgrade",
+                "upgrade/5.2.2-5.3.1"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "社区",
+            "collapsible": true,
+            "items": [
+                "community/FAQs/faqs",
+                "community/contribution/indexs",
+                "community/upcoming-events",
+                "community/doc-style",
+                "community/change/5.3.0-5.3.1",
+                "community/change/5.3.1-5.3.2",
+                "community/change/5.3.2-5.3.3"
+            ]
+        }
+    ]
+}

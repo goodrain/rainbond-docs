@@ -14,7 +14,7 @@ const sidebars = {
           label: '快速入门',
           link: {
             type: 'doc',
-            id: 'quick-start/get-start/index',
+            id: 'quick-start/get-start/index'
           },
           items: [
             {
@@ -22,7 +22,7 @@ const sidebars = {
               label: '学习概念',
               link: {
                 type: 'doc',
-                id: 'quick-start/get-start/concept/index',
+                id: 'quick-start/get-start/concept/index'
               },
               items: [
                 'quick-start/get-start/concept/team',
@@ -60,7 +60,7 @@ const sidebars = {
       label: '安装与运维',
       link: {
         type: 'doc',
-        id: 'user-operations/index',
+        id: 'user-operations/index'
       },
       items: [
         'user-operations/op-guide/component-description',
@@ -69,7 +69,7 @@ const sidebars = {
           label: '安装 Rainbond',
           link: {
             type: 'doc',
-            id: 'user-operations/deploy/index',
+            id: 'user-operations/deploy/index'
           },
           items: [
             {
@@ -77,7 +77,7 @@ const sidebars = {
               label: '基于 Helm 安装',
               link: {
                 type: 'doc',
-                id: 'user-operations/deploy/install-with-helm/index',
+                id: 'user-operations/deploy/install-with-helm/index'
               },
               items: [
                 'user-operations/deploy/install-with-helm/k8s-install-with-helm',
@@ -92,14 +92,14 @@ const sidebars = {
               label: '基于 Web 界面安装',
               link: {
                 type: 'doc',
-                id: 'user-operations/deploy/install-with-ui/index',
+                id: 'user-operations/deploy/install-with-ui/index'
               },
               items: [
                 'user-operations/deploy/install-with-ui/host-install-with-ui',
                 'user-operations/deploy/install-with-ui/ha-installation',
                 'user-operations/deploy/install-with-ui/install-by-rainbond',
                 'user-operations/deploy/install-with-ui/install-from-k8s',
-                'user-operations/deploy/install-with-ui/console-recover',                
+                'user-operations/deploy/install-with-ui/console-recover'
               ]
             },
             {
@@ -107,7 +107,7 @@ const sidebars = {
               label: '安装问题排查',
               link: {
                 type: 'doc',
-                id: 'user-operations/deploy/install-troubleshoot/index',
+                id: 'user-operations/deploy/install-troubleshoot/index'
               },
               items: [
                 'user-operations/deploy/install-troubleshoot/dind-install-troubleshoot',
@@ -122,7 +122,7 @@ const sidebars = {
           label: '部署集群扩展文档',
           link: {
             type: 'doc',
-            id: 'user-operations/Install-extension/index',
+            id: 'user-operations/Install-extension/index'
           },
           items: [
             'user-operations/Install-extension/centos_keepalived',
@@ -135,7 +135,7 @@ const sidebars = {
           label: '集群管理',
           link: {
             type: 'doc',
-            id: 'user-operations/cluster-manage/index',
+            id: 'user-operations/cluster-manage/index'
           },
           items: [
             'user-operations/cluster-manage/add-cluster',
@@ -155,7 +155,7 @@ const sidebars = {
           label: '存储解决方案',
           link: {
             type: 'doc',
-            id: 'user-operations/storage/index',
+            id: 'user-operations/storage/index'
           },
           items: [
             'user-operations/storage/deploy-glusterfs',
@@ -169,7 +169,7 @@ const sidebars = {
           label: '集群监控',
           link: {
             type: 'doc',
-            id: 'user-operations/monitor/index',
+            id: 'user-operations/monitor/index'
           },
           items: [
             'user-operations/monitor/monitor-alert-items',
@@ -179,7 +179,7 @@ const sidebars = {
               label: '报警配置项',
               link: {
                 type: 'doc',
-                id: 'user-operations/monitor/alert/index',
+                id: 'user-operations/monitor/alert/index'
               },
               items: [
                 'user-operations/monitor/alert/alert-wechat',
@@ -194,7 +194,7 @@ const sidebars = {
           label: '周边工具集',
           link: {
             type: 'doc',
-            id: 'user-operations/tools/index',
+            id: 'user-operations/tools/index'
           },
           items: [
             'user-operations/tools/kubectl',
@@ -208,7 +208,7 @@ const sidebars = {
       label: '使用手册',
       link: {
         type: 'doc',
-        id: 'use-manual/index',
+        id: 'use-manual/index'
       },
       items: [
         {
@@ -216,7 +216,7 @@ const sidebars = {
           label: '部署服务组件',
           link: {
             type: 'doc',
-            id: 'use-manual/component-create/index',
+            id: 'use-manual/component-create/index'
           },
           items: [
             'use-manual/component-create/creation-process',
@@ -225,7 +225,7 @@ const sidebars = {
               label: '基于源代码创建组件',
               link: {
                 type: 'doc',
-                id: 'use-manual/component-create/language-support/index',
+                id: 'use-manual/component-create/language-support/index'
               },
               items: [
                 {
@@ -233,7 +233,7 @@ const sidebars = {
                   label: 'Java语言参考',
                   link: {
                     type: 'doc',
-                    id: 'use-manual/component-create/language-support/java/index',
+                    id: 'use-manual/component-create/language-support/java/index'
                   },
                   items: [
                     'use-manual/component-create/language-support/java/java-maven',
@@ -265,7 +265,7 @@ const sidebars = {
               label: '基于Docker镜像创建组件',
               link: {
                 type: 'doc',
-                id: 'use-manual/component-create/image-support/index',
+                id: 'use-manual/component-create/image-support/index'
               },
               items: [
                 'use-manual/component-create/image-support/docker-compose',
@@ -277,7 +277,7 @@ const sidebars = {
               label: '接入外部服务作为第三方组件',
               link: {
                 type: 'doc',
-                id: 'use-manual/component-create/thirdparty-service/index',
+                id: 'use-manual/component-create/thirdparty-service/index'
               },
               items: [
                 'use-manual/component-create/thirdparty-service/thirdparty-define',
@@ -290,7 +290,7 @@ const sidebars = {
               label: '基于Helm应用市场创建组件',
               link: {
                 type: 'doc',
-                id: 'use-manual/component-create/helm-support/index',
+                id: 'use-manual/component-create/helm-support/index'
               },
               items: [
                 'use-manual/component-create/helm-support/docking_helm_store',
@@ -300,13 +300,13 @@ const sidebars = {
             }
           ]
         },
-    
+
         {
           type: 'category',
           label: '管理应用与服务组件',
           link: {
             type: 'doc',
-            id: 'use-manual/user-manual/index',
+            id: 'use-manual/user-manual/index'
           },
           items: [
             'use-manual/user-manual/join-team/join-team',
@@ -316,7 +316,7 @@ const sidebars = {
               label: '外网访问组件',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/gateway/index',
+                id: 'use-manual/user-manual/gateway/index'
               },
               items: [
                 'use-manual/user-manual/gateway/domain',
@@ -329,7 +329,7 @@ const sidebars = {
               label: '组件间通信',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/component-connection/index',
+                id: 'use-manual/user-manual/component-connection/index'
               },
               items: [
                 'use-manual/user-manual/component-connection/regist_and_discover',
@@ -342,7 +342,7 @@ const sidebars = {
               label: '组件开发',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/component-dev/index',
+                id: 'use-manual/user-manual/component-dev/index'
               },
               items: [
                 'use-manual/user-manual/component-dev/build_and_version',
@@ -357,7 +357,7 @@ const sidebars = {
               label: '组件运维',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/component-op/index',
+                id: 'use-manual/user-manual/component-op/index'
               },
               items: [
                 {
@@ -374,7 +374,7 @@ const sidebars = {
                   label: '组件伸缩',
                   link: {
                     type: 'doc',
-                    id: 'use-manual/user-manual/component-op/automatic-telescoping/index',
+                    id: 'use-manual/user-manual/component-op/automatic-telescoping/index'
                   },
                   items: [
                     'use-manual/user-manual/component-op/automatic-telescoping/service-scaling',
@@ -386,7 +386,7 @@ const sidebars = {
                   label: '组件存储',
                   link: {
                     type: 'doc',
-                    id: 'use-manual/user-manual/component-op/custom-volume/index',
+                    id: 'use-manual/user-manual/component-op/custom-volume/index'
                   },
                   items: [
                     'use-manual/user-manual/component-op/custom-volume/service-volume',
@@ -401,7 +401,7 @@ const sidebars = {
                   label: '组件性能分析与监控',
                   link: {
                     type: 'doc',
-                    id: 'use-manual/user-manual/component-op/performance-analysis/index',
+                    id: 'use-manual/user-manual/component-op/performance-analysis/index'
                   },
                   items: [
                     'use-manual/user-manual/component-op/performance-analysis/service-monitor'
@@ -416,7 +416,7 @@ const sidebars = {
               label: '插件开发',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/plugin-manage/index',
+                id: 'use-manual/user-manual/plugin-manage/index'
               },
               items: [
                 'use-manual/user-manual/plugin-manage/plugin-design-develop',
@@ -429,7 +429,7 @@ const sidebars = {
               label: '应用运维',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/app-manage/index',
+                id: 'use-manual/user-manual/app-manage/index'
               },
               items: [
                 'use-manual/user-manual/app-manage/app-topology',
@@ -447,7 +447,7 @@ const sidebars = {
               label: '构建微服务架构',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/architecture/index',
+                id: 'use-manual/user-manual/architecture/index'
               },
               items: [
                 'use-manual/user-manual/architecture/service_assembly',
@@ -463,7 +463,7 @@ const sidebars = {
           label: '管理企业',
           link: {
             type: 'doc',
-            id: 'use-manual/enterprise-manager/index',
+            id: 'use-manual/enterprise-manager/index'
           },
           items: [
             {
@@ -471,7 +471,7 @@ const sidebars = {
               label: '用户管理',
               link: {
                 type: 'doc',
-                id: 'use-manual/enterprise-manager/user-registration-login/index',
+                id: 'use-manual/enterprise-manager/user-registration-login/index'
               },
               items: [
                 {
@@ -479,7 +479,7 @@ const sidebars = {
                   label: 'OAuth2.0集成',
                   link: {
                     type: 'doc',
-                    id: 'use-manual/enterprise-manager/user-registration-login/oauth2.0/index',
+                    id: 'use-manual/enterprise-manager/user-registration-login/oauth2.0/index'
                   },
                   items: [
                     'use-manual/enterprise-manager/user-registration-login/oauth2.0/oauth-product-desc',
@@ -497,7 +497,7 @@ const sidebars = {
               label: '企业中台',
               link: {
                 type: 'doc',
-                id: 'use-manual/enterprise-manager/enterprise/index',
+                id: 'use-manual/enterprise-manager/enterprise/index'
               },
               items: [
                 'use-manual/enterprise-manager/enterprise/dashboad',
@@ -506,7 +506,7 @@ const sidebars = {
                   label: '应用市场',
                   link: {
                     type: 'doc',
-                    id: 'use-manual/enterprise-manager/enterprise/appcenter/index',
+                    id: 'use-manual/enterprise-manager/enterprise/appcenter/index'
                   },
                   items: [
                     'use-manual/enterprise-manager/enterprise/appcenter/desc',
@@ -521,7 +521,7 @@ const sidebars = {
                   label: '团队管理',
                   link: {
                     type: 'doc',
-                    id: 'use-manual/enterprise-manager/enterprise/teams/index',
+                    id: 'use-manual/enterprise-manager/enterprise/teams/index'
                   },
                   items: [
                     'use-manual/enterprise-manager/enterprise/teams/create-team'
@@ -530,23 +530,23 @@ const sidebars = {
               ]
             }
           ]
-        },
+        }
       ]
     },
     {
       type: 'category',
       label: '扩展',
-      // link: {
-      //   type: 'doc',
-      //   id: 'user-operations/tools/index',
-      // },
+      link: {
+        type: 'doc',
+        id: 'user-operations/tools/index'
+      },
       items: [
         {
           type: 'category',
           label: '常见场景最佳实践',
           link: {
             type: 'doc',
-            id: 'expand/practices/index',
+            id: 'expand/practices/index'
           },
           items: [
             'expand/practices/app-dev/work_with_kong',
@@ -581,7 +581,7 @@ const sidebars = {
           label: '开源应用精选专区',
           link: {
             type: 'doc',
-            id: 'expand/opensource-app/index',
+            id: 'expand/opensource-app/index'
           },
           items: [
             'expand/opensource-app/itest',
@@ -598,7 +598,7 @@ const sidebars = {
       label: '版本升级',
       link: {
         type: 'doc',
-        id: 'upgrade/index',
+        id: 'upgrade/index'
       },
       items: [
         'upgrade/5.2.2-5.3.1',
@@ -615,7 +615,7 @@ const sidebars = {
       label: '社区',
       link: {
         type: 'doc',
-        id: 'community/index',
+        id: 'community/index'
       },
       items: [
         'community/FAQs/faqs',
@@ -633,10 +633,8 @@ const sidebars = {
     {
       type: 'category',
       label: '贡献',
-      items: [
-        'contributing/contributing'
-      ]
-    },
+      items: ['contributing/contributing']
+    }
   ]
 };
 
