@@ -267,9 +267,8 @@
     <script>
         const jump_btn = document.querySelector('#jump_demo')
         jump_btn.onclick = function () {
-            axios.get('https://cloud.goodrain.com/enterprise-server/onlineTrial').finally(() => {
-                window.open('http://demo.c9f961.grapps.cn/')
-            })
+            window.open('http://demo.c9f961.grapps.cn/')
+            axios.get('https://cloud.goodrain.com/enterprise-server/onlineTrial')
         }
     </script>
 </body>
