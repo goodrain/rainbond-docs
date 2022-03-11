@@ -93,8 +93,9 @@ const config = {
           },
           {
             href: 'https://github.com/goodrain/rainbond',
-            label: 'GitHub',
-            position: 'right'
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository'
           }
         ]
       },
