@@ -112,25 +112,25 @@ Cluster:
   RWX:
     enable: false
     config:
-##      storageClassName: glusterfs-simple
-##      csiPlugin:
-##        aliyunNas:
-##          accessKeyID: ""
-##          accessKeySecret: ""
-##      storageClassParameters:
-##        mountOptions:
-##        - "nolock,tcp,noresvport"
-##        - "vers=4"
-##        - "minorversion=0"
-##        - "rsize=1048576"
-##        - "wsize=1048576"
-##        - "timeo=600"
-##        - "retrans=2"
-##        - "hard"
-##        parameters:
-##          volumeAs: subpath
-##          archiveOnDelete: "true"
-##          server: <NAS_SERVER_ADDR>
+      storageClassName: glusterfs-simple
+      csiPlugin:
+        aliyunNas:
+          accessKeyID: ""
+          accessKeySecret: ""
+      storageClassParameters:
+        mountOptions:
+        - "nolock,tcp,noresvport"
+        - "vers=4"
+        - "minorversion=0"
+        - "rsize=1048576"
+        - "wsize=1048576"
+        - "timeo=600"
+        - "retrans=2"
+        - "hard"
+        parameters:
+          volumeAs: subpath
+          archiveOnDelete: "true"
+          server: <NAS_SERVER_ADDR>
 ## 外部存储，直接填写storageClassName，true为开，false为关
   RWO:
     enable: false
