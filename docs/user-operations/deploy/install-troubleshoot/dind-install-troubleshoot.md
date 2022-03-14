@@ -105,6 +105,10 @@ k3s 服务的启动日志位于文件 `/app/logs/k3s.log` 中，查询日志内�
 
 在日志 `/app/logs/k3s.log` 中，可能会发现以下 error 级别的日志输出。
 
+-（time=\"2022-03-07T09:52:49+08:00\" level=fatal msg=\"unable to select an IP from default routes.\"\ntime=\"2022-03-07T09:52:53+08:00\" level=fatal msg=\"unable to select an IP from default routes.\""}）
+
+> 此问题一般是没有默认路由（到 Internet），因此 Kubernetes 无法确定要使用哪个 IP，要解决此问题请设置默认路线，或使用非无驱动程序,通过配置 k3s 启动参数可能会帮助您解决问题 --extra-config=apiserver.advertise-address=127.0.0.1
+
 - unable to create proxier: unable to create ipv4 proxier: can't set sysctl net/ipv4/conf/all/route_localnet to 1: open /proc/sys/net/ipv4/conf/all/route_localnet: read-only file system
 
 > 确认你的 `docker run ...` 启动命令中，是否省略了参数 `--privileged` 或者 `-v ~/rainbonddata:/app/data`。如果你自定义了 k3s 的数据持久化目录，也应加入对应的持久化挂载路径设置。
@@ -123,6 +127,7 @@ k3s 服务的启动日志位于文件 `/app/logs/k3s.log` 中，查询日志内�
 
 > 主机中的磁盘空间不足，增加磁盘空间或删除不必要的文件释放空间；对于 Docker Desktop 用户而言，可以参考 [Disk utilization](https://docs.docker.com/desktop/mac/space/) 学习变更磁盘空间限额。
 
+- 
 
 ## 启动Rainbond阶段
 
@@ -167,6 +172,12 @@ rbd-api-6f6c565856-bq9bp                     1/1     Running   0          2d22h
 - Evicted
 
 > Evicted 状态意味着当前 pod 遭到了调度系统的驱逐，触发驱逐的原因可能包括根分区磁盘占用率过高、容器运行时数据分区磁盘占用率过高等，根据经验，上述原因最为常见，需要进行磁盘空间清理解除驱逐状态。可以通过执行命令 `kubectl describe node` ，观察返回中的 `Conditions` 段落输出来确定当前节点的状态。
+
+### 启动 Rainbond 时常见问题
+查看 pod 详细信息可能会遇到以下问题
+- {"type":"Warning","reason":"FailedScheduling","message":"0/1 nodes are available: 1 node(s) had taint {node.kubernetes.io/disk-pressure: }, that the pod didn't tolerate.","from":"","age":"0s"}]}]}
+
+> 以上报错可以通过几点进行分析，第一：确认一下当前节点是否开启了允许调度，一般 master节点时不被允许调度，所以会出现此报错，第二：docker 以及基础环境没有分配足够的资源时，你也可以得到这种“污点”类型的消息。 例如，在 Docker Desktop for Mac 中，在首选项中分配更多内存/cpu/swap，以及其他的资源，它可能会解决您的问题。
 
 ## 问题报告
 
