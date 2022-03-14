@@ -52,6 +52,8 @@ operator:
 - RWX：搭建外部存储请参考 [Glusterfs分布式存储文档](../../storage/deploy-glusterfs/)，此配置项不支持动态变更
     - enable：是否开启外部共享存储，默认为 false ，设置为 true 则启用
     - storageClassName：外部共享存储的 storageClass 名称
+    - server： 阿里云 NAS 存储的地址
+    - mountOptions: 挂载可以使用的参数
 - RWO：此配置项不支持动态变更
     - enable：是否开启外部块存储，默认为 false ，设置为 true 则启用
     - storageClassName：外部块存储的 storageClass 名称
@@ -109,8 +111,26 @@ Cluster:
 ## 外部存储，直接填写storageClassName，true为开，false为关
   RWX:
     enable: false
-    storageClassName: glusterfs-simple
-
+    config:
+##      storageClassName: glusterfs-simple
+##      csiPlugin:
+##        aliyunNas:
+##          accessKeyID: ""
+##          accessKeySecret: ""
+##      storageClassParameters:
+##        mountOptions:
+##        - "nolock,tcp,noresvport"
+##        - "vers=4"
+##        - "minorversion=0"
+##        - "rsize=1048576"
+##        - "wsize=1048576"
+##        - "timeo=600"
+##        - "retrans=2"
+##        - "hard"
+##        parameters:
+##          volumeAs: subpath
+##          archiveOnDelete: "true"
+##          server: <NAS_SERVER_ADDR>
 ## 外部存储，直接填写storageClassName，true为开，false为关
   RWO:
     enable: false
