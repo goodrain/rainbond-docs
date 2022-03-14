@@ -13,8 +13,9 @@ description: '基于已有的 rancher 集群，使用 helm 从零开始安装 Ra
 
 
 :::caution
-注意：通过Rancher 进行安装 kubernetes 时，Rancher的 UI 访问默认是80，443 ，但是后续对接 rainbond 同样会用到 80，443 端口。所以启动Rancher时，需要修改映射的端口，而且Rancher 的访问，必须要用 https，即使用http访问，它还是会强制跳转到 https，所以如果容器内的80端口映射到宿主机的 9xxx，那么容器内的443端口要映射到宿主机的 9443。
+注意：通过 Rancher 进行安装 kubernetes 时，Rancher 的 UI 访问默认是80，443 ，但是后续对接 Rainbond 同样会用到 80，443 端口。所以启动 Rancher 时，需要修改映射的端口，而且 Rancher 的访问，必须要用 https，即使用 http 访问，它还是会强制跳转到 https，所以如果容器内的80端口映射到宿主机的 9xxx，那么容器内的443端口要映射到宿主机的 9443。
 :::
+
 例：
 
 ``` bash
@@ -74,7 +75,7 @@ kubectl get po -n rbd-system | grep rbd-app-ui
 ```
 
 - 等待 ``` rbd-app-ui ``` 为 Running 状态即安装成功。
-- 安装成功以后，可通过 `` $gatewayIngressIPs:7070 `` 访问rainbond控制台。
+- 安装成功以后，可通过 `` $gatewayIngressIPs:7070 `` 访问 Rainbond 控制台。
 
 #### 安装问题排查
 
