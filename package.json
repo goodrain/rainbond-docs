@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
+    "start": "docusaurus start --host 0.0.0.0",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -18,10 +18,13 @@
     "@docusaurus/plugin-client-redirects": "^2.0.0-beta.17",
     "@docusaurus/preset-classic": "^2.0.0-beta.17",
     "@mdx-js/react": "^1.6.21",
+    "antd": "^4.19.2",
     "clsx": "^1.1.1",
+    "docusaurus-plugin-sass": "^0.2.2",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "sass": "^1.49.9"
   },
   "browserslist": {
     "production": [

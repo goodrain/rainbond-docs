@@ -1,23 +1,195 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
-
+* {
+  list-style: none;
+}
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 2rem;
   }
 }
-
+@media screen and (max-width: 1200px) {
+  .width {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 350px) {
+  .rainbond_desc {
+    margin-bottom: 60px !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .carousel_container > ul {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  }
+  .docs {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    /* grid-template-columns: repeat(3, calc(33.33% - 16px)); */
+  }
+}
+@media screen and (max-width: 340px) {
+  .carousel_container > ul {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  }
+}
+/* 第一屏适配 */
+@media screen and (max-width: 1000px) {
+  /* 首屏 */
+  #section_first {
+    flex-wrap: wrap;
+  }
+  .rainbond_desc {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 0px !important;
+    padding: 64px 16px 0px !important;
+    margin-bottom: 24px;
+  }
+  .bili_video {
+    margin-top: 0px !important;
+    width: 100% !important;
+  }
+  /* 第二屏 */
+}
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.width {
+  width: 1200px;
+  margin: 0 auto;
+}
+#section_first {
+  display: flex;
+  padding-top: 180px;
+  margin-bottom: 110px;
+  background-color: #fff !important;
+}
+.rainbond_desc {
+  padding: 16px 16px 16px 64px;
+  height: 360px;
+  width: 50%;
+  box-sizing: border-box;
+  margin-right: 12px;
+}
+.btns {
+  width: 120px;
+  text-align: center;
+  display: inline-block;
+  color: white;
+  padding: 12px 20px;
+  margin-left: -2px;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    var(--ifm-color-primary) 11.3%,
+    var(--ifm-color-primary-light) 161.54%
+  );
+  box-shadow: rgb(0 105 165 / 35%) 0px 0px 32px;
+  border-radius: 7px;
+  font-family: 'Yuanti SC', Youyuan, 'You Yuan', 幼圆, 'PingFang SC',
+    'Microsoft Yahei', Helvetica, sans-serif;
+}
+.btns:hover {
+  color: #fff !important;
+}
+.title img {
+  width: 320px;
+}
+.bili_video {
+  box-sizing: border-box;
+  padding: 0 16px;
+  margin-top: -48px;
+  width: 50%;
+}
+.bili_video img {
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+}
+#section_second {
+  margin-bottom: 105px;
+  padding: 0 16px;
+}
+.course > img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.tenMin {
+  /* display: none; */
+}
+#section_third {
+  padding: 0 16px;
+  margin-bottom: 105px;
+}
+.docs {
+  padding-left: 0px !important;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* grid-template-columns: repeat(3, calc(33.33% - 16px)); */
+}
+.docs > li {
+  border-radius: 8px;
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.2);
+}
+.docs_logo {
+  border-bottom: 2px solid #cccccc;
+}
+.docs_logo > img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.desc {
+  padding: 16px;
+}
+#section_fouth {
+  margin-bottom: 105px;
+  padding: 0 16px;
+}
+/* 视频教程 */
+.carousel_container {
+}
+.carousel_container > ul {
+  padding-left: 0px !important;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+}
+.carousel_container > ul > li {
+  position: relative;
+  background-color: #fff;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.2);
+}
+/* 视频详情 */
+.video_desc {
+  border-top: 2px solid #cccccc;
+  padding: 16px;
+}
+.video_title {
+}
+.mask_logo {
+  width: 100%;
+  height: 500px;
+}
+.mask_logo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.video_bilibili {
+  display: none;
 }
