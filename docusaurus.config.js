@@ -9,7 +9,7 @@ const config = {
   title: 'Rainbond',
   tagline: 'Application Delivery Center',
   url: 'https://www.rainbond.com',
-  baseUrl: '/docs/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/rainbond.png',
@@ -22,7 +22,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/',
+          // routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
@@ -34,6 +34,16 @@ const config = {
               label: 'Current'
             }
           }
+        },
+        blog: {
+          routeBasePath: '/case',
+          path: 'blog',
+          blogTitle: '案例文章',
+          editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/blog',
+          postsPerPage: 10,
+          blogSidebarCount: 0,
+          blogSidebarTitle: '案例文章',
+          sortPosts: 'descending',
         },
         theme: {
           customCss: [
@@ -57,11 +67,11 @@ const config = {
         },
         // navbar的选项卡
         items: [
-          {
-            position: 'left',
-            label: '安装',
-            to: '/docs/quick-start/quick-install/'
-          },
+          // {
+          //   position: 'left',
+          //   label: '安装',
+          //   to: '/docs/quick-start/quick-install/'
+          // },
           {
             position: 'left',
             label: '文档',
@@ -71,32 +81,37 @@ const config = {
             type: 'docsVersionDropdown',
             position: 'right'
           },
-          {
-            position: 'right',
-            label: '视频',
-            href: 'https://www.rainbond.com/video/'
-          },
-          {
-            position: 'right',
-            label: '社区',
-            href: 'https://t.goodrain.com/'
-          },
-          {
-            position: 'right',
-            label: '应用商店',
-            href: 'https://store.goodrain.com/'
-          },
-          {
-            position: 'right',
-            label: '企业服务',
-            href: 'https://www.goodrain.com/'
-          },
+          // {
+          //   position: 'right',
+          //   label: '视频',
+          //   href: 'https://www.rainbond.com/video/'
+          // },
+          // {
+          //   position: 'right',
+          //   label: '社区',
+          //   href: 'https://t.goodrain.com/'
+          // },
+          // {
+          //   position: 'right',
+          //   label: '应用商店',
+          //   href: 'https://store.goodrain.com/'
+          // },
+          // {
+          //   position: 'right',
+          //   label: '企业服务',
+          //   href: 'https://www.goodrain.com/'
+          // },
           {
             href: 'https://github.com/goodrain/rainbond',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository'
-          }
+          },
+          {
+            to: 'case', 
+            label: '案例文章', 
+            position: 'left'
+          },
         ]
       },
       hideableSidebar: true,
@@ -108,6 +123,43 @@ const config = {
       },
       footer: {
         style: 'dark',
+        links: [
+          {
+            title: '文档',
+            items: [
+              {
+                label: '快速开始',
+                to: 'docs/quick-start/quick-install',
+              },
+              {
+                label: '部署组件',
+                to: 'docs/use-manual/component-create',
+              },
+              {
+                label: '最佳实践',
+                to: 'docs/expand/practices',
+              },
+            ],
+          },
+          {
+            title: '开源社区',
+            items: [
+              {
+                label: '参与贡献',
+                to: 'docs/contributing',
+              },
+            ],
+          },
+          {
+            title: 'Docs',
+            items: [
+              {
+                label: 'Docs',
+                to: 'docs/doc1',
+              },
+            ],
+          },
+        ],
         copyright: `Copyright © ${new Date().getFullYear()} 北京好雨科技有限公司, Inc. All Rights Reserved. 京ICP备15028663号-4`
       },
       prism: {
