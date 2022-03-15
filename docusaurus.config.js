@@ -41,8 +41,8 @@ const config = {
           blogTitle: '案例文章',
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/blog',
           postsPerPage: 10,
-          blogSidebarCount: 0,
-          blogSidebarTitle: '案例文章',
+          blogSidebarCount: 'ALL',
+          blogSidebarTitle: '使用场景',
           sortPosts: 'descending',
         },
         theme: {
@@ -63,7 +63,7 @@ const config = {
         logo: {
           alt: 'Rainbond Logo',
           src: 'img/rainbond.png',
-          href: 'https://www.rainbond.com'
+          href: '/'
         },
         // navbar的选项卡
         items: [
@@ -75,7 +75,7 @@ const config = {
           {
             position: 'left',
             label: '文档',
-            to: '/docs/'
+            to: 'docs/quick-start/introduction'
           },
           {
             type: 'docsVersionDropdown',
@@ -109,7 +109,7 @@ const config = {
           },
           {
             to: 'case', 
-            label: '案例文章', 
+            label: '使用场景', 
             position: 'left'
           },
         ]

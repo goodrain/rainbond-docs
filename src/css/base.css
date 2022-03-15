@@ -3,15 +3,9 @@
   display: none !important;
 }
 /* footer 样式 */
-<<<<<<< HEAD
-.footer--dark {
-  height: 45px;
-  line-height: 45px;
-=======
 /* .footer--dark {
   height: 48px;
   line-height: 48px;
->>>>>>> 8b3b834998d87d166029c1b9ee3c3cab3913fa15
   padding: 0;
 } */
 
@@ -46,7 +40,7 @@
   height: 100%;
   line-height: 50px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
 }
 .tab-input:checked + .tab-tit {
