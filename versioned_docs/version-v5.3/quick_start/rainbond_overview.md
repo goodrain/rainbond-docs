@@ -88,4 +88,3 @@ Rainbond 完成与龙芯、飞腾、麒麟操作系统等为代表的国产化�
 [我已经了解,开始安装](../quick_start/roadmap/)<br />
 [了解企业服务](https://www.goodrain.com)
 
-<!-- {{% button href="/docs/quick-start/quick-install/" %}}我已经了解，开始安装{{% /button %}} {{% button href="https://www.goodrain.com" %}}了解企业服务{{% /button %}} -->
