@@ -1,21 +1,10 @@
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import 'antd/dist/antd.css';
-import React, { useEffect } from 'react';
-import BVideo from '../components/Bvideo/index';
+import React from 'react';
 import styles from './index.module.css';
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
-  useEffect(() => {
-    const maskImgs = document.querySelectorAll('.mask_dom');
-    const maskVideos = document.querySelectorAll('.video_bilibili');
-    for (let i = 0; i < maskImgs.length; i++) {
-      maskImgs[i].onclick = function () {
-        maskImgs[i].style.display = 'none';
-        maskVideos[i].style.display = 'block';
-      };
-    }
-  }, []);
   return (
     <Layout>
       <div>
@@ -221,98 +210,7 @@ export default function Home() {
           >
             视频教程
           </h1>
-          <div className={styles.carousel_container}>
-            <ul>
-              {/* Video1 */}
-              <li>
-                <div className={`${styles.mask_logo} mask_dom`}>
-                  <img src='/img/images.123.png' alt='' />
-                </div>
-                <div className={`${styles.video_bilibili} video_bilibili`}>
-                  <BVideo
-                    src='//player.bilibili.com/player.html?aid=846645893&bvid=BV1a54y1n7Ch&cid=368992863&page=1'
-                    //   bsrc='https://www.bilibili.com/video/BV1a54y1n7Ch?zw'
-                  ></BVideo>
-                </div>
-                <div className={styles.video_desc}>
-                  <div className={styles.video_title}>
-                    <h4>
-                      <a href='javascript:;' target='_blank'>
-                        Algolia Docsearch
-                      </a>
-                    </h4>
-                  </div>
-                  <div className={styles.video_detail}>xxxxxxxxx</div>
-                </div>
-              </li>
-              {/* Video2 */}
-              <li>
-                <div className={`${styles.mask_logo} mask_dom`}>
-                  <img src='/img/images.123.png' alt='' />
-                </div>
-                <div className={`${styles.video_bilibili} video_bilibili`}>
-                  <BVideo
-                    src='//player.bilibili.com/player.html?aid=846645893&bvid=BV1a54y1n7Ch&cid=368992863&page=1'
-                    //   bsrc='https://www.bilibili.com/video/BV1a54y1n7Ch?zw'
-                  ></BVideo>
-                </div>
-                <div className={styles.video_desc}>
-                  <div className={styles.video_title}>
-                    <h4>
-                      <a href='javascript:;' target='_blank'>
-                        Algolia Docsearch
-                      </a>
-                    </h4>
-                  </div>
-                  <div className={styles.video_detail}>xxxxxxxxx</div>
-                </div>
-              </li>
-              {/* Video3 */}
-              <li>
-                <div className={`${styles.mask_logo} mask_dom`}>
-                  <img src='/img/images.123.png' alt='' />
-                </div>
-                <div className={`${styles.video_bilibili} video_bilibili`}>
-                  <BVideo
-                    src='//player.bilibili.com/player.html?aid=846645893&bvid=BV1a54y1n7Ch&cid=368992863&page=1'
-                    //   bsrc='https://www.bilibili.com/video/BV1a54y1n7Ch?zw'
-                  ></BVideo>
-                </div>
-                <div className={styles.video_desc}>
-                  <div className={styles.video_title}>
-                    <h4>
-                      <a href='javascript:;' target='_blank'>
-                        Algolia Docsearch
-                      </a>
-                    </h4>
-                  </div>
-                  <div className={styles.video_detail}>xxxxxxxxx</div>
-                </div>
-              </li>
-              {/* Video4 */}
-              <li>
-                <div className={`${styles.mask_logo} mask_dom`}>
-                  <img src='/img/images.123.png' alt='' />
-                </div>
-                <div className={`${styles.video_bilibili} video_bilibili`}>
-                  <BVideo
-                    src='//player.bilibili.com/player.html?aid=846645893&bvid=BV1a54y1n7Ch&cid=368992863&page=1'
-                    //   bsrc='https://www.bilibili.com/video/BV1a54y1n7Ch?zw'
-                  ></BVideo>
-                </div>
-                <div className={styles.video_desc}>
-                  <div className={styles.video_title}>
-                    <h4>
-                      <a href='javascript:;' target='_blank'>
-                        Algolia Docsearch
-                      </a>
-                    </h4>
-                  </div>
-                  <div className={styles.video_detail}>xxxxxxxxx</div>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <div className={styles.carousel_container}>视频轮播</div>
         </section>
       </div>
     </Layout>

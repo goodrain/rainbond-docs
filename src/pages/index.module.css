@@ -22,20 +22,7 @@
     margin-bottom: 60px !important;
   }
 }
-@media screen and (max-width: 400px) {
-  .carousel_container > ul {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-  }
-  .docs {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
-    /* grid-template-columns: repeat(3, calc(33.33% - 16px)); */
-  }
-}
-@media screen and (max-width: 340px) {
-  .carousel_container > ul {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
-  }
-}
+
 /* 第一屏适配 */
 @media screen and (max-width: 1000px) {
   /* 首屏 */
@@ -124,9 +111,7 @@
   height: 100%;
   object-fit: fill;
 }
-.tenMin {
-  /* display: none; */
-}
+
 #section_third {
   padding: 0 16px;
   margin-bottom: 105px;
@@ -155,41 +140,9 @@
   padding: 16px;
 }
 #section_fouth {
-  margin-bottom: 105px;
+  /* margin-bottom: 105px; */
   padding: 0 16px;
 }
 /* 视频教程 */
 .carousel_container {
-}
-.carousel_container > ul {
-  padding-left: 0px !important;
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
-}
-.carousel_container > ul > li {
-  position: relative;
-  background-color: #fff;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.2);
-}
-/* 视频详情 */
-.video_desc {
-  border-top: 2px solid #cccccc;
-  padding: 16px;
-}
-.video_title {
-}
-.mask_logo {
-  width: 100%;
-  height: 500px;
-}
-.mask_logo > img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-}
-.video_bilibili {
-  display: none;
 }

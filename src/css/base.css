@@ -2,18 +2,6 @@
 .navbar__item span svg {
   display: none !important;
 }
-/* footer 样式 */
-<<<<<<< HEAD
-.footer--dark {
-  height: 45px;
-  line-height: 45px;
-=======
-/* .footer--dark {
-  height: 48px;
-  line-height: 48px;
->>>>>>> 8b3b834998d87d166029c1b9ee3c3cab3913fa15
-  padding: 0;
-} */
 
 /* 快速安装 tab */
 .tabes {
