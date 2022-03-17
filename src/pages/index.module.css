@@ -4,9 +4,9 @@
   position: relative;
   overflow: hidden;
 }
-* {
+/* * {
   list-style: none;
-}
+} */
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 2rem;
