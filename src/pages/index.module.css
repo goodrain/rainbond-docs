@@ -4,9 +4,7 @@
   position: relative;
   overflow: hidden;
 }
-* {
-  list-style: none;
-}
+
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 2rem;
@@ -102,14 +100,17 @@
     var(--ifm-color-primary-light) 161.54%
   );
   box-shadow: rgb(0 105 165 / 35%) 0px 0px 32px;
-  border-radius: 7px;
+  border-radius: 50px;
   font-family: 'Yuanti SC', Youyuan, 'You Yuan', 幼圆, 'PingFang SC',
     'Microsoft Yahei', Helvetica, sans-serif;
 }
 .btns:hover {
   color: #fff !important;
   text-decoration: none;
+  transition: all 0.5s;
+  transform: scale(1.01) !important;
 }
+
 .title {
   position: absolute;
   top: -72px;
@@ -189,6 +190,7 @@
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  list-style: none;
 }
 .docs > li {
   border-radius: 8px;
@@ -198,6 +200,8 @@
 }
 .docs > li:hover {
   box-shadow: 0px 0px 24px 12px rgba(32, 32, 32, 0.3);
+  transition: all 0.5s;
+  transform: scale(1.01);
 }
 .docs > li > .left_logo {
   position: absolute;

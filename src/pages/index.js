@@ -121,6 +121,28 @@ export default function Home() {
       }
     });
   };
+  //  淡入淡出效果
+  const handleFadeIn = (elemt, speed) => {
+    if (elemt.style.opacity == 0 && elemt.style.opacity != '') {
+      var speed = speed || 16.6; //默认速度为16.6ms
+      var num = 0; //累加器
+      var timer = setInterval(function () {
+        num++;
+        elemt.style.opacity = num / 20;
+        if (num >= 20) {
+          clearInterval(timer);
+        }
+      }, speed);
+    }
+  };
+  const handleJumpDemo = e => {
+    e.preventDefault();
+    fetch('https://cloud.goodrain.com/enterprise-server/onlineTrial').finally(
+      () => {
+        window.open('http://demo.c9f961.grapps.cn/');
+      }
+    );
+  };
 
   return (
     <Layout>
@@ -140,7 +162,7 @@ export default function Home() {
             >
               云原生多云应用管理平台
             </h2>
-            <p
+            <div
               style={{
                 margin: '24px 0px 48px',
                 color: '#637792',
@@ -157,7 +179,7 @@ export default function Home() {
               <p style={{ lineHeight: '30px' }}>
                 使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
               </p>
-            </p>
+            </div>
             <div>
               <a
                 className={`${styles.btns} animate__animated animate__fadeInDown`}
@@ -169,8 +191,8 @@ export default function Home() {
               </a>
               <a
                 className={`${styles.btns} animate__animated animate__fadeInDown`}
-                href='http://demo.c9f961.grapps.cn/#/user/login'
-                target='_blank'
+                href='http://demo.c9f961.grapps.cn/'
+                onClick={handleJumpDemo}
               >
                 在线体验
               </a>
