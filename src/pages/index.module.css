@@ -149,7 +149,7 @@
 }
 .img_container > a {
   display: block;
-  background-color: #fff;
+  /* background-color: #fff; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -180,7 +180,7 @@
   margin-bottom: 0px !important;
 }
 .dosc_logo > img {
-  width: 240px;
+  width: 100px;
   height: auto;
   object-fit: fill;
 }
@@ -218,7 +218,7 @@
 }
 .desc .desc_title h4 {
   text-align: center;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   font-family: 'Yuanti SC', Youyuan, 'You Yuan', 幼圆, 'PingFang SC',
     'Microsoft Yahei', Helvetica, sans-serif;
