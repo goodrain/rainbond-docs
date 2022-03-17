@@ -34,7 +34,7 @@
   height: 100%;
   line-height: 50px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
 }
 .tab-input:checked + .tab-tit {
