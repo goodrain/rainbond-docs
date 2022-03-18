@@ -36,14 +36,14 @@ const config = {
           }
         },
         blog: {
-          routeBasePath: '/case',
+          routeBasePath: '/useScene',
           path: 'blog',
-          blogTitle: '案例文章',
+          blogTitle: '使用场景',
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/blog',
           postsPerPage: 10,
           blogSidebarCount: 'ALL',
           blogSidebarTitle: '使用场景',
-          sortPosts: 'descending',
+          sortPosts: 'descending'
         },
         theme: {
           customCss: [
@@ -67,51 +67,41 @@ const config = {
         },
         // navbar的选项卡
         items: [
-          // {
-          //   position: 'left',
-          //   label: '安装',
-          //   to: '/docs/quick-start/quick-install/'
-          // },
           {
             position: 'left',
             label: '文档',
             to: 'docs/quick-start/introduction'
           },
           {
+            to: 'useScene',
+            label: '使用场景',
+            position: 'left'
+          },
+          {
+            to: 'case',
+            label: '案例',
+            position: 'left'
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right'
           },
-          // {
-          //   position: 'right',
-          //   label: '视频',
-          //   href: 'https://www.rainbond.com/video/'
-          // },
-          // {
-          //   position: 'right',
-          //   label: '社区',
-          //   href: 'https://t.goodrain.com/'
-          // },
-          // {
-          //   position: 'right',
-          //   label: '应用商店',
-          //   href: 'https://store.goodrain.com/'
-          // },
-          // {
-          //   position: 'right',
-          //   label: '企业服务',
-          //   href: 'https://www.goodrain.com/'
-          // },
+          {
+            position: 'right',
+            label: '应用商店',
+            href: 'https://store.goodrain.com/'
+          },
+          {
+            position: 'right',
+            label: '企业服务',
+            href: 'https://www.goodrain.com/'
+          },
           {
             href: 'https://github.com/goodrain/rainbond',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository'
-          },
-          {
-            to: 'case', 
-            label: '使用场景', 
-            position: 'left'
-          },
+          }
         ]
       },
       hideableSidebar: true,
@@ -129,36 +119,49 @@ const config = {
             items: [
               {
                 label: '快速开始',
-                to: 'docs/quick-start/quick-install',
+                to: 'docs/quick-start/quick-install'
               },
               {
                 label: '部署组件',
-                to: 'docs/use-manual/component-create',
+                to: 'docs/use-manual/component-create'
               },
               {
                 label: '最佳实践',
-                to: 'docs/expand/practices',
-              },
-            ],
+                to: 'docs/expand/practices'
+              }
+            ]
           },
           {
-            title: '开源社区',
+            title: '加入社区',
             items: [
               {
                 label: '参与贡献',
-                to: 'docs/contributing',
-              },
-            ],
+                to: 'docs/contributing'
+              }
+            ]
           },
           {
-            title: 'Docs',
+            title: '贡献',
             items: [
               {
-                label: 'Docs',
-                to: 'docs/doc1',
-              },
-            ],
+                label: '参与贡献',
+                to: 'docs/contributing'
+              }
+            ]
           },
+          {
+            title: '更多',
+            items: [
+              {
+                label: '使用场景',
+                to: 'useScene'
+              },
+              {
+                label: '案例',
+                to: 'case'
+              }
+            ]
+          }
         ],
         copyright: `Copyright © ${new Date().getFullYear()} 北京好雨科技有限公司, Inc. All Rights Reserved. 京ICP备15028663号-4`
       },
@@ -173,6 +176,20 @@ const config = {
     }),
   scripts: ['https://static.goodrain.com/docusaurus/baidu-statistics.js'],
   plugins: [
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'case',
+        routeBasePath: 'case',
+        path: './case',
+        blogTitle: '案例',
+        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/case',
+        postsPerPage: 10,
+        blogSidebarCount: 'ALL',
+        blogSidebarTitle: '案例',
+        sortPosts: 'descending'
+      }
+    ],
     [
       '@docusaurus/plugin-client-redirects',
       {

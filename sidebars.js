@@ -7,7 +7,7 @@ const sidebars = {
       collapsible: false,
       items: [
         'quick-start/introduction',
-        'quick-start/differences',
+        // 'quick-start/differences',
         'quick-start/quick-install',
         {
           type: 'category',
@@ -50,9 +50,9 @@ const sidebars = {
             'quick-start/architecture/architecture'
           ]
         },
-        'quick-start/edition',
+        // 'quick-start/edition',
         // 'quick-start/contributing',
-        'quick-start/roadmap'
+        // 'quick-start/roadmap'
       ]
     },
     {

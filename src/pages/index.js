@@ -10,7 +10,7 @@ import './swiper-min.css';
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   useEffect(() => {
-    loadSwiperExample(); // 轮播图实例
+    // loadSwiperExample(); // 轮播图实例
     handleBiliVideo(); // 加载视频
   }, []);
   useEffect(() => {
@@ -23,31 +23,31 @@ export default function Home() {
   const handleScrollPage = () => {
     let scrollTop = document.documentElement.scrollTop;
     // 右侧logo
-    if (scrollTop >= 15) {
+    if (scrollTop >= 5) {
       const img_animate = document.querySelector('.right_kid_img');
       img_animate.classList.add('animate__animated');
       img_animate.classList.add('animate__fadeInRightBig');
     }
     // 文档
-    if (scrollTop >= 150) {
+    if (scrollTop >= 5) {
       const docs_animate = document.querySelector('.docs_container');
       docs_animate.classList.add('animate__animated');
       docs_animate.classList.add('animate__fadeInLeftBig');
     }
     // 左侧logo
-    if (scrollTop >= 805) {
+    if (scrollTop >= 753) {
       const img_animate = document.querySelector('.left_kid_img');
       img_animate.classList.add('animate__animated');
       img_animate.classList.add('animate__fadeInLeftBig');
     }
     // 视频学习Rainbond
-    if (scrollTop >= 935) {
+    if (scrollTop >= 760) {
       const carousel_animate = document.querySelector('.carousel_container');
       carousel_animate.classList.add('animate__animated');
       carousel_animate.classList.add('animate__fadeInRightBig');
     }
     // 战略合作伙伴
-    if (scrollTop >= 1560) {
+    if (scrollTop >= 1325) {
       const partner_animate = document.querySelector('.partner');
       partner_animate.classList.add('animate__animated');
       partner_animate.classList.add('animate__flipInX');
@@ -121,20 +121,6 @@ export default function Home() {
       }
     });
   };
-  //  淡入淡出效果
-  const handleFadeIn = (elemt, speed) => {
-    if (elemt.style.opacity == 0 && elemt.style.opacity != '') {
-      var speed = speed || 16.6; //默认速度为16.6ms
-      var num = 0; //累加器
-      var timer = setInterval(function () {
-        num++;
-        elemt.style.opacity = num / 20;
-        if (num >= 20) {
-          clearInterval(timer);
-        }
-      }, speed);
-    }
-  };
   const handleJumpDemo = e => {
     e.preventDefault();
     fetch('https://cloud.goodrain.com/enterprise-server/onlineTrial').finally(
@@ -143,7 +129,6 @@ export default function Home() {
       }
     );
   };
-
   return (
     <Layout>
       <div>
@@ -225,102 +210,42 @@ export default function Home() {
           >
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/5suo.jpg' alt='' />
+                <img src='/img/users/boe.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/bkrj.jpg' alt='' />
+                <img src='/img/users/mky.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/boe.jpg' alt='' />
+                <img src='/img/users/bkrj.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/bumu.png' alt='' />
+                <img src='/img/users/gfkj.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/didi.png' alt='' />
+                <img src='/img/users/lvzhiyun.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/dipu.jpeg' alt='' />
+                <img src='/img/users/xinanmingzu.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/guangxitizhuan.png' alt='' />
+                <img src='/img/users/yumchina.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/hongya.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/jianbo.jpg' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/jilian.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/luneng.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/meike.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/pingan.jpeg' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/qinghehulian.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/qingnenghulian.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='https://www.yuexin.cn/_nuxt/img/da3a284.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/rongze.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/sdzk.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/sumeida.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/wanjiang.png' alt='' />
+                <img src='/img/users/lyyl.png' alt='' />
               </a>
             </div>
           </div>
@@ -328,175 +253,153 @@ export default function Home() {
         {/* 第三屏 */}
         <section id={styles.section_third} className={styles.width}>
           <h1 className={styles.dosc_logo}>
-            <img src='/img/how_rainbond.png' alt='' />
+            <img src='/img/smallimages/RainbondDoWhat.png' alt='' />
           </h1>
           <h1
             style={{
               textAlign: 'center',
-              marginBottom: '24px',
+              marginBottom: '56px',
               position: 'relative'
             }}
           >
             <span className={styles.how_rainbond}>Rainbond</span>
             &nbsp;能做什么?
             <img
-              src='/img/kid.jpg'
+              src='/img/smallimages/R.png'
               alt=''
               style={{
-                width: '100px',
-                height: '100px',
+                width: '20px',
+                height: '20px',
                 position: 'absolute',
-                right: 0,
-                bottom: '6px'
+                right: '12px',
+                bottom: '-36px'
               }}
               className='right_kid_img'
             />
           </h1>
 
-          <ul className={`${styles.docs} docs_container`}>
-            <li>
+          <div className={`${styles.docs} docs_container`}>
+            <a href='useScene/IntegrationDev'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='#' target='_blank'>
-                      Algolia Docsearch
-                    </a>
+                    <a href='useScene/IntegrationDev'>一体化开发测试环境</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
                   <p>
-                    The best search experience for docs, integrates in minutes,
-                    for free
+                    集成化的开发和测试环境，自动识别开发语言和自动构建，提供开箱即用的体验
                   </p>
                 </div>
               </div>
-            </li>
-            <li>
+            </a>
+            <a href='useScene/AppManagement'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='#' target='_blank'>
-                      Algolia Docsearch
-                    </a>
+                    <a href='useScene/AppManagement'>企业级应用统一管理</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
                   <p>
-                    The best search experience for docs, integrates in minutes,
-                    for free
+                    企业应用和计算资源统一管理，自动化运维，像管理手机APP一样管理企业应用
                   </p>
                 </div>
               </div>
-            </li>
-            <li>
+            </a>
+            <a href='useScene/MultiCloudManagement'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='#' target='_blank'>
-                      Algolia Docsearch
-                    </a>
+                    <a href='useScene/MultiCloudManagement'>应用级多云管理</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
                   <p>
-                    The best search experience for docs, integrates in minutes,
-                    for free
+                    对接和管理混合云和各种Kubernetes集群，应用透明在多种云上部署和迁移
                   </p>
                 </div>
               </div>
-            </li>
-            <li>
+            </a>
+            <a href='useScene/offlineDelivery'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='#' target='_blank'>
-                      Algolia Docsearch
-                    </a>
+                    <a href='useScene/offlineDelivery'>离线环境软件交付</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
-                  <p>
-                    The best search experience for docs, integrates in minutes,
-                    for free
-                  </p>
+                  <p>离线环境应用自动化交付，并支持个性化定制和应用运维</p>
                 </div>
               </div>
-            </li>
-            <li>
+            </a>
+            <a href='useScene/componentReuse'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='#' target='_blank'>
-                      Algolia Docsearch
-                    </a>
+                    <a href='useScene/componentReuse'>业务积木式拼装</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
                   <p>
-                    The best search experience for docs, integrates in minutes,
-                    for free
+                    通过应用模型将业务单元实现模块化，并通过“拖拉拽”的方式实现业务拼装
                   </p>
                 </div>
               </div>
-            </li>
-            <li>
+            </a>
+            <a href='useScene/x86ToArm'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='#' target='_blank'>
-                      Algolia Docsearch
-                    </a>
+                    <a href='useScene/x86ToArm'>国产化和信创支撑</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
-                  <p>
-                    The best search experience for docs, integrates in minutes,
-                    for free
-                  </p>
+                  <p>支持多种国产化平台，x86架构应用自动化向Arm架构转换</p>
                 </div>
               </div>
-            </li>
-          </ul>
+            </a>
+          </div>
         </section>
         {/* 第四屏 */}
         <section id={styles.section_fouth} className={styles.width}>
-          <h1 className={styles.dosc_logo}>
-            <img src='/img/study_rainbond.png' alt='' />
+          <h1 className={styles.dosc_logo} style={{ marginTop: '56px' }}>
+            <img src='/img/smallimages/RainbondStudy.png' alt='' />
           </h1>
           <h1
             style={{
               textAlign: 'center',
-              marginBottom: '24px',
+              marginBottom: '56px',
               position: 'relative'
             }}
           >
             <img
-              src='/img/kid.jpeg'
+              src='/img/smallimages/R.png'
               alt=''
               style={{
-                width: '100px',
-                height: '100px',
+                width: '20px',
+                height: '20px',
                 position: 'absolute',
-                left: 0,
-                bottom: '6px'
+                left: '12px',
+                bottom: '-36px'
               }}
               className='left_kid_img'
             />
@@ -504,37 +407,36 @@ export default function Home() {
             <span className={styles.how_rainbond}>Rainbond</span>
           </h1>
           <div className={`${styles.carousel_container} carousel_container`}>
-            <div id='carousel'>
+            <a href='http://www.baidu.com' target='_blank'>
+              <img src='/img/video/install.png' alt='' />
+            </a>
+            <a href='http://www.baidu.com' target='_blank'>
+              <img src='/img/video/quick.png' alt='' />
+            </a>
+
+            {/* <div id='carousel'>
               <div className='swiper swiper-3d'>
                 <div className='swiper-wrapper'>
                   <div className='swiper-slide'>
-                    <img src='/img/1.jpg' />
-                    <p>自古逢秋悲寂寥</p>
+                    <img src='/img/video/install.png' />
+                    <p> Rainbond 安装系列教程</p>
                   </div>
                   <div className='swiper-slide'>
-                    <img src='/img/2.jpg' />
-                    <p>我言秋日胜春朝</p>
-                  </div>
-                  <div className='swiper-slide'>
-                    <img src='/img/3.jpg' />
-                    <p>晴空一鹤排云上</p>
-                  </div>
-                  <div className='swiper-slide'>
-                    <img src='/img/11.jpg' />
-                    <p>便引诗情到碧霄</p>
+                    <img src='/img/video/quick.png' />
+                    <p>Rainbond 入门系列教程</p>
                   </div>
                 </div>
               </div>
               <div className='swiper-pagination'></div>
               <div className='swiper-button-prev'></div>
               <div className='swiper-button-next'></div>
-            </div>
+            </div> */}
           </div>
         </section>
         {/* 第五屏 */}
         <section id={styles.section_second} className={styles.width}>
           <h1 className={styles.dosc_logo}>
-            <img src='/img/partner.jpeg' alt='' />
+            <img src='/img/smallimages/RainbondPartner.png' alt='' />
           </h1>
           <h1
             style={{
@@ -542,107 +444,47 @@ export default function Home() {
               marginBottom: '24px'
             }}
           >
-            战略合作伙伴
+            合作伙伴
           </h1>
           <div className={`${styles.community_case} partner`}>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/5suo.jpg' alt='' />
+                <img src='/img/users/boe.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/bkrj.jpg' alt='' />
+                <img src='/img/users/mky.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/boe.jpg' alt='' />
+                <img src='/img/users/bkrj.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/bumu.png' alt='' />
+                <img src='/img/users/gfkj.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/didi.png' alt='' />
+                <img src='/img/users/lvzhiyun.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/dipu.jpeg' alt='' />
+                <img src='/img/users/xinanmingzu.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/guangxitizhuan.png' alt='' />
+                <img src='/img/users/yumchina.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
               <a href='#'>
-                <img src='/img/users/hongya.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/jianbo.jpg' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/jilian.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/luneng.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/meike.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/pingan.jpeg' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/qinghehulian.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/qingnenghulian.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='https://www.yuexin.cn/_nuxt/img/da3a284.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/rongze.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/sdzk.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/sumeida.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/wanjiang.png' alt='' />
+                <img src='/img/users/lyyl.png' alt='' />
               </a>
             </div>
           </div>
