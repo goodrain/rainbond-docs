@@ -78,3 +78,7 @@ div[class^='announcementBar_'] {
   margin: 0;
   padding: 0;
 }
+/* nav栏 */
+.navbar {
+  /* display: none; */
+}

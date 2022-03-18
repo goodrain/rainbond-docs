@@ -4,7 +4,6 @@
   position: relative;
   overflow: hidden;
 }
-
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 2rem;
@@ -39,6 +38,14 @@
   }
   #section_second .img_container {
     width: 25% !important;
+  }
+  /* 视频 */
+  .carousel_container {
+    flex-wrap: wrap;
+  }
+  .carousel_container > a {
+    width: 100% !important;
+    margin-bottom: 24px;
   }
 }
 
@@ -79,6 +86,7 @@
   display: grid;
   gap: 24px;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: 48px;
   /* background: linear-gradient(to bottom, #dfdddd 0%, #f1f0f0 100%); */
 }
 
@@ -100,14 +108,17 @@
     var(--ifm-color-primary-light) 161.54%
   );
   box-shadow: rgb(0 105 165 / 35%) 0px 0px 32px;
-  border-radius: 7px;
+  border-radius: 50px;
   font-family: 'Yuanti SC', Youyuan, 'You Yuan', 幼圆, 'PingFang SC',
     'Microsoft Yahei', Helvetica, sans-serif;
 }
 .btns:hover {
   color: #fff !important;
   text-decoration: none;
+  transition: all 0.5s;
+  transform: scale(1.01) !important;
 }
+
 .title {
   position: absolute;
   top: -72px;
@@ -133,7 +144,7 @@
   transform: translate(-50%, -50%);
 }
 #section_second {
-  margin-bottom: 12px;
+  margin-bottom: 50px;
   padding: 0 16px;
 }
 /* 社区用户案例 */
@@ -147,7 +158,7 @@
 }
 .img_container > a {
   display: block;
-  background-color: #fff;
+  /* background-color: #fff; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -178,7 +189,7 @@
   margin-bottom: 0px !important;
 }
 .dosc_logo > img {
-  width: 240px;
+  width: 100px;
   height: auto;
   object-fit: fill;
 }
@@ -187,22 +198,26 @@
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  list-style: none;
 }
-.docs > li {
+.docs > a {
   border-radius: 8px;
   box-shadow: 0 5px 40px rgba(0, 0, 0, 0.2);
   position: relative;
   cursor: pointer;
 }
-.docs > li:hover {
+.docs > a:hover {
   box-shadow: 0px 0px 24px 12px rgba(32, 32, 32, 0.3);
+  transition: all 0.5s;
+  transform: scale(1.01);
+  text-decoration: none !important;
 }
-.docs > li > .left_logo {
+.docs > a > .left_logo {
   position: absolute;
   left: 16px;
   top: 16px;
 }
-.docs > li > .left_logo > img {
+.docs > a > .left_logo > img {
   width: 32px;
   height: 32px;
 }
@@ -216,7 +231,7 @@
 }
 .desc .desc_title h4 {
   text-align: center;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   font-family: 'Yuanti SC', Youyuan, 'You Yuan', 幼圆, 'PingFang SC',
     'Microsoft Yahei', Helvetica, sans-serif;
@@ -227,17 +242,25 @@
 .desc .desc_detail {
   text-align: center;
 }
+.desc .desc_detail > p {
+  color: #939393;
+}
 #section_fouth {
   padding: 0 16px;
+  margin-bottom: 56px;
 }
 /* 视频教程 */
 .carousel_container {
+  display: flex;
+}
+.carousel_container > a {
+  width: 50%;
+  padding: 0px 24px 0px 0px;
+}
+.carousel_container > a > img {
+  width: 100%;
+  height: 100%;
 }
 /* 第五屏 */
 #section_fifth {
-}
-/* 箭头动画 */
-.animate_arrow {
-  animation-duration: 1s;
-  animation-fill-mode: both;
 }
