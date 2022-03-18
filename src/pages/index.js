@@ -12,44 +12,31 @@ export default function Home() {
   const [mask_config, setMask_config] = useState(false);
   useEffect(() => {
     // loadSwiperExample(); // 轮播图实例
-    const nav_scroll = document.querySelector('.mdHeader'); //导航栏
-    const img_animate_right = document.querySelector('.right_kid_img'); // 右边图片
-    const img_animate_left = document.querySelector('.left_kid_img'); // 左边图片
-    const docs_animate = document.querySelector('.docs_container'); // 文档
-    const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
-    const partner_animate = document.querySelector('.partner'); // 合作伙伴
-    let scrollTop = document.documentElement.scrollTop;
-
-    img_animate_right.classList.add('animate__animated');
-    img_animate_right.classList.add('animate__fadeInRightBig');
-
-    docs_animate.classList.add('animate__animated');
-    docs_animate.classList.add('animate__fadeInLeftBig');
-
-    img_animate_left.classList.add('animate__animated');
-    img_animate_left.classList.add('animate__fadeInLeftBig');
-
-    carousel_animate.classList.add('animate__animated');
-    carousel_animate.classList.add('animate__fadeInRightBig');
-
-    partner_animate.classList.add('animate__animated');
-    partner_animate.classList.add('animate__flipInX');
-    setTimeout(function () {
-      img_animate_right.classList.remove('animate__animated');
-      img_animate_right.classList.remove('animate__fadeInRightBig');
-
-      docs_animate.classList.remove('animate__animated');
-      docs_animate.classList.remove('animate__fadeInLeftBig');
-
-      img_animate_left.classList.remove('animate__animated');
-      img_animate_left.classList.remove('animate__fadeInLeftBig');
-
-      carousel_animate.classList.remove('animate__animated');
-      carousel_animate.classList.remove('animate__fadeInRightBig');
-
-      partner_animate.classList.remove('animate__animated');
-      partner_animate.classList.remove('animate__flipInX');
-    }, 100);
+    setTimeout(() => {
+      const img_animate_right = document.querySelector('.right_kid_img'); // 右边图片
+      const img_animate_left = document.querySelector('.left_kid_img'); // 左边图片
+      const docs_animate = document.querySelector('.docs_container'); // 文档
+      const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
+      const partner_animate = document.querySelector('.partner'); // 合作伙伴
+      // 移除类
+      img_animate_right.classList.remove(
+        'animate__animated',
+        'animate__fadeInLeftBig'
+      );
+      docs_animate.classList.remove(
+        'animate__animated',
+        'animate__fadeInLeftBig'
+      );
+      img_animate_left.classList.remove(
+        'animate__animated',
+        'animate__fadeInLeftBig'
+      );
+      carousel_animate.classList.remove(
+        'animate__animated',
+        'animate__fadeInRightBig'
+      );
+      partner_animate.classList.remove('animate__animated', 'animate__flipInX');
+    }, 1000);
   }, []);
   useEffect(() => {
     // 注册页面滚动事件
@@ -66,12 +53,15 @@ export default function Home() {
     const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
     const partner_animate = document.querySelector('.partner'); // 合作伙伴
     let scrollTop = document.documentElement.scrollTop;
+
     // 右侧logo
     if (img_animate_right.offsetTop >= window.innerHeight) {
       const isScrollTop = img_animate_right.offsetTop - window.innerHeight;
       if (scrollTop >= isScrollTop) {
-        img_animate_right.classList.add('animate__animated');
-        img_animate_right.classList.add('animate__fadeInRightBig');
+        img_animate_right.classList.add(
+          'animate__animated',
+          'animate__fadeInRightBig'
+        );
       }
     }
     // 文档
@@ -86,24 +76,27 @@ export default function Home() {
     if (img_animate_left.offsetTop >= window.innerHeight) {
       const isScrollTop = img_animate_left.offsetTop - window.innerHeight;
       if (scrollTop >= isScrollTop) {
-        img_animate_left.classList.add('animate__animated');
-        img_animate_left.classList.add('animate__fadeInLeftBig');
+        img_animate_left.classList.add(
+          'animate__animated',
+          'animate__fadeInLeftBig'
+        );
       }
     }
     // 视频学习Rainbond
     if (carousel_animate.offsetTop >= window.innerHeight) {
       const isScrollTop = carousel_animate.offsetTop - window.innerHeight;
       if (scrollTop >= isScrollTop) {
-        carousel_animate.classList.add('animate__animated');
-        carousel_animate.classList.add('animate__fadeInRightBig');
+        carousel_animate.classList.add(
+          'animate__animated',
+          'animate__fadeInRightBig'
+        );
       }
     }
     // 战略合作伙伴
     if (partner_animate.offsetTop >= window.innerHeight) {
       const isScrollTop = partner_animate.offsetTop - window.innerHeight;
       if (scrollTop >= isScrollTop) {
-        partner_animate.classList.add('animate__animated');
-        partner_animate.classList.add('animate__flipInX');
+        partner_animate.classList.add('animate__animated', 'animate__flipInX');
       }
     }
     // 头部tab
@@ -364,11 +357,13 @@ export default function Home() {
                 right: '12px',
                 bottom: '-36px'
               }}
-              className='right_kid_img'
+              className='right_kid_img animate__animated animate__fadeInRightBig'
             />
           </h1>
 
-          <div className={`${styles.docs} docs_container`}>
+          <div
+            className={`${styles.docs} docs_container animate__animated  animate__fadeInLeftBig`}
+          >
             <a href='useScene/IntegrationDev'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
@@ -491,12 +486,14 @@ export default function Home() {
                 left: '12px',
                 bottom: '-36px'
               }}
-              className='left_kid_img'
+              className='left_kid_img animate__animated animate__fadeInLeftBig'
             />
             观看视频学习 &nbsp;
             <span className={styles.how_rainbond}>Rainbond</span>
           </h1>
-          <div className={`${styles.carousel_container} carousel_container`}>
+          <div
+            className={`${styles.carousel_container} carousel_container animate__animated animate__fadeInRightBig`}
+          >
             <a href='http://www.baidu.com' target='_blank'>
               <img src='/img/video/install.png' alt='' />
             </a>
@@ -536,7 +533,9 @@ export default function Home() {
           >
             合作伙伴
           </h1>
-          <div className={`${styles.community_case} partner`}>
+          <div
+            className={`${styles.community_case} partner animate__animated animate__flipInX`}
+          >
             <div className={styles.img_container}>
               <a href='#'>
                 <img src='/img/users/boe.png' alt='' />
