@@ -1,9 +1,3 @@
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 2rem;
@@ -86,7 +80,7 @@
   display: grid;
   gap: 24px;
   grid-template-columns: 1fr 1fr;
-  margin-bottom: 48px;
+  margin-bottom: 84px;
   /* background: linear-gradient(to bottom, #dfdddd 0%, #f1f0f0 100%); */
 }
 
@@ -144,7 +138,7 @@
   transform: translate(-50%, -50%);
 }
 #section_second {
-  margin-bottom: 50px;
+  margin-bottom: 84px;
   padding: 0 16px;
 }
 /* 社区用户案例 */
@@ -263,4 +257,75 @@
 }
 /* 第五屏 */
 #section_fifth {
+}
+
+/* 主页的自定义头部 */
+.mdHeader {
+  height: 84px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #fff;
+  .nav_bar {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .nav_container {
+      height: 100%;
+    }
+    .left_logo {
+      height: 100%;
+      line-height: 84px;
+    }
+    // 左侧logo
+    .left_logo img {
+      width: 240px;
+    }
+    // 右侧列表
+    .nav_container .nav_lists {
+      height: 100%;
+      display: flex;
+      list-style: none;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 0px !important;
+    }
+    .nav_container .nav_lists > li {
+      margin-left: 16px;
+      padding: 24px;
+    }
+    .nav_container .nav_lists > li > a {
+      color: #3f3c3c;
+    }
+  }
+  .nav_container .nav_lists > li:hover a {
+    color: #338bff;
+    text-decoration: none;
+  }
+}
+// 底部
+.footer {
+  height: 64px;
+  background-color: #353740;
+}
+// 遮罩层
+.mask_div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+}
+.bili_video {
+  width: 50%;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

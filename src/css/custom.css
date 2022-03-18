@@ -79,6 +79,7 @@ div[class^='announcementBar_'] {
   padding: 0;
 }
 /* nav栏 */
-.navbar {
-  /* display: none; */
+.nav_scroll_bar {
+  transition: all 1s ease-in-out !important;
+  box-shadow: 0 0 4px rgb(0 0 0 / 14%), 0 4px 8px rgb(0 0 0 / 28%);
 }

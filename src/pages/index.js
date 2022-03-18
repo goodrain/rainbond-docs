@@ -1,17 +1,55 @@
+import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
+import LayoutProviders from '@theme/LayoutProviders';
 import 'animate.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Swiper from '../script/swiper.js';
 import './caluso.css';
-import styles from './index.module.css';
+import styles from './index.module.scss';
 import './swiper-min.css';
-
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
+  const [mask_config, setMask_config] = useState(false);
   useEffect(() => {
     // loadSwiperExample(); // 轮播图实例
-    handleBiliVideo(); // 加载视频
+    const nav_scroll = document.querySelector('.mdHeader'); //导航栏
+    const img_animate_right = document.querySelector('.right_kid_img'); // 右边图片
+    const img_animate_left = document.querySelector('.left_kid_img'); // 左边图片
+    const docs_animate = document.querySelector('.docs_container'); // 文档
+    const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
+    const partner_animate = document.querySelector('.partner'); // 合作伙伴
+    let scrollTop = document.documentElement.scrollTop;
+
+    img_animate_right.classList.add('animate__animated');
+    img_animate_right.classList.add('animate__fadeInRightBig');
+
+    docs_animate.classList.add('animate__animated');
+    docs_animate.classList.add('animate__fadeInLeftBig');
+
+    img_animate_left.classList.add('animate__animated');
+    img_animate_left.classList.add('animate__fadeInLeftBig');
+
+    carousel_animate.classList.add('animate__animated');
+    carousel_animate.classList.add('animate__fadeInRightBig');
+
+    partner_animate.classList.add('animate__animated');
+    partner_animate.classList.add('animate__flipInX');
+    setTimeout(function () {
+      img_animate_right.classList.remove('animate__animated');
+      img_animate_right.classList.remove('animate__fadeInRightBig');
+
+      docs_animate.classList.remove('animate__animated');
+      docs_animate.classList.remove('animate__fadeInLeftBig');
+
+      img_animate_left.classList.remove('animate__animated');
+      img_animate_left.classList.remove('animate__fadeInLeftBig');
+
+      carousel_animate.classList.remove('animate__animated');
+      carousel_animate.classList.remove('animate__fadeInRightBig');
+
+      partner_animate.classList.remove('animate__animated');
+      partner_animate.classList.remove('animate__flipInX');
+    }, 100);
   }, []);
   useEffect(() => {
     // 注册页面滚动事件
@@ -21,46 +59,59 @@ export default function Home() {
     };
   }, []);
   const handleScrollPage = () => {
+    const nav_scroll = document.querySelector('.mdHeader'); //导航栏
+    const img_animate_right = document.querySelector('.right_kid_img'); // 右边图片
+    const img_animate_left = document.querySelector('.left_kid_img'); // 左边图片
+    const docs_animate = document.querySelector('.docs_container'); // 文档
+    const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
+    const partner_animate = document.querySelector('.partner'); // 合作伙伴
     let scrollTop = document.documentElement.scrollTop;
     // 右侧logo
-    if (scrollTop >= 5) {
-      const img_animate = document.querySelector('.right_kid_img');
-      img_animate.classList.add('animate__animated');
-      img_animate.classList.add('animate__fadeInRightBig');
+    if (img_animate_right.offsetTop >= window.innerHeight) {
+      const isScrollTop = img_animate_right.offsetTop - window.innerHeight;
+      if (scrollTop >= isScrollTop) {
+        img_animate_right.classList.add('animate__animated');
+        img_animate_right.classList.add('animate__fadeInRightBig');
+      }
     }
     // 文档
-    if (scrollTop >= 5) {
-      const docs_animate = document.querySelector('.docs_container');
-      docs_animate.classList.add('animate__animated');
-      docs_animate.classList.add('animate__fadeInLeftBig');
+    if (docs_animate.offsetTop >= window.innerHeight) {
+      const isScrollTop = docs_animate.offsetTop - window.innerHeight;
+      if (scrollTop >= isScrollTop) {
+        docs_animate.classList.add('animate__animated');
+        docs_animate.classList.add('animate__fadeInLeftBig');
+      }
     }
     // 左侧logo
-    if (scrollTop >= 753) {
-      const img_animate = document.querySelector('.left_kid_img');
-      img_animate.classList.add('animate__animated');
-      img_animate.classList.add('animate__fadeInLeftBig');
+    if (img_animate_left.offsetTop >= window.innerHeight) {
+      const isScrollTop = img_animate_left.offsetTop - window.innerHeight;
+      if (scrollTop >= isScrollTop) {
+        img_animate_left.classList.add('animate__animated');
+        img_animate_left.classList.add('animate__fadeInLeftBig');
+      }
     }
     // 视频学习Rainbond
-    if (scrollTop >= 760) {
-      const carousel_animate = document.querySelector('.carousel_container');
-      carousel_animate.classList.add('animate__animated');
-      carousel_animate.classList.add('animate__fadeInRightBig');
+    if (carousel_animate.offsetTop >= window.innerHeight) {
+      const isScrollTop = carousel_animate.offsetTop - window.innerHeight;
+      if (scrollTop >= isScrollTop) {
+        carousel_animate.classList.add('animate__animated');
+        carousel_animate.classList.add('animate__fadeInRightBig');
+      }
     }
     // 战略合作伙伴
-    if (scrollTop >= 1325) {
-      const partner_animate = document.querySelector('.partner');
-      partner_animate.classList.add('animate__animated');
-      partner_animate.classList.add('animate__flipInX');
+    if (partner_animate.offsetTop >= window.innerHeight) {
+      const isScrollTop = partner_animate.offsetTop - window.innerHeight;
+      if (scrollTop >= isScrollTop) {
+        partner_animate.classList.add('animate__animated');
+        partner_animate.classList.add('animate__flipInX');
+      }
     }
-  };
-  // BVideo function
-  const handleBiliVideo = () => {
-    const mask_img = document.querySelector('.mask_video');
-    const bili_video = document.querySelector('.bili_video');
-    mask_img.onclick = function () {
-      this.style.display = 'none';
-      bili_video.style.display = 'block';
-    };
+    // 头部tab
+    if (scrollTop > 0) {
+      nav_scroll.classList.add('nav_scroll_bar');
+    } else {
+      nav_scroll.classList.remove('nav_scroll_bar');
+    }
   };
   // 加载轮播图实例
   const loadSwiperExample = () => {
@@ -130,17 +181,67 @@ export default function Home() {
     );
   };
   return (
-    <Layout>
+    <LayoutProviders>
+      <header className={`${styles.mdHeader} mdHeader`}>
+        {/* 导航栏 */}
+        <nav className={`${styles.nav_bar} ${styles.width}`}>
+          {/* 左侧logo */}
+          <div className={styles.left_logo}>
+            <img src='/img/rainbondlog.png'></img>
+          </div>
+          {/* 右侧列表 */}
+          <div className={styles.nav_container}>
+            <ul className={styles.nav_lists}>
+              <li>
+                <a href='http://www.baidu.com'>
+                  <Translate>文档</Translate>
+                </a>
+              </li>
+              <li>
+                <a href='http://www.baidu.com'>
+                  <Translate>快速开始</Translate>
+                </a>
+              </li>
+              <li>
+                <a href='http://www.baidu.com'>
+                  <Translate>使用场景</Translate>
+                </a>
+              </li>
+              <li>
+                <a href='http://www.baidu.com'>
+                  <Translate>案例</Translate>
+                </a>
+              </li>
+              <li>
+                <a href='http://www.baidu.com'>
+                  <Translate>应用商店</Translate>
+                </a>
+              </li>
+              <li>
+                <a href='http://www.baidu.com'>
+                  <Translate>企业服务</Translate>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href='https://github.com/nocalhost/nocalhost'
+                  target='_blank'
+                >
+                  <img
+                    className={styles.githubLogo}
+                    src='img/mark-github.svg'
+                  ></img>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
       <div>
         {/* 第一屏 */}
         <section id={styles.section_first} className={styles.width}>
           <div className={styles.rainbond_desc}>
-            <h1
-              className={`${styles.title} animate__animated animate__bounceInLeft`}
-              style={{ marginBottom: '24px' }}
-            >
-              <img src='/img/rainbondlog.png' alt='Rainbond' />
-            </h1>
             <h2
               className='animate__animated animate__fadeInDown'
               style={{ fontSize: '48px' }}
@@ -156,14 +257,8 @@ export default function Home() {
               }}
               className='animate__animated animate__fadeInDown'
             >
-              <p style={{ lineHeight: '30px' }}>
-                Rainbond 核心
-                <span className={styles.open_source}>&nbsp;100%&nbsp;</span>
-                开源
-              </p>
-              <p style={{ lineHeight: '30px' }}>
-                使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
-              </p>
+              Rainbond 核心100%
+              开源使用简单,不需要懂容器和Kubernetes,支持管理多种Kubernetes集群,提供企业级应用的全生命周期管理。
             </div>
             <div>
               <a
@@ -186,20 +281,15 @@ export default function Home() {
           <div
             className={`${styles.know_rainbond_video} animate__animated animate__slideInRight`}
           >
-            <div className='mask_video' style={{ position: 'relative' }}>
+            <div
+              className='mask_video'
+              style={{ position: 'relative' }}
+              onClick={() => {
+                setMask_config(true);
+              }}
+            >
               <img src='/img/mask_video.jpeg' alt='' />
               <img src='/img/video.svg' alt='' className={styles.play_btn} />
-            </div>
-
-            <div
-              className={`${styles.hide} bili_video`}
-              style={{ padding: '0px 16px' }}
-            >
-              <video
-                style={{ maxWidth: '100%', height: 'auto' }}
-                src='https://grstatic.oss-cn-shanghai.aliyuncs.com/videos/demo-video-5.2.mp4'
-                controls='controls'
-              ></video>
             </div>
           </div>
         </section>
@@ -490,6 +580,34 @@ export default function Home() {
           </div>
         </section>
       </div>
-    </Layout>
+      <footer className={styles.footer}>
+        <div
+          className={styles.width}
+          style={{ color: '#fff', textAlign: 'center', lineHeight: '64px' }}
+        >
+          Copyright © 2022 北京好雨科技有限公司, Inc. All Rights Reserved.
+          京ICP备15028663号-4
+        </div>
+      </footer>
+      {mask_config && (
+        <div
+          className={styles.mask_div}
+          onClick={() => {
+            setMask_config(false);
+          }}
+        >
+          <div className={styles.bili_video}>
+            <video
+              onClick={e => {
+                e.stopPropagation();
+              }}
+              style={{ width: '100%' }}
+              src='https://grstatic.oss-cn-shanghai.aliyuncs.com/videos/demo-video-5.2.mp4'
+              controls='controls'
+            ></video>
+          </div>
+        </div>
+      )}
+    </LayoutProviders>
   );
 }
