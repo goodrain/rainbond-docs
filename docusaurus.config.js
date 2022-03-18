@@ -43,7 +43,7 @@ const config = {
           postsPerPage: 10,
           blogSidebarCount: 'ALL',
           blogSidebarTitle: '使用场景',
-          sortPosts: 'descending',
+          sortPosts: 'descending'
         },
         theme: {
           customCss: [
@@ -67,40 +67,25 @@ const config = {
         },
         // navbar的选项卡
         items: [
-          // {
-          //   position: 'left',
-          //   label: '安装',
-          //   to: '/docs/quick-start/quick-install/'
-          // },
           {
             position: 'left',
             label: '文档',
             to: 'docs/quick-start/introduction'
           },
           {
-            to: 'useScene', 
-            label: '使用场景', 
+            to: 'useScene',
+            label: '使用场景',
             position: 'left'
           },
           {
-            to: 'case', 
-            label: '案例', 
+            to: 'case',
+            label: '案例',
             position: 'left'
           },
           {
             type: 'docsVersionDropdown',
             position: 'right'
           },
-          // {
-          //   position: 'right',
-          //   label: '视频',
-          //   href: 'https://www.rainbond.com/video/'
-          // },
-          // {
-          //   position: 'right',
-          //   label: '社区',
-          //   href: 'https://t.goodrain.com/'
-          // },
           {
             position: 'right',
             label: '应用商店',
@@ -116,7 +101,7 @@ const config = {
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository'
-          },
+          }
         ]
       },
       hideableSidebar: true,
@@ -134,49 +119,49 @@ const config = {
             items: [
               {
                 label: '快速开始',
-                to: 'docs/quick-start/quick-install',
+                to: 'docs/quick-start/quick-install'
               },
               {
                 label: '部署组件',
-                to: 'docs/use-manual/component-create',
+                to: 'docs/use-manual/component-create'
               },
               {
                 label: '最佳实践',
-                to: 'docs/expand/practices',
-              },
-            ],
+                to: 'docs/expand/practices'
+              }
+            ]
           },
           {
             title: '加入社区',
             items: [
               {
                 label: '参与贡献',
-                to: 'docs/contributing',
-              },
-            ],
+                to: 'docs/contributing'
+              }
+            ]
           },
           {
             title: '贡献',
             items: [
               {
                 label: '参与贡献',
-                to: 'docs/contributing',
-              },
-            ],
+                to: 'docs/contributing'
+              }
+            ]
           },
           {
             title: '更多',
             items: [
               {
                 label: '使用场景',
-                to: 'useScene',
+                to: 'useScene'
               },
               {
                 label: '案例',
-                to: 'case',
-              },
-            ],
-          },
+                to: 'case'
+              }
+            ]
+          }
         ],
         copyright: `Copyright © ${new Date().getFullYear()} 北京好雨科技有限公司, Inc. All Rights Reserved. 京ICP备15028663号-4`
       },
@@ -202,8 +187,8 @@ const config = {
         postsPerPage: 10,
         blogSidebarCount: 'ALL',
         blogSidebarTitle: '案例',
-        sortPosts: 'descending',
-      },
+        sortPosts: 'descending'
+      }
     ],
     [
       '@docusaurus/plugin-client-redirects',

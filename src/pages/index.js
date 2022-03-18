@@ -10,7 +10,7 @@ import './swiper-min.css';
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   useEffect(() => {
-    loadSwiperExample(); // 轮播图实例
+    // loadSwiperExample(); // 轮播图实例
     handleBiliVideo(); // 加载视频
   }, []);
   useEffect(() => {
@@ -23,31 +23,31 @@ export default function Home() {
   const handleScrollPage = () => {
     let scrollTop = document.documentElement.scrollTop;
     // 右侧logo
-    if (scrollTop >= 15) {
+    if (scrollTop >= 5) {
       const img_animate = document.querySelector('.right_kid_img');
       img_animate.classList.add('animate__animated');
       img_animate.classList.add('animate__fadeInRightBig');
     }
     // 文档
-    if (scrollTop >= 150) {
+    if (scrollTop >= 5) {
       const docs_animate = document.querySelector('.docs_container');
       docs_animate.classList.add('animate__animated');
       docs_animate.classList.add('animate__fadeInLeftBig');
     }
     // 左侧logo
-    if (scrollTop >= 805) {
+    if (scrollTop >= 753) {
       const img_animate = document.querySelector('.left_kid_img');
       img_animate.classList.add('animate__animated');
       img_animate.classList.add('animate__fadeInLeftBig');
     }
     // 视频学习Rainbond
-    if (scrollTop >= 935) {
+    if (scrollTop >= 760) {
       const carousel_animate = document.querySelector('.carousel_container');
       carousel_animate.classList.add('animate__animated');
       carousel_animate.classList.add('animate__fadeInRightBig');
     }
     // 战略合作伙伴
-    if (scrollTop >= 1560) {
+    if (scrollTop >= 1325) {
       const partner_animate = document.querySelector('.partner');
       partner_animate.classList.add('animate__animated');
       partner_animate.classList.add('animate__flipInX');
@@ -121,7 +121,14 @@ export default function Home() {
       }
     });
   };
-
+  const handleJumpDemo = e => {
+    e.preventDefault();
+    fetch('https://cloud.goodrain.com/enterprise-server/onlineTrial').finally(
+      () => {
+        window.open('http://demo.c9f961.grapps.cn/');
+      }
+    );
+  };
   return (
     <Layout>
       <div>
@@ -140,7 +147,7 @@ export default function Home() {
             >
               云原生多云应用管理平台
             </h2>
-            <p
+            <div
               style={{
                 margin: '24px 0px 48px',
                 color: '#637792',
@@ -157,7 +164,7 @@ export default function Home() {
               <p style={{ lineHeight: '30px' }}>
                 使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
               </p>
-            </p>
+            </div>
             <div>
               <a
                 className={`${styles.btns} animate__animated animate__fadeInDown`}
@@ -169,8 +176,8 @@ export default function Home() {
               </a>
               <a
                 className={`${styles.btns} animate__animated animate__fadeInDown`}
-                href='http://demo.c9f961.grapps.cn/#/user/login'
-                target='_blank'
+                href='http://demo.c9f961.grapps.cn/'
+                onClick={handleJumpDemo}
               >
                 在线体验
               </a>
@@ -251,7 +258,7 @@ export default function Home() {
           <h1
             style={{
               textAlign: 'center',
-              marginBottom: '24px',
+              marginBottom: '56px',
               position: 'relative'
             }}
           >
@@ -264,24 +271,22 @@ export default function Home() {
                 width: '20px',
                 height: '20px',
                 position: 'absolute',
-                right: 0,
-                bottom: '6px'
+                right: '12px',
+                bottom: '-36px'
               }}
               className='right_kid_img'
             />
           </h1>
 
-          <ul className={`${styles.docs} docs_container`}>
-            <li>
+          <div className={`${styles.docs} docs_container`}>
+            <a href='useScene/IntegrationDev'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/IntegrationDev'>
-                      一体化开发测试环境
-                    </a>
+                    <a href='useScene/IntegrationDev'>一体化开发测试环境</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
@@ -290,17 +295,15 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </li>
-            <li>
+            </a>
+            <a href='useScene/AppManagement'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/AppManagement' >
-                      企业级应用统一管理
-                    </a>
+                    <a href='useScene/AppManagement'>企业级应用统一管理</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
@@ -309,17 +312,15 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </li>
-            <li>
+            </a>
+            <a href='useScene/MultiCloudManagement'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/MultiCloudManagement' >
-                      应用级多云管理
-                    </a>
+                    <a href='useScene/MultiCloudManagement'>应用级多云管理</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
@@ -328,36 +329,30 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </li>
-            <li>
+            </a>
+            <a href='useScene/offlineDelivery'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/offlineDelivery' >
-                      离线环境软件交付
-                    </a>
+                    <a href='useScene/offlineDelivery'>离线环境软件交付</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
-                  <p>
-                    离线环境应用自动化交付，并支持个性化定制和应用运维
-                  </p>
+                  <p>离线环境应用自动化交付，并支持个性化定制和应用运维</p>
                 </div>
               </div>
-            </li>
-            <li>
+            </a>
+            <a href='useScene/componentReuse'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/componentReuse' >
-                      业务积木式拼装
-                    </a>
+                    <a href='useScene/componentReuse'>业务积木式拼装</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
@@ -366,37 +361,33 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </li>
-            <li>
+            </a>
+            <a href='useScene/x86ToArm'>
               <div className={styles.left_logo}>
                 <img src='/img/rainbond.png' alt='' />
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/x86ToArm' >
-                      国产化和信创支撑
-                    </a>
+                    <a href='useScene/x86ToArm'>国产化和信创支撑</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
-                  <p>
-                    支持多种国产化平台，x86架构应用自动化向Arm架构转换
-                  </p>
+                  <p>支持多种国产化平台，x86架构应用自动化向Arm架构转换</p>
                 </div>
               </div>
-            </li>
-          </ul>
+            </a>
+          </div>
         </section>
         {/* 第四屏 */}
         <section id={styles.section_fouth} className={styles.width}>
-          <h1 className={styles.dosc_logo}>
+          <h1 className={styles.dosc_logo} style={{ marginTop: '56px' }}>
             <img src='/img/smallimages/RainbondStudy.png' alt='' />
           </h1>
           <h1
             style={{
               textAlign: 'center',
-              marginBottom: '24px',
+              marginBottom: '56px',
               position: 'relative'
             }}
           >
@@ -407,8 +398,8 @@ export default function Home() {
                 width: '20px',
                 height: '20px',
                 position: 'absolute',
-                left: 0,
-                bottom: '6px'
+                left: '12px',
+                bottom: '-36px'
               }}
               className='left_kid_img'
             />
@@ -416,7 +407,14 @@ export default function Home() {
             <span className={styles.how_rainbond}>Rainbond</span>
           </h1>
           <div className={`${styles.carousel_container} carousel_container`}>
-            <div id='carousel'>
+            <a href='http://www.baidu.com' target='_blank'>
+              <img src='/img/video/install.png' alt='' />
+            </a>
+            <a href='http://www.baidu.com' target='_blank'>
+              <img src='/img/video/quick.png' alt='' />
+            </a>
+
+            {/* <div id='carousel'>
               <div className='swiper swiper-3d'>
                 <div className='swiper-wrapper'>
                   <div className='swiper-slide'>
@@ -424,7 +422,7 @@ export default function Home() {
                     <p> Rainbond 安装系列教程</p>
                   </div>
                   <div className='swiper-slide'>
-                  <img src='/img/video/quick.png' />
+                    <img src='/img/video/quick.png' />
                     <p>Rainbond 入门系列教程</p>
                   </div>
                 </div>
@@ -432,7 +430,7 @@ export default function Home() {
               <div className='swiper-pagination'></div>
               <div className='swiper-button-prev'></div>
               <div className='swiper-button-next'></div>
-            </div>
+            </div> */}
           </div>
         </section>
         {/* 第五屏 */}
@@ -449,7 +447,7 @@ export default function Home() {
             合作伙伴
           </h1>
           <div className={`${styles.community_case} partner`}>
-          <div className={styles.img_container}>
+            <div className={styles.img_container}>
               <a href='#'>
                 <img src='/img/users/boe.png' alt='' />
               </a>
