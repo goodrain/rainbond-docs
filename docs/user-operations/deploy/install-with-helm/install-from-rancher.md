@@ -18,7 +18,7 @@ description: 本文适用于正在使用 Rancher 或对 Rancher 有所了解的�
 
 :::
 
-<img src="https://pic.imgdb.cn/item/6232cf0a5baa1a80ab9bd96c.png" style="zoom:50%;" />
+<img src="https://pic.imgdb.cn/item/6232cf0a5baa1a80ab9bd96c.png" />
 
 ### 开始安装：
 
@@ -30,7 +30,7 @@ description: 本文适用于正在使用 Rancher 或对 Rancher 有所了解的�
 - 点击 Apps & Marketplace > Repositories > Create
 - 编辑当前应用的名字，填写商店 GIT 地址的 URL `` https://github.com/goodrain/rainbond-chart.git  ``，分支默认填写 master , 然后点击 Create 
 
-<img src="https://pic.imgdb.cn/item/6232cf0a5baa1a80ab9bd964.png" style="zoom:33%;" />
+<img src="https://pic.imgdb.cn/item/6232cf0a5baa1a80ab9bd964.png" />
 
 - 添加完成以后点击 Repositories 回到首页，查看 商店状态为 Active 即为成功
 
@@ -42,11 +42,11 @@ description: 本文适用于正在使用 Rancher 或对 Rancher 有所了解的�
 - 只选中添加的商店名字，选中 Rainbond 应用，然后点击 install 
 - 选择 rbd-system 命名空间（需要提前进行创建），然后点击 next
 
-<img src="https://pic.imgdb.cn/item/6233e1235baa1a80abca3fc8.png" style="zoom: 33%;" />
+<img src="https://pic.imgdb.cn/item/6233e1235baa1a80abca3fc8.png" />
 
-<img src="https://pic.imgdb.cn/item/6233e1235baa1a80abca3fe0.png" style="zoom:33%;" />
+<img src="https://pic.imgdb.cn/item/6233e1235baa1a80abca3fe0.png" />
 
-- 进入自定义 Values.yaml 的阶段，文件的详细信息可以参考 [values.yaml 文档](https://www.rainbond.com/docs/user-operations/deploy/install-with-helm/vaules-config) 进行编辑，修改完配置点击 install 
+- 进入自定义 Values.yaml 的阶段，文件的详细信息可以参考 [values.yaml 文档](../install-with-helm/vaules-config) 进行编辑，修改完配置点击 install 
 
 :::danger
 
@@ -54,7 +54,7 @@ description: 本文适用于正在使用 Rancher 或对 Rancher 有所了解的�
 
 :::
 
-<img src="https://pic.imgdb.cn/item/6233e1235baa1a80abca3fc2.png" style="zoom: 33%;" />
+<img src="https://pic.imgdb.cn/item/6233e1235baa1a80abca3fc2.png" />
 
 
 
@@ -64,10 +64,10 @@ description: 本文适用于正在使用 Rancher 或对 Rancher 有所了解的�
 
 - Rancher ui 界面上方 kubectl shell 按键可以进入终端命令行，查看 pod 的状态，成功状态如下
 
-<img src="https://pic.imgdb.cn/item/6233e1235baa1a80abca3fd3.png" style="zoom:33%;" />
+<img src="https://pic.imgdb.cn/item/6233e1235baa1a80abca3fd3.png" />
 
 - 安装成功以后可以通过 `$gatewayIngressIPs:7070` 访问 Rainbond 控制台，若没有公网 IP 则为内网 IP ：7070  。
 
 ### 安装问题排查
 
-- 安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](https://www.rainbond.com/docs/user-operations/deploy/install-troubleshoot/helm-install-troubleshoot/)，进行故障排查。
+- 安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](../install-troubleshoot/helm-install-troubleshoot)，进行故障排查。
