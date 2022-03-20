@@ -582,13 +582,73 @@ export default function Home() {
           </div>
         </section> */}
       </div>
-      <footer className={styles.footer}>
-        <div
-          className={styles.width}
-          style={{ color: '#fff', textAlign: 'center', lineHeight: '64px' }}
-        >
-          Copyright © 2022 北京好雨科技有限公司, Inc. All Rights Reserved.
-          京ICP备15028663号-4
+      <footer class="footer footer--dark">
+        <div class="container container--fluid">
+          <div class="row footer__links">
+            <div class="col footer__col">
+              <h4 class="footer__title">文档</h4>
+              <ul class="footer__items">
+                <li class="footer__item">
+                  <a class="footer__link-item" href="docs/quick-start/quick-install">
+                    快速开始
+                  </a>
+                </li>
+                <li class="footer__item">
+                  <a class="footer__link-item" href="docs/use-manual/component-create">
+                    部署组件
+                  </a>
+                </li>
+                <li class="footer__item">
+                  <a class="footer__link-item" href="docs/expand/practices">
+                    最佳实践
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col footer__col">
+              <h4 class="footer__title">开源社区</h4>
+              <ul class="footer__items">
+                <li class="footer__item">
+                  <a class="footer__link-item" href="wechat/join-wechat">
+                    加入社群
+                  </a>
+                </li>
+                <li class="footer__item">
+                  <a class="footer__link-item" href="https://t.goodrain.com" target='_blank'>
+                    用户论坛
+                  </a>
+                </li>
+                <li class="footer__item">
+                  <a class="footer__link-item" href="docs/contributing">
+                    参与贡献
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col footer__col">
+              <h4 class="footer__title">更多</h4>
+              <ul class="footer__items">
+                <li class="footer__item">
+                  <a class="footer__link-item" href="useScene">
+                    使用场景
+                  </a>
+                </li>
+                <li class="footer__item">
+                  <a class="footer__link-item" href="case">
+                    用户案例
+                  </a>
+                </li>
+                <li class="footer__item">
+                  <a class="footer__link-item" href="https://www.goodrain.com" target='_blank'>
+                    联系我们
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="text--center">
+            Copyright © {new Date().getFullYear()} 北京好雨科技有限公司, Inc. All Rights Reserved. 京ICP备15028663号-4
+          </div>
         </div>
       </footer>
       {mask_config && (
