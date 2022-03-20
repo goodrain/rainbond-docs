@@ -186,39 +186,39 @@ export default function Home() {
           <div className={styles.nav_container}>
             <ul className={styles.nav_lists}>
               <li>
-                <a href='http://www.baidu.com'>
+                <a href='docs/quick-start/introduction'>
                   <Translate>文档</Translate>
                 </a>
               </li>
               <li>
-                <a href='http://www.baidu.com'>
+                <a href='docs/quick-start/quick-install'>
                   <Translate>快速开始</Translate>
                 </a>
               </li>
               <li>
-                <a href='http://www.baidu.com'>
+                <a href='useScene'>
                   <Translate>使用场景</Translate>
                 </a>
               </li>
               <li>
-                <a href='http://www.baidu.com'>
+                <a href='case'>
                   <Translate>案例</Translate>
                 </a>
               </li>
               <li>
-                <a href='http://www.baidu.com'>
+                <a href='https://store.goodrain.com' target='_blank'>
                   <Translate>应用商店</Translate>
                 </a>
               </li>
               <li>
-                <a href='http://www.baidu.com'>
+                <a href='https://www.goodrain.com' target='_blank'>
                   <Translate>企业服务</Translate>
                 </a>
               </li>
 
               <li>
                 <a
-                  href='https://github.com/nocalhost/nocalhost'
+                  href='https://github.com/goodrain/rainbond'
                   target='_blank'
                 >
                   <img
@@ -256,8 +256,7 @@ export default function Home() {
             <div>
               <a
                 className={`${styles.btns} animate__animated animate__fadeInDown`}
-                href='https://www.rainbond.com/docs/quick-start/quick-install/'
-                target='_blank'
+                href='docs/quick-start/quick-install/'
                 style={{ marginRight: '16px' }}
               >
                 安装使用
@@ -281,8 +280,7 @@ export default function Home() {
                 setMask_config(true);
               }}
             >
-              <img src='/img/mask_video.jpeg' alt='' />
-              <img src='/img/video.svg' alt='' className={styles.play_btn} />
+              <img src='/img/video/video-rainbond.png' alt='' />
             </div>
           </div>
         </section>
@@ -296,29 +294,9 @@ export default function Home() {
                 <img src='/img/users/boe.png' alt='' />
               </a>
             </div>
-            <div className={styles.img_container}>
+            <div className={styles.img_container} style={{ width: '150px' }} >
               <a href='#'>
                 <img src='/img/users/mky.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/bkrj.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/gfkj.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/lvzhiyun.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/xinanmingzu.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
@@ -328,7 +306,32 @@ export default function Home() {
             </div>
             <div className={styles.img_container}>
               <a href='#'>
+                <img src='/img/users/lvzhiyun.png' alt='' />
+              </a>
+            </div>
+            <div className={styles.img_container}>
+              <a href='#'>
+                <img src='/img/users/bkrj.png' alt='' />
+              </a>
+            </div>
+            <div className={styles.img_container} style={{ width: '150px' }} >
+              <a href='#'>
+                <img src='/img/users/xinanmingzu.png' alt='' />
+              </a>
+            </div>
+            <div className={styles.img_container} style={{ width: '150px' }} >
+              <a href='#'>
                 <img src='/img/users/lyyl.png' alt='' />
+              </a>
+            </div>
+            <div className={styles.img_container}>
+              <a href='#'>
+                <img src='/img/users/zhx.png' alt='' />
+              </a>
+            </div>
+            <div className={styles.img_container}>
+              <a href='#'>
+                <img src='/img/users/zggk.png' alt='' />
               </a>
             </div>
           </div>
@@ -366,7 +369,7 @@ export default function Home() {
           >
             <a href='useScene/IntegrationDev'>
               <div className={styles.left_logo}>
-                <img src='/img/rainbond.png' alt='' />
+                {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
@@ -383,7 +386,7 @@ export default function Home() {
             </a>
             <a href='useScene/AppManagement'>
               <div className={styles.left_logo}>
-                <img src='/img/rainbond.png' alt='' />
+                {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
@@ -400,7 +403,7 @@ export default function Home() {
             </a>
             <a href='useScene/MultiCloudManagement'>
               <div className={styles.left_logo}>
-                <img src='/img/rainbond.png' alt='' />
+                {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
@@ -417,7 +420,7 @@ export default function Home() {
             </a>
             <a href='useScene/offlineDelivery'>
               <div className={styles.left_logo}>
-                <img src='/img/rainbond.png' alt='' />
+                {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
@@ -432,7 +435,7 @@ export default function Home() {
             </a>
             <a href='useScene/componentReuse'>
               <div className={styles.left_logo}>
-                <img src='/img/rainbond.png' alt='' />
+                {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
@@ -449,7 +452,7 @@ export default function Home() {
             </a>
             <a href='useScene/x86ToArm'>
               <div className={styles.left_logo}>
-                <img src='/img/rainbond.png' alt='' />
+                {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
@@ -494,10 +497,10 @@ export default function Home() {
           <div
             className={`${styles.carousel_container} carousel_container animate__animated animate__fadeInRightBig`}
           >
-            <a href='http://www.baidu.com' target='_blank'>
+            <a href='https://www.bilibili.com/video/BV1Vq4y1w7FQ' target='_blank'>
               <img src='/img/video/install.png' alt='' />
             </a>
-            <a href='http://www.baidu.com' target='_blank'>
+            <a href='https://www.bilibili.com/video/BV1ou411B7ix' target='_blank'>
               <img src='/img/video/quick.png' alt='' />
             </a>
 
@@ -521,7 +524,7 @@ export default function Home() {
           </div>
         </section>
         {/* 第五屏 */}
-        <section id={styles.section_second} className={styles.width}>
+        {/* <section id={styles.section_second} className={styles.width}>
           <h1 className={styles.dosc_logo}>
             <img src='/img/smallimages/RainbondPartner.png' alt='' />
           </h1>
@@ -577,7 +580,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
       <footer className={styles.footer}>
         <div

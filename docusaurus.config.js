@@ -132,17 +132,16 @@ const config = {
             ]
           },
           {
-            title: '加入社区',
+            title: '开源社区',
             items: [
               {
-                label: '参与贡献',
-                to: 'docs/contributing'
-              }
-            ]
-          },
-          {
-            title: '贡献',
-            items: [
+                label: '加入社群',
+                to: 'wechat/join-wechat'
+              },
+              {
+                label: '用户论坛',
+                to: 'https://t.goodrain.com'
+              },
               {
                 label: '参与贡献',
                 to: 'docs/contributing'
@@ -157,8 +156,12 @@ const config = {
                 to: 'useScene'
               },
               {
-                label: '案例',
+                label: '用户案例',
                 to: 'case'
+              },
+              {
+                label: '联系我们',
+                to: 'https://www.goodrain.com'
               }
             ]
           }
@@ -188,6 +191,17 @@ const config = {
         blogSidebarCount: 'ALL',
         blogSidebarTitle: '案例',
         sortPosts: 'descending'
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'wechat',
+        routeBasePath: 'wechat',
+        path: './wechat',
+        blogTitle: '加入社群',
+        blogSidebarCount: 0,
+        showReadingTime: false
       }
     ],
     [
