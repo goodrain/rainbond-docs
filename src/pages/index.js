@@ -217,14 +217,10 @@ export default function Home() {
               </li>
 
               <li>
-                <a
-                  href='https://github.com/goodrain/rainbond'
-                  target='_blank'
-                >
-                  <img
-                    className={styles.githubLogo}
-                    src='img/mark-github.svg'
-                  ></img>
+                <a 
+                  className={styles.githubLogo}
+                  href='https://github.com/goodrain/rainbond' 
+                  target='_blank'>
                 </a>
               </li>
             </ul>
