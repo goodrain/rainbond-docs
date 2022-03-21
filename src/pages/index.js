@@ -1,3 +1,4 @@
+import Head from '@docusaurus/Head';
 import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import LayoutProviders from '@theme/LayoutProviders';
@@ -92,7 +93,7 @@ export default function Home() {
         );
       }
     }
-    // 战略合作伙伴
+    // 合作伙伴
     if (partner_animate.offsetTop >= window.innerHeight) {
       const isScrollTop = partner_animate.offsetTop - window.innerHeight;
       if (scrollTop >= isScrollTop) {
@@ -175,6 +176,11 @@ export default function Home() {
   };
   return (
     <LayoutProviders>
+      <Head>
+        <title>{siteConfig.title}</title>
+        <meta property='og:title' content={siteConfig.title} />
+        <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />}
+      </Head>
       <header className={`${styles.mdHeader} mdHeader`}>
         {/* 导航栏 */}
         <nav className={`${styles.nav_bar} ${styles.width}`}>
@@ -188,6 +194,11 @@ export default function Home() {
               <li>
                 <a href='docs/quick-start/introduction'>
                   <Translate>Rainbond是什么?</Translate>
+                </a>
+              </li>
+              <li>
+                <a href='docs/quick-start/get-start/'>
+                  <Translate>文档</Translate>
                 </a>
               </li>
               <li>
@@ -217,11 +228,11 @@ export default function Home() {
               </li>
 
               <li>
-                <a 
+                <a
                   className={styles.githubLogo}
-                  href='https://github.com/goodrain/rainbond' 
-                  target='_blank'>
-                </a>
+                  href='https://github.com/goodrain/rainbond'
+                  target='_blank'
+                ></a>
               </li>
             </ul>
           </div>
@@ -246,8 +257,7 @@ export default function Home() {
               }}
               className='animate__animated animate__fadeInDown'
             >
-              Rainbond 核心100%,
-              开源使用简单,不需要懂容器和Kubernetes,支持管理多种Kubernetes集群,提供企业级应用的全生命周期管理。
+              Rainbond 核心100%开源,使用简单,不需要懂容器和Kubernetes,支持管理多种Kubernetes集群,提供企业级应用的全生命周期管理。
             </div>
             <div>
               <a
@@ -290,7 +300,7 @@ export default function Home() {
                 <img src='/img/users/boe.png' alt='' />
               </a>
             </div>
-            <div className={styles.img_container} style={{ width: '160px' }} >
+            <div className={styles.img_container} style={{ width: '160px' }}>
               <a href='#'>
                 <img src='/img/users/mky.png' alt='' />
               </a>
@@ -310,7 +320,7 @@ export default function Home() {
                 <img src='/img/users/lvzhiyun.png' alt='' />
               </a>
             </div>
-            <div className={styles.img_container} style={{ width: '150px' }} >
+            <div className={styles.img_container} style={{ width: '150px' }}>
               <a href='#'>
                 <img src='/img/users/lyyl.png' alt='' />
               </a>
@@ -325,7 +335,7 @@ export default function Home() {
                 <img src='/img/users/bkrj.png' alt='' />
               </a>
             </div>
-            <div className={styles.img_container} style={{ width: '150px' }} >
+            <div className={styles.img_container} style={{ width: '150px' }}>
               <a href='#'>
                 <img src='/img/users/xinanmingzu.png' alt='' />
               </a>
@@ -493,10 +503,16 @@ export default function Home() {
           <div
             className={`${styles.carousel_container} carousel_container animate__animated animate__fadeInRightBig`}
           >
-            <a href='https://www.bilibili.com/video/BV1Vq4y1w7FQ' target='_blank'>
+            <a
+              href='https://www.bilibili.com/video/BV1Vq4y1w7FQ'
+              target='_blank'
+            >
               <img src='/img/video/install.png' alt='' />
             </a>
-            <a href='https://www.bilibili.com/video/BV1ou411B7ix' target='_blank'>
+            <a
+              href='https://www.bilibili.com/video/BV1ou411B7ix'
+              target='_blank'
+            >
               <img src='/img/video/quick.png' alt='' />
             </a>
 
@@ -578,72 +594,87 @@ export default function Home() {
           </div>
         </section> */}
       </div>
-      <footer class="footer footer--dark">
-        <div class="container container--fluid">
-          <div class="row footer__links">
-            <div class="col footer__col">
-              <h4 class="footer__title">文档</h4>
-              <ul class="footer__items">
-                <li class="footer__item">
-                  <a class="footer__link-item" href="docs/quick-start/quick-install">
+      <footer className='footer footer--dark'>
+        <div className='container container--fluid'>
+          <div className='row footer__links'>
+            <div className='col footer__col'>
+              <h4 className='footer__title'>文档</h4>
+              <ul className='footer__items'>
+                <li className='footer__item'>
+                  <a
+                    className='footer__link-item'
+                    href='docs/quick-start/quick-install'
+                  >
                     快速开始
                   </a>
                 </li>
-                <li class="footer__item">
-                  <a class="footer__link-item" href="docs/use-manual/component-create">
+                <li className='footer__item'>
+                  <a
+                    className='footer__link-item'
+                    href='docs/use-manual/component-create'
+                  >
                     部署组件
                   </a>
                 </li>
-                <li class="footer__item">
-                  <a class="footer__link-item" href="docs/expand/practices">
+                <li className='footer__item'>
+                  <a className='footer__link-item' href='docs/expand/practices'>
                     最佳实践
                   </a>
                 </li>
               </ul>
             </div>
-            <div class="col footer__col">
-              <h4 class="footer__title">开源社区</h4>
-              <ul class="footer__items">
-                <li class="footer__item">
-                  <a class="footer__link-item" href="wechat/join-wechat">
+            <div className='col footer__col'>
+              <h4 className='footer__title'>开源社区</h4>
+              <ul className='footer__items'>
+                <li className='footer__item'>
+                  <a className='footer__link-item' href='wechat/join-wechat'>
                     加入社群
                   </a>
                 </li>
-                <li class="footer__item">
-                  <a class="footer__link-item" href="https://t.goodrain.com" target='_blank'>
+                <li className='footer__item'>
+                  <a
+                    className='footer__link-item'
+                    href='https://t.goodrain.com'
+                    target='_blank'
+                  >
                     用户论坛
                   </a>
                 </li>
-                <li class="footer__item">
-                  <a class="footer__link-item" href="docs/contributing">
+                <li className='footer__item'>
+                  <a className='footer__link-item' href='docs/contributing'>
                     参与贡献
                   </a>
                 </li>
               </ul>
             </div>
-            <div class="col footer__col">
-              <h4 class="footer__title">更多</h4>
-              <ul class="footer__items">
-                <li class="footer__item">
-                  <a class="footer__link-item" href="useScene">
+            <div className='col footer__col'>
+              <h4 className='footer__title'>更多</h4>
+              <ul className='footer__items'>
+                <li className='footer__item'>
+                  <a className='footer__link-item' href='useScene'>
                     使用场景
                   </a>
                 </li>
-                <li class="footer__item">
-                  <a class="footer__link-item" href="case">
+                <li className='footer__item'>
+                  <a className='footer__link-item' href='case'>
                     用户案例
                   </a>
                 </li>
-                <li class="footer__item">
-                  <a class="footer__link-item" href="https://www.goodrain.com" target='_blank'>
+                <li className='footer__item'>
+                  <a
+                    className='footer__link-item'
+                    href='https://www.goodrain.com'
+                    target='_blank'
+                  >
                     联系我们
                   </a>
                 </li>
               </ul>
             </div>
           </div>
-          <div class="text--center">
-            Copyright © {new Date().getFullYear()} 北京好雨科技有限公司, Inc. All Rights Reserved. 京ICP备15028663号-4
+          <div className='text--center'>
+            Copyright © {new Date().getFullYear()} 北京好雨科技有限公司, Inc.
+            All Rights Reserved. 京ICP备15028663号-4
           </div>
         </div>
       </footer>
