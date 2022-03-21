@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import styles from "./style.module.css";
+import PropTypes from 'prop-types';
+import React from 'react';
+import styles from './style.module.css';
 
 function Bvideo({ src, bsrc }) {
   return (
     <>
       <iframe
         src={src}
-        loading="lazy"
-        scrolling="no"
+        loading='lazy'
+        scrolling='no'
         border={0}
-        frameBorder="no"
+        frameBorder='no'
         framespacing={0}
         allowFullScreen={true}
         // style={{ width: "100%", height: "500px" }}
@@ -22,7 +22,7 @@ function Bvideo({ src, bsrc }) {
 
 Bvideo.propTypes = {
   src: PropTypes.string.isRequired,
-  bsrc: PropTypes.string,
+  bsrc: PropTypes.string
 };
 
 export default Bvideo;

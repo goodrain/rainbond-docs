@@ -2,12 +2,6 @@
 .navbar__item span svg {
   display: none !important;
 }
-/* footer 样式 */
-.footer--dark {
-  height: 48px;
-  line-height: 48px;
-  padding: 0;
-}
 
 /* 快速安装 tab */
 .tabes {
@@ -40,7 +34,7 @@
   height: 100%;
   line-height: 50px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
 }
 .tab-input:checked + .tab-tit {
