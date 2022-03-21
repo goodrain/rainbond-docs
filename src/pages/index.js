@@ -187,7 +187,7 @@ export default function Home() {
             <ul className={styles.nav_lists}>
               <li>
                 <a href='docs/quick-start/introduction'>
-                  <Translate>文档</Translate>
+                  <Translate>Rainbond是什么?</Translate>
                 </a>
               </li>
               <li>
@@ -205,11 +205,11 @@ export default function Home() {
                   <Translate>案例</Translate>
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href='https://store.goodrain.com' target='_blank'>
                   <Translate>应用商店</Translate>
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href='https://www.goodrain.com' target='_blank'>
                   <Translate>企业服务</Translate>
@@ -246,7 +246,7 @@ export default function Home() {
               }}
               className='animate__animated animate__fadeInDown'
             >
-              Rainbond 核心100%
+              Rainbond 核心100%,
               开源使用简单,不需要懂容器和Kubernetes,支持管理多种Kubernetes集群,提供企业级应用的全生命周期管理。
             </div>
             <div>
