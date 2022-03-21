@@ -290,9 +290,14 @@ export default function Home() {
                 <img src='/img/users/boe.png' alt='' />
               </a>
             </div>
-            <div className={styles.img_container} style={{ width: '150px' }} >
+            <div className={styles.img_container} style={{ width: '160px' }} >
               <a href='#'>
                 <img src='/img/users/mky.png' alt='' />
+              </a>
+            </div>
+            <div className={styles.img_container}>
+              <a href='#'>
+                <img src='/img/users/zhx.jpeg' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
@@ -305,6 +310,16 @@ export default function Home() {
                 <img src='/img/users/lvzhiyun.png' alt='' />
               </a>
             </div>
+            <div className={styles.img_container} style={{ width: '150px' }} >
+              <a href='#'>
+                <img src='/img/users/lyyl.png' alt='' />
+              </a>
+            </div>
+            <div className={styles.img_container}>
+              <a href='#'>
+                <img src='/img/users/zggk.jpg' alt='' />
+              </a>
+            </div>
             <div className={styles.img_container}>
               <a href='#'>
                 <img src='/img/users/bkrj.png' alt='' />
@@ -313,21 +328,6 @@ export default function Home() {
             <div className={styles.img_container} style={{ width: '150px' }} >
               <a href='#'>
                 <img src='/img/users/xinanmingzu.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container} style={{ width: '150px' }} >
-              <a href='#'>
-                <img src='/img/users/lyyl.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/zhx.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/zggk.png' alt='' />
               </a>
             </div>
           </div>
