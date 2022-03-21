@@ -7,7 +7,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     && apk add --no-cache git \
     && yarn config set registry https://registry.npm.taobao.org \
     && yarn install \
-    && yarn run build --out-dir build/docs
+    && yarn run build
 
 FROM nginx:1.21.6-alpine
 
