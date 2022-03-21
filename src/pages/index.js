@@ -93,7 +93,7 @@ export default function Home() {
         );
       }
     }
-    // 战略合作伙伴
+    // 合作伙伴
     if (partner_animate.offsetTop >= window.innerHeight) {
       const isScrollTop = partner_animate.offsetTop - window.innerHeight;
       if (scrollTop >= isScrollTop) {
@@ -197,6 +197,11 @@ export default function Home() {
                 </a>
               </li>
               <li>
+                <a href='docs/quick-start/get-start/'>
+                  <Translate>文档</Translate>
+                </a>
+              </li>
+              <li>
                 <a href='docs/quick-start/quick-install'>
                   <Translate>快速开始</Translate>
                 </a>
@@ -252,8 +257,7 @@ export default function Home() {
               }}
               className='animate__animated animate__fadeInDown'
             >
-              Rainbond 核心100%,
-              开源使用简单,不需要懂容器和Kubernetes,支持管理多种Kubernetes集群,提供企业级应用的全生命周期管理。
+              Rainbond 核心100%开源,使用简单,不需要懂容器和Kubernetes,支持管理多种Kubernetes集群,提供企业级应用的全生命周期管理。
             </div>
             <div>
               <a
