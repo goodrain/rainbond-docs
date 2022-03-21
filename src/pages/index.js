@@ -627,8 +627,13 @@ export default function Home() {
               <h4 className='footer__title'>开源社区</h4>
               <ul className='footer__items'>
                 <li className='footer__item'>
-                  <a className='footer__link-item' href='wechat/join-wechat'>
-                    加入社群
+                  <a className='footer__link-item' href='wechat'>
+                    微信
+                  </a>
+                </li>
+                <li className='footer__item'>
+                  <a className='footer__link-item' href='#'>
+                    钉钉(31096419)
                   </a>
                 </li>
                 <li className='footer__item'>

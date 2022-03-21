@@ -135,8 +135,12 @@ const config = {
             title: '开源社区',
             items: [
               {
-                label: '加入社群',
-                to: 'wechat/join-wechat'
+                label: '微信',
+                to: 'wechat'
+              },
+              {
+                label: '钉钉(31096419)',
+                to: '#'
               },
               {
                 label: '用户论坛',
@@ -191,17 +195,6 @@ const config = {
         blogSidebarCount: 'ALL',
         blogSidebarTitle: '案例',
         sortPosts: 'descending'
-      }
-    ],
-    [
-      '@docusaurus/plugin-content-blog',
-      {
-        id: 'wechat',
-        routeBasePath: 'wechat',
-        path: './wechat',
-        blogTitle: '加入社群',
-        blogSidebarCount: 0,
-        showReadingTime: false
       }
     ],
     [
