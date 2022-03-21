@@ -37,7 +37,7 @@ Rainbond 是云原生且易用的云原生应用管理平台。云原生应用�
 
 ### 编译项目
 
-Rainbond 主要由以下三个项目组成。点击查看[技术架构](../architecture/architecture/)
+Rainbond 主要由以下三个项目组成。点击查看[技术架构](../architecture/)
 
 ![rainbond-compile-arch](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/quick-start/rainbond-compile-architecture.png)
 

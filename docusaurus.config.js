@@ -208,69 +208,43 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath) {
-          if (existingPath.includes('/use-manual/component-create')) {
+          if (existingPath.includes('docs/use-manual/component-create')) {
             return [
-              existingPath.replace(
-                '/use-manual/component-create',
-                '/component-create'
-              )
+              existingPath.replace('docs/use-manual/component-create','docs/component-create')
             ];
           }
-          if (existingPath.includes('/use-manual/enterprise-manager')) {
+          if (existingPath.includes('docs/use-manual/enterprise-manager')) {
             return [
-              existingPath.replace(
-                '/use-manual/enterprise-manager',
-                '/enterprise-manager'
-              )
+              existingPath.replace('docs/use-manual/enterprise-manager','docs/enterprise-manager')
             ];
           }
-          if (existingPath.includes('/use-manual/user-manual')) {
+          if (existingPath.includes('docs/use-manual/user-manual')) {
             return [
-              existingPath.replace('/use-manual/user-manual', '/user-manual')
+              existingPath.replace('docs/use-manual/user-manual', 'docs/user-manual')
             ];
           }
-          if (existingPath.includes('/quick-start/get-start')) {
+          if (existingPath.includes('docs/quick-start/get-start')) {
             return [
-              existingPath.replace('/quick-start/get-start', '/get-start')
+              existingPath.replace('docs/quick-start/get-start', 'docs/get-start')
             ];
           }
-          if (existingPath.includes('/quick-start/architecture')) {
+          if (existingPath.includes('docs/quick-start/architecture/')) {
             return [
-              existingPath.replace('/quick-start/architecture', '/architecture')
+              existingPath.replace('docs/quick-start/architecture/', 'docs/architecture/')
             ];
           }
-          if (existingPath.includes('/expand/practices')) {
-            return [existingPath.replace('/expand/practices', '/practices')];
-          }
-          if (existingPath.includes('/expand/opensource-app')) {
+          if (existingPath.includes('docs/expand/practices')) {
             return [
-              existingPath.replace('/expand/opensource-app', '/opensource-app')
+              existingPath.replace('docs/expand/practices', 'docs/practices')
+            ];
+          }
+          if (existingPath.includes('docs/expand/opensource-app')) {
+            return [
+              existingPath.replace('docs/expand/opensource-app', 'docs/opensource-app')
             ];
           }
           return undefined;
         },
-        redirects: [
-          {
-            // 社区分享活动记录
-            to: '/community/upcoming-events',
-            from: ['/upcoming-events']
-          },
-          {
-            // 技术架构
-            to: '/quick-start/architecture/',
-            from: ['/architecture/architecture']
-          },
-          {
-            // 快速安装
-            to: '/quick-start/quick-install',
-            from: ['/quick-start/rainbond_install']
-          },
-          {
-            // 简介
-            to: '/',
-            from: ['/quick-start/rainbond_overview']
-          }
-        ]
       }
     ],
     'docusaurus-plugin-sass'
