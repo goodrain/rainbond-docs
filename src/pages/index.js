@@ -631,7 +631,7 @@ export default function Home() {
             </div>
             <div className={styles.join_detali}>
               <h4 style={{ fontSize: '20px' }}>WeChat</h4>
-              <p>添加微信助手,加入微信支持群 (18800156151)</p>
+              <p>添加微信助手,加入微信技术交流群 (18800156151)</p>
             </div>
           </a>
           <a href='javascript:;'>
