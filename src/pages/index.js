@@ -193,7 +193,7 @@ export default function Home() {
           <div className={styles.nav_container}>
             <ul className={styles.nav_lists}>
               <li>
-                <a href='docs/quick-start/introduction'>
+                <a href='docs/'>
                   <Translate>Rainbond是什么?</Translate>
                 </a>
               </li>
