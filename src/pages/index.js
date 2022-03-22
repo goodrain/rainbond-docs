@@ -11,6 +11,7 @@ import './swiper-min.css';
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const [mask_config, setMask_config] = useState(false);
+  const [hover_img, setHover_Img] = useState(false);
   useEffect(() => {
     // loadSwiperExample(); // 轮播图实例
     setTimeout(() => {
@@ -257,7 +258,8 @@ export default function Home() {
               }}
               className='animate__animated animate__fadeInDown'
             >
-              Rainbond 核心100%开源,使用简单,不需要懂容器和Kubernetes,支持管理多种Kubernetes集群,提供企业级应用的全生命周期管理。
+              Rainbond
+              核心100%开源,使用简单,不需要懂容器和Kubernetes,支持管理多种Kubernetes集群,提供企业级应用的全生命周期管理。
             </div>
             <div>
               <a
@@ -512,6 +514,7 @@ export default function Home() {
             <a
               href='https://www.bilibili.com/video/BV1ou411B7ix'
               target='_blank'
+              style={{ padding: 0 }}
             >
               <img src='/img/video/quick.png' alt='' />
             </a>
@@ -594,95 +597,68 @@ export default function Home() {
           </div>
         </section> */}
       </div>
-      <footer className='footer footer--dark'>
-        <div className='container container--fluid'>
-          <div className='row footer__links'>
-            <div className='col footer__col'>
-              <h4 className='footer__title'>文档</h4>
-              <ul className='footer__items'>
-                <li className='footer__item'>
-                  <a
-                    className='footer__link-item'
-                    href='docs/quick-start/quick-install'
-                  >
-                    快速开始
-                  </a>
-                </li>
-                <li className='footer__item'>
-                  <a
-                    className='footer__link-item'
-                    href='docs/use-manual/component-create'
-                  >
-                    部署组件
-                  </a>
-                </li>
-                <li className='footer__item'>
-                  <a className='footer__link-item' href='docs/expand/practices'>
-                    最佳实践
-                  </a>
-                </li>
-              </ul>
+      {/* 底部 */}
+      <footer className={`${styles.footer_container} `}>
+        <h1>参与其中</h1>
+        <div className={`${styles.join_type} ${styles.width}`}>
+          <a href='https://t.goodrain.com' target='_blank'>
+            <div className={styles.join_logo}>
+              <img src='/img/discourse.png' alt='' />
             </div>
-            <div className='col footer__col'>
-              <h4 className='footer__title'>开源社区</h4>
-              <ul className='footer__items'>
-                <li className='footer__item'>
-                  <a className='footer__link-item' href='wechat'>
-                    微信
-                  </a>
-                </li>
-                <li className='footer__item'>
-                  <a className='footer__link-item' href='#'>
-                    钉钉(31096419)
-                  </a>
-                </li>
-                <li className='footer__item'>
-                  <a
-                    className='footer__link-item'
-                    href='https://t.goodrain.com'
-                    target='_blank'
-                  >
-                    用户论坛
-                  </a>
-                </li>
-                <li className='footer__item'>
-                  <a className='footer__link-item' href='docs/contributing'>
-                    参与贡献
-                  </a>
-                </li>
-              </ul>
+            <div className={styles.join_detali}>
+              <h4 style={{ fontSize: '20px' }}>社区</h4>
+              <p>参考社区,学习或贡献更多Rainbond用例用法</p>
             </div>
-            <div className='col footer__col'>
-              <h4 className='footer__title'>更多</h4>
-              <ul className='footer__items'>
-                <li className='footer__item'>
-                  <a className='footer__link-item' href='useScene'>
-                    使用场景
-                  </a>
-                </li>
-                <li className='footer__item'>
-                  <a className='footer__link-item' href='case'>
-                    用户案例
-                  </a>
-                </li>
-                <li className='footer__item'>
-                  <a
-                    className='footer__link-item'
-                    href='https://www.goodrain.com'
-                    target='_blank'
-                  >
-                    联系我们
-                  </a>
-                </li>
-              </ul>
+          </a>
+          <a
+            href='javascript:;'
+            onMouseMove={() => {
+              setHover_Img(true);
+            }}
+            onMouseLeave={() => {
+              setHover_Img(false);
+            }}
+          >
+            <div className={styles.join_logo}>
+              {hover_img && (
+                <img
+                  src='/img/wechart.jpeg'
+                  alt='WeChat 979885495'
+                  className={styles.hover_img}
+                />
+              )}
+              <img src='/img/we-chat.png' alt='' />
             </div>
-          </div>
-          <div className='text--center'>
-            Copyright © {new Date().getFullYear()} 北京好雨科技有限公司, Inc.
-            All Rights Reserved. 京ICP备15028663号-4
-          </div>
+            <div className={styles.join_detali}>
+              <h4 style={{ fontSize: '20px' }}>WeChat</h4>
+              <p>添加微信助手,加入微信支持群 (18800156151)</p>
+            </div>
+          </a>
+          <a href='javascript:;'>
+            <div className={styles.join_logo}>
+              <img src='/img/dingding.png' alt='' />
+            </div>
+            <div className={styles.join_detali}>
+              <h4 style={{ fontSize: '20px' }}>钉钉群</h4>
+              <p>搜索钉钉群号进群(31096419)</p>
+            </div>
+          </a>
+          <a href='docs/contributing'>
+            <div className={styles.join_logo}>
+              <img src='/img/GitHub.png' alt='' />
+            </div>
+            <div className={styles.join_detali}>
+              <h4 style={{ fontSize: '20px' }}>贡献</h4>
+              <p>欢迎参与贡献,你可以提出Issues和解决Issues开始</p>
+            </div>
+          </a>
         </div>
       </footer>
+      <div className={`${styles.copyright} footer footer--dark`}>
+        Copyright © 2022 北京好雨科技有限公司, Inc. All Rights Reserved.
+        京ICP备15028663号-4
+      </div>
+      {/* 遮罩层 */}
       {mask_config && (
         <div
           className={styles.mask_div}
