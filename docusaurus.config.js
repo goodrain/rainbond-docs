@@ -70,7 +70,7 @@ const config = {
           {
             position: 'left',
             label: '文档',
-            to: 'docs/quick-start/introduction'
+            to: 'docs/'
           },
           {
             to: 'useScene',
