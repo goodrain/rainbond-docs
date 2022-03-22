@@ -539,7 +539,7 @@ const sidebars = {
       label: '扩展',
       link: {
         type: 'doc',
-        id: 'user-operations/tools/index'
+        id: 'expand/index'
       },
       items: [
         {
