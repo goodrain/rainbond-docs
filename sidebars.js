@@ -589,7 +589,8 @@ const sidebars = {
             'expand/opensource-app/maxkey',
             'expand/opensource-app/TDengine',
             'expand/opensource-app/chatopera',
-            'expand/opensource-app/logikm'
+            'expand/opensource-app/logikm',
+            'expand/opensource-app/nacos'
           ]
         }
       ]
