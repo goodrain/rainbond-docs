@@ -3,6 +3,7 @@ import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import LayoutProviders from '@theme/LayoutProviders';
 import 'animate.css';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Swiper from '../script/swiper.js';
 import './caluso.css';
@@ -169,7 +170,7 @@ export default function Home() {
   };
   const handleJumpDemo = e => {
     e.preventDefault();
-    fetch('https://cloud.goodrain.com/enterprise-server/onlineTrial').finally(
+    axios('https://cloud.goodrain.com/enterprise-server/onlineTrial').finally(
       () => {
         window.open('http://demo.c9f961.grapps.cn/');
       }
