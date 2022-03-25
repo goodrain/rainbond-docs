@@ -69,7 +69,21 @@
     width: 20% !important;
   }
 }
-
+@media screen and (max-width: 1020px) {
+  .nav_lists > li {
+    padding: 12px !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .nav_container .nav_lists > li {
+    padding: 6px !important;
+  }
+}
+@media screen and (max-width: 760px) {
+  .nav_container {
+    display: none !important;
+  }
+}
 .buttons {
   display: flex;
   align-items: center;
