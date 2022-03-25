@@ -260,7 +260,7 @@ export default function Home() {
               className='animate__animated animate__fadeInDown'
             >
               Rainbond
-              核心100%开源,使用简单,不需要懂容器和Kubernetes,支持管理多种Kubernetes集群,提供企业级应用的全生命周期管理。
+              核心100%开源，使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
             </div>
             <div>
               <a
