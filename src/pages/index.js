@@ -673,7 +673,7 @@ export default function Home() {
                 e.stopPropagation();
               }}
               style={{ width: '100%' }}
-              src='https://grstatic.oss-cn-shanghai.aliyuncs.com/videos/demo-video-5.2.mp4'
+              src='https://static.goodrain.com/mp4/HomePageVideo/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%91.mp4'
               controls='controls'
             ></video>
           </div>
