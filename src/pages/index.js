@@ -183,7 +183,7 @@ export default function Home() {
         <meta property='og:title' content={siteConfig.title} />
         <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />}
       </Head>
-      <header className={`${styles.mdHeader} mdHeader`}>
+      <header style={{ borderBottom: '1px solid #ccc' }} className={`${styles.mdHeader} mdHeader`}>
         {/* 导航栏 */}
         <nav className={`${styles.nav_bar} ${styles.width}`}>
           {/* 左侧logo */}
@@ -281,6 +281,7 @@ export default function Home() {
           </div>
           <div
             className={`${styles.know_rainbond_video} animate__animated animate__slideInRight`}
+            style={{cursor:'pointer'}}
           >
             <div
               className='mask_video'

@@ -79,37 +79,37 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
 **2 配置安装模式**
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-1.png" title="安装模式" width="100%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-1.png" title="安装模式" width="100%" />
 
 **3 配置镜像仓库**
 
    选择 **新安装镜像仓库（支持HA）**，将会在安装过程中自动安装支持高可用的镜像仓库。
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-2.png" title="新安装镜像仓库" width="100%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-2.png" title="新安装镜像仓库" width="100%" />
 
    选择 **提供已有的镜像仓库**，则需要用户提供已存在的镜像仓库的 域名、空间名称、用户名以及密码。
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-3.png" title="已有镜像仓库" width="100%" /> 
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-3.png" title="已有镜像仓库" width="100%" /> 
 
 **4 配置数据中心数据库**
 
    高可用安装环境下，用户务必提供外接高可用的 Mysql 8.0 数据库，该数据库中需要提前创建 `region` 数据库：
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-4.png" title="数据中心数据库" width="100%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-4.png" title="数据中心数据库" width="100%" />
 
 
 **5 配置控制台数据库**
 
    高可用安装环境下，用户务必提供外接高可用的 Mysql 8.0 数据库，该数据库中需要提前创建 `console` 数据库：
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-5.png" title="控制台数据库" width="100%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-5.png" title="控制台数据库" width="100%" />
 
 
 **6 配置 ETCD**
 
    选择 **新安装ETCD（支持HA）**，将会在安装过程中自动安装支持高可用的 ETCD 集群：
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-6.png" title="新安装 ETCD " width="100%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-6.png" title="新安装 ETCD " width="100%" />
 
    选择 **提供已有的 ETCD**，则需要用户提供已存在的 ETCD 集群实例地址列表：
 
@@ -132,7 +132,7 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
    如果你的集群中没有 master 节点（比如使用了各类公有云服务商提供的托管集群），那么你可以 `搜索选择 2` 个 80、443、6060、7070、8443、10254、18080、18081 端口没有被占用的 node 节点，作为网关节点。
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-8.png" title="网关节点" width="100%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-8.png" title="网关节点" width="100%" />
     
    > 提示：如果你无法搜索并选择一个网关 IP，请参考[无法选择网关节点](../../user-operations/install/troubleshooting/#无法选择网关节点)。
 
@@ -142,7 +142,7 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
    如果你的集群中没有 master 节点（比如使用了各类公有云服务商提供的托管集群），那么你可以 `搜索选择 2` 个 node 节点（建议节点具备访问公网的能力），作为构建服务运行节点。
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-9.png" title="构建服务运行节点" width="100%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-9.png" title="构建服务运行节点" width="100%" />
 
 **9 配置分配默认域名**
 
@@ -150,7 +150,7 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
    当集群不具备访问公网的能力时，关闭该功能。
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-10.png" title="分配默认域名" width="100%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-10.png" title="分配默认域名" width="100%" />
 
 **10 配置网关公网IP**
 
@@ -167,11 +167,11 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
     
    使用集群中已有的 `StorageClass`，该存储必须支持多读多写(`RWX`)，如果用户已经安装 [Glusterfs分布式存储](../../user-operations/storage/deploy-glusterfs/)  或 已经 [对接外部NFS存储](../../user-operations/storage/deploy-nfs_client/) 则可以直接选择：
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-11.png" title="已有存储驱动选择" width="100%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-11.png" title="已有存储驱动选择" width="100%" />
     
    如果是阿里云环境，推荐使用 `阿里云 NAS`：
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-12.png" title="阿里云 NAS 存储" width="100%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-12.png" title="阿里云 NAS 存储" width="100%" />
 
 **12 配置块设备存储**
 
@@ -187,7 +187,7 @@ echo $(kubectl get po rainbond-operator-0 -n rbd-system -o jsonpath="{..hostIP}"
 
    Rainbond-Operator 将会自动检测安装环境，全部通过后，点击 **检测通过，开始安装**。
 
-   <image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-13.png" title="安装环境检测" width="100%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/install/install-from-k8s/high-availability/high-availability-13.png" title="安装环境检测" width="100%" />
 
    > 如果安装受阻，可以参考[故障排查](../../user-operations/install/troubleshooting/)，或联系相应管理人员。
 
