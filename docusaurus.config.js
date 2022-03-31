@@ -36,13 +36,13 @@ const config = {
           }
         },
         blog: {
-          routeBasePath: '/useScene',
+          routeBasePath: '/blog',
           path: 'blog',
-          blogTitle: '使用场景',
+          blogTitle: '博客',
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/blog',
           postsPerPage: 10,
           blogSidebarCount: 'ALL',
-          blogSidebarTitle: '使用场景',
+          blogSidebarTitle: '所有文章',
           sortPosts: 'descending'
         },
         theme: {
@@ -80,6 +80,11 @@ const config = {
           {
             to: 'case',
             label: '案例',
+            position: 'left'
+          },
+          {
+            to: 'blog',
+            label: '博客',
             position: 'left'
           },
           {
@@ -194,6 +199,20 @@ const config = {
         postsPerPage: 10,
         blogSidebarCount: 'ALL',
         blogSidebarTitle: '案例',
+        sortPosts: 'descending'
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'usescene',
+        routeBasePath: 'usescene',
+        path: './usescene',
+        blogTitle: '使用场景',
+        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/usescene',
+        postsPerPage: 10,
+        blogSidebarCount: 'ALL',
+        blogSidebarTitle: '使用场景',
         sortPosts: 'descending'
       }
     ],
