@@ -1,18 +1,17 @@
 import Head from '@docusaurus/Head';
-import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import LayoutProviders from '@theme/LayoutProviders';
 import 'animate.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import Swiper from '../script/swiper.js';
-import './caluso.css';
+import NavBar from '../components/NavBar';
 import styles from './index.module.scss';
-import './swiper-min.css';
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const [mask_config, setMask_config] = useState(false);
   const [hover_img, setHover_Img] = useState(false);
+  // 菜单开关
+  const [menu_Config, setMenu_Config] = useState(true);
   useEffect(() => {
     // loadSwiperExample(); // 轮播图实例
     setTimeout(() => {
@@ -20,7 +19,6 @@ export default function Home() {
       const img_animate_left = document.querySelector('.left_kid_img'); // 左边图片
       const docs_animate = document.querySelector('.docs_container'); // 文档
       const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
-      const partner_animate = document.querySelector('.partner'); // 合作伙伴
       // 移除类
       img_animate_right.classList.remove(
         'animate__animated',
@@ -38,8 +36,7 @@ export default function Home() {
         'animate__animated',
         'animate__fadeInRightBig'
       );
-      partner_animate.classList.remove('animate__animated', 'animate__flipInX');
-    }, 1000);
+    }, 1500);
   }, []);
   useEffect(() => {
     // 注册页面滚动事件
@@ -49,14 +46,12 @@ export default function Home() {
     };
   }, []);
   const handleScrollPage = () => {
-    const nav_scroll = document.querySelector('.mdHeader'); //导航栏
     const img_animate_right = document.querySelector('.right_kid_img'); // 右边图片
     const img_animate_left = document.querySelector('.left_kid_img'); // 左边图片
     const docs_animate = document.querySelector('.docs_container'); // 文档
     const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
     const partner_animate = document.querySelector('.partner'); // 合作伙伴
     let scrollTop = document.documentElement.scrollTop;
-
     // 右侧logo
     if (img_animate_right.offsetTop >= window.innerHeight) {
       const isScrollTop = img_animate_right.offsetTop - window.innerHeight;
@@ -94,19 +89,6 @@ export default function Home() {
           'animate__fadeInRightBig'
         );
       }
-    }
-    // 合作伙伴
-    if (partner_animate.offsetTop >= window.innerHeight) {
-      const isScrollTop = partner_animate.offsetTop - window.innerHeight;
-      if (scrollTop >= isScrollTop) {
-        partner_animate.classList.add('animate__animated', 'animate__flipInX');
-      }
-    }
-    // 头部tab
-    if (scrollTop > 0) {
-      nav_scroll.classList.add('nav_scroll_bar');
-    } else {
-      nav_scroll.classList.remove('nav_scroll_bar');
     }
   };
   // 加载轮播图实例
@@ -169,12 +151,7 @@ export default function Home() {
     });
   };
   const handleJumpDemo = e => {
-    e.preventDefault();
-    axios('https://cloud.goodrain.com/enterprise-server/onlineTrial').finally(
-      () => {
-        window.open('http://demo.c9f961.grapps.cn/');
-      }
-    );
+    axios('https://cloud.goodrain.com/enterprise-server/onlineTrial');
   };
   return (
     <LayoutProviders>
@@ -183,63 +160,9 @@ export default function Home() {
         <meta property='og:title' content={siteConfig.title} />
         <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />}
       </Head>
-      <header style={{ borderBottom: '1px solid #ccc' }} className={`${styles.mdHeader} mdHeader`}>
-        {/* 导航栏 */}
-        <nav className={`${styles.nav_bar} ${styles.width}`}>
-          {/* 左侧logo */}
-          <div className={styles.left_logo}>
-            <img src='/img/rainbondlog.png'></img>
-          </div>
-          {/* 右侧列表 */}
-          <div className={styles.nav_container}>
-            <ul className={styles.nav_lists}>
-              <li>
-                <a href='docs/'>
-                  <Translate>Rainbond是什么?</Translate>
-                </a>
-              </li>
-              <li>
-                <a href='docs/quick-start/get-start/'>
-                  <Translate>文档</Translate>
-                </a>
-              </li>
-              <li>
-                <a href='docs/quick-start/quick-install'>
-                  <Translate>快速开始</Translate>
-                </a>
-              </li>
-              <li>
-                <a href='useScene'>
-                  <Translate>使用场景</Translate>
-                </a>
-              </li>
-              <li>
-                <a href='case'>
-                  <Translate>案例</Translate>
-                </a>
-              </li>
-              {/* <li>
-                <a href='https://store.goodrain.com' target='_blank'>
-                  <Translate>应用商店</Translate>
-                </a>
-              </li> */}
-              <li>
-                <a href='https://www.goodrain.com' target='_blank'>
-                  <Translate>企业服务</Translate>
-                </a>
-              </li>
-
-              <li>
-                <a
-                  className={styles.githubLogo}
-                  href='https://github.com/goodrain/rainbond'
-                  target='_blank'
-                ></a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+      {/* 导航栏 */}
+      <NavBar />
+      {/* 主体区域 */}
       <div>
         {/* 第一屏 */}
         <section id={styles.section_first} className={styles.width}>
@@ -273,6 +196,7 @@ export default function Home() {
               <a
                 className={`${styles.btns} animate__animated animate__fadeInDown`}
                 href='http://demo.c9f961.grapps.cn/'
+                target='_blank'
                 onClick={handleJumpDemo}
               >
                 在线体验
@@ -281,7 +205,7 @@ export default function Home() {
           </div>
           <div
             className={`${styles.know_rainbond_video} animate__animated animate__slideInRight`}
-            style={{cursor:'pointer'}}
+            style={{ cursor: 'pointer' }}
           >
             <div
               className='mask_video'
@@ -520,84 +444,8 @@ export default function Home() {
             >
               <img src='/img/video/quick.png' alt='' />
             </a>
-
-            {/* <div id='carousel'>
-              <div className='swiper swiper-3d'>
-                <div className='swiper-wrapper'>
-                  <div className='swiper-slide'>
-                    <img src='/img/video/install.png' />
-                    <p> Rainbond 安装系列教程</p>
-                  </div>
-                  <div className='swiper-slide'>
-                    <img src='/img/video/quick.png' />
-                    <p>Rainbond 入门系列教程</p>
-                  </div>
-                </div>
-              </div>
-              <div className='swiper-pagination'></div>
-              <div className='swiper-button-prev'></div>
-              <div className='swiper-button-next'></div>
-            </div> */}
           </div>
         </section>
-        {/* 第五屏 */}
-        {/* <section id={styles.section_second} className={styles.width}>
-          <h1 className={styles.dosc_logo}>
-            <img src='/img/smallimages/RainbondPartner.png' alt='' />
-          </h1>
-          <h1
-            style={{
-              textAlign: 'center',
-              marginBottom: '24px'
-            }}
-          >
-            合作伙伴
-          </h1>
-          <div
-            className={`${styles.community_case} partner animate__animated animate__flipInX`}
-          >
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/boe.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/mky.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/bkrj.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/gfkj.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/lvzhiyun.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/xinanmingzu.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/yumchina.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#'>
-                <img src='/img/users/lyyl.png' alt='' />
-              </a>
-            </div>
-          </div>
-        </section> */}
       </div>
       {/* 底部 */}
       <footer className={`${styles.footer_container} `}>
@@ -613,7 +461,7 @@ export default function Home() {
             </div>
           </a>
           <a
-            href='javascript:;'
+            href='#'
             onMouseMove={() => {
               setHover_Img(true);
             }}
@@ -636,7 +484,7 @@ export default function Home() {
               <p>添加微信助手,加入微信技术交流群 (18800156151)</p>
             </div>
           </a>
-          <a href='javascript:;'>
+          <a href='#'>
             <div className={styles.join_logo}>
               <img src='/img/dingding.png' alt='' />
             </div>

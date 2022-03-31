@@ -79,9 +79,32 @@
     padding: 6px !important;
   }
 }
+// 切换导航栏
 @media screen and (max-width: 760px) {
   .nav_container {
     display: none !important;
+  }
+  // 展示Nav导航栏
+  .isMobieNav {
+    display: block !important;
+    margin-right: 12px;
+  }
+  // 移动端导航栏
+  .isMobieNavBar {
+    background-color: #ffffff !important;
+    position: fixed;
+    width: 100%;
+    top: 84px;
+    left: 0px;
+    z-index: 9999;
+  }
+  .mobile_nav_lists {
+    list-style: none;
+    padding: 24px;
+  }
+  .mobile_nav_lists > li {
+    margin-bottom: 12px;
+    font-size: 16px;
   }
 }
 .buttons {
