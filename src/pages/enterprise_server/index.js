@@ -43,7 +43,10 @@ export default function Index() {
               </div>
               {/* 按钮 */}
               <div>
-                <a className={`${styles.btns} ${styles.free}`} href='/'>
+                <a
+                  className={`${styles.btns} ${styles.free}`}
+                  href='/docs/quick-start/quick-install/'
+                >
                   免费下载
                 </a>
               </div>
@@ -61,9 +64,7 @@ export default function Index() {
               </div>
               <div className={styles.type_sort_details}>
                 <div className={styles.type_sort_enterprise}>
-                  <a href='http://www.rainbond.com' target='_blank'>
-                    了解解决方案
-                  </a>
+                  <a href='/useScene'>了解解决方案</a>
                 </div>
                 <ul
                   className={styles.enterprise}
@@ -159,7 +160,7 @@ export default function Index() {
               </div>
               {/* 详细功能差异 */}
               <div className={styles.contrast_desc_detail}>
-                <div>
+                <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
                   <span>基础功能</span>
                   <span>
                     <img src='/img/right.svg' alt='' />
