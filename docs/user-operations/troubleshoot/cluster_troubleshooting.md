@@ -1,12 +1,62 @@
 ---
-title: 集群问题诊断
+title: Rainbond集群问题诊断
 description: 主要介绍 Rainbond 集群出现的问题及其排查思路
 weight: 2000
 ---
 
-本文主要介绍 Rainbond 集群出现的问题及其排查思路，在排查集群问题时，首先需要确定问题的根源是 Rainbond 集群本身出现问题，而不是应用程序本身的问题。
+本文适用于排查 Rainbond 集群问题，这是一些 Rainbond 集群运行出现的问题，而非用户自己部署业务的问题。根据场景不同，我们将 Rainbond 集群的问题分为两类：
 
-### 节点问题排查
+- [控制台问题](#控制台问题)。即使用 Rainbond 时，自右上角弹出一些警告，或者一些超出预期的展示。这类问题的解决方法我们将使用穷举法加以列举。
+
+- [集群端问题](#集群端问题排查)。Rainbond 以 Pod 的形式部署运行在用户的 Kubernetes 集群中，这些位于 `rbd-system` 命名空间中的 Pod 如果出现问题，我们会给出具体解决问题的思路与途径。集群端问题的本质是 Pod 运行于 Kubernetes 集群中可能发生的问题。
+
+
+### 控制台问题
+
+:::info
+在控制台页面中进行操作时，右上角弹出警告提示框，或者其他未预期的展示的情况下，参考以下内容排查问题。
+:::
+
+#### 排查思路
+
+控制台页面由 `rbd-app-ui` 服务提供，当出现问题时，优先检查其日志，根据日志排查问题。
+
+控制台日志地址：
+
+- 对于 allinone 类型的控制台而言：进入 rainbond-allinone 容器，控制台日志位于 `/app/logs/goodrain.log` 
+
+- 基于 Helm 安装部署的情况下，进入 `rbd-system` 命名空间下的 `rbd-app-ui` pod 中，控制台日志位于 `/app/logs/goodrain.log` 
+
+- 对于将[控制台迁移](/docs/user-operations/deploy/install-with-ui/console-recover)至集群中的情况，进入 console 组件的 Web终端，控制台日志位于 `/app/logs/goodrain.log` 
+
+#### 常见问题
+
+:::warning
+右上角警告中出现如下字样时：
+- 集群端异常
+- 服务开小差了
+:::
+
+这一类问题说明控制台自身出了问题，根据 [排查思路](#排查思路) 查询并分析 `goodrain.log` 日志文件进而解决问题。
+
+:::warning
+右上角警告中出现如下字样时：
+- 数据中心操作故障，请稍后重试
+:::
+
+这一类问题意味着控制台与集群端之间借口交互有问题，打开浏览器调试页面，重新触发问题，并查看问题接口的返回。获取详细信息后提交 issue 与官方交互获取解决方案。
+### 集群端问题排查
+
+:::info
+当明确发现运行于 Kubernetes 集群中的 Rainbond Pod 处于异常状态时，参考以下内容排查问题。
+::: 
+#### 排查思路
+
+Rainbond 集群应该运行于一个健康的 Kubernetes 集群中，故而首先应该确认 Kubernetes 集群中的所有节点都处于健康状态。如确认无误，则进一步查看 `rbd-system` 命名空间下的 Pod 状态，后续根据状态解决问题。
+
+#### 操作步骤
+
+在进行组件故障排查之前，请首先确认你的集群是 Rainbond 组件出现了问题，而不是 Kubernetes 本身出现了问题。
 
 - 集群有故障时，首先要做的是查看集群中的节点是否处于ready状态：
 
@@ -22,9 +72,7 @@ NAME            STATUS   ROLES    AGE    VERSION
 kubectl describe node <node name>
 ```
 
-### 组件故障排查
-
-在进行组件故障排查之前，请首先确认你的集群是 Rainbond 组件出现了问题，而不是 Kubernetes 本身出现了问题。
+在确认 Kubernetes 集群状态健康之后，可以开始排查 Rainbond 集群各 Pod 的状态。
 
 - 查看 Rainbond 所有组件状态，Rainbond的所有组件都位于 `rbd-system` 名称空间下
 
@@ -64,7 +112,7 @@ kubectl logs -f  <pod name>  -n rbd-system
 
 关于 Rainbond 组件详情请阅读 [平台组件架构](../op-guide/component-description)
 
-### 常见 Pod 异常状态
+#### 常见 Pod 异常状态
 
 - Pending
 
@@ -119,6 +167,11 @@ kubectl logs --previous <pod name> -n  rbd-system
 ```bash
 kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
 ```
+
+#### 常见集群端问题
+
+
+
 
 ### 我的问题没有被涵盖
 

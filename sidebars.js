@@ -201,7 +201,8 @@ const sidebars = {
             'user-operations/tools/kubectl',
             'user-operations/tools/grctl'
           ]
-        }
+        },
+        'user-operations/troubleshoot/cluster_troubleshooting'
       ]
     },
     {
