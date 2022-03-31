@@ -41,6 +41,12 @@ export default function Index() {
                   <li>社区支持 & 开发者支持</li>
                 </ul>
               </div>
+              {/* 按钮 */}
+              <div>
+                <a className={`${styles.btns} ${styles.free}`} href='/'>
+                  免费下载
+                </a>
+              </div>
             </div>
             {/* 企业版 */}
             <div>
@@ -68,14 +74,76 @@ export default function Index() {
                   }}
                 >
                   <li>
-                    Rainbond企业版是一个运营商级别版本，它具备超高的可靠性。
+                    Rainbond企业版是一个运营商级别版本，它具备超高的可靠性
                   </li>
                   <li>提供商业版产品技术服务</li>
                   <li>产品故障支持最高响应级别 7*24</li>
                   <li>
-                    专业技术支持团队（规划/实施/故障协查/bug修复/运维/软件升级/重要时期保障
+                    专业技术支持团队
+                    <span style={{ color: '#cccccc' }}>
+                      （规划/实施/故障协查/bug修复/运维/软件升级/重要时期保障)
+                    </span>
                   </li>
                 </ul>
+              </div>
+              {/* 按钮 */}
+              <div>
+                <a
+                  className={`${styles.btns} ${styles.enterprise}`}
+                  href='http://goodrain.com/poc/'
+                  target='_blank'
+                >
+                  商业咨询
+                </a>
+              </div>
+            </div>
+            {/* Rainbond  Cloud */}
+            <div>
+              <div
+                className={styles.type_sort_title}
+                style={{
+                  borderBottom: '1px solid #cccccc',
+                  marginBottom: '12px'
+                }}
+              >
+                <h1>Rainbond Cloud</h1>
+              </div>
+              <div className={styles.type_sort_details}>
+                <div
+                  className={styles.type_sort_enterprise}
+                  style={{ visibility: 'hidden' }}
+                >
+                  <a
+                    href='http://www.rainbond.com'
+                    target='_blank'
+                    style={{ color: '#f1aa4c' }}
+                  >
+                    了解解决方案
+                  </a>
+                </div>
+                <ul
+                  className={styles.cloud}
+                  style={{
+                    listStyle: 'none',
+                    paddingLeft: 0,
+                    margin: '40px 0px'
+                  }}
+                >
+                  <li>提供持续可用的在线服务</li>
+                  <li>由专业工程师统一运维</li>
+                  <li>每个客户数据独立存储</li>
+                  <li>保证SLA</li>
+                </ul>
+              </div>
+              {/* 按钮 */}
+              <div>
+                <a
+                  className={`${styles.btns} ${styles.cloud}`}
+                  href='http://goodrain.com/poc/'
+                  target='_blank'
+                >
+                  商业咨询
+                </a>
               </div>
             </div>
           </div>
@@ -149,6 +217,10 @@ export default function Index() {
             </div>
           </div>
         </section>
+        <div className={`${styles.copyright} footer footer--dark`}>
+          Copyright © 2022 北京好雨科技有限公司, Inc. All Rights Reserved.
+          京ICP备15028663号-4
+        </div>
       </div>
     </>
   );

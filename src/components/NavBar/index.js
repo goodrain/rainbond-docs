@@ -40,6 +40,11 @@ export default function Index(props) {
                 </a>
               </li>
               <li>
+                <a href='./enterprise_server'>
+                  <Translate>产品</Translate>
+                </a>
+              </li>
+              <li>
                 <a href='docs/quick-start/get-start/'>
                   <Translate>文档</Translate>
                 </a>
@@ -57,11 +62,6 @@ export default function Index(props) {
               <li>
                 <a href='case'>
                   <Translate>案例</Translate>
-                </a>
-              </li>
-              <li>
-                <a href='./enterprise_server'>
-                  <Translate>企业服务</Translate>
                 </a>
               </li>
 
@@ -97,6 +97,11 @@ export default function Index(props) {
               </a>
             </li>
             <li>
+              <a href='./enterprise_server'>
+                <Translate>产品</Translate>
+              </a>
+            </li>
+            <li>
               <a href='docs/quick-start/get-start/'>
                 <Translate>文档</Translate>
               </a>
@@ -114,11 +119,6 @@ export default function Index(props) {
             <li>
               <a href='case'>
                 <Translate>案例</Translate>
-              </a>
-            </li>
-            <li>
-              <a href='./enterprise_server'>
-                <Translate>企业服务</Translate>
               </a>
             </li>
             <li>

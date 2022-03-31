@@ -13,7 +13,7 @@
 }
 @media screen and (max-width: 600px) {
   .type_sort {
-    grid-template-columns: 1fr !important;
+    // grid-template-columns: 1fr !important;
   }
 }
 .width {
@@ -21,7 +21,7 @@
   margin: 0 auto;
 }
 #box_container {
-  padding: 24px;
+  background-color: #f4f4f4;
   .outside_container {
     padding-top: 100px;
     // 标题
@@ -32,13 +32,11 @@
     .type_sort {
       display: grid;
       gap: 48px;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       margin-bottom: 36px;
       & > div:nth-child(1) {
-        background-color: #f4f4f4;
       }
       & > div:nth-child(2) {
-        background-color: #e0dcdc;
       }
       & > div:hover {
         box-shadow: 0 5px 40px rgb(0 0 0 / 20%);
@@ -47,8 +45,9 @@
       & > div {
         background-color: #fff;
         border-radius: 10px;
-        padding: 24px;
+        position: relative;
         .type_sort_title {
+          padding-left: 48px;
           h1 {
             color: rgb(68, 67, 67);
             height: 120px;
@@ -56,6 +55,7 @@
           }
         }
         .type_sort_details {
+          padding: 12px 48px 84px;
           ul li {
             padding-left: 18px;
             position: relative;
@@ -76,6 +76,9 @@
           ul.enterprise li::before {
             background: #3d3fea !important;
           }
+          ul.cloud li::before {
+            background: #f1aa4c !important;
+          }
           .type_sort_free {
             color: #69c384;
           }
@@ -85,6 +88,35 @@
           .type_sort_enterprise a:hover {
             text-decoration: none;
           }
+        }
+        // 按钮
+        .btns {
+          width: 120px;
+          text-align: center;
+          display: inline-block;
+          position: absolute;
+          bottom: 24px;
+          left: 48px;
+          color: white;
+          padding: 12px 20px;
+          margin-left: -2px;
+          font-weight: 600;
+          box-shadow: rgb(0 105 165 / 35%) 0px 0px 32px;
+          border-radius: 50px;
+          font-family: 'Yuanti SC', Youyuan, 'You Yuan', 幼圆, 'PingFang SC',
+            'Microsoft Yahei', Helvetica, sans-serif;
+        }
+        .btns.free {
+          background: linear-gradient(300deg, #2c8857 22.25%, #3fc67d 78.93%);
+        }
+        .btns.enterprise {
+          background: linear-gradient(300deg, #36416f 26.66%, #54629b 72.75%);
+        }
+        .btns.cloud {
+          background: linear-gradient(300deg, #d65252 26.66%, #fab75f 72.75%);
+        }
+        .btns:hover {
+          text-decoration: none;
         }
       }
     }
@@ -129,4 +161,8 @@
       }
     }
   }
+}
+.copyright {
+  text-align: center;
+  margin-top: 24px;
 }
