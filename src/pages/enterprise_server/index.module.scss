@@ -151,11 +151,22 @@
         // 详情差异
         .contrast_desc_detail {
           & > div {
-            display: grid;
-            margin: 12px 0px;
+            margin-top: 32px;
+          }
+          & > div > div:nth-child(1) {
+            color: rgba(44, 44, 44, 0.6);
             padding: 12px 0px;
+            margin: 12px 0px;
+            border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.08);
+          }
+          & > div > div:not(:first-child) {
+            display: grid;
+            padding: 16px 0px;
             grid-template-columns: 2fr 1fr 1fr;
             border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.08);
+          }
+          & > div > div:not(:first-child) > span:not(:first-child) {
+            padding-left: 24px;
           }
         }
       }

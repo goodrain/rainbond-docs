@@ -91,7 +91,7 @@ export default function Index() {
               <div>
                 <a
                   className={`${styles.btns} ${styles.enterprise}`}
-                  href='http://goodrain.com/poc/'
+                  href='https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg'
                   target='_blank'
                 >
                   商业咨询
@@ -140,7 +140,7 @@ export default function Index() {
               <div>
                 <a
                   className={`${styles.btns} ${styles.cloud}`}
-                  href='http://goodrain.com/poc/'
+                  href='https://p5yh4rek1e.feishu.cn/share/base/shrcn8A0z7IW2eXPywgtMifxgRc'
                   target='_blank'
                 >
                   商业咨询
@@ -160,59 +160,344 @@ export default function Index() {
               </div>
               {/* 详细功能差异 */}
               <div className={styles.contrast_desc_detail}>
-                <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
-                  <span>基础功能</span>
-                  <span>
-                    <img src='/img/right.svg' alt='' />
-                  </span>
-                  <span>
-                    <img src='/img/right.svg' alt='' />
-                  </span>
-                </div>
+                {/* 目录一*/}
                 <div>
-                  <span>应用商店</span>
-                  <span>
-                    <img src='/img/error.svg' alt='' />
-                  </span>
-                  <span>
-                    <img src='/img/right.svg' alt='' />
-                  </span>
+                  <div>
+                    <span>应用构建</span>
+                  </div>
+                  <div>
+                    <span>常见开发语言自动识别/自动构建</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>Dockerfile构建和镜像构建</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>集成对接Gitlab/Github/Gitee/SVN</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>持续构建及版本回滚</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>一体化开发测试环境</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
                 </div>
+                {/* 目录二 */}
                 <div>
-                  <span>应用门户</span>
-                  <span>
-                    <img src='/img/error.svg' alt='' />
-                  </span>
-                  <span>
-                    <img src='/img/right.svg' alt='' />
-                  </span>
+                  <div>
+                    <span>微服务架构</span>
+                  </div>
+                  <div>
+                    <span>多种Service Mesh框架按需切换</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>支持Spring Cloud和Dubbo等常见微服务架构</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>通过“拖拉拽”的方式进行服务编排</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>多级探索式服务拓扑</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>集成skywalking/pinpoint</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
                 </div>
+                {/* 目录三 */}
                 <div>
-                  <span>操作审计</span>
-                  <span>
-                    <img src='/img/error.svg' alt='' />
-                  </span>
-                  <span>
-                    <img src='/img/right.svg' alt='' />
-                  </span>
+                  <div>
+                    <span>应用市场</span>
+                  </div>
+                  <div>
+                    <span>可以运行就可以一键发布到应用市场</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>通过应用市场实现软件资产管理</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>离线导入和导出</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>复杂应用一键安装和一键升级</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>对接多个外部Helm市场</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
                 </div>
+                {/* 目录四*/}
                 <div>
-                  <span>高级监控</span>
-                  <span>
-                    <img src='/img/error.svg' alt='' />
-                  </span>
-                  <span>
-                    <img src='/img/right.svg' alt='' />
-                  </span>
+                  <div>
+                    <span>应用运维和管理</span>
+                  </div>
+                  <div>
+                    <span>应用和组件两种粒度的管理模式</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>手动伸缩和自动伸缩</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>实时日志展示和对接外部日志系统</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>应用级监控和性能分析</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>通过插件扩展多种运维和管理能力</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>web终端管理</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
                 </div>
+                {/* 目录五 */}
                 <div>
-                  <span>开源中间件（集群版）10款</span>
-                  <span>
-                    <img src='/img/error.svg' alt='' />
-                  </span>
-                  <span>
-                    <img src='/img/right.svg' alt='' />
-                  </span>
+                  <div>
+                    <span>应用网关</span>
+                  </div>
+                  <div>
+                    <span>端口管理和多种负载均衡策略</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>统一的域名管理和HTTPS证书管理</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>灰度发布和A/B测试</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                </div>
+                {/* 目录六 */}
+                <div>
+                  <div>
+                    <span>集群管理</span>
+                  </div>
+                  <div>
+                    <span>对接管理虚拟机/服务器/K8s/公有云</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>应用无差别的在多云上运行</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>应用跨云备份和迁移</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>多团队和多租户管理</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                </div>
+                {/* 目录七 */}
+                <div>
+                  <div>
+                    <span>企业级功能扩展</span>
+                  </div>
+                  <div>
+                    <span>行业级应用商店</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>应用集成和展示门户</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>操作审计</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>高级监控</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>开源中间件（集群版）10款</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
