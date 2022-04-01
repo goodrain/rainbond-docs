@@ -143,7 +143,7 @@ export default function Index() {
                   href='http://goodrain.com/poc/'
                   target='_blank'
                 >
-                  商业咨询
+                  申请试用
                 </a>
               </div>
             </div>
