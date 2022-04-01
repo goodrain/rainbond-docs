@@ -143,7 +143,7 @@ export default function Index() {
                   href='https://p5yh4rek1e.feishu.cn/share/base/shrcn8A0z7IW2eXPywgtMifxgRc'
                   target='_blank'
                 >
-                  商业咨询
+                  申请试用
                 </a>
               </div>
             </div>
