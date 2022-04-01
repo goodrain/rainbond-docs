@@ -35,36 +35,40 @@ export default function Index(props) {
           <div className={styles.nav_container}>
             <ul className={styles.nav_lists}>
               <li>
-                <a href='docs/'>
+                <a href='/docs/'>
                   <Translate>Rainbond是什么?</Translate>
                 </a>
               </li>
               <li>
-                <a href='./enterprise_server'>
+                <a href='/enterprise_server'>
                   <Translate>产品</Translate>
                 </a>
               </li>
               <li>
-                <a href='docs/quick-start/get-start/'>
+                <a href='/docs/quick-start/get-start/'>
                   <Translate>文档</Translate>
                 </a>
               </li>
               <li>
-                <a href='docs/quick-start/quick-install'>
+                <a href='/docs/quick-start/quick-install'>
                   <Translate>快速开始</Translate>
                 </a>
               </li>
               <li>
-                <a href='useScene'>
+                <a href='/useScene'>
                   <Translate>使用场景</Translate>
                 </a>
               </li>
               <li>
-                <a href='case'>
+                <a href='/case'>
                   <Translate>案例</Translate>
                 </a>
               </li>
-
+              <li>
+                <a href='/blog'>
+                  <Translate>博客</Translate>
+                </a>
+              </li>
               <li>
                 <a
                   className={styles.githubLogo}
@@ -92,33 +96,38 @@ export default function Index(props) {
         <div className={styles.isMobieNavBar}>
           <ul className={styles.mobile_nav_lists}>
             <li>
-              <a href='docs/'>
+              <a href='/docs/'>
                 <Translate>Rainbond是什么?</Translate>
               </a>
             </li>
             <li>
-              <a href='./enterprise_server'>
+              <a href='/enterprise_server'>
                 <Translate>产品</Translate>
               </a>
             </li>
             <li>
-              <a href='docs/quick-start/get-start/'>
+              <a href='/docs/quick-start/get-start/'>
                 <Translate>文档</Translate>
               </a>
             </li>
             <li>
-              <a href='docs/quick-start/quick-install'>
+              <a href='/docs/quick-start/quick-install'>
                 <Translate>快速开始</Translate>
               </a>
             </li>
             <li>
-              <a href='useScene'>
+              <a href='/useScene'>
                 <Translate>使用场景</Translate>
               </a>
             </li>
             <li>
-              <a href='case'>
+              <a href='/case'>
                 <Translate>案例</Translate>
+              </a>
+            </li>
+            <li>
+              <a href='/blog'>
+                <Translate>博客</Translate>
               </a>
             </li>
             <li>

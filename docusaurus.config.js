@@ -93,13 +93,8 @@ const config = {
           },
           {
             position: 'right',
-            label: '应用商店',
-            href: 'https://store.goodrain.com/'
-          },
-          {
-            position: 'right',
-            label: '企业服务',
-            href: 'https://www.goodrain.com/'
+            label: '产品',
+            href: '/enterprise_server'
           },
           {
             href: 'https://github.com/goodrain/rainbond',
