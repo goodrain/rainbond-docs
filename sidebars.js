@@ -532,7 +532,8 @@ const sidebars = {
               ]
             }
           ]
-        }
+        },
+        'use-manual/usage_troubleshooting'
       ]
     },
     {

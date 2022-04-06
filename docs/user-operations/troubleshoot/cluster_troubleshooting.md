@@ -168,6 +168,10 @@ kubectl logs --previous <pod name> -n  rbd-system
 kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
 ```
 
+- FailedMount
+
+挂载卷失败，需要关注所有的宿主机节点是否安装了指定的文件系统客户端。例如在默认情况下，Rainbond 会自行安装 nfs 作为集群共享存储，可能会在 Events 中见到如下报错：`Unable to attach or mount volumes: unmount volmes=[grdata access region-api-ssl rainbond-operator-token-xxxx]: timed out waiting for the condition`。这通常是因为宿主机没有安装 `nfs-client` 或 `nfs-common` 等 nfs 客户端软件包。
+
 #### 常见集群端问题
 
 
