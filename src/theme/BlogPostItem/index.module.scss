@@ -1,12 +1,12 @@
 .container_box {
   background-color: #f4f4f4;
   border-radius: 10px;
-  box-sizing: border-box;
-  border: 2px solid #f4f4f4;
+  // box-sizing: border-box;
+  border: 1px solid #f4f4f4;
   box-shadow: 0 5px 40px rgb(0 0 0 / 20%);
 }
 .container_box:hover {
-  border: 2px solid #8ed3e5;
+  border: 1px solid #8ed3e5;
   text-decoration: none;
   transition: all, 0.5s;
 }
@@ -25,10 +25,14 @@
   padding: 12px;
   color: rgb(72, 69, 69);
 }
+
 .logo img {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   height: 140px;
   object-fit: cover;
   width: 100%;
+  border-style: none;
+  box-sizing: content-box;
+  max-width: 100%;
 }
