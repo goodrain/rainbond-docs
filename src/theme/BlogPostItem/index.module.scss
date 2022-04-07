@@ -1,0 +1,34 @@
+.container_box {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  box-shadow: 0 5px 40px rgb(0 0 0 / 20%);
+}
+.container_box:hover {
+  border: 2px solid #8ed3e5;
+  text-decoration: none;
+  transition: all, 0.5s;
+}
+// 标题
+.title {
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+  p {
+    font-family: initial;
+    font-size: 24px;
+    color: rgb(85, 81, 81);
+  }
+}
+// 描述
+.desc {
+  padding: 12px;
+  color: rgb(72, 69, 69);
+}
+.logo img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 140px;
+  object-fit: cover;
+  width: 100%;
+}
