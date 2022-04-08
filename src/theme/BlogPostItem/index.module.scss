@@ -38,3 +38,11 @@
   box-sizing: content-box;
   max-width: 100%;
 }
+// 皮肤主体适配
+[data-theme='dark'] .container_box {
+  background-color: #3d3737 !important;
+  p,
+  .desc {
+    color: #fff !important;
+  }
+}
