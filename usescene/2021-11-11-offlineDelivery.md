@@ -1,6 +1,6 @@
 ---
 title: 离线环境软件交付
-description: 离线环境软件交付
+description: 「使用 Rainbond 实现离线环境软件交付」来了，安排 👇。
 slug: offlineDelivery
 images: /img/useScene/离线交付.jpeg
 # authors: QiZhang

@@ -1,6 +1,6 @@
 ---
 title: 业务积木式拼装
-description: 业务积木式拼装
+description: 近几年大家觉得微服务架构是模块化的银弹，都朝微服务架构改造，但实际效果不仅没有很好模块化，反而陷入应用部署和运维的泥潭里。本文将讲讲 Rainbond 解决应用架构解耦和模块化的一些新思路。
 slug: componentReuse
 images: /img/useScene/积木拼装.jpeg
 # authors: QiZhang

@@ -1,6 +1,6 @@
 ---
 title: 咸阳市大数据管理局使用Rainbond作为智慧城市底座的实践
-description: 咸阳市大数据管理局使用Rainbond作为智慧城市底座的实践
+description: 咸阳市大数据管理局负责全市信息共享工作的组织领导，协调解决与政府信息共享有关的重大问题，研究拟订并组织实施全市大数据战略、规划和政策措施，引导和推动大数据研究和应用工作，建立全市统一的数据服务中心和信息共享机制。
 slug: xybigdata
 images: /img/case/咸阳大数据.jpeg
 # authors: QiZhang
