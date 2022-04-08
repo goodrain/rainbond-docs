@@ -24,7 +24,7 @@ kubectl logs -f -l name=rbd-chaos -n rbd-system
 
 接下来以常见问题列表的形式列举从镜像构建服务组件时可能出现的问题。
 
-####  组件构建源检测未通过
+#### 组件构建源检测未通过
 
 :::warning
 在输入镜像地址后，点击构建却跳转页面提示 `组件构建源检测未通过` 。
@@ -50,9 +50,9 @@ kubectl logs -f -l name=rbd-chaos -n rbd-system
 
 这一部分会按照不同的语言类型进行分类，列举常见源码构建问题。
 
-#### Node.js前端项目构建常见问题
+#### Node.js 前端项目构建常见问题
 
-有很多的用户在 Rainbond 上构建部署 [NodeJS前端项目](/docs/use-manual/component-create/language-support/nodejs-static)，例如 Vue、React 等。根据经验，此处遭遇的问题也是最多的。
+有很多的用户在 Rainbond 上构建部署 [NodeJS 前端项目](/docs/use-manual/component-create/language-support/nodejs-static)，例如 Vue、React 等。根据经验，此处遭遇的问题也是最多的。
 
 构建 NodeJS 前端项目的错误信息可能来自于页面中提示，或在构建失败记录右侧的日志中提示出来。
 
@@ -68,7 +68,7 @@ Node.js 语言不仅可以用于构建 Vue 等前端项目，也可以构建服�
 
 :::warning
 页面中提示：
-代码目录未发现yarn.lock或package-lock.json文件，必须生成并提交yarn.lock或package-lock.json文件
+代码目录未发现 yarn.lock 或 package-lock.json 文件，必须生成并提交 yarn.lock 或 package-lock.json 文件
 :::
 
 Rainbond 通过识别源码目录中的 `yarn.lock` 或 `package-lock.json` 文件来抉择使用何种构建工具来构建静态文件。所以上述文件必须存在一个（且只能存在一个）。
@@ -96,7 +96,6 @@ SyntaxError: Invalid or unexpected token
 
 该信息提示当前 `package.json` 中 `engines` 段落中规定的 npm 版本与构建源中选择的 node 版本有冲突。删除 `package.json` 中 `engines` 段落的所有内容，重新提交后构建即可。
 
-
 ## 运行时问题
 
 当服务组件操作日志中提示构建成功时，就进入了服务组件运行的阶段。我们期待所有的组件实例都呈现绿色的 `运行中` 状态，然而也可能发生很多的异常情形，需要根据指引一步步排查。在这个阶段，了解 [组件生命周期](/docs/use-manual/user-manual/component-op/basic-operation/service-properties) 中各个阶段的概念是十分必要的。后续的排查过程，也是基于组件不同的状态入手。
@@ -104,10 +103,10 @@ SyntaxError: Invalid or unexpected token
 ### 根据异常状态排查运行时问题
 
 :::warning
-组件实例一直处于 <font color="#ffa940"> 调度中 </font> 状态
+组件实例一直处于 <font color="#ffa940"> 调度中  </font> 状态
 :::
 
-处于 <font color="#ffa940"> 调度中 </font> 状态的实例，体现为橙黄色的方块。说明集群中已经没有足够的资源来运行这个实例。具体的资源项短缺详情，可以点击橙黄色的方块，打开实例详情页面后在 `说明` 处了解到。例如：
+处于 <font color="#ffa940"> 调度中  </font> 状态的实例，体现为橙黄色的方块。说明集群中已经没有足够的资源来运行这个实例。具体的资源项短缺详情，可以点击橙黄色的方块，打开实例详情页面后在 `说明` 处了解到。例如：
 
 ```css
 实例状态：调度中
@@ -118,13 +117,13 @@ SyntaxError: Invalid or unexpected token
 根据 `说明` 可以了解到，当前集群中共有 1 个宿主机节点，但是处于不可用状态，原因是该节点存在磁盘压力。根据原因对节点进行磁盘扩容或空间清理后，该问题会自动解除。常见的资源短缺类型还包括：CPU 不足、内存不足。
 
 :::warning
-组件实例一直处于 <font color="#ffa940"> 等待启动 </font> 状态
+组件实例一直处于 <font color="#ffa940"> 等待启动  </font> 状态
 :::
 
-Rainbond 平台根据组件之间的依赖关系确定启动顺序。如果服务组件长时间处于 <font color="#ffa940"> 等待启动 </font> 状态，则说明其依赖的某些组件未能正常启动。切换至应用拓扑视图梳理组件间依赖关系，确保其依赖的组件都处于正常的运行状态。
+Rainbond 平台根据组件之间的依赖关系确定启动顺序。如果服务组件长时间处于 <font color="#ffa940"> 等待启动  </font> 状态，则说明其依赖的某些组件未能正常启动。切换至应用拓扑视图梳理组件间依赖关系，确保其依赖的组件都处于正常的运行状态。
 
 :::warning
-组件实例一直处于 <font color="red"> 运行异常 </font> 状态
+组件实例一直处于 <font color="red"> 运行异常  </font> 状态
 :::
 
 运行异常状态意味着该实例遭遇了无法正常运行的情况。点击红色的方块，可以在实例详情页面找到提示，重点关注实例中的容器的状态，通过状态的不同，来继续排查问题。以下是常见的几种问题状态：
@@ -134,11 +133,10 @@ Rainbond 平台根据组件之间的依赖关系确定启动顺序。如果服�
 - **`OOMkilled`** : 该状态说明为容器分配的内存太小，或业务本身存在内存泄漏问题。业务容器的内存配置入口位于 `伸缩` 页面。插件容器的内存配置入口位于 `插件` 页面。
 
 :::warning
-组件实例一直处于 <font color="blue"> 未知 </font> 状态
+组件实例一直处于 <font color="blue"> 未知  </font> 状态
 :::
 
-该状态意味着控制台和集群端通信异常，根据 [Rainbond集群问题诊断](/docs/user-operations/troubleshoot/cluster_troubleshooting) 排查集群问题。
-
+该状态意味着控制台和集群端通信异常，根据 [Rainbond 集群问题诊断](/docs/user-operations/troubleshoot/cluster_troubleshooting) 排查集群问题。
 
 ### 我的问题没有被涵盖
 
@@ -147,3 +145,5 @@ Rainbond 平台根据组件之间的依赖关系确定启动顺序。如果服�
 移步 [GitHub](https://github.com/goodrain/rainbond/issues) 查询是否有相关的 issue ，如没有则提交 issues
 
 前往 [社区](https://t.goodrain.com/) 搜索你的问题，寻找相似问题的答案
+
+获取 [官方支持](https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/), 我们会尽快联系你
