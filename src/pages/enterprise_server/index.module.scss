@@ -177,3 +177,24 @@
   text-align: center;
   margin-top: 24px;
 }
+// 皮肤主题适配
+[data-theme='dark'] #box_container {
+  background-color: transparent !important;
+  .type_sort > div,
+  .params_contrast {
+    background-color: #3d3737 !important;
+    .type_sort_title {
+      border-bottom: 1px solid #ffffff !important;
+      h1 {
+        color: #fff !important;
+      }
+    }
+    .type_sort_details ul li {
+      color: #fff !important;
+    }
+  }
+  // 参数对比
+  .contrast_desc_detail > div div:nth-child(1) span {
+    color: rgb(137, 131, 132);
+  }
+}

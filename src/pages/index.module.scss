@@ -433,3 +433,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+// 皮肤主体适配
+[data-theme='dark'] .footer_container {
+  .join_detali > p {
+    color: #939393 !important;
+  }
+}
