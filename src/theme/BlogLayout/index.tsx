@@ -19,9 +19,9 @@ export default function BlogLayout(props: Props): JSX.Element {
   return (
     <Layout {...layoutProps}>
       <div className='container margin-vert--lg'>
-        {title === '使用场景' ? (
+        {title === '使用场景' && location_url === '/useScene' ? (
           <h1 className={styles.title}>使用场景</h1>
-        ) : title === '案例' ? (
+        ) : title === '案例' && location_url === '/case' ? (
           <h1 className={styles.title}>案例</h1>
         ) : (
           ''
