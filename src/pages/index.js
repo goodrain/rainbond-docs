@@ -301,14 +301,14 @@ export default function Home() {
           <div
             className={`${styles.docs} docs_container animate__animated  animate__fadeInLeftBig`}
           >
-            <a href='useScene/IntegrationDev'>
+            <a href='usescene/IntegrationDev'>
               <div className={styles.left_logo}>
                 {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/IntegrationDev'>一体化开发测试环境</a>
+                    <a href='usescene/IntegrationDev'>一体化开发测试环境</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
@@ -318,14 +318,14 @@ export default function Home() {
                 </div>
               </div>
             </a>
-            <a href='useScene/AppManagement'>
+            <a href='usescene/AppManagement'>
               <div className={styles.left_logo}>
                 {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/AppManagement'>企业级应用统一管理</a>
+                    <a href='usescene/AppManagement'>企业级应用统一管理</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
@@ -335,14 +335,14 @@ export default function Home() {
                 </div>
               </div>
             </a>
-            <a href='useScene/MultiCloudManagement'>
+            <a href='usescene/MultiCloudManagement'>
               <div className={styles.left_logo}>
                 {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/MultiCloudManagement'>应用级多云管理</a>
+                    <a href='usescene/MultiCloudManagement'>应用级多云管理</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
@@ -352,14 +352,14 @@ export default function Home() {
                 </div>
               </div>
             </a>
-            <a href='useScene/offlineDelivery'>
+            <a href='usescene/offlineDelivery'>
               <div className={styles.left_logo}>
                 {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/offlineDelivery'>离线环境软件交付</a>
+                    <a href='usescene/offlineDelivery'>离线环境软件交付</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
@@ -367,14 +367,14 @@ export default function Home() {
                 </div>
               </div>
             </a>
-            <a href='useScene/componentReuse'>
+            <a href='usescene/componentReuse'>
               <div className={styles.left_logo}>
                 {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/componentReuse'>业务积木式拼装</a>
+                    <a href='usescene/componentReuse'>业务积木式拼装</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
@@ -384,14 +384,14 @@ export default function Home() {
                 </div>
               </div>
             </a>
-            <a href='useScene/x86ToArm'>
+            <a href='usescene/x86ToArm'>
               <div className={styles.left_logo}>
                 {/* <img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='useScene/x86ToArm'>国产化和信创支撑</a>
+                    <a href='usescene/x86ToArm'>国产化和信创支撑</a>
                   </h4>
                 </div>
                 <div className={styles.desc_detail}>
