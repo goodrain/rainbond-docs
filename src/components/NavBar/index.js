@@ -55,7 +55,7 @@ export default function Index(props) {
                 </a>
               </li>
               <li>
-                <a href='/useScene'>
+                <a href='/usescene'>
                   <Translate>使用场景</Translate>
                 </a>
               </li>
@@ -116,7 +116,7 @@ export default function Index(props) {
               </a>
             </li>
             <li>
-              <a href='/useScene'>
+              <a href='/usescene'>
                 <Translate>使用场景</Translate>
               </a>
             </li>
