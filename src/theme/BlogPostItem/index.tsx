@@ -71,7 +71,7 @@ export default function BlogPostItem(props: Props): JSX.Element {
   const location = useLocation();
   const location_url = location.pathname;
   const { images } = frontMatter as any;
-  if (location_url === '/case' || location_url === '/usescene') {
+  if (location_url === '/case' || location_url === '/usescene' || location_url === '/case/' || location_url === '/usescene/') {
     return (
       <>
         <a className={`${styless.container_box}`} href={permalink}>

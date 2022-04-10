@@ -18,14 +18,13 @@ export default function BlogLayout(props: Props): JSX.Element {
   const hasSidebar = sidebar && sidebar.items.length > 0;
   const location = useLocation();
   const location_url = location.pathname;
-  console.log(location_url)
   const { title } = sidebar;
   return (
     <Layout {...layoutProps}>
       <div className='container margin-vert--lg'>
-        {title === '使用场景' && location_url === '/usescene' ? (
+        {title === '使用场景' && location_url === '/usescene' || location_url === '/usescene/' ? (
           <h1 className={styles.title}>使用场景</h1>
-        ) : title === '案例' && location_url === '/case' ? (
+        ) : title === '案例' && location_url === '/case' || location_url === '/case/' ? (
           <h1 className={styles.title}>案例</h1>
         ) : (
           ''
@@ -41,7 +40,7 @@ export default function BlogLayout(props: Props): JSX.Element {
               'col--7': hasSidebar && title === '所有文章',
               'col--9 col--offset-1': !hasSidebar
             })} ${
-              (location_url === '/case' || location_url === '/usescene') &&
+              (location_url === '/case' || location_url === '/usescene' || location_url === '/case/' || location_url === '/usescene/') &&
               styles.container_box
             }`}
             itemScope
