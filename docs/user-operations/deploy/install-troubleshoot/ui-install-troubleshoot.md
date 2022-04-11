@@ -15,6 +15,10 @@ description: 'troubleshot'
 
 ### Web 页面中的提示
 
+在较新版本的安装过程中，安装配置 Kubernetes 集群的过程中的日志查询入口，点击查看日志详情进而排查问题。
+
+#### 常见问题
+
 :::warning
 报错信息提示:
 Cluster must have at least one etcd plane host
@@ -22,11 +26,35 @@ Cluster must have at least one etcd plane host
 <img src="https://static.goodrain.com/docs/5.3/operator/error.png" title="install" width="100%" />
 :::
 
-
-
 这种情况一般是你配置的节点 IP 地址或 SSH 端口不正确或端口有防火墙策略，导致控制台无法连接指定的节点。重新配置正确的节点 IP 地址和 SSH 端口，或开启 SSH 端口的防火墙策略。
 
-在较新版本的安装过程中，有该过程中的日志查询入口，点击查看日志详情进而排查问题。
+另一种可能的情况，是安装 Rainbond 所使用的宿主机节点中， 目录 `/home/docker/.ssh` 的属主和属组不是 docker 用户，执行以下命令改正后重试：
+
+```bash
+chown docker:docker /home/docker/.ssh
+```
+
+---
+
+:::warning
+报错信息提示:
+rejected: administratively prohibited
+:::
+
+这种情况说明宿主机服务器的 sshd 服务配置有限制，编辑所欧宿主机的 `/etc/ssh/sshd_config` 文件，确定存在以下配置：
+
+
+```bash
+AllowTcpForwarding yes
+```
+
+修改完成后重启 sshd 服务：
+
+```bash
+systemctl restart sshd
+```
+
+---
 
 ### 确认 Kubernetes 健康
 
@@ -88,6 +116,8 @@ coredns 日志提示：
 1. 直接修改 /etc/resolv.conf ，令其 nameserver 后接一个可用的 dns 服务器地址（当心这个文件可能会被某些莫名其妙的文件维护，重写你自定义的值）
 2. 直接修改 coredns 的 configmap，定义 forward . 114.114.114.114 来替换 "/etc/resolv.conf" 。
 
+---
+
 :::warning
 flannel 日志提示：
 
@@ -95,6 +125,8 @@ Failed to find any valid interface to use: failed to get default interface: Unab
 :::
 
 该报错意味着 `flannel` 所在的主机节点没有默认路由，导致 `flannel` 无法正常工作。这种情况常见于离线环境。解决的方式是为操作系统添加默认路由。
+
+---
 
 :::warning
 内核版本过高或过低：
@@ -108,7 +140,7 @@ Failed to find any valid interface to use: failed to get default interface: Unab
  
 推荐参考 [升级内核版本](https://t.goodrain.com/t/topic/1305) 安装 kernel-lt 分支的长期支持版内核。
 
-
+---
 ## Rainbond 集群初始化异常情况分析
 
 Rainbond 集群初始化控制过程如下：
@@ -136,6 +168,8 @@ open /run/flannel/subnet.env: no such file or directory
 :::
 
 该问题意味着 flannel 未能正常工作，参考上一章节了解如何排查对应日志并加以解决。另外一种可能性，是使用了 `rainbond:v5.6.0-dind-allinone` 这种内置了 `k3s` 集群的前提下，又基于该主机安装，这会导致两个集群之间的 Kubernetes 组件冲突。
+
+---
 
 ### 日志查询
 
