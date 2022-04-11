@@ -20,6 +20,7 @@ import clsx from 'clsx';
 import React from 'react';
 import styless from './index.module.scss';
 import styles from './styles.module.css';
+import { useLocation } from 'react-router-dom'
 // Very simple pluralization: probably good enough for now
 function useReadingTimePlural() {
   const { selectMessage } = usePluralForm();
@@ -67,9 +68,10 @@ export default function BlogPostItem(props: Props): JSX.Element {
   const truncatedPost = !isBlogPostPage && truncated;
   const tagsExists = tags.length > 0;
   const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
-  const location_url = window.location.pathname;
+  const location = useLocation();
+  const location_url = location.pathname;
   const { images } = frontMatter as any;
-  if (location_url === '/case' || location_url === '/useScene') {
+  if (location_url === '/case' || location_url === '/usescene' || location_url === '/case/' || location_url === '/usescene/') {
     return (
       <>
         <a className={`${styless.container_box}`} href={permalink}>

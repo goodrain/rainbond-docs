@@ -64,7 +64,7 @@ export default function Index() {
               </div>
               <div className={styles.type_sort_details}>
                 <div className={styles.type_sort_enterprise}>
-                  <a href='/useScene'>了解解决方案</a>
+                  <a href='/usescene'>了解解决方案</a>
                 </div>
                 <ul
                   className={styles.enterprise}

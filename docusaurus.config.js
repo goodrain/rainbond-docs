@@ -73,7 +73,7 @@ const config = {
             to: 'docs/'
           },
           {
-            to: 'useScene',
+            to: 'usescene',
             label: '使用场景',
             position: 'left'
           },
@@ -157,7 +157,7 @@ const config = {
             items: [
               {
                 label: '使用场景',
-                to: 'useScene'
+                to: 'usescene'
               },
               {
                 label: '用户案例',
