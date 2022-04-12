@@ -1,0 +1,157 @@
+.box{
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    background-color: #f0f2f5;
+}
+.heard{
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+.content{
+    width: 100%;
+    padding:0px 40px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.content ~ div{
+    display: flex;
+    flex-flow: column;
+}
+.title{
+    padding-top: 14px;
+}
+.ha{
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+.line{
+    border-bottom: 1px dashed #ccc;
+}
+.gateway{
+    margin-left: 64px; 
+    margin-bottom: 20px;
+}
+.rowsLeft{
+    margin-left: 24px;
+}
+.inputs{
+    width: 240px !important;
+    height: 26px;
+    border: 1px solid #808080 !important;
+    border-radius: 4px !important;
+    padding-left: 4px;
+    margin-right: 10px;
+}
+.ant-radio-input{
+    margin-right: 10px !important;
+}
+.rows{
+    display: flex;
+    height: 46px;
+}
+.spanTitle{
+    width: 240px;
+    color: #808080;
+    font-size: 14px;
+}
+.databaseBox{
+    margin-left: 40px;
+}
+.dataInput{
+    width: 240px !important;
+    height: 26px;
+    border: 1px solid #808080 !important;
+    border-radius: 4px !important;
+    padding-left: 4px;
+    display: inline-block;
+}
+.dataTitle{
+    width: 100px;
+    color: #808080;
+    font-size: 14px;
+}
+.rowsTitle{
+    display: flex;
+    margin-left: 120px;
+    margin-bottom: -12px;
+}
+.console{
+    width: 240px;
+    color: #808080;
+}
+.region{
+    width: 240px;
+    margin-left: 40px;
+    color: #808080;
+}
+.btn{
+    width: 160px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #4E73B1;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.btnBox{
+    padding-bottom: 60px;
+}
+.DAinputs{
+    width: 110px;
+    height: 26px;
+    margin-right: 10px;
+    padding-left: 4px;
+    border-radius: 4px;
+}
+.icons{
+    margin-top: 4px;
+    font-size: 18px;
+    color: #808080;
+}
+.copyContent{
+    width: 100%;
+    height: 260px;
+    background-color: #4a4a4a;
+    margin-top: 20px;
+    /* border: 2px solid #4E73B1; */
+    border-radius: 4px;
+    position: relative;
+    padding: 24px;
+    font-size: 12px;
+    color: #fff;
+    overflow: auto;
+}
+.iconCopy{
+    font-size: 18px;
+    position: absolute;
+    right: 1%;
+    top: 3%;
+    color: #fff;
+}
+.iconCopys{
+    font-size: 18px;
+    position: absolute;
+    right: 1%;
+    top: 3%;
+    color: #2491fe;
+}
+.ant-form-item-explain-error{
+    font-size: 12px;
+    color: #ff4d4f;
+    margin-left: 4px;
+}
+.ant-form-item-control-input-content{
+    display: flex;
+}
+.formItem{
+    margin-top: 10px;
+}
+.spanCommand{
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}

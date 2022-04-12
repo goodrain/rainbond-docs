@@ -80,6 +80,7 @@ const sidebars = {
                 id: 'user-operations/deploy/install-with-helm/index'
               },
               items: [
+                'user-operations/deploy/install-with-helm/helm',
                 'user-operations/deploy/install-with-helm/k8s-install-with-helm',
                 'user-operations/deploy/install-with-helm/k3s-install-with-helm',
                 'user-operations/deploy/install-with-helm/ack-install-with-helm',
