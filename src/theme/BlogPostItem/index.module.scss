@@ -1,0 +1,48 @@
+.container_box {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  // box-sizing: border-box;
+  border: 1px solid #f4f4f4;
+  box-shadow: 0 5px 40px rgb(0 0 0 / 20%);
+}
+.container_box:hover {
+  border: 1px solid #8ed3e5;
+  text-decoration: none;
+  transition: all, 0.5s;
+}
+// 标题
+.title {
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+  p {
+    font-family: initial;
+    font-size: 20px;
+    color: rgb(85, 81, 81);
+  }
+}
+// 描述
+.desc {
+  padding: 12px;
+  color: rgb(72, 69, 69);
+  font-size: 14px;
+  text-align: center;
+}
+
+.logo img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 140px;
+  object-fit: cover;
+  width: 100%;
+  border-style: none;
+  box-sizing: content-box;
+  max-width: 100%;
+}
+// 皮肤主体适配
+[data-theme='dark'] .container_box {
+  background-color: #3d3737 !important;
+  p,
+  .desc {
+    color: #fff !important;
+  }
+}

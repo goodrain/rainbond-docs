@@ -36,13 +36,13 @@ const config = {
           }
         },
         blog: {
-          routeBasePath: '/useScene',
+          routeBasePath: '/blog',
           path: 'blog',
-          blogTitle: '使用场景',
+          blogTitle: '博客',
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/blog',
           postsPerPage: 10,
           blogSidebarCount: 'ALL',
-          blogSidebarTitle: '使用场景',
+          blogSidebarTitle: '所有文章',
           sortPosts: 'descending'
         },
         theme: {
@@ -73,7 +73,7 @@ const config = {
             to: 'docs/'
           },
           {
-            to: 'useScene',
+            to: 'usescene',
             label: '使用场景',
             position: 'left'
           },
@@ -83,18 +83,18 @@ const config = {
             position: 'left'
           },
           {
+            to: 'blog',
+            label: '博客',
+            position: 'left'
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right'
           },
           {
             position: 'right',
-            label: '应用商店',
-            href: 'https://store.goodrain.com/'
-          },
-          {
-            position: 'right',
-            label: '企业服务',
-            href: 'https://www.goodrain.com/'
+            label: '产品',
+            href: '/enterprise_server'
           },
           {
             href: 'https://github.com/goodrain/rainbond',
@@ -157,7 +157,7 @@ const config = {
             items: [
               {
                 label: '使用场景',
-                to: 'useScene'
+                to: 'usescene'
               },
               {
                 label: '用户案例',
@@ -194,6 +194,20 @@ const config = {
         postsPerPage: 10,
         blogSidebarCount: 'ALL',
         blogSidebarTitle: '案例',
+        sortPosts: 'descending'
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'usescene',
+        routeBasePath: 'usescene',
+        path: './usescene',
+        blogTitle: '使用场景',
+        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/usescene',
+        postsPerPage: 10,
+        blogSidebarCount: 'ALL',
+        blogSidebarTitle: '使用场景',
         sortPosts: 'descending'
       }
     ],
