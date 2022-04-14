@@ -1,8 +1,9 @@
 ---
-title: 提高企业产品交付效率系列（1）—— 企业应用一键安装和升级
-description: 提高企业产品交付效率系列（1）—— 企业应用一键安装和升级
-slug: EnterpriseDelivery
+title: 企业应用持续交付
+description: 做好企业应用的交付一直是 ToB 软件厂商的关注重点。Rainbond Application Model（RAM）是Rainbond提出的一种应用模型，通过将企业应用进行模型化的抽象，搭配 Rainbond 平台的应用市场机制，最终实现了一键安装/升级。
+slug: EnterpriseDeliveryOne
 # authors: QiZhang
+images: /img/usescene/oneclickinstall.png
 ---
 
 :::info
