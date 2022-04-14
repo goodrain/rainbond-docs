@@ -399,14 +399,14 @@ export default function Home() {
                 </div>
               </div>
             </a>
-            <a href='blog/EnterpriseDelivery'>
+            <a href='/usescene/EnterpriseDeliveryOne'>
               <div className={styles.left_logo}>
                 {/* < img src='/img/rainbond.png' alt='' /> */}
               </div>
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='https://www.rainbond.com/blog/EnterpriseDelivery'>
+                    <a href='/usescene/EnterpriseDeliveryOne'>
                       企业应用持续交付
                     </a>
                   </h4>
@@ -417,8 +417,7 @@ export default function Home() {
               </div>
             </a>
             <a
-              href='https://mp.weixin.qq.com/s/4vquIU-oCLVruoankTHOJA'
-              target='_blank'
+              href='/usescene/EnterpriseDeliveryTwo'
             >
               <div className={styles.left_logo}>
                 {/* < img src='/img/rainbond.png' alt='' /> */}
@@ -426,7 +425,7 @@ export default function Home() {
               <div className={styles.desc}>
                 <div className={styles.desc_title}>
                   <h4>
-                    <a href='https://mp.weixin.qq.com/s/4vquIU-oCLVruoankTHOJA'>
+                    <a href='/usescene/EnterpriseDeliveryTwo'>
                       模块化个性化交付
                     </a>
                   </h4>
