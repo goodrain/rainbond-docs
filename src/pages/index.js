@@ -399,6 +399,69 @@ export default function Home() {
                 </div>
               </div>
             </a>
+            <a href='blog/EnterpriseDelivery'>
+              <div className={styles.left_logo}>
+                {/* < img src='/img/rainbond.png' alt='' /> */}
+              </div>
+              <div className={styles.desc}>
+                <div className={styles.desc_title}>
+                  <h4>
+                    <a href='https://www.rainbond.com/blog/EnterpriseDelivery'>
+                      企业应用持续交付
+                    </a>
+                  </h4>
+                </div>
+                <div className={styles.desc_detail}>
+                  <p>企业应用一键交付客户，并支持持续升级迭代</p>
+                </div>
+              </div>
+            </a>
+            <a
+              href='https://mp.weixin.qq.com/s/4vquIU-oCLVruoankTHOJA'
+              target='_blank'
+            >
+              <div className={styles.left_logo}>
+                {/* < img src='/img/rainbond.png' alt='' /> */}
+              </div>
+              <div className={styles.desc}>
+                <div className={styles.desc_title}>
+                  <h4>
+                    <a href='https://mp.weixin.qq.com/s/4vquIU-oCLVruoankTHOJA'>
+                      模块化个性化交付
+                    </a>
+                  </h4>
+                </div>
+                <div className={styles.desc_detail}>
+                  <p>通过功能模块化，解决2B企业个性化交付的难题</p>
+                </div>
+              </div>
+            </a>
+            <a
+              href='https://store.goodrain.com/'
+              target='_blank'
+              style={{ position: 'relative' }}
+            >
+              <div className={styles.left_logo}>
+                {/* < img src='/img/rainbond.png' alt='' /> */}
+              </div>
+              <div className={styles.desc}>
+                <div className={styles.desc_title}>
+                  <h4>
+                    <a href='https://store.goodrain.com/' target='_blank'>
+                      云原生应用商店
+                    </a>
+                  </h4>
+                </div>
+                <div className={styles.desc_detail}>
+                  <p>
+                    通过云原生技术驱动的企业级应用商店，实现商店的全流程管理，并支持企业应用的各种交付流程
+                  </p>
+                </div>
+              </div>
+              <span className={styles.enterprise_logo}>
+                <span>企业版</span>
+              </span>
+            </a>
           </div>
         </section>
         {/* 第四屏 */}

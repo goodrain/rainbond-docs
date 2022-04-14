@@ -453,8 +453,9 @@ export default function Index() {
                   <div>
                     <span>企业级功能扩展</span>
                   </div>
+
                   <div>
-                    <span>行业级应用商店</span>
+                    <span>企业样式定制（Logo和名称可修改）</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -463,7 +464,7 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>应用集成和展示门户</span>
+                    <span>GPU资源限制和共享</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -490,7 +491,27 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>开源中间件（集群版）10款</span>
+                    <span>应用集成和展示门户</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <a href='http://store.goodrain.com' target='_blank'>
+                      云原生应用商店
+                    </a>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span> 开源中间件（集群版）10款</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
