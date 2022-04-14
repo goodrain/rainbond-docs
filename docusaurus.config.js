@@ -106,6 +106,11 @@ const config = {
       },
       hideableSidebar: true,
       autoCollapseSidebarCategories: true,
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: true // 黑白切换按钮
+        // respectPrefersColorScheme: true
+      },
       algolia: {
         appId: '4EFG0MCBR2',
         apiKey: '449c9313e5dfd0ebb2c330a105b302b9',
@@ -172,9 +177,9 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} 北京好雨科技有限公司, Inc. All Rights Reserved. 京ICP备15028663号-4`
       },
-      prism: {
-        darkTheme: darkCodeTheme
-      },
+      // prism: {
+      //   darkTheme: darkCodeTheme
+      // },
       announcementBar: {
         id: 'start',
         content:
@@ -217,27 +222,42 @@ const config = {
         createRedirects(existingPath) {
           if (existingPath.includes('docs/use-manual/component-create')) {
             return [
-              existingPath.replace('docs/use-manual/component-create','docs/component-create')
+              existingPath.replace(
+                'docs/use-manual/component-create',
+                'docs/component-create'
+              )
             ];
           }
           if (existingPath.includes('docs/use-manual/enterprise-manager')) {
             return [
-              existingPath.replace('docs/use-manual/enterprise-manager','docs/enterprise-manager')
+              existingPath.replace(
+                'docs/use-manual/enterprise-manager',
+                'docs/enterprise-manager'
+              )
             ];
           }
           if (existingPath.includes('docs/use-manual/user-manual')) {
             return [
-              existingPath.replace('docs/use-manual/user-manual', 'docs/user-manual')
+              existingPath.replace(
+                'docs/use-manual/user-manual',
+                'docs/user-manual'
+              )
             ];
           }
           if (existingPath.includes('docs/quick-start/get-start')) {
             return [
-              existingPath.replace('docs/quick-start/get-start', 'docs/get-start')
+              existingPath.replace(
+                'docs/quick-start/get-start',
+                'docs/get-start'
+              )
             ];
           }
           if (existingPath.includes('docs/quick-start/architecture/')) {
             return [
-              existingPath.replace('docs/quick-start/architecture/', 'docs/architecture/')
+              existingPath.replace(
+                'docs/quick-start/architecture/',
+                'docs/architecture/'
+              )
             ];
           }
           if (existingPath.includes('docs/expand/practices')) {
@@ -247,11 +267,14 @@ const config = {
           }
           if (existingPath.includes('docs/expand/opensource-app')) {
             return [
-              existingPath.replace('docs/expand/opensource-app', 'docs/opensource-app')
+              existingPath.replace(
+                'docs/expand/opensource-app',
+                'docs/opensource-app'
+              )
             ];
           }
           return undefined;
-        },
+        }
       }
     ],
     'docusaurus-plugin-sass'

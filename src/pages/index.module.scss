@@ -439,3 +439,19 @@
     color: #939393 !important;
   }
 }
+.enterprise_logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 58px solid #1890ff;
+  border-right: 82px solid transparent;
+  span {
+    position: absolute;
+    width: 64px;
+    top: -48px;
+    left: 2px;
+    color: #fff;
+  }
+}

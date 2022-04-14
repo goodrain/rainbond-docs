@@ -10,7 +10,6 @@ import TabItem from '@theme/TabItem';
 
 当前安装方式可以将 Rainbond 所需的所有组件安装于一个名为 `rainbond-allinone` 的容器中。这种方式覆盖了 `Windows`、`MacOS`、`Linux` 三大操作系统，也适用于 `x86_64` 、`Arm64` 两种主流架构。适用于体验 Rainbond 功能或者个人开发环境。
 
-
 ### 安装 Docker
 
 <Tabs groupId="install">
@@ -38,17 +37,17 @@ curl sh.rainbond.com/install_docker | bash
 保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)
 
   </TabItem>
-  <TabItem value="Mac with M1" label="Mac with M1"> 
+  <TabItem value="Mac with M1" label="Mac with M1">
 
 **安装条件：**
 
-推荐cpu：2    
+推荐 cpu：2  
 推荐内存：8G  
-根分区磁盘保证50G+  
+根分区磁盘保证 50G+  
 保证有可用的 docker desktop， 点击此处下载[Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)
 
   </TabItem>
-  <TabItem value="Windows" label="Windows"> 
+  <TabItem value="Windows" label="Windows">
 
 **安装条件：**
 
@@ -68,8 +67,9 @@ curl sh.rainbond.com/install_docker | bash
 ```bash
 export EIP=IP地址
 ```
+
 EIP 是对外提供服务的 IP 地址，可以为主机的公网 IP 或内网 IP，请不要填写本地回环地址[127.0.0.1]。  
-IP 地址可以通过执行`ifconfig`命令获得。  
+IP 地址可以通过执行`ifconfig`命令获得。
 
   </TabItem>
   <TabItem value="Linux with Arm" label="Linux With Arm">
@@ -77,8 +77,9 @@ IP 地址可以通过执行`ifconfig`命令获得。
 ```bash
 export EIP=IP地址
 ```
+
 EIP 是对外提供服务的 IP 地址，可以为主机的公网 IP 或内网 IP，请不要填写本地回环地址[127.0.0.1]。  
-IP 地址可以通过执行`ifconfig`命令获得。  
+IP 地址可以通过执行`ifconfig`命令获得。
 
   </TabItem>
   <TabItem value="Mac with intel" label="Mac with intel">
@@ -88,31 +89,31 @@ export EIP=IP地址
 ```
 
 EIP 是对外提供服务的 IP 地址，可以为主机的公网 IP 或内网 IP，请不要填写本地回环地址[127.0.0.1]。  
-IP 地址可以通过执行`ifconfig`命令获得，或者按住`Option`的同时点击右上角`WIFI`图标即可。  
+IP 地址可以通过执行`ifconfig`命令获得，或者按住`Option`的同时点击右上角`WIFI`图标即可。
 
   </TabItem>
-  <TabItem value="Mac with M1" label="Mac with M1">  
+  <TabItem value="Mac with M1" label="Mac with M1">
 
 ```bash
 export EIP=IP地址
 ```
 
 EIP 是对外提供服务的 IP 地址，可以为主机的公网 IP 或内网 IP，请不要填写本地回环地址[127.0.0.1]。  
-IP 地址可以通过执行`ifconfig`命令获得，或者按住`Option`的同时点击右上角`WIFI`图标即可。  
+IP 地址可以通过执行`ifconfig`命令获得，或者按住`Option`的同时点击右上角`WIFI`图标即可。
 
   </TabItem>
-  <TabItem value="Windows" label="Windows">  
+  <TabItem value="Windows" label="Windows">
 
 ```bash
 -e EIP=IP地址
 ```
 
 EIP 是对外提供服务的 IP 地址，可以为主机的公网 IP 或内网 IP，请不要填写本地回环地址[127.0.0.1]。  
-IP 地址为必填项，可以通过`ipconfig`命令，或者点击右下角网络图标>查看其属性获得 IP 地址。  
+IP 地址为必填项，可以通过`ipconfig`命令，或者点击右下角网络图标>查看其属性获得 IP 地址。
 
   </TabItem>
 </Tabs>
-      
+
 
 ### 启动 Rainbond 控制台
 
@@ -164,7 +165,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-dind-allinone \
 ```
 
   </TabItem>
-  <TabItem value="Mac with M1" label="Mac with M1">  
+  <TabItem value="Mac with M1" label="Mac with M1">
 
 ```bash
 docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
@@ -179,7 +180,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-dind-arm64-allinone \
 ```
 
   </TabItem>
-  <TabItem value="Windows" label="Windows">  
+  <TabItem value="Windows" label="Windows">
 
 ```bash
 docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 ^
@@ -196,7 +197,6 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-dind-allinone ^
   </TabItem>
 </Tabs>
 
-
 | 启动参数       | 说明                                                       | 是否必填项 |
 | :------------- | :--------------------------------------------------------- | ---------- |
 | -p 10000:10000 | 如果通过 TCP 策略访问内部应用，需要进行映射 10000 以上端口 | 否         |
@@ -208,6 +208,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-dind-allinone ^
 正在启动Rainbond，预计5分钟...
 Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制台
 ```
+
 :::caution
 
 注意：快速体验版本默认安装了可使用的集群，无需执行基于主机安装集群的操作。
@@ -217,7 +218,6 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 ### 问题排查
 
 单节点体验版本安装过程中如果长时间未完成，那么请参考文档 [单机体验版本安装问题排查指南](/docs/user-operations/deploy/install-troubleshoot/dind-install-troubleshoot/) 进行故障排查。
-
 
 ## 其它安装方式
 
@@ -230,17 +230,17 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 从已有 Kubernetes 集群开始安装高度自定义的 Rainbond 集群。操作人员对 Kubernetes 、Helm 有深入了解，并乐于使用命令行的方式与系统交互。企业 IT 运维管理人员是这类人群的代表。
 :::
 
-**如需自定义配置，建议使用[Helm安装命令生成工具](../user-operations/deploy/install-with-helm/helm)进行安装，参数详情请参考 [values.yaml](../user-operations/deploy/install-with-helm/vaules-config)。**
+**如需自定义配置，建议使用[Helm 安装命令生成工具](docs/user-operations/deploy/install-with-helm/helm)进行安装，参数详情请参考 [values.yaml](docs/user-operations/deploy/install-with-helm/vaules-config)。**
 
 <Tabs groupId="helm-install">
   <TabItem value="基于自建k8s集群安装" label="基于自建k8s集群安装" default>
 
-  **[基于自建k8s集群安装](/docs/user-operations/deploy/install-with-helm/k8s-install-with-helm/)** 提供了一种在用户已有 K8s 集群中，利用 Helm 的方式部署 Rainbond 集群的方式。这种安装方式支持高可用部署。
+**[基于自建 k8s 集群安装](/docs/user-operations/deploy/install-with-helm/k8s-install-with-helm/)** 提供了一种在用户已有 K8s 集群中，利用 Helm 的方式部署 Rainbond 集群的方式。这种安装方式支持高可用部署。
 
   </TabItem>
   <TabItem value="基于自建k3s集群安装" label="基于自建k3s集群安装">
 
-  **[基于自建k3s集群安装](/docs/user-operations/deploy/install-with-helm/k3s-install-with-helm/)** 提供了一种在用户已有 K3s 集群中，利用 Helm 的方式部署 Rainbond 集群的方式。这种安装方式支持高可用部署。
+**[基于自建 k3s 集群安装](/docs/user-operations/deploy/install-with-helm/k3s-install-with-helm/)** 提供了一种在用户已有 K3s 集群中，利用 Helm 的方式部署 Rainbond 集群的方式。这种安装方式支持高可用部署。
 
   </TabItem>
 </Tabs>
@@ -254,22 +254,22 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 <Tabs groupId="ui-install">
   <TabItem value="基于主机安装" label="基于主机安装" default>
 
-  **[基于主机安装](/docs/user-operations/deploy/install-with-ui/host-install-with-ui/)** 提供了一种在用户在图形化界面中，从一台主机开始部署 Rainbond 集群的方式。部署的过程中自动完成 K8s 的部署以及 Rainbond 的安装对接。
+**[基于主机安装](/docs/user-operations/deploy/install-with-ui/host-install-with-ui/)** 提供了一种在用户在图形化界面中，从一台主机开始部署 Rainbond 集群的方式。部署的过程中自动完成 K8s 的部署以及 Rainbond 的安装对接。
 
   </TabItem>
   <TabItem value="基于主机高可用安装" label="基于主机高可用安装">
 
-  **[基于主机高可用安装](/docs/user-operations/deploy/install-with-ui/ha-installation/)** 提供了一种在用户在图形化界面中，从一台主机开始部署 Rainbond 集群的方式。部署的过程中自动完成 K8s 的部署以及 Rainbond 的安装对接，支持高可用部署。
+**[基于主机高可用安装](/docs/user-operations/deploy/install-with-ui/ha-installation/)** 提供了一种在用户在图形化界面中，从一台主机开始部署 Rainbond 集群的方式。部署的过程中自动完成 K8s 的部署以及 Rainbond 的安装对接，支持高可用部署。
 
   </TabItem>
   <TabItem value="接入已安装Kubernetes集群" label="接入已安装Kubernetes集群">
 
-  **[接入已安装Kubernetes集群](/docs/user-operations/deploy/install-with-ui/install-from-k8s/)** 提供了一种在用户在图形化界面中，如何将已有的 K8s 集群对接到 Rainbond 中去。
+**[接入已安装 Kubernetes 集群](/docs/user-operations/deploy/install-with-ui/install-from-k8s/)** 提供了一种在用户在图形化界面中，如何将已有的 K8s 集群对接到 Rainbond 中去。
 
   </TabItem>
   <TabItem value="接入已安装平台集群" label="接入已安装平台集群">
 
-  **[接入已安装平台集群](/docs/user-operations/deploy/install-with-ui/install-by-rainbond/)** 提供了一种在用户在图形化界面中，如何将已有的 Rainbond 集群对接到指定的控制台中去。
+**[接入已安装平台集群](/docs/user-operations/deploy/install-with-ui/install-by-rainbond/)** 提供了一种在用户在图形化界面中，如何将已有的 Rainbond 集群对接到指定的控制台中去。
 
   </TabItem>
 </Tabs>
@@ -283,17 +283,17 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 <Tabs groupId="cloud-install">
   <TabItem value="阿里云ACK" label="阿里云ACK" default>
 
-  **[阿里云ACK](/docs/user-operations/deploy/install-with-helm/ack-install-with-helm/)** 提供了在阿里云 ACK 环境下安装 Rainbond 的最佳实践。提供了购买各类云服务资源的建议，以及合理的对接方式，帮助用户更好的在 ACK 环境中使用 Rainbond。
+**[阿里云 ACK](/docs/user-operations/deploy/install-with-helm/ack-install-with-helm/)** 提供了在阿里云 ACK 环境下安装 Rainbond 的最佳实践。提供了购买各类云服务资源的建议，以及合理的对接方式，帮助用户更好的在 ACK 环境中使用 Rainbond。
 
   </TabItem>
   <TabItem value="腾讯云TKE" label="腾讯云TKE">
 
-  适配中，敬请期待。
+适配中，敬请期待。
 
   </TabItem>
   <TabItem value="华为云CCE" label="华为云CCE">
 
-  适配中，敬请期待。
+适配中，敬请期待。
 
   </TabItem>
 </Tabs>
@@ -307,13 +307,12 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 <Tabs groupId="other-install">
   <TabItem value="基于Rancher安装" label="基于Rancher安装" default>
 
-  **[基于Rancher安装](/docs/user-operations/deploy/install-with-helm/install-from-rancher/)** 提供了基于图形化界面在 Rancher 中安装 Rainbond 的方式，适合已经在使用 Rancher 的用户使用。
+**[基于 Rancher 安装](/docs/user-operations/deploy/install-with-helm/install-from-rancher/)** 提供了基于图形化界面在 Rancher 中安装 Rainbond 的方式，适合已经在使用 Rancher 的用户使用。
 
   </TabItem>
   <TabItem value="对接Openshift" label="对接Openshift">
 
-  适配中，敬请期待。
+适配中，敬请期待。
 
   </TabItem>
 </Tabs>
-

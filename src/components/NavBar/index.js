@@ -40,6 +40,14 @@ export default function Index(props) {
                 </a>
               </li>
               <li>
+                <a
+                  href='https://store.goodrain.com/markets/rainbond'
+                  target='_blank'
+                >
+                  <Translate>应用商店</Translate>
+                </a>
+              </li>
+              <li>
                 <a href='/enterprise_server'>
                   <Translate>产品</Translate>
                 </a>
@@ -98,6 +106,11 @@ export default function Index(props) {
             <li>
               <a href='/docs/'>
                 <Translate>Rainbond是什么?</Translate>
+              </a>
+            </li>
+            <li>
+              <a href='http://store.goodrain.com' target='_blank'>
+                <Translate>应用商店</Translate>
               </a>
             </li>
             <li>

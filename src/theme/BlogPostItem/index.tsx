@@ -18,9 +18,9 @@ import MDXComponents from '@theme/MDXComponents';
 import TagsListInline from '@theme/TagsListInline';
 import clsx from 'clsx';
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styless from './index.module.scss';
 import styles from './styles.module.css';
-import { useLocation } from 'react-router-dom'
 // Very simple pluralization: probably good enough for now
 function useReadingTimePlural() {
   const { selectMessage } = usePluralForm();
@@ -71,7 +71,12 @@ export default function BlogPostItem(props: Props): JSX.Element {
   const location = useLocation();
   const location_url = location.pathname;
   const { images } = frontMatter as any;
-  if (location_url === '/case' || location_url === '/usescene' || location_url === '/case/' || location_url === '/usescene/') {
+  if (
+    location_url === '/case' ||
+    location_url === '/usescene' ||
+    location_url === '/case/' ||
+    location_url === '/usescene/'
+  ) {
     return (
       <>
         <a className={`${styless.container_box}`} href={permalink}>
