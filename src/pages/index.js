@@ -458,9 +458,13 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <span className={styles.enterprise_logo}>
-                <span>企业版</span>
-              </span>
+              <div>
+                <img
+                  src='/img/Background(2).png'
+                  alt=''
+                  className={styles.enterprise_logo}
+                />
+              </div>
             </a>
           </div>
         </section>
