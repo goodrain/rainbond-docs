@@ -6,6 +6,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import styles from './index.module.scss';
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const [mask_config, setMask_config] = useState(false);
@@ -457,13 +458,13 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div>
+              {/* <div>
                 <img
                   src='/img/Background(2).png'
                   alt=''
                   className={styles.enterprise_logo}
                 />
-              </div>
+              </div> */}
             </a>
           </div>
         </section>
