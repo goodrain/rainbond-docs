@@ -1,5 +1,6 @@
 import { Button, Form, Input, Radio, Space, Icon, message, Alert } from 'antd'
 import { PlusCircleOutlined, CopyOutlined } from '@ant-design/icons'
+import LayoutProviders from '@theme/LayoutProviders';
 import React, { Component } from 'react'
 import axios from 'axios'
 import 'antd/dist/antd.css'
@@ -64,7 +65,7 @@ var dataObj = {
         nodes: []
     }
 }
-export default class Helm extends Component {
+export default class index extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -160,7 +161,7 @@ export default class Helm extends Component {
             dataObj.database.uiDatabase.password = e.password1 || ''
             dataObj.database.uiDatabase.dbname = e.dbname1 || ''
             dataObj.database.regionDatabase.host = e.host2 || ''
-            dataObj.database.regionDatabase.port = e.port1 || ''
+            dataObj.database.regionDatabase.port = e.port2 || ''
             dataObj.database.regionDatabase.username = e.username2 || ''
             dataObj.database.regionDatabase.password = e.password2 || ''
             dataObj.database.regionDatabase.dbname = e.dbname2 || ''
@@ -208,10 +209,13 @@ export default class Helm extends Component {
             copyCommand
         } = this.state
         return (
+            <LayoutProviders>
             <div className="box">
                 {/* 头部标题 */}
                 <header>
-                    <h2 className="heard">Helm</h2>
+                    <div className="helmTop">
+                    <h2 className="heard">Helm安装命令生成工具</h2>
+                    </div>
                 </header>
                 {/* 中间内容 */}
                 <div className="content">
@@ -603,6 +607,7 @@ export default class Helm extends Component {
                     </Form>
                 </div>
             </div>
+            </LayoutProviders>
         )
     }
 }
