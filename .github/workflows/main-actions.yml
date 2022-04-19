@@ -8,7 +8,7 @@ jobs:
     container: goodrainapps/alpine:3.7
     steps:
       - name: Trigger Rainbond build
-        env: RAINBOND_SECRET
+        env:
           RAINBOND_SECRET: ${{ secrets.RAINBOND_SECRET }}
           RAINBOND_API: ${{ secrets.RAINBOND_API }}
         run: |
