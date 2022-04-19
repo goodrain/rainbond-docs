@@ -5,6 +5,7 @@ on:
       - 'main'
 jobs:
   rainbond-docs-deploy:
+    runs-on: ubuntu-20.04
     container: goodrainapps/alpine:3.7
     steps:
       - name: Trigger Rainbond build
