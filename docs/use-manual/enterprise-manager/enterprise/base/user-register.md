@@ -1,5 +1,5 @@
 ---
-title: 用户、管理员注册
+title: 用户注册
 description: Rainbond 用户、管理员管理和注册文档说明
 ---
 
@@ -36,29 +36,30 @@ description: Rainbond 用户、管理员管理和注册文档说明
 
 > 用户注册页面演示
 
-![注册页面](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_1.jpg)
+![注册页面](https://static.goodrain.com/docs/5.6/use-manual/user-registration-login/user-login-1.png)
 
-![注册页面](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_6.jpg)
+![注册页面](https://static.goodrain.com/docs/5.6/use-manual/user-registration-login/user-login-2.png)
 
 > 注册结果反馈
 
-![注册页面](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_4.png)
+![注册页面](https://static.goodrain.com/docs/5.6/use-manual/user-registration-login/user-login-3.png)
 
 > 企业视图申请加入团队
 
+![加入团队](https://static.goodrain.com/docs/5.6/use-manual/user-registration-login/user-login-4.png)
 
-![加入团队](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_5.jpg)
+![审核](https://static.goodrain.com/docs/5.6/use-manual/user-registration-login/user-login-5.png)
 
-> 非管理员用户注册完成后必须加入到某个团队才能进入系统；需等待团队管理员在团队视图团队管理审核通过。
+> 非管理员用户注册完成后必须加入到某个团队才能进入系统；需等待团队管理员在团队视图团队管理审核通过。可以在管理员界面查看
 
-![审核](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/shenhe.png)
+![审核](https://static.goodrain.com/docs/5.6/use-manual/user-registration-login/user-login-6.png)
 
 
 ### 关闭注册功能
 
 为了适应企业账号管理方式，管理员可以通过`企业视图`-->`设置`关闭用户注册功能，在登录界面将不会再有`注册账户`按钮，采用手动添加用户的方式。
 
-![关闭注册功能](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/register_7.jpg)
+![关闭注册功能](https://static.goodrain.com/docs/5.6/use-manual/user-registration-login/user-login-7.png)
 
 ### 管理员手动添加用户
 
@@ -66,7 +67,7 @@ description: Rainbond 用户、管理员管理和注册文档说明
 
 在企业视图中，点击`用户-->新增-->填写用户信息-->确定-->完成注册`，即可使用注册的新用户登录Rainbond控制台。
 
-![添加用户](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/adduser.png)
+![添加用户](https://static.goodrain.com/docs/5.6/use-manual/user-registration-login/user-login-8.png)
 
 ### 用户管理
 
@@ -74,13 +75,13 @@ description: Rainbond 用户、管理员管理和注册文档说明
 
 （平台）企业管理员在企业视图 用户名称 一栏，点击 用户名 即可对用户在不同团队中的 角色 进行分配。
 
-![用户授权](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/enterprise-manager/user-registration-login/user-register/role_authorization.jpg)
+![用户授权](https://static.goodrain.com/docs/5.6/use-manual/user-registration-login/user-login-9.png)
 
 * 用户删除与密码修改
 
 （平台）企业管理员在企业视图`用户-->删除`删除对应的用户，点击`用户-->编辑`对普通用户的密码进行修改。
 
-![编辑用户](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/user-registration-login/user-register/Change%20Password.png)
+![编辑用户](https://static.goodrain.com/docs/5.6/use-manual/user-registration-login/user-login-10.png)
 
 
 ### 与第三方用户体系集成
