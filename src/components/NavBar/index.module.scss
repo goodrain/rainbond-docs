@@ -48,14 +48,16 @@
 /* 主页的自定义头部 */
 .mdHeader {
   height: 84px;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
+  z-index: 9999;
   background-color: #fff;
   .nav_bar {
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
