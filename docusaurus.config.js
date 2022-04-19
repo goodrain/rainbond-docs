@@ -108,8 +108,8 @@ const config = {
       autoCollapseSidebarCategories: true,
       colorMode: {
         defaultMode: 'light',
-        disableSwitch: true // 黑白切换按钮
-        // respectPrefersColorScheme: true
+        disableSwitch: false, // 黑白切换按钮
+        respectPrefersColorScheme: true
       },
       algolia: {
         appId: '4EFG0MCBR2',
