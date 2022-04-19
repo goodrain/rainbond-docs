@@ -23,28 +23,36 @@ description: Rainbond团队概念讲解和创建方式说明
 
 在企业视图首页`团队模块`直接点击`创建团队`
 
-![创建团队](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Create%20team.png)
+![创建团队](https://static.goodrain.com/docs/5.6/use-manual/user-manual/team/team-1.png)
+
+自定义`团队名称，团队英文名称，集群`，点击确定即可
+
+![创建团队](https://static.goodrain.com/docs/5.6/use-manual/user-manual/team/team-2.png)
 
 第二种
 
 在企业视图`团队模块`点击`创建团队`
 
-![创建团队](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Createteam.png)
+![创建团队](https://static.goodrain.com/docs/5.6/use-manual/user-manual/team/team-3.png)
+
+自定义`团队名称，团队英文名称，集群`，点击确定即可
+
+![创建团队](https://static.goodrain.com/docs/5.6/use-manual/user-manual/team/team-4.png)
 
 #### 团队重命名
 
-在团队视图`设置`界面对团队进行重命名
+在团队视图`团队管理`界面对团队进行重命名
 
-![团队名称管理](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/modifyteamname.png)
+![团队名称管理](https://static.goodrain.com/docs/5.6/use-manual/user-manual/team/team-5.png)
 
 
 ### 团队成员管理
 
 #### 添加团队成员
 
-在团队视图设置中`设置`-->`成员`-->`添加成员`，找到要添加的用户和将要授予的权限，确认添加即可，必须是已经添加到企业中的用户才可以加入团队，添加平台用户参考 [用户管理](../../../enterprise-manager/user-registration-login/user-register/)
+在团队视图设置中`设置`-->`团队管理`-->`成员`-->`添加成员`，找到要添加的用户和将要授予的权限，确认添加即可，必须是已经添加到企业中的用户才可以加入团队，添加平台用户参考 [用户管理](../../../enterprise-manager/user-registration-login/user-register/)
 
-![团队成员管理](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/enterprise/teams/create-team/Add%20member.png)
+![团队成员管理](https://static.goodrain.com/docs/5.6/use-manual/user-manual/team/team-6.png)
 
 #### 角色管理
 
