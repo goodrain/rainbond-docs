@@ -13,4 +13,4 @@ jobs:
           RAINBOND_SECRET: ${{ secrets.RAINBOND_SECRET }}
           RAINBOND_API: ${{ secrets.RAINBOND_API }}
         run: |
-          curl -d '{"secret_key":"$RAINBOND_SECRET"}' -H "Content-type: application/json" -X POST $RAINBOND_API
+          curl -d "{\"secret_key\":\"$RAINBOND_SECRET\"}" -H "Content-type: application/json" -X POST "$RAINBOND_API"
