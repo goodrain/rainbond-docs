@@ -1,4 +1,4 @@
-.box{
+.rainbond_box{
     width: 1200px;
     margin: 90px auto;
     padding: 14px;
@@ -6,50 +6,50 @@
     background-color: #f0f2f5;
 }
 
-/* [data-theme='dark'] .heard{
+[data-theme='dark'] .rainbond_heard{
     padding: 12px;
     border-bottom: 1px solid #ccc;
     background-color: #000;
-} */
-.heard{
+}
+.rainbond_heard{
     padding: 12px;
     border-bottom: 1px solid #ccc;
     background-color: #fff;
 }
-/* [data-theme='dark'] .content{
+[data-theme='dark'] .rainbond_content{
     width: 100%;
     padding:0px 40px;
     margin: 0 auto;
     background-color: #000;
-} */
-.content{
+}
+.rainbond_content{
     width: 100%;
     padding:0px 40px;
     margin: 0 auto;
     background-color: #fff;
 }
-.content ~ div{
+.rainbond_content ~ div{
     display: flex;
     flex-flow: column;
 }
-.title{
+.rainbond_title{
     padding-top: 14px;
 }
-.ha{
+.rainbond_ha{
     margin-left: 40px;
     margin-bottom: 20px;
 }
-.line{
+.rainbond_line{
     border-bottom: 1px dashed #ccc;
 }
-.gateway{
+.rainbond_gateway{
     margin-left: 64px; 
     margin-bottom: 20px;
 }
-.rowsLeft{
+.rainbond_rowsLeft{
     margin-left: 24px;
 }
-.inputs{
+.rainbond_inputs{
     width: 240px !important;
     height: 26px;
     border: 1px solid #808080 !important;
@@ -60,19 +60,19 @@
 .ant-radio-input{
     margin-right: 10px !important;
 }
-.rows{
+.rainbond_rows{
     display: flex;
     height: 46px;
 }
-.spanTitle{
+.rainbond_spanTitle{
     width: 240px;
     color: #808080;
     font-size: 14px;
 }
-.databaseBox{
+.rainbond_databaseBox{
     margin-left: 40px;
 }
-.dataInput{
+.rainbond_dataInput{
     width: 240px !important;
     height: 26px;
     border: 1px solid #808080 !important;
@@ -80,26 +80,26 @@
     padding-left: 4px;
     display: inline-block;
 }
-.dataTitle{
+.rainbond_dataTitle{
     width: 100px;
     color: #808080;
     font-size: 14px;
 }
-.rowsTitle{
+.rainbond_rowsTitle{
     display: flex;
-    margin-left: 120px;
+    margin-left: 140px;
     margin-bottom: -12px;
 }
-.console{
+.rainbond_console{
     width: 240px;
     color: #808080;
 }
-.region{
+.rainbond_region{
     width: 240px;
     margin-left: 40px;
     color: #808080;
 }
-.btn{
+.rainbond_btn{
     width: 160px;
     height: 40px;
     border-radius: 5px;
@@ -109,27 +109,25 @@
     cursor: pointer;
     margin-top: 30px;
 }
-.btnBox{
+.rainbond_btnBox{
     padding-bottom: 60px;
 }
-.DAinputs{
+.rainbond_DAinputs{
     width: 110px;
     height: 26px;
     margin-right: 10px;
     padding-left: 4px;
-    border-radius: 4px;
 }
-.icons{
+.rainbond_icons{
     margin-top: 4px;
     font-size: 18px;
     color: #808080;
 }
-.copyContent{
+.rainbond_copyContent{
     width: 100%;
     height: 260px;
     background-color: #4a4a4a;
     margin-top: 20px;
-    /* border: 2px solid #4E73B1; */
     border-radius: 4px;
     position: relative;
     padding: 24px;
@@ -137,14 +135,14 @@
     color: #fff;
     overflow: auto;
 }
-.iconCopy{
+.rainbond_iconCopy{
     font-size: 18px;
     position: absolute;
     right: 1%;
     top: 3%;
     color: #fff;
 }
-.iconCopys{
+.rainbond_iconCopys{
     font-size: 18px;
     position: absolute;
     right: 1%;
@@ -159,12 +157,23 @@
 .ant-form-item-control-input-content{
     display: flex;
 }
-.formItem{
+.rainbond_formItem{
     margin-top: 10px;
 }
-.spanCommand{
+.rainbond_spanCommand{
     display: block;
     width: 100%;
     height: 30px;
     line-height: 30px;
+}
+.message-tiny{
+    width: 100vw;
+    text-align: center;
+    position: fixed;
+    top: 20% !important;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 0;
+    z-index: 10000 !important;
 }

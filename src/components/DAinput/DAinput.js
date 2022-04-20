@@ -86,16 +86,16 @@ export default class DAinputs extends Component {
         {values.map((item, index) => {
           const first = index === 0;
           return (
-            <div className="rowsLeft" key={index}>
-              <div className="rows">
-                <span className="spanTitle">节点配置</span>
+            <div className="rainbond_rowsLeft" key={index}>
+              <div className="rainbond_rows">
+                <span className="rainbond_spanTitle">节点配置</span>
                 <Input
                   name="externalIP"
                   onChange={e => {
                     this.onRegexChange(e.target.value, index);
                   }}
                   
-                  className="DAinputs"
+                  className="rainbond_DAinputs"
                   value={item.externalIP}
                   placeholder={externalIPPlaceholder}
                 />
@@ -104,7 +104,7 @@ export default class DAinputs extends Component {
                   onChange={e => {
                     this.onReplacementChange(e.target.value, index);
                   }}
-                  className="DAinputs"
+                  className="rainbond_DAinputs"
                   value={item.internalIP}
                   placeholder={repPlaceholder}
                 />
@@ -113,15 +113,15 @@ export default class DAinputs extends Component {
                   onChange={e => {
                     this.onFlagChange(e.target.value, index);
                   }}
-                  className="DAinputs"
+                  className="rainbond_DAinputs"
                   value={item.namePlaceholder}
                   placeholder={namePlaceholder}
                 />
                 {
                   first ? (
-                    <PlusCircleOutlined onClick={() => this.add()} className="icons" />
+                    <PlusCircleOutlined onClick={() => this.add()} className="rainbond_icons" />
                   ):(
-                    <MinusCircleOutlined onClick={() => this.remove(index)} className="icons"/>
+                    <MinusCircleOutlined onClick={() => this.remove(index)} className="rainbond_icons"/>
                   )
                 }
               </div>
