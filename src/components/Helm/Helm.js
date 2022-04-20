@@ -1,9 +1,8 @@
-import { Button, Form, Input, Radio, Space, Icon, message, Alert } from 'antd'
+import { Button, Form, Input, Radio, Space, Icon, Alert } from 'antd'
 import { PlusCircleOutlined, CopyOutlined } from '@ant-design/icons'
 import LayoutProviders from '@theme/LayoutProviders';
 import React, { Component } from 'react'
 import axios from 'axios'
-import 'antd/dist/antd.css'
 import copy from 'copy-to-clipboard'
 import DAinputs from '../DAinput/DAinput'
 import BuildInput from '../DAinput/BuildInput'
@@ -83,6 +82,7 @@ export default class index extends Component {
             mirroringPass: null,
             copyColor: false,
             btnFlog: false,
+            btnLoading:false,
             command: '',
             resCommand: [],
             copyCommand:''
@@ -145,6 +145,7 @@ export default class index extends Component {
         dataObj.nodesForGateway.enable = e.target.value
     }
     onFinish = (e) => {
+        this.setState({btnLoading:true})
         if (e) {
             dataObj.gatewayIngressIPs = e.gatewayIngressIPs || ''
             dataObj.imageHub.domain = e.domain || ''
@@ -182,7 +183,8 @@ export default class index extends Component {
                         command: res.data.command,
                         resCommand: resArr,
                         copyCommand:resArrCopy,
-                        btnFlog: true
+                        btnFlog: true,
+                        btnLoading:false
                     })
                 }
             })
@@ -206,7 +208,8 @@ export default class index extends Component {
             btnFlog,
             command,
             resCommand,
-            copyCommand
+            copyCommand,
+            btnLoading
         } = this.state
         return (
             <LayoutProviders>
@@ -601,7 +604,7 @@ export default class index extends Component {
 
                         <div className="btnBox">
                             <Form.Item wrapperCol={{ offset: 0, span: 20 }}>
-                                <Button className="btn" type="primary" htmlType="submit" >一键生成安装命令</Button>
+                                <Button className="btn" loading={btnLoading} type="primary" htmlType="submit" >一键生成安装命令</Button>
                             </Form.Item>
                         </div>
                     </Form>
