@@ -1,7 +1,6 @@
 import { Input, notification, Form } from 'antd';
 import { PlusCircleOutlined, MinusCircleOutlined } from '@ant-design/icons'
 import React, { Component } from 'react';
-import message from 'message-tiny'
 import '../Helm/index.css'
 
 export default class BuildInput extends Component {
@@ -39,12 +38,7 @@ export default class BuildInput extends Component {
             });
             return null;
         } else if (values.length % 2 !== 0) {
-            const div = document.createElement('div')
-            div.innerHTML = `<div style="display:flex; flex-flow:row; align-items:center;">
-                            <span style="margin-top:6px;"><svg t="1650433855381" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3363" width="40" height="40"><path d="M800.5 512c0 159.3-129.1 288.5-288.5 288.5-99.6 0-187.4-50.4-239.2-127.2-31.1-46-49.3-101.5-49.3-161.3 0-159.3 129.1-288.5 288.5-288.5S800.5 352.7 800.5 512z" fill="#FC355D" p-id="3364"></path><path d="M556.9 512l60.9-60.9c12.4-12.4 12.4-32.5 0-44.9-12.4-12.4-32.5-12.4-44.9 0L512 467.1l-60.9-60.9c-12.4-12.4-32.5-12.4-44.9 0-12.4 12.4-12.4 32.5 0 44.9l60.9 60.9-60.9 60.9c-12.4 12.4-12.4 32.5 0 44.9 6.2 6.2 14.3 9.3 22.5 9.3s16.3-3.1 22.5-9.3l60.9-60.9 60.9 60.9c6.2 6.2 14.3 9.3 22.5 9.3 8.1 0 16.3-3.1 22.5-9.3 12.4-12.4 12.4-32.5 0-44.9L556.9 512z" fill="#FFFFFF" p-id="3365"></path></svg></span>
-                            <span>Etcd节点个数必须为奇数</span>
-                            </div>`
-            message(div, 6000)
+            
         }
         this.setState({
             values: values.concat({ ip: '' }),
@@ -55,12 +49,7 @@ export default class BuildInput extends Component {
     remove = index => {
         const { values } = this.state;
         if (values.length % 2 !== 0) {
-            const div = document.createElement('div')
-            div.innerHTML = `<div style="display:flex; flex-flow:row; align-items:center;">
-                            <span style="margin-top:6px;"><svg t="1650433855381" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3363" width="40" height="40"><path d="M800.5 512c0 159.3-129.1 288.5-288.5 288.5-99.6 0-187.4-50.4-239.2-127.2-31.1-46-49.3-101.5-49.3-161.3 0-159.3 129.1-288.5 288.5-288.5S800.5 352.7 800.5 512z" fill="#FC355D" p-id="3364"></path><path d="M556.9 512l60.9-60.9c12.4-12.4 12.4-32.5 0-44.9-12.4-12.4-32.5-12.4-44.9 0L512 467.1l-60.9-60.9c-12.4-12.4-32.5-12.4-44.9 0-12.4 12.4-12.4 32.5 0 44.9l60.9 60.9-60.9 60.9c-12.4 12.4-12.4 32.5 0 44.9 6.2 6.2 14.3 9.3 22.5 9.3s16.3-3.1 22.5-9.3l60.9-60.9 60.9 60.9c6.2 6.2 14.3 9.3 22.5 9.3 8.1 0 16.3-3.1 22.5-9.3 12.4-12.4 12.4-32.5 0-44.9L556.9 512z" fill="#FFFFFF" p-id="3365"></path></svg></span>
-                            <span>Etcd节点个数必须为奇数</span>
-                            </div>`
-            message(div, 6000)
+            
         }
         values.splice(index, 1);
         this.setValues(values);

@@ -12,21 +12,22 @@
     border: 1px solid #ccc;
     background-color: #000;
 }
+
 [data-theme='dark'] .rainbond_heard{
     padding: 12px;
     border-bottom: 1px solid #ccc;
     background-color: #000;
-}
-.rainbond_heard{
-    padding: 12px;
-    border-bottom: 1px solid #ccc;
-    background-color: #fff;
 }
 [data-theme='dark'] .rainbond_content{
     width: 100%;
     padding:0px 40px;
     margin: 0 auto;
     background-color: #000;
+}
+.rainbond_heard{
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
 }
 .rainbond_content{
     width: 100%;

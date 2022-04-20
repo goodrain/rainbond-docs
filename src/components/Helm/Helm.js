@@ -2,7 +2,6 @@ import { Button, Form, Input, Radio, Space, Icon, Alert } from 'antd'
 import { PlusCircleOutlined, CopyOutlined } from '@ant-design/icons'
 import LayoutProviders from '@theme/LayoutProviders';
 import React, { Component } from 'react';
-import message from 'message-tiny'
 import axios from 'axios'
 import copy from 'copy-to-clipboard'
 import DAinputs from '../DAinput/DAinput'
@@ -83,6 +82,7 @@ export default class index extends Component {
             mirroringPass: null,
             copyColor: false,
             btnFlog: false,
+            btnLoading:false,
             command: '',
             resCommand: [],
             copyCommand: '',
@@ -183,7 +183,7 @@ export default class index extends Component {
                     this.setState({
                         command: res.data.command,
                         resCommand: resArr,
-                        copyCommand: resArrCopy,
+                        copyCommand:resArrCopy,
                         btnFlog: true,
                         btnLoading:false
                     })
@@ -591,12 +591,6 @@ export default class index extends Component {
                                                 copyColor: true
                                             })
                                             copy(copyCommand)
-                                            const div = document.createElement('div')
-                                                div.innerHTML = `<div style="display:flex; flex-flow:row; align-items:center;">
-                                                <span style="margin-top:6px; margin-right:4px;"><svg t="1650435078118" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4285" width="20" height="20"><path d="M512 1024a512 512 0 1 1 0-1024 512 512 0 0 1 0 1024z m-71.318588-361.411765a29.334588 29.334588 0 0 0 20.48-8.252235L774.625882 349.364706a27.708235 27.708235 0 0 0 0-39.936 29.575529 29.575529 0 0 0-41.08047 0l-292.74353 284.912941L290.454588 448.150588a29.575529 29.575529 0 0 0-41.08047 0 27.708235 27.708235 0 0 0 0 39.996236l170.706823 166.128941a29.274353 29.274353 0 0 0 20.540235 8.252235z" fill="#33A954" p-id="4286"></path></svg></span>
-                                                <span>复制成功</span>
-                                                </div>`
-                                                message(div, 6000)
                                         }}
                                     />
                                     {resCommand.length > 0 && resCommand.map((item, index) => {
@@ -609,12 +603,12 @@ export default class index extends Component {
                                 </div>
                             )}
 
-                            <div className="rainbond_btnBox">
-                                <Form.Item wrapperCol={{ offset: 0, span: 20 }}>
-                                    <Button className="rainbond_btn" loading={btnLoading} type="primary" htmlType="submit" >一键生成安装命令</Button>
-                                </Form.Item>
-                            </div>
-                        </Form>
+                        <div className="rainbond_btnBox">
+                            <Form.Item wrapperCol={{ offset: 0, span: 20 }}>
+                                <Button className="rainbond_btn" loading={btnLoading} type="primary" htmlType="submit" >一键生成安装命令</Button>
+                            </Form.Item>
+                        </div>
+                    </Form>
                     </div>
                 </div>
             </LayoutProviders>
