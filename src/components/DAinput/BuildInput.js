@@ -69,9 +69,9 @@ export default class BuildInput extends Component {
         {values.map((item, index) => {
           const first = index === 0;
           return (
-            <div className="rowsLeft" key={index}>
-              <div className="rows">
-                <span className="spanTitle">节点名称</span>
+            <div className="rainbond_rowsLeft" key={index}>
+              <div className="rainbond_rows">
+                <span className="rainbond_spanTitle">节点名称</span>
                 <Form.Item
                   rules={[
                     { required: true, message: '内容不能为空' }
@@ -82,16 +82,16 @@ export default class BuildInput extends Component {
                   onChange={e => {
                     this.onRegexChange(e.target.value, index);
                   }}
-                  className="inputs"
+                  className="rainbond_inputs"
                   value={item.name}
                   placeholder={namePlaceholder}
                 />
                 </Form.Item>
                 {
                   first ? (
-                    <PlusCircleOutlined onClick={() => this.add()} className="icons" />
+                    <PlusCircleOutlined onClick={() => this.add()} className="rainbond_icons" />
                   ):(
-                    <MinusCircleOutlined onClick={() => this.remove(index)} className="icons"/>
+                    <MinusCircleOutlined onClick={() => this.remove(index)} className="rainbond_icons"/>
                   )
                 }
               </div>

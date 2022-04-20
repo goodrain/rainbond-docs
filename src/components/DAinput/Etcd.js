@@ -1,4 +1,4 @@
-import { Input, notification, Form , message} from 'antd';
+import { Input, notification, Form } from 'antd';
 import { PlusCircleOutlined, MinusCircleOutlined } from '@ant-design/icons'
 import React, { Component } from 'react';
 import '../Helm/index.css'
@@ -37,10 +37,8 @@ export default class BuildInput extends Component {
                 message: '最多添加100个'
             });
             return null;
-        }else if( values.length%2 !== 0 ){
-            notification.error({
-                message: 'etcd节点添加个数必须为奇数'
-            });
+        } else if (values.length % 2 !== 0) {
+            
         }
         this.setState({
             values: values.concat({ ip: '' }),
@@ -50,10 +48,8 @@ export default class BuildInput extends Component {
 
     remove = index => {
         const { values } = this.state;
-        if( values.length%2 !== 0 ){
-            notification.error({
-                message: 'etcd节点添加个数必须为奇数'
-            });
+        if (values.length % 2 !== 0) {
+            
         }
         values.splice(index, 1);
         this.setValues(values);
@@ -81,30 +77,30 @@ export default class BuildInput extends Component {
                     const first = index === 0;
                     return (
                         <div key={index}>
-                            <div className="rows">
-                                <span className="spanTitle">节点名称</span>
+                            <div className="rainbond_rows">
+                                <span className="rainbond_spanTitle">节点名称</span>
                                 <Form.Item
                                     rules={[
                                         { required: true, message: '内容不能为空' }
                                     ]}
                                 >
-                                <Input
-                                    name="ip"
-                                    onChange={e => {
-                                        this.onRegexChange(e.target.value, index);
-                                    }}
-                                    className="inputs"
-                                    value={item.ip}
-                                    placeholder={regexPlaceholder}
-                                />
+                                    <Input
+                                        name="ip"
+                                        onChange={e => {
+                                            this.onRegexChange(e.target.value, index);
+                                        }}
+                                        className="rainbond_inputs"
+                                        value={item.ip}
+                                        placeholder={regexPlaceholder}
+                                    />
                                 </Form.Item>
-                            {
-                                first?(
-                                <PlusCircleOutlined onClick={() => this.add()} className="icons" />
-                                ): (
-                                    <MinusCircleOutlined onClick={() => this.remove(index)} className="icons" />
-                                )
-                            }
+                                {
+                                    first ? (
+                                        <PlusCircleOutlined onClick={() => this.add()} className="rainbond_icons" />
+                                    ) : (
+                                        <MinusCircleOutlined onClick={() => this.remove(index)} className="rainbond_icons" />
+                                    )
+                                }
                             </div>
                         </div>
                     );
