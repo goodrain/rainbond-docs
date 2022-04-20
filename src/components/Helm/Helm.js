@@ -85,7 +85,8 @@ export default class index extends Component {
             btnFlog: false,
             command: '',
             resCommand: [],
-            copyCommand: ''
+            copyCommand: '',
+            btnLoading:false
         };
     }
 
@@ -145,6 +146,7 @@ export default class index extends Component {
         dataObj.nodesForGateway.enable = e.target.value
     }
     onFinish = (e) => {
+        this.setState({btnLoading:true})
         if (e) {
             dataObj.gatewayIngressIPs = e.gatewayIngressIPs || ''
             dataObj.imageHub.domain = e.domain || ''
@@ -182,7 +184,8 @@ export default class index extends Component {
                         command: res.data.command,
                         resCommand: resArr,
                         copyCommand: resArrCopy,
-                        btnFlog: true
+                        btnFlog: true,
+                        btnLoading:false
                     })
                 }
             })
@@ -206,7 +209,8 @@ export default class index extends Component {
             btnFlog,
             command,
             resCommand,
-            copyCommand
+            copyCommand,
+            btnLoading
         } = this.state
         return (
             <LayoutProviders>
@@ -607,7 +611,7 @@ export default class index extends Component {
 
                             <div className="rainbond_btnBox">
                                 <Form.Item wrapperCol={{ offset: 0, span: 20 }}>
-                                    <Button className="rainbond_btn" type="primary" htmlType="submit" >一键生成安装命令</Button>
+                                    <Button className="rainbond_btn" loading={btnLoading} type="primary" htmlType="submit" >一键生成安装命令</Button>
                                 </Form.Item>
                             </div>
                         </Form>
