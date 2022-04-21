@@ -75,18 +75,13 @@ export default class index extends Component {
             database: false,
             build: false,
             gateway: false,
-            ipValue: null,
-            mirroringDomain: null,
-            mirroringName: null,
-            nameSpace: null,
-            mirroringPass: null,
             copyColor: false,
             btnFlog: false,
-            btnLoading:false,
+            btnLoading: false,
             command: '',
             resCommand: [],
             copyCommand: '',
-            btnLoading:false
+            btnLoading: false,
         };
     }
 
@@ -145,8 +140,9 @@ export default class index extends Component {
         });
         dataObj.nodesForGateway.enable = e.target.value
     }
+    //表单事件
     onFinish = (e) => {
-        this.setState({btnLoading:true})
+        this.setState({ btnLoading: true })
         if (e) {
             dataObj.gatewayIngressIPs = e.gatewayIngressIPs || ''
             dataObj.imageHub.domain = e.domain || ''
@@ -169,26 +165,35 @@ export default class index extends Component {
             dataObj.database.regionDatabase.dbname = e.dbname2 || ''
             dataObj.nodesForChaos.nodes = e.nodesForChaos || []
             dataObj.nodesForGateway.nodes = e.nodesForGateway || []
-            axios({
-                method: 'post',
-                url: 'https://cloud.goodrain.com/enterprise-server/api/v1/helm/chart',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                data: dataObj
-            }).then((res) => {
-                if (res.status == 200) {
-                    const resArr = res.data.command.split(' & ')
-                    const resArrCopy = resArr.join('\n ')
-                    this.setState({
-                        command: res.data.command,
-                        resCommand: resArr,
-                        copyCommand:resArrCopy,
-                        btnFlog: true,
-                        btnLoading:false
-                    })
-                }
-            })
+            // 判断etcd节点个数是否为奇数
+            if (e.endpoints && e.endpoints.length % 2 === 0) {
+                this.setState({
+                    btnLoading:false
+                })
+                return null
+            } else {
+                axios({
+                    method: 'post',
+                    url: 'https://cloud.goodrain.com/enterprise-server/api/v1/helm/chart',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: dataObj
+                }).then((res) => {
+                    if (res.status == 200) {
+                        const resArr = res.data.command.split(' & ')
+                        const resArrCopy = resArr.join('\n ')
+                        this.setState({
+                            command: res.data.command,
+                            resCommand: resArr,
+                            copyCommand: resArrCopy,
+                            btnFlog: true,
+                            btnLoading: false
+                        })
+                    }
+                })
+            }
+
         }
     }
     render() {
@@ -200,12 +205,7 @@ export default class index extends Component {
             database,
             build,
             gateway,
-            ipValue,
             copyColor,
-            mirroringDomain,
-            mirroringName,
-            nameSpace,
-            mirroringPass,
             btnFlog,
             command,
             resCommand,
@@ -603,12 +603,12 @@ export default class index extends Component {
                                 </div>
                             )}
 
-                        <div className="rainbond_btnBox">
-                            <Form.Item wrapperCol={{ offset: 0, span: 20 }}>
-                                <Button className="rainbond_btn" loading={btnLoading} type="primary" htmlType="submit" >一键生成安装命令</Button>
-                            </Form.Item>
-                        </div>
-                    </Form>
+                            <div className="rainbond_btnBox">
+                                <Form.Item wrapperCol={{ offset: 0, span: 20 }}>
+                                    <Button className="rainbond_btn" loading={btnLoading} type="primary" htmlType="submit" >一键生成安装命令</Button>
+                                </Form.Item>
+                            </div>
+                        </Form>
                     </div>
                 </div>
             </LayoutProviders>

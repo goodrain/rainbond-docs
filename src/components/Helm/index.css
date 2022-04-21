@@ -1,10 +1,5 @@
-.rainbond_box{
-    width: 1200px;
-    margin: 90px auto;
-    padding: 14px;
-    border: 1px solid #ccc;
-    background-color: #f0f2f5;
-}
+
+/* 主题模式切换 */
 [data-theme='dark'] .rainbond_box{
     width: 1200px;
     margin: 90px auto;
@@ -24,11 +19,21 @@
     margin: 0 auto;
     background-color: #000;
 }
+/* 整体盒子 */
+.rainbond_box{
+    width: 1200px;
+    margin: 90px auto;
+    padding: 14px;
+    border: 1px solid #ccc;
+    background-color: #f0f2f5;
+}
+/* 头部 */
 .rainbond_heard{
     padding: 12px;
     border-bottom: 1px solid #ccc;
     background-color: #fff;
 }
+/* 内容 */
 .rainbond_content{
     width: 100%;
     padding:0px 40px;
@@ -173,14 +178,22 @@
     height: 30px;
     line-height: 30px;
 }
-.message-tiny{
-    width: 100vw;
-    text-align: center;
+/* 提示信息框 */
+.etcd_hint{
+    padding: 12px;
+    background-color: #fffbe6;
+    border-radius: 5px;
     position: fixed;
-    top: 20% !important;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 0;
-    z-index: 10000 !important;
+    top: 20%;
+    right: 1%;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 7%), 
+                0 2px 4px rgb(0 0 0 / 7%), 
+                0 4px 8px rgb(0 0 0 / 7%), 
+                0 8px 16px rgb(0 0 0 / 7%), 
+                0 16px 32px rgb(0 0 0 / 7%), 
+                0 32px 64px rgb(0 0 0 / 7%);
+    z-index: 10001;
+}
+.etcd_hint span{
+    margin-left: 4px;
 }
