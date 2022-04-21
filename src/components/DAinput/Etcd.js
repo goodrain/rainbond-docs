@@ -1,6 +1,7 @@
 import { Input, notification, Form } from 'antd';
-import { PlusCircleOutlined, MinusCircleOutlined } from '@ant-design/icons'
+import { PlusCircleOutlined, MinusCircleOutlined, ExclamationCircleOutlined } from '@ant-design/icons'
 import React, { Component } from 'react';
+import 'animate.css';
 import '../Helm/index.css'
 
 export default class BuildInput extends Component {
@@ -32,25 +33,16 @@ export default class BuildInput extends Component {
     }
     add = () => {
         const { values } = this.state;
-        if (values.length > 100) {
-            notification.warning({
-                message: '最多添加100个'
-            });
+        if (values.length > 99) {
             return null;
-        } else if (values.length % 2 !== 0) {
-            
-        }
+        } 
         this.setState({
             values: values.concat({ ip: '' }),
-            count: true
         });
     };
 
     remove = index => {
         const { values } = this.state;
-        if (values.length % 2 !== 0) {
-            
-        }
         values.splice(index, 1);
         this.setValues(values);
         this.triggerChange(values);
@@ -105,6 +97,19 @@ export default class BuildInput extends Component {
                         </div>
                     );
                 })
+                }
+                {
+                    values.length >1 && (values.length % 2 === 0 ? (
+                        <div className="etcd_hint animate__animated animate__bounceInRight">
+                            <ExclamationCircleOutlined twoToneColor="#ffe58f" />
+                            <span>Etcd节点个数必须为奇数</span>
+                        </div>
+                    ) : (
+                        <div className="etcd_hint animate__animated animate__bounceOutRight">
+                            <ExclamationCircleOutlined twoToneColor="#ffe58f" />
+                            <span>Etcd节点个数必须为奇数</span>
+                        </div>
+                    )) 
                 }
             </div >
         );
