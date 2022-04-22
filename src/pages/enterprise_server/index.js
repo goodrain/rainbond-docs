@@ -482,7 +482,7 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>高级监控</span>
+                    <span>高级监控和报警</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
