@@ -11,8 +11,9 @@ Rainbond所有支持的Oauth类型需要正常配置权限才能正常使用，�
 
 **进入 Settings→Developer settings→OAuth Apps→New OAuth App**
 
-![Github配置](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/d9e1d8d00dd71cf75406b5a2081bef6a.png)
-   
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/d9e1d8d00dd71cf75406b5a2081bef6a.png" width="50%" title="Github配置" />
+
+
 - **Application name:** 客户端名称，用户可自己定义
 - **Homepage URI:** Rainbond服务首页,如https://goodrain.me
 - **Authorization callback URL:** 回跳路径,该路径用于接收第三方平台返回的凭证，`homepage+/console/oauth/redirect`，如https://goodrain.me/console/oauth/redirect
@@ -23,7 +24,8 @@ Rainbond所有支持的Oauth类型需要正常配置权限才能正常使用，�
 
 **进入 User Settings→Applications**
 
-![Gitlab配置](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG63.png)
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG63.png" width="50%" title="Gitlab配置" />
+
 
 - **Name:** 客户端名称，用户可自己定义
 - **Redirect URI:** 回跳路径 该路径用于接收第三方平台返回的凭证 **homepage+/console/oauth/redirect** 如https://goodrain.me/console/oauth/redirect
@@ -34,7 +36,8 @@ Rainbond所有支持的Oauth类型需要正常配置权限才能正常使用，�
 
 进入 设置→第三方应用→创建应用
 
-![Gitee配置](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG64.png)
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/oauth2.0/WechatIMG64.png" width="50%" title="Gitee配置" />
+
 
 - **应用名称:** 客户端名称，用户可自己定义
 - **应用主页:** Rainbond服务首页 如https://goodrain.me

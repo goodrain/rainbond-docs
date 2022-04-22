@@ -1,6 +1,6 @@
 ---
-title: HTTPS证书管理
-description: Rainbond网关管理之HTTPs证书管理文档
+title: 自动签发证书
+description: Rainbond网关管理之HTTPs证书自动签发管理文档
 ---
 
 Rainbond 目前支持服务端证书管理，用于支持配置 HTTPS 访问策略。

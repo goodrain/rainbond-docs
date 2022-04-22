@@ -136,22 +136,7 @@ const sidebars = {
             'user-operations/Install-extension/mysql-ha'
           ]
         },
-        {
-          type: 'category',
-          label: '集群管理',
-          link: {
-            type: 'doc',
-            id: 'user-operations/cluster-manage/index'
-          },
-          items: [
-            'user-operations/cluster-manage/add-cluster',
-            'user-operations/cluster-manage/manage-cluster',
-            'user-operations/cluster-manage/manage-rke-cluster',
-            'user-operations/cluster-manage/init-region',
-            'user-operations/cluster-manage/init-region-storage',
-            'user-operations/cluster-manage/resource-limit'
-          ]
-        },
+        
         'user-operations/management/resource-cleanup',
         'user-operations/management/component-op',
         'user-operations/management/dashboard-op',
@@ -310,6 +295,87 @@ const sidebars = {
 
         {
           type: 'category',
+          label: '企业管理员指南',
+          link: {
+            type: 'doc',
+            id: 'use-manual/enterprise-manage/index'
+          },
+          items: [
+            'use-manual/enterprise-manage/overview/overview',
+            {
+              type: 'category',
+              label: '应用市场',
+              link: {
+                type: 'doc',
+                id: 'use-manual/enterprise-manage/appcenter/index'
+              },
+              items: [
+                'use-manual/enterprise-manage/appcenter/desc',
+                'use-manual/enterprise-manage/appcenter/application-template',
+                'use-manual/enterprise-manage/appcenter/share-app-market',
+                'use-manual/enterprise-manage/appcenter/add-app',
+                'use-manual/enterprise-manage/appcenter/app-specification'
+              ]
+            },
+            'use-manual/enterprise-manage/teams/create-team',
+            'use-manual/enterprise-manage/cluster-manage/index',
+            {
+              type: 'category',
+              label: '用户管理',
+              link: {
+                type: 'doc',
+                id: 'use-manual/enterprise-manage/user-manage/index'
+              },
+              items: [
+                'use-manual/enterprise-manage/user-manage/reset-admin-user-password',
+              ]
+            },
+            {
+              type: 'category',
+              label: '企业设置',
+              link: {
+                type: 'doc',
+                id: 'use-manual/enterprise-manage/enterprise-settings/index'
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: '基础设置',
+                  link: {
+                    type: 'doc',
+                    id: 'use-manual/enterprise-manage/enterprise-settings/base/index'
+                  },
+                  items: [
+                    'use-manual/enterprise-manage/enterprise-settings/base/user-register',
+                    'use-manual/enterprise-manage/enterprise-settings/base/cert-management',
+                    {
+                      type: 'category',
+                      label: 'OAuth2.0集成',
+                      link: {
+                        type: 'doc',
+                        id: 'use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/index'
+                      },
+                      items: [
+                        'use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/oauth-product-desc',
+                        'use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/oauth-conf',
+                        'use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/oauth-git',
+                        'use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/oauth-create'
+                      ]
+                    },
+                    'use-manual/enterprise-manage/enterprise-settings/base/component-registry',
+                    'use-manual/enterprise-manage/enterprise-settings/base/oss',                    
+                  ]
+                },  
+                'use-manual/enterprise-manage/enterprise-settings/admin-manage/admin-manage',
+                'use-manual/enterprise-manage/enterprise-settings/data-backup/index',          
+              ]
+                           
+            }
+          ]
+        },
+
+        {
+          type: 'category',
           label: '管理应用与服务组件',
           link: {
             type: 'doc',
@@ -327,8 +393,7 @@ const sidebars = {
               },
               items: [
                 'use-manual/user-manual/gateway/domain',
-                'use-manual/user-manual/gateway/tcpip',
-                'use-manual/user-manual/gateway/cert-management'
+                'use-manual/user-manual/gateway/tcpip'
               ]
             },
             {
@@ -465,79 +530,7 @@ const sidebars = {
             }
           ]
         },
-        {
-          type: 'category',
-          label: '管理企业',
-          link: {
-            type: 'doc',
-            id: 'use-manual/enterprise-manager/index'
-          },
-          items: [
-            {
-              type: 'category',
-              label: '用户管理',
-              link: {
-                type: 'doc',
-                id: 'use-manual/enterprise-manager/user-registration-login/index'
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: 'OAuth2.0集成',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/enterprise-manager/user-registration-login/oauth2.0/index'
-                  },
-                  items: [
-                    'use-manual/enterprise-manager/user-registration-login/oauth2.0/oauth-product-desc',
-                    'use-manual/enterprise-manager/user-registration-login/oauth2.0/oauth-conf',
-                    'use-manual/enterprise-manager/user-registration-login/oauth2.0/oauth-git',
-                    'use-manual/enterprise-manager/user-registration-login/oauth2.0/oauth-create'
-                  ]
-                },
-                'use-manual/enterprise-manager/user-registration-login/reset_admin_user_password',
-                'use-manual/enterprise-manager/user-registration-login/user-register'
-              ]
-            },
-            {
-              type: 'category',
-              label: '企业中台',
-              link: {
-                type: 'doc',
-                id: 'use-manual/enterprise-manager/enterprise/index'
-              },
-              items: [
-                'use-manual/enterprise-manager/enterprise/dashboad',
-                {
-                  type: 'category',
-                  label: '应用市场',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/enterprise-manager/enterprise/appcenter/index'
-                  },
-                  items: [
-                    'use-manual/enterprise-manager/enterprise/appcenter/desc',
-                    'use-manual/enterprise-manager/enterprise/appcenter/application-template',
-                    'use-manual/enterprise-manager/enterprise/appcenter/share-app-market',
-                    'use-manual/enterprise-manager/enterprise/appcenter/add-app',
-                    'use-manual/enterprise-manager/enterprise/appcenter/app-specification'
-                  ]
-                },
-                {
-                  type: 'category',
-                  label: '团队管理',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/enterprise-manager/enterprise/teams/index'
-                  },
-                  items: [
-                    'use-manual/enterprise-manager/enterprise/teams/create-team'
-                  ]
-                }
-              ]
-            }
-          ]
-        },
+
         'use-manual/usage_troubleshooting'
       ]
     },
