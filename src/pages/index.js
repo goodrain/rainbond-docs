@@ -6,7 +6,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import styles from './index.module.scss';
-
+import Cswiper from '../components/Cswiper'
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const [mask_config, setMask_config] = useState(false);
@@ -493,7 +493,7 @@ export default function Home() {
             观看视频学习 &nbsp;
             <span className={styles.how_rainbond}>Rainbond</span>
           </h1>
-          <div
+          {/* <div
             className={`${styles.carousel_container} carousel_container animate__animated animate__fadeInRightBig`}
           >
             <a
@@ -509,7 +509,8 @@ export default function Home() {
             >
               <img src='/img/video/quick.png' alt='' />
             </a>
-          </div>
+          </div> */}
+          <Cswiper />
         </section>
       </div>
       {/* 底部 */}
