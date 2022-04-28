@@ -12,11 +12,11 @@ description: 对于企业总览页面统计数据的说明
 |功能|简介|
 | ---- | --- |
 |总览|展示`企业信息，应用，组件，团队，集群资源`等信息|
-|应用市场|展示该企业下的应用模型，是企业数字资产的应用化产物，可以通过标准的方式安装到任何Rainbond平台或其他支持的云原生平台 ,参见 [应用市场](../../enterprise-manager/enterprise/appcenter/desc/) |
-|团队|在Rainbond中，团队是一个资源集合的概念，参见 [团队管理](../../enterprise-manager/enterprise/teams/create-team/) |
-|集群|在Rainbond企业版和公有云版本中，一个企业可以对接多个集群，参见 [集群管理](../../user-manual/component-op/basic-operation)|
-|用户|展示企业用户信息，`添加，删除，修改用户，密码` 等，参见 [用户管理](../../enterprise-manager/user-registration-login/user-register/)|
-|设置|`平台基础设置`及`企业管理员管理`|
+|应用市场|展示该企业下的应用模型，是企业数字资产的应用化产物，可以通过标准的方式安装到任何Rainbond平台或其他支持的云原生平台 ,参见 [应用市场](/docs/use-manual/enterprise-manage/appcenter/) |
+|团队|在Rainbond中，团队是一个资源集合的概念，参见 [团队管理](/docs/use-manual/enterprise-manage/teams/create-team) |
+|集群|在Rainbond企业版和公有云版本中，一个企业可以对接多个集群，参见 [集群管理](/docs/use-manual/enterprise-manage/cluster-manage/)|
+|用户|展示企业用户信息，`添加，删除，修改用户，密码` 等，参见 [用户管理](/docs/use-manual/enterprise-manage/user-manage/)|
+|设置|`平台基础设置`及`企业管理员管理`，参见 [企业设置](/docs/use-manual/enterprise-manage/enterprise-settings/)|
 
 ## 收藏功能
 
