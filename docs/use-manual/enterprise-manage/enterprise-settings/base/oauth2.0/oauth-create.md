@@ -21,4 +21,4 @@ description: 代码仓库免密构建组件，自动设置webhook
 
 通过 oauth 创建的组件我们可以在构建源处更换指定仓库的指定项目的指定版本进行构建
 
-> 关于构建组件细节问题，请参阅 [应用与组件创建](../../../component-create/creation-process/)
+> 关于构建组件细节问题，请参阅 [应用与组件创建](/docs/use-manual/component-create/creation-process)

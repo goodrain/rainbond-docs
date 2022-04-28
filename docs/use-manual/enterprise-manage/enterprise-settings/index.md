@@ -1,6 +1,6 @@
 ---
-title: 企业中台
-description: 本章节文档给予企业建立技术中台方面的实践给出参考
+title: 企业设置
+description: 本章节文档介绍企业基础设置相关内容
 ---
 
 ```mdx-code-block

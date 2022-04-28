@@ -63,7 +63,7 @@ Rainbond 采用 RKE 集群安装方案进行 Kubernetes 集群的自动化安装
 2）需要提供我们具有集群管理权限的 Kubeconfig 文件，同时确保 Rainbond 控制台所在网络可以使用该 Kubeconfig 与集群进行通信。
 3）节点的第一个节点需要确保 80, 443, 6060, 8443, 10254, 18080, 18081 端口处于空闲状态，若有安全组限制，请允许 80, 443, 6060, 8443。这些端口是 Rainbond 网关服务所需要的端口。
 
-![image-20210219141244746](https://static.goodrain.com/images/5.3/add-custom-cluster.png)
+![image-20210219141244746](https://static.goodrain.com/docs/5.6/cluster/Add-cluster-2.png)
 
 点击`接入Kubernetes集群`，初次添加将弹出对接 Kubernetes 集群窗口，需要填入正确的 Kubeconfig 文件确认即可。若通信正常，集群将显示在列表中处于运行中状态。该状态下即可进入下一步[集群初始化](#rainbond-集群的初始化)。
 
