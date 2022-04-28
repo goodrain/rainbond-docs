@@ -7,7 +7,7 @@ description: 基于共享库的应用同步
 
 ### 开发创造
 
-参考文档 [应用管理，分享管理](../../../user-manual/app-manage/share-app)
+参考文档 [应用管理，分享管理](/docs/use-manual/enterprise-manage/appcenter/share-app-market)
 
 ### 云端同步
 

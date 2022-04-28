@@ -22,7 +22,7 @@ description: 创建多个团队，通过多租户技术隔离资源
 
 - 安装好的 Rainbond 集群。
 
-- 完成了 [企业管理员注册](../../use-manual/enterprise-manager/user-registration-login/user-register/)。
+- 完成了 [企业管理员注册](/docs/use-manual/enterprise-manage/enterprise-settings/base/user-register)。
 
 ### 创建团队
 
@@ -30,13 +30,13 @@ description: 创建多个团队，通过多租户技术隔离资源
 
 同一个团队可以开通多个数据中心，并统一管理该团队在不同数据中心下的资源。
 
-创建团队的方法参见 [创建团队](../../use-manual/enterprise-manager/enterprise/teams/create-team/)。
+创建团队的方法参见 [创建团队](/docs/use-manual/enterprise-manage/teams/create-team)。
 
 尝试在默认数据中心创建 **开发团队**、**测试团队**。
 
 ### 创建用户
 
-通过 [普通用户注册](../../use-manual/enterprise-manager/user-registration-login/user-register/) 注册公司其他人员的用户，并根据企业的组织架构将用户分配到上一步所创建的各个团队中，并赋予合适的角色。
+通过 [普通用户注册](/docs/use-manual/enterprise-manage/enterprise-settings/base/user-register) 注册公司其他人员的用户，并根据企业的组织架构将用户分配到上一步所创建的各个团队中，并赋予合适的角色。
 
 单个用户可以在多个团队中扮演不同的角色，如果用户不属于某个团队，那么他将无法访问该团队下的所有资源，甚至无法在团队列表中看到这个团队。
 
