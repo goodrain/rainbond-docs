@@ -89,6 +89,7 @@ const sidebars = {
                 'user-operations/deploy/install-with-helm/k3s-install-with-helm',
                 'user-operations/deploy/install-with-helm/ack-install-with-helm',
                 'user-operations/deploy/install-with-helm/install-from-rancher',
+                'user-operations/deploy/install-with-helm/CCE-install-with-helm',
                 'user-operations/deploy/install-with-helm/vaules-config',
                 'user-operations/deploy/install-with-helm/uninstall-with-helm'
               ]
