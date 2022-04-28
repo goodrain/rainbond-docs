@@ -136,7 +136,22 @@ const sidebars = {
             'user-operations/Install-extension/mysql-ha'
           ]
         },
-        
+        {
+          type: 'category',
+          label: '集群管理',
+          link: {
+            type: 'doc',
+            id: 'user-operations/cluster-manage/index'
+          },
+          items: [
+            'user-operations/cluster-manage/add-cluster',
+            'user-operations/cluster-manage/manage-cluster',
+            'user-operations/cluster-manage/manage-rke-cluster',
+            'user-operations/cluster-manage/init-region',
+            'user-operations/cluster-manage/init-region-storage',
+            'user-operations/cluster-manage/resource-limit'
+          ]
+        },
         'user-operations/management/resource-cleanup',
         'user-operations/management/component-op',
         'user-operations/management/dashboard-op',
