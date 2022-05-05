@@ -170,7 +170,7 @@ const config = {
               },
               {
                 label: '联系我们',
-                to: 'https://www.goodrain.com'
+                to: 'https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg'
               }
             ]
           }
