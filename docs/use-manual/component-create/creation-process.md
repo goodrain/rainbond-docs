@@ -5,14 +5,14 @@ description: 本文介绍Rainbond创建组件的主要过程
 
 本篇文档介绍在 Rainbond 中创建组件的基础流程。
 
-### 前提条件
+## 前提条件
 
 1. 已完成团队的规划和创建。
 2. 集群资源充足。
 
 组件的创建目前有两个入口，分别是*团队视图/创建组件入口* 和 _应用视图/添加组件入口_ ，创建流程一致。
 
-### 从源码开始创建组件
+## 从源码开始创建组件
 
 下面将会以 Java 源码创建组件为例, 介绍在 Rainbond 上用源码创建组件流程。
 
@@ -40,7 +40,7 @@ description: 本文介绍Rainbond创建组件的主要过程
 [Html 语言参考](../component-create/language-support/html)  
 [定义 Dockerfile 的任意源代码参考](./language-support/dockefile)  
 
-#### Git 和 Svn 的使用
+### Git 和 Svn 的使用
 
 在创建组件时，根据代码仓库的类型选择 Git 或 SVN, 并正确填写该应用的代码仓库地址以及要使用的代码`分支`或 `tag`. Git 的默认分支是 `master`, SVN 的默认 tag 是 `trunk`。
 
@@ -64,7 +64,7 @@ git 获取代码时支持账号认证、Key 认证和 Oauth2.0 认证。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/ssh_login.jpg" title="使用SSH KEY作为授权方式"/>
 
-### 从 Docker 镜像创建
+## 从 Docker 镜像创建
 
 下面将会以 Nginx 的官方镜像为例, 介绍并演示在 Rainbond 上用 Docker 镜像创建组件的过程。
 与源码创建流程一样，不同的是提供的构建源信息和类型不同，流程如下：
@@ -87,7 +87,7 @@ git 获取代码时支持账号认证、Key 认证和 Oauth2.0 认证。
 - 如果私有仓库使用自签证书，Rainbond Chaos 组件所在节点需要配置私有仓库信任，参考运维文档。
 - 如果镜像仓库是私有的，请提供正确的账号密码信息。
 
-#### 示例部署带启动命令的镜像
+### 示例部署带启动命令的镜像
 
 - 通过 docker run 命令方式部署: `docker run -p 8490:8490 goodrain.me/test -s "ws://192.168.1.1:8490"`
 
@@ -101,10 +101,48 @@ git 获取代码时支持账号认证、Key 认证和 Oauth2.0 认证。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/modify.png" title="镜像启动命令后期更改示意图"/>
 
-### 从共享库安装
+## 从应用市场安装
 
-共享库中的应用模版（模型）是标准的 Rainbond 应用规范，从共享库安装过程只需要一键操作，找到要安装的应用，直接点击安装，选择需要安装到的应用即可。
+Rainbond 提出了一种应用模型 Rainbond Application Model（RAM），这是标准的 Rainbond 应用规范。基于该模型以及 Rainbond 的应用市场机制，最终实现了一键安装/升级。高度自动化的交付体验，提升了企业应用交付效率，降低交付成本。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/gongxiangku.png" title="从云端应用市场安装应用示意图"/>
+Rainbond 提供的应用市场分为两类: 
 
-这样, 一个共享库安装的应用就完成了，从共享库安装将是应用交付的关键流程，共享库的应用支持一键安装和持续升级。
+**1. 本地组件库**
+
+:::info
+
+本地组件库是 Rainbond 自带的应用市场，你在这个企业下发布的所有应用模版都可以保存在此。企业内部的其他用户可以通过从本地组件库安装应用模版来快速复制这个应用。发布到本地组件库可以参考: [制作可复用的应用模版](../../quick-start/get-start/release-to-market.md)。
+
+:::
+
+**2. 开源应用商店**
+
+:::info
+
+开源应用商店是由好雨科技官方支持的应用市场，所有 Rainbond 都可以对接该市场，并一键安装上面的应用。
+
+:::
+
+本地组件库与云应用市场的区别主要在于: 你在本地组件库中发布的应用，只能在部署的这套 Rainbond 环境中流转。而发布到云应用市场的应用，可以在多套 Rainbond 环境中一键安装。
+
+### 从开源应用商店安装应用
+
+当你部署完 Rainbond 时，点击左侧的应用市场按钮，选择开源应用商店，你将会看到如下页面。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/appstore.jpg" title="云端应用市场授权示意图"/>
+
+获取授权后，你将可以点击应用右侧的安装，如下图所示:
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/install-app.png" title="云端应用市场安装示意图"/>
+
+选择你要安装到的团队和应用，将会跳转到应用下，你可以看到应用拓扑图，它将会自动启动。接下来你就可以访问应用了
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/install-app-topological.png" title="云端应用市场安装应用拓扑图"/>
+
+### 从本地组件库安装应用
+
+当你部署完成 Rainbond 后，你可以参考[制作可复用的应用模版](../../quick-start/get-start/release-to-market.md)，制作出属于你的应用。此处，我们已制作出 WordPress 应用，与从云应用市场安装相同，点击右侧安装，一键安装完成后。你就可以访问到你自己的应用了。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/install-app-local.png" title="本地组件库安装应用示意图"/>
+
+从本地组件库安装将是应用交付的关键流程，本地组件库的应用支持一键安装和持续升级。
