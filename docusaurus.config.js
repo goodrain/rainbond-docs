@@ -88,6 +88,11 @@ const config = {
             position: 'left'
           },
           {
+            type: 'html',
+            position: 'right',
+            value: '<iframe src="https://ghbtns.com/github-btn.html?user=goodrain&repo=rainbond&type=star&count=true" frameborder="0" scrolling="0" width="105" height="20" title="GitHub" style="margin-top: 8px;"></iframe>',
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right'
           },
@@ -104,8 +109,12 @@ const config = {
           }
         ]
       },
-      hideableSidebar: true,
-      autoCollapseSidebarCategories: true,
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false, // 黑白切换按钮
