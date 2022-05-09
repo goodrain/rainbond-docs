@@ -9,7 +9,7 @@ Rainbond 自 V5.3 版本开始，加入了应用治理模式切换功能。应�
 
 - 内置 ServiceMesh 模式（默认）
   
-内置ServiceMesh模式需要用户显示的配置组件间的依赖关系，平台会在下游组件中自动注入 sidecar 容器组成 ServiceMesh 微服务架构，业务间通信地址统一为localhost（127.0.0.1）模式。作为 Rainbond 中默认的应用治理模式，通过 sidecar 实现了服务组件间 A/B 测试、智能路由、限流、熔断等治理功能。了解更多请参考 [服务间通信](../../user-manual/component-connection/regist_and_discover/)、 [基于 Rainbond 实现组件A/B测试](../../../expand/practices/app-dev/ab_testing)
+内置ServiceMesh模式需要用户显示的配置组件间的依赖关系，平台会在下游组件中自动注入 sidecar 容器组成 ServiceMesh 微服务架构，业务间通信地址统一为localhost（127.0.0.1）模式。作为 Rainbond 中默认的应用治理模式，通过 sidecar 实现了服务组件间 A/B 测试、智能路由、限流、熔断等治理功能。了解更多请参考 [服务间通信](/docs/use-manual/user-manual/component-connection/regist_and_discover/)、 [基于 Rainbond 实现组件A/B测试](/docs/expand/practices/app-dev/ab_testing)
 
 - Kubernetes 原生 Service 模式
 
@@ -42,7 +42,7 @@ NAMESPACE                          NAME                        TYPE        CLUST
 
 ### 通信变量的改动
 
-如果你不了解何为通信变量，请先阅读 [通信变量注入](../../user-manual/component-connection/connection_env/)。
+如果你不了解何为通信变量，请先阅读 [通信变量注入](/docs/use-manual/user-manual/component-connection/connection_env/)。
 
 对比于默认的内置 ServiceMesh 模式，Kubernetes 原生 Service 模式中依然存在通信变量。不一样的是，通信变量的值，不再是固定为 127.0.0.1 这一本地回环地址，而是变为了上文提及的内部域名。这一改动，是为了方便使用通信变量来确定依赖关系的用户，在不改动配置的情况下，依然可以正常的使用通信变量完成组件间的调用。
 

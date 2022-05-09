@@ -46,7 +46,7 @@ description: '基于阿里云 ACK 集群，使用 helm 从零开始安装 Rainbo
 
 ### 安装 Kubectl 命令行工具
 
-安装 [Kubectl](../../tools/kubectl) 命令行工具
+安装 [Kubectl](/docs/user-operations/tools/kubectl) 命令行工具
 
 
 ### 获取 kubeconfig 信息

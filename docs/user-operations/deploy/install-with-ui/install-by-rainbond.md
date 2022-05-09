@@ -9,7 +9,7 @@ weight: 1001
 ### 前提条件
 
 - 集群端服务器`8443`端口与控制台网络保持畅通；
-- 已安装 [grctl命令行工具](../../tools/grctl/#安装命令行工具)。
+- 已安装 [grctl命令行工具](/docs/user-operations/tools/grctl/#安装命令行工具)。
 
 ## 安装部署
 
@@ -22,7 +22,7 @@ weight: 1001
 
 Region Config文件内容获取方式如下：
 
-在已安装[grctl命令行工具](../../tools/grctl/#安装命令行工具)的节点上执行以下命令
+在已安装[grctl命令行工具](/docs/user-operations/tools/grctl/#安装命令行工具)的节点上执行以下命令
 
 ```bash
 grctl config

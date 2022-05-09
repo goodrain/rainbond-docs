@@ -84,6 +84,6 @@ MySQLD Exporter 插件已经定义好了一组监控点的配置，这组配置�
 
 ### 其他类型业务的自定义监控
 
-对于来自于源码构建的 JAVA 类应用，我们将 exporter 集成在构建过程中，其使用方式参考最佳实践： [为 JAVA 应用自定义监控](../../../expand/practices/app-dev/java-exporter)
+对于来自于源码构建的 JAVA 类应用，我们将 exporter 集成在构建过程中，其使用方式参考最佳实践： [为 JAVA 应用自定义监控](/docs/expand/practices/app-dev/java-exporter)
 
 

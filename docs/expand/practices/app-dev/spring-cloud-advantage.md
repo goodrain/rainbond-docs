@@ -30,7 +30,7 @@ Rainbond 会把 Spring Cloud 的每个微服务组件单独看待，并可以针
 - 构建源设置，包括 MAVEN 各种详细参数的设置、配置自动触发构建机制
 - 自定义环境变量配置、健康检测机制、权限管理
 
-> 了解服务管理的详情，请参见文档： [服务组件管理](../../../use-manual/user-manual/component-op/basic-operation)
+> 了解服务管理的详情，请参见文档： [服务组件管理](/docs/use-manual/user-manual/component-op/basic-operation)
 
 ### 性能监控
 
@@ -38,7 +38,7 @@ Rainbond 支持插件扩展方式的性能监控方案，支持对基于 Http、
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/advanced-scenarios/micro/spring_cloud/spring-cloud-advantage/spring-cloud-advantage-1.png" title="性能监控" width="100%" />
 
-> 了解性能监控的详情，请参见文档： [性能监控](../../../use-manual/user-manual/plugin-manage/tcm-plugin/)
+> 了解性能监控的详情，请参见文档： [性能监控](/docs/use-manual/team-manage/plugin-manage/tcm-plugin/)
 
 ### 垂直/水平伸缩
 

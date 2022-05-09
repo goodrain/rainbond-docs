@@ -75,7 +75,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-release-allinone
 
 - 当前使用的为阿里云服务器，拥有外网IP，在私有部署时服务器没有外网IP的情况下 IP地址和内网IP地址 **统一填写服务器IP地址** 即可。
 - 当前演示集群为3个节点，Kubernetes属性 ETCD、管理、计算属性 复用，在自行部署时**根据自身规划**选择节点属性即可。
-- kubernetes 集群的安装过程中可以自定义参数，请参考文档 [RKE集群配置](../../cluster-manage/manage-rke-cluster/)。
+- kubernetes 集群的安装过程中可以自定义参数，请参考文档 [RKE集群配置](/docs/user-operations/cluster-manage/manage-rke-cluster/)。
 
 <image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/add-host.png" title="节点列表" width="100%"/>
 
@@ -95,7 +95,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-release-allinone
 
 **自定义集群初始化参数**
 
-Rainbond 的安装部署过程中可以自定义集群初始化参数，在初始化平台集群界面进行配置，具体参数参考文档 [初始化Rainbond集群参数说明](../../cluster-manage/init-region/)。
+Rainbond 的安装部署过程中可以自定义集群初始化参数，在初始化平台集群界面进行配置，具体参数参考文档 [初始化Rainbond集群参数说明](/docs/user-operations/cluster-manage/init-region/)。
 
 <image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/custom-parameters.jpg" title="自定义集群参数" width="100%"/>
 

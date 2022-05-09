@@ -19,7 +19,7 @@ Rainbond 把广泛支撑企业应用作为首要目标，广泛支撑企业应�
 
 具体从三方面入手：
 
-- 在开发阶段，对接代码仓库，自动识别 [开发语言类型](../../use-manual/component-create/creation-process)，不改变开发者习惯，尽量最大可能不修改现有代码，直接编译、构建和运行。
+- 在开发阶段，对接代码仓库，自动识别 [开发语言类型](/docs/use-manual/component-create/creation-process)，不改变开发者习惯，尽量最大可能不修改现有代码，直接编译、构建和运行。
 
 - 在架构阶段，如果已有系统没有分布式架构，Rainbond 提供 Service Mesh 架构，业务模块不改代码就能变成微服务架构。
 

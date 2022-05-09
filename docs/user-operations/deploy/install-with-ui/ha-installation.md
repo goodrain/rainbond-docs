@@ -46,7 +46,7 @@ Rainbond需要使用MySQL存储控制台及集群端数据，若用户已有高�
 - 推荐数据库与Rainbond集群**网络**在同一内网范围内。
 
 
-若还没有高可用数据库可根据[参考文档](../../install-extension/mysql-ha/)部署MySQL主从复制。
+若还没有高可用数据库可根据[参考文档](/docs/user-operations/install-extension/mysql-ha/)部署MySQL主从复制。
 
 ### 四. 部署 Rainbond 控制台
 
@@ -104,7 +104,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-release-allinone
 
 4.安装`kubectl`命令。
 
-后续操作过程中需要使用`kubectl`命令创建高可用存储等资源，请参考文档[kubectl命令行工具](../../tools/kubectl/)安装命令。
+后续操作过程中需要使用`kubectl`命令创建高可用存储等资源，请参考文档[kubectl命令行工具](/docs/user-operations/tools/kubectl/)安装命令。
 
 
 ### 六. 对接存储
@@ -115,13 +115,13 @@ Rainbond支持多种共享存储解决方案，请根据如下场景进行选择
 
 基于用户自备的服务器或虚拟机部署Rainbond的情况下，推荐自行部署GlusterFS作为共享存储解决方案。
 
-部署请参考文档 [GlusterFS分布式存储](../../storage/deploy-glusterfs/) 。
+部署请参考文档 [GlusterFS分布式存储](/docs/user-operations/storage/deploy-glusterfs/) 。
 
 -  其它兼容NFS协议的共享存储
 
 如果用户拥有可使用的其他兼容NFS协议的共享存储，例如阿里云NAS存储，NFS存储(高可用环境不推荐)，Rainbond也可对接使用。
 
-具体请参考文档  [对接阿里云NAS](../../cluster-manage/init-region-storage/#对接阿里云NAS) 。
+具体请参考文档  [对接阿里云NAS](/docs/user-operations/cluster-manage/init-region-storage/#对接阿里云NAS) 。
 
 
 ### 七. 准备 负载均衡 或 Keepalived 
@@ -136,7 +136,7 @@ Rainbond网关节点需要 VIP 或 负载均衡 保证高可用性。
 
 若还没有负载均衡服务则可通过在网关节点部署Keepalived服务来确保网关的高可用性，通过该种方式网关节点为主备关系， Keepalived部署请参考：
 
-[CentOS keepalived配置](../../install-extension/centos_keepalived/) 或 [Ubuntu keepalived配置](../../install-extension/ubuntu_keepalived/)。
+[CentOS keepalived配置](/docs/user-operations/install-extension/centos_keepalived/) 或 [Ubuntu keepalived配置](/docs/user-operations/install-extension/ubuntu_keepalived/)。
 
 ### 八. 部署Rainbond
 
@@ -164,7 +164,7 @@ $ kubectl create secret generic rbd-etcd-secret -n rbd-system \
 
 **自定义集群初始化参数**
 
-高可用安装需要自定义集群初始化参数，在初始化平台集群界面进行配置，具体参数参考文档 [初始化Rainbond集群参数说明](../../cluster-manage/init-region/)。
+高可用安装需要自定义集群初始化参数，在初始化平台集群界面进行配置，具体参数参考文档 [初始化Rainbond集群参数说明](/docs/user-operations/cluster-manage/init-region/)。
 
 <image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/custom-parameters.jpg" title="自定义集群参数" width="100%"/>
 

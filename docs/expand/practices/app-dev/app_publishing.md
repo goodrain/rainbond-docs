@@ -22,7 +22,7 @@ Rainbond平台无状态组件滚动更新与有状态组件滚动更新区别：
 ### 前提条件
 
 1. 正常运行的 Rainbond，
-2. 运行中的测试组件，参考 [源码构建](../../../use-manual/component-create/language-support/html) 直接构建 [该项目](https://github.com/Aaron-23/teststatic)即可。
+2. 运行中的测试组件，参考 [源码构建](/docs/use-manual/component-create/language-support/html) 直接构建 [该项目](https://github.com/Aaron-23/teststatic)即可。
 
 ### 操作步骤
 
@@ -51,7 +51,7 @@ Rainbond平台无状态组件滚动更新与有状态组件滚动更新区别：
 ### 前提条件
 
 1. 正常运行的 Rainbond，
-2. 运行中的新旧两个版本测试组件，参考 [源码构建](../../../use-manual/component-create/language-support/html) 直接构建 [该项目](https://github.com/Aaron-23/teststatic)即可（在这里以master分支为旧版本，devel分支为新版本），
+2. 运行中的新旧两个版本测试组件，参考 [源码构建](/docs/use-manual/component-create/language-support/html) 直接构建 [该项目](https://github.com/Aaron-23/teststatic)即可（在这里以master分支为旧版本，devel分支为新版本），
 3. 拥有一个测试域名。
 
 ### 操作步骤
@@ -85,7 +85,7 @@ Rainbond平台无状态组件滚动更新与有状态组件滚动更新区别：
 ### 前提条件
 
 1. 正常运行的 Rainbond，
-2. 运行中的新旧两个版本测试组件，参考 [源码构建](../../../use-manual/component-create/language-support/html) 直接构建 [该项目](https://github.com/Aaron-23/teststatic)即可（在这里以master分支为旧版本，devel分支为新版本），
+2. 运行中的新旧两个版本测试组件，参考 [源码构建](/docs/use-manual/component-create/language-support/html) 直接构建 [该项目](https://github.com/Aaron-23/teststatic)即可（在这里以master分支为旧版本，devel分支为新版本），
 3. 拥有一个测试域名。
 
 ### 操作步骤
