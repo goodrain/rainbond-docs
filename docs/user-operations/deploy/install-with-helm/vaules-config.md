@@ -109,7 +109,8 @@ Cluster:
 ## 外部存储，直接填写storageClassName，true为开，false为关
   RWX:
     enable: false
-    storageClassName: glusterfs-simple
+    config:
+      storageClassName: glusterfs-simple
 
 ## 外部存储，直接填写storageClassName，true为开，false为关
   RWO:

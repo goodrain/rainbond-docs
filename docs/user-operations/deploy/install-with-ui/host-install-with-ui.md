@@ -17,6 +17,7 @@ description: '基于图形化界面，从主机开始安装 Rainbond '
 - 如果您使用 CentOS 7.* 操作系统，请务必提前 [升级内核版本](https://t.goodrain.com/t/topic/1305)；
 - 确保服务器 `80、443、6060、6443、7070、8443` 端口能够访问；
 - 服务器能够正常连接互联网，安装过程将从互联网下载所需资源。
+- 服务器已经安装 NFS 客户端
 
 ### 部署 Rainbond 控制台
 
@@ -31,6 +32,14 @@ curl sh.rainbond.com/install_docker | bash
 `备注:`
 
 该安装方式仅支持 Linux x86 操作系统。
+
+#### 安装 NFS 客户端
+
+如果服务器上有 NFS 客户端，则无需重复进行安装
+```bash
+yum -y install nfs-utils    # Cenots系统
+apt-get install nfs-common  # ubuntu系统
+```
 
 #### 启动 All-In-One 控制台
 
