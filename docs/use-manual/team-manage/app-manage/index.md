@@ -1,7 +1,8 @@
 ---
-title: 外网访问组件
-description: 该章节文档介绍如何通过配置网关策略访问Rainbond组件提供的服务
+title: '应用管理'
+description: '介绍团队视图应用总览以及应用的创建'
 ---
+
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

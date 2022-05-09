@@ -315,20 +315,6 @@ const sidebars = {
             id: 'use-manual/user-manual/index'
           },
           items: [
-            'use-manual/user-manual/join-team/join-team',
-            'use-manual/user-manual/app-create/app-create',
-            {
-              type: 'category',
-              label: '外网访问组件',
-              link: {
-                type: 'doc',
-                id: 'use-manual/user-manual/gateway/index'
-              },
-              items: [
-                'use-manual/user-manual/gateway/domain',
-                'use-manual/user-manual/gateway/tcpip'
-              ]
-            },
             {
               type: 'category',
               label: '组件间通信',
@@ -418,19 +404,6 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '插件开发',
-              link: {
-                type: 'doc',
-                id: 'use-manual/user-manual/plugin-manage/index'
-              },
-              items: [
-                'use-manual/user-manual/plugin-manage/plugin-design-develop',
-                'use-manual/user-manual/plugin-manage/mesh-plugin',
-                'use-manual/user-manual/plugin-manage/new-plugin'
-              ]
-            },
-            {
-              type: 'category',
               label: '应用运维',
               link: {
                 type: 'doc',
@@ -465,6 +438,84 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: '团队管理员指南',
+          link: {
+            type: 'doc',
+            id: 'use-manual/team-manage/index'
+          },
+          items: [
+            'use-manual/team-manage/overview/overview',
+            {
+              type: 'category',
+              label: '应用管理',
+              link: {
+                type: 'doc',
+                id: 'use-manual/team-manage/app-manage/index'
+              },
+              items: [
+                'use-manual/team-manage/app-manage/overview',
+                'use-manual/team-manage/app-manage/app-create',
+              ]
+            },
+            {
+              type: 'link',
+              label: '创建组件',
+              href: '/docs/use-manual/component-create/creation-process',
+            },
+            {
+              type: 'category',
+              label: '网关',
+              link: {
+                type: 'doc',
+                id: 'use-manual/team-manage/gateway/index'
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: '访问策略管理',
+                  link: {
+                    type: 'doc',
+                    id: 'use-manual/team-manage/gateway/rules/index'
+                  },
+                  items: [
+                    'use-manual/team-manage/gateway/rules/domain',
+                    'use-manual/team-manage/gateway/rules/tcpip',
+                  ]
+                },
+                'use-manual/team-manage/gateway/certs/index',
+              ]
+            },
+            {
+              type: 'category',
+              label: '插件',
+              link: {
+                type: 'doc',
+                id: 'use-manual/team-manage/plugin-manage/index'
+              },
+              items: [
+                'use-manual/team-manage/plugin-manage/plugin-design-develop',
+                'use-manual/team-manage/plugin-manage/mesh-plugin',
+                'use-manual/team-manage/plugin-manage/new-plugin',
+              ]
+            },
+            {
+              type: 'category',
+              label: '团队管理',
+              link: {
+                type: 'doc',
+                id: 'use-manual/team-manage/team-manage/index'
+              },
+              items: [
+                'use-manual/team-manage/team-manage/dynamic',
+                'use-manual/team-manage/team-manage/team-user',
+                'use-manual/team-manage/team-manage/open-cluster',
+                'use-manual/team-manage/team-manage/user-rule',
+              ]
+            },
+          ]
+        },
+        {
+          type: 'category',
           label: '企业管理员指南',
           link: {
             type: 'doc',
@@ -487,7 +538,18 @@ const sidebars = {
                 'use-manual/enterprise-manage/appcenter/app-specification'
               ]
             },
-            'use-manual/enterprise-manage/teams/create-team',
+            {
+              type: 'category',
+              label: '团队管理',
+              link: {
+                type: 'doc',
+                id: 'use-manual/enterprise-manage/teams/index',
+              },
+              items: [
+                'use-manual/enterprise-manage/teams/create-team',
+                'use-manual/enterprise-manage/teams/join-team',
+              ]
+            },
             'use-manual/enterprise-manage/cluster-manage/index',
             {
               type: 'category',
