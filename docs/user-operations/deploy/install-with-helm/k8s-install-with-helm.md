@@ -11,7 +11,15 @@ description: '基于已有的 k8s 集群，使用 helm 从零开始安装 Rainbo
 - 推荐[k8s版本](https://kubernetes.io/)：1.19+
 - 根分区磁盘保证50G+
 - 确保服务器 `80、443、6060、6443、7070、8443` 端口能够访问
+- 确保服务器安装了 NFS 客户端
 
+#### 安装 NFS 客户端
+
+如果服务器上有 NFS 客户端，则无需重复进行安装
+```bash
+yum -y install nfs-utils    # Cenots系统
+apt-get install nfs-common  # ubuntu系统
+```
 #### 安装步骤：
 
 - 创建rbd-system 命名空间
