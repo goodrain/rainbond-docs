@@ -65,6 +65,7 @@ const config = {
           src: 'img/rainbond.png',
           href: '/'
         },
+        hideOnScroll: true,
         // navbar的选项卡
         items: [
           {
@@ -87,11 +88,11 @@ const config = {
             label: '博客',
             position: 'left'
           },
-          {
-            type: 'html',
-            position: 'right',
-            value: '<iframe src="https://ghbtns.com/github-btn.html?user=goodrain&repo=rainbond&type=star&count=true" frameborder="0" scrolling="0" width="105" height="20" title="GitHub" style="margin-top: 8px;"></iframe>',
-          },
+          // {
+          //   type: 'html',
+          //   position: 'right',
+          //   value: '<iframe src="https://ghbtns.com/github-btn.html?user=goodrain&repo=rainbond&type=star&count=true" frameborder="0" scrolling="0" width="105" height="20" title="GitHub" style="margin-top: 8px;"></iframe>',
+          // },
           {
             type: 'docsVersionDropdown',
             position: 'right'
