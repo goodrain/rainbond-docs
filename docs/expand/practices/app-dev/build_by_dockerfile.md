@@ -42,4 +42,4 @@ weight: 4001
 
 相对于普通**Docker**环境的**优点**：
 
-对于需要不断调整**Dockerfile**的用户来说构建过程更加简单，通过参考[配置组件自动构建部署](../../../use-manual/user-manual/component-dev/auto_build/)可以借助**Github**的**Webhook**实现代码修改的同时完成镜像的更新操作。
+对于需要不断调整**Dockerfile**的用户来说构建过程更加简单，通过参考[配置组件自动构建部署](/docs/use-manual/user-manual/component-dev/auto_build/)可以借助**Github**的**Webhook**实现代码修改的同时完成镜像的更新操作。

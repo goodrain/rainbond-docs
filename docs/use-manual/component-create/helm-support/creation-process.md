@@ -62,7 +62,7 @@ kubectl patch storageclass rainbondvolumerwx  -p '{"metadata": {"annotations":{"
 
 #### 应用使用
 
-应用安装完毕后平台会将组件自动创建为 [k8s 类型的第三方组件](../thirdparty-service/thirdparty-create) ；在应用界面 **服务实例** 中会展示该应用下包含的所有组件，点击对应的组件名称，点击 **组件详情** 即可进入组件网络设置页面，在端口页面打开 **对外服务**，根据生成的 **访问策略** 即可访问到该应用，如果你部署的是 **中间件类** 服务，在此处打开 **对内服务** 即可被平台中的其他服务依赖使用。
+应用安装完毕后平台会将组件自动创建为 [k8s 类型的第三方组件](/docs/use-manual/component-create/thirdparty-service/thirdparty-create) ；在应用界面 **服务实例** 中会展示该应用下包含的所有组件，点击对应的组件名称，点击 **组件详情** 即可进入组件网络设置页面，在端口页面打开 **对外服务**，根据生成的 **访问策略** 即可访问到该应用，如果你部署的是 **中间件类** 服务，在此处打开 **对内服务** 即可被平台中的其他服务依赖使用。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/component_details.jpg" title="组件详情" width="100%"/>
 

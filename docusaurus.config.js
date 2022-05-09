@@ -229,46 +229,46 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath) {
-          if (existingPath.includes('docs/use-manual/component-create')) {
-            return [
-              existingPath.replace(
-                'docs/use-manual/component-create',
-                'docs/component-create'
-              )
-            ];
-          }
-          if (existingPath.includes('docs/use-manual/enterprise-manager')) {
-            return [
-              existingPath.replace(
-                'docs/use-manual/enterprise-manager',
-                'docs/enterprise-manager'
-              )
-            ];
-          }
-          if (existingPath.includes('docs/use-manual/user-manual')) {
-            return [
-              existingPath.replace(
-                'docs/use-manual/user-manual',
-                'docs/user-manual'
-              )
-            ];
-          }
-          if (existingPath.includes('docs/quick-start/get-start')) {
-            return [
-              existingPath.replace(
-                'docs/quick-start/get-start',
-                'docs/get-start'
-              )
-            ];
-          }
-          if (existingPath.includes('docs/quick-start/architecture/')) {
-            return [
-              existingPath.replace(
-                'docs/quick-start/architecture/',
-                'docs/architecture/'
-              )
-            ];
-          }
+          // if (existingPath.includes('docs/use-manual/component-create')) {
+          //   return [
+          //     existingPath.replace(
+          //       'docs/use-manual/component-create',
+          //       'docs/component-create'
+          //     )
+          //   ];
+          // }
+          // if (existingPath.includes('docs/use-manual/enterprise-manager')) {
+          //   return [
+          //     existingPath.replace(
+          //       'docs/use-manual/enterprise-manager',
+          //       'docs/enterprise-manager'
+          //     )
+          //   ];
+          // }
+          // if (existingPath.includes('docs/use-manual/user-manual')) {
+          //   return [
+          //     existingPath.replace(
+          //       'docs/use-manual/user-manual',
+          //       'docs/user-manual'
+          //     )
+          //   ];
+          // }
+          // if (existingPath.includes('docs/quick-start/get-start')) {
+          //   return [
+          //     existingPath.replace(
+          //       'docs/quick-start/get-start',
+          //       'docs/get-start'
+          //     )
+          //   ];
+          // }
+          // if (existingPath.includes('docs/quick-start/architecture/')) {
+          //   return [
+          //     existingPath.replace(
+          //       'docs/quick-start/architecture/',
+          //       'docs/architecture/'
+          //     )
+          //   ];
+          // }
           if (existingPath.includes('docs/expand/practices')) {
             return [
               existingPath.replace('docs/expand/practices', 'docs/practices')

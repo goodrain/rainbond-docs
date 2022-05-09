@@ -11,7 +11,7 @@ description: 本文解读Rainbond内置的服务注册与服务发现机制对�
 
 ### 前提条件
 
-1. 基于 Demo Java 源码部署组件 A [参考创建组件文档](../../component-create/creation-process)
+1. 基于 Demo Java 源码部署组件 A [参考创建组件文档](/docs/use-manual/component-create/creation-process)
 2. 基于云应用市场部署 Mysql 数据库组件 B
 
 ### 操作流程

@@ -496,6 +496,7 @@ const sidebars = {
                 'use-manual/team-manage/plugin-manage/plugin-design-develop',
                 'use-manual/team-manage/plugin-manage/mesh-plugin',
                 'use-manual/team-manage/plugin-manage/new-plugin',
+                'use-manual/team-manage/plugin-manage/tcm-plugin',
               ]
             },
             {

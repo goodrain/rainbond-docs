@@ -7,7 +7,7 @@ Rainbond 项目的终极目标是建设成为"企业应用操作系统",因此�
 
 ### 参与 Rainbond 项目
 
-- 了解 Rainbond[设计思想](../../quick-start/architecture/design-concept)和[技术架构](../../quick-start/architecture)
+- 了解 Rainbond[设计思想](/docs/quick-start/architecture/design-concept)和[技术架构](/docs/quick-start/architecture)
 - 了解 Rainbond 涉及的开源项目
   - [Rainbond](https://github.com/goodrain/rainbond) Rainbond 数据中心组件仓库
   - [Rainbond-Console](https://github.com/goodrain/rainbond-console) Rainbond 控制台业务层

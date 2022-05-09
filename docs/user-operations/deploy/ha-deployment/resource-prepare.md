@@ -138,4 +138,4 @@ Rainbond网关节点需要使用 **Keepalived** 或 **负载均衡** 保证高�
 平台会为HTTP类型的应用提供泛解析的域名，默认使用 `*.grapps.cn`的域名，安装时可自定义该域名，如果使用自定义域名，需要配置自定义泛域名的解析。
 
 
-**集群资源准备完毕后请参考 [高可用安装Rainbond集群](../install-with-ui/ha-installation) 文档进行集群部署。**
+**集群资源准备完毕后请参考 [高可用安装Rainbond集群](/docs/user-operations/deploy/install-with-ui/ha-installation) 文档进行集群部署。**

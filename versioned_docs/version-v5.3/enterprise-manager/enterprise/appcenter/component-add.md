@@ -9,7 +9,7 @@ hidden: true
 
 ### 开发创造
 
-参考文档 [应用管理，分享管理](/docs/user-manual/app-manage/share-app/)
+参考文档 [应用管理，分享管理](/docs/v5.3/user-manual/app-manage/share-app/)
 
 ### 云端同步
 
