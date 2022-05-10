@@ -1,9 +1,9 @@
 ---
-title: 应用备份恢复与迁移
+title: 应用备份
 description: Rainbond应用全量备份、迁移和恢复
 ---
 
-### 应用备份、恢复与迁移
+## 应用备份、恢复与迁移
 
 Rainbond目前提供应用级的全量备份功能，主要用于两类场景：
 
@@ -14,7 +14,7 @@ Rainbond备份功能目前的设计是全量的冷备份机制，传统意义上
 
 后续的版本中我们将以operator的方式支持有状态组件的数据热备份，然后接入应用整体备份流程中。即可实现对应用的完整热备份和定期备份。
 
-### 备份方式
+## 备份方式
 
 Rainbond目前提供了两种备份方式，分别是本地备份及云端备份
 
@@ -22,11 +22,11 @@ Rainbond目前提供了两种备份方式，分别是本地备份及云端备份
 
 **云端备份：** 支持对接 `阿里云OSS` 或 `自有Minio` ，备份后应用可进行跨集群的迁移，在任何具有Rainbond平台的地方均可进行恢复，可实现应用的快速迁移。
 
-### 应用备份
+## 应用备份
 
 从应用的操作列表中即可进入应用备份管理页面，备份操作分为 `本地备份` 和 `云端备份` 两种。
 
-#### 本地备份
+### 本地备份
 
 > 将一组应用备份在本地，本地备份的应用无法进行跨数据中心和租户的迁移操作。
 
@@ -42,26 +42,18 @@ Rainbond目前提供了两种备份方式，分别是本地备份及云端备份
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/allbackup.png)
 
-#### 云端备份
+### 云端备份
 
-> Rainbond企业版本支持，将备份数据存储于云端。
-
+:::tip
 提示：使用阿里云OSS时上传大小限制为5GB，所以超过5GB的应用在上传时会报错。
+:::
 
-- 在管理后台打开云端备份功能，填写相关信息
-
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/opening%20function.png)
-
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/Fill%20in%20information.png)
-
-- 在控制台备份应用时即可选择云端备份
-
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/Cloud%20Backup.png)
+在企业视图 -> 基本设置 -> [对象存储](/docs/use-manual/enterprise-manage/enterprise-settings/base/oss)，配置相关信息，即可使用云端备份
 
 云端备份的应用可以一键导出，在其他Rainbond集群中可直接导入，安装使用。
 
 
-### 备份恢复
+## 备份恢复
 
 恢复对于已经备份成功的一组应用，使用恢复可以将该组应用进行恢复操作。恢复通常是在当前应用出现不可解决的问题。
 恢复操作如下：
@@ -78,7 +70,7 @@ Rainbond目前提供了两种备份方式，分别是本地备份及云端备份
 
 应用恢复后网关访问策略需要用户手工配置。
 
-#### 导入备份
+### 导入备份
 
 导入备份适用于云端备份所导出的备份文件，云端备份在Rainbond企业版本中支持。
 
@@ -95,7 +87,7 @@ Rainbond目前提供了两种备份方式，分别是本地备份及云端备份
 此时即可将应用恢复至当前集群，并可执行`恢复`，`迁移`等操作。
 
 
-### 应用迁移
+## 应用迁移
 
 由于我们做到全局的全量备份，借此我们可以做到应用的整体迁移，包括跨租户迁移和跨集群迁移；跨租户和跨集群迁移Rainbond开源版暂不支持，企业版提供支持；开源版本支持同数据中心下的跨团队迁移。
 
@@ -105,7 +97,7 @@ Rainbond目前提供了两种备份方式，分别是本地备份及云端备份
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/transfer.png)
 
-- 企业版在迁移时可选择不同集群，跨Rainbond集群迁移
+- 如果是 `云端备份` 则可以使用跨集群迁移应用。
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-backup/Cross%20cluster%20migration.png)
 

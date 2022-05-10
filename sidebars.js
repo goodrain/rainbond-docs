@@ -340,7 +340,6 @@ const sidebars = {
                 'use-manual/user-manual/component-dev/build_and_version',
                 'use-manual/user-manual/component-dev/build_source',
                 'use-manual/user-manual/component-dev/auto_build',
-                'use-manual/user-manual/component-dev/app_copy',
                 'use-manual/user-manual/component-dev/service-env'
               ]
             },
@@ -403,36 +402,72 @@ const sidebars = {
                 'use-manual/user-manual/component-op/service-plugins'
               ]
             },
+          ]
+        },
+        {
+          type: 'category',
+          label: '应用管理员指南',
+          link: {
+            type: 'doc',
+            id: 'use-manual/app-manage/index'
+          },
+          items: [
             {
               type: 'category',
-              label: '应用运维',
+              label: '应用总览',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/app-manage/index'
+                id: 'use-manual/app-manage/overview/index'
               },
               items: [
-                'use-manual/user-manual/app-manage/app-topology',
-                'use-manual/user-manual/app-manage/operation',
-                'use-manual/user-manual/app-manage/add-service',
-                'use-manual/user-manual/app-manage/upgrade_app',
-                'use-manual/user-manual/app-manage/share-app',
-                'use-manual/user-manual/app-manage/config-group',
-                'use-manual/user-manual/app-manage/governance-model',
-                'use-manual/user-manual/app-manage/deploy-istio'
+                'use-manual/app-manage/overview/app-topology',
+                'use-manual/app-manage/overview/operation',
+                'use-manual/app-manage/overview/add-service',
+                'use-manual/app-manage/overview/app-copy',
+                {
+                  type: 'category',
+                  label: '应用治理模式',
+                  link: {
+                    type: 'doc',
+                    id: 'use-manual/app-manage/overview/model/governance-model'
+                  },
+                  items: [
+                    'use-manual/app-manage/overview/model/deploy-istio',
+                  ]
+                },
               ]
             },
+            'use-manual/app-manage/share-app',
+            'use-manual/app-manage/app-backup',
+            {
+              type: 'link',
+              label: '应用网关',
+              href: '/docs/use-manual/team-manage/gateway/',
+            },
+            {
+              type: 'category',
+              label: '应用升级',
+              link: {
+                type: 'doc',
+                id: 'use-manual/app-manage/app-upgrade/index'
+              },
+              items: [
+                'use-manual/app-manage/app-upgrade/upgrade-app',
+              ]
+            },
+            'use-manual/app-manage/config-group',
             {
               type: 'category',
               label: '构建微服务架构',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/architecture/index'
+                id: 'use-manual/app-manage/architecture/index'
               },
               items: [
-                'use-manual/user-manual/architecture/service_assembly',
-                'use-manual/user-manual/architecture/rate-limiting',
-                'use-manual/user-manual/architecture/traffic-management',
-                'use-manual/user-manual/architecture/network-visualization'
+                'use-manual/app-manage/architecture/service_assembly',
+                'use-manual/app-manage/architecture/rate-limiting',
+                'use-manual/app-manage/architecture/traffic-management',
+                'use-manual/app-manage/architecture/network-visualization'
               ]
             }
           ]
