@@ -59,3 +59,12 @@ NGINX_PORT=80
 - 依赖关系呈现的应用拓扑图非常直观好看。
 
 - 依赖关系可以用来传递通信变量，方便用户在不改动配置的情况下，可以正常的使用通信变量完成组件间的调用。
+
+### 切换至 istio 治理模式
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```

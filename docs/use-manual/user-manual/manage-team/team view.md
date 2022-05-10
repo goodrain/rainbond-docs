@@ -20,7 +20,7 @@ description: 团队视图总览
 
 #### 应用
 
-展示当前团队下所有的应用信息，组件数量，[应用备份](../app-manage/app-backup/)记录，[应用发布](../app-manage/share-app/)记录。
+展示当前团队下所有的应用信息，组件数量，[应用备份](/docs/use-manual/app-manage/app-backup)记录，[应用发布](/docs/use-manual/app-manage/share-app)记录。
 
 #### 热门访问域名
 
