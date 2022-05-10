@@ -196,7 +196,7 @@ const config = {
           '⭐️ If you like Rainbond, give it a star on <a target="_blank" href="https://github.com/goodrain/rainbond">GitHub</a> !'
       }
     }),
-  scripts: ['https://static.goodrain.com/docusaurus/baidu-statistics.js'],
+  scripts: ['https://static.goodrain.com/docusaurus/baidu-statistics.js', 'https://static.goodrain.com/docusaurus/posthog.js'],
   plugins: [
     [
       '@docusaurus/plugin-content-blog',
