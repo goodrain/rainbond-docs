@@ -30,7 +30,7 @@ Rainbond 会把 Spring Cloud 的每个微服务组件单独看待，并可以针
 - 构建源设置，包括 MAVEN 各种详细参数的设置、配置自动触发构建机制
 - 自定义环境变量配置、健康检测机制、权限管理
 
-> 了解服务管理的详情，请参见文档： [服务组件管理](/docs/use-manual/user-manual/component-op/basic-operation)
+> 了解服务管理的详情，请参见文档： [服务组件管理](/docs/use-manual/component-manage/overview/basic-operation)
 
 ### 性能监控
 

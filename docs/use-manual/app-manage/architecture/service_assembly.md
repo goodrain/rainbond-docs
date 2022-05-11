@@ -11,7 +11,7 @@ description: 本文描述基于 Rainbond 平台组装微服务架构应用
 ### 前提条件
 
 1. 已掌握 Rainbond 各种组件创建方式 [参考文档](/docs/use-manual//component-create/creation-process)
-2. 已掌握 Rainbond 组件间通信的原理和用法 [参考文档](/docs/use-manual//user-manual/component-connection/regist_and_discover)
+2. 已掌握 Rainbond 组件间通信的原理和用法 [参考文档](/docs/use-manual/component-manage/component-connection/regist_and_discover)
 3. 已掌握 Rainbond 服务网络治理插件用法 [参考文档](/docs/use-manual/team-manage/plugin-manage/new-plugin)
 
 ### 基于 ServiceMesh 组装

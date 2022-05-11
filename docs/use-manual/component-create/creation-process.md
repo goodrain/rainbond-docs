@@ -24,7 +24,7 @@ description: 本文介绍Rainbond创建组件的主要过程
 
 4. 检测完成后用户可以选择构建启动或进行高级设置，设置更多组件属性。若选择构建启动 Rainbond 将再次获取源代码根据代码检测的语言类型进行源码构建。请注意，源码类型只会在源码检测中读取，因此后续的开发过程如果更改了语言类型，需要触发重新代码检测。
 
-5. 组件构建完成后即可通过端口绑定的默认域名进行访问。后续的管理维护流程参阅 [组件开发](/docs/use-manual/user-manual/component-dev/build_and_version) [组件运维](/docs/use-manual/user-manual/component-op/basic-operation)
+5. 组件构建完成后即可通过端口绑定的默认域名进行访问。后续的管理维护流程参阅 [组件开发](/docs/use-manual/component-manage/build-source/build_and_version) [组件运维](/docs/use-manual/component-manage/overview/basic-operation)
 
 源码地址: https://github.com/goodrain/java-maven-demo.git
 
@@ -77,7 +77,7 @@ git 获取代码时支持账号认证、Key 认证和 Oauth2.0 认证。
 
 3. 应用检测通过后即可创建组件。
 
-4. 构建完成后即可访问组件。后续的管理维护流程参阅 后续的管理维护流程参阅 [组件开发](/docs/use-manual/user-manual/component-dev/build_and_version) [组件运维](/docs/use-manual/user-manual/component-op/basic-operation)
+4. 构建完成后即可访问组件。后续的管理维护流程参阅 后续的管理维护流程参阅 [组件开发](/docs/use-manual/component-manage/build-source/build_and_version) [组件运维](/docs/use-manual/component-manage/overview/basic-operation)
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/dockerconstruction.png" title="基于Docker镜像创建组件示意图"/>
 
