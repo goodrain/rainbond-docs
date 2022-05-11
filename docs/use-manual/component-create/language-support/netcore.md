@@ -43,7 +43,7 @@ dotnet publish -c Release
 BUILD_DOTNET_RESTORE_PRE=dotnet restore --ignore-failed-sources
 ```
 
-关于环境变量的设置参考 [服务环境变量](/docs/use-manual/user-manual/component-dev/service-env)
+关于环境变量的设置参考 [服务环境变量](/docs/use-manual/component-manage/env/)
 
 #### 项目运行
 

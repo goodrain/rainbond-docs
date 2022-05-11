@@ -309,96 +309,108 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '管理应用与服务组件',
+          label: '组件管理员指南',
           link: {
             type: 'doc',
-            id: 'use-manual/user-manual/index'
+            id: 'use-manual/component-manage/index'
           },
           items: [
+            {
+              type: 'category',
+              label: '组件总览',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-manage/overview/index'
+              },
+              items: [
+                'use-manual/component-manage/overview/basic-operation',
+                'use-manual/component-manage/overview/service-properties',
+                'use-manual/component-manage/overview/version-rollback',
+                'use-manual/component-manage/overview/operation-log',
+              ]
+            },
+            {
+              type: 'category',
+              label: '组件监控',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-manage/monitor/index'
+              },
+              items: [
+                'use-manual/component-manage/monitor/service-monitor',
+                'use-manual/component-manage/monitor/custom-monitor',
+              ]
+            },
+            'use-manual/component-manage/service-log',
+            {
+              type: 'category',
+              label: '组件伸缩',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-manage/automatic-telescoping/index'
+              },
+              items: [
+                'use-manual/component-manage/automatic-telescoping/service-auto-scaling'
+              ]
+            },
+            {
+              type: 'category',
+              label: '组件环境变量',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-manage/env/index'
+              },
+              items: [
+                'use-manual/component-manage/env/advanced-env'
+              ]
+            },
             {
               type: 'category',
               label: '组件间通信',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/component-connection/index'
+                id: 'use-manual/component-manage/component-connection/index'
               },
               items: [
-                'use-manual/user-manual/component-connection/regist_and_discover',
-                'use-manual/user-manual/component-connection/regist_and_discover_grpc',
-                'use-manual/user-manual/component-connection/connection_env'
+                'use-manual/component-manage/component-connection/regist_and_discover',
+                'use-manual/component-manage/component-connection/regist_and_discover_grpc',
+                'use-manual/component-manage/component-connection/connection_env'
               ]
             },
             {
               type: 'category',
-              label: '组件开发',
+              label: '组件存储',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/component-dev/index'
+                id: 'use-manual/component-manage/custom-volume/index'
               },
               items: [
-                'use-manual/user-manual/component-dev/build_and_version',
-                'use-manual/user-manual/component-dev/build_source',
-                'use-manual/user-manual/component-dev/auto_build',
-                'use-manual/user-manual/component-dev/service-env'
+                'use-manual/component-manage/custom-volume/service-volume-custom'
+              ]
+            },
+            'use-manual/component-manage/service-port-domain',
+            'use-manual/component-manage/service-plugins',
+            {
+              type: 'category',
+              label: '组件构建源',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-manage/build-source/index'
+              },
+              items: [
+                'use-manual/component-manage/build-source/build_and_version',
+                'use-manual/component-manage/build-source/auto_build',
               ]
             },
             {
               type: 'category',
-              label: '组件运维',
+              label: '组件其他设置',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/component-op/index'
+                id: 'use-manual/component-manage/other/index'
               },
               items: [
-                {
-                  type: 'category',
-                  label: '组件基本操作',
-                  items: [
-                    'use-manual/user-manual/component-op/basic-operation/basic-operation',
-                    'use-manual/user-manual/component-op/basic-operation/service-properties'
-                  ]
-                },
-                'use-manual/user-manual/component-op/service-log',
-                {
-                  type: 'category',
-                  label: '组件伸缩',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/user-manual/component-op/automatic-telescoping/index'
-                  },
-                  items: [
-                    'use-manual/user-manual/component-op/automatic-telescoping/service-scaling',
-                    'use-manual/user-manual/component-op/automatic-telescoping/service-auto-scaling'
-                  ]
-                },
-                {
-                  type: 'category',
-                  label: '组件存储',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/user-manual/component-op/custom-volume/index'
-                  },
-                  items: [
-                    'use-manual/user-manual/component-op/custom-volume/service-volume',
-                    'use-manual/user-manual/component-op/custom-volume/service-volume-custom'
-                  ]
-                },
-                'use-manual/user-manual/component-op/service-port-domain',
-                'use-manual/user-manual/component-op/custom-monitor',
-                'use-manual/user-manual/component-op/health',
-                {
-                  type: 'category',
-                  label: '组件性能分析与监控',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/user-manual/component-op/performance-analysis/index'
-                  },
-                  items: [
-                    'use-manual/user-manual/component-op/performance-analysis/service-monitor'
-                  ]
-                },
-                'use-manual/user-manual/component-op/service-other-set',
-                'use-manual/user-manual/component-op/service-plugins'
+                'use-manual/component-manage/other/service-other-set',
               ]
             },
           ]

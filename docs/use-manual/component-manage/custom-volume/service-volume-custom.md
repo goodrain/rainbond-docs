@@ -5,7 +5,7 @@ description: Rainbond组件自定义存储的管理文档
 
 ### 组件为什么需要自定义存储
 
-上篇文档 [组件存储设置](../custom-volume/service-volume) 讲到了 Rainbond 默认支持的几种存储类型，不同的企业不同的业务对存储的要求是不一样的。比如大数据业务对高性能存储的需求等。Rainbond 实现了自定义存储类型的需求，用户可以自己安装自定义存储类型供 Rainbond 使用，可以很好的解决 Rainbond 默认存储类型不能满足的高性能存储需求。
+上篇文档 [组件存储设置](./index) 讲到了 Rainbond 默认支持的几种存储类型，不同的企业不同的业务对存储的要求是不一样的。比如大数据业务对高性能存储的需求等。Rainbond 实现了自定义存储类型的需求，用户可以自己安装自定义存储类型供 Rainbond 使用，可以很好的解决 Rainbond 默认存储类型不能满足的高性能存储需求。
 
 现已支持的 [阿里云盘](/docs/user-operations/storage/ali-disk)、[ceph-rbd 块存储](/docs/user-operations/storage/ceph-rbd/) 两种自定义存储，都是经过详细测试并成功的案例。原则上其他存储类型也能正常使用。
 

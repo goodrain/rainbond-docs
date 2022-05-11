@@ -1,19 +1,11 @@
 ---
-title: 日志管理
+title: 组件日志
 description: Rainbond组件日志的查询和管理
 ---
 
-Rainbond 平台对组件日志采用实时推送的形式进行展示，便于用户快速查询日志定位软件故障。也可以通过查询历史日志文件查询历史日志。组件的日志包括两大类，操作过程日志和组件运行输出日志。
+Rainbond 平台对组件日志采用实时推送的形式进行展示，便于用户快速查询日志定位软件故障。也可以通过查询历史日志文件查询历史日志。
 
-### 组件操作日志
-
-在组件总览页面中呈现组件的操作历史情况以及每次操作的日志记录，特别是构建操作的日志需要注意，当出现构建失败时请查看日志输出的提醒内容以指导用户对代码的不规范性进行改进。
-
-组件的操作日志也是对组件进行操作的记录，便于多个用户之间的协作和操作审查。
-
-![运行记录日志界面](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-log/Operation%20log.png)
-
-### 组件运行日志
+## 组件运行日志
 
 组件运行后输出到 [标准输出(stdout)](https://baike.baidu.com/item/stdout) [标准错误输出(stderr)](https://baike.baidu.com/item/stderr)的日志将被 Rainbond 捕获并进行汇聚存储。Rainbond 处理组件运行日志的方式是将多个实例的日志统一汇聚到组件级别，推送到浏览器实时展示，同时进行落盘存储。
 
@@ -31,7 +23,7 @@ Rainbond 平台对组件日志采用实时推送的形式进行展示，便于�
 
 我们推荐用户将组件运行日志区分为访问日志和程序 Debug 日志，访问日志一般希望被统计分析，因此需要更多的处理。建议将其输出到持久化文件，然后对接其他日志分析组件进行日志分析。 程序 Debug 日志直接输出，快速的呈现给开发者及时发现和定位问题。
 
-### 容器日志
+## 容器日志
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-manual/component-log/%E7%BB%84%E4%BB%B6%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97.png)
 

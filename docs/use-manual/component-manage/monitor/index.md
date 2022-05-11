@@ -1,7 +1,8 @@
 ---
-title: 组件开发
-description: 该章文档介绍Rainbond组件如何适用于开发场景
+title: 组件监控
 ---
+
+介绍 Rainbond 组件内 `监控` 模块功能的使用。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

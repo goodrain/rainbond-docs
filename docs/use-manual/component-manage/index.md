@@ -1,7 +1,7 @@
 ---
-title: 组件性能分析与监控
-description: 组件性能分析与监控
+title: 组件管理员使用手册
 ---
+
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

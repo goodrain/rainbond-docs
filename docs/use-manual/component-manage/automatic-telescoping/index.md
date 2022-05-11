@@ -13,7 +13,7 @@ Rainbond 平台组件有两种伸缩方式：
 - 垂直伸缩时平台会自动调整资源后重启组件，单节点组件会中断，多节点组件不受影响。
 - 水平伸缩时平台通过滚动新增或者下线节点的方式进行操作，因此操作不会影响现有组件。
 
-### 垂直伸缩 CPU 与内存比例关系
+## 垂直伸缩 CPU 与内存比例关系
 
 | 申请值比例（CPU/内存） | 限制值比例（CPU/内存) |
 | ---------------------- | --------------------- |
@@ -22,9 +22,9 @@ Rainbond 平台组件有两种伸缩方式：
 Kubernetes 针对 CPU 和内存分为申请值与限制值，详情参见: [管理容器的计算资源](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) 
 平台目前调整的 CPU 与内存占比是经过生产环境验证过符合大多数组件类型。如果对某些 CPU 密集型组件自定义分配 CPU，可以配置环境变量：ES_CPULIMIT : CPU 限制值 ES_CPUREQUEST：CPU 请求值
 
-### 水平伸缩
+## 水平伸缩
 
-#### 组件进行水平伸缩的条件
+### 组件进行水平伸缩的条件
 
 - 无状态组件
 
@@ -43,8 +43,16 @@ Kubernetes 针对 CPU 和内存分为申请值与限制值，详情参见: [管�
 1. 可进行水平扩展集群的集群化组件，比如 Etcd, Zookeeper, 小强数据库，TiDB 等
 2. 主从集群类组件，我们一般可以将从组件进行水平伸缩。比如 Mysql、Redis、MongoDB 等。
 
-### 自动伸缩
+## 自动伸缩
 
 组件实例自动水平伸缩功能参考文档：[自动伸缩](./service-auto-scaling/)
 
 有状态组件集群应用的制作方式我们将在主题文档中讲解
+
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
