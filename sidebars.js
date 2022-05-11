@@ -545,7 +545,18 @@ const sidebars = {
                 'use-manual/team-manage/team-manage/dynamic',
                 'use-manual/team-manage/team-manage/team-user',
                 'use-manual/team-manage/team-manage/open-cluster',
-                'use-manual/team-manage/team-manage/user-rule',
+                {
+                  type: 'category',
+                  label: '角色',
+                  link: {
+                    type: 'doc',
+                    id: 'use-manual/team-manage/team-manage/rule/index',
+                  },
+                  items: [
+                    'use-manual/team-manage/team-manage/rule/user-rule',
+                  ]
+                },
+                
               ]
             },
           ]
