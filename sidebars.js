@@ -309,7 +309,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '组件管理员指南',
+          label: '组件管理指南',
           link: {
             type: 'doc',
             id: 'use-manual/component-manage/index'
@@ -417,7 +417,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '应用管理员指南',
+          label: '应用管理指南',
           link: {
             type: 'doc',
             id: 'use-manual/app-manage/index'
