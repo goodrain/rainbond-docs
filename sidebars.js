@@ -356,7 +356,7 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '组件环境变量',
+              label: '组件环境配置',
               link: {
                 type: 'doc',
                 id: 'use-manual/component-manage/env/index'
