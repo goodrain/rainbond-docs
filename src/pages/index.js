@@ -4,9 +4,9 @@ import LayoutProviders from '@theme/LayoutProviders';
 import 'animate.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Cswiper from '../components/Cswiper';
 import NavBar from '../components/NavBar';
 import styles from './index.module.scss';
-import Cswiper from '../components/Cswiper'
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const [mask_config, setMask_config] = useState(false);
@@ -225,47 +225,47 @@ export default function Home() {
             className={`${styles.community_case} animate__animated animate__fadeInUpBig `}
           >
             <div className={styles.img_container}>
-              <a href='#'>
+              <a href='#' style={{ cursor: 'default' }}>
                 <img src='/img/users/boe.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container} style={{ width: '160px' }}>
-              <a href='#'>
+              <a href='#' style={{ cursor: 'default' }}>
                 <img src='/img/users/mky.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
-              <a href='#'>
+              <a href='#' style={{ cursor: 'default' }}>
                 <img src='/img/users/zhx.jpeg' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
-              <a href='#'>
+              <a href='#' style={{ cursor: 'default' }}>
                 <img src='/img/users/yumchina.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
-              <a href='#'>
+              <a href='#' style={{ cursor: 'default' }}>
                 <img src='/img/users/lvzhiyun.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container} style={{ width: '150px' }}>
-              <a href='#'>
+              <a href='#' style={{ cursor: 'default' }}>
                 <img src='/img/users/lyyl.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
-              <a href='#'>
+              <a href='#' style={{ cursor: 'default' }}>
                 <img src='/img/users/zggk.jpg' alt='' />
               </a>
             </div>
             <div className={styles.img_container}>
-              <a href='#'>
+              <a href='#' style={{ cursor: 'default' }}>
                 <img src='/img/users/bkrj.png' alt='' />
               </a>
             </div>
             <div className={styles.img_container} style={{ width: '150px' }}>
-              <a href='#'>
+              <a href='#' style={{ cursor: 'default' }}>
                 <img src='/img/users/xinanmingzu.png' alt='' />
               </a>
             </div>
