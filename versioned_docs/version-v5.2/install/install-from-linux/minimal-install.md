@@ -116,5 +116,5 @@ wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.2/easzup && chm
      kubectl get po -n rbd-system -l name=rbd-app-ui-migrations
      ```
 
-在安装和使用过程中出现的其他问题请参考[安装过程故障排除文档](../../user-operations/install/troubleshooting)和[集群问题诊断文档](../../../user-operations/troubleshoot/cluster_troubleshooting)
+在安装和使用过程中出现的其他问题请参考[安装过程故障排除文档](/docs/v5.2/user-operations/install/troubleshooting)和[集群问题诊断文档](/docs/v5.2/user-operations/troubleshoot/cluster_troubleshooting)
 

@@ -61,7 +61,7 @@ Rainbond 支持图形化定义编译运行环境，配置位于服务组件的�
 
 - 当构建产物为 `war` 文件时，还提供了 Tomcat、Jetty 的版本选择。
 
-- 禁用 Maven Mirror，该开关决定是否通过 [rbd-repo](/docs/user-operations/component/rbd-repo/) 进行代理（默认代理至阿里云 maven 仓库），一旦开关打开，**下方定义的 MAVEN MIRROR OF 配置与 MAVEN MIRROR URL 配置全部失效**，构建过程中使用的仓库地址将只取决于 `pom.xml` 文件中的定义（如文件中无 `repositories` 定义，则从 Maven 中央仓库拉取依赖）。
+- 禁用 Maven Mirror，该开关决定是否通过 rbd-repo 进行代理（默认代理至阿里云 maven 仓库），一旦开关打开，**下方定义的 MAVEN MIRROR OF 配置与 MAVEN MIRROR URL 配置全部失效**，构建过程中使用的仓库地址将只取决于 `pom.xml` 文件中的定义（如文件中无 `repositories` 定义，则从 Maven 中央仓库拉取依赖）。
 
 - MAVEN MIRROR OF 配置，与 MAVEN MIRROR URL 配置一起使用，可以定义构建过程中从镜像私服中拉取依赖的行为。默认配置为 `central`，如设置为 `*`，则所有的依赖包都会从 MAVEN MIRROR URL 配置中定义的镜像仓库地址拉取。
 

@@ -49,7 +49,7 @@ Rainbond支持部署在物理服务器以及 VMware、KVM、XEN 等主流虚拟�
 |hub.goodrain.com|image.goodrain.com|
 |market.goodrain.com||
 
-默认情况下网关节点和管理节点复用;需开放 [相关组件端口](/docs/user-operations/op-guide/required_ports/)
+默认情况下网关节点和管理节点复用;需开放 [相关组件端口](/docs/v5.1/user-operations/op-guide/required_ports/)
 
 
 #### 四. 访问Rainbond控制台
