@@ -12,7 +12,7 @@ hidden: true
 
 ```
 # 安装docker
-export VERSION=18.06 && curl -fsSL http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/docker/install-docker.sh | bash -s docker
+export VERSION=18.06 && curl -fsSL https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/docker/install-docker.sh | bash -s docker
 # 启动docker
 systemctl start docker
 # 拉取rbd-db镜像

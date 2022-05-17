@@ -23,31 +23,31 @@ Description: "基于Rainbond实现微服务的滚动发布，蓝绿发布及灰�
 
 - 切换构建源
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release01.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release01.png" width="100%" />
 
 - 切换代码分支
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release02.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release02.png" width="100%" />
 
 - 重新检测
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release03.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release03.png" width="100%" />
 
 - 伸缩实例数量
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release04.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release04.png" width="100%" />
 
 - 开始构建
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release05.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release05.png" width="100%" />
 
 - 此时就会产生两个新的实例，查看新的实例是否被创建，若新实例内应用运行正常，旧的实例将会被废除，新的版本上线完成
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release07.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release07.png" width="100%" />
 
 - 此时再查看构建历史记录，可以回滚到构建成功的任意版本
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release08.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Rolling%20release08.png" width="100%" />
 
 
 
@@ -67,15 +67,15 @@ Description: "基于Rainbond实现微服务的滚动发布，蓝绿发布及灰�
 
 - 通过 **应用网关->访问控制** 分别降低和升高权重，即可实现版本间的切换
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Blue%20and%20Green%20Release03.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Blue%20and%20Green%20Release03.png" width="100%" />
 
 - 取消Web V1的权重
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Blue%20and%20Green%20Release04.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Blue%20and%20Green%20Release04.png" width="100%" />
 
 - 调整Web V2的权重
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Blue%20and%20Green%20Release05.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/App-Publishing/Blue%20and%20Green%20Release05.png" width="100%" />
 
 此时查看流量已经转移到Web V2，蓝绿发布已经完成。
 
