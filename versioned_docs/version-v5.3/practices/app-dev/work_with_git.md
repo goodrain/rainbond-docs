@@ -50,7 +50,7 @@ aliases:
 | ------------ | ----------------------- | -------------------------------- |
 | OAuth类型    | gitlab                  | 认证的 Oauth 类型                |
 | OAuth类型    | 自定义（GitLab-Demo）   | 填写自定义的 Oauth 服务名称      |
-| 服务地址     | http://rainbond.gitlab/ | GitLab 服务访问地址              |
+| 服务地址     | https://rainbond.gitlab/ | GitLab 服务访问地址              |
 | 客户端ID     | 依据具体信息填写        | GitLab 生成的 Application ID     |
 | 客户端密钥   | 依据具体信息填写        | GitLab 生成的 Application Secret |
 | 平台访问域名 | 使用默认填写内容        | 用于OAuth认证完回跳时的访问地址  |

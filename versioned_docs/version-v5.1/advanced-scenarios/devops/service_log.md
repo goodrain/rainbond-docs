@@ -9,7 +9,7 @@ Description: "Rainbond服务日志管理及使用Filebeat插件对接 Elasticsea
 
 
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log01.png" width="70%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log01.png" width="70%" />
 
 
 - node服务
@@ -26,7 +26,7 @@ Description: "Rainbond服务日志管理及使用Filebeat插件对接 Elasticsea
  
 ####   Rainbond⽇志管理界面
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log02.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log02.png" width="100%" />
 
   **暂停推送**:
 服务运行时一直在产生日志，对某一段日志特别关心时可以暂停推送，方便仔细查看这一段日志。
@@ -116,7 +116,7 @@ filebeat.modules:
 
 （1）新增插件
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log03.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log03.png" width="100%" />
 
 >插件类型分类：
 
@@ -129,59 +129,59 @@ filebeat.modules:
 
 （2）添加环境变量配置
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log04.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log04.png" width="100%" />
 
 （3）根据代码，配置环境变量选项
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log05.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log05.png" width="100%" />
 
 （4）Filebeat插件构建成功
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log07.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log07.png" width="100%" />
 
 （5） 查看已经配置好的配置项
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log06.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log06.png" width="100%" />
 
 #### 2.2 Nginx日志对接ES
 
 - 应用市场一键构建Elasticsearch，kibana应用
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log08.png" width="100%" /> 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log08.png" width="100%" /> 
 
 - 这里以Nginx应用为例
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log09.png" width="100%" /> 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log09.png" width="100%" /> 
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log10.png" width="100%" /> 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log10.png" width="100%" /> 
 
 - 开通对外服务并持久化⽬标应⽤的⽇志路径
 
 >Pod里面同时存在两个容器：nginx与filebeat,资源是互相隔离的，此步骤的目的是挂载Nginx的日志，共享给Filebeat，从而使filebeat收集nginx的日志
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log11.png" width="100%" /> 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log11.png" width="100%" /> 
 
 - 建立Nginx与Elasticsearch，kibana的依赖
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log12.png" width="100%" /> 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log12.png" width="100%" /> 
 
 - Nginx添加已经制作好的Filebeat插件
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log13.png" width="100%" /> 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log13.png" width="100%" /> 
 
 - 查看配置信息，更改错误的配置，更新配置
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log14.png" width="100%" /> 
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log14.png" width="100%" /> 
 
 - 从这里可以查看kibana的登录信息
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log15.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log15.png" width="100%" />
 
 - 访问 kibana的Web页面
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log16.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log16.png" width="100%" />
 
 - 可以查看到Nginx的访问日志已经同步到kibana
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log17.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/RainbondServiceLog/Service%20Log17.png" width="100%" />
 

@@ -21,7 +21,7 @@ Description: "Rainbond离线环境下的Java源码构建的基础环境搭建"
 
 在离线环境下，推荐使用平台的应用离线导入功能，快速导入 Gitlab 应用并安装使用。
 
-需要事先获取离线资源：[Gitlab应用包](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/GitLab-9.2.5.zip)  [Gogs应用包](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/gogs-0.9.141.zip)
+需要事先获取离线资源：[Gitlab应用包](https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/GitLab-9.2.5.zip)  [Gogs应用包](https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/gogs-0.9.141.zip)
 
 \- 访问Rainbond应用管理平台，并导入离线应用包
 

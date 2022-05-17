@@ -12,7 +12,7 @@ description: 将数据由平台默认数据存储中心rbd-db迁移至外部数�
 - 数据库节点安装并启动 docker
 
   ```bash
-  export VERSION=19.03 && curl -fsSL http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/docker/install-docker.sh | bash -s docker
+  export VERSION=19.03 && curl -fsSL https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/docker/install-docker.sh | bash -s docker
   systemctl start docker
   ```
 

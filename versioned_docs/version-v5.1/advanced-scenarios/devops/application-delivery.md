@@ -17,7 +17,7 @@ Description: 基于Rainbond做应用交付与升级
 
 #### 应用的发布与导出
 
-本次测试挑选了一个基于Maven构建的 [spring boot](https://github.com/dazuimao1990/spring-boot-mysql-demo) 项目。搭配了 mysql 组成了一个完整的应用。接下来，将其发布为一个应用市场的应用,并将其导出为包。这里提供本次导出的[测试应用包](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/test_app-v1.0.zip)，以供用户进行测试。
+本次测试挑选了一个基于Maven构建的 [spring boot](https://github.com/dazuimao1990/spring-boot-mysql-demo) 项目。搭配了 mysql 组成了一个完整的应用。接下来，将其发布为一个应用市场的应用,并将其导出为包。这里提供本次导出的[测试应用包](https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/test_app-v1.0.zip)，以供用户进行测试。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/app-delivery-1.gif" width="100%" />
 
@@ -59,7 +59,7 @@ Description: 基于Rainbond做应用交付与升级
 
 #### 不同Rainbond下应用市场应用的升级
 
-对于已交付的其他Rainbond环境，我们在升级了应用后，如何在交付环境中升级呢？我们需要将应用重新导出，再导入到交付环境中去。导出的方式以及介绍过了，这里提供本次导出的[测试应用升级包](http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/test_app-v1.0%20(1).zip)，以供用户进行测试。
+对于已交付的其他Rainbond环境，我们在升级了应用后，如何在交付环境中升级呢？我们需要将应用重新导出，再导入到交付环境中去。导出的方式以及介绍过了，这里提供本次导出的[测试应用升级包](https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/releases/offline/resource/test_app-v1.0%20(1).zip)，以供用户进行测试。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/advanced-scenarios/app-delivery-7.gif" width="100%" />
 

@@ -39,43 +39,43 @@ start: >-
 docker ps |grep rbd-app-ui
 ```
 
-<img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication01.png" width="100%" />
+<img src="https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication01.png" width="100%" />
 
 - 添加第三方服务，对接外部数据库
 
-<img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication02.png" width="100%" />
+<img src="https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication02.png" width="100%" />
 
 - 添加数据中心的变量,连接Mysql信息
 
-<img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication03.png" width="100%" /> 
+<img src="https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication03.png" width="100%" /> 
 
 - 添加Mysql端口，让其能够对内提供服务
  
-<img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication04.png" width="100%" />
+<img src="https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication04.png" width="100%" />
  
  - 添加对数据中心的依赖
  
-<img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication05.png" width="100%" />
+<img src="https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication05.png" width="100%" />
 
 - 查看连接信息
 
-<img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication06.png" width="100%" />
+<img src="https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication06.png" width="100%" />
 
 - app-ui服务添加端口（7070），开通对外访问
 
-<img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication07.png" width="100%" />
+<img src="https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication07.png" width="100%" />
 
 
 - 弹性伸缩实例数量，内存配置，构成应用控制台高可用
 
-<img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication09.png" width="100%" />
+<img src="https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication09.png" width="100%" />
 
 
-<img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication10.png" width="100%" />
+<img src="https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication10.png" width="100%" />
 
 - 挂载存储
 
-<img src="http://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication11.png" width="100%" />
+<img src="https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/App-ui/CreatApplication11.png" width="100%" />
 
 ```
 #查看service信息得知pod所在目录，拷贝文件到pod所在目录
