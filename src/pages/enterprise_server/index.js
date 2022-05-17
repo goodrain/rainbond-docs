@@ -491,6 +491,15 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
+                    <span>国产化支持</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
                     <span>应用集成和展示门户</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
