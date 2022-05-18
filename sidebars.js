@@ -612,7 +612,6 @@ const sidebars = {
             id: 'ops-guide/management/index'
           },
           items: [
-            'ops-guide/management/component-op',
             'ops-guide/management/dashboard-op',
             'ops-guide/management/resource-cleanup',
             'ops-guide/management/data-migration',

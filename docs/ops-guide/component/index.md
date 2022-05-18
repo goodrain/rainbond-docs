@@ -27,22 +27,22 @@ Region集群端组件高级用法可以通过点击组件的链接方式阅读
 
 以下是通过一键部署方式将会在服务器安装的Rainbond各服务组件及其版本信息。
 
-|组件|版本|说明|
-|---|-----|---------------|
-|[rainbond-operator](./rainbond-operator)|v2.3.0|维护rainbond组件的配置与运行状态|
-|[rbd-api](./rbd-api)|5.x|rainbond区域中心API服务，提供底层服务接口|
-|[rbd-chaos](./rbd-chaos)|5.x|应用构建服务，提供源码，Docker镜像等方式创建应用|
-|[rbd-db](./rbd-db)|5.x|云帮数据库服务，支持MySQL`5.6``5.7``8.0`|
-|[etcd](./etcd)|v3.3.18|`etcd`存储集群的元数据信息，集群状态和网络配置|
-|[rbd-eventlog](./rbd-eventlog)|5.x|rainbond事件处理与日志汇聚服务|
-|[rbd-gateway](./rbd-gateway)|5.x|通向应用的全局网关，提供A/B测试、灰度发布等高级功能|
-|[rbd-hub](./rbd-hub)|v2.6.2|基于[Docker Registry](https://docs.docker.com/registry/)封装，提供docker镜像存储服务|
-|[rbd-mq](./rbd-mq)|5.x|消息队列服务|
-|[nfs-provisioner](./rbd-nfs)|v2.2.1|存储服务|
-|[rbd-node](./rbd-node)|5.x|集群监控与控制，docker证书分发|
-|[rbd-resource-proxy](./rbd-resource-proxy)|1.19|源码构建仓库服务|
-|[rbd-webcli](./rbd-webcli)|5.x|提供应用web方式进入容器命令行的服务|
-|[rbd-worker](./rbd-worker)|5.x|云帮应用操作与处理服务|
+|组件|版本|说明|控制器类型|
+|---|-----|---------------|---|
+|[rainbond-operator](./rainbond-operator)|v2.3.0|维护rainbond组件的配置与运行状态|Deployment|
+|[rbd-api](./rbd-api)|5.x|rainbond区域中心API服务，提供底层服务接口|Deployment|
+|[rbd-chaos](./rbd-chaos)|5.x|应用构建服务，提供源码，Docker镜像等方式创建应用|Daemonset|
+|[rbd-db](./rbd-db)|5.x|云帮数据库服务，支持MySQL`5.6``5.7``8.0`|Statefulset|
+|[rbd-etcd](./etcd)|v3.3.18|`etcd`存储集群的元数据信息，集群状态和网络配置|Statefulset|
+|[rbd-eventlog](./rbd-eventlog)|5.x|rainbond事件处理与日志汇聚服务|Statefulset|
+|[rbd-gateway](./rbd-gateway)|5.x|通向应用的全局网关，提供A/B测试、灰度发布等高级功能|Daemonset|
+|[rbd-hub](./rbd-hub)|v2.6.2|基于[Docker Registry](https://docs.docker.com/registry/)封装，提供docker镜像存储服务|Deployment|
+|[rbd-mq](./rbd-mq)|5.x|消息队列服务|Deployment|
+|[nfs-provisioner](./rbd-nfs)|v2.2.1|存储服务|Statefulset|
+|[rbd-node](./rbd-node)|5.x|集群监控与控制，docker证书分发|Daemonset|
+|[rbd-resource-proxy](./rbd-resource-proxy)|1.19|源码构建仓库服务|Deployment|
+|[rbd-webcli](./rbd-webcli)|5.x|提供应用web方式进入容器命令行的服务|Deployment|
+|[rbd-worker](./rbd-worker)|5.x|云帮应用操作与处理服务|Deployment|
 
 
 ## Kubernetes (RKE)
