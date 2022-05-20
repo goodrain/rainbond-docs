@@ -569,6 +569,17 @@ const sidebars = {
             }
           ]
         },
+        {
+          type: 'category',
+          label: '应用商店指南',
+          link: {
+            type: 'doc',
+            id: 'use-manual/app-store-manage/index'
+          },
+          items: [
+            'use-manual/app-store-manage/share-app',
+          ]
+        },
         'use-manual/usage_troubleshooting'
       ]
     },
