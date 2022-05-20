@@ -136,7 +136,7 @@ Rainbond 平台根据组件之间的依赖关系确定启动顺序。如果服�
 组件实例一直处于 <font color="blue"> 未知  </font> 状态
 :::
 
-该状态意味着控制台和集群端通信异常，根据 [Rainbond 集群问题诊断](/docs/user-operations/troubleshoot/cluster_troubleshooting) 排查集群问题。
+该状态意味着控制台和集群端通信异常，根据 [Rainbond 集群问题诊断](/docs/ops-guide/troubleshoot/cluster_troubleshooting) 排查集群问题。
 
 ### 我的问题没有被涵盖
 

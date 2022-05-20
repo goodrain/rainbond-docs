@@ -220,7 +220,7 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 
 ### 问题排查
 
-单节点体验版本安装过程中如果长时间未完成，那么请参考文档 [单机体验版本安装问题排查指南](/docs/user-operations/deploy/install-troubleshoot/dind-install-troubleshoot/) 进行故障排查。
+单节点体验版本安装过程中如果长时间未完成，那么请参考文档 [单机体验版本安装问题排查指南](/docs/installation/install-troubleshoot/dind-install-troubleshoot/) 进行故障排查。
 
 ## 其它安装方式
 
@@ -233,17 +233,17 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 从已有 Kubernetes 集群开始安装高度自定义的 Rainbond 集群。操作人员对 Kubernetes 、Helm 有深入了解，并乐于使用命令行的方式与系统交互。企业 IT 运维管理人员是这类人群的代表。
 :::
 
-**如需自定义配置，建议使用[Helm 安装命令生成工具](/helm)进行安装，参数详情请参考 [values.yaml](/docs/user-operations/deploy/install-with-helm/vaules-config)。**
+**如需自定义配置，建议使用[Helm 安装命令生成工具](/helm)进行安装，参数详情请参考 [values.yaml](/docs/installation/install-with-helm/vaules-config)。**
 
 <Tabs groupId="helm-install">
   <TabItem value="基于自建k8s集群安装" label="基于自建k8s集群安装" default>
 
-**[基于自建 k8s 集群安装](/docs/user-operations/deploy/install-with-helm/k8s-install-with-helm/)** 提供了一种在用户已有 K8s 集群中，利用 Helm 的方式部署 Rainbond 集群的方式。这种安装方式支持高可用部署。
+**[基于自建 k8s 集群安装](/docs/installation/install-with-helm/k8s-install-with-helm/)** 提供了一种在用户已有 K8s 集群中，利用 Helm 的方式部署 Rainbond 集群的方式。这种安装方式支持高可用部署。
 
   </TabItem>
   <TabItem value="基于自建k3s集群安装" label="基于自建k3s集群安装">
 
-**[基于自建 k3s 集群安装](/docs/user-operations/deploy/install-with-helm/k3s-install-with-helm/)** 提供了一种在用户已有 K3s 集群中，利用 Helm 的方式部署 Rainbond 集群的方式。这种安装方式支持高可用部署。
+**[基于自建 k3s 集群安装](/docs/installation/install-with-helm/k3s-install-with-helm/)** 提供了一种在用户已有 K3s 集群中，利用 Helm 的方式部署 Rainbond 集群的方式。这种安装方式支持高可用部署。
 
   </TabItem>
 </Tabs>
@@ -257,22 +257,22 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 <Tabs groupId="ui-install">
   <TabItem value="基于主机安装" label="基于主机安装" default>
 
-**[基于主机安装](/docs/user-operations/deploy/install-with-ui/host-install-with-ui/)** 提供了一种在用户在图形化界面中，从一台主机开始部署 Rainbond 集群的方式。部署的过程中自动完成 K8s 的部署以及 Rainbond 的安装对接。
+**[基于主机安装](/docs/installation/install-with-ui/host-install-with-ui/)** 提供了一种在用户在图形化界面中，从一台主机开始部署 Rainbond 集群的方式。部署的过程中自动完成 K8s 的部署以及 Rainbond 的安装对接。
 
   </TabItem>
   <TabItem value="基于主机高可用安装" label="基于主机高可用安装">
 
-**[基于主机高可用安装](/docs/user-operations/deploy/install-with-ui/ha-installation/)** 提供了一种在用户在图形化界面中，从一台主机开始部署 Rainbond 集群的方式。部署的过程中自动完成 K8s 的部署以及 Rainbond 的安装对接，支持高可用部署。
+**[基于主机高可用安装](/docs/installation/install-with-ui/ha-installation/)** 提供了一种在用户在图形化界面中，从一台主机开始部署 Rainbond 集群的方式。部署的过程中自动完成 K8s 的部署以及 Rainbond 的安装对接，支持高可用部署。
 
   </TabItem>
   <TabItem value="接入已安装Kubernetes集群" label="接入已安装Kubernetes集群">
 
-**[接入已安装 Kubernetes 集群](/docs/user-operations/deploy/install-with-ui/install-from-k8s/)** 提供了一种在用户在图形化界面中，如何将已有的 K8s 集群对接到 Rainbond 中去。
+**[接入已安装 Kubernetes 集群](/docs/installation/install-with-ui/install-from-k8s/)** 提供了一种在用户在图形化界面中，如何将已有的 K8s 集群对接到 Rainbond 中去。
 
   </TabItem>
   <TabItem value="接入已安装平台集群" label="接入已安装平台集群">
 
-**[接入已安装平台集群](/docs/user-operations/deploy/install-with-ui/install-by-rainbond/)** 提供了一种在用户在图形化界面中，如何将已有的 Rainbond 集群对接到指定的控制台中去。
+**[接入已安装平台集群](/docs/installation/install-with-ui/install-by-rainbond/)** 提供了一种在用户在图形化界面中，如何将已有的 Rainbond 集群对接到指定的控制台中去。
 
   </TabItem>
 </Tabs>
@@ -286,7 +286,7 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 <Tabs groupId="cloud-install">
   <TabItem value="阿里云ACK" label="阿里云ACK" default>
 
-**[阿里云 ACK](/docs/user-operations/deploy/install-with-helm/ack-install-with-helm/)** 提供了在阿里云 ACK 环境下安装 Rainbond 的最佳实践。提供了购买各类云服务资源的建议，以及合理的对接方式，帮助用户更好的在 ACK 环境中使用 Rainbond。
+**[阿里云 ACK](/docs/installation/install-with-helm/ack-install-with-helm/)** 提供了在阿里云 ACK 环境下安装 Rainbond 的最佳实践。提供了购买各类云服务资源的建议，以及合理的对接方式，帮助用户更好的在 ACK 环境中使用 Rainbond。
 
   </TabItem>
   <TabItem value="腾讯云TKE" label="腾讯云TKE">
@@ -310,7 +310,7 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 <Tabs groupId="other-install">
   <TabItem value="基于Rancher安装" label="基于Rancher安装" default>
 
-**[基于 Rancher 安装](/docs/user-operations/deploy/install-with-helm/install-from-rancher/)** 提供了基于图形化界面在 Rancher 中安装 Rainbond 的方式，适合已经在使用 Rancher 的用户使用。
+**[基于 Rancher 安装](/docs/installation/install-with-helm/install-from-rancher/)** 提供了基于图形化界面在 Rancher 中安装 Rainbond 的方式，适合已经在使用 Rancher 的用户使用。
 
   </TabItem>
   <TabItem value="对接Openshift" label="对接Openshift">

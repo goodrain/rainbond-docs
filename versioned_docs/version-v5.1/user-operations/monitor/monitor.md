@@ -57,7 +57,7 @@ Kubernetes的生态中，cAdvisor是作为容器监控数据采集的Agent，cAd
 
 Rainbond实现的worker组件中，对应用实例出的pod进行状态观察，当pod发生异常退出时触发事件来处理pod的退出信息，并将错误类型、错误原因、触发次数、最后出现时间等信息记录在数据库中供我们查询。
 
-具体处理流程参考文档[应用异常处理](/docs/user-operations/tools/grctl/#应用异常处理)
+具体处理流程参考文档[应用异常处理](/docs/v5.1/user-operations/tools/grctl/#应用异常处理)
 
 #### 使用Granfana 可视化监控
 

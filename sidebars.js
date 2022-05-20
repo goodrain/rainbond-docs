@@ -57,158 +57,62 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '安装与运维',
+      label: '安装 Rainbond',
       link: {
         type: 'doc',
-        id: 'user-operations/index'
+        id: 'installation/index'
       },
       items: [
-        'user-operations/op-guide/component-description',
         {
           type: 'category',
-          label: '安装 Rainbond',
+          label: '基于 Helm 安装',
           link: {
             type: 'doc',
-            id: 'user-operations/deploy/index'
+            id: 'installation/install-with-helm/index'
           },
           items: [
             {
-              type: 'category',
-              label: '基于 Helm 安装',
-              link: {
-                type: 'doc',
-                id: 'user-operations/deploy/install-with-helm/index'
-              },
-              items: [
-                {
-                  type: 'link',
-                  label: 'Helm安装命令生成工具',
-                  href: '/helm'
-                },
-                'user-operations/deploy/install-with-helm/k8s-install-with-helm',
-                'user-operations/deploy/install-with-helm/k3s-install-with-helm',
-                'user-operations/deploy/install-with-helm/ack-install-with-helm',
-                'user-operations/deploy/install-with-helm/cce-install-with-helm',
-                'user-operations/deploy/install-with-helm/install-from-rancher',
-                'user-operations/deploy/install-with-helm/vaules-config',
-                'user-operations/deploy/install-with-helm/uninstall-with-helm'
-              ]
+              type: 'link',
+              label: 'Helm安装命令生成工具',
+              href: '/helm'
             },
-            {
-              type: 'category',
-              label: '基于 Web 界面安装',
-              link: {
-                type: 'doc',
-                id: 'user-operations/deploy/install-with-ui/index'
-              },
-              items: [
-                'user-operations/deploy/install-with-ui/host-install-with-ui',
-                'user-operations/deploy/install-with-ui/ha-installation',
-                'user-operations/deploy/install-with-ui/install-by-rainbond',
-                'user-operations/deploy/install-with-ui/install-from-k8s',
-                'user-operations/deploy/install-with-ui/console-recover'
-              ]
-            },
-            {
-              type: 'category',
-              label: '安装问题排查',
-              link: {
-                type: 'doc',
-                id: 'user-operations/deploy/install-troubleshoot/index'
-              },
-              items: [
-                'user-operations/deploy/install-troubleshoot/dind-install-troubleshoot',
-                'user-operations/deploy/install-troubleshoot/helm-install-troubleshoot',
-                'user-operations/deploy/install-troubleshoot/ui-install-troubleshoot'
-              ]
-            }
+            'installation/install-with-helm/k8s-install-with-helm',
+            'installation/install-with-helm/k3s-install-with-helm',
+            'installation/install-with-helm/ack-install-with-helm',
+            'installation/install-with-helm/cce-install-with-helm',
+            'installation/install-with-helm/install-from-rancher',
+            'installation/install-with-helm/vaules-config',
+            'installation/install-with-helm/uninstall-with-helm'
           ]
         },
         {
           type: 'category',
-          label: '部署集群扩展文档',
+          label: '基于 Web 界面安装',
           link: {
             type: 'doc',
-            id: 'user-operations/Install-extension/index'
+            id: 'installation/install-with-ui/index'
           },
           items: [
-            'user-operations/Install-extension/centos_keepalived',
-            'user-operations/Install-extension/ubuntu_keepalived',
-            'user-operations/Install-extension/mysql-ha'
+            'installation/install-with-ui/host-install-with-ui',
+            'installation/install-with-ui/ha-installation',
+            'installation/install-with-ui/install-by-rainbond',
+            'installation/install-with-ui/install-from-k8s',
+            'installation/install-with-ui/console-recover'
           ]
         },
         {
           type: 'category',
-          label: '集群管理',
+          label: '安装问题排查',
           link: {
             type: 'doc',
-            id: 'user-operations/cluster-manage/index'
+            id: 'installation/install-troubleshoot/index'
           },
           items: [
-            'user-operations/cluster-manage/add-cluster',
-            'user-operations/cluster-manage/manage-cluster',
-            'user-operations/cluster-manage/manage-rke-cluster',
-            'user-operations/cluster-manage/init-region',
-            'user-operations/cluster-manage/init-region-storage',
-            'user-operations/cluster-manage/resource-limit'
+            'installation/install-troubleshoot/dind-install-troubleshoot',
+            'installation/install-troubleshoot/helm-install-troubleshoot',
+            'installation/install-troubleshoot/ui-install-troubleshoot'
           ]
-        },
-        'user-operations/management/resource-cleanup',
-        'user-operations/management/component-op',
-        'user-operations/management/dashboard-op',
-        'user-operations/management/data-migration',
-        {
-          type: 'category',
-          label: '存储解决方案',
-          link: {
-            type: 'doc',
-            id: 'user-operations/storage/index'
-          },
-          items: [
-            'user-operations/storage/deploy-glusterfs',
-            'user-operations/storage/ceph-rbd',
-            'user-operations/storage/deploy-nfsclient',
-            'user-operations/storage/ali-disk'
-          ]
-        },
-        {
-          type: 'category',
-          label: '集群监控',
-          link: {
-            type: 'doc',
-            id: 'user-operations/monitor/index'
-          },
-          items: [
-            'user-operations/monitor/monitor-alert-items',
-            'user-operations/monitor/monitor-alert-deploy',
-            {
-              type: 'category',
-              label: '报警配置项',
-              link: {
-                type: 'doc',
-                id: 'user-operations/monitor/alert/index'
-              },
-              items: [
-                'user-operations/monitor/alert/alert-wechat',
-                'user-operations/monitor/alert/alert-dingtalk',
-                'user-operations/monitor/alert/alert-mail'
-              ]
-            }
-          ]
-        },
-        {
-          type: 'category',
-          label: '周边工具集',
-          link: {
-            type: 'doc',
-            id: 'user-operations/tools/index'
-          },
-          items: [
-            'user-operations/tools/kubectl',
-            'user-operations/tools/grctl'
-          ]
-        },
-        'user-operations/troubleshoot/cluster_troubleshooting'
+        }
       ]
     },
     {
@@ -666,6 +570,141 @@ const sidebars = {
           ]
         },
         'use-manual/usage_troubleshooting'
+      ]
+    },
+    {
+      type: 'category',
+      label: '运维手册',
+      link: {
+        type: 'doc',
+        id: 'ops-guide/index'
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Rainbond 组件概述',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/component/index'
+          },
+          items: [
+            'ops-guide/component/rainbond-operator',
+            'ops-guide/component/rbd-api',
+            'ops-guide/component/rbd-chaos',
+            'ops-guide/component/rbd-db',
+            'ops-guide/component/etcd',
+            'ops-guide/component/rbd-eventlog',
+            'ops-guide/component/rbd-gateway',
+            'ops-guide/component/rbd-hub',
+            'ops-guide/component/rbd-mq',
+            'ops-guide/component/rbd-nfs',
+            'ops-guide/component/rbd-node',
+            'ops-guide/component/rbd-resource-proxy',
+            'ops-guide/component/rbd-webcli',
+            'ops-guide/component/rbd-worker',
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Rainbond 运维概述',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/management/index'
+          },
+          items: [
+            'ops-guide/management/dashboard-op',
+            'ops-guide/management/resource-cleanup',
+            'ops-guide/management/data-migration',
+          ]
+        },
+        {
+          type: 'category',
+          label: '集群管理',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/cluster-manage/index'
+          },
+          items: [
+            'ops-guide/cluster-manage/add-cluster',
+            'ops-guide/cluster-manage/manage-cluster',
+            {
+              type: 'category',
+              label: '自定义集群参数',
+              items: [
+                'ops-guide/cluster-manage/manage-rke-cluster',
+                'ops-guide/cluster-manage/init-region',
+                'ops-guide/cluster-manage/init-region-storage',
+              ]
+            },
+            'ops-guide/cluster-manage/resource-limit'
+            
+          ]
+        },
+        {
+          type: 'category',
+          label: '集群部署扩展文档',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/Install-extension/index'
+          },
+          items: [
+            'ops-guide/Install-extension/centos_keepalived',
+            'ops-guide/Install-extension/ubuntu_keepalived',
+            'ops-guide/Install-extension/mysql-ha'
+          ]
+        },
+        {
+          type: 'category',
+          label: '存储解决方案',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/storage/index'
+          },
+          items: [
+            'ops-guide/storage/deploy-glusterfs',
+            'ops-guide/storage/ceph-rbd',
+            'ops-guide/storage/deploy-nfsclient',
+            'ops-guide/storage/ali-disk'
+          ]
+        },
+        {
+          type: 'category',
+          label: '集群监控',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/monitor/index'
+          },
+          items: [
+            'ops-guide/monitor/monitor-alert-items',
+            'ops-guide/monitor/monitor-alert-deploy',
+            {
+              type: 'category',
+              label: '报警配置项',
+              link: {
+                type: 'doc',
+                id: 'ops-guide/monitor/alert/index'
+              },
+              items: [
+                'ops-guide/monitor/alert/alert-wechat',
+                'ops-guide/monitor/alert/alert-dingtalk',
+                'ops-guide/monitor/alert/alert-mail'
+              ]
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'CLI 命令行',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/tools/index'
+          },
+          items: [
+            'ops-guide/tools/kubectl',
+            'ops-guide/tools/grctl'
+          ]
+        },
+        'ops-guide/troubleshoot/cluster_troubleshooting'
       ]
     },
     {
