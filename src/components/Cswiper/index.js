@@ -33,6 +33,11 @@ export default function Index() {
                     <img src='/img/video/gitlab+rainbond.png' alt='' />
                 </a>
             </SwiperSlide>
+            <SwiperSlide>
+                <a href='https://www.bilibili.com/video/BV1rB4y197X4' target='_blank'>
+                    <img src='/img/video/enterprise-app-manage.png' alt='' />
+                </a>
+            </SwiperSlide>
         </Swiper>
       </>
     );
