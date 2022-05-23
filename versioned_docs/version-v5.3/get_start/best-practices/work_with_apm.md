@@ -18,7 +18,7 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
 
 - 本文档适合需要通过 PinPoint 实施微服务监控与链路追踪的企业开发、测试、运维人员阅读。
 
-<image src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%" />
+<image src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%" />
 
 | 组件               | 组件功能                                                  |
 | ------------------ | --------------------------------------------------------- |

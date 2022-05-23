@@ -19,7 +19,7 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
 
 - 本文档适合需要通过 PinPoint 实施微服务监控与链路追踪的企业开发、测试、运维人员阅读。
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%" />
 
 |      组件   |   组件功能 |
 | ------------- | ----------------- |
@@ -63,7 +63,7 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
 
 - **使用官方DEMO演示 Pinpoint-agent**
 
-  ​	1）参考 [快速入门](../../../quick-start/get-start/team-management-and-multi-tenancy) 安装基于源码创建的组件
+  ​	1）参考 [快速入门](/docs/quick-start/get-start/team-management-and-multi-tenancy) 安装基于源码创建的组件
 
   ​	2）进入第一步创建的组件视图 > 依赖 > 添加依赖组件名称**Pinpoint-collector** 。
 

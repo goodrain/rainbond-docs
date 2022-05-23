@@ -88,7 +88,7 @@ server {
 
 #### 1.3.1 基于源码创建组件
 
-* 参考基于源码构建[官方文档](../../../use-manual/component-create/language-support/nodejs-static/)
+* 参考基于源码构建[官方文档](/docs/use-manual/component-create/language-support/nodejs-static/)
 
 - 填写源码仓库地址，填写前端子目录 `ruoyi-ui`，构建Vue项目
 

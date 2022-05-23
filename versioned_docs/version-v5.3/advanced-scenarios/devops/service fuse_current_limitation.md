@@ -15,17 +15,17 @@ Description: "Rainbond网络治理插件，服务熔断与全局限流"
 
 ####   Rainbond⽹络治理插件界面
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/01.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/01.png" width="100%" />
 
 #### 1.1 服务网络治理插件-出站治理
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/02.png" width="40%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/02.png" width="40%" />
 
 UI服务安装了服务⽹络治理插件，该插件作⽤于流量的出⼝，即通向API服务的⼀端。出站治理插件会接⼿管理流向API服务的流量，并可以配置条件，实现熔断。
 
 #### 1.2 服务综合网络治理插件-出⼊站共治
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/04.jpeg" width="80%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/04.jpeg" width="80%" />
 
  服务综合⽹络治理插件，是出站治理插件的升级版本。兼容原有功能之余，新增了⼊站治理功能；同时实现了入站方向的治理和出站方向的治理。
  
@@ -48,12 +48,12 @@ UI服务安装了服务⽹络治理插件，该插件作⽤于流量的出⼝，
 
 **实验环境：**
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/05.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/05.png" width="100%" />
 
 **实验配置：**
 
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/06.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/06.png" width="100%" />
 
 ```
  关键参数：
@@ -73,11 +73,11 @@ UI服务安装了服务⽹络治理插件，该插件作⽤于流量的出⼝，
 
 - 查看返回503状态码
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/07.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/07.png" width="100%" />
 
 - 可以看出来熔断机制生效，60%的请求被熔断掉。
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/08.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/08.png" width="100%" />
 
 
 ### 三. 全局限流
@@ -97,21 +97,21 @@ UI服务安装了服务⽹络治理插件，该插件作⽤于流量的出⼝，
 
 - ratelimit环境配置
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra01.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra01.png" width="100%" />
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra02.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra02.png" width="100%" />
 
 **Rate-limit需持久化挂载目录，方便在持久化目录里写规则**
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra03.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra03.png" width="100%" />
 
 进入rate-limit容器里查看配置
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra04.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/ra04.png" width="100%" />
 
 开启限流
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/09.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/09.png" width="100%" />
 
 ```
 关键参数：
@@ -121,7 +121,7 @@ UI服务安装了服务⽹络治理插件，该插件作⽤于流量的出⼝，
 
 - 使用Apache JMeter测试工具向todoshowUI应用发起并发性请求；触发限流，返回429状态码，说明限流生效。
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/10.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/service-fuse-current-limitation/10.png" width="100%" />
 
 ### 高阶实现
 

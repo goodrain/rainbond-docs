@@ -9,11 +9,11 @@ Hidden: true
 ## ServiceMesh
  一般的字面解释是“服务网格”，作为时下最流行的分布式系统架构微服务的动态链接器，处于服务到服务的通信的专用基础设施层，该层独立于应用程序为服务之间的通信提供轻量级的可靠传递。如果简单的描述的话，可以将它比作是应用程序或者说微服务间的 TCP/IP，负责服务之间的网络调用、限流、熔断和监控，同样使用 ServiceMesh 也就无须关系服务之间的那些原来是通过应用程序或者其他框架实现的事情，比如 Spring Cloud架构，现在只要交给 ServiceMesh 就可以了。ServiceMesh的出现主要是由于应用虚拟化技术的发展，例如Kubernetes, Rainbond等项目，大大降低了应用的部署和运维复杂度。
 <center>
-<img width="80%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/microservice/servicemesh-arch.png"></img>
+<img width="80%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/microservice/servicemesh-arch.png"></img>
 </center>
 
 ## 微服务架构对比
-<img width="80%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/microservice/servicemesh-compare.png"></img>
+<img width="80%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/microservice/servicemesh-compare.png"></img>
 
 ## 为何使用ServiceMesh
 ServiceMesh 并没有给我们带来新功能，它是用于解决其他工具已经解决过的问题，只不过这是在 Cloud Native 的云原生环境下将过去复杂的人工运维工作有机的自动化管理。
@@ -84,5 +84,5 @@ Rainbond提供给用户的体验是最大化的透明，即用户将服务运行
 
 如下图可知，Rainbond的网络治理插件通过Sidecar的方式在应用的同一个网络命名空间，同一个存储空间，同一个环境变量空间内动态启动第三方插件服务，例如envoy服务，通过与Rainbond应用运行时通信完成从应用空间到平台空间的数据交换，实现平台对应用通信的控制。
 <center>
-<img width="80%" src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/microservice/servicemesh-sidecar.png"></img>
+<img width="80%" src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/microservice/servicemesh-sidecar.png"></img>
 </center>

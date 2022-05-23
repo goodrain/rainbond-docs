@@ -15,7 +15,7 @@ Rainbond 开箱即用的ServiceMesh架构默认通过 Sidecar 代理的方式，
 
 #### 方式一：通过HTTP 7层网络治理进行端口复用
 
-这一类型的组件，通过[Rainbond网络治理插件](../../../use-manual/user-manual/plugin-manage/mesh-plugin/)设置下游组件的域名（Domain）、请求路径、请求头等路由条件，由envoy通过80端口将访问对应域名的请求转发至对应的后端组件端口，不再监听开通插件的组件网络空间的对应端口，具体配置流程如下：
+这一类型的组件，通过[Rainbond网络治理插件](/docs/use-manual/team-manage/plugin-manage/mesh-plugin/)设置下游组件的域名（Domain）、请求路径、请求头等路由条件，由envoy通过80端口将访问对应域名的请求转发至对应的后端组件端口，不再监听开通插件的组件网络空间的对应端口，具体配置流程如下：
 
 - 建立依赖关系
 

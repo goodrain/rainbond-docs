@@ -57,158 +57,62 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '安装与运维',
+      label: '安装 Rainbond',
       link: {
         type: 'doc',
-        id: 'user-operations/index'
+        id: 'installation/index'
       },
       items: [
-        'user-operations/op-guide/component-description',
         {
           type: 'category',
-          label: '安装 Rainbond',
+          label: '基于 Helm 安装',
           link: {
             type: 'doc',
-            id: 'user-operations/deploy/index'
+            id: 'installation/install-with-helm/index'
           },
           items: [
             {
-              type: 'category',
-              label: '基于 Helm 安装',
-              link: {
-                type: 'doc',
-                id: 'user-operations/deploy/install-with-helm/index'
-              },
-              items: [
-                {
-                  type: 'link',
-                  label: 'Helm安装命令生成工具',
-                  href: '/helm'
-                },
-                'user-operations/deploy/install-with-helm/k8s-install-with-helm',
-                'user-operations/deploy/install-with-helm/k3s-install-with-helm',
-                'user-operations/deploy/install-with-helm/ack-install-with-helm',
-                'user-operations/deploy/install-with-helm/cce-install-with-helm',
-                'user-operations/deploy/install-with-helm/install-from-rancher',
-                'user-operations/deploy/install-with-helm/vaules-config',
-                'user-operations/deploy/install-with-helm/uninstall-with-helm'
-              ]
+              type: 'link',
+              label: 'Helm安装命令生成工具',
+              href: '/helm'
             },
-            {
-              type: 'category',
-              label: '基于 Web 界面安装',
-              link: {
-                type: 'doc',
-                id: 'user-operations/deploy/install-with-ui/index'
-              },
-              items: [
-                'user-operations/deploy/install-with-ui/host-install-with-ui',
-                'user-operations/deploy/install-with-ui/ha-installation',
-                'user-operations/deploy/install-with-ui/install-by-rainbond',
-                'user-operations/deploy/install-with-ui/install-from-k8s',
-                'user-operations/deploy/install-with-ui/console-recover'
-              ]
-            },
-            {
-              type: 'category',
-              label: '安装问题排查',
-              link: {
-                type: 'doc',
-                id: 'user-operations/deploy/install-troubleshoot/index'
-              },
-              items: [
-                'user-operations/deploy/install-troubleshoot/dind-install-troubleshoot',
-                'user-operations/deploy/install-troubleshoot/helm-install-troubleshoot',
-                'user-operations/deploy/install-troubleshoot/ui-install-troubleshoot'
-              ]
-            }
+            'installation/install-with-helm/k8s-install-with-helm',
+            'installation/install-with-helm/k3s-install-with-helm',
+            'installation/install-with-helm/ack-install-with-helm',
+            'installation/install-with-helm/cce-install-with-helm',
+            'installation/install-with-helm/install-from-rancher',
+            'installation/install-with-helm/vaules-config',
+            'installation/install-with-helm/uninstall-with-helm'
           ]
         },
         {
           type: 'category',
-          label: '部署集群扩展文档',
+          label: '基于 Web 界面安装',
           link: {
             type: 'doc',
-            id: 'user-operations/Install-extension/index'
+            id: 'installation/install-with-ui/index'
           },
           items: [
-            'user-operations/Install-extension/centos_keepalived',
-            'user-operations/Install-extension/ubuntu_keepalived',
-            'user-operations/Install-extension/mysql-ha'
+            'installation/install-with-ui/host-install-with-ui',
+            'installation/install-with-ui/ha-installation',
+            'installation/install-with-ui/install-by-rainbond',
+            'installation/install-with-ui/install-from-k8s',
+            'installation/install-with-ui/console-recover'
           ]
         },
         {
           type: 'category',
-          label: '集群管理',
+          label: '安装问题排查',
           link: {
             type: 'doc',
-            id: 'user-operations/cluster-manage/index'
+            id: 'installation/install-troubleshoot/index'
           },
           items: [
-            'user-operations/cluster-manage/add-cluster',
-            'user-operations/cluster-manage/manage-cluster',
-            'user-operations/cluster-manage/manage-rke-cluster',
-            'user-operations/cluster-manage/init-region',
-            'user-operations/cluster-manage/init-region-storage',
-            'user-operations/cluster-manage/resource-limit'
+            'installation/install-troubleshoot/dind-install-troubleshoot',
+            'installation/install-troubleshoot/helm-install-troubleshoot',
+            'installation/install-troubleshoot/ui-install-troubleshoot'
           ]
-        },
-        'user-operations/management/resource-cleanup',
-        'user-operations/management/component-op',
-        'user-operations/management/dashboard-op',
-        'user-operations/management/data-migration',
-        {
-          type: 'category',
-          label: '存储解决方案',
-          link: {
-            type: 'doc',
-            id: 'user-operations/storage/index'
-          },
-          items: [
-            'user-operations/storage/deploy-glusterfs',
-            'user-operations/storage/ceph-rbd',
-            'user-operations/storage/deploy-nfsclient',
-            'user-operations/storage/ali-disk'
-          ]
-        },
-        {
-          type: 'category',
-          label: '集群监控',
-          link: {
-            type: 'doc',
-            id: 'user-operations/monitor/index'
-          },
-          items: [
-            'user-operations/monitor/monitor-alert-items',
-            'user-operations/monitor/monitor-alert-deploy',
-            {
-              type: 'category',
-              label: '报警配置项',
-              link: {
-                type: 'doc',
-                id: 'user-operations/monitor/alert/index'
-              },
-              items: [
-                'user-operations/monitor/alert/alert-wechat',
-                'user-operations/monitor/alert/alert-dingtalk',
-                'user-operations/monitor/alert/alert-mail'
-              ]
-            }
-          ]
-        },
-        {
-          type: 'category',
-          label: '周边工具集',
-          link: {
-            type: 'doc',
-            id: 'user-operations/tools/index'
-          },
-          items: [
-            'user-operations/tools/kubectl',
-            'user-operations/tools/grctl'
-          ]
-        },
-        'user-operations/troubleshoot/cluster_troubleshooting'
+        }
       ]
     },
     {
@@ -310,24 +214,59 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '管理应用与服务组件',
+          label: '组件管理指南',
           link: {
             type: 'doc',
-            id: 'use-manual/user-manual/index'
+            id: 'use-manual/component-manage/index'
           },
           items: [
-            'use-manual/user-manual/join-team/join-team',
-            'use-manual/user-manual/app-create/app-create',
             {
               type: 'category',
-              label: '外网访问组件',
+              label: '组件总览',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/gateway/index'
+                id: 'use-manual/component-manage/overview/index'
               },
               items: [
-                'use-manual/user-manual/gateway/domain',
-                'use-manual/user-manual/gateway/tcpip'
+                'use-manual/component-manage/overview/basic-operation',
+                'use-manual/component-manage/overview/service-properties',
+                'use-manual/component-manage/overview/version-rollback',
+                'use-manual/component-manage/overview/operation-log',
+              ]
+            },
+            {
+              type: 'category',
+              label: '组件监控',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-manage/monitor/index'
+              },
+              items: [
+                'use-manual/component-manage/monitor/service-monitor',
+                'use-manual/component-manage/monitor/custom-monitor',
+              ]
+            },
+            'use-manual/component-manage/service-log',
+            {
+              type: 'category',
+              label: '组件伸缩',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-manage/automatic-telescoping/index'
+              },
+              items: [
+                'use-manual/component-manage/automatic-telescoping/service-auto-scaling'
+              ]
+            },
+            {
+              type: 'category',
+              label: '组件环境配置',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-manage/env/index'
+              },
+              items: [
+                'use-manual/component-manage/env/advanced-env'
               ]
             },
             {
@@ -335,133 +274,208 @@ const sidebars = {
               label: '组件间通信',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/component-connection/index'
+                id: 'use-manual/component-manage/component-connection/index'
               },
               items: [
-                'use-manual/user-manual/component-connection/regist_and_discover',
-                'use-manual/user-manual/component-connection/regist_and_discover_grpc',
-                'use-manual/user-manual/component-connection/connection_env'
+                'use-manual/component-manage/component-connection/regist_and_discover',
+                'use-manual/component-manage/component-connection/regist_and_discover_grpc',
+                'use-manual/component-manage/component-connection/connection_env'
               ]
             },
             {
               type: 'category',
-              label: '组件开发',
+              label: '组件存储',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/component-dev/index'
+                id: 'use-manual/component-manage/custom-volume/index'
               },
               items: [
-                'use-manual/user-manual/component-dev/build_and_version',
-                'use-manual/user-manual/component-dev/build_source',
-                'use-manual/user-manual/component-dev/auto_build',
-                'use-manual/user-manual/component-dev/app_copy',
-                'use-manual/user-manual/component-dev/service-env'
+                'use-manual/component-manage/custom-volume/service-volume-custom'
+              ]
+            },
+            'use-manual/component-manage/service-port-domain',
+            'use-manual/component-manage/service-plugins',
+            {
+              type: 'category',
+              label: '组件构建源',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-manage/build-source/index'
+              },
+              items: [
+                'use-manual/component-manage/build-source/build_and_version',
+                'use-manual/component-manage/build-source/auto_build',
               ]
             },
             {
               type: 'category',
-              label: '组件运维',
+              label: '组件其他设置',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/component-op/index'
+                id: 'use-manual/component-manage/other/index'
               },
               items: [
+                'use-manual/component-manage/other/service-other-set',
+              ]
+            },
+          ]
+        },
+        {
+          type: 'category',
+          label: '应用管理指南',
+          link: {
+            type: 'doc',
+            id: 'use-manual/app-manage/index'
+          },
+          items: [
+            {
+              type: 'category',
+              label: '应用总览',
+              link: {
+                type: 'doc',
+                id: 'use-manual/app-manage/overview/index'
+              },
+              items: [
+                'use-manual/app-manage/overview/app-topology',
+                'use-manual/app-manage/overview/operation',
+                'use-manual/app-manage/overview/add-service',
+                'use-manual/app-manage/overview/app-copy',
                 {
                   type: 'category',
-                  label: '组件基本操作',
-                  items: [
-                    'use-manual/user-manual/component-op/basic-operation/basic-operation',
-                    'use-manual/user-manual/component-op/basic-operation/service-properties'
-                  ]
-                },
-                'use-manual/user-manual/component-op/service-log',
-                {
-                  type: 'category',
-                  label: '组件伸缩',
+                  label: '应用治理模式',
                   link: {
                     type: 'doc',
-                    id: 'use-manual/user-manual/component-op/automatic-telescoping/index'
+                    id: 'use-manual/app-manage/overview/model/governance-model'
                   },
                   items: [
-                    'use-manual/user-manual/component-op/automatic-telescoping/service-scaling',
-                    'use-manual/user-manual/component-op/automatic-telescoping/service-auto-scaling'
+                    'use-manual/app-manage/overview/model/deploy-istio',
                   ]
                 },
-                {
-                  type: 'category',
-                  label: '组件存储',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/user-manual/component-op/custom-volume/index'
-                  },
-                  items: [
-                    'use-manual/user-manual/component-op/custom-volume/service-volume',
-                    'use-manual/user-manual/component-op/custom-volume/service-volume-custom'
-                  ]
-                },
-                'use-manual/user-manual/component-op/service-port-domain',
-                'use-manual/user-manual/component-op/custom-monitor',
-                'use-manual/user-manual/component-op/health',
-                {
-                  type: 'category',
-                  label: '组件性能分析与监控',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/user-manual/component-op/performance-analysis/index'
-                  },
-                  items: [
-                    'use-manual/user-manual/component-op/performance-analysis/service-monitor'
-                  ]
-                },
-                'use-manual/user-manual/component-op/service-other-set',
-                'use-manual/user-manual/component-op/service-plugins'
               ]
+            },
+            'use-manual/app-manage/share-app',
+            'use-manual/app-manage/app-backup',
+            {
+              type: 'link',
+              label: '应用网关',
+              href: '/docs/use-manual/team-manage/gateway/',
             },
             {
               type: 'category',
-              label: '插件开发',
+              label: '应用升级',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/plugin-manage/index'
+                id: 'use-manual/app-manage/app-upgrade/index'
               },
               items: [
-                'use-manual/user-manual/plugin-manage/plugin-design-develop',
-                'use-manual/user-manual/plugin-manage/mesh-plugin',
-                'use-manual/user-manual/plugin-manage/new-plugin'
+                'use-manual/app-manage/app-upgrade/upgrade-app',
               ]
             },
-            {
-              type: 'category',
-              label: '应用运维',
-              link: {
-                type: 'doc',
-                id: 'use-manual/user-manual/app-manage/index'
-              },
-              items: [
-                'use-manual/user-manual/app-manage/app-topology',
-                'use-manual/user-manual/app-manage/operation',
-                'use-manual/user-manual/app-manage/add-service',
-                'use-manual/user-manual/app-manage/upgrade_app',
-                'use-manual/user-manual/app-manage/share-app',
-                'use-manual/user-manual/app-manage/config-group',
-                'use-manual/user-manual/app-manage/governance-model',
-                'use-manual/user-manual/app-manage/deploy-istio'
-              ]
-            },
+            'use-manual/app-manage/config-group',
             {
               type: 'category',
               label: '构建微服务架构',
               link: {
                 type: 'doc',
-                id: 'use-manual/user-manual/architecture/index'
+                id: 'use-manual/app-manage/architecture/index'
               },
               items: [
-                'use-manual/user-manual/architecture/service_assembly',
-                'use-manual/user-manual/architecture/rate-limiting',
-                'use-manual/user-manual/architecture/traffic-management',
-                'use-manual/user-manual/architecture/network-visualization'
+                'use-manual/app-manage/architecture/service_assembly',
+                'use-manual/app-manage/architecture/rate-limiting',
+                'use-manual/app-manage/architecture/traffic-management',
+                'use-manual/app-manage/architecture/network-visualization'
               ]
             }
+          ]
+        },
+        {
+          type: 'category',
+          label: '团队管理员指南',
+          link: {
+            type: 'doc',
+            id: 'use-manual/team-manage/index'
+          },
+          items: [
+            'use-manual/team-manage/overview/overview',
+            {
+              type: 'category',
+              label: '应用管理',
+              link: {
+                type: 'doc',
+                id: 'use-manual/team-manage/app-manage/index'
+              },
+              items: [
+                'use-manual/team-manage/app-manage/overview',
+                'use-manual/team-manage/app-manage/app-create',
+              ]
+            },
+            {
+              type: 'link',
+              label: '创建组件',
+              href: '/docs/use-manual/component-create/creation-process',
+            },
+            {
+              type: 'category',
+              label: '网关',
+              link: {
+                type: 'doc',
+                id: 'use-manual/team-manage/gateway/index'
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: '访问策略管理',
+                  link: {
+                    type: 'doc',
+                    id: 'use-manual/team-manage/gateway/rules/index'
+                  },
+                  items: [
+                    'use-manual/team-manage/gateway/rules/domain',
+                    'use-manual/team-manage/gateway/rules/tcpip',
+                  ]
+                },
+                'use-manual/team-manage/gateway/certs/index',
+              ]
+            },
+            {
+              type: 'category',
+              label: '插件',
+              link: {
+                type: 'doc',
+                id: 'use-manual/team-manage/plugin-manage/index'
+              },
+              items: [
+                'use-manual/team-manage/plugin-manage/plugin-design-develop',
+                'use-manual/team-manage/plugin-manage/mesh-plugin',
+                'use-manual/team-manage/plugin-manage/new-plugin',
+                'use-manual/team-manage/plugin-manage/tcm-plugin',
+              ]
+            },
+            {
+              type: 'category',
+              label: '团队管理',
+              link: {
+                type: 'doc',
+                id: 'use-manual/team-manage/team-manage/index'
+              },
+              items: [
+                'use-manual/team-manage/team-manage/dynamic',
+                'use-manual/team-manage/team-manage/team-user',
+                'use-manual/team-manage/team-manage/open-cluster',
+                {
+                  type: 'category',
+                  label: '角色',
+                  link: {
+                    type: 'doc',
+                    id: 'use-manual/team-manage/team-manage/rule/index',
+                  },
+                  items: [
+                    'use-manual/team-manage/team-manage/rule/user-rule',
+                  ]
+                },
+                
+              ]
+            },
           ]
         },
         {
@@ -488,7 +502,18 @@ const sidebars = {
                 'use-manual/enterprise-manage/appcenter/app-specification'
               ]
             },
-            'use-manual/enterprise-manage/teams/create-team',
+            {
+              type: 'category',
+              label: '团队管理',
+              link: {
+                type: 'doc',
+                id: 'use-manual/enterprise-manage/teams/index',
+              },
+              items: [
+                'use-manual/enterprise-manage/teams/create-team',
+                'use-manual/enterprise-manage/teams/join-team',
+              ]
+            },
             'use-manual/enterprise-manage/cluster-manage/index',
             {
               type: 'category',
@@ -544,7 +569,153 @@ const sidebars = {
             }
           ]
         },
+        {
+          type: 'category',
+          label: '应用商店指南',
+          link: {
+            type: 'doc',
+            id: 'use-manual/app-store-manage/index'
+          },
+          items: [
+            'use-manual/app-store-manage/share-app',
+          ]
+        },
         'use-manual/usage_troubleshooting'
+      ]
+    },
+    {
+      type: 'category',
+      label: '运维手册',
+      link: {
+        type: 'doc',
+        id: 'ops-guide/index'
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Rainbond 组件概述',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/component/index'
+          },
+          items: [
+            'ops-guide/component/rainbond-operator',
+            'ops-guide/component/rbd-api',
+            'ops-guide/component/rbd-chaos',
+            'ops-guide/component/rbd-db',
+            'ops-guide/component/etcd',
+            'ops-guide/component/rbd-eventlog',
+            'ops-guide/component/rbd-gateway',
+            'ops-guide/component/rbd-hub',
+            'ops-guide/component/rbd-mq',
+            'ops-guide/component/rbd-nfs',
+            'ops-guide/component/rbd-node',
+            'ops-guide/component/rbd-resource-proxy',
+            'ops-guide/component/rbd-webcli',
+            'ops-guide/component/rbd-worker',
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Rainbond 运维概述',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/management/index'
+          },
+          items: [
+            'ops-guide/management/dashboard-op',
+            'ops-guide/management/resource-cleanup',
+            'ops-guide/management/data-migration',
+          ]
+        },
+        {
+          type: 'category',
+          label: '集群管理',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/cluster-manage/index'
+          },
+          items: [
+            'ops-guide/cluster-manage/add-cluster',
+            'ops-guide/cluster-manage/manage-cluster',
+            {
+              type: 'category',
+              label: '自定义集群参数',
+              items: [
+                'ops-guide/cluster-manage/manage-rke-cluster',
+                'ops-guide/cluster-manage/init-region',
+                'ops-guide/cluster-manage/init-region-storage',
+              ]
+            },
+            'ops-guide/cluster-manage/resource-limit'
+            
+          ]
+        },
+        {
+          type: 'category',
+          label: '集群部署扩展文档',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/Install-extension/index'
+          },
+          items: [
+            'ops-guide/Install-extension/centos_keepalived',
+            'ops-guide/Install-extension/ubuntu_keepalived',
+            'ops-guide/Install-extension/mysql-ha'
+          ]
+        },
+        {
+          type: 'category',
+          label: '存储解决方案',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/storage/index'
+          },
+          items: [
+            'ops-guide/storage/deploy-glusterfs',
+            'ops-guide/storage/ceph-rbd',
+            'ops-guide/storage/deploy-nfsclient',
+            'ops-guide/storage/ali-disk'
+          ]
+        },
+        {
+          type: 'category',
+          label: '集群监控',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/monitor/index'
+          },
+          items: [
+            'ops-guide/monitor/monitor-alert-items',
+            'ops-guide/monitor/monitor-alert-deploy',
+            {
+              type: 'category',
+              label: '报警配置项',
+              link: {
+                type: 'doc',
+                id: 'ops-guide/monitor/alert/index'
+              },
+              items: [
+                'ops-guide/monitor/alert/alert-wechat',
+                'ops-guide/monitor/alert/alert-dingtalk',
+                'ops-guide/monitor/alert/alert-mail'
+              ]
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'CLI 命令行',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/tools/index'
+          },
+          items: [
+            'ops-guide/tools/kubectl',
+            'ops-guide/tools/grctl'
+          ]
+        },
+        'ops-guide/troubleshoot/cluster_troubleshooting'
       ]
     },
     {

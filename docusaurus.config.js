@@ -65,6 +65,7 @@ const config = {
           src: 'img/rainbond.png',
           href: '/'
         },
+        hideOnScroll: true,
         // navbar的选项卡
         items: [
           {
@@ -87,11 +88,11 @@ const config = {
             label: '博客',
             position: 'left'
           },
-          {
-            type: 'html',
-            position: 'right',
-            value: '<iframe src="https://ghbtns.com/github-btn.html?user=goodrain&repo=rainbond&type=star&count=true" frameborder="0" scrolling="0" width="105" height="20" title="GitHub" style="margin-top: 8px;"></iframe>',
-          },
+          // {
+          //   type: 'html',
+          //   position: 'right',
+          //   value: '<iframe src="https://ghbtns.com/github-btn.html?user=goodrain&repo=rainbond&type=star&count=true" frameborder="0" scrolling="0" width="105" height="20" title="GitHub" style="margin-top: 8px;"></iframe>',
+          // },
           {
             type: 'docsVersionDropdown',
             position: 'right'
@@ -180,6 +181,9 @@ const config = {
               {
                 label: '联系我们',
                 to: 'https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg'
+              },
+              {
+                html: `<a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> </a>`
               }
             ]
           }
@@ -195,7 +199,7 @@ const config = {
           '⭐️ If you like Rainbond, give it a star on <a target="_blank" href="https://github.com/goodrain/rainbond">GitHub</a> !'
       }
     }),
-  scripts: ['https://static.goodrain.com/docusaurus/baidu-statistics.js'],
+  scripts: ['https://static.goodrain.com/docusaurus/baidu-statistics.js', 'https://static.goodrain.com/docusaurus/posthog.js'],
   plugins: [
     [
       '@docusaurus/plugin-content-blog',
@@ -229,46 +233,46 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath) {
-          if (existingPath.includes('docs/use-manual/component-create')) {
-            return [
-              existingPath.replace(
-                'docs/use-manual/component-create',
-                'docs/component-create'
-              )
-            ];
-          }
-          if (existingPath.includes('docs/use-manual/enterprise-manager')) {
-            return [
-              existingPath.replace(
-                'docs/use-manual/enterprise-manager',
-                'docs/enterprise-manager'
-              )
-            ];
-          }
-          if (existingPath.includes('docs/use-manual/user-manual')) {
-            return [
-              existingPath.replace(
-                'docs/use-manual/user-manual',
-                'docs/user-manual'
-              )
-            ];
-          }
-          if (existingPath.includes('docs/quick-start/get-start')) {
-            return [
-              existingPath.replace(
-                'docs/quick-start/get-start',
-                'docs/get-start'
-              )
-            ];
-          }
-          if (existingPath.includes('docs/quick-start/architecture/')) {
-            return [
-              existingPath.replace(
-                'docs/quick-start/architecture/',
-                'docs/architecture/'
-              )
-            ];
-          }
+          // if (existingPath.includes('docs/use-manual/component-create')) {
+          //   return [
+          //     existingPath.replace(
+          //       'docs/use-manual/component-create',
+          //       'docs/component-create'
+          //     )
+          //   ];
+          // }
+          // if (existingPath.includes('docs/use-manual/enterprise-manager')) {
+          //   return [
+          //     existingPath.replace(
+          //       'docs/use-manual/enterprise-manager',
+          //       'docs/enterprise-manager'
+          //     )
+          //   ];
+          // }
+          // if (existingPath.includes('docs/use-manual/user-manual')) {
+          //   return [
+          //     existingPath.replace(
+          //       'docs/use-manual/user-manual',
+          //       'docs/user-manual'
+          //     )
+          //   ];
+          // }
+          // if (existingPath.includes('docs/quick-start/get-start')) {
+          //   return [
+          //     existingPath.replace(
+          //       'docs/quick-start/get-start',
+          //       'docs/get-start'
+          //     )
+          //   ];
+          // }
+          // if (existingPath.includes('docs/quick-start/architecture/')) {
+          //   return [
+          //     existingPath.replace(
+          //       'docs/quick-start/architecture/',
+          //       'docs/architecture/'
+          //     )
+          //   ];
+          // }
           if (existingPath.includes('docs/expand/practices')) {
             return [
               existingPath.replace('docs/expand/practices', 'docs/practices')

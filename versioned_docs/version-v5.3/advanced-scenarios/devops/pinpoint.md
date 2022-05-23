@@ -25,7 +25,7 @@ Pinpoint是一个APM（应用程序性能管理）工具，适用于用Java / PH
 
 - 主要组件
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" width="80%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" width="80%" />
 
 
 |      组件   |   组件功能 |   
@@ -42,15 +42,15 @@ Pinpoint是一个APM（应用程序性能管理）工具，适用于用Java / PH
 
 这种部署方式对于像pinpoint这种多组件的复杂应用来说，最大程度的降低了部署难度与工作量
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpont01.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpont01.png" width="100%" />
 
 - 通过pinpoint-web应用进入到pinpoint的UI界面
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint02.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint02.png" width="100%" />
 
 - 在默认设置中，pinpoint应用 已经监控了它自身的 collector 、web组件。在进入UI界面后，就可以发现二者已经存在于应用列表中了
 
-<img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint03.png" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint03.png" width="100%" />
 
 ### 三. 添加被监控的对象
 
@@ -137,17 +137,17 @@ exec java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 
 - 1. 关联Pinpoint-Collector
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint05.png" max-width="100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint05.png" max-width="100%"/></center>
 
 - 2. 查看 **连接信息**
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint06.png" max-width="100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint06.png" max-width="100%"/></center>
 
 - 3. 访问 Pinpoint-Web查看：
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint07.png" max-width="100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint07.png" max-width="100%"/></center>
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint13.png" max-width="100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint13.png" max-width="100%"/></center>
 
 - 对于已部署的应用，也可以通过 **应用管理界面** 中的 **依赖** 、**设置** 选项卡，来配置相应的服务依赖和环境变量。
 
@@ -155,21 +155,21 @@ exec java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 
 - 1. 开启Pinpoint-Collector对外服务后，平台网关会定义一层端口映射关系
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint08.png" max-width="100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint08.png" max-width="100%"/></center>
 
 - 2. 查看todoshow变量值，检查端口号是否正确，激活agent的开关
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint09.png" max-width="100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint09.png" max-width="100%"/></center>
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint10.png" max-width="100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint10.png" max-width="100%"/></center>
 
 - 3. 访问 Pinpoint-Web查看，todoshow已经出现在界面上
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint11.png" max-width="100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint11.png" max-width="100%"/></center>
 
 
 - 在Pinpoint-Web中实时推送使用的是Websocket协议，但我们在访问Pinpoint-Web应用时使用的是http协议；所以不能实时接收推送，需在平台中 **应用网关**-->**访问控制**中找到Pinpoint-Web应用，点击**参数配置** 打开Websocket协议支持。
 
-<center><img src="http://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint12.png" max-width="100%"/></center>
+<center><img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/Pinpoint/pinpoint12.png" max-width="100%"/></center>
 
 
