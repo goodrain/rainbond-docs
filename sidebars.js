@@ -577,6 +577,7 @@ const sidebars = {
             id: 'use-manual/app-store-manage/index'
           },
           items: [
+            'use-manual/app-store-manage/install-app',
             'use-manual/app-store-manage/share-app',
           ]
         },
