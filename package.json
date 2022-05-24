@@ -30,7 +30,9 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sass": "^1.49.9",
-    "swiper": "^8.1.4"
+    "sweetalert2": "^11.4.14",
+    "swiper": "^8.1.4",
+    "tippy.js": "^6.3.7"
   },
   "browserslist": {
     "production": [
