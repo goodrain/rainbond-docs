@@ -48,10 +48,43 @@
     padding-top: 14px;
 }
 .rainbond_ha{
+    
     margin-left: 40px;
     margin-bottom: 20px;
 }
+.rainbond_has{
+    position: relative;
+}
+.hint{
+    position: absolute;
+    top: 0%;
+    left: 4%;
+}
+.hints{
+    position: absolute;
+    top: 48px;
+    left: 136px;
+}
+.hintBox{
+    position: absolute;
+    top: 0px;
+    left: 98px;
+}
+.hintDatabase{
+    position: absolute;
+    top: 0px;
+    left: 112px;
+}
+.hintWarehouse{
+    position: absolute;
+    top: 0px;
+    left: 126px;
+}
 .rainbond_line{
+    border-bottom: 1px dashed #ccc;
+}
+.rainbond_lines{
+    position: relative;
     border-bottom: 1px dashed #ccc;
 }
 .rainbond_gateway{
@@ -62,7 +95,7 @@
     margin-left: 24px;
 }
 .rainbond_inputs{
-    width: 240px !important;
+    width: 296px !important;
     height: 26px;
     border: 1px solid #808080 !important;
     border-radius: 4px !important;
@@ -73,8 +106,14 @@
     margin-right: 10px !important;
 }
 .rainbond_rows{
+    position: relative;
     display: flex;
     height: 46px;
+}
+.ipHint{
+    position: absolute;
+    top: -2px;
+    left: 58px;
 }
 .rainbond_spanTitle{
     width: 240px;
@@ -85,7 +124,7 @@
     margin-left: 40px;
 }
 .rainbond_dataInput{
-    width: 240px !important;
+    width: 280px !important;
     height: 26px;
     border: 1px solid #808080 !important;
     border-radius: 4px !important;
@@ -103,11 +142,11 @@
     margin-bottom: -12px;
 }
 .rainbond_console{
-    width: 240px;
+    width: 280px;
     color: #808080;
 }
 .rainbond_region{
-    width: 240px;
+    width: 280px;
     margin-left: 40px;
     color: #808080;
 }
@@ -125,7 +164,7 @@
     padding-bottom: 60px;
 }
 .rainbond_DAinputs{
-    width: 110px;
+    width: 180px;
     height: 26px;
     margin-right: 10px;
     padding-left: 4px;

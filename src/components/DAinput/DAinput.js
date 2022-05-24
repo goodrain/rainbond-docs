@@ -77,9 +77,9 @@ export default class DAinputs extends Component {
   }
 
   render() {
-    const externalIPPlaceholder = '外部IP';
-    const repPlaceholder = '内部IP';
-    const namePlaceholder = '节点名称';
+    const externalIPPlaceholder = '外部IP  例：1.2.3.4';
+    const repPlaceholder = '内部IP  例：192.168.0.1';
+    const namePlaceholder = '节点名称  例：master1';
     const { values } = this.state;
     return (
       <div>
@@ -88,6 +88,7 @@ export default class DAinputs extends Component {
           return (
             <div className="rainbond_rowsLeft" key={index}>
               <div className="rainbond_rows">
+              <span style={{color:'red'}}>*</span>
                 <span className="rainbond_spanTitle">节点配置</span>
                 <Input
                   name="externalIP"

@@ -1,6 +1,7 @@
 import { Input, notification, Form } from 'antd';
 import { PlusCircleOutlined, MinusCircleOutlined, ExclamationCircleOutlined } from '@ant-design/icons'
 import React, { Component } from 'react';
+import Swal from 'sweetalert2'
 import 'animate.css';
 import '../Helm/index.css'
 
@@ -35,7 +36,7 @@ export default class BuildInput extends Component {
         const { values } = this.state;
         if (values.length > 99) {
             return null;
-        } 
+        }
         this.setState({
             values: values.concat({ ip: '' }),
         });
@@ -61,7 +62,7 @@ export default class BuildInput extends Component {
     }
 
     render() {
-        const regexPlaceholder = '请输入节点名称';
+        const regexPlaceholder = '请输入endpoints地址  例：192.168.0.1:2379';
         const { values, count } = this.state;
         return (
             <div>
@@ -97,19 +98,6 @@ export default class BuildInput extends Component {
                         </div>
                     );
                 })
-                }
-                {
-                    values.length >1 && (values.length % 2 === 0 ? (
-                        <div className="etcd_hint animate__animated animate__bounceInRight">
-                            <ExclamationCircleOutlined twoToneColor="#ffe58f" />
-                            <span>Etcd节点个数必须为奇数</span>
-                        </div>
-                    ) : (
-                        <div className="etcd_hint animate__animated animate__bounceOutRight">
-                            <ExclamationCircleOutlined twoToneColor="#ffe58f" />
-                            <span>Etcd节点个数必须为奇数</span>
-                        </div>
-                    )) 
                 }
             </div >
         );
