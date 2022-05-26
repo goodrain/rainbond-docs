@@ -110,6 +110,17 @@
     display: flex;
     height: 46px;
 }
+.rainbond_rows_rwx{
+    position: relative;
+    display: flex;
+    height: 26px;
+}
+.links{
+    margin: 0px 0px 10px 240px;
+}
+.links a{
+    font-size: 12px;
+}
 .ipHint{
     position: absolute;
     top: -2px;
