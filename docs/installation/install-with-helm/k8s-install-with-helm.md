@@ -36,11 +36,7 @@ helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
 
 - 安装rainbond
 
-```
-helm install rainbond rainbond/rainbond-cluster -n rbd-system
-```
-
-> 需要自定义 Rainbond 集群配置的时候，参考 [values.yaml 详解](/docs/installation/install-with-helm/vaules-config/) 创建 `values.yaml` 配置文件，并在安装 Rainbond 集群的命令中指定 `-f values.yaml`
+安装 Rainbond 的命令可以使用 [Helm安装命令生成工具](/helm) 进行生成.
 
 #### 验证安装
 
