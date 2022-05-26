@@ -29,9 +29,38 @@ rbd-node-7gsgl                      0/1     Running   0          113s
 
 通过helm安装rainbond，整个的安装过程可以细化分为几个任务，知道整个安装的过程以后，出现问题也将围绕这些任务的执行情况进行开展。
 
-1. helm install 会首先安装rainbond控制器，也就是rainbond-operator。
-2. 控制器启动成功以后，rainbond的组件会在operator的控制下，进行逐步安装。
-2. rainbond组件的安装通常是有顺序依赖的，pod 启动时会先向数据库进行连接，或者查看存储是否准备完毕，所以当单个组件出现不是 Running 时，首先可以查看 rbd-etcd , nfs-provisioner , rbd-db 等pod日志。
+1. helm install 会首先进行基础环境检测，如环境不符合要求，安装过程会自动退出并报错。
+2. 继而安装 rainbond 控制器，也就是 rainbond-operator。
+3. 控制器启动成功以后，rainbond的组件会在 operator 的控制下，进行逐步安装。
+4. rainbond组件的安装通常是有顺序依赖的，pod 启动时会先向数据库进行连接，或者查看存储是否准备完毕，所以当单个组件出现不是 Running 时，首先可以查看 rbd-etcd , nfs-provisioner , rbd-db 等pod日志。
+5. 最终，通过访问命令行界面提示的 `IP:7070` 地址，访问控制台则证明安装成功
+
+#### 环境检测阶段
+
+如果在执行 `helm install` 命令后，返回如下报错，则说明环境检测失败：
+
+```bash
+Error: failed pre-install: job failed: BackoffLimitExceeded
+```
+
+通过以下命令查询日志，可以得知问题原因：
+
+```bash
+kubectl logs -f -l name=env-checker -n rbd-system
+
+# 可能的输出如下：
+INFO Nfs client ready on node node1
+INFO 192.168.2.180:80 ready
+INFO 192.168.2.180:443 ready
+INFO 192.168.2.180:6060 ready
+INFO 192.168.2.180:7070 ready
+INFO 192.168.2.180:8443 ready
+ERROR Nfs client must been installed on node node2!
+ERROR Nfs 客户端在节点 node2 中没有被检测到, 请确定是否已在所有宿主机安装该软件包.
+INFO For CentOS: yum install -y nfs-utils; For Ubuntu: apt install -y nfs-common
+```
+
+红色的 ERROR 部分说明有问题的节点以及对应的原因，根据说明处理环境即可。
 
 #### 启动组件阶段
 
