@@ -62,7 +62,7 @@ export default class BuildInput extends Component {
   }
 
   render() {
-    const namePlaceholder = '请输入节点名称';
+    const namePlaceholder = '请输入节点名称  例：master1';
     const { values } = this.state;
     return (
       <div>
