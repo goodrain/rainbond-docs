@@ -34,12 +34,14 @@ var dataObj = {
         enable: false,
         RWX: {
             enable: false,
-            storageClassName: ''
+            config:{
+                storageClassName: ''
+            }
         },
         RWO: {
             enable: false,
             storageClassName: ''
-        }
+        }    
     },
     database: {
         enable: false,
@@ -65,7 +67,7 @@ var dataObj = {
         nodes: []
     },
     nodesForGateway: {
-        enable: false,
+        enable: true,
         nodes: []
     }
 }
@@ -102,6 +104,13 @@ export default class index extends Component {
             disabled: e.target.value,
         });
         dataObj.enableHA = e.target.value
+        dataObj.etcd.enable = e.target.value
+        dataObj.estorage.enable = e.target.value
+        dataObj.estorage.RWX.enable = e.target.value
+        dataObj.estorage.RWO.enable = e.target.value
+        dataObj.database.enable = e.target.value
+        dataObj.database.uiDatabase.enable = e.target.value
+        dataObj.database.regionDatabase.enable = e.target.value
     };
     //镜像仓库
     onRepositories = e => {
@@ -109,6 +118,7 @@ export default class index extends Component {
             repositories: e.target.value,
         });
         dataObj.imageHub.enable = e.target.value
+        
     }
     //etcd
     onEtcd = e => {
@@ -193,7 +203,7 @@ export default class index extends Component {
             dataObj.imageHub.password = e.password || ''
             dataObj.etcd.endpoints = e.endpoints || []
             dataObj.etcd.secretName = e.secretName || ''
-            dataObj.estorage.RWX.storageClassName = e.storageClassName1 || ''
+            dataObj.estorage.RWX.config.storageClassName = e.storageClassName1 || ''
             dataObj.estorage.RWO.storageClassName = e.storageClassName2 || ''
             dataObj.database.uiDatabase.host = e.host1 || ''
             dataObj.database.uiDatabase.port = e.port1 || ''
@@ -391,7 +401,7 @@ export default class index extends Component {
                                                 外部存储
                                                 {storage ?
                                                     <div className="rainbond_rowsLeft">
-                                                        <div className="rainbond_rows">
+                                                        <div className="rainbond_rows_rwx">
                                                             { disabled && <span style={{color:'red',marginLeft:'-8px'}}>*</span> }
                                                             <span className="rainbond_spanTitle">RWX 所用存储 storageClass 名称</span>
                                                             <Form.Item
@@ -402,6 +412,11 @@ export default class index extends Component {
                                                             >
                                                                 <Input className="rainbond_inputs" placeholder="请输入存储名称  例：glusterfs-simple" />
                                                             </Form.Item>
+                                                        </div>
+                                                        <div className="links">
+                                                            <a href="https://www.rainbond.com/docs/installation/install-with-helm/vaules-config">
+                                                            如需自定义挂载参数，或采用其他挂载，请参考values.yaml 详解
+                                                            </a>
                                                         </div>
                                                         <div className="rainbond_rows">
                                                             <span className="rainbond_spanTitle">RWO 所用存储 storageClass 名称</span>
