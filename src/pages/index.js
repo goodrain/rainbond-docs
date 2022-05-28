@@ -290,8 +290,8 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* 在线体验 */}
-        <section style={{ backgroundColor: '#f0f1f5' }}>
+        {/* 第二屏 */}
+        <section className={styles.second}>
           <div id={styles.section_experience} className={styles.width}>
             {/* 标题 */}
             <h1
@@ -317,9 +317,24 @@ export default function Home() {
                 {/* 描述 */}
                 <div className={styles.experience_sort_desc}>
                   <ul>
-                    <li>>&nbsp;支持6种常见的开发语言</li>
-                    <li>>&nbsp;无需编写Dockerfile</li>
-                    <li>>&nbsp;集成Git仓库</li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;支持6种常见的开发语言
+                    </li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;无需编写Dockerfile
+                    </li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;集成Git仓库
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -338,9 +353,24 @@ export default function Home() {
                 {/* 描述 */}
                 <div className={styles.experience_sort_desc}>
                   <ul>
-                    <li>>&nbsp;零门槛落地Kubernetes</li>
-                    <li>>&nbsp;无需编写YAML</li>
-                    <li>>&nbsp;管理多个集群</li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;零门槛落地Kubernetes
+                    </li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;无需编写YAML
+                    </li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;管理多个集群
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -354,9 +384,24 @@ export default function Home() {
                 {/* 描述 */}
                 <div className={styles.experience_sort_desc}>
                   <ul>
-                    <li>>&nbsp;Spring Cloud项目一步构建</li>
-                    <li>>&nbsp;服务编排和拓扑图展示</li>
-                    <li>>&nbsp;支持Service Mesh</li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;Spring Cloud项目一步构建
+                    </li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;服务编排和拓扑图展示
+                    </li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;支持Service Mesh
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -375,9 +420,23 @@ export default function Home() {
                 {/* 描述 */}
                 <div className={styles.experience_sort_desc}>
                   <ul>
-                    <li>>&nbsp;一键安装和升级</li>
-                    <li>>&nbsp;建立自己的应用市场</li>
-                    <li>>&nbsp;对接Helm应用市场</li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;一键安装和升级</li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;建立自己的应用市场
+                    </li>
+                    <li>
+                      <b> 
+                        > 
+                      </b>
+                      &nbsp;对接Helm应用市场
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -385,8 +444,7 @@ export default function Home() {
           </div>
         </section>
         {/* 为什么选择Rainbond */}
-        <section id={styles.section_why_rainbond} className={styles.width}>
-          {/* 标题 */}
+        {/* <section id={styles.section_why_rainbond} className={styles.width}>
           <h1
             style={{
               textAlign: 'center',
@@ -394,11 +452,9 @@ export default function Home() {
               position: 'relative'
             }}
           >
-            为什么选择，<span className={styles.how_rainbond}>Rainbond ？</span>
+            为什么选择<span className={styles.how_rainbond}>Rainbond ？</span>
           </h1>
-          {/* 描述 */}
           <div className={styles.how_rainbond_desc_container}>
-            {/* 按钮 */}
             <div className={styles.how_rainbond_btn}>
               <button
                 className={
@@ -435,7 +491,6 @@ export default function Home() {
             </div>
             {open === 'first' && (
               <div className={styles.how_rainbond_desc}>
-                {/* first */}
                 <div>
                   <img src='/img/pass.svg' alt='' />
                   <span>用户无需学习KubernetesFirst</span>
@@ -454,10 +509,8 @@ export default function Home() {
                 </div>
               </div>
             )}
-            {/* second */}
             {open === 'second' && (
               <div className={styles.how_rainbond_desc}>
-                {/* first */}
                 <div>
                   <img src='/img/pass.svg' alt='' />
                   <span>用户无需学习KubernetesSecond</span>
@@ -476,10 +529,8 @@ export default function Home() {
                 </div>
               </div>
             )}
-            {/* third */}
             {open === 'third' && (
               <div className={styles.how_rainbond_desc}>
-                {/* first */}
                 <div>
                   <img src='/img/pass.svg' alt='' />
                   <span>用户无需学习KubernetesThird</span>
@@ -498,10 +549,9 @@ export default function Home() {
                 </div>
               </div>
             )}
-            {/* fourth */}
+            
             {open === 'fourth' && (
               <div className={styles.how_rainbond_desc}>
-                {/* first */}
                 <div>
                   <img src='/img/pass.svg' alt='' />
                   <span>用户无需学习KubernetesFourth</span>
@@ -520,7 +570,6 @@ export default function Home() {
                 </div>
               </div>
             )}
-            {/* 快速安装 */}
             <a
               href='#'
               className={`${styles.how_rainbond_desc_container_start} ${styles.active_btn}`}
@@ -528,247 +577,234 @@ export default function Home() {
               Get Started >
             </a>
           </div>
-        </section>
+        </section> */}
         {/* 第三屏 */}
-        <section id={styles.section_third} className={styles.width}>
-          <h1 className={styles.dosc_logo}>
-            <img src='/img/smallimages/RainbondDoWhat.png' alt='' />
-          </h1>
-          <h1
-            style={{
-              textAlign: 'center',
-              marginBottom: '56px',
-              position: 'relative'
-            }}
-          >
-            <span className={styles.how_rainbond}>Rainbond</span>
-            &nbsp;能做什么?
-            <img
-              src='/img/smallimages/R.png'
-              alt=''
+        <section className={styles.third}>
+          <div id={styles.section_third} className={styles.width}>
+            <h1 className={styles.dosc_logo}>
+              <img src='/img/smallimages/RainbondDoWhat.png' alt='' />
+            </h1>
+            <h1
               style={{
-                width: '20px',
-                height: '20px',
-                position: 'absolute',
-                right: '12px',
-                bottom: '-36px'
+                textAlign: 'center',
+                marginBottom: '56px',
+                position: 'relative'
               }}
-              className='right_kid_img animate__animated animate__fadeInRightBig'
-            />
-          </h1>
-
-          <div
-            className={`${styles.docs} docs_container animate__animated  animate__fadeInLeftBig`}
-          >
-            <a href='usescene/IntegrationDev'>
-              <div className={styles.left_logo}>
-                {/* <img src='/img/rainbond.png' alt='' /> */}
-              </div>
-              <div className={styles.desc}>
-                <div className={styles.desc_title}>
-                  <h4>
-                    <a href='usescene/IntegrationDev'>一体化开发测试环境</a>
-                  </h4>
-                </div>
-                <div className={styles.desc_detail}>
-                  <p>
-                    集成化的开发和测试环境，自动识别开发语言和自动构建，提供开箱即用的体验
-                  </p>
-                </div>
-              </div>
-            </a>
-            <a href='usescene/AppManagement'>
-              <div className={styles.left_logo}>
-                {/* <img src='/img/rainbond.png' alt='' /> */}
-              </div>
-              <div className={styles.desc}>
-                <div className={styles.desc_title}>
-                  <h4>
-                    <a href='usescene/AppManagement'>企业级应用统一管理</a>
-                  </h4>
-                </div>
-                <div className={styles.desc_detail}>
-                  <p>
-                    企业应用和计算资源统一管理，自动化运维，像管理手机APP一样管理企业应用
-                  </p>
-                </div>
-              </div>
-            </a>
-            <a href='usescene/MultiCloudManagement'>
-              <div className={styles.left_logo}>
-                {/* <img src='/img/rainbond.png' alt='' /> */}
-              </div>
-              <div className={styles.desc}>
-                <div className={styles.desc_title}>
-                  <h4>
-                    <a href='usescene/MultiCloudManagement'>应用级多云管理</a>
-                  </h4>
-                </div>
-                <div className={styles.desc_detail}>
-                  <p>
-                    对接和管理混合云和各种Kubernetes集群，应用透明在多种云上部署和迁移
-                  </p>
-                </div>
-              </div>
-            </a>
-            <a href='usescene/offlineDelivery'>
-              <div className={styles.left_logo}>
-                {/* <img src='/img/rainbond.png' alt='' /> */}
-              </div>
-              <div className={styles.desc}>
-                <div className={styles.desc_title}>
-                  <h4>
-                    <a href='usescene/offlineDelivery'>离线环境软件交付</a>
-                  </h4>
-                </div>
-                <div className={styles.desc_detail}>
-                  <p>离线环境应用自动化交付，并支持个性化定制和应用运维</p>
-                </div>
-              </div>
-            </a>
-            <a href='usescene/componentReuse'>
-              <div className={styles.left_logo}>
-                {/* <img src='/img/rainbond.png' alt='' /> */}
-              </div>
-              <div className={styles.desc}>
-                <div className={styles.desc_title}>
-                  <h4>
-                    <a href='usescene/componentReuse'>业务积木式拼装</a>
-                  </h4>
-                </div>
-                <div className={styles.desc_detail}>
-                  <p>
-                    通过应用模型将业务单元实现模块化，并通过“拖拉拽”的方式实现业务拼装
-                  </p>
-                </div>
-              </div>
-            </a>
-            <a href='usescene/x86ToArm'>
-              <div className={styles.left_logo}>
-                {/* <img src='/img/rainbond.png' alt='' /> */}
-              </div>
-              <div className={styles.desc}>
-                <div className={styles.desc_title}>
-                  <h4>
-                    <a href='usescene/x86ToArm'>国产化和信创支撑</a>
-                  </h4>
-                </div>
-                <div className={styles.desc_detail}>
-                  <p>支持多种国产化平台，x86架构应用自动化向Arm架构转换</p>
-                </div>
-              </div>
-            </a>
-            <a href='/usescene/EnterpriseDeliveryOne'>
-              <div className={styles.left_logo}>
-                {/* < img src='/img/rainbond.png' alt='' /> */}
-              </div>
-              <div className={styles.desc}>
-                <div className={styles.desc_title}>
-                  <h4>
-                    <a href='/usescene/EnterpriseDeliveryOne'>
-                      企业应用持续交付
-                    </a>
-                  </h4>
-                </div>
-                <div className={styles.desc_detail}>
-                  <p>企业应用一键交付客户，并支持持续升级迭代</p>
-                </div>
-              </div>
-            </a>
-            <a href='/usescene/EnterpriseDeliveryTwo'>
-              <div className={styles.left_logo}>
-                {/* < img src='/img/rainbond.png' alt='' /> */}
-              </div>
-              <div className={styles.desc}>
-                <div className={styles.desc_title}>
-                  <h4>
-                    <a href='/usescene/EnterpriseDeliveryTwo'>
-                      模块化个性化交付
-                    </a>
-                  </h4>
-                </div>
-                <div className={styles.desc_detail}>
-                  <p>通过功能模块化，解决2B企业个性化交付的难题</p>
-                </div>
-              </div>
-            </a>
-            <a
-              href='https://store.goodrain.com/'
-              target='_blank'
-              style={{ position: 'relative' }}
             >
-              <div className={styles.left_logo}>
-                {/* < img src='/img/rainbond.png' alt='' /> */}
-              </div>
-              <div className={styles.desc}>
-                <div className={styles.desc_title}>
-                  <h4>
-                    <a href='https://store.goodrain.com/' target='_blank'>
-                      云原生应用商店
-                    </a>
-                  </h4>
+              <span className={styles.how_rainbond}>Rainbond</span>
+              &nbsp;能做什么?
+              <img
+                src='/img/smallimages/R.png'
+                alt=''
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  position: 'absolute',
+                  right: '12px',
+                  bottom: '-36px'
+                }}
+                className='right_kid_img animate__animated animate__fadeInRightBig'
+              />
+            </h1>
+
+            <div
+              className={`${styles.docs} docs_container animate__animated  animate__fadeInLeftBig`}
+            >
+              <a href='usescene/IntegrationDev'>
+                <div className={styles.left_logo}>
+                  {/* <img src='/img/rainbond.png' alt='' /> */}
                 </div>
-                <div className={styles.desc_detail}>
-                  <p>
-                    通过云原生技术驱动的企业级应用商店，实现商店的全流程管理，并支持企业应用的各种交付流程
-                  </p>
+                <div className={styles.desc}>
+                  <div className={styles.desc_title}>
+                    <h4>
+                      <a href='usescene/IntegrationDev'>一体化开发测试环境</a>
+                    </h4>
+                  </div>
+                  <div className={styles.desc_detail}>
+                    <p>
+                      集成化的开发和测试环境，自动识别开发语言和自动构建，提供开箱即用的体验
+                    </p>
+                  </div>
                 </div>
-              </div>
-              {/* <div>
-                <img
-                  src='/img/Background(2).png'
-                  alt=''
-                  className={styles.enterprise_logo}
-                />
-              </div> */}
-            </a>
+              </a>
+              <a href='usescene/AppManagement'>
+                <div className={styles.left_logo}>
+                  {/* <img src='/img/rainbond.png' alt='' /> */}
+                </div>
+                <div className={styles.desc}>
+                  <div className={styles.desc_title}>
+                    <h4>
+                      <a href='usescene/AppManagement'>企业级应用统一管理</a>
+                    </h4>
+                  </div>
+                  <div className={styles.desc_detail}>
+                    <p>
+                      企业应用和计算资源统一管理，自动化运维，像管理手机APP一样管理企业应用
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a href='usescene/MultiCloudManagement'>
+                <div className={styles.left_logo}>
+                  {/* <img src='/img/rainbond.png' alt='' /> */}
+                </div>
+                <div className={styles.desc}>
+                  <div className={styles.desc_title}>
+                    <h4>
+                      <a href='usescene/MultiCloudManagement'>应用级多云管理</a>
+                    </h4>
+                  </div>
+                  <div className={styles.desc_detail}>
+                    <p>
+                      对接和管理混合云和各种Kubernetes集群，应用透明在多种云上部署和迁移
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a href='usescene/offlineDelivery'>
+                <div className={styles.left_logo}>
+                  {/* <img src='/img/rainbond.png' alt='' /> */}
+                </div>
+                <div className={styles.desc}>
+                  <div className={styles.desc_title}>
+                    <h4>
+                      <a href='usescene/offlineDelivery'>离线环境软件交付</a>
+                    </h4>
+                  </div>
+                  <div className={styles.desc_detail}>
+                    <p>离线环境应用自动化交付，并支持个性化定制和应用运维</p>
+                  </div>
+                </div>
+              </a>
+              <a href='usescene/componentReuse'>
+                <div className={styles.left_logo}>
+                  {/* <img src='/img/rainbond.png' alt='' /> */}
+                </div>
+                <div className={styles.desc}>
+                  <div className={styles.desc_title}>
+                    <h4>
+                      <a href='usescene/componentReuse'>业务积木式拼装</a>
+                    </h4>
+                  </div>
+                  <div className={styles.desc_detail}>
+                    <p>
+                      通过应用模型将业务单元实现模块化，并通过“拖拉拽”的方式实现业务拼装
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a href='usescene/x86ToArm'>
+                <div className={styles.left_logo}>
+                  {/* <img src='/img/rainbond.png' alt='' /> */}
+                </div>
+                <div className={styles.desc}>
+                  <div className={styles.desc_title}>
+                    <h4>
+                      <a href='usescene/x86ToArm'>国产化和信创支撑</a>
+                    </h4>
+                  </div>
+                  <div className={styles.desc_detail}>
+                    <p>支持多种国产化平台，x86架构应用自动化向Arm架构转换</p>
+                  </div>
+                </div>
+              </a>
+              <a href='/usescene/EnterpriseDeliveryOne'>
+                <div className={styles.left_logo}>
+                  {/* < img src='/img/rainbond.png' alt='' /> */}
+                </div>
+                <div className={styles.desc}>
+                  <div className={styles.desc_title}>
+                    <h4>
+                      <a href='/usescene/EnterpriseDeliveryOne'>
+                        企业应用持续交付
+                      </a>
+                    </h4>
+                  </div>
+                  <div className={styles.desc_detail}>
+                    <p>企业应用一键交付客户，并支持持续升级迭代</p>
+                  </div>
+                </div>
+              </a>
+              <a href='/usescene/EnterpriseDeliveryTwo'>
+                <div className={styles.left_logo}>
+                  {/* < img src='/img/rainbond.png' alt='' /> */}
+                </div>
+                <div className={styles.desc}>
+                  <div className={styles.desc_title}>
+                    <h4>
+                      <a href='/usescene/EnterpriseDeliveryTwo'>
+                        模块化个性化交付
+                      </a>
+                    </h4>
+                  </div>
+                  <div className={styles.desc_detail}>
+                    <p>通过功能模块化，解决2B企业个性化交付的难题</p>
+                  </div>
+                </div>
+              </a>
+              <a
+                href='https://store.goodrain.com/'
+                target='_blank'
+                style={{ position: 'relative' }}
+              >
+                <div className={styles.left_logo}>
+                  {/* < img src='/img/rainbond.png' alt='' /> */}
+                </div>
+                <div className={styles.desc}>
+                  <div className={styles.desc_title}>
+                    <h4>
+                      <a href='https://store.goodrain.com/' target='_blank'>
+                        云原生应用商店
+                      </a>
+                    </h4>
+                  </div>
+                  <div className={styles.desc_detail}>
+                    <p>
+                      通过云原生技术驱动的企业级应用商店，实现商店的全流程管理，并支持企业应用的各种交付流程
+                    </p>
+                  </div>
+                </div>
+                {/* <div>
+                  <img
+                    src='/img/Background(2).png'
+                    alt=''
+                    className={styles.enterprise_logo}
+                  />
+                </div> */}
+              </a>
+            </div>
           </div>
         </section>
         {/* 第四屏 */}
-        <section id={styles.section_fouth} className={styles.width}>
-          <h1 className={styles.dosc_logo} style={{ marginTop: '56px' }}>
-            <img src='/img/smallimages/RainbondStudy.png' alt='' />
-          </h1>
-          <h1
-            style={{
-              textAlign: 'center',
-              marginBottom: '56px',
-              position: 'relative'
-            }}
-          >
-            <img
-              src='/img/smallimages/R.png'
-              alt=''
+        <section className={styles.fouthBg}>
+          <div id={styles.section_fouth} className={styles.width}>
+            <h1 className={styles.dosc_logo}>
+              <img src='/img/smallimages/RainbondStudy.png' alt='' />
+            </h1>
+            <h1
               style={{
-                width: '20px',
-                height: '20px',
-                position: 'absolute',
-                left: '12px',
-                bottom: '-36px'
+                textAlign: 'center',
+                marginBottom: '56px',
+                position: 'relative'
               }}
-              className='left_kid_img animate__animated animate__fadeInLeftBig'
-            />
-            观看视频学习 &nbsp;
-            <span className={styles.how_rainbond}>Rainbond</span>
-          </h1>
-          {/* <div
-            className={`${styles.carousel_container} carousel_container animate__animated animate__fadeInRightBig`}
-          >
-            <a
-              href='https://www.bilibili.com/video/BV1Vq4y1w7FQ'
-              target='_blank'
             >
-              <img src='/img/video/install.png' alt='' />
-            </a>
-            <a
-              href='https://www.bilibili.com/video/BV1ou411B7ix'
-              target='_blank'
-              style={{ padding: 0 }}
-            >
-              <img src='/img/video/quick.png' alt='' />
-            </a>
-          </div> */}
-          <Cswiper />
+              <img
+                src='/img/smallimages/R.png'
+                alt=''
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  position: 'absolute',
+                  left: '12px',
+                  bottom: '-36px'
+                }}
+                className='left_kid_img animate__animated animate__fadeInLeftBig'
+              />
+              观看视频学习 &nbsp;
+              <span className={styles.how_rainbond}>Rainbond</span>
+            </h1>
+            <Cswiper />
+          </div>
         </section>
       </div>
       {/* 底部 */}

@@ -38,6 +38,11 @@ export default function Index() {
                     <img src='/img/video/enterprise-app-manage.png' alt='' />
                 </a>
             </SwiperSlide>
+            <SwiperSlide>
+                <a href='https://www.bilibili.com/video/BV1MZ4y1b7wW' target='_blank'>
+                    <img src='/img/video/pig.png' alt='' />
+                </a>
+            </SwiperSlide>
         </Swiper>
       </>
     );

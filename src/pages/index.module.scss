@@ -282,8 +282,8 @@
   color: #939393;
 }
 #section_fouth {
-  padding: 0 16px;
-  margin-bottom: 56px;
+  padding: 50px 16px;
+  // margin-bottom: 56px;
 }
 /* 视频教程 */
 .carousel_container {
@@ -368,7 +368,8 @@
 }
 // 底部
 .footer_container {
-  padding-bottom: 48px;
+  padding: 48px 0px;
+  // background-color: var(--background-color-light);
   // background: #f3f7ff;
   // background-image: linear-gradient(180deg, #e6efff 0%, #f3f7ff 100%);
   h1 {
@@ -412,6 +413,11 @@
     }
   }
 }
+
+// [data-theme='dark'] .footer_container {
+//   background-color: var(--background-color-dark);
+// }
+
 .copyright {
   text-align: center;
 }
@@ -458,9 +464,9 @@
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     & > div {
       // background-color: pink;
-      .imgContainer,
-      .experience_sort_title {
-        text-align: center;
+      .imgContainer {
+        // text-align: center;
+        padding-bottom: 30px;
       }
       .imgContainer {
         img {
@@ -470,16 +476,23 @@
       }
       .experience_sort_title {
         font-size: 24px !important;
-        color: #000000;
+        text-align: left;
+        // color: #000000;
       }
       .experience_sort_desc {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        // align-items: center;
         ul {
           padding-left: 0;
-          color: #000000;
+          // color: #000000;
           list-style: none;
+        }
+        li {
+          padding: 5px 0px;
+        }
+        b {
+          color: var(--ifm-color-primary);
         }
       }
     }
@@ -545,6 +558,18 @@
     }
   }
 }
+
+@media screen and (max-width: 390px) {
+  .imgContainer {
+    margin-left: 50px;
+  }
+  .experience_sort_title {
+    margin-left: 50px;
+  }
+  .experience_sort_desc {
+    margin-left: 50px;
+  }
+}
 .active_btn {
   background-color: #d14671;
 }
@@ -557,4 +582,28 @@
 }
 .default_btn:hover {
   background-color: #909193;
+}
+
+.second {
+  background-color: var(--background-color-light);
+}
+
+[data-theme='dark'] .second {
+  background-color: var(--background-color-dark);
+}
+
+.third {
+  // background-color: var(--background-color-light);
+  padding: 64px 0px;
+}
+
+// [data-theme='dark'] .third {
+//   background-color: var(--background-color-dark);
+// }
+.fouthBg {
+  background-color: var(--background-color-light);
+}
+
+[data-theme='dark'] .fouthBg {
+  background-color: var(--background-color-dark);
 }
