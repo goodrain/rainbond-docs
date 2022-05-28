@@ -16,6 +16,7 @@
   --ifm-code-font-size: 95%;
   --ifm-menu-color-active: #267df7;
   --site-primary-hue-saturation: 215 93%;
+  --ifm-navbar-height: 80px;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -82,4 +83,14 @@ div[class^='announcementBar_'] {
 .nav_scroll_bar {
   transition: all 1s ease-in-out !important;
   box-shadow: 0 0 4px rgb(0 0 0 / 14%), 0 4px 8px rgb(0 0 0 / 28%);
+}
+
+/**
+ *
+ * Override Docusaurus/Infima variables
+ *
+ **/
+
+ nav {
+  --ifm-font-size-base: 16px;
 }
