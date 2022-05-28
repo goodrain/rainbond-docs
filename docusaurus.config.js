@@ -109,49 +109,16 @@ const config = {
             href: 'https://store.goodrain.com/markets/rainbond'
           },
           {
+            type: 'docsVersionDropdown',
+            position: 'right'
+          },
+          {
             href: 'https://github.com/goodrain/rainbond',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository'
           }
         ]
-        // items: [
-        //   {
-        //     position: 'left',
-        //     label: '文档',
-        //     to: 'docs/'
-        //   },
-        //   {
-        //     to: 'usescene',
-        //     label: '使用场景',
-        //     position: 'left'
-        //   },
-        //   {
-        //     to: 'case',
-        //     label: '案例',
-        //     position: 'left'
-        //   },
-        //   {
-        //     to: 'blog',
-        //     label: '博客',
-        //     position: 'left'
-        //   },
-        //   {
-        //     type: 'docsVersionDropdown',
-        //     position: 'right'
-        //   },
-        //   {
-        //     position: 'right',
-        //     label: '产品',
-        //     href: '/enterprise_server'
-        //   },
-        //   {
-        //     href: 'https://github.com/goodrain/rainbond',
-        //     position: 'right',
-        //     className: 'header-github-link',
-        //     'aria-label': 'GitHub repository'
-        //   }
-        // ]
       },
       docs: {
         sidebar: {
