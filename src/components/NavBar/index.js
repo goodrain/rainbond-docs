@@ -24,7 +24,7 @@ export default function Index(props) {
   };
   return (
     <div>
-      <header className={`${styles.mdHeader} mdHeader`}>
+      <header className={`${styles.mdHeader}`}>
         {/* 导航栏 */}
         <nav className={`${styles.nav_bar} ${styles.width}`}>
           {/* 左侧logo */}
@@ -100,7 +100,7 @@ export default function Index(props) {
           </div>
         </nav>
       </header>
-      {!menu_Config && (
+      {false && (
         <div className={styles.isMobieNavBar}>
           <ul className={styles.mobile_nav_lists}>
             <li>
