@@ -234,7 +234,7 @@ export default function Home() {
                 setMask_config(true);
               }}
             >
-              <img src='/img/video/video-rainbond.png' alt='' />
+              <img src='/img/video/video-rainbond.png' alt='' style={{ display: 'block' }}/>
             </div>
           </div>
         </section>
