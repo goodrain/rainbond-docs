@@ -71,61 +71,45 @@ const config = {
           {
             label: 'Product',
             position: 'left',
+            label: 'Rainbond是什么?',
+            to: '/docs/'
+          },
+          {
+            position: 'left',
+            label: '产品',
+            to: '/enterprise_server'
+          },
+          {
+            type: 'dropdown',
+            label: '学习',
+            position: 'left',
             items: [
               {
-                label: 'QuestDB Cloud',
-                to: '/cloud'
+                to: 'usescene',
+                label: '使用场景'
               },
               {
-                label: 'QuestDB Enterprise',
-                to: '/enterprise'
+                to: 'case',
+                label: '用户案例'
               },
               {
-                label: 'Customers',
-                to: '/customers'
-              },
-              {
-                label: 'Roadmap',
-                href: `https://github.com/orgs/questdb/projects/1/views/5`
+                to: 'blog',
+                label: '博客'
               }
             ]
           },
           {
-            label: 'Learn',
             position: 'left',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog'
-              },
-              {
-                label: 'Tutorials',
-                to: '/tutorial'
-              },
-              {
-                label: 'QuestDB Swag',
-                to: '/community'
-              },
-              {
-                label: 'Slack Community',
-                to: '/community'
-              }
-            ]
+            label: '文档',
+            to: 'docs/'
           },
           {
-            label: 'Docs',
-            to: '/docs/introduction',
-            position: 'left'
-          },
-          {
-            label: "We're Hiring",
-            to: '/careers',
             position: 'left',
-            className: 'careers-link'
+            label: '应用商店',
+            href: 'https://store.goodrain.com/markets/rainbond'
           },
           {
-            label: 'Star us',
-            href: 'https://github.com/questdb/questdb',
+            href: 'https://github.com/goodrain/rainbond',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository'
@@ -255,7 +239,7 @@ const config = {
       announcementBar: {
         id: 'start',
         content:
-          '⭐️ If you like Rainbond, give it a star on <a target="_blank" href="https://github.com/goodrain/rainbond">GitHub</a> !'
+          '⭐️ If you like Rainbond,<a target="_blank" href="https://github.com/goodrain/rainbond"> give it a star on GitHub</a> !'
       }
     }),
   scripts: [

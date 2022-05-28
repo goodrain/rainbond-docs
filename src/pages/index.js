@@ -5,8 +5,11 @@ import 'animate.css';
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
 import Cswiper from '../components/Cswiper';
-import NavBar from '../components/NavBar';
+import NavBar from '@theme/Navbar';
 import styles from './index.module.scss';
+import AnnouncementBar from '@theme/AnnouncementBar';
+import Footer from '@theme/Footer'
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const [mask_config, setMask_config] = useState(false);
@@ -177,6 +180,7 @@ export default function Home() {
         <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />}
       </Head>
       {/* 导航栏 */}
+      <AnnouncementBar />
       <NavBar />
       {/* 主体区域 */}
       <div>
@@ -824,10 +828,7 @@ export default function Home() {
           </a>
         </div>
       </footer>
-      <div className={`${styles.copyright} footer footer--dark`}>
-        Copyright © 2022 北京好雨科技有限公司, Inc. All Rights Reserved.
-        京ICP备15028663号-4
-      </div>
+      <Footer/>
       {/* 遮罩层 */}
       {mask_config && (
         <div
