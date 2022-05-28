@@ -1,0 +1,7 @@
+.brand {
+  margin-left: 40px;
+}
+
+.brand:hover {
+  color: var(--ifm-color-primary);
+}

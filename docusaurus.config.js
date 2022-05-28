@@ -70,23 +70,42 @@ const config = {
         items: [
           {
             position: 'left',
+            label: 'Rainbond是什么?',
+            to: '/docs/'
+          },
+          {
+            position: 'left',
+            label: '产品',
+            to: '/enterprise_server'
+          },
+          {
+            type: 'dropdown',
+            label: '学习',
+            position: 'left',
+            items: [
+              {
+                to: 'usescene',
+                label: '使用场景',
+              },
+              {
+                to: 'case',
+                label: '用户案例',
+              },
+              {
+                to: 'blog',
+                label: '博客',
+              },
+            ],
+          },
+          {
+            position: 'left',
             label: '文档',
             to: 'docs/'
           },
           {
-            to: 'usescene',
-            label: '使用场景',
-            position: 'left'
-          },
-          {
-            to: 'case',
-            label: '案例',
-            position: 'left'
-          },
-          {
-            to: 'blog',
-            label: '博客',
-            position: 'left'
+            position: 'left',
+            label: '应用商店',
+            href: 'https://store.goodrain.com/markets/rainbond'
           },
           // {
           //   type: 'html',
@@ -96,11 +115,6 @@ const config = {
           {
             type: 'docsVersionDropdown',
             position: 'right'
-          },
-          {
-            position: 'right',
-            label: '产品',
-            href: '/enterprise_server'
           },
           {
             href: 'https://github.com/goodrain/rainbond',
@@ -196,7 +210,7 @@ const config = {
       announcementBar: {
         id: 'start',
         content:
-          '⭐️ If you like Rainbond, give it a star on <a target="_blank" href="https://github.com/goodrain/rainbond">GitHub</a> !'
+          '⭐️ If you like Rainbond,<a target="_blank" href="https://github.com/goodrain/rainbond"> give it a star on GitHub</a> !'
       }
     }),
   scripts: ['https://static.goodrain.com/docusaurus/baidu-statistics.js', 'https://static.goodrain.com/docusaurus/posthog.js'],
