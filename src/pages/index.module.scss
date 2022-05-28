@@ -447,3 +447,114 @@
   left: 0;
   z-index: 999;
 }
+
+// 体验模块
+#section_experience {
+  padding: 64px 16px;
+  // 分类
+  .experience_sort {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    & > div {
+      // background-color: pink;
+      .imgContainer,
+      .experience_sort_title {
+        text-align: center;
+      }
+      .imgContainer {
+        img {
+          width: 150px;
+          height: 150px;
+        }
+      }
+      .experience_sort_title {
+        font-size: 24px !important;
+        color: #000000;
+      }
+      .experience_sort_desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        ul {
+          padding-left: 0;
+          color: #000000;
+          list-style: none;
+        }
+      }
+    }
+  }
+}
+// 为什么选择Rainbond
+#section_why_rainbond {
+  padding: 64px 16px;
+  // 描述
+  .how_rainbond_desc_container {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    .how_rainbond_btn {
+      display: flex;
+      flex-direction: column;
+      & > button {
+        width: 10rem;
+        height: 3.5rem;
+        text-align: center;
+        transition: background-color pink green;
+        margin-bottom: 1rem;
+        border: 0;
+        color: #fff;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    }
+    .how_rainbond_desc {
+      max-height: 135px;
+      margin-left: 0px;
+      max-width: 700px;
+      display: flex;
+      flex-wrap: wrap;
+      & > div {
+        width: 50%;
+      }
+      img {
+        vertical-align: bottom;
+      }
+    }
+    .how_rainbond_desc_container_start {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 10rem;
+      height: 3.5rem;
+      margin-bottom: 1rem;
+      border: 0;
+      color: #fff;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      position: absolute;
+      bottom: 0;
+      text-decoration: none;
+    }
+    .how_rainbond_desc_container_start:hover {
+      background-color: #af3c5c;
+    }
+  }
+}
+.active_btn {
+  background-color: #d14671;
+}
+.active_btn:hover {
+  background-color: #af3c5c;
+}
+
+.default_btn {
+  background-color: #a7a8ab;
+}
+.default_btn:hover {
+  background-color: #909193;
+}

@@ -3,7 +3,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import LayoutProviders from '@theme/LayoutProviders';
 import 'animate.css';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Cswiper from '../components/Cswiper';
 import NavBar from '../components/NavBar';
 import styles from './index.module.scss';
@@ -11,6 +11,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const [mask_config, setMask_config] = useState(false);
   const [hover_img, setHover_Img] = useState(false);
+  const [open, setOpen] = useState('first');
   // 菜单开关
   const [menu_Config, setMenu_Config] = useState(true);
   useEffect(() => {
@@ -53,6 +54,7 @@ export default function Home() {
     const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
     const partner_animate = document.querySelector('.partner'); // 合作伙伴
     let scrollTop = document.documentElement.scrollTop;
+    console.log(scrollTop, 'scrollTop');
     // 右侧logo
     if (img_animate_right.offsetTop >= window.innerHeight) {
       const isScrollTop = img_animate_right.offsetTop - window.innerHeight;
@@ -154,6 +156,19 @@ export default function Home() {
   const handleJumpDemo = e => {
     axios('https://cloud.goodrain.com/enterprise-server/onlineTrial');
   };
+  const handleWhyRainbondFirst = useCallback(() => {
+    setOpen('first');
+  }, []);
+  const handleWhyRainbondSecond = useCallback(() => {
+    setOpen('second');
+  }, []);
+  const handleWhyRainbondThird = useCallback(() => {
+    setOpen('third');
+  }, []);
+  const handleWhyRainbondFourth = useCallback(() => {
+    setOpen('fourth');
+  }, []);
+
   return (
     <LayoutProviders>
       <Head>
@@ -269,6 +284,245 @@ export default function Home() {
                 <img src='/img/users/xinanmingzu.png' alt='' />
               </a>
             </div>
+          </div>
+        </section>
+        {/* 在线体验 */}
+        <section style={{ backgroundColor: '#f0f1f5' }}>
+          <div id={styles.section_experience} className={styles.width}>
+            {/* 标题 */}
+            <h1
+              style={{
+                textAlign: 'center',
+                marginBottom: '56px',
+                position: 'relative'
+              }}
+            >
+              云原生体验，
+              <span className={styles.how_rainbond}>kubernetes</span>
+              &nbsp; 快速落地
+            </h1>
+            {/* 分类 */}
+            <div className={styles.experience_sort}>
+              <div>
+                {/* 图片 */}
+                <div className={styles.imgContainer}>
+                  <img src='/img/Java_Monochromatic.svg' alt='源码一键部署' />
+                </div>
+                {/* 标题 */}
+                <p className={styles.experience_sort_title}>源码一键部署</p>
+                {/* 描述 */}
+                <div className={styles.experience_sort_desc}>
+                  <ul>
+                    <li>>&nbsp;支持6种常见的开发语言</li>
+                    <li>>&nbsp;无需编写Dockerfile</li>
+                    <li>>&nbsp;集成Git仓库</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                {/* 图片 */}
+                <div className={styles.imgContainer}>
+                  <img
+                    src='/img/Product Manager_Two Color.svg'
+                    alt='kubernetes管理面板'
+                  />
+                </div>
+                {/* 标题 */}
+                <p className={styles.experience_sort_title}>
+                  kubernetes管理面板
+                </p>
+                {/* 描述 */}
+                <div className={styles.experience_sort_desc}>
+                  <ul>
+                    <li>>&nbsp;零门槛落地Kubernetes</li>
+                    <li>>&nbsp;无需编写YAML</li>
+                    <li>>&nbsp;管理多个集群</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                {/* 图片 */}
+                <div className={styles.imgContainer}>
+                  <img src='/img/springcloud.png' alt='微服务实战' />
+                </div>
+                {/* 标题 */}
+                <p className={styles.experience_sort_title}>微服务实战</p>
+                {/* 描述 */}
+                <div className={styles.experience_sort_desc}>
+                  <ul>
+                    <li>>&nbsp;Spring Cloud项目一步构建</li>
+                    <li>>&nbsp;服务编排和拓扑图展示</li>
+                    <li>>&nbsp;支持Service Mesh</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                {/* 图片 */}
+                <div className={styles.imgContainer}>
+                  <img
+                    src='/img/undraw_container_ship_re_alm4.svg'
+                    alt='80款开源软件即点即用'
+                  />
+                </div>
+                {/* 标题 */}
+                <p className={styles.experience_sort_title}>
+                  80款开源软件即点即用
+                </p>
+                {/* 描述 */}
+                <div className={styles.experience_sort_desc}>
+                  <ul>
+                    <li>>&nbsp;一键安装和升级</li>
+                    <li>>&nbsp;建立自己的应用市场</li>
+                    <li>>&nbsp;对接Helm应用市场</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* 为什么选择Rainbond */}
+        <section id={styles.section_why_rainbond} className={styles.width}>
+          {/* 标题 */}
+          <h1
+            style={{
+              textAlign: 'center',
+              marginBottom: '56px',
+              position: 'relative'
+            }}
+          >
+            为什么选择，<span className={styles.how_rainbond}>Rainbond ？</span>
+          </h1>
+          {/* 描述 */}
+          <div className={styles.how_rainbond_desc_container}>
+            {/* 按钮 */}
+            <div className={styles.how_rainbond_btn}>
+              <button
+                className={
+                  (open === 'first' && styles.active_btn) || styles.default_btn
+                }
+                onClick={handleWhyRainbondFirst}
+              >
+                使用简单1
+              </button>
+              <button
+                className={
+                  (open === 'second' && styles.active_btn) || styles.default_btn
+                }
+                onClick={handleWhyRainbondSecond}
+              >
+                使用简单2
+              </button>
+              <button
+                className={
+                  (open === 'third' && styles.active_btn) || styles.default_btn
+                }
+                onClick={handleWhyRainbondThird}
+              >
+                使用简单3
+              </button>
+              <button
+                className={
+                  (open === 'fourth' && styles.active_btn) || styles.default_btn
+                }
+                onClick={handleWhyRainbondFourth}
+              >
+                使用简单4
+              </button>
+            </div>
+            {open === 'first' && (
+              <div className={styles.how_rainbond_desc}>
+                {/* first */}
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesFirst</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesFirst</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesFirst</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesFirst</span>
+                </div>
+              </div>
+            )}
+            {/* second */}
+            {open === 'second' && (
+              <div className={styles.how_rainbond_desc}>
+                {/* first */}
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesSecond</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesSecond</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesSecond</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesSecond</span>
+                </div>
+              </div>
+            )}
+            {/* third */}
+            {open === 'third' && (
+              <div className={styles.how_rainbond_desc}>
+                {/* first */}
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesThird</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesThird</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesThird</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesThird</span>
+                </div>
+              </div>
+            )}
+            {/* fourth */}
+            {open === 'fourth' && (
+              <div className={styles.how_rainbond_desc}>
+                {/* first */}
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesFourth</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesFourth</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesFourth</span>
+                </div>
+                <div>
+                  <img src='/img/pass.svg' alt='' />
+                  <span>用户无需学习KubernetesFourth</span>
+                </div>
+              </div>
+            )}
+            {/* 快速安装 */}
+            <a
+              href='#'
+              className={`${styles.how_rainbond_desc_container_start} ${styles.active_btn}`}
+            >
+              Get Started >
+            </a>
           </div>
         </section>
         {/* 第三屏 */}

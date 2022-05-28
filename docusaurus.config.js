@@ -69,52 +69,111 @@ const config = {
         // navbar的选项卡
         items: [
           {
+            label: 'Product',
             position: 'left',
-            label: '文档',
-            to: 'docs/'
+            items: [
+              {
+                label: 'QuestDB Cloud',
+                to: '/cloud'
+              },
+              {
+                label: 'QuestDB Enterprise',
+                to: '/enterprise'
+              },
+              {
+                label: 'Customers',
+                to: '/customers'
+              },
+              {
+                label: 'Roadmap',
+                href: `https://github.com/orgs/questdb/projects/1/views/5`
+              }
+            ]
           },
           {
-            to: 'usescene',
-            label: '使用场景',
+            label: 'Learn',
+            position: 'left',
+            items: [
+              {
+                label: 'Blog',
+                to: '/blog'
+              },
+              {
+                label: 'Tutorials',
+                to: '/tutorial'
+              },
+              {
+                label: 'QuestDB Swag',
+                to: '/community'
+              },
+              {
+                label: 'Slack Community',
+                to: '/community'
+              }
+            ]
+          },
+          {
+            label: 'Docs',
+            to: '/docs/introduction',
             position: 'left'
           },
           {
-            to: 'case',
-            label: '案例',
-            position: 'left'
+            label: "We're Hiring",
+            to: '/careers',
+            position: 'left',
+            className: 'careers-link'
           },
           {
-            to: 'blog',
-            label: '博客',
-            position: 'left'
-          },
-          // {
-          //   type: 'html',
-          //   position: 'right',
-          //   value: '<iframe src="https://ghbtns.com/github-btn.html?user=goodrain&repo=rainbond&type=star&count=true" frameborder="0" scrolling="0" width="105" height="20" title="GitHub" style="margin-top: 8px;"></iframe>',
-          // },
-          {
-            type: 'docsVersionDropdown',
-            position: 'right'
-          },
-          {
-            position: 'right',
-            label: '产品',
-            href: '/enterprise_server'
-          },
-          {
-            href: 'https://github.com/goodrain/rainbond',
+            label: 'Star us',
+            href: 'https://github.com/questdb/questdb',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository'
           }
         ]
+        // items: [
+        //   {
+        //     position: 'left',
+        //     label: '文档',
+        //     to: 'docs/'
+        //   },
+        //   {
+        //     to: 'usescene',
+        //     label: '使用场景',
+        //     position: 'left'
+        //   },
+        //   {
+        //     to: 'case',
+        //     label: '案例',
+        //     position: 'left'
+        //   },
+        //   {
+        //     to: 'blog',
+        //     label: '博客',
+        //     position: 'left'
+        //   },
+        //   {
+        //     type: 'docsVersionDropdown',
+        //     position: 'right'
+        //   },
+        //   {
+        //     position: 'right',
+        //     label: '产品',
+        //     href: '/enterprise_server'
+        //   },
+        //   {
+        //     href: 'https://github.com/goodrain/rainbond',
+        //     position: 'right',
+        //     className: 'header-github-link',
+        //     'aria-label': 'GitHub repository'
+        //   }
+        // ]
       },
       docs: {
         sidebar: {
           hideable: true,
-          autoCollapseCategories: true,
-        },
+          autoCollapseCategories: true
+        }
       },
       colorMode: {
         defaultMode: 'light',
@@ -199,7 +258,10 @@ const config = {
           '⭐️ If you like Rainbond, give it a star on <a target="_blank" href="https://github.com/goodrain/rainbond">GitHub</a> !'
       }
     }),
-  scripts: ['https://static.goodrain.com/docusaurus/baidu-statistics.js', 'https://static.goodrain.com/docusaurus/posthog.js'],
+  scripts: [
+    'https://static.goodrain.com/docusaurus/baidu-statistics.js',
+    'https://static.goodrain.com/docusaurus/posthog.js'
+  ],
   plugins: [
     [
       '@docusaurus/plugin-content-blog',
