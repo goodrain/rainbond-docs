@@ -206,7 +206,8 @@ const config = {
       announcementBar: {
         id: 'start',
         content:
-          '⭐️ If you like Rainbond,<a target="_blank" href="https://github.com/goodrain/rainbond"> give it a star on GitHub</a> !'
+          '⭐️ If you like Rainbond,<a target="_blank" href="https://github.com/goodrain/rainbond"> give it a star on GitHub</a> !',
+        isCloseable: false,
       }
     }),
   scripts: [
