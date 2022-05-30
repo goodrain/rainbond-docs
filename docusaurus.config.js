@@ -67,50 +67,87 @@ const config = {
         },
         hideOnScroll: true,
         // navbar的选项卡
+        // items: [
+        //   {
+        //     label: 'Product',
+        //     position: 'left',
+        //     label: 'Rainbond是什么?',
+        //     to: '/docs/'
+        //   },
+        //   {
+        //     position: 'left',
+        //     label: '产品',
+        //     to: '/enterprise_server'
+        //   },
+        //   {
+        //     type: 'dropdown',
+        //     label: '学习',
+        //     position: 'left',
+        //     items: [
+        //       {
+        //         to: 'usescene',
+        //         label: '使用场景'
+        //       },
+        //       {
+        //         to: 'case',
+        //         label: '用户案例'
+        //       },
+        //       {
+        //         to: 'blog',
+        //         label: '博客'
+        //       }
+        //     ]
+        //   },
+        //   {
+        //     position: 'left',
+        //     label: '文档',
+        //     to: 'docs/'
+        //   },
+        //   {
+        //     position: 'left',
+        //     label: '应用商店',
+        //     href: 'https://store.goodrain.com/markets/rainbond'
+        //   },
+        //   {
+        //     type: 'docsVersionDropdown',
+        //     position: 'right'
+        //   },
+        //   {
+        //     href: 'https://github.com/goodrain/rainbond',
+        //     position: 'right',
+        //     className: 'header-github-link',
+        //     'aria-label': 'GitHub repository'
+        //   }
+        // ]
         items: [
-          {
-            label: 'Product',
-            position: 'left',
-            label: 'Rainbond是什么?',
-            to: '/docs/'
-          },
-          {
-            position: 'left',
-            label: '产品',
-            to: '/enterprise_server'
-          },
-          {
-            type: 'dropdown',
-            label: '学习',
-            position: 'left',
-            items: [
-              {
-                to: 'usescene',
-                label: '使用场景'
-              },
-              {
-                to: 'case',
-                label: '用户案例'
-              },
-              {
-                to: 'blog',
-                label: '博客'
-              }
-            ]
-          },
           {
             position: 'left',
             label: '文档',
             to: 'docs/'
           },
           {
-            position: 'left',
-            label: '应用商店',
-            href: 'https://store.goodrain.com/markets/rainbond'
+            to: 'usescene',
+            label: '使用场景',
+            position: 'left'
+          },
+          {
+            to: 'case',
+            label: '案例',
+            position: 'left'
+          },
+          {
+            to: 'blog',
+            label: '博客',
+            position: 'left'
           },
           {
             type: 'docsVersionDropdown',
             position: 'right'
+          },
+          {
+            position: 'right',
+            label: '产品',
+            href: '/enterprise_server'
           },
           {
             href: 'https://github.com/goodrain/rainbond',

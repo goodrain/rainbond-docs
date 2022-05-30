@@ -369,7 +369,7 @@
 // 底部
 .footer_container {
   padding: 48px 0px;
-  // background-color: var(--background-color-light);
+  background-color: var(--background-color-light);
   // background: #f3f7ff;
   // background-image: linear-gradient(180deg, #e6efff 0%, #f3f7ff 100%);
   h1 {
@@ -414,9 +414,9 @@
   }
 }
 
-// [data-theme='dark'] .footer_container {
-//   background-color: var(--background-color-dark);
-// }
+[data-theme='dark'] .footer_container {
+  background-color: var(--background-color-dark);
+}
 
 .copyright {
   text-align: center;
@@ -477,6 +477,7 @@
       .experience_sort_title {
         font-size: 24px !important;
         text-align: left;
+        font-weight: var(--second-font-weight-bold);
         // color: #000000;
       }
       .experience_sort_desc {
@@ -490,6 +491,7 @@
         }
         li {
           padding: 5px 0px;
+          color: var(--second-font-color);
         }
         b {
           color: var(--ifm-color-primary);
@@ -531,9 +533,13 @@
       flex-wrap: wrap;
       & > div {
         width: 50%;
+        padding: 20px 0px;
       }
       img {
         vertical-align: bottom;
+        height: 28px;
+        width: 23px;
+        color: var(--ifm-color-primary);
       }
     }
     .how_rainbond_desc_container_start {
@@ -542,7 +548,7 @@
       justify-content: center;
       width: 10rem;
       height: 3.5rem;
-      margin-bottom: 1rem;
+      // margin-bottom: 1rem;
       border: 0;
       color: #fff;
       border-radius: 10px;
@@ -554,7 +560,7 @@
       text-decoration: none;
     }
     .how_rainbond_desc_container_start:hover {
-      background-color: #af3c5c;
+      background-color: var(--ifm-color-primary);
     }
   }
 }
@@ -571,10 +577,10 @@
   }
 }
 .active_btn {
-  background-color: #d14671;
+  background-color: var(--ifm-color-primary);
 }
 .active_btn:hover {
-  background-color: #af3c5c;
+  background-color: var(--ifm-color-primary);
 }
 
 .default_btn {
@@ -593,15 +599,15 @@
 }
 
 .third {
-  // background-color: var(--background-color-light);
+  background-color: var(--background-color-light);
   padding: 64px 0px;
 }
 
-// [data-theme='dark'] .third {
-//   background-color: var(--background-color-dark);
-// }
+[data-theme='dark'] .third {
+  background-color: var(--background-color-dark);
+}
 .fouthBg {
-  background-color: var(--background-color-light);
+  // background-color: var(--background-color-light);
 }
 
 [data-theme='dark'] .fouthBg {
@@ -613,4 +619,15 @@
 
 .know_rainbond_video:hover {
   box-shadow: 0px 0px 24px 12px rgba(32, 32, 32, 0.3);
+}
+
+.angle {
+  border-top-right-radius: 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  border: 25px solid transparent;
+  border-top: 25px solid var(--ifm-color-primary);
+  border-right: 25px solid var(--ifm-color-primary);
 }

@@ -15,8 +15,8 @@
 .navbar {
   --ifm-navbar-padding-vertical: 0;
   --ifm-navbar-padding-horizontal: 0;
-  --ukraine-yellow: rgba(255, 215, 0, 1);
-  --ukraine-blue: rgba(0, 87, 184, 1);
+  --ukraine-yellow: rgba(180,211,252, 1);
+  --ukraine-blue: rgba(229,239,253, 1);
   background: linear-gradient(
     0,
     var(--ukraine-yellow),
