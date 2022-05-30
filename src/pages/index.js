@@ -5,10 +5,10 @@ import 'animate.css';
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
 import Cswiper from '../components/Cswiper';
-import NavBar from '@theme/Navbar';
+import NavBar from '../components/NavBar';
 import styles from './index.module.scss';
 import AnnouncementBar from '@theme/AnnouncementBar';
-import Footer from '@theme/Footer'
+import Footer from '@theme/Footer';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -302,7 +302,7 @@ export default function Home() {
               }}
             >
               云原生体验，
-              <span className={styles.how_rainbond}>kubernetes</span>
+              <span className={styles.how_rainbond}>Kubernetes</span>
               &nbsp; 快速落地
             </h1>
             {/* 分类 */}
@@ -348,7 +348,7 @@ export default function Home() {
                 </div>
                 {/* 标题 */}
                 <p className={styles.experience_sort_title}>
-                  kubernetes管理面板
+                  Kubernetes管理面板
                 </p>
                 {/* 描述 */}
                 <div className={styles.experience_sort_desc}>
@@ -444,7 +444,7 @@ export default function Home() {
           </div>
         </section>
         {/* 为什么选择Rainbond */}
-        {/* <section id={styles.section_why_rainbond} className={styles.width}>
+        <section id={styles.section_why_rainbond} className={styles.width}>
           <h1
             style={{
               textAlign: 'center',
@@ -452,7 +452,7 @@ export default function Home() {
               position: 'relative'
             }}
           >
-            为什么选择<span className={styles.how_rainbond}>Rainbond ？</span>
+            为什么选择<span className={styles.how_rainbond}> Rainbond ？</span>
           </h1>
           <div className={styles.how_rainbond_desc_container}>
             <div className={styles.how_rainbond_btn}>
@@ -462,7 +462,7 @@ export default function Home() {
                 }
                 onClick={handleWhyRainbondFirst}
               >
-                使用简单1
+                使用简单
               </button>
               <button
                 className={
@@ -470,7 +470,7 @@ export default function Home() {
                 }
                 onClick={handleWhyRainbondSecond}
               >
-                使用简单2
+                应用一键交付
               </button>
               <button
                 className={
@@ -478,34 +478,34 @@ export default function Home() {
                 }
                 onClick={handleWhyRainbondThird}
               >
-                使用简单3
+                云原生转型
               </button>
-              <button
+              {/* <button
                 className={
                   (open === 'fourth' && styles.active_btn) || styles.default_btn
                 }
                 onClick={handleWhyRainbondFourth}
               >
-                使用简单4
-              </button>
+                开源社区支持
+              </button> */}
             </div>
             {open === 'first' && (
               <div className={styles.how_rainbond_desc}>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesFirst</span>
+                  <span>&nbsp;&nbsp;只需一个命令安装体验</span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesFirst</span>
+                  <span>&nbsp;&nbsp;兼顾 “简单易用” 和 “功能强大”</span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesFirst</span>
+                  <span>&nbsp;&nbsp;无需编写Dockerfile和YAML</span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesFirst</span>
+                  <span>&nbsp;&nbsp;“以应用为中心”的设计理念</span>
                 </div>
               </div>
             )}
@@ -513,19 +513,19 @@ export default function Home() {
               <div className={styles.how_rainbond_desc}>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesSecond</span>
+                  <span>&nbsp;&nbsp;企业应用一键安装和升级</span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesSecond</span>
+                  <span>&nbsp;&nbsp;提升数十倍私有交付和个性化交付效率</span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesSecond</span>
+                  <span>&nbsp;&nbsp;功能完备的企业级应用商店</span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesSecond</span>
+                  <span>&nbsp;&nbsp;构建行业应用生态</span>
                 </div>
               </div>
             )}
@@ -533,24 +533,24 @@ export default function Home() {
               <div className={styles.how_rainbond_desc}>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesThird</span>
+                  <span>&nbsp;&nbsp;开箱即用的一体化云原生平台</span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesThird</span>
+                  <span>&nbsp;&nbsp;传统应用一步变成云原生应用</span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesThird</span>
+                  <span>&nbsp;&nbsp;拥有完整的云原生特性</span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>用户无需学习KubernetesThird</span>
+                  <span>&nbsp;&nbsp;实现各种数字化能力积累和复用</span>
                 </div>
               </div>
             )}
             
-            {open === 'fourth' && (
+            {/* {open === 'fourth' && (
               <div className={styles.how_rainbond_desc}>
                 <div>
                   <img src='/img/pass.svg' alt='' />
@@ -569,15 +569,15 @@ export default function Home() {
                   <span>用户无需学习KubernetesFourth</span>
                 </div>
               </div>
-            )}
+            )}*/}
             <a
-              href='#'
+              href='/docs/quick-start/quick-install'
               className={`${styles.how_rainbond_desc_container_start} ${styles.active_btn}`}
             >
-              Get Started >
-            </a>
+              快速开始 > 
+            </a> 
           </div>
-        </section> */}
+        </section>
         {/* 第三屏 */}
         <section className={styles.third}>
           <div id={styles.section_third} className={styles.width}>
@@ -610,7 +610,7 @@ export default function Home() {
             <div
               className={`${styles.docs} docs_container animate__animated  animate__fadeInLeftBig`}
             >
-              <a href='usescene/IntegrationDev'>
+              <a href='usescene/IntegrationDev' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/rainbond.png' alt='' /> */}
                 </div>
@@ -625,9 +625,10 @@ export default function Home() {
                       集成化的开发和测试环境，自动识别开发语言和自动构建，提供开箱即用的体验
                     </p>
                   </div>
+                  <i className={styles.angle}></i>
                 </div>
               </a>
-              <a href='usescene/AppManagement'>
+              <a href='usescene/AppManagement' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/rainbond.png' alt='' /> */}
                 </div>
@@ -643,8 +644,9 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
+                <i className={styles.angle}></i>
               </a>
-              <a href='usescene/MultiCloudManagement'>
+              <a href='usescene/MultiCloudManagement' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/rainbond.png' alt='' /> */}
                 </div>
@@ -660,8 +662,9 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
+                <i className={styles.angle}></i>
               </a>
-              <a href='usescene/offlineDelivery'>
+              <a href='usescene/offlineDelivery' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/rainbond.png' alt='' /> */}
                 </div>
@@ -675,8 +678,9 @@ export default function Home() {
                     <p>离线环境应用自动化交付，并支持个性化定制和应用运维</p>
                   </div>
                 </div>
+                <i className={styles.angle}></i>
               </a>
-              <a href='usescene/componentReuse'>
+              <a href='usescene/componentReuse' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/rainbond.png' alt='' /> */}
                 </div>
@@ -692,8 +696,9 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
+                <i className={styles.angle}></i>
               </a>
-              <a href='usescene/x86ToArm'>
+              <a href='usescene/x86ToArm' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/rainbond.png' alt='' /> */}
                 </div>
@@ -707,8 +712,9 @@ export default function Home() {
                     <p>支持多种国产化平台，x86架构应用自动化向Arm架构转换</p>
                   </div>
                 </div>
+                <i className={styles.angle}></i>
               </a>
-              <a href='/usescene/EnterpriseDeliveryOne'>
+              <a href='/usescene/EnterpriseDeliveryOne' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* < img src='/img/rainbond.png' alt='' /> */}
                 </div>
@@ -724,8 +730,9 @@ export default function Home() {
                     <p>企业应用一键交付客户，并支持持续升级迭代</p>
                   </div>
                 </div>
+                <i className={styles.angle}></i>
               </a>
-              <a href='/usescene/EnterpriseDeliveryTwo'>
+              <a href='/usescene/EnterpriseDeliveryTwo' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* < img src='/img/rainbond.png' alt='' /> */}
                 </div>
@@ -741,6 +748,7 @@ export default function Home() {
                     <p>通过功能模块化，解决2B企业个性化交付的难题</p>
                   </div>
                 </div>
+                <i className={styles.angle}></i>
               </a>
               <a
                 href='https://store.goodrain.com/'
@@ -764,6 +772,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
+                <i className={styles.angle}></i>
                 {/* <div>
                   <img
                     src='/img/Background(2).png'

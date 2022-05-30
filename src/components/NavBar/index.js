@@ -1,6 +1,8 @@
 import Translate from '@docusaurus/Translate';
 import React, { useEffect, useState } from 'react';
 import styles from './index.module.scss';
+import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
+
 export default function Index(props) {
   // 菜单开关
   const [menu_Config, setMenu_Config] = useState(true);
@@ -83,6 +85,9 @@ export default function Index(props) {
                   href='https://github.com/goodrain/rainbond'
                   target='_blank'
                 ></a>
+              </li>
+              <li>
+                <NavbarColorModeToggle/>
               </li>
             </ul>
           </div>

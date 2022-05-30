@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '@theme/Navbar';
+import NavBar from '../../components/NavBar';
 import styles from './index.module.scss';
 import LayoutProviders from '@theme/LayoutProviders';
 import Footer from '@theme/Footer';

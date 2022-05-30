@@ -28,11 +28,19 @@ Hide color mode toggle in small viewports
     padding: 0 calc(var(--theme-navbar-inner-padding) - 1.2rem);
   }
 }
-@media (min-width: 1740px) {
+
+@media screen and (min-width: 1740px) {
   .inner {
     max-width: calc(var(--ifm-container-width) + 100px);
   }
 }
+
+@media screen and (min-width: 1200px) {
+  .inner {
+    max-width: calc(var(--ifm-container-width) + 50px);
+  }
+}
+
 .buttonQuick{
   margin-right: 40px;
   font-size: var(--ifm-code-font-size);
