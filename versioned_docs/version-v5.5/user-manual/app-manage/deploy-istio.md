@@ -83,7 +83,7 @@ Istio为我们查看相关服务与配置提供了统一化的可视化界面Kia
 kiali登录时需要身份认证token，使用以下命令获取token：
 
 ```
-kubectl describe secret $(kubectl get secret -n istio-system|grep istiod-token |awk '{print $1}') -n istio-system
+kubectl describe secret $(kubectl get secret -n istio-system | grep kiali-token | awk '{print $1}') -n istio-system
 ```
 
 没有kubectl命令时参考[命令行工具](../../user-operations/tools/kubectl/)文档进行安装。
