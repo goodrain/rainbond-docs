@@ -125,7 +125,7 @@ IP 地址为必填项，可以通过`ipconfig`命令，或者点击右下角网�
 
 ```bash
 docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
---name=rainbond-allinone --restart=unless-stopped \
+--name=rainbond-allinone --restart=on-failure \
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
@@ -141,7 +141,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-dind-allinone \
 
 ```bash
 docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
---name=rainbond-allinone --restart=unless-stopped \
+--name=rainbond-allinone --restart=on-failure \
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
@@ -157,7 +157,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-dind-arm64-allinone \
 
 ```bash
 docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
---name=rainbond-allinone --restart=unless-stopped \
+--name=rainbond-allinone --restart=on-failure \
 -v ~/.ssh:/root/.ssh \
 -v ~/opt/rainbond:/opt/rainbond \
 -v ~/rainbonddata:/app/data \
@@ -172,7 +172,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-dind-allinone \
 
 ```bash
 docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
---name=rainbond-allinone --restart=unless-stopped \
+--name=rainbond-allinone --restart=on-failure \
 -v ~/.ssh:/root/.ssh \
 -v ~/opt/rainbond:/opt/rainbond \
 -v ~/rainbonddata:/app/data \
@@ -187,7 +187,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-dind-arm64-allinone \
 
 ```bash
 docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 ^
---name=rainbond-allinone --restart=unless-stopped ^
+--name=rainbond-allinone --restart=on-failure ^
 -v ~/.ssh:/root/.ssh ^
 -v ~/rainbonddata:/app/data ^
 -v ~/opt/rainbond:/opt/rainbond ^
@@ -296,7 +296,8 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
   </TabItem>
   <TabItem value="华为云CCE" label="华为云CCE">
 
-适配中，敬请期待。
+**[华为云 CCE](/docs/installation/install-with-helm/cce-install-with-helm/)** 提供了在华为云 CCE 环境下安装 Rainbond 的最佳实践。提供了购买各类云服务资源的建议，以及合理的对接方式，帮助用户更好的在 CCE 环境中使用 Rainbond。
+
 
   </TabItem>
 </Tabs>
