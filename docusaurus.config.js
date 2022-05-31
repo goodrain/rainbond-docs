@@ -165,8 +165,8 @@ const config = {
       },
       colorMode: {
         defaultMode: 'light',
-        disableSwitch: false, // 黑白切换按钮
-        respectPrefersColorScheme: true
+        disableSwitch: true, // 黑白切换按钮
+        respectPrefersColorScheme: false
       },
       algolia: {
         appId: '4EFG0MCBR2',

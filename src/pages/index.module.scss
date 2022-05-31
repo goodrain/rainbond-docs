@@ -225,8 +225,8 @@
   margin-bottom: 0px !important;
 }
 .dosc_logo > img {
-  width: 100px;
-  height: auto;
+  width: auto;
+  height: 100px;
   object-fit: fill;
 }
 .docs {
@@ -248,10 +248,15 @@
   transform: scale(1.01);
   text-decoration: none !important;
 }
+.docs > a:hover > .left_logo{
+  color: var(--ifm-color-primary);
+  font-weight: var(--ifm-dropdown-font-weight)
+}
 .docs > a > .left_logo {
   position: absolute;
-  left: 16px;
-  top: 16px;
+  right: 16px;
+  bottom: 16px;
+  color: #939393;
 }
 .docs > a > .left_logo > img {
   width: 32px;
@@ -462,6 +467,7 @@
     display: grid;
     gap: 24px;
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    padding-top: 25px;
     & > div {
       // background-color: pink;
       .imgContainer {
@@ -470,8 +476,8 @@
       }
       .imgContainer {
         img {
-          width: 150px;
-          height: 150px;
+          width: 50px;
+          height: 50px;
         }
       }
       .experience_sort_title {
@@ -546,8 +552,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 10rem;
-      height: 3.5rem;
+      width: 9rem;
+      height: 2.9rem;
       // margin-bottom: 1rem;
       border: 0;
       color: #fff;
@@ -561,6 +567,29 @@
     }
     .how_rainbond_desc_container_start:hover {
       background-color: var(--ifm-color-primary);
+    }
+  }
+}
+
+@media (max-width: 996px){
+  #section_why_rainbond {
+    .how_rainbond_desc_container {
+      flex-direction: column;
+      .how_rainbond_btn {
+        flex-direction: row !important;
+        & > button {
+          margin: 0rem 0.1rem 1rem 0rem;
+        }
+      }
+      .how_rainbond_desc {
+        display: contents;
+        & > div {
+          width: 100%;
+        }
+      }
+      .how_rainbond_desc_container_start {
+        position: relative;
+      }
     }
   }
 }
@@ -599,7 +628,7 @@
 }
 
 .third {
-  background-color: var(--background-color-light);
+  // background-color: var(--background-color-light);
   padding: 64px 0px;
 }
 
@@ -607,7 +636,7 @@
   background-color: var(--background-color-dark);
 }
 .fouthBg {
-  // background-color: var(--background-color-light);
+  background-color: var(--background-color-light);
 }
 
 [data-theme='dark'] .fouthBg {

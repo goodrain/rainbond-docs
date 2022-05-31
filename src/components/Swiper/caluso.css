@@ -53,7 +53,7 @@ body {
 }
 
 #carousel .swiper-button-prev {
-  left: 30px;
+  left: -50px;
   width: 45px;
   height: 45px;
   background: url(/img/xuebi.png) no-repeat;
@@ -67,7 +67,7 @@ body {
 }
 
 #carousel .swiper-button-next {
-  right: 30px;
+  right: -50px;
   width: 45px;
   height: 45px;
   background: url(/img/xuebi.png) no-repeat;
@@ -82,4 +82,10 @@ body {
 #carousel .swiper-button-prev::after,
 #carousel .swiper-button-next::after {
   content: '';
+}
+
+@media screen and (max-width: 390px) {
+  #carousel {
+    display: none;
+  }
 }

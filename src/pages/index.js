@@ -4,6 +4,7 @@ import LayoutProviders from '@theme/LayoutProviders';
 import 'animate.css';
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
+import Swiper from '../components/Swiper';
 import Cswiper from '../components/Cswiper';
 import NavBar from '../components/NavBar';
 import styles from './index.module.scss';
@@ -97,65 +98,7 @@ export default function Home() {
       }
     }
   };
-  // 加载轮播图实例
-  const loadSwiperExample = () => {
-    const slideW = 300; //一张图300px, 每面四张角度22.5（PI/8），中心角度PI/16
-    const radius = (slideW * 0.5) / Math.sin(Math.PI / 16); //半径。圆心并不是视点中心，视点在1200px
-    const carouselSwiper = new Swiper('#carousel .swiper', {
-      watchSlidesProgress: true,
-      slidesPerView: 'auto',
-      centeredSlides: false,
-      loop: true,
-      loopedSlides: 4,
-      grabCursor: true,
-      //	autoplay: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      on: {
-        progress: function (swiper, progress) {
-          for (var i = 0; i < this.slides.length; i++) {
-            var slide = this.slides.eq(i);
-            var slideProgress = this.slides[i].progress;
-            var translateX =
-              (slideProgress + 1.5) *
-                (slideW / 3 -
-                  (Math.cos((slideProgress + 1.5) * 0.125 * Math.PI) *
-                    slideW *
-                    1.1) /
-                    3) +
-              'px'; //调整图片间距，根据图片宽度改变数值实现自适应
-            var rotateY = (slideProgress + 1.5) * 22.5; //图片角度
-            var translateZ =
-              radius -
-              Math.cos((slideProgress + 1.5) * 0.125 * Math.PI) * radius -
-              150 +
-              'px'; //调整图片远近，刚好4个在画框内
-            slide.transform(
-              'translateX(' +
-                translateX +
-                ') translateZ(' +
-                translateZ +
-                ') rotateY(' +
-                rotateY +
-                'deg)'
-            );
-          }
-        },
-        setTransition: function (swiper, transition) {
-          for (var i = 0; i < this.slides.length; i++) {
-            var slide = this.slides.eq(i);
-            slide.transition(transition);
-          }
-        }
-      }
-    });
-  };
+  
   const handleJumpDemo = e => {
     axios('https://cloud.goodrain.com/enterprise-server/onlineTrial');
   };
@@ -293,6 +236,9 @@ export default function Home() {
         {/* 第二屏 */}
         <section className={styles.second}>
           <div id={styles.section_experience} className={styles.width}>
+            <h1 className={styles.dosc_logo}>
+              <img src='/img/kuberneteslanding/kuberneteslanding.png' alt='' />
+            </h1>
             {/* 标题 */}
             <h1
               style={{
@@ -310,7 +256,7 @@ export default function Home() {
               <div>
                 {/* 图片 */}
                 <div className={styles.imgContainer}>
-                  <img src='/img/Java_Monochromatic.svg' alt='源码一键部署' />
+                  <img src='/img/kuberneteslanding/java.svg' />
                 </div>
                 {/* 标题 */}
                 <p className={styles.experience_sort_title}>源码一键部署</p>
@@ -341,10 +287,7 @@ export default function Home() {
               <div>
                 {/* 图片 */}
                 <div className={styles.imgContainer}>
-                  <img
-                    src='/img/Product Manager_Two Color.svg'
-                    alt='kubernetes管理面板'
-                  />
+                  <img src='/img/kuberneteslanding/manage.svg' />
                 </div>
                 {/* 标题 */}
                 <p className={styles.experience_sort_title}>
@@ -377,7 +320,7 @@ export default function Home() {
               <div>
                 {/* 图片 */}
                 <div className={styles.imgContainer}>
-                  <img src='/img/springcloud.png' alt='微服务实战' />
+                  <img src='/img/kuberneteslanding/service.svg' />
                 </div>
                 {/* 标题 */}
                 <p className={styles.experience_sort_title}>微服务实战</p>
@@ -408,10 +351,7 @@ export default function Home() {
               <div>
                 {/* 图片 */}
                 <div className={styles.imgContainer}>
-                  <img
-                    src='/img/undraw_container_ship_re_alm4.svg'
-                    alt='80款开源软件即点即用'
-                  />
+                  <img src='/img/kuberneteslanding/store.svg' />
                 </div>
                 {/* 标题 */}
                 <p className={styles.experience_sort_title}>
@@ -445,10 +385,13 @@ export default function Home() {
         </section>
         {/* 为什么选择Rainbond */}
         <section id={styles.section_why_rainbond} className={styles.width}>
+          <h1 className={styles.dosc_logo}>
+            <img src='/img/choicerainbond/choicerainbond.png' style={{ height: '150px' }}/>
+          </h1>
           <h1
             style={{
               textAlign: 'center',
-              marginBottom: '56px',
+              marginBottom: '70px',
               position: 'relative'
             }}
           >
@@ -578,6 +521,38 @@ export default function Home() {
             </a> 
           </div>
         </section>
+        {/* 第四屏 */}
+        <section className={styles.fouthBg}>
+          <div id={styles.section_fouth} className={styles.width}>
+            <h1 className={styles.dosc_logo}>
+              <img src='/img/smallimages/RainbondStudy.png' alt='' />
+            </h1>
+            <h1
+              style={{
+                textAlign: 'center',
+                marginBottom: '56px',
+                position: 'relative'
+              }}
+            >
+              <img
+                src='/img/smallimages/R.png'
+                alt=''
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  position: 'absolute',
+                  left: '12px',
+                  bottom: '-36px'
+                }}
+                className='left_kid_img animate__animated animate__fadeInLeftBig'
+              />
+              观看视频学习 &nbsp;
+              <span className={styles.how_rainbond}>Rainbond</span>
+            </h1>
+            <Cswiper/>
+            <Swiper/>
+          </div>
+        </section>
         {/* 第三屏 */}
         <section className={styles.third}>
           <div id={styles.section_third} className={styles.width}>
@@ -612,7 +587,8 @@ export default function Home() {
             >
               <a href='usescene/IntegrationDev' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
-                  {/* <img src='/img/rainbond.png' alt='' /> */}
+                  {/* <img src='/img/cursor.svg' /> */}
+                  详情
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
@@ -625,12 +601,13 @@ export default function Home() {
                       集成化的开发和测试环境，自动识别开发语言和自动构建，提供开箱即用的体验
                     </p>
                   </div>
-                  <i className={styles.angle}></i>
+                  {/* <i className={styles.angle}></i> */}
                 </div>
               </a>
               <a href='usescene/AppManagement' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
-                  {/* <img src='/img/rainbond.png' alt='' /> */}
+                  {/* <img src='/img/cursor.svg' /> */}
+                  详情
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
@@ -644,11 +621,12 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <i className={styles.angle}></i>
+                {/* <i className={styles.angle}></i> */}
               </a>
               <a href='usescene/MultiCloudManagement' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
-                  {/* <img src='/img/rainbond.png' alt='' /> */}
+                  {/* <img src='/img/cursor.svg' /> */}
+                  详情
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
@@ -662,11 +640,12 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <i className={styles.angle}></i>
+                {/* <i className={styles.angle}></i> */}
               </a>
               <a href='usescene/offlineDelivery' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
-                  {/* <img src='/img/rainbond.png' alt='' /> */}
+                  {/* <img src='/img/cursor.svg' /> */}
+                  详情
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
@@ -678,11 +657,12 @@ export default function Home() {
                     <p>离线环境应用自动化交付，并支持个性化定制和应用运维</p>
                   </div>
                 </div>
-                <i className={styles.angle}></i>
+                {/* <i className={styles.angle}></i> */}
               </a>
               <a href='usescene/componentReuse' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
-                  {/* <img src='/img/rainbond.png' alt='' /> */}
+                  {/* <img src='/img/cursor.svg' /> */}
+                  详情
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
@@ -696,11 +676,12 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <i className={styles.angle}></i>
+                {/* <i className={styles.angle}></i> */}
               </a>
               <a href='usescene/x86ToArm' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
-                  {/* <img src='/img/rainbond.png' alt='' /> */}
+                  {/* <img src='/img/cursor.svg' /> */}
+                  详情
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
@@ -712,11 +693,12 @@ export default function Home() {
                     <p>支持多种国产化平台，x86架构应用自动化向Arm架构转换</p>
                   </div>
                 </div>
-                <i className={styles.angle}></i>
+                {/* <i className={styles.angle}></i> */}
               </a>
               <a href='/usescene/EnterpriseDeliveryOne' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
-                  {/* < img src='/img/rainbond.png' alt='' /> */}
+                  {/* <img src='/img/cursor.svg' /> */}
+                  详情
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
@@ -730,11 +712,12 @@ export default function Home() {
                     <p>企业应用一键交付客户，并支持持续升级迭代</p>
                   </div>
                 </div>
-                <i className={styles.angle}></i>
+                {/* <i className={styles.angle}></i> */}
               </a>
               <a href='/usescene/EnterpriseDeliveryTwo' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
-                  {/* < img src='/img/rainbond.png' alt='' /> */}
+                  {/* <img src='/img/cursor.svg' /> */}
+                  详情
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
@@ -748,7 +731,7 @@ export default function Home() {
                     <p>通过功能模块化，解决2B企业个性化交付的难题</p>
                   </div>
                 </div>
-                <i className={styles.angle}></i>
+                {/* <i className={styles.angle}></i> */}
               </a>
               <a
                 href='https://store.goodrain.com/'
@@ -756,7 +739,8 @@ export default function Home() {
                 style={{ position: 'relative' }}
               >
                 <div className={styles.left_logo}>
-                  {/* < img src='/img/rainbond.png' alt='' /> */}
+                  {/* <img src='/img/cursor.svg' /> */}
+                  详情
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
@@ -772,7 +756,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <i className={styles.angle}></i>
+                {/* <i className={styles.angle}></i> */}
                 {/* <div>
                   <img
                     src='/img/Background(2).png'
@@ -784,37 +768,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* 第四屏 */}
-        <section className={styles.fouthBg}>
-          <div id={styles.section_fouth} className={styles.width}>
-            <h1 className={styles.dosc_logo}>
-              <img src='/img/smallimages/RainbondStudy.png' alt='' />
-            </h1>
-            <h1
-              style={{
-                textAlign: 'center',
-                marginBottom: '56px',
-                position: 'relative'
-              }}
-            >
-              <img
-                src='/img/smallimages/R.png'
-                alt=''
-                style={{
-                  width: '20px',
-                  height: '20px',
-                  position: 'absolute',
-                  left: '12px',
-                  bottom: '-36px'
-                }}
-                className='left_kid_img animate__animated animate__fadeInLeftBig'
-              />
-              观看视频学习 &nbsp;
-              <span className={styles.how_rainbond}>Rainbond</span>
-            </h1>
-            <Cswiper />
-          </div>
-        </section>
+        
       </div>
       {/* 底部 */}
       <footer className={`${styles.footer_container} `}>
@@ -890,6 +844,7 @@ export default function Home() {
               style={{ width: '100%' }}
               src='https://static.goodrain.com/mp4/HomePageVideo/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%91.mp4'
               controls='controls'
+              autoPlay
             ></video>
           </div>
         </div>
