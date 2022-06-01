@@ -1,72 +1,78 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import './caluso.css';
 import './swiper-min.css';
-import Swiper from './swiper';
 
 export default function swiper() {
 
   useEffect(() => {
     loadSwiperExample();
-  })
+  },[])
   // 加载轮播图实例
   const loadSwiperExample = () => {
-    const slideW = 300; //一张图300px, 每面四张角度22.5（PI/8），中心角度PI/16
-    const radius = (slideW * 0.5) / Math.sin(Math.PI / 16); //半径。圆心并不是视点中心，视点在1200px
-    const carouselSwiper = new Swiper('#carousel .swiper', {
-      autoplay: true,
-      watchSlidesProgress: true,
-      slidesPerView: 'auto',
-      centeredSlides: false,
-      loop: true,
-      loopedSlides: 4,
-      grabCursor: true,
-      //	autoplay: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      on: {
-        progress: function (swiper, progress) {
-          for (var i = 0; i < this.slides.length; i++) {
-            var slide = this.slides.eq(i);
-            var slideProgress = this.slides[i].progress;
-            var translateX =
-              (slideProgress + 1.5) *
-                (slideW / 3 -
-                  (Math.cos((slideProgress + 1.5) * 0.125 * Math.PI) *
-                    slideW *
-                    1.1) /
-                    3) +
-              'px'; //调整图片间距，根据图片宽度改变数值实现自适应
-            var rotateY = (slideProgress + 1.5) * 22.5; //图片角度
-            var translateZ =
-              radius -
-              Math.cos((slideProgress + 1.5) * 0.125 * Math.PI) * radius -
-              150 +
-              'px'; //调整图片远近，刚好4个在画框内
-            slide.transform(
-              'translateX(' +
-                translateX +
-                ') translateZ(' +
-                translateZ +
-                ') rotateY(' +
-                rotateY +
-                'deg)'
-            );
-          }
+    // 动态引入swiper.js
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/swiper@7/swiper-bundle.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(script, s);
+    script.onload = script.onreadystatechange = function () {
+      const slideW = 300; //一张图300px, 每面四张角度22.5（PI/8），中心角度PI/16
+      const radius = (slideW * 0.5) / Math.sin(Math.PI / 16); //半径。圆心并不是视点中心，视点在1200px
+      const carouselSwiper = new Swiper('#carousel .swiper', {
+        autoplay: true,
+        watchSlidesProgress: true,
+        slidesPerView: 'auto',
+        centeredSlides: false,
+        loop: true,
+        loopedSlides: 4,
+        grabCursor: true,
+        // autoplay: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
         },
-        setTransition: function (swiper, transition) {
-          for (var i = 0; i < this.slides.length; i++) {
-            var slide = this.slides.eq(i);
-            slide.transition(transition);
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        on: {
+          progress: function (swiper, progress) {
+            for (var i = 0; i < this.slides.length; i++) {
+              var slide = this.slides.eq(i);
+              var slideProgress = this.slides[i].progress;
+              var translateX =
+                (slideProgress + 1.5) *
+                  (slideW / 3 -
+                    (Math.cos((slideProgress + 1.5) * 0.125 * Math.PI) *
+                      slideW *
+                      1.1) /
+                      3) +
+                'px'; //调整图片间距，根据图片宽度改变数值实现自适应
+              var rotateY = (slideProgress + 1.5) * 22.5; //图片角度
+              var translateZ =
+                radius -
+                Math.cos((slideProgress + 1.5) * 0.125 * Math.PI) * radius -
+                150 +
+                'px'; //调整图片远近，刚好4个在画框内
+              slide.transform(
+                'translateX(' +
+                  translateX +
+                  ') translateZ(' +
+                  translateZ +
+                  ') rotateY(' +
+                  rotateY +
+                  'deg)'
+              );
+            }
+          },
+          setTransition: function (swiper, transition) {
+            for (var i = 0; i < this.slides.length; i++) {
+              var slide = this.slides.eq(i);
+              slide.transition(transition);
+            }
           }
         }
-      }
-    });
+      });
+    };
   };
   return (
     <>
