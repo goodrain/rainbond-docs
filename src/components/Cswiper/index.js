@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
+import styles from './index.module.scss';
 
 export default function Index() {
     return (
@@ -17,6 +18,7 @@ export default function Index() {
                 delay: 2500,
                 disableOnInteraction: false,
             }}
+            className={styles.swiperDisplay}
         >
             <SwiperSlide>
                 <a href='https://www.bilibili.com/video/BV1Vq4y1w7FQ' target='_blank'>
