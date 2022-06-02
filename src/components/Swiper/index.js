@@ -80,19 +80,29 @@ export default function swiper() {
         <div class="swiper swiper-3d">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src='/img/video/install.png' href='https://www.bilibili.com/video/BV1Vq4y1w7FQ' />
+              <a href='https://www.bilibili.com/video/BV1Vq4y1w7FQ' target='_blank'> 
+                <img src='/img/video/install.png'/>
+              </a>
             </div>
             <div class="swiper-slide">
-              <img src='/img/video/quick.png' href='https://www.bilibili.com/video/BV1ou411B7ix' />
+              <a href='https://www.bilibili.com/video/BV1ou411B7ix' target='_blank'>
+                <img src='/img/video/quick.png'/>
+              </a>
             </div>
             <div class="swiper-slide">
-              <img src='/img/video/gitlab+rainbond.png' href='https://www.bilibili.com/video/BV1vS4y1w7ps' />
+              <a  href='https://www.bilibili.com/video/BV1vS4y1w7ps' target='_blank'>
+                <img src='/img/video/gitlab+rainbond.png'/>
+              </a>
             </div>
             <div class="swiper-slide">
-              <img src='/img/video/enterprise-app-manage.png' href='https://www.bilibili.com/video/BV1rB4y197X4' />
+              <a  href='https://www.bilibili.com/video/BV1rB4y197X4' target='_blank'>
+                <img src='/img/video/enterprise-app-manage.png'/>
+              </a>
             </div>
             <div class="swiper-slide">
-              <img src='/img/video/pig.png' href='https://www.bilibili.com/video/BV1MZ4y1b7wW'/>
+              <a href='https://www.bilibili.com/video/BV1MZ4y1b7wW' target='_blank'>
+                <img src='/img/video/pig.png'/>
+              </a>
             </div>
           </div>
         </div>
