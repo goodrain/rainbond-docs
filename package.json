@@ -25,7 +25,7 @@
     "copy-to-clipboard": "^3.3.1",
     "docusaurus-plugin-sass": "^0.2.2",
     "i": "^0.3.7",
-    "npm": "^8.5.5",
+    "npm": "^8.11.0",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
