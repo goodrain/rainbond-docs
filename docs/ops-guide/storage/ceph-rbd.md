@@ -225,13 +225,39 @@ kubectl -n rook-ceph get pod -l app=rook-ceph-rgw
 创建 StorageClass
 
 ```bash
-kubectl create -f storageclass-bucket-delete.yaml
+cat > storageclass-bucket-delete.yaml <<EOF
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: rook-ceph-bucket
+provisioner: rook-ceph.ceph.rook.io/bucket
+reclaimPolicy: Delete
+parameters:
+  objectStoreName: my-store
+  objectStoreNamespace: rook-ceph
+EOF
+```
+
+```bash
+$ kubectl create -f storageclass-bucket-delete.yaml
 ```
 
 创建 Bucket Claim
 
 ```bash
-kubectl create -f object-bucket-claim-delete.yaml
+cat > object-bucket-claim-delete.yaml <<EOF
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: ceph-bucket
+  namespace: rook-ceph
+spec:
+  generateBucketName: ceph-bkt
+  storageClassName: rook-ceph-bucket
+EOF
+```
+```bash
+$ kubectl create -f object-bucket-claim-delete.yaml
 ```
 
 创建完成后，下面来验证。
@@ -302,6 +328,20 @@ rook-ceph-rgw-my-store   ClusterIP   10.43.4.250   <none>        80/TCP    3h40m
 ```
 
 ### 访问dashboard
+
+修改 Ceph 集群配置，禁用 dashboard 内置 ssl：
+
+```bash
+$ kubectl -n rook-ceph edit cephcluster -n rook-ceph rook-ceph
+# 修改 ssl 为 false
+spec:
+  dashboard:
+    enabled: true
+    ssl: false
+
+# 重启 operator 使配置生效
+$ kubectl delete po -l app=rook-ceph-operator -n rook-ceph
+```
 
 获取svc，在平台上使用第三方组件的形式代理
 
