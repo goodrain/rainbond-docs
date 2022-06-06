@@ -1,237 +1,334 @@
 ---
-title: ceph-rbd块存储
+title: Rook-Ceph 对接方案
 description: 高性能块存储设备
 weight: 5015
 ---
 
-### ceph-rbd 块存储介绍
+## 概述
 
-Ceph 引入了一个新的 RBD 协议，也就是 Ceph 块设备（Ceph Block Device）。RBD 为客户端提供了可靠、分布式、高性能的块存储。RBD 块呈带状分布在多个 Ceph 对象之上，而这些对象本身又分布在整个 Ceph 存储集群中，因此能够保证数据的可靠性以及性能。RBD 已经被 Linux 内核支持，换句话说，RBD 驱动程序在过去的几年里已经很好地跟 Linux 内核集成。几乎所有的 Linux 操作系统发行版都支持 RBD。除了可靠性和性能之外，RBD 也支持其他的企业级特性，例如完整和增量式快照，精简的配置，写时复制（copy-on-write）式克隆，以及其他特性。RBD 还支持全内存式缓存，这可以大大提高它的性能。
+**Ceph** 引入了一个新的 RBD 协议，也就是 Ceph 块设备（Ceph Block Device）。RBD 为客户端提供了可靠、分布式、高性能的块存储。RBD 块呈带状分布在多个 Ceph 对象之上，而这些对象本身又分布在整个 Ceph 存储集群中，因此能够保证数据的可靠性以及性能。RBD 已经被 Linux 内核支持，换句话说，RBD 驱动程序在过去的几年里已经很好地跟 Linux 内核集成。几乎所有的 Linux 操作系统发行版都支持 RBD。除了可靠性和性能之外，RBD 也支持其他的企业级特性，例如完整和增量式快照，精简的配置，写时复制（copy-on-write）式克隆，以及其他特性。RBD 还支持全内存式缓存，这可以大大提高它的性能。
 
-Ceph 块设备完全支持云平台，例如 OpenStack、CloudStack 等。在这些云平台中它已经被证明是成功的，并且具有丰富的特性。
+**Rook** 是一种开源的云原生存储编排工具，提供了为云原生环境而生的平台框架级复杂存储解决方案。Ceph operator 在 2018 年 12 月的 Rook v0.9 版本中得到了稳定的支持，用户可以基于 Rook 实现面向 Ceph 存储的安装、运维管理，并提供了优秀的云原生存储使用体验。
 
-> 需用户自己准备 ceph 环境，可参考 [官方安装文档](http://docs.ceph.com/docs/master/start/)
+## 安装部署
 
-### 安装 ceph 集群
+利用 Rook 安装部署 Ceph 集群仅需要使用简单的 `kubectl` 命令，安装开始之前，需要关注以下前提条件。
 
-测试环境限制，我们使用 Ubuntu 单节点安装 ceph 集群，安装 ceph 的 jewel 版本，多节点 ceph 集群以及其他版本请参考官方教程。
+### 前提条件
 
-- ceph 更新源
+- 已部署Kubernetes集群，版本为 **v1.16** 或更高版本。
 
-由于 ceph 在安装过程中，使用默认源速度较慢，这里使用阿里云的源
+- 集群最少拥有3个节点用来部署 ceph 存储集群。
 
-```bash
-echo "deb http://mirrors.aliyun.com/ceph/debian-jewel xenial main" >> /etc/apt/sources.list
-apt-get clean
-apt-get update
-```
+- 建议的最低内核版本为 **5.4.13** 。如果内核版本低于 5.4.13则需要升级内核。
 
-- 安装部署程序
+- 存储集群的服务器之间需要进行同步时间，官方要求0.05秒，并且做定时任务。
 
-官方推荐使用 `ceph-deploy` 执行程序进行 ceph 集群的安装。
+- 安装lvm包
+  
+  - CentOS
+    
+    ```bash
+    sudo yum install -y lvm2
+    ```
+  
+  - Ubuntu
+    
+    ```bash
+    sudo apt-get install -y lvm2
+    ```
 
-```bash
-apt-get install ceph-deploy
-```
+- 存储满足以下选项之一：
+  
+  - 原始设备（无分区或格式化文件系统）
+  - 原始分区（无格式化的文件系统）
 
-- 创建文件夹，记录 ceph 配置文件
-
-所有的操作均在该文件夹中，该文件夹会记录 ceph 在创建时的配置文件以及 admin 账户的秘钥。
-
-```bash
-mkdir ceph-cluster && cd ceph-cluster
-```
-
-- 安装监控节点
-
-安装监控节点到 node1
-
-> node1 是主机名，必须能够解析到 node1 主机对应的 IP
+如果磁盘之前已经使用过，需要进行清理，使用以下脚本进行清理
 
 ```bash
-ceph-deploy new node1
+#!/usr/bin/env bash
+DISK="/dev/vdc"  #按需修改自己的盘符信息
+
+# Zap the disk to a fresh, usable state (zap-all is important, b/c MBR has to be clean)
+
+# You will have to run this step for all disks.
+sgdisk --zap-all $DISK
+
+# Clean hdds with dd
+dd if=/dev/zero of="$DISK" bs=1M count=100 oflag=direct,dsync
+
+# Clean disks such as ssd with blkdiscard instead of dd
+blkdiscard $DISK
+
+# These steps only have to be run once on each node
+# If rook sets up osds using ceph-volume, teardown leaves some devices mapped that lock the disks.
+ls /dev/mapper/ceph-* | xargs -I% -- dmsetup remove %
+
+# ceph-volume setup can leave ceph-<UUID> directories in /dev and /dev/mapper (unnecessary clutter)
+rm -rf /dev/ceph-*
+rm -rf /dev/mapper/ceph--*
+
+# Inform the OS of partition table changes
+partprobe $DISK
 ```
 
-由于使用单节点安装，需要修改配置文件，设置默认数据池大小为 1
+### 部署 Rook-Ceph
+
+#### 部署 Rook Operator
 
 ```bash
-echo "osd pool default size = 1
-osd max object name len = 256
-osd max object namespace len = 64
-mon_pg_warn_max_per_osd = 2000
-mon clock drift allowed = 30
-mon clock drift warn backoff = 30
-rbd cache writethrough until flush = false" >> ceph.conf
+ git clone -b release-1.8 https://github.com/goodrain/rook.git && cd rook/deploy/examples/
+ kubectl create -f crds.yaml -f common.yaml -f operator.yaml
 ```
 
-- 安装 ceph 服务
+为Running则Operator部署成功
 
 ```bash
-ceph-deploy install node1
+$ kubectl -n rook-ceph get pod
+NAME                                 READY   STATUS    RESTARTS   AGE
+rook-ceph-operator-b89545b4f-j64vk   1/1     Running   0          4m20s
 ```
 
-- 部署监控节点
+#### 创建Ceph集群
+
+> {kube-node1,kube-node2,kube-node3} 此处应替换为当前集群节点的 node 名称。
+
+- 给节点打标签
+  
+为运行ceph-mon的节点打上：ceph-mon=enabled
+  
+```bash
+kubectl label nodes {kube-node1,kube-node2,kube-node3} ceph-mon=enabled
+```
+
+为运行ceph-osd的节点，也就是存储节点，打上：ceph-osd=enabled
 
 ```bash
-ceph-deploy mon create-initial
+kubectl label nodes {kube-node1,kube-node2,kube-node3} ceph-osd=enabled
 ```
 
-- 准备 ceph 存储路径并准备 osd 服务
+为运行ceph-mgr的节点，打上：ceph-mgr=enabled
 
-将 `/data/ceph` 用作 ceph 的数据共享目录
+ceph-mgr最多只能运行2个
 
 ```bash
-mkdir -p /data/ceph/osd
-ceph-deploy osd prepare node1:/data/ceph/osd
+kubectl label nodes {kube-node1,kube-node2} ceph-mgr=enabled
 ```
 
-- 激活 osd 服务
+- 创建集群
+  
+**创建前修改 `storage.node`字段中的节点名称及对应盘符**
+  
+```bash
+kubectl create -f cluster.yaml
+```
+
+#### 验证Ceph集群
+
+通过命令行查看以下pod启动，表示成功：
+
+```
+kubectl get po -n rook-ceph
+```
+
+![](https://pic.imgdb.cn/item/61e0cd882ab3f51d91f07560.png)
+
+安装工具箱，其中包含了 Ceph 集群管理所需要的命令行工具：
 
 ```bash
-chown -R ceph:ceph /data/ceph/
-ceph-deploy osd activate node1:/data/ceph/osd
+$ kubectl create -f toolbox.yaml
+$ kubectl get po -l app=rook-ceph-tools -n rook-ceph
+NAME                               READY   STATUS    RESTARTS   AGE
+rook-ceph-tools-76876d788b-qtm4j   1/1     Running   0          77s
 ```
 
-> 如果出现权限问题可尝试进行赋权后重新激活
-
-- 确认 ceph 集群状态
+使用如下命令确定 Ceph 集群状态：
 
 ```bash
-ceph health
+$ kubectl -n rook-ceph exec -it deploy/rook-ceph-tools -- bash
+$ ceph status
+  cluster:
+    id:     8bb6bbd4-ec90-4707-85d7-903551d08991
+    health: HEALTH_OK #出现该字样则集群正常
+
+  services:
+    mon: 3 daemons, quorum a,b,c (age 77s)
+    mgr: b(active, since 27s), standbys: a
+    osd: 6 osds: 6 up (since 37s), 6 in (since 56s)
+
+  data:
+    pools:   1 pools, 1 pgs
+    objects: 0 objects, 0 B
+    usage:   31 MiB used, 750 GiB / 750 GiB avail #磁盘总容量，确认是否与实际容量相同
+    pgs:     1 active+clean
 ```
 
-结果显示 `HEALTH_OK` 说明集群部署正常。出现异常可以执行 `ceph -s` 确定 ceph 中的异常信息。
+### 提供存储
 
-如果在某些地方碰到麻烦，想从头再来，可以用下列命令清除配置：
+Rook-ceph提供了三种类型的存储，三种存储类型在 Rainbond （版本要求不低于v5.7.0-release）中均可以对接使用。：
+
+- **[Block](https://rook.io/docs/rook/v1.8/ceph-block.html)**：创建由 Pod (RWO) 使用的块存储。Rainbond 平台中的有状态类型服务组件，可以在添加存储时选择 `rook-ceph-block` 申请并挂载块存储。
+- **[共享文件系统](https://rook.io/docs/rook/v1.8/ceph-filesystem.html)**：创建一个跨多个 Pod 共享的文件系统 (RWX)。安装 Rainbond 时可按照后文中的方式进行对接。Rainbond 平台中的服务组件在添加存储时选择默认的共享存储，即可对接 cephfs 共享文件系统。
+- **[Object](https://rook.io/docs/rook/v1.8/ceph-object.html)**：创建一个可以在 Kubernetes 集群内部或外部访问的对象存储。该存储类型可以对接 Rainbond 的对象存储设置，为云端备份恢复等功能提供支持。
+
+
+
+### 创建共享存储
+
+为运行 mds 的节点添加标签：role=mds-node，通常为 Ceph 的三个节点
 
 ```bash
-ceph-deploy purgedata node1
-ceph-deploy forgetkeys
+kubectl label nodes {kube-node1,kube-node2,kube-node3} role=mds-node
 ```
-
-用下列命令可以连 Ceph 安装包一起清除：
 
 ```bash
-ceph-deploy purge node1
+$ kubectl create -f filesystem.yaml
+$ kubectl -n rook-ceph get pod -l app=rook-ceph-mds
+NAME                                        READY   STATUS    RESTARTS   AGE
+rook-ceph-mds-sharedfs-a-785c845496-2hcsz   1/1     Running   0          17s
+rook-ceph-mds-sharedfs-b-87df7847-5rvx9     1/1     Running   0          16s
 ```
 
-如果执行了 purge ，你必须重新安装 Ceph 。
-
-### 安装驱动
-
-使用 ceph 官方 csi 项目 [ceph-csi](https://github.com/ceph/ceph-csi.git)安装 ceph 驱动。
-
-- 下载项目
+在 Rook 开始供应存储之前，需要根据文件系统创建一个 StorageClass。这是 Kubernetes 与 CSI 驱动程序互操作以创建持久卷所必需的。
 
 ```bash
-git clone https://github.com/ceph/ceph-csi.git && cd ceph-csi
+$ kubectl create -f storageclass-sharedfs.yaml
+$ kubectl get sc
+NAME          PROVISIONER                     RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+rook-cephfs   rook-ceph.cephfs.csi.ceph.com   Delete          Immediate           false                  72m
 ```
 
-- 创建 rbac 账户
+### 创建块存储
 
 ```bash
-kubectl create -f csi-provisioner-rbac.yaml
-kubectl create -f csi-nodeplugin-rbac.yaml
+kubectl create -f storageclass-block.yaml
+$ kubectl get storageclass  rook-ceph-block
+NAME              PROVISIONER                  RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+rook-ceph-block   rook-ceph.rbd.csi.ceph.com   Delete          Immediate           true                   79m
 ```
 
-- 准备配置文件
+获取到 storageclass 后已创建成功，在平台上有状态组件可选择块存储进行使用。
 
-配置文件内容制定了 csi 驱动要使用的 ceph 集群，记录在 ConfigMap 中。测试例子如下，
+### 创建对象存储
+
+添加标签
 
 ```bash
-$ ceph -s
-cluster 9660aec4-16a2-4929-b179-c28cef2b5ab0
-health HEALTH_OK
-monmap e1: 1 mons at {node1=172.24.203.202:6789/0}
-      election epoch 3, quorum 0 node1
-osdmap e7: 1 osds: 1 up, 1 in
-      flags sortbitwise,require_jewel_osds
-pgmap v882: 64 pgs, 1 pools, 7488 kB data, 14 objects
-      17357 MB used, 20972 MB / 40188 MB avail
-            64 active+clean
+# 添加节点标签
+kubectl label nodes {kube-node1,kube-node2,kube-node3} rgw-node=enabled
+# Create the object store
+kubectl create -f object.yaml
+# To confirm the object store is configured, wait for the rgw pod to start
+kubectl -n rook-ceph get pod -l app=rook-ceph-rgw
 ```
 
-clusterID 为 ceph 集群的 id，通过`ceph -s`可以看到 cluster 信息
-monitors 为 ceph 服务的监控服务地址，对应着 monmap 中的节点信息
+创建 StorageClass
 
 ```bash
-apiVersion: v1
-kind: ConfigMap
-data:
-  config.json: |-
-    [
-      {
-        "clusterID": "9cab3178-b0e1-4d4c-80d6-d1b6cd399cda",
-        "monitors": [
-          "172.24.203.202:6789"
-        ]
-      }
-    ]
-metadata:
-  name: ceph-csi-config
+kubectl create -f storageclass-bucket-delete.yaml
 ```
 
-- 创建 ConfigMap
+创建 Bucket Claim
 
 ```bash
-kubectl create -f csi-config-map.yaml
+kubectl create -f object-bucket-claim-delete.yaml
 ```
 
-- 创建驱动服务
+创建完成后，下面来验证。
 
 ```bash
-kubectl create -f csi-rbdplugin-provisioner.yaml
-kubectl create -f csi-rbdplugin.yaml
+$ kubectl get svc rook-ceph-rgw-my-store -n rook-ceph
+NAME                     TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)   AGE
+rook-ceph-rgw-my-store   ClusterIP   10.43.4.250   <none>        80/TCP    3h32m
+# 出现以下返回即证明bucket创建完成
+$ curl 10.43.4.250
+<?xml version="1.0" encoding="UTF-8"?><ListAllMyBucketsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Owner><ID>anonymous</ID><DisplayName></DisplayName></Owner><Buckets></Buckets></ListAllMyBucketsResult>
 ```
-
-- 确定服务启动
-
-根据文档安装，最后会有这样的 pod 实例正常运行
 
 ```bash
-$ kubectl get po
-NAME                                         READY   STATUS    RESTARTS   AGE
-csi-rbdplugin-provisioner-688c49bd49-7cwcw   6/6     Running   0          59m
-csi-rbdplugin-provisioner-688c49bd49-ffbmc   6/6     Running   0          59m
-csi-rbdplugin-provisioner-688c49bd49-s4nh2   6/6     Running   0          59m
-csi-rbdplugin-qsnlb                          3/3     Running   0          58m
+# 获取连接信息
+$ kubectl -n rook-ceph get cm ceph-bucket -o jsonpath='{.data.BUCKET_HOST}'
+rook-ceph-rgw-my-store.rook-ceph.svc
+$ kubectl -n rook-ceph get secret ceph-bucket -o jsonpath='{.data.AWS_ACCESS_KEY_ID}' | base64 --decode
+LV9A2S7F6A8SS3NPD9Z0
+$ kubectl -n rook-ceph get secret ceph-bucket -o jsonpath='{.data.AWS_SECRET_ACCESS_KEY}' | base64 --decode
+hzuHLEjtPvaX0N4hLIJBRzP4erjMdHsuHMqeyUuW
+# 获取bucket name
+$ kubectl get ObjectBucketClaim -n rook-ceph ceph-bucket -o yaml|grep "bucketName: ceph-bkt"
+  bucketName: ceph-bkt-6c317bdb-ce51-444e-9d96-40903b3c24cf
 ```
-
-使用官方 demo 测试驱动是否正常，官方项目中 `example` 目录下给出了测试用例，使用 nginx 镜像挂载 ceph 存储。
 
 ```bash
-kubectl create -f secret.yaml
-kubectl create -f storageclass.yaml
-kubectl create -f pvc.yaml
-kubectl create -f pod.yaml
+# 进入tools容器验证
+$ kubectl -n rook-ceph exec -it deploy/rook-ceph-tools -- bash
+
+export AWS_HOST=10.43.4.250
+export AWS_ENDPOINT=10.43.4.250:80
+export AWS_ACCESS_KEY_ID=LV9A2S7F6A8SS3NPD9Z0
+export AWS_SECRET_ACCESS_KEY=hzuHLEjtPvaX0N4hLIJBRzP4erjMdHsuHMqeyUuW
+# 将其写入credentials文件
+cat > ~/.aws/credentials << EOF
+[default]
+aws_access_key_id = ${AWS_ACCESS_KEY_ID}
+aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}
+EOF
 ```
 
-确定 nginx 容器是否正常启动
+#### PUT 或 GET 对象
+
+上传文件到新创建的bucket
 
 ```bash
-$ kubectl get po
-NAME                                         READY   STATUS    RESTARTS   AGE
-csi-rbd-demo-pod                             1/1     Running   0          46m
-csi-rbdplugin-provisioner-688c49bd49-7cwcw   6/6     Running   0          59m
-csi-rbdplugin-provisioner-688c49bd49-ffbmc   6/6     Running   0          59m
-csi-rbdplugin-provisioner-688c49bd49-s4nh2   6/6     Running   0          59m
-csi-rbdplugin-qsnlb                          3/3     Running   0          58m
+echo "Hello Rook" > /tmp/rookObj
+s5cmd --endpoint-url http://$AWS_ENDPOINT cp /tmp/rookObj s3://ceph-bkt-6c317bdb-ce51-444e-9d96-40903b3c24cf
 ```
 
-如果没有启动成功可以通过，观察 provisioner 组件的日志，确定问题。
+从bucket下载并验证文件
 
 ```bash
-kubectl logs -f csi-rbdplugin-provisioner-688c49bd49-7cwcw -c csi-provisioner
+$ s5cmd --endpoint-url http://$AWS_ENDPOINT cp s3://ceph-bkt-6c317bdb-ce51-444e-9d96-40903b3c24cf/rookObj /tmp/rookObj-download
+$ cat /tmp/rookObj-downloadcat 
+Hello Rook
 ```
 
-> 请注意替换 pod 的名字。 -c 指定 provisoner 实例中的容器，provisoner 实例中会启动 csi-provisioner 实例负责提供存储
+#### 供集群外部访问
 
-### 存储的使用
+将该svc地址在平台以第三方组件形式运行并打开对外访问策略，即可通过对外访问策略进行访问
 
-上面使用官方 demo 时创建了 storageClass 对象，此时 Rainbond 平台会监控 storageClass 的创建，并将其记录到数据库中，用户可以通过 Rainbond 控制台选择 storageClass 对应的存储类型用在有状态组件上。
+```bash
+$ kubectl -n rook-ceph get service rook-ceph-rgw-my-store
+NAME                     TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)   AGE
+rook-ceph-rgw-my-store   ClusterIP   10.43.4.250   <none>        80/TCP    3h40m
+```
 
-> 须通过重启组件或者更新组件来触发存储的生效
+### 访问dashboard
 
-### 检查结果
+获取svc，在平台上使用第三方组件的形式代理
 
-存储是否生效可以通过组件是否可以正常启动来判断，组件正常启动则说明组件已经正常挂载了存储，也可以到 ceph 集群中确定存储的情况，确定是否存在对应大小的存储，其状态是否是使用中的状态。
+```bash
+$ kubectl -n rook-ceph get service rook-ceph-mgr-dashboard
+NAME                      TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+rook-ceph-mgr-dashboard   ClusterIP   10.43.168.11   <none>        7000/TCP   118m
+```
+
+访问到仪表板后，默认用户为`admin`，在服务器执行以下命令获取密码：
+
+```bash
+kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode && echo
+```
+
+### Rainbond 对接 Rook-Ceph
+
+安装 Rainbond 时，可以通过指定 Rook-Ceph 的 StorageClass 来对接 Cephfs 作为共享存储使用。当使用 Helm 的方式安装 Rainbond 时，指定的参数应类似以下情形（当前命令不包含其他参数）：
+
+```bash
+helm install \
+--set Cluster.RWX.enable=true \
+--set Cluster.RWX.config.storageClassName=rook-cephfs \
+--set Cluster.RWO.enable=true \
+--set Cluster.RWO.storageClassName=rook-cephfs
+```
+
+
+
+
