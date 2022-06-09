@@ -25,7 +25,9 @@
   // 展示Nav导航栏
   .isMobieNav {
     display: block !important;
-    margin-right: 12px;
+    // margin-right: 12px;
+    position: relative;
+    right: 10%;
   }
   // 移动端导航栏
   .isMobieNavBar {
@@ -43,6 +45,10 @@
   .mobile_nav_lists > li {
     margin-bottom: 12px;
     font-size: 16px;
+  }
+  .mobile_nav_lists > li > a {
+    color: #000000;
+    font-weight: var(--ifm-dropdown-font-weight)
   }
 }
 /* 主页的自定义头部 */
