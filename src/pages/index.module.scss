@@ -575,14 +575,20 @@
   #section_why_rainbond {
     .how_rainbond_desc_container {
       flex-direction: column;
+      align-items: center;
       .how_rainbond_btn {
         flex-direction: row !important;
+        max-width: 660px;
+        width: 100%;
         & > button {
-          margin: 0rem 0.1rem 1rem 0rem;
+          margin: 0rem 0.2rem 1rem 0rem;
+          width: 100%;
         }
       }
       .how_rainbond_desc {
-        display: contents;
+        display: flex;
+        max-width: 660px;
+        max-height: none;
         & > div {
           width: 100%;
         }
