@@ -6,6 +6,7 @@ import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 export default function Index(props) {
   // 菜单开关
   const [menu_Config, setMenu_Config] = useState(true);
+  const [menu_Config_Drop, setMenu_Config_Drop] = useState(false);
   useEffect(() => {
     // 注册页面滚动事件
     window.addEventListener('scroll', handleScrollPage);
@@ -68,26 +69,6 @@ export default function Index(props) {
                   <Translate>文档</Translate>
                 </a>
               </li>
-              {/* <li>
-                <a href='/docs/quick-start/quick-install'>
-                  <Translate>快速开始</Translate>
-                </a>
-              </li> */}
-              {/* <li>
-                <a href='/usescene'>
-                  <Translate>使用场景</Translate>
-                </a>
-              </li>
-              <li>
-                <a href='/case'>
-                  <Translate>案例</Translate>
-                </a>
-              </li>
-              <li>
-                <a href='/blog'>
-                  <Translate>博客</Translate>
-                </a>
-              </li> */}
               <li>
                 <a
                   href='https://store.goodrain.com/markets/rainbond'
@@ -117,6 +98,7 @@ export default function Index(props) {
             style={{ display: 'none' }}
             onClick={() => {
               setMenu_Config(!menu_Config);
+              setMenu_Config_Drop(!menu_Config_Drop);
             }}
           >
             {(menu_Config && <img src='/img/menu.svg' alt='' />) || (
@@ -125,7 +107,7 @@ export default function Index(props) {
           </div>
         </nav>
       </header>
-      {false && (
+      {menu_Config_Drop && (
         <div className={styles.isMobieNavBar}>
           <ul className={styles.mobile_nav_lists}>
             <li>
@@ -134,14 +116,26 @@ export default function Index(props) {
               </a>
             </li>
             <li>
-              <a href='http://store.goodrain.com' target='_blank'>
-                <Translate>应用商店</Translate>
-              </a>
-            </li>
-            <li>
               <a href='/enterprise_server'>
                 <Translate>产品</Translate>
               </a>
+            </li>
+            <li>
+              <div class="dropdown dropdown--hoverable">
+                <Translate>学习</Translate>
+                <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
+                <ul className="dropdown__menu">
+                  <li>
+                    <a className={`${styles.DropDownFont} dropdown__link`} href="/usescene">使用场景</a>
+                  </li>
+                  <li>
+                    <a className={`${styles.DropDownFont} dropdown__link`} href="/case">用户案例</a>
+                  </li>
+                  <li>
+                    <a className={`${styles.DropDownFont} dropdown__link`} href="/blog">博客</a>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li>
               <a href='/docs/quick-start/get-start/'>
@@ -149,31 +143,12 @@ export default function Index(props) {
               </a>
             </li>
             <li>
-              <a href='/docs/quick-start/quick-install'>
-                <Translate>快速开始</Translate>
-              </a>
-            </li>
-            <li>
-              <a href='/usescene'>
-                <Translate>使用场景</Translate>
-              </a>
-            </li>
-            <li>
-              <a href='/case'>
-                <Translate>案例</Translate>
-              </a>
-            </li>
-            <li>
-              <a href='/blog'>
-                <Translate>博客</Translate>
-              </a>
-            </li>
-            <li>
               <a
-                className={styles.githubLogo}
-                href='https://github.com/goodrain/rainbond'
+                href='https://store.goodrain.com/markets/rainbond'
                 target='_blank'
-              ></a>
+              >
+                <Translate>应用商店</Translate>
+              </a>
             </li>
           </ul>
         </div>
