@@ -31,7 +31,7 @@ const config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: 'Current'
+              label: 'v5.6'
             }
           }
         },
@@ -142,7 +142,13 @@ const config = {
           },
           {
             type: 'docsVersionDropdown',
-            position: 'right'
+            position: 'right',
+            dropdownItemsBefore: [
+              {
+                label: 'Current',
+                href: 'https://www.rainbond.com/docs/',
+              }
+            ],
           },
           {
             position: 'right',
@@ -243,7 +249,7 @@ const config = {
       announcementBar: {
         id: 'start',
         content:
-          '⭐️ If you like Rainbond,<a target="_blank" href="https://github.com/goodrain/rainbond"> give it a star on GitHub</a> !',
+          '⭐️ If you like Rainbond,<a target="_blank" href="https://github.com/goodrain/rainbond"> give it a star on GitHub</a> ! <a target="_blank" href="https://www.rainbond.com/docs/" style="color: red;">Please visit the latest version of the documentation</a>',
         isCloseable: false,
       }
     }),
