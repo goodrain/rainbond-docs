@@ -167,7 +167,7 @@ open /run/flannel/subnet.env: no such file or directory
 <img src="https://static.goodrain.com/docs/5.6/operator/operator-3.png" title="operator" width="100%" />
 :::
 
-该问题意味着 flannel 未能正常工作，参考上一章节了解如何排查对应日志并加以解决。另外一种可能性，是使用了 `rainbond:v5.6.0-dind-allinone` 这种内置了 `k3s` 集群的前提下，又基于该主机安装，这会导致两个集群之间的 Kubernetes 组件冲突。
+该问题意味着 flannel 未能正常工作，参考上一章节了解如何排查对应日志并加以解决。另外一种可能性，是使用了 `rainbond:v5.7.0-dind-allinone` 这种内置了 `k3s` 集群的前提下，又基于该主机安装，这会导致两个集群之间的 Kubernetes 组件冲突。
 
 ---
 
