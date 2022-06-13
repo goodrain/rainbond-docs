@@ -9,7 +9,7 @@ description: "高可用安装Rainbond集群"
 ### 前提条件
 
 - 根据 [软件和硬件环境要求](../ha-deployment/resource-prepare/) 准备相关资源； 
-- 如果您使用 CentOS 7.* 操作系统，请务必提前 [升级内核版本](https://t.goodrain.com/t/topic/1305)；
+- 如果您使用 CentOS 7.* 操作系统，请务必提前 [升级内核版本](https://t.goodrain.com/d/9-centos)；
 - 确保服务器 `80、443、6060、6443、7070、8443` 端口能够访问；
 - 服务器需配置静态IP；
 - 确定系统时间与时区(Asia/Shanghai)同步,节点间时间同步；
