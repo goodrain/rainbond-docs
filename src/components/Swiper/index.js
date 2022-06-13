@@ -104,6 +104,11 @@ export default function swiper() {
                 <img src='/img/video/pig.png'/>
               </a>
             </div>
+            <div class="swiper-slide">
+              <a href='https://www.bilibili.com/video/BV1XY4y1W7ox' target='_blank'>
+                <img src='/img/video/rainstore.png'/>
+              </a>
+            </div>
           </div>
         </div>
         <div class="swiper-pagination"></div>
