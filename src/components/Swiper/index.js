@@ -11,7 +11,7 @@ export default function swiper() {
   const loadSwiperExample = () => {
     // 动态引入swiper.js
     const script = document.createElement('script');
-    script.src = 'https://unpkg.com/swiper@7/swiper-bundle.js';
+    script.src = 'https://static.goodrain.com/docusaurus/swiper-bundle.js';
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(script, s);
     script.onload = script.onreadystatechange = function () {

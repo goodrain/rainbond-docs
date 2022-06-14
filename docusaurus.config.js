@@ -123,24 +123,40 @@ const config = {
         // ]
         items: [
           {
+            type: 'docSidebar',
             position: 'left',
+            sidebarId: 'docs',
             label: '文档',
-            to: 'docs/'
+          },
+          // {
+          //   type: 'docSidebar',
+          //   position: 'left',
+          //   sidebarId: 'api',
+          //   label: 'API',
+          // },
+          {
+            type: 'dropdown',
+            label: '学习',
+            position: 'left',
+            items: [
+              {
+                label: '使用场景',
+                href: '/usescene',
+              },
+              {
+                label: '用户案例',
+                href: '/case',
+              },
+              {
+                label: '博客',
+                href: '/blog',
+              },
+            ],
           },
           {
-            to: 'usescene',
-            label: '使用场景',
-            position: 'left'
-          },
-          {
-            to: 'case',
-            label: '案例',
-            position: 'left'
-          },
-          {
-            to: 'blog',
-            label: '博客',
-            position: 'left'
+            position: 'left',
+            label: '社区',
+            to: '/community/contributing',
           },
           {
             type: 'docsVersionDropdown',
@@ -271,6 +287,18 @@ const config = {
     'https://static.goodrain.com/docusaurus/posthog.js'
   ],
   plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
+        sidebarPath: require.resolve('./sidebarsCommunity.js'),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/community',
+      }
+    ],
     [
       '@docusaurus/plugin-content-blog',
       {

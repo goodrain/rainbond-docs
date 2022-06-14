@@ -59,6 +59,9 @@
   top: 0;
   z-index: 9999;
   background-color: #fff;
+  border-bottom: solid;
+  border-color: var(--background-color-light);
+  border-width: 1px;
   .nav_bar {
     height: 100%;
     // width: 100%;
