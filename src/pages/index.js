@@ -816,7 +816,7 @@ export default function Home() {
               <p>搜索钉钉群号进群(31096419)</p>
             </div>
           </a>
-          <a href='docs/contributing'>
+          <a href='/community/contribution/'>
             <div className={styles.join_logo}>
               <img src='/img/GitHub.png' alt='' />
             </div>

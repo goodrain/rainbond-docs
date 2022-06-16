@@ -1,6 +1,6 @@
 ---
-title: 社区
-description: 社区相关信息
+title: 版本变更日志
+description: 版本变更日志
 ---
 
 ```mdx-code-block

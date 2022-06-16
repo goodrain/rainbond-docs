@@ -798,32 +798,16 @@ const sidebars = {
         'upgrade/5.7.0-upgrade'
       ]
     },
+  ],
+  api: [
+    'api/Intro',
     {
       type: 'category',
-      label: '社区',
-      link: {
-        type: 'doc',
-        id: 'community/index'
-      },
+      label: '企业API',
       items: [
-        'community/FAQs/faqs',
-        // 'community/contribution/contribution',
-        'community/upcoming-events',
-        // 'community/doc-style',
-        'community/change/5.3.0-5.3.1',
-        'community/change/5.3.1-5.3.2',
-        'community/change/5.3.2-5.3.3',
-        'community/change/5.3.3-5.4.0',
-        'community/change/5.4.0-5.5.0',
-        'community/change/5.5.0-5.6.0',
-        'community/change/5.6.0-5.7.0'
+        'api/enterprise/getEnterpriseAdminList'
       ]
     },
-    {
-      type: 'category',
-      label: '贡献',
-      items: ['contributing/contributing']
-    }
   ]
 };
 
