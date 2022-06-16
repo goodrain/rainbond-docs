@@ -156,7 +156,7 @@ const config = {
           {
             position: 'left',
             label: '社区',
-            to: '/community/contributing',
+            to: '/community/members',
           },
           {
             type: 'docsVersionDropdown',
@@ -245,7 +245,7 @@ const config = {
               },
               {
                 label: '参与贡献',
-                to: 'docs/contributing'
+                to: '/community/contribution/'
               }
             ]
           },
