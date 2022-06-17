@@ -128,12 +128,12 @@ const config = {
             sidebarId: 'docs',
             label: '文档',
           },
-          // {
-          //   type: 'docSidebar',
-          //   position: 'left',
-          //   sidebarId: 'api',
-          //   label: 'API',
-          // },
+          {
+            type: 'docSidebar',
+            position: 'left',
+            sidebarId: 'api',
+            label: 'API',
+          },
           {
             type: 'dropdown',
             label: '学习',
