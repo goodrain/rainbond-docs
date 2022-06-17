@@ -801,13 +801,13 @@ const sidebars = {
   ],
   api: [
     'api/Intro',
-    {
-      type: 'category',
-      label: '企业API',
-      items: [
-        'api/enterprise/getEnterpriseAdminList'
-      ]
-    },
+    // {
+    //   type: 'category',
+    //   label: '企业API',
+    //   items: [
+    //     'api/enterprise/getEnterpriseAdminList'
+    //   ]
+    // },
   ]
 };
 
