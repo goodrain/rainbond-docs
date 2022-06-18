@@ -22,7 +22,7 @@ DELETE /openapi/v2/manage/regions/{region_id}
 
 |状态码|状态码含义|说明|数据模型|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|[v2_RegionInfoSerializer](#v2_regioninfoserializer)|
+|200|OK|成功|[v2_RegionInfoSerializer](#v2_regioninfoserializer)|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|404|[Fail](#schemafail)|
 
 ## 模型

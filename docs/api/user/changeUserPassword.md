@@ -31,7 +31,7 @@ PUT /openapi/v1/users/{user_id}/changepwd
 
 |状态码|状态码含义|说明|数据模型|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|[ChangePassWdUser](#changepasswduser)|
+|200|OK|成功|[ChangePassWdUser](#changepasswduser)|
 
 ## 模型
 

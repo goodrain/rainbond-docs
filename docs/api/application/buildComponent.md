@@ -35,7 +35,7 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{s
 
 | 状态码 | 状态码含义                                              | 说明 | 数据模型                                                     |
 | ------ | ------------------------------------------------------- | ---- | ------------------------------------------------------------ |
-| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | 成功 | [ComponentEventSerializers](#schemacomponenteventserializers) |
+| 200    | OK | 成功 | [ComponentEventSerializers](#schemacomponenteventserializers) |
 
 ## 模型
 
