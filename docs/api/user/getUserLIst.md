@@ -24,7 +24,7 @@ GET /openapi/v1/users
 
 |状态码|状态码含义|说明|数据模型|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|[ListUsersRespView](#listusersrespview)|
+|200|OK|成功|[ListUsersRespView](#listusersrespview)|
 
 
 ## 模型

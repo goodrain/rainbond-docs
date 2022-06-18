@@ -21,7 +21,7 @@ GET /openapi/v2/manage/enterprises/{eid}/resource
 
 |状态码|状态码含义|说明|数据模型|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|[EnterpriseSource](#enterprisesource)|
+|200|OK|成功|[EnterpriseSource](#enterprisesource)|
 
 ## 模型
 

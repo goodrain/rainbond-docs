@@ -25,7 +25,7 @@ DELETE /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains/{
 
 |状态码|状态码含义|说明|数据模型|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|[HTTPGatewayRule](#httpgatewayrule)|
+|200|OK|成功|[HTTPGatewayRule](#httpgatewayrule)|
 
 ## 模型
 
