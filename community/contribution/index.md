@@ -2,36 +2,41 @@
 title: '贡献指南'
 description: '引导您为Rainbond做出贡献'
 ---
+## 为 Rainbond 做出贡献
 
-首先，感谢你考虑为 Rainbond 做出贡献。正是像你这样的人使 Rainbond 成为一个很棒的平台。
+Rainbond 是一个云原生应用管理平台，使用简单，不需要懂容器、Kubernetes和底层复杂技术，支持管理多个Kubernetes集群，和管理企业应用全生命周期。主要功能包括应用开发环境、应用市场、微服务架构、应用交付、应用运维、应用级多云管理等。
 
-### 关于 Rainbond
+如果你有兴趣为 Rainbond 做出贡献，希望这份文档能够让你的贡献过程更加简单、快速、有效。
 
-Rainbond 是云原生且易用的云原生应用管理平台。云原生应用交付的最佳实践，简单易用。专注于以应用为中心的理念。赋能企业搭建云原生开发云、云原生交付云。
+如果你是开源贡献初学者，可以参阅 [Open Source Guides](https://opensource.guide/) 网站，它提供了一些开源贡献指南，为想要学习如何为开源项目做出贡献的人、社区和公司提供了一系列资源。
 
-这个文档将会指导你如何为 Rainbond 做出贡献。
 
-### 成为贡献者
+## CODE_OF_CONDUCT
 
-你可以通过几种方式为 Rainbond 做贡献。下面是一些例子:
+Rainbond 希望项目参与者遵守行为准则，请阅读 [CODE_OF_CONDUCT](https://github.com/goodrain/rainbond/blob/main/CODE_OF_CONDUCT.md)。
 
-- 为 [Rainbond 代码库](https://github.com/goodrain/rainbond)做出贡献。
-- 为 [Rainbond 文档](https://github.com/goodrain/rainbond-docs)做出贡献。
-- 报告 Bug。
-- 为用户和贡献者撰写技术文档和博客帖子。
-- 通过回答有关 Rainbond 的问题来帮助他人。
+## 参与其中
 
-### 报告 Bug
+有许多方法可以为 Rainbond 做出贡献，不仅仅是代码贡献：
 
-当您发现一个 bug，或者对代码、文档和项目有疑问时，请使用 [Issues](https://github.com/goodrain/rainbond/issues) 来报告和讨论。
+* 处理未解决 [issues](https://github.com/goodrain/rainbond/issues)，提出你的解决思路。
+* 反馈 Bug。当你发现一个 bug，请使用 [issues](https://github.com/goodrain/rainbond/issues) 来报告和讨论。
+* 提出新功能。当你想要提出一个新功能，请使用 [issues](https://github.com/goodrain/rainbond/issues) 来报告和讨论。
+* [代码贡献](/community/contribution/compile/)
+* [文档贡献](/community/contribution/document/)
+* [贡献开源应用](/community/contribution/app-share/)至 Rainbond 应用商店
+* 贡献开源插件至 Rainbond 应用商店
 
-### 添加新功能
+贡献是非常受欢迎的，如果你认为你的贡献需要帮助时，请添加[小助手微信](/community/support)联系我们，由 Rainbond TOC 成员帮助你继续贡献。
+## Git Commit 规范
 
-如果你想为 Rainbond 添加一些功能并贡献相关代码。请先在 [Issues](https://github.com/goodrain/rainbond/issues) 上进行讨论，并列出您想要实现的功能的效果，以及相关的设计文档。Issues 中的讨论完成后，您可以进行相关的开发工作并提交 Pull Request。我们将尽快检查您的代码。
 
-检查别人的 Pull Request 是另一种贡献的方式。
+## Pull Request 规范
 
-### 文档
+## 为 Rainbond 做出贡献你将得到:
 
-当你在[Rainbond 官方网站](https://www.rainbond.com/)上发现任何拼写错误或重要内容需要补充时，你可以向[Rainbond 文档](https://github.com/goodrain/rainbond-docs)提交 Pull Request。
+* GitHub README 将展示你的贡献，并列出你的 Github 头像和 Github 用户名。
 
+* 由 Rainbond 社区颁发的 Contributor 证书
+
+<img src="/img/contributor/contributor.png" width="60%" />
