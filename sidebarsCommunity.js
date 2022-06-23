@@ -1,7 +1,7 @@
 module.exports = {
   // But you can create a sidebar manually
   community: [
-    // 'support',
+    'support',
     'members',
     {
       type: 'category',
@@ -11,9 +11,20 @@ module.exports = {
         id: 'contribution/index',
       },
       items: [
-        'contribution/compile/description',
-        'contribution/compile/console',
-        'contribution/compile/region',
+        {
+          type: 'category',
+          label: '贡献代码',
+          link: {
+            type: 'doc',
+            id: 'contribution/compile/index',
+          },
+          items: [
+            'contribution/compile/console',
+            'contribution/compile/region',
+          ]
+        },
+        'contribution/document/index',
+        'contribution/app-share/index',
       ]
     },
     {

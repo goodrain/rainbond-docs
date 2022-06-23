@@ -156,7 +156,7 @@ const config = {
           {
             position: 'left',
             label: '社区',
-            to: '/community/members',
+            to: '/community/support',
           },
           {
             type: 'docsVersionDropdown',
@@ -233,7 +233,7 @@ const config = {
             items: [
               {
                 label: '微信',
-                to: 'wechat'
+                to: '/community/support#微信群'
               },
               {
                 label: '钉钉(31096419)',
@@ -250,7 +250,7 @@ const config = {
             ]
           },
           {
-            title: '更多',
+            title: '学习',
             items: [
               {
                 label: '使用场景',
@@ -259,6 +259,23 @@ const config = {
               {
                 label: '用户案例',
                 to: 'case'
+              },
+              {
+                label: '博客',
+                to: 'blog'
+              },
+            ]
+          },
+          {
+            title: '更多',
+            items: [
+              {
+                label: '产品',
+                to: 'enterprise_server'
+              },
+              {
+                label: '应用商店',
+                to: 'https://store.goodrain.com/markets/rainbond'
               },
               {
                 label: '联系我们',
