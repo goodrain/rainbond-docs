@@ -203,11 +203,6 @@ export default function Home() {
             </div>
             <div className={styles.img_container}>
               <a href='#' style={{ cursor: 'default' }}>
-                <img src='/img/users/yumchina.png' alt='' />
-              </a>
-            </div>
-            <div className={styles.img_container}>
-              <a href='#' style={{ cursor: 'default' }}>
                 <img src='/img/users/lvzhiyun.png' alt='' />
               </a>
             </div>
