@@ -21,7 +21,7 @@ import TabItem from '@theme/TabItem';
 - 进入 Rainbond-控制台组件
 
 ```bash
-kubectl exec -it $(kubectl get po -n rbd-system | grep rbd-app-ui | grep Running | sed -n '1p' |awk '{print $1}' ) bash
+kubectl exec -it $(kubectl get po -n rbd-system | grep rbd-app-ui | grep Running | sed -n '1p' | awk '{print $1}' ) -n rbd-system bash
 ```
 
 - 进入 Rainbond-控制台组件后，执行以下命令
@@ -74,7 +74,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-release-allinone
 - 更新镜像源
 
 ```bash
-helm upgrade --set Component.rbd_app_ui.image=registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-release-allinone --set operator.image.tag=v2.3.0 --set Cluster.installVersion=v5.6.0-release rainbond rainbond/rainbond-cluster
+helm upgrade --set Component.rbd_app_ui.image=registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.6.0-release-allinone --set operator.image.tag=v2.3.0 --set Cluster.installVersion=v5.6.0-release rainbond rainbond/rainbond-cluster -n rbd-system
 ```
 
 - 确认 pod 更新状态
