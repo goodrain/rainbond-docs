@@ -156,14 +156,14 @@ export default function Home() {
               >
                 安装使用
               </a>
-              <a
+              {/* <a
                 className={`${styles.btns} animate__animated animate__fadeInDown`}
                 href='http://demo.c9f961.grapps.cn/'
                 target='_blank'
                 onClick={handleJumpDemo}
               >
                 在线体验
-              </a>
+              </a> */}
             </div>
           </div>
           <div

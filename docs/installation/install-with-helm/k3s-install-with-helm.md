@@ -61,12 +61,12 @@ service k3s restart
 
 
 :::caution
-注意：K3s 默认的配置文件路径，Helm无法识别，将 `/etc/rancher/k3s/k3.yaml` 软连接到 `~/.kube/config`，供 helm 使用。 
+注意：K3s 默认的配置文件路径，Helm无法识别，将 `/etc/rancher/k3s/k3s.yaml` 软连接到 `~/.kube/config`，供 helm 使用。 
 :::
 
 ```bash
 mkdir ~/.kube
-ln -s /etc/rancher/k3s/k3.yaml ~/.kube/config
+ln -s /etc/rancher/k3s/k3s.yaml ~/.kube/config
 ```
 
 ## 安装Rainbond：
