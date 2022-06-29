@@ -25,6 +25,7 @@ module.exports = {
         },
         'contribution/document/index',
         'contribution/app-share/index',
+        'contribution/plugin/index',
       ]
     },
     {
