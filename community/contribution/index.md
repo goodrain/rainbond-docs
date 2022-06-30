@@ -25,7 +25,7 @@ Rainbond 希望项目参与者遵守行为准则，请阅读 [CODE_OF_CONDUCT](h
 * [代码贡献](/community/contribution/compile/)
 * [文档贡献](/community/contribution/document/)
 * [贡献开源应用](/community/contribution/app-share/)至 Rainbond 应用商店
-* 贡献开源插件至 Rainbond 应用商店
+* [贡献开源插件](/community/contribution/plugin/)至 Rainbond 应用商店
 
 贡献是非常受欢迎的，如果你认为你的贡献需要帮助时，请添加[小助手微信](/community/support)联系我们，由 Rainbond TOC 成员帮助你继续贡献。
 
