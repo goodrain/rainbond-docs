@@ -1,0 +1,80 @@
+---
+title: '5.7.0升级至5.7.1文档'
+Description: 'Rainbond v5.7.0至v5.7.1升级说明'
+keywords: [升级]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### 版本变更
+
+[5.7.1 版本变更](/community/change/5.7.1)
+
+### 控制台升级
+
+<Tabs groupId="upgrade">
+  <TabItem value="Basic Edition" label="Basic Edition">
+
+1. 升级控制台
+
+- 如控制台为 allinone 启动，执行以下操作
+
+```bash
+docker stop rainbond-allinone && docker rm rainbond-allinone
+#该命令参数需要和之前启动的rainbond-allinone容器一致
+docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
+--name=rainbond-allinone --restart=always \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.7.1-release-allinone
+```
+
+如控制台为通过应用市场安装，进入控制台应用内，选择升级到 5.7.1 版本
+</TabItem>
+</Tabs>
+
+###  数据中心升级
+
+<Tabs groupId="upgrade">
+  <TabItem value="helm" label="helm" default>
+
+- 数据中心端升级
+
+- 更新镜像源
+
+```bash
+helm upgrade --set Component.rbd_app_ui.image=registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.7.1-release-allinone --set operator.image.tag=v5.7.1-release --set Cluster.installVersion=v5.7.1-release rainbond rainbond/rainbond-cluster -n rbd-system
+```
+
+- 确认 pod 更新状态
+
+- 确认所有 pod 滚动更新一遍，根据网络不同大概3分钟左右
+
+```bash
+kubectl get po -n rbd-system 
+```
+
+  </TabItem>
+
+<TabItem value="Basic Edition" label="Basic Edition">
+
+1. 数据中心端升级
+
+- 更新 grctl 命令
+
+```bash
+docker run -it --rm -v /:/rootfs  registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.7.1-release copy
+mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && grctl install
+```
+
+**注意：**如果遇到无法安装 grctl 可以[参考grctl安装文档](/docs/ops-guide/tools/grctl/)
+
+- 执行升级命令
+
+```bash
+grctl cluster upgrade --new-version=v5.7.1-release
+```
+
+  </TabItem>
+</Tabs>
+      
+
