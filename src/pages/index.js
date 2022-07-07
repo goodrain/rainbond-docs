@@ -163,7 +163,14 @@ export default function Home() {
                 onClick={handleJumpDemo}
               >
                 在线体验
-              </a> */}
+              </a>} */}
+              { <a
+                className={`${styles.btns} animate__animated animate__fadeInDown`}
+                href='https://rainbond.feishu.cn/share/base/shrcngJKwbek0nbP1bBIcFA5g6d'
+                target='_blank'
+              >
+                预约演示
+              </a> }
             </div>
           </div>
           <div
