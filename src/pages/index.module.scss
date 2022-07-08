@@ -565,8 +565,14 @@
       bottom: 0;
       text-decoration: none;
     }
+    .how_rainbond_desc_container_start > a {
+      color: #FFFFFF;
+    }
     .how_rainbond_desc_container_start:hover {
       background-color: var(--ifm-color-primary);
+    }
+    .how_rainbond_desc_container_start > a:hover {
+      text-decoration: none;
     }
   }
 }

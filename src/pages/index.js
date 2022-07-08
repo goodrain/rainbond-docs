@@ -10,6 +10,7 @@ import NavBar from '../components/NavBar';
 import styles from './index.module.scss';
 import AnnouncementBar from '@theme/AnnouncementBar';
 import Footer from '@theme/Footer';
+import { motion } from "framer-motion";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -401,30 +402,36 @@ export default function Home() {
           </h1>
           <div className={styles.how_rainbond_desc_container}>
             <div className={styles.how_rainbond_btn}>
-              <button
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 className={
                   (open === 'first' && styles.active_btn) || styles.default_btn
                 }
                 onClick={handleWhyRainbondFirst}
               >
                 使用简单
-              </button>
-              <button
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 className={
                   (open === 'second' && styles.active_btn) || styles.default_btn
                 }
                 onClick={handleWhyRainbondSecond}
               >
                 应用一键交付
-              </button>
-              <button
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 className={
                   (open === 'third' && styles.active_btn) || styles.default_btn
                 }
                 onClick={handleWhyRainbondThird}
               >
                 云原生转型
-              </button>
+              </motion.button>
               {/* <button
                 className={
                   (open === 'fourth' && styles.active_btn) || styles.default_btn
@@ -515,12 +522,13 @@ export default function Home() {
                 </div>
               </div>
             )}*/}
-            <a
-              href='/docs/quick-start/quick-install'
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               className={`${styles.how_rainbond_desc_container_start} ${styles.active_btn}`}
             >
-              快速开始 > 
-            </a> 
+              <a href='/docs/quick-start/quick-install'>快速开始 > </a> 
+            </motion.button>
           </div>
         </section>
         {/* 第四屏 */}
