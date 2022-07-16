@@ -603,7 +603,8 @@ export default function Home() {
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
-                      <a href='usescene/IntegrationDev'>一体化开发测试环境</a>
+                      {/* <a href='usescene/IntegrationDev'>一体化开发测试环境</a> */}
+                      一体化开发测试环境
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
@@ -622,7 +623,8 @@ export default function Home() {
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
-                      <a href='usescene/AppManagement'>企业级应用统一管理</a>
+                      {/* <a href='usescene/AppManagement'>企业级应用统一管理</a> */}
+                      企业级应用统一管理
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
@@ -641,7 +643,8 @@ export default function Home() {
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
-                      <a href='usescene/MultiCloudManagement'>应用级多云管理</a>
+                      {/* <a href='usescene/MultiCloudManagement'>应用级多云管理</a> */}
+                      应用级多云管理
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
@@ -660,7 +663,8 @@ export default function Home() {
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
-                      <a href='usescene/offlineDelivery'>离线环境软件交付</a>
+                      {/* <a href='usescene/offlineDelivery'>离线环境软件交付</a> */}
+                      离线环境软件交付
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
@@ -677,7 +681,8 @@ export default function Home() {
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
-                      <a href='usescene/componentReuse'>业务积木式拼装</a>
+                      {/* <a href='usescene/componentReuse'>业务积木式拼装</a> */}
+                      业务积木式拼装
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
@@ -696,7 +701,8 @@ export default function Home() {
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
-                      <a href='usescene/x86ToArm'>国产化和信创支撑</a>
+                      {/* <a href='usescene/x86ToArm'>国产化和信创支撑</a> */}
+                      国产化和信创支撑
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
@@ -713,9 +719,9 @@ export default function Home() {
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
-                      <a href='/usescene/EnterpriseDeliveryOne'>
+                      {/* <a href='/usescene/EnterpriseDeliveryOne'> */}
                         企业应用持续交付
-                      </a>
+                      {/* </a> */}
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
@@ -732,9 +738,9 @@ export default function Home() {
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
-                      <a href='/usescene/EnterpriseDeliveryTwo'>
+                      {/* <a href='/usescene/EnterpriseDeliveryTwo'> */}
                         模块化个性化交付
-                      </a>
+                      {/* </a> */}
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
@@ -755,9 +761,9 @@ export default function Home() {
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
-                      <a href='https://store.goodrain.com/' target='_blank'>
+                      {/* <a href='https://store.goodrain.com/' target='_blank'> */}
                         云原生应用商店
-                      </a>
+                      {/* </a> */}
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>

@@ -77,43 +77,43 @@ export default function swiper() {
   return (
     <>
       <div id="carousel">
-        <div class="swiper swiper-3d">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
+        <div className="swiper swiper-3d">
+          <div className="swiper-wrapper">
+            <div className="swiper-slide">
               <a href='https://www.bilibili.com/video/BV1Vq4y1w7FQ' target='_blank'> 
                 <img src='/img/video/install.png'/>
               </a>
             </div>
-            <div class="swiper-slide">
+            <div className="swiper-slide">
               <a href='https://www.bilibili.com/video/BV1ou411B7ix' target='_blank'>
                 <img src='/img/video/quick.png'/>
               </a>
             </div>
-            <div class="swiper-slide">
+            <div className="swiper-slide">
               <a  href='https://www.bilibili.com/video/BV1vS4y1w7ps' target='_blank'>
                 <img src='/img/video/gitlab+rainbond.png'/>
               </a>
             </div>
-            <div class="swiper-slide">
+            <div className="swiper-slide">
               <a  href='https://www.bilibili.com/video/BV1rB4y197X4' target='_blank'>
                 <img src='/img/video/enterprise-app-manage.png'/>
               </a>
             </div>
-            <div class="swiper-slide">
+            <div className="swiper-slide">
               <a href='https://www.bilibili.com/video/BV1MZ4y1b7wW' target='_blank'>
                 <img src='/img/video/pig.png'/>
               </a>
             </div>
-            <div class="swiper-slide">
+            <div className="swiper-slide">
               <a href='https://www.bilibili.com/video/BV1XY4y1W7ox' target='_blank'>
                 <img src='/img/video/rainstore.png'/>
               </a>
             </div>
           </div>
         </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div className="swiper-pagination"></div>
+        <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next"></div>
       </div>
     </>
   )
