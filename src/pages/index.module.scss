@@ -130,30 +130,50 @@
   box-sizing: border-box;
   position: relative;
 }
-.btns {
-  width: 120px;
-  text-align: center;
-  display: inline-block;
-  color: white;
-  padding: 9px 20px;
-  margin-left: -2px;
-  font-weight: 600;
-  background: linear-gradient(
-    90deg,
-    var(--ifm-color-primary) 11.3%,
-    var(--ifm-color-primary-light) 161.54%
-  );
-  box-shadow: rgb(0 105 165 / 35%) 0px 0px 32px;
-  border-radius: var(--ifm-button-border-radius);
-  font-family: 'Yuanti SC', Youyuan, 'You Yuan', 幼圆, 'PingFang SC',
-    'Microsoft Yahei', Helvetica, sans-serif;
+.btnBox{
+  position: relative;
+  .btns {
+    width: 150px;
+    text-align: center;
+    display: inline-block;
+    color: white;
+    padding: 9px 20px;
+    margin-left: -2px;
+    font-weight: 600;
+    background: linear-gradient(
+      90deg,
+      var(--ifm-color-primary) 11.3%,
+      var(--ifm-color-primary-light) 161.54%
+    );
+    box-shadow: rgb(0 105 165 / 35%) 0px 0px 32px;
+    border-radius: var(--ifm-button-border-radius);
+    font-family: 'Yuanti SC', Youyuan, 'You Yuan', 幼圆, 'PingFang SC',
+      'Microsoft Yahei', Helvetica, sans-serif;
+  }
+  .btns:hover {
+    color: #fff !important;
+    text-decoration: none;
+    transition: all 0.5s;
+    transform: scale(1.01) !important;
+  }
+  .join_logos{
+    width: 120px;
+    text-align: center;
+    height: 130px;
+    position: absolute;
+    top: 110%;
+    right: 48%;
+    background-color: #FFF;
+    background-clip: padding-box;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+    .hover_imgs{
+      width: 100px;
+      height: 100px;
+    }
+  }
 }
-.btns:hover {
-  color: #fff !important;
-  text-decoration: none;
-  transition: all 0.5s;
-  transform: scale(1.01) !important;
-}
+
 
 .title {
   position: absolute;
