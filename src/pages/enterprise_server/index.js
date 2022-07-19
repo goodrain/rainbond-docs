@@ -135,7 +135,7 @@ export default function Index() {
                 >
                   <li>企业级功能按年提供服务</li>
                   <li>部署到客户指定运行环境</li>
-                  <li>根据使用规模按需付费，高新价比</li>
+                  <li>根据使用规模按需付费，高性价比</li>
                   <li>一对一专业工程师提供服务
                     <span style={{ color: '#c9c9c9' }}>
                     （效果达成/故障协查/bug修复/平台运维/软件升级）
