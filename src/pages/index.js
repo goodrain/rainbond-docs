@@ -16,6 +16,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const [mask_config, setMask_config] = useState(false);
   const [hover_img, setHover_Img] = useState(false);
+  const [hoverImg, setHoverImg] = useState(false);
   const [open, setOpen] = useState('first');
   // 菜单开关
   const [menu_Config, setMenu_Config] = useState(true);
@@ -99,7 +100,6 @@ export default function Home() {
       }
     }
   };
-  
   const handleJumpDemo = e => {
     axios('https://cloud.goodrain.com/enterprise-server/onlineTrial');
   };
@@ -149,7 +149,7 @@ export default function Home() {
               Rainbond
               核心100%开源，使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
             </div>
-            <div>
+            <div className={styles.btnBox}>
               <a
                 className={`${styles.btns} animate__animated animate__fadeInDown`}
                 href='docs/quick-start/quick-install/'
@@ -167,11 +167,26 @@ export default function Home() {
               </a>} */}
               { <a
                 className={`${styles.btns} animate__animated animate__fadeInDown`}
-                href='https://rainbond.feishu.cn/share/base/shrcngJKwbek0nbP1bBIcFA5g6d'
-                target='_blank'
+                href='#'
+                onMouseMove={() => {
+                  setHoverImg(true);
+                }}
+                onMouseLeave={() => {
+                  setHoverImg(false);
+                }}
               >
-                预约演示
+                关注 Rainbond
               </a> }
+              {hoverImg && (
+                <div className={styles.join_logos}>
+                  <span style={{ fontSize:'12px' }} >微信扫一扫</span>  
+                  <img
+                    src='/wechat/wechat-public.jpg'
+                    alt='WeChat 979885495'
+                    className={styles.hover_imgs}
+                  />
+                </div>
+              )}
             </div>
           </div>
           <div

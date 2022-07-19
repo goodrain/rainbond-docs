@@ -44,7 +44,7 @@ export default function Index(props) {
               </li>
               <li>
                 <a href='/enterprise_server'>
-                  <Translate>产品</Translate>
+                  <Translate>企业版</Translate>
                 </a>
               </li>
               <li>
