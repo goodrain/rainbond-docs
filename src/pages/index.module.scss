@@ -150,7 +150,25 @@
     font-family: 'Yuanti SC', Youyuan, 'You Yuan', 幼圆, 'PingFang SC',
       'Microsoft Yahei', Helvetica, sans-serif;
   }
-  .btns:hover {
+  .right_btns {
+    width: 150px;
+    text-align: center;
+    display: inline-block;
+    color: white;
+    padding: 9px 20px;
+    margin-left: -2px;
+    font-weight: 600;
+    background: linear-gradient(
+      90deg,
+      #4877b9 11.3%,
+      #c2c2df7d 161.54%
+    );
+    box-shadow: rgb(0 105 165 / 35%) 0px 0px 32px;
+    border-radius: var(--ifm-button-border-radius);
+    font-family: 'Yuanti SC', Youyuan, 'You Yuan', 幼圆, 'PingFang SC',
+      'Microsoft Yahei', Helvetica, sans-serif;
+  }
+  .btns:hover, .right_btns:hover {
     color: #fff !important;
     text-decoration: none;
     transition: all 0.5s;
@@ -161,9 +179,10 @@
     text-align: center;
     height: 130px;
     position: absolute;
+    color: #fff;
     top: 110%;
     right: 48%;
-    background-color: #FFF;
+    background: linear-gradient(90deg, #4877b9 11.3%, #c2c2df7d 161.54%);
     background-clip: padding-box;
     border-radius: 4px;
     -webkit-box-shadow: 0 2px 8px rgb(0 0 0 / 15%);

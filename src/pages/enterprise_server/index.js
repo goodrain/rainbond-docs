@@ -146,11 +146,11 @@ export default function Index() {
               {/* 按钮 */}
               <div>
                 <a
-                  className={`${styles.btns} ${styles.cloud}`}
+                  className={`${styles.btns} ${styles.enterprise}`}
                   href='https://rainbond.feishu.cn/share/base/shrcnvP5VXbLaTb3n7B7YMZweRb'
                   target='_blank'
                 >
-                  服务订阅
+                  商业咨询
                 </a>
               </div>
             </div>

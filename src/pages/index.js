@@ -166,7 +166,7 @@ export default function Home() {
                 在线体验
               </a>} */}
               { <a
-                className={`${styles.btns} animate__animated animate__fadeInDown`}
+                className={`${styles.right_btns} animate__animated animate__fadeInDown`}
                 href='#'
                 onMouseMove={() => {
                   setHoverImg(true);
