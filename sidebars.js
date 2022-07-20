@@ -63,6 +63,7 @@ const sidebars = {
         id: 'installation/index'
       },
       items: [
+        'installation/install-with-dind',
         {
           type: 'category',
           label: '基于 Helm 安装',
