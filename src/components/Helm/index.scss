@@ -30,6 +30,8 @@
 /* 头部 */
 .rainbond_heard{
     padding: 12px;
+    font-size: 24px;
+    font-weight: bold;
     border-bottom: 1px solid #ccc;
     background-color: #fff;
 }
@@ -46,53 +48,41 @@
 }
 .rainbond_title{
     padding-top: 14px;
+    width: 140px;
 }
-.rainbond_ha{
-    
-    margin-left: 40px;
-    margin-bottom: 20px;
+.rainbond_titles{
+    padding-top: 6px;
+    width: 140px;
 }
 .rainbond_has{
-    position: relative;
+    margin-left: 66px;
+    display: flex;
+    font-size: 14px;
+    color: rgba(0,0,0,.45);
 }
-.hint{
-    position: absolute;
-    top: 0%;
-    left: 4%;
-}
-.hints{
-    position: absolute;
-    top: 48px;
-    left: 136px;
-}
-.hintBox{
-    position: absolute;
-    top: 0px;
-    left: 98px;
-}
-.hintDatabase{
-    position: absolute;
-    top: 0px;
-    left: 112px;
-}
-.hintWarehouse{
-    position: absolute;
-    top: 0px;
-    left: 126px;
+.rainbond_ha{
+    margin-left: 66px;
+    display: flex;
+    font-size: 14px;
 }
 .rainbond_line{
     border-bottom: 1px dashed #ccc;
+    display: flex;
+    // min-height: 160px;
+    align-items: center;
+    padding: 36px 0px;
 }
 .rainbond_lines{
-    position: relative;
     border-bottom: 1px dashed #ccc;
+    display: flex;
+    padding: 36px 0px;
 }
 .rainbond_gateway{
     margin-left: 64px; 
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .rainbond_rowsLeft{
-    margin-left: 24px;
+    margin-top: 4px;
 }
 .rainbond_inputs{
     width: 296px !important;
@@ -109,6 +99,9 @@
     position: relative;
     display: flex;
     height: 46px;
+    font-size: 14px;
+    margin-left: 2px;
+    color: rgba(0,0,0,.45);
 }
 .rainbond_rows_rwx{
     position: relative;
@@ -121,11 +114,7 @@
 .links a{
     font-size: 12px;
 }
-.ipHint{
-    position: absolute;
-    top: -2px;
-    left: 58px;
-}
+
 .rainbond_spanTitle{
     width: 240px;
     color: #808080;
@@ -246,4 +235,28 @@
 }
 .etcd_hint span{
     margin-left: 4px;
+}
+.desc{
+    font-size: 14px; 
+    margin-top: 4px;
+    color: rgba(0,0,0,.45);
+}
+.checkableTag{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 30px;
+    height: 30px;
+    width: 140px;
+    text-align: center;
+}
+.checkableTag_text{
+    width: 70px;
+    color: #fff;
+    border-radius: 4px;
+    background-color: #4D73B1 ;
+    cursor: pointer;
+}
+.checkableTag_texts{
+    width: 70px;
+    cursor: pointer;
 }
