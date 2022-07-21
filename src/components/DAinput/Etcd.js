@@ -3,7 +3,7 @@ import { PlusCircleOutlined, MinusCircleOutlined, ExclamationCircleOutlined } fr
 import React, { Component } from 'react';
 import Swal from 'sweetalert2'
 import 'animate.css';
-import '../Helm/index.css'
+import '../Helm/index.scss'
 
 export default class BuildInput extends Component {
     constructor(props) {

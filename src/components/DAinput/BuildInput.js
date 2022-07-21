@@ -1,7 +1,7 @@
 import { Form, Input, notification } from 'antd';
 import { PlusCircleOutlined, MinusCircleOutlined } from '@ant-design/icons'
 import React, { Component } from 'react';
-import '../Helm/index.css'
+import '../Helm/index.scss'
 
 export default class BuildInput extends Component {
   constructor(props) {
