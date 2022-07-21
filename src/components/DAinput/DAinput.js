@@ -1,7 +1,7 @@
 import { Input, Form, notification } from 'antd';
 import { PlusCircleOutlined, MinusCircleOutlined } from '@ant-design/icons'
 import React, { Component } from 'react';
-import '../Helm/index.css'
+import '../Helm/index.scss'
 
 
 export default class DAinputs extends Component {
@@ -77,9 +77,9 @@ export default class DAinputs extends Component {
   }
 
   render() {
-    const externalIPPlaceholder = '外部IP  例：1.2.3.4';
-    const repPlaceholder = '内部IP  例：192.168.0.1';
-    const namePlaceholder = '节点名称  例：master1';
+    const externalIPPlaceholder = '外网 IP 例：47.104.156.133';
+    const repPlaceholder = '内网 IP 例：192.168.0.1';
+    const namePlaceholder = '节点名称  例：node1';
     const { values } = this.state;
     return (
       <div>
@@ -87,9 +87,6 @@ export default class DAinputs extends Component {
           const first = index === 0;
           return (
             <div className="rainbond_rowsLeft" key={index}>
-              <div className="rainbond_rows">
-              <span style={{color:'red'}}>*</span>
-                <span className="rainbond_spanTitle">节点配置</span>
                 <Input
                   name="externalIP"
                   onChange={e => {
@@ -125,7 +122,6 @@ export default class DAinputs extends Component {
                     <MinusCircleOutlined onClick={() => this.remove(index)} className="rainbond_icons"/>
                   )
                 }
-              </div>
             </div>
           );
         })
