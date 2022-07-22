@@ -211,7 +211,7 @@ export default class index extends Component {
             dataObj.nodesForGateway.nodes = e.nodesForGateway || []
             axios({
                 method: 'post',
-                url: 'http://5000.gr2154a4.2c9v614j.17f4cc.grapps.cn/enterprise-server/api/v1/helm/chart',
+                url: 'https://cloud.goodrain.com/enterprise-server/api/v1/helm/chart',
                 headers: {
                     'Content-Type': 'application/json'
                 },
