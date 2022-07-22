@@ -77,12 +77,24 @@
     display: flex;
     padding: 36px 0px;
 }
+.rainbond_storage{
+    border-bottom: 1px dashed #ccc;
+    padding: 36px 0px; 
+}
+.rainbond_handelTitle{
+    display: flex;
+    margin-bottom: 20px;
+}
 .rainbond_gateway{
     margin-left: 64px; 
     margin-top: 20px;
 }
 .rainbond_rowsLeft{
     margin-top: 4px;
+}
+.rainbond_rowsLefts{
+    margin-top: 4px;
+    margin-left: 140px;
 }
 .rainbond_inputs{
     width: 296px !important;
@@ -100,8 +112,12 @@
     display: flex;
     height: 46px;
     font-size: 14px;
-    margin-left: 2px;
     color: rgba(0,0,0,.45);
+}
+.rainbond_rows_rwxs{
+    position: relative;
+    display: flex;
+    height: 50px;
 }
 .rainbond_rows_rwx{
     position: relative;
@@ -117,6 +133,11 @@
 
 .rainbond_spanTitle{
     width: 240px;
+    color: #808080;
+    font-size: 14px;
+}
+.rainbond_spanTitles{
+    width: 140px;
     color: #808080;
     font-size: 14px;
 }
@@ -240,6 +261,13 @@
     font-size: 14px; 
     margin-top: 4px;
     color: rgba(0,0,0,.45);
+}
+.descs{
+    font-size: 14px; 
+    margin-top: 4px;
+    color: rgba(0,0,0,.45);
+    margin-left: 64px;
+    width: 780px;
 }
 .checkableTag{
     font-size: 12px;

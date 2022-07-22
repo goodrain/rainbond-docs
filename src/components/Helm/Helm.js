@@ -33,7 +33,6 @@ const dataObj = {
     },
     estorage: {
       enable: false,
-      type: '',
       RWX: {
         enable: false,
         config: {
@@ -51,6 +50,7 @@ const dataObj = {
         path:''
       }
     },
+    type: '',
     database: {
       enable: false,
       uiDatabase: {
@@ -174,9 +174,11 @@ export default class index extends Component {
               if (database_enabled === '自定义配置') {
                 dataObj.database.enable = false;
                 dataObj.database.regionDatabase.enable = false;
+                dataObj.database.uiDatabase.enable = false;
               } else {
                 dataObj.database.enable = true;
                 dataObj.database.regionDatabase.enable = true;
+                dataObj.database.uiDatabase.enable = true;
               }
               // 镜像仓库
               if (image_enabled === '自定义配置') {
@@ -217,7 +219,19 @@ export default class index extends Component {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                data: dataObj
+                data: {
+                    enableHA: dataObj.enableHA,
+                    database: dataObj.database,
+                    estorage: dataObj.estorage,
+                    etcd: dataObj.etcd,
+                    gatewayIngressIPs: dataObj.gatewayIngressIPs,
+                    imageHub: dataObj.imageHub,
+                    nodesForChaos: dataObj.nodesForChaos,
+                    nodesForGateway: dataObj.nodesForGateway,
+                    DockingType: dataObj.type,
+                    appui: true,
+
+                }
             }).then((res) => {
                 if (res.status == 200) {
                     const resArr = res.data.command.split(' & ')
