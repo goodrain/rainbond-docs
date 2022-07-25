@@ -33,7 +33,6 @@ const dataObj = {
     },
     estorage: {
       enable: false,
-      type: '',
       RWX: {
         enable: false,
         config: {
@@ -51,6 +50,7 @@ const dataObj = {
         path:''
       }
     },
+    type: '',
     database: {
       enable: false,
       uiDatabase: {
