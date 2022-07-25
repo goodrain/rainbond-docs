@@ -19,9 +19,13 @@ export default function BlogLayout(props: Props): JSX.Element {
   const location = useLocation();
   const location_url = location.pathname;
   const { title } = sidebar;
+  const isBlogPage = location_url.includes('/blog');
   return (
     <Layout {...layoutProps}>
-      <div className='container margin-vert--lg'>
+      <div className={clsx('container margin-vert--lg',{
+        [styles.blogLayout]: isBlogPage,
+        }
+      )}>
         {title === '使用场景' && location_url === '/usescene' || location_url === '/usescene/' ? (
           <h1 className={styles.title}>使用场景</h1>
         ) : title === '案例' && location_url === '/case' || location_url === '/case/' ? (
