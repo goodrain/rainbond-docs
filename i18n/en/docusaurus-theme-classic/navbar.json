@@ -1,0 +1,33 @@
+{
+  "title": {
+    "message": "Rainbond"
+  },
+  "item.label.文档": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.学习": {
+    "message": "Learn",
+    "description": "Navbar item with label Learn"
+  },
+  "item.label.使用场景": {
+    "message": "Scenario",
+    "description": "Navbar item with label UseScenario"
+  },
+  "item.label.用户案例": {
+    "message": "Case",
+    "description": "Navbar item with label UserCase"
+  },
+  "item.label.博客": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.社区": {
+    "message": "Community",
+    "description": "Navbar item with label Community"
+  },
+  "item.label.产品": {
+    "message": "Product",
+    "description": "Navbar item with label Product"
+  }
+}

@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import type {Props} from '@theme/Footer/Layout';
 import footSytles from './styles.module.css';
 import Button from '../../Button';
+import Translate from '@docusaurus/Translate';
 
 export default function FooterLayout({
   style,
@@ -35,7 +36,11 @@ export default function FooterLayout({
               <b className={footSytles.rainbondtext}>Rainbond</b>
             </div>
             <div className={clsx("footer__bottom", footSytles.slogan)}>
-              <p>Rainbond 是一个云原生应用管理平台，门槛低 <br/> 使用简单，无需编写Yaml文件，轻松部署你的应用在 Kubernetes 中</p>
+              <p>
+                <Translate id='Footer.intro.first'>Rainbond 是一个云原生应用管理平台，门槛低</Translate> 
+                <br/> 
+                <Translate id='Footer.intro.second'>使用简单，无需编写Yaml文件，轻松部署你的应用在 Kubernetes 中</Translate>
+              </p>
             </div>
             <div className={clsx("footer__bottom", footSytles.slogan)}>
               <Button

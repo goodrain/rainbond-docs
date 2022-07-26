@@ -17,7 +17,18 @@ const config = {
   favicon: 'img/rainbond.png',
   organizationName: 'goodrain', // Usually your GitHub org/user name.
   projectName: 'rainbond-docs', // Usually your repo name.
-
+  i18n: {
+    defaultLocale: 'zh',
+    locales: ['en', 'zh'],
+    localeConfigs: {
+      zh: {
+        label: '简体中文',
+      },
+      en: {
+        label: 'English',
+      },
+    },
+  },
   presets: [
     [
       'classic',
@@ -131,6 +142,10 @@ const config = {
             position: 'right',
             label: '产品',
             href: '/enterprise_server'
+          },
+          {
+            type: 'localeDropdown',
+            position: 'right',
           },
           {
             href: 'https://github.com/goodrain/rainbond',

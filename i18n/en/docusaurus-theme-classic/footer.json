@@ -1,0 +1,70 @@
+{
+  "link.title.文档": {
+    "message": "Docs",
+    "description": "Footer item with label Docs"
+  },
+  "link.item.label.快速开始": {
+    "message": "Quick start",
+    "description": "Footer item with label quick start"
+  },
+  "link.item.label.部署组件": {
+    "message": "Deploy Component",
+    "description": "Footer item with label Deploy Component"
+  },
+  "link.item.label.最佳实践": {
+    "message": "Best practic",
+    "description": "Footer item with label Best practic"
+  },
+  "link.title.开源社区": {
+    "message": "Community",
+    "description": "Footer item with label Community"
+  },
+  "link.item.label.微信": {
+    "message": "Wechat Group",
+    "description": "Footer item with label Wechat Group"
+  },
+  "link.item.label.钉钉(31096419)": {
+    "message": "DingTalk(31096419)",
+    "description": "Footer item with label Dingtalk Group"
+  },
+  "link.item.label.用户论坛": {
+    "message": "Forum",
+    "description": "Footer item with label Forum"
+  },
+  "link.item.label.参与贡献": {
+    "message": "Contribution",
+    "description": "Footer item with label Contribution"
+  },
+  "link.title.学习": {
+    "message": "Learn",
+    "description": "Footer item with label Learn"
+  },
+  "link.item.label.使用场景": {
+    "message": "Scenario",
+    "description": "Footer item with label Scenario"
+  },
+  "link.item.label.用户案例": {
+    "message": "Case",
+    "description": "Footer item with label Case"
+  },
+  "link.item.label.博客": {
+    "message": "Blog",
+    "description": "Footer item with label Blog"
+  },
+  "link.title.更多": {
+    "message": "More",
+    "description": "Footer item with label More"
+  },
+  "link.item.label.产品": {
+    "message": "Product",
+    "description": "Footer item with label Product"
+  },
+  "link.item.label.应用商店": {
+    "message": "APP Store",
+    "description": "Footer item with label APP Store"
+  },
+  "link.item.label.联系我们": {
+    "message": "Contact us",
+    "description": "Footer item with label Contact us"
+  }
+}
