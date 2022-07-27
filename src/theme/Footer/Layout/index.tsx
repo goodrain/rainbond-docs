@@ -37,9 +37,9 @@ export default function FooterLayout({
             </div>
             <div className={clsx("footer__bottom", footSytles.slogan)}>
               <p>
-                <Translate id='Footer.intro.first'>Rainbond 是一个云原生应用管理平台，门槛低</Translate> 
+                <Translate id='Footer.intro.p1'>Rainbond 是一个云原生应用管理平台，门槛低</Translate> 
                 <br/> 
-                <Translate id='Footer.intro.second'>使用简单，无需编写Yaml文件，轻松部署你的应用在 Kubernetes 中</Translate>
+                <Translate id='Footer.intro.p2'>使用简单，无需编写Yaml文件，轻松部署你的应用在 Kubernetes 中</Translate>
               </p>
             </div>
             <div className={clsx("footer__bottom", footSytles.slogan)}>
