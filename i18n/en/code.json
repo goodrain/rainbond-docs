@@ -1,0 +1,8 @@
+{
+  "Footer.intro.p1": {
+    "message": "Rainbond is Cloud Native Application Management Platform."
+  },
+  "Footer.intro.p2": {
+    "message": "Easy to use, No more dependence Yaml files, it is easy to deploy your application in Kubernetes"
+  }
+}

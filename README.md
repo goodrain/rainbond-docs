@@ -38,6 +38,14 @@ $ yarn start
 
 将在浏览器中自动打开http://localhost:3000/
 
+### 本地多语言启动
+
+```bash
+$ yarn start -- --locale en 
+or
+$ yarn start -- --locale zh
+```
+启动英文版本后，在浏览器中自动打开http://localhost:3000/en/
 ### 本地生产测试启动
 
 使用以下命令在本地模拟生产测试启动

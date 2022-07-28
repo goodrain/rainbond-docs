@@ -1,0 +1,14 @@
+{
+  "sidebar.community.category.贡献指南": {
+    "message": "Contribution guide",
+    "description": "The label for category Contribution guide in sidebar community"
+  },
+  "sidebar.community.category.贡献代码": {
+    "message": "Contribution code",
+    "description": "The label for category Contribution code in sidebar community"
+  },
+  "sidebar.community.category.版本变更": {
+    "message": "Version change",
+    "description": "The label for category Version change in sidebar community"
+  }
+}

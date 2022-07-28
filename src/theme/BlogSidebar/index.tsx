@@ -6,6 +6,7 @@
  */
 
 import Link from '@docusaurus/Link';
+import { useLocation } from '@docusaurus/router';
 import { translate } from '@docusaurus/Translate';
 import type { Props } from '@theme/BlogSidebar';
 import clsx from 'clsx';
@@ -13,11 +14,9 @@ import React from 'react';
 import styles from './styles.module.css';
 
 export default function BlogSidebar({ sidebar }: Props): JSX.Element | null {
-  const route_params = sidebar.items[0].permalink.split('/')[1];
-  if (sidebar.items.length === 0) {
-    return null;
-  }
-  if (route_params !== 'blog') {
+  const location_url = useLocation().pathname;
+  console.log(location_url);
+  if (! location_url.includes('blog')) {
     return null;
   }
   return (

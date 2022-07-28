@@ -68,15 +68,9 @@ export default function BlogPostItem(props: Props): JSX.Element {
   const truncatedPost = !isBlogPostPage && truncated;
   const tagsExists = tags.length > 0;
   const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
-  const location = useLocation();
-  const location_url = location.pathname;
+  const location_url = useLocation().pathname;
   const { images } = frontMatter as any;
-  if (
-    location_url === '/case' ||
-    location_url === '/usescene' ||
-    location_url === '/case/' ||
-    location_url === '/usescene/'
-  ) {
+  if (location_url.includes('case') || location_url.includes('usescene')) {
     return (
       <>
         <a className={`${styless.container_box}`} href={permalink}>
