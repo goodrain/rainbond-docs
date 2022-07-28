@@ -38,14 +38,7 @@ $ yarn start
 
 将在浏览器中自动打开http://localhost:3000/
 
-### 本地多语言启动
 
-```bash
-$ yarn start -- --locale en 
-or
-$ yarn start -- --locale zh
-```
-启动英文版本后，在浏览器中自动打开http://localhost:3000/en/
 ### 本地生产测试启动
 
 使用以下命令在本地模拟生产测试启动
@@ -118,3 +111,18 @@ Rainbond 中文档分为 **概念性文档** **操作指引性文档** 和 **最
 
 如果需要新增文件，在 `docs/` 目录下增加至对应的目录内，并在 `sidebars.js` 中按照顺序填写新增的文件名，可参考 [Docusaurus Sidebar](https://docusaurus.io/zh-CN/docs/sidebar)。
 
+
+
+### 文档翻译
+
+文档中文翻译英文，在 `i18n/en/docusaurus-plugin-content-docs/current` 目录下，创建与 `docs` 目录下的一致的文件。
+
+例如：翻译 `docs/quick-install/quick-install.mdx` ，在 `i18n/en/docusaurus-plugin-content-docs/current` 下创建相同目录的相同文件 ``i18n/en/docusaurus-plugin-content-docs/current/quick-install/quick-install.mdx`
+
+#### 本地多语言启动
+
+```bash
+$ yarn start -- --locale en 
+```
+
+默认为中文，启动英文版本后，在浏览器中自动打开http://localhost:3000/en/
