@@ -5,9 +5,9 @@ COPY . .
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
     && apk add --no-cache git \
-    && yarn config set registry https://registry.npm.taobao.org \
+    && yarn config set registry https://registry.npmmirror.com \
     && yarn install \
-    && yarn run build
+    && yarn docusaurus build
 
 FROM nginx:1.21.6-alpine
 
