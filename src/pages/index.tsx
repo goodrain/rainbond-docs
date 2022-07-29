@@ -11,6 +11,9 @@ import styles from './index.module.scss';
 import AnnouncementBar from '@theme/AnnouncementBar';
 import Footer from '@theme/Footer';
 import { motion } from "framer-motion";
+import { OverPack } from 'rc-scroll-anim';
+import Texty from 'rc-texty';
+import { useTrail, animated } from 'react-spring';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -18,88 +21,17 @@ export default function Home() {
   const [hover_img, setHover_Img] = useState(false);
   const [hoverImg, setHoverImg] = useState(false);
   const [open, setOpen] = useState('first');
-  // 菜单开关
-  const [menu_Config, setMenu_Config] = useState(true);
-  useEffect(() => {
-    // loadSwiperExample(); // 轮播图实例
-    setTimeout(() => {
-      const img_animate_right = document.querySelector('.right_kid_img'); // 右边图片
-      const img_animate_left = document.querySelector('.left_kid_img'); // 左边图片
-      const docs_animate = document.querySelector('.docs_container'); // 文档
-      const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
-      // 移除类
-      img_animate_right.classList.remove(
-        'animate__animated',
-        'animate__fadeInLeftBig'
-      );
-      docs_animate.classList.remove(
-        'animate__animated',
-        'animate__fadeInLeftBig'
-      );
-      img_animate_left.classList.remove(
-        'animate__animated',
-        'animate__fadeInLeftBig'
-      );
-      carousel_animate.classList.remove(
-        'animate__animated',
-        'animate__fadeInRightBig'
-      );
-    }, 1500);
-  }, []);
-  useEffect(() => {
-    // 注册页面滚动事件
-    window.addEventListener('scroll', handleScrollPage);
-    return () => {
-      window.removeEventListener('scroll', handleScrollPage);
-    };
-  }, []);
-  const handleScrollPage = () => {
-    const img_animate_right = document.querySelector('.right_kid_img'); // 右边图片
-    const img_animate_left = document.querySelector('.left_kid_img'); // 左边图片
-    const docs_animate = document.querySelector('.docs_container'); // 文档
-    const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
-    const partner_animate = document.querySelector('.partner'); // 合作伙伴
-    let scrollTop = document.documentElement.scrollTop;
-    console.log(scrollTop, 'scrollTop');
-    // 右侧logo
-    if (img_animate_right.offsetTop >= window.innerHeight) {
-      const isScrollTop = img_animate_right.offsetTop - window.innerHeight;
-      if (scrollTop >= isScrollTop) {
-        img_animate_right.classList.add(
-          'animate__animated',
-          'animate__fadeInRightBig'
-        );
-      }
-    }
-    // 文档
-    if (docs_animate.offsetTop >= window.innerHeight) {
-      const isScrollTop = docs_animate.offsetTop - window.innerHeight;
-      if (scrollTop >= isScrollTop) {
-        docs_animate.classList.add('animate__animated');
-        docs_animate.classList.add('animate__fadeInLeftBig');
-      }
-    }
-    // 左侧logo
-    if (img_animate_left.offsetTop >= window.innerHeight) {
-      const isScrollTop = img_animate_left.offsetTop - window.innerHeight;
-      if (scrollTop >= isScrollTop) {
-        img_animate_left.classList.add(
-          'animate__animated',
-          'animate__fadeInLeftBig'
-        );
-      }
-    }
-    // 视频学习Rainbond
-    if (carousel_animate.offsetTop >= window.innerHeight) {
-      const isScrollTop = carousel_animate.offsetTop - window.innerHeight;
-      if (scrollTop >= isScrollTop) {
-        carousel_animate.classList.add(
-          'animate__animated',
-          'animate__fadeInRightBig'
-        );
-      }
-    }
-  };
+  
+  const animatedTexts = useTrail(5, {
+    from: { opacity: 0, transform: 'translateY(3em)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: {
+      mass: 3,
+      friction: 45,
+      tension: 460,
+    },
+  })
+
   const handleJumpDemo = e => {
     axios('https://cloud.goodrain.com/enterprise-server/onlineTrial');
   };
@@ -121,7 +53,7 @@ export default function Home() {
       <Head>
         <title>{siteConfig.title}</title>
         <meta property='og:title' content={siteConfig.title} />
-        <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />}
+        <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />
       </Head>
       {/* 导航栏 */}
       <AnnouncementBar />
@@ -135,23 +67,17 @@ export default function Home() {
               className='animate__animated animate__fadeInDown'
               style={{ fontSize: '48px' }}
             >
-              云原生多云应用管理平台
+              <Texty>云原生多云应用管理平台</Texty>
             </h2>
-            <div
-              style={{
-                margin: '24px 0px 48px',
-                color: '#637792',
-                fontSize: '16px',
-                maxWidth: '360px'
-              }}
-              className='animate__animated animate__fadeInDown'
-            >
-              Rainbond
-              核心100%开源，使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
+            <div style={{ margin: '24px 0px 48px', color: '#637792', fontSize: '16px', maxWidth: '360px'}}>
+              <Texty interval={8}>
+                Rainbond
+                核心100%开源，使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
+              </Texty>
             </div>
-            <div className={styles.btnBox}>
+            <animated.div style={animatedTexts[1]} className={styles.btnBox}>
               <a
-                className={`${styles.btns} animate__animated animate__fadeInDown`}
+                className={styles.btns}
                 href='docs/quick-start/quick-install/'
                 style={{ marginRight: '16px' }}
               >
@@ -166,7 +92,7 @@ export default function Home() {
                 在线体验
               </a>} */}
               { <a
-                className={`${styles.right_btns} animate__animated animate__fadeInDown`}
+                className={styles.right_btns}
                 href='#'
                 onMouseMove={() => {
                   setHoverImg(true);
@@ -187,11 +113,11 @@ export default function Home() {
                   />
                 </div>
               )}
-            </div>
+            </animated.div>
           </div>
-          <div
-            className={`${styles.know_rainbond_video} animate__animated animate__slideInRight`}
-            style={{ cursor: 'pointer' }}
+          <animated.div
+            className={styles.know_rainbond_video}
+            style={animatedTexts[1]}
           >
             <div
               className='mask_video'
@@ -202,12 +128,13 @@ export default function Home() {
             >
               <img src='/img/video/video-rainbond.png' alt='' style={{ display: 'block' }}/>
             </div>
-          </div>
+          </animated.div>
         </section>
         {/* 第二屏 */}
         <section id={styles.section_second} className={styles.width}>
-          <div
-            className={`${styles.community_case} animate__animated animate__fadeInUpBig `}
+          <animated.div
+            className={styles.community_case}
+            style={animatedTexts[1]}
           >
             <div className={styles.img_container}>
               <a href='#' style={{ cursor: 'default' }}>
@@ -249,11 +176,11 @@ export default function Home() {
                 <img src='/img/users/xinanmingzu.png' alt='' />
               </a>
             </div>
-          </div>
+          </animated.div>
         </section>
         {/* 第二屏 */}
         <section className={styles.second}>
-          <div id={styles.section_experience} className={styles.width}>
+          <animated.div id={styles.section_experience} className={styles.width} style={animatedTexts[1]}>
             <h1 className={styles.dosc_logo}>
               <img src='/img/kuberneteslanding/kuberneteslanding.png' alt='' />
             </h1>
@@ -283,19 +210,19 @@ export default function Home() {
                   <ul>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;支持6种常见的开发语言
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;无需编写Dockerfile
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;集成Git仓库
                     </li>
@@ -316,19 +243,19 @@ export default function Home() {
                   <ul>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;零门槛落地Kubernetes
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;无需编写YAML
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;管理多个集群
                     </li>
@@ -347,19 +274,19 @@ export default function Home() {
                   <ul>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;Spring Cloud项目一步构建
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;服务编排和拓扑图展示
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;支持Service Mesh
                     </li>
@@ -380,18 +307,18 @@ export default function Home() {
                   <ul>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;一键安装和升级</li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;建立自己的应用市场
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
                       &nbsp;对接Helm应用市场
                     </li>
@@ -399,9 +326,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </animated.div>
         </section>
         {/* 为什么选择Rainbond */}
+        <OverPack style={{ overflow: 'hidden'}} playScale={0.15}>
         <section id={styles.section_why_rainbond} className={styles.width}>
           <h1 className={styles.dosc_logo}>
             <img src='/img/choicerainbond/choicerainbond.png' style={{ height: '150px' }}/>
@@ -415,7 +343,7 @@ export default function Home() {
           >
             为什么选择<span className={styles.how_rainbond}> Rainbond ？</span>
           </h1>
-          <div className={styles.how_rainbond_desc_container}>
+          <div className={styles.how_rainbond_desc_container} key="why_rainbond_desc">
             <div className={styles.how_rainbond_btn}>
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -542,10 +470,11 @@ export default function Home() {
               whileTap={{ scale: 0.9 }}
               className={`${styles.how_rainbond_desc_container_start} ${styles.active_btn}`}
             >
-              <a href='/docs/quick-start/quick-install'>快速开始 > </a> 
+              <a href='/docs/quick-start/quick-install'>快速开始 {'>'} </a> 
             </motion.button>
           </div>
         </section>
+        </OverPack>
         {/* 第四屏 */}
         <section className={styles.fouthBg}>
           <div id={styles.section_fouth} className={styles.width}>
@@ -603,12 +532,11 @@ export default function Home() {
                   right: '12px',
                   bottom: '-36px'
                 }}
-                className='right_kid_img animate__animated animate__fadeInRightBig'
               />
             </h1>
 
             <div
-              className={`${styles.docs} docs_container animate__animated  animate__fadeInLeftBig`}
+              className={`${styles.docs} docs_container`}
             >
               <a href='usescene/IntegrationDev' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
@@ -874,7 +802,7 @@ export default function Home() {
               }}
               style={{ width: '100%' }}
               src='https://static.goodrain.com/mp4/HomePageVideo/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%91.mp4'
-              controls='controls'
+              controls={true}
               autoPlay
             ></video>
           </div>

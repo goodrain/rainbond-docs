@@ -7,24 +7,24 @@ export default function Index(props) {
   // 菜单开关
   const [menu_Config, setMenu_Config] = useState(true);
   const [menu_Config_Drop, setMenu_Config_Drop] = useState(false);
-  useEffect(() => {
-    // 注册页面滚动事件
-    window.addEventListener('scroll', handleScrollPage);
-    return () => {
-      window.removeEventListener('scroll', handleScrollPage);
-    };
-  }, []);
+  // useEffect(() => {
+  //   // 注册页面滚动事件
+  //   window.addEventListener('scroll', handleScrollPage);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScrollPage);
+  //   };
+  // }, []);
   //   头部NavBar滚动
-  const handleScrollPage = () => {
-    let scrollTop = document.documentElement.scrollTop;
-    const nav_scroll = document.querySelector('.mdHeader'); //导航栏
-    // 头部tab
-    if (scrollTop > 0) {
-      nav_scroll.classList.add('nav_scroll_bar');
-    } else {
-      nav_scroll.classList.remove('nav_scroll_bar');
-    }
-  };
+  // const handleScrollPage = () => {
+  //   let scrollTop = document.documentElement.scrollTop;
+  //   const nav_scroll = document.querySelector('.mdHeader'); //导航栏
+  //   // 头部tab
+  //   if (scrollTop > 0) {
+  //     nav_scroll.classList.add('nav_scroll_bar');
+  //   } else {
+  //     nav_scroll.classList.remove('nav_scroll_bar');
+  //   }
+  // };
   return (
     <div>
       <header className={`${styles.mdHeader}`}>
