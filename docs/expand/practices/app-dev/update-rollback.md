@@ -60,7 +60,7 @@ nginx version: nginx/1.11.13
 
 ### 前提条件
 
-完成 [将应用发布为应用模版](/docs/quick-start/get-start/release-to-market/) ，拥有基于示例应用模版安装的应用
+完成 [将应用发布为应用模版](/docs/use-manual/get-start/release-to-market/) ，拥有基于示例应用模版安装的应用
 
 ### 操作步骤
 

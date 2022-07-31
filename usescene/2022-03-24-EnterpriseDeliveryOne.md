@@ -35,7 +35,7 @@ RAM 模型的抽象，囊括了企业应用所包含的所有服务组件以及�
 
 Rainbond的应用模版是应用模型的具体实现，是企业应用一键安装的载体，如何制作应用模版可以参考下面的教程。
 
-[制作应用模版教程](https://www.rainbond.com/docs/quick-start/get-start/release-to-market)
+[制作应用模版教程](https://www.rainbond.com/docs/use-manual/get-start/release-to-market)
 
 当制作好了应用模版，发布到应用市场，就可以通过应用模版一键安装，一键安装过程可以将企业应用从开发环境中完美复刻到交付环境中。组件的特性、镜像、插件、依赖关系都得以保持原样。
 

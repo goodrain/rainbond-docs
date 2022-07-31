@@ -9,38 +9,7 @@ const sidebars = {
         'quick-start/introduction',
         // 'quick-start/differences',
         'quick-start/quick-install',
-        {
-          type: 'category',
-          label: '快速入门',
-          link: {
-            type: 'doc',
-            id: 'quick-start/get-start/index'
-          },
-          items: [
-            {
-              type: 'category',
-              label: '学习概念',
-              link: {
-                type: 'doc',
-                id: 'quick-start/get-start/concept/index'
-              },
-              items: [
-                'quick-start/get-start/concept/team',
-                'quick-start/get-start/concept/app',
-                'quick-start/get-start/concept/component',
-                'quick-start/get-start/concept/plugin',
-                'quick-start/get-start/concept/gateway'
-              ]
-            },
-            'quick-start/get-start/team-management-and-multi-tenancy',
-            'quick-start/get-start/create-app-from-source',
-            'quick-start/get-start/create-app-from-market',
-            'quick-start/get-start/create-dependency',
-            'quick-start/get-start/release-to-market',
-            'quick-start/get-start/upgrade-from-market',
-            'quick-start/get-start/offline-delivery-with-market'
-          ]
-        },
+        'quick-start/getting-started',
         {
           type: 'category',
           label: '架构',
@@ -124,6 +93,38 @@ const sidebars = {
         id: 'use-manual/index'
       },
       items: [
+        {
+          type: 'category',
+          label: '使用入门',
+          link: {
+            type: 'doc',
+            id: 'use-manual/get-start/index'
+          },
+          items: [
+            {
+              type: 'category',
+              label: '学习概念',
+              link: {
+                type: 'doc',
+                id: 'use-manual/get-start/concept/index'
+              },
+              items: [
+                'use-manual/get-start/concept/team',
+                'use-manual/get-start/concept/app',
+                'use-manual/get-start/concept/component',
+                'use-manual/get-start/concept/plugin',
+                'use-manual/get-start/concept/gateway'
+              ]
+            },
+            'use-manual/get-start/team-management-and-multi-tenancy',
+            'use-manual/get-start/create-app-from-source',
+            'use-manual/get-start/create-app-from-market',
+            'use-manual/get-start/create-dependency',
+            'use-manual/get-start/release-to-market',
+            'use-manual/get-start/upgrade-from-market',
+            'use-manual/get-start/offline-delivery-with-market'
+          ]
+        },
         {
           type: 'category',
           label: '部署服务组件',

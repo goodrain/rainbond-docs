@@ -65,7 +65,7 @@ export default function Index(props) {
                 </div>
               </li>
               <li>
-                <a href='/docs/quick-start/get-start/'>
+                <a href='/docs/use-manual/get-start/'>
                   <Translate>文档</Translate>
                 </a>
               </li>
@@ -138,7 +138,7 @@ export default function Index(props) {
               </div>
             </li>
             <li>
-              <a href='/docs/quick-start/get-start/'>
+              <a href='/docs/use-manual/get-start/'>
                 <Translate>文档</Translate>
               </a>
             </li>

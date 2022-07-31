@@ -110,6 +110,11 @@ All-In-One 模式部署的控制台不具有生产可用性，体验完成后如
 
 通过图形化界面基于主机安装 Rainbond 的过程中遭遇了任何问题，都可以参考文档 [Web界面安装问题排查指南](../install-troubleshoot/ui-install-troubleshoot/) 进行问题排查。
 
+## 下一步
+
+参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
+
+
 <!-- > Rainbond 支持 ARM CPU 架构部署吗？
 
 Rainbond 企业版支持在华为鲲鹏、飞腾等国产服务器部署，需求请[申请企业服务 POC](https://www.goodrain.com/poc/)。

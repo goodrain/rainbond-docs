@@ -20,7 +20,7 @@ AB测试是为应用制作两个（A/B）或多个（A/B/n）版本，在同一�
 
 **Rainbond目前支持HTTP协议的A/B测试实践，这也是目前应用面最广的协议。**
 
-服务需要进行A/B测试，需要区分其是属于内部服务还是对外服务。内部服务的A/B测试特性由 ServiceMesh 层提供，对外服务由 [应用网关](/docs/quick-start/get-start/concept/gateway/)提供。
+服务需要进行A/B测试，需要区分其是属于内部服务还是对外服务。内部服务的A/B测试特性由 ServiceMesh 层提供，对外服务由 [应用网关](/docs/use-manual/get-start/concept/gateway/)提供。
 
 
 ## 二. 对外服务的A/B测试

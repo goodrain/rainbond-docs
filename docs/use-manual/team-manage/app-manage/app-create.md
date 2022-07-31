@@ -8,7 +8,7 @@ description: 带你进行应用创建
 ## 前提条件
 
 1. 已完成团队的规划和创建。
-2. 已了解Rainbond [应用](/docs/quick-start/get-start/concept/app) 相关概念和规划方式。
+2. 已了解Rainbond [应用](/docs/use-manual/get-start/concept/app) 相关概念和规划方式。
 
 ## 创建应用
 
