@@ -111,3 +111,6 @@ kubectl get po -n rbd-system | grep rbd-app-ui
 
 - 安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](https://www.rainbond.com/docs/user-operations/deploy/install-troubleshoot/helm-install-troubleshoot/)，进行故障排查。
 
+## 下一步
+
+参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。

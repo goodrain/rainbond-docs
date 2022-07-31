@@ -111,7 +111,7 @@ Rainbond 提供的应用市场分为两类:
 
 :::info
 
-本地组件库是 Rainbond 自带的应用市场，你在这个企业下发布的所有应用模版都可以保存在此。企业内部的其他用户可以通过从本地组件库安装应用模版来快速复制这个应用。发布到本地组件库可以参考: [制作可复用的应用模版](/docs/quick-start/get-start/release-to-market.md)。
+本地组件库是 Rainbond 自带的应用市场，你在这个企业下发布的所有应用模版都可以保存在此。企业内部的其他用户可以通过从本地组件库安装应用模版来快速复制这个应用。发布到本地组件库可以参考: [制作可复用的应用模版](/docs/use-manual/get-start/release-to-market.md)。
 
 :::
 
@@ -141,7 +141,7 @@ Rainbond 提供的应用市场分为两类:
 
 ### 从本地组件库安装应用
 
-当你部署完成 Rainbond 后，你可以参考[制作可复用的应用模版](/docs/quick-start/get-start/release-to-market)，制作出属于你的应用。此处，我们已制作出 WordPress 应用，与从云应用市场安装相同，点击右侧安装，一键安装完成后。你就可以访问到你自己的应用了。
+当你部署完成 Rainbond 后，你可以参考[制作可复用的应用模版](/docs/use-manual/get-start/release-to-market)，制作出属于你的应用。此处，我们已制作出 WordPress 应用，与从云应用市场安装相同，点击右侧安装，一键安装完成后。你就可以访问到你自己的应用了。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/install-app-local.png" title="本地组件库安装应用示意图"/>
 

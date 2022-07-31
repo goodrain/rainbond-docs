@@ -11,7 +11,7 @@ description: 应用升级
 
 ## 应用升级操作步骤
 
-关于应用升级的操作步骤请参考 [应用模版的升级](/docs/quick-start/get-start/upgrade-from-market)
+关于应用升级的操作步骤请参考 [应用模版的升级](/docs/use-manual/get-start/upgrade-from-market)
 
 
 ## 应用升级属性变更规则

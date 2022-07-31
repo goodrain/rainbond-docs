@@ -40,3 +40,7 @@ description: "接入已安装Kubernetes集群"
 ## 控制台迁移
 
 使用该方式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理  [参考文档](./console-recover/)。
+
+## 下一步
+
+参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。

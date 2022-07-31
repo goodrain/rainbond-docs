@@ -243,4 +243,6 @@ spec:
 
 部署完成后将 All-In-One 模式部署的控制台迁移至 Rainbond 中管理，使其具有高可用特性  参考文档[控制台迁移](./console-recover)。
 
- 
+## 下一步
+
+参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。

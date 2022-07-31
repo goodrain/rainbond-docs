@@ -1,0 +1,103 @@
+---
+title: 快速入门
+description: 该文档将指引你完成第一个应用的部署与安装
+---
+
+本文将指引你部署一个应用程序来快速熟悉 Rainbond 的基本功能。
+
+## 准备工作
+
+
+1. 提前安装好 Rainbond，参考[快速安装](/docs/quick-start/quick-install)
+
+2. 准备好示例应用的源码，此处我们以一个 Maven 项目为例，项目地址: [Maven示例代码](https://gitee.com/rainbond/java-maven-demo)
+
+## 第一步 创建团队
+
+:::info 概念
+在 Rainbond 中，团队是管理所有资源的基础，所有的资源都属于团队，包括集群、应用、组件等。因此我们需要先创建一个团队，才可以管理我们的资源，将应用部署到集群中。
+
+- 团队名称: 主要用于页面展示，方便用户区分不同的团队
+- 团队英文名称: 是集群中自动创建的 namespace 的名称
+- 集群: 选择该团队管理的集群，一个团队可以管理多个集群下的应用
+:::
+
+进入 Rainbond 控制台首页后，我们可以在页面左下角看到创建团队的按钮。点击后，需要输入团队名称、团队英文名以及该团队管理的集群。
+
+![create-team](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/create-team.jpg)
+
+## 第二步 创建应用
+
+:::info 概念
+通常情况下，应用应该是一个业务系统所有模块的集合。
+
+- 应用名称: 主要用于页面展示，用户可以将其定义为该业务系统的名称，这里我填写了`Maven项目示例`
+- 应用英文名称: 在这个应用下部署的模块，生成的资源将以这个名称开头
+:::
+
+当创建完团队后会默认生成一个应用。我们可以将 Maven 项目和 Mysql 数据库构成的业务系统看作是一个应用。
+这里我们不使用默认应用，去单独创建一个新的应用`Maven项目示例`。如下图所示:
+
+![create-maven-app](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/create-maven-app.jpg)
+
+## 第三步 创建组件
+
+:::info 概念
+组件是构成应用程序的基本单元。应用程序中的每个微服务都可以被描述为一个组件。 在我们即将部署的 Maven 项目 + Mysql 的业务系统中， Maven 项目 和 Mysql 数据库被分别描述为一个组件
+
+- 组件名称: 主要用于页面展示，用户可以将其定义为该模块的名称
+- 组件英文名称: 最终该组件在集群中生成的资源名称将为 `应用英文名称-->组件英文名称`
+- 代码版本: 定义代码所在的分支
+:::
+
+我们点击刚刚创建好的应用`Maven项目示例`，在右侧选择 `添加组件-->自定义仓库-->填写信息-->新建组件`。配置信息如下图所示:
+ 
+![add-component](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/add-component.jpg)
+
+![add-component-git-repo](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/add-component-git-repo.jpg)
+
+![add-component-git-repo](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/add-component-git-repo2.jpg)
+
+
+
+点击新建组件后，会检测代码语言以及源码信息，检查通过后，点击创建，将会创建出该组件。
+
+此时我们可以在拓扑图中看见该组件，点击组件进入。可以看到组件正在构建中，等待组件构建完成后，就可以访问该组件了。
+
+![maven-status](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/maven-status.jpg)
+
+![maven-status2](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/maven-status2.jpg)
+
+![component-overview](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/component-overview.jpg)
+
+:::info
+在安装 Rainbond 时，会自动生成一个 grapps.cn 后缀的域名，在平台内部署的组件，都可以通过该域名进行访问。详细的访问地址可以在`端口`那一栏查看和修改。
+:::
+
+## 第四步: 访问组件
+
+当我们看到组件运行状态为绿色时，即代表组件运行正常，此时我们可以点击右上角的访问按钮访问到该组件，如下图所示:
+
+![maven-page](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/maven-page.jpg)
+
+至此，我们已经在 Rainbond 上部署了第一个组件。
+
+## 第五步: 编排应用程序(可选)
+
+在之前的步骤中，我们仅仅只是部署了`Maven项目示例`这个应用下的一个模块，即 UI 部分，接下来我们将会简单介绍，如何部署一个 Mysql 数据库，并使 Maven 项目读取到 MYSQL 的信息。
+
+我们依然重复之前的新建组件的步骤，在应用`Maven项目示例`下，选择 `添加组件-->从应用市场开始-->开源应用商店-->搜索 Mysql-->安装 MYSQL-Percona单机版`。如果你没有安装权限，请先点击搜索框下的`去授权`获取权限。
+
+安装完成后我们可以看见应用下多了一个 Mysql 组件。我们选择编排模式，将 Maven 与 Mysql 连接起来。这样就建立起了 Maven 项目与 Mysql 的依赖关系。依赖添加完成后按照提示更新组件。
+
+![establish-dependencies](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/establish-dependencies.jpg)
+
+等待组件更新完成后，我们可以再次访问 Maven 组件，点击 Mysql 示例，可以看到 Mysql 的连接信息以及数据库中存在的表。如下图所示。
+
+![maven-mysql-demo](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/maven-mysql-demo.jpg)
+
+这说明我们的项目已经成功连接到了我们刚刚部署的 Mysql 组件上，并读取到了对应的表信息。此时我们的应用`Maven项目示例`完整部署完毕。它包含了一个 Maven 项目以及数据库。你可以在拓扑图清楚的看到他们之间的依赖关系。如果你对 Maven 组件与 Mysql 组件之间的通信有疑问，你可以参考[服务间通信](/docs/use-manual/component-manage/component-connection/regist_and_discover)。
+
+## 下一步
+
+接下来你可以参考[用户使用手册](/docs/use-manual/)了解更多功能和玩法。
