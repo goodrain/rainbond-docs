@@ -1,11 +1,12 @@
-FROM nikolaik/python-nodejs:python3.10-nodejs16-alpine AS builder
+FROM node:16.14-alpine3.15 AS builder
 
 WORKDIR /opt
-COPY . .
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
     && apk add --no-cache git \
-    && yarn config set registry https://registry.npmmirror.com \
+    && git clone https://ghproxy.com/https://github.com/goodrain/rainbond-docs
+
+RUN yarn config set registry https://registry.npmmirror.com \
     && yarn install \
     && yarn docusaurus build
 
