@@ -91,7 +91,7 @@ const config = {
             type: 'docSidebar',
             position: 'left',
             sidebarId: 'api',
-            label: 'API',
+            label: 'OpenAPI',
           },
           {
             type: 'dropdown',
