@@ -11,6 +11,12 @@ import styles from './index.module.scss';
 import AnnouncementBar from '@theme/AnnouncementBar';
 import Footer from '@theme/Footer';
 import { motion } from "framer-motion";
+import { OverPack } from 'rc-scroll-anim';
+import Texty from 'rc-texty';
+import { useTrail, animated } from 'react-spring';
+import Translate from '@docusaurus/Translate';
+import { useLocation } from '@docusaurus/router';
+import clsx from 'clsx';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -18,88 +24,18 @@ export default function Home() {
   const [hover_img, setHover_Img] = useState(false);
   const [hoverImg, setHoverImg] = useState(false);
   const [open, setOpen] = useState('first');
-  // 菜单开关
-  const [menu_Config, setMenu_Config] = useState(true);
-  useEffect(() => {
-    // loadSwiperExample(); // 轮播图实例
-    setTimeout(() => {
-      const img_animate_right = document.querySelector('.right_kid_img'); // 右边图片
-      const img_animate_left = document.querySelector('.left_kid_img'); // 左边图片
-      const docs_animate = document.querySelector('.docs_container'); // 文档
-      const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
-      // 移除类
-      img_animate_right.classList.remove(
-        'animate__animated',
-        'animate__fadeInLeftBig'
-      );
-      docs_animate.classList.remove(
-        'animate__animated',
-        'animate__fadeInLeftBig'
-      );
-      img_animate_left.classList.remove(
-        'animate__animated',
-        'animate__fadeInLeftBig'
-      );
-      carousel_animate.classList.remove(
-        'animate__animated',
-        'animate__fadeInRightBig'
-      );
-    }, 1500);
-  }, []);
-  useEffect(() => {
-    // 注册页面滚动事件
-    window.addEventListener('scroll', handleScrollPage);
-    return () => {
-      window.removeEventListener('scroll', handleScrollPage);
-    };
-  }, []);
-  const handleScrollPage = () => {
-    const img_animate_right = document.querySelector('.right_kid_img'); // 右边图片
-    const img_animate_left = document.querySelector('.left_kid_img'); // 左边图片
-    const docs_animate = document.querySelector('.docs_container'); // 文档
-    const carousel_animate = document.querySelector('.carousel_container'); // 视频教程
-    const partner_animate = document.querySelector('.partner'); // 合作伙伴
-    let scrollTop = document.documentElement.scrollTop;
-    console.log(scrollTop, 'scrollTop');
-    // 右侧logo
-    if (img_animate_right.offsetTop >= window.innerHeight) {
-      const isScrollTop = img_animate_right.offsetTop - window.innerHeight;
-      if (scrollTop >= isScrollTop) {
-        img_animate_right.classList.add(
-          'animate__animated',
-          'animate__fadeInRightBig'
-        );
-      }
-    }
-    // 文档
-    if (docs_animate.offsetTop >= window.innerHeight) {
-      const isScrollTop = docs_animate.offsetTop - window.innerHeight;
-      if (scrollTop >= isScrollTop) {
-        docs_animate.classList.add('animate__animated');
-        docs_animate.classList.add('animate__fadeInLeftBig');
-      }
-    }
-    // 左侧logo
-    if (img_animate_left.offsetTop >= window.innerHeight) {
-      const isScrollTop = img_animate_left.offsetTop - window.innerHeight;
-      if (scrollTop >= isScrollTop) {
-        img_animate_left.classList.add(
-          'animate__animated',
-          'animate__fadeInLeftBig'
-        );
-      }
-    }
-    // 视频学习Rainbond
-    if (carousel_animate.offsetTop >= window.innerHeight) {
-      const isScrollTop = carousel_animate.offsetTop - window.innerHeight;
-      if (scrollTop >= isScrollTop) {
-        carousel_animate.classList.add(
-          'animate__animated',
-          'animate__fadeInRightBig'
-        );
-      }
-    }
-  };
+  const LocalUrlEn = useLocation().pathname.includes('/en');
+  
+  const animatedTexts = useTrail(5, {
+    from: { opacity: 0, transform: 'translateY(3em)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: {
+      mass: 3,
+      friction: 45,
+      tension: 460,
+    },
+  })
+
   const handleJumpDemo = e => {
     axios('https://cloud.goodrain.com/enterprise-server/onlineTrial');
   };
@@ -121,7 +57,7 @@ export default function Home() {
       <Head>
         <title>{siteConfig.title}</title>
         <meta property='og:title' content={siteConfig.title} />
-        <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />}
+        <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />
       </Head>
       {/* 导航栏 */}
       <AnnouncementBar />
@@ -131,31 +67,28 @@ export default function Home() {
         {/* 第一屏 */}
         <section id={styles.section_first} className={styles.width}>
           <div className={styles.rainbond_desc}>
-            <h2
-              className='animate__animated animate__fadeInDown'
-              style={{ fontSize: '48px' }}
+            <animated.h2
+              className={clsx({
+                [styles.rainbond_title]: ! LocalUrlEn,
+                [styles.rainbond_title_en]: LocalUrlEn,
+              })}
+              style={animatedTexts[0]}
             >
-              云原生多云应用管理平台
-            </h2>
-            <div
-              style={{
-                margin: '24px 0px 48px',
-                color: '#637792',
-                fontSize: '16px',
-                maxWidth: '360px'
-              }}
-              className='animate__animated animate__fadeInDown'
-            >
-              Rainbond
-              核心100%开源，使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
-            </div>
-            <div className={styles.btnBox}>
+              <Translate id='first.title'>云原生多云应用管理平台</Translate>
+            </animated.h2>
+            <animated.div style={animatedTexts[0]} className={styles.rainbond_description}>
+              <Translate id='first.description'>
+                Rainbond
+                核心100%开源，使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
+              </Translate>
+            </animated.div>
+            <animated.div style={animatedTexts[1]} className={styles.btnBox}>
               <a
-                className={`${styles.btns} animate__animated animate__fadeInDown`}
+                className={styles.btns}
                 href='docs/quick-start/quick-install/'
                 style={{ marginRight: '16px' }}
               >
-                安装使用
+                <Translate id='first.install'>安装使用</Translate>
               </a>
               {/* <a
                 className={`${styles.btns} animate__animated animate__fadeInDown`}
@@ -166,7 +99,7 @@ export default function Home() {
                 在线体验
               </a>} */}
               { <a
-                className={`${styles.right_btns} animate__animated animate__fadeInDown`}
+                className={styles.right_btns}
                 href='#'
                 onMouseMove={() => {
                   setHoverImg(true);
@@ -175,7 +108,7 @@ export default function Home() {
                   setHoverImg(false);
                 }}
               >
-                关注 Rainbond
+                <Translate id='first.follow'>关注 Rainbond</Translate>
               </a> }
               {hoverImg && (
                 <div className={styles.join_logos}>
@@ -187,27 +120,27 @@ export default function Home() {
                   />
                 </div>
               )}
-            </div>
+            </animated.div>
           </div>
-          <div
-            className={`${styles.know_rainbond_video} animate__animated animate__slideInRight`}
-            style={{ cursor: 'pointer' }}
+          <animated.div
+            className={styles.know_rainbond_video}
+            style={animatedTexts[1]}
           >
             <div
-              className='mask_video'
-              style={{ position: 'relative' }}
+              className={clsx('mask_video', styles.know_rainbond_video_div)}
               onClick={() => {
                 setMask_config(true);
               }}
             >
-              <img src='/img/video/video-rainbond.png' alt='' style={{ display: 'block' }}/>
+              <img src='/img/video/video-rainbond.png' alt='' className={styles.know_rainbond_video_div_img}/>
             </div>
-          </div>
+          </animated.div>
         </section>
         {/* 第二屏 */}
         <section id={styles.section_second} className={styles.width}>
-          <div
-            className={`${styles.community_case} animate__animated animate__fadeInUpBig `}
+          <animated.div
+            className={styles.community_case}
+            style={animatedTexts[1]}
           >
             <div className={styles.img_container}>
               <a href='#' style={{ cursor: 'default' }}>
@@ -249,11 +182,11 @@ export default function Home() {
                 <img src='/img/users/xinanmingzu.png' alt='' />
               </a>
             </div>
-          </div>
+          </animated.div>
         </section>
         {/* 第二屏 */}
         <section className={styles.second}>
-          <div id={styles.section_experience} className={styles.width}>
+          <animated.div id={styles.section_experience} className={styles.width} style={animatedTexts[1]}>
             <h1 className={styles.dosc_logo}>
               <img src='/img/kuberneteslanding/kuberneteslanding.png' alt='' />
             </h1>
@@ -265,9 +198,9 @@ export default function Home() {
                 position: 'relative'
               }}
             >
-              云原生体验，
+              <Translate id='second.title1'>云原生体验，</Translate>
               <span className={styles.how_rainbond}>Kubernetes</span>
-              &nbsp; 快速落地
+              &nbsp; <Translate id='second.title2'>快速落地</Translate>
             </h1>
             {/* 分类 */}
             <div className={styles.experience_sort}>
@@ -277,27 +210,29 @@ export default function Home() {
                   <img src='/img/kuberneteslanding/java.svg' />
                 </div>
                 {/* 标题 */}
-                <p className={styles.experience_sort_title}>源码一键部署</p>
+                <p className={styles.experience_sort_title}>
+                  <Translate id='second.sourceCode'>源码一键部署</Translate>
+                </p>
                 {/* 描述 */}
                 <div className={styles.experience_sort_desc}>
                   <ul>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
-                      &nbsp;支持6种常见的开发语言
+                      &nbsp;<Translate id='second.sourceCode1'>支持6种常见的开发语言</Translate>
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
-                      &nbsp;无需编写Dockerfile
+                      &nbsp;<Translate id='second.sourceCode2'>无需编写Dockerfile</Translate>
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
-                      &nbsp;集成Git仓库
+                      &nbsp;<Translate id='second.sourceCode3'>集成Git仓库</Translate>
                     </li>
                   </ul>
                 </div>
@@ -309,28 +244,28 @@ export default function Home() {
                 </div>
                 {/* 标题 */}
                 <p className={styles.experience_sort_title}>
-                  Kubernetes管理面板
+                  <Translate id='second.kubernetes'>Kubernetes管理面板</Translate>
                 </p>
                 {/* 描述 */}
                 <div className={styles.experience_sort_desc}>
                   <ul>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
-                      &nbsp;零门槛落地Kubernetes
+                      &nbsp;<Translate id='second.kubernetes1'>零门槛落地Kubernetes</Translate>
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
-                      &nbsp;无需编写YAML
+                      &nbsp;<Translate id='second.kubernetes2'>无需编写YAML</Translate>
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
-                      &nbsp;管理多个集群
+                      &nbsp;<Translate id='second.kubernetes3'>管理多个集群</Translate>
                     </li>
                   </ul>
                 </div>
@@ -341,27 +276,29 @@ export default function Home() {
                   <img src='/img/kuberneteslanding/service.svg' />
                 </div>
                 {/* 标题 */}
-                <p className={styles.experience_sort_title}>微服务实战</p>
+                <p className={styles.experience_sort_title}>
+                  <Translate id='second.microservice'>微服务实战</Translate>
+                </p>
                 {/* 描述 */}
                 <div className={styles.experience_sort_desc}>
                   <ul>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
-                      &nbsp;Spring Cloud项目一步构建
+                      &nbsp;<Translate id='second.microservice1'>Spring Cloud项目一步构建</Translate>
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
-                      &nbsp;服务编排和拓扑图展示
+                      &nbsp;<Translate id='second.microservice2'>服务编排和拓扑图展示</Translate>
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
-                      &nbsp;支持Service Mesh
+                      &nbsp;<Translate id='second.microservice3'>支持Service Mesh</Translate>
                     </li>
                   </ul>
                 </div>
@@ -373,35 +310,39 @@ export default function Home() {
                 </div>
                 {/* 标题 */}
                 <p className={styles.experience_sort_title}>
-                  80款开源软件即点即用
+                  <Translate id='second.openapp'>
+                    80款开源软件即点即用
+                  </Translate>
                 </p>
                 {/* 描述 */}
                 <div className={styles.experience_sort_desc}>
                   <ul>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
-                      &nbsp;一键安装和升级</li>
-                    <li>
-                      <b> 
-                        > 
-                      </b>
-                      &nbsp;建立自己的应用市场
+                      &nbsp;<Translate id='second.openapp1'>一键安装和升级</Translate>
                     </li>
                     <li>
                       <b> 
-                        > 
+                        {'>'}
                       </b>
-                      &nbsp;对接Helm应用市场
+                      &nbsp;<Translate id='second.openapp2'>建立自己的应用市场</Translate>
+                    </li>
+                    <li>
+                      <b> 
+                        {'>'}
+                      </b>
+                      &nbsp;<Translate id='second.openapp3'>对接Helm应用市场</Translate>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-          </div>
+          </animated.div>
         </section>
         {/* 为什么选择Rainbond */}
+        <OverPack style={{ overflow: 'hidden'}} playScale={0.15}>
         <section id={styles.section_why_rainbond} className={styles.width}>
           <h1 className={styles.dosc_logo}>
             <img src='/img/choicerainbond/choicerainbond.png' style={{ height: '150px' }}/>
@@ -413,9 +354,12 @@ export default function Home() {
               position: 'relative'
             }}
           >
-            为什么选择<span className={styles.how_rainbond}> Rainbond ？</span>
+            <Translate id='third.chooseRainbond.title1'>为什么选择</Translate>
+            <span className={styles.how_rainbond}> 
+            <Translate id='third.chooseRainbond.title2'>Rainbond ？</Translate>
+            </span>
           </h1>
-          <div className={styles.how_rainbond_desc_container}>
+          <div className={styles.how_rainbond_desc_container} key="why_rainbond_desc">
             <div className={styles.how_rainbond_btn}>
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -425,7 +369,7 @@ export default function Home() {
                 }
                 onClick={handleWhyRainbondFirst}
               >
-                使用简单
+                <Translate id='third.chooseRainbond.useEasy'>使用简单</Translate>
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -435,7 +379,7 @@ export default function Home() {
                 }
                 onClick={handleWhyRainbondSecond}
               >
-                应用一键交付
+                <Translate id='third.chooseRainbond.appDelivery'>应用一键交付</Translate>
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -445,7 +389,7 @@ export default function Home() {
                 }
                 onClick={handleWhyRainbondThird}
               >
-                云原生转型
+                <Translate id='third.chooseRainbond.cloudNative'>云原生转型</Translate>
               </motion.button>
               {/* <button
                 className={
@@ -460,19 +404,27 @@ export default function Home() {
               <div className={styles.how_rainbond_desc}>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;只需一个命令安装体验</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.useEasy1'>只需一个命令安装体验</Translate>
+                  </span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;兼顾 “简单易用” 和 “功能强大”</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.useEasy2'>兼顾 “简单易用” 和 “功能强大”</Translate>
+                  </span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;无需编写Dockerfile和YAML</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.useEasy3'>无需编写Dockerfile和YAML</Translate>
+                  </span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;“以应用为中心”的设计理念</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.useEasy4'>“以应用为中心”的设计理念</Translate>
+                  </span>
                 </div>
               </div>
             )}
@@ -480,19 +432,27 @@ export default function Home() {
               <div className={styles.how_rainbond_desc}>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;企业应用一键安装和升级</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.appDelivery1'>企业应用一键安装和升级</Translate>
+                  </span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;提升数十倍私有交付和个性化交付效率</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.appDelivery2'>提升数十倍私有交付和个性化交付效率</Translate>
+                  </span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;功能完备的企业级应用商店</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.appDelivery3'>功能完备的企业级应用商店</Translate>
+                  </span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;构建行业应用生态</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.appDelivery4'>构建行业应用生态</Translate>
+                  </span>
                 </div>
               </div>
             )}
@@ -500,19 +460,27 @@ export default function Home() {
               <div className={styles.how_rainbond_desc}>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;开箱即用的一体化云原生平台</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.cloudNative1'>开箱即用的一体化云原生平台</Translate>
+                  </span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;传统应用一步变成云原生应用</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.cloudNative2'>传统应用一步变成云原生应用</Translate>
+                  </span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;拥有完整的云原生特性</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.cloudNative3'>拥有完整的云原生特性</Translate>
+                  </span>
                 </div>
                 <div>
                   <img src='/img/pass.svg' alt='' />
-                  <span>&nbsp;&nbsp;实现各种数字化能力积累和复用</span>
+                  <span>&nbsp;&nbsp;
+                    <Translate id='third.chooseRainbond.cloudNative4'>实现各种数字化能力积累和复用</Translate>
+                  </span>
                 </div>
               </div>
             )}
@@ -542,10 +510,14 @@ export default function Home() {
               whileTap={{ scale: 0.9 }}
               className={`${styles.how_rainbond_desc_container_start} ${styles.active_btn}`}
             >
-              <a href='/docs/quick-start/quick-install'>快速开始 > </a> 
+              <a href='/docs/quick-start/quick-install'>
+                <Translate id='third.chooseRainbond.quickstart'>快速开始 </Translate>
+                &nbsp; {'>'} 
+              </a> 
             </motion.button>
           </div>
         </section>
+        </OverPack>
         {/* 第四屏 */}
         <section className={styles.fouthBg}>
           <div id={styles.section_fouth} className={styles.width}>
@@ -571,7 +543,7 @@ export default function Home() {
                 }}
                 className='left_kid_img animate__animated animate__fadeInLeftBig'
               />
-              观看视频学习 &nbsp;
+              <Translate id='fourth.video'>观看视频学习</Translate> &nbsp;
               <span className={styles.how_rainbond}>Rainbond</span>
             </h1>
             <Cswiper/>
@@ -592,7 +564,8 @@ export default function Home() {
               }}
             >
               <span className={styles.how_rainbond}>Rainbond</span>
-              &nbsp;能做什么?
+              &nbsp;
+                <Translate id='fifth.title'>能做什么?</Translate>
               <img
                 src='/img/smallimages/R.png'
                 alt=''
@@ -603,28 +576,27 @@ export default function Home() {
                   right: '12px',
                   bottom: '-36px'
                 }}
-                className='right_kid_img animate__animated animate__fadeInRightBig'
               />
             </h1>
 
             <div
-              className={`${styles.docs} docs_container animate__animated  animate__fadeInLeftBig`}
+              className={`${styles.docs} docs_container`}
             >
               <a href='usescene/IntegrationDev' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/cursor.svg' /> */}
-                  详情
+                  <Translate id='fifth.details'>详情</Translate>
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
                       {/* <a href='usescene/IntegrationDev'>一体化开发测试环境</a> */}
-                      一体化开发测试环境
+                      <Translate id='fifth.integratedDev.title'>一体化开发测试环境</Translate>
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
                     <p>
-                      集成化的开发和测试环境，自动识别开发语言和自动构建，提供开箱即用的体验
+                      <Translate id='fifth.integratedDev.description'>集成化的开发和测试环境，自动识别开发语言和自动构建，提供开箱即用的体验</Translate>
                     </p>
                   </div>
                   {/* <i className={styles.angle}></i> */}
@@ -633,18 +605,18 @@ export default function Home() {
               <a href='usescene/AppManagement' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/cursor.svg' /> */}
-                  详情
+                  <Translate id='fifth.details'>详情</Translate>
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
                       {/* <a href='usescene/AppManagement'>企业级应用统一管理</a> */}
-                      企业级应用统一管理
+                      <Translate id='fifth.appUnifiedManage.title'>企业级应用统一管理</Translate>
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
                     <p>
-                      企业应用和计算资源统一管理，自动化运维，像管理手机APP一样管理企业应用
+                      <Translate id='fifth.appUnifiedManage.description'>企业应用和计算资源统一管理，自动化运维，像管理手机APP一样管理企业应用</Translate>
                     </p>
                   </div>
                 </div>
@@ -653,18 +625,18 @@ export default function Home() {
               <a href='usescene/MultiCloudManagement' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/cursor.svg' /> */}
-                  详情
+                  <Translate id='fifth.details'>详情</Translate>
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
                       {/* <a href='usescene/MultiCloudManagement'>应用级多云管理</a> */}
-                      应用级多云管理
+                      <Translate id='fifth.multiCloud.title'>应用级多云管理</Translate>
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
                     <p>
-                      对接和管理混合云和各种Kubernetes集群，应用透明在多种云上部署和迁移
+                      <Translate id='fifth.multiCloud.description'>对接和管理混合云和各种Kubernetes集群，应用透明在多种云上部署和迁移</Translate>
                     </p>
                   </div>
                 </div>
@@ -673,17 +645,19 @@ export default function Home() {
               <a href='usescene/offlineDelivery' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/cursor.svg' /> */}
-                  详情
+                  <Translate id='fifth.details'>详情</Translate>
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
                       {/* <a href='usescene/offlineDelivery'>离线环境软件交付</a> */}
-                      离线环境软件交付
+                      <Translate id='fifth.offlineDelivery.title'>离线环境软件交付</Translate>
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
-                    <p>离线环境应用自动化交付，并支持个性化定制和应用运维</p>
+                    <p>
+                      <Translate id='fifth.offlineDelivery.description'>离线环境应用自动化交付，并支持个性化定制和应用运维</Translate>
+                    </p>
                   </div>
                 </div>
                 {/* <i className={styles.angle}></i> */}
@@ -691,18 +665,18 @@ export default function Home() {
               <a href='usescene/componentReuse' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/cursor.svg' /> */}
-                  详情
+                  <Translate id='fifth.details'>详情</Translate>
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
                       {/* <a href='usescene/componentReuse'>业务积木式拼装</a> */}
-                      业务积木式拼装
+                      <Translate id='fifth.assemble.title'>业务积木式拼装</Translate>
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
                     <p>
-                      通过应用模型将业务单元实现模块化，并通过“拖拉拽”的方式实现业务拼装
+                      <Translate id='fifth.assemble.description'>通过应用模型将业务单元实现模块化，并通过“拖拉拽”的方式实现业务拼装</Translate>
                     </p>
                   </div>
                 </div>
@@ -711,17 +685,19 @@ export default function Home() {
               <a href='usescene/x86ToArm' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/cursor.svg' /> */}
-                  详情
+                  <Translate id='fifth.details'>详情</Translate>
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
                       {/* <a href='usescene/x86ToArm'>国产化和信创支撑</a> */}
-                      国产化和信创支撑
+                      <Translate id='fifth.localization.title'>国产化和信创支撑</Translate>
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
-                    <p>支持多种国产化平台，x86架构应用自动化向Arm架构转换</p>
+                    <p>
+                      <Translate id='fifth.localization.description'>支持多种国产化平台，x86架构应用自动化向Arm架构转换</Translate>
+                    </p>
                   </div>
                 </div>
                 {/* <i className={styles.angle}></i> */}
@@ -729,18 +705,20 @@ export default function Home() {
               <a href='/usescene/EnterpriseDeliveryOne' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/cursor.svg' /> */}
-                  详情
+                  <Translate id='fifth.details'>详情</Translate>
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
                       {/* <a href='/usescene/EnterpriseDeliveryOne'> */}
-                        企业应用持续交付
+                      <Translate id='fifth.continuousDelivery.title'>企业应用持续交付</Translate>
                       {/* </a> */}
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
-                    <p>企业应用一键交付客户，并支持持续升级迭代</p>
+                    <p>
+                      <Translate id='fifth.continuousDelivery.description'>企业应用一键交付客户，并支持持续升级迭代</Translate>
+                    </p>
                   </div>
                 </div>
                 {/* <i className={styles.angle}></i> */}
@@ -748,18 +726,20 @@ export default function Home() {
               <a href='/usescene/EnterpriseDeliveryTwo' style={{ position: 'relative' }}>
                 <div className={styles.left_logo}>
                   {/* <img src='/img/cursor.svg' /> */}
-                  详情
+                  <Translate id='fifth.details'>详情</Translate>
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
                       {/* <a href='/usescene/EnterpriseDeliveryTwo'> */}
-                        模块化个性化交付
+                      <Translate id='fifth.personalizedDelivery.title'>模块化个性化交付</Translate>
                       {/* </a> */}
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
-                    <p>通过功能模块化，解决2B企业个性化交付的难题</p>
+                    <p>
+                      <Translate id='fifth.personalizedDelivery.description'>通过功能模块化，解决2B企业个性化交付的难题</Translate>
+                    </p>
                   </div>
                 </div>
                 {/* <i className={styles.angle}></i> */}
@@ -771,19 +751,19 @@ export default function Home() {
               >
                 <div className={styles.left_logo}>
                   {/* <img src='/img/cursor.svg' /> */}
-                  详情
+                  <Translate id='fifth.details'>详情</Translate>
                 </div>
                 <div className={styles.desc}>
                   <div className={styles.desc_title}>
                     <h4>
                       {/* <a href='https://store.goodrain.com/' target='_blank'> */}
-                        云原生应用商店
+                      <Translate id='fifth.rainstore.title'>云原生应用商店</Translate>
                       {/* </a> */}
                     </h4>
                   </div>
                   <div className={styles.desc_detail}>
                     <p>
-                      通过云原生技术驱动的企业级应用商店，实现商店的全流程管理，并支持企业应用的各种交付流程
+                      <Translate id='fifth.rainstore.description'>通过云原生技术驱动的企业级应用商店，实现商店的全流程管理，并支持企业应用的各种交付流程</Translate>
                     </p>
                   </div>
                 </div>
@@ -803,15 +783,19 @@ export default function Home() {
       </div>
       {/* 底部 */}
       <footer className={`${styles.footer_container} `}>
-        <h1>参与其中</h1>
+        <h1><Translate id='participate'>参与其中</Translate></h1>
         <div className={`${styles.join_type} ${styles.width}`}>
           <a href='https://t.goodrain.com' target='_blank'>
             <div className={styles.join_logo}>
               <img src='/img/discourse.png' alt='' />
             </div>
             <div className={styles.join_detali}>
-              <h4 style={{ fontSize: '20px' }}>社区</h4>
-              <p>参考社区,学习或贡献更多Rainbond用例用法</p>
+              <h4 style={{ fontSize: '20px' }}>
+                <Translate id='participate.community.title'>社区</Translate>
+              </h4>
+              <p>
+                <Translate id='participate.community.description'>参考社区,学习或贡献更多Rainbond用例用法</Translate>
+              </p>
             </div>
           </a>
           <a
@@ -835,7 +819,9 @@ export default function Home() {
             </div>
             <div className={styles.join_detali}>
               <h4 style={{ fontSize: '20px' }}>WeChat</h4>
-              <p>添加微信助手,加入微信技术交流群 (18800156151)</p>
+              <p>
+                <Translate id='participate.wechat'>添加微信助手,加入微信技术交流群 (18800156151)</Translate>
+              </p>
             </div>
           </a>
           <a href='#'>
@@ -843,8 +829,12 @@ export default function Home() {
               <img src='/img/dingding.png' alt='' />
             </div>
             <div className={styles.join_detali}>
-              <h4 style={{ fontSize: '20px' }}>钉钉群</h4>
-              <p>搜索钉钉群号进群(31096419)</p>
+              <h4 style={{ fontSize: '20px' }}>
+                <Translate id='participate.dingtalk.title'>钉钉群</Translate>
+              </h4>
+              <p>
+                <Translate id='participate.dingtalk.description'>搜索钉钉群号进群(31096419)</Translate>
+              </p>
             </div>
           </a>
           <a href='/community/contribution/'>
@@ -852,8 +842,12 @@ export default function Home() {
               <img src='/img/GitHub.png' alt='' />
             </div>
             <div className={styles.join_detali}>
-              <h4 style={{ fontSize: '20px' }}>贡献</h4>
-              <p>欢迎参与贡献,你可以提出Issues和解决Issues开始</p>
+              <h4 style={{ fontSize: '20px' }}>
+                <Translate id='participate.contribution.title'>贡献</Translate>
+              </h4>
+              <p>
+                <Translate id='participate.contribution.description'>欢迎参与贡献,你可以提出Issues和解决Issues开始</Translate>
+              </p>
             </div>
           </a>
         </div>
@@ -874,7 +868,7 @@ export default function Home() {
               }}
               style={{ width: '100%' }}
               src='https://static.goodrain.com/mp4/HomePageVideo/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%91.mp4'
-              controls='controls'
+              controls={true}
               autoPlay
             ></video>
           </div>

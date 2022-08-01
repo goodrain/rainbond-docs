@@ -11,8 +11,8 @@
     "description": "Navbar item with label Learn"
   },
   "item.label.使用场景": {
-    "message": "Scenario",
-    "description": "Navbar item with label UseScenario"
+    "message": "UseScene",
+    "description": "Navbar item with label UseScene"
   },
   "item.label.用户案例": {
     "message": "Case",
