@@ -1,4 +1,4 @@
-FROM node:16.14-alpine3.15 AS builder
+FROM nikolaik/python-nodejs:python3.10-nodejs16-alpine AS builder
 
 WORKDIR /opt
 COPY . .
