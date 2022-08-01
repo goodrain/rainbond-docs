@@ -1,8 +1,242 @@
 {
+  "navbar.why": {
+    "message": "What's Rainbond?"
+  },
+  "navbar.enterprise": {
+    "message": "Enterprise"
+  },
+  "navbar.learn": {
+    "message": "Learn"
+  },
+  "navbar.usescene": {
+    "message": "UseScene"
+  },
+  "navbar.case": {
+    "message": "Case"
+  },
+  "navbar.blog": {
+    "message": "Blog"
+  },
+  "navbar.doc": {
+    "message": "Docs"
+  },
+  "navbar.appstore": {
+    "message": "AppStore"
+  },
+  "navbar.quickstart": {
+    "message": "Quick Start"
+  },
   "Footer.intro.p1": {
     "message": "Rainbond is Cloud Native Application Management Platform."
   },
   "Footer.intro.p2": {
     "message": "Easy to use, No more dependence Yaml files, it is easy to deploy your application in Kubernetes"
+  },
+  "first.title": {
+    "message": "Cloud Native Multi Cloud Application Management Platform"
+  },
+  "first.description": {
+    "message": "Rainbond core 100% open source, Use easy, Don't need to understand Containers and Kubernetes, Support the management of multiple Kubernetes, Provide whole lifecycle management for enterprise application."
+  },
+  "first.install": {
+    "message": "Install Rainbond"
+  },
+  "first.follow": {
+    "message": "Follow Rainbond"
+  },
+  "second.title1": {
+    "message": "Cloud Native, "
+  },
+  "second.title2": {
+    "message":  "Quick Landing"
+  },
+  "second.sourceCode": {
+    "message":  "Source Code One Click Deployment"
+  },
+  "second.sourceCode1": {
+    "message":  "Support for six common development languages"
+  },
+  "second.sourceCode2": {
+    "message":  "No need to write Dockerfile"
+  },
+  "second.sourceCode3": {
+    "message":  "Integrated Git repository"
+  },
+  "second.kubernetes": {
+    "message":  "Kubernetes Manage Panel"
+  },
+  "second.kubernetes1": {
+    "message":  "Zero threshold Kubernetes"
+  },
+  "second.kubernetes2": {
+    "message":  "No need write YAML"
+  },
+  "second.kubernetes3": {
+    "message":  "Manage multiple clusters"
+  },
+  "second.microservice": {
+    "message":  "Micro Service Actual Combat"
+  },
+  "second.microservice1": {
+    "message":  "Spring Cloud quickly deploy"
+  },
+  "second.microservice2": {
+    "message":  "Service orchestration and topology view"
+  },
+  "second.microservice3": {
+    "message":  "Support Service Mesh"
+  },
+  "second.openapp": {
+    "message":  "80+ Open Source Applications OOTB"
+  },
+  "second.openapp1": {
+    "message":  "One click install and upgrade"
+  },
+  "second.openapp2": {
+    "message":  "Building Application Market"
+  },
+  "second.openapp3": {
+    "message":  "Docking Helm Market"
+  },
+  "third.chooseRainbond.title1": {
+    "message":  "Why Choose "
+  },
+  "third.chooseRainbond.title2": {
+    "message":  "Rainbond?"
+  },
+  "third.chooseRainbond.useEasy": {
+    "message":  "Use Easy"
+  },
+  "third.chooseRainbond.useEasy1": {
+    "message":  "Just one command installation experience"
+  },
+  "third.chooseRainbond.useEasy2": {
+    "message":  "Easy use and powerful"
+  },
+  "third.chooseRainbond.useEasy3": {
+    "message":  "Don't need to write Dockerfile and YAML"
+  },
+  "third.chooseRainbond.useEasy4": {
+    "message":  "Application as the center of the design concept"
+  },
+  "third.chooseRainbond.appDelivery": {
+    "message":  "App Delivery"
+  },
+  "third.chooseRainbond.appDelivery1": {
+    "message":  "One click install and upgrade of enterprise app"
+  },
+  "third.chooseRainbond.appDelivery2": {
+    "message":  "Private delivery and personalized delivery efficiency increased"
+  },
+  "third.chooseRainbond.appDelivery3": {
+    "message":  "Fully functional enterprise application store"
+  },
+  "third.chooseRainbond.appDelivery4": {
+    "message":  "Build an industry application ecology"
+  },
+  "third.chooseRainbond.cloudNative": {
+    "message":  "Cloud Native"
+  },
+  "third.chooseRainbond.cloudNative1": {
+    "message":  "OOTB integrated cloud native platform"
+  },
+  "third.chooseRainbond.cloudNative2": {
+    "message":  "Traditional apps become cloud native apps in one step"
+  },
+  "third.chooseRainbond.cloudNative3": {
+    "message":  "Have complete cloud native features"
+  },
+  "third.chooseRainbond.cloudNative4": {
+    "message":  "Digital capability accumulation and Reuse"
+  },
+  "third.chooseRainbond.quickstart": {
+    "message":  "Quick Start"
+  },
+  "fourth.video": {
+    "message": "Watch The Video To Learn"
+  },
+  "fifth.title": {
+    "message": " Usage Scenario"
+  },
+  "fifth.integratedDev.title": {
+    "message": "Integration Development Test Environment"
+  },
+  "fifth.integratedDev.description": {
+    "message": "Integrated development and testing environment, Automatic identification of development languages and automatic builds, OOTB."
+  },
+  "fifth.appUnifiedManage.title": {
+    "message": " Unified Management of Enterprise App"
+  },
+  "fifth.appUnifiedManage.description": {
+    "message": "Unified management of enterprise applications and computing resources, Automated operation and maintenance, Manage enterprise apps just like mobile apps."
+  },
+  "fifth.multiCloud.title": {
+    "message": "Application Level Multi Cloud Manage"
+  },
+  "fifth.multiCloud.description": {
+    "message": "Interconnect and manage hybrid cloud and various Kubernetes clusters, Apply transparency for deployment and migration on multiple clouds."
+  },
+  "fifth.offlineDelivery.title": {
+    "message": "Offline Software Delivery"
+  },
+  "fifth.offlineDelivery.description": {
+    "message": "Automated delivery of offline applications, It also supports personalized customization and application O&M."
+  },
+  "fifth.assemble.title": {
+    "message": "Service Cordwood Assembly"
+  },
+  "fifth.assemble.description": {
+    "message": "Business units are modularized by applying models, And through the drag and drop way to achieve business assembly."
+  },
+  "fifth.localization.title": {
+    "message": "Localization Support"
+  },
+  "fifth.localization.description": {
+    "message": "Support a variety of localization platforms, conversion of x86 architecture applications to Arm architecture."
+  },
+  "fifth.continuousDelivery.title": {
+    "message": "Enterprise App Continuous Delivery"
+  },
+  "fifth.continuousDelivery.description": {
+    "message": "Enterprise application one-click delivery to customers, and continuous upgrade iterations are supported."
+  },
+  "fifth.personalizedDelivery.title": {
+    "message": "Module Personalized Delivery"
+  },
+  "fifth.personalizedDelivery.description": {
+    "message": "Through functional modularity, solve the problem of 2B enterprise personalized delivery."
+  },
+  "fifth.rainstore.title": {
+    "message": "Cloud Native App Store"
+  },
+  "fifth.rainstore.description": {
+    "message": "Cloud native technology driven of enterprise app store, Implement the app store of full process management, and support various delivery processes for enterprise applications."
+  },
+  "fifth.details": {
+    "message": "Details"
+  },
+  "participate": {
+    "message": "Participate Rainbond Community"
+  },
+  "participate.community.title": {
+    "message": "Community"
+  },
+  "participate.community.description": {
+    "message": "Learn more in community forums"
+  },
+  "participate.wechat": {
+    "message": "Join Wechat Group (18800156151)"
+  },
+  "participate.dingtalk.title": {
+    "message": "DingTalk Group"
+  },
+  "participate.dingtalk.description": {
+    "message": "Join DingTalk Group (31096419)"
+  },
+  "participate.contribution.title": {
+    "message": "Contribution"
+  },
+  "participate.contribution.description": {
+    "message": "Participate Community Contribution"
   }
 }
