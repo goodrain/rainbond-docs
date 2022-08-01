@@ -39,11 +39,6 @@ export default function Index(props) {
           <div className={styles.nav_container}>
             <ul className={styles.nav_lists}>
               <li>
-                <a href='/docs/'>
-                  <Translate id='navbar.why'>Rainbond是什么?</Translate>
-                </a>
-              </li>
-              <li>
                 <a href='/enterprise_server'>
                   <Translate id='navbar.enterprise'>企业版</Translate>
                 </a>
@@ -66,8 +61,8 @@ export default function Index(props) {
                 </div>
               </li>
               <li>
-                <a href='/docs/use-manual/get-start/'>
-                  <Translate>文档</Translate>
+                <a href='/docs/'>
+                  <Translate id='navbar.doc'>文档</Translate>
                 </a>
               </li>
               <li>
@@ -113,11 +108,6 @@ export default function Index(props) {
         <div className={styles.isMobieNavBar}>
           <ul className={styles.mobile_nav_lists}>
             <li>
-              <a href='/docs/'>
-                <Translate>Rainbond是什么?</Translate>
-              </a>
-            </li>
-            <li>
               <a href='/enterprise_server'>
                 <Translate>产品</Translate>
               </a>
@@ -140,8 +130,8 @@ export default function Index(props) {
               </div>
             </li>
             <li>
-              <a href='/docs/use-manual/get-start/'>
-                <Translate>文档</Translate>
+              <a href='/docs/'>
+                <Translate id='navbar.doc'>文档</Translate>
               </a>
             </li>
             <li>
