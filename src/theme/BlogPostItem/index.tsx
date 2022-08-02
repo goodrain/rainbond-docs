@@ -70,22 +70,24 @@ export default function BlogPostItem(props: Props): JSX.Element {
   const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
   const location_url = useLocation().pathname;
   const { images } = frontMatter as any;
-  if (location_url.includes('case') || location_url.includes('usescene')) {
-    return (
-      <>
-        <a className={`${styless.container_box}`} href={permalink}>
-          <div>
-            <div className={styless.logo}>
-              <img src={images || ''} alt='' />
+  if (! isBlogPostPage) {
+    if (location_url.includes('case') || location_url.includes('usescene')) {
+      return (
+        <>
+          <a className={`${styless.container_box}`} href={permalink}>
+            <div>
+              <div className={styless.logo}>
+                <img src={images || ''} alt='' />
+              </div>
+              <div className={styless.title}>
+                <p style={{ textAlign: 'center' }}>{title}</p>
+              </div>
+              <div className={styless.desc}>{description}</div>
             </div>
-            <div className={styless.title}>
-              <p style={{ textAlign: 'center' }}>{title}</p>
-            </div>
-            <div className={styless.desc}>{description}</div>
-          </div>
-        </a>
-      </>
-    );
+          </a>
+        </>
+      );
+    }
   }
   return (
     <article
