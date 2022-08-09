@@ -387,7 +387,8 @@ const sidebars = {
                 'use-manual/app-manage/architecture/traffic-management',
                 'use-manual/app-manage/architecture/network-visualization'
               ]
-            }
+            },
+            'use-manual/app-manage/k8s-resource/k8s-resource',
           ]
         },
         {
@@ -399,6 +400,7 @@ const sidebars = {
           },
           items: [
             'use-manual/team-manage/overview/overview',
+            'use-manual/team-manage/ns-to-team/ns-to-team',
             {
               type: 'category',
               label: '应用管理',
