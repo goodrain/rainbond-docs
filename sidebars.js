@@ -211,6 +211,29 @@ const sidebars = {
                 'use-manual/component-create/helm-support/creation-process',
                 'use-manual/component-create/helm-support/manage-helm-app'
               ]
+            },
+            {
+              type: 'category',
+              label: '本地文件创建组件',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-create/package-support/index'
+              },
+              items: [
+                'use-manual/component-create/package-support/jar-war',
+                'use-manual/component-create/package-support/yaml'
+              ]
+            },
+            {
+              type: 'category',
+              label: '创建任务类型组件',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-create/task-support/index'
+              },
+              items: [
+                'use-manual/component-create/task-support/job-cronjob'
+              ]
             }
           ]
         },
@@ -307,6 +330,7 @@ const sidebars = {
               items: [
                 'use-manual/component-manage/build-source/build_and_version',
                 'use-manual/component-manage/build-source/auto_build',
+                'use-manual/component-manage/build-source/change_source_type'
               ]
             },
             {
@@ -317,7 +341,7 @@ const sidebars = {
                 id: 'use-manual/component-manage/other/index'
               },
               items: [
-                'use-manual/component-manage/other/service-other-set',
+                'use-manual/component-manage/other/index'
               ]
             },
           ]
