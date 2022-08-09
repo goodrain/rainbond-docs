@@ -223,6 +223,17 @@ const sidebars = {
                 'use-manual/component-create/package-support/jar-war',
                 'use-manual/component-create/package-support/yaml'
               ]
+            },
+            {
+              type: 'category',
+              label: '创建任务类型组件',
+              link: {
+                type: 'doc',
+                id: 'use-manual/component-create/task-support/index'
+              },
+              items: [
+                'use-manual/component-create/task-support/job-cronjob'
+              ]
             }
           ]
         },
