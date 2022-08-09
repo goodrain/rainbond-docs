@@ -2,6 +2,18 @@
 title: 组件其他设置
 description: 组件其他设置功能模块介绍
 ---
+## 组件部署类型
+
+- 无状态服务(Deployment类型)
+ 一般用于Web类、API类等组件
+
+- 有状态服务(Statefulset类型)
+ 一般用于DB类、消息中间件类、数据类组件
+
+- 任务(Job类型)
+一般用于一次性任务,完成后容器就退出
+- 周期性任务(Cronjob类型)
+一般用于处理周期性的、需反复执行的定时任务
 
 ## 组件健康检测
 
@@ -24,7 +36,7 @@ description: 组件其他设置功能模块介绍
 
 因此用户可以根据业务状态来判断选择合适的处理方式。
 
-## 操作流程
+### 操作流程
 
 组件健康检测的配置在 _组件控制面板/其他设置_ 页面中。
 
@@ -44,6 +56,200 @@ description: 组件其他设置功能模块介绍
 2.启用/禁用健康检测
 
 特殊情况下开发者可能需要临时禁用健康检测使组件一直处于健康状态。可以使用启用/禁用健康检测功能。修改后需要更新组件即可生效。
+
+## 使用 Job、CronJob 部署组件
+### 概述
+
+任务主要包含两种：
+
+- Job负责批处理任务，即仅执行一次的任务，它保证批处理任务的一个或多个Pod成功结束.
+- CronJob是管理调度job，周期性的创建job去执行任务.
+
+详细信息参考k8s官方文档
+- Job  https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/job/
+- CronJob  https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/cron-jobs/
+
+### 使用流程
+
+在创建组件的时候，可以在高级设置中选择job、cronjob类型.
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/ComponentType.png" title="高级设置"/>
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/CreatJob.png" title="设置job"/>
+
+如果选择cronjob，需要填写调度策略
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/CreatCronJob.png" title="设置cronjob"/>
+
+创建成功开始执行任务，待job任务执行完毕时，标识已完成.
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/JobRuning.png" title="job任务运行"/>
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/JobOK.png" title="job任务完成"/>
+
+job任务执行完成，可点击重启按钮，重新执行该任务；也可以点击关闭任务
+
+在组件其他设置中可修改部署类型和任务策略
+
+部署类型
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/ChangeType.png" title="组件部署类型"/>
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/DeploymentType.png" title="修改组件部署类型"/>
+
+任务策略
+
+- 如果是cronjob类型，定时配置必填，如 `*/1 * * * *` 一分钟执行一次
+- 最大重试次数：如果任务失败，默认失败认定重启次数为6，可以通过配置调整失败重启次数
+- 并行任务数：能够同时运行的Pod数，如设置3个，则有3个任务同时创建并执行
+- 最大运行时间：如果Job运行的时间超过了设定的秒数，那么此Job就自动停止运行所有的Pod
+- 完成数：完成该Job需要执行成功的Pod数
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/TaskStrategy.png" title="任务策略编辑"/>
+
+cronjob任务执行状态
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/CronJob.png" title="cronjob任务执行"/>
+
+
+
+## kubernetes属性
+### 属性介绍
+- nodeSelector   `key: value`
+
+  用于将Pod调度到匹配Label的Node上，如果没有匹配的标签会调度失败
+    
+- labels `key: value`
+
+  是附加到k8s对象上的键值对标识，支持高效的查找和监听。作用就是字面意思，给k8s对象打上标签，我们可以使用标签来选择对象
+    
+- volumes
+  
+  持久化存储
+  
+  volumes在k8s中定义时的格式为
+    ```yaml
+    volumes:
+    - name: config-vol
+      configMap:
+        name: log-config
+        items:
+          - key: log_level
+            path: log_level
+    ```
+  
+  在平台添加属性时不需要在开头定义volumes，如以下格式：
+    ```yaml
+    - name: config-vol
+      configMap:
+        name: log-config
+        items:
+          - key: log_level
+            path: log_level
+    ```
+
+
+- volumeMounts
+    
+    挂载volumes
+
+    volumeMounts在k8s中定义时的格式为
+    ```yaml
+    volumeMounts:        #容器内挂载点
+        - mountPath: /data
+          name: redis-data        #必须有名称
+    ```
+
+    在平台添加属性时不需要在开头定义volumeMounts，如以下格式：
+    ```yaml
+     - mountPath: /data
+          name: redis-data
+    ```
+- affinity
+
+    亲和性调度
+    
+    详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/concepts/scheduling-eviction/assign-pod-node/
+
+    affinity在k8s中定义时的格式为
+    ```yaml
+    affinity:
+        nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+            - key: disktype
+                operator: In
+                values:
+                - ssd
+    ```
+
+    在平台添加属性时不需要在开头定义affinity，如以下格式：
+    ```yaml
+    nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: disktype
+            operator: In
+            values:
+            - ssd
+    ```
+- tolerations
+  
+  容忍度
+  
+  详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/concepts/scheduling-eviction/taint-and-toleration/
+  
+  tolerations在k8s中定义时的格式为
+    ```yaml
+    tolerations:
+      - key: "key1"
+        operator: "Equal"
+        value: "value1"
+        effect: "NoSchedule"
+        tolerationSeconds: 3600
+      - key: "key1"
+        operator: "Equal"
+        value: "value1"
+        effect: "NoExecute"
+    ```
+
+    在平台添加属性时不需要在开头定义tolerations，如以下格式：
+    ```yaml
+    - key: "key1"
+      operator: "Equal"
+      value: "value1"
+      effect: "NoSchedule"
+      tolerationSeconds: 3600
+    - key: "key1"
+      operator: "Equal"
+      value: "value1"
+      effect: "NoExecute"
+    ```   
+- serviceAccountName  `key: value`
+
+- privileged 
+
+    决定是否 Pod 中的某容器可以启用特权模式。 默认情况下，容器是不可以访问宿主上的任何设备的，不过一个“privileged（特权的）” 容器则被授权访问宿主上所有设备。 这种容器几乎享有宿主上运行的进程的所有访问权限。 对于需要使用 Linux 权能字（如操控网络堆栈和访问设备）的容器而言是有用的
+    
+    privileged: false  `不允许提权的 Pod！`
+
+- env
+
+  环境变量
+
+  详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/tasks/inject-data-application/define-environment-variable-container/
+
+  env在k8s中定义时的格式为
+
+    ```yaml
+    env:
+    - name: DEMO_GREETING
+      value: "Hello from the environment"
+    - name: DEMO_FAREWELL
+      value: "Such a sweet sorrow"
+    ```
+  在平台添加属性时不需要在开头定义env，如以下格式：
+  ```yaml
+   - name: DEMO_GREETING
+     value: "Hello from the environment"
+   - name: DEMO_FAREWELL
+     value: "Such a sweet sorrow"
+  ```
+
 
 ## 常见问题
 
