@@ -91,8 +91,8 @@ description: 组件其他设置功能模块介绍
   挂载volumes，volumeMounts在k8s中定义时的格式为
   ```yaml
   volumeMounts:        #容器内挂载点
-      - mountPath: /data
-        name: redis-data        #必须有名称
+    - mountPath: /data
+      name: redis-data        #必须有名称
   ```
   在平台添加属性时不需要在开头定义volumeMounts，如以下格式
   ```yaml
@@ -106,14 +106,14 @@ description: 组件其他设置功能模块介绍
   
   ```yaml
   affinity:
-      nodeAffinity:  # 作用域：Pod和Node之间
-        requiredDuringSchedulingIgnoredDuringExecution:  # Node亲和性-硬策略
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: NotIn
-              values:
-              - node3
+    nodeAffinity:  # 作用域：Pod和Node之间
+      requiredDuringSchedulingIgnoredDuringExecution:  # Node亲和性-硬策略
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: NotIn
+            values:
+            - node3
   ```
   在平台添加属性时不需要在开头定义affinity，如以下格式
   ```yaml
@@ -159,7 +159,7 @@ description: 组件其他设置功能模块介绍
   配置服务账户，详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-service-account/
 
 #### privileged 
-  决定是否 Pod 中的某容器可以启用特权模式。 默认情况下，容器是不可以访问宿主上的任何设备的，不过一个“privileged（特权的）” 容器则被授权访问宿主上所有设备。 这种容器几乎享有宿主上运行的进程的所有访问权限。 对于需要使用 Linux 权能字（如操控网络堆栈和访问设备）的容器而言是有用的
+  决定是否 Pod 中的某容器可以启用特权模式。 默认情况下，容器是不可以访问宿主上的任何设备的，不过一个“privileged（特权的）” 容器则被授权访问宿主上所有设备。 这种容器几乎享有宿主上运行的进程的所有访问权限。
 
 #### env
   详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/tasks/inject-data-application/define-environment-variable-container/
@@ -169,44 +169,44 @@ description: 组件其他设置功能模块介绍
   ```yaml
   env:
   - name: Version
-      value: v5.8
+    value: v5.8
   - name: NGINX_USERNAEM
-      valueFrom:
+    valueFrom:
       secretKeyRef:
-          name: nginx-secret
-          key: username
-          optional: false
+        name: nginx-secret
+        key: username
+        optional: false
   - name: NGINX_PASSWORD
-      valueFrom:
+    valueFrom:
       secretKeyRef:
-          name: nginx-secret
-          key: password
-          optional: false
+        name: nginx-secret
+        key: password
+        optional: false
   - name: MY_POD_IP
-      valueFrom:
+    valueFrom:
       fieldRef:
-          fieldPath: status.podIP
+        fieldPath: status.podIP
   ```
   在平台添加属性时不需要在开头定义env，如以下格式
   ```yaml
   - name: Version
-      value: v5.8
+    value: v5.8
   - name: NGINX_USERNAEM
-      valueFrom:
+    valueFrom:
       secretKeyRef:
-          name: nginx-secret
-          key: username
-          optional: false
+        name: nginx-secret
+        key: username
+        optional: false
   - name: NGINX_PASSWORD
-      valueFrom:
+    valueFrom:
       secretKeyRef:
-          name: nginx-secret
-          key: password
-          optional: false
+        name: nginx-secret
+        key: password
+        optional: false
   - name: MY_POD_IP
-      valueFrom:
+    valueFrom:
       fieldRef:
-          fieldPath: status.podIP
+        fieldPath: status.podIP
   ```
 
 
