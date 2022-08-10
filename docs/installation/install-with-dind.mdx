@@ -60,7 +60,7 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 -v ~/dockerdata:/var/lib/docker \
 -e ENABLE_CLUSTER=true \
 -e EIP=$EIP \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.7.1-dind-allinone \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.0-dind-allinone \
 && docker logs -f rainbond-allinone
 ```
 
@@ -82,7 +82,7 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 
   </TabItem>
 
-  <TabItem value="Linux with Arm" label="Linux With Arm">
+<!--  <TabItem value="Linux with Arm" label="Linux With Arm">
 
 <h3>1. 安装 Docker</h3>
 
@@ -116,7 +116,7 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 -v ~/dockerdata:/var/lib/docker \
 -e ENABLE_CLUSTER=true \
 -e EIP=$EIP \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.7.1-dind-arm64-allinone \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.0-dind-arm64-allinone \
 && docker logs -f rainbond-allinone
 ```
 
@@ -136,7 +136,8 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 注意：快速体验版本默认安装了可使用的集群，无需执行基于主机安装集群的操作。
 :::
 
-  </TabItem>
+  </TabItem> 
+-->
   <TabItem value="Mac with Intel" label="Mac with Intel">
 
 <h3>1. 安装 Docker</h3>
@@ -168,7 +169,7 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 -v ~/rainbonddata:/app/data \
 -e ENABLE_CLUSTER=true \
 -e EIP=$EIP \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.7.1-dind-allinone \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.0-dind-allinone \
 && docker logs -f rainbond-allinone
 ```
 
@@ -189,7 +190,8 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 :::
 
   </TabItem>
-  <TabItem value="Mac with M1" label="Mac with M1">
+
+<!-- <TabItem value="Mac with M1" label="Mac with M1">
 
 <h3>1. 安装 Docker</h3>
 
@@ -220,7 +222,7 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 -v ~/rainbonddata:/app/data \
 -e ENABLE_CLUSTER=true \
 -e EIP=$EIP \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.7.1-dind-arm64-allinone \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.0-dind-arm64-allinone \
 && docker logs -f rainbond-allinone
 ```
 
@@ -240,7 +242,8 @@ Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制
 注意：快速体验版本默认安装了可使用的集群，无需执行基于主机安装集群的操作。
 :::
 
-  </TabItem>
+  </TabItem> 
+-->
   <TabItem value="Windows" label="Windows">
 
 <h3>1. 安装 Docker</h3>
@@ -271,7 +274,7 @@ docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 844
 -v ~/opt/rainbond:/opt/rainbond ^
 -e ENABLE_CLUSTER=true ^
 -e EIP=<你的IP地址> ^
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.7.1-dind-allinone ^
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.0-dind-allinone ^
 && docker logs -f rainbond-allinone
 ```
 
