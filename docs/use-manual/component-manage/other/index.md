@@ -2,6 +2,18 @@
 title: 组件其他设置
 description: 组件其他设置功能模块介绍
 ---
+## 组件部署类型
+
+- 无状态服务(Deployment类型)
+ 一般用于Web类、API类等组件
+
+- 有状态服务(Statefulset类型)
+ 一般用于DB类、消息中间件类、数据类组件
+
+- 任务(Job类型)
+一般用于一次性任务,完成后容器就退出
+- 周期性任务(Cronjob类型)
+一般用于处理周期性的、需反复执行的定时任务
 
 ## 组件健康检测
 
@@ -24,7 +36,7 @@ description: 组件其他设置功能模块介绍
 
 因此用户可以根据业务状态来判断选择合适的处理方式。
 
-## 操作流程
+### 操作流程
 
 组件健康检测的配置在 _组件控制面板/其他设置_ 页面中。
 
@@ -44,6 +56,159 @@ description: 组件其他设置功能模块介绍
 2.启用/禁用健康检测
 
 特殊情况下开发者可能需要临时禁用健康检测使组件一直处于健康状态。可以使用启用/禁用健康检测功能。修改后需要更新组件即可生效。
+
+## kubernetes属性
+  
+  与kubenetes中定义属性不同的是，该属性为yaml格式时，开头无需填写属性名
+### 属性介绍
+#### nodeSelector
+  用于将Pod调度到匹配Label的Node上，如果没有匹配的标签会调度失败
+    
+#### labels
+  是附加到k8s对象上的键值对标识，支持高效的查找和监听。作用就是字面意思，给k8s对象打上标签，我们可以使用标签来选择对象
+    
+#### volumes
+  数据的持久化存储，volumes在k8s中定义时的格式为
+  ```yaml
+  volumes:
+    - name: config-vol
+      configMap:
+        name: log-config
+        items:
+          - key: log_level
+            path: log_level
+  ```
+  在平台添加属性时不需要在开头定义volumes，如以下格式
+  ```yaml
+  - name: config-vol
+    configMap:
+      name: log-config
+      items:
+        - key: log_level
+          path: log_level
+  ```
+#### volumeMounts
+  挂载volumes，volumeMounts在k8s中定义时的格式为
+  ```yaml
+  volumeMounts:        #容器内挂载点
+    - mountPath: /data
+      name: redis-data        #必须有名称
+  ```
+  在平台添加属性时不需要在开头定义volumeMounts，如以下格式
+  ```yaml
+  - mountPath: /data
+    name: redis-data
+  ```
+#### affinity
+  详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/concepts/scheduling-eviction/assign-pod-node/
+  
+  亲和性调度，affinity在k8s中定义时的格式为
+  
+  ```yaml
+  affinity:
+    nodeAffinity:  # 作用域：Pod和Node之间
+      requiredDuringSchedulingIgnoredDuringExecution:  # Node亲和性-硬策略
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: NotIn
+            values:
+            - node3
+  ```
+  在平台添加属性时不需要在开头定义affinity，如以下格式
+  ```yaml
+  nodeAffinity:  # 作用域：Pod和Node之间
+    requiredDuringSchedulingIgnoredDuringExecution:  # Node亲和性-硬策略
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: NotIn
+          values:
+          - node3
+  ```
+#### tolerations
+  详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/concepts/scheduling-eviction/taint-and-toleration/
+  
+  容忍度，tolerations在k8s中定义时的格式为
+  ```yaml
+  tolerations:
+    - key: "key1"
+      operator: "Equal"
+      value: "value1"
+      effect: "NoSchedule"
+      tolerationSeconds: 3600
+    - key: "key1"
+      operator: "Equal"
+      value: "value1"
+      effect: "NoExecute"
+  ```
+  在平台添加属性时不需要在开头定义tolerations，如以下格式
+  ```yaml
+  - key: "key1"
+    operator: "Equal"
+    value: "value1"
+    effect: "NoSchedule"
+    tolerationSeconds: 3600
+  - key: "key1"
+    operator: "Equal"
+    value: "value1"
+    effect: "NoExecute"
+  ```   
+
+#### serviceAccountName
+  配置服务账户，详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-service-account/
+
+#### privileged 
+  决定是否 Pod 中的某容器可以启用特权模式。 默认情况下，容器是不可以访问宿主上的任何设备的，不过一个“privileged（特权的）” 容器则被授权访问宿主上所有设备。 这种容器几乎享有宿主上运行的进程的所有访问权限。
+
+#### env
+  详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/tasks/inject-data-application/define-environment-variable-container/
+
+  环境变量，env在k8s中定义时的格式为
+
+  ```yaml
+  env:
+  - name: Version
+    value: v5.8
+  - name: NGINX_USERNAEM
+    valueFrom:
+      secretKeyRef:
+        name: nginx-secret
+        key: username
+        optional: false
+  - name: NGINX_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: nginx-secret
+        key: password
+        optional: false
+  - name: MY_POD_IP
+    valueFrom:
+      fieldRef:
+        fieldPath: status.podIP
+  ```
+  在平台添加属性时不需要在开头定义env，如以下格式
+  ```yaml
+  - name: Version
+    value: v5.8
+  - name: NGINX_USERNAEM
+    valueFrom:
+      secretKeyRef:
+        name: nginx-secret
+        key: username
+        optional: false
+  - name: NGINX_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: nginx-secret
+        key: password
+        optional: false
+  - name: MY_POD_IP
+    valueFrom:
+      fieldRef:
+        fieldPath: status.podIP
+  ```
+
 
 ## 常见问题
 
