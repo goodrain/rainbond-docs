@@ -48,3 +48,9 @@ CMD ["app-server"]
 #### 完整示例代码
 
 - [https://github.com/goodrain/dockerfile-demo.git](https://github.com/goodrain/dockerfile-demo.git)
+
+### 私有仓库如何处理？
+
+如果你的 Dockerfile 使用私有镜像仓库的镜像，那么当你直接使用该 Dockerfile 构建时，会由于权限问题，无法拉取到正确镜像进行构建。此时你可以在团队管理中，选择镜像仓库授权信息，填写该私有镜像仓库的域名、用户名和密码，保存后再次构建，即可构建成功。如下图所示:
+
+![private-repo-dockerfile.png](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/language-support/private-repo-dockerfile.png)
