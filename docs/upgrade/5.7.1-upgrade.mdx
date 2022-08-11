@@ -37,6 +37,12 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.7.1-release-allinone
 <Tabs groupId="upgrade">
   <TabItem value="helm" label="helm" default>
 
+:::warning
+如果在 helm 部署 Rainbond 时，有指定外部数据库或使用了其他参数。那么在执行下述升级命令时，也需要通过 --set 设置好之前的参数。否则之前配置将会被覆盖。
+
+另一种方式是使用 grctl 命令进行升级。使用 grctl 命令升级可以避免该问题。grctl 命令版本至少为 v5.8.0-release
+:::
+
 - 数据中心端升级
 
 - 更新镜像源
