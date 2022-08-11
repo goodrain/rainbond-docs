@@ -65,6 +65,7 @@ const sidebars = {
           items: [
             'installation/install-with-ui/host-install-with-ui',
             'installation/install-with-ui/ha-installation',
+            'installation/install-with-ui/offline-install',
             'installation/install-with-ui/install-by-rainbond',
             'installation/install-with-ui/install-from-k8s',
             'installation/install-with-ui/console-recover'
