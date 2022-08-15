@@ -16,7 +16,7 @@ weight: 1001
 - 在集群页面选择 `接入已安装平台集群`
 
 
-<image src="https://static.goodrain.com/docs/5.4/user-operations/install/install-by-rainbond/from-rainbond.jpg" title="接入已安装平台集群" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-by-rainbond/from-rainbond.jpg" title="接入已安装平台集群" width="100%"/>
 
 - 填写集群ID、集群名称及Region Config文件内容
 
@@ -28,14 +28,14 @@ Region Config文件内容获取方式如下：
 grctl config
 ```
 
-<image src="https://static.goodrain.com/docs/5.4/user-operations/install/install-by-rainbond/config.jpg" title="添加集群" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-by-rainbond/config.jpg" title="添加集群" width="100%"/>
 
 
 - 完成对接
 
 添加完成后集群处于运行中状态即完成对接，可以进行使用。
  
-<image src="https://static.goodrain.com/docs/5.4/user-operations/install/install-by-rainbond/direct-docking.jpg" title="对接完成" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-by-rainbond/direct-docking.jpg" title="对接完成" width="100%"/>
 
 ## 控制台迁移
 

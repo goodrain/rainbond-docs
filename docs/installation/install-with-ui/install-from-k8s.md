@@ -17,19 +17,19 @@ description: "接入已安装Kubernetes集群"
 
 - 在集群页面选择 `接入Kubernetes集群`
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/install-fromk8s.png" title="接入Kubernetes集群" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/install-fromk8s.png" title="接入Kubernetes集群"/>  
 
 - 填写集群名称及KubeConfig文件内容
 
 自定义集群名称即可，KubeConfig文件一般情况下在Kubernetes集群master节点的`~/.kube/config`路径下。
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/docking-k8s.png" title="对接Kubernetes集群" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/docking-k8s.png" title="对接Kubernetes集群"/>  
 
 - 初始化Rainbond
 
 添加Kubernetes集群以后，健康状态显示运行中，此时根据引导即可完成Rainbond的安装，待平台集群初始化后即完成对接。
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/state.png" title="健康状态" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/install-from-k8s/state.png" title="健康状态"/>
 
 - 完成对接
 

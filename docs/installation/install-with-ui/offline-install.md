@@ -1,12 +1,14 @@
 ---
-title: '基于主机安装'
+title: '离线安装'
 weight: 100
-description: '基于图形化界面，从主机开始安装 Rainbond '
+description: '基于图形化界面，从离线开始安装 Rainbond '
 ---
 
-当前安装方式，会引导用户从一台服务器开始安装 Rainbond ，服务器可以是物理机、虚拟机或各种云主机。
+当前安装方式，会引导用户从一台离线服务器开始安装 Rainbond ，服务器可以是物理机、虚拟机或各种云主机。
 
 安装过程中，会首先通过一条命令启动图形化的控制台，后续基于图形化界面，即可完成整个 Rainbond 集群的安装。
+
+与基于主机安装的区别是，离线安装需要手动上传安装 Rainbond 所需的离线安装包。
 
 - 最低配置
 
@@ -16,29 +18,39 @@ description: '基于图形化界面，从主机开始安装 Rainbond '
 
 - 如果您使用 CentOS 7.* 操作系统，请务必提前 [升级内核版本](https://t.goodrain.com/d/9-centos)；
 - 确保服务器 `80、443、6060、6443、7070、8443` 端口能够访问；
-- 服务器能够正常连接互联网，安装过程将从互联网下载所需资源。
 - 服务器已经安装 NFS 客户端
 
 ### 部署 Rainbond 控制台
 
 Rainbond 控制台支持在 Linux、Windows(Docker Desktop) 或 Mac(Docker Desktop) 中运行。
 
-- 安装Docker
+#### 准备工作
+
+- 安装 Docker
+
+- 下载离线安装包
+
+因为是离线安装，所以需要通过其他途径下载安装包后上传到离线服务器中。
 
 ```bash
-curl sh.rainbond.com/install_docker | bash
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.X/rainbond-offline-v5.8.0-release.tgz
 ```
 
-`备注:`
+- 解压离线安装包  
 
-该安装方式仅支持 Linux x86 操作系统。
+当安装包上传完毕，然后配置安装包路径并开始解压，这里默认你存放的路径为 ~/rainbond 。
 
-#### 安装 NFS 客户端
-
-如果服务器上有 NFS 客户端，则无需重复进行安装
 ```bash
-yum -y install nfs-utils    # Cenots系统
-apt-get install nfs-common  # ubuntu系统
+export RAINBOND_INSTALL_PATH=~/rainbond
+cd ${RAINBOND_INSTALL_PATH}
+tar xvf rainbond-offline-v5.8.0-release.tgz
+```
+
+- 执行准备环境脚本
+
+```bash
+cd ${RAINBOND_INSTALL_PATH}/offline/
+source install_docker_offline.sh 
 ```
 
 #### 启动 All-In-One 控制台
@@ -46,20 +58,36 @@ apt-get install nfs-common  # ubuntu系统
 ```bash
 docker run -d -p 7070:7070 \
 --name=rainbond-allinone --restart=always \
+-e IS_OFFLINE=true \
+-e DISABLE_DEFAULT_APP_MARKET=true \
+-e INSTALL_IMAGE_REPO=goodrain.me \
+-e RAINBOND_VERSION=v5.8.0-release  \
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.0-release-allinone
+goodrain.me/rainbond:v5.8.0-release-allinone
 ```
+:::caution
+该创建方式默认会创建 sqlite 数据库，在生产环境中不可用，如果想使用 MYSQL 需要在上述命令行中加上以下变量。
+:::
+
+```bash
+-e DB_TYPE=mysql \
+-e MYSQL_DB=console \
+-e MYSQL_PORT=3306 \
+-e MYSQL_HOST=** \
+-e MYSQL_USER=** \
+-e MYSQL_PASS=** \
+```
+
 
 `备注:`
 
 - 控制台将产生需要持久化的数据，存储于您部署节点的 `~/rainbonddata` 目录中；
 - Rainbond 5.3 及以上版本支持控制台数据迁移，便于后续迁移数据到生产环境，请放心体验。
 
-
 待容器启动成功后，稍等片刻即可在浏览器中访问服务器 `7070` 端口，打开 Rainbond 控制台`注册页面`。请根据提示完成注册操作。
 
-<img src="https://static.goodrain.com/images/5.3/regist.png" title="注册页面"/>   
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/installation/install-with-ui/rainbond_enroll.jpg" title="注册界面"/>   
 
 到此，恭喜您已经完成了第一步，你还需要继续完成集群的部署。
 
@@ -67,7 +95,8 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.0-release-allinone
 
 登录控制台后，根据左侧导航栏切换到 `集群` 页面，点击 `添加集群` ，进入图形化安装页面。
 
-<img src="https://static.goodrain.com/docs/5.5/user-operations/deploy/install-with-ui/host-install-with-ui/host-install-with-ui-1.png" title="从主机开始安装"/>
+<img src="https://static.goodrain.com/docs/5.5/user-operations/deploy/install-with-ui/host-install-with-ui/host-install-with-ui-1.png" title="从主机开始安装"/>   
+
 
 选择 `从主机开始安装` 进入基于主机的安装流程。
 
@@ -77,34 +106,30 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.0-release-allinone
 - 当前演示集群为3个节点，Kubernetes属性 ETCD、管理、计算属性 复用，在自行部署时**根据自身规划**选择节点属性即可。
 - kubernetes 集群的安装过程中可以自定义参数，请参考文档 [RKE集群配置](/docs/ops-guide/cluster-manage/manage-rke-cluster/)。
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/add-host.png" title="节点列表"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/add-host.png" title="节点列表"/>   
 
 
 节点信息填写完毕后，根据页面提示复制节点初始化命令在集群内所有服务器上执行
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init.jpg" title="节点初始化"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init.jpg" title="节点初始化"/>   
+
 
 
 初始化完成后，点击 **下一步**，等待 Kubernetes 集群安装成功即可，待状态为 **运行中** 状态时进行下一步操作
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/installed-successfully.png" title="Kubernetes集群状态" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/installed-successfully.png" title="Kubernetes集群状态"/>   
 
 执行完以上操作后在控制台页面选中当前集群，点击进行下一步
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init-rainbond.jpg" title="初始化Rainbond集群" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init-rainbond.jpg" title="初始化Rainbond集群"/>   
 
 **自定义集群初始化参数**
 
 Rainbond 的安装部署过程中可以自定义集群初始化参数，在初始化平台集群界面进行配置，具体参数参考文档 [初始化Rainbond集群参数说明](/docs/ops-guide/cluster-manage/init-region/)。
 
-<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/custom-parameters.jpg" title="自定义集群参数" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/custom-parameters.jpg" title="自定义集群参数"/>  
 
 勾选 **我已阅读并已清楚认识上述注意事项** 后，点击 `开始初始化` ，等待安装完成即可。
-
-### 控制台迁移
-
-All-In-One 模式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理 [参考文档](../install-with-ui/console-recover)。
-
 
 ### 常见问题
 

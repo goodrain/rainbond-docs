@@ -75,7 +75,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.0-release-allinone
 待容器启动成功后，稍等片刻即可在浏览器中访问服务器 `7070` 端口，打开 Rainbond 控制台 **注册页面**。
 
 
-<images src="https://static.goodrain.com/images/5.3/regist.png" title="控制台注册页面" width="100%"/>
+<img src="https://static.goodrain.com/images/5.3/regist.png" title="控制台注册页面" width="100%"/>
 
 到此，恭喜您已经完成了第一步，你还需要继续完成集群的部署。
 
@@ -89,17 +89,17 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.0-release-allinone
 - 当前使用的为阿里云服务器，拥有外网IP，在私有部署时服务器没有外网IP的情况下 IP地址和内网IP地址 **统一填写服务器IP地址** 即可；
 - 当前演示集群为3个节点，Kubernetes属性 ETCD、管理、计算属性 复用，在自行部署时**根据自身规划**选择节点属性即可。
 
-<images src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/add-host.png" title="控制台注册页面" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/add-host.png" title="控制台注册页面" width="100%"/>
 
 
 2.节点信息填写完毕后，根据页面提示复制节点初始化命令在集群内所有服务器上执行
 
-<images src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init.jpg" title="节点初始化" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init.jpg" title="节点初始化" width="100%"/>
 
 
 3.初始化完成后，点击 **下一步**，等待 Kubernetes 集群安装成功即可，待状态为 **运行中** 状态时进行下一步操作
 
-<images src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/installed-successfully.png" title="Kubernetes集群状态" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/installed-successfully.png" title="Kubernetes集群状态" width="100%"/>
 
 
 4.安装`kubectl`命令。
@@ -160,13 +160,13 @@ $ kubectl create secret generic rbd-etcd-secret -n rbd-system \
 
 执行完以上操作后在控制台页面选中当前集群，点击进行下一步
 
-<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init-rainbond.jpg" title="初始化Rainbond集群" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init-rainbond.jpg" title="初始化Rainbond集群" width="100%"/>
 
 **自定义集群初始化参数**
 
 高可用安装需要自定义集群初始化参数，在初始化平台集群界面进行配置，具体参数参考文档 [初始化Rainbond集群参数说明](/docs/ops-guide/cluster-manage/init-region/)。
 
-<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/custom-parameters.jpg" title="自定义集群参数" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/custom-parameters.jpg" title="自定义集群参数" width="100%"/>
 
 当前演示集群参数如下：
 
@@ -236,7 +236,7 @@ spec:
 
 填写 **集群ID** 及 **集群名称** ，点击对接按钮即可完成对接；对接完成后平台即部署完毕，建议参考后续文档将 All-In-One 模式部署的控制台迁移至 Rainbond 平台。
 
-<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/docking-cluster.png" title="对接集群" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/docking-cluster.png" title="对接集群" width="100%"/>
 
 
 ### 九. 迁移控制台
