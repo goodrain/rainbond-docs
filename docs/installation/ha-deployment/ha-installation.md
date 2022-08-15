@@ -160,13 +160,13 @@ $ kubectl create secret generic rbd-etcd-secret -n rbd-system \
 
 执行完以上操作后在控制台页面选中当前集群，点击进行下一步
 
-<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init-rainbond.jpg" title="初始化Rainbond集群" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/init-rainbond.jpg" title="初始化Rainbond集群" width="100%"/>
 
 **自定义集群初始化参数**
 
 高可用安装需要自定义集群初始化参数，在初始化平台集群界面进行配置，具体参数参考文档 [初始化Rainbond集群参数说明](../user-operations/cluster-manage/init-region/)。
 
-<image src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/custom-parameters.jpg" title="自定义集群参数" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/custom-parameters.jpg" title="自定义集群参数" width="100%"/>
 
 当前演示集群参数如下：
 
