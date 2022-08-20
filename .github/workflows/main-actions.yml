@@ -4,13 +4,18 @@ on:
     branches:    
       - 'main'
 jobs:
-  rainbond-docs-deploy:
+  rainbond-docs-build:
+    name: build rainbond docs image and push image to dockerhub
     runs-on: ubuntu-20.04
-    container: goodrainapps/alpine:3.7
     steps:
-      - name: Trigger Rainbond build
+      - name: clone rainbond-docs repo
+        uses: actions/checkout@main
+
+      - name: build and push Docker image
         env:
           RAINBOND_SECRET: ${{ secrets.RAINBOND_SECRET }}
           RAINBOND_API: ${{ secrets.RAINBOND_API }}
-        run: |
-          curl -d "{\"secret_key\":\"$RAINBOND_SECRET\"}" -H "Content-type: application/json" -X POST "$RAINBOND_API"
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          VERSION: ${{ env.VERSION }}
+        run: ./release.sh
