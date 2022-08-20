@@ -250,7 +250,7 @@ const config = {
             ]
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} 北京好雨科技有限公司, Inc. All Rights Reserved. 京ICP备15028663号-4`
+        copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved. 京ICP备15028663号-4`
       },
       // prism: {
       //   darkTheme: darkCodeTheme
