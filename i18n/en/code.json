@@ -36,7 +36,7 @@
     "message": "Cloud Native Multi Cloud Application Management Platform"
   },
   "first.description": {
-    "message": "Rainbond core 100% open source, Use easy, Don't need to understand Containers and Kubernetes, Support the management of multiple Kubernetes, Provide whole lifecycle management for enterprise application."
+    "message": "Rainbond core 100% open source, Easy to use, Don't need to understand Containers and Kubernetes, Support the management of multiple Kubernetes, Provide whole lifecycle management for enterprise application."
   },
   "first.install": {
     "message": "Install Rainbond"
@@ -105,7 +105,7 @@
     "message":  "Rainbond?"
   },
   "third.chooseRainbond.useEasy": {
-    "message":  "Use Easy"
+    "message":  "Easy to use"
   },
   "third.chooseRainbond.useEasy1": {
     "message":  "Just one command installation experience"
