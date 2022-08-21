@@ -22,7 +22,7 @@ export default function BlogLayout(props: Props): JSX.Element {
   const [CasePageStyle, setCasePageStyle] = React.useState(false);
   const [isBlogList, setIsBlogList] = React.useState(false);
   useEffect(() => {
-    if (location_url == '/usescene' || location_url == '/case' || location_url == '/en/usescene' || location_url == '/en/case'){
+    if (location_url == '/usescene' || location_url == '/case' || location_url == '/en/usescene' || location_url == '/en/case' || location_url == '/usescene/' || location_url == '/case/' || location_url == '/en/usescene/' || location_url == '/en/case/'){
       setCasePageStyle(true);
     } else if(location_url.includes('blog')) {
       setIsBlogList(true);
@@ -35,9 +35,9 @@ export default function BlogLayout(props: Props): JSX.Element {
         [styles.blogLayout]: isBlogPage,
         }
       )}>
-        {title === '使用场景' && location_url == '/usescene' || location_url == '/en/usescene' ? (
+        {title === '使用场景' && location_url == '/usescene' || location_url == '/en/usescene' || location_url == '/usescene/' || location_url == '/en/usescene/' ? (
           <h1 className={styles.title}>使用场景</h1>
-        ) : title === '案例' && location_url == '/case' || location_url == '/en/case' ? (
+        ) : title === '案例' && location_url == '/case' || location_url == '/en/case' || location_url == '/case/' || location_url == '/en/case/' ? (
           <h1 className={styles.title}>案例</h1>
         ) : (
           ''
