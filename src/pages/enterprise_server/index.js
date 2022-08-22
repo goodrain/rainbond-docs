@@ -607,7 +607,7 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>ARM支持</span>
+                    <span>离线环境支持</span>
                     <span style={{color:'#7d7979'}}>
                       单机
                     </span>
