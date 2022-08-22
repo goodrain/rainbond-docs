@@ -595,7 +595,7 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>国产化支持</span>
+                    <span>国产化CPU和操作系统支持</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -604,6 +604,18 @@ export default function Index() {
                     </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>ARM支持</span>
+                    <span style={{color:'#7d7979'}}>
+                      单机
+                    </span>
+                    <span style={{color:'#7d7979'}}>
+                      集群
+                    </span>
+                    <span style={{color:'#7d7979'}}>
+                      集群
                     </span>
                   </div>
                   <div>
