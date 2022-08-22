@@ -1,0 +1,7 @@
+project_id: '533480'
+api_token: 'eca4eefe86a01c535e781cd77e318636eccc648571f93454fdd0c21be558ed46839e615ee800d799'
+preserve_hierarchy: true
+files:
+  # Markdown 文档文件 
+  - source: /docs/**/*
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%

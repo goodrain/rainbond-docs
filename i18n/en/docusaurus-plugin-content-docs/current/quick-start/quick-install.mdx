@@ -1,47 +1,47 @@
 ---
-title: 'Quick install'
-description: 'Install Rainbond in a simple and convenient way.'
+title: 'Quick installation'
+description: 'Install Rainbond in the easiest and most convenient way.'
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This article will guide you to quick install Rainond, You can choose the installation method that best suits you according to your own needs.
+This article will guide you to quickly install a set of available Rainbond environments, you can choose the most suitable installation method according to your needs.
 
 :::info
-- First understand Rainbond, Users who want to get started quick. We recommend you to choose[Standalone install](/docs/installation/install-with-dind)
-- Have a certain understanding of Rainbond, But not familiar with Kubernetes，We recommend you to choose[Linux install](/docs/installation/install-with-ui/host-install-with-ui)
-- Be familiar with Kubernetes，Want deploy highly available environment, We recommend you to choose[Helm install](/docs/quick-start/quick-install#基于已有-kubernetes-集群安装)
+- Users who are new to Rainbond and want to get started quickly.We recommend that you choose[stand-alone experience version to install](/docs/installation/install-with-dind)
+- For users who already have a certain understanding of Rainbond, but are not familiar with Kubernetes clusters, we recommend that you choose[Web interface installation](/docs/installation/install-with-ui/host-install-with-ui)
+- If you are familiar with Kubernetes and want to deploy a high-availability environment, we recommend that you choose[to install based on an existing Kubernetes cluster](/docs/quick-start/quick-install#基于已有-kubernetes-集群安装) 
 :::
 
-## Based baremetal install
+## Install on an existing host
 
-### [Standalone install](/docs/installation/install-with-dind)
+### [Stand-alone experience version installation](/docs/installation/install-with-dind)
 
-Understand in Linux Mac Windows, How to quickly experience the full functionality of Rainbond through only one container. Suitable for experiencing Rainbond and Personal development env. Not available for production use.
+Learn how to quickly experience the full functionality of Rainbond with just one container under Linux, Mac, and Windows.Only applicable to experience Rainbond features or personal development environment.Not for production use.
 
-### [Linux install](/docs/installation/install-with-ui/host-install-with-ui)
+### [Web-based installation](/docs/installation/install-with-ui/host-install-with-ui)
 
-Have Linux bare metal, How to use the UI, Deploy Kubernetes and Deploy Rainbond.
+Learn how to install Rainbond in the GUI when you only have a Linux machine.Compared with the stand-alone experience version, this installation method requires the user to manually deploy the Kubernetes cluster and Rainbond.The complexity will be higher than the stand-alone experience version, and currently only supports Linux x86_64 machines.This installation method supports high availability deployment.
 
-## Based Kubernetes install
+## Install based on an existing Kubernetes cluster
 
-### [Kubernetes install](/docs/installation/install-with-helm/k8s-install-with-helm/)
+### [Installation based on self-built Kubernetes cluster](/docs/installation/install-with-helm/k8s-install-with-helm/)
 
-Understand in self built Kubernetes, How use Helm deploy Rainbond. This approach supports highly available deploy.
+Learn how to use Helm to quickly deploy a Rainbond environment in a self-built Kubernetes cluster.This installation method supports high availability deployment.
 
-### [ACK install](/docs/installation/install-with-helm/ack-install-with-helm/)
+### [Installation based on Alibaba Cloud ACK cluster](/docs/installation/install-with-helm/ack-install-with-helm/)
 
-Understand in ACK , How deploy Rainbond. This approach supports highly available deploy.
+Learn about the best practices for deploying Rainbond in an Alibaba Cloud ACK cluster, as well as suggestions for various cloud service resources.This installation method supports high availability deployment.
 
-### [CCE install](/docs/installation/install-with-helm/cce-install-with-helm/)
+### [Installation based on HUAWEI CLOUD CCE cluster](/docs/installation/install-with-helm/cce-install-with-helm/)
 
-Understand in CCE, How deploy Rainbond. This approach supports highly available deploy.
+Learn about the best practices for deploying Rainbond in a HUAWEI CLOUD CCE cluster, as well as suggestions for various cloud service resources.This installation method supports high availability deployment.
 
-### [K3s install](/docs/installation/install-with-helm/k3s-install-with-helm/)
+### [Installation based on self-built k3s cluster](/docs/installation/install-with-helm/k3s-install-with-helm/)
 
-Understand in K3s, How use Helm deploy Rainbond. This approach supports highly available deploy.
+Learn how to use Helm to quickly deploy a Rainbond environment in an existing K3s cluster.This installation method supports high availability deployment.
 
-### [Rancher install](/docs/installation/install-with-helm/install-from-rancher/)
+### [Based on Rancher installation](/docs/installation/install-with-helm/install-from-rancher/)
 
-Understand in Rancher UI, How use helm app store deploy Rainbond.
+Learn how to quickly deploy a Rainbond environment using the App Store in the Rancher GUI.

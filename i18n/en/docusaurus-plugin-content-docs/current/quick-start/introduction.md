@@ -1,79 +1,78 @@
 ---
-title: What's Rainbond
-description: Rainbond 是一个云原生应用管理平台，使用简单，不需要懂容器、Kubernetes和底层复杂技术，支持管理多个Kubernetes集群，和管理企业应用全生命周期。
+title: What is Rainbond?
+description: Rainbond is a cloud-native application management platform that is easy to use and does not require knowledge of containers, Kubernetes and the underlying complex technologies. It supports managing multiple Kubernetes clusters and managing the entire lifecycle of enterprise applications.
 slug: /
 ---
 
 <!-- ## Rainbond是什么？ -->
 
-`Rainbond` 是一个云原生应用管理平台，使用简单，不需要懂容器、Kubernetes和底层复杂技术，支持管理多个Kubernetes集群，和管理企业应用全生命周期。主要功能包括应用开发环境、应用市场、微服务架构、应用交付、应用运维、应用级多云管理等。
+`Rainbond` is a cloud-native application management platform that is easy to use and does not require knowledge of containers, Kubernetes and underlying complex technologies. It supports managing multiple Kubernetes clusters and managing the full life cycle of enterprise applications.The main functions include application development environment, application market, microservice architecture, application delivery, application operation and maintenance, application-level multi-cloud management, etc.
 
 
 ## Why choose Rainbond?
 
-### 1. Easy to use
+### 1. Simple to use
 
-`Rainbond` 遵循 **以应用为中心** 的设计理念，统一封装容器、Kubernetes和底层基础设施相关技术，让使用者专注于业务本身, 避免在业务以外技术上花费大量学习和管理精力。同时，Rainbond 深度整合应用开发、微服务架构、应用交付、应用运维、资源管理，管理高度自动化，实现统一管理所有应用、所有基础设施和所有IT流程。
+`Rainbond` follows the **application** centric design concept, and unifies the packaging of containers, Kubernetes, and underlying infrastructure-related technologies, allowing users to focus on the business itself and avoid spending a lot of learning and management effort on technologies other than business.At the same time, Rainbond deeply integrates application development, microservice architecture, application delivery, application operation and maintenance, resource management, and highly automated management to achieve unified management of all applications, all infrastructure and all IT processes.
 
-### 2.一步将传统应用变成云原生应用
+### 2. Turn traditional applications into cloud-native applications in one step
 
-Rainbond 通过“无侵入”技术，让传统应用不需要改动或少量改动就能快速变成云原生应用。
-传统应用转成成云原生应用的方式：
+Through "non-invasive" technology, Rainbond enables traditional applications to quickly become cloud-native applications with little or no changes. ：to transform traditional applications into cloud-native applications0
 
-* 有源代码和软件包的应用，平台自动识别开发语言类型和包类型，不改变开发者习惯，代码直接编译、构建成支持云原生特性的应用。
-* 对于想实现微服务架构的传统应用，Rainbond提供Service Mesh 微服务架构，应用不改代码就能变成微服务架构。
-* 传统应用想要扩展运维和治理功能，Rainbond提供“无侵入”的插件，按需加载插件，开启运维和服务治理能力。
+* For applications with source code and software packages, the platform automatically identifies the development language type and package type, without changing the developer's habits, the code is directly compiled and built into applications that support cloud-native features.
+* For traditional applications that want to implement a microservice architecture, Rainbond provides a Service Mesh microservice architecture, and the application can become a microservice architecture without changing the code.
+* For traditional applications that want to expand their O&M and governance functions, Rainbond provides "non-intrusive" plug-ins, which can be loaded on demand to enable O&M and service governance capabilities.
 
-### 3.实现数字化能力积累和复用
+### 3. Realize the accumulation and reuse of digital capabilities
 
-Rainbond能将企业内部各种数字化能力一键发布成组件，并具备组件安装使用、组件编排、组件版本管理、组件升级和持续迭代等完整的管理流程，将企业内部可复用的能力积累到组件库，既避免重复建设，还能将这些组件变成数字资产，为企业创新提供动力。
+Rainbond can release various digital capabilities within the enterprise into components with one click, and has complete management processes such as component installation and use, component arrangement, component version management, component upgrade and continuous iteration, and accumulates the reusable capabilities within the enterprise into components. Libraries not only avoid duplication of construction, but also turn these components into digital assets to power enterprise innovation.
 
-### 4.解决2B行业的交付问题，实现各种交付流程自动化
+### 4. Solve the delivery problems of the 2B industry and realize the automation of various delivery processes
 
-Rainbond提供企业应用的业务集成、多云交付、私有交付、SaaS交付、离线交付、个性化交付、应用市场等能力，将交付过程最大限度自动化，提高企业应用交付效率，降低交付成本。
+Rainbond provides business integration, multi-cloud delivery, private delivery, SaaS delivery, offline delivery, personalized delivery, and application marketplace capabilities for enterprise applications. It automates the delivery process to the maximum extent, improves enterprise application delivery efficiency, and reduces delivery costs.
 
 
-## Rainbond的功能及架构
+## Rainbond's function and architecture
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/03/17/16474283190784.jpg)
 
 
-### 应用级多云管理
-应用级强调以“应用”为中心，跟应用相关技术概念对外暴露，跟应用不直接相关的技术概念统一包装，底层的基础设施通过软件定义系列技术（SDN、SDS、SD-WAN、docker、LB）包装，把底层重复性工作实行实行自动化，并在应用抽象之上支撑应用的开发、架构、交付和运维，这种抽象粒度，即能简化应用的管理，又能满足业务的灵活性。
+### Application-level multi-cloud management
+The application level emphasizes the "application" as the center, exposes the technical concepts related to the application, and packages the technical concepts not directly related to the application. The underlying infrastructure is defined by a series of technologies (SDN, SDS, SD-WAN, docker, LB). ) packaging, automates the underlying repetitive work, and supports application development, architecture, delivery, and operation and maintenance on top of application abstraction. This abstract granularity can simplify application management and meet business flexibility.
 
-多云管理的核心是将应用和计算资源解耦，根据场景任意组合，可以实现混合云、边缘云、应用级多云，应用的生命周期管理跟计算资源不直接相关，也就是说应用的开发可以在任何类型的计算资源上，开发好的应用可以直接安装运行在任何类型的计算资源上，还可以随时从一种云迁移到另一种云，应用不用做任何改动。
+The core of multi-cloud management is to decouple applications and computing resources. According to any combination of scenarios, hybrid clouds, edge clouds, and application-level multi-clouds can be realized. Application lifecycle management is not directly related to computing resources. On any type of computing resources, developed applications can be directly installed and run on any type of computing resources, and can be migrated from one cloud to another at any time without any changes to the application.
 
-### 应用全生命周期管理
-应用全生命周期管理包括应用开发、微服务架构、应用交付和应用运维。
-* 开发阶段，Rainbond提供开箱即用的开发测试环境，对接各类源代码仓库，自动识别开发语言并编译构建和打包，通过应用市场安装各种开发工具。
-* 架构阶段，支持各种常见微服务架构，业务服务可以模块化编排，通过服务拓扑可视化了解业务的结构和依赖关系，通过插件扩展各种服务治理能力。
-* 交付阶段，支持应用持续交付流程，开发的应用以应用模版的形式存放到应用市场，通过应用市场对应用展示和分类，对于联网的用户，远程连接应用市场，一键安装和升级。对于离线用户，从应用市场导出离线应用包，到用户环境导入离线应用包，一键安装和运行。
-* 运维阶段，把所有应用运维工作通过web界面呈现，除了基本的应用管理（启动、关闭、重启、删除）操作外，主要的运维过程都是自动化的，提供可观测性深入了解自动化的执行过程。面对大数据和大用户的应用场景，支持业务快速伸缩，及时响应业务的变化。
+### Application lifecycle management
+Application lifecycle management includes application development, microservice architecture, application delivery, and application operation and maintenance.
+* During the development phase, Rainbond provides an out-of-the-box development and testing environment, connects to various source code repositories, automatically identifies development languages, compiles, builds, and packages, and installs various development tools through the application market.
+* In the architecture stage, various common microservice architectures are supported, business services can be arranged in modules, the business structure and dependencies can be understood through service topology visualization, and various service governance capabilities can be extended through plug-ins.
+* In the delivery stage, the continuous application delivery process is supported. The developed applications are stored in the application market in the form of application templates, and the applications are displayed and classified through the application market. For networked users, remote connection to the application market enables one-click installation and upgrade.For offline users, export the offline application package from the application market, import the offline application package into the user environment, and install and run it with one click.
+* In the operation and maintenance phase, all application operation and maintenance work is presented through the web interface. Except for the basic application management (start, close, restart, delete) operations, the main operation and maintenance processes are automated, providing observability and in-depth understanding of automation. Implementation process.Facing the application scenarios of big data and large users, it supports the rapid expansion of business and responds to business changes in a timely manner.
 
-### 能力复用和共享
+### Capability reuse and sharing
 
-组件是独立运行、可复用、可扩展、可集成的单元，支持不同的粒度大小，支持版本管理，组件可以在不同应用场景中复用，组件自身可以迭代升级，积累的组件统一存放到组件库，当有应用需要使用组件时，只需通过“拖拉拽”的方式快速拼装，当积累的组件越多，交付应用的速度也越快。
+Components are independent, reusable, extensible, and integratable units that support different granularity and version management. Components can be reused in different application scenarios. Components themselves can be iteratively upgraded. The accumulated components are stored in the components. Libraries, when there are applications that need to use components, they only need to be quickly assembled by "drag and drop". The more components accumulated, the faster the delivery of applications.
 
 
-## Rainbond怎么工作？
+## How does Rainbond work?
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/03/17/16474282867950.jpg)
 
-Rainbond主要有两部分组成，一个是提供Web界面的Rainbond控制台，另一个是安装在K8s集群内部的Rainbond集群管理端。
+Rainbond mainly consists of two parts, one is the Rainbond console that provides a web interface, and the other is the Rainbond cluster management terminal installed inside the K8s cluster.
 
-Rainbond控制台提供控制面的监控和管理，主要服务开发人员和管理人员，控制台通过Rainbond集群管理端提供的API来管理K8s集群和运行在K8s集群上的应用，并把元数据存储在本地，控制台关闭不影响K8s集群和业务服务的运行。一个控制台能监控和管理多个K8s集群。
+The Rainbond console provides monitoring and management of the control plane, mainly serving developers and managers. The console manages the K8s cluster and applications running on the K8s cluster through the API provided by the Rainbond cluster management terminal, and stores metadata locally. The shutdown of the console does not affect the operation of the K8s cluster and business services.One console can monitor and manage multiple K8s clusters.
 
-Rainbond集群管理端通过控制台或Helm方式安装到一个或多个K8s集群内，由它对接标准K8s API，控制台的监控和管理指令通过调用K8s API实现，通过控制台部署的应用，也可以使用K8s的命令查看和管理。
-
-
-## Rainbond跟其他产品对比
+The Rainbond cluster management terminal is installed into one or more K8s clusters through the console or Helm, which connects to the standard K8s API. The monitoring and management instructions of the console are implemented by calling the K8s API. Applications deployed through the console can also use K8s command viewing and management.
 
 
-|               | 对比项                                        | Rainbond                                                  |
-|---------------|-----------------------------------------------|-----------------------------------------------------------|
-| vs  IaaS      | 管理基础设施                                  | 管理应用                                                  |
-| vs  MSP       | 基于“虚拟机”的多云管理，主要价值是资源统一管理、费用优化 等 | 基于“应用”的多云管理，主要价值是应用可以透明的运行和迁移到任何云平台 |
-| vs kubernetes | 容器运行和调度环境                            | 应用生命周期管理，运行在K8s之上，通过API对接管理任何K8s集群 |
-| vs 容器平台   | 容器级抽象，需要懂容器和K8s                    | 应用级抽象，不用懂底层技术                                 |
+## Rainbond compared to other products
+
+
+|                       | Contrast                                                                                                                      | Rainbond                                                                                                                                       |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| vs IaaS               | Manage infrastructure                                                                                                         | Manage applications                                                                                                                            |
+| vs MSP                | Multi-cloud management based on "virtual machine", the main value is unified management of resources, cost optimization, etc. | Multi-cloud management based on "application", the main value is that applications can be transparently run and migrated to any cloud platform |
+| vs kubernetes         | Container running and scheduling environment                                                                                  | Application life cycle management, running on K8s, and managing any K8s cluster through API docking                                            |
+| vs container platform | Container-level abstraction, you need to understand containers and K8s                                                        | Application-level abstraction, no need to understand the underlying technology                                                                 |
 
 
 
