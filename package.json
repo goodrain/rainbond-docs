@@ -10,10 +10,12 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
+    "crowdin": "crowdin",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
+    "@crowdin/cli": "3",
     "@docusaurus/core": "^2.0.0-beta.20",
     "@docusaurus/plugin-client-redirects": "^2.0.0-beta.20",
     "@docusaurus/preset-classic": "^2.0.0-beta.20",

@@ -1,0 +1,89 @@
+---
+title: '5.7.1 upgrade to 5.8.0 documentation'
+Description: 'Rainbond v5.7.1 to v5.8.0 Upgrade Instructions'
+keywords:
+  - upgrade
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### version change
+
+[Version 5.8.0 Changes](/community/change/5.8.0)
+
+### Console upgrade
+
+<Tabs groupId="upgrade">
+  <TabItem value="helm" label="helm" default>
+
+1. Execute sql upgrade script
+
+- enter Rainbond-console component
+
+```bash
+kubectl exec -it $(kubectl get po -n rbd-system | grep rbd-app-ui | grep Running | sed -n '1p ' | awk '{print $1}') -n rbd-system bash
+```
+
+- After entering the Rainbond-console component, execute the following command
+
+```bash
+curl https://rainbond-script.oss-cn-hangzhou .aliyuncs.com/upgrade-5.8.0.sh | bash
+```
+
+  </TabItem>
+  <TabItem value="Basic Edition" label="Basic Edition">
+
+1. Execute the sql upgrade script
+
+- If the console is allinone started, execute the following operations
+
+```bash
+docker exec -it rainbond-allinone bash
+curl https://rainbond-script.oss-cn-hangzhou.aliyuncs. com/upgrade-5.8.0.sh | bash
+```
+
+- If the console is installed through the app market, after entering the Rainbond-console component, execute the following command
+
+```bash
+curl https://rainbond-script .oss-cn-hangzhou.aliyuncs.com/upgrade-5.8.0.sh | bash
+```
+
+2. Upgrade console
+
+- If the console is allinone startup, execute the following operations
+
+```bash
+docker stop rainbond-allinone && docker rm rainbond-allinone
+#This command parameter needs to be the same as the rainbond-allinone container started before
+docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/ rainbonddata:/app/data \
+--name=rainbond-allinone --restart=always \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.0-release-allinone
+```
+
+as control To install through the application market, enter the console application and choose to upgrade to version 5.8.0
+</TabItem>
+</Tabs>
+
+### Data Center Upgrade
+
+**1. Update grctl command**
+
+```bash
+docker run -it --rm -v /:/rootfs registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.8.0-release copy
+mv /usr/local/bin/rainbond-grctl /usr/ local/bin/grctl && grctl install
+```
+
+**Note：**If you are unable to install grctl, please refer to[ grctl installation documentation](/docs/ops-guide/tools/grctl/)
+
+**2. Execute the upgrade command**
+
+```bash
+grctl cluster upgrade --new-version=v5.8.0-release
+```
+
+:::caution For Rainbond not installed by helm, the following errors are normal and can be ignored
+```bash
+error: update rainbond components: get rbdcomponent rbd-app-ui: rbdcomponents.rainbond.io "rbd-app-ui" not found
+```
+:::

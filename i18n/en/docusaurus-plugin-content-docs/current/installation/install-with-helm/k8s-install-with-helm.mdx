@@ -1,0 +1,217 @@
+---
+title: 'Installation based on self-built k8s cluster'
+weight: 100
+description: 'Based on the existing k8s cluster, use helm to install Rainbond from scratch'
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Overview
+
+This article will guide you to quickly deploy Rainbond through Helm commands based on an existing Kubernetes cluster.
+
+## prerequisites
+
+:::caution
+1. All nodes in the cluster need to install the Docker service
+2. All nodes in the cluster need to install the NFS client mount tool
+3. The specified gateway node 80, 443, 6060, 6443, 7070, 8443 ports are available
+4. Cluster version above 1.16 :::
+
+## Preparation
+
+The following lists some services or command-line tools that may be used during installation. If you already have corresponding services or command-line tools, you can skip the corresponding steps.
+
+### Install Docker
+This step can be ignored if your cluster is using Docker as the runtime.Otherwise, make sure you have the Docker service on every node in your cluster.Because the platform's log collection, build and other operations will mount `docker.sock`.
+```bash
+curl sh.rainbond.com/install_docker | bash
+```
+
+### Install NFS Client Mount Tool
+When installed by default, Rainbond will start a `nfs-provisioner`, therefore, the NFS client mount tool needs to be installed on the node, otherwise the installation will fail because the storage cannot be mounted.If you customize the configuration, use external shared storage.Then this step can be ignored.
+<Tabs>
+  <TabItem value="CentOS" label="CentOS" default>
+
+```bash
+  yum -y install nfs-utils
+```
+
+  </TabItem>
+  <TabItem value="Ubuntu" label="Ubuntu">
+
+```bash
+  apt-get install nfs-common
+```
+
+  </TabItem>
+</Tabs>
+
+### Install Helm command
+
+We use Helm to deploy Rainbond.Therefore, the nodes in the cluster that perform this operation must have the Helm command-line tool installed.It is recommended that the Helm version is greater than 3.0. You can copy the following commands to quickly install Helm in your cluster.
+
+```bash
+wget https://pkg.goodrain.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
+```
+
+### Install Kubectl command
+
+When we need to view the installation status in the cluster and manage the cluster, we need to install the Kubectl command line tool. You can copy the following command to quickly install the Kubectl tool in your cluster.
+
+```bash
+wget https://grstatic.oss-cn-shanghai.aliyuncs.com/binary/kubectl -O /usr/bin/kubectl
+chmod +x /usr/bin/kubectl
+```
+
+## Install Rainbond
+
+The following will list some necessary steps to deploy Rainbond based on a self-built Kubernetes cluster, as well as a brief description of the relevant parameters.
+
+### 1. Get gateway node information：
+
+Rainbond will deploy a platform's global gateway, the `rbd-gateway` component, which is the access portal for all applications in the platform.So it needs to listen on ports 80, 443, 6060, 6443, 7070, 8443 of the node.Therefore, it is necessary to select a node whose port is not occupied as the gateway node.
+
+### 2. Generate the installation command
+
+When we determine the next node as the gateway node, such as `192.168.3.163` , we need to use the following Kubectl command to view the node name.
+
+```bash
+kubectl get node -owide
+```
+
+After executing the command, you will see the following output
+
+```bash
+NAME STATUS ROLES AGE VERSION INTERNAL-IP EXTERNAL-IP OS-IMAGE KERNEL-VERSION CONTAINER-RUNTIME
+goodrain163 Ready control-plane,master 14d v1.22.3+k3s1 192.168.3.163   <none>        CentOS Linux 7 (Core) 3.10.0-1160. el7.x86_64 containerd://1.5.7-k3s2
+```
+
+It can be seen that the name of the node is `goodrain163`, the internal IP is `192.168.3.163`, and there is no external IP at this time.At this time, we use the[Helm installation command generation tool](/helm)to generate the installation command.Required parameters are described as follows：
+
+
+| parameter       | illustrate                                                                                                                                                                                                                |
+|:--------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| gateway address | If there is an external load balancing, the load will be loaded on the gateway node you specify, then fill in the external load balancing address, otherwise fill in the external network/intranet IP of the gateway node |
+| gateway node    | Select the node whose port is not occupied as the gateway node, and fill in the relevant external network IP, internal network IP, and node name.                                                                         |
+
+Take the gateway node we just selected as an example.Since there is no external load balancing address, only the intranet IP is `192.168.3.163`.So the gateway address can fill in the intranet IP `192.168.3.163`. In the node configuration of the gateway node, fill in `192.168.3.163`for both the external IP and internal IP, and fill in the value queried through the Kubectl command for the node name, that is, `goodrain163`.
+
+### 3. Customize advanced configuration (optional)
+
+When you have some additional requirements, such as using a self-built mirror warehouse, database, etcD, StorageClass, specifying build nodes, etc.You can use[Helm install command generation tool](/helm)to generate install commands. For a detailed description of the parameters, please refer to [values.yaml Detailed explanation](/docs/installation/install-with-helm/vaules-config)
+
+### 4. Install Rainbond
+
+:::caution
+The following commands are only used as examples, please do not directly copy the following commands to execute.You need to generate the corresponding installation command yourself.
+:::
+
+After filling in, click the button at the bottom to generate the installation command, you will see the following output：
+
+```bash
+kubectl create namespace rbd-system
+
+helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
+
+helm repo update
+
+helm install --set Cluster.gatewayIngressIPs=192.168.3.163 --set Cluster.enableHA=false - -set Cluster.nodesForGateway[0].name=goodrain163 --set Cluster.nodesForGateway[0].externalIP=192.168.3.163 --set Cluster.nodesForGateway[0].internalIP=192.168.3.163 rainbond rainbond/rainbond-cluster -n rbd-system
+```
+
+This command mainly performs the following operations：
+
+- Create the rbd-system namespace
+- Add Rainbond's Helm repository
+- Update warehouse data
+- perform installation
+
+You can then copy the generated command to install it in your Kubernetes cluster.
+
+### 5. Installation progress query
+
+After executing the installation command, Rainbond performs an environment check, and starts the installation after the check is passed.
+
+#### Environmental inspection
+
+- When you start to execute the installation command, if the following error is returned, it means that the environment detection failed.
+
+```bash
+Error: failed pre-install: job failed: BackoffLimitExceeded
+```
+
+- At this point, you need to execute the following command to check the failure log information and deal with the failure information.
+
+```bash
+kubectl logs -f -l name=env-checker -n rbd-system
+```
+
+- If all went well, you should see the following output after executing the command.
+
+```bash
+NAME: rainbond
+LAST DEPLOYED: Fri May 27 18:09:08 2022
+NAMESPACE: rbd-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+installation process will last about 10 minutes, if you encounter problems You can refer to the helm troubleshooting document：
+
+https://www.rainbond.com/docs/installation/install-troubleshoot/helm-install-troubleshoot
+
+Dynamically check the rainbond installation progress command：
+
+watch kubectl get po -n rbd-system
+
+When the pod status of rbd-app-ui is Running, you can access the Rainbond console. The following is the access address：
+
+  192.168.3.163:7070
+```
+
+
+
+#### start installation
+
+- After the environment check is passed, Rainbond will be installed. At this time, you can run the following command to check the Pod startup status.
+
+```
+watch kubectl get po -n rbd-system
+```
+
+- The installation is successful when the Pod whose name contains `rbd-app-ui` is in the Running state.As shown below, when Pod `rbd-app-ui-669bb7c74b-7bmlf` is in the Running state, it means that Rainbond is successfully installed.
+
+```
+NAME READY STATUS RESTARTS AGE
+nfs-provisioner-0 1/1 Running 0 14d
+rbd-etcd-0 1/1 Running 0 14d
+rbd-hub-64777d89d8-l56d8 1/1 Running 0 14d
+rbd-gateway-76djb 1 /1 Running 0 14d
+dashboard-metrics-scraper-7db45b8bb4-tcgxd 1/1 Running 0 14d
+rbd-mq-6b847d874b-j5jg2 1/1 Running 0 14d
+rbd-webcli-76b54fd7f6-jrcdj 1/1 Running 0 14d
+kubernetes-dashboard-fbd4fb949-2qsn9 1/1 Running 0 14d
+rbd-resource-proxy-547874f4d7-dh8bv 1/1 Running 0 14d
+rbd-monitor-0 1/1 Running 0 14d
+rbd-db-0 2/2 Running 0 14d
+rbd-eventlog-0 1/1 Running 0 14d
+rbd-app-ui-migrations--1-hp2qg 0/1 Completed 0 14d
+rbd-worker-679fd44bc7-n6lvg 1/1 Running 0 9d
+rbd -node-jhfzc 1/1 Running 0 9d
+rainbond-operator-7978d4d695-ws8bz 1/1 Running 0 9d
+rbd-chaos-nkxw7 1/1 Running 0 8d
+rbd-app-ui-669bb7c74b-7bmlf Running 0 7d12h
+rbd-api-5d8bb8d57d-djx2s 1/1 Running 0 47h
+```
+
+- After the installation is successful, you can access the information through the pop-up prompts on the installation interface and access the Rainbond console (the actual access IP is subject to the pop-up information)
+
+
+## Troubleshoot
+
+If the installation process does not complete for a long time, please refer to document [Helm Installation Troubleshooting Guide](/docs/installation/install-troubleshoot/helm-install-troubleshoot)for troubleshooting.
+
+## Next step
+
+Refer to[Quick Start](/docs/quick-start/getting-started/)to deploy your first application.
