@@ -13,7 +13,7 @@ The application marketplaces provided by Rainbond are divided into two categorie
 
 :::info
 
-The local component library is the application market that comes with Rainbond, and all the application templates you publish under this enterprise can be saved here.Other users within the enterprise can quickly replicate the application by installing the application template from the local component repository.Publishing to the local component library can refer to: [a reusable application template](/docs/use-manual/get-start/release-to-market.md).
+The local component library is the application market that comes with Rainbond, and all the application templates you publish under this enterprise can be saved here.Other users within the enterprise can quickly replicate the application by installing the application template from the local component repository.Publishing to the local component library can refer to: [a reusable application template](/use-manual/get-start/release-to-market.md).
 
 :::
 

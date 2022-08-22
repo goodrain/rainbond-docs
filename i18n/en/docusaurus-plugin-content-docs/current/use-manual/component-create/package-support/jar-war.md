@@ -34,4 +34,4 @@ function entry
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/package-support/Pasted%20Graphic%206.png" title="Access is successful" />
 
 
-Learn more about how Rainbond handles the reference source code construction of Jar and War packages[Deploy components based on source code Java Jar packages](/docs/use-manual/component-create/language-support/java/java-jar.md)
+Learn more about how Rainbond handles the reference source code construction of Jar and War packages[Deploy components based on source code Java Jar packages](/use-manual/component-create/language-support/java/java-jar.md)
