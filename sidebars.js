@@ -68,7 +68,7 @@ const sidebars = {
             // 'installation/install-with-ui/install-by-rainbond',
             // 'installation/install-with-ui/install-from-k8s',
             'installation/install-with-ui/console-recover',
-            'installation/install-with-ui/offline-install'
+            // 'installation/install-with-ui/offline-install'
           ]
         },
         {
