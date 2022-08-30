@@ -84,7 +84,7 @@ export default function Index(props) {
                 <NavbarColorModeToggle/>
               </li> */}
               <li>
-                <a className={`button button--primary ${styles.buttonQuick}`} href="/docs/quick-start/quick-install"><Translate id='navbar.quickstart'>快速开始</Translate></a>
+                <a className={`button button--primary ${styles.buttonQuick}`} href="/docs/quick-start/getting-started"><Translate id='navbar.quickstart'>快速开始</Translate></a>
               </li>
               <LocaleDropdownNavbarItem dropdownItemsBefore={[]} dropdownItemsAfter={[]} items={[]} />
             </ul>

@@ -510,7 +510,7 @@ export default function Home() {
               whileTap={{ scale: 0.9 }}
               className={`${styles.how_rainbond_desc_container_start} ${styles.active_btn}`}
             >
-              <a href='/docs/quick-start/quick-install'>
+              <a href='/docs/quick-start/getting-started'>
                 <Translate id='third.chooseRainbond.quickstart'>快速开始 </Translate>
                 &nbsp; {'>'} 
               </a> 
