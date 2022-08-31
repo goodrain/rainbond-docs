@@ -146,4 +146,6 @@ Rainbond 平台根据组件之间的依赖关系确定启动顺序。如果服�
 
 前往 [社区](https://t.goodrain.com/) 搜索你的问题，寻找相似问题的答案
 
+加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+
 获取 [官方支持](https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/), 我们会尽快联系你
