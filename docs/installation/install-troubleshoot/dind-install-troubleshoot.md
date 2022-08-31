@@ -190,6 +190,7 @@ CrashLoopBackOff 状态意味着当前 pod 已经可以正常启动，但是其�
 :::info
 Evicted 状态意味着当前 pod 遭到了调度系统的驱逐，触发驱逐的原因可能包括根分区磁盘占用率过高、容器运行时数据分区磁盘占用率过高等，根据经验，上述原因最为常见，需要进行磁盘空间清理解除驱逐状态。可以通过执行命令 `kubectl describe node` ，观察返回中的 `Conditions` 段落输出来确定当前节点的状态。
 :::
+
 ### 启动 Rainbond 时常见问题
 查看 pod 详细信息可能会遇到以下问题
 - {"type":"Warning","reason":"FailedScheduling","message":"0/1 nodes are available: 1 node(s) had taint {node.kubernetes.io/disk-pressure: }, that the pod didn't tolerate.","from":"","age":"0s"}]}]}
@@ -197,6 +198,7 @@ Evicted 状态意味着当前 pod 遭到了调度系统的驱逐，触发驱逐�
 :::info
 以上报错可以通过几点进行分析，第一：确认一下当前节点是否开启了允许调度，一般 master节点时不被允许调度，所以会出现此报错，第二：docker 以及基础环境没有分配足够的资源时，你也可以得到这种“污点”类型的消息。 例如，在 Docker Desktop for Mac 中，在首选项中分配更多内存/cpu/swap，以及其他的资源，它可能会解决您的问题。
 :::
+
 ## 问题报告
 
-当前的安装问题排查文档也许并没有能够指引你完成安装问题的故障排除，欢迎到 Rainbond 的官方仓库 https://github.com/goodrain/rainbond/issues 搜索其他人的问题经历，或者提交自己的安装问题，会有工程师跟进问题的解决。
+当前的安装问题排查文档也许并没有能够指引你完成安装问题的故障排除，欢迎到 Rainbond 的官方仓库 https://github.com/goodrain/rainbond/issues 搜索其他人的问题经历，或者提交自己的安装问题，会有工程师跟进问题的解决。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。

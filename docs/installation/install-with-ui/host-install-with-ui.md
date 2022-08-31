@@ -108,7 +108,7 @@ All-In-One 模式部署的控制台不具有生产可用性，体验完成后如
 
 ### 常见问题
 
-通过图形化界面基于主机安装 Rainbond 的过程中遭遇了任何问题，都可以参考文档 [Web界面安装问题排查指南](../install-troubleshoot/ui-install-troubleshoot/) 进行问题排查。
+通过图形化界面基于主机安装 Rainbond 的过程中遭遇了任何问题，都可以参考文档 [Web界面安装问题排查指南](../install-troubleshoot/ui-install-troubleshoot/) 进行问题排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
 
 ## 下一步
 
