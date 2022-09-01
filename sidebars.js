@@ -71,6 +71,7 @@ const sidebars = {
             // 'installation/install-with-ui/offline-install'
           ]
         },
+        'installation/offline/index',
         {
           type: 'category',
           label: '安装问题排查',
