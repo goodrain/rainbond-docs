@@ -140,7 +140,7 @@ const config = {
           },
           {
             position: 'right',
-            label: '产品',
+            label: '企业版',
             href: '/enterprise_server'
           },
           {
@@ -179,7 +179,7 @@ const config = {
             items: [
               {
                 label: '快速开始',
-                to: 'docs/quick-start/quick-install'
+                to: 'docs/quick-start/getting-started'
               },
               {
                 label: '部署组件',
@@ -233,7 +233,7 @@ const config = {
             title: '更多',
             items: [
               {
-                label: '产品',
+                label: '企业版',
                 to: 'enterprise_server'
               },
               {

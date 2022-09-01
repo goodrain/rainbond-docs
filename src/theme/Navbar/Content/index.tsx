@@ -82,7 +82,7 @@ export default function NavbarContent(): JSX.Element {
             </NavbarSearch>
           )}
           {/* <div>
-            <a className={clsx("button button--primary", styles.buttonQuick)} href="/docs/quick-start/quick-install">快速开始</a>
+            <a className={clsx("button button--primary", styles.buttonQuick)} href="/docs/quick-start/getting-started">快速开始</a>
           </div> */}
         </>
       }
