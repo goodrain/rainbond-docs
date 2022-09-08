@@ -609,6 +609,7 @@ const sidebars = {
           items: [
             'use-manual/app-store-manage/install-app',
             'use-manual/app-store-manage/share-app',
+            'use-manual/app-store-manage/export-non-container-package',
           ]
         },
         'use-manual/usage_troubleshooting'
