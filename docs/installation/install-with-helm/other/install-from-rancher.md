@@ -53,7 +53,7 @@ apt-get install nfs-common  # ubuntu系统
 
 <img src="https://pic.imgdb.cn/item/6233e1235baa1a80abca3fe0.png" />
 
-- 进入自定义 Values.yaml 的阶段，文件的详细信息可以参考 [values.yaml 文档](../install-with-helm/vaules-config) 进行编辑，修改完配置点击 install 
+- 进入自定义 Values.yaml 的阶段，文件的详细信息可以参考 [values.yaml 文档](../../install-with-helm/vaules-config) 进行编辑，修改完配置点击 install 
 
 :::danger
 

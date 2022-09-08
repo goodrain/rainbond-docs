@@ -90,7 +90,7 @@ helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
 ```
 
 - 安装rainbond
-  - 参考 [values.yaml 详解](../install-with-helm/vaules-config)  了解更多自定义配置项，以及如何为已有 Rainbond 集群变更配置。
+  - 参考 [values.yaml 详解](../../install-with-helm/vaules-config)  了解更多自定义配置项，以及如何为已有 Rainbond 集群变更配置。
 
 ```bash
 helm install rainbond rainbond/rainbond-cluster -n rbd-system

@@ -145,7 +145,7 @@ Rainbond网关节点需要 VIP 或 负载均衡 保证高可用性。
 1.创建ETCD的`secret`证书文件
 
 - Rainbond集群需要使用ETCD用来存储集群的元数据信息，集群状态和网络配置，通常情况下复用Kubernetes集群ETCD即可；
-- ETCD对磁盘性能要求较高，所以请务必按照 [软件和硬件环境要求](../ha-deployment/resource-prepare/) 准备相关资源，以免后续使用过程中出现不稳定情况；如果ETCD节点与其他属性节点复用，强烈建议存储使用SSD磁盘；
+- ETCD对磁盘性能要求较高，所以请务必按照 [软件和硬件环境要求](/docs/installation/ha-deployment/ha-deployment) 准备相关资源，以免后续使用过程中出现不稳定情况；如果ETCD节点与其他属性节点复用，强烈建议存储使用SSD磁盘；
 - 采用默认方式安装的 Kubernetes 集群，ETCD证书文件位于`/etc/kubernetes/ssl` 目录下，分别为`kube-ca.pem、kube-node.pen、kube-node-key.pem`；使用以下命令创建secret，方便在Rainbond安装时直接使用:
 
 ```bash
