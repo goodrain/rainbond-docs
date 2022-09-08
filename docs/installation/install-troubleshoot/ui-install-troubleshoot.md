@@ -189,7 +189,7 @@ open /run/flannel/subnet.env: no such file or directory
 
 - 基于 Helm 安装部署的情况下，进入 `rbd-system` 命名空间下的 `rbd-app-ui` pod 中，集群安装控制器日志位于 `/app/logs/cloudadaptor.log` 
 
-- 对于将[控制台迁移](/docs/installation/install-with-ui/console-recover)至集群中的情况，进入 console 组件的 Web终端，集群安装控制器日志位于 `/app/logs/cloudadaptor.log` 
+- 对于将[控制台迁移](/docs/installation/ha-deployment/with-ui/console-recover)至集群中的情况，进入 console 组件的 Web终端，集群安装控制器日志位于 `/app/logs/cloudadaptor.log` 
 
 ### 集群端问题排查
 
