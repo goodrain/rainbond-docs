@@ -17,7 +17,7 @@ hidden: false
 安装方式：
 
 ```shell
-docker run -it --rm -v /:/rootfs  registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.8.0-release copy
+docker run -it --rm -v /:/rootfs  registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.8.1-release copy
 mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && grctl install
 ```
 
