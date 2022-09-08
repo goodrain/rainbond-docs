@@ -1,7 +1,10 @@
 ---
-title: "软件和硬件环境要求"
-description: "软件和硬件环境要求"
-hidden: true
+title: '软件和硬件环境要求'
+description: 软件和硬件环境要求
+keywords: 
+- 高可用安装 Rainbond
+- install ha deployment Rainbond
+- 高可用安装 Kubernetes
 ---
 
 该配置需求适用于基于私有服务器部署高可用的 Rainbond 集群。
@@ -138,4 +141,14 @@ Rainbond网关节点需要使用 **Keepalived** 或 **负载均衡** 保证高�
 平台会为HTTP类型的应用提供泛解析的域名，默认使用 `*.grapps.cn`的域名，安装时可自定义该域名，如果使用自定义域名，需要配置自定义泛域名的解析。
 
 
-**集群资源准备完毕后请参考 [高可用安装Rainbond集群](/docs/installation/install-with-ui/ha-installation) 文档进行集群部署。**
+## 六、高可用安装 Rainbond
+
+集群资源准备完毕后请参考以下文档进行集群部署。
+
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```

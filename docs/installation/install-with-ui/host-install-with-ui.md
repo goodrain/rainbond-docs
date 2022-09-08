@@ -101,11 +101,6 @@ Rainbond 的安装部署过程中可以自定义集群初始化参数，在初�
 
 勾选 **我已阅读并已清楚认识上述注意事项** 后，点击 `开始初始化` ，等待安装完成即可。
 
-### 控制台迁移
-
-All-In-One 模式部署的控制台不具有生产可用性，体验完成后如果您想继续使用建议将控制台迁移到 Rainbond 中管理 [参考文档](../install-with-ui/console-recover)。
-
-
 ### 常见问题
 
 通过图形化界面基于主机安装 Rainbond 的过程中遭遇了任何问题，都可以参考文档 [Web界面安装问题排查指南](../install-troubleshoot/ui-install-troubleshoot/) 进行问题排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
@@ -113,20 +108,3 @@ All-In-One 模式部署的控制台不具有生产可用性，体验完成后如
 ## 下一步
 
 参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
-
-
-<!-- > Rainbond 支持 ARM CPU 架构部署吗？
-
-Rainbond 企业版支持在华为鲲鹏、飞腾等国产服务器部署，需求请[申请企业服务 POC](https://www.goodrain.com/poc/)。
-
-> 安装集群时报错 `failed to connect to following etcd hosts`
-
-- 该问题属于控制台无法连接报错的ETCD节点。首先确定在配置规划集群节点时，正确的对所有节点执行了节点初始化，完成了免密登录设置。检查方式时在控制台容器中执行 `ssh docker@节点IP` 能够直接免密登录。
-
-- 如果容器中能正常登录，请检查节点 OpenSSH 的版本，检查方式为 `ssh -V`， OpenSSH 的版本要求为 **OpenSSH 7.0+**。如果低于该版本，请升级 OpenSSH 后重试。
-
-> 初始化 Rainbond 集群时长时间阻塞在 `系统所需非组件化镜像本地处理` 步骤
-
-通过 kubectl 查询 rbd-system 这个 namespace 下 pod 启动状态，参考 [排查文档](../user-operations/cluster-manage/check/)
-
-其他问题参考[排查文档](../user-operations/cluster-manage/check/)排查解决。或添加 Rainbond 社区钉钉群咨询。 -->

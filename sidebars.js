@@ -47,11 +47,30 @@ const sidebars = {
               href: '/helm'
             },
             'installation/install-with-helm/k8s-install-with-helm',
-            'installation/install-with-helm/k3s-install-with-helm',
-            'installation/install-with-helm/ack-install-with-helm',
-            'installation/install-with-helm/cce-install-with-helm',
-            'installation/install-with-helm/install-from-rancher',
             'installation/install-with-helm/vaules-config',
+            {
+              type: 'category',
+              label: '基于托管K8s集群安装',
+              link: {
+                type: 'doc',
+                id: 'installation/install-with-helm/cloud/index'
+              },
+              items: [
+                'installation/install-with-helm/cloud/ack-install-with-helm',
+                'installation/install-with-helm/cloud/cce-install-with-helm',
+              ]
+            },{
+              type: 'category',
+              label: '其他安装方式',
+              link: {
+                type: 'doc',
+                id: 'installation/install-with-helm/other/index'
+              },
+              items: [
+                'installation/install-with-helm/other/k3s-install-with-helm',
+                'installation/install-with-helm/other/install-from-rancher',
+              ]
+            },
             'installation/install-with-helm/uninstall-with-helm'
           ]
         },
@@ -63,12 +82,28 @@ const sidebars = {
             id: 'installation/install-with-ui/index'
           },
           items: [
-            'installation/install-with-ui/host-install-with-ui',
-            'installation/install-with-ui/ha-installation',
-            // 'installation/install-with-ui/install-by-rainbond',
-            // 'installation/install-with-ui/install-from-k8s',
-            'installation/install-with-ui/console-recover',
-            // 'installation/install-with-ui/offline-install'
+            'installation/install-with-ui/host-install-with-ui'
+          ]
+        },
+        {
+          type: 'category',
+          label: '高可用安装',
+          link: {
+            type: 'doc',
+            id: 'installation/ha-deployment/index'
+          },
+          items: [
+            {
+              type: 'category',
+              label: '基于主机高可用安装',
+              link: {
+                type: 'doc',
+                id: 'installation/ha-deployment/with-ui/index'
+              },
+              items: [
+                'installation/ha-deployment/with-ui/console-recover'
+              ]
+            },
           ]
         },
         'installation/offline/index',
