@@ -62,7 +62,8 @@ docker run -d -p 7070:7070 \
 --name=rainbond-allinone --restart=always \
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-release-allinone
+-e INSTALL_IMAGE_REPO=rainbond \
+rainbond/rainbond:v5.8.1-release-allinone
 ```
 
 
