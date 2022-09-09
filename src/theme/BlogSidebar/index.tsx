@@ -15,7 +15,6 @@ import styles from './styles.module.css';
 
 export default function BlogSidebar({ sidebar }: Props): JSX.Element | null {
   const location_url = useLocation().pathname;
-  console.log(location_url);
   if (! location_url.includes('blog')) {
     return null;
   }

@@ -89,7 +89,6 @@ export default class index extends Component {
             command: '',
             resCommand: [],
             copyCommand: '',
-            btnLoading: false,
             disabled: false,
             btnFlag: true,
             btnFlags: false,
@@ -98,33 +97,7 @@ export default class index extends Component {
             isAdvanced: false,
         };
     }
-    reminder = (e) => {
-        const { btnFlag, btnFlags } = this.state
-        if (e.gatewayIngressIPs || e.nodesForGateway) {
-            Swal.fire({
-                position: 'center-center',
-                icon: 'success',
-                title: 'HELM命令生成成功',
-                showConfirmButton: false,
-                timer: 1500,
-                heightAuto: true
-            })
-            this.setState({ btnFlags: false })
-        } else {
-            Swal.fire({
-                position: 'center-center',
-                icon: 'error',
-                title: '信息没有填写完整',
-                showConfirmButton: false,
-                timer: 2000
-            })
-            this.setState({
-                command: '',
-                copyCommand: '',
-                btnFlog: false
-            })
-        }
-    }
+    
     handleAdvanced = () => {
         const { isAdvanced } = this.state
         this.setState({
@@ -140,109 +113,143 @@ export default class index extends Component {
             node_enabled
         } = this.state;
         this.setState({
-            btnLoading: true,
+            btnLoading: false,
             btnFlags: true
-        }, () => {
-            this.reminder(e)
         })
-        if (e) {
-            if (etcd_enabled === '自定义配置') {
-                dataObj.etcd.enable = false;
-            } else {
-                dataObj.etcd.enable = true;
-            }
-            // 构建节点
-            if (node_enabled === '自定义配置') {
-                dataObj.nodesForChaos.enable = false;
-            } else {
-                dataObj.nodesForChaos.enable = true;
-            }
-            // 存储
-            if(e.server || e.path){
-                dataObj.estorage.enable = true;
-                dataObj.estorage.NFS.enable = true;
-            } else {
-                dataObj.estorage.enable = false;
-                dataObj.estorage.NFS.enable = false;
-            }
-            dataObj.estorage.NFS.server = e.server || '';
-            dataObj.estorage.NFS.path = e.path || '';
-            // 数据库
-            if(e.host1 || e.port1 || e.username1 || e.password1 || e.dbname1){
-                dataObj.database.enable = true;
-                dataObj.database.uiDatabase.enable = true;
-            }else{
-                dataObj.database.enable = false;
-                dataObj.database.uiDatabase.enable = false;
-            }
-            if(e.host2 || e.port2 || e.username2 || e.password2 || e.dbname2){
-                dataObj.database.enable = true;
-                dataObj.database.regionDatabase.enable = true;
-            }else{
-                dataObj.database.enable = false;
-                dataObj.database.regionDatabase.enable = false;
-            }
-            dataObj.database.uiDatabase.host = e.host1 || ''
-            dataObj.database.uiDatabase.port = e.port1 || ''
-            dataObj.database.uiDatabase.username = e.username1 || ''
-            dataObj.database.uiDatabase.password = e.password1 || ''
-            dataObj.database.uiDatabase.dbname = e.dbname1 || ''
-            dataObj.database.regionDatabase.host = e.host2 || ''
-            dataObj.database.regionDatabase.port = e.port2 || ''
-            dataObj.database.regionDatabase.username = e.username2 || ''
-            dataObj.database.regionDatabase.password = e.password2 || ''
-            dataObj.database.regionDatabase.dbname = e.dbname2 || ''
-            // 镜像仓库
-            if(e.domain || e.namespace || e.username || e.password) {
-                dataObj.imageHub.enable = true;
-            }else{
-                dataObj.imageHub.enable = false;
-            }
-            dataObj.imageHub.domain = e.domain || ''
-            dataObj.imageHub.namespace = e.namespace || ''
-            dataObj.imageHub.username = e.username || ''
-            dataObj.imageHub.password = e.password || ''
-
-            dataObj.gatewayIngressIPs = e.gatewayIngressIPs || ''
-            dataObj.nodesForChaos.nodes = e.nodesForChaos || []
-            
-            dataObj.etcd.endpoints = e.endpoints || []
-            dataObj.etcd.secretName = e.secretName || ''
-            dataObj.nodesForGateway.nodes = e.nodesForGateway || []
-            axios({
-                method: 'post',
-                url: 'https://cloud.goodrain.com/enterprise-server/api/v1/helm/chart',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                data: {
-                    enableHA: dataObj.enableHA,
-                    database: dataObj.database,
-                    estorage: dataObj.estorage,
-                    etcd: dataObj.etcd,
-                    gatewayIngressIPs: dataObj.gatewayIngressIPs,
-                    imageHub: dataObj.imageHub,
-                    nodesForChaos: dataObj.nodesForChaos,
-                    nodesForGateway: dataObj.nodesForGateway,
-                    DockingType: dataObj.type,
-                    appui: true,
-
+        const arr = []
+        e.nodesForGateway.map((item)=>{
+            for(var i in item){
+                if(item[i] !== null){
+                    arr.push('true')
+                }else{
+                    arr.push('false')
                 }
-            }).then((res) => {
-                if (res.status == 200) {
-                    const resArr = res.data.command.split(' & ')
-                    const resArrCopy = resArr.join('\n ')
-                    this.setState({
-                        command: res.data.command,
-                        resCommand: resArr,
-                        copyCommand: resArrCopy,
-                        btnFlog: true,
-                        btnLoading: false,
-                        btnFlag: false,
-                    })
+            }
+        })  
+        const chart = arr.indexOf('false')
+        if (e.gatewayIngressIPs && chart == -1) {
+            Swal.fire({
+                position: 'center-center',
+                icon: 'success',
+                title: 'HELM命令生成成功',
+                showConfirmButton: false,
+                timer: 1500,
+                heightAuto: true
+            })
+            this.setState({ btnFlags: false })
+            if (e && chart == -1) {
+                if (etcd_enabled === '自定义配置') {
+                    dataObj.etcd.enable = false;
+                } else {
+                    dataObj.etcd.enable = true;
                 }
+                // 构建节点
+                if (node_enabled === '自定义配置') {
+                    dataObj.nodesForChaos.enable = false;
+                } else {
+                    dataObj.nodesForChaos.enable = true;
+                }
+                // 存储
+                if(e.server || e.path){
+                    dataObj.estorage.enable = true;
+                    dataObj.estorage.NFS.enable = true;
+                } else {
+                    dataObj.estorage.enable = false;
+                    dataObj.estorage.NFS.enable = false;
+                }
+                dataObj.estorage.NFS.server = e.server || '';
+                dataObj.estorage.NFS.path = e.path || '';
+                // 数据库
+                if(e.host1 || e.port1 || e.username1 || e.password1 || e.dbname1){
+                    dataObj.database.enable = true;
+                    dataObj.database.uiDatabase.enable = true;
+                }else{
+                    dataObj.database.enable = false;
+                    dataObj.database.uiDatabase.enable = false;
+                }
+                if(e.host2 || e.port2 || e.username2 || e.password2 || e.dbname2){
+                    dataObj.database.enable = true;
+                    dataObj.database.regionDatabase.enable = true;
+                }else{
+                    dataObj.database.enable = false;
+                    dataObj.database.regionDatabase.enable = false;
+                }
+                dataObj.database.uiDatabase.host = e.host1 || ''
+                dataObj.database.uiDatabase.port = e.port1 || ''
+                dataObj.database.uiDatabase.username = e.username1 || ''
+                dataObj.database.uiDatabase.password = e.password1 || ''
+                dataObj.database.uiDatabase.dbname = e.dbname1 || ''
+                dataObj.database.regionDatabase.host = e.host2 || ''
+                dataObj.database.regionDatabase.port = e.port2 || ''
+                dataObj.database.regionDatabase.username = e.username2 || ''
+                dataObj.database.regionDatabase.password = e.password2 || ''
+                dataObj.database.regionDatabase.dbname = e.dbname2 || ''
+                // 镜像仓库
+                if(e.domain || e.namespace || e.username || e.password) {
+                    dataObj.imageHub.enable = true;
+                }else{
+                    dataObj.imageHub.enable = false;
+                }
+                dataObj.imageHub.domain = e.domain || ''
+                dataObj.imageHub.namespace = e.namespace || ''
+                dataObj.imageHub.username = e.username || ''
+                dataObj.imageHub.password = e.password || ''
+    
+                dataObj.gatewayIngressIPs = e.gatewayIngressIPs || ''
+                dataObj.nodesForChaos.nodes = e.nodesForChaos || []
+                
+                dataObj.etcd.endpoints = e.endpoints || []
+                dataObj.etcd.secretName = e.secretName || ''
+                dataObj.nodesForGateway.nodes = e.nodesForGateway || []
+                axios({
+                    method: 'post',
+                    url: 'https://cloud.goodrain.com/enterprise-server/api/v1/helm/chart',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: {
+                        enableHA: dataObj.enableHA,
+                        database: dataObj.database,
+                        estorage: dataObj.estorage,
+                        etcd: dataObj.etcd,
+                        gatewayIngressIPs: dataObj.gatewayIngressIPs,
+                        imageHub: dataObj.imageHub,
+                        nodesForChaos: dataObj.nodesForChaos,
+                        nodesForGateway: dataObj.nodesForGateway,
+                        DockingType: dataObj.type,
+                        appui: true,
+    
+                    }
+                }).then((res) => {
+                    if (res.status == 200) {
+                        const resArr = res.data.command.split(' & ')
+                        const resArrCopy = resArr.join('\n ')
+                        this.setState({
+                            command: res.data.command,
+                            resCommand: resArr,
+                            copyCommand: resArrCopy,
+                            btnFlog: true,
+                            btnLoading: false,
+                            btnFlag: false,
+                        })
+                    }
+                })
+            }
+        } else {
+            Swal.fire({
+                position: 'center-center',
+                icon: 'error',
+                title: '信息没有填写完整',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            this.setState({
+                command: '',
+                copyCommand: '',
+                btnFlog: false
             })
         }
+       
     }
     render() {
         const {
@@ -675,7 +682,7 @@ export default class index extends Component {
 
                             <div className="rainbond_btnBox">
                                 <Form.Item wrapperCol={{ offset: 0, span: 20 }}>
-                                    <Button className="rainbond_btn" loading={btnLoading} type="primary" htmlType="submit" onClick={this.reminder} >一键生成安装命令</Button>
+                                    <Button className="rainbond_btn" loading={btnLoading} type="primary" htmlType="submit" >一键生成安装命令</Button>
                                     <Button className="rainbond_btn" type="primary" style={{ marginLeft: '10px' }} onClick={this.handleAdvanced}> {isAdvanced ? '关闭高级配置' : '展开高级配置'}</Button>
                                 </Form.Item>
                             </div>
