@@ -8,7 +8,7 @@ export default class DAinputs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      values: [{ externalIP: '', internalIP: '', name: '' }]
+      values: [{ externalIP: null, internalIP: null, name: null }]
     };
   }
   onRegexChange = (value, index) => {
@@ -32,7 +32,7 @@ export default class DAinputs extends Component {
   setValues(arr) {
     const setArr = arr || [];
     if (!setArr.length) {
-      setArr.push({ externalIP: '', internalIP: '', name: '' });
+      setArr.push({ externalIP: null, internalIP: null, name: null });
     }
     this.setState({ values: setArr });
   }
@@ -51,7 +51,7 @@ export default class DAinputs extends Component {
       return null;
     }
     this.setState({
-      values: values.concat({ externalIP: '', internalIP: '', name: '' })
+      values: values.concat({ externalIP: null, internalIP: null, name: null })
     });
   };
 
