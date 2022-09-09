@@ -71,6 +71,7 @@ const sidebars = {
             // 'installation/install-with-ui/offline-install'
           ]
         },
+        'installation/offline/index',
         {
           type: 'category',
           label: '安装问题排查',
@@ -608,6 +609,7 @@ const sidebars = {
           items: [
             'use-manual/app-store-manage/install-app',
             'use-manual/app-store-manage/share-app',
+            'use-manual/app-store-manage/export-non-container-package',
           ]
         },
         'use-manual/usage_troubleshooting'
@@ -826,7 +828,8 @@ const sidebars = {
         'upgrade/5.6.0-upgrade',
         'upgrade/5.7.0-upgrade',
         'upgrade/5.7.1-upgrade',
-        'upgrade/5.8.0-upgrade'
+        'upgrade/5.8.0-upgrade',
+        'upgrade/5.8.1-upgrade'
       ]
     },
   ],

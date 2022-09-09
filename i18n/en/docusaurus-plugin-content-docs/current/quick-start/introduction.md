@@ -11,7 +11,7 @@ slug: /
 
 ## Why choose Rainbond?
 
-### 1. Simple to use
+### 1. Easy to use
 
 `Rainbond` follows the **application** centric design concept, and unifies the packaging of containers, Kubernetes, and underlying infrastructure-related technologies, allowing users to focus on the business itself and avoid spending a lot of learning and management effort on technologies other than business.At the same time, Rainbond deeply integrates application development, microservice architecture, application delivery, application operation and maintenance, resource management, and highly automated management to achieve unified management of all applications, all infrastructure and all IT processes.
 

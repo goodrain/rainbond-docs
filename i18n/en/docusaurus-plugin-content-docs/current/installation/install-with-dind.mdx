@@ -1,0 +1,312 @@
+---
+title: 'Install Allinone'
+description: 'This article describes running Rainbond with only one Docker container'
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Overview
+
+The current installation method can quickly experience the full functionality of Rainbond by running only one container. Only applicable to experience Rainbond functions or personal development environment. Support `Windows`、`MacOS`、`Linux` operating systems, And `x86_64` 、`Arm64` Mainstream Architecture.
+
+## Pre
+
+:::caution
+1. Install Docker
+2. Memory greater than 4G, 8G or above recommended
+3. Disk 50G or above recommended
+4. Open ports 80 443 6060 6443 7070 8443
+:::
+
+## Deployment process
+
+:::info
+The next steps will guide you to get Rainbond running quickly on your machine
+:::
+
+<Tabs groupId="install">
+  <TabItem value="Linux" label="Linux" default>
+
+<h3>1. Install Docker</h3>
+
+```bash
+curl sh.rainbond.com/install_docker | bash
+```
+
+<h3>2. set EIP env(Required)</h3>
+
+**You need to specify an IP address, After deployment is complete, This IP address will be used to access the Rainbond. The IP is set through the env EIP.**
+
+**This address can be the public IP or intranet IP on the deployment machine. The IP address can be obtained by running the `ifconfig` command.**
+
+:::caution
+When you fill in the intranet IP，E.g 192.168.3.25, May be inaccessible after switching network environments. So if you only test the experience locally, You can fill in the local loopback address.
+E.g `export EIP=127.0.0.1`
+:::
+
+```bash
+export EIP=<Your IP ADDR>
+```
+
+<h3>3. Install Rainbond</h3>
+
+```bash
+docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
+--name=rainbond-allinone --restart=on-failure \
+-v ~/.ssh:/root/.ssh \
+-v ~/rainbonddata:/app/data \
+-v /opt/rainbond:/opt/rainbond \
+-v ~/dockerdata:/var/lib/docker \
+-e ENABLE_CLUSTER=true \
+-e EIP=$EIP \
+rainbond/rainbond:v5.8.1-dind-allinone \
+&& docker logs -f rainbond-allinone
+```
+
+**After executing the above command, wait patiently for 5-10 minutes, You can see the following log output, indicating that Rainbond has been started.**
+
+```
+Loading data, estimated 3 minutes, time depends on disk performance...
+Starting Rainbond, estimated 5 minutes...
+Rainbond is successfully started, http://$EIP:7070 access Rainbond
+```
+
+<h3>4. Access Rainbond</h3>
+
+**At this point, you have successfully installed Rainbond, you can now access according to the access address prompted in the log, and start your experience journey**
+
+:::warning
+Notice: Allinone has cluster is installed by default, No need to perform a host-based cluster installation.
+:::
+
+  </TabItem>
+
+<!--  <TabItem value="Linux with Arm" label="Linux With Arm">
+
+<h3>1. Install Docker</h3>
+
+```bash
+curl sh.rainbond.com/install_docker | bash
+```
+
+<h3>2. set EIP env(Required)</h3>
+
+**你需要指定一个 IP 地址，在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。该 IP 通过环境变量 EIP 进行设置。**
+
+**该地址可以是部署机器上的公网 IP 或内网 IP。IP 地址可以通过执行 `ifconfig` 命令获得。**
+
+:::caution
+当你填写内网IP，如 192.168.3.25 时，切换网络环境后可能无法访问。因此如果仅本地测试体验，可以填写本地回环地址。
+如 `export EIP=127.0.0.1`
+:::
+
+```bash
+export EIP=<你的IP地址>
+```
+
+<h3>3. 启动 Rainbond</h3>
+
+```bash
+docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
+--name=rainbond-allinone --restart=on-failure \
+-v ~/.ssh:/root/.ssh \
+-v ~/rainbonddata:/app/data \
+-v /opt/rainbond:/opt/rainbond \
+-v ~/dockerdata:/var/lib/docker \
+-e ENABLE_CLUSTER=true \
+-e EIP=$EIP \
+rainbond/rainbond:v5.8.1-arm64-dind-allinone \
+&& docker logs -f rainbond-allinone
+```
+
+**执行完上述命令后，耐心等待 5-10 分钟，可以看到如下日志输出，表示 Rainbond 已启动完成**
+
+```
+正在加载数据，预计3分钟，时间取决于磁盘性能...
+正在启动Rainbond，预计5分钟...
+Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制台
+```
+
+<h3>4. 访问 Rainbond</h3>
+
+**此时，你已经成功安装了 Rainbond，你现在可以根据日志中提示的访问地址进行访问，开始你的体验之旅**
+
+:::warning
+注意：快速体验版本默认安装了可使用的集群，无需执行基于主机安装集群的操作。
+:::
+
+  </TabItem> 
+-->
+  <TabItem value="Mac with Intel" label="Mac with Intel">
+
+<h3>1. Install Docker</h3>
+
+**Download [Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)**
+
+<h3>2. set EIP env(Required)</h3>
+
+**You need to specify an IP address, After deployment is complete, This IP address will be used to access the Rainbond. The IP is set through the env EIP.**
+
+**This address can be the public IP or intranet IP on the deployment machine. The IP address can be obtained by running the `ifconfig` command. or press and hold `Option` while clicking the upper right corner `WIFI`.**
+
+:::caution
+When you fill in the intranet IP，E.g 192.168.3.25, May be inaccessible after switching network environments. So if you only test the experience locally, You can fill in the local loopback address.
+E.g `export EIP=127.0.0.1`
+:::
+
+```bash
+export EIP=<Your IP ADDR>
+```
+
+<h3>3. Install Rainbond</h3>
+
+```bash
+docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
+--name=rainbond-allinone --restart=on-failure \
+-v ~/.ssh:/root/.ssh \
+-v ~/opt/rainbond:/opt/rainbond \
+-v ~/rainbonddata:/app/data \
+-e ENABLE_CLUSTER=true \
+-e EIP=$EIP \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone \
+&& docker logs -f rainbond-allinone
+```
+
+**After executing the above command, wait patiently for 5-10 minutes, You can see the following log output, indicating that Rainbond has been started.**
+
+```
+Loading data, estimated 3 minutes, time depends on disk performance...
+Starting Rainbond, estimated 5 minutes...
+Rainbond is successfully started, http://$EIP:7070 access Rainbond
+```
+
+<h3>4. Access Rainbond</h3>
+
+**At this point, you have successfully installed Rainbond, you can now access according to the access address prompted in the log, and start your experience journey**
+
+:::warning
+Notice: Allinone has cluster is installed by default, No need to perform a host-based cluster installation.
+:::
+
+  </TabItem>
+
+<!-- <TabItem value="Mac with M1" label="Mac with M1">
+
+<h3>1. 安装 Docker</h3>
+
+**点击此处下载 [Docker Desktop](https://docs.docker.com/desktop/mac/release-notes/#docker-desktop)**
+
+<h3>2. 设置 EIP 环境变量(必填)</h3>
+
+**你需要指定一个 IP 地址，在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。该 IP 通过环境变量 EIP 进行设置。**
+
+**该地址可以是部署机器上的公网 IP 或内网 IP。IP 地址可以通过执行 `ifconfig` 命令获得。或者按住 `Option` 的同时点击右上角 `WIFI` 图标即可。**
+
+:::caution
+当你填写内网IP，如 192.168.3.25 时，切换网络环境后可能无法访问。因此如果仅本地测试体验，可以填写本地回环地址。
+如 `export EIP=127.0.0.1`
+:::
+
+```bash
+export EIP=<你的IP地址>
+```
+
+<h3>3. 启动 Rainbond</h3>
+
+```bash
+docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
+--name=rainbond-allinone --restart=on-failure \
+-v ~/.ssh:/root/.ssh \
+-v ~/opt/rainbond:/opt/rainbond \
+-v ~/rainbonddata:/app/data \
+-e ENABLE_CLUSTER=true \
+-e EIP=$EIP \
+rainbond/rainbond:v5.8.1-arm64-dind-allinone \
+&& docker logs -f rainbond-allinone
+```
+
+**执行完上述命令后，耐心等待 5-10 分钟，可以看到如下日志输出，表示 Rainbond 已启动完成**
+
+```
+正在加载数据，预计3分钟，时间取决于磁盘性能...
+正在启动Rainbond，预计5分钟...
+Rainbond启动成功，可以通过访问: http://$EIP:7070 进入Rainbond控制台
+```
+
+<h3>4. 访问 Rainbond</h3>
+
+**此时，你已经成功安装了 Rainbond，你现在可以根据日志中提示的访问地址进行访问，开始你的体验之旅**
+
+:::warning
+注意：快速体验版本默认安装了可使用的集群，无需执行基于主机安装集群的操作。
+:::
+
+  </TabItem> 
+-->
+  <TabItem value="Windows" label="Windows">
+
+<h3>1. Install Docker</h3>
+
+**Download [Docker Desktop](https://docs.docker.com/desktop/windows/install/)**
+
+<h3>2. set EIP env(Required)</h3>
+
+**You need to specify an IP address, After deployment is complete, This IP address will be used to access the Rainbond. The IP is set through the env EIP.**
+
+**This address can be the public IP or intranet IP on the deployment machine. The IP address can be obtained by running the `ifconfig` command.**
+
+:::caution
+When you fill in the intranet IP, E.g 192.168.3.25, it may not be accessible after switching the network environment. so if you only test the experience locally, you can fill in the local loopback address.
+Since the Windows environment variable setting is different from other methods, we do not set the environment variable in the terminal. Instead, when starting Rainbond in the third step, modify the EIP environment variable in the startup command.
+E.g `-e EIP=127.0.0.1`
+:::
+
+<h3>3. Install Rainbond</h3>
+
+**After copying the startup command below, Please edit manually `-e EIP=<Your IP ADDR>` env.**
+
+```bash
+docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 ^
+--name=rainbond-allinone --restart=on-failure ^
+-v ~/.ssh:/root/.ssh ^
+-v ~/rainbonddata:/app/data ^
+-v ~/opt/rainbond:/opt/rainbond ^
+-e ENABLE_CLUSTER=true ^
+-e EIP=<Your IP ADDR> ^
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone ^
+&& docker logs -f rainbond-allinone
+```
+
+**After executing the above command, wait patiently for 5-10 minutes, You can see the following log output, indicating that Rainbond has been started.**
+
+```
+Loading data, estimated 3 minutes, time depends on disk performance...
+Starting Rainbond, estimated 5 minutes...
+Rainbond is successfully started, http://$EIP:7070 access Rainbond
+```
+
+<h3>4. Access Rainbond</h3>
+
+**At this point, you have successfully installed Rainbond, you can now access according to the access address prompted in the log, and start your experience journey**
+
+:::warning
+Notice: Allinone has cluster is installed by default, No need to perform a host-based cluster installation.
+:::
+
+  </TabItem>
+</Tabs>
+
+## Troubleshoot
+
+**If the installation process is not completed for a long time, ref [Allinone Troubleshoot guide](/docs/installation/install-troubleshoot/dind-install-troubleshoot/)**
+
+## Extended parameter description
+
+| start parameter       | description                                                       | Is it required |
+| :------------- | :--------------------------------------------------------- | ---------- |
+| -p 10000:10000 | If accessing internal applications via TCP policy, need to map ports | No         |
+
+## Next step
+
+ref [Quick Start](/docs/quick-start/getting-started/) Deploy your first app.
