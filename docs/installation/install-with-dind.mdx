@@ -69,61 +69,53 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone \
 <summary>安装日志输出如下: </summary>
 
 ```bash
-INFO: Memory: 7907 MB, CPUs: 2, Disk: 34271 MB
-docker: started
-INFO: Docker started successfully
-INFO: Loading images
+2022-09-12 15:58:06 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31919 MB
+2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
+2022-09-12 15:58:08 INFO: Docker started successfully
+2022-09-12 15:58:08 INFO: Loading images
+Loaded image: rainbond/rbd-monitor:v5.8.1-release
+Loaded image: rainbond/registry:2.6.2
+Loaded image: rainbond/metrics-scraper:v1.0.4
+Loaded image: rainbond/rbd-init-probe:v5.8.1-release
+Loaded image: rainbond/rbd-mq:v5.8.1-release
+Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release
+Loaded image: rainbond/rainbond-operator:v5.8.1-release
+Loaded image: rainbond/rbd-node:v5.8.1-release
 Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
+Loaded image: rancher/mirrored-pause:3.1
 Loaded image: rancher/mirrored-coredns-coredns:1.8.4
 Loaded image: rancher/mirrored-metrics-server:v0.5.0
-Loaded image: rainbond/rbd-webcli:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-init-probe:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-chaos:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-node:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-eventlog:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release-arm64
-Loaded image: rainbond/rainbond-operator:v5.8.1-release-arm64
-Loaded image: rainbond/kubernetes-dashboard:v2.6.1
-Loaded image: rainbond/registry:2.6.2
-Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-worker:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-api:v5.8.1-release-arm64
 Loaded image: rancher/mirrored-library-busybox:1.32.1
-Loaded image: rainbond/rbd-gateway:v5.8.1-release-arm64
-Loaded image: rancher/mirrored-pause:3.1
-Loaded image: rainbond/rbd-monitor:v5.8.1-release-arm64
-Loaded image: rancher/local-path-provisioner:v0.0.20
-Loaded image: rainbond/metrics-server:v0.4.1
-Loaded image: rainbond/rbd-db:8.0
 Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mq:v5.8.1-release-arm64
-INFO: Docker images success
-INFO: Starting K3s
-k3s: started
-error: the server doesn't have a resource type "node"
-WARN: Waiting for K3s to start
-No resources found
-WARN: Waiting for K3s to start
-INFO: K3s started successfully
+Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release
+Loaded image: rainbond/rbd-webcli:v5.8.1-release
+Loaded image: rainbond/kubernetes-dashboard:v2.6.1
+Loaded image: rainbond/rbd-db:8.0
+Loaded image: rainbond/rbd-chaos:v5.8.1-release
+Loaded image: rainbond/rbd-worker:v5.8.1-release
+Loaded image: rainbond/rbd-gateway:v5.8.1-release
+Loaded image: rainbond/metrics-server:v0.4.1
+Loaded image: rainbond/mysqld-exporter:latest
+Loaded image: rainbond/rbd-eventlog:v5.8.1-release
+Loaded image: rainbond/rbd-api:v5.8.1-release
+Loaded image: rancher/local-path-provisioner:v0.0.20
+2022-09-12 15:59:08 INFO: Docker images success
+2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································
+2022-09-12 15:59:26 INFO: K3s started successfully
 namespace/rbd-system created
-INFO: Create namespace rbd-system
+2022-09-12 15:59:26 INFO: Create namespace rbd-system
 NAME: rainbond-operator
-LAST DEPLOYED: Thu Sep  8 22:44:50 2022
+LAST DEPLOYED: Mon Sep 12 15:59:28 2022
 NAMESPACE: rbd-system
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-INFO: Helm rainbond-operator installed
-INFO: Rainbond Region installed
-No resources found in rbd-system namespace.
-WARN: Waiting for Rainbond start
-WARN: Waiting for Rainbond start
-WARN: Waiting for Rainbond start
-INFO: Rainbond Region started successfully
-console: started
-INFO: Rainbond started successfully, Please pass http://192.168.3.163:7070 Access Rainbond
+2022-09-12 15:59:28 INFO: Helm rainbond-operator installed
+2022-09-12 15:59:29 INFO: Rainbond Region installed
+2022-09-12 15:59:29 INFO: Rainbond Region is starting, please wait ············································
+2022-09-12 16:00:55 INFO: Rainbond Region started successfully
+2022-09-12 16:00:57 INFO: Rainbond console is starting, please wait ············································
+2022-09-12 16:01:13 INFO: Rainbond started successfully, Please pass http://39.105.155.87:7070 Access Rainbond
 ```
 </details>
 
@@ -178,61 +170,53 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-arm64-dind-allinone \
 <summary>安装日志输出如下: </summary>
 
 ```bash
-INFO: Memory: 7907 MB, CPUs: 2, Disk: 34271 MB
-docker: started
-INFO: Docker started successfully
-INFO: Loading images
+2022-09-12 15:58:06 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31919 MB
+2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
+2022-09-12 15:58:08 INFO: Docker started successfully
+2022-09-12 15:58:08 INFO: Loading images
+Loaded image: rainbond/rbd-monitor:v5.8.1-release
+Loaded image: rainbond/registry:2.6.2
+Loaded image: rainbond/metrics-scraper:v1.0.4
+Loaded image: rainbond/rbd-init-probe:v5.8.1-release
+Loaded image: rainbond/rbd-mq:v5.8.1-release
+Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release
+Loaded image: rainbond/rainbond-operator:v5.8.1-release
+Loaded image: rainbond/rbd-node:v5.8.1-release
 Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
+Loaded image: rancher/mirrored-pause:3.1
 Loaded image: rancher/mirrored-coredns-coredns:1.8.4
 Loaded image: rancher/mirrored-metrics-server:v0.5.0
-Loaded image: rainbond/rbd-webcli:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-init-probe:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-chaos:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-node:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-eventlog:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release-arm64
-Loaded image: rainbond/rainbond-operator:v5.8.1-release-arm64
-Loaded image: rainbond/kubernetes-dashboard:v2.6.1
-Loaded image: rainbond/registry:2.6.2
-Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-worker:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-api:v5.8.1-release-arm64
 Loaded image: rancher/mirrored-library-busybox:1.32.1
-Loaded image: rainbond/rbd-gateway:v5.8.1-release-arm64
-Loaded image: rancher/mirrored-pause:3.1
-Loaded image: rainbond/rbd-monitor:v5.8.1-release-arm64
-Loaded image: rancher/local-path-provisioner:v0.0.20
-Loaded image: rainbond/metrics-server:v0.4.1
-Loaded image: rainbond/rbd-db:8.0
 Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mq:v5.8.1-release-arm64
-INFO: Docker images success
-INFO: Starting K3s
-k3s: started
-error: the server doesn't have a resource type "node"
-WARN: Waiting for K3s to start
-No resources found
-WARN: Waiting for K3s to start
-INFO: K3s started successfully
+Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release
+Loaded image: rainbond/rbd-webcli:v5.8.1-release
+Loaded image: rainbond/kubernetes-dashboard:v2.6.1
+Loaded image: rainbond/rbd-db:8.0
+Loaded image: rainbond/rbd-chaos:v5.8.1-release
+Loaded image: rainbond/rbd-worker:v5.8.1-release
+Loaded image: rainbond/rbd-gateway:v5.8.1-release
+Loaded image: rainbond/metrics-server:v0.4.1
+Loaded image: rainbond/mysqld-exporter:latest
+Loaded image: rainbond/rbd-eventlog:v5.8.1-release
+Loaded image: rainbond/rbd-api:v5.8.1-release
+Loaded image: rancher/local-path-provisioner:v0.0.20
+2022-09-12 15:59:08 INFO: Docker images success
+2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································
+2022-09-12 15:59:26 INFO: K3s started successfully
 namespace/rbd-system created
-INFO: Create namespace rbd-system
+2022-09-12 15:59:26 INFO: Create namespace rbd-system
 NAME: rainbond-operator
-LAST DEPLOYED: Thu Sep  8 22:44:50 2022
+LAST DEPLOYED: Mon Sep 12 15:59:28 2022
 NAMESPACE: rbd-system
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-INFO: Helm rainbond-operator installed
-INFO: Rainbond Region installed
-No resources found in rbd-system namespace.
-WARN: Waiting for Rainbond start
-WARN: Waiting for Rainbond start
-WARN: Waiting for Rainbond start
-INFO: Rainbond Region started successfully
-console: started
-INFO: Rainbond started successfully, Please pass http://192.168.3.163:7070 Access Rainbond
+2022-09-12 15:59:28 INFO: Helm rainbond-operator installed
+2022-09-12 15:59:29 INFO: Rainbond Region installed
+2022-09-12 15:59:29 INFO: Rainbond Region is starting, please wait ············································
+2022-09-12 16:00:55 INFO: Rainbond Region started successfully
+2022-09-12 16:00:57 INFO: Rainbond console is starting, please wait ············································
+2022-09-12 16:01:13 INFO: Rainbond started successfully, Please pass http://39.105.155.87:7070 Access Rainbond
 ```
 </details>
 
@@ -286,61 +270,53 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone \
 <summary>安装日志输出如下: </summary>
 
 ```bash
-INFO: Memory: 7907 MB, CPUs: 2, Disk: 34271 MB
-docker: started
-INFO: Docker started successfully
-INFO: Loading images
+2022-09-12 15:58:06 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31919 MB
+2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
+2022-09-12 15:58:08 INFO: Docker started successfully
+2022-09-12 15:58:08 INFO: Loading images
+Loaded image: rainbond/rbd-monitor:v5.8.1-release
+Loaded image: rainbond/registry:2.6.2
+Loaded image: rainbond/metrics-scraper:v1.0.4
+Loaded image: rainbond/rbd-init-probe:v5.8.1-release
+Loaded image: rainbond/rbd-mq:v5.8.1-release
+Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release
+Loaded image: rainbond/rainbond-operator:v5.8.1-release
+Loaded image: rainbond/rbd-node:v5.8.1-release
 Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
+Loaded image: rancher/mirrored-pause:3.1
 Loaded image: rancher/mirrored-coredns-coredns:1.8.4
 Loaded image: rancher/mirrored-metrics-server:v0.5.0
-Loaded image: rainbond/rbd-webcli:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-init-probe:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-chaos:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-node:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-eventlog:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release-arm64
-Loaded image: rainbond/rainbond-operator:v5.8.1-release-arm64
-Loaded image: rainbond/kubernetes-dashboard:v2.6.1
-Loaded image: rainbond/registry:2.6.2
-Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-worker:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-api:v5.8.1-release-arm64
 Loaded image: rancher/mirrored-library-busybox:1.32.1
-Loaded image: rainbond/rbd-gateway:v5.8.1-release-arm64
-Loaded image: rancher/mirrored-pause:3.1
-Loaded image: rainbond/rbd-monitor:v5.8.1-release-arm64
-Loaded image: rancher/local-path-provisioner:v0.0.20
-Loaded image: rainbond/metrics-server:v0.4.1
-Loaded image: rainbond/rbd-db:8.0
 Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mq:v5.8.1-release-arm64
-INFO: Docker images success
-INFO: Starting K3s
-k3s: started
-error: the server doesn't have a resource type "node"
-WARN: Waiting for K3s to start
-No resources found
-WARN: Waiting for K3s to start
-INFO: K3s started successfully
+Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release
+Loaded image: rainbond/rbd-webcli:v5.8.1-release
+Loaded image: rainbond/kubernetes-dashboard:v2.6.1
+Loaded image: rainbond/rbd-db:8.0
+Loaded image: rainbond/rbd-chaos:v5.8.1-release
+Loaded image: rainbond/rbd-worker:v5.8.1-release
+Loaded image: rainbond/rbd-gateway:v5.8.1-release
+Loaded image: rainbond/metrics-server:v0.4.1
+Loaded image: rainbond/mysqld-exporter:latest
+Loaded image: rainbond/rbd-eventlog:v5.8.1-release
+Loaded image: rainbond/rbd-api:v5.8.1-release
+Loaded image: rancher/local-path-provisioner:v0.0.20
+2022-09-12 15:59:08 INFO: Docker images success
+2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································
+2022-09-12 15:59:26 INFO: K3s started successfully
 namespace/rbd-system created
-INFO: Create namespace rbd-system
+2022-09-12 15:59:26 INFO: Create namespace rbd-system
 NAME: rainbond-operator
-LAST DEPLOYED: Thu Sep  8 22:44:50 2022
+LAST DEPLOYED: Mon Sep 12 15:59:28 2022
 NAMESPACE: rbd-system
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-INFO: Helm rainbond-operator installed
-INFO: Rainbond Region installed
-No resources found in rbd-system namespace.
-WARN: Waiting for Rainbond start
-WARN: Waiting for Rainbond start
-WARN: Waiting for Rainbond start
-INFO: Rainbond Region started successfully
-console: started
-INFO: Rainbond started successfully, Please pass http://192.168.3.163:7070 Access Rainbond
+2022-09-12 15:59:28 INFO: Helm rainbond-operator installed
+2022-09-12 15:59:29 INFO: Rainbond Region installed
+2022-09-12 15:59:29 INFO: Rainbond Region is starting, please wait ············································
+2022-09-12 16:00:55 INFO: Rainbond Region started successfully
+2022-09-12 16:00:57 INFO: Rainbond console is starting, please wait ············································
+2022-09-12 16:01:13 INFO: Rainbond started successfully, Please pass http://39.105.155.87:7070 Access Rainbond
 ```
 </details>
 
@@ -394,61 +370,53 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-arm64-dind-allinone \
 <summary>安装日志输出如下: </summary>
 
 ```bash
-INFO: Memory: 7907 MB, CPUs: 2, Disk: 34271 MB
-docker: started
-INFO: Docker started successfully
-INFO: Loading images
+2022-09-12 15:58:06 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31919 MB
+2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
+2022-09-12 15:58:08 INFO: Docker started successfully
+2022-09-12 15:58:08 INFO: Loading images
+Loaded image: rainbond/rbd-monitor:v5.8.1-release
+Loaded image: rainbond/registry:2.6.2
+Loaded image: rainbond/metrics-scraper:v1.0.4
+Loaded image: rainbond/rbd-init-probe:v5.8.1-release
+Loaded image: rainbond/rbd-mq:v5.8.1-release
+Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release
+Loaded image: rainbond/rainbond-operator:v5.8.1-release
+Loaded image: rainbond/rbd-node:v5.8.1-release
 Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
+Loaded image: rancher/mirrored-pause:3.1
 Loaded image: rancher/mirrored-coredns-coredns:1.8.4
 Loaded image: rancher/mirrored-metrics-server:v0.5.0
-Loaded image: rainbond/rbd-webcli:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-init-probe:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-chaos:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-node:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-eventlog:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release-arm64
-Loaded image: rainbond/rainbond-operator:v5.8.1-release-arm64
-Loaded image: rainbond/kubernetes-dashboard:v2.6.1
-Loaded image: rainbond/registry:2.6.2
-Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-worker:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-api:v5.8.1-release-arm64
 Loaded image: rancher/mirrored-library-busybox:1.32.1
-Loaded image: rainbond/rbd-gateway:v5.8.1-release-arm64
-Loaded image: rancher/mirrored-pause:3.1
-Loaded image: rainbond/rbd-monitor:v5.8.1-release-arm64
-Loaded image: rancher/local-path-provisioner:v0.0.20
-Loaded image: rainbond/metrics-server:v0.4.1
-Loaded image: rainbond/rbd-db:8.0
 Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mq:v5.8.1-release-arm64
-INFO: Docker images success
-INFO: Starting K3s
-k3s: started
-error: the server doesn't have a resource type "node"
-WARN: Waiting for K3s to start
-No resources found
-WARN: Waiting for K3s to start
-INFO: K3s started successfully
+Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release
+Loaded image: rainbond/rbd-webcli:v5.8.1-release
+Loaded image: rainbond/kubernetes-dashboard:v2.6.1
+Loaded image: rainbond/rbd-db:8.0
+Loaded image: rainbond/rbd-chaos:v5.8.1-release
+Loaded image: rainbond/rbd-worker:v5.8.1-release
+Loaded image: rainbond/rbd-gateway:v5.8.1-release
+Loaded image: rainbond/metrics-server:v0.4.1
+Loaded image: rainbond/mysqld-exporter:latest
+Loaded image: rainbond/rbd-eventlog:v5.8.1-release
+Loaded image: rainbond/rbd-api:v5.8.1-release
+Loaded image: rancher/local-path-provisioner:v0.0.20
+2022-09-12 15:59:08 INFO: Docker images success
+2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································
+2022-09-12 15:59:26 INFO: K3s started successfully
 namespace/rbd-system created
-INFO: Create namespace rbd-system
+2022-09-12 15:59:26 INFO: Create namespace rbd-system
 NAME: rainbond-operator
-LAST DEPLOYED: Thu Sep  8 22:44:50 2022
+LAST DEPLOYED: Mon Sep 12 15:59:28 2022
 NAMESPACE: rbd-system
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-INFO: Helm rainbond-operator installed
-INFO: Rainbond Region installed
-No resources found in rbd-system namespace.
-WARN: Waiting for Rainbond start
-WARN: Waiting for Rainbond start
-WARN: Waiting for Rainbond start
-INFO: Rainbond Region started successfully
-console: started
-INFO: Rainbond started successfully, Please pass http://192.168.3.163:7070 Access Rainbond
+2022-09-12 15:59:28 INFO: Helm rainbond-operator installed
+2022-09-12 15:59:29 INFO: Rainbond Region installed
+2022-09-12 15:59:29 INFO: Rainbond Region is starting, please wait ············································
+2022-09-12 16:00:55 INFO: Rainbond Region started successfully
+2022-09-12 16:00:57 INFO: Rainbond console is starting, please wait ············································
+2022-09-12 16:01:13 INFO: Rainbond started successfully, Please pass http://39.105.155.87:7070 Access Rainbond
 ```
 </details>
 
@@ -501,61 +469,53 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone ^
 <summary>安装日志输出如下: </summary>
 
 ```bash
-INFO: Memory: 7907 MB, CPUs: 2, Disk: 34271 MB
-docker: started
-INFO: Docker started successfully
-INFO: Loading images
+2022-09-12 15:58:06 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31919 MB
+2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
+2022-09-12 15:58:08 INFO: Docker started successfully
+2022-09-12 15:58:08 INFO: Loading images
+Loaded image: rainbond/rbd-monitor:v5.8.1-release
+Loaded image: rainbond/registry:2.6.2
+Loaded image: rainbond/metrics-scraper:v1.0.4
+Loaded image: rainbond/rbd-init-probe:v5.8.1-release
+Loaded image: rainbond/rbd-mq:v5.8.1-release
+Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release
+Loaded image: rainbond/rainbond-operator:v5.8.1-release
+Loaded image: rainbond/rbd-node:v5.8.1-release
 Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
+Loaded image: rancher/mirrored-pause:3.1
 Loaded image: rancher/mirrored-coredns-coredns:1.8.4
 Loaded image: rancher/mirrored-metrics-server:v0.5.0
-Loaded image: rainbond/rbd-webcli:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-init-probe:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-chaos:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-node:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-eventlog:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release-arm64
-Loaded image: rainbond/rainbond-operator:v5.8.1-release-arm64
-Loaded image: rainbond/kubernetes-dashboard:v2.6.1
-Loaded image: rainbond/registry:2.6.2
-Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-worker:v5.8.1-release-arm64
-Loaded image: rainbond/rbd-api:v5.8.1-release-arm64
 Loaded image: rancher/mirrored-library-busybox:1.32.1
-Loaded image: rainbond/rbd-gateway:v5.8.1-release-arm64
-Loaded image: rancher/mirrored-pause:3.1
-Loaded image: rainbond/rbd-monitor:v5.8.1-release-arm64
-Loaded image: rancher/local-path-provisioner:v0.0.20
-Loaded image: rainbond/metrics-server:v0.4.1
-Loaded image: rainbond/rbd-db:8.0
 Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mq:v5.8.1-release-arm64
-INFO: Docker images success
-INFO: Starting K3s
-k3s: started
-error: the server doesn't have a resource type "node"
-WARN: Waiting for K3s to start
-No resources found
-WARN: Waiting for K3s to start
-INFO: K3s started successfully
+Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release
+Loaded image: rainbond/rbd-webcli:v5.8.1-release
+Loaded image: rainbond/kubernetes-dashboard:v2.6.1
+Loaded image: rainbond/rbd-db:8.0
+Loaded image: rainbond/rbd-chaos:v5.8.1-release
+Loaded image: rainbond/rbd-worker:v5.8.1-release
+Loaded image: rainbond/rbd-gateway:v5.8.1-release
+Loaded image: rainbond/metrics-server:v0.4.1
+Loaded image: rainbond/mysqld-exporter:latest
+Loaded image: rainbond/rbd-eventlog:v5.8.1-release
+Loaded image: rainbond/rbd-api:v5.8.1-release
+Loaded image: rancher/local-path-provisioner:v0.0.20
+2022-09-12 15:59:08 INFO: Docker images success
+2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································
+2022-09-12 15:59:26 INFO: K3s started successfully
 namespace/rbd-system created
-INFO: Create namespace rbd-system
+2022-09-12 15:59:26 INFO: Create namespace rbd-system
 NAME: rainbond-operator
-LAST DEPLOYED: Thu Sep  8 22:44:50 2022
+LAST DEPLOYED: Mon Sep 12 15:59:28 2022
 NAMESPACE: rbd-system
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-INFO: Helm rainbond-operator installed
-INFO: Rainbond Region installed
-No resources found in rbd-system namespace.
-WARN: Waiting for Rainbond start
-WARN: Waiting for Rainbond start
-WARN: Waiting for Rainbond start
-INFO: Rainbond Region started successfully
-console: started
-INFO: Rainbond started successfully, Please pass http://192.168.3.163:7070 Access Rainbond
+2022-09-12 15:59:28 INFO: Helm rainbond-operator installed
+2022-09-12 15:59:29 INFO: Rainbond Region installed
+2022-09-12 15:59:29 INFO: Rainbond Region is starting, please wait ············································
+2022-09-12 16:00:55 INFO: Rainbond Region started successfully
+2022-09-12 16:00:57 INFO: Rainbond console is starting, please wait ············································
+2022-09-12 16:01:13 INFO: Rainbond started successfully, Please pass http://39.105.155.87:7070 Access Rainbond
 ```
 </details>
 
