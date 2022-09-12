@@ -27,6 +27,10 @@ keywords: [Rainbond 社区支持]
 
 你可以在钉钉中搜索群号 `31096419` 加入 Rainbond 钉钉技术交流群。
 
+## Slack 频道
+
+你可以通过点击链接加入 [Rainbond Slack 频道](https://join.slack.com/t/rainbond-slack/shared_invite/zt-1ft4g75pg-KJ0h_IAtvG9DMgeE_BNjZQ)。
+
 ## 社区论坛
 
 你可以在 [Rainbond 社区论坛](https://t.goodrain.com/) 中搜索你的问题，也可以提出新问题，在提出新问题之前请查看 [社区规范](https://t.goodrain.com/d/2-rainbond)。

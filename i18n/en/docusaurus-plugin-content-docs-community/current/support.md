@@ -32,7 +32,9 @@ You can get community support in the Rainbond WeChat technical exchange group, w
 
 You can search for the group number `31096419` in DingTalk to join the Rainbond DingTalk technical exchange group.
 
+## Slack Channel
 
+You can join by clicking the link [Rainbond Slack Channel](https://join.slack.com/t/rainbond-slack/shared_invite/zt-1ft4g75pg-KJ0h_IAtvG9DMgeE_BNjZQ).
 
 ## community forum
 
