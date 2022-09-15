@@ -1,7 +1,7 @@
 ---
-title: 滴滴Logi-KafkaManager
+title: 在 Rainbond 上部署 KnowStreaming
 description: 一站式Apache Kafka集群指标监控与运维管控平台
-weight: 7005
+slug: knowstreaming
 ---
 
 ### 简介

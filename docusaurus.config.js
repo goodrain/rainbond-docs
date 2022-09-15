@@ -118,6 +118,11 @@ const config = {
             to: '/community/support',
           },
           {
+            position: 'left',
+            label: '精选应用',
+            to: '/opensourceApps',
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownItemsAfter: [
@@ -227,6 +232,10 @@ const config = {
                 label: '博客',
                 to: 'blog'
               },
+              {
+                label: '精选应用',
+                to: '/opensourceApps'
+              }
             ]
           },
           {
@@ -377,7 +386,8 @@ const config = {
         }
       }
     ],
-    'docusaurus-plugin-sass'
+    'docusaurus-plugin-sass',
+    '@docusaurus/plugin-ideal-image'
   ]
 };
 

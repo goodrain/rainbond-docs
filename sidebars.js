@@ -793,22 +793,6 @@ const sidebars = {
             'expand/practices/app-dev/shell-hook-cdn'
           ]
         },
-        {
-          type: 'category',
-          label: '开源应用精选专区',
-          link: {
-            type: 'doc',
-            id: 'expand/opensource-app/index'
-          },
-          items: [
-            'expand/opensource-app/itest',
-            'expand/opensource-app/maxkey',
-            'expand/opensource-app/TDengine',
-            'expand/opensource-app/chatopera',
-            'expand/opensource-app/logikm',
-            'expand/opensource-app/nacos'
-          ]
-        }
       ]
     },
     {
