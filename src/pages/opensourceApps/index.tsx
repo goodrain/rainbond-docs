@@ -38,7 +38,7 @@ const TITLE = translate({message: '精选开源应用'});
 const DESCRIPTION = translate({
   message: '展示 Rainbond 开源应用商店的部分精选开源应用，欢迎安装使用',
 });
-const SUBMIT_URL = 'https://github.com/facebook/docusaurus/discussions/7826';
+const SUBMIT_URL = '/community/contribution/app-share/';
 
 type UserState = {
   scrollTopPosition: number;
@@ -130,7 +130,7 @@ function ShowcaseHeader() {
         target="_blank"
         rel="noreferrer">
         <Translate id="showcase.header.button">
-          🙏 Please add your site
+          Please add your Application
         </Translate>
       </a>
     </section>
@@ -227,7 +227,7 @@ function SearchBar() {
       <input
         id="searchbar"
         placeholder={translate({
-          message: 'Search for site name...',
+          message: 'Search for app name...',
           id: 'showcase.searchBar.placeholder',
         })}
         value={value ?? undefined}

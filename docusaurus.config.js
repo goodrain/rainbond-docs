@@ -317,20 +317,6 @@ const config = {
       }
     ],
     [
-      '@docusaurus/plugin-content-blog',
-      {
-        id: 'fosp',
-        routeBasePath: 'fosp',
-        path: './fosp',
-        blogTitle: '精选开源项目',
-        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/fosp',
-        postsPerPage: 10,
-        blogSidebarCount: 'ALL',
-        blogSidebarTitle: '精选开源项目',
-        sortPosts: 'descending'
-      }
-    ],
-    [
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath) {

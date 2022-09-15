@@ -29,27 +29,118 @@ export type TagType =
 // prettier-ignore
 const Users: User[] = [
   {
-    title: 'AgileTs',
-    description: 'Global State and Logic Framework for reactive Applications',
-    preview: require('./apps/agilets.png'),
-    website: 'https://agile-ts.org/',
-    deploy: 'https://github.com/agile-ts/documentation',
+    title: 'Apollo',
+    description: 'Apollo（阿波罗）是一款可靠的分布式配置管理中心',
+    preview: require('./apps/apollo.jpeg'),
+    website: 'https://github.com/apolloconfig/apollo/',
+    deploy: '/blog/apollo',
     tags: ['opensource'],
   },
   {
-    title: 'AI-Speaker',
-    description: 'Local, reliable, fast and private Audio and IoT gate.',
-    preview: require('./apps/aispeaker.png'),
-    website: 'https://ai-speaker.com/',
-    deploy: 'https://github.com/sviete/AIS-WWW',
+    title: 'Arthas',
+    description: 'Arthas 是一款线上监控诊断产品，通过全局视角实时查看应用 load、内存、gc、线程的状态信息',
+    preview: require('./apps/arthas.png'),
+    website: 'https://github.com/alibaba/arthas',
+    deploy: '/blog/arthas',
+    tags: ['opensource'],
+  },
+  {
+    title: 'DolphinScheduler',
+    description: 'Apache DolphinScheduler 是一个分布式易扩展的可视化DAG工作流任务调度开源系统',
+    preview: require('./apps/dolphinscheduler.png'),
+    website: 'https://github.com/apache/dolphinscheduler',
+    deploy: '/blog/dolphinscheduler',
+    tags: ['opensource'],
+  },
+  {
+    title: 'DevLake',
+    description: 'Apache DevLake 是一个开源开发数据平台，从 DevOps 工具中提取、分析和可视化碎片数据',
+    preview: require('./apps/devlake.png'),
+    website: 'https://github.com/apache/incubator-devlake',
+    deploy: '#',
+    tags: ['opensource'],
+  },
+  {
+    title: 'EMQX',
+    description: 'EMQX 是一款大规模可弹性伸缩的云原生分布式物联网 MQTT 消息服务器',
+    preview: require('./apps/emqx.png'),
+    website: 'https://github.com/emqx/emqx',
+    deploy: '/blog/emqx',
+    tags: ['opensource'],
+  },
+  {
+    title: 'Elasticsearch',
+    description: 'Elasticsearch 是分布式搜索和分析引擎',
+    preview: require('./apps/es.png'),
+    website: 'https://github.com/elastic/elasticsearch',
+    deploy: '/blog/elk',
+    tags: ['opensource'],
+  },
+  {
+    title: 'Fluentd',
+    description: 'Fluentd 是一个用于统一日志层的开源数据收集器',
+    preview: require('./apps/fluentd.jpeg'),
+    website: 'https://github.com/fluent/fluentd',
+    deploy: '/blog/fluentd',
+    tags: ['opensource'],
+  },
+  {
+    title: 'Filebeat',
+    description: 'Filebeat是用于转发和集中日志数据的轻量级传送程序',
+    preview: require('./apps/filebeat.png'),
+    website: 'https://github.com/elastic/beats',
+    deploy: '/blog/elk',
+    tags: ['opensource'],
+  },
+  {
+    title: 'Jaeger',
+    description: 'Jaeger 是开源分布式跟踪系统',
+    preview: require('./apps/jaeger.png'),
+    website: 'https://github.com/jaegertracing/jaeger',
+    deploy: '/blog/jaeger',
+    tags: ['opensource'],
+  },
+  {
+    title: 'Kibana',
+    description: 'Kibana 是一款开源的数据分析和可视化平台',
+    preview: require('./apps/kibana.png'),
+    website: 'https://github.com/elastic/kibana',
+    deploy: '/blog/elk',
+    tags: ['opensource'],
+  },
+  {
+    title: 'KnowStreaming',
+    description: 'Know Streaming是一套云原生的 Kafka 管控平台',
+    preview: require('./apps/knowstreaming.png'),
+    website: 'https://github.com/didi/KnowStreaming/',
+    deploy: '/blog/knowstreaming',
+    tags: ['opensource'],
+  },
+  {
+    title: 'OpenVScode',
+    description: 'OpenVSCode 是一款基于Web 界面的在线IDE 代码编辑器',
+    preview: require('./apps/openvscode.png'),
+    website: 'https://github.com/gitpod-io/openvscode-server',
+    deploy: '/blog/OpenVscode',
+    tags: ['opensource'],
+  },
+  {
+    title: 'Pyroscope',
+    description: 'Pyroscope 是一个开源的持续性能分析平台',
+    preview: require('./apps/pyroscope.png'),
+    website: 'https://github.com/pyroscope-io/pyroscope',
+    deploy: '/blog/knowstreaming',
+    tags: ['opensource'],
+  },
+  {
+    title: 'StreamPark',
+    description: 'StreamPark 是流处理极速开发框架, 流批一体 & 湖仓一体的云原生平台, 一站式流处理计算平台',
+    preview: require('./apps/streampark.png'),
+    website: 'https://github.com/apache/incubator-streampark',
+    deploy: '#',
     tags: ['opensource'],
   },
   
-
-  /*
-  Pro Tip: add your site in alphabetical order.
-  Appending your site here (at the end) is more likely to produce Git conflicts.
-   */
 ];
 
 export type User = {
