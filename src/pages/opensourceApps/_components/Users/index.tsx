@@ -8,7 +8,8 @@ import {sortBy} from '@site/src/utils/jsUtils';
 // Please choose all tags that you think might apply.
 // We'll remove inappropriate tags, but it's less likely that we add tags.
 export type TagType =
-  | 'opensource'
+  | 'Application'
+  | 'Plugin'
   //-----------------------------------
   // | 'product'
   // // Feel free to add the 'design' tag as long as there's _some_ level of
@@ -34,7 +35,7 @@ const Users: User[] = [
     preview: require('./apps/apollo.jpeg'),
     website: 'https://github.com/apolloconfig/apollo/',
     deploy: '/blog/apollo',
-    tags: ['opensource'],
+    tags: ['Application'],
   },
   {
     title: 'Arthas',
@@ -42,7 +43,7 @@ const Users: User[] = [
     preview: require('./apps/arthas.png'),
     website: 'https://github.com/alibaba/arthas',
     deploy: '/blog/arthas',
-    tags: ['opensource'],
+    tags: ['Application'],
   },
   {
     title: 'DolphinScheduler',
@@ -50,7 +51,7 @@ const Users: User[] = [
     preview: require('./apps/dolphinscheduler.png'),
     website: 'https://github.com/apache/dolphinscheduler',
     deploy: '/blog/dolphinscheduler',
-    tags: ['opensource'],
+    tags: ['Application'],
   },
   {
     title: 'DevLake',
@@ -58,7 +59,7 @@ const Users: User[] = [
     preview: require('./apps/devlake.png'),
     website: 'https://github.com/apache/incubator-devlake',
     deploy: '#',
-    tags: ['opensource'],
+    tags: ['Application'],
   },
   {
     title: 'EMQX',
@@ -66,7 +67,7 @@ const Users: User[] = [
     preview: require('./apps/emqx.png'),
     website: 'https://github.com/emqx/emqx',
     deploy: '/blog/emqx',
-    tags: ['opensource'],
+    tags: ['Application'],
   },
   {
     title: 'Elasticsearch',
@@ -74,7 +75,7 @@ const Users: User[] = [
     preview: require('./apps/es.png'),
     website: 'https://github.com/elastic/elasticsearch',
     deploy: '/blog/elk',
-    tags: ['opensource'],
+    tags: ['Application'],
   },
   {
     title: 'Fluentd',
@@ -82,7 +83,7 @@ const Users: User[] = [
     preview: require('./apps/fluentd.jpeg'),
     website: 'https://github.com/fluent/fluentd',
     deploy: '/blog/fluentd',
-    tags: ['opensource'],
+    tags: ['Plugin'],
   },
   {
     title: 'Filebeat',
@@ -90,7 +91,7 @@ const Users: User[] = [
     preview: require('./apps/filebeat.png'),
     website: 'https://github.com/elastic/beats',
     deploy: '/blog/elk',
-    tags: ['opensource'],
+    tags: ['Plugin'],
   },
   {
     title: 'Jaeger',
@@ -98,7 +99,7 @@ const Users: User[] = [
     preview: require('./apps/jaeger.png'),
     website: 'https://github.com/jaegertracing/jaeger',
     deploy: '/blog/jaeger',
-    tags: ['opensource'],
+    tags: ['Application', 'Plugin'],
   },
   {
     title: 'Kibana',
@@ -106,7 +107,7 @@ const Users: User[] = [
     preview: require('./apps/kibana.png'),
     website: 'https://github.com/elastic/kibana',
     deploy: '/blog/elk',
-    tags: ['opensource'],
+    tags: ['Application'],
   },
   {
     title: 'KnowStreaming',
@@ -114,7 +115,7 @@ const Users: User[] = [
     preview: require('./apps/knowstreaming.png'),
     website: 'https://github.com/didi/KnowStreaming/',
     deploy: '/blog/knowstreaming',
-    tags: ['opensource'],
+    tags: ['Application'],
   },
   {
     title: 'OpenVScode',
@@ -122,7 +123,7 @@ const Users: User[] = [
     preview: require('./apps/openvscode.png'),
     website: 'https://github.com/gitpod-io/openvscode-server',
     deploy: '/blog/OpenVscode',
-    tags: ['opensource'],
+    tags: ['Application'],
   },
   {
     title: 'Pyroscope',
@@ -130,7 +131,7 @@ const Users: User[] = [
     preview: require('./apps/pyroscope.png'),
     website: 'https://github.com/pyroscope-io/pyroscope',
     deploy: '/blog/knowstreaming',
-    tags: ['opensource'],
+    tags: ['Application', 'Plugin'],
   },
   {
     title: 'StreamPark',
@@ -138,7 +139,7 @@ const Users: User[] = [
     preview: require('./apps/streampark.png'),
     website: 'https://github.com/apache/incubator-streampark',
     deploy: '#',
-    tags: ['opensource'],
+    tags: ['Application'],
   },
   
 ];
@@ -169,15 +170,22 @@ export const Tags: {[type in TagType]: Tag} = {
   //   color: '#e9669e',
   // },
 
-  opensource: {
-    label: translate({message: 'Open-Source'}),
+  Application: {
+    label: translate({message: 'Application'}),
     description: translate({
-      message: 'Open Source Projects',
+      message: 'Open Source application',
       id: 'showcase.tag.opensource.description',
     }),
     color: '#39ca30',
   },
-
+  Plugin: {
+    label: translate({message: 'Plugin'}),
+    description: translate({
+      message: 'Open Source plugin',
+      id: 'showcase.tag.product.description',
+    }),
+    color: '#dfd545',
+  },
   // product: {
   //   label: translate({message: 'Product'}),
   //   description: translate({
