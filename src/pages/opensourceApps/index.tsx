@@ -130,7 +130,7 @@ function ShowcaseHeader() {
         target="_blank"
         rel="noreferrer">
         <Translate id="showcase.header.button">
-          Please add your Application
+          show your application
         </Translate>
       </a>
     </section>
