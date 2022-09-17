@@ -17,6 +17,7 @@ import { useTrail, animated } from 'react-spring';
 import Translate from '@docusaurus/Translate';
 import { useLocation } from '@docusaurus/router';
 import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -310,9 +311,11 @@ export default function Home() {
                 </div>
                 {/* 标题 */}
                 <p className={styles.experience_sort_title}>
-                  <Translate id='second.openapp'>
-                    80款开源软件即点即用
-                  </Translate>
+                  <Link to="/opensourceApps">
+                    <Translate id='second.openapp'>
+                      80款开源软件即点即用
+                    </Translate>
+                  </Link>
                 </p>
                 {/* 描述 */}
                 <div className={styles.experience_sort_desc}>
