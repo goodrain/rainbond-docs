@@ -34,8 +34,12 @@ import ShowcaseTooltip from './_components/Tooltip';
 
 import styles from './styles.module.css';
 
-const TITLE = translate({message: '精选开源应用'});
+const TITLE = translate({
+  id: 'opensourceapp.header.title',
+  message: '精选开源应用'
+});
 const DESCRIPTION = translate({
+  id: 'opensourceapp.header.description',
   message: '展示 Rainbond 开源应用商店的部分精选开源应用，欢迎安装使用',
 });
 const SUBMIT_URL = '/community/contribution/app-share/';
@@ -129,8 +133,8 @@ function ShowcaseHeader() {
         href={SUBMIT_URL}
         target="_blank"
         rel="noreferrer">
-        <Translate id="showcase.header.button">
-          show your application
+        <Translate id="opensourceapp.header.button">
+          展示您的开源应用
         </Translate>
       </a>
     </section>
@@ -280,8 +284,8 @@ function ShowcaseCards() {
                   styles.showcaseFavoriteHeader,
                 )}>
                 <h2>
-                  <Translate id="showcase.favoritesList.title">
-                    ALL Featured Open Source Applications &nbsp;&nbsp;
+                  <Translate id="opensourceapp.allapplication">
+                    所有精选开源应用 &nbsp;&nbsp;
                   </Translate>
                 </h2>
                 <AppsIcon/>

@@ -66,5 +66,13 @@
   "link.item.label.联系我们": {
     "message": "Contact us",
     "description": "Footer item with label Contact us"
+  },
+  "link.item.label.企业版": {
+    "message": "Enterprise",
+    "description": "Footer item with label Enterprise"
+  },
+  "link.item.label.精选应用": {
+    "message": "FeaturedApps",
+    "description": "Footer item with label FeaturedApp"
   }
 }

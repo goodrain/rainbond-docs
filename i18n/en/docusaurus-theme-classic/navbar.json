@@ -29,5 +29,13 @@
   "item.label.产品": {
     "message": "Product",
     "description": "Navbar item with label Product"
+  },
+  "item.label.企业版": {
+    "message": "Enterprise",
+    "description": "Navbar item with label Enterprise"
+  },
+  "item.label.精选应用": {
+    "message": "FeaturedApps",
+    "description": "Navbar item with label FeaturedApp"
   }
 }

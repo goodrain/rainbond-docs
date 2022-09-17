@@ -238,5 +238,17 @@
   },
   "participate.contribution.description": {
     "message": "Participate Community Contribution"
+  },
+  "opensourceapp.header.title": {
+    "message": "Featured Open Source Applications"
+  },
+  "opensourceapp.header.description": {
+    "message": "Show some selected open source applications in the Rainbond open source application store, welcome to install and use"
+  },
+  "opensourceapp.header.button": {
+    "message": "Show Your Application"
+  },
+  "opensourceapp.allapplication": {
+    "message": "ALL Featured Open Source Applications"
   }
 }
