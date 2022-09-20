@@ -6,23 +6,23 @@ slug: knowstreaming
 
 ### 简介
 
-[滴滴Logi-KafkaManager](https://github.com/didi/LogiKM)脱胎于滴滴内部多年的Kafka运营实践经验，是面向Kafka用户、Kafka运维人员打造的共享多租户Kafka云平台。专注于Kafka运维管控、监控告警、资源治理等核心场景，经历过大规模集群、海量大数据的考验。
+[KnowStreaming](https://github.com/didi/KnowStreaming) 是一套云原生的Kafka管控平台，脱胎于众多互联网内部多年的Kafka运营实践经验，专注于Kafka运维管控、监控告警、资源治理、多活容灾等核心场景。在用户体验、监控、运维管控上进行了平台化、可视化、智能化的建设，提供一系列特色的功能，极大地方便了用户和运维人员的日常使用，让普通运维人员都能成为Kafka专家。
 
-### 快速部署Logikm
+### 快速部署 KnowStreaming
 
 首先根据快速安装文档部署 [Rainbond](/docs/quick-start/quick-install/)
 
-LogiKm 已发布至 `开源应用商店` ，用户可搜索 `logikm`，一键安装 Logikm Kafka Manager
+KnowStreaming 已发布至 `开源应用商店` ，用户可搜索 `KnowStreaming`，一键安装 KnowStreaming
 
-![](https://static.goodrain.com/wechat/logikm/install-logikm.png)
+![](https://static.goodrain.com/wechat/logikm/1.png)
 
-安装后，访问 `logikm-front`即可进入，默认密码：admin / admin
+安装后，访问 `KnowStreaming-UI` 进入控制台，默认密码：admin / admin
 
+![](https://static.goodrain.com/wechat/logikm/2.png)
 
+### 快速部署 Kafka 集群
 
-### 快速部署Kafka集群
-
-上面我们已经部署了 `Logikm`，接下来我们也可通过 `开源应用商店` 安装Kafka集群并进行对接。
+上面我们已经部署了 `KnowStreaming`，接下来我们也可通过 `开源应用商店` 安装Kafka集群并进行对接。
 
 Kafka 已发布至 `开源应用商店` ，用户可搜索 `kafka`，一键安装 Kafka-Zookeeper-Bitnami
 
@@ -38,14 +38,10 @@ Kafka 已发布至 `开源应用商店` ，用户可搜索 `kafka`，一键安�
 
 
 
-### 使用Logikm对接并管理Kafka集群
+### 使用 KnowStreaming 对接并管理 Kafka 集群
 
-接下来我们通过 `Logikm` 对接刚刚安装的 `kafka`集群。
+接下来我们通过 `KnowStreaming` 对接刚刚安装的 `kafka`集群。
 
-访问 `logikm-front`，进入 运维管控 -> 接入集群，根据页面提示填写对应信息。
+访问 `KnowStreaming`，接入集群，根据页面提示填写对应信息。
 
-对接完成后，我们就可通过 `Logikm` 管理 `kafka` 集群啦。
-
-![](https://static.goodrain.com/wechat/logikm/logikm-clusterinfo.png)
-
-
+对接完成后，我们就可通过 `KnowStreaming` 管理 `kafka` 集群啦。

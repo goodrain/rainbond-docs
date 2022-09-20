@@ -249,6 +249,48 @@
     "message": "Show Your Application"
   },
   "opensourceapp.allapplication": {
-    "message": "ALL Featured Open Source Applications"
+    "message": "All Featured Open Source Applications"
+  },
+  "opensourceapps.apollo.description": {
+    "message": "A reliable configuration management system"
+  },
+  "opensourceapps.arthas.description": {
+    "message": "A Java diagnostic tool open-sourced"
+  },
+  "opensourceapps.dolphinscheduler.description": {
+    "message": "A distributed and extensible workflow scheduler platform with powerful DAG visual interfaces"
+  },
+  "opensourceapps.devlake.description": {
+    "message": "DevLake is an open-source dev data platform that ingests"
+  },
+  "opensourceapps.emqx.description": {
+    "message": "EMQX is an Open-source MQTT broker with a high-performance real-time message processing engine"
+  },
+  "opensourceapps.elasticsearch.description": {
+    "message": "is a distributed search and analytics engine"
+  },
+  "opensourceapps.fluentd.description": {
+    "message": "Fluentd is an open source data collector for a unified logging layer"
+  },
+  "opensourceapps.filebeat.description": {
+    "message": "Filebeat is a lightweight delivery program for forwarding and centralizing log data"
+  },
+  "opensourceapps.jaeger.description": {
+    "message": "Jaeger is an open source distributed tracing system"
+  },
+  "opensourceapps.kibana.description": {
+    "message": "Kibana is an open source data analysis and visualization platform"
+  },
+  "opensourceapps.knowstreaming.description": {
+    "message": "Know Streaming is a set of cloud native Kafka control platform"
+  },
+  "opensourceapps.openvscode.description": {
+    "message": "OpenVSCode is an online IDE code editor based on a Web interface"
+  },
+  "opensourceapps.pyroscope.description": {
+    "message": "Pyroscope is an open source continuous performance analysis platform"
+  },
+  "opensourceapps.streampark.description": {
+    "message": "Make stream processing easier! easy-to-use streaming application development framework and operation platform"
   }
 }

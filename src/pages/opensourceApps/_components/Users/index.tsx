@@ -31,7 +31,10 @@ export type TagType =
 const Users: User[] = [
   {
     title: 'Apollo',
-    description: 'Apollo（阿波罗）是一款可靠的分布式配置管理中心',
+    description: translate({
+      id: 'opensourceapps.apollo.description',
+      message: 'Apollo（阿波罗）是一款可靠的分布式配置管理中心',
+    }),
     preview: require('./apps/apollo.jpeg'),
     website: 'https://github.com/apolloconfig/apollo/',
     deploy: '/blog/apollo',
@@ -39,7 +42,10 @@ const Users: User[] = [
   },
   {
     title: 'Arthas',
-    description: 'Arthas 是一款线上监控诊断产品，通过全局视角实时查看应用 load、内存、gc、线程的状态信息',
+    description: translate({
+      id: 'opensourceapps.arthas.description',
+      message: 'Arthas 是一款线上监控诊断产品，通过全局视角实时查看应用 load、内存、gc、线程的状态信息',
+    }),
     preview: require('./apps/arthas.png'),
     website: 'https://github.com/alibaba/arthas',
     deploy: '/blog/arthas',
@@ -47,7 +53,10 @@ const Users: User[] = [
   },
   {
     title: 'DolphinScheduler',
-    description: 'Apache DolphinScheduler 是一个分布式易扩展的可视化DAG工作流任务调度开源系统',
+    description: translate({
+      id: 'opensourceapps.dolphinscheduler.description',
+      message: 'Apache DolphinScheduler 是一个分布式易扩展的可视化DAG工作流任务调度开源系统',
+    }),
     preview: require('./apps/dolphinscheduler.png'),
     website: 'https://github.com/apache/dolphinscheduler',
     deploy: '/blog/dolphinscheduler',
@@ -55,7 +64,10 @@ const Users: User[] = [
   },
   {
     title: 'DevLake',
-    description: 'Apache DevLake 是一个开源开发数据平台，从 DevOps 工具中提取、分析和可视化碎片数据',
+    description: translate({
+      id: 'opensourceapps.devlake.description',
+      message: 'Apache DevLake 是一个开源开发数据平台，从 DevOps 工具中提取、分析和可视化碎片数据',
+    }),
     preview: require('./apps/devlake.png'),
     website: 'https://github.com/apache/incubator-devlake',
     deploy: '#',
@@ -63,7 +75,10 @@ const Users: User[] = [
   },
   {
     title: 'EMQX',
-    description: 'EMQX 是一款大规模可弹性伸缩的云原生分布式物联网 MQTT 消息服务器',
+    description: translate({
+      id: 'opensourceapps.emqx.description',
+      message: 'EMQX 是一款大规模可弹性伸缩的云原生分布式物联网 MQTT 消息服务器',
+    }),
     preview: require('./apps/emqx.png'),
     website: 'https://github.com/emqx/emqx',
     deploy: '/blog/emqx',
@@ -71,7 +86,10 @@ const Users: User[] = [
   },
   {
     title: 'Elasticsearch',
-    description: 'Elasticsearch 是分布式搜索和分析引擎',
+    description: translate({
+      id: 'opensourceapps.elasticsearch.description',
+      message: 'Elasticsearch 是分布式搜索和分析引擎',
+    }),
     preview: require('./apps/es.png'),
     website: 'https://github.com/elastic/elasticsearch',
     deploy: '/blog/elk',
@@ -79,7 +97,10 @@ const Users: User[] = [
   },
   {
     title: 'Fluentd',
-    description: 'Fluentd 是一个用于统一日志层的开源数据收集器',
+    description: translate({
+      id: 'opensourceapps.fluentd.description',
+      message: 'Fluentd 是一个用于统一日志层的开源数据收集器',
+    }),
     preview: require('./apps/fluentd.jpeg'),
     website: 'https://github.com/fluent/fluentd',
     deploy: '/blog/fluentd',
@@ -87,7 +108,10 @@ const Users: User[] = [
   },
   {
     title: 'Filebeat',
-    description: 'Filebeat是用于转发和集中日志数据的轻量级传送程序',
+    description: translate({
+      id: 'opensourceapps.filebeat.description',
+      message: 'Filebeat是用于转发和集中日志数据的轻量级传送程序',
+    }),
     preview: require('./apps/filebeat.png'),
     website: 'https://github.com/elastic/beats',
     deploy: '/blog/elk',
@@ -95,7 +119,10 @@ const Users: User[] = [
   },
   {
     title: 'Jaeger',
-    description: 'Jaeger 是开源分布式跟踪系统',
+    description: translate({
+      id: 'opensourceapps.jaeger.description',
+      message: 'Jaeger 是开源分布式跟踪系统',
+    }),
     preview: require('./apps/jaeger.png'),
     website: 'https://github.com/jaegertracing/jaeger',
     deploy: '/blog/jaeger',
@@ -103,7 +130,10 @@ const Users: User[] = [
   },
   {
     title: 'Kibana',
-    description: 'Kibana 是一款开源的数据分析和可视化平台',
+    description: translate({
+      id: 'opensourceapps.kibana.description',
+      message: 'Kibana 是一款开源的数据分析和可视化平台',
+    }),
     preview: require('./apps/kibana.png'),
     website: 'https://github.com/elastic/kibana',
     deploy: '/blog/elk',
@@ -111,7 +141,10 @@ const Users: User[] = [
   },
   {
     title: 'KnowStreaming',
-    description: 'Know Streaming是一套云原生的 Kafka 管控平台',
+    description: translate({
+      id: 'opensourceapps.knowstreaming.description',
+      message: 'Know Streaming是一套云原生的 Kafka 管控平台',
+    }),
     preview: require('./apps/knowstreaming.png'),
     website: 'https://github.com/didi/KnowStreaming/',
     deploy: '/blog/knowstreaming',
@@ -119,7 +152,10 @@ const Users: User[] = [
   },
   {
     title: 'OpenVScode',
-    description: 'OpenVSCode 是一款基于Web 界面的在线IDE 代码编辑器',
+    description: translate({
+      id: 'opensourceapps.openvscode.description',
+      message: 'OpenVSCode 是一款基于Web 界面的在线IDE 代码编辑器',
+    }),
     preview: require('./apps/openvscode.png'),
     website: 'https://github.com/gitpod-io/openvscode-server',
     deploy: '/blog/OpenVscode',
@@ -127,7 +163,10 @@ const Users: User[] = [
   },
   {
     title: 'Pyroscope',
-    description: 'Pyroscope 是一个开源的持续性能分析平台',
+    description: translate({
+      id: 'opensourceapps.pyroscope.description',
+      message: 'Pyroscope 是一个开源的持续性能分析平台',
+    }),
     preview: require('./apps/pyroscope.png'),
     website: 'https://github.com/pyroscope-io/pyroscope',
     deploy: '/blog/knowstreaming',
@@ -135,7 +174,10 @@ const Users: User[] = [
   },
   {
     title: 'StreamPark',
-    description: 'StreamPark 是流处理极速开发框架, 流批一体 & 湖仓一体的云原生平台, 一站式流处理计算平台',
+    description: translate({
+      id: 'opensourceapps.streampark.description',
+      message: 'StreamPark 是流处理极速开发框架, 流批一体 & 湖仓一体的云原生平台, 一站式流处理计算平台',
+    }),
     preview: require('./apps/streampark.png'),
     website: 'https://github.com/apache/incubator-streampark',
     deploy: '#',
