@@ -143,7 +143,7 @@ const Users: User[] = [
     title: 'KnowStreaming',
     description: translate({
       id: 'opensourceapps.knowstreaming.description',
-      message: 'Know Streaming是一套云原生的 Kafka 管控平台',
+      message: '一站式云原生流数据管控平台，通过0侵入、插件化构建企业级Kafka服务，极大降低操作、存储和管理实时流数据门槛',
     }),
     preview: require('./apps/knowstreaming.png'),
     website: 'https://github.com/didi/KnowStreaming/',
