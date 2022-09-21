@@ -99,6 +99,14 @@ export default function Index() {
                 >
                   商业咨询
                 </a>
+                <a
+                  style={{marginLeft:'160px'}}
+                  className={`${styles.btns} ${styles.cloud}`}
+                  href='https://rainbond.feishu.cn/share/base/form/shrcngJKwbek0nbP1bBIcFA5g6d'
+                  target='_blank'
+                >
+                  预约演示
+                </a>
               </div>
             </div>
             {/* Rainbond  Cloud */}
@@ -151,6 +159,14 @@ export default function Index() {
                   target='_blank'
                 >
                   商业咨询
+                </a>
+                <a
+                  style={{marginLeft:'160px'}}
+                  className={`${styles.btns} ${styles.cloud}`}
+                  href='https://rainbond.feishu.cn/share/base/form/shrcngJKwbek0nbP1bBIcFA5g6d'
+                  target='_blank'
+                >
+                  预约演示
                 </a>
               </div>
             </div>
