@@ -282,7 +282,7 @@
     "message": "Kibana is an open source data analysis and visualization platform"
   },
   "opensourceapps.knowstreaming.description": {
-    "message": "Know Streaming is a set of cloud native Kafka control platform"
+    "message": "One-stop cloud native streaming data management and control platform"
   },
   "opensourceapps.openvscode.description": {
     "message": "OpenVSCode is an online IDE code editor based on a Web interface"
