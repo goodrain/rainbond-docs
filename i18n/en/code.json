@@ -292,5 +292,8 @@
   },
   "opensourceapps.streampark.description": {
     "message": "Make stream processing easier! easy-to-use streaming application development framework and operation platform"
+  },
+  "navbar.opensourceapps": {
+    "message": "FeaturedApps"
   }
 }
