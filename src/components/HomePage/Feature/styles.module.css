@@ -1,0 +1,32 @@
+/**
+ * Copyright (c) Goodrain, Inc.
+ *
+ * This source code is licensed under the LGPL-3.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ **/
+
+.global {
+  text-align: center;
+  line-height: 32px;
+  padding-bottom: 40px;
+}
+
+.title {
+  padding-top: 70px;
+  font-size: 32px;
+  color: var(--ifm-color-primary-black);
+}
+
+.subtitle {
+  font-size: 22px;
+  padding-top: 20px;
+}
+
+.content {
+  color: #637792;
+  font-size: 14px;
+}
+
+.card {
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+}

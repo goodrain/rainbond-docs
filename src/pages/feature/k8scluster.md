@@ -1,0 +1,28 @@
+# Kubernetes 多集群管理，实现应用级多云管理
+Rainbond控制台支持对接管理多种Kubernetes集群，支持应用级开发和管理体验，不需要写Yaml，通过应用级抽象，应用跨集群部署、安装、迁移、备份。
+
+
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/09/30/16644400869748.jpg)
+
+
+## 支持对接多种kubernetes集群
+* 通过向导对接自建kubernetes集群、阿里云ACK、华为云CCE、腾讯云TKE
+* 支持linux服务器自动化安装
+
+![多集群对接](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/09/30/16644624377499.jpg)
+
+
+## 接管已有Kubernetes集群应用
+* 通过向导接管已经部署到Kubernetes里的应用
+* Web控制台管理Kubernetes应用，不需要写Yaml
+
+
+![导入已有kubernetes集群应用](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/09/30/16644593563501.jpg)
+
+
+## 适合企业的团队管理和权限管理
+* 团队资源空间支持独享和共享
+* 支持细粒度的团队权限管理
+
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/09/30/16644595176284.jpg)
+
