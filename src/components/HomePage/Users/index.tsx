@@ -58,10 +58,40 @@ export default function Users() {
         image: "/img/users/xyqy.png",
       },
       {
+        image: "/img/users/talkweb.png",
+      },
+      {
+        image: "/img/users/linewell.png",
+      },
+      {
+        image: "/img/users/fjbenz.jpeg",
+      },
+      {
+        image: "/img/users/novastar.png",
+      },
+      {
         image: "/img/users/sdbj.png",
       },
       {
-        image: "/img/users/ypjt.png",
+        image: "/img/users/lvzhiyun.png",
+      },
+      {
+        image: "/img/users/ann.png",
+      },
+      {
+        image: "/img/users/hanguang.png",
+      },
+      {
+        image: "/img/users/yangtuo.jpeg",
+      },
+      {
+        image: "/img/users/hjg.jpeg",
+      },
+      {
+        image: "/img/users/blg.png",
+      },
+      {
+        image: "/img/users/gfd.jpeg",
       },
     ])
 
