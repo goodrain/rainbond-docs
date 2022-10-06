@@ -22,7 +22,7 @@ export default function BlogLayout(props: Props): JSX.Element {
   const [CasePageStyle, setCasePageStyle] = React.useState(false);
   const [isBlogList, setIsBlogList] = React.useState(false);
   useEffect(() => {
-    if (location_url == '/usescene' || location_url == '/case' || location_url == '/en/usescene' || location_url == '/en/case' || location_url == '/usescene/' || location_url == '/case/' || location_url == '/en/usescene/' || location_url == '/en/case/'){
+    if (location_url == '/usescene' || location_url == '/case' || location_url == '/en/usescene' || location_url == '/en/case' || location_url == '/usescene/' || location_url == '/case/' || location_url == '/en/usescene/' || location_url == '/en/case/' || location_url == '/feature' || location_url == '/en/feature' || location_url == '/feature/' || location_url == '/en/feature/'){
       setCasePageStyle(true);
     } else if(location_url.includes('blog')) {
       setIsBlogList(true);
@@ -39,6 +39,8 @@ export default function BlogLayout(props: Props): JSX.Element {
           <h1 className={styles.title}>使用场景</h1>
         ) : title === '案例' && location_url == '/case' || location_url == '/en/case' || location_url == '/case/' || location_url == '/en/case/' ? (
           <h1 className={styles.title}>案例</h1>
+        ) : title === '功能特性' && location_url == '/feature' || location_url == '/en/feature' || location_url == '/feature/' || location_url == '/en/feature/' ? (
+          <h1 className={styles.title}>功能特性</h1>
         ) : (
           ''
         )}

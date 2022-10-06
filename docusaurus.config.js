@@ -95,9 +95,13 @@ const config = {
           },
           {
             type: 'dropdown',
-            label: '学习',
+            label: '深入',
             position: 'left',
             items: [
+              {
+                label: '功能特性',
+                href: '/feature',
+              },
               {
                 label: '使用场景',
                 href: '/usescene',
@@ -218,8 +222,12 @@ const config = {
             ]
           },
           {
-            title: '学习',
+            title: '深入',
             items: [
+              {
+                label: '功能特性',
+                href: '/feature',
+              },
               {
                 label: '使用场景',
                 to: 'usescene'
@@ -313,6 +321,20 @@ const config = {
         postsPerPage: 10,
         blogSidebarCount: 'ALL',
         blogSidebarTitle: '使用场景',
+        sortPosts: 'descending'
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'feature',
+        routeBasePath: 'feature',
+        path: './feature',
+        blogTitle: '功能特性',
+        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/feature',
+        postsPerPage: 10,
+        blogSidebarCount: 'ALL',
+        blogSidebarTitle: '功能特性',
         sortPosts: 'descending'
       }
     ],

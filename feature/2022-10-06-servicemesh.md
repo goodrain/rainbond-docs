@@ -1,4 +1,12 @@
-# 开箱即用的微服务治理，“拖拉拽”式的微服务编排
+---
+title: 开箱即用的微服务治理，“拖拉拽”式的微服务编排
+description: 传统应用部署到Rainbond，开启应用级插件就可以支持Service Mesh，并可按需更换Service Mesh框架，通过组件级的插件扩展日志管理、性能分析、监控等服务治理工具，并支持Spring Cloud 、Dubbo等常见微服务框架
+slug: servicemesh
+images: /img/homepage/feature/servicemesh.png
+# authors: QiZhang
+---
+
+
 传统应用部署到Rainbond，开启应用级插件就可以支持Service Mesh，并可按需更换Service Mesh框架，通过组件级的插件扩展日志管理、性能分析、监控等服务治理工具，并支持Spring Cloud 、Dubbo等常见微服务框架。
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/09/30/16642745077128.jpg)

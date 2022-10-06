@@ -140,7 +140,7 @@ export default function Feature() {
                 </p>
               </div>
               <div className="col col--12">
-                <Link to='/feature/store' style={{ float: 'left'}}>详情 {'>'}</Link>
+                <Link to='/feature/appstore' style={{ float: 'left'}}>详情 {'>'}</Link>
               </div>
             </div>
           </div>
