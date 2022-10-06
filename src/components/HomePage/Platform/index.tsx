@@ -10,7 +10,7 @@ import React from "react";
 import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
 import Box from '/img/homepage/svg/box.svg';
-import App from '/img/homepage/svg/App.svg';
+import App from '/img/homepage/svg/app.svg';
 import Integration from '/img/homepage/svg/integration.svg';
 import Expand from '/img/homepage/svg/expand.svg';
 
