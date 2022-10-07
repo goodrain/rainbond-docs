@@ -28,28 +28,49 @@ export default function Users() {
         image: "/img/users/boe.png",
       },
       {
-        image: "/img/users/bkrj.png",
+        image: "/img/users/ccteg.png",
       },
       {
-        image: "/img/users/lyyl.png",
+        image: "/img/users/benz.jpeg",
       },
       {
-        image: "/img/users/mky.png",
-      },
-      {
-        image: "/img/users/xnmz.png",
-      },
-      {
-        image: "/img/users/zggk.png",
+        image: "/img/users/talkweb.png",
       },
       {
         image: "/img/users/zhx.png",
       },
       {
+        image: "/img/users/zggk.png",
+      },
+      {
+        image: "/img/users/xinanminzu.png",
+      },
+      {
+        image: "/img/users/haijun.png",
+      },
+      {
+        image: "/img/users/ligong.png",
+      },
+      {
+        image: "/img/users/guofang.png",
+      },
+      {
+        image: "/img/users/renminjc.png",
+      },
+      {
+        image: "/img/users/guangxitizhuan.png",
+      },
+      {
         image: "/img/users/penghai.png",
       },
       {
-        image: "/img/users/csg.png",
+        image: "/img/users/bkrj.png",
+      },
+      {
+        image: "/img/users/linewell.png",
+      },
+      {
+        image: "/img/users/gitee.png",
       },
       {
         image: "/img/users/ugreen.png",
@@ -58,22 +79,10 @@ export default function Users() {
         image: "/img/users/xyqy.png",
       },
       {
-        image: "/img/users/talkweb.png",
+        image: "/img/users/jingyun.png",
       },
       {
-        image: "/img/users/linewell.png",
-      },
-      {
-        image: "/img/users/fjbenz.jpeg",
-      },
-      {
-        image: "/img/users/novastar.png",
-      },
-      {
-        image: "/img/users/sdbj.png",
-      },
-      {
-        image: "/img/users/lvzhiyun.png",
+        image: "/img/users/lyyl.png",
       },
       {
         image: "/img/users/ann.png",
@@ -82,16 +91,28 @@ export default function Users() {
         image: "/img/users/hanguang.png",
       },
       {
-        image: "/img/users/yangtuo.jpeg",
+        image: "/img/users/fzsc.png",
       },
       {
-        image: "/img/users/hjg.jpeg",
+        image: "/img/users/novastar.png",
       },
       {
-        image: "/img/users/blg.png",
+        image: "/img/users/zjzn.png",
       },
       {
-        image: "/img/users/gfd.jpeg",
+        image: "/img/users/qingneng.png",
+      },
+      {
+        image: "/img/users/dianxinwusuo.png",
+      },
+      {
+        image: "/img/users/gillion.png",
+      },
+      {
+        image: "/img/users/csg.png",
+      },
+      {
+        image: "/img/users/sdbj.png",
       },
     ])
 

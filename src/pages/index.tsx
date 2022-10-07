@@ -1,13 +1,11 @@
 import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import LayoutProviders from '@theme/LayoutProviders';
-import 'animate.css';
-import React, { useState } from 'react';
+import React from 'react';
 import NavBar from '../components/NavBar';
 import styles from './index.module.scss';
 import AnnouncementBar from '@theme/AnnouncementBar';
 import Footer from '@theme/Footer';
-import Translate from '@docusaurus/Translate';
 
 import Primary from '../components/HomePage/Primary';
 import Command from '../components/HomePage/Command';
@@ -20,7 +18,6 @@ import JoinCommunity from '../components/HomePage/JoinCommunity';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
-  const [hover_img, setHover_Img] = useState(false);
 
   return (
     <LayoutProviders>
@@ -29,7 +26,6 @@ export default function Home() {
         <meta property='og:title' content={siteConfig.title} />
         <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />
       </Head>
-      {/* 导航栏 */}
       <AnnouncementBar />
       <NavBar />
       
