@@ -8,6 +8,9 @@
 import React from "react";
 import { animated, useTrail } from "react-spring";
 import CodeBlock from '@theme/CodeBlock';
+import { Tabs, TabPane, RadioGroup, Radio } from '@douyinfe/semi-ui';
+import { IconFile, IconGlobe, IconHelpCircle } from '@douyinfe/semi-icons';
+
 export default function Command() {
 
   const animatedTexts = useTrail(5, {
@@ -20,17 +23,43 @@ export default function Command() {
     },
   })
 
-
   return (
     <animated.div style={animatedTexts[0]}>
-      <CodeBlock language="bash" title="快速体验 Rainbond">
+      <Tabs type="line" tabPosition="left">
+        <TabPane tab="Linux" itemKey="1">
+          <h3>在 Linux 上快速安装体验 Rainbond</h3>
+          <CodeBlock language="bash">
         {`docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \\
 -v ~/rainbonddata:/app/data \\
 -v /opt/rainbond:/opt/rainbond \\
 -v ~/dockerdata:/var/lib/docker \\
 -e EIP=<YOUR_IP> \\
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone`}
-      </CodeBlock>
+          </CodeBlock>
+        </TabPane>
+        <TabPane tab="Mac M1" itemKey="2">
+          <h3>在 Mac M1 上快速安装体验 Rainbond</h3>
+          <CodeBlock language="bash">
+        {`docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \\
+-v ~/rainbonddata:/app/data \\
+-v /opt/rainbond:/opt/rainbond \\
+-v ~/dockerdata:/var/lib/docker \\
+-e EIP=<YOUR_IP> \\
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-arm64-dind-allinone`}
+          </CodeBlock>
+        </TabPane>
+        <TabPane tab="Win" itemKey="3">
+          <h3>在 Win 上快速安装体验 Rainbond</h3>
+          <CodeBlock language="bash">
+        {`docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 ^
+-v ~/rainbonddata:/app/data ^
+-v /opt/rainbond:/opt/rainbond ^
+-v ~/dockerdata:/var/lib/docker ^
+-e EIP=<YOUR_IP> ^
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone`}
+          </CodeBlock>
+        </TabPane>
+      </Tabs>
     </animated.div>
   );
 }
