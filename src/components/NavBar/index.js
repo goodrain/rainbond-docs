@@ -46,9 +46,12 @@ export default function Index(props) {
               </li>
               <li>
                 <div className="dropdown dropdown--hoverable">
-                  <Translate id='navbar.learn'>学习</Translate>
+                  <Translate id='navbar.learn'>深入</Translate>
                   <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
                   <ul className="dropdown__menu">
+                    <li>
+                      <a className={`${styles.DropDownFont} dropdown__link`} href="/feature"><Translate id='navbar.feature'>功能特性</Translate></a>
+                    </li>
                     <li>
                       <a className={`${styles.DropDownFont} dropdown__link`} href="/usescene"><Translate id='navbar.usescene'>使用场景</Translate></a>
                     </li>
@@ -122,9 +125,12 @@ export default function Index(props) {
             </li>
             <li>
               <div className="dropdown dropdown--hoverable">
-                <Translate>学习</Translate>
+                <Translate>深入</Translate>
                 <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
                 <ul className="dropdown__menu">
+                  <li>
+                    <a className={`${styles.DropDownFont} dropdown__link`} href="/feature">功能特性</a>
+                  </li>
                   <li>
                     <a className={`${styles.DropDownFont} dropdown__link`} href="/usescene">使用场景</a>
                   </li>

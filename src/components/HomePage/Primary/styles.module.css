@@ -1,0 +1,67 @@
+/**
+ * Copyright (c) Goodrain, Inc.
+ *
+ * This source code is licensed under the LGPL-3.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ **/
+
+/* Rainbond title */
+.rainbond_title {
+  font-size: 48px;
+}
+
+.rainbond_title_en {
+  font-size: 32px;
+}
+
+.rainbond_description {
+  margin: 48px 0px 48px;
+  color: #637792;
+  font-size: 18px;
+  width: 70%;
+}
+
+/* Video mask layer */
+.mask_div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+}
+.bili_video {
+  width: 50%;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* button */
+.buttonLeft {
+  margin-right: 10px;
+  border-radius: 30px;
+  background-color: var(--ifm-color-primary);
+  height: 55px;
+  width: 210px;
+  font-size: 16px;
+}
+.buttonLeft:hover {
+  background-color: var(--ifm-color-primary) !important;
+  box-shadow: 0 16px 32px 0 rgba(48, 55, 66, 0.15);
+}
+
+.buttonRight {
+  margin-right: 10px;
+  border-radius: 30px;
+  background-color: #19AABD;
+  height: 55px;
+  width: 210px;
+  font-size: 16px;
+}
+.buttonRight:hover {
+  background-color: #19AABD !important;
+  box-shadow: 0 16px 32px 0 rgba(48, 55, 66, 0.15);
+}
