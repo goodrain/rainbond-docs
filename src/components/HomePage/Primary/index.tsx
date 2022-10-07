@@ -50,7 +50,7 @@ export default function Primary() {
           </Translate>
         </animated.div>
         <animated.div style={animatedTexts[1]} className={styles.btnBox}>
-          <Text link={{ href: '/docs/installation/install-with-ui/' }}>
+          <Text link={{ href: '/docs/installation/install-with-dind' }}>
             <Button icon={<Iconlinux />} theme="solid" className={styles.buttonLeft} size='large'>
               <Translate id='first.install'>在主机安装</Translate>
             </Button>
