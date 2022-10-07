@@ -10,12 +10,13 @@ import clsx from "clsx";
 import React, { useState } from "react";
 import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
-import { Popover, Tag } from '@douyinfe/semi-ui';
 import Signal from "/img/homepage/svg/signal.svg";
 import Wechat from "/img/homepage/svg/wechat.svg";
 import Dingtalk from "/img/homepage/svg/dingtalk.svg";
 import Github from "/img/homepage/svg/github.svg";
+import Slack from "/img/homepage/svg/slack.svg";
 import Forum from "/img/homepage/svg/forum.svg";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 export default function JoinCommunity() {
 
@@ -42,31 +43,39 @@ export default function JoinCommunity() {
               <div className="card__body">
                 <p>
                   Rainbond 是一个开源项目，欢迎大家加入我们的开源社区群组进行讨论，你可以在 GitHub 上提交 issue，也可以在微信或钉钉群组中提问，我们会尽快回复你。
+                  如果你有需求场景，我们也可以提供单独的开源支持，帮助你在企业内落地。
                 </p>
               </div>
               <div className="card__footer">
                 <Link to="https://github.com/goodrain/rainbond/issues" className={styles.icon}>
                   <Github fill="#191717"/>
                 </Link>
-                <Popover showArrow
-                    content={
-                        <img width="200px" height="200px" src="/wechat/wechat-public.jpg" />
-                    }>
-                  <Link className={styles.icon}>
+                <OverlayTrigger trigger="hover" placement="bottom" overlay={
+                  <div className="card">
+                    <div className="card__body">
+                      <img width="200px" height="200px" src="/wechat/wechat-public.jpg" />
+                    </div>
+                  </div>
+                }>
+                  <span className={styles.icon}>
                     <Wechat />
-                  </Link>
-                </Popover>
-                <Popover showArrow
-                    content={
-                      <article>
-                        搜索钉钉群号 <b>31096419</b> 加入 Rainbond 钉钉技术交流群
-                      </article>
-                    }>
-                  <Link className={styles.icon}>
+                  </span>
+                </OverlayTrigger>
+                <OverlayTrigger trigger="hover" placement="bottom" overlay={
+                  <div className="card">
+                    <div className="card__body">
+                      搜索钉钉群号 <b>31096419</b> 加入 Rainbond 钉钉技术交流群
+                    </div>
+                  </div>
+                }>
+                  <span className={styles.icon}>
                     <Dingtalk />
-                  </Link>
-                </Popover>
-                <Link to="https://t.goodrain.com" className={styles.icon}>
+                  </span>
+                </OverlayTrigger>
+                <Link to="https://join.slack.com/t/rainbond-slack/shared_invite/zt-1ft4g75pg-KJ0h_IAtvG9DMgeE_BNjZQ" className={styles.icon}>
+                  <Slack />
+                </Link>
+                <Link to="https://t.goodrain.com">
                   <Forum />
                 </Link>
               </div>
