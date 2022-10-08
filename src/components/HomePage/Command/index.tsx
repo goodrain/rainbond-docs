@@ -8,8 +8,7 @@
 import React from "react";
 import { animated, useTrail } from "react-spring";
 import CodeBlock from '@theme/CodeBlock';
-import { Tabs, TabPane, RadioGroup, Radio } from '@douyinfe/semi-ui';
-import { IconFile, IconGlobe, IconHelpCircle } from '@douyinfe/semi-icons';
+import { Tabs, TabPane } from '@douyinfe/semi-ui';
 
 export default function Command() {
 
@@ -22,10 +21,13 @@ export default function Command() {
       tension: 460,
     },
   })
+  
+  const ScreenWidth = window.screen.width;
+  const tabPosition = ScreenWidth < 1000 ? "top" : "left";
 
   return (
     <animated.div style={animatedTexts[0]}>
-      <Tabs type="line" tabPosition="left">
+      <Tabs type="line" tabPosition={tabPosition}>
         <TabPane tab="Linux" itemKey="1">
           <h3>在 Linux 上快速安装体验 Rainbond</h3>
           <CodeBlock language="bash">

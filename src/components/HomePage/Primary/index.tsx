@@ -34,7 +34,7 @@ export default function Primary() {
 
   return (
     <div className="row">
-      <div className="col col--6">
+      <div className={clsx("col col--6", styles.rainbond)}>
         <animated.h2
           className={clsx({
             [styles.rainbond_title]: ! LocalUrlEn,
@@ -63,17 +63,14 @@ export default function Primary() {
         </animated.div>
       </div>
       <div className="col col--6">
-          <animated.div
-            className={styles.know_rainbond_video}
-            style={animatedTexts[1]}
-          >
+          <animated.div style={animatedTexts[1]}>
             <div
-              className={clsx('mask_video', styles.know_rainbond_video_div)}
+              className="mask_video"
               onClick={() => {
                 setMask_config(true);
               }}
             >
-              <img src='/img/video/video-rainbond.png' alt='' className={styles.know_rainbond_video_div_img}/>
+              <img src='/img/video/video-rainbond.png'/>
             </div>
           </animated.div>
       </div>

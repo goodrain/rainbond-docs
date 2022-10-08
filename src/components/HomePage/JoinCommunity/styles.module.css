@@ -6,6 +6,16 @@
  **/
 
 
+ @media screen and (max-width: 996px) {
+  .card {
+    height: auto !important;
+  }
+  .cardRight {
+    margin-top: 1.5rem;
+    height: auto !important;
+  }
+}
+
 .container {
   padding-top: 100px;
   padding-bottom: 100px;

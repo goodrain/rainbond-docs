@@ -5,6 +5,35 @@
  * LICENSE file in the root directory of this source tree.
  **/
 
+@media screen and (max-width: 996px) {
+  .desc_svg {
+    padding-top: 2rem;
+  }
+  .app_model_image {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 396px) {
+  .devops_content {
+    width: 100% !important;
+  }
+  
+  .k8s_content {
+    width: 100% !important;
+  }
+  
+  .mesh_content {
+    width: 100% !important;
+  }
+  
+  .store_content {
+    width: 100% !important;
+  }
+  
+  .model_content {
+    width: 100% !important;
+  }
+}
 .global {
   text-align: center;
   line-height: 32px;
@@ -29,4 +58,38 @@
 
 .card {
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.app_model_image {
+  width: 500px;
+}
+
+.devops_content {
+  float: right;
+  width: 455px;
+  text-align: left;
+}
+
+.k8s_content {
+  float: left;
+  width: 455px;
+  text-align: left;
+}
+
+.mesh_content {
+  float: right;
+  width: 460px;
+  text-align: left;
+}
+
+.store_content {
+  float: left;
+  width: 460px;
+  text-align: left;
+}
+
+.model_content {
+  float: right;
+  width: 330px;
+  text-align: left;
 }

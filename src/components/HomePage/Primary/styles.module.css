@@ -5,6 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  **/
 
+@media screen and (max-width: 996px) {
+  .rainbond {
+    text-align: center;
+    padding-bottom: 5rem;
+  }
+  .rainbond_description {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 496px) {
+  .buttonLeft {
+    margin-bottom: 0.5rem;
+  }
+}
+
 /* Rainbond title */
 .rainbond_title {
   font-size: 48px;
