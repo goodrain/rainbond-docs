@@ -125,8 +125,8 @@ export default function Users() {
     <animated.div style={animatedTexts[0]}>
       <h2 className={ styles.title }>我们的用户</h2>
       <div className={clsx("row", styles.row)}>
-        {Cards().map(({image}) => (
-          <div className={clsx("col col--2", styles.col)}>
+        {Cards().map(({image},index) => (
+          <div className={clsx("col col--2", styles.col)} key={index}>
               <div className={clsx("card", styles.card)}>
                 <div className={clsx("card__image", styles.card_image)}>
                   <img src={image} className={styles.image}/>

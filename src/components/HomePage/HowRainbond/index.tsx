@@ -75,7 +75,7 @@ export default function HowRainbond() {
       </h1>
       <div className="row">
         {Cards().map(({header, content, link},index) => (
-          <div className={clsx("col col--6", styles.col)}>
+          <div className={clsx("col col--6", styles.col)} key={index}>
             <Link to={link} className={ styles.link }>
               <div className={clsx("card", styles.card)}>
                 <div className={clsx("card__header", styles.header)}>
