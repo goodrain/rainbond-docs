@@ -11,12 +11,13 @@ import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
-import { Image } from '@douyinfe/semi-ui';
 import Devops from '/img/homepage/svg/devops.svg';
 import K8s from '/img/homepage/svg/k8sblue.svg';
 import Servicemesh from '/img/homepage/svg/servicemesh.svg';
 import Store from '/img/homepage/svg/store.svg';
 import Model from '/img/homepage/svg/model.svg';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 export default function Feature() {
 
@@ -39,7 +40,11 @@ export default function Feature() {
         <div className="row" style={{ paddingTop: '50px'}}>
           <div className="col col--6">
             <div className={clsx('card', styles.card)}>
-              <Image width={'100%'} src="/img/homepage/feature/devops.png" />
+              <PhotoProvider>
+                <PhotoView src="/img/homepage/feature/devops.png">
+                  <img src="/img/homepage/feature/devops.png" width="100%" />
+                </PhotoView>
+              </PhotoProvider>
             </div>
           </div>
           <div className="col col--6">
@@ -88,7 +93,11 @@ export default function Feature() {
           </div>
           <div className="col col--6">
             <div className={clsx('card', styles.card)}>
-              <Image src="/img/homepage/feature/k8scluster.png" />
+              <PhotoProvider>
+                <PhotoView src="/img/homepage/feature/k8scluster.png">
+                  <img src="/img/homepage/feature/k8scluster.png" width="100%" />
+                </PhotoView>
+              </PhotoProvider>
             </div>
           </div>
         </div>
@@ -96,7 +105,11 @@ export default function Feature() {
         <div className="row" style={{ paddingTop: '150px'}}>
           <div className="col col--6">
             <div className={clsx('card', styles.card)}>
-              <Image src="/img/homepage/feature/servicemesh.png" />
+              <PhotoProvider>
+                <PhotoView src="/img/homepage/feature/servicemesh.png">
+                  <img src="/img/homepage/feature/servicemesh.png" width="100%" />
+                </PhotoView>
+              </PhotoProvider>
             </div>
           </div>
           <div className="col col--6">
@@ -146,7 +159,11 @@ export default function Feature() {
           </div>
           <div className="col col--6">
             <div className={clsx('card', styles.card)}>
-              <Image src="/img/homepage/feature/appstore.png" />
+              <PhotoProvider>
+                <PhotoView src="/img/homepage/feature/appstore.png">
+                  <img src="/img/homepage/feature/appstore.png" width="100%" />
+                </PhotoView>
+              </PhotoProvider>
             </div>
           </div>
         </div>
@@ -154,7 +171,11 @@ export default function Feature() {
         <div className="row" style={{ paddingTop: '150px', paddingBottom: '50px'}}>
           <div className="col col--6">
             <div className={clsx('card', styles.card)} style={{ width: '500px' }}>
-              <Image src="/img/homepage/feature/appmodel.png" />
+              <PhotoProvider>
+                <PhotoView src="/img/homepage/feature/appmodel.png">
+                  <img src="/img/homepage/feature/appmodel.png" width="100%" />
+                </PhotoView>
+              </PhotoProvider>
             </div>
           </div>
           <div className="col col--6">

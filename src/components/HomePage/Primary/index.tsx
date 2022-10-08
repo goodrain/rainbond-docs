@@ -52,7 +52,7 @@ export default function Primary() {
         <animated.div style={animatedTexts[1]} className={styles.btnBox}>
           <Text link={{ href: '/docs/installation/install-with-dind' }}>
             <Button icon={<Iconlinux />} theme="solid" className={styles.buttonLeft} size='large'>
-              <Translate id='first.install'>在主机安装</Translate>
+              <Translate id='first.install'>在单机安装</Translate>
             </Button>
           </Text>
           <Text link={{ href: '/docs/installation/install-with-helm/' }}>
