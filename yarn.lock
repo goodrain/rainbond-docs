@@ -9243,6 +9243,11 @@ react-loadable-ssr-addon-v5-slorber@^1.0.1:
   dependencies:
     "@babel/runtime" "^7.10.3"
 
+react-photo-view@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npmmirror.com/react-photo-view/-/react-photo-view-1.2.2.tgz#deaed9af83ec5ccc1f240c58a62bffeb0a6c0187"
+  integrity sha512-/xsOiDuiR23hKxpmF73EDKPvsBvcWogolXvnBhMZV4CUhd9tnXF91amjKnuQe9BmLaR9CbNxXDOI9SNKeXT5ew==
+
 react-popper@^2.3.0:
   version "2.3.0"
   resolved "https://registry.npmmirror.com/react-popper/-/react-popper-2.3.0.tgz#17891c620e1320dce318bad9fede46a5f71c70ba"

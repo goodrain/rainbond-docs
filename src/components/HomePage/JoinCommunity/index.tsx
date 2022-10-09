@@ -50,7 +50,7 @@ export default function JoinCommunity() {
                 <Link to="https://github.com/goodrain/rainbond/issues" className={styles.icon}>
                   <Github fill="#191717"/>
                 </Link>
-                <OverlayTrigger trigger="hover" placement="bottom" overlay={
+                <OverlayTrigger placement="bottom" overlay={
                   <div className="card">
                     <div className="card__body">
                       <img width="200px" height="200px" src="/wechat/wechat-public.jpg" />
@@ -61,7 +61,7 @@ export default function JoinCommunity() {
                     <Wechat />
                   </span>
                 </OverlayTrigger>
-                <OverlayTrigger trigger="hover" placement="bottom" overlay={
+                <OverlayTrigger placement="bottom" overlay={
                   <div className="card">
                     <div className="card__body">
                       搜索钉钉群号 <b>31096419</b> 加入 Rainbond 钉钉技术交流群

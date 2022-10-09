@@ -5,13 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import Link from "@docusaurus/Link";
 import clsx from "clsx";
 import React, { useState } from "react";
 import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
+import { Button } from '@douyinfe/semi-ui';
+import Case from '/img/homepage/svg/case.svg';
+import { Typography } from '@douyinfe/semi-ui';
 
 export default function Users() {
 
+  const { Text } = Typography;
   const animatedTexts = useTrail(5, {
     from: { opacity: 0, transform: 'translateY(3em)' },
     to: { opacity: 1, transform: 'translateY(0)' },
@@ -120,8 +125,8 @@ export default function Users() {
     <animated.div style={animatedTexts[0]}>
       <h2 className={ styles.title }>我们的用户</h2>
       <div className={clsx("row", styles.row)}>
-        {Cards().map(({image}) => (
-          <div className={clsx("col col--2", styles.col)}>
+        {Cards().map(({image},index) => (
+          <div className={clsx("col col--2", styles.col)} key={index}>
               <div className={clsx("card", styles.card)}>
                 <div className={clsx("card__image", styles.card_image)}>
                   <img src={image} className={styles.image}/>
@@ -129,6 +134,20 @@ export default function Users() {
               </div>
           </div>
         ))}
+      </div>
+      <div className={clsx("row",styles.case)}>
+        <div className={clsx("col col--12", styles.case_col)}>
+          <Text link={{ href: '/case' }}>
+            <Button icon={<Case />} theme="solid" className={styles.button} size='large'>
+              用户案例
+            </Button>
+          </Text>
+        </div>
+        <div className={clsx("col col--12", styles.case_col)}>
+          <Text underline link={{ href: 'https://github.com/goodrain/rainbond/issues/1273', target: '_blank'}} className={styles.text} >
+            如果你想贡献使用案例并在 Rainbond 官网上展示你的 Logo，请在 Github 上登记或联系我们。
+          </Text>
+        </div>
       </div>
     </animated.div>
   );

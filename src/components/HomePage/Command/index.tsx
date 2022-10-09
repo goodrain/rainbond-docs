@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from "react";
+import React, { useState } from "react";
 import { animated, useTrail } from "react-spring";
 import CodeBlock from '@theme/CodeBlock';
-import { Tabs, TabPane, RadioGroup, Radio } from '@douyinfe/semi-ui';
-import { IconFile, IconGlobe, IconHelpCircle } from '@douyinfe/semi-icons';
+import { Tabs, TabPane } from '@douyinfe/semi-ui';
+import {useWindowSize} from '@docusaurus/theme-common';
 
 export default function Command() {
 
@@ -22,10 +22,12 @@ export default function Command() {
       tension: 460,
     },
   })
-
+  const windowSize = useWindowSize();
+  const tabPosition = windowSize === 'desktop' ? "left" : "top";
+  
   return (
     <animated.div style={animatedTexts[0]}>
-      <Tabs type="line" tabPosition="left">
+      <Tabs type="line" tabPosition={tabPosition}>
         <TabPane tab="Linux" itemKey="1">
           <h3>在 Linux 上快速安装体验 Rainbond</h3>
           <CodeBlock language="bash">

@@ -5,6 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  **/
 
+@media screen and (max-width: 996px) {
+  .col {
+    --ifm-col-width: 200px !important;
+  }
+}
+
 .row {
   padding-top: 30px;
 }
@@ -40,4 +46,35 @@
   vertical-align: middle;
   display: inline-block;
   /* line-height: 100px; */
+}
+
+.case {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.case_col {
+  padding-top: 15px;
+}
+
+.button {
+  margin-right: 10px;
+  border-radius: 30px;
+  background-color: #19AABD;
+  height: 55px;
+  width: 210px;
+  font-size: 16px;
+}
+.button:hover {
+  background-color: #19AABD !important;
+  box-shadow: 0 16px 32px 0 rgba(48, 55, 66, 0.15);
+}
+
+.text > a {
+  color: var(--ifm-color-primary-black) !important;
+  border-bottom: 1px solid;
+}
+.text > a > span:hover {
+  color: #19AABD !important;
+  border-bottom: 1px solid #19AABD !important;
 }
