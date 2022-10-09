@@ -152,21 +152,9 @@ Rainbond 数据中心元数据目前支持存储于 Mysql 数据库或 Cockroach
 
 5.1.9 及以后版本支持 Mysql 5.7 8.0
 
-### Kubernetes Master 服务
-
-Kubernetes Master 包含 1.10.11 版本的 Kube-apiserver、Kube-ControllerManager、Kube-Scheduler 三个组件。
-
-### DNS 服务
-
-DNS 服务为集群提供 DNS 解析服务, 基于 Kube-DNS 二次开发。
-
 ### 镜像仓库服务
 
 基于开源 [Distribution](https://github.com/docker/distribution) 项目，用于当前数据中心下的容器镜像存储。
-
-### 包仓库（Artifactory）
-
-基于开源 Artifactory 项目，服务于应用基于源码构建，存储或代理应用构建所需要的所有第三方类库和文件包。是源码构建必须的组件，其可对接企业内部的其他包仓库。
 
 ## 业务逻辑层组件说明
 
