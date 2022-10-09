@@ -26,7 +26,7 @@ export default function Home() {
         <meta property='og:title' content={siteConfig.title} />
         <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />
       </Head>
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <NavBar />
       
       <div>

@@ -27,7 +27,7 @@ export default function First() {
   return (
     <animated.div style={animatedTexts[0]}>
       <h1 style={{ textAlign: 'center',marginBottom: '56px',position: 'relative'}}>
-        <Translate id='fourth.video'>观看视频学习</Translate><b style={{ color: '#338bff' }}> Rainbond</b>
+        <Translate id='video.title'>观看视频学习 Rainbond</Translate>
       </h1>
       <Cswiper/>
       <Swiper/>
