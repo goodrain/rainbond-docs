@@ -50,7 +50,7 @@ mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && grctl install
 grctl cluster upgrade --new-version=v5.9.0-release
 ```
 
-**3.更换 operator 镜像并添加挂载 **
+**3.更换 operator 镜像并修改挂载 **
 
 ```bash
 kubectl edit deploy rainbond-operator -n rbd-system
@@ -58,8 +58,29 @@ kubectl edit deploy rainbond-operator -n rbd-system
 
 - 替换镜像为以下
 
-  ```bash 
+  ```bash
   registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond-operator:v5.9.0-release
+  ```
+  
+- 修改挂载的配置如下，注意 volumeMounts 以及volume 格式对齐
+
+  ```bash 
+  volumeMounts:
+  - mountPath: /var
+    name: vardir
+  - mountPath: /run
+    name: rundir
+        
+  volumeMounts:
+  - hostPath:
+      path: /run
+      type: Directory
+    name: rundir
+  - hostPath:
+      path: /var
+      type: Directory
+    name: vardir
+            
   ```
 
 
