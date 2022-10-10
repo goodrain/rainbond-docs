@@ -35,9 +35,9 @@
     "message": "Contribution",
     "description": "Footer item with label Contribution"
   },
-  "link.title.学习": {
-    "message": "Learn",
-    "description": "Footer item with label Learn"
+  "link.title.深入": {
+    "message": "InDepth",
+    "description": "Footer item with label InDepth"
   },
   "link.item.label.使用场景": {
     "message": "Scenario",
@@ -74,5 +74,9 @@
   "link.item.label.精选应用": {
     "message": "FeaturedApps",
     "description": "Footer item with label FeaturedApp"
+  },
+  "link.item.label.功能特性": {
+    "message": "Feature",
+    "description": "Footer item with label Feature"
   }
 }

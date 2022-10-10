@@ -23,7 +23,7 @@ export default function Command() {
     },
   })
   const windowSize = useWindowSize();
-  const tabPosition = windowSize === 'desktop' ? "left" : "top";
+  const tabPosition = windowSize === 'mobile' ? "top" : "left";
   
   return (
     <animated.div style={animatedTexts[0]}>
