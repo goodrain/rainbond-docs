@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
 import clsx from 'clsx';
@@ -31,6 +31,15 @@ export default function Primary() {
     },
   })
 
+  const EN_URL = useLocation().pathname.includes('/en/');
+  const [language, setLanguage] = useState('/en');
+  useEffect(() => {
+    if (EN_URL) {
+      setLanguage('/en/');
+    }else{
+      setLanguage('/');
+    }
+  });
 
   return (
     <div className="row">
@@ -50,12 +59,12 @@ export default function Primary() {
           </Translate>
         </animated.div>
         <animated.div style={animatedTexts[1]} className={styles.btnBox}>
-          <Text link={{ href: '/docs/installation/install-with-dind' }}>
+          <Text link={{ href: language + 'docs/installation/install-with-dind' }}>
             <Button icon={<Iconlinux />} theme="solid" className={styles.buttonLeft} size='large'>
               <Translate id='primary.install-dind'>在单机安装</Translate>
             </Button>
           </Text>
-          <Text link={{ href: '/docs/installation/install-with-helm/' }}>
+          <Text link={{ href: language + 'docs/installation/install-with-helm/' }}>
             <Button icon={<Iconk8s />} theme="solid" className={styles.buttonRight} size='large'>
               <Translate id='primary.install-helm'>在 Kubernetes 安装</Translate>
             </Button>
