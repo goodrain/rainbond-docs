@@ -56,7 +56,7 @@ body {
   left: -50px;
   width: 45px;
   height: 45px;
-  background: url(/img/xuebi.png) no-repeat;
+  background: url("/img/xuebi.png") no-repeat;
   background-position: 0 0;
   background-size: 100%;
 }
