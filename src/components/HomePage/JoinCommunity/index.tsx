@@ -17,6 +17,7 @@ import Github from "/img/homepage/svg/github.svg";
 import Slack from "/img/homepage/svg/slack.svg";
 import Forum from "/img/homepage/svg/forum.svg";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Translate from "@docusaurus/Translate";
 
 export default function JoinCommunity() {
 
@@ -38,12 +39,16 @@ export default function JoinCommunity() {
             <div className={clsx("card", styles.card)}>
               <div className="card__header">
                 <Signal />
-                <h3 className={styles.title}>加入开源社群</h3>
+                <h3 className={styles.title}>
+                  <Translate id="community.group.title">加入开源社群</Translate>
+                </h3>
               </div>
               <div className="card__body">
                 <p>
-                  Rainbond 是一个开源项目，欢迎大家加入我们的开源社区群组进行讨论，你可以在 GitHub 上提交 issue，也可以在微信或钉钉群组中提问，我们会尽快回复你。
-                  如果你有需求场景，我们也可以提供单独的开源支持，帮助你在企业内落地。
+                  <Translate id="community.group.description">
+                    Rainbond 是一个开源项目，欢迎大家加入我们的开源社区群组进行讨论，你可以在 GitHub 上提交 issue，也可以在微信或钉钉群组中提问，我们会尽快回复你。
+                    如果你有需求场景，我们也可以提供单独的开源支持，帮助你在企业内落地。
+                  </Translate>
                 </p>
               </div>
               <div className="card__footer">
@@ -85,15 +90,23 @@ export default function JoinCommunity() {
             <div className={clsx("card", styles.cardRight)}>
               <div className="card__header">
                 <Github width={60} height={76} fill="#FFFFFF"/>
-                <h3 className={styles.titleRight}>参与开源贡献</h3>
+                <h3 className={styles.titleRight}>
+                  <Translate id="community.contribute.title">参与开源贡献</Translate>
+                </h3>
               </div>
               <div className="card__body">
                 <p>
-                  欢迎大家参与 Rainbond 开源项目的贡献，贡献不仅限于代码，还包括文档、测试、反馈、建议等，Rainbond 社区欢迎你的加入。
+                  <Translate id="community.contribute.description">
+                    欢迎大家参与 Rainbond 开源项目的贡献，贡献不仅限于代码，还包括文档、测试、反馈、建议等，Rainbond 社区欢迎你的加入。
+                  </Translate>
                 </p>
               </div>
               <div className="card__footer">
-                <Link className="button button--lg button--secondary" to="/community/contribution/">现在开始</Link>
+                <Link className="button button--lg button--secondary" to="/community/contribution/">
+                  <Translate id="community.contribute.button">
+                    现在开始
+                  </Translate>
+                </Link>
               </div>
             </div>
           </div>

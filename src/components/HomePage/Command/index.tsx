@@ -23,7 +23,7 @@ export default function Command() {
     },
   })
   const windowSize = useWindowSize();
-  const tabPosition = windowSize === 'desktop' ? "left" : "top";
+  const tabPosition = windowSize === 'mobile' ? "top" : "left";
   
   return (
     <animated.div style={animatedTexts[0]}>
@@ -36,8 +36,6 @@ export default function Command() {
 -v ~/.ssh:/root/.ssh \\
 -v ~/rainbonddata:/app/data \\
 -v /opt/rainbond:/opt/rainbond \\
--v ~/dockerdata:/var/lib/docker \\
--e EIP=<YOUR_IP> \\
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone`}
           </CodeBlock>
         </TabPane>
@@ -49,8 +47,6 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone`}
 -v ~/.ssh:/root/.ssh \\
 -v ~/rainbonddata:/app/data \\
 -v /opt/rainbond:/opt/rainbond \\
--v ~/dockerdata:/var/lib/docker \\
--e EIP=<YOUR_IP> \\
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-arm64-dind-allinone`}
           </CodeBlock>
         </TabPane>
@@ -62,7 +58,6 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-arm64-dind-allinone`}
 -v ~/.ssh:/root/.ssh \\
 -v ~/opt/rainbond:/opt/rainbond \\
 -v ~/rainbonddata:/app/data \\
--e EIP=<YOUR_IP> \\
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone`}
           </CodeBlock>
         </TabPane>
@@ -74,7 +69,6 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone`}
 -v ~/.ssh:/root/.ssh \\
 -v ~/opt/rainbond:/opt/rainbond \\
 -v ~/rainbonddata:/app/data \\
--e EIP=<YOUR_IP> \\
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-arm64-dind-allinone`}
           </CodeBlock>
         </TabPane>
@@ -86,7 +80,6 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-arm64-dind-allinone`}
 -v ~/.ssh:/root/.ssh ^
 -v ~/rainbonddata:/app/data ^
 -v ~/opt/rainbond:/opt/rainbond ^
--e EIP=<YOUR_IP> ^
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone`}
           </CodeBlock>
         </TabPane>

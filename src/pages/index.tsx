@@ -26,7 +26,7 @@ export default function Home() {
         <meta property='og:title' content={siteConfig.title} />
         <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />
       </Head>
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <NavBar />
       
       <div>
@@ -34,9 +34,9 @@ export default function Home() {
           <Primary />
         </section>
 
-        <section id={styles.section_second} className={styles.width}>
+        {/* <section id={styles.section_second} className={styles.width}>
           <Command />
-        </section>
+        </section> */}
 
         <section id={styles.thirdscreen}>
           <div className={styles.width}>

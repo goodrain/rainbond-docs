@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
 import clsx from 'clsx';
@@ -31,6 +31,15 @@ export default function Primary() {
     },
   })
 
+  const EN_URL = useLocation().pathname.includes('/en/');
+  const [language, setLanguage] = useState('/en');
+  useEffect(() => {
+    if (EN_URL) {
+      setLanguage('/en/');
+    }else{
+      setLanguage('/');
+    }
+  });
 
   return (
     <div className="row">
@@ -42,22 +51,22 @@ export default function Primary() {
           })}
           style={animatedTexts[0]}
         >
-          <Translate id='first.title'>云原生多云应用管理平台</Translate>
+          <Translate id='primary.title'>云原生多云应用管理平台</Translate>
         </animated.h2>
         <animated.div style={animatedTexts[0]} className={styles.rainbond_description}>
-          <Translate id='first.description'>
+          <Translate id='primary.description'>
             Rainbond 核心100%开源，使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
           </Translate>
         </animated.div>
         <animated.div style={animatedTexts[1]} className={styles.btnBox}>
-          <Text link={{ href: '/docs/installation/install-with-dind' }}>
+          <Text link={{ href: language + 'docs/installation/install-with-dind' }}>
             <Button icon={<Iconlinux />} theme="solid" className={styles.buttonLeft} size='large'>
-              <Translate id='first.install'>在单机安装</Translate>
+              <Translate id='primary.install-dind'>在单机安装</Translate>
             </Button>
           </Text>
-          <Text link={{ href: '/docs/installation/install-with-helm/' }}>
+          <Text link={{ href: language + 'docs/installation/install-with-helm/' }}>
             <Button icon={<Iconk8s />} theme="solid" className={styles.buttonRight} size='large'>
-              <Translate id='first.install'>在 Kubernetes 安装</Translate>
+              <Translate id='primary.install-helm'>在 Kubernetes 安装</Translate>
             </Button>
           </Text>
         </animated.div>

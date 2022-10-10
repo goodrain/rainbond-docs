@@ -18,6 +18,7 @@ import Store from '/img/homepage/svg/store.svg';
 import Model from '/img/homepage/svg/model.svg';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import Translate from "@docusaurus/Translate";
 
 export default function Feature() {
 
@@ -35,7 +36,9 @@ export default function Feature() {
   return (
     <div className={clsx('container',styles.global)}>
       <animated.div style={animatedTexts[0]}>
-        <h2 className={styles.title}>主要功能</h2>
+        <h2 className={styles.title}>
+          <Translate id="feature.title">主要功能</Translate>
+        </h2>
         {/* devops */}
         <div className="row" style={{ paddingTop: '50px'}}>
           <div className="col col--6">
@@ -54,17 +57,23 @@ export default function Feature() {
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'right' }}>
-                  易用的一体化DevOps，不改变开发者使用习惯
+                  <Translate id="feature.devops.title">
+                    易用的一体化DevOps，不改变开发者使用习惯
+                  </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content,styles.devops_content)}>
-                  Rainbond使用“以应用为中心”的设计理念,对开发人员友好,不用学习容器和Kubernetes等底层技术,开发人员对应用开发和应用运维过程自主可控,已有项目和代码不需要改变
-                  复杂的系统管理和平台管理由平台管理员负责,兼容各种Kubernetes版本和Kubernetes工具,实现各司其职
+                  <Translate id="feature.devops.description">
+                    Rainbond使用“以应用为中心”的设计理念,对开发人员友好,不用学习容器和Kubernetes等底层技术,开发人员对应用开发和应用运维过程自主可控,已有项目和代码不需要改变
+                    复杂的系统管理和平台管理由平台管理员负责,兼容各种Kubernetes版本和Kubernetes工具,实现各司其职
+                  </Translate>
                 </p>
               </div>
               <div className="col col--12">
-                <Link to='/feature/devops' style={{ float: 'right'}}>详情 {'>'}</Link>
+                <Link to='/feature/devops' style={{ float: 'right'}}>
+                  <Translate id="feature.details">详情</Translate> {'>'}
+                </Link>
               </div>
             </div>
           </div>
@@ -78,16 +87,22 @@ export default function Feature() {
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'left' }}>
-                  Kubernetes 多集群管理，实现应用级多云管理
+                  <Translate id="feature.k8s.title">
+                    Kubernetes 多集群管理，实现应用级多云管理
+                  </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.k8s_content)}>
-                  Rainbond控制台支持对接管理多种Kubernetes集群，支持应用级开发和管理体验，不需要写Yaml，通过应用级抽象，应用跨集群部署、安装、迁移、备份
+                  <Translate id="feature.k8s.description">
+                    Rainbond控制台支持对接管理多种Kubernetes集群，支持应用级开发和管理体验，不需要写Yaml，通过应用级抽象，应用跨集群部署、安装、迁移、备份
+                  </Translate>
                 </p>
               </div>
               <div className="col col--12">
-                <Link to='/feature/k8scluster' style={{ float: 'left'}}>详情 {'>'}</Link>
+                <Link to='/feature/k8scluster' style={{ float: 'left'}}>
+                  <Translate id="feature.details">详情</Translate> {'>'}
+                </Link>
               </div>
             </div>
           </div>
@@ -119,17 +134,23 @@ export default function Feature() {
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'right' }}>
-                  开箱即用的微服务治理，<b style={{ color: '#338bff'}}>拖拉拽</b>式的微服务编排
+                  <Translate id="feature.mesh.title">
+                    开箱即用的微服务治理，拖拉拽式的微服务编排
+                  </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.mesh_content)}>
-                  传统应用部署到Rainbond，开启应用级插件就可以支持Service Mesh，并可按需更换Service Mesh框架
-                  通过组件级的插件扩展日志管理、性能分析、监控等服务治理工具，并支持Spring Cloud 、Dubbo等常见微服务框架
+                  <Translate id="feature.mesh.description">
+                    传统应用部署到Rainbond，开启应用级插件就可以支持Service Mesh，并可按需更换Service Mesh框架
+                    通过组件级的插件扩展日志管理、性能分析、监控等服务治理工具，并支持Spring Cloud 、Dubbo等常见微服务框架
+                  </Translate>
                 </p>
               </div>
               <div className="col col--12">
-                <Link to='/feature/servicemesh' style={{ float: 'right'}}>详情 {'>'}</Link>
+                <Link to='/feature/servicemesh' style={{ float: 'right'}}>
+                  <Translate id="feature.details">详情</Translate> {'>'}
+                </Link>
               </div>
             </div>
           </div>
@@ -143,17 +164,23 @@ export default function Feature() {
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'left' }}>
-                  云原生应用市场，实现企业应用自动化交付
+                  <Translate id="feature.appstore.title">
+                    云原生应用市场，实现企业应用自动化交付
+                  </Translate>
                 </h3>
               </div>
               <div className="col col--12">
-                <p className={clsx(styles.content, styles.store_content)} style={{ }}>
-                  支持应用市场全流程管理（应用构建和拼装、应用发布应用市场、应用市场展示和管理、应用导出和导入、应用一键安装和升级）
-                  通过应用模版可以将任何类型的应用发布到应用市场，并实现复杂应用一键交付客户环境
+                <p className={clsx(styles.content, styles.store_content)}>
+                  <Translate id="feature.appstore.description">
+                    支持应用市场全流程管理（应用构建和拼装、应用发布应用市场、应用市场展示和管理、应用导出和导入、应用一键安装和升级）
+                    通过应用模版可以将任何类型的应用发布到应用市场，并实现复杂应用一键交付客户环境
+                  </Translate>
                 </p>
               </div>
               <div className="col col--12">
-                <Link to='/feature/appstore' style={{ float: 'left'}}>详情 {'>'}</Link>
+                <Link to='/feature/appstore' style={{ float: 'left'}}>
+                  <Translate id="feature.details">详情</Translate> {'>'}
+                </Link>
               </div>
             </div>
           </div>
@@ -185,16 +212,22 @@ export default function Feature() {
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'right' }}>
-                  通过应用模型抽象，简化应用运维
+                  <Translate id="feature.model.title">
+                    通过应用模型抽象，简化应用运维
+                  </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.model_content)}>
-                  通过应用模型抽象，让开发人员可以更多的关心业务本身，而不是底层复杂工具的使用问题。最终的效果是降低操作成本和理解难度，让Kubernetes更加容易落地
+                  <Translate id="feature.model.description">
+                    通过应用模型抽象，让开发人员可以更多的关心业务本身，而不是底层复杂工具的使用问题。最终的效果是降低操作成本和理解难度，让Kubernetes更加容易落地
+                  </Translate>
                 </p>
               </div>
               <div className="col col--12">
-                <Link to='/feature/model' style={{ float: 'right'}}>详情 {'>'}</Link>
+                <Link to='/feature/model' style={{ float: 'right'}}>
+                  <Translate id="feature.details">详情</Translate> {'>'}
+                </Link>
               </div>
             </div>
           </div>

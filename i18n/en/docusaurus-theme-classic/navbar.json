@@ -6,9 +6,9 @@
     "message": "Docs",
     "description": "Navbar item with label Docs"
   },
-  "item.label.学习": {
-    "message": "Learn",
-    "description": "Navbar item with label Learn"
+  "item.label.深入": {
+    "message": "InDepth",
+    "description": "Navbar item with label InDepth"
   },
   "item.label.使用场景": {
     "message": "UseScene",
@@ -37,5 +37,9 @@
   "item.label.精选应用": {
     "message": "FeaturedApps",
     "description": "Navbar item with label FeaturedApp"
+  },
+  "item.label.功能特性": {
+    "message": "Feature",
+    "description": "Navbar item with label Feature"
   }
 }
