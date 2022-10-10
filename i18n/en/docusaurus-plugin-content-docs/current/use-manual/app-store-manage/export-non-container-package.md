@@ -13,7 +13,7 @@ Applicable scenarios include:
 
 ## Requirements
 
-- The version of Rainbond is at least v5.8.1-Release.
+- The version of Rainbond is at least v5.9.0-Release.
 - The exported components are deployed based on [source build](/en/docs/use-manual/component-create/language-support/).
 - Refer to the documentation to complete the [application release](/en/docs/use-manual/app-manage/share-app) and publish the application to the internal component library.
 

@@ -31,17 +31,17 @@ import TabItem from '@theme/TabItem';
 将 Rainbond dind 镜像在有网络的环境下 PULL 到本地并打成 tar 包。
 
 ```shell
-docker pull rainbond/rainbond:v5.8.1-dind-allinone
-docker save -o rainbond-v5.8.1-dind-allinone.tar rainbond/rainbond:v5.8.1-dind-allinone
+docker pull rainbond/rainbond:v5.9.0-dind-allinone
+docker save -o rainbond-v5.9.0-dind-allinone.tar rainbond/rainbond:v5.9.0-dind-allinone
 ```
 
 导入 tar 包到目标服务器中。
 
 ```shell
-docker load -i rainbond-v5.8.1-dind-allinone.tar
+docker load -i rainbond-v5.9.0-dind-allinone.tar
 ```
 
-<h2> 2. 设置 EIP 环境变量(必填) </h2>
+<h2> 2. 设置 EIP 环境变量(非必填) </h2>
 
 你需要指定一个 IP 地址，在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。该 IP 通过环境变量 EIP 进行设置。
 
@@ -64,9 +64,8 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
--v ~/dockerdata:/var/lib/docker \
 -e EIP=$EIP \
-rainbond/rainbond:v5.8.1-dind-allinone \
+rainbond/rainbond:v5.9.0-dind-allinone \
 && docker logs -f rainbond-allinone
 ```
 
@@ -80,31 +79,31 @@ rainbond/rainbond:v5.8.1-dind-allinone \
 2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
 2022-09-12 15:58:08 INFO: Docker started successfully
 2022-09-12 15:58:08 INFO: Loading images
-Loaded image: rainbond/rbd-monitor:v5.8.1-release
+Loaded image: rainbond/rbd-monitor:v5.9.0-release
 Loaded image: rainbond/registry:2.6.2
 Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-init-probe:v5.8.1-release
-Loaded image: rainbond/rbd-mq:v5.8.1-release
-Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release
-Loaded image: rainbond/rainbond-operator:v5.8.1-release
-Loaded image: rainbond/rbd-node:v5.8.1-release
+Loaded image: rainbond/rbd-init-probe:v5.9.0-release
+Loaded image: rainbond/rbd-mq:v5.9.0-release
+Loaded image: rainbond/rbd-resource-proxy:v5.9.0-release
+Loaded image: rainbond/rainbond-operator:v5.9.0-release
+Loaded image: rainbond/rbd-node:v5.9.0-release
 Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
 Loaded image: rancher/mirrored-pause:3.1
 Loaded image: rancher/mirrored-coredns-coredns:1.8.4
 Loaded image: rancher/mirrored-metrics-server:v0.5.0
 Loaded image: rancher/mirrored-library-busybox:1.32.1
 Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release
-Loaded image: rainbond/rbd-webcli:v5.8.1-release
+Loaded image: rainbond/rbd-mesh-data-panel:v5.9.0-release
+Loaded image: rainbond/rbd-webcli:v5.9.0-release
 Loaded image: rainbond/kubernetes-dashboard:v2.6.1
 Loaded image: rainbond/rbd-db:8.0
-Loaded image: rainbond/rbd-chaos:v5.8.1-release
-Loaded image: rainbond/rbd-worker:v5.8.1-release
-Loaded image: rainbond/rbd-gateway:v5.8.1-release
+Loaded image: rainbond/rbd-chaos:v5.9.0-release
+Loaded image: rainbond/rbd-worker:v5.9.0-release
+Loaded image: rainbond/rbd-gateway:v5.9.0-release
 Loaded image: rainbond/metrics-server:v0.4.1
 Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/rbd-eventlog:v5.8.1-release
-Loaded image: rainbond/rbd-api:v5.8.1-release
+Loaded image: rainbond/rbd-eventlog:v5.9.0-release
+Loaded image: rainbond/rbd-api:v5.9.0-release
 Loaded image: rancher/local-path-provisioner:v0.0.20
 2022-09-12 15:59:08 INFO: Docker images success
 2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································
@@ -148,7 +147,7 @@ docker save -o rainbond-v5.8.0-arm64-dind-allinone.tar rainbond/rainbond:v5.8.0-
 docker load -i rainbond-v5.8.0-arm64-dind-allinone.tar
 ```
 
-<h2> 2. 设置 EIP 环境变量(必填)</h2>
+<h2> 2. 设置 EIP 环境变量(非必填)</h2>
 
 你需要指定一个 IP 地址，在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。该 IP 通过环境变量 EIP 进行设置。
 
@@ -171,7 +170,6 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
--v ~/dockerdata:/var/lib/docker \
 -e EIP=$EIP \
 rainbond/rainbond:v5.8.0-arm64-dind-allinone \
 && docker logs -f rainbond-allinone
@@ -187,31 +185,31 @@ rainbond/rainbond:v5.8.0-arm64-dind-allinone \
 2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
 2022-09-12 15:58:08 INFO: Docker started successfully
 2022-09-12 15:58:08 INFO: Loading images
-Loaded image: rainbond/rbd-monitor:v5.8.1-release
+Loaded image: rainbond/rbd-monitor:v5.9.0-release
 Loaded image: rainbond/registry:2.6.2
 Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-init-probe:v5.8.1-release
-Loaded image: rainbond/rbd-mq:v5.8.1-release
-Loaded image: rainbond/rbd-resource-proxy:v5.8.1-release
-Loaded image: rainbond/rainbond-operator:v5.8.1-release
-Loaded image: rainbond/rbd-node:v5.8.1-release
+Loaded image: rainbond/rbd-init-probe:v5.9.0-release
+Loaded image: rainbond/rbd-mq:v5.9.0-release
+Loaded image: rainbond/rbd-resource-proxy:v5.9.0-release
+Loaded image: rainbond/rainbond-operator:v5.9.0-release
+Loaded image: rainbond/rbd-node:v5.9.0-release
 Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
 Loaded image: rancher/mirrored-pause:3.1
 Loaded image: rancher/mirrored-coredns-coredns:1.8.4
 Loaded image: rancher/mirrored-metrics-server:v0.5.0
 Loaded image: rancher/mirrored-library-busybox:1.32.1
 Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mesh-data-panel:v5.8.1-release
-Loaded image: rainbond/rbd-webcli:v5.8.1-release
+Loaded image: rainbond/rbd-mesh-data-panel:v5.9.0-release
+Loaded image: rainbond/rbd-webcli:v5.9.0-release
 Loaded image: rainbond/kubernetes-dashboard:v2.6.1
 Loaded image: rainbond/rbd-db:8.0
-Loaded image: rainbond/rbd-chaos:v5.8.1-release
-Loaded image: rainbond/rbd-worker:v5.8.1-release
-Loaded image: rainbond/rbd-gateway:v5.8.1-release
+Loaded image: rainbond/rbd-chaos:v5.9.0-release
+Loaded image: rainbond/rbd-worker:v5.9.0-release
+Loaded image: rainbond/rbd-gateway:v5.9.0-release
 Loaded image: rainbond/metrics-server:v0.4.1
 Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/rbd-eventlog:v5.8.1-release
-Loaded image: rainbond/rbd-api:v5.8.1-release
+Loaded image: rainbond/rbd-eventlog:v5.9.0-release
+Loaded image: rainbond/rbd-api:v5.9.0-release
 Loaded image: rancher/local-path-provisioner:v0.0.20
 2022-09-12 15:59:08 INFO: Docker images success
 2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································

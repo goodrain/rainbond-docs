@@ -38,7 +38,7 @@ export default function Command() {
 -v /opt/rainbond:/opt/rainbond \\
 -v ~/dockerdata:/var/lib/docker \\
 -e EIP=<YOUR_IP> \\
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone`}
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone`}
           </CodeBlock>
         </TabPane>
         <TabPane tab="Linux ARM" itemKey="2">
@@ -51,7 +51,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone`}
 -v /opt/rainbond:/opt/rainbond \\
 -v ~/dockerdata:/var/lib/docker \\
 -e EIP=<YOUR_IP> \\
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-arm64-dind-allinone`}
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-arm64-dind-allinone`}
           </CodeBlock>
         </TabPane>
         <TabPane tab="Mac Intel" itemKey="3">
@@ -63,7 +63,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-arm64-dind-allinone`}
 -v ~/opt/rainbond:/opt/rainbond \\
 -v ~/rainbonddata:/app/data \\
 -e EIP=<YOUR_IP> \\
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone`}
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone`}
           </CodeBlock>
         </TabPane>
         <TabPane tab="Mac M1" itemKey="4">
@@ -75,7 +75,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone`}
 -v ~/opt/rainbond:/opt/rainbond \\
 -v ~/rainbonddata:/app/data \\
 -e EIP=<YOUR_IP> \\
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-arm64-dind-allinone`}
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-arm64-dind-allinone`}
           </CodeBlock>
         </TabPane>
         <TabPane tab="Win" itemKey="5">
@@ -87,7 +87,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-arm64-dind-allinone`}
 -v ~/rainbonddata:/app/data ^
 -v ~/opt/rainbond:/opt/rainbond ^
 -e EIP=<YOUR_IP> ^
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.8.1-dind-allinone`}
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone`}
           </CodeBlock>
         </TabPane>
       </Tabs>
