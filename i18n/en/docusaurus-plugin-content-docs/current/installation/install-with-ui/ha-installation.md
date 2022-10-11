@@ -78,7 +78,7 @@ docker run -d -p 7070:7070 \
 -e MYSQL_USER=** \
 -e MYSQL_PASS=** \
 -e INSTALL_IMAGE_REPO=rainbond \
-rainbond/rainbond:v5.8.1-release-allinone
+rainbond/rainbond:v5.9.0-release-allinone
 ```
 
 
