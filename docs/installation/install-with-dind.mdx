@@ -68,53 +68,28 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone \
 <summary>安装日志输出如下: </summary>
 
 ```bash
-2022-09-12 15:58:06 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31919 MB
-2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
-2022-09-12 15:58:08 INFO: Docker started successfully
-2022-09-12 15:58:08 INFO: Loading images
-Loaded image: rainbond/rbd-monitor:v5.9.0-release
-Loaded image: rainbond/registry:2.6.2
-Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-init-probe:v5.9.0-release
-Loaded image: rainbond/rbd-mq:v5.9.0-release
-Loaded image: rainbond/rbd-resource-proxy:v5.9.0-release
-Loaded image: rainbond/rainbond-operator:v5.9.0-release
-Loaded image: rainbond/rbd-node:v5.9.0-release
-Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
-Loaded image: rancher/mirrored-pause:3.1
-Loaded image: rancher/mirrored-coredns-coredns:1.8.4
-Loaded image: rancher/mirrored-metrics-server:v0.5.0
-Loaded image: rancher/mirrored-library-busybox:1.32.1
-Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mesh-data-panel:v5.9.0-release
-Loaded image: rainbond/rbd-webcli:v5.9.0-release
-Loaded image: rainbond/kubernetes-dashboard:v2.6.1
-Loaded image: rainbond/rbd-db:8.0
-Loaded image: rainbond/rbd-chaos:v5.9.0-release
-Loaded image: rainbond/rbd-worker:v5.9.0-release
-Loaded image: rainbond/rbd-gateway:v5.9.0-release
-Loaded image: rainbond/metrics-server:v0.4.1
-Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/rbd-eventlog:v5.9.0-release
-Loaded image: rainbond/rbd-api:v5.9.0-release
-Loaded image: rancher/local-path-provisioner:v0.0.20
-2022-09-12 15:59:08 INFO: Docker images success
-2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································
-2022-09-12 15:59:26 INFO: K3s started successfully
+2022-10-11 11:44:49 WARN: Too little free disk space, recommended disk space greater than 50G
+2022-10-11 11:44:49 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31884 MB
+2022-10-11 11:44:49 INFO: move images
+2022-10-11 11:45:05 INFO: K3s is starting, please wait ············································
+2022-10-11 11:47:09 INFO: K3s started successfully
 namespace/rbd-system created
-2022-09-12 15:59:26 INFO: Create namespace rbd-system
+2022-10-11 11:47:09 INFO: Create namespace rbd-system
 NAME: rainbond-operator
-LAST DEPLOYED: Mon Sep 12 15:59:28 2022
+LAST DEPLOYED: Tue Oct 11 11:47:16 2022
 NAMESPACE: rbd-system
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-2022-09-12 15:59:28 INFO: Helm rainbond-operator installed
-2022-09-12 15:59:29 INFO: Rainbond Region installed
-2022-09-12 15:59:29 INFO: Rainbond Region is starting, please wait ············································
-2022-09-12 16:00:55 INFO: Rainbond Region started successfully
-2022-09-12 16:00:57 INFO: Rainbond console is starting, please wait ············································
-2022-09-12 16:01:13 INFO: Rainbond started successfully, Please pass http://39.105.155.87:7070 Access Rainbond
+2022-10-11 11:47:17 INFO: Helm rainbond-operator installed
+2022-10-11 11:47:19 INFO: Rainbond Region installed
+2022-10-11 11:47:19 INFO: Rainbond Region is starting, please wait ············································
+2022-10-11 11:48:36 INFO: Rainbond Region started successfully
+2022-10-11 11:48:38 INFO: K3s is restarting, please wait ············································
+2022-10-11 11:50:19 INFO: K3s restarted successfully
+pod "rbd-chaos-9f6nf" deleted
+2022-10-11 11:50:22 INFO: Rainbond console is starting, please wait ············································
+2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://47.105.90.153:7070 Access Rainbond
 ```
 </details>
 
@@ -168,53 +143,28 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-arm64-dind-allinone \
 <summary>安装日志输出如下: </summary>
 
 ```bash
-2022-09-12 15:58:06 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31919 MB
-2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
-2022-09-12 15:58:08 INFO: Docker started successfully
-2022-09-12 15:58:08 INFO: Loading images
-Loaded image: rainbond/rbd-monitor:v5.9.0-release
-Loaded image: rainbond/registry:2.6.2
-Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-init-probe:v5.9.0-release
-Loaded image: rainbond/rbd-mq:v5.9.0-release
-Loaded image: rainbond/rbd-resource-proxy:v5.9.0-release
-Loaded image: rainbond/rainbond-operator:v5.9.0-release
-Loaded image: rainbond/rbd-node:v5.9.0-release
-Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
-Loaded image: rancher/mirrored-pause:3.1
-Loaded image: rancher/mirrored-coredns-coredns:1.8.4
-Loaded image: rancher/mirrored-metrics-server:v0.5.0
-Loaded image: rancher/mirrored-library-busybox:1.32.1
-Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mesh-data-panel:v5.9.0-release
-Loaded image: rainbond/rbd-webcli:v5.9.0-release
-Loaded image: rainbond/kubernetes-dashboard:v2.6.1
-Loaded image: rainbond/rbd-db:8.0
-Loaded image: rainbond/rbd-chaos:v5.9.0-release
-Loaded image: rainbond/rbd-worker:v5.9.0-release
-Loaded image: rainbond/rbd-gateway:v5.9.0-release
-Loaded image: rainbond/metrics-server:v0.4.1
-Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/rbd-eventlog:v5.9.0-release
-Loaded image: rainbond/rbd-api:v5.9.0-release
-Loaded image: rancher/local-path-provisioner:v0.0.20
-2022-09-12 15:59:08 INFO: Docker images success
-2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································
-2022-09-12 15:59:26 INFO: K3s started successfully
+2022-10-11 11:44:49 WARN: Too little free disk space, recommended disk space greater than 50G
+2022-10-11 11:44:49 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31884 MB
+2022-10-11 11:44:49 INFO: move images
+2022-10-11 11:45:05 INFO: K3s is starting, please wait ············································
+2022-10-11 11:47:09 INFO: K3s started successfully
 namespace/rbd-system created
-2022-09-12 15:59:26 INFO: Create namespace rbd-system
+2022-10-11 11:47:09 INFO: Create namespace rbd-system
 NAME: rainbond-operator
-LAST DEPLOYED: Mon Sep 12 15:59:28 2022
+LAST DEPLOYED: Tue Oct 11 11:47:16 2022
 NAMESPACE: rbd-system
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-2022-09-12 15:59:28 INFO: Helm rainbond-operator installed
-2022-09-12 15:59:29 INFO: Rainbond Region installed
-2022-09-12 15:59:29 INFO: Rainbond Region is starting, please wait ············································
-2022-09-12 16:00:55 INFO: Rainbond Region started successfully
-2022-09-12 16:00:57 INFO: Rainbond console is starting, please wait ············································
-2022-09-12 16:01:13 INFO: Rainbond started successfully, Please pass http://39.105.155.87:7070 Access Rainbond
+2022-10-11 11:47:17 INFO: Helm rainbond-operator installed
+2022-10-11 11:47:19 INFO: Rainbond Region installed
+2022-10-11 11:47:19 INFO: Rainbond Region is starting, please wait ············································
+2022-10-11 11:48:36 INFO: Rainbond Region started successfully
+2022-10-11 11:48:38 INFO: K3s is restarting, please wait ············································
+2022-10-11 11:50:19 INFO: K3s restarted successfully
+pod "rbd-chaos-9f6nf" deleted
+2022-10-11 11:50:22 INFO: Rainbond console is starting, please wait ············································
+2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://47.105.90.153:7070 Access Rainbond
 ```
 </details>
 
@@ -268,53 +218,28 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone \
 <summary>安装日志输出如下: </summary>
 
 ```bash
-2022-09-12 15:58:06 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31919 MB
-2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
-2022-09-12 15:58:08 INFO: Docker started successfully
-2022-09-12 15:58:08 INFO: Loading images
-Loaded image: rainbond/rbd-monitor:v5.9.0-release
-Loaded image: rainbond/registry:2.6.2
-Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-init-probe:v5.9.0-release
-Loaded image: rainbond/rbd-mq:v5.9.0-release
-Loaded image: rainbond/rbd-resource-proxy:v5.9.0-release
-Loaded image: rainbond/rainbond-operator:v5.9.0-release
-Loaded image: rainbond/rbd-node:v5.9.0-release
-Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
-Loaded image: rancher/mirrored-pause:3.1
-Loaded image: rancher/mirrored-coredns-coredns:1.8.4
-Loaded image: rancher/mirrored-metrics-server:v0.5.0
-Loaded image: rancher/mirrored-library-busybox:1.32.1
-Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mesh-data-panel:v5.9.0-release
-Loaded image: rainbond/rbd-webcli:v5.9.0-release
-Loaded image: rainbond/kubernetes-dashboard:v2.6.1
-Loaded image: rainbond/rbd-db:8.0
-Loaded image: rainbond/rbd-chaos:v5.9.0-release
-Loaded image: rainbond/rbd-worker:v5.9.0-release
-Loaded image: rainbond/rbd-gateway:v5.9.0-release
-Loaded image: rainbond/metrics-server:v0.4.1
-Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/rbd-eventlog:v5.9.0-release
-Loaded image: rainbond/rbd-api:v5.9.0-release
-Loaded image: rancher/local-path-provisioner:v0.0.20
-2022-09-12 15:59:08 INFO: Docker images success
-2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································
-2022-09-12 15:59:26 INFO: K3s started successfully
+2022-10-11 11:44:49 WARN: Too little free disk space, recommended disk space greater than 50G
+2022-10-11 11:44:49 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31884 MB
+2022-10-11 11:44:49 INFO: move images
+2022-10-11 11:45:05 INFO: K3s is starting, please wait ············································
+2022-10-11 11:47:09 INFO: K3s started successfully
 namespace/rbd-system created
-2022-09-12 15:59:26 INFO: Create namespace rbd-system
+2022-10-11 11:47:09 INFO: Create namespace rbd-system
 NAME: rainbond-operator
-LAST DEPLOYED: Mon Sep 12 15:59:28 2022
+LAST DEPLOYED: Tue Oct 11 11:47:16 2022
 NAMESPACE: rbd-system
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-2022-09-12 15:59:28 INFO: Helm rainbond-operator installed
-2022-09-12 15:59:29 INFO: Rainbond Region installed
-2022-09-12 15:59:29 INFO: Rainbond Region is starting, please wait ············································
-2022-09-12 16:00:55 INFO: Rainbond Region started successfully
-2022-09-12 16:00:57 INFO: Rainbond console is starting, please wait ············································
-2022-09-12 16:01:13 INFO: Rainbond started successfully, Please pass http://39.105.155.87:7070 Access Rainbond
+2022-10-11 11:47:17 INFO: Helm rainbond-operator installed
+2022-10-11 11:47:19 INFO: Rainbond Region installed
+2022-10-11 11:47:19 INFO: Rainbond Region is starting, please wait ············································
+2022-10-11 11:48:36 INFO: Rainbond Region started successfully
+2022-10-11 11:48:38 INFO: K3s is restarting, please wait ············································
+2022-10-11 11:50:19 INFO: K3s restarted successfully
+pod "rbd-chaos-9f6nf" deleted
+2022-10-11 11:50:22 INFO: Rainbond console is starting, please wait ············································
+2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://47.105.90.153:7070 Access Rainbond
 ```
 </details>
 
@@ -368,53 +293,28 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-arm64-dind-allinone \
 <summary>安装日志输出如下: </summary>
 
 ```bash
-2022-09-12 15:58:06 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31919 MB
-2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
-2022-09-12 15:58:08 INFO: Docker started successfully
-2022-09-12 15:58:08 INFO: Loading images
-Loaded image: rainbond/rbd-monitor:v5.9.0-release
-Loaded image: rainbond/registry:2.6.2
-Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-init-probe:v5.9.0-release
-Loaded image: rainbond/rbd-mq:v5.9.0-release
-Loaded image: rainbond/rbd-resource-proxy:v5.9.0-release
-Loaded image: rainbond/rainbond-operator:v5.9.0-release
-Loaded image: rainbond/rbd-node:v5.9.0-release
-Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
-Loaded image: rancher/mirrored-pause:3.1
-Loaded image: rancher/mirrored-coredns-coredns:1.8.4
-Loaded image: rancher/mirrored-metrics-server:v0.5.0
-Loaded image: rancher/mirrored-library-busybox:1.32.1
-Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mesh-data-panel:v5.9.0-release
-Loaded image: rainbond/rbd-webcli:v5.9.0-release
-Loaded image: rainbond/kubernetes-dashboard:v2.6.1
-Loaded image: rainbond/rbd-db:8.0
-Loaded image: rainbond/rbd-chaos:v5.9.0-release
-Loaded image: rainbond/rbd-worker:v5.9.0-release
-Loaded image: rainbond/rbd-gateway:v5.9.0-release
-Loaded image: rainbond/metrics-server:v0.4.1
-Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/rbd-eventlog:v5.9.0-release
-Loaded image: rainbond/rbd-api:v5.9.0-release
-Loaded image: rancher/local-path-provisioner:v0.0.20
-2022-09-12 15:59:08 INFO: Docker images success
-2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································
-2022-09-12 15:59:26 INFO: K3s started successfully
+2022-10-11 11:44:49 WARN: Too little free disk space, recommended disk space greater than 50G
+2022-10-11 11:44:49 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31884 MB
+2022-10-11 11:44:49 INFO: move images
+2022-10-11 11:45:05 INFO: K3s is starting, please wait ············································
+2022-10-11 11:47:09 INFO: K3s started successfully
 namespace/rbd-system created
-2022-09-12 15:59:26 INFO: Create namespace rbd-system
+2022-10-11 11:47:09 INFO: Create namespace rbd-system
 NAME: rainbond-operator
-LAST DEPLOYED: Mon Sep 12 15:59:28 2022
+LAST DEPLOYED: Tue Oct 11 11:47:16 2022
 NAMESPACE: rbd-system
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-2022-09-12 15:59:28 INFO: Helm rainbond-operator installed
-2022-09-12 15:59:29 INFO: Rainbond Region installed
-2022-09-12 15:59:29 INFO: Rainbond Region is starting, please wait ············································
-2022-09-12 16:00:55 INFO: Rainbond Region started successfully
-2022-09-12 16:00:57 INFO: Rainbond console is starting, please wait ············································
-2022-09-12 16:01:13 INFO: Rainbond started successfully, Please pass http://39.105.155.87:7070 Access Rainbond
+2022-10-11 11:47:17 INFO: Helm rainbond-operator installed
+2022-10-11 11:47:19 INFO: Rainbond Region installed
+2022-10-11 11:47:19 INFO: Rainbond Region is starting, please wait ············································
+2022-10-11 11:48:36 INFO: Rainbond Region started successfully
+2022-10-11 11:48:38 INFO: K3s is restarting, please wait ············································
+2022-10-11 11:50:19 INFO: K3s restarted successfully
+pod "rbd-chaos-9f6nf" deleted
+2022-10-11 11:50:22 INFO: Rainbond console is starting, please wait ············································
+2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://47.105.90.153:7070 Access Rainbond
 ```
 </details>
 
@@ -467,53 +367,28 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone ^
 <summary>安装日志输出如下: </summary>
 
 ```bash
-2022-09-12 15:58:06 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31919 MB
-2022-09-12 15:58:08 INFO: Docker is starting, please wait ············································
-2022-09-12 15:58:08 INFO: Docker started successfully
-2022-09-12 15:58:08 INFO: Loading images
-Loaded image: rainbond/rbd-monitor:v5.9.0-release
-Loaded image: rainbond/registry:2.6.2
-Loaded image: rainbond/metrics-scraper:v1.0.4
-Loaded image: rainbond/rbd-init-probe:v5.9.0-release
-Loaded image: rainbond/rbd-mq:v5.9.0-release
-Loaded image: rainbond/rbd-resource-proxy:v5.9.0-release
-Loaded image: rainbond/rainbond-operator:v5.9.0-release
-Loaded image: rainbond/rbd-node:v5.9.0-release
-Loaded image: registry.cn-hangzhou.aliyuncs.com/goodrain/smallimage:latest
-Loaded image: rancher/mirrored-pause:3.1
-Loaded image: rancher/mirrored-coredns-coredns:1.8.4
-Loaded image: rancher/mirrored-metrics-server:v0.5.0
-Loaded image: rancher/mirrored-library-busybox:1.32.1
-Loaded image: rainbond/etcd:v3.3.18
-Loaded image: rainbond/rbd-mesh-data-panel:v5.9.0-release
-Loaded image: rainbond/rbd-webcli:v5.9.0-release
-Loaded image: rainbond/kubernetes-dashboard:v2.6.1
-Loaded image: rainbond/rbd-db:8.0
-Loaded image: rainbond/rbd-chaos:v5.9.0-release
-Loaded image: rainbond/rbd-worker:v5.9.0-release
-Loaded image: rainbond/rbd-gateway:v5.9.0-release
-Loaded image: rainbond/metrics-server:v0.4.1
-Loaded image: rainbond/mysqld-exporter:latest
-Loaded image: rainbond/rbd-eventlog:v5.9.0-release
-Loaded image: rainbond/rbd-api:v5.9.0-release
-Loaded image: rancher/local-path-provisioner:v0.0.20
-2022-09-12 15:59:08 INFO: Docker images success
-2022-09-12 15:59:09 INFO: K3s is starting, please wait ············································
-2022-09-12 15:59:26 INFO: K3s started successfully
+2022-10-11 11:44:49 WARN: Too little free disk space, recommended disk space greater than 50G
+2022-10-11 11:44:49 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31884 MB
+2022-10-11 11:44:49 INFO: move images
+2022-10-11 11:45:05 INFO: K3s is starting, please wait ············································
+2022-10-11 11:47:09 INFO: K3s started successfully
 namespace/rbd-system created
-2022-09-12 15:59:26 INFO: Create namespace rbd-system
+2022-10-11 11:47:09 INFO: Create namespace rbd-system
 NAME: rainbond-operator
-LAST DEPLOYED: Mon Sep 12 15:59:28 2022
+LAST DEPLOYED: Tue Oct 11 11:47:16 2022
 NAMESPACE: rbd-system
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-2022-09-12 15:59:28 INFO: Helm rainbond-operator installed
-2022-09-12 15:59:29 INFO: Rainbond Region installed
-2022-09-12 15:59:29 INFO: Rainbond Region is starting, please wait ············································
-2022-09-12 16:00:55 INFO: Rainbond Region started successfully
-2022-09-12 16:00:57 INFO: Rainbond console is starting, please wait ············································
-2022-09-12 16:01:13 INFO: Rainbond started successfully, Please pass http://39.105.155.87:7070 Access Rainbond
+2022-10-11 11:47:17 INFO: Helm rainbond-operator installed
+2022-10-11 11:47:19 INFO: Rainbond Region installed
+2022-10-11 11:47:19 INFO: Rainbond Region is starting, please wait ············································
+2022-10-11 11:48:36 INFO: Rainbond Region started successfully
+2022-10-11 11:48:38 INFO: K3s is restarting, please wait ············································
+2022-10-11 11:50:19 INFO: K3s restarted successfully
+pod "rbd-chaos-9f6nf" deleted
+2022-10-11 11:50:22 INFO: Rainbond console is starting, please wait ············································
+2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://47.105.90.153:7070 Access Rainbond
 ```
 </details>
 

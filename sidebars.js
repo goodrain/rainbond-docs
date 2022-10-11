@@ -48,6 +48,7 @@ const sidebars = {
             },
             'installation/install-with-helm/k8s-install-with-helm',
             'installation/install-with-helm/k3s-install-with-helm',
+            'installation/install-with-helm/install-from-minikube',
             'installation/install-with-helm/ack-install-with-helm',
             'installation/install-with-helm/cce-install-with-helm',
             'installation/install-with-helm/install-from-rancher',
