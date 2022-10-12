@@ -71,7 +71,7 @@ kubectl edit deploy rainbond-operator -n rbd-system
   - mountPath: /run
     name: rundir
         
-  volumeMounts:
+  volumes:
   - hostPath:
       path: /run
       type: Directory
