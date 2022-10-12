@@ -27,63 +27,16 @@ export default function Command() {
   
   return (
     <animated.div style={animatedTexts[0]}>
-      <Tabs type="line" tabPosition={tabPosition}>
-        <TabPane tab="Linux" itemKey="1">
-          <h3>在 Linux 上快速安装体验 Rainbond</h3>
+      <div className="card">
+        <div className="card__header">
+          <h3>快速安装体验 Rainbond</h3>
+        </div>
+        <div className="card__body">
           <CodeBlock language="bash">
-        {`docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \\
---name=rainbond-allinone --restart=on-failure \\
--v ~/.ssh:/root/.ssh \\
--v ~/rainbonddata:/app/data \\
--v /opt/rainbond:/opt/rainbond \\
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone`}
+            {`curl -o get_install.sh https://get.rainbond.com && chmod +x ./get_install.sh && ./get_install.sh`}
           </CodeBlock>
-        </TabPane>
-        <TabPane tab="Linux ARM" itemKey="2">
-          <h3>在 Linux ARM 上快速安装体验 Rainbond</h3>
-          <CodeBlock language="bash">
-        {`docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \\
---name=rainbond-allinone --restart=on-failure \\
--v ~/.ssh:/root/.ssh \\
--v ~/rainbonddata:/app/data \\
--v /opt/rainbond:/opt/rainbond \\
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-arm64-dind-allinone`}
-          </CodeBlock>
-        </TabPane>
-        <TabPane tab="Mac Intel" itemKey="3">
-          <h3>在 Mac Intel 上快速安装体验 Rainbond</h3>
-          <CodeBlock language="bash">
-        {`docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \\
---name=rainbond-allinone --restart=on-failure \\
--v ~/.ssh:/root/.ssh \\
--v ~/opt/rainbond:/opt/rainbond \\
--v ~/rainbonddata:/app/data \\
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone`}
-          </CodeBlock>
-        </TabPane>
-        <TabPane tab="Mac M1" itemKey="4">
-          <h3>在 Mac M1 上快速安装体验 Rainbond</h3>
-          <CodeBlock language="bash">
-        {`docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \\
---name=rainbond-allinone --restart=on-failure \\
--v ~/.ssh:/root/.ssh \\
--v ~/opt/rainbond:/opt/rainbond \\
--v ~/rainbonddata:/app/data \\
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-arm64-dind-allinone`}
-          </CodeBlock>
-        </TabPane>
-        <TabPane tab="Win" itemKey="5">
-          <h3>在 Win 上快速安装体验 Rainbond</h3>
-          <CodeBlock language="bash">
-        {`docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 ^
---name=rainbond-allinone --restart=on-failure ^
--v ~/.ssh:/root/.ssh ^
--v ~/rainbonddata:/app/data ^
--v ~/opt/rainbond:/opt/rainbond ^
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone`}
-          </CodeBlock>
-        </TabPane>
-      </Tabs>
+        </div>
+      </div>
     </animated.div>
   );
 }
