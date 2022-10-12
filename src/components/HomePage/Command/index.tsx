@@ -28,12 +28,12 @@ export default function Command() {
   return (
     <animated.div style={animatedTexts[0]}>
       <div className="card">
-        <div className="card__header">
-          <h3>快速安装体验 Rainbond</h3>
+        <div className="card__header" style={{ textAlign: 'center' }}>
+          <h3>快速安装</h3>
         </div>
         <div className="card__body">
           <CodeBlock language="bash">
-            {`curl -o get_install.sh https://get.rainbond.com && chmod +x ./get_install.sh && ./get_install.sh`}
+            {`curl -o get_install.sh https://get.rainbond.com && bash ./get_install.sh`}
           </CodeBlock>
         </div>
       </div>
