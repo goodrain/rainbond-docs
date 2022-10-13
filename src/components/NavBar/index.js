@@ -40,12 +40,32 @@ export default function Index(props) {
               </li>
               <li>
                 <div className="dropdown dropdown--hoverable">
-                  <Translate id='navbar.learn'>深入</Translate>
+                  <Translate id='navbar.feature'>功能特性</Translate>
                   <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
                   <ul className="dropdown__menu">
                     <li>
-                      <a className={`${styles.DropDownFont} dropdown__link`} href={language + 'feature'}><Translate id='navbar.feature'>功能特性</Translate></a>
+                      <a className={`${styles.DropDownFont} dropdown__link`} href={language + 'feature/devops'}><Translate id='navbar.feature.devops'>一体化DevOps</Translate></a>
                     </li>
+                    <li>
+                      <a className={`${styles.DropDownFont} dropdown__link`} href={language + 'feature/multi-cluster'}><Translate id='navbar.feature.k8scluster'>Kubernetes多集群管理</Translate></a>
+                    </li>
+                    <li>
+                      <a className={`${styles.DropDownFont} dropdown__link`} href={language + 'feature/service-mesh'}><Translate id='navbar.feature.servicemesh'>开箱即用的微服务治理</Translate></a>
+                    </li>
+                    <li>
+                      <a className={`${styles.DropDownFont} dropdown__link`} href={language + 'feature/app-market'}><Translate id='navbar.feature.appstore'>云原生应用市场</Translate></a>
+                    </li>
+                    <li>
+                      <a className={`${styles.DropDownFont} dropdown__link`} href={language + 'feature/app-ops'}><Translate id='navbar.feature.appops'>自动化应用运维</Translate></a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <div className="dropdown dropdown--hoverable">
+                  <Translate id='navbar.learn'>深入</Translate>
+                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
+                  <ul className="dropdown__menu">
                     <li>
                       <a className={`${styles.DropDownFont} dropdown__link`} href={language + 'usescene'}><Translate id='navbar.usescene'>使用场景</Translate></a>
                     </li>
