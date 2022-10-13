@@ -25,7 +25,7 @@ export default function FooterLayout({
       })}>
       <div className="container container-fluid" style={{marginTop: '50px', marginBottom: '50px'}}>
         <div className='row'>
-          <div className='col'>
+          <div className='col col--5'>
             <div className="footer__bottom">
               <img
                 alt="Rainbond logo"
@@ -63,7 +63,7 @@ export default function FooterLayout({
               </Button>
             </div>
           </div>
-          <div className='col'>
+          <div className='col col--7'>
             {links}
             {(logo || copyright) && (
             <div className="footer__bottom text--center">

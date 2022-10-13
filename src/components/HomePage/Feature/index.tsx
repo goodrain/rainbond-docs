@@ -100,7 +100,7 @@ export default function Feature() {
                 </p>
               </div>
               <div className="col col--12">
-                <Link to='/feature/k8scluster' style={{ float: 'left'}}>
+                <Link to='/feature/multi-cluster' style={{ float: 'left'}}>
                   <Translate id="feature.details">详情</Translate> {'>'}
                 </Link>
               </div>
@@ -148,7 +148,7 @@ export default function Feature() {
                 </p>
               </div>
               <div className="col col--12">
-                <Link to='/feature/servicemesh' style={{ float: 'right'}}>
+                <Link to='/feature/service-mesh' style={{ float: 'right'}}>
                   <Translate id="feature.details">详情</Translate> {'>'}
                 </Link>
               </div>
@@ -178,7 +178,7 @@ export default function Feature() {
                 </p>
               </div>
               <div className="col col--12">
-                <Link to='/feature/appstore' style={{ float: 'left'}}>
+                <Link to='/feature/app-market' style={{ float: 'left'}}>
                   <Translate id="feature.details">详情</Translate> {'>'}
                 </Link>
               </div>
@@ -225,7 +225,7 @@ export default function Feature() {
                 </p>
               </div>
               <div className="col col--12">
-                <Link to='/feature/model' style={{ float: 'right'}}>
+                <Link to='/feature/app-ops' style={{ float: 'right'}}>
                   <Translate id="feature.details">详情</Translate> {'>'}
                 </Link>
               </div>

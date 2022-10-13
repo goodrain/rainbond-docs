@@ -133,7 +133,8 @@
 }
 
 .DropDownFont{
-  color: #000000 !important;
+  color: var(--ifm-color-primary-black) !important;
+  font-size: 13px;
 }
 
 .DropDownFont:hover{
