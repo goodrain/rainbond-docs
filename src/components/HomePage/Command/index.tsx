@@ -10,6 +10,9 @@ import { animated, useTrail } from "react-spring";
 import CodeBlock from '@theme/CodeBlock';
 import { Tabs, TabPane } from '@douyinfe/semi-ui';
 import {useWindowSize} from '@docusaurus/theme-common';
+import styles from "./styles.module.css";
+import clsx from "clsx";
+import Translate from "@docusaurus/Translate";
 
 export default function Command() {
 
@@ -27,11 +30,11 @@ export default function Command() {
   
   return (
     <animated.div style={animatedTexts[0]}>
-      <div className="card">
+      <div className={clsx("card", styles.card)}>
         <div className="card__header" style={{ textAlign: 'center' }}>
-          <h3>快速安装</h3>
+          <h3><Translate id="command.title">Linux & Mac 快速安装</Translate></h3>
         </div>
-        <div className="card__body">
+        <div className={clsx("card__body", styles.card_body)}>
           <CodeBlock language="bash">
             {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
           </CodeBlock>

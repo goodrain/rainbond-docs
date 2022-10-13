@@ -46,8 +46,7 @@ export default function JoinCommunity() {
               <div className="card__body">
                 <p>
                   <Translate id="community.group.description">
-                    Rainbond 是一个开源项目，欢迎大家加入我们的开源社区群组进行讨论，你可以在 GitHub 上提交 issue，也可以在微信或钉钉群组中提问，我们会尽快回复你。
-                    如果你有需求场景，我们也可以提供单独的开源支持，帮助你在企业内落地。
+                    Rainbond 是一个开源项目，欢迎大家加入我们的开源社区群组进行讨论，你可以在 GitHub 上提交 issue，也可以在微信或钉钉群组中提问，我们有专职的工程师解答你的问题。
                   </Translate>
                 </p>
               </div>
