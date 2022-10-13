@@ -58,7 +58,7 @@ export default function JoinCommunity() {
                 <OverlayTrigger placement="bottom" overlay={
                   <div className="card">
                     <div className="card__body">
-                      <img width="200px" height="200px" src="/wechat/wechat-public.jpg" />
+                      <img width="200px" height="200px" src="/wechat/wechat.png" />
                     </div>
                   </div>
                 }>
