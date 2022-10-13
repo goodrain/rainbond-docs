@@ -1,0 +1,22 @@
+/**
+ * Copyright (c) Goodrain, Inc.
+ *
+ * This source code is licensed under the LGPL-3.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ **/
+
+
+ @media screen and (max-width: 996px) {
+  .card {
+    width: 100% !important;
+  }
+}
+
+.card {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.card_body {
+  text-align: center;
+}

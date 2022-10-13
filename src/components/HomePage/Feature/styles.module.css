@@ -13,7 +13,7 @@
     width: 100% !important;
   }
 }
-@media screen and (max-width: 396px) {
+@media screen and (max-width: 500px) {
   .devops_content {
     width: 100% !important;
   }

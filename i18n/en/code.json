@@ -50,6 +50,9 @@
   "primary.install-helm": {
     "message": "Install on Kubernetes"
   },
+  "command.title": {
+    "message": "Linux & Mac Quick Install"
+  },
   "platform.title": {
     "message": "Cloud Native Platform for Easy of use and Flexibility"
   },
