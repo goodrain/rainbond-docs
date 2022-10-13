@@ -33,7 +33,7 @@ export default function Command() {
         </div>
         <div className="card__body">
           <CodeBlock language="bash">
-            {`curl -o get_install.sh https://get.rainbond.com && bash ./get_install.sh`}
+            {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
           </CodeBlock>
         </div>
       </div>
