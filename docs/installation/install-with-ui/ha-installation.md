@@ -104,7 +104,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-release-allinone
 
 4.安装`kubectl`命令。
 
-后续操作过程中需要使用`kubectl`命令创建高可用存储等资源，请参考文档[kubectl命令行工具](/docs/ops-guide/tools/kubectl/)安装命令。
+后续操作过程中需要使用`kubectl`命令创建高可用存储等资源，请参考文档[kubectl命令行工具](/docs/ops-guide/tools/#kubectl)安装命令。
 
 
 ### 六. 对接存储

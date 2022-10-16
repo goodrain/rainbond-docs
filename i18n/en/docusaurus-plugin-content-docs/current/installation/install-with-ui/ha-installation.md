@@ -117,7 +117,7 @@ At this point, congratulations that you have completed the first step, you still
 
 4. Install`kubectl`command.
 
-In subsequent operations, you need to use the`kubectl`command to create resources such as high-availability storage. For details, see Document[kubectl command line tool](/docs/ops-guide/tools/kubectl/)Installation commands.
+In subsequent operations, you need to use the`kubectl`command to create resources such as high-availability storage. For details, see Document[kubectl command line tool](/docs/ops-guide/tools/#kubectl)Installation commands.
 
 
 

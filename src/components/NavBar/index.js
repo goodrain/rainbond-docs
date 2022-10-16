@@ -75,6 +75,9 @@ export default function Index(props) {
                     <li>
                       <a className={`${styles.DropDownFont} dropdown__link`} href={language + 'blog'}><Translate id='navbar.blog'>博客</Translate></a>
                     </li>
+                    <li>
+                      <a className={`${styles.DropDownFont} dropdown__link`} href={language + 'docs/Intro'}><Translate id='navbar.intro'>OpenAPI</Translate></a>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -102,6 +105,13 @@ export default function Index(props) {
                 <a
                   className={styles.githubLogo}
                   href='https://github.com/goodrain/rainbond'
+                  target='_blank'
+                ></a>
+              </li>
+              <li>
+                <a
+                  className={styles.giteeLogo}
+                  href='https://gitee.com/rainbond/Rainbond'
                   target='_blank'
                 ></a>
               </li>

@@ -744,7 +744,6 @@ const sidebars = {
             id: 'ops-guide/tools/index'
           },
           items: [
-            'ops-guide/tools/kubectl',
             'ops-guide/tools/grctl'
           ]
         },
