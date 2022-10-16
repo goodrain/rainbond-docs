@@ -46,7 +46,7 @@ Before starting, please make sure that you have purchased the following Alibaba 
 
 ### Install the Kubectl command line tool
 
-Install [Kubectl](/docs/ops-guide/tools/kubectl) Command Line Tools
+Install [Kubectl](/docs/ops-guide/tools/#kubectl) Command Line Tools
 
 
 ### Get kubeconfig info

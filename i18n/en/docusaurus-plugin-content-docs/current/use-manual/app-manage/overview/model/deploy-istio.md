@@ -86,7 +86,7 @@ kiali requires an authentication token when logging in, use the following comman
 kubectl describe secret $(kubectl get secret -n istio-system | grep kiali-token | awk '{print $1}') -n istio-system
 ```
 
-If there is no kubectl command, please refer to[Command Line Tools](/docs/ops-guide/tools/kubectl/)document to install.
+If there is no kubectl command, please refer to[Command Line Tools](/docs/ops-guide/tools/#kubectl)document to install.
 
 Obtain the token and log in to the kiali visualization interface. At this point, the deployment of the Istio control plane is completed.
 

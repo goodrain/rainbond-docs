@@ -52,7 +52,7 @@ After the cluster is installed successfully, the cluster will be in the running 
 
 ![image-20210219134301992](https://static.goodrain.com/images/5.3/rke-cluster-list.png)
 
-The kubectl command line tool does not exist by default in the cluster host installed in this way. If you need to use it, please refer to[kubectl installation](../tools/kubectl/)
+The kubectl command line tool does not exist by default in the cluster host installed in this way. If you need to use it, please refer to kubectl installation
 
 ### Access to Kubernetes cluster
 
@@ -104,6 +104,6 @@ If the initialization process has not been completed for a long time, you can ru
 kubectl get rainbondcluster rainbondcluster -n rbd-system
 ```
 
-> If the cluster is installed through the host, the kubectl command does not exist, please refer to [kubectl installation](../tools/kubectl/) to install the command.
+> If the cluster is installed through the host, the kubectl command does not exist, please refer to kubectl installation to install the command.
 > 
 > For more information custom cluster initialization parameters, please refer to document cluster initialization parameters1

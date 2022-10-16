@@ -8,7 +8,7 @@ description: 'troubleshot'
 
 从主机安装的过程中，根据页面的指引，经历以下各个阶段完成 Rainbond 的安装：
 
-- [安装 Kubernetes 集群](#kubernetes-集群安装异常情况分析)，该过程通过图形化界面的定义，安装了一套完整的 Kubernetes 集群。在安装过程中可能触发图形化界面的报错提示，也需要在安装完成后，手动安装[kubectl命令行工具](/docs/ops-guide/tools/kubectl)，确认当前集群可用。
+- [安装 Kubernetes 集群](#kubernetes-集群安装异常情况分析)，该过程通过图形化界面的定义，安装了一套完整的 Kubernetes 集群。在安装过程中可能触发图形化界面的报错提示，也需要在安装完成后，手动安装[kubectl命令行工具](/docs/ops-guide/tools/#kubectl)，确认当前集群可用。
 
 - [安装 Rainbond 集群](#rainbond-集群初始化异常情况分析)，该过程基于上个步骤安装好的 Kubernetes 集群继续安装 Rainbond 各组件。安装的过程中，可以参考日志来确定未预期的异常情况。
 ## Kubernetes 集群安装异常情况分析

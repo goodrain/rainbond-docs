@@ -34,7 +34,7 @@ The investigation ideas are as follows：
 
 > Rainbond system components are installed under the rbd-system namespace and are installed based on a certain order.`kubectl get pod -n rbd-system` to query pod information.
 
-> By specifying the node to follow, the cluster node does not carry the`kubectl`command by default, and refer to[document](../tools/kubectl/)for installation.
+> By specifying the node to follow, the cluster node does not carry the`kubectl`command by default, and refer to[document](../tools/#kubectl)for installation.
 
 > The first step to install the basic components includes：rainbond-operator, nfs-provider (if the external storage service is specified in the initialization parameter, no such component), rbd-hub (if the external mirror warehouse service is specified in the initialization parameter, there is no such component) ,rbd-etcd (if the external etcd service is specified in the initialization parameter, no such component), rbd-gateway, rbd-node
 
