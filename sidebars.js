@@ -7,9 +7,9 @@ const sidebars = {
       collapsible: false,
       items: [
         'quick-start/introduction',
-        // 'quick-start/differences',
         'quick-start/quick-install',
         'quick-start/getting-started',
+        'quick-start/differences',
         {
           type: 'category',
           label: '架构',
