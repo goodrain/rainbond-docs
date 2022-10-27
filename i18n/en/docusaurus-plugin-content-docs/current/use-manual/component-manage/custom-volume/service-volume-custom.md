@@ -7,7 +7,7 @@ description: Rainbond component custom storage management documentation
 
 The previous document [Component Storage Settings](./index) mentioned several storage types that Rainbond supports by default. Different enterprises and different businesses have different storage requirements.For example, the big data business needs high-performance storage, etc.Rainbond implements the requirements of custom storage types. Users can install custom storage types for Rainbond to use, which can well solve the high-performance storage requirements that Rainbond's default storage types cannot meet.
 
-Currently supported [Ali cloud disk](/docs/ops-guide/storage/ali-disk),[ceph-rbd block storage](/docs/ops-guide/storage/ceph-rbd/) two kinds of custom storage, all of which have been tested in detail and have been successful.In principle, other storage types can also be used normally.
+Currently supported [Ali cloud disk](/docs/ops-guide/storage/ali-disk),[ceph-rbd block storage](/docs/installation/ha-deployment/storage/ceph-rbd) two kinds of custom storage, all of which have been tested in detail and have been successful.In principle, other storage types can also be used normally.
 
 ### Implementation principle
 
@@ -37,7 +37,7 @@ When adding a storage type, users can specify the corresponding storage reclamat
 
 For connecting Alibaba Cloud Disk to the Rainbond platform, please refer to [Rainbond Platform Connecting to Alibaba Cloud Disk](/docs/ops-guide/storage/ali-disk/)
 
-For connecting ceph block storage to Rainbond platform, please refer to [Rainbond platform connecting ceph-rbd block storage](/docs/ops-guide/storage/ceph-rbd/)
+For connecting ceph block storage to Rainbond platform, please refer to [Rainbond platform connecting ceph-rbd block storage](/docs/installation/ha-deployment/storage/ceph-rbd)
 
 ### Custom Storage Defects
 

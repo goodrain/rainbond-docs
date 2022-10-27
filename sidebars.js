@@ -33,9 +33,10 @@ const sidebars = {
       },
       items: [
         'installation/install-with-dind',
+        'installation/install-with-ui/index',
         {
           type: 'category',
-          label: '基于 Helm 安装',
+          label: '基于 Kubernetes 安装',
           link: {
             type: 'doc',
             id: 'installation/install-with-helm/index'
@@ -46,30 +47,102 @@ const sidebars = {
               label: 'Helm安装命令生成工具',
               href: '/helm'
             },
-            'installation/install-with-helm/k8s-install-with-helm',
-            'installation/install-with-helm/k3s-install-with-helm',
-            'installation/install-with-helm/install-from-minikube',
-            'installation/install-with-helm/ack-install-with-helm',
-            'installation/install-with-helm/cce-install-with-helm',
-            'installation/install-with-helm/install-from-rancher',
             'installation/install-with-helm/vaules-config',
+            {
+              type: 'category',
+              label: '在托管 Kubernetes 上安装',
+              link: {
+                type: 'doc',
+                id: 'installation/install-with-helm/cloud/index'
+              },
+              items: [
+                'installation/install-with-helm/cloud/ack-install-with-helm',
+                'installation/install-with-helm/cloud/cce-install-with-helm',
+              ]
+            },
+            {
+              type: 'category',
+              label: '其他安装方式',
+              link: {
+                type: 'doc',
+                id: 'installation/install-with-helm/other/index'
+              },
+              items: [
+                'installation/install-with-helm/other/k3s-install-with-helm',
+                'installation/install-with-helm/other/install-from-minikube',
+                'installation/install-with-helm/other/install-from-rancher',
+              ]
+            },
             'installation/install-with-helm/uninstall-with-helm'
           ]
         },
         {
           type: 'category',
-          label: '基于 Web 界面安装',
+          label: '高可用集群安装',
           link: {
             type: 'doc',
-            id: 'installation/install-with-ui/index'
+            id: 'installation/ha-deployment/index'
           },
           items: [
-            'installation/install-with-ui/host-install-with-ui',
-            'installation/install-with-ui/ha-installation',
-            // 'installation/install-with-ui/install-by-rainbond',
-            // 'installation/install-with-ui/install-from-k8s',
-            'installation/install-with-ui/console-recover',
-            // 'installation/install-with-ui/offline-install'
+            'installation/ha-deployment/resource-prepare',
+            {
+              type: 'category',
+              label: '容器和数据库安装',
+              link: {
+                type: 'doc',
+                id: 'installation/ha-deployment/db-runtime/index'
+              },
+              items: [
+                'installation/ha-deployment/db-runtime/mysql-ha',
+                'installation/ha-deployment/db-runtime/mysql-centos',
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Kubernetes 集群安装',
+              link: {
+                type: 'doc',
+                id: 'installation/ha-deployment/deploy-k8s/index'
+              },
+              items: [
+                'installation/ha-deployment/deploy-k8s/rke-config',
+              ]
+            },
+            {
+              type: 'category',
+              label: '分布式文件存储安装',
+              link: {
+                type: 'doc',
+                id: 'installation/ha-deployment/storage/index'
+              },
+              items: [
+                'installation/ha-deployment/storage/deploy-glusterfs',
+                'installation/ha-deployment/storage/ceph-rbd',
+              ]
+            },
+            {
+              type: 'category',
+              label: '负载均衡和ETCD',
+              link: {
+                type: 'doc',
+                id: 'installation/ha-deployment/lb-etcd/index'
+              },
+              items: [
+                'installation/ha-deployment/lb-etcd/deploy-keepalived',
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Rainbond 集群安装',
+              link: {
+                type: 'doc',
+                id: 'installation/ha-deployment/deploy-rainbond/index'
+              },
+              items: [
+                'installation/ha-deployment/deploy-rainbond/init-rainbond-config',
+              ]
+            },
+            'installation/ha-deployment/console-recover',
           ]
         },
         'installation/offline/index',
@@ -671,30 +744,8 @@ const sidebars = {
           items: [
             'ops-guide/cluster-manage/add-cluster',
             'ops-guide/cluster-manage/manage-cluster',
-            {
-              type: 'category',
-              label: '自定义集群参数',
-              items: [
-                'ops-guide/cluster-manage/manage-rke-cluster',
-                'ops-guide/cluster-manage/init-region',
-                'ops-guide/cluster-manage/init-region-storage',
-              ]
-            },
             'ops-guide/cluster-manage/resource-limit'
             
-          ]
-        },
-        {
-          type: 'category',
-          label: '集群部署扩展文档',
-          link: {
-            type: 'doc',
-            id: 'ops-guide/Install-extension/index'
-          },
-          items: [
-            'ops-guide/Install-extension/centos_keepalived',
-            'ops-guide/Install-extension/ubuntu_keepalived',
-            'ops-guide/Install-extension/mysql-ha'
           ]
         },
         {
@@ -705,9 +756,6 @@ const sidebars = {
             id: 'ops-guide/storage/index'
           },
           items: [
-            'ops-guide/storage/deploy-glusterfs',
-            'ops-guide/storage/ceph-rbd',
-            'ops-guide/storage/deploy-nfsclient',
             'ops-guide/storage/ali-disk'
           ]
         },
