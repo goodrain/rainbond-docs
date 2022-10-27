@@ -1,24 +1,24 @@
 ---
 title: "软件和硬件环境要求"
 description: "软件和硬件环境要求"
-hidden: true
+keywords:
+- Rainbond 集群环境要求
 ---
 
 该配置需求适用于基于私有服务器部署高可用的 Rainbond 集群。
 
-
-## 一、操作系统要求
+## 操作系统要求
 
 |系统|版本|内核版本|OpenSSH版本|
 | :----: | :----: | :----: | :----: |
-|Ubuntu|16.04/18.04|4.0+|7.0+|
-|CentOS|7.*|4.0+|7.0+|
+|Ubuntu|16.04/18.04/20.04|4.0 - 5.17|7.0+|
+|CentOS|7.*|4.0 - 5.17|7.0+|
 
 Rainbond 支持基于多种 Linux 发行版部署，如果使用 CentOS 7 操作系统，请务必升级操作系统内核；操作步骤参考 [CentOS系统内核升级攻略](https://t.goodrain.com/t/topic/1305)。
 
 
 
-## 二、节点属性概述
+## 节点属性概述
 
 节点类型属性说明如下：
 
@@ -30,10 +30,10 @@ Rainbond 支持基于多种 Linux 发行版部署，如果使用 CentOS 7 操作
 |Rainbond|网关节点|云上应用访问的入口|至少2台|
 |Rainbond|构建节点|Rainbond平台执行源码构建任务节点|
 |Rainbond|数据库节点|在集群外搭建数据库，供平台存储元数据|
-|Rainbond|存储节点|部署开源版本 GlusterFS 集群，为平台提供共享存储|
+|Rainbond|存储节点|部署分布式存储，为 Rainbond 提供共享存储|
 
 
-## 三、硬件需求详情
+## 硬件需求详情
 
 
 > 生产服务器配置需求
@@ -48,9 +48,9 @@ Rainbond 支持基于多种 Linux 发行版部署，如果使用 CentOS 7 操作
 |数据库节点 |2vCPU | 4G |至少2台
 |存储节点 |4vCPU | 8G |至少3台
 
-在生产环境下，可以将所有的角色分离，实现一个完全拆分，各自功能专一的架构；也可以将角色属性复用，用最少的服务器搭建一个复用式的集群。
+在生产环境下，可以将所有的角色分离，实现一个完全拆分，各自功能专一的架构。也可以将角色属性复用，用最少的服务器搭建一个复用式的集群。
 
-## 四、磁盘分区
+## 磁盘分区
 
 磁盘分区建议使用逻辑卷lvm，便于后期扩容。
 
@@ -76,7 +76,7 @@ Rainbond 支持基于多种 Linux 发行版部署，如果使用 CentOS 7 操作
 |磁盘 | 分区            | Size        | 说明         |
 |  ---- |  ---- | ---- | ---- |
 |系统盘|/               | 100G        | 系统根分区   |
-|数据盘| /var/lib/etcd   | 100G | etcd数据分区，推荐使用ssd |
+|数据盘| /var/lib/etcd   | 50G | etcd数据分区，推荐使用ssd |
 
 ### 网关节点
 
@@ -111,7 +111,7 @@ Rainbond 支持基于多种 Linux 发行版部署，如果使用 CentOS 7 操作
 |数据盘|/var/lib/docker | 100G        | docker分区   |
 |数据盘 | /data   | 1T+ | 共享存储数据分区  |
 
-## 五、其他资源及要求
+## 其他资源及要求
 
 
 ### 网关高可用
@@ -137,5 +137,8 @@ Rainbond网关节点需要使用 **Keepalived** 或 **负载均衡** 保证高�
 
 平台会为HTTP类型的应用提供泛解析的域名，默认使用 `*.grapps.cn`的域名，安装时可自定义该域名，如果使用自定义域名，需要配置自定义泛域名的解析。
 
+## 集群架构图
 
-**集群资源准备完毕后请参考 [高可用安装Rainbond集群](/docs/installation/install-with-ui/ha-installation) 文档进行集群部署。**
+高可用安装所需的最小服务器数量，将角色属性进行复用，以搭建一个高可用性的Rainbond集群。
+
+![](https://static.goodrain.com/docs/5.4/user-operations/install/ha-deployment/ha-installation/architecture.png)
