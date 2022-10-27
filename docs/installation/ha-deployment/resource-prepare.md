@@ -14,7 +14,7 @@ keywords:
 |Ubuntu|16.04/18.04/20.04|4.0 - 5.17|7.0+|
 |CentOS|7.*|4.0 - 5.17|7.0+|
 
-Rainbond 支持基于多种 Linux 发行版部署，如果使用 CentOS 7 操作系统，请务必升级操作系统内核；操作步骤参考 [CentOS系统内核升级攻略](https://t.goodrain.com/t/topic/1305)。
+Rainbond 支持基于多种 Linux 发行版部署，如果使用 CentOS 7 操作系统，请务必升级操作系统内核；操作步骤参考 [CentOS系统内核升级攻略](https://t.goodrain.com/d/9-centos)。
 
 
 
