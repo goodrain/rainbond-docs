@@ -57,12 +57,16 @@ operator:
 
 ### 配置外部存储
 
-| 配置项                       | 默认值 | 类型   | 说明                |
-| ---------------------------- | ------ | ------ | ------------------- |
-| Cluster.RWX.enable           | false  | Bool   | 开启外部共享存储RWX |
-| Cluster.RWX.storageClassName | ""     | String | StorageClass 名称   |
-| Cluster.RWO.enable           | false  | Bool   | 开启外部共享存储RWO |
-| Cluster.RWO.storageClassName | ""     | String | StorageClass 名称   |
+如果使用阿里云 NAS 存储，需要配置 `Cluster.RWX.type=aliyun` `Cluster.RWX.config.server=<SERVER>`，Rainbond 会自动安装阿里云 NAS CSI 并对接使用。
+
+| 配置项                              | 默认值 | 类型   | 说明                           |
+| ----------------------------------- | ------ | ------ | ------------------------------ |
+| Cluster.RWX.enable                  | false  | Bool   | 开启外部共享存储RWX            |
+| Cluster.RWX.type                    | none   | String | 公有云存储类型，目前支持aliyun |
+| Cluster.RWX.config.storageClassName | ""     | String | StorageClass 名称              |
+| Cluster.RWX.config.server           | ""     | String | 阿里云NAS存储地址              |
+| Cluster.RWO.enable                  | false  | Bool   | 开启外部共享存储RWO            |
+| Cluster.RWO.storageClassName        | ""     | String | StorageClass 名称              |
 
 ### 配置 Rainbond 集群端数据库
 
@@ -167,8 +171,10 @@ Cluster:
 ## 外部存储，直接填写storageClassName，true为开，false为关
   RWX:
     enable: false
+    type: none
     config:
       storageClassName: glusterfs-simple
+      server: 
 
 ## 外部存储，直接填写storageClassName，true为开，false为关
   RWO:
