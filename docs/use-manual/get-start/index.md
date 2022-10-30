@@ -1,5 +1,5 @@
 ---
-title: 快速入门
+title: 使用入门
 description: 作为新用户快速体验和尝试Rainbond的参考文档集
 ---
 

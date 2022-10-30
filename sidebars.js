@@ -32,8 +32,18 @@ const sidebars = {
         id: 'installation/index'
       },
       items: [
-        'installation/install-with-dind',
-        'installation/install-with-ui/index',
+        // 'installation/install-with-dind',
+        {
+          type: 'category',
+          label: '基于主机安装',
+          link: {
+            type: 'doc',
+            id: 'installation/install-with-ui/index'
+          },
+          items: [
+            'installation/install-with-ui/migrate-app',
+          ]
+        },
         {
           type: 'category',
           label: '基于 Kubernetes 安装',
@@ -44,7 +54,7 @@ const sidebars = {
           items: [
             {
               type: 'link',
-              label: 'Helm安装命令生成工具',
+              label: 'Helm 安装命令生成工具',
               href: '/helm'
             },
             'installation/install-with-helm/vaules-config',
@@ -68,6 +78,7 @@ const sidebars = {
                 id: 'installation/install-with-helm/other/index'
               },
               items: [
+                'installation/install-with-helm/other/install-from-kubernetes',
                 'installation/install-with-helm/other/k3s-install-with-helm',
                 'installation/install-with-helm/other/install-from-minikube',
                 'installation/install-with-helm/other/install-from-rancher',
