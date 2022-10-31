@@ -16,7 +16,7 @@ keywords:
 * 参阅文档 [负载均衡和ETCD](../lb-etcd) 安装负载均衡 Keepalived 和复用 ETCD 集群。
 
 
-## 基于 Linux 安装 Rainbond 集群
+## 基于主机安装 Rainbond 集群
 
 当你的 Kubernetes 集群是通过 Web 界面安装的，你可以通过 Web 界面在第三步继续开始安装 Rainbond。
 

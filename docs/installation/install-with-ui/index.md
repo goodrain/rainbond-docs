@@ -1,8 +1,8 @@
 ---
-title: 基于 Linux 安装
+title: 基于主机安装
 description: 基于图形化界面，从Linux开始安装 Rainbond
 keywords:
-- 基于 Linux 安装 Rainbond
+- 基于主机安装 Rainbond
 ---
 
 当前安装方式，会引导用户从一台服务器开始安装 Rainbond ，服务器可以是物理机、虚拟机或各种云主机。
@@ -101,13 +101,16 @@ Rainbond 的安装部署过程中可以自定义集群初始化参数，在初�
 
 勾选 **我已阅读并已清楚认识上述注意事项** 后，点击 `开始初始化` ，等待安装完成即可。
 
+
+## 下一步
+
+- [快速入门](/docs/quick-start/getting-started/): 快速在 Rainbond 上部署起你的第一个应用。
+- [迁移应用](/docs/installation/install-with-ui/migrate-app): 你可以参考该文档将单机版部署的应用迁移到该 Kubernetes 集群中。
+
 ### 常见问题
 
 通过图形化界面基于主机安装 Rainbond 的过程中遭遇了任何问题，都可以参考文档 [Web界面安装问题排查指南](../install-troubleshoot/ui-install-troubleshoot/) 进行问题排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
 
-## 下一步
-
-参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
 
 
 <!-- > Rainbond 支持 ARM CPU 架构部署吗？

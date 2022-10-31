@@ -59,7 +59,7 @@ export default function Primary() {
           </Translate>
         </animated.div>
         <animated.div style={animatedTexts[1]} className={styles.btnBox}>
-          <Text link={{ href: language + 'docs/installation/install-with-dind' }}>
+          <Text link={{ href: language + 'docs/quick-start/quick-install' }}>
             <Button icon={<Iconlinux />} theme="solid" className={styles.buttonLeft} size='large'>
               <Translate id='primary.install-dind'>在单机安装</Translate>
             </Button>
