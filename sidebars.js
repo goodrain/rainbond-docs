@@ -747,6 +747,17 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Rainbond 系统日志',
+          link: {
+            type: 'doc',
+            id: 'ops-guide/rbdlog/index'
+          },
+          items: [
+            'ops-guide/rbdlog/rbd-log',
+          ]
+        },
+        {
+          type: 'category',
           label: '集群管理',
           link: {
             type: 'doc',
@@ -803,7 +814,8 @@ const sidebars = {
             id: 'ops-guide/tools/index'
           },
           items: [
-            'ops-guide/tools/grctl'
+            'ops-guide/tools/grctl',
+            'ops-guide/tools/shell',
           ]
         },
         'ops-guide/troubleshoot/cluster_troubleshooting'
