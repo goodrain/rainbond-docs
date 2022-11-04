@@ -63,7 +63,7 @@ docker run -d -p 7070:7070 \
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
 -e INSTALL_IMAGE_REPO=rainbond \
-rainbond/rainbond:v5.9.0-release-allinone
+rainbond/rainbond:v5.10.0-release-allinone
 ```
 
 
