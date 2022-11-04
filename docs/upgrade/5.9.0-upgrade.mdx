@@ -26,7 +26,7 @@ docker stop rainbond-allinone && docker rm rainbond-allinone
 #该命令参数需要和之前启动的rainbond-allinone容器一致
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 --name=rainbond-allinone --restart=always \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-release-allinone
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-release-allinone
 ```
 
 如控制台为通过应用市场安装，进入控制台应用内，选择升级到 5.9.0 版本

@@ -31,14 +31,14 @@ import TabItem from '@theme/TabItem';
 将 Rainbond dind 镜像在有网络的环境下 PULL 到本地并打成 tar 包。
 
 ```shell
-docker pull rainbond/rainbond:v5.9.0-dind-allinone
-docker save -o rainbond-v5.9.0-dind-allinone.tar rainbond/rainbond:v5.9.0-dind-allinone
+docker pull rainbond/rainbond:v5.10.0-dind-allinone
+docker save -o rainbond-v5.10.0-dind-allinone.tar rainbond/rainbond:v5.10.0-dind-allinone
 ```
 
 导入 tar 包到目标服务器中。
 
 ```shell
-docker load -i rainbond-v5.9.0-dind-allinone.tar
+docker load -i rainbond-v5.10.0-dind-allinone.tar
 ```
 
 <h2> 2. 设置 EIP 环境变量(非必填) </h2>
@@ -65,7 +65,7 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
 -e EIP=$EIP \
-rainbond/rainbond:v5.9.0-dind-allinone \
+rainbond/rainbond:v5.10.0-dind-allinone \
 && docker logs -f rainbond-allinone
 ```
 
@@ -112,14 +112,14 @@ pod "rbd-chaos-9f6nf" deleted
 将 Rainbond dind 镜像在有网络的环境下 PULL 到本地并打成 tar 包。
 
 ```shell
-docker pull rainbond/rainbond:v5.9.0-arm64-dind-allinone
-docker save -o rainbond-v5.9.0-arm64-dind-allinone.tar rainbond/rainbond:v5.9.0-arm64-dind-allinone
+docker pull rainbond/rainbond:v5.10.0-arm64-dind-allinone
+docker save -o rainbond-v5.10.0-arm64-dind-allinone.tar rainbond/rainbond:v5.10.0-arm64-dind-allinone
 ```
 
 导入 tar 包到目标服务器中。
 
 ```shell
-docker load -i rainbond-v5.9.0-arm64-dind-allinone.tar
+docker load -i rainbond-v5.10.0-arm64-dind-allinone.tar
 ```
 
 <h2> 2. 设置 EIP 环境变量(非必填)</h2>
@@ -146,7 +146,7 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
 -e EIP=$EIP \
-rainbond/rainbond:v5.9.0-arm64-dind-allinone \
+rainbond/rainbond:v5.10.0-arm64-dind-allinone \
 && docker logs -f rainbond-allinone
 ```
 
