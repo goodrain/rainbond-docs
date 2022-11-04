@@ -1,53 +1,194 @@
 ---
 title: '快速安装'
-description: '使用最简单，方便的方式安装 Rainbond。'
+description: '本文介绍仅使用一个 Docker 容器运行 Rainbond'
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-本文将指引你快速安装一套可用的 Rainbond 环境，你可以根据自己的需求选择最适合你的安装方式。
+## 概述
 
-:::info
-- 刚了解 Rainbond ，想要快速上手的用户。我们推荐你选择[单机体验版安装](/docs/installation/install-with-dind)
-- 对 Rainbond 已经有一定了解，但是对 Kubernetes 集群不熟悉的用户，我们推荐你选择[Web界面安装](/docs/installation/install-with-ui/host-install-with-ui)
-- 对 Kubernetes 较为熟悉，想部署高可用环境的，我们推荐你选择[基于已有 Kubernetes 集群安装](/docs/quick-start/quick-install#基于已有-kubernetes-集群安装)
+当前安装方式可以仅通过运行一个容器快速体验到 Rainbond 完整功能。该版本为单机体验版，仅适用于体验 Rainbond 功能或者个人开发环境。支持 `Windows(x86_64)`、`Mac(Intel/M1)`、`Linux(x86_64,arm64)`。该安装方式需要机器上 `80、443、6060、6443、7070、8443` 端口可用。
+
+## 安装步骤
+
+<Tabs groupId="install">
+  <TabItem value="Linux" label="Linux" default>
+<h3>1. 执行安装脚本</h3>
+
+Rainbond 提供了一个安装脚本，可以在已安装 docker 的 Linux 上通过一个容器快速启动 Rainbond。脚本执行过程中，需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
+
+```bash
+curl -o install.sh https://get.rainbond.com && bash ./install.sh
+```
+
+<h3>2. 查看安装结果</h3>
+
+**执行完上述脚本后，耐心等待 5-10 分钟，可以看到如下日志输出，表示 Rainbond 已启动完成**
+
+<details>
+<summary>安装日志输出如下: </summary>
+
+```bash
+2022-10-11 11:44:49 WARN: Too little free disk space, recommended disk space greater than 50G
+2022-10-11 11:44:49 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31884 MB
+2022-10-11 11:44:49 INFO: move images
+2022-10-11 11:45:05 INFO: K3s is starting, please wait ············································
+2022-10-11 11:47:09 INFO: K3s started successfully
+namespace/rbd-system created
+2022-10-11 11:47:09 INFO: Create namespace rbd-system
+NAME: rainbond-operator
+LAST DEPLOYED: Tue Oct 11 11:47:16 2022
+NAMESPACE: rbd-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+2022-10-11 11:47:17 INFO: Helm rainbond-operator installed
+2022-10-11 11:47:19 INFO: Rainbond Region installed
+2022-10-11 11:47:19 INFO: Rainbond Region is starting, please wait ············································
+2022-10-11 11:48:36 INFO: Rainbond Region started successfully
+2022-10-11 11:48:38 INFO: K3s is restarting, please wait ············································
+2022-10-11 11:50:19 INFO: K3s restarted successfully
+pod "rbd-chaos-9f6nf" deleted
+2022-10-11 11:50:22 INFO: Rainbond console is starting, please wait ············································
+2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://47.105.90.153:7070 Access Rainbond
+```
+</details>
+
+  </TabItem>
+
+<TabItem value="Mac" label="Mac" default>
+<h3>1. 安装 Docker</h3>
+
+**点击此处下载 [Docker Desktop](https://docs.docker.com/desktop/release-notes/#docker-desktop)**
+
+<h3>2. 执行安装脚本</h3>
+
+Rainbond 提供了一个安装脚本，可以在已安装 docker 的 Mac 上通过一个容器快速启动 Rainbond。脚本执行过程中，需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
+
+```bash
+curl -o install.sh https://get.rainbond.com && bash ./install.sh
+```
+
+<h3>3. 查看安装结果</h3>
+
+**执行完上述脚本后，耐心等待 5-10 分钟，可以看到如下日志输出，表示 Rainbond 已启动完成**
+
+<details>
+<summary>安装日志输出如下: </summary>
+
+```bash
+2022-10-11 11:44:49 WARN: Too little free disk space, recommended disk space greater than 50G
+2022-10-11 11:44:49 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31884 MB
+2022-10-11 11:44:49 INFO: move images
+2022-10-11 11:45:05 INFO: K3s is starting, please wait ············································
+2022-10-11 11:47:09 INFO: K3s started successfully
+namespace/rbd-system created
+2022-10-11 11:47:09 INFO: Create namespace rbd-system
+NAME: rainbond-operator
+LAST DEPLOYED: Tue Oct 11 11:47:16 2022
+NAMESPACE: rbd-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+2022-10-11 11:47:17 INFO: Helm rainbond-operator installed
+2022-10-11 11:47:19 INFO: Rainbond Region installed
+2022-10-11 11:47:19 INFO: Rainbond Region is starting, please wait ············································
+2022-10-11 11:48:36 INFO: Rainbond Region started successfully
+2022-10-11 11:48:38 INFO: K3s is restarting, please wait ············································
+2022-10-11 11:50:19 INFO: K3s restarted successfully
+pod "rbd-chaos-9f6nf" deleted
+2022-10-11 11:50:22 INFO: Rainbond console is starting, please wait ············································
+2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://47.105.90.153:7070 Access Rainbond
+```
+</details>
+
+  </TabItem>
+
+  <TabItem value="Windows" label="Windows">
+
+<h3>1. 安装 Docker</h3>
+
+**点击此处下载 [Docker Desktop](https://docs.docker.com/desktop/windows/install/)**
+
+<h3>2. 设置 EIP 环境变量(必填)</h3>
+
+**你需要指定一个 IP 地址，在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。该 IP 通过环境变量 EIP 进行设置。**
+
+**该地址可以是部署机器上的公网 IP 或内网 IP。IP 地址可以通过执行 `ipconfig` 命令获得。或者点击右下角网络图标>查看其属性获得 IP 地址。**
+
+:::caution
+当你填写内网IP，如 192.168.3.25 时，切换网络环境后可能无法访问。因此如果仅本地测试体验，可以填写本地回环地址。
+由于 Windows 环境变量设置与其他方式有所区别，因此我们不在终端中去设置该环境变量。而是在第三步启动 Rainbond 时，修改启动命令中的 EIP 环境变量。
+如 `-e EIP=127.0.0.1`
 :::
 
-## 基于已有主机安装
+<h3>3. 启动 Rainbond</h3>
 
-### [单机体验版安装](/docs/installation/install-with-dind)
+**在复制下面的启动命令后，请手动修改 `-e EIP=<你的IP地址>` 这个环境变量后，再执行。**
 
-了解在 Linux、Mac、Windows 下如何仅通过一个容器快速体验到 Rainbond 完整功能。仅适用于体验 Rainbond 功能或者个人开发环境。不可用于生产使用。
+```bash
+docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 ^
+--name=rainbond-allinone --restart=on-failure ^
+-v ~/.ssh:/root/.ssh ^
+-v ~/rainbonddata:/app/data ^
+-v ~/opt/rainbond:/opt/rainbond ^
+-e EIP=<你的IP地址> ^
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.9.0-dind-allinone ^
+&& docker logs -f rainbond-allinone
+```
 
-### [基于 Web 界面安装](/docs/installation/install-with-ui/host-install-with-ui)
+**执行完上述命令后，耐心等待 5-10 分钟，可以看到如下日志输出，表示 Rainbond 已启动完成**
 
-了解在仅有 Linux 机器时，如何在图形化界面中安装 Rainbond 。这种安装方式相比单机体验版而言，需要用户手动部署 Kubernetes 集群和 Rainbond。复杂度会比单机体验版高， 且目前仅支持 Linux x86_64 机器。这种安装方式支持高可用部署。
+<details>
+<summary>安装日志输出如下: </summary>
 
-## 基于已有 Kubernetes 集群安装
+```bash
+2022-10-11 11:44:49 WARN: Too little free disk space, recommended disk space greater than 50G
+2022-10-11 11:44:49 INFO: Memory: 7821 MB, CPUs: 2, Disk: 31884 MB
+2022-10-11 11:44:49 INFO: move images
+2022-10-11 11:45:05 INFO: K3s is starting, please wait ············································
+2022-10-11 11:47:09 INFO: K3s started successfully
+namespace/rbd-system created
+2022-10-11 11:47:09 INFO: Create namespace rbd-system
+NAME: rainbond-operator
+LAST DEPLOYED: Tue Oct 11 11:47:16 2022
+NAMESPACE: rbd-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+2022-10-11 11:47:17 INFO: Helm rainbond-operator installed
+2022-10-11 11:47:19 INFO: Rainbond Region installed
+2022-10-11 11:47:19 INFO: Rainbond Region is starting, please wait ············································
+2022-10-11 11:48:36 INFO: Rainbond Region started successfully
+2022-10-11 11:48:38 INFO: K3s is restarting, please wait ············································
+2022-10-11 11:50:19 INFO: K3s restarted successfully
+pod "rbd-chaos-9f6nf" deleted
+2022-10-11 11:50:22 INFO: Rainbond console is starting, please wait ············································
+2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://47.105.90.153:7070 Access Rainbond
+```
+</details>
+  </TabItem>
+</Tabs>
 
-### [基于自建 Kubernetes 集群安装](/docs/installation/install-with-helm/k8s-install-with-helm/)
+## 下一步
 
-了解在自建的 Kubernetes 集群中，如何使用 Helm 快速部署 Rainbond 环境。这种安装方式支持高可用部署。
+现在你已经部署好了一个可用的 Rainbond 平台，接下来你可以尝试以下路径深入了解 Rainbond：
 
-### [基于自建 k3s 集群安装](/docs/installation/install-with-helm/k3s-install-with-helm/)
+#### 1. [快速入门](/docs/quick-start/getting-started/) -> [部署你自己的应用](/docs/use-manual/) -> [部署集群版 Rainbond](/docs/installation/install-with-ui/#从主机开始安装) -> [将应用从单机版迁移至集群部署](/docs/installation/install-with-ui/migrate-app)
 
-了解在已有的 K3s 集群中，如何使用 Helm 快速部署 Rainbond 环境。这种安装方式支持高可用部署。
+在此路径中，你将从单机版开始起步。参考[快速入门](/docs/quick-start/getting-started/)可以快速部署起来示例应用，并体验到 Rainbond 应用管理功能。接下来你可以参考[用户使用手册](/docs/use-manual/)部署你自己的应用，并直接在单机版 Rainbond 上开发和管理。后期你可以参考[从主机安装](/docs/installation/install-with-ui/#从主机开始安装)部署出集群版 Rainbond，并将单机版上的已有应用[迁移](/docs/installation/install-with-ui/migrate-app)到你的集群进行管理。
 
-### [基于 MiniKube 安装](/docs/installation/install-with-helm/install-from-minikube/)
+#### 2. [快速入门](/docs/quick-start/getting-started/) -> [部署高可用集群](/docs/installation/ha-deployment/) -> [在高可用集群中部署你的应用](/docs/use-manual/)
 
-了解如何在 MiniKube 中使用 Helm 快速部署 Rainbond 环境。
+在此路径中，依然是从单机版开始起步。在你通过[快速入门](/docs/quick-start/getting-started/)体验到 Rainbond 管理上的便捷后，你可以直接参考文档[部署高可用集群](/docs/installation/ha-deployment/)，并在高可用集群中[部署管理你的应用](/docs/use-manual/)。
 
-### [基于 Rancher 安装](/docs/installation/install-with-helm/install-from-rancher/)
+## 扩展参数说明
 
-了解在 Rancher 图形化界面中，如何使用应用商店快速部署 Rainbond 环境。
+| 启动参数       | 说明                                                       | 是否必填项 |
+| :------------- | :--------------------------------------------------------- | ---------- |
+| -p 10000:10000 | 如果通过 TCP 策略访问内部应用，需要进行映射 10000 以上端口 | 否         |
 
-## 基于公有云安装
+## 问题排查
 
-### [基于阿里云 ACK 集群安装](/docs/installation/install-with-helm/ack-install-with-helm/)
-
-了解在阿里云 ACK 集群中，部署 Rainbond 的最佳实践，以及各类云服务资源的建议。这种安装方式支持高可用部署。
-
-### [基于华为云 CCE 集群安装](/docs/installation/install-with-helm/cce-install-with-helm/)
-
-了解在华为云 CCE 集群中，部署 Rainbond 的最佳实践，以及各类云服务资源的建议。这种安装方式支持高可用部署。
+**单节点体验版本安装过程中如果长时间未完成，那么请参考文档 [单机体验版本安装问题排查指南](/docs/installation/install-troubleshoot/dind-install-troubleshoot/) 进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。**

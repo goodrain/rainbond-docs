@@ -1,6 +1,6 @@
 ---
-title: 使用入门
-description: 作为新用户快速体验和尝试Rainbond的参考文档集
+title: 'Rainbond 系统日志'
+descrition: 该章节文档适用于运维人员查看Rainbond组件日志和控制台日志等功能
 ---
 
 ```mdx-code-block

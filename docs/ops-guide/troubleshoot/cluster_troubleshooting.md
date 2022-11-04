@@ -26,7 +26,7 @@ weight: 2000
 
 - 基于 Helm 安装部署的情况下，进入 `rbd-system` 命名空间下的 `rbd-app-ui` pod 中，控制台日志位于 `/app/logs/goodrain.log`
 
-- 对于将[控制台迁移](/docs/installation/install-with-ui/console-recover)至集群中的情况，进入 console 组件的 Web 终端，控制台日志位于 `/app/logs/goodrain.log`
+- 对于将控制台迁移至集群中的情况，进入 console 组件的 Web 终端，控制台日志位于 `/app/logs/goodrain.log`
 
 #### 常见问题
 
