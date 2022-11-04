@@ -288,7 +288,7 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '基于Helm应用市场创建组件',
+              label: '基于Helm创建组件',
               link: {
                 type: 'doc',
                 id: 'use-manual/component-create/helm-support/index'
@@ -296,7 +296,8 @@ const sidebars = {
               items: [
                 'use-manual/component-create/helm-support/docking_helm_store',
                 'use-manual/component-create/helm-support/creation-process',
-                'use-manual/component-create/helm-support/manage-helm-app'
+                'use-manual/component-create/helm-support/manage-helm-app',
+                'use-manual/component-create/helm-support/helm-cmd-install'
               ]
             },
             {
@@ -885,7 +886,8 @@ const sidebars = {
         'upgrade/5.7.1-upgrade',
         'upgrade/5.8.0-upgrade',
         'upgrade/5.8.1-upgrade',
-        'upgrade/5.9.0-upgrade'
+        'upgrade/5.9.0-upgrade',
+        'upgrade/5.10.0-upgrade'
       ]
     },
   ],

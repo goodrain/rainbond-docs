@@ -11,14 +11,17 @@ Helm 应用配置页面提供了图形化界面可对 `values.yaml` 文件内容
 
 - 示例
 
-假设需要将下图中镜像 Tag `8.0.25-debian-10-r37` 修改为 `8.0.25-debian-10-r38`，则需要在 **Values 配置** 中定义 key 为 `image.tag`，value 为 `8.0.25-debian-10-r38`，其中 key 多级情况下用 `.` 区分；定义之后点击下方的安装或更新即会生效。
+假设需要将下图中镜像 repository `bitnami/nginx` 修改为 `library/nginx`，则需要在 **Values 配置** 中定义 key 为 `image.repository`，value 为 `library/nginx`，其中 key 多级情况下用 `.` 区分；定义之后点击下方的安装或更新即会生效。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/manage-helm-app/configuration_page.jpg" title="配置页面" width="100%"/>
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_values_yaml.jpg" title="配置页面" width="100%"/>
 
-### Helm 应用升级
+### Helm 应用升级回滚或重新安装
 
-Helm 应用部署完成后在 **配置** 界面可进行版本的升级或回滚，此处执行的操作相当于 ` helm upgrade`` helm rollback  ` 命令，需要注意的是在升级或回滚过程中如果需要对数据进行操作，则需用户在升级或回滚过程中自行处理。
+Helm 应用部署完成后在 **升级** 界面可进行版本的升级或回滚，此处执行的操作相当于 ` helm upgrade` 和 `helm rollback ` 命令，需要注意的是升级默认直接升级到最新版本，有时候最新版本检测可能会不通过，遇到这样的情况，建议走重新安装选择比最新版本低一些的版本安装。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/manage-helm-app/helm_app_upgrade.jpg" title="Helm应用升级" width="100%"/>
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_app_upgrade.jpg" title="Helm应用升级" width="100%"/>
 
-应用升级或回滚相关记录会在页面左侧的升级页面进行展示。
+回滚操作在升级界面的升级记录里
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_app_rollback.jpg" title="Helm应用升级" width="100%"/>
+
