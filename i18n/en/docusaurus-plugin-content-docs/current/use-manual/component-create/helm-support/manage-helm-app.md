@@ -11,14 +11,16 @@ The Helm application configuration page provides a graphical interface to modify
 
 - Example
 
-Assuming that the image Tag `8.0.25-debian-10-r37` in the following figure needs to be modified to `8.0.25-debian-10-r38`, the key needs to be defined in **Values configuration** as `image.tag`, The value is `8.0.25-debian-10-r38`, and `.` is used to distinguish the key in multi-level cases; after the definition, click Install or Update below to take effect.
+Assuming that the mirror repository `bitnami/nginx` in the following figure needs to be changed to `library/nginx`, you need to define the key as `image.repository` in the **Values ​​configuration**, and the value as `library/nginx`, where the key Use `.` to distinguish in multi-level cases; after the definition, click Install or Update below to take effect.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/manage-helm-app/configuration_page.jpg" title="configuration page" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_values_yaml.jpg" title="Configuration Page" width="100%"/>
 
-### Helm app upgrade
+### Helm Application upgrade rollback or reinstallation
 
-After the Helm application is deployed, the version can be upgraded or rolled back on the **configuration** interface. The operation performed here is equivalent to the `helm upgrade`` helm rollback` command. It should be noted that during the upgrade or rollback process, if you need to To operate the data, users need to handle it by themselves during the upgrade or rollback process.
+After the Helm application is deployed, the version can be upgraded or rolled back on the **Upgrade** interface. The operation performed here is equivalent to the ` helm upgrade` and `helm rollback` command. It should be noted that the upgrade is directly upgraded to the latest version by default. Sometimes the latest version detection may fail. In such a case, it is recommended to go to reinstall and choose a version lower than the latest version to install.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/manage-helm-app/helm_app_upgrade.jpg" title="Helm app upgrade" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_app_upgrade.jpg" title="Helm Application upgrade" width="100%"/>
 
-Application upgrade or rollback related records will be displayed on the upgrade page on the left side of the page.
+The rollback operation is in the upgrade record of the upgrade interface
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_app_rollback.jpg" title="Helm Application upgrade" width="100%"/>

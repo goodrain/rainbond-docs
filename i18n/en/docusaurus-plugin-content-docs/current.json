@@ -55,8 +55,8 @@
     "message": "Third party component",
     "description": "The label for category Third party component in sidebar docs"
   },
-  "sidebar.docs.category.基于Helm应用市场创建组件": {
-    "message": "Create component use Helm AppMarket",
+  "sidebar.docs.category.基于Helm创建组件": {
+    "message": "Create component use Helm",
     "description": "The label for category Create component use Helm AppMarket in sidebar docs"
   },
   "sidebar.docs.category.组件管理指南": {

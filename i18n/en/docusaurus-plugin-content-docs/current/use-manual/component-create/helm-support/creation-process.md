@@ -1,69 +1,69 @@
 ---
-title: 'Deploy the Helm application'
-description: 'Complete the deployment of the Helm application in Rainbond according to the documentation'
+title: 'Deploy the Helm application based on the application market'
+description: 'Complete the deployment of the Helm application in Rainbond according to the document'
 ---
 
-Following this document enables developers or operators to deploy applications in Rainbond based on the Helm repository.
+Follow this document to enable developers or operation and maintenance personnel to deploy applications in Rainbond based on the Helm warehouse.
 
-### Preconditions
+### prerequisite
 
-Before you start, you need to meet the following：
+Before you begin, you need to meet the following conditions:
 
-1. Have docked[Helm app store](./docking_helm_store)  
-2. Have a team available
+1. Connected to [Helm App Store](./docking_helm_store)
+2. Have an available team
 
-### Operating procedures
+### Operation process
 
-The app is installed with two entries：
+There are three entrances for application installation:
 
-**No.1** Install directly in the Enterprise View App Market
+**No.1** Install directly in the enterprise view application market
 
-Click the **install** button behind the application in the **Helm store** , select the **team**that needs to be installed, define **the application name**, click **to confirm** , and the installation will start automatically.
+click **Helm Store** click **install** button，choice **team**，definition **app name**，click **determine** Start installation automatically.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/Install_helm_app.jpg" title="Install the app from the helm store" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/appstore_helm_app_install.jpg" title="install Helm store app" width="100%"/>
 
-**No.2** Select the application to install in the team view **based on the application market creation component**
+**No.2** In Team View **Create a group based on the application market** click app install
 
-In the team view, click **to add** --> **to create a component based on the application market**, select the application in the docked Helm application store, click **to install** to automatically start the installation.
+In Team View click **add** --> **Create a group based on the application market**，choice Helm app，click **install** Start installation automatically.
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/tenant_helm_app_install.jpg" title="install Helm store app" width="100%"/>
+
+**No.3** In App View **install by app store** click app install
+
+In App View click **add component** --> **install by app store**，，choice Helm app store app，click **install** Start installation automatically.
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/app_helm_app_install.jpg" title="install Helm app store app" width="100%"/>
 
 #### Installation process
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/Installationprocess.png" title="Installation process" width="100%" />
+The installation process is divided into the following three steps:
 
-The installation process is divided into the following four steps：
+- testing
 
-- initialization
-
-Automatically create CR resources required for application deployment
-
-- detect
-
-Detect whether the application can be deployed normally. If the application cannot be deployed normally due to K8s apiVersion problems or other errors, an error message will be displayed here
+Check whether the application can be deployed normally. If it cannot be deployed normally due to K8s apiVersion problems or other errors, error messages will be displayed here
 
 - configure
 
-Provides the application deployment configuration function, provides a graphical way to modify the `values.yaml` file configuration, and can choose the `values.yaml` file used during deployment. For the configuration modification method, see [Helm Application Management](./manage-helm-app), it should be noted that **Stateful applications** When you need to mount the storage, you must specify the`storageClass`to be used, and the specification method is as follows:
+Provide application deployment configuration function and graphical modification `values.yaml` File Configuration，You can select the `values.yaml` file，Refer to [Helm Application management](./manage-helm-app)，It should be noted that **Stateful application** When you need to mount storage, you must specify the`storageClass`，The designation method is as follows:
 
 _No.1_
 
-`Specify in the values.yaml` file or specify graphically, and graphically specify reference[Helm application management](./manage-helm-app)
+on `values.yaml` Specify in file or graphically，Graphically specify references[Helm Application management](./manage-helm-app)
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_values_yaml.jpg" title="configure Helm app" width="100%"/>
 
 _No.2_
 
-Set the `rainbondvolumerwx` automatically created when Rainbond is deployed as the cluster default `storageClass` , then the `storageClass`will be used by default when deploying the Helm application. The setting command is as follows
+Set the `rainbondvolumerwx` automatically created when Rainbond is deployed as the default `storageClass` of the cluster, then the `storageClass` will be used by default when deploying the Helm application. The setting command is as follows
 
 ```bash
-kubectl patch storageclass rainbondvolumerwx -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+kubectl patch storageclass rainbondvolumerwx  -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
 
-- Install
+- install
 
 After the above steps, enter the installation process, and the application can be used after installation.
 
-#### app usage
+#### app use
 
-After the application is installed, the platform will automatically create the component as a third-party component of type [k8s](/docs/use-manual/component-create/thirdparty-service/thirdparty-create) ; in the application interface **, service instance** will display all components contained in the application, click the corresponding component name, click **Component details** You can enter the component network settings page, open **external services**on the port page, and access the application according to the generated **access policy** If you deploy **middleware classes and** services, open **internal services here.** can be used by other services in the platform.
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/component_details.jpg" title="Component Details" width="100%" />
-
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/access.jpg" title="access" width="100%" />
+After the application is installed, the platform will automatically convert the components into Rainbond models, and convert Helm resources into platform resources accordingly. The specific usage can be moved to [Component usage](../../component-manage/index.md)
