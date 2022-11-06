@@ -26,16 +26,32 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="office">
 <TabItem value="Linux" label="Linux" default>
 
-<h2> 1. 获取 Allinone 离线镜像 </h2>
+<h2> 1. 准备 dind 镜像和离线安装所需 tar 包 </h2>
 
-将 Rainbond dind 镜像在有网络的环境下 PULL 到本地并打成 tar 包。
+在有网络的环境下提前准备好 Rainbond dind 镜像和离线安装所需 tar 包。 
 
 ```shell
-docker pull rainbond/rainbond:v5.10.0-dind-allinone
-docker save -o rainbond-v5.10.0-dind-allinone.tar rainbond/rainbond:v5.10.0-dind-allinone
+mkdir -p ~/build_offline && cd ~/build_offline
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.X/rainbond-offline-v5.10.0-amd64.tar
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone
+vim Dockerfile
 ```
 
-导入 tar 包到目标服务器中。
+粘贴以下内容到 Dockerfile 里
+
+```file
+FROM registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone
+COPY rainbond-offline-v5.10.0-amd64.tar /app/offline.tar
+```
+
+ 保存后继续执行以下命令
+
+```shell
+docker build -t registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone .
+docker save -o rainbond-v5.10.0-dind-allinone.tar registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone
+```
+
+导入 tar 包到你需要离线安装的服务器中。
 
 ```shell
 docker load -i rainbond-v5.10.0-dind-allinone.tar
@@ -59,13 +75,13 @@ export EIP=<你的IP地址>
 <h2> 3. 启动 Rainbond </h2>
 
 ```bash
-docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
+docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 \
 --name=rainbond-allinone --restart=on-failure \
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
 -e EIP=$EIP \
-rainbond/rainbond:v5.10.0-dind-allinone \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone \
 && docker logs -f rainbond-allinone
 ```
 
@@ -100,6 +116,27 @@ pod "rbd-chaos-9f6nf" deleted
 ```
 </details>
 
+<h2> 4. load离线环境所需镜像 </h2>
+
+load tar 包
+
+```bash
+docker exec -ti rainbond-allinone bash
+nerdctl -n k8s.io load < offline.tar
+```
+
+查看当前版本 `registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy` 的基础镜像。
+
+```bash
+nerdctl -n k8s.io images|grep registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy
+```
+
+切换 rbd-resource-proxy 的基础镜像，将 `image:` 后面的内容修改为你上面查询到的版本。
+
+```bash
+kubectl edit rbdcomponent rbd-resource-proxy -n rbd-system
+```
+
 <h2> 访问 Rainbond </h2>
 
 此时，你已经成功安装了 Rainbond，你现在可以根据日志中提示的访问地址进行访问，开始你的体验之旅
@@ -107,13 +144,29 @@ pod "rbd-chaos-9f6nf" deleted
 </TabItem>
 <TabItem value="Linux Arm64" label="Linux Arm64">
 
-<h2> 1. 获取 Allinone 离线镜像 </h2>
+<h2> 1. 准备 dind 镜像和离线安装所需 tar 包 </h2>
 
-将 Rainbond dind 镜像在有网络的环境下 PULL 到本地并打成 tar 包。
+在有网络的环境下提前准备好 Rainbond dind 镜像和离线安装所需 tar 包。 
 
 ```shell
-docker pull rainbond/rainbond:v5.10.0-arm64-dind-allinone
-docker save -o rainbond-v5.10.0-arm64-dind-allinone.tar rainbond/rainbond:v5.10.0-arm64-dind-allinone
+mkdir -p ~/build_offline && cd ~/build_offline
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.X/rainbond-offline-v5.10.0-arm64.tar
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone
+vim Dockerfile
+```
+
+粘贴以下内容到 Dockerfile 里
+
+```file
+FROM registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone
+COPY rainbond-offline-v5.10.0-arm64.tar /app/offline.tar
+```
+
+ 保存后继续执行以下命令
+
+```shell
+docker build -t registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone .
+docker save -o rainbond-v5.10.0-arm64-dind-allinone.tar registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone
 ```
 
 导入 tar 包到目标服务器中。
@@ -140,13 +193,13 @@ export EIP=<你的IP地址>
 <h2> 3. 启动 Rainbond </h2>
 
 ```bash
-docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 \
+docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 \
 --name=rainbond-allinone --restart=on-failure \
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
 -e EIP=$EIP \
-rainbond/rainbond:v5.10.0-arm64-dind-allinone \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone \
 && docker logs -f rainbond-allinone
 ```
 
@@ -180,6 +233,27 @@ pod "rbd-chaos-9f6nf" deleted
 2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://47.105.90.153:7070 Access Rainbond
 ```
 </details>
+
+<h2> 4. load离线环境所需镜像 </h2>
+
+load tar 包
+
+```bash
+docker exec -ti rainbond-allinone bash
+nerdctl -n k8s.io load < offline.tar
+```
+
+查看当前版本 `registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy` 的基础镜像。
+
+```bash
+nerdctl -n k8s.io images|grep registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy
+```
+
+切换 rbd-resource-proxy 的基础镜像，将 `image:` 后面的内容修改为你上面查询到的版本。
+
+```bash
+kubectl edit rbdcomponent rbd-resource-proxy -n rbd-system
+```
 
 <h2> 访问 Rainbond </h2>
 
