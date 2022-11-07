@@ -33,7 +33,7 @@ echo iptable_raw > /etc/modules-load.d/iptable_raw.conf
 
 <h2> 1. 准备 dind 镜像和离线安装所需 tar 包 </h2>
 
-在有网络的环境下提前准备好 Rainbond dind 镜像和离线安装所需 tar 包。 
+- 在有网络的环境下提前准备好 Rainbond dind 镜像和离线安装所需 tar 包。 
 
 ```shell
 mkdir -p ~/build_offline && cd ~/build_offline
@@ -42,21 +42,21 @@ docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-all
 vim Dockerfile
 ```
 
-粘贴以下内容到 Dockerfile 里
+- 粘贴以下内容到 Dockerfile 里
 
 ```file
 FROM registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone
 COPY rainbond-offline-v5.10.0-amd64.tar /app/offline.tar
 ```
 
- 保存后继续执行以下命令
+ - 保存后继续执行以下命令
 
 ```shell
 docker build -t registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone .
 docker save -o rainbond-v5.10.0-dind-allinone.tar registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone
 ```
 
-导入 tar 包到你需要离线安装的服务器中。
+- 导入 tar 包到你需要离线安装的服务器中。
 
 ```shell
 docker load -i rainbond-v5.10.0-dind-allinone.tar
@@ -121,37 +121,12 @@ pod "rbd-chaos-9f6nf" deleted
 ```
 </details>
 
-<h2> 4. load离线环境所需镜像 </h2>
-
-load tar 包
-
-```bash
-docker exec -ti rainbond-allinone bash
-nerdctl -n k8s.io load < /app/offline.tar
-```
-
-查看当前版本 `registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy` 的基础镜像。
-
-```bash
-nerdctl -n k8s.io images|grep registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy
-```
-
-切换 rbd-resource-proxy 的基础镜像，将 `image:` 后面的内容修改为你上面查询到的版本。
-
-```bash
-kubectl edit rbdcomponent rbd-resource-proxy -n rbd-system
-```
-
-<h2> 访问 Rainbond </h2>
-
-此时，你已经成功安装了 Rainbond，你现在可以根据日志中提示的访问地址进行访问，开始你的体验之旅
-
 </TabItem>
 <TabItem value="Linux Arm64" label="Linux Arm64">
 
 <h2> 1. 准备 dind 镜像和离线安装所需 tar 包 </h2>
 
-在有网络的环境下提前准备好 Rainbond dind 镜像和离线安装所需 tar 包。 
+- 在有网络的环境下提前准备好 Rainbond dind 镜像和离线安装所需 tar 包。 
 
 ```shell
 mkdir -p ~/build_offline && cd ~/build_offline
@@ -160,21 +135,21 @@ docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-di
 vim Dockerfile
 ```
 
-粘贴以下内容到 Dockerfile 里
+- 粘贴以下内容到 Dockerfile 里
 
 ```file
 FROM registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone
 COPY rainbond-offline-v5.10.0-arm64.tar /app/offline.tar
 ```
 
- 保存后继续执行以下命令
+ - 保存后继续执行以下命令
 
 ```shell
 docker build -t registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone .
 docker save -o rainbond-v5.10.0-arm64-dind-allinone.tar registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone
 ```
 
-导入 tar 包到目标服务器中。
+- 导入 tar 包到目标服务器中。
 
 ```shell
 docker load -i rainbond-v5.10.0-arm64-dind-allinone.tar
@@ -239,33 +214,88 @@ pod "rbd-chaos-9f6nf" deleted
 ```
 </details>
 
-<h2> 4. load离线环境所需镜像 </h2>
+</TabItem>
+</Tabs>
 
-load tar 包
+<h3> 4. 补充离线版本镜像 </h3>
+
+- load 离线镜像的 tar 包
 
 ```bash
 docker exec -ti rainbond-allinone bash
 nerdctl -n k8s.io load < /app/offline.tar
 ```
 
-查看当前版本 `registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy` 的基础镜像。
+- 给部分离线镜像重新打 tag
 
 ```bash
-nerdctl -n k8s.io images|grep registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy
+nerdctl -n k8s.io tag registry.cn-hangzhou.aliyuncs.com/goodrain/kaniko-executor:latest goodrain.me/kaniko-executor:latest
+nerdctl -n k8s.io tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.8.1-release goodrain.me/runner:latest
+nerdctl -n k8s.io tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.8.1-release goodrain.me/builder:latest
 ```
 
-切换 rbd-resource-proxy 的基础镜像，将 `image:` 后面的内容修改为你上面查询到的版本。
+- 切换 rbdcomponent 资源里的 rbd-resource-proxy。
 
 ```bash
 kubectl edit rbdcomponent rbd-resource-proxy -n rbd-system
 ```
 
+- 修改下面命令打开的 yaml 中 `image:` 后面的内容   
+```
+registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy:v5.10.0-release
+```
+
+<details>
+<summary>修改结果如下: </summary>
+
+```bash
+spec:
+  image: registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy:v5.10.0-release
+```
+
+</details>
+
+- 查看 goodrain.me 的密码
+
+```bash
+kubectl get rainbondcluster -n rbd-system -oyaml|grep password
+```
+
+- 登陆本地的 `goodrain.me` 镜像仓库,用户名为 `admin` ,密码就是你刚刚获取到的。
+
+```bash
+nerdctl login goodrain.me
+```
+
+- 推送离线镜像到 `goodrain.me` 镜像仓库
+
+```bash
+nerdctl -n k8s.io push goodrain.me/kaniko-executor:latest
+nerdctl -n k8s.io push goodrain.me/runner:latest
+nerdctl -n k8s.io push goodrain.me/builder:latest
+```
+
+- 最后一步，补充 `chaos` 的 tag
+
+```bash
+kubectl edit rbdcomponent rbd-chaos -n rbd-system
+```
+
+<details>
+<summary>修改结果如下: </summary>
+
+```bash
+spec:
+  args:
+  - --db-type=sqlite
+  - --kaniko-image=goodrain.me/kaniko-executor:latest
+```
+
+</details>
+
 <h2> 访问 Rainbond </h2>
 
-此时，你已经成功安装了 Rainbond，你现在可以根据日志中提示的访问地址进行访问，开始你的体验之旅
-
-</TabItem>
-</Tabs>
+此时，你已经成功安装了离线版 Rainbond，你现在可以根据日志中提示的访问地址进行访问，开始你的体验之旅
 
 ## 常见问题
 
