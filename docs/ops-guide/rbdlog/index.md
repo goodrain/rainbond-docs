@@ -1,6 +1,6 @@
 ---
-title: 基于Helm创建组件
-description: 本章节将带你认识Rainbond基于Helm创建组件的流程
+title: 'Rainbond 系统日志'
+descrition: 该章节文档适用于运维人员查看Rainbond组件日志和控制台日志等功能
 ---
 
 ```mdx-code-block
