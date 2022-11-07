@@ -52,11 +52,7 @@ const sidebars = {
             id: 'installation/install-with-helm/index'
           },
           items: [
-            {
-              type: 'link',
-              label: 'Helm 安装命令生成工具',
-              href: '/helm'
-            },
+            'installation/install-with-helm/install-from-kubernetes',
             'installation/install-with-helm/vaules-config',
             {
               type: 'category',
@@ -78,11 +74,15 @@ const sidebars = {
                 id: 'installation/install-with-helm/other/index'
               },
               items: [
-                'installation/install-with-helm/other/install-from-kubernetes',
                 'installation/install-with-helm/other/k3s-install-with-helm',
                 'installation/install-with-helm/other/install-from-minikube',
                 'installation/install-with-helm/other/install-from-rancher',
               ]
+            },
+            {
+              type: 'link',
+              label: 'Helm 命令生成工具',
+              href: '/helm'
             },
             'installation/install-with-helm/uninstall-with-helm'
           ]

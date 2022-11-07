@@ -9,7 +9,7 @@ keywords:
 
 ## 基于已有 Kubernetes 集群安装
 
-### [基于自建 Kubernetes 集群安装](/docs/installation/install-with-helm/other/install-from-kubernetes)
+### [基于自建 Kubernetes 集群安装](/docs/installation/install-with-helm/install-from-kubernetes)
 
 了解在自建的 Kubernetes 集群中，如何使用 Helm 快速部署 Rainbond 环境。这种安装方式支持高可用部署。
 

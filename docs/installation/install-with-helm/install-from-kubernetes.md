@@ -1,8 +1,8 @@
 ---
-title: 基于 Kubernetes 安装 Rainbond
+title: 基于自建 Kubernetes 安装
 descrition: 该章节文档介绍基于已有的 k8s 集群，使用 helm 安装 Rainbond
 keywords:
-- 基于 Kubernetes 安装 Rainbond 集群
+- 基于自建 Kubernetes 安装 Rainbond 集群
 ---
 ## 概述
 
