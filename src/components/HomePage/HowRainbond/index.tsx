@@ -71,7 +71,7 @@ export default function HowRainbond() {
   return (
     <animated.div style={animatedTexts[0]}>
       <h1 style={{textAlign: 'center',marginBottom: '56px',position: 'relative'}}>
-        <Translate id='howrainbond.title'>能做什么?</Translate>
+        <Translate id='howrainbond.title'>Rainbond 能做什么?</Translate>
       </h1>
       <div className="row">
         {Cards().map(({header, content, link},index) => (

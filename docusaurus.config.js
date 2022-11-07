@@ -182,6 +182,10 @@ const config = {
             title: '文档',
             items: [
               {
+                label: '快速安装',
+                to: '/docs/quick-start/quick-install'
+              },
+              {
                 label: '快速开始',
                 to: 'docs/quick-start/getting-started'
               },
@@ -221,6 +225,27 @@ const config = {
             ]
           },
           {
+            title: '深入',
+            items: [
+              {
+                label: '使用场景',
+                to: 'usescene'
+              },
+              {
+                label: '用户案例',
+                to: 'case'
+              },
+              {
+                label: '博客',
+                to: 'blog'
+              },
+              {
+                label: 'OpenAPI',
+                to: '/docs/Intro'
+              },
+            ]
+          },
+          {
             title: '开源社区',
             items: [
               {
@@ -242,27 +267,6 @@ const config = {
             ]
           },
           {
-            title: '深入',
-            items: [
-              {
-                label: '使用场景',
-                to: 'usescene'
-              },
-              {
-                label: '用户案例',
-                to: 'case'
-              },
-              {
-                label: '博客',
-                to: 'blog'
-              },
-              {
-                label: '精选应用',
-                to: '/opensourceApps'
-              }
-            ]
-          },
-          {
             title: '更多',
             items: [
               {
@@ -272,6 +276,10 @@ const config = {
               {
                 label: '应用商店',
                 to: 'https://store.goodrain.com/markets/rainbond'
+              },
+              {
+                label: '精选应用',
+                to: '/opensourceApps'
               },
               {
                 label: '联系我们',

@@ -25,21 +25,18 @@ export default function FooterLayout({
       })}>
       <div className="container container-fluid" style={{marginTop: '50px', marginBottom: '50px'}}>
         <div className='row'>
-          <div className='col col--5'>
+          <div className='col col--3'>
             <div className="footer__bottom">
               <img
                 alt="Rainbond logo"
                 className={footSytles.footer__logo}
-                src="/img/rainbond.png"
-                title="QuestDB - Fastest open source database for time series and analytics"
+                src="/img/rainbondlog.png"
               />
-              <b className={footSytles.rainbondtext}>Rainbond</b>
+              {/* <b className={footSytles.rainbondtext}>Rainbond</b> */}
             </div>
             <div className={clsx("footer__bottom", footSytles.slogan)}>
               <p>
-                <Translate id='Footer.intro.p1'>Rainbond 是一个云原生应用管理平台，门槛低</Translate> 
-                <br/> 
-                <Translate id='Footer.intro.p2'>使用简单，无需编写Yaml文件，轻松部署你的应用在 Kubernetes 中</Translate>
+                <Translate id='Footer.intro.p1'>简单易用的云原生应用管理平台，让应用管理和应用交付更加简单</Translate> 
               </p>
             </div>
             <div className={clsx("footer__bottom", footSytles.slogan)}>
@@ -63,7 +60,7 @@ export default function FooterLayout({
               </Button>
             </div>
           </div>
-          <div className='col col--7'>
+          <div className='col col--9'>
             {links}
             {(logo || copyright) && (
             <div className="footer__bottom text--center">

@@ -33,10 +33,7 @@
     "message": "Feature"
   },
   "Footer.intro.p1": {
-    "message": "Rainbond is Cloud Native Application Management Platform."
-  },
-  "Footer.intro.p2": {
-    "message": "Easy to use, No more dependence Yaml files, it is easy to deploy your application in Kubernetes"
+    "message": "Easy to use cloud native application management platform, making application management and application delivery easier"
   },
   "primary.title": {
     "message": "Cloud Native Multi Cloud Application Management Platform"
