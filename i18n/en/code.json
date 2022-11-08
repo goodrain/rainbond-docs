@@ -241,8 +241,5 @@
   },
   "opensourceapps.pyroscope.description": {
     "message": "Pyroscope is an open source continuous performance analysis platform"
-  },
-  "opensourceapps.streampark.description": {
-    "message": "Make stream processing easier! easy-to-use streaming application development framework and operation platform"
   }
 }

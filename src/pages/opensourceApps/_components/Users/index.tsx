@@ -172,18 +172,6 @@ const Users: User[] = [
     deploy: '/blog/knowstreaming',
     tags: ['Application', 'Plugin'],
   },
-  {
-    title: 'StreamPark',
-    description: translate({
-      id: 'opensourceapps.streampark.description',
-      message: 'StreamPark 是流处理极速开发框架, 流批一体 & 湖仓一体的云原生平台, 一站式流处理计算平台',
-    }),
-    preview: require('./apps/streampark.png'),
-    website: 'https://github.com/apache/incubator-streampark',
-    deploy: '#',
-    tags: ['Application'],
-  },
-  
 ];
 
 export type User = {
