@@ -1,96 +1,50 @@
 ---
-title: '基于自建 K3s 集群安装'
+title: '基于 K3s 安装'
 description: '基于已有的 K3s 集群，使用 helm 从零开始安装 Rainbond'
 ---
 
 ## 安装前提
 
-- 推荐 Helm版本 >= 3.0 根分区磁盘保证50G+
-
-- 确保服务器 `80、443、6060、6443、7070、8443` 端口能够访问
-
+- 安装 [Helm](/docs/ops-guide/tools/#helm-cli) 3.0+
+- 确保 `80、443、6060、7070、8443` 未被占用
 - 确保服务器安装了 NFS 客户端
-  - 对接外部存储时，则无需安装
+- K3s 的启动需要指定启动参数 `–-disable traefik`
+- 安装 NFS 客户端
+  ```bash
+  yum -y install nfs-utils    # Cenots系统
+  apt -y install nfs-common  # ubuntu系统
+  ```
 
-- K3s 的启动需要指定启动参数 `–-docker –-disable traefik`
-  - K3s启动默认会使用 Containerd 作为容器的运行环境，同时会安装 Traefik 作为 K3s 的 ingress controller，会出现端口冲突。
-
-- 确保服务器已经安装了 Docker
-
-:::caution
-注意：Rainbond 默认会使用 Docker 作为容器的运行时，同时 Rainbond 的 rbd-gatway 网关会作为 Ingress controller，所以需要修改 K3s 的启动参数，并卸载已安装的 Traefik 或指定没有安装 Traefik 的节点为 Rainbond的网关节点。
-:::
-
-### 安装 Docker
-
-```bash
-curl sh.rainbond.com/install_docker | bash
-```
-
-### 安装 NFS 客户端
-
-```bash
-yum -y install nfs-utils    # Cenots系统
-apt-get install nfs-common  # ubuntu系统
-```
-
-### 卸载 Traefik
-
-```bash
-kubectl delete -f /var/lib/rancher/k3s/server/manifests/traefik.yaml
-```
-
-### 修改 K3s 启动参数
-
-:::danger
-
-警告：如果你的 K3s 原本使用 Containerd 作为容器运行时，修改为 Docker 作为容器运行时后会导致 Containerd 的数据丢失，不会在 Docker 中出现。
-
-:::
-
-```bash
-vi /etc/systemd/system/multi-user.target.wants/k3s.service
-
-# 编辑k3s.service文件末尾行
-ExecStart=/usr/local/bin/k3s server --docker --disable traefik
-# 重新加载配置文件
-systemctl daemon-reload
-# 重新启动k3s
-service k3s restart
-```
-
+## 安装 K3s
 
 :::caution
-注意：K3s 默认的配置文件路径，Helm无法识别，将 `/etc/rancher/k3s/k3s.yaml` 软连接到 `~/.kube/config`，供 helm 使用。 
+K3s 默认会安装 Traefik 这与 Rainbond 网关会冲突，在安装 K3s 时需添加 `--disable traefik` 禁用 Traefik 的安装。
 :::
 
-```bash
-mkdir ~/.kube
-ln -s /etc/rancher/k3s/k3s.yaml ~/.kube/config
-```
-
-## 安装Rainbond：
-
-- 安装helm
+请参阅 [K3s 安装文档](https://docs.k3s.io/installation) 安装
 
 ```bash
-wget https://pkg.goodrain.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
+k3s server --disable traefik
 ```
+## 安装 Rainbond
 
-- 创建rbd-system 命名空间
-
-```bash
-kubectl create namespace rbd-system
-```
-
-- 添加chart仓库
+添加 Helm Chart 仓库
 
 ```bash
 helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
 ```
 
-- 安装rainbond
-  - 参考 [values.yaml 详解](../vaules-config)  了解更多自定义配置项，以及如何为已有 Rainbond 集群变更配置。
+创建 `rbd-system` 命名空间
+
+```bash
+kubectl create namespace rbd-system
+```
+
+安装 Rainbond
+
+:::info
+更多 Helm Chart 参数请参考 [Chart 安装选项](../vaules-config)。
+:::
 
 ```bash
 helm install rainbond rainbond/rainbond-cluster -n rbd-system
@@ -98,7 +52,7 @@ helm install rainbond rainbond/rainbond-cluster -n rbd-system
 
 ### 验证安装
 
-- 查看pod状态
+查看pod状态
 
 ```bash
 kubectl get po -n rbd-system | grep rbd-app-ui

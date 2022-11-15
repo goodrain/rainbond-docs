@@ -52,6 +52,17 @@ const Users: User[] = [
     tags: ['Application'],
   },
   {
+    title: 'Bytebase',
+    description: translate({
+      id: 'opensourceapps.btyebase.description',
+      message: 'Bytebase是一个开源 Database DevOps 工具',
+    }),
+    preview: require('./apps/bytebase.png'),
+    website: 'https://github.com/bytebase/bytebase',
+    deploy: '#',
+    tags: ['Application'],
+  },
+  {
     title: 'DolphinScheduler',
     description: translate({
       id: 'opensourceapps.dolphinscheduler.description',
