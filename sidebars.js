@@ -157,24 +157,11 @@ const sidebars = {
           ]
         },
         'installation/offline/index',
-        {
-          type: 'category',
-          label: '安装问题排查',
-          link: {
-            type: 'doc',
-            id: 'installation/install-troubleshoot/index'
-          },
-          items: [
-            'installation/install-troubleshoot/dind-install-troubleshoot',
-            'installation/install-troubleshoot/helm-install-troubleshoot',
-            'installation/install-troubleshoot/ui-install-troubleshoot'
-          ]
-        }
       ]
     },
     {
       type: 'category',
-      label: '使用手册',
+      label: '平台使用手册',
       link: {
         type: 'doc',
         id: 'use-manual/index'
@@ -698,12 +685,11 @@ const sidebars = {
             'use-manual/app-store-manage/export-non-container-package',
           ]
         },
-        'use-manual/usage_troubleshooting'
       ]
     },
     {
       type: 'category',
-      label: '运维手册',
+      label: '平台运维手册',
       link: {
         type: 'doc',
         id: 'ops-guide/index'
@@ -819,7 +805,51 @@ const sidebars = {
             'ops-guide/tools/shell',
           ]
         },
+      ]
+    },
+    {
+      type: 'category',
+      label: '问题排查',
+      link: {type: 'doc', id: 'troubleshooting/index'},
+      items: [
+        {
+          type: 'category',
+          label: '安装问题排查',
+          link: {
+            type: 'doc',
+            id: 'installation/install-troubleshoot/index'
+          },
+          items: [
+            'installation/install-troubleshoot/dind-install-troubleshoot',
+            'installation/install-troubleshoot/helm-install-troubleshoot',
+            'installation/install-troubleshoot/ui-install-troubleshoot'
+          ]
+        },
+        'use-manual/usage_troubleshooting',
         'ops-guide/troubleshoot/cluster_troubleshooting'
+      ],
+    },
+    {
+      type: 'category',
+      label: '版本升级',
+      link: {
+        type: 'doc',
+        id: 'upgrade/index'
+      },
+      items: [
+        'upgrade/5.2.2-5.3.1',
+        'upgrade/5.3.0-upgrade',
+        'upgrade/5.3.1-upgrade',
+        'upgrade/5.3.2-upgrade',
+        'upgrade/5.4.0-upgrade',
+        'upgrade/5.5.0-upgrade',
+        'upgrade/5.6.0-upgrade',
+        'upgrade/5.7.0-upgrade',
+        'upgrade/5.7.1-upgrade',
+        'upgrade/5.8.0-upgrade',
+        'upgrade/5.8.1-upgrade',
+        'upgrade/5.9.0-upgrade',
+        'upgrade/5.10.0-upgrade'
       ]
     },
     {
@@ -865,29 +895,6 @@ const sidebars = {
             'expand/practices/app-dev/shell-hook-cdn'
           ]
         },
-      ]
-    },
-    {
-      type: 'category',
-      label: '版本升级',
-      link: {
-        type: 'doc',
-        id: 'upgrade/index'
-      },
-      items: [
-        'upgrade/5.2.2-5.3.1',
-        'upgrade/5.3.0-upgrade',
-        'upgrade/5.3.1-upgrade',
-        'upgrade/5.3.2-upgrade',
-        'upgrade/5.4.0-upgrade',
-        'upgrade/5.5.0-upgrade',
-        'upgrade/5.6.0-upgrade',
-        'upgrade/5.7.0-upgrade',
-        'upgrade/5.7.1-upgrade',
-        'upgrade/5.8.0-upgrade',
-        'upgrade/5.8.1-upgrade',
-        'upgrade/5.9.0-upgrade',
-        'upgrade/5.10.0-upgrade'
       ]
     },
   ],
