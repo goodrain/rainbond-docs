@@ -17,5 +17,7 @@ jobs:
           RAINBOND_API: ${{ secrets.RAINBOND_API }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOMESTIC_USERNAME: ${{ secrets.DOMESTIC_USERNAME }}
+          DOMESTIC_PASSWORD: ${{ secrets.DOMESTIC_PASSWORD }}
           VERSION: ${{ env.VERSION }}
         run: ./release.sh
