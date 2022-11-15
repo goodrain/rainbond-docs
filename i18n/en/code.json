@@ -241,5 +241,8 @@
   },
   "opensourceapps.pyroscope.description": {
     "message": "Pyroscope is an open source continuous performance analysis platform"
+  },
+  "opensourceapps.btyebase.description": {
+    "message": "Bytebase is an open-source database DevOps tool"
   }
 }
