@@ -179,6 +179,7 @@ const sidebars = {
             'delivery/offline/offline-delivery',
           ]
         },
+        'delivery/multi-cluster',
       ]
     },
     {
