@@ -161,6 +161,28 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '应用交付指南',
+      link: {
+        type: 'doc',
+        id: 'delivery/index'
+      },
+      items: [
+        'delivery/concept',
+        {
+          type: 'category',
+          label: '离线交付',
+          link: {
+            type: 'doc',
+            id: 'delivery/offline/index'
+          },
+          items: [
+            'delivery/offline/offline-delivery',
+          ]
+        },
+      ]
+    },
+    {
+      type: 'category',
       label: '平台使用手册',
       link: {
         type: 'doc',
