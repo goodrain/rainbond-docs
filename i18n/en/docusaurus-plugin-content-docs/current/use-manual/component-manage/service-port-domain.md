@@ -38,7 +38,7 @@ The choice of protocol affects the subsequent operation of the component：
 Port access control is divided into two categories：
 
 - Internal service
-The in here means that within the team, the access permission of the component to the team is enabled. At this time, the current component port will be registered in the team's internal component available pool, and the components within the team can be accessed through [Add Dependent Components]. to this component. Reference <a href="/docs/use-manual/component-manage/component-connection/regist_and_discover">Communication between components</a>
+The in here means that within the team, the access permission of the component to the team is enabled. At this time, the current component port will be registered in the team's internal component available pool, and the components within the team can be accessed through [Add Dependent Components]. to this component. Reference <a href="/docs/micro-service/service-mesh/regist_and_discover">Communication between components</a>
    
 - Foreign Service
 

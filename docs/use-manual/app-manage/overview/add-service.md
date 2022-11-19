@@ -19,8 +19,6 @@ description: 讲解为应用便捷的添加组件说明文档
 
 添加的组件一般需要被其组件务依赖或依赖其他组件，只需要进入 [拓扑图](/docs/use-manual/app-manage/overview/app-topology) 的 [编辑模式](/docs/use-manual/app-manage/overview/app-topology/#编辑模式) ，将服务直接单向连线即可快捷建立依赖关系。
 
-关于为什么需要建立依赖关系，查看文档 [组件间通信](/docs/use-manual/component-manage/component-connection/regist_and_discover)
-
 ## 开启外网访问
 
 如果添加的组件需要被外网访问，添加成功后有几种方式，常见的方式第一种是通过拓扑图的编辑模式将外网云朵模型与组件建立连线即可；第二种是通过组件管理界面 `端口` 添加访问策略。

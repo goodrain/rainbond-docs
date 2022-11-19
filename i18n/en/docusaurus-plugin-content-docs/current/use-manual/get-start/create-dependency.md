@@ -16,7 +16,7 @@ The meaning of this is to allow **Java demonstration example** to communicate wi
 
 ### significance
 
-Through practical operation, users can get a preliminary understanding of how service components communicate in Rainbond.Users need to read [Inter-Component Communication](/docs/use-manual/component-manage/component-connection/connection_env) to understand the principle.
+Through practical operation, users can get a preliminary understanding of how service components communicate in Rainbond.Users need to read [Inter-Component Communication](/docs/micro-service/service-mesh/connection_env) to understand the principle.
 
 ### Preconditions
 

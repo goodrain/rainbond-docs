@@ -23,7 +23,7 @@ Add [third-party components](/docs/use-manual/component-create/thirdparty-servic
 
 The added components generally need to be depended on by their component services or depend on other components. You only need to enter the [editing mode](/docs/use-manual/app-manage/overview/app-topology/#编辑模式) of the [topology diagram](/docs/use-manual/app-manage/overview/app-topology) , and the service can be directly connected in one direction to quickly establish a dependency relationship.
 
-For why you need to establish dependencies, see Document [Inter-Component Communication](/docs/use-manual/component-manage/component-connection/regist_and_discover)
+For why you need to establish dependencies, see Document [Inter-Component Communication](/docs/micro-service/service-mesh/regist_and_discover)
 
 
 

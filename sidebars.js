@@ -161,6 +161,65 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '微服务架构指南',
+      link: {
+        type: 'doc',
+        id: 'micro-service/index'
+      },
+      items: [
+        'micro-service/overview/index',
+        {
+          type: 'category',
+          label: 'Service Mesh 使用',
+          link: {
+            type: 'doc',
+            id: 'micro-service/service-mesh/index'
+          },
+          items: [
+            'micro-service/service-mesh/regist_and_discover',
+            'micro-service/service-mesh/regist_and_discover_grpc',
+            'micro-service/service-mesh/connection_env',
+            'micro-service/service-mesh/traffic-management',
+            {
+              type: 'category',
+              label: '熔断与限流',
+              link: {
+                type: 'doc',
+                id: 'micro-service/service-mesh/fused-limit/index'
+              },
+              items: [
+                'micro-service/service-mesh/fused-limit/fused',
+                'micro-service/service-mesh/fused-limit/limit',
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Service Mesh 治理模式',
+              link: {
+                type: 'doc',
+                id: 'micro-service/service-mesh/model/index'
+              },
+              items: [
+                'micro-service/service-mesh/model/deploy-istio',
+              ]
+            },
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Spring Cloud 部署示例',
+          link: {
+            type: 'doc',
+            id: 'micro-service/example/index'
+          },
+          items: [
+            'micro-service/example/pig',
+          ]
+        },
+      ]
+    },
+    {
+      type: 'category',
       label: '应用交付指南',
       link: {
         type: 'doc',
@@ -394,19 +453,6 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '组件间通信',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-manage/component-connection/index'
-              },
-              items: [
-                'use-manual/component-manage/component-connection/regist_and_discover',
-                'use-manual/component-manage/component-connection/regist_and_discover_grpc',
-                'use-manual/component-manage/component-connection/connection_env'
-              ]
-            },
-            {
-              type: 'category',
               label: '组件存储',
               link: {
                 type: 'doc',
@@ -464,17 +510,6 @@ const sidebars = {
                 'use-manual/app-manage/overview/operation',
                 'use-manual/app-manage/overview/add-service',
                 'use-manual/app-manage/overview/app-copy',
-                {
-                  type: 'category',
-                  label: '应用治理模式',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/app-manage/overview/model/governance-model'
-                  },
-                  items: [
-                    'use-manual/app-manage/overview/model/deploy-istio',
-                  ]
-                },
               ]
             },
             'use-manual/app-manage/share-app',
@@ -496,20 +531,6 @@ const sidebars = {
               ]
             },
             'use-manual/app-manage/config-group',
-            {
-              type: 'category',
-              label: '构建微服务架构',
-              link: {
-                type: 'doc',
-                id: 'use-manual/app-manage/architecture/index'
-              },
-              items: [
-                'use-manual/app-manage/architecture/service_assembly',
-                'use-manual/app-manage/architecture/rate-limiting',
-                'use-manual/app-manage/architecture/traffic-management',
-                'use-manual/app-manage/architecture/network-visualization'
-              ]
-            },
             'use-manual/app-manage/k8s-resource/k8s-resource',
           ]
         },

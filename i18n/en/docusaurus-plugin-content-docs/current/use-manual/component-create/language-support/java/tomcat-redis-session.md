@@ -20,7 +20,7 @@ Rainbond uses [webapp-Runner](./webapp-runner) embedded tomcat or jetty-Runner e
    - The listening port is specified, and by obtaining the environment variable \$PORT, this variable Rainbond performs automatic injection according to the service port set by the platform
    - Specify session store`--session-store redis`
 
-2. Install the Redis service from the application market, and set the current service to depend on the created Redis service, refer to document [Communication between components](/docs/use-manual/component-manage/component-connection/regist_and_discover)
+2. Install the Redis service from the application market, and set the current service to depend on the created Redis service, refer to document [Communication between components](/docs/micro-service/service-mesh/regist_and_discover)
 
 3. The application configuration redis：adds`REDIS_URL`to the application environment variable, and the value is `redis://:${REDIS_PASS}@127.0.0.1:6379`.
 
@@ -51,6 +51,6 @@ EXPOSE 8080
 ```
 
 2. Confirm that`<dir_name>`or`<filename>.war`of the source code exists, and it exists in the same directory as the Dockerfile file, and this directory is the root directory to start creating components
-3. Install Redis service and establish dependencies, refer to document [Communication between components](/docs/use-manual/component-manage/component-connection/regist_and_discover)
+3. Install Redis service and establish dependencies, refer to document [Communication between components](/docs/micro-service/service-mesh/regist_and_discover)
 4. The application configures the redis：configuration variable`REDIS_URL`to the application environment variable with the value `127.0.0.1:6379`; the configuration variable`REDIS_SESSION`to the application environment variable, the value is`true`.
 5. Restart the app to adapt

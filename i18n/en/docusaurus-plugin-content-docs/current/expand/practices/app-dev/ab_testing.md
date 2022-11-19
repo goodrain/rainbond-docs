@@ -93,7 +93,7 @@ Internal services do not directly serve users, but generally provide API support
 ### Preconditions
 
 1. Have two versions of the test components used in the A/B test of the above external service;
-2. Simulation`External service` Request `Internal service` The communication address must be the host name (top-level domain name), such as requesting the user service API, the request address: `http://user/***`, the Rainbond environment will resolve the host by default Name (top-level domain name), we usually recommend the way to read the communication address and port environment variables, only need to set [connection information](/docs/use-manual/component-manage/component-connection/connection_env) variables on the internal service.
+2. Simulation`External service` Request `Internal service` The communication address must be the host name (top-level domain name), such as requesting the user service API, the request address: `http://user/***`, the Rainbond environment will resolve the host by default Name (top-level domain name), we usually recommend the way to read the communication address and port environment variables, only need to set [connection information](/docs/micro-service/service-mesh/connection_env) variables on the internal service.
 
 
 ### Steps
@@ -102,7 +102,7 @@ Above, we have created `internal services 1` and `internal services 2` component
 
 The two internal services are essentially the same service and use the same service port. If there is a port conflict by default, they cannot be relied on at the same time. At this time, we need to open the network working on layer 7 for`external service 1` . Governance plug-in (provided by the platform by default), the working principle of the plug-in will reuse port 80, and implement advanced routing through HTTP elements such as different domain names to select the lower-level dependent services to be used.
 
-1. `External service 1` Depends on `Internal service 2` , the operation mode refers to [Service communication](/docs/use-manual/component-manage/component-connection/regist_and_discover),
+1. `External service 1` Depends on `Internal service 2` , the operation mode refers to [Service communication](/docs/micro-service/service-mesh/regist_and_discover),
 2. Open the export network management plug-in for `external services 1`,
 
 3. Configuring routing policies is similar to the application gateway-based configuration method, except that only header-based processing is supported.

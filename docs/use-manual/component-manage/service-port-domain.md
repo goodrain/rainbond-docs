@@ -40,7 +40,7 @@ description: Rainbond组件端口和注册策略管理文档
 - 对内服务
 
   > 这里的<b>内</b>是指团队内，开启组件对团队内部的访问许可，这时当前组件端口将被注册到团队的内部组件可用池、该团队内部的组件可以通过【添加依赖组件】的方式访问到该组件。
-  > 参考 [组件之间的通信](/docs/use-manual/component-manage/component-connection/regist_and_discover)
+  > 参考 [组件之间的通信](/docs/micro-service/service-mesh/regist_and_discover)
 
 - 对外服务
 
