@@ -161,29 +161,6 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '应用交付指南',
-      link: {
-        type: 'doc',
-        id: 'delivery/index'
-      },
-      items: [
-        'delivery/concept',
-        {
-          type: 'category',
-          label: '离线交付',
-          link: {
-            type: 'doc',
-            id: 'delivery/offline/index'
-          },
-          items: [
-            'delivery/offline/offline-delivery',
-          ]
-        },
-        'delivery/multi-cluster',
-      ]
-    },
-    {
-      type: 'category',
       label: '微服务架构指南',
       link: {
         type: 'doc',
@@ -239,6 +216,29 @@ const sidebars = {
             'micro-service/example/pig',
           ]
         },
+      ]
+    },
+    {
+      type: 'category',
+      label: '应用交付指南',
+      link: {
+        type: 'doc',
+        id: 'delivery/index'
+      },
+      items: [
+        'delivery/concept',
+        {
+          type: 'category',
+          label: '离线交付',
+          link: {
+            type: 'doc',
+            id: 'delivery/offline/index'
+          },
+          items: [
+            'delivery/offline/offline-delivery',
+          ]
+        },
+        'delivery/multi-cluster',
       ]
     },
     {
