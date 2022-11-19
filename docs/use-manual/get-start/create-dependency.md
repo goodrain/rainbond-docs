@@ -16,7 +16,7 @@ Rainbond 支持原生的 Service Mesh 微服务架构，应用一旦部署到 Ra
 
 ### 意义
 
-通过实操，用户可以初步体会到服务组件在 Rainbond 中如何通信。用户需要阅读 [组件间通信](/docs/use-manual/component-manage/component-connection/connection_env) 来了解其中的原理。
+通过实操，用户可以初步体会到服务组件在 Rainbond 中如何通信。用户需要阅读 [组件间通信](/docs/micro-service/service-mesh/connection_env) 来了解其中的原理。
 
 ### 前提条件
 

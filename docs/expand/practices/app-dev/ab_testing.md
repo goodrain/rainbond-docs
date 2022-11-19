@@ -93,7 +93,7 @@ $ curl --cookie "user=test" www.test.goodrain.com
 ### 前提条件
 
 1. 拥有上面对外服务的A/B测试中使用的两个版本测试组件；
-2. 模拟`外部服务` 请求 `内部服务` 的通信地址必须是 主机名(顶级域名)，比如请求用户服务API，请求地址: `http://user/***`，Rainbond环境下会默认解析主机名(顶级域名)，我们通常建议将通信地址和端口读取环境变量的方式，只需要在内部服务上设置 [连接信息](/docs/use-manual/component-manage/component-connection/connection_env) 变量即可。
+2. 模拟`外部服务` 请求 `内部服务` 的通信地址必须是 主机名(顶级域名)，比如请求用户服务API，请求地址: `http://user/***`，Rainbond环境下会默认解析主机名(顶级域名)，我们通常建议将通信地址和端口读取环境变量的方式，只需要在内部服务上设置 [连接信息](/docs/micro-service/service-mesh/connection_env) 变量即可。
 
 
 ### 操作步骤
@@ -102,7 +102,7 @@ $ curl --cookie "user=test" www.test.goodrain.com
 
 两个内部服务本质上是同一个业务，使用了相同的服务端口，若在默认情况下有端口冲突是不能同时依赖的，这时我们需要先为`外部服务1` 开通工作在7层的网络治理插件（平台默认提供），插件的工作原理将复用80端口，通过不同的域名等HTTP元素实现高级路由来选择使用的下级依赖服务。
 
-1. `外部服务1` 依赖 `内部服务2` ，操作方式参考 [服务通信](/docs/use-manual/component-manage/component-connection/regist_and_discover) ，
+1. `外部服务1` 依赖 `内部服务2` ，操作方式参考 [服务通信](/docs/micro-service/service-mesh/regist_and_discover) ，
 2. 为 `外部服务1` 开通 出口网络治理插件，
 
 3. 配置路由策略，与基于应用网关的配置方法类似，不同的是只支持基于Header的处理方式。

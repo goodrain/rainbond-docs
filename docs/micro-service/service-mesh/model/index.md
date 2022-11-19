@@ -1,20 +1,26 @@
 ---
-title: 应用治理模式切换
-description: 在 Rainbond 内置 ServiceMesh 模式与 Kubernetes 原生 service 模式之间切换
+title: Service Mesh 治理模式
+description: Rainbond 应用治理模式介绍
+keywords:
+- Service Mesh 治理模式切换
+- Istio 治理模式
 ---
 
-### 治理模式切换
+## 治理模式切换
 
 Rainbond 自 V5.3 版本开始，加入了应用治理模式切换功能。应用治理模式主要指组件间通信模式的治理，目前支持内置 ServiceMesh 模式和 Kubernetes 原生 Service 模式。
 
-- 内置 ServiceMesh 模式（默认）
+- **内置 ServiceMesh 模式（默认）**
   
-内置ServiceMesh模式需要用户显示的配置组件间的依赖关系，平台会在下游组件中自动注入 sidecar 容器组成 ServiceMesh 微服务架构，业务间通信地址统一为localhost（127.0.0.1）模式。作为 Rainbond 中默认的应用治理模式，通过 sidecar 实现了服务组件间 A/B 测试、智能路由、限流、熔断等治理功能。了解更多请参考 [服务间通信](/docs/use-manual/component-manage/component-connection/regist_and_discover)、 [基于 Rainbond 实现组件A/B测试](/docs/expand/practices/app-dev/ab_testing)
+内置ServiceMesh模式需要用户显示的配置组件间的依赖关系，平台会在下游组件中自动注入 sidecar 容器组成 ServiceMesh 微服务架构，业务间通信地址统一为localhost（127.0.0.1）模式。作为 Rainbond 中默认的应用治理模式，通过 sidecar 实现了服务组件间 A/B 测试、智能路由、限流、熔断等治理功能。了解更多请参考 [服务间通信](../regist_and_discover)、 [基于 Rainbond 实现组件A/B测试](/docs/expand/practices/app-dev/ab_testing)
 
-- Kubernetes 原生 Service 模式
+- **Kubernetes 原生 Service 模式**
 
-该模式组件间使用 Kubernetes service 名称域名进行通信，用户需要配置每个组件端口注册的 service 名称，治理能力有限。
+该模式组件间使用 Kubernetes Service 名称域名进行通信，用户需要配置每个组件端口注册的 Service 名称，治理能力有限。
 
+- **Istio 治理模式**
+
+Rainbond 将 Istio 作为插件方式引入 Rainbond 应用治理模式体系，组件间的治理均由 Istio 提供。
 
 ### 切换的影响
 
@@ -42,7 +48,7 @@ NAMESPACE                          NAME                        TYPE        CLUST
 
 ### 通信变量的改动
 
-如果你不了解何为通信变量，请先阅读 [通信变量注入](/docs/use-manual/component-manage/component-connection/connection_env)。
+如果你不了解何为通信变量，请先阅读 [通信变量注入](../connection_env)。
 
 对比于默认的内置 ServiceMesh 模式，Kubernetes 原生 Service 模式中依然存在通信变量。不一样的是，通信变量的值，不再是固定为 127.0.0.1 这一本地回环地址，而是变为了上文提及的内部域名。这一改动，是为了方便使用通信变量来确定依赖关系的用户，在不改动配置的情况下，依然可以正常的使用通信变量完成组件间的调用。
 
