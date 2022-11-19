@@ -21,7 +21,7 @@ Enter`Enterprise View`-->`Settings`interface, and open the internal component li
 
 |                   | mirror repository information          |
 |:----------------- | -------------------------------------- |
-| Warehouse Address | Custom, such as：hub.xxx.com (required) |
+| Warehouse Address | Custom, such as：docker.io (required) |
 | Namespaces        | Custom, such as：goodrain               |
 | username          | customize                              |
 | password          | customize                              |
