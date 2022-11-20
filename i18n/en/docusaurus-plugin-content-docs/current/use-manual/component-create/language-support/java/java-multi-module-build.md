@@ -63,4 +63,4 @@ Get project clone/download address： [https://gitee.com/log4j/pig.git](https://
 
 
 
-> In this way, the multi-module construction of the Pig project is completed. For other steps, please refer to[SPRING CLOUD Microservices Deployed in RAINBOND Case](/docs/expand/practices/app-dev/spring-cloud-case)
+> In this way, the multi-module construction of the Pig project is completed. For other steps, please refer to[SPRING CLOUD Microservices Deployed in RAINBOND Case](/docs/micro-service/example/pig)

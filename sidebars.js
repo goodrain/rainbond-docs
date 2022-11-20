@@ -207,7 +207,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Spring Cloud 部署示例',
+          label: 'Spring Cloud 微服务部署',
           link: {
             type: 'doc',
             id: 'micro-service/example/index'
@@ -931,9 +931,6 @@ const sidebars = {
             'expand/practices/app-dev/deploy-spark',
             'expand/practices/app-dev/port-alias',
             'expand/practices/operator/gateway-node',
-            'expand/practices/app-dev/spring-cloud-advantage',
-            'expand/practices/app-dev/spring-cloud-merge',
-            'expand/practices/app-dev/spring-cloud-case',
             'expand/practices/app-dev/data-initialization',
             'expand/practices/app-dev/work-helm-app',
             'expand/practices/app-dev/shell-hook-cdn'
