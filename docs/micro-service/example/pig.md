@@ -56,23 +56,17 @@ pig -- https://gitee.com/log4j/pig
 | ------------ | ------------------------------------ |
 | 组件名称     | 自定义                               |
 | 组件英文名称 | 自定义                               |
-| 仓库地址     | https://gitee.com/zhangbigqi/pig.git |
+| 仓库地址     | `https://gitee.com/zhangbigqi/pig.git` |
 | 子目录路径   | db                                   |
 | 代码版本     | v3.6.2-1117                          |
-
 
 :::caution
 这里使用了我的仓库地址，因为修改了一些默认配置，比如数据库密码、存储，如果你不想修改，可以使用原仓库地址
 :::
 
 2. 进入 Mysql 组件 -> 其他设置，修改组件部署类型为 `有状态服务(Statefulset类型)`
-3. 进入 Mysql 组件 -> 端口，点击端口别名修改为 `MYSQL` 并打开对内端口。
-4. 进入 Mysql 组件 -> 依赖，添加环境变量：
+3. 进入 Mysql 组件 -> 端口，点击端口别名修改为 `MYSQL` 并打开端口的对内服务。
 
-| 变量名              | 变量值  | 说明            |
-| ------------------- | ------- | --------------- |
-| MYSQL_USER          | root    | Mysql 用户      |
-| MYSQL_PWD           | root123 | Mysql 密码      |
 :::info
 以上变量名和变量值可以根据自己的需求进行修改。如果其他组件依赖了 Mysql，依赖中的变量会注入到依赖了 Mysql 组件中，参阅[通信变量注入](/docs/micro-service/service-mesh/connection_env)
 :::
@@ -93,15 +87,15 @@ pig -- https://gitee.com/log4j/pig
 | ------------ | ------------------------------------ |
 | 组件名称     | 自定义                               |
 | 组件英文名称 | 自定义                               |
-| 仓库地址     | https://gitee.com/log4j/pig.git |
-| 代码版本     | v3.6.2                        |
+| 仓库地址     | `https://gitee.com/log4j/pig.git` |
+| 代码版本: Tag | v3.6.2                        |
 
 2. 检测出多模块构建，进入多模块构建页面，勾选以下模块并创建。  
-    * 创建后，删除每个组件的默认端口，为每个组件添加对应的新端口和端口别名，如下：
+    * 创建后，删除每个组件的默认端口，为每个组件添加对应的新端口和端口别名并打开端口的对内服务，如下：
 
 | 组件                   | 端口 | 端口别名 |
 | ---------------------- | ---- | ---- |
-| pig-register           | 8848 9848 9849 | NACOS |
+| pig-register           | 8848 9848 9849 | 8848端口别名: `NACOS` |
 | pig-gateway            | 9999 | |
 | pig-auth               | 3000 | |
 | pig-upms-biz           | 4000 | |
@@ -114,7 +108,7 @@ pig -- https://gitee.com/log4j/pig
 
 ![](https://static.goodrain.com/docs/5.10/micro-service/example/pig/pig-depend.png)
 
-4. 进入 `pig-register` 组件内 -> 端口 -> 打开对外端口，访问 Nacos 并登录，默认用户密码 `nacos/nacos`，修改以下配置文件内容：
+4. 进入 `pig-register` 组件内 -> 端口 -> 打开 `8848` 端口的对外服务，访问 Nacos 并登录，默认用户密码 `nacos/nacos`，修改以下配置文件内容：
 
 ```yaml
 # 编辑 application-dev.yml
@@ -134,8 +128,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${MYSQL_USER} # 修改 mysql username
-    password: ${MYSQL_PWD}  # 修改 mysql password
+    username: root
+    password: root
     url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/pig_codegen?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
     # 修改 mysql host 和 port
 
@@ -144,8 +138,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${MYSQL_USER} # 修改 mysql username
-    password: ${MYSQL_PWD} # 修改 mysql password
+    username: root
+    password: root
     url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/pig?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
     # 修改 mysql host 和 port
 ```
@@ -161,7 +155,7 @@ spring:
 | ------------ | ------------------------------------ |
 | 组件名称     | 自定义                               |
 | 组件英文名称 | 自定义                               |
-| 仓库地址     | https://gitee.com/zhangbigqi/pig-ui.git |
+| 仓库地址     | `https://gitee.com/zhangbigqi/pig-ui.git` |
 | 代码版本     | v3.6.2-1117                          |
 
 
@@ -171,7 +165,8 @@ spring:
 
 2. 创建组件后，进入 `pig-ui` 组件内 -> 构建源 -> 源码构建参数设置，修改 Node 版本为 `16.15.0`，确定修改并构建组件
 3. 编辑依赖关系，切换到 `编排模式` 拖动组件进行依赖关系建立，将 `pig-ui` 依赖 `pig-gateway`并更新组件
-4. 打开 `pig-ui` 对外端口访问验证部署。
+4. 构建完成后，删除默认端口，新增 `80` 端口并打开对外服务。
+5. 访问 `pig-ui` 进行验证。
 
 ### 最终拓扑图
 
