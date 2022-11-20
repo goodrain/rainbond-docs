@@ -251,7 +251,20 @@ const sidebars = {
         id: 'delivery/index'
       },
       items: [
-        'delivery/concept',
+        'delivery/development-course',
+        'delivery/delivery-model',
+        {
+          type: 'category',
+          label: '多环境交付',
+          link: {
+            type: 'doc',
+            id: 'delivery/multi-environment/index'
+          },
+          items: [
+            'delivery/multi-environment/dev-delivery-production',
+            'delivery/multi-environment/multi-cluster',
+          ]
+        },
         {
           type: 'category',
           label: '离线交付',
@@ -260,10 +273,13 @@ const sidebars = {
             id: 'delivery/offline/index'
           },
           items: [
-            'delivery/offline/offline-delivery',
+            'delivery/offline/ram-delivery',
+            'delivery/offline/non-container-delivery',
+            'delivery/offline/docker-compose-delivery',
           ]
         },
-        'delivery/multi-cluster',
+        // 'delivery/multi-cluster',
+        'delivery/continuous-delivery-operations',
       ]
     },
     {

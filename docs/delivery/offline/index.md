@@ -42,21 +42,21 @@ title: 离线交付
 
 上述问题的根本原因是因为，应用系统的多环境适配、应用安装部署、应用升级、应用运维等操作自动化程度不高，需要大量人员手工操作，所以效率很低，解决问题的重点在解决应用管理的自动化。
 
-Rainbond 是“以应用为中心”的应用管理平台，[应用模版](/docs/delivery/concept#rainbond-application-template)是 Rainbond 对应用打包的方案，Rainbond 提供应用的全生命周期管理（应用开发、应用编排、应用交付和应用运维）。Rainbond 可以部署到各种运行环境上（物理服务器、虚拟机、私有云），还可以部署到已有 K8s 集群和 Rancher 上，解决客户多环境适配问题；Rainbond 提供应用运维面板解决应用运维问题，使用比较简单，不需要懂容器概念；
+Rainbond 是“以应用为中心”的应用管理平台，[应用模版](/docs/delivery/delivery-model#rainbond-application-template)是 Rainbond 对应用打包的方案，Rainbond 提供应用的全生命周期管理（应用开发、应用编排、应用交付和应用运维）。Rainbond 可以部署到各种运行环境上（物理服务器、虚拟机、私有云），还可以部署到已有 K8s 集群和 Rancher 上，解决客户多环境适配问题；Rainbond 提供应用运维面板解决应用运维问题，使用比较简单，不需要懂容器概念；
 
 Rainbond 的应用模版是一个亮点。与 Helm 相比，使用者不需要像了解 Helm Chart 那样去编写各类资源的模版。只要将业务在平台上运行起来，那么就可以一键发布成应用模版，极大地简化了应用模版的制作。同时这样的模版也可以导出离线包，最终实现离线环境的应用安装部署和应用升级。
 
 Rainbond 的应用模版支持导出三种类型的包，分别适用于不同场景。
 
-### 1. [Rainbond 应用模版](/docs/delivery/concept#rainbond-application-template)：
+### 1. [Rainbond 应用模版](/docs/delivery/offline/ram-delivery)：
 
-这是基于 [Rainbond 应用模型](/docs/delivery/concept#rainbond-application-model)导出的完整包。支持业务的全部属性。适用于复杂微服务架构交付，支持升级和回滚，但要求客户环境安装 Kubernetes 和 Rainbond。
+这是基于 [Rainbond 应用模型](/docs/delivery/delivery-model#rainbond-application-model)导出的完整包。支持业务的全部属性。适用于复杂微服务架构交付，支持升级和回滚，但要求客户环境安装 Kubernetes 和 Rainbond。
 
-### 2. [非容器包](/docs/use-manual/app-store-manage/export-non-container-package)：
+### 2. [非容器包](/docs/delivery/offline/non-container-delivery)：
 
-该类型的包按照传统应用交付方式打包，但易用性更好，包中包含了环境依赖，并采用静态编译，适合大多数操作系统，移除了对容器运行环境的要求，直接基于主机运行，使用 systemd 进行管理。适用于交付环境安全要求极高，不允许使用容器技术的场景。
+该类型的包按照传统应用交付方式打包，但易用性更好，包中包含了环境依赖，并采用静态编译，适合大多数操作系统，移除了对容器运行环境的要求，直接基于主机运行。适用于交付环境安全要求极高，不允许使用容器技术的场景。
 
-### 3. DockerCompose离线包：
+### 3. [DockerCompose离线包](/docs/delivery/offline/docker-compose-delivery)：
 
 这个离线包会包含组件基础镜像以及相应的 docker-compose.yaml 文件。适用于具备 Docker Compose 的离线环境中进行部署。
 

@@ -1,8 +1,6 @@
 ---
-title: 应用交付指南
+title: 多环境交付
 ---
-
-本章节主要介绍应用交付历程，以及 Rainbond 在交付上的一些最佳实践。提高你的交付效率。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
