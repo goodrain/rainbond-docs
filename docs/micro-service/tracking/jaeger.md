@@ -1,19 +1,11 @@
 ---
-title: 分布式链路追踪Jaeger + 微服务Pig在Rainbond上的实践分享
-description: Jaeger 在 Rainbond 上部署实践
-slug: jaeger
-# authors: QiZhang
+title: Jaeger 使用
+description: 分布式链路追踪Jaeger + 微服务Pig在Rainbond上的实践分享
+keywords:
+- Jaeger 分布式链路追踪
+- APM
+- 链路追踪
 ---
-
-![](https://static.goodrain.com/wechat/jaeger/jaeger-cover.png)
-
-随着微服务架构的流行，客户端发起的一次请求可能需要涉及到多个或 N 个服务，致使我们对服务之间的监控和排查变得更加复杂。
-
-**举个例子：**
-
-某条业务线的某个接口调用服务端时快时慢，这时就需要排查各个服务的日志进行分析，调动各个服务的开发人员联动排查，这种排查费时又费力。对于 ToB 的业务有时候还拿不到日志，难搞哦！
-
-因此，就需要可以帮助理解系统行为、用于分析性能问题的工具，以便发生故障的时候，能够快速定位和解决问题，那就是 APM （Application Performance Monitor）。目前流行的 APM 开源工具有很多，比如：Zipkin，Skywalking，Pinpoint、Jaeger 等等，本文将主要介绍 Jaeger 。
 
 Jaeger 是 Uber 技术团队发布的开源分布式跟踪系统，它用于监控和故障排查基于微服务的分布式系统：
 
@@ -59,42 +51,29 @@ v1.36 版本以后被弃用。使用 [OpenTelemetry](https://opentelemetry.io/) 
 
 ## 实践步骤
 
-实践中将使用 Spring Cloud Pig 进行演示，Gitee：https://gitee.com/zhangbigqi/pig
+### Spring Cloud Pig 源码部署
 
-Rainbond 部署请参阅文档 [快速安装](https://www.rainbond.com/docs/quick-start/quick-install) 。
+通过源码部署 [Spring Cloud Pig 微服务框架](/docs/micro-service/example/pig)
 
-### 1. Spring Cloud Pig 源码部署
-
-通过源码部署 `Spring Cloud Pig` 微服务框架就不详细介绍部署了，请参阅：
-
-*  [Spring Cloud Pig 部署教程](https://t.goodrain.com/d/3-springcloud-pig-rainbond)
-* [Spring Cloud Pig 视频教程](https://www.bilibili.com/video/BV1MZ4y1b7wW)
-
-### 2. OpenTelemetry 插件安装
+### OpenTelemetry 插件安装
 
 从应用商店安装 `opentelemetry-java-agent` 初始化插件，该插件的作用是下载 `opentelemetry-javaagent.jar` 到微服务组件内，可以在 Java 启动项中指定。
 
 * 团队视图 -> 插件 -> 从应用商店安装插件 -> 搜索 `opentelemetry-java-agent` 并安装。
 
-![](https://static.goodrain.com/wechat/jaeger/3.png)
-
-### 3. 部署 Jaeger
+### 部署 Jaeger
 
 在开源应用商店中搜索 `Jaeger` 并安装到指定应用中。
 
-![](https://static.goodrain.com/wechat/jaeger/4.png)
+### OpenTelemetry Agent 插件配置
 
-
-
-### 4. OpenTelemetry Agent 插件配置
-
-**1.开通 OpenTelemetry Agent 插件**
+**1. 开通 OpenTelemetry Agent 插件**
 
 以 `pig-gateway` 为例，在组件 -> 插件中开通 `opentelemetry-java-agent` 插件并更新组件生效，微服务内的其他组件均需要开通插件并更新或重启组件生效。
 
 ![](https://static.goodrain.com/wechat/jaeger/5.png)
 
-**2.配置环境变量**
+**2. 配置环境变量**
 
 为所有微服务组件配置环境变量。
 
@@ -106,15 +85,13 @@ Rainbond 部署请参阅文档 [快速安装](https://www.rainbond.com/docs/quic
 | OTEL_METRICS_EXPORTER         | none                                          | Metrics 导出器                 |
 | JAVA_OPTS                     | -javaagent:/agent/opentelemetry-javaagent.jar | Java 启动参数                  |
 
-可使用 `应用配置组` 统一配置并应用到所有组件中。
+可在应用 -> 配置，使用 `应用配置组` 统一配置并应用到所有组件中。
 
-![](https://static.goodrain.com/wechat/jaeger/6.png)
+**3. 配置组件服务名称**
 
-**3.配置组件服务名称**
+为所有微服务组件配置环境变量 `OTEL_SERVICE_NAME` ，配置组件的 Jaeger 服务名称，如：`OTEL_SERVICE_NAME=pig-gateway` `OTEL_SERVICE_NAME=pig-auth` 
 
-为所有微服务组件配置环境变量 `OTEL_SERVICE_NAME ` ，配置组件的 Jaeger 服务名称，如：`OTEL_SERVICE_NAME=pig-gateway ` `OTEL_SERVICE_NAME=pig-auth ` 
-
-### 5.建立依赖关系
+### 建立依赖关系
 
 将所有微服务组件添加依赖连接到 `Jaeger Collector` 。
 
@@ -122,20 +99,16 @@ Rainbond 部署请参阅文档 [快速安装](https://www.rainbond.com/docs/quic
 
 ![](https://static.goodrain.com/wechat/jaeger/7.png)
 
-### 6.  Jaeger 快速使用
+### Jaeger 快速使用
 
-1. 访问 Spring Cloud Pig UI 进行登录，使其产生数据。
-
-2. 访问 ` Jaeger-Query` 的 `16686` 端口，打开对外服务即可访问 `Jaeger UI` 。
-
-3. 在 Jaeger Search 页面中搜索微服务 Pig-gateway 的 Traces
-
-   * Service：选择微服务的组件
-   * Operation：选择操作类型，例：GET POST、接口、类.....
-   * Tags：根据响应头筛选，例：http.status_code=200 error=true
-   * Lookback：选择时间
-   * Max Duration：最大持续时间；Min Duration：最小持续时间。
-   * Limit Results：限制返回结果数量。
+1. 访问 ` Jaeger-Query` 的 `16686` 端口，打开对外服务即可访问 `Jaeger UI` 。
+2. 在 Jaeger Search 页面中搜索微服务 pig-gateway 的 Traces
+* Service：选择微服务的组件
+* Operation：选择操作类型，例：GET POST、接口、类.....
+* Tags：根据响应头筛选，例：http.status_code=200 error=true
+* Lookback：选择时间
+* Max Duration：最大持续时间；Min Duration：最小持续时间。
+* Limit Results：限制返回结果数量。
 
 ![](https://static.goodrain.com/wechat/jaeger/10.png)
 
@@ -150,10 +123,4 @@ Rainbond 部署请参阅文档 [快速安装](https://www.rainbond.com/docs/quic
 `spark-dependencies` 组件占用资源较大，不使用时可关闭，需要生成拓扑图数据时将其启动即可。
 
 ![](https://static.goodrain.com/wechat/jaeger/9.png)
-
-## 最后
-
-有了 APM 系统后，使我们可以更好的分析业务性能、排查故障等。
-
-结合 Rainbond 作为基座不管是 `Spring Cloud`还是 `Jaeger` 或其他 `APM` 都可以很方便、快捷的部署使用，从繁琐的部署、配置中解放出来，让我们更多的关注于业务层。
 
