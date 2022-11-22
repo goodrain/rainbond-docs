@@ -71,6 +71,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [{
+        name: 'Rainbond is Cloud Native Multi Cloud Application Management Platform', 
+        content: 'Kubernetes, Cloud Native, Cloud Application Management Platform, Micro service, Service Mesh'
+      }],
       navbar: {
         title: 'Rainbond',
         logo: {

@@ -48,7 +48,7 @@ const Users: User[] = [
     }),
     preview: require('./apps/arthas.png'),
     website: 'https://github.com/alibaba/arthas',
-    deploy: '/blog/arthas',
+    deploy: '/docs/micro-service/analysis/arthas',
     tags: ['Application'],
   },
   {
@@ -136,7 +136,7 @@ const Users: User[] = [
     }),
     preview: require('./apps/jaeger.png'),
     website: 'https://github.com/jaegertracing/jaeger',
-    deploy: '/blog/jaeger',
+    deploy: '/docs/micro-service/tracking/jaeger',
     tags: ['Application', 'Plugin'],
   },
   {

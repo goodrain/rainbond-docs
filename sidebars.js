@@ -216,6 +216,31 @@ const sidebars = {
             'micro-service/example/pig',
           ]
         },
+        {
+          type: 'category',
+          label: '链路追踪',
+          link: {
+            type: 'doc',
+            id: 'micro-service/tracking/index'
+          },
+          items: [
+            'micro-service/tracking/pinpoint',
+            'micro-service/tracking/skywalking',
+            'micro-service/tracking/jaeger',
+          ]
+        },
+        {
+          type: 'category',
+          label: '性能分析',
+          link: {
+            type: 'doc',
+            id: 'micro-service/analysis/index'
+          },
+          items: [
+            'micro-service/analysis/pyroscope',
+            'micro-service/analysis/arthas',
+          ]
+        },
       ]
     },
     {
@@ -913,7 +938,6 @@ const sidebars = {
           },
           items: [
             'expand/practices/app-dev/work_with_kong',
-            'expand/practices/app-dev/work_with_apm',
             'expand/practices/app-dev/work_with_git',
             'expand/practices/app-dev/work_with_elk',
             'expand/practices/app-dev/app_publishing',

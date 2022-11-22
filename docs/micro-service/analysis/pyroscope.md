@@ -1,18 +1,11 @@
 ---
-title: 微服务性能分析｜Pyroscope 在 Rainbond 上的实践分享
-description: 本文介绍开源应用TDengine
-slug: tdengine
+title: Pyroscope 使用
+description: Pyroscope 分析 Rainbond 上微服务应用的性能问题。
+keywords:
+- 性能分析
+- Pyroscope
+- 使用 Pyroscope 分析微服务性能
 ---
-
-## 微服务性能分析｜Pyroscope 在 Rainbond 上的实践分享
-
-![](https://static.goodrain.com/wechat/pyroscope/Pyroscope.png)
-
-随着微服务体系在生产环境落地，也会伴随着一些问题出现，比如流量过大造成某个微服务应用程序的性能瓶颈、CPU利用率高、或内存泄漏等问题。要找到问题的根本原因，我们通常都会通过日志、进程再结合代码去判断根本原因。对于微服务庞大的业务，这必定会很耗时，而且也很难及时找到关键问题点。
-
-本文将介绍一个 **持续性能分析平台 Pyroscope**，它能够帮助我们快速找到内存泄漏、CPU利用率高的代码。
-
-## 什么是 Pyroscope？
 
 [Pyroscope](https://pyroscope.io/) 是一个开源的持续性能分析平台。它能够帮你：
 
@@ -50,46 +43,30 @@ Pyroscope 由两个主要组件支撑运行：**Pyroscope Server** 和 **Pyrosco
 
 本文将基于微服务框架 Pig 进行实践，步骤为：
 
-1. 部署微服务 Spring Cloud Pig，Gitee：https://gitee.com/log4j/pig
+1. 部署微服务 [Spring Cloud Pig](/docs/micro-service/example/pig)
 2. 部署 Pyroscope Server
 3. 安装 Pyroscope Java Agent 插件并配置
 4. 建立微服务与 Pyroscope 之间的依赖关系
 4. Pyroscope 基本使用
 
-Rainbond 部署请参阅文档 [快速安装](https://www.rainbond.com/docs/quick-start/quick-install/)
-
 ### 1. 部署微服务 Spring Cloud Pig
 
-通过开源应用商店一键安装 Spring Cloud Pig，新增 -> 基于应用商店创建组件 -> 在开源应用商店中搜索 `SpringCloud-Pig` 并安装到指定应用中。
-
-![](https://static.goodrain.com/wechat/pyroscope/3.png)
+通过开源应用商店一键安装 `Spring Cloud Pig`，新增 -> 基于应用商店创建组件 -> 在开源应用商店中搜索 `SpringCloud-Pig` 并安装到指定应用中。
 
 ### 2. 部署 Pyroscope Server
 
-通过开源应用商店一键安装Pyroscope Server，新增 -> 基于应用商店创建组件 -> 在开源应用商店中搜索 `Pyroscope` 并安装到指定应用中。
-
-![](https://static.goodrain.com/wechat/pyroscope/4.png)
+通过开源应用商店一键安装 `Pyroscope Server`，新增 -> 基于应用商店创建组件 -> 在开源应用商店中搜索 `Pyroscope` 并安装到指定应用中。
 
 ### 3. 安装 Pyroscope Java Agent 插件并配置
 
 1. 插件 -> 从应用商店安装插件，搜索 `Pyroscope-Java-Agent` 进行安装。
-
-![](https://static.goodrain.com/wechat/pyroscope/5.png)
-
 2. 为每个微服务组件都开通插件，进入微服务组件 -> 插件 -> 开通插件 `Pyroscope-Java-Agent` 并更新组件。
-
-![](https://static.goodrain.com/wechat/pyroscope/6.png)
-
 3. 为每个微服务组件都设置以下环境变量，可在组件内 -> 环境变量 -> 添加变量。也可以通过应用配置组为所有组件统一配置 `JAVA_OPTS` 环境变量，而 `PYROSCOPE_APPLICATION_NAME` 环境变量是唯一的，不可统一配置。
 
 | 变量名                     | 变量值                          | 说明                |
 | -------------------------- | ------------------------------- | ------------------- |
 | JAVA_OPTS                  | -javaagent:/agent/pyroscope.jar | Java agent 启动参数 |
 | PYROSCOPE_APPLICATION_NAME | pig.auth                        | 微服务模块名称      |
-
-![](https://static.goodrain.com/wechat/pyroscope/7.png)
-
-
 
 ### 4. 建立微服务与Pyroscope之间的依赖关系
 
@@ -118,7 +95,3 @@ Rainbond 部署请参阅文档 [快速安装](https://www.rainbond.com/docs/quic
 ## 最后
 
 Pyroscope 还可以结合 Jaeger 一起使用，可以集成在 Jaeger UI 中，可参阅 [Jaeger UI 集成](https://github.com/pyroscope-io/jaeger-ui) 
-
----
-
-[Rainbond](https://www.rainbond.com/) 是一个云原生应用管理平台，核心100%开源、使用简单、不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
