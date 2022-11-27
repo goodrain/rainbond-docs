@@ -75,6 +75,10 @@ const config = {
         name: 'Rainbond is Cloud Native Multi Cloud Application Management Platform', 
         content: 'Kubernetes, Cloud Native, Cloud Application Management Platform, Micro service, Service Mesh'
       }],
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 5,
+      },
       navbar: {
         title: 'Rainbond',
         logo: {
