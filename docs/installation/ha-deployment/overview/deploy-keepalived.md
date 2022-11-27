@@ -1,15 +1,15 @@
 ---
-title: Keepalived 部署
+title: 部署 Keepalived 
 description: 在 CentOS 或 Ubuntu 上部署 Keepalived 服务
 keywords:
 - 在 CentOS 或 Ubuntu 上部署 Keepalived 服务
 ---
 
-## 前提
-
 :::warning
 局域网内交换机需要支持 VRRP 协议，否则 Keepalived 无法正常工作。
 :::
+
+## 部署 Keepalived
 
 在所有网关节点安装 Keepalived
 
@@ -24,15 +24,17 @@ apt-get -y install libpopt-dev
 apt-get -y install keepalived
 ```
 
-## 部署 Keepalived
+### 修改 Keepalived 配置文件
 
-:::warning
+:::caution
 注意！当前调用健康监测脚本内容为注释状态，原因是在安装 Rainbond 前 需要确保 VIP 已经存在；在 Rainbond 安装完成之后需将注释取消，才能实现健康监测，确保 网关高可用。
 :::
 
-### 主节点配置文件
+<details>
+  <summary>主节点配置文件</summary>
+  <div>
 
-```bash title="vi vi /etc/keepalived/keepalived.conf"
+```bash title="vim /etc/keepalived/keepalived.conf"
 
 ! Configuration File for keepalived
 
@@ -70,9 +72,14 @@ vrrp_instance VI_1 {
 }
 ```
 
-### 从节点配置文件
+</div>
+</details>
 
-```bash title="vi vi /etc/keepalived/keepalived.conf"
+<details>
+  <summary>从节点配置文件</summary>
+  <div>
+
+```bash title="vim /etc/keepalived/keepalived.conf"
 
 ! Configuration File for keepalived
 
@@ -109,23 +116,24 @@ global_defs {
 }
 ```
 
+</div>
+</details>
 
 ### 健康监测脚本
 
 扩展对网关节点健康检查的脚本，脚本的功能是当 rbd-gateway 组件停止服务，则关闭本机的 Keepalived，切换 VIP 。(主从都需操作)
 
-```bash title="vi /etc/keepalived/check_gateway_status.sh"
+```bash
+$ vim /etc/keepalived/check_gateway_status.sh
+
 #!/bin/bash
 /usr/bin/curl -I http://localhost:10254/healthz
 
 if [ $? -ne 0 ]; then
     cat /var/run/keepalived.pid | xargs kill
 fi
-```
 
-添加执行权限
-
-```bash
+# 添加执行权限
 $ chmod +x /etc/keepalived/check_gateway_status.sh
 ```
 

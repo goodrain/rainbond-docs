@@ -11,7 +11,7 @@ keywords:
 
 Kubernetes 集群需要满足以下条件：
 
-* 根据 [软件和硬件环境要求](../resource-prepare) 进行环境准备；
+* 请按照 [安装前概述与要求](/docs/installation/ha-deployment/overview/) 准备相关服务与资源
 * Kubernetes 版本为 1.16.0 及以上；
 
 ## 自行安装 Kubernetes 集群

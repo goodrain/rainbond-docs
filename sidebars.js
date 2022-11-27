@@ -84,7 +84,6 @@ const sidebars = {
               label: 'Helm 命令生成工具',
               href: '/helm'
             },
-            'installation/install-with-helm/uninstall-with-helm'
           ]
         },
         {
@@ -95,17 +94,16 @@ const sidebars = {
             id: 'installation/ha-deployment/index'
           },
           items: [
-            'installation/ha-deployment/resource-prepare',
             {
               type: 'category',
-              label: '容器和数据库安装',
+              label: '安装前准备与要求',
               link: {
                 type: 'doc',
-                id: 'installation/ha-deployment/db-runtime/index'
+                id: 'installation/ha-deployment/overview/index'
               },
               items: [
-                'installation/ha-deployment/db-runtime/mysql-ha',
-                'installation/ha-deployment/db-runtime/mysql-centos',
+                'installation/ha-deployment/overview/mysql-ha',
+                'installation/ha-deployment/overview/deploy-keepalived',
               ]
             },
             {
@@ -133,17 +131,6 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '负载均衡和ETCD',
-              link: {
-                type: 'doc',
-                id: 'installation/ha-deployment/lb-etcd/index'
-              },
-              items: [
-                'installation/ha-deployment/lb-etcd/deploy-keepalived',
-              ]
-            },
-            {
-              type: 'category',
               label: 'Rainbond 集群安装',
               link: {
                 type: 'doc',
@@ -157,6 +144,7 @@ const sidebars = {
           ]
         },
         'installation/offline/index',
+        'installation/uninstall',
       ]
     },
     {
