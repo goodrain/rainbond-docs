@@ -209,6 +209,129 @@ description: 组件其他设置功能模块介绍
         fieldPath: status.podIP
   ```
 
+#### shareProcessNamespace
+
+  在 Pod 中的容器之间共享进程命名空间
+
+  详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/share-process-namespace/
+
+
+#### dnsPolicy
+
+  Pod的DNS策略, 可以逐个 Pod 来设定。目前 Kubernetes 支持以下特定 Pod 的 DNS 策略
+
+  `Default`: Pod 从运行所在的节点继承名称解析配置
+
+  `ClusterFirst`: 与配置的集群域后缀不匹配的任何 DNS 查询（例如 "www.kubernetes.io"） 都将转发到从节点继承的上游名称服务器。集群管理员可能配置了额外的存根域和上游 DNS 服务器。
+
+  `ClusterFirstWithHostNet`: 对于以 hostNetwork 方式运行的 Pod，应显式设置其 DNS 策略
+
+  `None`: 此设置允许 Pod 忽略 Kubernetes 环境中的 DNS 设置。 注: Pod 会使用其 `dnsConfig` 字段所提供的 DNS 设置
+
+  详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/concepts/services-networking/dns-pod-service/
+
+  dnsConfig配置在k8s中定义时的格式为
+  ```yaml
+  dnsConfig:
+    nameservers:
+      - 1.2.3.4
+    searches:
+      - ns1.svc.cluster-domain.example
+      - my.dns.search.suffix
+    options:
+      - name: ndots
+        value: "2"
+      - name: edns0
+  ```
+  在平台添加属性时不需要在开头定义dnsConfig，如以下格式
+  ```yaml
+  nameservers:
+    - 1.2.3.4
+  searches:
+    - ns1.svc.cluster-domain.example
+    - my.dns.search.suffix
+  options:
+    - name: ndots
+      value: "2"
+    - name: edns0
+  ```
+
+#### resources
+  为Pod和容器管理资源
+
+  详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/concepts/configuration/manage-resources-containers/
+
+  resources在k8s中定义时的格式为
+  ```yaml
+  resources:
+    requests:
+      memory:
+    limits:
+      memory:
+  ```
+  在平台添加属性时不需要在开头定义resources，如以下格式
+  ```yaml
+  requests:
+    memory:
+  limits:
+    memory:
+  ```
+
+#### hostIPC
+
+  控制容器是否可以共享主机的IPC名称空间
+
+#### lifecycle
+
+  为容器的生命周期事件设置处理函数
+
+  详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/
+
+  lifecycle在k8s中定义时的格式为
+  ```yaml
+  lifecycle:
+    ostStart:
+      exec:
+        command: ["/bin/sh", "-c", "echo Hello from the postStart handler > /usr/share/message"]
+    preStop:
+      exec:
+        command: ["/bin/sh","-c","nginx -s quit; while killall -0 nginx; do sleep 1; done"]
+  ```
+  在平台添加属性时不需要在开头定义lifecycle，如以下格式
+  ```yaml
+  postStart:
+    exec:
+      command: ["/bin/sh", "-c", "echo Hello from the postStart handler > /usr/share/message"]
+  preStop:
+    exec:
+      command: ["/bin/sh","-c","nginx -s quit; while killall -0 nginx; do sleep 1; done"]
+  ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 常见问题
 

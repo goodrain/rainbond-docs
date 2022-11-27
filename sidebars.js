@@ -918,7 +918,8 @@ const sidebars = {
         'upgrade/5.8.0-upgrade',
         'upgrade/5.8.1-upgrade',
         'upgrade/5.9.0-upgrade',
-        'upgrade/5.10.0-upgrade'
+        'upgrade/5.10.0-upgrade',
+        'upgrade/5.10.1-upgrade'
       ]
     },
     {
