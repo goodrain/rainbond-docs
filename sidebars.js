@@ -251,35 +251,60 @@ const sidebars = {
         id: 'delivery/index'
       },
       items: [
-        'delivery/development-course',
-        'delivery/delivery-model',
+        // 'delivery/development-course',
+        // 'delivery/delivery-model',
+        // {
+        //   type: 'category',
+        //   label: '多环境交付',
+        //   link: {
+        //     type: 'doc',
+        //     id: 'delivery/multi-environment/index'
+        //   },
+        //   items: [
+        //     'delivery/multi-environment/dev-delivery-production',
+        //     'delivery/multi-environment/multi-cluster',
+        //   ]
+        // },
+        // {
+        //   type: 'category',
+        //   label: '离线交付',
+        //   link: {
+        //     type: 'doc',
+        //     id: 'delivery/offline/index'
+        //   },
+        //   items: [
+        //     'delivery/offline/ram-delivery',
+        //     'delivery/offline/non-container-delivery',
+        //     'delivery/offline/docker-compose-delivery',
+        //   ]
+        // },
+        // 'delivery/continuous-delivery-operations',
         {
-          type: 'category',
-          label: '多环境交付',
-          link: {
-            type: 'doc',
-            id: 'delivery/multi-environment/index'
+            type: 'category',
+            label: '持续交付',
+            link: {
+              type: 'doc',
+              id: 'delivery/continuous/index',
+            },
+            items: [
+              'delivery/continuous/source-code',
+              'delivery/continuous/rainbond-app-model',
+              'delivery/continuous/multi-cluster',
+            ]
           },
-          items: [
-            'delivery/multi-environment/dev-delivery-production',
-            'delivery/multi-environment/multi-cluster',
-          ]
-        },
-        {
-          type: 'category',
-          label: '离线交付',
-          link: {
-            type: 'doc',
-            id: 'delivery/offline/index'
+          {
+            type: 'category',
+            label: '离线交付',
+            link: {
+              type: 'doc',
+              id: 'delivery/offline/index',
+            },
+            items: [
+              'delivery/offline/micro-service',
+              'delivery/offline/development-iteration',
+            ]
           },
-          items: [
-            'delivery/offline/ram-delivery',
-            'delivery/offline/non-container-delivery',
-            'delivery/offline/docker-compose-delivery',
-          ]
-        },
-        // 'delivery/multi-cluster',
-        'delivery/continuous-delivery-operations',
+          'delivery/app-model-parameters',
       ]
     },
     {
