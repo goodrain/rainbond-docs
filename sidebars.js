@@ -239,19 +239,19 @@ const sidebars = {
         id: 'delivery/index'
       },
       items: [
-        'delivery/concept',
-        {
-          type: 'category',
-          label: '离线交付',
-          link: {
-            type: 'doc',
-            id: 'delivery/offline/index'
+          {
+            type: 'category',
+            label: '离线交付',
+            link: {
+              type: 'doc',
+              id: 'delivery/offline/index',
+            },
+            items: [
+              'delivery/offline/micro-service',
+              'delivery/offline/development-iteration',
+            ]
           },
-          items: [
-            'delivery/offline/offline-delivery',
-          ]
-        },
-        'delivery/multi-cluster',
+          'delivery/app-model-parameters',
       ]
     },
     {
