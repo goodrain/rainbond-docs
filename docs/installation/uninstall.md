@@ -32,7 +32,15 @@ kubectl get pvc -n rbd-system | grep -v NAME | awk '{print $1}' | xargs kubectl 
 kubectl get pv | grep rbd-system | grep -v NAME | awk '{print $1}' | xargs kubectl delete pv
 
 # Delete CRD
-kubectl get crd -n rbd-system | grep -v NAME | awk '{print $1}' | xargs kubectl delete crd
+kubectl delete crd componentdefinitions.rainbond.io \
+helmapps.rainbond.io \
+rainbondclusters.rainbond.io \
+rainbondpackages.rainbond.io \
+rainbondvolumes.rainbond.io \
+rbdcomponents.rainbond.io \
+servicemonitors.monitoring.coreos.com \
+thirdcomponents.rainbond.io \
+-n rbd-system
 
 # Delete NAMESPACE
 kubectl delete ns rbd-system

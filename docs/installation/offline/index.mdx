@@ -37,29 +37,29 @@ echo iptable_raw > /etc/modules-load.d/iptable_raw.conf
 
 ```shell
 mkdir -p ~/build_offline && cd ~/build_offline
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.X/rainbond-offline-v5.10.0-amd64.tar
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.X/rainbond-offline-v5.10.1-amd64.tar
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-dind-allinone
 vim Dockerfile
 ```
 
 - 粘贴以下内容到 Dockerfile 里
 
 ```file
-FROM registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone
-COPY rainbond-offline-v5.10.0-amd64.tar /app/offline.tar
+FROM registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-dind-allinone
+COPY rainbond-offline-v5.10.1-amd64.tar /app/offline.tar
 ```
 
  - 保存后继续执行以下命令
 
 ```shell
-docker build -t registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone .
-docker save -o rainbond-v5.10.0-dind-allinone.tar registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone
+docker build -t registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-dind-allinone .
+docker save -o rainbond-v5.10.1-dind-allinone.tar registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-dind-allinone
 ```
 
 - 导入 tar 包到你需要离线安装的服务器中。
 
 ```shell
-docker load -i rainbond-v5.10.0-dind-allinone.tar
+docker load -i rainbond-v5.10.1-dind-allinone.tar
 ```
 
 <h2> 2. 设置 EIP 环境变量(非必填) </h2>
@@ -86,7 +86,7 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
 -e EIP=$EIP \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-dind-allinone \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-dind-allinone \
 && docker logs -f rainbond-allinone
 ```
 
@@ -130,29 +130,29 @@ pod "rbd-chaos-9f6nf" deleted
 
 ```shell
 mkdir -p ~/build_offline && cd ~/build_offline
-wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.X/rainbond-offline-v5.10.0-arm64.tar
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone
+wget https://rainbond-pkg.oss-cn-shanghai.aliyuncs.com/offline/5.X/rainbond-offline-v5.10.1-arm64.tar
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-arm64-dind-allinone
 vim Dockerfile
 ```
 
 - 粘贴以下内容到 Dockerfile 里
 
 ```file
-FROM registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone
-COPY rainbond-offline-v5.10.0-arm64.tar /app/offline.tar
+FROM registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-arm64-dind-allinone
+COPY rainbond-offline-v5.10.1-arm64.tar /app/offline.tar
 ```
 
  - 保存后继续执行以下命令
 
 ```shell
-docker build -t registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone .
-docker save -o rainbond-v5.10.0-arm64-dind-allinone.tar registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone
+docker build -t registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-arm64-dind-allinone .
+docker save -o rainbond-v5.10.1-arm64-dind-allinone.tar registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-arm64-dind-allinone
 ```
 
 - 导入 tar 包到目标服务器中。
 
 ```shell
-docker load -i rainbond-v5.10.0-arm64-dind-allinone.tar
+docker load -i rainbond-v5.10.1-arm64-dind-allinone.tar
 ```
 
 <h2> 2. 设置 EIP 环境变量(非必填)</h2>
@@ -179,7 +179,7 @@ docker run --privileged -d -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443
 -v ~/rainbonddata:/app/data \
 -v /opt/rainbond:/opt/rainbond \
 -e EIP=$EIP \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.0-arm64-dind-allinone \
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-arm64-dind-allinone \
 && docker logs -f rainbond-allinone
 ```
 
@@ -242,7 +242,7 @@ kubectl edit rbdcomponent rbd-resource-proxy -n rbd-system
 
 - 修改下面命令打开的 yaml 中 `image:` 后面的内容   
 ```
-registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy:v5.10.0-release
+registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy:v5.10.1-release
 ```
 
 <details>
@@ -250,7 +250,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy:v5.10.0-release
 
 ```bash
 spec:
-  image: registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy:v5.10.0-release
+  image: registry.cn-hangzhou.aliyuncs.com/goodrain/resource-proxy:v5.10.1-release
 ```
 
 </details>

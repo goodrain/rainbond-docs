@@ -202,6 +202,7 @@ const sidebars = {
           },
           items: [
             'micro-service/example/pig',
+            'micro-service/example/blade',
           ]
         },
         {
@@ -787,6 +788,7 @@ const sidebars = {
             'ops-guide/management/dashboard-op',
             'ops-guide/management/resource-cleanup',
             'ops-guide/management/data-migration',
+            'ops-guide/management/container-runtime-switch',
           ]
         },
         {
