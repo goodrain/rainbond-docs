@@ -202,6 +202,7 @@ const sidebars = {
           },
           items: [
             'micro-service/example/pig',
+            'micro-service/example/blade',
           ]
         },
         {
