@@ -14,19 +14,60 @@ keywords:
 * Rainbond 控制台是通过 Allinone 部署的
 * 已经安装好的高可用 Rainbond 集群
 * 确保集群内资源大于 2GB
+* 已安装 [grctl](/docs/ops-guide/tools/grctl) 工具
 
-## 部署控制台到 Rainbond
+## 集群中部署控制台
 
-首先依然访问 Rainbond 控制台，创建一个`系统服务`团队用来部署系统应用。进入团队空间选择新增，基于应用市场创建组件。在开源应用商店中搜索`rainbond` 找到`Rainbond-开源`应用。
+### 背景
 
-![image-20210220194607418](https://static.goodrain.com/images/5.3/get-rainbond-app.png)
-
-点击安装，选择对应的版本安装，完成 Rainbond 控制台的部署。等到控制台启动成功后即可通过默认域名访问新的控制台。在新控制台中完成管理员账号的注册从而进入到数据恢复页面。
+基于主机安装的控制台，是由 docker 启动，无法实现高可用部署，故需要将 docker 启动的控制台迁移到集群中，这篇文档便详细的介绍了如何将 docker 启动的控制台迁移到集群中。
+### 实现介绍
 
 :::tip
-注意：若你需要使用云数据库或自建的高可用数据库，可通过第三方组件添加外部数据库后替换安装的应用中的 Mysql 数据库组件。第三方组件中的连接变量信息需要与 Mysql 组件保持一致。
-Rainbond-UI 和 Rainbond-控制台 两个组件可以进行水平伸缩。
+1. 生成一个rbdcomponent 资源类型的 rbd-app-ui 的模版。
+2. 解析命令所携带的参数并渲染到 rbdcomponent 资源类型的 rbd-app-ui 的模版上，并在集群中创建该资源。
+3. rainbond-operator 会检测到 rbdcomponent 资源类型的 rbd-app-ui 的创建，从 rbdcomponent 资源类型的 rbd-app-ui 中获取信息( env 、label 、arg ...)
+4. 创建 service 、ingress资源实现对外暴露端口。如果你在命令中制定了 `-p` 来选择对外暴露的端口，则会在创建的 service 和 ingress 资源中生效。
+5. 启动一个 job 类型资源，job 会完成初始化数据库以及创建 deployment 资源类型的 rbd-app-ui 等一系列工作。rbd-app-ui 默认使用的是 rbd-db 作为 console 数据库，如果在通过 `-e` 指定了外部数据库的连接方式，则会切换至外部数据库。
+:::
+
+### grctl migrate 支持参数
+
+| 参数                      |        用途         |       默认值        |
+| ------------------------ | --------------------|-------------------|
+| port/p                   |     外部访问端口       |       7070        |
+| env/e                   |        环境变量        |                  |
+| arg/a                   |         参数           |                  |
+| replicas/r              |         实例数         |        1         |
+| image/i                 |       控制台镜像       |   registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-release-allinone          |
+
+### 使用 grctl 迁移命令
+
+```bash
+grctl migrate -i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-release-allinone -p 7071 -r 1
+```
+
 :::tip
+* 迁移安装的控制台默认使用的镜像是最新版本，迁移之前查看自己的控制台镜像是否为最新版，如果是旧版本迁移一定要通过参数 `-i` 指定镜像。
+* 迁移控制台所占用的端口通过 `-p` 来设置，默认会使用 7070 端口，如果被占用则需要重新指定。
+* 实例数通过 `-r` 来设置。
+:::
+
+**注意: ** 如果需要指定外部的 MYSQL 数据库则需要按照以下格式进行配置。
+
+```bash
+grctl migrate -p 7071 -e MYSQL_HOST=127.0.0.1 -e MYSQL_PORT=3306 -e MYSQL_PASS=123456 -e MYSQL_DB=console
+```
+
+如果未指定外部存储，则会使用 rbd-db 作为 console 的数据库。你需要提前在此数据库中创建 console 数据库。控制台所有的数据都将存入该库。
+
+```bash
+ export DBPOD=`kubectl get pod -n rbd-system |grep rbd-db|awk '{print $1}'`
+ kubectl exec -ti $DBPOD -n rbd-system bash
+ mysql -p$MYSQL_ROOT_PASSWORD
+ CREATE DATABASE console  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
 ### 备份老控制台的数据
 
 回到老控制台的企业视图 -> 设置页面，切换到数据备份页面。如下图所示：
@@ -50,15 +91,15 @@ Rainbond-UI 和 Rainbond-控制台 两个组件可以进行水平伸缩。
 :::tip
 * 若恢复后平台自动退出登录，请重新访问新控制台域名，不要携带 path 路径，使用老控制台的账号进行登录。因为历史数据已经失效。
 * 请定期备份平台数据，以方便在紧急情况下异地恢复控制台服务。
-* 请在部署了控制台的应用内修改应用的英文名称以及组件的应用名称，以防控制台无法使用时可通过 Kubectl 命令行找到该POD。
 :::
 
 ### 已知问题
 
 迁移控制台后，恢复备份时从主机安装的 Kubernetes 集群信息不会被恢复，需手动拷贝集群安装信息。
 
-1. 安装 [grctl](/docs/ops-guide/tools/grctl) 工具。
-2. 进入`集群安装驱动服务` 组件内 > 伸缩复制`grctl`查询命令，并在服务器上执行找到 `/app/data` 对应的存储位置。
-3. 将 `～/rainbonddata/cloudadaptor/enterprise` 下的数据拷贝至上一步 `集群安装驱动服务` 组件的存储路径中。
-4. 进入企业视图  > 集群 > 节点配置，节点信息存在则成功。
+```bash
+export APP_UI=`kubectl get pod -n rbd-system |grep rbd-app-ui|grep Running|awk '{print $1}'`
+kubectl cp ~/rainbonddata/cloudadaptor/enterprise $APP_UI:/app/data/cloudadaptor -nrbd-system
+```
 
+进入企业视图  > 集群 > 节点配置，节点信息存在则成功。
