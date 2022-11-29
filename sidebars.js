@@ -145,6 +145,7 @@ const sidebars = {
         },
         'installation/offline/index',
         'installation/uninstall',
+        'installation/container-runtime-switch',
       ]
     },
     {
