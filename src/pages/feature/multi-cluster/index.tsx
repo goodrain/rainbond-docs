@@ -21,6 +21,7 @@
  import Layout from '../../../components/Layout';
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { FeatureContent, FeatureContentImage, FeatureHeader } from '../../../components/FeatureList';
+import Head from "@docusaurus/Head";
 
  export default function HowRainbond() {
   const animatedTexts = useTrail(5, {
@@ -72,7 +73,10 @@ import { FeatureContent, FeatureContentImage, FeatureHeader } from '../../../com
    ];
 
   return (
-    <Layout>
+    <Layout title={FeatureHeaderTitle.title} description={FeatureHeaderTitle.description}>
+      <Head>
+        <meta name={FeatureHeaderTitle.title} content={FeatureHeaderTitle.description} />
+      </Head>
       <animated.div style={animatedTexts[1]}>
       <FeatureHeader props={{...FeatureHeaderTitle}} />
       <FeatureContentImage props={{FeatureHeaderImage}}/>

@@ -1,8 +1,9 @@
 ---
-title: 干货分享！JAVA诊断工具Arthas在Rainbond上实践～
-description: 在 Rainbond 上使用 Arthas
-slug: arthas
-# authors: QiZhang
+title: Arthas 使用
+description: JAVA 诊断工具 Arthas 在 Rainbond 上实践
+keywords:
+- Arthas
+- 性能分析
 ---
 
 别再担心线上 Java 业务出问题怎么办了，`Arthas` 帮助你解决以下常见问题：
@@ -46,31 +47,21 @@ Arthas Tunnel 可通过 Rainbond 开源应用商店一键安装。
 
 ## 使用Arthas诊断Rainbond上的Spring Boot应用
 
-本小节使用若依SpringBoot作为示例。
-
-首先需要安装 Rainbond云原生应用管理平台，可参阅文档 [安装 Rainbond Allinone](https://www.rainbond.com/docs/installation/install-with-dind)
-
 ### 1. 部署 Spring Boot 应用
 
 团队 -> 新增 -> 基于应用商店创建组件 -> 在应用商店中搜索 `若依SpringBoot` 进行一键部署。
 
-![](https://static.goodrain.com/wechat/arthas/11.png)
-
 ### 2. 安装 Arthas Java Agent 插件并配置
 
-**2.1 安装插件**
+**安装插件**
 
 团队 -> 插件 -> 从应用商店安装插件 -> 在应用商店中搜索 `Arthas-Agent` 进行一键部署。
 
-![](https://static.goodrain.com/wechat/arthas/4.png)
-
-**2.2 开通插件**
+**开通插件**
 
 为`ruoyi-admin` 开通 Arthas Agent 插件，在组件内 -> 插件 -> 未开通 -> 开通插件。
 
-![](https://static.goodrain.com/wechat/arthas/12.png)
-
-**2.3 环境变量配置**
+**环境变量配置**
 
 为 `ruoyi-admin` 组件配置环境变量，在组件内 -> 环境变量 -> 添加变量。
 
@@ -86,43 +77,30 @@ Arthas Tunnel 可通过 Rainbond 开源应用商店一键安装。
 
 ![](https://static.goodrain.com/wechat/arthas/13.png)
 
-![](https://static.goodrain.com/wechat/arthas/14.png)
-
-
 
 ## 使用Arthas诊断Rainbond上的SpringCloud应用
 
-使用 Arthas 诊断部署在 Rainbond 上的微服务 Spring Cloud Pig，并通过 Arthas Tunnel 统一管理 Arthas agent。本小节将使用 Spring Cloud Pig 作为示例。
-
-首先需要安装 Rainbond云原生应用管理平台，可参阅文档 [安装 Rainbond Allinone](https://www.rainbond.com/docs/installation/install-with-dind)
+使用 Arthas 诊断部署在 Rainbond 上的微服务 [Spring Cloud Pig](/docs/micro-service/example/pig)，并通过 Arthas Tunnel 统一管理 Arthas agent。
 
 ### 1. 部署 Spring Cloud Pig
 
 团队 -> 新增 -> 基于应用商店创建组件 -> 在应用商店中搜索 `SpringCloud-Pig` 进行一键部署。
 
-![](https://static.goodrain.com/wechat/arthas/3.png)
-
 ### 2. 部署 Arthas Tunnel
 
 团队 -> 新增 -> 基于应用商店创建组件 -> 在应用商店中搜索 `Arthas-Tunnel` 进行一键部署。
 
-![](https://static.goodrain.com/wechat/arthas/5.png)
-
 ### 3. 安装 Arthas Agent 插件并配置
 
-**1. 安装插件**
+**安装插件**
 
 团队 -> 插件 -> 从应用商店安装插件 -> 在应用商店中搜索 `Arthas-Agent` 进行一键部署。
 
-![](https://static.goodrain.com/wechat/arthas/4.png)
-
-**2. 开通插件**
+**开通插件**
 
 为每个微服务组件都开通插件，进入微服务组件 -> 插件 -> 开通插件 `Arthas-Agent` 。
 
-![](https://static.goodrain.com/wechat/arthas/6.png)
-
-**3. 配置环境变量**
+**配置环境变量**
 
 为每个微服务组件配置环境变量，在组件内 -> 环境变量 -> 添加变量。
 
@@ -132,13 +110,13 @@ Arthas Tunnel 可通过 Rainbond 开源应用商店一键安装。
 | ARTHAS_APP_NAME | register                            | arthas app name，根据实际情况修改           |
 | ARTHAS_AGENT_ID | register                            | arthas agent ID 不可与其他 ID相同，是唯一的 |
 
-**4. 配置依赖关系**
+**配置依赖关系**
 
 将所有微服务组件依赖至 `arthas tunnel`，应用视图切换到编排模式进行拖拉拽。
 
 ![](https://static.goodrain.com/wechat/arthas/arthasgif.gif)
 
-**5. 批量更新**
+**批量更新**
 
 更新/重启所有微服务相关组件。可在 `列表` 中批量操作。
 
@@ -149,10 +127,6 @@ Arthas Tunnel 可通过 Rainbond 开源应用商店一键安装。
 2.在 Web Console 中的 IP:PORT 填写 Arthas Tunnel 7777 的对外服务端口，7777 端口是 Agent 连接到 Tunnel 的。所以在通过 Web 远程连接到其他服务时修改 AgentId 即可连接
 
 ![](https://static.goodrain.com/wechat/arthas/7.png)
-
-![](https://static.goodrain.com/wechat/arthas/8.png)
-
-
 
 ## Arthas 使用入门
 
@@ -212,7 +186,3 @@ profiler output file: /app/arthas-output/20220907-214802.html
 进入到该微服务组件中，例如：pig-auth，在组件端口中添加 `3658` 端口并打开对外服务并访问 `http://domain/arthas-output`
 
 ![](https://static.goodrain.com/wechat/arthas/9.png)
-
-## 最后
-
-Arthas 是款非常好的 Java 诊断工具，而在 Kubernetes 中使用较为复杂。Rainbond 底层基于 Kubernetes，在此之上抽象了应用模型，使用户更方便的在 Kubernets 中部署管理应用，并且通过 Rainbond 的插件机制让用户更便捷的使用 Arthas 诊断业务，降低了在 Kubernetes 中使用 Arthas 的门槛，用户只需关注业务。

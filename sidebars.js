@@ -84,7 +84,6 @@ const sidebars = {
               label: 'Helm 命令生成工具',
               href: '/helm'
             },
-            'installation/install-with-helm/uninstall-with-helm'
           ]
         },
         {
@@ -95,17 +94,16 @@ const sidebars = {
             id: 'installation/ha-deployment/index'
           },
           items: [
-            'installation/ha-deployment/resource-prepare',
             {
               type: 'category',
-              label: '容器和数据库安装',
+              label: '安装前准备与要求',
               link: {
                 type: 'doc',
-                id: 'installation/ha-deployment/db-runtime/index'
+                id: 'installation/ha-deployment/overview/index'
               },
               items: [
-                'installation/ha-deployment/db-runtime/mysql-ha',
-                'installation/ha-deployment/db-runtime/mysql-centos',
+                'installation/ha-deployment/overview/mysql-ha',
+                'installation/ha-deployment/overview/deploy-keepalived',
               ]
             },
             {
@@ -133,17 +131,6 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '负载均衡和ETCD',
-              link: {
-                type: 'doc',
-                id: 'installation/ha-deployment/lb-etcd/index'
-              },
-              items: [
-                'installation/ha-deployment/lb-etcd/deploy-keepalived',
-              ]
-            },
-            {
-              type: 'category',
               label: 'Rainbond 集群安装',
               link: {
                 type: 'doc',
@@ -157,7 +144,7 @@ const sidebars = {
           ]
         },
         'installation/offline/index',
-        'installation/container-runtime-switch',
+        'installation/uninstall',
       ]
     },
     {
@@ -217,6 +204,31 @@ const sidebars = {
             'micro-service/example/pig',
           ]
         },
+        {
+          type: 'category',
+          label: '链路追踪',
+          link: {
+            type: 'doc',
+            id: 'micro-service/tracking/index'
+          },
+          items: [
+            'micro-service/tracking/pinpoint',
+            'micro-service/tracking/skywalking',
+            'micro-service/tracking/jaeger',
+          ]
+        },
+        {
+          type: 'category',
+          label: '性能分析',
+          link: {
+            type: 'doc',
+            id: 'micro-service/analysis/index'
+          },
+          items: [
+            'micro-service/analysis/pyroscope',
+            'micro-service/analysis/arthas',
+          ]
+        },
       ]
     },
     {
@@ -227,19 +239,19 @@ const sidebars = {
         id: 'delivery/index'
       },
       items: [
-        'delivery/concept',
-        {
-          type: 'category',
-          label: '离线交付',
-          link: {
-            type: 'doc',
-            id: 'delivery/offline/index'
+          {
+            type: 'category',
+            label: '离线交付',
+            link: {
+              type: 'doc',
+              id: 'delivery/offline/index',
+            },
+            items: [
+              'delivery/offline/micro-service',
+              'delivery/offline/development-iteration',
+            ]
           },
-          items: [
-            'delivery/offline/offline-delivery',
-          ]
-        },
-        'delivery/multi-cluster',
+          'delivery/app-model-parameters',
       ]
     },
     {
@@ -914,7 +926,6 @@ const sidebars = {
           },
           items: [
             'expand/practices/app-dev/work_with_kong',
-            'expand/practices/app-dev/work_with_apm',
             'expand/practices/app-dev/work_with_git',
             'expand/practices/app-dev/work_with_elk',
             'expand/practices/app-dev/app_publishing',

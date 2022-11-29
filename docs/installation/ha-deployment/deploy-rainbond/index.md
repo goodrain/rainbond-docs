@@ -9,12 +9,9 @@ keywords:
 
 ## 前提条件
 
-* 参阅文档 [软件和硬件环境要求](../resource-prepare) 确保安装环境满足要求。
-* 参阅文档 [容器和数据库安装](../db-runtime) 安装容器运行时和 Mysql 数据库。
-* 参阅文档 [Kubernetes 集群安装](../deploy-k8s) 安装 Kubernetes 集群。
-* 参阅文档 [分布式文件存储安装](../storage) 安装分布式文件存储集群，如需对接阿里云 NAS 请参阅 [对接阿里云NAS存储](./init-rainbond-config#对接阿里云-nas-存储)
-* 参阅文档 [负载均衡和ETCD](../lb-etcd) 安装负载均衡 Keepalived 和复用 ETCD 集群。
-
+* 请按照 [安装前概述与要求](/docs/installation/ha-deployment/overview/) 准备相关服务与资源。
+* 请按照 [Kubernetes 集群安装](../deploy-k8s) 安装 Kubernetes 集群。
+* 请按照 [分布式文件存储安装](../storage) 安装分布式文件存储集群，如需对接阿里云 NAS 请参阅 [对接阿里云NAS存储](./init-rainbond-config#对接阿里云-nas-存储)
 
 ## 基于主机安装 Rainbond 集群
 
