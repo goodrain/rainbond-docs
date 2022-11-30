@@ -26,44 +26,173 @@ K3s 默认会安装 Traefik 这与 Rainbond 网关会冲突，在安装 K3s 时�
 ```bash
 k3s server --disable traefik
 ```
-## 安装 Rainbond
 
-添加 Helm Chart 仓库
+## 使用k3s的containerd作为容器运行时
+
+rainbond安装过程中会检查环境的容器运行时，检查方法是看 `/var/run` 目录下是否有 `docker.sock` 文件，如果有选择 `docker` 作为 Rainbond 容器运行时，没有则使用 `containerd` 作为 Rainbond 容器运行时
+
+这时 k3s 集群`/var/run`目录中如果没有`docker.sock`文件，那么 rainbond 就以 containerd 作为容器运行时
+
+但是 rainbond 组件挂载的 containerd 容器运行时目录是`/run/containerd`
+
+而k3s的containerd的目录为`/var/run/k3s/containerd`
+
+这时 rainbond 如果使用 k3s 会出现问题，挂载 containerd 的目录找不到，就需要将 k3s 的 containerd 目录软连接到 rainbond 组件挂载 containerd 的目录下
 
 ```bash
-helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
+ln -s /var/run/k3s/containerd/* /run/containerd/
 ```
 
-创建 `rbd-system` 命名空间
+:::info
+切换容器运行时 参数请参考 [容器运行时切换](/docs/installation/container-runtime-switch)。
+:::
+
+## 安装Rainbond
+
+以下将会列出基于自建 Kubernetes 集群部署 Rainbond 的一些必要步骤，以及相关参数的简要说明。
+
+### 1. 获取网关节点信息：
+
+Rainbond 会部署一个平台的全局网关，即 `rbd-gateway` 组件，它是平台内所有应用的访问入口。因此它需要监听节点的 80、443、6060、7070、8443 端口。所以需要选择一个端口未被占用的节点作为网关节点。
+
+### 2. 生成安装命令
+
+当我们确定下某个节点作为网关节点时，如 `192.168.3.163` ，此时需要使用以下 Kubectl 命令查看节点名称。
+
+```bash
+kubectl get node -owide
+```
+
+执行完该命令后，你将会看到以下输出
+
+```bash
+NAME          STATUS   ROLES                  AGE   VERSION        INTERNAL-IP     EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION           CONTAINER-RUNTIME
+goodrain163   Ready    control-plane,master   14d   v1.22.3+k3s1   192.168.3.163   <none>        CentOS Linux 7 (Core)   3.10.0-1160.el7.x86_64   containerd://1.5.7-k3s2
+```
+
+可以看到，该节点的名称为 `goodrain163`, 内部 IP 为 `192.168.3.163`, 此时没有外部 IP。我们这时候使用[Helm安装命令生成工具](/helm), 生成安装命令。必填参数说明如下：
+
+
+| 参数       | 说明                                                       |
+| :------------- | :--------------------------------------------------------- |
+| 网关地址 | 如果有外部负载均衡，负载到你指定的网关节点上，那么填写外部的负载均衡地址，否则填写网关节点的外网/内网 IP |
+| 网关节点 | 选择端口未被占用的节点作为网关节点，填写相关的外网 IP、内网 IP、节点名 |
+
+以刚刚我们选定的网关节点为例。由于没有外部负载均衡地址，只有内网 IP 为 `192.168.3.163`。所以网关地址可以填写内网IP `192.168.3.163`。
+网关节点的节点配置中，外部 IP 和内部 IP 均填写 `192.168.3.163`，节点名称填写通过 Kubectl 命令查询到的值，即 `goodrain163`。
+
+### 3. 自定义高级配置(可选)
+ 
+当你有一些额外需求，比如使用自建的镜像仓库、数据库、ETCD、StorageClass、指定构建节点等。你可以使用[Helm安装命令生成工具](/helm)生成安装命令。
+参数详细说明可以参考 [values.yaml 详解](/docs/installation/install-with-helm/vaules-config)
+
+### 4. 安装 Rainbond
+
+:::caution
+可通过helm命令工具生成安装命令，以下命令仅供参考
+:::
+
+填写完毕后，点击最下方一键生成安装命令，你将会看到以下输出：
 
 ```bash
 kubectl create namespace rbd-system
+
+helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
+
+helm repo update
+
+helm install --set Cluster.gatewayIngressIPs=192.168.3.163 --set Cluster.enableHA=false --set Cluster.nodesForGateway[0].name=goodrain163 --set Cluster.nodesForGateway[0].externalIP=192.168.3.163 --set Cluster.nodesForGateway[0].internalIP=192.168.3.163 rainbond rainbond/rainbond-cluster -n rbd-system
 ```
 
-安装 Rainbond
+该命令主要执行了以下操作：
 
-:::info
-更多 Helm Chart 参数请参考 [Chart 安装选项](../vaules-config)。
-:::
+- 创建 rbd-system 命名空间
+- 添加 Rainbond 的 Helm 仓库
+- 更新仓库数据
+- 执行安装
+
+你接下来可以复制生成的命令，去你的 Kubernetes 集群中进行安装。
+
+### 5. 安装进度查询
+
+执行完安装命令后，Rainbond 进行环境检查, 检查通过后开始安装。
+
+#### 环境检查
+
+- 当你开始执行安装命令后，如果返回如下报错，则说明环境检测失败。
 
 ```bash
-helm install rainbond rainbond/rainbond-cluster -n rbd-system
+Error: failed pre-install: job failed: BackoffLimitExceeded
 ```
 
-### 验证安装
-
-查看pod状态
+- 此时你需要执行以下命令检查失败日志信息，根据失败信息进行处理。
 
 ```bash
-kubectl get po -n rbd-system | grep rbd-app-ui
+kubectl logs -f -l name=env-checker -n rbd-system
 ```
 
-- 等待 `rbd-app-ui` pod为 Running 状态即安装成功。
-- 安装成功以后，可通过 `$gatewayIngressIPs:7070` 访问 Rainbond 控制台。
+- 如果一切顺利，你执行完命令后，应该会看到以下输出。
 
-### 安装问题排查
+```bash
+NAME: rainbond
+LAST DEPLOYED: Fri May 27 18:09:08 2022
+NAMESPACE: rbd-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+安装过程大概持续10分钟左右，如遇问题可以参考 helm 问题排查文档：
 
-- 安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](https://www.rainbond.com/docs/user-operations/deploy/install-troubleshoot/helm-install-troubleshoot/)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+https://www.rainbond.com/docs/installation/install-troubleshoot/helm-install-troubleshoot
+
+动态查看 rainbond 安装进度命令：
+
+watch kubectl get po -n rbd-system
+
+等待 rbd-app-ui 的 pod 状态为 Running 时，即可访问 Rainbond 控制台，以下为访问地址：
+
+  192.168.3.163:7070
+```
+
+#### 开始安装
+
+- 当环境检查通过后，将会开始安装 Rainbond，此时你可以通过以下命令，查看 Pod 启动状态。
+
+```
+watch kubectl get po -n rbd-system
+```
+
+- 当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。如下所示，Pod `rbd-app-ui-669bb7c74b-7bmlf` 为 Running 状态时，表示 Rainbond 安装成功。
+
+```
+NAME                                         READY   STATUS      RESTARTS   AGE
+nfs-provisioner-0                            1/1     Running     0          14d
+rbd-etcd-0                                   1/1     Running     0          14d
+rbd-hub-64777d89d8-l56d8                     1/1     Running     0          14d
+rbd-gateway-76djb                            1/1     Running     0          14d
+dashboard-metrics-scraper-7db45b8bb4-tcgxd   1/1     Running     0          14d
+rbd-mq-6b847d874b-j5jg2                      1/1     Running     0          14d
+rbd-webcli-76b54fd7f6-jrcdj                  1/1     Running     0          14d
+kubernetes-dashboard-fbd4fb949-2qsn9         1/1     Running     0          14d
+rbd-resource-proxy-547874f4d7-dh8bv          1/1     Running     0          14d
+rbd-monitor-0                                1/1     Running     0          14d
+rbd-db-0                                     2/2     Running     0          14d
+rbd-eventlog-0                               1/1     Running     0          14d
+rbd-app-ui-migrations--1-hp2qg               0/1     Completed   0          14d
+rbd-worker-679fd44bc7-n6lvg                  1/1     Running     0          9d
+rbd-node-jhfzc                               1/1     Running     0          9d
+rainbond-operator-7978d4d695-ws8bz           1/1     Running     0          9d
+rbd-chaos-nkxw7                              1/1     Running     0          8d
+rbd-app-ui-669bb7c74b-7bmlf                  1/1     Running     0          7d12h
+rbd-api-5d8bb8d57d-djx2s                     1/1     Running     0          47h
+```
+
+- 安装成功以后，可以通过安装界面弹出的提示访问信息，访问 Rainbond 控制台（实际访问 IP 以弹出的信息为准）
+
+
+## 问题排查
+
+安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](/docs/installation/install-troubleshoot/helm-install-troubleshoot)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
 
 ## 下一步
 
