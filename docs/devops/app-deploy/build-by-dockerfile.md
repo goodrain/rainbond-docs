@@ -43,5 +43,3 @@ keywords:
 3. 需要指定镜像的守护进程，如果不指定守护进程在镜像启动命令运行完成后就会自动退出然后重新启动，构建好的组件可能会处于运行异常的状态中
 
 相对于普通**Docker**环境的**优点**：
-
-对于需要不断调整**Dockerfile**的用户来说构建过程更加简单，通过参考[配置组件自动构建部署](/docs/use-manual/component-manage/build-source/auto_build)可以借助**Github**的**Webhook**实现代码修改的同时完成镜像的更新操作。

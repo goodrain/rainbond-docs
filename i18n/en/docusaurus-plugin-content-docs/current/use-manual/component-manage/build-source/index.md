@@ -23,7 +23,7 @@ When the component is created, the language of the build source is detected. In 
 
 ## Automatic build settings
 
-Automatic build is an operation that automatically triggers the build of the Rainbond component version in one way. For details, see [Automatic Build](./auto_build)
+Automatic build is an operation that automatically triggers the build of the Rainbond component version in one way. For details, see Automatic Build
 
 ## Build parameter settings
 

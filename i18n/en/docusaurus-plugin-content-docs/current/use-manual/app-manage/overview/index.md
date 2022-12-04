@@ -18,7 +18,6 @@ The application overview details are as：
 | [application life cycle](/docs/use-manual/app-manage/overview/operation)          | Application lifecycle management, batch activation, deactivation, update, build, etc.                                                          |
 | [Application topology](/docs/use-manual/app-manage/overview/app-topology)         | Apply topology map management, manage dependencies between components, add and delete                                                          |
 | [add components](/docs/use-manual/app-manage/overview/add-service)                | Adding components in the app has the same effect as adding components in the team view                                                         |
-| [Quick copy](/docs/use-manual/app-manage/overview/app-copy)                       | Quickly copy the deployed components to new components, which can be copied in batches.                                                        |
 | [Operating components](/docs/use-manual/app-manage/overview/app-topology#拓扑图组件操作) | Perform basic operations on components and display basic information through topology diagrams.                                                |
 
 

@@ -4,7 +4,7 @@ weight: 4004
 ---
 
 ### 前言
-部署 Vue 、React 项目请参考 [Rainbond部署Vue、React项目](./build-react-and-vue)
+部署 Vue 、React 项目请参考 Rainbond部署Vue、React项目
 
 以往我们在部署前端项目后，调用后端接口有以下几种场景：
 
@@ -160,7 +160,7 @@ server {
 
 #### Dockerfile源码构建部署Mysql
 
-参考博客文章[Rainbond 中用 Dockerfile 便捷构建运行应用](./build_by_dockerfile)
+参考博客文章Rainbond 中用 Dockerfile 便捷构建运行应用
 
 1. 通过Dockerfile源码构建部署Mysql。参考文档[Dockerfile源码构建](/docs/use-manual/component-create/language-support/dockefile)
 

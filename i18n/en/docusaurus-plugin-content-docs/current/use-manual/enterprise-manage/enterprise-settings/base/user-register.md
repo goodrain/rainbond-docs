@@ -42,4 +42,4 @@ The enterprise administrator can turn off the user registration function through
 
 ### Integration with third-party user systems
 
-Rainbond supports third-party platform user login with standard specifications such as Auth2.0, please refer to [Auth2.0 related support documents](/docs/use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/)
+Rainbond supports third-party platform user login with standard specifications such as Auth2.0, please refer to Auth2.0 related support documents
