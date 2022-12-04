@@ -1,8 +1,10 @@
 ---
-title: 用 Dockerfile 便捷构建运行组件
-weight: 4001
+title: Dockerfile 项目部署 
+description: 在 Rainbond 中部署 Dockerfile 项目
+keywords:
+- Rainbond 部署 Dockerfile 项目
+- Dockerfile 项目部署
 ---
-
 
 **Rainbond平台**支持直接通过**Dockerfile**构建并运行镜像，操作流程简单，方便进行持续迭代。
 

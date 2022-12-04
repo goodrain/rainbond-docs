@@ -1,5 +1,8 @@
 ---
-title: OAuth2.0集成
+title: 部署应用
+description: 在 Rainbond 上部署应用
+keywords:
+- 在 Rainbond 上部署应用
 ---
 
 ```mdx-code-block

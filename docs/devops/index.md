@@ -1,6 +1,11 @@
 ---
-title: OAuth2.0 integration
+title: DevOps 指南
+description: Rainbond DevOps 指南
+keywords:
+- DevOps 指南
+- Rainbond DevOps
 ---
+
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
