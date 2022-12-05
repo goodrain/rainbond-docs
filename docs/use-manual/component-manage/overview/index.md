@@ -21,6 +21,5 @@ description: 组件总览
 | 磁盘                                                         | 展示组件占用的磁盘大小                                       |
 | 版本号                                                       | 组件的版本号，对应组件镜像的 tag                             |
 | 构建源                                                       | 不同的构建源展示不同的信息，例如来自镜像创建的组件会展示仓库地址、镜像名称、tag |
-| [版本回滚](/docs/use-manual/component-manage/overview/version-rollback) | 展示每次构建的版本信息，可进行回滚，最多保留30天内的构建版本记录 |
 | [操作记录](/docs/use-manual/component-manage/overview/operation-log) | 记录操作日志、构建日志等。                                   |
 

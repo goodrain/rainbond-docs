@@ -149,6 +149,66 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'DevOps 指南',
+      link: {
+        type: 'doc',
+        id: 'devops/index'
+      },
+      items: [
+        'devops/overview/index',
+        'devops/code-repository/index',
+        {
+          type: 'category',
+          label: '应用部署',
+          link: {
+            type: 'doc',
+            id: 'devops/app-deploy/index'
+          },
+          items: [
+            'devops/app-deploy/react-vue',
+            'devops/app-deploy/springboot',
+            {
+              type: 'category',
+              label: '使用 CI 工具部署应用',
+              link: {
+                type: 'doc',
+                id: 'devops/app-deploy/ci-tools/index',
+              },
+              items: [
+                'devops/app-deploy/ci-tools/gitlab-ci',
+                'devops/app-deploy/ci-tools/sonarqube',
+              ]
+            },
+          ]
+        },
+        'devops/env-version/index',
+        {
+          type: 'category',
+          label: '持续部署',
+          link: {
+            type: 'doc',
+            id: 'devops/continuous-deploy/index',
+          },
+          items: [
+            'devops/continuous-deploy/gitops',
+            'devops/continuous-deploy/auto-build',
+          ]
+        },
+        {
+          type: 'category',
+          label: '应用调试',
+          link: {
+            type: 'doc',
+            id: 'devops/app-debug/index',
+          },
+          items: [
+            'devops/app-debug/nocalhost',
+          ]
+        },
+      ]
+    },
+    {
+      type: 'category',
       label: '微服务架构指南',
       link: {
         type: 'doc',
@@ -426,7 +486,6 @@ const sidebars = {
               items: [
                 'use-manual/component-manage/overview/basic-operation',
                 'use-manual/component-manage/overview/service-properties',
-                'use-manual/component-manage/overview/version-rollback',
                 'use-manual/component-manage/overview/operation-log',
               ]
             },
@@ -486,8 +545,6 @@ const sidebars = {
                 id: 'use-manual/component-manage/build-source/index'
               },
               items: [
-                'use-manual/component-manage/build-source/build_and_version',
-                'use-manual/component-manage/build-source/auto_build',
                 'use-manual/component-manage/build-source/change_source_type'
               ]
             },
@@ -523,7 +580,6 @@ const sidebars = {
                 'use-manual/app-manage/overview/app-topology',
                 'use-manual/app-manage/overview/operation',
                 'use-manual/app-manage/overview/add-service',
-                'use-manual/app-manage/overview/app-copy',
               ]
             },
             'use-manual/app-manage/share-app',
@@ -705,20 +761,6 @@ const sidebars = {
                   items: [
                     'use-manual/enterprise-manage/enterprise-settings/base/user-register',
                     'use-manual/enterprise-manage/enterprise-settings/base/cert-management',
-                    {
-                      type: 'category',
-                      label: 'OAuth2.0集成',
-                      link: {
-                        type: 'doc',
-                        id: 'use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/index'
-                      },
-                      items: [
-                        'use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/oauth-product-desc',
-                        'use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/oauth-conf',
-                        'use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/oauth-git',
-                        'use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/oauth-create'
-                      ]
-                    },
                     'use-manual/enterprise-manage/enterprise-settings/base/component-registry',
                     'use-manual/enterprise-manage/enterprise-settings/base/oss',                    
                   ]
@@ -929,7 +971,6 @@ const sidebars = {
           },
           items: [
             'expand/practices/app-dev/work_with_kong',
-            'expand/practices/app-dev/work_with_git',
             'expand/practices/app-dev/work_with_elk',
             'expand/practices/app-dev/app_publishing',
             'expand/practices/app-dev/ab_testing',
@@ -937,9 +978,7 @@ const sidebars = {
             'expand/practices/app-dev/config_file',
             'expand/practices/app-dev/collect_log',
             'expand/practices/app-dev/java-exporter',
-            'expand/practices/app-dev/build_by_dockerfile',
             'expand/practices/app-dev/statefulset',
-            'expand/practices/app-dev/build-react-and-vue',
             'expand/practices/app-dev/connect-api',
             'expand/practices/app-dev/port-conflict',
             'expand/practices/app-dev/auto-schema',

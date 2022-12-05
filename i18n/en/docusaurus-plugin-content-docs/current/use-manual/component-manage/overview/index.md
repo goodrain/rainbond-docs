@@ -21,6 +21,5 @@ The component overview display information is as：
 | disk                                                                                    | The size of the disk occupied by the display component                                                                                             |
 | version number                                                                          | The version number of the component, corresponding to the tag of the component image                                                               |
 | build source                                                                            | Different build sources display different information, for example, components from image creation will display warehouse address, image name, tag |
-| [version rollback](/docs/use-manual/component-manage/overview/version-rollback)         | Displays the version information of each build, can be rolled back, and retains build version records within 30 days at most                       |
 | [Operation record](/docs/use-manual/component-manage/overview/operation-log)            | Record operation logs, build logs, etc.                                                                                                            |
 

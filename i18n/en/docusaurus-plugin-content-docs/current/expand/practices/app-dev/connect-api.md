@@ -4,7 +4,7 @@ weight: 4004
 ---
 
 ### foreword
-For deploying Vue and React projects, please refer to [Rainbond to deploy Vue and React projects](./build-react-and-vue)
+For deploying Vue and React projects, please refer to Rainbond to deploy Vue and React projects
 
 In the past, after deploying the front-end project, we called the back-end interface in the following scenarios：
 
@@ -160,7 +160,7 @@ Next, deploy a SpringBoot backend project to use with the frontend.
 
 #### Dockerfile source code build and deploy Mysql
 
-Refer to the blog post[Rainbond to easily build and run applications with Dockerfile](./build_by_dockerfile)
+Refer to the blog post Rainbond to easily build and run applications with Dockerfile
 
 1. Build and deploy Mysql through the Dockerfile source code.Reference document[Dockerfile source code construction](/docs/use-manual/component-create/language-support/dockefile)
 

@@ -23,7 +23,7 @@ Rainbond 组件创建有三种模式：[源码](/docs/use-manual/component-creat
 
 ## 自动构建设置
 
-自动构建即通过一种方式自动触发 Rainbond 组件版本构建的操作，详细文档见 [组件自动构建](./auto_build)
+自动构建即通过一种方式自动触发 Rainbond 组件版本构建的操作，详细文档见 组件自动构建
 
 ## 构建参数设置
 

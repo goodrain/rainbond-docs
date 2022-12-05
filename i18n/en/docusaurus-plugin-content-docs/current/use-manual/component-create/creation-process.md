@@ -24,7 +24,7 @@ The following will take the Java source code to create a component as an example
 
 4. After the detection is complete, the user can choose to start the build or perform advanced settings to set more component properties.If you choose to build and start Rainbond, it will obtain the source code again and build the source code according to the language type detected by the code.Please note that the source code type will only be read in the source code detection, so if the language type is changed in the subsequent development process, re-code detection needs to be triggered.
 
-5. After the component is built, it can be accessed through the default domain name bound to the port.For the follow-up management and maintenance process, please refer to [Component Development](/docs/use-manual/component-manage/build-source/build_and_version) [Component Operation and Maintenance](/docs/use-manual/component-manage/overview/basic-operation)
+5. After the component is built, it can be accessed through the default domain name bound to the port.
 
 Source address: https://github.com/goodrain/java-maven-demo.git
 
@@ -76,7 +76,7 @@ The following will take the official image of Nginx as an example to introduce a
 
 3. After the application detection passes, the component can be created.
 
-4. Components are accessible after the build is complete.For the follow-up management and maintenance process, please refer to the follow-up management and maintenance process, please refer to [Component Development](/docs/use-manual/component-manage/build-source/build_and_version) [Component Operation and Maintenance](/docs/use-manual/component-manage/overview/basic-operation)
+4. Components are accessible after the build is complete.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/dockerconstruction.png" title="Schematic diagram of creating components based on Docker images" />
 
