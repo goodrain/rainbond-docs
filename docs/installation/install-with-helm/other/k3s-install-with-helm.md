@@ -26,6 +26,14 @@ K3s 默认会安装 Traefik 这与 Rainbond 网关会冲突，在安装 K3s 时�
 ```bash
 k3s server --disable traefik
 ```
+
+:::tip
+Rainbond 支持 Containerd 和 Docker 作为容器运行时，如果 K3s 使用 Containerd 作为容器运行时，那么你需要执行：
+```bash
+ln -s /var/run/k3s/containerd/* /run/containerd/
+```
+该命令将 K3s 默认的 `containerd.sock` 路径软链接到 `/run/containerd`，因为 Rainbond 默认会在 `/run/containerd` 目录下挂载 `containerd.sock`
+:::
 ## 安装 Rainbond
 
 添加 Helm Chart 仓库
