@@ -165,8 +165,8 @@ const sidebars = {
             id: 'devops/app-deploy/index'
           },
           items: [
-            'devops/app-deploy/build-react-and-vue',
-            'devops/app-deploy/build-by-dockerfile',
+            'devops/app-deploy/react-vue',
+            'devops/app-deploy/springboot',
             {
               type: 'category',
               label: '使用 CI 工具部署应用',
@@ -176,6 +176,7 @@ const sidebars = {
               },
               items: [
                 'devops/app-deploy/ci-tools/gitlab-ci',
+                'devops/app-deploy/ci-tools/sonarqube',
               ]
             },
           ]

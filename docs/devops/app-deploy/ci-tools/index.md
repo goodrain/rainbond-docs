@@ -4,6 +4,7 @@ description: 在 Rainbond 上使用第三方 CI 工具部署应用
 keywords:
 - Jenkins
 - GitLab CI
+- Sonar Scanner
 ---
 
 ```mdx-code-block

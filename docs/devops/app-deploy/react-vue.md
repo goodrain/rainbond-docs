@@ -11,7 +11,6 @@ keywords:
 以往我们在部署 **Vue React** 前端项目有几种方法：
 
 * 项目打包好之后生成 Dist目录，将其放入 Nginx 中，并进行相应的访问配置。
-* 将项目打包好放入 Tomcat 中。
 * 将项目打包好的 dist 目录中的 static 和 index.html 文件放入 Springboot 项目的 resources 目录下
 * 直接运行一个前端 Server，类似本地开发那种。
 
