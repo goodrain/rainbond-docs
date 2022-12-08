@@ -1,7 +1,13 @@
 ---
 title: '基于 K3s 安装'
 description: '基于已有的 K3s 集群，使用 helm 从零开始安装 Rainbond'
+keywords:
+- 在 K3s 上安装 Rainbond
+- 使用 K3s Containerd 安装 Rainbond
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## 安装前提
 
@@ -17,29 +23,53 @@ description: '基于已有的 K3s 集群，使用 helm 从零开始安装 Rainbo
 
 ## 安装 K3s
 
-:::caution
-K3s 默认会安装 Traefik 这与 Rainbond 网关会冲突，在安装 K3s 时需添加 `--disable traefik` 禁用 Traefik 的安装。
-:::
+在安装 K3s 时需添加 `--disable traefik` 禁用 Traefik 的安装，Traefik 与 Rainbond 网关会产生冲突，更多请参阅 [K3s 安装文档](https://docs.k3s.io/installation)。
 
-请参阅 [K3s 安装文档](https://docs.k3s.io/installation) 安装
+<Tabs>
+  <TabItem value="containerd" label="Containerd" default>
 
-```bash
-k3s server --disable traefik
+Rainbond 默认会安装私有镜像仓库，通过创建 `/etc/rancher/k3s/registries.yaml` 文件来配置使用私有镜像仓库。
+
+```yaml
+configs:
+  "goodrain.me":
+    tls:
+      insecure_skip_verify: true
 ```
 
-:::tip
-Rainbond 支持 Containerd 和 Docker 作为容器运行时，如果 K3s 使用 Containerd 作为容器运行时，那么你需要执行：
+安装 K3s
+
 ```bash
-ln -s /var/run/k3s/containerd/* /run/containerd/
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable traefik" sh -s -
 ```
-该命令将 K3s 默认的 `containerd.sock` 路径软链接到 `/run/containerd`，因为 Rainbond 默认会在 `/run/containerd` 目录下挂载 `containerd.sock`
-:::
+
+  </TabItem>
+  <TabItem value="docker" label="Docker">
+
+```bash
+# install docker
+curl -sfL https://get.rainbond.com/install_docker | bash
+
+# install k3s
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--docker --disable traefik" sh -s -
+```
+
+  </TabItem>
+</Tabs>
+
+复制 K3s Kubeconfig 文件到 `~/.kube/config`。
+
+```bash
+cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+```
+
 ## 安装 Rainbond
 
 添加 Helm Chart 仓库
 
 ```bash
 helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
+helm repo update
 ```
 
 创建 `rbd-system` 命名空间
@@ -48,26 +78,72 @@ helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
 kubectl create namespace rbd-system
 ```
 
-安装 Rainbond
+<Tabs>
+  <TabItem value="containerd" label="Containerd" default>
+
+K3s 使用 Containerd 作为容器运行时，需指定 `useK3sContainerd` 参数为 `true`。
+
+```bash
+helm install rainbond rainbond/rainbond-cluster -n rbd-system \
+--set useK3sContainerd=true
+```
+
+  </TabItem>
+  <TabItem value="docker" label="Docker">
+
+使用 Helm 安装 Rainbond
+```bash
+helm install rainbond rainbond/rainbond-cluster -n rbd-system
+```
+
+  </TabItem>
+</Tabs>
 
 :::info
 更多 Helm Chart 参数请参考 [Chart 安装选项](../vaules-config)。
 :::
 
+## 安装进度查询
+
+执行完安装命令后，Rainbond 进行环境检查, 检查通过后开始安装。
+
+### 环境检查
+
+- 当你开始执行安装命令后，如果返回如下报错，则说明环境检测失败。
+
 ```bash
-helm install rainbond rainbond/rainbond-cluster -n rbd-system
+Error: failed pre-install: job failed: BackoffLimitExceeded
 ```
 
-### 验证安装
-
-查看pod状态
+- 此时你需要执行以下命令检查失败日志信息，根据失败信息进行处理。
 
 ```bash
-kubectl get po -n rbd-system | grep rbd-app-ui
+kubectl logs -f -l name=env-checker -n rbd-system
 ```
 
-- 等待 `rbd-app-ui` pod为 Running 状态即安装成功。
-- 安装成功以后，可通过 `$gatewayIngressIPs:7070` 访问 Rainbond 控制台。
+- 如果一切顺利，你执行完命令后，应该会看到以下输出。
+
+```bash
+NAME: rainbond
+LAST DEPLOYED: Fri May 27 18:09:08 2022
+NAMESPACE: rbd-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+安装过程大概持续10分钟左右，如遇问题可以参考 helm 问题排查文档：
+
+https://www.rainbond.com/docs/installation/install-troubleshoot/helm-install-troubleshoot
+
+动态查看 rainbond 安装进度命令：
+
+watch kubectl get po -n rbd-system
+
+等待 rbd-app-ui 的 pod 状态为 Running 时，即可访问 Rainbond 控制台，以下为访问地址：
+
+  192.168.3.163:7070
+```
+
 
 ### 安装问题排查
 
