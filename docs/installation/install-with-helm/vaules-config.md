@@ -142,6 +142,11 @@ operator:
 | ---------------- | ------ | ---- | ------------- |
 | Cluster.replicas | 2      | int  | 集群POD副本数 |
 
+## 使用 K3s Containerd
+
+| 配置项           | 默认值 | 类型 | 说明          |
+| ---------------- | ------ | ---- | ------------- |
+| useK3sContainerd | false      | bool  | 使用 K3s Containerd |
 ## Values.yaml 示例配置
 
 
