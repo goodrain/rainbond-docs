@@ -244,5 +244,8 @@
   },
   "opensourceapps.btyebase.description": {
     "message": "Bytebase is an open-source database DevOps tool"
+  },
+  "opensourceapps.hertzbeat.description": {
+    "message": "Easy to use and friendly real-time monitoring system, no Agent, powerful custom monitoring ability"
   }
 }

@@ -14,6 +14,26 @@
  * LICENSE file in the root directory of this source tree.
  **/
 
+@media screen and (max-width: 1200px) {
+  .container_header {
+    width: 100% !important;
+  }
+  .global_content {
+    width: 100% !important;
+  }
+  .buttonRight {
+    margin-top: 1rem;
+  }
+  .col_left {
+    padding: 10px 0 10px 10px !important;
+  }
+  .col_right {
+    padding: 10px 0 10px 10px !important;
+  }
+  .row {
+    margin: 0;
+  }
+}
 
 .header {
   background-color: var(--background-color-light);

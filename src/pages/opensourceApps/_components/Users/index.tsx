@@ -81,7 +81,7 @@ const Users: User[] = [
     }),
     preview: require('./apps/devlake.png'),
     website: 'https://github.com/apache/incubator-devlake',
-    deploy: '#',
+    deploy: 'https://devlake.apache.org/docs/GettingStarted/RainbondSetup',
     tags: ['Application'],
   },
   {
@@ -140,6 +140,17 @@ const Users: User[] = [
     tags: ['Application', 'Plugin'],
   },
   {
+    title: 'HertzBeat',
+    description: translate({
+      id: 'opensourceapps.hertzbeat.description',
+      message: '易用友好的实时监控系统，无需Agent，强大自定义监控能力',
+    }),
+    preview: require('./apps/hertzbeat.png'),
+    website: 'https://github.com/dromara/hertzbeat',
+    deploy: '#',
+    tags: ['Application'],
+  },
+  {
     title: 'Kibana',
     description: translate({
       id: 'opensourceapps.kibana.description',
@@ -180,7 +191,7 @@ const Users: User[] = [
     }),
     preview: require('./apps/pyroscope.png'),
     website: 'https://github.com/pyroscope-io/pyroscope',
-    deploy: '/blog/knowstreaming',
+    deploy: '/docs/micro-service/analysis/pyroscope',
     tags: ['Application', 'Plugin'],
   },
 ];

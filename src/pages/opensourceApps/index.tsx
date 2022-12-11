@@ -12,7 +12,7 @@ import Translate, {translate} from '@docusaurus/Translate';
 import {useHistory, useLocation} from '@docusaurus/router';
 import {usePluralForm} from '@docusaurus/theme-common';
 
-import Layout from '@theme/Layout';
+import Layout from '../../components/Layout';
 import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon';
 import AppsIcon from '@site/static/img/svg/apps.svg';
 import {
@@ -125,9 +125,9 @@ function useFilteredUsers() {
 
 function ShowcaseHeader() {
   return (
-    <section className="margin-top--lg margin-bottom--lg text--center">
+    <section className={styles.showCaseHeader}>
       <h1>{TITLE}</h1>
-      <p>{DESCRIPTION}</p>
+      <p style={{ color: '#637792' }}>{DESCRIPTION}</p>
       <a
         className="button button--primary"
         href={SUBMIT_URL}

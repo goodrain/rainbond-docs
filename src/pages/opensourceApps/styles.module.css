@@ -5,6 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+.showCaseHeader {
+  background-color: var(--background-color-light);
+  text-align: center;
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+}
+
 .filterCheckbox {
   justify-content: space-between;
 }

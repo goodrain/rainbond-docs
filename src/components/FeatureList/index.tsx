@@ -66,7 +66,7 @@ export function FeatureContent(item): JSX.Element {
         <div key={index}>
           <div style={{ backgroundColor: '#f0f1f5' }}>
             <div className={styles.global_content}>
-              <div className="row">
+              <div className={clsx("row", styles.row)}>
                 <div className="col col--6">
                   <div className={clsx('card', styles.card)}>
                     <PhotoProvider>
@@ -87,8 +87,8 @@ export function FeatureContent(item): JSX.Element {
               </div>
             </div>
           </div>
-          <div className={styles.global_content}>
-            <div className="row">
+          <div className={styles.global_content} style={{ display: ( titleLeft === "") ? "none" : ""}}>
+            <div className={clsx("row", styles.row)}>
               <div className={clsx("col col--6",styles.col_left)}>
                 <h3 className={styles.subtitle}>{titleLeft}</h3>
                 <ul className={styles.ul}>
