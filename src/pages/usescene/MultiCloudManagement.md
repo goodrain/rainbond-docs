@@ -1,10 +1,13 @@
 ---
 title: 应用级多云管理
 description: 当前云计算有多种形态公有云、私有云、边缘云、虚拟机等，如何高效管理多云是当前面临的问题，在云原生时代，又该如何利用云原生技术实现多云管理？本文将讲解通过 Rainbond 实现“应用级”多云管理。
-slug: MultiCloudManagement
-images: /img/usescene/多云管理.png
-# authors: QiZhang
+keywords: 
+- 多云管理
+- Rainbond
+- 云原生
 ---
+
+# 应用级多云管理
 
 :::info
 当前云计算有多种形态公有云、私有云、边缘云、虚拟机等，如何高效管理多云是当前面临的问题，在云原生时代，又该如何利用云原生技术实现多云管理？本文将讲解通过 [Rainbond](https://www.rainbond.com)实现“应用级”多云管理。

@@ -1,10 +1,13 @@
 ---
 title: 一体化开发测试环境
 description: GitLab 擅长源代码管理，Rainbond 擅长应用自动化管理，整合 Gitlab 和 Rainbond 就能各取所长，本文详细讲述如何整合 Gitlab 和 Rainbond，并通过整合实现一体化开发环境。
-slug: IntegrationDev
-images: /img/usescene/一体化开发测试.png
-# authors: QiZhang
+keywords: 
+- GitLab
+- Rainbond
+- 一体化开发环境
 ---
+
+# 一体化开发测试环境
 
 :::info
 GitLab 擅长源代码管理，Rainbond 擅长应用自动化管理，整合 Gitlab 和 Rainbond 就能各取所长，本文详细讲述如何整合 Gitlab 和 Rainbond，并通过整合实现一体化开发环境。

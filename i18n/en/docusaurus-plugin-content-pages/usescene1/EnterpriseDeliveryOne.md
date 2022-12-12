@@ -1,10 +1,11 @@
 ---
 title: Enterprise application continuous delivery
 description: Delivering enterprise applications well has always been the focus of ToB software vendors.Rainbond Application Model (RAM) is an application model proposed by Rainbond. By abstracting enterprise applications into models, combined with the application market mechanism of the Rainbond platform, one-click installation/upgrade is finally realized.
-slug: EnterpriseDeliveryOne
-#authors: QiZhang
-images: /img/usescene/oneclickinstall.png
+keywords:
+- Enterprise application continuous delivery
 ---
+
+# Enterprise application continuous delivery
 
 :::info
 The delivery of enterprise applications has always been the focus of ToB software vendors.Rainbond Application Model (RAM) is an application model proposed by Rainbond. By abstracting enterprise applications into models, combined with the application market mechanism of the Rainbond platform, one-click installation/upgrade is finally realized.The highly automated delivery experience improves enterprise application delivery efficiency and reduces delivery costs.

@@ -1,9 +1,11 @@
 ---
 title: Business building block assembly
 description: In recent years, everyone thinks that the microservice architecture is a modular silver bullet, and they are all transformed towards the microservice architecture, but the actual effect is not only not very modular, but rather caught in the quagmire of application deployment and operation and maintenance.This article will talk about some new ideas for Rainbond to solve application architecture decoupling and modularization.
-slug: componentReuse
-images: /img/usescene/积木拼装.jpeg
+keywords:
+- Business building block assembly
 ---
+
+# Business building block assembly
 
 :::info
 In the process of learning and development, every programmer knows the importance of decoupling and modularization, and also hopes that the programs designed and developed by themselves support modularization, and the developed modules can be quickly reused by others , in order to achieve this effect, we learn various modularization and decoupling technologies, from object-oriented design patterns to micro-service architecture. In recent years, everyone thinks that micro-service architecture is a modular silver bullet, and they are all transformed towards micro-service architecture. , but the actual effect is not only not very modular, but caught in the quagmire of application deployment and operation and maintenance.This article will talk about some new ideas for Rainbond to solve application architecture decoupling and modularization.

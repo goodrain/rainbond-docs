@@ -1,9 +1,12 @@
 ---
 title: Offline Environment Software Delivery
 description: '"Using Rainbond to achieve software delivery in an offline environment" is here, arrange 👇.'
-slug: offlineDelivery
-images: /img/usescene/离线交付.jpeg
+keywords:
+- Rainbond
+- Offline Delivery
 ---
+
+# Offline Environment Software Delivery
 
 :::info Before [Corgi Data completed cloud-native transformation through to achieve offline continuous delivery to customers](https://mp.weixin.qq.com/s?__biz=Mzg3MTcyMjA4MQ==&mid=2247487792&idx=1&sn=3c01e6175c87bc1d9ecef993fd167dea&source=41#wechat_redirect) In this article, there have always been users in the open source group who want more detailed documents and are eager to get started."Using Rainbond to achieve software delivery in an offline environment" is here, arrange 👇. 
 :::

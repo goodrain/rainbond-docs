@@ -1,9 +1,12 @@
 ---
 title: Application-level multi-cloud management
 description: At present, cloud computing has various forms of public cloud, private cloud, edge cloud, virtual machine, etc. How to efficiently manage multi-cloud is the current problem. In the cloud-native era, how to use cloud-native technology to achieve multi-cloud management?This article will cover "application-level" multi-cloud management with Rainbond.
-slug: MultiCloudManagement
-images: /img/usescene/多云管理.png
+keywords:
+- multi-cloud
+- cloud-native
 ---
+
+# Application-level multi-cloud management
 
 :::info At present, cloud computing has various forms of public cloud, private cloud, edge cloud, virtual machine, etc. How to efficiently manage multiple clouds is the current problem. In the cloud-native era, how to use cloud-native technology to achieve multi-cloud management ?This article will explain "application-level" multi-cloud management with [Rainbond](https://www.rainbond.com). 
 :::

@@ -1,9 +1,13 @@
 ---
 title: Integrated development and test environment
 description: GitLab is good at source code management, and Rainbond is good at application automation management. Integrating Gitlab and Rainbond can bring out their own strengths. This article describes in detail how to integrate Gitlab and Rainbond, and realize an integrated development environment through integration.
-slug: IntegrationDev
-images: /img/usescene/一体化开发测试.png
+keywords:
+- GitLab
+- Rainbond
+- Integrated development environment
 ---
+
+# Integrated development and test environment
 
 :::info
 GitLab is good at source code management, Rainbond is good at application automation management, integrating Gitlab and Rainbond can take advantage of their own strengths, this article describes in detail how to integrate Gitlab and Rainbond, and achieve an integrated development environment through integration.

@@ -1,10 +1,11 @@
 ---
 title: Modular Personalized Delivery
 description: The previous article introduced that standardized products are delivered to the customer environment through one-click installation, but for most 2B software delivery scenarios, different customer environments and needs will be different, and personalized needs are the norm, and these personalized needs have increased. 2B software delivery is difficult, so how to improve the efficiency of delivery of personalized requirements?
-slug: EnterpriseDeliveryTwo
-#authors: QiZhang
-images: /img/usescene/EnterpriseDeliveryTwo.png
+keywords:
+- Modular Personalized Delivery
 ---
+
+# Modular Personalized Delivery
 
 :::info
 The previous article introduced that standardized products are delivered to the customer environment through one-click installation, but for most 2B software delivery scenarios, different customer environments and needs will be different, and personalized needs are the norm. These Personalized requirements increase the difficulty of 2B software delivery, so how to improve the efficiency of personalized requirements delivery?

@@ -1,9 +1,12 @@
 ---
 title: Localization and Xinchuang Support
 description: The cloud native application management platform can be deployed in the Arm64 environment.Since January 2020, Rainbond has conducted adaptation tests with Huawei and Feiteng respectively.After verification, Rainbond can run stably on both the Kunpeng 920 chip and the FT2000+/64 two Arm64 chips, reaching the production-ready standard.
-slug: x86ToArm
-images: /img/usescene/国产化.png
+keywords:
+- Rainbond
+- Arm64
 ---
+
+# Localization and Xinchuang Support
 
 :::info
 Once upon a time, whether in servers or personal computers, Intel has always been the leader in the field of CPU chips, and its X86_64 architecture is widely used.However, the kingship is not eternal. In recent years, the Arm64 architecture has sprung up. The server side is represented by the Huawei Kunpeng 920 high-performance chip, and the personal computer side is amazing with the Apple M1 chip.Arm64 architecture chips show off their market value with low power consumption and high performance, and the torrent of localized substitution is also constantly pushing Arm64 to suppliers of the military, government, and state-owned enterprises.Seizing the opportunity to quickly embrace and adapt to localized chips is a new topic of software delivery in this era.

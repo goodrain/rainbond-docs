@@ -1,13 +1,17 @@
 ---
 title: Enterprise-level application unified management
 description: When we use a smartphone, the mobile APP is installed from the application market with one click. After installation, click and use. When there is a new version, one-click upgrade. If you don't want to use it, long press the icon to delete. The whole process is very simple, and children can be proficient. master.For enterprise applications, due to the complex structure, high availability requirements, and many configurations, the management of enterprise applications is extremely complicated.There are generally specialized operation and maintenance engineers within the enterprise to be responsible for ensuring the normal operation of enterprise applications.
-slug: AppManagement
-images: /img/usescene/企业级应用统一管理.jpeg
+keywords:
+- Rainbond
+- Enterprise application management
 ---
+
+# Enterprise application unified management
 
 :::info When we are using a smartphone, the mobile APP is installed from the application market with one click. After installation, click and use. When there is a new version, one-click upgrade. If you don't want to use it, long press the icon to delete, the whole process is very simple. , children can master it.For enterprise applications, due to the complex structure, high availability requirements, and many configurations, the management of enterprise applications is extremely complicated.There are generally specialized operation and maintenance engineers within the enterprise to be responsible for ensuring the normal operation of enterprise applications.
 
-[Rainbond](https://www.rainbond.com?channel=cnblog) is a cloud-native enterprise application management platform. This article will use it as an example to explain how to simplify the management of enterprise applications like managing mobile APPs. :::
+[Rainbond](https://www.rainbond.com?channel=cnblog) is a cloud-native enterprise application management platform. This article will use it as an example to explain how to simplify the management of enterprise applications like managing mobile APPs. 
+:::
 
 <!--truncate-->
 

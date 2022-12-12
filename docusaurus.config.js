@@ -343,20 +343,6 @@ const config = {
       }
     ],
     [
-      '@docusaurus/plugin-content-blog',
-      {
-        id: 'usescene',
-        routeBasePath: 'usescene',
-        path: './usescene',
-        blogTitle: '使用场景',
-        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/usescene',
-        postsPerPage: 10,
-        blogSidebarCount: 'ALL',
-        blogSidebarTitle: '使用场景',
-        sortPosts: 'descending'
-      }
-    ],
-    [
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath) {
