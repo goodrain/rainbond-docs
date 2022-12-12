@@ -39,3 +39,12 @@
   height: 157px;
   object-fit: cover;
 }
+
+.link {
+  text-decoration: none !important;
+  color: var(--ifm-heading-color);
+}
+
+.link:hover {
+  color: var(--ifm-heading-color);
+}

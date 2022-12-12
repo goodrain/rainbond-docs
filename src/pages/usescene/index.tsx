@@ -51,7 +51,7 @@ export default function usescene() {
       img: "/img/usescene/offlineDelivery.jpeg",
       title: "离线环境软件交付",
       description: "接着用户案例“柯基数据离线持续交付客户”的离线环境软件交付实践",
-      link: "/usescene1/offlineDelivery"
+      link: "/usescene/offlineDelivery"
     },
     {
       img: "/img/usescene/IntegrationDev.png",

@@ -11,18 +11,17 @@ export function CardList(item): JSX.Element {
       <div className="row">
         {CardContentList.map(({ img, title, description, link }, index) => (
           <div className={clsx("col col--4", styles.col)} key={index}>
-            <div className={clsx('card', styles.card)}>
-              <div className={clsx('card__image', styles.card_img)}>
-                <img className={styles.img} src={img} />
+            <Link to={link} className={styles.link}>
+              <div className={clsx('card', styles.card)}>
+                <div className={clsx('card__image', styles.card_img)}>
+                  <img className={styles.img} src={img} />
+                </div>
+                <div className="card__body">
+                  <h3>{title}</h3>
+                  <small style={{ color: '#637792' }}>{description}</small>
+                </div>
               </div>
-              <div className="card__body">
-                <h3>{title}</h3>
-                <small style={{ color: '#637792' }}>{description}</small>
-              </div>
-              {/* <div className="card__footer">
-                <Link to={link} className="button button--primary button--block">详情</Link>
-              </div> */}
-            </div>
+            </Link>
           </div>
         ))}
       </div>
