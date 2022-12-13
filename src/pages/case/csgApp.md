@@ -1,16 +1,13 @@
 ---
-title: 藏书馆App基于Rainbond实现云原生DevOps的实践
+title: 藏书馆App基于 Rainbond 实现云原生DevOps的实践
 description: 藏书馆是一个专注用户自我成长的云端私人图书馆，集电子书的读、荐、借、购、存和知识管理功能于一体，致力于用户的认知赋能，通过读书习惯的养成，达成自我成长。目前累计注册用户已达 1500W ，平台图书资源超过 200W 册。
-slug: csgapp
-images: /img/case/藏书馆app.jpeg
-# authors: QiZhang
 ---
+
+# 藏书馆App基于 Rainbond 实现云原生DevOps的实践
 
 :::info
 我们需要的不是精通 Kubernetes 的工程师，我们需要一款小白都能用好的管理工具。 -- 郭传壕
 :::
-
-<!--truncate-->
 
 大家好，我是厦门正观易知科技有限公司运维负责人郭传壕。
 

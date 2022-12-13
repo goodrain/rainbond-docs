@@ -1,18 +1,18 @@
 ---
-title: 2倍产品研发效率提升，鹏海软件使用Rainbond打造工业互联网平台
+title: 2倍产品研发效率提升，鹏海软件使用 Rainbond 打造工业互联网平台
 description: 大家好，我是青岛鹏海软件有限公司的 "高源"。我们团队主要负责产品平台的底层搭建，架构/技术的更新及规范，我们基于 Rainbond 研发了生产制造执行系统(MES).......
 slug: penghai
-images: /img/case/鹏海.png
+images: /img/case/penghai.png
 # authors: QiZhang
 ---
+
+# 2倍产品研发效率提升，鹏海软件使用Rainbond打造工业互联网平台
 
 :::info
 大家好，我是青岛鹏海软件有限公司的 **高源**。我们团队主要负责产品平台的底层搭建，架构/技术的更新及规范，我们基于 Rainbond 研发了生产制造执行系统(MES)、仓储管理系统(WMS)、 数据采集与监控系统(SCADA)、 统计过程控制系统(SPC)、 实验室信息管理系统(LIMS)、 企业中央控制室(CCR)、 能源管理系统(EMS)、企业资产管理系统(EAM)、 质量管理系统(QMS)、智能扭矩互联系统(ITM)等产品。
 
 接来下我给大家分享下我们团队使用 Rainbond 快速研发的经验。
 :::
-
-<!--truncate-->
 
 
 ## 以前的痛点

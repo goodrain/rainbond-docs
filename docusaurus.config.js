@@ -329,20 +329,6 @@ const config = {
       }
     ],
     [
-      '@docusaurus/plugin-content-blog',
-      {
-        id: 'case',
-        routeBasePath: 'case',
-        path: './case',
-        blogTitle: '案例',
-        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/case',
-        postsPerPage: 10,
-        blogSidebarCount: 'ALL',
-        blogSidebarTitle: '案例',
-        sortPosts: 'descending'
-      }
-    ],
-    [
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath) {

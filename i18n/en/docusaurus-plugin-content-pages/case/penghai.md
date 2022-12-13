@@ -1,16 +1,15 @@
 ---
 title: 2 times the efficiency of product research and development, Penghai Software uses Rainbond to build an industrial Internet platform
 description: Hello everyone, I am "Gao Yuan" from Qingdao Penghai Software Co., Ltd.Our team is mainly responsible for the underlying construction of the product platform, the update and specification of the architecture/technology, and we have developed a Manufacturing Execution System (MES) based on Rainbond...  
-slug: penghai
-images: /img/case/鹏海.png
 ---
 
-:::info Hello everyone, I am **Gao Yuan**of Qingdao Penghai Software Co., Ltd.Our team is mainly responsible for the bottom-level construction of the product platform, the update and specification of the architecture/technology, and we have developed Manufacturing Execution System (MES), Warehouse Management System (WMS), Data Acquisition and Monitoring System (SCADA), Statistical Process Control based on Rainbond System (SPC), Laboratory Information Management System (LIMS), Enterprise Central Control Room (CCR), Energy Management System (EMS), Enterprise Asset Management System (EAM), Quality Management System (QMS), Intelligent Torque Interconnection System (ITM) ) and other products.
+# 2 times the efficiency of product research and development, Penghai Software uses Rainbond to build an industrial Internet platform
 
-Next, I will share with you the experience of our team using Rainbond for rapid development. :::
+:::info 
+Hello everyone, I am **Gao Yuan**of Qingdao Penghai Software Co., Ltd.Our team is mainly responsible for the bottom-level construction of the product platform, the update and specification of the architecture/technology, and we have developed Manufacturing Execution System (MES), Warehouse Management System (WMS), Data Acquisition and Monitoring System (SCADA), Statistical Process Control based on Rainbond System (SPC), Laboratory Information Management System (LIMS), Enterprise Central Control Room (CCR), Energy Management System (EMS), Enterprise Asset Management System (EAM), Quality Management System (QMS), Intelligent Torque Interconnection System (ITM) ) and other products.
 
-<!--truncate-->
-
+Next, I will share with you the experience of our team using Rainbond for rapid development. 
+:::
 
 ## previous pain points
 

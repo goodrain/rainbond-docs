@@ -6,15 +6,13 @@ images: /img/case/talkweb.png
 # authors: QiZhang
 ---
 
+# 拓维信息使用 Rainbond 的云原生落地实践
+
 :::info
 我是来自拓维信息基石研究院 PAAS 团队的 Golang 工程师丁鹏，同时我也是 Rainbond 社区 TOC 成员之一。
 
 我们团队主要负责云原生应用平台的选型，搭建与开发，以此做到对下屏蔽底层的基础设施，对上托管我们的微服务应用，便捷高效的帮助企业内服务的云原生落地。
 :::
-
-<!--truncate-->
-
-![](https://static.goodrain.com/wechat/tuowei/talkweb.png)
 
 ## 企业简介
 

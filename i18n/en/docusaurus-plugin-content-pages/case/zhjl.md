@@ -1,15 +1,13 @@
 ---
 title: Wisdom Julu uses Rainbond to implement the practice, a platform to manage all application systems
 description: In recent years, I have been in charge of the operation and maintenance of the smart city project "Smart Julu".This project involves the operation and maintenance management of more than 30 sets of smart city applications developed by more than 10 suppliers. Using traditional methods to deploy and manage will definitely cause confusion.At the beginning of the project, we tried to use cloud-native technologies to improve deployment and management efficiency.
-slug: zhjl
-images: /img/case/zhjl.png
 ---
+
+# Wisdom Julu uses Rainbond to implement the practice, a platform to manage all application systems
 
 :::info
 Hello everyone, my name is Li Dong from Beijing Shulitong Technology Co., Ltd.In recent years, I have been in charge of the operation and maintenance of the smart city project "Smart Julu".This project involves the operation and maintenance management of more than 30 sets of smart city applications developed by more than 10 suppliers. Using traditional methods to deploy and manage will definitely cause confusion.At the beginning of the project, we tried to use cloud-native technologies to improve deployment and management efficiency.
 :::
-
-<!--truncate-->
 
 ## background
 

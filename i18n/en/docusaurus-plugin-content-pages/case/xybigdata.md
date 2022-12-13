@@ -1,15 +1,13 @@
 ---
 title: The practice of Xianyang Big Data Administration using Rainbond as a smart city base
 description: Xianyang Big Data Administration is responsible for the organization and leadership of the city's information sharing work, coordinating and solving major problems related to government information sharing, researching, formulating and organizing the implementation of the city's big data strategies, plans and policy measures, and guiding and promoting big data research and application work , establish the city's unified data service center and information sharing mechanism.
-slug: xybigdata
-images: /img/case/咸阳大数据.jpeg
 ---
+
+# The practice of Xianyang Big Data Administration using Rainbond as a smart city base
 
 :::info
 After using Rainbond as the base of the smart city, it has brought us double the improvement of operation and maintenance efficiency. —— Xiong Lizhi, Xianyang Big Data Administration
 :::
-
-<!--truncate-->
 
 Xianyang Big Data Administration is responsible for the organization and leadership of the city's information sharing work, coordinating and solving major problems related to government information sharing, researching, formulating and organizing the implementation of the city's big data strategies, plans and policy measures, and guiding and promoting big data research and application work , establish the city's unified data service center and information sharing mechanism.Through the new technical architecture of "device-edge-network-cloud-intelligence", the goal of efficient management, convenient service, industrial development, and ecological harmony is achieved, and a new model of new generation information technology and urban modernization is deeply integrated and iteratively evolves. new idea.
 

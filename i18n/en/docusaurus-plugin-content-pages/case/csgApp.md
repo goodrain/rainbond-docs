@@ -1,15 +1,13 @@
 ---
 title: The library app implements cloud native DevOps practice based on Rainbond
 description: The library is a cloud-based private library that focuses on users' self-growth. It integrates the functions of reading, recommending, borrowing, purchasing, storing and knowledge management of e-books. It is committed to the cognitive empowerment of users. achieve self-growth.At present, the cumulative number of registered users has reached 1500W, and the platform book resources have exceeded 200W.
-slug: csgapp
-images: /img/case/藏书馆app.jpeg
 ---
+
+# The library app implements cloud native DevOps practice based on Rainbond
 
 :::info
 We don't need engineers who are proficient in Kubernetes, we need a management tool that can be used by novices. -- Guo Chuanhao
 :::
-
-<!--truncate-->
 
 Hello everyone, my name is Guo Chuanhao, the head of operation and maintenance of Xiamen Zhengguan Yizhi Technology Co., Ltd.
 

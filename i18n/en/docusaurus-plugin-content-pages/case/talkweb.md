@@ -1,17 +1,16 @@
 ---
 title: Tuowei Information uses Rainbond's cloud native landing practice
 description: I'm Ding Peng, a Golang engineer from the PAAS team of Tuowei Information Cornerstone Research Institute. Our team is mainly responsible for the selection, construction and development of cloud native application platforms, so as to shield the underlying infrastructure from the bottom and host our cloud platform from the top. Microservice application, convenient and efficient to help the cloud-native implementation of enterprise services.
-slug: talkweb
-images: /img/case/talkweb.png
 ---
 
-:::info I am Ding Peng, a Golang engineer from the PAAS team of Topway Information Cornerstone Research Institute, and I am also one of the TOC members of the Rainbond community.
+# Tuowei Information uses Rainbond's cloud native landing practice
 
-Our team is mainly responsible for the selection, construction and development of cloud-native application platforms, so as to shield the underlying infrastructure from the bottom and host our micro-service applications from the top, so as to help the cloud-native implementation of services within the enterprise conveniently and efficiently. :::
+:::info 
+I am Ding Peng, a Golang engineer from the PAAS team of Topway Information Cornerstone Research Institute, and I am also one of the TOC members of the Rainbond community.
 
-<!--truncate-->
+Our team is mainly responsible for the selection, construction and development of cloud-native application platforms, so as to shield the underlying infrastructure from the bottom and host our micro-service applications from the top, so as to help the cloud-native implementation of services within the enterprise conveniently and efficiently. 
+:::
 
-![](https://static.goodrain.com/wechat/tuowei/talkweb.png)
 
 ## company profile
 

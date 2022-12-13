@@ -1,15 +1,13 @@
 ---
 title: Kergi Data completes cloud-native transformation through Rainbond to achieve offline continuous delivery to customers
 description: Nanjing Keji Data Technology Co., Ltd. was established in 2015, providing one-stop full life cycle knowledge graph construction, operation and maintenance, and intelligent application services, and is committed to "linking massive data and mining wisdom from big data".Help enterprises use knowledge graph technology to build the world's leading cognitive work automation intelligent engine.
-slug: kgdata
-images: /img/case/柯基数据.jpeg
 ---
+
+# Kergi Data completes cloud-native transformation through Rainbond to achieve offline continuous delivery to customers
 
 :::info
 "Cloud native makes our delivery more automated in the offline environment of our customers" --Liu Zhanfeng from Corgi Data
 :::
-
-<!--truncate-->
 
 ## About Corgi Data
 
