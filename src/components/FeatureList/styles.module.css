@@ -14,6 +14,26 @@
  * LICENSE file in the root directory of this source tree.
  **/
 
+@media screen and (max-width: 1200px) {
+  .container_header {
+    width: 100% !important;
+  }
+  .global_content {
+    width: 100% !important;
+  }
+  .buttonRight {
+    margin-top: 1rem;
+  }
+  .col_left {
+    padding: 10px 0 10px 10px !important;
+  }
+  .col_right {
+    padding: 10px 0 10px 10px !important;
+  }
+  .row {
+    margin: 0;
+  }
+}
 
 .header {
   background-color: var(--background-color-light);
@@ -29,7 +49,7 @@
   margin: 0 auto;
   text-align: center;
   line-height: 32px;
-  padding-top: 100px;
+  padding-top: 30px;
   padding-bottom: 40px;
 }
 
@@ -70,12 +90,12 @@
 
 /* Button */
 .buttonLeft {
-  margin-right: 10px;
-  border-radius: 30px;
-  background-color: var(--ifm-color-primary);
-  height: 55px;
-  width: 210px;
-  font-size: 16px;
+  margin-right: 10px !important;
+  border-radius: 30px !important;
+  background-color: var(--ifm-color-primary) !important;
+  height: 55px !important;
+  width: 210px !important;
+  font-size: 16px !important;
 }
 .buttonLeft:hover {
   background-color: var(--ifm-color-primary) !important;
@@ -83,14 +103,18 @@
 }
 
 .buttonRight {
-  margin-right: 10px;
-  border-radius: 30px;
-  background-color: #19AABD;
-  height: 55px;
-  width: 210px;
-  font-size: 16px;
+  margin-right: 10px !important;
+  border-radius: 30px !important;
+  background-color: #19AABD !important;
+  height: 55px !important;
+  width: 210px !important;
+  font-size: 16px !important;
 }
 .buttonRight:hover {
   background-color: #19AABD !important;
   box-shadow: 0 16px 32px 0 rgba(48, 55, 66, 0.15);
+}
+
+.link:hover {
+  text-decoration: none !important;
 }

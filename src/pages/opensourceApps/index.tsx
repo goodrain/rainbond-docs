@@ -125,9 +125,9 @@ function useFilteredUsers() {
 
 function ShowcaseHeader() {
   return (
-    <section className="margin-top--lg margin-bottom--lg text--center">
+    <section className={styles.showCaseHeader}>
       <h1>{TITLE}</h1>
-      <p>{DESCRIPTION}</p>
+      <p style={{ color: '#637792' }}>{DESCRIPTION}</p>
       <a
         className="button button--primary"
         href={SUBMIT_URL}
@@ -340,7 +340,7 @@ function ShowcaseCards() {
 export default function Showcase(): JSX.Element {
   return (
     <Layout title={TITLE} description={DESCRIPTION}>
-      <main className="margin-vert--lg">
+      <main className={clsx("margin-vert--lg", styles.main)}>
         <ShowcaseHeader />
         {/* <ShowcaseFilters /> */}
         <ShowcaseCards />

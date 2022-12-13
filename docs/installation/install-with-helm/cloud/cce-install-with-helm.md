@@ -89,7 +89,7 @@ Cluster:
     password: grddgar
     username: zfefee
 
-## 外部ETCD，对应填写IP，证书，true为开，false为关，如有华为云ETCD直接填写IP即可
+## 外部ETCD，对应填写IP，证书，true为开，false为关
   etcd:
     enable: false
     endpoints: 
@@ -97,17 +97,6 @@ Cluster:
     - 192.168.0.2:2379
     - 192.168.0.3:2379
     secretName: "rbd-etcd-secret"
-
-## 外部存储，true为开，false为关,如需对接华为云SFS存储，需生成 storageClass 进行对接。
-  RWX:
-    enable: false
-    config:
-      storageClassName: nfs-client
-      
-## 外部存储，直接填写storageClassName，true为开，false为关
-  RWO:
-    enable: false
-    storageClassName: nfs-client
 
 ## region数据库，true为开，false为关，华为云用户务必提供外接高可用的 RDS Mysql 数据库，该数据库中需要提前创建 region 数据库，需要提供内网可访问的 RDS 域名、用户名、密码
   regionDatabase:
@@ -143,6 +132,23 @@ Cluster:
   - externalIP: 10.22.197.171
     internalIP: 10.22.197.171
     name: 10.22.197.171
+  
+  ## 对接华为云 SFS 存储，需开启 nfs-client-provisioner，storageClassName 是默认值
+  RWX:
+    enable: true
+    config:
+      storageClassName: nfs-client
+  RWO:
+    enable: true
+    storageClassName: nfs-client
+
+## 对接华为云 SFS 存储，填写 Server 和 Path
+nfs-client-provisioner:
+  childChart:
+    enable: true
+  nfs:
+    server: <IP>
+    path: <PATH>
 ```
 
 ### 使用 Helm 安装 Rainbond
