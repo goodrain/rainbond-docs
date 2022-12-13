@@ -1,10 +1,21 @@
-import Layout from '../../components/Layout';
+import Layout from '@theme/Layout';
 import React from 'react';
 import { CardList } from '../../components/CardList';
 import { FeatureHeader } from '@site/src/components/FeatureList';
+import { animated, useTrail } from 'react-spring';
 
 export default function usescene() {
 
+  const animatedTexts = useTrail(5, {
+    from: { opacity: 0, transform: 'translateY(3em)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: {
+      mass: 3,
+      friction: 45,
+      tension: 460,
+    },
+  })
+  
   const Header = {
     title: "使用场景",
     description: "Rainbond 在不同的场景下，可以帮助企业快速开发、交付应用，从开发到生产到交付，Rainbond 提供了一站式的解决方案。"
@@ -63,7 +74,9 @@ export default function usescene() {
   
   return (
     <Layout title={Header.title} description={Header.description}>
-      <FeatureHeader props={{...Header}} />
+      <animated.div style={animatedTexts[1]}>
+        <FeatureHeader props={{...Header}} />
+      </animated.div>
       <CardList props={{CardContentList}}/>
     </Layout>
   );

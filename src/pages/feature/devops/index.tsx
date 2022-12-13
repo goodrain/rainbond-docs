@@ -18,7 +18,7 @@
  import React from "react";
  import { animated, useTrail } from "react-spring";
  import styles from "./styles.module.css";
- import Layout from '../../../components/Layout';
+ import Layout from '@theme/Layout';
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { FeatureContent, FeatureContentImage, FeatureHeader} from '../../../components/FeatureList';
 import Head from "@docusaurus/Head";

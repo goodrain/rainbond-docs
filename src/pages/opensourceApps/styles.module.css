@@ -101,3 +101,7 @@
 .svgIconFavorite {
   margin-left: 1rem;
 }
+
+.main {
+  margin-top: auto !important;
+}

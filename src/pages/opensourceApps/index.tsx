@@ -12,7 +12,7 @@ import Translate, {translate} from '@docusaurus/Translate';
 import {useHistory, useLocation} from '@docusaurus/router';
 import {usePluralForm} from '@docusaurus/theme-common';
 
-import Layout from '../../components/Layout';
+import Layout from '@theme/Layout';
 import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon';
 import AppsIcon from '@site/static/img/svg/apps.svg';
 import {
@@ -340,7 +340,7 @@ function ShowcaseCards() {
 export default function Showcase(): JSX.Element {
   return (
     <Layout title={TITLE} description={DESCRIPTION}>
-      <main className="margin-vert--lg">
+      <main className={clsx("margin-vert--lg", styles.main)}>
         <ShowcaseHeader />
         {/* <ShowcaseFilters /> */}
         <ShowcaseCards />

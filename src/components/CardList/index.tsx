@@ -2,13 +2,14 @@ import clsx from 'clsx';
 import React from 'react';
 import styles from "./styles.module.css";
 import Link from '@docusaurus/Link';
+import QueueAnim from 'rc-queue-anim';
 
 export function CardList(item): JSX.Element {
   const CardContentList = item.props.CardContentList;
 
   return (
     <div className={clsx('container',styles.container)}>
-      <div className="row">
+      <QueueAnim className="row" component="div" interval={150}>
         {CardContentList.map(({ img, title, description, link }, index) => (
           <div className={clsx("col col--4", styles.col)} key={index}>
             <Link to={link} className={styles.link}>
@@ -24,7 +25,7 @@ export function CardList(item): JSX.Element {
             </Link>
           </div>
         ))}
-      </div>
+      </QueueAnim>
     </div>
   );
 }

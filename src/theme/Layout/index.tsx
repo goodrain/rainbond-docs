@@ -10,7 +10,8 @@ import clsx from 'clsx';
 import ErrorBoundary from '@docusaurus/ErrorBoundary';
 import SkipToContent from '@theme/SkipToContent';
 import AnnouncementBar from '@theme/AnnouncementBar';
-import Navbar from '../NavBar';
+import NavbarCustom from '../../components/NavBar';
+import Navbar from '@theme/Navbar';
 import Footer from '@theme/Footer';
 import LayoutProviders from '@theme/LayoutProviders';
 import type {Props} from '@theme/Layout';
@@ -21,6 +22,7 @@ import {
 } from '@docusaurus/theme-common';
 import ErrorPageContent from '@theme/ErrorPageContent';
 import './styles.css';
+import { useLocation } from '@docusaurus/router';
 
 export default function Layout(props: Props): JSX.Element {
   const {
@@ -34,15 +36,19 @@ export default function Layout(props: Props): JSX.Element {
 
   useKeyboardNavigation();
 
+  const docs_url = useLocation().pathname.includes('docs');
+  const community_url = useLocation().pathname.includes('community');
+
   return (
     <LayoutProviders>
       <PageMetadata title={title} description={description} />
 
       <SkipToContent />
 
-      <Navbar />
+      {docs_url || community_url ? <AnnouncementBar /> : null }
+      {docs_url || community_url ? <Navbar /> : <NavbarCustom /> }
 
-      <div className={clsx(ThemeClassNames.wrapper.main, wrapperClassName)}>
+      <div className={clsx(ThemeClassNames.wrapper.main, wrapperClassName)} style={{ marginTop: (docs_url || community_url) ? "" : "4rem" }}>
         <ErrorBoundary fallback={ErrorPageContent}>{children}</ErrorBoundary>
       </div>
 
