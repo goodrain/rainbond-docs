@@ -300,19 +300,32 @@ const sidebars = {
         id: 'delivery/index'
       },
       items: [
-          {
-            type: 'category',
-            label: '离线交付',
-            link: {
-              type: 'doc',
-              id: 'delivery/offline/index',
-            },
-            items: [
-              'delivery/offline/micro-service',
-              'delivery/offline/development-iteration',
-            ]
+        {
+          type: 'category',
+          label: '持续交付',
+          link: {
+            type: 'doc',
+            id: 'delivery/continuous/index',
           },
-          'delivery/app-model-parameters',
+          items: [
+            'delivery/continuous/source-code',
+            'delivery/continuous/ram',
+            'delivery/continuous/multi-env',
+          ]
+        },
+        {
+          type: 'category',
+          label: '离线交付',
+          link: {
+            type: 'doc',
+            id: 'delivery/offline/index',
+          },
+          items: [
+            'delivery/offline/micro-service',
+            'delivery/offline/development-iteration',
+          ]
+        },
+        'delivery/app-model-parameters',
       ]
     },
     {
@@ -690,7 +703,7 @@ const sidebars = {
                     'use-manual/team-manage/team-manage/rule/user-rule',
                   ]
                 },
-                
+
               ]
             },
           ]
@@ -762,13 +775,13 @@ const sidebars = {
                     'use-manual/enterprise-manage/enterprise-settings/base/user-register',
                     'use-manual/enterprise-manage/enterprise-settings/base/cert-management',
                     'use-manual/enterprise-manage/enterprise-settings/base/component-registry',
-                    'use-manual/enterprise-manage/enterprise-settings/base/oss',                    
+                    'use-manual/enterprise-manage/enterprise-settings/base/oss',
                   ]
-                },  
+                },
                 'use-manual/enterprise-manage/enterprise-settings/admin-manage/admin-manage',
-                'use-manual/enterprise-manage/enterprise-settings/data-backup/index',          
+                'use-manual/enterprise-manage/enterprise-settings/data-backup/index',
               ]
-                           
+
             }
           ]
         },
@@ -855,7 +868,7 @@ const sidebars = {
             'ops-guide/cluster-manage/add-cluster',
             'ops-guide/cluster-manage/manage-cluster',
             'ops-guide/cluster-manage/resource-limit'
-            
+
           ]
         },
         {
@@ -911,7 +924,7 @@ const sidebars = {
     {
       type: 'category',
       label: '问题排查',
-      link: {type: 'doc', id: 'troubleshooting/index'},
+      link: { type: 'doc', id: 'troubleshooting/index' },
       items: [
         {
           type: 'category',
