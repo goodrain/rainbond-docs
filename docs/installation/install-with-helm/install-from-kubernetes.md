@@ -4,149 +4,98 @@ descrition: 该章节文档介绍基于已有的 k8s 集群，使用 helm 安装
 keywords:
 - 基于自建 Kubernetes 安装 Rainbond 集群
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## 概述
 
 本文将指引你基于现有的 Kubernetes 集群，通过 Helm 命令快速部署 Rainbond。
 
-## 前提
+## 前提条件
 
-* 集群中所有节点都需要安装 NFS 客户端挂载工具
-* 指定的网关节点 80、443、6060、7070、8443 端口可用
-* Kubernetes 集群版本在 1.16+
-* Kubectl 工具，参阅 [Kubectl 安装](/docs/ops-guide/tools/#kubectl-cli)
-* Helm 工具，参阅 [Helm 安装](/docs/ops-guide/tools/#helm-cli)
-
-
-### 安装 NFS 客户端挂载工具
-默认安装时，Rainbond 会启动一个 `nfs-provisioner`，因此，需要节点上安装 NFS 客户端挂载工具，否则会由于无法挂载存储导致安装失败。如果你自定义配置后，使用外部的共享存储。那么此步可以忽略。
-
-```bash
-# Centos
-yum -y install nfs-utils
-# Ubuntu
-apt-get install nfs-common
-```
+* Kubernetes 集群版本在 1.19-1.25 之间
+* Kubectl 命令行工具，参阅 [Kubectl 安装](/docs/ops-guide/tools/#kubectl-cli)
+* Helm 命令行工具，参阅 [Helm 安装](/docs/ops-guide/tools/#helm-cli)
 
 ## 安装 Rainbond
 
-以下将会列出基于自建 Kubernetes 集群部署 Rainbond 的一些必要步骤，以及相关参数的简要说明。
+### 1. 安装 NFS 客户端挂载工具
 
-### 1. 获取网关节点信息：
+默认安装时，Rainbond 会启动一个 `nfs-provisioner`，因此，需要节点上安装 NFS 客户端挂载工具，否则会由于无法挂载存储导致安装失败。如果你自定义配置后，使用外部的共享存储。那么此步可以忽略。
 
-Rainbond 会部署一个平台的全局网关，即 `rbd-gateway` 组件，它是平台内所有应用的访问入口。因此它需要监听节点的 80、443、6060、7070、8443 端口。所以需要选择一个端口未被占用的节点作为网关节点。
+<Tabs>
+  <TabItem value="Centos" label="Centos" default>
 
-### 2. 生成安装命令
+  ```bash
+  yum -y install nfs-utils
+  ```
 
-当我们确定下某个节点作为网关节点时，如 `192.168.3.163` ，此时需要使用以下 Kubectl 命令查看节点名称。
+  </TabItem>
+  <TabItem value="Ubuntu" label="Ubuntu">
 
-```bash
-kubectl get node -owide
-```
+  ```bash  
+  apt-get install nfs-common 
+  ```
 
-执行完该命令后，你将会看到以下输出
+  </TabItem>
+</Tabs>
 
-```bash
-NAME          STATUS   ROLES                  AGE   VERSION        INTERNAL-IP     EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION           CONTAINER-RUNTIME
-goodrain163   Ready    control-plane,master   14d   v1.22.3+k3s1   192.168.3.163   <none>        CentOS Linux 7 (Core)   3.10.0-1160.el7.x86_64   containerd://1.5.7-k3s2
-```
+### 2. 添加和更新 Helm 仓库
 
-可以看到，该节点的名称为 `goodrain163`, 内部 IP 为 `192.168.3.163`, 此时没有外部 IP。我们这时候使用[Helm安装命令生成工具](/helm), 生成安装命令。必填参数说明如下：
-
-
-| 参数       | 说明                                                       |
-| :------------- | :--------------------------------------------------------- |
-| 网关地址 | 如果有外部负载均衡，负载到你指定的网关节点上，那么填写外部的负载均衡地址，否则填写网关节点的外网/内网 IP |
-| 网关节点 | 选择端口未被占用的节点作为网关节点，填写相关的外网 IP、内网 IP、节点名 |
-
-以刚刚我们选定的网关节点为例。由于没有外部负载均衡地址，只有内网 IP 为 `192.168.3.163`。所以网关地址可以填写内网IP `192.168.3.163`。
-网关节点的节点配置中，外部 IP 和内部 IP 均填写 `192.168.3.163`，节点名称填写通过 Kubectl 命令查询到的值，即 `goodrain163`。
-
-### 3. 自定义高级配置(可选)
- 
-当你有一些额外需求，比如使用自建的镜像仓库、数据库、ETCD、StorageClass、指定构建节点等。你可以使用[Helm安装命令生成工具](/helm)生成安装命令。
-参数详细说明可以参考 [values.yaml 详解](/docs/installation/install-with-helm/vaules-config)
-
-### 4. 安装 Rainbond
-
-:::caution
-以下命令仅用作示例，请不要直接复制下面命令去执行。你需要自行生成对应的安装命令。
-:::
-
-填写完毕后，点击最下方一键生成安装命令，你将会看到以下输出：
-
-```bash
-kubectl create namespace rbd-system
-
+```bash  
 helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
-
 helm repo update
-
-helm install --set Cluster.gatewayIngressIPs=192.168.3.163 --set Cluster.enableHA=false --set Cluster.nodesForGateway[0].name=goodrain163 --set Cluster.nodesForGateway[0].externalIP=192.168.3.163 --set Cluster.nodesForGateway[0].internalIP=192.168.3.163 rainbond rainbond/rainbond-cluster -n rbd-system
+kubectl create namespace rbd-system
 ```
 
-该命令主要执行了以下操作：
+### 3. 安装 Rainbond
 
-- 创建 rbd-system 命名空间
-- 添加 Rainbond 的 Helm 仓库
-- 更新仓库数据
-- 执行安装
+Rainbond 支持 `Docker` 和 `Containerd` 两种容器运行时，当集群环境同时安装了 `Docker` 和 `Containerd` 时，默认会使用 `Docker`，你可以通过环境变量指定实际使用的容器运行时。
 
-你接下来可以复制生成的命令，去你的 Kubernetes 集群中进行安装。
+<Tabs>
+  <TabItem value="Docker" label="Docker" default>
 
-### 5. 安装进度查询
+```bash  
+helm install rainbond rainbond/rainbond-cluster -n rbd-system
+```
 
-执行完安装命令后，Rainbond 进行环境检查, 检查通过后开始安装。
+如果你的集群有公网 IP，需要从外部访问，请指定 `Cluster.gatewayIngressIPs` 参数，如下所示，将命令中的 gatewayIngressIPs 替换成你的公网 IP 即可：
 
-#### 环境检查
+```bash  
+helm install --set Cluster.gatewayIngressIPs=47.96.3.163 rainbond rainbond/rainbond-cluster -n rbd-system 
+```
 
-- 当你开始执行安装命令后，如果返回如下报错，则说明环境检测失败。
+  </TabItem>
+  <TabItem value="Containerd" label="Containerd">
+
+```bash  
+helm install --set operator.env[0].name=CONTAINER_RUNTIME --set operator.env[0].value=containerd rainbond rainbond/rainbond-cluster -n rbd-system
+```
+
+如果你的集群有公网 IP，需要从外部访问，请指定 `Cluster.gatewayIngressIPs` 参数，如下所示，将命令中的 gatewayIngressIPs 替换成你的公网 IP 即可：
+
+```bash  
+helm install --set Cluster.gatewayIngressIPs=47.96.3.163 --set operator.env[0].name=CONTAINER_RUNTIME --set operator.env[0].value=containerd rainbond rainbond/rainbond-cluster -n rbd-system 
+```
+
+  </TabItem>
+</Tabs>
+
+### 4. 安装进度查询
+
+执行完安装命令后，在集群中执行以下命令查看安装状态。
 
 ```bash
-Error: failed pre-install: job failed: BackoffLimitExceeded
-```
-
-- 此时你需要执行以下命令检查失败日志信息，根据失败信息进行处理。
-
-```bash
-kubectl logs -f -l name=env-checker -n rbd-system
-```
-
-- 如果一切顺利，你执行完命令后，应该会看到以下输出。
-
-```bash
-NAME: rainbond
-LAST DEPLOYED: Fri May 27 18:09:08 2022
-NAMESPACE: rbd-system
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
-NOTES:
-安装过程大概持续10分钟左右，如遇问题可以参考 helm 问题排查文档：
-
-https://www.rainbond.com/docs/installation/install-troubleshoot/helm-install-troubleshoot
-
-动态查看 rainbond 安装进度命令：
-
-watch kubectl get po -n rbd-system
-
-等待 rbd-app-ui 的 pod 状态为 Running 时，即可访问 Rainbond 控制台，以下为访问地址：
-
-  192.168.3.163:7070
-```
-
-
-
-#### 开始安装
-
-- 当环境检查通过后，将会开始安装 Rainbond，此时你可以通过以下命令，查看 Pod 启动状态。
-
-```
 watch kubectl get po -n rbd-system
 ```
 
-- 当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。如下所示，Pod `rbd-app-ui-669bb7c74b-7bmlf` 为 Running 状态时，表示 Rainbond 安装成功。
+当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。如下所示，Pod `rbd-app-ui-669bb7c74b-7bmlf` 为 Running 状态时，表示 Rainbond 安装成功。
 
-```
+<details>
+<summary>安装结果</summary>
+
+```bash
 NAME                                         READY   STATUS      RESTARTS   AGE
 nfs-provisioner-0                            1/1     Running     0          14d
 rbd-etcd-0                                   1/1     Running     0          14d
@@ -160,21 +109,33 @@ rbd-resource-proxy-547874f4d7-dh8bv          1/1     Running     0          14d
 rbd-monitor-0                                1/1     Running     0          14d
 rbd-db-0                                     2/2     Running     0          14d
 rbd-eventlog-0                               1/1     Running     0          14d
+rbd-app-ui-669bb7c74b-7bmlf                  1/1     Running     0          7d12h
 rbd-app-ui-migrations--1-hp2qg               0/1     Completed   0          14d
 rbd-worker-679fd44bc7-n6lvg                  1/1     Running     0          9d
 rbd-node-jhfzc                               1/1     Running     0          9d
 rainbond-operator-7978d4d695-ws8bz           1/1     Running     0          9d
 rbd-chaos-nkxw7                              1/1     Running     0          8d
-rbd-app-ui-669bb7c74b-7bmlf                  1/1     Running     0          7d12h
 rbd-api-5d8bb8d57d-djx2s                     1/1     Running     0          47h
 ```
 
-- 安装成功以后，可以通过安装界面弹出的提示访问信息，访问 Rainbond 控制台（实际访问 IP 以弹出的信息为准）
+</details>
 
+### 5. 访问平台
+
+复制如下命令，在集群中执行，可以获取到平台访问地址。如果有多个网关节点，则任意一个地址均可访问到控制台。
+
+```bash
+kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --template='{{range.spec.gatewayIngressIPs}}{{.}}:7070{{printf "\n"}}{{end}}'
+```
+
+### 6. 自定义高级配置(可选)
+ 
+当你有一些额外需求，比如使用自建的镜像仓库、数据库、ETCD、StorageClass、指定网关节点、指定构建节点等。你可以使用[Helm安装命令生成工具](/helm)生成安装命令。
+参数详细说明可以参考 [values.yaml 详解](/docs/installation/install-with-helm/vaules-config)
 
 ## 问题排查
 
-安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](/docs/installation/install-troubleshoot/helm-install-troubleshoot)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](/docs/installation/install-troubleshoot/helm-install-troubleshoot)，进行故障排查。使用上问题可以参考[Rainbond 使用问题排查](/docs/use-manual/usage_troubleshooting) 或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
 
 ## 下一步
 
