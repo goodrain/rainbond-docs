@@ -1,5 +1,5 @@
 ---
-title: '单机体验版本安装问题排查指南'
+title: '单机体验版本'
 weight: 201
 description: 'troubleshot'
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'Web界面安装问题排查指南'
+title: '基于主机安装'
 weight: 203
 description: 'troubleshot'
 ---

@@ -20,6 +20,29 @@ Rainbond 中的 `rbd-chaos` 组件专门用于构建服务组件，这部分内�
 kubectl logs -f -l name=rbd-chaos -n rbd-system
 ```
 
+### 构建完成后无法拉取到镜像，提示 ImagePullBackOff
+
+通常使用 kubectl describe 命令查看详细报错，如果报错为 `x509: certificate signed by unknown authority`，那很大可能是 Rainbond 默认的镜像仓库证书不受信任。如果你的环境是 Containerd，那么需要修改每个节点的 containerd 配置文件，配置 goodrain.me 私有仓库。然后重启 containerd。
+
+1. 修改配置文件 `/etc/containerd/config.toml`
+
+```
+[plugins."io.containerd.grpc.v1.cri".registry.configs]
+  [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me"]
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me".tls]
+       insecure_skip_verify = true
+```
+
+2. 修改配置文件 `/etc/containerd/certs.d/goodrain.me/hosts.toml`
+
+```
+[host."https://goodrain.me"]
+  capabilities = ["pull", "resolve","push"]
+  skip_verify = true
+```
+
+3. 重启每个节点的 containerd 即可
+
 ### 镜像构建常见问题
 
 接下来以常见问题列表的形式列举从镜像构建服务组件时可能出现的问题。
@@ -99,6 +122,18 @@ SyntaxError: Invalid or unexpected token
 ## 运行时问题
 
 当服务组件操作日志中提示构建成功时，就进入了服务组件运行的阶段。我们期待所有的组件实例都呈现绿色的 `运行中` 状态，然而也可能发生很多的异常情形，需要根据指引一步步排查。在这个阶段，了解 [组件生命周期](/docs/use-manual/component-manage/overview/service-properties) 中各个阶段的概念是十分必要的。后续的排查过程，也是基于组件不同的状态入手。
+
+### 组件无运行日志信息
+
+组件的日志通过 WebSocket 进行推送，如果无日志信息，在`平台管理->集群->编辑`，查看`WebSocket通信地址`是否正确，如果集群是公有云厂商提供的，此处地址是内网 IP，那么你本地无法与集群建立 WebSocket，就无法展示日志。将此处修改为你本地能连接上的 IP 即可。
+
+### 默认生成的网关域名无法访问
+
+如果在安装时未指定外网 IP，则默认的域名将会解析到你集群的内网 IP。因此当你的网络环境无法访问该内网 IP时，就会导致在平台部署的业务，默认域名无法访问。你可以通过修改本机 hosts 文件，将该域名解析到公网 IP 用于测试；或者使用你自己的域名，将其解析到集群公网 IP，再手动添加网关策略即可。
+
+### TCP 规则地址默认生成的是内网 IP
+
+你可以在`平台管理->集群->编辑->TCP应用默认访问IP`处，将其填写为你集群的公网 IP 并保存。
 
 ### 根据异常状态排查运行时问题
 
