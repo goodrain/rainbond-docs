@@ -38,11 +38,12 @@ Cluster:
     password: grddgar
     username: zfefee
 
-## 提供阿里云 NAS Server 挂载点
+## 提供阿里云 NAS Server 挂载点，注意一定要加 :/ 与 NAS 挂载命令保持一致
   RWX:
+    enable: true
     type: aliyun
     config:
-      server: 123456789-var48.cn-shanghai.nas.aliyuncs.com
+      server: 12345678-bxh32.cn-zhangjiakou.nas.aliyuncs.com:/
 
 ## 提供 Region Mysql 数据库连接信息
   regionDatabase:
