@@ -209,6 +209,19 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Yaml&Helm 部署指南',
+      link: {
+        type: 'doc',
+        id: 'yaml-helm-guide/index'
+      },
+      items: [
+        'yaml-helm-guide/overview/index',
+        'yaml-helm-guide/yaml-example/index',
+        'yaml-helm-guide/helm-example/index',
+      ]
+    },
+    {
+      type: 'category',
       label: '微服务架构指南',
       link: {
         type: 'doc',
