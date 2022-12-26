@@ -6,47 +6,15 @@ keywords:
 - Vue React 前端项目部署
 ---
 
-## 前言
+## 概述
 
-以往我们在部署 **Vue React** 前端项目有几种方法：
+在基于源码构建时，Rainbond 会识别项目根目录的 **package.json** 让你选择为 Node 前端项目，并选择使用 NPM 还是 YARN 构建项目。
 
-* 项目打包好之后生成 Dist目录，将其放入 Nginx 中，并进行相应的访问配置。
-* 将项目打包好的 dist 目录中的 static 和 index.html 文件放入 Springboot 项目的 resources 目录下
-* 直接运行一个前端 Server，类似本地开发那种。
+### 项目定义
 
-在 Rainbond 中部署 **Vue React** 项目同样使用了第一种方法，根据源码自动 `npm run build`，打包完成后自动把静态文件放入 Nginx 中。
+#### nodestatic.json
 
-### Rainbond 对 Vue React 前端项目的规范
-
-在Rainbond中部署 **Vue React** 项目有以下三点规范：
-
-1. Rainbond 会根据源代码根目录是否有 `nodestatic.json` 和 `package.json` 文件，文件来识别为 **Vue React**前端类项目。
-
-2. 源代码根目录下必须存在以下两个文件之一 **【不可以同时存在】**
-
-   - `package-lock.json` 存在该文件时，Rainbond 默认使用 npm 包管理器构建。
-   - `yarn.lock` 存在该文件时，Rainbond 使用 yarn 包管理器构建。
-
-3. 源代码根目录下需存在 `web.conf` 文件，这是`nginx`的配置文件。没有此文件时，Rainbond 会采用缺省配置。
-
-### 检查项目
-
-在 Rainbond 部署自己的 **Vue React** 项目之前需要检查项目是否可用：
-
-- 清理本地 `node_modules` 所有依赖，是否可以使用 `npm run build` 或其他命令 **打包成功**。
-
-
-## 部署示例
-
-接下来用此 Vue 项目 `https://gitee.com/zhangbigqi/RuoYi-Vue.git` 来演示，Fork开源项目 [若依](https://gitee.com/y_project/RuoYi-Vue.git)
-
-### 添加 nodestatic.json 文件
-
-在源代码根目录创建文件 `nodestatic.json` ,填写以下内容。
-
-:::tip
-该文件指定静态文件编译后的输出目录，默认是打包后输出到项目根目录 `dist`。如不是默认 `dist` 目录，需要在该文件中指定。
-:::
+`nodestatic.json` 文件用于定义项目为 Node 前端项目，如项目内未定义则会默认添加，文件默认内容如下：
 
 ```json
 {
@@ -54,11 +22,21 @@ keywords:
 }
 ```
 
-### 添加 web.conf 配置文件
+:::info
+该文件指定静态文件编译后的输出目录，默认是打包后输出到项目根目录 `dist`。如不是默认 `dist` 目录，需要在该文件中指定。
+:::
 
-项目编译完成后，Rainbond 会默认使用 Nginx（1.19.6） 将前端项目运行起来。用户可以在源代码根目录下加入 `web.conf` 文件来指定 Nginx 的配置，该文件的作用是定义运行时参数。没有此文件时，Rainbond 会采用缺省配置。参考配置用例如下：
+#### package-lock.json
 
-默认会把打包出来的 `dist` 目录下的所有文件放到容器的 `/app/www`
+`package-lock.json` 文件用于定义该项目使用 NPM 进行构建项目，该文件不可与 `yarn.lock` 同时存在。
+
+#### yarn.lock
+
+`yarn.lock` 文件用于定义该项目使用 YARN 进行构建项目，该文件不可与 `package-lock.json` 同时存在。
+
+#### web.conf
+
+`web.conf` 文件用于定义 Nginx 配置文件，如不定义则会使用默认配置，如下：
 
 ```bash
 server {
@@ -72,16 +50,12 @@ server {
 }
 ```
 
-:::tip
-有了以上文件可以在 Rainbond 中构建 Vue、React 项目了
-:::
+## 部署示例
 
-### 源码部署Vue项目
+* Vue Demo: https://gitee.com/zhangbigqi/vue-demo
+* React Demo: https://gitee.com/zhangbigqi/react-demo
 
-本次使用 Vue 项目进行演示，React 项目同理。
-
-
-#### 基于源码创建组件
+### 源码部署 Vue Or React 项目
 
 1. 基于源码创建组件，填写以下信息：
 
@@ -89,16 +63,8 @@ server {
 | ------------ | ------------------------------------ |
 | 组件名称     | 自定义                               |
 | 组件英文名称 | 自定义                               |
-| 仓库地址     | `https://gitee.com/zhangbigqi/RuoYi-Vue.git` |
-| 子目录路径     | `ruoyi-ui` |
-| 代码版本     | master                    |
+| 仓库地址     | `https://gitee.com/zhangbigqi/vue-demo.git` or `https://gitee.com/zhangbigqi/react-demo` |
+| 代码版本     | main                    |
 
-2. 确认创建组件，平台会自动识别语言为 **Nodestatic**.
-
-:::info
-此项目默认打包命令是 `npm run build:prod`，需要在 `组件 > 构建源 `修改构建命令为此命令。
-
-Rainbond中默认打包命令是 `npm run build yarn run build`
-
-修改后重新构建，直至完成，访问页面即可。
-:::
+2. 选择为 Node 前端项目并指定使用 Npm 还是 Yarn 构建项目。
+3. 在组件构建源中切换 Node 版本至 `16.15.0` 保存并构建。

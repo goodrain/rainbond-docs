@@ -238,7 +238,6 @@ const sidebars = {
           },
           items: [
             'micro-service/service-mesh/regist_and_discover',
-            'micro-service/service-mesh/regist_and_discover_grpc',
             'micro-service/service-mesh/connection_env',
             'micro-service/service-mesh/traffic-management',
             {
