@@ -1,9 +1,10 @@
 ---
-title: Yaml&Helm 部署指南
-description: Rainbond 部署 Yaml&Helm 指南
+title: 原生 Kubernetes 指南
+description: 从 Kubernetes 向 Rainbond 迁移。
 keywords:
 - Yaml 指南
 - Helm 指南
+- Kubernetes
 ---
 
 

@@ -68,4 +68,4 @@ $ helm install my-wp wordpress --repo https://charts.bitnami.com/bitnami
 
 ## 管理应用中的k8s资源
 
-参考文档 [k8s资源操作](/docs/use-manual/app-manage/k8s-resource/) 了解如何管理非 Workload 类型的资源。
+参考文档 [k8s资源操作](/docs/kubernetes-native-guide/k8s-resource/) 了解如何管理非 Workload 类型的资源。

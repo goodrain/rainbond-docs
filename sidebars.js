@@ -209,15 +209,33 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Yaml&Helm 部署指南',
+      label: '原生 Kubernetes 指南',
       link: {
         type: 'doc',
-        id: 'yaml-helm-guide/index'
+        id: 'kubernetes-native-guide/index'
       },
       items: [
-        'yaml-helm-guide/overview/index',
-        'yaml-helm-guide/yaml-example/index',
-        'yaml-helm-guide/helm-example/index',
+        'kubernetes-native-guide/overview/index',
+        'kubernetes-native-guide/yaml-support/index',
+        'kubernetes-native-guide/k8s-resource/index',
+        'kubernetes-native-guide/other/index',
+        {
+          type: 'category',
+          label: '基于Helm创建组件',
+          link: {
+            type: 'doc',
+            id: 'kubernetes-native-guide/helm-support/index'
+          },
+          items: [
+            'kubernetes-native-guide/helm-support/docking_helm_store',
+            'kubernetes-native-guide/helm-support/creation-process',
+            'kubernetes-native-guide/helm-support/manage-helm-app',
+            'kubernetes-native-guide/helm-support/helm-cmd-install',
+          ]
+        },
+        'kubernetes-native-guide/export-helm-chart/index',
+        'kubernetes-native-guide/yaml-example/index',
+        'kubernetes-native-guide/helm-example/index',
       ]
     },
     {
@@ -456,20 +474,6 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '基于Helm创建组件',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-create/helm-support/index'
-              },
-              items: [
-                'use-manual/component-create/helm-support/docking_helm_store',
-                'use-manual/component-create/helm-support/creation-process',
-                'use-manual/component-create/helm-support/manage-helm-app',
-                'use-manual/component-create/helm-support/helm-cmd-install'
-              ]
-            },
-            {
-              type: 'category',
               label: '本地文件创建组件',
               link: {
                 type: 'doc',
@@ -477,7 +481,6 @@ const sidebars = {
               },
               items: [
                 'use-manual/component-create/package-support/jar-war',
-                'use-manual/component-create/package-support/yaml'
               ]
             },
             {
@@ -626,7 +629,6 @@ const sidebars = {
               ]
             },
             'use-manual/app-manage/config-group',
-            'use-manual/app-manage/k8s-resource/k8s-resource',
           ]
         },
         {
