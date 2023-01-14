@@ -35,7 +35,7 @@ Rainbond 会从用户所提供 Yaml 定义的所有资源中抽取 Workload 相�
 
 ## 使用方法
 
-当用户拥有一份可以在 Kubernetes 中使用的 Yaml 文件时，通过 Yaml 部署应用是最简单的方式。请参考 [yaml文件识别创建](/docs/kubernetes-native-guide/yaml-support/index)。
+当用户拥有一份可以在 Kubernetes 中使用的 Yaml 文件时，通过 Yaml 部署应用是最简单的方式。请参考 [yaml文件识别创建](/docs/kubernetes-native-guide/yaml-support/)。
 
 当用户已经将业务系统制作成为 Helm Chart 包时，通过 Helm 部署应用也是一种很好的选择。请参考 [基于 Helm 命令部署 Helm 应用](/docs/kubernetes-native-guide/helm-support/helm-cmd-install)，或者在完成 [对接Helm仓库](/docs/kubernetes-native-guide/helm-support/docking_helm_store) 后， [基于应用市场部署 Helm 应用](/docs/kubernetes-native-guide/helm-support/creation-process) 。
 
