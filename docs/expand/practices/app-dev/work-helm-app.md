@@ -51,11 +51,11 @@ Helm 是 Kubernetes 中的一个开源软件包管理工具，Rainbond 从 5.3.1
 
 - 配置
 
-提供应用部署配置功能，提供图形化方式修改 `values.yaml` 文件配置，可选择部署时使用的 `values.yaml` 文件，配置修改方式参见 [Helm 应用管理](/docs/yaml-helm-guide/helm-support/manage-helm-app/)，需要注意的是 **有状态应用** 需要挂载存储时必须指定使用的`storageClass`，指定方式如下:
+提供应用部署配置功能，提供图形化方式修改 `values.yaml` 文件配置，可选择部署时使用的 `values.yaml` 文件，配置修改方式参见 [Helm 应用管理](/docs/kubernetes-native-guide/helm-support/manage-helm-app/)，需要注意的是 **有状态应用** 需要挂载存储时必须指定使用的`storageClass`，指定方式如下:
 
 _No.1_
 
-在 `values.yaml` 文件中指定或图形化方式指定，图形化方式指定参考[Helm 应用管理](/docs/yaml-helm-guide/helm-support/manage-helm-app/)
+在 `values.yaml` 文件中指定或图形化方式指定，图形化方式指定参考[Helm 应用管理](/docs/kubernetes-native-guide/helm-support/manage-helm-app/)
 
 _No.2_
 
