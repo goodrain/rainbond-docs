@@ -22,6 +22,7 @@ keywords:
 |**CentOS Stream** 8，9 |CPU：4，内存：16G，磁盘：50GB+|
 |**Ubuntu** 16.x，18.x，20.x，22.x |CPU：4，内存：16G，磁盘：50GB+|
 |**Debian** 9.x，10.x，11.x |CPU：4，内存：16G，磁盘：50GB+|
+|**Anolis OS** 7.x，8.x |CPU：2，内存：16G，磁盘：50GB+|
 
 如果使用 **CentOS 7** 操作系统，请务必升级操作系统内核；操作步骤参考 [CentOS系统内核升级攻略](https://t.goodrain.com/d/9-centos)。
 
