@@ -43,13 +43,17 @@ curl -o install.sh https://get.rainbond.com && bash ./install.sh
 在 Windows CMD 中执行以下命令
 
 ```bash
-docker run --privileged -d  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 ^
---name=rainbond-allinone --restart=on-failure ^
+docker run --privileged -d  -p 7070:7070 --name=rainbond-allinone --restart=on-failure ^
+-p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 -p 10000-10010:10000-10010 ^
 -v rainbond-data:/app/data ^
 -v rainbond-opt:/opt/rainbond ^
 -e EIP=<你的IP地址> ^
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-dind-allinone ^
-&& docker logs -f rainbond-allinone
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-dind-allinone
+```
+
+查看 Rainbond 启动日志
+```bash
+docker logs -f rainbond-allinone
 ```
 
 **执行完上述命令后，耐心等待 3-5 分钟，可以看到如下日志输出，表示 Rainbond 已启动完成**
