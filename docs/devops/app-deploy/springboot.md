@@ -6,6 +6,10 @@ keywords:
 - SpringBoot 项目部署
 ---
 
+import Bvideo from '/src/components/Bvideo';
+
+<Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=983036584&page=5" />
+
 Rainbond 支持构建 SpringBoot 单模块和多模块的项目，并自动识别其模块。
 
 Maven 项目是根据 `pom.xml` 文件来划分的, Rainbond 对它的识别也是建立在 `POM` 的基础上的. 主. 是识别出具体`模块(module)` 的构建命令和启动命令. 构建命令的作用是指定需要构建的模块, 是类似于 **mvn install -pl 'module name' -am** 的 mvn 命令. 启动命令的作用是在构建完成后, 指定需要执行的 Jar 包, 是类似于 **web: java $JAVA_OPTS -jar *.jar** 的命令.

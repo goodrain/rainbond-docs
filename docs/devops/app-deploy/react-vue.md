@@ -6,6 +6,10 @@ keywords:
 - Vue React 前端项目部署
 ---
 
+import Bvideo from '/src/components/Bvideo';
+
+<Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=983036584&page=4" />
+
 ## 概述
 
 在基于源码构建时，Rainbond 会识别项目根目录的 **package.json** 让你选择为 Node 前端项目，并选择使用 NPM 还是 YARN 构建项目。
