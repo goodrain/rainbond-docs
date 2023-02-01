@@ -27,7 +27,7 @@ kubectl exec -it $(kubectl get po -n rbd-system | grep rbd-app-ui | grep Running
 - 进入 Rainbond-控制台组件后，执行以下命令
 
 ```bash
-curl https://rainbond-script.oss-cn-hangzhou.aliyuncs.com/upgrade-5.11.0.sh | bash
+curl https://get.rainbond.com/upgrade-5.11.0.sh | bash
 ```
 
   </TabItem>
@@ -39,13 +39,13 @@ curl https://rainbond-script.oss-cn-hangzhou.aliyuncs.com/upgrade-5.11.0.sh | ba
 
 ```bash
 docker exec -it rainbond-allinone bash
-curl https://rainbond-script.oss-cn-hangzhou.aliyuncs.com/upgrade-5.11.0.sh | bash
+curl https://get.rainbond.com/upgrade-5.11.0.sh | bash
 ```
 
 - 如控制台通过应用市场安装，进入 Rainbond-控制台组件后，执行以下命令
 
 ```bash
-curl https://rainbond-script.oss-cn-hangzhou.aliyuncs.com/upgrade-5.11.0.sh | bash
+curl https://get.rainbond.com/upgrade-5.11.0.sh | bash
 ```
 
 2. 升级控制台
@@ -119,8 +119,8 @@ kubectl edit deploy rainbond-operator -n rbd-system
 ###  添加插件功能所需资源
 
 ```bash
-kubectl apply -f https://rainbond-script.oss-cn-hangzhou.aliyuncs.com/rainbond.io_rbdabilities.yaml
-kubectl apply -f https://rainbond-script.oss-cn-hangzhou.aliyuncs.com/rainbond.io_servicemeshclasses.yaml
-kubectl apply -f https://rainbond-script.oss-cn-hangzhou.aliyuncs.com/rainbond.io_servicemeshes.yaml
-kubectl apply -f https://rainbond-script.oss-cn-hangzhou.aliyuncs.com/rainbond.io_rbdplugins.yaml
+kubectl apply -f https://get.rainbond.com/rainbond.io_rbdabilities.yaml
+kubectl apply -f https://get.rainbond.com/rainbond.io_servicemeshclasses.yaml
+kubectl apply -f https://get.rainbond.com/rainbond.io_servicemeshes.yaml
+kubectl apply -f https://get.rainbond.com/rainbond.io_rbdplugins.yaml
 ```
