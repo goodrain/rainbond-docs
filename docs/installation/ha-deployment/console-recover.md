@@ -14,12 +14,39 @@ keywords:
 
 * Rainbond 控制台是通过 Allinone 部署的
 * 已经安装好的高可用 Rainbond 集群
-* [grctl](/docs/ops-guide/tools/grctl) >= 5.10.1
-## 使用 grctl 迁移控制台
+* 确保集群内资源大于 2GB
+* 已安装 [grctl](/docs/ops-guide/tools/grctl) 工具
+
+## 集群中部署控制台
+
+### 背景
+
+基于主机安装的控制台，是由 docker 启动，无法实现高可用部署，故需要将 docker 启动的控制台迁移到集群中，这篇文档便详细的介绍了如何将 docker 启动的控制台迁移到集群中。
+### 实现介绍
+
+:::tip
+1. 生成一个rbdcomponent 资源类型的 rbd-app-ui 的模版。
+2. 解析命令所携带的参数并渲染到 rbdcomponent 资源类型的 rbd-app-ui 的模版上，并在集群中创建该资源。
+3. rainbond-operator 会检测到 rbdcomponent 资源类型的 rbd-app-ui 的创建，从 rbdcomponent 资源类型的 rbd-app-ui 中获取信息( env 、label 、arg ...)
+4. 创建 service 、ingress资源实现对外暴露端口。如果你在命令中制定了 `-p` 来选择对外暴露的端口，则会在创建的 service 和 ingress 资源中生效。
+5. 启动一个 job 类型资源，job 会完成初始化数据库以及创建 deployment 资源类型的 rbd-app-ui 等一系列工作。rbd-app-ui 默认使用的是 rbd-db 作为 console 数据库，如果在通过 `-e` 指定了外部数据库的连接方式，则会切换至外部数据库。
+:::
+
+### grctl migrate 支持参数
+
+| 参数                      |        用途         |       默认值        |
+| ------------------------ | --------------------|-------------------|
+| port/p                   |     外部访问端口       |       7070        |
+| env/e                   |        环境变量        |                  |
+| arg/a                   |         参数           |                  |
+| replicas/r              |         实例数         |        1         |
+| image/i                 |       控制台镜像       |   registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.11.0-release-allinone          |
+
+### 使用 grctl 迁移命令
 
 ```bash
-grctl migrate -p 7071 -r 1 \
--i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-release-allinone
+grctl migrate -i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.11.0-release-allinone -p 7071 -r 1
+
 ```
 :::info
 迁移完成后会在 `rbd-system` 命名空间下启动 `rbd-app-ui` 的 POD，等待 Running 后通过 网关IP:7071 访问新控制台。
