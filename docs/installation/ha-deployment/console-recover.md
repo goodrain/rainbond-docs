@@ -39,12 +39,12 @@ keywords:
 | env/e                   |        环境变量        |                  |
 | arg/a                   |         参数           |                  |
 | replicas/r              |         实例数         |        1         |
-| image/i                 |       控制台镜像       |   registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-release-allinone          |
+| image/i                 |       控制台镜像       |   registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.11.0-release-allinone          |
 
 ### 使用 grctl 迁移命令
 
 ```bash
-grctl migrate -i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-release-allinone -p 7071 -r 1
+grctl migrate -i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.11.0-release-allinone -p 7071 -r 1
 ```
 
 :::tip
