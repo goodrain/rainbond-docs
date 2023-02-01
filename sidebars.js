@@ -360,6 +360,19 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '集群节点管理 指南',
+      link: {
+        type: 'doc',
+        id: 'cluster-node-manage/index'
+      },
+      items: [
+        'cluster-node-manage/overview/index',
+        'cluster-node-manage/cluster/index',
+        'cluster-node-manage/node/index',
+      ]
+    },
+    {
+      type: 'category',
       label: '平台使用手册',
       link: {
         type: 'doc',
