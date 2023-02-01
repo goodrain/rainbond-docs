@@ -51,11 +51,11 @@ Detect whether the application can be deployed normally. If the application cann
 
 - configure
 
-Provides the application deployment configuration function, provides a graphical way to modify the `values.yaml` file configuration, and can choose the `values.yaml` file used during deployment. For the configuration modification method, see [Helm Application Management](/docs/use-manual/component-create/helm-support/manage-helm-app/), it should be noted that **Stateful applications** When you need to mount the storage, you must specify the`storageClass`to be used, and the specification method is as follows:
+Provides the application deployment configuration function, provides a graphical way to modify the `values.yaml` file configuration, and can choose the `values.yaml` file used during deployment. For the configuration modification method, see [Helm Application Management](/docs/kubernetes-native-guide/helm-support/manage-helm-app/), it should be noted that **Stateful applications** When you need to mount the storage, you must specify the`storageClass`to be used, and the specification method is as follows:
 
 _No.1_
 
-`Specify in the values.yaml` file or specify graphically, and graphically specify reference[Helm application management](/docs/use-manual/component-create/helm-support/manage-helm-app/)
+`Specify in the values.yaml` file or specify graphically, and graphically specify reference[Helm application management](/docs/kubernetes-native-guide/helm-support/manage-helm-app/)
 
 _No.2_
 

@@ -19,6 +19,7 @@ keywords:
 |**CentOS Stream** 8，9 |CPU：2，内存：4G，磁盘：50GB+|
 |**Ubuntu** 16.x，18.x，20.x，22.x |CPU：2，内存：4G，磁盘：50GB+|
 |**Debian** 9.x，10.x，11.x |CPU：2，内存：4G，磁盘：50GB+|
+|**Anolis OS** 7.x，8.x |CPU：2，内存：4G，磁盘：50GB+|
 
 ### 其他要求
 

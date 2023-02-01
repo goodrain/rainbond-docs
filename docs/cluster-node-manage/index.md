@@ -1,7 +1,11 @@
 ---
-title: 应用总览
-description: 应用总览
+title: 集群管理 指南
+description: Rainbond Cluster Manage 指南
+keywords:
+- Cluster Manage 指南
+- Rainbond Cluster Manage
 ---
+
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
