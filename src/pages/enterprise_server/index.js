@@ -625,13 +625,13 @@ export default function Index() {
                   <div>
                     <span>离线环境支持</span>
                     <span style={{color:'#7d7979'}}>
-                      单机
+                      命令行
                     </span>
                     <span style={{color:'#7d7979'}}>
-                      集群
+                      图形化
                     </span>
                     <span style={{color:'#7d7979'}}>
-                      集群
+                      图形化
                     </span>
                   </div>
                   <div>

@@ -91,7 +91,7 @@ grctl migrate -p 7071 -r 1 \
 
 ```bash
 export APP_UI=`kubectl get pod -n rbd-system |grep rbd-app-ui|grep Running|awk '{print $1}'`
-kubectl cp ~/rainbonddata/cloudadaptor/enterprise $APP_UI:/app/data/cloudadaptor -nrbd-system
+kubectl cp ~/rainbonddata/cloudadaptor/enterprise $APP_UI:/app/data/cloudadaptor -n rbd-system
 ```
 
 进入企业视图  > 集群 > 节点配置，节点信息存在则成功。
