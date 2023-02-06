@@ -358,22 +358,23 @@ const sidebars = {
         'delivery/app-model-parameters',
       ]
     },
+    // TODO: Need to re-refine the content
+    // {
+    //   type: 'category',
+    //   label: '集群节点管理 指南',
+    //   link: {
+    //     type: 'doc',
+    //     id: 'cluster-node-manage/index'
+    //   },
+    //   items: [
+    //     'cluster-node-manage/overview/index',
+    //     'cluster-node-manage/cluster/index',
+    //     'cluster-node-manage/node/index',
+    //   ]
+    // },
     {
       type: 'category',
-      label: '集群节点管理 指南',
-      link: {
-        type: 'doc',
-        id: 'cluster-node-manage/index'
-      },
-      items: [
-        'cluster-node-manage/overview/index',
-        'cluster-node-manage/cluster/index',
-        'cluster-node-manage/node/index',
-      ]
-    },
-    {
-      type: 'category',
-      label: '平台使用手册',
+      label: '使用手册',
       link: {
         type: 'doc',
         id: 'use-manual/index'
@@ -796,7 +797,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '平台运维手册',
+      label: '运维手册',
       link: {
         type: 'doc',
         id: 'ops-guide/index'
