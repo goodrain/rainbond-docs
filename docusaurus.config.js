@@ -130,6 +130,11 @@ const config = {
             to: '/opensourceApps',
           },
           {
+            position: 'left',
+            label: '应用商店',
+            to: '/docs/store/install/appPackage',
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownItemsAfter: [
