@@ -358,9 +358,23 @@ const sidebars = {
         'delivery/app-model-parameters',
       ]
     },
+    // TODO: Need to re-refine the content
+    // {
+    //   type: 'category',
+    //   label: '集群节点管理 指南',
+    //   link: {
+    //     type: 'doc',
+    //     id: 'cluster-node-manage/index'
+    //   },
+    //   items: [
+    //     'cluster-node-manage/overview/index',
+    //     'cluster-node-manage/cluster/index',
+    //     'cluster-node-manage/node/index',
+    //   ]
+    // },
     {
       type: 'category',
-      label: '平台使用手册',
+      label: '使用手册',
       link: {
         type: 'doc',
         id: 'use-manual/index'
@@ -498,7 +512,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '组件管理指南',
+          label: '组件管理',
           link: {
             type: 'doc',
             id: 'use-manual/component-manage/index'
@@ -514,7 +528,6 @@ const sidebars = {
               items: [
                 'use-manual/component-manage/overview/basic-operation',
                 'use-manual/component-manage/overview/service-properties',
-                'use-manual/component-manage/overview/operation-log',
               ]
             },
             {
@@ -576,22 +589,12 @@ const sidebars = {
                 'use-manual/component-manage/build-source/change_source_type'
               ]
             },
-            {
-              type: 'category',
-              label: '组件其他设置',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-manage/other/index'
-              },
-              items: [
-                'use-manual/component-manage/other/index'
-              ]
-            },
+            'use-manual/component-manage/other/index'
           ]
         },
         {
           type: 'category',
-          label: '应用管理指南',
+          label: '应用管理',
           link: {
             type: 'doc',
             id: 'use-manual/app-manage/index'
@@ -607,7 +610,6 @@ const sidebars = {
               items: [
                 'use-manual/app-manage/overview/app-topology',
                 'use-manual/app-manage/overview/operation',
-                'use-manual/app-manage/overview/add-service',
               ]
             },
             'use-manual/app-manage/share-app',
@@ -633,31 +635,13 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '团队管理员指南',
+          label: '团队管理',
           link: {
             type: 'doc',
             id: 'use-manual/team-manage/index'
           },
           items: [
-            'use-manual/team-manage/overview/overview',
             'use-manual/team-manage/ns-to-team/ns-to-team',
-            {
-              type: 'category',
-              label: '应用管理',
-              link: {
-                type: 'doc',
-                id: 'use-manual/team-manage/app-manage/index'
-              },
-              items: [
-                'use-manual/team-manage/app-manage/overview',
-                'use-manual/team-manage/app-manage/app-create',
-              ]
-            },
-            {
-              type: 'link',
-              label: '创建组件',
-              href: '/docs/use-manual/component-create/creation-process',
-            },
             {
               type: 'category',
               label: '网关',
@@ -703,7 +687,6 @@ const sidebars = {
                 id: 'use-manual/team-manage/team-manage/index'
               },
               items: [
-                'use-manual/team-manage/team-manage/dynamic',
                 'use-manual/team-manage/team-manage/team-user',
                 'use-manual/team-manage/team-manage/open-cluster',
                 {
@@ -724,13 +707,12 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '企业管理员指南',
+          label: '企业管理员',
           link: {
             type: 'doc',
             id: 'use-manual/enterprise-manage/index'
           },
           items: [
-            'use-manual/enterprise-manage/overview/overview',
             {
               type: 'category',
               label: '应用市场',
@@ -758,7 +740,6 @@ const sidebars = {
                 'use-manual/enterprise-manage/teams/join-team',
               ]
             },
-            'use-manual/enterprise-manage/cluster-manage/index',
             {
               type: 'category',
               label: '用户管理',
@@ -801,7 +782,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '应用商店指南',
+          label: '应用商店',
           link: {
             type: 'doc',
             id: 'use-manual/app-store-manage/index'
@@ -816,7 +797,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '平台运维手册',
+      label: '运维手册',
       link: {
         type: 'doc',
         id: 'ops-guide/index'
@@ -978,7 +959,8 @@ const sidebars = {
         'upgrade/5.8.1-upgrade',
         'upgrade/5.9.0-upgrade',
         'upgrade/5.10.0-upgrade',
-        'upgrade/5.10.1-upgrade'
+        'upgrade/5.10.1-upgrade',
+        'upgrade/5.11.0-upgrade'
       ]
     },
     {

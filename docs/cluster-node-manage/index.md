@@ -1,6 +1,9 @@
 ---
-title: '应用管理'
-description: '介绍团队视图应用总览以及应用的创建'
+title: 集群管理 指南
+description: Rainbond Cluster Manage 指南
+keywords:
+- Cluster Manage 指南
+- Rainbond Cluster Manage
 ---
 
 

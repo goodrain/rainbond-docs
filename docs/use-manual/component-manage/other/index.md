@@ -56,23 +56,3 @@ description: 组件其他设置功能模块介绍
 2.启用/禁用健康检测
 
 特殊情况下开发者可能需要临时禁用健康检测使组件一直处于健康状态。可以使用启用/禁用健康检测功能。修改后需要更新组件即可生效。
-
-## 常见问题
-
-- 组件滚动更新过程中出现请求故障
-
-> 出现此问题强烈建议设置更加精确的健康检测规则，比如选用 HTTP 模式。
-
-- 其他协议的组件如何设置健康检测
-
-> Mysql,Redis 等更多的应用层协议目前不支持精确检测，请选用 TCP 模式。后续我们将增加使用 `cmd` 的方式进行检测，可以对不同类型的组件进行较好的支持。
-
-
-## 组件特性管理
-
-```mdx-code-block
-import DocCardList from '@theme/DocCardList';
-import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
-
-<DocCardList items={useCurrentSidebarCategory().items}/>
-```
