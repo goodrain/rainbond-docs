@@ -90,6 +90,16 @@ export default function swiper() {
               </a>
             </div>
             <div className="swiper-slide">
+              <a  href='https://www.bilibili.com/video/BV1334y1f76U' target='_blank'>
+                <img src='/img/video/rainbond-devops.png'/>
+              </a>
+            </div>
+            <div className="swiper-slide">
+              <a  href='https://www.bilibili.com/video/BV1uj411N7Vy' target='_blank'>
+                <img src='/img/video/continuous-delivery.png'/>
+              </a>
+            </div>
+            <div className="swiper-slide">
               <a  href='https://www.bilibili.com/video/BV1vS4y1w7ps' target='_blank'>
                 <img src='/img/video/gitlab+rainbond.png'/>
               </a>

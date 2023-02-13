@@ -169,7 +169,7 @@ const sidebars = {
             'devops/app-deploy/springboot',
             {
               type: 'category',
-              label: '使用 CI 工具部署应用',
+              label: '工具集成',
               link: {
                 type: 'doc',
                 id: 'devops/app-deploy/ci-tools/index',
@@ -358,20 +358,40 @@ const sidebars = {
         'delivery/app-model-parameters',
       ]
     },
-    // TODO: Need to re-refine the content
-    // {
-    //   type: 'category',
-    //   label: '集群节点管理 指南',
-    //   link: {
-    //     type: 'doc',
-    //     id: 'cluster-node-manage/index'
-    //   },
-    //   items: [
-    //     'cluster-node-manage/overview/index',
-    //     'cluster-node-manage/cluster/index',
-    //     'cluster-node-manage/node/index',
-    //   ]
-    // },
+    {
+      type: 'category',
+      label: '集群管理指南',
+      link: {
+        type: 'doc',
+        id: 'cluster-manage/index'
+      },
+      items: [
+        {
+          type: 'category',
+          label: '集群状态监控',
+          link: {
+            type: 'doc',
+            id: 'cluster-manage/status-monitor/index',
+          },
+          items: [
+            'cluster-manage/status-monitor/dashboard',
+          ]
+        },
+        'cluster-manage/cluster-info',
+        'cluster-manage/resource-limit',
+        {
+          type: 'category',
+          label: '节点管理',
+          link: {
+            type: 'doc',
+            id: 'cluster-manage/nodes/index'
+          },
+          items: [
+            'cluster-manage/nodes/add-node',
+          ]
+        },
+      ]
+    },
     {
       type: 'category',
       label: '使用手册',
@@ -835,7 +855,6 @@ const sidebars = {
             id: 'ops-guide/management/index'
           },
           items: [
-            'ops-guide/management/dashboard-op',
             'ops-guide/management/resource-cleanup',
             'ops-guide/management/data-migration',
             'ops-guide/management/container-runtime-switch',
@@ -850,20 +869,6 @@ const sidebars = {
           },
           items: [
             'ops-guide/rbdlog/rbd-log',
-          ]
-        },
-        {
-          type: 'category',
-          label: '集群管理',
-          link: {
-            type: 'doc',
-            id: 'ops-guide/cluster-manage/index'
-          },
-          items: [
-            'ops-guide/cluster-manage/add-cluster',
-            'ops-guide/cluster-manage/manage-cluster',
-            'ops-guide/cluster-manage/resource-limit'
-
           ]
         },
         {
@@ -971,34 +976,16 @@ const sidebars = {
         id: 'expand/index'
       },
       items: [
-        {
-          type: 'category',
-          label: '常见场景最佳实践',
-          link: {
-            type: 'doc',
-            id: 'expand/practices/index'
-          },
-          items: [
-            'expand/practices/app-dev/work_with_kong',
-            'expand/practices/app-dev/work_with_elk',
-            'expand/practices/app-dev/app_publishing',
-            'expand/practices/app-dev/ab_testing',
-            'expand/practices/app-dev/update-rollback',
-            'expand/practices/app-dev/config_file',
-            'expand/practices/app-dev/collect_log',
-            'expand/practices/app-dev/java-exporter',
-            'expand/practices/app-dev/statefulset',
-            'expand/practices/app-dev/connect-api',
-            'expand/practices/app-dev/port-conflict',
-            'expand/practices/app-dev/auto-schema',
-            'expand/practices/app-dev/deploy-spark',
-            'expand/practices/app-dev/port-alias',
-            'expand/practices/operator/gateway-node',
-            'expand/practices/app-dev/data-initialization',
-            'expand/practices/app-dev/work-helm-app',
-            'expand/practices/app-dev/shell-hook-cdn'
-          ]
-        },
+        'expand/practices/app-dev/work_with_kong',
+        'expand/practices/app-dev/app_publishing',
+        'expand/practices/app-dev/ab_testing',
+        'expand/practices/app-dev/config_file',
+        'expand/practices/app-dev/collect_log',
+        'expand/practices/app-dev/connect-api',
+        'expand/practices/app-dev/auto-schema',
+        'expand/practices/app-dev/deploy-spark',
+        'expand/practices/app-dev/data-initialization',
+        'expand/practices/app-dev/shell-hook-cdn'
       ]
     },
   ],
