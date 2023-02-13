@@ -104,6 +104,4 @@ Visit the test domain name to see that the traffic has been transferred to Web V
 
 **You may also want to read：**
 
-[One-click online/rollback based on version number](./update-rollback/)
-
 [Component A/B testing practice based on Rainbond](./ab_testing/)

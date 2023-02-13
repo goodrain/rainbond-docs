@@ -128,6 +128,3 @@ $ curl --cookie "user=test" www.test.goodrain.com
 **您可能还需要阅读：**
 
 [基于Rainbond的滚动发布，灰度发布及蓝绿发布实践](./app_publishing)
-
-[基于版本号一键上线/回滚](./update-rollback)
-

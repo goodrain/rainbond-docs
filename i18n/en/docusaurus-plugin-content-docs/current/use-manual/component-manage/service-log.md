@@ -29,4 +29,4 @@ We recommend users to separate component running logs into access logs and progr
 
 We can also only view the logs of the specified instance container, and the real-time performance of the container log will be relatively high. By default, it is refreshed every 5 seconds.
 
-In Rainbond, log collection can also be connected to log analysis systems such as`ELASTICSEARCH`, and the logs can be directly transmitted to the analysis system for analysis; for details, see [Logs connected to ELK system](/docs/expand/practices/app-dev/work_with_elk).
+In Rainbond, log collection can also be connected to log analysis systems such as`ELASTICSEARCH`, and the logs can be directly transmitted to the analysis system for analysis; for details, see [Logs connected to ELK system](https://www.rainbond.com/blog/elk).

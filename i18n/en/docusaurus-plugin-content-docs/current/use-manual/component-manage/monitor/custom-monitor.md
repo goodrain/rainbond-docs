@@ -83,6 +83,6 @@ Access the port 9104 of the Mysql service component, and you can view all the mo
 
 ### Custom monitoring for other types of business
 
-For JAVA applications built from source code, we integrate exporter in the construction process, and its usage refers to best practices： [Custom monitoring for JAVA applications](/docs/expand/practices/app-dev/java-exporter)
+For JAVA applications built from source code, we integrate exporter in the construction process, and its usage refers to best practices： [Custom monitoring for JAVA applications](https://www.rainbond.com/blog/JmxExporter)
 
 
