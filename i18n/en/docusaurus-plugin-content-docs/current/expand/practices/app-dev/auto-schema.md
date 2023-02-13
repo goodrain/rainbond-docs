@@ -70,7 +70,7 @@ Project address：https://github.com/Aaron-23/Initialize-db
 
 Using this project to build on the platform, Rainbond will automatically detect the environment variables, storage, ports and other information defined in the Dockerfile, automatically configure these configuration items, and automatically start the database after the Dockerfile is built.
 
-It should be noted that MySQL is a stateful service, so you need to change the component type to stateful single instance before building. For the component state, please refer to [Deployment Type](/docs/practices/app-dev/statefulset/).
+It should be noted that MySQL is a stateful service, so you need to change the component type to stateful single instance before building. 
 
 ![advancedsettings](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/practice/Initdb/advancedsettings.png)
 

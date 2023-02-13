@@ -29,4 +29,4 @@ Rainbond 平台对组件日志采用实时推送的形式进行展示，便于�
 
 我们也可以只查看指定实例容器的日志, 容器日志的实时性会比较高. 默认情况下, 每 5 秒刷新一次.
 
-在 Rainbond 中也可将日志收集对接`ELASTICSEARCH`等日志分析系统，将日志直接传输到分析系统中进行分析；详情参阅 [日志对接ELK体系](/docs/expand/practices/app-dev/work_with_elk)。
+在 Rainbond 中也可将日志收集对接`ELASTICSEARCH`等日志分析系统，将日志直接传输到分析系统中进行分析；详情参阅 [日志对接ELK体系](https://www.rainbond.com/blog/elk)。

@@ -6,11 +6,16 @@ keywords:
 - 持续交付
 ---
 
+import Bvideo from '/src/components/Bvideo';
+
+<Bvideo src="//player.bilibili.com/player.html?aid=436800242&bvid=BV1uj411N7Vy&cid=1005328921&page=4" />
+
 ## Rainbond 上多环境交付流程图
 
 如下图所示，我们以后台管理系统为例，利用 Rainbond 应用模版实现多云多环境的持续交付，通常需要以下流程。
 
-![multi-env-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/multi-env-delivery.jpg)
+<!-- ![multi-env-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/multi-env-delivery.jpg) -->
+![](https://static.goodrain.com/docs/5.11/delivery/continuous/source-code/multi-env-delivery.png)
 
 1. 通过 Rainbond 对接多集群，可以对接私有云、公有云等。
 

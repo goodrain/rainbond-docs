@@ -31,6 +31,16 @@ export default function Index() {
                 </a>
             </SwiperSlide>
             <SwiperSlide>
+                <a href='https://www.bilibili.com/video/BV1334y1f76U' target='_blank'>
+                    <img src='/img/video/rainbond-devops.png' alt='' />
+                </a>
+            </SwiperSlide>
+            <SwiperSlide>
+                <a href='https://www.bilibili.com/video/BV1uj411N7Vy' target='_blank'>
+                    <img src='/img/video/continuous-delivery.png' alt='' />
+                </a>
+            </SwiperSlide>
+            <SwiperSlide>
                 <a href='https://www.bilibili.com/video/BV1vS4y1w7ps' target='_blank'>
                     <img src='/img/video/gitlab+rainbond.png' alt='' />
                 </a>

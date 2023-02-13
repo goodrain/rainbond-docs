@@ -128,6 +128,3 @@ The most critical link in the A/B testing process is data feedback and timely ad
 **You may also want to read：**
 
 [Rainbond-based rolling release, grayscale release and blue-green release practice](./app_publishing)
-
-[One-click online/rollback based on version number](./update-rollback)
-
