@@ -90,10 +90,20 @@ const config = {
         // navbar的选项卡
         items: [
           {
-            type: 'docSidebar',
+            type: 'dropdown',
             position: 'left',
-            sidebarId: 'docs',
+            to: '/docs/',
             label: '文档',
+            items: [
+              {
+                label: 'Rainbond Docs',
+                href: '/docs/',
+              },
+              {
+                label: 'Rainstore Docs',
+                href: '/docs/store/install/appPackage',
+              },
+            ],
           },
           {
             type: 'dropdown',
@@ -128,11 +138,6 @@ const config = {
             position: 'left',
             label: '精选应用',
             to: '/opensourceApps',
-          },
-          {
-            position: 'left',
-            label: '应用商店',
-            to: '/docs/store/install/appPackage',
           },
           {
             type: 'docsVersionDropdown',
