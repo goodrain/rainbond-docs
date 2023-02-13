@@ -105,6 +105,4 @@ Rainbond平台无状态组件滚动更新与有状态组件滚动更新区别：
 
 **您可能还需要阅读：**
 
-[基于版本号一键上线/回滚](./update-rollback/)
-
 [基于Rainbond的组件A/B测试实践](./ab_testing/)

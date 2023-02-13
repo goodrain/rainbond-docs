@@ -6,6 +6,10 @@ keywords:
 - 持续交付
 ---
 
+import Bvideo from '/src/components/Bvideo';
+
+<Bvideo src="//player.bilibili.com/player.html?aid=436800242&bvid=BV1uj411N7Vy&cid=1005311597&page=3" />
+
 ## Rainbond 应用模版持续交付流程图
 
 如下图所示，我们以`后台管理系统`为例，利用 Rainbond 应用模版实现持续交付，通常需要以下流程。
@@ -18,7 +22,8 @@ keywords:
 
 3. 当 `3.0` 版本测试通过以后，我们就可以认为已经有了高质量可交付的版本。接下来可以在应用市场标记该版本已经 Release，后续在生产环境部署时，直接从应用市场部署 `3.0` 版本即可。
 
-![ram-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/ram-delivery.jpg)
+<!-- ![ram-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/ram-delivery.jpg) -->
+![](https://static.goodrain.com/docs/5.11/delivery/continuous/source-code/template-delivery.png)
 
 ## 操作步骤
 
