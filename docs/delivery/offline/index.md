@@ -1,6 +1,15 @@
 ---
 title: 离线交付
+description: 使用 Rainbond 进行离线交付
+keywords:
+- 离线交付
+- toB 离线交付
+- toB offline delivery
 ---
+
+import Bvideo from '/src/components/Bvideo';
+
+<Bvideo src="//player.bilibili.com/player.html?aid=524437005&bvid=BV1zM411n7UZ&cid=1011022690&page=1" />
 
 由于数据隐私和网络安全的考虑，大多数 toB 场景的客户需要私有化应用交付，也就是需要交付到客户的环境里，这样的客户有政府、金融、军工、公安、大型企业、特色行业等，这些私有化场景限制很多，如何提高私有化应用交付的效率是个难题。
 

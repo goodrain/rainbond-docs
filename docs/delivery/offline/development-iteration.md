@@ -1,8 +1,17 @@
 ---
 title: 离线环境定制开发和持续迭代
+description: 使用 Rainbond 实现离线环境定制开发和持续迭代
+keywords:
+- 离线交付
+- toB 离线交付
+- toB offline delivery
+- 离线环境定制开发
+- 离线环境持续迭代
 ---
 
-<!-- （离线交付面临的问题，持续迭代流程说明） -->
+import Bvideo from '/src/components/Bvideo';
+
+<Bvideo src="//player.bilibili.com/player.html?aid=524437005&bvid=BV1zM411n7UZ&cid=1011063943&page=3" />
 
 ## 离线环境定制开发的痛点
 
@@ -32,7 +41,7 @@ title: 离线环境定制开发和持续迭代
 
 - 对于交付人员而言，只需要将不同版本的应用模版导入到交付环境中，Rainbond 就会自动识别同个应用模版的不同版本，并可以进行一键升级操作。
 
-![offline-continuous-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/offline-continuous-delivery.jpg)
+![offline-continuous-delivery](https://static.goodrain.com/docs/5.11/delivery/offline/offline-continuous-delivery.png)
 
 ## 操作步骤
 

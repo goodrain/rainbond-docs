@@ -41,6 +41,11 @@ export default function Index() {
                 </a>
             </SwiperSlide>
             <SwiperSlide>
+                <a href='https://www.bilibili.com/video/BV1zM411n7UZ' target='_blank'>
+                    <img src='/img/video/offline-delivery.png' alt='' />
+                </a>
+            </SwiperSlide>
+            <SwiperSlide>
                 <a href='https://www.bilibili.com/video/BV1vS4y1w7ps' target='_blank'>
                     <img src='/img/video/gitlab+rainbond.png' alt='' />
                 </a>

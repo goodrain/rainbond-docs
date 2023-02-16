@@ -1,8 +1,15 @@
 ---
 title: 微服务架构离线交付
+description: 基于 Rainbond 实现离线环境下的微服务应用离线交付
+keywords:
+- 离线交付
+- toB 离线交付
+- toB offline delivery
 ---
 
-<!-- （离线场景问题、交付技术说明、离线交付过程说明） -->
+import Bvideo from '/src/components/Bvideo';
+
+<Bvideo src="//player.bilibili.com/player.html?aid=524437005&bvid=BV1zM411n7UZ&cid=1011041349&page=2" />
 
 ## 离线交付的痛点
 
@@ -95,7 +102,7 @@ Rainbond 是一个云原生应用多云管理平台，Rainbond 遵循以应用�
 
 接下来在客户环境一键导入该应用模版包，通过一键安装即可完成交付。当在客户环境出现问题时，还可以在开发环境修改后，发布 1.1 版本。重复以上流程，用户即可完成应用的一键升级。后续也可以基于该应用模版实现整个应用的回滚。
 
-![offline-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/offline-delivery.jpg)
+![offline-delivery](https://static.goodrain.com/docs/5.11/delivery/offline/offline-delivery.png)
 
 ## 操作步骤
 
