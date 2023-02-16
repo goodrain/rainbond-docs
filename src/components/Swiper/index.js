@@ -100,6 +100,11 @@ export default function swiper() {
               </a>
             </div>
             <div className="swiper-slide">
+              <a  href='https://www.bilibili.com/video/BV1zM411n7UZ' target='_blank'>
+                <img src='/img/video/offline-delivery.png'/>
+              </a>
+            </div>
+            <div className="swiper-slide">
               <a  href='https://www.bilibili.com/video/BV1vS4y1w7ps' target='_blank'>
                 <img src='/img/video/gitlab+rainbond.png'/>
               </a>
