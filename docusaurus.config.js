@@ -90,8 +90,9 @@ const config = {
         // navbar的选项卡
         items: [
           {
+            type: 'docSidebar',
             position: 'left',
-            to: '/docs/',
+            sidebarId: 'docs',
             label: '文档',
           },
           {
