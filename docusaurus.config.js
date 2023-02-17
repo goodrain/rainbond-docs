@@ -90,20 +90,9 @@ const config = {
         // navbar的选项卡
         items: [
           {
-            type: 'dropdown',
             position: 'left',
             to: '/docs/',
             label: '文档',
-            items: [
-              {
-                label: 'Rainbond Docs',
-                href: '/docs/',
-              },
-              {
-                label: 'Rainstore Docs',
-                href: '/docs/store/install/appPackage',
-              },
-            ],
           },
           {
             type: 'dropdown',
