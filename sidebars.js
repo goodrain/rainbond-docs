@@ -825,31 +825,19 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'Rainbond 组件概述',
+          label: '平台组件概述',
           link: {
             type: 'doc',
             id: 'ops-guide/component/index'
           },
           items: [
             'ops-guide/component/rainbond-operator',
-            'ops-guide/component/rbd-api',
-            'ops-guide/component/rbd-chaos',
-            'ops-guide/component/rbd-db',
-            'ops-guide/component/etcd',
-            'ops-guide/component/rbd-eventlog',
-            'ops-guide/component/rbd-gateway',
             'ops-guide/component/rbd-hub',
-            'ops-guide/component/rbd-mq',
-            'ops-guide/component/rbd-nfs',
-            'ops-guide/component/rbd-node',
-            'ops-guide/component/rbd-resource-proxy',
-            'ops-guide/component/rbd-webcli',
-            'ops-guide/component/rbd-worker',
           ]
         },
         {
           type: 'category',
-          label: 'Rainbond 运维概述',
+          label: '运维概述',
           link: {
             type: 'doc',
             id: 'ops-guide/management/index'
@@ -858,17 +846,8 @@ const sidebars = {
             'ops-guide/management/resource-cleanup',
             'ops-guide/management/data-migration',
             'ops-guide/management/container-runtime-switch',
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Rainbond 系统日志',
-          link: {
-            type: 'doc',
-            id: 'ops-guide/rbdlog/index'
-          },
-          items: [
-            'ops-guide/rbdlog/rbd-log',
+            'ops-guide/management/change-gateway',
+            'ops-guide/management/kaniko-args',
           ]
         },
         {
