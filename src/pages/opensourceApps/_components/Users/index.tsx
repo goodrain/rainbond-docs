@@ -74,17 +74,6 @@ const Users: User[] = [
     tags: ['Application'],
   },
   {
-    title: 'DevLake',
-    description: translate({
-      id: 'opensourceapps.devlake.description',
-      message: 'Apache DevLake 是一个开源开发数据平台，从 DevOps 工具中提取、分析和可视化碎片数据',
-    }),
-    preview: require('./apps/devlake.png'),
-    website: 'https://github.com/apache/incubator-devlake',
-    deploy: 'https://devlake.apache.org/docs/GettingStarted/RainbondSetup',
-    tags: ['Application'],
-  },
-  {
     title: 'EMQX',
     description: translate({
       id: 'opensourceapps.emqx.description',

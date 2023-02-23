@@ -58,9 +58,10 @@ grctl migrate -i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.11.1-rel
 
 ```bash
 grctl migrate -p 7071 -r 1 \
--i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-release-allinone \
+-i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.11.1-release-allinone \
 -e MYSQL_HOST=127.0.0.1 \
 -e MYSQL_PORT=3306 \
+-e MYSQL_USER=root \
 -e MYSQL_PASS=123456 \
 -e MYSQL_DB=console
 ```
@@ -72,7 +73,7 @@ grctl migrate -p 7071 -r 1 \
 | -e，env                   |        环境变量        |                  |
 | -a，arg               |         参数           |                  |
 | -r，replicas              |         实例数         |        1         |
-| -i，image               |       控制台镜像       |   registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.10.1-release-allinone          |
+| -i，image               |       控制台镜像       |   registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.11.1-release-allinone          |
 
 
 ## 备份恢复控制台数据
