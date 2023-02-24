@@ -930,6 +930,7 @@ const sidebars = {
         id: 'upgrade/index'
       },
       items: [
+        'upgrade/5.11.2-upgrade',
         'upgrade/5.11.1-upgrade',
         'upgrade/5.11.0-upgrade',
         'upgrade/5.10.1-upgrade',

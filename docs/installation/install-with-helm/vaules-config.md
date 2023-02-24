@@ -11,7 +11,7 @@ description: '详细介绍 helm 安装过程中的 values 参数设置及如何�
 | ------------------------- | ------------------------------------------------------------ | ------------------------------- |
 | operator.name             | rainbond-operator                                            | operator 的 deployment 资源名称 |
 | operator.image.name       | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond-operator | operator 镜像名称               |
-| operator.image.tag        | v5.11.1-release                                                       | operator 镜像tag                |
+| operator.image.tag        | v5.11.2-release                                                       | operator 镜像tag                |
 | operator.image.pullPolicy | IfNotPresent                                                 | operator 镜像拉取策略           |
 | operator.logLevel         | 4                                                            | operator 的日志输出级别         |
 | operator.env[0].name         |  CONTAINER_RUNTIME                                        | 选择集群容器运行时         |
@@ -23,7 +23,7 @@ operator:
   name: rainbond-operator
   image:
     name: registry.cn-hangzhou.aliyuncs.com/yangkaa/rainbond-operator
-    tag: v5.11.1-release
+    tag: v5.11.2-release
     pullPolicy: IfNotPresent
   logLevel: 4
   env:
