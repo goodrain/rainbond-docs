@@ -106,3 +106,7 @@ div[class^='announcementBar_'] {
  nav {
   --ifm-font-size-base: 16px;
 }
+
+.menu {
+  font-size: 15px;
+}

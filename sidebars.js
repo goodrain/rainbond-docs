@@ -848,6 +848,7 @@ const sidebars = {
             'ops-guide/management/container-runtime-switch',
             'ops-guide/management/change-gateway',
             'ops-guide/management/kaniko-args',
+            'ops-guide/management/docker-log',
           ]
         },
         {
