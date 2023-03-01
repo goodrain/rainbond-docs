@@ -68,7 +68,11 @@ export default function JoinCommunity() {
                 <OverlayTrigger placement="bottom" overlay={
                   <div className="card">
                     <div className="card__body">
-                      搜索钉钉群号 <b>31096419</b> 加入 Rainbond 钉钉技术交流群
+                      搜索钉钉群号加入 Rainbond 社区交流群
+                      <ul>
+                        <li><b>31096419（满）</b></li>
+                        <li><b>30885018060</b></li>
+                      </ul>
                     </div>
                   </div>
                 }>
