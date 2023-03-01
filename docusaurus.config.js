@@ -261,7 +261,7 @@ const config = {
                 to: '/community/support#微信群'
               },
               {
-                label: '钉钉(31096419)',
+                label: '钉钉(30885018060)',
                 to: '#'
               },
               {
