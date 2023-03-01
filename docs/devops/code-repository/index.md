@@ -24,7 +24,7 @@ Rainbond 支持对接 Git 代码仓库，从源代码仓库直接创建组件。
 
 |                            | 说明                                                         |
 | -------------------------- | ------------------------------------------------------------ |
-| Application name           | 自动移应用名称                                               |
+| Application name           | 自定义应用名称                                               |
 | Homepage URL               | 访问 Rainbond 的URL，如 `https://rainbond.com`               |
 | Authorization callback URL | 回跳路径，用于接收返回的凭证，Homepage URL + /console/oauth/redirect，如：`https://rainbond.com/console/oauth/redirect` |
 
