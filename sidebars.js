@@ -205,6 +205,22 @@ const sidebars = {
             'devops/app-debug/nocalhost',
           ]
         },
+        {
+          type: 'category',
+          label: 'Pipeline 概述',
+          link: {
+            type: 'doc',
+            id: 'devops/pipeline/index',
+          },
+          items: [
+            'devops/pipeline/install',
+            'devops/pipeline/app-service',
+            'devops/pipeline/repository',
+            'devops/pipeline/images',
+            'devops/pipeline/deploy-history',
+            'devops/pipeline/pipelines',
+          ]
+        },
       ]
     },
     {
