@@ -95,7 +95,7 @@ pig -- https://gitee.com/log4j/pig
 | 组件                   | 端口 | 端口别名 |
 | ---------------------- | ---- | ---- |
 | pig-register           | 8848 9848 9849 | 8848端口别名: `NACOS` |
-| pig-gateway            | 9999 | |
+| pig-gateway            | 9999 | 端口别民: `GATEWAY` |
 | pig-auth               | 3000 | |
 | pig-upms-biz           | 4000 | |
 | pig-codegen            | 5002 | |
@@ -148,7 +148,7 @@ spring:
 
 ### 四、部署 Pig-UI 前端
 
-1. 基于源码创建组件，填写以下信息：
+4.1、基于源码创建组件，填写以下信息：
 
 |              | 内容                                 |
 | ------------ | ------------------------------------ |
@@ -162,10 +162,55 @@ spring:
 这里使用了我的仓库地址，因为修改了一些默认配置，比如增加了 `nodestatic.json` `web.conf`，参阅 [部署Vue、React前端](/docs/use-manual/component-create/language-support/nodejs-static)
 :::
 
-2. 创建组件后，进入 `pig-ui` 组件内 -> 构建源 -> 源码构建参数设置，修改 Node 版本为 `16.15.0`，确定修改并构建组件
-3. 编辑依赖关系，切换到 `编排模式` 拖动组件进行依赖关系建立，将 `pig-ui` 依赖 `pig-gateway`并更新组件
-4. 构建完成后，删除默认端口，新增 `80` 端口并打开对外服务。
-5. 访问 `pig-ui` 进行验证。
+4.2、创建组件后，进入 `pig-ui` 组件内 -> 构建源 -> 源码构建参数设置，修改 Node 版本为 `16.15.0`，确定修改并构建组件
+
+4.3、编辑依赖关系，切换到 `编排模式` 拖动组件进行依赖关系建立，将 `pig-ui` 依赖 `pig-gateway`。
+
+4.4、进入 `pig-ui` **组件内 -> 环境配置 -> 添加配置文件**，添加以下配置文件：
+
+* 配置文件名称：自定义
+* 配置文件路径：`/app/nginx/conf.d/web.conf`
+* 配置文件内容如下:
+
+```conf
+server {
+    listen 80;
+
+    gzip on;
+    gzip_static on;     # 需要http_gzip_static_module 模块
+    gzip_min_length 1k;
+    gzip_comp_level 4;
+    gzip_proxied any;
+    gzip_types text/plain text/xml text/css;
+    gzip_vary on;
+    gzip_http_version   1.0; #兼容多层nginx 反代
+    gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+
+    # 打包好的dist目录文件，放置到这个目录下
+    root /app/www;
+
+    # 注意维护新增微服务，gateway 路由前缀
+    location ~* ^/(code|auth|admin|gen) {
+      proxy_pass http://${GATEWAY_HOST}:${GATEWAY_PORT};
+      #proxy_set_header Host $http_host;
+      proxy_connect_timeout 15s;
+      proxy_send_timeout 15s;
+      proxy_read_timeout 15s;
+      proxy_set_header X-Forwarded-Proto http;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # 避免端点安全问题
+    if ($request_uri ~ "/actuator"){
+        return 403;
+    }
+}
+```
+
+4.5、删除默认端口，新增 `80` 端口并打开对外服务。
+
+4.6、更新组件并访问 `pig-ui` 进行验证。
 
 ### 最终拓扑图
 
