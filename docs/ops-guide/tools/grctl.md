@@ -17,7 +17,7 @@ hidden: false
 安装方式：
 
 ```bash
-docker run -it --rm -v /:/rootfs  registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.11.2-release copy
+docker run -it --rm -v /:/rootfs  registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.12.0-release copy
 ```
 
 ```bash
