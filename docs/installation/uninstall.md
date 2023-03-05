@@ -40,6 +40,10 @@ rainbondvolumes.rainbond.io \
 rbdcomponents.rainbond.io \
 servicemonitors.monitoring.coreos.com \
 thirdcomponents.rainbond.io \
+rbdabilities.rainbond.io \
+rbdplugins.rainbond.io \
+servicemeshclasses.rainbond.io \
+servicemeshes.rainbond.io \
 -n rbd-system
 
 # Delete NAMESPACE
