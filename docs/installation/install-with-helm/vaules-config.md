@@ -1,6 +1,9 @@
 ---
 title: Chart 安装选项
 description: '详细介绍 helm 安装过程中的 values 参数设置及如何变更已安装集群配置'
+keywords:
+- rainbond helm values 配置 安装 集群
+- rainbond helm values config install cluster
 ---
 
 本文档描述 Rainbond Helm Chart 的安装配置选项
@@ -142,11 +145,30 @@ operator:
 | ---------------- | ------ | ---- | ------------- |
 | Cluster.replicas | 2      | int  | 集群POD副本数 |
 
+### 配置集群环境检测
+
+| 配置项                 | 默认值 | 类型 | 说明             |
+| ---------------------- | ------ | ---- | ---------------- |
+| Cluster.enableEnvCheck | true   | Bool | 是否开启环境检测 |
+
+### 配置 rbd-api 参数
+
+| 配置项                 | 默认值 | 类型 | 说明                      |
+| ---------------------- | ------ | ---- | ------------------------- |
+| Component.rbd_api.args |        | list | `rbd-api`  Component 参数 |
+
+### 配置 rbd-gateway 参数
+
+| 配置项                     | 默认值 | 类型 | 说明                     |
+| -------------------------- | ------ | ---- | ------------------------ |
+| Component.rbd_gateway.args |        | list | `rbd-api` Component 参数 |
+
 ## 使用 K3s Containerd
 
 | 配置项           | 默认值 | 类型 | 说明          |
 | ---------------- | ------ | ---- | ------------- |
 | useK3sContainerd | false      | bool  | 使用 K3s Containerd |
+
 ## Values.yaml 示例配置
 
 
@@ -154,13 +176,57 @@ operator:
   <summary>Helm Chart value.yaml 完整示例</summary>
   <div>
 
-```yaml
-#Rainbondcluster
-Cluster:
-## 定义是否开启高可用，true为开，false为关  
-  enableHA: false
+```yaml title="values.yaml"
+#############################################
+# 
+# Copyright 2023 Goodrain Co., Ltd.
+# 
+# This version of the GNU Lesser General Public License incorporates
+# the terms and conditions of version 3 of the GNU General Public License.
+# 
+#############################################
 
-## 定义是否使用外部镜像镜像仓库，true为开，false为关
+
+# Default values for mychart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+## Install Default RBAC roles and bindings
+rbac:
+  create: true
+  apiVersion: v1
+
+## Service account name and whether to create it
+serviceAccount:
+  create: true
+  name: rainbond-operator
+
+# Use K3s Containerd
+useK3sContainerd: false
+
+# rainbondOperator
+operator:
+  name: rainbond-operator
+##    env:
+##      variable_name: variable
+  image:
+    name: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond-operator
+    tag: v5.12.0-release
+    pullPolicy: IfNotPresent
+  logLevel: 4
+
+#############################################
+# Rainbondcluster install Configuration
+#############################################
+Cluster:
+
+  # Enable the HA installation
+  enableHA: false
+  
+  # Enable cluster environment detectio
+  enableEnvCheck: true
+
+  # Use an external image repository
   imageHub:
     enable: false
     domain: registry.cn-hangzhou.aliyuncs.com
@@ -168,7 +234,7 @@ Cluster:
     password: admin
     username: admin
 
-## 外部ETCD，对应填写IP，证书，true为开，false为关
+  # external ETCD, ref: https://www.rainbond.com/docs/installation/ha-deployment/overview/#%E5%85%AB%E5%A4%8D%E7%94%A8-kubernetes-etcd
   etcd:
     enable: false
     endpoints: 
@@ -177,20 +243,20 @@ Cluster:
     - 192.168.0.3:2379
     secretName: "rbd-etcd-secret"
 
-## 外部存储，直接填写storageClassName，true为开，false为关
+  # External storage, fill storageClassName, ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config#%E9%85%8D%E7%BD%AE%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8
   RWX:
     enable: false
     type: none
     config:
       storageClassName: glusterfs-simple
       server: 
-
-## 外部存储，直接填写storageClassName，true为开，false为关
+  
+  # External storage, fill storageClassName, ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config#%E9%85%8D%E7%BD%AE%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8
   RWO:
     enable: false
     storageClassName: glusterfs-simple
 
-## region数据库，true为开，false为关
+  # Rainbond region database, ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config/#%E9%85%8D%E7%BD%AE-rainbond-%E9%9B%86%E7%BE%A4%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%BA%93
   regionDatabase:
     enable: false
     host: 192.168.0.1
@@ -199,7 +265,7 @@ Cluster:
     port: 3306
     username: admin
 
-## ui数据库，true为开，false为关
+  # Rainbond Console database, ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config/#%E9%85%8D%E7%BD%AE-rainbond-%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%95%B0%E6%8D%AE%E5%BA%93
   uiDatabase:
     enable: false
     host: 192.168.0.1
@@ -208,31 +274,128 @@ Cluster:
     port: 3306
     username: admin 
 
-## 对外网关，填写IP
-  gatewayIngressIPs: 192.168.0.1
+  # External gateway IP address
+  # gatewayIngressIPs: 192.168.0.1
 
-## chaos对应配置，name为Chaos节点node名称
-  nodesForChaos:
-  - name: node1
-  - name: node2
+  # rbd-chaos configuration，ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config/#%E9%85%8D%E7%BD%AE%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9
+  # nodesForChaos:
+  # - name: node1
+  # - name: node2
 
-## 网关节点对应配置，externalIP为网关节点外部IP，internalIP为网关节点内部IP，name为网关节点node名称
-  nodesForGateway:
-  - externalIP: 192.168.0.1
-    internalIP: 192.168.0.1
-    name: node1
-  - externalIP: 192.168.0.2
-    internalIP: 192.168.0.2
-    name: node2
-    
-## 系统组件统一镜像仓库拉取地址及名称空间
+  # rbd-gateway configuration, ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config/#%E9%85%8D%E7%BD%AE%E7%BD%91%E5%85%B3%E8%8A%82%E7%82%B9
+  # nodesForGateway:
+  # - externalIP: 192.168.0.1
+  #   internalIP: 192.168.0.1
+  #   name: node1
+  # - externalIP: 192.168.0.2
+  #   internalIP: 192.168.0.2
+  #   name: node2
+
+  # Component unified image repository and namespace, ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config/#%E9%85%8D%E7%BD%AE%E9%9B%86%E7%BE%A4%E7%AB%AF%E9%95%9C%E5%83%8F%E8%8E%B7%E5%8F%96%E5%9C%B0%E5%9D%80
   rainbondImageRepository: registry.cn-hangzhou.aliyuncs.com/goodrain
-## 系统组件统一镜像版本
-  installVersion: v5.6.0-release
-## 系统组件统一镜像拉取策略
+  
+  # Component image version, ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config/#%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85%E7%89%88%E6%9C%AC
+  installVersion: v5.12.0-release
+
+  # Component image pull policy, ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config/#%E9%85%8D%E7%BD%AE%E9%9B%86%E7%BE%A4%E7%AB%AF%E9%95%9C%E5%83%8F%E6%8B%89%E5%8F%96%E7%AD%96%E7%95%A5
   imagePullPolicy: IfNotPresent
-## 高可用安装模式下，系统组件副本数
+
+  # Number of component copies, ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config/#%E9%85%8D%E7%BD%AE%E9%9B%86%E7%BE%A4%E5%89%AF%E6%9C%AC
   replicas: 2
+ 
+
+
+############################################
+# Rainbond Component Configuration
+############################################
+Component:
+
+  # rbd-api component configuration, ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config#%E9%85%8D%E7%BD%AE-rbd-api-%E5%8F%82%E6%95%B0
+  rbd_api:
+    args:
+    # - --api-addr-ssl 0.0.0.0:8443
+    # - --ws-addr 0.0.0.0:6060
+    
+  # rbd-gateway component configuration, ref: https://www.rainbond.com/docs/installation/install-with-helm/vaules-config#%E9%85%8D%E7%BD%AE-rbd-gateway-%E5%8F%82%E6%95%B0
+  rbd_gateway:
+    args:
+    # - --service-http-port 80
+    # - --service-https-port 443
+  
+  # rbd-node component configuration
+  rbd_node:
+    args:
+
+  # rbd-hub component configuration
+  rbd_hub:
+    args:
+  
+  # rbd-mq component configuration
+  rbd_mq:
+    args:
+
+  # rbd-resource-proxy component configuration  
+  rbd_resource_proxy:
+    args:
+  
+  # rbd-webcli component configuration  
+  rbd_webcli:
+    args:
+
+  # rbd-monitor component configuration    
+  rbd_monitor:
+    args:
+  
+  # rbd-db component configuration
+  rbd_db:
+    args:
+
+  # rbd-chaos component configuration
+  rbd_chaos:
+    args:
+
+  # rbd-worker component configuration
+  rbd_worker:
+    args:
+
+  # rbd-eventlog component configuration
+  rbd_eventlog:
+    args:
+  
+  # rbd-app-ui component configuration
+  rbd_app_ui:
+    enable: true
+    args:
+
+  # nfs-provisioner component configuration
+  nfs_provisioner:
+    image:
+
+  # rbd-etcd component configuration
+  rbd_etcd:
+    image:
+
+  # metrics-server component configuration
+  metrics_server:
+    image:
+
+  # dashboard-metrics-scraper component configuration
+  dashboard_metrics_scraper:
+    image:
+
+
+  # kubernetes-dashboard component configuration
+  kubernetes_dashboard:
+    image:
+
+## Enable nfs chart, default is false
+nfs-client-provisioner:
+  childChart:
+    enable: false
+  nfs:
+    server: 
+    path: 
 ```
 </div>
 </details>
+
