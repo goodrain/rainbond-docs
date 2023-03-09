@@ -921,23 +921,39 @@ const sidebars = {
     {
       type: 'category',
       label: '问题排查',
-      link: { type: 'doc', id: 'troubleshooting/index' },
+      link: { 
+        type: 'doc', 
+        id: 'troubleshooting/index' 
+      },
       items: [
         {
           type: 'category',
-          label: '安装问题排查',
+          label: '安装问题',
           link: {
             type: 'doc',
-            id: 'installation/install-troubleshoot/index'
+            id: 'troubleshooting/installation/index'
           },
           items: [
-            'installation/install-troubleshoot/dind-install-troubleshoot',
-            'installation/install-troubleshoot/helm-install-troubleshoot',
-            'installation/install-troubleshoot/ui-install-troubleshoot'
+            'troubleshooting/installation/dind',
+            'troubleshooting/installation/ui',
+            'troubleshooting/installation/helm',
           ]
         },
-        'use-manual/usage_troubleshooting',
-        'ops-guide/troubleshoot/cluster_troubleshooting'
+        {
+          type: 'category',
+          label: '使用问题',
+          link: {
+            type: 'doc',
+            id: 'troubleshooting/use/index'
+          },
+          items: [
+            'troubleshooting/use/build',
+            'troubleshooting/use/run',
+            'troubleshooting/use/gateway',
+            'troubleshooting/use/cluster-connect',
+            'troubleshooting/use/console-exception',
+          ]
+        },
       ],
     },
     {
