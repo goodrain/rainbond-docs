@@ -55,7 +55,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.12.0-release-allinone
 | 公网IP，如没有填写内网IP | 填写内网IP | 默认 22 | 至少一个ETCD节点、管理、计算，可复用 |
 
 2. 节点信息填写完毕后，根据页面提示复制节点初始化命令在集群内所有服务器上执行。
-3. 等待集群部署完毕即可，如遇到问题可参阅 [安装问题排查文档](/docs/installation/install-troubleshoot/ui-install-troubleshoot)
+3. 等待集群部署完毕即可，如遇到问题可参阅 [安装问题排查文档](/docs/troubleshooting/installation/helm)
 
 ### 自定义 RKE 集群参数
 
