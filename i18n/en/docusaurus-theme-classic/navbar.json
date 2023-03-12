@@ -26,20 +26,56 @@
     "message": "Community",
     "description": "Navbar item with label Community"
   },
-  "item.label.产品": {
-    "message": "Product",
-    "description": "Navbar item with label Product"
-  },
   "item.label.企业版": {
     "message": "Enterprise",
     "description": "Navbar item with label Enterprise"
   },
-  "item.label.精选应用": {
-    "message": "FeaturedApps",
-    "description": "Navbar item with label FeaturedApp"
-  },
   "item.label.功能特性": {
     "message": "Feature",
     "description": "Navbar item with label Feature"
+  },
+  "item.label.一体化DevOps": {
+    "message": "DevOps",
+    "description": "Navbar item with label Feature"
+  },
+  "item.label.Kubernetes多集群管理": {
+    "message": "Multi Cluster",
+    "description": "Navbar item with label Feature"
+  },
+  "item.label.开箱即用的微服务治理": {
+    "message": "Service Mesh",
+    "description": "Navbar item with label Feature"
+  },
+  "item.label.云原生应用市场": {
+    "message": "App Markets",
+    "description": "Navbar item with label Feature"
+  },
+  "item.label.自动化应用运维": {
+    "message": "Automated OPS",
+    "description": "Navbar item with label Feature"
+  },
+  "item.label.开源社区": {
+    "message": "Community",
+    "description": "Navbar item with label Community"
+  },
+  "item.label.应用商店": {
+    "message": "App Store",
+    "description": "Navbar item with label APP Store"
+  },
+  "item.label.合作伙伴": {
+    "message": "Partners",
+    "description": "Navbar item with label Partners"
+  },
+  "item.label.参与贡献": {
+    "message": "Contribution",
+    "description": "Navbar item with label Contribution"
+  },
+  "item.label.社区支持": {
+    "message": "Support",
+    "description": "Navbar item with label Support"
+  },
+  "item.label.用户论坛": {
+    "message": "Forum",
+    "description": "Navbar item with label Forum"
   }
 }

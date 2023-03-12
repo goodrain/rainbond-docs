@@ -20,8 +20,23 @@
   "navbar.doc": {
     "message": "Docs"
   },
-  "navbar.appstore": {
+  "navbar.community": {
+    "message": "Community"
+  },
+  "navbar.community.appstore": {
     "message": "AppStore"
+  },
+  "navbar.community.partners": {
+    "message": "Partners"
+  },
+  "navbar.community.contribution": {
+    "message": "Contribution"
+  },
+  "navbar.community.support": {
+    "message": "Support"
+  },
+  "navbar.community.forum": {
+    "message": "Forum"
   },
   "navbar.quickstart": {
     "message": "Quick Start"
@@ -31,6 +46,21 @@
   },
   "navbar.feature": {
     "message": "Feature"
+  },
+  "navbar.feature.devops": {
+    "message": "DevOps"
+  },
+  "navbar.feature.k8scluster": {
+    "message": "Multi Cluster"
+  },
+  "navbar.feature.servicemesh": {
+    "message": "Service Mesh"
+  },
+  "navbar.feature.appstore": {
+    "message": "App Markets"
+  },
+  "navbar.feature.appops": {
+    "message": "Automated OPS"
   },
   "Footer.intro.p1": {
     "message": "Easy to use cloud native application management platform, making application management and application delivery easier"
