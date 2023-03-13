@@ -54,61 +54,6 @@ export default function Index() {
                 </a>
               </div>
             </div>
-            {/* 企业版 */}
-            <div>
-              <div
-                className={styles.type_sort_title}
-                style={{
-                  borderBottom: '1px solid #cccccc',
-                  marginBottom: '12px'
-                }}
-              >
-                <h1>企业版</h1>
-              </div>
-              <div className={styles.type_sort_details}>
-                <div className={styles.type_sort_enterprise}>
-                  <a href='/usescene'>了解解决方案</a>
-                </div>
-                <ul
-                  className={styles.enterprise}
-                  style={{
-                    listStyle: 'none',
-                    paddingLeft: 0,
-                    margin: '40px 0px'
-                  }}
-                >
-                  <li>
-                    Rainbond企业版是一个运营商级别版本，它具备超高的可靠性
-                  </li>
-                  <li>提供商业版产品技术服务</li>
-                  <li>产品故障支持最高响应级别 7*24</li>
-                  <li>
-                    专业技术支持团队
-                    <span style={{ color: '#c9c9c9' }}>
-                      （规划/实施/故障协查/bug修复/运维/软件升级/重要时期保障)
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              {/* 按钮 */}
-              <div>
-                <a
-                  className={`${styles.btns} ${styles.enterprise}`}
-                  href='https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg'
-                  target='_blank'
-                >
-                  商业咨询
-                </a>
-                <a
-                  style={{marginLeft:'160px'}}
-                  className={`${styles.btns} ${styles.cloud}`}
-                  href='https://rainbond.feishu.cn/share/base/form/shrcngJKwbek0nbP1bBIcFA5g6d'
-                  target='_blank'
-                >
-                  预约演示
-                </a>
-              </div>
-            </div>
             {/* Rainbond  Cloud */}
             <div>
               <div
@@ -170,6 +115,61 @@ export default function Index() {
                 </a>
               </div>
             </div>
+                        {/* 企业版 */}
+                        <div>
+              <div
+                className={styles.type_sort_title}
+                style={{
+                  borderBottom: '1px solid #cccccc',
+                  marginBottom: '12px'
+                }}
+              >
+                <h1>企业版</h1>
+              </div>
+              <div className={styles.type_sort_details}>
+                <div className={styles.type_sort_enterprise}>
+                  <a href='/usescene'>了解解决方案</a>
+                </div>
+                <ul
+                  className={styles.enterprise}
+                  style={{
+                    listStyle: 'none',
+                    paddingLeft: 0,
+                    margin: '40px 0px'
+                  }}
+                >
+                  <li>
+                    Rainbond企业版是一个运营商级别版本，它具备超高的可靠性
+                  </li>
+                  <li>提供商业版产品技术服务</li>
+                  <li>产品故障支持最高响应级别 7*24</li>
+                  <li>
+                    专业技术支持团队
+                    <span style={{ color: '#c9c9c9' }}>
+                      （规划/实施/故障协查/bug修复/运维/软件升级/重要时期保障)
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              {/* 按钮 */}
+              <div>
+                <a
+                  className={`${styles.btns} ${styles.enterprise}`}
+                  href='https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg'
+                  target='_blank'
+                >
+                  商业咨询
+                </a>
+                <a
+                  style={{marginLeft:'160px'}}
+                  className={`${styles.btns} ${styles.cloud}`}
+                  href='https://rainbond.feishu.cn/share/base/form/shrcngJKwbek0nbP1bBIcFA5g6d'
+                  target='_blank'
+                >
+                  预约演示
+                </a>
+              </div>
+            </div>
           </div>
           {/* 参数对比 */}
           <div className={styles.params_contrast}>
@@ -179,8 +179,8 @@ export default function Index() {
               <div className={styles.contrast_desc_title}>
                 <span></span>
                 <span>社区版</span>
-                <span>企业版</span>
                 <span>服务订阅</span>
+                <span>企业版</span>
               </div>
               {/* 详细功能差异 */}
               <div className={styles.contrast_desc_detail}>
@@ -561,9 +561,8 @@ export default function Index() {
                   <div>
                     <span>企业级功能扩展</span>
                   </div>
-
                   <div>
-                    <span>企业样式定制（Logo和名称可修改）</span>
+                    <span>企业样式可定制</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -575,7 +574,7 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>GPU资源限制和共享</span>
+                    <span>GPU 共享支持</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -587,7 +586,10 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>操作审计</span>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>国产化信创支持</p>
+                      <span style={{fontSize:'10px',color:'#9c9a9a'}}>业务智能迁移到国产化信创体系</span>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -599,7 +601,10 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>高级监控和报警</span>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>可观测性中心</p>
+                      <span style={{fontSize:'10px',color:'#9c9a9a'}}>全局日志、链路追踪、报警、系统监控、应用监控、监控大屏等</span>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -611,7 +616,37 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>国产化CPU和操作系统支持</span>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>集群巡检</p>
+                      <span style={{fontSize:'10px',color:'#9c9a9a'}}>安全、配置规范、稳定性</span>
+                    </span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>安全扩展</p>
+                      <span style={{fontSize:'10px',color:'#9c9a9a'}}>审计、WAF防火墙、安全加固</span>
+                    </span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>企业级备份</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -640,10 +675,10 @@ export default function Index() {
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/right.svg' alt='' />
+                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
+                      <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
                   <div>
@@ -654,14 +689,26 @@ export default function Index() {
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/right.svg' alt='' />
+                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
+                      <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
                   <div>
-                    <span> 开源中间件（集群版）10款</span>
+                    <span> 开源中间件（集群版）</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>性能提升</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
