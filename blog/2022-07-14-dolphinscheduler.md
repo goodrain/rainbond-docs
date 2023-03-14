@@ -42,7 +42,7 @@ Apache DolphinScheduler 是一个分布式易扩展的可视化 DAG 工作流任
 
 ![](https://static.goodrain.com/wechat/dolphinscheduler/3.png)
 
-* 点击访问，将访问 DolphinScheduler-API 组件，，当出现404时需要在弹出的域名后加上"/dolphinscheduler/ui"地址，默认的用户密码是`admin` / `dolphinscheduler123`
+* 点击访问，将访问 DolphinScheduler-API 组件，需要添加访问后缀 `/dolphinscheduler/ui`，默认的用户密码是`admin` / `dolphinscheduler123`
 
 ![](https://static.goodrain.com/wechat/dolphinscheduler/4.png)
 
@@ -76,4 +76,5 @@ Worker 服务默认安装了 Python3，使用时可以添加环境变量  `PYTHO
    * FILE_PATH：/opt/soft
    * LOCK_PATH：/opt/soft
 3. 更新组件，初始化插件会自动下载 `Datax` 并解压到 `/opt/soft`目录下。
+
 ![](https://static.goodrain.com/wechat/dolphinscheduler/7.png)
