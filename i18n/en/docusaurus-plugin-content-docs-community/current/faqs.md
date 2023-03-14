@@ -1,8 +1,6 @@
 ---
-title: 'FAQs'
+title: 'FAQS'
 description: Instructions about Rainbond and Haoyu Technology
-weight: 20
-toc: true
 ---
 
 #### What does Good Rain do and when was it established?

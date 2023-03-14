@@ -97,6 +97,33 @@ const config = {
           },
           {
             type: 'dropdown',
+            label: '功能特性',
+            position: 'left',
+            items: [
+              {
+                label: '一体化DevOps',
+                to: '/feature/devops'
+              },
+              {
+                label: 'Kubernetes多集群管理',
+                to: '/feature/multi-cluster'
+              },
+              {
+                label: '开箱即用的微服务治理',
+                to: '/feature/service-mesh'
+              },
+              {
+                label: '云原生应用市场',
+                to: '/feature/app-market'
+              },
+              {
+                label: '自动化应用运维',
+                to: '/feature/app-ops'
+              }
+            ]
+          },
+          {
+            type: 'dropdown',
             label: '深入',
             position: 'left',
             items: [
@@ -120,14 +147,31 @@ const config = {
             ],
           },
           {
+            type: 'dropdown',
+            label: '开源社区',
             position: 'left',
-            label: '社区',
-            to: '/community/support',
-          },
-          {
-            position: 'left',
-            label: '精选应用',
-            to: '/opensourceApps',
+            items: [
+              {
+                label: '应用商店',
+                to: 'https://store.goodrain.com/markets/rainbond',
+              },
+              {
+                label: '合作伙伴',
+                to: '/partners',
+              },
+              {
+                label: '参与贡献',
+                to: '/community/contribution/',
+              },
+              {
+                label: '社区支持',
+                to: '/community/support',
+              },
+              {
+                label: '用户论坛',
+                to: 'https://t.goodrain.com',
+              },
+            ],
           },
           {
             type: 'docsVersionDropdown',
@@ -194,16 +238,16 @@ const config = {
                 to: '/docs/quick-start/quick-install'
               },
               {
-                label: '快速开始',
-                to: 'docs/quick-start/getting-started'
+                label: 'DevOps指南',
+                to: '/docs/devops/'
               },
               {
-                label: '部署组件',
-                to: 'docs/use-manual/component-create'
+                label: '微服务架构指南',
+                to: '/docs/micro-service/'
               },
               {
-                label: '最佳实践',
-                to: 'docs/expand/'
+                label: '应用交付指南',
+                to: '/docs/delivery/'
               }
             ]
           },
@@ -257,21 +301,25 @@ const config = {
             title: '开源社区',
             items: [
               {
-                label: '微信',
-                to: '/community/support#微信群'
+                label: '应用商店',
+                to: 'https://store.goodrain.com/markets/rainbond'
               },
               {
-                label: '钉钉(30885018060)',
-                to: '#'
+                label: '合作伙伴',
+                to: '/partners'
+              },
+              {
+                label: '参与贡献',
+                to: '/community/contribution/'
+              },
+              {
+                label: '社区支持',
+                to: '/community/support'
               },
               {
                 label: '用户论坛',
                 to: 'https://t.goodrain.com'
               },
-              {
-                label: '参与贡献',
-                to: '/community/contribution/'
-              }
             ]
           },
           {
@@ -280,14 +328,6 @@ const config = {
               {
                 label: '企业版',
                 to: 'enterprise_server'
-              },
-              {
-                label: '应用商店',
-                to: 'https://store.goodrain.com/markets/rainbond'
-              },
-              {
-                label: '精选应用',
-                to: '/opensourceApps'
               },
               {
                 label: '联系我们',
@@ -299,7 +339,7 @@ const config = {
             ]
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved. 京ICP备15028663号-4`
+        copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved`
       },
       // prism: {
       //   darkTheme: darkCodeTheme

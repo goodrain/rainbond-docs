@@ -3,44 +3,52 @@
     "message": "Docs",
     "description": "Footer item with label Docs"
   },
-  "link.item.label.快速开始": {
-    "message": "Quick start",
-    "description": "Footer item with label quick start"
+  "link.item.label.快速安装": {
+    "message": "Quick Install",
+    "description": "Footer item with label quick install"
   },
-  "link.item.label.部署组件": {
-    "message": "Deploy Component",
-    "description": "Footer item with label Deploy Component"
+  "link.item.label.DevOps指南": {
+    "message": "DevOps Guide",
+    "description": "Footer item with label DevOps Guide"
   },
-  "link.item.label.最佳实践": {
-    "message": "Best practic",
-    "description": "Footer item with label Best practic"
+  "link.item.label.微服务架构指南": {
+    "message": "MicroService Guide",
+    "description": "Footer item with label MicroService Guide"
   },
-  "link.title.开源社区": {
-    "message": "Community",
-    "description": "Footer item with label Community"
+  "link.item.label.应用交付指南": {
+    "message": "Delivery Guide",
+    "description": "Footer item with label Delivery Guide"
   },
-  "link.item.label.微信": {
-    "message": "Wechat Group",
-    "description": "Footer item with label Wechat Group"
+  "link.title.功能特性": {
+    "message": "Feature",
+    "description": "Footer item with label Feature"
   },
-  "link.item.label.钉钉(31096419)": {
-    "message": "DingTalk(31096419)",
-    "description": "Footer item with label Dingtalk Group"
+  "link.item.label.一体化DevOps": {
+    "message": "DevOps",
+    "description": "Footer item with label Feature"
   },
-  "link.item.label.用户论坛": {
-    "message": "Forum",
-    "description": "Footer item with label Forum"
+  "link.item.label.Kubernetes多集群管理": {
+    "message": "Multi Cluster",
+    "description": "Footer item with label Feature"
   },
-  "link.item.label.参与贡献": {
-    "message": "Contribution",
-    "description": "Footer item with label Contribution"
+  "link.item.label.开箱即用的微服务治理": {
+    "message": "Service Mesh",
+    "description": "Footer item with label Feature"
+  },
+  "link.item.label.云原生应用市场": {
+    "message": "App Markets",
+    "description": "Footer item with label Feature"
+  },
+  "link.item.label.自动化应用运维": {
+    "message": "Automated OPS",
+    "description": "Footer item with label Feature"
   },
   "link.title.深入": {
     "message": "InDepth",
     "description": "Footer item with label InDepth"
   },
   "link.item.label.使用场景": {
-    "message": "Scenario",
+    "message": "UseScene",
     "description": "Footer item with label Scenario"
   },
   "link.item.label.用户案例": {
@@ -51,32 +59,40 @@
     "message": "Blog",
     "description": "Footer item with label Blog"
   },
-  "link.title.更多": {
-    "message": "More",
-    "description": "Footer item with label More"
-  },
-  "link.item.label.产品": {
-    "message": "Product",
-    "description": "Footer item with label Product"
+  "link.title.开源社区": {
+    "message": "Community",
+    "description": "Footer item with label Community"
   },
   "link.item.label.应用商店": {
     "message": "App Store",
     "description": "Footer item with label APP Store"
   },
-  "link.item.label.联系我们": {
-    "message": "Contact us",
-    "description": "Footer item with label Contact us"
+  "link.item.label.合作伙伴": {
+    "message": "Partners",
+    "description": "Footer item with label Partners"
+  },
+  "link.item.label.参与贡献": {
+    "message": "Contribution",
+    "description": "Footer item with label Contribution"
+  },
+  "link.item.label.社区支持": {
+    "message": "Support",
+    "description": "Footer item with label Support"
+  },
+  "link.item.label.用户论坛": {
+    "message": "Forum",
+    "description": "Footer item with label Forum"
+  },
+  "link.title.更多": {
+    "message": "More",
+    "description": "Footer item with label More"
   },
   "link.item.label.企业版": {
     "message": "Enterprise",
     "description": "Footer item with label Enterprise"
   },
-  "link.item.label.精选应用": {
-    "message": "FeaturedApps",
-    "description": "Footer item with label FeaturedApp"
-  },
-  "link.item.label.功能特性": {
-    "message": "Feature",
-    "description": "Footer item with label Feature"
+  "link.item.label.联系我们": {
+    "message": "Contact us",
+    "description": "Footer item with label Contact us"
   }
 }

@@ -20,8 +20,23 @@
   "navbar.doc": {
     "message": "Docs"
   },
-  "navbar.appstore": {
+  "navbar.community": {
+    "message": "Community"
+  },
+  "navbar.community.appstore": {
     "message": "AppStore"
+  },
+  "navbar.community.partners": {
+    "message": "Partners"
+  },
+  "navbar.community.contribution": {
+    "message": "Contribution"
+  },
+  "navbar.community.support": {
+    "message": "Support"
+  },
+  "navbar.community.forum": {
+    "message": "Forum"
   },
   "navbar.quickstart": {
     "message": "Quick Start"
@@ -31,6 +46,21 @@
   },
   "navbar.feature": {
     "message": "Feature"
+  },
+  "navbar.feature.devops": {
+    "message": "DevOps"
+  },
+  "navbar.feature.k8scluster": {
+    "message": "Multi Cluster"
+  },
+  "navbar.feature.servicemesh": {
+    "message": "Service Mesh"
+  },
+  "navbar.feature.appstore": {
+    "message": "App Markets"
+  },
+  "navbar.feature.appops": {
+    "message": "Automated OPS"
   },
   "Footer.intro.p1": {
     "message": "Easy to use cloud native application management platform, making application management and application delivery easier"
@@ -190,62 +220,5 @@
   },
   "community.contribute.button": {
     "message": "Start Now"
-  },
-  "opensourceapp.header.title": {
-    "message": "Featured Open Source Applications"
-  },
-  "opensourceapp.header.description": {
-    "message": "Show some selected open source applications in the Rainbond open source application store, welcome to install and use"
-  },
-  "opensourceapp.header.button": {
-    "message": "Show Your Application"
-  },
-  "opensourceapp.allapplication": {
-    "message": "All Featured Open Source Applications"
-  },
-  "opensourceapps.apollo.description": {
-    "message": "A reliable configuration management system"
-  },
-  "opensourceapps.arthas.description": {
-    "message": "A Java diagnostic tool open-sourced"
-  },
-  "opensourceapps.dolphinscheduler.description": {
-    "message": "A distributed and extensible workflow scheduler platform with powerful DAG visual interfaces"
-  },
-  "opensourceapps.devlake.description": {
-    "message": "DevLake is an open-source dev data platform that ingests"
-  },
-  "opensourceapps.emqx.description": {
-    "message": "EMQX is an Open-source MQTT broker with a high-performance real-time message processing engine"
-  },
-  "opensourceapps.elasticsearch.description": {
-    "message": "is a distributed search and analytics engine"
-  },
-  "opensourceapps.fluentd.description": {
-    "message": "Fluentd is an open source data collector for a unified logging layer"
-  },
-  "opensourceapps.filebeat.description": {
-    "message": "Filebeat is a lightweight delivery program for forwarding and centralizing log data"
-  },
-  "opensourceapps.jaeger.description": {
-    "message": "Jaeger is an open source distributed tracing system"
-  },
-  "opensourceapps.kibana.description": {
-    "message": "Kibana is an open source data analysis and visualization platform"
-  },
-  "opensourceapps.knowstreaming.description": {
-    "message": "One-stop cloud native streaming data management and control platform"
-  },
-  "opensourceapps.openvscode.description": {
-    "message": "OpenVSCode is an online IDE code editor based on a Web interface"
-  },
-  "opensourceapps.pyroscope.description": {
-    "message": "Pyroscope is an open source continuous performance analysis platform"
-  },
-  "opensourceapps.btyebase.description": {
-    "message": "Bytebase is an open-source database DevOps tool"
-  },
-  "opensourceapps.hertzbeat.description": {
-    "message": "Easy to use and friendly real-time monitoring system, no Agent, powerful custom monitoring ability"
   }
 }
