@@ -42,14 +42,23 @@ kubectl get nodes --show-labels
 kubectl label nodes <node-name> node-role.kubernetes.io/worker=true
 ```
 
-## 我的问题没有被涵盖
+### 组件故障
 
-如果你在阅读了这篇文档后，对于如何让你的集群正常工作依然一筹莫展，你可以：
+平台管理首页出现组件故障，例如：`rbd-chaos` 组件出现故障，出现该问题有以下几种可能：
 
-移步 [GitHub](https://github.com/goodrain/rainbond/issues) 查询是否有相关的 issue ，如没有则提交 issues
+1. 监控数据收集的不及时，导致数据不正确，从而出现组件故障原因。
+2. 组件的确出现故障，可以通过查看组件日志排查问题。
 
-前往 [社区](https://t.goodrain.com/) 搜索你的问题，寻找相似问题的答案
+  ```bash
+  # 查看组件状态是否为 running
+  kubectl get pod -n rbd-system
 
-加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+  # 查看组件日志
+  kubectl logs -fl name=rbd-chaos -n rbd-system
+  ```
 
-获取 [官方支持](https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/), 我们会尽快联系你
+3. 组件正常工作，但组件故障的告警一直出现，可以通过以下重启组件解决：
+
+  ```bash
+  kubectl delete pod -l name=rbd-chaos -n rbd-system
+  ```

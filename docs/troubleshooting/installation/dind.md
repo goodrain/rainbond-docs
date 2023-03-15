@@ -174,6 +174,32 @@ Evicted 状态意味着当前 pod 遭到了调度系统的驱逐，触发驱逐�
 /app/logs/console_error.log
 ```
 
-## 问题反馈
+## 修改挂载存储目录路径
 
-当前的安装问题排查文档也许并没有能够指引你完成安装问题的故障排除，欢迎到 Rainbond 的官方仓库 https://github.com/goodrain/rainbond/issues 搜索其他人的问题经历，或者提交自己的安装问题，会有社区成员跟进解决问题，或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+Rainbond dind 单机体验版默认会将数据存储在两个目录内，容器内数据目录为 `/app/data` `/opt/rainbond`，而宿主机的目录分两种情况：
+
+1. Linux 安装的单机体验版默认的本地数据目录是 `~/rainbonddata` `/opt/rainbond`。
+2. Mac、Windows 安装的单机体验版存在 docker volume 中，可以通过 `docker volume ls` 命令查看，`rainbond-data` `rainbond-opt`。
+
+基于 Mac、Windows 安装的单机体验版，无法更改为本地目录，如果因为存储空间满了导致平台无法功能，请通过 Docker Desktop 扩容存储空间。
+
+基于 Linux 安装的单机体验版，可以通过修改 `install.sh` 安装脚本中的 volume 字段，修改默认的本地目录，如下：
+
+:::tip
+如果已经存在数据，需要将数据迁移到新的目录中。
+:::
+
+```bash
+$ vim install.sh
+
+VOLUME_OPTS="-v ~/.ssh:/root/.ssh -v <local_path>:/app/data -v <local_path>:/opt/rainbond"
+```
+
+删除 `rainbond-allinone` 容器，然后重新执行 `install.sh` 脚本即可。
+
+```bash
+docker rm -f rainbond-allinone
+
+bash ./install.sh
+```
+
