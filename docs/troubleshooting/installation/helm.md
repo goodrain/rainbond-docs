@@ -79,7 +79,3 @@ ImagePullBackOff 状态意味着 Pod 镜像下载失败退出，通常是因为�
 ### 部分 Pod 一直无法运行，报错 create etcd.v3 client failed, try time is 10,dial tcp: lookup rbd-etcd on 10.43.0.10:53: no such host
 
 以此报错为例，可以看出时域名解析时，并没有找到主机IP，是因为 etcd 这个 Pod 处于 Pending 的状态，也就是启动之前就出现了问题，没有在 K8S 集群的 coreDNS 进行注册，通常通过查询 Pod 的详细信息，K8S集群的信息来进行排查。
-
-## 问题报告
-
-当前的安装问题排查文档也许并没有能够指引你完成安装问题的故障排除，欢迎到 Rainbond 的官方仓库 https://github.com/goodrain/rainbond/issues 搜索其他人的问题经历，或者提交自己的安装问题，会有工程师跟进问题的解决。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
