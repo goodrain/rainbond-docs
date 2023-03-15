@@ -14,6 +14,7 @@ import Signal from "/img/homepage/svg/signal.svg";
 import Wechat from "/img/homepage/svg/wechat.svg";
 import Dingtalk from "/img/homepage/svg/dingtalk.svg";
 import Github from "/img/homepage/svg/github.svg";
+import Partner from "/img/homepage/svg/partner.svg";
 import Slack from "/img/homepage/svg/slack.svg";
 import Forum from "/img/homepage/svg/forum.svg";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -92,22 +93,22 @@ export default function JoinCommunity() {
           <div className="col col--6">
             <div className={clsx("card", styles.cardRight)}>
               <div className="card__header">
-                <Github width={60} height={76} fill="#FFFFFF"/>
+                <Partner width={60} height={76} fill="#FFFFFF"/>
                 <h3 className={styles.titleRight}>
-                  <Translate id="community.contribute.title">参与开源贡献</Translate>
+                  <Translate id="community.partner.title">成为合作伙伴</Translate>
                 </h3>
               </div>
               <div className="card__body">
                 <p>
-                  <Translate id="community.contribute.description">
-                    欢迎大家参与 Rainbond 开源项目的贡献，贡献不仅限于代码，还包括文档、测试、反馈、建议等，Rainbond 社区欢迎你的加入。
+                  <Translate id="community.partner.description">
+                    我们非常欢迎优秀的开源项目加入 Rainbond 开源社区，成为 Rainbond 合作伙伴，与 Rainbond 结合形成最佳的解决方案，共同建设开源生态。
                   </Translate>
                 </p>
               </div>
               <div className="card__footer">
-                <Link className="button button--lg button--secondary" to="/community/contribution/">
-                  <Translate id="community.contribute.button">
-                    现在开始
+                <Link className="button button--lg button--secondary" to="/partners">
+                  <Translate id="community.partner.button">
+                    现在加入
                   </Translate>
                 </Link>
               </div>

@@ -212,13 +212,13 @@
   "community.group.description": {
     "message": "Rainbond is an open source project, you are welcome to join our open source community group for discussion, you can submit an issue on GitHub, or you can ask questions in WeChat or DingTalk or Slack group, we will reply you as soon as possible."
   },
-  "community.contribute.title": {
-    "message": "Contribution"
+  "community.partner.title": {
+    "message": "Partners"
   },
-  "community.contribute.description": {
-    "message": "Everyone is welcome to contribute to the Rainbond open source project. Contribution is not limited to code, but also includes documentation, testing, feedback, suggestions, etc. The Rainbond community welcomes your participation."
+  "community.partner.description": {
+    "message": "We welcome great open source projects to join Rainbond open source community, Become a Rainbond partner, Combine with Rainbond to form the best solution, Jointly build an open source ecosystem."
   },
-  "community.contribute.button": {
-    "message": "Start Now"
+  "community.partner.button": {
+    "message": "Join Now"
   }
 }
