@@ -64,3 +64,20 @@ Rainbond 平台根据组件之间的依赖关系确定启动顺序。如果服�
 1. 打开第三方组件对内端口
 2. 设置第三方组件健康检测
 3. 启动/更新第三方组件
+
+直至第三方组件状态为 `就绪`，才能正常使用。
+
+如果第三方组件状态为 `就绪`, 但是无法对内或对外访问，请通过以下步骤排查：
+
+1. 检查第三方组件创建的 endpoint 是否正确
+  ```bash
+  kubectl get ep -n <namespace>
+  ```
+2. 检查第三方组件创建的 service 是否正确，并通过 curl 命令检查是否能够访问
+  ```bash
+  kubectl get svc -n <namespace>
+  ```
+3. 检查第三方组件创建的 ingress 是否正确
+  ```bash
+  kubectl get ing -n <namespace>
+  ```

@@ -952,6 +952,7 @@ const sidebars = {
             'troubleshooting/use/gateway',
             'troubleshooting/use/cluster-connect',
             'troubleshooting/use/console-exception',
+            'troubleshooting/use/cluster-component',
           ]
         },
       ],
