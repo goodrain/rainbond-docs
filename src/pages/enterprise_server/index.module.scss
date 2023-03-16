@@ -168,6 +168,8 @@
           }
           & > div > div:not(:first-child) > span:not(:first-child) {
             padding-left: 24px;
+            display: flex;
+            align-items: center;
           }
         }
       }
