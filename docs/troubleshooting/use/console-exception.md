@@ -62,3 +62,22 @@ kubectl label nodes <node-name> node-role.kubernetes.io/worker=true
   ```bash
   kubectl delete pod -l name=rbd-chaos -n rbd-system
   ```
+
+### 无法查看组件实时日志
+
+组件内无法查看到实时日志，可能会存在两种情况：
+
+1. Websocket 配置的地址不对，导致无法通信。
+2. rbd-eventlog 服务出现故障，导致无法获取日志。
+
+排查方法：
+
+1. 检查 Websocket 地址，**平台管理 -> 集群 -> 编辑集群** 查看 Websocket 地址，本地是否可以与该地址进行通信。
+2. 检查 rbd-eventlog 服务是否正常，如果不正常排查该服务的日志或尝试重启该组件。
+  ```bash
+  # 查看组件状态
+  kubectl get pod -l name=rbd-eventlog -n rbd-system
+
+  # 重启组件
+  kubectl delete pod -l name=rbd-eventlog -n rbd-system
+  ```
