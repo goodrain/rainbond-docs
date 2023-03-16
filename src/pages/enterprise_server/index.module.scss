@@ -161,7 +161,7 @@
           }
           & > div > div:not(:first-child) {
             display: grid;
-            padding: 16px 0px;
+            height: 64px;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.08);
             align-items: center;
