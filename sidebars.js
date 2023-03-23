@@ -649,7 +649,6 @@ const sidebars = {
               ]
             },
             'use-manual/app-manage/share-app',
-            'use-manual/app-manage/app-backup',
             {
               type: 'link',
               label: '应用网关',
@@ -806,7 +805,6 @@ const sidebars = {
                     'use-manual/enterprise-manage/enterprise-settings/base/user-register',
                     'use-manual/enterprise-manage/enterprise-settings/base/cert-management',
                     'use-manual/enterprise-manage/enterprise-settings/base/component-registry',
-                    'use-manual/enterprise-manage/enterprise-settings/base/oss',
                   ]
                 },
                 'use-manual/enterprise-manage/enterprise-settings/admin-manage/admin-manage',
