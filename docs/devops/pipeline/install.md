@@ -38,7 +38,7 @@ gitlab-runner register \
   --run-untagged="true" \
   --locked="false" \
   --docker-volumes /var/run/docker.sock:/var/run/docker.sock \
-  --docker-volumes /root/.m2/ \
+  --docker-volumes /root/.m2/repository \
   --docker-privileged="true" \
   --access-level="not_protected" \
   --docker-pull-policy="if-not-present"
@@ -60,7 +60,7 @@ gitlab-runner register \
   --run-untagged="true" \
   --locked="false" \
   --docker-volumes /var/run/docker.sock:/var/run/docker.sock \
-  --docker-volumes /root/.m2/ \
+  --docker-volumes /root/.m2/repository \
   --docker-privileged="true" \
   --access-level="not_protected" \
   --docker-pull-policy="if-not-present"
