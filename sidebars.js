@@ -252,6 +252,7 @@ const sidebars = {
         'kubernetes-native-guide/export-helm-chart/index',
         'kubernetes-native-guide/yaml-example/index',
         'kubernetes-native-guide/helm-example/index',
+        'kubernetes-native-guide/gateway-api/index',
       ]
     },
     {
@@ -963,6 +964,7 @@ const sidebars = {
         id: 'upgrade/index'
       },
       items: [
+        'upgrade/5.13.0-upgrade',
         'upgrade/5.12.0-upgrade',
         'upgrade/5.11.1-upgrade',
         'upgrade/5.11.0-upgrade',
