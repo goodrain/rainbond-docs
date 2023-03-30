@@ -12,8 +12,7 @@ Rainbond 自 V5.3 版本开始，加入了应用治理模式切换功能。应�
 
 - **内置 ServiceMesh 模式（默认）**
   
-内置ServiceMesh模式需要用户显示的配置组件间的依赖关系，平台会在下游组件中自动注入 sidecar 容器组成 ServiceMesh 微服务架构，业务间通信地址统一为localhost（127.0.0.1）模式。作为 Rainbond 中默认的应用治理模式，通过 sidecar 实现了服务组件间 A/B 测试、智能路由、限流、熔断等治理功能。了解更多请参考 [服务间通信](../regist_and_discover)、 [基于 Rainbond 实现组件A/B测试](/docs/expand/practices/app-dev/ab_testing)
-
+内置ServiceMesh模式需要用户显示的配置组件间的依赖关系，平台会在下游组件中自动注入 sidecar 容器组成 ServiceMesh 微服务架构，业务间通信地址统一为localhost（127.0.0.1）模式。作为 Rainbond 中默认的应用治理模式，通过 sidecar 实现了服务组件间 A/B 测试、智能路由、限流、熔断等治理功能。了解更多请参考 [服务间通信](../regist_and_discover)。
 - **Kubernetes 原生 Service 模式**
 
 该模式组件间使用 Kubernetes Service 名称域名进行通信，用户需要配置每个组件端口注册的 Service 名称，治理能力有限。
