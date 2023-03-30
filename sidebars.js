@@ -26,7 +26,8 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '安装 Rainbond',
+      label: '安装与升级 Rainbond',
+      collapsed: false,
       link: {
         type: 'doc',
         id: 'installation/index'
@@ -144,6 +145,7 @@ const sidebars = {
           ]
         },
         'installation/offline/index',
+        'upgrade/latest-version',
         'installation/uninstall',
       ]
     },
@@ -915,93 +917,58 @@ const sidebars = {
             'ops-guide/tools/shell',
           ]
         },
-      ]
-    },
-    {
-      type: 'category',
-      label: '问题排查',
-      link: { 
-        type: 'doc', 
-        id: 'troubleshooting/index' 
-      },
-      items: [
         {
           type: 'category',
-          label: '安装问题',
-          link: {
-            type: 'doc',
-            id: 'troubleshooting/installation/index'
+          label: '问题排查',
+          link: { 
+            type: 'doc', 
+            id: 'troubleshooting/index' 
           },
           items: [
-            'troubleshooting/installation/dind',
-            'troubleshooting/installation/ui',
-            'troubleshooting/installation/helm',
-          ]
+            {
+              type: 'category',
+              label: '安装问题',
+              link: {
+                type: 'doc',
+                id: 'troubleshooting/installation/index'
+              },
+              items: [
+                'troubleshooting/installation/dind',
+                'troubleshooting/installation/ui',
+                'troubleshooting/installation/helm',
+              ]
+            },
+            {
+              type: 'category',
+              label: '使用问题',
+              link: {
+                type: 'doc',
+                id: 'troubleshooting/use/index'
+              },
+              items: [
+                'troubleshooting/use/build',
+                'troubleshooting/use/run',
+                'troubleshooting/use/gateway',
+                'troubleshooting/use/cluster-connect',
+                'troubleshooting/use/console-exception',
+                'troubleshooting/use/cluster-component',
+              ]
+            },
+          ],
         },
         {
           type: 'category',
-          label: '使用问题',
+          label: '扩展',
           link: {
             type: 'doc',
-            id: 'troubleshooting/use/index'
+            id: 'expand/index'
           },
           items: [
-            'troubleshooting/use/build',
-            'troubleshooting/use/run',
-            'troubleshooting/use/gateway',
-            'troubleshooting/use/cluster-connect',
-            'troubleshooting/use/console-exception',
-            'troubleshooting/use/cluster-component',
+            'expand/practices/app-dev/connect-api',
+            'expand/practices/app-dev/auto-schema',
+            'expand/practices/app-dev/data-initialization',
           ]
         },
-      ],
-    },
-    {
-      type: 'category',
-      label: '版本升级',
-      link: {
-        type: 'doc',
-        id: 'upgrade/index'
-      },
-      items: [
-        'upgrade/5.13.0-upgrade',
-        'upgrade/5.12.0-upgrade',
-        'upgrade/5.11.1-upgrade',
-        'upgrade/5.11.0-upgrade',
-        'upgrade/5.10.1-upgrade',
-        'upgrade/5.10.0-upgrade',
-        'upgrade/5.9.0-upgrade',
-        'upgrade/5.8.1-upgrade',
-        'upgrade/5.8.0-upgrade',
-        'upgrade/5.7.1-upgrade',
-        'upgrade/5.7.0-upgrade',
-        'upgrade/5.6.0-upgrade',
-        'upgrade/5.5.0-upgrade',
-        'upgrade/5.4.0-upgrade',
-        'upgrade/5.3.2-upgrade',
-        'upgrade/5.3.1-upgrade',
-        'upgrade/5.3.0-upgrade',
-        'upgrade/5.2.2-5.3.1',
-      ]
-    },
-    {
-      type: 'category',
-      label: '扩展',
-      link: {
-        type: 'doc',
-        id: 'expand/index'
-      },
-      items: [
-        'expand/practices/app-dev/work_with_kong',
-        'expand/practices/app-dev/app_publishing',
-        'expand/practices/app-dev/ab_testing',
-        'expand/practices/app-dev/config_file',
-        'expand/practices/app-dev/collect_log',
-        'expand/practices/app-dev/connect-api',
-        'expand/practices/app-dev/auto-schema',
-        'expand/practices/app-dev/deploy-spark',
-        'expand/practices/app-dev/data-initialization',
-        'expand/practices/app-dev/shell-hook-cdn'
       ]
     },
   ],
