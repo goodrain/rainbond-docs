@@ -1,17 +1,13 @@
 ---
 title: OpenVSCode云端IDE加入Rainbond一体化开发体系
-description: OpenVSCode云端IDE加入Rainbond一体化开发体系
+description: OpenVSCode 是一款基于Web 界面的在线IDE 代码编辑器，只需要PC端存在浏览器即可使用
 slug: OpenVscode
-# authors: QiZhang
+image: https://static.goodrain.com/wechat/openvscode/vscode.png
 ---
 
-:::info
 OpenVSCode 是一款基于Web 界面的在线IDE 代码编辑器，只需要PC端存在浏览器即可使用，更轻量，高效，简洁，其基础功能完全继承了微软出品的 [VS Code](https://code.visualstudio.com/) ，可以通过安装扩展的方式继续加强代码编辑能力。Rainbond 开源应用商店推出的 OpenVSCode 预安装了 gitlab-workflow 扩展用于对接私有化代码仓库 Gitlab，同时预装了常见语言运行环境（目前版本集成了Golang , Node.js , python , java ），可以在 Terminal 终端中快速调试业务代码。
 
 Rainbond 有能力快速搭建一体化开发环境，通过对接代码仓库 webhook 机制，完成业务从代码开始，到最终上线的全流程。通过纳入 OpenVSCode 云端 IDE，可以将 Rainbond 一体化开发体系全部托管于云端，开发人员只需要一个浏览器，即可完成代码从编辑到上线的全流程。
-:::
-
-<!--truncate-->
 
 
 ![](https://static.goodrain.com/wechat/openvscode/1.png)

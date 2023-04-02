@@ -1,17 +1,13 @@
 ---
 title: 使用JMX Exporter监控Rainbond上的Java应用
-description: 使用JMX Exporter监控Rainbond上的Java应用
+description: Prometheus 社区开发了 JMX Exporter 用于导出 JVM 的监控指标，以便使用 Prometheus 来采集监控数据
 slug: JmxExporter
-# authors: QiZhang
+image: https://static.goodrain.com/wechat/jmx-exporter/jmx-exporter.png
 ---
 
-:::info
 Prometheus 社区开发了 JMX Exporter 用于导出 JVM 的监控指标，以便使用 Prometheus 来采集监控数据。当您的 Java 应用部署在Rainbond上后
 
 可通过本文了解部署在 Rainbond 上的 Java 应用如何使用  JMX Exporter 暴露 JVM 监控指标。
-:::
-
-<!--truncate-->
 
 ## JMX Exporter 简介
 

@@ -159,10 +159,6 @@
     "message": "App Market",
     "description": "The label for category App Market in sidebar docs"
   },
-  "sidebar.docs.category.团队管理": {
-    "message": "Team manage",
-    "description": "The label for category App Market in sidebar docs"
-  },
   "sidebar.docs.category.用户管理": {
     "message": "User manage",
     "description": "The label for category User manage in sidebar docs"

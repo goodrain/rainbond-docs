@@ -1,15 +1,12 @@
 ---
 title: 使用 Nocalhost 开发 Rainbond 上的微服务应用
-description: 使用 Nocalhost 开发 Rainbond 上的微服务应用
+description: Nocalhost 是一款开源的基于 IDE 的云原生应用开发工具
 slug: nocalhost
-# authors: QiZhang
+image: https://static.goodrain.com/wechat/nocalhost/nocalhost.png
 ---
 
-:::info
-本文将介绍如何使用 Nocalhost 快速开发 Rainbond 上的微服务应用的开发流程以及实践操作步骤。
-:::
 
-<!--truncate-->
+本文将介绍如何使用 Nocalhost 快速开发 Rainbond 上的微服务应用的开发流程以及实践操作步骤。
 
 Nocalhost 可以直接在 Kubernetes 中开发应用，Rainbond 可以快速部署微服务项目，无需编写Yaml，Nocalhost 结合 Rainbond 加速我们的微服务开发效率。
 
