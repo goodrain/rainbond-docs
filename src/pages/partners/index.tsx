@@ -68,7 +68,18 @@ export default function Partners() {
         id: "partners.btyebase.description",
         message: "Bytebase是一个开源 Database DevOps 工具",
       }),
-      deployURL: "https://store.goodrain.com/markets/rainbond/apps/6f764cae50f643518269db84c18d737f?childNode=Database%20DevOps&parentNode=%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7&childId=60bb73a43901440eabeba8659901e27f&parentId=1c5e58b2528249649118457773de4227&installNum=25",
+      deployURL: "/blog/bytebase",
+      tags: "Application"
+    },
+    {
+      image: "/img/partners/curve.png",
+      title: "Curve",
+      githubURL: "https://github.com/opencurve/curve",
+      description: translate ({
+        id: "partners.curve.description",
+        message: "Curve 是网易主导自研的现代化存储系统, 目前支持文件存储和块存储",
+      }),
+      deployURL: "/blog/curve",
       tags: "Application"
     },
     {
@@ -90,7 +101,7 @@ export default function Partners() {
         id: "partners.hertzbeat.description",
         message: "易用友好的实时监控系统，无需Agent，强大自定义监控能力",
       }),
-      deployURL: "#",
+      deployURL: "/blog/hertzbeat",
       tags: "Application"
     },
     {

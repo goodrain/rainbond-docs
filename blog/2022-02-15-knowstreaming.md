@@ -1,7 +1,8 @@
 ---
 title: 在 Rainbond 上部署 KnowStreaming
-description: 一站式Apache Kafka集群指标监控与运维管控平台
+description: KnowStreaming 是一套云原生的Kafka管控平台，脱胎于众多互联网内部多年的Kafka运营实践经验，专注于Kafka运维管控、监控告警、资源治理、多活容灾等核心场景
 slug: knowstreaming
+image: /img/partners/knowstreaming.png
 keywords:
 - Kafka 管理平台
 - KnowStreaming

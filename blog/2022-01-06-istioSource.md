@@ -1,20 +1,16 @@
 ---
 title: Rainbond 对接 Istio 原理讲解和代码实现分析
-description: Rainbond 对接 Istio 原理讲解和代码实现分析
+description: 对于用户而言，在测试环境下，需要达到的效果是快、开箱即用。但在生产环境下，可能又有熔断、延时注入等需求
 slug: istioSource
-# authors: QiZhang
+image: https://static.goodrain.com/wechat/istio/istio.jpeg
 ---
 
-:::info
+
 现有的 ServiceMesh 框架有很多，如 Istio、linkerd等。对于用户而言，在测试环境下，需要达到的效果是快、开箱即用。但在生产环境下，可能又有熔断、延时注入等需求。那么单一的 ServiceMesh 框架无法同时满足用户不同的需求。
 
 在之前的 Rainbond 版本中，Rainbond 支持了多种不同的应用治理模式，作为应用级的插件，实现了Istio 治理模式的切换。
 
 本文将对Rainbond 实现Istio治理模式进行原理解析。
-:::
-
-<!--truncate-->
-
 
 ## 基本原理
 ###  动态准入控制

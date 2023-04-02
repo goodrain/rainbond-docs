@@ -53,7 +53,7 @@ const config = {
           path: 'blog',
           blogTitle: '博客',
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/blog',
-          postsPerPage: 10,
+          postsPerPage: 18,
           blogSidebarCount: 'ALL',
           blogSidebarTitle: '所有文章',
           sortPosts: 'descending'
