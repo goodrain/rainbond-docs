@@ -719,6 +719,18 @@ export default function Index() {
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
+                  <div>
+                    <span>三级等保支持</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
