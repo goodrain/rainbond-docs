@@ -768,18 +768,6 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '团队管理',
-              link: {
-                type: 'doc',
-                id: 'use-manual/enterprise-manage/teams/index',
-              },
-              items: [
-                'use-manual/enterprise-manage/teams/create-team',
-                'use-manual/enterprise-manage/teams/join-team',
-              ]
-            },
-            {
-              type: 'category',
               label: '用户管理',
               link: {
                 type: 'doc',
@@ -805,13 +793,9 @@ const sidebars = {
                     id: 'use-manual/enterprise-manage/enterprise-settings/base/index'
                   },
                   items: [
-                    'use-manual/enterprise-manage/enterprise-settings/base/user-register',
                     'use-manual/enterprise-manage/enterprise-settings/base/cert-management',
-                    'use-manual/enterprise-manage/enterprise-settings/base/component-registry',
                   ]
                 },
-                'use-manual/enterprise-manage/enterprise-settings/admin-manage/admin-manage',
-                'use-manual/enterprise-manage/enterprise-settings/data-backup/index',
               ]
 
             }

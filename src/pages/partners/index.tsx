@@ -105,6 +105,17 @@ export default function Partners() {
       tags: "Application"
     },
     {
+      image: "/img/partners/jianmu.png",
+      title: "jianmu",
+      githubURL: "https://gitee.com/jianmu-dev/jianmu",
+      description: translate ({
+        id: "partners.jianmu.description",
+        message: "面向 DevOps 领域的极易扩展的开源无代码(图形化)/低代码(GitOps)工具",
+      }),
+      deployURL: "/blog/jianmu",
+      tags: "Plugin"
+    },
+    {
       image: "/img/partners/knowstreaming.png",
       title: "KnowStreaming",
       githubURL: "https://github.com/didi/KnowStreaming",
@@ -229,7 +240,7 @@ export default function Partners() {
               <div className="card__body">
                 <div className={styles.cardBodyPartnersList}>
                   <h4 className={styles.cardBodyH4PartnersList}>
-                    <a href={githubURL}>{title}</a>
+                    <a href={githubURL} target="_blank">{title}</a>
                   </h4>
                   <a className={clsx(styles.button, "button button--sm button--secondary")} href={deployURL} target="_blank">deploy</a>
                 </div>
