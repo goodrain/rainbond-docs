@@ -60,3 +60,59 @@ kubectl delete pod -l name=rbd-api -n rbd-system
 如果控制台与集群端的网络通畅且 API 服务正常，可以检查控制台与集群端的 `8443` 端口是否通畅。使用 `telnet` 命令检查控制台与集群端的 `8443` 端口是否通畅。
 
 如果不通，可以检查集群端的 `8443` 端口是否被防火墙拦截，如果被防火墙拦截，可以通过配置防火墙规则的方式进行端口通信。
+
+## 常见问题
+
+### remote error: tls: error decrypting message
+
+查看 rbd-api 服务的日志出现以下报错：
+
+```bash
+http: TLS handshake error from 10.42.0.1:35590: remote error: tls: error decrypting message
+```
+
+出现该错误的原因是集群端的 API 服务与控制台的证书不一致，导致控制台无法与集群端的 API 服务进行通信。
+
+可以通过 [grctl config](/docs/ops-guide/tools/grctl) 命令查看集群端连接信息。
+
+```bash
+$ grctl config
+apiAddress: https://47.104.161.96:8443
+ca.pem: |
+  -----BEGIN CERTIFICATE-----
+  xxxxx
+  -----END CERTIFICATE-----
+client.key.pem: |
+  -----BEGIN RSA PRIVATE KEY-----
+  xxxxx
+  -----END RSA PRIVATE KEY-----
+client.pem: |
+  -----BEGIN CERTIFICATE-----
+  xxxxxx
+  -----END CERTIFICATE-----
+```
+
+将打印出的内容复制到控制台的 **平台管理 -> 集群 -> 编辑** 中，点击 **保存** 即可。
+* apiAddress 对应 **API 地址**
+* ca.pem 对应 **apiAddress**
+* client.pem 对应 **apiAddress**
+* client.key.pem 对应 **apiAddress**
+
+:::caution 注意
+证书左右两侧不能有空格，否则会导致证书无法识别。
+:::
+
+如果确定控制台的证书与集群端的证书一致，但仍然出现该问题，可以尝试重新生成集群端的证书。
+
+```bash
+# 删除集群端的证书
+kubectl delete secret rbd-api-client-cert rbd-api-server-cert -n rbd-system
+
+# 重启 operator 重新生成集群端的证书
+kubectl delete pod -l release=rainbond-operator -n rbd-system
+
+# 重启 api 服务
+kubectl delete pod -l name=rbd-api -n rbd-system
+```
+
+operator 重启后，会重新生成集群端的证书，再次通过 `grctl config` 获取集群信息并复制到集群控制台中即可。
