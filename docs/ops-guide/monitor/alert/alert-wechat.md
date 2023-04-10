@@ -1,7 +1,5 @@
 ---
 title: 企业微信报警
-draft: false
-weight: 1671
 description: Rainbond企业微信报警配置说明
 ---
 

@@ -876,7 +876,7 @@ const sidebars = {
             'ops-guide/monitor/monitor-alert-deploy',
             {
               type: 'category',
-              label: '报警配置项',
+              label: '告警配置项',
               link: {
                 type: 'doc',
                 id: 'ops-guide/monitor/alert/index'

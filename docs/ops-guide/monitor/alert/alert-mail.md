@@ -1,5 +1,5 @@
 ---
-title: 邮件报警
+title: 邮件告警
 draft: false
 weight: 1673
 description: Rainbond邮件报警配置说明

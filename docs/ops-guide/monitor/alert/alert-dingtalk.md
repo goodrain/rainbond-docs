@@ -1,5 +1,5 @@
 ---
-title: 钉钉报警
+title: 钉钉告警
 draft: false
 weight: 1672
 description: Rainbond钉钉报警配置说明

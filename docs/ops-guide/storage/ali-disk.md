@@ -1,7 +1,6 @@
 ---
-title: 阿里云盘
+title: 阿里云云盘
 description: 阿里云为云服务器ECS提供的数据块级别的块存储
-weight: 5015
 ---
 
 ### 云盘概述
