@@ -1,7 +1,5 @@
 ---
-title: 监控报警服务部署
-draft: false
-weight: 1402
+title: 监控告警服务部署
 description: Rainbond监控报警服务部署说明
 ---
 

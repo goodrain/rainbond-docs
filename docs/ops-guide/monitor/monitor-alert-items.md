@@ -1,7 +1,5 @@
 ---
-title: 监控报警项说明
-draft: false
-weight: 1401
+title: 监控告警项说明
 description: 基于Prometheus的集群监控报警项说明
 ---
 
