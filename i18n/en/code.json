@@ -220,5 +220,20 @@
   },
   "community.partner.button": {
     "message": "Join Now"
+  },
+  "dialog.title": {
+    "message": "Support Rainbond"
+  },
+  "dialog.description1": {
+    "message": "If you like Rainbond, please give Rainbond a Star."
+  },
+  "dialog.description2": {
+    "message": "Rainbond project and the open source community are better off with your support. Your support is the driving force behind Rainbond."
+  },
+  "dialog.click": {
+    "message": "Click"
+  },
+  "dialog.github": {
+    "message": "Go Github"
   }
 }
