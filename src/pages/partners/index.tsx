@@ -170,6 +170,17 @@ export default function Partners() {
       deployURL: "/docs/devops/pipeline/",
       tags: "Plugin"
     },
+    {
+      image: "/img/partners/zyplayer-doc.png",
+      title: "zyplayer-doc",
+      githubURL: "https://gitee.com/dromara/zyplayer-doc",
+      description: translate ({
+        id: "partners.zyplayer-doc.description",
+        message: "适合企业和个人使用的可私有化部署的在线知识库管理系统",
+      }),
+      deployURL: "/blog/zyplayer-doc",
+      tags: "Application"
+    },
   ];
 
   return (

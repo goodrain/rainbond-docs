@@ -838,7 +838,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '运维概述',
+          label: '集群运维',
           link: {
             type: 'doc',
             id: 'ops-guide/management/index'
@@ -851,6 +851,7 @@ const sidebars = {
             'ops-guide/management/kaniko-args',
             'ops-guide/management/docker-log',
             'ops-guide/management/change-ports',
+            'ops-guide/management/switch-registry',
           ]
         },
         {
