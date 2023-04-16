@@ -27,7 +27,6 @@ const sidebars = {
     {
       type: 'category',
       label: '安装与升级 Rainbond',
-      collapsed: false,
       link: {
         type: 'doc',
         id: 'installation/index'
