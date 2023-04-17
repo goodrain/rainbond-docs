@@ -837,7 +837,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '集群运维',
+          label: '高级运维',
           link: {
             type: 'doc',
             id: 'ops-guide/management/index'
