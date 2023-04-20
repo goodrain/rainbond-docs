@@ -116,6 +116,17 @@ export default function Partners() {
       tags: "Plugin"
     },
     {
+      image: "/img/partners/jpom.png",
+      title: "Jpom",
+      githubURL: "https://gitee.com/dromara/Jpom",
+      description: translate ({
+        id: "partners.Jpom.description",
+        message: "简而轻的低侵入式在线构建、自动部署、日常运维、项目运维监控软件",
+      }),
+      deployURL: "/blog/jpom",
+      tags: "Application"
+    },
+    {
       image: "/img/partners/knowstreaming.png",
       title: "KnowStreaming",
       githubURL: "https://github.com/didi/KnowStreaming",
