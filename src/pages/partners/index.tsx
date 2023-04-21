@@ -94,6 +94,17 @@ export default function Partners() {
       tags: "Application"
     },
     {
+      image: "/img/partners/datacap.png",
+      title: "DataCap",
+      githubURL: "https://github.com/EdurtIO/datacap",
+      description: translate ({
+        id: "partners.datacap.description",
+        message: "DataCap 是用于数据转换、集成和可视化的集成软件",
+      }),
+      deployURL: "/blog/datacap",
+      tags: "Application"
+    },
+    {
       image: "/img/partners/hertzbeat.png",
       title: "HertzBeat",
       githubURL: "https://github.com/dromara/hertzbeat",
@@ -257,7 +268,7 @@ export default function Partners() {
           <div className={clsx(styles.colPartnersList, "col col--3")} key={index}>
             <div className="card shadow--md">
               <div className={clsx(styles.cardImagePartnersList, "card__image")}>
-                <img src={image} className={styles.cardImage}/>
+                  <img src={image} className={styles.cardImage}/>
               </div>
               <div className="card__body">
                 <div className={styles.cardBodyPartnersList}>
