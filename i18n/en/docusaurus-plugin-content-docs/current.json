@@ -271,6 +271,10 @@
     "message": "Cluster manage guide",
     "description": "The label for category Cluster manage guide in sidebar docs"
   },
+  "sidebar.docs.category.企业级应用": {
+    "message": "Enterprise level applications",
+    "description": "Introduction and usage of enterprise level applications"
+  },
   "sidebar.api.category.企业API": {
     "message": "Enterprise API",
     "description": "The label for category Enterprise API in sidebar api"

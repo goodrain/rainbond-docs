@@ -412,6 +412,21 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '企业级应用',
+      link: {
+        type: 'doc',
+        id: 'enterprise-app/index'
+      },
+      items: [
+        'enterprise-app/large-screen',
+        'enterprise-app/observability',
+        'enterprise-app/scanner',
+        'enterprise-app/individuation',
+        'enterprise-app/file-manage',
+      ]
+    },
+    {
+      type: 'category',
       label: '使用手册',
       link: {
         type: 'doc',
