@@ -1,8 +1,8 @@
 ---
-title: Rainbond-大屏
-description: Rainbond 大屏监控
+title: 监控大屏
+description: Rainbond 监控大屏
 keywords:
-- Rainbond 大屏监控
+- 监控大屏
 - Rainbond large screen monitor
 ---
 

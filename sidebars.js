@@ -412,17 +412,27 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '企业级应用',
+      label: '企业版使用文档',
       link: {
         type: 'doc',
-        id: 'enterprise-app/index'
+        id: 'enterprise/index'
       },
       items: [
-        'enterprise-app/large-screen',
-        'enterprise-app/observability',
-        'enterprise-app/scanner',
-        'enterprise-app/individuation',
-        'enterprise-app/file-manage',
+        {
+          type: 'category',
+          label: '可观测中心',
+          link: {
+            type: 'doc',
+            id: 'enterprise/observability/index',
+          },
+          items: [
+            'enterprise/observability/large-screen',
+          ]
+        },
+        // 'enterprise/observability',
+        'enterprise/scanner',
+        'enterprise/individuation',
+        'enterprise/file-manage',
       ]
     },
     {
