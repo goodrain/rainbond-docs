@@ -412,6 +412,48 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '企业版使用文档',
+      link: {
+        type: 'doc',
+        id: 'enterprise/index'
+      },
+      items: [
+        {
+          type: 'category',
+          label: '可观测中心',
+          link: {
+            type: 'doc',
+            id: 'enterprise/observability/index',
+          },
+          items: [
+            'enterprise/observability/large-screen',
+            'enterprise/observability/global-logs',
+            'enterprise/observability/link-track',
+            'enterprise/observability/alarm',
+            'enterprise/observability/system-monitor',
+            'enterprise/observability/app-monitor',
+          ]
+        },
+        'enterprise/scanner',
+        'enterprise/style',
+        'enterprise/file-manage',
+        'enterprise/safe',
+        {
+          type: 'category',
+          label: '其他功能',
+          link: {
+            type: 'doc',
+            id: 'enterprise/other/index',
+          },
+          items: [
+            'enterprise/other/team-resource',
+            'enterprise/other/GPU',
+          ]
+        },
+      ]
+    },
+    {
+      type: 'category',
       label: '使用手册',
       link: {
         type: 'doc',
