@@ -10,6 +10,8 @@ AUTO_BUILD=${AUTO_BUILD:-'true'}
 # git clone rainbond docs all commits
 git clone -b main https://github.com/goodrain/rainbond-docs.git && cd rainbond-docs || exit
 
+docker run --rm -v /node_modules:/app/node_modules -v "$PWD":/app -w /app node:16.14 yarn install && yarn build
+
 docker build -t "$IMAGE_DOMAIN"/"$IMAGE_NAMESPACE"/rainbond-docs:"${VERSION}" .
 
 if [ "$DOCKER_USERNAME" ]; then
