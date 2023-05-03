@@ -24,7 +24,7 @@ Kubernetes 集群可以使用 [Kubeadm](https://kubernetes.io/docs/setup/product
 注意，通过 Web 控制台安装 Kubernetes 集群不支持 Containerd 作为容器运行时，所以所有节点的容器运行时必须为 Docker。
 :::
 
-Rainbond 控制台安装的 Kubernetes 是 Rancher Kubernetes Engine(RKE)，是 Rancher Labs 开发的 Kubernetes 安装工具，RKE 通过 Docker 容器运行 Kubernetes 组件。默认安装的 Kubernetes 版本为 `1.19.6`
+Rainbond 控制台安装的 Kubernetes 是 Rancher Kubernetes Engine(RKE)，是 Rancher Labs 开发的 Kubernetes 安装工具，RKE 通过 Docker 容器运行 Kubernetes 组件。默认安装的 Kubernetes 版本为 `1.23.10`
 
 ### 部署 Rainbond 控制台
 
