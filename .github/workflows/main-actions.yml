@@ -11,6 +11,11 @@ jobs:
       - name: clone rainbond-docs repo
         uses: actions/checkout@main
 
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: /node_modules
+
       - name: build and push Docker image
         env:
           RAINBOND_SECRET: ${{ secrets.RAINBOND_SECRET }}
