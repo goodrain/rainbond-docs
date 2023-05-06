@@ -66,16 +66,16 @@
     "message": "Easy to use cloud native application management platform, making application management and application delivery easier"
   },
   "primary.title": {
-    "message": "Cloud Native Multi Cloud Application Management Platform"
+    "message": "Cloud Native Application Management Platform"
   },
   "primary.description": {
     "message": "Rainbond core 100% open source, Easy to use, Don't need to understand Containers and Kubernetes, Support the management of multiple Kubernetes, Provide whole lifecycle management for enterprise application."
   },
   "primary.install-dind": {
-    "message": "Install on Linux"
+    "message": "Quick install"
   },
-  "primary.install-helm": {
-    "message": "Install on Kubernetes"
+  "primary.join-wechat": {
+    "message": "Join Group"
   },
   "command.title": {
     "message": "Linux & Mac Quick Install"
