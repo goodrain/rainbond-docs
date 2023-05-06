@@ -43,6 +43,7 @@
     "react-photo-view": "^1.2.2",
     "react-popper": "^2.3.0",
     "react-spring": "^9.5.2",
+    "react-typist": "^2.0.5",
     "sass": "^1.49.9",
     "sweetalert2": "^11.4.14",
     "swiper": "^8.1.4",
