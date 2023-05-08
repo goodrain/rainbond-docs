@@ -76,7 +76,7 @@ export default function Primary() {
             </div>
             }>
             <Button icon={<Iconwechat />} theme="solid" className={styles.buttonRight} size='large'>
-              <Translate id='primary.join-wechat'>加入交流群</Translate>
+              <Translate id='primary.join-user'>加入用户群</Translate>
             </Button>
           </OverlayTrigger>
         </animated.div>

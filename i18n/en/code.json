@@ -74,8 +74,8 @@
   "primary.install-dind": {
     "message": "Quick install"
   },
-  "primary.join-wechat": {
-    "message": "Join Group"
+  "primary.join-user": {
+    "message": "Join User Group"
   },
   "command.title": {
     "message": "Linux & Mac Quick Install"
