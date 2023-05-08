@@ -447,6 +447,7 @@ const sidebars = {
           items: [
             'enterprise/other/team-resource',
             'enterprise/other/GPU',
+            'enterprise/other/xinchuang',
           ]
         },
       ]
