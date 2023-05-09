@@ -449,6 +449,7 @@ const sidebars = {
             'enterprise/other/team-resource',
             'enterprise/other/GPU',
             'enterprise/other/xinchuang',
+            'enterprise/other/offline',
           ]
         },
       ]

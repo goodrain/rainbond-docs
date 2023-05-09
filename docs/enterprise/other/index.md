@@ -6,9 +6,8 @@ keywords:
 - other function
 ---
 
-1、团队配额
+- 团队配额
 
-团队设置资源配额，如cpu和内存
+- GPU共享支持
 
-
-2、GPU共享支持
+- 国产化信创支持
