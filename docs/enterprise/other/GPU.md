@@ -1,12 +1,11 @@
 ---
 title: GPU共享支持
-description: GPU share
+description: GPU 共享
 keywords:
-- GPU共享
+- GPU 共享
 - GPU share
 ---
 
-## 概述
 GPU共享支持是指多个用户可以共享同一个GPU资源，而不是每个用户都需要独立的GPU资源。这种共享支持通常由GPU虚拟化技术实现，这种技术可以将一个物理GPU分割成多个虚拟GPU，每个虚拟GPU都可以被分配给一个不同的用户。
 
 ### 主要用途

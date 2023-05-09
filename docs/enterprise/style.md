@@ -1,12 +1,10 @@
 ---
-title: 企业样式定制
-description: Customization of platform styles
+title: 定制化和样式
+description: 用户可以自定义平台样式，更好地适应企业的特殊需求和品牌形象。
 keywords:
 - 企业样式定制
 - Customization of platform styles
 ---
-
-## 概述
 
 Rainbond 企业版提供了一系列的个性化配置选项，包括网页图标、登陆页图片、主题颜色、官网 DEMO 以及 Logo 的自定义修改等等。管理员可以根据企业需求，选择不同的配置选项进行自定义修改，以便更好地适应企业的特殊需求和品牌形象。
 

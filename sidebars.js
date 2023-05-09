@@ -412,12 +412,15 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '企业版使用文档',
+      label: '企业版文档',
       link: {
         type: 'doc',
         id: 'enterprise/index'
       },
       items: [
+        'enterprise/style',
+        'enterprise/other/GPU',
+        'enterprise/other/xinchuang',
         {
           type: 'category',
           label: '可观测中心',
@@ -430,14 +433,29 @@ const sidebars = {
             'enterprise/observability/global-logs',
             'enterprise/observability/link-track',
             'enterprise/observability/alarm',
-            'enterprise/observability/system-monitor',
-            'enterprise/observability/app-monitor',
+            // 'enterprise/observability/system-monitor',
+            // 'enterprise/observability/app-monitor',
           ]
         },
         'enterprise/scanner',
-        'enterprise/style',
-        'enterprise/file-manage',
-        'enterprise/safe',
+        {
+          type: 'category',
+          label: '安全能力',
+          link: {
+            type: 'doc',
+            id: 'enterprise/security/index',
+          },
+          items: [
+            'enterprise/security/waf',
+            'enterprise/security/audit',
+            'enterprise/security/level3-protection',
+            'enterprise/security/component',
+          ]
+        },
+        'enterprise/backup',
+        'enterprise/offline',
+        'enterprise/gray-release',
+        // 'enterprise/safe',
         {
           type: 'category',
           label: '其他功能',
@@ -447,8 +465,7 @@ const sidebars = {
           },
           items: [
             'enterprise/other/team-resource',
-            'enterprise/other/GPU',
-            'enterprise/other/xinchuang',
+            'enterprise/file-manage',
           ]
         },
       ]

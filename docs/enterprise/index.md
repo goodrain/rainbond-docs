@@ -1,15 +1,51 @@
 ---
-title: 企业版使用文档
+title: 企业版文档
 description: Enterprise version usage
 keywords:
 - 企业版使用
 - Enterprise version usage
 ---
 
+本章节主要介绍 Rainbond 企业版的功能和使用指南，该文档涵盖了 Rainbond 企业版的各个方面，包括但不限于以下内容：
 
-```mdx-code-block
-import DocCardList from '@theme/DocCardList';
-import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+### [1. 定制化和样式](/docs/enterprise/style)
 
-<DocCardList items={useCurrentSidebarCategory().items}/>
-```
+平台提供了一系列的个性化配置选项，包括网页图标、登陆页图片、主题颜色、官网 DEMO 以及 Logo 的自定义修改等等。管理员可以根据企业需求，选择不同的配置选项进行自定义修改，以便更好地适应企业的特殊需求和品牌形象。
+
+### [2. GPU 共享支持](/docs/enterprise/other/GPU)
+
+在深度学习、大规模数据处理、科学计算和仿真等场景下，往往会使用到 GPU 资源，而 Rainbond 企业版则支持了 GPU 资源的共享和配置，以便更好的分配和利用 GPU 资源。
+
+### [3. 国产化信创支持](/docs/enterprise/other/xinchuang)
+
+IT业务系统向国产化信创环境中迁移涉及到跨CPU架构和跨操作系统的迁移，Rainbond 能够架设在国产化的硬件与操作系统基础之上。作为中间层，为上层业务系统屏蔽底层的差异。
+
+借助 Rainbond 提供的“自适应”的编译能力，业务不需要做任何改动，即可在国产化环境中完成编译与运行。同时，Rainbond还提供了多种语言的运行环境，支持开发者选择最适合自己业务的环境。 最后，Rainbond提供完整的工具集，包括数据迁移工具、数据代理工具等，协助完成数据向国产化数据库的迁移，并解决在访问国产化数据库时的SQL方言转换等问题。
+
+### [4. 可观测性中心](/docs/enterprise/observability/)
+
+可观测性中心提供了全面的监控和可视化工具，帮助用户实时了解系统的状态、性能和健康状况。使得运维人员和开发人员可以更加有效地管理和优化部署在集群中的应用程序。它主要包含以下功能，例如：监控大屏、流量分析、全局日志、链路追踪、监控报警等。
+
+### [5. 集群巡检](/docs/enterprise/scanner)
+
+集群巡检是一种监测和评估底层系统运行状况的工具，可帮助您快速发现系统中存在的潜在风险并给出相应修复建议。该工具可用于扫描集群中的各个方面，包括系统性能瓶颈、业务组件运行状态、配置问题和镜像安全漏洞等，以提高系统的性能、稳定性和可用性。
+
+### [6. 安全扩展](/docs/enterprise/security/)
+
+在用户业务往云原生迁移的进程中，安全性至关重要。用户往往需要考虑平台安全、业务安全、网关安全、用户安全、数据安全等各方面的安全问题。而 Rainbond 企业版采取了多种安全措施来减少安全性问题，如 WAF防火墙、用户操作审计、登录日志、组件安全、灾备和容灾等。同时 Rainbond 企业版通过了三级等保测试。
+
+### [7. 企业级备份](/docs/enterprise/backup)
+
+对于平台上的数据安全，Rainbond 企业版提供了企业级备份，支持平台数据的定时备份等。
+
+### [8. 离线环境支持](/docs/enterprise/offline)
+
+在离线环境中，企业版支持图形化安装 Kubernetes 集群和 Rainbond 平台，能极大的降低离线环境中部署的复杂度。
+
+### [9. 全链路灰度发布支持](/docs/enterprise/gray-release)
+
+Rainbond 支持应用级的灰度发布，包含分批发布、A/B测试等，同时还支持全链路灰度能力。能实现业务的无损下线，同时能减少平台资源占用，避免对用户产生影响。
+
+### [10. 其他功能](/docs/enterprise/other/)
+
+企业版还包含多处优化功能，如团队资源配额限制、组件存储可视化管理等。
