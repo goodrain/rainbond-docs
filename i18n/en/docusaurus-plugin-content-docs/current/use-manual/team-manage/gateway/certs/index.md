@@ -38,4 +38,4 @@ In Gateway Policy -> Edit Policy -> More Advanced Routing Parameters -> Select H
 
 ## Automatically issue certificates
 
-Reference [Automatically issue certificate configuration](/docs/use-manual/enterprise-manage/enterprise-settings/base/cert-management)
+Reference [Automatically issue certificate configuration](/docs/ops-guide/management/auto-cert)
