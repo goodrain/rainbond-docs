@@ -38,4 +38,4 @@ Rainbond 支持上传自己的证书文件，添加证书后可在 HTTP 网关�
 
 ## 自动签发证书
 
-参考 [自动签发证书配置](/docs/use-manual/enterprise-manage/enterprise-settings/base/cert-management)
+参考 [自动签发证书配置](/docs/ops-guide/management/auto-cert)
