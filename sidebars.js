@@ -765,39 +765,6 @@ const sidebars = {
                 'use-manual/enterprise-manage/appcenter/app-specification'
               ]
             },
-            {
-              type: 'category',
-              label: '用户管理',
-              link: {
-                type: 'doc',
-                id: 'use-manual/enterprise-manage/user-manage/index'
-              },
-              items: [
-                'use-manual/enterprise-manage/user-manage/reset-admin-user-password',
-              ]
-            },
-            {
-              type: 'category',
-              label: '企业设置',
-              link: {
-                type: 'doc',
-                id: 'use-manual/enterprise-manage/enterprise-settings/index'
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: '基础设置',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/enterprise-manage/enterprise-settings/base/index'
-                  },
-                  items: [
-                    'use-manual/enterprise-manage/enterprise-settings/base/cert-management',
-                  ]
-                },
-              ]
-
-            }
           ]
         },
         {
@@ -851,6 +818,8 @@ const sidebars = {
             'ops-guide/management/docker-log',
             'ops-guide/management/change-ports',
             'ops-guide/management/switch-registry',
+            'ops-guide/management/auto-cert',
+            'ops-guide/management/reset-admin-password',
           ]
         },
         {
