@@ -412,66 +412,6 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '企业版文档',
-      link: {
-        type: 'doc',
-        id: 'enterprise/index'
-      },
-      items: [
-        'enterprise/style',
-        'enterprise/other/GPU',
-        'enterprise/other/xinchuang',
-        {
-          type: 'category',
-          label: '可观测中心',
-          link: {
-            type: 'doc',
-            id: 'enterprise/observability/index',
-          },
-          items: [
-            'enterprise/observability/large-screen',
-            'enterprise/observability/global-logs',
-            'enterprise/observability/link-track',
-            'enterprise/observability/alarm',
-            // 'enterprise/observability/system-monitor',
-            // 'enterprise/observability/app-monitor',
-          ]
-        },
-        'enterprise/scanner',
-        {
-          type: 'category',
-          label: '安全能力',
-          link: {
-            type: 'doc',
-            id: 'enterprise/security/index',
-          },
-          items: [
-            'enterprise/security/waf',
-            'enterprise/security/audit',
-            'enterprise/security/level3-protection',
-            'enterprise/security/component',
-          ]
-        },
-        'enterprise/backup',
-        'enterprise/offline',
-        'enterprise/gray-release',
-        // 'enterprise/safe',
-        {
-          type: 'category',
-          label: '其他功能',
-          link: {
-            type: 'doc',
-            id: 'enterprise/other/index',
-          },
-          items: [
-            'enterprise/other/team-resource',
-            'enterprise/file-manage',
-          ]
-        },
-      ]
-    },
-    {
-      type: 'category',
       label: '使用手册',
       link: {
         type: 'doc',
@@ -1011,6 +951,66 @@ const sidebars = {
             'expand/practices/app-dev/connect-api',
             'expand/practices/app-dev/auto-schema',
             'expand/practices/app-dev/data-initialization',
+          ]
+        },
+      ]
+    },
+    {
+      type: 'category',
+      label: '企业版使用手册',
+      link: {
+        type: 'doc',
+        id: 'enterprise/index'
+      },
+      items: [
+        {
+          type: 'category',
+          label: '可观测性中心',
+          link: {
+            type: 'doc',
+            id: 'enterprise/observability/index',
+          },
+          items: [
+            'enterprise/observability/dashboard',
+            'enterprise/observability/large-screen',
+            'enterprise/observability/global-logs',
+            // 'enterprise/observability/link-track',
+            'enterprise/observability/alarm',
+            // 'enterprise/observability/system-monitor',
+            // 'enterprise/observability/app-monitor',
+          ]
+        },
+        'enterprise/other/xinchuang',
+        'enterprise/gray-release',
+        'enterprise/scanner',
+        {
+          type: 'category',
+          label: '安全能力',
+          link: {
+            type: 'doc',
+            id: 'enterprise/security/index',
+          },
+          items: [
+            'enterprise/security/waf',
+            'enterprise/security/audit',
+            // 'enterprise/security/level3-protection',
+            // 'enterprise/security/component',
+          ]
+        },
+        'enterprise/style',
+        'enterprise/other/GPU',
+        // 'enterprise/backup',
+        // 'enterprise/offline',
+        {
+          type: 'category',
+          label: '其他功能',
+          link: {
+            type: 'doc',
+            id: 'enterprise/other/index',
+          },
+          items: [
+            'enterprise/other/team-resource',
+            'enterprise/file-manage',
           ]
         },
       ]

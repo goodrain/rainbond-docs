@@ -7,6 +7,14 @@ keywords:
 ---
 
 企业版还包含多处优化功能，如团队资源配额限制、组件存储可视化管理等。
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
+
 <!-- 1、团队配额
 
 团队设置资源配额，如cpu和内存

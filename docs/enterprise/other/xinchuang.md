@@ -1,5 +1,5 @@
 ---
-title: 国产化信创支持
+title: 国产化信创
 description: Industrial and chemical information and innovation support
 keywords:
 - 国产化信创
@@ -69,7 +69,7 @@ Rainbond是开箱即用的一体化开发环境，自带Web IDE和源码仓库�
 支持的源码类型：
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/xinchuang/xinchuang4.png)
-
+<!-- 
 ### 国产化数据库迁移
 Rainbond提供完整的工具集，用于将位于X86环境数据库中的数据迁移至国产化数据库之中。
 Rainbond数据迁移工具集是一款非常实用的数据迁移工具，它可以利用JDBC技术对接管理各种开源数据库和国产化数据库，并且可以完成数据从开源数据库到国产化数据库的迁移工作。Rainbond数据迁移工具集支持MySQL、PostgreSQL、MongoDB等多种开源数据库，同时也支持国产化数据库，如GaussDB、达梦等。通过Rainbond数据迁移工具集，用户可以轻松地实现数据库之间的数据迁移，无论是在云上还是本地环境中。Rainbond数据迁移工具集的使用非常方便，只需简单的配置和操作，就可以完成数据迁移工作。
@@ -80,7 +80,7 @@ Rainbond云原生应用管理平台不仅提供数据迁移工具集，还提供
 从而保障应用的正常运行。同时，数据代理工具集还支持对数据库进行透明的数据加密和数据压缩，保证数据在传输过程中的安全性和高效性。通过这些工具集的支持，Rainbond云原生应用管理平台可以帮助用户克服在使用国产化数据库时遇到的一系列问题，提高应用开发和部署的效率和可靠性。
 国产化数据库的SQL方言是指在标准的SQL语法基础上，根据国情和用户需求，针对特定的数据库产品所进行的语法扩展和修改。这种扩展和修改虽然为国内用户提供了更加贴近本地需求的数据库服务，但同时也带来了访问数据库时的一些问题。首先，国产化数据库的SQL方言不太可能被其他数据库产品所兼容，这就意味着在使用国产化数据库时，需要使用特定的SQL语法才能操作数据库，而这种语法在其他数据库上则可能无法识别，导致代码无法跨数据库移植。其次，国产化数据库的SQL方言可能存在与标准SQL不兼容的语法或不规范的语法，这会给SQL开发和调试带来一定的困难。因此，在使用国产化数据库时，需要特别注意其SQL方言的特点，并针对其特点进行相应的开发和调试工作，以确保应用的正常运行。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/xinchuang/xinchuang6.png)
+![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/xinchuang/xinchuang6.png) -->
 
 ### 国产化能力仓库
 国产化兼容适配是一个系统工程，除了应用本身需要重新编译，还需要周边生态和国产化中间件支持，Rainbond的应用市场可以将通过兼容适配的应用系统、中间件和工具等国产化能力统一存放，并分门别类的管理，通过积累国产化能力逐步实现全国产化替代。
