@@ -52,6 +52,28 @@ grctl cluster upgrade --new-version=v5.14.0-release
 kubectl edit deploy rainbond-operator -n rbd-system
 ```
 
+### 更新builder和runner镜像
+1. 需要拉去最新的builder和runner镜像
+
+```bash
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release
+```
+
+2. 修改镜像tag
+
+```bash
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release goodrain/builder:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release goodrain/runner:latest
+```
+
+3.推送镜像
+
+```bash
+docker push goodrain/builder:latest
+docker push goodrain/runner:latest
+```
+
 ## 跨版本升级到 v5.14.0
 
 跨版本升级步骤如下:
@@ -96,6 +118,27 @@ curl https://get.rainbond.com/upgrade-5.11.0.sh | bash
 如果您处于更低的版本，请参阅每个版本的[升级文档](https://v5.12-docs.rainbond.com/docs/upgrade/)，按照上述操作执行即可。
 :::
 
+### 更新builder和runner镜像
+1. 需要拉去最新的builder和runner镜像
+
+```bash
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release
+```
+
+2. 修改镜像tag
+
+```bash
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release goodrain/builder:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release goodrain/runner:latest
+```
+
+3.推送镜像
+
+```bash
+docker push goodrain/builder:latest
+docker push goodrain/runner:latest
+```
 
 ## 版本变更日志
 
