@@ -27,7 +27,7 @@ weight: 1001
 |  | 镜像仓库信息 |
 | ---- | ---- |
 | 仓库地址 | 镜像仓库的域名，如 docker.io 或 registry.cn-hangzhou.aliyuncs.com |
-| 命名空间 | 镜像仓库的命名空间，当镜像地址为`rainbond/rainbond:v5.13.0-release` 时，该值为`rainbond` 。对于阿里云镜像仓库地址`registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.13.0-release`时，该值为`goodrain` |
+| 命名空间 | 镜像仓库的命名空间，当镜像地址为`rainbond/rainbond:v5.14.0-release` 时，该值为`rainbond` 。对于阿里云镜像仓库地址`registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.0-release`时，该值为`goodrain` |
 | 用户名 | 自定义 |
 | 密码 | 自定义 |
 
