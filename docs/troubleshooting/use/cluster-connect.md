@@ -94,9 +94,9 @@ client.pem: |
 
 将打印出的内容复制到控制台的 **平台管理 -> 集群 -> 编辑** 中，点击 **保存** 即可。
 * apiAddress 对应 **API 地址**
-* ca.pem 对应 **apiAddress**
-* client.pem 对应 **apiAddress**
-* client.key.pem 对应 **apiAddress**
+* ca.pem 对应 **API-CA证书**
+* client.pem 对应 **API-Client证书**
+* client.key.pem 对应 **API-Client证书密钥**
 
 :::caution 注意
 证书左右两侧不能有空格，否则会导致证书无法识别。
