@@ -60,15 +60,15 @@ kubectl edit deploy rainbond-operator -n rbd-system
 ```bash
 docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release
 docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release goodrain/builder:latest
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release goodrain/runner:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release goodrain.me/builder:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release goodrain.me/runner:latest
 ```
 
 推送镜像到私有仓库，参阅[推送镜像到私有仓库](/docs/ops-guide/component/rbd-hub#向集群私有镜像仓库推送镜像)
 
 ```bash
-docker push goodrain/builder:latest
-docker push goodrain/runner:latest
+docker push goodrain.me/builder:latest
+docker push goodrain.me/runner:latest
 ```
 
 ## 跨版本升级到 v5.14.0
