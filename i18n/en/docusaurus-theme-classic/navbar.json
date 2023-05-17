@@ -70,6 +70,10 @@
     "message": "Contribution",
     "description": "Navbar item with label Contribution"
   },
+  "item.label.版本变更": {
+    "message": "Version change",
+    "description": "Navbar item with label Version change"
+  },
   "item.label.社区支持": {
     "message": "Support",
     "description": "Navbar item with label Support"

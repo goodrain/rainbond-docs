@@ -168,6 +168,10 @@ const config = {
                 to: '/community/support',
               },
               {
+                label: '版本变更',
+                to: '/community/change',
+              },
+              {
                 label: '用户论坛',
                 to: 'https://t.goodrain.com',
               },
@@ -315,6 +319,10 @@ const config = {
               {
                 label: '社区支持',
                 to: '/community/support'
+              },
+              {
+                label: '版本变更',
+                to: '/community/change',
               },
               {
                 label: '用户论坛',

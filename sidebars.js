@@ -125,7 +125,6 @@ const sidebars = {
                 id: 'installation/ha-deployment/storage/index'
               },
               items: [
-                'installation/ha-deployment/storage/deploy-glusterfs',
                 'installation/ha-deployment/storage/ceph-rbd',
               ]
             },
