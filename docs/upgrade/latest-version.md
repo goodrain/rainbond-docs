@@ -46,28 +46,25 @@ mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && grctl install
 执行升级命令
 
 ```bash
-#替换基础 region 镜像版本
+# 替换基础 region 镜像版本
 grctl cluster upgrade --new-version=v5.14.0-release
-#手动替换 operator 镜像版本为 v5.13.0-release
+
+# 手动替换 operator 镜像版本为 v5.14.0-release
 kubectl edit deploy rainbond-operator -n rbd-system
 ```
 
-### 更新builder和runner镜像
-1. 需要拉去最新的builder和runner镜像
+#### 升级 builder 和 runner 镜像
+
+获取最新镜像，并修改 Tag
 
 ```bash
 docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release
 docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release
-```
-
-2. 修改镜像tag
-
-```bash
 docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release goodrain/builder:latest
 docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release goodrain/runner:latest
 ```
 
-3.推送镜像
+推送镜像到私有仓库，参阅[推送镜像到私有仓库](/docs/ops-guide/component/rbd-hub#向集群私有镜像仓库推送镜像)
 
 ```bash
 docker push goodrain/builder:latest
@@ -81,6 +78,7 @@ docker push goodrain/runner:latest
 1. 执行每个版本的升级 SQL 脚本。
 2. 更新每个版本所需要的 CRD 资源，目前只有 [v5.11.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.11.0-upgrade#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)、[v5.12.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.12.0-upgrade#%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90) 需要更新 CRD 资源。
 3. 升级控制台镜像版本以及集群端镜像版本，按照 [从最近的版本升级到 v5.13.0](#从最近的版本升级到-v5130) 的步骤进行升级控制台镜像以及集群端镜像。
+4. 升级 builder 和 runner 镜像，按照上述的 [升级 builder runner 镜像](#升级-builder-和-runner-镜像) 的步骤进行升级 builder 和 runner 镜像。
 
 <details>
   <summary>例如：您现在的版本处于 v5.10.0</summary>
@@ -117,28 +115,6 @@ curl https://get.rainbond.com/upgrade-5.11.0.sh | bash
 :::tip
 如果您处于更低的版本，请参阅每个版本的[升级文档](https://v5.12-docs.rainbond.com/docs/upgrade/)，按照上述操作执行即可。
 :::
-
-### 更新builder和runner镜像
-1. 需要拉去最新的builder和runner镜像
-
-```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release
-```
-
-2. 修改镜像tag
-
-```bash
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release goodrain/builder:latest
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release goodrain/runner:latest
-```
-
-3.推送镜像
-
-```bash
-docker push goodrain/builder:latest
-docker push goodrain/runner:latest
-```
 
 ## 版本变更日志
 
