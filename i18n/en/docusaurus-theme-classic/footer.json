@@ -79,10 +79,6 @@
     "message": "Support",
     "description": "Footer item with label Support"
   },
-  "link.item.label.版本变更": {
-    "message": "Version change",
-    "description": "Footer item with label Version change"
-  },
   "link.item.label.用户论坛": {
     "message": "Forum",
     "description": "Footer item with label Forum"

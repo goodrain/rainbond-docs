@@ -150,15 +150,8 @@ const config = {
             type: 'dropdown',
             label: '开源社区',
             position: 'left',
+            to: '/community/support',
             items: [
-              {
-                label: '应用商店',
-                to: 'https://store.goodrain.com/markets/rainbond',
-              },
-              {
-                label: '合作伙伴',
-                to: '/partners',
-              },
               {
                 label: '参与贡献',
                 to: '/community/contribution/',
@@ -168,8 +161,12 @@ const config = {
                 to: '/community/support',
               },
               {
-                label: '版本变更',
-                to: '/community/change',
+                label: '应用商店',
+                to: 'https://store.goodrain.com/markets/rainbond',
+              },
+              {
+                label: '合作伙伴',
+                to: '/partners',
               },
               {
                 label: '用户论坛',
@@ -188,7 +185,7 @@ const config = {
               {
                 type: 'html',
                 className: 'dropdown-archived-versions',
-                value: '<b>Archived versions</b>',
+                value: '<b style="font-size: 14px;">Archived versions</b>',
               },
               ...ArchivedVersionsDropdownItems.map(
                 ([versionName, versionUrl]) => ({
@@ -196,6 +193,14 @@ const config = {
                   href: versionUrl,
                 }),
               ),
+              {
+                type: 'html',
+                value: '<hr class="dropdown-separator">',
+              },
+              {
+                to: '/docs/versions',
+                label: 'All versions',
+              },
             ]
           },
           {
@@ -305,14 +310,6 @@ const config = {
             title: '开源社区',
             items: [
               {
-                label: '应用商店',
-                to: 'https://store.goodrain.com/markets/rainbond'
-              },
-              {
-                label: '合作伙伴',
-                to: '/partners'
-              },
-              {
                 label: '参与贡献',
                 to: '/community/contribution/'
               },
@@ -321,8 +318,12 @@ const config = {
                 to: '/community/support'
               },
               {
-                label: '版本变更',
-                to: '/community/change',
+                label: '应用商店',
+                to: 'https://store.goodrain.com/markets/rainbond'
+              },
+              {
+                label: '合作伙伴',
+                to: '/partners'
               },
               {
                 label: '用户论坛',
