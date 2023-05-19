@@ -562,7 +562,12 @@ export default function Index() {
                     <span>企业级功能扩展</span>
                   </div>
                   <div>
-                    <span>企业样式可定制</span>
+                    <a href='/docs/enterprise/observability' target='_blank'>
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>可观测性中心</p>
+                        <span style={{fontSize:'10px'}}>全局日志、链路追踪、报警、系统监控、应用监控、监控大屏等</span>
+                      </span>
+                    </a>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -574,7 +579,12 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>GPU 共享支持</span>
+                    <a href='/docs/enterprise/xinchuang' target='_blank'>
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>国产化信创支持</p>
+                        <span style={{fontSize:'10px'}}>业务智能迁移到国产化信创体系</span>
+                      </span>
+                    </a>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -586,25 +596,11 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>国产化信创支持</p>
-                      <span style={{fontSize:'10px',color:'#9c9a9a'}}>业务智能迁移到国产化信创体系</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div>
-                  <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>可观测性中心</p>
-                      <span style={{fontSize:'10px',color:'#9c9a9a'}}>全局日志、链路追踪、报警、系统监控、应用监控、监控大屏等</span>
-                    </span>
+                    <a href='/docs/enterprise/gray-release' target='_blank'>
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>全链路灰度发布</p>
+                      </span>
+                    </a>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -616,10 +612,12 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>集群巡检</p>
-                      <span style={{fontSize:'10px',color:'#9c9a9a'}}>安全、配置规范、稳定性</span>
-                    </span>
+                    <a href='/docs/enterprise/scanner' target='_blank'>
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>集群巡检</p>
+                        <span style={{fontSize:'10px'}}>安全、配置规范、稳定性</span>
+                      </span>
+                    </a>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -631,10 +629,40 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
+                    <a href='/docs/enterprise/security' target='_blank'> 
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>安全能力扩展</p>
+                        <span style={{fontSize:'10px'}}>审计、WAF防火墙、安全加固</span>
+                      </span>
+                    </a>
                     <span>
-                      <p style={{marginBottom:'-4px'}}>安全扩展</p>
-                      <span style={{fontSize:'10px',color:'#9c9a9a'}}>审计、WAF防火墙、安全加固</span>
+                      <img src='/img/error.svg' alt='' />
                     </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <a href='/docs/enterprise/style' target='_blank'> 
+                     <span>定制化和样式</span>
+                    </a>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <a href='/docs/enterprise/GPU' target='_blank'>   
+                      <span>GPU 共享支持</span>
+                    </a>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -721,6 +749,23 @@ export default function Index() {
                   </div>
                   <div>
                     <span>三级等保支持</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <a href='/docs/enterprise/other' target='_blank'>
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>其他功能优化</p>
+                        <span style={{fontSize:'10px'}}>团队资源配额、组件存储文件管理</span>
+                      </span>
+                    </a>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
