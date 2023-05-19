@@ -923,6 +923,59 @@ const sidebars = {
         },
       ]
     },
+    {
+      type: 'category',
+      label: '企业版使用手册',
+      link: {
+        type: 'doc',
+        id: 'enterprise/index'
+      },
+      items: [
+        {
+          type: 'category',
+          label: '可观测性中心',
+          link: {
+            type: 'doc',
+            id: 'enterprise/observability/index',
+          },
+          items: [
+            'enterprise/observability/dashboard',
+            'enterprise/observability/large-screen',
+            'enterprise/observability/global-logs',
+            'enterprise/observability/alarm',
+          ]
+        },
+        'enterprise/xinchuang',
+        'enterprise/gray-release',
+        'enterprise/scanner',
+        {
+          type: 'category',
+          label: '安全能力',
+          link: {
+            type: 'doc',
+            id: 'enterprise/security/index',
+          },
+          items: [
+            'enterprise/security/waf',
+            'enterprise/security/audit',
+          ]
+        },
+        'enterprise/style',
+        'enterprise/GPU',
+        {
+          type: 'category',
+          label: '其他功能',
+          link: {
+            type: 'doc',
+            id: 'enterprise/other/index',
+          },
+          items: [
+            'enterprise/other/team-resource',
+            'enterprise/other/file-manage',
+          ]
+        },
+      ]
+    },
   ],
   api: [
     'api/Intro',
