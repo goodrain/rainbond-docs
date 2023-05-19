@@ -6,9 +6,11 @@ keywords:
 - other function
 ---
 
-1、团队配额
+企业版还包含多处优化功能，如团队资源配额限制、组件存储可视化管理等。
 
-团队设置资源配额，如cpu和内存
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
-
-2、GPU共享支持
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
