@@ -48,7 +48,7 @@ keywords:
 
 ### 应用监控
 
-![description](https://static.goodrain.com/docs/enterprise-app/large-screen/app-monitor.png)
+![description](https://static.goodrain.com/docs/enterprise-app/large-screen/app-monitor.jpg)
 
 #### 流量分布图
 

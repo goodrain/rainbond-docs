@@ -19,6 +19,8 @@ description: 介绍平台上如何进行操作审计和登录审计。
 
 ### 操作日志
 
+![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/audit/operate_log.jpg)
+
 操作日志记录功能旨在记录用户在 Rainbond 上的操作活动，包括但不限于以下内容：
 
 - 用户行为：记录用户执行的具体操作，如组件创建、编辑、删除、网关策略的编辑以及各类平台配置的更改行为。
@@ -30,6 +32,8 @@ description: 介绍平台上如何进行操作审计和登录审计。
 - 操作类型：标识操作的类型，例如企业管理、团队管理、应用管理、组件管理、本地组件库管理等。
 
 ### 登录日志
+
+![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/audit/login_log.jpg)
 
 登录日志旨在记录用户登录的功能用于跟踪和记录用户登录企业平台的活动，包括以下信息：
 

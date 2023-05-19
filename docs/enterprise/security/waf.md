@@ -13,6 +13,8 @@ WAF 防火墙是一种应用层防火墙，专注于保护 Web 应用程序免�
 
 ### 规则管理
 
+![waf](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/waf/waf.jpg)
+
 网关的 WAF 防火墙内置了6个规则集，分别是防御XSS跨站脚本攻击、防御Http协议漏洞、防御SQL注入、一般性防御、防御恶意响应、防御拒绝服务攻击。详细说明如下：
 
 - 防御XSS跨站脚本攻击：识别和阻止恶意注入的脚本代码，防止攻击者利用客户端漏洞获取用户信息。
