@@ -15,6 +15,8 @@ description: Rainbond关于环境变量的一些高级用法，适合于开发�
 | PROTOCOL            | http\tcp\mysql 等                                          | 对应上述端口的协议类型                                                           |
 | TENANT_ID           | 租户 ID                                                    | 租户 ID                                                                          |
 | SERVICE_ID          | 应用 ID                                                    | 应用 ID                                                                          |
+| SERVICE_NAME        | 应用名称                                                    | 应用名称，由应用英文名和组件英文名组成，格式为：应用英文名-组件英文名                         |
+| NAMESPACE           | 应用所属命名空间                                              | 应用所属命名空间                                                                   |
 | MEMORY_SIZE         | micro， small， medium， large， 2xlarge 等,对应关系见下文 | 表示当前应用实例的内存大小设置，一般用于应用内存相关设置的初始化，例如 JAVA_OPTS |
 | SERVICE_POD_NUM     | 应用实例数量                                               | 应用实例的数量                                                                   |
 | DEPEND_SERVICE      | serviceAlias:serviceID,                                    | 依赖的应用                                                                       |
