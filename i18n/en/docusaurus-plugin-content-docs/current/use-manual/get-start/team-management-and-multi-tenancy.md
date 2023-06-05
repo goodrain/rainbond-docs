@@ -21,7 +21,7 @@ For users who deploy Rainbond privatized on their own servers (physical machines
 
 - Installed Rainbond cluster.
 
-- Completed [enterprise administrator registration](/docs/use-manual/enterprise-manage/enterprise-settings/base/user-register).
+- Completed enterprise administrator registration.
 
 ### Create a team
 
@@ -29,13 +29,11 @@ For the concept of team, please refer to [Team](/docs/use-manual/get-start/conce
 
 The same team can open multiple data centers and manage the resources of the team in different data centers in a unified manner.
 
-For the method of creating a team, see [Create a Team](/docs/use-manual/enterprise-manage/teams/create-team).
-
 Try to create **dev team**,**test team**in default datacenter.
 
 ### create user
 
-Register users of other personnel of the company through [ordinary user registration](/docs/use-manual/enterprise-manage/enterprise-settings/base/user-register) , and assign users to each team created in the previous step according to the organizational structure of the enterprise, and assign appropriate roles.
+Register users of other personnel of the company through ordinary user registration, and assign users to each team created in the previous step according to the organizational structure of the enterprise, and assign appropriate roles.
 
 A single user can play different roles in multiple teams, if the user does not belong to a certain team, then he will not be able to access all resources under that team, or even see this team in the team list.
 

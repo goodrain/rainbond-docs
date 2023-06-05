@@ -35,6 +35,8 @@ kubectl logs -f -l name=rbd-chaos -n rbd-system
 
 ### 构建无法拉取到镜像，提示 ImagePullBackOff
 
+#### 没有配置 containerd 私有镜像仓库证书
+
 通常使用 kubectl describe 命令查看详细报错，如果报错为 `x509: certificate signed by unknown authority`，那很大可能是 Rainbond 默认的镜像仓库证书不受信任。如果你的环境是 Containerd，那么需要修改每个节点的 containerd 配置文件，配置 goodrain.me 私有仓库。然后重启 containerd。
 
 1. 修改配置文件 `/etc/containerd/config.toml`
@@ -55,6 +57,21 @@ kubectl logs -f -l name=rbd-chaos -n rbd-system
 ```
 
 3. 重启每个节点的 containerd 即可
+
+#### 私有镜像仓库版本太低
+
+如果是单机体验版出现 `x509: certificate signed by unknown authority` 报错（单机体验本默认是 Containerd，同时默认也配置了证书）那么很大可能是私有镜像仓库版本太低，需要将 registry 升级到最新版本。
+
+```bash
+# 进入 rainbond-allinone 容器内
+$ docker exec -it rainbond-allinone bash
+
+# 升级 rbd-hub 版本
+$ kubectl edit rbdcomponent rbd-hub -n rbd-system
+
+spec:
+  image: registry:2 # 从 DockerHub 获取最新版本的 registry 镜像
+```
 
 ### 组件构建源检测未通过
 

@@ -1,17 +1,11 @@
 ---
 title: 微服务远程Debug，Nocalhost + Rainbond微服务开发第二弹
-description: 微服务远程Debug，Nocalhost + Rainbond微服务开发第二弹
+description: Nocalhost 是一款开源的基于 IDE 的云原生应用开发工具，本文将介绍如何使用 Nocalhost 快速开发 Rainbond 上的微服务应用的开发流程以及实践操作步骤
 slug: nocalhostdebug
-# authors: QiZhang
+image: https://static.goodrain.com/wechat/nocalhost2/nocalhost.png
 ---
 
-:::info
 介绍如何使用 Nocalhost Debug 部署在 Rainbond 上的微服务
-:::
-
-<!--truncate-->
-
-![](https://static.goodrain.com/wechat/nocalhost2/nocalhost.png)
 
 之前的文章中我们介绍了如何通过 [Nocalhost 快速开发 Rainbond 上的微服务](https://mp.weixin.qq.com/s/kC9P7fvMtJvKK7_TM2LbTw)，介绍了基本的开发流程。
 

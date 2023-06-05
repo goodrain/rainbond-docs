@@ -68,7 +68,18 @@ export default function Partners() {
         id: "partners.btyebase.description",
         message: "Bytebase是一个开源 Database DevOps 工具",
       }),
-      deployURL: "https://store.goodrain.com/markets/rainbond/apps/6f764cae50f643518269db84c18d737f?childNode=Database%20DevOps&parentNode=%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7&childId=60bb73a43901440eabeba8659901e27f&parentId=1c5e58b2528249649118457773de4227&installNum=25",
+      deployURL: "/blog/bytebase",
+      tags: "Application"
+    },
+    {
+      image: "/img/partners/curve.png",
+      title: "Curve",
+      githubURL: "https://github.com/opencurve/curve",
+      description: translate ({
+        id: "partners.curve.description",
+        message: "Curve 是网易主导自研的现代化存储系统, 目前支持文件存储和块存储",
+      }),
+      deployURL: "/blog/curve",
       tags: "Application"
     },
     {
@@ -83,6 +94,17 @@ export default function Partners() {
       tags: "Application"
     },
     {
+      image: "/img/partners/datacap.png",
+      title: "DataCap",
+      githubURL: "https://github.com/EdurtIO/datacap",
+      description: translate ({
+        id: "partners.datacap.description",
+        message: "DataCap 是用于数据转换、集成和可视化的集成软件",
+      }),
+      deployURL: "/blog/datacap",
+      tags: "Application"
+    },
+    {
       image: "/img/partners/hertzbeat.png",
       title: "HertzBeat",
       githubURL: "https://github.com/dromara/hertzbeat",
@@ -90,7 +112,29 @@ export default function Partners() {
         id: "partners.hertzbeat.description",
         message: "易用友好的实时监控系统，无需Agent，强大自定义监控能力",
       }),
-      deployURL: "#",
+      deployURL: "/blog/hertzbeat",
+      tags: "Application"
+    },
+    {
+      image: "/img/partners/jianmu.png",
+      title: "jianmu",
+      githubURL: "https://gitee.com/jianmu-dev/jianmu",
+      description: translate ({
+        id: "partners.jianmu.description",
+        message: "面向 DevOps 领域的极易扩展的开源无代码(图形化)/低代码(GitOps)工具",
+      }),
+      deployURL: "/blog/jianmu",
+      tags: "Plugin"
+    },
+    {
+      image: "/img/partners/jpom.png",
+      title: "Jpom",
+      githubURL: "https://gitee.com/dromara/Jpom",
+      description: translate ({
+        id: "partners.Jpom.description",
+        message: "简而轻的低侵入式在线构建、自动部署、日常运维、项目运维监控软件",
+      }),
+      deployURL: "/blog/jpom",
       tags: "Application"
     },
     {
@@ -147,6 +191,17 @@ export default function Partners() {
       }),
       deployURL: "/docs/devops/pipeline/",
       tags: "Plugin"
+    },
+    {
+      image: "/img/partners/zyplayer-doc.png",
+      title: "zyplayer-doc",
+      githubURL: "https://gitee.com/dromara/zyplayer-doc",
+      description: translate ({
+        id: "partners.zyplayer-doc.description",
+        message: "适合企业和个人使用的可私有化部署的在线知识库管理系统",
+      }),
+      deployURL: "/blog/zyplayer-doc",
+      tags: "Application"
     },
   ];
 
@@ -213,12 +268,12 @@ export default function Partners() {
           <div className={clsx(styles.colPartnersList, "col col--3")} key={index}>
             <div className="card shadow--md">
               <div className={clsx(styles.cardImagePartnersList, "card__image")}>
-                <img src={image} className={styles.cardImage}/>
+                  <img src={image} className={styles.cardImage}/>
               </div>
               <div className="card__body">
                 <div className={styles.cardBodyPartnersList}>
                   <h4 className={styles.cardBodyH4PartnersList}>
-                    <a href={githubURL}>{title}</a>
+                    <a href={githubURL} target="_blank">{title}</a>
                   </h4>
                   <a className={clsx(styles.button, "button button--sm button--secondary")} href={deployURL} target="_blank">deploy</a>
                 </div>

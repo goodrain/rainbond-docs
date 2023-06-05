@@ -26,7 +26,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '安装 Rainbond',
+      label: '安装与升级 Rainbond',
       link: {
         type: 'doc',
         id: 'installation/index'
@@ -125,7 +125,6 @@ const sidebars = {
                 id: 'installation/ha-deployment/storage/index'
               },
               items: [
-                'installation/ha-deployment/storage/deploy-glusterfs',
                 'installation/ha-deployment/storage/ceph-rbd',
               ]
             },
@@ -144,6 +143,7 @@ const sidebars = {
           ]
         },
         'installation/offline/index',
+        'upgrade/latest-version',
         'installation/uninstall',
       ]
     },
@@ -252,6 +252,7 @@ const sidebars = {
         'kubernetes-native-guide/export-helm-chart/index',
         'kubernetes-native-guide/yaml-example/index',
         'kubernetes-native-guide/helm-example/index',
+        'kubernetes-native-guide/gateway-api/index',
       ]
     },
     {
@@ -649,7 +650,6 @@ const sidebars = {
               ]
             },
             'use-manual/app-manage/share-app',
-            'use-manual/app-manage/app-backup',
             {
               type: 'link',
               label: '应用网关',
@@ -764,56 +764,6 @@ const sidebars = {
                 'use-manual/enterprise-manage/appcenter/app-specification'
               ]
             },
-            {
-              type: 'category',
-              label: '团队管理',
-              link: {
-                type: 'doc',
-                id: 'use-manual/enterprise-manage/teams/index',
-              },
-              items: [
-                'use-manual/enterprise-manage/teams/create-team',
-                'use-manual/enterprise-manage/teams/join-team',
-              ]
-            },
-            {
-              type: 'category',
-              label: '用户管理',
-              link: {
-                type: 'doc',
-                id: 'use-manual/enterprise-manage/user-manage/index'
-              },
-              items: [
-                'use-manual/enterprise-manage/user-manage/reset-admin-user-password',
-              ]
-            },
-            {
-              type: 'category',
-              label: '企业设置',
-              link: {
-                type: 'doc',
-                id: 'use-manual/enterprise-manage/enterprise-settings/index'
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: '基础设置',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/enterprise-manage/enterprise-settings/base/index'
-                  },
-                  items: [
-                    'use-manual/enterprise-manage/enterprise-settings/base/user-register',
-                    'use-manual/enterprise-manage/enterprise-settings/base/cert-management',
-                    'use-manual/enterprise-manage/enterprise-settings/base/component-registry',
-                    'use-manual/enterprise-manage/enterprise-settings/base/oss',
-                  ]
-                },
-                'use-manual/enterprise-manage/enterprise-settings/admin-manage/admin-manage',
-                'use-manual/enterprise-manage/enterprise-settings/data-backup/index',
-              ]
-
-            }
           ]
         },
         {
@@ -853,7 +803,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '运维概述',
+          label: '高级运维',
           link: {
             type: 'doc',
             id: 'ops-guide/management/index'
@@ -866,6 +816,9 @@ const sidebars = {
             'ops-guide/management/kaniko-args',
             'ops-guide/management/docker-log',
             'ops-guide/management/change-ports',
+            'ops-guide/management/switch-registry',
+            'ops-guide/management/auto-cert',
+            'ops-guide/management/reset-admin-password',
           ]
         },
         {
@@ -891,7 +844,7 @@ const sidebars = {
             'ops-guide/monitor/monitor-alert-deploy',
             {
               type: 'category',
-              label: '报警配置项',
+              label: '告警配置项',
               link: {
                 type: 'doc',
                 id: 'ops-guide/monitor/alert/index'
@@ -916,92 +869,111 @@ const sidebars = {
             'ops-guide/tools/shell',
           ]
         },
+        {
+          type: 'category',
+          label: '问题排查',
+          link: { 
+            type: 'doc', 
+            id: 'troubleshooting/index' 
+          },
+          items: [
+            {
+              type: 'category',
+              label: '安装问题',
+              link: {
+                type: 'doc',
+                id: 'troubleshooting/installation/index'
+              },
+              items: [
+                'troubleshooting/installation/dind',
+                'troubleshooting/installation/ui',
+                'troubleshooting/installation/helm',
+              ]
+            },
+            {
+              type: 'category',
+              label: '使用问题',
+              link: {
+                type: 'doc',
+                id: 'troubleshooting/use/index'
+              },
+              items: [
+                'troubleshooting/use/build',
+                'troubleshooting/use/run',
+                'troubleshooting/use/gateway',
+                'troubleshooting/use/cluster-connect',
+                'troubleshooting/use/console-exception',
+                'troubleshooting/use/cluster-component',
+              ]
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: '扩展',
+          link: {
+            type: 'doc',
+            id: 'expand/index'
+          },
+          items: [
+            'expand/practices/app-dev/connect-api',
+            'expand/practices/app-dev/auto-schema',
+            'expand/practices/app-dev/data-initialization',
+          ]
+        },
       ]
     },
     {
       type: 'category',
-      label: '问题排查',
-      link: { 
-        type: 'doc', 
-        id: 'troubleshooting/index' 
+      label: '企业版使用手册',
+      link: {
+        type: 'doc',
+        id: 'enterprise/index'
       },
       items: [
         {
           type: 'category',
-          label: '安装问题',
+          label: '可观测性中心',
           link: {
             type: 'doc',
-            id: 'troubleshooting/installation/index'
+            id: 'enterprise/observability/index',
           },
           items: [
-            'troubleshooting/installation/dind',
-            'troubleshooting/installation/ui',
-            'troubleshooting/installation/helm',
+            'enterprise/observability/dashboard',
+            'enterprise/observability/large-screen',
+            'enterprise/observability/global-logs',
+            'enterprise/observability/alarm',
           ]
         },
+        'enterprise/xinchuang',
+        'enterprise/gray-release',
+        'enterprise/scanner',
         {
           type: 'category',
-          label: '使用问题',
+          label: '安全能力',
           link: {
             type: 'doc',
-            id: 'troubleshooting/use/index'
+            id: 'enterprise/security/index',
           },
           items: [
-            'troubleshooting/use/build',
-            'troubleshooting/use/run',
-            'troubleshooting/use/gateway',
-            'troubleshooting/use/cluster-connect',
-            'troubleshooting/use/console-exception',
-            'troubleshooting/use/cluster-component',
+            'enterprise/security/waf',
+            'enterprise/security/audit',
           ]
         },
-      ],
-    },
-    {
-      type: 'category',
-      label: '版本升级',
-      link: {
-        type: 'doc',
-        id: 'upgrade/index'
-      },
-      items: [
-        'upgrade/5.12.0-upgrade',
-        'upgrade/5.11.1-upgrade',
-        'upgrade/5.11.0-upgrade',
-        'upgrade/5.10.1-upgrade',
-        'upgrade/5.10.0-upgrade',
-        'upgrade/5.9.0-upgrade',
-        'upgrade/5.8.1-upgrade',
-        'upgrade/5.8.0-upgrade',
-        'upgrade/5.7.1-upgrade',
-        'upgrade/5.7.0-upgrade',
-        'upgrade/5.6.0-upgrade',
-        'upgrade/5.5.0-upgrade',
-        'upgrade/5.4.0-upgrade',
-        'upgrade/5.3.2-upgrade',
-        'upgrade/5.3.1-upgrade',
-        'upgrade/5.3.0-upgrade',
-        'upgrade/5.2.2-5.3.1',
-      ]
-    },
-    {
-      type: 'category',
-      label: '扩展',
-      link: {
-        type: 'doc',
-        id: 'expand/index'
-      },
-      items: [
-        'expand/practices/app-dev/work_with_kong',
-        'expand/practices/app-dev/app_publishing',
-        'expand/practices/app-dev/ab_testing',
-        'expand/practices/app-dev/config_file',
-        'expand/practices/app-dev/collect_log',
-        'expand/practices/app-dev/connect-api',
-        'expand/practices/app-dev/auto-schema',
-        'expand/practices/app-dev/deploy-spark',
-        'expand/practices/app-dev/data-initialization',
-        'expand/practices/app-dev/shell-hook-cdn'
+        'enterprise/style',
+        'enterprise/GPU',
+        {
+          type: 'category',
+          label: '其他功能',
+          link: {
+            type: 'doc',
+            id: 'enterprise/other/index',
+          },
+          items: [
+            'enterprise/other/team-resource',
+            'enterprise/other/file-manage',
+          ]
+        },
       ]
     },
   ],

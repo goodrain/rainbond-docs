@@ -1,8 +1,8 @@
 ---
 title: Rainbond结合 NeuVector 实践容器安全管理
-description: Rainbond结合 NeuVector 实践容器安全管理
+description: NeuVector 是业界首个端到端的开源容器安全平台
 slug: neuvector
-# authors: QiZhang
+image: https://static.goodrain.com/wechat/neuvector/neuvector.png
 ---
 
 :::info

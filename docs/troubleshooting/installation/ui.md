@@ -39,6 +39,32 @@ keywords:
 chown docker:docker /home/docker/.ssh
 ```
 
+### node 192.168.1.11 not found
+
+通过 Web 页面安装 Kubernetes 集群时出现 `node 192.168.1.11 not found`，查看该节点的 kubelet 日志，确认是否存在以下报错：
+
+```bash
+$ docker logs -f kubelet
+
+E0329 13:07:24.125847    1061 kubelet_node_status.go:92] "Unable to register node with API server" err="Post \"https://127.0.0.1:6443/api/v1/nodes\": x509: certificate has expired or is not yet valid: current time 2023-03-29T13:07:24Z is before 2023-03-29T20:24:14Z" node="192.168.1.191"
+E0329 13:07:24.141600    1061 kubelet.go:2466] "Error getting node" err="node \"192.168.1.11\" not found"
+E0329 13:07:24.242506    1061 kubelet.go:2466] "Error getting node" err="node \"192.168.1.11\" not found"
+```
+
+如果报错与上述一致，请检查每个节点之间的时间是否一致，如果不一致，请将所有节点的时间同步。
+
+```bash
+# 同步时间
+ntpdate -u ntp.aliyun.com
+
+# 硬件时间同步
+hwclock -w
+```
+
+:::tip
+建议同步时间后重启服务器再继续安装。
+:::
+
 ### rejected: administratively prohibited
 
 这种情况说明宿主机服务器的 sshd 服务配置有限制，编辑所欧宿主机的 `/etc/ssh/sshd_config` 文件，确定存在以下配置：

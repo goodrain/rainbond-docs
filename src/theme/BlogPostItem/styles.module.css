@@ -16,3 +16,31 @@
 .blogPostDetailsFull {
   flex-direction: column;
 }
+
+.col {
+  margin: 25px 0 25px 0;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #101827;
+}
+
+.link {
+  color: #101827;
+}
+
+.card {
+  transition: .3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+}
+
+.image {
+  height: 175px;
+  object-fit: contain;
+  vertical-align: middle;
+  width: 100%;
+}

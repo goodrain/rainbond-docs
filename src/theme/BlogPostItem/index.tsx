@@ -6,6 +6,7 @@
  */
 
 import Link from '@docusaurus/Link';
+import { useLocation } from '@docusaurus/router';
 import { usePluralForm } from '@docusaurus/theme-common';
 import Translate, { translate } from '@docusaurus/Translate';
 import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
@@ -18,8 +19,7 @@ import MDXComponents from '@theme/MDXComponents';
 import TagsListInline from '@theme/TagsListInline';
 import clsx from 'clsx';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import styless from './index.module.scss';
+// import { useLocation } from 'react-router-dom';
 import styles from './styles.module.css';
 // Very simple pluralization: probably good enough for now
 function useReadingTimePlural() {
@@ -68,26 +68,41 @@ export default function BlogPostItem(props: Props): JSX.Element {
   const truncatedPost = !isBlogPostPage && truncated;
   const tagsExists = tags.length > 0;
   const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
-  const location_url = useLocation().pathname;
-  const { images } = frontMatter as any;
+
   if (! isBlogPostPage) {
-    if (location_url.includes('case') || location_url.includes('usescene') || location_url.includes('feature')) {
-      return (
-        <>
-          <a className={`${styless.container_box}`} href={permalink}>
-            <div>
-              <div className={styless.logo}>
-                <img src={images || ''} alt='' />
-              </div>
-              <div className={styless.title}>
-                <p style={{ textAlign: 'center' }}>{title}</p>
-              </div>
-              <div className={styless.desc}>{description}</div>
+    return (
+      <>
+        <div className={clsx("col col--4", styles.col)}>
+        <Link to={permalink} className={styles.link}>
+          <div className={clsx("card shadow--tl", styles.card)}>
+            <div className="card__image">
+              <img src={image} className={styles.image}/>
             </div>
-          </a>
-        </>
-      );
-    }
+            <div className="card__body">
+              <h2 style={{ fontSize: '22px' }}>{title}</h2>
+              <small style={{ fontWeight: '300' }}>
+                {description}
+              </small>
+            </div>
+            <div className="card__footer">
+              <div className={clsx(styles.blogPostData, 'margin-vert--md')}>
+                <time dateTime={date} itemProp='datePublished'>
+                  {formattedDate}
+                </time>
+
+                {typeof readingTime !== 'undefined' && (
+                  <>
+                    {' · '}
+                    {readingTimePlural(readingTime)}
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+          </Link>
+        </div>
+      </>
+    );
   }
   return (
     <article
@@ -172,14 +187,14 @@ export default function BlogPostItem(props: Props): JSX.Element {
                   { title }
                 )}
               >
-                <b>
+                {/* <b>
                   <Translate
                     id='theme.blog.post.readMore'
                     description='The label used in blog post item excerpts to link to full blog posts'
                   >
                     Read More
                   </Translate>
-                </b>
+                </b> */}
               </Link>
             </div>
           )}
