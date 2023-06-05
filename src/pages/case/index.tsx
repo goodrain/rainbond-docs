@@ -23,6 +23,12 @@ export default function usescene() {
 
   const CardContentList = [
     {
+      img: "/img/case/szsd.png",
+      title: "山西数智时代",
+      description: "山西数智时代基于 Rainbond 实现智慧景区",
+      link: "/case/szsd"
+    },
+    {
       img: "/img/case/talkweb.png",
       title: "拓维信息",
       description: "拓维信息使用 Rainbond 的云原生落地实践",

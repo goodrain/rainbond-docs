@@ -1,17 +1,11 @@
 ---
 title: 参与社区贡献：分享你的插件
-description: 参与社区贡献：分享你的插件
+description: 本文介绍如何分享你的插件到 Rainbond 开源应用商店，共享插件扩展能力的同时也可以与 Rainbond 社区一起丰富插件市场，插件本身仅包含描述和实现，使其可以被复用。
 slug: pluginshare
-# authors: QiZhang
+image: https://static.goodrain.com/wechat/plugin-share/plugin-share.png
 ---
 
-:::info
 本文介绍如何分享你的插件到 Rainbond 开源应用商店，共享插件扩展能力的同时也可以与 Rainbond 社区一起丰富插件市场。
-:::
-
-<!--truncate-->
-
-![](https://static.goodrain.com/wechat/plugin-share/plugin-share.png)
 
 由于应用运维特征的实现都具有较大的共性，为了将业务容器与其运维能力解耦，Rainbond 基于 SideCar 模式实现了一种组件下的插件机制。Rainbond 插件可以作为组件运维能力的扩展，插件本身就是一个 Sidecar 容器，它可以用于解决以下问题：
 

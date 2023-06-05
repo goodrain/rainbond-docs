@@ -1,16 +1,11 @@
 ---
 title: 在Rainbond中实现数据库结构自动化升级
-description: 在Rainbond中实现数据库结构自动化升级
+description: Rainbond 这款产品一直致力于打通企业应用交付的全流程，这个流程中不可或缺的一环是企业应用的不断升级、迭代
 slug: MysqlSchema
-# authors: QiZhang
+image: https://static.goodrain.com/wechat/schema/schema.png
 ---
 
-:::info
 [Rainbond](https://www.rainbond.com) 这款产品一直致力于打通企业应用交付的全流程，这个流程中不可或缺的一环是企业应用的不断升级、迭代。Rainbond 特有的能力，是可以将囊括多个服务组件的企业应用系统进行打包，并执行一键安装、升级以及回滚的操作。上述的内容仅仅解决了应用程序本身的版本控制问题。企业应用的升级迭代流程想要完全实现自动化，还需要能够自动处理数据库表结构（Schema）的版本控制。经过不断的探索，Rainbond 首先在源码构建领域借助业界领先的 [Liquibase](https://www.liquibase.com/) 集成了云原生时代的数据库 Schema 版本管理的能力。
-:::
-
-<!--truncate-->
-
 
 ## Schema版本管理难题
 

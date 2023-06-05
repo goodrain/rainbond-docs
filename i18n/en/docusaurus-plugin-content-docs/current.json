@@ -159,10 +159,6 @@
     "message": "App Market",
     "description": "The label for category App Market in sidebar docs"
   },
-  "sidebar.docs.category.团队管理": {
-    "message": "Team manage",
-    "description": "The label for category App Market in sidebar docs"
-  },
   "sidebar.docs.category.用户管理": {
     "message": "User manage",
     "description": "The label for category User manage in sidebar docs"
@@ -238,6 +234,46 @@
   "sidebar.docs.category.版本升级": {
     "message": "Version upgrade",
     "description": "The label for category Version upgrade in sidebar docs"
+  },
+  "sidebar.docs.category.安装与升级 Rainbond": {
+    "message": "Installation & Upgrade",
+    "description": "The label for category Installation and Upgrade in sidebar docs"
+  },
+  "sidebar.docs.category.基于主机安装": {
+    "message": "Via bare machine install",
+    "description": "The label for category Via bare machine install in sidebar docs"
+  },
+  "sidebar.docs.category.基于 Kubernetes 安装": {
+    "message": "Via Kubernetes install",
+    "description": "The label for category Via Kubernetes install in sidebar docs"
+  },
+  "sidebar.docs.category.高可用集群安装": {
+    "message": "High availability install",
+    "description": "The label for category High availability cluster install in sidebar docs"
+  },
+  "sidebar.docs.category.DevOps 指南": {
+    "message": "DevOps guide",
+    "description": "The label for category DevOps guide in sidebar docs"
+  },
+  "sidebar.docs.category.原生 Kubernetes 指南": {
+    "message": "Native Kubernetes guide",
+    "description": "The label for category Native Kubernetes guide in sidebar docs"
+  },
+  "sidebar.docs.category.微服务架构指南": {
+    "message": "Microservice guide",
+    "description": "The label for category Microservice guide in sidebar docs"
+  },
+  "sidebar.docs.category.应用交付指南": {
+    "message": "Delivery guide",
+    "description": "The label for category Delivery guide in sidebar docs"
+  },
+  "sidebar.docs.category.集群管理指南": {
+    "message": "Cluster manage guide",
+    "description": "The label for category Cluster manage guide in sidebar docs"
+  },
+  "sidebar.docs.category.企业版使用文档": {
+    "message": "Enterprise Version Usage Documents",
+    "description": "Introducing the Use of Enterprise Features"
   },
   "sidebar.api.category.企业API": {
     "message": "Enterprise API",

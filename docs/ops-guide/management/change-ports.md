@@ -23,6 +23,10 @@ keywords:
 ```yaml title="values.yaml"
 operator:
   env:
+  - name: GATEWAY_HTTP_PORT
+    value: "8080"
+  - name: GATEWAY_HTTPS_PORT
+    value: "9443"
   - name: API_PORT
     value: "7443"
   - name: API_WS_PORT
@@ -43,6 +47,8 @@ Component:
 参数解释:
 
 * **operator.env** 环境变量解释
+  * GATEWAY_HTTP_PORT：定义 Operator 检测网关 HTTP 端口。
+  * GATEWAY_HTTPS_PORT：定义 Operator 检测网关 HTTPS 端口。
   * API_PORT：定义 Operator 创建 API 的 Service 和 Ingress 端口。
   * API_WS_PORT：定义 Operator 创建 API Websocket 的 Service 和 Ingress 端口。
 * **enableEnvCheck** 用于关闭环境检查，默认会检测 80、443、8443、6060 端口是否被占用，如果被占用则会安装失败。如果设置为 `false`，则不会检测端口占用。

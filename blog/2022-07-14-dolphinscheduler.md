@@ -1,11 +1,11 @@
 ---
 title: 在 Rainbond 部署 DolphinScheduler 高可用集群
-description: 在 Rainbond 部署 DolphinScheduler 高可用集群
+description: Apache DolphinScheduler 是一个分布式易扩展的可视化 DAG 工作流任务调度开源系统，解决数据研发ETL 错综复杂的依赖关系，不能直观监控任务健康状态等问题
 slug: dolphinscheduler
-# authors: QiZhang
+image: https://static.goodrain.com/wechat/dolphinscheduler/dolp.png
 ---
 
-> 本文描述通过 [Rainbond](https://www.rainbond.com/) 云原生应用管理平台 一键部署高可用的 DolphinScheduler 集群，这种方式适合给不太了解 Kubernetes、容器化等复杂技术的用户使用，降低了在 Kubernetes 中部署 DolphinScheduler 的门槛。
+本文描述通过 [Rainbond](https://www.rainbond.com/) 云原生应用管理平台 一键部署高可用的 DolphinScheduler 集群，这种方式适合给不太了解 Kubernetes、容器化等复杂技术的用户使用，降低了在 Kubernetes 中部署 DolphinScheduler 的门槛。
 
 Apache DolphinScheduler 是一个分布式易扩展的可视化 DAG 工作流任务调度开源系统。解决数据研发ETL 错综复杂的依赖关系，不能直观监控任务健康状态等问题。DolphinScheduler 以 DAG 流式的方式将 Task 组装起来，可实时监控任务的运行状态，同时支持重试、从指定节点恢复失败、暂停及Kill任务等操作
 
