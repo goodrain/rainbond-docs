@@ -871,45 +871,6 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '问题排查',
-          link: { 
-            type: 'doc', 
-            id: 'troubleshooting/index' 
-          },
-          items: [
-            {
-              type: 'category',
-              label: '安装问题',
-              link: {
-                type: 'doc',
-                id: 'troubleshooting/installation/index'
-              },
-              items: [
-                'troubleshooting/installation/dind',
-                'troubleshooting/installation/ui',
-                'troubleshooting/installation/helm',
-              ]
-            },
-            {
-              type: 'category',
-              label: '使用问题',
-              link: {
-                type: 'doc',
-                id: 'troubleshooting/use/index'
-              },
-              items: [
-                'troubleshooting/use/build',
-                'troubleshooting/use/run',
-                'troubleshooting/use/gateway',
-                'troubleshooting/use/cluster-connect',
-                'troubleshooting/use/console-exception',
-                'troubleshooting/use/cluster-component',
-              ]
-            },
-          ],
-        },
-        {
-          type: 'category',
           label: '扩展',
           link: {
             type: 'doc',
@@ -922,6 +883,45 @@ const sidebars = {
           ]
         },
       ]
+    },
+    {
+      type: 'category',
+      label: '常见问题',
+      link: { 
+        type: 'doc', 
+        id: 'troubleshooting/index' 
+      },
+      items: [
+        {
+          type: 'category',
+          label: '安装问题',
+          link: {
+            type: 'doc',
+            id: 'troubleshooting/installation/index'
+          },
+          items: [
+            'troubleshooting/installation/dind',
+            'troubleshooting/installation/ui',
+            'troubleshooting/installation/helm',
+          ]
+        },
+        {
+          type: 'category',
+          label: '使用问题',
+          link: {
+            type: 'doc',
+            id: 'troubleshooting/use/index'
+          },
+          items: [
+            'troubleshooting/use/build',
+            'troubleshooting/use/run',
+            'troubleshooting/use/gateway',
+            'troubleshooting/use/cluster-connect',
+            'troubleshooting/use/console-exception',
+            'troubleshooting/use/cluster-component',
+          ]
+        },
+      ],
     },
     {
       type: 'category',
