@@ -251,7 +251,7 @@ monitoring:
 
 **如需修改，按照所需修改配置文件，例如：**
 
-1. 修改网络插件为 calico，修改 `network.plugin` 为 `calico`
+1.修改网络插件为 calico，修改 `network.plugin` 为 `calico`
 
 > 默认会从dockerhub拉取 calico镜像，如需自定义镜像地址请在 system_images 指定镜像地址
 
@@ -260,11 +260,20 @@ network:
   plugin: calico
 ```
 
-2. 设置节点 pod 最大为 250，而不是默认的110。
+2.设置节点 pod 最大为 250，而不是默认的110。
 
 ```yaml
 extra_args:
   max-pods: 250
 ```
 
-3. 修改配置后，点击更新集群，等待集群更新完成即可。
+3.启动 apiserver 的 RemoveSelfLink 特性。
+
+```yaml
+services:
+  kube-api:
+    extra_args:
+      feature-gates: 'RemoveSelfLink=false'
+```
+
+4.修改配置后，点击更新集群，等待集群更新完成即可。
