@@ -1,6 +1,8 @@
 ---
-title: 资源导入
-description: 识别命名空间资源导入 Rainbond
+title: 导入已有资源
+description: 导入 Kubernetes 命名空间下的已有资源到 Rainbond 中管理。
+keywords:
+- 导入 Kubernetes 已有资源
 ---
 
 本篇文档介绍了如何将集群中命名空间下的资源导入 Rainbond 。  
@@ -12,9 +14,13 @@ description: 识别命名空间资源导入 Rainbond
 * 导入过程中，如果组件类型资源的 pod 模版内有多个容器， Rainbond 默认只会识别第一个容器，其他容器会丢失，如果想启动多个容器，可以了解一下 Rainbond 的[插件制作](/docs/use-manual/team-manage/plugin-manage/new-plugin)。
 :::
 
+## 导入转换策略
+
 以下便是按照类型划分的详细的支持资源清单。  
 
-* 组件类型资源：该类型资源导入完成后会转换成 Rainbond 中的组件。
+### 组件类型资源
+
+该类型资源导入完成后会转换成 Rainbond 中的组件。
 
 | k8s资源                      | Rainbond模型                |
 | ------------------------- | ------------------------------|
@@ -23,7 +29,9 @@ description: 识别命名空间资源导入 Rainbond
 | CronJob        | 定时任务组件            |
 | Job            | 任务组件               |
 
-* 组件属性资源：组件类型资源自身携带的一些属性值，如Port、ConfigMap、volume等
+### 组件属性资源
+
+组件类型资源自身携带的一些属性值，如Port、ConfigMap、volume等
 
 | 组件属性                      | Rainbond模型                |
 | ------------------------- | ------------------------------|
@@ -43,7 +51,9 @@ description: 识别命名空间资源导入 Rainbond
 如果组件的 volumeMount 挂载了 ConfigMap 类型的 volume ，则会转化为组件的配置文件。  
 如果 env 是引用类型，则不会被识别到 Rainbond 的环境变量。  
 
-* k8s资源类型：供应用下的组件调用的资源（暂只支持导入以下几种资源）
+### k8s资源类型
+
+供应用下的组件调用的资源（暂只支持导入以下几种资源）
 
 |       k8s资源类型                |
 | ------------------------- | 
@@ -59,7 +69,14 @@ description: 识别命名空间资源导入 Rainbond
 | Role  | 
 该类型资源导入完成后会存储到对应应用下的 k8s 资源中供组件特殊属性使用，特殊属性中volume可以绑定 ConfigMap 、 Secret
 
-## 前提条件
+## 开始导入
+
+资源导入有两个入口：
+
+1. 平台管理 -> 集群 -> 导入。
+2. 团队视图内 -> 新增 -> Kubernetes YAML Helm -> 导入 Kubernetes 已有资源。
+
+### 前提条件
 
 1. 已了解 Rainbond 的团队、应用、组件等所有模块的概念
 2. 存在一个不是 Rainbond 所管理的命名空间并且命名空间下有k8s资源。
@@ -68,7 +85,7 @@ description: 识别命名空间资源导入 Rainbond
 
 下面将会以 Linkerd 命名空间为例, 介绍在 Rainbond 上导入Linkerd命名空间及其内部的资源。
 
-## 选择命名空间
+### 选择命名空间
 
 1. 从下拉框中选择你要导入的命名空间。
 
@@ -81,7 +98,7 @@ description: 识别命名空间资源导入 Rainbond
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/resource_name.jpg" title="资源识别页面"/>
 
-## 高级资源识别
+### 高级资源识别
 
 1. 在这个页面你能看到你部署在集群中的资源对应到 Rainbond 各个模块后的体现。其中Deployment、Job、Cronjob、StatefulSet会识别为组件，其他Service、HPA等资源会对应解析为应用视图下的k8s资源中。
 
@@ -91,7 +108,7 @@ description: 识别命名空间资源导入 Rainbond
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/k8s_resources.jpg" title="k8s资源页面"/>
 
 
-## 资源导入
+### 资源导入
 
 1. 在经过前两轮的检查后，点击确认导入，Rainbond将开始导入并接管资源，过程需要经过拉取镜像、数据入库等一系列操作，所以需要等待一些时间，等待时间长短取决于命名空间下资源的数量。
 

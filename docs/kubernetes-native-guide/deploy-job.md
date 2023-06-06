@@ -1,5 +1,5 @@
 --- 
-title: 部署Job、CronJob类型组件
+title: 部署 Job CronJob 类型组件
 description: 本文讲述部署Job、CronJob类型组件的要点，适用于开发者和运维人员。
 ---
 

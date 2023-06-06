@@ -1,26 +1,29 @@
 ---
-title: 组件 kubernetes 属性管理
-description: 组件其他设置功能模块介绍
+title: 组件 Kubernetes 属性管理
+description: 介绍在 Rainbond 上为组件设置特殊属性，例如：privileged
+keywords:
+- 介绍在 Rainbond 上为组件设置特殊属性，例如：privileged
 ---
 
-运行于 Rainbond 的每一个 Workload 类型的组件中，都可以在 `其他设置` 页面配置 Kubernetes 特殊属性。
+本文介绍如何给 Rainbond 上的组件设置 Kubernetes 特殊属性，例如：privileged、affinity 等等。
 
-## kubernetes属性
+在组件内 -> 其他设置中可找到 Kubernetes 属性并进行配置。
 
-与kubenetes中定义属性不同的是，该属性为yaml格式时，开头无需填写属性名。
+## Kubernetes 属性
 
-### 属性介绍
-#### nodeSelector
+与 Kubenetes 中定义属性不同的是，该属性为 YAML 格式时，开头无需填写属性名。
+
+### nodeSelector
 
 用于将Pod调度到匹配Label的Node上，如果没有匹配的标签会调度失败。
     
-#### labels
+### labels
 
 是附加到k8s对象上的键值对标识，支持高效的查找和监听。作用就是字面意思，给k8s对象打上标签，我们可以使用标签来选择对象。
     
-#### volumes
+### volumes
  
-数据的持久化存储，volumes在k8s中定义时的格式为：
+数据的持久化存储，volumes 在 k8s 中定义时的格式为：
 
 ```yaml
 volumes:
@@ -32,7 +35,8 @@ volumes:
           path: log_level
 ```
 
-在平台添加属性时不需要在开头定义volumes，如以下格式
+在 Rainbond 上添加属性时不需要在开头定义 `volumes`，如以下格式：
+
 ```yaml
 - name: config-vol
   configMap:
@@ -42,23 +46,24 @@ volumes:
         path: log_level
 ```
 
-#### volumeMounts
+### volumeMounts
 
-挂载volumes，volumeMounts在k8s中定义时的格式为：
+挂载 volumes，volumeMounts 在k8s中定义时的格式为：
 
 ```yaml
 volumeMounts:        #容器内挂载点
   - mountPath: /data
     name: redis-data        #必须有名称
 ```
-在平台添加属性时不需要在开头定义volumeMounts，如以下格式：
+
+在 Rainbond 上添加属性时不需要在开头定义 `volumeMounts`，如以下格式：
 
 ```yaml
 - mountPath: /data
   name: redis-data
 ```
 
-#### affinity
+### affinity
 
 详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/concepts/scheduling-eviction/assign-pod-node/
   
@@ -76,7 +81,8 @@ affinity:
           - node3
 ```
 
-在平台添加属性时不需要在开头定义affinity，如以下格式：
+在 Rainbond 上添加属性时不需要在开头定义 `affinity`，如以下格式：
+
 ```yaml
 nodeAffinity:  # 作用域：Pod和Node之间
   requiredDuringSchedulingIgnoredDuringExecution:  # Node亲和性-硬策略
@@ -88,11 +94,11 @@ nodeAffinity:  # 作用域：Pod和Node之间
         - node3
 ```
 
-#### tolerations
+### tolerations
   
 详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/concepts/scheduling-eviction/taint-and-toleration/
   
-容忍度，tolerations在k8s中定义时的格式为：
+容忍度，tolerations 在 k8s 中定义时的格式为：
 
 ```yaml
 tolerations:
@@ -107,7 +113,7 @@ tolerations:
     effect: "NoExecute"
 ```
 
-在平台添加属性时不需要在开头定义tolerations，如以下格式：
+在 Rainbond 上添加属性时不需要在开头定义 `tolerations`，如以下格式：
 ```yaml
 - key: "key1"
   operator: "Equal"
@@ -120,19 +126,19 @@ tolerations:
   effect: "NoExecute"
 ```   
 
-#### serviceAccountName
+### serviceAccountName
   
 配置服务账户，详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-service-account/
 
-#### privileged 
+### privileged 
   
 决定是否 Pod 中的某容器可以启用特权模式。 默认情况下，容器是不可以访问宿主上的任何设备的，不过一个“privileged（特权的）” 容器则被授权访问宿主上所有设备。 这种容器几乎享有宿主上运行的进程的所有访问权限。
 
-#### env
+### env
   
-详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/tasks/inject-data-application/define-environment-variable-container/
+详细信息可参考 k8s 官方文档 https://kubernetes.io/zh-cn/docs/tasks/inject-data-application/define-environment-variable-container/
 
-环境变量，env在k8s中定义时的格式为：
+环境变量，env 在 k8s 中定义时的格式为：
 
 ```yaml
 env:
@@ -156,7 +162,7 @@ env:
       fieldPath: status.podIP
 ```
 
-在平台添加属性时不需要在开头定义env，如以下格式：
+在 Rainbond 上添加属性时不需要在开头定义 `env`，如以下格式：
 
 ```yaml
 - name: Version
@@ -179,14 +185,14 @@ env:
       fieldPath: status.podIP
 ```
 
-#### shareProcessNamespace
+### shareProcessNamespace
 
 在 Pod 中的容器之间共享进程命名空间
 
 详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/share-process-namespace/
 
 
-#### dnsPolicy
+### dnsPolicy
 
 Pod的DNS策略, 可以逐个 Pod 来设定。目前 Kubernetes 支持以下特定 Pod 的 DNS 策略
 
@@ -200,7 +206,7 @@ Pod的DNS策略, 可以逐个 Pod 来设定。目前 Kubernetes 支持以下特�
 
 详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/concepts/services-networking/dns-pod-service/
 
-dnsConfig配置在k8s中定义时的格式为：
+dnsConfig 配置在 k8s 中定义时的格式为：
 
 ```yaml
 dnsConfig:
@@ -215,7 +221,7 @@ dnsConfig:
     - name: edns0
 ```
 
-在平台添加属性时不需要在开头定义dnsConfig，如以下格式：
+在 Rainbond 上添加属性时不需要在开头定义 `dnsConfig`，如以下格式：
 
 ```yaml
 nameservers:
@@ -229,13 +235,13 @@ options:
   - name: edns0
 ```
 
-#### resources
+### resources
 
-为Pod和容器管理资源
+为 Pod 和容器管理资源
 
 详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/concepts/configuration/manage-resources-containers/
 
-resources在k8s中定义时的格式为：
+resources 在 k8s 中定义时的格式为：
 
 ```yaml
 resources:
@@ -245,7 +251,7 @@ resources:
     memory:
 ```
 
-在平台添加属性时不需要在开头定义resources，如以下格式：
+在 Rainbond 上添加属性时不需要在开头定义 `resources`，如以下格式：
 
 ```yaml
 requests:
@@ -254,17 +260,18 @@ limits:
   memory:
 ```
 
-#### hostIPC
+### hostIPC
 
 控制容器是否可以共享主机的IPC名称空间
 
-#### lifecycle
+### lifecycle
 
 为容器的生命周期事件设置处理函数
 
 详细信息可参考k8s官方文档 https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/
 
-lifecycle在k8s中定义时的格式为
+lifecycle 在 k8s 中定义时的格式为：
+
 ```yaml
 lifecycle:
   ostStart:
@@ -274,7 +281,9 @@ lifecycle:
     exec:
       command: ["/bin/sh","-c","nginx -s quit; while killall -0 nginx; do sleep 1; done"]
 ```
-在平台添加属性时不需要在开头定义lifecycle，如以下格式
+
+在 Rainbond 添加属性时不需要在开头定义 `lifecycle`，如以下格式：
+
 ```yaml
 postStart:
   exec:
