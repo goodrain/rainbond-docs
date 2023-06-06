@@ -232,27 +232,49 @@ const sidebars = {
       },
       items: [
         'kubernetes-native-guide/overview/index',
-        'kubernetes-native-guide/yaml-support/index',
-        'kubernetes-native-guide/k8s-resource/index',
-        'kubernetes-native-guide/other/index',
         {
           type: 'category',
-          label: '基于Helm创建组件',
+          label: '使用 YAML 部署组件',
           link: {
             type: 'doc',
-            id: 'kubernetes-native-guide/helm-support/index'
+            id: 'kubernetes-native-guide/yaml/index'
           },
           items: [
-            'kubernetes-native-guide/helm-support/docking_helm_store',
-            'kubernetes-native-guide/helm-support/creation-process',
-            'kubernetes-native-guide/helm-support/manage-helm-app',
-            'kubernetes-native-guide/helm-support/helm-cmd-install',
+            'kubernetes-native-guide/yaml/create',
+            'kubernetes-native-guide/yaml/example',
           ]
         },
-        'kubernetes-native-guide/export-helm-chart/index',
-        'kubernetes-native-guide/yaml-example/index',
-        'kubernetes-native-guide/helm-example/index',
-        'kubernetes-native-guide/gateway-api/index',
+        {
+          type: 'category',
+          label: '使用 Helm 部署组件',
+          link: {
+            type: 'doc',
+            id: 'kubernetes-native-guide/helm/index'
+          },
+          items: [
+            'kubernetes-native-guide/helm/docking_helm_store',
+            'kubernetes-native-guide/helm/creation-process',
+            'kubernetes-native-guide/helm/manage-helm-app',
+            'kubernetes-native-guide/helm/helm-cmd-install',
+            'kubernetes-native-guide/helm/example',
+            'kubernetes-native-guide/helm/export-chart',
+          ]
+        },
+        'kubernetes-native-guide/deploy-job',
+        {
+          type: 'category',
+          label: '已有资源导入和管理',
+          link: {
+            type: 'doc',
+            id: 'kubernetes-native-guide/import-manage/index'
+          },
+          items: [
+            'kubernetes-native-guide/import-manage/non-workload',
+            'kubernetes-native-guide/import-manage/import-resource',
+            'kubernetes-native-guide/import-manage/special-attribute',
+          ]
+        },
+        'kubernetes-native-guide/gateway-api',
       ]
     },
     {
@@ -534,17 +556,6 @@ const sidebars = {
                 'use-manual/component-create/package-support/jar-war',
               ]
             },
-            {
-              type: 'category',
-              label: '创建任务类型组件',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-create/task-support/index'
-              },
-              items: [
-                'use-manual/component-create/task-support/job-cronjob'
-              ]
-            }
           ]
         },
         {
@@ -677,7 +688,6 @@ const sidebars = {
             id: 'use-manual/team-manage/index'
           },
           items: [
-            'use-manual/team-manage/ns-to-team/ns-to-team',
             {
               type: 'category',
               label: '网关',
@@ -713,55 +723,6 @@ const sidebars = {
                 'use-manual/team-manage/plugin-manage/mesh-plugin',
                 'use-manual/team-manage/plugin-manage/new-plugin',
                 'use-manual/team-manage/plugin-manage/tcm-plugin',
-              ]
-            },
-            {
-              type: 'category',
-              label: '团队管理',
-              link: {
-                type: 'doc',
-                id: 'use-manual/team-manage/team-manage/index'
-              },
-              items: [
-                'use-manual/team-manage/team-manage/team-user',
-                'use-manual/team-manage/team-manage/open-cluster',
-                {
-                  type: 'category',
-                  label: '角色',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/team-manage/team-manage/rule/index',
-                  },
-                  items: [
-                    'use-manual/team-manage/team-manage/rule/user-rule',
-                  ]
-                },
-
-              ]
-            },
-          ]
-        },
-        {
-          type: 'category',
-          label: '企业管理员',
-          link: {
-            type: 'doc',
-            id: 'use-manual/enterprise-manage/index'
-          },
-          items: [
-            {
-              type: 'category',
-              label: '应用市场',
-              link: {
-                type: 'doc',
-                id: 'use-manual/enterprise-manage/appcenter/index'
-              },
-              items: [
-                'use-manual/enterprise-manage/appcenter/desc',
-                'use-manual/enterprise-manage/appcenter/application-template',
-                'use-manual/enterprise-manage/appcenter/share-app-market',
-                'use-manual/enterprise-manage/appcenter/add-app',
-                'use-manual/enterprise-manage/appcenter/app-specification'
               ]
             },
           ]

@@ -1,7 +1,10 @@
 ---
-title: 基于Helm创建组件
-description: 本章节将带你认识Rainbond基于Helm创建组件的流程
+title: 使用 YAML 部署组件
+description: 介绍在 Rainbond 上使用 YAML 部署组件。
+keywords:
+- 在 Rainbond 上使用 YAML 部署组件
 ---
+
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

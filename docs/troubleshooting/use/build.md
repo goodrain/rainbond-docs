@@ -118,3 +118,6 @@ Rainbond 通过识别源码目录中的 `yarn.lock` 或 `package-lock.json` 文�
 
 该信息提示当前 `package.json` 中 `engines` 段落中规定的 npm 版本与构建源中选择的 node 版本有冲突。删除 `package.json` 中 `engines` 段落的所有内容，重新提交后构建即可。
 
+### 源码构建无法获取私有镜像仓库
+
+例如使用 Dockerfile 进行源码构建时，Dockerfile 中 FROM 的是私有镜像仓库地址，需要在 **团队视图 -> 管理 -> 镜像仓库授权信息** 中配置私有镜像仓库地址以及账户和密码。
