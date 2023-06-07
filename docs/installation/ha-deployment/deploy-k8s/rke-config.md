@@ -276,4 +276,13 @@ services:
       feature-gates: 'RemoveSelfLink=false'
 ```
 
-4.修改配置后，点击更新集群，等待集群更新完成即可。
+4.设置 KubePorxy 使用 ipvs 模式。
+
+```yaml
+services:
+  kubeproxy:
+    extra_args:
+      proxy-mode: ipvs
+```
+
+5.修改配置后，点击更新集群，等待集群更新完成即可。
