@@ -36,7 +36,7 @@ configs:
 安装 K3s
 
 ```bash
-curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn INSTALL_K3S_EXEC="--disable traefik" INSTALL_K3S_VERSION="v1.23.10+k3s1" sh -
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable traefik" INSTALL_K3S_VERSION="v1.23.10+k3s1" sh -
 ```
 
   </TabItem>
@@ -51,7 +51,7 @@ curl -sfL https://get.rainbond.com/install_docker | bash
 安装 K3s
 
 ```bash
-curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn INSTALL_K3S_EXEC="--docker --disable traefik" INSTALL_K3S_VERSION="v1.23.10+k3s1" sh -
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--docker --disable traefik" INSTALL_K3S_VERSION="v1.23.10+k3s1" sh -
 ```
 
   </TabItem>
