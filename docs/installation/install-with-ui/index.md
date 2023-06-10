@@ -91,7 +91,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.1-release-allinone
 ## 下一步
 
 - [快速入门](/docs/quick-start/getting-started/): 快速在 Rainbond 上部署起你的第一个应用。
-- [迁移应用](/docs/installation/install-with-ui/migrate-app): 你可以参考该文档将单机版部署的应用迁移到该 Kubernetes 集群中。
+- [迁移应用](/docs/ops-guide/migrate-app): 你可以参考该文档将单机版部署的应用迁移到该 Kubernetes 集群中。
 
 ### 常见问题
 

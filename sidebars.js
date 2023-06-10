@@ -33,17 +33,7 @@ const sidebars = {
       },
       items: [
         // 'installation/install-with-dind',
-        {
-          type: 'category',
-          label: '基于主机安装',
-          link: {
-            type: 'doc',
-            id: 'installation/install-with-ui/index'
-          },
-          items: [
-            'installation/install-with-ui/migrate-app',
-          ]
-        },
+        'installation/install-with-ui/index',
         {
           type: 'category',
           label: '基于 Kubernetes 安装',
@@ -762,6 +752,7 @@ const sidebars = {
             'ops-guide/component/rbd-hub',
           ]
         },
+        'ops-guide/migrate-app',
         {
           type: 'category',
           label: '高级运维',

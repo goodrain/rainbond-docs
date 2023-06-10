@@ -4,12 +4,42 @@ Description: 介绍通过主机安装和通过 Helm 安装的 Rainbond 升级版
 keywords:
 - Rainbond 版本升级
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-本文档介绍通过主机安装和通过 Helm 安装的 Rainbond 升级到最新版本。
+<Tabs groupId="upgrade">
+
+  <TabItem value="quick" label="快速安装" default>
+
+本栏介绍通过快速安装的 Rainbond 升级到最新版本。
 
 :::caution
-通过快速安装的 Rainbond 单机版本不支持升级。
+从 v5.14.0 版本开始，支持快速安装的 Rainbond 单机版本升级。
 :::
+
+1. 删除旧版本运行中的镜像。
+
+```bash
+docker rm -f rainbond-allinone 
+```
+
+2. 拉取新版本镜像运行  
+
+- 升级到最新版本
+
+```bash
+curl -o install.sh https://get.rainbond.com && bash ./install.sh
+```
+- 升级到指定版本
+```bash
+curl -o install.sh https://get.rainbond.com && VERSION=<指定的版本> bash ./install.sh
+```
+版本格式为：`v5.14.0`、`v5.14.1`
+  </TabItem>
+  
+  <TabItem value="" label="主机或 Helm">
+
+本栏介绍通过主机安装和通过 Helm 安装的 Rainbond 升级到最新版本。  
 
 ## 从最近的版本升级到 v5.14.0
 
@@ -116,6 +146,10 @@ curl https://get.rainbond.com/upgrade-5.11.0.sh | bash
 如果您处于更低的版本，请参阅每个版本的[升级文档](https://v5.12-docs.rainbond.com/docs/upgrade/)，按照上述操作执行即可。
 :::
 
+  </TabItem>
+</Tabs>
+
 ## 版本变更日志
 
 您可以在 [历史版本变更日志](/community/change/) 中查看每个版本的具体变更内容。
+
