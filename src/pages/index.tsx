@@ -34,9 +34,9 @@ export default function Home() {
           <Primary />
         </section>
 
-        <section id={styles.section_second} className={styles.width}>
+        {/* <section id={styles.section_second} className={styles.width}>
           <Command />
-        </section>
+        </section> */}
 
         <section id={styles.thirdscreen}>
           <div className={styles.width}>
