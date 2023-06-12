@@ -20,3 +20,24 @@
 .card_body {
   text-align: center;
 }
+
+.card_num {
+  font-size: 40px;
+  color: #338bff;
+  font-weight: 600;
+  margin-bottom: -8px;
+}
+
+.card_desc {
+  font-size: 18px;
+}
+
+.card_border {
+  width: 33.3333%;
+  border-top: 1px solid #d0d4d7;
+  margin: auto;
+}
+
+.row {
+  justify-content: center;
+}

@@ -8,7 +8,7 @@ import AnnouncementBar from '@theme/AnnouncementBar';
 import Footer from '@theme/Footer';
 
 import Primary from '../components/HomePage/Primary';
-import Command from '../components/HomePage/Command';
+import Communitydata from '../components/HomePage/Communitydata';
 import Platform from '../components/HomePage/Platform';
 import Feature from '../components/HomePage/Feature';
 import VideoLearn from '../components/HomePage/VideoLearn';
@@ -34,9 +34,9 @@ export default function Home() {
           <Primary />
         </section>
 
-        {/* <section id={styles.section_second} className={styles.width}>
-          <Command />
-        </section> */}
+        <section id={styles.section_second} className={styles.width}>
+          <Communitydata />
+        </section>
 
         <section id={styles.thirdscreen}>
           <div className={styles.width}>

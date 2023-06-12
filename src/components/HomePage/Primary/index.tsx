@@ -53,8 +53,6 @@ export default function Primary() {
             Rainbond 核心100%开源，Serverless体验，支持对接和管理多种 Kubernetes 集群，适合私有部署的一体化应用管理平台。
           </Translate>
         </animated.div>
-        <img src="https://img.shields.io/github/stars/goodrain/rainbond.svg?style=flat-square" />
-        <img src="https://img.shields.io/badge/download-100000%2B-green" style={{ paddingLeft: "5px" }}/>
         <animated.div style={animatedTexts[1]} className={styles.btnBox}>
           {/* <Link to="/docs/quick-start/quick-install">
             <Button icon={<Iconlinux />} theme="solid" className={styles.buttonLeft} size='large'>
@@ -106,10 +104,10 @@ export default function Primary() {
         <div className="row" style={{ marginTop: '50px'}}>
           <div className="col col--3">
             <span className={styles.install_number_two}>02</span>
-            <span className={styles.install_title_two}>10分钟上手</span>
+            <span className={styles.install_title_two}>30分钟上手</span>
           </div>
           <div className="col col--9">
-            <p>之后，打开浏览器，输入http://您的IP:7070，您可以访问 Rainbond 的 UI 了。跟随 <Link href="/docs/quick-start/getting-started">快速入门</Link> 部署您的第一个应用。</p>
+            <p>之后，打开浏览器，输入 http://您的IP:7070，您可以访问 Rainbond 的 UI 了。跟随 <Link href="/docs/quick-start/getting-started">快速入门</Link> 部署您的第一个应用。</p>
           </div>
         </div>
       </div>
