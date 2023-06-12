@@ -16,6 +16,7 @@ import TabItem from '@theme/TabItem';
 - 确保服务器安装了 NFS 客户端
 - K3s 的启动需要指定启动参数 `–-disable traefik`
 - 安装 NFS 客户端
+- 目前仅支持 1.19 ~ 1.25 版本的 K3s
 
 ## 安装 K3s
 
@@ -36,7 +37,7 @@ configs:
 安装 K3s
 
 ```bash
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable traefik" INSTALL_K3S_VERSION="v1.23.10+k3s1" sh -
+curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn INSTALL_K3S_EXEC="--disable traefik" INSTALL_K3S_VERSION="v1.24.10+k3s1" sh -
 ```
 
   </TabItem>
@@ -51,7 +52,7 @@ curl -sfL https://get.rainbond.com/install_docker | bash
 安装 K3s
 
 ```bash
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--docker --disable traefik" INSTALL_K3S_VERSION="v1.23.10+k3s1" sh -
+curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn INSTALL_K3S_EXEC="--docker --disable traefik" INSTALL_K3S_VERSION="v1.24.10+k3s1" sh -
 ```
 
   </TabItem>
