@@ -65,11 +65,15 @@ SkyWalking 服务端在架构上分为四个部分：探针服务、后端服务
 
 * 在 Rainbond 团队界面 —> 插件 -> 从应用市场安装插件 -> 搜索 `skywalking-agent` 并安装
 
+**开通插件**
+
+* 在每个组件内 -> 插件 -> 开通插件。
+
 **添加环境变量**
 
 为每个组件添加环境变量
 ```bash
-JAVA_TOOL_OPTIONS=-Dskywalking.agent.service_name=gateway -javaagent:/tmp/agent/skywalking-agent.jar -Dskywalking.collector.backend_service=127.0.0.1:11800
+JAVA_OPTS=-Dskywalking.agent.service_name=backend -javaagent:/tmp/agent/skywalking-agent.jar -Dskywalking.collector.backend_service=${OAP_HOST}:11800
 ```
 
 |变量值|简介|
