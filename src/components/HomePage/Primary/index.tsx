@@ -72,33 +72,31 @@ export default function Primary() {
           </OverlayTrigger>
         </animated.div>
       </div>
-      <div className="col col--7">
+      <animated.div style={animatedTexts[1]} className="col col--7">
         <div className="row" style={{ borderBottom: '1px solid #f0f1f5'}}>
           <div className="col col--3">
             <span className={styles.install_number_one}>01</span>
             <span className={styles.install_title_one}>5分钟安装</span>
           </div>
           <div className="col col--9">
-            <animated.div style={animatedTexts[1]}>
-              <Tabs type="card">
-                <TabPane tab="Linux & Mac" itemKey="1">
-                  <CodeBlock language="bash" className={styles.code}>
-                    {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
-                  </CodeBlock>
-                </TabPane>
-                <TabPane tab="Windows" itemKey="2">
-                  <CodeBlock language="bash" className={styles.code}>
-                    {`docker run --privileged -d --name=rainbond-allinone --restart=on-failure ^
-                    -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 ^
-                    -p 10000-10010:10000-10010 ^
-                    -v rainbond-data:/app/data ^
-                    -v rainbond-opt:/opt/rainbond ^
-                    -e EIP=<你的IP地址> ^
-                    registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.1-dind-allinone`}
-                  </CodeBlock>
-                </TabPane>
+            <Tabs type="card">
+              <TabPane tab="Linux & Mac" itemKey="1">
+                <CodeBlock language="bash" className={styles.code}>
+                  {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
+                </CodeBlock>
+              </TabPane>
+              <TabPane tab="Windows" itemKey="2">
+                <CodeBlock language="bash" className={styles.code}>
+                  {`docker run --privileged -d --name=rainbond-allinone --restart=on-failure ^
+                  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 ^
+                  -p 10000-10010:10000-10010 ^
+                  -v rainbond-data:/app/data ^
+                  -v rainbond-opt:/opt/rainbond ^
+                  -e EIP=<你的IP地址> ^
+                  registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.1-dind-allinone`}
+                </CodeBlock>
+              </TabPane>
             </Tabs>
-            </animated.div>
           </div>
         </div>
         <div className="row" style={{ marginTop: '50px'}}>
@@ -110,7 +108,7 @@ export default function Primary() {
             <p>之后，打开浏览器，输入 http://您的IP:7070，您可以访问 Rainbond 的 UI 了。跟随 <Link href="/docs/quick-start/getting-started">快速入门</Link> 部署您的第一个应用。</p>
           </div>
         </div>
-      </div>
+      </animated.div>
     </div>
   );
 }
