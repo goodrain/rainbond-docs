@@ -389,6 +389,21 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '信创指南',
+      link: {
+        type: 'doc',
+        id: 'localization-guide/index'
+      },
+      items: [
+        'localization-guide/overview/index',
+        'localization-guide/multi-arch-installation',
+        'localization-guide/multi-arch-app-deploy',
+        'localization-guide/multi-arch-app-orchestration',
+        'localization-guide/multi-arch-model',
+      ]
+    },
+    {
+      type: 'category',
       label: '集群管理指南',
       link: {
         type: 'doc',
