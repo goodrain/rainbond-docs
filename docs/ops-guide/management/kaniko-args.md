@@ -42,6 +42,21 @@ spec:
 ......
 ```
 
+## 镜像加速
+
+通过 Dockerfile 构建时，遇到基础镜像无法拉取的问题时，可以通过配置镜像加速服务解决。以下是一个示例，通过配置
+--registry-mirror 参数为对应加速服务即可。
+
+```bash title="kubectl edit rbdcomponent rbd-chaos -n rbd-system"
+apiVersion: rainbond.io/v1alpha1
+kind: RbdComponent
+......
+spec:
+  args:
+  - --kaniko-args=--registry-mirror=dockerproxy.com
+......
+```
+
 ## 使用镜像层缓存
 
 Kaniko 默认不使用镜像层缓存，如需使用镜像层缓存，需要调整 Kaniko 构建参数。
