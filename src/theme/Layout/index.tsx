@@ -48,7 +48,7 @@ export default function Layout(props: Props): JSX.Element {
       {docs_url || community_url ? <AnnouncementBar /> : null }
       {docs_url || community_url ? <Navbar /> : <NavbarCustom /> }
 
-      <div className={clsx(ThemeClassNames.wrapper.main, wrapperClassName)} style={{ marginTop: (docs_url || community_url) ? "" : "4rem" }}>
+      <div className={clsx(ThemeClassNames.wrapper.main, wrapperClassName)} style={{ marginTop: (docs_url || community_url) ? "" : "6rem" }}>
         <ErrorBoundary fallback={ErrorPageContent}>{children}</ErrorBoundary>
       </div>
 

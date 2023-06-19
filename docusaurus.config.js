@@ -289,6 +289,10 @@ const config = {
             title: '深入',
             items: [
               {
+                label: '信创',
+                to: '/xinchuang'
+              },
+              {
                 label: '使用场景',
                 to: 'usescene'
               },
@@ -356,7 +360,7 @@ const config = {
       announcementBar: {
         id: 'start',
         content:
-          '⭐️ If you like Rainbond,<a target="_blank" href="https://github.com/goodrain/rainbond"> give it a star on GitHub</a> !',
+          '🎉 Rainbond 国产化信创版本已发布，<a href="/xinchuang">点击了解 Rainbond 国产化信创能力</a> !',
         isCloseable: false,
       }
     }),

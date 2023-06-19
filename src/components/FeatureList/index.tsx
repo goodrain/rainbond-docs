@@ -23,7 +23,7 @@ import Iconk8s from '/img/homepage/svg/k8s.svg';
 import Link from "@docusaurus/Link";
 
 export function FeatureHeader(item): JSX.Element {
-  const { title, description} = item.props
+  const { title, description, customButton} = item.props
   return (
     <div className={styles.header}>
       <div className={clsx('container',styles.container_header)}>
@@ -31,11 +31,11 @@ export function FeatureHeader(item): JSX.Element {
           <div className="col col--12">
             <h2 className={styles.title}>{title}</h2>
           </div>
-          <div className="col col--12">
+          <div className="col col--12" style={{ margin: "40px 0 40px 0"}}>
             <p className={styles.content}>{description}</p>
           </div>
         </div>
-        <FeatureButton/>
+        { customButton === "true" ? <CustomButton props={item.props} /> : <FeatureButton/> }
       </div>
     </div>
   );
@@ -58,8 +58,8 @@ export function FeatureContent(item): JSX.Element {
   return (
     <>
       {ContentList.map(({ imageRight, titleRight, imageLeft, titleLeft, descListLeft, descListRight },index) => (
-        <div key={index}>
-          <div style={{ backgroundColor: '#f0f1f5' }}>
+        <div key={index} style={{ backgroundColor: '#f5f8f9' }}>
+          <div>
             <div className={styles.global_content}>
               <div className={clsx("row", styles.row)}>
                 <div className="col col--6">
@@ -121,6 +121,24 @@ export function FeatureButton(): JSX.Element {
       <Link to='/docs/installation/install-with-helm/' className={styles.link}>
         <Button icon={<Iconk8s />} theme="solid" className={styles.buttonRight} size='large'>
           <Translate id='primary.install-helm'>在 Kubernetes 安装</Translate>
+        </Button>
+      </Link>
+    </>
+  );
+}
+
+export function CustomButton(item): JSX.Element {
+  const { LeftURL, LeftButton, RightURL, RightButton } = item.props
+  return (
+    <>
+      <Link to={LeftURL} className={styles.link}>
+        <Button theme="solid" className={styles.buttonLeft} size='large'>
+          {LeftButton}
+        </Button>
+      </Link>
+      <Link to={RightURL} className={styles.link}>
+        <Button theme="solid" className={styles.buttonRight} size='large'>
+          {RightButton}
         </Button>
       </Link>
     </>

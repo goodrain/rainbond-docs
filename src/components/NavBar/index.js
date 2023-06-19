@@ -5,6 +5,7 @@ import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 import LocaleDropdownNavbarItem from '@site/src/theme/NavbarItem/LocaleDropdownNavbarItem';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
+import AnnouncementBar from '@theme/AnnouncementBar';
 
 export default function Index(props) {
   // 菜单开关
@@ -14,6 +15,7 @@ export default function Index(props) {
   return (
     <div>
       <header className={`${styles.mdHeader}`}>
+        <AnnouncementBar />
         {/* 导航栏 */}
         <nav className={`${styles.nav_bar} ${styles.width}`}>
           {/* 左侧logo */}
@@ -78,6 +80,13 @@ export default function Index(props) {
                   <Translate id='navbar.learn'>深入</Translate>
                   <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
                   <ul className="dropdown__menu">
+                    <li>
+                      <Link to="/xinchuang" className={clsx("dropdown__link",styles.DropDownFont)}>
+                        <Translate id='navbar.xinchuang'>
+                          信创
+                        </Translate>
+                      </Link>
+                    </li>
                     <li>
                       <Link to="/usescene" className={clsx("dropdown__link",styles.DropDownFont)}>
                         <Translate id='navbar.usescene'>
