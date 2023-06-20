@@ -5,6 +5,9 @@ keywords:
 - Rainbond 构建过程的问题排查方法
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 本文介绍在通过 Rainbond 构建组件的过程中遇到报错的排查思路。
 
 ## 构建过程
@@ -72,6 +75,77 @@ $ kubectl edit rbdcomponent rbd-hub -n rbd-system
 spec:
   image: registry:2 # 从 DockerHub 获取最新版本的 registry 镜像
 ```
+
+#### 私有仓库中 builder 镜像丢失
+
+如果点击开始构建后，长时间没有构建日志，查看 rbd-chaos 日志发现报错 `Back-off pulling image "goodrain.me/builder"`，那么就代表私有仓库中的 builder 镜像丢失，无法运行构建任务，此时只需要手动从公网拉取镜像，并推送到私有仓库中即可解决。除了 builder 镜像外，组件运行还需要 runner 镜像，可以在此一并处理。主要操作步骤有以下三步：
+
+1. 拉取 builder 和 runner 镜像到本地，并更换镜像 tag
+2. 获取私有仓库账号密码并登录
+3. 推送镜像到私有仓库
+
+<Tabs groupId="解决方案">
+  <TabItem value="Containerd 运行时" label="Containerd 运行时" default>
+
+1. 拉取镜像和更换 tag
+
+```bash
+nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release
+nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release
+
+nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release goodrain.me/builder:latest
+nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release goodrain.me/runner:latest
+```
+
+2. 获取私有仓库账号密码并登录
+
+```bash
+# 获取账号和密码
+kubectl get rainbondcluster -nrbd-system -oyaml |grep imageHub -A3
+# 登录私有仓库
+nerdctl -n k8s.io login --username=admin goodrain.me
+```
+
+3. 推送镜像到私有仓库
+
+```bash
+nerdctl -n k8s.io image push goodrain.me/builder:latest --insecure-registry
+nerdctl -n k8s.io image push goodrain.me/runner:latest --insecure-registry
+```
+
+  </TabItem>
+
+  <TabItem value="Docker 运行时" label="Docker 运行时" default>
+
+
+1. 拉取镜像和更换 tag
+
+```bash
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release
+
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release goodrain.me/builder:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release goodrain.me/runner:latest
+```
+
+2. 获取私有仓库账号密码并登录
+
+```bash
+# 获取账号和密码
+kubectl get rainbondcluster -nrbd-system -oyaml |grep imageHub -A3
+# 登录私有仓库
+docker login goodrain.me -uadmin
+```
+
+3. 推送镜像到私有仓库
+
+```bash
+docker push goodrain.me/builder:latest
+docker push goodrain.me/runner:latest
+```
+
+  </TabItem>
+</Tabs>
 
 ### 组件构建源检测未通过
 
