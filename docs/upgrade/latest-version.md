@@ -34,16 +34,30 @@ curl -o install.sh https://get.rainbond.com && bash ./install.sh
 ```bash
 curl -o install.sh https://get.rainbond.com && VERSION=<指定的版本> bash ./install.sh
 ```
-版本格式为：`v5.14.0`、`v5.14.1`
+版本格式为：`v5.14.1`、`v5.14.2`
+
+3. 执行升级 sql
+
+```bash
+docker exec -ti rainbond-allinone bash
+```
+
+根据自己所跨版本执行升级 sql。
+
+- v5.14.1 --> v5.14.2
+```bash
+curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
+```
+
   </TabItem>
   
   <TabItem value="" label="主机或 Helm">
 
 本栏介绍通过主机安装和通过 Helm 安装的 Rainbond 升级到最新版本。  
 
-## 从最近的版本升级到 v5.14.1
+## 从最近的版本升级到 v5.14.2
 
-如果您的 Rainbond 版本是 `v5.14.0`，则可以通过以下方式进行升级。
+如果您的 Rainbond 版本是 `v5.14.1`，则可以通过以下方式进行升级。
 
 ### 控制台升级
 
@@ -60,7 +74,22 @@ docker stop rainbond-allinone && docker rm rainbond-allinone
 #该命令参数需要和之前启动的rainbond-allinone容器一致
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 --name=rainbond-allinone --restart=always \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.1-release-allinone
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.2-release-allinone
+```
+
+2. 执行升级 sql
+
+```
+docker exec -ti rainbond-allinone bash
+curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
+```
+
+#### Helm 或 高可用控制台
+
+1. 执行升级 sql
+```bash
+kubectl exec -it $(kubectl get po -n rbd-system | grep rbd-app-ui | grep Running | sed -n '1p' | awk '{print $1}') -n rbd-system bash
+curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
 ```
 
 ### 集群端升级
@@ -68,7 +97,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.1-release-allinone
 更新 grctl 命令
 
 ```bash
-docker run -it --rm -v /:/rootfs  registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.14.1-release copy
+docker run -it --rm -v /:/rootfs  registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.14.2-release copy
 
 mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && grctl install
 ```
@@ -77,9 +106,9 @@ mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && grctl install
 
 ```bash
 # 替换基础 region 镜像版本
-grctl cluster upgrade --new-version=v5.14.1-release
+grctl cluster upgrade --new-version=v5.14.2-release
 
-# 手动替换 operator 镜像版本为 v5.14.1-release
+# 手动替换 operator 镜像版本为 v5.14.2-release
 kubectl edit deploy rainbond-operator -n rbd-system
 ```
 
@@ -101,13 +130,13 @@ docker push goodrain.me/builder:latest
 docker push goodrain.me/runner:latest
 ```
 
-## 跨版本升级到 v5.14.1
+## 跨版本升级到 v5.14.2
 
 跨版本升级步骤如下:
 
 1. 执行每个版本的升级 SQL 脚本。
 2. 更新每个版本所需要的 CRD 资源，目前只有 [v5.11.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.11.0-upgrade#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)、[v5.12.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.12.0-upgrade#%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90) 需要更新 CRD 资源。
-3. 升级控制台镜像版本以及集群端镜像版本，按照 [从最近的版本升级到 v5.14.1](#从最近的版本升级到-v5141) 的步骤进行升级控制台镜像以及集群端镜像。
+3. 升级控制台镜像版本以及集群端镜像版本，按照 [从最近的版本升级到 v5.14.2](#从最近的版本升级到-v5142) 的步骤进行升级控制台镜像以及集群端镜像。
 4. 升级 builder 和 runner 镜像，按照上述的 [升级 builder runner 镜像](#升级-builder-和-runner-镜像) 的步骤进行升级 builder 和 runner 镜像。
 
 <details>
@@ -133,11 +162,15 @@ curl https://get.rainbond.com/upgrade-5.11.0.sh | bash
 ## 5.14.0 无 SQL 升级
 
 ## 5.14.1 无 SQL 升级
+
+# 在控制台容器内执行 5.14.2 版本升级SQL
+curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
+
 ```
 
 2. 更新 CRD 资源 [v5.11.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.11.0-upgrade#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)、[v5.12.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.12.0-upgrade#%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)。
 
-3. 升级控制台镜像以及集群端镜像版本，按照 [从最近的版本升级到 v5.14.1](#从最近的版本升级到-v5141) 的步骤进行升级。
+3. 升级控制台镜像以及集群端镜像版本，按照 [从最近的版本升级到 v5.14.2](#从最近的版本升级到-v5142) 的步骤进行升级。
 
 
   </div>

@@ -93,7 +93,7 @@ export default function Primary() {
                   -v rainbond-data:/app/data ^
                   -v rainbond-opt:/opt/rainbond ^
                   -e EIP=<你的IP地址> ^
-                  registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.1-dind-allinone`}
+                  registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.2-dind-allinone`}
                 </CodeBlock>
               </TabPane>
               <TabPane tab="信创" itemKey="3">
