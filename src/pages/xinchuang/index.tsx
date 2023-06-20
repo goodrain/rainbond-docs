@@ -37,7 +37,7 @@ import Head from "@docusaurus/Head";
     title: "零基础完成“信创”场景云应用迁移",
     description: "专门针对国产化信创场景推出的Rainbond “信创”版本，全面降低应用系统向信创环境中迁移的技术成本，助力信创应用零成本迁移上云。Rainbond 长期深耕国产化IT生态，与多家国产CPU架构完成兼容性认证，能够在不同的架构下快速部署运行。信创应用、遗留业务系统可以提供源代码、软件包、容器镜像等方式零成本完成向国产化信创环境迁移上云。同时，Rainbond 借助强大的多云管理能力，使得用户可以通过统一的控制台管理多个异构集群、“一云多芯”集群，充分利用不同云平台的资源，完成跨云调度、异构应用混合编排等高难度动作。信创版本还进一步拓展了云原生应用商店的功能。信创应用可以被轻松地发布成为适用于不同架构的应用模板，在国产化信创环境中一键安装。开源应用商店也提供不同架构下可用的上百款开源软件，极大降低了面向国产化信创环境的软件交付成本。",
     customButton: "true",
-    LeftURL: "/docs/localization-guide/multi-arch-installation",
+    LeftURL: "/docs/quick-start/quick-install",
     LeftButton: "快速安装",
     RightURL: "/docs/localization-guide/overview/",
     RightButton: "了解更多",

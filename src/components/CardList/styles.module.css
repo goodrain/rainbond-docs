@@ -37,7 +37,8 @@
 .img {
   width: 368px;
   height: 157px;
-  object-fit: cover;
+  /* object-fit: cover; */
+  vertical-align: middle;
 }
 
 .link {

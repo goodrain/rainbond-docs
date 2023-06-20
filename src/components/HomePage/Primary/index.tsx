@@ -96,6 +96,12 @@ export default function Primary() {
                   registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.1-dind-allinone`}
                 </CodeBlock>
               </TabPane>
+              <TabPane tab="信创" itemKey="3">
+                <CodeBlock language="bash" className={styles.code}>
+                  {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
+                </CodeBlock>
+                <Link to="/xinchuang" style={{ float: "right" }}>了解更多 ></Link>
+              </TabPane>
             </Tabs>
           </div>
         </div>

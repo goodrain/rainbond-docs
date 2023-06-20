@@ -25,12 +25,6 @@ Rainbond 提供了安装脚本，在 Docker 中通过容器快速启动 Rainbond
 curl -o install.sh https://get.rainbond.com && bash ./install.sh
 ```
 
-执行完上述脚本后，耐心等待 3-5 分钟，可以看到如下日志输出，表示 Rainbond 已启动完成
-
-```bash
-2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://$EIP:7070 Access Rainbond
-```
-
   </TabItem>
 
   <TabItem value="Windows" label="Windows">
@@ -56,13 +50,23 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.1-dind-allinone
 docker logs -f rainbond-allinone
 ```
 
-**执行完上述命令后，耐心等待 3-5 分钟，可以看到如下日志输出，表示 Rainbond 已启动完成**
+  </TabItem>
+  <TabItem value="信创" label="信创" default>
+
+Rainbond 提供了一键安装的脚本并且支持了国产化信创的需求，在 Docker 中通过容器快速启动 Rainbond。脚本执行过程中，会自动选择所需要的架构，同时还需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
+
+```bash
+curl -o install.sh https://get.rainbond.com && bash ./install.sh
+```
+
+  </TabItem>
+</Tabs>
+
+执行完上述脚本后，耐心等待 3-5 分钟，可以看到如下日志输出，表示 Rainbond 已启动完成
 
 ```bash
 2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://$EIP:7070 Access Rainbond
 ```
-  </TabItem>
-</Tabs>
 
 ## 下一步
 
