@@ -170,7 +170,7 @@ curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
 
 2. 更新 CRD 资源 [v5.11.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.11.0-upgrade#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)、[v5.12.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.12.0-upgrade#%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)。
 
-3. 升级控制台镜像以及集群端镜像版本，按照 [从最近的版本升级到 v5.14.2](#从最近的版本升级到-v5141) 的步骤进行升级。
+3. 升级控制台镜像以及集群端镜像版本，按照 [从最近的版本升级到 v5.14.2](#从最近的版本升级到-v5142) 的步骤进行升级。
 
 
   </div>
