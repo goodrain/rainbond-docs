@@ -59,6 +59,12 @@ export default function usescene() {
       link: "/case/csgapp"
     },
     {
+      img: "https://static.goodrain.com/wechat/yumchina/2.png",
+      title: "某餐饮企业",
+      description: "某餐饮企业使用Rainbond实现云原生落地的实践",
+      link: "/case/diningroom"
+    },
+    {
       img: "/img/case/kgdata.jpeg",
       title: "柯基数据",
       description: "通过Rainbond完成云原生改造，实现离线持续交付客户",
