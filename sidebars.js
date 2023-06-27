@@ -796,7 +796,8 @@ const sidebars = {
             id: 'ops-guide/storage/index'
           },
           items: [
-            'ops-guide/storage/ali-disk'
+            'ops-guide/storage/ali-disk',
+            'ops-guide/storage/change-nfs'
           ]
         },
         {
