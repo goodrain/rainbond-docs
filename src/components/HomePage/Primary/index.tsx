@@ -80,12 +80,30 @@ export default function Primary() {
           </div>
           <div className="col col--9">
             <Tabs type="card">
-              <TabPane tab="Linux & Mac" itemKey="1">
+              <TabPane tab="Linux" itemKey="1">
+                <p style={{ marginTop: "10px" }}>
+                  请在终端中执行以下命令:
+                </p>
                 <CodeBlock language="bash" className={styles.code}>
                   {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
                 </CodeBlock>
               </TabPane>
-              <TabPane tab="Windows" itemKey="2">
+              <TabPane tab="Mac" itemKey="2">
+                <p style={{ marginTop: "10px" }}>
+                  请安装
+                  <a href="https://docs.docker.com/desktop/install/mac-install/" target="_black"> Docker Desktop for Mac</a>
+                  ，随后在终端中执行以下命令:
+                </p>
+                <CodeBlock language="bash" className={styles.code}>
+                  {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
+                </CodeBlock>
+              </TabPane>
+              <TabPane tab="Windows" itemKey="3">
+                <p style={{ marginTop: "10px" }}>
+                  请安装
+                  <a href="https://docs.docker.com/desktop/install/windows-install/" target="_black"> Docker Desktop for Windows</a>
+                  ，随后在 PowerShell 中执行以下命令:
+                </p>
                 <CodeBlock language="bash" className={styles.code}>
                   {`docker run --privileged -d --name=rainbond-allinone --restart=on-failure ^
                   -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 ^
@@ -96,7 +114,10 @@ export default function Primary() {
                   registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.2-dind-allinone`}
                 </CodeBlock>
               </TabPane>
-              <TabPane tab="信创" itemKey="3">
+              <TabPane tab="信创" itemKey="4">
+                <p style={{ marginTop: "10px" }}>
+                  请在终端中执行以下命令:
+                </p>
                 <CodeBlock language="bash" className={styles.code}>
                   {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
                 </CodeBlock>
