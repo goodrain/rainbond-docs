@@ -101,6 +101,10 @@ const config = {
             position: 'left',
             items: [
               {
+                label: '信创',
+                to: '/xinchuang'
+              },
+              {
                 label: '一体化DevOps',
                 to: '/feature/devops'
               },
@@ -264,6 +268,10 @@ const config = {
             title: '功能特性',
             items: [
               {
+                label: '信创',
+                to: '/xinchuang'
+              },
+              {
                 label: '一体化DevOps',
                 to: '/feature/devops'
               },
@@ -288,10 +296,6 @@ const config = {
           {
             title: '深入',
             items: [
-              {
-                label: '信创',
-                to: '/xinchuang'
-              },
               {
                 label: '使用场景',
                 to: 'usescene'
