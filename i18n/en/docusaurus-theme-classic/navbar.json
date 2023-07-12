@@ -34,6 +34,10 @@
     "message": "Feature",
     "description": "Navbar item with label Feature"
   },
+  "item.label.信创": {
+    "message": "XinChuang",
+    "description": "Navbar item with label Feature"
+  },
   "item.label.一体化DevOps": {
     "message": "DevOps",
     "description": "Navbar item with label Feature"

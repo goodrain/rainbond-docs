@@ -33,24 +33,25 @@ export default function Primary() {
       tension: 460,
     },
   })
+  const xinchuang = <Translate id='primary.install.xc.title'>信创</Translate>
 
   return (
     <div className="row">
       <div className={clsx("col col--5", styles.rainbond)}>
         <animated.div style={animatedTexts[0]}>
           <h2 className={styles.rainbond_title_top}>
-            <Translate id='primary.title'>不用懂 Kubernetes 的</Translate>
+            <Translate id='primary.titleOne'>不用懂 Kubernetes 的</Translate>
           </h2>
           <h2 className={clsx({
             [styles.rainbond_title]: ! LocalUrlEn,
             [styles.rainbond_title_en]: LocalUrlEn,
           })}>
-            <Translate id='primary.title'>云原生应用管理平台</Translate>
+            <Translate id='primary.titleTwo'>云原生应用管理平台</Translate>
           </h2>
         </animated.div>
         <animated.div style={animatedTexts[0]} className={styles.rainbond_description}>
           <Translate id='primary.description'>
-            Rainbond 核心100%开源，Serverless体验，支持对接和管理多种 Kubernetes 集群，适合私有部署的一体化应用管理平台。
+            Rainbond 核心100%开源，Serverless体验，支持对接和管理多种 Kubernetes 集群，是国内首个支持国产化信创、适合私有部署的一体化应用管理平台。
           </Translate>
         </animated.div>
         <animated.div style={animatedTexts[1]} className={styles.btnBox}>
@@ -76,13 +77,15 @@ export default function Primary() {
         <div className="row" style={{ borderBottom: '1px solid #f0f1f5'}}>
           <div className="col col--3">
             <span className={styles.install_number_one}>01</span>
-            <span className={styles.install_title_one}>5分钟安装</span>
+            <span className={styles.install_title_one}>
+              <Translate id='primary.install.linux.title'>5分钟安装</Translate>
+            </span>
           </div>
           <div className="col col--9">
             <Tabs type="card">
               <TabPane tab="Linux" itemKey="1">
                 <p style={{ marginTop: "10px" }}>
-                  请在终端中执行以下命令:
+                  <Translate id='primary.install.linux.desc'>请在终端中执行以下命令:</Translate>
                 </p>
                 <CodeBlock language="bash" className={styles.code}>
                   {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
@@ -90,9 +93,9 @@ export default function Primary() {
               </TabPane>
               <TabPane tab="Mac" itemKey="2">
                 <p style={{ marginTop: "10px" }}>
-                  请安装
+                  <Translate id='primary.install.mac.desc.one'>请安装</Translate>
                   <a href="https://docs.docker.com/desktop/install/mac-install/" target="_black"> Docker Desktop for Mac</a>
-                  ，随后在终端中执行以下命令:
+                  <Translate id='primary.install.mac.desc.two'>，随后在终端中执行以下命令:</Translate>
                 </p>
                 <CodeBlock language="bash" className={styles.code}>
                   {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
@@ -100,9 +103,9 @@ export default function Primary() {
               </TabPane>
               <TabPane tab="Windows" itemKey="3">
                 <p style={{ marginTop: "10px" }}>
-                  请安装
+                  <Translate id='primary.install.win.desc.one'>请安装</Translate>
                   <a href="https://docs.docker.com/desktop/install/windows-install/" target="_black"> Docker Desktop for Windows</a>
-                  ，随后在 PowerShell 中执行以下命令:
+                  <Translate id='primary.install.win.desc.two'>，随后在 PowerShell 中执行以下命令:</Translate>
                 </p>
                 <CodeBlock language="bash" className={styles.code}>
                   {`docker run --privileged -d --name=rainbond-allinone --restart=on-failure ^
@@ -114,14 +117,16 @@ export default function Primary() {
                   registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.2-dind-allinone`}
                 </CodeBlock>
               </TabPane>
-              <TabPane tab="信创" itemKey="4">
+              <TabPane tab={xinchuang} itemKey="4">
                 <p style={{ marginTop: "10px" }}>
-                  请在终端中执行以下命令:
+                  <Translate id='primary.install.xc.desc.one'>请在终端中执行以下命令:</Translate>
                 </p>
                 <CodeBlock language="bash" className={styles.code}>
                   {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
                 </CodeBlock>
-                <Link to="/xinchuang" style={{ float: "right" }}>了解更多 ></Link>
+                <Link to="/xinchuang" style={{ float: "right" }}>
+                  <Translate id='primary.install.xc.desc.two'>了解更多 ></Translate>
+                </Link>
               </TabPane>
             </Tabs>
           </div>
@@ -129,10 +134,18 @@ export default function Primary() {
         <div className="row" style={{ marginTop: '50px'}}>
           <div className="col col--3">
             <span className={styles.install_number_two}>02</span>
-            <span className={styles.install_title_two}>30分钟上手</span>
+            <span className={styles.install_title_two}>
+              <Translate id='primary.start.title'>30分钟上手</Translate>
+            </span>
           </div>
           <div className="col col--9">
-            <p>之后，打开浏览器，输入 http://您的IP:7070，您可以访问 Rainbond 的 UI 了。跟随 <Link href="/docs/quick-start/getting-started">快速入门</Link> 部署您的第一个应用。</p>
+            <p>
+              <Translate id='primary.start.desc.one'>之后，打开浏览器，输入 http://您的IP:7070，您可以访问 Rainbond 的 UI 了。跟随 </Translate>
+              <Link href="/docs/quick-start/getting-started">
+                <Translate id='primary.start.desc.two'>快速入门</Translate>
+              </Link> 
+              <Translate id='primary.start.desc.there'>部署您的第一个应用。</Translate>
+            </p>
           </div>
         </div>
       </animated.div>
