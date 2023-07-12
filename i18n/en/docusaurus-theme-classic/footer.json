@@ -23,6 +23,10 @@
     "message": "Feature",
     "description": "Footer item with label Feature"
   },
+  "link.item.label.信创": {
+    "message": "XinChuang",
+    "description": "Footer item with label Feature"
+  },
   "link.item.label.一体化DevOps": {
     "message": "DevOps",
     "description": "Footer item with label Feature"
