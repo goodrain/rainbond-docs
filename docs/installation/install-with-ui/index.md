@@ -33,7 +33,7 @@ keywords:
 
 :::tip
 
-请确保控制台容器可以通过 ssh 连接到服务器。该安装方式支持 Linux x86 和 arm 操作系统。国产化信创相关文档参考[信创指南](/docs/localization-guide)。
+该安装方式支持 Linux x86 和 Arm64 操作系统，支持[国产化信创](/docs/localization-guide)。
 
 :::
 
