@@ -113,9 +113,9 @@ spec:
 
 ### 完善插件信息并上架
 
-发布到开源应用商店的插件或应用，我们需要[登录开源应用商店](https://store.goodrain.com/markets/rainbond)编辑其信息并上架后，该应用才可被其他用户查看和使用。可以参考[如何分享插件或应用到 Rainbond 应用商店](https://mp.weixin.qq.com/s/CIpIBFLYSEQUUKMzO8dVtg)。
+发布到开源应用商店的插件或应用，我们需要[登录开源应用商店](https://hub.grapps.cn/marketplace)编辑其信息并上架后，该应用才可被其他用户查看和使用。可以参考[如何分享插件或应用到 Rainbond 应用商店](https://mp.weixin.qq.com/s/CIpIBFLYSEQUUKMzO8dVtg)。
 
-登录完成后点击右上角控制台，选择[管理应用](https://store.goodrain.com/manage/general/myapp)。这时候应该可以看到刚刚发布的 Envoy 插件。点击应用名称进入详情页面，此时需要编辑应用的名称、Logo、详细信息。
+登录完成后点击右上角控制台，选择[管理应用](https://hub.grapps.cn/manage/general/myapp)。这时候应该可以看到刚刚发布的 Envoy 插件。点击应用名称进入详情页面，此时需要编辑应用的名称、Logo、详细信息。
 
 当应用基础信息补充完成后，我们需要为其添加一个套餐，才可以上架。套餐在这里的作用主要是将应用的版本管理起来。用户使用不同的套餐安装的版本也不同。
 

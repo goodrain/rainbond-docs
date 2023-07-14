@@ -166,7 +166,7 @@ const config = {
               },
               {
                 label: '应用商店',
-                to: 'https://store.goodrain.com/markets/rainbond',
+                to: 'https://hub.grapps.cn/marketplace',
               },
               {
                 label: '合作伙伴',
@@ -327,7 +327,7 @@ const config = {
               },
               {
                 label: '应用商店',
-                to: 'https://store.goodrain.com/markets/rainbond'
+                to: 'https://hub.grapps.cn/marketplace'
               },
               {
                 label: '合作伙伴',
