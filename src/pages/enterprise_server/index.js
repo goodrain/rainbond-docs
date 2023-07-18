@@ -710,7 +710,7 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <a href='http://store.goodrain.com' target='_blank'>
+                    <a href='https://hub.grapps.cn' target='_blank'>
                       云原生应用商店
                     </a>
                     <span>

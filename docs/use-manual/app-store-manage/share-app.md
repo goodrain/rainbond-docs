@@ -90,13 +90,13 @@ Rainstore 是一个可以管理企业应用交付流程、实现商店全流程�
 
 你已经完成了分享，但是现在的应用只有一个名称，其他的都是默认值，别人无法了解该应用究竟是什么，为了让别人更好的理解该应用，并且愿意使用它，我们需要去应用商店补充相关信息。
 
-应用商店的网址为 https://store.goodrain.com/enterprise/login, 在这个页面选择手机验证码登录，输入你在 Rainbond 申请授权时的手机号，登录进去后，选择商店管理，你就可以看到你发布的应用了。
+应用商店的网址为 https://hub.grapps.cn/enterprise/login, 在这个页面选择手机验证码登录，输入你在 Rainbond 申请授权时的手机号，登录进去后，选择商店管理，你就可以看到你发布的应用了。
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-1.png)
 
 点击你刚刚发布的应用，我们可以对应用的简介进行编辑，上传对应的 Logo等。
 
-完成这些以后，我们进入套餐管理，创建一个套餐，并将应用上架。上架应用的目的是为了让更多的人能看见这个应用。即在[开源应用商店](https://store.goodrain.com/markets/rainbond)中能看见你发布的应用。
+完成这些以后，我们进入套餐管理，创建一个套餐，并将应用上架。上架应用的目的是为了让更多的人能看见这个应用。即在[开源应用商店](https://hub.grapps.cn/marketplace)中能看见你发布的应用。
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-2.png)
 
@@ -126,11 +126,11 @@ RAM 模型的抽象，囊括了企业应用所包含的所有服务组件以及�
 
 ### 管理应用
 
-如果你之后对应用有什么调整，需要管理应用相关信息，那么依然是先[登录应用商店](https://store.goodrain.com/enterprise/login)，通过手机号登录，在商店管理中完成应用的相关操作。
+如果你之后对应用有什么调整，需要管理应用相关信息，那么依然是先[登录应用商店](https://hub.grapps.cn/enterprise/login)，通过手机号登录，在商店管理中完成应用的相关操作。
 
 ### 最终效果
 
-完成以上步骤后，我们可以去看下效果。访问[开源应用商店](https://store.goodrain.com/markets/rainbond) ，搜索你的应用，在这里你可以看到应用的访问数和安装数。可以看到我们刚刚完成了一次安装。
+完成以上步骤后，我们可以去看下效果。访问[开源应用商店](https://hub.grapps.cn/marketplace) ，搜索你的应用，在这里你可以看到应用的访问数和安装数。可以看到我们刚刚完成了一次安装。
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/app-list-show.png)
 

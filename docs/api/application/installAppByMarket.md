@@ -11,7 +11,7 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/install
 
 ```json title="Body 请求体示例"
 {
-  "market_url": "https://store.goodrain.com",
+  "market_url": "https://hub.grapps.cn",
   "market_domain": "rainbond",
   "market_type": "rainstore",
   "market_access_key": "123456789012340af5dff63cb740788e",

@@ -43,7 +43,7 @@ Rainbond 提供的应用市场分为两类:
 
 ### 从开源应用商店离线安装
 
-当你在[应用商店](https://store.goodrain.com/markets/rainbond)浏览应用时, 部分应用有可下载的离线包，此时，你可以登录并下载该离线包。
+当你在[应用商店](https://hub.grapps.cn/marketplace)浏览应用时, 部分应用有可下载的离线包，此时，你可以登录并下载该离线包。
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/offline-package-app.jpg" title="离线包示意图"/>
 

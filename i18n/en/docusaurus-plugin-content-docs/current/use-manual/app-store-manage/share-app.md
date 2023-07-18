@@ -90,13 +90,13 @@ Next, after selecting the corresponding version and submitting it, the component
 
 You have finished sharing, but now the application has only one name, and the others are default values. Others cannot understand what the application is. In order for others to better understand the application and be willing to use it, we need to go to the application store. Supplementary relevant information.
 
-The website of the app store is https://store.goodrain.com/enterprise/login. On this page, select the mobile phone verification code to log in, enter the mobile phone number you used when applying for authorization in Rainbond, and after logging in, select store management, and you can I saw the app you posted.
+The website of the app store is https://hub.grapps.cn/enterprise/login. On this page, select the mobile phone verification code to log in, enter the mobile phone number you used when applying for authorization in Rainbond, and after logging in, select store management, and you can I saw the app you posted.
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-1.png)
 
 Click on the app you just released, and we can edit the introduction of the app, upload the corresponding Logo, etc.
 
-After completing these, we enter the package management, create a package, and put the application on the shelf.The purpose of listing the application is to allow more people to see this application.That is, you can see your published applications in the[open source application store](https://store.goodrain.com/markets/rainbond).
+After completing these, we enter the package management, create a package, and put the application on the shelf.The purpose of listing the application is to allow more people to see this application.That is, you can see your published applications in the[open source application store](https://hub.grapps.cn/marketplace).
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-2.png)
 
@@ -125,11 +125,11 @@ The deployment effect is shown in the following figure.Wait for the build to com
 
 ### Manage applications
 
-If you make any adjustments to the application in the future and need to manage the application-related information, you still need to log in to the app store[](https://store.goodrain.com/enterprise/login), log in with your mobile phone number, and complete the application-related operations in the store management.
+If you make any adjustments to the application in the future and need to manage the application-related information, you still need to log in to the app store[](https://hub.grapps.cn/enterprise/login), log in with your mobile phone number, and complete the application-related operations in the store management.
 
 ### final effect
 
-After completing the above steps, we can see the effect.Visit the[open source app store](https://store.goodrain.com/markets/rainbond) , search for your app, here you can see the number of visits and installs of the app.You can see that we have just completed an installation.
+After completing the above steps, we can see the effect.Visit the[open source app store](https://hub.grapps.cn/marketplace) , search for your app, here you can see the number of visits and installs of the app.You can see that we have just completed an installation.
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/app-list-show.png)
 

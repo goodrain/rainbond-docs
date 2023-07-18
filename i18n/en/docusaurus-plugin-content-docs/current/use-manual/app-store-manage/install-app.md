@@ -43,7 +43,7 @@ Select the team and application you want to install, it will jump to the applica
 
 ### Install offline from open source app stores
 
-When you browse apps in[App Store](https://store.goodrain.com/markets/rainbond), some apps have offline packages that can be downloaded. At this time, you can log in and download the offline packages.
+When you browse apps in[App Store](https://hub.grapps.cn/marketplace), some apps have offline packages that can be downloaded. At this time, you can log in and download the offline packages.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/offline-package-app.jpg" title="Schematic diagram of offline package" />
 
