@@ -88,6 +88,20 @@
   box-shadow: 0 16px 32px 0 rgba(48, 55, 66, 0.15);
 }
 
+.buttonRightEn {
+  margin-right: 10px;
+  border-radius: 30px;
+  background-color: #1f4ead;
+  height: 55px;
+  width: 210px;
+  font-size: 16px;
+}
+
+.buttonRightEn:hover {
+  background-color: #1f4ead !important;
+  box-shadow: 0 16px 32px 0 rgba(48, 55, 66, 0.15);
+}
+
 .code > div > pre {
   white-space: normal;
 }
@@ -120,6 +134,14 @@
   position: absolute;
   font-size: 25px;
   line-height: 58px;
+  margin-left: 30px;
+  font-weight: 500;
+}
+.install_title_two_en {
+  position: absolute;
+  font-size: 25px;
+  white-space: pre-line;
+  line-height: 30px;
   margin-left: 30px;
   font-weight: 500;
 }

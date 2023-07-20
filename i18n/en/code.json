@@ -69,19 +69,19 @@
     "message": "Easy to use cloud native application management platform, making application management and application delivery easier"
   },
   "primary.titleOne": {
-    "message": "No need to know Kubernetes'"
+    "message": "No need understand Kubernetes'"
   },
   "primary.titleTwo": {
     "message": "Cloud Native Application Management Platform"
   },
   "primary.description": {
-    "message": "Rainbond core 100% open source, Serverless experience, support docking and management of a variety of Kubernetes clusters, is first domestic support for the localization Xinchuang and an all-in-one application management platform for private deployments."
+    "message": "No Dockerfile, No Yaml, No need understand Kubernetes, Quickly deploy applications to multiple K8s clusters with only source code, Application Management platform suitable for privatization deployment."
   },
   "primary.install-dind": {
     "message": "Quick install"
   },
   "primary.join-user": {
-    "message": "Join User Group"
+    "message": "Join us on Slack"
   },
   "primary.install.linux.title": {
     "message": "5min install"
@@ -89,17 +89,26 @@
   "primary.install.linux.desc": {
     "message": "Run the following command in the terminal:"
   },
+  "primary.install.linux.cmd": {
+    "message": "curl -o install.sh https://get.rainbond.com && \nIMGHUB_MIRROR=rainbond bash ./install.sh"
+  },
   "primary.install.mac.desc.one": {
     "message": "Install"
   },
   "primary.install.mac.desc.two": {
     "message": " and run the following command in your terminal:"
   },
+  "primary.install.mac.cmd": {
+    "message": "curl -o install.sh https://get.rainbond.com && \nIMGHUB_MIRROR=rainbond bash ./install.sh"
+  },
   "primary.install.win.desc.one": {
     "message": "Install"
   },
   "primary.install.win.desc.two": {
     "message": " and run the following command in your powershell:"
+  },
+  "primary.install.win.cmd": {
+    "message": "docker run --privileged -d --name=rainbond-allinone \n--restart=on-failure ^ \n-p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 ^ \n-p 10000-10010:10000-10010 ^ \n-v rainbond-data:/app/data ^ \n-v rainbond-opt:/opt/rainbond ^ \n-e EIP=<Your IP> ^ \nrainbond/rainbond:v5.14.2-dind-allinone"
   },
   "primary.install.xc.title": {
     "message": "XinChuang"
@@ -110,11 +119,14 @@
   "primary.install.xc.desc.two": {
     "message": "Learn more >"
   },
+  "primary.install.xc.cmd": {
+    "message": "curl -o install.sh https://get.rainbond.com && \nIMGHUB_MIRROR=rainbond bash ./install.sh"
+  },
   "primary.start.title": {
-    "message": "30min Start"
+    "message": "30min\n Get Started"
   },
   "primary.start.desc.one": {
-    "message": "After that, open a browser and type http://yourIP:7070, and you can access the Rainbond UI. Follow the "
+    "message": "After that, open a browser and type http://<YourIP>:7070, and you can access the Rainbond UI. Follow the "
   },
   "primary.start.desc.two": {
     "message": "Quick Start"
@@ -124,6 +136,12 @@
   },
   "command.title": {
     "message": "Linux & Mac Quick Install"
+  },
+  "platform.data.imageDownloads": {
+    "message": "Downloads"
+  },
+  "platform.data.productionUsers": {
+    "message": "Production Users"
   },
   "platform.title": {
     "message": "Cloud Native Platform for Easy of use and Flexibility"
@@ -135,7 +153,7 @@
     "message": "Application level operations and experiences, Let developers focus on the business itself, Don't need to understand Containers and Kubernetes."
   },
   "platform.app.title": {
-    "message": "App no modification"
+    "message": "Non-intrusive"
   },
   "platform.app.description": {
     "message": "Via non-intrusive tech, Let traditional app be implemented without modification Service governance and auto operation and delivery, etc."

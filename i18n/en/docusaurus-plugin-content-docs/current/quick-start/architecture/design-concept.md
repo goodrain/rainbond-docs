@@ -1,5 +1,5 @@
 ---
-title: design thinking
+title: Design philosophy
 description: The origin and philosophy of Rainbond design
 ---
 
