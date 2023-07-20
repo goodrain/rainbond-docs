@@ -782,6 +782,7 @@ const sidebars = {
             'ops-guide/management/change-gateway',
             'ops-guide/management/kaniko-args',
             'ops-guide/management/docker-log',
+            'ops-guide/management/custom-shared-storage',
             'ops-guide/management/change-ports',
             'ops-guide/management/switch-registry',
             'ops-guide/management/auto-cert',
