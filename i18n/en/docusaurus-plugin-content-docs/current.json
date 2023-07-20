@@ -1,19 +1,19 @@
 {
   "sidebar.docs.category.快速开始": {
-    "message": "Getting Started",
-    "description": "The label for category Getting Started in sidebar docs"
+    "message": "Rainbond - No need understand K8s",
+    "description": "The label for category 快速开始 in sidebar docs"
   },
   "sidebar.docs.category.使用入门": {
     "message": "Quick Start",
-    "description": "The label for category Quick Start in sidebar docs"
+    "description": "The label for category 使用入门 in sidebar docs"
   },
   "sidebar.docs.category.学习概念": {
     "message": "Learn Concept",
-    "description": "The label for category Learn Concept in sidebar docs"
+    "description": "The label for category 学习概念 in sidebar docs"
   },
   "sidebar.docs.category.架构": {
     "message": "Architecture",
-    "description": "The label for category Architecture in sidebar docs"
+    "description": "The label for category 架构 in sidebar docs"
   },
   "sidebar.docs.category.安装 Rainbond": {
     "message": "Installation Rainbond",
@@ -33,27 +33,27 @@
   },
   "sidebar.docs.category.使用手册": {
     "message": "User manual",
-    "description": "The label for category User manual in sidebar docs"
+    "description": "The label for category 使用手册 in sidebar docs"
   },
   "sidebar.docs.category.部署服务组件": {
     "message": "Deploy component",
-    "description": "The label for category Deploy component in sidebar docs"
+    "description": "The label for category 部署服务组件 in sidebar docs"
   },
   "sidebar.docs.category.基于源代码创建组件": {
     "message": "Create component use source code",
-    "description": "The label for category Create component on source code in sidebar docs"
+    "description": "The label for category 基于源代码创建组件 in sidebar docs"
   },
   "sidebar.docs.category.Java语言参考": {
     "message": "Java reference",
-    "description": "The label for category Java reference in sidebar docs"
+    "description": "The label for category Java语言参考 in sidebar docs"
   },
   "sidebar.docs.category.基于Docker镜像创建组件": {
     "message": "Create component use Docker image",
-    "description": "The label for category Create component use Docker image in sidebar docs"
+    "description": "The label for category 基于Docker镜像创建组件 in sidebar docs"
   },
   "sidebar.docs.category.接入外部服务作为第三方组件": {
     "message": "Third party component",
-    "description": "The label for category Third party component in sidebar docs"
+    "description": "The label for category 接入外部服务作为第三方组件 in sidebar docs"
   },
   "sidebar.docs.category.基于Helm创建组件": {
     "message": "Create component use Helm",
@@ -65,19 +65,19 @@
   },
   "sidebar.docs.category.组件总览": {
     "message": "Component overview",
-    "description": "The label for category Component overview in sidebar docs"
+    "description": "The label for category 组件总览 in sidebar docs"
   },
   "sidebar.docs.category.组件监控": {
     "message": "Component monitor",
-    "description": "The label for category Component monitor in sidebar docs"
+    "description": "The label for category 组件监控 in sidebar docs"
   },
   "sidebar.docs.category.组件伸缩": {
     "message": "Component telescopic",
-    "description": "The label for category Component telescopic in sidebar docs"
+    "description": "The label for category 组件伸缩 in sidebar docs"
   },
   "sidebar.docs.category.组件环境配置": {
     "message": "Component env",
-    "description": "The label for category Component env in sidebar docs"
+    "description": "The label for category 组件环境配置 in sidebar docs"
   },
   "sidebar.docs.category.组件间通信": {
     "message": "Component access",
@@ -85,11 +85,11 @@
   },
   "sidebar.docs.category.组件存储": {
     "message": "Component storage",
-    "description": "The label for category Component storage in sidebar docs"
+    "description": "The label for category 组件存储 in sidebar docs"
   },
   "sidebar.docs.category.组件构建源": {
     "message": "Component build source",
-    "description": "The label for category Component build source in sidebar docs"
+    "description": "The label for category 组件构建源 in sidebar docs"
   },
   "sidebar.docs.category.组件其他设置": {
     "message": "Component other setting",
@@ -101,7 +101,7 @@
   },
   "sidebar.docs.category.应用总览": {
     "message": "App overview",
-    "description": "The label for category App overview in sidebar docs"
+    "description": "The label for category 应用总览 in sidebar docs"
   },
   "sidebar.docs.category.应用治理模式": {
     "message": "App governance",
@@ -113,7 +113,7 @@
   },
   "sidebar.docs.category.应用升级": {
     "message": "App upgrade",
-    "description": "The label for category App upgrade in sidebar docs"
+    "description": "The label for category 应用升级 in sidebar docs"
   },
   "sidebar.docs.category.构建微服务架构": {
     "message": "Build microservice architecture",
@@ -125,7 +125,7 @@
   },
   "sidebar.docs.category.应用管理": {
     "message": "App manage",
-    "description": "The label for category App manage in sidebar docs"
+    "description": "The label for category 应用管理 in sidebar docs"
   },
   "sidebar.docs.category.创建组件": {
     "message": "Create component",
@@ -133,19 +133,19 @@
   },
   "sidebar.docs.category.网关": {
     "message": "Gateway",
-    "description": "The label for category Gateway in sidebar docs"
+    "description": "The label for category 网关 in sidebar docs"
   },
   "sidebar.docs.category.访问策略管理": {
     "message": "Gateway policy manage",
-    "description": "The label for category Gateway policy manage in sidebar docs"
+    "description": "The label for category 访问策略管理 in sidebar docs"
   },
   "sidebar.docs.category.插件": {
     "message": "Plugin",
-    "description": "The label for category Plugin in sidebar docs"
+    "description": "The label for category 插件 in sidebar docs"
   },
   "sidebar.docs.category.团队管理": {
     "message": "Team manage",
-    "description": "The label for category Team manage in sidebar docs"
+    "description": "The label for category 团队管理 in sidebar docs"
   },
   "sidebar.docs.category.角色": {
     "message": "Role",
@@ -181,7 +181,7 @@
   },
   "sidebar.docs.category.运维手册": {
     "message": "Ops guide",
-    "description": "The label for category Operation manual in sidebar docs"
+    "description": "The label for category 运维手册 in sidebar docs"
   },
   "sidebar.docs.category.Rainbond 组件概述": {
     "message": "Rainbond component overview",
@@ -205,11 +205,11 @@
   },
   "sidebar.docs.category.存储解决方案": {
     "message": "Storage solution",
-    "description": "The label for category Storage solution in sidebar docs"
+    "description": "The label for category 存储解决方案 in sidebar docs"
   },
   "sidebar.docs.category.集群监控": {
     "message": "Cluster monitor",
-    "description": "The label for category Cluster monitor in sidebar docs"
+    "description": "The label for category 集群监控 in sidebar docs"
   },
   "sidebar.docs.category.报警配置项": {
     "message": "Alarm configuration",
@@ -217,11 +217,11 @@
   },
   "sidebar.docs.category.CLI 命令行": {
     "message": "CLI",
-    "description": "The label for category CLI in sidebar docs"
+    "description": "The label for category CLI 命令行 in sidebar docs"
   },
   "sidebar.docs.category.扩展": {
     "message": "Expansion",
-    "description": "The label for category Expansion in sidebar docs"
+    "description": "The label for category 扩展 in sidebar docs"
   },
   "sidebar.docs.category.常见场景最佳实践": {
     "message": "Best practic",
@@ -237,7 +237,7 @@
   },
   "sidebar.docs.category.安装与升级 Rainbond": {
     "message": "Installation & Upgrade",
-    "description": "The label for category Installation and Upgrade in sidebar docs"
+    "description": "The label for category 安装与升级 Rainbond in sidebar docs"
   },
   "sidebar.docs.category.基于主机安装": {
     "message": "Via bare machine install",
@@ -245,31 +245,31 @@
   },
   "sidebar.docs.category.基于 Kubernetes 安装": {
     "message": "Via Kubernetes install",
-    "description": "The label for category Via Kubernetes install in sidebar docs"
+    "description": "The label for category 基于 Kubernetes 安装 in sidebar docs"
   },
   "sidebar.docs.category.高可用集群安装": {
     "message": "High availability install",
-    "description": "The label for category High availability cluster install in sidebar docs"
+    "description": "The label for category 高可用集群安装 in sidebar docs"
   },
   "sidebar.docs.category.DevOps 指南": {
     "message": "DevOps guide",
-    "description": "The label for category DevOps guide in sidebar docs"
+    "description": "The label for category DevOps 指南 in sidebar docs"
   },
   "sidebar.docs.category.原生 Kubernetes 指南": {
     "message": "Native Kubernetes guide",
-    "description": "The label for category Native Kubernetes guide in sidebar docs"
+    "description": "The label for category 原生 Kubernetes 指南 in sidebar docs"
   },
   "sidebar.docs.category.微服务架构指南": {
     "message": "Microservice guide",
-    "description": "The label for category Microservice guide in sidebar docs"
+    "description": "The label for category 微服务架构指南 in sidebar docs"
   },
   "sidebar.docs.category.应用交付指南": {
     "message": "Delivery guide",
-    "description": "The label for category Delivery guide in sidebar docs"
+    "description": "The label for category 应用交付指南 in sidebar docs"
   },
   "sidebar.docs.category.集群管理指南": {
     "message": "Cluster manage guide",
-    "description": "The label for category Cluster manage guide in sidebar docs"
+    "description": "The label for category 集群管理指南 in sidebar docs"
   },
   "sidebar.docs.category.企业版使用文档": {
     "message": "Enterprise Version Usage Documents",
@@ -277,26 +277,198 @@
   },
   "sidebar.api.category.企业API": {
     "message": "Enterprise API",
-    "description": "The label for category Enterprise API in sidebar api"
+    "description": "The label for category 企业API in sidebar api"
   },
   "sidebar.api.category.团队API": {
     "message": "Team API",
-    "description": "The label for category Team API in sidebar api"
+    "description": "The label for category 团队API in sidebar api"
   },
   "sidebar.api.category.集群API": {
     "message": "Cluster API",
-    "description": "The label for category Cluster API in sidebar api"
+    "description": "The label for category 集群API in sidebar api"
   },
   "sidebar.api.category.应用API": {
     "message": "App API",
-    "description": "The label for category App API in sidebar api"
+    "description": "The label for category 应用API in sidebar api"
   },
   "sidebar.api.category.网关API": {
     "message": "Gateway API",
-    "description": "The label for category Gateway API in sidebar api"
+    "description": "The label for category 网关API in sidebar api"
   },
   "sidebar.api.category.用户API": {
     "message": "User API",
-    "description": "The label for category User API in sidebar api"
+    "description": "The label for category 用户API in sidebar api"
+  },
+  "version.label": {
+    "message": "Current",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.在托管 Kubernetes 上安装": {
+    "message": "在托管 Kubernetes 上安装",
+    "description": "The label for category 在托管 Kubernetes 上安装 in sidebar docs"
+  },
+  "sidebar.docs.category.其他安装方式": {
+    "message": "其他安装方式",
+    "description": "The label for category 其他安装方式 in sidebar docs"
+  },
+  "sidebar.docs.category.安装前准备与要求": {
+    "message": "安装前准备与要求",
+    "description": "The label for category 安装前准备与要求 in sidebar docs"
+  },
+  "sidebar.docs.category.Kubernetes 集群安装": {
+    "message": "Kubernetes 集群安装",
+    "description": "The label for category Kubernetes 集群安装 in sidebar docs"
+  },
+  "sidebar.docs.category.分布式文件存储安装": {
+    "message": "分布式文件存储安装",
+    "description": "The label for category 分布式文件存储安装 in sidebar docs"
+  },
+  "sidebar.docs.category.Rainbond 集群安装": {
+    "message": "Rainbond 集群安装",
+    "description": "The label for category Rainbond 集群安装 in sidebar docs"
+  },
+  "sidebar.docs.category.应用部署": {
+    "message": "应用部署",
+    "description": "The label for category 应用部署 in sidebar docs"
+  },
+  "sidebar.docs.category.工具集成": {
+    "message": "工具集成",
+    "description": "The label for category 工具集成 in sidebar docs"
+  },
+  "sidebar.docs.category.持续部署": {
+    "message": "持续部署",
+    "description": "The label for category 持续部署 in sidebar docs"
+  },
+  "sidebar.docs.category.应用调试": {
+    "message": "应用调试",
+    "description": "The label for category 应用调试 in sidebar docs"
+  },
+  "sidebar.docs.category.Pipeline 概述": {
+    "message": "Pipeline 概述",
+    "description": "The label for category Pipeline 概述 in sidebar docs"
+  },
+  "sidebar.docs.category.使用 YAML 部署组件": {
+    "message": "使用 YAML 部署组件",
+    "description": "The label for category 使用 YAML 部署组件 in sidebar docs"
+  },
+  "sidebar.docs.category.使用 Helm 部署组件": {
+    "message": "使用 Helm 部署组件",
+    "description": "The label for category 使用 Helm 部署组件 in sidebar docs"
+  },
+  "sidebar.docs.category.已有资源导入和管理": {
+    "message": "已有资源导入和管理",
+    "description": "The label for category 已有资源导入和管理 in sidebar docs"
+  },
+  "sidebar.docs.category.Service Mesh 使用": {
+    "message": "Service Mesh 使用",
+    "description": "The label for category Service Mesh 使用 in sidebar docs"
+  },
+  "sidebar.docs.category.熔断与限流": {
+    "message": "熔断与限流",
+    "description": "The label for category 熔断与限流 in sidebar docs"
+  },
+  "sidebar.docs.category.Service Mesh 治理模式": {
+    "message": "Service Mesh 治理模式",
+    "description": "The label for category Service Mesh 治理模式 in sidebar docs"
+  },
+  "sidebar.docs.category.Spring Cloud 微服务部署": {
+    "message": "Spring Cloud 微服务部署",
+    "description": "The label for category Spring Cloud 微服务部署 in sidebar docs"
+  },
+  "sidebar.docs.category.链路追踪": {
+    "message": "链路追踪",
+    "description": "The label for category 链路追踪 in sidebar docs"
+  },
+  "sidebar.docs.category.性能分析": {
+    "message": "性能分析",
+    "description": "The label for category 性能分析 in sidebar docs"
+  },
+  "sidebar.docs.category.持续交付": {
+    "message": "持续交付",
+    "description": "The label for category 持续交付 in sidebar docs"
+  },
+  "sidebar.docs.category.离线交付": {
+    "message": "离线交付",
+    "description": "The label for category 离线交付 in sidebar docs"
+  },
+  "sidebar.docs.category.信创指南": {
+    "message": "信创指南",
+    "description": "The label for category 信创指南 in sidebar docs"
+  },
+  "sidebar.docs.category.集群状态监控": {
+    "message": "集群状态监控",
+    "description": "The label for category 集群状态监控 in sidebar docs"
+  },
+  "sidebar.docs.category.节点管理": {
+    "message": "节点管理",
+    "description": "The label for category 节点管理 in sidebar docs"
+  },
+  "sidebar.docs.category.本地文件创建组件": {
+    "message": "本地文件创建组件",
+    "description": "The label for category 本地文件创建组件 in sidebar docs"
+  },
+  "sidebar.docs.category.组件管理": {
+    "message": "组件管理",
+    "description": "The label for category 组件管理 in sidebar docs"
+  },
+  "sidebar.docs.category.应用商店": {
+    "message": "应用商店",
+    "description": "The label for category 应用商店 in sidebar docs"
+  },
+  "sidebar.docs.category.平台组件概述": {
+    "message": "平台组件概述",
+    "description": "The label for category 平台组件概述 in sidebar docs"
+  },
+  "sidebar.docs.category.高级运维": {
+    "message": "高级运维",
+    "description": "The label for category 高级运维 in sidebar docs"
+  },
+  "sidebar.docs.category.告警配置项": {
+    "message": "告警配置项",
+    "description": "The label for category 告警配置项 in sidebar docs"
+  },
+  "sidebar.docs.category.常见问题": {
+    "message": "常见问题",
+    "description": "The label for category 常见问题 in sidebar docs"
+  },
+  "sidebar.docs.category.安装问题": {
+    "message": "安装问题",
+    "description": "The label for category 安装问题 in sidebar docs"
+  },
+  "sidebar.docs.category.使用问题": {
+    "message": "使用问题",
+    "description": "The label for category 使用问题 in sidebar docs"
+  },
+  "sidebar.docs.category.企业版使用手册": {
+    "message": "企业版使用手册",
+    "description": "The label for category 企业版使用手册 in sidebar docs"
+  },
+  "sidebar.docs.category.可观测性中心": {
+    "message": "可观测性中心",
+    "description": "The label for category 可观测性中心 in sidebar docs"
+  },
+  "sidebar.docs.category.安全能力": {
+    "message": "安全能力",
+    "description": "The label for category 安全能力 in sidebar docs"
+  },
+  "sidebar.docs.category.其他功能": {
+    "message": "其他功能",
+    "description": "The label for category 其他功能 in sidebar docs"
+  },
+  "sidebar.docs.link.Helm 命令生成工具": {
+    "message": "Helm 命令生成工具",
+    "description": "The label for link Helm 命令生成工具 in sidebar docs, linking to /helm"
+  },
+  "sidebar.docs.link.应用网关": {
+    "message": "应用网关",
+    "description": "The label for link 应用网关 in sidebar docs, linking to /docs/use-manual/team-manage/gateway/"
+  },
+  "sidebar.store.category.使用指南": {
+    "message": "使用指南",
+    "description": "The label for category 使用指南 in sidebar store"
+  },
+  "sidebar.store.category.发布指南": {
+    "message": "发布指南",
+    "description": "The label for category 发布指南 in sidebar store"
   }
 }

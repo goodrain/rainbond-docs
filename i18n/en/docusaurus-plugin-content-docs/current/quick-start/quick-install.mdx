@@ -1,0 +1,73 @@
+---
+title: 'Quick installation'
+description: 'This article introduces running Rainbond using only one Docker container.'
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+The current installation method allows you to quickly experience the full functionality of Rainbond by running a single container. This version is designed for single-node experiences, suitable for trying out Rainbond features or for personal development environments. It supports Windows (x86_64), Mac (Intel/M1), and Linux (x86_64, Arm64).
+
+## Prerequisites
+
+* Install Docker, if docker environment is not present on Linux, it will be automatically installed through a shell script; If you are using macOS, install [Mac Docker Desktop](https://docs.docker.com/desktop/release-notes/#docker-desktop); If you are using Windows, install [Windows Docker Desktop](https://docs.docker.com/desktop/windows/install/)
+* Make sure that ports 80, 443, 6060, 7070, and 8443 are available.
+
+## Installation steps
+
+<Tabs groupId="install">
+  <TabItem value="Linux & Mac" label="Linux & Mac" default>
+
+Rainbond provides an installation script to quickly launch Rainbond within a Docker container. During the script execution, you will be prompted to manually set the EIP (External IP). Once the deployment is complete, you will use this IP address to access the Rainbond console.
+
+```bash
+curl -o install.sh https://get.rainbond.com && IMGHUB_MIRROR=rainbond bash ./install.sh
+```
+
+  </TabItem>
+
+  <TabItem value="Windows" label="Windows">
+
+:::caution
+When you enter an internal IP address, such as 192.168.3.25, it may result in an inability to access Rainbond after switching network environments. If you are conducting local testing or experimentation, you can use the loopback address. For example, you can modify the environment variable `-e EIP=<your IP address>` to `-e EIP=127.0.0.1`. Please manually update the `-e EIP=<your IP address>` environment variable and then proceed with the installation.
+:::
+
+Please execute the following command in Windows:
+
+```bash
+docker run --privileged -d  -p 7070:7070 --name=rainbond-allinone --restart=on-failure ^
+-p 80:80 -p 443:443 -p 6060:6060 -p 8443:8443 -p 10000-10010:10000-10010 ^
+-v rainbond-data:/app/data ^
+-v rainbond-opt:/opt/rainbond ^
+-e EIP=<Your IP> ^
+rainbond/rainbond:v5.14.2-dind-allinone
+```
+
+To view the Rainbond startup logs, use the following command:
+
+```bash
+docker logs -f rainbond-allinone
+```
+
+  </TabItem>
+</Tabs>
+
+After executing the aforementioned script, please wait patiently for 3-5 minutes. You will see the following log output, indicating that Rainbond has completed its startup:
+
+```bash
+2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://$EIP:7070 Access Rainbond
+```
+
+## Next step
+
+When you visit Rainbond, you need to fill in some information for the user system management within the platform. Currently, the user system within Rainbond does not support international mobile phone numbers, so you can enter: 17600000000 in the mobile phone number column to skip the mobile number verification.
+
+After registration, you can refer to [getting started](/docs/quick-start/getting-started) to use Rainbond.
+
+## Troubleshooting
+
+If the installation process of the single node experience version is not completed for a long time, please refer to the document [installation troubleshooting guide](/docs/troubleshooting/installation/dind). Or join us on [Slack](https://join.slack.com/t/rainbond-slack/shared_invite/zt-1ft4g75pg-KJ0h_IAtvG9DMgeE_BNjZQ) ask for help.
+
+## Extended parameter
+
+By default, 10 ports from '10000-10010' are added for service TCP ports. If you need more TCP ports, pass the command printed in the script, delete the container restart and add '-p' to map the new port.

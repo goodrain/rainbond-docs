@@ -14,16 +14,17 @@ import Translate from "@docusaurus/Translate";
 import { Button } from '@douyinfe/semi-ui';
 import Iconlinux from '/img/homepage/svg/linux.svg';
 import Iconwechat from '/img/homepage/svg/wechat-white.svg';
+import IconSlack from '/img/homepage/svg/slack.svg';
 import { Tabs, TabPane, Typography } from '@douyinfe/semi-ui';
 import CTypist from '../../CTypist';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Link from "@docusaurus/Link";
 import CodeBlock from '@theme/CodeBlock';
+import { calcLength } from "framer-motion";
 
 export default function Primary() {
   
   const LocalUrlEn = useLocation().pathname.includes('/en');
-
   const animatedTexts = useTrail(5, {
     from: { opacity: 0, transform: 'translateY(3em)' },
     to: { opacity: 1, transform: 'translateY(0)' },
@@ -33,6 +34,11 @@ export default function Primary() {
       tension: 460,
     },
   })
+
+  const handleOnClickLink = () => {
+    window.open('https://join.slack.com/t/rainbond-slack/shared_invite/zt-1ft4g75pg-KJ0h_IAtvG9DMgeE_BNjZQ')
+  }
+
   const xinchuang = <Translate id='primary.install.xc.title'>信创</Translate>
 
   return (
@@ -60,17 +66,24 @@ export default function Primary() {
               <Translate id='primary.install-dind'>快速入门</Translate>
             </Button>
           </Link> */}
-          <OverlayTrigger placement="bottom" overlay={
-            <div className="card shadow--tl">
-              <div className="card__body">
-                <img width="200px" height="200px" src="/wechat/wechat.png" />
-              </div>
-            </div>
-            }>
-            <Button icon={<Iconwechat />} theme="solid" className={styles.buttonRight} size='large'>
-              <Translate id='primary.join-user'>加入用户群</Translate>
-            </Button>
-          </OverlayTrigger>
+          {!LocalUrlEn ? (
+             <OverlayTrigger placement="bottom" 
+             overlay={
+               <div className="card shadow--tl">
+                 <div className="card__body">
+                   <img width="200px" height="200px" src="/wechat/wechat.png" />
+                 </div>
+               </div>
+               }>
+               <Button icon={<Iconwechat />} theme="solid" className={styles.buttonRight} size='large'>
+                 <Translate id='primary.join-user'>加入用户群</Translate>
+               </Button>
+             </OverlayTrigger>
+          ) : (
+              <Button icon={<IconSlack />} onClick={handleOnClickLink} theme="solid" className={styles.buttonRightEn} size='large'>
+                <Translate id='primary.join-user'>加入用户群</Translate>
+              </Button>
+          )}
         </animated.div>
       </div>
       <animated.div style={animatedTexts[1]} className="col col--7">
@@ -88,7 +101,7 @@ export default function Primary() {
                   <Translate id='primary.install.linux.desc'>请在终端中执行以下命令:</Translate>
                 </p>
                 <CodeBlock language="bash" className={styles.code}>
-                  {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
+                  <Translate id='primary.install.linux.cmd'>{`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}</Translate>
                 </CodeBlock>
               </TabPane>
               <TabPane tab="Mac" itemKey="2">
@@ -98,7 +111,7 @@ export default function Primary() {
                   <Translate id='primary.install.mac.desc.two'>，随后在终端中执行以下命令:</Translate>
                 </p>
                 <CodeBlock language="bash" className={styles.code}>
-                  {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
+                  <Translate id='primary.install.mac.cmd'>{`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}</Translate>
                 </CodeBlock>
               </TabPane>
               <TabPane tab="Windows" itemKey="3">
@@ -108,6 +121,7 @@ export default function Primary() {
                   <Translate id='primary.install.win.desc.two'>，随后在 PowerShell 中执行以下命令:</Translate>
                 </p>
                 <CodeBlock language="bash" className={styles.code}>
+                  <Translate id='primary.install.win.cmd'>
                   {`docker run --privileged -d --name=rainbond-allinone --restart=on-failure ^
                   -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 ^
                   -p 10000-10010:10000-10010 ^
@@ -115,9 +129,11 @@ export default function Primary() {
                   -v rainbond-opt:/opt/rainbond ^
                   -e EIP=<你的IP地址> ^
                   registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.2-dind-allinone`}
+                  </Translate>
                 </CodeBlock>
               </TabPane>
-              <TabPane tab={xinchuang} itemKey="4">
+              {!LocalUrlEn &&
+                <TabPane tab={xinchuang} itemKey="4">
                 <p style={{ marginTop: "10px" }}>
                   <Translate id='primary.install.xc.desc.one'>请在终端中执行以下命令:</Translate>
                 </p>
@@ -125,16 +141,17 @@ export default function Primary() {
                   {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
                 </CodeBlock>
                 <Link to="/xinchuang" style={{ float: "right" }}>
-                  <Translate id='primary.install.xc.desc.two'>了解更多 ></Translate>
+                  <Translate id='primary.install.xc.desc.two'>了解更多 </Translate>
                 </Link>
               </TabPane>
+              }
             </Tabs>
           </div>
         </div>
         <div className="row" style={{ marginTop: '50px'}}>
           <div className="col col--3">
             <span className={styles.install_number_two}>02</span>
-            <span className={styles.install_title_two}>
+            <span className={!LocalUrlEn ? styles.install_title_two : styles.install_title_two_en}>
               <Translate id='primary.start.title'>30分钟上手</Translate>
             </span>
           </div>

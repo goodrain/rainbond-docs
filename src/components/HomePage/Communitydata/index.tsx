@@ -30,11 +30,11 @@ export default function Communitydata() {
     },
     {
       number: "1M+",
-      desc: "镜像下载"
+      desc: <Translate id="platform.data.imageDownloads">镜像下载</Translate>
     },
     {
       number: "5,000+",
-      desc: "生产用户"
+      desc: <Translate id="platform.data.productionUsers">生产用户</Translate>
     },
   ];
 

@@ -1,5 +1,5 @@
 ---
-title: Technology Architecture
+title: Architecture
 description: Rainbond Technical Architecture
 ---
 
