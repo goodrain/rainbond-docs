@@ -139,4 +139,4 @@ The installation process if not finished for long time, so please refer to the d
 
 ## Next step
 
-See [quick start](/docs/quick-start/geting-started/) to deploy your first app.
+See [quick start](/docs/quick-start/getting-started/) to deploy your first app.
