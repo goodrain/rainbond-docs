@@ -94,7 +94,7 @@ The console will generate data that needs to be persisted, stored in the '~/rain
 
 ## Next step
 
-- [quick start](/docs/quick-start/geting-started/): Quickly deploy your first application on Rainbond.
+- [quick start](/docs/quick-start/getting-started/): Quickly deploy your first application on Rainbond.
 - [migrate applications](/docs/ops-guide/migrate-app): You can refer to this document to migrate standalone applications to this Kubernetes cluster.
 
 ### Common problem
