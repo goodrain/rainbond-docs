@@ -1,6 +1,6 @@
 ---
-title: 修改集群镜像仓库
-descrition: 介绍如何更改集群默认镜像仓库
+title: Example Modify a cluster mirror vault
+descrition: How do I change the default mirror warehouse of the cluster
 keywords:
 - Rainbond 集群镜像仓库修改
 ---

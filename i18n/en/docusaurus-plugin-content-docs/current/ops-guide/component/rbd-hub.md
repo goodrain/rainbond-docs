@@ -1,6 +1,6 @@
 ---
 title: rbd-hub
-description: "rbd-hub组件参数说明"
+description: "Parameter Description of the rbd-hub component"
 ---
 
 ## rbd-hub组件说明

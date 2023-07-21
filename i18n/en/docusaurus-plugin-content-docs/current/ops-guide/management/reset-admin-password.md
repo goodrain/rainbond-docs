@@ -1,6 +1,6 @@
 ---
-title: 重置管理员密码
-description: 如果您忘记管理员密码，可以参考本文档重置管理员密码
+title: Reset Administrator Password
+description: If you forget your administrator password, reset it by referring to this document
 keywords:
 - 重置 Rainbond 管理员密码
 ---

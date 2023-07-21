@@ -1,6 +1,6 @@
 ---
 title: rainbond-operator
-description: "rainbond-operator组件参数说明"
+description: "Parameter description of the rainbond-operator component"
 ---
 
 

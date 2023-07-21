@@ -1,6 +1,6 @@
 ---
-title: 组件资源清理
-description: 清理磁盘上无用的数据, 减轻磁盘的压力
+title: Component resource cleanup
+description: Delete unnecessary data on the disk to relieve disk pressure
 weight: 1003
 ---
 
