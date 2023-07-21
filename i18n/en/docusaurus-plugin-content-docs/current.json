@@ -304,171 +304,171 @@
     "description": "The label for version current"
   },
   "sidebar.docs.category.在托管 Kubernetes 上安装": {
-    "message": "在托管 Kubernetes 上安装",
+    "message": "Install on hosted Kubernetes",
     "description": "The label for category 在托管 Kubernetes 上安装 in sidebar docs"
   },
   "sidebar.docs.category.其他安装方式": {
-    "message": "其他安装方式",
+    "message": "Other installation methods",
     "description": "The label for category 其他安装方式 in sidebar docs"
   },
   "sidebar.docs.category.安装前准备与要求": {
-    "message": "安装前准备与要求",
+    "message": "Preparations and requirements before installation",
     "description": "The label for category 安装前准备与要求 in sidebar docs"
   },
   "sidebar.docs.category.Kubernetes 集群安装": {
-    "message": "Kubernetes 集群安装",
+    "message": "Kubernetes cluster installation",
     "description": "The label for category Kubernetes 集群安装 in sidebar docs"
   },
   "sidebar.docs.category.分布式文件存储安装": {
-    "message": "分布式文件存储安装",
+    "message": "Distributed file storage installation",
     "description": "The label for category 分布式文件存储安装 in sidebar docs"
   },
   "sidebar.docs.category.Rainbond 集群安装": {
-    "message": "Rainbond 集群安装",
+    "message": "Rainbond cluster installation",
     "description": "The label for category Rainbond 集群安装 in sidebar docs"
   },
   "sidebar.docs.category.应用部署": {
-    "message": "应用部署",
+    "message": "Application deployment",
     "description": "The label for category 应用部署 in sidebar docs"
   },
   "sidebar.docs.category.工具集成": {
-    "message": "工具集成",
+    "message": "Tool integration",
     "description": "The label for category 工具集成 in sidebar docs"
   },
   "sidebar.docs.category.持续部署": {
-    "message": "持续部署",
+    "message": "Continuous deployment",
     "description": "The label for category 持续部署 in sidebar docs"
   },
   "sidebar.docs.category.应用调试": {
-    "message": "应用调试",
+    "message": "Application debugging",
     "description": "The label for category 应用调试 in sidebar docs"
   },
   "sidebar.docs.category.Pipeline 概述": {
-    "message": "Pipeline 概述",
+    "message": "Pipeline summarize",
     "description": "The label for category Pipeline 概述 in sidebar docs"
   },
   "sidebar.docs.category.使用 YAML 部署组件": {
-    "message": "使用 YAML 部署组件",
+    "message": "Deploy components using YAML",
     "description": "The label for category 使用 YAML 部署组件 in sidebar docs"
   },
   "sidebar.docs.category.使用 Helm 部署组件": {
-    "message": "使用 Helm 部署组件",
+    "message": "Deploy components using Helm",
     "description": "The label for category 使用 Helm 部署组件 in sidebar docs"
   },
   "sidebar.docs.category.已有资源导入和管理": {
-    "message": "已有资源导入和管理",
+    "message": "Import and manage existing resources",
     "description": "The label for category 已有资源导入和管理 in sidebar docs"
   },
   "sidebar.docs.category.Service Mesh 使用": {
-    "message": "Service Mesh 使用",
+    "message": "Service Mesh use",
     "description": "The label for category Service Mesh 使用 in sidebar docs"
   },
   "sidebar.docs.category.熔断与限流": {
-    "message": "熔断与限流",
+    "message": "Fusing and limiting current",
     "description": "The label for category 熔断与限流 in sidebar docs"
   },
   "sidebar.docs.category.Service Mesh 治理模式": {
-    "message": "Service Mesh 治理模式",
+    "message": "Service Mesh governance model",
     "description": "The label for category Service Mesh 治理模式 in sidebar docs"
   },
   "sidebar.docs.category.Spring Cloud 微服务部署": {
-    "message": "Spring Cloud 微服务部署",
+    "message": "Spring Cloud Microservice deployment",
     "description": "The label for category Spring Cloud 微服务部署 in sidebar docs"
   },
   "sidebar.docs.category.链路追踪": {
-    "message": "链路追踪",
+    "message": "Link tracing",
     "description": "The label for category 链路追踪 in sidebar docs"
   },
   "sidebar.docs.category.性能分析": {
-    "message": "性能分析",
+    "message": "Performance analysis",
     "description": "The label for category 性能分析 in sidebar docs"
   },
   "sidebar.docs.category.持续交付": {
-    "message": "持续交付",
+    "message": "Continuous delivery",
     "description": "The label for category 持续交付 in sidebar docs"
   },
   "sidebar.docs.category.离线交付": {
-    "message": "离线交付",
+    "message": "Off-line delivery",
     "description": "The label for category 离线交付 in sidebar docs"
   },
   "sidebar.docs.category.信创指南": {
-    "message": "信创指南",
+    "message": "Creative guide",
     "description": "The label for category 信创指南 in sidebar docs"
   },
   "sidebar.docs.category.集群状态监控": {
-    "message": "集群状态监控",
+    "message": "Cluster status monitoring",
     "description": "The label for category 集群状态监控 in sidebar docs"
   },
   "sidebar.docs.category.节点管理": {
-    "message": "节点管理",
+    "message": "Node administration",
     "description": "The label for category 节点管理 in sidebar docs"
   },
   "sidebar.docs.category.本地文件创建组件": {
-    "message": "本地文件创建组件",
+    "message": "Local file creation component",
     "description": "The label for category 本地文件创建组件 in sidebar docs"
   },
   "sidebar.docs.category.组件管理": {
-    "message": "组件管理",
+    "message": "Component management",
     "description": "The label for category 组件管理 in sidebar docs"
   },
   "sidebar.docs.category.应用商店": {
-    "message": "应用商店",
+    "message": "App governance",
     "description": "The label for category 应用商店 in sidebar docs"
   },
   "sidebar.docs.category.平台组件概述": {
-    "message": "平台组件概述",
+    "message": "Platform component Overview",
     "description": "The label for category 平台组件概述 in sidebar docs"
   },
   "sidebar.docs.category.高级运维": {
-    "message": "高级运维",
+    "message": "Advanced operation and maintenance",
     "description": "The label for category 高级运维 in sidebar docs"
   },
   "sidebar.docs.category.告警配置项": {
-    "message": "告警配置项",
+    "message": "Alarm configuration item",
     "description": "The label for category 告警配置项 in sidebar docs"
   },
   "sidebar.docs.category.常见问题": {
-    "message": "常见问题",
+    "message": "Common problem",
     "description": "The label for category 常见问题 in sidebar docs"
   },
   "sidebar.docs.category.安装问题": {
-    "message": "安装问题",
+    "message": "Installation problems",
     "description": "The label for category 安装问题 in sidebar docs"
   },
   "sidebar.docs.category.使用问题": {
-    "message": "使用问题",
+    "message": "Catalog",
     "description": "The label for category 使用问题 in sidebar docs"
   },
   "sidebar.docs.category.企业版使用手册": {
-    "message": "企业版使用手册",
+    "message": "Enterprise Edition user manual",
     "description": "The label for category 企业版使用手册 in sidebar docs"
   },
   "sidebar.docs.category.可观测性中心": {
-    "message": "可观测性中心",
+    "message": "Observability Center",
     "description": "The label for category 可观测性中心 in sidebar docs"
   },
   "sidebar.docs.category.安全能力": {
-    "message": "安全能力",
+    "message": "Security capability",
     "description": "The label for category 安全能力 in sidebar docs"
   },
   "sidebar.docs.category.其他功能": {
-    "message": "其他功能",
+    "message": "Other functions",
     "description": "The label for category 其他功能 in sidebar docs"
   },
   "sidebar.docs.link.Helm 命令生成工具": {
-    "message": "Helm 命令生成工具",
+    "message": "Helm command generation tool",
     "description": "The label for link Helm 命令生成工具 in sidebar docs, linking to /helm"
   },
   "sidebar.docs.link.应用网关": {
-    "message": "应用网关",
+    "message": "Application gateway",
     "description": "The label for link 应用网关 in sidebar docs, linking to /docs/use-manual/team-manage/gateway/"
   },
   "sidebar.store.category.使用指南": {
-    "message": "使用指南",
+    "message": "Operating guide",
     "description": "The label for category 使用指南 in sidebar store"
   },
   "sidebar.store.category.发布指南": {
-    "message": "发布指南",
+    "message": "Release guidelines",
     "description": "The label for category 发布指南 in sidebar store"
   }
 }
