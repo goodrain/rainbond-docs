@@ -1,6 +1,6 @@
 ---
-title: 平台组件架构
-description: 本文主要介绍完整部署Rainbond所需要的所有服务组件，帮助用户了解Rainbond技术栈与组件架构。
+title: Platform component architecture
+description: This article describes all the service components required to fully deploy Rainbond and helps users understand the Rainbond technology stack and component architecture.
 keywords: 
 - Rainbond 平台组件架构
 ---

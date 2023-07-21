@@ -1,6 +1,6 @@
 ---
-title: 调整 Kaniko 构建参数
-descrition: 该章节文档适用于运维人员了解如何指定集群构建
+title: Adjust Kaniko build parameters
+descrition: This section of documentation is intended for operation and maintenance personnel. Learn how to specify cluster builds
 keywords:
 - Rainbond 集群构建参数
 - 调整 Kaniko 构建参数
