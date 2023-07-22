@@ -34,7 +34,7 @@ curl -o install.sh https://get.rainbond.com && bash ./install.sh
 ```bash
 curl -o install.sh https://get.rainbond.com && VERSION=<指定的版本> bash ./install.sh
 ```
-版本格式为：`v5.14.1`、`v5.14.2`
+版本格式为：`v5.14.2`、`v5.15.0`
 
 3. 执行升级 sql
 
@@ -44,7 +44,7 @@ docker exec -ti rainbond-allinone bash
 
 根据自己所跨版本执行升级 sql。
 
-- v5.14.1 --> v5.14.2
+- v5.14.2 --> v5.15.0
 ```bash
 curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
 ```
@@ -55,9 +55,9 @@ curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
 
 本栏介绍通过主机安装和通过 Helm 安装的 Rainbond 升级到最新版本。  
 
-## 从最近的版本升级到 v5.14.2
+## 从最近的版本升级到 v5.15.0
 
-如果您的 Rainbond 版本是 `v5.14.1`，则可以通过以下方式进行升级。
+如果您的 Rainbond 版本是 `v5.14.2`，则可以通过以下方式进行升级。
 
 ### 控制台升级
 
@@ -74,7 +74,7 @@ docker stop rainbond-allinone && docker rm rainbond-allinone
 #该命令参数需要和之前启动的rainbond-allinone容器一致
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 --name=rainbond-allinone --restart=always \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.14.2-release-allinone
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.15.0-release-allinone
 ```
 
 2. 执行升级 sql
@@ -97,7 +97,7 @@ curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
 更新 grctl 命令
 
 ```bash
-docker run -it --rm -v /:/rootfs  registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.14.2-release copy
+docker run -it --rm -v /:/rootfs  registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.15.0-release copy
 
 mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && grctl install
 ```
@@ -106,9 +106,9 @@ mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && grctl install
 
 ```bash
 # 替换基础 region 镜像版本
-grctl cluster upgrade --new-version=v5.14.2-release
+grctl cluster upgrade --new-version=v5.15.0-release
 
-# 手动替换 operator 镜像版本为 v5.14.2-release
+# 手动替换 operator 镜像版本为 v5.15.0-release
 kubectl edit deploy rainbond-operator -n rbd-system
 ```
 
@@ -166,11 +166,13 @@ curl https://get.rainbond.com/upgrade-5.11.0.sh | bash
 # 在控制台容器内执行 5.14.2 版本升级SQL
 curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
 
+## 5.15.0 无 SQL 升级
+
 ```
 
 2. 更新 CRD 资源 [v5.11.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.11.0-upgrade#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)、[v5.12.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.12.0-upgrade#%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)。
 
-3. 升级控制台镜像以及集群端镜像版本，按照 [从最近的版本升级到 v5.14.2](#从最近的版本升级到-v5142) 的步骤进行升级。
+3. 升级控制台镜像以及集群端镜像版本，按照 [从最近的版本升级到 v5.15.0](#从最近的版本升级到-v5142) 的步骤进行升级。
 
 
   </div>
