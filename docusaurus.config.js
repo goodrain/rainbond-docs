@@ -74,7 +74,12 @@ const config = {
       metadata: [{
         name: 'Rainbond is Cloud Native Multi Cloud Application Management Platform', 
         content: 'Kubernetes, Cloud Native, Cloud Application Management Platform, Micro service, Service Mesh'
-      }],
+      },
+      {
+        name: 'keywords', 
+        content: '信创, 国产化, 云原生, 应用管理平台, 信创云平台, Kubernetes, k8s, 应用交付, 应用运维, 微服务, 服务网格, Service Mesh, DevOps, CICD, 持续交付, 持续集成, 持续部署, 持续运维, Helm, RAM, Rainbond, Rainbond Xinchuang, Rainbond Xinchuang Cloud Platform, Cloud Native, Cloud Application Management Platform, Micro service, Service Mesh'
+      }
+    ],
       tableOfContents: {
         minHeadingLevel: 2,
         maxHeadingLevel: 5,
