@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ## 前提条件
 
-* Kubernetes 集群版本在 1.19-1.25 之间
+* Kubernetes 集群版本在 1.19-1.27 之间
 * Kubectl 命令行工具，参阅 [Kubectl 安装](/docs/ops-guide/tools/#kubectl-cli)
 * Helm 命令行工具，参阅 [Helm 安装](/docs/ops-guide/tools/#helm-cli)
 

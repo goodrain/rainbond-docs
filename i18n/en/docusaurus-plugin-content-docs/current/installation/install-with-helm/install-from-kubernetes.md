@@ -14,7 +14,7 @@ This article will guide you through the Helm command to quickly deploy Rainbond 
 
 ## Precondition
 
-* Kubernetes cluster versions range from 1.19 to 1.25
+* Kubernetes cluster versions range from 1.19 to 1.27
 * For the kubectl command-line tool, see [Kubectl installation](/docs/ops-guide/tools/#kubectl-cli).
 * helm command line tool, see [Helm installation](/docs/ops-guide/tools/#helm-cli)
 
