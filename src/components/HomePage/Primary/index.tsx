@@ -121,15 +121,15 @@ export default function Primary() {
                   <Translate id='primary.install.win.desc.two'>，随后在 PowerShell 中执行以下命令:</Translate>
                 </p>
                 <CodeBlock language="bash" className={styles.code}>
-                  <Translate id='primary.install.win.cmd'>
-                  {`docker run --privileged -d --name=rainbond-allinone --restart=on-failure ^
-                  -p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 ^
-                  -p 10000-10010:10000-10010 ^
-                  -v rainbond-data:/app/data ^
-                  -v rainbond-opt:/opt/rainbond ^
-                  -e EIP=<你的IP地址> ^
-                  registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.15.0-dind-allinone`}
-                  </Translate>
+                  {!LocalUrlEn ? (
+                    <Translate id='primary.install.win.cmd'>
+                      Invoke-WebRequest "https://get.rainbond.com/install-dind.ps1" -o install-dind.ps1 ; .\install-dind.ps1
+                    </Translate>
+                  ) : (
+                    <Translate id='primary.install.win.cmd'>
+                      Invoke-WebRequest "https://get.rainbond.com/install-dind.ps1" -o install-dind.ps1 ; .\install-dind.ps1 -IMAGE_MIRROR rainbond
+                    </Translate>
+                  )}
                 </CodeBlock>
               </TabPane>
               {!LocalUrlEn &&

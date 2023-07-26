@@ -107,9 +107,6 @@
   "primary.install.win.desc.two": {
     "message": " and run the following command in your powershell:"
   },
-  "primary.install.win.cmd": {
-    "message": "docker run --privileged -d --name=rainbond-allinone \n--restart=on-failure ^ \n-p 7070:7070 -p 80:80 -p 443:443 -p 6060:6060 ^ \n-p 10000-10010:10000-10010 ^ \n-v rainbond-data:/app/data ^ \n-v rainbond-opt:/opt/rainbond ^ \n-e EIP=<Your IP> ^ \nrainbond/rainbond:v5.14.2-dind-allinone"
-  },
   "primary.install.xc.title": {
     "message": "XinChuang"
   },
