@@ -49,6 +49,43 @@ Rainbond 平台根据组件之间的依赖关系确定启动顺序。如果服�
 
 该状态说明当前容器的镜像无法被拉取，下拉至 `事件` 列表处，可以得到更为详细的信息。确保对应的镜像可以被拉取，如果发现无法拉取的镜像以 `goodrain.me` 开头，则可以尝试构建该组件解决问题。
 
+##### Failed to pull image xxx, denied: You may not login yet
+可以构建成功，但是无法滚动更新，这种情况通常是该命名空间下没有```rbd-hub-credential```或者```rbd-hub-credentials```密钥内容不对。
+可以通过命令查看是否存在该密钥
+```bash
+kubectl get secret -n <namespace>
+```
+1. 如果没有该密钥，可以尝试新建yaml后修改关键字段或者从其他命名空间导出yaml文件后修改
+```yaml
+apiVersion: v1
+data:
+  .dockerconfigjson: xxx # 认证字段，根据情况修改，如果从新命名空间导出的yaml则不需要修改此字段
+kind: Secret
+metadata:
+  creationTimestamp: "2023-08-07T05:38:15Z"
+  name: rbd-hub-credentials
+  namespace: xxx # 命名空间，根据情况修改，一定要修改
+  resourceVersion: "21781"
+  uid: 80fb4aa7-8798-4982-afe2-d6b983e70dba
+type: kubernetes.io/dockerconfigjson
+```
+从其他命名空间导出yaml。（可自行创建新团队，有了新的命名空间，并且该命名空间下存在```rbd-hub-credentials```）
+```bash
+kubectl get secret rbd-hub-credentials -o yaml > rbd-hub-credentials.yaml -n <namespace>
+```
+然后，修改上述yaml的```metadata.namespace```字段，替换成您出问题的命名空间即可。
+其次，创建新组件。
+```bash
+kubectl apply -f rbd-hub-credentials.yaml -n <namespace>
+```
+最后检查是否运行成功。
+
+2. 如果存在该密钥，则可查看该组密钥的配置是否正确
+```bash
+kubectl get secret rbd-hub-credentials -n <namespace> -o jsonpath='{.data.\.dockerconfigjson}' | base64 --decode
+```
+如果认证信息不对，则可尝试删除该密钥。删除后根据上述步骤重新建立即可。
+
 ##### CrashLoopBackup
 
 该状态说明当前容器本身启动失败，或正在遭遇运行错误。切换至 `日志` 页面查看业务日志输出，对症解决问题即可。
