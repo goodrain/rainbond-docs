@@ -62,11 +62,8 @@ data:
   .dockerconfigjson: xxx # 认证字段，根据情况修改，如果从新命名空间导出的yaml则不需要修改此字段
 kind: Secret
 metadata:
-  creationTimestamp: "2023-08-07T05:38:15Z"
   name: rbd-hub-credentials
   namespace: xxx # 命名空间，根据情况修改，一定要修改
-  resourceVersion: "21781"
-  uid: 80fb4aa7-8798-4982-afe2-d6b983e70dba
 type: kubernetes.io/dockerconfigjson
 ```
 从其他命名空间导出yaml。（可自行创建新团队，有了新的命名空间，并且该命名空间下存在```rbd-hub-credentials```）
@@ -84,7 +81,11 @@ kubectl apply -f rbd-hub-credentials.yaml -n <namespace>
 ```bash
 kubectl get secret rbd-hub-credentials -n <namespace> -o jsonpath='{.data.\.dockerconfigjson}' | base64 --decode
 ```
-如果认证信息不对，则可尝试删除该密钥。删除后根据上述步骤重新建立即可。
+如果认证信息不对，则可尝试删除该密钥
+```bash
+kubectl delete secret rbd-hub-credentials -n <namespace>
+```
+删除后根据上述步骤重新建立即可。
 
 ##### CrashLoopBackup
 
