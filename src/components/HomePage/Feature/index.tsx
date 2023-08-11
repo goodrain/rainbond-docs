@@ -12,10 +12,9 @@ import styles from "./styles.module.css";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import Devops from '/img/homepage/svg/devops.svg';
-import K8s from '/img/homepage/svg/k8sblue.svg';
-import Servicemesh from '/img/homepage/svg/servicemesh.svg';
+import Monitor from '/img/homepage/svg/monitor.svg';
+import Maintenance from '/img/homepage/svg/maintenance.svg';
 import Store from '/img/homepage/svg/store.svg';
-import Model from '/img/homepage/svg/model.svg';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import Translate from "@docusaurus/Translate";
@@ -34,201 +33,260 @@ export default function Feature() {
 
 
   return (
-    <div className={clsx('container',styles.global)}>
+    <div className={clsx('container', styles.global)}>
       <animated.div style={animatedTexts[0]}>
         <h2 className={styles.title}>
-          <Translate id="feature.title">主要功能</Translate>
+          <Translate id="feature.title">零学习成本，图形界面，鼠标点击就能完成所有操作</Translate>
         </h2>
+
+
         {/* devops */}
-        <div className="row" style={{ paddingTop: '50px'}}>
-          <div className="col col--6">
-            <div className={clsx('card', styles.card)}>
-              <PhotoProvider>
-                <PhotoView src="/img/homepage/feature/devops.png">
-                  <img src="/img/homepage/feature/devops.png" width="100%" />
-                </PhotoView>
-              </PhotoProvider>
-            </div>
+        <div className="row" style={{ paddingTop: '50px' }}>
+          <div className="col col--8" style={{ paddingRight: 20 }}>
+            <ul className={clsx('newlopo', styles.newlopo)}>
+              <li>
+                <PhotoProvider>
+                  <PhotoView src="/img/homepage/sourcecode/kaifayuyan.png">
+                    <img src="/img/homepage/sourcecode/kaifayuyan.png" />
+                  </PhotoView>
+                </PhotoProvider>
+                <span>开发语言自动识别</span>
+              </li>
+              <li>
+                <PhotoProvider>
+                  <PhotoView src="/img/homepage/sourcecode/goujiancanshu.png">
+                    <img src="/img/homepage/sourcecode/goujiancanshu.png" />
+                  </PhotoView>
+                </PhotoProvider>
+                <span>构建参数自动填充</span>
+              </li>
+              <li>
+                <PhotoProvider>
+                  <PhotoView src="/img/homepage/sourcecode/gaojipeizhi.png">
+                    <img src="/img/homepage/sourcecode/gaojipeizhi.png" />
+                  </PhotoView>
+                </PhotoProvider>
+                <span>自定义高级配置</span>
+              </li>
+              <li>
+                <PhotoProvider>
+                  <PhotoView src="/img/homepage/sourcecode/yunxingzhuangtai.png">
+                    <img src="/img/homepage/sourcecode/yunxingzhuangtai.png" />
+                  </PhotoView>
+                </PhotoProvider>
+                <span>运行状态一目了然</span>
+              </li>
+            </ul>
           </div>
-          <div className="col col--6">
+          <div className="col col--4" style={{ padding: 20 }}>
             <div className="row">
               <div className={clsx("col col--12", styles.desc_svg)}>
-                <Devops style={{ float: 'right' }}/>
+                <Devops style={{ float: 'right' }} />
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'right' }}>
                   <Translate id="feature.devops.title">
-                    易用的一体化DevOps，不改变开发者使用习惯
+                    源码自动识别和部署
                   </Translate>
                 </h3>
               </div>
               <div className="col col--12">
-                <p className={clsx(styles.content,styles.devops_content)}>
+                <p className={clsx(styles.content, styles.devops_content)}>
                   <Translate id="feature.devops.description">
-                    Rainbond使用“以应用为中心”的设计理念,对开发人员友好,不用学习容器和Kubernetes等底层技术,开发人员对应用开发和应用运维过程自主可控,已有项目和代码不需要改变
-                    复杂的系统管理和平台管理由平台管理员负责,兼容各种Kubernetes版本和Kubernetes工具,实现各司其职
+                  Rainbond 支持自动识别各类开发语言，如Java、Python、Golang、NodeJS、Dockerfile、Php、.NetCore等，通过简单的向导式流程，无需配置或少量配置，即可将你的业务快速部署到 K8s 集群中进行高效管理。
                   </Translate>
                 </p>
-              </div>
-              <div className="col col--12">
-                <Link to='/feature/devops' style={{ float: 'right'}}>
-                  <Translate id="feature.details">详情</Translate> {'>'}
-                </Link>
               </div>
             </div>
           </div>
         </div>
+
+
         {/* Kubernetes multi cluster */}
-        <div className="row" style={{ paddingTop: '150px'}}>
-          <div className="col col--6">
+        <div className="row" style={{ paddingTop: '150px' }}>
+          <div className="col col--4">
             <div className="row">
               <div className="col col--12">
-                <K8s style={{ float: 'left' }}/>
+                <Store style={{ float: 'left' }} />
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'left' }}>
                   <Translate id="feature.k8s.title">
-                    Kubernetes 多集群管理，实现应用级多云管理
+                    模块化拼装
                   </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.k8s_content)}>
                   <Translate id="feature.k8s.description">
-                    Rainbond控制台支持对接管理多种Kubernetes集群，支持应用级开发和管理体验，不需要写Yaml，通过应用级抽象，应用跨集群部署、安装、迁移、备份
+                  Rainbond 提供强大的模块化拼装能力，让各业务程序间可以通过简单连线的方式快速编排。无论是前端项目依赖后端，还是其他组件之间的协作，只需进入编排模式，将它们连接在一起，即可迅速建立关联并启用。你的业务可以灵活沉淀为独立的应用模块，这些模块可以随意组合、无限拼装，最终构建出多样化的应用系统。
                   </Translate>
                 </p>
               </div>
-              <div className="col col--12">
-                <Link to='/feature/multi-cluster' style={{ float: 'left'}}>
-                  <Translate id="feature.details">详情</Translate> {'>'}
-                </Link>
-              </div>
             </div>
           </div>
-          <div className="col col--6">
+          <div className="col col--8">
             <div className={clsx('card', styles.card)}>
-              <PhotoProvider>
-                <PhotoView src="/img/homepage/feature/k8scluster.png">
-                  <img src="/img/homepage/feature/k8scluster.png" width="100%" />
-                </PhotoView>
-              </PhotoProvider>
+              <ul className={clsx('newlopo', styles.newlopo)}>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/modularization/lianjiefangshi.png">
+                      <img src="/img/homepage/modularization/lianjiefangshi.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>连线方式快速编排</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/modularization/kuaisubushu.png">
+                      <img src="/img/homepage/modularization/kuaisubushu.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>快速部署其他模块</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/modularization/jimu.png">
+                      <img src="/img/homepage/modularization/jimu.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>积木式拼装</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/modularization/tuoputu.png">
+                      <img src="/img/homepage/modularization/tuoputu.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>应用级拓扑图管理</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
         {/* Servier mesh */}
-        <div className="row" style={{ paddingTop: '150px'}}>
-          <div className="col col--6">
+        <div className="row" style={{ paddingTop: '150px' }}>
+          <div className="col col--8">
             <div className={clsx('card', styles.card)}>
-              <PhotoProvider>
-                <PhotoView src="/img/homepage/feature/servicemesh.png">
-                  <img src="/img/homepage/feature/servicemesh.png" width="100%" />
-                </PhotoView>
-              </PhotoProvider>
+              <ul className={clsx('newlopo', styles.newlopo)}>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/jiankong/xinneng.png">
+                      <img src="/img/homepage/jiankong/xinneng.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>组件性能监控</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/jiankong/log.png">
+                      <img src="/img/homepage/jiankong/log.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>组件日志</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/jiankong/shiyong.png">
+                      <img src="/img/homepage/jiankong/shiyong.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>资源使用监控</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/jiankong/jiankang.png">
+                      <img src="/img/homepage/jiankong/jiankang.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>容器健康状态</span>
+                </li>
+              </ul>
             </div>
           </div>
-          <div className="col col--6">
+          <div className="col col--4">
             <div className="row">
               <div className={clsx("col col--12", styles.desc_svg)}>
-                <Servicemesh style={{ float: 'right' }}/>
+                <Monitor style={{ float: 'right' }} />
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'right' }}>
                   <Translate id="feature.mesh.title">
-                    开箱即用的微服务治理，拖拉拽式的微服务编排
+                    丰富的监控
                   </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.mesh_content)}>
                   <Translate id="feature.mesh.description">
-                    传统应用部署到Rainbond，开启应用级插件就可以支持Service Mesh，并可按需更换Service Mesh框架
-                    通过组件级的插件扩展日志管理、性能分析、监控等服务治理工具，并支持Spring Cloud 、Dubbo等常见微服务框架
+                  Rainbond 提供全方位的监控能力，涵盖组件性能、组件日志、资源使用、容器健康状态等多个维度。可以轻松地了解系统各部分的运行情况，确保应用的可靠性和稳定性。
                   </Translate>
                 </p>
-              </div>
-              <div className="col col--12">
-                <Link to='/feature/service-mesh' style={{ float: 'right'}}>
-                  <Translate id="feature.details">详情</Translate> {'>'}
-                </Link>
               </div>
             </div>
           </div>
         </div>
+
+
         {/* App store */}
-        <div className="row" style={{ paddingTop: '150px'}}>
-          <div className="col col--6">
+        <div className="row" style={{ paddingTop: '150px' }}>
+          <div className="col col--4">
             <div className="row">
               <div className="col col--12">
-                <Store style={{ float: 'left' }}/>
+                <Maintenance style={{ float: 'left' }} />
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'left' }}>
                   <Translate id="feature.appstore.title">
-                    云原生应用市场，实现企业应用自动化交付
+                  应用快速运维
                   </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.store_content)}>
                   <Translate id="feature.appstore.description">
-                    支持应用市场全流程管理（应用构建和拼装、应用发布应用市场、应用市场展示和管理、应用导出和导入、应用一键安装和升级）
-                    通过应用模版可以将任何类型的应用发布到应用市场，并实现复杂应用一键交付客户环境
+                  Rainbond 提供了面向应用的全生命周期管理运维，支持一键管理应用内组件的批量启动、关闭、构建、更新、回滚等关键操作。同时还支持应用网关策略管理和证书管理，支持应用故障时自动恢复，以及应用自动伸缩等功能。
                   </Translate>
                 </p>
               </div>
-              <div className="col col--12">
-                <Link to='/feature/app-market' style={{ float: 'left'}}>
-                  <Translate id="feature.details">详情</Translate> {'>'}
-                </Link>
-              </div>
             </div>
           </div>
-          <div className="col col--6">
+          <div className="col col--8">
             <div className={clsx('card', styles.card)}>
-              <PhotoProvider>
-                <PhotoView src="/img/homepage/feature/appstore.png">
-                  <img src="/img/homepage/feature/appstore.png" width="100%" />
-                </PhotoView>
-              </PhotoProvider>
-            </div>
-          </div>
-        </div>
-        {/* Application model */}
-        <div className="row" style={{ paddingTop: '150px', paddingBottom: '50px'}}>
-          <div className="col col--6">
-            <div className={clsx('card', styles.card, styles.app_model_image)}>
-              <PhotoProvider>
-                <PhotoView src="/img/homepage/feature/appmodel.png">
-                  <img src="/img/homepage/feature/appmodel.png" width="100%" />
-                </PhotoView>
-              </PhotoProvider>
-            </div>
-          </div>
-          <div className="col col--6">
-            <div className="row">
-              <div className={clsx("col col--12", styles.desc_svg)}>
-                <Model style={{ float: 'right' }}/>
-              </div>
-              <div className="col col--12">
-                <h3 className={styles.subtitle} style={{ float: 'right' }}>
-                  <Translate id="feature.model.title">
-                    通过应用模型抽象，简化应用运维
-                  </Translate>
-                </h3>
-              </div>
-              <div className="col col--12">
-                <p className={clsx(styles.content, styles.model_content)}>
-                  <Translate id="feature.model.description">
-                    通过应用模型抽象，让开发人员可以更多的关心业务本身，而不是底层复杂工具的使用问题。最终的效果是降低操作成本和理解难度，让Kubernetes更加容易落地
-                  </Translate>
-                </p>
-              </div>
-              <div className="col col--12">
-                <Link to='/feature/app-ops' style={{ float: 'right'}}>
-                  <Translate id="feature.details">详情</Translate> {'>'}
-                </Link>
-              </div>
+              <ul className={clsx('newlopo', styles.newlopo)}>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/yunwei/shengmingzhouqj.png">
+                      <img src="/img/homepage/yunwei/shengmingzhouqj.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>应用全生命周期管理</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/yunwei/wangguan.png">
+                      <img src="/img/homepage/yunwei/wangguan.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>应用网关策略管理</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/yunwei/zhengshu.png">
+                      <img src="/img/homepage/yunwei/zhengshu.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>应用证书管理</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/yunwei/shensuo.png">
+                      <img src="/img/homepage/yunwei/shensuo.png" />
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>应用自动伸缩配置</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

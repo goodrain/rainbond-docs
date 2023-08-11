@@ -17,7 +17,9 @@
   .devops_content {
     width: 100% !important;
   }
-  
+  .newlopo{
+    height: 250px !important;
+  }
   .k8s_content {
     width: 100% !important;
   }
@@ -34,10 +36,11 @@
     width: 100% !important;
   }
 }
+
 .global {
   text-align: center;
   line-height: 32px;
-  padding-bottom: 40px;
+  padding-bottom: 100px;
 }
 
 .title {
@@ -62,34 +65,96 @@
 
 .app_model_image {
   width: 500px;
+  color: #338bff;
 }
 
 .devops_content {
   float: right;
-  width: 455px;
+  /* width: 455px; */
+  width: 100%;
   text-align: left;
 }
 
 .k8s_content {
   float: left;
-  width: 455px;
+  /* width: 455px; */
   text-align: left;
 }
 
 .mesh_content {
   float: right;
-  width: 460px;
+  /* width: 460px; */
   text-align: left;
 }
 
 .store_content {
   float: left;
-  width: 460px;
+  /* width: 460px; */
   text-align: left;
 }
 
 .model_content {
   float: right;
-  width: 330px;
+  /* width: 330px; */
   text-align: left;
+}
+.newlopo>li{
+  list-style: none;
+}
+/* 清除img撑大3像素问题 */
+.newlopo{
+  margin: auto;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 0;
+  border-radius: 10px;
+}
+.newlopo li {
+/* 关键点一：当没有鼠标悬停时，正常宽度为160px */
+  width: 25%;
+  /* border: 1px solid #e3e3e3; */
+  /* border-right: 0; */
+  position: relative;
+  /* 过渡动画，不会的详见我的博客 css3过渡属性*/
+  transition: 0.5s;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.newlopo li:first-child{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
+  }
+.newlopo li img{
+  height: 100%;
+  max-width: none;
+}
+/* 关键点二：当ul上有鼠标悬停时所有的li宽度都变为40px */
+.newlopo:hover li{
+  width: 5%;
+}
+
+
+/* 关键点三 ：当某个li上有鼠标悬停时这个li的宽度为640px*/
+.newlopo li:hover{
+  width: 85%;
+}
+
+
+/* 设置图片下方半透明黑框以及字体 */
+.newlopo li span{
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  color: var(--ifm-color-primary-black);
+  font-size: 18px;
+  text-align: left;
+  background-color: var(--background-color-light);
+  opacity: 0.8;
+  white-space:nowrap; 
 }
