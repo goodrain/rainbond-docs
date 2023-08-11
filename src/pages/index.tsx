@@ -11,6 +11,8 @@ import Primary from '../components/HomePage/Primary';
 import Communitydata from '../components/HomePage/Communitydata';
 import Platform from '../components/HomePage/Platform';
 import Feature from '../components/HomePage/Feature';
+import Rainstore from '../components/HomePage/Rainstore';
+import Xinchuang from '../components/HomePage/Xinchuang';
 import VideoLearn from '../components/HomePage/VideoLearn';
 import HowRainbond from '../components/HomePage/HowRainbond';
 import Users from '../components/HomePage/Users';
@@ -46,6 +48,16 @@ export default function Home() {
 
         <section className={styles.width}>
           <Feature />
+        </section>
+
+        <section className={styles.fifthscreen}>
+          <div id={styles.section_fifth} className={styles.width}>
+            <Rainstore />
+          </div>
+        </section>
+
+        <section className={styles.width}>
+          <Xinchuang />
         </section>
         
         <section className={styles.fifthscreen}>
