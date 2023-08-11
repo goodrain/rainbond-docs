@@ -57,7 +57,7 @@ export default function Primary() {
         </animated.div>
         <animated.div style={animatedTexts[0]} className={styles.rainbond_description}>
           <Translate id='primary.description'>
-            Rainbond 核心100%开源，Serverless体验，支持对接和管理多种 Kubernetes 集群，是国内首个支持国产化信创、适合私有部署的一体化应用管理平台。
+            Rainbond 核心100%开源，不需要懂K8s也能轻松管理容器化应用，平滑无缝过渡到K8s，是国内首个支持国产化信创、适合私有部署的一体化应用管理平台。
           </Translate>
         </animated.div>
         <animated.div style={animatedTexts[1]} className={styles.btnBox}>
