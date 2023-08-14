@@ -8,5 +8,6 @@
       "resolveJsonModule": true,
       "strict": true,
     },
+    "baseUrl": ".", // This is required for VSCode to resolve the path correctly.
   }
   

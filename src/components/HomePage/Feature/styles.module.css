@@ -111,14 +111,13 @@
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 0;
   border-radius: 10px;
+  transition: 0.5s;
 }
 .newlopo li {
-/* 关键点一：当没有鼠标悬停时，正常宽度为160px */
   width: 25%;
   /* border: 1px solid #e3e3e3; */
   /* border-right: 0; */
   position: relative;
-  /* 过渡动画，不会的详见我的博客 css3过渡属性*/
   transition: 0.5s;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -131,16 +130,22 @@
 .newlopo li img{
   height: 100%;
   max-width: none;
+  transition: 0.5s;
 }
 /* 关键点二：当ul上有鼠标悬停时所有的li宽度都变为40px */
 .newlopo:hover li{
-  width: 5%;
+  width: 0%;
 }
 
 
 /* 关键点三 ：当某个li上有鼠标悬停时这个li的宽度为640px*/
 .newlopo li:hover{
-  width: 85%;
+  width: 300%;
+  transition: 0.5s;
+}
+.newlopo li:hover img{
+  width: 100%;
+  transition: 0.5s;
 }
 
 
