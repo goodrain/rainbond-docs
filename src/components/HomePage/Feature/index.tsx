@@ -47,7 +47,7 @@ export default function Feature() {
               <li>
                 <PhotoProvider>
                   <PhotoView src="/img/homepage/sourcecode/kaifayuyan.png">
-                    <img src="/img/homepage/sourcecode/kaifayuyan.png" />
+                    <img src="/img/homepage/sourcecode/kaifayuyan.png" title="点击查看完整图片"/>
                   </PhotoView>
                 </PhotoProvider>
                 <span>开发语言自动识别</span>
@@ -55,7 +55,7 @@ export default function Feature() {
               <li>
                 <PhotoProvider>
                   <PhotoView src="/img/homepage/sourcecode/goujiancanshu.png">
-                    <img src="/img/homepage/sourcecode/goujiancanshu.png" />
+                    <img src="/img/homepage/sourcecode/goujiancanshu.png" title="点击查看完整图片"/>
                   </PhotoView>
                 </PhotoProvider>
                 <span>构建参数自动填充</span>
@@ -63,7 +63,7 @@ export default function Feature() {
               <li>
                 <PhotoProvider>
                   <PhotoView src="/img/homepage/sourcecode/gaojipeizhi.png">
-                    <img src="/img/homepage/sourcecode/gaojipeizhi.png" />
+                    <img src="/img/homepage/sourcecode/gaojipeizhi.png" title="点击查看完整图片"/>
                   </PhotoView>
                 </PhotoProvider>
                 <span>自定义高级配置</span>
@@ -71,7 +71,7 @@ export default function Feature() {
               <li>
                 <PhotoProvider>
                   <PhotoView src="/img/homepage/sourcecode/yunxingzhuangtai.png">
-                    <img src="/img/homepage/sourcecode/yunxingzhuangtai.png" />
+                    <img src="/img/homepage/sourcecode/yunxingzhuangtai.png" title="点击查看完整图片"/>
                   </PhotoView>
                 </PhotoProvider>
                 <span>运行状态一目了然</span>
@@ -131,7 +131,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/modularization/lianjiefangshi.png">
-                      <img src="/img/homepage/modularization/lianjiefangshi.png" />
+                      <img src="/img/homepage/modularization/lianjiefangshi.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>连线方式快速编排</span>
@@ -139,7 +139,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/modularization/kuaisubushu.png">
-                      <img src="/img/homepage/modularization/kuaisubushu.png" />
+                      <img src="/img/homepage/modularization/kuaisubushu.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>快速部署其他模块</span>
@@ -147,7 +147,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/modularization/jimu.png">
-                      <img src="/img/homepage/modularization/jimu.png" />
+                      <img src="/img/homepage/modularization/jimu.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>积木式拼装</span>
@@ -155,7 +155,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/modularization/tuoputu.png">
-                      <img src="/img/homepage/modularization/tuoputu.png" />
+                      <img src="/img/homepage/modularization/tuoputu.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>应用级拓扑图管理</span>
@@ -172,7 +172,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/jiankong/xinneng.png">
-                      <img src="/img/homepage/jiankong/xinneng.png" />
+                      <img src="/img/homepage/jiankong/xinneng.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>组件性能监控</span>
@@ -180,7 +180,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/jiankong/log.png">
-                      <img src="/img/homepage/jiankong/log.png" />
+                      <img src="/img/homepage/jiankong/log.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>组件日志</span>
@@ -188,7 +188,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/jiankong/shiyong.png">
-                      <img src="/img/homepage/jiankong/shiyong.png" />
+                      <img src="/img/homepage/jiankong/shiyong.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>资源使用监控</span>
@@ -196,7 +196,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/jiankong/jiankang.png">
-                      <img src="/img/homepage/jiankong/jiankang.png" />
+                      <img src="/img/homepage/jiankong/jiankang.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>容器健康状态</span>
@@ -257,7 +257,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/yunwei/shengmingzhouqj.png">
-                      <img src="/img/homepage/yunwei/shengmingzhouqj.png" />
+                      <img src="/img/homepage/yunwei/shengmingzhouqj.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>应用全生命周期管理</span>
@@ -265,7 +265,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/yunwei/wangguan.png">
-                      <img src="/img/homepage/yunwei/wangguan.png" />
+                      <img src="/img/homepage/yunwei/wangguan.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>应用网关策略管理</span>
@@ -273,7 +273,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/yunwei/zhengshu.png">
-                      <img src="/img/homepage/yunwei/zhengshu.png" />
+                      <img src="/img/homepage/yunwei/zhengshu.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>应用证书管理</span>
@@ -281,7 +281,7 @@ export default function Feature() {
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/yunwei/shensuo.png">
-                      <img src="/img/homepage/yunwei/shensuo.png" />
+                      <img src="/img/homepage/yunwei/shensuo.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>应用自动伸缩配置</span>
