@@ -2,78 +2,78 @@
 title: Check whether cluster communication is abnormal
 description: This section describes Rainbond cluster faults and troubleshooting methods
 keywords: 
-- Rainbond 集群通信异常排查
+- Rainbond Troubleshooting Cluster Communication Abnormalities
 ---
 
-本文介绍 Rainbond 控制台与集群端通信异常的排查思路。
+This article introduces the troubleshooting ideas for abnormal communication between the Rainbond console and the cluster.
 
-## 集群通信异常或集群端失去响应
+## The cluster communication is abnormal or the cluster end loses response
 
-![](https://static.goodrain.com/docs/5.12/troubleshooting/installation/cluster-connect.png)
+![](https://static.goodrain.com/docs/5.12/troubleshooting/installation/en-cluster-connect.png)
 
-Rainbond 分为两层架构，控制台与集群端。控制台与集群端通过 API 进行通信，如果控制台与集群端通信异常，将会导致控制台无法正常使用。
+Rainbond is divided into two layers, the console and the cluster. The console communicates with the cluster through the API. If the communication between the console and the cluster is abnormal, the console cannot be used normally.
 
-导致异常原因可能有以下几种：
+There may be the following reasons for the exception:
 
-1. 控制台与集群端的网络不通。
-2. 集群端的 API 服务不可用。
-3. 集群端的 API 服务被防火墙拦截。
+1. The network between the console and the cluster is disconnected.
+2. The API service on the cluster side is unavailable.
+3. The API service on the cluster side is blocked by the firewall.
 
-## 排查思路
+## Troubleshoot ideas
 
-如果出现此类问题，你可以根据以下排查思路进行排查。
+If such problems occur, you can troubleshoot according to the following troubleshooting ideas.
 
-### 检查控制台与集群端的网络
+### Check the network between the console and the cluster
 
-首先，检查控制台的日志，进入控制台的 **平台管理 -> 日志 -> 控制台日志**，如果出现 `https://192.168.1.1:8443 time out` 则代表控制台与与集群端的网络不通。
+First, check the log of the console, go to **Platform Management -> Log -> Console Log** of the console, if `https://192.168.1.1:8443 time out` appears, it means that the console and the cluster end network issue.
 
-可以进入控制台的终端内部，使用 `ping` 命令检查控制台与集群端的网络是否通畅。
+You can enter the terminal of the console and use the `ping` command to check whether the network between the console and the cluster is smooth.
 
-如果网络不通，可以检查控制台与集群端的网络是否在同一网段，如果不在同一网段，可以通过配置路由表的方式进行网络通信。
+If the network is disconnected, you can check whether the console and the cluster network are in the same network segment. If not, you can configure the routing table for network communication.
 
-### 检查集群端 API 服务
+### Check cluster-side API services
 
-如果控制台与集群端的网络通畅，且 `8443` 端口通畅，可以检查集群端的 API 服务是否正常。
+If the network between the console and the cluster side is smooth, and the `8443` port is smooth, you can check whether the API service on the cluster side is normal.
 
-通过以下命令查看 API 服务是否正常：
+Use the following command to check whether the API service is normal:
 
 ```bash
 kubectl get pod -l name=rbd-api -n rbd-system
 ```
 
-如果 API 不正常，可以通过以下命令查看 API 服务的日志：
+If the API is abnormal, you can view the logs of the API service through the following command:
 
 ```bash
 kubectl logs -fl name=rbd-api -n rbd-system
 ```
 
-根据日志的报错信息进行排查。
+Check according to the error information in the log.
 
-或者尝试重启 API 服务：
+Or try restarting the API service:
 
 ```bash
 kubectl delete pod -l name=rbd-api -n rbd-system
 ```
 
-### 检查控制台与集群端的端口
+### Check console and cluster ports
 
-如果控制台与集群端的网络通畅且 API 服务正常，可以检查控制台与集群端的 `8443` 端口是否通畅。使用 `telnet` 命令检查控制台与集群端的 `8443` 端口是否通畅。
+If the network between the console and the cluster is smooth and the API service is normal, you can check whether the ports `8443` on the console and the cluster are unblocked. Use the `telnet` command to check whether the port `8443` on the console and the cluster side is unblocked.
 
-如果不通，可以检查集群端的 `8443` 端口是否被防火墙拦截，如果被防火墙拦截，可以通过配置防火墙规则的方式进行端口通信。
+If it fails, you can check whether the `8443` port on the cluster side is blocked by the firewall. If it is blocked by the firewall, you can configure the firewall rules for port communication.
 
-## 常见问题
+## common problem
 
 ### remote error: tls: error decrypting message
 
-查看 rbd-api 服务的日志出现以下报错：
+Viewing the log of the rbd-api service shows the following error:
 
 ```bash
 http: TLS handshake error from 10.42.0.1:35590: remote error: tls: error decrypting message
 ```
 
-出现该错误的原因是集群端的 API 服务与控制台的证书不一致，导致控制台无法与集群端的 API 服务进行通信。
+The reason for this error is that the certificate of the API service on the cluster side is inconsistent with that of the console, which makes the console unable to communicate with the API service on the cluster side.
 
-可以通过 [grctl config](/docs/ops-guide/tools/grctl) 命令查看集群端连接信息。
+You can view the cluster connection information through the [grctl config](/docs/ops-guide/tools/grctl) command.
 
 ```bash
 $ grctl config
@@ -91,28 +91,27 @@ client.pem: |
   xxxxxx
   -----END CERTIFICATE-----
 ```
+Copy the printed content to **Platform Management -> Cluster -> Edit** in the console, and click **Save**.
+* apiAddress corresponds to **API address**
+* ca.pem corresponds to **API-CA certificate**
+* client.pem corresponds to **API-Client certificate**
+* client.key.pem corresponds to **API-Client certificate key**
 
-将打印出的内容复制到控制台的 **平台管理 -> 集群 -> 编辑** 中，点击 **保存** 即可。
-* apiAddress 对应 **API 地址**
-* ca.pem 对应 **API-CA证书**
-* client.pem 对应 **API-Client证书**
-* client.key.pem 对应 **API-Client证书密钥**
-
-:::caution 注意
-证书左右两侧不能有空格，否则会导致证书无法识别。
+:::caution Caution
+There cannot be spaces on the left and right sides of the certificate, otherwise the certificate will not be recognized.
 :::
 
-如果确定控制台的证书与集群端的证书一致，但仍然出现该问题，可以尝试重新生成集群端的证书。
+If it is determined that the certificate of the console is consistent with the certificate of the cluster, but the problem still occurs, you can try to regenerate the certificate of the cluster.
 
 ```bash
-# 删除集群端的证书
+# Delete the certificate on the cluster side
 kubectl delete secret rbd-api-client-cert rbd-api-server-cert -n rbd-system
 
-# 重启 operator 重新生成集群端的证书
+# Restart the operator to regenerate the cluster-side certificate
 kubectl delete pod -l release=rainbond-operator -n rbd-system
 
-# 重启 api 服务
+# Restart the api service
 kubectl delete pod -l name=rbd-api -n rbd-system
 ```
 
-operator 重启后，会重新生成集群端的证书，再次通过 `grctl config` 获取集群信息并复制到集群控制台中即可。
+After the operator is restarted, the cluster-side certificate will be regenerated, and the cluster information can be obtained through `grctl config` again and copied to the cluster console.

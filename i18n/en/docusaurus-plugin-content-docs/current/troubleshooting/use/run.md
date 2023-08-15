@@ -2,82 +2,79 @@
 title: Operation troubleshooting
 description: This topic describes how to troubleshoot Rainbond components
 keywords:
-- 在使用 Rainbond 过程中的组件的运行问题排查
+- Troubleshooting the operation of components in the process of using Rainbond
 ---
 
-## 运行时的问题
+## runtime problems
 
-![](https://static.goodrain.com/docs/5.12/troubleshooting/installation/run.png)
+![](https://static.goodrain.com/docs/5.12/troubleshooting/installation/en-run.png)
 
-当服务组件操作日志中提示构建成功时，就进入了服务组件运行的阶段。我们期待所有的组件实例都呈现绿色的 `运行中` 状态，然而也可能发生很多的异常情形，需要根据指引一步步排查。在这个阶段，了解 [组件生命周期](/docs/use-manual/component-manage/overview/service-properties) 中各个阶段的概念是十分必要的。后续的排查过程，也是基于组件不同的状态入手。
+When the operation log of the service component indicates that the build is successful, it enters the stage of running the service component. We expect all component instances to show a green `Running` status, but many abnormal situations may occur, which need to be checked step by step according to the guidelines. At this stage, it is necessary to understand the concepts of each stage in [Component Lifecycle](/docs/use-manual/component-manage/overview/service-properties). The subsequent troubleshooting process is also based on the different states of the components.
+## common problem
+### Components have no running log information
 
-## 常见问题
+Component logs are pushed through WebSocket. If there is no log information, go to **Platform Management -> Cluster -> Edit** to check whether the `WebSocket` communication address is correct. If the cluster is provided by a public cloud vendor, the address here is internal network IP, then you cannot establish a WebSocket with the cluster locally, and you cannot display logs. Change this to the IP you can connect to locally.
 
-### 组件无运行日志信息
+### Troubleshoot runtime issues based on exception status
 
-组件的日志通过 WebSocket 进行推送，如果无日志信息，在 **平台管理 -> 集群 -> 编辑**，查看 `WebSocket` 通信地址是否正确，如果集群是公有云厂商提供的，此处地址是内网 IP，那么你本地无法与集群建立 WebSocket，就无法展示日志。将此处修改为你本地能连接上的 IP 即可。
+#### Scheduling
 
-### 根据异常状态排查运行时问题
+The component instance is always in the <font color="#ffa940"> scheduling </font> state
 
-#### 调度中
-
-组件实例一直处于 <font color="#ffa940"> 调度中  </font> 状态
-
-处于 <font color="#ffa940"> 调度中  </font> 状态的实例，体现为橙黄色的方块。说明集群中已经没有足够的资源来运行这个实例。具体的资源项短缺详情，可以点击橙黄色的方块，打开实例详情页面后在 `说明` 处了解到。例如：
+Instances in the <font color="#ffa940"> Scheduling </font> state are represented by orange squares. It means that there are not enough resources in the cluster to run this instance. For details about the shortage of specific resource items, you can click the orange square to open the instance details page and learn about it in `Description`. For example:
 
 ```css
-实例状态：调度中
-原因：   Unschedulable
-说明：   0/1 nodes are available: 1 node(s) had desk pressure
+Instance Status: Scheduling
+Reason: Unschedulable
+Explanation: 0/1 nodes are available: 1 node(s) had desk pressure
 ```
 
-根据 `说明` 可以了解到，当前集群中共有 1 个宿主机节点，但是处于不可用状态，原因是该节点存在磁盘压力。根据原因对节点进行磁盘扩容或空间清理后，该问题会自动解除。常见的资源短缺类型还包括：CPU 不足、内存不足。
+According to `Description`, we can know that there is a total of 1 host node in the current cluster, but it is in an unavailable state because the node has disk pressure. After expanding the disk capacity or clearing the space of the node according to the reason, the problem will be solved automatically. Common resource shortage types also include: insufficient CPU, insufficient memory.
 
-#### 等待启动
+#### waiting to start
 
-组件实例一直处于 <font color="#ffa940"> 等待启动  </font> 状态
+The component instance has been in the <font color="#ffa940"> waiting to start </font> state
 
-Rainbond 平台根据组件之间的依赖关系确定启动顺序。如果服务组件长时间处于 <font color="#ffa940"> 等待启动  </font> 状态，则说明其依赖的某些组件未能正常启动。切换至应用拓扑视图梳理组件间依赖关系，确保其依赖的组件都处于正常的运行状态。
+The Rainbond platform determines the startup order based on dependencies between components. If a service component is in the <font color="#ffa940"> waiting to start </font> state for a long time, it means that some of the components it depends on failed to start normally. Switch to the application topology view to sort out the dependencies among components to ensure that the components they depend on are in a normal operating state.
 
-#### 运行异常
+#### Abnormal operation
 
-组件实例一直处于 <font color="red"> 运行异常  </font> 状态
+The component instance has been in the state of <font color="red"> running abnormally </font>
 
-运行异常状态意味着该实例遭遇了无法正常运行的情况。点击红色的方块，可以在实例详情页面找到提示，重点关注实例中的容器的状态，通过状态的不同，来继续排查问题。以下是常见的几种问题状态：
+An unhealthy state means that the instance encountered a condition that prevented it from functioning properly. Click the red square, you can find prompts on the instance details page, focus on the status of the container in the instance, and continue to troubleshoot the problem based on the different status. The following are common problem states:
 
 ##### ImagePullBackOff
 
-该状态说明当前容器的镜像无法被拉取，下拉至 `事件` 列表处，可以得到更为详细的信息。确保对应的镜像可以被拉取，如果发现无法拉取的镜像以 `goodrain.me` 开头，则可以尝试构建该组件解决问题。
+This status indicates that the image of the current container cannot be pulled. Pull down to the `Events` list to get more detailed information. Make sure that the corresponding image can be pulled. If you find that the image that cannot be pulled starts with `goodrain.me`, you can try to build this component to solve the problem.
 
 ##### CrashLoopBackup
 
-该状态说明当前容器本身启动失败，或正在遭遇运行错误。切换至 `日志` 页面查看业务日志输出，对症解决问题即可。
+This status indicates that the current container itself failed to start, or is encountering a runtime error. Switch to the `log` page to view the business log output, and solve the problem symptomatically.
 
 ##### OOMkilled
 
-该状态说明为容器分配的内存太小，或业务本身存在内存泄漏问题。业务容器的内存配置入口位于 `伸缩` 页面。插件容器的内存配置入口位于 `插件` 页面。
+This status indicates that the memory allocated for the container is too small, or there is a memory leak problem in the service itself. The memory configuration entry of the business container is located on the `Scaling` page. The memory configuration entry for the plugin container is located on the `Plugins` page.
+### Third-party components are not ready
 
-### 第三方组件未就绪
+Follow the steps below for third-party components:
 
-请按照以下步骤操作第三方组件：
+1. Open the internal port of the third-party component
+2. Set third-party component health detection
+3. Start/update third-party components
 
-1. 打开第三方组件对内端口
-2. 设置第三方组件健康检测
-3. 启动/更新第三方组件
+It cannot be used normally until the status of the third-party component is `ready`.
 
-直至第三方组件状态为 `就绪`，才能正常使用。
+If the status of the third-party component is `ready`, but cannot be accessed internally or externally, please troubleshoot by the following steps:
 
-如果第三方组件状态为 `就绪`, 但是无法对内或对外访问，请通过以下步骤排查：
-
-1. 检查第三方组件创建的 endpoint 是否正确
+1. Check whether the endpoint created by the third-party component is correct
   ```bash
   kubectl get ep -n <namespace>
   ```
-2. 检查第三方组件创建的 service 是否正确，并通过 curl 命令检查是否能够访问
+2. Check whether the service created by the third-party component is correct, and check whether it can be accessed through the curl command
   ```bash
   kubectl get svc -n <namespace>
   ```
-3. 检查第三方组件创建的 ingress 是否正确
+3. Check whether the ingress created by the third-party component is correct
   ```bash
   kubectl get ing -n <namespace>
   ```

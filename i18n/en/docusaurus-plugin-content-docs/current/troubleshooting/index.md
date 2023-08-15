@@ -11,14 +11,14 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 <DocCardList items={useCurrentSidebarCategory().items}/>
 ```
 
-### 我的问题没有被涵盖
+### My question was not covered
 
-如果你的问题在本章节中未得到解决，你可以：
+If your question is not answered in this section, you can:
 
-移步 [GitHub](https://github.com/goodrain/rainbond/issues) 查询是否有相关的 issue ，如没有则提交 issues
+Move to [GitHub](https://github.com/goodrain/rainbond/issues) to check whether there are related issues, if not, submit issues
 
-前往 [社区](https://t.goodrain.com/) 搜索你的问题，寻找相似问题的答案
+Go to [Community](https://t.goodrain.com/) to search your question and find answers to similar questions
 
-加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助
+Join [WeChat group](/community/support#微信集), [Dingding group](/community/support#dingdinggroup) for help
 
-获取 [官方支持](https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/), 我们会尽快联系你
+Get [official support](https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/), we will contact you as soon as possible

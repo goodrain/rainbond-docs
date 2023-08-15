@@ -2,33 +2,33 @@
 title: Gateway troubleshooting
 descrition: This topic describes how to troubleshoot the Rainbond gateway
 keywords:
-- Rainbond 网关使用问题排查
+- Rainbond Troubleshooting Gateway Usage
 ---
 
-本文介绍 Rainbond 网关在使用过程中遇到的问题以及解决方法。
+This article introduces the problems and solutions encountered in the use of Rainbond Gateway.
 
-## 工作流程
+## work process
 
-Rainbond 网关的工作流程如下图所示：
+The workflow of the Rainbond gateway is shown in the figure below:
 
-![](https://static.goodrain.com/docs/5.12/troubleshooting/installation/gateway-process.png)
+![](https://static.goodrain.com/docs/5.12/troubleshooting/installation/en-gateway-process.png)
 
-1. 在安装了 Rainbond 之后，默认会分配一个二级泛域名，如 `*.7a7b7c.grapps.cn`。
-2. 打开组件的对外的 HTTP 访问服务后，默认会给该组件分配一个域名，该域名的分配方式是 **<组件端口>.<组件ID>.<应用ID>.7a7b7c.grapps.cn**，如 `5000.grbc.grcc.7a7b7c.grapps.cn`。
-3. 打开组件的对外的 TCP 访问服务后，默认会分配 10000 以上的端口，该端口会在宿主机上进行监听。
-4. 当用户访问该 `域名/IP` 时，会通过 Rainbond 网关进行转发，转发到对应的组件端口上。
+1. After installing Rainbond, a second-level wildcard domain name will be allocated by default, such as `*.7a7b7c.grapps.cn`.
+2. After opening the external HTTP access service of the component, a domain name will be assigned to the component by default, and the distribution method of the domain name is `component port.componentID.appID.7a7b7c.grapps.cn`，如 `5000.grbc.grcc.7a7b7c.grapps.cn`。
+3. After opening the external TCP access service of the component, a port above 10000 will be allocated by default, and the port will be monitored on the host.
+4. When a user accesses the `domain name/IP`, it will be forwarded through the Rainbond gateway and forwarded to the corresponding component port.
 
-## 常见问题
+## common problem
 
-### 域名无法访问
+### The domain name cannot be accessed
 
-在打开组件的对外访问服务之后，用默认生成的域名无法访问到组件，提示无法访问，通常的情况是：
+After opening the external access service of the component, the component cannot be accessed with the default generated domain name, and the prompt cannot be accessed. The usual situation is:
 
-域名的解析不对；如果没有指定网关IP，那么 Rainbond 将会自动选择 IP 解析，通常会解析到内网IP上，导致公网IP无法通过域名访问。
+The resolution of the domain name is incorrect; if the gateway IP is not specified, then Rainbond will automatically select the IP resolution, which usually resolves to the internal network IP, resulting in the public network IP being unable to access through the domain name.
 
-### IP:PORT 无法访问
+### IP:PORT Inaccessible
 
-通常这种情况会出现在单机体验版中，因为单机体验版默认只开放了 10000-10010 十个端口，如果需要其他的端口需要根据脚本中打印的命令重新运行并指定 `-p` 参数，如:
+Usually this happens in the stand-alone trial version, because the stand-alone trial version only opens ten ports 10000-10010 by default. If you need other ports, you need to re-run according to the command printed in the script and specify the `-p` parameter, such as :
 
 ```bash
 docker run --name rainbond-allinone ....
@@ -38,14 +38,14 @@ docker run --name rainbond-allinone ....
 ....
 ```
 
-### 域名访问显示应用正在准备中
+### Domain access shows that the application is in preparation
 
-展示这个页面代表 Rainbond 网关没有找到对应的后端组件，是属于 404 页面，通常这个现象有几种情况：
+Displaying this page means that the Rainbond gateway has not found the corresponding back-end component, which belongs to the 404 page. Usually, there are several situations for this phenomenon:
 
-1. 组件未启动
-2. 组件的端口不对，比如实际容器的监听端口是 8080，在端口中设置了 8081 然后打开对外服务，此时是找不到对应的端口服务的。
+1. Component not started
+2. The port of the component is incorrect. For example, the listening port of the actual container is 8080. If the port is set to 8081 and the external service is opened, the corresponding port service cannot be found at this time.
 
-如果配置的没问题，可能是网关本身出了问题，可以查看网关日志排查解决:
+If the configuration is correct, there may be a problem with the gateway itself. You can check the gateway log for troubleshooting:
 
 ```bash
 kubectl logs -fl name=rbd-gateway -n rbd-system
