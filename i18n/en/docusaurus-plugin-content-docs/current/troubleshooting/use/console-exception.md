@@ -2,82 +2,82 @@
 title: Console troubleshooting
 description: This topic describes how to troubleshoot server exceptions on the Rainbond console
 keywords:
-- Rainbond 服务端异常排查
+- Rainbond Troubleshooting server exceptions
 ---
 
-本文介绍使用 Rainbond 时，右上角弹出的一些警告排查方法，例如：服务端异常。
+This article describes how to troubleshoot some warnings that pop up in the upper right corner when using Rainbond, for example: server-side exceptions.
 
-## 排查思路
+## Troubleshoot ideas
 
 :::tip
-在控制台页面中进行操作时，右上角弹出警告，或者其他未预期的展示的情况下，参考以下内容排查问题。
+When operating on the console page, if a warning pops up in the upper right corner, or other unexpected display occurs, refer to the following to troubleshoot the problem.
 :::
 
-当出现问题时，优先检查其日志，根据日志排查问题。
+When a problem occurs, check its log first, and troubleshoot the problem based on the log.
 
-进入控制台的 **平台管理 -> 日志 -> 控制台日志**，根据日志排查问题。
+Go to **Platform Management -> Log -> Console Log** of the console, and troubleshoot problems according to the log.
 
 
-## 常见问题
+## common problem
 
-### 服务端异常
+### Server exception
 
-这一类问题说明控制台自身出了问题，根据 [排查思路](#排查思路) 查询并分析日志文件进而解决问题。
+This type of problem indicates that there is a problem with the console itself, and the problem can be solved by querying and analyzing the log files according to [Troubleshooting Ideas](#执查思想).
 
 #### database is locked
 
-控制台日志提示 `database is locked` 时，说明控制台数据库被锁定，导致这个原因可能是同时操作了多个数据，可以等待或重启控制台解决，或者切换控制台的数据库为 MySQL 永久解决该问题。
+When the console log prompts `database is locked`, it means that the console database is locked. This may be due to multiple data operations at the same time. You can wait or restart the console to solve the problem, or switch the console database to MySQL to permanently solve the problem .
 
-### 获取节点列表失败
+### Failed to get node list
 
-出现该问题说明 Kubernetes 集群的节点 Labels 不匹配，导致控制台无法获取节点列表，默认通过 `node-role.kubernetes.io/worker=true node-role.kubernetes.io/master=true` 标签来区分节点角色，查看节点标签是否正确：
+This problem indicates that the Node Labels of the Kubernetes cluster do not match, causing the console to fail to obtain the node list. By default, the `node-role.kubernetes.io/worker=true node-role.kubernetes.io/master=true` label is used to distinguish nodes Role, check whether the node label is correct:
   
 ```bash
 kubectl get nodes --show-labels
 ```
 
-如果不存在该标签，可以通过以下命令添加：
+If the label does not exist, it can be added with the following command:
 
 ```bash
 kubectl label nodes <node-name> node-role.kubernetes.io/worker=true
 ```
 
-### 组件故障
+### Component failure
 
-平台管理首页出现组件故障，例如：`rbd-chaos` 组件出现故障，出现该问题有以下几种可能：
+There is a component failure on the platform management home page, for example: `rbd-chaos` component failure, there are several possibilities for this problem:
 
-1. 监控数据收集的不及时，导致数据不正确，从而出现组件故障原因。
-2. 组件的确出现故障，可以通过查看组件日志排查问题。
+1. The collection of monitoring data is not timely, resulting in incorrect data, which leads to component failure.
+2. If the component does fail, you can check the component log to troubleshoot the problem.
 
   ```bash
-  # 查看组件状态是否为 running
+  # Check if the component status is running
   kubectl get pod -n rbd-system
 
-  # 查看组件日志
+  # View component logs
   kubectl logs -fl name=rbd-chaos -n rbd-system
   ```
 
-3. 组件正常工作，但组件故障的告警一直出现，可以通过以下重启组件解决：
+3. The component works normally, but the alarm of component failure keeps appearing, which can be solved by restarting the component as follows:
 
   ```bash
   kubectl delete pod -l name=rbd-chaos -n rbd-system
   ```
 
-### 无法查看组件实时日志
+### Unable to view component real-time logs
 
-组件内无法查看到实时日志，可能会存在两种情况：
+Real-time logs cannot be viewed in the component, there may be two situations:
 
-1. Websocket 配置的地址不对，导致无法通信。
-2. rbd-eventlog 服务出现故障，导致无法获取日志。
+1. The address configured by the Websocket is incorrect, resulting in communication failure.
+2. The rbd-eventlog service fails, making it impossible to obtain logs.
 
-排查方法：
+Troubleshooting method:
 
-1. 检查 Websocket 地址，**平台管理 -> 集群 -> 编辑集群** 查看 Websocket 地址，本地是否可以与该地址进行通信。
-2. 检查 rbd-eventlog 服务是否正常，如果不正常排查该服务的日志或尝试重启该组件。
+1. Check the Websocket address, **Platform Management -> Cluster -> Edit Cluster** Check the Websocket address, whether the local can communicate with this address.
+2. Check whether the rbd-eventlog service is normal. If not, check the service log or try to restart the component.
   ```bash
-  # 查看组件状态
+  # View component status
   kubectl get pod -l name=rbd-eventlog -n rbd-system
 
-  # 重启组件
+  # restart the component
   kubectl delete pod -l name=rbd-eventlog -n rbd-system
   ```
