@@ -10,7 +10,7 @@ import React from "react";
 import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
 import clsx from "clsx";
-import { PhotoProvider, PhotoView } from 'react-photo-view';
+import Link from '@docusaurus/Link';
 import 'react-photo-view/dist/react-photo-view.css';
 import Translate from "@docusaurus/Translate";
 import Use from '/img/homepage/svg/user.svg';
@@ -52,6 +52,11 @@ export default function Rainstore() {
                         <h3>第三步:管理</h3>
                         <p>使用Rainbond管理信创应用的全生命周期，如启动、构建、更新、关闭、回滚等。</p>
                     </div>
+                </div>
+                <div className={clsx("col col--12", styles.LearnMore)}>
+                    <Link to="/xinchuang" className={styles.button} target="_blank">
+                        <Translate id="feature.details">了解更多</Translate> {'>'}
+                    </Link>
                 </div>
             </animated.div>
         </div>

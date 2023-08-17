@@ -46,35 +46,35 @@ export default function Feature() {
             <ul className={clsx('newlopo', styles.newlopo)}>
               <li>
                 <PhotoProvider>
-                  <PhotoView src="/img/homepage/sourcecode/kaifayuyan.png">
-                    <img src="/img/homepage/sourcecode/kaifayuyan.png" title="点击查看完整图片"/>
+                  <PhotoView src="/img/homepage/sourcecode/source_code_check.png">
+                    <img src="/img/homepage/sourcecode/source_code_check.png" title="点击查看完整图片"/>
                   </PhotoView>
                 </PhotoProvider>
-                <span>开发语言自动识别</span>
+                <span>源码类型自动识别</span>
               </li>
               <li>
                 <PhotoProvider>
-                  <PhotoView src="/img/homepage/sourcecode/goujiancanshu.png">
-                    <img src="/img/homepage/sourcecode/goujiancanshu.png" title="点击查看完整图片"/>
+                  <PhotoView src="/img/homepage/sourcecode/custom_build_env.png">
+                    <img src="/img/homepage/sourcecode/custom_build_env.png" title="点击查看完整图片"/>
                   </PhotoView>
                 </PhotoProvider>
-                <span>构建参数自动填充</span>
+                <span>自定义构建环境</span>
               </li>
               <li>
                 <PhotoProvider>
-                  <PhotoView src="/img/homepage/sourcecode/gaojipeizhi.png">
-                    <img src="/img/homepage/sourcecode/gaojipeizhi.png" title="点击查看完整图片"/>
+                  <PhotoView src="/img/homepage/sourcecode/running_parameter_config.png">
+                    <img src="/img/homepage/sourcecode/running_parameter_config.png" title="点击查看完整图片"/>
                   </PhotoView>
                 </PhotoProvider>
-                <span>自定义高级配置</span>
+                <span>运行参数配置</span>
               </li>
               <li>
                 <PhotoProvider>
-                  <PhotoView src="/img/homepage/sourcecode/yunxingzhuangtai.png">
-                    <img src="/img/homepage/sourcecode/yunxingzhuangtai.png" title="点击查看完整图片"/>
+                  <PhotoView src="/img/homepage/sourcecode/auto_build_run.png">
+                    <img src="/img/homepage/sourcecode/auto_build_run.png" title="点击查看完整图片"/>
                   </PhotoView>
                 </PhotoProvider>
-                <span>运行状态一目了然</span>
+                <span>自动构建和运行</span>
               </li>
             </ul>
           </div>
@@ -93,7 +93,7 @@ export default function Feature() {
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.devops_content)}>
                   <Translate id="feature.devops.description">
-                  Rainbond 支持自动识别各类开发语言，如Java、Python、Golang、NodeJS、Dockerfile、Php、.NetCore等，通过简单的向导式流程，无需配置或少量配置，即可将你的业务快速部署到 K8s 集群中进行高效管理。
+                  自动识别多种开发语言，如 Java、Python、Golang、NodeJS、Dockerfile、Php、.NetCore 等，通过向导式流程完成构建和部署，不用写 Dockerfile 和 Yaml 。
                   </Translate>
                 </p>
               </div>
@@ -112,16 +112,21 @@ export default function Feature() {
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'left' }}>
                   <Translate id="feature.k8s.title">
-                    模块化拼装
+                    业务模块化拼装
                   </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.k8s_content)}>
                   <Translate id="feature.k8s.description">
-                  Rainbond 提供强大的模块化拼装能力，让各业务程序间可以通过简单连线的方式快速编排。无论是前端项目依赖后端，还是其他组件之间的协作，只需进入编排模式，将它们连接在一起，即可迅速建立关联并启用。你的业务可以灵活沉淀为独立的应用模块，这些模块可以随意组合、无限拼装，最终构建出多样化的应用系统。
+                  可复用的业务组件一键发布，统一的组件库存储，通过业务组件积木式拼装，实现业务组件的积累和复用。
                   </Translate>
                 </p>
+              </div>
+              <div className="col col--12">
+                <Link to='/feature/service-mesh' target="_blank" style={{ float: 'right'}}>
+                  <Translate id="feature.details">了解更多</Translate> {'>'}
+                </Link>
               </div>
             </div>
           </div>
@@ -130,35 +135,35 @@ export default function Feature() {
               <ul className={clsx('newlopo', styles.newlopo)}>
                 <li>
                   <PhotoProvider>
-                    <PhotoView src="/img/homepage/modularization/lianjiefangshi.png">
-                      <img src="/img/homepage/modularization/lianjiefangshi.png" title="点击查看完整图片"/>
+                    <PhotoView src="/img/homepage/modularization/component_publish.png">
+                      <img src="/img/homepage/modularization/component_publish.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>连线方式快速编排</span>
+                  <span>业务组件模版发布</span>
                 </li>
                 <li>
                   <PhotoProvider>
-                    <PhotoView src="/img/homepage/modularization/kuaisubushu.png">
-                      <img src="/img/homepage/modularization/kuaisubushu.png" title="点击查看完整图片"/>
+                    <PhotoView src="/img/homepage/modularization/component_markets.png">
+                      <img src="/img/homepage/modularization/component_markets.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>快速部署其他模块</span>
+                  <span>组件库管理</span>
                 </li>
                 <li>
                   <PhotoProvider>
-                    <PhotoView src="/img/homepage/modularization/jimu.png">
-                      <img src="/img/homepage/modularization/jimu.png" title="点击查看完整图片"/>
+                    <PhotoView src="/img/homepage/modularization/add_component.png">
+                      <img src="/img/homepage/modularization/add_component.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>积木式拼装</span>
+                  <span>添加业务组件</span>
                 </li>
                 <li>
                   <PhotoProvider>
-                    <PhotoView src="/img/homepage/modularization/tuoputu.png">
-                      <img src="/img/homepage/modularization/tuoputu.png" title="点击查看完整图片"/>
+                    <PhotoView src="/img/homepage/modularization/component_assembly.png">
+                      <img src="/img/homepage/modularization/component_assembly.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>应用级拓扑图管理</span>
+                  <span>业务组件拼装</span>
                 </li>
               </ul>
             </div>
@@ -171,35 +176,35 @@ export default function Feature() {
               <ul className={clsx('newlopo', styles.newlopo)}>
                 <li>
                   <PhotoProvider>
-                    <PhotoView src="/img/homepage/jiankong/xinneng.png">
-                      <img src="/img/homepage/jiankong/xinneng.png" title="点击查看完整图片"/>
+                    <PhotoView src="/img/homepage/monitor/cluster_monitor.png">
+                      <img src="/img/homepage/monitor/cluster_monitor.png" title="点击查看完整图片"/>
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>集群监控</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/monitor/node_monitor.png">
+                      <img src="/img/homepage/monitor/node_monitor.png" title="点击查看完整图片"/>
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>节点监控</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/monitor/app_topology.png">
+                      <img src="/img/homepage/monitor/app_topology.png" title="点击查看完整图片"/>
+                    </PhotoView>
+                  </PhotoProvider>
+                  <span>应用拓扑</span>
+                </li>
+                <li>
+                  <PhotoProvider>
+                    <PhotoView src="/img/homepage/monitor/component_performance_monitor.png">
+                      <img src="/img/homepage/monitor/component_performance_monitor.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
                   <span>组件性能监控</span>
-                </li>
-                <li>
-                  <PhotoProvider>
-                    <PhotoView src="/img/homepage/jiankong/log.png">
-                      <img src="/img/homepage/jiankong/log.png" title="点击查看完整图片"/>
-                    </PhotoView>
-                  </PhotoProvider>
-                  <span>组件日志</span>
-                </li>
-                <li>
-                  <PhotoProvider>
-                    <PhotoView src="/img/homepage/jiankong/shiyong.png">
-                      <img src="/img/homepage/jiankong/shiyong.png" title="点击查看完整图片"/>
-                    </PhotoView>
-                  </PhotoProvider>
-                  <span>资源使用监控</span>
-                </li>
-                <li>
-                  <PhotoProvider>
-                    <PhotoView src="/img/homepage/jiankong/jiankang.png">
-                      <img src="/img/homepage/jiankong/jiankang.png" title="点击查看完整图片"/>
-                    </PhotoView>
-                  </PhotoProvider>
-                  <span>容器健康状态</span>
                 </li>
               </ul>
             </div>
@@ -212,14 +217,14 @@ export default function Feature() {
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'right' }}>
                   <Translate id="feature.mesh.title">
-                    丰富的监控
+                    丰富的可观测能力
                   </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.mesh_content)}>
                   <Translate id="feature.mesh.description">
-                  Rainbond 提供全方位的监控能力，涵盖组件性能、组件日志、资源使用、容器健康状态等多个维度。可以轻松地了解系统各部分的运行情况，确保应用的可靠性和稳定性。
+                  Rainbond 提供全面的可观测性，涵盖集群监控、节点监控、应用监控、组件监控。
                   </Translate>
                 </p>
               </div>
@@ -238,14 +243,14 @@ export default function Feature() {
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'left' }}>
                   <Translate id="feature.appstore.title">
-                  应用快速运维
+                  应用全生命周期管理
                   </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.store_content)}>
                   <Translate id="feature.appstore.description">
-                  Rainbond 提供了面向应用的全生命周期管理运维，支持一键管理应用内组件的批量启动、关闭、构建、更新、回滚等关键操作。同时还支持应用网关策略管理和证书管理，支持应用故障时自动恢复，以及应用自动伸缩等功能。
+                  Serverless体验，应用管理和运维，组件管理和运维，无侵入微服务架构。
                   </Translate>
                 </p>
               </div>
@@ -256,35 +261,35 @@ export default function Feature() {
               <ul className={clsx('newlopo', styles.newlopo)}>
                 <li>
                   <PhotoProvider>
-                    <PhotoView src="/img/homepage/yunwei/shengmingzhouqj.png">
-                      <img src="/img/homepage/yunwei/shengmingzhouqj.png" title="点击查看完整图片"/>
+                    <PhotoView src="/img/homepage/app_lifecycle_manage/app_manage.png">
+                      <img src="/img/homepage/app_lifecycle_manage/app_manage.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>应用全生命周期管理</span>
+                  <span>应用级管理</span>
                 </li>
                 <li>
                   <PhotoProvider>
-                    <PhotoView src="/img/homepage/yunwei/wangguan.png">
-                      <img src="/img/homepage/yunwei/wangguan.png" title="点击查看完整图片"/>
+                    <PhotoView src="/img/homepage/app_lifecycle_manage/component_manage.png">
+                      <img src="/img/homepage/app_lifecycle_manage/component_manage.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>应用网关策略管理</span>
+                  <span>组件级管理</span>
                 </li>
                 <li>
                   <PhotoProvider>
-                    <PhotoView src="/img/homepage/yunwei/zhengshu.png">
-                      <img src="/img/homepage/yunwei/zhengshu.png" title="点击查看完整图片"/>
+                    <PhotoView src="/img/homepage/app_lifecycle_manage/gateway_manage.png">
+                      <img src="/img/homepage/app_lifecycle_manage/gateway_manage.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>应用证书管理</span>
+                  <span>应用网关管理</span>
                 </li>
                 <li>
                   <PhotoProvider>
-                    <PhotoView src="/img/homepage/yunwei/shensuo.png">
-                      <img src="/img/homepage/yunwei/shensuo.png" title="点击查看完整图片"/>
+                    <PhotoView src="/img/homepage/app_lifecycle_manage/servicemesh_manage.png">
+                      <img src="/img/homepage/app_lifecycle_manage/servicemesh_manage.png" title="点击查看完整图片"/>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>应用自动伸缩配置</span>
+                  <span>Service Mesh</span>
                 </li>
               </ul>
             </div>

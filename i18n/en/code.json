@@ -203,6 +203,9 @@
   "feature.model.description": {
     "message": "Via Application model Abstraction,Let developers care more about the business itself,rather than the use of the underlying complex tools.Reduce operating costs and difficulty of understanding,Make it easier for Kubernetes to land."
   },
+  "appstore.link": {
+    "message": "Access app markets"
+  },
   "howrainbond.title": {
     "message": "What Can Rainbond Do?"
   },

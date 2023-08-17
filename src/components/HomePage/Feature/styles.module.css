@@ -142,10 +142,12 @@
 .newlopo li:hover{
   width: 300%;
   transition: 0.5s;
+  cursor: pointer;
 }
 .newlopo li:hover img{
   width: 100%;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 
