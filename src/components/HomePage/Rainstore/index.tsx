@@ -10,6 +10,7 @@ import React from "react";
 import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
 import clsx from "clsx";
+import Link from "@docusaurus/Link";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import Translate from "@docusaurus/Translate";
@@ -39,6 +40,11 @@ export default function Rainstore() {
                             <img src="/img/homepage/storelopo/lopo.png" />
                         </PhotoView>
                     </PhotoProvider>
+                </div>
+                <div className="col col--12">
+                    <Link to="https://hub.grapps.cn" className={styles.button}>
+                    <Translate id="appstore.link">访问应用市场</Translate> {'>'}
+                    </Link>
                 </div>
             </animated.div>
         </div>
