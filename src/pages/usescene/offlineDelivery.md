@@ -70,15 +70,15 @@ Rainbond 的应用模版 跟 OAM 的设计思路完全一致，“以应用为�
 
 - 拥有两套 Rainbond 集群，模拟开发环境及交付环境(开发环境为在线环境，交付环境为离线环境)。
 
-- 开发环境安装，参考 [在线安装](https://www.rainbond.com/docs/quick-start/quick-install/)文档；
+- 开发环境安装，参考 [在线安装](/docs/quick-start/quick-install/)文档；
 
-- 交付环境安装，参考 [离线安装](https://www.rainbond.com/docs/user-operations/deploy/offline-installation/)文档；
+- 交付环境安装，参考 [离线安装](/docs/installation/offline/)文档；
 
 - 拥有 U 盘、光盘等离线环境下应用模板离线包传输介质。
 
 **1.业务部署**
 
-整个流程始于开发环境，我们首先需要将业务搬迁至 Rainbond 之上。在开发环境基于部署自己的业务，可以支持源代码或是镜像。当前以 Spring Cloud 微服务框架 [Pig ](https://gitee.com/log4j/pig)为例，部署参考[SpringCloud Pig 在 Rainbond 部署及应用制作](https://t.goodrain.com/t/topic/1526)。
+整个流程始于开发环境，我们首先需要将业务搬迁至 Rainbond 之上。在开发环境基于部署自己的业务，可以支持源代码或是镜像。当前以 Spring Cloud 微服务框架 [Pig ](https://gitee.com/log4j/pig)为例，部署参考[SpringCloud Pig 在 Rainbond 部署及应用制作](/docs/micro-service/example/pig/)。
 
 **2.应用发布**
 
