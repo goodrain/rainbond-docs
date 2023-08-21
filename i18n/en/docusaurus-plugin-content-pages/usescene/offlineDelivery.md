@@ -70,15 +70,15 @@ For application delivery in an offline environment based on**, you only need to 
 
 - It has two sets of Rainbond clusters, simulating the development environment and the delivery environment (the development environment is an online environment, and the delivery environment is an offline environment).
 
-- For development environment installation, refer to [Online Installation](https://www.rainbond.com/docs/quick-start/quick-install/)document;
+- For development environment installation, refer to [Online Installation](/docs/quick-start/quick-install/)document;
 
-- For installation in the delivery environment, refer to the document [Offline Installation](https://www.rainbond.com/docs/user-operations/deploy/offline-installation/);
+- For installation in the delivery environment, refer to the document [Offline Installation](/docs/installation/offline/);
 
 - Have U disk, CD and other offline environment application template offline package transmission media.
 
 **1. Business deployment**
 
-The whole process starts with the development environment, and we first need to move the business to Rainbond.In the development environment, based on the deployment of your own business, you can support source code or mirroring.Currently taking Spring Cloud microservice framework [Pig ](https://gitee.com/log4j/pig)as an example, deployment reference[Spring Cloud Pig deployment and application production in Rainbond](https://t.goodrain.com/t/topic/1526).
+The whole process starts with the development environment, and we first need to move the business to Rainbond.In the development environment, based on the deployment of your own business, you can support source code or mirroring.Currently taking Spring Cloud microservice framework [Pig ](https://gitee.com/log4j/pig)as an example, deployment reference[Spring Cloud Pig deployment and application production in Rainbond](/docs/micro-service/example/pig/).
 
 **2. Application release**
 
