@@ -30,13 +30,28 @@ keywords:
 ## Kubernetes 安装常见问题
 
 ### Cluster must have at least one etcd plane host
-
 这种情况一般是你配置的节点 IP 地址或 SSH 端口不正确或端口有防火墙策略，导致控制台无法连接指定的节点。重新配置正确的节点 IP 地址和 SSH 端口，或开启 SSH 端口的防火墙策略。
 
 另一种可能的情况，是安装 Rainbond 所使用的宿主机节点中， 目录 `/home/docker/.ssh` 的属主和属组不是 docker 用户，执行以下命令改正后重试：
 
 ```bash
 chown docker:docker /home/docker/.ssh
+```
+
+如果都无法解决此问题，您可以重新生成密钥对。
+SSH密钥对由私钥（私有密钥）和公钥组成。使用私钥进行身份验证，并将公钥放置在服务器上以授权访问。要生成SSH密钥对，请在终端中运行以下命令：
+```bash
+ssh-keygen -t rsa
+```
+复制公钥到服务器。公钥文件的默认位置是~/.ssh/id_rsa.pub。你可以使用以下命令将公钥复制到目标服务器上：
+
+```bash
+# 将下方 ip 替换成您的真实 IP
+ssh-copy-id docker@1.1.1.1
+```
+验证免密登录是否成功。现在，你应该能够通过以下命令直接登录到服务器，而无需输入密码
+```bash
+ssh docker@1.1.1.1
 ```
 
 ### node 192.168.1.11 not found
