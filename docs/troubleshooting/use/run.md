@@ -49,6 +49,37 @@ Rainbond 平台根据组件之间的依赖关系确定启动顺序。如果服�
 
 该状态说明当前容器的镜像无法被拉取，下拉至 `事件` 列表处，可以得到更为详细的信息。确保对应的镜像可以被拉取，如果发现无法拉取的镜像以 `goodrain.me` 开头，则可以尝试构建该组件解决问题。
 
+##### Etcd 无法启动 pkg/netutil: could not resolve host rbd-etcd:2380
+
+该状态 有可能是```kube-system```命名空间下的```coredns```无法启动，详情查看
+```bash
+kubectl get po -nkube-system
+```
+出现如下列表
+```bash
+NAME                                  READY   STATUS      RESTARTS        AGE
+coredns-79d84b4865-n6n2x              0/1     ImagePullBackOff     1 (5h36m ago)   20h
+coredns-autoscaler-b7fd846f5-p5627    1/1     Running     1 (5h36m ago)   20h
+kube-flannel-jxmt6                    2/2     Running     2 (5h36m ago)   20h
+rke-coredns-addon-deploy-job-q5nps    0/1     Completed   0               20h
+rke-network-plugin-deploy-job-bcrsg   0/1     Completed   0  
+```
+
+如果看到```coredns```没有成功运行，可能是镜像无法拉取，可尝试更改镜像
+```bash
+kubectl edit po coredns-79d84b4865-n6n2x -nkube-system
+```
+可将 spec.containers.image字段改为```rancher/mirrored-coredns-coredns:1.9.0```
+```yaml
+spec:
+  containers:
+    image: rancher/mirrored-coredns-coredns:1.9.0
+```
+之后该pod会自动重启，稍等片刻再次执行查看pod的命令，查看服务是否恢复正常。
+
+```coredns-autoscaler```也可能出现此问题，可将镜像改为```rancher/mirrored-cluster-proportional-autoscaler:1.8.5```
+
+
 ##### Failed to pull image xxx, denied: You may not login yet
 可以构建成功，但是无法滚动更新，这种情况通常是该命名空间下没有```rbd-hub-credential```或者```rbd-hub-credentials```密钥内容不对。
 可以通过命令查看是否存在该密钥
