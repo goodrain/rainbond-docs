@@ -56,18 +56,38 @@ Rainbond 支持 `Docker` 和 `Containerd` 两种容器运行时，当集群环�
 <Tabs>
   <TabItem value="Docker" label="Docker" default>
 
+使用下方命令行快速安装，所有参数均采用默认参数。
+
 ```bash  
 helm install rainbond rainbond/rainbond-cluster -n rbd-system
 ```
 
 如果你的集群有公网 IP，需要从外部访问，请指定 `Cluster.gatewayIngressIPs` 参数，如下所示，将命令中的 gatewayIngressIPs 替换成你的公网 IP 即可：
 
-```bash  
-helm install --set Cluster.gatewayIngressIPs=47.96.3.163 rainbond rainbond/rainbond-cluster -n rbd-system 
+新建示例[values.yaml](/docs/installation/install-with-helm/vaules-config)文件：
+
+
+```yaml
+Cluster:  
+  nodesForGateway: 
+  - externalIP: 10.22.197.170 #外网IP
+    internalIP: 10.22.197.170 #内网IP
+    name: 10.22.197.170
+    
+  - externalIP: 10.22.197.171
+    internalIP: 10.22.197.171
+    name: 10.22.197.171
 ```
 
+然后使用下方命令行指定```values.yaml```文件
+
+```bash  
+helm install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
+```
   </TabItem>
+
   <TabItem value="Containerd" label="Containerd">
+使用下方命令行快速安装，所有参数均采用默认参数。
 
 ```bash  
 helm install --set operator.env[0].name=CONTAINER_RUNTIME --set operator.env[0].value=containerd rainbond rainbond/rainbond-cluster -n rbd-system
@@ -75,9 +95,23 @@ helm install --set operator.env[0].name=CONTAINER_RUNTIME --set operator.env[0].
 
 如果你的集群有公网 IP，需要从外部访问，请指定 `Cluster.gatewayIngressIPs` 参数，如下所示，将命令中的 gatewayIngressIPs 替换成你的公网 IP 即可：
 
-```bash  
-helm install --set Cluster.gatewayIngressIPs=47.96.3.163 --set operator.env[0].name=CONTAINER_RUNTIME --set operator.env[0].value=containerd rainbond rainbond/rainbond-cluster -n rbd-system 
+新建示例[values.yaml](/docs/installation/install-with-helm/vaules-config)文件：
+
+```yaml
+Cluster: 
+  nodesForGateway:
+  - externalIP: 10.22.197.170 #外网IP
+    internalIP: 10.22.197.170 #内网IP
+    name: 10.22.197.170
+    
+  - externalIP: 10.22.197.171
+    internalIP: 10.22.197.171
+    name: 10.22.197.171
 ```
+```bash  
+helm install --set operator.env[0].name=CONTAINER_RUNTIME --set operator.env[0].value=containerd rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
+```
+
 
   </TabItem>
 </Tabs>
