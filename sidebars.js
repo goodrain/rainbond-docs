@@ -69,11 +69,11 @@ const sidebars = {
                 'installation/install-with-helm/other/install-from-rancher',
               ]
             },
-            {
-              type: 'link',
-              label: 'Helm 命令生成工具',
-              href: '/helm'
-            },
+            // {
+            //   type: 'link',
+            //   label: 'Helm 命令生成工具',
+            //   href: '/helm'
+            // },
           ]
         },
         {
