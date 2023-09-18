@@ -29,7 +29,7 @@ helm repo update
 2. 执行命令安装，替换命令中的 `nfs.server` 和 `nfs.path` 为你的 NFS 服务器地址和路径
 
 ```shell 
-helm install nfs-client-provisioner rainbond/nfs-client-provisioner \ 
+helm install nfs-client-provisioner rainbond/nfs-client-provisioner \
 --set nfs.server=192.168.1.11 \
 --set nfs.path=/data \
 --version 1.2.8
