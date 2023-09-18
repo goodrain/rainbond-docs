@@ -49,7 +49,7 @@ ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/runner:${VERSION}
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/mysqld-exporter:latest
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/nfs-provisioner:latest
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/helm-env-checker:latest
-${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/kaniko-executor:latest"
+${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/buildkit:latest"
 
 for image in ${image_list}; do
     docker pull "${image}"
@@ -97,7 +97,7 @@ docker load -i rainbond-v5.15.2-release.tar
 解压 Helm Chart 包
 
 ```bash
-tar xvf rainbond-cluster-5.14.0.tgz
+tar xvf rainbond-cluster-5.15.2.tgz
 ```
 
 使用 Helm Chart 安装 Rainbond，
