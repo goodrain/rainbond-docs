@@ -159,40 +159,112 @@
     "message": "Integration Platform"
   },
   "platform.integration.description": {
-    "message": "One platform for DevOps, app lifecycle manage, service mesh, app market, Kubernetes multi-cluster manage and multi-tenancy, OOTD."
+    "message": "One platform for DevOps, app lifecycle manage, service mesh, app market, Kubernetes multi-cluster manage and multi-tenancy. Out of the box"
   },
   "platform.expand.title": {
     "message": "Rich extension features"
   },
   "platform.expand.description": {
-    "message": "80+ App and plugin OOTD. Via plugin and app market Extend OPS, service governance, modular development, etc."
+    "message": "Over 80 open source apps and plugins ready to use. Via plugin and app market Extend OPS, service governance, modular development, etc."
   },
-  "feature.title": {
-    "message": "Primary Feature"
+  "feature.use.title": {
+    "message": "Zero learning cost, graphical interface, mouse click to complete all operations"
   },
-  "feature.devops.title": {
-    "message": "Easy to use integrated DevOps Platform"
+  "feature.source_deploy.title": {
+    "message": "Automatic source code identification and deployment"
   },
-  "feature.devops.description": {
-    "message": "Rainbond uses an app center design philosophy, Be developer friendly, No need to learn about Containers Kubernetes, etc. Developers can control the application development and application operation and maintenance process independently. Complex system and platform manage is the responsibility of the platform admin.Compatible with various Kubernetes versions and Kubernetes tools,To fulfill their respective duties."
+  "feature.source_deploy.description": {
+    "message": "Automatically recognizes multiple development languages such as Java, Python, Golang, NodeJS, Dockerfile, Php, .NetCore, etc., build and deploy through a guided process without writing Dockerfile and Yaml."
   },
-  "feature.k8s.title": {
-    "message": "Kubernetes Multi cluster management"
+  "feature.source_code_check": {
+    "message": "Check language"
   },
-  "feature.k8s.description": {
-    "message": "Rainbond console supports management of various Kubernetes clusters,Support application-level development and management experience,No need to write YAML.Cross-cluster deployment, installation, migration, and backup of applications through application-level abstraction."
+  "feature.custom_build_env": {
+    "message": "Custom build env"
   },
-  "feature.mesh.title": {
-    "message": "OOTD Service Governance and Orchestration"
+  "feature.running_parameter_config": {
+    "message": "Running parameter"
   },
-  "feature.mesh.description": {
-    "message": "Traditional app be deployed to Rainbond, enable app plugin to support Service Mesh.Switch the service mesh as required.Extend service management tools such as log management, performance analysis, and monitoring through component-level plugins.Support Spring Cloud and Dubbo, etc."
+  "feature.auto_build_run": {
+    "message": "Auto build and run"
   },
-  "feature.appstore.title": {
-    "message": "Enterprise Application Automation Delivery"
+  "feature.modular.title": {
+    "message": "Business modular assembled"
   },
-  "feature.appstore.description": {
-    "message": "Support the whole process management of application market, include Application building, publishing, displaying, managing, exporting, importing, etc. Publish any type of app to the App Market through app templates, And realize one-click delivery of complex applications to customer environments."
+  "feature.modular.description": {
+    "message": "Reusable business components are released in one click, unified component library storage, and business components are accumulated and reused through business component building blocks."
+  },
+  "feature.component_publish": {
+    "message": "Component publish"
+  },
+  "feature.component_markets": {
+    "message": "Component markets"
+  },
+  "feature.add_component": {
+    "message": "Add component"
+  },
+  "feature.component_assembly": {
+    "message": "Component assembly"
+  },
+  "feature.observability.title": {
+    "message": "Abundant observability"
+  },
+  "feature.observability.description": {
+    "message": "Rainbond provides comprehensive observability, including cluster monitoring, node monitoring, application monitoring, and component monitoring."
+  },
+  "feature.cluster_monitor": {
+    "message": "Cluster monitor"
+  },
+  "feature.node_monitor": {
+    "message": "Node monitor"
+  },
+  "feature.app_topology": {
+    "message": "App topology"
+  },
+  "feature.component_performance_monitor": {
+    "message": "Performance monitor"
+  },
+  "feature.lifecycle.title": {
+    "message": "Application Lifecycle Management"
+  },
+  "feature.lifecycle.description": {
+    "message": "Serverless experience, application management and operation and maintenance, component management and operation and maintenance, non-intrusive micro-service architecture."
+  },
+  "feature.app_manage": {
+    "message": "App manage"
+  },
+  "feature.component_manage": {
+    "message": "Component manage"
+  },
+  "feature.gateway_manage": {
+    "message": "Gateway manage"
+  },
+  "feature.servicemesh_manage": {
+    "message": "Service Mesh"
+  },
+  "feature.app.title": {
+    "message": "500+ open source application one-click deployment and upgrade"
+  },
+  "feature.xinchuang.title": {
+    "message": "Complete the environmental migration of Xinchuang in three steps"
+  },
+  "feature.xinchuang.step_one": {
+    "message": "Step 1: Install"
+  },
+  "feature.xinchuang.step_one.desc": {
+    "message": "Install Rainbond in the domestic XinChuang environment (Rainbond support common domestic CPU and operating system)."
+  },
+  "feature.xinchuang.step_two": {
+    "message": "Step 2: Identify and deploy"
+  },
+  "feature.xinchuang.step_two.desc": {
+    "message": "Traditional applications are automatically identified and deployed to the trust creation environment (automatically compiled and compatible with domestic CPU, and automatically deployed to compatible servers)."
+  },
+  "feature.xinchuang.step_three": {
+    "message": "Step 3: Management"
+  },
+  "feature.xinchuang.step_three.desc": {
+    "message": "Use Rainbond to manage the whole life cycle of Xinchuang applications, such as startup, build, update, shutdown, rollback, etc."
   },
   "feature.details": {
     "message": "Details"
@@ -213,7 +285,7 @@
     "message": "Integration Development Test Environment"
   },
   "howrainbond.integratedDev.description": {
-    "message": "Integrated dev and testing env,Auto Identify languages and build,OOTB."
+    "message": "Integrated dev and testing env,Auto Identify languages and build, out of the box."
   },
   "howrainbond.appUnifiedManage.title": {
     "message": " Unified Management of Enterprise App"

@@ -10,6 +10,7 @@ import React from "react";
 import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
 import clsx from "clsx";
+import { useLocation } from '@docusaurus/router';
 import Link from "@docusaurus/Link";
 import LazyLoad from 'react-lazyload';
 import Devops from '/img/homepage/svg/devops.svg';
@@ -22,6 +23,7 @@ import Translate from "@docusaurus/Translate";
 
 export default function Feature() {
 
+  const LocalUrlEn = useLocation().pathname.includes('/en');
   const animatedTexts = useTrail(5, {
     from: { opacity: 0, transform: 'translateY(3em)' },
     to: { opacity: 1, transform: 'translateY(0)' },
@@ -37,7 +39,7 @@ export default function Feature() {
     <div className={clsx('container', styles.global)}>
       <animated.div style={animatedTexts[0]}>
         <h2 className={styles.title}>
-          <Translate id="feature.title">零学习成本，图形界面，鼠标点击就能完成所有操作</Translate>
+          <Translate id="feature.use.title">零学习成本，图形界面，鼠标点击就能完成所有操作</Translate>
         </h2>
 
 
@@ -49,41 +51,49 @@ export default function Feature() {
                 <LazyLoad height={200} offset={100}>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/sourcecode/source_code_check.png">
-                      <img src="/img/homepage/sourcecode/source_code_check.png" title="点击查看完整图片" />
+                      {!LocalUrlEn? <img src="/img/homepage/sourcecode/source_code_check.png" title="点击查看完整图片" /> : <img src="/img/homepage/sourcecode/source_code_check_en.png" title="Click to view full image" />}
                     </PhotoView>
                   </PhotoProvider>
                 </LazyLoad>
-                <span>源码类型自动识别</span>
+                <span>
+                  <Translate id="feature.source_code_check">源码类型自动识别</Translate>
+                </span>
               </li>
               <li>
                 <LazyLoad height={200} offset={100}>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/sourcecode/custom_build_env.png">
-                      <img src="/img/homepage/sourcecode/custom_build_env.png" title="点击查看完整图片" />
+                      {!LocalUrlEn? <img src="/img/homepage/sourcecode/custom_build_env.png" title="点击查看完整图片" /> : <img src="/img/homepage/sourcecode/custom_build_env_en.png" title="Click to view full image" />}
                     </PhotoView>
                   </PhotoProvider>
                 </LazyLoad>
-                <span>自定义构建环境</span>
+                <span>
+                  <Translate id="feature.custom_build_env">自定义构建环境</Translate>
+                </span>
               </li>
               <li>
                 <LazyLoad height={200} offset={100}>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/sourcecode/running_parameter_config.png">
-                      <img src="/img/homepage/sourcecode/running_parameter_config.png" title="点击查看完整图片" />
+                      {!LocalUrlEn? <img src="/img/homepage/sourcecode/running_parameter_config.png" title="点击查看完整图片" /> : <img src="/img/homepage/sourcecode/running_parameter_config_en.png" title="Click to view full image" />}
                     </PhotoView>
                   </PhotoProvider>
                 </LazyLoad>
-                <span>运行参数配置</span>
+                <span>
+                  <Translate id="feature.running_parameter_config">运行参数配置</Translate>
+                </span>
               </li>
               <li>
                 <LazyLoad height={200} offset={100}>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/sourcecode/auto_build_run.png">
-                      <img src="/img/homepage/sourcecode/auto_build_run.png" title="点击查看完整图片" />
+                      {!LocalUrlEn? <img src="/img/homepage/sourcecode/auto_build_run.png" title="点击查看完整图片" /> : <img src="/img/homepage/sourcecode/auto_build_run_en.png" title="Click to view full image" />}
                     </PhotoView>
                   </PhotoProvider>
                 </LazyLoad>
-                <span>自动构建和运行</span>
+                <span>
+                  <Translate id="feature.auto_build_run">自动构建和运行</Translate>
+                </span>
               </li>
             </ul>
           </div>
@@ -94,14 +104,14 @@ export default function Feature() {
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'right' }}>
-                  <Translate id="feature.devops.title">
+                  <Translate id="feature.source_deploy.title">
                     源码自动识别和部署
                   </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.devops_content)}>
-                  <Translate id="feature.devops.description">
+                  <Translate id="feature.source_deploy.description">
                     自动识别多种开发语言，如 Java、Python、Golang、NodeJS、Dockerfile、Php、.NetCore 等，通过向导式流程完成构建和部署，不用写 Dockerfile 和 Yaml 。
                   </Translate>
                 </p>
@@ -120,14 +130,14 @@ export default function Feature() {
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'left' }}>
-                  <Translate id="feature.k8s.title">
+                  <Translate id="feature.modular.title">
                     业务模块化拼装
                   </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.k8s_content)}>
-                  <Translate id="feature.k8s.description">
+                  <Translate id="feature.modular.description">
                     可复用的业务组件一键发布，统一的组件库存储，通过业务组件积木式拼装，实现业务组件的积累和复用。
                   </Translate>
                 </p>
@@ -146,41 +156,50 @@ export default function Feature() {
                   <LazyLoad height={200} offset={100}>
                     <PhotoProvider>
                       <PhotoView src="/img/homepage/modularization/component_publish.png">
-                        <img src="/img/homepage/modularization/component_publish.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/modularization/component_publish.png" title="点击查看完整图片" /> : <img src="/img/homepage/modularization/component_publish_en.png" title="Click to view full image" />}
                       </PhotoView>
                     </PhotoProvider>
                   </LazyLoad>
-                  <span>业务组件模版发布</span>
+                  <span>
+                    <Translate id="feature.component_publish">业务组件模版发布</Translate>
+                  </span>
                 </li>
                 <li>
                   <LazyLoad height={200} offset={100}>
                     <PhotoProvider>
                       <PhotoView src="/img/homepage/modularization/component_markets.png">
-                        <img src="/img/homepage/modularization/component_markets.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/modularization/component_markets.png" title="点击查看完整图片" /> : <img src="/img/homepage/modularization/component_markets_en.png" title="Click to view full image" />}
                       </PhotoView>
                     </PhotoProvider>
                   </LazyLoad>
-                  <span>组件库管理</span>
+                  <span>
+                    <Translate id="feature.component_markets">组件库管理</Translate>
+                  </span>
                 </li>
                 <li>
                   <LazyLoad height={200} offset={100}>
                     <PhotoProvider>
                       <PhotoView src="/img/homepage/modularization/add_component.png">
-                        <img src="/img/homepage/modularization/add_component.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/modularization/add_component.png" title="点击查看完整图片" /> : <img src="/img/homepage/modularization/add_component_en.png" title="Click to view full image" />}
                       </PhotoView>
                     </PhotoProvider>
                   </LazyLoad>
-                  <span>添加业务组件</span>
+                  <span>
+                    <Translate id="feature.add_component">添加业务组件</Translate>
+                  </span>
                 </li>
                 <li>
                   <LazyLoad height={200} offset={100}>
                     <PhotoProvider>
                       <PhotoView src="/img/homepage/modularization/component_assembly.png">
-                        <img src="/img/homepage/modularization/component_assembly.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/modularization/component_assembly.png" title="点击查看完整图片" /> : <img src="/img/homepage/modularization/component_assembly_en.png" title="Click to view full image" />}
                       </PhotoView>
                     </PhotoProvider>
                   </LazyLoad>
                   <span>业务组件拼装</span>
+                  <span>
+                    <Translate id="feature.component_assembly">业务组件拼装</Translate>
+                  </span>
                 </li>
               </ul>
             </div>
@@ -195,41 +214,49 @@ export default function Feature() {
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/monitor/cluster_monitor.png">
                       <LazyLoad height={200} offset={100}>
-                        <img src="/img/homepage/monitor/cluster_monitor.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/monitor/cluster_monitor.png" title="点击查看完整图片" /> : <img src="/img/homepage/monitor/cluster_monitor_en.png" title="Click to view full image" />}
                       </LazyLoad>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>集群监控</span>
+                  <span>
+                    <Translate id="feature.cluster_monitor">集群监控</Translate>
+                  </span>
                 </li>
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/monitor/node_monitor.png">
                       <LazyLoad height={200} offset={100}>
-                        <img src="/img/homepage/monitor/node_monitor.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/monitor/node_monitor.png" title="点击查看完整图片" /> : <img src="/img/homepage/monitor/node_monitor_en.png" title="Click to view full image" />}
                       </LazyLoad>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>节点监控</span>
+                  <span>
+                    <Translate id="feature.node_monitor">节点监控</Translate>
+                  </span>
                 </li>
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/monitor/app_topology.png">
                       <LazyLoad height={200} offset={100}>
-                        <img src="/img/homepage/monitor/app_topology.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/monitor/app_topology.png" title="点击查看完整图片" /> : <img src="/img/homepage/monitor/app_topology_en.png" title="Click to view full image" />}
                       </LazyLoad>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>应用拓扑</span>
+                  <span>
+                    <Translate id="feature.app_topology">应用拓扑</Translate>
+                  </span>
                 </li>
                 <li>
                   <PhotoProvider>
                     <PhotoView src="/img/homepage/monitor/component_performance_monitor.png">
                       <LazyLoad height={200} offset={100}>
-                        <img src="/img/homepage/monitor/component_performance_monitor.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/monitor/component_performance_monitor.png" title="点击查看完整图片" /> : <img src="/img/homepage/monitor/component_performance_monitor_en.png" title="Click to view full image" />}
                       </LazyLoad>
                     </PhotoView>
                   </PhotoProvider>
-                  <span>组件性能监控</span>
+                  <span>
+                    <Translate id="feature.component_performance_monitor">组件性能监控</Translate>
+                  </span>
                 </li>
               </ul>
             </div>
@@ -241,14 +268,14 @@ export default function Feature() {
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'right' }}>
-                  <Translate id="feature.mesh.title">
+                  <Translate id="feature.observability.title">
                     丰富的可观测能力
                   </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.mesh_content)}>
-                  <Translate id="feature.mesh.description">
+                  <Translate id="feature.observability.description">
                     Rainbond 提供全面的可观测性，涵盖集群监控、节点监控、应用监控、组件监控。
                   </Translate>
                 </p>
@@ -267,14 +294,14 @@ export default function Feature() {
               </div>
               <div className="col col--12">
                 <h3 className={styles.subtitle} style={{ float: 'left' }}>
-                  <Translate id="feature.appstore.title">
+                  <Translate id="feature.lifecycle.title">
                     应用全生命周期管理
                   </Translate>
                 </h3>
               </div>
               <div className="col col--12">
                 <p className={clsx(styles.content, styles.store_content)}>
-                  <Translate id="feature.appstore.description">
+                  <Translate id="feature.lifecycle.description">
                     Serverless体验，应用管理和运维，组件管理和运维，无侵入微服务架构。
                   </Translate>
                 </p>
@@ -288,41 +315,49 @@ export default function Feature() {
                   <LazyLoad >
                     <PhotoProvider>
                       <PhotoView src="/img/homepage/app_lifecycle_manage/app_manage.png">
-                        <img src="/img/homepage/app_lifecycle_manage/app_manage.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/app_lifecycle_manage/app_manage.png" title="点击查看完整图片" /> : <img src="/img/homepage/app_lifecycle_manage/app_manage_en.png" title="Click to view full image" />}
                       </PhotoView>
                     </PhotoProvider>
                   </LazyLoad>
-                  <span>应用级管理</span>
+                  <span>
+                    <Translate id="feature.app_manage">应用级管理</Translate>
+                  </span>
                 </li>
                 <li>
                   <LazyLoad >
                     <PhotoProvider>
                       <PhotoView src="/img/homepage/app_lifecycle_manage/component_manage.png">
-                        <img src="/img/homepage/app_lifecycle_manage/component_manage.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/app_lifecycle_manage/component_manage.png" title="点击查看完整图片" /> : <img src="/img/homepage/app_lifecycle_manage/component_manage_en.png" title="Click to view full image" />}
                       </PhotoView>
                     </PhotoProvider>
                   </LazyLoad>
-                  <span>组件级管理</span>
+                  <span>
+                    <Translate id="feature.component_manage">组件级管理</Translate>
+                  </span>
                 </li>
                 <li>
                   <LazyLoad >
                     <PhotoProvider>
                       <PhotoView src="/img/homepage/app_lifecycle_manage/gateway_manage.png">
-                        <img src="/img/homepage/app_lifecycle_manage/gateway_manage.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/app_lifecycle_manage/gateway_manage.png" title="点击查看完整图片" /> : <img src="/img/homepage/app_lifecycle_manage/gateway_manage_en.png" title="Click to view full image" />}
                       </PhotoView>
                     </PhotoProvider>
                   </LazyLoad>
-                  <span>应用网关管理</span>
+                  <span>
+                    <Translate id="feature.gateway_manage">应用网关管理</Translate>
+                  </span>
                 </li>
                 <li>
                   <LazyLoad>
                     <PhotoProvider>
                       <PhotoView src="/img/homepage/app_lifecycle_manage/servicemesh_manage.png">
-                        <img src="/img/homepage/app_lifecycle_manage/servicemesh_manage.png" title="点击查看完整图片" />
+                        {!LocalUrlEn? <img src="/img/homepage/app_lifecycle_manage/servicemesh_manage.png" title="点击查看完整图片" /> : <img src="/img/homepage/app_lifecycle_manage/servicemesh_manage_en.png" title="Click to view full image" />}
                       </PhotoView>
                     </PhotoProvider>
                   </LazyLoad>
-                  <span>Service Mesh</span>
+                  <span>
+                    <Translate id="feature.servicemesh_manage">Service Mesh</Translate>
+                  </span>
                 </li>
               </ul>
             </div>
