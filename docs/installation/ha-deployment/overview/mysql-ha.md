@@ -37,6 +37,10 @@ chown 777 /opt/mysql/data
 
 在主节点上执行以下 Docker 命令:
 
+* `MYSQL_ROOT_PASSWORD`: 定义 root 用户密码
+
+其余[环境变量](https://github.com/bitnami/containers/blob/main/bitnami/mysql/README.md#setting-up-a-replication-cluster)都保持默认即可。
+
 ```bash
 docker run --name mysql-master --restart=always \
   -p 3306:3306 \
@@ -53,16 +57,21 @@ docker run --name mysql-master --restart=always \
 
 在从节点上执行以下 Docker 命令:
 
+* `MYSQL_MASTER_HOST`: 指定主节点的地址
+* `MYSQL_MASTER_ROOT_PASSWORD`: 指定主节点的 root 密码
+
+其余[环境变量](https://github.com/bitnami/containers/blob/main/bitnami/mysql/README.md#setting-up-a-replication-cluster)都保持默认即可。
+
 ```bash
 docker run --name mysql-slave --restart=always \
   -p 3306:3306 \
   -v /opt/mysql/data:/bitnami/mysql/data \
+  -e MYSQL_MASTER_HOST=<MYSQL_HOST> \
+  -e MYSQL_MASTER_ROOT_PASSWORD=Root123456 \
+  -e MYSQL_MASTER_PORT_NUMBER=3306 \
   -e MYSQL_REPLICATION_MODE=slave \
   -e MYSQL_REPLICATION_USER=repl_user \
   -e MYSQL_REPLICATION_PASSWORD=repl_password \
-  -e MYSQL_MASTER_HOST=<MYSQL_HOST> \
-  -e MYSQL_MASTER_PORT_NUMBER=3306 \
-  -e MYSQL_MASTER_ROOT_PASSWORD=Root123456 \
   -e MYSQL_AUTHENTICATION_PLUGIN=mysql_native_password \
   -d bitnami/mysql:8.0.34
 ```
