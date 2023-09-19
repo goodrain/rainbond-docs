@@ -46,6 +46,7 @@
     "react-spring": "^9.5.2",
     "react-typist": "^2.0.5",
     "sass": "^1.49.9",
+    "sharp": "^0.32.5",
     "sweetalert2": "^11.4.14",
     "swiper": "^8.1.4",
     "tippy.js": "^6.3.7"

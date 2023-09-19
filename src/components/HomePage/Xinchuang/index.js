@@ -34,23 +34,23 @@ export default function Rainstore() {
         <div className={clsx('container', styles.global)}>
             <animated.div style={animatedTexts[0]}>
                 <h2 className={styles.title}>
-                    <Translate id="feature.title">三步完成信创环境迁移</Translate>
+                    <Translate id="feature.xinchuang.title">三步完成信创环境迁移</Translate>
                 </h2>
                 <div className={styles.stepbox}>
                     <div>
                         <p><Install style={{ float: 'left' }} /></p>
-                        <h3>第一步:安装</h3>
-                        <p>在国产信创环境安装Rainbond（Rainbond支持常见国产化CPU和操作系统）。</p>
+                        <h3><Translate id="feature.xinchuang.step_one">第一步:安装</Translate></h3>
+                        <p><Translate id="feature.xinchuang.step_one.desc">在国产信创环境安装Rainbond（Rainbond支持常见国产化CPU和操作系统）。</Translate></p>
                     </div>
                     <div>
                         <p><Foundationsetup style={{ float: 'left' }} /></p>
-                        <h3>第二步:识别与部署</h3>
-                        <p>传统应用自动识别和部署到信创环境（自动编译兼容国产CPU，自动部署到兼容的服务器）。</p>
+                        <h3><Translate id="feature.xinchuang.step_two">第二步:识别与部署</Translate></h3>
+                        <p><Translate id="feature.xinchuang.step_two.desc">传统应用自动识别和部署到信创环境（自动编译兼容国产CPU，自动部署到兼容的服务器）。</Translate></p>
                     </div>
                     <div>
                         <p><Use style={{ float: 'left' }} /></p>
-                        <h3>第三步:管理</h3>
-                        <p>使用Rainbond管理信创应用的全生命周期，如启动、构建、更新、关闭、回滚等。</p>
+                        <h3><Translate id="feature.xinchuang.step_three">第三步:管理</Translate></h3>
+                        <p><Translate id="feature.xinchuang.step_three.desc">使用Rainbond管理信创应用的全生命周期，如启动、构建、更新、关闭、回滚等。</Translate></p>
                     </div>
                 </div>
                 <div className={clsx("col col--12", styles.LearnMore)}>

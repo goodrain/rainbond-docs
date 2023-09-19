@@ -32,7 +32,7 @@ export default function Rainstore() {
         <div className={clsx('container', styles.global)}>
             <animated.div style={animatedTexts[0]}>
                 <h2 className={styles.title}>
-                    <Translate id="feature.title">500+ 开源应用一键部署和升级</Translate>
+                    <Translate id="feature.app.title">500+ 开源应用一键部署和升级</Translate>
                 </h2>
                 <div>
                     <PhotoProvider>
