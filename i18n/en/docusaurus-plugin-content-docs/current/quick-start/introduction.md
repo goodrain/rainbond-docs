@@ -8,64 +8,69 @@ slug: /
 
 `Rainbond` is a cloud-native application management platform that is easy to use and does not require knowledge of containers, Kubernetes and underlying complex technologies. It supports managing multiple Kubernetes clusters and managing the full life cycle of enterprise applications.The main functions include application development environment, application market, microservice architecture, application delivery, application operation and maintenance, application-level multi-cloud management, etc.
 
+## Why Choose Rainbond?
 
-## Why choose Rainbond?
+### 1. Simplicity in Usage
 
-### 1. Easy to use
+Rainbond follows a **"Application-Centric"** design philosophy, unifying container, Kubernetes, and underlying infrastructure-related technologies. This allows users to focus on their business without the need to invest significant time and effort in learning and managing technologies outside of their business domain. Rainbond deeply integrates application development, microservices architecture, application delivery, application operation, and resource management, achieving unified management of all applications, infrastructure, and IT processes.
 
-`Rainbond` follows the **application** centric design concept, and unifies the packaging of containers, Kubernetes, and underlying infrastructure-related technologies, allowing users to focus on the business itself and avoid spending a lot of learning and management effort on technologies other than business.At the same time, Rainbond deeply integrates application development, microservice architecture, application delivery, application operation and maintenance, resource management, and highly automated management to achieve unified management of all applications, all infrastructure and all IT processes.
+### 2. Transform Traditional Applications into Cloud-Native with Ease
 
-### 2. Turn traditional applications into cloud-native applications in one step
+Rainbond employs "Non-Invasive" technology to enable traditional applications to become cloud-native with minimal or no code changes. The transformation of traditional applications into cloud-native applications can be achieved in the following ways:
 
-Through "non-invasive" technology, Rainbond enables traditional applications to quickly become cloud-native applications with little or no changes. ：to transform traditional applications into cloud-native applications0
+- For applications with source code and software packages, Rainbond automatically recognizes the programming language and package type, allowing code to be compiled and built into cloud-native applications without altering developers' habits.
 
-* For applications with source code and software packages, the platform automatically identifies the development language type and package type, without changing the developer's habits, the code is directly compiled and built into applications that support cloud-native features.
-* For traditional applications that want to implement a microservice architecture, Rainbond provides a Service Mesh microservice architecture, and the application can become a microservice architecture without changing the code.
-* For traditional applications that want to expand their O&M and governance functions, Rainbond provides "non-intrusive" plug-ins, which can be loaded on demand to enable O&M and service governance capabilities.
+- Rainbond provides a Service Mesh microservices architecture for traditional applications seeking to adopt a microservices architecture. This transformation does not require any code changes.
 
-### 3. Realize the accumulation and reuse of digital capabilities
+- To enhance operational and governance capabilities for traditional applications, Rainbond offers "Non-Invasive" plugins that can be loaded on-demand, enabling operational and governance capabilities as needed.
 
-Rainbond can release various digital capabilities within the enterprise into components with one click, and has complete management processes such as component installation and use, component arrangement, component version management, component upgrade and continuous iteration, and accumulates the reusable capabilities within the enterprise into components. Libraries not only avoid duplication of construction, but also turn these components into digital assets to power enterprise innovation.
+### 3. Accumulation and Reuse of Digital Capabilities
 
-### 4. Solve the delivery problems of the 2B industry and realize the automation of various delivery processes
+Rainbond allows various internal digital capabilities within an enterprise to be published as components with a single click. It offers comprehensive management processes, including component installation and usage, component orchestration, component version management, component upgrades, and continuous iteration. This enables enterprises to accumulate reusable capabilities in a component library, avoiding redundant development and transforming these components into digital assets that drive innovation within the enterprise.
 
-Rainbond provides business integration, multi-cloud delivery, private delivery, SaaS delivery, offline delivery, personalized delivery, and application marketplace capabilities for enterprise applications. It automates the delivery process to the maximum extent, improves enterprise application delivery efficiency, and reduces delivery costs.
+### 4. Automated Delivery of Solutions for B2B Industries
 
+Rainbond provides capabilities for business integration, multi-cloud delivery, private delivery, SaaS delivery, offline delivery, personalized delivery, and application marketplace. It maximizes the automation of the delivery process, improving the efficiency of enterprise application delivery and reducing delivery costs.
 
-## Rainbond's function and architecture
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/03/17/16474283190784.jpg)
+## Rainbond's Features and Architecture
 
+![Rainbond Architecture](/img/architecture/arch_en.png)
 
-### Application-level multi-cloud management
-The application level emphasizes the "application" as the center, exposes the technical concepts related to the application, and packages the technical concepts not directly related to the application. The underlying infrastructure is defined by a series of technologies (SDN, SDS, SD-WAN, docker, LB). ) packaging, automates the underlying repetitive work, and supports application development, architecture, delivery, and operation and maintenance on top of application abstraction. This abstract granularity can simplify application management and meet business flexibility.
+For more detailed information about the Rainbond architecture, please refer to the Rainbond Design Concept.
 
-The core of multi-cloud management is to decouple applications and computing resources. According to any combination of scenarios, hybrid clouds, edge clouds, and application-level multi-clouds can be realized. Application lifecycle management is not directly related to computing resources. On any type of computing resources, developed applications can be directly installed and run on any type of computing resources, and can be migrated from one cloud to another at any time without any changes to the application.
+### Application-Level Multi-Cloud Management
 
-### Application lifecycle management
-Application lifecycle management includes application development, microservice architecture, application delivery, and application operation and maintenance.
-* During the development phase, Rainbond provides an out-of-the-box development and testing environment, connects to various source code repositories, automatically identifies development languages, compiles, builds, and packages, and installs various development tools through the application market.
-* In the architecture stage, various common microservice architectures are supported, business services can be arranged in modules, the business structure and dependencies can be understood through service topology visualization, and various service governance capabilities can be extended through plug-ins.
-* In the delivery stage, the continuous application delivery process is supported. The developed applications are stored in the application market in the form of application templates, and the applications are displayed and classified through the application market. For networked users, remote connection to the application market enables one-click installation and upgrade.For offline users, export the offline application package from the application market, import the offline application package into the user environment, and install and run it with one click.
-* In the operation and maintenance phase, all application operation and maintenance work is presented through the web interface. Except for the basic application management (start, close, restart, delete) operations, the main operation and maintenance processes are automated, providing observability and in-depth understanding of automation. Implementation process.Facing the application scenarios of big data and large users, it supports the rapid expansion of business and responds to business changes in a timely manner.
+Rainbond emphasizes being "Application-Centric" by exposing technology concepts related to applications while unifying concepts not directly related to applications. Underlying infrastructure is abstracted using software-defined technologies (SDN, SDS, SD-WAN, Docker, LB). This automation streamlines repetitive tasks at the infrastructure level while supporting application development, architecture, delivery, and operation on top of the application abstraction. This level of abstraction simplifies application management while ensuring business flexibility.
 
-### Capability reuse and sharing
+The core of multi-cloud management is the decoupling of applications and compute resources, enabling arbitrary combinations based on scenarios. This can achieve hybrid cloud, edge cloud, and application-level multi-cloud capabilities. Application lifecycle management is decoupled from compute resources. In other words, application development can take place on any type of compute resource, and applications can be deployed and run on any type of compute resource without modification. Migration between different cloud providers can also be done seamlessly without changes to the application.
 
-Components are independent, reusable, extensible, and integratable units that support different granularity and version management. Components can be reused in different application scenarios. Components themselves can be iteratively upgraded. The accumulated components are stored in the components. Libraries, when there are applications that need to use components, they only need to be quickly assembled by "drag and drop". The more components accumulated, the faster the delivery of applications.
+### Application Full Lifecycle Management
 
+Application full lifecycle management includes application development, microservices architecture, application delivery, and application operation:
 
-## How does Rainbond work?
+- During the development stage, Rainbond provides an out-of-the-box development and testing environment. It integrates with various source code repositories, automatically identifies programming languages, compiles, builds, and packages applications. Various development tools can be installed through the application marketplace.
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/03/17/16474282867950.jpg)
+- In the architecture phase, Rainbond supports various common microservices architectures. Business services can be modularly orchestrated, and the service topology visualization helps understand the structure and dependencies of the business. Various service governance capabilities can be extended through plugins.
 
-Rainbond mainly consists of two parts, one is the Rainbond console that provides a web interface, and the other is the Rainbond cluster management terminal installed inside the K8s cluster.
+- During the delivery phase, Rainbond supports continuous delivery processes. Developed applications are stored in the form of application templates in the application marketplace. For connected users, remote access to the application marketplace allows one-click installation and upgrades. For offline users, applications can be exported from the application marketplace, imported into the user environment, and installed and run with a single click.
 
-The Rainbond console provides monitoring and management of the control plane, mainly serving developers and managers. The console manages the K8s cluster and applications running on the K8s cluster through the API provided by the Rainbond cluster management terminal, and stores metadata locally. The shutdown of the console does not affect the operation of the K8s cluster and business services.One console can monitor and manage multiple K8s clusters.
+- In the operation phase, all application operations are presented through a web interface. Besides basic application management operations (start, stop, restart, delete), most of the operational processes are automated. It provides observability to deeply understand the automated execution process. In scenarios with big data and a large number of users, it supports rapid scaling of business and timely responses to business changes.
 
-The Rainbond cluster management terminal is installed into one or more K8s clusters through the console or Helm, which connects to the standard K8s API. The monitoring and management instructions of the console are implemented by calling the K8s API. Applications deployed through the console can also use K8s command viewing and management.
+### Capability Reuse and Sharing
 
+Components are independent, reusable, extensible, and integrable units. They support different granularity sizes and version management. Components can be reused in different application scenarios, and they can be iteratively upgraded. Accumulated components are stored in a unified component library. When an application needs to use components, they can be quickly assembled using a "drag and drop" approach. As more components accumulate, the speed of delivering applications accelerates.
+
+## How Does Rainbond Work?
+
+![How Rainbond Works](/img/architecture/rainbond_work_en.svg)
+
+Rainbond consists mainly of two parts: the Rainbond Control Console, which provides a web interface, and the Rainbond Cluster Management End, which is installed within Kubernetes (K8s) clusters.
+
+The Rainbond Control Console offers monitoring and management of the control plane. It mainly serves developers and administrators. The console manages K8s clusters and applications running on those clusters through the API provided by the Rainbond Cluster Management End. Metadata is stored locally, and the console's operation does not affect the operation of K8s clusters and business services. One console can monitor and manage multiple K8s clusters.
+
+The Rainbond Cluster Management End is installed within one or more K8s clusters either through the console or via Helm. It interfaces with the standard K8s API. The console's monitoring and management commands are implemented by invoking the K8s API. Applications deployed through the console can also be viewed and managed using K8s commands.
 
 ## Rainbond compared to other products
-
 
 |                       | Contrast                                                                                                                      | Rainbond                                                                                                                                       |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -73,7 +78,3 @@ The Rainbond cluster management terminal is installed into one or more K8s clust
 | vs MSP                | Multi-cloud management based on "virtual machine", the main value is unified management of resources, cost optimization, etc. | Multi-cloud management based on "application", the main value is that applications can be transparently run and migrated to any cloud platform |
 | vs kubernetes         | Container running and scheduling environment                                                                                  | Application life cycle management, running on K8s, and managing any K8s cluster through API docking                                            |
 | vs container platform | Container-level abstraction, you need to understand containers and K8s                                                        | Application-level abstraction, no need to understand the underlying technology                                                                 |
-
-
-
-
