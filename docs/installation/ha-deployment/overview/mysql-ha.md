@@ -30,7 +30,7 @@ docker pull bitnami/mysql:8.0.34
 创建目录
 ```bash
 mkdir -p /opt/mysql/data
-chown 777 /opt/mysql/data
+chmod 777 /opt/mysql/data
 ```
 
 ### 启动主数据库
