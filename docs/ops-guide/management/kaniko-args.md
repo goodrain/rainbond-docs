@@ -28,6 +28,20 @@ Containerd 配置 `/etc/containerd/config.toml`，添加私有镜像仓库地址
     endpoint = ["http://xxx.xxx.xxx.xxx:5000"]
 ```
 
+### 修改 Buidkit 构建参数
+
+自v5.15后Kaniko替换成Buildkit，Buildkit添加私有镜像仓库地址：
+
+```bash title="kubectl edit rbdcomponent rbd-chaos -n rbd-system"
+apiVersion: rainbond.io/v1alpha1
+kind: RbdComponent
+......
+spec:
+  args:
+  - --buildkit-args=http=true&insecure=true
+......
+```
+
 ### 修改 Kaniko 构建参数
 
 修改 Kaniko 构建参数，添加私有镜像仓库地址：
