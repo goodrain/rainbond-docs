@@ -8,7 +8,7 @@ keywords:
 
 ## 使用自定义私有镜像仓库
 
-默认情况下无需调整 Kaniko 构建参数，如使用了 http 私有镜像仓库，需要调整 Kaniko 构建参数。
+自v5.15后Kaniko替换成了Buildkit，参考 [调整 Buildkit 构建参数](/docs/ops-guide/management/buildkit-args.md)，Kaniko适用于v5.15之前版本。默认情况下无需调整 Kaniko 构建参数，如使用了 http 私有镜像仓库，需要调整 Kaniko 构建参数。
 
 ### 修改容器配置
 
