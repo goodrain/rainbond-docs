@@ -8,7 +8,7 @@ keywords:
 
 ## 使用自定义私有镜像仓库
 
-默认情况下无需调整 Kaniko 构建参数，如使用了 http 私有镜像仓库，需要调整 Kaniko 构建参数。
+自v5.15后Kaniko替换成了Buildkit，参考 [调整 Buildkit 构建参数](/docs/ops-guide/management/buildkit-args.md)，Kaniko适用于v5.15之前版本。默认情况下无需调整 Kaniko 构建参数，如使用了 http 私有镜像仓库，需要调整 Kaniko 构建参数。
 
 ### 修改容器配置
 
@@ -26,6 +26,20 @@ Containerd 配置 `/etc/containerd/config.toml`，添加私有镜像仓库地址
 [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
   [plugins."io.containerd.grpc.v1.cri".registry.mirrors."http://xxx.xxx.xxx.xxx:5000"]
     endpoint = ["http://xxx.xxx.xxx.xxx:5000"]
+```
+
+### 修改 Buidkit 构建参数
+
+自v5.15后Kaniko替换成Buildkit，Buildkit添加私有镜像仓库地址：
+
+```bash title="kubectl edit rbdcomponent rbd-chaos -n rbd-system"
+apiVersion: rainbond.io/v1alpha1
+kind: RbdComponent
+......
+spec:
+  args:
+  - --buildkit-args=http=true&insecure=true
+......
 ```
 
 ### 修改 Kaniko 构建参数
