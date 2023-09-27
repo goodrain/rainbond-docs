@@ -781,6 +781,7 @@ const sidebars = {
             'ops-guide/management/container-runtime-switch',
             'ops-guide/management/change-gateway',
             'ops-guide/management/kaniko-args',
+            'ops-guide/management/buildkit-args',
             'ops-guide/management/docker-log',
             'ops-guide/management/custom-shared-storage',
             'ops-guide/management/change-ports',
