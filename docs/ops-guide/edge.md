@@ -155,13 +155,13 @@ affinity:
 
 在 `集群`--->`节点列表` 处查看已经接入的边缘节点
 
-<img src="../../static/img/edge/edge_node_list.png" width="100%"/>
+![](/img/edge/edge_node_list.png)
 
 #### 2.新增污点
 
 为防止非边缘业务调度至边缘节点，需要给边缘节点新增污点，点击**编辑污点**按钮，添加污点 `node-role.kubernetes.io/edge=true:NoSchedule`
 
-<img src="../../static/img/edge/taint.png" width="100%"/>
+![](/img/edge/taint.png)
 
 ### 修改组件配置
 
@@ -372,6 +372,4 @@ spec:
 
 通过`新建组件`--->`高级配置`--->`边缘配置`选择好边缘节点。目前只支持 `基于镜像构建 `和 `基于源码构建`。
 
-<img src="../../static/img/edge/edge_configuration.png" width="100%"/>
-
-
+![](/img/edge/edge_configuration.png)
