@@ -768,6 +768,7 @@ const sidebars = {
           ]
         },
         'ops-guide/migrate-app',
+        'ops-guide/edge',
         {
           type: 'category',
           label: '高级运维',
