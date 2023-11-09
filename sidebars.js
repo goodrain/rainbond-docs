@@ -915,6 +915,18 @@ const sidebars = {
             'enterprise/observability/alarm',
           ]
         },
+        {
+          type: 'category',
+          label: '微服务治理',
+          link: {
+            type: 'doc',
+            id: 'enterprise/microservices/index',
+          },
+          items: [
+            'enterprise/microservices/springcloud',
+            'enterprise/microservices/istio',
+          ]
+        },
         'enterprise/xinchuang',
         'enterprise/gray-release',
         'enterprise/scanner',
