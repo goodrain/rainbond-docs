@@ -36,6 +36,7 @@ module.exports = {
         id: 'change/index'
       },
       items: [
+        'change/5.15.3',
         'change/5.15.2',
         'change/5.15.1',
         'change/5.15.0',
