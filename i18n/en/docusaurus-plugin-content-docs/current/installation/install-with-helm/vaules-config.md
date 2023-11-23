@@ -64,7 +64,7 @@ operator:
 
 ### 配置外部存储
 
-如果使用阿里云 NAS 存储，需要配置 `Cluster.RWX.type=aliyun` `Cluster.RWX.config.server=<SERVER>`，Rainbond 会自动安装阿里云 NAS CSI 并对接使用。
+如果使用阿里云 NAS 存储，需要配置 `Cluster.RWX.type=aliyun` `Cluster.RWX.config.server=<SERVER>:/`，Rainbond 会自动安装阿里云 NAS CSI 并对接使用。
 
 | 配置项                              | 默认值 | 类型   | 说明                           |
 | ----------------------------------- | ------ | ------ | ------------------------------ |
