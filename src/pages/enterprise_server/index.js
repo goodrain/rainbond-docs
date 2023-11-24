@@ -748,6 +748,54 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
+                    <span>零信任网络</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span> 源码规范检测</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span> 可视化流量治理</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>SpringCloud 服务治理模式</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
                     <span>三级等保支持</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
