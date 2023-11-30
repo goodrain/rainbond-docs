@@ -22,7 +22,7 @@ keywords:
 
 IMAGE_DOMAIN=${IMAGE_DOMAIN:-registry.cn-hangzhou.aliyuncs.com}
 IMAGE_NAMESPACE=${IMAGE_NAMESPACE:-goodrain}
-VERSION=${VERSION:-'v5.15.3-release'}
+VERSION=${VERSION:-'v5.16.0-release'}
 
 image_list="${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/kubernetes-dashboard:v2.6.1
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/registry:2.6.2
@@ -89,7 +89,7 @@ tar xvf /opt/nfs/basic_$version_codename.tar.gz -C /opt/nfs/ && dpkg -i /opt/nfs
 
 ### 导入镜像包
 ```bash
-docker load -i rainbond-v5.15.3-release.tar
+docker load -i rainbond-v5.16.0-release.tar
 ```
 
 ### 安装 Rainbond
@@ -97,7 +97,7 @@ docker load -i rainbond-v5.15.3-release.tar
 解压 Helm Chart 包
 
 ```bash
-tar xvf rainbond-cluster-5.15.3.tgz
+tar xvf rainbond-cluster-5.16.0.tgz
 ```
 
 使用 Helm Chart 安装 Rainbond，

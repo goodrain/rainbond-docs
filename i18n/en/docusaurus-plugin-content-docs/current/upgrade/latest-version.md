@@ -136,7 +136,7 @@ docker push goodrain.me/runner:latest
 
 1. 执行每个版本的升级 SQL 脚本。
 2. 更新每个版本所需要的 CRD 资源，目前只有 [v5.11.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.11.0-upgrade#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)、[v5.12.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.12.0-upgrade#%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90) 需要更新 CRD 资源。
-3. 升级控制台镜像版本以及集群端镜像版本，按照 [从最近的版本升级到 v5.14.2](#从最近的版本升级到-v5142) 的步骤进行升级控制台镜像以及集群端镜像。
+3. 升级控制台镜像版本以及集群端镜像版本，按照 [从最近的版本升级到 v5.16.0](#从最近的版本升级到-v5160) 的步骤进行升级控制台镜像以及集群端镜像。
 4. 升级 builder 和 runner 镜像，按照上述的 [升级 builder runner 镜像](#升级-builder-和-runner-镜像) 的步骤进行升级 builder 和 runner 镜像。
 
 <details>

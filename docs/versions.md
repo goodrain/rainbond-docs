@@ -11,7 +11,7 @@ keywords:
 
 | 版本号             | 文档链接 | 版本变更                               |
 |-----------------| -------------------------------------- |------------------------------------|
-| v5.15.3-release | [https://www.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](/community/change/5.15.3) |
+| v5.16.0-release | [https://www.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](/community/change/5.16.0) |
 
 ## 过往版本（不再维护）
 
@@ -19,6 +19,7 @@ keywords:
 
 | 版本号          | 文档链接                                                     | 版本变更                                                     |
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| v5.15.3-release | [https://v5.15-docs.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](/community/change/5.15.3)                     |
 | v5.15.2-release | [https://v5.15-docs.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](/community/change/5.15.2)                     |
 | v5.15.1-release | [https://v5.15-docs.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](/community/change/5.15.1)                     |
 | v5.15.0-release | [https://v5.15-docs.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](/community/change/5.15.0)                     |
