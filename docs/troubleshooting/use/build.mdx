@@ -90,11 +90,11 @@ spec:
 1. 拉取镜像和更换 tag
 
 ```bash
-nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release
-nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release
+nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release
+nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release
 
-nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release goodrain.me/builder:latest
-nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release goodrain.me/runner:latest
+nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release goodrain.me/builder:latest
+nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release goodrain.me/runner:latest
 ```
 
 2. 获取私有仓库账号密码并登录
@@ -121,11 +121,11 @@ nerdctl -n k8s.io image push goodrain.me/runner:latest --insecure-registry
 1. 拉取镜像和更换 tag
 
 ```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release
 
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release goodrain.me/builder:latest
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release goodrain.me/runner:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release goodrain.me/builder:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release goodrain.me/runner:latest
 ```
 
 2. 获取私有仓库账号密码并登录

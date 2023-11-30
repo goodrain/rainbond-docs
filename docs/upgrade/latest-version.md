@@ -69,7 +69,7 @@ curl -o install.sh https://get.rainbond.com && VERSION=<指定的版本> bash ./
 
 ## 从最近的版本升级到 v5.16.0
 
-如果您的 Rainbond 版本是 `v5.15.0`，则可以通过以下方式进行升级。
+如果您的 Rainbond 版本是 `v5.15.3`，则可以通过以下方式进行升级。
 
 ### 控制台升级
 
@@ -114,11 +114,11 @@ kubectl edit deploy rainbond-operator -n rbd-system
 获取最新镜像，并修改 Tag
 
 ```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release
 
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.0-release goodrain.me/builder:latest-{架构:arm64/amd64}
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.0-release goodrain.me/runner:latest-{架构:arm64/amd64}
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release goodrain.me/builder:latest-{架构:arm64/amd64}
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release goodrain.me/runner:latest-{架构:arm64/amd64}
 ```
 
 推送镜像到私有仓库，参阅[推送镜像到私有仓库](/docs/ops-guide/component/rbd-hub#向集群私有镜像仓库推送镜像)
@@ -130,7 +130,7 @@ docker push goodrain.me/builder:latest-{架构:arm64/amd64}
 docker push goodrain.me/runner:latest-{架构:arm64/amd64}
 ```
 
-## 跨版本升级到 v5.15.3
+## 跨版本升级到 v5.16.0
 
 跨版本升级步骤如下:
 
@@ -190,7 +190,7 @@ curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
 
 
 :::tip
-如果您处于更低的版本，请参阅每个版本的[升级文档](https://v5.12-docs.rainbond.com/docs/upgrade/)，按照上述操作执行即可。
+如果您处于更低的版本，请参阅每个版本的[升级文档](/docs/versions)，按照上述操作执行即可。
 :::
 
   </TabItem>

@@ -410,6 +410,7 @@ const sidebars = {
         id: 'vm-guide/index'
       },
       items: [
+        'vm-guide/overview',
         'vm-guide/vm_deploy',
         'vm-guide/vm_use',
       ]
