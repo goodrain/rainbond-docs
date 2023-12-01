@@ -22,7 +22,7 @@ keywords:
 
 IMAGE_DOMAIN=${IMAGE_DOMAIN:-registry.cn-hangzhou.aliyuncs.com}
 IMAGE_NAMESPACE=${IMAGE_NAMESPACE:-goodrain}
-VERSION=${VERSION:-'v5.14.2-release'}
+VERSION=${VERSION:-'v5.16.0-release'}
 
 image_list="${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/kubernetes-dashboard:v2.6.1
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/registry:2.6.2
@@ -89,7 +89,7 @@ tar xvf /opt/nfs/basic_$version_codename.tar.gz -C /opt/nfs/ && dpkg -i /opt/nfs
 
 ### 导入镜像包
 ```bash
-docker load -i rainbond-v5.14.2-release.tar
+docker load -i rainbond-v5.16.0-release.tar
 ```
 
 ### 安装 Rainbond
@@ -169,8 +169,8 @@ kubectl get rainbondcluster -n rbd-system -o yaml|grep -A 3 imageHub
 docker login -u admin goodrain.me -p <password>
 
 # 重新打 tag 并推送镜像
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.14.2-release goodrain.me/builder:latest
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.14.2-release goodrain.me/runner:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release goodrain.me/builder:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release goodrain.me/runner:latest
 docker push goodrain.me/builder:latest
 docker push goodrain.me/runner:latest
 ```

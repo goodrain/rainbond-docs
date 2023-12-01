@@ -404,6 +404,19 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '虚拟机指南',
+      link: {
+        type: 'doc',
+        id: 'vm-guide/index'
+      },
+      items: [
+        'vm-guide/overview',
+        'vm-guide/vm_deploy',
+        'vm-guide/vm_use',
+      ]
+    },
+    {
+      type: 'category',
       label: '集群管理指南',
       link: {
         type: 'doc',
