@@ -73,13 +73,35 @@ curl -o install.sh https://get.rainbond.com && VERSION=<指定的版本> bash ./
 
 ### 控制台升级
 
-通过 Helm 安装的控制台 `rbd-app-ui` 是以 POD 方式运行在 Kubernetes 集群中的，不需要在此步操作。
+#### 高可用控制台
+
+通过 helm 安装或者高可用迁移出来的控制台升级方式如下：
+
+1. 升级表语句
+
+```bash
+kubectl exec -ti `kubectl get pod -nrbd-system|grep rbd-app-ui|grep Running|awk '{print $1}'` -nrbd-system bash
+
+curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
+```
+
+2. 更换镜像
+
+集群终端升级的时候一并操作，这里无需单独操作。
 
 #### Allinone 控制台
 
 通过 `docker run` 启动的控制台升级方式如下：
 
-1. 更换 Allinone 镜像
+1. 升级表语句
+
+```bash
+docker exec -ti rainbond-allinone bash
+
+curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
+```
+
+2. 更换 Allinone 镜像
 
 ```bash
 docker stop rainbond-allinone && docker rm rainbond-allinone
