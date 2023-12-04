@@ -31,9 +31,9 @@ keywords:
 如果没有安装 Rainbond 需要参考 [安装文档](/docs/installation/)进行部署，不可使用快速安装部署 Rainbond 。
 
 
-平台管理视图 --> 应用市场视图 --> 开源应用商店 --> 对接开源应用商店 --> 开源应用商店搜索 `Rainbond-VM-beta` 点击安装即可。
+平台管理视图 --> 应用市场视图 --> 开源应用商店 --> 对接开源应用商店 --> 开源应用商店搜索 `Rainbond-VM` 点击安装即可。
 
-<img src="https://static.goodrain.com/docs/5.16.0/vm1.pic.jpg" title="下载虚拟机插件"/>
+<img src="https://static.goodrain.com/docs/5.16.0/vm1.jpg" title="下载虚拟机插件"/>
 
 
 ## 配置虚拟机web终端地址
