@@ -274,7 +274,7 @@ lifecycle 在 k8s 中定义时的格式为：
 
 ```yaml
 lifecycle:
-  ostStart:
+  postStart:
     exec:
       command: ["/bin/sh", "-c", "echo Hello from the postStart handler > /usr/share/message"]
   preStop:
