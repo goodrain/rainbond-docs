@@ -435,7 +435,6 @@ const sidebars = {
           ]
         },
         'cluster-manage/cluster-info',
-        'cluster-manage/resource-limit',
         {
           type: 'category',
           label: '节点管理',

@@ -13,7 +13,7 @@ export default function Index() {
         <section className={`${styles.width} ${styles.outside_container}`}>
           {/* 标题 */}
           <div className={styles.title}>
-            <h1 style={{ textAlign: 'center' }}>选择适合您的 Rainbond 产品</h1>
+            <h1 style={{ textAlign: 'center', marginTop: '50px' }}>选择适合您的 Rainbond 产品</h1>
           </div>
           {/* 分类 */}
           <div className={styles.type_sort}>
@@ -561,11 +561,30 @@ export default function Index() {
                   <div>
                     <span>企业级功能扩展</span>
                   </div>
+                  {/* 国产化信创 */}
+                  <div>
+                    <a href='/docs/enterprise/xinchuang' target='_blank'>
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>国产化信创</p>
+                        <span style={{fontSize:'10px'}}>支持国产CPU和操作系统</span>
+                      </span>
+                    </a>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  {/* 可观测性中心 */}
                   <div>
                     <a href='/docs/enterprise/observability' target='_blank'>
                       <span>
                         <p style={{marginBottom:'-4px'}}>可观测性中心</p>
-                        <span style={{fontSize:'10px'}}>全局日志、链路追踪、报警、系统监控、应用监控、监控大屏等</span>
+                        <span style={{fontSize:'10px'}}>全局日志、报警中心、高级监控、大屏</span>
                       </span>
                     </a>
                     <span>
@@ -578,44 +597,12 @@ export default function Index() {
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
-                  <div>
-                    <a href='/docs/enterprise/xinchuang' target='_blank'>
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>国产化信创支持</p>
-                        <span style={{fontSize:'10px'}}>业务智能迁移到国产化信创体系</span>
-                      </span>
-                    </a>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div>
-                  <div>
-                    <a href='/docs/enterprise/gray-release' target='_blank'>
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>全链路灰度发布</p>
-                      </span>
-                    </a>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div>
+                  {/* 集群巡检 */}
                   <div>
                     <a href='/docs/enterprise/scanner' target='_blank'>
                       <span>
                         <p style={{marginBottom:'-4px'}}>集群巡检</p>
-                        <span style={{fontSize:'10px'}}>安全、配置规范、稳定性</span>
+                        <span style={{fontSize:'10px'}}>运行巡检、配置规范巡检、安全巡检</span>
                       </span>
                     </a>
                     <span>
@@ -628,11 +615,12 @@ export default function Index() {
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
+                  {/* 安全增强 */}
                   <div>
-                    <a href='/docs/enterprise/security' target='_blank'> 
+                    <a href='/docs/enterprise/security/audit' target='_blank'>
                       <span>
-                        <p style={{marginBottom:'-4px'}}>安全能力扩展</p>
-                        <span style={{fontSize:'10px'}}>审计、WAF防火墙、安全加固</span>
+                        <p style={{marginBottom:'-4px'}}>安全增强</p>
+                        <span style={{fontSize:'10px'}}>操作审计、安全配置、源码安全</span>
                       </span>
                     </a>
                     <span>
@@ -645,6 +633,111 @@ export default function Index() {
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
+                  {/* 网关增强 */}
+                  <div>
+                    <a href='/docs/enterprise/security/waf' target='_blank'> 
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>网关增强</p>
+                        <span style={{fontSize:'10px'}}>WAF防火墙、API网关、网关监控、性能提升</span>
+                      </span>
+                    </a>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  {/* Istio可视化管理 */}
+                  <div>
+                    <a href='/docs/enterprise/microservices/istio' target='_blank'> 
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>Istio可视化管理</p>
+                        <span style={{fontSize:'10px'}}>流量拓扑、流量监控、零信任网络、流量控制</span>
+                      </span>
+                    </a>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  {/* Spring  Cloud可视化管理 */}
+                  <div>
+                    <a href='/docs/enterprise/microservices/springcloud' target='_blank'> 
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>Spring  Cloud可视化管理</p>
+                        <span style={{fontSize:'10px'}}>流量拓扑、流量监控、调用链分析、流量控制、网关配置</span>
+                      </span>
+                    </a>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  {/* 全链路灰度 */}
+                  <div>
+                    <a href='docs/enterprise/gray-release' target='_blank'> 
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>全链路灰度</p>
+                      </span>
+                    </a>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  {/* 云原生应用商店 */}
+                  <div>
+                    <a href='https://hub.grapps.cn' target='_blank'>
+                      云原生应用商店
+                    </a>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  {/* 其他功能优化 */}
+                  <div>
+                    <a href='/docs/enterprise/other' target='_blank'>
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>其他功能优化</p>
+                        <span style={{fontSize:'10px'}}>团队资源配额、组件存储文件管理</span>
+                      </span>
+                    </a>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  {/* 定制化样式 */}
                   <div>
                     <a href='/docs/enterprise/style' target='_blank'> 
                      <span>定制化和样式</span>
@@ -659,6 +752,7 @@ export default function Index() {
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
+                  {/* GPU 共享支持 */}
                   <div>
                     <a href='/docs/enterprise/GPU' target='_blank'>   
                       <span>GPU 共享支持</span>
@@ -709,20 +803,7 @@ export default function Index() {
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
-                  <div>
-                    <a href='https://hub.grapps.cn' target='_blank'>
-                      云原生应用商店
-                    </a>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div>
+                  
                   <div>
                     <span> 开源中间件（集群版）</span>
                     <span>
@@ -797,23 +878,6 @@ export default function Index() {
                   </div>
                   <div>
                     <span>三级等保支持</span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div>
-                  <div>
-                    <a href='/docs/enterprise/other' target='_blank'>
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>其他功能优化</p>
-                        <span style={{fontSize:'10px'}}>团队资源配额、组件存储文件管理</span>
-                      </span>
-                    </a>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
