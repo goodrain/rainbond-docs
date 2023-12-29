@@ -942,6 +942,7 @@ const sidebars = {
         'enterprise/xinchuang',
         'enterprise/gray-release',
         'enterprise/scanner',
+        'enterprise/api-gateway',
         {
           type: 'category',
           label: '安全能力',

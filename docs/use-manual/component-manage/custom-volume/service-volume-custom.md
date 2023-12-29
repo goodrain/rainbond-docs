@@ -54,3 +54,44 @@ Rainbond 平台会检测 kubernetes 集群中存在的 storageClass 资源，将
 Rainbond 平台在应用的分享和备份时都会记录组件使用的存储类型，当使用了自定义存储类型的应用被迁移到其他集群或者通过分享安装的方式安装到其他集群之后，会出现找不到存储类型的情况。针对这个异常情况，Rainbond 平台设计了一套最优存储类型选择的逻辑。在找不到对应的存储类型时，Rainbond 平台会根据组件类型以及对存储的期望选择最适合组件的存储类型，默认选择 Rainbond 共享存储。
 
 > 最优存储类型的选择会在后期进行更细致的优化迭代，会综合考虑存储的读写特性、共享特性以及备份恢复策略等相关特性共同决定如何正确且最快的存储类型
+
+### 如何查找储存的真实路径
+
+#### 基于主机安装或者helm安装
+如果基于主机安装或者helm安装，可以通过[grctl](https://rainbond.com/docs/ops-guide/tools/grctl/)查找到对应的存储路径，
+
+可以通过组件页面的伸缩一栏目 找到 grctl命令，例如这样的命令：
+```shell
+grctl service get gr84870f -t 8azkmbyj
+```
+执行此命令后 可以看到类似于这样的一行，这代表了您的储存暴露的路径。您通过mount可以正常访问到该储存
+```shell
+path: /export/pvc-d517b813-b366-4c38-981a-c2efe1ef1d5b/tenant/9b69ea29400d4364ad76381fe7f83c97/service/b38506ac0eec2b5e73867498e684870f/tmp1 |
+```
+
+您可以进去nfs所在节点查找目录，以下是nfs默认的储存路径`/opt/rainbond/data/nfs/`
+
+所以完整的储存的文件地址为 `/opt/rainbond/data/nfs/pvc-d517b813-b366-4c38-981a-c2efe1ef1d5b/tenant/9b69ea29400d4364ad76381fe7f83c97/service/b38506ac0eec2b5e73867498e684870f/tmp1`
+
+#### 基于 一键安装
+一键安装是将所有的rainbond组件跑到k3s中，储存的所有文件在 `/root/rainbonddata/k3s/storage` 目录下。
+
+进入docker容器，这个容器包含了k3s以及所有的rainbond组件。
+```shell
+docker exec -it rainbond-allinone bash
+```
+执行命令 `kubectl get pvc -n rbd-system rbd-cpt-grdata`
+
+```shell
+root@59d72aa2859e:/app/ui# kubectl get pvc -n rbd-system rbd-cpt-grdata
+NAME             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+rbd-cpt-grdata   Bound    pvc-39957e04-a3f2-4ce8-b8d8-4dff239ab975   20Gi       RWO            local-path     78m
+```
+
+可以看到VOLUME为 `pvc-39957e04-a3f2-4ce8-b8d8-4dff239ab975`
+那么路径为 `/root/rainbonddata/k3s/storage/pvc-39957e04-a3f2-4ce8-b8d8-4dff239ab975_rbd-system_rbd-cpt-grdata`
+
+然后最后拼接上`页面`显示出来的路径`/tenant/9b69ea29400d4364ad76381fe7f83c97/service/c7d35d174c8a4945a578397f9b724815/var/lib/mysql`
+
+最后完整的路径为 `/root/rainbonddata/k3s/storage/pvc-39957e04-a3f2-4ce8-b8d8-4dff239ab975_rbd-system_rbd-cpt-grdata/tenant/03fdeb512531496895ad493e347799f8/service/794db4358fd2866c7509b76e912c174a/test/1.txt`
+
