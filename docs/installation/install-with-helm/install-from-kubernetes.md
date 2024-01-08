@@ -164,8 +164,7 @@ kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --templ
 
 ### 6. 自定义高级配置(可选)
  
-当你有一些额外需求，比如使用自建的镜像仓库、数据库、ETCD、StorageClass、指定网关节点、指定构建节点等。你可以使用[Helm安装命令生成工具](/helm)生成安装命令。
-参数详细说明可以参考 [values.yaml 详解](/docs/installation/install-with-helm/vaules-config)
+当你有一些额外需求，比如使用自建的镜像仓库、数据库、ETCD、StorageClass、指定网关节点、指定构建节点等。参数详细说明可以参考 [values.yaml 详解](/docs/installation/install-with-helm/vaules-config)
 
 ## 问题排查
 

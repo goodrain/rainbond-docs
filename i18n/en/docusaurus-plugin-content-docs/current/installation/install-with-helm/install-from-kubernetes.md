@@ -130,8 +130,7 @@ kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --templ
 
 ### 6. Customize Advanced Settings (Optional)
  
-When you have some additional requirements, such as using self-built mirror repositories, databases, ETCD, StorageClass, specifying gateway nodes, specifying build nodes, etc. You can generate the installation command using [Helm Installation Command Generator tool](/helm). 
-Parameters in detail can refer to [values. Yaml explanation](/docs/installation/install-with-helm/vaules-config)
+When you have some additional requirements, such as using self-built mirror repositories, databases, ETCD, StorageClass, specifying gateway nodes, specifying build nodes, etc. Parameters in detail can refer to [values. Yaml explanation](/docs/installation/install-with-helm/vaules-config)
 
 ## Problem troubleshooting
 The installation process if not finished for long time, so please refer to the document [Helm installation problem troubleshooting guide](/docs/troubleshooting/installation/helm), for troubleshooting. Use can reference [Rainbond use screen](/docs/troubleshooting/use/) or join [WeChat group](/community/support#微信群), [nailing group](/community/support#钉钉群) Ask for help.
