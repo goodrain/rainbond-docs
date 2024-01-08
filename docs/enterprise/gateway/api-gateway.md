@@ -1,5 +1,5 @@
 ---
-title: 网关增强
+title: 企业级网关
 description: API网关增强功能描述和使用
 keywords:
 - 集群巡检

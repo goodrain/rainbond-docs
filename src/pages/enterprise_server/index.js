@@ -635,7 +635,7 @@ export default function Index() {
                   </div>
                   {/* 网关增强 */}
                   <div>
-                    <a href='/docs/enterprise/security/waf' target='_blank'> 
+                    <a href='/docs/enterprise/gateway' target='_blank'> 
                       <span>
                         <p style={{marginBottom:'-4px'}}>网关增强</p>
                         <span style={{fontSize:'10px'}}>WAF防火墙、API网关、网关监控、性能提升</span>
@@ -806,66 +806,6 @@ export default function Index() {
                   
                   <div>
                     <span> 开源中间件（集群版）</span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div>
-                  <div>
-                    <span>性能提升</span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div>
-                  <div>
-                    <span>零信任网络</span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div>
-                  <div>
-                    <span> 源码规范检测</span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div>
-                  <div>
-                    <span> 可视化流量治理</span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div>
-                  <div>
-                    <span>SpringCloud 服务治理模式</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>

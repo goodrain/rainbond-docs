@@ -942,7 +942,18 @@ const sidebars = {
         'enterprise/xinchuang',
         'enterprise/gray-release',
         'enterprise/scanner',
-        'enterprise/api-gateway',
+        {
+          type: 'category',
+          label: '网关增强',
+          link: {
+            type: 'doc',
+            id: 'enterprise/gateway/index',
+          },
+          items: [
+            'enterprise/gateway/waf',
+            'enterprise/gateway/api-gateway',
+          ]
+        },
         {
           type: 'category',
           label: '安全能力',
@@ -951,7 +962,6 @@ const sidebars = {
             id: 'enterprise/security/index',
           },
           items: [
-            'enterprise/security/waf',
             'enterprise/security/audit',
           ]
         },
