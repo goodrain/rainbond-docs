@@ -956,7 +956,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '安全能力',
+          label: '安全增强',
           link: {
             type: 'doc',
             id: 'enterprise/security/index',
@@ -966,7 +966,6 @@ const sidebars = {
           ]
         },
         'enterprise/style',
-        'enterprise/GPU',
         {
           type: 'category',
           label: '其他功能',
@@ -977,6 +976,7 @@ const sidebars = {
           items: [
             'enterprise/other/team-resource',
             'enterprise/other/file-manage',
+            'enterprise/other/GPU',
           ]
         },
       ]

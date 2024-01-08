@@ -617,7 +617,7 @@ export default function Index() {
                   </div>
                   {/* 安全增强 */}
                   <div>
-                    <a href='/docs/enterprise/security/audit' target='_blank'>
+                    <a href='/docs/enterprise/security/' target='_blank'>
                       <span>
                         <p style={{marginBottom:'-4px'}}>安全增强</p>
                         <span style={{fontSize:'10px'}}>操作审计、安全配置、源码安全</span>
@@ -706,7 +706,7 @@ export default function Index() {
                   </div>
                   {/* 云原生应用商店 */}
                   <div>
-                    <a href='https://hub.grapps.cn' target='_blank'>
+                    <a href='https://hub.grapps.cn/privatization' target='_blank'>
                       云原生应用商店
                     </a>
                     <span>
@@ -741,21 +741,6 @@ export default function Index() {
                   <div>
                     <a href='/docs/enterprise/style' target='_blank'> 
                      <span>定制化和样式</span>
-                    </a>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div>
-                  {/* GPU 共享支持 */}
-                  <div>
-                    <a href='/docs/enterprise/GPU' target='_blank'>   
-                      <span>GPU 共享支持</span>
                     </a>
                     <span>
                       <img src='/img/error.svg' alt='' />

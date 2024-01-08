@@ -6,7 +6,7 @@ keywords:
 - other function
 ---
 
-企业版还包含多处优化功能，如团队资源配额限制、组件存储可视化管理等。
+企业版还包含多处优化功能，如团队资源配额限制、组件存储可视化管理、GPU共享支持等。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
