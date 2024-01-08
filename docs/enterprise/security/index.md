@@ -1,5 +1,5 @@
 ---
-title: 安全扩展
+title: 安全增强
 description: 支持平台安全扩展能力
 ---
 

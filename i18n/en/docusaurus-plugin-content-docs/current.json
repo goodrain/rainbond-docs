@@ -447,7 +447,7 @@
     "message": "Observability Center",
     "description": "The label for category 可观测性中心 in sidebar docs"
   },
-  "sidebar.docs.category.安全能力": {
+  "sidebar.docs.category.安全增强": {
     "message": "Security capability",
     "description": "The label for category 安全能力 in sidebar docs"
   },
