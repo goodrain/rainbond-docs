@@ -292,3 +292,34 @@ preStop:
   exec:
     command: ["/bin/sh","-c","nginx -s quit; while killall -0 nginx; do sleep 1; done"]
 ```
+### hostAliases
+
+#### hostAliases的作用
+
+`hostAliases`属性允许您在容器的 `/etc/hosts` 文件中添加自定义的主机名和对应的IP地址。这在需要自定义主机名解析的场景下非常有用，例如解决与外部系统通信时的主机名映射。
+
+#### 如何配置hostAliases
+
+在Rainbond平台中，配置hostAliases非常简单。在组件的Kubernetes属性配置中，找到并编辑`hostAliases`字段，按照以下格式进行配置：
+
+```yaml
+- ip: "192.168.1.1"
+hostnames:
+- "alias1.example.com"
+- "alias2.example.com"
+- ip: "192.168.1.2"
+hostnames:
+- "alias3.example.com"
+```
+
+上述示例中，每个`hostAliases`项包含一个IP地址和一个或多个与之关联的主机名。您可以根据需要添加多个`hostAliases`项。
+
+#### 示例：使用hostAliases解决外部服务通信问题
+
+假设您的组件需要与外部数据库进行通信，而该数据库的连接需要通过主机名进行。通过配置hostAliases，您可以轻松将数据库主机名解析为其实际IP地址，确保通信的正常进行。
+
+```yaml
+- ip: "203.0.113.1"
+hostnames:
+- "external-db.example.com"
+```

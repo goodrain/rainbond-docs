@@ -108,7 +108,7 @@ docker stop rainbond-allinone && docker rm rainbond-allinone
 #该命令参数需要和之前启动的rainbond-allinone容器一致
 docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
 --name=rainbond-allinone --restart=always \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.16.0-release-allinone
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.0-release-allinone
 ```
 
 ### 集群端升级
@@ -116,7 +116,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.16.0-release-allinone
 更新 grctl 命令
 
 ```bash
-docker run -it --rm -v /:/rootfs  registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.16.0-release copy
+docker run -it --rm -v /:/rootfs  registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-grctl:v5.17.0-release copy
 
 mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && grctl install
 ```
@@ -125,9 +125,9 @@ mv /usr/local/bin/rainbond-grctl /usr/local/bin/grctl && grctl install
 
 ```bash
 # 替换基础 region 镜像版本
-grctl cluster upgrade --new-version=v5.16.0-release
+grctl cluster upgrade --new-version=v5.17.0-release
 
-# 手动替换 operator 镜像版本为 v5.16.0-release
+# 手动替换 operator 镜像版本为 v5.17.0-release
 kubectl edit deploy rainbond-operator -n rbd-system
 ```
 

@@ -23,7 +23,7 @@ keywords:
 
 IMAGE_DOMAIN=${IMAGE_DOMAIN:-registry.cn-hangzhou.aliyuncs.com}
 IMAGE_NAMESPACE=${IMAGE_NAMESPACE:-goodrain}
-VERSION=${VERSION:-'v5.16.0-release'}
+VERSION=${VERSION:-'v5.17.0-release'}
 
 image_list="${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/kubernetes-dashboard:v2.6.1
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/registry:2.6.2
@@ -66,7 +66,7 @@ helm pull rainbond/rainbond-cluster
 
 ### 导入镜像包
 ```bash
-docker load -i rainbond-v5.16.0-release.tar
+docker load -i rainbond-v5.17.0-release.tar
 ```
 
 ### 安装 Rainbond
@@ -144,7 +144,7 @@ kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --templ
 
 ```bash title="vim download_rbd_images_sourcebuild.sh"
 #!/bin/bash
-VERSION=${VERSION:-'v5.16.0-release'}
+VERSION=${VERSION:-'v5.17.0-release'}
 
 image_list="registry.cn-hangzhou.aliyuncs.com/goodrain/buildkit:latest
 registry.cn-hangzhou.aliyuncs.com/goodrain/builder:${VERSION}
@@ -168,7 +168,7 @@ wget https://pkg.rainbond.com/offline/5.3-enterprise/rbd-resource-proxy-offline-
 将镜像包导入到目标服务器
 
 ```bash
-docker load -i rainbond-sourcebuild-v5.16.0-release.tar
+docker load -i rainbond-sourcebuild-v5.17.0-release.tar
 docker load -i rbd-resource-proxy-offline-amd64.tar
 ```
 

@@ -546,7 +546,8 @@ const sidebars = {
               },
               items: [
                 'use-manual/component-create/image-support/docker-compose',
-                'use-manual/component-create/image-support/image'
+                'use-manual/component-create/image-support/image',
+                'use-manual/component-create/image-support/docker-hub'
               ]
             },
             {
@@ -654,7 +655,8 @@ const sidebars = {
                 'use-manual/component-manage/build-source/change_source_type'
               ]
             },
-            'use-manual/component-manage/other/index'
+            // 'use-manual/component-manage/other/dep',
+            'use-manual/component-manage/other/index',
           ]
         },
         {
