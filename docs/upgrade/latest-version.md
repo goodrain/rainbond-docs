@@ -136,11 +136,11 @@ kubectl edit deploy rainbond-operator -n rbd-system
 获取最新镜像，并修改 Tag
 
 ```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.0-release
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.0-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release
 
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.0-release goodrain.me/builder:latest-{架构:arm64/amd64}
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.0-release goodrain.me/runner:latest-{架构:arm64/amd64}
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release goodrain.me/builder:latest-{架构:arm64/amd64}
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release goodrain.me/runner:latest-{架构:arm64/amd64}
 ```
 
 推送镜像到私有仓库，参阅[推送镜像到私有仓库](/docs/ops-guide/component/rbd-hub#向集群私有镜像仓库推送镜像)

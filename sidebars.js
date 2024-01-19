@@ -655,7 +655,7 @@ const sidebars = {
                 'use-manual/component-manage/build-source/change_source_type'
               ]
             },
-            'use-manual/component-manage/other/dep',
+            // 'use-manual/component-manage/other/dep',
             'use-manual/component-manage/other/index',
           ]
         },

@@ -185,8 +185,8 @@ docker login -u admin goodrain.me -p <password>
 
 # 重新打 tag 并推送镜像
 
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.0-release goodrain.me/builder:latest-amd64
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.0-release goodrain.me/runner:latest-amd64
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release goodrain.me/builder:latest-amd64
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release goodrain.me/runner:latest-amd64
 docker push goodrain.me/builder:latest-amd64
 docker push goodrain.me/runner:latest-amd64
 docker push goodrain.me/rbd-resource-proxy:offline-amd64

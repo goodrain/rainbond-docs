@@ -313,7 +313,6 @@ hostnames:
 ```
 
 上述示例中，每个`hostAliases`项包含一个IP地址和一个或多个与之关联的主机名。您可以根据需要添加多个`hostAliases`项。
-![](https://static.goodrain.com/docs/5.17.0/f.png)
 
 #### 示例：使用hostAliases解决外部服务通信问题
 
