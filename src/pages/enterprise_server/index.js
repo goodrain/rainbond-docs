@@ -765,7 +765,11 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>离线环境支持</span>
+                    <a href='docs/enterprise/offline' target='_blank'> 
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>离线环境支持</p>
+                      </span>
+                    </a>
                     <span style={{color:'#7d7979'}}>
                       命令行
                     </span>
