@@ -753,7 +753,11 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>企业级备份</span>
+                    <a href='docs/enterprise/backup' target='_blank'> 
+                      <span>
+                        <p style={{marginBottom:'-4px'}}>企业级备份</p>
+                      </span>
+                    </a>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
