@@ -689,7 +689,7 @@ export default function Index() {
                   </div>
                   {/* 全链路灰度 */}
                   <div>
-                    <a href='docs/enterprise/gray-release' target='_blank'> 
+                    <a href='/docs/enterprise/gray-release' target='_blank'> 
                       <span>
                         <p style={{marginBottom:'-4px'}}>全链路灰度</p>
                       </span>
@@ -753,7 +753,7 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <a href='docs/enterprise/backup' target='_blank'> 
+                    <a href='/docs/enterprise/backup' target='_blank'> 
                       <span>
                         <p style={{marginBottom:'-4px'}}>企业级备份</p>
                       </span>
@@ -769,7 +769,7 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <a href='docs/enterprise/offline' target='_blank'> 
+                    <a href='/docs/enterprise/offline' target='_blank'> 
                       <span>
                         <p style={{marginBottom:'-4px'}}>离线环境支持</p>
                       </span>
