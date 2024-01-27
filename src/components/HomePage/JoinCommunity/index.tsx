@@ -72,7 +72,8 @@ export default function JoinCommunity() {
                       搜索钉钉群号加入 Rainbond 社区交流群
                       <ul>
                         <li><b>31096419（满）</b></li>
-                        <li><b>30885018060</b></li>
+                        <li><b>30885018060（满）</b></li>
+                        <li><b>65455006928</b></li>
                       </ul>
                     </div>
                   </div>
