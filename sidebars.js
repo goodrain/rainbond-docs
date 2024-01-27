@@ -944,6 +944,8 @@ const sidebars = {
         'enterprise/xinchuang',
         'enterprise/gray-release',
         'enterprise/scanner',
+        'enterprise/backup',
+        'enterprise/offline',
         {
           type: 'category',
           label: '网关增强',
