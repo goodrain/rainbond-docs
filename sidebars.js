@@ -248,6 +248,7 @@ const sidebars = {
             'kubernetes-native-guide/helm/helm-cmd-install',
             'kubernetes-native-guide/helm/example',
             'kubernetes-native-guide/helm/export-chart',
+            'kubernetes-native-guide/helm/helm-offlince',
           ]
         },
         'kubernetes-native-guide/deploy-job',
@@ -547,7 +548,8 @@ const sidebars = {
               items: [
                 'use-manual/component-create/image-support/docker-compose',
                 'use-manual/component-create/image-support/image',
-                'use-manual/component-create/image-support/docker-hub'
+                'use-manual/component-create/image-support/docker-hub',
+                'use-manual/component-create/image-support/docker-offline'
               ]
             },
             {
