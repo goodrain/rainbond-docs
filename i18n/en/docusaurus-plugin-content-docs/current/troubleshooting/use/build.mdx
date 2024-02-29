@@ -93,11 +93,11 @@ If there is no build log for a long time after you click to start building, chec
 1. Pull image and change tag
 
 ```bash
-nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release
-nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release
+nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.1-release
+nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.1-release
 
-nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release goodrain.me/builder:latest
-nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release goodrain.me/runner:latest
+nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.1-release goodrain.me/builder:latest
+nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.1-release goodrain.me/runner:latest
 ```
 
 2. Obtain the password of the private warehouse account and log in
@@ -124,11 +124,11 @@ nerdctl -n k8s.io image push goodrain.me/runner:latest --insecure-registry
 1. Pull image and change tag
 
 ```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.1-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.1-release
 
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.16.0-release goodrain.me/builder:latest
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.16.0-release goodrain.me/runner:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.1-release goodrain.me/builder:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.1-release goodrain.me/runner:latest
 ```
 
 2. Obtain the password of the private warehouse account and log in
