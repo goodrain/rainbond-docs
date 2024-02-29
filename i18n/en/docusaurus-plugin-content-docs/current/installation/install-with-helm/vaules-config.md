@@ -14,7 +14,7 @@ keywords:
 | ------------------------- |--------------------------------------------------------------| ------------------------------- |
 | operator.name             | rainbond-operator                                            | operator 的 deployment 资源名称 |
 | operator.image.name       | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond-operator | operator 镜像名称               |
-| operator.image.tag        | v5.17.0-release                                              | operator 镜像tag                |
+| operator.image.tag        | v5.17.1-release                                              | operator 镜像tag                |
 | operator.image.pullPolicy | IfNotPresent                                                 | operator 镜像拉取策略           |
 | operator.logLevel         | 4                                                            | operator 的日志输出级别         |
 | operator.env[0].name         | CONTAINER_RUNTIME                                            | 选择集群容器运行时         |
@@ -26,7 +26,7 @@ operator:
   name: rainbond-operator
   image:
     name: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond-operator
-    tag: v5.17.0-release
+    tag: v5.17.1-release
     pullPolicy: IfNotPresent
   logLevel: 4
   env:

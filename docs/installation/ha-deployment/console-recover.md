@@ -40,12 +40,12 @@ keywords:
 | env/e                   |        环境变量        |                                                                              |
 | arg/a                   |         参数           |                                                                              |
 | replicas/r              |         实例数         | 1                                                                            |
-| image/i                 |       控制台镜像       | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.0-release-allinone |
+| image/i                 |       控制台镜像       | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.1-release-allinone |
 
 ### 使用 grctl 迁移命令
 
 ```bash
-grctl migrate -i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.0-release-allinone -p 7071 -r 1
+grctl migrate -i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.1-release-allinone -p 7071 -r 1
 
 ```
 :::info
@@ -58,7 +58,7 @@ grctl migrate -i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.0-rel
 
 ```bash
 grctl migrate -p 7071 -r 1 \
--i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.0-release-allinone \
+-i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.1-release-allinone \
 -e MYSQL_HOST=127.0.0.1 \
 -e MYSQL_PORT=3306 \
 -e MYSQL_USER=root \
@@ -73,7 +73,7 @@ grctl migrate -p 7071 -r 1 \
 | -e，env                   |        环境变量        |                                                                              |
 | -a，arg               |         参数           |                                                                              |
 | -r，replicas              |         实例数         | 1                                                                            |
-| -i，image               |       控制台镜像       | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.0-release-allinone |
+| -i，image               |       控制台镜像       | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.1-release-allinone |
 
 
 ## 备份恢复控制台数据

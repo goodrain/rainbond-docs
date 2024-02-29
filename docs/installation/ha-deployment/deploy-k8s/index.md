@@ -41,7 +41,7 @@ docker run -d -p 7070:7070  \
 -e MYSQL_HOST=** \
 -e MYSQL_USER=** \
 -e MYSQL_PASS=** \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.0-release-allinone
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.1-release-allinone
 ```
 
 * 请将 `数据库连接信息` 替换为自己的实际连接信息。
