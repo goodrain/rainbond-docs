@@ -32,8 +32,18 @@ const sidebars = {
         id: 'installation/index'
       },
       items: [
-        // 'installation/install-with-dind',
-        'installation/install-with-ui/index',
+        {
+          type: 'category',
+          label: '基于主机安装',
+          link: {
+            type: 'doc',
+            id: 'installation/install-with-ui/index',
+          },
+          items: [
+            'installation/install-with-ui/ha',
+            'installation/install-with-ui/console-recover',
+          ]
+        },
         {
           type: 'category',
           label: '基于 Kubernetes 安装',
@@ -65,8 +75,6 @@ const sidebars = {
               },
               items: [
                 'installation/install-with-helm/other/k3s-install-with-helm',
-                'installation/install-with-helm/other/install-from-minikube',
-                'installation/install-with-helm/other/install-from-rancher',
               ]
             },
             // {
@@ -74,62 +82,6 @@ const sidebars = {
             //   label: 'Helm 命令生成工具',
             //   href: '/helm'
             // },
-          ]
-        },
-        {
-          type: 'category',
-          label: '高可用集群安装',
-          link: {
-            type: 'doc',
-            id: 'installation/ha-deployment/index'
-          },
-          items: [
-            {
-              type: 'category',
-              label: '安装前准备与要求',
-              link: {
-                type: 'doc',
-                id: 'installation/ha-deployment/overview/index'
-              },
-              items: [
-                'installation/ha-deployment/overview/mysql-ha',
-                'installation/ha-deployment/overview/deploy-keepalived',
-              ]
-            },
-            {
-              type: 'category',
-              label: 'Kubernetes 集群安装',
-              link: {
-                type: 'doc',
-                id: 'installation/ha-deployment/deploy-k8s/index'
-              },
-              items: [
-                'installation/ha-deployment/deploy-k8s/rke-config',
-              ]
-            },
-            {
-              type: 'category',
-              label: '分布式文件存储安装',
-              link: {
-                type: 'doc',
-                id: 'installation/ha-deployment/storage/index'
-              },
-              items: [
-                'installation/ha-deployment/storage/ceph-rbd',
-              ]
-            },
-            {
-              type: 'category',
-              label: 'Rainbond 集群安装',
-              link: {
-                type: 'doc',
-                id: 'installation/ha-deployment/deploy-rainbond/index'
-              },
-              items: [
-                'installation/ha-deployment/deploy-rainbond/init-rainbond-config',
-              ]
-            },
-            'installation/ha-deployment/console-recover',
           ]
         },
         'installation/offline/index',
