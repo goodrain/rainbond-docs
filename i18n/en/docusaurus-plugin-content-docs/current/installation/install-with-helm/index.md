@@ -17,14 +17,6 @@ keywords:
 
 了解在已有的 K3s 集群中，如何使用 Helm 快速部署 Rainbond 环境。这种安装方式支持高可用部署。
 
-### [基于 MiniKube 安装](/docs/installation/install-with-helm/other/install-from-minikube/)
-
-了解如何在 MiniKube 中使用 Helm 快速部署 Rainbond 环境。
-
-### [基于 Rancher 安装](/docs/installation/install-with-helm/other/install-from-rancher/)
-
-了解在 Rancher 图形化界面中，如何使用应用商店快速部署 Rainbond 环境。
-
 ## 在托管 Kubernetes 上安装
 
 ### [基于阿里云 ACK 集群安装](/docs/installation/install-with-helm/cloud/ack-install-with-helm/)
