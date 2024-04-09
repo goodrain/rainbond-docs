@@ -84,7 +84,7 @@ Cluster:
     password: admin
     username: admin
 
-  # external ETCD, ref: https://www.rainbond.com/docs/installation/ha-deployment/overview/#%E5%85%AB%E5%A4%8D%E7%94%A8-kubernetes-etcd
+  # external ETCD, ref: https://www.rainbond.com/docs/installation/install-with-ui/ha#etcd
   # Rainbond 集群需要使用 ETCD 用来存储集群的元数据信息，集群状态和网络配置，通常情况下复用 Kubernetes 的 ETCD 即可。看上方链接在安装好k8s之后，执行命令复用k8s ETCD
   etcd:
     enable: false

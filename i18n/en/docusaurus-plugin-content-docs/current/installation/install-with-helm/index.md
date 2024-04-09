@@ -5,7 +5,7 @@ keywords:
 - 基于 Kubernetes 安装 Rainbond 集群
 ---
 
-本文将指引你在已有的 Kubernetes 集群中快速安装一套可用的 Rainbond 环境，支持自建集群、托管集群等。你可以根据自己的需求选择最适合你的安装方式。高可用部署请参考文档[高可用集群安装](/docs/installation/ha-deployment/)。
+本文将指引你在已有的 Kubernetes 集群中快速安装一套可用的 Rainbond 环境，支持自建集群、托管集群等。你可以根据自己的需求选择最适合你的安装方式。
 
 ## 基于已有 Kubernetes 集群安装
 
