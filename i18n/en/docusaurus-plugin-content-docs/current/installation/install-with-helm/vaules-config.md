@@ -234,7 +234,7 @@ Cluster:
     password: admin
     username: admin
 
-  # external ETCD, ref: https://www.rainbond.com/docs/installation/ha-deployment/overview/#%E5%85%AB%E5%A4%8D%E7%94%A8-kubernetes-etcd
+  # external ETCD, ref: https://www.rainbond.com/docs/installation/install-with-ui/ha#etcd
   etcd:
     enable: false
     endpoints: 

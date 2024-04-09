@@ -146,7 +146,7 @@ kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --templ
 #!/bin/bash
 VERSION=${VERSION:-'v5.17.1-release'}
 
-image_list="registry.cn-hangzhou.aliyuncs.com/goodrain/buildkit:latest
+image_list="registry.cn-hangzhou.aliyuncs.com/goodrain/buildkit:v0.12.0
 registry.cn-hangzhou.aliyuncs.com/goodrain/builder:${VERSION}
 registry.cn-hangzhou.aliyuncs.com/goodrain/runner:${VERSION}"
 

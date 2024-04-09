@@ -25,7 +25,7 @@ export default function Communitydata() {
 
   const ContentList = [
     {
-      number: "4,600+",
+      number: "4,700+",
       desc: "GitHub Stars"
     },
     {
