@@ -23,7 +23,7 @@ keywords:
 
 IMAGE_DOMAIN=${IMAGE_DOMAIN:-registry.cn-hangzhou.aliyuncs.com}
 IMAGE_NAMESPACE=${IMAGE_NAMESPACE:-goodrain}
-VERSION=${VERSION:-'v5.17.1-release'}
+VERSION=${VERSION:-'v5.17.2-release'}
 
 image_list="${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/kubernetes-dashboard:v2.6.1
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/registry:2.6.2
@@ -66,7 +66,7 @@ helm pull rainbond/rainbond-cluster
 
 ### 导入镜像包
 ```bash
-docker load -i rainbond-v5.17.1-release.tar
+docker load -i rainbond-v5.17.2-release.tar
 ```
 
 ### 安装 Rainbond
@@ -74,7 +74,7 @@ docker load -i rainbond-v5.17.1-release.tar
 解压 Helm Chart 包
 
 ```bash
-tar xvf rainbond-cluster-5.17.1.tgz
+tar xvf rainbond-cluster-5.17.2.tgz
 ```
 
 使用 Helm Chart 安装 Rainbond
@@ -144,7 +144,7 @@ kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --templ
 
 ```bash title="vim download_rbd_images_sourcebuild.sh"
 #!/bin/bash
-VERSION=${VERSION:-'v5.17.1-release'}
+VERSION=${VERSION:-'v5.17.2-release'}
 
 image_list="registry.cn-hangzhou.aliyuncs.com/goodrain/buildkit:v0.12.0
 registry.cn-hangzhou.aliyuncs.com/goodrain/builder:${VERSION}
@@ -168,7 +168,7 @@ wget https://pkg.rainbond.com/offline/5.3-enterprise/rbd-resource-proxy-offline-
 将镜像包导入到目标服务器
 
 ```bash
-docker load -i rainbond-sourcebuild-v5.17.1-release.tar
+docker load -i rainbond-sourcebuild-v5.17.2-release.tar
 docker load -i rbd-resource-proxy-offline-amd64.tar
 ```
 
@@ -185,8 +185,8 @@ docker login -u admin goodrain.me -p <password>
 
 # 重新打 tag 并推送镜像
 
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.1-release goodrain.me/builder:latest-amd64
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.1-release goodrain.me/runner:latest-amd64
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.2-release goodrain.me/builder:latest-amd64
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.2-release goodrain.me/runner:latest-amd64
 docker push goodrain.me/builder:latest-amd64
 docker push goodrain.me/runner:latest-amd64
 docker push goodrain.me/rbd-resource-proxy:offline-amd64
