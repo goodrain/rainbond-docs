@@ -74,7 +74,7 @@ docker load -i rainbond-v5.17.3-release.tar
 解压 Helm Chart 包
 
 ```bash
-tar xvf rainbond-cluster-5.17.2.tgz
+tar xvf rainbond-cluster-5.17.3.tgz
 ```
 
 使用 Helm Chart 安装 Rainbond
