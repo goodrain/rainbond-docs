@@ -59,7 +59,7 @@ curl -o install.sh https://get.rainbond.com && bash ./install.sh
 ```bash
 curl -o install.sh https://get.rainbond.com && VERSION=<指定的版本> bash ./install.sh
 ```
-版本格式为：`v5.15.0`、`v5.16.0`、`v5.17.0`、`v5.17.1`、`v5.17.2`
+版本格式为：`v5.15.0`、`v5.16.0`、`v5.17.0`、`v5.17.1`、`v5.17.2`、`v5.17.3`
 
   </TabItem>
   
@@ -67,7 +67,7 @@ curl -o install.sh https://get.rainbond.com && VERSION=<指定的版本> bash ./
 
 本栏介绍通过主机安装和通过 Helm 安装的 Rainbond 升级到最新版本。  
 
-## 从最近的版本升级到 v5.17.2
+## 从最近的版本升级到 v5.17.3
 
 如果您的 Rainbond 版本是 `v5.17.0`，则可以通过以下方式进行升级。
 
@@ -122,13 +122,13 @@ docker push goodrain.me/builder:latest-{架构:arm64/amd64}
 docker push goodrain.me/runner:latest-{架构:arm64/amd64}
 ```
 
-## 跨版本升级到 v5.17.2
+## 跨版本升级到 v5.17.3
 
 跨版本升级步骤如下:
 
 1. 执行每个版本的升级 SQL 脚本。
 2. 更新每个版本所需要的 CRD 资源，目前只有 [v5.11.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.11.0-upgrade#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)、[v5.12.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.12.0-upgrade#%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90) 需要更新 CRD 资源。
-3. 升级控制台镜像版本以及集群端镜像版本，按照 [从最近的版本升级到 v5.17.2](#从最近的版本升级到-v5171) 的步骤进行升级控制台镜像以及集群端镜像。
+3. 升级控制台镜像版本以及集群端镜像版本，按照 [从最近的版本升级到 v5.17.3](#从最近的版本升级到-v5173) 的步骤进行升级控制台镜像以及集群端镜像。
 4. 升级 builder 和 runner 镜像，按照上述的 [升级 builder runner 镜像](#升级-builder-和-runner-镜像) 的步骤进行升级 builder 和 runner 镜像。
 
 <details>
@@ -174,6 +174,8 @@ curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
 # v5.17.1 无 SQL 升级
 
 # v5.17.2 无 SQL 升级
+
+# v5.17.3 无 SQL 升级
 ```
 
 2. 更新 CRD 资源 [v5.11.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.11.0-upgrade#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)、[v5.12.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.12.0-upgrade#%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)。
