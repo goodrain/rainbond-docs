@@ -52,7 +52,7 @@ docker run -d -p 7070:7070 \
 --name=rainbond-allinone --restart=always \
 -v ~/.ssh:/root/.ssh \
 -v ~/rainbonddata:/app/data \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.2-release-allinone
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.3-release-allinone
 ```
 
 > 控制台将产生需要持久化的数据，存储于节点的 `~/rainbonddata` 目录中。
