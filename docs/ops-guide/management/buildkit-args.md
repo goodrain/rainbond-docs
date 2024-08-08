@@ -35,14 +35,17 @@ Containerd 配置 `/etc/containerd/config.toml`，添加私有镜像仓库地址
 
 修改 BuildKit 构建参数，添加私有镜像仓库地址：
 
-```bash title="kubectl edit cm goodrain.me -n rbd-system"
+```diff title="kubectl edit cm goodrain.me -n rbd-system"
 apiVersion: v1
 data:
   buildkittoml: |-
     debug = true
-    [registry."xxx.xxx.xxx.xxx:5000"]
-      http = true
+    [registry."goodrain.me"]
+      http = false
       insecure = true
++   [registry."xxx.xxx.xxx.xxx:5000"]
++     http = true
++     insecure = true
 kind: ConfigMap
 metadata:
   creationTimestamp: "2023-07-23T13:11:26Z"
@@ -54,13 +57,16 @@ metadata:
 
 通过 Dockerfile 构建时，遇到基础镜像无法拉取的问题时，可以通过配置镜像加速服务解决。示例如下：
 
-```bash title="kubectl edit cm goodrain.me -n rbd-system"
+```diff title="kubectl edit cm goodrain.me -n rbd-system"
 apiVersion: v1
 data:
   buildkittoml: |-
     debug = true
-    [registry."docker.io"]
-      mirrors = ["dockerproxy.com"]
+    [registry."goodrain.me"]
+      http = false
+      insecure = true
++   [registry."docker.io"]
++     mirrors = ["docker.rainbond.cc"]
 kind: ConfigMap
 metadata:
   creationTimestamp: "2023-07-23T13:11:26Z"
