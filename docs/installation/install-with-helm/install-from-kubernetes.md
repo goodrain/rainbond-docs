@@ -164,7 +164,7 @@ kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --templ
 
 ### 6. 高可用集群(可选)
  
-对于[部署 Rainbond 高可用集群](http://localhost:3000/docs/installation/install-with-ui/ha)来说，只需要将依赖的服务（镜像仓库、数据库、存储等）都使用外置的高可用服务，然后按照 [Chart 安装选项](/docs/installation/install-with-helm/vaules-config) 中的配置参数进行安装即可。 
+对于[部署 Rainbond 高可用集群](/docs/installation/install-with-ui/ha)来说，只需要将依赖的服务（镜像仓库、数据库、存储等）都使用外置的高可用服务，然后按照 [Chart 安装选项](/docs/installation/install-with-helm/vaules-config) 中的配置参数进行安装即可。 
 
 ## 问题排查
 

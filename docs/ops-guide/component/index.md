@@ -38,7 +38,7 @@ Rainbond 由 Console(控制台) + Region(集群端) + Kubernetes(RKE) 组成。
 |rbd-api|5.x|API服务，提供 Region 端接口|Deployment|是||
 |rbd-chaos|5.x|应用构建服务，提供源码，Docker镜像等方式创建应用以及导入导出应用包|Daemonset|是||
 |rbd-db|8.0|数据库服务，支持MySQL `5.6` `5.7` `8.0`|Statefulset|是|可配置使用[外置数据库](/docs/installation/install-with-helm/vaules-config#配置-rainbond-集群端数据库)|
-|rbd-etcd|3.3.18|`etcd`存储集群的元数据信息，集群状态和网络配置|Statefulset|是|可复用 [K8s ETCD](http://localhost:3000/docs/installation/install-with-helm/vaules-config#%E9%85%8D%E7%BD%AE%E5%A4%96%E9%83%A8etcd)|
+|rbd-etcd|3.3.18|`etcd`存储集群的元数据信息，集群状态和网络配置|Statefulset|是|可复用 [K8s ETCD](/docs/installation/install-with-helm/vaules-config#%E9%85%8D%E7%BD%AE%E5%A4%96%E9%83%A8etcd)|
 |rbd-eventlog|5.x|事件处理与日志汇聚服务|Statefulset|是||
 |rbd-gateway|5.x|应用的全局网关|Daemonset|是||
 |[rbd-hub](./rbd-hub)|v2.6.2|基于 [Docker Registry ](https://docs.docker.com/registry/)封装，提供镜像存储服务|Deployment|是|可配置[外部镜像仓库](/docs/installation/install-with-helm/vaules-config#配置外部镜像仓库)|
