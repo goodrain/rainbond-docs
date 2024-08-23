@@ -62,3 +62,14 @@ spring:
 ```
 
 更多分析细节，详见 [RainBond 中获取不到 Nacos 配置 - 深度分析](https://blog.csdn.net/u012383839/article/details/135115269?spm=1001.2014.3001.5501)。
+
+### 历史日志存储不足
+
+默认情况下，每个组件默认只会保存 10M 大小的历史日志，如果你需要保存更多的历史日志，可以通过修改组件的环境变量 `LOG_MAX_SIZE` 来设置，默认单位为 MB。
+
+```yaml title='kubectl edit rbdcomponent rbd-eventlog -n rbd-system'
+spec:
+  env:
+  - name: LOG_MAX_SIZE
+    value: 20
+```
