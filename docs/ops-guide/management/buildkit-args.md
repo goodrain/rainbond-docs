@@ -35,7 +35,7 @@ Containerd 配置 `/etc/containerd/config.toml`，添加私有镜像仓库地址
 
 修改 BuildKit 构建参数，添加私有镜像仓库地址：
 
-```diff title="kubectl edit cm goodrain.me -n rbd-system"
+```diff title="kubectl edit cm goodrain-me -n rbd-system"
 apiVersion: v1
 data:
   buildkittoml: |-
