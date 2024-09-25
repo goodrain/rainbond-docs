@@ -2,10 +2,10 @@
 title: Service Mesh Usage Guide
 description: This chapter describes the Service Mesh function of Rainbond, including the concept, functions, and usage of Service Mesh.
 keywords:
-- Service Mesh
-- 服务网格
-- Istio
-- Envoy
+  - Service Mesh
+  - 服务网格
+  - Istio
+  - Envoy
 ---
 
 Service Mesh 既服务网格，作为服务间通信的基础设施层。轻量级高性能网络代理，提供安全的、快速的、可靠地服务间通讯，与实际应用部署一起，但对应用透明。应用作为服务的发起方，只需要用最简单的方式将请求发送给本地的服务网格代理，然后网格代理会进行后续的操作，如服务发现，负载均衡，最后将请求转发给目标服务。
