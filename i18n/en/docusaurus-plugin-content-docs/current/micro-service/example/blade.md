@@ -2,21 +2,21 @@
 title: Deploy the Spring Cloud Blade
 description: This chapter describes how to deploy Spring Cloud Blade on Rainbond
 keywords:
-- Spring Cloud Blade 部署
-- 微服务部署示例
+  - Spring Cloud Blade 部署
+  - 微服务部署示例
 ---
 
 ## 关于 Spring Cloud Blade
 
-* 采用前后端分离的模式，前端开源两个框架：[Sword](https://gitee.com/smallc/Sword) (基于 React、Ant Design)、[Saber](https://gitee.com/smallc/Saber) (基于 Vue、Element-UI)
-* 后端采用SpringCloud全家桶，并同时对其基础组件做了高度的封装，单独开源出一个框架：[BladeTool](https://gitee.com/smallc/blade-tool)
-* [BladeTool](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fchillzhuang%2Fblade-tool)已推送至Maven中央库，直接引入即可，减少了工程的臃肿，也可更注重于业务开发
-* 集成Sentinel从流量控制、熔断降级、系统负载等多个维度保护服务的稳定性。
-* 注册中心、配置中心选型Nacos，为工程瘦身的同时加强各模块之间的联动。
-* 极简封装了多租户底层，用更少的代码换来拓展性更强的SaaS多租户系统。
-* 借鉴OAuth2，实现了多终端认证系统，可控制子系统的token权限互相隔离。
-* 借鉴Security，封装了Secure模块，采用JWT做Token认证，可拓展集成Redis等细颗粒度控制方案。
-* 项目分包明确，规范微服务的开发模式，使包与包之间的分工清晰。
+- 采用前后端分离的模式，前端开源两个框架：[Sword](https://gitee.com/smallc/Sword) (基于 React、Ant Design)、[Saber](https://gitee.com/smallc/Saber) (基于 Vue、Element-UI)
+- 后端采用SpringCloud全家桶，并同时对其基础组件做了高度的封装，单独开源出一个框架：[BladeTool](https://gitee.com/smallc/blade-tool)
+- [BladeTool](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fchillzhuang%2Fblade-tool)已推送至Maven中央库，直接引入即可，减少了工程的臃肿，也可更注重于业务开发
+- 集成Sentinel从流量控制、熔断降级、系统负载等多个维度保护服务的稳定性。
+- 注册中心、配置中心选型Nacos，为工程瘦身的同时加强各模块之间的联动。
+- 极简封装了多租户底层，用更少的代码换来拓展性更强的SaaS多租户系统。
+- 借鉴OAuth2，实现了多终端认证系统，可控制子系统的token权限互相隔离。
+- 借鉴Security，封装了Secure模块，采用JWT做Token认证，可拓展集成Redis等细颗粒度控制方案。
+- 项目分包明确，规范微服务的开发模式，使包与包之间的分工清晰。
 
 ### 模块说明
 
@@ -70,34 +70,35 @@ SpringBlade
 
 1. **基于源码创建组件，填写以下信息：**
 
-|              | 内容                                 |
-| ------------ | ------------------------------------ |
-| 组件名称     | 自定义                               |
-| 组件英文名称 | 自定义                               |
-| 仓库地址     | `https://gitee.com/smallc/SpringBlade` |
-| 代码版本: Tag | v3.5.0                      |
+|                           | 内容                                     |
+| ------------------------- | -------------------------------------- |
+| 组件名称                      | 自定义                                    |
+| 组件英文名称                    | 自定义                                    |
+| 仓库地址                      | `https://gitee.com/smallc/SpringBlade` |
+| 代码版本: Tag | v3.5.0 |
 
-2. **检测出多模块构建，进入多模块构建页面**  
+2. **检测出多模块构建，进入多模块构建页面**
 
 :::tip
+
 1. 创建前，在多模块构建页面 -> 右侧修改按钮 -> 修改每个模块的启动命令，如下。
 2. 创建后，删除每个组件的默认端口，为每个组件添加对应的新端口和端口别名并打开端口的对内服务，如下。
 3. 修改完成后构建组件。
-:::
+   :::
 
-| 组件                   | 端口 | 启动命令 |
-| ---------------------- | ---- | ---- |
-| blade-auth | 8100 | `web: java $JAVA_OPTS -jar blade-auth/target/blade-auth.jar` |
-| blade-gateway | 80 | `web: java $JAVA_OPTS -jar blade-gateway/target/blade-gateway.jar` |
-| blade-admin | 7002 | `web: java $JAVA_OPTS -jar blade-ops/blade-admin/target/blade-admin.jar` |
-| blade-develop | 7007 | `web: java $JAVA_OPTS -jar blade-ops/blade-develop/target/blade-develop.jar` |
-| blade-report | 8108 | `web: java $JAVA_OPTS -jar blade-ops/blade-report/target/blade-report.jar` |
-| blade-resource | 8010 | `web: java $JAVA_OPTS -jar blade-ops/blade-resource/target/blade-resource.jar` |
-| blade-swagger | 18000 | `web: java $JAVA_OPTS -jar blade-ops/blade-swagger/target/blade-swagger.jar` |
-| blade-desk | 8105 | `web: java $JAVA_OPTS -jar blade-service/blade-desk/target/blade-desk.jar` |
-| blade-log | 8103 | `web: java $JAVA_OPTS -jar blade-service/blade-log/target/blade-log.jar` |
-| blade-system | 8106 | `web: java $JAVA_OPTS -jar blade-service/blade-system/target/blade-system.jar` |
-| blade-user | 8102 | `web: java $JAVA_OPTS -jar blade-service/blade-user/target/blade-user.jar` |
+| 组件             | 端口    | 启动命令                                                                           |
+| -------------- | ----- | ------------------------------------------------------------------------------ |
+| blade-auth     | 8100  | `web: java $JAVA_OPTS -jar blade-auth/target/blade-auth.jar`                   |
+| blade-gateway  | 80    | `web: java $JAVA_OPTS -jar blade-gateway/target/blade-gateway.jar`             |
+| blade-admin    | 7002  | `web: java $JAVA_OPTS -jar blade-ops/blade-admin/target/blade-admin.jar`       |
+| blade-develop  | 7007  | `web: java $JAVA_OPTS -jar blade-ops/blade-develop/target/blade-develop.jar`   |
+| blade-report   | 8108  | `web: java $JAVA_OPTS -jar blade-ops/blade-report/target/blade-report.jar`     |
+| blade-resource | 8010  | `web: java $JAVA_OPTS -jar blade-ops/blade-resource/target/blade-resource.jar` |
+| blade-swagger  | 18000 | `web: java $JAVA_OPTS -jar blade-ops/blade-swagger/target/blade-swagger.jar`   |
+| blade-desk     | 8105  | `web: java $JAVA_OPTS -jar blade-service/blade-desk/target/blade-desk.jar`     |
+| blade-log      | 8103  | `web: java $JAVA_OPTS -jar blade-service/blade-log/target/blade-log.jar`       |
+| blade-system   | 8106  | `web: java $JAVA_OPTS -jar blade-service/blade-system/target/blade-system.jar` |
+| blade-user     | 8102  | `web: java $JAVA_OPTS -jar blade-service/blade-user/target/blade-user.jar`     |
 
 3. **编辑依赖关系，切换到 `编排模式` 拖动组件进行依赖关系建立。**
 
@@ -257,13 +258,12 @@ blade:
 
 1. 基于源码创建组件，填写以下信息：
 
-|              | 内容                                 |
-| ------------ | ------------------------------------ |
-| 组件名称     | 自定义                               |
-| 组件英文名称 | 自定义                               |
-| 仓库地址     | `https://gitee.com/zhangbigqi/Saber.git` |
-| 代码版本     | v3.5.0                        |
-
+|        | 内容                                       |
+| ------ | ---------------------------------------- |
+| 组件名称   | 自定义                                      |
+| 组件英文名称 | 自定义                                      |
+| 仓库地址   | `https://gitee.com/zhangbigqi/Saber.git` |
+| 代码版本   | v3.5.0   |
 
 :::caution
 这里使用了我的仓库地址，修改了 Nginx 配置。
