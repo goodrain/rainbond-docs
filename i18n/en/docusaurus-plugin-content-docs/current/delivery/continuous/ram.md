@@ -2,8 +2,8 @@
 title: Continuous delivery of application templates
 description: This section describes how to implement continuous delivery of application templates on Rainbond
 keywords:
-- 应用模版
-- 持续交付
+  - 应用模版
+  - 持续交付
 ---
 
 import Bvideo from '/src/components/Bvideo';
@@ -20,9 +20,10 @@ import Bvideo from '/src/components/Bvideo';
 
 3. 开发人员修改完代码自测完成后，再次发布`后台管理系统`的 `2.0` 版本，此时测试人员可以在测试环境一键升级，升级完成后继续测试。
 
-3. 当 `3.0` 版本测试通过以后，我们就可以认为已经有了高质量可交付的版本。接下来可以在应用市场标记该版本已经 Release，后续在生产环境部署时，直接从应用市场部署 `3.0` 版本即可。
+4. 当 `3.0` 版本测试通过以后，我们就可以认为已经有了高质量可交付的版本。接下来可以在应用市场标记该版本已经 Release，后续在生产环境部署时，直接从应用市场部署 `3.0` 版本即可。
 
 <!-- ![ram-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/ram-delivery.jpg) -->
+
 ![](https://static.goodrain.com/docs/5.11/delivery/continuous/source-code/template-delivery.png)
 
 ## 操作步骤
@@ -49,7 +50,7 @@ import Bvideo from '/src/components/Bvideo';
 注：仅有企业管理员可以看到平台管理按钮。
 :::
 
-### 
+###
 
 ### 部署测试环境
 
@@ -68,4 +69,3 @@ import Bvideo from '/src/components/Bvideo';
 2. 点击`后台管理系统`模版右侧的安装，团队选择`生产环境`，以及要安装的应用和版本，即可一键部署出生产环境。
 
 3. 后续如果有问题，仍然是开发人员发布 `3.1` 版本，测试人员测试通过后，运维人员在`生产环境`的应用中，选择`升级`，即可完成上线。
-
