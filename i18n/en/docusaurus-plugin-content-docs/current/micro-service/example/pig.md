@@ -2,15 +2,15 @@
 title: Deploy Spring Cloud Pig
 description: This chapter describes how to deploy Spring Cloud Pig on Rainbond
 keywords:
-- Spring Cloud Pig 部署
-- 微服务部署示例
+  - Spring Cloud Pig 部署
+  - 微服务部署示例
 ---
 
 ## 关于 Spring Cloud Pig
 
-* 基于 Spring Cloud 2021 、Spring Boot 2.7、 OAuth2 的 RBAC 权限管理系统
-* 基于数据驱动视图的理念封装 element-plus，即使没有 vue 的使用经验也能快速上手
-* 提供 lambda 、stream api 、webflux 的生产实践
+- 基于 Spring Cloud 2021 、Spring Boot 2.7、 OAuth2 的 RBAC 权限管理系统
+- 基于数据驱动视图的理念封装 element-plus，即使没有 vue 的使用经验也能快速上手
+- 提供 lambda 、stream api 、webflux 的生产实践
 
 ### 模块说明
 
@@ -51,13 +51,13 @@ pig -- https://gitee.com/log4j/pig
 
 1. 基于源码创建组件，填写以下信息：
 
-|              | 内容                                 |
-| ------------ | ------------------------------------ |
-| 组件名称     | 自定义                               |
-| 组件英文名称 | 自定义                               |
-| 仓库地址     | `https://gitee.com/zhangbigqi/pig.git` |
-| 子目录路径   | db                                   |
-| 代码版本     | v3.6.2-1117                          |
+|        | 内容                                          |
+| ------ | ------------------------------------------- |
+| 组件名称   | 自定义                                         |
+| 组件英文名称 | 自定义                                         |
+| 仓库地址   | `https://gitee.com/zhangbigqi/pig.git`      |
+| 子目录路径  | db                                          |
+| 代码版本   | v3.6.2-1117 |
 
 :::caution
 这里使用了我的仓库地址，因为修改了一些默认配置，比如数据库密码、存储，如果你不想修改，可以使用原仓库地址
@@ -82,26 +82,26 @@ pig -- https://gitee.com/log4j/pig
 
 1. 基于源码创建组件，填写以下信息：
 
-|              | 内容                                 |
-| ------------ | ------------------------------------ |
-| 组件名称     | 自定义                               |
-| 组件英文名称 | 自定义                               |
-| 仓库地址     | `https://gitee.com/log4j/pig.git` |
-| 代码版本: Tag | v3.6.2                        |
+|                           | 内容                                     |
+| ------------------------- | -------------------------------------- |
+| 组件名称                      | 自定义                                    |
+| 组件英文名称                    | 自定义                                    |
+| 仓库地址                      | `https://gitee.com/log4j/pig.git`      |
+| 代码版本: Tag | v3.6.2 |
 
-2. 检测出多模块构建，进入多模块构建页面，勾选以下模块并创建。  
-    * 创建后，删除每个组件的默认端口，为每个组件添加对应的新端口和端口别名并打开端口的对内服务，如下：
+2. 检测出多模块构建，进入多模块构建页面，勾选以下模块并创建。
+   - 创建后，删除每个组件的默认端口，为每个组件添加对应的新端口和端口别名并打开端口的对内服务，如下：
 
-| 组件                   | 端口 | 端口别名 |
-| ---------------------- | ---- | ---- |
+| 组件                     | 端口             | 端口别名                              |
+| ---------------------- | -------------- | --------------------------------- |
 | pig-register           | 8848 9848 9849 | 8848端口别名: `NACOS` |
-| pig-gateway            | 9999 | 端口别民: `GATEWAY` |
-| pig-auth               | 3000 | |
-| pig-upms-biz           | 4000 | |
-| pig-codegen            | 5002 | |
-| pig-monitor            | 5001 | |
-| pig-sentinel-dashboard | 5003 | SENTINEL |
-| pig-xxl-job-admin      | 5004 | |
+| pig-gateway            | 9999           | 端口别民: `GATEWAY`   |
+| pig-auth               | 3000           |                                   |
+| pig-upms-biz           | 4000           |                                   |
+| pig-codegen            | 5002           |                                   |
+| pig-monitor            | 5001           |                                   |
+| pig-sentinel-dashboard | 5003           | SENTINEL                          |
+| pig-xxl-job-admin      | 5004           |                                   |
 
 3. 编辑依赖关系，切换到 `编排模式` 拖动组件进行依赖关系建立。
 
@@ -142,6 +142,7 @@ spring:
     url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/pig?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
     # 修改 mysql host 和 port
 ```
+
 :::tip
 更新除 Mysql 和 Redis 外所有组件
 :::
@@ -150,13 +151,12 @@ spring:
 
 4.1、基于源码创建组件，填写以下信息：
 
-|              | 内容                                 |
-| ------------ | ------------------------------------ |
-| 组件名称     | 自定义                               |
-| 组件英文名称 | 自定义                               |
-| 仓库地址     | `https://gitee.com/zhangbigqi/pig-ui.git` |
-| 代码版本     | v3.6.2-1117                          |
-
+|        | 内容                                          |
+| ------ | ------------------------------------------- |
+| 组件名称   | 自定义                                         |
+| 组件英文名称 | 自定义                                         |
+| 仓库地址   | `https://gitee.com/zhangbigqi/pig-ui.git`   |
+| 代码版本   | v3.6.2-1117 |
 
 :::caution
 这里使用了我的仓库地址，因为修改了一些默认配置，比如增加了 `nodestatic.json` `web.conf`，参阅 [部署Vue、React前端](/docs/use-manual/component-create/language-support/nodejs-static)
@@ -168,9 +168,9 @@ spring:
 
 4.4、进入 `pig-ui` **组件内 -> 环境配置 -> 添加配置文件**，添加以下配置文件：
 
-* 配置文件名称：自定义
-* 配置文件路径：`/app/nginx/conf.d/web.conf`
-* 配置文件内容如下:
+- 配置文件名称：自定义
+- 配置文件路径：`/app/nginx/conf.d/web.conf`
+- 配置文件内容如下:
 
 ```conf
 server {
