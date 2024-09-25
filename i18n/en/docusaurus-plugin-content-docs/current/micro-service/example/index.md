@@ -1,14 +1,15 @@
 ---
 title: Spring Cloud microservice deployment example
 keywords:
-- Spring Cloud 微服务部署在 Rainbond 的优势
-- Spring Cloud 微服务与 Rainbond 的融合
-- 部署 Spring Cloud 微服务 Pig
+  - Spring Cloud 微服务部署在 Rainbond 的优势
+  - Spring Cloud 微服务与 Rainbond 的融合
+  - 部署 Spring Cloud 微服务 Pig
 ---
 
 本系列文档介绍如何在 Rainbond 上部署 Spring Cloud 微服务的优势以及如何融合，包括部署示例教程。
 
 ## Spring Cloud 微服务部署在 Rainbond 的优势
+
 ### 概述
 
 目前很多公司已经拥有了基于 Spring Cloud 微服务框架开发的业务系统。作为老牌成熟的微服务架构，Spring Cloud 微服务框架为企业业务开发提供了诸多好处。
@@ -39,6 +40,7 @@ Rainbond 会把 Spring Cloud 的每个微服务组件单独看待，并可以针
 ### 性能监控
 
 Rainbond 支持插件扩展方式的性能监控方案，支持对基于 Http、Mysql 协议的应用进行 `平均响应时间、吞吐率、在线人数` 的监控。并检测最近 5 分钟内耗时做多的 url 排行，对于调试系统性能有指导作用。
+
 ### 垂直/水平伸缩
 
 Rainbond 支持一键进行伸缩，这种伸缩包含两个层面：
@@ -55,6 +57,7 @@ Spring Cloud 微服务设计已经将程序与数据分离，所以将服务组�
 在首次部署 Spring Cloud 的过程中，对所使用的诸如 Mysql Redis Rabbit 等中间件，Rainbond 公有云市提供了制作好的市场应用，可供拉取后一键安装。免除了传统部署中搭建各种中间件的麻烦。
 
 ## Spring Cloud 微服务与 Service Mesh 的融合
+
 ### 概述
 
 Rainbond 原生支持 Service Mesh 微服务架构。也就是说，无论原来是什么，只要部署在 Rainbond 上，那么就天然的成为了 Service Mesh 微服务。这也是 Service Mesh 微服务架构的一大特点：对原应用无侵入。
@@ -100,6 +103,7 @@ spring:
     host: ${REDIS_HOST}
     port: ${REDIS_PORT}
 ```
+
 #### 服务组件启动顺序
 
 Spring Cloud 微服务组件的启动顺序是比较重要的，一个组件在所依赖的服务没有启动前自行启动，是可能引起错误的。Spring Cloud 微服务框架本身不会维护服务组件的启动顺序，这一问题可以由 Rainbond 来解决。
@@ -107,6 +111,7 @@ Spring Cloud 微服务组件的启动顺序是比较重要的，一个组件在�
 Rainbond 支持了基于依赖关系的启动顺序控制。启动先后逻辑为被依赖的服务先启动，只有当前服务所依赖的服务全部正常启动后，才会开始启动流程。
 
 ## Spring Cloud 部署示例
+
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
 import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
