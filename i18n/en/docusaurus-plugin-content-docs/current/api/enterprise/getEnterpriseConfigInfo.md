@@ -2,8 +2,7 @@
 title: Get enterprise configuration information
 ---
 
-
-## Basic Information
+## 基本信息
 
 Get enterprise configuration information
 
@@ -16,7 +15,6 @@ GET /openapi/v1/configs
 | status code | Status code meaning | illustrate | data model                                              |
 | ----------- | ------------------- | ---------- | ------------------------------------------------------- |
 | 200         | OK                  | success    | [EnterpriseConfigSeralizer](#enterpriseconfigseralizer) |
-
 
 ## Model
 
@@ -85,12 +83,12 @@ GET /openapi/v1/configs
 
 ### Attributes
 
-| name                 | type                                                | required | constraint | Chinese name | illustrate |
-| -------------------- | --------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| export_app           | [Export app](#schemaexport%20app)                   | false    | none       |              | none       |
-| auto_ssl             | [Auto ssl](#schemaauto%20ssl)                       | false    | none       |              | none       |
-| oauth_services       | [Oauth services](#schemaoauth%20services)           | false    | none       |              | none       |
-| cloud_market         | [Cloud market](#schemacloud%20market)               | false    | none       |              | none       |
-| object_storage       | [Object storage](#schemaobject%20storage)           | false    | none       |              | none       |
+| name                                                         | type                                                | required | constraint | Chinese name | illustrate |
+| ------------------------------------------------------------ | --------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| export_app                              | [Export app](#schemaexport%20app)                   | false    | none       |              | none       |
+| auto_ssl                                | [Auto ssl](#schemaauto%20ssl)                       | false    | none       |              | none       |
+| oauth_services                          | [Oauth services](#schemaoauth%20services)           | false    | none       |              | none       |
+| cloud_market                            | [Cloud market](#schemacloud%20market)               | false    | none       |              | none       |
+| object_storage                          | [Object storage](#schemaobject%20storage)           | false    | none       |              | none       |
 | appstore_image_hub | [Appstore image hub](#schemaappstore%20image%20hub) | false    | none       |              | none       |
-| newbie_guide         | [Newbie guide](#schemanewbie%20guide)               | false    | none       |              | none       |
+| newbie_guide                            | [Newbie guide](#schemanewbie%20guide)               | false    | none       |              | none       |
