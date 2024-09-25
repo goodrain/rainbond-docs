@@ -2,7 +2,7 @@
 title: Get business list
 ---
 
-## Basic Information
+## 基本信息
 
 Get business list
 
@@ -18,13 +18,11 @@ GET /openapi/v2/manage/enterprises
 | current  | query    | string | no       | page number                             |
 | pageSize | query    | string | no       | Quantity per page                       |
 
-
 ## return result
 
 | status code | Status code meaning | illustrate | data model                    |
 | ----------- | ------------------- | ---------- | ----------------------------- |
 | 200         | OK                  | success    | [ListEntsResp](#listentsresp) |
-
 
 ## Model
 
@@ -51,8 +49,7 @@ GET /openapi/v2/manage/enterprises
 
 ### Attributes
 
-| name  | type                                              | required | constraint | Chinese name | illustrate |
-| ----- | ------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| total | integer                                           | true     | none       | Total        | total      |
+| name  | type                                                                                                  | required | constraint | Chinese name | illustrate |
+| ----- | ----------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| total | integer                                                                                               | true     | none       | Total        | 总数         |
 | data  | [[EnterpriseListInfo](#schemaenterpriselistinfo)] | true     | none       |              | none       |
-
