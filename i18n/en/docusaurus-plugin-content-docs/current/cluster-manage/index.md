@@ -2,10 +2,9 @@
 title: Cluster Management Guide
 description: Rainbond Cluster Management Guide
 keywords:
-- Cluster Manage 指南
-- Rainbond Cluster Manage
+  - Cluster Manage 指南
+  - Rainbond Cluster Manage
 ---
-
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
