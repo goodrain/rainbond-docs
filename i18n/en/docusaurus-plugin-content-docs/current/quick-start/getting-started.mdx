@@ -1,31 +1,32 @@
 ---
-title: Getting started
+title: 快速入门
 description: This document will guide you through the deployment and installation of your first application
 ---
 
 This article will guide you through deploying an application to quickly familiarize yourself with the basic functionality of Rainbond, starting with building the Java-Maven Demo sample from source code, and then connecting the Java-Maven Demo to the MySQL service in the form of application orchestration to achieve a basic application deployment.
 
-## Prerequisites
+## 准备工作
 
 1. Install Rainbond in advance, see [Quick Installation](/docs/quick-start/quick-install)
 
 ## Step 1: Create component
 
-With the quick setup and deployment of the Rainbond platform, the first entry will be on a team guide page, where we can deploy our components in a variety of ways, such as the app market, images, source code, or Yaml Helm. 
+With the quick setup and deployment of the Rainbond platform, the first entry will be on a team guide page, where we can deploy our components in a variety of ways, such as the app market, images, source code, or Yaml Helm.  
 
 1. Next we select 'Build from Source --> Example --> Select Java-Maven Demo --> Confirm creation'.
 
 2. Enter the code detection page, and click Next after the detection is complete.
 
-3. Build parameter setting page, here set your build parameters, such as version, build commands, etc., according to the language of the source code selection will also have some extension parameter Settings. For example, java-maven has parameters such as JDK version and Maven version. Let's just use the default parameters and click Next.
+3. Build parameter setting page, here set your build parameters, such as version, build commands, etc., according to the language of the source code selection will also have some extension parameter Settings. For example, java-maven has parameters such as JDK version and Maven version. Let's just use the default parameters and click Next.例如 java-maven 有 JDK 版本、Maven版本等参数。我们用默认参数即可，然后点击下一步。
 
-4. Here are some advanced configurations where you can manage ports, configuration files, environment variables, storage. Here we still use the default parameters and click Confirm Build.
+4. Here are some advanced configurations where you can manage ports, configuration files, environment variables, storage. Here we still use the default parameters and click Confirm Build.这里我们依然用默认参数、然后点确认构建。
 
 After the creation is completed, it will jump to the component view of the platform, and at this point, our creation process is complete.
 
 ## Step 2: Access component
 
 The component view contains multiple columns for components:
+
 - Monitoring: Some monitoring information about the component, memory, CPU, etc
 - Log: You can view component run logs
 - Scaling: Operations on the number of instances of a component, memory, CPU, etc
@@ -35,7 +36,7 @@ The component view contains multiple columns for components:
 - Port: Manages component ports and their access policies.
 - Plug-ins: Component plug-ins, containers of plug-ins that help your main business container work.
 - Build source: Freely switch build sources for builds, from source to image, or from image to source.
-- Other Settings: You can switch the deployment type of the component. Stateless, stateless; Component health detection; Kubernetes properties are advanced property configurations for components.
+- Other Settings: You can switch the deployment type of the component. Stateless, stateless; Component health detection; Kubernetes properties are advanced property configurations for components.无状态、有状态；组件健康检测；Kubernetes 属性则是组件的一些高级属性配置。
 
 When we see that the running status of the component is green, it means that the component is running normally. At this time, we can click the access button in the upper right corner to access the component, as shown in the following figure:
 
@@ -47,20 +48,21 @@ Or click on the port in the component view to see the access address of the comp
 
 In the previous steps, we only deployed a module under the application 'Source build sample', that is, the UI part, we will briefly explain how to deploy a Mysql database and make Maven project read MYSQL information.
 
-We still repeat the previous step of creating a new component, under the application 'Source code build example', select 'Add component --> Start from the App Market --> Open Source App Store --> Search MYSQL --> Install mysql-Percona stand-alone edition'. If you do not have installation permissions, please click 'de-authorize' under the search box first to obtain permissions.
+We still repeat the previous step of creating a new component, under the application 'Source code build example', select 'Add component --> Start from the App Market --> Open Source App Store --> Search MYSQL --> Install mysql-Percona stand-alone edition'. If you do not have installation permissions, please click 'de-authorize' under the search box first to obtain permissions.如果你没有安装权限，请先点击搜索框下的`去授权`获取权限。
 
-After the installation is complete, we can see that there is an additional Mysql component under the application. We chose orchestration mode to connect Maven to Mysql. This establishes the Maven project's dependency on Mysql. Follow the prompts to update the component after the dependency is added.
+安装完成后我们可以看见应用下多了一个 Mysql 组件。我们选择编排模式，将 Maven 与 Mysql 连接起来。After the installation is complete, we can see that there is an additional Mysql component under the application. We chose orchestration mode to connect Maven to Mysql. This establishes the Maven project's dependency on Mysql. Follow the prompts to update the component after the dependency is added.依赖添加完成后按照提示更新组件。
 
 ![establish-dependencies](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/establish-dependencies.jpg)
 
-After the component update is complete, we can access the Maven component again, click on the Mysql example, and you can see the Mysql connection information and the tables that exist in the database. As shown in the following picture.
+After the component update is complete, we can access the Maven component again, click on the Mysql example, and you can see the Mysql connection information and the tables that exist in the database. As shown in the following picture.如下图所示。
 
 ![maven-mysql-demo](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/maven-mysql-demo.jpg)
 
-This means that our project has successfully connected to the Mysql component we just deployed and read the corresponding table information. At this point our application 'Maven Project Sample' is fully deployed. It contains a Maven project and database. You can clearly see the dependencies between them in the topology diagram. If you have questions about communication between Maven components and Mysql components, you can refer to [Inter-service communication](/docs/micro-service/service-mesh/regist_and_discover).
+这说明我们的项目已经成功连接到了我们刚刚部署的 Mysql 组件上，并读取到了对应的表信息。此时我们的应用`Maven项目示例`完整部署完毕。它包含了一个 Maven 项目以及数据库。你可以在拓扑图清楚的看到他们之间的依赖关系。This means that our project has successfully connected to the Mysql component we just deployed and read the corresponding table information. At this point our application 'Maven Project Sample' is fully deployed. It contains a Maven project and database. You can clearly see the dependencies between them in the topology diagram. If you have questions about communication between Maven components and Mysql components, you can refer to [Inter-service communication](/docs/micro-service/service-mesh/regist_and_discover).
 
 ## Next step
 
 Now that you have deployed your first application, you can try:
+
 - [Learn more about Rainbond](/docs/use-manual): Refer to the user manual to learn more about Rainbond.
 - [High Availability Deployment](/docs/installation/install-with-ui/ha): Deploy a high availability cluster for production.
