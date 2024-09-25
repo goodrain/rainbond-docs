@@ -1,8 +1,7 @@
 ---
-title: 'Troubleshooting'
-description: Problem troubleshooting
+title: Problem troubleshooting
+description: Troubleshooting
 ---
-
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
