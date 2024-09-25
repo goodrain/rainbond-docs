@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting Cluster components
 description: This section describes Rainbond cluster component faults and troubleshooting methods
-keywords: 
-- Rainbond Troubleshooting Cluster Component Abnormalities
+keywords:
+  - Rainbond Troubleshooting Cluster Component Abnormalities
 ---
 
 This article introduces the problems and troubleshooting ideas of Rainbond cluster components.
