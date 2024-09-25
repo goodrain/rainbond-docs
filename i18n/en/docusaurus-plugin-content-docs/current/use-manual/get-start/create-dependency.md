@@ -1,6 +1,5 @@
 ---
 title: 4. Assemble a Service Mesh Microservice Architecture
-#keywords: ['依赖关系 SrviceMesh 微服务']
 description: Implement Service Mesh microservice architecture without modifying the code
 ---
 
@@ -16,7 +15,7 @@ The meaning of this is to allow **Java demonstration example** to communicate wi
 
 ### significance
 
-Through practical operation, users can get a preliminary understanding of how service components communicate in Rainbond.Users need to read [Inter-Component Communication](/docs/micro-service/service-mesh/connection_env) to understand the principle.
+通过实操，用户可以初步体会到服务组件在 Rainbond 中如何通信。Through practical operation, users can get a preliminary understanding of how service components communicate in Rainbond.Users need to read [Inter-Component Communication](/docs/micro-service/service-mesh/connection_env) to understand the principle.
 
 ### Preconditions
 
@@ -28,11 +27,11 @@ Through practical operation, users can get a preliminary understanding of how se
 
 - On the application topology map interface, click **to switch to edit mode**.
 
-- The establishment of dependencies is completed by dragging and dropping.
+- 通过拖拽完成依赖关系的建立。
 
 - Follow the prompts to complete the update operation of the downstream service component (Java demo example)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-depdendency/create-dependency-1.png" title="build dependencies" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-depdendency/create-dependency-1.png" title="建立依赖关系" width="100%" />
 
 After the dependency is established, **Java demo example** can communicate with **Mysql5.7 (stand-alone version)** normally.
 
@@ -40,7 +39,7 @@ The connection information is defined by the connection information in the **Mys
 
 This is a set of environment variables that will take effect in **Mysql5.7 (stand-alone version)** and **Java demo examples** that depend on it.
 
-**In the Java demo example** , by reading the value of the corresponding environment variable, you can reference the connection information of ** **(stand** alone version)** in the code, including the connection address, port, Username Password.
+**In the Java demo example** , by reading the value of the corresponding environment variable, you can reference the connection information of \*\* **(stand** alone version)\*\* in the code, including the connection address, port, Username Password.
 
 ### Next step
 
