@@ -40,6 +40,7 @@ export default function Layout(props: Props): JSX.Element {
   const docs_url = useLocation().pathname.includes('docs');
   const community_url = useLocation().pathname.includes('community');
   const blog_url = useLocation().pathname.includes('blog');
+  const changelog_url = useLocation().pathname.includes('changelog');
 
   return (
     <LayoutProvider>
@@ -47,8 +48,8 @@ export default function Layout(props: Props): JSX.Element {
 
       <SkipToContent />
 
-      {docs_url || community_url || blog_url ? <AnnouncementBar /> : null }
-      {docs_url || community_url || blog_url ? <Navbar /> : <NavbarCustom /> }
+      {docs_url || community_url || blog_url || changelog_url ? <AnnouncementBar /> : null }
+      {docs_url || community_url || blog_url || changelog_url ? <Navbar /> : <NavbarCustom /> }
 
       <div
         id={SkipToContentFallbackId}
@@ -57,7 +58,7 @@ export default function Layout(props: Props): JSX.Element {
           styles.mainWrapper,
           wrapperClassName,
         )}
-        style={{ marginTop: (docs_url || community_url || blog_url) ? "" : "6rem" }} 
+        style={{ marginTop: (docs_url || community_url || blog_url || changelog_url) ? "" : "6rem" }} 
         >
         <ErrorBoundary fallback={(params) => <ErrorPageContent {...params} />}>
           {children}
