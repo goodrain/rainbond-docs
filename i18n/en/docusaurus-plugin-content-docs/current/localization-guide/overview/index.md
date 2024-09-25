@@ -2,9 +2,9 @@
 title: Overview
 description: Rainbond 信创指南概述
 keywords:
-- 信创
-- 国产化
-- Arm
+  - 信创
+  - 国产化
+  - Arm
 ---
 
 # 了解 Rainbond 信创能力
