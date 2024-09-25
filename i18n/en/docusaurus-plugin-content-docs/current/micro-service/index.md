@@ -1,7 +1,6 @@
 ---
-title: 'Microservices Architecture Guide'
+title: Microservices Architecture Guide
 ---
-
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
