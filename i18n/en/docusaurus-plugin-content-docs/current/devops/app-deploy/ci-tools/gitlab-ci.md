@@ -2,8 +2,8 @@
 title: GitLab CI is used
 description: Deploy applications in Rainbond using GitLab CI
 keywords:
-- GitLab CI
-- GitLab Runner
+  - GitLab CI
+  - GitLab Runner
 ---
 
 import Bvideo from '/src/components/Bvideo';
@@ -15,8 +15,6 @@ import Bvideo from '/src/components/Bvideo';
 Rainbond 本身默认集成了 CI/CD 的整套流程，用户只需提供源代码，后续构建、运行完全交给 Rainbond 处理，整个过程是由 Rainbond 定义的，无需用户干预。这样有利也有弊，利就是简化用户的操作和无需学习 CI/CD 相关知识；弊是用户无法在 CI/CD 过程中自定义，比如想集成代码检测或运行个脚本，这在 Rainbond 的源码构建流程中是不可自定义的。
 
 本文给大家讲述如何使用 GitLab CI/CD 构建、测试、部署 Spring Boot 应用，将产物运行在 Rainbond 上。
-
-
 
 ## GitLab CI 介绍
 
@@ -72,22 +70,20 @@ gitlab-runner register \
 
 **参数说明**
 
-| Parameter            | Value            | Describe                 |
-| -------------------- | ---------------- | ------------------------ |
-| --executor           | docker           | 执行器类型为docker。     |
-| --url                | http://127.0.0.1 | GitLab addr              |
-| --registration-token | `<token>`         | GitLab token             |
-| --tag-list           | newdocker        | 定义runner的标签/名字    |
-| --locked             | false            | runner为启用状态         |
-| --run-untagged       | true             | 运行没有指定标签的Job    |
-| --docker-volumes     | file_path        | 挂载文件到runner中       |
-| --docker-privileged  | true             | runner运行模式：特权模式 |
+| Parameter            | Value                                                                            | Describe        |
+| -------------------- | -------------------------------------------------------------------------------- | --------------- |
+| --executor           | docker                                                                           | 执行器类型为docker。   |
+| --url                | http://127.0.0.1 | GitLab addr     |
+| --registration-token | `<token>`                                                                        | GitLab token    |
+| --tag-list           | newdocker                                                                        | 定义runner的标签/名字  |
+| --locked             | false                                                                            | runner为启用状态     |
+| --run-untagged       | true                                                                             | 运行没有指定标签的Job    |
+| --docker-volumes     | file_path                                                   | 挂载文件到runner中    |
+| --docker-privileged  | true                                                                             | runner运行模式：特权模式 |
 
 4. 注册完成后就可以在 GitLab 页面中看到 online 的 runner
 
 ![](https://static.goodrain.com/wechat/gitlabci/3.png)
-
-
 
 ### GitLab CI/CD To Rainbond
 
@@ -104,9 +100,9 @@ gitlab-runner register \
 
 **前提：**
 
-* 已有 Rainbond 环境
-* 准备镜像仓库，本文使用的DockerHub
-* 本文所使用到代码项目为 [Java-Maven-Demo](https://gitee.com/rainbond/java-maven-demo)
+- 已有 Rainbond 环境
+- 准备镜像仓库，本文使用的DockerHub
+- 本文所使用到代码项目为 [Java-Maven-Demo](https://gitee.com/rainbond/java-maven-demo)
 
 **1.在Rainbond上有已经基于镜像部署好的组件**
 
@@ -174,4 +170,3 @@ job-push:
 可以在组件的操作记录中看到自动构建信息。
 
 ![](https://static.goodrain.com/wechat/gitlabci/6.png)
-
