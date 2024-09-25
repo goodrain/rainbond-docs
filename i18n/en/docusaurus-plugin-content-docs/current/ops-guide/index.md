@@ -1,8 +1,7 @@
 ---
-title: 'Installation and operation'
-descrition: This document is intended for operation and maintenance personnel to learn about Rainbond cluster installation, operation and maintenance
+title: Installation and operation
+descrition: 该章节文档适用于运维人员了解Rainbond集群安装、运维等相关知识
 ---
-
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
