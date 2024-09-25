@@ -1,6 +1,6 @@
 ---
 title: rbd-hub
-description: "Parameter Description of the rbd-hub component"
+description: Parameter Description of the rbd-hub component
 ---
 
 ## rbd-hub组件说明
@@ -8,14 +8,12 @@ description: "Parameter Description of the rbd-hub component"
 基于[Docker Registry](https://docs.docker.com/registry/)封装，提供docker镜像存储服务
 
 ### 运行方式
- 
-运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理
 
+运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理
 
 ### 常用参数说明
 
 rbd-hub基于registry镜像，详细参数参阅 [Docker Registry官方文档](https://docs.docker.com/registry/configuration/)
-
 
 ### 向集群私有镜像仓库推送镜像
 
@@ -48,5 +46,3 @@ docker tag nginx goodrain.me/nginx:v1
 # push镜像
 docker push  goodrain.me/nginx:v1
 ```
-
-
