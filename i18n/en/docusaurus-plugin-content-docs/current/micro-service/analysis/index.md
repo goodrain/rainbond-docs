@@ -2,10 +2,10 @@
 title: Microservice performance analysis
 description: This paper introduces the concept, principle, implementation and application scenario of microservice performance analysis.
 keywords:
-- 性能分析
-- profiling
-- Pyroscope
-- Arthas
+  - 性能分析
+  - profiling
+  - Pyroscope
+  - Arthas
 ---
 
 随着微服务体系在生产环境落地，也会伴随着一些问题出现，比如流量过大造成某个微服务应用程序的性能瓶颈、CPU利用率高、或内存泄漏等问题。要找到问题的根本原因，我们通常都会通过日志、进程再结合代码去判断根本原因。对于微服务庞大的业务，这必定会很耗时，而且也很难及时找到关键问题点。
