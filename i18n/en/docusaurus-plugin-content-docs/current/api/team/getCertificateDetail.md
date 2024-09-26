@@ -2,7 +2,7 @@
 title: Get the details of the certificate under the team
 ---
 
-## Basic Information
+## 基本信息
 
 This interface is mainly used to obtain the details of the certificate under the team
 
@@ -12,8 +12,8 @@ GET /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 ## request parameters
 
-| name           | Location | type   | required | Chinese name | illustrate |
-| -------------- | -------- | ------ | -------- | ------------ | ---------- |
+| name                                | Location | type   | required | Chinese name | illustrate |
+| ----------------------------------- | -------- | ------ | -------- | ------------ | ---------- |
 | team_id        | path     | string | Yes      |              | none       |
 | certificate_id | path     | string | Yes      |              | none       |
 
@@ -39,10 +39,10 @@ GET /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 ### Attributes
 
-| name             | type    | required | constraint | Chinese name     | illustrate       |
-| ---------------- | ------- | -------- | ---------- | ---------------- | ---------------- |
-| alias            | string  | true     | none       | Alias            | certificate name |
-| private_key      | string  | true     | none       | Private key      | Certificate      |
-| certificate      | string  | true     | none       | Certificate      | certificate key  |
-| certificate_type | string  | true     | none       | Certificate type | Certificate type |
-| id               | integer | true     | none       | Id               | id               |
+| name                                  | type    | required | constraint | Chinese name     | illustrate        |
+| ------------------------------------- | ------- | -------- | ---------- | ---------------- | ----------------- |
+| alias                                 | string  | true     | none       | Alias            | certificate name  |
+| private_key      | string  | true     | none       | Private key      | 证书                |
+| certificate                           | string  | true     | none       | Certificate      | certificate key   |
+| certificate_type | string  | true     | none       | Certificate type | Basic Information |
+| id                                    | integer | true     | none       | Id               | id                |
