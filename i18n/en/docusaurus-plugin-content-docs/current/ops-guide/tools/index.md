@@ -1,10 +1,10 @@
 ---
 title: Command line tool
 description: Command line tool
-keywords: 
-- kubectl 命令行工具
-- grctl 命令行工具
-- helm 命令行工具
+keywords:
+  - kubectl 命令行工具
+  - grctl 命令行工具
+  - helm 命令行工具
 ---
 
 本文档介绍如何安装 `helm` `kubectl` `grctl` 命令行工具。
@@ -13,7 +13,7 @@ keywords:
 
 安装 kubectl 命令
 
-```
+```bash
 wget https://pkg.goodrain.com/pkg/kubectl/v1.23.10/kubectl -O /usr/local/bin/kubectl && chmod +x /usr/local/bin/kubectl
 ```
 
@@ -41,7 +41,6 @@ wget https://pkg.goodrain.com/pkg/helm -O /usr/local/bin/helm && chmod +x /usr/l
 ```
 
 ## grctl CLI
-
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
