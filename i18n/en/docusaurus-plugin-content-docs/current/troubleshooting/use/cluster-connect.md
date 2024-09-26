@@ -1,8 +1,8 @@
 ---
 title: Check whether cluster communication is abnormal
 description: This section describes Rainbond cluster faults and troubleshooting methods
-keywords: 
-- Rainbond Troubleshooting Cluster Communication Abnormalities
+keywords:
+  - Rainbond Troubleshooting Cluster Communication Abnormalities
 ---
 
 This article introduces the troubleshooting ideas for abnormal communication between the Rainbond console and the cluster.
@@ -11,7 +11,7 @@ This article introduces the troubleshooting ideas for abnormal communication bet
 
 ![](https://static.goodrain.com/docs/5.12/troubleshooting/installation/en-cluster-connect.png)
 
-Rainbond is divided into two layers, the console and the cluster. The console communicates with the cluster through the API. If the communication between the console and the cluster is abnormal, the console cannot be used normally.
+Rainbond 分为两层架构，控制台与集群端。Rainbond is divided into two layers, the console and the cluster. The console communicates with the cluster through the API. If the communication between the console and the cluster is abnormal, the console cannot be used normally.
 
 There may be the following reasons for the exception:
 
@@ -57,7 +57,7 @@ kubectl delete pod -l name=rbd-api -n rbd-system
 
 ### Check console and cluster ports
 
-If the network between the console and the cluster is smooth and the API service is normal, you can check whether the ports `8443` on the console and the cluster are unblocked. Use the `telnet` command to check whether the port `8443` on the console and the cluster side is unblocked.
+If the network between the console and the cluster is smooth and the API service is normal, you can check whether the ports `8443` on the console and the cluster are unblocked. Use the `telnet` command to check whether the port `8443` on the console and the cluster side is unblocked.使用 `telnet` 命令检查控制台与集群端的 `8443` 端口是否通畅。
 
 If it fails, you can check whether the `8443` port on the cluster side is blocked by the firewall. If it is blocked by the firewall, you can configure the firewall rules for port communication.
 
@@ -91,11 +91,13 @@ client.pem: |
   xxxxxx
   -----END CERTIFICATE-----
 ```
+
 Copy the printed content to **Platform Management -> Cluster -> Edit** in the console, and click **Save**.
-* apiAddress corresponds to **API address**
-* ca.pem corresponds to **API-CA certificate**
-* client.pem corresponds to **API-Client certificate**
-* client.key.pem corresponds to **API-Client certificate key**
+
+- apiAddress corresponds to **API address**
+- ca.pem corresponds to **API-CA certificate**
+- client.pem corresponds to **API-Client certificate**
+- client.key.pem corresponds to **API-Client certificate key**
 
 :::caution Caution
 There cannot be spaces on the left and right sides of the certificate, otherwise the certificate will not be recognized.
