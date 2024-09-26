@@ -2,13 +2,14 @@
 title: 调整 BuildKit 构建参数
 descrition: 该章节文档适用于运维人员了解如何指定集群构建
 keywords:
-- Rainbond 集群构建参数
-- 调整 BuildKit 构建参数
+  - Rainbond 集群构建参数
+  - 调整 BuildKit 构建参数
 ---
 
 :::info
 v5.12.2 版本后，Rainbond 默认使用 BuildKit 进行构建，如果是该版本之前的版本，请参考 [调整 Kaniko 构建参数](https://v5.14-docs.rainbond.com/docs/ops-guide/management/kaniko-args)。
 :::
+
 ## 使用自定义私有镜像仓库
 
 默认情况下无需调整 BuildKit 构建参数，如使用了 http 私有镜像仓库，需要调整 Kaniko 构建参数。
@@ -35,7 +36,7 @@ Containerd 配置 `/etc/containerd/config.toml`，添加私有镜像仓库地址
 
 修改 BuildKit 构建参数，添加私有镜像仓库地址：
 
-```bash title="kubectl edit cm goodrain.me -n rbd-system"
+```diff title="kubectl edit cm goodrain.me -n rbd-system"
 apiVersion: v1
 data:
   buildkittoml: |-
@@ -54,7 +55,7 @@ metadata:
 
 通过 Dockerfile 构建时，遇到基础镜像无法拉取的问题时，可以通过配置镜像加速服务解决。示例如下：
 
-```bash title="kubectl edit cm goodrain.me -n rbd-system"
+```diff title="kubectl edit cm goodrain-me -n rbd-system"
 apiVersion: v1
 data:
   buildkittoml: |-
@@ -67,7 +68,6 @@ metadata:
   name: goodrain.me
   namespace: rbd-system
 ```
-
 
 ## 更多参数
 
