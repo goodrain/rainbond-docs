@@ -2,13 +2,14 @@
 title: Deploy Wordpress and Mysql with Helm
 description: An example of how to deploy Wordpress on Rainbond with Helm.
 keywords:
-- Wordpress Helm
-- Rainbond Helm
+  - Wordpress Helm
+  - Rainbond Helm
 ---
 
-本示例描述了如何通过 Helm 安装命令，在 Rainbond 上安装 WordPress 和 MySQL。 
+本示例描述了如何通过 Helm 安装命令，在 Rainbond 上安装 WordPress 和 MySQL。
 
 这两个组件：
+
 - 分别使用 Deployment 和 StatefulSet 两种 Workload 资源部署。
 - 使用 PersistentVolumes 和 PersistentVolumeClaims 保存数据。
 - 通过 Service 完成彼此间通信。
@@ -43,7 +44,6 @@ $ helm install my-wp wordpress --repo https://charts.bitnami.com/bitnami
 
 6. Rainbond 将展示从 Chart 包中解析出的配置选项，配置的变更方式包括 `输入键值` 和 `编辑 values.yaml 文件` 两种方式。点击 `安装`：
 
-
 7. wordpress 与 wordpress-mysql 已经被转化成为 Rainbond 中的组件，并且在完成了构建过程后自动启动。
 
 <details>
@@ -56,7 +56,6 @@ $ helm install my-wp wordpress --repo https://charts.bitnami.com/bitnami
 
 </div>
 </details>
-
 
 ## 验证
 
