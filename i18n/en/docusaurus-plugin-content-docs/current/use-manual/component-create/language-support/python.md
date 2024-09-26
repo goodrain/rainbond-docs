@@ -26,6 +26,7 @@ In this step, you need to provide a usable Python source code program for deploy
 ##### requirements.txt specification
 
 If the program has no dependencies, you can make `requirements.txt` an empty file. If there is no `requirements.txt` , you can use the following command to generate
+若无 `requirements.txt` 可用如下命令生成
 
 ```bash
 pip freeze > requirements.txt
@@ -75,8 +76,8 @@ python-3.6.6 python-3.6.10
 
 Enable advanced build features at build advanced settings or build source
 
-| environment variable  | Defaults                                 | illustrate  |
-|:--------------------- |:---------------------------------------- |:----------- |
+| environment variable                                                               | Defaults                                                                                                                 | illustrate  |
+| :--------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------- | :---------- |
 | BUILD_PIP_INDEX_URL | https://pypi.tuna.tsinghua.edu.cn/simple | Pypi source |
 
 #### Django static file support
