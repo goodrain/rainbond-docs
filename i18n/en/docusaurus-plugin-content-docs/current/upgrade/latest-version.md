@@ -196,5 +196,5 @@ curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
 
 ## 版本变更日志
 
-您可以在 [历史版本变更日志](/community/change/) 中查看每个版本的具体变更内容。
+您可以在 [历史版本变更日志](/changelog) 中查看每个版本的具体变更内容。
 

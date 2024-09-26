@@ -7,6 +7,10 @@ keywords:
 - 基于主机安装高可用 Rainbond 集群
 ---
 
+import Bvideo from '/src/components/Bvideo';
+
+<Bvideo src="//player.bilibili.com/player.html?isOutside=true&aid=113193175223399&bvid=BV1Lvsee5Ep9&cid=25988171760&p=1" />
+
 当前安装方式，会引导用户从裸机开始安装 Rainbond ，服务器可以是物理机、虚拟机或各种云主机。
 
 ## 前提
