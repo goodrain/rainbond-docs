@@ -2,11 +2,11 @@
 title: Custom development and continuous iteration for offline environments
 description: Use Rainbond for offline environment custom development and continuous iteration
 keywords:
-- 离线交付
-- toB 离线交付
-- toB offline delivery
-- 离线环境定制开发
-- 离线环境持续迭代
+  - 离线交付
+  - toB 离线交付
+  - toB offline delivery
+  - 离线环境定制开发
+  - 离线环境持续迭代
 ---
 
 import Bvideo from '/src/components/Bvideo';
