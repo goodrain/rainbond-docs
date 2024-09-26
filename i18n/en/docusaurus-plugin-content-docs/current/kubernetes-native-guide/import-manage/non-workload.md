@@ -7,11 +7,11 @@ description: Create k8s resources directly by writing yaml
 
 ## 前提条件
 
-1. 对 k8s 资源的 yaml 文件非常熟悉，准备一个k8s资源的yaml文件。  
+1. 对 k8s 资源的 yaml 文件非常熟悉，准备一个k8s资源的yaml文件。
 
-2. 检查当前团队、应用是否是期望创建的位置。  
+2. 检查当前团队、应用是否是期望创建的位置。
 
-3. 检查在同级应用下 k8s 资源里是否已存在同类型且同名的资源，减少资源创建的过程中遇到的问题。  
+3. 检查在同级应用下 k8s 资源里是否已存在同类型且同名的资源，减少资源创建的过程中遇到的问题。
 
 下面将会以 Linkerd 命名空间为例, 介绍在 Rainbond 上对k8s资源的处理。
 
@@ -28,9 +28,10 @@ description: Create k8s resources directly by writing yaml
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_add.jpg" title="k8s资源添加"/>
 
 :::caution
-* 创建失败的资源是查看不到资源类型和资源名称的且不支持修改的，需要删除重新创建。  
-* 创建所编写的yaml文件可支持编写多个k8s资源，资源之前用`---`分割，创建完毕后会拆开展示。
-:::
+
+- 创建失败的资源是查看不到资源类型和资源名称的且不支持修改的，需要删除重新创建。
+- 创建所编写的yaml文件可支持编写多个k8s资源，资源之前用`---`分割，创建完毕后会拆开展示。
+  :::
 
 ## 修改
 
@@ -45,9 +46,10 @@ description: Create k8s resources directly by writing yaml
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_update.jpg" title="k8s资源修改"/>
 
 :::caution
-* 需要注意的是，创建成功后yaml文件会多出一行内容：`resourceVersion:xxxxxx`,这个在修改过程中是不可以删除的。
-* 修改yaml文件内容时只支持对当前资源修改，不支持在yaml文件内再次添加新的资源，如想创建资源请走创建逻辑。
-:::
+
+- 需要注意的是，创建成功后yaml文件会多出一行内容：`resourceVersion:xxxxxx`,这个在修改过程中是不可以删除的。
+- 修改yaml文件内容时只支持对当前资源修改，不支持在yaml文件内再次添加新的资源，如想创建资源请走创建逻辑。
+  :::
 
 ## 删除
 
