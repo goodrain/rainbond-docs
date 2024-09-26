@@ -1,5 +1,5 @@
 ---
-title: 'application'
+title: application
 description: Introduce concepts and design thinking for Rainbond applications
 ---
 
@@ -19,9 +19,9 @@ The application has the following characteristics：
 
 ### How to make good use of "Apps"
 
-The way we usually recommend is to divide the application into a relatively independent business system. For example, the enterprise ERP is an application, and the online shopping mall system is an application.In addition, for the same business system, there may be multiple stages, generally including development, testing, pre-release, and production.Therefore, different stages of the same business system should be multiple applications, which can exist in multiple teams combined with team division.
+The way we usually recommend is to divide the application into a relatively independent business system. For example, the enterprise ERP is an application, and the online shopping mall system is an application.In addition, for the same business system, there may be multiple stages, generally including development, testing, pre-release, and production.Therefore, different stages of the same business system should be multiple applications, which can exist in multiple teams combined with team division.另外，对于同一个业务系统，其可能存在多个阶段，一般包括开发、测试、预发布、生产。因此同一个业务系统的不同阶段应该是多个应用，再结合团队划分其可以存在于多个团队中。
 
 <img
-  src='https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/application.png'
-  title='Application segmentation use case'
- />
+src='https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/application.png'
+title='Application segmentation use case'
+/>
