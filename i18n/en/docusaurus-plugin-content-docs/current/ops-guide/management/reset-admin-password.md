@@ -2,7 +2,7 @@
 title: Reset Administrator Password
 description: If you forget your administrator password, reset it by referring to this document
 keywords:
-- 重置 Rainbond 管理员密码
+  - 重置 Rainbond 管理员密码
 ---
 
 普通用户的密码如果忘记了，可以由企业管理员在用户管理页面中进行修改。
