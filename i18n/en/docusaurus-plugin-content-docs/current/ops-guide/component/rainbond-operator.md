@@ -1,12 +1,11 @@
 ---
 title: rainbond-operator
-description: "Parameter description of the rainbond-operator component"
+description: Parameter description of the rainbond-operator component
 ---
-
 
 ## 运行方式
 
-运行于Kubernetes集群内部，POD运行 
+运行于Kubernetes集群内部，POD运行
 
 ## 简要说明
 
@@ -20,8 +19,8 @@ rainbond-operator 控制着 Rainbond 所有组件的配置与运行状态，持�
 
 在安装集群端时，首先会安装 rainbond-operator，接下来会创建一些 CRD 资源，如下：
 
-* rainbondclusters.rainbond.io
-* rbdcomponents.rainbond.io
+- rainbondclusters.rainbond.io
+- rbdcomponents.rainbond.io
 
 ### rainbondclusters.rainbond.io
 
@@ -77,6 +76,3 @@ kubectl edit rbdcomponents.rainbond.io -n rbd-system
 # 编辑 rbdcomponents rbd-api 配置
 kubectl edit rbdcomponents.rainbond.io rbd-api -n rbd-system
 ```
-
-
-
