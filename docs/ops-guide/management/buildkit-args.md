@@ -57,7 +57,7 @@ metadata:
 
 通过 Dockerfile 构建时，遇到基础镜像无法拉取的问题时，可以通过配置镜像加速服务解决。示例如下：
 
-```diff title="kubectl edit cm goodrain.me -n rbd-system"
+```diff title="kubectl edit cm goodrain-me -n rbd-system"
 apiVersion: v1
 data:
   buildkittoml: |-
