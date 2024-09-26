@@ -1,9 +1,9 @@
 ---
 title: Stand-alone experience version
 description: Single-machine experience version installation troubleshooting
-keywords: 
-- 单机体验版本, 安装问题排查
-- allinone，安装问题排查
+keywords:
+  - 单机体验版本, 安装问题排查
+  - allinone，安装问题排查
 ---
 
 通过快速安装脚本安装的 Rainbond 是属于**单机体验版本**，如果在安装时出现问题，请根据当前的文档进行排查问题。
@@ -17,12 +17,12 @@ keywords:
 在整个安装过程中，会按照以下顺序依次启动服务：
 
 1. 启动 Containerd 服务，由 **Supervisord** 控制启动。
-   * 日志路径：`/app/logs/containerd.log`
+   - 日志路径：`/app/logs/containerd.log`
 2. Load 容器镜像包。
 3. 启动 K3s 服务，由 **Supervisord** 控制启动。
-   * 日志路径：`/app/logs/k3s.log`
+   - 日志路径：`/app/logs/k3s.log`
 4. 启动 Rainbodn Region。
-   * 运行在 K3s 之上，以 POD 运行。
+   - 运行在 K3s 之上，以 POD 运行。
 5. 启动 Rainbond Console，由 **Supervisord** 控制启动。
 
 ## 排查思路
@@ -147,9 +147,9 @@ rbd-api-6f6c565856-bq9bp                     1/1     Running   0          2d22h
 
 当以上的某些 pod 并非处于 Running 状态时，就需要根据其当前状态进行排查。异常的状态可能包含：
 
-* Pending 
-* CrashLoopBackOff 
-* Evicted
+- Pending
+- CrashLoopBackOff
+- Evicted
 
 :::info
 Pending 状态意味着当前 pod 没有能够正常进入启动流程，pod 可能被启动之前所需要执行的任务阻塞，所以处于待定（Pending）状态。要了解 pod (以 rbd-etcd-0 为例)的启动为何遭遇阻塞，可以执行命令 `kubectl describe pod rbd-etcd-0 -n rbd-system` ，观察最后的 events 部分输出内容来确定 pod 当前事件。并根据提示深入排查。
@@ -202,4 +202,3 @@ docker rm -f rainbond-allinone
 
 bash ./install.sh
 ```
-
