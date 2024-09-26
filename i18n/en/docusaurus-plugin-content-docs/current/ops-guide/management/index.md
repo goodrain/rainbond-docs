@@ -1,14 +1,12 @@
 ---
-title: Operation and maintenance of Rainbond components
-descrition: This chapter is intended for operation and maintenance personnel to learn about the Rainbond cluster operation and maintenance
+title: Rainbond 组件运维
+descrition: 该章节文档适用于运维人员了解Rainbond集群运维等相关知识
 keywords:
-- Rainbond 组件运维
-- Rainbond 运维
+  - Rainbond 组件运维
+  - Rainbond 运维
 ---
 
 本章主要讲述Rainbond系统组件的常见运维方式，以帮助用户更快速，高效的运维Rainbond。
-
-
 
 ## 组件信息
 
@@ -36,9 +34,8 @@ kubectl logs -fl name=rbd-api -n rbd-system
 
 选项解释:
 
-  -f, --follow  持续输出日志     
-  -l, --label  标签
-    
+-f, --follow  持续输出日志\
+-l, --label  标签
 
 - 查看最近20行日志
 
