@@ -1,6 +1,6 @@
 import { Button, Form, Input, Radio, Space, Icon, Alert, Tag } from 'antd'
 import { PlusCircleOutlined, CopyOutlined, QuestionCircleOutlined } from '@ant-design/icons'
-import LayoutProviders from '@theme/LayoutProviders';
+import LayoutProviders from '@theme/Layout/Provider';
 import React, { Component } from 'react';
 import Swal from 'sweetalert2'
 import axios from 'axios'

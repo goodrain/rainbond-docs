@@ -8,20 +8,21 @@
 import React from 'react';
 import clsx from 'clsx';
 import ErrorBoundary from '@docusaurus/ErrorBoundary';
+import {
+  PageMetadata,
+  SkipToContentFallbackId,
+  ThemeClassNames,
+} from '@docusaurus/theme-common';
+import {useKeyboardNavigation} from '@docusaurus/theme-common/internal';
 import SkipToContent from '@theme/SkipToContent';
 import AnnouncementBar from '@theme/AnnouncementBar';
 import NavbarCustom from '../../components/NavBar';
 import Navbar from '@theme/Navbar';
 import Footer from '@theme/Footer';
-import LayoutProviders from '@theme/LayoutProviders';
-import type {Props} from '@theme/Layout';
-import {
-  PageMetadata,
-  ThemeClassNames,
-  useKeyboardNavigation,
-} from '@docusaurus/theme-common';
+import LayoutProvider from '@theme/Layout/Provider';
 import ErrorPageContent from '@theme/ErrorPageContent';
-import './styles.css';
+import type {Props} from '@theme/Layout';
+import styles from './styles.module.css';
 import { useLocation } from '@docusaurus/router';
 
 export default function Layout(props: Props): JSX.Element {
@@ -38,21 +39,33 @@ export default function Layout(props: Props): JSX.Element {
 
   const docs_url = useLocation().pathname.includes('docs');
   const community_url = useLocation().pathname.includes('community');
+  const blog_url = useLocation().pathname.includes('blog');
+  const changelog_url = useLocation().pathname.includes('changelog');
 
   return (
-    <LayoutProviders>
+    <LayoutProvider>
       <PageMetadata title={title} description={description} />
 
       <SkipToContent />
 
-      {docs_url || community_url ? <AnnouncementBar /> : null }
-      {docs_url || community_url ? <Navbar /> : <NavbarCustom /> }
+      {docs_url || community_url || blog_url || changelog_url ? <AnnouncementBar /> : null }
+      {docs_url || community_url || blog_url || changelog_url ? <Navbar /> : <NavbarCustom /> }
 
-      <div className={clsx(ThemeClassNames.wrapper.main, wrapperClassName)} style={{ marginTop: (docs_url || community_url) ? "" : "6rem" }}>
-        <ErrorBoundary fallback={ErrorPageContent}>{children}</ErrorBoundary>
+      <div
+        id={SkipToContentFallbackId}
+        className={clsx(
+          ThemeClassNames.wrapper.main,
+          styles.mainWrapper,
+          wrapperClassName,
+        )}
+        style={{ marginTop: (docs_url || community_url || blog_url || changelog_url) ? "" : "6rem" }} 
+        >
+        <ErrorBoundary fallback={(params) => <ErrorPageContent {...params} />}>
+          {children}
+        </ErrorBoundary>
       </div>
 
       {!noFooter && <Footer />}
-    </LayoutProviders>
+    </LayoutProvider>
   );
 }

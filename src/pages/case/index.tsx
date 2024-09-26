@@ -76,6 +76,12 @@ export default function usescene() {
       description: "通过Rainbond完成云原生改造，实现离线持续交付客户",
       link: "/case/kgdata"
     },
+    {
+      img: "/img/case/cjzk.png",
+      title: "城建智控",
+      description: "Rainbond 助力城建智控，从传统开发到敏捷开发转型",
+      link: "/case/cjzk"
+    },
   ];
   
   return (

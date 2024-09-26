@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../../components/NavBar';
 import styles from './index.module.scss';
-import LayoutProviders from '@theme/LayoutProviders';
+import LayoutProviders from '@theme/Layout/Provider';
 import Footer from '@theme/Footer';
 
 export default function Index() {

@@ -2,7 +2,7 @@ import Translate from '@docusaurus/Translate';
 import React, { useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
-import LocaleDropdownNavbarItem from '@site/src/theme/NavbarItem/LocaleDropdownNavbarItem';
+import LocaleDropdownNavbarItem from '@theme/NavbarItem/LocaleDropdownNavbarItem';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import AnnouncementBar from '@theme/AnnouncementBar';

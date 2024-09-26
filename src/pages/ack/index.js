@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LayoutProviders from '@theme/LayoutProviders';
+import LayoutProviders from '@theme/Layout/Provider';
 import NavBar from '@theme/Navbar';
 import Acks from '../../components/Helm/Ack';
 import styles from '../index.module.scss';
