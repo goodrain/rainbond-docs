@@ -1,7 +1,6 @@
 ---
-title: 'access policy management'
+title: access policy management
 ---
-
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
