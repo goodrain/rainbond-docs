@@ -2,8 +2,8 @@
 title: The service is disconnected
 description: Envoy fusing current limiting practice, based on Rainbond plug-in to achieve fusing
 keywords:
-- Envoy熔断限流实践
-- Rainbond 实现熔断
+  - Envoy熔断限流实践
+  - Rainbond 实现熔断
 ---
 
 # Envoy 熔断机制介绍
@@ -85,7 +85,7 @@ Java-maven 组件基于 Http/1.1 版本协议实现，根据首节对 Envoy 熔�
 
 命令中的 `172.20.1.74` 是压力生成器组件的 Pod IP 地址。
 
-这里需要注意，不要去压力生成器中查询 Tcp 连接的生成数量，这个数量会多于 6 个，实际上应该是 97，因为发起请求的 Locust 进程会根据并发用户数量来生成 Tcp 连接，这个过程不受熔断机制限制，然而请求经过 Envoy 时，向 Java-maven 这一服务端，最终只会成功建立并保持 6 个连接。 
+这里需要注意，不要去压力生成器中查询 Tcp 连接的生成数量，这个数量会多于 6 个，实际上应该是 97，因为发起请求的 Locust 进程会根据并发用户数量来生成 Tcp 连接，这个过程不受熔断机制限制，然而请求经过 Envoy 时，向 Java-maven 这一服务端，最终只会成功建立并保持 6 个连接。
 
 ---
 
@@ -114,4 +114,3 @@ Java-maven 组件基于 Http/1.1 版本协议实现，根据首节对 Envoy 熔�
 熔断是微服务网络治理体系中非常重要的一环。Rainbond 结合 Envoy 实现的 ServiceMesh 微服务框架中，通过插件实现的熔断机制易于上手，且支持动态生效，对操作人员非常友好。
 
 下一篇，我们将介绍全局限流的实现，敬请期待。
-
