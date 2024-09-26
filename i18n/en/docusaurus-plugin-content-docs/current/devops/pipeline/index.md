@@ -2,18 +2,18 @@
 title: Pipeline Plug-in overview
 description: Pipeline Plug-in overview
 keywords:
-- GitLab Pipeline 插件概述
-- GitLab Pipeline 插件
-- GitLab Pipeline Plugin
+  - GitLab Pipeline 插件概述
+  - GitLab Pipeline 插件
+  - GitLab Pipeline Plugin
 ---
 
 Pipeline 应用是基于 [插件体系](#) 扩展实现的，通过插件化的方式，可以实现对 Rainbond 构建体系的扩展，该应用插件提供了:
 
-* 编译构建，定义构建步骤
-* 代码检查，基于 SonarQube 的代码检查
-* 生成镜像制品，将构建的镜像制品推送到镜像仓库
-* 部署应用，与 Rainbond OpenAPI 集成，实现应用部署
-* 自动构建/部署，基于 Git 仓库的 Webhook 触发构建
+- 编译构建，定义构建步骤
+- 代码检查，基于 SonarQube 的代码检查
+- 生成镜像制品，将构建的镜像制品推送到镜像仓库
+- 部署应用，与 Rainbond OpenAPI 集成，实现应用部署
+- 自动构建/部署，基于 Git 仓库的 Webhook 触发构建
 
 ## 概念
 
@@ -27,8 +27,8 @@ Pipeline 应用插件是基于 GitLab CI/CD 实现，所有的功能都是围绕
 
 支持 GitLab 仓库分支的查看以及持续集成功能。
 
-* 代码分支管理，支持手动基于分支构建
-* 持续集成，支持查看持续集成的状态以及步骤
+- 代码分支管理，支持手动基于分支构建
+- 持续集成，支持查看持续集成的状态以及步骤
 
 ### 镜像仓库
 
@@ -48,14 +48,13 @@ Pipeline 应用插件是基于 GitLab CI/CD 实现，所有的功能都是围绕
 
 基于 GitLab CI 实现，提供了多种流水线模版，可以通过模版快速创建流水线。
 
-
 ## 工作流程介绍
 
 ![](https://static.goodrain.com/docs/5.11/devops/pipeline/pipeline.png)
 
 1. 创建应用服务，填写代码仓库地址以及其他信息。
 
-  1.1 同时也需要创建流水线，应用服务需关联流水线。
+1.1 同时也需要创建流水线，应用服务需关联流水线。
 
 2. 创建完应用服务后，会根据该应用服务关联的流水线，创建 `gitlab-ci.yml` 文件，并推送到该代码仓库的所有分支中。
 
