@@ -3,7 +3,7 @@ title: RoadMap
 description: This document defines the roadmap for Rainbond development.
 ---
 
-This document defines the roadmap for Rainbond development.The document update may not be timely, the latest planning focus on [Github](https://github.com/goodrain/rainbond/issues)
+本文档定义了 Rainbond 开发的路线图。This document defines the roadmap for Rainbond development.The document update may not be timely, the latest planning focus on [Github](https://github.com/goodrain/rainbond/issues)
 
 Current latest version：5.5.0
 
@@ -96,3 +96,5 @@ Current latest version：5.5.0
 - [x] support specifying NFS Server address during installation
 
 Regarding the 5.1 version planning, if you have any suggestions, please give feedback in the Rainbond community[t.goodrain.com](https://t.goodrain.com)<!-- \[5.1 以前版本规划详情\](../roadmap.5.0/) -->
+
+<!-- [5.1 以前版本规划详情](../roadmap.5.0/) -->
