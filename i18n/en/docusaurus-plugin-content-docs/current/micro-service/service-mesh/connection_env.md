@@ -1,9 +1,9 @@
 ---
-title: Inter-service communication variable injection
+title: 服务间通信变量注入
 description: This article explains variable passing when a service is directly dependent
 keywords:
-- 服务间通信变量注入
-- Service Mesh 变量注入
+  - 服务间通信变量注入
+  - Service Mesh 变量注入
 ---
 
 通信变量是指使用其他组件提供服务时的必要配置变量，比如数据库的用户名密码和通信地址，API 服务的认证方式和通信地址等等。标准化的设计场景中，成形的业务代码依赖的服务类型不能改变，但是实际依赖的服务可以改变，这种设计需要依靠以环境变量的方式注入配置信息。在 [组件间通信](./regist_and_discover) 文中用例就是依靠标准的变量注入实现服务动态依赖。
