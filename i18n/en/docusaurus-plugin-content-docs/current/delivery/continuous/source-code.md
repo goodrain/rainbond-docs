@@ -2,8 +2,8 @@
 title: Continuous source code delivery
 description: This section describes how to implement continuous source code delivery on Rainbond
 keywords:
-- 源码
-- 持续交付
+  - 源码
+  - 持续交付
 ---
 
 import Bvideo from '/src/components/Bvideo';
@@ -21,6 +21,7 @@ import Bvideo from '/src/components/Bvideo';
 3. 当某个版本测试通过以后，我们就可以认为已经有了高质量可交付的版本。接下来需要人工审核，将代码从 testing 分支合并到 master 分支，用于生产环境的部署上线。
 
 <!-- ![source-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/source-delivery.jpg) -->
+
 ![](https://static.goodrain.com/docs/5.11/delivery/continuous/source-code/code-delivery.png)
 
 ## 操作步骤
@@ -56,4 +57,3 @@ import Bvideo from '/src/components/Bvideo';
 2. 代码合并到 master 分支后，仍然通过`应用页面->快速复制`，在`生产团队`中新建一个应用，将`测试环境`下所有应用的构建源信息全部修改为 master 分支，即可一键复制出一套生产环境。
 
 3. 如果生产出现问题。仍然需要开发者在 dev 分支上完成自测，测试团队在 testing 分支上测试通过，最后由具有生产环境上线的用户来完成代码合并和上线。
-
