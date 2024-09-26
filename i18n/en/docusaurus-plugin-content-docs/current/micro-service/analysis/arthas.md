@@ -2,20 +2,20 @@
 title: Arthas usage
 description: The JAVA diagnostic tool Arthas is implemented on Rainbond
 keywords:
-- Arthas
-- 性能分析
+  - Arthas
+  - 性能分析
 ---
 
 别再担心线上 Java 业务出问题怎么办了，`Arthas` 帮助你解决以下常见问题：
 
-* 这个类从哪个 jar 包加载的？为什么会报各种类相关的 Exception？
-* 我改的代码为什么没有执行到？难道是我没 commit？分支搞错了？
-* 遇到问题无法在线上 debug，难道只能通过加日志再重新发布吗？
-* 线上遇到某个用户的数据处理有问题，但线上同样无法 debug，线下无法重现！
-* 是否有一个全局视角来查看系统的运行状况？
-* 有什么办法可以监控到 JVM 的实时运行状态？
-* 怎么快速定位应用的热点，生成火焰图？
-* 怎样直接从 JVM 内查找某个类的实例？
+- 这个类从哪个 jar 包加载的？为什么会报各种类相关的 Exception？
+- 我改的代码为什么没有执行到？难道是我没 commit？分支搞错了？
+- 遇到问题无法在线上 debug，难道只能通过加日志再重新发布吗？
+- 线上遇到某个用户的数据处理有问题，但线上同样无法 debug，线下无法重现！
+- 是否有一个全局视角来查看系统的运行状况？
+- 有什么办法可以监控到 JVM 的实时运行状态？
+- 怎么快速定位应用的热点，生成火焰图？
+- 怎样直接从 JVM 内查找某个类的实例？
 
 [Arthas](https://arthas.aliyun.com/)（阿尔萨斯）是一款线上监控诊断产品，通过全局视角实时查看应用 load、内存、gc、线程的状态信息，并能在不修改应用代码的情况下，对业务问题进行诊断，包括查看方法调用的出入参、异常，监测方法执行耗时，类加载信息等，大大提升线上问题排查效率。
 
@@ -43,8 +43,6 @@ Arthas Tunnel 可通过 Rainbond 开源应用商店一键安装。
 
 ![](https://static.goodrain.com/wechat/arthas/10.png)
 
-
-
 ## 使用Arthas诊断Rainbond上的Spring Boot应用
 
 ### 1. 部署 Spring Boot 应用
@@ -65,18 +63,17 @@ Arthas Tunnel 可通过 Rainbond 开源应用商店一键安装。
 
 为 `ruoyi-admin` 组件配置环境变量，在组件内 -> 环境变量 -> 添加变量。
 
-| 变量名          | 变量值                              |
-| --------------- | ----------------------------------- |
-| JAVA_OPTS       | -javaagent:/arthas/arthas-agent.jar |
-| ARTHAS_APP_NAME | ruoyi-admin                         |
-| ARTHAS_AGENT_ID | ruoyi-admin                         |
+| 变量名                                                       | 变量值                                                                 |
+| --------------------------------------------------------- | ------------------------------------------------------------------- |
+| JAVA_OPTS                            | -javaagent:/arthas/arthas-agent.jar |
+| ARTHAS_APP_NAME | ruoyi-admin                                                         |
+| ARTHAS_AGENT_ID | ruoyi-admin                                                         |
 
 **2.4 添加端口并更新**
 
 为 `ruoyi-admin` 组件添加 8563 端口并打开对外服务，更新组件完成后可通过默认域名访问 Web Console。
 
 ![](https://static.goodrain.com/wechat/arthas/13.png)
-
 
 ## 使用Arthas诊断Rainbond上的SpringCloud应用
 
@@ -104,11 +101,11 @@ Arthas Tunnel 可通过 Rainbond 开源应用商店一键安装。
 
 为每个微服务组件配置环境变量，在组件内 -> 环境变量 -> 添加变量。
 
-| 变量名          | 变量值                              | 说明                                        |
-| --------------- | ----------------------------------- | ------------------------------------------- |
-| JAVA_OPTS       | -javaagent:/arthas/arthas-agent.jar | JAVA 启动参数                               |
-| ARTHAS_APP_NAME | register                            | arthas app name，根据实际情况修改           |
-| ARTHAS_AGENT_ID | register                            | arthas agent ID 不可与其他 ID相同，是唯一的 |
+| 变量名                                                       | 变量值                                                                 | 说明                              |
+| --------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------- |
+| JAVA_OPTS                            | -javaagent:/arthas/arthas-agent.jar | JAVA 启动参数                       |
+| ARTHAS_APP_NAME | register                                                            | arthas app name，根据实际情况修改        |
+| ARTHAS_AGENT_ID | register                                                            | arthas agent ID 不可与其他 ID相同，是唯一的 |
 
 **配置依赖关系**
 
@@ -134,20 +131,20 @@ Arthas Tunnel 可通过 Rainbond 开源应用商店一键安装。
 
 Arthas 采用命令行交互模式，同时提供丰富的 `Tab` 自动补全功能，进一步方便进行问题的定位和诊断，以下是部分命令，详细请参阅文档 [Arthas命令列表](https://arthas.aliyun.com/doc/commands.html)
 
-* dashboard - 当前系统的实时数据面板
-* getstatic - 查看类的静态属性
-* heapdump - dump java heap, 类似 jmap 命令的 heap dump 功能
-* jvm - 查看当前 JVM 的信息
-* logger - 查看和修改 logger
-* mbean - 查看 Mbean 的信息
-* memory - 查看 JVM 的内存信息
-* ognl - 执行 ognl 表达式
-* perfcounter - 查看当前 JVM 的 Perf Counter 信息
-* sysenv - 查看 JVM 的环境变量
-* sysprop - 查看和修改 JVM 的系统属性
-* thread - 查看当前 JVM 的线程堆栈信息
-* vmoption - 查看和修改 JVM 里诊断相关的 option
-* vmtool - 从 jvm 里查询对象，执行 forceGc
+- dashboard - 当前系统的实时数据面板
+- getstatic - 查看类的静态属性
+- heapdump - dump java heap, 类似 jmap 命令的 heap dump 功能
+- jvm - 查看当前 JVM 的信息
+- logger - 查看和修改 logger
+- mbean - 查看 Mbean 的信息
+- memory - 查看 JVM 的内存信息
+- ognl - 执行 ognl 表达式
+- perfcounter - 查看当前 JVM 的 Perf Counter 信息
+- sysenv - 查看 JVM 的环境变量
+- sysprop - 查看和修改 JVM 的系统属性
+- thread - 查看当前 JVM 的线程堆栈信息
+- vmoption - 查看和修改 JVM 里诊断相关的 option
+- vmtool - 从 jvm 里查询对象，执行 forceGc
 
 以下是部分命令的使用截图：
 
@@ -159,7 +156,7 @@ Arthas 采用命令行交互模式，同时提供丰富的 `Tab` 自动补全功
 
 ### 2. 生成火焰图
 
-`profiler` 命令支持生成应用热点的火焰图。本质上是通过不断的采样，然后把收集到的采样结果生成火焰图。  
+`profiler` 命令支持生成应用热点的火焰图。本质上是通过不断的采样，然后把收集到的采样结果生成火焰图。\
 以下命令均在Arthas Tunnel Web Console 中执行。
 
 **1.启动 profiler**
