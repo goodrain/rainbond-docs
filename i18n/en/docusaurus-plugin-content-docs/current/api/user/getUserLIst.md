@@ -2,7 +2,7 @@
 title: get user list
 ---
 
-## Basic Information
+## 基本信息
 
 get user list
 
@@ -10,22 +10,19 @@ get user list
 GET /openapi/v1/users
 ```
 
-
 ## request parameters
 
-| name      | Location | type   | required | illustrate                            |
-| --------- | -------- | ------ | -------- | ------------------------------------- |
-| query     | query    | string | no       | Username, Email, Mobile Number Search |
-| page      | query    | string | no       | page number                           |
+| name                           | Location | type   | required | illustrate                            |
+| ------------------------------ | -------- | ------ | -------- | ------------------------------------- |
+| query                          | query    | string | no       | Username, Email, Mobile Number Search |
+| page                           | query    | string | no       | page number                           |
 | page_size | query    | string | no       | Quantity per page                     |
-
 
 ## return result
 
 | status code | Status code meaning | illustrate | data model                              |
 | ----------- | ------------------- | ---------- | --------------------------------------- |
 | 200         | OK                  | success    | [ListUsersRespView](#listusersrespview) |
-
 
 ## Model
 
@@ -53,7 +50,7 @@ GET /openapi/v1/users
 
 ### Attributes
 
-| name  | type                                              | required | constraint | Chinese name | illustrate |
-| ----- | ------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| name  | type                                                                                                  | required | constraint | Chinese name | illustrate |
+| ----- | ----------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
 | users | [[UserInfo](/docs/api/user/getUserInfo#userinfo)] | true     | none       |              | none       |
-| total | integer                                           | true     | none       | Total        | none       |
+| total | integer                                                                                               | true     | none       | Total        | none       |
