@@ -3,67 +3,67 @@ title: Application topology
 description: Show the network relationships, business relationships, and business logic of all components of the application
 ---
 
-## 展示模式
+## Display Mode
 
-拓扑图以图形化的方式展示应用的所有服务组件实时状态，它将展示如下几个维度的信息：
+The topography shows the real time state of all service components of the app in a graphical way. It will display the following dimensions of：
 
-- 组件网络拓扑关系
+- Component Web Topics
 
-图中可以清楚的展示组件直接的网络调用关系以及公网开放情况，结合流量状态可以便捷发现通信状态。
+It is clear in the graph that shows the direct network call relationships of the component and public network openness, and that combined traffic status allows communication to be found easily.
 
-- 组件整体业务依赖关系
+- Component Overall Business Dependencies
 
-图中组件之间的连线表示组件业务依赖关系，让用户可以一看便知复杂业务系统的业务关系。
+The connection between the components in the graph represents the component business dependence, allowing users to see the business relationships of the complex operations system at once.
 
-- 组件流量跟踪状态
+- Component Traffic Tracking Status
 
-拓扑图中的每条线在开通了性能分析插件后将实时呈现每条通信链路的吞吐率和响应时间，未来还会将错误率和分布式跟踪情况展现在链路中
+Each line in the sketch will show the throughput and response time of each communication link when the performance analysis plugin is enabled. In the future, error rates and distributional tracking will be displayed in the link
 
-- 组件运行状态
+- Component Status
 
-组件以颜色展示组件状态，对应关系如下：
+Component shows component status in color, for the following：
 
-| 颜色    | 未构建/未启动 |
-| ----- | ------- |
-| 黑色/灰色 | 未构建/未启动 |
-| 绿色    | 运行中     |
-| 浅绿色   | 升级中     |
-| 红色    | 已关闭     |
+| Colors     | Not constructed/not started |
+| ---------- | --------------------------- |
+| Black/Grey | Not constructed/not started |
+| Green      | Running                     |
+| LightGreen | Upgrading                   |
+| Red        | Closed                      |
 
-> 如果组件六方体呈现为叠加状，表明当前组件运行了多个实例。
+> If the sixth party of the component appears to be an overlay state, it indicates that the current component is running multiple instances.
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-topology/Multiple%20instances.png)
 
-## 编辑模式
+## Edit mode
 
-编辑拓扑图目前支持:服务组件连接建立或取消依赖关系、打开或关闭服务组件对外端口
+Edit topography currently support: service component connection is creating or undependent, opening or closing service component external port
 
-- 删除动作
+- Delete Action
 
-点击连接线按下 `delete` 键快速删除组件依赖关系、关闭服务组件所有对外端口
+Press `delete` on the connection line to quickly remove component dependencies, close all external ports of the service component
 
-- 增加动作
+- Add Action
 
-点击起点焦点拖拽到终点即可建立两个组件间的依赖关系或打开外网访问。
+Tap to drag the focus to the end to create dependencies between the two components or open extranet access.
 
-## 聚合模式
+## Aggregate Mode
 
-在企业实际使用中，一个应用下的组件，往往会依赖其他应用下的组件，此时用户看到的拓扑图信息会大且比较杂乱，无法快速分辨其他组件所属的应用。这时对于用户而言，多个应用之间的依赖关系不明确。为了解决此问题，我们新增了拓扑图聚合模式。在这种情况下，可以更清晰的展示多个应用间的依赖关系。
+In actual business use, components under an app tend to rely on components under other apps when the user sees large and more confused information that does not allow quick identification of apps belonging to other components.At this time, there is a lack of clarity as to the dependencies of multiple applications.In order to solve this problem, we have added a new pattern of topographic aggregation.In this case, a clearer display of dependency between multiple applications can be made.
 
-在普通模式下，可以看到该应用依赖了多个组件，但是我们对于这些组件之间的关系并不清楚。
+In normal mode, it can be seen that the app relies on multiple components, but we are not clear about the relationship between these components.
 
 ![img](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/community/change/topology-normal.png)
 
-我们切换到聚合模式，可以看到，组件与其他应用之间的关系清晰明了。
+We switch to the polymer mode and see that the relationship between components and other applications is clear.
 
-![img](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/community/change/topology-polymerization.png)
+![img](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/community/change-polymerization.png)
 
-点开 Gitlab 这个应用的拓扑图，我们可以知道这个应用的运行状态，以及依赖的组件信息。
+Tap Gitlab to map the app. We can know the state of the application and the component information on which it depends.
 
-![img](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/community/change/topology-polymerization.png)
+![img](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/community/change-polymerization.png)
 
-## 拓扑图组件操作
+## Popup component actions
 
-用户可通过点击组件，在弹出的组件基础信息框内对组件进行集群的操作，分别是访问组件、进入Web终端、更新组件、关闭组件、删除组件。用户可以根据这些按钮快速操作组件，同时下方展示出了组件内的容器信息。
+A user can cluster a component by clicking on the component and by visiting components, entering the Web Terminal, updating the component, closing the component, and deleting the component.The user can quickly operate the component based on these buttons, while the container information is displayed below.
 
 ![img](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/community/change/topology-detail.png)
