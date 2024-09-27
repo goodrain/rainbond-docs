@@ -2,7 +2,7 @@
 title: Get application http access policy details
 ---
 
-## 基本信息
+## basic information
 
 Get application http access policy details
 
@@ -12,7 +12,7 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/httpdomains/
 
 ## request parameters
 
-| name                             | Location | 类型      | required | illustrate        |
+| name                             | Location | type    | required | illustrate        |
 | -------------------------------- | -------- | ------- | -------- | ----------------- |
 | app_id      | path     | integer | Yes      | App ID            |
 | rule_id     | path     | string  | Yes      | gateway policy id |
@@ -63,7 +63,7 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/httpdomains/
 
 ### Attributes
 
-| name                                                       | 类型                                                           | required | constraint | Chinese name     | illustrate                                                                                                                            |
+| name                                                       | type                                                         | required | constraint | Chinese name     | illustrate                                                                                                                            |
 | ---------------------------------------------------------- | ------------------------------------------------------------ | -------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | ID                                                         | integer                                                      | false    | read-only  | ID               | none                                                                                                                                  |
 | rule_extensions                       | [string] | false    | read-only  |                  | none                                                                                                                                  |
