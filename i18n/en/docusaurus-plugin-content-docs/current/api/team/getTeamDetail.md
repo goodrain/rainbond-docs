@@ -2,7 +2,7 @@
 title: Get team details
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain team details
 
@@ -14,7 +14,7 @@ GET /openapi/v1/teams/{team_id}
 
 | name                         | Location | type   | required | Chinese name | illustrate |
 | ---------------------------- | -------- | ------ | -------- | ------------ | ---------- |
-| team_id | path     | string | Yes      |              | none       |
+| team_id | Path     | String | Yes      |              | none       |
 
 ## return result
 
@@ -50,21 +50,21 @@ GET /openapi/v1/teams/{team_id}
 
 | name                               | type                                                                              | required | constraint | Chinese name  | illustrate                                    |
 | ---------------------------------- | --------------------------------------------------------------------------------- | -------- | ---------- | ------------- | --------------------------------------------- |
-| tenant_id     | string                                                                            | true     | none       | Tenant id     | Team ID                                       |
-| tenant_name   | string                                                                            | true     | none       | Tenant name   | Team Name                                     |
-| tenant_alias  | string                                                                            | true     | none       | Tenant alias  | team alias                                    |
-| enterprise_id | string                                                                            | true     | none       | Enterprise id | Enterprise ID                                 |
-| is_active     | boolean                                                                           | false    | none       | Is active     | Activate now                                  |
-| create_time   | string                                                                            | false    | none       | Create time   | creation time                                 |
-| creator                            | string                                                                            | false    | none       | Creater       | Team owner user                               |
-| role_infos    | [[RoleInfo](#schemaroleinfo)] | false    | none       |               | The roles the user has in the team            |
+| tenant_id     | String                                                                            | true     | none       | Tenant id     | Team ID                                       |
+| tenant_name   | String                                                                            | true     | none       | Tenant name   | Team Name                                     |
+| tenant_alias  | String                                                                            | true     | none       | Tenant alias  | team alias                                    |
+| Enterprise_id | String                                                                            | true     | none       | Enterprise id | Enterprise ID                                 |
+| is_active     | boolean                                                                           | false    | none       | Is Active     | Activate now                                  |
+| create_time   | String                                                                            | false    | none       | Create time   | creation time                                 |
+| creator                            | String                                                                            | false    | none       | Creator       | Team owner user                               |
+| Role_infos    | [[RoleInfo](#schemaroleinfo)] | false    | none       |               | The roles the user has in the team            |
 | service_num   | integer                                                                           | false    | none       | Service num   | The number of components in the team          |
 | region_num    | integer                                                                           | false    | none       | Region num    | The number of data centers opened by the team |
 
 ### RoleInfo<a id="schemaroleinfo"></a>
 
 ```json
-{
+LO
   "role_name": "string",
   "role_id": "string"
 }
@@ -74,5 +74,5 @@ GET /openapi/v1/teams/{team_id}
 
 | name                           | type   | required | constraint | Chinese name | illustrate |
 | ------------------------------ | ------ | -------- | ---------- | ------------ | ---------- |
-| role_name | string | true     | none       | Role name    | Role Name  |
-| role_id   | string | true     | none       | Role id      | role id    |
+| role_name | String | true     | none       | Role name    | Role Name  |
+| role_id   | String | true     | none       | Role id      | role id    |
