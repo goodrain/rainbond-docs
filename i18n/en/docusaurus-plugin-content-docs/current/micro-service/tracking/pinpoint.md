@@ -2,70 +2,70 @@
 title: PinPoint use
 description: PinPoint based on the realization of microservice non-intrusive monitoring and link tracking, suitable for developers and application operation and maintenance personnel.
 keywords:
-  - PinPoint 实现微服务无侵入的监控与链路追踪
-  - 链路追踪
+  - PinPoint implements non-intrusive monitoring and link tracking
+  - Link Tracking
   - APM
   - Tracing
 ---
 
-应⽤性能管理（Application Performance Management，APM）是指对企业的关键业务应⽤进⾏监测、优化，提⾼企业应⽤的可靠性和质量，保证⽤户得到良好的服务，降低 IT 总运维成本，为企业带来更多的商业利益。
+Application Performance Management (APM) means monitoring, optimizing business critical business applications, improving the reliability and quality of enterprise applications, ensuring that users are well served, reducing the overall cost of IT operations and bringing more commercial benefits to the enterprise.
 
-Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java / PHP 编写的大型分布式系统。在使用上力图简单高效，通过在启动时安装 agent，不需要修改哪怕一行代码，最小化性能损失（3%）。
+Pinpoint is an APM (Application Performance Management) tool for large distribution systems written with Java/PHP.Use attempts to be simple and efficient, by installing agent on startup, you do not need to modify even one row code to minimize performance losses (3 per cent).
 
-**优势:**
+**Advantages:**
 
-- 分布式事务跟踪，跟踪跨分布式应用的消息；
-- 自动检测应用拓扑，帮助你搞清楚应用的架构；
-- 水平扩展以便支持大规模服务器集群；
-- 提供代码级别的可见性以便轻松定位失败点和瓶颈；
-- 使用字节码增强技术，添加新功能而无需修改代码。
+- Distributed transaction tracking, tracking messages across distribution applications;
+- Automatically detect app pools to help you understand the architecture of the app;
+- Horizontal extension to support large server clusters;
+- Provide visibility at code level to easily locate failed points and bottlenecks;
+- Use byte to boost technology, add new features without changing code.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%" />
 
-| 组件                 | 组件功能                              |
-| ------------------ | --------------------------------- |
-| Pinpoint-Collector | 收集各种性能数据                          |
-| Pinpoint-Agent     | 探针与应用服务器（例如 tomcat) 关联，部署到同一台服务器上 |
-| HBase Storage      | 收集到数据存到 HBase 中                   |
-| Pinpoint-Web       | 将收集到的数据层现在 web 展示                 |
+| Component          | Component Features                                                                                                                                  |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pinpoint-Collector | Collect various performance data                                                                                                                    |
+| Pinpoint-Agent     | Probe is associated with the application server (e.g. tomcat) and is deployed to the same server |
+| HBase Store        | Collect data in HBase                                                                                                                               |
+| Pinpoint-Web       | Show collected layers now on the web                                                                                                                |
 
-## 前提条件
+## Prerequisite
 
-- 必须是基于源码构建的 Java 项目，默认都会集成 pinpoint-agent。
+- Must be a source based Java project. Default will integrate pinpoint-agent.
 
-## 部署 PinPoint Server
+## Deploy PinPoint Server
 
-通过开源应用市场一键部署 `PinPoint`，平台管理 > 应用商店 > 搜索 `PinPoint` 一键安装即可。
+Deploy `PinPoint`, platform management > App Store > Search for `PinPoint` through the Open Source Marketplace.
 
-**配置 websocket**
+**Configure websocket**
 
-PinPoint 支持实时显示链路追踪数据，这需要 PinPoint 的访问地址支持 Websocket 协议。
+PinPoint supports real time showing link tracking. This requires PinPoint access to support Websocket protocol.
 
-在 **网关** 中找到 **pinpoint-web 8080端口** 的域名，点击 **参数设置**，打开 websocket 支持。
+Find the domain name **pinpoint-web 8080 ports** in **gate** and click **Parameters** to open websocket support.
 
-## 使用 PinPoint
+## Use Pinpoint
 
-**部署示例 Java 应用**
+**Deployment Example Java Application**
 
-1. 团队 -> 新增 -> 基于源码创建组件 -> 官方 DEMO，选择 Java Maven DEMO，创建组件。
-2. 进入 Java 组件中 > 依赖 > 添加依赖组件 **Pinpoint-collector**
-3. 进入 Java 组件监控 > 链路追踪 > 开启
-4. 更新组件，即可在链路追踪中看到数据。
+1. Team -> Add -> Create Component -> Official DEMO, Select Java Maven DEMO, Create Component Based on Source Code.
+2. Enter the Java component > Dependencies > Add Dependencies to **Pinpoint-collector**
+3. Enter Java Component Monitor > Link Tracking > On
+4. Update component to see data in link tracking.
 
-### 效果展示
+### Effect Display
 
-​访问 **Pinpoint-web**，会看到上一步的应用名称
+Visits to the site **Pinpoint-web**, you will see the name of the last step
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/get-start/best-practices/work_with_apm/java-pinpoint.png)
 
-### 微服务示例图
+### Microservice Sample Graph
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/get-start/best-practices/work_with_apm/springcloud_pig-pinpoint.png)
 
-### Pinpoint 说明
+### Pinpoint Description
 
-| Pinpoint版本      | 2.1.0                                                                                    |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| applicationName | 默认取值组件应用名称 （注意不能使用中文名称）                                                                                                  |
-|                 | 如不想改变组件名称，可修改组件环境变量 ES_TRACE_APP_NAME 来更改 applicationName |
-| agentId         | 取值POD变量HOSTNAME                                                                                                          |
+| Pinpoint version | 2.1.0                                                                                                                                                                                |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ApplicationName  | Default value component application name (note that Chinese name cannot be used)                                                                                                                  |
+|                  | If you do not want to change the name of the component, you can modify the component environment variable ES_TRACE_APP_NAME to change applicationName |
+| agentId          | Value POD variable HOSTNAME                                                                                                                                                                                          |
