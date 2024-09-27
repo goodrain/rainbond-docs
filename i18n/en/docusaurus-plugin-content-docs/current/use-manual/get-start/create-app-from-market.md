@@ -9,11 +9,11 @@ Learn how to deploy applications with one click through Rainbond's unique applic
 
 ### significance
 
-This is a very fast deployment method. Compared with deploying a single service component, this deployment method can quickly deploy a complete business system containing multiple service components.Various advanced scenarios based on Rainbond are based on the application market.基于 Rainbond 实现的多种高级场景都以应用市场为基础。
+This is a very fast deployment method. Compared with deploying a single service component, this deployment method can quickly deploy a complete business system containing multiple service components.Various advanced scenarios based on Rainbond are based on the application market.Many advanced scenes based on Rainbond realisation are based on the application market.
 
 ### Preconditions
 
-- Complete [team management and multi-tenancy](/docs/use-manual/get-start/team-management-and-multi-tenancy/).Finish creating the first team.完成第一个团队的创建。
+- Complete [team management and multi-tenancy](/docs/use-manual/get-start/team-management-and-multi-tenancy/).Finish creating the first team.Complete first team creation.
 
 - The Rainbond cluster has been installed, or the Rainbond Cloud public cloud service has been connected.
 
