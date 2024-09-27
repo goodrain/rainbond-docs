@@ -1,31 +1,31 @@
 ---
 title: Overview
-description: Rainbond 信创指南概述
+description: Overview of Rainbond Creative Guidelines
 keywords:
-  - 信创
-  - 国产化
+  - Message
+  - Nationalization
   - Arm
 ---
 
-# 了解 Rainbond 信创能力
+# Learn about Rainbond Creativity
 
-专门针对国产化信创场景推出的Rainbond “信创”版本，全面降低应用系统向信创环境中迁移的技术成本，助力信创应用零成本迁移上云。Rainbond 长期深耕国产化IT生态，与多家国产CPU架构完成兼容性认证，能够在不同的架构下快速部署运行。信创应用、遗留业务系统可以提供源代码、软件包、容器镜像等方式零成本完成向国产化信创环境迁移上云。同时，Rainbond 借助强大的多云管理能力，使得用户可以通过统一的控制台管理多个异构集群、“一云多芯”集群，充分利用不同云平台的资源，完成跨云调度、异构应用混合编排等高难度动作。
+The Rainbond version of the Creativity Scenario, which was produced specifically for the national production of trusts, comprehensively reduces the cost of technology for migration of applications to the Creative Environment and contributes to the zero cost migration of the Creative Creation.Rainbond countries produce IT ecology and have completed compatibility certification with multiple national CPU structures, allowing rapid deployment under different structures.Creativity applications, legacy business systems can provide source code, software packages, container mirrors, etc. Zero cost to move to the home fun environment.At the same time, Rainbond, with its strong cloud management capability, enables users to manage multiple isomer clusters, “One cloud-multich” clusters through a single control platform, making full use of the resources of different cloud platforms and performing high-difficulty operations such as cross-cloud movement and mixing of isomer applications.
 
-"信创"版本还进一步拓展了云原生应用商店的功能。信创应用可以被轻松地发布成为适用于不同架构的应用模板，在国产化信创环境中一键安装。开源应用商店也提供不同架构下可用的上百款开源软件，极大降低了面向国产化信创环境的软件交付成本。
+The "Confidence Creation" version further expands the functionality of the Cloud Native App Store.Creativity apps can be easily released as an application template for different structures, installing one click in a nationally-produced confidence creation environment.Open source stores also offer hundreds of open source software that can be used under different structures, significantly reducing the cost of software delivery for a domestically produced confidence-building environment.
 
-# 信创功能
+# Creativity
 
-Rainbond 在信创领域支持以下功能：
+Rainbond supports the following features in Creativity fields in：
 
-- “一云多芯”，统一管理异构集群：
+- "A cloud of multiple chires", manage the isomer cluster：
 
-一键安装并托管异构 Kubernetes 集群，除传统的 X86_64 架构外，全面支持 arm64 架构，统一管理诸如鲲鹏920、飞腾等基于 Arm 指令集的国产化芯片。
+A one-click installation and hosting of the Kubernetes cluster, which in addition to the traditional X86/64 architecture, fully supports the arm64 architecture, unifying the management of nationally produced chips based on the Arm set of instructions, such as the SAP 920 and the Flight.
 
-- 传统应用快速迁移到信创环境：
+- Fast migration of traditional apps to FREE：
 
-源码构建能力全面支持 arm64 架构，不用修改一行代码，即可将传统应用迁移到国产化环境中。借助 Rainbond 既有的云原生管理体验，简化信创应用的运维管理
-成本。
+Source build capacity fully supports the arm64 architecture, and migration of traditional applications to the national production environment without modifying one line of code.Lew Rainbond has an established cloud native management experience and simplify course-management
+costs for messenger generation apps.
 
-- 应用市场机制全面支持 arm64 架构：
+- Application market mechanism fully supports arm64 architecture：
 
-用户可以在开源应用商店中一键安装适合在 arm64 架构下运行的开源应用。自行发布的应用模板也会自动识别其架构属性，这意味着用户可以自行制作适合在 arm64 架构下安装的应用模板，降低信创环境交付成本。
+Users can install an open source app in an open source store that works under the arm64 architecture.Self-released application templates also automatically recognize their architectural properties, which means that users can make their own application templates suitable for installation under the arm64 architecture, reducing the cost of delivery for the fun environment.
