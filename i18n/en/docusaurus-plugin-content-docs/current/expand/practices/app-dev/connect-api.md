@@ -35,7 +35,7 @@ So how do we solve the problem of**cross-domain**that the interface is not unifi
 
 ​ Answer：Use**Nginx reverse proxy**.
 
-​ Most of the small partners use nginx to throw the`dist`package packaged by the project into nginx, configure a location proxy_pass reverse proxy backend, and then fill in the`Nginx`address in the global configuration of the project.Jiang Zi will still cross over 😋.Then how to deal with it, please see below👇酱紫还是会跨越哦😋。那究竟该怎么处理呢，请往下看👇
+​ Most of the small partners use nginx to throw the`dist`package packaged by the project into nginx, configure a location proxy_pass reverse proxy backend, and then fill in the`Nginx`address in the global configuration of the project.Jiang Zi will still cross over 😋.Then how to deal with it, please see below👇Car is still going to cross: face_savoring_food:.So what should be done, please see: backhand_index_pointing_down:
 
 ### There are several ways to solve cross-domain for different scenarios：
 
@@ -69,13 +69,13 @@ So how do we solve the problem of**cross-domain**that the interface is not unifi
          }
    ```
 
-   这种方式固然可以，但对于接口几十个上百个 一一配置很麻烦。
+   While this is possible, it is difficult to configure dozens of interfaces.
 
-2. 接口数量很多。
+2. The number of interfaces is high.
 
    This method is certainly possible, but it is very troublesome to configure dozens or hundreds of interfaces one by one.2) There are many interfaces.Also, you need to modify the global configuration file`.env.production`, and modify the request interface to api, which is customized.Some friends have doubts, I don't have this interface, please read on.```shell
    ENV = 'production'
-   VUE_APP_BASE_API = '/api'有的小伙伴就疑问了，我没有这个接口呀，请接着往下看。
+   VUE_APP_BASE_API = '/api'Some small partners have questioned, I do not have this interface, please go back to you.
    ```
 
    ```shell
@@ -116,7 +116,7 @@ So how do we solve the problem of**cross-domain**that the interface is not unifi
 
 It's better to handle this.
 
-Also, the first thing is to modify the project's global configuration file`.env.production`, and modify the request interface to **/prod-api**.This unified interface is provided by the backend.这个统一接口是后端提供的哈。
+Also, the first thing is to modify the project's global configuration file`.env.production`, and modify the request interface to **/prod-api**.This unified interface is provided by the backend.This unified interface is a hat provided by the backend.
 
 ```shell
 ENV = 'production'
@@ -159,7 +159,7 @@ Next, deploy a SpringBoot backend project to use with the frontend.
 
 Refer to the blog post Rainbond to easily build and run applications with Dockerfile
 
-1. Build and deploy Mysql through the Dockerfile source code.Reference document[Dockerfile source code construction](/docs/use-manual/component-create/language-support/dockefile)参考文档[Dockerfile源码构建](/docs/use-manual/component-create/language-support/dockefile)
+1. Build and deploy Mysql through the Dockerfile source code.Reference document[Dockerfile source code construction](/docs/use-manual/component-create/language-support/dockefile)Reference document[Dockerfile源码构建](/docs/use-manual/component-create/language-support/dockefile)
 
    ​ Dockerfile source code construction requires placing`Dockerfile file`in the Sql directory required by the project to automatically initialize the database.
 
@@ -181,7 +181,7 @@ Refer to the blog post Rainbond to easily build and run applications with Docker
 
 3. Confirm the creation, the platform will detect some image information, you can create it directly.
 
-4. After the build is complete, open the inbound service in the component > port.for backend connections以供后端连接使用
+4. After the build is complete, open the inbound service in the component > port.for backend connectionsfor backend connections
 
 #### Java source code build and deploy SpringBoot
 
@@ -204,7 +204,7 @@ Refer to the blog post Rainbond to easily build and run applications with Docker
 
 4. The platform will detect what project is based on the `pom.xml` file in the project root directory, and the multi-module project is detected here.
 
-5. Enter the multi-module build, check the`ruoyi-admin`module, this module is runnable, and other modules are dependent.For specific module functions, please refer to[if according to the official document](https://doc.ruoyi.vip/)具体模块功能参考[若依官方文档](https://doc.ruoyi.vip/)
+5. Enter the multi-module build, check the`ruoyi-admin`module, this module is runnable, and other modules are dependent.For specific module functions, please refer to[if according to the official document](https://doc.ruoyi.vip/)Specific module features refer to[若依官方文档](https://doc.ruoyi.vip/)
 
 6. The Maven build parameters can be modified, and no modification is required unless there are special requirements.
 
@@ -216,9 +216,9 @@ Refer to the blog post Rainbond to easily build and run applications with Docker
 
    > Custom JDK download address：https://buildpack.oss-cn-shanghai.aliyuncs.com/jdk/jdk1.8.0.tgz
 
-- 需要打开 **禁用缓存按钮**，防止包不一样出现奇奇怪怪的问题。Need to open **to disable the cache button**to prevent strange problems with different packages.After the build is successful, disable the cache and turn off the cache, and the correct package will be cached next time.
+- You need to open **Disable Cache button** to prevent packs from experiencing strange problems as well.Need to open **to disable the cache button**to prevent strange problems with different packages.After the build is successful, disable the cache and turn off the cache, and the correct package will be cached next time.
 
-- 修改后 **保存修改**。After modification **save modification**.Build the component, wait for the build to complete, and modify the port to `8080`.
+- Modified **Save Changes**.After modification **save modification**.Build the component, wait for the build to complete, and modify the port to `8080`.
 
 - Enter the topology map interface, switch to edit mode, and establish component dependencies.
   - **ruoyi-ui **connect**ruoyi-admin**.
