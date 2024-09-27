@@ -1,13 +1,13 @@
 ---
-title: 虚拟机使用指南
-description: Rainbond 虚拟机使用指南
+title: Virtual Machine Usage Guide
+description: Rainbond Virtual Machine Use Guide
 keywords:
   - Rainbond
-  - 虚拟机使用指南
-  - kubevirt 使用指南
+  - Virtual Machine Usage Guide
+  - kuveirt Usage Guide
 ---
 
-本章节主要介绍虚拟机在 Rainbond 中的部署和使用。
+This section focuses on the deployment and use of the virtual machine in Rainbrond.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
