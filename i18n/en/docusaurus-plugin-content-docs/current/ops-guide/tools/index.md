@@ -2,16 +2,16 @@
 title: Command line tool
 description: Command line tool
 keywords:
-  - kubectl 命令行工具
-  - grctl 命令行工具
-  - helm 命令行工具
+  - kubtl command line tool
+  - grctl command line tool
+  - helm command line tool
 ---
 
-本文档介绍如何安装 `helm` `kubectl` `grctl` 命令行工具。
+This document describes how to install the `helm` `grctl` command line tool.
 
 ## Kubectl CLI
 
-安装 kubectl 命令
+Install kubectl command
 
 ```bash
 wget https://pkg.goodrain.com/pkg/kubectl/v1.23.10/kubectl -O /usr/local/bin/kubectl && chmod +x /usr/local/bin/kubectl
@@ -19,14 +19,14 @@ wget https://pkg.goodrain.com/pkg/kubectl/v1.23.10/kubectl -O /usr/local/bin/kub
 
 ![](https://static.goodrain.com/images/5.3/kubeconfig.png)
 
-如上图所示，从集群列表中 Copy kubeconfig 文件写到`~/.kube/config`路径下。
+As shown in the above chart, write from the cluster list to `~/.kube/config` in the `~/.kube/config` path.
 
 ```
 mkdir ~/.kube/
 vi ~/.kube/config
 ```
 
-安装完成后执行以下命令，成功即代码安装成功：
+The following command was executed after the installation was completed, the code was installed successfully：
 
 ```
 kubectl get node
@@ -34,7 +34,7 @@ kubectl get node
 
 ## Helm CLI
 
-可选择通过 [Helm](https://helm.sh/zh/docs/intro/install/) 官方文档安装 Helm CLI 或通过以下命令安装。
+You can choose to install Helm CLI via [Helm](https://helm.sh/en/docs/intro/install/) official documentation or install it through the following commands.
 
 ```bash
 wget https://pkg.goodrain.com/pkg/helm -O /usr/local/bin/helm && chmod +x /usr/local/bin/helm
