@@ -1,46 +1,46 @@
-# 微服务治理
+# Microservice governance
 
-## 为什么说做好微服务很难
+## Why it is difficult to say how to do something good
 
-要想做好微服务，我们需要理解和掌握的知识点非常多，从几个维度上来说：
+To do a microservice, we need a lot of knowledge that we need to understand and learn from a few dimensions in Administrative：
 
-- 基本功能层面
-  1. 并发控制 & 限流，避免服务被突发流量击垮
-  2. 服务注册与服务发现，确保能够动态侦测增减的节点
-  3. 负载均衡，需要根据节点承受能力分发流量
-  4. 超时控制，避免对已超时请求做无用功
-  5. 熔断设计，快速失败，保障故障节点的恢复能力
+- Basic functional level
+  1. Parallel control & limit flow, avoid sudden traffic knocking out services
+  2. Service registration and service discovery to ensure dynamic detection of nodes
+  3. Load Balancer, need to distribute traffic according to the capacity of the node
+  4. Timeout control, avoid wasting requests for timeout
+  5. Melt off design, fast failure, secure troubleshooter ability
 
-- 高阶功能层面
-  1. 请求认证，确保每个用户只能访问自己的数据
-  2. 链路追踪，用于理解整个系统和快速定位特定请求的问题
-  3. 日志，用于数据收集和问题定位
-  4. 可观测性，没有度量就没有优化
+- Advanced Function Level
+  1. Ask for authentication, make sure that each user can only access their own data
+  2. Link tracking, used to understand the whole system and quickly locate specific requests
+  3. Logs, for data collection and problem positioning
+  4. Observability, no tweaks without measurement
 
-对于其中每一点，我们都需要用很长的篇幅来讲述其原理和实现，那么对我们后端开发者来说，要想把这些知识点都掌握并落实到业务系统里，难度是非常大的。然而，我们可以依赖已经被大流量验证过的框架体系，如**Rainbond 微服务模式**，来简化这一复杂的任务。
+For each of these points, it is very difficult for our back-end developers to capture and implement these points of knowledge into the business system.However, we can simplify this complex task by relying on frameworks already validated by mass flows, such as the **Rainbond Microservice Mode**.
 
-## 使用 Rainbond 一键切换微服务治理模式
+## Use Rainbond to switch micro-service governance mode
 
-### 一键切换治理模式
+### One click to switch governance mode
 
 ![img.png](https://static.goodrain.com/docs/enterprise-app/microservices/QQ20231108-101133%402x.png)
 
-### 微服务治理能力
+### Micro-service governance capacity
 
-Rainbond 微服务模式为您提供了一种轻松的方式来实现上述复杂的微服务治理功能。通过使用 Rainbond，您可以轻松实现以下几点：
+Rainbond Microservice Mode provides you with an easy way to achieve the above-mentioned complex microservice governance features.By using Rainbond, you can easily implement the settlement：
 
-1. **并发控制 & 限流**：Rainbond 提供内置的限流和并发控制机制，可以根据您的需求配置，以确保服务不会被突发流量击垮。
+1. **Parallel Controls & Limits**：Rainbond provides built-in limit flow and concurrent control mechanisms that can be configured according to your needs to ensure that services are not hit by sudden traffic shocks.
 
-2. **服务注册与服务发现**：Rainbond 集成了服务注册与发现功能，使您的微服务能够自动注册和发现，无需手动配置。
+2. **Registration and discovery of services**：Rainbond integrated service registration and discovery features to enable your microservice to automatically register and discover without manual configuration.
 
-3. **负载均衡**：Rainbond 提供负载均衡功能，可以根据节点的承受能力动态分发流量，确保高可用性和性能。
+3. **Load Balancer**：Rainbond provides load equilibrium features that can be dynamically distributed to ensure high availability and performance based on the absorptive capacity of the node.
 
-4. **熔断设计**：Rainbond 集成了熔断器模式，可以快速失败并保障故障节点的恢复能力。
+4. **Melting Device**：Rainbond integrated a breaker mode that can quickly fail and safeguard the resilience of the failure node.
 
-5. **请求认证**：Rainbond 支持身份认证和授权机制，确保每个用户只能访问其拥有权限的数据。
+5. **Request Authentication**：Rainbond supports authentication and authorization mechanisms, ensuring that each user can only access data with which they have permissions.
 
-6. **链路追踪和日志**：Rainbond 提供全链路追踪和日志收集功能，用于理解整个系统并快速定位特定请求的问题。
+6. **Link Tracks and Logs**：Rainbond provides full link tracking and log collection to understand the system and quickly locate specific request issues.
 
-7. **可观测性**：Rainbond 提供丰富的监控和度量工具，帮助您实时监视微服务的性能，识别问题并进行优化。
+7. **Observability**：Rainbond provides rich monitoring and measurement tools to help you monitor the performance of microservices in real time, identify problems and optimize them.
 
-通过 Rainbond 微服务模式，您可以轻松地应用这些微服务治理功能，大大减轻了微服务开发和管理的复杂性，同时提高了应用程序的可靠性和性能。这一模式简化了治理任务，使其对开发者更加友好。
+Through Rainbond Microservice Mode, you can easily apply these microservice governance functions that significantly reduce the complexity of microservice development and management, while improving the reliability and performance of applications.This model simplifies governance tasks and makes them more friendly to developers.
