@@ -2,7 +2,7 @@
 title: Remove HTTP access policy
 ---
 
-## 基本信息
+## Basic Information
 
 Remove HTTP access policy
 
@@ -12,7 +12,7 @@ DELETE /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/httpdomai
 
 ## request parameters
 
-| name                             | Location | 类型     | required | illustrate |
+| name                             | Location | Type   | required | illustrate |
 | -------------------------------- | -------- | ------ | -------- | ---------- |
 | team_id     | path     | string | Yes      | none       |
 | region_name | path     | string | Yes      | none       |
@@ -63,7 +63,7 @@ DELETE /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/httpdomai
 
 ### Attributes
 
-| name                                                       | 类型                                                           | required | constraint | Chinese name     | illustrate                                                                                                                            |
+| name                                                       | Type                                                         | required | constraint | Chinese name     | illustrate                                                                                                                            |
 | ---------------------------------------------------------- | ------------------------------------------------------------ | -------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | ID                                                         | integer                                                      | false    | read-only  | ID               | none                                                                                                                                  |
 | rule_extensions                       | [string] | false    | read-only  |                  | none                                                                                                                                  |
