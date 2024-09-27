@@ -3,7 +3,6 @@ title: Istio network governance model
 description: Using the Istio network governance model in Rainbond
 ---
 
-
 在Rainbond中，用户可以对不同的应用设置不同的治理模式，即用户可以通过切换应用的治理模式，来按需治理应用，这样带来的好处便是用户可以不被某一个ServiceMesh框架所绑定，且可以快速试错，能快速找到最适合当前业务的ServiceMesh框架。
 
 在当前版本Rainbond中，Istio以"插件"的模式存在，当用户需要使用Istio治理模式时，如果未安装Istio的控制平面，则会提示需要安装对应的控制平面。因此在使用前需要部署Istio的控制平面，控制平面在一个集群中只需安装一次，它提供了统一的上层运维入口，将用来管理工作在Istio治理模式下的服务，完成配置下发等功能。结合Rainbond现有的helm安装方式，我们可以便捷的安装好对应的组件。
@@ -22,11 +21,9 @@ description: Using the Istio network governance model in Rainbond
 
 Rainbond支持基于helm直接部署应用，所以接下来对接Rainbond官方helm仓库，后续基于Helm商店部署Istio即可， 在应用市场页面，点击添加商店，选择helm商店，输入相关信息即可完成对接。
 
-商店地址：https://openchart.goodrain.com/goodrain/rainbond 
+商店地址：https://openchart.goodrain.com/goodrain/rainbond
 
 ![image-20211212203208140](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212203208140.png)
-
-
 
 ### 安装 Istio 控制平面
 
@@ -36,15 +33,13 @@ Rainbond支持基于helm直接部署应用，所以接下来对接Rainbond官方
 
 选择helm商店中的`base`应用进行部署，选择之前创建已创建好的团队，该应用主要部署了Istio相关的集群资源和 CRD 资源。
 
-![image-20211212204419466](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212204419466.png) 
+![image-20211212204419466](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212204419466.png)
 
 点击**确定**后进入base应用界面，无需修改配置，直接点击页面下方**安装**按钮即可，待页面上方出现**已部署**按钮即表示安装完成。
 
 ![image-20211212204419466](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/base.png)
 
-
-
-- 安装 istio-discovery 
+- 安装 istio-discovery
 
 同上述base应用一样，选择正确的团队，安装 `istio-discovery`应用，有了这两个应用，就可以拥有 Istio 基础的治理能力了。
 
@@ -54,31 +49,27 @@ Rainbond支持基于helm直接部署应用，所以接下来对接Rainbond官方
 
 同上述base应用一样，选择正确的团队，安装 `Prometheus`应用。
 
-
 - 安装kiali
 
 Istio为我们查看相关服务与配置提供了统一化的可视化界面Kiali ，能够在可视化界面中展示服务拓补关系，进行服务配置。
 
 同上述base应用一样，选择正确的团队，安装 kiali-operator 应用。
 
-
 安装过程将自动创建Service，通过Rainbond平台第三方组件的形式可将 kiali 的访问端口暴露出来。如下图所示：
 
 ![image-20211212212924071](https://ghproxy.com/https://raw.githubusercontent.com/yangkaa/images/main/works/image-20211212212924071.png)
 
-|配置项|值|
-| --- | --- |
-|组件名称|自定义|
-|组件英文名称|自定义|
-|组件注册方式|Kubernetes|
-|Namespace|istio-system|
-|Service|kiali|
-
+| 配置项       | 值            |
+| --------- | ------------ |
+| 组件名称      | 自定义          |
+| 组件英文名称    | 自定义          |
+| 组件注册方式    | Kubernetes   |
+| Namespace | istio-system |
+| Service   | kiali        |
 
 在端口界面添加访问端口，添加以后打开**对外服务**使用生成的网关策略即可进行访问
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/port.jpg)
-
 
 kiali登录时需要身份认证token，使用以下命令获取token：
 
@@ -91,8 +82,6 @@ kubectl describe secret $(kubectl get secret -n istio-system | grep kiali-token 
 获取到token登陆至kiali可视化界面，到此完成Istio控制平面的部署。
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/dashboard.jpg)
-
-
 
 ### 使用 Istio 网络治理模式
 
@@ -131,4 +120,3 @@ kubectl describe secret $(kubectl get secret -n istio-system | grep kiali-token 
 在 Graph 一栏，也可以看到对应的应用内的流量请求。更多的配置及相关功能参考 [Kiali官方文档](https://kiali.io/docs/installation/quick-start/)。
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/user-manual/app-manage/deploy-istio/display.png)
-
