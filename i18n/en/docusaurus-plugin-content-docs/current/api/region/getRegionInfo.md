@@ -72,7 +72,7 @@ GET /openapi/v1/regions/{region_id}
 | total_disk                       | number | false    | none       | Total disk    | Store all            |
 | used_memory                      | number | false    | none       | Used memory   | use memory           |
 | total_memory                     | number | false    | none       | Total memory  | All memory           |
-| used_cpu                         | number | false    | none       | used cpu      | use cpu              |
-| total_cpu                        | number | false    | none       | total cpu     | all cpus             |
-| health_status                    | string | false    | none       | health status | cluster status       |
+| cpu used                                              | number | false    | none       | used cpu      | use cpu              |
+| total cpu                                             | number | false    | none       | total cpu     | all cpus             |
+| health status                                         | string | false    | none       | health status | cluster status       |
 | status                                                | string | false    | none       | Status        | state                |
