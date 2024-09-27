@@ -1,79 +1,79 @@
-# Istio 微服务治理模式
+# Istio Microservice Governance Model
 
-## 流量图
+## Traffic Graph
 
-当您的应用程序切换到 Istio 微服务治理模式后，您将能够轻松获得清晰的流量图，以更明确地观测流量的分布和流向。这使您能够更轻松地了解应用程序内部流量的情况，以便更好地优化性能和进行故障排除。
+When your application switches to Istio Microservice Governance mode, you will be able to easily access clear traffic maps to observe more clearly the distribution and direction of traffic.This allows you to learn more easily about internal traffic within the application in order to better optimize performance and troubleshooting.
 
 ![流量图](https://static.goodrain.com/docs/enterprise-app/microservices/2.png)
 
-## 组件概览
+## Component Overview
 
-您可以清晰地查看协议、请求速率、响应时间以及错误率的组件概览，为您提供对应用程序性能和健康状况的详细洞察。这些信息有助于您更好地了解应用程序的行为，特别是在高负载或异常情况下。
+You can clearly view the component overview of the protocol, request speed, response time, and error rates to provide you with a detailed insight into the performance and health status of the application.This information helps you better understand the behavior of your app, especially in high-load or unusual circumstances.
 
 ![组件概览](https://static.goodrain.com/docs/enterprise-app/microservices/3.png)
 
-此外，还可以了解流量大小、吞吐率和响应时间的信息，从而更全面地了解应用程序性能。这有助于您识别瓶颈和瓶颈，以便进行针对性的优化。
+Information on traffic size, throughput rates and response times is also available, leading to a more comprehensive understanding of the application's performance.This helps you identify bottlenecks and bottlenecks in order to optimize targeting.
 
-## 流量控制
+## Traffic Control
 
-Istio 微服务治理模式提供了完善的并发控制，避免服务被突发流量击垮。以下是一些关键的流量控制功能：
+The Istio Microservice governance model provides good parallel control to avoid sudden traffic disruptions.Below are some key traffic control features：
 
-### 限流
+### Limit Stream
 
-通过限流策略，您可以控制每个微服务实例的最大请求数，防止过多请求导致性能下降或系统崩溃。这有助于维持系统的稳定性。
+With a limited flow strategy, you can control the maximum number of requests per micro-service instance to prevent too many requests from causing performance declines or system crashes.This helps to maintain the stability of the system.
 
-我们对HTTP限流支持如下：
+We support HTTP stream below：
 
-1. **http1MaxPendingRequests**（HTTP/1 最大等待请求数）：控制在队列中等待连接就绪的最大请求数，适用于HTTP/1.1和HTTP2。默认值为1024。
+1. **1MaxPendingRequests** (TTP/1 max waiting requests)：controls the max number of requests pending connectivity in queue for HTTP/1.1 and HTTP2.Default value is 1024.
 
-2. **http2MaxRequests**（HTTP/2 最大请求数）：限制发往一个目的地的最大活跃请求数，适用于HTTP/1.1和HTTP2。默认值为1024。
+2. **2MaxRequests** (TRTP/2 max requests)：limits the maximum number of active requests sent to a destination, applicable to HTTP/1.1 and HTTP2.Default value is 1024.
 
-3. **maxRequestsPerConnection**（每连接最大请求数）：确定每个连接可以处理的最大请求数。将其设置为1会禁用HTTP Keepalive，而默认值为0表示无限制，最大为2^29。
+3. **maxRequestsPerConnection** (maximum number of requests per connection)：determines the maximum number of requests that each connection can handle.Setting it to 1 will disable HTTP Keepalive, while default value is 0 for unlimited maximum 2^29.
 
-4. **maxRetries**（最大重试次数）：规定在给定时间内对集群中所有主机的最大重试次数，默认为2^32-1。
+4. **maxRetries** (maximum number of retrips)：specifies the maximum number of retries for all hosts in a cluster at a given time, default is 2^32-1.
 
-5. **idleTimeout**（空闲超时时间）：定义上游连接池连接在没有活动请求时的空闲超时时间。如果未设置，将默认为1小时。连接将在达到此空闲超时时间后关闭，特别是对于HTTP/2连接，会发送Drain Sequence以确保安全关闭连接。
+5. **idleTimeout** (idle timeout time)：defines the upstream connection pool when idle timeout when no active request exists.If not set, this will be 1 hour by default.The connection will be closed after reaching this idle timeout, especially for HTTP/2 connections, and will be sent to ensure that the connection is safely closed.
 
-6. **h2UpgradePolicy**（HTTP/2 升级策略）：指定是否将HTTP1.1连接升级为HTTP2连接，根据指定的策略来操作。
+6. **h2UpgradePolicy** (TRTP/2 Upgrading Policy)：specifies whether HTTP 1.1 is upgraded to HTTP 2 connections, operating according to the specified policy.
 
-7. **useClientProtocol**（使用客户端协议）：如果设置为true，将保留客户端使用的协议，使H2UpgradePolicy无效，因此客户端连接不会升级到HTTP2。
+7. **useClientProtocol** (using client protocol)：, if set to true, will keep the protocol used by the client, rendering H2UpgradePolicy invalid, so client connection will not be upgraded to HTTP2.
 
-我们对TCP的限流支持如下
+Our limit flow for the TCP is below
 
-1. **maxConnections**（最大连接数）：用于控制到目标主机的最大HTTP1或TCP连接数。默认值为2^32-1，允许大量的连接。
+1. **maxConnections** (max connections)：controls the maximum HTTP1 or TCP connections to the target host.Default value is 2^32-1, allowing large numbers of connections.
 
-2. **connectTimeout**（连接超时时长）：定义TCP连接的超时时间，以确保连接建立。您可以使用不同的时间单位（例如1小时、1分钟、1秒、1毫秒）来设置超时时长，默认为10秒。
+2. **connectTimeout** (long connection time)：defines the timeout of TCP connection to make sure the connection is established.You can use different time units (e.g. 1 hour, 1 min, 1 seconds, 1 milliseconds) to set timeout length, default to 10 seconds.
 
-3. **tcpKeepalive**（TCP Keepalive）：如果启用此选项，将在Socket上启用TCP Keepalive，以确保长时间闲置的连接仍然保持活动状态。
+3. **tcpKeepalive** (TCP Keepalive)：If this option is enabled, TCP Keepalive will be enabled on Socket to ensure that idle connections remain active for long periods of time.
 
-4. **maxConnectionDuration**（最长连接持续时间）：此规则用于设定连接的最长持续时间，即连接从建立开始的时间间隔。如果未设置，将没有最大持续时间。当达到设定的最大持续时间时，连接将被关闭。持续时间必须至少为1毫秒。
+4. **maxConnectionDuration** (maximum connection duration)：This rule is used to set the maximum duration of the connection, i.e. the time interval between the connection starting from creation.If not set, there will be no maximum duration.When the maximum duration is reached, the connection will be closed.The duration must be at least 1 m2.
 
-这些配置项可以帮助您在网络连接和请求处理方面进行更精细的调整，以满足您的需求。
+These configurations help you to fine-tune your network connection and request processing in order to meet your needs.
 
 ![限流](https://static.goodrain.com/docs/enterprise-app/microservices/32.png)
 
-### 熔断
+### Melt
 
-熔断器是一种用于保护系统免受连续错误请求的机制
+A melting breaker is a mechanism used to protect the system from continuous error requests
 
-1. **分离错误类型**：可以分别处理本地故障和上游服务的错误。这对于根据本地故障和上游服务错误计算异常状态很有用。
+1. **Separating error type**：deals with local failures and upstream service errors, respectively.This is useful for calculating unusual state based on local failures and upstream service errors.
 
-2. **连续错误计数**：您可以设置触发排除操作所需的连续错误计数。例如，当连续5次出现某种类型的错误时，触发排除。
+2. **Continuous error count**：you can set the continuous error count required to trigger exclusion action.For example, when a certain type of error occurs five times in a row, the exclusion triggers.
 
-3. **排除时间**：定义排除主机的最短时间，以防止系统频繁排除主机。
+3. **Exclude times**：defines the minimum time to exclude hosts, in order to prevent the system from frequently excluding hosts.
 
-4. **最大排除百分比**：规定可以排除出负载均衡池的上游服务主机的最大百分比。
+4. **Maximum exclusion percentage**：provides for the maximum percentage of upstream service hosts to be excluded from the load equilibrium pool.
 
-5. **最低健康百分比**：只有当负载均衡池中的健康主机百分比低于指定阈值时，才启用异常检测。
+5. **Minimum Health Perpercent**：only enables exception detection if the health host percentage in the load equilibrium pool is below the specified threshold.
 
-这些设置有助于保护系统免受错误请求的影响，提高系统的可用性和稳定性。
+These settings help to protect the system from incorrect requests and enhance the system's availability and stability.
 
-熔断器允许您快速失败，当某个微服务出现故障或性能下降时，它可以自动切断对该服务的请求，从而防止故障扩散。这是一种强大的容错机制，提高了系统的可用性。
+A melting breaker allows you to quickly fail, and when a microservice has a malfunction or a decline in performance, it can automatically cut off requests for the service, thereby preventing the malfunction from spreading.This is a powerful miscarriage mechanism that increases the system's availability.
 
-## 安全
+## Security
 
-Istio 微服务治理模式提供了强大的安全性功能，包括身份认证、授权和加密，以确保您的微服务之间的通信安全可靠。这有助于防止未经授权的访问和数据泄露，提高了系统的安全性和可信度。
+The Istio Microservice governance model provides powerful security features including authentication, authorization, and encryption to ensure secure communications between your microservices.This helps to prevent unauthorized access and data leakage, and enhances the security and credibility of the system.
 
 ![安全性](https://static.goodrain.com/docs/enterprise-app/microservices/7.png)
 
-Istio 微服务治理模式为您提供更强大的控制、可观测性和安全性，有助于更好地管理和优化您的微服务架构。它简化了治理任务，提供了丰富的功能和洞察，使您能够更轻松地应对复杂的微服务环境，提高了应用程序的稳定性和性能。切换到 Istio 模式后，治理变得更加简单，让您能够更好地监控和掌控您的微服务应用。
+The Istio Microservice governance model provides you with greater control, observability, and security, which helps to better manage and optimize your microservice architecture.It simplifies the governance task and provides a wealth of functionality and insights that will make it easier for you to cope with the complex micro-service environment and improve the stability and performance of the application.Switch to Istio mode to make governance simpler so you can better monitor and control your microservice applications.
