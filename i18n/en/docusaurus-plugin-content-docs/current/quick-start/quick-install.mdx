@@ -1,34 +1,36 @@
 ---
-title: 'Quick installation'
-description: 'This article introduces running Rainbond using only one Docker container.'
+title: Quick installation
+description: This article introduces running Rainbond using only one Docker container.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The current installation method allows you to quickly experience the full functionality of Rainbond by running a single container. This version is designed for single-node experiences, suitable for trying out Rainbond features or for personal development environments. It supports Windows (x86_64), Mac (Intel/M1), and Linux (x86_64, Arm64).
+The current installation method allows you to quickly experience the full functionality of Rainbond by running a single container. This version is designed for single-node experiences, suitable for trying out Rainbond features or for personal development environments. It supports Windows (x86_64), Mac (Intel/M1), and Linux (x86_64, Arm64).该版本为单机体验版，仅适用于体验 Rainbond 功能或者个人开发环境。支持 `Windows(x86_64)`、`Mac(Intel/M1)`、`Linux(x86_64,Arm64)`。
 
-## Prerequisites
+## 前提
 
-* Install Docker, if docker environment is not present on Linux, it will be automatically installed through a shell script; If you are using macOS, install [Mac Docker Desktop](https://docs.docker.com/desktop/release-notes/#docker-desktop); If you are using Windows, install [Windows Docker Desktop](https://docs.docker.com/desktop/windows/install/)
-* Make sure that ports 80, 443, 6060, 7070, and 8443 are available.
+- Install Docker, if docker environment is not present on Linux, it will be automatically installed through a shell script; If you are using macOS, install [Mac Docker Desktop](https://docs.docker.com/desktop/release-notes/#docker-desktop); If you are using Windows, install [Windows Docker Desktop](https://docs.docker.com/desktop/windows/install/)
+- 安装 Windows [Docker Desktop](https://docs.docker.com/desktop/windows/install/)
+- Linux 如没有 Docker 环境则默认会通过 Shell 脚本安装 Docker
+- Make sure that ports 80, 443, 6060, 7070, and 8443 are available.
 
 ## Installation steps
 
 <Tabs groupId="install">
   <TabItem value="Linux & Mac" label="Linux & Mac" default>
 
-Rainbond provides an installation script to quickly launch Rainbond within a Docker container. During the script execution, you will be prompted to manually set the EIP (External IP). Once the deployment is complete, you will use this IP address to access the Rainbond console.
+Rainbond provides an installation script to quickly launch Rainbond within a Docker container. During the script execution, you will be prompted to manually set the EIP (External IP). Once the deployment is complete, you will use this IP address to access the Rainbond console.脚本执行过程中，需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
 
 ```bash
 curl -o install.sh https://get.rainbond.com && IMGHUB_MIRROR=rainbond bash ./install.sh
 ```
 
-  </TabItem>
+</TabItem>
 
-  <TabItem value="Windows" label="Windows">
+<TabItem value="Windows" label="Windows">
 
-Rainbond provides an windows installation script to quickly launch Rainbond within a Docker container. During the script execution, you will be prompted to manually set the EIP (External IP). Once the deployment is complete, you will use this IP address to access the Rainbond console.
+Rainbond provides an windows installation script to quickly launch Rainbond within a Docker container. During the script execution, you will be prompted to manually set the EIP (External IP). Once the deployment is complete, you will use this IP address to access the Rainbond console.脚本执行过程中，需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
 
 Please execute the following command in Windows PowerShell:
 
@@ -36,7 +38,16 @@ Please execute the following command in Windows PowerShell:
 Invoke-WebRequest "https://get.rainbond.com/install-dind.ps1" -o install-dind.ps1 ; .\install-dind.ps1 -IMAGE_MIRROR rainbond
 ```
 
-  </TabItem>
+</TabItem>
+  <TabItem value="信创" label="信创" default>
+
+Rainbond 提供了一键安装的脚本并且支持了国产化信创的需求，在 Docker 中通过容器快速启动 Rainbond。脚本执行过程中，会自动选择所需要的架构，同时还需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
+
+```bash
+curl -o install.sh https://get.rainbond.com && bash ./install.sh
+```
+
+</TabItem>
 </Tabs>
 
 After executing the aforementioned script, please wait patiently for 3-5 minutes. You will see the following log output, indicating that Rainbond has completed its startup:
@@ -47,12 +58,20 @@ After executing the aforementioned script, please wait patiently for 3-5 minutes
 
 ## Next step
 
-When you visit Rainbond, you can refer to [getting started](/docs/quick-start/getting-started) to use Rainbond.
+现在你已经部署好了一个可用的 Rainbond 平台，接下来你可以尝试以下路径深入了解 Rainbond：
 
-## Troubleshooting
+**1. [快速入门](/docs/quick-start/getting-started/) -> [部署你自己的应用](/docs/use-manual/) -> [部署集群版 Rainbond](/docs/installation/install-with-ui/#从主机开始安装) -> [将应用从单机版迁移至集群部署](/docs/ops-guide/migrate-app)**
 
-If the installation process of the single node experience version is not completed for a long time, please refer to the document [installation troubleshooting guide](/docs/troubleshooting/installation/dind). Or join us on [Slack](https://join.slack.com/t/rainbond-slack/shared_invite/zt-1ft4g75pg-KJ0h_IAtvG9DMgeE_BNjZQ) ask for help.
+在此路径中，你将从单机版开始起步。When you visit Rainbond, you can refer to [getting started](/docs/quick-start/getting-started) to use Rainbond.接下来你可以参考[用户使用手册](/docs/use-manual/)部署你自己的应用，并直接在单机版 Rainbond 上开发和管理。后期你可以参考[从主机安装](/docs/installation/install-with-ui/#从主机开始安装)部署出集群版 Rainbond，并将单机版上的已有应用[迁移](/docs/ops-guide/migrate-app)到你的集群进行管理。
+
+**2. [快速入门](/docs/quick-start/getting-started/) -> [部署高可用集群](/docs/installation/install-with-ui/ha) -> [在高可用集群中部署你的应用](/docs/use-manual/)**
+
+在此路径中，依然是从单机版开始起步。在你通过[快速入门](/docs/quick-start/getting-started/)体验到 Rainbond 管理上的便捷后，你可以直接参考文档[部署高可用集群](/docs/installation/install-with-ui/ha)，并在高可用集群中[部署管理你的应用](/docs/use-manual/)。
 
 ## Extended parameter
 
-By default, 10 ports from '10000-10010' are added for service TCP ports. If you need more TCP ports, pass the command printed in the script, delete the container restart and add '-p' to map the new port.
+默认添加了 `10000～10010` 10个端口供业务的 TCP 端口使用。By default, 10 ports from '10000-10010' are added for service TCP ports. If you need more TCP ports, pass the command printed in the script, delete the container restart and add '-p' to map the new port.
+
+## Troubleshooting
+
+**单节点体验版本安装过程中如果长时间未完成，那么请参考文档 [单机体验版本安装问题排查指南](/docs/troubleshooting/installation/dind) 进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。**
