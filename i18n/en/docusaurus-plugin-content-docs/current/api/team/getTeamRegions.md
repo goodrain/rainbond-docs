@@ -2,7 +2,7 @@
 title: Get the list of clusters opened by the team
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain the list of clusters opened by the team
 
@@ -14,16 +14,16 @@ GET /openapi/v1/teams/{team_id}/regions
 
 | name                           | Location | type   | required | Chinese name | illustrate                 |
 | ------------------------------ | -------- | ------ | -------- | ------------ | -------------------------- |
-| team_id   | path     | string | Yes      |              | none                       |
-| query                          | query    | string | no       |              | Search by data center name |
-| page                           | query    | string | no       |              | page number                |
-| page_size | query    | string | no       |              | Quantity per page          |
+| team_id   | Path     | String | Yes      |              | none                       |
+| Query                          | Query    | String | no       |              | Search by data center name |
+| page                           | Query    | String | no       |              | page number                |
+| page_size | Query    | String | no       |              | Quantity per page          |
 
 ## return result
 
-| status code | Status code meaning | illustrate | data model                                        |
-| ----------- | ------------------- | ---------- | ------------------------------------------------- |
-| 200         | OK                  | success    | [ListTeamRegionsResp](#schemalistteamregionsresp) |
+| status code | Status code meaning | illustrate | data model                                       |
+| ----------- | ------------------- | ---------- | ------------------------------------------------ |
+| 200         | OK                  | success    | [ListTeamRegionsResp](#schemalistteamregionsres) |
 
 ## Model
 
@@ -53,10 +53,10 @@ GET /openapi/v1/teams/{team_id}/regions
 
 ### Attributes
 
-| name    | type                                                                                            | required | constraint | Chinese name | illustrate |
-| ------- | ----------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| total   | integer                                                                                         | true     | none       | Total        | none       |
-| regions | [[TeamRegionsResp](#schemateamregionsresp)] | true     | none       |              | none       |
+| name    | type                                                                                           | required | constraint | Chinese name | illustrate |
+| ------- | ---------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| Total   | integer                                                                                        | true     | none       | Total        | none       |
+| Regions | [[TeamRegionsResp](#schemateamregionsres)] | true     | none       |              | none       |
 
 ### TeamRegionsResp<a id="schemateamregionsresp"></a>
 
@@ -81,15 +81,15 @@ GET /openapi/v1/teams/{team_id}/regions
 
 | name                              | type        | required | constraint | Chinese name | illustrate                                                                                           |
 | --------------------------------- | ----------- | -------- | ---------- | ------------ | ---------------------------------------------------------------------------------------------------- |
-| region_id    | string      | true     | none       | Region id    | region id                                                                                            |
-| region_name  | string      | true     | none       | Region name  | data center name                                                                                     |
-| region_alias | string      | true     | none       | Region alias | data center alias                                                                                    |
-| tenant_name  | string      | true     | none       | Tenant name  | 租户名称                                                                                                 |
-| url                               | string      | true     | none       | Url          | Datacenter API url                                                                                   |
-| wsurl                             | string      | true     | none       | Wsurl        | datacenter websocket url                                                                             |
-| httpdomain                        | string      | true     | none       | Httpdomain   | Data center http application access root domain name                                                 |
-| tcpdomain                         | string      | true     | none       | Tcpdomain    | Data center tcp application access root domain name                                                  |
-| token                             | string¦null | false    | none       | Token        | data center token                                                                                    |
-| status                            | string      | true     | none       | Status       | Data Center Status 0：Editing 1: Enabled 2：Disabled 3: In Maintenance |
-| desc                              | string      | true     | none       | Desc         | Data Center Description                                                                              |
-| scope                             | string      | false    | none       | Scope        | Datacenter-wide private                                                                              |
+| region_id    | String      | true     | none       | Region id    | region id                                                                                            |
+| region_name  | String      | true     | none       | Region name  | data center name                                                                                     |
+| region_alias | String      | true     | none       | Region alias | data center alias                                                                                    |
+| tenant_name  | String      | true     | none       | Tenant name  | Tenant Name                                                                                          |
+| Url                               | String      | true     | none       | Url          | Datacenter API url                                                                                   |
+| wsurl                             | String      | true     | none       | Wsurl        | datacenter websocket url                                                                             |
+| pdomain                           | String      | true     | none       | Httpdain     | Data center http application access root domain name                                                 |
+| tcpdomain                         | String      | true     | none       | Tcpdomain    | Data center tcp application access root domain name                                                  |
+| token                             | Stringenull | false    | none       | Token        | data center token                                                                                    |
+| Status                            | String      | true     | none       | Status       | Data Center Status 0：Editing 1: Enabled 2：Disabled 3: In Maintenance |
+| desc                              | String      | true     | none       | Desc         | Data Center Description                                                                              |
+| Scope                             | String      | false    | none       | Scope        | Datacenter-wide private                                                                              |
