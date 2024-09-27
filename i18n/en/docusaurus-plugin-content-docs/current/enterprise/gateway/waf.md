@@ -1,113 +1,113 @@
 ---
-title: WAF 防火墙
-description: 介绍 WAF 防火墙的功能和使用。
+title: WAF Firewall
+description: Introduction to WAF firewall functionality and use.
 ---
 
-WAF 防火墙是一种应用层防火墙，专注于保护 Web 应用程序免受各种网络攻击和漏洞利用。它的作用在于识别和阻止恶意请求，以确保 Web 应用程序和敏感数据的安全。对于企业来说，Web 应用程序是重要的资产之一，因此保护其安全至关重要。WAF防火墙可以防止数据泄露、网站瘫痪、客户隐私泄露等风险。它还能快速响应新的威胁和漏洞，提供及时的保护。
+The WAF firewall is an application layer firewall that focuses on protecting web applications from various network attacks and holes.Its role is to identify and block malicious requests to ensure the security of web applications and sensitive data.Web applications are one of the important assets for businesses and it is therefore essential to protect their security.The WAF firewall can prevent risk of data leaks, web site paralysis, customer privacy leaks.It also provides timely protection by responding quickly to new threats and gaps.
 
-本文档的目标是为用户提供关于WAF防火墙的详细信息和使用指南。它将涵盖WAF防火墙的主要功能：规则管理、日志和监控、白名单和黑名单管理等内容。
+The objective of this document is to provide users with detailed information on the WAF firewall and a guide to its use.It will cover key WAF firewall features：rule management, log and monitoring, whitelist and blacklist management.
 
-## 主要功能
+## Main features
 
-当前 WAF 防火墙主要支持规则管理、日志和监控、白名单和黑名单管理，以下篇幅将详细介绍这三部分功能。
+The current WAF firewall mainly supports rule management, log and monitoring, whitelist and blacklist management, which are detailed in the following length.
 
-### 规则管理
+### Rule management
 
 ![waf](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/waf/waf.jpg)
 
-网关的 WAF 防火墙内置了6个规则集，分别是防御XSS跨站脚本攻击、防御Http协议漏洞、防御SQL注入、一般性防御、防御恶意响应、防御拒绝服务攻击。详细说明如下：
+The gate's WAF firewall contains six sets of rules inside the XSS cross-site script, defenses against Http protocol loopholes, defensive SQL injections, general defense, defensive malicious response, defensive denial of service attacks.Details below：
 
-- 防御XSS跨站脚本攻击：识别和阻止恶意注入的脚本代码，防止攻击者利用客户端漏洞获取用户信息。
+- Defend XSS cross-border scripts attack：to recognize and block malicious injections of scripts and prevent attackers from using client loopholes to access user information.
 
-- 防御Http协议漏洞：检测和阻止恶意请求、恶意文件上传等针对HTTP协议的攻击。
+- Defend Http Protocol bug：to detect and prevent malicious requests, malicious file uploads, and other attacks on HTTP protocol.
 
-- 防御SQL注入：识别并拦截恶意的SQL查询，防止攻击者通过注入攻击获取敏感数据。
+- Defensive SQL injects：to recognize and intercept malicious SQL queries to prevent an attacker from obtaining sensitive data by injecting an attack.
 
-- 一般性防御：针对常见的Web攻击，如路径遍历、代码执行等进行检测和阻止。
+- General defense：detects and blocks common web attacks, such as path traversions, code executions, etc.
 
-- 防御恶意响应：检测并拦截恶意响应，如恶意重定向、恶意文件下载等，保护用户免受攻击。
+- Defend malicious response：to detect and intercept malicious responses, such as malicious redirections, malicious file downloads, etc. to protect users from attack.
 
-- 防御拒绝服务攻击：检测和阻止DDoS攻击、暴力破解等拒绝服务攻击，确保Web应用程序的可用性和稳定性。
+- Defensive Rejection Service Attack：Detects and prevents DDoS attacks, violent breaks, etc. Denial service attacks and ensures the availability and stability of web applications.
 
-### 日志和监控
+### Log and Monitor
 
-WAF 防火墙提供全面的日志记录和报告功能，记录所有访问和安全事件，以便进行安全审计和威胁分析。对于非法访问，可以通过日志获取详细信息，并配合相应防火墙规则进行防御。
+The WAF firewall provides a full log recording and reporting functionality, records all visits and security incidents for security audits and threat analysis.For illegal visits, detailed information can be obtained through the log and defended with the corresponding firewall rules.
 
-### 白名单和黑名单管理
+### Whitelist and blacklist management
 
-WAF防火墙允许用户定义白名单和黑名单，用于控制允许或禁止特定IP地址的访问。通过白名单和黑名单管理，用户可以灵活地管理访问控制，确保合法的流量可以正常通过，同时阻止已知的恶意请求和攻击。
+The WAF firewall allows users to define whitelists and blacklists to control access to specified IP addresses.Through white-list and blacklist management, users have the flexibility to manage access controls to ensure that legitimate traffic is allowed to pass normally, while discouraging known malicious requests and attacks.
 
-## 使用手册
+## Manual
 
-### 添加、修改和删除规则
+### Add, Modify and Delete Rules
 
-在WAF防火墙中，添加、修改和删除规则均在网关策略处进行配置。
+In the WAF firewall, add, modify and delete rules are configured at the Gateway Policy.
 
-1. 进入团队视图或应用视图
+1. Enter team view or app view
 
-2. 点击左侧边栏的 `网关` 按钮，选择你需要防护的网关策略
+2. Click on the `gateways` button on the left sidebar, select the gateway strategy you need to protect
 
-3. 点击 `编辑`，在 `安全` 一栏打开 `WAF防火墙`
+3. Click `Edit` to open the `WAF firewall` in the `safe`.
 
-4. 选择相应的规则类型，如防御XSS跨站脚本攻击、SQL注入等。
+4. Select corresponding rule types such as defensive XSS cross-station scripts, SQL injections, etc.
 
-5. 保存规则设置并生效
+5. Save rule settings and take effect
 
-删除全部规则直接关闭 `WAF防火墙` 开关即可，删除部分规则，则在复选框中进行修改。
+Remove all rules to turn off the `WAF Firewall` switch directly, delete some rules and change them in the checkbox.
 
-### 监控和分析WAF防火墙日志
+### Monitor and analyze WAF firewall logs
 
-WAF防火墙提供了日志记录和报告功能，以便您监控和分析访问和安全事件。默认情况下需要在网关查询相关日志，你可以执行如下命令查询详细日志：
-
-```bash
-kubectl logs -fl name=rbd-gateway -nrbd-system
-```
-
-当有访问被 WAF 防火墙拦截时，你可以看到如下日志信息
+The WAF firewall provides log recording and reporting to enable you to monitor and analyse access and security events.Query logs by default is required on gateway. You can execute the command below to query detailed：
 
 ```bash
-2023/05/10 16:30:52 [error] 30844#30844: *207007927 [client 10.43.83.34] ModSecurity: Access denied with code 403 (phase 2). Matched "Operator `Ge' with parameter `5' against variable `TX:ANOMALY_SCORE' (Value: `5' ) [file "/usr/local/openresty/nginx/conf/modsecurity/rules/REQUEST-949-BLOCKING-EVALUATION.conf"] [line "80"] [id "949110"] [rev ""] [msg "Inbound Anomaly Score Exceeded (Total Score: 5)"] [data ""] [severity "2"] [ver "OWASP_CRS/3.3.2"] [maturity "0"] [accuracy "0"] [tag "application-multi"] [tag "language-multi"] [tag "platform-multi"] [tag "attack-generic"] [hostname "10.10.10.25"] [uri "/"] [unique_id "168379385236.800594"] [ref ""], client: 10.43.83.34, server: nginx-test.grapps.cn, request: "PUT / HTTP/1.1", host: "nginx-test.grapps.cn"
+kubtl logs-fl name=rbd-gateway -nrbd-system
 ```
 
-根据如上日志，你可以获取到被拦截请求的详细信息，包括 client 的 ip、访问的域名、请求的方法、拦截时间、以及被哪条规则阻止了。上面这个示例表示访问 nginx-test.grapps.cn 这个域名的 PUT 请求，触发了 REQUEST-949-BLOCKING-EVALUATION.conf 这个规则文件中 id 为 949110 的规则。你可以通过访问这个配置文件，查看对应规则信息。
+When you have access blocked by the WAF firewall, you can see the following log information
 
-1. 进入网关 pod 的终端
+```bash
+2023/05/10 16:30:52 [error] 3084#30844: *207007927 [customer 10.43.83.34] Modsecurity: Access denied with code 403 (phase 2). Matched "Operator `Ge' with parameter `5' against variable `TX:ANOMALY_SCORE' (Value: `5') [file "/usr/local/openresy/nginx/conf/modsecurity/rules/REQUEST-949-BLOCKING-EVALUATION. onf"] [line "80"] [id "949110"] [rev ""] [msg "Inbound Anomaly Scored (Total Score: 5)"] [data ""] [sever "2"] [ver "OWASP_CRS/3. 2.2"] [maturacy "0"] [tag "application-multi"] [tag "language-multi"] [tag "platform-multi"] [tag "attack-generic"] [hostname "10.10.10. 5"] [uri "/"] [unique_id "16837938236.800594"] [ref ""], client: 10.43.83.34, server: nginx-test.grapps.cn, request: "PUT/HTTP/1.1", host: "nginx-test.grapps.cn"
+```
+
+Based on the previous log, you can get details of blocked requests, including the client's ip, the domain name of the visit, the method of the request, the time of interception, and which rule has been blocked.This example above indicates a PUT request to visit nginx-test.grapps.cn this domain, triggering rules with id 949110 in REQUEST-949-BLOCKING-EVALUATION.conf this rule file.You can view corresponding rule information by accessing this profile.
+
+1. Enter gateway terminals
 
 ```bash
 POD_NAME=$(kubectl get po -l name=rbd-gateway -n rbd-system -o jsonpath='{.items[0].metadata.name}')
 kubectl exec -it $POD_NAME -n rbd-system -- bash
 ```
 
-2. 查看指定规则文件中，该文件路径在异常日志中会给出
+2. View the specified rule file, the file path will be given in the exception log
 
 ```bash
 cat /usr/local/openresty/nginx/conf/modsecurity/rules/REQUEST-949-BLOCKING-EVALUATION.conf
 ```
 
-3. 根据规则文件中的规则id，查找对应规则，并寻找解决方案
+3. Find corresponding rules and find solutions according to the rule id in the rules document
 
-### 白名单和黑名单的最佳实践
+### Best practices for whitelists and blacklists
 
-白名单和黑名单是WAF防火墙中用于控制访问权限的重要工具。用于控制允许或禁止特定IP地址的访问。你可以设置某个IP地址或者某段IP，注意：黑白名单互斥，你只能单独启用黑名单或单独启用白名单。黑白名单与 WAF 防火墙一样，均在网关策略处进行配置。
+The whitelist and blacklist are important tools in the WAF firewall for controlling access access.Use to control access to allow or disable specific IP addresses.You can set a certain IP address or an IP, noting that：black and white lists are mutually exclusive, you can only enable blacklists individually or whitelisting.Black and white lists, like WAF firewalls, are configured at the gateway strategy.
 
-1. 进入团队视图或应用视图
+1. Enter team view or app view
 
-2. 点击左侧边栏的 `网关` 按钮，选择你需要防护的网关策略
+2. Click on the `gateways` button on the left sidebar, select the gateway strategy you need to protect
 
-3. 点击 `编辑`，在 `安全` 一栏选择 `黑名单` 或 `白名单`
+3. Click `edit` to select `blacklist` or `whitelist` in the `safe`.
 
-4. 填入对应 IP 地址或 IP 段。如 192.168.0.1 或 192.168.0.1/24
+4. Enter an IP address or an IP segment.e.g. 192.168.0.1 or 192.168.0.1/24
 
-5. 保存规则设置并生效
+5. Save rule settings and take effect
 
-以下是一些最佳实践策略，可帮助您更有效的管理白名单和黑名单：
+Below are best practices strategies that help you manage whitelist and blacklist： more effectively
 
-- 确定受信任的IP地址和域名：根据业务需求和安全策略，确定那些受信任的IP地址和域名，它们应该被添加到白名单中，允许无限制访问您的应用程序。
-  这可能包括内网 IP 地址、合作伙伴的 IP 地址或特定的第三方服务 IP 地址。
+- Determines that trusted IP addresses and domains：identify trusted IP addresses and domains based on business needs and security strategy. They should be added to whitelisting, allowing unlimited access to your application.
+  This may include Intranet IP addresses, partner IP addresses, or specific third-party service IP addresses.
 
-- 仅添加必要的IP地址和域名：避免将所有IP地址或域名都添加到白名单中，以减少误操作或安全漏洞的风险。
-  只添加那些确实需要访问您的应用程序的IP地址和域名，限制访问的范围。
+- Add only the required IP address and domain name：to avoid adding all IP addresses or domain names to whitelist to reduce the risk of error or security loopholes.
+  Only add IP addresses and domain names that really need access to your application and limit the scope of access.
 
-- 定期审查和更新白名单和黑名单：定期审查白名单和黑名单的内容，确保其中的IP地址和域名仍然是当前可信的，并删除不再需要的条目。
+- The whitelist and blacklist：are regularly reviewed and updated to ensure that IP addresses and domain names in the whitelist and blacklist are still currently credible and delete entries that are no longer required.
 
-- 日志分析和行为分析：监控白名单和黑名单的访问日志，分析是否存在异常行为或潜在的安全威胁。根据日志分析结果，及时更新白名单和黑名单，以增强对恶意访问的防护。
+- Log analysis and behavior analysis：monitor white and blacklist access logs and analyzes if there is an abnormal behavior or potential security threat.Based on the results of the log analysis, the white and black lists are updated in a timely manner to enhance protection against malicious visits.
