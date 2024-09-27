@@ -2,8 +2,8 @@
 title: Uninstall Kubernetes and Rainbond
 description: This section describes how to uninstall the Rainbond standalone version, the Rainbond cluster, and the Kubernetes cluster installed through Rainbond
 keywords:
-- 卸载 Kubernetes 集群
-- 卸载 Rainbond 集群
+  - 卸载 Kubernetes 集群
+  - 卸载 Rainbond 集群
 ---
 
 本文档介绍如何卸载 Rainbond 单机版和 Rainbond 集群以及通过 Rainbond 安装的 Kubernetes 集群。
@@ -13,6 +13,7 @@ keywords:
 如果您使用快速安装的 Rainbond 单机版本，可以通过以下方式卸载：
 
 1. 删除 `rainbond-allinone` 容器。
+
 ```bash
 docker stop rainbond-allinone && docker rm rainbond-allinone
 ```
@@ -36,13 +37,13 @@ docker volume rm rainbond-opt
 
 ### 基于 Kubernetes 安装的 Rainbond 集群
 
-使用 Helm 卸载 Rainbond 
+使用 Helm 卸载 Rainbond
 
 ```bash
 helm uninstall rainbond -n rbd-system 
 ```
 
-删除 Rainbond 所创建的 `PVC` `PV` `CRD` `NAMESPACE` 
+删除 Rainbond 所创建的 `PVC` `PV` `CRD` `NAMESPACE`
 
 ```bash
 # Delete PVC
