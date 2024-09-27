@@ -1,68 +1,68 @@
 ---
-title: 虚拟机使用
-description: Rainbond 虚拟机使用
+title: VM Usage
+description: Rainbond Virtual Machine Use
 ---
 
-## 概述
+## General description
 
-本章节主要介绍如何在 Rainbond 平台中创建虚拟机组件，以及使用虚拟机功能。
+This section focuses on how to create virtual assemblies in the Rainbond platform and use virtual machine functionality.
 
-## 使用流程
+## Use process
 
-### 功能入口
+### Feature Entry
 
-分为两个入口，一个是应用安装指引视图，另一个是应用组件安装视图。
+Separate two portals, one for App Installation Guide View, the other for Application Component Installation View.
 
-- 应用安装引导视图: 团队视图 --> 新建 --> 虚拟机
+- App Install Guide View: Team View -> New -> Virtual Machine
 
 <img src="https://static.goodrain.com/docs/5.16.0/insall-vm1.pic.jpg" title="应用安装引导视图"/>
 
-- 应用视图: 应用视图 --> 添加组件 --> 虚拟机镜像
+- App View: App View -> Add Component -> Virtual Machine Image
 
 <img src="https://static.goodrain.com/docs/5.16.0/vm_component.jpg" title="组件视图部署虚拟机"/>
 
-### 创建
+### Create New
 
-分四种形式创建虚拟机：公共、链接、上传、本地
+Creates a virtual machine in four forms：public, linked, upload, local
 
 :::danger
-注意，上传包的格式以及下载地址所下载的包格式要求为 .img .qcow2 .iso 以及上述格式压缩的 .tar，.gz，.xz 包。
+Note that the format of the upload package and the download address is required for .img .qcow2.iso and the .tar,.gz,.xz package compressed in the format above.
 :::
 
-#### 公共
+#### Public
 
-提供了四组常用的公共虚拟机镜像地址（CentOS 7.9、Anolis OS 7.9、Deepin 20.9、Ubuntu 23.10），以便快速获取、部署和运行虚拟机。
+Four sets of common public virtual machine mirror addresses (CenOS 7.9, Anolis OS 7.9, Deepin 20.9, Ubuntu 23.10) were provided for rapid acquisition, deployment and operation.
 
-可以下载到虚拟机镜像的地址. 通过配置虚拟机的镜像包下载地址的方式来部署虚拟机。
+Addresses that can be downloaded to the virtual machine mirror. The virtual machine is deployed by configuring the virtual machine image packet download address.
 
-#### 链接
+#### Link
 
-当公共镜像无法满足需求时，可通过下载镜像并按照镜像名称及下载地址配置，创建所需的虚拟机组件。这里提供一个阿里云的[虚拟机镜像仓库](https://developer.aliyun.com/mirror/?spm=a2c6h.13651102.0.0.3e221b11ud8kbT\&serviceType=mirror\&tag=%E7%B3%BB%E7%BB%9F)，在里面查找你想要下载的镜像
+When a public image does not meet the need, it can be created by downloading the image and configuring it according to its name and download address.这里提供一个阿里云的[虚拟机镜像仓库](https://developer.aliyun.com/mirror/?spm=a2c6h.13651102.0.0.3e221b11ud8kbT\&serviceType=mirror\&tag=%E7%B3%BB%E7%BB%9F)，在里面查找你想要下载的镜像
 
-#### 上传
+#### Upload
 
-若存在已打包的私有虚拟机镜像，可通过上传镜像的方式创建虚拟机组件。只需按步骤上传镜像，并配置相应的镜像名称即可创建虚拟机。
+If private virtual machine mirrors exist you can create a virtual group by uploading the image.Simply upload mirrors by step and configure the corresponding mirror name to create a virtual machine.
 
-#### 本地
+#### Local
 
-在上述三种方式部署完成后，虚拟机镜像信息将在平台内保留。对于再次部署，可选择使用本地镜像，避免重复上传或下载的流程。
+When the three modalities are deployed, virtual machine mirror information will be retained on the platform.For redeployment, choose to use local mirrors to avoid duplicating upload or download processes.
 
-### 资源配置
+### Allocation of resources
 
-在创建过程中可以在基础信息设置中配置资源， 根据自己的需求来分配内存及 CPU 资源，我们提供了几组规格套餐，同时也支持自定义配置。如果是自定义的话 CPU及内存至少不低于 2核2G。磁盘也需要至少 10G 来满足虚拟机的基本运作。
+Resources can be configured in basic information settings during creation to allocate memory and CPU resources according to our needs. We provide several sets of specifications and support custom configurations.CPU and memory are at least not less than 2 nuclear 2G if they are custom reading.Disk also needs at least 10G to satisfy the basic operation of the virtual machine.
 
-创建完成后，依然可以在伸缩一栏对内存及 CPU 再次进行配置。
+Once created, it is still possible to reconfigure memory and CPU in the scalebar.
 
-### 访问虚拟机
+### Access Virtual Machine
 
-虚拟机组件 组件视图 --> web 终端 <img src="https://static.goodrain.com/docs/5.16.0/vm2.pic.jpg" title="虚拟机访问"/>
+Virtual Machine Component View -> Web Terminal <img src="https://static.goodrain.com/docs/5.16.0/vm2.pic.jpg" title="虚拟机访问"/>
 
-### 虚拟机编排
+### Virtual Machine Organization
 
-与平台其他容器组件之间的编排操作一致，但是仅支持容器组件依赖虚拟机组件，通过依赖绑定虚拟机端口，从而达到快捷访问的效果。
+This is consistent with the programming operations of other packagings of the platform, but only supports the packaging component in relying on virtual assemblies, which achieve quick access by relying on binding virtual machine ports.
 
-### 添加磁盘
+### Add Disk
 
-虚拟机组件的存储与传统容器组件存储不同，虚拟机支持三种类型存储的创建。
+Virtual group storage differs from traditional container component storage. Virtual machines support the creation of three types of storage.
 
 <img src="https://static.goodrain.com/docs/5.16.0/vm_vnc3.jpg" title="虚拟机存储"/>
