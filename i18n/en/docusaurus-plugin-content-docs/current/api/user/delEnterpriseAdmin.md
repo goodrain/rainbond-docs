@@ -2,7 +2,7 @@
 title: delete enterprise administrator
 ---
 
-## Basic Information
+## 基本信息
 
 delete enterprise administrator
 
@@ -10,11 +10,10 @@ delete enterprise administrator
 DELETE /openapi/v1/administrators/{user_id}
 ```
 
-
 ## request parameters
 
-| name    | Location | type   | required | illustrate |
-| ------- | -------- | ------ | -------- | ---------- |
+| name                         | Location | type   | required | illustrate |
+| ---------------------------- | -------- | ------ | -------- | ---------- |
 | user_id | path     | string | Yes      | none       |
 
 > back to example
