@@ -1,5 +1,5 @@
 ---
-title: Guide to localization and innovation
+title: 国产化信创指南
 ---
 
 本章节主要介绍 Rainbond 在国产化信创领域的功能介绍与使用要点。
