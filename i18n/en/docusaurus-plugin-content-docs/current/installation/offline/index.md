@@ -2,20 +2,20 @@
 title: Offline install
 description: Use Helm to install Rainbond offline
 keywords:
-  - 离线安装 Rainbond
+  - Install Rainbond offline
 ---
 
-本文档介绍通过 Helm 离线安装 Rainbond。
+This document describes the installation of Rainbod via Helm offline.
 
-## 前提
+## Prerequisite
 
-- 安装 [Helm CLI](/docs/ops-guide/tools/#helm-cli)
-- 可用的 Kubernetes 集群，版本 1.16+
-- 安装 NFS 客户端
+- Install [Helm CLI](/docs/ops-guide/tools/#helm-cli)
+- Available Kubernetes clusters, version 1.16+
+- Install NFS client
 
-## 准备离线镜像和安装包
+## Preparing offline mirrors and installation packages
 
-在有网络的环境下提前准备好 Rainbond 所需的镜像。你可以通过以下脚本下载所需的镜像。
+Prepare the mirrors needed for Rainbond ahead of time in a network environment.You can download the required mirrors via the following scripts.
 
 ```bash title="vim download_rbd_images.sh"
 #!/bin/bash
@@ -53,56 +53,56 @@ done
 docker save -o rainbond-"${VERSION}".tar ${image_list}
 ```
 
-获取 Rainbond Helm Chart 安装包
+Get Rainbond Helm Chart installation package
 
 ```bash
-helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
-helm pull rainbond/rainbond-cluster
+help repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
+helm null rainbond/rainbond-cluster
 ```
 
-## 开始安装
+## Start Installation
 
-导入上面准备镜像包和离线包到目标所有服务器，执行以下命令开始安装。
+Import a mirror and offline package above to all servers, execute the following commands to start installation.
 
-### 导入镜像包
+### Import Mirror Pack
 
 ```bash
-docker load -i rainbond-v5.17.3-release.tar
+docker load-i rainbond-v5.17.3-release.tar
 ```
 
-### 安装 Rainbond
+### Install Rainbond
 
-解压 Helm Chart 包
+Unpack Helm Chart
 
 ```bash
 tar xvf rainbond-cluster-5.17.3.tgz
 ```
 
-使用 Helm Chart 安装 Rainbond
-:::info
-当需要对接自建的镜像仓库、数据库、ETCD、共享存储、指定网关节点、指定构建节点等。你可以参考 [values.yaml 详解](/docs/installation/install-with-helm/vaules-config) 并修改下述命令。
+Install Rainbond
+with Helm Chart ::info
+when a self-built mirror warehouse, database, ETCD, shared storage, specified gateway node, specified building node, etc.You can refer to [values.yaml details](/docs/installation/install-with-helm/vaules-config) and modify the following command.
 :::
 
 ```bash
-kubectl create namespace rbd-system
+kubectl create name rbd-system
 
 helm install rainbond ./rainbond-cluster -n rbd-system \
---set Cluster.enableEnvCheck=false \
---set Component.rbd_app_ui.env.DISABLE_DEFAULT_APP_MARKET=true
+-set Cluster.enableEnvCheck=false\
+--Component.rbd_app_ui.env.DISABLE_DEFAULT_APP_MARKET=true
 ```
 
-## 安装进度查询
+## Install progress query
 
-执行完安装命令后，在集群中执行以下命令查看安装状态。
+After executing the installation command, perform the following commands in the cluster to view the installation status.
 
 ```bash
-watch kubectl get po -n rbd-system
+watch kubtl get po -n rbd-system
 ```
 
-当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。如下所示，Pod `rbd-app-ui-669bb7c74b-7bmlf` 为 Running 状态时，表示 Rainbond 安装成功。
+Installation successful when the name `rbd-app-ui` contains the Pod `rbd-app-ui` for Running state.As shown below, the Pod `rbd-app-ui-669bb7c74b-7bmlf` states that Rainbond was installed successfully.
 
 <details>
-<summary>安装结果</summary>
+<summary>Installation Results</summary>
 
 ```bash
 NAME                                         READY   STATUS      RESTARTS   AGE
@@ -129,19 +129,19 @@ rbd-api-5d8bb8d57d-djx2s                     1/1     Running     0          47h
 
 </details>
 
-## 访问平台
+## Access Platform
 
-复制如下命令，在集群中执行，可以获取到平台访问地址。如果有多个网关节点，则任意一个地址均可访问到控制台。
+Copy the commands below to be executed in the cluster, and get the platform access address.If there are multiple gateway nodes, any address can be accessed to the console.
 
 ```bash
 kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --template='{{range.spec.gatewayIngressIPs}}{{.}}:7070{{printf "\n"}}{{end}}'
 ```
 
-## 离线环境下使用源码构建（可选）
+## Use source build in offline environment (optional)
 
-### 获取镜像
+### Get Mirror
 
-在有网络的环境下提前准备好 Rainbond 所需的镜像。你可以通过以下脚本下载所需的镜像。
+Prepare the mirrors needed for Rainbond ahead of time in a network environment.You can download the required mirrors via the following scripts.
 
 ```bash title="vim download_rbd_images_sourcebuild.sh"
 #!/bin/bash
@@ -158,24 +158,24 @@ done
 docker save -o rainbond-sourcebuild-"${VERSION}".tar ${image_list}
 ```
 
-下载 `rbd-resource-proxy` 镜像离线包
+Download the `rbd-resource-proxy` image offline
 
 ```bash
 wget https://pkg.rainbond.com/offline/5.3-enterprise/rbd-resource-proxy-offline-amd64.tar
 ```
 
-### 导入镜像
+### Import Images
 
-将镜像包导入到目标服务器
+Import a mirror package into a target server
 
 ```bash
-docker load -i rainbond-sourcebuild-v5.17.3-release.tar
+docker load-i rainbond-sourceild-v5.17.3-release.tar
 docker load -i rbd-resource-proxy-offline-amd64.tar
 ```
 
-### 推送镜像
+### Push Image
 
-Rainbond 安装成功后推送 `builder` `runner` `rbd-resource-proxy` 镜像到 Rainbond 私有仓库
+After the installation of Rainbond the `builder` `runner` `rbd-resource-proxy` mirrors to Rainbond private repository
 
 ```bash
 # 获取镜像仓库密码
@@ -193,9 +193,9 @@ docker push goodrain.me/runner:latest-amd64
 docker push goodrain.me/rbd-resource-proxy:offline-amd64
 ```
 
-### 升级 Rainbond
+### Upgrade Rainbond
 
-使用 Helm 升级 Rainbond，重新指定 `rbd-resource-proxy` 镜像
+Reassign `rbd-resource-proxy` image using Helm to upgrade Rainbond
 
 ```bash
 helm upgrade rainbond ./rainbond-cluster -n rbd-system \
