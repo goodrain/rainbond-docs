@@ -108,7 +108,7 @@ If the storage driver required for storage does not exist in the current cluster
 
 ### HTTP access policy
 
-`The change rules of HTTP access policy`are:`source component adds an HTTP access policy, and the corresponding HTTP access policy will be added for the component during upgrade. The HTTP access policy will not be updated or deleted.
+`The change rules of HTTP access policy`are:\`source component adds an HTTP access policy, and the corresponding HTTP access policy will be added for the component during upgrade. The HTTP access policy will not be updated or deleted.
 
 ### Label
 
@@ -145,7 +145,7 @@ When adding a storage dependency, the storage dependency needs to exist at the s
 
 When deleting storage dependencies, only the storage dependencies between components originating from the same app market application will be deleted, and the storage dependencies of components on non-homologous components will not be deleted. Nor will the storage dependencies on unselected components be deleted. Relationships. Consider a few scenarios:
 
-- A\`, B\` storage comes from the same application market application, A\` depends on B\`. C\` is the storage of component C created by mirroring, which is not homologous with A\`, B\`, A\` depends on C\`. The source application removes the storage dependencies from A\` to B\`, and when upgrading, the dependencies from A\` to B\` will be removed, but not A\` to C\ ` 's storage dependencies.
+- A\`, B\` storage comes from the same application market application, A\` depends on B\`. C\` is the storage of component C created by mirroring, which is not homologous with A\`, B\`, A\` depends on C\`. The source application removes the storage dependencies from A\` to B\`, and when upgrading, the dependencies from A\` to B\` will be removed, but not A\` to C\ \` 's storage dependencies.
 - The source application has added a storage dependency from A\` to B\`. When upgrading, only choose to upgrade the A component, but not the B component, then the storage dependency from A\` to B\` will not be deleted.
 
 ### Kubernetes properties
