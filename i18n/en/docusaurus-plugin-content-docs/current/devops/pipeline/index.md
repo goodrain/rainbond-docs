@@ -2,66 +2,66 @@
 title: Pipeline Plug-in overview
 description: Pipeline Plug-in overview
 keywords:
-  - GitLab Pipeline 插件概述
-  - GitLab Pipeline 插件
+  - Overview of GitLab Pipeline plugin
   - GitLab Pipeline Plugin
+  - GitLab Pipeline Plugins
 ---
 
-Pipeline 应用是基于 [插件体系](#) 扩展实现的，通过插件化的方式，可以实现对 Rainbond 构建体系的扩展，该应用插件提供了:
+Pipeline app is based on [插件体系](#) extension, which enables extension of the Rainbond build system by plugin:
 
-- 编译构建，定义构建步骤
-- 代码检查，基于 SonarQube 的代码检查
-- 生成镜像制品，将构建的镜像制品推送到镜像仓库
-- 部署应用，与 Rainbond OpenAPI 集成，实现应用部署
-- 自动构建/部署，基于 Git 仓库的 Webhook 触发构建
+- Build , define build step
+- Code check, based on SonarQube code check
+- Generate mirror products, push built mirrors to mirror repositories
+- Deploy apps, integrate with Rainbond OpenAPI to deploy the app
+- Autobuild/deployed, built on Git Repository Webhook
 
-## 概念
+## Concept
 
-Pipeline 应用插件是基于 GitLab CI/CD 实现，所有的功能都是围绕 GitLab 和 GitLab Runner 进行扩展实现的，下面是一些概念的说明：
+Pipeline Application Plugin is based on GitLab CI/CD implementation, all features are extended around GitLab and GitLab Runner and below is a description of some concepts：
 
-### 应用服务
+### App services
 
-应用服务是满足用户某些需求的程序代码的集合，可以是某个解耦的微服务或是某个单体应用，应用服务是整个系统最小的实体单位，插件中的集成、部署等功能都是基于应用服务的。
+Application services are a collection of programming codes that meet certain users' needs and can be a coupling microservice or a single application. The application service is the smallest entity in the system and the integration, deployment and other features in the plugin are based on the application service.
 
-### 代码管理
+### Code management
 
-支持 GitLab 仓库分支的查看以及持续集成功能。
+Support for GitLab Repository branch view and persistent collection success.
 
-- 代码分支管理，支持手动基于分支构建
-- 持续集成，支持查看持续集成的状态以及步骤
+- Code branch management, support manual branch building
+- Continuous Integration, support to view the status of continuous integration and steps
 
-### 镜像仓库
+### Mirror Repository
 
-镜像仓库展示应用服务构建后生成的镜像制品，该镜像可直接部署到 Rainbond 平台。
+The mirror repository shows the mirror products generated after the application service is built, which can be deployed directly to the Rainbow platform.
 
-每个镜像版本都支持直接部署到 Rainbond 应用内，并且后续可持续部署。
+Each mirror version supports direct deployment to Rainbond applications and follows up on sustainable deployment.
 
-### 部署历史
+### Deployment History
 
-部署历史展示应用服务的部署历史，包括镜像名称、部署时间、执行人、部署详情等信息。
+Deployment history shows the history of deployment of the application service, including information on mirror names, deployment time, operator, deployment details, etc.
 
-部署详情可跳转到 Rainbond 组件详情页，查看部署的应用服务的详细信息。
+Deploying details can be accessed to the Rainbond component details page to see details of the deployed application services.
 
-### 流水线管理
+### Waterline management
 
-流水线是提供自定义流程编排的工具，通过构建，部署，测试，管控等组件化能力，把从开发到交付的各项工作串联起来，从而让企业轻松的实现持续交付。
+Fluid is a tool to provide customized process organization that allows businesses to easily achieve continued delivery by linking development to delivery through constructing, deploying, testing, control and so on.
 
-基于 GitLab CI 实现，提供了多种流水线模版，可以通过模版快速创建流水线。
+Based on GitLab CI implementation, multiple plug templates are available to quickly create streaming lines.
 
-## 工作流程介绍
+## Workflow Introduction
 
-![](https://static.goodrain.com/docs/5.11/devops/pipeline/pipeline.png)
+![](https://static.goodrain.com/docs/5.11/devops/pipeine/pipeline.png)
 
-1. 创建应用服务，填写代码仓库地址以及其他信息。
+1. Create an app service, fill in code repository addresses and other information.
 
-1.1 同时也需要创建流水线，应用服务需关联流水线。
+1.1 There is also a need to create a watercourse and to link the application service.
 
-2. 创建完应用服务后，会根据该应用服务关联的流水线，创建 `gitlab-ci.yml` 文件，并推送到该代码仓库的所有分支中。
+2. Once you have created the app service, you will create the `gitlab-ci.yml` file based on the flow line that the app is connected and push it to all branches of the repository
 
-3. 提交代码到代码仓库，触发 GitLab CI 的流水线。
+3. Submit code to the repository and trigger the flow line of GitLab CI.
 
-4. 由 Runner 执行流水线中的任务。
+4. The task in the pipeline is performed by Runner.
 
-5. 任务执行完成后，将镜像制品推送到镜像仓库。
+5. When the task is completed, push the mirror product to the mirror warehouse.
 
-6. 镜像制品推送完成后，将镜像制品部署到 Rainbond 应用内。可手动部署，也可自动部署。
+6. When the mirror product is pushed out, deploy the mirror to the Rainbond application.It can be deployed manually or automatically.
