@@ -1,70 +1,70 @@
 ---
-title: 阿里云云盘
+title: Aliyun Cloud
 description: Ali Cloud provides block level data storage for cloud server ECS
 ---
 
-### 云盘概述
+### Cloud Overview
 
-云盘是阿里云为云服务器 ECS 提供的数据块级别的块存储产品，具有低时延、高性能、持久性、高可靠等特点。
+The cloud is a block-storage product at the ECS level provided by Aliyun for the cloud server and features low timing, high performance, persistence, and high reliability.
 
-云盘采用分布式三副本机制，为 ECS 实例提供 99.9999999% 的数据可靠性保证。支持在可用区内自动复制您的数据，防止意外硬件故障导致的数据不可用，保护您的业务免于组件故障的威胁。就像硬盘一样，您可以对挂载到 ECS 实例上的云盘做分区、格式化、创建文件系统等操作，并对数据进行持久化存储。
+Cloud disks use a three-copy distribution mechanism to provide ECS examples with 99.999999% assurance of data reliability.Support automatic copy of your data within available areas to prevent unavailable data due to unexpected hardware failures, and protect your business from the threat of component failures.Like a hard drive, you can partition, formatt, create filesystem and other actions for clouds mounted on ECS instances.
 
-更多云盘介绍可到 [阿里云官方文档](https://www.alibabacloud.com/help/zh/doc-detail/25383.htm?spm=a2c63.p38356.b99.223.7f2d3e9cES5ysy)进行了解。
+More cloud presentations are available at [阿里云官方文档](https://www.alibabacloud.com/help/en/doc-detail/25383.htm?spm=a2c63.p38356.b99.223.7f2d3e9cES5ysy).
 
-### 驱动的原理
+### Rationale for driving
 
-阿里云盘驱动的原理是通过阿里云盘 SDK 的方式远程创建出来一个云盘实例，供 kubernetes 使用。
-阿里云盘根据 kubernetes 的存储规范，实现了一套阿里云 CSI 插件，可以通过 CSI 插件实现 kubernetes 对阿里云盘存储的生命周期管理。云盘 CSI 插件支持动态创建云盘数据卷、挂载数据卷。云盘是一种块存储类型，只能同时被一个负载使用(ReadWriteOnce)。
+The AliyCloud Driven doctrine is a cloud instance created remotely via the Ari cloud SDK for kubernetes.
+Based on kubernetes storage specifications, an Ali-Cloud CSI plugin has been implemented to implement kubernetes life-cycle management of Ari cloud storage via CSI plugin.The cloud CSI plugin supports dynamic creation of cloud data volumes, mount data volumes.The cloud is a block storage type that can only be used by one load at the same time (ReadWriteOnce).
 
-### 驱动的安装
+### Driver Installation
 
-使用项目 [alibaba-cloud-csi-driver](https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver/blob/master/docs/disk.md)
+Use item [alibaba-cloud-csi-driver](https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver/blob/master/docs/disk.md)
 
 ```bash
 git clone https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver.git && cd alibaba-cloud-csi-driver
 ```
 
-创建 k8s 账户
+Create k8s account
 
 ```bash
-kubectl create -f ./deploy/rbac.yaml
+kubtl create -f ./deploy/rbac.yaml
 ```
 
-确定账户创建成功
+Confirm account creation successful
 
 ```bash
-kubectl get sa -n kube-system
+kubtl get sa -n kube-system
 ```
 
-观察到 `admin` 账户说明创建成功
+The `admin` account description was successfully created.
 
-##### 创建 csi-plugin
+##### Create csi-plugin
 
-1. 修改 `deploy/disk/disk-plugin.yaml` 中的环境变量 `ACCESS_KEY_ID`，`ACCESS_KEY_SECRET` 两个参数，替换成阿里云平台账户的 `AccessKey` 信息，
+1. Change the environmental variable `ACCESS_KEY_ID`, `ACCES_KEY_SECRET` to replace the `AccessKey` information with the account of the Aliyun platform,
 
-2. DaemonSet 的 apiVersion 不能使用版本 `apps/v1beta2` ，经测试可以使用 `apps/v1` 。
+2. The apiVersion of DaemonSet cannot be used with version `apps/v1beta2`, but can be tested using `apps/v1`.
 
-阿里云平台账户的 `AccessKey` 信息到阿里云平台的 `AccessKey` 管理页面进行申请。这里不再赘述。
+The `AccessKey` information on the Aliyun Platform account is requested to the `AccessKey` management page of the Aliyun platform.It is not repeated here.
 
 ```bash
-kubectl create -f ./deploy/disk/disk-plugin.yaml
+kubtl create -f ./Deploy/disk/disk-plugin.yaml
 ```
 
-确定是否创建成功
+Determines whether or not created successfully
 
 ```bash
-kubectl get ds -n kube-system
+kubtl get d-n kube-system
 ```
 
-观察到 `csi-diskplugin` 的 Ready 为 1 说明该组件成功创建。
+The `csi-diskplugin` already observed as 1 indicates that the component was successfully created.
 
-##### 创建驱动
+##### Create driver
 
-1. 修改 `deploy/disk/disk-provisioner.yaml` 中的环境变量 `ACCESS_KEY_ID`，`ACCESS_KEY_SECRET` 两个参数，替换成阿里云平台账户的 accesskey 信息。
+1. Change the environmental variable `ACCESS_KEY_ID`, `ACCES_KEY_SECRET` to replace the access key information with the account of the Aliyun platform.
 
-2. 在 kubernetes 1.16 版本中 StatefulSet 的 apiVersion 不能使用 `apps/v1beta1` ，经测试可以使用 `apps/v1`
+2. The apiVersions of StatefulSet in kubernetes 1.16 cannot use `apps/v1beta1`, but `apps/v1` can be tested
 
-需要在 spec 下添加 selector 的信息
+Selector information is required under spec
 
 ```bash
 selector:
@@ -73,49 +73,49 @@ selector:
 ```
 
 ```bash
-kubectl create -f ./deploy/disk/disk-provisioner.yaml
+kubtl create -f ./Deploy/disk/disk-provisioner.yaml
 ```
 
-确定 csi-provisioner 是否创建成功,Ready 为 1 说明成功
+Determines whether csi-provisioner has been created successfully,Ready is 1 successful
 
 ```bash
-kubectl get statefulset -n kube-system
+kubtl get stateset -n kube-system
 ```
 
-检查 csi-plugin 的状态
+Check csi-plugin status
 
 ```bash
-kubectl get pods -n kube-system | grep csi
+kubtl get methods — n kube-system | grep csi
 ```
 
-更多驱动安装的请参考 [官方教程](https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver/blob/master/docs/disk.md)
+For more drivers installing please refer to [官方教程](https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver/blob/master/docs/disk.md)
 
-### storageClass 的创建
+### StorageClass creation
 
-**项目中已经定义好了 storageClass，需根据用户的实例所在区域进行修改方可使用**
+**StorageClasses are already defined in the project and need to be modified according to the user's instance area**
 
-**一块云盘只能挂载到同一地域、同一可用区的一台 ECS 实例**
+**A cloud can only be mounted on a single ECS instance in the same geographical area and the same available area**
 
-测试所用 ecs 在呼和浩特区，所以我们将 `examples/disk/storageclass.yaml` 文件里面的 `zoneId` 修改成了 `cn-huhehaote-a` ，把 `regionId` 修改成了 `cn-huhehaote`。
+The test is in the Haute Zone, so we change the `zoneId` in the `examples/disk/storageclass.yaml` to `cn-huhehaote-a` and `regionId` to `cn-huhehaote`.
 
 ```bash
-kubectl create -f ./examples/disk/storageclass.yaml
+kubtl create -f ./examples/disk/storageclass.yaml
 ```
 
-### 存储的使用
+### Storage usage
 
-Rainbond 会检测到 StorageClass 并同步到数据库中，供 Rainbond 控制台用做存储类型选择使用；用户可以到 Rainbond 控制台创建 **有状态存储** 选择刚创建的阿里云盘测试安装情况。
+Rainbond will detect StorageClass and synchronize it into the database for use by Rainbond Console as a storage type; users can use the Rainbond Console to create **Status Storage** to select the newly created AliyClasses to test installation.
 
-正确创建存储驱动并创建 storageClass 之后，用户可以在 Rainbond 控制台创建 **有状态组件** 使用阿里云盘存储，此时添加存储类型时，可以看到阿里云盘 storageClass 对应的新增存储类型供用户使用。
+After creating the storage driver correctly and the storageClasss, users can create **state-component parts** in the Rainbond Console and use Ali-cloud storage when adding storage types, you can see the new additional storage type for the user.
 
-**阿里云盘最小存储限制为 20G，在添加存储时设定存储大小最小为 20G**。
+**Minimum storage limit is 20G, and minimum size is 20G** when adding storage.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/storage/aliclouddisk/alistorage.jpg" width="100%" />
 
-存储添加后须通过重启组件或者更新组件来触发存储的生效
+Storage must be added by restarting the component or updating it to trigger the desired effect.
 
-### 检查结果
+### Check results
 
-存储是否生效可以通过组件是否可以正常启动来判断，组件正常启动则说明组件已经正常挂载了存储，也可以到阿里云盘管理页面确定存储的情况，确定是否存在对应大小的存储，其状态是否是使用中的状态。
+Whether the storage is effective can be determined by whether the component can be started normally, and the component is started properly indicates that the component has been mounted and can also be found on the AliyCloud Management page to determine if there is a stock size and whether its status is in use.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/storage/aliclouddisk/alistorage2.jpg" width="100%" />
