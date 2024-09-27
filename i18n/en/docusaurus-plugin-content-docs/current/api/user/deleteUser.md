@@ -14,7 +14,7 @@ DELETE /openapi/v1/users/{user_id}
 
 | name                         | Location | type   | required | illustrate |
 | ---------------------------- | -------- | ------ | -------- | ---------- |
-| user_id | path     | string | Yes      | none       |
+| user_id | Path     | String | Yes      | none       |
 
 ## return result
 
