@@ -9,11 +9,11 @@ Learn how to deploy applications with one click through Rainbond's unique applic
 
 ### significance
 
-This is a very fast deployment method. Compared with deploying a single service component, this deployment method can quickly deploy a complete business system containing multiple service components.Various advanced scenarios based on Rainbond are based on the application market.
+This is a very fast deployment method. Compared with deploying a single service component, this deployment method can quickly deploy a complete business system containing multiple service components.Various advanced scenarios based on Rainbond are based on the application market.基于 Rainbond 实现的多种高级场景都以应用市场为基础。
 
 ### Preconditions
 
-- Complete [team management and multi-tenancy](/docs/use-manual/get-start/team-management-and-multi-tenancy/).Finish creating the first team.
+- Complete [team management and multi-tenancy](/docs/use-manual/get-start/team-management-and-multi-tenancy/).Finish creating the first team.完成第一个团队的创建。
 
 - The Rainbond cluster has been installed, or the Rainbond Cloud public cloud service has been connected.
 
@@ -29,9 +29,9 @@ This is a very fast deployment method. Compared with deploying a single service 
 
 - **Confirm installation**
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-1.png" title="Install from the market" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-1.png" title="从应用市场安装" width="100%" />
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-2.png" title="Install from the market" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-2.png" title="从应用市场安装" width="100%" />
 
 ### The installation is complete
 
@@ -39,7 +39,7 @@ After a short period of waiting, the Mysql5.7 (stand-alone version) was installe
 
 At this point,**I already have two service components in my first application**.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-3.png" title="Install from the market" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-3.png" title="从应用市场安装" width="100%" />
 
 ### Next step
 
