@@ -4,41 +4,41 @@ description: How to migrate applications deployed on the old console to the new 
 weight: 1001
 ---
 
-## 概述
+## General description
 
-本文将介绍如何将业务应用从旧的 Rainbond 环境中迁移到新的 Rainbond 环境中去。
+This paper will describe how business applications can be migrated from the old Rainbond environment to the new Rainbond environment.
 
-## 前提
+## Prerequisite
 
-- 准备一套新搭建的 Rainbond 环境。（最后一步的备份恢复会覆盖掉新环境，所以新环境中最好不要有业务数据）
-- 在新搭建 Rainbond 环境中安装 [grctl](/docs/ops-guide/tools/grctl) 工具。
+- Prepare a new set of Rainbow environments.(Last step backups will overwrite the new environment, so it is better not to have business data in the new environment)
+- Install [grctl](/docs/ops-guide/tools/grctl) tools in the newcomer Rainbond environment.
 
-## 操作流程
+## Operating processes
 
-### 流程图
+### Flow chart
 
 <img src="https://static.goodrain.com/docs/remove.jpg" title="迁移流程图"/>
 
-### 流程说明
+### Process description
 
-1. 此时有两个控制台，旧控制台中跑了业务应用，目标是将旧控制台中的应用迁移到新的控制台中去。
-2. 在旧控制台中，对接新控制台所管理的集群，旧控制台同时管理两个集群。
-3. 通过平台快速复制的方式，将业务复制一份部署到新的集群中，此时新旧集群中各跑了一份业务应用。
-4. 同步平台数据，将旧控制台的数据导出后在新的控制台中恢复，让两个控制台保持一样。
-5. 如果不需要旧控制台的集群此时便可以在新控制台中删除掉。
+1. At this time, there are two consoles, and the old console runs the business application with the aim of migrating the old console app to the new one.
+2. In the old console, the old console manages two clusters simultaneously for the cluster managed by the new console.
+3. A copy of the business is deployed to a new cluster through rapid replication of the platform, at which time a business application is run in each of the old and new clusters.
+4. Sync platform data to restore data from the old console to the new console and keep both consoles.
+5. Clusters can be removed from the new console if they do not need the old console at this time.
 
-### 1) 在旧控制台中对接新控制台的集群
+### Cluster to connect to the new console in the old console
 
-操作步骤：在旧控制台中 `集群` ---> `添加集群` ---> `右上角的 ...` ---> `接入已安装平台集群对接`。
+Action step：in the old console `cluster` ---> `Add cluster` ---> `Top Right`...`--->`Access installed platform cluster\`.
 
-Region-Config 通过在新集群中执行 `grctl config` 命令获取。
+Regi-Config is obtained by executing the `grctl config` command in a new cluster.
 
 ```bash
 grctl config
 ```
 
 <details>
-  <summary> Region-Config 示例 </summary>
+  <summary> Region-Config Example </summary>
   <div>
 
 ```
@@ -117,29 +117,29 @@ websocketAddress: ws://xxx:6060
   </div>
 </details>
 
-### 2. 应用迁移
+### Application migration
 
-1. 在旧控制台中基于新接入集群创建一个团队
+1. Create a team based on a new access cluster in the old console
 
-2. 进入需要迁移的业务应用视图
+2. Enter the business app view to migrate
 
-3. 快速复制，将应用通过快速复制的方式部署到新的集群中
+3. Quickly copy to deploy to a new cluster by quickly replicating it
 
-### 3) 备份旧控制台的平台数据在新控制台中恢复
+### 3) Backup the platform data for the old console to be restored in the new console
 
-1. 在旧控制台中 `平台视图` ---> `数据备份` ---> `增加备份` ---> `下载备份`
+1. `Platform view` ---> `Data backup` ---> `Add backup` ---> `Download backup`
 
-2. 新控制台中 `平台视图` ---> `数据备份` ---> `上传备份` ---> `恢复备份`
+2. `Platform view` ---> `Data backup` ---> `Upload backup` ---> `Restore backup`
 
-3. 提示重新登录，重新登录即可。
+3. Prompt to log in again to log in.
 
 :::danger
-注意，如果旧的控制台是快速安装部署，新控制台会显示旧控制台的集群通信异常，这是正常现象，因为之前的集群是跑在 docker 容器中的 k3s ，迁出后连接不到。只需删除掉通信异常的集群删掉即可。
+Note that if the old console is deployed quickly, the new console will display a cluster communication exception for the old console, which is normal because the previous cluster was k3s running in the docker container, and will not connect after relocation.Simply delete cluster deletion for communication exceptions.
 :::
 
-## 下一步
+## Next step
 
-现在你已经成功将应用迁移，接下来你可以尝试：
+Now that you have successfully migrated, you can try：
 
-- [控制台高可用](/docs/installation/install-with-ui/console-recover): 将单机版的控制台也迁移到集群中部署。
-- [高可用部署](/docs/installation/install-with-ui/ha): 部署一个高可用集群用于生产环境。
+- [控制台高可用](/docs/installation/install-with-ui/console-recover): Move the single version of the console console to deploy in the cluster as well.
+- [高可用部署](/docs/installation/install-with-ui/ha): Deploy a high available cluster for production environments.
