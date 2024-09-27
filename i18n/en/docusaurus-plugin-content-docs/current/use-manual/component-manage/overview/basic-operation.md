@@ -3,97 +3,97 @@ title: Component base operation
 description: Rainbond component basic life cycle operation description
 ---
 
-## 组件基本操作
+## Component basic actions
 
-| 基础操作     | 说明                                                       |
-| -------- | -------------------------------------------------------- |
-| 构建       | 构建操作将触发组件从构建源获取最新的代码或镜像构建组件的新版本，默认情况下构建成功后将触发滚动升级。       |
-| 更新（滚动升级） | 更新操作将以最新的组件属性配置对集群中运行的组件实例进行滚动升级                         |
-| 启动       | 具有至少一个可用构建版本的组件可以启动                                      |
-| 停止       | 组件停止即释放所有集群资源                                            |
-| 访问       | 运行中的组件可进行访问，如是 HTTP 组件将跳转访问网址，非 HTTP                     |
-| Web 终端   | 进入当前组件 Web 终端控制页面，选择需要控制的容器即可打开容器控制终端                    |
-| 重启       | 运行中的组件可进行重启操作，正常情况下我们推荐使用更新操作来完成组件重启，若组件任何属性都未变化，无法使用更新。 |
-| 修改所属应用   | 组件可以灵活调整所属的应用                                            |
-| 删除       | 删除组件是一个危险的操作，请谨慎操作。组件删除后持久化数据默认会保留 7 天。                  |
+| Base action                               | Note                                                                                                                                                                                                                               |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Build                                     | The build operation will trigger the component to get the latest version of the code or mirror building component from the building source. By default, building will trigger a rolling upgrade.   |
+| Update (Scroll Update) | Updates will scroll up instances of running components in clusters with the latest component properties configuration                                                                                                              |
+| Boot                                      | A component with at least one available build version can be started                                                                                                                                                               |
+| Stop                                      | Component stops releasing all cluster resources                                                                                                                                                                                    |
+| Visits                                    | Running components are accessible if HTTP components will jump to URLs, non-HTTP                                                                                                                                                   |
+| Web Terminal                              | Enter the current component web terminal control page, select a container to open the container control terminal                                                                                                                   |
+| Restart                                   | Running components can be rebooted. Normally we recommend using the update to complete the component reboot. If any component properties remain unchanged, updates cannot be used. |
+| Modify the app                            | Components are flexible to adjust their apps                                                                                                                                                                                       |
+| Delete                                    | Removing components is a dangerous operation, please be carefulPersistent data will be reserved by default for 7 days after component deletion.                                                                    |
 
-### 构建操作
+### Build Actions
 
-针对不同类型的组件，触发 `构建` 操作后，有着不同的含义，下表针对不同类型的组件加以说明：
+For different types of components, when `build` is triggered, it has different meanings. The table below explains： for different types of components.
 
-| 组件类型             | 说明                                                                               |
-| ---------------- | -------------------------------------------------------------------------------- |
-| 从源代码构建的组件        | 拉取最新源代码，根据预先识别的语言类型进行组件版本构建并进行滚动升级                                               |
-| 从 Docker 镜像构建的组件 | 重新拉取指定镜像地址的镜像，构建出组件新版本并进行滚动升级                                                    |
-| 从云市应用构建的组件       | 若云市应用不存在更新的版本，构建操作将提醒用户无需操作，若已存在多个更新版本，将提示用户选择需要获取的版本号。根据所选版本获取组件介质生成构建版本并进行滚动升级 |
+| Component Type                           | Note                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Components built from source code        | Pull up to date source code to build components based on pre-recognized language types and scroll upgrades                                                                                                                                                                                                                           |
+| Component built from Docker Mirror       | Reload the mirror of the specified mirror, build a new version of the component and scroll up                                                                                                                                                                                                                                        |
+| Components built from the Cloud City app | If a new version does not exist in the Cloud Marketplace, build will remind the user that no action is required, and if multiple updates already exist, the user will be prompted to select the version number that needs to be retrieved.Retrieve component media version from selected version and scroll upgrades |
 
-- Dockerfile 源码类组件就是将 Dockerfile 及所需要的文件放到 代码仓库（Git/Svn），通过源代码创建的服务。
-- 构建后，如果一切顺利，组件会自动切换为新版本并上线，构建操作默认并更新升级，也可在其他设置中去设置构建后不升级流程。
-- 滚动升级过程对于多节点的组件理论上无影响，对于单节点的组件如果正常配置了业务级的 [健康检测](/docs/use-manual/component-manage/other/) 也可以做到无影响升级。
-- 处于关闭状态的组件，触发构建操作后，如果构建正常，平台会将组件运行起来。
+- The Dockerfile source class component is a service created through the source code by placing Dockerfile and the required files in the repository (Git/Svn).
+- After build, if everything goes well, the component will automatically switch to a new version and be online, build by default and update updates. You can also set the build process in other settings without upgrading.
+- Scroll upgrades have no effect on multinodes components theory, and can also be upgraded without affecting single-node components if they are properly configured at [健康检测](/docs/use-manual/component-manage/other/).
+- A component that is closed, after triggering the build, the platform will run the component if it is properly built.
 
-### 更新操作
+### Update Actions
 
-当组件的依赖、存储、环境变量、特性、健康监测等运行属性发生改变以后，必须通过手工触发更新操作来将最新的属性配置应用的组件的运行环境中，在这更新过程中默认采用滚动升级的策略对组件实例进行升级。
+When the component dependence, storage, environmental variables, properties, health monitoring and other operational properties change, the component instance must be upgraded using a scroll upgrade strategy during this update process by triggering an update manually.
 
-对于滚动升级有两类控制策略：
+Two types of control policy： for scroll upgrades
 
-- 无状态组件: 对无状态组件采用的是无序的先启动后停止的策略，即先启动新版本的运行实例，当其处于健康运行状态后关闭旧版本运行实例。需要注意的是，此过程会出现多版本同时工作的情况，若你的业务组件无法容忍多版本同时工作，请使用重启策略。
+- Unstate component: The unordered first startup strategy is used for the statelessness component, i.e. start a new version of the operation instance and close the old version when it is healthy.It is important to note that this process has multiple versions that work simultaneously. Please use the restart strategy if your business component cannot tolerate multiple versions simultaneously.
 
-- 有状态组件: 对于有状态组件采用的是有序的先停止后启动策略，即根据运行实例编号，从第一个实例开始先关闭实例然后启动新版本实例。这种控制对于像数据库类的组件至关重要，因此请勿将数据库类组件部署为无状态组件。
+- State component: An orderly first stop strategy is used for a state component, i.e. first close an instance from the first instance and start a new version of an instance based on the running instance number.This control is essential for components like database types, so do not deploy database class components to statelessness.
 
-### 启动操作
+### Start operation
 
-启动操作会启动上一次成功构建的组件版本，启动后可以在组件概览页面的 `操作日志` 看到平台调度与处理组件的详细操作日志，当调度完成后，组件就进入启动阶段，这时候可以通过 `日志` 页面查看组件的启动日志。
+Startup will start the last build version of the component. After startup will see the platform's action log in the `Action Log` on the component overview page. When the scheduler completes the schedule, the component enters the startup phase, and the component launch log can be viewed through the `Log` page.
 
-特别是对于第一次在 Rainbond 启动的组件，尤其需要关注如下几点：
+Especially for components launched for the first time in Rainbond, attention needs to be paid to the following description：
 
-**1.组件启动或更新超时怎么办？**
+**1. What happens when component starts or updates timeout?**
 
-目前 Rainbond 对于异步任务确定了固定的超时时间，因此请注意，超时并不是失败，需要根据实际情况优化组件的配置，如果有超时，请按如下路径进行排查：
+At present Rainbond has fixed timeout time for asynchronous tasks, please note that timeout is not a failure, needs to optimize component configuration based on actual circumstances. If timeout exists, please follow the following path to schedule：
 
-- 查询 [组件日志](../service-log#组件运行日志) 确定组件的启动情况，若你的组件日志未输出到 stdout 或 stderr,请进入组件容器查询你的日志。比如一些 Java 类的组件，若分配的内存不足将导致启动非常缓慢, 亦或者从日志中发现组件运行环境是否正常，比如依赖了数据库，是否能够正常访问数据库等。
-- 如果源码构建的组件在启动后很长时间才进入正常的业务启动过程，请优化代码忽略掉多余的源代码文件减少运行代码解压时间 参考 [slugignore 文件使用方式](/docs/use-manual/component-create/language-support/slugignore)
-- 确定组件监听的地址不是 127.0.0.1 或 localhost
-- 若组件监听地址正确且已正常监听，请查询 [组件健康检测](/docs/use-manual/component-manage/other/) 配置是否正确，一般若组件有多个端口时容易出现默认配置错误的问题。
-- 以上组件可能的故障如都已排除还是启动超时且一直处于启动中状态，请通过运维工具 `grctl cluster` 和 `grctl service get <service_name> -t <tenant_name>` 查询集群和组件运行实际状态。
+- Query [组件日志](../service-log# component run log) determines the startup of the component. If your component log is not exported to stdout or stderr, enter the component container to query your log.For example, components of Java classes that have insufficient memory to assign will cause very slow starting, or find out from logs if the component is operating in a normal environment, such as relying on a database or having regular access to the database.
+- If the source build component enters the normal business startup process long after starting, please optimize the code by ignoring the redundant source file to reduce the operating code time reference [slugignore file usage](/docs/use-manual/component/language-support/slugignore)
+- Determines that the component listens to an address is not 127.0.0.1 or localhost
+- If the component listening address is correct and is listening properly, please query [组件健康检测](/docs/use-manual/component-manage/other/) for the correct configuration. The default configuration error usually occurs when the component has multiple ports.
+- If all of the above components have been excluded or are running out of time and are always on startup, please query clusters and components from the wires `grctl cluster` and `grctl service get <service_name> -t <tenant_name>`.
 
-**2.组件运行异常怎么办？**
+**2. What does the component run for an exception?**
 
-组件运行异常是指组件进程异常的退出了，一般有几下几种原因：
+Component run exception is the component process exited unexpectedly. There are generally several reasons for：
 
-- 组件代码故障，无法正常运行
-- 组件使用了不支持的镜像，比如基础操作系统镜像，无法在前台守护运行。
-- 组件内存分配不足导致 OOM
-- 组件健康检查配置错误，导致组件无法通过健康检查。
+- Component code failed, unable to function properly
+- Component uses unsupported mirrors, such as basic operating system mirrors, which cannot be used in front office.
+- Component memory allocation is insufficient to cause OOOM
+- Component health check configuration is incorrect, so the component cannot pass a health check.
 
-若是上述情况，请处理你的组件配置，组件运行过程中如果异常退出 Rainbond 会自动守护并重新启动你的组件
+If this is the case, please process your component configuration, if the component is unrunning, will automatically escort and reboot your component if it exits
 
-**3.组件无法访问怎么办？**
+**3. What does the component not have access to it?**
 
-组件无法访问时请查看如下几类原因：
+If the component is unable to access it, please see the following class of reasons：
 
-- 组件未正常运行，根据运行状态和组件日志确认
-- 组件端口配置不正确，组件端口配置务必与组件真实监听的端口一致
-- 组件可访问端口未打开对外组件开关
-- 组件未配置正确可访问的域名
+- Component is not running, depending on running state and component log
+- Component port configuration is incorrectly configured. Component port configuration must match the port that the component listens
+- Component Accessible Port does not open external component switches
+- The component does not have a properly accessible domain
 
-### 关闭操作
+### Turn off operations
 
-触发关闭操作后，组件将首先从应用网关或 ServiceMesh 网络下线，然后关闭所有运行实例，释放集群资源。
+After triggering a shutdown operation, the component will first be offline from the application gateway or ServiceMesh network and then turn off all running examples, releasing cluster resources.
 
-### 重启操作
+### Restart operation
 
-触发重启操作后，平台会将现有的组件运行实例全部关闭，待关闭完成后进行启动。若出现关闭超时时 重启操作将退出，组件启动的控制权交予用户。
+Once a restart is triggered, the platform will turn the existing component off all instances until it is closed.Restart after closing timeout will exit and control on component startup will be given to the user.
 
-- 重启组件并不会更新组件代码或镜像，需要和`构建`操作区分。
-- 重启操作会中断组件
+- Restart component does not update component code or mirror, needs to be distinguished from the `build` operation.
+- Restart operation will break component
 
-### 访问操作
+### Access Actions
 
-针对不同协议的组件，点击访问按钮后所触发的命令也不一样：
+For components of different protocols, the commands triggered by clicking the access button are not the same as：
 
-| 组件协议 | 点击访问按钮后的操作                              |
-| ---- | --------------------------------------- |
-| HTTP | 浏览器新开窗口，打开组件的默认域名，如果绑定多个域名，会显示域名列表供用户选择 |
-| TCP  | 弹出访问信息窗口                                |
+| Component agreement | Action after clicking on the access button                                                                                                                                          |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTTP                | Browser opens a new window, opens the default domain name of the component. If multiple domains are bound, the domain list will be displayed for the user to choose |
+| TCP                 | Popup Access Information Window                                                                                                                                                     |
