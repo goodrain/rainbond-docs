@@ -39,7 +39,7 @@ The above is the default Procfile, if you need to expand more startup parameters
 When the web server support is adjusted, packaging into War needs to adjust the startup command
 
 - When selecting a different version of tomcat `web: java $JAVA_OPTS -jar ./webapp-runner.jar --port $PORT ./*.war`
-- When selecting different versions of jetty `web: java $JAVA_OPTS -jar ./jetty-runner.jar --port $PORT ./*.war`  
+- When selecting different versions of jetty `web: java $JAVA_OPTS -jar ./jetty-runner.jar --port $PORT ./*.war`\
   You need to configure the context path, you can specify [webapp-runner parameter path](https://github.com/jsimone/webapp-runner#options)by customizing the Procfile
 - Example `web: java $JAVA_OPTS -jar ./webapp-runner.jar --path <path路径,示例: /r6d> --port $PORT ./*.war`
 
@@ -58,7 +58,7 @@ Currently Rainbond supports OpenJDK, the following version is：
 - Java 10 - `10.0.2`
 - Java `11.0.1`
 
-The platform default version uses`1.8`.If you need to use other versions of OpenJDK, you can specify the required version of JDK by adding`system.properties`file to the source root directory to set the value of`java.runtime.version`.
+平台默认版本使用`1.8`。The platform default version uses`1.8`.If you need to use other versions of OpenJDK, you can specify the required version of JDK by adding`system.properties`file to the source root directory to set the value of`java.runtime.version`.
 
 ```yaml
 # system.properties The current version values that Rainbond can recognize are 11, 10, 1.9, 1.8, 1.7, 1.6
@@ -67,7 +67,8 @@ java.runtime.version=1.8
 
 #### OracleJDK Support
 
-The platform currently also supports OracleJDK, but this feature needs to be enabled in the platform to take effect.  
+平台目前也支持 OracleJDK,但此特性需要在平台里启用才会生效。\
+The platform currently also supports OracleJDK, but this feature needs to be enabled in the platform to take effect.\
 OracleJDK download is not built-in by default, you need to configure the relevant OracleJDK download address after enabling OracleJDK in the settings.
 
 OracleJDK download address format requirements: `http://<web服务URL>/jdk-8u201-linux-x64.tar.gz`
@@ -76,7 +77,7 @@ The configuration priority of the platform setting is higher than the configurat
 
 #### Build source code from compressed package
 
-From 5.4 onwards, the platform supports downloading compressed packages from the download address to build (the supported compressed package formats are tar, tar.gz, zip). The entry for building through compressed packages is in the source code creation component, and the warehouse address is OSS.This feature requires that the built war package and Procfile (optional) be packaged into a supported archive format.
+From 5.4 onwards, the platform supports downloading compressed packages from the download address to build (the supported compressed package formats are tar, tar.gz, zip). The entry for building through compressed packages is in the source code creation component, and the warehouse address is OSS.This feature requires that the built war package and Procfile (optional) be packaged into a supported archive format.此特性需要将构建好的 war 包与 Procfile(非必需)打包为支持的压缩包格式。
 
 Compressed package download address format requirements: `http://<web服务URL>/warDemo.tar.gz`
 
@@ -97,26 +98,26 @@ Currently you can set the web service version through the build source or define
 
 The specific correspondence is as follows:
 
-| web service support | web service version              | Customize the jar file name in the Procfile |
-|:------------------- |:-------------------------------- |:------------------------------------------- |
-| tomcat7             | webapp-runner-7.0.91.0.jar       | webapp-runner.jar                           |
-| tomcat8             | webapp-runner-8.0.52.0.jar       | webapp-runner.jar                           |
-| tomcat85 (default)  | webapp-runner-8.5.38.0.jar       | webapp-runner.jar                           |
-| tomcat9             | webapp-runner-9.0.16.0.jar       | webapp-runner.jar                           |
-| jetty7              | jetty-runner-7.5.4.v20111024.jar | jetty-runner.jar                            |
-| jetty9              | jetty-runner-9.4.0.v20161208.jar | jetty-runner.jar                            |
+| web service support                   | web service version                                                                              | Customize the jar file name in the Procfile |
+| :------------------------------------ | :----------------------------------------------------------------------------------------------- | :------------------------------------------ |
+| tomcat7                               | webapp-runner-7.0.91.0.jar       | webapp-runner.jar           |
+| tomcat8                               | webapp-runner-8.0.52.0.jar       | webapp-runner.jar           |
+| tomcat85 (default) | webapp-runner-8.5.38.0.jar       | webapp-runner.jar           |
+| tomcat9                               | webapp-runner-9.0.16.0.jar       | webapp-runner.jar           |
+| jetty7                                | jetty-runner-7.5.4.v20111024.jar | jetty-runner.jar            |
+| jetty9                                | jetty-runner-9.4.0.v20161208.jar | jetty-runner.jar            |
 
-When choosing the tomcat7 version, you need to pay attention to make sure that you can run it locally through`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`  
+When choosing the tomcat7 version, you need to pay attention to make sure that you can run it locally through`java -jar ./webapp-runner-7.0.91.0.jar ./*.war`\
 For detailed configuration of webapp-runner, please refer to [webapp-runner Instructions for use](./webapp-runner)
 
 ### Advanced Build Options
 
 Enable advanced build features at build advanced settings or build source
 
-| environment variable  | Defaults | illustrate                                          |
-|:--------------------- |:-------- |:--------------------------------------------------- |
+| environment variable                                          | Defaults | illustrate                                          |
+| :------------------------------------------------------------ | :------- | :-------------------------------------------------- |
 | BUILD_WEBSERVER_URL |          | Customize WEBAPP-RUNNER download address            |
-| BUILD_ONLINE          |          | Download Rainbond built-in Webapp-Runner by default |
+| BUILD_ONLINE                             |          | Download Rainbond built-in Webapp-Runner by default |
 
 ### other instructions
 
