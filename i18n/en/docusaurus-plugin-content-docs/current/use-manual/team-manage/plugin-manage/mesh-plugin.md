@@ -5,8 +5,8 @@ description: The principle and usage instructions of the ServiceMesh network man
 
 ### ServiceMesh Network Governance Plugin
 
-5.1.5版本后，Rainbond默认提供了综合网络治理插件（同时处理入站和出站网络）和出站网络治理插件两个插件可用。
-网络治理插件工作在与业务容器同一个网络空间之中，可以监听一个分配端口，拦截入站的业务流量进行限流、断路等处理再将流量负载到业务服务的实际监听端口之上。同时也可以工作在出站方向，业务服务需要访问上游服务时，通过访问本地出站治理插件监听的端口，进行流量路由、断路、安全验证等处理，再将流量负载到尚有服务的主机之上。
+After version 5.1.5, Rainbod provided by default two plugins for integrated network governance (processing both the inbound and outbound networks) and the outbound network governance plugin.
+The network governance plugin is working in the same cyberspace as the business container and can listen to an assignment port, interception of business traffic at entry points for limited flow, circuit breaks, etc. processing and loading traffic loads over the actual listening port of the operational service.It is also possible to work in the outbound direction and when operational services require access to upstream services, to handle traffic routes, circuit breaks, security validations, and then load traffic onto existing servers by visiting the ports of the local outbound governance plugin.
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1.5/mesh-de.png)
 
 For plugin developers, the following two points need to be paid attention to：
@@ -30,7 +30,7 @@ For plugin developers, the following two points need to be paid attention to：
 
 The plugin will automatically inject the DISCOVER_URL variable when it is running. The above configuration information can be dynamically obtained through the address of this variable value. The inbound network management plugin must listen to port 65301 through the above configuration and load traffic to port 127.0.0.1:8080.- The outbound management plug-in does not have the problem of port mapping. The outbound management plug-in generates the local listening load to the remote address according to the dynamic configuration information of the subordinates.
 
-- 出站治理插件不存在端口映射的问题，出站治理插件根据下属的动态配置信息生成本地监听负载到远程地址。
+- The outbound governance plugin does not have a port mapping, and the outbound governance plugin configured information to listen at a cost to remote addresses based on its dynamics.
 
 ```
 "base_services":[
@@ -61,83 +61,83 @@ The plugin will automatically inject the DISCOVER_URL variable when it is runnin
 ]
 ```
 
-使用上述原生配置发现和服务发现来让自定义插件工作，插件层面需要做较多的数据适配工作。Rainbond同时提供了基于envoy XDS（grpc）规范的动态配置发现服务，在插件中通过XDS_HOST_IP XDS_HOST_PORT两个变量来获取XDS服务的地址。
+Use the original configuration above to find and find services to make custom plugins work, the plugin level needs more data adaptations.Rainbod also provides a dynamic configuration discovery service based on envoy XDS (Gripc), retrieving the address of the XDS service via XDS_HOST_IP XDS_HOST_PORT in the plugin.
 
-对用用户来说插件层的网络治理对于业务层是完全透明的，所有有依赖关系的分布式服务类似于运行同一台主机一样。
+Web governance at the plugin level is completely transparent for the business layer and all dependent distribution services are similar to running the same host.
 
-### 插件实践
+### Plugin Practice
 
 #### After version 5.1.5, Rainbond provides two plugins available by default, the integrated network management plugin (which handles both inbound and outbound networks) and the outbound network management plugin. The network management plug-in works in the same network space as the business container. It can monitor an allocated port, intercept the inbound business traffic, perform current limiting, circuit breaking and other processing, and then load the traffic onto the actual listening port of the business service.At the same time, it can also work in the outbound direction. When the business service needs to access the upstream service, it can perform traffic routing, circuit breaking, security verification, etc. by accessing the port monitored by the local outbound management plug-in, and then load the traffic to the host with the service. superior. ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1.5/mesh-de.png)
 
-默认提供的综合网络治理插件基于envoy 1.9.0实现，综合网络插件同时实现了入站方向的治理和出站方向的治理，提供以下配置参数：
+The integrated network governance plugin provided by default is based on envoy 1.9.0, and the integrated network plugin implements the governance of the inbound and outbound directions, providing configuration parameter： below
 
-##### 入站方向
+##### Entry Orientation
 
-全局限流：
+Global Stream：
 
 - OPEN_LIMIT
-  开启全局限流功能，全局限流功能依赖于第三方的限流服务，比如 [ratelimit](https://github.com/lyft/ratelimit) , 当前服务需要依赖ratelimit服务，并设置RATE_LIMIT_SERVER_HOST和RATE_LIMIT_SERVER_PORT环境变量。
-- LIMIT_DOMAIN
-  限流链路的domain key,与全局限流服务的配置对应
+  Enable global restricted flow functions that depend on third party restricted services such as [ratelimit](https://github.com/lyft/ratelimit), current service needs to rely on rateimit and set RATE_LIMIT_SERVER_HOST_and RATE_LIMIT_SERVER_PORT environment variables.
+- LIMIT_DOMOIN
+  Domain key for restricted stream links, in conjunction with Global Restricted Stream Service configuration
 
-断路：
+Disconnect：
 
 - MaxConnections
-  最大连接数，Http协议时仅适用于http1.1，TCP协议时设置最大TCP连接数。
+  max connections. The Http protocol only applies to http.1.TCP when setting the maximum TCP connections.
 - MaxRequests
-  并发请求数，适用于HTTP协议
+  for both requests for HTTP protocol
 - MaxPendingRequests
-  最大等待请求数，适用于HTTP协议
+  max pending requests, applicable to HTTP protocol
 - MaxActiveRetries
-  最大重试次数，适用于HTTP协议
+  Maximum retries for HTTP protocol
 - MaxRequestsPerConnection
-  单连接最大请求数，适用于HTTP协议，支持http1.1 和http2
+  Maximum number of single-connection requests, available for HTTP protocol support http1.1 and http2
 
-##### 出站方向
+##### Outbound Direction
 
-动态路由（HTTP协议）：
+Dynamic Route (HTP Protocol)：
 
 - Domains
 
-  请求域名，对于http协议的上游服务，支持基于域名路由并复用80端口。
+  Request a domain name, for the upstream service of the http-protocol, support for routing based on domain name and reuse 80 ports.
 
 - Prefix
 
-  请求Path路径的前缀，基于前缀来路由不同的上游服务。
+  Request the prefix of the Path path, based on the prefix to route different upstream services.
 
 - Headers
 
-  请求头，基于请求头的路由不同的上游服务。
+  Requests header, routing different upstream services based on the head of request.
 
 - Weight
 
-  权重，基于不同的权重来将流量分发到不同的上游服务。
+  Weight based on different weights to distribute traffic to different upstream services.
 
-断路（面向连接）：
+Disconnect (connected)：
 
 - MaxConnections
-  最大连接数，Http协议时仅适用于http1.1，TCP协议时设置最大TCP连接数。
+  max connections. The Http protocol only applies to http.1.TCP when setting the maximum TCP connections.
 - MaxRequests
-  并发请求数，适用于HTTP协议
+  for both requests for HTTP protocol
 - MaxPendingRequests
-  最大等待请求数，适用于HTTP协议
+  max pending requests, applicable to HTTP protocol
 - MaxActiveRetries
-  最大重试次数，适用于HTTP协议
+  Maximum retries for HTTP protocol
 - MaxRequestsPerConnection
-  单连接最大请求数，适用于HTTP协议，支持http1.1 和http2
+  Maximum number of single-connection requests, available for HTTP protocol support http1.1 and http2
 
-断路（面向上游主机）：
+Breakdown (for upstream hosts)：
 
 - ConsecutiveErrors
-  上游服务主机发生500错误的被逐出的次数。
+  upstream service host error 500 times.
 - BaseEjectionTimeMS
-  主机被逐出的基础时间，及第一次被逐出的时间，如果被逐出n次，时间则为n\*BaseEjectionTimeMS
-- MaxEjectionPercent
-  被逐出主机的最大比例，如果设置为100则允许全量逐出。
+  base time for the host to be evicted and first time from it, n\*BaseEjectionTimeMS
+- Max percentage of MaxEjection Percent
+  to be evicted from host, allowing full eviction if set to 100.
 - IntervalMS
-  分析主机是否应该被逐出的时间间隔
-- HealthyPanicThreshold
-  进入恐慌模式的比例，默认是50
+  to analyze whether the host should be evicted interval
+- Health PanicThreshold
+  in panic mode by default, 50
 
 #### Using the above native configuration discovery and service discovery to make custom plug-ins work, more data adaptation work needs to be done at the plug-in level.Rainbond also provides a dynamic configuration discovery service based on the envoy XDS (grpc) specification. The address of the XDS service is obtained through the two variables of XDS_HOST_IP and XDS_HOST_PORT in the plugin.For users, the network governance of the plug-in layer is completely transparent to the business layer, and all distributed services with dependencies are similar to running the same host.### Plugin Practice#### Integrated Network Governance PluginThe integrated network management plug-in provided by default is based on envoy 1.9.0. The integrated network plug-in implements both inbound and outbound management. The following configuration parameters are provided:：##### Inbound directionAll restricted flow：- OPEN_LIMIT enables the full current limiting function, which depends on the third-party current limiting service, such as [ratelimit](https://github.com/lyft/ratelimit) , the current service needs to rely on the ratelimit service, and set the RATE_LIMIT_SERVER_HOST and RATE_LIMIT_SERVER_PORT environment variables.
 - LIMIT_DOMAIN The domain key of the current-limiting link, corresponding to the configuration of the global current-limiting serviceopen circuit：- MaxConnections is the maximum number of connections. It is only applicable to http1.1 for the Http protocol. The maximum number of TCP connections is set for the TCP protocol.
@@ -168,4 +168,4 @@ The plugin will automatically inject the DISCOVER_URL variable when it is runnin
 - IntervalMS The interval at which to analyze whether a host should be evicted
 - HealthyPanicThreshold Proportion to enter panic mode, default is 50#### Outbound Network Governance PluginWhen the service does not need to use the management function in the inbound direction, only the outbound management plug-in can be used, and the configuration parameters are consistent with the outbound direction of the comprehensive management plug-in.
 
-当服务无需使用入站方向的治理功能时，可只使用出站治理插件，配置参数与综合治理插件的出站方向一致。
+When the service does not need to use the governance function in the inbound direction, only the outbound governance plugin is used, and configuration parameters are the same as the outbound of the integrated governance plugin.
