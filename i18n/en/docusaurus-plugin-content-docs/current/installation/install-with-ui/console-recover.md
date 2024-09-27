@@ -1,64 +1,64 @@
 ---
-title: 控制台高可用
-description: 该文档描述控制台高可用，适用于从体验环境迁移控制台到高可用集群环境。
+title: Console height available
+description: This document describes the high level of the console available for the experience of the migration console to the high available cluster environment.
 keywords:
-  - Rainbond 控制台高可用安装
+  - Rainbond Console High Installation Available
 ---
 
 :::tip
-如果你的 Rainbond 集群是通过 Helm Chart 安装的，那么控制台已经高可用，无需进行本文档的操作。
+If your Rainbond cluster is installed via Helm Chat, the console is high and does not need to operate on this document.
 :::
 
-基于主机安装的控制台，是由 Docker 启动，无法实现高可用部署，故需要将 Docker 启动的控制台迁移到集群中，这篇文档便详细的介绍了如何将 Docker 启动的控制台迁移到集群中以 POD 方式运行。
+A console that is installed on the host, which is launched by Docker and cannot be deployed in a high usable, will need to be migrated to the Docker startup console into the cluster. This document details how the Docker enabled console will be migrated to the cluster to run as POD.
 
-## 前提
+## Prerequisite
 
-- Rainbond 控制台是通过 Allinone 部署的
-- 已经安装好的高可用 Rainbond 集群
-- 确保集群内资源大于 2GB
-- 已安装 [grctl](/docs/ops-guide/tools/grctl) 工具
+- Rainbond Console is deployed via Alline.
+- A high number of available Rainbond clusters has been installed
+- Make sure the resource in the cluster is greater than 2GB
+- Installed [grctl](/docs/ops-guide/tools/grctl) tools
 
-## 集群中部署控制台
+## Deploy Console in Cluster
 
-### 背景
+### Background
 
-基于主机安装的控制台，是由 docker 启动，无法实现高可用部署，故需要将 docker 启动的控制台迁移到集群中，这篇文档便详细的介绍了如何将 docker 启动的控制台迁移到集群中。
+A console that is installed on the host, launched by a docker and unable to achieve high-availability deployments, will need to relocate the dock-enabled console to the cluster. This document details how to move the dock-enabled console to the cluster.
 
-### 实现介绍
+### Achieve Intro
 
 :::tip
 
-1. 生成一个rbdcomponent 资源类型的 rbd-app-ui 的模版。
-2. 解析命令所携带的参数并渲染到 rbdcomponent 资源类型的 rbd-app-ui 的模版上，并在集群中创建该资源。
-3. rainbond-operator 会检测到 rbdcomponent 资源类型的 rbd-app-ui 的创建，从 rbdcomponent 资源类型的 rbd-app-ui 中获取信息( env 、label 、arg ...)
-4. 创建 service 、ingress资源实现对外暴露端口。如果你在命令中制定了 `-p` 来选择对外暴露的端口，则会在创建的 service 和 ingress 资源中生效。
-5. 启动一个 job 类型资源，job 会完成初始化数据库以及创建 deployment 资源类型的 rbd-app-ui 等一系列工作。rbd-app-ui 默认使用的是 rbd-db 作为 console 数据库，如果在通过 `-e` 指定了外部数据库的连接方式，则会切换至外部数据库。
+1. Spawn a rbd-app-ui template of rbdcomponent resource type.
+2. Parse the parameters that command carries and render to the rbdcomponent template of the rbd-app-ui resource type, and create the resource in the cluster.
+3. rainbond-operator detects the creation of rbdcomponent type rbd-app-ui to get information from rbdcomponent type rbd-app-ui (env, label, arg ...)
+4. Create a service and ingresses resource to implement an external exposure port.If you set the `-p` in the command to select the port to be exposed, it will take effect in the service and address resources created.
+5. Start a job type resource, job will be done to initialize the database and create the rbd-app-ui of employment resource type.The rbd-app-ui default uses rbd-db as console database and switch to an external database if external database connection is specified via `-e`.
    :::
 
-### grctl migrate 支持参数
+### grctl migrate support parameters
 
-| 参数         | 用途     | 默认值                                                                                                                                                                          |
-| ---------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| port/p     | 外部访问端口 | 7070                                                                                                                                                                         |
-| env/e      | 环境变量   |                                                                                                                                                                              |
-| arg/a      | 参数     |                                                                                                                                                                              |
-| replicas/r | 实例数    | 1                                                                                                                                                                            |
-| image/i    | 控制台镜像  | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.3-release-allinone |
+| Parameters | Use                   | Default value                                                                                                                                                               |
+| ---------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| port/p     | External Access Port  | 7070                                                                                                                                                                        |
+| env/e      | Environment Variables |                                                                                                                                                                             |
+| arg/a      | Parameters            |                                                                                                                                                                             |
+| replicas/r | Number of Instances   | 1                                                                                                                                                                           |
+| image/i    | Console Image         | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbon:v5.17.3-release-allinone |
 
-### 使用 grctl 迁移命令
+### Use grctl migration commands
 
 ```bash
-grctl migrate -i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.3-release-allinone -p 7071 -r 1
+grctl migrate -i registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.3-release-allinone - p 7071 -r 1
 
 ```
 
 :::info
-迁移完成后会在 `rbd-system` 命名空间下启动 `rbd-app-ui` 的 POD，等待 Running 后通过 网关IP:7071 访问新控制台。
+Once the migration is completed, the `rbd-app-ui` POD will be launched in the `rbd-system` namespace, waiting for Running to access the new console via the gateway IP:7071.
 :::
 
-### 指定外部数据库
+### Specify external database
 
-如不指定外部数据库则默认使用 `rbd-db`，如需为控制台指定外部数据库，通过 `-e MYSQL_HOST`... 指定。
+Use `rbd-db` by default if an external database is not specified. To specify an external database for the console, use `-e MYSQL_HOST`...
 
 ```bash
 grctl migrate -p 7071 -r 1 \
@@ -70,33 +70,33 @@ grctl migrate -p 7071 -r 1 \
 -e MYSQL_DB=console
 ```
 
-### grctl migrate 参数说明
+### grctl migrate parameter description
 
-| 参数          | 用途     | 默认值                                                                                                                                                                          |
-| ----------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -p，port     | 外部访问端口 | 7070                                                                                                                                                                         |
-| -e，env      | 环境变量   |                                                                                                                                                                              |
-| -a，arg      | 参数     |                                                                                                                                                                              |
-| -r，replicas | 实例数    | 1                                                                                                                                                                            |
-| -i，image    | 控制台镜像  | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.3-release-allinone |
+| Parameters  | Use                   | Default value                                                                                                                                                               |
+| ----------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -p,port     | External Access Port  | 7070                                                                                                                                                                        |
+| -e,env      | Environment Variables |                                                                                                                                                                             |
+| -a,arg      | Parameters            |                                                                                                                                                                             |
+| -r,replicas | Number of Instances   | 1                                                                                                                                                                           |
+| -i,image    | Console Image         | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbon:v5.17.3-release-allinone |
 
-## 备份恢复控制台数据
+## Backup console data
 
-### 备份旧控制台数据
+### Backup old console data
 
-在旧控制台的 **平台管理 -> 设置 -> 数据库备份**，增加备份后并下载。
+In the old console.**Platform Admin -> Settings -> Database Backup**, add backups and download.
 
-### 导入备份到新控制台
+### Import backups to new console
 
-在新控制台的 **平台管理 -> 设置 -> 数据库备份 -> 导入备份**，导入成功后点击 `恢复`。恢复成功后需要`退出登录`，使用旧控制台的账号信息登录。
+In the new console.**Platform Admin -> Settings -> Database Backup -> Import Backup -> Import Backup**, click `Reset` after the import is successful.You will need to `exit login` after your recovery and login with your old console.
 
-## 已知问题
+## Known Issue
 
-迁移控制台后，恢复备份时从主机安装的 Kubernetes 集群信息不会被恢复，需手动拷贝集群安装信息。
+After the migration console, the Kubernetes cluster information installed from the host will not be restored when the backup is restored. Manual copy of cluster installation information.
 
 ```bash
 export APP_UI=`kubectl get pod -n rbd-system |grep rbd-app-ui|grep Running|awk '{print $1}'`
 kubectl cp ~/rainbonddata/cloudadaptor/enterprise $APP_UI:/app/data/cloudadaptor -n rbd-system
 ```
 
-进入企业视图  > 集群 > 节点配置，节点信息存在则成功。
+Enter Enterprise View > Cluster > Node Configuration, node information exists successfully
