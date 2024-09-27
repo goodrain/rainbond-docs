@@ -1,63 +1,63 @@
 ---
-title: 监控报警
-description: 介绍如何配置报警策略。
+title: Monitor Alarm
+description: Describe how to configure the alarm strategy.
 keywords:
-  - 监控报警
+  - Monitor Alarm
   - alarm
 ---
 
-可观测性中心的监控报警功能，主要对服务进行实时监控并预警提醒，能够及时发现系统、应用组件、服务等问题，避免故障扩大化从而对业务造成影响。
+The monitoring and alarm function of the Observability Centre, which focuses on real-time monitoring and early warning of services, enables timely detection of system and application components, services, etc. and avoids the expansion of failures and their impact on operations.
 
-## 主要功能
+## Main features
 
-可以连接多种数据源，例如Prometheus、Elasticsearch等，来获取监控数据。
+Multiple data sources, such as Prometheus and Elasticsearch, can be connected to capture monitoring data.
 
-Dashboard 是一个可视化界面，展示各种指标的数据，在界面上可以根据需求设置图标、面板来展示监控数据。
+Dashboard is a visualizable interface that displays data from various indicators and can be displayed on the interface by setting up icons and panels based on demand.
 
-通过 Alerting 功能来配置报警规则，可以在 Dashboard 上某个面板中创建报警规则，在创建报警规则的时候需要设置报警条件和触发方式。可以设置触发邮件、钉钉、Slack 通知、Webhook 等多种方式进行报警。
+Alarm rules can be configured with Alerting features. Alarm rules can be created in a Dashboard panel and alarm conditions and trigger when alarm rules are created.You can set a number of ways to alert you by triggering emails, nails, slack notifications, Webhook etc.
 
-创建过报警规则后，需要进行测试并优化，可以通过手动修改数据、模拟异常情况等方式来测试报警规则的触发情况，并对规则作出优化和调整
+After creating an alarm rule, test and optimization will be required to test the trigger of the alarm rule by manually modifying data, simulating anomalies, and optimizing and adjusting the rules
 
-### 作用
+### Role
 
-数据可视化：可以将各种数据源的监控数据进行可视化展示，让用户可以一目了然地了解监控指标的状态和变化趋势。
+Data visualization：can visualize the monitoring data from various data sources and provide users with a clear picture of the status and changing trends of the monitoring indicators.
 
-多种数据源支持：支持多种数据源的监控，包括时序数据、日志数据、关系型数据库等，可以满足不同业务的监控需求。
+A variety of data sources support：support monitoring of multiple data sources, including time series data, log data, relational databases, etc. to meet the monitoring needs of different operations.
 
-灵活的报警设置：报警设置非常灵活，可以根据各种条件和规则进行设置，例如设置阈值、时间段、数据聚合等，还可以根据不同的报警级别进行不同的处理操作。
+Flexible Alarm Settings：are flexible and can be set according to various conditions and rules, such as thresholds, time slots, data aggregation, etc. and can be handled differently according to different alert levels.
 
-集成方便：可以集成多种报警工具和服务，方便用户选择适合自己的报警方式。
+Integration with：allows you to integrate multiple alarm tools and services and to make it easier for users to choose how you want to make their own alerts.
 
-自动化处理：报警可以自动触发一些处理操作，例如自动重启服务、发送消息通知等，减轻人工干预的负担，提高故障处理的效率。
+Automated handling：alarms can automatically trigger some processing actions such as automatic restart of services, messenger notifications, etc. to reduce the burden of manual intervention and increase the efficiency of troubleshoot.
 
-## 使用手册
+## Manual
 
-### 设置报警规则
+### Set alarm rule
 
-1. 设置查询和告警条件，选择数据源，可以添加多种查询条件和表达式，通过预览或运行来查看结果。
+1. Set query and warning conditions, select data sources, add multiple query conditions and expressions, view results by preview or running.
 
-2. 警报评估行为，适用于组内的每条规则，可以覆盖现有报警规则的时间间隔。配置无数据和和错误处理的警报状态。
+2. Alert assessment behaviour, applicable to each rule within a group, can override the time interval between existing alarm rules.Configure alert status without data and mishandling.
 
-3. 为警告添加详细信息，编写摘要并添加标签，帮助用户更好管理警报。
+3. Adds detailed information to warnings, writing summaries and tabs to help users manage alerts better.
 
-4. 通过添加一些自定义标签来处理警报通知，这些标签将警报连接到具有匹配标签的接触点和静默警报实例。
+4. Handles alerts by adding some custom tags that link alerts to contact points with matching tags and quiet alarms instances.
 
-### 通知发送
+### Notification Sent
 
-1. 选择报警管理程序，在消息模版中新增模版并保存，想要了解更多关于模板的信息，可以查看 [模版文档](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/message-templating/)
+1. Select the alarm manager, add the template and save it in the message template. For more information about the template, see [模版文档](https://grafana.com/docs/gravana/latest/alerting/fundamentals/alert-rules/message-templating/)
 
-2. 创建联络点，定义通知将会发送到哪里，联络点类型有很多种，这里主要介绍如何使用Email、钉钉来接收报警信息。
+2. Create a contact point to define where a notification will be sent and there are a variety of contact types, which mainly describe how to use email and nails to receive alarms messages.
 
-   - 选择钉钉，需要配置钉钉的自定义机器人获取POST地址 作为请求的URL，具体配置方法可查看 [钉钉自定义机器人使用](https://open.dingtalk.com/document/orgapp/custom-bot-creation-and-installation)
+   - Pick a nail, you need to configure a pegged custom robot to get the POST address as the requested URL. The configuration method is available at [钉钉自定义机器人使用](https://open.dingtalk.com/document/orgapp/custom-bot-creation-and-installation)
 
-   - 选择Email，在地址选项中填写邮箱地址，可以使用 ";" 分隔符输入多个邮箱地址。
+   - Please select an email address in the address options and enter multiple email addresses using the ";" separator.
 
-   可以通过测试来检查报警是否生效
+   Test can be used to check if the alarm takes effect
 
-### 通知策略
+### Notification Policy
 
-1. 配置基本策略，所有警报都将转到默认的联络点，除非在特定的路由中设置了额外的匹配器区域。
+1. Configure the base policy. All alerts will be transferred to the default contact unless additional matchers areas are set up in a particular route.
 
-2. 配置特定路由，根据匹配条件向选定的联络点发送特定警报。
+2. Configure specific routes to send specific alerts to selected contact points based on matching conditions.
 
-3. 静默时间是一个指定的时间间隔，可以在通知策略树中引用，以便在一天中的特定时间静默特定的通知策略。
+3. Silence time is a specified time interval that can be referenced in the notification strategy tree in order to silence a specific notification strategy at a given time in a day.
