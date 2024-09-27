@@ -3,11 +3,11 @@ title: webapp-runner usage guide
 description: how-to-use-rainbond
 ---
 
-webapp-runner can launch applications using Tomcat on any system with a JRE environment installed.Using webapp-runner does not require Tomcat to be installed.It's just a jar file that can be run and configured with`java`commands.Rainbond runs a War package, or Maven packages a project into a War package by default using webapp-runner.Imprint它只是一个 jar 文件可以用`java`命令运行和配置。Rainbond 运行 War 包、或 Maven 打包成 War 包的项目都默认使用 webapp-runner。
+webapp-runner can launch applications using Tomcat on any system with a JRE environment installed.Using webapp-runner does not require Tomcat to be installed.It's just a jar file that can be run and configured with`java`commands.Rainbond runs a War package, or Maven packages a project into a War package by default using webapp-runner.ImprintIt is only a jar file that can be run and configured with the `java` command.Rainbond run war packages, or Maven packets are used by default for webapp-runner.
 
-### 版本说明
+### Version Description
 
-> Webapp Runner is based on Tomcat server.The default versions supported by Rainbond are as follows:默认 Rainbond 支持的版本如下:
+> Webapp Runner is based on Tomcat server.The default versions supported by Rainbond are as follows:The default Rainbond supported version is as follows:
 
 | web service support                   | web service version                                                                              | Customize the jar file name in the Procfile |
 | :------------------------------------ | :----------------------------------------------------------------------------------------------- | :------------------------------------------ |
@@ -34,8 +34,8 @@ Then make sure there are three environment variables to configure `MEMCACHE_SERV
 or
 
 ```bash
-# Procfile
-java -jar ./webapp-runner.jar --session-store redis target/<appname>.war
+# Procesfile
+java -jar ./webapp-runner.jar --session-store target/<appname>.war
 ```
 
 Then make sure the Redis environment variable is available to configure：REDIS_URL
@@ -43,8 +43,8 @@ Then make sure the Redis environment variable is available to configure：REDIS_
 #### set access path
 
 ```bash
-# Procfile
-java -jar ./webapp-runner.jar --path /phone target/<appname>.war
+# Procesfile
+java -jar ./webapp-runner.jar --path /phone target/<appname>war
 ```
 
 #### More parameter configuration
