@@ -2,7 +2,7 @@
 title: Deploy components using YAML
 description: Describes using YAML deployment components on Rainbond.
 keywords:
-  - 在 Rainbond 上使用 YAML 部署组件
+  - Use YAML deployment component on Rainbond
 ---
 
 ```mdx-code-block
