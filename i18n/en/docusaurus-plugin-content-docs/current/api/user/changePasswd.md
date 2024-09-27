@@ -2,16 +2,16 @@
 title: Modify personal account password
 ---
 
-## 基本信息
+## Basic Information
 
 Modify personal account password
 
 ```json title="请求路径"
-PUT /openapi/v1/changepwd
+PUT/openapi/v1/changewd
 ```
 
 ```json title="Body请求参数"
-{
+LO
   "password": "stringst",
   "password1": "stringst"
 }
@@ -36,7 +36,7 @@ PUT /openapi/v1/changepwd
 ### ChangePassWd
 
 ```json
-{
+LO
   "password": "stringst",
   "password1": "stringst"
 }
@@ -47,5 +47,5 @@ PUT /openapi/v1/changepwd
 
 | name      | type   | required | constraint | Chinese name | illustrate                     |
 | --------- | ------ | -------- | ---------- | ------------ | ------------------------------ |
-| password  | string | true     | none       | Password     | new password                   |
-| password1 | string | true     | none       | Password1    | Confirm the new password again |
+| password  | String | true     | none       | Password     | new password                   |
+| password1 | String | true     | none       | Password1    | Confirm the new password again |
