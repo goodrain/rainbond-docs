@@ -2,7 +2,7 @@
 title: Update component environment variables
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to update component environment variables
 
@@ -26,7 +26,7 @@ PUT /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 
 ## request parameters
 
-| 名称                               | Location | type                                                        | required | Chinese name | illustrate   |
+| Name                             | Location | type                                                        | required | Chinese name | illustrate   |
 | -------------------------------- | -------- | ----------------------------------------------------------- | -------- | ------------ | ------------ |
 | app_id      | path     | integer                                                     | Yes      |              | app id       |
 | service_id  | path     | string                                                      | Yes      |              | app id       |
@@ -60,7 +60,7 @@ PUT /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 
 ### Attributes
 
-| 名称   | type                                                                                                                      | required | constraint | Chinese name | illustrate |
+| Name | type                                                                                                                      | required | constraint | Chinese name | illustrate |
 | ---- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
 | envs | [[ComponentEnvsBaseSerializers](#schemacomponentenvsbaseserializers)] | true     | none       |              | none       |
 
@@ -84,4 +84,4 @@ PUT /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 | name                           | string  | true     | none       | Name         | environment variable name  |
 | value                          | string  | true     | none       | Value        | environment variable value |
 | is_change | boolean | false    | none       | Is change    | Can it be changed          |
-| scope                          | string  | false    | none       | Scope        | 范围                         |
+| scope                          | string  | false    | none       | Scope        | Scope                      |
