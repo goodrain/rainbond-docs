@@ -2,7 +2,7 @@
 title: Get component event information
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to query component event information
 
@@ -64,7 +64,7 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 | name                           | type                                                                                              | required | constraint | Chinese name | illustrate          |
 | ------------------------------ | ------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ------------------- |
 | page                           | integer                                                                                           | true     | none       | Page         | current page number |
-| page_size | integer                                                                                           | true     | none       | Page size    | Quantity per page   |
+| page_size | integer                                                                                           | true     | none       | Page Size    | Quantity per page   |
 | total                          | integer                                                                                           | true     | none       | Total        | Total data          |
 | events                         | [[AppServiceEvents](#schemaappserviceevents)] | true     | none       |              | none                |
 
@@ -95,19 +95,19 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 
 | name                             | type   | required | constraint | Chinese name | illustrate          |
 | -------------------------------- | ------ | -------- | ---------- | ------------ | ------------------- |
-| EventID                          | string | true     | none       | Eventid      | event id            |
-| UserName                         | string | true     | none       | Username     | Operator            |
-| EndTime                          | string | true     | none       | Endtime      | end event           |
+| EventID                          | string | true     | none       | EventID      | event id            |
+| UserName                         | string | true     | none       | UserName     | Operator            |
+| EndTime                          | string | true     | none       | EndTime      | end event           |
 | Target                           | string | true     | none       | Target       | Action target type  |
-| OptType                          | string | true     | none       | Opttype      | event type          |
-| TargetID                         | string | true     | none       | Targetid     | Operation target id |
-| ServiceID                        | string | true     | none       | Serviceid    | service id          |
+| OptType                          | string | true     | none       | OptType      | event type          |
+| TargetID                         | string | true     | none       | TargetID     | Operation target id |
+| ServiceID                        | string | true     | none       | ServiceID    | service id          |
 | Status                           | string | true     | none       | Status       | state               |
-| RequestBody                      | string | true     | none       | Requestbody  | request parameters  |
+| RequestBody                      | string | true     | none       | RequestBody  | request parameters  |
 | create_time | string | true     | none       | Create time  | creation time       |
-| FinalStatus                      | string | true     | none       | Finalstatus  | final state         |
-| StartTime                        | string | true     | none       | Starttime    | Starting time       |
-| SynType                          | string | true     | none       | Syntype      | sync status         |
+| FinalStatus                      | string | true     | none       | FinalStatus  | final state         |
+| StartTime                        | string | true     | none       | StartTime    | Starting time       |
+| SynType                          | string | true     | none       | SynType      | sync status         |
 | Message                          | string | true     | none       | Message      | log                 |
-| TenantID                         | string | true     | none       | Tenantid     | team id             |
-| ID                               | string | true     | none       | Id           | record id           |
+| TenantID                         | string | true     | none       | TenantID     | team id             |
+| ID                               | string | true     | none       | ID           | record id           |
