@@ -292,7 +292,7 @@ Configuration Description：
 
 - Depends on metadata type
 
-  - 不依赖
+  - No Dependencies
 
     Does not depend on component ports
 
@@ -352,7 +352,7 @@ Configuration Description：
 
 Configure group name：to name it yourself
 
-依赖元数据类型：不依赖
+Dependent metadata type：is not dependent
 
 inject type：environment variable
 
@@ -364,14 +364,14 @@ Configuration item：
 | BACKUP_TYPE   | none     | not depend on | full,incremental (default is full) | Can be modified    | The backup strategy is full backup or incremental backup                                               |
 | SCHEDULE                           | none     | string        | None (default is 0 0 3 \* \*)      | Can be modified    | Backup interval, how often to perform backup tasks                                                     |
 | BACKUP_CYCLE  | none     | string        | None (default is 7)                | Can be modified    | Backup cycle, a full backup is performed every cycle, and the rest are incremental backups             |
-| CLEAN_TIME    | none     | string        | None (default is 30)               | Can be modified    | Backup file retention time (days), backup files beyond this time will be cleaned up |
+| PLAYLIST_TIME | none     | string        | None (default is 30)               | Can be modified    | Backup file retention time (days), backup files beyond this time will be cleaned up |
 | DINGTOKEN                          | none     | string        | None (default is empty)            | Can be modified    | Dingding alarm TOKEBN value                                                                            |
 
 ###### Mysql recovery plugin
 
 Configure group name：to name it yourself
 
-依赖元数据类型：不依赖
+Dependent metadata type：is not dependent
 
 inject type：environment variable
 
