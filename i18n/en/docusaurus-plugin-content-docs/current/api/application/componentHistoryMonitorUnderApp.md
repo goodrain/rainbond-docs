@@ -2,7 +2,7 @@
 title: Application component history monitoring
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain monitoring data of the component prometheus under an application for a period of time
 
