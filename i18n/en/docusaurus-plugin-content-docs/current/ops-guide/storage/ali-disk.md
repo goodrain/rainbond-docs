@@ -1,5 +1,5 @@
 ---
-title: Ali Yunyun disk
+title: 阿里云云盘
 description: Ali Cloud provides block level data storage for cloud server ECS
 ---
 
@@ -62,7 +62,7 @@ kubectl get ds -n kube-system
 
 1. 修改 `deploy/disk/disk-provisioner.yaml` 中的环境变量 `ACCESS_KEY_ID`，`ACCESS_KEY_SECRET` 两个参数，替换成阿里云平台账户的 accesskey 信息。
 
-2. 在 kubernetes 1.16 版本中 StatefulSet 的 apiVersion 不能使用 `apps/v1beta1` ，经测试可以使用 `apps/v1` 
+2. 在 kubernetes 1.16 版本中 StatefulSet 的 apiVersion 不能使用 `apps/v1beta1` ，经测试可以使用 `apps/v1`
 
 需要在 spec 下添加 selector 的信息
 
