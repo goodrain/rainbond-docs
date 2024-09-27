@@ -9,7 +9,7 @@ Learn from the documentation how Rainbond delivers applications to customers thr
 
 ### significance
 
-交付的最终环境完全离线是一种很常见的情况。在这种情况下如何进行软件开发产品的交付就是一个很现实而且很难解决的问题。针对这种情况，可以使用 Rainbond 的离线交付体系来应对。
+It is common for the final environment of delivery to be completely offline.The delivery of software development products in this context is a realistic and difficult problem to resolve.The offline delivery system of Rainbond could be used to respond to this situation.
 
 ### Preconditions
 
@@ -33,13 +33,13 @@ Published application templates can be directly exported into two forms of offli
 - Click **RainbondApp Specification** in **Export**, after a period of time, the export will be automatically completed.
 - Click **to download**to download the offline application package.
 
-> Note that version 5.3 tweaks the exported app package specification and is therefore not backward compatible.Can only be imported into 5.3 and later platforms.只能导入到 5.3 及后续版本平台中。
+> Note that version 5.3 tweaks the exported app package specification and is therefore not backward compatible.Can only be imported into 5.3 and later platforms.Can only be imported into 5.3 and subsequent versions of the platform.
 >
 > But the application package exported by the 5.2 version can be imported into the 5.3 platform.
 
 ### Import application template
 
-The exported application template exists as an offline application package.This package can be transferred to an offline production environment using other media (CD-ROM, removable hard disk, etc.).Next, we need to import this package into offline Rainbond.这个包可以用其他介质（光盘、移动硬盘等）转移到离线生产环境中。接下来，我们需要将这个包导入离线 Rainbond 中去。
+The exported application template exists as an offline application package.This package can be transferred to an offline production environment using other media (CD-ROM, removable hard disk, etc.).Next, we need to import this package into offline Rainbond.This package can be moved from other media (CD-ROM, mobile hard drives, etc.) to offline production environments.Next, we need to import this package into the offline Rainbond
 
 - Enter the **application market** page, click **+** ,**to import the application template**.
 
@@ -56,7 +56,7 @@ the application market, you can install the application template into the produc
 
 ### Application template upgrade in offline environment
 
-If you use the **export application template** function, and import the exported offline application package conforming to **RainbondApp Specification** into the offline Rainbond cluster.So how to apply the upgraded application template to the offline Rainbond cluster?那么如何将升级后的应用模版应用到离线的 Rainbond 集群中去呢？
+If you use the **export application template** function, and import the exported offline application package conforming to **RainbondApp Specification** into the offline Rainbond cluster.So how to apply the upgraded application template to the offline Rainbond cluster?How can the upgraded app template be applied to the offline Rainbond cluster?
 
 - Export the new version of the application template, pay attention to specify the new version.
 
