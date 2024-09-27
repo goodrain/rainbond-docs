@@ -3,18 +3,18 @@ title: Application life cycle
 description: Describes the basics of the Rainbond application
 ---
 
-## 支持的基础操作
+## Supported basic actions
 
-| 操作类型 | 条件            | 说明                |
-| ---- | ------------- | ----------------- |
-| 启动   | 当前应用下组件处于关闭状态 | 启动当前应用的内置组件       |
-| 停止   | 当前应用全部处于运行中状态 | 关闭当前应用的所有组件       |
-| 构建   | -             | 为应用下的所有组件构建新版本并升级 |
+| Operation Type | Condition            | Note                                                     |
+| -------------- | -------------------- | -------------------------------------------------------- |
+| Boot           | Component Off        | Start the built-in component of the current app          |
+| Stop           | All apps are running | Close all components of the current app                  |
+| Build          | -                    | Build new versions and upgrade for all components in app |
 
-应用级的基础操作与组件的批量操作有如下区别：
+Application base operation differs from component bulk operation according to：
 
-| 对比项     | 组件批量操作         | 应用基础操作     |
-| ------- | -------------- | ---------- |
-| 启动控制    | 批量无序启动         | 根据依赖关系顺序启动 |
-| 操作目标    | 用户指定的组件        | 应用下的所有组件   |
-| 支持的操作类型 | 关闭、重启、启动、移动、删除 | 构建、启动、停止、  |
+| Contrast               | Component Bulk Operations          | Apply basic actions       |
+| ---------------------- | ---------------------------------- | ------------------------- |
+| Start control          | Batch unordered start              | Start in Dependency Order |
+| Operation Target       | User-specified components          | Apply all components      |
+| Supported Action Types | Close, reboot, start, move, delete | Build, start, stop,       |
