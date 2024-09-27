@@ -2,7 +2,7 @@
 title: Cluster Management Guide
 description: Rainbond Cluster Management Guide
 keywords:
-  - Cluster Manage 指南
+  - Cluster Manage Guide
   - Rainbond Cluster Manage
 ---
 
