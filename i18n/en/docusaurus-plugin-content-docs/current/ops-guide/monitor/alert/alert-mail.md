@@ -2,26 +2,26 @@
 title: Email alarm
 draft: false
 weight: 1673
-description: Rainbond邮件报警配置说明
+description: Rainbod Email Alarm Configuration Description
 ---
 
-### 概述
+### General description
 
-本文主要介绍如何配置Alertmanager发送消息到邮件报警。
+This paper mainly shows how to configure Alertmanager to send messages to email alerts.
 
-集群监控报警部署请参见 [集群监控报警部署](../monitor-alert-deploy/)
+For cluster monitoring alerts see [集群监控报警部署](../monitor-alert-employ/)
 
-### 前提条件
+### Prerequisite
 
-- 使用邮件报警的用户需要拥有 发送邮箱及接收邮箱 账户信息；
+- Users using email alerts need to have emails and email account information;
 
-### 操作步骤
+### Action step
 
-1.需要修改 Alertmanager 配置文件，在 环境配置-->配置文件配置 中点击编辑
+1.Need to modify Alertmanager configuration file, click Edit in Config -->Profile configuration
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/alert/alertmanager-config.jpg"  width="100%" />
 
-2.以下是模板文件，修改完成之后覆盖原配置文件更新组件即可。
+The following is a template file and overwrite the component of the original configuration file update when the modification is complete.
 
 ```bash
 global:
@@ -50,4 +50,4 @@ receivers:
     headers: { Subject: "[WARN] Rainbond报警邮件" }
 ```
 
-到此完成邮件报警的部署。
+This will complete the email alert deployment.
