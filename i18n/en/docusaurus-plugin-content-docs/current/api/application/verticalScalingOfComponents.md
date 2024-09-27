@@ -2,7 +2,7 @@
 title: Vertical scaling of components
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used for vertical scaling of components
 
