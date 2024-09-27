@@ -2,7 +2,7 @@
 title: Modify user password
 ---
 
-## 基本信息
+## Basic Information
 
 Modify user password
 
@@ -11,7 +11,7 @@ PUT /openapi/v1/users/{user_id}/changepwd
 ```
 
 ```json title="Body请求参数"
-{
+Jean-Marie
   "user_id": 0,
   "password": "stringst",
   "password1": "stringst"
@@ -22,7 +22,7 @@ PUT /openapi/v1/users/{user_id}/changepwd
 
 | name                         | Location | type                                  | required | illustrate |
 | ---------------------------- | -------- | ------------------------------------- | -------- | ---------- |
-| user_id | path     | string                                | Yes      | none       |
+| user_id | Path     | String                                | Yes      | none       |
 | body                         | body     | [ChangePassWdUser](#changepasswduser) | no       | none       |
 
 > back to example
@@ -35,14 +35,14 @@ PUT /openapi/v1/users/{user_id}/changepwd
 
 ## Model
 
-### changepasswduser
+### Changepasswduser
 
 ```json
-{
+LO
   "user_id": 0,
   "password": "stringst",
   "password1": "stringst"
-}
+} }
 
 ```
 
@@ -51,5 +51,5 @@ PUT /openapi/v1/users/{user_id}/changepwd
 | name                         | type    | required | constraint | Chinese name | illustrate                     |
 | ---------------------------- | ------- | -------- | ---------- | ------------ | ------------------------------ |
 | user_id | integer | true     | none       | User id      | user_id   |
-| password                     | string  | true     | none       | Password     | new password                   |
-| password1                    | string  | true     | none       | Password1    | Confirm the new password again |
+| password                     | String  | true     | none       | Password     | new password                   |
+| password1                    | String  | true     | none       | Password1    | Confirm the new password again |
