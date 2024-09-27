@@ -53,14 +53,14 @@ Currently Rainbond supports Node. The following version is：
 11.1.0
 ```
 
-平台默认版本使用`8.12.0`。The platform default version uses`8.12.0`.Version：can be specified using engines in `package.json`
+The default version of the platform is `8.12.0`.The platform default version uses`8.12.0`.Version：can be specified using engines in `package.json`
 
 ```bash
-{
+LO
       "name": "myapp",
-      "description": "a really cool app",
+      "description",
       "version": "0.0.1",
-      "engines": {
+      "enginees": LO
         "node": "4.8.7"
       }
 }
@@ -69,8 +69,8 @@ Currently Rainbond supports Node. The following version is：
 Versions after 0.8.5 including 0.11.13 are also supported, the following is an example using version：
 
 ```bash
-{
-  "engines": {
+LO
+  "engines": LO
     "node": "0.11.x"
   }
 }
@@ -91,7 +91,7 @@ The Node project supports using [npm package manager](https://www.npmjs.com/) an
     }
   ```
 
-##### 自定义构建脚本
+##### Custom Build Script
 
 ##### custom build scriptIf your application needs to perform additional operations when building, you can add `postinstall` scripts under the `scripts` node of `package.json` , the script will be automatically executed after the buildpack finishes executing `npm install —production` , Refer to`package.json` Example：```bash
 {
@@ -140,7 +140,7 @@ The yarn build does not support setting the private server by environment variab
 },
 ```
 
-In the above `package.json` file, the keyword `preinstall` specifies what to do before installing dependencies (yarn install).In the example, it is a script file in the root directory of the execution code, and its content is to set the build private server：示例中为执行代码根目录下的一个脚本文件，其内容为设置构建私服：
+In the above `package.json` file, the keyword `preinstall` specifies what to do before installing dependencies (yarn install).In the example, it is a script file in the root directory of the execution code, and its content is to set the build private server：An example of a script file in the executable root directory, the content of which is set to build a private sub：
 
 ```bash
 #!/bin/bash
