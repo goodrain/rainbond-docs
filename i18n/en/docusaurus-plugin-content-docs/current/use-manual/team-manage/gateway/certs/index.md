@@ -13,7 +13,7 @@ Certificates purchased on other platforms need to download the corresponding cer
 
 add step：
 
-* Enter Team -> Gateway -> Certificate Management -> Add Certificate, and fill in the content of the relevant certificate key.
+- Enter Team -> Gateway -> Certificate Management -> Add Certificate, and fill in the content of the relevant certificate key.
 
 If the key is incorrect, the addition will not pass, and Rainbond will verify whether your certificate is correct.
 
@@ -23,7 +23,7 @@ After successful addition, the following certificate information will be display
 | ------------------- | ------------------------------------------ |
 | certificate name    | custom name                                |
 | Certificate address | Domain name issued by the certificate      |
-| Expiration          | when the certificate expires               |
+| 过期时间                | when the certificate expires               |
 | Certificate type    | Server certificate or client certificate   |
 | Certificate source  | Third-party issued or automatically issued |
 | operate             | Edit certificate                           |
@@ -33,8 +33,6 @@ After successful addition, the following certificate information will be display
 In Gateway Policy -> Edit Policy -> More Advanced Routing Parameters -> Select HTTPS Certificate, as shown in Figure：below
 
 ![](https://static.goodrain.com/docs/5.6/use-manual/team-manage/gateway/certs.png)
-
-
 
 ## Automatically issue certificates
 
