@@ -1,33 +1,33 @@
 ---
-title: 全局日志
-description: 介绍全局日志的功能和使用。
+title: Global Log
+description: Describe the functionality and use of global logs.
 keywords:
-  - 全局日志
+  - Global Log
   - Global logs
 ---
 
-## 概览
+## Overview
 
-全局日志的主要用途是帮助开发人员和运维人员更好地理解和分析应用程序日志数据，以便更快地诊断和解决问题。
+The main purpose of the global log is to help developers and operators better understand and analyse application log data in order to diagnose and solve problems more quickly.
 
-### 主要功能
+### Main features
 
-全局日志主要用途包括监测应用、调试和故障排除、安全审计、优化应用程序性能等方面
+Global log main uses include monitoring applications, debugging and troubleshooting, security audits, optimizing application performance, etc.
 
-#### 监测应用
+#### Monitor App
 
-- 通过展示应用程序日志，可以帮助开发人员监测应用程序的性能和行为，例如请求延迟、吞吐量、错误率等。这些指标可以帮助开发人员及时发现潜在的问题，并加以解决。
+- By displaying application logs, developers can help monitor application performance and behaviour, such as request delays, throughput, error rates, etc.These indicators can help developers identify potential problems in a timely manner and address them.
 
-#### 调试和故障排除
+#### Debug and troubleshooting
 
-- 全局日志可以帮助开发人员在应用程序中快速查找和定位错误和异常，以便更快地进行故障排除。例如，开发人员可以使用Grafana展示最近的错误日志，以便找出哪些组件或服务出现了问题。
+- Global logs can help developers quickly identify and position errors and anomalies in their applications in order to perform troubleshooting fasterFor example, developers can use Grafana to display recent error logs in order to identify which components or services are problematic.
 
-#### 安全审计
+#### Security audit
 
-- 全局日志可以帮助安全团队监测应用程序的安全性，例如检查是否有未经授权的访问尝试、异常请求等。通过展示应用程序日志，Grafana可以帮助安全团队更好地理解应用程序的行为，并检测潜在的安全问题。
+- Global logs can help security teams monitor the security of applications, such as checking if there are unauthorized access attempts, unusual requests, etc.By displaying application logs, Grafana helps the security team better understand the behavior of the application and detect potential security problems.
 
-#### 优化应用程序性能
+#### Optimize application performance
 
-- 通过展示应用程序日志，可以帮助开发人员识别应用程序中的性能瓶颈和瓶颈来源，以便优化应用程序的性能。
+- By displaying application logs, developers can be helped to identify performance bottlenecks and bottlenecks in applications in order to optimize application performance.
 
-### 使用手册
+### Manual
