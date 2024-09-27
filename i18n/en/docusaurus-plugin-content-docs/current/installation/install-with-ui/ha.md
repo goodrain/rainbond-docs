@@ -1,85 +1,85 @@
 ---
-title: 高可用集群安装说明
-description: 基于图形化界面，从Linux开始安装 Rainbond 高可用集群的说明
+title: High available cluster installation instructions
+description: A description of the Rainbond high available cluster starting with Linux based on the graphical interface
 keywords:
-  - 基于主机安装高可用 Kubernetes 集群
-  - 基于主机安装高可用 Rainbond 集群
+  - High-available Kubernetes cluster based on host installation
+  - Install High Available Rainbond Cluster based on Host
 ---
 
 :::tip
-部署高可用集群关键在于规划，例如：整个集群规划使用多少台服务器，每台服务器的角色是什么，服务器资源、磁盘如何规划等。
+The key to deploying a high available cluster is planning, e.g.：the entire cluster plans how many servers to use, what the role of each server is, the server resources, how disk, etc.
 :::
 
-## 部署架构
+## Deployment architecture
 
 ![](https://static.goodrain.com/docs/5.17.0/high-availability.png)
 
-如图所示：采用了最少的节点数量（3节点）保证高可用，K8s 采用多 Master + 多 ETCD 集群保障高可用，Rainbond 采用外部负载均衡 + 多网关节点 + 分布式文件存储 + MySQL高可用集群保障高可用。
+If Figure：uses the minimum number of nodes (3 nodes) to ensure high availability, K8 uses multiple Master + multi-ETCD clusters to ensure high availability, Rainbond uses external balance + multi-gateway nodes + distributed file storage + MySQL high availability cluster security.
 
-## 高可用 Kubernetes 集群
+## High Available Kubernetes Cluster
 
-[安装 Kubernetes 集群](/docs/installation/install-with-ui/#从主机开始安装-kubernetes-集群) 至少需要部署 3 个节点的集群，3 个节点的属性都可进行复用，例如：3 管理节点、3 计算节点、3 ETCD 节点。
+[Installing Kubernetes clusters](/docs/installation/installation-with-ui/#Installing -kubernetes-cluster) which requires at least 3 nodes to be deployed, all properties of 3 nodes can be reused, e.g.：3 managing node, 3 computing node, 3 ETCD nodes.
 
-> 如需自定义基于主机安装的 Kubernetes 集群配置，参阅[集群配置](/docs/installation/install-with-ui/rke-config)。
+> See[集群配置](/docs/installation/installation-with-ui/rke-config) to customize the Kubernetes cluster configuration based on host installation.
 
-## 高可用 Rainbond 集群
+## High Available Rainbond Cluster
 
-部署高可用 Rainbond 集群关键在于：①高可用 Kubernetes 集群；②Rainbond 集群的基础配置和高级配置可选项都使用外置的高可用服务。
+High deployment available to Rainbond cluster：1 high available to Kubernetes clusters; both base configuration and advanced configuration options for external high-availability services.
 
-下述将对 Rainbond 所需要的外部服务分别进行说明，包括这些服务的高可用部署。
+The external services required by Rainbond are described below, including the high availability of those services.
 
-### 负载均衡
+### Load Balancer
 
-Rainbond 集群网关需要部署在高可用的负载均衡器上，保障集群网关的高可用性。
+Rainbond cluster gateways need to be deployed on high-available load balancers to ensure high availability of cluster gateways.
 
-#### 使用已有的负载均衡器
+#### Use existing load equalizer
 
 若已有高可用的负载均衡器，可直接使用，需满足以下条件：
 
-- 代理到 Rainbond 所有网关节点
-- 开放 80，443，6060，7070，8443 端口
+- Proxy to all gateway nodes
+- Open 80,443,6060,700,8443 ports
 
-#### 部署 Keepalived
+#### Deployment Keepalied
 
-若还没有负载均衡服务则可通过在网关节点上 [部署 Keepalived](https://t.goodrain.com/d/8334-keepalived) 服务来确保网关的高可用性，通过该种方式网关节点为主备关系。
+If there is no load equilibrium service available, it is possible to ensure the high availability of gateways by deploying Keepalived on gateways nodes (https://t.goodrain.com/d/8334-keeped) services.
 
-### 网关节点
+### Gateway Node
 
-指定 Rainbond 网关服务部署并运行在哪个节点上，每个节点上的网关服务都可独立进行工作，即使某一个网关节点挂掉，其他网关节点依旧能正常工作。
+Specify the node at which Rainbond gateway service is deployed and runned, and gateway services on each node can work independently, and other gateway nodes are working even if one gateway node is handed.
 
-### 构建节点
+### Build Node
 
-指定 Rainbond 构建服务部署并运行在哪个节点上，构建节点的数量越多代表能同时并行构建的任务也就越多。
+Specify the node at which Rainbond build services are deployed and running, the more the number of building nodes represents the more tasks that can be built in parallel.
 
-> 构建比较消耗磁盘，建议将构建服务运行在有 SSD 磁盘的节点上。
+> Build more disk consumes building and it is recommended to run construction services on nodes with SSD disk.
 
-### 存储
+### Storage
 
-Rainbond 需要使用文件存储，存储平台以及平台上应用数据，默认提供内置 `NFS` 存储，以 Pod 方式运行在`rbd-system`命名空间下，会随机绑定一个节点并将元数据存储在该节点的`/opt/rainbond/data/nfs`目录下。
+Rainbond needs to use file storage, store platforms, and apply data on platforms, provide built-in `NFS` storage by default, run in the `rbd-system` namespace and bind a node randomly and store metadata in the `/opt/rainbond/data/nfs` directory of that node.
 
-若已有高可用文件存储则可直接使用，需满足以下条件：
+If high available file storage is available, the following condition： is required
 
-- 支持 NFS v3,v4 协议
-- 支持文件锁 原因详见 如何保证 NFS 文件锁的一致性？
-- 支持常见的 NFS 参数，务必开启 no_root_squash
+- Support NFS v3,v4 protocol
+- See how to ensure consistency in NFS file locks for supporting file locks?
+- Support common NFS parameters, make no_root_squash
 
-如还未安装文件存储，可以参阅 [NFS Server 单机部署](https://t.goodrain.com/d/8325-linux-nfs-server)、[NFS 主从同步部署](https://t.goodrain.com/d/8323-nfs-rsyncinotify)，安装后通过 [在 Kubernetes 中部署 NFS Client Provisioner](https://t.goodrain.com/d/8326-kubernetes-nfs-client-provisioner) 对接 NFS Server 到 Kubernetes 中，在 Rainbond 集群创建时只需要填写 StorageClassName `nfs-client` 即可。
+If file storage is not installed, please refer to [NFS Server Single Deployment](https://t.goodrain.com/d/8325-linux-nfs-server), [NFS Main Synchronization Deployment](https://t.foodrain.com/d/8323-nfs-rsyncinotify), then install it by [deploying NFS Client Provisioner](https://t.foodrain.com/d/8326-kubernetes-nfs-client-provisioner) on NFS Server to Kubernetes when creating the Rainbond Cluster `nacs-client`nfs-client\`.
 
-也可选择 [部署 Rook-Ceph](https://t.goodrain.com/d/8324-rook-ceph-v18)。
+Also available [deploy Rook-Ceph](https://t.foodrain.com/d/8324-rook-ceph-v18).
 
 ### ETCD
 
-Rainbond 集群需要使用 ETCD 用来存储集群的元数据信息，如集群状态和网络配置等。默认提供内置 `ETCD`，以 Pod 方式运行在`rbd-system`命名空间下，会随机绑定一个节点并将元数据存储该节点的`/opt/rainbond/data/etcdxxx`目录下。
+Rainbond clusters need to use ETCD to store cluster metadata information such as cluster status and network configuration.By default the built-in `ETCD`, run in the `rbd-system` namespace by Pod will bind a node randomly and store metadata under the `/opt/rainbond/data/etcdxx` folder on that node.
 
-对于高可用集群来说无需新建 ETCD，复用 Kubernetes 的 ETCD 即可。
+There is no need for new ETCDs for high available clusters, and use ETCD again for Kubernetes
 
-> ETCD 对磁盘性能要求较高，强烈建议存储使用SSD磁盘。
+> ETCD requires high performance on disk, strongly recommends storage using SSD disk.
 
-基于主机安装的 Kubernetes 集群，ETCD证书文件位于 `/etc/kubernetes/ssl` 目录下，分别为 `kube-ca.pem` `kube-node.pen` `kube-node-key.pem` ，使用 [Kubectl](/docs/ops-guide/tools/#kubectl-cli) 命令创建 Secret，在安装时指定密钥名称 `rbd-etcd-secret`。
+Based on the host installed Kubernetes cluster, ETCD certificate files are located in the `/etc/kubernetes/ssl` directory, `kube-node.pen` `kube-node-key.pem`, using [Kubectl](/docs/ops-guide/tools/#kubectl-cli) command to create a Secretariat and specify the key name `rbd-etcd-secret` when installed.
 
-- CA证书：/etc/kubernetes/ssl/kube-ca.pem
-- 客户端证书：/etc/etcd/ssl/kube-node.pem
-- 客户端密钥：/etc/etcd/ssl/kube-node-key.pem
+- CA certificate：/etc/kubernetes/ssl/kube-ca.pem
+- Client certificate：/etc/etcd/ssl/kube-node.pem
+- Client key：/etc/etcd/ssl/kube-node-key.pem
 
 ```bash
 kubectl create secret generic rbd-etcd-secret -n rbd-system \
@@ -88,27 +88,27 @@ kubectl create secret generic rbd-etcd-secret -n rbd-system \
 --from-file=key-file=/etc/kubernetes/ssl/kube-node-key.pem
 ```
 
-### 镜像仓库
+### Mirror Repository
 
-指定 Rainbond 底层镜像仓库，平台上的所有组件镜像都会从这个仓库拉取、推送。默认提供内置镜像仓库，以 Pod 方式运行在`rbd-system`命名空间下，默认元数据通过  `rbd-hub` pvc 进行存储。
+Specify Rainbond mirror repository, all components on the platform will be picked up and pushed from this warehouse.By default built-in mirror repository, run in the `rbd-system` namespace in Pod mode and stored by `rbd-hub` pvc.
 
-如已有镜像仓库可直接使用，需满足以下条件：
+If a mirror repository is available directly, the following condition： needs to be fulfilled
 
-- 建议使用 https 协议以及可信任证书，如使用 http 则需要修改 Docker、Containerd 相关的配置。
+- It is recommended to use URLs and trustworthy certificates, and if you use http:/cker or Containerd, you need to modify the configuration associated with Docker, Containerd.
 
 ### MySQL
 
-Rainbond 需要使用 MySQL 存储控制台及集群端数据。默认提供内置的 MySQL 数据库，以 Pod 方式运行在`rbd-system`命名空间下，会随机绑定一个节点并将元数据存储该节点的`/opt/rainbond/data/dbxxx`目录下。
+Rainbond requires MySQL storage console and cluster data.By default provide a built-in MySQL database, running in `rbd-system` namespace using the Pod method, binds a node randomly and stores metadata under the `/opt/rainbond/data/dbxx` directory of that node.
 
-若已有高可用数据库则可直接使用，需满足以下条件：
+The following conditions are fulfilled for： if a high available database is available.
 
-- 数据库版本为MySQL 5.7，8.0；
-- 提前创建 console region 库；
-- 数据库字符编码为 utf8mb4；
-- 推荐数据库与 Rainbond 集群网络在同一内网范围内。
+- MySQL version 5.7.8.0;
+- Create a pool of console in advance;
+- Database character encoding is utf8mb4;
+- Recommended databases and Rainbond cluster networks are within the same intranet.
 
-如还未安装数据库，请参阅文档安装 [在 Docker 中部署 MySQL 主从集群](https://t.goodrain.com/d/8335-docker-mysql)、[在 Centos 7 中部署 MySQL 主从集群](https://t.goodrain.com/d/8304-centos-7-mysql)
+If the database has not yet been installed, please refer to the document installation [deployment of MySQL main cluster from Docker] (https://t.goodrain.com/d/8335-docker-mysql), [deployment of MySQL main cluster from cluster to cluster in Centos 7 (https://t.goodrain.com/d/8304-centos-7-mysql)
 
-### 控制台高可用
+### Console height available
 
-基于主机安装的控制台，是由 Docker 启动，无法实现高可用部署，故需要将 Docker 启动的控制台迁移到集群中，参阅文档[控制台高可用](/docs/installation/install-with-ui/console-recover)
+A console based on the host installation of the console is enabled by Docker and is unable to implement the high available deployments, and will need to migrate the dock-enabled console to the cluster, see document[控制台高可用](/docs/installation/installation-with-ui/console-recover)
