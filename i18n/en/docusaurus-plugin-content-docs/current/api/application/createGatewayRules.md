@@ -2,7 +2,7 @@
 title: Create a gateway policy
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to create gateway policies
 
@@ -185,7 +185,7 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains
 
 | name     | type                | required | constraint | Chinese name | illustrate |
 | -------- | ------------------- | -------- | ---------- | ------------ | ---------- |
-| protocol | string              | true     | none       | Protocol     | 协议         |
+| protocol | string              | true     | none       | Protocol     | protocol   |
 | tcp      | [tcp](#schematcp)   | false    | none       |              | none       |
 | http     | [Http](#schemahttp) | false    | none       |              | none       |
 
