@@ -1,9 +1,9 @@
 ---
 title: Pipeline install
-description: Pipeline Application plug-in installation
+description: Pipeline 应用插件安装
 keywords:
-- Pipeline 应用插件安装
-- Pipeline Plugin install
+  - Pipeline 应用插件安装
+  - Pipeline Plugin install
 ---
 
 本文介绍 Pipeline 应用插件的安装，包含 GitLab 应用和 GitLab Runner 应用的安装。
@@ -22,9 +22,9 @@ Pipeline 应用插件依赖于 GitLab 和 GitLab Runner，需要先部署 GitLab
 
 通过 Rainbond 开源应用商店部署 GitLab Runner，进入到 **平台管理 -> 应用市场 -> 开源应用商店** 中搜索 `GitLab Runner`，选择对应的版本进行部署。
 
-* 部署完成后，进入**组件内 -> Web 终端**，执行以下命令进行注册；
+- 部署完成后，进入**组件内 -> Web 终端**，执行以下命令进行注册；
 
-  * 修改 `<URL> <TOKEN> <TAG>`中的内容为自己的 GitLab 地址和 Token以及 Runner Tag。
+  - 修改 `<URL> <TOKEN> <TAG>`中的内容为自己的 GitLab 地址和 Token以及 Runner Tag。
 
 ```bash
 gitlab-runner register \
@@ -77,8 +77,8 @@ gitlab-runner register \
 
 进入到 **Pipeline 应用内 -> Pipeline-Backend组件内**，修改以下环境变量:
 
-* **RAINBOND_URL:** Rainbond 控制台访问地址，例如：`http://192.168.3.33:7070`。
-* **RAINBOND_TOKEN:** Rainbond 控制台的 Token，可以在 **右上角用户 -> 个人中心 -> 访问令牌** 中获取。
+- **RAINBOND_URL:** Rainbond 控制台访问地址，例如：`http://192.168.3.33:7070`。
+- **RAINBOND_TOKEN:** Rainbond 控制台的 Token，可以在 **右上角用户 -> 个人中心 -> 访问令牌** 中获取。
 
 修改完成后，更新或重启组件生效。
 
