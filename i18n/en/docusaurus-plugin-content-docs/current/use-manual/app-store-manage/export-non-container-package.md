@@ -20,7 +20,7 @@ Applicable scenarios include:
 
 ## Export non-container package
 
-Locate the published application template in the internal component library. On the `Export` page, click Export `Export Non-container Packages`.After the export is complete, you can download the exported non-container package.导出完成后，即可下载导出的非容器包。
+Locate the published application template in the internal component library. On the `Export` page, click Export `Export Non-container Packages`.After the export is complete, you can download the exported non-container package.When the export is completed, it will be possible to download the exported non-container.
 
 得到的非容器包，命名格式为 `{应用名称}-{应用模板版本号}-slug.tar.gz` 。The resulting non-container package is named in the format of `{application name}-{aplication template version}-slug.tar.gz`.The package can be decompressed in any Linux operating system, and the directory structure is as follows:
 
@@ -46,7 +46,7 @@ non-docker-demo-0.1-slug
 
 The global control script allows you to start, stop, and query the status of all components in an application.
 
-- 全局启动
+- Global Launch
 
 ```bash
 [root@localhost non-docker-demo-0.1-slug]# ./non-docker-demo.sh start
@@ -59,17 +59,17 @@ Running app java-demo with process:  11472 java ...  Done
 
 ```bash
 [root@localhost non-docker-demo-0.1-slug]# ./non-docker-demo.sh status
-AppName                        Status                         PID
-golang                         Active(Running)                3984
-java-demo                      Active(Running)                11472
+AppName Status PID
+golang Activity (Running) 3984
+java-demo Activity (Running) 11472
 ```
 
-- 全局关闭
+- Global Off
 
 ```bash
 [root@localhost non-docker-demo-0.1-slug]# ./non-docker-demo.sh stop
-Stopping app golang which running with pid 3984 ...  Done
-Stopping app java-demo which running with pid 11472 ...  Done
+Stopping app golang which runs with pid 3984. Done
+Stopping app java-demo which run with pid 11472 ...
 ```
 
 The control scripts in each service component folder allow you to manage the startup, shutdown, and status query operations of a single service component.
@@ -78,26 +78,26 @@ The control scripts in each service component folder allow you to manage the sta
 
 ```bash
 [root@localhost golang]# ./golang.sh start
-Handling runtime environment ...  Done
-Handling custom environment ...  Done
-Running app golang, you can check the logs in file golang.log
-We will start your app with ==> go-demo
-Running app golang with process: 24033 go-demo ...  Done
+Handling runtime environment ... Done
+Handling custom environment ... Done
+Running app golang, you can check the logs in file golang. og
+We will start your app with ===go-demo
+Running app golang with process: 24033go-demo ... Done
 ```
 
 - Application status
 
 ```bash
 [root@localhost golang]# ./golang.sh status
-AppName                        Status                         PID
-golang                         Active(Running)                24033
+AppName Status PID
+golang Active(Running) 24033
 ```
 
 - Component stop
 
 ```bash
 [root@localhost golang]# ./golang.sh stop
-Stopping app golang which running with pid 24033 ...  Done
+Stopping app golang which runs with pid 2403...
 ```
 
 ## Configuration
@@ -119,7 +119,7 @@ Each component directory contains an environment variable configuration file of 
 
 Once a component is started, its logs are output to the `{component name}.log` file in the component directory.
 
-## 使用须知
+## Use information
 
 There are some restrictions on the use of non-container packages relative to applications running on Rainbond, which are explained in this section.
 
