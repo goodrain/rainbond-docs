@@ -2,23 +2,23 @@
 title: Deploy the Spring Cloud Blade
 description: This chapter describes how to deploy Spring Cloud Blade on Rainbond
 keywords:
-  - Spring Cloud Blade 部署
-  - 微服务部署示例
+  - Spring Cloud Blade Deployment
+  - Microservice deployment examples
 ---
 
-## 关于 Spring Cloud Blade
+## About Spring Cloud Blade
 
-- 采用前后端分离的模式，前端开源两个框架：[Sword](https://gitee.com/smallc/Sword) (基于 React、Ant Design)、[Saber](https://gitee.com/smallc/Saber) (基于 Vue、Element-UI)
-- 后端采用SpringCloud全家桶，并同时对其基础组件做了高度的封装，单独开源出一个框架：[BladeTool](https://gitee.com/smallc/blade-tool)
+- In back-to-end separation, front-end open source two frameworks：[Sword](https://gitee.com/smallc/Sword) (based on React, Ant Design),[Saber](https://gitee.com/smallc/Saber) (based on Vue, Element-UI)
+- The backend uses the entire bucket of SpringCloud with a high level of encapsulation of its base components, with a separate open-source framework：[BladeTool](https://gitee.com/smallc/blade-tool)
 - [BladeTool](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fchillzhuang%2Fblade-tool)已推送至Maven中央库，直接引入即可，减少了工程的臃肿，也可更注重于业务开发
-- 集成Sentinel从流量控制、熔断降级、系统负载等多个维度保护服务的稳定性。
-- 注册中心、配置中心选型Nacos，为工程瘦身的同时加强各模块之间的联动。
-- 极简封装了多租户底层，用更少的代码换来拓展性更强的SaaS多租户系统。
-- 借鉴OAuth2，实现了多终端认证系统，可控制子系统的token权限互相隔离。
-- 借鉴Security，封装了Secure模块，采用JWT做Token认证，可拓展集成Redis等细颗粒度控制方案。
-- 项目分包明确，规范微服务的开发模式，使包与包之间的分工清晰。
+- Integrated Sentinel is stable from multiple dimensions of protection services such as flow control, melting down downgrading, system loads, etc.
+- Select Nacos for registration centers, configuration centers, and increase links between modules while running for wasting work.
+- There is an extremely short encapsulation of multiple tenants at the bottom and a smaller number of codes is used to expand the more extensive SaaS multi-tenants system.
+- Using OAuth2, a multi-terminal authentication system has been implemented that controls the token permissions of the subsystem in isolation.
+- Security has been used to encapsulate a security module, using JWT as a token certification, and to expand granular control programmes such as Integrated Redis.
+- Project subcontracting is clear, regulating the micro-service development model and clarifying the division of labour between packages and packages.
 
-### 模块说明
+### Module Description
 
 ```bash
 SpringBlade
@@ -43,50 +43,50 @@ SpringBlade
 └──  └── blade-user-api -- 用户api 
 ```
 
-## 通过源码部署 Spring Cloud Blade
+## Deploy Spring Cloud Blade with source code
 
-本文档教程基于 [Spring Cloud Blade v3.5.0](https://gitee.com/smallc/SpringBlade/tree/v3.5.0/) 版本部署
+This document tutorial is based on [Spring Cloud Blade v3.5.0](https://gite.com/smallc/SpringBlade/tree/v3.5.0/)
 
-### 一、部署 Nacos
+### Deploying Nacos
 
-通过开源应用商店部署 `Nacos`，在开源应用商店中搜索 `Nacos单机` 并选择安装 `2.1.2` 版本。
+Use the open source store to deploy `Nacos`, search for `Nacos' in the open source store and choose to install version `2.1.2\`
 
-### 二、部署 Redis
+### Deploying Redis
 
-通过开源应用商店部署 `Redis`，在开源应用商店中搜索 `Redis` 并选择安装 `5.0.7` 版本。
+Use the Open Source Store to deploy `Red`, search for `Redis` in the Open Source Store and choose to install `5.0.7` version.
 
-### 三、部署 Sentinel Dashboard
+### Deploying Sentinel Dashboard
 
-通过开源应用商店部署 `Sentinel Dashboard`，在开源应用商店中搜索 `Sentinel-Dashboard` 并选择安装 `1.8.6` 版本。
+Search `Sentinel Dashboard` in the open source store by deploying `Sentinel Dashboard` and install `1.8.6` instead.
 
-### 四、初始化数据库
+### Initialization of database
 
-从开源应用商店安装的 `Nacos` 自带了 `Mysql` 组件，进入该组件中 -> 端口 -> 打开对外服务，通过客户端工具连接。
+The `Nacos` installed from the open source store takes the `Mysql` component, entering the component -> Port -> Open External Service through the client tool.
 
-1. 创建 `blade` 数据库。
-2. 初始化表结构和数据：[Blade SQL](https://gitee.com/smallc/SpringBlade/blob/v3.5.0/doc/sql/blade/blade-saber-mysql.sql)
+1. Create `blade` database.
+2. Initialization table structure and data：[Blade SQL](https://gitee.com/smallc/SpringBlade/blob/v3.5.0/doc/sql/blade/blade-shaber-mysql.sql)
 
-### 五、部署 Blade 后端服务
+### V. Deployment of Blade backend services
 
-1. **基于源码创建组件，填写以下信息：**
+1. **Create components based on source code, fill out the following information：**
 
-|                           | 内容                                     |
-| ------------------------- | -------------------------------------- |
-| 组件名称                      | 自定义                                    |
-| 组件英文名称                    | 自定义                                    |
-| 仓库地址                      | `https://gitee.com/smallc/SpringBlade` |
-| 代码版本: Tag | v3.5.0 |
+|                                   | Content                                |
+| --------------------------------- | -------------------------------------- |
+| Component name                    | Custom                                 |
+| Component English Name            | Custom                                 |
+| Repository Address                | `https://gitee.com/smallc/SpringBlade` |
+| Code Version: Tag | v3.5.0 |
 
-2. **检测出多模块构建，进入多模块构建页面**
+2. **Detected multiple modules build, enter multi-module build page**
 
 :::tip
 
-1. 创建前，在多模块构建页面 -> 右侧修改按钮 -> 修改每个模块的启动命令，如下。
-2. 创建后，删除每个组件的默认端口，为每个组件添加对应的新端口和端口别名并打开端口的对内服务，如下。
-3. 修改完成后构建组件。
+1. Before creating, build a multi-block page -> modify button -> right to change the launch command for each module, as follows.
+2. After creating, delete the default port for each component, add new ports and port aliases for each component and open the end-to-end service for the port, as follows.
+3. Build component after modification.
    :::
 
-| 组件             | 端口    | 启动命令                                                                           |
+| Component      | Port  | Start command                                                                  |
 | -------------- | ----- | ------------------------------------------------------------------------------ |
 | blade-auth     | 8100  | `web: java $JAVA_OPTS -jar blade-auth/target/blade-auth.jar`                   |
 | blade-gateway  | 80    | `web: java $JAVA_OPTS -jar blade-gateway/target/blade-gateway.jar`             |
@@ -100,15 +100,15 @@ SpringBlade
 | blade-system   | 8106  | `web: java $JAVA_OPTS -jar blade-service/blade-system/target/blade-system.jar` |
 | blade-user     | 8102  | `web: java $JAVA_OPTS -jar blade-service/blade-user/target/blade-user.jar`     |
 
-3. **编辑依赖关系，切换到 `编排模式` 拖动组件进行依赖关系建立。**
+3. **Edit dependence, toggle `Array mode` to create dependency.**
 
-![](https://static.goodrain.com/docs/5.10/micro-service/example/blade/blade-depend.png)
+![](https://static.goodrain.com/docs/5.10/microservice/example/blade/blade-depend.png)
 
-4. 进入 `Nacos` 组件内 -> 端口 -> 打开 `8848` 端口的对外服务，访问 Nacos 并登录，默认用户密码 `nacos/nacos`，创建以下配置文件。
+4. Enter the `Nacos` component -> Port -> Open External Service at the `8848` port, access Nacos and login, default user password `nacos/nacos`, create the following configuration file.
 
 <details>
   <summary>
-    创建 <b>blade.yaml</b> 配置文件
+    Create <b>blade.yaml</b> Profile
   </summary>
   <div>
 
@@ -222,7 +222,7 @@ blade:
 
 <details>
   <summary>
-    创建 <b>blade-dev.yaml</b> 配置文件
+    Create <b>blade-dev.yaml</b> Profile
   </summary>
   <div>
 
@@ -251,28 +251,28 @@ blade:
 </details>
 
 :::info
-更新或重启除 `Nacos` `Mysql` `Redis` `Sentinel Dashboard` 之外的所有组件。
+Update or restart all components other than `Nacos` `Mysql` `Reddis` `Sentinel Dashboard`.
 :::
 
-### 六、部署 Blade 前端 Saber
+### Deployment of Blade Frontend Saber
 
-1. 基于源码创建组件，填写以下信息：
+1. Create components based on source code, fill out the following information：
 
-|        | 内容                                       |
-| ------ | ---------------------------------------- |
-| 组件名称   | 自定义                                      |
-| 组件英文名称 | 自定义                                      |
-| 仓库地址   | `https://gitee.com/zhangbigqi/Saber.git` |
-| 代码版本   | v3.5.0   |
+|                        | Content                                  |
+| ---------------------- | ---------------------------------------- |
+| Component name         | Custom                                   |
+| Component English Name | Custom                                   |
+| Repository Address     | `https://gitee.com/zhangbigqi/Saber.git` |
+| Code Version           | v3.5.0   |
 
 :::caution
-这里使用了我的仓库地址，修改了 Nginx 配置。
+Here you used my repository address and modified the Nginx configuration.
 :::
 
-2. 进入 `Saber` 组件内 -> 端口 -> 删除默认端口，新增 `8080` 端口并打开对外服务。
-3. 编辑依赖关系，切换到 `编排模式` 拖动组件进行依赖关系建立，将 `Saber` 依赖 `blade-gateway` 并更新组件。
-4. 使用默认域名访问 `Saber UI` 并登录。
+2. Enter `Saber` component -> Port -> Delete default port, add `8080` port and open external service.
+3. Edit dependence, toggle `Array mode` to create a dependency by dragging `Saber` to `blade-gateway` and updating the component.
+4. Use the default domain to access `Saber UI` and log in.
 
-### 最终部署拓扑图
+### Final deployment topography
 
-![](https://static.goodrain.com/docs/5.10/micro-service/example/blade/blade-topology.png)
+![](https://static.goodrain.com/docs/5.10/microservice/example/blade/blade-topology.png)
