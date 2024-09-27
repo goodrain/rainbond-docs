@@ -3,7 +3,7 @@ title: Build source management
 description: This article explains various types of build source management methods for Rainbond components, including functions such as changing code addresses, branches, account passwords, and setting build parameters.
 ---
 
-There are three modes for Rainbond component creation:：[source code](/docs/use-manual/component-create/language-support/java/java-maven),[mirror](/docs/use-manual/component-create/image-support/image)and application market. Different creation methods correspond to different build source types of components. For developers, it may be necessary to frequently modify code branches, mirror tags, build environment parameters, etc.These requirements are accomplished through the relevant settings of the component build sources. 对于开发者来说可能需要经常修改代码分支、镜像 Tag，构建环境参数等。这些需求通过对组件构建源的相关设置完成。
+There are three modes for Rainbond component creation:：[source code](/docs/use-manual/component-create/language-support/java/java-maven),[mirror](/docs/use-manual/component-create/image-support/image)and application market. Different creation methods correspond to different build source types of components. For developers, it may be necessary to frequently modify code branches, mirror tags, build environment parameters, etc.These requirements are accomplished through the relevant settings of the component build sources. For developers it may be necessary to modify code branches, image Tag, build environment parameters, etc.These requirements are completed by setting up the component build.
 
 - source code
 
@@ -13,7 +13,7 @@ There are three modes for Rainbond component creation:：[source code](/docs/use
 
 - mirror
 
-  > 镜像的可配置参数主要是镜像地址，授权账号信息和镜像启动命令。
+  > Configurable parameters for the mirror are primarily mirror addresses, authorize account information and mirror launch command.
 
 ## Build source detection
 
@@ -38,10 +38,10 @@ Automatic build is an operation that automatically triggers the build of the Rai
 | Enable OracleJDK (BUILD_ENABLE_ORACLEJDK)                                             |                                                   | true                                                                                                                                                                                              | OracleJDK is not enabled by default                                                                                                                                                            |
 | OracleJDK download path (BUILD_ENABLE_ORACLEJDK)                                      |                                                   |                                                                                                                                                                                                   | OracleJDK (linux amd64) download path                                                                                                                                       |
 | Maven version (BUILD_RUNTIMES_MAVEN)                                                  | 3.3.1             | 3.0.5, 3.1.1, 3.2.5, 3.3.1, 3.3.9 | Maven version                                                                                                                                                                                  |
-| Web Component Server Support (BUILD_RUNTIMES_SERVER)                                  | tomcat85                                          | tomcat7,tomcat8,tomcat85,tomcat9,jetty7,jetty9                                                                                                                                                    |                                                                                                                                                                                                |
+| Web Component Server Support (BUILD_RUNTIMES_SERVER)                                  | tomcat85                                          | tomcat7, tomcat8, tomcat85, tomcat9, jetty7, jetty9                                                                                                                                               |                                                                                                                                                                                                |
 | Disable Maven Mirror (BUILD_MAVEN_MIRROR_DISABLE)                |                                                   | true                                                                                                                                                                                              | Maven mirror is enabled by default. If Mirror is disabled, the Mirror configuration will not take effect.                                                      |
 | MAVEN MIRROR OF configuration (BUILD_MAVEN_MIRROR_OF)            | \*                                                |                                                                                                                                                                                                   |                                                                                                                                                                                                |
-| MAVEN MIRROR_URL(BUILD_MAVEN_MIRROR_URL)    | maven.goodrain.me |                                                                                                                                                                                                   |                                                                                                                                                                                                |
+| MAVEN MIRROR_URL (BUILD_MAVEN_MIROR_URL)    | maven.goodrain.me |                                                                                                                                                                                                   |                                                                                                                                                                                                |
 | Maven build parameters (BUILD_MAVEN_CUSTOM_OPTS)                 | -DskipTests                                       |                                                                                                                                                                                                   | Maven build parameters                                                                                                                                                                         |
 | Maven build global parameters (BUILD_MAVEN_CUSTOM_GOALS)         | clean dependency:list install     |                                                                                                                                                                                                   | Maven build parameters                                                                                                                                                                         |
 | MAVEN build Java parameter configuration (BUILD_MAVEN_JAVA_OPTS) | -Xmx1024m                                         |                                                                                                                                                                                                   |                                                                                                                                                                                                |
@@ -63,7 +63,7 @@ Automatic build is an operation that automatically triggers the build of the Rai
 | OpenJDK version (BUILD_RUNTIMES)                                          | 1.8 | 1.6,1.7,1.8,1.9,10,11 | OpenJDK version                                              |
 | Enable OracleJDK (BUILD_ENABLE_ORACLEJDK)            |                     | true                                                                                  | OracleJDK is not enabled by default                          |
 | OracleJDK download path (BUILD_ENABLE_ORACLEJDK)     |                     |                                                                                       | OracleJDK (linux amd64) download path     |
-| Web Component Server Support (BUILD_RUNTIMES_SERVER) | tomcat85            | tomcat7,tomcat8,tomcat85,tomcat9,jetty7,jetty9                                        |                                                              |
+| Web Component Server Support (BUILD_RUNTIMES_SERVER) | tomcat85            | tomcat7, tomcat8, tomcat85, tomcat9, jetty7, jetty9                                   |                                                              |
 | Start command (BUILD_PROCFILE)                                            |                     |                                                                                       | `web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar` |
 
 ### JAVA Gradle language type
@@ -109,9 +109,9 @@ Automatic build is an operation that automatically triggers the build of the Rai
 
 ### Golang language type
 
-| parameter name                                                          | Defaults                                 | optional value                                                                                                                                                                                                                                                             | illustrate |
-| ----------------------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| Golang version (BUILD_RUNTIMES) | go1.11.2 | go1.9.7 go1.8.7 go1.11.2 go1.11 go1.11.1 go1.10.5 go1.10.4 | Go version |
+| parameter name                                                          | Defaults                                 | optional value                                                                                                                                                                                            | illustrate |
+| ----------------------------------------------------------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Golang version (BUILD_RUNTIMES) | go1.11.2 | go1.9.7 go1.11.2 go1.11.1 go.10.5 go.10.4 | Go version |
 
 ### NodeJS front-end language type
 
@@ -123,10 +123,10 @@ Automatic build is an operation that automatically triggers the build of the Rai
 
 ### .NetCore language types
 
-| parameter name                                                                                                                               | Defaults                               | optional value                                                                                                         | illustrate                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| Build environment version (BUILD_DOTNET_SDK_VERSION)       | 2.2-sdk-alpine         | 3.0-sdk, 2.2-sdk-alpine, 2.1-sdk                                       | build environment version   |
-| Runtime environment version (BUILD_DOTNET_RUNTIME_VERSION) | 2.2-aspnetcore-runtime | 3.0-aspnetcore-runtime, 2.2-aspnetcore-runtime, 2.1-aspnetcore-runtime | Runtime environment version |
+| parameter name                                                                                                                               | Defaults                              | optional value                                                                                                         | illustrate                  |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------- |
+| Build environment version (BUILD_DOTNET_SDK_VERSION)       | 2.2-sdk-alpine        | 3.0-sdk, 2.2-sdk-alpine, 2.1-sdk                                       | build environment version   |
+| Runtime environment version (BUILD_DOTNET_RUNTIME_VERSION) | 2.2-aspnetcoe-runtime | 3.0-aspnetcore-runtime, 2.2-aspnetcore-runtime, 2.1-aspnetcore-runtime | Runtime environment version |
 
 ### Dockerfile language type
 
