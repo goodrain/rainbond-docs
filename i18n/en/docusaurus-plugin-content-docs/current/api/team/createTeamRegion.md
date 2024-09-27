@@ -2,7 +2,7 @@
 title: Open a cluster for a team
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to open a new cluster for a team
 
@@ -11,7 +11,7 @@ POST /openapi/v1/teams/{team_id}/regions
 ```
 
 ```json title="Body 请求体示例"
-{
+LO
   "region": "string"
 }
 ```
@@ -20,7 +20,7 @@ POST /openapi/v1/teams/{team_id}/regions
 
 | name                         | Location | type                                  | required | Chinese name | illustrate |
 | ---------------------------- | -------- | ------------------------------------- | -------- | ------------ | ---------- |
-| team_id | path     | string                                | Yes      |              | none       |
+| team_id | Path     | String                                | Yes      |              | none       |
 | body                         | body     | [TeamRegionReq](#schemateamregionreq) | no       |              | none       |
 
 ## return result
@@ -34,7 +34,7 @@ POST /openapi/v1/teams/{team_id}/regions
 ### TeamRegionReq<a id="schemateamregionreq"></a>
 
 ```json
-{
+LO
   "region": "string"
 }
 ```
@@ -43,7 +43,7 @@ POST /openapi/v1/teams/{team_id}/regions
 
 | name   | type   | required | constraint | Chinese name | illustrate       |
 | ------ | ------ | -------- | ---------- | ------------ | ---------------- |
-| region | string | false    | none       | Region       | data center name |
+| Region | String | false    | none       | Region       | data center name |
 
 ### TeamBaseInfo<a id="schemateambaseinfo"></a>
 
@@ -67,14 +67,14 @@ POST /openapi/v1/teams/{team_id}/regions
 
 | name                               | type        | required | constraint | Chinese name  | illustrate                              |
 | ---------------------------------- | ----------- | -------- | ---------- | ------------- | --------------------------------------- |
-| tenant_id     | string      | true     | none       | Tenant id     | tenant id                               |
-| tenant_name   | string      | true     | none       | Tenant name   | Basic Information                       |
-| region                             | string      | false    | none       | Region        | regional center, deprecated             |
-| is_active     | boolean     | false    | none       | Is active     | active state                            |
-| create_time   | string      | true     | none       | Create time   | creation time                           |
-| creator                            | integer     | false    | none       | Creater       | Tenant creator                          |
-| limit_memory  | integer     | false    | none       | Limit memory  | Memory size unit (M) |
-| update_time   | string      | true     | none       | Update time   | update time                             |
-| expired_time  | string      | true     | none       | Expired time  | Expiration                              |
-| tenant_alias  | string¦null | false    | none       | Tenant alias  | team alias                              |
-| enterprise_id | string¦null | false    | none       | Enterprise id | enterprise id                           |
+| tenant_id     | String      | true     | none       | Tenant id     | tenant id                               |
+| tenant_name   | String      | true     | none       | Tenant name   | Basic Information                       |
+| Region                             | String      | false    | none       | Region        | regional center, deprecated             |
+| is_active     | boolean     | false    | none       | Is Active     | active state                            |
+| create_time   | String      | true     | none       | Create time   | creation time                           |
+| creator                            | integer     | false    | none       | Creator       | Tenant creator                          |
+| Limit_memory  | integer     | false    | none       | Limit memory  | Memory size unit (M) |
+| update_time   | String      | true     | none       | Update time   | update time                             |
+| expired_time  | String      | true     | none       | Expired time  | Expiration                              |
+| tenant_alias  | Stringenull | false    | none       | Tenant alias  | team alias                              |
+| Enterprise_id | Stringenull | false    | none       | Enterprise id | enterprise id                           |
