@@ -1,75 +1,75 @@
 ---
-title: Rainbond 组件运维
-descrition: 该章节文档适用于运维人员了解Rainbond集群运维等相关知识
+title: Rainbond Component Transport
+descrition: This section of the document is relevant to the knowledge of the Rainbod cluster dimensions and so on.
 keywords:
-  - Rainbond 组件运维
-  - Rainbond 运维
+  - Rainbond Component Transport
+  - Rainbond vi
 ---
 
-本章主要讲述Rainbond系统组件的常见运维方式，以帮助用户更快速，高效的运维Rainbond。
+This chapter focuses on the common mode of delivery of components of the Rainbod system in order to help users to move faster and more efficiently.
 
-## 组件信息
+## Component Info
 
-各个组件介绍请参见 [Rainbond组件概述](/docs/ops-guide/component/)
+For a description of each component, see [Rainbond组件概述](/docs/ops-guide/component/)
 
-### 查看组件详细信息
+### View Component Details
 
-这里以 `rbd-api` 组件为例,查看详细信息
-
-```bash
-kubectl describe pod -l name=rbd-api   -n rbd-system
-```
-
-### 日志查看
-
-#### 集群端日志查看
-
-**对于以pod方式运行的组件，可以使用以下方式查看日志**
-
-- 实时查看日志
+Here you can see details for the `rbd-api` component
 
 ```bash
-kubectl logs -fl name=rbd-api -n rbd-system
+kubtl description pod -l name=rbd-api -n rbd-system
 ```
 
-选项解释:
+### Log View
 
--f, --follow  持续输出日志\
--l, --label  标签
+#### ClusterIntegrationLog View
 
-- 查看最近20行日志
+**For components running in pod, log is available as follows**
+
+- View log in real time
 
 ```bash
-kubectl logs --tail=20 -l name=rbd-api  -n rbd-system
+kubtl logs -fl name=rbd-api -n rbd-system
 ```
 
-- 查看过去1个小时的日志
+Option Explanation:
+
+-f, --follow continue output log\
+-l, --label
+
+- View last 20 lines of log
 
 ```bash
-kubectl logs --since=1h -l name=rbd-api  -n rbd-system
+kubtl logs --tail=20-l name=rbd-api -n rbd-system
 ```
 
-要查看其他组件日志，只需将name后的组件名称替换为想要查看日志的组件即可
+- View log for the last 1 hour
 
-#### 控制台日志查看
+```bash
+kubectl logs --sonce=1h -l name=rbd-api -n rbd-system
+```
 
-控制台日志在容器内的，`/app/logs/goodrain.log`
+To view other component logs, simply replace the name of the component after the name with the component that wants to view the log sufficient
+
+#### Console Log View
+
+`/app/logs/goodrain.log`
 
 ```shell
-# Allinone 部署的控制台
+# Alline's Deployed Console
 docker exec -it rainbond-allinone bash
-tail -f /app/logs/goodrain.log
+tail -f /app/logs/goodrain. og
 
-# 部署在集群中
-# 进入 rainbond-console 的 Web 终端中，执行：
-tail -f /app/logs/goodrain.log
+# deployed to the cluster
+# into rainbond-console web terminals, execute：
+tail -f /app/logs/goodrain. og
 
-# Helm 部署
-kubectl exec -it rbd-app-ui-xxx -n rbd-system bash
+# Helm deploy
+kubectl exec -it rbd-app-ui-xx -n rbd-system bash
 tail -f /app/logs/goodrain.log
 ```
 
-## 更多运维指南
+## More Cover Guides
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
