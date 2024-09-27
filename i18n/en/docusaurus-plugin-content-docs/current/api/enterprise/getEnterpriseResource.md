@@ -2,7 +2,7 @@
 title: Obtain information about enterprise usage resources
 ---
 
-## 基本信息
+## Basic information
 
 Obtain information about enterprise usage resources
 
