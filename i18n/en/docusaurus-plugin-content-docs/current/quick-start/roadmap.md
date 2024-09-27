@@ -3,7 +3,7 @@ title: RoadMap
 description: This document defines the roadmap for Rainbond development.
 ---
 
-本文档定义了 Rainbond 开发的路线图。This document defines the roadmap for Rainbond development.The document update may not be timely, the latest planning focus on [Github](https://github.com/goodrain/rainbond/issues)
+This document defines the road map developed by RainbondThis document defines the roadmap for Rainbond development.The document update may not be timely, the latest planning focus on [Github](https://github.com/goodrain/rainbond/issues)
 
 Current latest version：5.5.0
 
