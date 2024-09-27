@@ -2,8 +2,8 @@
 title: K8s Dashboard
 description: 基于 K8s Dashboard 界面查看集群资源
 keywords:
-- Kubernetes Dashboard
-- Rainbond Kubernetes Dashboard
+  - Kubernetes Dashboard
+  - Rainbond Kubernetes Dashboard
 ---
 
 Rainbond 内置了 Kubernetes Dashboard，可以通过 Kubernetes Dashboard 界面查看集群资源状态。
