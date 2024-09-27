@@ -2,41 +2,41 @@
 title: Application template parameters
 ---
 
-### 1. 应用模版及发布版本设置
+### 1. Apply template and release settings
 
-- 创建应用模版时参数说明：
+- Arguments description for： when creating an app template
 
-| 选项名  | 说明                                         |
-| ---- | ------------------------------------------ |
-| 名称   | 定义应用名称（必填）                                 |
-| 发布范围 | 应用模板的可见范围，**当前团队**为当前团队可见，**企业**所有团队可见（必选） |
-| 分类标签 | 应用标签，可按照架构、行业、部署方式进行分类                     |
-| 简介   | 应用描述，帮助使用者了解此应用                            |
-| Logo | 应用的 Logo 图片                                |
+| Option Name    | Note                                                                                                                                            |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name           | Define app name (required)                                                                                                   |
+| Release Range  | Application template visibility, **Current team** is visible to the current team, **Business** all teams visible (necessary) |
+| Category Label | Apply tags, sorting by architecture, industry, deployment mode                                                                                  |
+| Introduction   | App description to help users understand this app                                                                                               |
+| Logo           | Applied logo image                                                                                                                              |
 
-- 创建应用模板后定义应用发布版本：
+- Define app release version： after creating app template
 
-| 选项名  | 说明                                                              |
-| ---- | --------------------------------------------------------------- |
-| 版本号  | 当同应用多次发布时，如果版本号相同，则会覆盖已发布的版本，如果不同，将发布为新版本，应用升级或回滚时，平台根据版本判断（必填） |
-| 版本别名 | 应用别名，例如 高级版，初级版                                                 |
-| 版本说明 | 当前发布版本的说明，可区分不同版本的功能差异等信息                                       |
-| 作为插件 | 当该应用模版下有插件时，选中该选项，则可以在`团队页面-插件-从本地组件库安装`，直接安装对应的插件而不安装应用        |
+| Option Name         | Note                                                                                                                                                                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Version number      | When published multiple times as an app, if the version is the same, it will overwrite the published version. If not, it will be published as a new version, it will be judged on the version (required) |
+| Version Alias       | Apply alias,eg: Premium                                                                                                                                                                                                     |
+| Version Description | Description of the current release version, you can differentiate between different versions of functionality, etc.                                                                                                         |
+| as plugin           | Check this option if you have plugins in the app template, you can install them on the \`Team Page-Plugins - install them from the local component library, install them directly without installing the app                                |
 
-### 2. 发布组件模型配置：
+### 2. Publish component model configuration：
 
-| 选项名  | 说明                                 |
-| ---- | ---------------------------------- |
-| 连接信息 | 当连接信息中出现密码类的信息，可选择每次部署时自动生成随机值     |
-| 环境变量 | 编辑该组件默认的环境变量                       |
-| 伸缩规则 | 定义该组件可伸缩的最大最小节点数，及节点伸缩步长，最小安装内存限制。 |
+| Option Name            | Note                                                                                                                               |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Connection information | When password class information appears in connection messages, choose to automatically generate random values for each deployment |
+| Environment Variables  | Edit the default environment variable for this component                                                                           |
+| Scaling Rules          | Define the minimum number of nodes that the component can scalable and the minimum installation memory limit.      |
 
-### 3. 发布插件模型信息：
+### 3. Publish plugin model information：
 
-要发布的应用中其组件携带有插件时，会进行展示并在发布过程中跟随组件发布。
+When a component of an app to be published carries a plugin, it will be displayed and will be posted with the component during publication.
 
-### 4. K8s 资源：
+### 4. K8s Resource：
 
-要发布的应用中存在定义好的 K8s 资源时，也会进行展示并在发布过程中跟随应用发布。
+The display will also be displayed and follow the app release when there is a defined K8s resource in the app to publish.
 
-所有信息配置完毕后，点击**提交**按钮进行发布，业务开发过程中定义的组件间依赖关系、环境配置、持久化存储、插件、运行环境及上述定义的所有信息都将会被打包发布。
+When all information is configured, click the **Subred** button to post it, all information about dependencies, environment configurations, persistent storage, plugins, operating environment and the above definition will be packed.
