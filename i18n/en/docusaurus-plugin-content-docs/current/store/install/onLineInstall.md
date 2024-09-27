@@ -1,49 +1,49 @@
 ---
-title: 在线安装指南
-description: 本章描述 开源应用商店 发布应用会有哪些价值。
+title: Online Installation Guide
+description: This chapter describes the value that the Open Source App Store will have.
 ---
 
-本章主要介绍如何从 Rainbond 平台在线安装应用，安装完成之后应用可以在平台正常运行，并且可以管理应用的生命周期，例如：`启用`、`更新`、`构建`、`停用`等等。操作流程主要为以下几步：`登录Rainbond平台——>进入应用市场——>搜索浏览的应用——>商店授权——>安装——>管理`。
+This chapter focuses on how to install applications online from the Rainbond platform. Once installed, the app can function properly on the platform and manage the life cycle of the app, such as：`Enable', `Updates', `Build`, `Disabled`, etc.The operation process consists mainly of the following moves：`Sign in to the Rainbod platform -- >Go to the Marketplace -- >Search for Apps -- >Shop License -- >Installation -- >Admin `.
 
-## 准备工作
+## Preparatory work
 
-1. 提前安装好 Rainbond(支撑应用运行的平台)，参考[快速安装](/docs/quick-start/quick-install)。
+1. Install Rainbod (platform to support app run), reference[快速安装](/docs/quick-start/quick-install).
 
-## 操作流程
+## Operating processes
 
-### 1. 查看开源应用商店
+### 1. View the Open Source App Store
 
-开源应用商店是由好雨官方运营的商店，在这个商店中会有各类开源应用，用户只需要完成授权，即可一键安装应用。在安装完 Rainbond 平台后，默认都会对接开源应用商店。如果想要了解某个应用的更多信息，也可以点击应用名称跳转到应用商店平台进行浏览。在 Rainbond 中查看开源应用商店的操作步骤如下：
+The Open Source App Store is an officially operated store in which there are various open source applications in which users can install the app by one click only if they are authorized to do so.When installed with Rainbond platform, default will open the source store.If you want to know more about an app, you can also click the app name to jump to the App Store platform for browsing.在 Rainbond 中查看开源应用商店的操作步骤如下：
 
-- **第一步**：从Rainbond平台头部导航栏进入`平台管理`视图，此视图只有管理员可以进行访问管理。
-- **第二步**：进入平台管理视图之后，点击左侧导航栏`应用市场`面，选择开源应用商店，即可浏览开源商店的应用。
+- **First step**：enters the `Platform Manager` view from the Rainfd platform's head navigation bar. This view can only be managed by an administrator.
+- **Step 2**：, when you enter the platform management view, click on the left navigation bar `Marketplace` and select an open source store to browse the open store app.
 
-### 2. 获取授权
+### Obtaining authorization
 
-应用商店是一个独立的平台，只有注册账号进行授权之后才可以安装应用。授权是为了让 Rainbond 平台和应用商店进行关联，授权的过程就是登录的过程，没有授权就不能进行安装操作，具体操作流程如下：
+The App Store is a separate platform and can be installed only after registration is authorized.License is intended to link the Rainbond platform and the App Store. Authorization is a login process and cannot be installed without authorization, as follows：
 
-- **第一步**：选择完开源应用商店之后，此时想安装应用，点击右侧`安装`按钮没有授权会弹出授权登录框。
-- **第二步**：填写从应用商店注册时的手机号，发送短信填写验证码进行授权登录。
-- **第三步**：登录完成后，你可以在开源应用商店中，你具有了`安装`权限，此时就可以安装你想要的应用了。
+- **First step**：When you choose to open the source shop, you want to install the app at this time. By clicking on the `Install` button on the right side of the right you want to give you permission to log in.
+- **Step 2**：fill in the phone number that was registered from the App Store. Send SMS with the verification code to authorize login.
+- **Step 3**：after signing in, you can install the app in the Open Source Store and you have the `Install` permission to install it at this time.
 
-### 3. 安装应用
+### 3. Install the app
 
-安装是为了让应用模版变成可运行应用的流程，由于 Rainbond 是一个多租户平台，每个租户以团队进行划分，资源管理粒度从团队的维度进行。因此我们需要将应用安装到某个团队下使用。一个团队下通常可以安装多个应用。
+The installation was designed to turn the application template into an operational application process, since Rainbond was a multi-tenants platform, each tenant, divided by team and resource management particle from team dimension.So we need to install the app under a team.It is common to install multiple apps under a team.
 
-安装好的应用属于团队下级资源，是由多个组件构建的逻辑应用程序，通常意义讲，应用可以是一个业务系统，一个业务架构或者一些同类属性的组件集合。具体安装流程如下：
+A well-installed application is a team subresource. It is a logical application built by multiple components. Usually, the application can be a business system, a business architecture or a collection of components of some of the same properties.Installing processes below：
 
-- **第一步**：授权完成之后，可以去搜索你在应用商店浏览时想要安装的应用，点击应用右侧的`安装`按钮,会弹出安装信息框。
-- **第二步**：填写对应的安装信息，点击`确定`进行安装，同时会跳转到安装的位置，此时拓扑图中会显示安装的应用。
+- **First Step**：will be able to search for the apps you want to install while browsing in the App Store. Click the `Install` button on the right side of the app to popup the installation info.
+- **Step 2**：Fill in the installation information, click `OK` to install it, and jump to the installation location, when the installed app is shown in the top.
 
-安装完成后会跳转到你选择的应用中，此时可以看到应用视图下将会展示当前应用的一些资源，例如：内存、CPU、磁盘以及组件数量等等，应用视图界面中间位置是应用拓扑图，拓扑图里面的六边形图案是每个组件，点击六边形会弹出一个卡片，卡片里面展示有组件的一些(基本信息、容器信息、服务信息)，以及可以操作组件的按钮，点击组件名称可以进入组件视图进行管理。
+Once the installation is completed, you will jump to the app in your selection, when you see that some resources of the current app will be displayed under the app view. For example,：memory, CPU, disk, and number of components, the middle of the application view is the app top, the hexadecimal pattern on the podium is each component, click on the hexagon shape will eject a card, the card will show some of the components (basic information, container information, service information) on the side of the card and can operate the component buttons, the name of the component can be used to manage the component view.
 
-### 4. 管理应用
+### Management applications
 
-应用安装之后，你可以进行应用的全生命周期管理，如`构建`、`更新`、`停用`、`启用`等，如果你需要访问该应用，那么需要进入组件管理页面操作。
+After the app is installed, you can perform the whole life cycle management of the app such as `build`, `update`, `disabled`, `enabled`, etc. If you need access to the app, then enter the component management page.
 
-组件的作用是使开发人员能够不用关注底层基础架构的情况下定义业务单元的部署模式，组件描述了可以作为大型分布式应用程序的一部分进行实例化的功能单元。例如，应用程序中的每个微服务都被描述为一个组件。组件同样支持`更新`、`停用`、`启用`、`构建`、`访问`、`终端`等操作。具体操作流程如下：
+The function of the component is to enable the developer to define the deployment model of the business module without attention to the underlying infrastructure structure, which describes the functional modules that can be instantiated as part of a large distributed application.For example, every microservice in an application is described as a component.Components also support `updates', `deactivate', `launch', `build', `access`, `terminal`, etc.Specific actions below：
 
-- **第一步**：在应用视图下，选择你想要访问的组件，点击其六边形，点击弹出的卡片上端，可以进入组件管理页面。
-- **第二步**：在组件管理页面中，点击`端口`，添加该容器对应的端口，打开对外服务，将会自动生成一条域名，点击即可访问。
+- **First step**：Under the app view, select the component you want to access, click on its hexagon, click on the top of the popup card and can enter the component management page.
+- **Step 2**：On the component management page, click on `Port`, add the port corresponding to the container, open the external service and automatically generate a domain name. Click to access it.
 
-当然还有其他的配置，如果想要管理更复杂的业务可以参考[应用管理](/docs/use-manual/app-manage)和[组件管理](/docs/use-manual/component-manage)。
+There are, of course, other configurations that can be consulted on[应用管理](/docs/use-manual/app-manage) and[组件管理](/docs/use-manual/component-management) if you want to manage more complex business.
