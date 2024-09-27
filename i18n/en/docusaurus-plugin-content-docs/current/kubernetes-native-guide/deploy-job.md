@@ -3,45 +3,45 @@ title: Deploy the Job CronJob component
 description: This article covers the essentials of deploying Job and CronJob-type components and is intended for developers and operations personnel.
 ---
 
-### 概述
+### General description
 
-任务主要包含两种：
+The task primarily contains terrain：
 
-- Job负责批处理任务，即仅执行一次的任务，它保证批处理任务的一个或多个Pod成功结束.
-- CronJob是管理调度job，周期性的创建job去执行任务.
+- Job is responsible for the batch task, that is, only once, and it guarantees the successful completion of one or more Pods.
+- CronJob is managing the job, creating jobs periodically.
 
-详细信息参考k8s官方文档
+For more information refer to k8s official documentation
 
-- Job  https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/job/
-- CronJob  https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/cron-jobs/
+- Job https://kubernetes.io/en-cn/docs/concepts/workloads/controllers/job/
+- CronJob https://kubernetes.io/en-cn/docs/concepts/workloads/controllers/cron-jobs/
 
-### 使用流程
+### Use process
 
-在创建组件的时候，可以在高级设置中选择job、cronjob类型. <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/ComponentType.png" title="高级设置"/> <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/CreatJob.png" title="设置job"/>
+When creating a component, you can select job and cronjob types in advanced settings. <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/ComponentType.png" title="高级设置"/> <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/CreatJob.png" title="设置job"/>
 
-如果选择cronjob，需要填写调度策略 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/CreatCronJob.png" title="设置cronjob"/>
+If cronjob, the schedule policy <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/CreatCronJob.png" title="设置cronjob"/> needs to be filled
 
-创建成功开始执行任务，待job任务执行完毕时，标识已完成. <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/JobRuning.png" title="job任务运行"/> <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/JobOK.png" title="job任务完成"/>
+The logo has been completed when creating a successful task pending job execution. <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/JobRuning.png" title="job任务运行"/> <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/JobOK.png" title="job任务完成"/>
 
-job任务执行完成，可点击重启按钮，重新执行该任务，也可以点击关闭任务.
+Job performed completely. Click on the reboot button. You can also redo the job or close it.
 
-在组件其他设置中可修改部署类型和任务策略.
+The deployment type and task policy can be modified in other settings of the component.
 
-#### 部署类型
+#### Deployment Type
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/ChangeType.png" title="组件部署类型"/>
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/DeploymentType.png" title="修改组件部署类型"/>
 
-#### 任务策略
+#### Task Policy
 
-- 如果是cronjob类型，定时配置必填，如 `*/1 * * * *` 一分钟执行一次.
-- 最大重试次数：如果任务失败，默认失败认定重启次数为6，可以通过配置调整失败重启次数.
-- 并行任务数：能够同时运行的Pod数，如设置3个，则有3个任务同时创建并执行.
-- 最大运行时间：如果Job运行的时间超过了设定的秒数，那么此Job就自动停止运行所有的Pod.
-- 完成数：完成该Job需要执行成功的Pod数.
+- If the cronjob type is used, the scheduled configuration is required such as `**/1****` to perform once in one minute.
+- Maximum number of retries：times can be restarted by configuration failure if the task fails. Default failure determines the number of reboot times to 6.
+- Number of parallel tasks：can run simultaneously, 3 tasks are created and executed simultaneously.
+- The maximum running time：will stop running all Pod automatically if the Job runs longer than the specified seconds.
+- Completed：completion of the Job requires successful Pod.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/TaskStrategy.png" title="任务策略编辑"/>
 
-#### cronjob任务状态展示
+#### cronjob status display
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/CronJob.png" title="cronjob任务执行"/>
