@@ -2,7 +2,7 @@
 title: operating application
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used for components under batch operation applications, and supports start, stop, update, and build
 
