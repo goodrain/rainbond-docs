@@ -2,7 +2,7 @@
 title: Component horizontal scaling
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used for horizontal scaling of components
 
