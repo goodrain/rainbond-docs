@@ -13,7 +13,7 @@ The purpose is that after the project is packaged into jar and war, it can be ea
 
 Jar, war package that is packaged locally and can run normally.
 
-### 使用流程
+### Use process
 
 function entry <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/package-support/Pasted%20Graphic.png" title="function entry" />
 
