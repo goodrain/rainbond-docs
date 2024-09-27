@@ -3,67 +3,67 @@ title: Deploy Helm applications based on application market
 description: Deploy the Helm application in Rainbond according to the documentation
 ---
 
-跟随本文档使开发者或运维人员能够基于 Helm 仓库在 Rainbond 中部署应用。
+Follow this document to enable developers or carriers to deploy applications based on the Helm repository in Rainbond
 
-### 前提条件
+### Prerequisite
 
-开始之前，你需要满足以下条件：
+Before you start, you need to meet the following condition：
 
-1.已对接[Helm 应用商店](./docking_helm_store)\
-2.拥有一个可用的团队
+1. paired [Helm App Store](./docking_helm_store)
+2. has a available team
 
-### 操作流程
+### Operating processes
 
-应用安装有三个入口：
+App installation has three entry：
 
-**No.1** 在企业视图应用市场中直接安装
+**No.1** Install directly in the Enterprise View App Marketplace
 
-点击 **Helm 商店** 中应用后面的 **安装** 按钮，选择需要安装到的 **团队**，定义 **应用名称**，点击 **确定** 即会自动开始安装。
+Click the **Install** button below the **Helm store** app. Select the **team**team\*\* you want to install, define **the app's name**. Click **OK** to start the installation automatically.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/appstore_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
 
-**No.2** 在团队视图 **基于应用市场创建组件** 中选择应用进行安装
+**No.2** Install from team view **Create components based on the Marketplace**
 
-在团队视图点击 **新增** --> **基于应用市场创建组件**，选择对接的 Helm 应用商店中的应用，点击 **安装** 即会自动开始安装。
+In team view click **New** ---> **Create component based on the Marketplace**. Select apps from the next Helm store. Click **Install** to automatically start the installation.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/tenant_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
 
-**No.3** 在应用视图 **从应用市场安装** 中选择应用进行安装
+**No.3** Install from App View **Install from Marketplace**
 
-在应用视图点击 **添加组件** --> **从应用市场安装**，选择对接的 Helm 应用商店中的应用，点击 **安装** 即会自动开始安装。
+Click **Add components** -> **Install from Marketplace**, select apps from the Helm store to connect to. Click **Install** to automatically start the installation.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/app_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
 
-#### 安装流程
+#### Installation process
 
-安装流程分为以下三个步骤：
+The installation process is divided into the following three steps：
 
-- 检测
+- Detect
 
-检测应用是否可以被正常部署，如因 K8s apiVersion 问题或其他错误引发无法正常部署时此处会展示错误信息
+Errors will be displayed here to check if the app can be deployed normally, when the K8s apiVersion problem or other errors cause them to fail to deploy
 
-- 配置
+- Configuration
 
-提供应用部署配置功能，提供图形化方式修改 `values.yaml` 文件配置，可选择部署时使用的 `values.yaml` 文件，配置修改方式参见 [Helm 应用管理](./manage-helm-app)，需要注意的是 **有状态应用** 需要挂载存储时必须指定使用的`storageClass`，指定方式如下:
+Provides app deployment configuration features, provides graphical modifications to `values.yaml` files, selects the `values.yaml` file to be deployed. The configuration changes are found in [Helm App Management](./manage-helm-app). Note that **state apps** must be specified for the `storageClass` when the store is mounted. The following methods must be specified:
 
 _No.1_
 
-在 `values.yaml` 文件中指定或图形化方式指定，图形化方式指定参考[Helm 应用管理](./manage-helm-app)
+Specify or graphically specify in `values.yaml` file and refer to [Helm app management](./manage-helm-app)
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_values_yaml.jpg" title="配置 Helm 应用" width="100%"/>
 
 _No.2_
 
-将 Rainbond 部署时自动创建的 `rainbondvolumerwx` 设置为集群默认 `storageClass` ，则部署 Helm 应用时默认将会使用该 `storageClass`， 设置命令如下
+Set `rainbondvolumerwx` to the default `storageClass`, when deploying Helm will use this `storageClass` by default, setting the following command
 
 ```bash
-kubectl patch storageclass rainbondvolumerwx  -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+kubatl patch storageclass rainbondvoluerwx -p '{"metatata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}
 ```
 
-- 安装
+- Install
 
-经过以上步骤后进入安装流程，应用安装完毕即可使用。
+After the above steps go into the installation process and the app is ready to use it when installed.
 
-#### 应用使用
+#### App usage
 
-应用安装完毕后平台会将组件自动转换为 Rainbond 模型,会将 Helm 资源对应转换为平台资源。具体使用可移至[组件使用](/docs/use-manual/component-manage/)
+When the app is installed, the platform will automatically convert the component to the Rainbond model and will convert Helm resources to the platform resource.Specific use can be moved to[组件使用](/docs/use-manual/component-manage/)
