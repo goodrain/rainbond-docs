@@ -58,7 +58,7 @@ Currently Rainbond supports OpenJDK, the following version is：
 - Java 10 - `10.0.2`
 - Java `11.0.1`
 
-平台默认版本使用`1.8`。The platform default version uses`1.8`.If you need to use other versions of OpenJDK, you can specify the required version of JDK by adding`system.properties`file to the source root directory to set the value of`java.runtime.version`.
+The default version of the platform is `1.8`.The platform default version uses`1.8`.If you need to use other versions of OpenJDK, you can specify the required version of JDK by adding`system.properties`file to the source root directory to set the value of`java.runtime.version`.
 
 ```yaml
 # system.properties The current version values that Rainbond can recognize are 11, 10, 1.9, 1.8, 1.7, 1.6
@@ -67,7 +67,7 @@ java.runtime.version=1.8
 
 #### OracleJDK Support
 
-平台目前也支持 OracleJDK,但此特性需要在平台里启用才会生效。\
+The platform now also supports OracleJDK, but this feature needs to be enabled in the platform to take effect.\
 The platform currently also supports OracleJDK, but this feature needs to be enabled in the platform to take effect.\
 OracleJDK download is not built-in by default, you need to configure the relevant OracleJDK download address after enabling OracleJDK in the settings.
 
@@ -77,7 +77,7 @@ The configuration priority of the platform setting is higher than the configurat
 
 #### Build source code from compressed package
 
-From 5.4 onwards, the platform supports downloading compressed packages from the download address to build (the supported compressed package formats are tar, tar.gz, zip). The entry for building through compressed packages is in the source code creation component, and the warehouse address is OSS.This feature requires that the built war package and Procfile (optional) be packaged into a supported archive format.此特性需要将构建好的 war 包与 Procfile(非必需)打包为支持的压缩包格式。
+From 5.4 onwards, the platform supports downloading compressed packages from the download address to build (the supported compressed package formats are tar, tar.gz, zip). The entry for building through compressed packages is in the source code creation component, and the warehouse address is OSS.This feature requires that the built war package and Procfile (optional) be packaged into a supported archive format.This feature requires that a built war package and a Procfile (unnecessary) package format be used to support it.
 
 Compressed package download address format requirements: `http://<web服务URL>/warDemo.tar.gz`
 
