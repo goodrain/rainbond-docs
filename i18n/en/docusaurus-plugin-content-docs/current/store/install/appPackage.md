@@ -1,49 +1,49 @@
 ---
-title: 安装包使用指南
-description: 本章描述 开源应用商店 发布应用会有哪些价值。
+title: Installation package usage guide
+description: This chapter describes the value that the Open Source App Store will have.
 ---
 
-本章主要介绍如何使用应用安装包，最终安装完成之后可以在平台正常运行，并且可以对应用的全生命周期进行管理，例如：`启用`、`构建`、`访问`、`停用`等等。
-操作流程主要为以下三步: `导入安装包——>安装应用——>管理应用`。
+This chapter mainly describes how to use the App Installation Pack, where final installation works on the platform and can manage the entire life cycle of the app, e.g.：`Enable', `Construction', `Access', `Disabled`, etc.
+The operating process consists mainly of the following three steps: `Import Package — >Install App — >Manage Apps\`.
 
-## 准备工作
+## Preparatory work
 
-1. 提前安装好 Rainbond(支撑应用运行的平台)，参考[快速安装](/docs/quick-start/quick-install)。
-2. 可用的应用安装包（例如：以`Gitlab`为例,下载的安装包为：`Gitlab-14.8.2-ram.tar.gz`）。
+1. Install Rainbod (platform to support app run), reference[快速安装](/docs/quick-start/quick-install).
+2. Available app setup packages (e.g.：for example `Gitlab', downloaded packages are：`Gitlab-14.8.2-ram.tar.gz\`).
 
-## 操作流程
+## Operating processes
 
-### 1. 导入安装包
+### 1. Import installation package
 
-由于应用安装包需要在 Rainbond 平台上才能运行起来，所以第一步便是将安装包上传到自己搭建好的 Rainbond 上，就和将安装包上传到手机一样。例如：将`Gitlab-14.8.2-ram.tar.gz` 上传到 Rainbond 平台上即可。导入完成之后安装包将以应用模版的形式呈现出来，该应用模版可以修改对应的模版描述，并且可包含应用的多个版本，你可以根据实际需要标记某个版本是稳定可发布的。
+Since the app installation package needs to be on the Rainbond platform to be running, the first step is to upload the package to its own building Rainbond as to upload the package to the phone.e.g.：upload `Gitlab-14.8.2-ram.tar.gz` to Rainbond platform.The package will be rendered in the form of an application template after the import is completed, which can modify the description of the respective template and can contain multiple versions of the application. You can mark that a version is stable to publish depending on the actual need.
 
-在 Rainbond 中本地组件库是存放企业内部所有应用安装包的市场，开源应用商店则提供了开源的应用供你一键安装使用。具体导入流程如下：
+The local component library in Rainbond is a market for all in-company applications installing packages, while the Open Source Store provides open source apps for your one-click installation.The following import processes are specified as：
 
-- **第一步**：从Rainbond平台头部导航栏进入`平台管理`视图，此视图只有管理员可以进行访问管理。
-- **第二步**：进入平台管理视图之后，点击左侧导航栏`应用市场`,选择`本地组件库`。
-- **第三步**：点击右侧`离线导入`按钮，去上传在应用商店下载的`Gitlab-14.8.2-ram.tar.gz`，上传完成之后，下面会有文件列表和导入范围。
-- **第四步**：选中文件然后选择发布范围，上传到企业（整个Rainbond平台都能看到上传的应用），上传到团队（需要选择哪个团队，只有选中的团队才有权限看到），点击右下角`确认导入`。
+- **First step**：enters the `Platform Manager` view from the Rainfd platform's head navigation bar. This view can only be managed by an administrator.
+- **Step 2**：enters the platform management view by clicking on the `Marketplace` on the left side of the navigation bar and selecting `local component library`.
+- **Step 3**：click on the `offline import` button on the right side to upload `Gitlab-14.8.2-ram.tar.gz` downloaded from the App Store. Once the upload is completed, the file list and import range are shown below.
+- \*\*Step 4 \*\*：selects the file and selects the release range, uploads to the company (the upload app is visible to the entire Rainbod platform), uploads to the team (which team needs to be selected, only the selected team is allowed to see it), click on the bottom right corner to confirm import.
 
-导入完成之后可以在组件库里面看到一个`Gitlab`的应用模版，点击名称可以进入到管理应用模版的界面，此时的应用模版是属于自己的，可以更换应用模版的名称、版本、logo、详情等等进行管理，如果你对其他的应用感兴趣，可以按照此流程来导入多个应用，在此页面对多个应用进行管理。
+Once the import is completed, you can see a `Gitlab` app template in the component library. Click the name to go to the admin app templates. The app template is yourself and can change the app's name, version, logo, details, etc. If you are interested in other apps, you can import multiple apps according to this process and manage multiple apps on this page.
 
-### 2. 安装应用
+### 2. Install the app
 
-安装是为了让应用模版变成可运行应用的流程，由于 Rainbond 是一个多租户平台，每个租户以团队进行划分，资源管理粒度从团队的维度进行。因此我们需要将应用安装到某个团队下使用。一个团队下通常可以安装多个应用。
+The installation was designed to turn the application template into an operational application process, since Rainbond was a multi-tenants platform, each tenant, divided by team and resource management particle from team dimension.So we need to install the app under a team.It is common to install multiple apps under a team.
 
-安装好的应用属于团队下级资源，是由多个组件构建的逻辑应用程序，通常意义讲，应用可以是一个业务系统，一个业务架构或者一些同类属性的组件集合。具体安装流程如下：
+A well-installed application is a team subresource. It is a logical application built by multiple components. Usually, the application can be a business system, a business architecture or a collection of components of some of the same properties.Installing processes below：
 
-- **第一步**：在本地组件库中，根据你导入的发布范围（企业/团队）找到对应的应用模版，点击右侧安装按钮，会弹出安装信息框。
-- **第二步**：填写对应的安装信息，点击`确定`进行安装。
+- **First step**：finds the application template in the local component library based on the release range (firm/team) you imported. Click the install button on the right side to eject the installation information box.
+- **Step 2**：Fill in installation information, click `OK` to install it.
 
-安装完成后会跳转到你选择的应用中，此时可以看到安装成功了一个`Gitlab`应用，应用视图下将会展示当前应用的一些资源，例如：内存、CPU、磁盘以及组件数量等等，应用视图界面中间位置是应用拓扑图，拓扑图里面的六边形图案是每个组件，点击六边形会弹出一个卡片，卡片里面展示有组件的一些(基本信息、容器信息、服务信息)，以及可以操作组件的按钮，点击组件名称可以进入组件视图进行管理。
+When the installation is completed, you will jump to the app of your choice. When the installation succeeds in a `Gitlab` app, you will display some resources from the current app under the app view, such as：memory, CPU, disk, number of components, etc. The middle of the application view is the application top, the hexagon pattern is each component, click on the hexagon shape will eject a card and the card will show some components (basic information, container information, service information) on the side of the card and can operate the component buttons to manage the component view.
 
-### 3. 管理应用
+### Management applications
 
-应用安装之后，你可以进行应用的全生命周期管理，如`构建`、`更新`、`停用`、`启用`等，如果你需要访问该应用，那么需要进入组件管理页面操作。
+After the app is installed, you can perform the whole life cycle management of the app such as `build`, `update`, `disabled`, `enabled`, etc. If you need access to the app, then enter the component management page.
 
-组件的作用是使开发人员能够不用关注底层基础架构的情况下定义业务单元的部署模式，组件描述了可以作为大型分布式应用程序的一部分进行实例化的功能单元。例如，应用程序中的每个微服务都被描述为一个组件。组件同样支持`更新`、`停用`、`启用`、`构建`、`访问`、`终端`等操作。具体操作流程如下：
+The function of the component is to enable the developer to define the deployment model of the business module without attention to the underlying infrastructure structure, which describes the functional modules that can be instantiated as part of a large distributed application.For example, every microservice in an application is described as a component.Components also support `updates', `deactivate', `launch', `build', `access`, `terminal`, etc.Specific actions below：
 
-- **第一步**：在应用视图下，选择你想要访问的组件，点击其六边形，点击弹出的卡片上端，可以进入组件管理页面。
-- **第二步**：在组件管理页面中，点击`端口`，添加该容器对应的端口，打开对外服务，将会自动生成一条域名，点击即可访问。
+- **First step**：Under the app view, select the component you want to access, click on its hexagon, click on the top of the popup card and can enter the component management page.
+- **Step 2**：On the component management page, click on `Port`, add the port corresponding to the container, open the external service and automatically generate a domain name. Click to access it.
 
-当然还有其他的配置，如果想要管理更复杂的业务可以参考[应用管理](/docs/use-manual/app-manage)和[组件管理](/docs/use-manual/component-manage)。
+There are, of course, other configurations that can be consulted on[应用管理](/docs/use-manual/app-manage) and[组件管理](/docs/use-manual/component-management) if you want to manage more complex business.
