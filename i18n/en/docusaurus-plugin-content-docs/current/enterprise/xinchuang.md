@@ -1,68 +1,68 @@
 ---
-title: 国产化信创
+title: Country production letter
 description: Industrial and chemical information and innovation support
 keywords:
-  - 国产化信创
+  - Country production letter
   - Industrial and chemical information and innovation
 ---
 
-## 简介
+## Introduction
 
-国产化信创是指中国本土信息技术和创新产业的发展和推广。国家发展信创产业的主要目的是降低对进口技术的依赖，提高自主创新和核心技术的掌握能力；在数字化转型的过程中，通过将云原生技术与国产化系统、国产化CPU相结合，Rainbond使得应用的开发、部署、运维以及交付变得更为简单和高效。
+Nationalized credit creation refers to the development and diffusion of Chinese indigenous information technology and innovation industries.The main objective of the country's confidence-building industry is to reduce its dependence on imported technologies and improve its ability to acquire autonomous innovation and core technologies. In the process of digital transition, Rainbond, by integrating cloud and native technologies with national production systems and national production CPU, has made the development, deployment, delivery and delivery of applications more simple and efficient.
 
-## 主要功能
+## Main features
 
-### 信创环境部署
+### Creative Environment Deployment
 
-Rainbond 对国产化 CPU 和国产化操作系统做了适配，同时还支持“一云多芯”集群的部署和管理。
+Rainbond adapted the national production CPU and national production operating systems, while also supporting the deployment and management of the “cloud of multicore” cluster.
 
-#### 国产CPU、国产操作系统支持
+#### Country CPU and National Production Operating System support
 
-Rainbond企业版对国产CPU和国产操作系统提供全面支持，确保应用能够在国产硬件和软件环境下稳定运行。这包括对多种国产CPU架构的优化和适配，如鲲鹏、飞腾、龙芯等，以及对国产操作系统的兼容性，例如统信、银河麒麟、中标麒麟、龙蜥、欧拉操作系统等。这种支持不仅涵盖了基础的运行环境，还包括了对特定硬件和软件特性的优化，以提高性能和安全性。此外，Rainbond平台还提供了完善的开发者工具和API接口，帮助用户快速构建和部署云原生应用。
+The Rainbod Enterprise version provides comprehensive support to the national CPU and the national production operating system to ensure that applications operate in a stable environment of domestically produced hardware and software.This includes the optimization and adaptation of a wide range of CPU structures, such as the SAP Peng, Flightenn, Dragon, etc., as well as compatibility with national production operating systems, such as commutation, galaxin rain, monologue, Loronsor, Olara operating system, etc.This support covers not only the basic operating environment but also the optimization of specific hardware and software features to improve performance and security.In addition, the Rainbod platform provides a full developer tool and API interface to help users quickly build and deploy cloud native applications.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/xinchuang/xinchuang2.png)
+![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/xinchanang/xinchanang2.png)
 
-#### 一云多芯集群支持
+#### One cloud of multi-core cluster support
 
-Rainbond 支持"一云多芯"集群的管理，"一云多芯"主要是指用一套平台来管理不同架构的硬件服务器集群，可以支持多种类型的芯片，解决不同类型芯片共存所带来的多云管理问题。而 Rainbond 在这上面主要提供以下两方面的支持。
+Rainbond supports "a cloud of multich" cluster management, "a cloud of multiple chires" mainly refers to a platform to manage hardware server clusters in different structures. Can support multiple types of chips and solve cloud management problems associated with different types of chip coexistence.Rainbond has provided support in two main areas.
 
-首先，从集群部署和管理层面上来说。Rainbond 允许通过一个统一的控制台部署不同架构的集群，即可以通过页面直接部署管理x86架构的集群，也可以部署管理ARM架构的集群，同时还支持在同一个集群中部署不同架构的节点。这意味着用户可以在一个集中的界面中监控和管理横跨多种CPU架构的集群，从而优化资源分配和操作流程。
+First, in terms of cluster deployment and management.Rainbond allows for the deployment of clusters of different structures through a single control platform, i.e. clusters that manage the x86 architectural structure directly through the page, or clusters that manage the ARM structure, while also supporting the deployment of nodes of different structures within the same cluster.This means that users can monitor and manage clusters across multiple CPU structures in a centralized interface, thus optimizing resource allocation and operating processes.
 
-其次，Rainbond支持在单个集群内部署支持不同节点架构的异构应用。该功能使得不同架构的应用可以在同一集群中运行在适合它们的节点上，并且这些应用之间能够无缝通信。例如，在同一个集群中，基于ARM架构的应用可以运行在ARM节点上，而基于x86架构的应用则运行在x86节点上，而这一切都能通过 Rainbond 的界面轻松实现。
+Second, Rainbod supports the deployment of isomers to support different nodes structures within a single cluster.This feature allows applications of different structures to operate in the same cluster on nodes suitable for them and to communicate seamlessly between them.For example, in the same cluster, ARM-based applications can run on the ARM node, while the x86 architecture-based application is on the x86 node, all of which can be easily achieved through the Rainbond interface.
 
-### 跨架构应用编译运行
+### Run across schema app compilations
 
-Rainbond支持将有源码的x86应用系统自动编译成兼容国产化CPU的应用，同时还提供了国产化能力仓库，帮助用户实现各类国产化应用的沉淀与复用。
+Rainbod supported the automatic compilation of the source x86 application system into compatible nationally-produced CPU, and also provided a repository of national production capacity to help users to settle and reuse various types of national production applications.
 
-#### 跨CPU架构源码编译
+#### Cross-CPU Structure Source Compilation
 
-在传统的应用开发和部署环境中，绝大多数应用都是针对 x86 设备编译的。然而，随着国产化进程的推进，越来越多的应用需要在非 x86 指令集的国产 CPU 上运行。这就意味着，原本在 x86 环境中正常运行的业务系统，需要基于国产化服务器重新编译才能正常运行。这个重新编译过程不仅复杂且耗时，还需要大量的人力和时间投入。除了找到适合的语言构建工具，还需要搜集编译过程中所需的各类依赖。
+In the traditional application development and deployment environment, most applications are compiled for x86 equipment.However, as the process of national production progresses, an increasing number of applications need to operate on the non-x86 set of instructional CPUs.This means that business systems that were already operating in the x86 environment will need to be recompiled based on the national production server to function properly.This process is not only complex but time-consuming, but also requires considerable human and time input.In addition to finding appropriate language building tools, there is a need to collect the types of dependencies required in the compilation.
 
-Rainbond的源码构建功能在这里发挥了关键作用。它支持将有源码的 x86 应用系统自动编译成兼容国产化CPU的应用。这一功能极大地简化了传统的编译流程，降低了将应用迁移到国产化硬件平台上的复杂度。用户无需深入研究和处理各种编译依赖和环境问题，Rainbond的构建流程会自动处理这些工作，大幅提高了国产化应用的兼容适配效率。
+Rainbod has a key role to play here.It supports the automatic compilation of the x86 application system with a source code into compatible nationally produced CPU.This function greatly simplifies the traditional compilation process and reduces the complexity of migrating applications to domestically produced hardware platforms.There is no need for users to study and deal in depth with a variety of compilation dependencies and environmental issues, and the building process in Rainbond, which will automatically process these efforts, significantly improving the compatibility of national production applications.
 
-当前支持的源码类型主要有 Java（Maven、Jar、War、Gradle）、NodeJS、Golang、Python、PHP、Html等。
+Current supported source types include Java (Maven, Jar, War, Gradle), NodeJS, Golang, Python, PHP, Html, etc.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/xinchuang/xinchuang3.png)
+![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/xinchanang/xinchanang3.png)
 
-#### 国产化能力仓库
+#### National Productivity Repository
 
-国产化兼容适配是一个系统工程，除了应用本身需要重新编译，还需要周边生态和国产化中间件支持。Rainbond 的应用市场可以将通过兼容适配的应用系统、中间件和工具等国产化能力统一存放，并分门别类的管理，通过积累国产化能力逐步实现全国产化替代。
+National production compatibility is a system project that requires support from surrounding ecological and national production intermediaries, in addition to the re-codification of the application itself.The application market for Rainbond could be integrated and managed in a differentiated manner through national production capacities, such as compatible applications, intermediates and tools, and gradually replace national production through the accumulation of national production capabilities.
 
-同时 Rainbond 支持在部署时根据当前集群的 CPU 架构自动匹配合适的应用。避免由于应用架构不匹配而导致的应用无法正常运行的问题。
+And Rainbond supports automatic matching of apps based on the CPU structure of the current cluster when deployed.Avoid problems where the app will not work properly because the app architecture does not match.
 
-## 使用手册
+## Manual
 
-### 信创环境部署
+### Creative Environment Deployment
 
-1. 环境准备：确保服务器环境中已安装所需的国产操作系统，如统信、银河麒麟等。
-2. 部署Rainbond企业版控制台：通过 docker run 命令在国产操作系统上安装 Rainbond 控制台并访问。
-3. 集群创建：在 Rainbond 控制台中创建新集群，按需添加不同架构的节点的IP地址，平台将自动创建好 Kubernetes 集群，并识别出各个节点的架构信息。
-4. 监控和维护：在“平台管理-集群”中可以查看各个节点的状态、CPU 架构等，并可以在此操作节点的调度、排空等策略。
+1. Environmentally prepared：ensures that the required national production operating systems are installed in the server environment, such as command, Galaxy and so on.
+2. Deploy the Rainbond Enterprise Console：and install the Rainbond Console on the NPAS using the docker run command and access it.
+3. ClusterIntegration|ClusterIntegration|Create a new cluster in：in the Rainbond console. By adding IP addresses of nodes, the platform will automatically create a Kubernetes cluster and identify architectural information for each node.
+4. Monitoring and maintaining：allows you to view the status of each node, CPU architecture, etc. in the Platform Manager-Cluster, and to manage your node's schedule, sorting, and so on.
 
-### 跨架构应用编译运行
+### Run across schema app compilations
 
-1. 源码准备：将您的 x86 源码打成压缩包上传到平台或者直接提供 Git 仓库地址。
-2. 自动识别和编译：在 Rainbond 控制台中创建新应用，选择源码构建方式，平台将自动识别出源码类型，此时，在构建时可以选择打包成 amd64 架构或 arm64 架构，平台将自动编译成兼容所选 CPU 架构的应用。
-3. 应用运行和访问：编译好的应用将自动在对应的节点架构上运行。此时去组件详情中，打开对外服务，即可快速访问。
-4. 异构应用编排：在往信创迁移的过程中，会存在一个过渡期，这期间，arm 应用和 amd 应用需要共存且通信。而在平台上，每个组件在构建时选择好其架构后，运行起来就可以以拖拉拽的方式进行编排，编排完成后，组件之间即可正常访问。
-5. 发布到国产化能力仓库：对于已经兼容国产化的应用，可以在应用视图，通过发布功能，一键将其发布到国产化能力仓库，方便其他用户使用。
+1. Source preparation：uploads your x86 source code into a compressor or directly provides a Git repository address.
+2. Automatically identify and compile：new apps in the Rainbond console. Select the source build method. The platform will automatically identify the source type. When built, it will be possible to select an amd64 or arm64 architecture. The platform will be automatically compiled into an application compatible with the selected CPU architecture.
+3. Apps running and accessing：compiled apps will run automatically on the corresponding node architecture.Go to the component details at this time and open the external service to quickly access it.
+4. The isomer applies to the：referees which will have a transition period during which the arm application and the amd app will need to coexist and communicate.On the platform, when each component chooses its structure at the time of construction, it can be programmed in a drag and drop and can be accessed between components when the programming is complete.
+5. Publish to the National Productivity Repository：for apps that are compatible with national production, can be applied in the app view and posted to the National Productivity Repository by publishing functionality, and easy to use by other users.
