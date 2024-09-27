@@ -2,7 +2,7 @@
 title: Troubleshooting of usage problems
 descrition: This topic describes troubleshooting methods of Rainbond
 keywords:
-- Rainbond Troubleshooting
+  - Rainbond Troubleshooting
 ---
 
 ```mdx-code-block
