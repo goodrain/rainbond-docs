@@ -2,38 +2,38 @@
 title: Overview
 description: This chapter describes the complex application of microservice architecture based on Rainbond
 keywords:
-  - 微服务部署
-  - Spring Cloud 部署
-  - 构建微服务架构
+  - Microservice deployment
+  - Spring Cloud Deployment
+  - Build Microservice Architecture
 ---
 
-微服务架构（通常简称为微服务）是指开发应用所用的一种架构形式。通过微服务，可将大型应用分解成多个独立的组件，其中每个组件都有各自的责任领域。在处理一个用户请求时，基于微服务的应用可能会调用许多内部微服务来共同生成其响应。
+Microservice structures (commonly referred to as microservices) are a form of architecture used to develop applications.Through microservices, large applications can be split into multiple separate components, each of which has its own area of responsibility.When processing a user's request, microservices-based applications may call many internal microservices to jointly generate their responses.
 
-## 服务组装
+## Organization of services
 
-大家聊微服务的一个关键话题是“服务拆分”。服务拆分一般是指对于一个完整的业务系统，我们需要基于一些因素和机制对其进行业务切分形成一些独立服务组件，这些服务组件独立开发、独立管理、对外提供标准服务。在 Rainbond 中，我们经常说的一句话“部署到 Rainbond 的组件即是一个微服务”。如果的业务是一个遗留系统、一体化架构。那么你先不用考虑如何拆分它，直接先将其部署到 Rainbond 中，先使用微服务的体系将其管理起来。无非它就是提供了多种业务的服务类型，共享属性差一些。如果你的业务已经按照微服务模式开发，比如基于 SpringCloud 微服务架构框架开发的。那么你暂时可能没有拆分的烦恼。但需要将所有服务组件高效的管理起来，持续开发。
+A key topic for chatting the service is “Split of Services”.The separation of services generally refers to a complete business system for which we need to form independent service components based on a number of factors and mechanisms for their separate development, independent management and external delivery of standard services.In Rainbond we often say that “the components deployed to Rainbond are a microservice”.If the operation is a legacy system, an integrated architecture.You do not think about how to split it, first deploy it to Rainbond and manage it first by using a microservice system.None of this is the type of service that provides multiple operations and the share attributes are less favourable.If your business has already been developed in a microservice model, for example based on the SpringCloud Microservice Framework framework.So you may have no trouble with splitting for now.However, all service components need to be managed efficiently and continuously developed.
 
-因此本篇文章主要聊，将业务系统在 Rainbond 中进行服务化组装。可能你的业务目前采用各种技术架构，有遗留一体化架构，有 SpringCloud 架构，有 Dubbo 架构等等。我们将其统一部署到 Rainbond 平台进行组装。
+This article is therefore the main chat to assemble the business system in Rainbrond.It is possible that your business currently uses a variety of technical structures, a legacy integration structure, a SpringCloud structure, a Dubbo architecture, etc.We have deployed them uniformly to the Rainbond platform for assembly.
 
-### 基于 ServiceMesh 组装
+### Based on the ServiceMesh assembly
 
-服务组装的关键是理清楚服务直接的通信依赖关系。基于通信关系来建立组件的依赖关系。 在应用中可以根据需要随时增加或减少业务组件，组件间的依赖关系可以动态的增加和移除。通过 ServiceMesh [流量路由管理](#网络可视化) 来管控组件间的通信。
+The key to service assembly is to clarify the direct communication dependency of the service.Component dependencies are built based on communication relationships. Operational components can be increased or reduced at any time in the app as needed. Dependencies between components can be increased and removed dynamically.Controls communications between components via ServiceMesh [流量路由管理](#Webvisualization).
 
-只有通过 ServiceMesh 组装的微服务架构，可以在应用拓扑中查看到组件间的关系。
+The relationship between components can only be seen in the Applets pop through the ServiceMesh microservice architecture.
 
-### 基于 SpringCloud 架构组装
+### Based on SpringCloud Architecture
 
-如果您的应用是基于 SpringCloud 开发，同样的是一个服务一个组件的部署到 Rainbond 进行组装。与基于 ServiceMesh 不同的是，服务之间的通信关系由 SpringCloud 的服务注册中心为桥梁，进行服务注册和直接的通信。也就是说 Rainbond 无法获取到服务直接的通信依赖关系，从而在拓扑图中不进行展示。但是关键的是 Rainbond ServiceMesh 与 SpringCloud 在进行融合。如下图所示，所有服务与注册中心和数据库之间的通信是通过 ServiceMesh 完成，从 UI 到 Gateway 的通信是由 ServiceMesh 完成。
+If your app is based on SpringCloud development, the same is a service component deployed to Rainbond for assembly.Unlike ServiceMesh based communications, service registration and direct communication is provided by SpringCloud services registry centre as a bridge.Rainbond does not have a direct communication dependency to access the services and therefore is not shown in the top.But the key is the integration of Rainbond ServiceMosesh with SpringCloud.As shown in the graph below, communications between all services and registration centres and databases are made through ServiceMosh, and communications from UI to Gateway are completed by ServiceMesh
 
 ![SpringCloud部署示意图](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/SpringCloud.png)
 
-## 网络可视化
+## Web Visualization
 
-Rainbond 应用拓扑图中进行网络可视化展示。应用拓扑图中展示以下维度信息：
+Web Visualizations are made in Rainbond app topography.Show the dimensions below： in the app pop
 
-1. 服务之间的业务拓扑关系。
-2. 服务之间的通信依赖关系。
-3. 服务对外网提供访问入口信息。
-4. 服务实时运行状态。
+1. Business outreach relationships between services.
+2. Communication dependency between services.
+3. The service provides access to the external network.
+4. Service is running in real time.
 
 ![ServiceMesh架构拓扑图](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/servicemesh.png)
