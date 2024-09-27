@@ -1,26 +1,26 @@
 ---
-title: 离线部署 Helm 应用
-description: 在Rainbond中离线部署 Helm 应用
+title: Deploy Helm app offline
+description: Deploy Helm app offline in Rainbod
 ---
 
-用户可以在联网状态下下载并配置 Helm Chart 包，随后将这些包上传至离线系统。这样做的好处包括简化离线部署流程、确保应用部署的一致性和稳定性、便于应用的版本控制和回滚、减少离线环境下的资源消耗，以及提高安全性。
+Users can download and configure Helm Chart packages while connected and then upload them to offline systems.Benefits include streamlining offline deployment processes, ensuring consistency and stability in application deployments, easy-to-apply version control and rollover, reducing resource consumption in offline environments and improving security.
 
-### 准备工作
+### Preparatory work
 
-准备一个 Helm Chart 的 tgz 包
+Preparing a tgz pack for Helm Chart
 
-### 入口
+### Entry
 
-\*\* 入口1: \*\*团队视图 --> 新建 --> Yaml Helm k8s --> Helm --> 上传
+\*\* Entry 1: \*\*Team View -> New -> Yaml Helm k8s -> Helm -> Upload
 
-\*\* 入口2: \*\*组件视图 --> 添加组件 --> Helm --> 上传
+\*\* Entry 2: \*\*Component View -> Add Component -> Helm -> Upload
 
-### 操作流程
+### Operating processes
 
-1. 上传打包好的 Helm Chart tgz 包，点击确认创建。
+1. Upload a packaged Helm Chart tgz, click to create it.
 
-2. 检测通过，跳转至values.yaml 的配置视图，参照 values.yaml 的信息在 Values 配置中按照 一级字段.二级字段.三级字段 的格式进行配置。
+2. Test passed, jump to values.yaml configuration view based on values.yaml information configured in Values configuration in the format of first level field.second.tertiary field.
 
-3. 配置完成后，跳转至资源展示视图，在这里可以看到所有 workload 资源，同时所有组件的镜像右侧可以配置更改所使用的镜像。
+3. When configured, jump to the resource display view. Here you can see all workload resources, while mirrors the right side of all components can configure the images used to change them.
 
-4. 部署并成功运行。
+4. Deploy and run successfully.
