@@ -2,7 +2,7 @@
 title: Component horizontal scaling
 ---
 
-## Basic Information
+## 基本信息
 
 This interface is mainly used for horizontal scaling of components
 
@@ -18,13 +18,13 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{s
 
 ## request parameters
 
-| name        | Location | type                                                                    | required | Chinese name | illustrate |
-| ----------- | -------- | ----------------------------------------------------------------------- | -------- | ------------ | ---------- |
+| name                             | Location | type                                                                    | required | Chinese name | illustrate |
+| -------------------------------- | -------- | ----------------------------------------------------------------------- | -------- | ------------ | ---------- |
 | app_id      | path     | integer                                                                 | Yes      |              | app id     |
 | team_id     | path     | string                                                                  | Yes      |              | none       |
 | region_name | path     | string                                                                  | Yes      |              | none       |
 | service_id  | path     | string                                                                  | Yes      |              | none       |
-| body        | body     | [AppServiceTelescopicHorizontal](#schemaappservicetelescopichorizontal) | no       |              | none       |
+| body                             | body     | [AppServiceTelescopicHorizontal](#schemaappservicetelescopichorizontal) | no       |              | none       |
 
 ## return result
 
@@ -44,6 +44,6 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{s
 
 ### Attributes
 
-| name     | type    | required | constraint | Chinese name | illustrate     |
-| -------- | ------- | -------- | ---------- | ------------ | -------------- |
+| name                          | type    | required | constraint | Chinese name | illustrate     |
+| ----------------------------- | ------- | -------- | ---------- | ------------ | -------------- |
 | new_node | integer | true     | none       | new node     | component node |
