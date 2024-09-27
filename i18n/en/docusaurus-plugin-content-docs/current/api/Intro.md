@@ -7,7 +7,7 @@ slug: /Intro
 
 1. Before calling the console OpenAPI, the user needs to click the personal center-access token-add in the upper right corner of the platform to create an access token for authorization
 2. Before calling the console OpenAPI, make sure you have obtained the access token required by the API and added it to the request header
-3. Only relative paths are displayed in the OpenAPI documentation, such as `/openapi/v1/administrators`, and the actual request path is not displayed.You need to piece together your console access address as a path to form the full address.eg `http://192.168.2.225:7070/openapi/v1/administrators`需要将你的控制台访问地址作为与路径拼凑起来，形成完整地址。如 `http://192.168.2.225:7070/openapi/v1/administrators`
+3. Only relative paths are displayed in the OpenAPI documentation, such as `/openapi/v1/administrators`, and the actual request path is not displayed.You need to piece together your console access address as a path to form the full address.eg `http://192.168.2.225:7070/openapi/v1/administrators`You need to concatenate your console access address with the path to form the complete address.Like `http://192.168.2.225:7070/openapi/v1/administrators`
 
 ## OpenAPI Documentation Convention Format
 
@@ -145,7 +145,7 @@ Here `ID` corresponds to `app_id`
 
 ### build components
 
-According to the above interface request example, we can continue to find the corresponding `service_id` to operate the component.Here is an example of building a component此处以构建组件为例
+According to the above interface request example, we can continue to find the corresponding `service_id` to operate the component.Here is an example of building a componentTaking building a component as an example here
 
 ```bash
 curl -X POST 'http://192.168.2.225:7070/openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{service_id}/build' -H 'Authorization: <here please fill in from the console Obtained access token>'
