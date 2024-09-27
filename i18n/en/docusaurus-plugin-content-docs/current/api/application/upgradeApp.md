@@ -2,7 +2,7 @@
 title: Upgrade the app
 ---
 
-## Basic Information
+## 基本信息
 
 This interface is mainly used to upgrade applications
 
@@ -24,12 +24,12 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/upgrade
 
 ## request parameters
 
-| name        | Location | type                      | required | Chinese name | illustrate           |
-| ----------- | -------- | ------------------------- | -------- | ------------ | -------------------- |
+| name                             | Location | type                      | required | Chinese name | illustrate           |
+| -------------------------------- | -------- | ------------------------- | -------- | ------------ | -------------------- |
 | app_id      | path     | integer                   | Yes      |              | application group id |
 | team_id     | path     | string                    | Yes      |              | none                 |
 | region_name | path     | string                    | Yes      |              | none                 |
-| body        | body     | [Upgrade](#schemaupgrade) | no       |              | none                 |
+| body                             | body     | [Upgrade](#schemaupgrade) | no       |              | none                 |
 
 ## return result
 
@@ -37,20 +37,19 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/upgrade
 | ----------- | ------------------- | ---------- | ---------- |
 | 200         | OK                  | success    | Inline     |
 
-
 ## return data structure
 
-| name               | type                                | required | constraint | Chinese name    | illustrate                   |
-| ------------------ | ----------------------------------- | -------- | ---------- | --------------- | ---------------------------- |
-| *anonymous*        | [[ListUpgrade](#schemalistupgrade)] | false    | none       |                 | none                         |
-| » market_name      | string                              | true     | none       | Market name     | app store name               |
-| » app_model_id   | string                              | true     | none       | App model id    | application model id         |
-| » app_model_name | string                              | true     | none       | App model name  | App model name               |
-| » current_version  | string                              | true     | none       | Current version | current version              |
-| » enterprise_id    | string                              | true     | none       | Enterprise id   | enterprise id                |
-| » can_upgrade      | boolean                             | true     | none       | Can upgrade     | upgradeable                  |
-| » upgrade_versions | [string]                            | true     | none       |                 | List of upgradeable versions |
-| » source           | string                              | true     | none       | Source          | Application Model Source     |
+| name                                                       | type                                                                                    | required | constraint | Chinese name    | illustrate                   |
+| ---------------------------------------------------------- | --------------------------------------------------------------------------------------- | -------- | ---------- | --------------- | ---------------------------- |
+| _anonymous_                                                | [[ListUpgrade](#schemalistupgrade)] | false    | none       |                 | none                         |
+| » market_name                         | string                                                                                  | true     | none       | Market name     | app store name               |
+| » app_model_id   | string                                                                                  | true     | none       | App model id    | application model id         |
+| » app_model_name | string                                                                                  | true     | none       | App model name  | 应用模型名称                       |
+| » current_version                     | string                                                                                  | true     | none       | Current version | current version              |
+| » enterprise_id                       | string                                                                                  | true     | none       | Enterprise id   | enterprise id                |
+| » can_upgrade                         | boolean                                                                                 | true     | none       | Can upgrade     | upgradeable                  |
+| » upgrade_versions                    | [string]                            | true     | none       |                 | List of upgradeable versions |
+| » source                                                   | string                                                                                  | true     | none       | Source          | Application Model Source     |
 
 ```json title="响应示例"
 [
@@ -87,8 +86,8 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/upgrade
 
 ### Attributes
 
-| name            | type                                | required | constraint | Chinese name | illustrate |
-| --------------- | ----------------------------------- | -------- | ---------- | ------------ | ---------- |
+| name                                 | type                                                                                    | required | constraint | Chinese name | illustrate |
+| ------------------------------------ | --------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
 | update_versions | [[UpgradeBase](#schemaupgradebase)] | true     | none       |              | none       |
 
 ### UpgradeBase<a id="schemaupgradebase"></a>
@@ -103,9 +102,9 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/upgrade
 
 ### Attributes
 
-| name                | type   | required | constraint | Chinese name      | illustrate           |
-| ------------------- | ------ | -------- | ---------- | ----------------- | -------------------- |
-| market_name         | string | true     | none       | Market name       | app store name       |
+| name                                                        | type   | required | constraint | Chinese name      | illustrate           |
+| ----------------------------------------------------------- | ------ | -------- | ---------- | ----------------- | -------------------- |
+| market_name                            | string | true     | none       | Market name       | app store name       |
 | app_model_id      | string | true     | none       | App model id      | application model id |
 | app_model_version | string | true     | none       | App model version | current version      |
 
@@ -128,13 +127,13 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/upgrade
 
 ### Attributes
 
-| name             | type     | required | constraint | Chinese name    | illustrate                   |
-| ---------------- | -------- | -------- | ---------- | --------------- | ---------------------------- |
-| market_name      | string   | true     | none       | Market name     | app store name               |
-| app_model_id   | string   | true     | none       | App model id    | application model id         |
-| app_model_name | string   | true     | none       | App model name  | App model name               |
-| current_version  | string   | true     | none       | Current version | current version              |
-| enterprise_id    | string   | true     | none       | Enterprise id   | enterprise id                |
-| can_upgrade      | boolean  | true     | none       | Can upgrade     | upgradeable                  |
-| upgrade_versions | [string] | true     | none       |                 | List of upgradeable versions |
-| source           | string   | true     | none       | Source          | Application Model Source     |
+| name                                                     | type                                                         | required | constraint | Chinese name    | illustrate                   |
+| -------------------------------------------------------- | ------------------------------------------------------------ | -------- | ---------- | --------------- | ---------------------------- |
+| market_name                         | string                                                       | true     | none       | Market name     | app store name               |
+| app_model_id   | string                                                       | true     | none       | App model id    | application model id         |
+| app_model_name | string                                                       | true     | none       | App model name  | Basic Information            |
+| current_version                     | string                                                       | true     | none       | Current version | current version              |
+| enterprise_id                       | string                                                       | true     | none       | Enterprise id   | enterprise id                |
+| can_upgrade                         | boolean                                                      | true     | none       | Can upgrade     | upgradeable                  |
+| upgrade_versions                    | [string] | true     | none       |                 | List of upgradeable versions |
+| source                                                   | string                                                       | true     | none       | Source          | Application Model Source     |
