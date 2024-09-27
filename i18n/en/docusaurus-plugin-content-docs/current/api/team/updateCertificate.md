@@ -2,7 +2,7 @@
 title: Update certificate
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to update the certificate
 
@@ -11,7 +11,7 @@ PUT /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 ```
 
 ```json title="Body 请求体示例"
-{
+LO
   "alias": "string",
   "private_key": "string",
   "certificate": "string",
@@ -21,11 +21,11 @@ PUT /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 ## request parameters
 
-| name                                | Location | type                                          | required | Chinese name | illustrate |
-| ----------------------------------- | -------- | --------------------------------------------- | -------- | ------------ | ---------- |
-| team_id        | path     | string                                        | Yes      |              | none       |
-| certificate_id | path     | string                                        | Yes      |              | none       |
-| body                                | body     | [TeamCertificatesC](#schemateamcertificatesc) | no       |              | none       |
+| name                                | Location | type                                           | required | Chinese name | illustrate |
+| ----------------------------------- | -------- | ---------------------------------------------- | -------- | ------------ | ---------- |
+| team_id        | Path     | String                                         | Yes      |              | none       |
+| certificate_id | Path     | String                                         | Yes      |              | none       |
+| body                                | body     | [TeamCertificatesC](#schemateamcertificateesc) | no       |              | none       |
 
 ## return result
 
@@ -38,7 +38,7 @@ PUT /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 ### TeamCertificatesC<a id="schemateamcertificatesc"></a>
 
 ```json
-{
+LO
   "alias": "string",
   "private_key": "string",
   "certificate": "string",
@@ -50,15 +50,15 @@ PUT /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 | name                                  | type   | required | constraint | Chinese name     | illustrate       |
 | ------------------------------------- | ------ | -------- | ---------- | ---------------- | ---------------- |
-| alias                                 | string | true     | none       | Alias            | certificate name |
-| private_key      | string | true     | none       | Private key      | 证书               |
-| certificate                           | string | true     | none       | Certificate      | certificate key  |
-| certificate_type | string | true     | none       | Certificate type | 证书类型             |
+| alias                                 | String | true     | none       | Alias            | certificate name |
+| private key                           | String | true     | none       | Private key      | Certificates     |
+| Certificate                           | String | true     | none       | Certificates     | certificate key  |
+| Certificate_type | String | true     | none       | Certificate type | Certificate Type |
 
 ### TeamCertificatesR<a id="schemateamcertificatesr"></a>
 
 ```json
-{
+LO
   "alias": "string",
   "private_key": "string",
   "certificate": "string",
@@ -71,8 +71,8 @@ PUT /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 | name                                  | type    | required | constraint | Chinese name     | illustrate        |
 | ------------------------------------- | ------- | -------- | ---------- | ---------------- | ----------------- |
-| alias                                 | string  | true     | none       | Alias            | certificate name  |
-| private_key      | string  | true     | none       | Private key      | 证书                |
-| certificate                           | string  | true     | none       | Certificate      | certificate key   |
-| certificate_type | string  | true     | none       | Certificate type | Basic Information |
-| id                                    | integer | true     | none       | Id               | id                |
+| alias                                 | String  | true     | none       | Alias            | certificate name  |
+| private key                           | String  | true     | none       | Private key      | Certificates      |
+| Certificate                           | String  | true     | none       | Certificates     | certificate key   |
+| Certificate_type | String  | true     | none       | Certificate type | Basic Information |
+| Id                                    | integer | true     | none       | Id               | Id                |
