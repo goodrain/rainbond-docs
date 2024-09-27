@@ -1,25 +1,25 @@
 ---
 title: Code management
-description: 介绍 Pipeline 应用插件的代码管理
+description: Introduction to code management for Pipeline app
 keywords:
-  - 介绍 Pipeline 应用插件的代码管理
+  - Introduction to code management for Pipeline app
   - Intro GitLab Pipeline Plugin Code Management
 ---
 
-代码管理支持 GitLab 分支的查看，并提供持续集成功能。平台的持续集成流水线涵盖：编译构建、代码检查、生成镜像制品、通知Rainbond平台部署，能大幅降低开发人员工作负担，持续提升代码质量与开发效率。
+Code management supports GitLab branch view and provides continuous collection success.The platform's continuous integrated flow line covering：compilation, code check, generation of mirror products, notification of Rainbod platform deployment can significantly reduce development staff workload and continuously improve code quality and development efficiency.
 
-- 多个应用服务的 GitLab 分支管理以及最近提交信息。
-- 支持手动触发构建流水线。
-- 支持持续集成步骤查看，以及步骤详情。
+- GitLab branch management for multiple apps and recent submissions.
+- Support for manually triggering the construction of the flow line.
+- Support continuous integration step view and step details.
 
-## 前提
+## Prerequisite
 
-- 已经创建了应用服务。
+- Application service has been created.
 
-## 操作步骤
+## Action step
 
-进入 Rainbond 控制台的团队内，选择左侧菜单栏的 **流水线**，进入代码管理页面。
+Go to the Rainbond console and select the **streaming line** to the left menu bar. Go to the code management page.
 
-可选择应用服务，查看该应用服务的 GitLab 分支管理以及最近提交信息，以及手动触发分支构建流水线。
+Optionally select the app service, see GitLab branch management of the app and recent submissions and manually trigger branch construction of the flow line.
 
-切换到持续集成页面，可查看持续集成步骤，以及步骤详情。
+Switch to the Continuous Integration page, you can view the sustainable integration steps and the step details.
