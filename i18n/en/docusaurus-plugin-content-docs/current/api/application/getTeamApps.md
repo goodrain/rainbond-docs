@@ -2,7 +2,7 @@
 title: Get a list of team apps
 ---
 
-## 基本信息
+## Basic information
 
 This interface is mainly used to get the list of all applications under the team
 
@@ -43,7 +43,7 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps
 | » app_type                               | string                                                                                  | false    | none       | App type          | App types                   |
 | » app_store_name    | string¦null                                                                             | false    | none       | App store name    | app store name              |
 | » app_store_url     | string¦null                                                                             | false    | none       | App store url     | App store URL               |
-| » app_template_name | string¦null                                                                             | false    | none       | App template name | 应用模板名称                      |
+| » app_template_name | string¦null                                                                             | false    | none       | App template name | Application template name   |
 | » version                                                     | string¦null                                                                             | false    | none       | Version           | Helm app version            |
 | » logo                                                        | string¦null                                                                             | false    | none       | Logo              | application logo            |
 | » k8s_app                                | string                                                                                  | false    | none       | K8s app           | In-cluster application name |
@@ -102,23 +102,23 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps
 
 ### Attributes
 
-| name                                                        | type                                 | required | constraint | Chinese name      | illustrate                   |
-| ----------------------------------------------------------- | ------------------------------------ | -------- | ---------- | ----------------- | ---------------------------- |
-| ID                                                          | integer                              | false    | read-only  | ID                | none                         |
-| tenant_id                              | string                               | true     | none       | Tenant id         | tenant id                    |
-| group_name                             | string                               | true     | none       | Group name        | group name                   |
-| region_name                            | string                               | true     | none       | Region name       | Regional center name         |
-| is_default                             | boolean                              | false    | none       | Is default        | default components           |
-| order_index                            | integer                              | false    | none       | Order index       | Apply sorting                |
-| note                                                        | string¦null                          | false    | none       | Note              | Remark                       |
-| username                                                    | string¦null                          | false    | none       | Username          | application manager          |
-| governance_mode                        | string¦null                          | false    | none       | Governance mode   | Application Governance Model |
-| create_time                            | string(date-time) | true     | none       | Create time       | creation time                |
-| update_time                            | string(date-time) | true     | none       | Update time       | update time                  |
-| app_type                               | string                               | false    | none       | App type          | App types                    |
-| app_store_name    | string¦null                          | false    | none       | App store name    | app store name               |
-| app_store_url     | string¦null                          | false    | none       | App store url     | App store URL                |
-| app_template_name | string¦null                          | false    | none       | App template name | Basic Information            |
-| version                                                     | string¦null                          | false    | none       | Version           | Helm app version             |
-| logo                                                        | string¦null                          | false    | none       | Logo              | application logo             |
-| k8s_app                                | string                               | false    | none       | K8s app           | In-cluster application name  |
+| name                                                     | type                                 | required | constraint | Chinese name      | illustrate                   |
+| -------------------------------------------------------- | ------------------------------------ | -------- | ---------- | ----------------- | ---------------------------- |
+| ID                                                       | integer                              | false    | read-only  | ID                | none                         |
+| tenant_id                           | string                               | true     | none       | Tenant id         | tenant id                    |
+| group_name                          | string                               | true     | none       | Group name        | group name                   |
+| region_name                         | string                               | true     | none       | Region name       | Regional center name         |
+| is_default                          | boolean                              | false    | none       | Is default        | default components           |
+| order_index                         | integer                              | false    | none       | Order index       | Apply sorting                |
+| note                                                     | string¦null                          | false    | none       | Note              | Remark                       |
+| username                                                 | string¦null                          | false    | none       | Username          | application manager          |
+| governance_mode                     | string¦null                          | false    | none       | Governance mode   | Application Governance Model |
+| create_time                         | string(date-time) | true     | none       | Create time       | creation time                |
+| update_time                         | string(date-time) | true     | none       | Update time       | update time                  |
+| app_type                            | string                               | false    | none       | App type          | App types                    |
+| app_store_name | string¦null                          | false    | none       | App store name    | app store name               |
+| app_store_url  | string¦null                          | false    | none       | App store url     | App store URL                |
+| App template name                                        | string\|null                         | false    | none       | App template name | Basic Information            |
+| Version                                                  | string\|null                         | false    | none       | Version           | Helm app version             |
+| Logo                                                     | string\|null                         | false    | none       | Logo              | application logo             |
+| K8s app                                                  | string                               | false    | none       | K8s app           | In-cluster application name  |
