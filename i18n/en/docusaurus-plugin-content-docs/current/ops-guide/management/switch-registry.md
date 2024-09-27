@@ -2,82 +2,83 @@
 title: Example Modify a cluster mirror vault
 descrition: How do I change the default mirror warehouse of the cluster
 keywords:
-  - Rainbond 集群镜像仓库修改
+  - Rainbond Cluster Mirror Repository Modification
 ---
 
 :::tip
-如果在安装时没有配置镜像仓库相关信息，那么 Rainbond 默认会安装一个私有镜像仓库 rbd-hub，用于存储构建镜像。如果在安装时配置了镜像仓库相关信息，那么 Rainbond 将使用配置的镜像仓库。
+If there are no mirror repositories configured at the time of installation, Rainbond will install a private mirror repository rbd-hub to store building images.If mirror repository information is configured at the time of installation, Rainbond will use the configured mirror repository.
 :::
 
-本文将介绍在安装集群后修改镜像仓库的两种场景：
+This will describe two scenes that modify mirror repository： after installing clusters
 
-1. 已安装集群，默认使用 rbd-hub 镜像仓库，想切换到外部镜像仓库
-2. 已安装集群，配置使用外部镜像仓库，想切换到默认的 rbd-hub 镜像仓库
+1. Clusters installed, using rbd-hub mirror repository by default. Want to switch to external mirror repository
+2. ClusterIntegration|Installed using external mirror repository, want to switch to the default rbd-hub repository
 
-## 切换到外部镜像仓库
+## Switch to external mirror repository
 
-如果在安装集群时采用了默认的 rbd-hub 镜像仓库，此时想切换到外部镜像仓库，可以通过以下命令进行切换：
+If the default rbd-hub mirror repository is used when installing clusters, switching to external mirror repositories can be done with the following commands to switch：
 
-1. 编辑 `rainbondcluster` 资源，修改 `imageHub` 字段。
+1. Edit the `rainbondcluster` resource and modify the `imageHub` field.
 
 ```yaml
-$ kubectl edit rainbondcluster -n rbd-system
+$ kubectl edit rainbondcluster-n rbd-system
 spec:
-  imageHub: # 修改此字段
-    domain: 172.31.112.97:5000
+  imagHeb: # modify this field
+    domain: 172.31.112.97:500000
     namespace: rainbond
     password: admin
-    username: admin
+    username: admin Admin 
+ username: admin admin
 ```
 
-2. 删除 `rbd-hub` CRD资源。
+2. Remove `rbd-hub` CRD resource.
 
 ```yaml
-kubectl delete rbdcomponent rbd-hub -n rbd-system 
+kubtl delete rbdcomponent rbd-hub -n rbd-system 
 ```
 
-3. 重启 `rainbond-operator` 组件。
+3. Restart the `rainbond-operator` component.
 
 ```bash
-kubectl delete pod -l release=rainbond-operator -n rbd-system
+kubtl delete pod -l release=rainbond-operator, n rbd-system
 ```
 
-4. 重启 `rbd-chaos` 和 `rbd-node` 组件。
+4. Restart the `rbd-chaos` and `rbd-node` components.
 
 ```bash
-kubectl delete pod -l name=rbd-chaos -n rbd-system
+kubtl delete pod -l name=rbd-chaos -n rbd-system
 kubectl delete pod -l name=rbd-node -n rbd-system
 ```
 
-## 切换到默认镜像仓库
+## Switch to Default Mirror Repository
 
-如果在安装集群时采用了外部镜像仓库，此时不想使用外部镜像仓库了，想切换到默认的 rbd-hub 镜像仓库，可以通过以下命令进行切换：
+If an external mirror repository is used when installing a cluster, it does not want to use an external mirror repository at this time, it will switch to the default rbd-hub mirror repository with the following commands to switch：
 
-1. 编辑 `rainbondcluster` 资源，将自定义的 `imageHub` 字段删除。
+1. Edit the `rainbondcluster` resource to delete the custom `imageHub` field.
 
 ```yaml
 $ kubectl edit rainbondcluster -n rbd-system
 
 spec:
-  imageHub: # 删除此字段
-    domain: 172.31.112.97:5000
+  imageHub: # delete this field
+    domain: 172.31.112.97:500000
     password: admin
-    username: admin
+    username: admin admin admin username: admin admin
 ```
 
-2. 重启 `rainbond-operator` 组件。
+2. Restart the `rainbond-operator` component.
 
 ```bash
-kubectl delete pod -l release=rainbond-operator -n rbd-system
+kubtl delete pod -l release=rainbond-operator, n rbd-system
 ```
 
-3. 创建 `rbd-hub` CRD 资源。
+3. Create a `rbd-hub` CRD resource.
 
 ```yaml
-$ kubectl apply -f rbd-hub.yaml
+$ kubectl apple-f rbd-hub.yaml
 
-apiVersion: rainbond.io/v1alpha1
-kind: RbdComponent
+apiVersion: rainbod. o/v1alpha1
+ind: RbdComponent
 metadata:
   name: rbd-hub
   namespace: rbd-system
@@ -86,17 +87,17 @@ metadata:
     creator: Rainbond
     name: rbd-hub
     priorityComponent: "true"
-    persistentVolumeClaimAccessModes: ReadWriteOnce
+    persententVolumeClaimAccesses: ReadWriteOnce
 spec:
-  replicas: 1
-  image: registry.cn-hangzhou.aliyuncs.com/goodrain/registry:2.6.2
+  replas: 1
+  image: registry. n-hangzhou.aliyuncs.com/goodrain/registry:2.6.2
   imagePullPolicy: IfNotPresent
-  priorityComponent: true
+  priorityComposition: true
 ```
 
-4. 重启 `rbd-chaos` 和 `rbd-node` 组件即可。
+4. Restart the `rbd-chaos` and `rbd-node` components.
 
 ```bash
-kubectl delete pod -l name=rbd-chaos -n rbd-system
+kubtl delete pod -l name=rbd-chaos -n rbd-system
 kubectl delete pod -l name=rbd-node -n rbd-system
 ```
