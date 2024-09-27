@@ -1,28 +1,28 @@
 ---
-title: 基于 Kubernetes 安装 Rainbond
-descrition: 该章节文档介绍基于已有的 k8s 集群，使用 helm 安装 Rainbond
+title: Install Rainbond based on Kubernetes
+descrition: This section document describes the existing k8s cluster, installing Rainbond with helm
 keywords:
-  - 基于 Kubernetes 安装 Rainbond 集群
+  - Install Rainbond cluster based on Kubernetes
 ---
 
-本文将指引你在已有的 Kubernetes 集群中快速安装一套可用的 Rainbond 环境，支持自建集群、托管集群等。你可以根据自己的需求选择最适合你的安装方式。
+This will guide you to quickly install a set of available Rainbond environments in your existing Kubernetes cluster, hosting clusters, etc.You can choose how best you can install according to your needs.
 
-## 基于已有 Kubernetes 集群安装
+## Based on existing Kubernetes cluster installation
 
-### [基于自建 Kubernetes 集群安装](/docs/installation/install-with-helm/install-from-kubernetes)
+### [Based on self-recommended Kubernetes cluster installation] (/docs/installation/install-with-helm/install-from-kubernets)
 
-了解在自建的 Kubernetes 集群中，如何使用 Helm 快速部署 Rainbond 环境。这种安装方式支持高可用部署。
+Learn how to rapidly deploy Rainbond environments in self-built Kubernetes clusters.This installation supports high-availability deployment.
 
-### [基于自建 k3s 集群安装](/docs/installation/install-with-helm/other/k3s-install-with-helm/)
+### [Based on self-recommended k3s cluster installation] (/docs/installation/install-with-helm/other/k3s-install-with-helm/)
 
-了解在已有的 K3s 集群中，如何使用 Helm 快速部署 Rainbond 环境。这种安装方式支持高可用部署。
+Learn how to rapidly deploy Rainbond environments in existing K3s clusters.This installation supports high-availability deployment.
 
-## 在托管 Kubernetes 上安装
+## Install on hosting Kubernetes
 
-### [基于阿里云 ACK 集群安装](/docs/installation/install-with-helm/cloud/ack-install-with-helm/)
+### [Installing based on Alicloud ACK cluster](/docs/installation/install-with-helm/cloud/back-with-helm/)
 
-了解在阿里云 ACK 集群中，部署 Rainbond 的最佳实践，以及各类云服务资源的建议。这种安装方式支持高可用部署。
+Learn about best practices in deploying Rainbrond in the Ali-Cloud ACK cluster, as well as proposals for resources for various cloud services.This installation supports high-availability deployment.
 
-### [基于华为云 CCE 集群安装](/docs/installation/install-with-helm/cloud/cce-install-with-helm/)
+### [Installing for a cloud CCE cluster based on China](/docs/installation/install-with-helm/cloud/cce-install-with-helm/)
 
-了解在华为云 CCE 集群中，部署 Rainbond 的最佳实践，以及各类云服务资源的建议。这种安装方式支持高可用部署。
+Learn about best practices in deploying Rainbond in the CCE cluster of China and proposals for various cloud services resources.This installation supports high-availability deployment.
