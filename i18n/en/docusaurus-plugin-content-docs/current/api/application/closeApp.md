@@ -2,7 +2,8 @@
 title: Close apps in batches
 ---
 
-## Basic Information
+## 基本信息
+
 This interface is mainly used to close applications in batches
 
 ```shell title="请求路径"
@@ -19,11 +20,11 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/close
 
 ## request parameters
 
-| name        | Location | type                                                        | required | Chinese name | illustrate |
-| ----------- | -------- | ----------------------------------------------------------- | -------- | ------------ | ---------- |
+| name                             | Location | type                                                        | required | Chinese name | illustrate |
+| -------------------------------- | -------- | ----------------------------------------------------------- | -------- | ------------ | ---------- |
 | team_id     | path     | string                                                      | Yes      |              | none       |
 | region_name | path     | string                                                      | Yes      |              | none       |
-| body        | body     | [TeamAppsCloseSerializers](#schemateamappscloseserializers) | no       |              | none       |
+| body                             | body     | [TeamAppsCloseSerializers](#schemateamappscloseserializers) | no       |              | none       |
 
 ## return result
 
@@ -53,6 +54,6 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/close
 
 ### Attributes
 
-| name        | type     | required | constraint | Chinese name | illustrate |
-| ----------- | -------- | -------- | ---------- | ------------ | ---------- |
+| name                             | type                                                         | required | constraint | Chinese name | illustrate |
+| -------------------------------- | ------------------------------------------------------------ | -------- | ---------- | ------------ | ---------- |
 | service_ids | [string] | false    | none       |              | none       |
