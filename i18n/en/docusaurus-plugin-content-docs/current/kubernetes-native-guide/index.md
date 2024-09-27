@@ -2,8 +2,8 @@
 title: Native Kubernetes Guide
 description: Migrating from Kubernetes to Rainbond.
 keywords:
-  - Yaml 指南
-  - Helm 指南
+  - Yaml Guide
+  - Helm Guide
   - Kubernetes
 ---
 
