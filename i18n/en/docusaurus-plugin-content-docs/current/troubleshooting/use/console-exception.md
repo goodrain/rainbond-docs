@@ -2,7 +2,7 @@
 title: Console troubleshooting
 description: This topic describes how to troubleshoot server exceptions on the Rainbond console
 keywords:
-- Rainbond Troubleshooting server exceptions
+  - Rainbond Troubleshooting server exceptions
 ---
 
 This article describes how to troubleshoot some warnings that pop up in the upper right corner when using Rainbond, for example: server-side exceptions.
@@ -17,7 +17,6 @@ When a problem occurs, check its log first, and troubleshoot the problem based o
 
 Go to **Platform Management -> Log -> Console Log** of the console, and troubleshoot problems according to the log.
 
-
 ## common problem
 
 ### Server exception
@@ -31,7 +30,7 @@ When the console log prompts `database is locked`, it means that the console dat
 ### Failed to get node list
 
 This problem indicates that the Node Labels of the Kubernetes cluster do not match, causing the console to fail to obtain the node list. By default, the `node-role.kubernetes.io/worker=true node-role.kubernetes.io/master=true` label is used to distinguish nodes Role, check whether the node label is correct:
-  
+
 ```bash
 kubectl get nodes --show-labels
 ```
@@ -49,19 +48,19 @@ There is a component failure on the platform management home page, for example: 
 1. The collection of monitoring data is not timely, resulting in incorrect data, which leads to component failure.
 2. If the component does fail, you can check the component log to troubleshoot the problem.
 
-  ```bash
-  # Check if the component status is running
-  kubectl get pod -n rbd-system
+```bash
+# Check if the component status is running
+kubectl get pod -n rbd-system
 
-  # View component logs
-  kubectl logs -fl name=rbd-chaos -n rbd-system
-  ```
+# View component logs
+kubectl logs -fl name=rbd-chaos -n rbd-system
+```
 
 3. The component works normally, but the alarm of component failure keeps appearing, which can be solved by restarting the component as follows:
 
-  ```bash
-  kubectl delete pod -l name=rbd-chaos -n rbd-system
-  ```
+```bash
+kubectl delete pod -l name=rbd-chaos -n rbd-system
+```
 
 ### Unable to view component real-time logs
 
@@ -74,10 +73,11 @@ Troubleshooting method:
 
 1. Check the Websocket address, **Platform Management -> Cluster -> Edit Cluster** Check the Websocket address, whether the local can communicate with this address.
 2. Check whether the rbd-eventlog service is normal. If not, check the service log or try to restart the component.
-  ```bash
-  # View component status
-  kubectl get pod -l name=rbd-eventlog -n rbd-system
 
-  # restart the component
-  kubectl delete pod -l name=rbd-eventlog -n rbd-system
-  ```
+```bash
+# View component status
+kubectl get pod -l name=rbd-eventlog -n rbd-system
+
+# restart the component
+kubectl delete pod -l name=rbd-eventlog -n rbd-system
+```
