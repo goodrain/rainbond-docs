@@ -23,7 +23,7 @@ After successful addition, the following certificate information will be display
 | ------------------- | ------------------------------------------ |
 | certificate name    | custom name                                |
 | Certificate address | Domain name issued by the certificate      |
-| 过期时间                | when the certificate expires               |
+| Expiration time     | when the certificate expires               |
 | Certificate type    | Server certificate or client certificate   |
 | Certificate source  | Third-party issued or automatically issued |
 | operate             | Edit certificate                           |
