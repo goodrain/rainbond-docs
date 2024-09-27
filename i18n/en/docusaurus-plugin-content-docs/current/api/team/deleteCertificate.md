@@ -2,7 +2,7 @@
 title: delete certificate
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to delete the certificate
 
@@ -14,8 +14,8 @@ DELETE /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 | name                                | Location | type   | required | Chinese name | illustrate |
 | ----------------------------------- | -------- | ------ | -------- | ------------ | ---------- |
-| team_id        | path     | string | Yes      |              | none       |
-| certificate_id | path     | string | Yes      |              | none       |
+| team_id        | Path     | String | Yes      |              | none       |
+| certificate_id | Path     | String | Yes      |              | none       |
 
 ## return result
 
