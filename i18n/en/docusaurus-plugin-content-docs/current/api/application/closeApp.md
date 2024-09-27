@@ -2,7 +2,7 @@
 title: Close apps in batches
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to close applications in batches
 
