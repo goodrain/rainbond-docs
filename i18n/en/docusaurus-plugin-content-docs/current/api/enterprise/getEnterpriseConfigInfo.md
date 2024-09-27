@@ -2,7 +2,7 @@
 title: Get enterprise configuration information
 ---
 
-## 基本信息
+## basic information
 
 Get enterprise configuration information
 
