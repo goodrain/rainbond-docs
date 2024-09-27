@@ -2,7 +2,7 @@
 title: Get a list of app access policies
 ---
 
-## 基本信息
+## basic information
 
 Get a list of app access policies
 
