@@ -1,6 +1,6 @@
 ---
 title: Other problems
-descrition: 介绍 Rainbond 使用过程中的其他问题排查思路
+descrition: Description of other issues in the use of Rainbond
 keywords:
   - Rainbond Troubleshooting
 ---
@@ -36,42 +36,42 @@ nfs-provisioner-0 1/1 Running 1 (13h ago) 6d21h 10.42.0.228 192.168.3.33 <none> 
 View the storage directory of `nfs-provisioner`:
 
 ```bash
-du -sh /opt/rainbond
+du -sh/opt/rainbond
 ```
 
 You can increase the disk space for the `/opt/rainbond` directory, or mount `/opt/rainbond` to other disks through soft links.
 
-## Nacos 获取不到配置
+## Nacos is not configured
 
-在使用 Nacos 作为配置中心时，如果遇到获取不到配置的情况，即得到的配置为 null，则可能是因为 RainBond 和 Nacos 都使用了租户的概念，共用了环境变量 [TENANT_ID](https://www.rainbond.com/docs/use-manual/component-manage/env/advanced-env) 导致的。
-可通过如下方式来解决：
+When using Nacos as a config centre, it is possible to obtain null, because RainBond and Nacos both use the tenant concept and share the environmental variable [TENANT_ID](https://www.rainbond.com/docs/use-manual/component-manage/env/advanced-env).
+Solve： by
 
-- 首选方案：设置 `isUseCloudNamespaceParsing` 为 false 。`isUseCloudNamespaceParsing` 可以是配置项、JVM 参数或环境变量。
-- 其次方案：设置 `nacos.use.cloud.namespace.parsing` 为 false 。`nacos.use.cloud.namespace.parsing` 可以是配置项、JVM 参数或环境变量。
+- Preferred option：sets `isUseCloudNamespaceParsing` to false.`isUseCloudNameParsing` can be a configuration, a JVM parameter or an environment variable.
+- Its sub-scenario：sets `nacos.use.cloud.namespace.parsing` to false.`nacos.use.cloud.namespace.parsing` can be a configuration, a JVM parameter or an environment variable.
 
-如果你使用 Spring Cloud Alibaba Nacos，则可以使用如下配置方式：
+If you use Spring Cloud Alibaba Nacos, you can use the following configuration method：
 
 ```yaml
 spring:
   cloud:
     nacos:
-      server-addr: 127.0.0.1:8848
+      server-addr: 127.0.0. :8848
       discovery:
-        # 禁用云命名空间解析，防止和 RainBond 提供 TENANT_ID 环境变量冲突
+        # Disable cloud namespace parsing, Stop and RainBond provide TENANT_ID environment variable conflict
         isUseCloudNamespaceParsing: false
       config:
-        # 禁用云命名空间解析，防止和 RainBond 提供 TENANT_ID 环境变量冲突
+        # Disable cloud namespace parsing; Stop and RainBond provide TENANT_ID environmental variable conflict
         isUseCloudNamespaceParsing: false
 ```
 
-更多分析细节，详见 [RainBond 中获取不到 Nacos 配置 - 深度分析](https://blog.csdn.net/u012383839/article/details/135115269?spm=1001.2014.3001.5501)。
+For more analysis, see [Not Nacos Configuration - Deep Analysis in RainBond [https://blog.csdn.net/u0123839/article/details/135115269?spm=1001.2014.3001.5501).
 
-### 历史日志存储不足
+### Logs are not stored
 
-默认情况下，每个组件默认只会保存 10M 大小的历史日志，如果你需要保存更多的历史日志，可以通过修改组件的环境变量 `LOG_MAX_SIZE` 来设置，默认单位为 MB。
+By default, each component will only save the 10M size history log. If you need to save more history logs, it can be set by modifying the component environment variable `LOG_MAX_SIZE`, default unit is MB.
 
 ```yaml title='kubectl edit rbdcomponent rbd-eventlog -n rbd-system'
-spec:
+speci:
   env:
   - name: LOG_MAX_SIZE
     value: 20
