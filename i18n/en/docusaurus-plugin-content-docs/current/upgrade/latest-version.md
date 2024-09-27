@@ -2,47 +2,47 @@
 title: Upgrade Rainbond
 Description: Describes the Rainbond upgrade via host installation and Helm installation
 keywords:
-  - Rainbond 版本升级
+  - Rainbond version upgrade
 ---
 
-import Tabs from '@theme/Tabs';
+Import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs groupId="upgrade">
 
   <TabItem value="quick" label="快速安装" default>
 
-本栏介绍通过快速安装的 Rainbond 升级到最新版本。
+This column provides an update to the latest version through quick installation of Rainbond
 
 :::caution
-从 v5.14.0 版本开始，支持快速安装的 Rainbond 单机版本升级。
+Upgrades are supported for quick installation of Rainbond single-machine versions starting with v5.14.0 versions.
 :::
 
-1. 删除旧版本运行中的镜像。
+1. Delete the active mirror of the old version.
 
 ```bash
 docker rm -f rainbond-allinone 
 ```
 
-2. 按照升级的版本执行 SQL
+2. Execute SQL by upgrade version
 
 <details>
-  <summary> 5.14.0 开始升级所需 SQL 汇总</summary>
+  <summary> 5.14.0 start upgrading required SQL summary</summary>
   <div>
 
 ```bash
 docker exec -ti rainbond-allinone bash
 ```
 
-根据自己所跨版本执行升级 sql。
+Upgrade sql based on your own cross-version.
 
-- v5.14.1 --> v5.14.2
+- v5.14.1 -> v5.14.2
 
 ```bash
 curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
 ```
 
-- v5.15.3 --> v5.16.0
+- v5.15.3 -> v5.16.0
 
 ```bash
 curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
@@ -51,18 +51,18 @@ curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
   </div>
 </details>
 
-3. 拉取新版本镜像运行
+3. Pull new version of mirrors to run
 
-- 升级到最新版本
+- Upgrade to the latest version
 
 ```bash
-curl -o install.sh https://get.rainbond.com && bash ./install.sh
+curl -o install.sh https://get.rainbond.com && cash ./install.sh
 ```
 
-- 升级到指定版本
+- Upgrade to specified version
 
 ```bash
-curl -o install.sh https://get.rainbond.com && VERSION=<指定的版本> bash ./install.sh
+curl -o install.sh https://get.rainbond.com && VERSION=<Designated Version > brah./install.sh
 ```
 
 版本格式为：`v5.15.0`、`v5.16.0`、`v5.17.0`、`v5.17.1`、 `v5.17.2`
@@ -71,117 +71,117 @@ curl -o install.sh https://get.rainbond.com && VERSION=<指定的版本> bash ./
 
   <TabItem value="" label="主机或 Helm">
 
-本栏介绍通过主机安装和通过 Helm 安装的 Rainbond 升级到最新版本。
+This column shows the latest version of Rainbond, installed via host and via Helm.
 
-## 从最近的版本升级到 v5.17.3
+## Upgrade to v5.17.3 from the latest version
 
-如果您的 Rainbond 版本是 `v5.17.0`，则可以通过以下方式进行升级。
+If your Rainbond version is `v5.17.0`, you can upgrade by the following means.
 
-### 控制台升级
+### Console Upgrade
 
-通过 Helm 安装的控制台 `rbd-app-ui` 是以 POD 方式运行在 Kubernetes 集群中的，不需要在此步操作。
+The `rbd-app-ui` installed via Helm is running as POD in the Kubernetes cluster and does not need to do this step.
 
-#### Allinone 控制台
+#### Alline Console
 
-通过 `docker run` 启动的控制台升级方式如下：
+Console upgrades enabled by `docker run` are as follows：
 
-1. 更换 Allinone 镜像
+1. Change Alline Image
 
 ```bash
-docker stop rainbond-allinone && docker rm rainbond-allinone
-#该命令参数需要和之前启动的rainbond-allinone容器一致
-docker run -d -p 7070:7070 -v ~/.ssh:/root/.ssh -v ~/rainbonddata:/app/data \
---name=rainbond-allinone --restart=always \
+Docker op rainbond-allinone && docker rm rainbond-allinone
+#This command parameter needs to match the previously launched rainbond-allinone container
+docker run -d -p 70:70-v ~/.ssh:/root/. sh -v ~/rainbonddata:/app/data \
+--name=rainbond-allinone --restore=always \
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.3-release-allinone
 ```
 
-### 集群端升级
+### Cluster Upgrades
 
-安装 [grctl](/docs/ops-guide/tools/grctl) 命令并执行以下升级操作
+Install [grctl](/docs/ops-guide/tools/grctl) commands and perform the following upgrades
 
 ```bash
-# 替换基础 region 镜像版本
+# Replace base region mirror version
 grctl cluster upgrade --new-version=v5.17.3-release
 
-# 手动替换 operator 镜像版本为 v5.17.3-release
-kubectl edit deploy rainbond-operator -n rbd-system
+# Manually replace operator version v5.17.3-release
+kubectl edit ploy rainbond-operator-n rbd-system
 ```
 
-#### 升级 builder 和 runner 镜像
+#### Upgrading build and runner mirrors
 
-获取最新镜像，并修改 Tag
+Get the latest mirror, and modify the Tag
 
 ```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.3-release
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.3-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder: v5.17.3-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner: v5.17.3-release
 
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.3-release goodrain.me/builder:latest-{架构:arm64/amd64}
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.3-release goodrain.me/runner:latest-{架构:arm64/amd64}
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder: v5.17.3-release goodrain.me/builder: -latest{structure: arm64/amd64}
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.3-release godrain.me/runner:-{structure: arm64/amd64}
 ```
 
-推送镜像到私有仓库，参阅[推送镜像到私有仓库](/docs/ops-guide/component/rbd-hub#向集群私有镜像仓库推送镜像)
+Push mirrors to private warehouses, see[推送镜像到私有仓库](/docs/ops-guide/component/rbd-hub#Push mirrors to cluster private mirrors warehouse)
 
 ```bash
-如果是双架构则需要 amd64和arm64 都推
----------------------------------
-docker push goodrain.me/builder:latest-{架构:arm64/amd64}
-docker push goodrain.me/runner:latest-{架构:arm64/amd64}
+If both structures are needed, amd64 and arm64 both tweeting
+----------------------
+docker push goodrain.me/builder: latest-{structures:arm64/amd64}
+docker push goodrain.me/runner:-{Structure: arm64/amd64}
 ```
 
-## 跨版本升级到 v5.17.3
+## Upgrade to v5.17.3
 
-跨版本升级步骤如下:
+The cross-version upgrade steps are as follows:
 
-1. 执行每个版本的升级 SQL 脚本。
+1. Performs an upgrade SQL script for each version.
 2. 更新每个版本所需要的 CRD 资源，目前只有 [v5.11.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.11.0-upgrade#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)、[v5.12.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.12.0-upgrade#%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90) 需要更新 CRD 资源。
-3. 升级控制台镜像版本以及集群端镜像版本，按照 [从最近的版本升级到 v5.17.3](#从最近的版本升级到-v5173) 的步骤进行升级控制台镜像以及集群端镜像。
-4. 升级 builder 和 runner 镜像，按照上述的 [升级 builder runner 镜像](#升级-builder-和-runner-镜像) 的步骤进行升级 builder 和 runner 镜像。
+3. Upgrade the console mirror version and the cluster mirror version to upgrade the console mirror and the cluster mirror by [upgrading from the latest version to v5.17.3](#upgrade from the latest version to -v5173).
+4. Upgrades builder and runner mirrors, update builder and runner mirrors according to the steps described above (#Upgrade - builder-and -runner-mirror).
 
 <details>
-  <summary>例如：您现在的版本处于 v5.10.0</summary>
+  <summary>eg:：Your current version is v5.10.0</summary>
   <div>
 
-1. 先执行每个版本所需要的 SQL 升级脚本。
+1. Execute the SQL upgrade script required for each version.
 
 ```bash
-# 进入控制台容器内
+# Enter the Container of
 docker exec -it rainbond-allinone bash
 
-# 在控制台容器内执行 5.10.1 版本升级SQL
+# Upgrade SQL
 curl https://get.rainbond.com/upgrade-5.10.1.sh | bash
 
-# 在控制台容器内执行 5.11.0 版本升级SQL
+# Execute 5.11 in the Container Container. Version upgrade SQL
 curl https://get.rainbond.com/upgrade-5.11.0.sh | bash
 
-## 5.12.0 无 SQL 升级
+## 5.12.0 No SQL Upgrade
 
-## 5.13.0 无 SQL 升级
+## 5. 3.0 No SQL Upgrade
 
-## 5.14.0 无 SQL 升级
+## 5.14.0 No SQL Upgrade
 
-## 5.14.1 无 SQL 升级
+## 5.14.1 No SQL Upgrade
 
-# 在控制台容器内执行 5.14.2 版本升级SQL
+# Executes 5.14 in the Container Container. Version upgrade SQL
 curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
 
-# v5.15.0 无 SQL 升级
+# v5.15.0 No SQL Upgrade
 
-# v5.15.1 无 SQL 升级
+# v5. 5.1 No SQL Upgrade
 
-# v5.15.2 无 SQL 升级
+# v5.15.2 No SQL Upgrade
 
-# v5.15.3 无 SQL 升级
+# v5.15.3 No SQL Upgrade
 
-# 在控制台容器内执行 5.16.0 版本升级SQL
+# Executes 5 in the Console Container. 6.0 Upgrade SQL
 curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
 
-# v5.17.0 无 SQL 升级
+# v5.17. No SQL Upgrade
 
-# v5.17.1 无 SQL 升级
+# v5.17.1 No SQL Upgrade
 
-# v5.17.2 无 SQL 升级
+# v5.17.2 No SQL Upgrade
 
-# v5.17.3 无 SQL 升级
+# v5.17.3 No SQL Upgrade
 ```
 
 2. 更新 CRD 资源 [v5.11.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.11.0-upgrade#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)、[v5.12.0](https://v5.12-docs.rainbond.com/docs/upgrade/5.12.0-upgrade#%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90)。
@@ -192,12 +192,12 @@ curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
 </details>
 
 :::tip
-如果您处于更低的版本，请参阅每个版本的[升级文档](/docs/versions)，按照上述操作执行即可。
+If you are in a lower version, see each version of[升级文档](/docs/versions), do it as above.
 :::
 
   </TabItem>
 </Tabs>
 
-## 版本变更日志
+## Version Change Log
 
-您可以在 [历史版本变更日志](/changelog) 中查看每个版本的具体变更内容。
+You can view the specific changes in each version in [历史版本变更日志](/changelog).
