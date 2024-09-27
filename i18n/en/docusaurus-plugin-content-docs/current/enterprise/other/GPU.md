@@ -1,32 +1,32 @@
 ---
-title: GPU共享支持
+title: GPU shared support
 description: GPU share
 keywords:
-  - GPU共享
+  - GPU Sharing
   - GPU share
 ---
 
-GPU共享支持是指多个用户可以共享同一个GPU资源，而不是每个用户都需要独立的GPU资源。这种共享支持通常由GPU虚拟化技术实现，这种技术可以将一个物理GPU分割成多个虚拟GPU，每个虚拟GPU都可以被分配给一个不同的用户。
+GPU shared support means that multiple users can share the same GPU resource, not that each user needs separate GPU resources.This sharing support is usually implemented by GPU virtualization technology that divides a physical GPU into multiple virtual GPU, each of which can be assigned to a different user.
 
-## 主要功能
+## Main features
 
-### 节省成本
+### Cost savings
 
-- 多个用户可以共享同一个GPU，这样就可以节省硬件成本，同时也减少了能源消耗和维护成本。
+- Multiple users can share the same GPU, thereby saving hardware costs while reducing energy consumption and maintenance costs.
 
-### 提高资源利用率
+### Improved utilization of resources
 
-- 如果一个GPU只被一个用户使用，那么在大部分时间里这个GPU将处于闲置状态。但是如果多个用户共享同一个GPU，那么GPU的利用率就会提高，可以更好地满足多个用户的需求。
+- If a GPU is used by only one user, the GPU will be idle for most of the time.But if multiple users share the same GPU, its utilization will increase and better meet the needs of more than one user.
 
-### 提高性能
+### Improve Performance
 
-- 由于GPU虚拟化技术可以将一个物理GPU分割成多个虚拟GPU，每个虚拟GPU都可以被分配给一个不同的用户。这意味着在同一个GPU上运行的不同任务可以并行执行，从而提高整体性能。
+- Since GPU virtualization technology allows a physical GPU to be split into multiple virtual GPU, each virtual GPU can be assigned to a different user.This means that different tasks that operate on the same GPU can be carried out in parallel, thus enhancing overall performance.
 
-### 便于管理
+### Easy to manage
 
-- GPU虚拟化技术可以提供更灵活的资源管理，管理员可以为不同的用户分配不同的虚拟GPU，可以根据用户需求随时增加或减少虚拟GPU数量。同时也可以提供更好的监控和管理工具，方便管理员对GPU资源进行管理和维护。
+- The GPU virtualization technology provides more flexible resource management, and administrators can assign different virtual GPUs to different users and can increase or reduce the number of virtual GPUs at any time depending on the user's needs.Better monitoring and management tools could also be provided to facilitate the management and maintenance of GPU resources by administrators.
 
-## 使用手册
+## Manual
 
-想要在集群中使用 GPU，需要进行一些额外的配置操作，首先需要在每个节点安装GPU驱动程序和Docker或其他容器运行时的GPU支持组件，然后需要将GPU资源添加到Kubernetes集群中的资源池中。接下来，您需要在容器的Pod定义文件中指定GPU请求和限制，以便Kubernetes可以对容器的GPU资源使用进行管理和控制。
-而使用 Rainbond 平台可以直接通过可视化界面对 GPU 进行资源管理，支持组件设置需要的 GPU，为其智能分配，非常方便。
+To use GPU in a cluster, some additional configuration actions are required, first to install GPU drives and GPU support components at each node when Docker or other containers are running, and then to add GPU resources to the resource pool in the Kubernetes cluster.Next, you need to specify GPU requests and restrictions in the Pod definition file of the container, so that Kubernetes can manage and control the use of the container's GPU resources.
+Using the Rainbond platform allows resource management directly via the visualization community of the GPU, supports the components setting up the required GPU for their intelligent allocation.
