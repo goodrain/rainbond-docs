@@ -1,13 +1,13 @@
 ---
 title: K8s Dashboard
-description: 基于 K8s Dashboard 界面查看集群资源
+description: View cluster resources based on the K8s Dashboard interface
 keywords:
   - Kubernetes Dashboard
   - Rainbond Kubernetes Dashboard
 ---
 
-Rainbond 内置了 Kubernetes Dashboard，可以通过 Kubernetes Dashboard 界面查看集群资源状态。
+Rainbond has built-in Kubernetes Dashboard to view the status of cluster resources through the Kubernetes Dashboard interface.
 
-## 访问 K8s Dashboard
+## Visit K8s Dashboard
 
-进入 **平台管理 -> 集群**，跳转到集群管理页面，点击 **集群监控**，进入 Kubernetes Dashboard 界面。
+Go to **Platform Manager -> Cluster**,jump to the cluster management page, click **Cluster Monitor** to enter the Kubernetes Dashboard interface.
