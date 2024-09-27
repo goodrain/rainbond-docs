@@ -4,92 +4,92 @@ description: Rainbond integrates SkyWalking with plug-ins to implement APM plug 
 keywords:
   - SkyWalking
   - APM
-  - SkyWalking 链路追踪
+  - SkyWalking Link Tracking
 ---
 
-SkyWalking 是一个开源可观察性平台，用于收集、分析、聚合和可视化来自服务和云原生基础设施的数据。支持分布式追踪、性能指标分析、应用和服务依赖分析等；它是一种现代 APM，专为云原生、基于容器的分布式系统而设计。
+SkyWalking is an open-source observable platform for the collection, analysis, aggregation and visualization of data from services and cloud-origin infrastructure.Supporting distributive tracking, performance indicator analysis, application and service dependence, etc. It is a modern APM designed for cloud based and container-based distribution systems.
 
-Rainbond是一个开源的云原生应用管理平台，使用简单，不需要懂容器和Kubernetes，支持管理多个Kubernetes集群，提供企业级应用的全生命周期管理，功能包括应用开发环境、应用市场、微服务架构、应用持续交付、应用运维、应用级多云管理等。
+Rainbond, an open source endogenous application management platform that uses simple and no knowledge of containers and Kubernetes, supports the management of multiple Kubernetes clusters and provides life-cycle management for enterprise-level applications, including applications to develop the environment, application markets, micro-service architecture, application continuum delivery, application vization, application multicloud management, etc.
 
-本文整合的目标要达成，运行在Rainbond上的应用，通过开启Rainbond的SkyWalking插件，自动对接SkyWalking Server，灵活开启APM，不需要时关闭插件，实现即插即用的APM。
+The purpose of this integration is to achieve, run on Rainbond, automatically switch over SkyWalking Server by opening the SkyWalking plugin for Rainbond, flexible opening of the APM, closing plugins when you do not need to do it.
 
-## 整合架构
+## Integrate architecture
 
-SkyWalking对服务进行监控时服需要在被监控服务中启用agent服务，而SkyWalking agent需要配置到应用的启动命令，虽然对应用代码无侵入，但配置过程需要侵入应用。Rainbond通过插件实现对应用的无侵入，将SkyWalking的agent制作成Rainbond的 [初始化类型插件](https://www.rainbond.com/docs/get-start/concept/plugin/)，在应用容器启动之前将agent的jar包拷贝到应用容器，应用容器就能加载agent并连接SkyWalking Server，整个过程对应用容器无侵入，且拓展性强。对接其他APM也可以用类似方式，使用用户通过替换插件实现对接不同的APM工具。
+SkyWalking's service needs to be enabled in the monitored service while SkyWalking agent needs to be configured to the app launch command, although there is no intrusion on the application code, the configuration process needs to invade the application.Rainbod implements no-intrusion into the app by making SkyWalking's agent into Rainbond [初始化类型插件](https://www.rainbond.com/docs/get-start/concept/plugin/) and copying agent’s jar package to the app container before the application container starts so that it can load agent and connect to SkyWalking Server, the process is free and extensive.Other APMs can be used in a similar way, using users to implement different APM tools by replacing plugins.
 
-下图展示了在Rainbond中使用SkyWalking对应用进行监控的结构
+The graph below shows the structure of using SkyWalking's app monitoring in Rainbond
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/practices/skywalking/SkyWalking-Rainbond.png)
 
-## Agent插件实现原理
+## How Agent plugin works
 
-Rainbond插件体系是相对于Rainbond应用模型的一部分，插件主要用来实现应用容器扩展运维能力。由于运维工具的实现有较大的共性，因此插件本身可以被复用。插件必须绑定到应用容器时才具有运行时状态，用以实现一种运维能力，比如性能分析插件、网络治理插件、初始化类型插件。
+The Rainbod plugin system is part of the application model relative to Rainbond, which is primarily used to support the extension of the application container.Since there is greater commonality in the delivery of the tools, the plugin itself can be reused.Plugins must be bound to the application container in order to be operational in order to achieve a performance capability such as performance analysis plugin, network governance plugin, initialization type plugin.
 
-具有运行时的插件的运行环境与所绑定的组件从以下几个方面保持一致：
+Running environments with running plugins match the bound components with： in the following
 
-- **网络空间** 这个一个至关重要的特性，网络空间一致使插件可以对组件网络流量进行旁路监听和拦截，设置组件本地域名解析等。
-- **存储持久化空间** 这个特性使得插件与组件之间可以通过持久化目录进行文件交换。
-- **环境变量** 这个特性使得插件可以读取组件的环境变量。
+- **Cyberspace** is a critical feature that allows plugins to listen and intercept component network traffic, set component local domain name parsing etc.
+- **Storage Persistent Space** this feature allows file exchange between plugins and components via persistent directory.
+- **Environment variables** this feature allows the plugin to read the environment variable of the component.
 
-SkyWalking与Rainbond融合的过程中，我们使用到了**初始化类型**插件，顾名思义这是一个在应用容器启动前能够进行初始化动作的的插件，其基本原理是利用 Kubernetes 的 [init容器](https://kubernetes.io/zh/docs/concepts/workloads/pods/init-containers/) 实现的，Pod能够包含多个容器，应用运行在这些容器里面，同时Pod也能够有一个或者多个先于应用容器启动的init容器，只有init容器运行成功后才会运行应用容器，在Rainbond中开通了该类型插件的组件会在应用容器启动之前运行插件中已定义的任务直至完成。所以只需定义在应用容器启动前，使用初始化类型容器将agent所需数据拷贝至对应目录下，这样后续服务则可以直接使用这些数据。
+SkyWalking's integration with Rainbond, we use **Initialization Type** plugins which, by definition, are a plugin capable of initializing before the application starts and whose rationale is based on [init容器](https://kubernetes.io/en/docs/concepts/workloads/init-containers/) that Pod can contain multiple containers where the application can run and Pod can also have one or more init containers that can be activated only when init runs successfully, and components of that type will run the application until the task is defined in the plugin before the application starts.So simply define the use of initialization type containers to copy agent-specific data to the corresponding directory before the application can start, so that the data can be used directly by the follow-up service.
 
-## 通过 Rainbond 一键安装 SkyWalking
+## Install SkyWalking via Rainbond one click
 
-我们已将 SkyWalking 制作为应用并发布至应用市场，用户可基于开源应用商店一键安装。
+We have made SkyWalking app and posted to the Marketplace. Users can install it on the open source store by one button.
 
-1. 安装 [Rainbond](https://www.rainbond.com/docs/quick-start/quick-install/);
-2. 在开源应用商店搜索SkyWalking，点击安装即可一键安装；
-   3.安装完成，后续可通过Rainbond管理和运维SkyWalking。
+1. Install [Rainbond](https://www.rainbond.com/docs/quick-start/quick-install/);
+2. Searching for SkyWalking, in the open source shop, by clicking on the installation;
+   3. Installation is complete and can be followed by Rainbod management and shipping SkyWalking.
 
-SkyWalking 服务端在架构上分为四个部分：探针服务、后端服务、存储服务和 UI：
+SkyWalking server is divided into four parts of：exploration service, backend service, storage service and UI：
 
-- **平台后端(oap-server)** 支持数据聚合、分析和流处理，包括跟踪、指标和日志。
-- **存储(elasticsearch-7.13.4)** 通过开放/可插拔接口存储SkyWalking 数据。支持 ElasticSearch、H2、MySQL、TiDB、InfluxDB。
-- **UI(skywalking-ui)** 是高度可定制的基于 Web 的界面，允许 SkyWalking 最终用户可视化和管理 SkyWalking 数据。
-- **探针(agent)** 收集数据并根据 SkyWalking 要求重新格式化数据（不同的探针支持不同的来源）。
+- **Platform backend (oap-server)** supports data aggregation, analysis and flow processing, including tracking, indicators and logs.
+- **Storage (elasticsearch-7.13.4)** Store SkyWalking data through open/plug interfaces.Support ElasticSearch, H2, MySQL, TiDB, InfluxDB.
+- **UI(Skywalking-ui)** is a highly customizable Web-based interface, allowing SkyWalking end-user visualization and management of SkyWalking data.
+- **Agent** collect data and reformat data based on SkyWalking (different propositions support different sources).
 
-## 使用 SkyWalking 对服务进行监控
+## Monitor services using SkyWalking
 
-### 准备环境
+### Preparing environment
 
-拥有一套被监控服务，可参考 [部署Spring Cloud Pig](/docs/micro-service/example/pig)
+Have a monitored service with reference to [deploy Spring Cloud Pig](/docs/microservice/example/pig)
 
-### 配置 SkyWalking Agent 插件
+### Configure SkyWalking Agent plugin
 
-**安装插件**
+**Install Plugins**
 
-- 在 Rainbond 团队界面 —> 插件 -> 从应用市场安装插件 -> 搜索 `skywalking-agent` 并安装
+- Installing `skywalking-agent` on Rainbond team interfaces -> Plugins -> Install from Marketplace
 
-**开通插件**
+**Open Plugins**
 
-- 在每个组件内 -> 插件 -> 开通插件。
+- In each component -> Plugins -> Open Plugin.
 
-**添加环境变量**
+**Add Environment Variable**
 
-为每个组件添加环境变量
+Adds environment variables for each component
 
 ```bash
 JAVA_OPTS=-Dskywalking.agent.service_name=backend -javaagent:/tmp/agent/skywalking-agent.jar -Dskywalking.collector.backend_service=${OAP_HOST}:11800
 ```
 
-|                                                          变量值                                                          | 简介                                                |
-| :-------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------ |
-|               -Dskywalking.agent.service_name=\*\*               | 在SkyWalking UI中展示的服务名                             |
-| -Dskywalking.collector.backend_service=Host:Port | SkyWalking oap-server的访问地址，用来接收skywalking trace数据 |
-|                       -javaagent:/tmp/agent/skywalking-agent.jar                      | 指定需要注入的jar包地址                                     |
+|                                                     Variable value                                                    | Introduction                                                       |
+| :-------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------- |
+|               -Dskywalking.agent.service_name=\*\*               | Name of service displayed in SkyWalking UI                         |
+| -Dskywalking.collector.backend_service=Host:Port | SkyWalking oap-server's access address to receive skywalkback data |
+|                       -javaagent:/tmp/agent/skywalking-agent.jar                      | Specify the jar package address to inject                          |
 
-- 建立依赖关系
+- Create Dependencies
 
-将需要监控的各组件建立与 `SkyWalking oap-server` 服务的依赖关系，使其能够通过 `127.0.0.1` 的地址连接 `oap-server` 或者开启 `oap-server` 的对外地址，在被监控端填写该地址，则无需建立依赖关系。
+A dependency of the `SkyWalking oap-server` service will be established for each component to be monitored so that it can connect to `oap-server` via the address `127.0.0.1` or enable `oap-server` to fill that address at the controlled end without creating dependency.
 
-### 访问 SkyWalking
+### Visit SkyWalking
 
-访问 `skywalking-ui` 对外端口，进入可视化界面。
+Visit the external port `skywalking-ui` to enter the visualization interface.
 
-- 仪表盘
+- Dashboard
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/practices/skywalking/skywalking-page.png)
 
-- 服务调用拓扑图
+- Service call topography
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/practices/skywalking/Service-Topology.jpg)
