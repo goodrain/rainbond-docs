@@ -2,7 +2,7 @@
 title: Create an app
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to create applications
 
@@ -50,7 +50,7 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps
 | app_store_name    | string¦null                          | false    | none       | App store name    | app store name              |
 | app_store_url     | string¦null                          | false    | none       | App store url     | App store URL               |
 | app_template_name | string¦null                          | false    | none       | App template name | Basic Information           |
-| version                                                     | string¦null                          | false    | none       | Version           | Helm app version            |
+| Version                                                     | string¦null                          | false    | none       | Version           | Helm app version            |
 | logo                                                        | string¦null                          | false    | none       | Logo              | application logo            |
 | k8s_app                                | string                               | false    | none       | K8s app           | In-cluster application name |
 
