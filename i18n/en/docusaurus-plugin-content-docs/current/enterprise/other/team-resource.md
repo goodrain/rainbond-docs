@@ -1,46 +1,46 @@
 ---
-title: 团队资源配额
-description: 介绍如何为团队分配资源限额。
+title: Group Resource Quota
+description: Provide information on how to allocate resource limits to teams.
 keywords:
-  - 团队资源配额
+  - Group Resource Quota
   - Team Resource Quota
 ---
 
-在 rainbond 平台使用中，为了更好的管理和分配资源，在团队层面增加了资源配额功能，设置团队可以使用的 CPU 或者内存大小。
+In the use of the rainbond platform, in order to better manage and allocate resources, resource quota features have been added at the team level, setting the CPU or memory size that the team can use.
 
-## 目的
+## Purpose
 
-为每一个团队设置资源配额，可以确保该团队只能使用分配给它们的资源，从而防止各个团队之前互相影响。
+The establishment of resource quotas for each team ensures that the team can only use the resources allocated to it, thereby preventing interaction among the various teams before doing so.
 
-在某些情况下，您可能希望限制整个集群中使用的资源总量，通过给团队设置资源配额，可以保证每个团队不会超过其允许使用的资源总量，来控制整个集群的资源使用量。
+In some cases, you may wish to limit the total amount of resources used in the entire cluster. By setting a resource quota for the team, you can ensure that each team does not exceed the amount of resources it is allowed to use, to control the use of the entire cluster.
 
-如果团队中某个的应用程序或者服务占用过多的资源，可能会导致其它团队中应用程序或者服务无法正常工作。通过设置团队配额，可以确保所有组件占用资源不超过限制，从而防止对其它团队
-造成影响。
+If an application or service in a team takes too much resources, it may result in other team apps or services not working properly.By setting team quotas, it is possible to ensure that all components do not take up resources beyond the limit, thus preventing any impact on other team
+.
 
-## 主要功能
+## Main features
 
-控制资源使用：命名空间资源配额可以帮助管理员控制在特定命名空间中使用的资源量，以避免过度使用导致应用程序或系统出现故障或崩溃。
+Controlling resources using：namespace quotas can help admins control the amount of resources used in specific namespace to avoid excessive use leading to failures or crashes in an application or system.
 
-分配资源：命名空间资源配额可以确保每个命名空间中的应用程序都有足够的资源来运行，并在资源不足时限制使用。
+Allocation of：namespace resource quotas ensures that every app in a namespace has enough resources to run and limits its use when resources are not available.
 
-限制资源泄漏：在多租户环境中，命名空间资源配额可以限制租户对系统资源的访问，并减少由于应用程序故障或恶意行为导致的资源泄漏。
+Limiting resources away from：in multi-tenant settings, naming space resource quotas can limit tenant access to system resources and reduce resource leakages due to application failures or malicious behaviour.
 
-优化资源使用：通过配置适当的资源配额，可以使管理员和开发人员更好地了解应用程序的资源使用情况，并更好地优化应用程序的资源使用。
+Optimizing the use of：to allow managers and developers to better understand the use of the application resources and to optimize the use of the application resources by allocating appropriate resource quotas.
 
-以下介绍如何配置以及配置后的效果
+The following description of how to configure and after the configuration
 
-## 使用手册
+## Manual
 
-1. `平台管理 -> 项目/团队`，选择需要资源配额的团队
+1. `Platform Manager -> Project/Team`, select team that needs resource quota
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/team-resource/team-resource.png)
 
-2. 设置 CPU 或则内存，默认值是0代表不限制。
+2. Set the CPU or its memory. The default value is 0 for no limit.
    ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/team-resource/quota.png)
 
-3. 当对组件进行创建、构建、启动、安装等操作的时候，如果内存或者 CPU超出团队剩余资源量，则会提示资源不足。
+3. When creating components, build, launch, install, install, install, install and more, if memory or CPU exceeds the amount of remaining team resources, prompt resources to run out.
 
-## 注意事项
+## Note
 
-团队设置资源配额之后，运行在该团队下的所有组件资源总和(CPU 和 内存)，不能超过配额限制。用户创建组件的时候，如果没有给组件设置CPU 和 内存，
-那么平台将会给组件设置默认值 `CPU=128m  内存=512Mi`，来确保一个组件不会垄断命名空间所有可用资源。
+When the team sets the resource quota, the sum of all component resources (CPU and memory) running under the team cannot exceed the quota limit.When a user creates a component, if CPU and memory are not set for a component,
+then the platform will set the component default `CPU=128m memory=512Mi` to ensure that a component does not monopolize all resources available in the namespace.
