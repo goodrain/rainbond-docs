@@ -2,15 +2,13 @@
 title: SonarQube static scan
 description: Statically scan Maven projects on Rainbond with SonarScanner
 keywords:
-- SonarQube 代码静态扫描
-- 代码静态扫描
+  - SonarQube 代码静态扫描
+  - 代码静态扫描
 ---
 
 对代码进行静态扫描是一种非常常见的代码质量保证手段，这种扫描不仅仅可以检查到代码中的缺陷，应用各种业界最佳实践，也可以检查出安全方面的漏洞，给予项目代码全方位的提升。在各种代码扫描方案之中，SonarQube 最为人熟知，应用最为广泛。各种持续集成方案都有自己的方式融入 SonarQube 进行代码的静态扫描工作。
 
 今天介绍一种基于 SonarScanner 在 Rainbond 源码构建过程中，对 Java Maven 项目进行静态扫描的方法。
-
-
 
 ## SonarScanner For Maven 简介
 
@@ -23,8 +21,6 @@ mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken
 ```
 
 在实际执行过程中， `myAuthenticationToken` 会被替代成为 SonarQube 中，某个实际用户自己生成的令牌。
-
-
 
 ## 融入持续集成链条
 
@@ -43,13 +39,9 @@ mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken
 
 接下来，将会从实际操作的角度出发，基于 Rainbond 一点点实现上述持续集成链条。
 
-
-
 ### 前提条件
 
 本文中介绍的包括了代码扫描的持续集成链条，都是基于 Rainbond 云原生管理平台实现的。所以需要用户自行准备可用的 Rainbond 环境，该环境需要连接公网，为使用开源应用商店做准备。
-
-
 
 ### 搭建 SonarQube
 
@@ -65,11 +57,7 @@ mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken
 
 访问 SonarQube 的对外服务端口，即可进入它的登录页面 ，默认的用户名和密码为： `admin / admin` 。
 
-
-
 > 如果用户还没有自己的代码仓库，也可以遵循相似的流程，基于开源应用商店安装 Gitlab。
-
-
 
 ### 生成 AuthenticationToken
 
@@ -82,8 +70,6 @@ mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken
 ![](https://static.goodrain.com/wechat/sonarqube/sonarqube-workflow-4.png)
 
 复制记录下创建出来的 `AuthenticationToken`  ，它只会出现一次！
-
-
 
 ### 从 Gitlab 构建 Maven 项目
 
@@ -103,9 +89,7 @@ Rainbond 可以基于 Oauth2.0 与 Gitlab 代码仓库对接，可以非常方�
 
 需要进行的设定包括：声明 SonarQube 服务的地址，对应账户的  `AuthenticationToken` ，以及添加了代码扫描步骤的构建命令。
 
-
-
-### 配置 Settings.xml 
+### 配置 Settings.xml
 
 SonarScanner 的一般性配置，包括 SonarQube 服务地址，以及  `AuthenticationToken`   都可以配置进 Settings.xml 全局配置，供 Java Maven 项目构建时使用。
 
@@ -140,8 +124,6 @@ Rainbond 在针对 Java Maven 类型的项目进行构建时，提供入口配�
 
 当然，用户也可以新建一份专用的 Settings.xml 配置，在我的环境中，我将这份配置命名为 `sonar-scanner`。全局配置只需要定义一次就可以了。
 
-
-
 ### 修改构建命令
 
 SonarScanner For Maven 通过在 mvn 命令中加入特定的参数来进行代码扫描。
@@ -152,9 +134,7 @@ SonarScanner For Maven 通过在 mvn 命令中加入特定的参数来进行代�
 clean verify sonar:sonar   -Dsonar.projectName=Maven-demo -Dsonar.projectKey=Maven-demo  install
 ```
 
-对于每一个不同的项目，需要自定义 ` -Dsonar.projectName` ` -Dsonar.projectKey ` 的值。前者定义了在 SonarQube 服务中，这个项目的名字，后者则定义了项目的唯一 ID。
-
-
+对于每一个不同的项目，需要自定义 ` -Dsonar.projectName` `-Dsonar.projectKey` 的值。前者定义了在 SonarQube 服务中，这个项目的名字，后者则定义了项目的唯一 ID。
 
 ### 开始首次构建
 
@@ -172,15 +152,11 @@ clean verify sonar:sonar   -Dsonar.projectName=Maven-demo -Dsonar.projectKey=Mav
 
 ![](https://static.goodrain.com/wechat/sonarqube/sonarqube-workflow-9.png)
 
-
-
 ### 代码分析报告
 
 开发人员参考 SonarQube 服务提供的报告，可以了解目前代码的问题。SonarQube 报告中会给出业界最佳实践来修复漏洞。以我使用的项目为例，扫描到了 2 个 Bug，和 4 个安全问题。以其中一个 Bug 为例， SonarQube 给出了很详尽的提示，包括合理的代码提示。
 
 ![](https://static.goodrain.com/wechat/sonarqube/sonarqube-workflow-10.png)
-
-
 
 ### 更新迭代代码
 
@@ -195,4 +171,3 @@ Commit Message 中包含的 `@deploy` 是触发自动构建的关键字。有关
 回顾 Rainbond 中组件的操作记录，会发现手动构建与自动构建之间的区别。
 
 ![](https://static.goodrain.com/wechat/sonarqube/sonarqube-workflow-12.png)
-
