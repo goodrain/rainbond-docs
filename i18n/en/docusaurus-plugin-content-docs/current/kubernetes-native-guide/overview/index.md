@@ -2,8 +2,8 @@
 title: Overviews
 description: Overview of the native Kubernetes Guide
 keywords:
-- Yaml Helm 指南概述
-- Rainbond Yaml Helm
+  - Yaml Helm 指南概述
+  - Rainbond Yaml Helm
 ---
 
 Rainbond 自 V5.8 版本起面向已经熟练使用 Kubernetes 的用户推出利用 Yaml 或 Helm 部署应用的能力。当前指南指导用户如何将已经可以在原生 Kubernetes 中部署的 Yaml 或 Helm Chart 部署到 Rainbond 中，这个过程会自动完成应用模型的转化，后续的管理可以通过 Rainbond 完成。
@@ -32,7 +32,6 @@ Rainbond 在设计上并未完全继承原生 Kubernetes 的设计思想，由�
 
 Rainbond 会从用户所提供 Yaml 定义的所有资源中抽取 Workload 相关的定义，并在应用中转化生成 Rainbond 可管理的组件实例。转化的过程中，Rainbond 会自动识别所有可以被管理的规格定义(Spec)，将不同的属性，交由扩展后的 RAM 模型管理，大部分属性延续了 Rainbond 一贯的易用使用体验，而另一部分，则交由 `其他设置 > Kubernetes属性` 页面进行管理。管理方式参见 [组件 kubernetes 属性管理](/docs/kubernetes-native-guide/import-manage/special-attribute)
 
-
 ## 使用方法
 
 当用户拥有一份可以在 Kubernetes 中使用的 Yaml 文件时，通过 Yaml 部署应用是最简单的方式。请参考 [yaml文件识别创建](/docs/kubernetes-native-guide/yaml/create)。
@@ -52,5 +51,3 @@ Rainbond 能够接受各种原生 Kubernetes 的输入，也可以将已部署�
 [使用 Yaml 部署 Wordpress 和 Mysql](/docs/kubernetes-native-guide/yaml/example)
 
 [使用 Helm 部署 Wordpress 和 Mysql](/docs/kubernetes-native-guide/helm/example)
-
-
