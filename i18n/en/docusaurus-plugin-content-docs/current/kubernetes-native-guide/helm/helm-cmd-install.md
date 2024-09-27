@@ -3,58 +3,58 @@ title: Deploy Helm applications based on the Helm command
 description: Install the application with the Helm command
 ---
 
-跟随本文档使开发者或运维人员能够基于 Helm 命令在 Rainbond 中部署应用。
+Follow this document to enable developers or carriers to deploy applications based on Helm commands to Rainbond
 
-### 前提条件
+### Prerequisite
 
-开始之前，你需要满足以下条件：
+Before you start, you need to meet the following condition：
 
-1.拥有一条helm的可执行命令（该功能只支持 helm install ...）
+1. has a helm executable command (help install only ...)
 
-2.拥有一个可用的团队
+2. has a available team
 
-### 操作流程
+### Operating processes
 
-Helm 命令执行有两个入口：
+Helm command has two entrances with：
 
-**No.1** 团队视图
+**No.1** Team View
 
-在团队视图点击 **新增** --> 然后点击 **Kubernetes YAML Helm** --> 选择 **Helm 命令**安装 --> 选择**应用**输入 **Helm 命令** 安装 --> **确认创建**则会跳转到Helm应用配置界面。
+Click **New** --> in team view and **Kubernetes YAML Helm** -> Select **Helm Command** to Install -> Select \*\*Apply \*\*Enter **Helm Command** to Install -> **Make sure to create** will jump to the Helm app configuration interface.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/tenant_helm_cmd_install.jpg" title="基于 Helm 命令安装" width="100%"/>
 
-**No.2** 应用视图
+**No.2** App View
 
-在应用视图点击 **添加组件** --> **从应用市场安装**，选择对接的 Helm 应用商店中的应用，点击 **安装** 即会自动开始安装。
+Click **Add components** -> **Install from Marketplace**, select apps from the Helm store to connect to. Click **Install** to automatically start the installation.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/app_helm_cmd_install.jpg" title="基于 Helm 命令安装" width="100%"/>
 
-### 安装流程
+### Installation process
 
-根据 Helm 官网给出的两种安装方式进行划分，安装流程分为两种，分别是 tgz 包安装和仓库地址安装。
+The setup process is divided according to the Helm network between two installations, tgz package setup and warehouse address, respectively.
 
-#### 1.tgz 包安装
+#### 1.tgz package installation
 
-**前提条件** 拥有一个可以下载并使用的 Helm tgz 包。
+**Preconditions** has a Helm tgz pack that can be downloaded and used.
 
-示例
-
-```bash
-helm install mynginx https://example.com/charts/nginx-1.2.3.tgz
-```
-
-具体如何生成 Helm tgz 包请参考 [Helm](https://helm.sh/zh/docs/helm/helm_install/) 官网。
-
-tgz 包点击确认创建后会先检查命令是否正确且可以使用，检查通过后会转换为 Rainbond 模型并跳转到应用视图，届时你就能看到你所安装的应用。
-
-#### 2.仓库地址包安装
-
-**前提条件** 拥有一个可以下载并使用的 Helm 仓库地址，并且仓库内存在你即将安装的应用。
-
-示例
+Example
 
 ```bash
-helm install --repo https://example.com/charts/ mynginx nginx
+help install mynginx https://example.com/charts/nginx-1.2.3.tgz
 ```
 
-仓库安装点击确认创建后会检查命令是否正确且可以使用，然后会解析仓库地址并自动对接到 Helm 应用商店，然后跳转到 Helm 应用安装的配置界面。
+Refer to [Helm](https://helm.sh/en/docs/helm/helm_install/) for how to produce the Helm tgz package.
+
+The tgz package will check if the command is correct and usable when it is created, then check that it will be converted to Rainbond model and jump to the app view. You will then see the app you installed.
+
+#### 2.Warehouse Package Installation
+
+**Prerequisites** has an Helm repository address that can be downloaded and used and contains apps you are about to install.
+
+Example
+
+```bash
+help install --repo https://example.com/charts/mynginx nginx
+```
+
+The repository installation click on confirmation will check if the command is correct and is available, then the repository address will be resolved and automatically directed to the Helm App Store and then jump to the configuration interface where the Helm app is installed.
