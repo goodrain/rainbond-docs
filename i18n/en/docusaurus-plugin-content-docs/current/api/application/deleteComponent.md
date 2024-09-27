@@ -2,7 +2,7 @@
 title: remove component
 ---
 
-## 基本信息
+## basic information
 
 This interface is mainly used to delete components
 
