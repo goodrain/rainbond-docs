@@ -2,7 +2,7 @@
 title: Get the list of application http access policies
 ---
 
-## 基本信息
+## Basic information
 
 Get the list of application http access policies
 
@@ -12,7 +12,7 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/httpdomains
 
 ## request parameters
 
-| name                             | Location | 类型      | required | illustrate |
+| name                             | Location | Type    | required | illustrate |
 | -------------------------------- | -------- | ------- | -------- | ---------- |
 | app_id      | path     | integer | Yes      | App ID     |
 | team_id     | path     | string  | Yes      | none       |
@@ -28,7 +28,7 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/httpdomains
 
 Status code **200**
 
-| name                                                         | 类型                                                           | required | constraint | Chinese name     | illustrate                                                                                                                            |
+| name                                                         | Type                                                         | required | constraint | Chinese name     | illustrate                                                                                                                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | _anonymous_                                                  | [HTTPGatewayRule](#httpgatewayrule)                          | false    | none       |                  | none                                                                                                                                  |
 | » ID                                                         | integer                                                      | false    | read-only  | ID               | none                                                                                                                                  |
@@ -94,7 +94,7 @@ Status code **200**
 
 ### Attributes
 
-| name                                                       | 类型                                                           | required | constraint | Chinese name     | illustrate                                                                                                                            |
+| name                                                       | Type                                                         | required | constraint | Chinese name     | illustrate                                                                                                                            |
 | ---------------------------------------------------------- | ------------------------------------------------------------ | -------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | ID                                                         | integer                                                      | false    | read-only  | ID               | none                                                                                                                                  |
 | rule_extensions                       | [string] | false    | read-only  |                  | none                                                                                                                                  |
