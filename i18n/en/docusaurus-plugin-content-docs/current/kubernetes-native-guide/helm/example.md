@@ -6,65 +6,65 @@ keywords:
   - Rainbond Helm
 ---
 
-本示例描述了如何通过 Helm 安装命令，在 Rainbond 上安装 WordPress 和 MySQL。
+This example describes how to install WordPress and MySQL on Rainbond with Helm installation commands.
 
-这两个组件：
+These two components：
 
-- 分别使用 Deployment 和 StatefulSet 两种 Workload 资源部署。
-- 使用 PersistentVolumes 和 PersistentVolumeClaims 保存数据。
-- 通过 Service 完成彼此间通信。
-- 通过 Sercet 实现环境变量的加密获取。
+- Deploying resources for employment and statefulSet respectively, will be used to deploy workload.
+- Save data using PersistentVolumes and PersistentVolumes
+- Complete communication through the service.
+- Encryption of environmental variables via Sercet.
 
-## 教程目标
+## Tutorial Targets
 
-- 通过 Helm 方式从仓库中拉取 Chart ，将 Workload 类资源部署到 Rainbond 中，包括 WordPress 和 MySQL。
-- 在应用中的 `应用 > k8s资源` 处管理非 Workload 类资源，包括 Service 和 Sercet。
-- 在组件中的 `其他设置 > Kubernetes属性` 处管理 Workload 的各种属性，包括 labels、volumes、volumeMounts 和取自其他来源的 env。
-- 在组件中的 `环境设置` 处管理可以被 Rainbond 直接转化的 Workload 属性，包括自定义环境变量的配置。
+- Drag Chart from the repository using Helm to deploy Workload class resources to Rainbond, including WordPress and MySQL.
+- Manage non-Workload class resources in the `Apps > k8s resource`s in apps, including Service and Sercet.
+- Manage Workload properties in `Other Settings > Kubernetes Properties` in the component, including labels, volume, volumeMounts and env from other sources.
+- The `Environment Settings` section of the component manages the Workload properties that can be converted directly by Rainbond and includes the configuration of the custom environment variable.
 
-## 准备开始
+## Ready to start
 
-一条可用的 Helm 安装命令：
+An available Helm installation command：
 
 ```bash
-$ helm install my-wp wordpress --repo https://charts.bitnami.com/bitnami
+$ help install my-wp wordpress --repo https://charts.bitnami.com/bitnami
 ```
 
-## 部署操作
+## Deploy Operations
 
-1. 从 `工作空间` 进入指定的团队，通过点击 `新建 > Kubernetes YAML Helm > Helm 命令` 即可进入命令输入界面。
+1. Enter the team from the `workspace` to enter the command interface by clicking on the new \`> Kubernetes YAML Helm > Helm command.
 
-2. 选择所属应用，或新建应用。
+2. Select an app or create a new app.
 
-3. 在命令框中输入 Helm 安装命令。
+3. Enter the Helm installation command in the command box.
 
-4. 等待 Rainbond 拉取 Chart 并等待 `应用包检验成功`。
+4. Waiting for Rainbond pull Chart and waiting for \`Packet check successfully'.
 
-5. 点击 `下一步`，进行配置与安装。
+5. Click `Next` to configure and install.
 
-6. Rainbond 将展示从 Chart 包中解析出的配置选项，配置的变更方式包括 `输入键值` 和 `编辑 values.yaml 文件` 两种方式。点击 `安装`：
+6. Rainbond will show configuration options that have been parsed from the Chart pack with variations ranging from `input keys` to `edit values.yaml files`.Click `Install`：
 
-7. wordpress 与 wordpress-mysql 已经被转化成为 Rainbond 中的组件，并且在完成了构建过程后自动启动。
+7. wordpress and wordpress-mysql have been converted to components in Rainbond and started automatically after the build process has been completed.
 
 <details>
-  <summary>推荐操作</summary>
+  <summary>Recommended Actions</summary>
   <div>
 
-- **存储转换**: 对于 Yaml 中定义的 PV、PVC 等资源，会在组件的 `其他设置 > Kubernetes属性` 中体现为 `volumeMounts volumes`，此处建议将一般性的数据持久化配置 `volumeMounts volumes` 定义为 Rainbond 组件的存储，删除 `volumeMounts volumes` 中的对应存储记录，并在 `存储 > 存储设置 > 添加存储` 中加入需要被持久化的路径即可。
+- **Storage Transform**: For such resources as PVs, PVC as defined in Yaml, this will be reflected as `volumes` in `Other Settings > Kubernetes Attribute`, It is recommended that the general data persistence configuration `volumeMounts volumes` be defined as the storage of Rainbond components, delete the corresponding memory in `volumeMounts volumes` and add a path that needs to be perpetuated in `Storage > Storage Settings > Add Storage`.
 
-- **开启对外服务**: Rainbond 提供了4/7层网关，可以方便的为组件提供对外服务入口，用户只需要在 `端口` 中为指定端口指定 `端口协议` 打开 `对外服务` 即可生成可供访问的 `Ip:Port` 或域名类型的访问地址。
+- **Open External Service**: Rainbond provides a 4/7 layer of gateway, easily provides an external service entry for the component. Users only need to open `External Service` in the `Port` for the specified port to generate an accessible `Ip:Port` or domain name type.
 
 </div>
 </details>
 
-## 验证
+## Verify
 
-访问 wordpress 组件的对外服务地址，即可进入 wordpress 的配置页面，开始你的建站之旅。
+Visit the external service address of the wordpress component to go to the wordpress configuration page to start your installation trip.
 
-## 管理组件 Kubernetes 属性
+## Manage components properties
 
-参考文档 [kubernetes属性](/docs/kubernetes-native-guide/import-manage/special-attribute) 了解目前 Rainbond 所支持的多种规格定义的配置方式。
+See document [kubernetes属性](/docs/kubernetes-native-guide/import-manage/special-attribute) for how to configure various specifications currently supported by Rainbond
 
-## 管理应用中的k8s资源
+## Manage k8s resources in apps
 
-参考文档 [k8s资源操作](/docs/kubernetes-native-guide/import-manage/non-workload) 了解如何管理非 Workload 类型的资源。
+See document [k8s资源操作](/docs/kubernetes-native-guide/import-manage/non-workload) for managing non-Workload type resources.
