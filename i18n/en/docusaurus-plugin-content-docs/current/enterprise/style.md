@@ -1,56 +1,56 @@
 ---
-title: 定制化和样式
-description: 用户可以自定义平台样式，更好地适应企业的特殊需求和品牌形象。
+title: Customize and Style
+description: Users can customize platform styles to better respond to the special needs and branding images of enterprises.
 keywords:
-  - 企业样式定制
+  - Business style customization
   - Customization of platform styles
 ---
 
-Rainbond 企业版提供了一系列的个性化配置选项，包括网页图标、登陆页图片、主题颜色、官网 DEMO 以及 Logo 的自定义修改等等。管理员可以根据企业需求，选择不同的配置选项进行自定义修改，以便更好地适应企业的特殊需求和品牌形象。
+Rainbond Enterprise version provides a range of personalized configuration options, including web icons, landing page images, theme colors, network DEMO and custom modifications to logo etc.Administrators can select different configuration options for customization based on the needs of the enterprise in order to better respond to the special needs and brand image of the enterprise.
 
-## 主要功能
+## Main features
 
-个性化配置主要分为两大块：基础信息配置、主题配置，具体配置入口为：`平台管理 -> 设置 -> 个性化配置`。以下篇幅将会对可配置项进行详细说明，需要注意的是，只有平台管理员才能自定义平台页面配置，配置好以后对所有用户生效。
+Personalized configuration is divided mainly into two blocks of：base profile configuration, theme configuration, specific configuration entry to：\`Platform Management -> Settings -> Personalized configuration.The following lengths will be detailed for configurable items, noting that only platform administrators will be able to customize the platform page configuration, which will take effect for all users.
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-config/home-config.png)
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-config/login-config.png)
 
-### 基础信息配置
+### Basic Information Configuration
 
-基础信息是配置企业标志性的一些选项，包括网站标题、企业名称、文档地址、官方 DEMO、Footer、LOGO、网页图标、登陆页图片等，以下是各个选项的说明：
+The base information is a few options for configuring the firm's flag, including site title, business name, document address, official DEMO, Footer, LOGO, web icons, landing page images, etc. Below is a description of the options：
 
-#### 网站标题
+#### Site Title
 
-- 显示在浏览器标签栏上的名称，即网站名称。
+- Display the name on the browser tab bar. This is the name of the site.
 
-#### 企业名称
+#### Company Name
 
-- 显示在平台管理中总览视图，用于标识企业的名称，通常情况下企业名称可与网站标题一致。
+- Show overview view in platform management, used to identify an enterprise's name, and usually the business name is consistent with the website title.
 
-#### 文档地址
+#### Document Address
 
-- 头部右侧白色书型图标是企业文档的链接地址，用户可以点击该链接跳转到平台使用文档页面。
+- White book icon on the head is the link to the document of the enterprise and can be used by users to jump to the platform for document pages.
 
-#### 官方 DEMO
+#### Official DEMO
 
-- 显示在团队视图源码创建位置，用于是否展示 DEMO 示例。
+- Show or hide the team view source to create a location where to show if the DEMO example is shown.
 
 #### Footer
 
-- Footer 是在产品页面底部显示的信息，通常包括企业名称、版权信息等。
+- Footer is the information displayed at the bottom of the product page, usually including business name, copyright information, etc.
 
-#### LOGO
+#### Logo
 
-- LOGO 是企业的标志显示在头部左侧位置，用于在网站页面和其它渠道上展示企业形象。
+- LOGO is the logo of the business that is displayed on the head left and used to present the business image on the web page and other channels.
 
-#### 网页图标
+#### Web Icons
 
-- 网页图标是显示在浏览器标签栏上的小图标，用于标识网站的品牌形象。
+- The web icon is a small icon shown on the browser tab bar that identifies the brand image.
 
-#### 登陆页图片
+#### Login Page Image
 
-- 登陆页图片是用户登录页面上显示的背景图片，用于展示企业的品牌形象。
+- The login page image is a background image displayed on the login page of the user to display the brand image of the enterprise.
 
 <!-- 
 - 网站标题：显示在浏览器标签栏上的名称，即网站名称。
@@ -62,51 +62,51 @@ Rainbond 企业版提供了一系列的个性化配置选项，包括网页图�
 - 网页图标：网页图标是显示在浏览器标签栏上的小图标，用于标识网站的品牌形象。
 - 登陆页图片：登陆页图片是用户登录页面上显示的背景图片，用于展示企业的品牌形象。 -->
 
-### 主题配置
+### Theme Configuration
 
-管理员可以选择不同的颜色风格，包括头部背景颜色、头部文字颜色、侧边栏背景颜色、侧边栏文字颜色等。管理员可以直接输入颜色或者点击右侧色块来选择任意配色，可根据公司产品主色调来搭配颜色。修改即时生效，可以进行预览，只有点击保存后才会应用到所有用户。
+Administrators can choose different color styles including head background colors, head text colors, sidebar background colors, sidebar text colors, side sidebar text colors, etc.Administrators can either enter colors directly or click on the right side color block to select any color, which can be styled according to the company's product master.Changes take effect instantly. Preview is available and will only be applied to all users when they are saved
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-config/custom-config.png)
 
-## 使用手册
+## Manual
 
-当你使用个性化配置功能时，建议先了解企业的品牌形象和视觉设计风格，根据这些来决定各个参数的具体配置。在选择图片时，需要注意图片格式和尺寸，以保证图片质量并且在不同的设备上显示效果一致。在选择颜色时，需要注意整体的协调性和可读性，以保证用户使用平台时有良好的视觉体验。
+When you use personalized configuration features, it is recommended to know your firm's brand image and visual design style, based on which to determine the specific configuration of the parameters.When selecting images, attention needs to be paid to the format and dimensions of the images in order to ensure their quality and display the same effect on different devices.In selecting colors, attention needs to be paid to overall coordination and readability in order to ensure a good visual experience in using the platform.
 
-### 基础信息配置
+### Basic Information Configuration
 
-以下将会给出各个参数配置的建议，你可以根据以下建议搭配出最适合你企业场景的样式。
+The following suggestions will be made for the configuration of the parameters. You can match the styles best suited to your business scenario.
 
-#### 网站标题
+#### Site Title
 
-- 建议使用简洁、清晰的文字，不要超过 15 个字符，过长之后会自动省略号隐藏。
+- It is recommended to use simple, clear text, not more than 15 characters long and automatically omit the number to hide.
 
-#### 企业名称
+#### Company Name
 
-- 建议使用企业正式名称，最好不要超过 30 个字符。
+- It is recommended to use the name of the enterprise, preferably not longer than 30 characters.
 
-#### 文档地址
+#### Document Address
 
-- 建议填写公司文档的链接地址，注意检查链接地址是否正确，文档地址默认为 rainbond 官网文档地址。
+- It is recommended to fill in the URL of the company document and to check if the link is correct, the document address is default to the rainbond official document address.
 
-#### 官方 Demo
+#### Official Demo
 
-- 建议在线环境开启官方 DEMO，可以创建多种语言的组件，离线环境由于没有网络，可以关闭官方 DEMO。
+- It is recommended that the online environment enable official DEMO. This allows you to create multilingual components, and offline environments can close the official DEMO, because they do not have a network.
 
-#### 企业 Logo
+#### Enterprise Logo
 
-- 图片格式建议使用 PNG 格式，可以保证图片质量，同时也适用于不同的屏幕分辨率。图片尺寸建议为 236 x 35 像素或者更大一些，可以保证在不同设备上显示时不失真。如果用户上传的图片尺寸小于建议值，系统会自动对其进行缩放处理，但可能会影响图片质量。
+- The image format is recommended in PNG format to ensure the quality of the image and also apply to different screen resolutions.Image size is recommended to be 236 x 35 pixels or larger. This ensures that it is true when displayed on different devices.If the upload size of a user is less than the recommended value, the system will scale up it automatically, but may affect the quality of the picture.
 
-#### 网页图标
+#### Web Icons
 
-- 建议像素不要太小，避免上传之后看不到。
+- Recommended pixels are not too small to see after uploading.
 
 #### Footer
 
-- 建议只填写公司名称，时间部分系统会自动生成。
+- It is recommended that only the company name should be filled in, and the time part of the system will be generated automatically.
 
-#### 登陆页图片
+#### Login Page Image
 
-- 图片格式建议使用 PNG格式，图片尺寸建议为 460 x 460 像素或者更大一些
+- Picture format is recommended in PNG format, image size is recommended to be 460x460 pixels or larger
 
 <!-- - 网站标题：建议使用简洁、清晰的文字，不要超过 15 个字符，过长之后会自动省略号隐藏。
 - 企业名称：建议使用企业正式名称，最好不要超过 30 个字符。
@@ -117,22 +117,22 @@ Rainbond 企业版提供了一系列的个性化配置选项，包括网页图�
 - Footer：建议只填写公司名称，时间部分系统会自动生成。
 - 登陆页图片：图片格式建议使用 PNG格式，图片尺寸建议为 460 x 460 像素或者更大一些 -->
 
-### UI主题配置
+### UI Theme Configuration
 
-建议管理员在修改个性化配置前备份原配置，以便在需要时可以还原到原配置，当调试完配色之后需要点击保存按钮来进行保存，如果未保存跳转到其他页面则会恢复上次配色，恢复上次主题按钮是恢复到上次点击保存之后的颜色，如果想恢复到平台初始配色，需要将输入框的值全部清空之后点击保存则恢复初始配色。
+It is recommended that the administrator back up the configuration before modifying the personalized configuration so that it can be restored to the original configuration if needed. When the debugging is finished, the last color will be restored by clicking the save button. If skipping to other pages is not saved. The last subtheme button is restored to the last saved color. If you want to restore the platform to the original color, then the input box value is empty to restore the initial color.
 
-#### 头部颜色
+#### Header Color
 
-- 建议选择与公司品牌形象相符的颜色，可以提高公司品牌的识别度和用户黏性。同时，建议使用相近的色调，不要使用过于刺眼或撞色的组合。
+- It is recommended to select a color consistent with the corporate branding image that increases the recognition and user adhesive of corporate brands.At the same time, it is recommended to use similar tones and not to use a combination that is too piercing or color.
 
-#### 头部文字颜色
+#### Header text color
 
-- 建议选择与头部颜色相近的颜色，以保证页面整体的协调性和美观性。
+- It is recommended to select a color similar to that of the head to ensure consistency and beauty of the page as a whole.
 
-#### 侧边栏颜色
+#### Sidebar Color
 
-- 建议选择浅色系列相近的颜色或者使用默认白色调，以保证页面整体的协调性和美观性。
+- It is recommended to select a light series of similar colors or use the default white tone to ensure the consistency and beauty of the page as a whole.
 
-#### 侧边栏文字颜色
+#### Sidebar Text Color
 
-- 建议选择与侧边栏颜色相近的颜色或者使用灰色，以保证页面整体的协调性和美观性。
+- It is recommended to select colors similar to the sidebar color or use grey to ensure the consistency and beauty of the page as a whole.
