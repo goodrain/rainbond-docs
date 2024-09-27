@@ -2,7 +2,7 @@
 title: Gateway troubleshooting
 descrition: This topic describes how to troubleshoot the Rainbond gateway
 keywords:
-- Rainbond Troubleshooting Gateway Usage
+  - Rainbond Troubleshooting Gateway Usage
 ---
 
 This article introduces the problems and solutions encountered in the use of Rainbond Gateway.
