@@ -67,7 +67,7 @@ GET /openapi/v2/manage/regions
 
 | name  | type                                                                                                      | required | constraint | Chinese name | illustrate |
 | ----- | --------------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| total | integer                                                                                                   | true     | none       | Total        | 总数         |
+| total | integer                                                                                                   | true     | none       | Total        | Total      |
 | data  | [[RegionInfoAndStatusResp](#regioninfoandstatusresp)] | true     | none       |              | none       |
 
 ### RegionInfoAndStatusResp
@@ -118,7 +118,7 @@ GET /openapi/v2/manage/regions
 | tcpdomain                                             | string                                                       | true     | none       | Tcpdomain        | Cluster tcp application access root domain name                                                  |
 | status                                                | string                                                       | true     | none       | Status           | Cluster Status 0：Editing 1: Enabled 2：Disabled 3: In Maintenance |
 | desc                                                  | string                                                       | true     | none       | Desc             | Cluster description                                                                              |
-| ssl_ca_cert | string                                                       | true     | none       | ssl ca cert      | api ca file                                                                                      |
+| ssl_ca_cert | string                                                       | true     | none       | ssl ca cert      | ssl ca cert                                                                                      |
 | cert_file                        | string                                                       | true     | none       | Cert file        | api cert file                                                                                    |
 | key_file                         | string                                                       | true     | none       | Key file         | api cert key file                                                                                |
 | total_memory                     | integer                                                      | true     | none       | Total memory     | Sum of scheduling memory MB                                                                      |
