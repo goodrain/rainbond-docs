@@ -5,7 +5,7 @@ description: Interpretation of Rainbond's Principles of Building Java Maven Proj
 
 ### Apache Maven related knowledge description
 
-Apache Maven is a cross-platform project management tool.It mainly serves the project construction, project management and project information management based on the Java platform.The so-called project construction is a series of processes such as cleaning, compiling, testing, reporting, packaging, and deploying the project, which is called project construction.主要服务于基于 Java 平台的项目构建，项目管理和项目信息管理。所谓的项目构建就是对项目进行清理、编译、测试、报告、打包、部署等一系列的过程称为项目的构建。
+Apache Maven is a cross-platform project management tool.It mainly serves the project construction, project management and project information management based on the Java platform.The so-called project construction is a series of processes such as cleaning, compiling, testing, reporting, packaging, and deploying the project, which is called project construction.The main service is project construction, project management and project information management based on the Java platform.The so-called project construction is a series of processes known as project constructions, compiling, testing, reporting, packing, deploying, etc.
 
 For more introduction to Maven, refer to the official documentation：<https://maven.apache.org/>
 
@@ -13,7 +13,7 @@ Standard Maven-managed Java projects generally have several product packaging：
 
 - Jar package
 
-  This type of packaging was mainly used for public class library projects in the past, and now it is also used as a packaging method for service projects of SpringBoot and other architectures.Projects that are packaged as Jars generally do not need to rely on middleware and can run directly.打成 Jar 包的项目一般不需要依赖中间件可以直接运行。
+  This type of packaging was mainly used for public class library projects in the past, and now it is also used as a packaging method for service projects of SpringBoot and other architectures.Projects that are packaged as Jars generally do not need to rely on middleware and can run directly.Items that make up Jar packages generally do not need to rely on intermediate items to run directly.
 
 - War bag
 
@@ -27,7 +27,7 @@ There are generally two forms of project organization in Maven：
 
 - multi-module
 
-  这类方式目前使用面较广，更加灵活的项目组织方式，一个父工程，它包含了两个子工程（模块），一个 core 模块，一个 webapp 模块，webapp 模块依赖于 core 模块。This type of method is currently widely used and is a more flexible project organization method. A parent project contains two sub-projects (modules), a core module and a webapp module. The webapp module depends on the core module.This is a very common way of project division, that is, the core module contains the core business logic of a certain field, and the webapp module creates the front-end website by calling the service class in the core module.This separates the core business logic from the front-end presentation. If you decide to develop and support mobile apps later, the core module can be reused.这样将核心业务逻辑和前端展现分离开来，如果之后决定开发支持移动端 APP，那么 core 模块是可以重用。
+  This method currently uses a broader, more flexible project organization, a parent project, which contains two subprojects (modules), a core module, a webapp module, a webapp module that relies on the core module.This type of method is currently widely used and is a more flexible project organization method. A parent project contains two sub-projects (modules), a core module and a webapp module. The webapp module depends on the core module.This is a very common way of project division, that is, the core module contains the core business logic of a certain field, and the webapp module creates the front-end website by calling the service class in the core module.This separates the core business logic from the front-end presentation. If you decide to develop and support mobile apps later, the core module can be reused.This separates core business logic from frontend display and then the core module can be reused if it is subsequently decided to develop the mobile app.
 
   A multi-module project can build the specified service module separately, and when it is built separately, it will also build other modules it depends on.
 
@@ -35,7 +35,7 @@ Maven dependency package management is its core function. We need to pay attenti
 
 - local maven repository
 
-  The local repository exists on the local disk of the compilation environment, which can be considered as the first-level cache of dependent packages.Storage path is configured in**settings.xml**file**localRepository**存储路径在**settings.xml**文件中配置**localRepository**
+  The local repository exists on the local disk of the compilation environment, which can be considered as the first-level cache of dependent packages.Storage path is configured in**settings.xml**file**localRepository**Storage path configured **localRepository** in **settings.xml**
 
 - remote warehouse
 
@@ -72,7 +72,7 @@ The build command looks like the following form：
 clean install -pl module_name -am
 ```
 
-Rainbond creates a corresponding service for each module, so users need to manually judge which public class library projects are based on their own project conditions, and cancel the creation of public class library class modules during the batch creation process.Each service has a corresponding build command, and if it is not correct, it needs to be modified by the user.每一个服务对应有构建命令，如果不正确也需要用户自行修改。
+Rainbond creates a corresponding service for each module, so users need to manually judge which public class library projects are based on their own project conditions, and cancel the creation of public class library class modules during the batch creation process.Each service has a corresponding build command, and if it is not correct, it needs to be modified by the user.Each service should have a building command and needs to be modified by the user if it is not correct.
 
 Single module code detection
 
@@ -80,13 +80,13 @@ If the identified project is a single-module project, it goes directly to the se
 
 ### Rainbond builds Maven components
 
-When the user triggers the service from the UI or Webhook to build, the build task will be generated by the data center API service and sent to the message system, and the rbd-chaos service will compete for the build task from the message system. If the current rbd-chaos node is executing more than If the maximum value is set (the default maximum value is 2 times the number of CPU cores of the node), the competition of tasks will be suspended.After getting the task, start to get the project code through the git or svn client and cache it. The next build task will update the code based on the cached code.Then start the builder container and pass in the code and build parameters (the specific build parameters are described below) to execute the build task.获取到任务后开始通过 git 或 svn 客户端获取项目代码并缓存下来，下一次构建任务在缓存代码的基础上进行代码更新。然后启动 builder 容器传入代码和构建参数（具体构建参数在下文中说明）执行构建任务。
+When the user triggers the service from the UI or Webhook to build, the build task will be generated by the data center API service and sent to the message system, and the rbd-chaos service will compete for the build task from the message system. If the current rbd-chaos node is executing more than If the maximum value is set (the default maximum value is 2 times the number of CPU cores of the node), the competition of tasks will be suspended.After getting the task, start to get the project code through the git or svn client and cache it. The next build task will update the code based on the cached code.Then start the builder container and pass in the code and build parameters (the specific build parameters are described below) to execute the build task.Get the project code and cache it from the git or svn client after fetching the task. Next build task is based on the cache code.Then start the builder container with the input code and building parameters (specified building parameters described below) to perform the construction task.
 
 The execution of the build task has the following steps：
 
 #### 1. Selection of JDK and Maven versions
 
-In the main directory of the project source code, you can define**system.properties** file to specify the version of JDK and the version of Maven.The format is as follows：格式如下：
+In the main directory of the project source code, you can define**system.properties** file to specify the version of JDK and the version of Maven.The format is as follows：Format:：
 
 ```properties
 java.runtime.version=1.9
@@ -112,7 +112,7 @@ If ORACLEJDK support is enabled, download the JDK through the specified BUILD_OR
 http://lang.goodrain.me/jdk/openjdk1.8.0_20.tar.gz
 ```
 
-The domain name lang.goodrain.me is the internal domain name of the Rainbond data center, provided by the rbd-repo service (artifactory), which means that the resources are downloaded from the rbd-repo service inside the data center.The rbd-repo service is just a layer of static resource cache. After it receives the request for the first time, it will download the corresponding resources from the cloud OSS provided by Rainbond, and then cache them locally.rbd-repo 服务只是一层静态资源缓存，它第一次接收到请求后将从 Rainbond 提供的云 OSS 上下载相应的资源，然后缓存到本地。
+The domain name lang.goodrain.me is the internal domain name of the Rainbond data center, provided by the rbd-repo service (artifactory), which means that the resources are downloaded from the rbd-repo service inside the data center.The rbd-repo service is just a layer of static resource cache. After it receives the request for the first time, it will download the corresponding resources from the cloud OSS provided by Rainbond, and then cache them locally.The rbd-repo service is just a layer of static resource cache, which will download the resources from the clouds provided by Rainbond for the first time and cache them locally.
 
 > Note that if you encounter the problem of JDK download failure, you need to confirm whether rbd-repo can be connected to the Internet normally, and whether Rainbond provides the specified version of JDK download.
 
@@ -124,12 +124,12 @@ The download of Maven is the same as that of JDK, and it is downloaded from the 
 
 2.1 Processing of settings.xml file
 
-**settings.xml**file can define remote warehouse and authentication information, mirror warehouse information, etc.Users can customize configuration：by setting the following variables用户可以通过设置如下变量来自定义配置：
+**settings.xml**file can define remote warehouse and authentication information, mirror warehouse information, etc.Users can customize configuration：by setting the following variablesUsers can customize： by setting the following variables
 
 - BUILD_MAVEN_SETTINGS_PATH directly defines the local path of settings.xml, this path users can only use the source code directory, that is, the path starts with`/app`, for example, if it is in the source code main directory, the path should be：`/app/settings.xml`
 - BUILD_MAVEN_SETTINGS_URL defines the remote download path of settings.xml. Since the settings.xml file may contain account information, it is not suitable to be stored in the code repository. It can be stored in the object storage to provide the download path.
 
-  The build script will use the BUILD_MAVEN_SETTINGS_PATH variable first, then the BUILD_MAVEN_SETTINGS_URL variable, and if neither is defined, the default settings.xml file will be used.The default settings.xml defines a global proxy for all remote repositories using maven.goodrain.me.The purpose of this is to be able to cache the dependency packages that all of the user's projects need to use as a second-level cache in the build process. Configure：as follows默认的 settings.xml 定义了使用 maven.goodrain.me 全局代理所有远程库。这样做的目的是能够缓存用户所有项目需要使用到的依赖包，作为构建流程中的二级缓存。 如下配置：
+  The build script will use the BUILD_MAVEN_SETTINGS_PATH variable first, then the BUILD_MAVEN_SETTINGS_URL variable, and if neither is defined, the default settings.xml file will be used.The default settings.xml defines a global proxy for all remote repositories using maven.goodrain.me.The purpose of this is to be able to cache the dependency packages that all of the user's projects need to use as a second-level cache in the build process. Configure：as followsDefault settings.xml defines all remote libraries using maven.goodrain.me global proxy.The aim is to be able to cache the dependencies that all user projects need to use as secondary cache in the construction process. Configure： as follows
 
 ```xml
   <mirrors>
@@ -144,7 +144,7 @@ The download of Maven is the same as that of JDK, and it is downloaded from the 
 
 The user can also set the above configuration：through the following parameters
 
-- BUILD_MAVEN_MIRROR_DISABLE 设置为 true 则上述配置不生效。If BUILD_MAVEN_MIRROR_DISABLE is set to true, the above configuration will not take effect.The rbd-repo service is no longer used to cache maven packages.
+- BUILD_MAVEN_MIRROR_DISABLE set to true if the above configuration does not take effect.If BUILD_MAVEN_MIRROR_DISABLE is set to true, the above configuration will not take effect.The rbd-repo service is no longer used to cache maven packages.
 
 - MAVEN_MIRROR_OF Set the proxy range, the default is \*, all proxies.
 
@@ -191,7 +191,7 @@ After the build command is determined, the compiler will execute the Maven build
 
 After mvn is compiled and packaged, there are two kinds of media, namely war package and jar package.
 
-How the generated media runs, that is, the startup command configuration, is defined in the code main directory`Procfile`file. If defined in the code, the service will recognize the configuration content to initialize the BUILD_PROCFILE variable when it is created. `For the specification of Procfile` , please refer to [Document](../procfile) `Procfile` 文件的规范请参考 [文档](../procfile)
+How the generated media runs, that is, the startup command configuration, is defined in the code main directory`Procfile`file. If defined in the code, the service will recognize the configuration content to initialize the BUILD_PROCFILE variable when it is created. `For the specification of Procfile` , please refer to [Document](../procfile) For the specification of the `Procfile` file, refer to [文档](../profile)
 
 When BUILD_PROCFILE is not defined, the Rainbond compilation script will make the following judgments to generate the default startup command configuration：
 
@@ -227,7 +227,7 @@ In several scenarios, you need to set the startup command by yourself
 - Project settings do not comply with Rainbond auto-recognition policy.
 - The startup command needs to be customized.
 
-It can be seen from the above automatically generated startup command that Rainbond uses the[webapp-runner](https://github.com/jsimone/webapp-runner)project to run War. If you need to set the Tomcat version or other parameters, you need to set the startup command according to the relevant parameters of webapp-runner.For example, when setting the session path to：比如设置会话路径时：
+It can be seen from the above automatically generated startup command that Rainbond uses the[webapp-runner](https://github.com/jsimone/webapp-runner)project to run War. If you need to set the Tomcat version or other parameters, you need to set the startup command according to the relevant parameters of webapp-runner.For example, when setting the session path to：e.g. set session path to：
 
 ```yaml
 web: java $JAVA_OPTS -jar ./webapp-runner.jar --path /test --port $PORT target/*.war
@@ -243,15 +243,15 @@ After the above process is completed, compile the script to package the code dir
 tar -z --exclude='.git' -X "$build_root/.slugignore" -C $build_root -cf $slug_file.
 ```
 
-By default, the entire source code, executable programs such as JDK downloaded during the compilation process, and the media files generated by compilation are packaged together.The goal is to not miss any files, especially static files, configuration files, etc.If the user does not want to package the source code that is useless in the running state, it is necessary to define\*\*.slugignore\*\* file.目的是不遗漏任何文件，特别是静态文件、配置文件等。如果用户不想将运行态无用的源代码打包，需要定义\*\*.slugignore\*\* 文件。
+By default, the entire source code, executable programs such as JDK downloaded during the compilation process, and the media files generated by compilation are packaged together.The goal is to not miss any files, especially static files, configuration files, etc.If the user does not want to package the source code that is useless in the running state, it is necessary to define\*\*.slugignore\*\* file.The aim is to spare no documents, especially static files, configuration files, etc.If the user does not want to pack an unuseful source code, you need to define **.sluignore** file.
 
 **.slugignore** files have a similar syntax to common .gitignore files.It can be seen from the above packaging command that this file takes effect when the tar command is packaged.Extract the tarball to the /app directory.
 
 #### 6. Generate the Docker image
 
-After all language types are compiled, tar packages will be generated, and we provide the runner base image to run these tar packages.The source code is at<https://github.com/goodrain/runner>, and its workflow is as follows：源码在<https://github.com/goodrain/runner>， 其工作流程如下：
+After all language types are compiled, tar packages will be generated, and we provide the runner base image to run these tar packages.The source code is at<https://github.com/goodrain/runner>, and its workflow is as follows：The source code is in<https://github.com/goodrain/runner>and its workflow below：
 
-1. 解压 tar 包到/app 目录下。
+1. Unpack to /app directory.
 2. Parse the Procfile file to obtain the software startup command.
 3. Set the environment variables for the program to run, such as JAVA_OPTS.
 4. Execute the software startup command in the Procfile file.
@@ -268,12 +268,12 @@ After all language types are compiled, tar packages will be generated, and we pr
 
 3. How to troubleshoot a dependency package download failure.
 
-   > The most likely reason for the failure to download the dependency package is that it is limited by your network, or you are using a private server repository and cannot be mirrored by the rbd-repo service.The easiest way to deal with it is that you configure the relevant parameters directly to use the warehouse service you used in the past.最简化的处理方式是你配置相关参数直接使用你过去使用的仓库服务。
+   > The most likely reason for the failure to download the dependency package is that it is limited by your network, or you are using a private server repository and cannot be mirrored by the rbd-repo service.The easiest way to deal with it is that you configure the relevant parameters directly to use the warehouse service you used in the past.The simplest way to process is to configure the parameters directly using the repository services you used in the past.
 
 4. Local builds are possible, Rainbond cannot.
 
-   > The above has completely explained the process and method of Rainbond Mvn construction. You need to differentiate and check the differences with your local construction one by one.The ease of solving may depend on your knowledge of Maven's build mechanism.解决的难易程度可能取决于你对 Maven 构建机制的认识。
+   > The above has completely explained the process and method of Rainbond Mvn construction. You need to differentiate and check the differences with your local construction one by one.The ease of solving may depend on your knowledge of Maven's build mechanism.The ease of the solution may depend on your understanding of the Maven build mechanism.
 
 5. How to respond to other questions.
 
-   > 遇到源码构建问题无法自己解决，可移步 [github](https://github.com/goodrain/builder) 提交你的 issues。If you encounter source code construction problems and cannot solve them yourself, you can move to [github](https://github.com/goodrain/builder) to submit your issues.We are very happy to solve various scenario problems and provide the compatibility of Rainbond source CI.
+   > Faced with source build problems that cannot be resolved by themselves, move [github](https://github.com/goodrain/builder) to submit your issues.If you encounter source code construction problems and cannot solve them yourself, you can move to [github](https://github.com/goodrain/builder) to submit your issues.We are very happy to solve various scenario problems and provide the compatibility of Rainbond source CI.
