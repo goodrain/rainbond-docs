@@ -1,14 +1,14 @@
 ---
-title: 服务间通信变量注入
+title: Injection of inter-service traffic variable
 description: This article explains variable passing when a service is directly dependent
 keywords:
-  - 服务间通信变量注入
-  - Service Mesh 变量注入
+  - Injection of inter-service traffic variable
+  - Service Mesh Variable Injection
 ---
 
-通信变量是指使用其他组件提供服务时的必要配置变量，比如数据库的用户名密码和通信地址，API 服务的认证方式和通信地址等等。标准化的设计场景中，成形的业务代码依赖的服务类型不能改变，但是实际依赖的服务可以改变，这种设计需要依靠以环境变量的方式注入配置信息。在 [组件间通信](./regist_and_discover) 文中用例就是依靠标准的变量注入实现服务动态依赖。
+Communications variables refer to the necessary configuration variables when using other components to provide services, such as the username and communication address of the database, the authentication method of API services and the communication address.In a standardized design scenario, the type of service on which the formed business code relies cannot be changed, but the service actually relied can be changed, and the design relies on infusion of configuration information in an environmental variable.Using an example in [组件间通信](./regist_and_discover) is the standard variable injection to implement service dynamics.
 
-在组件开发过程中，我们推荐开发者使用环境变量的方式来定义与其他组件通信的相关配置，例如 spring boot 使用以下方式配置 jdbc 地址：
+During component development, we recommend that developers use the environment variable to define the configuration of communication with other components, e.g. spring boot using the following method to configure jdbc address：
 
 ```
 spring.datasource.url=jdbc:mysql://${MYSQL_HOST:127.0.0.1}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:test}
@@ -16,29 +16,29 @@ spring.datasource.username=${MYSQL_USER}
 spring.datasource.password=${MYSQL_PASSWORD}
 ```
 
-经过如上定义后，我们其实定了一个规范，这个业务组件需要一个 Mysql 组件，且通过以上变量进行定义相关配置。后续我们使用什么组件来提供这个服务其实就是解耦合的，我们可以定义一个 Mysql 组件来提供，也可以定义一个 Tidb 组件来提供，最关键的是这些组件可以提供上述需要的变量信息。因此通信变量注入是组件依赖通信场景中一个非常有用的机制。
+After the above definition, we have defined a specification that requires a Mysql component and defines the configuration with the variables above.Which components we use to provide this service is really coupled. We can define a Mysql component or a Tidb component to provide it, most crucially these components can provide the variable information described above.The infusion of communication variables is therefore a very useful mechanism in the communication landscape where the component depends.
 
-### 前提条件
+### Prerequisite
 
-1. 创建两个组件 A、B，其中 A 依赖 B 且需要获取相关的配置信息
-2. 已了解 Rainbond 组件间通信的机制 参考 [组件间通信文档](./regist_and_discover)
+1. Create two components A, B, where A Dependency B and need relevant configuration information
+2. Access [组件间通信文档](/regist_and_discover) to mechanisms for communication between Rainbond components
 
-### 操作流程
+### Operating processes
 
-1. <b>定义连接地址变量</b>： 在组件 B（假设其为 Mysql 服务）的管理面板的端口管理页面下，我们可以为每个端口定义别名，点击端口设置中 _使用别名_ 部分，在弹出窗口中可以设置端口的别名，例如设置为 MYSQL，设置后会自动生成连接地址的两个变量 MYSQL_HOST 和 MYSQL_PORT。
+1. <b>Defines the connection address variable</b>： In the port management page of component B (assuming it is a Mysql service), we can define aliases for each port, click on the port settings _using alias_ section, and can set an alias for the port in the popup window, such as MYSQL, where two variables MYSQL_HOST and MYSQL_PORTs will be created automatically.
 
-2. <b>定义其他连接变量</b>： 在组件 B 的管理面板依赖管理页面下，有连接信息变量的定义和管理，其定义管理方式与环境变量一致。我们经过步骤 1 后进入面板会发现已经存在两个变量，MYSQL_HOST 和 MYSQL_PORT。我们可以继续定义其他变量比如 MYSQL_USER、MYSQL_PASSWORD 等。
+2. <b>defines other connection variables</b>： in the management panel of component B, which are defined and managed in a way that is consistent with environmental variables.We enter the panel after step 1 and find two variables, MYSQL_HOST and MYSQL_PORT.We can continue to define other variables, such as MYSQL_USER, MYSQL_PASSWORD, etc.
 
-3. <b>定义的变量属于环境变量的一部分在当前组件生效</b>：一些连接变量变量对于组件本身也是有用的，比如 Mysql 定义 MYSQL_USER、MYSQL_PASSWORD 等变量会作为 Mysql 初始化启动时初始化数据的定义变量。因此 Rainbond 中组件定义的连接信息也会作为环境变量的形式在当前组件生效，组件连接信息和环境变量可以相互转移。
+3. The <b>variable defines a part of the environment variable as a part of the current component which takes effect on</b>：some of the connecting variables are also useful for the component itself, such as Mysql defining MYSQL_USER, MYSQL_PASSWORD and others as defined variables for initializing data at Mysql initialization.The connection information defined by the Rainbond component will therefore also take effect as an environmental variable in the current component and the component connection information and environment variables can be transferred from one another.
 
-4. <b>定义的变量注入到依赖当前组件的组件环境中</b>：此时我们在拓扑图中拖拽使 A 依赖 B, 然后更新 A 组件，完成后我们可以在 A 组件的环境下查看发现已经存在 MYSQL 相关的环境变量。
+4. <b>The variables defined by</b>：are injected into the context of the component dependent on the current component when we drag and drop a dependency B in the top, then update component A and then we can view the environmental variables that have found MYSQL relevant in the context of component A.
 
-### 常见问题
+### FAQ
 
-- 连接信息与环境变量的区别
+- Distinction between connection information and environment variables
 
-组件的连接信息和环境变量对于组件本身来说效果一致，都会作为环境变量在自身运行环境和插件环境中生效。不同点在于连接信息会注入到依赖当前组件的其他组件中。相当于它是 Public 的。
+Component connection information and environment variables are consistent for the component itself and are effective as environmental variables in its own operating environment and plugin environment.The difference is that connection information is injected into other components that rely on the current component.Equals it is public.
 
-- 连接信息必须定义吗？
+- Connection information must be defined?
 
-我们建议根据实际常见合理的定义连接信息。
+We recommend connecting information based on what is actually a reasonable definition.
