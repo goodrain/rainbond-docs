@@ -5,7 +5,7 @@ description: Explain the usage of Procfile file
 
 ### Introduction to Procfile
 
-A Procfile is Rainbond's code-based strategy for specifying how a service should run.It is an ordinary text file, which needs to be placed in the root directory of the code, and its content is the startup command that defines the running of the service built from the source code.Usually only one line of information is enough, see example：below
+A Procfile is Rainbond's code-based strategy for specifying how a service should run.It is an ordinary text file, which needs to be placed in the root directory of the code, and its content is the startup command that defines the running of the service built from the source code.Usually only one line of information is enough, see example：below其本身是一个普通的文本文件，需要将其放到代码的根目录中，其内容是定义源码构建的服务运行起来的启动命令。通常情况下只包含一行信息即可，请看下面的例子：
 
 - Java language type, defines the startup command to run the War package
 
@@ -31,7 +31,7 @@ web: sh target/bin/webapp
  bundle exec bin/rails server -p $PORT -e $RAILS_ENV
 ```
 
-You may have noticed the environment variable `$PORT` , which specifies the listening port for the service.When Rainbond runs the service, it will automatically inject this environment variable with the port information set by the user.Through the above types of startup commands, the flexible configuration of the service listening port is realized.Similar mechanisms can also be used for almost all language service types such as Tomcat startup.
+您可能注意到了 `$PORT` 这个环境变量，指定服务的监听端口。Rainbond 运行服务时将自动通过用户设置的端口信息注入此环境变量。通过上述类型的启动命令，实现服务监听端口的灵活配置。类似的机制还可以被使用到例如 Tomcat 启动等几乎所有语言服务类型中。
 
 ### Procfile format description
 
