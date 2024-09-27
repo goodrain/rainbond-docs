@@ -1,34 +1,34 @@
 ---
-title: 基于自建 Kubernetes 安装
-descrition: 该章节文档介绍基于已有的 k8s 集群，使用 helm 安装 Rainbond
+title: Install based on auto Kubernetes
+descrition: This section document describes the existing k8s cluster, installing Rainbond with helm
 keywords:
-  - 基于自建 Kubernetes 安装 Rainbond 集群
+  - Install Rainbond Cluster based on self-suggestions Kubernetes
 ---
 
-import Tabs from '@theme/Tabs';
+Import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## 概述
+## General description
 
-本文将指引你基于现有的 Kubernetes 集群，通过 Helm 命令快速部署 Rainbond。
+This will guide you to rapidly deploy Rainbond, based on the existing Kubernetes cluster, using Helm command.
 
-## 前提条件
+## Prerequisite
 
-- Kubernetes 集群版本在 1.19-1.27 之间
-- Kubectl 命令行工具，参阅 [Kubectl 安装](/docs/ops-guide/tools/#kubectl-cli)
-- Helm 命令行工具，参阅 [Helm 安装](/docs/ops-guide/tools/#helm-cli)
+- Kubernetes cluster version between 1.19-1.27
+- Kubtl command line tools, see [Kubtl Install](/docs/ops-guide/tools/#kubectl-cli)
+- Helm command line tools, see [Helm Install](/docs/ops-guide/tools/#helm-cli)
 
-## 安装 Rainbond
+## Install Rainbond
 
-### 1. 安装 NFS 客户端挂载工具
+### 1. Install NFS client mount tool
 
-默认安装时，Rainbond 会启动一个 `nfs-provisioner`，因此，需要节点上安装 NFS 客户端挂载工具，否则会由于无法挂载存储导致安装失败。如果你自定义配置后，使用外部的共享存储。那么此步可以忽略。
+When installed by default, Rainbond will start a `nfs-provisioner`. Therefore, NFS client mount tool needs to be installed on the node, otherwise installation will fail because storage cannot be mounted.If you customize your configuration, use external shared storage.So this step is negligible.
 
 <Tabs>
   <TabItem value="Centos" label="Centos" default>
 
 ```bash
-yum -y install nfs-utils
+yum - y install nfs-utils
 ```
 
   </TabItem>
@@ -41,93 +41,93 @@ apt-get install nfs-common
   </TabItem>
 </Tabs>
 
-### 2. 添加和更新 Helm 仓库
+### Adding and updating the Helm repository
 
 ```bash
-helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
-helm repo update
-kubectl create namespace rbd-system
+help repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
+help repo update
+kubectl create name rbd-system
 ```
 
-### 3. 安装 Rainbond
+### 3. Install Rainbond
 
-Rainbond 支持 `Docker` 和 `Containerd` 两种容器运行时，当集群环境同时安装了 `Docker` 和 `Containerd` 时，默认会使用 `Docker`，你可以通过环境变量指定实际使用的容器运行时。
+Rainbond supports both `Docker` and `Containerd` containers running by default when the cluster environment is equipped with both `Docker` and `Containerd`. You can specify the actual container to run by environmental variables.
 
 <Tabs>
   <TabItem value="Docker" label="Docker" default>
 
-使用下方命令行快速安装，所有参数均采用默认参数。
+Use below command line for quick installation. Default parameters are used for all parameters.
 
 ```bash
-helm install rainbond rainbond/rainbond-cluster -n rbd-system
+help install rainbond rainbond/rainbond-cluster-n rbd-system
 ```
 
-如果你的集群有公网 IP，需要从外部访问，请指定 `Cluster.gatewayIngressIPs` 参数，如下所示，将命令中的 gatewayIngressIPs 替换成你的公网 IP 即可：
+If your cluster has a public network IP that needs to be accessed externally, please specify the `Cluster.gatewayIngressIPs` parameter and replace gatewayInressIPs from the command with your public IP with： as shown below.
 
-新建示例[values.yaml](/docs/installation/install-with-helm/vaules-config)文件：
+New sample[values.yaml](/docs/installation/install-with-helm/vaules-config) file：
 
 ```yaml
 Cluster:  
   nodesForGateway: 
-  - externalIP: 10.22.197.170 #外网IP
-    internalIP: 10.22.197.170 #内网IP
-    name: 10.22.197.170
+  - externalIP: 10.22.197. #Extranet IP
+    internalIP: 10.22.197.170 #Intranet IP
+    name: 10. 2.197.170
     
-  - externalIP: 10.22.197.171
-    internalIP: 10.22.197.171
+  - externalIP: 10.22.197. 71
+    internalIP: 10.22.197.71
     name: 10.22.197.171
 ```
 
-然后使用下方命令行指定`values.yaml`文件
+Use the command line below to specify `values.yaml` file
 
 ```bash
-helm install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
+help install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
 ```
 
   </TabItem>
 
   <TabItem value="Containerd" label="Containerd">
-使用下方命令行快速安装，所有参数均采用默认参数。
+Use the command line below to quickly install it. Default parameters are used for all parameters.
 
 ```bash
-helm install --set operator.env[0].name=CONTAINER_RUNTIME --set operator.env[0].value=containerd rainbond rainbond/rainbond-cluster -n rbd-system
+help install --set operator.env[0].name=CONTAINER_RUNTIME --set operator.env[0].value=containerd rainbod rainbond/rainbond-cluster -n rbd-system
 ```
 
-如果你的集群有公网 IP，需要从外部访问，请指定 `Cluster.gatewayIngressIPs` 参数，如下所示，将命令中的 gatewayIngressIPs 替换成你的公网 IP 即可：
+If your cluster has a public network IP that needs to be accessed externally, please specify the `Cluster.gatewayIngressIPs` parameter and replace gatewayInressIPs from the command with your public IP with： as shown below.
 
-新建示例[values.yaml](/docs/installation/install-with-helm/vaules-config)文件：
+New sample[values.yaml](/docs/installation/install-with-helm/vaules-config) file：
 
 ```yaml
 Cluster: 
   nodesForGateway:
-  - externalIP: 10.22.197.170 #外网IP
-    internalIP: 10.22.197.170 #内网IP
-    name: 10.22.197.170
+  - externalIP: 10.22.197. #Extranet IP
+    internalIP: 10.22.197.170 #Intranet IP
+    name: 10. 2.197.170
     
-  - externalIP: 10.22.197.171
-    internalIP: 10.22.197.171
+  - externalIP: 10.22.197. 71
+    internalIP: 10.22.197.71
     name: 10.22.197.171
 ```
 
 ```bash
-helm install --set operator.env[0].name=CONTAINER_RUNTIME --set operator.env[0].value=containerd rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
+help install --set operator.env[0].name=CONTAINER_RUNTIME --set operator.env[0].value=containerd rainbod rainbond/rainbond-cluster -f values.yaml -n rbd-system
 ```
 
   </TabItem>
 </Tabs>
 
-### 4. 安装进度查询
+### Installation progress query
 
-执行完安装命令后，在集群中执行以下命令查看安装状态。
+After executing the installation command, perform the following commands in the cluster to view the installation status.
 
 ```bash
-watch kubectl get po -n rbd-system
+watch kubtl get po -n rbd-system
 ```
 
-当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。如下所示，Pod `rbd-app-ui-669bb7c74b-7bmlf` 为 Running 状态时，表示 Rainbond 安装成功。
+Installation successful when the name `rbd-app-ui` contains the Pod `rbd-app-ui` for Running state.As shown below, the Pod `rbd-app-ui-669bb7c74b-7bmlf` states that Rainbond was installed successfully.
 
 <details>
-<summary>安装结果</summary>
+<summary>Installation Results</summary>
 
 ```bash
 NAME                                         READY   STATUS      RESTARTS   AGE
@@ -154,22 +154,22 @@ rbd-api-5d8bb8d57d-djx2s                     1/1     Running     0          47h
 
 </details>
 
-### 5. 访问平台
+### 5. Visit the platform
 
-复制如下命令，在集群中执行，可以获取到平台访问地址。如果有多个网关节点，则任意一个地址均可访问到控制台。
+Copy the commands below to be executed in the cluster, and get the platform access address.If there are multiple gateway nodes, any address can be accessed to the console.
 
 ```bash
 kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --template='{{range.spec.gatewayIngressIPs}}{{.}}:7070{{printf "\n"}}{{end}}'
 ```
 
-### 6. 高可用集群(可选)
+### High available clusters (optional)
 
-对于[部署 Rainbond 高可用集群](/docs/installation/install-with-ui/ha)来说，只需要将依赖的服务（镜像仓库、数据库、存储等）都使用外置的高可用服务，然后按照 [Chart 安装选项](/docs/installation/install-with-helm/vaules-config) 中的配置参数进行安装即可。
+For [the deployment of Rainbond high available clusters] (/docs/installation/installation-with-ui/ha), only the service dependent (mirror repositories, databases, storage, etc.) is required to use external high-availability services and then be installed by the configuration parameters in the [Chart Installation](/docs/installation/installation-with-helm/vaules-config).
 
-## 问题排查
+## Issues Ranking
 
-安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](/docs/troubleshooting/installation/helm)，进行故障排查。使用上问题可以参考[Rainbond 使用问题排查](/docs/troubleshooting/use/) 或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+If the installation process is not completed for a long period of time, please refer to the document [Helm Installation troubleshooting/installation/helm) for troubleshooting.Use questions to refer to [Rainbond use troubleshooting/use/) or join [微信群](/community/support#micromessages),[钉钉群](/community/support#peg).
 
-## 下一步
+## Next step
 
-参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
+Use[快速入门](/docs/quick-start/getting-started/) to deploy your first application.
