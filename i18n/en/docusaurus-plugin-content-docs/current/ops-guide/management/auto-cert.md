@@ -2,29 +2,29 @@
 title: The HTTPS certificate is automatically issued
 description: Automatic HTTPS certificate issuance management document for Rainbond gateway management
 keywords:
-  - 证书自动签发
-  - ACME 自动签发
+  - Certificate auto-issue
+  - ACME Auto-Issuance
 ---
 
-Rainbond 目前支持服务端证书管理，用于支持配置 HTTPS 访问策略。
+Rainbond currently supports server certificate management, which supports configuration of HTTPS access strategy.
 
-基于 LEGO 实现了证书的自动签发，目前支持阿里云 DNS 解析。
+Auto-Issuance based on LEGO is supported for Ali-cloud DNS resolution.
 
-**功能**：
+**Function**：
 
-- 自动申请证书
-- 到期自动续期
-- 钉钉/Slack通知申请状态
+- Auto-request certificate
+- Expiration automatic renewal
+- Studded / Slack Notification Status
 
-## 前提条件
+## Prerequisite
 
-域名是通过阿里云购买的，且域名解析是通过阿里云 DNS 解析的。
+The domain name was purchased via Aliyun and the domain parse was parsed via the Ali-cloud DNS
 
-## 自动签发证书的安装与配置
+## Auto-issue certificate installation and configuration
 
-### 配置自动签发证书
+### Configure auto-issue certificates
 
-进入 **企业视图 -> 设置 -> 自动签发证书**，填写以下内容：
+Enter **Enterprise View -> Settings -> Auto-Issue Certificate**, fill in the following：
 
 ```json
 {
@@ -40,34 +40,34 @@ Rainbond 目前支持服务端证书管理，用于支持配置 HTTPS 访问策�
 }
 ```
 
-- 其中 provider 和 env 参考[lego-dns](https://go-acme.github.io/lego/dns/)
-- 阿里云 ak sk 获取请参考[阿里云文档获取](https://help.aliyun.com/document_detail/142101.html?spm=5176.11065259.1996646101.searchclickresult.4d8c32ddBdahDa)
+- where provider and env refer to[lego-dns](https://go-acme.github.io/lego/dns/)
+- Ali clouk for reference to[阿里云文档获取](https://help.aliyun.com/document_detail/142101.html?spm=5176.11065259.1996646101.searchclickresult.4d8c32dBdahda)
 
-### 安装自动签发证书控制器
+### Install auto-issue certificate controller
 
-在 **平台管理 -> 应用市场 -> 开源应用商店** 中搜索 `rainbond-cert-controller` 并安装。
+Search for `rainbond-cert-controller` in \*\*Platform Admin -> Marketplace -> Open Source Store \*\* and install.
 
-安装后进入到 `rainbond-cert-controller` 组件内，修改以下环境变量：
+After installing into the `rainbond-cert-controller` component, modify the following environment variable：
 
-| 变量名                                                            | 说明                                                                                                                           | 默认值                                                                                                            | 必须 |
-| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -- |
-| RAINBOND_OPENAPI_URL | Rainbond 控制台访问地址，例如：http://192.168.1.11:7070 | 无                                                                                                              | 是  |
-| RAINBOND_API_KEY     | 访问令牌，在\*\*个人中心 -> 访问令牌 \*\* 中获取                                                                                              | 无                                                                                                              | 是  |
-| ACME_EMAIL                                | 邮箱地址                                                                                                                         | 无                                                                                                              | 可选 |
-| ACME_KEY_TYPE        | ACME key 类型                                                                                                                  | RSA4096                                                                                                        | 可选 |
-| ACME_DIR_URL         | ACME api 地址                                                                                                                  | https://acme-v02.api.letsencrypt.org/directory | 可选 |
-| ACME_SRORAGE_PATH    | 用于存放认证信息                                                                                                                     | /opt/rainbond-cert-controller/storage                                                                          | 可选 |
-| NOTIFY_TYPE                               | 消息通知类型，`dingtalk/slack`                                                                                                      | dingtalk                                                                                                       | 可选 |
-| DINGTALK_AK                               | 钉钉机器人的 access_token                                                                                     | 无                                                                                                              | 可选 |
-| DINGTALK_SK                               | 添加钉钉机器人时，勾选安全设置的`加签`                                                                                                         | 无                                                                                                              | 可选 |
-| NOTIFY_URL                                | Slack URL 地址                                                                                                                 | 无                                                                                                              | 可选 |
-| NOTIFY_CHANNEL                            | Slack 通道                                                                                                                     | 无                                                                                                              | 可选 |
+| Variable Name                                                         | Note                                                                                                                                                          | Default value                                                                                                   | Required |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | -------- |
+| RAINBOND_OPEN_URL           | Rainbond Console Visit Address, eg:：http://192.168.11.11:7070 | None                                                                                                            | Yes      |
+| PLAYLIST_NOTIFICATION_TITLE | Access token, fetched in **Personal Center -> Access Token**                                                                                                  | None                                                                                                            | Yes      |
+| ACME_EMAIL                                       | Email address                                                                                                                                                 | None                                                                                                            | optional |
+| ACME_KEY_TYPE               | ACME key type                                                                                                                                                 | RSA 4096                                                                                                        | optional |
+| ACME_DIR_URL                | ACME api address                                                                                                                                              | https://acme-v02.api.letssencrypt.org/directory | optional |
+| ACME_SRORGE_PLAYLIST        | Used to store authentication information                                                                                                                      | /opt/rainbond-cert-controller                                                                                   | optional |
+| NOTIFY_TYPE                                      | Message notification type, `dingtalk/slack`                                                                                                                   | dingtalk                                                                                                        | optional |
+| DINGTALK_AK                                      | Studded robot_access_token                                                                                          | None                                                                                                            | optional |
+| DINGTALK_SK                                      | Check the security setting to add pegged robots                                                                                                               | None                                                                                                            | optional |
+| NOTIFY_URL                                       | Slack URL                                                                                                                                                     | None                                                                                                            | optional |
+| NOTIFY_CHANNEL                                   | Slack Channel                                                                                                                                                 | None                                                                                                            | optional |
 
-## 使用自动签发证书
+## Use Auto-Issue Certificates
 
-进入到 **团队 -> 应用内 -> 网关**，编辑域名路由规则：
+Go to **Team -> App -> Gateways**,Edit Domain Route Rules：
 
-- HTTPs证书：选择自动签发证书
-- 认证配置：选择自定义的配置
+- HTTP certificate：selects auto-issue certificate
+- Auth Configuration：Select Custom Configuration
 
-等待几分钟后，Rainbond 网关会自动添加上证书。
+Wait a few minutes for the Rainbond gateway to automatically add a certificate.
