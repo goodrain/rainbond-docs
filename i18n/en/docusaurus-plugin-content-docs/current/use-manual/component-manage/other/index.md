@@ -2,18 +2,20 @@
 title: Component other Settings
 description: Component Other Settings This section describes function modules
 ---
+
 ## 组件部署类型
 
 - 无状态服务(Deployment类型)
- 一般用于Web类、API类等组件
+  一般用于Web类、API类等组件
 
 - 有状态服务(Statefulset类型)
- 一般用于DB类、消息中间件类、数据类组件
+  一般用于DB类、消息中间件类、数据类组件
 
 - 任务(Job类型)
-一般用于一次性任务,完成后容器就退出
+  一般用于一次性任务,完成后容器就退出
+
 - 周期性任务(Cronjob类型)
-一般用于处理周期性的、需反复执行的定时任务
+  一般用于处理周期性的、需反复执行的定时任务
 
 ## 组件健康检测
 
