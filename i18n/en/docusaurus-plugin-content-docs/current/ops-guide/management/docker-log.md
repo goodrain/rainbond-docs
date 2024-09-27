@@ -1,19 +1,19 @@
 ---
-title: 调整 Docker 容器日志收集
+title: Adjust Docker Container Log Collection
 descrition: This section describes how to adjust the parameter collection logs of the Rainbond component after adjusting the default Docker data directory.
 keywords:
-  - Rainbond 调整 Docker 容器日志收集
-  - 调整 Docker 容器日志收集
+  - Rainbond Adjust Docker Container Log Collection
+  - Adjust Docker Container Log Collection
 ---
 
-`rbd-node` 是负责收集 Docker 容器日志的组件，它默认收集 `/var/lib/docker/containers` 目录下的日志，如果您调整了 Docker 的默认数据目录，需要调整 `rbd-node` 组件的参数。
+`rbd-node` is the component responsible for collecting the docker container log, which by default collects the log from the `/var/lib/docker/containers` directory. If you adjust the default data directory for the Docker, you will need to adjust the parameters of the `rbd-node` component.
 
-## 修改 rbd-node 组件参数
+## Edit rbd-node component parameters
 
-添加以下内容，其中 **path、mountPath** 填写实际的 Docker 数据目录
+Add the following content, where **path, mountPath** fill in the actual docker data directory
 
 ```bash title="kubectl edit rbdcomponent rbd-node -n rbd-system"
-apiVersion: rainbond.io/v1alpha1
+apiVersion: rainbond. o/v1alpha1
 kind: RbdComponent
 metadata:
   name: rbd-node
