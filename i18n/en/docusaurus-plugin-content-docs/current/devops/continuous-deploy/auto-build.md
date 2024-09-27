@@ -1,91 +1,91 @@
 ---
-title: 自动部署
+title: Auto Deploy
 description: This topic describes the Rainbond automatic deployment component
 keywords:
-  - 自动部署
-  - Rainbond 自动部署
+  - Auto Deploy
+  - Rainbond Auto-Deploy
 ---
 
-import Bvideo from '/src/components/Bvideo';
+Import Bvideo from '/src/components/Bvideo';
 
 <Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=983036584&page=8" />
 
-通过自动构建的功能，可以实现代码或镜像提交后组件自动触发构建和部署，Rainbond 提供了基于代码仓库 Webhooks、镜像仓库 Webhooks 和自定义 API 三种方式触发组件自动部署。自动构建的功能可以辅助开发者便捷的实现敏捷开发。
+Automatically build and deploy modern code or mirror to automatically trigger the building and deployment, and Rainbond offers three ways of triggering the automatic deployment of components based on repository Webhooks, mirror repositories Webhooks, and custom API.Automatically build features that can help developers achieve agile development.
 
-## 前提条件
+## Prerequisite
 
-- 组件是由源码创建，可支持代码仓库 Webhooks，目前支持的代码仓库为`GitHub` `GitLab` `Gitee`。
-- 组件是由镜像创建，可支持镜像仓库 Webhooks，目前支持 Docker 官方仓库，阿里云镜像仓库。
+- The component is created by the source code and supports the repository Webhooks. The currently supported repository is `GitHub` `Gite`.
+- Components are created by mirrors. They support webhooks. Currently they support the Docker official repository, Aliyun mirror repository.
 
-## 基于源代码操作流程
+## Based on source code operating process
 
-### 开启 Rainbond Git Webhook
+### Enable Rainbond Git Webhook
 
-开启组件 Git Webhook 在 **组件 -> 构建源** 中打开 Git-Webhook 自动构建功能，复制生成的 hook 地址。
+Enable Git Webhook to open Git-Webhook auto build in **Component -> Build Source** and copy generated hook addresses.
 
 :::info
-一般情况下开发者不希望每一次代码提交都进行部署动作，因此 Rainbond hook 自动触发设置了前提，在 Commit 信息中包含 `@关键字` 时才触发动作。这个关键字可以由用户进行设置。
+Normally the developer does not want every code submission to be deployed, so Rainbond hook automatically triggers the setting presupposes that `@keywords` is included in the Commit message.This keyword can be set by the user.
 :::
 
-### 配置 Git 仓库 Webhooks
+### Configure Git Repository Webhooks
 
-#### GitHub 配置
+#### GitHub Configuration
 
-进入 GitHub 项目内，**Settings -> Webhooks -> Add webhooks**
+Go to GitHub item,**Settings -> Webhooks -> Add webhooks**
 
-|                     | 说明                        |
-| ------------------- | ------------------------- |
-| Payload URL         | 复制 Rainbond 中的 Webhook 地址 |
-| Content type        | application/json          |
-| Just the push event | 选择 push 触发事件              |
-| Active              | 勾选 Active                 |
+|                     | Note                               |
+| ------------------- | ---------------------------------- |
+| Payload URL         | Copy Webhook address from Rainbond |
+| Content Type        | Application/json                   |
+| Just the push event | Push Trigger Event                 |
+| Active              | Check for Active                   |
 
-#### GitLab 配置
+#### GitLab Configuration
 
-|         | 说明                        |
-| ------- | ------------------------- |
-| URL     | 复制 Rainbond 中的 Webhook 地址 |
-| Trigger | 勾选 **Push events**        |
+|         | Note                               |
+| ------- | ---------------------------------- |
+| URL     | Copy Webhook address from Rainbond |
+| Trigger | Check **Push events**              |
 
-其他代码仓库配置方式类似，需要说明的是目前 Rainbond hook 触发暂不支持安全请求校验。
+Other code repositories are configured in a similar way. What needs to be noted is that Rainbook hook now triggers a failure to support the security request checksum.
 
-## 基于镜像仓库操作流程
+## Mirror repository operation process
 
-镜像仓库自动构建可以实现推送镜像后应用的自动构建，方便的对接第三方自动化流程。当镜像更新事件到达时判断以下条件，都满足时触发自动构建。
+Mirror Repository Autobuild enables automatic build after push mirrors, easy to connect to third party automation.Trigger auto build when mirror updates arrive.
 
-- 应用是由镜像创建，镜像仓库为`Docker Hub`, 5.1.2 版本及以后支持阿里云镜像仓库。
+- The app was created by a mirror, the repository was `Docker Hub`, version 5.1.2 and later supported the Aliyun mirror repository.
 
-- 默认更新的镜像名称和 tag 是否与当前组件构建源镜像名称一致（判断时不包含镜像仓库域名）, 5.1.3 版本及以后支持配置 Tag 触发正则策略，动态匹配和改变组件的镜像 Tag。
+- Whether the default updated mirror name and tag match the current component build source image name (no mirror repository domain name is included when judged), version 5.1.3 and later supports configuration of Tag triggering regular policy, dynamic matching and changing the component image Tag.
 
-### 开启 Rainbond 镜像 Webhook
+### Enable Rainbond Mirror Webhook
 
-开启镜像仓库 Webhook 自动构建，**组件 -> 构建源 -> 开启自动构建**。
+Enable automatic build of the mirror repository Webhook, **Component -> Build Source -> Enable AutoBuild**.
 
-**Tag 触发自动修改策略**
+**Tag triggers auto modification**
 
-默认情况下 Webhook 更新事件的镜像名称和 Tag 必须与组件当前构建源的镜像名称和 Tag 配置一致才能触发构建和部署。配置了 Tag 触发策略以后，根据配置的正则表达式，如果接收到的 push 事件的镜像 tag 能够正确匹配正则表达式，则认为此次更新事件有效，根据更新的 Tag 信息来升级当前组件的构建源信息并进行自动构建。
+The mirror name and Tag of the Webhook update event by default must match the mirror name and Tag configuration of the component build source to trigger building and deployment.Once the Tag trigger policy has been configured, according to the configured regular expression, this update is valid if the image tag of the received push event can match the regular expression correctly, based on updated Tag information to upgrade the build source of the current component and build automatically.
 
-比如设置 Tag 策略为： `v5.*` 当 Tag 为 `v5.1` `v5.2` `v5.9`等都将被允许。
+For example, setting up Tag policies for： `v5.*` when a tag is `v5.1` `v5.2` `v5.9` etc. will be allowed.
 
-### 配置 DockerHub 镜像仓库
+### Configure DockerHub Mirror Repository
 
-进入 DockerHub 仓库 -> Webhooks
+Go to DockerHub repository -> Webhooks
 
-| New Webhook  | 说明                        |
-| ------------ | ------------------------- |
-| Webhook name | 自定义                       |
-| Webhook URL  | 复制 Rainbond 中的 Webhook 地址 |
+| New Webhook  | Note                               |
+| ------------ | ---------------------------------- |
+| Webhook name | Custom                             |
+| Webhook URL  | Copy Webhook address from Rainbond |
 
-## API 触发自动构建
+## API triggers auto-build
 
-通过开启 API 自动构建返回的 URL，POST 方法调用 API，携带秘钥即可触发 API 自动构建，秘钥可以自定义设置。
+Use the API to automatically build back URL,POST method to call the API, use the secret keys to trigger the API auto-build. Key can be customized.
 
-进入 **组件 -> 构建源 -> 开启自动构建 -> 自定义 API**。
+Go to **Component -> Building Source -> Enable Auto-Build -> Custom API**.
 
-**API 使用方式如下：**
+**API usage below：**
 
 ```bash
-curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+curl -d {"secret_key":"<Secret >"}' -H "Content-type: application/json" -X POST <API地址>
 ```
 
-基于 API 触发自动构建是最灵活的方式之一，主要用于与第三方 CI 系统集成。
+Automatically build based on the API trigger is one of the most flexible ways to integrate with the third party CI system.
