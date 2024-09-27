@@ -3,74 +3,74 @@ title: Replace an NFS storage node
 description: This article explains how to replace the default NFS storage to another large storage node.
 ---
 
-基于主机或 Helm 安装时，Rainbond 在默认情况下会提供一个 NFS Provisioner，用做整个平台的共享存储和组件的存储。该存储数据默认保存在 nfs-provisioner-0 这个 Pod 所在节点的 /opt/rainbond/data/nfs 目录下。但是在一些场景下，这个 Pod 所调度的节点不一定是集群中存储最大的节点。
+When hosting or Helm is installed, Rainbond will provide a NFS provisioner by default to serve as shared storage and component storage for the entire platform.This store data is saved by default in the /opt/rainbond/data/nfs directory of this Pod node in nfs-provisioner-0.But in some scenarios, this Pod dispatches node is not necessarily the largest node stored in the cluster.
 
-本文将介绍如何将默认的 NFS 服务切换到其他大存储节点上。
+This paper will describe how to switch the default NFS service to other large storage nodes.
 
 :::warning
-注意：更换 NFS 存储节点有风险，请做好数据备份。在更换节点的过程中，有可能会出现业务不可用的情况，请选择合适时间更换。
+Note that：is dangerous to replace NFS storage node, please backup data.In the process of changing nodes, there is a risk that business will not be available, please choose the appropriate time to replace.
 :::
 
-## 操作原理
+## How to do it
 
-整体操作原理如下图所示，下面的 Node 1 是默认 NFS 运行的节点。Node 2 是要迁移的节点。操作步骤主要分为以下三步：
+The general operating principles are shown in the graph below, Node 1 below is the default NFS running node.Node 2 is a node to migrate.Action steps are divided mainly into the following three moves：
 
-1. 存储数据迁移：默认情况下，内置的 NFS 服务会将数据保存到 nfs-provisioner-0 这个 Pod 所在节点的 /opt/rainbond/data/nfs 目录下，所以需要将该目录下的业务数据复制一份到你即将要切换的存储节点上。
+1. Storage migration：by default, built-in NFS services will save data to the nfs-provisioner-0 directory of this Pod node /opt/rainbond/data/nfs so you need to copy business data from this directory to the store node you are about to switch to.
 
-2. PVC、PV 迁移：数据复制完毕后，我们需要创建新的 PVC 和 PV 进行绑定，并将其指向新节点 Node 2 的数据目录。
+2. When PVC, PV migrated：data is copied, we need to create new PVC and PV to bind to the new Node 2 data directory.
 
-3. StatefulSet 迁移：PVC 和 PV 重新创建后，需要让 StatefulSet 迁移到新节点 Node 2 上。
+3. StatefulSet migration：PVC and PV needs to migrate StatefulSet to new Node 2 after recreation.
 
 ![change-nfs](https://static.goodrain.com/docs/5.14.2/change-nfs.png)
 
-## 操作流程
+## Operating processes
 
-### 存储数据迁移
+### Storage data migration
 
-1. 在新节点 Node 2 上创建目录
+1. Create directory on new Node 2
 
 ```bash
 mkdir /opt/rainbond/data/nfs/
 ```
 
-2. 将旧节点 Node 1 的数据拷贝过来，此处需要在 Node 2 上执行，在你实际操作时应将下方 IP 替换为你真实节点的 IP。
+2. Copy the data of the old Node 1, here needs to be done on Node 2. You should replace the following IP with your real node's IPs when you actually do it.
 
 ```bash
-scp -r root@112.126.81.128:/opt/rainbond/data/nfs /opt/rainbond/data
+scp - r root@112.126.81.128:/opt/rainbond/data/nfs /opt/rainbond/data
 ```
 
-以上两步完成后，就实现了存储数据的迁移。
+After the above two steps, migration of stored data has been achieved.
 
-### PVC、PV 迁移
+### PVC, PV Migration
 
-1. 备份原有的 PV 和 PVC（可选）
+1. Backup old PV and PVC (optional)
 
 ```bash
-kubectl get pvc data-nfs-provisioner-0 -nrbd-system -oyaml > nfs-pvc-bak.yaml
-kubectl get pv nfs-provisioner -nrbd-system -oyaml > nfs-pv-bak.yaml
+kubectl get pvc data-nfs-provisioner-0 -nrbd-system -yaml > nfs-pvc-bak.yaml
+kubectl get pv nfs-provisioner -nrbd-system -yaml > nfs-pv-bak.yaml
 ```
 
-2. 执行以下命令，将 StatefulSet 的实例数减少到 0，以便于清理 Node 1 上的 PV 和 PVC
+2. Execute the following commands to reduce the number of StatefulSet instances to 0 in order to clean up PV and PVC on Node 1
 
 ```bash
-kubectl edit sts nfs-provisioner -nrbd-system
+kubtl edit costs nfs-provisioner -nrbd-system
 ```
 
-3. 删除原有的 PV 和 PVC
+3. Remove old PV and PVC
 
 ```bash
-kubectl delete pvc data-nfs-provisioner-0 -nrbd-system
+kubtl delete pvc data-nfs-provisioner-0 -nrbd-system
 kubectl delete pv nfs-provisioner
 ```
 
-4. 重新创建新的 PV 和 PVC，以下是 PV 和 PVC 的示例 yaml，你需要更改 PV 示例中的 nodeAffinity 字段，使该 PV 与你的新节点 Node 2 绑定。
+4. Recreate new PV and PVC, below is a PV and PVC sample yaml, you need to change the nodeAffinity field in PV example to bind this PV to your new Node 2.
 
 <details>
-<summary>PV 示例</summary>
+<summary>PV Example</summary>
 
 ```yaml
 apiVersion: v1
-kind: PersistentVolume
+ind: PersistVolume
 metadata:
   labels:
     belongTo: rainbond-operator
@@ -78,46 +78,46 @@ metadata:
     name: nfs-provisioner
   name: nfs-provisioner
 spec:
-  accessModes:
+  accessMode:
   - ReadWriteMany
   capacity:
     storage: 1Gi
   hostPath:
-    path: /opt/rainbond/data/nfs
-    type: DirectoryOrCreate
+    path: /opt/rainbon/data/nfs
+    type: DirectoryOrate
   nodeAffinity:
     required:
       nodeSelectorTerms:
       - matchExpressions:
-        - key: kubernetes.io/hostname
+        - key: kubernets. o/hostname
           operator: In
           values:
-          - 59.110.14.219
+          - 59. 10.14.219
       - matchExpressions:
-        - key: k3s.io/hostname
+        - key: k3. o/hostname
           operator: In
           values:
-          - 59.110.14.219
-  persistentVolumeReclaimPolicy: Retain
+          - 59. 10.14 19
+  PersistentVolumeReclaim Policy: Retain
   storageClassName: manual
-  volumeMode: Filesystem
+  volumeMode: Filesome
 ```
 
 </details>
 
 <details>
-<summary>PVC 示例</summary>
+<summary>PVC Example</summary>
 
 ```yaml
 apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
+ind: PersistentVolumeClaim
+metata:
   labels:
     belongTo: rainbond-operator
     creator: Rainbond
     name: nfs-provisioner
   name: data-nfs-provisioner-0
-  namespace: rbd-system
+  nameace: rbd-system
 spec:
   accessModes:
   - ReadWriteMany
@@ -125,30 +125,30 @@ spec:
     requests:
       storage: 1Gi
   storageClassName: manual
-  volumeMode: Filesystem
-  volumeName: nfs-provisioner
+  volumeMode: Filesyset
+  volume: nfs-provisioner
 ```
 
 </details>
 
-### StatefulSet 迁移
+### StatefulSet Migration
 
-1. 检查新创建的 PV 和 PVC 是否绑定成功，如果状态为 Bound 即为成功
-
-```bash
-kubectl get pvc data-nfs-provisioner-0 -nrbd-system
-```
-
-2. 将 StatefulSet 实例数恢复为 1 即可
+1. Check if newly created PV and PVC are bound successfully, if status is Bound
 
 ```bash
-kubectl edit sts nfs-provisioner -nrbd-system
+kubtl get pvc data-nfs-provisioner-0 -nrbd-system
 ```
 
-3. 当 nfs-provisioner-0 的 Pod 正常运行以后，平台即可恢复。如果发现 rbd-monitor 的状态不正常，则进入 rbd-monitor 的容器，清除 `/prometheusdata/chunks_head/` 的数据即可。rbd-monitor 没有 bash 命令，使用如下命令进入容器后清理数据。
+2. Restore StatefulSet Instances to 1
 
 ```bash
-kubectl exec -it rbd-monitor-0 -nrbd-system sh
+kubtl edit costs nfs-provisioner -nrbd-system
 ```
 
-4. 由于存储更换，所以会导致之前挂载了共享存储的业务组件，此时无法访问共享存储的内容。因此需要在控制台重启对应组件。
+3. The platform can be restored when the nfs-provisionioner-0 Pod is running.If rbd-monitor is found to be in an irregular state, enter the rbd-monitor container and clear the `/prometheusdata/chunks_head/` data.rbd-monitor does not have a bash command, use the command below to clean the data after entering the container.
+
+```bash
+kubtl exec -it rbd-monitor-0 -nrbd-system sh
+```
+
+4. Storage replacements will result in shared stored business components mounted before, and shared stored content cannot be accessed at this time.Therefore, the corresponding component needs to be restarted in the console.
