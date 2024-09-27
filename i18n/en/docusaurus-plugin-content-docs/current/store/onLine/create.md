@@ -1,27 +1,27 @@
 ---
-title: 注册对接
-description: 本章描述 开源应用商店 发布应用会有哪些价值。
+title: Registration Curve
+description: This chapter describes the value that the Open Source App Store will have.
 ---
 
-本章主要介绍用户从开源应用商店注册账号到 Rainbond 应用市场对接商店的流程，对接完成之后会拥有发布权限、能展示个人发布的应用、能管理发布的应用。
-主要流程为`注册账号——>对接开源应用商店进行授权`。
+This chapter mainly describes the process by which users can access the store from the Open Source Store registration account to the Rainbond Marketplace, after which they will be able to publish the app, display personal published apps and manage published applications.
+The main process is `Registered Account_>Authorize Access to Source Store`.
 
-## 注册账号
+## Sign Up
 
-注册账号的目的主要是管理自己发布的应用，同时在作者个人中心页面，可以看到当前作者发布的所有应用。
+The purpose of this account is primarily to manage your own release apps, while at the author personal center page, you can see all apps published by the current author.
 
-- 用户可以在应用商店注册页，直接注册，需要填写账号、密码、手机号、验证码。
-- 如果手机号注册过，并且忘了自己密码的情况下，可以去登录页用短信验证的方式直接进行登录，也可以去找回密码。
+- Users can register at the App Store and register directly, need to fill in their account, password, mobile number, verification code.
+- If your phone number is registered and your password is forgotten, you can go to the login page to log in directly by message authentication, or to recover your password.
 
-注册完成之后会自动登录账号，点击右上角控制台完善自己的信息，我们想去发布应用的时候，该信息内容会呈现到`应用详情页作者介绍`里面，也可以点击作者名称，进入作者个人中心页面，该页面会展示作者发布的所有应用以及作者的信息简介。
+Once the registration is completed, you will automatically log in to your account and you will complete your information by clicking on the upper right corner. When you want to publish the app, this message will appear inside the `App Details by the author description`, or by clicking on the author's name and entering the Author personal center page, which will show all apps that the author has published, as well as the author's profile.
 
-## 如何对接商店授权
+## How to authorize the shop
 
-对接商店的过程就是登录授权的过程，如果不对接商店将只能浏览当前商店的应用，无法进行发布和安装操作。具体操作流程如下：
+The process to access the store is a process of login authorization. If you do not have access to the shop, you will only be able to view the current store app, you will not be able to publish and install.Specific actions below：
 
-- **第一步**：从Rainbond平台头部导航栏进入`平台管理`视图，此视图只有管理员可以进行访问管理。
-- **第二步**：进入平台管理视图之后，点击左侧导航栏`应用市场`,选择开源应用商店。
-- **第三步**：选择完开源应用商店之后，找任意应用点击右侧`安装`按钮。
-- **第四步**：弹出授权登录框，填写从应用商店注册时的手机号，发送短信填写验证码进行授权登录。
+- **First step**：enters the `Platform Manager` view from the Rainfd platform's head navigation bar. This view can only be managed by an administrator.
+- **Step 2**：, after entering the platform management view, click on the left navigation bar `Market`, select the Open Source App Store.
+- **Step 3**：chooses to finish the open source store and find any app by clicking the `Install` button on the right side.
+- \*\*Step 4 \*\*：eject the authorization login, fill in the phone number registered from the App Store and send the SMS with the verification code to authorize login.
 
-授权完成之后你可以看到拥有了发布、安装的权限。此时可以去[发布应用](/docs/store/onLine/publish)，发布应用的作者信息对应的就是当前账号里的信息。
+Once the authorization has been completed, you can see that you have posts and installed permissions.You can go to[发布应用](/docs/store/onLine/publish) at this time. The application's author information corresponds to the current account.
