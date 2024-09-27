@@ -11,5 +11,5 @@ If you don't know how to share open source apps to the Rainbond open source app 
 
 ## Application Requirements
 
-- 应用要满足一键安装即可使用。
+- App can be used to meet one click installation.
 - The application should have a description, introducing the application introduction, how to use it, etc., and you can also cite the article.
