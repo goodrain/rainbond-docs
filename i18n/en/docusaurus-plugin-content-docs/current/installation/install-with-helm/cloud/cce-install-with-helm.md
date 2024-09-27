@@ -3,75 +3,75 @@ title: The installation is based on Huawei Cloud CCE cluster
 description: Based on Huawei Cloud CCE cluster, install Rainbond from scratch with helm
 ---
 
-## 安装前提
+## Installation prerequisites
 
-开始之前，请确定已经购买了以下华为云资源，所有资源要求在同一区域：
+Before you start, make sure you have purchased the following as a cloud resource, all the resources required in the same region：
 
-### 华为云 CCE 托管集群
+### Huawei CCE Hosting Cluster
 
-- CCE Kubernetes 版本不低于1.19
-- 集群内至少 2 节点，并配置好 `kubectl` 命令
-- 节点具备公网访问能力
-- 配置要求 8核CPU 32G内存
-- 磁盘空间： 根分区 200G 数据分区（docker分区）300G
-- 安全组规则合理配置
+- CCE Kubernetes version no less than 1.19
+- At least 2 nodes in the cluster and a `kubectl` command is configured
+- Nodes have public access
+- Configure requirements for 8 nuclear CPU 32G memory
+- Disk space： root partition 200G data partition (docker partition) 300G
+- Security group rules are properly configured
 
-### ELB负载均衡
+### ELB Load Balancer
 
-- 具备一个 **公网IP地址**
-- 将 CCE 集群中的节点纳入后端服务器组
-- 配置以下端口映射：80 443 6060 7070 8443
+- Has a **Public Web IP Address**
+- Include node from the CCE cluster in the backend server group
+- Configure the following port mapping：80 443 6060 7070 8443
 
-### SFS 存储服务
+### SFS Storage Service
 
-- 提供一个挂载点，格式类似 `121.89.94.122：/`
-- 选择与云服务器同一VPC
+- Provides a mount point in format like `121.89.94.122：/`
+- Select the same VPC as the cloud server
 
-### RDS 数据库服务
+### RDS Database Service
 
-- 预先生成两个数据库实例： `console` `region`
-- 生成数据库账户密码，对上述数据库赋予全部权限
-- 安全组规则可以访问对应端口
+- Precreate two database instance： `console` `region`
+- Generate database account password, grant all permissions for the above database
+- Security group rules can access corresponding ports
 
-### 容器镜像服务
+### Container Image Service
 
-- 创建好命名空间、用户名、密码
+- Create a good namespace, username, password
 
-### helm 版本
+### helm version
 
-- helm3 以上版本
+- Helm3 above
 
-## 对接CCE集群
+## Match CCE cluster
 
-### 安装 Kubectl 命令行工具
+### Install Kubectl command line tool
 
-- 下载 kubectl
+- Download kubectl
 
 ```
-wget https://grstatic.oss-cn-shanghai.aliyuncs.com/binary/kubectl -O /usr/bin/kubectl
+wget https://grstatic.oss-cn-shanghai.aliyuncs.com/binary/kubtl -O /usr/bin/kubectl
 chmod +x /usr/bin/kubectl
 ```
 
-- 配置 config 文件
+- Configure config file
 
-登录云容器引擎控制台，进入“资源管理 > 集群管理”，单击集群名称，进入集群详情页。单击kubectl页签 > 下载 kubectl配置文件 。
+Log in to the cloud container engine console, enter 'Resource Management > Cluster Management', click on cluster name to enter cluster details page.Click on the kubectl tab > Download kubectl profile.
 
-复制 kubectl 配置文件的内容到 config 文件，并在终端命令行执行以下命令
+Copy the contents of the kubtl configuration file to the config file and execute the following command on the terminal command line
 
 ```bash
 mkdir ~/.kube/
 vi ~/.kube/config
 ```
 
-### 安装helm
+### Install helm
 
 ```bash
-wget https://pkg.goodrain.com/pkg/helm && chmod +x helm && mv helm /usr/local/bin/
+wget https://pkg.goodrain.com/pkg/helm && chmod +x help && mv helm /usr/local/bin/
 ```
 
-### 创建values.yaml 文件
+### Create values.yaml file
 
-- 通过自定义的形式，选择rainbond 集群的配置以及是否对接已有的华为云的SFS，RDS，镜像仓库等。
+- Select the configuration of the rainbond cluster in a custom format and whether to take over the existing cloud SFS, RDS, mirror warehouses, etc.
 
 ```yaml
 $ vi values.yaml
@@ -151,41 +151,41 @@ nfs-client-provisioner:
     path: <PATH>
 ```
 
-### 使用 Helm 安装 Rainbond
+### Install Rainbond with Helm
 
-- 创建rbd-system 命名空间
+- Create rbd-system namespace
 
 ```bash
 kubectl create namespace rbd-system
 ```
 
-- 添加chart仓库
+- Add Chart Repository
 
 ```bash
-helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
+help repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
 ```
 
-- 安装rainbond
+- Install rainbond
 
 ```bash
-helm install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
+help install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
 ```
 
-### 验证安装
+### Verify Installation
 
-- 查看pod状态
+- View pod status
 
 ```bash
-kubectl get po -n rbd-system | grep rbd-app-ui
+kubtl get po -n rbd-system | grep rbd-app-ui
 ```
 
-- 等待 `rbd-app-ui` pod为 Running 状态即安装成功。
+- Waiting for `rbd-app-ui` pod for Running state to install successfully.
 - 安装成功以后，可通过 `$gatewayIngressIPs:7070` 访问rainbond控制台。
 
-### 安装问题排查
+### Installation problem sorting
 
-- 安装过程中如果长时间未完成，那么请参考文档[helm 安装问题排查指南](/docs/troubleshooting/installation/helm)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+- If the installation process is not completed for a long time, please refer to the document [helm installation troubleshooting/installation/helm) for troubleshooting.Or join [微信群](/community/support#microbelieve),[钉钉群](/community/support#pegs) for help.
 
-## 下一步
+## Next step
 
-参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
+Use[快速入门](/docs/quick-start/getting-started/) to deploy your first application.
