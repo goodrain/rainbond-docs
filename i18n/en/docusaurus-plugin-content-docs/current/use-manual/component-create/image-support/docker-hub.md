@@ -1,16 +1,16 @@
 ---
-title: Docker私有镜像仓库管理
-description: 了解如何高效管理和配置Docker私有镜像仓库，优化构建流程，提升用户体验。
+title: Docker Private Image Repository Management
+description: Learn how to efficiently manage and configure the Docker private mirror repository, optimize build processes and improve user experience.
 ---
 
-为了提升用户镜像部署的体验，现在平台可以统一设置私有镜像仓库的授权信息。在镜像部署时，只需要选择需要使用到的私有镜像仓库，输入镜像名称即可。账号密码以及镜像仓库域名不需要再次输入.
+In order to enhance the experience of user mirrors deployed, the platform can now set up a single private mirror repository for authorization.When a mirror is deployed, only the private mirror repository needs to be used. Enter the image name.Password and mirror repository domain are not required again.
 
-## 添加仓库步骤
+## Add Repository Step
 
-在**平台管理-设置**中点击**镜像仓库**，填写名称，地址，账号密码之后，您可以添加私有镜像仓库授权信息。
+You can add private mirror repository authorization information after **Platform Admin - Setting** click **Mirror Repository**\*, fill in the name, address and password.
 
-用户可以方便地查看、新增、编辑、删除已配置的仓库信息，并实现这些信息的统一管理，从而简化构建过程中的认证步骤。
+Users can easily access, add, edit, delete configured repository information and manage it uniformly, thereby simplifying authentication steps in the construction process.
 
-## 如何使用
+## How to use
 
-在创建组件时，选择基于容器创建，然后选择私有镜像仓库。输入镜像名称即可。账号密码以及镜像仓库域名不需要再次输入.
+When creating a component, select a container-based creation and then a private mirror repository.Enter a mirror name.Password and mirror repository domain are not required again.
