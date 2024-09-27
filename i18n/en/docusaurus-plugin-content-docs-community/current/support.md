@@ -9,7 +9,7 @@ keywords:
 
 This page will list some Rainbond related communities for you to join.
 
-before participating in the Rainbond community communication.All community members are expected to abide by this code.期望所有社区成员都遵守该准则。
+before participating in the Rainbond community communication.All community members are expected to abide by this code.All community members are expected to adhere to the guidelines.
 
 ## WeChat Group
 
@@ -24,11 +24,11 @@ You can get community support in the Rainbond WeChat technical exchange group, w
   <img src="/wechat/wechat-public.jpg" width="20%"/>
 </div>
 
-## 钉钉群
+## Pin Group
 
 You can search for the group number `31096419` in DingTalk to join the Rainbond DingTalk technical exchange group.
 
-- 31096419（满）
+- 31096419 (full)
 - 30885018060
 
 ## Slack Channel
