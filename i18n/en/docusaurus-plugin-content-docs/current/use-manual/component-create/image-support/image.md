@@ -7,19 +7,19 @@ This chapter will take you to know the supported specifications of components cr
 
 ### Image Support Specification
 
-Rainbond's way of creating components based on existing standards is the fastest and most compatible way.Here we will describe what images can run on Rainbond from the following aspects：这里我们将从以下几个方面描述什么镜像可以在 Rainbond 运行：
+Rainbond's way of creating components based on existing standards is the fastest and most compatible way.Here we will describe what images can run on Rainbond from the following aspects：Here we will describe what mirrors can run： in Rainbond
 
-#### 不能运行的镜像
+#### Unable to run image
 
 Here we first explain which images cannot be run, which is very important.
 
 - basic system environment
 
-The basic system images represented by`alpine` `centos` `debian` are necessary for us to make component images, but they cannot be directly run on Rainbond, why? Because they start the process is not running in the foreground by default, that is, the container will exit when it starts.Only open stdin for TTL interactive runs when running locally. 因为它们启动进程默认是非前台运行的，即容器启动则会退出。只能在本地运行时打开 stdin 进行 TTL 交互式运行。
+The basic system images represented by`alpine` `centos` `debian` are necessary for us to make component images, but they cannot be directly run on Rainbond, why? Because they start the process is not running in the foreground by default, that is, the container will exit when it starts.Only open stdin for TTL interactive runs when running locally. Because their startup processes are not run by default, the container starts will exit.Open stdin for TTL interactive run only when local running.
 
 - Basic language&tools
 
-At present, many developers use Docker images to distribute command-line tools, such as golang compilation environment, docker compilation environment, maven compilation environment, and so on.They don't work for the same reasons as the first category.它们不能运行的原因与第一类相同。
+At present, many developers use Docker images to distribute command-line tools, such as golang compilation environment, docker compilation environment, maven compilation environment, and so on.They don't work for the same reasons as the first category.They cannot function for the same reasons as category I.
 
 ### runnable image
 
@@ -69,7 +69,7 @@ For example,`sFTP`component,`minio`object storage components, etc.
 
   - mysql
   - mariadb
-  - mongo
+  - mono
   - redis
   - tidb
   - zookeeper
@@ -78,10 +78,10 @@ For example,`sFTP`component,`minio`object storage components, etc.
   - mongodb
   - memcached
   - cockroachdb
-  - cockroach
+  - Cockroach
   - etcd
   - postgres
-  - postgresql
+  - postprogresql
   - elasticsearch
   - consul
   - percona
@@ -91,5 +91,5 @@ For example,`sFTP`component,`minio`object storage components, etc.
   For example the following image will be deployed as stateful type：
 
   - mysql:latest
-  - hub.example.com/xxx/mysql:5.5
-  - xxx/mysql:5.7
+  - hub.example.com/x/mysql:5.5
+  - xx/mysql:5.7
