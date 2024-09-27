@@ -2,7 +2,7 @@
 title: Get the application component information that needs to be copied
 ---
 
-## 基本信息
+## Basic information
 
 This interface is mainly used to obtain the application component information that needs to be copied
 
@@ -37,7 +37,7 @@ Status code **200**
 | » create_status  | string                                                                            | true     | none       | Create status  | Create state             |
 | » service_alias  | string                                                                            | true     | none       | Service alias  | component nickname       |
 | » service_cname  | string                                                                            | true     | none       | Service cname  | Component Chinese name   |
-| » version                             | string                                                                            | true     | none       | Version        | 版本                       |
+| » version                             | string                                                                            | true     | none       | Version        | Version                  |
 | » service_type   | string                                                                            | true     | none       | Service type   | component type           |
 | » service_id     | string                                                                            | true     | none       | Service id     | id                       |
 | » app_name       | string                                                                            | true     | none       | App name       | Application Name         |
