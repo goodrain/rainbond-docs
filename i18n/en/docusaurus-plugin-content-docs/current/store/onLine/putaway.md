@@ -1,134 +1,134 @@
 ---
-title: 管理应用
-description: 本章描述 开源应用商店 发布应用会有哪些价值。
+title: Manage apps
+description: This chapter describes the value that the Open Source App Store will have.
 ---
 
-本节主要介绍在应用市场如何管理应用，主要包含应用上下架、应用描述、套餐和版本以及生成离线包等内容。`管理员`角色还会有更多的管理功能。
+This section focuses on how applications are managed in the application market, mainly including applications on the upboard, app description, packages and versions, and the generation of offline packages.`Administrator` roles will have more management features.
 
-## 管理应用信息
+## Manage app information
 
-在应用市场中，登录以后，点击右上角`控制台`进入`后台管理`，选择左侧`上架应用`，这时候会看到一个列表里面有从 Rainbond 发布过来的应用，点击`管理`会进入到应用信息管理界面去完善应用信息，Tab页主要包含`基础信息`、`应用版本`、`套餐管理`。
+On the Marketplace, log in, click on the upper right corner `console` to enter the background administration`, select the left `top right` to place the app`. When you see an app that has been posted from Rainbond, click `Admin `will go to the application management interface to complete the application information, and the Tabs will contain `basic', `App Version`, `Package Manager\`.
 
-### 完善基本信息
+### Complete Basic Information
 
-应用基础信息是介绍你应用的好地方，你可以通过简介让更多人对应用有更清晰的理解。
+The basic app information is a good place to tell you about your app, and you can make more people understand the app more clearly.
 
-- 应用基本信息字段说明：
+- Application basic information field description：
 
-| 字段   | 说明                  |
-| ---- | ------------------- |
-| 名称   | 应用的名称，自定义           |
-| logo | 应用上架之后所展示的logo      |
-| 分类   | 对应用进行归类，当前应用属于什么类别  |
-| 标签   | 根据应用的类型定义标签，可通过标签分组 |
-| 简介   | 应用的简要描述             |
-| 详情   | 应用的详细介绍，也可以是使用说明    |
+| Fields       | Note                                                                           |
+| ------------ | ------------------------------------------------------------------------------ |
+| Name         | Name of app,custom                                                             |
+| logo         | Apply logo displayed after listing                                             |
+| Categories   | Categorize apps, what categories the current app belongs to                    |
+| Tags         | Define labels according to the type of application that can be grouped by tabs |
+| Introduction | Brief description of the app                                                   |
+| Details      | A detailed description of the app or instructions to use                       |
 
-将信息填写完整，点击下方保存按钮就可以将编写的信息进行保存。
+Complete the information and save it by clicking the save button below.
 
-### 应用版本
+### App Version
 
-选择上面Tab页`应用版本`，这时候会有一个列表，里面有从 Rainbond 发布过来的版本信息，一个应用可以有多个版本。你可以编辑某个版本的信息，或删除对应版本，还可以为对应版本生成离线安装包。
+Select the tab `App Version` above, which will have a list of versions that have been posted from Rainbond, and an app can have multiple versions.You can edit a version of information, or delete the corresponding version. You can also install an offline package for the corresponding version.
 
-- 版本信息：可以编辑版本作为插件使用,以及版本别名和描述。
+- Version information：can be edited as a plugin and version alias and description.
 
-- 离线包：点击离线包会弹出一个窗口，有一个`生成`按钮,点击按钮会生成应用的离线包，只有生成离线包上架之后才会展示下载应用包的按钮，不生成离线包是不支持下载的。
+- Offline pack：will eject a window, with a `Generate` button. Click the button to generate an app's offline pack only if an offline package is generated and the download package button is displayed until offline package is generated. Download is not supported unless offline package is generated.
 
-信息编辑完成之后会在应用版本列表显示。
+Once the message is edited, it will appear in the app version list.
 
-### 编辑套餐版本
+### Edit Package Version
 
-选择上面Tab页`套餐管理`，一个应用至少需要一个套餐才能上架。点击`新增`会弹出一个套餐编辑框，一个应用可以多个套餐，比如当前应用有多个版本就可以编辑多个套餐，填写下面这些信息，选择免费套餐，点击确定即可编辑完成。
+Select the Tab's `Kit Management` above. An app requires at least one package to be listed.Click `Add` to eject a bundle that allows an app to edit more than one package, like the current app has multiple versions, fill in the information below, select free pack, and edit it when you click OK.
 
-- 套餐信息：
+- Package Information：
 
-  名称：套餐名称，自定义。
+  Name：package name, customized.
 
-  版本：套餐版本。
+  Version：package version.
 
-  启用状态：应用状态。
+  Enable state：app status.
 
-  描述：套餐描述
+  Description of：package description
 
-套餐编辑完成之后会看到套餐管理列表里面有新添加的一条套餐信息，这时候可以去上架应用。
+When the package editing is completed, you will see a newly added package in the bundle management list. You will be able to go to the app when it is done.
 
-### 上架
+### Listing
 
-在完善应用信息以后，也为该应用创建了对应的套餐，这时候我们就可以去完成应用的上架。在应用列表处点击`上架`按钮，即可完成上架。
+The app has been improved and a package has been created for it, so we can finish the app when we can do it.Click the `up` button at the app list to complete the listing.
 
-上架成功后的应用从商店首页就可以搜索到上架的应用，点进应用详情页之后，可看到发布应用的作者，如果生成过离线包，则在应用详情页会展示出来一个`下载`按钮,点击下载会得到一个当前应用的安装包，此安装包可以被其他人导入到Rainbond平台进行管理，导入流程参考[使用指南](/docs/store/install/appPackage)。
+An app can be searched from the shop's home page to an application that is listed. Once you click on the app details page, you can see the author of the publishing app. If you generate an offline pack, you will display a `download` button. Click the download to get an installation package from the current app. This package can be imported by others into the Rainbod platform to manage the process reference[使用指南](/docs/store/install/apppackage).
 
-## 上架规范
+## Listing norms
 
-### 基础信息规范
+### Basic information norms
 
-\*\*应用名称：\*\*应用名称要明确，需使用与应用功能相关的词汇，不能是日常通用性的描述词汇，不得出现测试、test等宽泛字样。正规，无淫秽、侵权、暴力等非法字符。
+**Apply name：** to be clear, use terminology related to application functionality, cannot be a generic descriptive vocabulary, no broad, test, test or more.Format, invisible, violent, violent, etc.
 
-\*\*应用Logo：\*\*应用 Logo 的设计应该简洁明了，易于理解和识别。建议上传 100\*100 比例的Logo图片。
+**Application of logo：** should be simple, understandable and identifiable.It is recommended to upload a logo image that is 100\*100 ratio.
 
-\*\*应用简介：\*\*应用简介的内容应该言简意赅，避免出现冗长繁琐的描述，同时也要确保涵盖应用的主要特点和功能。建议在60字以内。
+**The app profile：** should be concise and avoid lengthy and burdensome descriptions while also ensuring that the main features and functions of the app are covered.It is suggested that the words should be 60 words.
 
-\*\*分类：\*\*应用添加已有分类时要考虑应用功能与分类标签保持一致性和规范性。避免因分类错误而导致应用无法被准确地检索。
+**Categories：** consideration of the compatibility and normality of applications with taxonomies when adding existing categories.Avoid categorization errors that prevent apps from being accurately retrieved.
 
-\*\*所属组织：\*\*应用添加所属组织，以便于根据组织筛选查看上架应用。应如实填写所属组织，避免上架应用的所属组织混乱而导致应用无法被准确地检索。
+**Organization：** Apps to add an organization to allow you to filter the list of apps according to the organization.The organization should be filled out in order to avoid confusion in the organization of the listing application, which could not be accurately retrieved.
 
-\*\*标签：\*\*应用标签用于帮助用户快速准确地搜索和筛选应用。在添加标签时，需要根据应用的实际情况和功能，选择恰当的标签，以确保标签与应用的功能和特点保持一致性和规范性。同时，还需要注意标签的数量和分类，不宜过多或过少，以免影响用户的使用体验和搜索效果。
+**Labels：** apply tags to help users search and filter apps quickly and accurately.When adding tags, appropriate labels need to be selected, based on the actual circumstances and functions of the app, to ensure consistency and regularity of the labels with the functionality and features of the app.At the same time, attention needs to be paid to the number and classification of tags, which are not too many or too few to affect users' experiences and search effects.
 
-\*\*应用介绍：\*\*应用介绍是介绍应用功能和特点的详细介绍，能够让用户更加全面地了解应用的用途和功能。此外为了保证上架应用详情内容格式的一致性，Rainbond制定了以下书写规范，请认真阅读并遵守：
+**Application Introduction：** is a detailed description of the features and features of the app. This allows users to gain a more comprehensive understanding of the application's uses and features.In addition, in order to ensure consistency in the format of detailed contents of the listing apps, Rainbod has developed the following writing specifications, please read carefully and follow：
 
-- 推荐使用一级和二级标题，避免过多嵌套的标题，以确保阅读体验的清晰和易读。
-- 标题级别对应的富文本编辑器样式如下：
+- It is recommended to use levels I and II titles to avoid too many nested titles to ensure clarity and ease of reading experience.
+- Rich text editor style with title level below：
 
-| 标题级别 | 富文本编辑器 | 样式        |
-| :--- | :----- | :-------- |
-| 一级标题 | H1     | 左对齐加粗     |
-| 二级标题 | H2     | 左对齐加粗     |
-| 三级标题 | H3     | 左对齐不加粗    |
-| 正文   | 正文     | 左对齐  默认字号 |
+| Title Level   | Rich Text Editor | Style                   |
+| :------------ | :--------------- | :---------------------- |
+| Level 1 Title | H1               | Left Align Bold         |
+| Level 2 Title | H2               | Left Align Bold         |
+| Level 3 Title | H3               | No Bold Left            |
+| Text          | Text             | Align Default Font Size |
 
-**安装文档**：安装文档旨在提供清晰的指导，以帮助用户正确安装应用。为了保证文档的一致性和易读性，请按照以下规范书写安装文档：
+**Installing documents**：to install documents to provide clear guidance to help users install applications correctly.为了保证文档的一致性和易读性，请按照以下规范书写安装文档：
 
-- 推荐使用一级和二级标题，避免过多嵌套的标题，以确保阅读体验的清晰和易读。
-- 标题级别对应的富文本编辑器样式同应用介绍。
+- It is recommended to use levels I and II titles to avoid too many nested titles to ensure clarity and ease of reading experience.
+- Rich text editor style with title level
 
-请遵循上述规范书写安装文档，包括前提条件、下载应用和安装应用的详细步骤。确保提供清晰的指导，以帮助用户成功安装应用。
+Please follow the above specifications for writing and installing documents, including prerequisites, downloads and detailed steps for installing applications.Ensure that clear guidance is provided to help users install applications successfully.
 
-**使用文档**：使用文档旨在提供清晰的指导，以帮助用户正确使用应用。为了保证文档的一致性和易读性，请按照以下规范书写使用文档：
+**Use documents**：to provide clear guidance to help users use the app correctly.To ensure consistency and readability of the document, please write the document to use： according to the following specifications.
 
-- 推荐使用一级和二级标题，避免过多嵌套的标题，以确保阅读体验的清晰和易读。
-- 标题级别对应的富文本编辑器样式同应用介绍
+- It is recommended to use levels I and II titles to avoid too many nested titles to ensure clarity and ease of reading experience.
+- Rich text editor style for title level
 
-请遵循上述规范书写使用文档，包括登录账户、主界面功能介绍、核心功能的操作指南等。确保提供清晰的指导，以帮助用户顺利使用应用。
+Please follow the above criteria for writing and using documents, including login accounts, home screen features, operating guides for core features, etc.Ensure that clear guidance is provided to help users use the app successfully.
 
-### 应用版本规范
+### Apply Versioning
 
-版本号命名规范通常采用“主版本号.次版本号.修订号”的形式。
+Version naming specifications are usually in the form of "Main Version.Subversion.Revision".
 
-1. 主版本号：表示软件的重大更新或重构，通常由开发者或公司决定。当软件进行了重大更新或重构时，主版本号应该从1开始重新计数。
+1. Main version：indicates a major update or reconfiguration of the software, usually decided by the developer or company.When the software is significantly updated or reconfigured, the master version number should be recounted from 1.
 
-2. 次版本号：表示软件的功能增强或修改，通常由开发者或公司决定。当软件进行了重大更新或重构时，次版本号应该重置为0。
+2. Minor version：indicates that software features are enhanced or modified, usually by developer or company.The secondary version should be reset to 0 when the software is significantly updated or reformed.
 
-3. 修订号：表示软件的bug修复或小的改进，通常由开发者或测试人员决定。每次bug修复或小的改进，修订号都应该加1。
+3. Revision number：indicates that bug fixes or minor improvements to the software are usually determined by the developer or tester.For each bug fix or minor improvement, the revision number should be added.
 
-例如，一个软件的版本号为1.2.3，其中1表示主版本号，2表示次版本号，3表示修订号。
+For example, a software version number 1.2.3, in which 1 denotes the main version, 2 indicates the sub-version and 3 indicates the revised number.
 
-除此之外，版本号命名规范还需要遵循以下几点：
+In addition to this, the version naming specification needs to follow the master：
 
-1. 版本号的各个部分之间用点号（.）分隔，不使用其他符号。
-2. 版本号应该是一个字符串，不能包含任何空格或其他特殊字符。
-3. 版本号应该遵循从左到右逐级递增的规则，即主版本号高于次版本号，次版本号高于修订号。
-4. 版本号应该是唯一的，不允许出现相同的版本号。
+1. The different parts of the version number are separated by a point number (.), without other symbols.
+2. Version number should be a string and should not contain any spaces or other special characters.
+3. Version numbers should follow the incremental rule from left to right, i.e. the main version number is higher than the sub-version and the sub-version is higher than the revision number.
+4. Version number should be unique. No version number is allowed.
 
-需要注意的是Rainbond应用商店不具备设定版本功能，需要在Rainbond上制定好应用并发布到开源应用商店上时才可以设定。
+It is important to note that the Rainbod App Store does not have a version feature and needs to be set up when it is ready and posted to the Open Source App Store.
 
-### 套餐管理规范
+### Package management norms
 
-套餐管理规范是针对应用或服务提供商制定的一套管理标准，旨在规范套餐的命名、价格、内容、时效性等方面，以提供更好的用户体验和服务质量。
+Package management is a set of management standards for applications or service providers designed to regulate the naming, price, content, timeliness, etc. of packages to provide better user experience and quality of services.
 
-\*\*套餐名称：\*\*应该具有表达套餐内容和价值的明确和简洁的名称。名称应该与套餐的实际内容相符，避免误导或混淆。建议在6字以内。
+**The package name：** should have a clear and concise name that expresses the content and value of the package.The name should correspond to the actual content of the package and avoid misleading or confusing.It is suggested that the words should be added at the end of the paragraph.
 
-\*\*套餐价格：\*\*应该明确、透明、公正。价格应该基于套餐的实际价值和市场需求来制定，避免不合理的涨价或降价。
+**Package price：** should be clear, transparent, and fair.Prices should be based on the actual value of the package and market demand, avoiding unreasonable price increases or reductions.
 
-\*\*套餐内容：\*\*应该清晰明确，包括套餐的具体服务内容、时效性、适用范围、限制等。避免套餐内容过于模糊或不清晰。
+**The package content：** should be clear and clear, including the specific service content, timeliness, scope of application, restrictions etc.Avoid being too vague or unclear.
 
-\*\*套餐时效性：\*\*应该明确套餐的有效期限，避免出现过期套餐或未过期套餐被取消的情况。
+**Troubleshooting time of：** should specify the duration of the package so as to avoid the cancellation of expired or unexpired packages.
