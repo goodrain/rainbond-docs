@@ -49,8 +49,8 @@ CMD ["app-server"]
 
 - [https://github.com/goodrain/dockerfile-demo.git](https://github.com/goodrain/dockerfile-demo.git)
 
-### 私有仓库如何处理？
+### How do private warehouses handle?
 
-If your Dockerfile uses an image from a private image repository, when you build directly with this Dockerfile, you will not be able to pull the correct image for building due to permission issues.At this point, you can select the authorization information of the mirror warehouse in the team management, fill in the domain name, user name and password of the private mirror warehouse, save it and build it again, and the build will be successful.As shown below:此时你可以在团队管理中，选择镜像仓库授权信息，填写该私有镜像仓库的域名、用户名和密码，保存后再次构建，即可构建成功。如下图所示:
+If your Dockerfile uses an image from a private image repository, when you build directly with this Dockerfile, you will not be able to pull the correct image for building due to permission issues.At this point, you can select the authorization information of the mirror warehouse in the team management, fill in the domain name, user name and password of the private mirror warehouse, save it and build it again, and the build will be successful.As shown below:You can then select a mirror repository authorization in team management, fill in the domain, username and password of the private mirror repository, and build again after saving.As shown in the following charts:
 
 ![private-repo-dockerfile.png](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/language-support/private-repo-dockerfile.png)
