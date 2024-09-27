@@ -2,7 +2,7 @@
 title: build components
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to build components for CI/CD workflow calls
 
