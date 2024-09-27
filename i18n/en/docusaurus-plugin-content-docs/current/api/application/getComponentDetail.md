@@ -2,7 +2,7 @@
 title: Get component details
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to query component details
 
@@ -153,7 +153,7 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 | git_project_id                               | integer                                                      | false    | none       | Git project id          | Project id in gitlab                                                                                                                                                   |
 | code_version                                                      | string¦null                                                  | false    | none       | Code version            | code version                                                                                                                                                           |
 | service_type                                                      | string¦null                                                  | false    | none       | Service type            | Component type: web, mysql, redis, mongodb, phpadmin                                                                                                   |
-| creator                                                                                | integer                                                      | false    | none       | Creater                 | component creator                                                                                                                                                      |
+| creator                                                                                | integer                                                      | false    | none       | Creator                 | component creator                                                                                                                                                      |
 | language                                                                               | string¦null                                                  | false    | none       | Language                | code language                                                                                                                                                          |
 | total_memory                                                      | integer                                                      | false    | none       | Total memory            | Memory usage M                                                                                                                                                         |
 | is_service                                                        | boolean                                                      | false    | none       | Is service              | Whether the inner component                                                                                                                                            |
