@@ -2,7 +2,7 @@
 title: Get business list
 ---
 
-## 基本信息
+## Basic Information
 
 Get business list
 
@@ -51,5 +51,5 @@ GET /openapi/v2/manage/enterprises
 
 | name  | type                                                                                                  | required | constraint | Chinese name | illustrate |
 | ----- | ----------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| total | integer                                                                                               | true     | none       | Total        | 总数         |
+| total | integer                                                                                               | true     | none       | Total        | Total      |
 | data  | [[EnterpriseListInfo](#schemaenterpriselistinfo)] | true     | none       |              | none       |
