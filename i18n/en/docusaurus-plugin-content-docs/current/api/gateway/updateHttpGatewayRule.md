@@ -2,7 +2,7 @@
 title: Update access policy
 ---
 
-## 基本信息
+## Basic Information
 
 Update access policy
 
@@ -32,7 +32,7 @@ PUT /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains/{rul
 
 ## request parameters
 
-| name                             | Location | 类型                                                      | required | illustrate |
+| name                             | Location | Type                                                    | required | illustrate |
 | -------------------------------- | -------- | ------------------------------------------------------- | -------- | ---------- |
 | app_id      | path     | integer                                                 | Yes      | App ID     |
 | team_id     | path     | string                                                  | Yes      | none       |
@@ -84,7 +84,7 @@ PUT /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains/{rul
 
 ### Attributes
 
-| name                                                       | 类型                                                           | required | constraint | Chinese name     | illustrate                                                                                                                            |
+| name                                                       | Type                                                         | required | constraint | Chinese name     | illustrate                                                                                                                            |
 | ---------------------------------------------------------- | ------------------------------------------------------------ | -------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | ID                                                         | integer                                                      | false    | read-only  | ID               | none                                                                                                                                  |
 | rule_extensions                       | [string] | false    | read-only  |                  | none                                                                                                                                  |
@@ -102,7 +102,7 @@ PUT /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains/{rul
 | is_senior                             | boolean                                                      | false    | none       | Is senior        | Is there an advanced route                                                                                                            |
 | domain_path                           | string                                                       | false    | none       | Domain path      | domain name path                                                                                                                      |
 | domain_cookie                         | string                                                       | false    | none       | Domain cookies   | domain cookie                                                                                                                         |
-| domain_heander                        | string                                                       | false    | none       | Domain heander   | domain name heander                                                                                                                   |
+| domain_heander                        | string                                                       | false    | none       | Domain header    | domain name heander                                                                                                                   |
 | type                                                       | integer                                                      | false    | none       | Type             | Type (default：0, custom：1)                                                                                         |
 | the_weight                            | integer                                                      | false    | none       | The weight       | Weights                                                                                                                               |
 | is_outer_service | boolean                                                      | false    | none       | Is outer service | Whether the external port has been opened                                                                                             |
@@ -134,7 +134,7 @@ PUT /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains/{rul
 
 ### Attributes
 
-| name                                                      | 类型                                                           | required | constraint | Chinese name    | illustrate                                                                                                                            |
+| name                                                      | Type                                                         | required | constraint | Chinese name    | illustrate                                                                                                                            |
 | --------------------------------------------------------- | ------------------------------------------------------------ | -------- | ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | service_id                           | string                                                       | true     | none       | Service id      | application component id                                                                                                              |
 | container_port                       | integer                                                      | false    | none       | Container port  | bind port                                                                                                                             |
