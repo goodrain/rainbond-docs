@@ -1,10 +1,10 @@
 ---
-title: 创建组件
+title: Create Component
 ---
 
-## 基本信息
+## Basic Information
 
-该接口主要用于通过镜像创建组件
+This interface is mainly used to create components through images
 
 ```bash title="请求路径"
 /openapi/v1/teams/{team_name}/regions/{region_name}/apps/{group_id}/services
@@ -23,40 +23,40 @@ title: 创建组件
 }
 ```
 
-## 请求参数
+## Request Parameters
 
-接口参数
+Interface Parameters
 
-| 名称                               | 类型      | 必选 | 说明   |
-| -------------------------------- | ------- | -- | ---- |
-| team_name   | string  | 是  | 团队ID |
-| region_name | string  | 是  | 集群ID |
-| group_id    | integer | 是  | 应用ID |
+| Name                             | Type    | Required | Description |
+| -------------------------------- | ------- | -------- | ----------- |
+| team_name   | string  | Yes      | Team ID     |
+| region_name | string  | Yes      | Cluster ID  |
+| group_id    | integer | Yes      | App ID      |
 
-Body 参数
+Body Parameters
 
-| 名称                                                           | 类型     | 必选 | 说明                                      |
-| ------------------------------------------------------------ | ------ | -- | --------------------------------------- |
-| group_id                                | string | 是  | 应用ID                                    |
-| docker_cmd                              | string | 否  | 容器启动命令                                  |
-| image                                                        | string | 是  | 镜像地址，例：nginx:latest     |
-| service_cname                           | string | 是  | 组件名，只⽀持⼩写字⺟、数字或“-”，并且必须以字⺟开始、以数字或字⺟结尾   |
-| k8s_component_name | string | 是  | 组件英文名，只⽀持⼩写字⺟、数字或“-”，并且必须以字⺟开始、以数字或字⺟结尾 |
-| user_name                               | string | 否  | 镜像仓库用户                                  |
-| password                                                     | string | 否  | 镜像仓库密码                                  |
-| is_deploy                               | Bool   | 是  | 创建后是否自动构建                               |
+| Name                                                         | Type   | Required | Description                                                                                                                           |
+| ------------------------------------------------------------ | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| group_id                                | string | Yes      | App ID                                                                                                                                |
+| docker_cmd                              | string | No       | Container Start Command                                                                                                               |
+| image                                                        | string | Yes      | Mirror address: nginx:latest                                                                          |
+| service_cname                           | string | Yes      | Component name, only supports lowercase letters, numbers or "-", and must start with a letter and end with a number or letter         |
+| k8s_component_name | string | Yes      | Component English name, only supports lowercase letters, numbers or "-", and must start with a letter and end with a number or letter |
+| user_name                               | string | No       | Mirror Repository User                                                                                                                |
+| password                                                     | string | No       | Mirror Repository Password                                                                                                            |
+| is_deploy                               | Bool   | Yes      | Whether to automatically build after creation                                                                                         |
 
-## 返回结果
+## Return Result
 
-| 状态码 | 状态码含义 | 说明 |
-| --- | ----- | -- |
-| 200 | OK    | 成功 |
+| Status Code | Status Code Meaning | Description |
+| ----------- | ------------------- | ----------- |
+| 200         | OK                  | Success     |
 
 ```json
 {
   "code": 200,
   "msg": "success",
-  "msg_show": "组件创建成功", 
+  "msg_show": "Component created successfully", 
   "data": {
     "bean": {
       "service_id": "0941ab572e006f49e7855e6213f7915c" 
