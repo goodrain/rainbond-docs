@@ -41,7 +41,7 @@ Currently Rainbond supports OpenJDK, the following version is：
 - Java 10 - `10.0.2`
 - Java 11 - `11.0.1`
 
-平台默认版本使用`1.8`。The platform default version uses`1.8`.If you need to use other versions of OpenJDK, you can specify the required version of JDK by adding`system.properties`file to the source root directory to set the value of`java.runtime.version`.
+The default version of the platform is `1.8`.The platform default version uses`1.8`.If you need to use other versions of OpenJDK, you can specify the required version of JDK by adding`system.properties`file to the source root directory to set the value of`java.runtime.version`.
 
 ```yaml
 # system.properties The current version values that Rainbond can recognize are 11, 10, 1.9, 1.8, 1.7, 1.6
@@ -50,7 +50,7 @@ java.runtime.version=1.8
 
 #### OracleJDK Support
 
-平台目前也支持 OracleJDK,但此特性需要在平台里启用才会生效。\
+The platform now also supports OracleJDK, but this feature needs to be enabled in the platform to take effect.\
 The platform currently also supports OracleJDK, but this feature needs to be enabled in the platform to take effect.\
 OracleJDK download is not built-in by default, you need to configure the relevant OracleJDK download address after enabling OracleJDK in the settings.
 
