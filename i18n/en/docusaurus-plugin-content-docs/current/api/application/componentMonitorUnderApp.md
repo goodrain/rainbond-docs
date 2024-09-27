@@ -2,7 +2,7 @@
 title: Real-time monitoring of components under the application
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain the monitoring data of the component prometheus under an application
 
