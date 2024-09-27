@@ -1,91 +1,91 @@
 ---
 title: Spring Cloud microservice deployment example
 keywords:
-  - Spring Cloud 微服务部署在 Rainbond 的优势
-  - Spring Cloud 微服务与 Rainbond 的融合
-  - 部署 Spring Cloud 微服务 Pig
+  - Advantages of Spring Cloud Microservice deployed in Rainbond
+  - Spring Cloud Microservice Integration with Rainbond
+  - Deployment of Spring Cloud Microservice Pig
 ---
 
-本系列文档介绍如何在 Rainbond 上部署 Spring Cloud 微服务的优势以及如何融合，包括部署示例教程。
+This series of documents describes how best to deploy Spring Cloud microservices on Rainbond and how to integrate, including the deployment of examples of tutorials.
 
-## Spring Cloud 微服务部署在 Rainbond 的优势
+## Advantages of Spring Cloud Microservice deployed in Rainbond
 
-### 概述
+### General description
 
-目前很多公司已经拥有了基于 Spring Cloud 微服务框架开发的业务系统。作为老牌成熟的微服务架构，Spring Cloud 微服务框架为企业业务开发提供了诸多好处。
-我们不用去探讨这些好处是什么， Spring Cloud 巨大的市场应用基数已经指明了它的价值。但是它是否是完美无瑕，再无可补足之处呢？世界上没有完美的产品， Spring Cloud 也是如此，以下这些缺点亟待完善：
+Many companies now have business systems based on the Spring Cloud Microservice Framework.As an established microservice architecture, Spring Cloud Microservice provides many benefits for business development.
+We do not need to explore what these benefits are, and Spring Cloud has already demonstrated its value by its huge market base of applications.But is it perfect, and there is nothing to make?There are no perfect products in the world, as do Spring Cloud. The following shortcomings need to be improved with：
 
-- 单个组件没有办法很好的管理
-- 难以找到性能监控的方案
-- 难以灵活的伸缩以适应业务并发
-- 部署起来比较麻烦，包括微服务组件本身以及相关的数据库、中间件
+- There is no good management for individual components
+- Difficulty in finding performance monitoring solutions
+- Difficulty in flexible scalability to adapt to business congestion
+- Deploying into troubleshooting, including microservice components themselves, as well as related databases, intermediates
 
-针对以上 4 点，Rainbond 平台可以进行天然的补足。
+For more than 4 points, the Rainbond platform can make natural replenishments.
 
-### 支持单个组件的全生命周期管理
+### Supports the full life cycle management of a single component
 
-Rainbond 会把 Spring Cloud 的每个微服务组件单独看待，并可以针对每个组件进行深度的管理，比如：
+Rainbond sees each microservice component of Spring Cloud separately and can be deeply managed for each component, such as：
 
-- 开启、关闭、重启、构建、删除、滚动更新、版本回滚
-- 性能监控
-- 日志管理
-- 垂直/水平伸缩
-- 基于依赖关系的服务发现与注册
-- 持久化存储以及服务组件间的共享存储
-- 端口设置以及域名配置
-- 插件扩展
-- 构建源设置，包括 MAVEN 各种详细参数的设置、配置自动触发构建机制
-- 自定义环境变量配置、健康检测机制、权限管理
+- Turn on, off, reboot, build, delete, scroll up, version back
+- Performance monitoring
+- Log Manager
+- Vertical/Horizontal stretch
+- Dependency based service discovery and registration
+- Persistent storage and shared storage between service components
+- Port settings and domain configuration
+- Plugin Extension
+- Build source settings, including MAVEN settings for various detailed parameters, configuration auto-trigger build mechanisms
+- Custom environment variable configuration, health detection mechanism, permissions management
 
-### 性能监控
+### Performance monitoring
 
-Rainbond 支持插件扩展方式的性能监控方案，支持对基于 Http、Mysql 协议的应用进行 `平均响应时间、吞吐率、在线人数` 的监控。并检测最近 5 分钟内耗时做多的 url 排行，对于调试系统性能有指导作用。
+Rainbond supports the performance monitoring program for plugins extension, and supports the monitoring of the `average response time, throughput, online population` application based on the Http, Mysql protocol.and detect url slots that take more time in the last 5 minutes to guide the performance of the debug system.
 
-### 垂直/水平伸缩
+### Vertical/Horizontal stretch
 
-Rainbond 支持一键进行伸缩，这种伸缩包含两个层面：
+Rainbond supports one-click scaling. This scaling consists of two dimensions：
 
-- 垂直伸缩：伸缩单个服务组件所使用的内存大小
-- 水平伸缩：为服务组件启动多个后端实例，并自动配置负载均衡
+- Vertically stretch：to scale up memory size used by a single service component
+- Horizontal stretch：starts multiple backend instances for service components and automatically configure load balance
 
-Spring Cloud 微服务设计已经将程序与数据分离，所以将服务组件视作无状态服务直接进行水平伸缩进行快速扩容。
+Spring Cloud Microservice Design has separated the program from the data, so the service component is seen as a direct horizontal scaling-up of the statelessness service.
 
-### 基于应用市场的快速部署
+### Market-based Rapid Deployment
 
-得益于 Rainbond 独有的共享库机制，在首次部署完成后，我们可以将整套 Spring Cloud 微服务（包括所有微服务组件以及数据库等中间件）打包作为应用模版发布到共享库中去。发布完成后，再次安装只需要从共享库一键安装，极大的简化了部署流程。
+Once the first deployment has been completed, we can publish as an application template packages to the shared pool for both the Sprint Spring Cloud microservices (including all microservice components and intermediaries, such as databases).Once published, the installation will only require a one-click installation from the shared library, greatly simplifying the deployment process.
 
-在首次部署 Spring Cloud 的过程中，对所使用的诸如 Mysql Redis Rabbit 等中间件，Rainbond 公有云市提供了制作好的市场应用，可供拉取后一键安装。免除了传统部署中搭建各种中间件的麻烦。
+During the first deployment of Spring Cloud the intermediate used such as Mysql Redis Rabbit, Rainbond was provided by the cloud city to pull out a built-in market application.The traditional deployment was relieved of the trouble of creating a variety of intermediaries.
 
-## Spring Cloud 微服务与 Service Mesh 的融合
+## Spring Cloud Microservice Integration with Service Mesh
 
-### 概述
+### General description
 
-Rainbond 原生支持 Service Mesh 微服务架构。也就是说，无论原来是什么，只要部署在 Rainbond 上，那么就天然的成为了 Service Mesh 微服务。这也是 Service Mesh 微服务架构的一大特点：对原应用无侵入。
+Rainbond original supports the Service Mesh Microservice Architecture.This means that whatever is originally used, as long as it is deployed on Rainbond it is naturally made up of Service Mesh microservices.This is also a feature of the Service Mesh Microservice Architecture：without intrusion into the original app.
 
-Spring Cloud 部署在 Rainbond 上后，整套业务即是完整的 Spring Cloud 微服务，又是一套 Service Mesh 微服务。那么如何使业务系统即保留了原有 Spring Cloud 微服务架构的特点，又能享受到 Service Mesh 带来的种种好处呢？这就涉及到了Spring Cloud 微服务与 Service Mesh 的融合。
+When Spring Cloud is deployed on Rainbond, the entire set of business is a full Spring Cloud Microservice and a single Service Mesh Microservice.How can the business system then preserve the features of the first Spring Cloud Microservice Architecture and be able to benefit from the services Mres?This involves the integration of Spring Cloud microservices with Service Mosh.
 
-融合的核心思想，就是 Spring Cloud 框架维护的功能，保持不变； Spring Cloud 框架无法维护的功能，交给 Service Mesh 和 Rainbond。
+The core idea of integration is the function maintained by Spring Cloud frames, which remains the same; the function that Spring Cloud Framework cannot be maintained and is submitted to Service Mesh and Rainbond.
 
-### Spring Cloud 不维护什么
+### What Spring Cloud does not maintain
 
-我不会去深入讨论 Spring Cloud 微服务框架都维护了什么，这样的帖子网上有很多。
+I am not going to discuss in depth what the Spring Cloud Microservice Framework maintains and has a lot of posts on the web site.
 
-在这里，我想说明的是，当读者选择将自己原有的 Spring Cloud 微服务部署在 Rainbond 时，有哪些工作应该由 Rainbond 来完成。
+Here I would like to explain what should be done by Rainbond when the reader chooses to deploy its original Spring Cloud microservice in Rainbrond.
 
-#### 向 Nacos 的注册
+#### Sign up with Nacos
 
-Nacos 注册中心，是 Spring Cloud 微服务框架中，标准的注册中心解决方案。微服务框架中的 `Service provider(服务提供者)` 将自己的服务地址注册于 Nacos 中，供 `Service consumer（服务消费者）` 远程调用。这种服务注册与发现的机制，是微服务架构中为了将原来的一站式服务拆解为若干个独立的服务并相互解耦，却又能相互交互所设计的。基于这种机制，所有的 Spring Cloud 微服务组件，可以动态的获悉自己需要的 `Service Provider` 的服务地址；也可以摇身一变，将自己注册为 `Service Provider` 对其他组件提供服务。
+Nacos Registration Center, a standard registration center solution in Spring Cloud Microservice Framework.`Service provider (service provider)` in the microservice framework registers its service address in Nacos for remote calls by `Service consumer`.This service registration and discovery mechanism is designed in the micro-service architecture to decouple and decouple a number of separate services and to interact with each other.Based on this mechanism, all Spring Cloud micro-service components can be dynamically informed of the `Service Provider` service address; they can also shake up and register themselves as `Service Provider` to serve other components.
 
-在 Rainbond 中，可以借助于依赖关系，将微服务组件和 eureka 连接起来，帮助 Spring Cloud 完成注册这一动作：
+In Rainbond you can link the microservice component to eureka by relying on dependence, helping Spring Cloud to complete this action：
 
-- Nacos 本身开启端口对内服务，向 Rainbond 平台完成自身 Service Mesh 层的服务注册
-- 其它微服务组件通过依赖关系连接 Nacos ，即可在不做任何变更的情况下，完成向 Nacos 的服务注册以及服务订阅
+- Nacos itself opens port to internal service, registration with Rainbond platform to complete its service Mesh layer
+- Other microservice components connect to Nacos via dependencies and can complete the service registration with Nacos without making any changes
 
-#### 对接各类中间件
+#### Interface to various types of intermediate
 
-一套完整的 Spring Cloud 微服务体系中，必然会采用多种数据中间件。以 PIG 为例，搭配使用 MySQL 作为数据存储、 REDIS 作为缓存。而在 Spring Cloud 中，这类中间件的对接方式也是通过配置文件配置的。并不会在微服务框架中有其它的注册机制。那么同理可以由 Rainbond 的依赖关系来将微服务与服务中间件连接起来。
+A full Spring Cloud microservice system is bound to use multiple data intermediaries.Example PIG, use MySQL as data storage, REDIS as cache.In Spring Cloud, this type of intermediate interface is configured by configuration file.There are no other registration mechanisms in the microservice framework.The same can be used by Rainbond to link microservices to service intermediaries.
 
-我们推荐使用 **环境变量** 来定义 **pig-db** **redis** 的连接信息。在配置文件定义，如下:
+We recommend using **environmental variables** to define **pig-db** connection information.In the configuration file definition, the following:
 
 ```yaml
 #Mysql相关
@@ -104,13 +104,13 @@ spring:
     port: ${REDIS_PORT}
 ```
 
-#### 服务组件启动顺序
+#### Service Component Start Order
 
-Spring Cloud 微服务组件的启动顺序是比较重要的，一个组件在所依赖的服务没有启动前自行启动，是可能引起错误的。Spring Cloud 微服务框架本身不会维护服务组件的启动顺序，这一问题可以由 Rainbond 来解决。
+The starting order of the Spring Cloud Microservice component is more important, and it may cause errors when a component starts on its own before the service on which it depends.Spring Cloud Microservice Framework itself does not maintain the start order of the service component. The problem can be resolved by Rainbond
 
-Rainbond 支持了基于依赖关系的启动顺序控制。启动先后逻辑为被依赖的服务先启动，只有当前服务所依赖的服务全部正常启动后，才会开始启动流程。
+Rainbond supports kick-order controls based on dependency.The startup logic is that the service that is relied upon starts first, and only when the service on which the current service is relied is fully started.
 
-## Spring Cloud 部署示例
+## Spring Cloud Deployment Example
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
