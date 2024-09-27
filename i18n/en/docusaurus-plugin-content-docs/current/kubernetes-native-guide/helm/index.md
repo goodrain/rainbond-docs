@@ -2,7 +2,7 @@
 title: Deploy components using Helm
 description: This section describes how to deploy components on Rainbond through the Helm Marketplace and the Helm command.
 keywords:
-  - 在 Rainbond 上使用 Helm 部署组件
+  - Deploy components with Helm on Rainbond
 ---
 
 ```mdx-code-block
