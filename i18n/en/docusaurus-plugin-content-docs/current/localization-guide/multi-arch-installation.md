@@ -2,18 +2,18 @@
 title: Heterogeneous cluster installation
 ---
 
-# “一云多芯” 异构集群简介
+# Introduction to the “One cloud of multichith” isomer cluster
 
-顾名思义，“一云多芯”的异构集群，指的是在同一个集群中的计算节点中，其 CPU 芯片架构不唯一。
+By definition, a “cloud of multichith” isomer cluster means that its CPU chip architecture is not unique in the computing nodes in the same cluster.
 
-一般情况下，CPU 芯片的架构都是基于 Intel 公司推出的 `X86_64` 指令集，作为后起之秀的 AMD 也推出完全兼容 `X86_64` 的 `amd64` 指令集，二者可以视为等同。而在国产化信创场景中，很多国产 CPU 架构都是基于 `arm64` 指令集开发，常见的鲲鹏920、飞腾芯片等都属于该架构类型。为了能够融入国产化信创 IT 生态，Rainbond 自“信创”版本开始，全面兼容了 `arm64` 架构。
+In general, the CPU chip architecture is based on the `X86_64` set of instructions from Intel Corporation and the `amd64` set of instructions that are fully compatible with `X86_64` can be considered equivalent.And in the case of the National Creative Trust Scenario, many production CPU structures are developed on the basis of the `arm64` directive, and commonly known as the `pupil 920, flown chip etc.In order to be able to integrate into national production messages with IT ecology, Rainbond has been fully compatible with the `arm64\` architecture since the start of the version of the Creation.
 
-国产化信创绝非一朝一夕之事，大量在传统 `X86_64` 架构下开发的应用都需要很长时间的调整甚至重构才能完全在国产化芯片上运行，“一云多芯” 主打同时能够运行多种架构应用的能力，在国产化替代的过渡阶段中将发挥重大作用。
+National production of confidence is by no means overnight, and many applications developed under the traditional `X86_64` framework will take a long time to adjust or even restructure to operate exclusively on the national production chips and the ability of “one cloud of multichias” to operate multiple architecture applications simultaneously will play a significant role in the transition phase of nationalization substitution.
 
-Rainbond “信创”版本可以在同个集群中统一管理和调度多种不同 CPU 架构计算节点，同时也可以借助多集群管理能力纳管多个单架构集群。超高的灵活性，可以让决策者自行决定异构计算资源的部署策略。
+Rainbond version allows for the unified management and movement of CPU structures to compute nodes in the same cluster, while allowing multiple individual architecture clusters to be built with multi-cluster management capabilities.Unequal flexibility allows decision makers to decide on the deployment strategy for calculating resources for their own isomers.
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86.png)
 
-# 异构集群的安装
+# Installation of isomer clusters
 
-Rainbond “信创”版本优化了 [从主机安装](/docs/installation/install-with-ui/) 相关逻辑，使用者只需要提供所有节点的 IP 地址，节点类型即可完成集群的安装。安装控制器将自动识别所有节点的 CPU 架构信息，完成相关配置并将其纳入集群。整个过程并不需要专门针对 CPU 架构进行任何特殊配置。
+Rainbond version optimizes [从主机安装](/docs/installation/installation-with-ui/) logic. Users only need to provide IP addresses for all nodes, node types to complete cluster installation.Installing controllers will automatically identify CPU structure information for all nodes, complete the configuration and incorporate it into clusters.The entire process does not require any special configuration for CPU structures.
