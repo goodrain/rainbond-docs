@@ -2,7 +2,7 @@
 title: Get a list of enterprise administrators
 ---
 
-## Basic Information
+## 基本信息
 
 Get a list of enterprise administrators
 
@@ -10,15 +10,13 @@ Get a list of enterprise administrators
 GET /openapi/v1/administrators
 ```
 
-
 ## request parameters
 
-| name      | Location | type   | required | illustrate        |
-| --------- | -------- | ------ | -------- | ----------------- |
-| eid       | query    | string | no       | Enterprise ID     |
-| page      | query    | string | no       | page number       |
+| name                           | Location | type   | required | illustrate        |
+| ------------------------------ | -------- | ------ | -------- | ----------------- |
+| eid                            | query    | string | no       | Enterprise ID     |
+| page                           | query    | string | no       | page number       |
 | page_size | query    | string | no       | Quantity per page |
-
 
 ```json title="返回成功示例"
 {
@@ -82,7 +80,7 @@ GET /openapi/v1/administrators
 
 ### Attributes
 
-| name  | type                                              | required | constraint | Chinese name | illustrate |
-| ----- | ------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| name  | type                                                                                                  | required | constraint | Chinese name | illustrate |
+| ----- | ----------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
 | users | [[UserInfo](/docs/api/user/getUserInfo#userinfo)] | true     | none       |              | none       |
-| total | integer                                           | true     | none       | Total        | none       |
+| total | integer                                                                                               | true     | none       | Total        | none       |
