@@ -29,13 +29,13 @@ Next, let's publish the application composed of **Java demo examples** + **Mysql
 
 ### Publish application template
 
-- In the left column of the application topology map page, click **release** to enter the **release record management page**.
+- 在应用拓扑图页面左边栏点击 **发布** 进入 **发布记录管理** 页面。
 
 - Click **to publish to the app market** to enter the **application template and release version settings** page.
 
 - Select or create **application template**, if created, you must define **application template name**,**share scope**(define the visible scope of this application template, only visible to the current team or enterprise).
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-1.png" title="Application template and release version settings" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-1.png" title="应用模版及发布版本设置" width="100%" />
 
 - Define **version number**, use a number such as 1.0 to define, and then judge whether the version is old or new according to the size of the version number.
 
@@ -47,9 +47,9 @@ Next, let's publish the application composed of **Java demo examples** + **Mysql
 
 ### App sync
 
-In this page, Rainbond will automatically synchronize the application, including the packaging and push of the image.The user only needs to wait for the synchronization to complete, and see the following situation, that is, the synchronization is completed.
+In this page, Rainbond will automatically synchronize the application, including the packaging and push of the image.The user only needs to wait for the synchronization to complete, and see the following situation, that is, the synchronization is completed.用户只需要静待同步完成，看到下面的情况，即同步完成。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-2.png" title="Sync complete" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-2.png" title="同步完成" width="100%" />
 
 - Click **to confirm sharing**, and the release of **application template** is completed.
 
@@ -59,19 +59,19 @@ Once the application template is successfully published, it will appear on the p
 
 - When the release scope is selected as **and team** , we can only find the application template under the team tab that publishes the application template.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-3.png" title="App Market Team Pagination" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-3.png" title="应用市场团队分页" width="100%" />
 
-- The application template can be found under the enterprise tab only when **enterprise** is selected for the release scope, otherwise it will not be visible.When the sample application template is released, the release scope is selected as **and**, so it cannot be displayed on the enterprise page.
+- The application template can be found under the enterprise tab only when **enterprise** is selected for the release scope, otherwise it will not be visible.When the sample application template is released, the release scope is selected as **and**, so it cannot be displayed on the enterprise page.In the left column of the application topology map page, click **release** to enter the **release record management page**.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-4.png" title="App Market Enterprise Pagination" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-4.png" title="应用市场企业分页" width="100%" />
 
-Corresponding to the visible range, the current application template can only be installed in team used when **is released.Only when the release scope is **, enterprise** , can the application template be installed and used in all teams under the current enterprise.
+与可见范围相对应的，当前应用模版，只可以在 **发布时使用的团队** 中安装。Corresponding to the visible range, the current application template can only be installed in team used when \*\*is released.Only when the release scope is **, enterprise** , can the application template be installed and used in all teams under the current enterprise.
 
 ### Edit app template
 
-The created application template can be edited.The edited entry is shown in the figure below：
+The created application template can be edited.The edited entry is shown in the figure below：编辑的入口如下图所示：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-5.png" title="Edit application template" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-5.png" title="编辑应用模版" width="100%" />
 
 Editable content includes：
 
@@ -95,7 +95,7 @@ For specific operations, you can review the operations in [deploying an applicat
 
 The final effect is to replicate a new application based on the application market.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-8.png" title="copied app" width="100%" />
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-8.png" title="复制出的应用" width="100%" />
 
 ### Next step
 
