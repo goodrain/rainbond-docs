@@ -3,7 +3,6 @@ title: Enterprise wechat alarm
 description: Rainbond enterprise wechat alarm configuration
 ---
 
-
 ### 概述
 
 本文主要介绍如何配置Alertmanager发送消息到企业微信。
@@ -12,7 +11,7 @@ description: Rainbond enterprise wechat alarm configuration
 
 ### 前提条件
 
-* 使用企业微信报警的用户需要拥有企业微信机器人 WebHook 地址，通过 Webhook 接收报警信息，获取方式参阅 [官方文档](https://work.weixin.qq.com/api/doc/90000/90136/91770)；
+- 使用企业微信报警的用户需要拥有企业微信机器人 WebHook 地址，通过 Webhook 接收报警信息，获取方式参阅 [官方文档](https://work.weixin.qq.com/api/doc/90000/90136/91770)；
 
 ### 操作步骤
 
@@ -21,7 +20,9 @@ description: Rainbond enterprise wechat alarm configuration
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/alert/alertmanager-config.jpg" width="100%" />
 
 2.以下是模板文件，修改完成之后覆盖原配置文件更新组件即可。
+
 > url无需修改，其他内容根据所需修改
+
 ```yaml
 global:
   resolve_timeout: 5m
