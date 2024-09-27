@@ -24,4 +24,3 @@ Helm 应用部署完成后在 **升级** 界面可进行版本的升级或回滚
 回滚操作在升级界面的升级记录里
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_app_rollback.jpg" title="Helm应用升级" width="100%"/>
-
