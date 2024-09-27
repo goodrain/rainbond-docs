@@ -1,53 +1,53 @@
 ---
-title: 使用 Nocalhost 调试应用
+title: Debug app with Nocalhost
 description: This article explains how to debug applications on Rainbond using Nocalhost
 keywords:
-  - 使用 Nocalhost 调试应用
+  - Debug app with Nocalhost
   - Rainbond DevOps
 ---
 
-之前的文章中我们介绍了如何通过 [Nocalhost 快速开发 Rainbond 上的微服务](https://mp.weixin.qq.com/s/kC9P7fvMtJvKK7_TM2LbTw)，介绍了基本的开发流程。
+Previous articles have described how to develop the basic development process through [Nocalhost rapid development of micro-services on Rainbond](https://mp.weixin.qq.com/s/kC9P7fvMtJvK7_TM2LbTw).
 
-本文将续接上文继续介绍，使用 [Nocalhost 开发配置文件](https://nocalhost.dev/docs/config/config-overview-en/) 实现以下内容：
+This document will follow up the above and use the [Nocalhost Development Profile](https://nocalhost.dev/docs/config/config-overview-en/) to achieve the following：
 
-- 一键 Run 和 远程Debug
-- 持久化配置
-- 开发容器资源限制
-- 端口转发
+- One key to run and remote Debug
+- Persistence configuration
+- Development Container Resource Limit
+- Port Forward
 
-**什么是开发配置？**
+**What is Development Configuration?**
 
-开发配置是围绕 `开发模式` 来进行的，例如使用什么镜像来进入 `开发模式`，是否需要开启持久化来保存开发容器的内容，将哪些文件同步到开发容器中，如何一键调试、一键运行容器内的服务等。 配置了正确且合适的开发配置后，可以在使用 Nocalhost `开发模式` 时更加得心应手。
+The development configuration is made around the `development mode`, such as which mirrors to enter `development mode`, whether you need to turn on persistent to save the content of the development container, which files are synced to the development container, how to debug one button, how to run the services inside the container, etc. Having configured the correct and appropriate development configuration, you can use Nocalhost `Development Mode`.
 
-## 部署 Rainbond + SpringCloud
+## Deploy Rainbond + SpringCloud
 
-接下来继续以上文中的 SpringCloud Pig 为例，调试 Java Maven 服务的 Pig-auth 模块。
+Then proceed to the Pig-auth module of the Java Maven service with SpringCloud Pig as an example above.
 
-项目 Gitee 地址：https://gitee.com/zhangbigqi/pig
+Project Gitee address：https://gitee.com/zhangbigqi/pig
 
-### 部署 Rainbond
+### Deployment of Rainbond
 
-这里就不详细介绍 Rainbond 的安装，请参阅 [基于Linux安装Rainbond](https://www.rainbond.com/docs/installation/install-with-ui/host-install-with-ui)。
+The installation of Rainbond is not detailed here, see [基于Linux安装Rainbond](https://www.rainbond.com/docs/installation/installation-with-ui/host-install-with-ui).
 
-### 部署 SpringCloud
+### Deploy SpringCloud
 
-我们在 Rainbond 内对接了开源应用商店后，在开源应用商店内搜索 `Spring Cloud Pig` 安装 `3.5.0 `版本。
+We searched `Spring Cloud Pig` for a version of `3.5.0` in the Open Source App Store after we approached the Open Source Store inside Rainbon.
 
-来自应用商店安装应用组件的英文名称是自动生成的字符串，需要我们设置一下组件的英文名称（Deployment Name），通过 Nocalhost 连接到集群时可以很直观的分清楚 Deployment 对应的组件。
+The English name of the app component from the App Store is an auto-generated string, which requires us to set up the English name of the component (Deemployment Name), which is clearly clearly defined as the component when connecting to the cluster through Nocalhost
 
-![](https://static.goodrain.com/wechat/nocalhost2/1.png)
+![](https://static.goodrain.com/wechat/noocalhost2/1.png)
 
-## Nocalhost 对接 Rainbond
+## Nocalhost Must
 
-1. 安装 Nocalhost JetBrains Plugin 插件，请参阅文档 [安装Nocalhost JetBrains Plugin 插件](https://nocalhost.dev/docs/installation/)。
+1. Install the Nocalhost JetBrains Plugins plugin, see the documentation [Installing Nocalhost JetBrains Plugins](https://noocalhost.dev/docs/installation/).
 
-2. 获取 K8s Kubeconfig，请参阅文档 [获取 Kubeconfig 文件](https://www.rainbond.com/docs/ops-guide/tools/kubectl)。
+2. For K8s Kubeconconfig, see the document [get Kubeconfig file](https://www.rainbond.com/docs/ops-guide/tools/kubectl).
 
-3. 在 `pig` 命名空间下，找到工作负载 `pig-auth` 右击并选择 `Dev Config` （开发配置）
+3. In the `pig` namespace, find the work load `pig-auth` right click and select `Dev Config` (developing)
 
-![](https://static.goodrain.com/wechat/nocalhost2/2.png)
+![](https://static.goodrain.com/wechat/noocalhost2/2.png)
 
-4. 将以下配置文件复制到 `Dev Config` 中。
+4. Copy the following configuration files to `Dev Config`.
 
 ```yaml
 # Deployment Name
@@ -115,44 +115,44 @@ containers:
         - 3999:3000
 ```
 
-### 一键 Run
+### One key
 
-1. 右击工作负载 `pig-auth` 。
-2. 选择 Remote Run。
-3. Nocalhost 会自动进入 DevMode 并执行 Remote Run。
+1. Right click to load `pig-auth`.
+2. Select Remote Run.
+3. Nocalhost will automatically enter DevMode and perform Remote Runs.
 
-![](https://static.goodrain.com/wechat/nocalhost2/3-1.gif)
+![](https://static.goodrain.com/wechat/noocalhost2/3-1.gif)
 
-### 一键 Debug
+### One key Debug
 
-1. 右击工作负载 `pig-auth` 。
-2. 选择 Remote Debug。
-3. Nocalhost 会自动进入 DevMode 并执行 Remote Debug。
-4. 在代码中打上断点，发起请求，进入 IDE Debug 模式。
+1. Right click to load `pig-auth`.
+2. Select Remote Debug.
+3. Nocalhost will automatically enter DevMode and perform Remote Debug.
+4. Break a breakpoint in the code, launch a request to enter IDE Debug mode.
 
-![](https://static.goodrain.com/wechat/nocalhost2/4-1.gif)
+![](https://static.goodrain.com/wechat/noocalhost2/4-1.gif)
 
-### 持久化配置
+### Persistence configuration
 
-在开发时，我们希望持久化的文件大多数都是 `依赖包` `日志`，本篇文章中也是缓存了 Java 的依赖包。
+Most of the files that we want to perpetuate while developing, are `dependency` logs, which also caches Java dependencies in this article.
 
-`rainbondvolumerwx` 是 Rainbond 默认提供的存储类，填写以下配置后会在当前命名空间下自动创建 PVC，如下：
+`rainbondvolumerwx` is the default store class provided by Rainbond and will automatically create PVC under the current namespace, following：
 
 ```yaml
-storageClass: rainbondvolumerwx					
-persistentVolumeDirs:
+StorageClass: rainbondvoluerwx					
+persentVolumeDirs:
   - path: /root/.m2/repository
     capacity: 10Gi
 ```
 
-![](https://static.goodrain.com/wechat/nocalhost2/5.png)
+![](https://static.goodrain.com/wechat/noocalhost2/5.png)
 
-### 容器资源限制
+### Container Resource Limit
 
-限制开发容器的资源，限额能让服务器的资源利用最大化，可以通过以下开发配置修改：
+Limit the resources of the container to maximise the use of the server's resources. You can modify： with the following development configuration.
 
 ```yaml
-resources:
+Resources:
   limits:
     memory: 4096Mi
     cpu: "2"
@@ -161,19 +161,19 @@ resources:
     cpu: "1"
 ```
 
-### 端口转发
+### Port Forward
 
 转发容器端口到本地，可以通过以下开发配置修改：
 
 ```yaml
 portForward:
-  - 3999:3000 		# 转发容器 3000 端口到本地 3999 端口
+  - 3999:3000 # Forwarded Container 3000 ports to local port 3999
 ```
 
-## 最后
+## Last
 
-当然 Nocalhost 可以同时调试多个微服务，同样的方式只需修改配置文件中的 Deployment Name 和 Containers Name 以及微服务的子模块。
+It is true that Nocalhost can also debug multiple microservices at the same time, just modify the Deemployment Name and Containers Name in the configuration file and the micro-service submodules.
 
-Nocalhost 还有一些开发配置文中没讲到的，比如：开发环境变量、文件同步的两种模式 `pattern` `gitignore` 等等，并且 Nocalhost 支持多种语言，Java 只是其中一种，小伙伴们可以自行探索。
+Nocalhost is not mentioned in some development configurations, such as：development environment variables, `pattern` `gitignore` and Nocalhost support multiple languages, Java is only one of which small partners can explore themselves.
 
-Nocalhost + Rainbond 让开发、部署更加高效、便捷。
+Nocalhost + Rainbond makes development and deployment more efficient and easier.
