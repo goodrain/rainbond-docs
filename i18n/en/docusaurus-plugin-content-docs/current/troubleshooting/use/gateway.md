@@ -31,11 +31,11 @@ The resolution of the domain name is incorrect; if the gateway IP is not specifi
 Usually this happens in the stand-alone trial version, because the stand-alone trial version only opens ten ports 10000-10010 by default. If you need other ports, you need to re-run according to the command printed in the script and specify the `-p` parameter, such as :
 
 ```bash
-docker run --name rainbond-allinone ....
-....
--p 8888:8888
--p 10020-10030:10020-10030
-....
+docker run --name rainbond-allinone ...
+...
+-p 888:8888
+- p 10020-10030:10020-10030
+...
 ```
 
 ### Domain access shows that the application is in preparation
@@ -48,5 +48,5 @@ Displaying this page means that the Rainbond gateway has not found the correspon
 If the configuration is correct, there may be a problem with the gateway itself. You can check the gateway log for troubleshooting:
 
 ```bash
-kubectl logs -fl name=rbd-gateway -n rbd-system
+kubectl logs-fl name=rbd-gateway -n rbd-system
 ```
