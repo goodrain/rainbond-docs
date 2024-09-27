@@ -15,7 +15,7 @@ The meaning of this is to allow **Java demonstration example** to communicate wi
 
 ### significance
 
-通过实操，用户可以初步体会到服务组件在 Rainbond 中如何通信。Through practical operation, users can get a preliminary understanding of how service components communicate in Rainbond.Users need to read [Inter-Component Communication](/docs/micro-service/service-mesh/connection_env) to understand the principle.
+By means of handling, users can initially understand how the service component communicates in RainbondThrough practical operation, users can get a preliminary understanding of how service components communicate in Rainbond.Users need to read [Inter-Component Communication](/docs/micro-service/service-mesh/connection_env) to understand the principle.
 
 ### Preconditions
 
@@ -27,7 +27,7 @@ The meaning of this is to allow **Java demonstration example** to communicate wi
 
 - On the application topology map interface, click **to switch to edit mode**.
 
-- 通过拖拽完成依赖关系的建立。
+- Complete dependency creation by dragging.
 
 - Follow the prompts to complete the update operation of the downstream service component (Java demo example)
 
