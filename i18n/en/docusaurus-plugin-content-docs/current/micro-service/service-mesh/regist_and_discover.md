@@ -2,78 +2,78 @@
 title: Inter-service communication (service registration and discovery)
 description: This article explains the principles of communication between components in Rainbond, as well as service registration and discovery.
 keywords:
-  - Service 服务通信原理
-  - 服务注册与发现
-  - 通信环境变量注入
+  - Service Service Service Communication Principles
+  - Service Registration and Discovery
+  - Communication environment variable injection
 ---
 
-服务注册与服务发现都是微服务治理的概念，微服务之间的通信都需要通过服务注册和服务发现机制相结合进行。这里我们说明 Rainbond 组件之间的通信的第一章就将服务注册与服务发现的原因是，Rainbond 平台内的所有组件都是以微服务的方式进行治理，组件即服务。因此组件间通信就是微服务之间的通信。或许你还不太了解微服务，会觉得服务注册与服务发现是一个非常复杂的概念。 在 Rainbond 中我们把复杂的部分通通屏蔽，提供给你最简单的组件间通信模式。
+Service registration and service discovery are concepts of microservice governance, and communications between microservices need to be combined with service registration and service discovery mechanisms.Here we note that chapter I of the communication between Rainbond components gives the reason for registering services and finding them because all components within the Rainbond platform are governed in a micro-service manner, that is, services.Correspondence between components is therefore between microservices.You may still have little knowledge of microservices and feel that service registration and discovery are a very complex concept.In Rainbond we block a complex part of the block, offering you the simplest mode of communication between components.
 
-接下来我们以一个任务的方式来讲解 Rainbond 组件之间的通信的秘密。
+Then we are going to use the secret of communications between Rainbond components in a mission manner.
 
-### 前提条件
+### Prerequisite
 
-1. 基于 Demo Java 源码部署组件 A [参考创建组件文档](/docs/use-manual/component-create/creation-process)
-2. 基于云应用市场部署 Mysql 数据库组件 B
+1. Based on Demo Java source deployment component A [参考创建组件文档](/docs/use-manual/component-creation/creation-process)
+2. Mysql Database Component B deployed on cloud application
 
-### 操作流程
+### Operating processes
 
-部署完组件 A 和组件 B，访问 A 组件切换到 Mysql 页面你会发现页面显示连接数据库失败。这个时候或许你就会有疑问，A 组件如何连接数据库 B 组件？只需要两步：
+Component A and Component B are deployed. Visit component A to switch to the Mysql page will find that the page display connection database failed.Maybe you have questions about how component A connects to database component B?Only steps：
 
-1. 编辑依赖关系：进入 **应用视图 > 应用拓扑** 页面，点击 **切换到编辑模式** 将拓扑图切换到编辑模式，点击 A 组件的焦点连接到 B 组件，此时会弹出提示框提示你更新 A 组件。
-2. 更新组件：确认更新，等待其更新完成后重新访问 A 组件的 Mysql 页面。
+1. Edit dependency：in the **Application View > App Topic** page, click **Switch to Edit mode** to switch the topography to Edit Mode, click on the Focus of Component A to connect to Component B, and when you will eject the tips to update Component A.
+2. Update Component：confirms the update, waiting for its update to be completed and go back to the Mysql page of Component A.
 
-这时你会看到页面上打印了数据库的连接信息，包括通信地址和账号秘密等（为了进行演示，我们的 Demo 程序将数据库密码进行了展示，实际场景请勿参考），如果数据库中有表信息，也可以正常展示，说明 A 与 B 组件通信成功。
+At this point, you will see the database connection information printed on the page, including contact addresses and account secrets (for demonstrations, our Demo program shows the database password and the actual scenario does not reference). If table information is available in the database, you can also show it properly and indicate that A is successful in communicating with component B.
 
-### 了解原理
+### Learn about Principles
 
-上述操作流程你是否有一堆疑问？为什么连线就可以通信了？怎么获取到了连接信息？代码怎么实现的？等等。接下来我们将带你来解析整个过程的实现机制。
+Do you have a host of questions about the above operations?Why is it connected to communicate?How do I get connection information?How does the code materialize?And so on.Next, we will lead you to resolve the implementation mechanism of the process.
 
-- **了解现状**
+- **Learn about the status quo**
 
-  在传统部署模式中，不管是物理机还是虚拟机，组件直接需要通信的话肯定需要知道通信目标的固定的通信地址，将其写于配置文件或者代码中。比如 Web 服务需要连接数据库，需要知道数据库的主机地址和端口。在以容器为载体部署的环境中，服务本身的通信地址一般是会随着每一次部署改变的，因此我们肯定不能直接像过去一样直接指定组件的通信地址。
+  In traditional deployment patterns, whether physical or virtual, a component directly needs to communicate and certainly need to know the fixed address of the communication target, written in a configuration file or code.For example, the web service needs to connect to the database and needs to know the host address and port of the database.In environments where containers are deployed, the communication address of the service itself is usually changed with each deployment, so we certainly cannot specify the communication address of the component directly as in the past.
 
-- **Kubernetes 解决方案**
+- **Kubernetes solutions**
 
-  在 Kubernetes 原生环境中，为了解决服务的访问问题定义了一种资源类型 Service，我们访问组件时都是通过 Service 的名称或虚拟 IP 地址去访问。这个访问过程实际是通过 kube-proxy 系统组件在每一台节点上建立了一层代理，这层代理的实现模式包括 iptables 和 ipvs 两种。Service 的名称可以预先确定继而可以直接在代码或配置文件中预先定义。Kubernetes 的解决方式当然需要用户对 Kubernetes 的相关原理比较清楚才能理解这个过程，从而去创建相应的资源。这对于不了解 Kubernetes 的用户显然是比较复杂的。
+  In the native environment of Kubernetes a resource type service has been defined to solve the service access problem. We visit the component through the service name or virtual IP address.This access process actually creates a layer of proxy on each node through a kube-proxy system component, which implements both iptables and ipvs.The name of the Service can be predetermined and can be predefined directly in the code or configuration file.The solution for Kubernetes will certainly require users to understand this process in order to create the corresponding resource.This is obviously more complex for users who do not understand Kubernetes.
 
-- **Rainbond 解决方案**
+- **Rainbond solutions**
 
-  Rainbond 是工作在 Kubernetes 之上的，因此整个实现模式与 Kubernetes 相关技术有很大的关系，但又有很大不同。我们还原组件间通信的本质，无非就是需要告知通信的发起方你需要通信的目标通信地址是什么。因此我们提出了 _依赖关系_ 的概念，用户用依赖的方式来显示的描述需要通信的组件间关系，A 需要请求 B, 则 A 需要依赖 B。这个过程用另外一种语言来描述这就是 _服务发现_ ，有了依赖关系就是告知平台 A 需要与 B 通信，A 组件需要被赋予发现 B 组件的通信地址的能力，需要在获取到地址以后通知到 A 组件。这些事物对于业务来说属于额外增加的部分，复杂性肯定不能带给开发者。Rainbond 从 4 年以前开始提出 Sidecar 代理来解决组件间服务发现、负载均衡等基础网络治理模式。
+  Rainbond is working on Kubernetes so the implementation model as a whole is very relevant but very different from Kubernetes related technologies.We restore the essence of the communication between components, and nothing more than the need to tell the originator of the communication what the target address you need to communicate.So we have proposed the concept of -dependence-, the relationship between components that describe communication needs to be displayed by the user, A needs to request B, and A needs to rely on B.This process is described in another language to describe the _service discovery_, a dependency is to inform Platform A needs to communicate with B, Component A needs to be given the ability to find the communication address of Component B, and to notify Component A once the address is retrieved.These things are an additional part of the business and the complexity must not be brought to the developers.Rainbond began four years ago to introduce Sidecar agents to address basic network governance models such as service discovery and load equilibrium between components.
 
   ![组件间通信结构图](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/connection.png)
 
-  具有上游依赖的组件在启动时会被自动注入默认的通信治理插件(envoy 实现)，采用默认的配置。插件将从控制面板 API（标准的 envoy 服务发现 API）发现相关的配置进行端口监听，提供给组件业务本身调用。Sidecar 插件与业务组件在同一个网络空间内（同一个 Pod）,因此通信地址是本地回环地址 127.0.0.1，通信端口根据通信的目标组件配置的端口一致。因此对于上图的组件 A 来说，可以确定的配置依赖服务的通信地址，例如（127.0.0.1:8080),这种模式对于在开发场景中也非常有用，大多数代码开发时定的依赖服务的地址可能都是 127.0.0.1，所以部署时无需做任何修改。如果依赖的上游服务具有多个实例，Sidecar 插件会进行负载均衡或者根据配置进行动态的路由。
+  Components with upstream dependencies are automatically injected into the default communication governance plugin (envoy implementation) on startup. Use the default configuration.Plugins will find relevant configuration from the dashboard API (standard envoy service discovery API) for port listening and will be made available to the component operations themselves.The Sidecar plugin is in the same network space as the business component (the same Pod), so the communication address is the local circular address 127.0.0.1 and the communication port is the one that is configured according to the target component of the communication.Thus, for component A of the above figure, the location of service dependencies can be identified, such as (127.0.0.0.1:808080), a model that is also very useful in developing scenarios, and most of the service dependencies identified at the time of code development may be at 127.0.0.1, so no changes are required at the time of deployment.If you rely on upstream services with multiple examples, the Sidecar plugin will perform a load equilibrium or route to action based on configuration.
 
-  另外在服务发现过程生效的前提是服务注册，在 Rainbond 中，服务需要显性进行注册，即组件的端口管理中，将端口的开放范围进行设置，支持开放对内服务，用于组件间通信，开放对外服务，用于通过网关访问到组件。
+  Also before the service discovery process becomes effective, in Rainbond the service needs to be explicitly registered, i.e. in the port management of components, to set up port openings, to support the opening of internal services for inter-component communications, to open external services for access to components through gateways.
 
-  因此对于用户来说，组件间需要通信，只需要将双方建立通信方向一致的依赖关系。平台将完成其他的事项，业务本身可以理解为需要通信的目标都存在于本地（127.0.0.1）
+  For users, therefore, communication between components is required and only dependencies are established to bring the parties in a consistent direction.The platform will complete other things and the business itself can be understood to mean that the objectives for which communications are required are local (127.0.0.1)
 
-### 常见问题
+### FAQ
 
-- 建立依赖关系时找不到想要依赖的组件
+- Could not find the component you want to rely on when creating dependencies
 
-> 如果组件已经正常的在平台部署或是第三方组件已经正常创建，不能发现它的主要原因应该是目标组件的端口未打开 _对内服务_ ，组件的端口打开对内服务实际上是_服务注册_ 的过程，先有注册再有发现。
+> If a component is normally deployed on a platform or a third party component is properly created, the main reason cannot be found that the port of the target component is not open - for in-service _, the port of the component opens the internal service is actually a process of _service registration_ and is first registered and discovered.
 
-- 依赖多个组件端口是否冲突
+- Whether or not multiple component ports conflict
 
-> 根据上文描述的原理，如果依赖多个具有相同端口的组件，在当前组件网络空间下会存在端口冲突问题。解决这个问题的方式有两个：1. 所有组件的端口监听考虑读取环境变量 PORT，使组件监听端口可以被平台改变，然后在平台上为每个组件设置不同的监听端口。2. 如果都是 HTTP 服务，可以开通网络治理插件替换默认的插件，使用域名的方式来区分不同的组件，实现端口复用。
+> According to the rationale described above, there is a port conflict problem in the current component network space if multiple components with the same port are dependent.There are two：1 ways to solve this problem. Port listen to all components considers reading environment variables PORTs, so that the component listeners can be changed by the platform, and then set different listening ports on the platform for each component.2. If all HTTP services, you can replace the default plugin with a network governance plugin, using domain names to distinguish different components and perform port reuse.
 
-- 组件间的通信协议是否有限制
+- Whether the communication protocol between components has limits
 
-> 组件间通信目前支持 TCP、UDP 协议匹配 99.99%的组件类型，应用层高级治理目前支持 HTTP 协议，未来支持 GRPC,MYSQL,MONGODB,REDIS,DUBBO 等协议。
+> Inter-component communications currently support the TCP and UDP protocols matching 99.99% component types, advanced application level governance currently supports HTTP protocols and future GRPC, MYSQL, MONGODB, REDIS, DUBBO and others.
 
-- 组件间依赖是否可以传递配置
+- Whether dependencies can be passed between components
 
-> 组件对外提供服务时，可以自动将其自身的连接信息（比如数据库将其提供服务的用户名、密码、数据库名）等信息自动的注入到依赖方环境中，实现依赖方需要的信息的自动注入。参考下一节文档 [通信变量注入](./connection_env)
+> When a component provides services externally, it can automatically inject its own connection information (such as the database that provides the service username, password, database name) into the relying party's environment and automatically inflow the information that the relying party needs.Refer to the next section document [通信变量注入](./connection_env)
 
-- 微服务组件端口都一致, 相互之间怎么办？
+- Microservice component ports are consistent, what do you do with each other?
 
-  如果你需要使用 Rainbond 的微服务通信管理机制：
+  If you need to use Rainbond Microservice Communication Management：
 
-  > 1. 服务的基础镜像修改一下，支持读取 PORT 变量来建立监听。
-  > 2. 平台上为每个服务组件设置一个端口，并设置端口别名。比如 USER_SERVER PAY_SERVER。
-  > 3. 代码的配置文件支持变量化控制。使用步骤 2 中定义的变量来定义服务间通信地址。
-  > 4. 梳理清楚组件间的通信关系，建立依赖即可。
+  > 1. The basic mirror of the service modifies and supports reading PORT variables to build listening.
+  > 2. Set a port for each service component on the platform and set the port alias.Like USER_SERVER PAY_SERVER.
+  > 3. The configuration file of the code supports the variable quantification control.Use the variable defined in step 2 to define the interservice communication address.
+  > 4. To clean up the communication relationships between components and build dependency.
 
-  如果你是 Dubbo、SpringCloud 或其他微服务架构模式，采用了第三方的服务注册中心。那么你可以不使用 Rainbond 的依赖通信模式，基于第三方的服务注册中心进行服务注册和服务发现，直接通信即可。这种情况下不存在端口冲突问题。
+  If you are Dubbo, SpringCloud or other microservice architecture mode, a third-party service registration center is used.You can then communicate directly without using Rainbrond's dependency mode of communication based on third-party service registration and discovery of services.In this case, there is no port conflict problem.
