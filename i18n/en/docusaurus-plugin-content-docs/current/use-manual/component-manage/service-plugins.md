@@ -15,7 +15,7 @@ Only plugins installed under the current team can be activated by components, so
 - Set memory allocation for plugins
 - Enter the plug-in configuration and make reasonable configurations as needed
 
-目前 Rainbond 默认提供了网络治理类和性能分析类的插件。Currently, Rainbond provides plug-ins for network governance and performance analysis by default.The two plugin reference documents provided by Rainbond by default：
+Currently Rainbond default provides plugins for Web Governance classes and Performance Analytics classes.Currently, Rainbond provides plug-ins for network governance and performance analysis by default.The two plugin reference documents provided by Rainbond by default：
 
 [1. Performance analysis plugin](/docs/use-manual/team-manage/plugin-manage/tcm-plugin)
 
