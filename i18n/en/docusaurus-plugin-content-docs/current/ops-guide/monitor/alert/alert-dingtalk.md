@@ -2,35 +2,35 @@
 title: Dingding alarm
 draft: false
 weight: 1672
-description: Rainbond钉钉报警配置说明
+description: Rainbond nailing alarm configuration description
 ---
 
-### 概述
+### General description
 
-本文主要介绍如何配置Alertmanager发送消息到钉钉。
+This paper focuses on how Alertmanager sends messages to nails.
 
-集群监控报警部署请参见 [集群监控报警部署](/docs/ops-guide/monitor/monitor-alert-deploy)
+See [集群监控报警部署](/docs/ops-guide/monitor/monitor-alert-employ) for cluster monitoring alerts
 
-### 前提条件
+### Prerequisite
 
-- 使用钉钉报警的用户需要拥有钉钉机器人 Webhook 地址，通过 Webhook 接收报警信息，获取方式参阅 [官方文档](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq)；
+- Users with pegged alarms need to have pegged robot Webhook addresses, receive alarm information via Webhook and see [官方文档](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq);
 
-### 操作步骤
+### Action step
 
-1.编辑Alertmanager配置文件，在 环境配置–>配置文件配置 中点击编辑
+1.Edit Alertmanager profile, click Edit in Environment Profiles –>Profile Configuration
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/alert/alertmanager-config.jpg" width="100%" />
 
-2.以下是模板文件，修改完成之后覆盖原配置文件更新组件即可。
+The following is a template file and overwrite the component of the original configuration file update when the modification is complete.
 
-> url无需修改，其他内容根据所需修改
+> url does not need to be modified, others are required
 
 ```yaml
 global:
   resolve_timeout: 5m
 route:
   receiver: webhook
-  group_wait: 30s
+  group_wait: 30 s
   group_interval: 5m
   repeat_interval: 5m
   group_by: [alertname]
@@ -40,18 +40,18 @@ route:
 receivers:
 - name: webhook
   webhook_configs:
-  - url: http://127.0.0.1:8060/dingtalk/webhook1/send
+  - url: http://127. .0.1:8060/dingtalk/webhook1/send
     send_resolved: true
 ```
 
-3.获取钉钉 Webhook 地址时的安全设置建议设置如下：
+3. Set the following security settings for a nailing web hook address to the following：
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/dingding.jpg"  width="70%" />
 
-4.获取到钉钉 Webhook 地址后手动修改 DingTalk 组件的 Webhook 地址
+4. Change the web hook address of the DingTalk component manually after getting a nailing Webhook address
 
-在 DingTalk 组件页面-->环境配置 中修改 `WEBHOOK_ADDRESS` 变量值，修改完成之后更新即可生效。
+Modify the `WEBHOOK_ADDRESS` variable value in the DingTalk component page --> environment configuration. Update will take effect when finished.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/setaddress.jpg"  width="100%" />
 
-到此完成钉钉报警的部署。
+This brings the nails to completion of the police deployment.
