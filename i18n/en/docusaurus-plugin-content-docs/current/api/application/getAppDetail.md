@@ -2,7 +2,7 @@
 title: Get app details
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain application details
 
