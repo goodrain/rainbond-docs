@@ -1,52 +1,52 @@
 ---
 title: Rainbond cluster status monitoring
-description: Rainbond 集群状态监控
+description: Rainbond cluster status monitoring
 keywords:
   - Cluster status monitoring
-  - Rainbond 集群状态监控
+  - Rainbond cluster status monitoring
 ---
 
-Rainbond 集群状态监控支持对集群中所有节点的 CPU、内存、磁盘等资源的监控，以及对集群中 Rainbond 组件的运行状态的监控。
+Rainbond cluster status monitoring supports the monitoring of resources such as CPU, memory, disks, etc. for all nodes in the cluster, as well as the operational status of Rainbond components in the cluster.
 
-进入 **平台管理 -> 集群**，跳转到集群管理页面，可以看到集群中的状态监控信息。
+Go to **Platform Management -> Cluster**,jump to the cluster management page to see status monitor information in the cluster.
 
-## 集群信息
+## Cluster information
 
-展示集群的基本信息，包括:
+Shows the basic information about the cluster, including:
 
-- **名称:** 集群的名称
-- **Rainbond 集群版本:** Rainbond 集群的版本
-- **Kubernetes 集群版本:** Kubernetes 集群的版本
-- **运行状态:** 集群的运行状态
-- **节点数量:** 集群中节点的数量
-- **安装方式:** 集群的安装方式，包括从主机安装、Helm安装等。
-- **创建时间:** 集群创建的时间
+- **Name:** Cluster name
+- **Rainbond cluster version:** Rainbond cluster version
+- **Kubernetes cluster version:** Kubernetes cluster version
+- **Running status:** Cluster status
+- **Nodes:** Number of nodes in cluster
+- **Installation methods:** ClusterIntegration,including from host, Helm installation, etc.
+- **Create time:** Cluster creation time
 
-## 节点列表
+## Node List
 
-展示集群中所有节点的列表以及节点状态。点击节点可跳转到节点管理页面，请参阅 [节点管理](../nodes)。
+Shows a list of all nodes in the cluster and the status of the node.Click on a node to jump to the node management page, see [节点管理](../nodes).
 
-- **名称:** 节点的 IP 或者主机名
-- **状态:** 节点的状态
-- **角色:** 节点的角色，包括 master、worker、etcd
-- **内存:** 节点的内存使用情况，包括总内存、已使用内存、可用内存、使用率
-- **CPU:** 节点的 CPU 使用情况，包括总 CPU、已使用 CPU、可用 CPU、使用率
+- **Name:** Node's IP or hostname
+- **Status:** Node Status
+- **Role:** Node's role, including master, worker, etcd
+- **Memorial:** Memory usage of node, including total memory, used memory, available memory and usage
+- **CPU:** CPU usage of nodes, including total CPU, CPU, available CPU usage
 
-## 集群资源用量
+## Cluster resource usage
 
-展示集群中所有节点的资源用量，包括 CPU、内存、磁盘、节点数量、组件运行数量。
+Shows the amount of resources used by all nodes in the cluster, including CPU, memory, disk, number of nodes, number of components running.
 
-- **CPU:** 集群中所有节点的 CPU 使用情况，包括总 CPU、已使用 CPU 率。
-- **内存:** 集群中所有节点的内存使用情况，包括总内存、已使用内存率。
-- **磁盘:** 集群中所有节点的磁盘使用情况，包括总磁盘、已使用磁盘率。
-- **节点数量:** 集群中节点的数量，包括 master、worker、etcd 节点的数量。
-- **组件运行数量:** 集群中组件的运行数量，只统计运行中的组件，不统计已停止的组件。
+- **CPU:** CPU usage for all nodes in the cluster, including general CPU, used CPU rate.
+- **Memorial:** Memory usage of all nodes in the cluster, including total memory and used memory rates.
+- **Disk:** Disk usage of all nodes in the cluster, including total disk, used disk rate.
+- **Number of notes:** Number of nodes in clusters, including master, worker, etcd nodes.
+- **Component Running:** Number of components in cluster, only count active components, not stops
 
-## Rainbond 组件列表
+## Rainbond Component List
 
-展示集群中所有 Rainbond 组件的信息以及组件状态。
+Shows information about all Rainbond components in the cluster as well as the component status.
 
-- **名称:** Rainbond 集群端组件的名称
-- **状态:** Rainbond 集群端组件的状态，健康/不健康
-- **副本数量:** Rainbond 集群端组件的副本数量
-- **查看:** 查看 Rainbond 集群端组件的详细信息，包括组件的名称、POD IP、状态、副本数量、重启次数、运行时间。
+- **Name:** Rainbond cluster component name
+- **Status:** Rainbond cluster component state, healthy/unhealthy
+- **Number of copies:** Number of copies of Rainbond cluster components
+- **View:** View the details of the Rainbond cluster component, including the name of the component, POD IP, status, number of copies, number of reboots, run time.
