@@ -3,56 +3,56 @@ title: Non-workload resource management
 description: Create k8s resources directly by writing yaml
 ---
 
-本篇文档介绍了如何通过yaml文件创建k8s资源，k8s资源是为了满足用户通过手写 yaml 形式 创建 k8s 集群资源的，这里可以创建 k8s 中的所有资源，像 Secret ， PV 等在平台中没有对应的模型的资源便可以通过这种方式创建。此功能模块仅支持创建、编辑修改、删除功能，无法将对应资源转化为 Rainbond 的模型层，如果需要通过yaml文件部署业务，请在应用下选择添加组件->yaml文件部署组件
+This document describes how to create k8s resources through the yaml file, k8s resources to meet the user's ability to create k8s cluster resources through the writing yaml form. Here all resources in k8s can be created like Secret , PV and others without a corresponding model in the platform.This feature module only supports creation, editing modification, deletion, and cannot convert corresponding resources to Rainbond model layers. If you want to deploy business with yaml files, select add component -> yaml file deployment component
 
-## 前提条件
+## Prerequisite
 
-1. 对 k8s 资源的 yaml 文件非常熟悉，准备一个k8s资源的yaml文件。
+1. Well familiar with the yaml file for k8s resources, prepare a yaml file for k8s resources.
 
-2. 检查当前团队、应用是否是期望创建的位置。
+2. Check if the current team and app are intended to create a location.
 
-3. 检查在同级应用下 k8s 资源里是否已存在同类型且同名的资源，减少资源创建的过程中遇到的问题。
+3. Check if resources of the same type and name already exist in the k8s resources of the same app at the same level, reducing the problems encountered in creating the resource.
 
-下面将会以 Linkerd 命名空间为例, 介绍在 Rainbond 上对k8s资源的处理。
+Below is the example of Linkerd namespace, which describes the treatment of k8s resources on Rainbond
 
-## 添加
+## Add
 
-1. 点击添加按钮
+1. Click to add a button
 
-2. 编写yaml文件内容
+2. Write yaml file content
 
-3. 在确认无误后，点击确定。
+3. Click OK after confirmation.
 
-4. 查看是否有创建失败的资源，点击查看详情可以查看具体失败原因。
+4. See if there is a failed resource. Click for details to see the reasons for the specific failure.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_add.jpg" title="k8s资源添加"/>
 
 :::caution
 
-- 创建失败的资源是查看不到资源类型和资源名称的且不支持修改的，需要删除重新创建。
-- 创建所编写的yaml文件可支持编写多个k8s资源，资源之前用`---`分割，创建完毕后会拆开展示。
+- Failed creation resource is unavailable for resource type and resource name and does not support modifications. Recreation needs to be deleted.
+- Create the written yaml file to support the writing of multiple k8s resources that are separated by `--` before they are created and will be displayed.
   :::
 
-## 修改
+## Modify
 
-1. 点击编辑按钮。
+1. Click the edit button.
 
-2. 修改yaml文件内容。
+2. Modify the content of the yaml file.
 
-3. 在确认无误后，点击确定。
+3. Click OK after confirmation.
 
-4. 查看是否有修改失败的资源，点击查看详情可以查看具体失败原因。
+4. See if there is a failed resource. Click for more details to see the reasons for the failures.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_update.jpg" title="k8s资源修改"/>
 
 :::caution
 
-- 需要注意的是，创建成功后yaml文件会多出一行内容：`resourceVersion:xxxxxx`,这个在修改过程中是不可以删除的。
-- 修改yaml文件内容时只支持对当前资源修改，不支持在yaml文件内再次添加新的资源，如想创建资源请走创建逻辑。
+- Note that the yaml file will have an additional line of：`resourceVersion:xxxxxxx` after creating it. This cannot be deleted during the modification.
+- Modifying the content of the yaml file only supports changes to the current resource, adding new resources again in the yaml file. Please go the creation logic if you want to create the resource.
   :::
 
-## 删除
+## Delete
 
-1. 确认资源不需要后，点击删除按钮。
+1. Click the delete button when the resource is confirmed.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_delete.jpg" title="k8s资源删除"/>
