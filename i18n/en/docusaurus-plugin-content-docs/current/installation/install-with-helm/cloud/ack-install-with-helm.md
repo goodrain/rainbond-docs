@@ -3,26 +3,26 @@ title: Based on Alibaba Cloud ACK cluster installation
 description: Based on Alibaba Cloud ACK cluster, install Rainbond from scratch with helm
 ---
 
-## 安装前提
+## Installation prerequisites
 
-开始之前，请确定已经购买了以下阿里云资源，所有资源要求在同一区域：
+Before you start, make sure you have purchased the following Aliyun resources, all of which are required in the same region：
 
-- 购买阿里云 [ACK 托管集群](https://www.aliyun.com/product/kubernetes)
-  - ACK Kubernetes 版本 1.16+
-- 购买 [SLB 负载均衡](https://www.aliyun.com/product/slb) **（可选）**
-  - 配置端口映射 `80 443 6060 7070 8443`
-- 购买[文件存储 NAS](https://www.aliyun.com/product/nas) **（可选）**
-  - 提供挂载点，如`123456789-var48.cn-shanghai.nas.aliyuncs.com:/`
-- 购买 [RDS MySQL](https://www.aliyun.com/product/rds/mysql) **（可选）**
-  - 创建 `console` `region` 数据库
-  - 版本 5.7+
-- 购买 [ACR 容器镜像服务](https://www.aliyun.com/product/acr) **（可选）**
-- 安装 [Kubectl](/docs/ops-guide/tools/#kubectl)
-- 安装 [Helm](/docs/ops-guide/tools/#helm)
+- Buy Ali-Cloud [ACK Trust Group](https://www.aliyun.com/product/kubernetes)
+  - ACK Kubernetes Version 1.16+
+- Buy [SLB load balancing](https://www.aliyun.com/product/slb)**(option)**
+  - Configure port mapping `80443,6060 70,843`
+- Buy [File Storage NAS](https://www.aliyun.com/product/nas)**(option)**
+  - Provide mount points such as `123456789-var48.cn-shanghai.nas.aliyuncs.com:`
+- Buy [RDS MySQL](https://www.aliyun.com/product/rds/mysql) **(option)**
+  - Create a `console` database
+  - Version 5.7+
+- Purchase [ACR container mirror service](https://www.aliun.com/product/acr) **(option)**
+- Install [Kubectl](/docs/ops-guide/tools/#kubectl)
+- Install [Helm](/docs/ops-guide/tools/#helm)
 
-## 对接 ACK 集群
+## Button ACK Cluster
 
-1. 自定义 Helm Chart 参数，填写 SLB NAS RDS ACR 相关信息。
+1. Custom Helm Chart parameters, fill in SLB NAS RDS ACR information.
 
 ```yaml title="vim values.yaml"
 
@@ -81,39 +81,39 @@ Cluster:
     name: cn-zhangjiakou.10.22.197.171
 ```
 
-2. 创建 rbd-system 命名空间
+2. Create rbd-system namespace
 
 ```bash
 kubectl create namespace rbd-system
 ```
 
-3. 添加chart仓库
+3. Add Chart Repository
 
 ```bash
-helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
+help repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
 ```
 
-4. 安装rainbond
+4. Install rainbond
 
 ```bash
-helm install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
+help install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
 ```
 
-5. 验证安装
+5. Verify Installation
 
-- 查看pod状态
+- View pod status
 
 ```bash
-kubectl get po -n rbd-system | grep rbd-app-ui
+kubtl get po -n rbd-system | grep rbd-app-ui
 ```
 
-- 等待 `rbd-app-ui` pod为 Running 状态即安装成功。
+- Waiting for `rbd-app-ui` pod for Running state to install successfully.
 - 安装成功以后，可通过 `$gatewayIngressIPs:7070` 访问rainbond控制台。
 
-## 安装问题排查
+## Installation problem sorting
 
-- 安装过程中如果长时间未完成，那么请参考文档[Helm 安装问题排查指南](/docs/troubleshooting/installation/helm)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+- If the installation process is not completed for a long period of time, please refer to the document [Helm Installation Issues Policy](/docs/troubleshooting/installation/helm) for troubleshooting.Or join [微信群](/community/support#microbelieve),[钉钉群](/community/support#pegs) for help.
 
-## 下一步
+## Next step
 
-参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
+Use[快速入门](/docs/quick-start/getting-started/) to deploy your first application.
