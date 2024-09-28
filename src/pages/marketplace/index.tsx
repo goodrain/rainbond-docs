@@ -1,6 +1,6 @@
 import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import LayoutProviders from '@theme/LayoutProviders';
+import LayoutProviders from '@theme/Layout/Provider';
 import React from 'react';
 import NavBar from '../../components/NavBar';
 import styles from '../index.module.scss';
