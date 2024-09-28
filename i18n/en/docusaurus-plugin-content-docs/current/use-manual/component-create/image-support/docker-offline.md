@@ -1,46 +1,46 @@
 ---
-title: Docker离线环境创建组件
-description: 为了更好的应对离线场景
+title: Docker Offline Create Component
+description: To better respond to offline scenes
 ---
 
-用户可以在有网络连接的环境中创建和配置 Docker 镜像，然后将这些镜像打包上传到平台中。这样，即使在没有互联网连接的环境中，也能够部署和使用这些预先配好的组件镜像。
+Users can create and configure Docker mirrors in a network connected environment and then upload them to the platform.In this way, even in environments where Internet connectivity is not available, these pre-positioned components images can be deployed and used.
 
-## 准备工作
+## Preparatory work
 
-将准备好的镜像通过以下命令打包成镜像的 Tar 包并下载。
+Put the prepared mirrors into the Tar pack and download them with the following commands.
 
 ```bash
-docker save xxxx:latest > offline.tar
+Docker Save xxx:latest > offline.tar
 ```
 
-## 上传 Tar 包创建组件。
+## Upload a Tar package to create a component.
 
-### 入口
+### Entry
 
-\*\* 入口1: \*\*团队视图 --> 新建 --> 从容器构建 --> 容器镜像 --> 上传
+\*\* Entry 1: \*\*Team View -> New -> Build --> From Container --> Container Image -> Upload
 
-\*\* 入口2: \*\*组件视图 --> 添加组件 --> 指定镜像 --> 上传
+\*\*Entry 2: \*\*Component View -> Add Component ---> Specify Image -> Upload
 
-### 流程
+### Processes
 
-1. 将打包好的 Tar 包镜像上传，填写好组件名称后点击创建。确认创建后，平台会对 Tar 包进行解析，将 Tar 包中的所有镜像存至镜像仓库中, 同时在本地镜像中可见可选择。
+1. Upload a packaged Tar package image, fill in the component name and click Create.Once this is confirmed, the platform resolves the Tar pack, stores all mirrors in the Tar pack to the mirror repository, and is visible in the local mirror.
 
-2. 从解析出来的镜像中选择其中一个创建组件。
+2. Select one of the creation components from the parsed mirrors.
 
-3. 创建成功并运行。
+3. Successfully created and running.
 
-## 本地镜像创建组件。
+## Local mirrors create components.
 
-### 入口
+### Entry
 
-\*\* 入口1: \*\*团队视图 --> 新建 --> 从容器构建 --> 容器镜像 --> 本地
+\*\* Entry 1: \*\*Team View -> New -> Build --> From Container --> Container Image -> Container -> Local
 
-\*\* 入口2: \*\*组件视图 --> 添加组件 --> 指定镜像 --> 本地
+\*\* Entry 2: \*\*Component View -> Add Component ---> Specify Image ---> Local
 
-### 流程
+### Processes
 
-1. 已经上传过的 Tar 包解析出来的镜像会存放在本地的镜像列表中，通过选择镜像可以快速创建。
+1. The uploaded Tar packet parse mirrors will be stored in the local mirrors list and can be created quickly by selecting them.
 
-2. 创建组件。
+2. Create a component.
 
-3. 创建成功并运行。
+3. Successfully created and running.
