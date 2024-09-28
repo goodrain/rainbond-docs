@@ -2,7 +2,7 @@
 title: Obtain information about enterprise usage resources
 ---
 
-## Basic Information
+## 基本信息
 
 Obtain information about enterprise usage resources
 
@@ -15,7 +15,6 @@ GET /openapi/v2/manage/enterprises/{eid}/resource
 | name | Location | type   | required | illustrate |
 | ---- | -------- | ------ | -------- | ---------- |
 | eid  | path     | string | Yes      | none       |
-
 
 ## return result
 
@@ -39,9 +38,9 @@ GET /openapi/v2/manage/enterprises/{eid}/resource
 
 ### Attributes
 
-| name          | type   | required | constraint | Chinese name  | illustrate                         |
-| ------------- | ------ | -------- | ---------- | ------------- | ---------------------------------- |
+| name                               | type   | required | constraint | Chinese name  | illustrate                                            |
+| ---------------------------------- | ------ | -------- | ---------- | ------------- | ----------------------------------------------------- |
 | enterprise_id | string | true     | none       | Enterprise id | Enterprise ID (Federated Cloud ID) |
-| used_cpu      | number | true     | none       | used cpu      | cpu used                           |
-| used_memory   | number | true     | none       | Used memory   | memory used                        |
-| used_disk     | number | true     | none       | Used disk     | used storage                       |
+| used_cpu      | number | true     | none       | cpu used      | used cpu                                              |
+| used_memory   | number | true     | none       | Used memory   | memory used                                           |
+| used_disk     | number | true     | none       | Used disk     | used storage                                          |
