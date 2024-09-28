@@ -2,30 +2,30 @@
 title: Install on K3s
 description: Install the Rainbond cluster on K3s
 keywords:
-  - 在 K3s 上安装 Rainbond
-  - 使用 K3s Containerd 安装 Rainbond
+  - Install Rainbond on K3s
+  - Install Rainbond with K3s Containerd
 ---
 
-import Tabs from '@theme/Tabs';
+Import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## 前提
+## Prerequisite
 
-- 安装 [Helm](/docs/ops-guide/tools/#helm-cli) 3.0+
-- 确保 `80、443、6060、7070、8443` 未被占用
-- 确保服务器安装了 NFS 客户端
-- K3s 的启动需要指定启动参数 `–-disable traefik`
-- 安装 NFS 客户端
-- 目前仅支持 1.19 ~ 1.27 版本的 K3s
+- Install [Helm](/docs/ops-guide/tools/#helm-cli) 3.0+
+- Ensure that `80, 443, 6060, 7070 and 8443` are not used
+- Make sure the server installed the NFS client
+- Start of K3s requires `–Disable trafik`
+- Install NFS client
+- Only K3s in version 1.19 ~1.27 are currently supported
 
-## 安装 K3s
+## Install K3s
 
-在安装 K3s 时需添加 `--disable traefik` 禁用 Traefik 的安装，Traefik 与 Rainbond 网关会产生冲突，更多请参阅 [K3s 安装文档](https://docs.k3s.io/installation)。
+When installing K3s, you need to add `--disable trafik` to disable Traefik installation. Traefik and Rainbond gateways will conflict with [K3s install documents] (https://docs.k3s.io/installation).
 
 <Tabs>
   <TabItem value="containerd" label="Containerd" default>
 
-Rainbond 默认会安装私有镜像仓库，通过创建 `/etc/rancher/k3s/registries.yaml` 文件来配置使用私有镜像仓库。
+Rainbond will install private mirror repositories by default and configure using private mirror repositories by creating `/etc/rancher/k3s/registries.yaml` files.
 
 ```yaml
 configs:
@@ -34,46 +34,46 @@ configs:
       insecure_skip_verify: true
 ```
 
-安装 K3s
+Install K3s
 
 ```bash
-curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn INSTALL_K3S_EXEC="--disable traefik" INSTALL_K3S_VERSION="v1.24.10+k3s1" sh -
+curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INS L_K3S_MIROR=cn INSTAT_K3S_K3S_EXEC="--disable traefik" INSTAL_K3S_VERSION="v1.24.10+k3s1sh -
 ```
 
   </TabItem>
   <TabItem value="docker" label="Docker">
 
-安装 Docker
+Install Docker
 
 ```bash
 curl -sfL https://get.rainbond.com/install_docker | bash
 ```
 
-安装 K3s
+Install K3s
 
 ```bash
-curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn INSTALL_K3S_EXEC="--docker --disable traefik" INSTALL_K3S_VERSION="v1.24.10+k3s1" sh -
+curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTAT_K3S_MIROR=cn INSTAL_K3S_K3S_EXEC="--docker --disable trafik" INSTAL_K3S_VERSION="v1.24.10+k3s1" sh -
 ```
 
   </TabItem>
 </Tabs>
 
-复制 K3s Kubeconfig 文件到 `~/.kube/config`。
+Copy K3s Kubeconfig file to `~/.kube/config`.
 
 ```bash
 cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 ```
 
-## 安装 Rainbond
+## Install Rainbond
 
-添加 Helm Chart 仓库
+Add Helm Chart repository
 
 ```bash
-helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
-helm repo update
+help repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
+help repo update
 ```
 
-创建 `rbd-system` 命名空间
+Create `rbd-system` namespace
 
 ```bash
 kubectl create namespace rbd-system
@@ -82,7 +82,7 @@ kubectl create namespace rbd-system
 <Tabs>
   <TabItem value="containerd" label="Containerd" default>
 
-K3s 使用 Containerd 作为容器运行时，需指定 `useK3sContainerd` 参数为 `true`。
+The `useK3sContainerd` parameter must be specified as `true` when K3s run as containerd.
 
 ```bash
 helm install rainbond rainbond/rainbond-cluster -n rbd-system \
@@ -92,10 +92,10 @@ helm install rainbond rainbond/rainbond-cluster -n rbd-system \
   </TabItem>
   <TabItem value="docker" label="Docker">
 
-使用 Helm 安装 Rainbond
+Install Rainbond with Helm
 
 ```bash
-helm install rainbond rainbond/rainbond-cluster -n rbd-system
+help install rainbond rainbond/rainbond-cluster-n rbd-system
 ```
 
   </TabItem>
@@ -107,10 +107,10 @@ helm install rainbond rainbond/rainbond-cluster -n rbd-system
 执行完安装命令后，请[查询集群安装进度](/docs/installation/install-with-helm/install-from-kubernetes#4-安装进度查询)。
 :::
 
-### 安装问题排查
+### Installation problem sorting
 
-安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](/docs/troubleshooting/installation/helm)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+If the installation process is not completed for a long period of time, please refer to the document [Helm Installation troubleshooting/installation/helm) for troubleshooting.Or join [微信群](/community/support#microbelieve),[钉钉群](/community/support#pegs) for help.
 
-## 下一步
+## Next step
 
-参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
+Use[快速入门](/docs/quick-start/getting-started/) to deploy your first application.
