@@ -1,24 +1,24 @@
 ---
-title: 'Based on Alibaba Cloud ACK cluster installation'
-description: 'Based on Alibaba Cloud ACK cluster, install Rainbond from scratch with helm'
+title: Based on Alibaba Cloud ACK cluster installation
+description: Based on Alibaba Cloud ACK cluster, install Rainbond from scratch with helm
 ---
 
 ## 安装前提
 
 开始之前，请确定已经购买了以下阿里云资源，所有资源要求在同一区域：
 
-* 购买阿里云 [ACK 托管集群](https://www.aliyun.com/product/kubernetes)
-  * ACK Kubernetes 版本 1.16+
-* 购买 [SLB 负载均衡](https://www.aliyun.com/product/slb) **（可选）**
-  * 配置端口映射 `80 443 6060 7070 8443`
-* 购买[文件存储 NAS](https://www.aliyun.com/product/nas) **（可选）**
-  * 提供挂载点，如`123456789-var48.cn-shanghai.nas.aliyuncs.com:/`
-* 购买 [RDS MySQL](https://www.aliyun.com/product/rds/mysql) **（可选）**
-  * 创建 `console` `region` 数据库
-  * 版本 5.7+
-* 购买 [ACR 容器镜像服务](https://www.aliyun.com/product/acr) **（可选）**
-* 安装 [Kubectl](/docs/ops-guide/tools/#kubectl)
-* 安装 [Helm](/docs/ops-guide/tools/#helm)
+- 购买阿里云 [ACK 托管集群](https://www.aliyun.com/product/kubernetes)
+  - ACK Kubernetes 版本 1.16+
+- 购买 [SLB 负载均衡](https://www.aliyun.com/product/slb) **（可选）**
+  - 配置端口映射 `80 443 6060 7070 8443`
+- 购买[文件存储 NAS](https://www.aliyun.com/product/nas) **（可选）**
+  - 提供挂载点，如`123456789-var48.cn-shanghai.nas.aliyuncs.com:/`
+- 购买 [RDS MySQL](https://www.aliyun.com/product/rds/mysql) **（可选）**
+  - 创建 `console` `region` 数据库
+  - 版本 5.7+
+- 购买 [ACR 容器镜像服务](https://www.aliyun.com/product/acr) **（可选）**
+- 安装 [Kubectl](/docs/ops-guide/tools/#kubectl)
+- 安装 [Helm](/docs/ops-guide/tools/#helm)
 
 ## 对接 ACK 集群
 
