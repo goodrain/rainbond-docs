@@ -1,8 +1,8 @@
 ---
-title: 部署应用
-description: 在 Rainbond 上部署应用
+title: Deploying apps
+description: Deploy apps on Rainbond
 keywords:
-  - 在 Rainbond 上部署应用
+  - Deploy apps on Rainbond
 ---
 
 ```mdx-code-block
