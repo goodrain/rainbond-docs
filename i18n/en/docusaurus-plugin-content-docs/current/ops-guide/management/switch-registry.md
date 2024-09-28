@@ -2,7 +2,7 @@
 title: Example Modify a cluster mirror vault
 descrition: How do I change the default mirror warehouse of the cluster
 keywords:
-- Rainbond 集群镜像仓库修改
+  - Rainbond 集群镜像仓库修改
 ---
 
 :::tip
@@ -48,7 +48,6 @@ kubectl delete pod -l release=rainbond-operator -n rbd-system
 kubectl delete pod -l name=rbd-chaos -n rbd-system
 kubectl delete pod -l name=rbd-node -n rbd-system
 ```
-
 
 ## 切换到默认镜像仓库
 
@@ -101,4 +100,3 @@ spec:
 kubectl delete pod -l name=rbd-chaos -n rbd-system
 kubectl delete pod -l name=rbd-node -n rbd-system
 ```
-
