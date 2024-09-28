@@ -1,56 +1,56 @@
 ---
-title: 创建组件
+title: Create Component
 ---
 
-## 基本信息
+## Basic Information
 
-该接口主要用于通过镜像创建组件
+This interface is primarily used to create components by mirror
 
 ```bash title="请求路径"
 /openapi/v1/teams/{team_name}/regions/{region_name}/apps/{group_id}/services
 ```
 
 ```json title="Body 请求体示例"
-{
+LO
   "group_id": 9,
   "docker_cmd": "",
-  "image": "nginx:latest",
+  "image": "nginx:late",
   "service_cname": "nginx",
   "k8s_component_name": "nginx", 
   "user_name": "",
   "password": "",
-  "is_deploy": true 
+  "is_employ": true 
 }
 ```
 
-## 请求参数
+## Request Parameters
 
-接口参数
+Interface Parameters
 
-| 名称                               | 类型      | 必选 | 说明   |
-| -------------------------------- | ------- | -- | ---- |
-| team_name   | string  | 是  | 团队ID |
-| region_name | string  | 是  | 集群ID |
-| group_id    | integer | 是  | 应用ID |
+| Name                             | Type    | Required | Note           |
+| -------------------------------- | ------- | -------- | -------------- |
+| team_name   | String  | Yes      | Team ID        |
+| region_name | String  | Yes      | Cluster ID     |
+| group_id    | integer | Yes      | Application ID |
 
-Body 参数
+Body parameters
 
-| 名称                                                           | 类型     | 必选 | 说明                                      |
-| ------------------------------------------------------------ | ------ | -- | --------------------------------------- |
-| group_id                                | string | 是  | 应用ID                                    |
-| docker_cmd                              | string | 否  | 容器启动命令                                  |
-| image                                                        | string | 是  | 镜像地址，例：nginx:latest     |
-| service_cname                           | string | 是  | 组件名，只⽀持⼩写字⺟、数字或“-”，并且必须以字⺟开始、以数字或字⺟结尾   |
-| k8s_component_name | string | 是  | 组件英文名，只⽀持⼩写字⺟、数字或“-”，并且必须以字⺟开始、以数字或字⺟结尾 |
-| user_name                               | string | 否  | 镜像仓库用户                                  |
-| password                                                     | string | 否  | 镜像仓库密码                                  |
-| is_deploy                               | Bool   | 是  | 创建后是否自动构建                               |
+| Name                                                         | Type   | Required | Note                                                                                                                               |
+| ------------------------------------------------------------ | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| group_id                                | String | Yes      | Application ID                                                                                                                     |
+| docker_cmd                              | String | No       | Container start command                                                                                                            |
+| Image                                                        | String | Yes      | Mirror address, example：nginx:latest                                                                               |
+| service_name                            | String | Yes      | Component name, only lowercase letters, numbers or '-' is supported and must start with letters, end with numbers or letters       |
+| k8s_component_name | String | Yes      | Component in English, only lowercase letters, numbers or '-' is supported and must start with letters, end with numbers or letters |
+| user_name                               | String | No       | Mirror repository user                                                                                                             |
+| password                                                     | String | No       | Image repository password                                                                                                          |
+| is_upload                               | Bool   | Yes      | Whether to build automatically after creation                                                                                      |
 
-## 返回结果
+## Back to results
 
-| 状态码 | 状态码含义 | 说明 |
-| --- | ----- | -- |
-| 200 | OK    | 成功 |
+| Status Code | Status code meanings | Note    |
+| ----------- | -------------------- | ------- |
+| 200         | OK                   | Success |
 
 ```json
 {
