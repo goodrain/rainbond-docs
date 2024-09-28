@@ -23,7 +23,7 @@ Go to **Platform Management -> Log -> Console Log** of the console, and troubles
 
 This type of problem indicates that there is a problem with the console itself, and the problem can be solved by querying and analyzing the log files according to [Troubleshooting Ideas](#执查思想).
 
-#### database is locked
+#### Database is blocked
 
 When the console log prompts `database is locked`, it means that the console database is locked. This may be due to multiple data operations at the same time. You can wait or restart the console to solve the problem, or switch the console database to MySQL to permanently solve the problem .
 
@@ -32,7 +32,7 @@ When the console log prompts `database is locked`, it means that the console dat
 This problem indicates that the Node Labels of the Kubernetes cluster do not match, causing the console to fail to obtain the node list. By default, the `node-role.kubernetes.io/worker=true node-role.kubernetes.io/master=true` label is used to distinguish nodes Role, check whether the node label is correct:
 
 ```bash
-kubectl get nodes --show-labels
+kubtl get nodes --show-labels
 ```
 
 If the label does not exist, it can be added with the following command:
@@ -59,7 +59,7 @@ kubectl logs -fl name=rbd-chaos -n rbd-system
 3. The component works normally, but the alarm of component failure keeps appearing, which can be solved by restarting the component as follows:
 
 ```bash
-kubectl delete pod -l name=rbd-chaos -n rbd-system
+kubtl delete pod -l name=rbd-chaos -n rbd-system
 ```
 
 ### Unable to view component real-time logs
