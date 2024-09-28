@@ -2,7 +2,7 @@
 title: Get a list of team resource statistics
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain a list of team resource statistics
 
@@ -12,7 +12,7 @@ POST /openapi/v1/teams/resource
 
 ```json title="Body 请求体示例"
 [
-  {
+  LO
     "tenant_id": "string",
     "region_name": "string"
   }
@@ -36,25 +36,25 @@ POST /openapi/v1/teams/resource
 | name                                                               | type                                                                                              | required | constraint | Chinese name           | illustrate                |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- | -------- | ---------- | ---------------------- | ------------------------- |
 | _anonymous_                                                        | [[TeamAppsResource](#schemateamappsresource)] | false    | none       |                        | none                      |
-| » total_cpu                                   | integer                                                                                           | false    | none       | total cpu              | total cpu                 |
-| » total_memory                                | integer                                                                                           | false    | none       | Total memory           | total memory              |
+| » Total_cpu                                   | integer                                                                                           | false    | none       | total cpu              | total cpu                 |
+| » Total_memory                                | integer                                                                                           | false    | none       | Total memory           | total memory              |
 | » used_cpu                                    | integer                                                                                           | false    | none       | used cpu               | occupy cpu                |
 | » used_memory                                 | integer                                                                                           | false    | none       | Used memory            | used internal memory      |
-| » used_cpu_percentage    | number                                                                                            | false    | none       | Used cpu percentage    | percentage of cpu         |
-| » used_memory_percentage | number                                                                                            | false    | none       | Used memory percentage | percentage of memory used |
-| » team_id                                     | string                                                                                            | true     | none       | team id                | Team ID                   |
-| » team_name                                   | string                                                                                            | true     | none       | Team name              | Team Name                 |
-| » team_alias                                  | string                                                                                            | true     | none       | Team alias             | Team nickname             |
+| used_cpu_percentage      | Number                                                                                            | false    | none       | Use cpu percentage     | percentage of cpu         |
+| » used_memory_percentage | Number                                                                                            | false    | none       | User memory percentage | percentage of memory used |
+| » team_id                                     | String                                                                                            | true     | none       | team id                | Team ID                   |
+| » team_name                                   | String                                                                                            | true     | none       | Team name              | Team Name                 |
+| » team_alias                                  | String                                                                                            | true     | none       | Team alias             | Team nickname             |
 
 ```json title="响应示例"
 [
-  {
+  LO
     "total_cpu": 0,
     "total_memory": 0,
     "used_cpu": 0,
     "used_memory": 0,
-    "used_cpu_percentage": 0,
-    "used_memory_percentage": 0,
+    "used_cpu_percent": 0,
+    "used_memory_percent": 0,
     "team_id": "string",
     "team_name": "string",
     "team_alias": "string"
@@ -67,7 +67,7 @@ POST /openapi/v1/teams/resource
 ### TenantRegionList<a id="schematenantregionlist"></a>
 
 ```json
-{
+LO
   "tenant_id": "string",
   "region_name": "string"
 }
@@ -77,8 +77,8 @@ POST /openapi/v1/teams/resource
 
 | name                             | type   | required | constraint | Chinese name | illustrate       |
 | -------------------------------- | ------ | -------- | ---------- | ------------ | ---------------- |
-| tenant_id   | string | true     | none       | Tenant id    | tenant id        |
-| region_name | string | true     | none       | Region name  | data center name |
+| tenant_id   | String | true     | none       | Tenant id    | tenant id        |
+| region_name | String | true     | none       | Region name  | data center name |
 
 ### TeamAppsResource<a id="schemateamappsresource"></a>
 
@@ -100,12 +100,12 @@ POST /openapi/v1/teams/resource
 
 | name                                                             | type    | required | constraint | Chinese name           | illustrate                |
 | ---------------------------------------------------------------- | ------- | -------- | ---------- | ---------------------- | ------------------------- |
-| total_cpu                                   | integer | false    | none       | total cpu              | total cpu                 |
-| total_memory                                | integer | false    | none       | Total memory           | total memory              |
+| Total_cpu                                   | integer | false    | none       | total cpu              | total cpu                 |
+| Total_memory                                | integer | false    | none       | Total memory           | total memory              |
 | used_cpu                                    | integer | false    | none       | used cpu               | occupy cpu                |
 | used_memory                                 | integer | false    | none       | Used memory            | used internal memory      |
-| used_cpu_percentage    | number  | false    | none       | Used cpu percentage    | percentage of cpu         |
-| used_memory_percentage | number  | false    | none       | Used memory percentage | percentage of memory used |
-| team_id                                     | string  | true     | none       | team id                | Team ID                   |
-| team_name                                   | string  | true     | none       | Team name              | Team Name                 |
-| team_alias                                  | string  | true     | none       | Team alias             | Team nickname             |
+| used_cpu_percentage    | Number  | false    | none       | Use cpu percentage     | percentage of cpu         |
+| used_memory_percentage | Number  | false    | none       | User memory percentage | percentage of memory used |
+| team_id                                     | String  | true     | none       | team id                | Team ID                   |
+| team_name                                   | String  | true     | none       | Team name              | Team Name                 |
+| team_alias                                  | String  | true     | none       | Team alias             | Team nickname             |
