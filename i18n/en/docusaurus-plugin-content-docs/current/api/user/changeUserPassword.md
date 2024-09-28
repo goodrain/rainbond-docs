@@ -2,7 +2,7 @@
 title: Modify user password
 ---
 
-## Basic Information
+## 基本信息
 
 Modify user password
 
@@ -20,10 +20,10 @@ PUT /openapi/v1/users/{user_id}/changepwd
 
 ## request parameters
 
-| name    | Location | type                                  | required | illustrate |
-| ------- | -------- | ------------------------------------- | -------- | ---------- |
+| name                         | Location | type                                  | required | illustrate |
+| ---------------------------- | -------- | ------------------------------------- | -------- | ---------- |
 | user_id | path     | string                                | Yes      | none       |
-| body    | body     | [ChangePassWdUser](#changepasswduser) | no       | none       |
+| body                         | body     | [ChangePassWdUser](#changepasswduser) | no       | none       |
 
 > back to example
 
@@ -48,8 +48,8 @@ PUT /openapi/v1/users/{user_id}/changepwd
 
 ### Attributes
 
-| name      | type    | required | constraint | Chinese name | illustrate                     |
-| --------- | ------- | -------- | ---------- | ------------ | ------------------------------ |
-| user_id   | integer | true     | none       | User id      | user_id                        |
-| password  | string  | true     | none       | Password     | new password                   |
-| password1 | string  | true     | none       | Password1    | Confirm the new password again |
+| name                         | type    | required | constraint | Chinese name | illustrate                     |
+| ---------------------------- | ------- | -------- | ---------- | ------------ | ------------------------------ |
+| user_id | integer | true     | none       | User id      | user_id   |
+| password                     | string  | true     | none       | Password     | new password                   |
+| password1                    | string  | true     | none       | Password1    | Confirm the new password again |
