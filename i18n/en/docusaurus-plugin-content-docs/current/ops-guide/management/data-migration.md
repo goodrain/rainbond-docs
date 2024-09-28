@@ -8,7 +8,6 @@ description: Migrate data from the platform's default data storage center, rbd-d
 
 #### 可选项，通过docker部署外部数据库
 
-
 - 数据库节点安装并启动 docker
 
   ```bash
@@ -22,7 +21,7 @@ description: Migrate data from the platform's default data storage center, rbd-d
   mkdir -p /opt/rainbond/rbd-db/data/ && docker run --name rbd-db -p 3306:3306  -e MYSQL_ALLOW_EMPTY_PASSWORD="yes" -v /opt/rainbond/rbd-db/data:/var/lib/mysql -i registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-db:8.0.19
   ```
 
-><font color="#dd0000">注意：数据备份之后请勿在平台上继续进行操作，以免造成数据不一致</font><br />
+> <font color="#dd0000">注意：数据备份之后请勿在平台上继续进行操作，以免造成数据不一致</font><br />
 
 ### 迁移数据
 
@@ -37,7 +36,6 @@ description: Migrate data from the platform's default data storage center, rbd-d
   ```bash
   kubectl exec  -it  rbd-db-0 -n rbd-system  --  mysqldump -p$MYSQL_ROOT_PASSWORD --all-databases > all.sql && cat all.sql
   ```
-
 
 - 查看rbd-db服务容器
 
@@ -73,7 +71,7 @@ description: Migrate data from the platform's default data storage center, rbd-d
 
 > 在首个管理节点需要修改rbd-app-ui配置
 
-- 因数据已经导入，只需修改指向数据库主机的IP即可 
+- 因数据已经导入，只需修改指向数据库主机的IP即可
 
   修改rbd-app-ui组件连接地址
 
@@ -126,11 +124,12 @@ spec:
   - --db.url=mysql_user:mysql_pass@tcp(mysql_host:mysql_port)/region
 ```
 
-最后查看集群状态 
+最后查看集群状态
 
 ```bash
 kubectl get pod -n rbd-system
 ```
+
 登录平台查看应用状态
 
 #### 数据迁移完毕停止rbd-db服务,到此完成数据迁移
