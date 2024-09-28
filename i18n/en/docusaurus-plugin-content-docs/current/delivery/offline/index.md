@@ -1,10 +1,10 @@
 ---
-title: Off-line delivery
+title: 离线交付
 description: Offline delivery with Rainbond
 keywords:
-- 离线交付
-- toB 离线交付
-- toB offline delivery
+  - 离线交付
+  - toB 离线交付
+  - toB offline delivery
 ---
 
 import Bvideo from '/src/components/Bvideo';
