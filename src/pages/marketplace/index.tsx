@@ -17,13 +17,15 @@ import Contact from '../../components/MarketPlace/Contact';
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const RainstoreHeaderTitle = {
-    title: "云原生应用市场，实现企业应用自动化交付",
+    title: "云原生应用市场-实现企业应用自动化交付",
     description: "支持应用市场全流程管理（应用构建和拼装、应用发布应用市场、应用市场展示和管理、应用导出和导入、应用一键安装和升级），通过应用模版可以将任何类型的应用发布到应用市场，并实现复杂应用一键交付客户环境。"
   };
   return (
     <LayoutProviders>
       <Head>
-        <meta name={RainstoreHeaderTitle.title} content={RainstoreHeaderTitle.description} />
+        <title>{RainstoreHeaderTitle.title}</title>
+        <meta property='og:title' content={RainstoreHeaderTitle.title} />
+        <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />
       </Head>
       <NavBar />
       <div>
