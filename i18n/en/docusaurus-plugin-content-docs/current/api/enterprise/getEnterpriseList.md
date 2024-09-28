@@ -2,27 +2,27 @@
 title: Get business list
 ---
 
-## 基本信息
+## Basic Information
 
 Get business list
 
 ```json title="请求路径"
-GET /openapi/v2/manage/enterprises
+GET /openapi/v2/manage/Enterprises
 ```
 
 ## request parameters
 
 | name     | Location | type   | required | illustrate                              |
 | -------- | -------- | ------ | -------- | --------------------------------------- |
-| query    | query    | string | no       | Search by business name, business alias |
-| current  | query    | string | no       | page number                             |
-| pageSize | query    | string | no       | Quantity per page                       |
+| Query    | Query    | String | no       | Search by business name, business alias |
+| Current  | Query    | String | no       | page number                             |
+| pageSize | Query    | String | no       | Quantity per page                       |
 
 ## return result
 
 | status code | Status code meaning | illustrate | data model                    |
 | ----------- | ------------------- | ---------- | ----------------------------- |
-| 200         | OK                  | success    | [ListEntsResp](#listentsresp) |
+| 200         | OK                  | success    | [ListEntsResp](#listentsresk) |
 
 ## Model
 
@@ -51,5 +51,5 @@ GET /openapi/v2/manage/enterprises
 
 | name  | type                                                                                                  | required | constraint | Chinese name | illustrate |
 | ----- | ----------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| total | integer                                                                                               | true     | none       | Total        | 总数         |
-| data  | [[EnterpriseListInfo](#schemaenterpriselistinfo)] | true     | none       |              | none       |
+| Total | integer                                                                                               | true     | none       | Total        | Total      |
+| Data  | [[EnterpriseListInfo](#schemaenterpriselistinfo)] | true     | none       |              | none       |
