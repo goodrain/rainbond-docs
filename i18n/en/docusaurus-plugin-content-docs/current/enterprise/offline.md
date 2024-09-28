@@ -1,63 +1,63 @@
 ---
-title: 离线环境支持
-description: 介绍平台上离线环境部署和使用
+title: Offline Environment Support
+description: Introduction to the offline environmental deployment and use on the platform
 ---
 
-本文档将重点介绍 Rainbond 在离线环境下的功能支持。特别关注于离线环境中 Rainbond 的部署，以及提供的一体化开发环境。这些功能使 Rainbond 能够在离线环境下依然保持高效和可靠的云原生应用管理和交付。
+This document will highlight the functionality support of Rainbond in an offline environment.Particular attention was paid to the deployment of Rainbond in offline environments and the provision of an integrated development environment.These features enable Rainbond to maintain efficient and reliable cloud application management and delivery in an offline environment.
 
-## 主要功能
+## Main features
 
-在离线环境中，Rainbond 企业版支持图形化安装Kubernetes集群和Rainbond平台，并提供了一体化的开发环境，帮助企业快速构建、部署云原生应用及其交付流程。
+In an offline environment, Rainbond Enterprise Edition supports the graphical installation of the Kubernetes cluster and Rainbond platforms, and provides an integrated development environment that helps firms to quickly build, deploy and deliver cloud-origin applications.
 
-### 离线环境部署
+### Offline environment deployment
 
-Rainbond 企业版提供了离线环境部署功能，使得用户能够离线环境中轻松部署 Kubernetes 集群和 Rainbond。企业版将会提供完整的离线安装包，该安装包包含了Rainbond 以及 Kubernetes 的所有依赖组件和镜像。
+Rainbond Enterprise version provides off-line environmental deployment features that allow users to easily deploy Kubernetes clusters and Rainbond in offline environments.The Enterprise version will provide a full offline installation package that includes all dependencies and mirrors from Rainbond and Kubernetes.
 
-用户仅需下载离线安装包，并将其传输到目标环境。在目标环境中解压安装包后，用户可以通过Rainbond的用户界面进行安装步骤，包括配置集群信息和初始化设置，配置好参数后即可通过界面直接部署好 Kubernetes 集群和平台。在部署过程中，过程日志在界面上实时展示，且可以看到各个 Rainbond 组件的启动状态。
+Users only need to download offline installation packages and transfer them to the target environment.After extracting the installation package in the target environment, users can deploy the Kubernetes clusters and platforms directly through the interface between the user interface of Rainbond, including configuration of cluster information and initialization of settings.During deployment, the process log is displayed in real time on the interface and can see the startup status of Rainbond components.
 
-### 一体化开发环境
+### Integrated development environment
 
-Rainbond 提供了一体化开发环境，使开发人员能够在Rainbond平台上进行应用程序的开发、构建和部署以及交付。主要包含功能有离线源码构建、离线镜像部署、离线Helm Chart 包部署以及离线包交付。
+Rainbond provides an integrated development environment in which developers can develop, construct and deploy applications and deliver on the Rainbond platform.The main features include offline source building, offline mirror deployment, offline Helm Chart deployment and offline package delivery.
 
-#### 离线源码构建
+#### Offline source build
 
-Rainbond 企业版解决了用户在离线环境中处理语言依赖包和构建工具下载及编译的需求。无论是 Java、Python、Node.js 还是其他编程语言，Rainbond 能够自动管理并处理这些语言所需的依赖和工具。
+Rainbond Enterprise version addresses users' needs to process language dependencies and build tools for downloading and compiling in offline environments.In Java, Python, Node.js or other programming languages, Rainbond can automatically manage and handle the dependencies and tools it needs.
 
-用户只需提供 Git 仓库地址或者源码的压缩包，Rainbond 能够自动识别和执行构建过程。这意味着用户不需要担心如何在离线环境中获取和配置构建工具，Rainbond 将自动处理这些问题。
+The user simply provides a Git repository address or a source compression, and Rainbond can automatically identify and execute the build process.This means that users do not need to fear how to acquire and configure building tools in an offline environment, and Rainbond will address these issues automatically.
 
-#### 离线镜像部署
+#### Image deployment offline
 
-除了源码构建外，Rainbond 还支持用户直接上传 Docker 镜像包进行应用部署。这对于那些已经在其他环境中构建好镜像的应用非常有用，用户可以直接将这些镜像导出成压缩包，再上传到 Rainbond 平台，并在离线环境中直接部署。同时已上传的镜像都会被 Rainbond 缓存，这意味着用户可以在离线环境中重复使用这些镜像，而不需要重复上传。
+In addition to the source build, Rainbond also supports the user directly uploading the Docker image package to deploy the application.This is useful for applications that have built mirrors in other environments and can be exported directly by users as compressors and then uploaded to the Rainbond platform and deployed directly in offline environments.Simultaneous uploaded mirrors are cached by Rainbond which means users can reuse them in offline environments without repeating them.
 
-#### 离线 Helm Chart 包部署
+#### Helm Chart deployment offline
 
-对于使用 Helm 作为应用部署和管理工具的用户，Rainbond提供了直接上传 Helm Chart 包的功能。用户可以将预先打包的 Helm Chart 上传到Rainbond平台，在离线环境中进行一键部署和管理。对于 Helm Chart 中需要的镜像，用户可以直接上传镜像包到平台中。在部署时平台会自动识别出所有需要组件的镜像地址。此时可以直接从上传的镜像中选择合适的进行替换部署。
+For users using Helm as an application deployment and management tool, Rainbod provided the functionality to upload the Helm Chart package directly.Users can upload prepackaged Helm Chart to the Rainbod platform, where they can deploy and manage one click in an offline environment.For images required in Helm Chart users can upload mirrors directly to the platform.When deployed, the platform automatically identifies all mirror addresses that require components.You can then select the appropriate alternative deployment directly from the uploaded mirror.
 
-## 使用手册
+## Manual
 
-### 离线环境部署
+### Offline environment deployment
 
-1. 准备离线安装包：下载Rainbond离线安装包，它包含了Rainbond平台及Kubernetes的所有必要依赖和镜像。
-2. 处理离线安装包：将下载的安装包传输到打算进行部署的离线环境中，并在离线环境的服务器上解压安装包，确保解压后的文件在服务器上可访问。
-3. Rainbond控制台配置： 启动Rainbond控制台。填写集群节点的IP地址并在服务器上执行安装脚本。
-4. 启动部署流程：在控制台中开始部署。跟踪部署过程中的日志输出，直到部署完成。完成后将会自动在服务器上部署好 Kubernetes 集群和 Rainbond 平台。
+1. Preparing for offline installation package：to download the Rainbod offline installation package that contains all necessary dependencies and mirrors for the Rainbod platform and Kubernetes.
+2. Processing offline installation package：transmits downloads to the offline environment where they are deployed and unpack the installation on the server in the offline environment to ensure that the extracted file is accessible on the server.
+3. Rainbod Console Configuration： Start Rainbord ConsoleEnter the IP address of the cluster node and execute the installation script on the server.
+4. Start deployment process：in console.Track log output during deployment until deployment is complete.Once completed, the Kubernetes cluster and Rainbond platforms will be automatically deployed on the server.
 
-### 一体化开发环境
+### Integrated development environment
 
-#### 离线源码构建
+#### Offline source build
 
-1. 从源码构建：在工作空间中选择从源码新建组件，将源码文件或 Git 仓库地址填写到平台上。
-2. 启动构建过程：平台将会自动解压上传的文件，或从离线 Git 仓库中拉取代码。拉取到代码后，平台会自动识别代码语言，用户可以配置相关构建参数后启动构建流程。
-3. 构建过程：平台会根据相应的语言和构建参数进行构建。同时提供了构建日志，以便于用户及时发现离线构建中的问题。
+1. Build：from the source code in the workspace by selecting a new component from the source code to fill the source file or Git repository address into the platform.
+2. Initiate build process：platform will automatically extract uploaded files or pull code from offline Git repository.Once the code is replaced, the platform automatically identifies the language of the code. Users can configure the building parameters and start the build process.
+3. Build process：platforms are built according to the respective language and build parameters.A build log is also provided to enable users to detect problems in offline construction in a timely manner.
 
-#### 离线镜像部署
+#### Image deployment offline
 
-1. 上传镜像文件：在工作空间中选择从镜像新建组件，将打包好的 Docker 镜像文件上传到平台上。
-2. 部署应用：上传完成后，下方会展示镜像包中的所有镜像。用户可以选择其中一个镜像作为应用的镜像，选择完成后，点击部署按钮，即可开始部署应用。
-3. 配置运行参数：平台会自动识别镜像的环境变量、端口信息等，根据需要配置应用的运行参数和环境变量后，平台即可将其运行起来。
+1. Uploading image：selects a new component from the mirror in the workspace to upload a packaged docker image file to the platform.
+2. When deploying the app：is uploaded, all mirrors in the image package will be displayed below.A user can select one of these mirrors as a mirror of the application. Once finished, click the Deploy button to start deploying the app.
+3. Configure the running parameter：platform automatically recognizes the environmental variables, port information, etc. that will run the application once you configure the running parameters and environment variables as needed.
 
-#### 离线Helm Chart包部署
+#### Offline Helm Chart deployment
 
-1. 上传 Helm Chart 包：在工作空间中选择从Yaml、Helm新建组件，将 Helm Chart 包上传到Rainbond平台。
-2. 选择并部署：选择上传的 Helm Chart 包，开始部署流程。平台会自动识别出 Helm Chart 包中的所有镜像，用户可以选择本地已上传的镜像作为应用的镜像进行替换。
-3. 调整配置：替换完成后，可以根据平台展示的 values.yaml 文件进行配置，然后点击部署按钮，即可开始部署应用。
+1. Upload Helm Chart Pack：from Yaml and Helm to upload the Helm Chart Pack to the Rainbod platform by selecting new components in the workspace.
+2. Select and deploy：to upload the Helm Chart pack to start the deployment process.The platform automatically identifies all mirrors in the Helm Chart package, and users can choose to replace local uploaded mirrors as an application mirror.
+3. Once the：configuration has been replaced, it can be configured based on the values.yaml file displayed on the platform, and then click the Deploy button, to start deploying the app.
