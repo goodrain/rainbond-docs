@@ -2,7 +2,7 @@
 title: Get the application component information that needs to be copied
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain the application component information that needs to be copied
 
@@ -14,9 +14,9 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/copy
 
 | name                             | Location | type   | required | Chinese name | illustrate |
 | -------------------------------- | -------- | ------ | -------- | ------------ | ---------- |
-| team_id     | path     | string | Yes      |              | none       |
-| region_name | path     | string | Yes      |              | none       |
-| app_id      | path     | string | Yes      |              | none       |
+| team_id     | Path     | String | Yes      |              | none       |
+| region_name | Path     | String | Yes      |              | none       |
+| app_id      | Path     | String | Yes      |              | none       |
 
 ## return result
 
@@ -31,17 +31,17 @@ Status code **200**
 | name                                  | type                                                                              | required | constraint | Chinese name   | illustrate               |
 | ------------------------------------- | --------------------------------------------------------------------------------- | -------- | ---------- | -------------- | ------------------------ |
 | _anonymous_                           | [[AppCopyL](#schemaappcopyl)] | false    | none       |                | none                     |
-| » build_source   | string                                                                            | false    | read-only  | Build source   | none                     |
-| » update_time    | string                                                                            | true     | none       | Update time    | Updated                  |
-| » deploy_version | string                                                                            | true     | none       | Deploy version | build version            |
-| » create_status  | string                                                                            | true     | none       | Create status  | Create state             |
-| » service_alias  | string                                                                            | true     | none       | Service alias  | component nickname       |
-| » service_cname  | string                                                                            | true     | none       | Service cname  | Component Chinese name   |
-| » version                             | string                                                                            | true     | none       | Version        | 版本                       |
-| » service_type   | string                                                                            | true     | none       | Service type   | component type           |
-| » service_id     | string                                                                            | true     | none       | Service id     | id                       |
-| » app_name       | string                                                                            | true     | none       | App name       | Application Name         |
-| » min_memory     | string                                                                            | true     | none       | Min memory     | component running memory |
+| » build_source   | String                                                                            | false    | read-only  | Build source   | none                     |
+| » update_time    | String                                                                            | true     | none       | Update time    | Updated                  |
+| » employ_version | String                                                                            | true     | none       | Upload version | build version            |
+| » create_status  | String                                                                            | true     | none       | Create status  | Create state             |
+| » service_alias  | String                                                                            | true     | none       | Service alias  | component nickname       |
+| » service_name   | String                                                                            | true     | none       | Service cname  | Component Chinese name   |
+| » version                             | String                                                                            | true     | none       | Version        | Version                  |
+| » service_type   | String                                                                            | true     | none       | Service type   | component type           |
+| » service_id     | String                                                                            | true     | none       | Service id     | Id                       |
+| » app_name       | String                                                                            | true     | none       | App name       | Application Name         |
+| » min_memory     | String                                                                            | true     | none       | Min memory     | component running memory |
 
 ## Model
 
@@ -67,14 +67,14 @@ Status code **200**
 
 | name                                | type   | required | constraint | Chinese name   | illustrate               |
 | ----------------------------------- | ------ | -------- | ---------- | -------------- | ------------------------ |
-| build_source   | string | false    | read-only  | Build source   | none                     |
-| update_time    | string | true     | none       | Update time    | Updated                  |
-| deploy_version | string | true     | none       | Deploy version | build version            |
-| create_status  | string | true     | none       | Create status  | Create state             |
-| service_alias  | string | true     | none       | Service alias  | component nickname       |
-| service_cname  | string | true     | none       | Service cname  | Component Chinese name   |
-| version                             | string | true     | none       | Version        | Basic Information        |
-| service_type   | string | true     | none       | Service type   | component type           |
-| service_id     | string | true     | none       | Service id     | id                       |
-| app_name       | string | true     | none       | App name       | Application Name         |
-| min_memory     | string | true     | none       | Min memory     | component running memory |
+| build_source   | String | false    | read-only  | Build source   | none                     |
+| update_time    | String | true     | none       | Update time    | Updated                  |
+| Deploy_version | String | true     | none       | Upload version | build version            |
+| create_status  | String | true     | none       | Create status  | Create state             |
+| service_alias  | String | true     | none       | Service alias  | component nickname       |
+| service_name   | String | true     | none       | Service cname  | Component Chinese name   |
+| version                             | String | true     | none       | Version        | Basic Information        |
+| service_type   | String | true     | none       | Service type   | component type           |
+| service_id     | String | true     | none       | Service id     | Id                       |
+| app_name       | String | true     | none       | App name       | Application Name         |
+| min_memory     | String | true     | none       | Min memory     | component running memory |
