@@ -2,8 +2,8 @@
 title: Use GitOps for continuous application deployment
 description: Continuous application deployment with Rainbond's GitOps capability
 keywords:
-- GitOps
-- 持续部署
+  - GitOps
+  - 持续部署
 ---
 
 import Bvideo from '/src/components/Bvideo';
