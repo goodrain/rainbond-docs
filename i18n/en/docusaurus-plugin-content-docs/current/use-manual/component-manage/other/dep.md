@@ -1,26 +1,26 @@
 ---
-title: 组件依赖
-description: 了解Rainbond平台中的组件依赖功能，实现组件间的自动化启动和环境变量注入。
+title: Component Dependencies
+description: Learn how to rely on components in the Rainbod platform, enable automatic startup between components and environmental variable injection.
 ---
 
-### 什么是组件依赖？
+### What is a component dependency?
 
-Rainbond提供了强大的组件依赖功能，使您能够在应用部署过程中更灵活地管理组件之间的关系。组件依赖允许您建立组件间的连接，包括让其他组件依赖于当前组件，以及自己依赖其他组件。这种依赖关系不仅在启动时自动构建，还能够实现环境变量的自动注入。
+Rainbod provides a powerful component dependency that allows you to manage the relationships between components more flexibly during the app deployment.Component dependencies allow you to establish connections between components, including making other components dependent on the current component and relying on other components themselves.This dependency is not only automatically built at startup, but it also enables automatic injection of environmental variables.
 
-### 如何建立组件依赖关系？
+### How to build component dependencies?
 
-#### 1. 让其他组件依赖于当前组件
+#### 1. Make other components dependent on the current component
 
-在Rainbond控制台或通过API，您可以轻松地定义其他组件对当前组件的依赖。这使得其他组件在启动时会自动等待当前组件的启动完成，确保整个应用的正确启动顺序。
+In the Rainbod console or via the API, you can easily define the dependencies of other components for the current component.This allows other components to automatically wait for the start of the current component on startup to ensure the correct start order of the entire application.
 
-#### 2. 自己依赖其他组件
+#### Self-reliance on other components
 
-同样，您可以配置当前组件依赖于其他组件。这意味着当前组件在启动时会等待所依赖的组件启动完成，以满足应用对组件的正确依赖关系。
+Similarly, you can configure the current component to rely on other components.This means that the current component awaits the start of the dependent component at startup to satisfy the correct dependency on the component.
 
-### 自动环境变量注入
+### Automatic Environment Variables Injection
 
-建立了组件依赖关系后，Rainbond会自动将依赖组件的相关信息注入到环境变量中，方便您的应用获取和使用。这为组件之间的通信提供了便捷的方式，同时减少了手动配置的复杂性。
+When a component dependency is created, Rainbod automatically injects dependent information into the environment variable to facilitate your app's access and use.This provides easy means of communication between components, while reducing the complexity of manual configurations.
 
-### 示例：构建具有依赖关系的应用
+### Example：builds dependencies
 
-假设您有一个Web应用和一个数据库组件。通过设置Web应用依赖于数据库组件，您可以确保Web应用在启动时能够正确连接到数据库。Rainbond会自动管理启动顺序和环境变量的注入，简化了整个应用的部署和维护过程。
+Assume you have a web app and a database component.By setting up Webapp dependencies on database components, you can ensure that Web apps are properly connected to the database at startup.Rainpond automatically manages the sequence of startup and the injection of environmental variables, simplifying the deployment and maintenance process for the entire application.
