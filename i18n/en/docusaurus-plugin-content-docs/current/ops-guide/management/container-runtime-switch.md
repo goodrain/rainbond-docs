@@ -2,9 +2,10 @@
 title: Container Runtime handover
 descrition: This section of documentation describes how to switch the Rainbond container runtime
 keywords:
-- 切换容器运行时
-- Rainbond 切换容器运行时
+  - 切换容器运行时
+  - Rainbond 切换容器运行时
 ---
+
 ## 概述
 
 在安装 Rainbond 过程中，会识别你的 k8s 集群的底层容器运行时( `Docker` 或 `Containerd` )，将以此运行时作为 Rainbond 所使用容器运行时，当集群环境同时拥有 `Docker` 和 `Containerd`两种容器运行时的时候，默认会使用 `Docker` 作为 Rainbond 的容器运行时。 本文将指引你同时存在两种容器运行时时如何切换容器运行时。
@@ -22,7 +23,7 @@ keywords:
 
 ### 已安装平台切换容器运行时
 
-删除 DaemonSet 资源 `rbd-node` 和 `rbd-chaos` 让 `operator` 重新创建   
+删除 DaemonSet 资源 `rbd-node` 和 `rbd-chaos` 让 `operator` 重新创建\
 修改 Deployment 资源 `rainbond-operator`
 
 ```bash
@@ -31,7 +32,7 @@ kubectl delete ds rbd-chaos -nrbd-system
 kubectl edit deployment rainbond-operator -n rbd-system
 ```
 
-找到 `image` 和  `imagePullPolicy`, 在其中间的部位添加上控制容器运行时的环境变量。  
+找到 `image` 和  `imagePullPolicy`, 在其中间的部位添加上控制容器运行时的环境变量。\
 value 值填写你想使用的容器运行时（ docker , containerd ）
 
 ```bash
