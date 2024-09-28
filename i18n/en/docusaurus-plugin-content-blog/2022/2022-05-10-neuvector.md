@@ -1,173 +1,173 @@
 ---
-title: Rainbond结合 NeuVector 实践容器安全管理
-description: NeuVector 是业界首个端到端的开源容器安全平台
-slug: neuvector
+title: Rainbond Combining NeuVector Practice Container Security Management
+description: NeuVector is the industry's first open-source container security platform
+slug: newector
 image: https://static.goodrain.com/wechat/neuvector/neuvector.png
 ---
 
 :::info
-本文主要表述，基于 Rainbond 安装部署 NeuVector 容器安全平台的步骤，以及配合 Rainbond 实现生产环境中的最佳实践。
+This paper is mainly based on the steps taken by Rainbond to install a NeuVector Container Security Platform, as well as on best practices in the production environment with Rainbond
 :::
 
 <!--truncate-->
 
-## 前言
+## Preface
 
-Rainbond 是一个云原生应用管理平台，使用简单，不需要懂容器、Kubernetes和底层复杂技术，支持管理多个Kubernetes集群，和管理企业应用全生命周期。但是随着云原生时代的一点点进步，层出不穷的网络容器安全事件的出现，也是让大家对于容器安全，网络安全的重要性，有了更进一步的想法，Rainbond 为了保证用户在使用的过程中不出现类似的容器安全事件，特别适配整合了 NeuVector。
+Rainbond is a cloud native application management platform that is simple and does not require knowledge of containers, Kubernetes and substrate complex technologies, supports the management of multiple Kubernetes clusters and manages enterprises applying life cycles.But with little progress in the days of the births, the proliferation of security incidents in cyber containers has also given rise to further ideas about the safety and importance of the containers, and Rainbond has been particularly suited to the NeuVector in order to ensure that no similar container security incidents occur in the course of use by users.
 
-NeuVector 是业界首个端到端的开源容器安全平台，为容器化工作负载提供企业级零信任安全的解决方案。NeuVector 可以提供实时深入的容器网络可视化、东西向容器网络监控、主动隔离和保护、容器主机安全以及容器内部安全，容器管理平台无缝集成并且实现应用级容器安全的自动化，适用于各种云环境、跨云或者本地部署等容器生产环境。
+NeuVector is the industry's first end-to-end open-source container security platform that provides a safe and secure enterprise level zero confidence for containerization loads.NeuVector can provide real-time and in-depth container network visualization, east-west container network surveillance, active isolation and protection, container host safety and internal container security, seamless integration of the container management platform and safe automation of the application level containers for various cloud settings, cross-clouds or local deployment container production environments.
 
-本文主要表述，基于 Rainbond 安装部署 NeuVector 容器安全平台的步骤，以及配合 Rainbond 实现生产环境中的最佳实践。
+This paper is mainly based on the steps taken by Rainbond to install a NeuVector Container Security Platform, as well as on best practices in the production environment with Rainbond
 
-## 部署 NeuVector
+## Deploy NeuVector
 
-NeuVector 有多种部署安装形式，为了更加简化安装，选用 helm 的形式进行安装，Rainbond 也是支持 helm 商店的形式，只需要在应用市场，添加一个新的商店，把 helm商店的URL 填写上即可。
+NeuVector has a variety of deployment setups. In order to simplify installation, use helm to install it. Rainbond is also a form of support for helm shops. Just add a new store to the app market, and fill the helm store URL.
 
-### 准备工作
+### Preparatory work
 
-**创建团队**
+**Create team**
 
-NeuVector  通常是安装在 neuvector 命名空间里面的，而在 Rainbond ，团队的概念则是对应 kubernetes 里命名空间，所以通过 helm 安装的时候，首先需要创建出来对应的团队，团队的英文名对应的则是该团队在集群中的命名空间，此处填写 neuvector，选择对应集群即可。
+NeuVector is usually installed in the neuvector namespace while in Rainbond the team concept is naming space in kubernetes so that when installing through helm, the team needs first to create a corresponding team and the team's naming space in the cluster, fill in neuvector to select the cluster.
 
 <img src="https://static.goodrain.com/wechat/neuvector/1.png" width="70%;" />
 
-**对接 helm 商店**
+**Button helm store**
 
-Rainbond支持基于helm直接部署应用，所以接下来对接 neuvector 官方helm仓库，后续基于Helm商店部署 neuvector 即可， 在应用市场页面，点击添加商店，选择helm商店，输入相关信息即可完成对接。
+Rainbod supports direct deployment based on helm, so you will then use the neuvector official helm warehouse. Then you can use the Helm store to deploy neuvector, on the App Marketplace, click on Add Store, select helm store and enter the relevant information.
 
-helm 商店地址：https://neuvector.github.io/neuvector-helm/
+helm store address：https://neuvector.github.io/neuvector-helm/
 
 ![](https://static.goodrain.com/wechat/neuvector/2.png)
 
-### 安装
+### Install
 
-在 helm 仓库找到 core 点击安装到 neuvector 团队里即可
+Click to install a neuvector team in helm repository
 
 ![](https://static.goodrain.com/wechat/neuvector/3.png)
 
-修改默认的 key 以及 value
+Change the default key and value
 
 ![](https://static.goodrain.com/wechat/neuvector/4.png)
 
-values 配置项：
+Values Configuration Item：
 
-| 键                                                                            | 值                                                               |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| registry                                                                     | docker.io                                       |
-| tag                                                                          | 5.0.0-preview.1 |
-| controller.image.repository                  | neuvector/controller.preview                    |
-| enforcer.image.repository                    | neuvector/enforcer.preview                      |
-| manager.image.repository                     | neuvector/manager.preview                       |
-| cve.scanner.image.repository | neuvector/scanner.preview                       |
-| cve.updater.image.repository | neuvector/updater.preview                       |
-| manager.svc.type                             | ClusterIP                                                       |
+| Keys                                                                         | Value                                                            |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Registration                                                                 | docker.io                                        |
+| tag                                                                          | 5.0.0- preview.1 |
+| controller.image.repository                  | neuvector/controller.preview                     |
+| enforceer.image.repository                   | neuvector/enforcer.preview                       |
+| manager.image.repository                     | neuvector/manager.preview                        |
+| cve.scanner.image.repository | neuvector/scanner.preview                        |
+| cve.updater.image.repository | neuvector/updater.preview                        |
+| manager.svc.type                             | ClusterIP                                                        |
 
-安装完成以后，确认 pod 的状态为 Running
+Confirm pod status to Running after installation is completed
 
 <img src="https://static.goodrain.com/wechat/neuvector/5.png" />
 
-neuvector 提供了可视化操作的界面，安装过程将自动创建Service，通过Rainbond平台第三方组件的形式可将 neuvector  的访问端口暴露出来。
+The neuvector provides a visualization interface, and the installation process will automatically create the Service, which can be exposed in the form of a third party component of the Rainbod platform.
 
 <img src="https://static.goodrain.com/wechat/neuvector/6.png" />
 
-以下为需要进行配置的选项
+The following options need to be configured
 
-| 组件名称      | neuvector-web           |
-| --------- | ----------------------- |
-| 组件英文名称    | neuvector               |
-| 组件注册方式    | kubernetes              |
-| Namespace | neuvector               |
-| Service   | neuvector-service-webui |
+| Component name                | newector-web            |
+| ----------------------------- | ----------------------- |
+| Component English Name        | newector                |
+| Component registration method | kubernetes              |
+| Namespace                     | newector                |
+| Service                       | newvector-service-webui |
 
-添加完成以后，需要添加并打开对外访问的端口（8443），默认用户名以及密码均为 `admin/admin`
+Once added you need to add and open the external access port (8443), the default username and password are `admin/admin`
 
 ![](https://static.goodrain.com/wechat/neuvector/7.png)
 
-注意：访问的时候，需要通过 https 的形式进行访问，至此 neuvector  安装完毕
+Note that when：is visited, you need access via https, here neuvector is installed
 
 <img src="https://static.goodrain.com/wechat/neuvector/8.png" />
 
-## NeuVector 最佳实践
+## NeuVector Best Practices
 
-### 网络流量监视治理
+### Network traffic surveillance governance
 
-NeuVector 提供的网络活动，可以清楚的查看每一个 pod 之间的网络流量动向。以及对应的端口，规则，更加清晰明了的查看走向。
+Network activity provided by NeuVector provides a clear view of network traffic movements between each pod.As well as the corresponding ports, rules, a clearer view trajectory.
 
-蓝色线代表正常的流向是记录在学习模式里的。
+The blue line represents the normal direction that is recorded in learning mode.
 
-黄色的流向则是记录在监视模式下，需要我们手动进行审阅规则，决定是否通过这个流量。
+Yellow flows are recorded in surveillance mode and require us to manually review rules to decide whether or not to pass this traffic.
 
-红色则代表是记录在保护模式下，被拒绝的动向，也可通过规则进行避免。
+Red representation is a record of a negative movement in a protective mode and can also be avoided by rules.
 
 ![](https://static.goodrain.com/wechat/neuvector/9.png)
 
-### 学习模式，监视模式，保护模式的使用
+### Learning Mode, Monitor Mode, Protect Mode Usage
 
-NeuVector 的组支持 3 种模式：学习模式、监控模式和保护模式；各个模式实现作用如下：
+NeuVector groups support 3：learning mode, monitoring mode, and protection mode; each mode implements the following：
 
-**学习模式**
+**Study mode**
 
-学习和记录容器、主机间网络连接情况和进程执行信息。
+Learn and record containers, interhost network connections and process execution information.
 
-自动构建网络规则白名单，保护应用网络正常行为。
+Automatically build a whitelist of network rules to protect the normal behavior of the app.
 
-为每个服务的容器中运行的进程设定安全基线，并创建进程配置文件规则白名单。
+Set a secure baseline for processes running in each service container and create a whitelist of process configuration file rules.
 
-**监控模式**
+**Monitor mode**
 
-NeuVector 监视容器和主机的网络和进程运行情况，遇到非学习模式下记录的行为将在 NeuVector 安全事件中进行告警。
+NeuVector monitors the network and process performance of the container and host. Behaviour recorded in non-learning mode will be warned in NeuVector security events.
 
-**保护模式**
+**Protective Mode**
 
-NeuVector 监视容器和主机的网络和进程运行情况，遇到非学习模式下记录的行为直接拒绝。
+NeuVector monitors the network and process performance of containers and hosts, and directly rejects actions recorded in non-learning mode.
 
-针对于以上三种模式，可以总结出来适于生产环境的最佳实践，当新的业务准备上线的时候，可以先默认是学习模式，经过一段时间的学习，记录容器的以及主机的规则，然后转换成监控模式，运行一段时间，监控是否有特殊的网络流量以及主机进程，帮助我们把特殊的网络动向记录下来，并进行告警确认是否放行，最后转换成监控模式，避免一些恶意的操作对我们的环境造成不必要的危险。
+These three models allow for the identification of best practices that are appropriate to the production environment. When new operations are on offline, they can be tacitly modelled on the learning model, after a period of learning, documentation of containers and host rules, then converted into monitoring mode, running for a certain period of time, monitoring whether there is a special network traffic and the host process, helping us to record special network movements and warning to confirm whether or not to be released, and eventually converted into monitoring modes, so as to avoid unnecessary risks to our environment.
 
-### 基于集群的镜像仓库做漏洞检查
+### ClusterIntegration-based Mirror Repositories make bug checks
 
-kubernetes 集群部署业务的最小单元是 pod 但是pod 的组成部分最重要的其实是镜像， NeuVector 也是可以基于镜像进行漏洞检查，避免在镜像被注入特殊的漏洞机制
+The smallest unit of the kubernetes cluster deployment operation is a pod but the most important component of the pod is a mirror, and NeuVector is also able to perform a loophole check based on a mirror, avoiding the imaging being injected into a special loophole mechanism
 
-对接 Rainbond 时，在不使用外部的镜像仓库的情况下，Rainbond 会提供一个默认的用于存储镜像的仓库 goodrain.me ，它是用来存储通过 Rainbond 构建的所有业务的镜像，所以通过检查里面的镜像，可以清楚的看出业务所依赖的镜像都存在那些漏洞，已避免因为镜像漏洞问题所造成的影响。
+In the case of Rainbond and without the use of external mirror warehouses, Rainbond will provide a default repository goodrain.me for storing images, which is a mirror for all operations built through Rainbond so it is clear from the mirrors inside the mirror that the business depends on which there are loopholes and that the impact of the image gap is avoided.
 
-如果在对接 Rainbond 时使用了外部的镜像仓库，且域名可以被解析到的情况，可以直接填写域名即可，因为 goodrain.me 本身是不能被 NeuVector 解析的，所以需要通过集群的 coredns 手动添加对应的解析，来确保 NeuVector 可以连接上。
+If an external mirror warehouse is used when the domain name can be parsed and the domain name can be parsed. Since goodrain.me itself cannot be parsed by NeuVector, it is necessary to manually add the corresponding parse to the cluster coredns to make sure NeuVector can connect.
 
-编辑coredns
+Edit corns
 
 ```shell
-kubectl edit cm coredns -n kube-system  
+kubtl edit cm coredns - n kube-system  
 ```
 
 <img src="https://static.goodrain.com/wechat/neuvector/10.png" width="70%;" />
 
-获取 goodrain.me 解析的 IP
+Gets a goodrain.me parsed IP
 
 ```shell
-kubectl get rainbondcluster -n rbd-system -oyaml | egrep -v [A-Za-z{}]
+kubtl get rainbondcluster -n rbd-system -oyaml | egrep -v [A-Za-z{}]
 ```
 
-在指定位置添加以下内容，注意修改 IP
+Add the following to the specified location, note changing the IP
 
 ```shell
-hosts {
+hosts LO
   192.168.0.1 goodrain.me
   fallthrough
 }
 ```
 
-在 NeuVector  web界面左侧选择 资产 >  镜像库 添加仓库
+Select Asset > Image Gallery on the left side of NeuVector web interface to add repository
 
 ![](https://static.goodrain.com/wechat/neuvector/11.png)
 
-goodrain.me 默认用户为 admin，密码通过以下命令获取
+foodrain.me Default user is admin. Password fetched via the following commands
 
 ```shell
- kubectl get rainbondcluster -n rbd-system -oyaml | grep password | sed "1d"
+ kubectl get rainbondcluster -n rbd-system -yaml | grep password | sed "1d"
 ```
 
-镜像扫描结束以后，镜像的信息会在下面进行呈现，点击想要查看的镜像名称，即可查看详细信息，以下供参考
+Once the image scan is finished, the image information will be rendered below. Click the name of the image you want to view will see the details below.
 
 ![](https://static.goodrain.com/wechat/neuvector/12.png)
 
-## 写在最后
+## Write in the last
 
-通过本文，希望大家可以基于 Rainbond 成功把 NeuVector 容器安全平台部署起来，并且可以根据最佳实践，做好相对应的操作，当然NeuVector 的功能远远不止于此，还是需要大家不断的探索，不断的实践。
+Through this paper, it is hoped that you will be able to deploy the NeuVector container security platform based on Rainbond and that it will be possible to do it in line with best practices, although the function of NeuVector goes far beyond that and will require constant exploration and practice.
