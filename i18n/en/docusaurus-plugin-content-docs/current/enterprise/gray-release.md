@@ -1,106 +1,106 @@
 ---
-title: 全链路灰度发布
-description: 介绍平台上灰度发布的能力
+title: Full link grayscale release
+description: Introduction to Gray Release on the Platform
 ---
 
-灰度发布是一种软件发布策略，通过在生产环境中逐步引入新版本的应用程序，以降低风险并获得更可控的发布过程。它允许在一小部分用户或服务器上进行新功能或更新的试验，然后根据反馈和性能指标逐渐扩大发布范围。灰度发布可以帮助组织更好地管理和控制软件发布过程，减少潜在的影响和故障风险。
+Grey release is a software dissemination strategy to reduce risk and gain a more controlled dissemination process by gradually introducing new versions of applications in the production environment.It allows experimentation with new features or updates on a small number of users or servers and then gradually expands publication based on feedback and performance indicators.Grayscale releases can help organizations to better manage and control the software distribution process and reduce potential impact and failure risks.
 
-与传统的灰度发布相比，全链路灰度发布更进一步，它不仅考虑到应用程序层面的灰度发布，还包括了整个系统链路中的所有组件和服务。全链路灰度发布可以跨越多个环境和系统层次，包括前端、后端、数据库等，确保新版本的应用程序在整个系统链路中都得到逐步验证和部署。这种方式可以更全面地评估新版本与现有系统的兼容性和稳定性，并在各个环节上发现和解决潜在问题。
+All-linked grey dissemination goes further than traditional grey distribution, taking into account not only grey dissemination at the application level, but also all components and services in the entire system chain.Full link grey release can span multiple environments and systems levels, including front, backend, databases, etc. to ensure that new versions of applications are progressively validated and deployed throughout the system links.This approach would allow for a more comprehensive assessment of the compatibility and stability of the new version with the existing system and the identification and resolution of potential problems at all levels.
 
-本文档将详细介绍分批次发布、基于 Header 的匹配规则、全链路灰度以及监控和回滚等全链路灰度发布的核心功能。您将了解如何准备环境、创建发布版本、制定灰度发布策略以及监控发布结果。我们还会提供一些最佳实践和建议，帮助您优化全链路灰度发布的配置和操作，以实现更高效、可靠的发布流程。
+This document details the core features of batch publishing, Header based matching rules, full-link grayscale, and all link grayscale publishing such as monitoring and rollbacks.You will know how to prepare the environment, create a release version, develop a grayscale publishing strategy, and monitor the results of the publication.We will also provide some best practices and suggestions to help you optimize the configuration and operation of all linked gray releases to achieve a more efficient and reliable release process.
 
-## 主要功能
+## Main features
 
-### 分批次发布
+### Batch Publish
 
 ![gray-status](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/gray-release/gray-status1.png)
 
-全链路灰度发布支持将新版本应用程序分批次引入生产环境，通过将新版本应用程序运行起来，逐渐将流量切到新版本应用中的方式使您能够在控制范围内评估新版本的稳定性和性能，并及时处理可能出现的问题。
+Full link grayscale release supports the bulk introduction of new versions of applications into the production environment, gradually cutting traffic into new versions of applications by running them and allowing you to assess the stability and performance of new versions within your control and to address issues that may arise in a timely manner.
 
-- 定义批次和流量比例：在进行分批次发布时，您可以根据需求和资源的可用性定义需要发布的批次和每批次的流量比例。较多的批次规模有助于平滑升级，控制发布过程中的风险，使您能够更好地监控新版本的性能和稳定性。
+- Define batch and traffic scale：for batch publishing, you can define the batch and the traffic ratio of each batch to be published, based on the availability of needs and resources.More batch size helps smooth upgrades and controls the risks involved in the release process, enabling you to better monitor new versions of performance and stability.
 
-- 监控和评估：在每个批次的发布过程中，您应该密切监控关键指标，如响应时间、错误率和新旧版本流量比例等。这将帮助您及时发现潜在问题并采取必要的措施。同时，还应该了解用户反馈，以了解新版本的体验和满意度。这些监控和评估数据将为后续批次的发布和决策提供重要依据。
+- Monitor and evaluate：in each batch of releases, you should closely monitor key indicators, such as response time, error rate and old new version traffic ratio.This will help you identify potential problems and take the necessary measures in a timely manner.It would also be useful to learn about user feedback in order to learn about the experience and satisfaction of the new version.These monitoring and evaluation data will provide an important basis for the release and decision-making of the subsequent batches.
 
-- 问题处理和回滚：在进行分批次发布时，可能会出现一些问题或异常情况。在这种情况下，您应该有一个明确的问题处理和回滚计划。如果在某个批次中发现了重大问题，您需要及时停止该批次的发布，并迅速回滚到之前的版本。这将帮助您最小化潜在的影响，并确保系统的稳定性和可用性。
+- Problem processing and rollback：may cause some problems or anomalies when the batch is published.In this case, you should have a clear problem handling and rollback plan.If a significant problem was found in a batch, you need to stop the batch in time and roll back to previous versions quickly.This will help you minimize potential impacts and ensure the system's stability and availability.
 
-### 基于 Header 的匹配规则
+### Header based matching rules
 
-您可以根据请求的 Header 信息，如用户标识、设备类型等，将特定请求路由到新版本或旧版本的应用程序。这种灵活的匹配规则使您能够针对不同用户或条件进行细粒度的灰度控制，确保只有特定用户或请求满足条件才能访问新版本。以下是关于基于 Header 的匹配规则的详细说明：
+You can route a specific request to a new version or an old application based on the requested Header information, such as user identifier, device type, etc.This flexible matching rule enables you to control gray levels of fine particle levels for different users or conditions, ensuring that new versions are accessible only if specific users or requests that the conditions be met.Below is a detailed description of the Header matching rules：
 
-- 定义匹配规则：在使用基于 Header 的匹配规则时，需要定义一组要匹配的 Header 键和相应的值。这些匹配规则可以基于业务需求来定制，例如特定的用户群体、设备类型、地理位置等。目前支持精准匹配和正则匹配。您可以指定一个或多个 Header 键和相应的值进行匹配，以便将请求路由到符合条件的新版本应用程序。
+- Defines the matching rule：requires a set of Header keys and corresponding values to match when using Header matching rules.These matching rules can be customized based on business needs, such as specific user groups, equipment type, geographic location, etc.Accurate matches and regular matches are currently supported.You can specify one or more Header keys and corresponding values to match in order to route the request to a new version of the application that meets the criteria.
 
-- 灵活性和精确性：基于 Header 的匹配规则支持多个 Header 同时满足条件路由新版本，或满足其中之一即可路由到新版本。您可以实际需求，定义特定的 Header 。使请求精确地路由到不同的版本应用程序，实现细粒度的灰度发布控制。
+- Flexibility and accuracy of：Header based on Header matching rules support multiple Header to meet both new versions of the route or one of them to a new version.You can actually need and define a specific HeaderMake the request accurately rout to different version applications to achieve gray release control of fine particles.
 
-### 全链路灰度
+### Full link grayscale
 
-全链路灰度发布涵盖了整个系统链路中的所有组件和服务，确保新版本应用程序在整个系统中的各个环节都得到逐步验证和部署。它可以跨越前端、后端、数据库等多个层次，确保新版本与现有系统的兼容性和稳定性。全链路灰度发布通过逐步替换和验证每个组件，确保新版本的应用程序在整个系统链路中无缝运行。以下是全链路灰度的示意图：
+The full link gray release covers all components and services in the entire system chain, ensuring that new versions of applications are progressively validated and deployed throughout the system.It can cut across front-end, backend, databases, etc. to ensure compatibility and stability of new versions with existing systems.Full link gray release ensures that new versions of applications operate seamlessly throughout the system links by gradually replacing and validating each component.Below is a map of the total gray scale：
 
 <div align="center">
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/gray-release/gray-release.png" width="25%" height="25%" />
 </div>
 
-如上图所示，一个应用中有 `A->B->C->D->E` 五个服务组件，灰度流量从 A 进入时，由于只有 B 和 C 有灰度版本，所以灰度流量会在 B 和 C 的灰度版本中路由，而对于组件 D 和 E ，由于没有灰度版本，所以灰度流量路由到基础版本中去。这样就建立了两条逻辑上隔离的流量链路。这样在微服务数量较多时，可以直接减少服务的部署数量，降低部署成本。并且由于流量隔离，可以更好的控制新版本的风险和影响范围。
+As shown in the graph above, there are `A->B->C->C->D->E` service components in an application where gray traffic enters from A, because only B and C have gray versions, the gray flow is routed in the grey versions of B and C, and for components D and E, because there are no gray versions, the gray flow is routed to the base version.This created two logically isolated traffic links.This would directly reduce the deployment of services and reduce the cost of deployment when there is a larger volume of microservices.And because of traffic isolation, new versions of risk and impact can be better controlled.
 
-### 监控和回滚
+### Monitor and roll back
 
 ![gray-metrics](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/gray-release/gray-metrics.png)
 
-全链路灰度发布提供监控和回滚功能，以确保新版本的应用程序在灰度发布过程中的稳定性和性能。您可以实时监控发布的各个阶段，包括流量分发、响应时间、错误率等关键指标。如果出现问题，您可以及时回滚到旧版本，以最小化潜在影响。
+Full link grayscale release provides monitoring and rollback features to ensure the stability and performance of new versions of applications during grey releases.You can monitor every stage of release in real time, including key indicators such as traffic distribution, response time, error rate, etc.If there is a problem, you can roll back to old versions in time to minimize potential effects.
 
-- 实时指标监测：全链路灰度发布提供实时的监测功能，用于监测新版本应用程序在灰度期间的性能指标和运行状态。这些指标包括响应时间、错误率、吞吐量等关键性能指标。
+- Real-time indicator monitoring：link grayscale release provides real-time monitoring to monitor performance indicators and performance status of new versions of applications during grayscale periods.These include key performance indicators such as response time, error rate, throughput.
 
-- 可视化仪表板：以上关键性指标均通过可视化仪表板进行展示，以便您可以直观地查看新版本应用程序的性能趋势和指标变化。这样，您可以快速识别任何异常情况或性能下降，并及时采取措施解决问题。
+- Critical indicators for visualization dashboard：are displayed via visualization dashboard, so that you can visualize performance trends and indicator changes in new versions of applications.In this way, you can quickly identify any anomalies or declines in performance and take timely measures to solve them.
 
-- 快速回滚：在发现问题或出现意外情况时，您可以迅速将流量切回到旧版本应用程序。这样可以最大程度地减少对用户的影响和业务的中断，并确保系统的稳定性。
+- QuickRock：you can quickly cut traffic back to the old version of the app when you find a problem or unexpected situation.This would minimize the impact on users and business disruptions and ensure the stability of the system.
 
-## 使用手册
+## Manual
 
-### 环境准备和配置
+### Environment preparation and configuration
 
-全链路灰度的关键是需要将灰度流量的标签在多个组件之间进行透传，所以为了让标签的传递对应用无感，以及让灰度流量按标签进行路由。您的应用程序需要满足以下条件：
+The key to full link grayscale is the need for gray traffic labels to be permeated between multiple components, so that the passing of the label is not sensitive to the app and that the grayscale traffic is routed by tag.Your application needs to meet the following conditions in：
 
-- 入口组件使用了 Gateway API：Gateway API 解决了 Ingress 可移植性问题，正在逐步成为下一代流量标准。目前全链路灰度发布的流量规则也是建立在这基础之上的。
+- The entrance component uses the Gateway API：Gateway API to solve the problem of progress portability and is gradually becoming the next generation traffic standard.The traffic rules that are currently published on the full link grayscale are also based on this.
 
-- 支持分布式链路追踪：在分布式链路追踪技术中，traceID 标识一个完整的调用链，链路上的每一个请求，都会携带上对应的 traceID。而标签透传就是建立在这个基础之上的。
+- Supporting distributed links tracking：in distributed link tracking technology, traceID identifiers a full call chain, and each request on the link carries the corresponding traceID.It is on this basis that labels pass through them.
 
-- 应用启用 Istio 治理模式：Istio 主要提供灰度流量按标路由以及服务之间的治理能力。
+- Application enables Istio Governance Mode：Istio mainly provides the ability to manage gray traffic by route and between services.
 
-### 创建和管理发布版本
+### Create and manage release versions
 
-通常情况下，为了保证有一个可靠的交付物，我们会使用 Rainbond 的应用模版来管理整个应用的版本，在 Rainbond 中应用模版通常包含以下几项：
+Usually, in order to secure a reliable delivery, we will use the application template of Rainbrond to manage the entire version of the application. The application template in Rainbond will normally contain the following expert：
 
-- 应用标识和命名：为应用模版提供了一个易于识别和管理的名称。可以实现企业数字化资产的积累复用。
+- Application identifier and name：provide an easily identifiable and managed name for the app template.The accumulation of digital assets in enterprises can be achieved.
 
-- 版本元数据：包含了每个发布版本的版本号、发布日期、作者、变更摘要等信息。这些元数据可以帮助追踪和识别每个版本的关键属性和历史信息。
+- Version Metadata：contains information about each release of version, date of publication, author, change summary, etc.These metadata help track and identify key properties and historical information for each version.
 
-- 版本镜像：包含了发布版本中所有组件的镜像，这些不可变的基础镜像可以保证版本的一致性，避免混乱。
+- Version：contains mirrors for all components in the release version. These images, which are immutable basics, guarantee consistency of versions and avoid confusion.
 
-可以参考[应用模版持续交付](/docs/delivery/continuous/ram)文档，发布新的应用模版。当应用有新版本后，可以在应用视图的 `待升级` 一栏，看到可升级版本。后续该版本将作为灰度发布的新版本。
+Available from[应用模版持续交付](/docs/delivery/continuous/ram) to post new application templates.When the app has a new version, you can see an upgradable version in the `to-update` section of the app view.The next version will be published as a new version of grayscale
 
-### 制定和配置灰度发布策略
+### Develop and configure Grayscale Publishing Policy
 
-当有了可升级的新版本之后，我们需要设置该应用的灰度发布策略。这一步主要是确定灰度发布的目标和范围，配置灰度发布的规则和条件，以控制发布版本在灰度环境中的分发和升级，确保发布版本仅在指定的灰度目标中可见和可访问。具体操作步骤如下：
+When new versions are available, we need to set up a grayscale release strategy for the app.This step is mainly to set the target and range of grey releases, to configure the rules and conditions of grey release to control distribution and upgrade of release versions in the grey environment, and to ensure that release versions are visible and accessible only to specified gray targets.Action steps below：
 
-1. 在应用视图，点击左侧边栏的 `灰度` 按钮，可以进入灰度策略设置页面。
+1. In the app view, click on the `grey` button on the left sidebar, you can go to the Grayscale Policy Settings page.
 
-2. 在灰度策略设置页面，首先选择入口组件，这里是灰度流量的来源。确认好入口组件和其对应的入口流量规则以后，可以选择设置一个或多个 Header 匹配规则，这里的匹配规则可以保证灰度流量只路由到灰度版本。
+2. In the Grayscale Policy Settings page, first select an entry component, which is the source of grayscale traffic.Once you confirm the entry component and its corresponding traffic rules, you can choose to set one or more Header matching rules. The matching rules here will ensure that the gray traffic is routed only to the gray version.
 
-3. 匹配规则设置完成后，在下方继续设置发布批次，默认最终流量比例为 100%，你可以在中间设置多个批次及不同的流量比例。请注意：如果设置了 Header 规则，那么携带 Header 的流量将会 100% 路由到新版本，只有未设置 Header 规则的流量才可以按流量比例路由到新版本。
+3. After matching rule setup, you continue to set the release batch below, with the default final traffic ratio of 100%. You can set multiple batches and different traffic ratios in the middle.Please note that：, if a Header rule is set, will be routed to a new version with 100% of Header traffic. Only traffic without Header rules can be routed to a new version proportionally.
 
-### 进行灰度发布
+### Make Grayscale Publication
 
-1. 在灰度策略设置好以后，我们需要在应用视图的 `待升级` 一栏，找到可升级的版本，点击 `升级`，此时对于有变更的组件，将会重新构建并进入灰度状态。
+1. After the Grayscale policy has been set, we need to find upgradable versions in the `Pending Update` column of the application view. Click `Update`, when changing components will be rebuilt and entered in the grayscale state.
 
-2. 确认 `升级` 之后，将会跳转回应用视图，此时在左上角应用状态，可以看到当前流量比例和批次信息，点击 `查看详情` 可以获取详细监控报表。
+2. Once you confirm the `upgrade`, you will jump back to the app view at this point in the upper left corner, you can see the current traffic ratio and batch information, and check for more detailed monitoring reports.
 
-3. 当处于灰度发布中后，我们可以尝试按照之前的匹配规则去请求服务，此时灰度流量应该只在灰度环境中传递，只有当某个服务不存在灰度版本时，才会请求到默认版本。
+3. When released in grayscale, we can try to request services according to previous matching rules, when grayscale traffic should be passed only in the grey environment, and only when a service does not have a gray version will request a default version.
 
-### 监控和分析发布结果
+### Monitor and analyze results
 
-监控和分析发布结果是确保全链路灰度发布成功的关键环节，只有对发布过程中收集到的数据进行分析和比较，发现潜在的问题、才能判断是否继续发布或回滚。
+Monitoring and analysing the results of the release is a key element in ensuring the success of the entire chain grey distribution, and only analysis and comparison of the data collected during the release can identify potential problems and determine whether or not to continue or roll back.
 
-1. 应用已经处于灰度中后，在应用视图，点击左侧边栏的 `灰度` 按钮，可以再次进入灰度策略设置页面。此时默认展示应用灰度状态，其中包含当前批次、新旧版本流量比例、请求错误率、吞吐率、请求总数等图表。
+1. After the app is already in grayscale, you can go to the Grayscale Policy Settings page again by clicking on the `Grey` button on the left sidebar.Default display of application gray status at this time, which contains graphs such as current batch, old and new version traffic ratio, request error, throughput, total number of requests, etc.
 
-2. 通过该图表信息，可以持续观察灰度状况，如果无问题，可以尝试增加流量比例，在右上角点击 `下一批` 即可。
+2. With this chart information, you can observe the grayscale status on a continuous basis. If there is no problem, try to increase the traffic ratio. Click `next batch` in the top right.
 
-3. 如果发现指标异常，如请求错误率过高、响应时间过慢等情况，那么可以在右上角点击 `回滚`，快速恢复到之前状态。
+3. If an unexpected indicator is found, such as too high a request error rate and too slow response time, it can quickly return to the previous state at the top right by clicking `Roll back`.
