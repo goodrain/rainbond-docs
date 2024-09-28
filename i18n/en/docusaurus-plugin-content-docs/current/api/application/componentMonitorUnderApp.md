@@ -2,7 +2,7 @@
 title: Real-time monitoring of components under the application
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain the monitoring data of the component prometheus under an application
 
@@ -14,10 +14,10 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/monitor/quer
 
 | name                             | Location | type    | required | Chinese name | illustrate                                        |
 | -------------------------------- | -------- | ------- | -------- | ------------ | ------------------------------------------------- |
-| app_id      | path     | integer | Yes      |              | app id                                            |
-| team_id     | path     | string  | Yes      |              | none                                              |
-| region_name | path     | string  | Yes      |              | none                                              |
-| is_outer    | query    | string  | no       |              | Whether to get only external component monitoring |
+| app_id      | Path     | integer | Yes      |              | app id                                            |
+| team_id     | Path     | String  | Yes      |              | none                                              |
+| region_name | Path     | String  | Yes      |              | none                                              |
+| is_outer    | Query    | String  | no       |              | Whether to get only external component monitoring |
 
 ## return result
 
@@ -27,19 +27,19 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/monitor/quer
 
 ## return data structure
 
-| name                                 | type                                                                                                                                   | required | constraint | Chinese name  | illustrate         |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------- | ------------------ |
-| _anonymous_                          | [[ComponentMonitorSerializers](#schemacomponentmonitorserializers)]                | false    | none       |               | none               |
-| » monitors                           | [[ComponentMonitorItemsSerializers](#schemacomponentmonitoritemsserializers)]¦null | false    | none       |               | none               |
-| »» data                              | [Data](#schemadata)                                                                                                                    | false    | none       | Data          | none               |
-| »»» resultType                       | string                                                                                                                                 | false    | none       | Resulttype    | return type        |
-| »»» result                           | [[MonitorDataSerializers](#schemamonitordataserializers)]                          | true     | none       |               | none               |
-| »»»» value                           | [string]                                                                           | true     | none       |               | none               |
-| »» monitor_item | string                                                                                                                                 | true     | none       | Monitor item  | Monitoring item    |
-| »» status                            | string                                                                                                                                 | false    | none       | Status        | monitor status     |
-| » service_id    | string                                                                                                                                 | true     | none       | Service id    | component id       |
-| » service_cname | string                                                                                                                                 | true     | none       | Service cname | component name     |
-| » service_alias | string                                                                                                                                 | true     | none       | Service alias | component nickname |
+| name                                 | type                                                                                                          | required | constraint | Chinese name  | illustrate         |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------- | ------------------ |
+| _anonymous_                          | [[ComponentMonitorSerializers](#schemacomponentmonitors)] | false    | none       |               | none               |
+| » Monitors                           | [[ComponentMonitorItemsSerializers](#schemacomponentmonitortemsserializers)hull     | false    | none       |               | none               |
+| » data                               | [Data](#schemadata)                                                                                           | false    | none       | Data          | none               |
+| resultType                           | String                                                                                                        | false    | none       | Resulttype    | return type        |
+| » Result                             | [[MonitorDataSerializers](#schemamonitordaaterializers)]  | true     | none       |               | none               |
+| »» value                             | [string]                                                  | true     | none       |               | none               |
+| » monitor_item  | String                                                                                                        | true     | none       | Monitor item  | Monitoring item    |
+| » status                             | String                                                                                                        | false    | none       | Status        | monitor status     |
+| » service_id    | String                                                                                                        | true     | none       | Service id    | component id       |
+| » service_name  | String                                                                                                        | true     | none       | Service cname | component name     |
+| » service_alias | String                                                                                                        | true     | none       | Service alias | component nickname |
 
 ```json title="响应示例"
 [
@@ -70,13 +70,13 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/monitor/quer
 
 ## Model
 
-### ComponentMonitorSerializers<a id="schemacomponentmonitorserializers"></a>
+### ComponentMonitor Serializers<a id="schemacomponentmonitorserializers"></a>
 
 ```json
-{
+Flag
   "monitors": [
-    {
-      "data": {
+    Fum
+      "data": LOs
         "resultType": "string",
         "result": [
           {
@@ -96,14 +96,14 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/monitor/quer
 
 ### Attributes
 
-| name                               | type                                                                                                                                   | required | constraint | Chinese name  | illustrate         |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------- | ------------------ |
-| monitors                           | [[ComponentMonitorItemsSerializers](#schemacomponentmonitoritemsserializers)]¦null | false    | none       |               | none               |
-| service_id    | string                                                                                                                                 | true     | none       | Service id    | component id       |
-| service_cname | string                                                                                                                                 | true     | none       | Service cname | component name     |
-| service_alias | string                                                                                                                                 | true     | none       | Service alias | component nickname |
+| name                               | type                                                                                                      | required | constraint | Chinese name  | illustrate         |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------- | ------------------ |
+| Monitors                           | [[ComponentMonitorItemsSerializers](#schemacomponentmonitortemsserializers)hull | false    | none       |               | none               |
+| service_id    | String                                                                                                    | true     | none       | Service id    | component id       |
+| service_name  | String                                                                                                    | true     | none       | Service cname | component name     |
+| service_alias | String                                                                                                    | true     | none       | Service alias | component nickname |
 
-### ComponentMonitorItemsSerializers<a id="schemacomponentmonitoritemsserializers"></a>
+### ComponentMonitor ItemsSerializers<a id="schemacomponentmonitoritemsserializers"></a>
 
 ```json
 {
@@ -126,17 +126,17 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/monitor/quer
 
 | name                              | type                | required | constraint | Chinese name | illustrate      |
 | --------------------------------- | ------------------- | -------- | ---------- | ------------ | --------------- |
-| data                              | [Data](#schemadata) | false    | none       |              | none            |
-| monitor_item | string              | true     | none       | Monitor item | Monitoring item |
-| status                            | string              | false    | none       | Status       | monitor status  |
+| Data                              | [Data](#schemadata) | false    | none       |              | none            |
+| monitor_item | String              | true     | none       | Monitor item | Monitoring item |
+| Status                            | String              | false    | none       | Status       | monitor status  |
 
 ### Data<a id="schemadata"></a>
 
 ```json
-{
+LO
   "resultType": "string",
   "result": [
-    {
+    LO
       "value": [
         "string"
       ]
@@ -147,15 +147,15 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/monitor/quer
 
 ### Attributes
 
-| name       | type                                                                                                          | required | constraint | Chinese name | illustrate  |
-| ---------- | ------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ----------- |
-| resultType | string                                                                                                        | false    | none       | Resulttype   | return type |
-| result     | [[MonitorDataSerializers](#schemamonitordataserializers)] | true     | none       |              | none        |
+| name       | type                                                                                                         | required | constraint | Chinese name | illustrate  |
+| ---------- | ------------------------------------------------------------------------------------------------------------ | -------- | ---------- | ------------ | ----------- |
+| ResultType | String                                                                                                       | false    | none       | Resulttype   | return type |
+| Result     | [[MonitorDataSerializers](#schemamonitordaaterializers)] | true     | none       |              | none        |
 
 ### MonitorDataSerializers<a id="schemamonitordataserializers"></a>
 
 ```json
-{
+LO
   "value": [
     "string"
   ]
@@ -166,4 +166,4 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/monitor/quer
 
 | name  | type                                                         | required | constraint | Chinese name | illustrate |
 | ----- | ------------------------------------------------------------ | -------- | ---------- | ------------ | ---------- |
-| value | [string] | true     | none       |              | none       |
+| Value | [string] | true     | none       |              | none       |
