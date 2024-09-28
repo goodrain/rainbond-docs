@@ -2,7 +2,7 @@
 title: Create an app
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to create applications
 
@@ -11,7 +11,7 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps
 ```
 
 ```json title="Body 请求体示例"
-{
+LO
   "app_name": "Test",
   "app_note": "sint dolor in consectetur"
 }
@@ -21,8 +21,8 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps
 
 | name                             | Location | type                              | required | illustrate |
 | -------------------------------- | -------- | --------------------------------- | -------- | ---------- |
-| team_id     | path     | string                            | Yes      | none       |
-| region_name | path     | string                            | Yes      | none       |
+| team_id     | Path     | String                            | Yes      | none       |
+| region_name | Path     | String                            | Yes      | none       |
 | body                             | body     | [AppPostInfo](#schemaapppostinfo) | no       | none       |
 
 ## return result
@@ -36,23 +36,23 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps
 | name                                                        | type                                 | required | constraint | Chinese name      | illustrate                  |
 | ----------------------------------------------------------- | ------------------------------------ | -------- | ---------- | ----------------- | --------------------------- |
 | ID                                                          | integer                              | false    | read-only  | ID                | none                        |
-| tenant_id                              | string                               | true     | none       | Tenant id         | tenant id                   |
-| group_name                             | string                               | true     | none       | Group name        | group name                  |
-| region_name                            | string                               | true     | none       | Region name       | Regional center name        |
+| tenant_id                              | String                               | true     | none       | Tenant id         | tenant id                   |
+| group_name                             | String                               | true     | none       | Group name        | group name                  |
+| region_name                            | String                               | true     | none       | Region name       | Regional center name        |
 | is_default                             | boolean                              | false    | none       | Is default        | default components          |
 | order_index                            | integer                              | false    | none       | Order index       | Apply sorting               |
-| note                                                        | string¦null                          | false    | none       | Note              | Remark                      |
-| username                                                    | string¦null                          | false    | none       | Username          | the username of principal   |
-| governance_mode                        | string¦null                          | false    | none       | Governance mode   | governance mode             |
+| Notes                                                       | Stringenull                          | false    | none       | Note              | Remark                      |
+| username                                                    | Stringenull                          | false    | none       | Username          | The username of principal   |
+| governance_mode                        | Stringenull                          | false    | none       | Governance mode   | Governance mode             |
 | create_time                            | string(date-time) | true     | none       | Create time       | creation time               |
 | update_time                            | string(date-time) | true     | none       | Update time       | update time                 |
-| app_type                               | string                               | false    | none       | App type          | App types                   |
-| app_store_name    | string¦null                          | false    | none       | App store name    | app store name              |
-| app_store_url     | string¦null                          | false    | none       | App store url     | App store URL               |
-| app_template_name | string¦null                          | false    | none       | App template name | Basic Information           |
-| version                                                     | string¦null                          | false    | none       | Version           | Helm app version            |
-| logo                                                        | string¦null                          | false    | none       | Logo              | application logo            |
-| k8s_app                                | string                               | false    | none       | K8s app           | In-cluster application name |
+| app_type                               | String                               | false    | none       | App type          | App types                   |
+| app_store_name    | Stringenull                          | false    | none       | App store name    | app store name              |
+| app_store_url     | Stringenull                          | false    | none       | App store url     | App store URL               |
+| app_template_name | Stringenull                          | false    | none       | App template name | Basic Information           |
+| version                                                     | Stringenull                          | false    | none       | Version           | Helm app version            |
+| logo                                                        | Stringenull                          | false    | none       | Logo              | application logo            |
+| k8s_app                                | String                               | false    | none       | K8s app           | In-cluster application name |
 
 ```json title="响应示例"
 {
@@ -82,7 +82,7 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps
 ### AppPostInfo<a id="schemaapppostinfo"></a>
 
 ```json
-{
+LO
   "app_name": "string",
   "app_note": ""
 }
@@ -92,5 +92,5 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps
 
 | name                          | type   | required | constraint | Chinese name | illustrate        |
 | ----------------------------- | ------ | -------- | ---------- | ------------ | ----------------- |
-| app_name | string | true     | none       | App name     | Application Name  |
-| app_note | string | false    | none       | App note     | Application Notes |
+| app_name | String | true     | none       | App name     | Application Name  |
+| app_note | String | false    | none       | App note     | Application Notes |
