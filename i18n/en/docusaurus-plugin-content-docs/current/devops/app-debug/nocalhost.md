@@ -1,19 +1,19 @@
 ---
-title: Use Nocalhost to debug the application
+title: 使用 Nocalhost 调试应用
 description: This article explains how to debug applications on Rainbond using Nocalhost
 keywords:
-- 使用 Nocalhost 调试应用
-- Rainbond DevOps
+  - 使用 Nocalhost 调试应用
+  - Rainbond DevOps
 ---
 
 之前的文章中我们介绍了如何通过 [Nocalhost 快速开发 Rainbond 上的微服务](https://mp.weixin.qq.com/s/kC9P7fvMtJvKK7_TM2LbTw)，介绍了基本的开发流程。
 
 本文将续接上文继续介绍，使用 [Nocalhost 开发配置文件](https://nocalhost.dev/docs/config/config-overview-en/) 实现以下内容：
 
-* 一键 Run 和 远程Debug
-* 持久化配置
-* 开发容器资源限制
-* 端口转发
+- 一键 Run 和 远程Debug
+- 持久化配置
+- 开发容器资源限制
+- 端口转发
 
 **什么是开发配置？**
 
@@ -37,11 +37,10 @@ keywords:
 
 ![](https://static.goodrain.com/wechat/nocalhost2/1.png)
 
-
-
 ## Nocalhost 对接 Rainbond
 
 1. 安装 Nocalhost JetBrains Plugin 插件，请参阅文档 [安装Nocalhost JetBrains Plugin 插件](https://nocalhost.dev/docs/installation/)。
+
 2. 获取 K8s Kubeconfig，请参阅文档 [获取 Kubeconfig 文件](https://www.rainbond.com/docs/ops-guide/tools/kubectl)。
 
 3. 在 `pig` 命名空间下，找到工作负载 `pig-auth` 右击并选择 `Dev Config` （开发配置）
@@ -124,8 +123,6 @@ containers:
 
 ![](https://static.goodrain.com/wechat/nocalhost2/3-1.gif)
 
-
-
 ### 一键 Debug
 
 1. 右击工作负载 `pig-auth` 。
@@ -180,4 +177,3 @@ portForward:
 Nocalhost 还有一些开发配置文中没讲到的，比如：开发环境变量、文件同步的两种模式 `pattern` `gitignore` 等等，并且 Nocalhost 支持多种语言，Java 只是其中一种，小伙伴们可以自行探索。
 
 Nocalhost + Rainbond 让开发、部署更加高效、便捷。
-
