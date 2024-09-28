@@ -2,7 +2,7 @@
 title: Update team information
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to update team information
 
@@ -11,10 +11,10 @@ PUT /openapi/v1/teams/{team_id}
 ```
 
 ```json title="Body 请求体示例"
-{
+LO
   "region": "string",
-  "is_active": true,
-  "creater": 0,
+  "is_activ": true,
+  "creator": 0,
   "tenant_alias": "string",
   "enterprise_id": "string"
 }
@@ -22,26 +22,26 @@ PUT /openapi/v1/teams/{team_id}
 
 ## request parameters
 
-| name                         | Location | type                                          | required | Chinese name | illustrate |
-| ---------------------------- | -------- | --------------------------------------------- | -------- | ------------ | ---------- |
-| team_id | path     | string                                        | Yes      |              | none       |
-| body                         | body     | [UpdateTeamInfoReq](#schemaupdateteaminforeq) | no       |              | none       |
+| name                         | Location | type                                        | required | Chinese name | illustrate |
+| ---------------------------- | -------- | ------------------------------------------- | -------- | ------------ | ---------- |
+| team_id | Path     | String                                      | Yes      |              | none       |
+| body                         | body     | [UpdateTeamInfoReq](#schemaupdateaminforeq) | no       |              | none       |
 
 ## return result
 
-| status code | Status code meaning | illustrate | data model                                    |
-| ----------- | ------------------- | ---------- | --------------------------------------------- |
-| 200         | OK                  | success    | [UpdateTeamInfoReq](#schemaupdateteaminforeq) |
+| status code | Status code meaning | illustrate | data model                                  |
+| ----------- | ------------------- | ---------- | ------------------------------------------- |
+| 200         | OK                  | success    | [UpdateTeamInfoReq](#schemaupdateaminforeq) |
 
 ## Model
 
-### UpdateTeamInfoReq<a id="schemaupdateteaminforeq"></a>
+### UpdateTeamInfo<a id="schemaupdateteaminforeq"></a>
 
 ```json
-{
+LO
   "region": "string",
-  "is_active": true,
-  "creater": 0,
+  "is_activ": true,
+  "creator": 0,
   "tenant_alias": "string",
   "enterprise_id": "string"
 }
@@ -51,8 +51,8 @@ PUT /openapi/v1/teams/{team_id}
 
 | name                               | type    | required | constraint | Chinese name  | illustrate         |
 | ---------------------------------- | ------- | -------- | ---------- | ------------- | ------------------ |
-| region                             | string  | false    | none       | Region        | data center name   |
-| is_active     | boolean | false    | none       | Is active     | Activate now       |
-| creator                            | integer | false    | none       | Creater       | Team Owner User ID |
-| tenant_alias  | string  | false    | none       | Tenant alias  | team alias         |
-| enterprise_id | string  | false    | none       | Enterprise id | Enterprise ID      |
+| Region                             | String  | false    | none       | Region        | data center name   |
+| is_active     | boolean | false    | none       | Is Active     | Activate now       |
+| creator                            | integer | false    | none       | Creator       | Team Owner User ID |
+| tenant_alias  | String  | false    | none       | Tenant alias  | team alias         |
+| Enterprise_id | String  | false    | none       | Enterprise id | Enterprise ID      |
