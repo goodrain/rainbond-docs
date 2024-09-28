@@ -2,7 +2,7 @@
 title: Upgrade the app
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to upgrade applications
 
@@ -11,25 +11,25 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/upgrade
 ```
 
 ```json title="Body 请求体示例"
-{
+LOD
   "update_versions": [
-    {
+    Fum
       "market_name": "string",
       "app_model_id": "string",
       "app_model_version": "string"
-    }
+    } }
   ]
 }
 ```
 
 ## request parameters
 
-| name                             | Location | type                      | required | Chinese name | illustrate           |
-| -------------------------------- | -------- | ------------------------- | -------- | ------------ | -------------------- |
-| app_id      | path     | integer                   | Yes      |              | application group id |
-| team_id     | path     | string                    | Yes      |              | none                 |
-| region_name | path     | string                    | Yes      |              | none                 |
-| body                             | body     | [Upgrade](#schemaupgrade) | no       |              | none                 |
+| name                             | Location | type                     | required | Chinese name | illustrate           |
+| -------------------------------- | -------- | ------------------------ | -------- | ------------ | -------------------- |
+| app_id      | Path     | integer                  | Yes      |              | application group id |
+| team_id     | Path     | String                   | Yes      |              | none                 |
+| region_name | Path     | String                   | Yes      |              | none                 |
+| body                             | body     | [Upgrade](#schemaugrade) | no       |              | none                 |
 
 ## return result
 
@@ -42,14 +42,14 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/upgrade
 | name                                                       | type                                                                                    | required | constraint | Chinese name    | illustrate                   |
 | ---------------------------------------------------------- | --------------------------------------------------------------------------------------- | -------- | ---------- | --------------- | ---------------------------- |
 | _anonymous_                                                | [[ListUpgrade](#schemalistupgrade)] | false    | none       |                 | none                         |
-| » market_name                         | string                                                                                  | true     | none       | Market name     | app store name               |
-| » app_model_id   | string                                                                                  | true     | none       | App model id    | application model id         |
-| » app_model_name | string                                                                                  | true     | none       | App model name  | 应用模型名称                       |
-| » current_version                     | string                                                                                  | true     | none       | Current version | current version              |
-| » enterprise_id                       | string                                                                                  | true     | none       | Enterprise id   | enterprise id                |
-| » can_upgrade                         | boolean                                                                                 | true     | none       | Can upgrade     | upgradeable                  |
+| » market_name                         | String                                                                                  | true     | none       | Market name     | app store name               |
+| » app_model_id   | String                                                                                  | true     | none       | App model id    | application model id         |
+| » app_model_name | String                                                                                  | true     | none       | App model name  | Application model name       |
+| » current_version                     | String                                                                                  | true     | none       | Current version | current version              |
+| » enterprise_id                       | String                                                                                  | true     | none       | Enterprise id   | enterprise id                |
+| can_upgrade                           | boolean                                                                                 | true     | none       | Can upgrade     | upgradeable                  |
 | » upgrade_versions                    | [string]                            | true     | none       |                 | List of upgradeable versions |
-| » source                                                   | string                                                                                  | true     | none       | Source          | Application Model Source     |
+| » source                                                   | String                                                                                  | true     | none       | Source          | Application Model Source     |
 
 ```json title="响应示例"
 [
@@ -73,27 +73,27 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/upgrade
 ### Upgrade<a id="schemaupgrade"></a>
 
 ```json
-{
+LOD
   "update_versions": [
-    {
+    Fum
       "market_name": "string",
       "app_model_id": "string",
       "app_model_version": "string"
-    }
+    } }
   ]
 }
 ```
 
 ### Attributes
 
-| name                                 | type                                                                                    | required | constraint | Chinese name | illustrate |
-| ------------------------------------ | --------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| update_versions | [[UpgradeBase](#schemaupgradebase)] | true     | none       |              | none       |
+| name                                 | type                                                                                   | required | constraint | Chinese name | illustrate |
+| ------------------------------------ | -------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| update_versions | [[UpgradeBase](#schemaugradebase)] | true     | none       |              | none       |
 
 ### UpgradeBase<a id="schemaupgradebase"></a>
 
 ```json
-{
+LO
   "market_name": "string",
   "app_model_id": "string",
   "app_model_version": "string"
@@ -104,9 +104,9 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/upgrade
 
 | name                                                        | type   | required | constraint | Chinese name      | illustrate           |
 | ----------------------------------------------------------- | ------ | -------- | ---------- | ----------------- | -------------------- |
-| market_name                            | string | true     | none       | Market name       | app store name       |
-| app_model_id      | string | true     | none       | App model id      | application model id |
-| app_model_version | string | true     | none       | App model version | current version      |
+| market_name                            | String | true     | none       | Market name       | app store name       |
+| app_model_id      | String | true     | none       | App model id      | application model id |
+| app_model_version | String | true     | none       | App model version | current version      |
 
 ### ListUpgrade<a id="schemalistupgrade"></a>
 
@@ -129,11 +129,11 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/upgrade
 
 | name                                                     | type                                                         | required | constraint | Chinese name    | illustrate                   |
 | -------------------------------------------------------- | ------------------------------------------------------------ | -------- | ---------- | --------------- | ---------------------------- |
-| market_name                         | string                                                       | true     | none       | Market name     | app store name               |
-| app_model_id   | string                                                       | true     | none       | App model id    | application model id         |
-| app_model_name | string                                                       | true     | none       | App model name  | Basic Information            |
-| current_version                     | string                                                       | true     | none       | Current version | current version              |
-| enterprise_id                       | string                                                       | true     | none       | Enterprise id   | enterprise id                |
+| market_name                         | String                                                       | true     | none       | Market name     | app store name               |
+| app_model_id   | String                                                       | true     | none       | App model id    | application model id         |
+| app_model_name | String                                                       | true     | none       | App model name  | Basic Information            |
+| current_version                     | String                                                       | true     | none       | Current version | current version              |
+| Enterprise_id                       | String                                                       | true     | none       | Enterprise id   | enterprise id                |
 | can_upgrade                         | boolean                                                      | true     | none       | Can upgrade     | upgradeable                  |
 | upgrade_versions                    | [string] | true     | none       |                 | List of upgradeable versions |
-| source                                                   | string                                                       | true     | none       | Source          | Application Model Source     |
+| source                                                   | String                                                       | true     | none       | Source          | Application Model Source     |
