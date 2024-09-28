@@ -3,7 +3,7 @@ title: gateway
 description: Introduce the concepts and design thinking of Rainbond gateways
 ---
 
-在百度百科中, 网关的定义是这样子的: 网关(Gateway)就是一个网络连接到另一个网络的"关口"。类似的, 应用网关是 Rainbond 中外部流量  流入应用的关口。也可以说是南北向流量中, 北向流量流向南向流量的一个"关口"。部署到 Rainbond 的所有组件需要被外部访问的话都需要通过应用网关。
+In the Encyclopedia, the gateway is defined as this: Gateway is the "gateway" where one network connects to another.Similarly, the application gateway is the gateway to external traffic from Rainbond into the app.It can also be said to be a "gate" for North-South flows.All components deployed to Rainbond need external access via the application gateway.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/what-is-gateway/north-to-south.png" title="网关拓扑图" />
 
@@ -24,6 +24,6 @@ The role of the application gateway is to implement various policies defined in 
 
 The strategy is mainly divided into two parts, routing rules and routing targets. The routing target can be every port of all components. The routing rules have the following categories according to different：.
 
-- **HTTP policy** According to the HTTP protocol specification, the routing conditions supported by the HTTP policy include`domain names` `request paths` `Cookie` `Header` `HTTPS`, and the same routing conditions support the definition of different weight values.The open source version of the load balancing algorithm supports the round-robin algorithm, and the enterprise version supports the expansion of multiple load balancing algorithms.负载均衡算法开源版本支持轮询算法，企业版本支持扩展多种负载均衡算法。
+- **HTTP policy** According to the HTTP protocol specification, the routing conditions supported by the HTTP policy include`domain names` `request paths` `Cookie` `Header` `HTTPS`, and the same routing conditions support the definition of different weight values.The open source version of the load balancing algorithm supports the round-robin algorithm, and the enterprise version supports the expansion of multiple load balancing algorithms.An open source version of the load equilibrium method supports the poll algorithm, and an enterprise version supports the extension of multiple load equilibrium methods.
 
 - **TCP/UDP strategy** According to the TCP/UDP protocol specification, the routing conditions supported by the TCP/UDP strategy include`IP`and`port`, and the open source version of the load balancing algorithm supports the polling algorithm.
