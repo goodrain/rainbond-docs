@@ -1,7 +1,6 @@
 ---
 title: Environment and version management
 describe: This paper introduces how to quickly build multiple development environments through application replication function to improve the efficiency of developers to build development environments
-# keywords: 组件复制 应用复制 组件快速部署 应用快速部署
 ---
 
 import Bvideo from '/src/components/Bvideo';
@@ -52,9 +51,9 @@ Rainbond 中默认基于应用模型对各类型软件进行抽象管理，因�
 
 进入 **组件总览页面  -> 点击查看更多版本 -> 进入构建版本历史**。
 
-* 编辑：给版本打上标签
-* 日志：查看已构建的版本日志
-* 回滚：选择回滚到哪个版本
-* 删除：删除此次版本记录，删除后不可恢复。
+- 编辑：给版本打上标签
+- 日志：查看已构建的版本日志
+- 回滚：选择回滚到哪个版本
+- 删除：删除此次版本记录，删除后不可恢复。
 
 ![](https://static.goodrain.com/docs/5.6/use-manual/component-manage/overview/rollback.png)
