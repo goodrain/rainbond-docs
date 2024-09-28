@@ -2,115 +2,115 @@
 title: The service is disconnected
 description: Envoy fusing current limiting practice, based on Rainbond plug-in to achieve fusing
 keywords:
-  - Envoy熔断限流实践
-  - Rainbond 实现熔断
+  - Envoy melt off flow practice
+  - Rainbond melting
 ---
 
-# Envoy 熔断机制介绍
+# Introduction to the Envoy Molten Mechanism
 
-熔断是分布式系统的重要组成部分。快速失败并尽快给下游施加压力，可以防止整个微服务系统进入糟糕的级联雪崩状态。这是Envoy 网格的主要优点之一，Envoy 在网络级别实现强制断路限制，而不必独立配置和编写每个应用程序。Envoy 支持各种类型的完全分布（不协调）的熔断：
+Melting is an important component of the distribution system.Rapid failure and pressure downstream as soon as possible can prevent the entire microservice system from entering into poor class avalanchesThis is one of the main advantages of the Envoy grid, which implements mandatory circuit breakers at network level without having to configure and write each application independently.Envoy supports melting： of all types of complete distribution (uncoordinated)
 
-- **集群最大连接数(MaxConnections)**：Envoy将为上游群集中的所有主机建立的最大连接数。实际上，这仅适用于HTTP/1.1群集，因为HTTP/2使用到每个主机的单个连接。
+- **The max connections to the cluster (MaxConnections)**：Envoy will create the maximum number of connections for all hosts in the upstream cluster.In practice, this applies only to the HTTP/1.1 cluster, as HTTP/2 uses individual connections to each host.
 
-- **集群最大挂起请求数(MaxPendingRequests)**：在等待就绪连接池连接时将排队的最大请求数。实际上，这仅适用于HTTP/1.1群集，因为HTTP/2连接池不会排队请求。HTTP/2请求立即复用。如果这个断路器溢出，集群的`upstream_rq_pending_overflow`计数器将增加。
+- **The maximum number of cluster pending requests (MaxPendingRequests)**：will be queued while waiting to connect the pool to connect.In practice, this only applies to the HTTP/1.1 cluster because HTTP/2 connection pool is not queued.HTTP/2 request immediate reuse.If this breaker spills, the cluster `upstream_rq_pending_overflow` counter will increase.
 
-- **集群最大请求数(MaxRequests)**：在任何给定时间，群集中所有主机可以处理的最大请求数。实际上，这适用于HTTP/2群集，因为HTTP/1.1群集由最大连接断路器控制。如果这个断路器溢出，集群的`upstream_rq_pending_overflow`计数器将增加。
+- **Cluster max requests (MaxRequests)**：is the maximum number of requests that can be handled by all hosts at any given time.In practice, this applies to HTTP/2 clusters because the HTTP/1.1 cluster is controlled by the maximum connection breaker.If this breaker spills, the cluster `upstream_rq_pending_overflow` counter will increase.
 
-- **集群最大活动重试次数(MaxRetries)**：在任何给定时间，集群中所有主机可以执行的最大重试次数。一般来说，我们建议积极进行断路重试，以便允许零星故障重试，但整体重试量不能爆炸并导致大规模级联故障。如果这个断路器溢出，集群的`upstream_rq_retry_overflow`计数器将递增。
+- **Max cluster retries (MaxRetries)**：maximum number of retries that can be performed by all hosts in a cluster at any given time.In general, we recommend an active re-trial of circuit breakers in order to allow sporadic troubleshooting, but the overall retries cannot explode and lead to large-scale class failures.If this breaker spills, the cluster `upstream_rq_retry_overflow` counter will increase.
 
-每个熔断阈值可以按照每个上游集群和每个优先级进行配置和跟踪。这允许分布式系统的不同组件被独立地调整并且具有不同的熔断配置。
+Each melting threshold can be configured and tracked according to each upstream cluster and each priority.This allows different components of the distribution system to be adapted independently and have different smelting configurations.
 
 ![circuit-breaker-1](https://static.goodrain.com/wechat/envoy-circuitbreak/circuit-breaker-1.png)
 
 ---
 
-## 基于插件机制实现的熔断
+## Smelting based on plugin mechanisms
 
-Rainbond 云原生应用管理平台通过自有的插件机制实现指定的微服务面向下游组件的熔断。
+Rainbond Native Application Management Platform melts downstream components with designated microservices through its own plugins mechanism.
 
-默认安装的 Rainbond 中已经集成了 `出口网络治理插件` 以及 `综合网络治理插件`  ，二者都基于 `Envoy` 实现，可以对安装了插件的微服务的网络出口方向进行较为全面的网络治理。其中就包括对熔断机制的实现。
+The `Export Web Governance Plugins` and `Integrated Network Governance Plugins` are integrated into the default installed Rainbond and both are implemented by `Envoy` to allow for more comprehensive network governance of network export directions for microservices installed in the plugin.This includes the realization of a melting mechanism.
 
-为了更好的描述这个过程，特意准备了一个示例。
+An example was deliberately prepared to better describe the process.
 
-基于 [Locust](https://locust.io) 实现的压力生成器作为客户端，安装 `综合网络治理插件`，Java-maven 组件作为服务端。压力生成器可以根据图形化界面设置并发用户数量，对 Java-maven 的服务地址进行压力测试，在此期间，我们可以收集到触发熔断机制时的各种现象。
+Pressure generator based on [Locust](https://locust.io) as client, installing the \`Integrated Network Governance Plugin', Java-maven component as a server.Pressure generator can set the number of concurrent users based on the graphical interface, and perform a stress test of Java-maven service addresses, during which time we can collect phenomena when triggering the smelting mechanism.
 
 ![circuit-breaker-9](https://static.goodrain.com/wechat/envoy-circuitbreak/circuit-breaker-9.png)
 
-`综合网络治理插件` 的安装很简单，在请求发起的客户端（示例中的压力生成器）服务组件的插件页面中点击安装指定的插件即可。
+The installation of the `integrated network governance` is simple. It is sufficient to install the specified plugin on the plugin page of the requested client (pressure generator in the example).
 
 ---
 
-## 设定熔断阈值
+## Set melting threshold
 
-Java-maven 组件基于 Http/1.1 版本协议实现，根据首节对 Envoy 熔断机制的解释，我们可以通过限制 **集群最大连接数(MaxConnections)** 和 **集群最大挂起请求数(MaxPendingRequests)** 来设定熔断条件。
+Java-maven components are implemented under the Http/1.1 version protocol and based on the first section explanation of Envoy melting mechanisms, we can set melting conditions by limiting the maximum number of **Cluster Connections** and **Cluster maid-up requests (MaxPendingRequests)**.
 
-点击压力生成器组件的插件，查看 `出口网络治理插件` 配置，就可以进入其配置页面。
+By clicking on the plugin for the pressure generator component, check the configuration of the `Export Network Governance` plugin and enter its configuration page.
 
-`综合网络治理插件` 分为入站网络治理配置和出站网络治理配置两个配置区域，熔断阈值的设定位于出站网络治理配置区域。
+The `integrated network governance plugin` is divided into two config areas for the inbound network governance configuration and the outbound network governance configuration. The melting threshold is located in the outbound network governance configuration area.
 
-为了突出实验的效果，我将 `MaxConnections` 和 `MaxPendingRequests` 两项均设定为较小的值。
+To highlight the effects of the experiment, I set both the `MaxConnections` and the `MaxPendingRequests` as smaller values.
 
 ![circuit-breaker-2](https://static.goodrain.com/wechat/envoy-circuitbreak/circuit-breaker-2.png)
 
-图中的配置，意味着集群最大连接数为 6 ，最大等待的请求数为 1 （这二者的默认值均为 1024）。这一配置，相当于为 Envoy 生成了以下配置：
+The configuration in the graph means that the cluster has a maximum number of connections and the maximum number of pending requests is 1 (default value for both is 1024).This configuration, equivalent to generating the following configuration： for Envoy
 
 ```json
-"circuit_breakers": {
-  "default": {
+"circuit_breakers": LO
+  "default": LO
     "max_connections": 6,
     "max_pending_requests": 1
   }
 }
 ```
 
-为下游应用 Java-maven 的 5000 端口设定的 `Domains` 也很重要，压力生成器可以通过访问 `java-maven` 这一域名，将压力施加于 Java-maven 的 5000 端口。
+The `Domains` set for the 5000 port for downstream Java-maven applications is also important, and the pressure generator can apply pressure to Java-maven port by visiting the `java-maven` domain.
 
 ---
 
-## 触发熔断
+## Trigger smelting
 
-基于 Locust 的 Web 页面可以设定并发条件，在这个实验中，我为域名 `http://java-maven` 设定了 97 个用户的并发请求。 Locust 的页面中会体现出发起请求的总数，以及处于失败状态的请求数。
+Local-based web pages can set congruent conditions. In this experiment, I set a request for 97 users for the domain `http://java-maven`. The total number of requests from start and the number of requests that are failed will be reflected in the Locust page.
 
 ![circuit-breaker-4](https://static.goodrain.com/wechat/envoy-circuitbreak/circuit-breaker-4.png)
 
-所有的错误请求，都获得了由熔断机制返回的 503 状态码。
+All wrong requests obtained 503 status codes returned by the melting breaker.
 
 ![circuit-breaker-5](https://static.goodrain.com/wechat/envoy-circuitbreak/circuit-breaker-5.png)
 
-为了确认压力生成器与 Java-maven 组件间的 Tcp 连接数量的确得到了限制，可以进入 Java
+You can enter Java to confirm that the number of Tcp connections between the pressure generator and Java-maven components is limited
 
--maven 的 Web终端用命令查看。
+-maven Web Terminals are viewed using commands.
 
 ![circuit-breaker-3](https://static.goodrain.com/wechat/envoy-circuitbreak/circuit-breaker-3.png)
 
-命令中的 `172.20.1.74` 是压力生成器组件的 Pod IP 地址。
+`172.20.1.74` in the command is the Pod IP address of the pressure generator component.
 
-这里需要注意，不要去压力生成器中查询 Tcp 连接的生成数量，这个数量会多于 6 个，实际上应该是 97，因为发起请求的 Locust 进程会根据并发用户数量来生成 Tcp 连接，这个过程不受熔断机制限制，然而请求经过 Envoy 时，向 Java-maven 这一服务端，最终只会成功建立并保持 6 个连接。
+It should be noted here that the amount of generated to query Tcp connections in the pressure generator will not be more than 6 and should actually be 97, because the requested Locus process will generate Tcp connections based on the number of concurrent users that is not subject to the melting breaker mechanism, but when requesting an Envoy, only 6 connections will be successfully established and maintained.
 
 ---
 
-## 提升熔断阈值
+## Raise smelting threshold
 
-接下来，通过调整 `综合网络治理插件` 的配置，调整熔断的阈值，将 `MaxConnections` 提升至 66。
+Next, by adjusting the melting thresholds of `MaxConnections` to 66 by adjusting the configuration of the `Integrated Network Governance Plugins`.
 
 ![circuit-breaker-6](https://static.goodrain.com/wechat/envoy-circuitbreak/circuit-breaker-6.png)
 
-点击更新配置后，改动将会直接生效，而不需要重启组件。
+Once you click on the update configuration, changes will take effect directly without rebooting the component.
 
-在压力生成器中适当提升并发用户数到 250，重新开始发起压力测试，可以发现，不再生成错误请求。
+Proper boost in pressure generator to 250 users. Restart stress tests can be restarted. Not to repeat the wrong request.
 
 ![circuit-breaker-7](https://static.goodrain.com/wechat/envoy-circuitbreak/circuit-breaker-7.png)
 
-重新在 Java-maven 的环境中查询建立的 tcp 连接数量，发现已经不再是 6 ，而是有所上升，但并未到达阈值66。
+Reinquiring about the number of tcp connections created in the Java-maven environment. It has been found to be no longer 6 but has risen, but not to reach the threshold 66.
 
 ![circuit-breaker-8](https://static.goodrain.com/wechat/envoy-circuitbreak/circuit-breaker-8.png)
 
-持续提升并发用户数量，则可以再次触发熔断。
+Continuous boost and increase the number of users can trigger a melting break again.
 
 ---
 
-## 总结
+## Summary
 
-熔断是微服务网络治理体系中非常重要的一环。Rainbond 结合 Envoy 实现的 ServiceMesh 微服务框架中，通过插件实现的熔断机制易于上手，且支持动态生效，对操作人员非常友好。
+Melting is an important part of the microservice network governance system.In the ServiceMesh Microservice framework implemented by Envoy, Rainbond is easy to handle, and supports dynamic performance and is very friendly to operators.
 
-下一篇，我们将介绍全局限流的实现，敬请期待。
+In the next chapter, we will introduce the implementation of a global flow, and please look forward to that.
