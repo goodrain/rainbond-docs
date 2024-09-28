@@ -2,23 +2,23 @@
 title: Uninstall Kubernetes and Rainbond
 description: This section describes how to uninstall the Rainbond standalone version, the Rainbond cluster, and the Kubernetes cluster installed through Rainbond
 keywords:
-  - 卸载 Kubernetes 集群
-  - 卸载 Rainbond 集群
+  - Uninstall Kubernetes Cluster
+  - Uninstall Rainbond Cluster
 ---
 
-本文档介绍如何卸载 Rainbond 单机版和 Rainbond 集群以及通过 Rainbond 安装的 Kubernetes 集群。
+This document describes how to uninstall Rainbond monolithic and Rainbond clusters and the Kubernetes cluster installed through Rainbond
 
-## 卸载 Rainbond 单机版
+## Uninstall Rainbond single version
 
-如果您使用快速安装的 Rainbond 单机版本，可以通过以下方式卸载：
+If you use a fast installed version of Rainbond monoliths, you can uninstall： by following
 
-1. 删除 `rainbond-allinone` 容器。
+1. Remove the `rainbond-allinone` container.
 
 ```bash
 docker stop rainbond-allinone && docker rm rainbond-allinone
 ```
 
-2. 删除 Rainbond 数据目录。
+2. Remove Rainbond data directory.
 
 ```bash
 # Linux
@@ -29,21 +29,21 @@ docker volume rm rainbond-data
 docker volume rm rainbond-opt
 ```
 
-## 卸载 Rainbond 集群
+## Uninstall Rainbond Cluster
 
-### 基于主机安装的 Rainbond 集群
+### Rainbond cluster based on host installation
 
-如果您使用基于主机安装的 Rainbond 集群，您可以在 **平台管理 -> 集群 -> 点击要卸载的集群的节点配置 -> 进入节点配置页面 -> 卸载集群**
+If you use the Rainbond cluster based on host installation, you can manage the **Platforms -> Cluster -> Click on the node configuration -> Access the node configuration page -> Uninstall the cluster**
 
-### 基于 Kubernetes 安装的 Rainbond 集群
+### Rainbond cluster based on Kubernetes
 
-使用 Helm 卸载 Rainbond
+Uninstall Rainbond with Helm
 
 ```bash
-helm uninstall rainbond -n rbd-system 
+help uninstall rainbond -n rbd-system 
 ```
 
-删除 Rainbond 所创建的 `PVC` `PV` `CRD` `NAMESPACE`
+Delete `PVC` `PV` `CRD` from Rainbond
 
 ```bash
 # Delete PVC
@@ -71,17 +71,17 @@ servicemeshes.rainbond.io \
 kubectl delete ns rbd-system
 ```
 
-删除 Rainbond 数据目录
+Remove Rainbond data directory
 
 ```bash
 rm -rf /opt/rainbond
 ```
 
-## 卸载 Kubernetes 集群
+## Uninstall Kubernetes Cluster
 
-### 基于主机安装的 Kubernetes 集群
+### Kubernetes cluster based on host installation
 
-使用脚本清理 Kubernetes 集群
+Use script to clean the Kubernetes cluster
 
 ```bash
 curl -sfL https://get.rainbond.com/clean-rke | bash
