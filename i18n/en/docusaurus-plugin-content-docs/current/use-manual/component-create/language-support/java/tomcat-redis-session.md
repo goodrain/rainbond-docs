@@ -3,13 +3,13 @@ title: Tomcat configures Redis to implement Session sharing
 description: how-to-use-rainbond
 ---
 
-In order to make your application withstand more concurrency and improve application stability, you need to expand the capacity when appropriate.Tomcat under each node only stores the session generated when accessing its own request. In order to solve the problem of session persistence after expansion, we provide **Java War package project using Tomcat to configure Redis to achieve session sharing** solution, share your session Stored in redis to ensure the stability of your application.
+为了使您的应用承受更多的并发，提高应用稳定性，您需要在适当情况下进行扩容。In order to make your application withstand more concurrency and improve application stability, you need to expand the capacity when appropriate.Tomcat under each node only stores the session generated when accessing its own request. In order to solve the problem of session persistence after expansion, we provide **Java War package project using Tomcat to configure Redis to achieve session sharing** solution, share your session Stored in redis to ensure the stability of your application.
 
 If you use **source code to deploy Java projects, you can configure redis to achieve session sharing**in the following two ways:
 
 ### Use Webapp-Runner or Jetty-Runner
 
-Rainbond uses [webapp-Runner](./webapp-runner) embedded tomcat or jetty-Runner embedded jetty to implement server functions.Applications can be easily deployed on Rainbond without you needing to create additional servers.The following steps can be used to achieve **configure redis to achieve session sharing**.
+Rainbond uses [webapp-Runner](./webapp-runner) embedded tomcat or jetty-Runner embedded jetty to implement server functions.Applications can be easily deployed on Rainbond without you needing to create additional servers.The following steps can be used to achieve **configure redis to achieve session sharing**.在您不创建其他服务器情况下即可轻松将应用部署在 Rainbond。通过以下步骤可实现 **配置 redis 实现 session 共享**。
 
 1. Configuration [Procfile](../procfile)：Add the following commands to your Procfile, and add Procfile to the source root directory.
 
@@ -28,7 +28,7 @@ Rainbond uses [webapp-Runner](./webapp-runner) embedded tomcat or jetty-Runner e
 
 ### Using docker images
 
-Rainbond provides a way to start an application using a custom tomcat container.The following steps can be used to achieve **configure redis to achieve session sharing**.
+Rainbond provides a way to start an application using a custom tomcat container.The following steps can be used to achieve **configure redis to achieve session sharing**.通过以下步骤可实现 **配置 redis 实现 session 共享**。
 
 1. Create a Dockerfile and write the following content：
 
