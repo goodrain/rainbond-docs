@@ -1,94 +1,94 @@
 ---
-title: 观测中心
-description: 介绍观测中心面板的功能和使用。
+title: Observation Centre
+description: Describe the functionality and use of the observatory panel.
 keywords:
-  - 观测中心
-  - observation center
+  - Observation Centre
+  - Observation center
 ---
 
-观测中心是指一组工具和数据可视化看板，用于监视、调试和分析运行在 Kubernetes 集群和 rainbond 平台中的基础设施及应用服务。它提供了一些关键功能，例如：资源监控、流量分析、集群管理、集群巡检、监控报警等，使得运维人员和开发人员可以更加有效地管理和优化部署在集群中的应用程序。
+The observatory is a set of tools and data visualization panels for surveillance, debugging and analysing infrastructure and application services operating on the Kubernetes cluster and rainbond platforms.It provides a number of key features, such as：resource monitoring, traffic analysis, cluster management, cluster patrols, surveillance alerts, etc., which allow for more effective management and optimization of applications deployed in clusters.
 
-## 主要功能
+## Main features
 
-对集群和节点进行各项资源监控，能够对日志收集和分析，跟踪和诊断应用和基础设施的性能指标，提供多种工具发现集群问题，更好的管理和优化集群，提高系统的稳定性。
-这里主要分为集群总览信息和集群详细信息两部分。
+Resource monitoring of clusters and nodes enables the collection and analysis of logs, the tracking and diagnosis of performance indicators for applications and infrastructure, the provision of a wide range of tools to identify clustering issues, better manage and optimize clusters, and improve system stability.
+This is mainly divided into clusters of overview information and cluster details.
 
-### 集群总览
+### ClusterIntegration|Cluster overview
 
-展示集群和平台中的资源监控数据、流量分布图、以及提供了大屏监控和集群管理功能入口。
+Resource monitoring data in clusters and platforms, traffic maps and access to large screens and cluster management features are shown.
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/observability/observability-all.png)
 
-#### 资源监控
+#### Resource Monitor
 
-- 统计 Kubernetes 集群的 CPU、内存、磁盘使用总量可以更方便的监控集群的性能，预防问题的发生，规划资源，节省成本，并提高集群的可靠性和可用性。
-- 统计 rainbond 平台中的团队、应用、实例数量目的在于了解平台当前资源使用状况，能对资源进行合理预估与分配。
+- The total usage of CPU, memory and disk in the Kubernetes cluster makes it easier to monitor cluster performance, prevent problems from occurring, plan resources, save costs and improve cluster reliability and availability.
+- The number of teams, applications and instances in the statistical rainbond platform is intended to understand the current resource usage of the platform and to provide a reasonable estimate and allocation of resources.
 
-#### 流量分布图
+#### Traffic profile
 
-- 识别热点：服务流量分布图可以帮助我们识别服务的热点，即最常被使用的部分。这些热点可能会导致性能问题，需要特别关注。
-- 优化性能：通过分析服务流量分布图，我们可以找到服务的瓶颈，了解服务的瓶颈位置，进而针对性地进行优化，提高服务的性能。
-- 规划容量：服务流量分布图可以帮助我们了解服务的使用情况，帮助我们规划容量，确保服务能够承受未来的负载压力。
+- Identify hotspot：service traffic maps to help us identify service hotspots, the most commonly used.These hot spots may lead to performance problems that require special attention.
+- Optimizing performance：by analysing service flow profiles, we can find out the bottlenecks of the service and understand the bottlenecks in the service so as to optimize its performance in a targeted manner.
+- Planned capacity：service traffic map helps us understand the usage of the service and helps us plan capacity to ensure that the service can withstand future load pressures.
 
-#### 其他功能
+#### Other features
 
-- 提供应用大屏和系统大屏主要为了查看集群和平台的实时使用状况，对资源的使用和分配更加明确，对排查一些性能问题很有帮助；而集群管理可以直接对目标集群进行操作，包括集群信息编辑以及节点的一些调度，标签，污点等。
+- The provision of large and system screens is mainly intended to view the real-time usage of clusters and platforms, to clarify the use and distribution of resources and to help sort out performance issues, while cluster management can operate directly on target clusters, including cluster information editing and some movement of nodes, labels, spoils, etc.
 
-### 集群详情
+### ClusterIntegration|Cluster details
 
-展示集群的详细信息，比如健康指标、组件健康数、资源使用、集群网络、节点状况等。
+Demonstrate the details of the cluster, such as health indicators, component health, resource use, cluster networks, nodes, etc.
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/observability/observability-one.png)
 
-#### 健康指标
+#### Health indicators
 
-- 健康指标通过检查 k8s 集群、rainbond 服务、运行组件、配置问题和镜像漏洞问题来反映集群综合的健康状况。
+- Health indicators reflect the integrated health status of the cluster by checking k8s cluster, rainbond services, operating components, configuration issues, and mirror gaps.
 
-#### 组件健康数
+#### Component Health
 
-- 如果集群出现网络、内存、磁盘等性能方面的问题，可能会对很多运行在集群中的组件造成影响，可以通过组件健康总数来观察情况。
+- If cluster performance problems occur in relation to networks, memory, disks, etc. they may affect many of the components operating in the cluster and can be observed through the total component health.
 
-#### 资源使用
+#### Resource Usage
 
-- 资源展示 CPU、内存的使用占比，过高会影响集群的性能和稳定性，部署在集群中的应用程序性能下降，也可能导致集群崩溃。
+- Resource display of CPU and usage of memory can affect the performance and stability of the cluster, and applications deployed in the cluster may experience a decline in performance and may cause clusters to collapse.
 
-#### 网络
+#### Network
 
-- 集群网络的稳定性也很重要，对于服务通信，节点通信以及集群通信方面有很大影响，通过网络折线图反映使用状况。
+- The stability of cluster networks is also important and has a significant impact on service communications, nodal communications and cluster communications, reflecting usage through network routes.
 
-#### 节点状况
+#### Node Status
 
-- 在集群中，每个节点的运行状况也至关重要，通过监控每个节点的资源使用情况，包括 CPU、内存、存储和状态等。可以更好地了解节点的负载情况，从而优化资源调度和管理，提高资源利用率和效率，使每个节点能正常运行。
+- The performance of each node is also critical in the cluster, by monitoring the use of resources for each node, including CPU, memory, storage and status.A better understanding of the load at the nodes would optimize resource movement and management and increase resource utilization and efficiency and allow each node to function properly.
 
-## 使用手册
+## Manual
 
-通过各项指标数据进行分析，集群和平台的健康状况和资源使用情况，合理分配资源，利用多种工具保障集群及业务的稳定性。
+The analysis is carried out through indicators and data on the health status and use of resources by clusters and platforms, the rational allocation of resources and the use of multiple tools to ensure the stability of clusters and operations.
 
-### 集群总览
+### ClusterIntegration|Cluster overview
 
-1. 统计了集群数量以及所使用的资源总量；如 CPU、内存、磁盘。
+1. Counted the number of clusters and the total resources used; e.g. CPU, memory, disk.
 
-2. 展示平台当前的使用情况，如创建的团队数量，部署的应用数量，运行的实例数量。
+2. Shows the current usage of the platform, such as the number of teams created, the number of apps deployed, the number of instances running.
 
-3. 提供了一些其他功能入口，比如应用大屏、系统大屏、集群管理等。
+3. Some other feature entrances are provided, such as large application screens, large system screens, cluster management, etc.
 
-- 应用大屏和系统大屏集成了可视化监控系统，主要也是对集群和平台的各项资源数据进行实时统计。
-- 集群管理入口可以直接对目标集群进行操作，如节点的调度、节点污点、标签的增删改查等。
+- The application of large screens and system large screens integrates visualization monitoring systems and mainly provides real-time statistics of resource data from clusters and platforms.
+- The cluster management entrance can operate directly on the target cluster, such as the movement of nodes, nodes, or the addition or deletion of labels.
 
-4. 流量结构分布图主要用于展示访问流量的流动与分布，具体链路为 `域名->应用->团队->集群`。
+4. The traffic structure map is mainly used to display the traffic and distribution of the traffic in access, with a link to \`domain name->app->team->cluster.
 
-### 集群详情
+### ClusterIntegration|Cluster details
 
-1. 展示每个集群详细的资源使用情况，例如节点数、组件数、组件健康、网络、CPU及内存的使用占比。
+1. Show detailed resource usage for each cluster, such as nodes, components, component health, network, CPU and memory usage ratio.
 
-- CPU和内存占比过高会影响集群的性能和稳定性，部署在集群中的应用程序性能下降，也可能导致节点崩溃；
-- 组件异常数一般跟部署的服务和配置有关，如果异常数很多，不排除是集群出现问题；
-- 健康指标数据来自集群巡检，根据巡检的结果分为正常、警告和异常；这里展示正常数据的占比。如果想要获取详细巡检信息，可以点击右侧集群巡检 查看。
-- 网络折线图反映集群网络带宽，根据工作负载和集群的大小而变化，需要注意的是网络带宽并不是影响集群性能的唯一因素。延迟、数据包丢失和网络拥塞等其他因素也会影响集群的性能。如果需要优化集群的网络性能，您应该考虑使用高性能的网络基础设施，例如专用的网络接口卡(NIC)或带有高速背板的网络交换机。此外，您应该配置您的网络，以便对节点之间的流量进行优先级排序，并尽量减少网络拥塞。
+- High CPU and memory ratios affect cluster performance and stability, and applications deployed in clusters are less performing and may cause nodes to collapse;
+- The number of component anomalies is generally related to the services and configuration deployed and, if the number of anomalies is high, it is not excluded that there is a problem with the cluster;
+- Health indicator data are derived from cluster inspections and are broken down into normal, warning and anomalies based on the results of the inspection; the percentage of normal data is displayed here.If you want to get detailed inspection information, you can click on the right cluster check to view.
+- The network compromise maps reflect the bandwidth of the cluster network and vary according to work load and cluster size. It is important to note that network bandwidth is not the only factor affecting cluster performance.Other factors, such as delays, loss of data packages, and congestion, also affect the performance of clusters.If you need to optimize the network performance of clusters, you should consider using high-performance network infrastructure, such as dedicated network interface cards (NIC) or network switches with high-speed backboard.In addition, you should configure your network to prioritize traffic between nodes and minimize congestion.
 
-2. 展示一个集群中所有节点的资源使用情况，例如 CPU、内存、分区、磁盘、连接数、TCP_tw、带宽等。
+2. Shows resource usage of all nodes in a cluster, e.g. CPU, memory, partitions, disks, connections, TCP_tw, bandwidth, etc.
 
-3. 提供了一些其他功能入口，比如链路追踪、全局日志、集群监控、节点监控、组件监控、服务监控、监控报警、集群巡检等。
+3. A number of other feature portals are provided, such as link tracking, global logs, cluster monitoring, node monitoring, component monitoring, service monitoring, surveillance alert, cluster inspections, etc.
 
-- 主要通过Grafana将集群数据可视化展现。
-- 集群巡检主要对 K8s 集群巡检、Rainbond 服务巡检、运行巡检、配置巡检和安全巡检等项进行检查。
+- Cluster data are visualized mainly through Grafana.
+- Cluster tours are primarily conducted for K8s cluster inspections, Rainbond service inspections, operating inspections, configuration inspections, and safety patrols.
