@@ -1,8 +1,8 @@
 ---
-title: 基于托管 Kubernetes 安装
-descrition: 该章节文档介绍基于托管 Kubernetes 集群，使用 Helm 安装 Rainbond
+title: Hosted Kubernetes Installation
+descrition: This section document describes hosting the Kubernetes cluster, installing Rainbond with Helm
 keywords:
-  - 基于托管 Kubernetes 安装 Rainbond 集群
+  - Hosted Kubernetes Install Rainbond Cluster
 ---
 
 ```mdx-code-block
