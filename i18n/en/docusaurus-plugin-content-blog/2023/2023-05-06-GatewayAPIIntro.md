@@ -1,168 +1,168 @@
 ---
-title: Kubernetes Gateway API 深入解读和落地指南
-description: Kubernetes Gateway API 是 Kubernetes 1.18 版本引入的一种新的 API 规范，是 Kubernetes 官方正在开发的新的 API，Ingress 是 Kubernetes 已有的 API。
+title: Kubernetes Gateway API in-depth reading and landing guides
+description: The Kubernetes Gateway API is a new API norm introduced in Kubernetes version 1.18. It is a new API that Kubernetes official is being developed, and Progress is an existing API for Kubernetes.
 slug: gateway-api-intro
-image: https://static.goodrain.com/wechat/gateway-api-indepth/1.png
+image: https://static.goodrain.com/wechat/gateway-api-indexpth/1.png
 ---
 
-Kubernetes Gateway API 是 Kubernetes 1.18 版本引入的一种新的 API 规范，是 Kubernetes 官方正在开发的新的 API，Ingress 是 Kubernetes 已有的 API。Gateway API 会成为 Ingress 的下一代替代方案。Gateway API 提供更丰富的功能,支持 TCP、UDP、TLS 等,不仅仅是 HTTP。Ingress 主要面向 HTTP 流量。 Gateway API 具有更强的扩展性,通过 CRD 可以轻易新增特定的 Gateway 类型,比如 AWS Gateway 等。Ingress 的扩展相对较难。Gateway API 支持更细粒度的流量路由规则,可以精确到服务级别。Ingress 的最小路由单元是路径。
+The Kubernetes Gateway API is a new API norm introduced in Kubernetes version 1.18. It is a new API that Kubernetes official is being developed, and Progress is an existing API for Kubernetes.The Gateway API will become a next generation alternative to progress.The Gateway API provides more functionality, supports TCP , UDP, TLS etc. and not just HTTP.Progress is mainly for HTTP traffic. The Gateway API is more extensive, with CRD you can easily add specific Gateway types, such as AWS Gateway etc.Expansion of Progress is relatively difficult.The Gateway API supports more meticulous traffic routing rules that can be accurate to service level.The minimum route cell for Progress is the path.
 
-Gateway API 的意义和价值:
+Meaning and value of the Gateway API:
 
-- 作为 Kubernetes 官方项目,Gateway API 能够更好地与 Kubernetes 本身集成,有更强的可靠性和稳定性。
+- As an official Kubernetes project, the Gateway API is better integrated with Kubernetes itself, with greater reliability and stability.
 
-- 支持更丰富的流量协议,适用于服务网格等更复杂的场景,不仅限于 HTTP。可以作为 Kubernetes 的流量入口 API 进行统一。
+- Support for more abundant traffic protocols for more complex scenarios such as service grids, and not only HTTP.Can be unified as the traffic entry API for Kubernetes.
 
-- 具有更好的扩展性,通过 CRD 可以轻松地支持各种 Gateway 的自定义类型,更灵活。
+- Better extension, using CRD to easily support various types of custom types of Gateway's and more flexible.
 
-- 可以实现细粒度的流量控制,精确到服务级别的路由,提供更强大的流量管理能力。
+- Flow control of fine particles, precision to service level routing and provide a stronger flow management capability.
 
-综上，Gateway API 作为新一代的 Kubernetes 入口 API，有更广泛的应用场景、更强大的功能、以及更好的可靠性和扩展性。对于生产级的 Kubernetes 环境,Gateway API 是一个更好的选择。本篇文章将深入解读 Kubernetes Gateway API 的概念、特性和用法，帮助读者深入理解并实际应用 Kubernetes Gateway API，发挥其在 Kubernetes 网络流量管理中的优势。
+On the whole, the Gateway API is a new generation of Kubernetes entry API, with wider application scenes, stronger features, and better reliability and extension.The Gateway API is a better option for the production level Kubernetes environment.This article will deepen the interpretation of the Kubernetes Gateway API concepts, features, and usages to help readers understand and actually apply Kubernetes Gateway API, taking advantage of Kubernetes network traffic management.
 
-## 发展现状
+## Current state of development
 
-### 版本现状
+### Current version status
 
-Gateway API 目前还处于开发阶段，尚未发布正式版本。其版本发展现状如下:
+The Gateway API is currently under development and has not yet been published in its official version.The current state of development is as follows:
 
-- v1beta1: 当前的主要迭代版本，Gateway API  进入了beta 版本，这意味着我们可以在生产中使用 Gateway API 能力了，目前 beta 版本仅支持 HTTP 协议， TCP 协议、UDP 协议、gRPC 协议、TLS 协议均为 alpha 版本。
+- v1beta1: The current main iterative version, the Gateway API is in the beta version, which means that we can use Gateway API capability in production. Currently beta versions only support HTTP protocols and TCP protocols, UDP protocols, GRPC protocols and TLS are all alpha versions.
 
-- v1.0: 首个正式GA版本,API稳定,可以用于生产环境。但功能还会持续完善。
+- v1.0: First official version of the GA, API is stable and can be used in the production environment.But the functionality will continue to improve.
 
-### 可用场景
+### Available Scenes
 
 下面简单整理了一下 HTTPRoute 的一些可用场景：
 
-- 多版本部署：如果您的应用程序有多个版本，您可以使用 HTTPRoute 来将流量路由到不同的版本，以便测试和逐步升级。例如，您可以将一部分流量路由到新版本进行测试，同时保持旧版本的运行。
+- Multiple versions deploy：if your app has multiple versions, you can use HTTPRoute to route traffic to different versions to test and gradually upgrade.For example, you can route some traffic to a new version for testing while keeping the old version running.
 
-- A/B 测试：HTTPRoute 可以通过权重分配来实现 A/B 测试。您可以将流量路由到不同的后端服务，并为每个服务指定一个权重，以便测试不同版本的功能和性能。
+- A/B Test：HTTPRoute can implement A/B test by weighting.You can route traffic to different backend services and assign a weight to each service in order to test different versions of functionality and performance.
 
-- 动态路由：HTTPRoute 支持基于路径、请求头、请求参数和请求体等条件的动态路由。这使得您可以根据请求的不同属性将流量路由到不同的后端服务，以满足不同的需求。
+- Dynamic route：HTTPRoute supports dynamic routes based on conditions such as path, request header, request parameter and request body.This allows you to route traffic to different backend services according to the requested properties to meet different needs.
 
-- 重定向：HTTPRoute 支持重定向，您可以将某些请求重定向到另一个 URL 上，例如将旧的 URL 重定向到新的 URL。
+- Redirect：HTTPRoute support redirect. You can redirect some requests to another URL, e.g. redirect old URL to a new URL.
 
-### 周边生态
+### Ecology around
 
-目前，尽管 Gateway API 还处于开发阶段,但已经有部分项目表示支持或计划支持Gateway API。主要包括:
+Although the Gateway API is still under development, there are already some projects that support or plan to support the Gateway API.The main ones are:
 
-- Istio 是最流行的服务网格项目之一，Istio 1.9 版本计划引入实验性的 Gateway API 支持。用户可以通过 Gateway 和 HTTPRoute 资源来配置 Istio 的 Envoy 代理。
+- Istio is one of the most popular service grid projects, version Istio 1.9 plans to introduce experimental Gateway API support.Users can configure the Envoy proxy for Isto via Gateway and HTTPRoute resources.
 
-- Linkerd 是另一个流行的服务网格项目，Linkerd 2.10 版本添加了 Gateway API 支持。用户可以使用 Gateway API 资源来配置 Linkerd 的代理。
+- Linkerd is another popular service grid project, with Gateway API support added in version 2.10.Users can use Gateway API resources to configure Linkerd proxies.
 
-- Contour 是一个Kubernetes Ingress Controller，Contour 1.14.0 版本添加 Gateway API 支持，可以使用 Gateway 和 HTTPRoute 来配置 Contour。
+- Contour is a Kubernetes Congress Controller, Version 1.14.0 that adds Gateway API support, using Gateway and HTTPRoute to configure Contour.
 
-- Flagger 是一款 Kubernetes 的蓝绿部署和 A/B 测试工具，Flagger 0.25版本添加了对Gateway API的支持，可以使用Gateway和HTTPRoute构建Flagger的流量路由。
+- Flagger is a blue green deployment and A/B test tool for Kubernetes, and version 0.25 of Flagger adds support to the Gateway API. Gateway and HTTPRoute can be used to build Flagger traffic routes.
 
-- HAProxy Ingress Controller支持Gateway API，可以使用Gateway和HTTPRoute构建HAProxy的配置。
+- HAProxy InCongress Controller supports Gateway API, using Gateway and HTTPRoute to build HAProxy.
 
-- Traefik是著名的开源边缘路由器，Traefik 2.5版本开始支持Gateway API并逐步淘汰Ingress支持。
+- Traefik is a famous open-source edge router and version 2.5 of Traefik has started to support Gateway API and phase out Ingress.
 
-除此之外，Apisix、Envoy gateway、Higress等开源项目也支持或打算支持Gateway API，各大云服务商都在积极跟进Gateway API进展，预计未来会在相应的服务中提供Gateway API支持。可以看出，尽管Gateway API还不算成熟和稳定，但由于其强大的功能和作为Kubernetes官方项目的影响力，已经获得大量项目的支持和兼容。服务网格、API网关以及各大云服务商都将是Gateway API的重点生态。
+In addition, open source projects such as Apisix, Envoy Gateway, Higress, etc. also support or intend to support the Gateway API, all major cloud service providers are actively following Gateway API progress and are expected to provide Gateway API support in their respective services in the future.As can be seen, although the Gateway API is not yet mature and stable, it has been supported and compatible with a large number of projects because of its strong functions and its influence as an official Kubernetes project.The service grid, the API gateway, and the cloud service providers will be the preferred ecology of the Gateway API.
 
-### 未来规划
+### Future planning
 
-- 完善功能和稳定性：继续完善 Gateway API 的功能和稳定性，以确保其能够应对不同场景的需求。
+- Improved functionality and stability：continues to improve the functionality and stability of the Gateway API to ensure that it responds to the needs of different scenarios.
 
-- 管理规模：针对大规模 Kubernetes 集群的需求，优化 Gateway API 的性能和扩展性，使其能够管理更多的网关和路由规则。
+- Manage size：for Kubernetes clusters, optimize Gateway API performance and extension to enable it to manage more gateways and routing rules.
 
-- 增强安全性：加强 Gateway API 的安全性，包括在传输过程中的加密、身份验证等方面，以确保网络流量的安全性。
+- Enhanced security：enhances the security of the Gateway API, including encryption, authentication and so on during transfer to ensure the security of network traffic.
 
-- 完善文档和社区支持：完善 Gateway API 的文档和社区支持，以帮助用户更好地使用和了解该项目。
+- Improved documentation and community support for：developing Gateway API documentation and community support to help users better use and understand the project.
 
-## Gateway API 规范解读
+## Gateway API Admin
 
-### 基础概念
+### Basic concepts
 
-Kubernetes Gateway API 定义了三种基本资源类型：GatewayClass、Gateway、Route 。
+Kubernetes Gateway API defines three basic resource types：GatewayClasss, Gateway, Route.
 
-- **Gatewayclass:** 一组共享通用配置和行为的 Gateway 集合，与 IngressClass、StorageClass 类似，需要知道 Gateway API 并不会创建真正的网关，真正的网关是由一些支持 Gateway API 的社区（基础设备提供商）所提供的 Controller 所创建，如 Envoy 、Istio、Nginx。GatewayClass， Gatewayclass 的作用就是绑定一个 Controller 定义一种网关类型。
-- **Gateway:** 可以说成 GatewayClass 的具体实现，声明后由 GatewayClass 的基础设备提供商提供一个具体存在的 Pod，充当了进入 Kubernetes 集群的流量的入口，负责流量接入以及往后转发，同时还可以起到一个初步过滤的效果。
-- **Route:** 真实的路由，定义了特定协议的规则，用于将请求从 Gateway 映射到 Kubernetes 服务。目前只有 HTTPRoute 进入了v1beta 版本，是比较稳定的版本，后续  TCPRoute、UDPRoute、GRPCRoute、TLSRoute 等也会陆续进入 beta 版本达到生产可用，这里将只对 HTTPRoute 进行介绍。
+- **Gatewayclass:** A set of Gateway collections that share common configurations and behaviours, similar to IngresCass and StorageClasss, needs to know that the Gateway API does not create a real gateway. The real gateway is created by a controller provided by communities that support the Gateway API (infrastructure providers), such as Envoy, Istio, Nginx.GatewayClasss, Gatewayclass's function is to bind a controller to define a gateway type.
+- **Gateway:** can be said to be the concrete implementation of GatewayClass after which a specific Pod, provided by the infrastructure provider of GatewayClasss, serves as an entry point to the Kubernetes cluster, is responsible for traffic access and forward forwarding and has an initial filtering effect.
+- **Route:** The real routing defines the rules of the specific protocol for mapping the request from Gateway to the Kubernetes service.Only HTTPRoute currently enters v1beta version, which is a more stable version, followed by TCPRoute, UDPRoute, GRPCRoute, TLSRoute etc. will enter the beta version, where only HTTPRoute will be presented.
 
-关于他们三者之间的关系，官方文档也给了一幅非常清晰的结构图，如下图所示，在我看来，图片主要强调了面向角色的特点，官方想表达意思是 GatewayClass 由基础设施供应商提供，Gateway 资源由集群工程师创建，基本环境搭建完成后，开发者便可以轻松创建 HTTPRoute 将自己的业务代理出来。
+With regard to the relationship between them, the official document also gives a very clear structural. As shown in the graph below, it is my view that the pictures mainly emphasize role-oriented features. The official wishes to express the idea that GatewayClass is provided by infrastructure providers, Gateway resources are created by cluster engineers and the basic environment is being built. The developers can easily create HTTPRoute to bring out their own business agents.
 
-![](https://static.goodrain.com/wechat/gateway-api-indepth/1.png)
+![](https://static.goodrain.com/wechat/gateway-api-indexpth/1.png)
 
-### 工作原理
+### How to Work
 
-#### 结构图
+#### Chart
 
-![](https://static.goodrain.com/wechat/gateway-api-indepth/2.png)
+![](https://static.goodrain.com/wechat/gateway-api-indexpth/2.png)
 
 #### GatewayClass
 
-通过部署 GatewayClass 绑定下游实现提供的 Controller，为集群提供一种网关能力，这里可以看作是一种注册声明吧，将你的下游实现注册到集群中供 Gateway 绑定使用。Controller 可以看作监听 Gateway 资源的 Operator。
+Controller by deploying GatewayClass downstream binding, provides a gateway capability for clusters, which can be seen as a registration statement to register you downstream for Gateway binding use.The Controller can be seen as an Operator who listens to Gateway resources.
 
 ```Bash
 spec:
-  controllerName: gateway.envoyproxy.io/gatewayclass-controller #绑定的 Controller 名称
+  controllerName: gateway.envoyproxy.io/gatewayclass-controller #bound Controller name
 ```
 
 #### Gateway
 
-Gateway 资源是一个中间层，需要定义所要监听的端口、协议、TLS 配置等信息，可以将网络流量的管理和控制集中到一个中心化的位置，提高集群的可用性和安全性。配置完成后，由 GatewayClass 绑定的 Controller 为我们提供一个具体存在 Pod 作为流量入口，需要注意的是，各家实现在此处还是略有不同，比如说 Envoy 当你创建 Gateway 资源后，Envoy Controller 会创建一个 Deployment 资源为你提供入口流量 Pod ，然而 Nginx 则是自己本身就是流量入口 Pod 不会创建新的。
+Gateway resources are an intermediate layer that need to define the portal, protocol, TLS configuration information to be listened, so that management and control of network traffic can be pooled in a centralised location that increases cluster availability and security.Once the configuration is completed, the Controller bound by GatewayClass provides us with a specific Pod as a traffic entry. Note that there is still a slight difference between your implementation here. Envoy Controller creates an employment resource that provides you access to the Pod, while Nginx is itself a traffic entry Pod that will not create a new one.
 
 ```YAML
 spec:
-  gatewayClassName: envoy #绑定的 GatewayClass 名称。
-  listeners: # 定义了一些监听项，供 Route 进行绑定
-  - allowedRoutes: #定义流量转发范围
+  gatewayClassName: envoy #bound GatewayClass name.
+  listeners: # Defined some listening items, Route binding
+  - allowedRoutes: #Defining traffic forwarding range
       namespaces:
-        from: All #允许 Gateway 往所有的 Namespace 的 Pod 转发流量。
-    name: http #监听项名称。
-    port: 8088 #监听项所占用的端口
-    hostname： www.gateway.*.com #定义一个域名，一般为泛域名、匹配来自该域名的流量。
-    protocol: HTTP #定义协议，HTTP或者HTTPS 
+        from: All #Allow Gateway to all Namespace Pod forwarding traffic.
+    name: FTP # Listening Item Name.
+    port: 8088 #listener port
+    host： www.. ateway.*. om # Defines a domain, typically a generic domain, matching traffic from that domain.
+    protocol: HTTP #Definition, TTP or HTTPS 
   - allowedRoutes:
       namespaces:
         from: All
     name: https
     port: 8443
     protocol: HTTPS
-    tls:  #为 HTTPS 配置加密协议
-      mode: Terminate #加密协议类型，Terminate 或 Passthrough
+    tls: #Configure encryption protocol for HTTPS
+      mode: Terminate #encryption protocol type, erminate or Passed through
       certificateRefs:
       - kind: Secret
         name: cafe-secret
-        namespace: default
+        name: default
 ```
 
-**协议类型：**
+**Protocol Type：**
 
-- **Terminate**：将加密的流量解密并将明文流量转发到后端服务。这种模式需要在网关处配置证书和密钥，以便对客户端和服务器之间的流量进行加密和解密，确保数据安全性。
-- \*\*Passthrough：\*\*将加密的流量原样转发到后端服务。这种模式不需要在网关处配置证书和密钥，因为 TLS 连接只在后端服务处终止。这种模式适用于需要将 TLS 流量直接传递到后端服务的场景，如需要对后端服务进行更细粒度的访问控制或流量监控的情况。
+- **Terminate**：decrypts encrypted traffic and forward the text traffic to the backend service.This mode requires that certificates and keys be configured at gateways to encrypt and decrypt traffic between clients and servers and ensure data security.
+- **Passthrough：** forward encrypted traffic samples to backend service.This mode does not need to configure certificates and keys at gateway, as TLS connection is terminated only at the backend service.This pattern applies to scenarios where TLS traffic needs to be passed directly to the backend service, such as access control or traffic monitoring for the backend service.
 
 #### HTTPRoute
 
-HTTPRoute 便跟你的业务密切相关了，在这里定义详细的规则，将流量代理到对应的业务服务上。
+HTTPRoute is closely related to your business and defines detailed rules here to proxy traffic to corresponding business services.
 
 ```YAML
 #HTTPRoute A
 spec:
-  parentRefs: #绑定 Gateway 监听项
-  - name: gateway #Gateway 资源名称
-    namespace: envoy #Gateway所在命名空间
-    sectionName: http #监听项名称
-  hostnames:  #为路由配置域名
-  - "www.gateway.example.com" #可配置泛域名,可配置多个
-  rules: #配置详细的路由规则，可配置多个，下面有对各种规则类型的详细解析
-  - matches: #匹配条件
-    - path:  #路径匹配
-        type: PathPrefix #路径类型：Exact 完全匹配/PathPrefix 前缀匹配/RegularExpression 正则匹配
+  parentRefs: #binding Gateway listener
+  - name: gateway #Gateway Resource Name
+    namespace: envoy #Gateway namespace
+    sectionName: HTML #listener name
+  hostnames: #Configure domain name
+  - www.. ateway.example. om" #Can configure a generic domain, multiple
+  rules: #Configure detailed routing rules, multiple configurations, Faced with detailed parsing
+  - matches: #matching conditions
+    - path: #path matching
+        type: PathPrefix #path type：Exact fully matches / PathPrefix regular match
         value: /gateway 
-    filters: #高级设置
-    - type: requestHeaderModifier #加工请求头
-      requestHeaderModifier: #支持 set 覆盖/add 添加/remove 删除
+    filters: #Advanced Settings
+    - type: requestHeadeer Modifier #Processing Head
+      requestHeader Modifier: #set up/add add/remove
         set:
         - name: service
           value: goodrain
-    - type: RequestRedirect #请求重定向
+    - type: RequestRedirect #Request
       requestRedirect: 
-        scheme: https # 重定向所使用的协议，http/https
-        hostname: www.baidu.com #重定向的域名
-        port: 8443 #重定向所使用的端口
-        statusCode: 301 #重定向状态码：301 永久的重定向/302 临时重定向
------------------
+        scheme: https# redirect the protocol used, ttp/https
+        hostname: www.. aidu.com#Redirected domain name
+        port: 8443 #Redirection used on port
+        statusCode: 301 #Redirected status code：301 Permanent redirect/302 Temporary redirection
+-------------------
 #HTTPRoute B
 spec:
   parentRefs: 
@@ -170,67 +170,67 @@ spec:
     namespace: envoy 
     sectionName: https
   hostnames:  
-  - "www.gateway.example.com" 
+  - "www.. ateway.example. om" 
   rules: 
   - matches: 
-    - headers: #请求头匹配
+    - headers: #request matching
       - name: service 
         value: goodrain
-    backendRefs: #后端路由
-    - name: goodrain-v1 # service 名称
-      port: 80 #service 端口
-      weight: 80 #权重
-    - name: goodrain-v2
+    backendRefs: #backend route
+    - name: goodrain-v1 # service name
+      port: 80 #service port
+      weht: 80 #weight
+    - name: Goodrain-v2
       port: 80
-      weight: 20
+      Weight: 20
 ```
 
-**规则类型：**
+**Rule type：**
 
-- **matches:** 由一个或多个匹配条件组成，这些匹配条件可以基于HTTP请求的各种属性（如请求方法、路径、头部、查询参数等）进行匹配，从而确定哪些请求应该被路由到该规则对应的后端服务。
-- **filters:** 对传入请求进行更细粒度的控制，例如修改请求的头部、转发请求到其他服务、将请求重定向到不同的URL等。它们由一组规则组成，每个规则都包含一个或多个过滤器。这些过滤器可以在请求被路由到后端服务之前或之后进行处理，以实现各种不同的功能。
-- **backendRefs:** 用来指定后端服务的引用，它包含一个后端服务的列表，每个服务由名称和端口号组成，可以使用不同的负载均衡算法，将请求路由到后端服务的其中一个实例中，实现负载均衡。
+- **matches:** consists of one or more matching conditions that can be matched on the properties of HTTP requests (such as request method, path, head, query parameters, etc.) to determine which requests should be routed to the backend service corresponding to the rule.
+- **filters:** Control of incoming requests with more fine particles, such as modifying the head of request, forwarding requests to other services, redirecting requests to different URLs, etc.They consist of a set of rules, each containing one or more filters.These filters can be processed before or after the request is routed to the backend service to perform a variety of features.
+- **backendRefs:** Specifies the reference to the backend service, which contains a list of backend services each with a name and port number that can be routed to one of the instances of the backend service and achieve a load balance using a different load balance method.
 
-深入了解以后，我们可以看出来 HTTPRoute 的用法非常的灵活，可以通过将不同的规则组合搭配，来创建一条适合我们业务的路由，就拿上面的 yaml 为例，整体流量走向如下图所示，当 http 协议的请求流量进入后，按照规则匹配，流量会向下转发到 HTTPRoute A 的路由上，HTTPRoute A 按照规则顺序，先对请求进行加工处理添加请求头，之后将请求重定向到 HTTPRoute B上，再由 HTTPRoute 将流量按照权重比例路由到对应的后端服务。
+When we understand it, we can see how the HTTPRoute uses are very flexible and can create a route suitable for our business by combining different rules combinations. Take the yaml above as an example. The overall traffic moves to the graph shown below when the requested traffic in the application of the HTTPRoute agreement is matched by the rules, the traffic is forwarded downwards to HTTPRoute A route, the HTTPRoute A process first requests in the order of the rules, then redirect the request to HTTPRoute B and then route the traffic to the corresponding backend service by HTTPRoute in proportion to weight.
 
-需要注意的是，规则集有优先级，当同时存在多个规则（rule）的时候，流量会从上往下进行匹配，只要有匹配上流量会直接代理到其对应的后端或重定向到对应的路由。
+It should be noted that the set of rules has priority and when there are multiple rules at the same time, traffic is matched up to the bottom, as long as the matching traffic is directly proxy to its backend or redirect to the corresponding route.
 
-## Gateway API 快速上手
+## Gateway API Quick Start
 
-整理一下部署思路，如果在业务中使用 Gateway API 我们都需要做什么。
+To sort out where we need to do what to do if we use the Gateway API in our business.
 
-- Kubernetes Gateway API 基础 CRD。[安装网关 API CRD地址](https://gateway-api.sigs.k8s.io/guides/#installing-gateway-api)。
-- Gateway API 下游实现，即基础设备供应商。（包含 GatewayClass 资源）[下游实现地址](https://gateway-api.sigs.k8s.io/implementations/)。
-- 创建 Gateway ，定义基础的路由方式供 HTTPRoute 选择。根据上面的字段解释自行编写。
-- 创建 HTTPRoute 设置规则绑定自己的业务。根据上面的字段解释自行编写。
+- Kubernetes Gateway API base CRD.[Installing Gateway API CRD addresses](https://gateway-api.sigs.k8s.io/guides/#installing-gateway-api).
+- The Gateway API downstream is the basic equipment provider.(Contains GatewayClass Resources)[下游实现地址](https://gateway-api.sigs.k8s.io/implementations/).
+- Create Gateway, define the basic routing method for HTTPRoute.Write yourself based on the fields above.
+- Create HTTPRoute settings rules to bind your business.Write yourself based on the fields above.
 
-下面以 Envoy 提供的 demo 为例，串一下整体流程
+Below is the example of demo provided by Envoy, a series of overall processes
 
-### 安装Gateway API CRD 和 Envoy Controller
+### Install Gateway API CRD and Envoy Controller
 
 ```Bash
-kubectl apply -f https://github.com/envoyproxy/gateway/releases/download/v0.3.0/install.yaml
+kubtl apply -f https://github.com/envoyproxy/gateway/releases/download/v0.3.0/install.yaml
 ```
 
-**查看安装效果**
+**View Installation Effects**
 
 ```Bash
-# 查看安装的 CRD 资源
-kubectl get crd |grep networking.k8s.io
+# See installed CRD resource
+kubectl get card |grep networking.k8s.io
 
-# 查看安装的 envoy controller
+# See installed envoy controller
 kubectl get pod -n envoy-gateway-system
 ```
 
-### 安装 Gateway、HTTPRoute 及示例应用
+### Install Gateway, HTTPRoute and example apps
 
 ```Bash
-kubectl apply -f https://github.com/envoyproxy/gateway/releases/download/v0.3.0/quickstart.yaml
+kubtl apply -f https://github.com/envoyproxy/gateway/releases/download/v0.3.0/quickstart.yaml
 ```
 
-#### 内部 GatewayClass 资源
+#### Internal GatewayClass Resource
 
-资源的 controllerName 属性字段配置绑定了 envoy 的 controller
+The controller of the resource's controlerName attribute field is configured to bind envoy's controller
 
 ```Bash
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -241,9 +241,9 @@ spec:
   controllerName: gateway.envoyproxy.io/gatewayclass-controller
 ```
 
-#### 内部 Gateway 资源
+#### Internal Gateway Resource
 
-资源的 gatewayClassName 属性字段配置绑定了 gatewayclass 资源名称 eg，同时提供了一个 对内监听端口为 80，协议类型为 http 的监听项。
+The resource gatewayClassName field configuration binds a gatewayclass resource name eg and provides a listener for an internal listen port of 80, protocol type for an overview.
 
 ```Bash
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -258,20 +258,20 @@ spec:
       port: 80
 ```
 
-#### 内部的 HTTPRoute 资源
+#### Internal HTTPRoute Resource
 
-资源的 parentRefs 属性字段配置绑定了 gateway 资源名称 eg。域名为 www.example.com ，代理的后端服务类型选择了 service，名称为 backend ，服务端口为 3000。
+The parentRefs attribute field configuration for the resource binds the gateway resource name.The domain named www.example.com, the proxy backend service has chosen service, called backend and the service port is 3000.
 
 ```SQL
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s. o/v1beta1
 kind: HTTPRoute
-metadata:
+metata:
   name: backend
 spec:
   parentRefs:
     - name: eg
   hostnames:
-    - "www.example.com"
+    - "www.. xample. om"
   rules:
     - backendRefs:
         - group: ""
@@ -285,66 +285,66 @@ spec:
             value: /
 ```
 
-**查看安装效果**
+**View Installation Effects**
 
 ```Bash
-# 查看安装的 gatewayclass 资源
+# See installed gatewayclass
 kubectl get gatewayclass
 
-# 查看安装的 gateway 资源
+# See installed gateway resource
 kubectl get gateway
 
-# 查看安装的 httproute 资源
-kubectl get httproute
+# See installed httpt resource
+kubectl get httpt
 
-#查看由 Controller 提供的流量入口 Pod。
-kubectl get pod -n envoy-gateway-system
+#View the traffic entry provided by the Controller.
+kubtl get pod n envoy-gateway-system
 
-#查看路由解析地址,其中 nodeport 类型的 svc 便是你的解析地址。
+#View rout parsing address, The medium nodeport type svc is your parse address.
 kubectl get svc -n envoy-gateway-system|grep LoadBalancer
 
-#访问
-curl --resolve www.example.com:31830:xx.xxx.xx.xxx --header "Host: www.example.com"  http://www.example.com:31830/get                                           
+#Visit
+curl --resolution www.. xample.com:31830:xx.xx.xxx.xxxx --header "Host: www.example.com" http://www. xample. om:31830/get                                           
 ```
 
-## Gateway API 生产指南
+## Gateway API Production Guide
 
-Gateway API使用到生产需要考虑易用性、可管理性和稳定性因素：
+Gateway API for production requires consideration of usability, manageability and stability factors：
 
-- **易用性**：Gateway API扩展了很多配置内容，如果直接写yaml上手难度较大，而且容易出错，所以需要有一个基于UI的管理工具。
-- **可管理性**：Gateway API支持分角色管理和使用，跟平台工程的思路一致，但要用到生产需要有一个分权限和角色的平台。
-- **稳定性**：Gateway API当前的实现中，Envoy 和 Nginx可以用到生产环境。
+- **Accessibility**：Gateway API expands many configurations and needs a UI-based management tool if it's difficult to write directly to yaml and it is easy to go wrong.
+- **Administrative**：Gateway API supports role management and use, consistent with platform engineering, but requires a platform with decentralized permissions and roles to be used for production.
+- **Stability**：Gateway API is currently being implemented, Envoy and Nginx can be used in the production environment.
 
-基于以上因素，在生产环境需要Gateway API的管理工具，当前相对成熟的工具可以选择Rainbond，它运行Kubernetes基础上，它也是平台工程的设计思路，提供web界面管理Kubernetes的资源，包括Gateway API，对使用者不需要写Yaml文件，能区分管理员角色和普通开发者角色，管理员可以通过管理界面安装兼容的Gateway API的实现，比如Envoy和Nginx，安装好的网关，普通开发者只需要配置业务的路由就可以使用，不用关心是哪一种实现。
+Based on the above, the production environment requires Gateway API management tools, currently relatively sophisticated tools can select Rainbond, which runs Kubernetes and provides a design idea for the platform project, providing web-interface to manage Kubernetes resources, including the Gateway API, no need for users to write Yaml files, no distinction between administrator and normal developer roles. Administrators can install compatible Gateway API implementation via the management interface, such as Envoy and Nginx, where good gateways are installed, and the normal developer can use only routing needs to configure operations without concern about which of them.
 
-**具体落地过程：**
+**Specific Landing Process：**
 
-### 在Kubernetes上安装Rainbond
+### Install Rainbond on Kubernetes
 
-参考安装文档： [基于 Kubernetes 安装 Rainbond ](https://www.rainbond.com/docs/installation/install-with-helm/)
+Reference install document： [based on Kubernetes install Rainbond ](https://www.rainbond.com/docs/installation/install-with-helm/)
 
-### 管理员安装Gateway API的网关实现
+### Administrator install Gateway API gateway implementation
 
-通过Rainbond提供的应用市场，搜索 GatewayAPI会出来三个应用，先安装GatewayAPI-Base，再安装GatewayAPI-Envoy或Gateway-Nginx，当然也可以两个都装。
+Through the Marketplace provided by Rainbond, the GatewayAPI will come out of three apps, first with GatewayAPI-Base, and then with GatewayAPI-Envoy or Gateway-Nginx, both of which can be installed.
 
-![](https://static.goodrain.com/wechat/gateway-api-indepth/3.png)
+![](https://static.goodrain.com/wechat/gateway-api-indexpth/3.png)
 
-### 管理员配置 Gateway  API的资源
+### Administrators configure Gateway API resources
 
-在`平台管理 / 扩展 / 能力` 点击对应资源的编辑，配置Gateway 和 GatewayClass资源。
+Click on the editor of the `Platform Administration/Extension/Capability` to configure Gateway and GatewayClass resources.
 
-![](https://static.goodrain.com/wechat/gateway-api-indepth/4.png)
+![](https://static.goodrain.com/wechat/gateway-api-indexpth/4.png)
 
-### 开发者配置业务路由
+### Developer Configure Business Routes
 
-开发者在自己开发的应用中配置网关，如果同时安装多个网关实现，可以先选择网关类型，然后通过界面配置 HTTPRoute 字段。
+The developer configures the gateway in its own development app. If multiple gateways are installed at the same time, you can first select the gateway type and then configure the HTTPRoute field via the interface.
 
-![](https://static.goodrain.com/wechat/gateway-api-indepth/5.png)
+![](https://static.goodrain.com/wechat/gateway-api-indexpth/5.png)
 
-**补充说明：**
+**Supplemental：**
 
-- Rainbond当前版本只支持HTTPRoute，其他类型的Route暂时不支持；
+- The current version of Rainbod only supports HTTPRoute, other types of Route are temporarily unsupported;
 
-- 从Rainbond应用市场只能安装 Envoy和Nginx两种网关实现，要支持更多网关实现需要Rainbond先支持或自己制作插件；
+- Only Envoy and Nginx gateways can be installed from the Rainbow Marketplace. Rainbod is required to support more gateway;
 
-- 资料参考：[Rainbond 的 Gateway API 插件制作实践](https://www.rainbond.com/blog/gatewayapi)。
+- Reference to：[Gateway API plugin production practice for Rainbond (https://www.rainbond.com/blog/gatewayapi).
