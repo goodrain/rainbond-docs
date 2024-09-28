@@ -9,7 +9,7 @@ description: Deploy the Helm application in Rainbond according to the documentat
 
 开始之前，你需要满足以下条件：
 
-1.已对接[Helm 应用商店](./docking_helm_store)  
+1.已对接[Helm 应用商店](./docking_helm_store)\
 2.拥有一个可用的团队
 
 ### 操作流程
