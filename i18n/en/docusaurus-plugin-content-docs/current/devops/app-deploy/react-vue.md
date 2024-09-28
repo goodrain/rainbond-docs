@@ -1,9 +1,9 @@
 ---
-title: Vue React front-end project deployment
+title: Vue React 前端项目部署
 description: Deploy the Vue React front-end project in Rainbond
 keywords:
-- Rainbond 部署 Vue React 前端项目
-- Vue React 前端项目部署
+  - Rainbond 部署 Vue React 前端项目
+  - Vue React 前端项目部署
 ---
 
 import Bvideo from '/src/components/Bvideo';
@@ -56,19 +56,19 @@ server {
 
 ## 部署示例
 
-* Vue Demo: https://gitee.com/zhangbigqi/vue-demo
-* React Demo: https://gitee.com/zhangbigqi/react-demo
+- Vue Demo: https://gitee.com/zhangbigqi/vue-demo
+- React Demo: https://gitee.com/zhangbigqi/react-demo
 
 ### 源码部署 Vue Or React 项目
 
 1. 基于源码创建组件，填写以下信息：
 
-|              | 内容                                 |
-| ------------ | ------------------------------------ |
-| 组件名称     | 自定义                               |
-| 组件英文名称 | 自定义                               |
-| 仓库地址     | `https://gitee.com/zhangbigqi/vue-demo.git` or `https://gitee.com/zhangbigqi/react-demo` |
-| 代码版本     | main                    |
+|        | 内容                                                                                       |
+| ------ | ---------------------------------------------------------------------------------------- |
+| 组件名称   | 自定义                                                                                      |
+| 组件英文名称 | 自定义                                                                                      |
+| 仓库地址   | `https://gitee.com/zhangbigqi/vue-demo.git` or `https://gitee.com/zhangbigqi/react-demo` |
+| 代码版本   | main                                                                                     |
 
 2. 选择为 Node 前端项目并指定使用 Npm 还是 Yarn 构建项目。
 3. 在组件构建源中切换 Node 版本至 `16.15.0` 保存并构建。
