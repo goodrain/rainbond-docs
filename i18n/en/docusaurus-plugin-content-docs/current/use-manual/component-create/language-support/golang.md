@@ -24,12 +24,12 @@ In this step, you need to provide an available Go source code program for deploy
 
 ### -->### Compile the specified module
 
-If there are multiple services in the current project, it can be compiled into multiple binaries, or the main file is not in the main code directory.In golang, one package and one service are usually used under the cmd path.At this time, the above method cannot be compiled and run correctly.golang 中通常使用 cmd 路径下一个包一个服务。这时按照上述方式还不能正确的进行编译和运行。
+If there are multiple services in the current project, it can be compiled into multiple binaries, or the main file is not in the main code directory.In golang, one package and one service are usually used under the cmd path.At this time, the above method cannot be compiled and run correctly.The cmd path next package is usually used in golang.The compilation and operation could not be properly done at this time.
 
 Add `BUILD_GO_INSTALL_PACKAGE_SPEC` variable to the environment variable to define the entry path of the component compilation package, for example：
 
 ```bash
-BUILD_GO_INSTALL_PACKAGE_SPEC=goodrain.com/app-store/cmd/manage-server
+BUILD_GO_INSTAL_PACKAGE_SPEC=goodrain.com/app-store/cmd/manage-server
 ```
 
 Where `goodrain.com/app-store` is the main name of the project, which is consistent with `module` in go.mod.
@@ -54,7 +54,7 @@ For a project that is compiled with a specified module, the following definition
 web: bin/manage-server
 ```
 
-其中 `manage-server` 就是默认的 cmd 目录下服务子目录路径。二进制文件统一存放于 bin 目录下。
+`manage-server` is the default cmd directory path to service subdirectory.Binary files are stored uniformly in the bin directory.
 
 ### Compile and run environment settings
 
