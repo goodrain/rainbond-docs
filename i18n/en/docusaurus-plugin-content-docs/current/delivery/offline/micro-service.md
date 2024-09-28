@@ -2,137 +2,137 @@
 title: Microservices architecture delivered offline
 description: Rainbond enables offline delivery of microservice applications in an offline environment
 keywords:
-  - 离线交付
-  - toB 离线交付
+  - Offline delivery
+  - toB offline delivery
   - toB offline delivery
 ---
 
-import Bvideo from '/src/components/Bvideo';
+Import Bvideo from '/src/components/Bvideo';
 
 <Bvideo src="//player.bilibili.com/player.html?aid=524437005&bvid=BV1zM411n7UZ&cid=1011041349&page=2" />
 
-## 离线交付的痛点
+## Offline Pain
 
-在传统行业，如政府、能源、军工、公安、工业、交通等行业，为了防止数据泄露和运行安全考虑，一般情况下网络会采取内外网隔离的策略，以防范不必要的风险，毕竟在安全防护方面，网络物理隔离是网络安全防御最有效的手段，而网络隔离在软件交付过程中，对于外部软件开发厂商来说将会带来一系列的交付难题，也增加大量成本投入。例如：
+In traditional industries such as government, energy, military labour, public security, industry, transport and so forth, in order to prevent data leakage and operational safety, the network generally adopts an internal and external network isolation strategy to guard against unnecessary risks. After all, in terms of safety and security, network physical isolation is the most effective means of cybersecurity defense, while network isolation in software delivery presents a range of delivery challenges and substantial additional cost inputs for external software developers.e.g.：
 
-**环境网络限制，影响交付效率**
+**Environmental network restrictions, affecting delivery efficiencies**
 
-在交付过程中不能方便查找资料，网络限制会影响协作工具的使用，有些客户环境甚至不能带手机，会影响解决问题的效率，环境越复杂影响越大；交付完成后，应用需要持续运维，保障运行稳定性和功能持续可用，在网络无法联通的情况下，出任何问题都需要安排人员现场支持，甚至需要安排人员长期驻场。
+The lack of easy access to information in the delivery process, network restrictions can affect the use of collaborative tools, some client environments even without mobile phones, the more complex the environment will become; after delivery, applications will need to be sustained and ensure stability and continuity of functionality, and in cases where networks are inaccessible, any problems will require on-site support and even a permanent presence of personnel.
 
-**客户基础设施差异，需要适配过程**
+**Differences in client infrastructure that require adaptation**
 
-在私有化场景，不同客户的安装环境也不一样，有些使用物理服务器，有些使用虚拟机，不同的虚拟机厂商也有差异。操作系统也各有不同，例如常见的操作系统有CentOS/Debian/Ubuntu/Redhat，当前还有很多国产化操作系统。CPU架构也可能不同，有X86、ARM等；因此交付的应用需要很重的适配过程，要么在公司适配，要么在客户现场适配。由于环境差异很大，应用交付完需要完整测试和验证，需要大量的人力和时间投入；
+The installation environment varies from client to client in privatization scenarios, some using physical servers, some using virtual machines, and different virtual machine manufacturers.Operating systems also differ, such as the common operating systems of CentOS/Debian/Ubuntu/Redhat and the current multi-country production operating systems.CPU structures may also be different, with X86, ARM, etc.; therefore delivery of applications requires a heavy matching process, either in the company or on the customer site.Due to the high environmental variations, complete testing and validation of the application is required and significant human and time investment is required;
 
-**交付人员的技术门槛高**
+**Technical threshold for delivery**
 
-交付人员需要懂底层硬件和网络、操作系统和系统运维，需要懂服务治理、高可用、安全、性能分析、备份恢复、交付开发等。
+Delivery personnel need to understand bottom hardware and networks, operating systems and system performance, governance, high availability, safety, performance analysis, backup recovery, delivery development, etc.
 
-## 交付技术发展历程
+## Advances in delivery technology
 
-交付技术大致有以下三个发展阶段：`传统应用交付->云原生技术应用交付->面向未来的云原生应用模型交付`。从传统软件包的交付模式，逐渐过渡到以 Docker、Kubernetes 为代表的云原生技术交付阶段。
+The delivery technology has three development phases,：\`Traditional Application Delivery - >Cloud Native Technology Application Delivery - >Future-Oriented Cloud Native Application Model Delivery'.The transition from the delivery pattern of traditional software packages to the cloud-origin technology delivery phase, represented by Docker and Kubernetes.
 
-而未来，一定是以应用为中心的交付模式，在应用级抽象和包装底层复杂的技术，使得应用模型跟底层基础设施完全解耦，根据对接和交付的基础设施不同，自动转换和适配，真正实现一次开发，处处自动化部署。
+In the future, it must be an application-centred delivery model, with complex techniques in the application abstraction and packaging at the bottom of the bottom that will fully decouple the application model with the underlying infrastructure, automatic conversion and matching depending on the interface and delivery infrastructure, a real development that will be deployed automatically.
 
 <details>
-<summary>1. 传统应用交付</summary>
+<summary>traditional app delivery</summary>
 
-- **二进制的可执行文件：** java 的Jar，Linux 的可执行文件，windows的exe等。
-- **软件包：** CentOS 使用 RPM 包，Debian 使用 DEB 包，Java Web 使用 WAR 包。
+- **Binary executable：** java Jar,Linux executable, windows' exe, etc.
+- **Package：** CentS uses RPM packages, Debian uses DEB packages, Java Web uses WAR packages.
 
-安装他们都需要先安装依赖的环境和基础软件，YUM 和DEB 有自己的管理依赖的软件源，但离线环境用不了，如果客户的操作系统不同，还需要另外想办法解决，运行这类服务为了解决启动和自动重启的问题，还需要通过 systemd 或 supervisor 的方式来管理。如果交付单体架构的应用传统应用交付方式还能胜任，但如果是复杂的微服务架构，传统应用交付方式将难以胜任。
+Installation requires the installation of the dependent environment and underlying software, the YUM and DEB have their own management dependencies, but the offline environment cannot be used and if the customer's operating systems are different, additional solutions need to be found and the operation of such services needs to be managed in a systemd or supervisory manner in order to solve problems of startup and automatic restart.If the application of the monolithic architecture still works well, but if it is a complex micro-service structure, it will be difficult for traditional applications to deliver.
 
-在传统应用交付过程中，管理这些运行环境和操作系统差异是一个痛点，容器的出现解决了这个问题。
+Managing these operating environments and operating system differences is a painful point in the delivery of traditional applications, and the emergence of containers has resolved this problem.
 
 </details>
 
 <details>
-<summary>2. 云原生技术应用交付</summary>
+<summary>2. Cloud native technology app delivery</summary>
 
-云原生应用交付主要使用容器和 Kubernetes 相关技术。
+Cloud native apps use mainly the container and Kubernetes related technology.
 
-### Docker 镜像交付
+### Docker Mirror Delivery
 
-Docker 将业务和依赖的库一起打包成 Docker 镜像，在这个镜像中包含所有环境和应用，这样就可以达成一处打包、到处使用，我们可以将该镜像在任何支持 Docker 的操作系统上运行。Docker 的特性的确解决了很多开发、交付以及其他许多问题，因此 Docker 容器概念迅速的被普及。
+Docker packs the business together with the dependent library into a Docker mirror, which contains all environments and applications, so that you can get a pack and use everywhere, and we can run the image on any operating system that supports the Docker.The Docker character did solve many development, delivery, and many other problems, so the Docker Container concept was rapidly popular.
 
-在微服务架构场景，需要多个服务或应用一起交付，服务之间有依赖，还有复杂的配置，Docker-Compose解决了这个问题。
+In the microservice architecture scenario, multiple services or applications are required to deliver together, services are dependent, and complex configurations, which Docker-Compose solves.
 
-### Docker-Compose应用交付
+### Docker-Composer App Delivery
 
-docker-compose 将多个服务或应用使用 YAML 的方式管理，可以利用docker-compose命令安装部署和管理，对于一个微服务架构的应用，利用docker-compose命令就可以在任何操作系统实现一键安装和运行，当然前提是需要安装好Docker 和 docker-compose。
+Docker-compose will be managed using YAML for multiple services or apps. Deployment and management can be installed using docker-compose. For an application of a microservice architecture, a docker-compose command can be installed and run one click on any operating system, provided that Docker and docker-compose are installed.
 
-对于单机场景docker-compose可以适用，当应用需要高可用或多节点分布式部署，docker-compose就不能胜任，Kubernetes的出现解决了容器的高可用和分布式调度问题。
+For a single airfield docker-compose, docker-compose is not appropriate when applications require high-availability or nodal distribution deployments, and the emergence of Kubernetes solves the high availability and distribution of containers.
 
-### Kubernetes YAML应用交付
+### Kubernetes YAML app delivery
 
-在 Kubernetes 中部署业务我们需要定义 Deployment Statefulset Service 等资源类型，通过调整副本的方式 Kubernetes 会自动调度到多个节点实现业务高可用，在交付时我们只需要将这些 YAML 资源和 Image 导出，在客户的 Kubernetes 环境中部署并交付给客户。这种交付方式需要客户环境有Kubernetes或在客户环境安装Kubernetes。
+Deploy in Kubernetes we need to define the type of resources such as the Employment Statefulset Service, use Kubernetes to automatically deploy to multiple nodes by adjusting copies. We just export these YAML resources and Images to deploy and deliver them to customers in their Kubernetes environment.This mode of delivery requires Kubernetes or Kubernetes to be installed in the customer environment.
 
-当我们将Kubernetes YAML交付很多客户的时候，就需要参数配置、版本管理和简单的安装和升级，Helm在Kubernetes YAML的基础上解决了上述问题。
+When we delivered Kubernetes YAML to a large number of customers, we needed parameters configuration, version management and simple installation and upgrading. Helm resolved this problem on the basis of Kubernetes YAML.
 
-### Helm 应用交付
+### Helm App Delivery
 
-Helm 是 Kubernetes 资源的包管理器，它可以将一组资源定义成 Helm Chart 模版，提供了基于 Helm Chart 模块的安装和升级，安装时可以配置不同的参数。Helm 同样也是在 Kubernetes 交付中大多数人选择的工具。
+Helm is a package manager of Kubernetes resources that defines a set of resources as Helm Chart templates, provides installation and upgrades based on Helm Chart modules, which can configure different parameters when installed.Helm is also a tool chosen by most people in Kubernetes delivery.
 
-Helm最大的问题是需要开发者学习容器和Kubernetes整个技术栈，而且客户环境必须要有Kubernetes，学习和使用的门槛太高。抽象的应用模型是一个解决方案。
+The biggest problem for Helm is the need for developers to learn the container and the entire technological stack for Kubernetes and the need for Kubernetes to have a high threshold for learning and use.The abstract application model is a solution.
 
 </details>
 
 <details>
-<summary>3. 面向未来的云原生应用模型交付</summary>
+<summary>3. Delivery of the cloud native application model for the future</summary>
 
-应用模型强调以应用为中心的理念，让开发者专注在业务本身，在应用级抽象和包装底层复杂的技术，应用模型跟底层基础设施完全解耦，根据对接和交付的基础设施不同，自动转换和适配，真正实现一次开发，处处自动化部署。
+The application model emphasizes an application-centred concept, allowing developers to focus on business per se, application of abstraction and complex techniques at the bottom of the packaging, full decoupling of the underlying infrastructure, automatic conversion and matching based on the infrastructure of interface and delivery, real development and automatic deployment everywhere.
 
-### 基于OAM的KubeVela应用交付
+### OAM-based KubeVela app delivery
 
-OAM（Open Application Model） 是一个描述应用的标准规范。有了这个规范，应用描述就可以彻底与基础设施部署和管理应用的细节分开。通过将应用定义与集群的运维能力分离，可以让应用开发者更专注于应用本身，而不是”应用部署在哪“这样的运维细节。KubeVela基于OAM实现了应用跨云、跨环境持续交付。当前KubeVela对离线场景的应用交付支持较弱。
+OAM(Open Application Model) is a standard norm that describes the application.With this norm, the description of the application can be completely separate from the details of the infrastructure deployment and management applications.By separating the application definition from cluster capacity, the app developers can be more focused on the application itself, rather than on the “details of such dimensions where the application is deployed.KubeVela has implemented cross-cloud-to-environment delivery based on OAM.Application delivery support for offline scenes is currently weak in KubeVela.
 
-### 基于RAM的Rainbond应用交付
+### RAM-based Rainbod app delivery
 
-Rainbond 是一个云原生应用多云管理平台，Rainbond 遵循以应用为中心的核心理念，统一封装容器、Kubernetes 等复杂技术，将 Kubernetes 资源统一抽象成 RAM（Rainbond Application Model）应用模型，使用户能非常简单的使用 Kubernetes，降低用户使用的门槛，使用户专注于应用开发、应用交付和应用运维。
+Rainbond is a cloud application multi-cloud management platform, Rainbond follows an application-based nuclear philosophy, unifies encapsulation containers, Kubernetes and other complex technologies, unifies Kubernetes resources into RAM (Rainbond Application Model) application models, allows users to use Kubernetes very simply, reduces the threshold used by users and focuses on application development, application delivery and application viability.
 
-在对于离线交付场景，Rainbond基于RAM可以导出三种离线交付包：
+For offline delivery scenario, Rainbod can export three offline delivery packages： based on RAM
 
-- **Rainbond应用模版包**，其中包含了复杂微服务架构交付的所有要素，支持升级和回滚，但要求客户环境安装Kubernetes和Rainbond；
-- **非容器的软件包**，非容器包按照传统应用交付方式打包，但易用性更好，包中包含了环境依赖，并采用静态编译，适合大多数操作系统，使用 Systemd 管理；
-- **Docker-Compose离线包**，支持在标准Docker Compose 环境一键启动和管理；
+- **Rainbod application template package** containing all elements of complex micro-service framework delivery, supporting upgrades and rollbacks, but requiring customer environments to install Kubernetes and Rainbond;
+- **Non-container-based packages** are packaged according to the traditional application delivery method, but are more user-friendly and include environmental dependencies and static compilations for most operating systems, using Systemd management;
+- **Docker-Compose** supports launch and management on the standard Docker Compose Environment;
 
 </details>
 
-## 使用 Rainbond 实现微服务架构的离线交付
+## Use Rainbond to achieve offline delivery of the micro-service architecture
 
-使用 Rainbond 交付流程如下图所示，当在开发环境开发好不同的微服务架构应用后，经过完整测试验证功能没有问题后。即可以应用模版的形式一键发布至本地应用市场，形成 1.0 版本。接下来可以将其导出完整的 Rainbond 应用模版包。其中包含了复杂微服务架构交付的所有要素。
+Using Rainbond delivery processes as shown in the graph below, when different micro-service architecture applications are developed in the environment, there is no problem with the full testing test functionality.This means you can apply the template in one click to the local Marketplace for version 1.0.Then you can export the full Rainbond application template package.It contains all the elements of delivery of the complex micro-service architecture.
 
-接下来在客户环境一键导入该应用模版包，通过一键安装即可完成交付。当在客户环境出现问题时，还可以在开发环境修改后，发布 1.1 版本。重复以上流程，用户即可完成应用的一键升级。后续也可以基于该应用模版实现整个应用的回滚。
+The app template package will then be imported in the client environment. You can complete delivery by installing one button.Version 1.1 can also be published after the development environment has been modified when there is a problem with the customer environment.Repeating the above processes, users can complete the one click upgrade of the application.Follow up to implement the entire app rollback based on the application template.
 
 ![offline-delivery](https://static.goodrain.com/docs/5.11/delivery/offline/offline-delivery.png)
 
-## 操作步骤
+## Action step
 
-### 准备工作
+### Preparatory work
 
-1. 拥有两套 Rainbond 集群，模拟开发环境及交付环境(开发环境为在线环境，交付环境为离线环境)。
+1. Having a cluster of ammunition Rainbond that simulates the development environment and the delivery environment (developing environment as online and delivering as offline).
 
-2. 开发环境安装，参考[快速安装](/docs/quick-start/quick-install)，交付环境安装，参考[离线安装](/docs/installation/offline/)。
+2. Development environment installation, reference[快速安装](/docs/quick-start/quick-install), delivery for environmental installation, reference[离线安装](/docs/installation/offline/).
 
-3. 在开发环境已有正常运行的应用，可参考[快速入门](/docs/quick-start/getting-started)。
+3. There are already functioning apps in the development environment, reference[快速入门](/docs/quick-start/getting-started).
 
-### 制作应用模版
+### Make Application Template
 
-1. 在应用拓扑图页面左侧，选择 `发布->发布到组件库`， 即可进入模版设置页面。各个参数详细说明参考[附录1: 模版设置页面参数说明](/docs/delivery/app-model-parameters)
+1. On the left side of the Apps Popup page, go to the template settings page by selecting `Post->Publish to the component library`.Details for each parameter [Appendix 1: Template Settings Parameters](/docs/delivery/app-model-parameters)
 
-2. 新建一个应用模版，可选择发布范围为企业，设定好发布的版本，点击`提交`，接下来将会同步所有组件的镜像，推送到本地镜像仓库中。同步完成后，点击`确认发布`，即发布完成。接下来在 `平台管理->应用市场->本地组件库`，即可看到发布好的应用模版。
+2. Create an app template that selects the release range to the enterprise and sets the release version, click `Sub` and will then synchronize the image of all components to the local mirror repository.Once syncing is finished, click `Confirm Posting`.Then you can see the published app template in \`Platform Manager-> App Marketplace -> Local Component Library'.
 
 :::caution
-注：仅有企业管理员可以看到平台管理按钮。
+Note：Only company administrators can see platform management buttons.
 :::
 
-### 导出应用模版
+### Export Application Template
 
-1. `平台管理->应用市场->本地组件库`中，在刚刚发布完成的应用模版最右侧，选择`导出应用模版`，你可以选择需要导出的版本，和导出哪种类型的包。这里我们选择`应用模型规范`，点击`导出`。这个包将包含应用完整的运维特性，用于持续交付和升级。
+1. `Platform manage->Marketplace->Local Component Library', selects `Export App Template`. You can select the version to export and the type of package to export.Here we choose `Apply Model Norms`, click `Export\`.This package will contain complete shipping features for continued delivery and upgrading.
 
-2. 导出完成后，将应用模版下载到本地，保存至U盘/光盘等移动存储设备中，带到离线交付环境中去。
+2. After the export is completed, download the app template to local and save it to mobile storage devices such as UDs/CD-ROMs and take it to offline delivery environments.
 
-### 离线环境中交付应用
+### Delivery app in offline environment
 
-1. 在已经部署好 Rainbond 的离线环境中，我们先打开`平台管理->应用市场`，选择`离线导入`，上传刚刚下载好的应用模版。上传完成后，点击`确认导入`。
+1. In an offline environment where Rainbond has been deployed, we open the `Platform Manager -> App Marketplace`, choose `Offline Import` and upload the just downloaded app template.After uploading, click `confirm import`.
 
-2. 等待导入完成后，会自动跳转回`应用市场`。在导入完成的应用模版后，点击安装，即可一键部署该业务系统，该环境业务运行环境与开发环境完全一致，到此完成离线环境下的软件交付。
+2. Once the import is completed, you will automatically jump back to the \`App Marketplace'.Once you have imported the completed application template, you can deploy the business system by clicking on the installation, which is fully compatible with the development environment and thus completes the software delivery in the offline environment.
