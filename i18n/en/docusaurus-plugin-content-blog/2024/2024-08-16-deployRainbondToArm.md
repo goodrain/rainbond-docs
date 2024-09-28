@@ -1,42 +1,42 @@
 ---
-title: 信创环境：鲲鹏ARM+麒麟V10离线部署K8s和Rainbond信创平台
-description: 在上篇国产化信创开源云原生平台文章中，我们介绍了 Rainbond 作为可能是国内首个开源国产化信创平台，在支持国产化和信创方面的能力，并简要介绍了如何在国产化信创环境中在线部署 Kubernetes 和 Rainbond。
-slug: deployRainbondToArm
+title: Creativity Environments：Super ARM+Licorne for the offline deployment of K8s and Rainbond Creative Platforms
+description: In our last paper on the Ninational Platform of Creative Creative Creative Origin of Nationality, we described Rainbond as a potentially first domestic open-source national confidence-building platform to support national production and confidence creation, and also outlined how to deploy Kubernetes and Rainbond online in the context of national productive confidence-creation.
+slug: employee RainbondToArm
 ---
 
-在上篇[《国产化信创开源云原生平台》](https://mp.weixin.qq.com/s/0ywRmYrNBrsDtPYDYdrrfw)文章中，我们介绍了 Rainbond 作为可能是国内首个开源国产化信创平台，在支持国产化和信创方面的能力，并简要介绍了如何在国产化信创环境中在线部署 Kubernetes 和 Rainbond。
+In the previous article [Nippon Foundation for the Creative Origin of Nationality] (https://mp.weixin.qq.com/s/0ywRmYrNBrsDtPYDYDrfw), we described the capabilities of Rainbond as a potentially first domestic open-source national information generation platform to support nationalization and confidence-building, and outlined how to deploy Kubernetes and Rainbond online in the national productive confidence-building environment.
 
-然而，对于大多数国产化信创环境，如银行、政府等机构，离线部署的需求更为普遍。值得注意的是，Rainbond 官网文档目前仅提供了在已有 Kubernetes 环境中离线部署 Rainbond 的指南。那么，为什么我们不提供离线部署 Kubernetes 的文档呢？Rainbond 开源社区与其他开源社区不同，Rainbond 始终对每一位开源用户提出的问题负责，并积极帮助解决问题。然而，这无疑会为社区支持团队带来额外的工作负担，特别是在处理本不属于 Rainbond 范畴的问题时。
+However, the demand for offline deployment is more common for most national credit-producing environments, such as banks and governments.It is noteworthy that the Rainbond official web file currently provides only guidelines for the offline deployment of Rainbond in an existing Kubernetes environment.Why, then, do we not provide documentation for the offline deployment of Kubernetes?Unlike other open source communities, Rainbond has always been responsible for the issues raised by each open-source user and has been active in helping to resolve them.However, this would undoubtedly place an additional burden on community support teams, especially when dealing with issues that would not otherwise fall within the framework of Rainbod.
 
-因此，本篇文章将详细介绍如何在国产化信创环境下部署 Kubernetes 以及 Rainbond，希望能够为用户提供实用的指导，减少在部署过程中的困扰。
+This article will therefore provide detailed information on how Kubernetes and Rainbond are deployed in the context of national production of trust and will, hopefully, provide practical guidance to users to reduce difficulties in the deployment process.
 
-![](https://static.goodrain.com/wechat/xinchuang/server.png)
+![](https://static.goodrain.com/wechat/xinchanang/server.png)
 
-## 准备离线镜像和安装包
+## Preparing offline mirrors and installation packages
 
-在有网的 Arm 环境中准备以下镜像和安装包。
+The following mirrors and packages are prepared in a web Arm environment.
 
-### Docker 离线包
+### Docker Offline Pack
 
-下载 Docker 离线安装包和离线安装脚本。
+Download docker offline installation packages and offline installation scripts.
 
 ```bash
 wget https://pkg.rainbond.com/offline/docker/docker-arm-20.10.9.tgz
 wget https://get.rainbond.com/install_docker_offline.sh
 ```
 
-### Kubernetes 离线包
+### Kubernetes Offline Pack
 
-本次部署 K8s 版本为 `v1.23.10`，采用 Rancher Kubernetes Engine 简称 RKE，是一个经过 CNCF 认证的 Kubernetes 安装程序。
+This deployment is version `v1.23.10`, using Rancher Kubernetes Engine RKE, a Kubernetes installation certified by CNCF.
 
-在 Arm 环境中获取以下离线包。
+Get the following offline packages in the Arm environment.
 
 ```bash
-# Kubectl和 Helm 二进制文件
+# Kubectl and Helm Binary File
 wget https://pkg.goodrain.com/pkg/kubectl/v1.23.10/kubectl-arm -O kubectl
-wget https://pkg.goodrain.com/pkg/helm/v3.10.1/helm-arm64 -O helm
-# RKE安装二进制文件
-wget https://pkg.goodrain.com/pkg/rke/v1.3.15/rke-arm -O rke
+wget https://pkg.goodrain.com/pkg/helm/v3.10.1/helm-arm64-O helm
+# RKE install binary File
+wget https://pkg.goodrain.com/pkg/rke/v1.3.15/rke-O rke
 ```
 
 ```bash
@@ -67,9 +67,9 @@ done
 docker save -o rke-images.tar ${image_list}
 ```
 
-### Rainbond 离线包
+### Rainbond Offline Pack
 
-在有网络的环境下提前准备好 Rainbond 所需的镜像。
+Prepare the mirrors needed for Rainbond ahead of time in a network environment.
 
 ```bash
 #!/bin/bash
@@ -104,55 +104,55 @@ done
 docker save -o rainbond-"${VERSION}".tar ${image_list}
 ```
 
-获取 Rainbond Helm Chart 安装包
+Get Rainbond Helm Chart installation package
 
 ```bash
-git clone --depth=1 https://github.com/goodrain/rainbond-chart
+git clone --depth=1 https://github.com/goodrain/rainbod-chart
 ```
 
-## 开始部署 Kubernetes
+## Start deployment of Kubernetes
 
-### 前提要求
+### Prerequisite requirements
 
-在开始安装 K8s 之前请阅读 [RKE 安装要求](https://docs.rancher.cn/docs/rke/os/_index)，该文档讲述了 RKE 对操作系统、软件、端口和 SSH 配置的要求，安装前，请检查您的节点是否满足这些要求。
+Before installing K8s, please read [RKE Installation Requirements](https://docs.rancher.cn/docs/rke/os/_index), which describes RKE requirements for operating systems, software, ports and SSH configurations, please check if your node meets these requirements.
 
-### 部署 Docker
+### Deploy Docker
 
-导入 Docker 离线包到所有节点，执行脚本安装 Docker。
+Import Docker offline packages to all nodes to execute script installation of Docker.
 
 ```bash
-$ ls
+$ girls
 docker-arm-20.10.9.tgz install_docker_offline.sh
 $ bash ./install_docker_offline.sh
 ```
 
-导入 K8s 相关的离线包和 Docker 镜像到所有节点。
+Import K8s related offline packages and Docker mirrors to all nodes.
 
-### 配置Docker用户
+### Configure Docker User
 
-RKE 要求使用一个免密的用户用于后续的集群安装，该用户需有执行 Docker 的权限。
+RKE requires an unencrypted user to be used for the subsequent cluster installation. This user needs to have docker permission.
 
 ```bash
-# 创建用户并加入 root 组
-adduser -g root docker && echo "docker:password" | chpasswd
-# 生成 ssh 密钥，一直回车全默认即可
+# Create user and root group
+adduser -g root docker &echo "docker:password" | chpasswd
+# Generate ssh keys, Enter full default sufficient for
 ssh-keygen
-# 配置免密登录
+# Configuration free login
 ssh-copy-id docker@xxxx
 ```
 
-使用 Docker 用户登录检查是否有 Docker 执行权限。
+Use Docker user login to check if they have Docker execution.
 
 ```bash
 $ ssh docker@xxxx
 $ docker ps
 ```
 
-### 编辑cluster.yml文件
+### Edit cluster.yml file
 
-使用 RKE 安装 K8s 集群需要使用 RKE 生成的配置文件，以下是我的示例，更多请参阅[RKE配置文件说明](https://docs.rancher.cn/docs/rke/example-yamls/_index)。
+The configuration file generated by the RKE is required to install the K8s cluster using RKE. Below is my example and see[RKE配置文件说明](https://docs.rancher.cn/docs/rke/example-yamls/_index).
 
-需要我们修改的只有 `nodes` 字段，如果导入镜像的镜像仓库地址不变则 yml 也无需修改，如有改动需修改 `system_images` 字段下所有镜像地址。
+Only `notes` fields need to be modified. If the imaging repository address does not change anyml and change all mirror addresses under the `system_images` field.
 
 ```yaml
 nodes:
@@ -375,75 +375,75 @@ rotate_encryption_key: false
 dns: null
 ```
 
-### 执行安装
+### Execute Installation
 
-执行以下命令开始安装 K8s。经验证麒麟V10必须 SSH 配置 `AllowTcpForwarding yes`，不然就会报错，参阅 [RKE SSH配置](https://docs.rancher.cn/docs/rke/os/_index#ssh-server-%E9%85%8D%E7%BD%AE)。
+Execute the following commands to start installing K8.经验证麒麟V10必须 SSH 配置 `AllowTcpForwarding yes`，不然就会报错，参阅 [RKE SSH配置](https://docs.rancher.cn/docs/rke/os/_index#ssh-server-%E9%85%8D%E7%BD%AE)。
 
 ```bash
 ./rke up
 ```
 
-如果安装过程中遇到错误需要清理集群可使用以下脚本进行清理。
+If there is an error during the installation process, the cluster can be cleaned using the following script.
 
 ```bash
 curl -sfL https://get.rainbond.com/clean-rke | bash
 ```
 
-集群安装成功后需要将 kubeconfig 文件拷贝到默认路径下。
+A kubeconfig file needs to be copied to the default path after the cluster installation has been successful.
 
 ```bash
-mkdir /root/.kube && cp kube_config_cluster.yml /root/.kube/config
+mkdir /root/.kube && cp kube_config_cluster.yml/root/.kube/config
 ```
 
-执行以下命令确认安装结果
+Execute the following command to confirm the installation result
 
 ```bash
 kubectl get node
 ```
 
-## 开始部署 Rainbond
+## Start deploying Rainbond
 
-### 前提要求
+### Prerequisite requirements
 
-每个节点都需要安装 `nfs-utils` 包，这里就不详细说明了，网上教程很多，大概就是挂载 DVD 镜像，然后做个本地镜像源，直接 yum install 就可以。
+Each node needs to install the `nfs-utils` package, which is not detailed here. There are many online tutorials, presumably mounting DVD mirrors, and then using a local mirror source, direct yum installation.
 
-### 导入镜像包
+### Import Mirror Pack
 
 ```bash
-docker load -i rainbond-v5.17.3-release.tar
+docker load-i rainbond-v5.17.3-release.tar
 ```
 
-### 安装 Rainbond
+### Install Rainbond
 
-复制准备节点 Git 克隆的 Helm Chart。
+Copy Helm Chart to prepare Git cloning.
 
-使用 Helm Chart 安装 Rainbond。
+Install Rainbond with Helm Chart
 
-1. 创建命名空间
+1. Create namespace
 
 ```bash
 kubectl create namespace rbd-system
 ```
 
-2. 编写 Helm values.yml，更多 Chart 参数请参阅 [Chart 安装选项](https://www.rainbond.com/docs/installation/install-with-helm/vaules-config)。
+2. Write Helm values.yml, see [Chart Installation Options](https://www.rainbond.com/docs/installation/install-with-helm/vaules-config).
 
 ```bash
-operator:
+Operator:
   image:
     name: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond-operator
-    tag: v5.17.3-release
+    tag: v5.17. -release
 
 Cluster:
   enableEnvCheck: false
-  gatewayIngressIPs: 192.168.0.138
-  nodesForChaos:
+  gatewayInressIPs: 192.168.0.
+  notesForChaos:
   - name: 192.168.0.138
-  nodesForGateway:
-  - externalIP: 192.168.0.138
+  nodesForgateway:
+  - externalIP: 192. 68.0.138
     internalIP: 192.168.0.138
     name: 192.168.0.138
   rainbondImageRepository: registry.cn-hangzhou.aliyuncs.com/goodrain
-  installVersion: v5.17.3-release
+  installVersion: v5. 7.3-release
 Component:
   rbd_app_ui:
     enable: true
@@ -451,34 +451,34 @@ Component:
       DISABLE_DEFAULT_APP_MARKET: true
 ```
 
-3. 执行 Helm 安装命令
+3. Execute Helm Installation Command
 
 ```bash
-helm install rainbond ./rainbond-chart -n rbd-system -f value.yml
+help install rainbond ./rainbond-chart -n rbd-system -f value.yml
 ```
 
-### 安装进度查询
+### Install progress query
 
-执行完安装命令后，在集群中执行以下命令查看安装状态。
+After executing the installation command, perform the following commands in the cluster to view the installation status.
 
 ```bash
-watch kubectl get po -n rbd-system
+watch kubtl get po -n rbd-system
 ```
 
-当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。
+Installation successful when the name `rbd-app-ui` contains the Pod `rbd-app-ui` for Running state.
 
-### 访问平台
+### Access Platform
 
-复制如下命令，在集群中执行，可以获取到平台访问地址。如果有多个网关节点，则任意一个地址均可访问到控制台。
+Copy the commands below to be executed in the cluster, and get the platform access address.If there are multiple gateway nodes, any address can be accessed to the console.
 
 ```bash
 kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --template='{{range.spec.gatewayIngressIPs}}{{.}}:7070{{printf "\n"}}{{end}}'
 ```
 
-### 离线环境源码构建（可选）
+### Offline environment source build (optional)
 
 如果你需要在离线环境下进行源码构建，请参阅[Rainbond离线源码构建文档](https://www.rainbond.com/docs/installation/offline/#%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8%E6%BA%90%E7%A0%81%E6%9E%84%E5%BB%BA%E5%8F%AF%E9%80%89)进行配置。
 
-## 最后
+## Last
 
-通过本文的指导，希望您能顺利完成在鲲鹏ARM和麒麟V10环境下的 Kubernetes 和 Rainbond 的离线部署。在国产化信创环境中，离线部署的需求越来越普遍，我们提供的详细步骤和示例，帮助您减少部署过程中的不确定性和挑战。未来，我们还将继续更新更多相关教程和文档，以更好地服务于国产化信创领域的需求。
+With this guidance, it is hoped that you will be able to complete the offline deployment of Kubernetes and Rainbond in the environments of Super ARM and Licorne V10.The demand for offline deployment is becoming more common in a national-producing confidence-building environment, and we provide detailed steps and examples to help you reduce the uncertainties and challenges in the deployment process.In the future, we will also continue to update relevant curricula and documentation to better serve the needs in the area of national production of credits.
