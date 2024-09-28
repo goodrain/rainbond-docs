@@ -5,11 +5,11 @@ description: How to customize your own monitoring items for each service compone
 
 ### Prometheus-based custom monitoring
 
-Since the V5.3 version, Rainbond has added the custom business monitoring function, which supports users to realize the custom business monitoring based on Prometheus through the custom Exporter plug-in.This operation requires users to have a relatively systematic understanding of the Prometheus monitoring system.这一操作需要用户对于 Prometheus 监控体系有比较系统的了解。
+Since the V5.3 version, Rainbond has added the custom business monitoring function, which supports users to realize the custom business monitoring based on Prometheus through the custom Exporter plug-in.This operation requires users to have a relatively systematic understanding of the Prometheus monitoring system.This operation requires users to have a more systematic understanding of the Prometheus monitoring system.
 
-### MySQLD Exporter
+### MySQLD Export
 
-As an example, Rainbond V5.3 comes with MySQLD Exporter plug-in after installation, which is based on the standard MySQLD Exporter implementation.The Prometheus monitoring system rbd-monitor that comes with Rainbond will collect the data in the Exporter and display it through the monitoring panel.Rainbond 自带的 Prometheus 监控系统 rbd-monitor 会收集 Exporter 中的数据，并通过监控面板展示出来。
+As an example, Rainbond V5.3 comes with MySQLD Exporter plug-in after installation, which is based on the standard MySQLD Exporter implementation.The Prometheus monitoring system rbd-monitor that comes with Rainbond will collect the data in the Exporter and display it through the monitoring panel.Rainbond self-bound Prometheus Monitor rbd-monitor will collect data in Exporter and display it through the dashboard.
 
 #### Plugin installation
 
@@ -43,7 +43,7 @@ Click **monitoring** - **business monitoring** in turn to see the corresponding 
 | connection thread peak |
 |   running thread peak  |
 | Average running thread |
-|  Table Lock lmmediate  |
+| Table Lock lmimmediate |
 |    Table Lock Waited   |
 
 #### Manage monitoring points
@@ -70,11 +70,11 @@ If we want to add a monitoring chart to show the current number of connections t
 
 Click **above the business monitoring panel to add chart**
 
-After entering the new title and the corresponding query condition `mysql_global_status_threads_connected` , click **to query**.If the chart is returned normally, the query conditions are correct.The definition of the title should be as clear and concise as possible, and the unit should be specified where necessary.如果正常返回图表，则说明查询条件是正确的。标题的定义尽量清晰明了，并在有必要的情况下明确单位。
+After entering the new title and the corresponding query condition `mysql_global_status_threads_connected` , click **to query**.If the chart is returned normally, the query conditions are correct.The definition of the title should be as clear and concise as possible, and the unit should be specified where necessary.If the chart is returned normally, then the search terms are correct.The definitions of titles are as clear as possible and, where necessary, unicated.
 
 ![Add monitoring chart](https://static.goodrain.com/docs/5.3/component-op/custom-monitor/custom-monitor-4.png)
 
-After clicking **to add** , the new monitoring chart can be added to the business monitoring panel.The newly added monitoring chart will be placed last.新添加的监控图表将会置于最后。
+After clicking **to add** , the new monitoring chart can be added to the business monitoring panel.The newly added monitoring chart will be placed last.The newly added monitoring chart will be placed at the end.
 
 Access the port 9104 of the Mysql service component, and you can view all the monitoring items available for graphing under the /metrics path.
 
