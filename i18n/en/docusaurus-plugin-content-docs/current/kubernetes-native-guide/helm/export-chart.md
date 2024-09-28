@@ -1,31 +1,31 @@
 ---
-title: 导出 Helm Chart 包
+title: Export Helm Chart Pack
 description: Support for Helm package to deliver cloud-native applications
 ---
 
-import Tabs from '@theme/Tabs';
+Import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## 场景
+## Scene
 
-Rainbond 提供的应用模板导出机制,主要用来解决面向最终用户的应用交付问题。无法满足通过 Helm 交付应用的场景
+The application template export mechanism provided by Rainbond is primarily used to address problems in the delivery of applications to end-users.Unable to meet the scene of the app delivered via Helm
 
-适用的场景包括：
+Applicable scenario includes：
 
-- 交付环境提供 Helm 命令
-- 离线业务,或安全限制等交付场景。
+- Delivery environment provides Helm command
+- Offline operations, or delivery scenarios, etc.
 
-## 前提要求
+## Prerequisite requirements
 
-- Rainbond 平台版本不低于 v5.10.1-release 。
-- 参考文档,完成 [应用发布](/docs/use-manual/app-manage/share-app) 流程,将应用发布到内部组件库。
-- 仅支持治理模式为原生 Service 模式的应用包
+- Rainbond platform version is no less than v5.10.1-release.
+- Reference document, complete [应用发布](/docs/use-manual/app-manage/share-app) process and post the app to the internal component library.
+- Only apps that support governance mode as native service mode
 
-## 导出 Helm Chart 包
+## Export Helm Chart Pack
 
-在内部组件库中找到已经发布好的应用模板,在 `导出应用模板` 页面中,点击导出 `Helm Chart 包` 。导出完成后,即可下载导出的 Helm Chart 包。
+A published application template was found in the internal component library. In the `Export Application Template` page click to export the `Helm Chart package`.The exported Helm Chart pack can be downloaded once the export is complete.
 
-得到的 Chart 包,命名格式为 `{应用名称}-{应用模板版本号}-helm.tar.gz` 。该包可以在任意 Linux 操作系统中解压,解压后的目录结构如下(这里以 pig 为例)：
+得到的 Chart 包,命名格式为 `{应用名称}-{应用模板版本号}-helm.tar.gz` 。The pack can be unpacked in any Linux operating system. The extracted directory structure is as follows (in pig for example)：
 
 ```bash
 pig-0.1-helm
@@ -42,59 +42,57 @@ pig-0.1-helm
 └── component-images.tar
 ```
 
-- 第一层目录存放的依次是 Helm 的 Chart 包,插件所使用的的镜像包,workloads 类型资源所使用的镜像包。
-- 应用中包含的所有资源都会存放在 Helm Chart 包的 templates 目录下(除 ingress 资源)。
+- The first layer of directory is stored in turn by Helm Chart pack, the image pack used by the plugin, the mirror pack used by the workloads type resource.
+- All resources contained in the app will be stored in the Helm Chart template directory (except for address resources).
 
-## Helm Chart 使用
+## Helm Chart Usage
 
-### Helm Chart 配置介绍
+### Introduction to Helm Chart Configuration
 
-正如我们所熟知的, Helm Chart 包都是可配置的,下面将介绍, Rainbond 导出的 Helm Chart 包都有哪些参数可以配置,即对 values.yaml 的介绍。
+As we know, the Helm Chart pack is configurable and will be described below which parameters are configured for the Helm Chart pack exported by Rainbond i.e. a description of values.yaml.
 
 ```bash
 mysql:
-  MYSQL_HOST:127.0.0.1
-  MYSQL_PASS:123456
+  MYSQL_HOST:127.0.1
+  MYSQL_PAS:123456
 redis:
-  REDIS_HOST:127.0.0.1
+  REDIS_HOST:127.0.1
   REDIS_PASS:123456
 imageDomain: goodrain.me
 storageClass: ""
 ```
 
-**mysql** **redis** :配置组信息, `MYSQL_HOST:127.0.0.1` `REDIS_PASS:123456`便是你的配置组详细的配置项，这里 对应的就是应用下的[配置组](/docs/use-manual/app-manage/config-group), 将配置组的内容作为 values.yaml 里的配置项。\
-**imageDomain** : 存放镜像的仓库地址,镜像获取的来源。\
-**storageClass** : Rainbond 创建的pvc默认会使用 Rainbond 所创建的 `storageClass` ,可以通过配置来修改使用自己的 `storageClass`
+**mysql** **redis** : configuration information, `MYSQL_HOST:127.0.0.1` \`\`REDIS_PASS:123456`is your configuration group detailed, this is the application of[配置组](/docs/use-manual/app-manage/config-group), where the config group content is used as a configuration item in values.yaml.        **imageDomain**: repository address where the mirror is stored, source of the image.    **StorageClass**: The pvc created by Rainbond will use the`storageClass`by default, which can be configured to modify your own`storageClass\`
 
-### 第一步：上传压缩镜像
+### Step 1：Upload compressed image
 
 <Tabs groupId="upload">
   <TabItem value="有私有镜像仓库" label="有私有镜像仓库" default>
-  将导出的 tgz 包存上传到需要交付的环境中并解压并把 `plugin-images.tar` 和 `component-images.tar` 镜像包解压到环境中,然后再通过 Helm 命令配置安装,Helm 安装的时候无需指定镜像仓库。   
+  Upload the exported tgz pack to the environment where delivery is required and unpack the `plugin-images.tar` and `component-images.tar` mirrors into the environment before installing it via Helm command, without specifying the mirror repository.   
 
 ```bash
 docker load < plugin-images.tar
 docker load < component-images.tar
 ```
 
-将 load 出来的镜像重新打 tag 后推送到你的镜像仓库中
+Push the load out mirror back to your mirror repository
 
 ```bash
-docker tag goodrain.me/pig:20221228165641 registry.cn-hangzhou.aliyuncs.com/goodrain/pig:20221228165641
-docker push registry.cn-hangzhou.aliyuncs.com/goodrain/pig:20221228165641
+docker tag goodrain.me/pig:202212165641 registry.cn-hangzhou.aliyuncs.com/goodrain/pig:20221228165641
+docker push regisy.cn-hangzhou.aliyuncs.com/goodrain/pig:20221228165641
 ```
 
 :::warning
-注意：如果需要修改镜像的名称则需要对应的修改导出包模版目录中对应的组件的 image 字段。
+Note that：requires changing the image name of the mirror to modify the image field of the component in the package template directory.
 :::
 
 ```bash
-helm install --set imageSource=registry.cn-hangzhou.aliyuncs.com/goodrain myapp ./
+help install --set imageSource=registry.cn-hangzhou.aliyuncs.com/goodrain myap./
 ```
 
   </TabItem>
   <TabItem value="无私有镜像仓库" label="无私有镜像仓库">
-    将导出的 tgz 包存上传到需要交付的环境中并解压并把 `plugin-images.tar` 和 `component-images.tar` 镜像包解压到环境中,然后再通过 Helm 命令配置安装,Helm 安装的时候无需指定镜像仓库。   
+    Upload the exported tgz pack to the environment where delivery is required and unpack the `plugin-images.tar` and `component-images.tar` mirrors into the environment before installing it via Helm command, without specifying the mirror repository.   
 
 ```bash
 docker load < plugin-images.tar
@@ -102,32 +100,32 @@ docker load < component-images.tar
 ```
 
 :::warning
-注意：如果有多个节点，需要在每个节点都执行此命令。
+Note that：needs to execute this command at each node if there are more than one node.
 :::
 
-### 第二步：执行安装命令
+### Step 2 of：executes the installation command
 
-进入到 Helm Chart 包的目录执行安装命令。
+Go to the Helm Chart directory to execute the installation command.
 
 ```bash
 cd test-0.1
-helm install myapp ./
+helm install myap./
 ```
 
-### 高级设置
+### Advanced Settings
 
-#### 配置自己的镜像地址
+#### Configure your own mirror address
 
-将 load 出来的镜像上传到你自己的镜像仓库后，可以通过 imageSource 字段来设置。
+Upload the load image to your own mirror repository and can be set by imageSource field.
 
 ```bash
-helm install --set imageSource=registry.cn-hangzhou.aliyuncs.com/goodrain myapp ./
+help install --set imageSource=registry.cn-hangzhou.aliyuncs.com/goodrain myap./
 ```
 
-#### 修改 StorageClass
+#### Edit StorageClass
 
-导出的Chart包中的存储默认使用的 StorageClass 为 Rainbond 提供的 rainbondvolumerwx ,如需自行指定 StorageClass 可通过如下配置。
+The default StorageClass for storage in the exported Chart packet is rainbonvolumerwx provided by Rainbond, which can be configured on its own if you want to specify StorageClass below.
 
 ```bash
-helm install --set storageClass=mysc myapp ./
+help install --set storageClass=mysc myapp./
 ```
