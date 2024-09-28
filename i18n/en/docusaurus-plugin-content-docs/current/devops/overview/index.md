@@ -2,8 +2,8 @@
 title: Overview
 description: Rainbond DevOps Guide overview
 keywords:
-- DevOps 指南概述
-- Rainbond DevOps
+  - DevOps 指南概述
+  - Rainbond DevOps
 ---
 
 import Bvideo from '/src/components/Bvideo';
@@ -31,4 +31,3 @@ Rainbond DevOps 提供了以下功能：
 ### Rainbond CI/CD
 
 Rainbond CI/CD 是基于 Heroku Buildpacks 的 CI/CD 工具，它可以帮助用户快速的从源码构建应用，同时支持多种语言和框架。无需编写复杂的 Pipeline，只需要简单的配置即可。
-
