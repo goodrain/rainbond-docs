@@ -2,7 +2,7 @@
 title: Get user information
 ---
 
-## 基本信息
+## Basic Information
 
 Get user information based on user ID
 
@@ -14,7 +14,7 @@ GET /openapi/v1/users/{user_id}
 
 | name                         | Location | type   | required | illustrate |
 | ---------------------------- | -------- | ------ | -------- | ---------- |
-| user_id | path     | string | Yes      | none       |
+| user_id | Path     | String | Yes      | none       |
 
 ## return result
 
@@ -43,14 +43,14 @@ GET /openapi/v1/users/{user_id}
 
 ### Attributes
 
-| name                               | type        | required | constraint | Chinese name  | illustrate                         |
-| ---------------------------------- | ----------- | -------- | ---------- | ------------- | ---------------------------------- |
-| user_id       | integer     | true     | none       | User id       | none                               |
-| email                              | string¦null | false    | none       | Email         | email address                      |
-| nick_name     | string      | false    | none       | Nick name     | User's Nickname                    |
-| phone                              | string¦null | false    | none       | Phone         | cellphone number                   |
-| is_active     | boolean     | false    | none       | Is active     | active state                       |
-| origion                            | string¦null | false    | none       | Origion       | User source                        |
-| create_time   | string      | false    | none       | Create time   | creation time                      |
-| client_ip     | string¦null | false    | none       | Client ip     | register ip                        |
-| enterprise_id | string      | false    | none       | Enterprise id | enterprise_id |
+| name                               | type        | required | constraint | Chinese name                       | illustrate                         |
+| ---------------------------------- | ----------- | -------- | ---------- | ---------------------------------- | ---------------------------------- |
+| user_id       | integer     | true     | none       | User id                            | none                               |
+| email                              | Stringenull | false    | none       | Email                              | email address                      |
+| nick_name     | String      | false    | none       | Nick name                          | User's Nickname                    |
+| phone                              | Stringenull | false    | none       | Phone                              | cellphone number                   |
+| is_active     | boolean     | false    | none       | Is Active                          | active state                       |
+| Origin                             | Stringenull | false    | none       | - Retiring member. | User source                        |
+| create_time   | String      | false    | none       | Create time                        | creation time                      |
+| client_ip     | Stringenull | false    | none       | Client ip                          | register ip                        |
+| Enterprise_id | String      | false    | none       | Enterprise id                      | Enterprise_id |
