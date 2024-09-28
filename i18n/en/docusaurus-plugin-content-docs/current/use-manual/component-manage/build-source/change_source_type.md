@@ -9,7 +9,7 @@ No matter how your component is created, the build source can be replaced with s
 
 Here, the components installed in the app store are used as templates, and the build source is replaced with a source code build
 
-### 使用流程
+### Use process
 
 Enter the component build source, the current application creation method is cloud application store <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/build-source/build_source_appstore.png" title="Build source for cloud app store" />
 
