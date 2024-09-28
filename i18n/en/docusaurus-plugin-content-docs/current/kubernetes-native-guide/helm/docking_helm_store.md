@@ -3,26 +3,26 @@ title: Docking Helm warehouse
 description: Dock the Helm warehouse in Rainbond
 ---
 
-跟随本文档完成 Helm 仓库的对接，使开发者或运维人员能够基于 Helm 仓库部署应用
+Complete interface with the Helm repository with this document to enable developers or carriers to deploy applications based on the Helm repository
 
-### 前提条件
+### Prerequisite
 
-开始之前，你需要满足以下条件：
+Before you start, you need to meet the following condition：
 
-1.拥有一个企业管理员账号；\
-2.拥有一个可对接使用的 Helm 仓库。
+1. has an account with an enterprise administrator;
+2. has a back-to-back Helm repository.
 
-### 操作流程
+### Operating processes
 
-使用 **企业管理员账号** 在 **企业视图** 点击 **应用市场**，点击 `+` 号对接新的应用市场，选择 Helm 商店，输入以下信息，点击创建即可对接，如果是私有商店则选择私有商店输入 **商店用户名** 及 **商店密码**。
+Use **Business Admin Account** in **Business Views** click **App Market**, click `+` to connect to the new App Marketplace and select the Helm Store, enter the following information, click Create, select the private store to enter **Shop Username** and **Store Password**.
 
-商店名称：自定义\
-商店地址：Helm 仓库地址
+Store name：custom\
+store address：Helm repository address
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/dockinghelmstore.jpg" title="对接helm仓库" width="100%"/>
 
-对接完成后将自动展示当前 Helm 仓库中的应用
+Auto-display apps from the current Helm repository when pairing is completed
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/dockingcomplete.jpg" title="对接完成" width="100%"/>
 
-完成该章节中的步骤即可基于 Helm 应用商店在 Rainbond 中部署应用，后续请参考文档 [在 Rainbond 中部署 Helm 应用](./creation-process/)。
+Completing the steps in this section can be based on the Helm App Store deploying the application in Rainbond, followed by reference to the documentation [deployment of Helm applications in Rainbond](./creation-process/).
