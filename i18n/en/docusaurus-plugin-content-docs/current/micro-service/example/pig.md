@@ -2,17 +2,17 @@
 title: Deploy Spring Cloud Pig
 description: This chapter describes how to deploy Spring Cloud Pig on Rainbond
 keywords:
-  - Spring Cloud Pig 部署
-  - 微服务部署示例
+  - Spring Cloud Pig deployment
+  - Microservice deployment examples
 ---
 
-## 关于 Spring Cloud Pig
+## About Spring Cloud Pig
 
-- 基于 Spring Cloud 2021 、Spring Boot 2.7、 OAuth2 的 RBAC 权限管理系统
-- 基于数据驱动视图的理念封装 element-plus，即使没有 vue 的使用经验也能快速上手
-- 提供 lambda 、stream api 、webflux 的生产实践
+- RBAC permission management system based on Spring Cloud 2021, Spring Boot 2.7, OAuth2
+- Seal element-plus based on a Data-Drive view that even if no Vue experience is available quickly
+- Provides lambda , stream api, webflux production practice
 
-### 模块说明
+### Module Description
 
 ```bash
 pig-ui  -- https://gitee.com/log4j/pig-ui
@@ -43,71 +43,71 @@ pig -- https://gitee.com/log4j/pig
      └── pig-xxl-job-admin -- 分布式定时任务管理台 [5004]
 ```
 
-## 通过源码部署 Spring Cloud Pig
+## Deploy Spring Cloud Pig with source code
 
-本文档教程基于 Spring Cloud Pig [v3.6.2](https://gitee.com/log4j/pig/tree/v3.6.2/) 版本部署
+This document tutorial is based on Spring Cloud Pig [v3.6.2](https://gitee.com/log4j/pig/tree/v3.6.2/)
 
-### 一、部署 Mysql
+### I. Mysql deployment
 
-1. 基于源码创建组件，填写以下信息：
+1. Create components based on source code, fill out the following information：
 
-|        | 内容                                          |
-| ------ | ------------------------------------------- |
-| 组件名称   | 自定义                                         |
-| 组件英文名称 | 自定义                                         |
-| 仓库地址   | `https://gitee.com/zhangbigqi/pig.git`      |
-| 子目录路径  | db                                          |
-| 代码版本   | v3.6.2-1117 |
+|                        | Content                                                      |
+| ---------------------- | ------------------------------------------------------------ |
+| Component name         | Custom                                                       |
+| Component English Name | Custom                                                       |
+| Repository Address     | `https://gitee.com/zhangbigqi/pig.git`                       |
+| Subdirectory Path      | db                                                           |
+| Code Version           | v.3.6.2-1117 |
 
 :::caution
-这里使用了我的仓库地址，因为修改了一些默认配置，比如数据库密码、存储，如果你不想修改，可以使用原仓库地址
+My repository address is used here because some default configurations have been modified, such as database passwords, storage. If you do not want to change, you can use the original repository address
 :::
 
-2. 进入 Mysql 组件 -> 其他设置，修改组件部署类型为 `有状态服务(Statefulset类型)`
-3. 进入 Mysql 组件 -> 端口，点击端口别名修改为 `MYSQL` 并打开端口的对内服务。
+2. Enter Mysql Component -> Other Settings, modify component deployment type to `stateful service (Statefulset type)`
+3. Enter the Mysql component -> port, click the port alias to `MYSQL` and open the end's internal service.
 
 :::info
-以上变量名和变量值可以根据自己的需求进行修改。如果其他组件依赖了 Mysql，依赖中的变量会注入到依赖了 Mysql 组件中，参阅[通信变量注入](/docs/micro-service/service-mesh/connection_env)
+The above variable names and variable values can be modified according to their own needs.If other components rely on Mysql, the variable in the dependency is injected into the Mysql component, see[通信变量注入](/docs/microservice/service-mesh/connection_env)
 :::
 
 :::tip
-修改以上配置后构建 `MySQL` 组件
+Build the `MySQL` component after modifying the above configuration
 :::
 
-### 二、部署 Redis
+### Deploying Redis
 
-通过开源应用商店部署 `Redis`，在开源应用商店中搜索 `Redis` 并安装。
+Seek `Redis` from the Open Source Store and install it in the Open Source Store.
 
-### 三、部署 Pig 后端服务
+### Deployment of the Pig backend service
 
-1. 基于源码创建组件，填写以下信息：
+1. Create components based on source code, fill out the following information：
 
-|                           | 内容                                     |
-| ------------------------- | -------------------------------------- |
-| 组件名称                      | 自定义                                    |
-| 组件英文名称                    | 自定义                                    |
-| 仓库地址                      | `https://gitee.com/log4j/pig.git`      |
-| 代码版本: Tag | v3.6.2 |
+|                                   | Content                                |
+| --------------------------------- | -------------------------------------- |
+| Component name                    | Custom                                 |
+| Component English Name            | Custom                                 |
+| Repository Address                | `https://gitee.com/log4j/pig.git`      |
+| Code Version: Tag | v3.6.2 |
 
-2. 检测出多模块构建，进入多模块构建页面，勾选以下模块并创建。
-   - 创建后，删除每个组件的默认端口，为每个组件添加对应的新端口和端口别名并打开端口的对内服务，如下：
+2. Multimodule build detected, enter multi-module build page, check the following modules and create them.
+   - After creating, delete the default port for each component, add new ports and port aliases for each component and open the end-to-end service, as follows:：
 
-| 组件                     | 端口             | 端口别名                              |
-| ---------------------- | -------------- | --------------------------------- |
-| pig-register           | 8848 9848 9849 | 8848端口别名: `NACOS` |
-| pig-gateway            | 9999           | 端口别民: `GATEWAY`   |
-| pig-auth               | 3000           |                                   |
-| pig-upms-biz           | 4000           |                                   |
-| pig-codegen            | 5002           |                                   |
-| pig-monitor            | 5001           |                                   |
-| pig-sentinel-dashboard | 5003           | SENTINEL                          |
-| pig-xxl-job-admin      | 5004           |                                   |
+| Component              | Port           | Port Alias                          |
+| ---------------------- | -------------- | ----------------------------------- |
+| pig-register           | 8848 9848 9849 | Port alias: `NACOS` |
+| pig-gateway            | 9999           | Port: `GATEWAY`     |
+| pig-auth               | 3000           |                                     |
+| pig-upms-biz           | 4000           |                                     |
+| pig-codegen            | 5002           |                                     |
+| pig-monitor            | 5001           |                                     |
+| pig-sentinel-dashboard | 5003           | SENTINEL                            |
+| pig-xl-job-admin       | 5004           |                                     |
 
-3. 编辑依赖关系，切换到 `编排模式` 拖动组件进行依赖关系建立。
+3. Edit dependence, toggle the `sorting mode` to drag the component to create the dependency.
 
-![](https://static.goodrain.com/docs/5.10/micro-service/example/pig/pig-depend.png)
+![](https://static.goodrain.com/docs/5.10/microservice/example/pig/pig-depend.png)
 
-4. 进入 `pig-register` 组件内 -> 端口 -> 打开 `8848` 端口的对外服务，访问 Nacos 并登录，默认用户密码 `nacos/nacos`，修改以下配置文件内容：
+4. Enter the `pig-register` component -> Port -> Open the external service of the `8848` port, access Nacos and login, the default user password `nacos/nacos`, modify the following configuration file content：
 
 ```yaml
 # 编辑 application-dev.yml
@@ -144,33 +144,33 @@ spring:
 ```
 
 :::tip
-更新除 Mysql 和 Redis 外所有组件
+Update all components except Mysql and Redis
 :::
 
-### 四、部署 Pig-UI 前端
+### Deployment Pig-UI frontend
 
-4.1、基于源码创建组件，填写以下信息：
+4.1 Create component based on source code, fill out the following information：
 
-|        | 内容                                          |
-| ------ | ------------------------------------------- |
-| 组件名称   | 自定义                                         |
-| 组件英文名称 | 自定义                                         |
-| 仓库地址   | `https://gitee.com/zhangbigqi/pig-ui.git`   |
-| 代码版本   | v3.6.2-1117 |
+|                        | Content                                                      |
+| ---------------------- | ------------------------------------------------------------ |
+| Component name         | Custom                                                       |
+| Component English Name | Custom                                                       |
+| Repository Address     | `https://gitee.com/zhangbigqi/pig-ui.git`                    |
+| Code Version           | v.3.6.2-1117 |
 
 :::caution
-这里使用了我的仓库地址，因为修改了一些默认配置，比如增加了 `nodestatic.json` `web.conf`，参阅 [部署Vue、React前端](/docs/use-manual/component-create/language-support/nodejs-static)
+My repository address is used here because some default configurations have been modified, such as `nodestatic.json` `web.conf`, see [deployment of Vue, React front end](/docs/use-manual/component-create/language-support/nodejs-static)
 :::
 
-4.2、创建组件后，进入 `pig-ui` 组件内 -> 构建源 -> 源码构建参数设置，修改 Node 版本为 `16.15.0`，确定修改并构建组件
+4.2 After creating a component, enter the `pig-ui` component -> Build Source -> Source Build Parameter, modify Node version to `16.15.0`, make sure to modify and build components
 
-4.3、编辑依赖关系，切换到 `编排模式` 拖动组件进行依赖关系建立，将 `pig-ui` 依赖 `pig-gateway`。
+4.3 Edit dependence, toggle the `layout mode` to drag the component to create the dependency and place `pig-ui` on `pig-gateway`.
 
-4.4、进入 `pig-ui` **组件内 -> 环境配置 -> 添加配置文件**，添加以下配置文件：
+4.4 In `pig-ui` **Component -> Environment Configuration -> Add Configuration Files**, add the following Profile：
 
-- 配置文件名称：自定义
-- 配置文件路径：`/app/nginx/conf.d/web.conf`
-- 配置文件内容如下:
+- Profile name：custom
+- Configuration file path：`/app/nginx/conf.d/web.conf`
+- The configuration file is as follows:
 
 ```conf
 server {
@@ -208,10 +208,10 @@ server {
 }
 ```
 
-4.5、删除默认端口，新增 `80` 端口并打开对外服务。
+4.5 delete default port, add `80` port and open external service.
 
-4.6、更新组件并访问 `pig-ui` 进行验证。
+4.6 Updates the component and visits `pig-ui` to verify it.
 
-### 最终拓扑图
+### Final Popup
 
-![](https://static.goodrain.com/docs/5.10/micro-service/example/pig/pig-topology.png)
+![](https://static.goodrain.com/docs/5.10/microservice/example/pig/pig-topology.png)
