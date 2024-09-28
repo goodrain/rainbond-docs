@@ -2,7 +2,7 @@
 title: Update team information
 ---
 
-## Basic Information
+## 基本信息
 
 This interface is mainly used to update team information
 
@@ -22,10 +22,10 @@ PUT /openapi/v1/teams/{team_id}
 
 ## request parameters
 
-| name    | Location | type                                          | required | Chinese name | illustrate |
-| ------- | -------- | --------------------------------------------- | -------- | ------------ | ---------- |
+| name                         | Location | type                                          | required | Chinese name | illustrate |
+| ---------------------------- | -------- | --------------------------------------------- | -------- | ------------ | ---------- |
 | team_id | path     | string                                        | Yes      |              | none       |
-| body    | body     | [UpdateTeamInfoReq](#schemaupdateteaminforeq) | no       |              | none       |
+| body                         | body     | [UpdateTeamInfoReq](#schemaupdateteaminforeq) | no       |              | none       |
 
 ## return result
 
@@ -49,10 +49,10 @@ PUT /openapi/v1/teams/{team_id}
 
 ### Attributes
 
-| name          | type    | required | constraint | Chinese name  | illustrate         |
-| ------------- | ------- | -------- | ---------- | ------------- | ------------------ |
-| region        | string  | false    | none       | Region        | data center name   |
+| name                               | type    | required | constraint | Chinese name  | illustrate         |
+| ---------------------------------- | ------- | -------- | ---------- | ------------- | ------------------ |
+| region                             | string  | false    | none       | Region        | data center name   |
 | is_active     | boolean | false    | none       | Is active     | Activate now       |
-| creator       | integer | false    | none       | Creater       | Team Owner User ID |
+| creator                            | integer | false    | none       | Creater       | Team Owner User ID |
 | tenant_alias  | string  | false    | none       | Tenant alias  | team alias         |
 | enterprise_id | string  | false    | none       | Enterprise id | Enterprise ID      |
