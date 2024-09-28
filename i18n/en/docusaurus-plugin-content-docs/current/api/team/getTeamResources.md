@@ -2,7 +2,7 @@
 title: Get a list of team resource statistics
 ---
 
-## Basic Information
+## 基本信息
 
 This interface is mainly used to obtain a list of team resource statistics
 
@@ -31,21 +31,20 @@ POST /openapi/v1/teams/resource
 | ----------- | ------------------- | ---------- | ---------- |
 | 200         | OK                  | success    | Inline     |
 
-
 ## return data structure
 
-| name                       | type                                          | required | constraint | Chinese name           | illustrate                |
-| -------------------------- | --------------------------------------------- | -------- | ---------- | ---------------------- | ------------------------- |
-| *anonymous*                | [[TeamAppsResource](#schemateamappsresource)] | false    | none       |                        | none                      |
-| » total_cpu                | integer                                       | false    | none       | total cpu              | total cpu                 |
-| » total_memory             | integer                                       | false    | none       | Total memory           | total memory              |
-| » used_cpu                 | integer                                       | false    | none       | used cpu               | occupy cpu                |
-| » used_memory              | integer                                       | false    | none       | Used memory            | used internal memory      |
-| » used_cpu_percentage    | number                                        | false    | none       | Used cpu percentage    | percentage of cpu         |
-| » used_memory_percentage | number                                        | false    | none       | Used memory percentage | percentage of memory used |
-| » team_id                  | string                                        | true     | none       | team id                | Team ID                   |
-| » team_name                | string                                        | true     | none       | Team name              | Team Name                 |
-| » team_alias               | string                                        | true     | none       | Team alias             | Team nickname             |
+| name                                                               | type                                                                                              | required | constraint | Chinese name           | illustrate                |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- | -------- | ---------- | ---------------------- | ------------------------- |
+| _anonymous_                                                        | [[TeamAppsResource](#schemateamappsresource)] | false    | none       |                        | none                      |
+| » total_cpu                                   | integer                                                                                           | false    | none       | total cpu              | total cpu                 |
+| » total_memory                                | integer                                                                                           | false    | none       | Total memory           | total memory              |
+| » used_cpu                                    | integer                                                                                           | false    | none       | used cpu               | occupy cpu                |
+| » used_memory                                 | integer                                                                                           | false    | none       | Used memory            | used internal memory      |
+| » used_cpu_percentage    | number                                                                                            | false    | none       | Used cpu percentage    | percentage of cpu         |
+| » used_memory_percentage | number                                                                                            | false    | none       | Used memory percentage | percentage of memory used |
+| » team_id                                     | string                                                                                            | true     | none       | team id                | Team ID                   |
+| » team_name                                   | string                                                                                            | true     | none       | Team name              | Team Name                 |
+| » team_alias                                  | string                                                                                            | true     | none       | Team alias             | Team nickname             |
 
 ```json title="响应示例"
 [
@@ -76,8 +75,8 @@ POST /openapi/v1/teams/resource
 
 ### Attributes
 
-| name        | type   | required | constraint | Chinese name | illustrate       |
-| ----------- | ------ | -------- | ---------- | ------------ | ---------------- |
+| name                             | type   | required | constraint | Chinese name | illustrate       |
+| -------------------------------- | ------ | -------- | ---------- | ------------ | ---------------- |
 | tenant_id   | string | true     | none       | Tenant id    | tenant id        |
 | region_name | string | true     | none       | Region name  | data center name |
 
@@ -99,14 +98,14 @@ POST /openapi/v1/teams/resource
 
 ### Attributes
 
-| name                     | type    | required | constraint | Chinese name           | illustrate                |
-| ------------------------ | ------- | -------- | ---------- | ---------------------- | ------------------------- |
-| total_cpu                | integer | false    | none       | total cpu              | total cpu                 |
-| total_memory             | integer | false    | none       | Total memory           | total memory              |
-| used_cpu                 | integer | false    | none       | used cpu               | occupy cpu                |
-| used_memory              | integer | false    | none       | Used memory            | used internal memory      |
+| name                                                             | type    | required | constraint | Chinese name           | illustrate                |
+| ---------------------------------------------------------------- | ------- | -------- | ---------- | ---------------------- | ------------------------- |
+| total_cpu                                   | integer | false    | none       | total cpu              | total cpu                 |
+| total_memory                                | integer | false    | none       | Total memory           | total memory              |
+| used_cpu                                    | integer | false    | none       | used cpu               | occupy cpu                |
+| used_memory                                 | integer | false    | none       | Used memory            | used internal memory      |
 | used_cpu_percentage    | number  | false    | none       | Used cpu percentage    | percentage of cpu         |
 | used_memory_percentage | number  | false    | none       | Used memory percentage | percentage of memory used |
-| team_id                  | string  | true     | none       | team id                | Team ID                   |
-| team_name                | string  | true     | none       | Team name              | Team Name                 |
-| team_alias               | string  | true     | none       | Team alias             | Team nickname             |
+| team_id                                     | string  | true     | none       | team id                | Team ID                   |
+| team_name                                   | string  | true     | none       | Team name              | Team Name                 |
+| team_alias                                  | string  | true     | none       | Team alias             | Team nickname             |
