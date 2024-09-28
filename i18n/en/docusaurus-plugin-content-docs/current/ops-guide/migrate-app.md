@@ -1,6 +1,6 @@
 ---
-title: "Application migration"
-description: "How to migrate applications deployed on the old console to the new console"
+title: Application migration
+description: How to migrate applications deployed on the old console to the new console
 weight: 1001
 ---
 
@@ -27,9 +27,9 @@ weight: 1001
 4. 同步平台数据，将旧控制台的数据导出后在新的控制台中恢复，让两个控制台保持一样。
 5. 如果不需要旧控制台的集群此时便可以在新控制台中删除掉。
 
-### 1. 在旧控制台中对接新控制台的集群
+### 1) 在旧控制台中对接新控制台的集群
 
-操作步骤：在旧控制台中 `集群` ---> `添加集群` ---> `右上角的 ...` ---> `接入已安装平台集群对接`。  
+操作步骤：在旧控制台中 `集群` ---> `添加集群` ---> `右上角的 ...` ---> `接入已安装平台集群对接`。
 
 Region-Config 通过在新集群中执行 `grctl config` 命令获取。
 
@@ -125,7 +125,7 @@ websocketAddress: ws://xxx:6060
 
 3. 快速复制，将应用通过快速复制的方式部署到新的集群中
 
-### 3. 备份旧控制台的平台数据在新控制台中恢复
+### 3) 备份旧控制台的平台数据在新控制台中恢复
 
 1. 在旧控制台中 `平台视图` ---> `数据备份` ---> `增加备份` ---> `下载备份`
 
@@ -136,7 +136,6 @@ websocketAddress: ws://xxx:6060
 :::danger
 注意，如果旧的控制台是快速安装部署，新控制台会显示旧控制台的集群通信异常，这是正常现象，因为之前的集群是跑在 docker 容器中的 k3s ，迁出后连接不到。只需删除掉通信异常的集群删掉即可。
 :::
-
 
 ## 下一步
 
