@@ -2,7 +2,7 @@
 title: get user list
 ---
 
-## 基本信息
+## Basic Information
 
 get user list
 
@@ -14,19 +14,19 @@ GET /openapi/v1/users
 
 | name                           | Location | type   | required | illustrate                            |
 | ------------------------------ | -------- | ------ | -------- | ------------------------------------- |
-| query                          | query    | string | no       | Username, Email, Mobile Number Search |
-| page                           | query    | string | no       | page number                           |
-| page_size | query    | string | no       | Quantity per page                     |
+| Query                          | Query    | String | no       | Username, Email, Mobile Number Search |
+| page                           | Query    | String | no       | page number                           |
+| page_size | Query    | String | no       | Quantity per page                     |
 
 ## return result
 
-| status code | Status code meaning | illustrate | data model                              |
-| ----------- | ------------------- | ---------- | --------------------------------------- |
-| 200         | OK                  | success    | [ListUsersRespView](#listusersrespview) |
+| status code | Status code meaning | illustrate | data model                             |
+| ----------- | ------------------- | ---------- | -------------------------------------- |
+| 200         | OK                  | success    | [ListUsersRespView](#listusersresview) |
 
 ## Model
 
-### listusersrespview
+### listusersreply
 
 ```json
 {
@@ -52,5 +52,5 @@ GET /openapi/v1/users
 
 | name  | type                                                                                                  | required | constraint | Chinese name | illustrate |
 | ----- | ----------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| users | [[UserInfo](/docs/api/user/getUserInfo#userinfo)] | true     | none       |              | none       |
-| total | integer                                                                                               | true     | none       | Total        | none       |
+| Users | [[UserInfo](/docs/api/user/getUserInfo#userinfo)] | true     | none       |              | none       |
+| Total | integer                                                                                               | true     | none       | Total        | none       |
