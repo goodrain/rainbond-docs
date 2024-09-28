@@ -19,20 +19,20 @@ means, the 6th feature update version in the 3rd major version, and a version bu
 
 ## 2. Version update cycle
 
-| Version type              | Update Cycle | illustrate                                                                          |
-| ------------------------- | ------------ | ----------------------------------------------------------------------------------- |
-| A: Large version number   | 6~12 months  | Version refactoring, upgrade of underlying key components, backward incompatibility |
-| B: Feature update version | 1~3 months   | Feature update                                                                      |
-| C: Bug fixes              | 1~2 weeks    | Bug or security patch                                                               |
+| Version type                              | Update Cycle                | illustrate                                                                          |
+| ----------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------- |
+| A: Large version number   | 6~12 months | Version refactoring, upgrade of underlying key components, backward incompatibility |
+| B: Feature update version | 1~3 months  | Feature update                                                                      |
+| C: Bug fixes              | 1~2 weeks   | Bug or security patch                                                               |
 
 ## 3. The current version and description
 
-| version number | illustrate                               |
-| -------------- | ---------------------------------------- |
-| 3.4            | Historical version, no longer maintained |
-| 3.5.2          | Historical version, no longer maintained |
-| 3.6.1          | Historical version, no longer maintained |
-| 3.7.2          | Historical version, no longer maintained |
-| 5.0.X          | Historical version, no longer maintained |
-| 5.1.X          | Current production version               |
-| 5.2.X          | Current Development Version｜             |
+| version number                        | illustrate                               |
+| ------------------------------------- | ---------------------------------------- |
+| 3.4                   | Historical version, no longer maintained |
+| 3.5.2 | Historical version, no longer maintained |
+| 3.6.1 | Historical version, no longer maintained |
+| 3.7.2 | Historical version, no longer maintained |
+| 5.0.X | Historical version, no longer maintained |
+| 5.1.X | Current production version               |
+| 5.2.X | Current Development Version｜             |
