@@ -2,74 +2,74 @@
 title: Continuous delivery in multiple environments
 description: This section explains how to implement multi-environment continuous delivery on Rainbond
 keywords:
-  - 多环境
-  - 持续交付
+  - Multi-environment
+  - Continuous delivery
 ---
 
-import Bvideo from '/src/components/Bvideo';
+Import Bvideo from '/src/components/Bvideo';
 
 <Bvideo src="//player.bilibili.com/player.html?aid=436800242&bvid=BV1uj411N7Vy&cid=1005328921&page=4" />
 
-## Rainbond 上多环境交付流程图
+## Flow chart of environmental delivery on Rainbond
 
-如下图所示，我们以后台管理系统为例，利用 Rainbond 应用模版实现多云多环境的持续交付，通常需要以下流程。
+As shown in the figure below, we use the Rainbond application template as an example for the ongoing delivery of the cloudy environment, usually requiring the following process.
 
 <!-- ![multi-env-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/multi-env-delivery.jpg) -->
 
 ![](https://static.goodrain.com/docs/5.11/delivery/continuous/source-code/multi-env-delivery.png)
 
-1. 通过 Rainbond 对接多集群，可以对接私有云、公有云等。
+1. Contains multiple clusters with Rainbond and can connect to private and public clouds, etc.
 
-2. 当开发者开发的应用测试通过后，发布到本地应用市场，最后通过应用市场中的应用模版实现各个公有云环境的应用部署。
+2. When the app tests developed by the developer are passed, they are posted to the local app market and finally deployed to various public cloud settings via the app template in the application market.
 
-## 操作步骤
+## Action step
 
-### 准备工作
+### Preparatory work
 
-1. 拥有一套 Rainbond 集群，参考[快速安装](/docs/quick-start/quick-install)。
+1. Have a set of Rainbond clusters, refer to[快速安装](/docs/quick-start/quick-install).
 
-### Rainbond 对接多集群
+### Rainbond multiple clusters
 
-1. 在完成 Rainbond 控制台的安装后，进入 Rainbond 控制台`平台管理->集群->添加集群`，按照指引在公有云或私有云的服务器上安装 Rainbond 集群端，可添加并对接多个集群。多集群对接后效果图:point_down:
+1. After completing installation of the Rainbond Console Console console, enter the Rainbond Console `Platform Management -> Cluster -> Add Cluster`, and install the Rainbond cluster on the server of the public or private clouds, as directed, to add and connect multiple clusters.Multi cluster sequential impact map:point_down:
 
 <img src="https://pic.imgdb.cn/item/61a5d0802ab3f51d91d5afc2.png" alt="image-20211118142459214"  />
 
-2. 我们假设在该环境中已经对接了三个集群，分别是`内网集群`、`阿里云-青岛`和`阿里云-上海`，此时在`平台管理->团队->创建团队`，分别创建三个团队，`测试-内网`、`生产-青岛`和`生产-上海`，集群分别选择`内网集群`、`阿里云-青岛`和`阿里云-上海`。
+2. We assume that three clusters have been interfaced in this environment, namely, `intranet', `Aliyun — Qinga`, and `Aliyun — Shanghai, at which time three teams were created on `Platform Managers->Teams`, `Production_Qing`, and `Production_Shanghai`, and the group selected `intranet`, `Aliyun — Teen` and \`Aliyun — Shanghai, respectively.
 
-### 设置镜像仓库
+### Set Mirror Repository
 
-1. 在`平台管理->设置->内部组件库镜像仓库`中，配置一个可以被多个环境访问到的镜像仓库，发布到应用市场的应用对应的镜像将会推送到该仓库上，因此该镜像仓库是在多环境上应用运行起来的关键。
+1. In `Platform Management>Settings->Internal Component Repository Mirror Repository`, a mirror repository that can be accessed by multiple environments will be pushed to the Marketplace, so that this repository is the key to the app running in multiple environments.
 
-### 部署开发测试环境
+### Deploying Development Test Environment
 
-1. 首先可以在`测试-内网`团队内，参考[基于源代码创建组件](/docs/use-manual/component-create/language-support)，根据你的代码语言部署你的各个业务模块。
+1. First see[基于源代码创建组件](/docs/use-manual/component-create/language-support) in the `test-intranet` team, where you deploy your business modules according to your code language.
 
-2. 各个业务部署完成后，参考[微服务架构指南](/docs/micro-service/overview)进行服务编排，此时你就得到了一个在 Rainbond 上完整运行的应用。
+2. After each operation has been deployed, you get a fully running app on Rainbond by reference to[微服务架构指南](/docs/microservice/overview) to organize your services.
 
-### 制作应用模版
+### Make Application Template
 
-1. 在应用拓扑图页面左侧，选择`发布->发布到组件库`， 即可进入模版设置页面。各个参数详细说明参考[附录1: 模版设置页面参数说明](/docs/delivery/app-model-parameters)
+1. On the left side of the App Popup page, you can enter the template settings page by selecting `Post->Publish to the component library`.Details for each parameter [Appendix 1: Template Settings Parameters](/docs/delivery/app-model-parameters)
 
-2. 新建一个应用模版`后台管理系统`，可选择发布范围为企业，设定好发布的版本 `1.0`，点击`提交`，接下来将会同步所有组件的镜像，推送到我们刚开始设置的镜像仓库中。同步完成后，点击`确认发布`，即发布完成。接下来在 `平台管理->应用市场->本地组件库`，即可看到发布好的应用模版。
+2. Create a new application template`. Optionally publish in a corporate domain, set the release version `1.0`, click `Subred`, then synchronize the images of all components and push them to the mirror repository we have just set up.Once syncing is finished, click `Confirm Posting`.Then you can see the published app template in `Platform Manager-> App Marketplace -> Local Component Library'.
 
 :::caution
-注：仅有企业管理员可以看到平台管理按钮。
+Note：Only company administrators can see platform management buttons.
 :::
 
-### 多环境交付
+### Multi-environment delivery
 
-1. 测试人员在`测试-内网`安装测试通过后，标记该版本为 Release 状态，最终交付人员可以拿该版本去其他公有云环境进行部署和交付。
+1. After the test has passed the `test-intranet` installation, the test will mark the version as Status of Release, and the final person will be able to deploy and deliver it to other publicly available cloud environments.
 
-2. 交付人员可以在`平台管理->应用市场->本地组件库`，看到应用的 Release 状态，可以放心的用该版本进行交付。
+2. Deliveries can be delivered in `Platform Admin -> App Marketplace -> Local Component Library`, see the state of the app's Release, and can be assured with that version.
 
-3. 点击`后台管理系统`模版右侧的安装，团队选择`生产-青岛`，以及要安装的应用和版本，即可在`阿里云-青岛`集群中一键部署出生产环境。
+3. By clicking on the right side of the `Background Management System` template, the team chooses `Product-Qingy` and the app and version to be installed, you can deploy the production environment in the `Aliyun - Qinga` cluster.
 
-4. `阿里云-上海` 集群中部署同上。
+4. The `Aliyun - Shanghai` cluster is deployed as above.
 
-### 持续升级和回滚
+### Continuous upgrade and rollback
 
-1. 后续如果有问题，仍然是开发人员发布新的版本，测试人员测试通过后，发布到应用市场。
+1. If there is a problem, it will still be a new version released by the developer, and the test will be released to the application market once the test has passed.
 
-2. 运维人员在`生产环境`已部署好的应用中，选择`升级`，即可完成上线。
+2. Vehicle personnel will be available online by selecting `Update` in the `production environment` where they are deployed.
 
-3. 如果上线遇到问题，可以在应用页面，选择`升级->升级记录->回滚`，即可一键回滚应用到上个版本。
+3. If you have problems online, you can use the app in the app page by selecting `Upgrade -> Update Records->Roll`.
