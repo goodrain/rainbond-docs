@@ -2,8 +2,7 @@
 title: Add regular user
 ---
 
-
-## Basic Information
+## 基本信息
 
 Add regular user
 
@@ -29,13 +28,11 @@ POST /openapi/v1/users
 | ---- | -------- | ------------------------- | -------- | ---------- |
 | body | body     | [CreateUser](#createuser) | no       | none       |
 
-
 ## return result
 
 | status code | Status code meaning                                          | illustrate | data model                |
 | ----------- | ------------------------------------------------------------ | ---------- | ------------------------- |
 | 201         | [Created](https://tools.ietf.org/html/rfc7231#section-6.3.2) | success    | [CreateUser](#createuser) |
-
 
 ## Model
 
@@ -56,12 +53,12 @@ POST /openapi/v1/users
 
 ### Attributes
 
-| name          | type          | required | constraint | Chinese name  | illustrate       |
-| ------------- | ------------- | -------- | ---------- | ------------- | ---------------- |
-| nick_name     | string        | true     | none       | Nick name     | User's Nickname  |
-| password      | string        | true     | none       | Password      | password         |
-| enterprise_id | string        | true     | none       | Enterprise id | enterprise_id    |
-| email         | string(email) | false    | none       | Email         | email address    |
-| phone         | string        | false    | none       | Phone         | cellphone number |
-| is_active     | boolean       | false    | none       | Is active     | active state     |
-| origion       | string        | false    | none       | Origion       | User source      |
+| name                               | type                             | required | constraint | Chinese name  | illustrate                         |
+| ---------------------------------- | -------------------------------- | -------- | ---------- | ------------- | ---------------------------------- |
+| nick_name     | string                           | true     | none       | Nick name     | User's Nickname                    |
+| password                           | string                           | true     | none       | Password      | 密码                                 |
+| enterprise_id | string                           | true     | none       | Enterprise id | enterprise_id |
+| email                              | string(email) | false    | none       | Email         | email address                      |
+| phone                              | string                           | false    | none       | Phone         | cellphone number                   |
+| is_active     | boolean                          | false    | none       | Is active     | active state                       |
+| origion                            | string                           | false    | none       | Origion       | User source                        |
