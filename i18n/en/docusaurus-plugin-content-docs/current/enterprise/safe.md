@@ -1,7 +1,7 @@
 ---
-title: 安全扩展
+title: Security Extensions
 description: Extended Security Features
 keywords:
-  - 安全扩展
+  - Security Extensions
   - Extended Security Features
 ---
