@@ -2,9 +2,9 @@
 title: Microservices architecture delivered offline
 description: Rainbond enables offline delivery of microservice applications in an offline environment
 keywords:
-- 离线交付
-- toB 离线交付
-- toB offline delivery
+  - 离线交付
+  - toB 离线交付
+  - toB offline delivery
 ---
 
 import Bvideo from '/src/components/Bvideo';
@@ -42,6 +42,7 @@ import Bvideo from '/src/components/Bvideo';
 安装他们都需要先安装依赖的环境和基础软件，YUM 和DEB 有自己的管理依赖的软件源，但离线环境用不了，如果客户的操作系统不同，还需要另外想办法解决，运行这类服务为了解决启动和自动重启的问题，还需要通过 systemd 或 supervisor 的方式来管理。如果交付单体架构的应用传统应用交付方式还能胜任，但如果是复杂的微服务架构，传统应用交付方式将难以胜任。
 
 在传统应用交付过程中，管理这些运行环境和操作系统差异是一个痛点，容器的出现解决了这个问题。
+
 </details>
 
 <details>
@@ -72,6 +73,7 @@ docker-compose 将多个服务或应用使用 YAML 的方式管理，可以利�
 Helm 是 Kubernetes 资源的包管理器，它可以将一组资源定义成 Helm Chart 模版，提供了基于 Helm Chart 模块的安装和升级，安装时可以配置不同的参数。Helm 同样也是在 Kubernetes 交付中大多数人选择的工具。
 
 Helm最大的问题是需要开发者学习容器和Kubernetes整个技术栈，而且客户环境必须要有Kubernetes，学习和使用的门槛太高。抽象的应用模型是一个解决方案。
+
 </details>
 
 <details>
@@ -82,7 +84,6 @@ Helm最大的问题是需要开发者学习容器和Kubernetes整个技术栈，
 ### 基于OAM的KubeVela应用交付
 
 OAM（Open Application Model） 是一个描述应用的标准规范。有了这个规范，应用描述就可以彻底与基础设施部署和管理应用的细节分开。通过将应用定义与集群的运维能力分离，可以让应用开发者更专注于应用本身，而不是”应用部署在哪“这样的运维细节。KubeVela基于OAM实现了应用跨云、跨环境持续交付。当前KubeVela对离线场景的应用交付支持较弱。
-
 
 ### 基于RAM的Rainbond应用交付
 
@@ -135,4 +136,3 @@ Rainbond 是一个云原生应用多云管理平台，Rainbond 遵循以应用�
 1. 在已经部署好 Rainbond 的离线环境中，我们先打开`平台管理->应用市场`，选择`离线导入`，上传刚刚下载好的应用模版。上传完成后，点击`确认导入`。
 
 2. 等待导入完成后，会自动跳转回`应用市场`。在导入完成的应用模版后，点击安装，即可一键部署该业务系统，该环境业务运行环境与开发环境完全一致，到此完成离线环境下的软件交付。
-
