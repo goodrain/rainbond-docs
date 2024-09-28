@@ -6,64 +6,64 @@ keywords:
   - Rainbond Cluster Nodes Manage
 ---
 
-Kubernetes 通过将容器放入在节点（Node）上运行的 Pod 中来执行你的工作负载。 节点可以是一个虚拟机或者物理机器，取决于所在的集群配置。 每个节点包含运行 Pod 所需的服务； 这些节点由控制面负责管理。
+Kubernetes executes your work load by placing the container in the Pod running on Node. The node can be a virtual machine or a physical machine, depending on the cluster configuration. Each node contains the services needed to run the Pod; these nodes are managed by the controllers.
 
-通常集群中会有若干个节点；而在一个学习所用或者资源受限的环境中，你的集群中也可能只有一个节点。
+Normally there are several nodes in the cluster; in an environment where learning is used or resources are limited, your cluster may have only one node.
 
-节点上的组件包括 kubelet、 容器运行时以及 kube-proxy。
+Components on the node include kubelet, when the container is running, and kube-proxy.
 
-更多关于节点的信息，请参阅 [Kubernetes Nodes](https://kubernetes.io/docs/concepts/architecture/nodes/)。
+For more information on nodes, see [Kubernetes Notes] (https://kubernetes.io/docs/concepts/archive/notes/).
 
-进入 **平台管理 -> 集群 -> 节点**，点击任意节点跳转到节点管理详情页。
+Go to **Platform Manager -> Cluster -> Node**. Tap any node to jump to the node management details.
 
-## 节点详情
+## Node Details
 
-节点详情页包含以下信息：
+The node details page contains the following information：
 
-- **名称:** 节点的 IP 或者主机名
-- **状态:** 节点的状态，Ready 表示节点正常，NotReady 表示节点异常
-- **IP地址:** 节点的内网 IP 地址
-- **容器运行时:** 节点的容器运行时，包括 docker、containerd 以及运行时版本
-- **系统架构:** 节点的系统架构，包括 amd64、arm64 等
-- **节点类型:** 节点的类型，包括 master、worker、etcd
-- **操作系统版本:** 节点的操作系统版本
-- **操作系统类型:** 节点的操作系统类型，包括 Linux、Windows 等
-- **内核版本:** 节点的内核版本
-- **创建时间:** 节点创建的时间
+- **Name:** Node's IP or hostname
+- **Status:** Node's status, ady indicates the node is normal, NotReady indicates an exception
+- **IP Address:** The internal IP address of the node
+- **Container runs:** Container running, including docker, containerd and running version
+- **System Architecture:** Node Architecture, including amd64, arm64 etc.
+- **Node Type:** Node type, including master, worker, etcd
+- **OS Version:** Node's OS version
+- **Operating System Type:** Node's operating system type, including Linux, Windows etc
+- **Kernel Version:** Node's kernel version
+- **Create:** Time of nodes creation
 
-## 资源用量
+## Resource usage
 
-节点详情页的资源用量包含以下信息：
+The resource usage of the node details page contains the following information：
 
-- **CPU:** 节点的 CPU 用量，包括总量、已使用量、可用量、使用率
-- **内存:** 节点的内存用量，包括总量、已使用量、可用量、使用率
-- **磁盘根分区:** 节点的磁盘根分区用量，包括总量、已使用量、可用量、使用率
-- **磁盘容器数据卷:** 节点的磁盘容器数据卷用量，包括总量、已使用量、可用量、使用率
+- **CPU:** CPU usage for nodes, including total, used, available and usage
+- **Memorial:** Memory usage of nodes, including total, used, available and usage
+- **Disk root partition:** Disk root partition, including total, used, available, usage
+- **Disk Containers Volume :** Freenet data volume for the node, including total, used, available, usage
 
-## 标签管理
+## Label management
 
-管理节点的标签，点击 **编辑标签** 按钮，弹出编辑标签对话框，可以对节点的标签进行添加、删除、修改。
+Manage tabs for nodes, click the **Edit Label** button, eject the tab dialog to add, delete, or modify the node's tabs.
 
-## 污点管理
+## Spreadsheet management
 
-管理节点的污点，点击 **编辑污点** 按钮，可以对节点的污点进行添加、删除、修改。
+Manage hooks. Click **Edit Snoots** to add, delete, or modify nodes.
 
-目前支持污点的策略有：
+Currently supporting blot：
 
-- **NoSchedule:** 不允许新的 Pod 调度到该节点上，但是允许已经调度到该节点上的 Pod 继续运行。
-- **PreferNoSchedule:** 不允许新的 Pod 调度到该节点上，但是允许已经调度到该节点上的 Pod 继续运行。但是，调度器会尽量避免将 Pod 调度到带有该污点的节点上。
-- **NoExecute:** 不允许新的 Pod 调度到该节点上，也不允许已经调度到该节点上的 Pod 继续运行。但是，如果 Pod 已经在该节点上运行，那么允许 Pod 在节点上运行直到它被删除。
+- **NoSchedule:** The new Pod scheduling is not allowed to this node, but the Pod that has been scheduled to continue running on this node.
+- **PreferNoSchedule:** does not allow new Pod scheduling to this node, but allows the Pod already scheduled to continue running on this node.However, the Scheduler will try to avoid moving the Pod to a node with that badge.
+- **NoExecute:** No new Pod scheduling is allowed to this node, nor does Pod already scheduled to continue running on this node.However, if the Pod is already running on this node, allow the Pod to run on the node until it is deleted.
 
-更多关于节点污点的信息，请参阅 [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)。
+For more information on nodal spots, see [Taints and Tolers] (https://kubernetes.io/docs/concepts/schedule-event/taint-and-tolation/).
 
-## 节点禁止调度
+## Node Dismiss Schedule
 
-禁止调度节点，点击 **禁止调度** 按钮，弹出禁止调度对话框，可以对节点进行禁止调度，同时也会添加一个污点 `node.kubernetes.io/unschedulable:NoSchedule` 可在污点列表中看到。
+Disallow dispatching nodes, click the **Dispatch** button, eject the Dispatch dialog and add a staging point \`node.kubernetes.io/unscheduble:Noscheduled to be seen in the list of spots.
 
-## 节点排空
+## Node Range
 
-节点排空实际上是对节点进行禁止调度，然后将节点上的 Pod 进行强制驱逐，对应的命令是 `kubectl drain`。
+Node soring is actually a ban on the node and then forcibly evicts the Pod on the node with a `kubectl drain`.
 
-点击 **排空** 按钮，可以对节点进行排空。
+Click the **vacancy** button to empty the node.
 
-更多关于节点排空的信息，请参阅 [Drain Node](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/)。
+See [Drain Node] (https://kubernetes.io/docs/tasks/admin-cluster/safely-drain-node/) for more information on node ranking.
