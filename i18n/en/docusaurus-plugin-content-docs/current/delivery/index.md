@@ -2,7 +2,7 @@
 title: Application delivery guide
 ---
 
-本章节主要介绍如何在 Rainbond 上实现持续交付以及离线交付，提高你的交付效率。
+This section focuses on how to achieve continued delivery on Rainbond and offline delivery to improve your delivery efficiency.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
