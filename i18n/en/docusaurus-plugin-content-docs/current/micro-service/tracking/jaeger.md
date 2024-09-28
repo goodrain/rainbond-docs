@@ -2,125 +2,125 @@
 title: Jaeger uses
 description: Distributed link tracking Jaeger + microservice Pig practice sharing on Rainbond
 keywords:
-  - Jaeger 分布式链路追踪
+  - Jaeger distributed link tracking
   - APM
-  - 链路追踪
+  - Link Tracking
 ---
 
-Jaeger 是 Uber 技术团队发布的开源分布式跟踪系统，它用于监控和故障排查基于微服务的分布式系统：
+Jaeger is an open source distribution tracking system issued by the Uber Technical Team for monitoring and troubleshooting microservices-based distribution system：
 
-- 分布式上下文传播、事务监控
-- 根本原因、服务依赖分析
-- 性能/延迟优化
-- [OpenTracing](http://opentracing.io/) 启发的数据模型
-- 多个存储后端：Cassandra, Elasticsearch, memory.
-- 系统拓扑图
-- 服务性能监控（SPM）
-- 自适应采样
+- Distributed Context Transmission and Transaction Monitor
+- Analysis of root causes, service dependency
+- Performance / Delay Optimization
+- Data-inspired model [OpenTracing](http://opentring.io/)
+- Multiple storage backend：Cassandra, Elasticsearch, memori.
+- System topography
+- Service Performance Monitor (SPM)
+- Adaptive sample
 
-## Jaeger 架构
+## Jaeger architecture
 
 ![](https://static.goodrain.com/wechat/jaeger/1.png)
 
-| Component                                     | Description                                                    |
-| --------------------------------------------- | -------------------------------------------------------------- |
-| Jaeger Client                                 | Jaeger Client SDK                                              |
-| Jaeger Agent                                  | 收集 Client 数据                                                   |
-| Jaeger Collector                              | 收集 Jaeger Agent 数据，有 pull/push 两种方式                            |
-| DB Storage                                    | Collector 需要存储后端，Collector 拿到的数据将存在 Elasticsearch 或 Cassandra。 |
-| Spark jobs                                    | 用于生成拓扑图 UI 数据                                                  |
-| Jaeger Query Service & UI | 负责从 Storage 查询数据并提供 API 和 UI                                   |
+| Component                                     | Description                                                                                                                        |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Jaeger Client                                 | Jaeger Client SDK                                                                                                                  |
+| Jaeger Agent                                  | Collect Client Data                                                                                                                |
+| Jaeger Collector                              | Collecting data from Jaeger Agent, in both ways                                                                                    |
+| DB Store                                      | Collector needs to store the backend, and the data obtained by collector will exist in Elasticsearch or Cassandra. |
+| Spark jobs                                    | Used to generate topographic UI data                                                                                               |
+| Jaeger Query Service & UI | Responsible for searching data from Storage and providing API and UI                                                               |
 
-## 如何在Rainbond上集成？
+## How do I integrate on Rainbon?
 
 ![](https://static.goodrain.com/wechat/jaeger/2.png)
 
-**1.集成 OpenTelemetry Client：**
+**1.Integrate OpenTelemetry Client：**
 
-v1.36 版本以前 Jaeger Client 是基于 `OpenTracing API` 实现的客户端库，Jaeger Client 结合 Jaeger Agent 一起使用，发送 span 到 Jaeger Collector。
+v1.36 The previous version of Jaeger Client is a client library based on the `OpenTracing API`. Jaeger Client combined with Jaeger Agent and sent to Jaeger Collector.
 
-v1.36 版本以后被弃用。使用 [OpenTelemetry](https://opentelemetry.io/) 替代  Jaeger Client and Jaeger Agent，详情见 [Jaeger and OpenTelemetry](https://medium.com/jaegertracing/jaeger-and-opentelemetry-1846f701d9f2)。
+v1.36 is deactivated later.Use [OpenTelemetry](https://opentelemetry.io/) instead of Jaeger Client and Jaeger Agent, see [Jaeger and OpenTelemetry](https://medium.com/jaegertracing/jaeger-and-opentelemetry-1846f701d9f2).
 
-`OpenTelemetry` 是无侵入的，只需在 Java 进程启动时添加 `javaagent`，例：`java -javaagent:path/to/opentelemetry-javaagent.jar -jar myapp.jar` 。
+`OpenTelemetry` is invalid, just add `javaagent` when Java process starts, for example：`java -javaagent:path/to/opentelemetry-javaagent.jar -jar myapp.jar`.
 
-那么在 Rainbond 上就可以通过插件将 `OpenTelemetry javaagent` 下载到组件中并修改启动命令。
+On Rainbond then you can download `OpenTelemetry javaagent` to the component and modify the launch command.
 
-**2.连接到 Jaeger-Collector：**
+**2.Connect to Jaeger-Collector：**
 
-将所有安装了 `OpenTelemetry javaagent` 插件的微服务组件都通过依赖连接到 `Jaeger Collector`。
+All microservice components that install the `OpenTelemetry javaagent` plugin are connected to `Jaeger Collector`.
 
-## 实践步骤
+## Practical steps
 
-### Spring Cloud Pig 源码部署
+### Spring Cloud Pig Source Deployment
 
-通过源码部署 [Spring Cloud Pig 微服务框架](/docs/micro-service/example/pig)
+Deploy via source [Spring Cloud Pig Microservice Frame](/docs/microservice/example/pig)
 
-### OpenTelemetry 插件安装
+### OpenTelemetry Plugin Installation
 
-从应用商店安装 `opentelemetry-java-agent` 初始化插件，该插件的作用是下载 `opentelemetry-javaagent.jar` 到微服务组件内，可以在 Java 启动项中指定。
+Install the `opentelemetry-java-agent` initialization plugin from the App Store. The function of this plugin is to download `opentelemetry-javaagent.jar` to the microservice component, which can be specified in the Java startup item.
 
-- 团队视图 -> 插件 -> 从应用商店安装插件 -> 搜索 `opentelemetry-java-agent` 并安装。
+- Team View -> Plugin -> Install Plugins from App Store -> Search for `opentelemetry-java-agent` and install.
 
-### 部署 Jaeger
+### Deployment of Jaeger
 
-在开源应用商店中搜索 `Jaeger` 并安装到指定应用中。
+Search for `Jaeger` in the open source store and install it to the specified app.
 
-### OpenTelemetry Agent 插件配置
+### OpenTelemetry Agent Plugin Configuration
 
-**1. 开通 OpenTelemetry Agent 插件**
+**1. Go to OpenTelemetry Agent plugin**
 
-以 `pig-gateway` 为例，在组件 -> 插件中开通 `opentelemetry-java-agent` 插件并更新组件生效，微服务内的其他组件均需要开通插件并更新或重启组件生效。
+For example `pig-gateway`, open `opentelemetry-java-agent` in the component -> plugin and update the component to take effect. Other components within the microservice need to open the plugin and update or restart the component to take effect.
 
 ![](https://static.goodrain.com/wechat/jaeger/5.png)
 
-**2. 配置环境变量**
+**2. Configure environment variables**
 
-为所有微服务组件配置环境变量。
+Configure environment variables for all microservice components.
 
-| 变量名                                                                                          | 变量值                                                                                                    | 说明                             |
-| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------ |
-| OTEL_TRACES_EXPORTER                               | jaeger                                                                                                 | 选择 Jaeger exporter             |
-| OTEL_EXPORTER_JAEGER_ENDPOINT | http://127.0.0.1:14250 | Jaeger Collector gRPC endpoint |
-| OTEL_EXPORTER_JAEGER_TIMEOUT  | 10000                                                                                                  | 超时时间（毫秒）                       |
-| OTEL_METRICS_EXPORTER                              | none                                                                                                   | Metrics 导出器                    |
-| JAVA_OPTS                                                               | -javaagent:/agent/opentelemetry-javaagent.jar                          | Java 启动参数                      |
+| Variable Name                                                                                | Variable value                                                                                                           | Note                                      |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
+| OTH_NOTIF_POPUP_TITLE         | jaeger                                                                                                                   | Select Jaeger exporter                    |
+| OTEL_EXPORTER_JAEGER_ENDPOINT | http://127.0.0.0.1:14250 | Jaeger Collector gRPC endpoint            |
+| OTH_EXPORTER_JAEGER_TIMEOUT   | 10000                                                                                                                    | Timeout (milliseconds) |
+| VIP_POPUP_TITLE                                    | none                                                                                                                     | Metrics Exporter                          |
+| JAVA_OPTS                                                               | -javaagent:/agent/opentelemetry-javaagent.jar                                            | Java Start Parameters                     |
 
-可在应用 -> 配置，使用 `应用配置组` 统一配置并应用到所有组件中。
+Allows you to configure the app -> Configuration, use the `App Config Group` to apply to all components.
 
-**3. 配置组件服务名称**
+**3. Configure component service name**
 
-为所有微服务组件配置环境变量 `OTEL_SERVICE_NAME` ，配置组件的 Jaeger 服务名称，如：`OTEL_SERVICE_NAME=pig-gateway` `OTEL_SERVICE_NAME=pig-auth`
+Configure the environment variable `OTEL_SERVICE_NAME` for all microservice components, configuration the component Jaeger service name, e.g.：`OTEL_SERVICE_NAME=pig-gateway` \`\`OTEL_SERVICE_NAME=pig-auth\`
 
-### 建立依赖关系
+### Create Dependencies
 
-将所有微服务组件添加依赖连接到 `Jaeger Collector` 。
+Connect all microservice components to `Jaeger Collector`.
 
-因 `Jaeger` 部署在另外一个应用，需要进入 组件 -> 依赖 -> 添加 `Jaeger Collector` 依赖，就可以在当前应用的拓扑图看到 `Jaeger Collector` 组件，剩下的组件都可通过拓扑图编辑模式进行依赖连接。更新或重启所有微服务组件使依赖关系生效。
+The `Jaeger` component can be seen in the current app's sketch and the remaining components can be connected by the topographic mode of the top.Update or restart all microservice components for dependencies to take effect.
 
 ![](https://static.goodrain.com/wechat/jaeger/7.png)
 
-### Jaeger 快速使用
+### Jaeger Quick Use
 
-1. 访问 ` Jaeger-Query` 的 `16686` 端口，打开对外服务即可访问 `Jaeger UI` 。
-2. 在 Jaeger Search 页面中搜索微服务 pig-gateway 的 Traces
+1. Visit the `16686` port of `Jaegeer-Query` to `Jaeger UI` by opening the external service.
+2. Search trackers for pig-gateway on the Jadeger Search page
 
-- Service：选择微服务的组件
-- Operation：选择操作类型，例：GET POST、接口、类.....
-- Tags：根据响应头筛选，例：http.status_code=200 error=true
-- Lookback：选择时间
-- Max Duration：最大持续时间；Min Duration：最小持续时间。
-- Limit Results：限制返回结果数量。
+- Service：Select a Microservice Component
+- Operation：Select Operation Type, Example：GET POST, Interface, class...
+- Tags：filtered by response header, Example：http.status_code=200 error=true
+- Lookback：Select Time
+- Max Duration：max;Min Duration：minimum duration.
+- Limit Results：limits the number of returned results.
 
 ![](https://static.goodrain.com/wechat/jaeger/10.png)
 
-4. 找到 Pig-gateway HTTP POST 的 Traces 并包含了 pig-auth Span并进入，可看到很清晰的展示了服务之间一层一层的调用以及接口的响应时间，这样我们就可以排查到底是哪个服务调用的慢或者调用有问题。
+4. Find Pig-gateway HTTP POST Traces and include pig-auth Span and enter, see a clear display of a layer of calls between services and response time for interface, so we can find out which service calls are slow or wrong calls.
 
 ![](https://static.goodrain.com/wechat/jaeger/11.png)
 
-**Jaeger 拓扑图生成**
+**Jaeger topography generation**
 
-拓扑图默认不会生成，使用 `spark-dependencies` 组件生成拓扑图数据，这是一个 Spark 作业，它从存储中收集 span，分析服务之间的链接，并将它们存储起来以供以后在 UI 中展示。请参阅 [Jaeger Spark dependencies](https://github.com/jaegertracing/spark-dependencies)。
+The plot will not be generated by default. Use the `spark-dependencies` component to generate the topographic data, a Spark job that collects span from storage, analyzes links between services and stores them for later display in the UI.See [Jaeger Spark dependencies] (https://github.com/jaegertracing/spark-dependencies).
 
-`spark-dependencies` 组件占用资源较大，不使用时可关闭，需要生成拓扑图数据时将其启动即可。
+The `spark-dependencies` component takes up a larger resource, can be turned off when it is not used, and starts when the topographic data is generated.
 
 ![](https://static.goodrain.com/wechat/jaeger/9.png)
