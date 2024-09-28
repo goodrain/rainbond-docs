@@ -29,7 +29,7 @@ Next, let's publish the application composed of **Java demo examples** + **Mysql
 
 ### Publish application template
 
-- 在应用拓扑图页面左边栏点击 **发布** 进入 **发布记录管理** 页面。
+- On the left side of the Apps Popup page, click **Publish usage** to **Publish record manager** pages.
 
 - Click **to publish to the app market** to enter the **application template and release version settings** page.
 
@@ -47,7 +47,7 @@ Next, let's publish the application composed of **Java demo examples** + **Mysql
 
 ### App sync
 
-In this page, Rainbond will automatically synchronize the application, including the packaging and push of the image.The user only needs to wait for the synchronization to complete, and see the following situation, that is, the synchronization is completed.用户只需要静待同步完成，看到下面的情况，即同步完成。
+In this page, Rainbond will automatically synchronize the application, including the packaging and push of the image.The user only needs to wait for the synchronization to complete, and see the following situation, that is, the synchronization is completed.The user only needs to wait for synchronization completion, see below and complete sync.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-2.png" title="同步完成" width="100%" />
 
@@ -65,11 +65,11 @@ Once the application template is successfully published, it will appear on the p
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-4.png" title="应用市场企业分页" width="100%" />
 
-与可见范围相对应的，当前应用模版，只可以在 **发布时使用的团队** 中安装。Corresponding to the visible range, the current application template can only be installed in team used when \*\*is released.Only when the release scope is **, enterprise** , can the application template be installed and used in all teams under the current enterprise.
+The current app template, which corresponds to the visible range, can only be installed in **the team** used when publishing.Corresponding to the visible range, the current application template can only be installed in team used when \*\*is released.Only when the release scope is **, enterprise** , can the application template be installed and used in all teams under the current enterprise.
 
 ### Edit app template
 
-The created application template can be edited.The edited entry is shown in the figure below：编辑的入口如下图所示：
+The created application template can be edited.The edited entry is shown in the figure below：The entry will be edited as shown below in：
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-5.png" title="编辑应用模版" width="100%" />
 
