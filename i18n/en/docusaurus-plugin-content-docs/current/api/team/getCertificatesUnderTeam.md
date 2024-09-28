@@ -2,7 +2,7 @@
 title: Get the list of certificates under the team
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain the list of certificates under the team
 
@@ -14,15 +14,15 @@ GET /openapi/v1/teams/{team_id}/certificates
 
 | name                           | Location | type   | required | Chinese name | illustrate        |
 | ------------------------------ | -------- | ------ | -------- | ------------ | ----------------- |
-| team_id   | path     | string | Yes      |              | none              |
-| page                           | query    | number | no       |              | page number       |
-| page_size | query    | number | no       |              | Quantity per page |
+| team_id   | Path     | String | Yes      |              | none              |
+| page                           | Query    | Number | no       |              | page number       |
+| page_size | Query    | Number | no       |              | Quantity per page |
 
 ## return result
 
-| status code | Status code meaning | illustrate | data model                                    |
-| ----------- | ------------------- | ---------- | --------------------------------------------- |
-| 200         | OK                  | success    | [TeamCertificatesL](#schemateamcertificatesl) |
+| status code | Status code meaning | illustrate | data model                                   |
+| ----------- | ------------------- | ---------- | -------------------------------------------- |
+| 200         | OK                  | success    | [TeamCertificatesL](#schemateamcertificates) |
 
 ## Model
 
@@ -51,12 +51,12 @@ GET /openapi/v1/teams/{team_id}/certificates
 
 ### Attributes
 
-| name                           | type                                                                                        | required | constraint | Chinese name | illustrate |
-| ------------------------------ | ------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| list                           | [[CertificatesR](#schemacertificatesr)] | true     | none       |              | none       |
-| page                           | integer                                                                                     | true     | none       | Page         | none       |
-| page_size | integer                                                                                     | true     | none       | Page size    | none       |
-| total                          | integer                                                                                     | true     | none       | Total        | none       |
+| name                           | type                                                                                      | required | constraint | Chinese name | illustrate |
+| ------------------------------ | ----------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| list                           | [[CertificatesR](#schemacifertifesr)] | true     | none       |              | none       |
+| page                           | integer                                                                                   | true     | none       | Page         | none       |
+| page_size | integer                                                                                   | true     | none       | Page size    | none       |
+| Total                          | integer                                                                                   | true     | none       | Total        | none       |
 
 ### CertificatesR<a id="schemacertificatesr"></a>
 
@@ -78,10 +78,10 @@ GET /openapi/v1/teams/{team_id}/certificates
 
 | name                                  | type                                                         | required | constraint | Chinese name     | illustrate         |
 | ------------------------------------- | ------------------------------------------------------------ | -------- | ---------- | ---------------- | ------------------ |
-| has_expired      | boolean                                                      | true     | none       | Has expired      | Is it expired      |
-| issued_to        | [string] | true     | none       |                  | Domain name list   |
-| alias                                 | string                                                       | true     | none       | Alias            | certificate name   |
-| certificate_type | string                                                       | true     | none       | Certificate type | Expiration         |
-| end_data         | string                                                       | true     | none       | End data         | 过期时间               |
-| id                                    | integer                                                      | true     | none       | Id               | id                 |
-| issued_by        | string                                                       | true     | none       | Issued by        | Certificate source |
+| has_expiredd     | boolean                                                      | true     | none       | Has expiredd     | Is it expired      |
+| Issued_to        | [string] | true     | none       |                  | Domain name list   |
+| alias                                 | String                                                       | true     | none       | Alias            | certificate name   |
+| Certificate_type | String                                                       | true     | none       | Certificate type | Expiration         |
+| end_data         | String                                                       | true     | none       | End data         | Expiration time    |
+| Id                                    | integer                                                      | true     | none       | Id               | Id                 |
+| Issued_by        | String                                                       | true     | none       | Issued by        | Certificate source |
