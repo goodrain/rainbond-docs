@@ -1,7 +1,6 @@
 ---
-title: 'User Manual'
+title: User Manual
 ---
-
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
