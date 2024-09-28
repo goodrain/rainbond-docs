@@ -9,7 +9,7 @@ Learn how to upgrade the application template through the documentation, and app
 
 ### significance
 
-应用的开发是不断迭代的，每次版本的更迭需要应用模版也具备相应的版本控制能力。Application development is iterative, and each version change requires the application template to have corresponding version control capabilities.An application installed based on a lower version of the application template needs to have the function of upgrading based on the new version of the application template.
+The development of the app is iterated, and changes to each version require the application template to have the same version control capability.Application development is iterative, and each version change requires the application template to have corresponding version control capabilities.An application installed based on a lower version of the application template needs to have the function of upgrading based on the new version of the application template.
 
 ### Preconditions
 
@@ -21,7 +21,7 @@ Learn how to upgrade the application template through the documentation, and app
 
 ### Version control of application templates
 
-Republish the source application, and fill in the version number larger than the original version, such as 1.1.Rainbond distinguishes old and new versions by comparing the version number numbers.Rainbond 通过版本号数字的比较来区分版本的新旧。
+Republish the source application, and fill in the version number larger than the original version, such as 1.1.Rainbond distinguishes old and new versions by comparing the version number numbers.Rainbond distinguishes old and new versions by comparing version numbers.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/upgrade-from-market/upgrade-from-market-2.png" title="重新发布与版本控制" width="100%" />
 
@@ -35,13 +35,13 @@ In the **release record** list, the new version of the application template can 
 
 ### Upgrading of existing applications
 
-The existing application specifically refers to the application copied from the application \*\*installed based on the sample application template of version 1.0.This application represents an existing running application installed based on the low-version application template. We need to apply the upgraded content in the new version 1.1 to the low-version application.这个应用代表了基于低版本应用模版安装的正在运行中的已有应用，我们需要将新版本 1.1 中升级的内容，应用到低版本的应用中去。
+The existing application specifically refers to the application copied from the application \*\*installed based on the sample application template of version 1.0.This application represents an existing running application installed based on the low-version application template. We need to apply the upgraded content in the new version 1.1 to the low-version application.This app represents an existing app installed based on the low version of the app template. We need to upgrade the content in the new version 1.1 to the lower version of the application.
 
 - Click **to upgrade**in the left column of the application topology map page of \*\*copy, enter **upgrade management** page, here you can specify **current version**,**can be upgraded to version**.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/upgrade-from-market/upgrade-from-market-5.png" title="升级管理页面" width="100%" />
 
-- 在升级管理页面点击 **升级**。Click **to upgrade**on the upgrade management page.Enter the upgrade details page, Rainbond will automatically compare the version differences and display them.
+- **Update** on the upgrade admin page.Click **to upgrade**on the upgrade management page.Enter the upgrade details page, Rainbond will automatically compare the version differences and display them.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/upgrade-from-market/upgrade-from-market-6.png" title="升级管理页面" width="100%" />
 
