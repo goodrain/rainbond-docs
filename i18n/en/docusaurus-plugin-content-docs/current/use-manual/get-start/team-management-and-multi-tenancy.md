@@ -5,7 +5,7 @@ description: Create multiple teams to isolate resources through multi-tenancy te
 
 ### Purpose
 
-Learn how to manage teams, roles, and users in Rainbond through documentation.What is multi-tenancy technology and what effect is achieved through multi-tenancy technology.
+Learn how to manage teams, roles, and users in Rainbond through documentation.What is multi-tenancy technology and what effect is achieved through multi-tenancy technology.什么是多租户技术，通过多租户技术实现什么效果。
 
 ### significance
 
@@ -37,9 +37,9 @@ Register users of other personnel of the company through ordinary user registrat
 
 A single user can play different roles in multiple teams, if the user does not belong to a certain team, then he will not be able to access all resources under that team, or even see this team in the team list.
 
-### multi-tenancy
+### 多租户
 
-Rainbond completes resource isolation through multi-tenant technology.Each team has a tenant in a designated data center.Applications between different teams are invisible to each other.
+Rainbond completes resource isolation through multi-tenant technology.Each team has a tenant in a designated data center.Applications between different teams are invisible to each other.每个团队在指定的数据中心，都有一个租户与之对应。不同团队之间的应用互不可见。
 
 ### Next step
 
