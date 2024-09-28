@@ -1,8 +1,8 @@
 ---
-title: DevOps 指南
+title: DevOps Guide
 description: Rainbond DevOps Guide
 keywords:
-  - DevOps 指南
+  - DevOps Guide
   - Rainbond DevOps
 ---
 
