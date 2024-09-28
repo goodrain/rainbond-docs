@@ -3,57 +3,57 @@ title: Environment and version management
 describe: This paper introduces how to quickly build multiple development environments through application replication function to improve the efficiency of developers to build development environments
 ---
 
-import Bvideo from '/src/components/Bvideo';
+Import Bvideo from '/src/components/Bvideo';
 
 <Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=983036584&page=6" />
 
-## 开发、测试环境管理
+## Develop, test environmental management
 
-应用开发过程中，同一个业务系统开发者可能需要重复多次的进行开发环境搭建。比如以下几类情况：
+The same business system developer may need to build up the development environment several times during the application development.Something like：
 
-- 多个新功能在不同的分支进行同时迭代，那么不同的分支代码需要独立的部署；
-- 团队中多个开发者进行开发，每个开发者都需要自己独立的一套开发环境；
-- 开发环境应用开发完成，希望快速部署到测试环境或预发布环境；
-- 生产环境灰度发布，希望快速部署指定组件使用指定的源代码版本；
+- Multiple new features iterate in different branches, so different branches need to be deployed independently;
+- Development by multiple developers in the team, each of which needs its own set of separate development settings;
+- Development of environmental applications has been completed in the hope of rapid deployment to test or pre-release settings;
+- Production environment grey releases, it is hoped that the specific component will be rapidly deployed using the specified source code version;
 
-遇到以上的情况，如果应用只有一个组件，或许从头开始创建并不复杂。那如果应用包括 5 个甚至更多组件的时候呢，创建过程将耗费大量时间且是在做重复的事情。这个时候基于已经部署好的应用直接进行复制则可有效解决效率问题。
+In the above case, if the app has only one component, it may not be complex to create from scratch.If the app includes 5 or more components, the creation process will take a lot of time and is doing a repetition.Direct replication at this time based on already deployed applications would effectively address efficiency problems.
 
-### 前提条件
+### Prerequisite
 
-1. 准备一个部署好的应用，可以包括使用源码、镜像创建的多个组件。
-2. 准备至少两个团队，验证跨团队应用复制。
-3. 组件对应的源码可以准备多个分支或者镜像可以准备多个 Tag，验证复制时便捷修改构建源版本。
+1. Prepare a deployed app that can include multiple components created using source code, mirror.
+2. Ready for at least two teams to validate cross-team app copying.
+3. Component source code can be used to prepare multiple branches or mirrors to prepare multiple Tags and easily modify build source versions when validating copying.
 
-### 操作流程
+### Operating processes
 
-1. 进入 **应用视图 -> 总览拓扑** 页面，点击右上方 **快速复制** 按钮；
-2. 弹窗中上方区域显示复制的目标应用，默认是当前应用，可以根据需求选择不同的团队或应用，也可以直接在指定团队中创建新的应用。
-3. 弹窗中下方区域显示当前应用的所有组件信息及其构建源信息，默认选中所有组件进行复制，可根据需要选择部分组件。且可根据需要更改组件的构建源版本，比如代码分支或镜像的 Tag。
-4. 点击确定则开始进行复制，复制完成后自己构建并启动所有复制的组件，页面跳转到目标应用中。
+1. Go to the **App View -> General Preview Topic** page, click on the **Quick Copy** button above the right;
+2. Show copied target apps in the top of the popup, default is the current app, can select different teams or apps depending on need, or can create new apps directly within the given team.
+3. The area below the popup shows all component information from the current app and the source of its build. By default, all components are selected to be copied. Parts can be selected as needed.And the build source version of the component can be changed as necessary, such as the branch of the code or the Tag.
+4. Click OK to start copying, build yourself and start all copied components when copied, and jump to target app.
 
-### 了解原理
+### Learn about Principles
 
-**应用模型的关键性体现**
+**Application Model Key Demonstration**
 
-Rainbond 中默认基于应用模型对各类型软件进行抽象管理，因此复制其实就是模型属性的复制，可以保障复制出来的组件与源组件属性保持一致。这再一次说明了一点，在 Rainbond 中部署组件的过程其实是在组装应用模型的过程，一旦部署完成即完成了业务模型的定义。
+By default in Rainbond management of various types of software based on application models, replication is a reproduction of model properties that ensures consistency between copied components and source component attributes.This illustrates once again that the process of deploying components in Rainbond is in fact the process of assembling the application models and completing the definition of the business model once the deployment is complete.
 
-**组件复制时依赖关系的处理**
+**Relative Handling when component copy**
 
-组件之间目前有两个属性具有关联性，包括组件依赖和存储依赖。复制组件时会存在两种情况，组件和依赖的组件双方一起被复制和只有依赖方被复制。若是双方都同时被复制，那么它们之间的依赖关系将保持，在新的组件双方之间进行建立，不管是否跨团队复制。若只有依赖方被复制，将会出现两种处理模式。复制的目标应用在当前团队下，则复制出的新组件依然依赖源依赖的组件，若复制的目标应用不在当前团队，那么依赖关系在复制时进行解除。
+There are currently two properties that are relevant between components, including component dependencies and storage dependencies.There are two situations in which the component will be copied. Both components and dependent components will be copied together and only the relying parties will be copied.If both are replicated simultaneously, their dependency will be maintained and established between the new components, regardless of cross-team replication.If only the relying party is copied, two treatment patterns will emerge.Duplicated target apps are under the current team and the copied new component still depends on the source dependent component. If the copied target app is not on the current team, the dependency will be dissolved when copied.
 
-## 版本管理​
+## Version Management Officer
 
-组件的每一次构建都会根据任务进行时的时间生成组件版本号，如果是由源码创建的组件，每个版本记录对应的源码提交 Commit 信息，方便开发者对应检查代码。 在组件总览页面中显示当前运行的版本信息，点击版本信息下发的入口即可进入组件版本列表查询页面。Rainbond 默认保留 30 天内版本记录，历史版本自动进行清理动作。
+Each build of the component builds the component version number based on the time of the task and, in the case of a component created by the source code, each version records the corresponding source code to submit Commit information to facilitate developer checking the code. Displays currently running version information on the component overview page. Click on the release of the version information to enter the component version list query page.Rainbond is reserved by default for 30 days and history versions are automatically cleaned up.
 
-组件版本主要包括运行镜像版本，目前组件属性暂不支持版本化控制。
+Component versions mainly include mirror versions, which are not currently supported by component properties.
 
-### 组件版本回滚
+### Component Version Rock
 
-进入 **组件总览页面  -> 点击查看更多版本 -> 进入构建版本历史**。
+Enter the **Component General View -> Click to View More -> Enter Build History**.
 
-- 编辑：给版本打上标签
-- 日志：查看已构建的版本日志
-- 回滚：选择回滚到哪个版本
-- 删除：删除此次版本记录，删除后不可恢复。
+- Edit：tag version
+- Log：to view build version logs
+- Rollback：to which version to roll back
+- Deleting：deleting this version cannot be undone.
 
-![](https://static.goodrain.com/docs/5.6/use-manual/component-manage/overview/rollback.png)
+![](https://static.goodrain.com/docs/5.6/use-manual/component-management/overview/rollback.png)
