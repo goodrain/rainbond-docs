@@ -38,7 +38,7 @@ $ yarn install
 ### local start
 
 ```bash
-$ yarn start
+$yarn start
 ```
 
 will automatically open http://localhost:3000/ in your browser
@@ -48,7 +48,7 @@ will automatically open http://localhost:3000/ in your browser
 Use the following command to simulate a production test launch locally
 
 ```bash
-$ yarn serve --build .
+$yarn serve --build
 ```
 
 ## Participate and contribute
@@ -59,7 +59,7 @@ Fork the [Rainbond-docs](https://github.com/goodrain/rainbond-docs.git) reposito
 
 ### Content requirements
 
-Rainbond 中文档分为 **概念性文档** **操作指引性文档** 和 **最佳实践性文档** 不同的文档类型。The documents in Rainbond are divided into **conceptual documents** **operational guidance documents** and **best practice documents** different document types.When writing a document, please specify the type of document, and determine the content of the article according to the effect that different types need to achieve.
+Rainbond Chinese documents are divided into **Conceptual Documents**\*\* **Operate Guidance Documents** and **Best Practice Documents** different document types.The documents in Rainbond are divided into **conceptual documents** **operational guidance documents** and **best practice documents** different document types.When writing a document, please specify the type of document, and determine the content of the article according to the effect that different types need to achieve.
 
 ### Typesetting requirements
 
@@ -97,7 +97,7 @@ Rainbond 中文档分为 **概念性文档** **操作指引性文档** 和 **最
 - The imported video formats are as follows
 
   ```html
-  import Bvideo from "@site/src/components/Bvideo";
+  import Bvideo from @site/src/components/Bvideo";
   <Bvideo src="//player.bilibili.com/player.html?aid=550933549&bvid=BV1Vq4y1w7FQ&cid=492223110&page=1"/>
   ```
 
