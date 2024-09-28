@@ -1,126 +1,126 @@
 ---
-title: Rainbond 对接 Istio 原理讲解和代码实现分析
-description: 对于用户而言，在测试环境下，需要达到的效果是快、开箱即用。但在生产环境下，可能又有熔断、延时注入等需求
+title: Rainbond Band Istio Doctrine and Code Implementation Analysis
+description: For users, the results to be achieved in a test environment are fast and boxed.However, in production environments there may be another demand for melting, delayed infusion
 slug: istioSource
 image: https://static.goodrain.com/wechat/istio/istio.jpeg
 ---
 
-现有的 ServiceMesh 框架有很多，如 Istio、linkerd等。对于用户而言，在测试环境下，需要达到的效果是快、开箱即用。但在生产环境下，可能又有熔断、延时注入等需求。那么单一的 ServiceMesh 框架无法同时满足用户不同的需求。
+There are many existing ServiceMesh frameworks such as Istio, linkerd, etc.For users, the results to be achieved in a test environment are fast and boxed.However, in the production environment, there may be another demand for melting and delayed infusion.So a single ServiceMesh framework cannot meet user needs at the same time.
 
-在之前的 Rainbond 版本中，Rainbond 支持了多种不同的应用治理模式，作为应用级的插件，实现了Istio 治理模式的切换。
+In the previous Rainbond version, Rainbond supported a wide range of different application governance models as a plugin to implement the Istio governance model.
 
-本文将对Rainbond 实现Istio治理模式进行原理解析。
+This paper will provide an understanding of Rainbond achieving the Istio governance model.
 
-## 基本原理
+## Fundamentals
 
-### 动态准入控制
+### Dynamic Access Control
 
-首先我们需要了解一个知识，Istio 是如何实现自动注入的。实际上，Istio、linkerd 等不同的 ServiceMesh 框架都使用到了 Kubernetes 中的一个非常重要的功能，叫作 Dynamic Admission Control，也叫作：Initializer。
+First, we need to know how Istio is automatically injected.In fact, different ServicesMesh frameworks like Istio, linkerd and others use a very important feature in Kubernetes and call Dynamic Admissions Control, as well as：Initializer.
 
-这个功能会在 API 对象创建之后会被立刻调用到。在 API 对象被正式处理前，完成一些初始化的准备工作。所以在部署了 Istio 控制平面以后，当你提交了 API 对象的 Yaml 文件，会被 Istio 的准入控制器捕获，完成一些 PATCH 操作，比如加上对应的 Sidecar 容器字段。最终将这个 PATCH 过后的 API 对象交给 Kubernetes 处理。接下来就详细介绍下 ServiceMesh 框架的注入机制。
+This feature will be called immediately after the API object is created.Complete some initial preparation before the API objects are formally processed.So when an Istio control plane is deployed, when you submit a Yaml file for an API object, it will be captured by Istio's access controller, and some PATCH actions, such as adding the corresponding Sidecar container fields.Finally turn this PATCH API object to Kubernetes for processing.A detailed description of the injection mechanism for the ServiceMesh framework will follow.
 
-### 如何自动注入
+### How to Inject Automatically
 
-用户需要先在集群中部署 Istio 的控制平面。它会包含一个用来为 Pod 自动注入 Envoy 容器的 Initializer。
-首先， Istio 会将 Envoy 容器本身的定义，以 ConfigMap 的方式保存在 Kubernetes 当中。当 Initializer 的控制器，通过 Admission-Webhooks 监听到符合规则【此处指对应的 Annoations】的 API 对象被创建后，读取对应的 ConfigMap 获取到 Envoy 容器的配置。并将相关的字段，自动添加到用户提交的 Pod 的 API 对象里。详见下图和说明。
+Users need to first deploy Istio control plane in the cluster.It will contain an Initializer to automatically inject an Envoy container for Pod
+First, Istio will define the Envoy container itself and save it in Kubernetes as ConfigMap.Reads configuration to Envoy containers when the Initializer's controllers are watched via Admission-Webhooks to listen to the appropriate API object that meets the rules [referred to here as the corresponding Annoations' API object is created.and add related fields to the API object submitted by the user.Details are provided in the graph and description below.
 
 ![](https://static.goodrain.com/wechat/initializer-istio/Process.png)
 
-上图为提交yaml文件到Kubernetes集群后，集群所做的处理，大概分为以下几步：
+The processing done by the cluster after submitting the yaml file to the Kubernetes cluster is probably divided into the following steps：
 
-1. Yaml 文件提交到 APIServer，APIServer 会过滤这个请求，并完成一些前置性的工作，比如授权、超时处理、审计等。
+1. The Yaml file is submitted to APIServer, APIServer filters this request and performs some front-loading tasks such as authorization, timeout processing, audits, etc.
 
-2. APIServer 会找到该 Pod 对应的类型定义，如果存在，则会将这个 Pod 转换为对象。
+2. APIServer will find the type definition for this Pod and convert this Pod to an object if it exists.
 
-3. 接下来进行 Admission 操作，Admission 操作是在创建之后会被立刻调用到的一组代码，它可以完成一些初始化操作，比如在对象创建前加上某些 Labels，但是由于它本身是被编译到 APIServer 中的，所以用户修改后，需要重新编译并重启 APIServer。幸运的是：Kubernetes 提供了一种“热插拔”式的 Admission 机制，即 Initializer。
+3. Next, the admission operation is a set of code that will be called upon immediately after creation and can complete some initialization actions, such as adding some Labels before object creation, but because it itself is compiled into an APIServer, the user needs to re-compile and restart APIServer.Fortunately,：Kubernetes provides a "hot plume" admissions mechanism, i.e. Initializer.
 
-4. 目前 istio、linkerd 等项目均实现了 Initializer 机制，也就是说，当提交的 Yaml 文件包含其指定的Annoations 字段时，那么它们部署的准入控制器则会捕获到对应的 API 对象，在这个阶段为 Pod 进行初始化操作，即添加上 Sidecar 容器的相关配置。
+4. At present, the Initializer mechanism has been implemented for projects such as istio, linkerd, i.e. when the Yaml file submitted contains its designated Annoations field, their deployed access controllers will capture the corresponding API objects at this stage of initialization for Pod by adding the relevant configuration of the Sidecar container.
 
-5. 接下来会进行 Validation，验证 API 对象的字段是否合法。
+5. This will be done later to validate the API object's field.
 
-6. 验证完毕后，会将对应的信息保存到etcd中，一次API对象的创建就此完成。
+6. Once verified, the corresponding information will be saved to etcd and the creation of an API object will be completed.
 
-## 扩展应用治理模式
+## Extend App Governance Mode
 
-在了解了现有的 ServiceMesh 框架的注入机制后，我们就可以基于此开发 Rainbond 的应用级插件，用于扩展应用的治理能力。我们知道由于现有的 ServiceMesh 框架大多采用了标准的 Initializer 实现。所以我们只需要完成以下两步即可。
+Having learned about the infusions of the existing ServiceMesh framework, we can build the application plugin for Rainbond to expand your ability to govern.We know that most of the existing ServiceMesh framework uses standard Initializer implementation.So we need only complete the following two steps.
 
-1. 部署对应 ServiceMesh 框架的 Initializer 控制器，通常情况下意味着部署它们的控制平面，此处基于 Rainbond 已有的对接 helm 商店的功能，可以方便的进行部署。
+1. The deployment of Initializer controllers to the ServiceMesh framework usually means the deployment of their control plane, which can be easily deployable based on the functionality of Rainbond already available at helm store.
 
-2. 实现基于应用的数据平面的注入。
+2. Implement the injection of application-based data planes.
 
-### Istio治理模式的开发
+### Development of the Istio governance model
 
-接下来以 Istio 治理模式的开发为例，详细介绍如何自行扩展应用的治理能力。
+The development of the Istio governance model will be followed by a detailed description of how the governance capacity of the application can be expanded on its own.
 
-### 前端展示支持 Istio 应用治理模式：
+### Frontend Display Support for Istio Application Mode：
 
-Rainbond 主要分为两层，即业务层和数据中心层，具体可参考 Rainbond 技术架构 。
+Rainbond is mainly divided into two layers, namely, the operational and data centre levels, with specific reference to Rainbond technical architecture.
 
-rainbond-ui 为业务层的前端项目，首先需要支持 Istio 治理模式，由于 Rainbond 是以应用为中心的应用管理平台，所以 Istio 治理模式也是针对应用来说的。
+rainbond-ui is a front-end project at the business level that first needs to support the Istio governance model, and the Istio governance model is also applied because Rainbond is an application-centred application management platform.
 
-如下图所示：在应用页面，可以切换治理模式。我们需要在这里增加 Istio 治理模式。
+The following graph shows：on the app page to switch the governance mode.We need to add the Istio governance model here.
 
 ![](https://static.goodrain.com/wechat/initializer-istio/istio-ui.png)
 
-### 治理模式有效性校验
+### Validation of Governance Mode
 
-Initializer 的机制决定了，需要有一个准入控制器，去处理符合条件的 API 对象。通常情况下准入控制器包含在对应 ServiceMesh 框架的控制平面中。
+The Initializer's mechanism determines that an access controller is required to handle eligible API objects.Usually access controllers are included in the control plane at the ServiceMesh framework.
 
-所以我们在切换治理模式时，需要去校验集群中是否已经部署过对应 ServiceMesh 框架的控制平面，这一步应该在切换时进行校验。如果未部署对应的控制平面，则不具有对应的治理能力。也就不能切换。
+So when we switch to governance patterns, we need to check whether the cluster has already deployed the control plane of ServiceMesh framework. This step should be checked when switching.If the corresponding level of control is not deployed, there is no corresponding governance capability.Nor can it be changed.
 
-根据 Rainbond 技术架构 ，我们可以知道，rainbond-console 属于业务层的后端。它需要与数据中心端进行通信，才能获取集群的状态。因此在 rainbond-console 和 rainbond 这两个项目中，都需要对治理模式的有效性进行校验。
+Based on Rainbond technical architecture, we can know that rainbond-console belongs to the backend of the business layer.It needs to communicate with the data center in order to get the status of the cluster.Therefore, the effectiveness of governance models needs to be checked in both the rainbond-console and rainbond projects.
 
-#### rainbond-console 对治理模式有效性的校验
+#### rainbond-console validation of governance models
 
-参考如下代码，类 `GovernanceModeEnum` 定义了支持的治理模式。首先我们需要在治理模式这里增加 `ISTIO_SERVICE_MESH`，用于在业务层判断治理模式是否有效。当此处校验通过后，我们需要请求数据中心端的接口，检测此种治理模式是否已安装了对应的控制平面。
+The `GovernanceModeEnum` class defines the supported governance mode with the following code.First, we need to add `ISTION_SERVICE_MESH` here in the governance model to judge the effectiveness of the governance model at the operational level.When this check is passed, we need to request the interface at the data center to check if this governance mode is installed with the corresponding control plane.
 
 `/console/enum/app.py`
 
 ```python
-class GovernanceModeEnum(AutoNumber):
-    BUILD_IN_SERVICE_MESH = ()
+Class GovernanceModeEnum (AutoNumber):
+    BUILD_IN_SERVICE_MESH = A)
     KUBERNETES_NATIVE_SERVICE = ()
-    ISTIO_SERVICE_MESH = ()
+    ISTIO_SERVICE_MESH = (
 
     @classmethod
     def choices(cls):
-        return [(key.value, key.name) for key in cls]
+        return [(key. alue, key. ame) for key in cls]
     
-    @classmethod
-    def names(cls):
-        return [key.name for key in cls]
+    @class method
+    def names (cls):
+        return [key. The same for key in cls]
 ```
 
-#### rainbond 对治理模式有效性的校验
+#### rainbond validation of governance models
 
-在接收到来自业务端的校验请求时，我们需要检测在该集群是否已部署了对应的 ServiceMesh 框架的控制平面。参考如下代码，由于部署 Istio 控制平面后，在每个命名空间下都可以查看到 `istio-ca-root-cert`这个 ConfigMap，所以我们这里使用该 ConfigMap 作为判断 Istio 控制平面部署的依据。
-当确认 Istio 控制平面已安装后，我们返回给业务端结果。最终完成切换。
+When receiving a verification request from the business side, we need to test if the control plane of the ServiceMesh framework has been deployed in the cluster.With reference to the following code, since `istio-ca-root-cert` is visible in every namespace after deploying the Istio control plane, we use this ConfigMap here as the basis for determining the control planar deployment.
+When it is confirmed that Istio control plane is installed, we return to the business end results.Finally toggle finished.
 
 `/api/handler/app_governance_mode/adaptor/istio.go`
 
 ```go
-func (i *istioServiceMeshMode) IsInstalledControlPlane() bool {
-        ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-        defer cancel()
-        cmName := os.Getenv("ISTIO_CM")
-        if cmName == "" {
+func (i *istioServiceMeshMode) IsInstalledControlPlane() boolool uma $6
+        ctx, cancel:= context. ithTimeout(context.Background(), 5*time.Second)
+        defer cancer()
+        cmName := os. etenv("ISTIO_CM")
+        if cmName == "" LO
                 cmName = "istio-ca-root-cert"
         }
-        _, err := i.kubeClient.CoreV1().ConfigMaps("default").Get(ctx, cmName, metav1.GetOptions{})
-        if err != nil {
+        _, err := i. ubeClient.CoreV1(). ConfigMaps("default"). Get(Ctx, cmName, metav1. etOptions{})
+        if err! nil {
                 return false
         }
         return true
 }
 ```
 
-#### 实现基于应用的数据平面的注入
+#### Implement the application-based data planar injection
 
-仅仅完成治理模式的切换还不够，我们需要让 Istio 的控制平面为指定的应用注入 Sidecar，即数据平面。Rainbond 自身通过 Worker 组件将 Rainbond-Application Model 进行实例化转化为 Kubernetes 资源模型。控制应用的生命周期。
+It is not enough to switch to the governance mode alone. We need to make Istio control plane injected Sidecar for the specified application.Rainbond itself instantiated Rainbond-Application Model through the Worker component into a Kubernetes resource model.Control the life cycle of the app.
 
-因此，我们需要在 Worker 组件转化资源时，自动为用户完成对应用的注入。参考 Istio 注入策略。我们可以发现 Istio 依赖于 Label `"sidecar.istio.io/inject": "true"` 完成注入。而在 Rainbond的代码中，我们可以看到如下代码。这是将 Rainbond 的应用模型转化为 Deployment 的部分代码。在这里，我们为 Deployment 添加了对应的 injectLabels。
+We therefore need to automatically complete the app injection for users when the workker component converts resources.Reference Istio Injection Strategy.We can find Istio relies on Label\`"sidecar.istio.io/inject": "true" to complete injection.And in Rainbond, we can see the following code.This is to convert Rainbond application models into part of the Deployment.Here we've added the injectLabels to the Deployment.
 
-有了这些初始化操作。当 API 对象被创建出来时，便会被 Istio 的准入控制器处理，完成数据平面的注入。
+There are these initialization actions.When an API object is created, it is processed by Istio's access controller, which completes data planar injection.
 
 `/worker/appm/conversion/service.go`
 
@@ -151,36 +151,36 @@ func getInjectLabels(as *v1.AppService) map[string]string {
 }
 ```
 
-对于不同的应用治理模式，我们可以参考 应用治理模式扩展 的代码。实现如下接口，便可以完成应用下治理模式的切换和注入。
+For different modes of application governance, we can refer to the code of the application mode extension.Perform the following interfaces to complete the switching and injection of the application mode of governance.
 
-其中`IsInstalledControlPlane`这个接口的实现在前面已经体现。它主要用于判断控制平面是否已完成安装，可以正常使用。而 `GetInjectLabels`则主要用于 Worker 组件转化应用模型为 Kubernetes 资源时，添加上指定的 Labels，以便被部署的准入控制器处理。
+The implementation of the `IsInstanledControlPlane` interface is already reflected above.It is primarily used to determine whether the control plane has been installed and is ready for normal use.The `GetInjectLabels` is mainly used when the Worker component converts the application model to a Kubernetes resource, adding the specified Labels for processing by the deployed access controller.
 
 `/api/handler/app_governance_mode/adaptor/app_governance_mode.go`
 
 ```go
-type AppGoveranceModeHandler interface {
-        IsInstalledControlPlane() bool
+Type Apps GoveranceModeHandler interface LO
+        IsInstallation ControlPlane() ol
         GetInjectLabels() map[string]string
 }
 ```
 
-## 总结
+## Summary
 
-本文我们主要介绍了应用治理模式的注入机制和开发，用户可以通过查阅需要注入的 ServiceMesh 插件官方文档，通过以上两步完成应用下治理模式的切换。使应用获得不同的治理能力。
+This paper focuses on the infusion mechanisms and development of the application governance model, which allows users to switch from the application mode by accessing the official documentation of the ServiceMesh plugin for infusion.Bring applications to different governance capabilities.
 
 ## Reference Link
 
-- [Dynamic Admission Control](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#initializers)
+- [Dynamic Admissions Control](https://kubernetes.io/docs/reference/access-author-authorz/extensible-admission-controllers/#initializers)
 
-- [Rainbond-UI 实现 Istio Commit](https://github.com/goodrain/rainbond-ui/commit/2830fc585df12f1cc4443f7e73a63daf8254742e)
+- [Rainbond-UI implementation of Istio Community](https://github.com/goodrain/rainbond-ui/committ/2830fc585df12f1cc443f7e73a63daf8254742e)
 
-- [Rainbond-Console 实现 Istio Commit](https://github.com/goodrain/rainbond-console/commit/dd09c1f05519fa08f013a889260180f05c22f58a)
+- (https://github.com/goodrain/rainbond-console/commit/dd009c1f05519fa0813a889260180f22f58a)
 
-- Rainbond 实现 Istio Commit：
-  - [Istio.go](https://github.com/goodrain/rainbond/blob/4f62d79a5858d1161e6ad719848bfddeb33aeb83/api/handler/app_governance_mode/adaptor/istio.go#L23)
-  - [service.go](https://github.com/goodrain/rainbond/blob/cf00c0d5ebe0f455ab8f5d49139616df0f7c1f9f/worker/appm/conversion/service.go#L207)
-  - [app_governance_mode.go](https://github.com/goodrain/rainbond/blob/4f62d79a5858d1161e6ad719848bfddeb33aeb83/api/handler/app_governance_mode/adaptor/app_governance_mode.go#L10)
+- Rainbond implementation of Istio Commit：
+  - [Istio.go](https://github.com/goodrain/rainbon/blob/4f62d79a58d1161e6ad719848bfddeb33aeb83/api/handler/app_governance_mode/adaptor/istio.go#L23)
+  - [service.go](https://github.com/goodrain/rainbon/blob/cf00c0d5ebe0f45ab8f5d49139616df0f7c1f9f/worker/appm/conversion/service.go#L207)
+  - [app_governance_mode.go](https://github.com/goodrain/rainbon/blob/4f62d79a58d1161e6ad719848bfddeb33aeb83/api/handler/app_governance_mode.go#L10)
 
-- [Rainbond 技术架构](https://www.rainbond.com/docs/architecture/architecture?channel=cnblog)
+- [Rainbond Technical Architecture](https://www.rainbond.com/docs/archive/archive?channel=cnblog)
 
-- [Istio 注入策略](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/#controlling-the-injection-policy)
+- [Istio Injection Strategy](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/#controlling-the-injection-policy)
