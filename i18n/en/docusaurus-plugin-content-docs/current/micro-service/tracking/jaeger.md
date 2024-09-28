@@ -2,34 +2,34 @@
 title: Jaeger uses
 description: Distributed link tracking Jaeger + microservice Pig practice sharing on Rainbond
 keywords:
-- Jaeger 分布式链路追踪
-- APM
-- 链路追踪
+  - Jaeger 分布式链路追踪
+  - APM
+  - 链路追踪
 ---
 
 Jaeger 是 Uber 技术团队发布的开源分布式跟踪系统，它用于监控和故障排查基于微服务的分布式系统：
 
-* 分布式上下文传播、事务监控
-* 根本原因、服务依赖分析
-* 性能/延迟优化
-* [OpenTracing](http://opentracing.io/) 启发的数据模型
-* 多个存储后端：Cassandra, Elasticsearch, memory.
-* 系统拓扑图
-* 服务性能监控（SPM）
-* 自适应采样
+- 分布式上下文传播、事务监控
+- 根本原因、服务依赖分析
+- 性能/延迟优化
+- [OpenTracing](http://opentracing.io/) 启发的数据模型
+- 多个存储后端：Cassandra, Elasticsearch, memory.
+- 系统拓扑图
+- 服务性能监控（SPM）
+- 自适应采样
 
 ## Jaeger 架构
 
 ![](https://static.goodrain.com/wechat/jaeger/1.png)
 
-| Component                 | Description                                                  |
-| ------------------------- | ------------------------------------------------------------ |
-| Jaeger Client             | Jaeger Client SDK                                            |
-| Jaeger Agent              | 收集 Client 数据                                             |
-| Jaeger Collector          | 收集 Jaeger Agent 数据，有 pull/push 两种方式                |
-| DB Storage                | Collector 需要存储后端，Collector 拿到的数据将存在 Elasticsearch 或 Cassandra。 |
-| Spark jobs                | 用于生成拓扑图 UI 数据                                       |
-| Jaeger Query Service & UI | 负责从 Storage 查询数据并提供 API 和 UI                      |
+| Component                                     | Description                                                    |
+| --------------------------------------------- | -------------------------------------------------------------- |
+| Jaeger Client                                 | Jaeger Client SDK                                              |
+| Jaeger Agent                                  | 收集 Client 数据                                                   |
+| Jaeger Collector                              | 收集 Jaeger Agent 数据，有 pull/push 两种方式                            |
+| DB Storage                                    | Collector 需要存储后端，Collector 拿到的数据将存在 Elasticsearch 或 Cassandra。 |
+| Spark jobs                                    | 用于生成拓扑图 UI 数据                                                  |
+| Jaeger Query Service & UI | 负责从 Storage 查询数据并提供 API 和 UI                                   |
 
 ## 如何在Rainbond上集成？
 
@@ -59,7 +59,7 @@ v1.36 版本以后被弃用。使用 [OpenTelemetry](https://opentelemetry.io/) 
 
 从应用商店安装 `opentelemetry-java-agent` 初始化插件，该插件的作用是下载 `opentelemetry-javaagent.jar` 到微服务组件内，可以在 Java 启动项中指定。
 
-* 团队视图 -> 插件 -> 从应用商店安装插件 -> 搜索 `opentelemetry-java-agent` 并安装。
+- 团队视图 -> 插件 -> 从应用商店安装插件 -> 搜索 `opentelemetry-java-agent` 并安装。
 
 ### 部署 Jaeger
 
@@ -77,19 +77,19 @@ v1.36 版本以后被弃用。使用 [OpenTelemetry](https://opentelemetry.io/) 
 
 为所有微服务组件配置环境变量。
 
-| 变量名                        | 变量值                                        | 说明                           |
-| ----------------------------- | --------------------------------------------- | ------------------------------ |
-| OTEL_TRACES_EXPORTER          | jaeger                                        | 选择 Jaeger exporter           |
-| OTEL_EXPORTER_JAEGER_ENDPOINT | http://127.0.0.1:14250                        | Jaeger Collector gRPC endpoint |
-| OTEL_EXPORTER_JAEGER_TIMEOUT  | 10000                                         | 超时时间（毫秒）               |
-| OTEL_METRICS_EXPORTER         | none                                          | Metrics 导出器                 |
-| JAVA_OPTS                     | -javaagent:/agent/opentelemetry-javaagent.jar | Java 启动参数                  |
+| 变量名                                                                                          | 变量值                                                                                                    | 说明                             |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------ |
+| OTEL_TRACES_EXPORTER                               | jaeger                                                                                                 | 选择 Jaeger exporter             |
+| OTEL_EXPORTER_JAEGER_ENDPOINT | http://127.0.0.1:14250 | Jaeger Collector gRPC endpoint |
+| OTEL_EXPORTER_JAEGER_TIMEOUT  | 10000                                                                                                  | 超时时间（毫秒）                       |
+| OTEL_METRICS_EXPORTER                              | none                                                                                                   | Metrics 导出器                    |
+| JAVA_OPTS                                                               | -javaagent:/agent/opentelemetry-javaagent.jar                          | Java 启动参数                      |
 
 可在应用 -> 配置，使用 `应用配置组` 统一配置并应用到所有组件中。
 
 **3. 配置组件服务名称**
 
-为所有微服务组件配置环境变量 `OTEL_SERVICE_NAME` ，配置组件的 Jaeger 服务名称，如：`OTEL_SERVICE_NAME=pig-gateway` `OTEL_SERVICE_NAME=pig-auth` 
+为所有微服务组件配置环境变量 `OTEL_SERVICE_NAME` ，配置组件的 Jaeger 服务名称，如：`OTEL_SERVICE_NAME=pig-gateway` `OTEL_SERVICE_NAME=pig-auth`
 
 ### 建立依赖关系
 
@@ -103,12 +103,13 @@ v1.36 版本以后被弃用。使用 [OpenTelemetry](https://opentelemetry.io/) 
 
 1. 访问 ` Jaeger-Query` 的 `16686` 端口，打开对外服务即可访问 `Jaeger UI` 。
 2. 在 Jaeger Search 页面中搜索微服务 pig-gateway 的 Traces
-* Service：选择微服务的组件
-* Operation：选择操作类型，例：GET POST、接口、类.....
-* Tags：根据响应头筛选，例：http.status_code=200 error=true
-* Lookback：选择时间
-* Max Duration：最大持续时间；Min Duration：最小持续时间。
-* Limit Results：限制返回结果数量。
+
+- Service：选择微服务的组件
+- Operation：选择操作类型，例：GET POST、接口、类.....
+- Tags：根据响应头筛选，例：http.status_code=200 error=true
+- Lookback：选择时间
+- Max Duration：最大持续时间；Min Duration：最小持续时间。
+- Limit Results：限制返回结果数量。
 
 ![](https://static.goodrain.com/wechat/jaeger/10.png)
 
@@ -123,4 +124,3 @@ v1.36 版本以后被弃用。使用 [OpenTelemetry](https://opentelemetry.io/) 
 `spark-dependencies` 组件占用资源较大，不使用时可关闭，需要生成拓扑图数据时将其启动即可。
 
 ![](https://static.goodrain.com/wechat/jaeger/9.png)
-
