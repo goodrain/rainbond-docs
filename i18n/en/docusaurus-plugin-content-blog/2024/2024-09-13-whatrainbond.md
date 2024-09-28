@@ -1,20 +1,20 @@
 ---
-title: 什么是 Rainbond？打破 Kubernetes 的复杂性
-description: 近年来，随着云原生技术的快速发展，Kubernetes 已经成为容器编排的标准。然而，尽管 Kubernetes 功能强大，它的复杂性也成为了众多开发者和运维人员的一大挑战。对于那些希望专注于应用开发的团队来说，学习和管理 Kubernetes 可能是一个高昂的学习成本，尤其是在中小企业中，开发者并没有足够的资源和时间去深入了解 Kubernetes 的所有细节。
-slug: whatrainbond
+title: What is Rainbond?Complexity to break Kubernetes
+description: In recent years, Kubernetes have become the standard for packaging with the rapid development of endogenous technologies.However, the complexity of Kubernetes has also become a major challenge for many developers and operators.Learning and managing Kubernetes may be a high learning cost for those teams that wish to focus on application development, especially in SMEs, who do not have sufficient resources and time to gain insight into all the details of Kubernetes.
+slug: Whatrainbond
 ---
 
-近年来，随着云原生技术的快速发展，Kubernetes 已经成为容器编排的标准。然而，尽管 Kubernetes 功能强大，它的复杂性也成为了众多开发者和运维人员的一大挑战。对于那些希望专注于应用开发的团队来说，学习和管理 Kubernetes 可能是一个高昂的学习成本，尤其是在中小企业中，开发者并没有足够的资源和时间去深入了解 Kubernetes 的所有细节。
+In recent years, Kubernetes have become the standard for packaging with the rapid development of endogenous technologies.However, the complexity of Kubernetes has also become a major challenge for many developers and operators.Learning and managing Kubernetes may be a high learning cost for those teams that wish to focus on application development, especially in SMEs, who do not have sufficient resources and time to gain insight into all the details of Kubernetes.
 
-这就是**Rainbond**的出现时机。作为一个开源的云原生应用管理平台，Rainbond 通过提供应用级抽象，让用户可以专注于应用的构建、部署和管理，而无需深入理解底层的 Kubernetes 和容器化技术。这种“以应用为中心”的设计理念，使得 Rainbond 成为一款非常友好的平台，适合那些希望享受云原生技术优势，但又不想陷入底层复杂操作的用户。
+This is the time for **Rainbond**.As an open source of cloud native application management platform, Rainbond provides an abstraction that allows users to focus on the construction, deployment and management of the application without having to understand the bottom Kubernetes and packaging techniques.This “application-centred” concept has made Rainbond a very friendly platform for those who want to enjoy the cloudy technological advantage but do not want to fall into a complex operation at the bottom.
 
-## Kubernetes 的复杂性：开发者的隐忧
+## Complexity：for developers in Kubernetes
 
-在现代的云原生环境中，Kubernetes 被誉为解决容器编排的**黄金标准**，它的功能包括自动扩展、服务发现、负载均衡、滚动更新等。然而，这些强大的功能背后，也隐藏着一个陡峭的学习曲线。
+In the modern cloud environment, Kubernetes are known as the **Gold Standards** for containers whose functions include automatic expansion, discovery of services, load equilibrium, scroll updates, etc.However, behind these powerful features, a steep learning curve is hidden.
 
-对于那些并非专职运维的开发者，学习如何创建和管理 Pod、Service、Ingress、ConfigMap、PersistentVolume 等资源，往往会分散开发的注意力。更不用提在多集群环境下的复杂性，或者在大规模应用场景下如何确保高可用性、容错性和扩展性。这些问题都需要专门的运维知识，并不是每个团队都有能力处理。
+Learning how to create and manage resources such as Pod, Service, Ingress, ConfigMap and PersistVolume for those developers who are not working on a full-time basis tend to divert attention from development.Not to mention complexity in multi-cluster settings, or how to ensure high availability, tolerance and extension under large-scale application scenarios.These issues require specialized knowledge and not the capacity of every team to deal with.
 
-例如，Kubernetes 的 YAML 配置文件是其应用管理的核心，虽然灵活，但它的语法复杂且冗长，对于不熟悉 Kubernetes 语法的开发者来说，编写和调试这些配置文件不仅费时费力，还容易出错。Kubernetes 核心 API 中有大约**50-60**种对象（包括不同版本和扩展对象，如 CRD），属性数量因对象而异，通常每个对象拥有**5-40**个属性不等。
+For example, the YAML configuration file in Kubernetes is at the heart of its application management and, while flexible, its syntax is complex and lengthy, and for developers who are not familiar with Kubernetes syntax, it is not only time-consuming and easy to write and debug them.The Kubernetes Core API contains approximately **50-60** objects (including different versions and extension objects, such as CRDs). The number of attributes varies from object to object, and each object usually owns **5-40**.
 
 ```yaml
 apiVersion: apps/v1
@@ -85,38 +85,38 @@ spec:
               number: 80
 ```
 
-_上面的代码展示了 Kubernetes 配置文件的复杂性，对于许多开发者来说，这是一个门槛。_
+_The code above shows the complexity of the Kubernetes configuration file, which is a threshold for many developers._
 
-## Rainbond：以应用为中心的简化管理
+## Rainbond：Simplified App Center Management
 
-Rainbond 的设计理念从一开始就着眼于解决这些问题。它通过**应用级抽象**，将 Kubernetes 的复杂性隐藏起来，让用户专注于他们最关心的部分——应用本身。
+The design concept of Rainbond has been designed to address these issues from the outset.It hides the complexity of Kubernetes by **Applications abstract** and allows users to focus on what they are most interested — the application itself.
 
-### 1. 应用级抽象
+### 1. Application of the Abstract
 
-应用级抽象是 Rainbond 的核心特性之一。所谓应用级抽象，指的是用户不再需要关注 Kubernetes 中的底层资源（如 Pod、Service、Ingress 等），而是通过一个更高层次的视角来看待应用。在 Rainbond 中，应用被视为一个整体，用户只需关注应用的状态、依赖和版本，而底层的网络配置、存储管理等复杂操作由平台自动处理。
+The application abstraction is one of the core features of RainbondThe abstract of the application means that users no longer need to follow the underlying resources in Kubernetes (e.g. Pod, Service, Inprogress etc.), but rather to view the application from a higher perspective.In Rainbond, the app is seen as a whole, with users simply watching the app's status, dependence, and version, while complex operations such as bottom network configuration, storage management are handled automatically by the platform.
 
-通过这种方式，Rainbond 大大降低了用户的学习成本，特别适合那些没有精通 Kubernetes 的开发者或团队。
+In this way, Rainbond significantly reduces the cost of learning for users, especially for developers or teams that do not have good knowledge of Kubernetes.
 
-### 2. 以应用为中心
+### Application centered
 
-Rainbond 强调“以应用为中心”，这意味着平台的所有功能和设计都是围绕着应用展开的。无论是应用的创建、部署、扩展还是监控，用户看到的都是应用的整体表现，而不是底层的集群或节点细节。
+Rainbond emphasizes “application-centred”, which means that all functions and designs of the platform are built around the application.Whether it is the creation, deployment, extension or monitoring of the application, users see the overall performance of the application rather than the cluster or nodes details at the bottom.
 
-用户可以通过 Rainbond 的图形界面，轻松查看和管理所有应用的状态、日志、依赖关系等信息，所有操作都直观易懂。Rainbond 提供了一个“一键部署”的功能，开发者可以从代码库中直接部署应用，自动生成相应的容器和资源配置，并完成应用的上线工作。
+Users can easily view and manage all apps' status, logs, dependencies, etc. through Rainbond's graphical interface, and all actions are straightforward.Rainbond provides a "one-click deployment" feature that allows developers to deploy applications directly from the repository and automatically generate containers and resource configurations, as well as to complete online application work.
 
 ![](https://static.goodrain.com/wechat/what-is-rainbond/1.png)
 
-_上图展示了 Rainbond 的应用管理界面，用户可以通过直观的界面管理和监控应用的运行状态。_
+_The graph shows the application management interface of Rainbrond, which allows users to manage and monitor the app's state of operation through a visual interface._
 
-## 应用级抽象和以应用为中心是技术趋势
+## The application abstraction and application centered are technology trends
 
-云原生应用的发展正逐渐走向“以应用为中心”的技术趋势。在传统的基础设施管理中，开发者和运维人员需要分别关注底层基础设施和应用，这不仅导致了责任的分离，还增加了沟通和协作的成本。而应用级抽象则将基础设施管理与应用管理融合在一起，让开发者和运维团队能够在同一平台上协作，统一管理应用的生命周期。
+The development of cloud native applications is gradually moving towards an “application-centred” technological trend.In traditional infrastructure management, developers and transport operators need to focus on infrastructure and applications at the bottom, which not only leads to the separation of responsibilities, but also increases the cost of communication and collaboration.The abstraction integrates infrastructure management and application management, allowing developers and shipping teams to work together on the same platform to manage the life cycle of the application.
 
-随着微服务、DevOps 和容器化技术的普及，应用的复杂性日益增加。而通过应用级抽象，平台可以自动处理底层资源和服务的协调工作，开发者可以更专注于应用的业务逻辑，这种趋势已经成为各大云原生平台的共识。
+With the spread of microservices, DevOs and containerization technologies, applications are becoming more complex.By using abstraction, platforms can automatically handle the coordination of resources and services at the bottom, and developers can focus more on the business logic of the application, a trend that has become a consensus among the major cloud-origin platforms.
 
-以应用为中心的设计理念，不仅能减少开发人员的运维负担，还能提升应用的开发和部署效率。这种趋势在 Kubernetes 社区也有体现，例如 Open Application Model (OAM) 这样的项目，都是围绕应用级抽象展开的。而 Rainbond 通过进一步简化 Kubernetes 的复杂性，成为了这一趋势的领先者之一。
+The application centred design not only reduces the mobility burden of developers but also increases the efficiency of their development and deployment.This trend is also evident in the Kubernetes community, such as the Open Application Model (OAM) project, which is built around the application level.Rainbond has been one of the leaders of this trend by further streamlining the complexity of Kubernetes.
 
-## 总结
+## Summary
 
-Rainbond 的出现，为希望享受云原生技术优势但不愿深陷 Kubernetes 复杂性的用户提供了一条捷径。通过应用级抽象和以应用为中心的设计，Rainbond 不仅降低了 Kubernetes 的门槛，还提供了强大的自动化运维和低代码/无代码开发能力。
+The emergence of Rainbond provides a shortcut to users who want to enjoy the cloud technological advantage but do not want to be able to cope with the complexity of Kubernetes.Through the abstraction and application-centred design, Rainbond not only lowered the threshold for Kubernetes but also provided a powerful capacity for both automated transport and low-code/no-code development.
 
-在未来，随着更多企业和开发团队采用云原生技术，Rainbond 这种简化操作、提升效率的云原生应用管理平台，必将在市场中占据重要地位。Rainbond 让开发者专注于应用，让复杂的技术背景成为过去，从而推动整个行业向着更高效、更智能的方向发展。
+In the future, as more businesses and development teams adopt cloud-origin technologies, Rainbond is a simplified operation and an efficient cloud application management platform that will certainly occupy a prominent place in the market.Rainbond drives the entire industry to move in a more efficient and intelligent direction by focusing developers on applications and turning the complex technological background into the past.
