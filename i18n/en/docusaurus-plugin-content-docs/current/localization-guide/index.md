@@ -1,8 +1,8 @@
 ---
-title: 国产化信创指南
+title: Guide to National Productivity
 ---
 
-本章节主要介绍 Rainbond 在国产化信创领域的功能介绍与使用要点。
+This section focuses on key elements of the functional presentation and use of Rainbond in the field of national production of credits.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
