@@ -3,25 +3,25 @@ title: rbd-hub
 description: Parameter Description of the rbd-hub component
 ---
 
-## rbd-hub组件说明
+## rbd-hub component description
 
-基于[Docker Registry](https://docs.docker.com/registry/)封装，提供docker镜像存储服务
+Provides docker mirror storage services based on [Docker Registry](https://docs.docker.com/registry/) encapsulation
 
-### 运行方式
+### Runs
 
-运行于Kubernetes集群内部，POD运行,由Kubernetes和Rainbond-Operator共同维护和管理
+Run inside the Kubernetes cluster, POD runs, co-maintained and managed by Kubernetes and Rainbond-Operator
 
-### 常用参数说明
+### Common Parameter Description
 
-rbd-hub基于registry镜像，详细参数参阅 [Docker Registry官方文档](https://docs.docker.com/registry/configuration/)
+rbd-hub based on registry images, see [Docker Registry official documentation] (https://docs.docker.com/registry/configuration/)
 
-### 向集群私有镜像仓库推送镜像
+### Push image to cluster private mirror repository
 
 :::tip
-在集群内的任意节点进行如下操作
+Do the following actions at any node in a cluster
 :::
 
-首先获取私有镜像仓库的相关信息
+First get information about private mirror repositories
 
 ```yaml title="kubectl get rainbondcluster -n rbd-system -o yaml|grep  -A 3 imageHub"
   imageHub:
@@ -30,19 +30,19 @@ rbd-hub基于registry镜像，详细参数参阅 [Docker Registry官方文档](h
     username: admin
 ```
 
-登录私有镜像仓库
+Login to Private Mirror Repository
 
 ```bash
-$ docker login goodrain.me -uadmin -p2118317a
+$ docker log in goodrain.me -uadmin -p2118317a
 ```
 
-将需要推送的镜像名字修改为`goodrain.me/***`，直接进行`push`操作即可
+Change the name of the image to `goodrain.me/**`, to `push` directly
 
-以推送`nginx`镜像为例
+Example to push `nginx`
 
 ```bash
-# 修改镜像名字
+# Modify image name
 docker tag nginx goodrain.me/nginx:v1
-# push镜像
-docker push  goodrain.me/nginx:v1
+# push image
+docker push goodrain.me/nginx:v1
 ```
