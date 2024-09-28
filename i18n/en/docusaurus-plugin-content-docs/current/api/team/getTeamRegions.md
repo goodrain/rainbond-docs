@@ -2,7 +2,7 @@
 title: Get the list of clusters opened by the team
 ---
 
-## Basic Information
+## 基本信息
 
 This interface is mainly used to obtain the list of clusters opened by the team
 
@@ -12,11 +12,11 @@ GET /openapi/v1/teams/{team_id}/regions
 
 ## request parameters
 
-| name      | Location | type   | required | Chinese name | illustrate                 |
-| --------- | -------- | ------ | -------- | ------------ | -------------------------- |
+| name                           | Location | type   | required | Chinese name | illustrate                 |
+| ------------------------------ | -------- | ------ | -------- | ------------ | -------------------------- |
 | team_id   | path     | string | Yes      |              | none                       |
-| query     | query    | string | no       |              | Search by data center name |
-| page      | query    | string | no       |              | page number                |
+| query                          | query    | string | no       |              | Search by data center name |
+| page                           | query    | string | no       |              | page number                |
 | page_size | query    | string | no       |              | Quantity per page          |
 
 ## return result
@@ -53,9 +53,9 @@ GET /openapi/v1/teams/{team_id}/regions
 
 ### Attributes
 
-| name    | type                                        | required | constraint | Chinese name | illustrate |
-| ------- | ------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| total   | integer                                     | true     | none       | Total        | none       |
+| name    | type                                                                                            | required | constraint | Chinese name | illustrate |
+| ------- | ----------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| total   | integer                                                                                         | true     | none       | Total        | none       |
 | regions | [[TeamRegionsResp](#schemateamregionsresp)] | true     | none       |              | none       |
 
 ### TeamRegionsResp<a id="schemateamregionsresp"></a>
@@ -79,17 +79,17 @@ GET /openapi/v1/teams/{team_id}/regions
 
 ### Attributes
 
-| name         | type        | required | constraint | Chinese name | illustrate                                                           |
-| ------------ | ----------- | -------- | ---------- | ------------ | -------------------------------------------------------------------- |
-| region_id    | string      | true     | none       | Region id    | region id                                                            |
-| region_name  | string      | true     | none       | Region name  | data center name                                                     |
-| region_alias | string      | true     | none       | Region alias | data center alias                                                    |
-| tenant_name  | string      | true     | none       | Tenant name  | Tenant name                                                          |
-| url          | string      | true     | none       | Url          | Datacenter API url                                                   |
-| wsurl        | string      | true     | none       | Wsurl        | datacenter websocket url                                             |
-| httpdomain   | string      | true     | none       | Httpdomain   | Data center http application access root domain name                 |
-| tcpdomain    | string      | true     | none       | Tcpdomain    | Data center tcp application access root domain name                  |
-| token        | string¦null | false    | none       | Token        | data center token                                                    |
-| status       | string      | true     | none       | Status       | Data Center Status 0：Editing 1: Enabled 2：Disabled 3: In Maintenance |
-| desc         | string      | true     | none       | Desc         | Data Center Description                                              |
-| scope        | string      | false    | none       | Scope        | Datacenter-wide private                                              |
+| name                              | type        | required | constraint | Chinese name | illustrate                                                                                           |
+| --------------------------------- | ----------- | -------- | ---------- | ------------ | ---------------------------------------------------------------------------------------------------- |
+| region_id    | string      | true     | none       | Region id    | region id                                                                                            |
+| region_name  | string      | true     | none       | Region name  | data center name                                                                                     |
+| region_alias | string      | true     | none       | Region alias | data center alias                                                                                    |
+| tenant_name  | string      | true     | none       | Tenant name  | 租户名称                                                                                                 |
+| url                               | string      | true     | none       | Url          | Datacenter API url                                                                                   |
+| wsurl                             | string      | true     | none       | Wsurl        | datacenter websocket url                                                                             |
+| httpdomain                        | string      | true     | none       | Httpdomain   | Data center http application access root domain name                                                 |
+| tcpdomain                         | string      | true     | none       | Tcpdomain    | Data center tcp application access root domain name                                                  |
+| token                             | string¦null | false    | none       | Token        | data center token                                                                                    |
+| status                            | string      | true     | none       | Status       | Data Center Status 0：Editing 1: Enabled 2：Disabled 3: In Maintenance |
+| desc                              | string      | true     | none       | Desc         | Data Center Description                                                                              |
+| scope                             | string      | false    | none       | Scope        | Datacenter-wide private                                                                              |
