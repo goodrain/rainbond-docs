@@ -2,7 +2,7 @@
 title: Get event log
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain event logs
 
@@ -14,27 +14,27 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/events/{event_id}/logs
 
 | name                             | Location | type   | required | Chinese name | illustrate       |
 | -------------------------------- | -------- | ------ | -------- | ------------ | ---------------- |
-| team_id     | path     | string | Yes      |              | Team ID, name    |
-| region_name | path     | string | Yes      |              | data center name |
-| event_id    | path     | string | Yes      |              | Event ID         |
+| team_id     | Path     | String | Yes      |              | Team ID, name    |
+| region_name | Path     | String | Yes      |              | data center name |
+| event_id    | Path     | String | Yes      |              | Event ID         |
 
 ## return result
 
-| status code | Status code meaning | illustrate | data model                          |
-| ----------- | ------------------- | ---------- | ----------------------------------- |
-| 200         | OK                  | success    | [TeamEventLog](#schemateameventlog) |
+| status code | Status code meaning | illustrate | data model                         |
+| ----------- | ------------------- | ---------- | ---------------------------------- |
+| 200         | OK                  | success    | [TeamEventLog](#schemateaeventlog) |
 
 ## Model
 
 ### TeamEventLog<a id="schemateameventlog"></a>
 
 ```json
-{
+LO
   "logs": [
-    {
+    Fum
       "message": "string",
       "time": "string",
-      "utime": 0
+      "utilme": 0
     }
   ]
 }
@@ -42,24 +42,24 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/events/{event_id}/logs
 
 ### Attributes
 
-| name | type                                                                                                 | required | constraint | Chinese name | illustrate      |
-| ---- | ---------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | --------------- |
-| logs | [[EventLogMessage](#schemaeventlogmessage)]¦null | false    | none       |              | log information |
+| name | type                                                                                              | required | constraint | Chinese name | illustrate      |
+| ---- | ------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | --------------- |
+| Logs | [[EventLogMessage](#schemaeventlogssage)]hull | false    | none       |              | log information |
 
 ### EventLogMessage<a id="schemaeventlogmessage"></a>
 
 ```json
-{
+LO
   "message": "string",
   "time": "string",
-  "utime": 0
-}
+  "utility": 0
+ } }
 ```
 
 ### Attributes
 
-| name    | type         | required | constraint | Chinese name | illustrate      |
-| ------- | ------------ | -------- | ---------- | ------------ | --------------- |
-| message | string¦null  | false    | none       | Message      | log information |
-| time    | string¦null  | false    | none       | Time         | log time        |
-| utime   | integer¦null | false    | none       | Utime        | timestamp       |
+| name    | type                  | required | constraint | Chinese name | illustrate      |
+| ------- | --------------------- | -------- | ---------- | ------------ | --------------- |
+| Message | Stringenull           | false    | none       | Message      | log information |
+| time    | Stringenull           | false    | none       | Time         | log time        |
+| utime   | integerexecutive null | false    | none       | Utime        | timestamp       |
