@@ -2,7 +2,8 @@
 title: Duplicate the app
 ---
 
-## Basic Information
+## 基本信息
+
 This interface is mainly used for replication applications
 
 ```shell title="请求路径"
@@ -30,12 +31,12 @@ Here `target_app_id` specifies the target app name
 
 ## request parameters
 
-| name        | Location | type                        | required | Chinese name | illustrate |
-| ----------- | -------- | --------------------------- | -------- | ------------ | ---------- |
+| name                             | Location | type                        | required | Chinese name | illustrate |
+| -------------------------------- | -------- | --------------------------- | -------- | ------------ | ---------- |
 | team_id     | path     | string                      | Yes      |              | none       |
 | region_name | path     | string                      | Yes      |              | none       |
 | app_id      | path     | string                      | Yes      |              | none       |
-| body        | body     | [AppCopyC](#schemaappcopyc) | no       |              | none       |
+| body                             | body     | [AppCopyC](#schemaappcopyc) | no       |              | none       |
 
 ## return result
 
@@ -153,8 +154,8 @@ Here `target_app_id` specifies the target app name
 
 ### Attributes
 
-| name     | type                                        | required | constraint | Chinese name | illustrate |
-| -------- | ------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| name     | type                                                                                            | required | constraint | Chinese name | illustrate |
+| -------- | ----------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
 | services | [[ServiceBaseInfo](#schemaservicebaseinfo)] | true     | none       |              | none       |
 
 ### ServiceBaseInfo<a id="schemaservicebaseinfo"></a>
@@ -207,49 +208,49 @@ Here `target_app_id` specifies the target app name
 
 ### Attributes
 
-| name                      | type         | required | constraint | Chinese name            | illustrate                                                                                                                                             |
-| ------------------------- | ------------ | -------- | ---------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| status                    | string       | false    | none       | Status                  | component status                                                                                                                                       |
-| access_infos              | [string]     | false    | none       |                         | component access address                                                                                                                               |
-| service_id                | string       | true     | none       | Service id              | component id                                                                                                                                           |
-| tenant_id                 | string       | true     | none       | Tenant id               | tenant id                                                                                                                                              |
-| service_key               | string       | true     | none       | Service key             | component key                                                                                                                                          |
-| service_alias             | string       | true     | none       | Service alias           | component alias                                                                                                                                        |
-| service_cname             | string       | false    | none       | Service cname           | component name                                                                                                                                         |
-| service_region            | string       | true     | none       | Service region          | The area to which the component belongs                                                                                                                |
-| desc                      | string¦null  | false    | none       | Desc                    | describe                                                                                                                                               |
-| category                  | string       | true     | none       | Category                | Component classification：application, cache, store                                                                                                     |
-| version                   | string       | true     | none       | Version                 | Version                                                                                                                                                |
-| update_version            | integer      | false    | none       | Update version          | Internal Releases                                                                                                                                      |
-| image                     | string       | true     | none       | Image                   | mirror                                                                                                                                                 |
-| cmd                       | string¦null  | false    | none       | Cmd                     | startup parameters                                                                                                                                     |
-| min_node                  | integer      | false    | none       | Min node                | number of instances                                                                                                                                    |
-| min_cpu                   | integer      | false    | none       | Min cpu                 | CPU allocation 1000=1core                                                                                                                              |
-| container_gpu             | integer      | false    | none       | Container GPUs          | Amount of GPU memory                                                                                                                                   |
-| min_memory                | integer      | false    | none       | Min memory              | Memory size unit (M)                                                                                                                                   |
-| extend_method             | string       | false    | none       | Extend method           | Component deployment type, stateless or state                                                                                                          |
-| code_from                 | string¦null  | false    | none       | Code from               | Code source: gitlab, github                                                                                                                            |
-| git_url                   | string¦null  | false    | none       | Git url                 | code code repository                                                                                                                                   |
-| git_project_id          | integer      | false    | none       | Git project id          | Project id in gitlab                                                                                                                                   |
-| code_version              | string¦null  | false    | none       | Code version            | code version                                                                                                                                           |
-| service_type              | string¦null  | false    | none       | Service type            | Component type: web, mysql, redis, mongodb, phpadmin                                                                                                   |
-| creator                   | integer      | false    | none       | Creater                 | component creator                                                                                                                                      |
-| language                  | string¦null  | false    | none       | Language                | code language                                                                                                                                          |
-| total_memory              | integer      | false    | none       | Total memory            | Memory usage M                                                                                                                                         |
-| is_service                | boolean      | false    | none       | Is service              | Whether the inner component                                                                                                                            |
-| service_origin            | string       | false    | none       | Service origin          | Component creation type cloud cloud city component, assistant cloud help component                                                                     |
-| tenant_service_group_id | integer      | false    | none       | Tenant service group id | The component group id to which the component belongs. For components installed from the application template, this field needs to be assigned a value |
-| open_webhooks             | boolean      | false    | none       | Open webhooks           | Whether to enable the automatic trigger deployment function (compatible with older version components)                                                 |
-| service_source            | string¦null  | false    | none       | Service source          | Component sources (source_code, market, docker_run, docker_compose)                                                                                  |
-| create_status             | string¦null  | false    | none       | Create status           | Component creation state creating                                                                                                                      |
-| check_uuid                | string¦null  | false    | none       | Check uuid              | Component detection ID                                                                                                                                 |
-| check_event_id          | string¦null  | false    | none       | Check event id          | Component detection event ID                                                                                                                           |
-| docker_cmd                | string¦null  | false    | none       | Docker-cmd              | Image creation command                                                                                                                                 |
-| server_type               | string       | false    | none       | Server type             | Source repository type                                                                                                                                 |
-| is_upgrate                | boolean      | false    | none       | Is upgrade              | Is it possible to update                                                                                                                               |
-| build_upgrade             | boolean      | false    | none       | Build upgrade           | Whether to upgrade components after building                                                                                                           |
-| oauth_service_id        | integer¦null | false    | none       | Oauth service id        | The OAuth service id used to pull the source code                                                                                                      |
-| k8s_component_name      | string       | true     | none       | K8s component name      | Cluster component name                                                                                                                                 |
+| name                                                                                   | type                                                         | required | constraint | Chinese name            | illustrate                                                                                                                                                             |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------ | -------- | ---------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| status                                                                                 | string                                                       | false    | none       | Status                  | component status                                                                                                                                                       |
+| access_infos                                                      | [string] | false    | none       |                         | component access address                                                                                                                                               |
+| service_id                                                        | string                                                       | true     | none       | Service id              | component id                                                                                                                                                           |
+| tenant_id                                                         | string                                                       | true     | none       | Tenant id               | tenant id                                                                                                                                                              |
+| service_key                                                       | string                                                       | true     | none       | Service key             | component key                                                                                                                                                          |
+| service_alias                                                     | string                                                       | true     | none       | Service alias           | component alias                                                                                                                                                        |
+| service_cname                                                     | string                                                       | false    | none       | Service cname           | component name                                                                                                                                                         |
+| service_region                                                    | string                                                       | true     | none       | Service region          | The area to which the component belongs                                                                                                                                |
+| desc                                                                                   | string¦null                                                  | false    | none       | Desc                    | describe                                                                                                                                                               |
+| category                                                                               | string                                                       | true     | none       | Category                | Component classification：application, cache, store                                                                                                                     |
+| version                                                                                | string                                                       | true     | none       | Version                 | Basic Information                                                                                                                                                      |
+| update_version                                                    | integer                                                      | false    | none       | Update version          | Internal Releases                                                                                                                                                      |
+| image                                                                                  | string                                                       | true     | none       | Image                   | mirror                                                                                                                                                                 |
+| cmd                                                                                    | string¦null                                                  | false    | none       | Cmd                     | startup parameters                                                                                                                                                     |
+| min_node                                                          | integer                                                      | false    | none       | Min node                | number of instances                                                                                                                                                    |
+| min_cpu                                                           | integer                                                      | false    | none       | Min cpu                 | CPU allocation 1000=1core                                                                                                                                              |
+| container_gpu                                                     | integer                                                      | false    | none       | Container GPUs          | Amount of GPU memory                                                                                                                                                   |
+| min_memory                                                        | integer                                                      | false    | none       | Min memory              | Memory size unit (M)                                                                                                                                |
+| extend_method                                                     | string                                                       | false    | none       | Extend method           | Component deployment type, stateless or state                                                                                                                          |
+| code_from                                                         | string¦null                                                  | false    | none       | Code from               | Code source: gitlab, github                                                                                                                            |
+| git_url                                                           | string¦null                                                  | false    | none       | Git url                 | code code repository                                                                                                                                                   |
+| git_project_id                               | integer                                                      | false    | none       | Git project id          | Project id in gitlab                                                                                                                                                   |
+| code_version                                                      | string¦null                                                  | false    | none       | Code version            | code version                                                                                                                                                           |
+| service_type                                                      | string¦null                                                  | false    | none       | Service type            | Component type: web, mysql, redis, mongodb, phpadmin                                                                                                   |
+| creator                                                                                | integer                                                      | false    | none       | Creater                 | component creator                                                                                                                                                      |
+| language                                                                               | string¦null                                                  | false    | none       | Language                | code language                                                                                                                                                          |
+| total_memory                                                      | integer                                                      | false    | none       | Total memory            | Memory usage M                                                                                                                                                         |
+| is_service                                                        | boolean                                                      | false    | none       | Is service              | Whether the inner component                                                                                                                                            |
+| service_origin                                                    | string                                                       | false    | none       | Service origin          | Component creation type cloud cloud city component, assistant cloud help component                                                                                     |
+| tenant_service_group_id | integer                                                      | false    | none       | Tenant service group id | The component group id to which the component belongs. For components installed from the application template, this field needs to be assigned a value |
+| open_webhooks                                                     | boolean                                                      | false    | none       | Open webhooks           | Whether to enable the automatic trigger deployment function (compatible with older version components)                                              |
+| service_source                                                    | string¦null                                                  | false    | none       | Service source          | Component sources (source_code, market, docker_run, docker_compose)                  |
+| create_status                                                     | string¦null                                                  | false    | none       | Create status           | Component creation state creating                                                                                                                                      |
+| check_uuid                                                        | string¦null                                                  | false    | none       | Check uuid              | Component detection ID                                                                                                                                                 |
+| check_event_id                               | string¦null                                                  | false    | none       | Check event id          | Component detection event ID                                                                                                                                           |
+| docker_cmd                                                        | string¦null                                                  | false    | none       | Docker-cmd              | Image creation command                                                                                                                                                 |
+| server_type                                                       | string                                                       | false    | none       | Server type             | Source repository type                                                                                                                                                 |
+| is_upgrate                                                        | boolean                                                      | false    | none       | Is upgrade              | Is it possible to update                                                                                                                                               |
+| build_upgrade                                                     | boolean                                                      | false    | none       | Build upgrade           | Whether to upgrade components after building                                                                                                                           |
+| oauth_service_id                             | integer¦null                                                 | false    | none       | Oauth service id        | The OAuth service id used to pull the source code                                                                                                                      |
+| k8s_component_name                           | string                                                       | true     | none       | K8s component name      | Cluster component name                                                                                                                                                 |
 
 ### AppCopyC<a id="schemaappcopyc"></a>
 
@@ -269,12 +270,12 @@ Here `target_app_id` specifies the target app name
 
 ### Attributes
 
-| name                 | type                                    | required | constraint | Chinese name       | illustrate       |
-| -------------------- | --------------------------------------- | -------- | ---------- | ------------------ | ---------------- |
-| services             | [[AppCopyModify](#schemaappcopymodify)] | true     | none       |                    | none             |
-| target_team_name   | string                                  | true     | none       | Target team name   | Team Name        |
-| target_region_name | string                                  | true     | none       | Target region name | data center name |
-| target_app_id      | integer                                 | true     | none       | Target app id      | app id           |
+| name                                                         | type                                                                                        | required | constraint | Chinese name       | illustrate       |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------- | -------- | ---------- | ------------------ | ---------------- |
+| services                                                     | [[AppCopyModify](#schemaappcopymodify)] | true     | none       |                    | none             |
+| target_team_name   | string                                                                                      | true     | none       | Target team name   | Team Name        |
+| target_region_name | string                                                                                      | true     | none       | Target region name | data center name |
+| target_app_id      | integer                                                                                     | true     | none       | Target app id      | app id           |
 
 ### AppCopyCRes<a id="schemaappcopycres"></a>
 
@@ -330,8 +331,8 @@ Here `target_app_id` specifies the target app name
 
 ### Attributes
 
-| name     | type                                        | required | constraint | Chinese name | illustrate |
-| -------- | ------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| name     | type                                                                                            | required | constraint | Chinese name | illustrate |
+| -------- | ----------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
 | services | [[ServiceBaseInfo](#schemaservicebaseinfo)] | true     | none       |              | none       |
 
 ### AppCopyModify<a id="schemaappcopymodify"></a>
@@ -345,7 +346,7 @@ Here `target_app_id` specifies the target app name
 
 ### Attributes
 
-| name       | type   | required | constraint | Chinese name | illustrate   |
-| ---------- | ------ | -------- | ---------- | ------------ | ------------ |
+| name                            | type   | required | constraint | Chinese name | illustrate   |
+| ------------------------------- | ------ | -------- | ---------- | ------------ | ------------ |
 | service_id | string | true     | none       | Service id   | component ID |
-| change     | string | false    | read-only  | Change       | none         |
+| change                          | string | false    | read-only  | Change       | none         |
