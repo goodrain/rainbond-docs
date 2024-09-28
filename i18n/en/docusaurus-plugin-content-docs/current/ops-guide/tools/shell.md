@@ -5,16 +5,16 @@ weight: 1005
 hidden: false
 ---
 
-### 终端命令使用
+### Terminal command usage
 
-打开终端后，可以选择指定集群进入shell界面；
+When opening the terminal, select the cluster to enter the shell interface;
 
-连接成功后可直接使用kubectl、grctl等命令操作集群；
+After a successful connection you can use kubectl, grctl and other commands directly to operate a cluster;
 
-首次打开需要拉取相关镜像，网络原因可能会连接失败，可以重新尝试连接；
+For the first time, you need to pull a mirror. Network reasons may fail to connect, try again
 
-`kubectl`  命令使用参考 [kubectl安装文档](./index.md)
+`kubectl` command uses reference [kubectl安装文档](./index.md)
 
-`grctl`  命令使用参考 [grctl使用文档](./grctl.md)
+Use `grctl` command for reference [grctl使用文档](./grctl.md)
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/shell/open-shell.png" width="100%" />
