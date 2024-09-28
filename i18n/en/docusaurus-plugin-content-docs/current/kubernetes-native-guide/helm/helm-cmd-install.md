@@ -9,7 +9,7 @@ description: Install the application with the Helm command
 
 开始之前，你需要满足以下条件：
 
-1.拥有一条helm的可执行命令（该功能只支持 helm install ...）  
+1.拥有一条helm的可执行命令（该功能只支持 helm install ...）
 
 2.拥有一个可用的团队
 
@@ -58,5 +58,3 @@ helm install --repo https://example.com/charts/ mynginx nginx
 ```
 
 仓库安装点击确认创建后会检查命令是否正确且可以使用，然后会解析仓库地址并自动对接到 Helm 应用商店，然后跳转到 Helm 应用安装的配置界面。
-
-
