@@ -1,12 +1,12 @@
 ---
-title: 熔断与限流
+title: Melt off and limit stream
 description: This chapter describes how to use Rainbond to implement service circuit breaker and traffic limiting
 keywords:
-  - 熔断与限流
+  - Melt off and limit stream
   - Envoy
 ---
 
-Envoy 可以作为 Sevice Mesh 微服务框架中的代理实现方案，Rainbond 内置的微服务框架同样基于 Envoy 实现。本章所描述的熔断实践基于 Rainbond 特有的插件机制实现。
+Envoy can act as an agent in the Sevice Mesh Microservice Framework and Rainbond is also based on Envoy.The smelting practices described in this chapter are based on the implementation of Rainbond unique plugins mechanisms.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
