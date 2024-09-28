@@ -2,8 +2,8 @@
 title: Install on K3s
 description: Install the Rainbond cluster on K3s
 keywords:
-- 在 K3s 上安装 Rainbond
-- 使用 K3s Containerd 安装 Rainbond
+  - 在 K3s 上安装 Rainbond
+  - 使用 K3s Containerd 安装 Rainbond
 ---
 
 import Tabs from '@theme/Tabs';
@@ -93,6 +93,7 @@ helm install rainbond rainbond/rainbond-cluster -n rbd-system \
   <TabItem value="docker" label="Docker">
 
 使用 Helm 安装 Rainbond
+
 ```bash
 helm install rainbond rainbond/rainbond-cluster -n rbd-system
 ```
