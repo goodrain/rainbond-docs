@@ -2,95 +2,95 @@
 title: Custom development and continuous iteration for offline environments
 description: Use Rainbond for offline environment custom development and continuous iteration
 keywords:
-  - 离线交付
-  - toB 离线交付
+  - Offline delivery
   - toB offline delivery
-  - 离线环境定制开发
-  - 离线环境持续迭代
+  - toB offline delivery
+  - Offline environment customization
+  - Continuous iteration of offline environments
 ---
 
-import Bvideo from '/src/components/Bvideo';
+Import Bvideo from '/src/components/Bvideo';
 
 <Bvideo src="//player.bilibili.com/player.html?aid=524437005&bvid=BV1zM411n7UZ&cid=1011063943&page=3" />
 
-## 离线环境定制开发的痛点
+## Customize pain points for offline environments
 
-在应用交付给客户后，客户看到效果后会反馈问题，再持续迭代，直到客户满意，过程中需要频繁升级产品。在这种场景下，又会遇到以下问题。
+After the application has been delivered to the customer, the client will see the effect and will continue to iterate until the client is satisfied and the product will need to be frequently upgraded.In this scenario, the following problems will be encountered.
 
-**定制化交付迭代效率低**
+**Custom delivery iterations are less efficient**
 
-定制化交付场景中，针对客户反馈的问题，如果开发人员在公司定制开发，升级过程复杂，沟通低效。而如果开发人员在客户现场驻场开发，没有好的开发工具和环境，开发效率低，人力投入大；
+In the customized delivery scenario, for client feedback, the upgrade process is complex and inefficient if developers are customized in the company.If the developer develops on the site of the client, it does not have a good development tool and environment, and it is inefficient and has a high level of human input;
 
-**后期维护难度大**
+**Post-maintenance is more difficult**
 
-应用交付完成后，后期需要保障应用运行的稳定性，离线环境远程没办法运维，报警没办法发出来，运维难度大；当产品有bug、一些预期内的变更或产品升级都需要出差客户现场，支持的成本比较高。
+After the delivery of the application has been completed, it will be necessary to guarantee the stability of the application's operation, the offline environment will not be viable, alerts will not be sent and delivery will be difficult, and the support costs will be higher when the product has bugs, some expected changes or upgrades will require a client site.
 
-## 使用 Rainbond 实现定制开发和持续迭代
+## Use Rainbond to achieve customization development and continuous iterations
 
-### 定制开发
+### Custom Development
 
-如下图所示。开发人员在开发环境进行开发，可以通过源码、镜像以及应用市场沉淀的通用模块将业务拼装起来。经过测试人员验证完成后，即可以发布 1.0 版本。借助应用市场的能力，可以将该应用的能力沉淀下来。交付人员导出应用模版，在客户环境导入后。即可在客户环境一键部署起来。Rainbond 为你屏蔽了底层的差异，消除了环境的不一致性，使你的应用与开发测试环境的应用完全一致。这解决了开发人员驻场开发效率低以及后续升级困难的问题。
+As shown in the graph below.Developers are developing in the development environment and can put the business together through the source code, mirrors, and generic modules of the application market sediment.Version 1.0 can be published after the tester has verified it.The capacity of the application market can be subsidised.Deliveries export the application template after the customer environment imports.You can be deployed on the customer environment button.Rainbond blocks differences for you, eliminates environmental inconsistencies, and makes your app fully compatible with the development test environment.This has resolved the inefficiencies in the development of the developer field and the difficulty of subsequent upgrading.
 
-### 持续迭代
+### Continuous iteration
 
-当应用交付到客户环境后，客户体验后往往会提出一些个性化需求，开发人员得到这些反馈后，只需要在开发环境继续创建新的`业务模块D`与原应用进行拼装即可。最后再次发布 2.0 版本到应用市场。交付人员导入到客户环境后，可以由用户来决定什么时候升级。升级时会展示出所有变更，并实现滚动升级。避免了业务中断，同时保证了业务应用的一致性。
+When the application is delivered to the client environment, the client experiences tend to present some customized needs, and when the developer receives these feedback, it will only be necessary to continue to create new `business module D` and original apps in the development environment.Last released version 2.0 to the Marketplace.After the person is imported into the customer environment, it is up to the user to decide when to upgrade.All changes will be displayed and scroll upgrades will be implemented.Business disruptions were avoided, while consistency was ensured in business applications.
 
-其中，Rainbond 的应用模版具备版本控制机制，这意味着在同个应用模版的不同版本之间可以快速的升级与回滚。
+Of these, Rainbond has a version control system, which means quick upgrades and rolls between different versions of the same application.
 
-- 对于开发人员而言，在源应用一侧作出需要的变更，无论是代码的改动后构建，还是新加入其他组件，都会在下一次应用模版发布过程中叠加到新版本的应用模版中去。开发人员务必注意发布时定义的版本号，Rainbond 通过它来确定是否进行升级。
+- For developers, make the required changes on the source side of the application, whether built after changes to the code or new components will be added to the new version of the application template during the next release process.The developer must be aware of the version number defined when published, Rainbond uses it to determine if you want to upgrade or not.
 
-- 对于交付人员而言，只需要将不同版本的应用模版导入到交付环境中，Rainbond 就会自动识别同个应用模版的不同版本，并可以进行一键升级操作。
+- For deliverers, it is only necessary to import different versions of the application template into the delivery environment, Rainbond automatically identifies different versions of the same application template and can perform one click upgrade.
 
 ![offline-continuous-delivery](https://static.goodrain.com/docs/5.11/delivery/offline/offline-continuous-delivery.png)
 
-## 操作步骤
+## Action step
 
-### 准备工作
+### Preparatory work
 
-1. 拥有两套 Rainbond 集群，模拟开发环境及交付环境(开发环境为在线环境，交付环境为离线环境)。
+1. Having a cluster of ammunition Rainbond that simulates the development environment and the delivery environment (developing environment as online and delivering as offline).
 
-2. 开发环境安装，参考[快速安装](/docs/quick-start/quick-install)，交付环境安装，参考[离线安装](/docs/installation/offline/)。
+2. Development environment installation, reference[快速安装](/docs/quick-start/quick-install), delivery for environmental installation, reference[离线安装](/docs/installation/offline/).
 
-3. 已完成应用的第一次交付，可参考[微服务架构离线交付](/docs/delivery/offline/micro-service)。
+3. The first delivery from the completed app can be found in[微服务架构离线交付](/docs/delivery/offline/microservice).
 
-### 制作新的应用模版
+### Make New Application Template
 
-1. 完成第一次应用交付以后，可以按照客户需求继续在开发环境中开发。如上图所示，增加`业务模块D`，将该业务与原有应用继续拼装，当开发测试完成后，即可再次进行发布。
+1. Once the first app delivery has been completed, it can continue to be developed in the development environment according to the needs of customers.As shown in the graph above, add `Business Module D`, continuing to spell the business with the original application and rerelease when development tests are completed.
 
-2. 在应用拓扑图页面左侧，选择`发布`，此时发布记录中会展示出发布历史，继续选择`发布到组件库`， 即可进入模版设置页面。此时只需要选择之前发布的模版，再输入新的版本号，确认发布即可。各个参数详细说明参考[附录1: 模版设置页面参数说明](/docs/delivery/app-model-parameters)
+2. On the left side of the Apps Topic page, select `Posting`, at this point the release history will be shown, and continue with the `Publish to the Component Library` will enter the template settings page.You can only select a previously published template at this time, enter a new version number and confirm the release.Details for each parameter [Appendix 1: Template Settings Parameters](/docs/delivery/app-model-parameters)
 
-3. 接下来在 `平台管理->应用市场->本地组件库`，即可看到发布好的应用模版。点击进入，可以看到该模版下所有版本，如下图所示。
+3. Then you can see the published app template in \`Platform Manager-> App Marketplace -> Local Component Library'.Tap into to see all versions of this template, as shown in the graph below.
 
-![one-key-deploy-update-6.png](https://static.goodrain.com/wechat/one-key-deploy-upgrade/one-key-deploy-update-6.png)
+![one-key-deploy-update-6.png](https://static.goodrain.com/wechat/one-key-de-employ-upgrade/one-key-de-update-6.png)
 
 :::caution
-注：仅有企业管理员可以看到平台管理按钮。
+Note：Only company administrators can see platform management buttons.
 :::
 
-### 导出应用模版
+### Export Application Template
 
-1. `平台管理->应用市场->本地组件库`中，在刚刚发布完成的应用模版最右侧，选择`导出应用模版`，你可以选择需要导出的版本，和导出哪种类型的包。这里我们选择`应用模型规范`，以及刚刚发布的版本，点击`导出`。这个包将包含应用完整的运维特性，用于持续交付和升级。
+1. `Platform manage->Marketplace->Local Component Library', selects `Export App Template`. You can select the version to export and the type of package to export.Here we choose `Apply Model Norms`, and just released version, click `Export\`.This package will contain complete shipping features for continued delivery and upgrading.
 
-2. 导出完成后，将应用模版下载到本地，保存至U盘/光盘等移动存储设备中，带到离线交付环境中去。
+2. After the export is completed, download the app template to local and save it to mobile storage devices such as UDs/CD-ROMs and take it to offline delivery environments.
 
-### 离线环境中升级应用
+### Upgrade app in offline environment
 
-1. 在已经部署好 Rainbond 的离线环境中，我们先打开`平台管理->应用市场`，选择`离线导入`，上传刚刚下载好的应用模版。上传完成后，点击`确认导入`。
+1. In an offline environment where Rainbond has been deployed, we open the `Platform Manager -> App Marketplace`, choose `Offline Import` and upload the just downloaded app template.After uploading, click `confirm import`.
 
-2. 等待导入完成后，会自动跳转回`应用市场`。
+2. Once the import is completed, you will automatically jump back to the \`App Marketplace'.
 
-3. 此时我们回到[微服务架构离线交付](/docs/delivery/offline/micro-service)中已经交付完成，正在运行的应用页面中，在左侧边栏`升级`选项中。可以看到 Rainbond 识别到了最新的版本，而升级操作也是一键触发，非常好用。
+3. We returned to[微服务架构离线交付](/docs/delivery/offline/micro-service) at this time. In the app page running, in the `Update` option on the left sidebar.It can be seen that Rainbond recognized the latest version, and the upgrade operation was very useful as a one-click trigger.
 
-![one-key-deploy-update-7.png](https://static.goodrain.com/wechat/one-key-deploy-upgrade/one-key-deploy-update-7.png)
+![one-key-deploy-update-7.png](https://static.goodrain.com/wechat/one-key-de-employ-upgrade/one-key-de-update-7.png)
 
 :::caution
-注：升级过程中不会变动环境配置类信息，环境变量的值、配置文件的内容、持久化存储需要人为改动才会生效。
+Note：does not change environmental configuration class information during upgrading. The value of the environment variable, the content of the configuration file, and the persistent storage will require artificial changes to take effect.
 :::
 
-### 一键回滚
+### Rollback
 
-1. 在升级版本上线后出现异常情况需要回滚时，平台提供了一键回滚功能，在`升级->升级记录`界面选择对应记录点击`回滚`按钮即可对升级操作进行回滚。
+1. When an exception is required to roll back after an upgrade version is online, the platform provides a one-click rollback. In the `Upgrade - >Update Records`, select the corresponding record to roll back the upgrade action by clicking the `Roll` button.
 
 :::caution
-注：在回滚的过程中，新增组件并不会被删除，如需变更，需要人为操作。
+Note：does not delete the new component during rollover and needs to be manipulated for changes.
 :::
