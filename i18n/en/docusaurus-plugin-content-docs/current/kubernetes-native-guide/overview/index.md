@@ -2,52 +2,52 @@
 title: Overviews
 description: Overview of the native Kubernetes Guide
 keywords:
-  - Yaml Helm 指南概述
+  - Overview of the Yaml Helm guide
   - Rainbond Yaml Helm
 ---
 
-Rainbond 自 V5.8 版本起面向已经熟练使用 Kubernetes 的用户推出利用 Yaml 或 Helm 部署应用的能力。当前指南指导用户如何将已经可以在原生 Kubernetes 中部署的 Yaml 或 Helm Chart 部署到 Rainbond 中，这个过程会自动完成应用模型的转化，后续的管理可以通过 Rainbond 完成。
+Rainbond has been available since version V5.8 for users already using Kubernetes to use Yaml or Helm to deploy applications.The current guide guides users how to deploy Yaml or Helm Chart to Rainbond that can already be deployed in the native Kubernetes process. This process will automatically complete the transformation of the application model and subsequent management can be done through Rainbon.
 
-## 转化原理
+## Convert Principles
 
-Rainbond 扩展了原有的 RAM （Rainbond Application Model） 模型边界，除了最常用的各种运维属性之外，以  `其他设置 > Kubernetes属性` 的形式设置更多属性。保持易用性的同时兼顾了灵活性。为自动化的将原生 Kubernetes 定义转化为 RAM 模型提供了前提条件。
+Rainbond extends the original RAM (Rainbond Application Model) model boundary to set more attributes in the form of `Other Settings > Kubernetes Attributes` in addition to the most commonly used shipping properties.Flexibility is maintained with flexibility.Preconditions are provided for automating converting native Kubernetes definitions to RAM models.
 
-Rainbond 可以从 Yaml 或 Helm Chart 中获取指定类型的 Workload 定义，并转化成为 Rainbond 界面中可管理的组件，目前支持的 Workload 类型包括 Deployment、StatefulSet、Job 和 CronJob。对一些非 Workload 类型的资源，如 Service、Sercet 等资源则进行了额外的处理。
+Rainbond can get a specified type of Workload definition from Yaml or Helm Chart and convert it into a manageable component in Rainbond interface. Currently supported Workload types include Deemployment, StatefulSet, Job and CronJob.Some non-Workload types of resources, such as Service, Sercet, etc. are treated additionally.
 
-以 Yaml 定义的 Wordpress 建站系统为例，下图展示了对各种不同资源的处理方式。
+An example is the Wordpress Station System defined by Yaml, which shows how different resources are handled.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/wechat/import-exist-resource-to-rainbond/import-exist-resource-to-rainbond-2.png"/>
 
-Rainbond 在设计上并未完全继承原生 Kubernetes 的设计思想，由于以下设计上的差异，Rainbond 在接受 Yaml 或 Helm 应用部署时，需要进行一系列转化，了解这些差异对部署 Yaml 或 Helm 类应用很有帮助。
+Rainbond did not fully inherit the design ideas of the original Kubernetes and because of the differences in the designs listed below, Rainbond needed a series of conversions when accepting the Yaml or Helm application for deployment, knowing that the differences were helpful in deploying the Yaml or Helm category.
 
-### 非Workload资源转化至应用
+### Non-Workload resources converted to app
 
-区别于原生 Kubernetes 的使用方式，Rainbond 更加凸显应用这一核心概念的使用。应用这一概念，并非是 Kubernetes 中的某种资源，它是对一组具有关联关系的 Workload 的组合，就像一个网站类的业务系统，往往具有一个由 Deployment 部署的 Web 站点服务，以及一个由 StatefulSet 部署的数据库服务组成。对于 Kubernetes 而言，这是两个可以分开管理的 Workload ，而在 Rainbond 世界里，除了能够精细化的独立管理每个 Workload 之外，更注重将其作为一个完整的应用统一管理。
+Unlike the way in which the original Kubernetes is used, Rainbond has highlighted the use of this core concept.Applying this concept is not a certain resource in Kubernetes. It is a combination of a related set of Workloads, like a web site class business system, often with a Web site service deployed by Deployment, and a database service deployed by StatefulSet.For Kubernetes these are two workloads that can be managed separately, while in Rainbond world there is a greater focus on managing them as a complete application uniform, in addition to a fine-tunable independent management of each workload.
 
-在原生 Kubernetes 中没有概念与 Rainbond 中的应用概念对应，但用户可以指定将 Yaml 中所有的资源定义都部署到 Rainbond 中的应用中去。当用户在 Yaml 中定义了非 Workload 类的资源（如 Service 、Sercet 等）时，Rainbond 会将其转化后保存在 `应用 > k8s资源` 列表中，并提供编辑入口供用户后续管理。管理方式参见 [非 Workload 类资源管理](/docs/kubernetes-native-guide/import-manage/non-workload)
+There are no concepts in the native Kubernetes that correspond to the application concepts in Rainbond but the user can point out that all resource definitions in Yaml are deployed to applications in Rainbon.When a user defines a non-Workload class resource in Yaml (e.g. Service, Sercet, etc.), Rainbond will convert it to the `Application > k8s resource` list and will provide access to edit it for user follow-up management.See [Non-Workload Resource Management](/docs/kubernetes-native-guide/import-manage/non-workload)
 
-### Workload资源单独转化
+### Workload resources are converted separately
 
-原生 Kubernetes 体系中注重对所有资源的精细化管理，一切皆可定义的使用方式提供了足够高的自由度，却也大幅度提升了入门的门槛。而对于单一 Workload 的管理，Rainbond 在产品设计时着重提升产品的易用性，将最常用的资源规格定义(Spec)转化成为用户易于使用的图形化功能。对于大多数应用而言，Rainbond 提供的功能已经足够。对于额外的资源定义，Rainbond 会在组件的 `其他设置 > Kubernetes属性` 中提供配置入口。
+The native-born Kubernetes system, which focuses on the fine-tuning of all resources, provides enough freedom to use them and significantly raises the threshold of entry.For the management of a single Workshop, Rainbond focused on improving the ease of use of the product in the design of the product, transforming the most commonly used definition of resource specifications (Spec) into a user-friendly graphical function.For most applications, Rainbond provides sufficient functionality.For additional resources, Rainbond will provide a configuration entry in the component `Other Settings > Kubernetes Attribute`.
 
-Rainbond 会从用户所提供 Yaml 定义的所有资源中抽取 Workload 相关的定义，并在应用中转化生成 Rainbond 可管理的组件实例。转化的过程中，Rainbond 会自动识别所有可以被管理的规格定义(Spec)，将不同的属性，交由扩展后的 RAM 模型管理，大部分属性延续了 Rainbond 一贯的易用使用体验，而另一部分，则交由 `其他设置 > Kubernetes属性` 页面进行管理。管理方式参见 [组件 kubernetes 属性管理](/docs/kubernetes-native-guide/import-manage/special-attribute)
+Rainbond draws workload definitions from all resources provided by the user as defined in Yaml and converts applications to generate examples of components from which Rainbond can be managed.During the conversion, Rainbond automatically identifies all specifications that can be managed, assigns different properties to the extended RAM model, most of the properties continue to be consistently easy to use, while the other part is managed by the `Other Settings > Kubernetes Properties` page.For management see [component kubernetes attribute management](/docs/kubernetes-native-guide/import-manage/special-attribute)
 
-## 使用方法
+## Usage Method
 
-当用户拥有一份可以在 Kubernetes 中使用的 Yaml 文件时，通过 Yaml 部署应用是最简单的方式。请参考 [yaml文件识别创建](/docs/kubernetes-native-guide/yaml/create)。
+Deploy via Yaml is the simplest way when the user has a Yaml file that can be used in Kubernetes.Refer to [yaml文件识别创建](/docs/kubernetes-native-guide/yaml/cree).
 
-当用户已经将业务系统制作成为 Helm Chart 包时，通过 Helm 部署应用也是一种很好的选择。请参考 [基于 Helm 命令部署 Helm 应用](/docs/kubernetes-native-guide/helm/helm-cmd-install)，或者在完成 [对接Helm仓库](/docs/kubernetes-native-guide/helm/docking_helm_store) 后， [基于应用市场部署 Helm 应用](/docs/kubernetes-native-guide/helm/creation-process) 。
+Deployment of applications via Helm is also a good option when users have made business systems into the Helm Chart package.Please refer to the Helm app [deployed based on Helm command](/docs/kubernetes-native-guide/helm/help-cm-install) or after [对接Helm仓库](/docs/kubernetes-native-guide/helm/docking_helm_store) [deployed Helm app based on the Marketplace](/docs/kubernetes-national-guide/helm/creation-process).
 
-## 导出 Helm 包
+## Export Helm Pack
 
-Rainbond 能够接受各种原生 Kubernetes 的输入，也可以将已部署好的应用打包输出成为 Kubernetes 体系可以接受的 Helm Chart 包。这种使用体验和 Rainbond 导出自身生成的 RAM 应用包非常相似。
+Rainbond can accept the input of a variety of native Kubernetes and can export deployed apps to the Helm Chart pack acceptable to the Kubernetes system.This usage experience is very similar to Rainbond exporting its own RAM packages.
 
-参见 [导出 Helm Chart 包](/docs/kubernetes-native-guide/helm/export-chart)
+See [Export Helm Chart Pack](/docs/kubernetes-native-guide/helm/export-chart)
 
-## 演示示例
+## Demo Example
 
-以下文档链接提供了通过 Yaml 或 Helm Chart 的方式在 Rainbond 中部署 Wordpress 建站系统的示例。
+The following document links provide an example of how a Wordpress building system is deployed in Rainbond via Yaml or Helm Chart
 
-[使用 Yaml 部署 Wordpress 和 Mysql](/docs/kubernetes-native-guide/yaml/example)
+[Deployment of Wordpress and Mysql](/docs/kubernetes-native/yaml/example)
 
-[使用 Helm 部署 Wordpress 和 Mysql](/docs/kubernetes-native-guide/helm/example)
+[Use Helm to deploy Wordpress and Mysql](/docs/kubernetes-native-guide/helm/example)
