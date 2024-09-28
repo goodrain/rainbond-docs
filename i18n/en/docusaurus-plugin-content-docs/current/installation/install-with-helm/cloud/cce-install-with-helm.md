@@ -1,6 +1,6 @@
 ---
-title: 'The installation is based on Huawei Cloud CCE cluster'
-description: 'Based on Huawei Cloud CCE cluster, install Rainbond from scratch with helm'
+title: The installation is based on Huawei Cloud CCE cluster
+description: Based on Huawei Cloud CCE cluster, install Rainbond from scratch with helm
 ---
 
 ## 安装前提
@@ -12,7 +12,7 @@ description: 'Based on Huawei Cloud CCE cluster, install Rainbond from scratch w
 - CCE Kubernetes 版本不低于1.19
 - 集群内至少 2 节点，并配置好 `kubectl` 命令
 - 节点具备公网访问能力
-- 配置要求 8核CPU 32G内存 
+- 配置要求 8核CPU 32G内存
 - 磁盘空间： 根分区 200G 数据分区（docker分区）300G
 - 安全组规则合理配置
 
