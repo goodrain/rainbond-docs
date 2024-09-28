@@ -26,10 +26,10 @@ In this step, you need to provide a usable Python source code program for deploy
 ##### requirements.txt specification
 
 If the program has no dependencies, you can make `requirements.txt` an empty file. If there is no `requirements.txt` , you can use the following command to generate
-若无 `requirements.txt` 可用如下命令生成
+The required `requirements.txt` can be generated as follows.
 
 ```bash
-pip freeze > requirements.txt
+pip free > requirements.txt
 ```
 
 ##### Procfile specification
@@ -37,7 +37,7 @@ pip freeze > requirements.txt
 If the project does not define a Procfile, the platform will generate a default Procfile by default to run the War package.
 
 ```bash
-web: gunicorn app:app --log-file - --access-logfile - --error-logfile -
+web: gunicorn app:app -log-file -- --access-logfile -- --error-logfile --
 ```
 
 The above is the default Procfile, if you need to expand more startup parameters, you can customize the Procfile.
@@ -102,13 +102,13 @@ STATICFILES_DIRS = (
 By default, the system will automatically execute the following command when building a Django application to try to detect (--dry-run) whether the static file configuration is correct：
 
 ```bash
-$ python manage.py collectstatic --dry-run --noinput
+$ python manage.py collectatic --dry-run --noinput
 ```
 
 If there is no error in this command, the real command will be executed to copy the static files to the STATIC_ROOT directory：
 
 ```bash
-$ python manage.py collectstatic --noinput
+$ python manage.py collectatic --no-input
 ```
 
 Users can manually disable the above features, just configure the value of `BUILD_DISABLE_COLLECTSTATIC` to 1 in the application environment variable.
