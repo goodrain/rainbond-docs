@@ -7,7 +7,7 @@ title: Add data center
 Add data center
 
 ```json title="请求路径"
-POST /openapi/v1/regions
+POST /openapi/v1/region
 ```
 
 ```json title="Body请求参数"
@@ -31,28 +31,28 @@ POST /openapi/v1/regions
 
 | name                                                    | Location | type    | required | Chinese name     | illustrate    |
 | ------------------------------------------------------- | -------- | ------- | -------- | ---------------- | ------------- |
-| body                                                    | body     | object  | no       | AddRegionRequest | none          |
-| » cert_file                        | body     | string  | no       |                  | none          |
-| » desc                                                  | body     | string  | no       |                  | Remark        |
-| » httpdomain                                            | body     | string  | Yes      |                  | none          |
-| » key_file                         | body     | string  | no       |                  | none          |
-| » region_alias                     | body     | string  | Yes      |                  | cluster alias |
-| » region_name                      | body     | string  | Yes      |                  | cluster ID    |
-| » scope                                                 | body     | string  | no       |                  | none          |
-| » ssl_ca_cert | body     | string  | no       |                  | none          |
+| body                                                    | body     | Object  | no       | AddRegionRequest | none          |
+| » cert_file                        | body     | String  | no       |                  | none          |
+| » desc                                                  | body     | String  | no       |                  | Remark        |
+| » httpomain                                             | body     | String  | Yes      |                  | none          |
+| » key_file                         | body     | String  | no       |                  | none          |
+| » region_alias                     | body     | String  | Yes      |                  | cluster alias |
+| » region_name                      | body     | String  | Yes      |                  | cluster ID    |
+| » scope                                                 | body     | String  | no       |                  | none          |
+| » ssl_ca_cert | body     | String  | no       |                  | none          |
 | » status                                                | body     | integer | no       |                  | none          |
-| » tcpdomain                                             | body     | string  | Yes      |                  | none          |
-| » url                                                   | body     | string  | Yes      |                  | none          |
-| » wsurl                                                 | body     | string  | Yes      |                  | none          |
+| » tcpdomain                                             | body     | String  | Yes      |                  | none          |
+| » url                                                   | body     | String  | Yes      |                  | none          |
+| » wsurl                                                 | body     | String  | Yes      |                  | none          |
 
 > back to example
 
 ## return result
 
-| status code | Status code meaning                                              | illustrate | data model                |
-| ----------- | ---------------------------------------------------------------- | ---------- | ------------------------- |
-| 201         | [Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)     | success    | [RegionInfo](#regioninfo) |
-| 400         | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) | 400        | [Fail](#schemafail)       |
+| status code | Status code meaning                                                                                                                                                                                                      | illustrate | data model                |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | ------------------------- |
+| 201         | [Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)                                                                                                                                                             | success    | [RegionInfo](#regioninfo) |
+| 400         | [Bad Request] (https://tools.ietf.org/html/rfc7231#section-6.5.1) | 400        | [Fail](#schemafail)       |
 
 ## Model
 
@@ -83,18 +83,18 @@ POST /openapi/v1/regions
 
 | name                                                  | type        | required | constraint | Chinese name  | illustrate                                                                                           |        |
 | ----------------------------------------------------- | ----------- | -------- | ---------- | ------------- | ---------------------------------------------------------------------------------------------------- | ------ |
-| region_id                        | string      | true     | none       | Region id     | region id                                                                                            |        |
-| region_name                      | string      | true     | none       | Region name   | Data center name, cannot be modified                                                                 |        |
-| region_alias                     | string      | true     | none       | Region alias  | data center alias                                                                                    |        |
-| url                                                   | string      | true     | none       | Url           | Datacenter API url                                                                                   |        |
-| token                                                 | string¦null | false    | none       | Token         | data center token                                                                                    |        |
-| wsurl                                                 | string      | true     | none       | Wsurl         | datacenter websocket url                                                                             |        |
-| httpdomain                                            | string      | true     | none       | Httpdomain    | Data center http application access root domain name                                                 |        |
-| tcpdomain                                             | string      | true     | none       | Tcpdomain     | Data center tcp application access root domain name                                                  |        |
-| scope                                                 | string      | false    | none       | Scope         | data center scope private                                                                            | public |
-| ssl_ca_cert | string¦null | false    | none       | ssl ca cert   | Data center access ca certificate address                                                            |        |
-| cert_file                        | string¦null | false    | none       | Cert file     | Verify documents                                                                                     |        |
-| key_file                         | string¦null | false    | none       | Key file      | verification key                                                                                     |        |
-| status                                                | string      | true     | none       | Status        | Data Center Status 0：Editing 1: Enabled 2：Disabled 3: In Maintenance |        |
-| desc                                                  | string      | false    | none       | Desc          | Data Center Description                                                                              |        |
-| enterprise_id                    | string¦null | false    | none       | Enterprise id | enterprise id                                                                                        |        |
+| region_id                        | String      | true     | none       | Region id     | region id                                                                                            |        |
+| region_name                      | String      | true     | none       | Region name   | Data center name, cannot be modified                                                                 |        |
+| region_alias                     | String      | true     | none       | Region alias  | data center alias                                                                                    |        |
+| Url                                                   | String      | true     | none       | Url           | Datacenter API url                                                                                   |        |
+| token                                                 | Stringenull | false    | none       | Token         | data center token                                                                                    |        |
+| wsurl                                                 | String      | true     | none       | Wsurl         | datacenter websocket url                                                                             |        |
+| pdomain                                               | String      | true     | none       | Httpdain      | Data center http application access root domain name                                                 |        |
+| tcpdomain                                             | String      | true     | none       | Tcpdomain     | Data center tcp application access root domain name                                                  |        |
+| Scope                                                 | String      | false    | none       | Scope         | data center scope private                                                                            | Public |
+| ssl_ca_cert | Stringenull | false    | none       | ssl ca cert   | Data center access ca certificate address                                                            |        |
+| cert_file                        | Stringenull | false    | none       | Cert file     | Verify documents                                                                                     |        |
+| key_file                         | Stringenull | false    | none       | Key file      | verification key                                                                                     |        |
+| Status                                                | String      | true     | none       | Status        | Data Center Status 0：Editing 1: Enabled 2：Disabled 3: In Maintenance |        |
+| desc                                                  | String      | false    | none       | Desc          | Data Center Description                                                                              |        |
+| Enterprise_id                    | Stringenull | false    | none       | Enterprise id | Enterprise id                                                                                        |        |
