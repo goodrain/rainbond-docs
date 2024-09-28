@@ -2,7 +2,7 @@
 title: delete app
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to delete applications
 
@@ -14,10 +14,10 @@ DELETE /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}
 
 | name                             | Location | type    | required | Chinese name | illustrate   |
 | -------------------------------- | -------- | ------- | -------- | ------------ | ------------ |
-| app_id      | path     | integer | Yes      |              | app id       |
-| team_id     | path     | string  | Yes      |              | none         |
-| region_name | path     | string  | Yes      |              | none         |
-| force                            | query    | integer | no       |              | Force delete |
+| app_id      | Path     | integer | Yes      |              | app id       |
+| team_id     | Path     | String  | Yes      |              | none         |
+| region_name | Path     | String  | Yes      |              | none         |
+| Force                            | Query    | integer | no       |              | Force delete |
 
 ## return result
 
