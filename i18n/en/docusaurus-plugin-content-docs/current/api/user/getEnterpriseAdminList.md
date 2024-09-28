@@ -2,7 +2,7 @@
 title: Get a list of enterprise administrators
 ---
 
-## 基本信息
+## Basic Information
 
 Get a list of enterprise administrators
 
@@ -14,9 +14,9 @@ GET /openapi/v1/administrators
 
 | name                           | Location | type   | required | illustrate        |
 | ------------------------------ | -------- | ------ | -------- | ----------------- |
-| eid                            | query    | string | no       | Enterprise ID     |
-| page                           | query    | string | no       | page number       |
-| page_size | query    | string | no       | Quantity per page |
+| eid                            | Query    | String | no       | Enterprise ID     |
+| page                           | Query    | String | no       | page number       |
+| page_size | Query    | String | no       | Quantity per page |
 
 ```json title="返回成功示例"
 {
@@ -50,13 +50,13 @@ GET /openapi/v1/administrators
 
 ## return result
 
-| status code | Status code meaning | illustrate | data model                              |
-| ----------- | ------------------- | ---------- | --------------------------------------- |
-| 200         | OK                  | success    | [ListUsersRespView](#listusersrespview) |
+| status code | Status code meaning | illustrate | data model                             |
+| ----------- | ------------------- | ---------- | -------------------------------------- |
+| 200         | OK                  | success    | [ListUsersRespView](#listusersresview) |
 
 ## Model
 
-### ListUsersRespView
+### ListUserReseView
 
 ```json
 {
@@ -82,5 +82,5 @@ GET /openapi/v1/administrators
 
 | name  | type                                                                                                  | required | constraint | Chinese name | illustrate |
 | ----- | ----------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| users | [[UserInfo](/docs/api/user/getUserInfo#userinfo)] | true     | none       |              | none       |
-| total | integer                                                                                               | true     | none       | Total        | none       |
+| Users | [[UserInfo](/docs/api/user/getUserInfo#userinfo)] | true     | none       |              | none       |
+| Total | integer                                                                                               | true     | none       | Total        | none       |
