@@ -3,33 +3,31 @@ title: Deploy a database that automatically initializes the Schema
 weight: 4006
 ---
 
-We use the container method to deploy database components, especially when the enterprise has a large number of project development business and deploys many development and testing database components.The following problems are often encountered：
+We use the container method to deploy database components, especially when the enterprise has a large number of project development business and deploys many development and testing database components.The following problems are often encountered：经常会遇到以下问题：
 
 1. The business needs to use the database, but after the database is deployed, the operation of creating the schema or the creation of some initialization data needs to be performed in the database.
 2. To develop and test multiple deployment environments, step 1 needs to be repeated many times.
 3. There are many projects, and the database schema required by the project is not clear after a long time.
 4. The database schema management is chaotic when the project is delivered.
 
-Now if it is a business system developed in languages such as Go, it has the ability of the ORM layer to automatically initialize and update the Schema. If so, this article is useless to you.But most other development language businesses currently don't have this capability.
+Now if it is a business system developed in languages such as Go, it has the ability of the ORM layer to automatically initialize and update the Schema. If so, this article is useless to you.But most other development language businesses currently don't have this capability.但目前大多数其他开发语言的业务都不具备这种能力。
 
 If we also manage the database as a service module in a business, we hope that the initialization of the schema can be completed directly after the service is started, and the data service capability can be provided directly.
 
 So how to achieve such an effect in Rainbond?
-
-
 
 Schema initialization generally has two schemes in the traditional：
 
 - Manual import after database startup; manual operation through the client, no automation at all;
 - Connect to the database for initialization when the business service starts, depending on the capabilities of the business server.
 
-It can be seen that these two methods have their own drawbacks, so is there a way to automatically initialize the specified data when the database is started?The answer is yes!
+It can be seen that these two methods have their own drawbacks, so is there a way to automatically initialize the specified data when the database is started?The answer is yes!答案是 有！
 
 Let's take MySQL as an example. The official has good support for Docker. First, let's look at a description of [Mysql official image](https://registry.hub.docker.com/_/mysql) on Dockerhub:
 
 ![description](https://static.goodrain.com/docs/practice/Initdb/description.jpg)
 
-When the database container first starts, a new database with the specified name is created and initialized using the provided environment variables. Additionally, it will execute files with extensions 2.sh `,<code>`and `` found in `/docker-entrypoint-` </code>. The files will be executed in alphabetical order. By default, SQL files will be imported into the database specified by the`MYSQL_DATABASE` variable.Therefore, we only need to maintain the SQL required for database initialization on the basis of the Mysql mirroring working mechanism.We mentioned above that the database is also used as an independent service module. We can also manage Sql and other steps through code and divide version branches.
+在数据库容器首次启动时，将创建一个指定名称的新数据库，并使用提供的环境变量对其进行初始化。 此外，它将执行在 `/docker-entrypoint-initdb.d` 中找到的扩展名为 `.sh`，`.sql` 和 `.sql.gz` 的文件。 文件将按字母顺序执行。 默认情况下，SQL文件将导入到`MYSQL_DATABASE` 变量指定的数据库中。因此我们只需要在Mysql镜像工作机制的基础上维护好数据库初始化所需要的SQL即可。上文我们说到把数据库也作为一个独立的服务模块，我们也可以通过代码把Sql等脚步管理起来，划分版本分支。
 
 Rainbond supports a variety of component creation methods. Here we use the method of creating components from source code, write a Dockerfile and upload it to a client that supports the `Git/Svn` protocol, and then build directly on the platform; this method is transparent and reproducible use and automate builds.
 
@@ -70,7 +68,7 @@ Project address：https://github.com/Aaron-23/Initialize-db
 
 Using this project to build on the platform, Rainbond will automatically detect the environment variables, storage, ports and other information defined in the Dockerfile, automatically configure these configuration items, and automatically start the database after the Dockerfile is built.
 
-It should be noted that MySQL is a stateful service, so you need to change the component type to stateful single instance before building. 
+It should be noted that MySQL is a stateful service, so you need to change the component type to stateful single instance before building.
 
 ![advancedsettings](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/practice/Initdb/advancedsettings.png)
 
