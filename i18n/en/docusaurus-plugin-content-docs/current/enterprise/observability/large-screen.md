@@ -1,97 +1,97 @@
 ---
-title: 监控大屏
-description: 介绍监控大屏相关的监测项和使用。
+title: Monitor Large Screen
+description: Describe the monitoring and use of the monitoring screen.
 keywords:
-  - 监控大屏
+  - Monitor Large Screen
   - Rainbond large screen monitor
 ---
 
-大屏监控是资源数据分析工具，主用于对集群和平台的各项资源进行实时监控，将数据进行可视化展示。主要包含了集群信息、节点信息以及平台信息等内容，帮助我们更高效的发现问题，维护集群和平台的稳定性。
+Large-screen monitoring is a resource data analysis tool that is primarily used for real-time monitoring of cluster and platform resources and visualization of data.The main elements include cluster information, peer-to-peer information and platform information to help us identify problems more efficiently and to maintain the stability of clusters and platforms.
 
-## 主要功能
+## Main features
 
-大屏监控应用主要分为资源监控和应用监控两大模块，点击头部标题可进行切换。
+Large-screen monitoring applications are divided into two main modules for resource monitoring and application monitoring. Tap the header title to toggle.
 
-在 Kubernetes 集群中进行资源监控是非常重要的，因为它可以帮助运维人员了解整个集群和各个节点或容器的资源使用情况。关注集群的 CPU、内存等资源使用情况可以更好地管理和优化集群的性能、可用性、效率和成本，提高系统的稳定性和可维护性。
+It is important to monitor resources in the Kubernetes cluster because it can help people to understand the use of resources across clusters and nodes or containers.Focusing on the use of resources, such as CPU, memory and other resources, can better manage and optimize the performance, availability, efficiency and cost of clusters and improve the stability and sustainability of the system.
 
-对于应用监控，可以更好了解每个应用的资源使用情况，对于出现异常的服务，快速定位运行在集群中的哪个节点，以及平台中的团队和应用，方便开发人员更好的管理服务。
+For application monitoring, there is a better understanding of the use of resources in each app, the development of better management services for unusual services, quick positioning of which nodes are running in clusters, and the teams and applications in the platform.
 
-### 资源监控
+### Resource Monitor
 
 ![description](https://static.goodrain.com/docs/enterprise-app/large-screen/resource-monitor.png)
 
-#### 集群资源使用
+#### Use of cluster resources
 
-- 提高系统性能和稳定性：如果 Kubernetes 集群中的节点或容器资源占用过高，可能会导致系统性能下降或容器崩溃。通过监控资源使用情况，可以及时发现这些瓶颈，并采取措施避免因资源不足而导致的系统崩溃和故障。
-- 优化资源调度和分配：Kubernetes 通过资源管理器来调度和分配资源，确保每个容器或节点都有足够的资源可用。通过监控 CPU、内存等资源使用情况，可以更好地了解每个容器或节点的资源需求，从而更有效地进行资源调度和分配。
-- 避免资源浪费：过多的资源分配可能导致资源浪费，影响系统的效率和可扩展性。通过监控资源使用情况，可以及时发现哪些节点或容器正在浪费资源，并采取措施来优化它们的资源使用情况，避免不必要的资源浪费。
-- 节省成本：对资源的监控可以帮助您更好地了解系统的资源使用情况，从而根据实际需求进行资源规划和扩容。这可以帮助您避免不必要的资源浪费，同时节省成本。
+- Improved system performance and stability：if nodes or container resources in the Kubernetes cluster are overoccupied, this may cause system performance to decline or container crash.By monitoring the use of resources, these bottlenecks can be identified in a timely manner and measures taken to avoid system failures and failures caused by inadequate resources.
+- Optimize resource movement and distribution of：Kubernetes to deploy and allocate resources through the Resource Manager, ensuring that sufficient resources are available for each container or node.By monitoring the use of resources, such as CPU, memory and others, a better understanding of resource requirements for each container or node, and thus more efficient resource movement and allocation.
+- Avoidance of resource waste：can lead to waste of resources and affect the efficiency and scalability of the system.By monitoring the use of resources, it is timely to identify which nodes or containers are wasting resources and to take measures to optimize their use and avoid unnecessary waste of resources.
+- Cost-saving：monitoring of resources can help you better understand the system's use of resources and thus plan and expand them according to actual needs.This helps you avoid unnecessary waste of resources while saving costs.
 
-#### 节点状态
+#### Node Status
 
-- 在Kubernetes中，有多种类型的节点可用，每个节点类型都有其特定的用途和功能。对接不同的集群，节点类型和数量会不相同，这里我们主要关心各节点的状态是否正常。
+- There are multiple types of nodes available in Kubernetes and each node type has specific uses and functions.For different clusters, the type and number of nodes will vary, and here we are primarily concerned about the normal state of the nodes.
 
-#### 网络
+#### Network
 
-- Kubernetes 集群中的容器和服务经常需要通过网络进行通信，网络带宽是影响通信速度和延迟的关键因素。通过监控网络带宽值，可以及时发现网络瓶颈和网络性能问题，并采取措施优化网络性能，确保网络稳定和快速响应。
+- Containers and services in the Kubernetes cluster often need to communicate through the network, and bandwidth is a key factor influencing the speed and delay of communication.Monitoring network bandwidth allows timely identification of network bottlenecks and network performance problems and measures to optimize network performance to ensure network stability and rapid response.
 
-#### 节点资源使用
+#### Use Node Resource
 
-- 故障检测和排除：每个节点在 Kubernetes 集群中扮演着非常重要的角色，如果某个节点发生故障，可能会影响整个集群的稳定性和可用性。通过监控每个节点的状态，可以及时发现故障节点，并采取措施修复或替换节点，避免故障扩散和影响集群的稳定性。
-- 资源规划和管理：每个节点在 Kubernetes 集群中承担着一定的资源负责，包括 CPU、内存、存储和状态等。通过监控每个节点的资源使用情况，可以更好地了解节点的负载情况，从而优化资源规划和管理，提高资源利用率和效率。
-- 故障预测和优化：通过监控每个节点的状态和资源使用情况，可以更好地了解节点的健康状况和性能表现，从而预测可能的故障和性能瓶颈，及时采取措施避免故障的发生，或优化节点的性能表现，提高系统的可靠性和性能。
+- Incident detection and exclusion of：each node plays a very important role in the Kubernetes cluster, which may affect the stability and availability of the entire cluster if a node fails.By monitoring the status of each node, troubleshooter can be identified in a timely manner and measures are taken to repair or replace nodes to avoid the proliferation of failures and to affect the stability of clusters.
+- Resource planning and management：each node assumes some resource responsibility in the Kubernetes cluster, including CPU, memory, storage, and status.Monitoring the use of resources at each node allows for a better understanding of the load of nodes, thereby optimizing resource planning and management and improving resource utilization and efficiency.
+- Incident prediction and optimization of：, by monitoring the state of each node and the use of resources, provides a better understanding of the health status and performance performance of the node, thereby predicting potential failures and performance bottlenecks, taking timely measures to avoid failures, or optimizing performance of nodes and improving the reliability and performance of the system.
 
-#### 运行实例
+#### Run instance
 
-- 观察运行在每个节点上的实例，可以了解该实例自身的资源使用情况，所在节点的状况，可以快速定位到平台对应的团队和应用，进行故障分析和性能调整，维护运行在平台上业务的稳定性。
+- Watch the example running on each node provides insight into the use of its own resources, the status of the node in which it stands, quickly locate the platform's team and applications, perform troubleshoot analysis and performance adjustment, and maintain the stability of operations on the platform.
 
-### 应用监控
+### App monitoring
 
 ![description](https://static.goodrain.com/docs/enterprise-app/large-screen/app-monitor.jpg)
 
-#### 流量分布图
+#### Traffic profile
 
-- 识别热点：服务流量分布图可以帮助我们识别服务的热点，即最常被使用的部分。这些热点可能会导致性能问题，需要特别关注。
-- 优化性能：通过分析服务流量分布图，我们可以找到服务的瓶颈，了解服务的瓶颈位置，进而针对性地进行优化，提高服务的性能。
-- 规划容量：服务流量分布图可以帮助我们了解服务的使用情况，帮助我们规划容量，确保服务能够承受未来的负载压力。
+- Identify hotspot：service traffic maps to help us identify service hotspots, the most commonly used.These hot spots may lead to performance problems that require special attention.
+- Optimizing performance：by analysing service flow profiles, we can find out the bottlenecks of the service and understand the bottlenecks in the service so as to optimize its performance in a targeted manner.
+- Planned capacity：service traffic map helps us understand the usage of the service and helps us plan capacity to ensure that the service can withstand future load pressures.
 
-#### 应用资源排序
+#### Apply resource sorting
 
-- 可以很容易地发现哪些服务消耗了过多的内存资源，以便我们及时发现和解决内存占用过高等问题。
-- 我们可以更好地了解集群中每个服务的资源使用情况，以便我们在资源分配时进行更优化的决策，从而更好地利用集群资源。
-- 可以及时发现哪些服务的内存占用超过了其限制，以便我们可以采取相应措施，避免服务因内存不足而崩溃。
+- It is easy to find out which services consume excessive memory resources so that we can detect and address excessive memory usage in a timely manner.
+- We can better understand the use of resources for each service in the cluster so that we can better use cluster resources by making better decisions on resource allocation.
+- The memory of services can be found in time to exceed their limits so that we can take measures to avoid service failures due to insufficient memory.
 
-#### 团队资源排序
+#### Sort team resources
 
-- 可以更好了解团队的内存使用，是否达到或者超出团队的资源限制。
-- 观察团队的人数和运行的应用数、组件数哪些比较高，要合理分配资源的使用。
+- Better understanding of team memory usage and whether team resource limits are met or exceeded.
+- The strength of the team and the number of applications and components operated by the team are higher, and the use of resources should be rationalized.
 
-## 使用手册
+## Manual
 
-访问大屏监控，能实时的展示集群和平台的信息，可以根据指标分析其性能、健康以及资源使用情况。
+Access to large screens to show groups and platforms in real time can be used to analyse their performance, health and resource use according to indicators.
 
-### 资源监控
+### Resource Monitor
 
-1. 页面顶部展示了集群总数以及所有集群资源使用量汇总，其中服务总数为平台中部署的组件总个数，而异常总数统计的是集群中常见的问题数量，比如内存磁盘不足、网络不可用、进程数过多等，重点要关注异常总数。
+1. At the top of the page, the total number of clusters and the total usage of all cluster resources are showcased with the total number of components deployed in the platform, while the total number of anomalies is the number of problems common to the cluster, such as insufficient memory disk, unserviceable network and excessive number of processes, with a focus on the total number of exceptions.
 
-2. 集群信息概览则展示某个集群的详情，主要有节点数、服务数、资源概况、资源分配、网络、节点信息、实例信息等内容。
+2. The cluster information overview shows details of a particular cluster, mainly nodes, services, resource profiles, resource allocations, networks, nodes information, instance information, etc.
 
-- 节点数重点关注异常节点的数量。
-- 服务数为平台中部署的组件数量，按照运行、关闭和异常三种状态区分，异常组件一般是由于部署服务出现问题或配置出现问题，如果数量突然变多，那么很可能是因为集群问题导致的，要重点关注异常数量。
-- 资源概况展示该集群的 CPU、内存、存储总量。
-- 资源分配展示 CPU、内存、存储的分配率，CPU 和内存占比过高会影响集群的性能和稳定性，部署在集群中的应用程序性能下降，也可能导致节点崩溃；
-- 网络折线图反映集群网络带宽，根据工作负载和集群的大小而变化，需要注意的是网络带宽并不是影响集群性能的唯一因素。延迟、数据包丢失和网络拥塞等其他因素也会影响集群的性能。如果需要优化集群的网络性能，您应该考虑使用高性能的网络基础设施，例如专用的网络接口卡(NIC)或带有高速背板的网络交换机。此外，您应该配置您的网络，以便对节点之间的流量进行优先级排序，并尽量减少网络拥塞。
-- 下方节点部分展示该集群中所有的节点信息，包括每个节点的资源使用情况，如 CPU 核数，CPU 使用率，总内存，内存使用率，根分区、docker 分区、状态；其中资源使用率过高会影响当前节点的性能和稳定性，需要注意关闭和释放不必要的资源。
-- 实例部分展示运行在某个节点下的实例数，包括每个实例的资源使用情况，以及该实例在平台上所属的团队和应用。
+- Nodes focus on the number of unusual nodes.
+- The number of services is the number of components deployed in the platform, differentiated by operation, closure and anomaly, which is usually due to problems or problems with the deployment of services. If there is a sudden increase in the volume, it is likely to be the result of clustering issues, with a focus on the number of exceptions.
+- The resource profile shows the total CPU, memory, and storage for this cluster.
+- Allocation of resources to showcase the distribution rate of CPU, memory and storage, overweight CPU and memory shares affect the performance and stability of the cluster, and application performance is reduced for deployment in the cluster, which may also cause nodes to collapse;
+- The network compromise maps reflect the bandwidth of the cluster network and vary according to work load and cluster size. It is important to note that network bandwidth is not the only factor affecting cluster performance.Other factors, such as delays, loss of data packages, and congestion, also affect the performance of clusters.If you need to optimize the network performance of clusters, you should consider using high-performance network infrastructure, such as dedicated network interface cards (NIC) or network switches with high-speed backboard.In addition, you should configure your network to prioritize traffic between nodes and minimize congestion.
+- The following nodes show all the nodes in this cluster, including the use of resources per node, such as CPU nuclei, CPU usage, total memory, memory usage, root partition, docker partition, state; where excessive use of resources affects the performance and stability of the current node, attention needs to be paid to closing and releasing unnecessary resources.
+- The instance section shows the number of instances running under a particular node, including the use of resources for each instance and the team and application to which the instance belongs on the platform.
 
-### 应用监控
+### App monitoring
 
-1. 页面顶部汇总了平台资源总数，如实例数、组件数、应用数、团队数和节点数。
+1. The total number of platform resources is summarized at the top of the page, such as number of examples, number of components, applications, number of teams and nodes.
 
-2. 流量结构分布图主要用于展示访问流量的流动与分布，具体链路为 `域名 -> 应用 -> 团队 -> 集群`。
+2. The traffic structure diagram is mainly used to display traffic flow and distribution of access traffic, with links to \`domain -> app -> team -> cluster.
 
-3. 左上角可选择指定团队查看应用信息，默认展示全部团队：
+3. Top left corner selects the team to view app information, default show all team：
 
-- 应用排行：统计平台中应用的访问量以及实时内存；
-- 团队排行：统计平台中的各个团队人数和应用组件数；
-- 团队动态：展示平台中的操作日志。
+- Apply the number of accesses and real time memory in the top：statistical platform;
+- The number of people per team and the number of applications in the queue：statistical platform;
+- Team activity：shows the action log in the platform.
