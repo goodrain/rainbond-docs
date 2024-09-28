@@ -1,30 +1,30 @@
 ---
 title: Pipeline install
-description: Pipeline 应用插件安装
+description: Pipeline App Plugin Installation
 keywords:
-  - Pipeline 应用插件安装
+  - Pipeline App Plugin Installation
   - Pipeline Plugin install
 ---
 
-本文介绍 Pipeline 应用插件的安装，包含 GitLab 应用和 GitLab Runner 应用的安装。
+This paper describes the installation of the Pipeline application plugin, which includes the installation of the GitLab app and the GitLab Runner app.
 
-## 部署 GitLab 和 Runner
+## Deployment of GitLab and Runner
 
-Pipeline 应用插件依赖于 GitLab 和 GitLab Runner，需要先部署 GitLab 和 GitLab Runner。
+The Pipeline application plugin depends on GitLab and GitLab Runner, which need to be deployed first by GitLab and GitLab Runner.
 
-如果您已经部署了 GitLab 和 GitLab Runner，可以跳过此步骤。
+If you already deploy GitLab and GitLab Runner, you can skip this step.
 
-### 部署 GitLab
+### Deployment of GitLab
 
-通过 Rainbond 开源应用商店部署 GitLab，进入到 **平台管理 -> 应用市场 -> 开源应用商店** 中搜索 `GitLab`，选择对应的版本进行部署。
+Deploy GitLabs through Rainbond Open Source Store to \*\*Platform Manager -> Marketplace -> Open Source Store \*\* search `GitLab` to deploy the corresponding version.
 
-### 部署 Runner
+### Deployment Runner
 
-通过 Rainbond 开源应用商店部署 GitLab Runner，进入到 **平台管理 -> 应用市场 -> 开源应用商店** 中搜索 `GitLab Runner`，选择对应的版本进行部署。
+Deploys GitLab Runner via Rainbond Open Source Store to \*\*Platform Manager -> Marketplace -> Open Source Store \*\* search `GitLab Runner` to deploy the corresponding version.
 
-- 部署完成后，进入**组件内 -> Web 终端**，执行以下命令进行注册；
+- Once deployed, enter the **component -> Web Terminal** and execute the following command to register;
 
-  - 修改 `<URL> <TOKEN> <TAG>`中的内容为自己的 GitLab 地址和 Token以及 Runner Tag。
+  - Modify the contents of<URL> <TOKEN> <TAG>\`s own GitLab addresses and tokens and Runner Tags.
 
 ```bash
 gitlab-runner register \
@@ -45,7 +45,7 @@ gitlab-runner register \
 ```
 
 <details>
-  <summary>示例配置</summary>
+  <summary>Example configuration</summary>
   <div>
 
 ```bash
@@ -69,44 +69,44 @@ gitlab-runner register \
   </div>
 </details>
 
-## 部署 Pipeline 应用插件
+## Deployment Pipeline App Plugin
 
-通过 Rainbond 开源应用商店部署 Pipeline 应用插件，进入到 **平台管理 -> 应用市场 -> 开源应用商店** 中搜索 `Pipeline`，选择对应的版本进行部署。
+Deploy the Pipeline application plugin through Rainbond Open Source Store. Go to **Platform Manager -> Marketplace -> Open Source Store** to search for `Pipeline` and select the corresponding version to be deployed.
 
-### 配置 Pipeline 应用插件
+### Configure Pipeline App Plugin
 
-进入到 **Pipeline 应用内 -> Pipeline-Backend组件内**，修改以下环境变量:
+Go to the **Pipeline app -> Pipeline-Backend component**, modify the following environment variables:
 
-- **RAINBOND_URL:** Rainbond 控制台访问地址，例如：`http://192.168.3.33:7070`。
-- **RAINBOND_TOKEN:** Rainbond 控制台的 Token，可以在 **右上角用户 -> 个人中心 -> 访问令牌** 中获取。
+- **RAINBOND_URL:** Rainbond Console Visit Address, e.g.：`http://192.168.33.33:7070`.
+- **RAINBOND_TOKEN:** Token from Rainbond console, available in **Top Right Users -> Personal Center -> Access Token**
 
-修改完成后，更新或重启组件生效。
+Update or reboot the component takes effect after the modification has been completed.
 
 :::caution
-`BACKEND_URL` 是后端服务的对外访问地址，用于外部的 GitLab 的 Webhook 回调，默认使用 Rainbond 提供的默认域名，如果您使用的是自定义域名，需要修改此环境变量。
+`BACKEND_URL` is the external access address of the backend service, the Webhook callback for external GitLab and the default domain name provided by Rainbond, which needs to be modified if you are using a custom domain name.
 :::
 
-进入到 **Pipeline 应用内 -> k8s 资源 -> 编辑 rainbond-pipeline**，修改 `pipeline` 资源中的 `access_urls` 配置，修改为 `Pipeline-UI` 组件的对外访问地址，如下:
+Go to the **Pipeline app -> k8s resource -> Edit rainbond-pipeline**, modify the `access_urls` configuration in the `pipeline` resource to the external address of the `Pipeline-UI` component as follows:
 
 ```yaml
-apiVersion: rainbond.io/v1alpha1
+apiVersion: rainbond.io/v1alpa1
 kind: RBDPlugin
 metadata:
   labels:
-    plugin.rainbond.io/name: pipeline
+    plugin. ainbon.io/name: pipeline
   name: pipeline
 spec:
   access_urls:
-  - https://custom.com
+  - https://custom. om
   alias: Pipeline
   author: Talkweb
-  description: 该应用插件是基于 GitLab CI/CD 实现，扩展 Rainbond 已有的构建体系。
-  icon: https://static.goodrain.com/icon/pipeline.png
+  description: This app is based on GitLab CI/CD implementation, Development Rainbond existing architectural systems.
+  icon: https://static. odrain.com/icon/pipeline.png
   version: 1.0.0
 ```
 
-修改完成后，就可以在每个团队视图中看到 `流水线` 按钮选项了。
+Once the modification has been completed, the `waterline` button can be seen in each team view.
 
 :::caution
-如果您的 Rainbond 控制台访问域名是 HTTPS 的，那么 `rainbond-pipeline` 应用插件的访问地址也需要是 HTTPS 的，按照上述步骤修改 `rainbond-pipeline` 资源中的 `access_urls` 配置。
+If the domain name of your Rainbond Console Access is HTTPS and the `rainbond-pipeline` Application plugin also need to go to HTTPS address and change the `access_urls` configuration in the `rainbond-pipeline` resource as described above.
 :::
