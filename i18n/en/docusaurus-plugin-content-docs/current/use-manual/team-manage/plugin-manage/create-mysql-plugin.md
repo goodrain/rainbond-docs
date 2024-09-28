@@ -3,8 +3,7 @@ title: MySQL database backup and restore plugin
 description: Explain how to use the database plugin
 ---
 
-The database backup and recovery plug-in is implemented based on Percona [](https://www.percona.com/software/mysql-database/percona-xtrabackup) and supports physical hot backup and full recovery of MySQL database.
-
+The database backup and recovery plug-in is implemented based on Percona  and supports physical hot backup and full recovery of MySQL database.
 
 For many users who use the Rainbond platform, it is inevitable to use the Mysql database when deploying applications. For the database, it is crucial to ensure the availability of data. On this basis, Rainbond officially made a backup of the Mysql database. and recovery plugin.
 
@@ -12,7 +11,7 @@ For many users who use the Rainbond platform, it is inevitable to use the Mysql 
 
 ##### basic tools
 
-The backup and recovery tool used in the Mysql backup and recovery plug-in is Percona XtraBackup. For related content, please refer to the official document of Percona[](https://www.percona.com/doc/percona-xtrabackup/2.4/index.html)The scheduled task command used in the backup plug-in is go-cron, and the plug-in supports user-defined backup interval configuration. Time, briefly explain how to configure go-cron, go-cron supports granularity down to the second level, the format can refer to the following example, where the week is optional, and the other five are mandatory
+The backup and recovery tool used in the Mysql backup and recovery plug-in is Percona XtraBackup. For related content, please refer to the official document of PerconaThe scheduled task command used in the backup plug-in is go-cron, and the plug-in supports user-defined backup interval configuration. Time, briefly explain how to configure go-cron, go-cron supports granularity down to the second level, the format can refer to the following example, where the week is optional, and the other five are mandatory
 
 ```bash
 # ┌────────────── second (0 - 59)
@@ -29,11 +28,11 @@ The backup and recovery tool used in the Mysql backup and recovery plug-in is Pe
 
 Explain that go-cron supports characters so that users can quickly use the plugin
 
-| Support characters | Function Description                                                                                                                                                                |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| *                  | Indicates all values that match the field                                                                                                                                           |
-| /                  | Indicates the growth interval, the value in the first field is 0/3, which means that the task starts at 0 seconds every minute and executes a task every 3 seconds                  |
-| -                  | Indicates all values that can be matched in the range, and the first field value is 15-30, which means that within 15-30 seconds of every minute, the task is executed every second |
+| Support characters | Function Description                                                                                                                                                                                |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -                  | Indicates all values that match the field                                                                                                                                                           |
+| /                  | Indicates the growth interval, the value in the first field is 0/3, which means that the task starts at 0 seconds every minute and executes a task every 3 seconds                                  |
+| *                  | Indicates all values that can be matched in the range, and the first field value is 15-30, which means that within 15-30 seconds of every minute, the task is executed every second                 |
 | ,                  | Indicates the enumeration value, the value of the first field is "2, 15, 29", which means that a task will be executed every 2 seconds, 15 seconds, and 29 seconds of every minute. |
 
 In particular,`* 3 * * *`means that the task is executed every second in the 3rd minute of every hour of every day of the month, and`0 3 * * *`means that the task is executed at the 0th minute of the 3rd minute of every hour of every day of every month. Execute a task every second, please pay attention when setting
@@ -293,7 +292,7 @@ Configuration Description：
 
 - Depends on metadata type
 
-  - not depend on
+  - 不依赖
 
     Does not depend on component ports
 
@@ -331,7 +330,7 @@ Configuration Description：
 
       Configure the default value
 
-    - radio
+    - not depend on
 
       Configure default values, optional items, the default value is one of the optional items
 
@@ -343,7 +342,7 @@ Configuration Description：
 
     Whether the configuration item can be modified
 
-  - brief introduction
+  - short description
 
     Describe configuration items for others to use
 
@@ -353,34 +352,34 @@ Configuration Description：
 
 Configure group name：to name it yourself
 
-Depends on metadata type：does not depend on
+依赖元数据类型：不依赖
 
 inject type：environment variable
 
 Configuration item：
 
-| property name | protocol | property type | optional value                     | Can it be modified | short description                                                                          |
-| ------------- | -------- | ------------- | ---------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ |
-| BACKUP_ENABLE | none     | radio         | true,false (default is true)       | Can be modified    | Whether to enable backup                                                                   |
-| BACKUP_TYPE   | none     | radio         | full,incremental (default is full) | Can be modified    | The backup strategy is full backup or incremental backup                                   |
-| SCHEDULE      | none     | string        | None (default is 0 0 3 * *)      | Can be modified    | Backup interval, how often to perform backup tasks                                         |
-| BACKUP_CYCLE  | none     | string        | None (default is 7)                | Can be modified    | Backup cycle, a full backup is performed every cycle, and the rest are incremental backups |
-| CLEAN_TIME    | none     | string        | None (default is 30)               | Can be modified    | Backup file retention time (days), backup files beyond this time will be cleaned up        |
-| DINGTOKEN     | none     | string        | None (default is empty)            | Can be modified    | Dingding alarm TOKEBN value                                                                |
+| property name                      | protocol | property type | optional value                                        | Can it be modified | brief introduction                                                                                     |
+| ---------------------------------- | -------- | ------------- | ----------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------ |
+| BACKUP_ENABLE | none     | radio         | true,false (default is true)       | Can be modified    | Whether to enable backup                                                                               |
+| BACKUP_TYPE   | none     | radio         | full,incremental (default is full) | Can be modified    | The backup strategy is full backup or incremental backup                                               |
+| SCHEDULE                           | none     | string        | None (default is 0 0 3 \* \*)      | Can be modified    | Backup interval, how often to perform backup tasks                                                     |
+| BACKUP_CYCLE  | none     | string        | None (default is 7)                | Can be modified    | Backup cycle, a full backup is performed every cycle, and the rest are incremental backups             |
+| CLEAN_TIME    | none     | string        | None (default is 30)               | Can be modified    | Backup file retention time (days), backup files beyond this time will be cleaned up |
+| DINGTOKEN                          | none     | string        | None (default is empty)            | Can be modified    | Dingding alarm TOKEBN value                                                                            |
 
 ###### Mysql recovery plugin
 
 Configure group name：to name it yourself
 
-Depends on metadata type：does not depend on
+依赖元数据类型：不依赖
 
 inject type：environment variable
 
 Configuration item：
 
-| property name | protocol | property type | optional value      | Can it be modified | short description                                                                                                                        |
-| ------------- | -------- | ------------- | ------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| BACKUP_CYCLE  | none     | string        | None (default is 7) | Can be modified    | The backup cycle is used to determine the range of files to be restored, and the default value can be used when restoring a full backup. |
+| property name                     | protocol | property type | optional value                         | Can it be modified | short description                                                                                                                                        |
+| --------------------------------- | -------- | ------------- | -------------------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BACKUP_CYCLE | none     | string        | None (default is 7) | Can be modified    | The backup cycle is used to determine the range of files to be restored, and the default value can be used when restoring a full backup. |
 
 ##### Install and use
 
