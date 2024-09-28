@@ -1,6 +1,6 @@
 ---
 title: Installation and operation
-descrition: 该章节文档适用于运维人员了解Rainbond集群安装、运维等相关知识
+descrition: This section of the document is useful for people who have knowledge of the Rainbod cluster installation, dimensions etc.
 ---
 
 ```mdx-code-block
