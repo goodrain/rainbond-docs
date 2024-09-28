@@ -18,20 +18,20 @@ Building the Rainbond source code is divided into the following steps:
 
 1. Pull project source code
 2. Start the Job task in the 'rbd system' namespace
-3. 运行 Job 任务，该任务镜像会从私有镜像仓库获取。
+3. Run Job and this task image will be retrieved from a private mirror repository.
 4. Package project code, such as Vue project, and execute npm install, npm run build to package static files.
 5. Through [Kaniko]（ https://github.com/GoogleContainerTools/kaniko ）Create a container image.
-6. 推送镜像到私有镜像仓库。
+6. Push mirrors to private mirror warehouses.
 7. Successfully run.
 
 ## common problem
 
-Users' use of Rainbond starts with deploying service components. We call this process build. The source of construction includes image, source code and application market. The most problematic of these methods is the construction method from mirror or source code.构建的来源包括镜像、源码和应用市场。这几种方式中容易出现问题的是来自镜像或源码的构建方式。
+Users' use of Rainbond starts with deploying service components. We call this process build. The source of construction includes image, source code and application market. The most problematic of these methods is the construction method from mirror or source code.Build sources include mirrors, source code and application markets.The problems that arise in these ways are those that are built from mirror or source code.
 
 The `rbd-chaos` component in Rainbond is specially used to build service components. Troubleshooting of this part often requires the use of commands to query its logs to obtain information.
 
 ```bash
-kubectl logs -f -l name=rbd-chaos -n rbd-system
+kubtl logs -f -l name=rbd-chaos -n rbd-system
 ```
 
 You can also view the logs through the console **Platform Management -> Logs -> Cluster Logs -> Build Logs**.
@@ -40,22 +40,22 @@ You can also view the logs through the console **Platform Management -> Logs -> 
 
 #### The containerd private mirror warehouse certificate is not configured
 
-Usually use the kubectl describe command to view detailed error reports. If the error is `x509: certificate signed by unknown authority`, it is likely that the default image warehouse certificate of Rainbond is not trusted. If your environment is Containerd, you need to modify the containerd configuration file of each node and configure the goodrain.me private warehouse. Then restart containerd.如果你的环境是 Containerd，那么需要修改每个节点的 containerd 配置文件，配置 goodrain.me 私有仓库。然后重启 containerd。
+Usually use the kubectl describe command to view detailed error reports. If the error is `x509: certificate signed by unknown authority`, it is likely that the default image warehouse certificate of Rainbond is not trusted. If your environment is Containerd, you need to modify the containerd configuration file of each node and configure the goodrain.me private warehouse. Then restart containerd.If your environment is Containerd, you need to modify the containerd configuration file for each node and configure goodrain.me private repository.Then restart containerd.
 
 1. Modify the configuration file `/etc/containerd/config.toml`
 
 ```
-[plugins."io.containerd.grpc.v1.cri".registry.configs]
-  [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me"]
-    [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me".tls]
+[plugins."io.containerd.grpc.v1.cr".registry.configs]
+  [plugins."io.containerd.grpc.v1.cr".registry.configs."]
+    [plugins."io.containainerd.grpc.v1.cr".registry.configs."goodrain.me".tls]
        insecure_skip_verify = true
 ```
 
 2. Modify the configuration file `/etc/containerd/certs.d/goodrain.me/hosts.toml`
 
 ```
-[host."https://goodrain.me"]
-  capabilities = ["pull", "resolve","push"]
+[host."https://foodrain.me"]
+  capabilities = ["pull", "resolve", "push"]
   skip_verify = true
 ```
 
@@ -78,7 +78,7 @@ spec:
 
 #### The builder image in the private warehouse is missing
 
-If there is no build log for a long time after you click to start building, check the rbd-chaos log and find an error `Back-off pulling image "goodrain.me/builder"`, it means that the builder image in the private warehouse is lost and the build task cannot be run. At this point, you only need to manually pull the image from the public network and push it to the private warehouse. In addition to the builder image, the component operation also requires a runner image, which can be processed here. The main operation steps are as follows:除了 builder 镜像外，组件运行还需要 runner 镜像，可以在此一并处理。主要操作步骤有以下三步：
+If there is no build log for a long time after you click to start building, check the rbd-chaos log and find an error `Back-off pulling image "goodrain.me/builder"`, it means that the builder image in the private warehouse is lost and the build task cannot be run. At this point, you only need to manually pull the image from the public network and push it to the private warehouse. In addition to the builder image, the component operation also requires a runner image, which can be processed here. The main operation steps are as follows:In addition to the builder image, components need runner mirrors to run and can be processed together.The main action steps have the following three：
 
 1. Pull the builder and runner images to the local, and replace the image tag
 2. Obtain the password of the private warehouse account and log in
@@ -90,10 +90,10 @@ If there is no build log for a long time after you click to start building, chec
 1. Pull image and change tag
 
 ```bash
-nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.3-release
+nerdctl -n k8s.io image null registry.cn-hangzhou.aliyuncs.com/goodrain/builder: v5.17.3-release
 nerdctl -n k8s.io image pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.3-release
 
-nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.3-release goodrain.me/builder:latest
+nerdctl -n k8. o image tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder: v5.17.3-release goodrain.me/builder: latest
 nerdctl -n k8s.io image tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.3-release goodrain.me/runner:latest
 ```
 
@@ -110,7 +110,7 @@ nerdctl -n k8s.io login --username=admin goodrain.me
 
 ```bash
 nerdctl -n k8s.io image push goodrain.me/builder:latest --insecure-registry
-nerdctl -n k8s.io image push goodrain.me/runner:latest --insecure-registry
+nerdctl -n k8s.io image push foodrain.me/runner:latest --insecure-registry
 ```
 
 </TabItem>
@@ -120,11 +120,11 @@ nerdctl -n k8s.io image push goodrain.me/runner:latest --insecure-registry
 1. Pull image and change tag
 
 ```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.3-release
-docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.3-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/builder: v5.17.3-release
+docker pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner: v5.17.3-release
 
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.3-release goodrain.me/builder:latest
-docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.3-release goodrain.me/runner:latest
+docker tag registry.cn-hangzhou.aliyuncs.com/builder: late
+docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.3-release godrain.me/runner:latest
 ```
 
 2. Obtain the password of the private warehouse account and log in
@@ -139,7 +139,7 @@ docker login goodrain.me -uadmin
 3. Push the image to a private repository
 
 ```bash
-docker push goodrain.me/builder:latest
+docker push goodrain.me/builder: latest
 docker push goodrain.me/runner:latest
 ```
 
@@ -163,27 +163,27 @@ Component build source detection failed. Possible causes of this problem include
 
 The Node.js language can be used not only to build front-end projects such as Vue, but also to build server-side projects. Both of these usages are supported in the Rainbond source build world, however building a front-end project as a server-side project won't work properly. Pay attention to the build source page of the service component. The language column shows `NodeJSStatic`, which can prove that the NodeJS front-end project is being built.
 It's important to note this: Rainbond recognizes a NodeJS front-end class project based on the existence of `package.json` and `nodestatic.json` files in the root of the source code.
-If it is found that the build has become the wrong type, after adding the specified file and submitting the code, click `Recheck` on the build source page, and build again.根据经验，此处遭遇的问题也是最多的。
+If it is found that the build has become the wrong type, after adding the specified file and submitting the code, click `Recheck` on the build source page, and build again.Based on experience, the problems encountered here are also the greatest.
 
 Many users build and deploy [NodeJS front-end projects](/docs/use-manual/component-create/language-support/nodejs-static) on Rainbond, such as Vue, React, etc. According to experience, the problems encountered here are also the most.
 The error message of building the NodeJS front-end project may come from the prompt on the page, or it may be prompted in the log on the right side of the build failure record.
 
 #### source code is recognized as Node.js instead of NodeJSStatic
 
-Node.js 语言不仅可以用于构建 Vue 等前端项目，也可以构建服务端项目。这两种使用方法在 Rainbond 源码构建领域中都得到支持，然而将前端项目构建成服务端项目是无法正常运行的。关注服务组件的构建源页面，语言一栏显示为 `NodeJSStatic` 能够证明构建的是 NodeJS 前端项目。
+Node.js language can be used not only to build front-end projects such as Vue but also to build service end projects.Both methods of use are supported in the Rainbond source construction arena, but building front-end projects into the server project cannot function properly.Follow the build source page of the service component. The language bar is shown as `NodeJS Static` to demonstrate that the building is a NodeJS front-end project.
 
 务必注意这一点：Rainbond 会根据源代码根目录是否有 `package.json` 和 `nodestatic.json` 文件来识别为 NodeJS 前端类项目。
 
-如果发现构建成为了错误的类型，添加指定文件并提交代码后，点击构建源页面中的 `重新检测`，并再次构建。
+If the build is found to be a wrong type, add the specified file and submit the code, click on `Redetect` on the build source page and build again.
 
 #### No yarn.lock or package-lock.json file found in code directory, must generate and submit yarn.lock or package-lock.json file
 
 Rainbond decides which build tool to use to build static files by identifying the `yarn.lock` or `package-lock.json` file in the source directory. So one (and only one) of the above files must exist.
-After submitting the corresponding file, rebuild it.所以上述文件必须存在一个（且只能存在一个）。
+After submitting the corresponding file, rebuild it.So one of these documents must exist (and only one).
 
-提交对应文件后，重新构建即可。
+Rebuild when the corresponding file is submitted.
 
-#### Two different lockfiles found: package-lock.json and yarn.lock
+#### Two different blockfiles found: package-block.json and yarn.lock
 
 This message indicates that there are two lock files `package-lock.json` and `yarn.json` in the root directory of the current source code. Please delete the other lock file according to the package manager you want to use, and rebuild after submitting the code.
 
@@ -193,7 +193,7 @@ This information indicates that the yarn.lock used for the current build conflic
 
 #### SyntaxError: Invalid or unexpected token
 
-This message indicates that the npm version specified in the `engines` section in the current `package.json` conflicts with the node version selected in the build source. Delete all the contents of the `engines` section in `package.json`, resubmit and build.删除 `package.json` 中 `engines` 段落的所有内容，重新提交后构建即可。
+This message indicates that the npm version specified in the `engines` section in the current `package.json` conflicts with the node version selected in the build source. Delete all the contents of the `engines` section in `package.json`, resubmit and build.Delete all the contents of the `engines` paragraph in `package.json`, build after resubmission.
 
 ### The source code build cannot obtain the private mirror warehouse
 
