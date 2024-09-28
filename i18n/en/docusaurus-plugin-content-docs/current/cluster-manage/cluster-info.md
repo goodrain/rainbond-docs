@@ -1,20 +1,20 @@
 ---
 title: Edit cluster
-description: Rainbond 编辑集群配置
+description: Rainbond Edit Cluster Configuration
 keywords:
   - Rainbond Edit Cluster Config
-  - Rainbond 编辑集群配置
+  - Rainbond Edit Cluster Configuration
 ---
 
-Rainbond 可以对集群的配置进行修改，包括集群名称、API地址、WebSocket 通信地址、HTTP 默认域名、TCP默认访问域名、集群描述、集群证书等。
+Rainbond can modify cluster configurations including cluster names, API addresses, WebSocket communication addresses, HTTP default domain names, TCP default access domain names, cluster description, cluster certificates, etc.
 
-## 编辑集群信息
+## Edit cluster information
 
-进入 **平台管理 -> 集群**，跳转到集群管理页面，点击 **编辑**，进入集群信息编辑页面。
+Go to \*\*Platform Manager -> Cluster \*\*,jump to the cluster management page, click **Edit** to access the cluster information editing page.
 
-- **集群名称:** 集群的名称，不可重复。
-- **API地址:** 集群的 API 地址，用于 Rainbond 控制台与集群进行通信。
-- **WebSocket 通信地址:** 集群的 WebSocket 通信地址，用于 Rainbond 控制台与集群 WebSocket 通信，例如：日志推送、上传文件等。
-- **HTTP 默认域名后缀:** 集群的 HTTP 默认域名，用于 Rainbond 打开 HTTP 对外访问服务自动生成域名的后缀。
-- **TCP 默认访问IP:** 集群的 TCP 默认访问IP，用于 Rainbond 打开 TCP 对外访问服务自动生成的 IP:PORT。
-- **集群证书:** 集群的证书信息，用于 Rainbond 控制台与集群进行通信，可通过 [grctl config](/docs/ops-guide/tools/grctl) 命令行工具生成。
+- **Cluster name:** Cluster name cannot be repeated.
+- **API addresses:** cluster API address used to communicate with cluster
+- **WebSocket address :** Cluster WebSocket address for communication between Rainbond console and cluster WebSocket, e.g.：log pushing, uploading files, etc.
+- **HTTP default domain suffix :** cluster default HTTP domain name for Rainbond opening HTTP external access service auto-generate domain name suffix.
+- **TCP default access IP:** cluster default TCP access IP for Rainbond opening of TCP auto-generated IP:PORTs from external access services.
+- **Cluster Certificate:** Cluster Certificate Information used to communicate with cluster using the Rainbond Console and can be generated through the [grctl config](/docs/ops-guide/tools/grctl) command line tool.
