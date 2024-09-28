@@ -1,111 +1,111 @@
 ---
-title: 企业级网关
-description: API网关增强功能描述和使用
+title: Enterprise Level Gateway
+description: API gateway enhancement description and use
 keywords:
-  - 集群巡检
+  - Clustering test
   - Description and use of cluster inspection function
 ---
 
-Rainbond企业级API网关增强，提供流量可视化、匹配策略、重试机制、流量控制、服务发现、负载均衡、多协议支持和证书管理等丰富功能。支持灵活的监控展示，包括QPS、错误率和平均响应时间。具备强大的路由控制和重试机制，支持多种匹配策略。实现流量控制与限流，支持多种服务发现机制，包括K8s和Nacos。提供灵活的负载均衡策略，支持HTTP、TCP和WebSocket等多协议。证书管理系统方便管理和应用证书，自动应用到域名下的所有路由。
+Rainbod enterprise API gateway is enhanced to provide abundant features such as visualization, matching strategies, retrial mechanisms, traffic control, service discovery, load balance, multiprotocol support, and certificate management.Support flexible monitoring displays including QPS, error rates and average response time.There are strong routing controls and retrial mechanisms that support multiple matching strategies.Implementation of flow control and restriction of flows, supporting multiple service discovery mechanisms, including K8s and Nacos.Provides a flexible load equilibrium strategy, supports HTTP, TCP, and WebSocket.The certificate management system facilitates the management and application of certificates and automatically applies them to all routes under the domain name.
 
-## 流量可视化
+## Traffic Visualizations
 
-在 API 网关中，监控和可视化是非常重要的功能，特别是涉及到 QPS（每秒查询率）、错误率和平均响应时间等关键性能指标。Rainbond 作为一个开源的云原生应用云平台，对这些功能进行精细化的分路由、分团队和分应用展示，提供了更直观的监控和管理手段。
+Monitoring and visualization are important features in the API gateway, particularly with regard to key performance indicators such as QPS (query rate per second), error rate and average response time.Rainbond provides a more intuitive monitoring and management tool as an open source cloud application platform that displays these functions through refined sub-routes, teams and sub-applications.
 
-1. **QPS 监控：** Rainbond 提供了对 QPS 的监控功能，允许你实时了解 API 的请求频率。通过图表展示，你可以在不同时间段内观察 QPS 的变化趋势，以便及时调整系统资源或优化 API 设计。
+1. **QPS Monitor：** Rainbond provides monitoring of QPS and allows you to learn about the frequency of API requests in real time.Using graphs, you can observe changes in QPS over time in order to adjust system resources or to optimize API design in a timely manner.
 
-2. **错误率监控：** Rainbond 的监控系统还包括错误率的展示，这有助于快速定位和解决潜在的问题。图表展示错误率的变化，帮助你在 API 提供的服务中发现异常情况。
+2. **Error rate monitoring：** Rainbond also includes an error rate display that helps to quickly locate and solve potential problems.Charts show changes in error rates to help you find exceptions in the services provided by the API.
 
-3. **平均响应时间监控：** 了解平均响应时间是评估 API 性能的关键指标之一。Rainbond 可以展示平均响应时间的变化情况，帮助你识别并解决潜在的性能瓶颈。
+3. **Average response time monitoring：** understands that average response time is one of the key indicators for assessing API performance.Rainbond can show changes in average response time to help you identify and solve potential performance bottlenecks.
 
-4. **分路由展示：** Rainbond 允许你对不同的路由进行分别监控。这意味着你可以详细了解每个 API 路由的性能表现，从而更好地优化和管理不同的 API 端点。
+4. **Distinguished：** Rainbond allows you to monitor different routes separately.This means that you can better optimize and manage different API endpoints by understanding the performance of each API route.
 
-5. **分团队和分应用展示：** 通过将监控数据进行分团队和分应用展示，Rainbond 提供了更细粒度的监控视图。这使得团队能够专注于他们负责的部分，而不会被整体系统的监控数据所淹没。
+5. **Sub-teams and sub-apps showcase：** by displaying monitoring data for sub-teams and sub-applications, Rainbond provides a more meticulous monitoring view.This allows teams to focus on what they are responsible and not flooded with data from monitoring systems as a whole.
    ![流量纵览](https://static.goodrain.com/docs/enterprise-app/api-gateway/1.png)
 
-## API网关基本能力
+## API Gateway Basic Capabilities
 
-Rainbond API网关的强大功能包括多种匹配策略和重试机制，这些功能提供了更细粒度的路由控制和提高系统的稳定性。
+The powerful features of the Rainbond API gateway include a variety of matching strategies and retrial mechanisms that provide more meticulous routing control and greater stability of the system.
 
-### 匹配策略
+### Match Policy
 
-1. **路径匹配：** Rainbond允许根据请求的路径进行匹配，这使得你可以将不同的路径映射到不同的后端服务或进行不同的处理。
+1. **Matching：** Rainbod allows matching according to the requested path, which allows you to map different paths to different backend services or different handling.
 
-2. **方法匹配：** 可以根据请求的HTTP方法（GET、POST等）进行匹配，以便对不同的请求方法采用不同的处理逻辑。
+2. **Methods match：** can be matched by the requested HTTP method (GET, POST, etc.) in order to apply different processing logic to different request methods.
 
-3. **Header头匹配：** 支持根据请求中的特定HTTP头信息进行匹配，这对于需要根据请求头来路由请求的场景非常有用。
+3. **Headers match：** supports matching specific HTTP header information in the request, which is useful for situations where requests need to be routed according to the header.
 
-4. **Cookie匹配：** Rainbond允许根据请求中的Cookie信息进行匹配，这使得你可以基于Cookie的内容来进行更精细的路由控制。
+4. **Cookie matching：** Rainbod allows matching of the requested Cookie information, which allows you to make more sophisticated routing controls based on Cookie's content.
    ![流量纵览](https://static.goodrain.com/docs/enterprise-app/api-gateway/4.png)
 
-## 流量控制和限流
+## Traffic Control and Limit
 
-在 Rainbond 中，通过插件为 API 网关赋能，实现流量控制和限流的功能，为系统提供了更加灵活和可定制的流量管理机制。
+In Rainbond, the system is provided with more flexible and customizable traffic management mechanisms by enabling the API gateway through plugins to implement traffic control and restricted flow functions.
 
-1. **请求数限制：** Rainbond 允许通过插件设置请求束限制，即限制一次请求中包含的请求数量。这有助于防止某个用户或应用程序在短时间内发送大量请求，保护系统免受滥用。
+1. **Request limit：** Rainbond allows requests to be restricted by plugins to limit the number of requests contained in a request.This helps to prevent a user or application from sending large numbers of requests within a short period of time to protect the system from abuse.
 
-2. **连接数限制：** 插件还可以配置限制连接数，确保系统不会被过多的连接数压垮。这有助于维护系统的稳定性和可用性。
+2. **Connections Limit：** Plugins can also configure the number of connections to ensure that the system is not overwhelmed by too many connections.This helps to maintain the stability and availability of the system.
 
-3. **时间段限制：** Rainbond 插件提供了设置在某个时间段内的请求数量限制的能力。这使得你可以根据系统的高峰和低谷时段来调整流量控制策略，以更好地适应系统的负载变化。
+3. **Time period limit：** the Rainbond plugin provides the ability to set the number of requests within a certain time period.This allows you to adjust the flow control strategy to the system's peak and low turnaround time to better adapt to the system's load changes.
 
-## 服务发现
+## Service discovery
 
-Rainbond 的 API 网关支持从不同的服务发现机制中获取服务信息，包括 Kubernetes（K8s）、Nacos 等，同时也支持引入第三方节点。这使得在 Rainbond 平台上能够更加灵活地管理和使用各种服务。
+Rainbond API gateway supports access to service information from different service discovery mechanisms, including Kubernetes (K8s), Nacos and others, as well as the introduction of third-party nodes.This has allowed for more flexibility in the management and use of services on the Rainbond platform.
 
-### 服务发现机制
+### Service Discovery Mechanisms
 
-1. **Kubernetes (K8s) 支持：** Rainbond 与 Kubernetes 集成，可以通过 K8s 的服务发现机制获取服务信息。这使得在 Kubernetes 集群中运行的应用程序可以被 Rainbond 的 API 网关动态发现和代理。
+1. **Kubernetes (K8s) support：** \*\* Rainbond integrated with Kubernetes and can access service information through K8s service discovery mechanisms.This allows applications running in the Kubernetes cluster to be found and proxy by Rainbond API gateway dynamics.
 
-2. **Nacos 支持：** Nacos 是一个开源的服务发现和配置管理系统，Rainbond 提供了对 Nacos 的支持，允许从 Nacos 中获取服务信息，以便在 Rainbond 环境中进行统一管理。
+2. **Nacos supports：** Nacos as an open source service discovery and configuration management system, Rainbond provides support to Nacos and allows access to service information from Nacos for integrated management in Rainbond environments.
 
-3. **第三方节点支持：** Rainbond 的 API 网关允许引入第三方节点，即外部服务。这意味着你可以将不在 Rainbond 平台上运行的服务引入到 Rainbond 中进行统一管理和代理。
+3. **Third Party nodes support：** Rainbond API gateway that allows the introduction of third party node, i.e. external service.This means you can introduce services that are not running on the Rainbond platform into Rainbond for uniform management and proxy.
 
-4. **重试机制**   Rainbond API网关支持在发生请求失败时自动进行请求重试。这有助于提高系统的容错性，尤其是在网络不稳定的情况下。
+4. **Retry Mechanism** Rainbond API gateway supports an automatic request retry if a request fails.This helps to increase the system's tolerance for error, especially in cases of network instability.
 
 ![服务发现](https://static.goodrain.com/docs/enterprise-app/api-gateway/7.png)
 
-## 负载均衡
+## Load Balancer
 
-负载均衡是在分布式系统中用于平衡网络流量和请求负担的关键技术。在 Rainbond 中，负载均衡是为了确保服务的高可用性、稳定性和性能而实现的。Rainbond 提供了多种负载均衡策略，以适应不同的应用场景和需求。
+Load equilibrium is a key technology used in distributed systems to balance network traffic and request burdens.In Rainbond, the load balance is achieved to ensure high availability, stability and performance of services.Rainbond provided multiple load equilibrium strategies to suit different application scenarios and needs.
 
-1. **轮询（Round Robin）：** 这是一种最简单的负载均衡策略，将请求轮流分发给后端服务器，确保每台服务器都能获得相等的请求机会。
+1. **Round Robin：** is one of the simplest payload equilibrium policies that will make requests rotating to backend servers to ensure that each server receives equal access to requests.
 
-2. **加权轮询（Weighted Round Robin）：** 允许为每个后端服务器分配不同的权重，以便在负载均衡时考虑每个服务器的性能和资源。
+2. **Weighted Round Robin：** allows different weights to be assigned to each backend server in order to take into account the performance and resources of each server when loading equilibrium.
 
-3. **最小连接数（Least Connections）：** 将请求发送到当前连接数最少的服务器，以确保负载均衡时选择负载较轻的服务器。
+3. **Minimum Connections (Least Connections)：** will send requests to servers with minimal connections to ensure that lighter servers are selected when loading is balanced.
 
-4. **加权最小连接数（Weighted Least Connections）：** 类似于加权轮询，但是根据连接数来分配权重，以考虑服务器的性能。
+4. **Weighted Least Connections：** is similar to weighted polls but assigned weights based on connections to take account of server performance.
 
-5. **IP Hash：** 根据客户端的 IP 地址计算哈希值，将请求分发到后端服务器。这确保相同 IP 的请求始终被路由到相同的服务器，有助于保持会话一致性。
+5. **IP Hash：** Calculates hashes based on client IP addresses and distributes requests to backend servers.This ensures that the same IP requests are always routed to the same server, helping to keep the session consistent.
 
-## 支持多种协议
+## Support multiple protocols
 
-支持多种协议是指 API 网关具备处理不同通信协议的能力，以适应各种应用场景和需求。在 Rainbond 或其他类似的云原生平台中，这种多协议支持是为了满足不同类型服务和应用程序之间的通信需求。
+Support for multiple protocols means that the API gateway has the capacity to handle different communication protocols to suit various applications scenarios and needs.In Rainbond or other similar cloud native platforms, this multi-protocol support is designed to meet communications needs between different types of services and applications.
 
-1. **HTTP 协议支持：** HTTP是最常见的应用层协议，用于Web应用程序之间的通信。API网关可以处理和路由HTTP请求，执行访问控制、认证、授权等操作。
+1. **HTTP protocol supports：** HTTP is the most common application protocol for communication between web applications.The API gateway can process and route HTTP requests, perform access control, authentication, authorization, etc.
 
-2. **TCP 协议支持：** Rainbond的API网关能够处理TCP协议，这对于需要在传输层进行更低级别的通信的应用程序非常重要。例如，数据库连接等场景可能需要使用TCP协议。
+2. **TCP protocols support：** Rainbond's API gateway to handle TCP, which is important for applications that require lower-level communication in the transmission layer.For example, TCP may need to be used in scenarios such as database connections.
 
-3. **WebSocket 协议支持：** WebSocket协议支持实时双向通信，通常用于需要持久连接的应用，如在线聊天、实时通知等。Rainbond的API网关可以有效地处理和代理WebSocket通信。
+3. **WebSocket protocol supports：** WebSocket protocol supports real-time two-way communications, usually for applications that require persistent connections, such as online chat, real-time notifications, etc.The API gateway in Rainbod can effectively handle and proxy WebSocket communications.
 
-4. **灵活协议扩展：** 支持灵活的协议扩展，以便在未来能够适应新兴的通信协议。这种灵活性对于不断演变的应用程序架构非常重要。
+4. **The Flexible Protocol extension：** supports flexible protocol extensions to adapt to emerging communications protocols in the future.This flexibility is important for the evolving architecture of applications.
 
-5. **协议转换：** 在需要时，API网关可以执行协议转换，将一种协议的请求转换为另一种协议的请求。例如，将HTTP请求转换为TCP请求，或反之。
+5. **Protocol conversion：** allows the API gateway to execute protocol conversions if required, converting one protocol request to another protocol.For example, convert HTTP requests to TCP requests, or vice versa.
 
-通过支持多种协议，API网关可以作为一个通用的接入点，连接各种不同类型的服务，使得整个系统更加灵活和可扩展。这样，不同的应用可以选择最适合它们通信需求的协议，而不用担心与其他服务之间的协议不匹配问题。这对于构建复杂的微服务架构和多样化的应用场景非常有益。
+By supporting multiple protocols, the API gateway can serve as a common access point, connecting different types of services and making the system more flexible and scalable.In this way, different applications can choose the protocol best suited to their communications needs, without fear of mismatches with other services.This has been very useful in building complex micro-service structures and diverse application scenarios.
 
-## 证书管理
+## Certificate Management
 
-证书管理是 API 网关中的重要功能之一，尤其在需要保障安全通信的场景中。Rainbond 提供了一套完善的证书管理系统，使得用户能够方便地管理和应用证书到其域名下的所有路由。
+Certificate management is one of the important features in the API gateway, especially in scenarios where secure communication is needed.Rainbond provides a well-developed certificate management system that enables users to manage and apply certificates to all routes under their domain names.
 
-1. **证书概览：** Rainbond 的证书管理系统允许用户查看所有已安装证书的概览信息，包括证书的名称、颁发者、到期时间等。这使得用户能够全面了解系统中所使用的证书情况。
+1. **Certificate Overview：** Rainbrond's Certificate Management System allows users to view all installed certificates' overview, including certificate name, issuer, expiration date, etc.This enables users to obtain a complete picture of the credentials used in the system.
 
-2. **自动化应用：** Rainbond 提供了自动将证书应用到特定域名下所有路由的功能。这意味着一旦用户添加或更新证书，系统会自动将新证书应用到与该证书关联的所有路由，无需手动干预。
+2. **Automated Applications：** Rainbond offers the ability to apply certificates to all routes under a given domain name.This means that once a user adds or updates a certificate, the system automatically applies the new certificate to all routes associated with the certificate, without manual intervention.
 
-3. **证书到期时间展示：** Rainbond 的证书管理系统通常包括证书到期时间展示，用户可以知道哪些证书即将到期，以便用户及时更新或替换证书，确保系统的安全性和正常运行。
+3. **Certificate expiry time is presented in：** \*\* The certificate management system of Rainbond usually includes certificate expiry time displays that allow users to know which certificates are about to expire so that users can update or replace the certificate in a timely manner to ensure the security and proper functioning of the system.
 
-4. **证书上传和导入：** 用户可以通过界面或命令行工具上传或导入证书。这允许用户使用自签名证书或从其他证书颁发机构获得的证书，并集中管理这些证书。
+4. **Certificate upload and import：** users can upload or import certificates via UI or command line tools.This allows users to use self-signed certificates or those obtained from other licensing agencies and to centralize the management of these certificates.
 
-5. **证书绑定：** Rainbond 允许用户将特定证书与特定域名进行绑定，确保只有与之关联的域名的路由可以使用该证书。这增加了安全性和灵活性。
+5. **Certificate binding：** Rainbond allows users to bind a given certificate to a specific domain, ensuring that only routing of associated domain names can use the certificate.This increases security and flexibility.
 
 ![证书](https://static.goodrain.com/docs/enterprise-app/api-gateway/9.png)
