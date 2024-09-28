@@ -2,26 +2,26 @@
 title: Reset Administrator Password
 description: If you forget your administrator password, reset it by referring to this document
 keywords:
-  - 重置 Rainbond 管理员密码
+  - Reset Rainbond Admin Password
 ---
 
-普通用户的密码如果忘记了，可以由企业管理员在用户管理页面中进行修改。
+Passwords for normal users can be changed by the enterprise administrator on the user management page if they are forgotten.
 
-如果企业管理员密码忘记了且只有一个企业管理员。那就只能通过以下方式进行修改了。
+If the business administrator password is forgotten and only one business administrator is available.That could only be done through the following modalities.
 
-1. 首先进入控制台容器的终端中。
+1. Advanced to the terminal of the Console Container.
 
 ```bash
-# 控制台部署在 docker 中
-docker exec -it rainbond-allinone bash
+# The console is deployed in docker with
+docker exec -it rainbond-allinone cash
 
-# 控制台部署在 POD 中
+# in POD
 kubectl get pod -l name=rbd-app-ui -n rbd-system
-kubectl exec -it rbd-app-ui-xxxxx-xxx -n rbd-system bash
+kubtl exec -it rbd-app-ui-xxx-xxxx -n rbd-system bash
 ```
 
-2. 执行以下命令即可修改指定用户密码。
+2. Execute the following commands to change the specified user's password.
 
 ```
-python manage.py change_password --username=用户名 --password=新密码
+python manage.my change_password --username=username --password=new password
 ```
