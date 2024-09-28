@@ -2,7 +2,6 @@
 title: Get all data center list v2
 ---
 
-
 ## basic information
 
 Get a list of all data centers
@@ -18,7 +17,6 @@ GET /openapi/v2/manage/regions
 | query    | query    | string | no       |              | Search by data center name |
 | current  | query    | string | no       |              | page number                |
 | pageSize | query    | string | no       |              | Quantity per page          |
-
 
 ## return result
 
@@ -67,12 +65,13 @@ GET /openapi/v2/manage/regions
 
 ### Attributes
 
-| name  | type                                                  | required | constraint | Chinese name | illustrate |
-| ----- | ----------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| total | integer                                               | true     | none       | Total        | total      |
+| name  | type                                                                                                      | required | constraint | Chinese name | illustrate |
+| ----- | --------------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| total | integer                                                                                                   | true     | none       | Total        | 总数         |
 | data  | [[RegionInfoAndStatusResp](#regioninfoandstatusresp)] | true     | none       |              | none       |
 
 ### RegionInfoAndStatusResp
+
 ```json
 {
   "region_id": "string",
@@ -105,27 +104,27 @@ GET /openapi/v2/manage/regions
 
 ### Attributes
 
-| name             | type     | required | constraint | Chinese name     | illustrate                                                       |
-| ---------------- | -------- | -------- | ---------- | ---------------- | ---------------------------------------------------------------- |
-| region_id        | string   | true     | none       | Region id        | region id                                                        |
-| enterprise_id    | string   | true     | none       | Enterprise id    | Enterprise ID                                                    |
-| enterprise_alias | string   | true     | none       | Enterprise alias | business alias                                                   |
-| region_name      | string   | true     | none       | Region name      | cluster name                                                     |
-| region_alias     | string   | true     | none       | Region alias     | cluster alias                                                    |
-| region_type      | [string] | true     | none       |                  | Cluster type                                                     |
-| url              | string   | true     | none       | Url              | Cluster API url                                                  |
-| wsurl            | string   | true     | none       | Wsurl            | cluster websocket url                                            |
-| httpdomain       | string   | true     | none       | Httpdomain       | Cluster http application access root domain name                 |
-| tcpdomain        | string   | true     | none       | Tcpdomain        | Cluster tcp application access root domain name                  |
-| status           | string   | true     | none       | Status           | Cluster Status 0：Editing 1: Enabled 2：Disabled 3: In Maintenance |
-| desc             | string   | true     | none       | Desc             | Cluster description                                              |
-| ssl_ca_cert    | string   | true     | none       | ssl ca cert      | api ca file                                                      |
-| cert_file        | string   | true     | none       | Cert file        | api cert file                                                    |
-| key_file         | string   | true     | none       | Key file         | api cert key file                                                |
-| total_memory     | integer  | true     | none       | Total memory     | Sum of scheduling memory MB                                      |
-| used_memory      | integer  | true     | none       | Used memory      | Scheduling memory usage MB                                       |
-| total_cpu        | integer  | true     | none       | total cpu        | Scheduling CPU Sum                                               |
-| used_cpu         | number   | true     | none       | used cpu         | Schedule CPU usage                                               |
-| total_disk       | integer  | true     | none       | Total disk       | Total GB of global shared storage                                |
-| used_disk        | integer  | true     | none       | Used disk        | Global Shared Storage Usage GB                                   |
-| rbd_version      | string   | true     | none       | Rbd version      | Cluster version                                                  |
+| name                                                  | type                                                         | required | constraint | Chinese name     | illustrate                                                                                       |
+| ----------------------------------------------------- | ------------------------------------------------------------ | -------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------------ |
+| region_id                        | string                                                       | true     | none       | Region id        | region id                                                                                        |
+| enterprise_id                    | string                                                       | true     | none       | Enterprise id    | Enterprise ID                                                                                    |
+| enterprise_alias                 | string                                                       | true     | none       | Enterprise alias | business alias                                                                                   |
+| region_name                      | string                                                       | true     | none       | Region name      | cluster name                                                                                     |
+| region_alias                     | string                                                       | true     | none       | Region alias     | cluster alias                                                                                    |
+| region_type                      | [string] | true     | none       |                  | Cluster type                                                                                     |
+| url                                                   | string                                                       | true     | none       | Url              | Cluster API url                                                                                  |
+| wsurl                                                 | string                                                       | true     | none       | Wsurl            | cluster websocket url                                                                            |
+| httpdomain                                            | string                                                       | true     | none       | Httpdomain       | Cluster http application access root domain name                                                 |
+| tcpdomain                                             | string                                                       | true     | none       | Tcpdomain        | Cluster tcp application access root domain name                                                  |
+| status                                                | string                                                       | true     | none       | Status           | Cluster Status 0：Editing 1: Enabled 2：Disabled 3: In Maintenance |
+| desc                                                  | string                                                       | true     | none       | Desc             | Cluster description                                                                              |
+| ssl_ca_cert | string                                                       | true     | none       | ssl ca cert      | api ca file                                                                                      |
+| cert_file                        | string                                                       | true     | none       | Cert file        | api cert file                                                                                    |
+| key_file                         | string                                                       | true     | none       | Key file         | api cert key file                                                                                |
+| total_memory                     | integer                                                      | true     | none       | Total memory     | Sum of scheduling memory MB                                                                      |
+| used_memory                      | integer                                                      | true     | none       | Used memory      | Scheduling memory usage MB                                                                       |
+| total_cpu                        | integer                                                      | true     | none       | total cpu        | Scheduling CPU Sum                                                                               |
+| used_cpu                         | number                                                       | true     | none       | used cpu         | Schedule CPU usage                                                                               |
+| total_disk                       | integer                                                      | true     | none       | Total disk       | Total GB of global shared storage                                                                |
+| used_disk                        | integer                                                      | true     | none       | Used disk        | Global Shared Storage Usage GB                                                                   |
+| rbd_version                      | string                                                       | true     | none       | Rbd version      | Cluster version                                                                                  |
