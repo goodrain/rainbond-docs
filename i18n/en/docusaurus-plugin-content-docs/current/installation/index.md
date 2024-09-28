@@ -1,6 +1,6 @@
 ---
-title: 安装Rainbond
-description: 安装Rainbond
+title: Install Rainbond
+description: Install Rainbond
 ---
 
 ```mdx-code-block
