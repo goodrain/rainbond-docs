@@ -2,9 +2,9 @@
 title: Pyroscope use
 description: Pyroscope analyzes performance issues for microservice applications on Rainbond.
 keywords:
-- 性能分析
-- Pyroscope
-- 使用 Pyroscope 分析微服务性能
+  - 性能分析
+  - Pyroscope
+  - 使用 Pyroscope 分析微服务性能
 ---
 
 [Pyroscope](https://pyroscope.io/) 是一个开源的持续性能分析平台。它能够帮你：
@@ -47,9 +47,9 @@ Pyroscope 由两个主要组件支撑运行：**Pyroscope Server** 和 **Pyrosco
 2. 部署 Pyroscope Server
 3. 安装 Pyroscope Java Agent 插件并配置
 4. 建立微服务与 Pyroscope 之间的依赖关系
-4. Pyroscope 基本使用
+5. Pyroscope 基本使用
 
-### 1. 部署微服务 Spring Cloud Pig
+### 1) 部署微服务 Spring Cloud Pig
 
 通过开源应用商店一键安装 `Spring Cloud Pig`，新增 -> 基于应用商店创建组件 -> 在开源应用商店中搜索 `SpringCloud-Pig` 并安装到指定应用中。
 
@@ -63,10 +63,10 @@ Pyroscope 由两个主要组件支撑运行：**Pyroscope Server** 和 **Pyrosco
 2. 为每个微服务组件都开通插件，进入微服务组件 -> 插件 -> 开通插件 `Pyroscope-Java-Agent` 并更新组件。
 3. 为每个微服务组件都设置以下环境变量，可在组件内 -> 环境变量 -> 添加变量。也可以通过应用配置组为所有组件统一配置 `JAVA_OPTS` 环境变量，而 `PYROSCOPE_APPLICATION_NAME` 环境变量是唯一的，不可统一配置。
 
-| 变量名                     | 变量值                          | 说明                |
-| -------------------------- | ------------------------------- | ------------------- |
-| JAVA_OPTS                  | -javaagent:/agent/pyroscope.jar | Java agent 启动参数 |
-| PYROSCOPE_APPLICATION_NAME | pig.auth                        | 微服务模块名称      |
+| 变量名                                                                  | 变量值                                                             | 说明              |
+| -------------------------------------------------------------------- | --------------------------------------------------------------- | --------------- |
+| JAVA_OPTS                                       | -javaagent:/agent/pyroscope.jar | Java agent 启动参数 |
+| PYROSCOPE_APPLICATION_NAME | pig.auth                                        | 微服务模块名称         |
 
 ### 4. 建立微服务与Pyroscope之间的依赖关系
 
@@ -90,8 +90,6 @@ Pyroscope 由两个主要组件支撑运行：**Pyroscope Server** 和 **Pyrosco
 
 ![](https://static.goodrain.com/wechat/pyroscope/11.png)
 
-
-
 ## 最后
 
-Pyroscope 还可以结合 Jaeger 一起使用，可以集成在 Jaeger UI 中，可参阅 [Jaeger UI 集成](https://github.com/pyroscope-io/jaeger-ui) 
+Pyroscope 还可以结合 Jaeger 一起使用，可以集成在 Jaeger UI 中，可参阅 [Jaeger UI 集成](https://github.com/pyroscope-io/jaeger-ui)
