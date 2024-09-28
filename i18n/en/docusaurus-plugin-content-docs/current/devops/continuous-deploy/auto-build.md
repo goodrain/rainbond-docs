@@ -1,9 +1,9 @@
 ---
-title: Automatic deployment
+title: 自动部署
 description: This topic describes the Rainbond automatic deployment component
 keywords:
-- 自动部署
-- Rainbond 自动部署
+  - 自动部署
+  - Rainbond 自动部署
 ---
 
 import Bvideo from '/src/components/Bvideo';
@@ -20,6 +20,7 @@ import Bvideo from '/src/components/Bvideo';
 ## 基于源代码操作流程
 
 ### 开启 Rainbond Git Webhook
+
 开启组件 Git Webhook 在 **组件 -> 构建源** 中打开 Git-Webhook 自动构建功能，复制生成的 hook 地址。
 
 :::info
@@ -32,19 +33,19 @@ import Bvideo from '/src/components/Bvideo';
 
 进入 GitHub 项目内，**Settings -> Webhooks -> Add webhooks**
 
-|                     | 说明                            |
-| ------------------- | ------------------------------- |
+|                     | 说明                        |
+| ------------------- | ------------------------- |
 | Payload URL         | 复制 Rainbond 中的 Webhook 地址 |
-| Content type        | application/json                |
+| Content type        | application/json          |
 | Just the push event | 选择 push 触发事件              |
-| Active              | 勾选 Active                     |
+| Active              | 勾选 Active                 |
 
 #### GitLab 配置
 
-|         | 说明                            |
-| ------- | ------------------------------- |
+|         | 说明                        |
+| ------- | ------------------------- |
 | URL     | 复制 Rainbond 中的 Webhook 地址 |
-| Trigger | 勾选 **Push events**            |
+| Trigger | 勾选 **Push events**        |
 
 其他代码仓库配置方式类似，需要说明的是目前 Rainbond hook 触发暂不支持安全请求校验。
 
@@ -55,7 +56,6 @@ import Bvideo from '/src/components/Bvideo';
 - 应用是由镜像创建，镜像仓库为`Docker Hub`, 5.1.2 版本及以后支持阿里云镜像仓库。
 
 - 默认更新的镜像名称和 tag 是否与当前组件构建源镜像名称一致（判断时不包含镜像仓库域名）, 5.1.3 版本及以后支持配置 Tag 触发正则策略，动态匹配和改变组件的镜像 Tag。
-
 
 ### 开启 Rainbond 镜像 Webhook
 
@@ -71,12 +71,10 @@ import Bvideo from '/src/components/Bvideo';
 
 进入 DockerHub 仓库 -> Webhooks
 
-| New Webhook  | 说明                            |
-| ------------ | ------------------------------- |
-| Webhook name | 自定义                          |
+| New Webhook  | 说明                        |
+| ------------ | ------------------------- |
+| Webhook name | 自定义                       |
 | Webhook URL  | 复制 Rainbond 中的 Webhook 地址 |
-
-
 
 ## API 触发自动构建
 
