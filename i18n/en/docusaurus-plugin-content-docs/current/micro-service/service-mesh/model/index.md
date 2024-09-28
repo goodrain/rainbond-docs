@@ -2,71 +2,71 @@
 title: Service Mesh governance mode
 description: This section describes the Rainbond application governance mode
 keywords:
-  - Service Mesh 治理模式切换
-  - Istio 治理模式
+  - Service Mesh Governance Mode Switch
+  - Istio governance model
 ---
 
-## 治理模式切换
+## Governance Mode Switch
 
-Rainbond 自 V5.3 版本开始，加入了应用治理模式切换功能。应用治理模式主要指组件间通信模式的治理，目前支持内置 ServiceMesh 模式和 Kubernetes 原生 Service 模式。
+Rainbond started with version V5.3 and added the application mode switching.The application governance mode mainly refers to the governance of the inter-component communication mode and currently supports the built-in ServiceMesh mode and the Kubernetes Native Service mode.
 
-- **内置 ServiceMesh 模式（默认）**
+- **Built-in ServiceMesh mode (default)**
 
-内置ServiceMesh模式需要用户显式的配置组件间的依赖关系，平台会在下游组件中自动注入 sidecar 容器组成 ServiceMesh 微服务架构，业务间通信地址统一为localhost（127.0.0.1）模式。作为 Rainbond 中默认的应用治理模式，通过 sidecar 实现了服务组件间 A/B 测试、智能路由、限流、熔断等治理功能。了解更多请参考 [服务间通信](../regist_and_discover)。
+The built-in ServiceMesh mode requires an explicit dependency between the user's configuration components, the platform automatically injects the sidecar container into the downstream component into the ServiceMesh microservice architecture, and the interbusiness communication address is harmonized into the localhost(127.0.0.0.1).As the default application governance mode in Rainbond you perform the governance functions of service component A/B testing, smart routing, limited flow, smelting, etc. via sidecar.For more please refer to [服务间通信](../regist_and_discover).
 
-- **Kubernetes 原生 Service 模式**
+- **Kubernetes Native Service mode**
 
-该模式组件间使用 Kubernetes Service 名称域名进行通信，用户需要配置每个组件端口注册的 Service 名称，治理能力有限。
+Use the Kubernetes Service Name domain for communication between this mode components, users need to configure the Service Name for each component port to register, and have limited governance.
 
-- **Istio 治理模式**
+- **Istio Governance Mode**
 
-Rainbond 将 Istio 作为插件方式引入 Rainbond 应用治理模式体系，组件间的治理均由 Istio 提供。
+Rainbond introduced Istio as a plugin to the Rainbond application mode system, where governance is provided by Istio.
 
-### 切换的影响
+### Toggle impact
 
-对于用户而言，切换到不同的应用治理模式，最需要注意的，是组件之间相互访问方式的变化。新增的 Kubernetes 原生 Service 模式，意味着用户可以使用原生 Kubernetes 中的 Service name 的方式访问对应的服务组件了。
+For users, switching to different modes of application governance requires the most attention and changes in how components access each other.The new Kubernetes Native Service mode means users can access the corresponding service components using the service name in the native Kubernetes.
 
-### 如何切换
+### How to Switch
 
-应用治理模式切换的入口，位于应用拓扑图视图中。在 **治理模式** 处，即可在两种应用治理模式之间进行切换。
+The entrance to the app governance mode switching, is located in the App Topic view.Switch between the two applications in **Governance Mode**
 
 ![切换治理模式](https://static.goodrain.com/docs/5.3/user-manual/governance-model/governance-model-1.png)
 
-如果从内置 ServiceMesh 模式切换到 Kubernetes 原生 Service 模式，那么需要用户定义当前应用下，所有开启对内服务的端口的 **内部域名**。
+If switched from built-in ServiceMesh mode to the native Service mode of Kubernetes, the user needs to define the **internal domain name** of all ports that open the internal service.
 
 ![定义内部域名](https://static.goodrain.com/docs/5.3/user-manual/governance-model/governance-model-2.png)
 
-**内部域名** 即作为该端口全局可解析访问的地址。
+**Internal Domain** is the global parse address for this port.
 
-**简单讲，在这里定义的域名，在整个集群中，会被解析为 Service 的 CLUSTER-IP 地址。**
+**Simply put, the domain name defined here, will be parsed as the service CLUSTEER-IP address throughout the cluster.**
 
 ```bash
 $ kubectl get service -A
-NAMESPACE                          NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)
-9dcf3ab241c445afad7a9a90b1b7c9a7   gr12238e-80-dbeb            ClusterIP   10.43.234.35    <none>        80/TCP
+NAMESPACE NAME TYPE CLUSTEER-IP EXTERNAL-IP PORT(S)
+9dcf3ab241c445afada9a90b1b7c9a7 gr12238e-80-dbeb ClusterIP 10.43.234.35    <none>        80/TCP
 ```
 
-### 通信变量的改动
+### Variation of communication variables
 
-如果你不了解何为通信变量，请先阅读 [通信变量注入](../connection_env)。
+If you don't know what is a communication variable, please read [通信变量注入](../connection_env).
 
-对比于默认的内置 ServiceMesh 模式，Kubernetes 原生 Service 模式中依然存在通信变量。不一样的是，通信变量的值，不再是固定为 127.0.0.1 这一本地回环地址，而是变为了上文提及的内部域名。这一改动，是为了方便使用通信变量来确定依赖关系的用户，在不改动配置的情况下，依然可以正常的使用通信变量完成组件间的调用。
+By comparison with the default built-in ServiceMesh mode, a communication variable still exists in Kubernetes Native Service mode.By contrast, the value of the communication variable is no longer fixed as 127.0.0.1 as a local ring address, but rather as an internal domain name referred to above.This change is intended to facilitate the use of communication variables to determine the users of the dependence, and the communication variables can still be used normally to complete calls between components without changing the configuration.
 
 ```bash
-# 示例中 APP2 组件的 80 端口，其通信变量变成了如下的形式
+# The port of the APP2 component in the example and its communication variable becomes the following form
 NGINX_HOST=gr12238e-80-dbeb
 NGINX_PORT=80
 ```
 
-### 依赖关系的改动
+### Changes in dependencies
 
-即使 Kubernetes 原生 Service 模式不再需要依赖关系提供 sidecar 插件来实现组件之间的通信，但是依赖关系依然有其存在的价值。
+Dependencies still have a value even if Kubernetes original service mode no longer needs to rely on relationships to provide residecar plugins to achieve communication between components.
 
-- 依赖关系呈现的应用拓扑图非常直观好看。
+- The app topography presented by the dependency relationship is very straightforward.
 
-- 依赖关系可以用来传递通信变量，方便用户在不改动配置的情况下，可以正常的使用通信变量完成组件间的调用。
+- Dependencies can be used to pass the communication variable so that users can normally use the communication variable to complete the calls between components without changing the configuration.
 
-### 切换至 istio 治理模式
+### Switch to istio governance mode
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
