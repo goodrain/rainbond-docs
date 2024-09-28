@@ -1,100 +1,100 @@
 ---
-title: 流水线
-description: 介绍 Pipeline 应用插件的流水线
+title: Pipeline
+description: Introduction to Pipeline App Pipeline Pipeline Pipeline App Pipeline
 keywords:
-  - 介绍 Pipeline 应用插件的流水线
-  - Intro GitLab Pipeline Plugin Pipeline
+  - Introduction to Pipeline App Pipeline Pipeline Pipeline App Pipeline
+  - Intro GitLab Pipeline Plugin
 ---
 
-流水线是提供自定义流程编排的工具，通过构建，部署，测试，管控等组件化能力，把从开发到交付的各项工作串联起来，从而让企业轻松的实现持续交付 。
+Fluid is a tool to provide customized process organization that allows businesses to easily achieve ongoing delivery by linking development to delivery through constructing, deploying, testing, control and so on.
 
-## 前提
+## Prerequisite
 
-- 已经创建了应用服务。
-- 可用的 GitLab Runner。
+- Application service has been created.
+- Available GitLab Runner.
 
-## 操作步骤
+## Action step
 
-进入 Rainbond 控制台的团队内，选择左侧菜单栏的 **流水线**，进入流水线页面。
+Go to the Rainbond Console and select the **streaming route** to the left menu bar.
 
-### 创建流水线
+### Create Pipeline
 
-提供了多种语言的模板，可直接使用模板创建流水线。包含了常用的语言模板，如：Node.js、Maven单模块、Maven多模块、Java War、Gradle、Go、Python等。
+A multilingual template is provided, which can be used directly to create a plume.Contains common language templates such as：Node.js, Maven Single, Maven Module, Java War, Gradle, Go, Python, etc.
 
-语言模版默认提供了两个步骤:
+Language template by default provides two steps:
 
-1. 打包项目，产出构建物。
-2. 构建容器镜像，并推送到镜像仓库。
+1. Pack Items, Output Build.
+2. Build a container image and push it to a mirror repository.
 
-#### 全局变量
+#### Global Variables
 
-全局变量是流水线中的变量，可以在流水线中的任何步骤中使用。全局变量可以在流水线的设置中进行配置。
+The global variable is a variable in the flow line that can be used at any step in the route.Global variables can be configured in the water line settings.
 
-默认提供了以下全局变量：
+The following global variable： is provided by default
 
-- \*\*REPOSITORY_URL：\*\*镜像仓库地址
-- \*\*ORG：\*\*镜像仓库组织
-- \*\*REPOSITORY_USERNAME：\*\*镜像仓库用户名
-- \*\*REPOSITORY_PASSWORD：\*\*镜像仓库密码
+- **REPOSITORY_URL：** Image repository address
+- **ORG：** Mirror Repository Organization
+- **REPOSITORY_USERNAME：** Mirror repository username
+- **REPOOSITORY_PASSWORRD：** Mirror repository password
 
-### 流水线步骤配置
+### Waterline step configuration
 
-流水线步骤配置是流水线的核心，可以通过配置流水线步骤来实现自定义的流程编排。
+Route step configuration is the core of the line and can be achieved through the allocation of flow line steps.
 
-流水线的步骤对应了 GitLab CI，[GitLab CI/CD](https://docs.gitlab.com/ee/ci/yaml/) 文档了解更多。
+The steps of the flow line correspond to GitLab CI, [GitLab C/CD](https://docs.gitlab.com/e/ci/yaml/) documents.
 
 :::caution
-通过 UI 创建的每个选项都对应到 `gitlab-ci.yml` 文件中的一个配置项，不可自行修改 `gitlab-ci.yml` 文件，当通过 UI 修改流水线配置时，会覆盖 `gitlab-ci.yml` 文件。
+Each option created via the UI corresponds to a configuration item in the `gitlab-ci.yml` file. You cannot modify the `gitlab-ci.yml` file on your own. The `gitlab-ci.yml` file is overwritten when changing the flow line configuration via UI.
 :::
 
-#### 阶段名称
+#### Phase Name
 
-阶段名称是流水线步骤的名称，可以自定义。
+The stage name is the name of the stream step and can be customized.
 
-#### 阶段编码
+#### Stage encoding
 
-阶段编码是流水线步骤的唯一编码，对应到 `gitlab-ci.yml` 文件中的 `stage` 配置项。可参考 [GitLab CI/CD Stages](https://docs.gitlab.com/ee/ci/yaml/#stages) 文档了解更多。
+Stage encoding is the only encoding of the stream line step that corresponds to the `stage` configuration in the `gitlab-ci.yml` file.More information is available on the [GitLab CI/CD Stages](https://docs.gitlab.com/e/ci/yaml/#stages) file.
 
-#### 镜像环境
+#### Mirror Environment
 
-镜像环境是流水线步骤的运行环境，对应到 `gitlab-ci.yml` 文件中的 `image` 配置项。可参考 [GitLab CI/CD Image](https://docs.gitlab.com/ee/ci/yaml/#image) 文档了解更多。
+The mirror environment is the operating environment of the flow line step and corresponds to the `image` configuration in the `gitlab-ci.yml` file.More information is available on the [GitLab CI/CD Image](https://docs.gitlab.com/e/ci/yaml/#image).
 
-#### 脚本命令
+#### Script command
 
-脚本命令是流水线步骤的执行命令，对应到 `gitlab-ci.yml` 文件中的 `script` 配置项。可参考 [GitLab CI/CD Script](https://docs.gitlab.com/ee/ci/yaml/#script) 文档了解更多。
+The script command is the executive command of the waterline step step and corresponds to the `script` configuration in the `gitlab-ci.yml` file.More information is available on [GitLab CI/CD Script](https://docs.gitlab.com/e/ci/yaml/#script) documents.
 
 #### Runner
 
-Runner 是流水线步骤的执行环境，对应到 `gitlab-ci.yml` 文件中的 `tags` 配置项。可参考 [GitLab CI/CD Tags](https://docs.gitlab.com/ee/ci/yaml/#tags) 文档了解更多。
+Runner is the environment in which the flow line step is executed and corresponds to the `tags` configuration in the `gitlab-ci.yml` file.More information is available on the [GitLab CI/CD Tags](https://docs.gitlab.com/e/ci/yaml/#tags).
 
-#### 执行条件
+#### Execute conditions
 
-执行条件是流水线步骤的执行条件，对应到 `gitlab-ci.yml` 文件中的 `only/except` 配置项。可参考 [GitLab CI/CD Only/Except](https://docs.gitlab.com/ee/ci/yaml/#only--except) 文档了解更多。
+The execution condition is the execution condition of the Waterline step step corresponding to the `only/except` config entry in the `gitlab-ci.yml` file.More information is available on [GitLab CI/CD Only/Except](https://docs.gitlab.com/e/ci/yaml/#only--except) documents.
 
-可以仅使用 **仅当/排除** 来控制何时向管道添加作业。
+Only **only/excluded** can be used to control when to add jobs to pipes.
 
-- 仅当：用于定义作业何时运行。
-- 排除：使用except定义作业何时不运行。
+- Only when：is used to define job running.
+- Exclude：uses exception to define when the job is not running.
 
-目前可配置的执行条件有：
+Currently configured execution condition is：
 
-- **分支：** 仅当分支匹配时/排除分支，才执行该步骤。
-- **变量：** 仅当变量匹配时/排除变量，才执行该步骤。
+- **Branch：** only executes this step if branch matches the branch.
+- **Variable：** only executes this step if the variable matches/excludes variables.
 
-#### 制品产物
+#### Product products
 
-制品产物是流水线步骤的产物，对应到 `gitlab-ci.yml` 文件中的 `artifacts` 配置项。可参考 [GitLab CI/CD Artifacts](https://docs.gitlab.com/ee/ci/yaml/#artifacts) 文档了解更多。
+The product is the product of the drift of the waterline step corresponding to the `artifacts` configuration in the `gitlab-ci.yml` file.More information is available on the [GitLab CI/CD Artifacts](https://docs.gitlab.com/e/ci/yaml/#artifacts).
 
-例如：定义制品产物为 `target/*.jar`，则在该步骤执行完成后，会将 `target` 目录下的所有 `jar` 文件作为制品产物。
+For example,：defines the product as `target/*.jar`, all `jar` files from the `target` directory will be used as a product when this step is done.
 
-#### 保存时间
+#### Save time
 
-保存时间是流水线步骤的制品产物的保存时间，对应到 `gitlab-ci.yml` 文件中的 `ArtifactsExpire_in` 配置项。可参考 [GitLab CI/CD ArtifactsExpire_in](https://docs.gitlab.com/ee/ci/yaml/#artifactsexpire_in) 文档了解更多。
+The saving time is the time of the product of the drainage step and corresponds to the `ArtifactsExpire_in` configuration in the `gitlab-ci.yml` file.More information is available on the [GitLab CI/CD ArtifactsExpire_in](https://docs.gitlab.com/e/ci/yaml/#artifactsexppire_in).
 
-以秒为单位，指定制品产物的保存时间。
+In seconds, specify how long the product of the product is saved.
 
-#### 缓存
+#### Cache
 
-缓存是流水线步骤的缓存配置，对应到 `gitlab-ci.yml` 文件中的 `cache` 配置项。可参考 [GitLab CI/CD Cache](https://docs.gitlab.com/ee/ci/yaml/#cache) 文档了解更多。
+Cache is the cache configuration of the waterline step to the `cache` configuration in the `gitlab-ci.yml` file.More information is available on the [GitLab CI/CD Cache](https://docs.gitlab.com/e/ci/yaml/#cache).
 
-例如：定义缓存为 `target`，则在该步骤执行完成后，会将 `target` 目录下的所有文件作为缓存。
+For example,：defines a cache as a `target`, all files in the `target` directory will be cached when the step is completed.
