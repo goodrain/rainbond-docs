@@ -1,6 +1,6 @@
 ---
-title: 使用第三方 CI 工具部署应用
-description: 在 Rainbond 上使用第三方 CI 工具部署应用
+title: Deploy an app using a third party CI tool
+description: Use third party CI tools to deploy applications on Rainbond
 keywords:
   - Jenkins
   - GitLab CI
