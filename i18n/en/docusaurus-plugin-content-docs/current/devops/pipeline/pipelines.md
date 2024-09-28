@@ -1,17 +1,17 @@
 ---
-title: Assembly line
-description: This section describes the Pipeline pipeline of application plug-ins
+title: 流水线
+description: 介绍 Pipeline 应用插件的流水线
 keywords:
-- 介绍 Pipeline 应用插件的流水线
-- Intro GitLab Pipeline Plugin Pipeline
+  - 介绍 Pipeline 应用插件的流水线
+  - Intro GitLab Pipeline Plugin Pipeline
 ---
 
 流水线是提供自定义流程编排的工具，通过构建，部署，测试，管控等组件化能力，把从开发到交付的各项工作串联起来，从而让企业轻松的实现持续交付 。
 
 ## 前提
 
-* 已经创建了应用服务。
-* 可用的 GitLab Runner。
+- 已经创建了应用服务。
+- 可用的 GitLab Runner。
 
 ## 操作步骤
 
@@ -32,10 +32,10 @@ keywords:
 
 默认提供了以下全局变量：
 
-* **REPOSITORY_URL：**镜像仓库地址
-* **ORG：**镜像仓库组织
-* **REPOSITORY_USERNAME：**镜像仓库用户名
-* **REPOSITORY_PASSWORD：**镜像仓库密码
+- \*\*REPOSITORY_URL：\*\*镜像仓库地址
+- \*\*ORG：\*\*镜像仓库组织
+- \*\*REPOSITORY_USERNAME：\*\*镜像仓库用户名
+- \*\*REPOSITORY_PASSWORD：\*\*镜像仓库密码
 
 ### 流水线步骤配置
 
@@ -73,13 +73,13 @@ Runner 是流水线步骤的执行环境，对应到 `gitlab-ci.yml` 文件中�
 
 可以仅使用 **仅当/排除** 来控制何时向管道添加作业。
 
-* 仅当：用于定义作业何时运行。
-* 排除：使用except定义作业何时不运行。
+- 仅当：用于定义作业何时运行。
+- 排除：使用except定义作业何时不运行。
 
 目前可配置的执行条件有：
 
-* **分支：** 仅当分支匹配时/排除分支，才执行该步骤。
-* **变量：** 仅当变量匹配时/排除变量，才执行该步骤。
+- **分支：** 仅当分支匹配时/排除分支，才执行该步骤。
+- **变量：** 仅当变量匹配时/排除变量，才执行该步骤。
 
 #### 制品产物
 
