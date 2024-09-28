@@ -1,41 +1,41 @@
 ---
 title: Application service
-description: 介绍 Pipeline 应用插件的应用服务
+description: Introduction to Pipeline App Service
 keywords:
-  - 介绍 Pipeline 应用插件的应用服务
-  - Intro GitLab Pipeline Plugin Apps Service
+  - Introduction to Pipeline App Service
+  - Intro GitLab Pipeline Plugins in Apps Service
 ---
 
-应用服务是满足用户某些需求的程序代码的集合，可以是某个解耦的微服务或是某个单体应用，所有功能都会围绕应用服务进行。
+Application services are a collection of code that meets some user's needs. They can be a coupling microservice or a single app. All features are built around the application service.
 
-## 前提
+## Prerequisite
 
-- 安装 Pipeline 应用插件
-- 可用的 GitLab 仓库
-- 可用的流水线
+- Install Pipeline App Plugin
+- Available GitLab repository
+- Available Pipeline
 
-## 操作步骤
+## Action step
 
-### 创建应用服务
+### Create App Service
 
-进入 Rainbond 控制台的团队内，选择左侧菜单栏的 **应用服务**，点击 **创建应用服务**。
+Go to the Rainbond console and select **Application Services** in the left menu bar. Click **Create App Service**.
 
-- **服务编码:** 服务的唯一编码，用于 Rainbond 组件的英文名称。
-- **服务名称:** 服务的名称
-- **多模版:** 用于定义 Maven 多模块构建
-  - **子服务编码:** 子服务的唯一编码，用于 Rainbond 组件的英文名称。
-- **流水线:** 选择该应用服务关联的流水线。
-- **仓库配置:** 填写代码仓库地址，仅支持 GitLab 仓库。如：`https://gitlab.rainbond.com/rainbond/rainbond.git`
-- **认证配置:** 选择 GitLab 仓库的认证配置。可选: 用户密码认证、SSH 密钥认证。
+- **Service code:** Unique code for the service for the English name of the component of Rainbond
+- **Service Name:** Service name
+- **Multi-Template:** Used to define Maven Multimodule Builds
+  - **Subservice Encoding:** The unique code for the sub service is used for the English name of the Rainbond component.
+- **Fluid routes:** Select the pipeline associated with the application service.
+- **Repository configuration:** Fill in code repository address and only supports GitLab repository.e.g.：`https://gitlab.rainbond.com/rainbond/rainbond.git`
+- **Authentication Configuration:** Select the authentication configuration for the GitLab repository.Optional: User password authentication, SSH key authentication.
 
-### 自动构建与自动部署
+### Auto build and deploy
 
-编辑应用服务，点击开启 **自动构建与自动部署**。
+Edit the app service. Click on **Auto-build and AutoDeployment**.
 
-#### 自动构建
+#### Auto-build
 
-开启时，表示每次提交代码时，会触发自动触发CI
+Turn on if you want to automatically trigger CI every time you submit the code
 
-#### 自动部署
+#### Auto Deploy
 
-开启时，表示每次生成镜像时，会触发自动触发CD。第一次须进行手动部署方可开启自动部署。
+When enabled, mean that each time a mirror is generated, automatically triggers a CD.For the first time, a manual deployment is required to enable automatic deployment.
