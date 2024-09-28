@@ -2,27 +2,27 @@
 title: Chart installation options
 description: How to set values during helm installation and how to change the installed cluster configuration
 keywords:
-  - rainbond helm values 配置 安装 集群
-  - rainbond helm values config install cluster
+  - rainbond help values configuration installation cluster
+  - rainbond help values config install cluster
 ---
 
-本文档描述 Rainbond Helm Chart 的安装配置选项
+This document describes the installation configuration options for Rainbond Helm Chart
 
-## 安装Rainbond
+## Install Rainbond
 
-您可以配置values.yaml文件来个性化安装Rainbond
+You can configure values.yaml files to personalize installation of Rainbond
 
-### 1: 首先您要添加和更新仓库
+### 1: First you want to add and update repository
 
 ```bash
-helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
-helm repo update
-kubectl create namespace rbd-system
+help repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
+help repo update
+kubectl create name rbd-system
 ```
 
-### 2: 编辑配置文件
+### 2: Edit Profile
 
-编写下方`values.yaml`文件
+Write `values.yaml` below
 
 <details>
   <summary>Helm Chart value.yaml 完整示例</summary>
@@ -252,32 +252,32 @@ nfs-client-provisioner:
 </div>
 </details>
 
-### 3: 执行命令安装
+### 3: Execute Command Installation
 
 ```bash
-helm install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
+help install rainbond rainbond/rainbond-cluster -f values.yaml -n rbd-system
 ```
 
-## Operator 配置
+## Operator Configuration
 
-| 配置项                                                                                                       | 默认值                                                                                                          | 说明                         |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------- |
-| operator.name                                                                             | rainbond-operator                                                                                            | operator 的 deployment 资源名称 |
-| operator.image.name                                                       | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond-operator | operator 镜像名称              |
-| operator.image.tag                                                        | v5.17.3-release                                                              | operator 镜像tag             |
-| operator.image.pullPolicy                                                 | IfNotPresent                                                                                                 | operator 镜像拉取策略            |
-| operator.logLevel                                                                         | 4                                                                                                            | operator 的日志输出级别           |
-| operator.env[0].name  | CONTAINER_RUNTIME                                                                       | 选择集群容器运行时                  |
-| operator.env[0].value | 自动选择 docker / containerd                                                                                     | docker / containerd        |
+| Configuration Item                                                                                        | Default value                                                                                                | Note                                    |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | --------------------------------------- |
+| operator.name                                                                             | rainbod-operator                                                                                             | Operator's employment resource name     |
+| operator.image.name                                                       | registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond-operator | Operator Mirror Name                    |
+| operator.image.tag                                                        | v5.17.3-release                                                              | operator mirror tag                     |
+| operator.image.pullPolicy                                                 | IfNotPresent                                                                                                 | Operator Mirror Pull Policy             |
+| operator.logLevel                                                                         | 4                                                                                                            | Log output level for operator           |
+| operator.env[0].name  | CONTAINER_RONGE_TIME                                               | When selecting cluster container to run |
+| operator.env[0].value | Auto-select docker / containerd                                                                              | docker / containerd                     |
 
-### Values.yaml 示例配置
+### Values.yaml sample configuration
 
 ```yaml
-operator:
+Operator:
   name: rainbond-operator
   image:
     name: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond-operator
-    tag: v5.17.3-release
+    tag: v5. 7.3-release
     pullPolicy: IfNotPresent
   logLevel: 4
   env:
@@ -285,135 +285,135 @@ operator:
     value: docker
 ```
 
-## Cluster 配置
+## Cluster configuration
 
-### 高可用安装
+### High Installation
 
-高可用模式下必须提供外部数据库、外部 Etcd 、外部共享存储(RWX)
+External database, external Etcd, external shared storage (RWX) must be provided in high available mode
 
-| 配置项                              | 默认值   | 说明      |
-| -------------------------------- | ----- | ------- |
-| Cluster.enableHA | false | 启用高可用模式 |
+| Configuration Item               | Default value | Note                       |
+| -------------------------------- | ------------- | -------------------------- |
+| Cluster.enableHA | false         | Enable High Available Mode |
 
-### 配置外部镜像仓库
+### Configure external mirror repository
 
-| 配置项                                                        | 默认值   | 类型     | 说明       |
-| ---------------------------------------------------------- | ----- | ------ | -------- |
-| Cluster.imageHub.enable    | false | Bool   | 启用外部镜像仓库 |
-| Cluster.imageHub.domain    | ""    | String | 镜像仓库地址   |
-| Cluster.imageHub.namespace | ""    | String | 镜像仓库命名空间 |
-| Cluster.imageHub.password  | ""    | String | 镜像仓库密码   |
-| Cluster.imageHub.username  | ""    | String | 镜像仓库用户名  |
+| Configuration Item                                         | Default value | Type   | Note                              |
+| ---------------------------------------------------------- | ------------- | ------ | --------------------------------- |
+| Cluster.imageHub.enable    | false         | Bool   | Enable external mirror repository |
+| Cluster.imageHub.domain    | ""            | String | Image repository address          |
+| Cluster.imageHub.namespace | ""            | String | Mirror repository namespace       |
+| Cluster.imageHub.password  | ""            | String | Image repository password         |
+| Cluster.imageHub.username  | ""            | String | Mirror repository username        |
 
-### 配置外部ETCD
+### Configure External ETCD
 
-| 配置项                                                     | 默认值   | 类型     | 说明                                         |
-| ------------------------------------------------------- | ----- | ------ | ------------------------------------------ |
-| Cluster.etcd.enable     | false | Bool   | 启用外部ETCD                                   |
-| Cluster.etcd.endpoints  | ""    | Array  | ETCD 集群列表                                  |
-| Cluster.etcd.secretName | ""    | String | ETCD 集群的证书 secret 文件，需在 rbd-system 命名空间下创建 |
+| Configuration Item                                           | Default value | Type   | Note                                                                             |
+| ------------------------------------------------------------ | ------------- | ------ | -------------------------------------------------------------------------------- |
+| Cluster.etcd.enabled         | false         | Bool   | Enable External ETCD                                                             |
+| Cluster.etcd.endpoints       | ""            | Array  | ETCD Cluster List                                                                |
+| Cluster.etcd.secretariatName | ""            | String | ETCD cluster certificate secret file needs to be created in rbd-system namespace |
 
-### 配置外部存储
+### Configure external storage
 
-如果使用阿里云 NAS 存储，需要配置 `Cluster.RWX.type=aliyun` `Cluster.RWX.config.server=<SERVER>:/`，Rainbond 会自动安装阿里云 NAS CSI 并对接使用。
+If you use Ali-cloud NAS storage, you need to configure `Cluster.RWX.type=aliyun` `Cluster.RWX.config.server=<SERVER>:/`, Rainbond will automatically install the Alias NAS CSI and use it back-to-back.
 
-| 配置项                                                                                 | 默认值   | 类型     | 说明                 |
-| ----------------------------------------------------------------------------------- | ----- | ------ | ------------------ |
-| Cluster.RWX.enable                                  | false | Bool   | 开启外部共享存储RWX        |
-| Cluster.RWX.type                                    | none  | String | 公有云存储类型，目前支持aliyun |
-| Cluster.RWX.config.storageClassName | ""    | String | StorageClass 名称    |
-| Cluster.RWX.config.server           | ""    | String | 阿里云NAS存储地址         |
-| Cluster.RWO.enable                                  | false | Bool   | 开启外部共享存储RWO        |
-| Cluster.RWO.storageClassName                        | ""    | String | StorageClass 名称    |
+| Configuration Item                                                                  | Default value | Type   | Note                                                                 |
+| ----------------------------------------------------------------------------------- | ------------- | ------ | -------------------------------------------------------------------- |
+| Cluster.RWX.enabled                                 | false         | Bool   | Enable external shared storage RWX                                   |
+| Cluster.RWX.type                                    | none          | String | Publicly available cloud storage type, aliyun is currently supported |
+| Cluster.RWX.config.storageClassName | ""            | String | StorageClass Name                                                    |
+| Cluster.RWX.config.server           | ""            | String | Aliyun NASS Store Address                                            |
+| Cluster.RWO.enabled                                 | false         | Bool   | Enable external shared RWO storage                                   |
+| Cluster.RWO.storageClassName                        | ""            | String | StorageClass Name                                                    |
 
-### 配置 Rainbond 集群端数据库
+### Configure Rainbond cluster database
 
-| 配置项                                                             | 默认值   | 类型     | 说明         |
-| --------------------------------------------------------------- | ----- | ------ | ---------- |
-| Cluster.regionDatabase.enable   | false | Bool   | 启用外部集群端数据库 |
-| Cluster.regionDatabase.host     | ""    | String | 数据库地址      |
-| Cluster.regionDatabase.name     | ""    | String | 数据库名称      |
-| Cluster.regionDatabase.password | ""    | String | 数据库密码      |
-| Cluster.regionDatabase.port     | ""    | String | 数据库端口      |
-| Cluster.regionDatabase.username | ""    | String | 数据库用户      |
+| Configuration Item                                              | Default value | Type   | Note                             |
+| --------------------------------------------------------------- | ------------- | ------ | -------------------------------- |
+| Cluster.regionDatabase.enabling | false         | Bool   | Enable external cluster database |
+| Cluster.regionDatabase.host     | ""            | String | Database address                 |
+| Cluster.regionDatabase.name     | ""            | String | Database name                    |
+| Cluster.regionDatabase.password | ""            | String | Database password                |
+| Cluster.regionDatabase.port     | ""            | String | Database Port                    |
+| Cluster.regionDatabase.username | ""            | String | Database User                    |
 
-### 配置 Rainbond 控制台数据库
+### Configure Rainbond Console Database
 
-| 配置项                                                         | 默认值   | 类型     | 说明         |
-| ----------------------------------------------------------- | ----- | ------ | ---------- |
-| Cluster.uiDatabase.enable   | false | Bool   | 启用外部控制台数据库 |
-| Cluster.uiDatabase.host     | ""    | String | 数据库地址      |
-| Cluster.uiDatabase.name     | ""    | String | 数据库名称      |
-| Cluster.uiDatabase.password | ""    | String | 数据库密码      |
-| Cluster.uiDatabase.port     | ""    | String | 数据库端口      |
-| Cluster.uiDatabase.username | ""    | String | 数据库用户      |
+| Configuration Item                                          | Default value | Type   | Note                             |
+| ----------------------------------------------------------- | ------------- | ------ | -------------------------------- |
+| Cluster.uiDatabase.enabling | false         | Bool   | Enable external console database |
+| Cluster.uiDatabase.host     | ""            | String | Database address                 |
+| Cluster.uiDatabase.name     | ""            | String | Database name                    |
+| Cluster.uiDatabase.password | ""            | String | Database password                |
+| Cluster.uiDatabase.port     | ""            | String | Database Port                    |
+| Cluster.uiDatabase.username | ""            | String | Database User                    |
 
-### 配置集群对外 IP
+### Configure clusters out of IP
 
-设置 SLB 或 VIP 来保障 Rainbond 网关的高可用
+Set SLB or VIP to ensure high availability of Rainbond gateways
 
-| 配置项                                       | 默认值 | 类型    | 说明         |
-| ----------------------------------------- | --- | ----- | ---------- |
-| Cluster.gatewayIngressIPs | ""  | Array | 配置网关负责均衡IP |
+| Configuration Item                        | Default value | Type  | Note                              |
+| ----------------------------------------- | ------------- | ----- | --------------------------------- |
+| Cluster.gatewayIngressIPs | ""            | Array | Configure Gateway for balanced IP |
 
-### 配置网关节点
+### Configure Gateway Node
 
-| 配置项                                                                | 默认值 | 类型    | 说明                         |
-| ------------------------------------------------------------------ | --- | ----- | -------------------------- |
-| Cluster.nodesForGateway.externalIP | ""  | Array | 运行网关服务的 Kubernetes 节点外部 IP |
-| Cluster.nodesForGateway.internalIP | ""  | Array | 运行网关服务的 Kubernetes 节点内部 IP |
-| Cluster.nodesForGateway.name       | ""  | Array | 运行网关服务的 Kubernetes 节点名称    |
+| Configuration Item                                                 | Default value | Type  | Note                                                   |
+| ------------------------------------------------------------------ | ------------- | ----- | ------------------------------------------------------ |
+| Cluster.nodesForGateway.externalIP | ""            | Array | External IP of Kubernetes node running gateway service |
+| Cluster.nodesForGateway.internalIP | ""            | Array | IP within Kubernetes node running gateway service      |
+| Cluster.nodesForGateway.name       | ""            | Array | Name of Kubernetes node running gateway service        |
 
-### 配置构建节点
+### Configure Building Nodes
 
-| 配置项                                                        | 默认值 | 类型    | 说明                        |
-| ---------------------------------------------------------- | --- | ----- | ------------------------- |
-| Cluster.nodesForChaos.name | ""  | Array | 运行集群构建服务的 Kubernetes 节点名称 |
+| Configuration Item                                         | Default value | Type  | Note                                                  |
+| ---------------------------------------------------------- | ------------- | ----- | ----------------------------------------------------- |
+| Cluster.nodesForChaos.name | ""            | Array | Name of Kubernetes node running cluster build service |
 
-### 配置集群端镜像获取地址
+### Configure cluster mirrors to get addresses
 
-| 配置项                                             | 默认值                                                                                        | 类型     | 说明           |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------ | ------ | ------------ |
-| Cluster.rainbondImageRepository | registry.cn-hangzhou.aliyuncs.com/goodrain | String | 集群端安装拉取的镜像地址 |
+| Configuration Item                              | Default value                                                                              | Type   | Note                                                             |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------ | ------ | ---------------------------------------------------------------- |
+| Cluster.rainbondImageRepository | registry.cn-hangzhou.aliyuncs.com/goodrain | String | ClusterIntegration\|Cluster installation pulled mirror addresses |
 
-### 配置安装版本
+### Configure Installation Version
 
-| 配置项                                    | 默认值    | 类型     | 说明           |
-| -------------------------------------- | ------ | ------ | ------------ |
-| Cluster.installVersion | latest | String | 集群安装拉取镜像 tag |
+| Configuration Item                     | Default value | Type   | Note                            |
+| -------------------------------------- | ------------- | ------ | ------------------------------- |
+| Cluster.installVersion | Late          | String | Cluster install pulse image tag |
 
-### 配置集群端镜像拉取策略
+### Configure cluster mirror pull policy
 
-| 配置项                                     | 默认值          | 类型     | 说明       |
-| --------------------------------------- | ------------ | ------ | -------- |
-| Cluster.imagePullPolicy | IfNotPresent | String | 集群镜像拉取策略 |
+| Configuration Item                      | Default value | Type   | Note                       |
+| --------------------------------------- | ------------- | ------ | -------------------------- |
+| Cluster.imageFullPolicy | IfNotPresent  | String | Cluster mirror pull policy |
 
-### 配置集群副本
+### Configure Group Copy
 
-| 配置项                              | 默认值 | 类型  | 说明       |
-| -------------------------------- | --- | --- | -------- |
-| Cluster.replicas | 2   | int | 集群POD副本数 |
+| Configuration Item               | Default value | Type     | Note                            |
+| -------------------------------- | ------------- | -------- | ------------------------------- |
+| Cluster.replicas | 2             | Annex II | Number of copies of cluster POD |
 
-### 配置集群环境检测
+### Configure cluster environment detection
 
-| 配置项                                    | 默认值  | 类型   | 说明       |
-| -------------------------------------- | ---- | ---- | -------- |
-| Cluster.enableEnvCheck | true | Bool | 是否开启环境检测 |
+| Configuration Item                     | Default value | Type | Note                         |
+| -------------------------------------- | ------------- | ---- | ---------------------------- |
+| Cluster.enableEnvCheck | true          | Bool | Enable Environment Detection |
 
-### 配置 rbd-api 参数
+### Configure rbd-api parameters
 
-| 配置项                                                                         | 默认值 | 类型   | 说明                      |
-| --------------------------------------------------------------------------- | --- | ---- | ----------------------- |
-| Component.rbd_api.args |     | list | `rbd-api`  Component 参数 |
+| Configuration Item                                                          | Default value | Type | Note                          |
+| --------------------------------------------------------------------------- | ------------- | ---- | ----------------------------- |
+| Component.rbd_api.args |               | list | `rbd-api` Component parameter |
 
-### 配置 rbd-gateway 参数
+### Configure rbd-gateway parameters
 
-| 配置项                                                                             | 默认值 | 类型   | 说明                     |
-| ------------------------------------------------------------------------------- | --- | ---- | ---------------------- |
-| Component.rbd_gateway.args |     | list | `rbd-api` Component 参数 |
+| Configuration Item                                                              | Default value | Type | Note                          |
+| ------------------------------------------------------------------------------- | ------------- | ---- | ----------------------------- |
+| Component.rbd_gateway.args |               | list | `rbd-api` Component parameter |
 
-## 使用 K3s Containerd
+## Use K3s Containerd
 
-| 配置项              | 默认值   | 类型   | 说明                |
-| ---------------- | ----- | ---- | ----------------- |
-| useK3sContainerd | false | bool | 使用 K3s Containerd |
+| Configuration Item | Default value | Type | Note               |
+| ------------------ | ------------- | ---- | ------------------ |
+| useK3sContainerd   | false         | Bool | Use K3s Containerd |
