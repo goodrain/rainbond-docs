@@ -2,8 +2,7 @@
 title: Add enterprise user
 ---
 
-
-## Basic Information
+## 基本信息
 
 Add enterprise user
 
@@ -23,7 +22,6 @@ POST /openapi/v1/administrators
 | name | Location | type                                      | required | illustrate |
 | ---- | -------- | ----------------------------------------- | -------- | ---------- |
 | body | body     | [CreateAdminUserReq](#createadminuserreq) | no       | none       |
-
 
 ## return result
 
@@ -45,7 +43,7 @@ POST /openapi/v1/administrators
 
 ### Attributes
 
-| name    | type   | required | constraint | Chinese name | illustrate    |
-| ------- | ------ | -------- | ---------- | ------------ | ------------- |
+| name                         | type   | required | constraint | Chinese name | illustrate    |
+| ---------------------------- | ------ | -------- | ---------- | ------------ | ------------- |
 | user_id | string | true     | none       | User id      | User ID       |
-| eid     | string | true     | none       | Eid          | Enterprise ID |
+| eid                          | string | true     | none       | Eid          | Enterprise ID |
