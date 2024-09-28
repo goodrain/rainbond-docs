@@ -2,7 +2,7 @@
 title: Modify personal account password
 ---
 
-## Basic Information
+## 基本信息
 
 Modify personal account password
 
