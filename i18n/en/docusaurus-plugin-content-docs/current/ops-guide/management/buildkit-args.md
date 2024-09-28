@@ -1,40 +1,40 @@
 ---
-title: 调整 BuildKit 构建参数
-descrition: 该章节文档适用于运维人员了解如何指定集群构建
+title: Adjust BuildKit build parameters
+descrition: This section document is applicable to the carrier to know how to specify the cluster build
 keywords:
-  - Rainbond 集群构建参数
-  - 调整 BuildKit 构建参数
+  - Rainbond cluster build parameters
+  - Adjust BuildKit build parameters
 ---
 
 :::info
-v5.12.2 版本后，Rainbond 默认使用 BuildKit 进行构建，如果是该版本之前的版本，请参考 [调整 Kaniko 构建参数](https://v5.14-docs.rainbond.com/docs/ops-guide/management/kaniko-args)。
+v5.12.2 After the version, Rainbond, by default, builds using BuildKit and if it is a previous version, refer to [adjust Kaniko build parameters](https://v5.14-docs.rainbond.com/docs/ops-guide/management/kaniko-args).
 :::
 
-## 使用自定义私有镜像仓库
+## Use custom private mirror repository
 
-默认情况下无需调整 BuildKit 构建参数，如使用了 http 私有镜像仓库，需要调整 Kaniko 构建参数。
+There is no need to adjust BuildKit build parameters by default. You need to adjust the Kaniko build parameter if using a private image repository with an application from a private image.
 
-### 修改容器配置
+### Modify Container Configuration
 
-Docker 配置 `/etc/docker/daemon.json`，添加私有镜像仓库地址：
+Docker configuration `/etc/docker/daemon.json`, add private mirror repository address：
 
 ```json
-{
+LO
   "insecure-registries": ["http://xxx.xxx.xxx.xxx:5000"]
 }
 ```
 
-Containerd 配置 `/etc/containerd/config.toml`，添加私有镜像仓库地址：
+Containerd configuration `/etc/containerd/config.toml`, add private mirror repository address：
 
 ```toml
-[plugins."io.containerd.grpc.v1.cri".registry.mirrors]
-  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."http://xxx.xxx.xxx.xxx:5000"]
-    endpoint = ["http://xxx.xxx.xxx.xxx:5000"]
+[plugins."io.containerd.grpc.v1.cr" .registry.mirrors]
+  [plugins."io.containerd.grpc.v1.cr".registry.mirrors."http://xxx.xxx.xxx:5000"]
+    endpoint = ["http://xx.xxx.xxx.xxxx:5000"]
 ```
 
-### 修改 BuildKit 构建参数
+### Edit BuildKit Build Parameters
 
-修改 BuildKit 构建参数，添加私有镜像仓库地址：
+Edit BuildKit build parameter to add private image repository address：
 
 ```diff title="kubectl edit cm goodrain.me -n rbd-system"
 apiVersion: v1
@@ -51,9 +51,9 @@ metadata:
   namespace: rbd-system
 ```
 
-## 镜像加速
+## Mirror Acceleration
 
-通过 Dockerfile 构建时，遇到基础镜像无法拉取的问题时，可以通过配置镜像加速服务解决。示例如下：
+Speed up service by configuring mirrors when building via Dockerfile encounters problems that cannot be pulled the base image.Example：
 
 ```diff title="kubectl edit cm goodrain-me -n rbd-system"
 apiVersion: v1
@@ -69,6 +69,6 @@ metadata:
   namespace: rbd-system
 ```
 
-## 更多参数
+## More Parameters
 
-更多参数参考 [BuildKit 官方文档](https://github.com/moby/buildkit)
+More parameters refer to [BuildKit Official Document](https://github.com/mobily/buildkit)
