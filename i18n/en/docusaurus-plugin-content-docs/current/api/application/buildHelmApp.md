@@ -1,101 +1,101 @@
 ---
-title: 创建 Helm 应用
+title: Create Helm App
 ---
 
-## 基本信息
+## Basic Information
 
-该接口主要用于检查并安装 Helm chart包应用
+This interface is primarily used to check and install Helm Chart Packages app
 
-### Get请求
+### Get Request
 
 ```shell title="请求路径"
 Get /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/helm_chart
 ```
 
 ```json title="Body 请求体示例"
-{
+LO
   "repo_name": "string",
   "chart_name": "string",
   "version": "string",
 }
 ```
 
-#### 请求参数
+#### Request Parameters
 
-| 名称                               | 位置   | 类型                   | 必选 | 中文名 | 说明      |
-| -------------------------------- | ---- | -------------------- | -- | --- | ------- |
-| team_id     | path | string               | 是  |     | 团队ID、名称 |
-| region_name | path | string               | 是  |     | 数据中心名称  |
-| app_id      | path | integer              | 是  |     | 应用组id   |
-| body                             | body | [请求模型](#RequestBody) | 否  |     | none    |
+| Name                             | Locations | Type                 | Required | Chinese name | Note             |
+| -------------------------------- | --------- | -------------------- | -------- | ------------ | ---------------- |
+| team_id     | Path      | String               | Yes      |              | Team ID, name    |
+| region_name | Path      | String               | Yes      |              | Data Center Name |
+| app_id      | Path      | integer              | Yes      |              | App group id     |
+| body                             | body      | [请求模型](#RequestBody) | No       |              | none             |
 
-#### 返回结果
+#### Back to results
 
-| 状态码 | 状态码含义 | 说明 | 数据模型                     |
-| --- | ----- | -- | ------------------------ |
-| 200 | OK    | 成功 | [响应模型](#getResponseBody) |
+| Status Code | Status code meanings | Note    | Data Model               |
+| ----------- | -------------------- | ------- | ------------------------ |
+| 200         | OK                   | Success | [响应模型](#getResponseBody) |
 
-### Post请求
+### Postrequest
 
 ```shell title="请求路径"
 Post /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/helm_chart
 ```
 
 ```json title="Body 请求体示例"
-{
+LO
   "repo_name": "string",
   "chart_name": "string",
   "version": "string",
 }
 ```
 
-#### 请求参数
+#### Request Parameters
 
-| 名称                               | 位置   | 类型                   | 必选 | 中文名 | 说明      |
-| -------------------------------- | ---- | -------------------- | -- | --- | ------- |
-| team_id     | path | string               | 是  |     | 团队ID、名称 |
-| region_name | path | string               | 是  |     | 数据中心名称  |
-| app_id      | path | integer              | 是  |     | 应用组id   |
-| body                             | body | [请求模型](#RequestBody) | 否  |     | none    |
+| Name                             | Locations | Type                 | Required | Chinese name | Note             |
+| -------------------------------- | --------- | -------------------- | -------- | ------------ | ---------------- |
+| team_id     | Path      | String               | Yes      |              | Team ID, name    |
+| region_name | Path      | String               | Yes      |              | Data Center Name |
+| app_id      | Path      | integer              | Yes      |              | App group id     |
+| body                             | body      | [请求模型](#RequestBody) | No       |              | none             |
 
-#### 返回结果
+#### Back to results
 
-| 状态码 | 状态码含义 | 说明 | 数据模型 |
-| --- | ----- | -- | ---- |
-| 200 | OK    | 成功 |      |
+| Status Code | Status code meanings | Note    | Data Model |
+| ----------- | -------------------- | ------- | ---------- |
+| 200         | OK                   | Success |            |
 
-## 模型
+## Model
 
-### 请求模型<a id="RequestBody"></a>
+### Request Model<a id="RequestBody"></a>
 
 ```json
-{
+LO
   "repo_name": "string",
   "chart_name": "string",
   "version": "string",
 }
 ```
 
-### 属性
+### Properties
 
-| 名称                              | 类型     | 必选    | 约束   | 中文名        | 说明              |
-| ------------------------------- | ------ | ----- | ---- | ---------- | --------------- |
-| repo_name  | string | false | none | repo name  | helm 仓库名称       |
-| chart_name | string | false | none | chart name | helm chart 应用名称 |
-| version                         | string | false | none | version    | 应用版本            |
+| Name                            | Type   | Required | Constraints | Chinese name | Note                 |
+| ------------------------------- | ------ | -------- | ----------- | ------------ | -------------------- |
+| repo_name  | String | false    | none        | repo name    | helm repository name |
+| Chart_name | String | false    | none        | chart name   | helm chart app name  |
+| version                         | String | false    | none        | version      | App Version          |
 
-### 响应模型<a id="getResponseBody"></a>
+### Response Model<a id="getResponseBody"></a>
 
 ```json
-{
+LO
   "checkAdopt": "bool",
   "yaml": "string",
 }
 ```
 
-### 属性
+### Properties
 
-| 名称         | 类型     | 必选   | 约束   | 中文名         | 说明     |
-| ---------- | ------ | ---- | ---- | ----------- | ------ |
-| checkAdopt | string | true | none | check adopt | 检查通过状态 |
-| yaml       | string | true | none | yaml        | 失败原因   |
+| Name          | Type   | Required | Constraints | Chinese name   | Note              |
+| ------------- | ------ | -------- | ----------- | -------------- | ----------------- |
+| CheckAdoption | String | true     | none        | Check adoption | Check pass status |
+| yaml          | String | true     | none        | yaml           | Failed Reason     |
