@@ -1,17 +1,17 @@
 ---
-title: 挂载组件储存
+title: Mount Component Storage
 ---
 
-## 基本信息
+## Basic Information
 
-该接口主要用于挂载组件储存
+This interface is primarily used to mount component storage.
 
 ```shell title="请求路径"
 POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{service_id}/volumes
 ```
 
 ```json title="Body 请求体示例"
-{
+LO
   "volume_name": "name",
   "volume_type": "share-file",
   "volume_path": "/data4",
@@ -19,28 +19,28 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{s
 }
 ```
 
-## 请求参数
+## Request Parameters
 
-| 名称                               | 位置   | 类型                    | 必选 | 中文名 | 说明    |
-| -------------------------------- | ---- | --------------------- | -- | --- | ----- |
-| app_id      | path | integer               | 是  |     | 应用组id |
-| team_id     | path | string                | 是  |     | none  |
-| region_name | path | string                | 是  |     | none  |
-| service_id  | path | string                | 是  |     | 组件id  |
-| body                             | body | [VolumeBody](#volume) | 否  |     | none  |
+| Name                             | Locations | Type                  | Required | Chinese name | Note         |
+| -------------------------------- | --------- | --------------------- | -------- | ------------ | ------------ |
+| app_id      | Path      | integer               | Yes      |              | App group id |
+| team_id     | Path      | String                | Yes      |              | none         |
+| region_name | Path      | String                | Yes      |              | none         |
+| service_id  | Path      | String                | Yes      |              | Component id |
+| body                             | body      | [VolumeBody](#volume) | No       |              | none         |
 
-## 返回结果
+## Back to results
 
-| 状态码 | 状态码含义 | 说明 | 数据模型   |
-| --- | ----- | -- | ------ |
-| 200 | OK    | 成功 | Inline |
+| Status Code | Status code meanings | Note    | Data Model |
+| ----------- | -------------------- | ------- | ---------- |
+| 200         | OK                   | Success | Inline     |
 
-## 模型
+## Model
 
 ### VolumeBody<a id="volume"></a>
 
 ```json
-{
+LO
   "volume_name": "name",
   "volume_type": "share-file",
   "volume_path": "/data4",
@@ -48,11 +48,11 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{s
 }
 ```
 
-### 属性
+### Properties
 
-| 名称                                   | 类型     | 必选   | 约束   | 中文名 | 说明                          |
-| ------------------------------------ | ------ | ---- | ---- | --- | --------------------------- |
-| volume_name     | string | true | none |     | 名称                          |
-| volume_type     | string | true | none |     | 挂载类型                        |
-| volume_path     | string | true | none |     | 挂载路径                        |
-| volume_capacity | string | true | none |     | 储存大小(GB) |
+| Name                                 | Type   | Required | Constraints | Chinese name | Note                                 |
+| ------------------------------------ | ------ | -------- | ----------- | ------------ | ------------------------------------ |
+| volume_name     | String | true     | none        |              | Name                                 |
+| volume_type     | String | true     | none        |              | Mount type                           |
+| volume_path     | String | true     | none        |              | Mount Path                           |
+| volume_capacity | String | true     | none        |              | Storage size (GB) |
