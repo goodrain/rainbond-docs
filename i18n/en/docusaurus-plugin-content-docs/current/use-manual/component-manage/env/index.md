@@ -102,9 +102,9 @@ The above operations of sharing configuration files need to be updated/restarted
 
 :::
 
-### 搜索配置文件
+### Search profiles
 
-用户可以根据应用、组件以及配置文件名称等多种维度进行分组，轻松地过滤和查找目标配置文件，实现了更加细粒度的管理。无论是按照应用整体进行配置管理，还是精准到单个组件的配置文件操作，都变得更加直观和便捷。这项升级改进了配置文件的维护流程，为用户提供了更高效的配置管理体验
+Users can easily filter and find target profiles based on multiple dimensions such as apps, components, and config file names, and manage more fine particles.Both configuration management according to the application as a whole and condensed to individual components configuration file operations have become more straightforward and easier.This upgrade improves the maintenance process of the configuration file and provides the user with a more efficient configuration management experience
 
 ### Component advanced environment variable configuration
 
