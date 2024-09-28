@@ -2,11 +2,12 @@
 title: Update user information
 ---
 
-## Basic Information
+## 基本信息
 
 ```json title="请求路径"
 PUT /openapi/v1/users/{user_id}
 ```
+
 >
 
 ```json title="Body请求参数"
@@ -21,11 +22,10 @@ PUT /openapi/v1/users/{user_id}
 
 ## request parameters
 
-| name    | Location | type                      | required | illustrate |
-| ------- | -------- | ------------------------- | -------- | ---------- |
+| name                         | Location | type                      | required | illustrate |
+| ---------------------------- | -------- | ------------------------- | -------- | ---------- |
 | user_id | path     | string                    | Yes      | none       |
-| body    | body     | [UpdateUser](#UpdateUser) | no       | none       |
-
+| body                         | body     | [UpdateUser](#UpdateUser) | no       | none       |
 
 ## return result
 
@@ -37,13 +37,13 @@ PUT /openapi/v1/users/{user_id}
 
 ### UpdateUser
 
-| name          | type          | required | constraint | Chinese name  | illustrate       |
-| ------------- | ------------- | -------- | ---------- | ------------- | ---------------- |
-| password      | string        | false    | none       | Password      | password         |
-| enterprise_id | string        | false    | none       | Enterprise id | enterprise_id    |
-| email         | string(email) | false    | none       | Email         | email address    |
-| phone         | string        | false    | none       | Phone         | cellphone number |
-| is_active     | boolean¦null  | false    | none       | Is active     | active state     |
+| name                               | type                             | required | constraint | Chinese name  | illustrate                         |
+| ---------------------------------- | -------------------------------- | -------- | ---------- | ------------- | ---------------------------------- |
+| password                           | string                           | false    | none       | Password      | 密码                                 |
+| enterprise_id | string                           | false    | none       | Enterprise id | enterprise_id |
+| email                              | string(email) | false    | none       | Email         | email address                      |
+| phone                              | string                           | false    | none       | Phone         | cellphone number                   |
+| is_active     | boolean¦null                     | false    | none       | Is active     | active state                       |
 
 ### Attributes
 
@@ -57,4 +57,3 @@ PUT /openapi/v1/users/{user_id}
 }
 
 ```
-
