@@ -1,44 +1,44 @@
 ---
-title: 企业版使用手册
+title: Enterprise version usage manual
 description: Enterprise version usage
 keywords:
-  - 企业版使用
+  - Enterprise Version Use
   - Enterprise version usage
 ---
 
-本章节主要介绍 Rainbond 企业版的功能和使用指南，该文档涵盖了 Rainbond 企业版的各个方面，包括但不限于以下内容：
+This section focuses on the functionality and use guide for Rainbond enterprise edition, which covers various aspects of Rainbond enterprise versions, including, but not limited to, the following：
 
 ### [可观测性中心](/docs/enterprise/observability/)
 
-可观测性中心提供了全面的监控和可视化工具，帮助用户实时了解系统的状态、性能和健康状况。使得运维人员和开发人员可以更加有效地管理和优化部署在集群中的应用程序。它主要包含以下功能，例如：观测中心面板、监控大屏、全局日志、报警等功能。
+Observability centres provide comprehensive monitoring and visualization tools to help users understand the status, performance and health of the system in real time.This allows for more effective management and optimization of applications deployed in clusters.It primarily contains the following features: e.g.：observational centre panel, monitor large screen, global log, alarm etc.
 
-### [国产化信创](/docs/enterprise/xinchuang)
+### [国产化信创](/docs/enterprise/xinchang)
 
-IT业务系统向国产化信创环境中迁移涉及到跨CPU架构和跨操作系统的迁移，Rainbond 能够架设在国产化的硬件与操作系统基础之上。作为中间层，为上层业务系统屏蔽底层的差异。借助 Rainbond 提供的“自适应”的编译能力，业务不需要做任何改动，即可在国产化环境中完成编译与运行。同时，Rainbond还提供了多种语言的运行环境，支持开发者选择最适合自己业务的环境。
+The migration of IT operational systems to the national productive trust creation environment involves the movement of cross-CPU structures and operating systems, and Rainbond can be built on domestically produced hardware and operating systems.As an intermediate layer, block bottom differences for upper business systems.The \`adaptation' compilation capacity provided by Rainbond does not require any change in the operation to complete the compilation and operation in the national production environment.At the same time, Rainbod also provides a multilingual operating environment that supports developers in choosing the environment best suited to their business.
 
 ### [全链路灰度发布](/docs/enterprise/gray-release)
 
-Rainbond 支持应用级的灰度发布，包含分批发布、A/B测试等，同时还支持全链路灰度能力。全链路灰度发布可以跨越多个环境和系统层次，包括前端、后端、数据库等，确保新版本的应用程序在整个系统链路中都得到逐步验证和部署。这种方式可以更全面地评估新版本与现有系统的兼容性和稳定性，并在各个环节上发现和解决潜在问题。
+Rainbond supports application grayscale releases, including batch releases, A/B tests, and links to grayscale capabilities.Full link grey release can span multiple environments and systems levels, including front, backend, databases, etc. to ensure that new versions of applications are progressively validated and deployed throughout the system links.This approach would allow for a more comprehensive assessment of the compatibility and stability of the new version with the existing system and the identification and resolution of potential problems at all levels.
 
 ### [集群巡检](/docs/enterprise/scanner)
 
-集群巡检是一种监测和评估底层系统运行状况的工具，可帮助您快速发现系统中存在的潜在风险并给出相应修复建议。该工具可用于扫描集群中的各个方面，包括系统性能瓶颈、业务组件运行状态、配置问题和镜像安全漏洞等，以提高系统的性能、稳定性和可用性。
+Clusters are a tool to monitor and assess the performance of the bottom system and help you quickly identify potential risks in the system and recommend fixes.This tool can be used to scan all aspects of the cluster, including system performance bottlenecks, operating state of the business component, configuration issues and mirror security gaps, to improve the performance, stability and availability of the system.
 
 ### [安全能力](/docs/enterprise/security/)
 
-在用户业务往云原生迁移的进程中，安全性至关重要。用户往往需要考虑平台安全、业务安全、网关安全、用户安全、数据安全等各方面的安全问题。而 Rainbond 企业版采取了多种安全措施来减少安全性问题，如 WAF防火墙、用户操作审计、登录日志、组件安全、灾备和容灾等。同时 Rainbond 企业版通过了三级等保测试。
+Security is critical in the process of user business migration to cloud origin.Users often need to consider the security aspects of platforms, operating security, gateway security, user security, data security, etc.Rainbond Enterprise Edition takes a variety of security measures to reduce safety issues, such as the WAF firewall, user operations audits, logs, component safety, disaster preparedness and disaster preparedness.The company version of Rainbond passed the three-tier security test.
 
 ### [定制化和样式](/docs/enterprise/style)
 
-平台提供了一系列的个性化配置选项，包括网页图标、登陆页图片、主题颜色、官网 DEMO 以及 Logo 的自定义修改等等。管理员可以根据企业需求，选择不同的配置选项进行自定义修改，以便更好地适应企业的特殊需求和品牌形象。
+The platform provides a range of personalized configuration options, including web icons, landing page images, theme colors, network DEMO and custom modifications to logo etc.Administrators can select different configuration options for customization based on the needs of the enterprise in order to better respond to the special needs and brand image of the enterprise.
 
-### [GPU 共享支持](/docs/enterprise/other/GPU)
+### [GPU shared support](/docs/enterprise/other/GPU)
 
-在深度学习、大规模数据处理、科学计算和仿真等场景下，往往会使用到 GPU 资源，而 Rainbond 企业版则支持了 GPU 资源的共享和配置，以便更好的分配和利用 GPU 资源。
+The GPU resource is often used in deep-learning, large-scale data processing, scientific computation, and simulation, while Rainbond enterprise versions support the sharing and configuration of GPU resources to better allocate and use GPU resources.
 
 ### [其他功能](/docs/enterprise/other/)
 
-企业版还包含多处优化功能，如团队资源配额限制、组件存储可视化管理等。
+The enterprise version also contains multiple optimization features, such as team resource quota limits, component storage visualization management, etc.
 
 <!-- ### [企业级备份](/docs/enterprise/backup)
 
