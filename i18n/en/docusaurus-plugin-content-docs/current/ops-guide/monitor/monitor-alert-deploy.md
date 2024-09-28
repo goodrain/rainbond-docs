@@ -3,11 +3,9 @@ title: Monitor alarm service deployment
 description: Rainbond monitoring alarm service deployment description
 ---
 
-
 ### 概述
 
 Rainbond 监控报警系统基于 Alertmanager 服务， Alertmanager 主要用于接收 Prometheus 发送的告警信息，支持丰富的告警通知渠道，而且很容易做到告警信息进行去重，降噪，分组等，是一款前卫的告警通知系统。
-
 
 本文档适合意图对 Rainbond 节点或 Rainbond 组件进行监控的用户阅读，讲述如何在 Rainbond部署监控报警系统。
 
@@ -17,7 +15,7 @@ Rainbond 监控报警系统基于 Alertmanager 服务， Alertmanager 主要用�
 
 通过应用市场一键安装的方式，可以将 Alertmanager，WeChat，DingTalk，一并部署到你的 Rainbond 环境中。
 
- **安装部署**
+**安装部署**
 
 - **安装报警服务**
 
@@ -55,7 +53,6 @@ spec:
 
 `REGION_NAME`：  自定义集群名字，用以区分多集群同时向一个钉钉群推送消息时分辩不同集群。
 
-
 如下
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/monitorconf.jpg"  width="100%" />
@@ -65,4 +62,5 @@ spec:
 ```bash
 kubectl delete statefulsets.apps rbd-monitor -n rbd-system
 ```
+
 到此完成监控报警服务部署。
