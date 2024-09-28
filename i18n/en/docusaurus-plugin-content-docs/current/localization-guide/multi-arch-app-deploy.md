@@ -2,28 +2,28 @@
 title: Select architecture deployment components
 ---
 
-# 指定架构
+# Specify schema
 
-当 Rainbond 集群中具有不同 CPU 架构的计算节点时，新建组件时，即可通过选择的方式，指定架构来部署服务组件。可选择的架构信息来自 Rainbond 实时查询。
+When a compute node in the Rainbond cluster that does not fit into the CPU architecture, when a new component is created, a service component can be deployed by selecting the method.Optional architecture information from Rainbond query in real time.
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%BF%81%E7%A7%BB.png)
 
-## 异构源码构建
+## Isomal source build
 
-Rainbond 自带的 [源码构建](/docs/use-manual/component-create/language-support/) 能力，现在已经拓展到 `arm64` 可用的场景中。使用者在构建服务组件时，只需提供源代码仓库地址，再选择 `arm64` 架构，Rainbond 将自动配置合适的构建环境、运行环境，将其运行到对应的计算节点中去。
+Rainbond [源码构建](/docs/use-manual/component-create/language-support/) capability, has now been extended to `arm64` available scenarios.When building service components, users simply provide source repository addresses, then select `arm64` architecture. Rainbond will automatically configure the appropriate build, run environment and run it to the corresponding compute node.
 
-## 异构软件包构建
+## Isomable Package Builds
 
-对于 Java 类型的业务而言，其 Jar/War 包本身与 CPU 架构无关，进行要提供合适的运行环境即可。鉴于此，Rainbond [上传软件包功能](/docs/use-manual/component-create/package-support/jar-war) 也支持选择架构部署的配置。
+For Java type of business, its Jar/War Package itself does not relate to the CPU architecture, it is sufficient to provide an appropriate operating environment.For this reason, Rainbond [上传软件包功能](/docs/use-manual/component-create/package-support/jar-war) also supports the configuration of the selected architectural deployment.
 
-## 异构镜像构建
+## Isomal mirrors build
 
-当使用的容器镜像提供 `arm64/v8` 版本时，使用者选择 `arm64` 架构。Rainbond 就可以拉取对应版本的镜像并将其部署到对应的计算节点中去。
+When the container mirror is used to provide version `arm64/v8`, the user chooses the `arm64` architecture.Rainbond can pull the mirror of the corresponding version and deploy it to the corresponding computing node.
 
-## 应用市场
+## Marketplace
 
-Rainbond 默认提供的开源应用商店目前已经上架 `arm64` 架构下可用的应用模板供使用者一键安装使用。当然，使用者也可以在部署了 `arm64` 服务组件后，自行发布属于自己的应用模板。
+The open source store provided by Rainbond by default is now on the available application templates under the `arm64` architecture for user's one-click installation.Of course, users can also publish their own application templates when the `arm64` service is deployed.
 
-# 修改架构
+# Modify schema
 
-服务组件的架构信息记录在组件的 **构建源** 页面中，当使用者希望将服务组件变更到其他架构下运行时，可以在 **构建源** 处点击 **更改**。重新选择架构后 **确定**。再进行一次 **构建** 操作即可。
+Service component architecture information is recorded on the **build source** page of the component. When users want to change the service component to another structure, they can use \*\*change it at **build source**.Reselect the architecture **OK\*\*\*\*Build** will be done again.
