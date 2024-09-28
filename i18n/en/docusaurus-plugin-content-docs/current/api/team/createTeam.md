@@ -2,7 +2,7 @@
 title: Create a team
 ---
 
-## Basic Information
+## 基本信息
 
 This interface is mainly used to create teams
 
@@ -42,10 +42,10 @@ POST /openapi/v1/teams
 
 ### Attributes
 
-| name        | type   | required | constraint | Chinese name | illustrate                                                                               |
-| ----------- | ------ | -------- | ---------- | ------------ | ---------------------------------------------------------------------------------------- |
+| name                             | type   | required | constraint | Chinese name | illustrate                                                                               |
+| -------------------------------- | ------ | -------- | ---------- | ------------ | ---------------------------------------------------------------------------------------- |
 | tenant_name | string | true     | none       | Tenant name  | Team Name                                                                                |
-| region      | string | false    | none       | Region       | The data center that is activated by default, if not specified, it will not be activated |
+| region                           | string | false    | none       | Region       | The data center that is activated by default, if not specified, it will not be activated |
 
 ### TeamBaseInfo<a id="schemateambaseinfo"></a>
 
@@ -67,16 +67,16 @@ POST /openapi/v1/teams
 
 ### Attributes
 
-| name          | type        | required | constraint | Chinese name  | illustrate                  |
-| ------------- | ----------- | -------- | ---------- | ------------- | --------------------------- |
-| tenant_id     | string      | true     | none       | Tenant id     | tenant id                   |
-| tenant_name   | string      | true     | none       | Tenant name   | Tenant name                 |
-| region        | string      | false    | none       | Region        | regional center, deprecated |
-| is_active     | boolean     | false    | none       | Is active     | active state                |
-| create_time   | string      | true     | none       | Create time   | creation time               |
-| creator       | integer     | false    | none       | Creater       | Tenant creator              |
-| limit_memory  | integer     | false    | none       | Limit memory  | Memory size unit (M)        |
-| update_time   | string      | true     | none       | Update time   | update time                 |
-| expired_time  | string      | true     | none       | Expired time  | Expiration                  |
-| tenant_alias  | string¦null | false    | none       | Tenant alias  | team alias                  |
-| enterprise_id | string¦null | false    | none       | Enterprise id | enterprise id               |
+| name                               | type        | required | constraint | Chinese name  | illustrate                              |
+| ---------------------------------- | ----------- | -------- | ---------- | ------------- | --------------------------------------- |
+| tenant_id     | string      | true     | none       | Tenant id     | tenant id                               |
+| tenant_name   | string      | true     | none       | Tenant name   | Basic Information                       |
+| region                             | string      | false    | none       | Region        | regional center, deprecated             |
+| is_active     | boolean     | false    | none       | Is active     | active state                            |
+| create_time   | string      | true     | none       | Create time   | creation time                           |
+| creator                            | integer     | false    | none       | Creater       | Tenant creator                          |
+| limit_memory  | integer     | false    | none       | Limit memory  | Memory size unit (M) |
+| update_time   | string      | true     | none       | Update time   | update time                             |
+| expired_time  | string      | true     | none       | Expired time  | Expiration                              |
+| tenant_alias  | string¦null | false    | none       | Tenant alias  | team alias                              |
+| enterprise_id | string¦null | false    | none       | Enterprise id | enterprise id                           |
