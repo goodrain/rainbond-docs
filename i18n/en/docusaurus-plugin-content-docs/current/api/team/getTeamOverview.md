@@ -2,7 +2,7 @@
 title: Get team overview information
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain team overview information
 
@@ -14,8 +14,8 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/overview
 
 | name                             | Location | type   | required | Chinese name | illustrate |
 | -------------------------------- | -------- | ------ | -------- | ------------ | ---------- |
-| team_id     | path     | string | Yes      |              | none       |
-| region_name | path     | string | Yes      |              | none       |
+| team_id     | Path     | String | Yes      |              | none       |
+| region_name | Path     | String | Yes      |              | none       |
 
 ## return result
 
@@ -45,12 +45,12 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/overview
 
 | name                                                             | type    | required | constraint | Chinese name           | illustrate                |
 | ---------------------------------------------------------------- | ------- | -------- | ---------- | ---------------------- | ------------------------- |
-| total_cpu                                   | integer | false    | none       | total cpu              | total cpu                 |
-| total_memory                                | integer | false    | none       | Total memory           | total memory              |
+| Total_cpu                                   | integer | false    | none       | total cpu              | total cpu                 |
+| Total_memory                                | integer | false    | none       | Total memory           | total memory              |
 | used_cpu                                    | integer | false    | none       | used cpu               | occupy cpu                |
 | used_memory                                 | integer | false    | none       | Used memory            | used internal memory      |
-| used_cpu_percentage    | number  | false    | none       | Used cpu percentage    | percentage of cpu         |
-| used_memory_percentage | number  | false    | none       | Used memory percentage | percentage of memory used |
-| team_id                                     | string  | true     | none       | team id                | Team ID                   |
-| team_name                                   | string  | true     | none       | Team name              | Team Name                 |
-| team_alias                                  | string  | true     | none       | Team alias             | Team nickname             |
+| used_cpu_percentage    | Number  | false    | none       | Use cpu percentage     | percentage of cpu         |
+| used_memory_percentage | Number  | false    | none       | User memory percentage | percentage of memory used |
+| team_id                                     | String  | true     | none       | team id                | Team ID                   |
+| team_name                                   | String  | true     | none       | Team name              | Team Name                 |
+| team_alias                                  | String  | true     | none       | Team alias             | Team nickname             |
