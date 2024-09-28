@@ -3,24 +3,24 @@ title: Helm Application Management
 description: Manage Helm applications in Rainbond
 ---
 
-跟随文档了解 Helm 应用在 Rainbond 平台中的管理，使开发者或运维人员能够管理及运维 Helm 应用。
+Follow the documentation on the management of Helm on the Rainbond platform to enable developers or developers to manage and ship VWHelm apps.
 
-### Helm 应用配置
+### Helm App Configuration
 
-Helm 应用配置页面提供了图形化界面可对 `values.yaml` 文件内容进行修改，最下方的文本框提供`values.yaml` 文件预览功能，如果需要修改配置则需要在 **Values 配置** 中定义需要修改的 Key 和 Value。
+The Helm Application Configuration page provides a graphical interface that can modify the contents of the `values.yaml` file. The bottom text box provides the `values.yaml` file preview feature. If you need to modify the configuration it needs to define the keys and values to be changed in the **Values configuration**.
 
-- 示例
+- Example
 
-假设需要将下图中镜像 repository `bitnami/nginx` 修改为 `library/nginx`，则需要在 **Values 配置** 中定义 key 为 `image.repository`，value 为 `library/nginx`，其中 key 多级情况下用 `.` 区分；定义之后点击下方的安装或更新即会生效。
+Assuming that the image repository `bitnami/nginx` in the following graph should be changed to `library/nginx`, the key is defined as `image.repository`,value as `library/nginx` in the \*_Values configuration_,' where the key is differentiated by `.` where the key is multiple and the installation or update below will take effect.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_values_yaml.jpg" title="配置页面" width="100%"/>
 
-### Helm 应用升级回滚或重新安装
+### Helm app upgrade to roll back or reinstall
 
-Helm 应用部署完成后在 **升级** 界面可进行版本的升级或回滚，此处执行的操作相当于 ` helm upgrade` 和 `helm rollback ` 命令，需要注意的是升级默认直接升级到最新版本，有时候最新版本检测可能会不通过，遇到这样的情况，建议走重新安装选择比最新版本低一些的版本安装。
+When the Helm app is deployed and ready to update or roll back versions on the **Upgrade** interface. The actions are equivalent to `helm upgrade` and `helm rollback` commands that need to be updated by default to the latest version, sometimes the latest version detects may not be passed. In this case, it is recommended to re-install versions that choose to install versions that are less than the latest version.
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_app_upgrade.jpg" title="Helm应用升级" width="100%"/>
 
-回滚操作在升级界面的升级记录里
+Rollback is in the upgrade history of the upgrade screen
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_app_rollback.jpg" title="Helm应用升级" width="100%"/>
