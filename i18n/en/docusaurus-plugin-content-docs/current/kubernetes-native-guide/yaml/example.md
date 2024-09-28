@@ -2,13 +2,14 @@
 title: Deploy Wordpress and Mysql with Yaml
 description: How to deploy a Wordpress example on Rainbond with Yaml files available in native K8s.
 keywords:
-- Wordpress Yaml
-- Rainbond Yaml
+  - Wordpress Yaml
+  - Rainbond Yaml
 ---
 
-本示例描述了如何通过一组 Yaml 声明式配置文件，在 Rainbond 上安装 WordPress 和 MySQL。 
+本示例描述了如何通过一组 Yaml 声明式配置文件，在 Rainbond 上安装 WordPress 和 MySQL。
 
 这两个组件：
+
 - 分别使用 Deployment 和 StatefulSet 两种 Workload 资源部署。
 - 使用 PersistentVolumes 和 PersistentVolumeClaims 保存数据。
 - 通过 Service 完成彼此间通信。
@@ -29,6 +30,7 @@ keywords:
 ## 准备开始
 
 wordpress-depoyment.yaml，其中定义了：
+
 - Deployment: wordpress
 - Service: wordpress
 - PersistentVolumeClaim: wp-pv-claim
@@ -107,11 +109,12 @@ spec:
           claimName: wp-pv-claim
 
 ```
+
 </div>
 </details>
 
-
 mysql-statefulset.yaml，其中定义了：
+
 - StatefulSet: wordpress-mysql
 - Service: wordpress-mysql
 - Secret: mysql-pass
@@ -186,6 +189,7 @@ type: Opaque
 data:
   password: cGFzc3dvcmQ=
 ```
+
 </div>
 </details>
 
