@@ -3,207 +3,207 @@ title: Description of monitoring alarm items
 description: Description of cluster monitoring alarm items based on Prometheus
 ---
 
-### 概述
+### General description
 
-Rainbond 监控服务由组件 `rbd-monitor` 完成，在 monitor 组件中采用 Sidecar 设计模式思想整合 [Prometheus](https://prometheus.io/) 服务，并基于 ETCD动态发现 需要监控的 targets，自动配置与管理 Prometheus 服务。monitor 会定期到每个 targets 刮取指标数据，并将数据持久化在本地，提供灵活的PromQL查询与RESTful API查询。
+Rainbond monitoring services are performed by component `rbd-monitor`, integrated with Sideecar design mode ideas in the monitor component with [Prometheus](https://prometheus.io/) services, and based on ETCD's dynamic discovery of targets for monitoring, automatic configuration and management of Prometheus services.The monitor periodically scratches indicator data at each targets and perpetuates the data locally, providing flexible Promised Query queries and RESTful API queries.
 
-#### 架构图：
+#### Architecture：
 
 <img src="https://static.goodrain.com/images/docs/3.7/monitor/monitor-structure.jpg" title="monitor服务架构图" width="100%" />
 
-#### 访问方式
+#### Access Method
 
-默认监听端口9999，默认安装已添加  Service 对象，在集群获取到 `ServiceIP` 后在平台添加 第三方服务 打开对外端口即可访问。
+Default listener port 9999. The default installation has been added to the Service object. Access by adding a third-party service to the platform to open an external port.
 
-获取 `ServiceIP` 方式
+Get `ServiceIP`
 
 ```bash
-$ kubectl get service rbd-monitor -n rbd-system
-NAME          TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
-rbd-monitor   ClusterIP   10.68.140.5   <none>        9999/TCP   7h11m
+$ kubectl get service rbd-monitor - n rbd-system
+NAME TYPE CLUSTEER-IP EXTERNAL-IP PORT(S) AGE
+rbd-monitor ClusterIP 10.68.140.5   <none>        999/TCP 7h11m
 ```
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/monitorservice.jpg" title="添加第三方服务打开对外端口访问" width="100%" />
 
-具体监控报警项请访问 rbd-monitor 查看，以下仅作为参考。
+For specific monitoring alarms please visit the rbd-monitor for review and see below for reference purposes only.
 
-### 监控项
+### Monitor Items
 
-#### 节点资源监控项
+#### Node Resource Monitor
 
-| 监控项                                                             | 所属组件     | 说明        |
-| :-------------------------------------------------------------- | :------- | :-------- |
-| cadvisor_version_info | cadvisor | 节点系统信息    |
-| machine_memory_bytes  | cadvisor | 当前主机内存大小  |
-| machine_cpu_cores     | cadvisor | 当前节点CPU数目 |
-| node_filesystem_size  | node     | 存储        |
-| node_load1                                 | node     | 负载1m      |
-| node_load5                                 | node     | 负载5m      |
-| node_load5                                 | node     | 负载15m     |
-| node_memory_MemTotal  | node     | 节点内存total |
-| node_memory_MemFree   | node     | 节点内存free  |
-| node_uname_info       | node     | 节点信息      |
+| Monitor Items                                                   | Owned Component | Note                     |
+| :-------------------------------------------------------------- | :-------------- | :----------------------- |
+| cadvisor_version_info | cadvisor        | Node system information  |
+| machine_memory_bytes  | cadvisor        | Current host memory size |
+| machine_cpu_core      | cadvisor        | Number of current peers  |
+| node_filesystem_size  | node            | Storage                  |
+| node_load1                                 | node            | Load 1m                  |
+| node_load5                                 | node            | Load 5m                  |
+| node_load5                                 | node            | Load 15m                 |
+| node_memory_MemTotal  | node            | Total node memory        |
+| node_memory_MemFree   | node            | Node memory free         |
+| node_uname_info       | node            | Node Information         |
 
-#### Rainbond服务组件监控项
+#### Rainbod service component monitoring item
 
-| 监控项                                                                                                                                                                                                                               | 所属组件         | 说明                                               |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :----------------------------------------------- |
-| acp_mq_dequeue_number                                                                                                                                              | rbd-mq       |                                                  |
-| acp_mq_enqueue_number                                                                                                                                              | rbd-mq       |                                                  |
-| acp_mq_exporter_health_status                                                                                                                 | rbd-mq       |                                                  |
-| acp_mq_exporter_last_scrape_error                                                                                        | rbd-mq       |                                                  |
-| acp_mq_exporter_scrapes_total                                                                                                                 | rbd-mq       |                                                  |
-| builder_exporter_builder_task_error                                                                                                           | rbd-chaos    | 源码构建任务失败数                                        |
-| builder_exporter_builder_task_number                                                                                                          | rbd-chaos    | 源码构建任务数                                          |
-| builder_exporter_health_status                                                                                                                                     | rbd-chaos    | 组件状态1为健康                                         |
-| event_log_exporter_chan_cache_size                                                                                       | rbd-eventlog |                                                  |
-| event_log_exporter_collector_duration_seconds                                                                            | rbd-eventlog |                                                  |
-| event_log_exporter_container_log_store_cache_barrel_count | rbd-eventlog |                                                  |
-| event_log_exporter_container_log_store_log_count                               | rbd-eventlog |                                                  |
-| event_log_exporter_event_store_barrel_count                                                         | rbd-eventlog |                                                  |
-| event_log_exporter_event_store_cache_barrel_count                              | rbd-eventlog |                                                  |
-| event_log_exporter_event_store_log_count                                                            | rbd-eventlog |                                                  |
-| event_log_exporter_health_status                                                                                                              | rbd-eventlog |                                                  |
-| event_log_exporter_last_scrape_error                                                                                     | rbd-eventlog |                                                  |
-| event_log_exporter_monitor_store_barrel_count                                                       | rbd-eventlog |                                                  |
-| event_log_exporter_monitor_store_log_count                                                          | rbd-eventlog |                                                  |
-| event_log_exporter_scrapes_total                                                                                                              | rbd-eventlog |                                                  |
-| gateway_request_duration_seconds_bucket                                                                                                       | rbd-gateway  | 在规定请求时间(bucket)内, 客户端请求的数量    |
-| gateway_request_duration_seconds_count                                                                                                        | rbd-gateway  | 客户端请求的总数                                         |
-| gateway_request_duration_seconds_sum                                                                                                          | rbd-gateway  | 客户端请求时间的总数                                       |
-| gateway_request_size_bucket                                                                                                                                        | rbd-gateway  | 在规定出请求大小(bucket)内, 满足条件的请求的数量 |
-| gateway_request_size_count                                                                                                                                         | rbd-gateway  | 客户端请求的总数                                         |
-| gateway_request_size_sum                                                                                                                                           | rbd-gateway  | 客户端请求大小的总数                                       |
-| gateway_requests                                                                                                                                                                                             | rbd-gateway  | 客户端访问的次数                                         |
-| gateway_response_duration_seconds_bucket                                                                                                      | rbd-gateway  | 在规定响应时间(bucket)内, 响应的次数       |
-| gateway_response_duration_seconds_count                                                                                                       | rbd-gateway  | 响应的总次数                                           |
-| gateway_response_duration_seconds_sum                                                                                                         | rbd-gateway  | 响应的总时间                                           |
-| gateway_response_size_bucket                                                                                                                                       | rbd-gateway  | 在规定出响应大小(bucket)内, 满足条件的响应的次数 |
-| gateway_response_size_count                                                                                                                                        | rbd-gateway  | 响应的总次数                                           |
-| gateway_response_size_sum                                                                                                                                          | rbd-gateway  | 响应的总大小                                           |
-| gateway_upstream_latency_seconds                                                                                                                                   | rbd-gateway  | 在规定出延迟时间(bucket)内, 满足条件的延迟的次数 |
-| gateway_upstream_latency_seconds_count                                                                                                        | rbd-gateway  | 延迟的总次数                                           |
-| gateway_upstream_latency_seconds_sum                                                                                                          | rbd-gateway  | 延迟时间的总和                                          |
-| worker_exporter_health_status                                                                                                                                      | rbd-worker   |                                                  |
-| worker_exporter_worker_task_number                                                                                                            | rbd-worker   |                                                  |
-| worker_exporter_collector_duration_seconds                                                                                                    | rbd-worker   |                                                  |
-| worker_exporter_last_scrape_error                                                                                                             | rbd-worker   |                                                  |
-| worker_exporter_scrapes_total                                                                                                                                      | rbd-worker   |                                                  |
-| worker_exporter_worker_task_error                                                                                                             | rbd-worker   |                                                  |
-| worker_exporter_worker_task_number                                                                                                            | rbd-worker   |                                                  |
-| worker_up                                                                                                                                                                                                    | rbd-worker   |                                                  |
-| scrape_samples_scraped                                                                                                                                                                  |              |                                                  |
-| scrape_samples_post_metric_relabeling                                                                                                         |              |                                                  |
-| scrape_duration_seconds                                                                                                                                                                 |              |                                                  |
-| statsd_exporter_build_info                                                                                                                                         |              |                                                  |
-| statsd_exporter_events_total                                                                                                                                       |              |                                                  |
-| statsd_exporter_lines_total                                                                                                                                        |              |                                                  |
-| statsd_exporter_loaded_mappings                                                                                                                                    |              |                                                  |
-| statsd_exporter_samples_total                                                                                                                                      |              |                                                  |
-| statsd_exporter_tag_errors_total                                                                                                              |              |                                                  |
-| statsd_exporter_tags_total                                                                                                                                         |              |                                                  |
-| statsd_exporter_tcp_connection_errors_total                                                                              |              |                                                  |
-| statsd_exporter_tcp_connections_total                                                                                                         |              |                                                  |
-| statsd_exporter_tcp_too_long_lines_total                                                            |              |                                                  |
-| statsd_exporter_udp_packets_total                                                                                                             |              |                                                  |
-| up                                                                                                                                                                                                                                |              | 组件状态                                             |
+| Monitor Items                                                                                                                                                                                                                     | Owned Component | Note                                                                                                            |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- | :-------------------------------------------------------------------------------------------------------------- |
+| acp_mq_dequeue_number                                                                                                                                              | rbd-mq          |                                                                                                                 |
+| acp_mq_enqueue_number                                                                                                                                              | rbd-mq          |                                                                                                                 |
+| acp_mq_exporter_health_status                                                                                                                 | rbd-mq          |                                                                                                                 |
+| acp_mq_exporter_last_scrape_error                                                                                        | rbd-mq          |                                                                                                                 |
+| acp_mq_exporter_scrapes_total                                                                                                                 | rbd-mq          |                                                                                                                 |
+| builder_exporter_builder_task_error                                                                                                           | rbd-chaos       | Failed to build source                                                                                          |
+| builder_exporter_builder_task_number                                                                                                          | rbd-chaos       | Number of source build tasks                                                                                    |
+| builder_exporter_health_status                                                                                                                                     | rbd-chaos       | Component State 1 is health                                                                                     |
+| event_log_exporter_chan_size                                                                                                                  | rbd-eventlog    |                                                                                                                 |
+| event_log_exporter_collector_duration_seconds                                                                            | rbd-eventlog    |                                                                                                                 |
+| event_log_exporter_container_log_store_cache_barrel_count | rbd-eventlog    |                                                                                                                 |
+| event_log_exporter_container_log_store_login                                                        | rbd-eventlog    |                                                                                                                 |
+| event_log_exporter_event_store_barrel_count                                                         | rbd-eventlog    |                                                                                                                 |
+| event_log_exporter_event_store_cache_barrel_count                              | rbd-eventlog    |                                                                                                                 |
+| event_log_exporter_event_store_log_count                                                            | rbd-eventlog    |                                                                                                                 |
+| event_log_exporter_health_status                                                                                                              | rbd-eventlog    |                                                                                                                 |
+| event_log_exporter_last_scrape_error                                                                                     | rbd-eventlog    |                                                                                                                 |
+| event_log_exporter_monitor_store_barrel_count                                                       | rbd-eventlog    |                                                                                                                 |
+| event_log_exporter_monitor_store_count                                                                                   | rbd-eventlog    |                                                                                                                 |
+| event_log_exporter_scrapes_total                                                                                                              | rbd-eventlog    |                                                                                                                 |
+| gateway_request_duration_seconds_bucket                                                                                                       | rbd-gateway     | Number of client requests within specified request time (bucket)                             |
+| gateway_request_duration_seconds_count                                                                                                        | rbd-gateway     | Total number of client requests                                                                                 |
+| gateway_request_duration_seconds_sum                                                                                                          | rbd-gateway     | Total Client Request Time                                                                                       |
+| gateway_request_size_bucket                                                                                                                                        | rbd-gateway     | The number of requests that have been met within the specified request size (bucket)         |
+| gateway_request_size_count                                                                                                                                         | rbd-gateway     | Total number of client requests                                                                                 |
+| gateway_request_size_sum                                                                                                                                           | rbd-gateway     | Total number of client requests                                                                                 |
+| gateway_requests                                                                                                                                                                                             | rbd-gateway     | Number of visits by clients                                                                                     |
+| gateway_response_duration_seconds_bucket                                                                                                      | rbd-gateway     | The number of responses within the specified response time (bucket)                          |
+| gateway_response_duration_seconds_count                                                                                                       | rbd-gateway     | Total Response                                                                                                  |
+| gateway_response_duration_seconds_sum                                                                                                         | rbd-gateway     | Total time of response                                                                                          |
+| gateway_response_size_bucket                                                                                                                                       | rbd-gateway     | The number of responses that meet the conditions within the specified response size (bucket) |
+| gateway_response_size_count                                                                                                                                        | rbd-gateway     | Total Response                                                                                                  |
+| gateway_response_size_sum                                                                                                                                          | rbd-gateway     | Total size of response                                                                                          |
+| gateway_upstream_late_seconds                                                                                                                                      | rbd-gateway     | Within the specified delay (bucket), the number of times the delay in meeting the condition  |
+| gateway_upstream_late_seconds_count                                                                                                           | rbd-gateway     | Total Delays                                                                                                    |
+| gateway_upstream_late_seconds_sum                                                                                                             | rbd-gateway     | Sum of delay time                                                                                               |
+| Worker_exporter_health_status                                                                                                                                      | rbd-walker      |                                                                                                                 |
+| worker_exporter_worker_task_number                                                                                                            | rbd-walker      |                                                                                                                 |
+| worker_exporter_collector_duration_seconds                                                                                                    | rbd-walker      |                                                                                                                 |
+| worker_exporter_last_scrape_error                                                                                                             | rbd-walker      |                                                                                                                 |
+| worker_exporter_scrapes_total                                                                                                                                      | rbd-walker      |                                                                                                                 |
+| worker_exporter_worker_task_error                                                                                                             | rbd-walker      |                                                                                                                 |
+| worker_exporter_worker_task_number                                                                                                            | rbd-walker      |                                                                                                                 |
+| worker_up                                                                                                                                                                                                    | rbd-walker      |                                                                                                                 |
+| scrap_samples_scraped                                                                                                                                                                   |                 |                                                                                                                 |
+| scrape_samples_post_metric_relabeling                                                                                                         |                 |                                                                                                                 |
+| scrape_duration_seconds                                                                                                                                                                 |                 |                                                                                                                 |
+| statsd_exporter_build_info                                                                                                                                         |                 |                                                                                                                 |
+| statsd_exporter_events_total                                                                                                                                       |                 |                                                                                                                 |
+| statsd_exporter_links                                                                                                                                                                   |                 |                                                                                                                 |
+| statsd_exporter_loaded_mappings                                                                                                                                    |                 |                                                                                                                 |
+| statsd_exporter_samples_total                                                                                                                                      |                 |                                                                                                                 |
+| statsd_exporter_tag_errors_total                                                                                                              |                 |                                                                                                                 |
+| statsd_exporter_tags                                                                                                                                                                    |                 |                                                                                                                 |
+| statsd_exporter_tcp_connection_errors_total                                                                              |                 |                                                                                                                 |
+| statsd_exporter_tcp_connections_total                                                                                                         |                 |                                                                                                                 |
+| statsd_exporter_tcp_too_long_lines_total                                                            |                 |                                                                                                                 |
+| statsd_exporter_udp_packs_total                                                                                                               |                 |                                                                                                                 |
+| up                                                                                                                                                                                                                                |                 | Component Status                                                                                                |
 
-#### 应用级监控项
+#### App level monitoring
 
-| 监控项                                                              | 说明                                                                      |
-| :--------------------------------------------------------------- | :---------------------------------------------------------------------- |
-| app_resource_appmemory | 应用内存，根据service_id,tenant_id筛选 |
-| app_resource_appfs     | 应用                                                                      |
-| app_resource_appmemory | 应用                                                                      |
-| app_client_request     | 应用                                                                      |
-| app_client_requesttime | 应用                                                                      |
-| app_request                                 | 应用                                                                      |
-| app_request_unusual    | 应用                                                                      |
-| app_requestclient                           | 应用                                                                      |
-| app_requesttime                             | 应用                                                                      |
+| Monitor Items                                                     | Note                                                                                   |
+| :---------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| app_resource_app memory | Apply memory, filter by service_id,tenant_id |
+| app_resources_appfs     | Apps                                                                                   |
+| app_resource_app memory | Apps                                                                                   |
+| app_client_request      | Apps                                                                                   |
+| app_client_requesttime  | Apps                                                                                   |
+| app_request                                  | Apps                                                                                   |
+| app_request_unusual     | Apps                                                                                   |
+| App_request customer                         | Apps                                                                                   |
+| App_requesttime                              | Apps                                                                                   |
 
-应用级基于CAvisor获取典型监控指标
+Application levels are based on CAvisor for typical monitoring indicators
 
-| 监控项                                                                                                                        | 类型      | 说明                                           |
-| :------------------------------------------------------------------------------------------------------------------------- | :------ | :------------------------------------------- |
-| container_cpu_load_average_10s         | gauge   | 过去10秒容器CPU的平均负载                              |
-| container_cpu_usage_seconds_total      | counter | 容器在每个CPU内核上的累积占用时间 (单位：秒) |
-| container_cpu_system_seconds_total     | counter | System CPU累积占用时间（单位：秒）                       |
-| container_cpu_user_seconds_total       | counter | User CPU累积占用时间（单位：秒）                         |
-| container_fs_usage_bytes                                    | gauge   | 容器中文件系统的使用量(单位：字节)        |
-| container_fs_limit_bytes                                    | gauge   | 容器可以使用的文件系统总量(单位：字节)      |
-| container_fs_reads_bytes_total         | counter | 容器累积读取数据的总量(单位：字节)        |
-| container_fs_writes_bytes_total        | counter | 容器累积写入数据的总量(单位：字节)        |
-| container_memory_max_usage_bytes       | gauge   | 容器的最大内存使用量（单位：字节）                            |
-| container_memory_usage_bytes                                | gauge   | 容器当前的内存使用量（单位：字节                             |
-| container_spec_memory_limit_bytes      | gauge   | 容器的内存使用量限制                                   |
-| container_network_receive_bytes_total  | counter | 容器网络累积接收数据总量（单位：字节）                          |
-| container_network_transmit_bytes_total | counter | 容器网络累积传输数据总量（单位：字节）                          |
+| Monitor Items                                                                                                              | Type  | Note                                                                                     |
+| :------------------------------------------------------------------------------------------------------------------------- | :---- | :--------------------------------------------------------------------------------------- |
+| container_cpu_load_average_10s         | gague | Average load of the last 10 seconds container CPU                                        |
+| container_cpu_usage_seconds_total      | count | Cumulative time of container on each CPU kernel (in：seconds)          |
+| container_cpu_system_total                                  | count | System CPU cumulative time (in：seconds)                               |
+| container_cpu_user_seconds_total       | count | User CPU cumulative time (in：seconds)                                 |
+| container_fs_usage_bytes                                    | gague | Use of filesystem in container (unit：bytes)                           |
+| container_fs_limit_bytes                                    | gague | Total number of filesystems that containers can use (unit：bytes)      |
+| container_fs_reads_bytes_total         | count | Total amount of accumulated data read by container (unit：bytes)       |
+| container_fs_writes_bytes_total        | count | Total amount of accumulated container written to data (unit：bytes)    |
+| container_memory_max_usage_bytes       | gague | Maximum memory usage of containers (unit：bytes)                       |
+| container_memory_usage_bytes                                | gague | Current memory usage of the container (unit：bytes                     |
+| container_spec_memory_limit_bytes      | gague | Memory usage limit for containers                                                        |
+| container_network_receive_bytes_total  | count | Total cumulative data received by the container network (unit：bytes)  |
+| container_network_transfer_bytes_total | count | Total cumulative transfer data for the container network (unit：bytes) |
 
-#### 其他监控项
+#### Other monitoring items
 
-| 监控项                                                                                          | 说明 |
-| :------------------------------------------------------------------------------------------- | :- |
-| process_cpu_seconds_total     |    |
-| process_max_fds                                    |    |
-| process_open_fds                                   |    |
-| process_virtual_memory_bytes  |    |
-| process_start_time_seconds    |    |
-| process_resident_memory_bytes |    |
-| process_open_fds                                   |    |
-| process_max_fds                                    |    |
-| process_cpu_seconds_total     |    |
+| Monitor Items                                                                                | Note |
+| :------------------------------------------------------------------------------------------- | :--- |
+| process_cpu_seconds_total     |      |
+| process_max_fds                                    |      |
+| process_open_fds                                   |      |
+| process_virtual_memory_bytes  |      |
+| process_start_time_seconds    |      |
+| process_resident_memory_bytes |      |
+| process_open_fds                                   |      |
+| process_max_fds                                    |      |
+| process_cpu_seconds_total     |      |
 
-### 报警规则说明
+### Alarm Rule Description
 
-#### 组件监控报警
+#### Component monitor alarm
 
-| 报警项                                      | 报警信息                           |
-| :--------------------------------------- | :----------------------------- |
-| api服务下线                                  | APIDown                        |
-| chaos服务下线                                | BuilderDown                    |
-| chaos组件状态异常                              | BuilderUnhealthy               |
-| 源码构建异常任务数大于30                            | BuilderTaskError               |
-| ETCD服务下线                                 | EtcdDown                       |
-| ETCD Leader节点下线                          | EtcdLoseLeader                 |
-| ETCD集群成员异常                               | InsufficientMembers            |
-| ETCD集群Leader变更                           | HighNumberOfLeaderChanges      |
-| ETCD GPRC失败请求大于0.05      | HighNumberOfFailedGRPCRequests |
-| ETCD 1分钟内HTTP请求失败数大于0.05 | HighNumberOfFailedHTTPRequests |
-| ETCD 1分钟内GPRC慢查询数量大于0.15 | GRPCRequestsSlow               |
-| ETCD磁盘空间占用超过80%                          | DatabaseSpaceExceeded          |
-| eventlog组件状态异常                           | EventLogUnhealthy              |
-| eventlog服务下线                             | EventLogDown                   |
-| gateway服务下线                              | GatewayDown                    |
-| gateway请求大小超过10M                         | RequestSizeTooMuch             |
-| gateway每秒请求数量超过200                       | RequestMany                    |
-| gateway 10s内错误请求数量大于5                    | FailureRequestMany             |
-| mq服务下线                                   | MqDown                         |
-| mq组件状态异常                                 | MqUnhealthy                    |
-| mq消息队列中存在时间大于1分钟的任务                      | MqMessageQueueBlock            |
-| webcli服务下线                               | WebcliDown                     |
-| webcli组件状态异常                             | WebcliUnhealthy                |
-| webcli执行命令时发生的错误数大于每秒5次                  | WebcliUnhealthy                |
-| worker服务下线                               | WorkerDown                     |
-| worker组件状态异常                             | WorkerUnhealthy                |
-| worker执行任务错误数大于50                        | WorkerTaskError                |
+| Alarm items                                                           | Alarm Info                      |
+| :-------------------------------------------------------------------- | :------------------------------ |
+| api service offline                                                   | APIDown                         |
+| chaos service offline                                                 | BuilderDown                     |
+| chaos component state exception                                       | Builder Unhealth                |
+| The source constructor is more than 30 permanent                      | BuilderTaskError                |
+| ETCD service offline                                                  | EtcdDown                        |
+| ETCD Leader Node offline                                              | EtcdLoseLeader                  |
+| ETCD cluster member exception                                         | Insufficient Members            |
+| ETCD cluster leader changes                                           | HighNumberOfLeaderChanges       |
+| ETCD GPRC failed request greater than 0.05            | HighNumberOfFailedGRPCRequests  |
+| ETCD 1 minute HTTP request failed more than 0.05      | HighNumberOfFailedHTTP Requests |
+| ETCD Slow Query in 1 minute is greater than 0.15      | GRPCRequestsSlow                |
+| ETCD disk space takes more than 80%                                   | DatabaseSpaceExcelled           |
+| eventlog component state exception                                    | EventLogUnhealth                |
+| eventlog service offline                                              | EventLogDown                    |
+| gateway service offline                                               | GatewayDown                     |
+| gateway request size greater than 10M                                 | Request SizeToMuch              |
+| gateway requests more than 200 per second                             | RequestMany                     |
+| The number of error requests in gateway 10 s is greater than 5        | FailureRequestMany              |
+| mq service offline                                                    | MqDown                          |
+| mq-component state exception                                          | MqUnhealth                      |
+| Mq Message queue has tasks with a time greater than 1 minute          | MqMessageQueuBlock              |
+| webclient service offline                                             | WebcliDown                      |
+| Web clip state exception                                              | WebcliUnhealth                  |
+| Error executing command in webclip is greater than 5 times per second | WebcliUnhealth                  |
+| Worker service offline                                                | WorkerDown                      |
+| Worker component state exception                                      | WorkerUnhealth                  |
+| Worker performed job errors greater than 50                           | WorkerTaskError                 |
 
-#### 集群监控报警
+#### Cluster monitor alarm
 
-| 报警项                               | 报警信息                              |
-| :-------------------------------- | :-------------------------------- |
-| Rainbond 集群node节点不健康              | RbdNodeUnhealth                   |
-| K8s集群node节点不健康                    | KubeNodeUnhealth                  |
-| 收集集群信息时间超过10s                     | ClusterCollectorTimeout           |
-| 租户使用资源超出资源限额                      | InsufficientTenantResources       |
-| Node节点下线                          | NodeDown                          |
-| 节点5分钟内CPU使用率大于70%                 | HighCpuUsageOnNode                |
-| 集群可用内存资源小于2GB                     | InsufficientClusteMemoryResources |
-| 集群CPU可用量小于500m                    | InsufficientClusteCPUResources    |
-| 节点5分钟内负载大于5                       | HighLoadOnNode                    |
-| 节点Inode剩余可用量小于0.3 | InodeFreerateLow                  |
-| 节点根分区磁盘使用率大于85%                   | HighRootdiskUsageOnNode           |
-| 节点Docker磁盘分区使用率大于85%              | HighDockerdiskUsageOnNode         |
-| 节点内存使用量大于80%                      | HighMemoryUsageOnNode             |
+| Alarm items                                                   | Alarm Info                            |
+| :------------------------------------------------------------ | :------------------------------------ |
+| Rainbond cluster node node unhealthy                          | RbdNodeUnhealth                       |
+| Unhealthy K8s cluster node node                               | KubeNodeUnhealth                      |
+| Collect cluster information for more than 10 s                | ClusterCollectorTimeout               |
+| Tenants use resources above resource limit                    | InsufficientTenantResources           |
+| Node offline                                                  | NodeDown                              |
+| CPU usage is greater than 70% in 5 minutes                    | HighCpuUsageOnNode                    |
+| Cluster available memory resources are less than 2 GB         | Insufficient Cluster Memory Resources |
+| Cluster CPU availability less than 500 m                      | InsufficientClusteCPUResources        |
+| Node load is greater than 5 minutes                           | HighLoadOnNode                        |
+| Remaining amount less than 0.3 for Node Inode | InodeFreerateLow                      |
+| Node Root Root Use Rate is greater than 85%                   | HighRootDiskUsageOnNode               |
+| Node Docker Disk Usage Rate greater than 85%                  | HighDockerdiskUsageOnNode             |
+| Node memory usage is greater than 80%                         | HighMemory UsageOnNode                |
 
-**集群监控报警配置参见 [监控报警部署](./monitor-alert-deploy/)**
+**Cluster monitoring alerts see [监控报警部署](./monitor-alert-employ/)**
