@@ -2,7 +2,7 @@
 title: Get component event information
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to query component event information
 
@@ -14,12 +14,12 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 
 | name                             | Location | type    | required | Chinese name | illustrate        |
 | -------------------------------- | -------- | ------- | -------- | ------------ | ----------------- |
-| app_id      | path     | integer | Yes      |              | app id            |
-| team_id     | path     | string  | Yes      |              | none              |
-| region_name | path     | string  | Yes      |              | none              |
-| service_id  | path     | string  | Yes      |              | none              |
-| page                             | query    | integer | no       |              | page number       |
-| page_size   | query    | integer | no       |              | Quantity per page |
+| app_id      | Path     | integer | Yes      |              | app id            |
+| team_id     | Path     | String  | Yes      |              | none              |
+| region_name | Path     | String  | Yes      |              | none              |
+| service_id  | Path     | String  | Yes      |              | none              |
+| page                             | Query    | integer | no       |              | page number       |
+| page_size   | Query    | integer | no       |              | Quantity per page |
 
 ## return result
 
@@ -65,8 +65,8 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 | ------------------------------ | ------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ------------------- |
 | page                           | integer                                                                                           | true     | none       | Page         | current page number |
 | page_size | integer                                                                                           | true     | none       | Page size    | Quantity per page   |
-| total                          | integer                                                                                           | true     | none       | Total        | Total data          |
-| events                         | [[AppServiceEvents](#schemaappserviceevents)] | true     | none       |              | none                |
+| Total                          | integer                                                                                           | true     | none       | Total        | Total data          |
+| Events                         | [[AppServiceEvents](#schemaappserviceevents)] | true     | none       |              | none                |
 
 ### AppServiceEvents<a id="schemaappserviceevents"></a>
 
@@ -95,19 +95,19 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 
 | name                             | type   | required | constraint | Chinese name | illustrate          |
 | -------------------------------- | ------ | -------- | ---------- | ------------ | ------------------- |
-| EventID                          | string | true     | none       | Eventid      | event id            |
-| UserName                         | string | true     | none       | Username     | Operator            |
-| EndTime                          | string | true     | none       | Endtime      | end event           |
-| Target                           | string | true     | none       | Target       | Action target type  |
-| OptType                          | string | true     | none       | Opttype      | event type          |
-| TargetID                         | string | true     | none       | Targetid     | Operation target id |
-| ServiceID                        | string | true     | none       | Serviceid    | service id          |
-| Status                           | string | true     | none       | Status       | state               |
-| RequestBody                      | string | true     | none       | Requestbody  | request parameters  |
-| create_time | string | true     | none       | Create time  | creation time       |
-| FinalStatus                      | string | true     | none       | Finalstatus  | final state         |
-| StartTime                        | string | true     | none       | Starttime    | Starting time       |
-| SynType                          | string | true     | none       | Syntype      | sync status         |
-| Message                          | string | true     | none       | Message      | log                 |
-| TenantID                         | string | true     | none       | Tenantid     | team id             |
-| ID                               | string | true     | none       | Id           | record id           |
+| EventID                          | String | true     | none       | Eventid      | event id            |
+| UserName                         | String | true     | none       | Username     | Operator            |
+| EndTime                          | String | true     | none       | Endtime      | end event           |
+| Target                           | String | true     | none       | Target       | Action target type  |
+| OptType                          | String | true     | none       | OptType      | event type          |
+| TargetID                         | String | true     | none       | Targetid     | Operation target id |
+| ServiceID                        | String | true     | none       | Serviceid    | service id          |
+| Status                           | String | true     | none       | Status       | state               |
+| Request Body                     | String | true     | none       | RequestBody  | request parameters  |
+| create_time | String | true     | none       | Create time  | creation time       |
+| FinalStatus                      | String | true     | none       | Finalstatus  | final state         |
+| StartTime                        | String | true     | none       | Starttime    | Starting time       |
+| Syntype                          | String | true     | none       | Syntype      | sync status         |
+| Message                          | String | true     | none       | Message      | log                 |
+| TenantID                         | String | true     | none       | Tenantid     | team id             |
+| ID                               | String | true     | none       | Id           | record id           |
