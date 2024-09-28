@@ -2,7 +2,7 @@
 title: Component horizontal scaling
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used for horizontal scaling of components
 
@@ -11,7 +11,7 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{s
 ```
 
 ```json title="Body 请求体示例"
-{
+LO
   "new_node": 0
 }
 ```
@@ -20,10 +20,10 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{s
 
 | name                             | Location | type                                                                    | required | Chinese name | illustrate |
 | -------------------------------- | -------- | ----------------------------------------------------------------------- | -------- | ------------ | ---------- |
-| app_id      | path     | integer                                                                 | Yes      |              | app id     |
-| team_id     | path     | string                                                                  | Yes      |              | none       |
-| region_name | path     | string                                                                  | Yes      |              | none       |
-| service_id  | path     | string                                                                  | Yes      |              | none       |
+| app_id      | Path     | integer                                                                 | Yes      |              | app id     |
+| team_id     | Path     | String                                                                  | Yes      |              | none       |
+| region_name | Path     | String                                                                  | Yes      |              | none       |
+| service_id  | Path     | String                                                                  | Yes      |              | none       |
 | body                             | body     | [AppServiceTelescopicHorizontal](#schemaappservicetelescopichorizontal) | no       |              | none       |
 
 ## return result
@@ -37,7 +37,7 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{s
 ### AppServiceTelescopicHorizontal<a id="schemaappservicetelescopichorizontal"></a>
 
 ```json
-{
+LO
   "new_node": 0
 }
 ```
