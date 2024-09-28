@@ -20,6 +20,9 @@
   "navbar.doc": {
     "message": "Docs"
   },
+  "navbar.market": {
+    "message": "Rainstore"
+  },
   "navbar.community": {
     "message": "Community"
   },

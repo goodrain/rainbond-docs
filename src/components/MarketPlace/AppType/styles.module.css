@@ -1,0 +1,49 @@
+/**
+ * Copyright (c) Goodrain, Inc.
+ *
+ * This source code is licensed under the LGPL-3.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ **/
+
+
+ @media screen and (max-width: 996px) {
+  .card {
+    width: 100% !important;
+  }
+}
+
+.card {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.card_body {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+.apptype_img {
+  width: 60%;
+  height: 340px;
+}
+.apptype_img img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.apptype_text{
+  width: 40%;
+  padding: 20px;
+  text-align: left;
+}
+.apptype_text h2{
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.apptype_text p{
+  font-size: 18px;
+  font-weight: 400;
+  color: #637792;
+}

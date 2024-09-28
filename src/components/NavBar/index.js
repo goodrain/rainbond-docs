@@ -28,52 +28,45 @@ export default function Index(props) {
               <li>
                 <Link to="/docs/">
                   <Translate id='navbar.doc'>
-                  文档
+                    文档
                   </Translate>
                 </Link>
               </li>
               <li>
                 <div className="dropdown dropdown--hoverable">
                   <Translate id='navbar.feature'>功能特性</Translate>
-                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
+                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg==" />
                   <ul className="dropdown__menu">
                     <li>
-                      <Link to="/xinchuang" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/xinchuang" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.xinchuang'>
                           信创
                         </Translate>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/feature/devops" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/feature/devops" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.feature.devops'>
                           一体化DevOps
                         </Translate>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/feature/multi-cluster" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/feature/multi-cluster" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.feature.k8scluster'>
                           Kubernetes多集群管理
                         </Translate>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/feature/service-mesh" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/feature/service-mesh" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.feature.servicemesh'>
                           开箱即用的微服务治理
                         </Translate>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/feature/app-market" className={clsx("dropdown__link",styles.DropDownFont)}>
-                        <Translate id='navbar.feature.appstore'>
-                          云原生应用市场
-                        </Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/feature/app-ops" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/feature/app-ops" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.feature.appops'>
                           自动化应用运维
                         </Translate>
@@ -85,31 +78,31 @@ export default function Index(props) {
               <li>
                 <div className="dropdown dropdown--hoverable">
                   <Translate id='navbar.learn'>深入</Translate>
-                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
+                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg==" />
                   <ul className="dropdown__menu">
                     <li>
-                      <Link to="/usescene" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/usescene" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.usescene'>
                           使用场景
                         </Translate>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/case" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/case" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.case'>
                           用户案例
                         </Translate>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/blog" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/blog" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.blog'>
                           博客
                         </Translate>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/docs/Intro" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/docs/Intro" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.intro'>
                           OpenAPI
                         </Translate>
@@ -120,39 +113,32 @@ export default function Index(props) {
               </li>
               <li>
                 <div className="dropdown dropdown--hoverable">
-                    <Translate id='navbar.community'>开源社区</Translate>
-                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
+                  <Translate id='navbar.community'>开源社区</Translate>
+                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg==" />
                   <ul className="dropdown__menu">
-                  <li>
-                      <Link to="https://hub.grapps.cn" className={clsx("dropdown__link",styles.DropDownFont)}>
-                        <Translate id='navbar.community.appstore'>
-                          应用商店
-                        </Translate>
-                      </Link>
-                    </li>
                     <li>
-                      <Link to="/partners" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/partners" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.community.partners'>
                           合作伙伴
                         </Translate>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/community/contribution/" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/community/contribution/" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.community.contribution'>
                           参与贡献
                         </Translate>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/community/support" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="/community/support" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.community.support'>
                           社区支持
                         </Translate>
                       </Link>
                     </li>
                     <li>
-                      <Link to="https://t.goodrain.com/" className={clsx("dropdown__link",styles.DropDownFont)}>
+                      <Link to="https://t.goodrain.com/" className={clsx("dropdown__link", styles.DropDownFont)}>
                         <Translate id='navbar.community.forum'>
                           用户论坛
                         </Translate>
@@ -161,11 +147,38 @@ export default function Index(props) {
                   </ul>
                 </div>
               </li>
+              {/* <li>
+                <div className="dropdown dropdown--hoverable">
+                  <Translate id='navbar.community'>产品</Translate>
+                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg==" />
+                  <ul className="dropdown__menu">
+                    <li>
+                      <Link to="/enterprise_server" className={clsx("dropdown__link", styles.DropDownFont)}>
+                        <Translate id='navbar.enterprise'>Rainbond 企业版</Translate>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/marketplace" className={clsx("dropdown__link", styles.DropDownFont)}>
+                        <Translate id='navbar.market'>
+                          Rainstore
+                        </Translate>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li> */}
               <li>
-                <Link to="/enterprise_server">
-                  <Translate id='navbar.enterprise'>企业版</Translate>
-                </Link>
-              </li>
+                      <Link to="/enterprise_server" >
+                        <Translate id='navbar.enterprise'>企业版</Translate>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/marketplace">
+                        <Translate id='navbar.market'>
+                          应用商店
+                        </Translate>
+                      </Link>
+                    </li>
               <li>
                 <a
                   className={styles.githubLogo}
@@ -219,38 +232,38 @@ export default function Index(props) {
             <li>
               <div className="dropdown dropdown--hoverable">
                 <Translate id='navbar.feature'>功能特性</Translate>
-                <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
+                <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg==" />
                 <ul className="dropdown__menu">
                   <li>
-                    <Link to="/feature/devops" className={clsx("dropdown__link",styles.DropDownFont)}>
+                    <Link to="/feature/devops" className={clsx("dropdown__link", styles.DropDownFont)}>
                       <Translate id='navbar.feature.devops'>
                         一体化DevOps
                       </Translate>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/feature/multi-cluster" className={clsx("dropdown__link",styles.DropDownFont)}>
+                    <Link to="/feature/multi-cluster" className={clsx("dropdown__link", styles.DropDownFont)}>
                       <Translate id='navbar.feature.k8scluster'>
                         Kubernetes多集群管理
                       </Translate>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/feature/service-mesh" className={clsx("dropdown__link",styles.DropDownFont)}>
+                    <Link to="/feature/service-mesh" className={clsx("dropdown__link", styles.DropDownFont)}>
                       <Translate id='navbar.feature.servicemesh'>
                         开箱即用的微服务治理
                       </Translate>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/feature/app-market" className={clsx("dropdown__link",styles.DropDownFont)}>
+                    <Link to="/feature/app-market" className={clsx("dropdown__link", styles.DropDownFont)}>
                       <Translate id='navbar.feature.appstore'>
                         云原生应用市场
                       </Translate>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/feature/app-ops" className={clsx("dropdown__link",styles.DropDownFont)}>
+                    <Link to="/feature/app-ops" className={clsx("dropdown__link", styles.DropDownFont)}>
                       <Translate id='navbar.feature.appops'>
                         自动化应用运维
                       </Translate>
@@ -262,31 +275,31 @@ export default function Index(props) {
             <li>
               <div className="dropdown dropdown--hoverable">
                 <Translate>深入</Translate>
-                <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
+                <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg==" />
                 <ul className="dropdown__menu">
                   <li>
-                    <Link to="/usescene" className={clsx("dropdown__link",styles.DropDownFont)}>
+                    <Link to="/usescene" className={clsx("dropdown__link", styles.DropDownFont)}>
                       <Translate id='navbar.usescene'>
                         使用场景
                       </Translate>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/case" className={clsx("dropdown__link",styles.DropDownFont)}>
+                    <Link to="/case" className={clsx("dropdown__link", styles.DropDownFont)}>
                       <Translate id='navbar.case'>
                         用户案例
                       </Translate>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/blog" className={clsx("dropdown__link",styles.DropDownFont)}>
+                    <Link to="/blog" className={clsx("dropdown__link", styles.DropDownFont)}>
                       <Translate id='navbar.blog'>
                         博客
                       </Translate>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/docs/Intro" className={clsx("dropdown__link",styles.DropDownFont)}>
+                    <Link to="/docs/Intro" className={clsx("dropdown__link", styles.DropDownFont)}>
                       <Translate id='navbar.intro'>
                         OpenAPI
                       </Translate>
@@ -305,10 +318,10 @@ export default function Index(props) {
                 <Link to="https://hub.grapps.cn" className={styles.StoreFont}>
                   <Translate id='navbar.appstore'>应用商店</Translate>
                 </Link>
-                <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg=="/>
+                <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg==" />
                 <ul className="dropdown__menu">
                   <li>
-                    <Link to="/opensourceApps" className={clsx("dropdown__link",styles.DropDownFont)}>
+                    <Link to="/opensourceApps" className={clsx("dropdown__link", styles.DropDownFont)}>
                       <Translate id='navbar.opensourceapps'>
                         精选应用
                       </Translate>
