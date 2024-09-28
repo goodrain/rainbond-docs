@@ -2,7 +2,7 @@
 title: Get team list
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to obtain the list of teams that the user belongs to.
 
@@ -14,15 +14,15 @@ GET /openapi/v1/teams
 
 | name                           | Location | type   | required | Chinese name | illustrate        |
 | ------------------------------ | -------- | ------ | -------- | ------------ | ----------------- |
-| query                          | query    | string | no       |              | Team name search  |
-| page                           | query    | string | no       |              | page number       |
-| page_size | query    | string | no       |              | Quantity per page |
+| Query                          | Query    | String | no       |              | Team name search  |
+| page                           | Query    | String | no       |              | page number       |
+| page_size | Query    | String | no       |              | Quantity per page |
 
 ## return result
 
-| status code | Status code meaning | illustrate | data model                          |
-| ----------- | ------------------- | ---------- | ----------------------------------- |
-| 200         | OK                  | success    | [ListTeamResp](#schemalistteamresp) |
+| status code | Status code meaning | illustrate | data model                         |
+| ----------- | ------------------- | ---------- | ---------------------------------- |
+| 200         | OK                  | success    | [ListTeamResp](#schemalistteamres) |
 
 ## Model
 
@@ -57,7 +57,7 @@ GET /openapi/v1/teams
 
 | name    | type                                                                              | required | constraint | Chinese name | illustrate |
 | ------- | --------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| total   | integer                                                                           | false    | none       | Total        | none       |
+| Total   | integer                                                                           | false    | none       | Total        | none       |
 | tenants | [[TeamInfo](#schemateaminfo)] | true     | none       |              | none       |
 
 ### TeamInfo<a id="schemateaminfo"></a>
@@ -86,21 +86,21 @@ GET /openapi/v1/teams
 
 | name                               | type                                                                              | required | constraint | Chinese name  | illustrate                                    |
 | ---------------------------------- | --------------------------------------------------------------------------------- | -------- | ---------- | ------------- | --------------------------------------------- |
-| tenant_id     | string                                                                            | true     | none       | Tenant id     | Team ID                                       |
-| tenant_name   | string                                                                            | true     | none       | Tenant name   | Team Name                                     |
-| tenant_alias  | string                                                                            | true     | none       | Tenant alias  | team alias                                    |
-| enterprise_id | string                                                                            | true     | none       | Enterprise id | Enterprise ID                                 |
-| is_active     | boolean                                                                           | false    | none       | Is active     | Activate now                                  |
-| create_time   | string                                                                            | false    | none       | Create time   | creation time                                 |
-| creator                            | string                                                                            | false    | none       | Creater       | Team owner user                               |
-| role_infos    | [[RoleInfo](#schemaroleinfo)] | false    | none       |               | The roles the user has in the team            |
+| tenant_id     | String                                                                            | true     | none       | Tenant id     | Team ID                                       |
+| tenant_name   | String                                                                            | true     | none       | Tenant name   | Team Name                                     |
+| tenant_alias  | String                                                                            | true     | none       | Tenant alias  | team alias                                    |
+| Enterprise_id | String                                                                            | true     | none       | Enterprise id | Enterprise ID                                 |
+| is_active     | boolean                                                                           | false    | none       | Is Active     | Activate now                                  |
+| create_time   | String                                                                            | false    | none       | Create time   | creation time                                 |
+| creator                            | String                                                                            | false    | none       | Creator       | Team owner user                               |
+| Role_infos    | [[RoleInfo](#schemaroleinfo)] | false    | none       |               | The roles the user has in the team            |
 | service_num   | integer                                                                           | false    | none       | Service num   | The number of components in the team          |
 | region_num    | integer                                                                           | false    | none       | Region num    | The number of data centers opened by the team |
 
 ### RoleInfo<a id="schemaroleinfo"></a>
 
 ```json
-{
+LO
   "role_name": "string",
   "role_id": "string"
 }
@@ -110,5 +110,5 @@ GET /openapi/v1/teams
 
 | name                           | type   | required | constraint | Chinese name | illustrate |
 | ------------------------------ | ------ | -------- | ---------- | ------------ | ---------- |
-| role_name | string | true     | none       | Role name    | Role Name  |
-| role_id   | string | true     | none       | Role id      | role id    |
+| role_name | String | true     | none       | Role name    | Role Name  |
+| role_id   | String | true     | none       | Role id      | role id    |
