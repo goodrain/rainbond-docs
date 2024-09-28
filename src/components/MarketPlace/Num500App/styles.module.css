@@ -1,0 +1,13 @@
+.global {
+  text-align: center;
+  line-height: 32px;
+  padding-bottom: 40px;
+  margin-top: 60px;
+}
+
+.title {
+  /* padding-top: 70px; */
+  font-size: 36px;
+  color: var(--ifm-color-primary-black);
+  padding-bottom: 70px;
+}

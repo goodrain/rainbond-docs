@@ -10,12 +10,12 @@ import React from "react";
 import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
 import clsx from "clsx";
-import Link from "@docusaurus/Link";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import Link from "@docusaurus/Link";
 import 'react-photo-view/dist/react-photo-view.css';
 import Translate from "@docusaurus/Translate";
 
-export default function Rainstore() {
+export default function Num500App() {
 
     const animatedTexts = useTrail(5, {
         from: { opacity: 0, transform: 'translateY(3em)' },
@@ -32,12 +32,12 @@ export default function Rainstore() {
         <div className={clsx('container', styles.global)}>
             <animated.div style={animatedTexts[0]}>
                 <h2 className={styles.title}>
-                    <Translate id="feature.app.title">500+ 开源应用一键部署和升级</Translate>
+                    <Translate id="feature.app.title">内置 500+ 开源应用</Translate>
                 </h2>
                 <div>
                     <PhotoProvider>
-                        <PhotoView src="/img/homepage/storelopo/lopo.png">
-                            <img src="/img/homepage/storelopo/lopo.png" />
+                        <PhotoView src="/img/rainstore/img/app_500.png">
+                            <img src="/img/rainstore/img/app_500.png" />
                         </PhotoView>
                     </PhotoProvider>
                 </div>

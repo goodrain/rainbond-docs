@@ -122,10 +122,6 @@ const config = {
                 to: '/feature/service-mesh'
               },
               {
-                label: '云原生应用市场',
-                to: '/feature/app-market'
-              },
-              {
                 label: '自动化应用运维',
                 to: '/feature/app-ops'
               }
@@ -287,10 +283,6 @@ const config = {
               {
                 label: '开箱即用的微服务治理',
                 to: '/feature/service-mesh'
-              },
-              {
-                label: '云原生应用市场',
-                to: '/feature/app-market'
               },
               {
                 label: '自动化应用运维',
