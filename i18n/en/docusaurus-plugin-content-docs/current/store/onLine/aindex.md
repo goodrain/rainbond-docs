@@ -1,50 +1,50 @@
 ---
-title: 概述
-description: 本章描述 开源应用商店 发布应用会有哪些价值。
+title: General description
+description: This chapter describes the value that the Open Source App Store will have.
 ---
 
-本章主要介绍如何将你自己的应用分享到开源应用商店。开源应用商店是一个云原生的应用市场，汇聚了各类开源应用，大家可以免费使用，也可以将自己的应用分享上来。目前开源应用商店已经汇聚了80余款开源应用和中间件，均可以一键安装使用。
+This chapter focuses on how to share your own apps to the Open Source App Store.The Open Source Store is a cloud-born app market that brings together various open source applications that can be used free of charge and shared with their own applications.The open source store now has more than 80 open source applications and middleware that can be used by one click to install them.
 
-建立一个好的开源生态环境离不开大家共同参与，如果你想你的应用让更多人使用，可以发布到应用商店，在这上面的应用或插件应用可以被所有 Rainbond 用户看见和使用。
+Creating a good open source ecosystem requires people to participate in it. If you want your app to be used more by people, it can be posted to the App Store where the app or plugin app can be seen and used by all Rainbond users.
 
-## 入驻权益
+## Residence interests
 
-我们欢迎所有的优秀开源项目入驻 Rainbond 应用商店，共建更强大的 「手机应用商店」 社区生态，从社区角度共同合作互利共赢。
+We welcome all excellent open source projects to the Rainbond App Store and build a stronger mobile app for community ecology and work together for mutual benefit from a community perspective.
 
-1. Rainbond 应用商店给企业、开发者和用户提供了一站式的服务。您可将应用程序发布到 Rainbond 应用商店，让更多的用户一键部署并使用您的应用。
+1. Rainbond App Store provides one-stop services to enterprises, developers and users.You can post the app to the Rainbond App Store, allowing more users to deploy and use your app on one key.
 
-2. 可以与 Rainbond 共同编写一些技术文章，会在 Rainbond 的所有自媒体渠道发布。
+2. Some technical articles can be prepared jointly with Rainbond and will be published in all autonomous media outlets of Rainbon.
 
-3. 可以作为 Rainbond 社区合作伙伴，可将您的 Logo 在 Rainbond 官网中展示。
+3. Your logo can be displayed in the Rainbond official network as a community partner.
 
-如果您要入驻应用或成为 Rainbond [社区合作伙伴](/partners)，可以通过以下联系方式，联系我们：
+If you want to post or become Rainbond [社区合作伙伴](/partners), contact us at：
 
 <div align="center">
   <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.12/store/onLine/aindex/zq-wechat.jpg" width="20%" />
 </div>
 
-## 发布应用流程
+## Publish App Process
 
-发布应用的前提是要有一个制作好的应用，而在 Rainbond 上制作应用非常简单，只需要参考[部署文档](/docs/use-manual/component-create)，将应用运行起来后，直接发布即可。你可以选择发布到本地或开源应用商店。
+The premise for publishing an app is that there is a finished app, and making an app on Rainbond is very simple, but only reference to[部署文档](/docs/use-manual/component-create) and publish it directly once it is running.You can choose to publish to a local or open source app store.
 
 <div align="center">
   <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.12/store/onLine/aindex/publish-app.png" width="100%" />
 </div>
 
-完整分享流程如上图所示，主要有以下七步：注册账号->完善个人信息->对接 Rainbond->发布应用->完善应用信息->管理套餐->上架应用。其中前两步和最后三步主要在开源应用商店中进行操作。只有对接应用商店和发布应用需要在 Rainbond 中进行操作。
+The full sharing process is illustrated by the following seven steps：Registering Account - >Perfect Personal Information->But Rainbond->Publish App->Performing Application Information->Manage Package->Listing apps.The first two and last three steps are mainly operated in open source application shops.Only handing over stores and publishing apps need to operate in Rainbond
 
-1. 注册账号：在应用市场注册一个账号，这个账号可以管理你发布的所有应用。
+1. Sign up for：to register an account on the Marketplace, which can manage all apps you have published.
 
-2. 完善个人信息：注册完成并登录后，点击右上角控制台可以进入应用市场的管理后台，此时会弹出提示，指引你去完善个人信息。这里的个人信息主要包含昵称、手机号、邮箱以及个人简介。这里面的昵称、邮箱和简介会在应用市场中进行展示。
+2. Once you complete your personal profile：registration and login, you can access the admin backends of the app market by clicking on the upper right corner. You will be prompted to complete your personal information.Your personal information here consists mainly of nickname, phone number, email address and personal profile.Nicknames, emails and profiles here are displayed in the Marketplace.
 
-3. 对接应用商店：此时在 Rainbond 中对接开源应用商店，使用手机号登录，登录完成后即可获得发布和安装权限。
+3. Access to the App Shop：is now connected to the Open Source Store in Rainbond using the phone number, and will be allowed to publish and install it once it is complete.
 
-4. 发布应用：主要是指将Rainbond中已正常运行的应用作为应用模版发布到应用市场中。如果要将某个应用或插件分享出去，那我们需要回到运行应用的拓扑图页面，点击左侧的发布-发布到云应用商店-选择开源应用商店-确认发布。接下来需要再回到应用市场进行管理。
+4. Publishing app：primarily refers to publishing a properly functioning app in Rainbod as an app template to the Marketplace.If you want to share an app or plugin, then we need to go back to the topographic page of the running app, click on the left to post to the cloud store - select an open source store - confirm publishing.Then there is a need to return to the application market for management.
 
-5. 完善应用信息：回到应用市场，点击右上角控制台，选择管理应用。这时候应该可以看到刚刚发布的应用模版。点击应用名称进入详情页面，此时需要编辑应用的名称、Logo、详细信息。补充更多的信息可以让别人更好的使用你的软件。
+5. Full app information：goes back to the Marketplace, click on the top right console and select the admin app.This should be a time to see the app template that has just been published.Tap the app name to enter the details page, and edit the app's name, logo, details at this time.Adding more information will make it easier for others to use your software.
 
-6. 管理套餐：当应用基础信息补充完成后，我们可以需要为其添加一个套餐，才可以上架。套餐在这里的作用主要是将应用的版本管理起来。用户使用不同的套餐安装的版本也不同。
+6. The admin package：can be added to it when the basic information of the app is replenished.The role of the package here is primarily to manage the version of the application.The versions of different packages installed by users are also different.
 
-7. 上架应用：此时我们已经补充完了应用的基本信息，并做好了上架前的准备。就可以准备上架了。只有上架的应用才可以被其他用户浏览和使用。回到管理应用的页面，选择上架即可。
+7. App：is now ready to add basic information about the app and ready to be listed.It is ready to be listed.Only listed apps can be viewed and used by other users.Go back to the admin app page and select the list to go.
 
-详细操作过程请参考文档[注册对接商店](/docs/store/onLine/create)、[发布应用](/docs/store/onLine/publish)、[管理应用](/docs/store/onLine/putaway)。
+For more information about the process, refer to documents[注册对接商店](/docs/store/onLine/create),[发布应用](/docs/store/onLine/publish),[管理应用](/docs/store/onLine/putaway).
