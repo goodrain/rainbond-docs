@@ -2,7 +2,7 @@
 title: 基于 Kubernetes 安装 Rainbond
 descrition: 该章节文档介绍基于已有的 k8s 集群，使用 helm 安装 Rainbond
 keywords:
-- 基于 Kubernetes 安装 Rainbond 集群
+  - 基于 Kubernetes 安装 Rainbond 集群
 ---
 
 本文将指引你在已有的 Kubernetes 集群中快速安装一套可用的 Rainbond 环境，支持自建集群、托管集群等。你可以根据自己的需求选择最适合你的安装方式。
