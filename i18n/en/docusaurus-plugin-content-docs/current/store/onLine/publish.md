@@ -1,17 +1,17 @@
 ---
-title: 发布应用
-description: 本章描述 开源应用商店 发布应用会有哪些价值。
+title: Publish App
+description: This chapter describes the value that the Open Source App Store will have.
 ---
 
-本节主要介绍如何将制作好的应用发布到应用商店，发布应用其实就是将应用的元数据打包成应用模版存储到了应用市场，应用模版定义了支持大型分布式的数字化业务系统的标准云原生应用模型、它可以包含1-N个服务组件，模型包含其中每个服务组件资源及配置，插件资源及配置，拓扑关系、部署关系等。制作完成后即可一键发布、一键安装。
+This section focuses on how developed applications can be released to the App Store. The applications are in fact stored in the App Market by packing the Applied Metadata into the Application Template, which defines the Standard Cloud Native Application Models that support the Large Digital Business Systems, which can include 1-N service components, including each service component resource and configuration, plugin resources and configurations, pop relationships, deployments, etc.Once produced, one click is published, one click is installed.
 
-## 应用发布流程
+## App Publishing Process
 
 在应用发布之前，你需要有一个正常运行的应用，我们可以在应用视图看到它的拓扑图以及运行状态，具体操作如下：
 
-- **第一步**：在应用拓扑图页面，点击左侧导航栏`发布`，选择`发布到云应用商店`，接下来选择开源应用商店并确认。
-- **第二步**：在发布页面，你可以完善应用的详细信息，如`应用模版名称`、`版本号`、`版本说明`、`组件配置`等信息。
-- **第三步**：完善好应用详细信息后，点击`提交`，将发起同步任务。由集群对应用中的每一个服务进行数据同步。发布到`云应用商店`，数据中心会将应用所需的镜像或源码包同步到好雨公有仓库，并将应用模版发送到`开源应用商店`保存。
-- **第四步**：当应用中的所有组件及插件全部完成同步后，点击 `确认发布`，即可完成应用发布。
+- **First step**：is on the App Popup page, click on the Left Navigation Bar `, select `Publish to the Cloud App Store\`, then select the Open Source Store and confirm.
+- **Step 2**：is on the release page and you can refine the app's details, such as `App template name', `Version Node', `Version description', `Component Configuration\`.
+- **Step 3**：will launch sync tasks by clicking `Submit` after you have completed app details.Synchronize data for each service in the app by cluster.Publish to the `cloud store`, the data center will synchronize the image or source package required for the app to the rain public repository and send the application template to the `Open Source Store`.
+- **Step 4**：will complete the app release when all components and plugins in the app are synced.
 
-发布完成后 Rainbond 可以看到发布记录、在应用市场登录后，则可以看到对应的应用版本并进行相应的管理。接下来你需要将应用`上架`，才能让你的应用被其他人看到和使用。在应用市场管理和上架应用参考[文档](/docs/store/onLine/putaway)。
+After the release has been completed, Rainbond can see the release record, after the application market is logged in, see the application version and manage it accordingly.Next you need to apply `listing` to make your app visible and available to others.App Marketplace Management and Listing Apps Reference[文档](/docs/store/onLine/putaway).
