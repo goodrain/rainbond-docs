@@ -2,7 +2,7 @@
 title: Add enterprise user
 ---
 
-## 基本信息
+## Basic Information
 
 Add enterprise user
 
@@ -11,7 +11,7 @@ POST /openapi/v1/administrators
 ```
 
 ```json title="Body请求参数"
-{
+LO
   "user_id": "string",
   "eid": "string"
 }
@@ -34,7 +34,7 @@ POST /openapi/v1/administrators
 ### CreateAdminUserReq
 
 ```json
-{
+LO
   "user_id": "string",
   "eid": "string"
 }
@@ -45,5 +45,5 @@ POST /openapi/v1/administrators
 
 | name                         | type   | required | constraint | Chinese name | illustrate    |
 | ---------------------------- | ------ | -------- | ---------- | ------------ | ------------- |
-| user_id | string | true     | none       | User id      | User ID       |
-| eid                          | string | true     | none       | Eid          | Enterprise ID |
+| user_id | String | true     | none       | User id      | User ID       |
+| eid                          | String | true     | none       | Eid          | Enterprise ID |
