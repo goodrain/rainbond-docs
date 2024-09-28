@@ -5,7 +5,8 @@ description: Explain the usage of rainbondfile file
 
 ## rainbondfile introduction
 
-rainbondfile is Rainbond's code-based strategy for specifying the environment in which a service will run.It is an ordinary text file in yaml format, which needs to be placed in the root directory of the code, which is suitable for all service types built based on source code.Currently rainbondfile supports defining `environment variables` `ports` `persistent storage` `startup commands` four items.During the process of creating a component, Rainbond will automatically set the content defined in it to the service properties, which can be viewed in the Rainbond console. The complete use case is as follows：
+rainbondfile is Rainbond's code-based strategy for specifying the environment in which a service will run.It is an ordinary text file in yaml format, which needs to be placed in the root directory of the code, which is suitable for all service types built based on source code.Currently rainbondfile supports defining `environment variables` `ports` `persistent storage` `startup commands` four items.During the process of creating a component, Rainbond will automatically set the content defined in it to the service properties, which can be viewed in the Rainbond console. The complete use case is as follows：It is itself a common yaml text file that needs to be placed in the root of the code, which applies to all source based service types.Currently, rainbondfile supports the definition of `environmental variables` of the `persistent storage` `launch command`.Rainbond automatically sets the content defined in it to the service property when creating the component and can be viewed in the Rainbond console.
+Full use of the following：
 
 ```bash
 language: Java-maven
@@ -25,7 +26,7 @@ cmd: java -jar xxxx.jar
 
 ## rainbondfile role
 
-The source code definition environment is the service management strategy recommended by Rainbond.Through the definition of rainbondfile, service attributes such as environment variables can be easily added in batches, and configurable attributes will be gradually added in subsequent versions.
+The source definition environment is Rainbond recommended service management strategy.The source code definition environment is the service management strategy recommended by Rainbond.Through the definition of rainbondfile, service attributes such as environment variables can be easily added in batches, and configurable attributes will be gradually added in subsequent versions.
 
 ## Description of supported configuration items
 

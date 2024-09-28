@@ -1,9 +1,9 @@
 ---
-title: 'Host-based installation'
+title: Host-based installation
 description: Troubleshoot faults based on host installation
 keywords:
-- 基于主机安装, 安装问题排查
-- 主机安装，安装问题排查
+  - Installing problems based on host installation
+  - Host installation, install troubleshooting
 ---
 
 When users install Rainbond from the host on the Web interface, problems encountered can be resolved based on the content of the current documentation.
@@ -16,27 +16,47 @@ Based on the host installation process, through Rainbond console/Adaptor (https:
 
 **Process for installing a Kubernetes cluster**
 
-* Based on [RKE](https://github.com/rancher/rke) encapsulates the page operation, simplifies the installation process.
+- Based on [RKE](https://github.com/rancher/rke) encapsulates the page operation, simplifies the installation process.
 
-* This process installs a complete set of Kubernetes clusters through the definition of a graphical interface. An error message may be displayed on the GUI during the installation. You need to manually install the [Kubectl command line tool](/docs/ops-guide/tools/#kubectl) after the installation is complete to ensure that the current cluster is available.
+- This process has installed a full set of Kubernetes clusters through the definition of the graphical interface.This process installs a complete set of Kubernetes clusters through the definition of a graphical interface. An error message may be displayed on the GUI during the installation. You need to manually install the [Kubectl command line tool](/docs/ops-guide/tools/#kubectl) after the installation is complete to ensure that the current cluster is available.
 
 **Process for installing the Rainbond cluster**
 
-The Rainbond components are installed based on the Kubernetes cluster that has been installed in the previous step. Installation process:
+The Rainbond components are installed based on the Kubernetes cluster that has been installed in the previous step. Installation process:Installed Process：
 
-* First, the Rainbond Operator is deployed, which manages the components of the Rainbond cluster.
-* All subsequent Pods are created by Operator in turn.
+- First, the Rainbond Operator is deployed, which manages the components of the Rainbond cluster.
+- All subsequent Pods are created by Operator in turn.
 
 ## Kubernetes installation FAQ
 
 ### Cluster must have at least one etcd plane host
 
-In this case, the node IP address or SSH port configured by you is incorrect or the port has a firewall policy, so the console cannot connect to the specified node. Reconfigure the correct node IP address and SSH port, or enable the firewall policy for the SSH port.
+In this case, the node IP address or SSH port configured by you is incorrect or the port has a firewall policy, so the console cannot connect to the specified node. Reconfigure the correct node IP address and SSH port, or enable the firewall policy for the SSH port.Reconfigure the correct node IP address and SSH port, or the firewall policy on the SSH port.
 
 Another possible scenario is that the owner and owner group of the `/home/docker/.ssh` directory on the host node where Rainbond is installed are not docker users. Run the following command to correct the error and try again:
 
 ```bash
-chown docker:docker /home/docker/.ssh
+chown docker: docker /home/docker/.ssh
+```
+
+You can regenerate key pairs if none can solve this problem.
+SSH key pair consists of private (private key) and public key.Authenticate with private keys and place public keys on the server to authorize access.要生成SSH密钥对，请在终端中运行以下命令：
+
+```bash
+ssh-keygen -t rsa
+```
+
+Copy the public key to the server.The default location for public key files is ~/.ssh/id_rsa.pub.你可以使用以下命令将公钥复制到目标服务器上：
+
+```bash
+# Replace below with your real IP
+ssh-copy-id docker@1.1.1.1
+```
+
+Verify whether the decrypted login was successful.Now you should be able to login directly to the server with the following commands without entering a password.
+
+```bash
+ssh docker@1.1.1.1
 ```
 
 ### node 192.168.1.11 not found
@@ -46,26 +66,26 @@ If `node 192.168.1.11 not found` is displayed when you install a Kubernetes clus
 ```bash
 $ docker logs -f kubelet
 
-E0329 13:07:24.125847    1061 kubelet_node_status.go:92] "Unable to register node with API server" err="Post \"https://127.0.0.1:6443/api/v1/nodes\": x509: certificate has expired or is not yet valid: current time 2023-03-29T13:07:24Z is before 2023-03-29T20:24:14Z" node="192.168.1.191"
-E0329 13:07:24.141600    1061 kubelet.go:2466] "Error getting node" err="node \"192.168.1.11\" not found"
-E0329 13:07:24.242506    1061 kubelet.go:2466] "Error getting node" err="node \"192.168.1.11\" not found"
+E0329 13:07:24.125847 1061 kubelet_node_status.go:92] "Unable to register node with API server" err="Post \" https://127. .0.1:6443/api/v1/nodes\": x509: certificate has expired or is not yet valid: current time 2023-03-29T13:07:24Z is before 2023-03-29T20:24:14Z" node="192. 68.1.191"
+E0329 13:07:24.141600 1061 kubelet.go:2466] "Error geting node" err="node \"192.168.1. 1\" not found"
+E0329 13:07:24.22506 1061 kubelet.go:2466] "Error geting node" err="node \"192.168.1.11\" not found"
 ```
 
 If the error message is the same as the preceding, check whether the time on each node is the same. If no, synchronize the time on all nodes.
 
 ```bash
-# 同步时间
-ntpdate -u ntp.aliyun.com
+# Sync Time
+ntUpdate -u ntp.aliyun.com
 
-# 硬件时间同步
-hwclock -w
+# Hardware Time Sync
+hwclk-w
 ```
 
 :::tip
 You are advised to restart the server after synchronizing the time.
 :::
 
-### rejected: administratively prohibited
+### rejected: administratively banned
 
 In this case, the sshd service configuration of the host server is limited. Edit the '/etc/ssh/sshd_config' file of the host to confirm that the following configuration exists:
 
@@ -76,7 +96,7 @@ AllowTcpForwarding yes
 After the modification, restart the sshd service:
 
 ```bash
-systemctl restart sshd
+systemctl start sshd
 ```
 
 ### Can't retrieve Docker Info: error during connect: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.24/info: Unable to access node
@@ -84,10 +104,10 @@ systemctl restart sshd
 This is usually due to the SSH connection is not caused, the default re-initialization script will add the SSH key, for non-secret login, you can solve the problem by the following command:
 
 ```bash
-# 进入 rainbond-allinone 容器
+# Enter the rainbod-allinone container
 docker exec -it rainbond-allinone bash
 
-# 使用 ssh 登陆节点
+# Use ssh login nodes
 ssh docker@192.168.x.xs
 ```
 
@@ -105,59 +125,59 @@ Or you can choose to clear [cluster](/docs/installation/uninstall)
 
 ### Check the health of Kubernetes
 
-The Kubernetes cluster is not necessarily available after the GUI installation process is complete. Please determine their health status in the following ways.
+The Kubernetes cluster is not necessarily available after the GUI installation process is complete. Please determine their health status in the following ways.Please determine their health status by the following means.
 
 Determine whether all nodes in the Kubernetes cluster are in a healthy state by using the following command
 
 ```bash
-# 检查节点
+# Check node
 kubectl get node 
 
-# 如果某个节点处于 `NotReady` 状态，通过以下命令在对应节点查询 `kubelet` 日志，根据日志输出解决节点问题
-docker logs -f kubelet
+# If a node is in `NotReady` status, search the `kubelet` log in the corresponding node by following commands, solve node problems based on log output
+docker logs-f kubelet
 ```
 
 Determine whether flannel and coredns in the kube-system namespace work properly by using the following command.
 
 ```bash
 $ kubectl get pod -n kube-system 
-NAME                                  READY   STATUS      RESTARTS   AGE
-coredns-8644d6bd8c-s2888              1/1     Running     5          30d
-coredns-autoscaler-74cd6f74d9-dc4vm   1/1     Running     5          30d
-kube-flannel-75nfv                    2/2     Running     14         30d
-rke-coredns-addon-deploy-job-kk7kq    0/1     Completed   0          30d
-rke-network-plugin-deploy-job-xb9bw   0/1     Completed   0          30d
+NAME READY STARTS AGE
+coredns-864d6bd8c-s28881/1 Running 5 30d
+coedns-autoscal-74 cd6f74d9-dc4vm 1/1 Running 5 30d
+kube-flannel-75nfv 2/2 Running 14 30d
+rke-coredns-de-employ-k7kq 0/1 Completed 0 30d
+rke-network-plugin-de-employ-job-xb9bw 0/1 Completed 0 30d d d
 ```
 
 If the pod corresponding to `kube-flannel` and `coredns` is found to be in other states, it needs to query the log to solve it:
 
 ```bash
-# 查询 coredns 日志
-kubectl logs -f coredns-8644d6bd8c-s2888 -n kube-system
+# Query coredns log
+kubectl logs -f coredns-8644d6bd8c-s2888-n kube-system
 
-# 查询 kube-flannel 日志
-kubectl logs -f kube-flannel-75nfv -n kube-system -c kube-flannel
+# Quie-flanel log
+kubectl logs -f kube-flannel-75nfv -n kube-system - c kube-flanel
 ```
 
-#### Common problems
+#### Common problem
 
-##### coredns error：plugin/loop: Loop (127.0.0.1:58477 -> :53) detected for zone ".", see https://coredns.io/plugins/loop#troubleshooting. 
+##### coredns error：plugin/loop: Loop (127.0.0.1:58477 -> :53) detected for zone ".", see https://coredns.io/plugins/loop#troubleshooting.
 
-This problem indicates that `coredns` is experiencing a loop resolution problem, causing it to not work properly. Pay attention to whether the nameserver defined in the `/etc/resolv.conf` file of each node in `Kubernetes` is the local loopback address of `127.0.0.1`. coredns references this file content as the upstream DNS server by default. Writing the above address will cause circular resolution, which may cause the server to crash. The solution:
+In general, it is due to insufficient system memory or disk resources. `df -Th` can view the resource usage of the docker data directory. If the percentage is greater than 85%, it is necessary to clean up the resources in time, especially some large files and docker images.This problem indicates that `coredns` is experiencing a loop resolution problem, causing it to not work properly. Pay attention to whether the nameserver defined in the `/etc/resolv.conf` file of each node in `Kubernetes` is the local loopback address of `127.0.0.1`. coredns references this file content as the upstream DNS server by default. Writing the above address will cause circular resolution, which may cause the server to crash. The solution:Solved scheme：
 
 1. Simply change /etc/resolv.conf to nameserver followed by an available dns server address (beware that this file may be maintained by some random file that overwrites your custom values).
 2. Directly modify coredns configmap by defining forward-114.114.114.114 instead of "/etc/resolv.conf".
 
 ##### flannel error：Failed to find any valid interface to use: failed to get default interface: Unable to find default route
 
-This error means that the host node where the flannel is located does not have a default route. As a result, the flannel cannot work properly. This is common in offline environments. The solution is to add a default route to the operating system.
+This error means that the host node where the flannel is located does not have a default route. As a result, the flannel cannot work properly. This is common in offline environments. The solution is to add a default route to the operating system.This is often the case in offline environments.The solution is to add the default route to the operating system.
 
 ##### The kernel version is too high or too low
 
 Operating system kernel versions below 3.10.0-514 will not be supported by the docker overlay2 storage engine.
 
 Some kernels with versions higher than 5.16 will cause containers not to be created.
- 
+
 Recommended [reference/upgrade the kernel version](https://t.goodrain.com/t/topic/1305) to install the kernel - lt branch of long-term support version of the kernel.
 
 ## Rainbond cluster initialization Exception analysis
@@ -168,11 +188,9 @@ In the process of docking, you can click 'view components' to observe the instal
 
 <img src="https://static.goodrain.com/docs/5.6/operator/operator-1.png" title="operator" width="60%" />
 
-
-### Common problem
+### Common problems
 
 #### rainbond-operator error：open /run/flannel/subnet.env: no such file or directory
-
 
 This problem means that flannel is not working properly. Refer to the previous section to find out how to check the corresponding log and resolve it.
 
@@ -215,7 +233,7 @@ example：
 Viewing component logs
 
 ```bash
-kubectl logs -f  <pod name>  -n rbd-system
+kubtl logs -f  <pod name>  -n rbd-system
 ```
 
 #### Common Pod abnormal status
@@ -224,9 +242,8 @@ kubectl logs -f  <pod name>  -n rbd-system
 
 This status usually indicates that the Pod has not yet been scheduled on a Node. You can view the current Pod event by using the following command to determine why it has not been scheduled.
 
-
 ```bash
-kubectl describe pod <pod name>  -n  rbd-system
+kubtl description pod <pod name>-n rbd-system
 ```
 
 View the Events field and analyze the cause.
@@ -236,24 +253,25 @@ View the Events field and analyze the cause.
 This state usually indicates that the Pod is in a waiting or creation state, and if it is in this state for a long time, view the events of the current Pod by using the following command.
 
 ```bash
- kubectl describe pod <pod name>  -n  rbd-system
+ kubtl description pod <pod name>  -n rbd-system
 ```
 
 View the Events field and analyze the cause.
 
-##### imagePullBackOff 
+##### imagePullBackOff
 
 This status usually indicates that the mirror failed to be pulled. Run the following command to check which mirror failed to be pulled, and then check whether the mirror exists locally.
 
 ```bash
-kubectl describe pod <pod name>  -n  rbd-system
+kubtl description pod <pod name>  -n rbd-system
 ```
+
 View the Events field to view the image name.
 
 Check whether the image exists locally
 
 ```bash
-docker images | grep <image name>
+Docker images | grep <image name>
 ```
 
 ##### CrashLoopBackOff
@@ -261,18 +279,19 @@ docker images | grep <image name>
 The CrashLoopBackOff status indicates that the container has been started but exits abnormally. Generally, the problem is the application itself, so you should check the container log first.
 
 ```bash
-kubectl logs --previous <pod name> -n  rbd-system
+kubtl logs --previous <pod name> -n rbd-system
 ```
 
 ##### Evicted
-In general, it is due to insufficient system memory or disk resources. `df -Th` can view the resource usage of the docker data directory. If the percentage is greater than 85%, it is necessary to clean up the resources in time, especially some large files and docker images.
+
+The eviction, which is mostly found in Pod when resources are insufficient, is usually due to inadequate system memory or disk resources, `df Th` can view the use of resources in docker data directories, and if the percentage is more than 85%, the resources will be cleaned up in a timely manner, especially some large files, docker images.
 
 To clear a pod whose status is Evicted, use the following command:
 
 ```bash
-kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
+kubtl get methods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
 ```
 
-##### FailedMount
+##### Failed Mount
 
-If the volume fails to be mounted, check whether the specified file system clients are installed on all host nodes. For example, Rainbond installs nfs as cluster shared storage by default, and you might see the following error in Events: `Unable to attach or mount volumes: unmount volmes=[grdata access region-api-ssl rainbond-operator-token-xxxx]: timed out waiting for the condition`. This is usually because the host does not have an nfs client package such as `NFs-client` or `NFS-common` installed.
+Mount volume failed, to follow whether all hostnodes have installed the specified filesystem client.If the volume fails to be mounted, check whether the specified file system clients are installed on all host nodes. For example, Rainbond installs nfs as cluster shared storage by default, and you might see the following error in Events: `Unable to attach or mount volumes: unmount volmes=[grdata access region-api-ssl rainbond-operator-token-xxxx]: timed out waiting for the condition`. This is usually because the host does not have an nfs client package such as `NFs-client` or `NFS-common` installed.This is usually because the host does not have `nfs-client` or `nfs-common` client packages.

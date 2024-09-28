@@ -42,7 +42,7 @@ Currently in 5.1.9, Rainbond only supports `resource indicators`, which are indi
 At the most basic level, the Horizontal Pod Autoscaler calculates the desired number of instances based on the ratio of the metric's target value to the metric's actual value:
 
 ```bash
-desiredReplicas = ceil[currentReplicas * ( currentMetricValue / desiredMetricValue )]
+desiredReplicas = ceil [currentReplicas * (currentMetricValue / desiredMetricValue)]
 ```
 
 For example, if the actual value of the indicator is 200m, and the expected value is 100m, then the number of instances will be doubled, because `200.0 / 100.0 == 2.0`; if the actual value is reduced to 50m, then the number of instances will remain unchanged, because `50.0 / 100.0 == 0.5`(ratio close to 1.0, the HPA controller will skip scaling).

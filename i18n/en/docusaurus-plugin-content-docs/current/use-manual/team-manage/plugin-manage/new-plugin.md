@@ -3,11 +3,11 @@ title: Plugin production
 description: Explain how to make a plugin
 ---
 
-This article mainly introduces the design of the plug-in and the creation process of the plug-in.Make users have a certain understanding of Rainbond plug-ins, and can make simple plug-ins.
+This article mainly introduces the design of the plug-in and the creation process of the plug-in.Make users have a certain understanding of Rainbond plug-ins, and can make simple plug-ins.Users have some knowledge of Rainbond plugins and can create simple plugins.
 
 ### Plug-in system design
 
- The abstraction of Rainbond's plug-in system focuses on the business level of the platform. The theoretical basis is derived from the pod mechanism of Kubernetes and some container concepts.The process of abstracting kubernetes container orchestration at the platform business level and transforming it into a Rainbond plug-in product that is friendly to the user experience, which is convenient for users to use without knowing the principles of Kubernetes.
+The abstraction of Rainbond's plug-in system focuses on the business level of the platform. The theoretical basis is derived from the pod mechanism of Kubernetes and some container concepts.The process of abstracting kubernetes container orchestration at the platform business level and transforming it into a Rainbond plug-in product that is friendly to the user experience, which is convenient for users to use without knowing the principles of Kubernetes.Abstracts on the platform level of operations at kubernetes containers, turning into a user-friendly process of Rainbond plugin products that can be easily used by users without needing to use Kubernetes principles.
 
 #### Design Principles
 
@@ -19,7 +19,7 @@ In the Rainbond plug-in system, the process of plug-in use is the process of com
 
 init container
 
-A pod can encapsulate multiple containers, and applications run in these containers; at the same time, a pod can have one or more init containers, which are started before the application container is started.If the init container of a pod fails to start and run, Kubernetes will continuously restart the pod until the init container starts and runs successfully.Of course, we can set the pod's restartPolicy to Never to prevent it from restarting repeatedly.
+A pod can encapsulate multiple containers, and applications run in these containers; at the same time, a pod can have one or more init containers, which are started before the application container is started.If the init container of a pod fails to start and run, Kubernetes will continuously restart the pod until the init container starts and runs successfully.Of course, we can set the pod's restartPolicy to Never to prevent it from restarting repeatedly.If a pod init container fails to start, Kubernetes will continue to restart pod until init container starts successfully.Of course, we can set a return policy value for a pod that prevents it from restarting again.
 
 sidecar container
 
@@ -31,15 +31,15 @@ The easy-to-use principle of the Rainbond plug-in system is reflected in `types 
 
 #### class application
 
-The Rainbond plug-in system has designed a life cycle similar to that of applications, including creating, enabling, closing and other modes, which is consistent with the habits of users of the Rainbond platform to operate applications.At the same time, the Rainbond plug-in system simplifies the type of plug-in creation and supports creation based on docker image and dockerfile. Creating plug-ins is easier than creating applications.
+The Rainbond plugin system designs a life cycle similar to the application for plugins that includes modes of creation, enablement, shutdown, etc. consistent with the usage of the application used by users of the Rainbond platform.The Rainbond plug-in system has designed a life cycle similar to that of applications, including creating, enabling, closing and other modes, which is consistent with the habits of users of the Rainbond platform to operate applications.At the same time, the Rainbond plug-in system simplifies the type of plug-in creation and supports creation based on docker image and dockerfile. Creating plug-ins is easier than creating applications.
 
 The plug-in creation process design is shown in the figure below：
 
 ![Plugin creation process](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/plugin/Rainbond%E6%8F%92%E4%BB%B6%E5%88%9B%E5%BB%BA%E6%B5%81%E7%A8%8B.png)
 
-It should be noted that when a plug-in version is fixed, its memory, version information, and plug-in variables cannot be modified. These elements only apply to the current plug-in version.When elements such as plugin variables need to be modified, rebuild the plugin by`and`, and repeat the creation process.
+It should be noted that when a plug-in version is fixed, its memory, version information, and plug-in variables cannot be modified. These elements only apply to the current plug-in version.When elements such as plugin variables need to be modified, rebuild the plugin by`and`, and repeat the creation process.When making network management and plug-ins, you can use component ports and downstream component ports to monitor them to meet the needs of network management.Generic types and initialization types plugins use no dependencies by default.
 
-After the creation is completed, the user can make targeted settings for the plug-in. Currently, variables, whether the plug-in is valid or not, and memory settings can be set.The memory limit will be limited when the pod is created, and the plugin variables will take effect and real-time modification will continue to be introduced below.
+Once created, the user will be able to target the plugin. You can now set the variables, the plugin will take effect and the memory settings.After the creation is completed, the user can make targeted settings for the plug-in. Currently, variables, whether the plug-in is valid or not, and memory settings can be set.The memory limit will be limited when the pod is created, and the plugin variables will take effect and real-time modification will continue to be introduced below.
 
 #### Unique variable scope
 
@@ -49,7 +49,7 @@ The shared variable is the variable of the main container. In order to allow the
 
 ### Plugin configuration
 
-The plugin information is divided into two parts,`version basic information` and `configuration group management`.Specify the plugin's build sources and the configuration of plugin variables separately.
+The plugin information is divided into two parts,`version basic information` and `configuration group management`.Specify the plugin's build sources and the configuration of plugin variables separately.Specifies the build source of the plugin and configuration of the plugin variable respectively.
 
 #### Version basic information
 
@@ -57,38 +57,37 @@ The version information specifies the plugin's installation source, plugin type,
 
 - installation source
 
-  Rainbond provides two installation sources: `image` and `Dockerfile`.When using a mirror, provide the mirror address.When using the Dockerfile, provide the project source code address.
+  Rainbond provides two installation sources: `image` and `Dockerfile`.When using a mirror, provide the mirror address.When using the Dockerfile, provide the project source code address.Provide a mirror address when using a mirror.Provide the project source address when using the Dockerfile file.
 
 - Plugin type
 
   Plug-in types have `entry network`,`exit network`,`exit entry co-governance network`,`performance analysis`,`initialization type`and`general type`.
 
-  `ingress network`,`egress network`,`egress ingress co-governance network` and `performance analysis` four types of plug-ins have the default support of Rainbond and are used as the default plug-in type.When users create a new plug-in, they can use `to initialize type` and `to general type` , two completely open types.
+  `ingress network`,`egress network`,`egress ingress co-governance network` and `performance analysis` four types of plug-ins have the default support of Rainbond and are used as the default plug-in type.When users create a new plug-in, they can use `to initialize type` and `to general type` , two completely open types.When a user creates a new plugin, the `initialization type` and the `generic type` are two fully open types.
 
 #### Plugin variable configuration
 
 Plugin variables contain dependency metadata types, injection types and configuration item settings
 
-Plug-in variables are set in the way of `configuration management group` , and the settings of plug-in variables are different between different configuration management groups.The settings of the plugin variables include `dependent metadata types`,`injection types` and `configuration items`.
+Plug-in variables are set in the way of `configuration management group` , and the settings of plug-in variables are different between different configuration management groups.The settings of the plugin variables include `dependent metadata types`,`injection types` and `configuration items`.The plugin variable is set to include the `dependency metadata`, `injected` and `configuration`.
 
 - Depends on metadata type
 
   Depending on the metadata type, you can choose `independent of`, `component ports` and `downstream component ports` three options.
 
-  When making network management and plug-ins, you can use component ports and downstream component ports to monitor them to meet the needs of network management.Generic types and initialization types plugins use no dependencies by default.
+  Component and downstream component ports can be used to monitor and meet network governance requirements when creating network governance, plugins and plugins.Generic type and initialization type plugins are not dependent by default.
 
 - injection type
 
-  When the dependent metadata type chooses not to depend, the injection type has `environment variables` and `actively discovered`.Users can use environment variables to set configuration items, or use active discovery to dynamically set configuration items.
+  The injection type has `environmental variables` and `found actively` when the dependency of the metadata type is selected.When the dependent metadata type chooses not to depend, the injection type has `environment variables` and `actively discovered`.Users can use environment variables to set configuration items, or use active discovery to dynamically set configuration items.
 
 - configuration item
 
   The configuration item supports setting `protocol` and `parameter type`.
 
-  The purpose of the protocol setting is to support different port protocols differently.After the configuration in the configuration item sets the protocol, if it is inconsistent with the protocol of the listening port, the configuration cannot be performed, and naturally it cannot take effect during the use process.
+  The purpose of the protocol is to provide different support for different port agreements.The purpose of the protocol setting is to support different port protocols differently.After the configuration in the configuration item sets the protocol, if it is inconsistent with the protocol of the listening port, the configuration cannot be performed, and naturally it cannot take effect during the use process.
 
-  The parameter type supports `string`,`single choice` and `multiple choice` three types, providing rich parameter configuration for selection when using the plug-in.If the parameter type is selected as radio, when using this plug-in to configure the parameters, you can select the required value from the set value.
-
+  The parameter type supports `string`,`single choice` and `multiple choice` three types, providing rich parameter configuration for selection when using the plug-in.If the parameter type is selected as radio, when using this plug-in to configure the parameters, you can select the required value from the set value.If the parameter type is selected, the required value can be selected from the set value when using this plugin to configure the parameter.
 
 ### Plugin production
 
@@ -182,7 +181,7 @@ spec:
         emptyDir: {}
 ```
 
-The template is divided into two containers, one is the log generation service and the other is the log collection service.The two realize shared storage by mounting `nginx-log` storage at the same time, so that the log collection service can collect logs.
+The template is divided into two containers, one a log generation service and a log collection service.The template is divided into two containers, one is the log generation service and the other is the log collection service.The two realize shared storage by mounting `nginx-log` storage at the same time, so that the log collection service can collect logs.
 
 In addition to the mirror provided by the log collection service, you need to specify environment variables such as `ALIYUN_LOGTAIL_USER_ID`, `ALIYUN_LOGTAIL_USER_DEFINED_ID`,  `ALIYUN_LOGTAIL_CONFIG`, `ALIYUN_LOG_ENV_TAGS` to configure the log collection service.
 
@@ -194,7 +193,7 @@ On the plug-in page of the team management page, select New plug-in, choose `for
 
 - Plugin variable settings
 
-In the plugin's admin page, add plugin `to configure management group`.Add the environment variables in the template to the configuration management group of the plugin in the injection method of `environment variable` , using `strings and` parameters, and after installing and enabling the plugin, you can configure these environment variables to make them Takes effect in the plugin container.
+Add the plugin `Configure Group` to the plugin management page.In the plugin's admin page, add plugin `to configure management group`.Add the environment variables in the template to the configuration management group of the plugin in the injection method of `environment variable` , using `strings and` parameters, and after installing and enabling the plugin, you can configure these environment variables to make them Takes effect in the plugin container.
 
 Such a log collection plug-in is completed, and it can be installed in a component that generates log files to collect logs and test them on the Alibaba Cloud platform.
 

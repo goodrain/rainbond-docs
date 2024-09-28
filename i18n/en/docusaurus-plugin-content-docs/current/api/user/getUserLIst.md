@@ -10,26 +10,23 @@ get user list
 GET /openapi/v1/users
 ```
 
-
 ## request parameters
 
-| name      | Location | type   | required | illustrate                            |
-| --------- | -------- | ------ | -------- | ------------------------------------- |
-| query     | query    | string | no       | Username, Email, Mobile Number Search |
-| page      | query    | string | no       | page number                           |
-| page_size | query    | string | no       | Quantity per page                     |
-
+| name                           | Location | type   | required | illustrate                            |
+| ------------------------------ | -------- | ------ | -------- | ------------------------------------- |
+| Query                          | Query    | String | no       | Username, Email, Mobile Number Search |
+| page                           | Query    | String | no       | page number                           |
+| page_size | Query    | String | no       | Quantity per page                     |
 
 ## return result
 
-| status code | Status code meaning | illustrate | data model                              |
-| ----------- | ------------------- | ---------- | --------------------------------------- |
-| 200         | OK                  | success    | [ListUsersRespView](#listusersrespview) |
-
+| status code | Status code meaning | illustrate | data model                             |
+| ----------- | ------------------- | ---------- | -------------------------------------- |
+| 200         | OK                  | success    | [ListUsersRespView](#listusersresview) |
 
 ## Model
 
-### listusersrespview
+### listusersreply
 
 ```json
 {
@@ -53,7 +50,7 @@ GET /openapi/v1/users
 
 ### Attributes
 
-| name  | type                                              | required | constraint | Chinese name | illustrate |
-| ----- | ------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| users | [[UserInfo](/docs/api/user/getUserInfo#userinfo)] | true     | none       |              | none       |
-| total | integer                                           | true     | none       | Total        | none       |
+| name  | type                                                                                                  | required | constraint | Chinese name | illustrate |
+| ----- | ----------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| Users | [[UserInfo](/docs/api/user/getUserInfo#userinfo)] | true     | none       |              | none       |
+| Total | integer                                                                                               | true     | none       | Total        | none       |

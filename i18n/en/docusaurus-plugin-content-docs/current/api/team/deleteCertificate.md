@@ -12,10 +12,10 @@ DELETE /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 ## request parameters
 
-| name           | Location | type   | required | Chinese name | illustrate |
-| -------------- | -------- | ------ | -------- | ------------ | ---------- |
-| team_id        | path     | string | Yes      |              | none       |
-| certificate_id | path     | string | Yes      |              | none       |
+| name                                | Location | type   | required | Chinese name | illustrate |
+| ----------------------------------- | -------- | ------ | -------- | ------------ | ---------- |
+| team_id        | Path     | String | Yes      |              | none       |
+| certificate_id | Path     | String | Yes      |              | none       |
 
 ## return result
 

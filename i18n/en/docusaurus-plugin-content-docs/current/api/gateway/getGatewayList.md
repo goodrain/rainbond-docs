@@ -12,12 +12,11 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains
 
 ## request parameters
 
-| name        | Location | type    | required | Chinese name | illustrate |
-| ----------- | -------- | ------- | -------- | ------------ | ---------- |
-| app_id      | path     | integer | Yes      |              | App ID     |
-| team_id     | path     | string  | Yes      |              | none       |
-| region_name | path     | string  | Yes      |              | none       |
-
+| name                             | Location | type    | required | Chinese name | illustrate |
+| -------------------------------- | -------- | ------- | -------- | ------------ | ---------- |
+| app_id      | Path     | integer | Yes      |              | App ID     |
+| team_id     | Path     | String  | Yes      |              | none       |
+| region_name | Path     | String  | Yes      |              | none       |
 
 ## return result
 
@@ -84,7 +83,7 @@ GET /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains
 
 ### Attributes
 
-| name | type                                        | required | constraint | Chinese name | illustrate |
-| ---- | ------------------------------------------- | -------- | ---------- | ------------ | ---------- |
-| http | [[HTTPGatewayRule](#schemahttpgatewayrule)] | false    | none       |              | none       |
-| tcp  | [[TCPGatewayRule](#schematcpgatewayrule)]   | false    | none       |              | none       |
+| name                            | type                                                                                          | required | constraint | Chinese name | illustrate |
+| ------------------------------- | --------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
+| country_pc | [[HTTPGatewayRule](#schemahttpgewayrule)] | false    | none       |              | none       |
+| tcp                             | [[TCPGatewayRule](#schematcpgatewayrule)] | false    | none       |              | none       |

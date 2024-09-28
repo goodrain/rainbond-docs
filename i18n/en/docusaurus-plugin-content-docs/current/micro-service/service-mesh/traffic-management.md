@@ -3,22 +3,22 @@ title: Traffic routing management
 description: This section describes how to manage microservice traffic routing based on Rainbond
 ---
 
-流量路由管理包括网关边缘流量路由和组件间通信流量路由。流量路由管理的目的旨在根据业务需要灵活的调整流量走向，实现灰度发布，A/B 测试等高级服务发布场景。
+Traffic router management includes gateway edge traffic routing and inter-component traffic routes.The purpose of the traffic routing management is to adjust the flow direction to the business needs of the country, achieve a grey release scenario for advanced services such as A/B tests.
 
-### 网关边缘流量路由
+### Gateway Edge Traffic Routes
 
-网关边缘流量路由请参考 [通过域名访问提供 HTTP 服务的组件](/docs/use-manual/team-manage/gateway/rules/domain)
+Gateway Edge Traffic Route please refer to [components providing HTTP services via domain name](/docs/use-manual/team-manage/gateway/rules/domain)
 
-### 组件间通信路由
+### Communication route between components
 
-Rainbond 中组件间通信默认情况下采用 TCP 4 层通信，因此默认情况下无需设置路由参数。当我们希望从应用层通信控制流量时，需要安装 [出口网络治理插件](/docs/use-manual/team-manage/plugin-manage/) 。将服务间的通信治理升级为 7 层通信治理。目前只支持 Restful 协议路由管理，支持以下路由参数：
+By default communication between Rainbond Central components is used as TCP 4 layers of communication, so no route parameters need to be set by default.You need to install [出口网络治理插件](/docs/use-manual/team-manage/plugin-manage/) when we want to control traffic from the application layer.Upgrade the communications governance between services to 7 layers of communications governance.Only Restful protocol routing is currently supported. The following route parameter： is supported
 
-1. <b>域名</b> 5.2.0 版本以前，该域名仅支持自定义顶级域名，比如 `user`。5.2.0 版本以后支持定义多级域名，比如`user.domian`。Rainbond 将自动完成填写域名的域名解析。Mesh 层根据流量访问的域名进行路由。
+1. Until version <b>of domain name</b> 5.2.0, this domain only supports custom top level domain, such as `user`.Version 5.2.0 supports the definition of multiple domain names such as `user.domian`.Rainbond will automatically complete the domain name parsing for the domain name.The Mesh layer is routed according to the name of the traffic access.
 
-2. <b>请求路径</b> 根据请求路径进行匹配路由策略。
+2. <b>Request Path</b> to match routing policy based on the requested path.
 
-3. <b>请求头</b> 根据请求头信息进行路由匹配。
+3. <b>Request Header</b> matches the request header information.
 
-在插件配置中，需用开发者针对每一个通信链路进行路由匹配。比如 A 组件依赖 B\C\D 组件，分别使用 `domain.b` `domain.c` `domain.d` 域名进行通信。那么需要在插件配置中分别对 B\C\D 三个组件的链路上信息域名配置。
+In the plugin configuration, routing needs to be matched by a developer for each communication link.For example, component A depends on the B\C\D component, communications using the domain name `domain.b` `domain.c` or `domain.d` respectively.The domain name of the B\C\D components is then configured separately in the plugin configuration.
 
 ![组件间路由参数配置](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/plugin.png)

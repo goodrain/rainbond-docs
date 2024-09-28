@@ -18,14 +18,18 @@ In this step, you need to provide an available Go source code program for deploy
 
 1. `go build`,`go run` which works fine locally.
 
-2. Source code programs must be hosted on git or svn services such as gitlab.<!-- 3. 在根目录的`/Godeps`目录下有`Godeps.json`文件，标识应用由\[godep\](https://devcenter.heroku.com/articles/go-dependencies-via-godep)管理;在根目录的`/vendor`目录下有`Govendor.json`文件，标识应用由\[govendor\](https://devcenter.heroku.com/articles/go-dependencies-via-govendor)管理;在根目录的`/src`目录下包含`<文件名>.go`文件，标识应用由\[gb\](https://devcenter.heroku.com/articles/go-dependencies-via-gb)管理。 -->### Compile the specified module
+2. Source code programs must be hosted on git or svn services such as gitlab.<!-- 3. 在根目录的`/Godeps`目录下有`Godeps.json`文件，标识应用由\[godep\](https://devcenter.heroku.com/articles/go-dependencies-via-godep)管理;在根目录的`/vendor`目录下有`Govendor.json`文件，标识应用由\[govendor\](https://devcenter.heroku.com/articles/go-dependencies-via-govendor)管理;在根目录的`/src`目录下包含`<文件名>.go`文件，标识应用由\[gb\](https://devcenter.heroku.com/articles/go-dependencies-via-gb)管理。
 
-If there are multiple services in the current project, it can be compiled into multiple binaries, or the main file is not in the main code directory.In golang, one package and one service are usually used under the cmd path.At this time, the above method cannot be compiled and run correctly.
+<!-- 3. 在根目录的`/Godeps`目录下有`Godeps.json`文件，标识应用由[godep](https://devcenter.heroku.com/articles/go-dependencies-via-godep)管理;在根目录的`/vendor`目录下有`Govendor.json`文件，标识应用由[govendor](https://devcenter.heroku.com/articles/go-dependencies-via-govendor)管理;在根目录的`/src`目录下包含`<文件名>.go`文件，标识应用由[gb](https://devcenter.heroku.com/articles/go-dependencies-via-gb)管理。 -->
+
+### -->### Compile the specified module
+
+If there are multiple services in the current project, it can be compiled into multiple binaries, or the main file is not in the main code directory.In golang, one package and one service are usually used under the cmd path.At this time, the above method cannot be compiled and run correctly.The cmd path next package is usually used in golang.The compilation and operation could not be properly done at this time.
 
 Add `BUILD_GO_INSTALL_PACKAGE_SPEC` variable to the environment variable to define the entry path of the component compilation package, for example：
 
 ```bash
-BUILD_GO_INSTALL_PACKAGE_SPEC=goodrain.com/app-store/cmd/manage-server
+BUILD_GO_INSTAL_PACKAGE_SPEC=goodrain.com/app-store/cmd/manage-server
 ```
 
 Where `goodrain.com/app-store` is the main name of the project, which is consistent with `module` in go.mod.
@@ -50,7 +54,7 @@ For a project that is compiled with a specified module, the following definition
 web: bin/manage-server
 ```
 
-Where `manage-server` is the default service subdirectory path in the cmd directory.Binary files are uniformly stored in the bin directory.
+`manage-server` is the default cmd directory path to service subdirectory.Binary files are stored uniformly in the bin directory.
 
 ### Compile and run environment settings
 

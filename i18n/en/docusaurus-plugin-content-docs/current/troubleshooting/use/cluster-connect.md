@@ -1,8 +1,8 @@
 ---
 title: Check whether cluster communication is abnormal
 description: This section describes Rainbond cluster faults and troubleshooting methods
-keywords: 
-- Rainbond Troubleshooting Cluster Communication Abnormalities
+keywords:
+  - Rainbond Troubleshooting Cluster Communication Abnormalities
 ---
 
 This article introduces the troubleshooting ideas for abnormal communication between the Rainbond console and the cluster.
@@ -11,7 +11,7 @@ This article introduces the troubleshooting ideas for abnormal communication bet
 
 ![](https://static.goodrain.com/docs/5.12/troubleshooting/installation/en-cluster-connect.png)
 
-Rainbond is divided into two layers, the console and the cluster. The console communicates with the cluster through the API. If the communication between the console and the cluster is abnormal, the console cannot be used normally.
+Rainbond is divided into two layers of structure, the Console and the cluster.Rainbond is divided into two layers, the console and the cluster. The console communicates with the cluster through the API. If the communication between the console and the cluster is abnormal, the console cannot be used normally.
 
 There may be the following reasons for the exception:
 
@@ -44,7 +44,7 @@ kubectl get pod -l name=rbd-api -n rbd-system
 If the API is abnormal, you can view the logs of the API service through the following command:
 
 ```bash
-kubectl logs -fl name=rbd-api -n rbd-system
+kubtl logs -fl name=rbd-api -n rbd-system
 ```
 
 Check according to the error information in the log.
@@ -52,12 +52,12 @@ Check according to the error information in the log.
 Or try restarting the API service:
 
 ```bash
-kubectl delete pod -l name=rbd-api -n rbd-system
+kubtl delete pod -l name=rbd-api -n rbd-system
 ```
 
 ### Check console and cluster ports
 
-If the network between the console and the cluster is smooth and the API service is normal, you can check whether the ports `8443` on the console and the cluster are unblocked. Use the `telnet` command to check whether the port `8443` on the console and the cluster side is unblocked.
+If the network between the console and the cluster is smooth and the API service is normal, you can check whether the ports `8443` on the console and the cluster are unblocked. Use the `telnet` command to check whether the port `8443` on the console and the cluster side is unblocked.Use the `telnet` command to check if the console and the cluster `8443` port are working well.
 
 If it fails, you can check whether the `8443` port on the cluster side is blocked by the firewall. If it is blocked by the firewall, you can configure the firewall rules for port communication.
 
@@ -68,7 +68,7 @@ If it fails, you can check whether the `8443` port on the cluster side is blocke
 Viewing the log of the rbd-api service shows the following error:
 
 ```bash
-http: TLS handshake error from 10.42.0.1:35590: remote error: tls: error decrypting message
+http://TLS handshake error from 10.42.0.1:35590: remote error: tls: error decrypting message
 ```
 
 The reason for this error is that the certificate of the API service on the cluster side is inconsistent with that of the console, which makes the console unable to communicate with the API service on the cluster side.
@@ -79,23 +79,25 @@ You can view the cluster connection information through the [grctl config](/docs
 $ grctl config
 apiAddress: https://47.104.161.96:8443
 ca.pem: |
-  -----BEGIN CERTIFICATE-----
-  xxxxx
-  -----END CERTIFICATE-----
-client.key.pem: |
-  -----BEGIN RSA PRIVATE KEY-----
-  xxxxx
-  -----END RSA PRIVATE KEY-----
-client.pem: |
-  -----BEGIN CERTIFICATE-----
+  ---BEGIN CERRTIFICATE ---
+  xxx
+  ---END CERIFICATE ---
+client.key. em: |
+  --BEGIN RSA PRIVATE KEY --
+  xxxx
+  --END RSA PRIVATE KEY --
+client. em: |
+  ---BEGIN CERTIFICATE ---
   xxxxxx
-  -----END CERTIFICATE-----
+  ---END CERTIFICATE ----
 ```
+
 Copy the printed content to **Platform Management -> Cluster -> Edit** in the console, and click **Save**.
-* apiAddress corresponds to **API address**
-* ca.pem corresponds to **API-CA certificate**
-* client.pem corresponds to **API-Client certificate**
-* client.key.pem corresponds to **API-Client certificate key**
+
+- apiAddress corresponds to **API address**
+- ca.pem corresponds to **API-CA certificate**
+- client.pem corresponds to **API-Client certificate**
+- client.key.pem corresponds to **API-Client certificate key**
 
 :::caution Caution
 There cannot be spaces on the left and right sides of the certificate, otherwise the certificate will not be recognized.

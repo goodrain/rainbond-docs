@@ -2,10 +2,9 @@
 title: Kubernetes resource import and management
 description: This chapter describes how to import existing Kubernetes resources and manage non-workload type resources on Rainbond.
 keywords:
-- Kubernetes 资源导入和管理
-- 管理非 Workload 类型资源
+  - Kubernetes resource import and management
+  - Manage non-Workload type resources
 ---
-
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

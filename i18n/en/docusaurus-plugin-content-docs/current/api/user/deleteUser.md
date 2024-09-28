@@ -12,10 +12,9 @@ DELETE /openapi/v1/users/{user_id}
 
 ## request parameters
 
-| name    | Location | type   | required | illustrate |
-| ------- | -------- | ------ | -------- | ---------- |
-| user_id | path     | string | Yes      | none       |
-
+| name                         | Location | type   | required | illustrate |
+| ---------------------------- | -------- | ------ | -------- | ---------- |
+| user_id | Path     | String | Yes      | none       |
 
 ## return result
 

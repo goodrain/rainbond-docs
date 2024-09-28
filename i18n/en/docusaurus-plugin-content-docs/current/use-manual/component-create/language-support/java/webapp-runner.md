@@ -3,20 +3,20 @@ title: webapp-runner usage guide
 description: how-to-use-rainbond
 ---
 
-webapp-runner can launch applications using Tomcat on any system with a JRE environment installed.Using webapp-runner does not require Tomcat to be installed.It's just a jar file that can be run and configured with`java`commands.Rainbond runs a War package, or Maven packages a project into a War package by default using webapp-runner.
+webapp-runner can launch applications using Tomcat on any system with a JRE environment installed.Using webapp-runner does not require Tomcat to be installed.It's just a jar file that can be run and configured with`java`commands.Rainbond runs a War package, or Maven packages a project into a War package by default using webapp-runner.ImprintIt is only a jar file that can be run and configured with the `java` command.Rainbond run war packages, or Maven packets are used by default for webapp-runner.
 
-### Imprint
+### Version Description
 
-> Webapp Runner is based on Tomcat server.The default versions supported by Rainbond are as follows:
+> Webapp Runner is based on Tomcat server.The default versions supported by Rainbond are as follows:The default Rainbond supported version is as follows:
 
-| web service support | web service version              | Customize the jar file name in the Procfile |
-|:------------------- |:-------------------------------- |:------------------------------------------- |
-| tomcat7             | webapp-runner-7.0.91.0.jar       | webapp-runner.jar                           |
-| tomcat8             | webapp-runner-8.0.52.0.jar       | webapp-runner.jar                           |
-| tomcat85 (default)  | webapp-runner-8.5.38.0.jar       | webapp-runner.jar                           |
-| tomcat9             | webapp-runner-9.0.16.0.jar       | webapp-runner.jar                           |
-| jetty7              | jetty-runner-7.5.4.v20111024.jar | jetty-runner.jar                            |
-| jetty9              | jetty-runner-9.4.0.v20161208.jar | jetty-runner.jar                            |
+| web service support                   | web service version                                                                              | Customize the jar file name in the Procfile |
+| :------------------------------------ | :----------------------------------------------------------------------------------------------- | :------------------------------------------ |
+| tomcat7                               | webapp-runner-7.0.91.0.jar       | webapp-runner.jar           |
+| tomcat8                               | webapp-runner-8.0.52.0.jar       | webapp-runner.jar           |
+| tomcat85 (default) | webapp-runner-8.5.38.0.jar       | webapp-runner.jar           |
+| tomcat9                               | webapp-runner-9.0.16.0.jar       | webapp-runner.jar           |
+| jetty7                                | jetty-runner-7.5.4.v20111024.jar | jetty-runner.jar            |
+| jetty9                                | jetty-runner-9.4.0.v20161208.jar | jetty-runner.jar            |
 
 ### Advanced feature configuration
 
@@ -34,8 +34,8 @@ Then make sure there are three environment variables to configure `MEMCACHE_SERV
 or
 
 ```bash
-# Procfile
-java -jar ./webapp-runner.jar --session-store redis target/<appname>.war
+# Procesfile
+java -jar ./webapp-runner.jar --session-store target/<appname>.war
 ```
 
 Then make sure the Redis environment variable is available to configure：REDIS_URL
@@ -43,8 +43,8 @@ Then make sure the Redis environment variable is available to configure：REDIS_
 #### set access path
 
 ```bash
-# Procfile
-java -jar ./webapp-runner.jar --path /phone target/<appname>.war
+# Procesfile
+java -jar ./webapp-runner.jar --path /phone target/<appname>war
 ```
 
 #### More parameter configuration

@@ -1,5 +1,5 @@
 ---
-title: Quick start
+title: Get Started
 description: A set of reference documentation for a new user to quickly experience and try Rainbond
 ---
 

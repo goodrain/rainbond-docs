@@ -5,7 +5,7 @@ description: Explain the usage of Procfile file
 
 ### Introduction to Procfile
 
-A Procfile is Rainbond's code-based strategy for specifying how a service should run.It is an ordinary text file, which needs to be placed in the root directory of the code, and its content is the startup command that defines the running of the service built from the source code.Usually only one line of information is enough, see example：below
+A Procfile is Rainbond's code-based strategy for specifying how a service should run.It is an ordinary text file, which needs to be placed in the root directory of the code, and its content is the startup command that defines the running of the service built from the source code.Usually only one line of information is enough, see example：belowIt is itself a normal text file that needs to be placed in the root of the code, the content of which is the launch command that defines the service built by the source code.Usually only one line of information is available, see the example： below
 
 - Java language type, defines the startup command to run the War package
 
@@ -31,7 +31,7 @@ web: sh target/bin/webapp
  bundle exec bin/rails server -p $PORT -e $RAILS_ENV
 ```
 
-You may have noticed the environment variable `$PORT` , which specifies the listening port for the service.When Rainbond runs the service, it will automatically inject this environment variable with the port information set by the user.Through the above types of startup commands, the flexible configuration of the service listening port is realized.Similar mechanisms can also be used for almost all language service types such as Tomcat startup.
+您可能注意到了 `$PORT` 这个环境变量，指定服务的监听端口。Rainbond will automatically inject this environment variable through port information set by the user when running the service.Flexible configuration of service listener ports through the above type of launch command.Similar mechanisms can also be used in almost all language service types, such as Tomcat launch.
 
 ### Procfile format description
 

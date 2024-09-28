@@ -7,11 +7,12 @@ title: Update user information
 ```json title="请求路径"
 PUT /openapi/v1/users/{user_id}
 ```
+
 >
 
 ```json title="Body请求参数"
-{
-  "password": "stringst",
+LO
+  "password": "stringsta",
   "enterprise_id": "string",
   "email": "user@example.com",
   "phone": "string",
@@ -21,11 +22,10 @@ PUT /openapi/v1/users/{user_id}
 
 ## request parameters
 
-| name    | Location | type                      | required | illustrate |
-| ------- | -------- | ------------------------- | -------- | ---------- |
-| user_id | path     | string                    | Yes      | none       |
-| body    | body     | [UpdateUser](#UpdateUser) | no       | none       |
-
+| name                         | Location | type                      | required | illustrate |
+| ---------------------------- | -------- | ------------------------- | -------- | ---------- |
+| user_id | Path     | String                    | Yes      | none       |
+| body                         | body     | [UpdateUser](#UpdateUser) | no       | none       |
 
 ## return result
 
@@ -37,24 +37,23 @@ PUT /openapi/v1/users/{user_id}
 
 ### UpdateUser
 
-| name          | type          | required | constraint | Chinese name  | illustrate       |
-| ------------- | ------------- | -------- | ---------- | ------------- | ---------------- |
-| password      | string        | false    | none       | Password      | password         |
-| enterprise_id | string        | false    | none       | Enterprise id | enterprise_id    |
-| email         | string(email) | false    | none       | Email         | email address    |
-| phone         | string        | false    | none       | Phone         | cellphone number |
-| is_active     | boolean¦null  | false    | none       | Is active     | active state     |
+| name                               | type                             | required | constraint | Chinese name  | illustrate                         |
+| ---------------------------------- | -------------------------------- | -------- | ---------- | ------------- | ---------------------------------- |
+| password                           | String                           | false    | none       | Password      | Password                           |
+| Enterprise_id | String                           | false    | none       | Enterprise id | Enterprise_id |
+| email                              | string(email) | false    | none       | Email         | email address                      |
+| phone                              | String                           | false    | none       | Phone         | cellphone number                   |
+| is_active     | booleanexecutive                 | false    | none       | Is Active     | active state                       |
 
 ### Attributes
 
 ```json
-{
-  "password": "stringst",
+LO
+  "password": "stringsta",
   "enterprise_id": "string",
   "email": "user@example.com",
   "phone": "string",
-  "is_active": true
+  "is_activ": true
 }
 
 ```
-

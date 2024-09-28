@@ -1,7 +1,6 @@
 ---
-title: 'Team Admin User Manual'
+title: Team Admin User Manual
 ---
-
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

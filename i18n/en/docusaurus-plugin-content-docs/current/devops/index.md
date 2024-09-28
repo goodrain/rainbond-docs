@@ -2,10 +2,9 @@
 title: DevOps Guide
 description: Rainbond DevOps Guide
 keywords:
-- DevOps 指南
-- Rainbond DevOps
+  - DevOps Guide
+  - Rainbond DevOps
 ---
-
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

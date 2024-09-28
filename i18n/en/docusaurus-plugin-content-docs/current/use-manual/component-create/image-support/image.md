@@ -1,25 +1,25 @@
 ---
-title: 'Docker image support specification'
-description: 'This chapter will take you to know the supported specifications of components created by Rainbond based on Docker images.'
+title: Docker image support specification
+description: This chapter will introduce you to Rainbond's support specification for creating components based on Docker images.
 ---
 
-This chapter will introduce you to Rainbond's support specification for creating components based on Docker images.
+This chapter will take you to know the supported specifications of components created by Rainbond based on Docker images.
 
 ### Image Support Specification
 
-Rainbond's way of creating components based on existing standards is the fastest and most compatible way.Here we will describe what images can run on Rainbond from the following aspects：
+Rainbond's way of creating components based on existing standards is the fastest and most compatible way.Here we will describe what images can run on Rainbond from the following aspects：Here we will describe what mirrors can run： in Rainbond
 
-#### image that doesn't work
+#### Unable to run image
 
 Here we first explain which images cannot be run, which is very important.
 
 - basic system environment
 
-The basic system images represented by`alpine` `centos` `debian` are necessary for us to make component images, but they cannot be directly run on Rainbond, why? Because they start the process is not running in the foreground by default, that is, the container will exit when it starts.Only open stdin for TTL interactive runs when running locally.
+The basic system images represented by`alpine` `centos` `debian` are necessary for us to make component images, but they cannot be directly run on Rainbond, why? Because they start the process is not running in the foreground by default, that is, the container will exit when it starts.Only open stdin for TTL interactive runs when running locally. Because their startup processes are not run by default, the container starts will exit.Open stdin for TTL interactive run only when local running.
 
 - Basic language&tools
 
-At present, many developers use Docker images to distribute command-line tools, such as golang compilation environment, docker compilation environment, maven compilation environment, and so on.They don't work for the same reasons as the first category.
+At present, many developers use Docker images to distribute command-line tools, such as golang compilation environment, docker compilation environment, maven compilation environment, and so on.They don't work for the same reasons as the first category.They cannot function for the same reasons as category I.
 
 ### runnable image
 
@@ -46,12 +46,15 @@ For example,`sFTP`component,`minio`object storage components, etc.
   - The provided image name is accurate and exists in the corresponding image repository
 
   - For private warehouse images, please provide the account password
+
   - For self-built warehouses, please configure HTTPs or configure Docker trust for Rainbond cluster nodes
 
 - Rainbond will get the following property information from the image：
 
   - Port, the Expose port information configured in the dockerfile will be obtained.
+
   - Environment variables, environment variables are the recommended custom configuration methods under cloud native, and are also recommended users of Docker image custom configuration.
+
   - Storage mount, the volume information configured in the dockerfile will be obtained
 
   > The components created by Docker compose are only obtained from the compose configuration, and the components created by docker run are obtained from the create command and image.
@@ -66,7 +69,7 @@ For example,`sFTP`component,`minio`object storage components, etc.
 
   - mysql
   - mariadb
-  - mongo
+  - mono
   - redis
   - tidb
   - zookeeper
@@ -75,10 +78,10 @@ For example,`sFTP`component,`minio`object storage components, etc.
   - mongodb
   - memcached
   - cockroachdb
-  - cockroach
+  - Cockroach
   - etcd
   - postgres
-  - postgresql
+  - postprogresql
   - elasticsearch
   - consul
   - percona
@@ -88,5 +91,5 @@ For example,`sFTP`component,`minio`object storage components, etc.
   For example the following image will be deployed as stateful type：
 
   - mysql:latest
-  - hub.example.com/xxx/mysql:5.5
-  - xxx/mysql:5.7
+  - hub.example.com/x/mysql:5.5
+  - xx/mysql:5.7

@@ -14,21 +14,20 @@ GET /openapi/v2/manage/enterprises/{eid}/resource
 
 | name | Location | type   | required | illustrate |
 | ---- | -------- | ------ | -------- | ---------- |
-| eid  | path     | string | Yes      | none       |
-
+| eid  | Path     | String | Yes      | none       |
 
 ## return result
 
-| status code | Status code meaning | illustrate | data model                            |
-| ----------- | ------------------- | ---------- | ------------------------------------- |
-| 200         | OK                  | success    | [EnterpriseSource](#enterprisesource) |
+| status code | Status code meaning | illustrate | data model                       |
+| ----------- | ------------------- | ---------- | -------------------------------- |
+| 200         | OK                  | success    | [EnterpriseSource](#enterprises) |
 
 ## Model
 
-### EnterpriseSource
+### Enterprise Source
 
 ```json
-{
+LO
   "enterprise_id": "string",
   "used_cpu": 0,
   "used_memory": 0,
@@ -39,9 +38,9 @@ GET /openapi/v2/manage/enterprises/{eid}/resource
 
 ### Attributes
 
-| name          | type   | required | constraint | Chinese name  | illustrate                         |
-| ------------- | ------ | -------- | ---------- | ------------- | ---------------------------------- |
-| enterprise_id | string | true     | none       | Enterprise id | Enterprise ID (Federated Cloud ID) |
-| used_cpu      | number | true     | none       | used cpu      | cpu used                           |
-| used_memory   | number | true     | none       | Used memory   | memory used                        |
-| used_disk     | number | true     | none       | Used disk     | used storage                       |
+| name                               | type   | required | constraint | Chinese name  | illustrate                                            |
+| ---------------------------------- | ------ | -------- | ---------- | ------------- | ----------------------------------------------------- |
+| Enterprise_id | String | true     | none       | Enterprise id | Enterprise ID (Federated Cloud ID) |
+| used_cpu      | Number | true     | none       | cpu used      | used cpu                                              |
+| used_memory   | Number | true     | none       | Used memory   | memory used                                           |
+| used_disk     | Number | true     | none       | Used Disk     | used storage                                          |

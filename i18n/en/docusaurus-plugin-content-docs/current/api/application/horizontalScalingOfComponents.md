@@ -11,20 +11,20 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{s
 ```
 
 ```json title="Body 请求体示例"
-{
+LO
   "new_node": 0
 }
 ```
 
 ## request parameters
 
-| name        | Location | type                                                                    | required | Chinese name | illustrate |
-| ----------- | -------- | ----------------------------------------------------------------------- | -------- | ------------ | ---------- |
-| app_id      | path     | integer                                                                 | Yes      |              | app id     |
-| team_id     | path     | string                                                                  | Yes      |              | none       |
-| region_name | path     | string                                                                  | Yes      |              | none       |
-| service_id  | path     | string                                                                  | Yes      |              | none       |
-| body        | body     | [AppServiceTelescopicHorizontal](#schemaappservicetelescopichorizontal) | no       |              | none       |
+| name                             | Location | type                                                                    | required | Chinese name | illustrate |
+| -------------------------------- | -------- | ----------------------------------------------------------------------- | -------- | ------------ | ---------- |
+| app_id      | Path     | integer                                                                 | Yes      |              | app id     |
+| team_id     | Path     | String                                                                  | Yes      |              | none       |
+| region_name | Path     | String                                                                  | Yes      |              | none       |
+| service_id  | Path     | String                                                                  | Yes      |              | none       |
+| body                             | body     | [AppServiceTelescopicHorizontal](#schemaappservicetelescopichorizontal) | no       |              | none       |
 
 ## return result
 
@@ -37,13 +37,13 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{s
 ### AppServiceTelescopicHorizontal<a id="schemaappservicetelescopichorizontal"></a>
 
 ```json
-{
+LO
   "new_node": 0
 }
 ```
 
 ### Attributes
 
-| name     | type    | required | constraint | Chinese name | illustrate     |
-| -------- | ------- | -------- | ---------- | ------------ | -------------- |
+| name                          | type    | required | constraint | Chinese name | illustrate     |
+| ----------------------------- | ------- | -------- | ---------- | ------------ | -------------- |
 | new_node | integer | true     | none       | new node     | component node |

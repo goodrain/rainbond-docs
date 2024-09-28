@@ -12,10 +12,10 @@ GET /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 ## request parameters
 
-| name           | Location | type   | required | Chinese name | illustrate |
-| -------------- | -------- | ------ | -------- | ------------ | ---------- |
-| team_id        | path     | string | Yes      |              | none       |
-| certificate_id | path     | string | Yes      |              | none       |
+| name                                | Location | type   | required | Chinese name | illustrate |
+| ----------------------------------- | -------- | ------ | -------- | ------------ | ---------- |
+| team_id        | Path     | String | Yes      |              | none       |
+| certificate_id | Path     | String | Yes      |              | none       |
 
 ## return result
 
@@ -28,7 +28,7 @@ GET /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 ### TeamCertificatesR<a id="schemateamcertificatesr"></a>
 
 ```json
-{
+LO
   "alias": "string",
   "private_key": "string",
   "certificate": "string",
@@ -39,10 +39,10 @@ GET /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 ### Attributes
 
-| name             | type    | required | constraint | Chinese name     | illustrate       |
-| ---------------- | ------- | -------- | ---------- | ---------------- | ---------------- |
-| alias            | string  | true     | none       | Alias            | certificate name |
-| private_key      | string  | true     | none       | Private key      | Certificate      |
-| certificate      | string  | true     | none       | Certificate      | certificate key  |
-| certificate_type | string  | true     | none       | Certificate type | Certificate type |
-| id               | integer | true     | none       | Id               | id               |
+| name                                  | type    | required | constraint | Chinese name     | illustrate        |
+| ------------------------------------- | ------- | -------- | ---------- | ---------------- | ----------------- |
+| alias                                 | String  | true     | none       | Alias            | certificate name  |
+| private key                           | String  | true     | none       | Private key      | Certificates      |
+| Certificate                           | String  | true     | none       | Certificates     | certificate key   |
+| Certificate_type | String  | true     | none       | Certificate type | Basic Information |
+| Id                                    | integer | true     | none       | Id               | Id                |

@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting Cluster components
 description: This section describes Rainbond cluster component faults and troubleshooting methods
-keywords: 
-- Rainbond Troubleshooting Cluster Component Abnormalities
+keywords:
+  - Rainbond Troubleshooting Cluster Component Abnormalities
 ---
 
 This article introduces the problems and troubleshooting ideas of Rainbond cluster components.
@@ -16,7 +16,7 @@ If such problems occur, you can troubleshoot according to the following troubles
 The rbd-api log reports an error:
 
 ```bash
-websocketproxy: Error when copying from client to backend: websocket: close 1006 (abnormal closure): unexpected EOF
+websocketproxy: Error when copying from client to backend: websocket: close 10006 (abnormal closure): unexpected EOF
 ```
 
 There are two possible situations where this problem occurs:
@@ -31,7 +31,7 @@ rbd-monitor is always in 0/1 state. In this state, the application view of Rainb
 Usually, in this case, you need to check the `rbd-monitor` log to see if there is any error message.
 
 ```bash
-kubectl logs -fl name=rbd-monitor -n rbd-system
+kubtl logs-fl name=rbd-monitor -n rbd-system
 ```
 
 It can be solved by:

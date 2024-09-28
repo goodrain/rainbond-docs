@@ -1,5 +1,5 @@
 ---
-title: 'gateway'
+title: gateway
 ---
 
 The gateway access policy under the team will display the policies of the entire team. Unlike the application, the application will only display the relevant gateway policies in the application.
@@ -12,6 +12,3 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 <DocCardList items={useCurrentSidebarCategory().items}/>
 ```
-
-
-
