@@ -2,7 +2,8 @@
 title: Create a gateway policy
 ---
 
-## Basic Information
+## 基本信息
+
 This interface is mainly used to create gateway policies
 
 ```shell title="请求路径"
@@ -61,12 +62,12 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains
 
 ## request parameters
 
-| name        | Location | type                                      | required | Chinese name | illustrate |
-| ----------- | -------- | ----------------------------------------- | -------- | ------------ | ---------- |
+| name                             | Location | type                                      | required | Chinese name | illustrate |
+| -------------------------------- | -------- | ----------------------------------------- | -------- | ------------ | ---------- |
 | team_id     | path     | string                                    | Yes      |              | none       |
 | region_name | path     | string                                    | Yes      |              | none       |
 | app_id      | path     | string                                    | Yes      |              | none       |
-| body        | body     | [PostGatewayRule](#schemapostgatewayrule) | no       |              | none       |
+| body                             | body     | [PostGatewayRule](#schemapostgatewayrule) | no       |              | none       |
 
 ## return result
 
@@ -184,7 +185,7 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains
 
 | name     | type                | required | constraint | Chinese name | illustrate |
 | -------- | ------------------- | -------- | ---------- | ------------ | ---------- |
-| protocol | string              | true     | none       | Protocol     | protocol   |
+| protocol | string              | true     | none       | Protocol     | 协议         |
 | tcp      | [tcp](#schematcp)   | false    | none       |              | none       |
 | http     | [Http](#schemahttp) | false    | none       |              | none       |
 
@@ -208,14 +209,14 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains
 
 ### Attributes
 
-| name            | type                                                                  | required | constraint | Chinese name   | illustrate       |
-| --------------- | --------------------------------------------------------------------- | -------- | ---------- | -------------- | ---------------- |
-| container_port  | integer                                                               | true     | none       | Container port | component port   |
-| service_id      | string                                                                | true     | none       | Service id     | component id     |
-| end_point       | string                                                                | true     | none       | End point      | ip address: port |
-| rule_extensions | [[PostTCPGatewayRuleExtensions](#schemaposttcpgatewayruleextensions)] | false    | none       |                | rule extension   |
-| default_port    | integer                                                               | true     | none       | Default port   | map port         |
-| default_ip      | string                                                                | true     | none       | Default ip     | map id address   |
+| name                                 | type                                                                                                                      | required | constraint | Chinese name   | illustrate                       |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- | -------------- | -------------------------------- |
+| container_port  | integer                                                                                                                   | true     | none       | Container port | component port                   |
+| service_id      | string                                                                                                                    | true     | none       | Service id     | component id                     |
+| end_point       | string                                                                                                                    | true     | none       | End point      | ip address: port |
+| rule_extensions | [[PostTCPGatewayRuleExtensions](#schemaposttcpgatewayruleextensions)] | false    | none       |                | rule extension                   |
+| default_port    | integer                                                                                                                   | true     | none       | Default port   | map port                         |
+| default_ip      | string                                                                                                                    | true     | none       | Default ip     | map id address                   |
 
 ### PostTCPGatewayRuleExtensions<a id="schemaposttcpgatewayruleextensions"></a>
 
@@ -269,21 +270,21 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains
 
 ### Attributes
 
-| name              | type                                  | required | constraint | Chinese name    | illustrate                                                                                                                            |
-| ----------------- | ------------------------------------- | -------- | ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| service_id        | string                                | true     | none       | Service id      | application component id                                                                                                              |
-| container_port    | integer                               | true     | none       | Container port  | bind port                                                                                                                             |
-| certificate_id    | integer                               | false    | none       | Certificate id  | certificate id                                                                                                                        |
-| domain_name       | string                                | true     | none       | Domain name     | domain name                                                                                                                           |
-| domain_cookie     | string                                | false    | none       | Domain cookies  | domain cookie                                                                                                                         |
-| domain_header     | string                                | false    | none       | Domain header   | domain header                                                                                                                         |
-| the_weight        | integer                               | false    | none       | The weight      | none                                                                                                                                  |
-| domain_path       | string                                | false    | none       | Domain path     | domain name path                                                                                                                      |
-| rule_extensions   | [string]                              | false    | none       |                 | rule extension                                                                                                                        |
-| whether_open      | boolean                               | false    | none       | Whether open    | Is it open                                                                                                                            |
-| auto_ssl          | boolean                               | false    | none       | Auto ssl        | Whether to automatically match the certificate and upgrade to https, if enabled, the upgrade will be completed by an external service |
-| auto_ssl_config | string                                | false    | none       | Auto ssl config | Automatic distribution certificate configuration                                                                                      |
-| configuration     | [Configuration](#schemaconfiguration) | false    | none       |                 | Advanced parameter configuration                                                                                                      |
+| name                                                      | type                                                         | required | constraint | Chinese name    | illustrate                                                                                                                            |
+| --------------------------------------------------------- | ------------------------------------------------------------ | -------- | ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| service_id                           | string                                                       | true     | none       | Service id      | application component id                                                                                                              |
+| container_port                       | integer                                                      | true     | none       | Container port  | bind port                                                                                                                             |
+| certificate_id                       | integer                                                      | false    | none       | Certificate id  | certificate id                                                                                                                        |
+| domain_name                          | string                                                       | true     | none       | Domain name     | domain name                                                                                                                           |
+| domain_cookie                        | string                                                       | false    | none       | Domain cookies  | domain cookie                                                                                                                         |
+| domain_header                        | string                                                       | false    | none       | Domain header   | domain header                                                                                                                         |
+| the_weight                           | integer                                                      | false    | none       | The weight      | none                                                                                                                                  |
+| domain_path                          | string                                                       | false    | none       | Domain path     | domain name path                                                                                                                      |
+| rule_extensions                      | [string] | false    | none       |                 | rule extension                                                                                                                        |
+| whether_open                         | boolean                                                      | false    | none       | Whether open    | Is it open                                                                                                                            |
+| auto_ssl                             | boolean                                                      | false    | none       | Auto ssl        | Whether to automatically match the certificate and upgrade to https, if enabled, the upgrade will be completed by an external service |
+| auto_ssl_config | string                                                       | false    | none       | Auto ssl config | Automatic distribution certificate configuration                                                                                      |
+| configuration                                             | [Configuration](#schemaconfiguration)                        | false    | none       |                 | Advanced parameter configuration                                                                                                      |
 
 ### Configuration<a id="schemaconfiguration"></a>
 
@@ -307,16 +308,16 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/domains
 
 ### Attributes
 
-| name                    | type                              | required | constraint | Chinese name          | illustrate                    |
-| ----------------------- | --------------------------------- | -------- | ---------- | --------------------- | ----------------------------- |
-| proxy_body_size       | integer                           | false    | none       | Proxy body size       | request body size             |
-| proxy_buffer_numbers  | integer                           | false    | none       | Proxy buffer numbers  | number of buffers             |
-| proxy_buffer_size     | integer                           | false    | none       | Proxy buffer size     | buffer size                   |
-| proxy_buffering         | string                            | false    | none       | Proxy buffering       | Whether to enable ProxyBuffer |
-| proxy_connect_timeout | integer                           | false    | none       | Proxy connect timeout | connection timeout            |
-| proxy_read_timeout    | integer                           | false    | none       | Proxy read timeout    | read timeout                  |
-| proxy_send_timeout    | integer                           | false    | none       | Proxy send timeout    | send timeout                  |
-| set_headers             | [[HTTPHeader](#schemahttpheader)] | true     | none       |                       | none                          |
+| name                                                            | type                                                                                  | required | constraint | Chinese name          | illustrate                    |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------- | -------- | ---------- | --------------------- | ----------------------------- |
+| proxy_body_size       | integer                                                                               | false    | none       | Proxy body size       | request body size             |
+| proxy_buffer_numbers  | integer                                                                               | false    | none       | Proxy buffer numbers  | number of buffers             |
+| proxy_buffer_size     | integer                                                                               | false    | none       | Proxy buffer size     | buffer size                   |
+| proxy_buffering                            | string                                                                                | false    | none       | Proxy buffering       | Whether to enable ProxyBuffer |
+| proxy_connect_timeout | integer                                                                               | false    | none       | Proxy connect timeout | connection timeout            |
+| proxy_read_timeout    | integer                                                                               | false    | none       | Proxy read timeout    | read timeout                  |
+| proxy_send_timeout    | integer                                                                               | false    | none       | Proxy send timeout    | send timeout                  |
+| set_headers                                | [[HTTPHeader](#schemahttpheader)] | true     | none       |                       | none                          |
 
 ### HTTPHeader<a id="schemahttpheader"></a>
 
