@@ -2,8 +2,9 @@
 title: Upgrade Rainbond
 Description: Describes the Rainbond upgrade via host installation and Helm installation
 keywords:
-- Rainbond 版本升级
+  - Rainbond 版本升级
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -36,11 +37,13 @@ docker exec -ti rainbond-allinone bash
 根据自己所跨版本执行升级 sql。
 
 - v5.14.1 --> v5.14.2
+
 ```bash
 curl https://get.rainbond.com/upgrade-5.14.2.sh | bash
 ```
 
 - v5.15.3 --> v5.16.0
+
 ```bash
 curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
 ```
@@ -48,24 +51,27 @@ curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
   </div>
 </details>
 
-3. 拉取新版本镜像运行  
+3. 拉取新版本镜像运行
 
 - 升级到最新版本
 
 ```bash
 curl -o install.sh https://get.rainbond.com && bash ./install.sh
 ```
+
 - 升级到指定版本
+
 ```bash
 curl -o install.sh https://get.rainbond.com && VERSION=<指定的版本> bash ./install.sh
 ```
+
 版本格式为：`v5.15.0`、`v5.16.0`、`v5.17.0`、`v5.17.1`、 `v5.17.2`
 
   </TabItem>
-  
+
   <TabItem value="" label="主机或 Helm">
 
-本栏介绍通过主机安装和通过 Helm 安装的 Rainbond 升级到最新版本。  
+本栏介绍通过主机安装和通过 Helm 安装的 Rainbond 升级到最新版本。
 
 ## 从最近的版本升级到 v5.17.3
 
@@ -182,10 +188,8 @@ curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
 
 3. 升级控制台镜像以及集群端镜像版本，按照 [从最近的版本升级到 v5.17.3](#从最近的版本升级到-v5173) 的步骤进行升级。
 
-
   </div>
 </details>
-
 
 :::tip
 如果您处于更低的版本，请参阅每个版本的[升级文档](/docs/versions)，按照上述操作执行即可。
@@ -197,4 +201,3 @@ curl https://get.rainbond.com/upgrade-5.16.0.sh | bash
 ## 版本变更日志
 
 您可以在 [历史版本变更日志](/changelog) 中查看每个版本的具体变更内容。
-
