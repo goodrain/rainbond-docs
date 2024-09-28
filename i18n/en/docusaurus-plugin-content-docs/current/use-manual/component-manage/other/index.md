@@ -3,58 +3,58 @@ title: Component other Settings
 description: Component Other Settings This section describes function modules
 ---
 
-## 组件部署类型
+## Component deployment type
 
-- 无状态服务(Deployment类型)
-  一般用于Web类、API类等组件
+- The statelessness service (Deemployment Type)
+  is generally used for Web classes, API classes, etc.
 
-- 有状态服务(Statefulset类型)
-  一般用于DB类、消息中间件类、数据类组件
+- State Service (Statefulset type)
+  is generally used for DB, message intermediate classes, data classes
 
-- 任务(Job类型)
-  一般用于一次性任务,完成后容器就退出
+- Task (Job Type)
+  is generally used for a one-time task and the container exits upon completion
 
-- 周期性任务(Cronjob类型)
-  一般用于处理周期性的、需反复执行的定时任务
+- Periodical Tasks (Cronjob Type)
+  is generally used to handle periodic scheduled Tasks that need to be repeated
 
-## 组件健康检测
+## Component Health Detection
 
-健康检测是为了真实的反应组件业务的运行状态。在不配置健康检测的情况下，组件的运行状态由容器（进程）状态决定，即容器启动成功则认为组件已经进入 Ready 状态。Ready 状态的组件实例将立即加入到流量处理中去。然而我们都清楚大部分程序业务都是需要启动时间的，从开始启动到准备好处理业务是一段时间的，一般越复杂的组件时间越长。还没有准备好的组件去接受了业务请求将导致部分请求失败。特别是在组件进行滚动升级过程中，对于无状态组件，平台进行了先启动新实例接受流量，再关闭旧实例的机制，如果组件健康状态未精确体现。滚动升级的效果将大打折扣。启动因此我们需要通过一种机制来尽可能的验证组件的真实状态，这就是组件健康检测。
+The health test is for the true state of operation of the reaction component business.When health tests are not configured, the operation status of the component is determined by the container (process) status, where the container is successful and the component is considered to be already in ready.An instance of the already state component will be added to the traffic process immediately.However, we are all aware that most of the procedural operations require a start-up time, the longer the more complex components generally take from the start to the preparation of the business.Unready components to accept business requests will cause some requests to fail.Especially during the rolling upgrade of the component, the platform starts new instances to receive traffic and closes the old instance when the component health is not accurately reflected.The scroll upgrade effect will be discounted.Start up so we need to verify the true state of the component as much as possible through a mechanism that is the component health test.
 
-目前组件健康检测支持以下两种机制：
+Component health testing currently supports the following two mechanisms：
 
-- <b>TCP 端口检测</b> 这种检测的方式是尝试与组件配置的端口建立 TCP 连接，若正常建立认为其处于健康状态。
-- <b>HTTP 业务检测</b> 端口建立监听也不能完全代表业务正常，因此对于 HTTP 类的服务，能够请求到指定的路由来根据状态码进行组件健康状态判断。这种模式更加精确。
+- <b>TCP port detects</b> this test by attempting to establish TCP connection to the component configured port if it is normally established.
+- <b>HTTP Business Detect</b> Port build listeners and does not fully represent business normality so that for HTTP class services you can request to the specified route to judge component health by status code.This pattern is more precise.
 
-组件启动后必须经过健康检测来表示组件状态，当组件处于不健康时，有两种处理方式：
+Component must undergo a health test after component starts. When component is unhealthy, there are two types of treatment：
 
-- 设置组件为不健康
+- Set component to unhealthy
 
-> 当组件实例被设置成不健康，其将从应用网关和 ServiceMesh 网络下线。等待其工作正常后重新自动上线。但如果组件只有一个实例，Rainbond 不会将其下线。
+> When the component instance is set to be unhealthy, it will be offline from the app gateway and ServiceMesh network.Waiting for normal work to get back online.But Rainbond will not offline if there is only one instance of the component.
 
-- 重启组件实例
+- Restart Component Instance
 
-> 有些组件可能由于代码阻塞等原因形成死锁进程，无法提供组件但进程依然运行。处理这类组件的不健康状态只能通过重启实例的方式。
+> Some components may result in a dead locking process due to code blocking, which cannot be provided but which is still running.Handling unhealthy state of such components can only be done by restarting instances.
 
-因此用户可以根据业务状态来判断选择合适的处理方式。
+The user can therefore judge the appropriate way of dealing depending on the state of business.
 
-### 操作流程
+### Operating processes
 
-组件健康检测的配置在 _组件控制面板/其他设置_ 页面中。
+Component Health Detection is configured in the _Component Control Panel/Other Settings_ page.
 
-1.点击健康检测的编辑按钮，弹窗显示健康检测的配置项目。
+1.Tap the Edit button for health detection to display the health test configuration items.
 
-- 端口：选择组件进行健康检测的端口，若选项中不存在组件实际的检测端口，请到端口管理页面中进行添加。
-- 探针协议： 根据上文所述，协议选择支持 TCP 和 HTTP，选择不同的协议后续的设置项目有些不同。
-- 不健康处理方式： 默认为“下线”，可以选择“重启”。
-- HTTP 协议对应的设置项： 选择 HTTP 协议后可设置检测的路径和请求头（比如需要 Token 请求），注意该路由请求必须返回状态码小于 400 则认为为健康。
-- 初始化等候时间：是指开始检测前等待组件实例启动的时间，默认为 4 秒。
-- 检测间隔时间：是指连续两次检测任务的时间间隔。
-- 检测超时时间：如果检测请求时遇到问题请求被阻塞，超时时间将生效。
-- 连续成功次数：是指标记组件实例为健康状态时的连续检测成功的次数。
+- Port：selects the port where the component is being tested for health. If there is no actual detection port in the option, please add it to the port management page.
+- The probe protocol： selects TCP support and HTTP based on the above and selects different protocol follow-on settings items.
+- Unhealthy： is 'offlined' by default. You can choose 'Restart'.
+- The HTTP protocol corresponding to settings： selects the HTTP protocol to set the detectable path and request head (e.g. a token request), noting that the routing request must return to a status code less than 400 is considered healthy.
+- Initialization waiting time：refers to the time when the component instance starts starting, default is 4 seconds.
+- Detection interval：refers to the interval between two consecutive detection tasks.
+- Timeout for detection：will take effect if a problem request is blocked while a request is detected.
+- Successive success times：are the number of successful consecutive tests that indicate a component instance as a state of health.
 
-上述信息根据实际情况填写，保存后需要更新组件健康检测机制将生效。
+The above information is filled out on a case-by-case basis and the maintenance of which requires updating of the component health screening mechanism will take effect.
 
-2.启用/禁用健康检测
+2.Enable/disable health detection
 
-特殊情况下开发者可能需要临时禁用健康检测使组件一直处于健康状态。可以使用启用/禁用健康检测功能。修改后需要更新组件即可生效。
+The developer may need to temporarily disable health testing to keep the component healthy.Enable/disable health detection.Changes require an update of the component to take effect.
