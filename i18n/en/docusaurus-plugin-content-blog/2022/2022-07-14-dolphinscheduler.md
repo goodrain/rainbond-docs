@@ -1,80 +1,80 @@
 ---
-title: 在 Rainbond 部署 DolphinScheduler 高可用集群
-description: Apache DolphinScheduler 是一个分布式易扩展的可视化 DAG 工作流任务调度开源系统，解决数据研发ETL 错综复杂的依赖关系，不能直观监控任务健康状态等问题
+title: Deployment of DolphinScheduler High Available Cluster in Rainbond
+description: Apache DolphinScheduler is a distributable and scalable visualization DAG workflow task movement open source system that addresses data development ETL intricate dependencies and does not allow visual monitoring of mission health
 slug: dolphinscheduler
 image: https://static.goodrain.com/wechat/dolphinscheduler/dolp.png
 ---
 
-本文描述通过 [Rainbond](https://www.rainbond.com/) 云原生应用管理平台 一键部署高可用的 DolphinScheduler 集群，这种方式适合给不太了解 Kubernetes、容器化等复杂技术的用户使用，降低了在 Kubernetes 中部署 DolphinScheduler 的门槛。
+This paper describes the deployment of a high available DolphinScheduler cluster through [Rainbond](https://www.rainbond.com/) cloud application management platform, which is suitable for users who do not understand the complex technologies of Kubernetes, containers, etc. and reduces the threshold for DolphinScheduler to be deployed in Kubernetes.
 
-Apache DolphinScheduler 是一个分布式易扩展的可视化 DAG 工作流任务调度开源系统。解决数据研发ETL 错综复杂的依赖关系，不能直观监控任务健康状态等问题。DolphinScheduler 以 DAG 流式的方式将 Task 组装起来，可实时监控任务的运行状态，同时支持重试、从指定节点恢复失败、暂停及Kill任务等操作
+Apache DolphinScheduler is a scalable visualization DAG workflow task scheduling open source system.Resolve data development ETL complex dependencies and cannot visualize the health status of the mission.DolphinScheduler assembles Task as DAG stream, allows real-time monitoring of the operation status of the task while supporting retrying, recovery from the specified node, pause and Kill tasks
 
-**简单易用**：DAG 监控界面，所有流程定义都是可视化，通过拖拽任务定制 DAG，通过 API 方式与第三方系统对接, 一键部署
+**Easy to use**：DAG monitoring interface, all processes defined as visualizable, using drag and drop tasks customizing DAG, interfacing with third party systems via API, one-click deployment
 
-**高可靠性**：去中心化的多 Master 和多 Worker, 自身支持 HA 功能, 采用任务队列来避免过载，不会造成机器卡死
+**High reliability**：Decentralized multiple Master and multi-Worker, own HA features and use task queue to avoid overloading, do not cause machine card death
 
-**丰富的使用场景**：支持暂停恢复操作.支持多租户，更好的应对大数据的使用场景. 支持更多的任务类型，如 spark, hive, mr, python, sub_process, shell
+**Rich usage scenario**：supports pausing recovery operations. More tenants and better response to big data usage scenarios. Support more task types, such as spark, hive, mr, python, sub_process, shell
 
-**高扩展性**：支持自定义任务类型，调度器使用分布式调度，调度能力随集群线性增长，Master 和 Worker 支持动态上下线
+**High extension**：supports custom task types, dispatcher use distribution,movement capacity increases with cluster linearity, Master and Worker support dynamic offline
 
-## 前提条件
+## Prerequisite
 
-- 可用的 Rainbond 云原生应用管理平台，请参阅文档 [Rainbond 快速安装](https://www.rainbond.com/docs/quick-start/quick-install)
+- Available Rainbond Cloud Application Management Platform, please refer to the documentation [Rainbond Quick Installation](https://www.rainbond.com/docs/quick-start/quick-install)
 
-## DolphinScheduler 集群一键部署
+## DolphinScheduler Cluster 1 click to deploy
 
-- 对接并访问内置的开源应用商店，搜索关键词 `dolp` 即可找到 DolphinScheduler 应用。
+- The DolphinScheduler app can be found by searching for the keyword `dolp` and accessing the built-in open source store.
 
 ![](https://static.goodrain.com/wechat/dolphinscheduler/1.png)
 
-- 点击 DolphinScheduler 右侧的 `安装` 进入安装页面，填写对应的信息，点击确定即可开始安装，自动跳转至应用视图。
+- Click DolphinScheduler right to `installation` to enter the installation page, fill in the corresponding information. Click OK to start installing and automatically jump to the app view.
 
-| 选择项  | 说明                                                                          |
-| ---- | --------------------------------------------------------------------------- |
-| 团队名称 | 用户自建的工作空间，以命名空间隔离                                                           |
-| 集群名称 | 选择 DolphinScheduler 被部署到哪一个 K8s 集群                                          |
-| 选择应用 | 选择 DolphinScheduler 被部署到哪一个应用，应用中包含有若干有关联的组件                                |
-| 应用版本 | 选择 DolphinScheduler 的版本，目前可选版本为 3.0.0-beta2 |
+| Select Item  | Note                                                                                                            |
+| ------------ | --------------------------------------------------------------------------------------------------------------- |
+| Team Name    | Workspace created by the user to name space isolation                                                           |
+| Cluster name | Select which K8s cluster DolphinScheduler is deployed to                                                        |
+| Select app   | Select which app DolphinScheduler is deployed to which app contains several related components. |
+| App Version  | Select DolphinScheduler version, currently optionally 3.0.0-beta                |
 
 ![](https://static.goodrain.com/wechat/dolphinscheduler/2.png)
 
-- 等待几分钟后，DolphinScheduler 集群就会安装完成，并运行起来。
+- The Dolphin Scheduler cluster will be installed and run in a few minutes.
 
 ![](https://static.goodrain.com/wechat/dolphinscheduler/3.png)
 
-- 点击访问，将访问 DolphinScheduler-API 组件，需要添加访问后缀 `/dolphinscheduler/ui`，默认的用户密码是`admin` / `dolphinscheduler123`
+- Click to access Dolphin Scheduler - API components, you need to add access suffix `/dolphinscheduler/ui`. The default user password is `admin` / `dolphinscheduler 123`
 
 ![](https://static.goodrain.com/wechat/dolphinscheduler/4.png)
 
-## API Master Worker 节点伸缩
+## API Master Walker Node Stack
 
-DolphinScheduler API、Master、Worker 都支持伸缩多个实例，多个实例可以保证整个集群的高可用性。
+DolphinScheduler API, Master, and Worker all support scaling-up multiple instances that ensure high availability of the entire cluster.
 
-以 Worker 为例，进入组件内 -> 伸缩，设置实例数量。
+Use Worker as an example, enter the component -> Scale, set the number of instances.
 
 ![](https://static.goodrain.com/wechat/dolphinscheduler/5.png)
 
-验证 Worker 节点，进入 DolphinScheduler UI -> 监控中心 -> Worker 查看节点信息。
+Verify Worker Node, enter DolphinScheduler UI -> Monitor -> Worker to view node information.
 
 ![](https://static.goodrain.com/wechat/dolphinscheduler/6.png)
 
-## 配置文件
+## Profile
 
-API 和 Worker 服务共用 `/opt/dolphinscheduler/conf/common.properties` ，修改配置时只需修改 API 服务的配置文件。
+API and Worker services share the `/opt/dolphinschedule/conf/common.properties` and only modify the API service configuration when changing the configuration.
 
-## 如何支持 Python 3？
+## How to support Python 3?
 
-Worker 服务默认安装了 Python3，使用时可以添加环境变量  `PYTHON_HOME=/usr/bin/python3`
+The Worker Service installed Python3 by default to add an environment variable `PYTHON_HOME=/usr/bin/python3`
 
-## 如何支持 Hadoop, Spark, DataX 等？
+## How do I support Hadoop, Spark, DataX etc?
 
-以 Datax 为例：
+Example Datax：
 
-1. 安装插件。Rainbond 团队视图 -> 插件 -> 从应用商店安装插件 -> 搜索 `通用数据初始化插件` 并安装。
-2. 开通插件。进入 Worker 组件内 -> 插件 -> 开通  `通用数据初始化插件` ，并修改配置
+1. Install a plugin.Rainbond Team View -> Plugins -> Install Plugins -> From App Store -> Search for `Universal Data Initialization Plugins` and install it.
+2. Open plugin.Enter the worker's component -> Plugins -> Navigate to `Universal Data Initialization` and modify the configuration
    - FILE_URL：http://datax-opensource.oss-cn-hangzhou.aliyuncs.com/datax.tar.gz
    - FILE_PATH：/opt/soft
    - LOCK_PATH：/opt/soft
-3. 更新组件，初始化插件会自动下载 `Datax` 并解压到 `/opt/soft`目录下。
+3. Updating components, initialization plugins automatically download `Datax` and unpress `/opt/soft` to the `/opt/soft` folder.
 
 ![](https://static.goodrain.com/wechat/dolphinscheduler/7.png)
