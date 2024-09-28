@@ -2,10 +2,10 @@
 title: Heterogeneous application template
 ---
 
-# 发布指定架构的应用模板
+# Publish the application template of the specified architecture
 
-Rainbond 在进行常规的 [发布应用模板](/docs/use-manual/app-manage/share-app) 操作时，将自行查找当前应用下所有服务组件的架构信息并记录到模板中。这样，在该应用模板安装时，将会根据架构信息将对应的组件部署运行到具有对应 CPU 架构的计算节点中去。
+Rainbond will search and record in templates all service components in the current app when performing normal [发布应用模板](/docs/use-manual/app-manage/share-app).Thus, when the application template is installed, the corresponding component will be deployed to compute nodes with CPU structures based on architecture information.
 
-# 开源应用商店
+# Open Source App Store
 
-开源应用商店目前已经开始不断上架 `arm64` 架构的应用模板，如 MySQL、Redis 等中间件。使用者可以一键安装使用。
+The Open Source App Store is now continuously listing the application templates of the `arm64` architecture, such as MySQL, Redis and so on.Users can use one click for installation.
