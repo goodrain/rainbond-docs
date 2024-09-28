@@ -1,55 +1,55 @@
 ---
-title: 基于主机安装
-description: 基于图形化界面，从Linux开始安装 Rainbond
+title: Installing based on host
+description: Installing Rainbond from Linux based on graphical interface
 keywords:
-  - 基于主机安装 Rainbond
-  - 基于主机安装高可用 Kubernetes 集群
-  - 基于主机安装高可用 Rainbond 集群
+  - Install Rainbond based on host
+  - High-available Kubernetes cluster based on host installation
+  - Install High Available Rainbond Cluster based on Host
 ---
 
-import Bvideo from '/src/components/Bvideo';
+Import Bvideo from '/src/components/Bvideo';
 
 <Bvideo src="//player.bilibili.com/player.html?isOutside=true&aid=113193175223399&bvid=BV1Lvsee5Ep9&cid=25988171760&p=1" />
 
-当前安装方式，会引导用户从裸机开始安装 Rainbond ，服务器可以是物理机、虚拟机或各种云主机。
+The current installation method leads users to install Rainbond from naked machines, servers can be physical, virtual or cloud hosts.
 
-## 前提
+## Prerequisite
 
-以下操作系统是经过测试的，请按照下述列表准备：
+The following operating systems have been tested, please use the list below to prepare：
 
 - **CentOS：**`7.x 8.x`
-- **CentOS Stream：** `8 9`
-- **Ubuntu：**`16.x，18.x，20.x，22.x`
-- **Debian：** `9.x，10.x，11.x`
-- **Anolis OS：**`7.x，8.x`
+- **CentS Stream：** `89`
+- **Ubuntu：**`16.x,18.x,20.x,22.x`
+- **Debian：** `9.x,10.x,11.x`
+- **Anolis OS：**`7.x,8.x`
 - **openEuler**
 - **KylinV10**
 
-| 资源要求（最低）            | Rainbond 所需端口         | 其他要求                                                 |
-| ------------------- | --------------------- | ---------------------------------------------------- |
-| CPU：2u；内存：4G；磁盘：50G | 80，443，6060，7070，8443 | 内核：4.0+；OpenSSH：7.0+ |
+| Resource requirements (lowest) | Port required for Rainbond | Other requirements                                       |
+| ------------------------------------------------- | -------------------------- | -------------------------------------------------------- |
+| CPU：2u;Memory：4G;Disk：50G                         | 80,443,6060,7070,8443      | Kernel：4.0+;OpenSSH：7.0+ |
 
 :::tip
 
-该安装方式支持 Linux x86 和 Arm64 操作系统，支持[国产化信创](/docs/localization-guide)。
+This installation supports Linux x86 and Arm64 operating systems,[国产化信创](/docs/localization-guide).
 
 :::
 
-## 安装 Rainbond 控制台
+## Install Rainbond Console
 
 :::info
 
-Rainbond 控制台支持在 Linux、Windows(Docker Desktop) 或 Mac(Docker Desktop) 中运行。
+Rainbond Console supports running on Linux, Windows (Docker Desktop) or Mac(Docker Desktop).
 
 :::
 
-您可选择自行安装 `Docker 24+`，或使用 Rainbond 提供的脚本安装 `Docker`。
+You may choose to install `Docker 24+` on your own or to install `Docker` using the script provided by Rainbon.
 
 ```bash
 curl -sfL https://get.rainbond.com/install_docker | bash
 ```
 
-使用 Docker 启动 Rainbond 控制台，启动后使用 `http://IP:7070`进行访问。
+Launch the Rainbond Console using Docker to access the `http://IP:7070` on startup.
 
 ```bash
 docker run -d -p 7070:7070 \
@@ -59,77 +59,77 @@ docker run -d -p 7070:7070 \
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.3-release-allinone
 ```
 
-> 控制台将产生需要持久化的数据，存储于节点的 `~/rainbonddata` 目录中。
+> The console will generate data that needs to be persistent and stored in the `~/rainbonddata` directory of the node.
 
-## 从主机开始安装 Kubernetes 集群
+## Install the Kubernetes cluster from the host
 
-1. 登录 Rainbond 后，进入 **平台管理 > 集群 -> 添加集群 -> 从主机开始安装** 进入图形化安装页面。
-2. 填写节点信息，如下：
+1. Sign in with Rainbond to enter _platform management > cluster -> Add cluster -> Install cluster -> Install from host_\* to the graphical installation page.
+2. Fill in the node information below：
 
-|          | 说明                                |
-| -------- | --------------------------------- |
-| IP 地址    | 填写服务器公网 IP 地址或内网 IP 地址            |
-| 内网 IP 地址 | 填写服务器内网 IP 地址                     |
-| SSH 端口   | 通过 IP 地址 + SSH 端口安装 Kubernetes 集群 |
-| 节点属性     | 选择 Kubernetes 节点属性，管理、计算、ETCD     |
+|                     | Note                                                                 |
+| ------------------- | -------------------------------------------------------------------- |
+| IP address          | Enter the IP address of the server or the IP address of the Intranet |
+| Intranet IP address | Enter the IP address of the server                                   |
+| SSH Port            | Install the Kubernetes cluster via IP address + SSH port             |
+| Node Properties     | Select Kubernetes node properties, manage, calculate, ETCD           |
 
-3. 节点信息填写完毕后，根据页面提示复制节点初始化命令在集群内`所有节点`上执行。
+3. After completion of the node information, copy the node initialization command on the cluster `all notes` as the page prompts.
 
 :::tip
 节点初始化命令主要用于：
 
-- 自动创建 Docker 用户。
-- 自动配置 Docker 用户的免密登录以便后续安装。
-- 添加 SSH Forwading 配置。
+- Automatically create a Docker user.
+- Automatically configure the decrypt login of the Docker user for subsequent installation.
+- Add SSH Forwading configuration.
   :::
 
-4. 初始化命令执行完毕后，开始安装 Kubernetes 集群。如遇到集群安装失败，请参阅[常见问题](#常见问题)。
+4. After initialization command has been executed, start installing the Kubernetes cluster.If cluster installation fails, see[常见问题](#FAQ).
 
-## 安装 Rainbond 集群
+## Install Rainbond Cluster
 
-import Tabs from '@theme/Tabs';
+Import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
 
-在安装完成 Kubernetes 集群后，下一步将进入 Rainbond 集群安装页面，这部分将引导您完成 Rainbond 集群的安装。
+Once the Kubernetes cluster is installed, the next step will go to the Rainbond cluster installation page, which will lead you to complete the installation of the Rainbond cluster.
 
 :::
 
-1. 根据页面引导填写基础配置以及高级配置。
+1. Fill out base configuration and advanced configuration based on page lead.
 
 <Tabs groupId="configuration">
   <TabItem value="基础配置" label="基础配置" default>
 
-下述将对 Rainbond 集群基础配置进行详细说明。
+A detailed description of the Rainbond cluster base configuration is provided below.
 
-| 配置项                                                   | 说明                                            |    |
-| ----------------------------------------------------- | --------------------------------------------- | -- |
-| [集群入口 IP](/docs/installation/install-with-ui/ha#负载均衡) | 集群入口访问IP，可以是VIP、负载均衡IP或任意网关节点的IP              | 必填 |
-| [网关节点](/docs/installation/install-with-ui/ha#网关节点)    | 指定 Rainbond 网关服务部署并运行在哪个节点上                   | 必填 |
-| [构建节点](/docs/installation/install-with-ui/ha#构建节点)    | 指定 Rainbond 构建服务部署并运行在哪个节点上                   | 必填 |
-| [存储](/docs/installation/install-with-ui/ha#存储)        | 指定 Rainbond 以及平台上应用要使用的存储，自定义则需填写存储类名称        | 可选 |
-| [ETCD](/docs/installation/install-with-ui/ha#etcd)    | 存储 Rainbond 组件状态信息、网络配置等，自定义则需填写**密钥名称、节点名称** | 可选 |
+| Configuration Item                                                                                                                            | Note                                                                                                                                   |          |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| [Cluster entry IP](/docs/installation/install-with-ui/ha#load balancy) | IP access to cluster entrance can be VIP, load equilibrium IP or any gateway node                                                      | Required |
+| [网关节点](/docs/installation/install-with-ui/ha#gateways)                                                                                        | Specify which nodes Rainbond gateway service will be deployed and run                                                                  | Required |
+| [构建节点](/docs/installation/install-with-ui/ha#build nodes)              | Specify on which node Rainbond build services to deploy and run                                                                        | Required |
+| [存储](/docs/installation/install-with-ui/ha#storage)                                                                                           | Specify Rainbond and the store to be used on the platform, customize it to fill in the store class name                                | optional |
+| [ETCD](/docs/installation/install-with-ui/ha#etcd)                                                                                            | Store Rainbond component status information, network configuration, etc. Customize it requires **Key Name, Node Name** | optional |
 
 </TabItem>
 
   <TabItem value="高级配置" label="高级配置">
 
-下述将对 Rainbond 集群高级配置进行详细说明。
+Details on the advanced configuration of the Rainbond cluster are described below.
 
-| 配置项                                                | 说明                                                                                 |    |
-| -------------------------------------------------- | ---------------------------------------------------------------------------------- | -- |
-| [镜像仓库](/docs/installation/install-with-ui/ha#镜像仓库) | 指定 Rainbond 底层镜像仓库，平台上的所有组件镜像都会从这个仓库拉取、推送。默认提供内置镜像仓库                               | 可选 |
-| [数据库](/docs/installation/install-with-ui/ha#mysql) | 指定 Rainbond 集群的 MySQL8.0+ 数据库。默认提供内置 MySQL8.0+ 数据库 | 可选 |
-| 组件镜像源                                              | 指定 Rainbond 自身组件通过哪个镜像源获取镜像，默认通过阿里云镜像仓库拉取                                          | 可选 |
+| Configuration Item                                                                                                                     | Note                                                                                                                                                                              |          |
+| -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| [镜像仓库](/docs/installation/install-with-ui/ha#mirror repository) | Specify Rainbond mirror repository, all components on the platform will be picked up and pushed from this warehouse.Provide built-in mirror repository by default | optional |
+| [数据库](/docs/installation/install-with-ui/ha#mysql)                                                                                     | Specify the MySQL8.0+ database of the Rainbond cluster.Built-in MySQL8.0+ database provided by default                            | optional |
+| Component Mirror Source                                                                                                                | Specify which mirror source does Rainbond own component to retrieve the mirror, by default, through the Arjun mirror, Curaça                                                      | optional |
 
   </TabItem>
 </Tabs>
 
-2. 配置信息填写完成后进入 Rainbond 集群安装页面，在该页面可看到安装的进度信息，并且每个组件都可点击查看状态以及事件信息。
-3. 等待 Rainbond 所有组件都启动后，会自动跳转到集群对接页面，填写集群 ID，完成对接。
+2. The configuration is completed by entering the Rainbond cluster installation page, where progress information can be seen and where each component can click on status and event information.
+3. Wait that all components of Rainbond start will automatically jump to the cluster interface page, fill the cluster ID and complete the interface.
 
-## 高可用集群
+## High Available Cluster
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
@@ -138,11 +138,11 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 <DocCardList items={useCurrentSidebarCategory().items}/>
 ```
 
-## 下一步
+## Next step
 
-- [快速入门](/docs/quick-start/getting-started/): 快速在 Rainbond 上部署起你的第一个应用。
-- [迁移应用](/docs/ops-guide/migrate-app): 你可以参考该文档将单机版部署的应用迁移到该 Kubernetes 集群中。
+- [快速入门](/docs/quick-start/getting-started/): quickly deploy your first app on Rainbond
+- [迁移应用](/docs/ops-guide/migrate-app): You can refer to this document to migrate the single server deployed app to the Kubernetes cluster.
 
-### 常见问题
+### FAQ
 
-通过图形化界面基于主机安装 Rainbond 的过程中遭遇了任何问题，都可以参考文档 [Web界面安装问题排查指南](/docs/troubleshooting/installation/ui) 进行问题排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+Any problems encountered while installing Rainbond on the host via graphical interface can be tracked by reference to document [Web界面安装问题排查指南](/docs/troubleshooting/installation/ui).Or join [微信群](/community/support#microbelieve),[钉钉群](/community/support#pegs) for help.
