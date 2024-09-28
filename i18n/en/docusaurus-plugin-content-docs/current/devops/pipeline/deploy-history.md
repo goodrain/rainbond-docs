@@ -1,21 +1,21 @@
 ---
 title: Deployment history
-description: 介绍 Pipeline 应用插件的部署历史
+description: Introduction to Pipeline App deployment history
 keywords:
-  - 介绍 Pipeline 应用插件的部署历史
-  - Intro GitLab Pipeline Plugin Deploy History
+  - Introduction to Pipeline App deployment history
+  - Intro GitLab Pipeline Plugins in History
 ---
 
-部署历史包含各集群下的应用服务部署记录，包括状态、镜像名称、部署时间、执行人、说明、操作等。
+Deployment history includes application service deployment records under each cluster, including status, mirror names, deployment time, executor, instruction, operation, etc.
 
-## 前提
+## Prerequisite
 
-- 已经成功部署过应用服务。
+- Application services have been successfully deployed.
 
-## 操作步骤
+## Action step
 
-进入 Rainbond 控制台的团队内，选择左侧菜单栏的 **流水线**，进入部署历史页面。
+Go to the Rainbond Console and select the **streaming line** in the left menu bar. Enter the deployment history page.
 
-可选择集群和应用服务，查看该集群下的某个应用服务的部署历史。
+A cluster and application service can be selected to view the deployment history of an application service under this cluster.
 
-并且点击部署详情可跳转至 Rainbond 组件页面，查看部署详情。
+And click Deploying details to go to Rainbond component page for details of deployment.
