@@ -2,7 +2,7 @@
 title: Update component environment variables
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used to update component environment variables
 
@@ -26,12 +26,12 @@ PUT /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 
 ## request parameters
 
-| 名称                               | Location | type                                                        | required | Chinese name | illustrate   |
+| Name                             | Location | type                                                        | required | Chinese name | illustrate   |
 | -------------------------------- | -------- | ----------------------------------------------------------- | -------- | ------------ | ------------ |
-| app_id      | path     | integer                                                     | Yes      |              | app id       |
-| service_id  | path     | string                                                      | Yes      |              | app id       |
-| team_id     | path     | string                                                      | Yes      |              | team id      |
-| region_name | path     | string                                                      | Yes      |              | cluster name |
+| app_id      | Path     | integer                                                     | Yes      |              | app id       |
+| service_id  | Path     | String                                                      | Yes      |              | app id       |
+| team_id     | Path     | String                                                      | Yes      |              | team id      |
+| region_name | Path     | String                                                      | Yes      |              | cluster name |
 | body                             | body     | [ComponentEnvsSerializers](#schemacomponentenvsserializers) | no       |              | none         |
 
 ## return result
@@ -60,14 +60,14 @@ PUT /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 
 ### Attributes
 
-| 名称   | type                                                                                                                      | required | constraint | Chinese name | illustrate |
+| Name | type                                                                                                                      | required | constraint | Chinese name | illustrate |
 | ---- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
 | envs | [[ComponentEnvsBaseSerializers](#schemacomponentenvsbaseserializers)] | true     | none       |              | none       |
 
-### ComponentEnvsBaseSerializers<a id="schemacomponentenvsbaseserializers"></a>
+### ComponentEnvBaseSerializers<a id="schemacomponentenvsbaseserializers"></a>
 
 ```json
-{
+LO
   "note": "string",
   "name": "string",
   "value": "string",
@@ -80,8 +80,8 @@ PUT /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/services/{se
 
 | Basic Information              | type    | required | constraint | Chinese name | illustrate                 |
 | ------------------------------ | ------- | -------- | ---------- | ------------ | -------------------------- |
-| note                           | string  | false    | none       | Note         | Remark                     |
-| name                           | string  | true     | none       | Name         | environment variable name  |
-| value                          | string  | true     | none       | Value        | environment variable value |
+| Notes                          | String  | false    | none       | Note         | Remark                     |
+| Name                           | String  | true     | none       | Name         | environment variable name  |
+| Value                          | String  | true     | none       | Value        | environment variable value |
 | is_change | boolean | false    | none       | Is change    | Can it be changed          |
-| scope                          | string  | false    | none       | Scope        | 范围                         |
+| Scope                          | String  | false    | none       | Scope        | Scope                      |
