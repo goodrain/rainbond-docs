@@ -1,160 +1,160 @@
 ---
-title: 集群巡检
-description: 集群巡检功能描述和使用
+title: Clustering test
+description: Cluster Patrol Description and Use
 keywords:
-  - 集群巡检
+  - Clustering test
   - Description and use of cluster inspection function
 ---
 
-平台巡检是一种监测和评估底层系统运行状况的工具，可帮助您快速发现系统中存在的潜在风险并给出相应修复建议。该工具可用于扫描集群中的各个方面，包括系统性能瓶颈、业务组件运行状态、配置问题和镜像安全漏洞等，以提高系统的性能、稳定性和可用性。
+Platform tours are a tool to monitor and assess the performance of the underlying system and help you quickly identify potential risks in the system and recommend appropriate fixes.This tool can be used to scan all aspects of the cluster, including system performance bottlenecks, operating state of the business component, configuration issues and mirror security gaps, to improve the performance, stability and availability of the system.
 
-## 主要功能
+## Main features
 
-巡检主要支持 K8s 集群巡检、Rainbond 服务巡检、运行巡检、配置巡检和安全巡检这五类巡检项目。以下篇幅将详细介绍这五类巡检项。
+Inspections mainly support the K8s cluster inspections, Rainbond service inspections, operating inspections, configuring inspections and safety inspections.These five types of inspections are described in detail below.
 
-### K8s 集群巡检
+### K8s Cluster Inspection
 
-当对 K8s 集群进行巡检时，通常会检查节点状态、核心组件状态、以及一些资源使用状况。
+When inspecting the K8s cluster, check the status of the node, the state of the core component, and some resource usage.
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/cluster-scan1.png)
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/cluster-scan2.png)
 
-#### 节点健康状态
+#### Node Health Status
 
-- 检查集群中所有节点的健康状态，包括节点的运行状态、节点可用性、节点文件系统状态等。此外，还需要检查节点内核是否有死锁、docker 是否正常等，以确保整个集群的稳定性和可用性。
+- Check the health status of all nodes in the cluster, including the operation status of the node, the availability of the node, the status of the nodes filesystem, etc.In addition, there is a need to check if the kernel in the node has a dead lock, or if the docker is normal to ensure the stability and availability of the entire cluster.
 
-#### K8s 核心组件状态
+#### K8s Core Component Status
 
-- K8s 中的核心组件包括 kube-apiserver 、kube-controller-manager 、kube-scheduler 和 etcd 等。对这些核心组件的状态进行检查，可以确保Kubernetes集群的核心功能正常运行。此外，还需要对 K8s 集群证书过期时间进行检查，避免证书过期导致集群问题。
+- Core components in K8s include kube-apiserver, kube-controller - manager, kube-scheduler and etcd.Check the status of these core components to ensure that the core functions of the Kubernetes cluster function properly.In addition, there is a need to check the expiry date of the K8s cluster certificate in order to avoid the expiry of the certificate leading to cluster problems.
 
-#### 节点资源状况
+#### Node Resource Status
 
-- K8s 是一个高度动态的系统，它需要确保节点资源的可用性以支持应用程序的正常运行。因此，在对集群进行巡检时，需要检查节点的资源使用情况，包括CPU、内存和磁盘等。通过检查资源使用情况，可以确保节点资源的可用性和可扩展性，并及时发现可能会影响应用程序性能的问题。
+- K8s is a highly dynamic system that needs to ensure the availability of node resources to support the proper functioning of the application.Therefore, when inspecting clusters, there is a need to check the use of resources for nodes, including CPU, memory and disk.By checking the use of resources, the availability and scalability of nodes resources can be ensured and timely identification of problems that may affect the performance of applications.
 
-### Rainbond 服务巡检
+### Rainbond Service Patrol
 
-当对 Rainbond 底层服务进行巡检时，主要检查各个核心组件的状态以及重启状况。
+When inspecting Rainbond bottom services, check the state of each core component and reboot.
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/rbd-server.png)
 
-#### 运行状态
+#### Run Status
 
-- 检查 Rainbond 底层的核心组件，如 api 服务、网关服务、构建服务、应用运行时服务等组件的运行状态，以确保 Rainbond 的正常运行。
+- Check the state of operation of the core components at the bottom of Rainbond such as api services, gateway services, build services, app running services, etc. to ensure the proper functioning of Rainbond
 
-#### 重启状况
+#### Restart Status
 
-- 检查 Rainbond 底层组件的重启情况，如重启次数、重启原因等，可以确保及时发现 Rainbond 自身组件的问题并进行修复。
+- Inspecting the restarting of the underlying components of Rainbond, such as the number of restarts, reasons for restarting, etc., will ensure that the problems of Rainbond own components are identified and repaired in a timely manner.
 
-### 运行巡检
+### Run Cruise Check
 
-运行巡检主要针对于平台上运行的业务进行巡检，当进行运行巡检时，主要检查组件 pod 的运行状态和重启状况。
+The running inspection is primarily directed at operations running on the platform, and when the inspection is carried out, the main component pod is checked for performance and restart.
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/running.png)
 
-#### 运行状态
+#### Run Status
 
-- 检查集群内各个 Pod 的运行状态，例如 Pod 是否处于 Running 状态、Pod 是否处于 CrashLoopBackOff 状态、Pod 是否处于 Pending 状态等，以确保及时发现异常 Pod。
+- Checks how low Pod works in the cluster, e.g. if Pod is in Running state, Pod is in CrashLoopBackOff state, Pod is in Pending state, etc. to ensure that an exception is found in time.
 
-#### 重启状况
+#### Restart Status
 
-- 检查集群内各个 Pod 的重启情况，如重启次数、重启原因等，以确保及时发现 Pod 的问题并进行修复。
+- Check for reboot of the Pod in the cluster, such as number of reboots, reasons for restarts, to ensure that Pod problems are identified and repaired in a timely manner.
 
-### 配置巡检
+### Configure Patrol
 
-配置巡检主要针对于平台上运行的业务资源配置、健康检测配置等进行巡检。主要检查容器镜像标签、容器运行时参数、资源限制设置、存储挂载设置、容器健康检测设置。
+Configure the inspection primarily for business resource configuration, health test configuration, etc. running on the platform.Primary check container mirror labels, parameters while the container is running, resource restriction settings, storage mount settings, container health detection settings.
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/config.png)
 
-#### 容器镜像标签
+#### Container Image Label
 
-- 检查容器镜像的标签是否合规，包括是否使用了 latest 标签、是否使用了明确的版本号等。
+- Check that the labels of the container mirror are compliant and include whether the latest tag is used, whether a clear version number is used.
 
-#### 容器运行时参数
+#### Container Runtime Parameters
 
-- 检查容器运行时参数是否安全，包括是否禁止使用特权模式、是否开启了安全策略等。
+- Check if the parameters are safe while the container is running, including whether the use of privileges is prohibited, whether security policies are enabled, etc.
 
-#### 资源限制设置
+#### Resource Limit Settings
 
-- 检查容器资源限制设置是否合理，包括 CPU 和内存限制是否设置合理。
+- Check if the container resource limits are reasonable, including CPU and memory limits set reasonable.
 
-#### 存储卷挂载设置
+#### Storage volume mount settings
 
-- 检查容器存储卷挂载设置是否合理，包括是否禁止了对主机文件系统的挂载、是否使用了 ReadOnlyRootFilesystem 等。
+- Check if the container storage volume mount settings are reasonable, including if mounted on the host filesystem is prohibited, and if ReadOnlyRootFilesystem is used.
 
-#### 容器健康检测设置
+#### Container Health Detection Settings
 
-- 检查容器健康检测设置是否合理，包括是否设置了 liveness 和 readiness 探针、探针的检测间隔是否设置合理等。
-- 通过对这些配置进行扫描和分析，生成的配置巡检报告可以给出针对每个组件的配置建议和优化方案，帮助用户提高系统的安全性和可靠性。
+- Check if the container's health detection setting is reasonable, including whether libility is set and readiness probe and whether the probe interval is set correctly.
+- By scanning and analysing these configurations, the generated configuration cruise report provides configuration advice and optimization options for each component to help users improve the security and reliability of the system.
 
-### 安全巡检
+### Safety Patrol
 
-安全巡检主要针对于平台上运行的业务镜像进行扫描，并对镜像中的各类安全漏洞，给出详细信息链接，以便用户进行修复。具体来说，安全巡检主要包含了扫描镜像安全漏洞、漏洞报告、建议和解决方案、自动化定期检测。
+The safety cruise is primarily aimed at scanning business mirrors running on the platform and providing links to detailed information to allow users to repair the various security gaps in the mirrors.In particular, safety inspections consist mainly of scanned mirrors security gaps, bug reports, recommendations and solutions, and automated periodic tests.
 
 ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/leak.png)
 
-#### 扫描镜像安全漏洞
+#### Scan mirror security gaps
 
-- 通过对集群内已部署的业务镜像进行扫描，获取镜像存在的安全漏洞信息。
+- Gets the security gap information that exists by scanning deployed business mirrors within the cluster.
 
-#### 分析漏洞影响
+#### Analyze bugs
 
-- 对扫描出的安全漏洞进行分析，评估其对业务的影响程度，并给出相应的风险评级。
+- The identified security gaps are analysed, the extent of their impact on operations is assessed and risk ratings are given accordingly.
 
-#### 提供建议和解决方案
+#### Provide advice and solutions
 
-- 根据扫描出的安全漏洞和评估结果，给出相应的建议和漏洞详细信息，帮助用户修复漏洞，提升业务的安全性。
+- Based on the scanned security gaps and the results of the assessments, the corresponding recommendations and details are given to help users fix the gaps and improve the safety of their operations.
 
-#### 定期检测和自动化
+#### Regular Detection and Automation
 
-- 安全巡检需要定期进行，以保持业务的安全性。目前，安全巡检支持自动化运行，针对每个新部署的业务组件均会自动进行检测，并生成相关报告。
+- Security inspections need to be conducted on a regular basis in order to maintain the security of operations.At present, security inspections support automation and are automatically monitored for each newly deployed operational component and reports are generated.
 
-## 使用手册
+## Manual
 
-在具体使用当中，可以选择指定巡检项进行扫描，根据扫描的结果可以对问题进行排查修复。
+In the case of specific use, it is possible to select inspection items for scanning, based on the results of the scan, to fix the problem.
 
-### 集群巡检
+### Clustering test
 
-在进入平台巡检页面后，点击底部的巡检按钮，平台将开始自动巡检并给出巡检结果。巡检结果分 K8s集群巡检、Rainbond 服务巡检、运行巡检、配置巡检和安全巡检五类展示，每一类都会根据风险程度以错误数、警告数、正常数的形式进行展示。点击右侧查看报告将会列出详细信息。
+After entering the platform's inspection page, click on the cruise button at the bottom, the platform will start the auto-inspection and give the inspection results.The inspection results in K8s cluster inspections, Rainbond service inspections, operating inspections, configuration inspections, and safety inspections, each displayed in errors, warnings, normal numbers depending on the level of risk.Click on the right to view the report will list detailed information.
 
-### 问题修复
+### Issue Fix
 
-针对各项巡检结果，需要对已有问题进行排查和修复，常见问题有节点不健康、集群核心组件异常、rainbond组件异常及重启、业务组件异常或重启、业务组件配置、镜像漏洞等。
+The results of the inspections require screening and repair of existing problems, such as unhealthy nodes, abnormal cluster core components, unusual and restarting rainbod components, abnormal or restarted business components, configuration of business components, mirror loopholes, etc.
 
-#### 节点不健康
+#### Node unhealthy
 
-- 如果节点不健康，查找内核日志或节点 Events 信息进行修复。
-- 如果节点上的磁盘空间不足，可以删除不必要的文件或移动文件到其他存储位置来释放磁盘空间。
+- If the node is unhealthy, find the kernel log or nodes Events information for repair.
+- If there is insufficient disk space on the node, you can free disk space by removing unnecessary files or moving files to another storage location.
 
-#### K8s 核心组件异常
+#### K8s Core Component Exceptions
 
-- 如果 kube-apiserver 、kubelet、 kube-controller-manager 、kube-scheduler 等组件状态异常，可以查看相关日志或尝试重启相应服务进行修复。
-- 如果证书即将过期，请及时更新集群证书。
+- If kube-apiserver, kubelet, kube-controller or kube-scheduler is in an exception to the state of the component, you can view the log or try restarting the service to fix it.
+- If the certificate is about to expire, please update the cluster certificate in time.
 
-#### Rainbond 组件运行异常
+#### Rainbond Component Running Exceptions
 
-- 查看 Rainbond 组件的日志信息、Events 信息等方式，排查组件启动失败、无法访问等问题。
+- Look at the log, Events and other ways to view Rainbond components, troubleshooting component failed to start, unable to access issues, etc.
 
-#### Rainbond 组件异常重启
+#### Rainbond Component Restart Exception
 
-- 通过排查上一次组件异常退出日志进行修复。
+- Fix by sorting last component exit logs.
 
-#### 平台上业务组件运行异常
+#### Abnormality of operation of business component on platform
 
-- 在 Rainbond 组件视图，查看业务的日志信息、Events 信息等方式，排查组件启动失败、无法访问等问题。
+- In Rainbond Component Views, view business logs, Events info, and more, troubleshoot components failed to start, cannot access and so on.
 
-#### 平台上业务组件异常重启
+#### Business Component Restart Exceptionally on Platform
 
-- 通过排查上一次业务组件异常退出日志进行修复。
+- Fix by sorting the last operation component out logs.
 
-#### 平台上业务配置问题
+#### Business Configuration Issues on Platform
 
-- 检查容器镜像的标签是否合规，包括是否使用了 latest 标签、是否使用了明确的版本号等，
-- 检查容器运行时参数是否安全，包括是否禁止使用特权模式、是否开启了安全策略等。未设置的可以在组件视图-安全进行设置。
-- 检查容器资源限制设置是否合理，包括 CPU 和内存限制是否设置合理。
-- 检查容器存储卷挂载设置是否合理，包括是否禁止了对主机文件系统的挂载、是否使用了 ReadOnlyRootFilesystem 等。
-- 检查容器健康检测设置是否合理，包括是否设置了 liveness 和 readiness 探针、探针的检测间隔是否设置合理等。
+- Check that the labels of the container mirror are compliant and include whether the latest tag is used, whether a clear version number is used, etc.
+- Check if the parameters are safe while the container is running, including whether the use of privileges is prohibited, whether security policies are enabled, etc.Unset to set in component view - security.
+- Check if the container resource limits are reasonable, including CPU and memory limits set reasonable.
+- Check if the container storage volume mount settings are reasonable, including if mounted on the host filesystem is prohibited, and if ReadOnlyRootFilesystem is used.
+- Check if the container's health detection setting is reasonable, including whether libility is set and readiness probe and whether the probe interval is set correctly.
 
-#### 平台上业务镜像安全漏洞问题
+#### Problem with mirror security on the platform
 
-- 通过升级底层基础镜像版本进行解决。
+- Resolve by upgrading the base base image version.
