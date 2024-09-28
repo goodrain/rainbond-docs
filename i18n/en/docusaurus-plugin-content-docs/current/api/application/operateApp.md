@@ -2,7 +2,7 @@
 title: operating application
 ---
 
-## 基本信息
+## Basic Information
 
 This interface is mainly used for components under batch operation applications, and supports start, stop, update, and build
 
@@ -11,22 +11,22 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/operations
 ```
 
 ```json title="Body 请求体示例"
-{
+LO
   "action": "stop",
   "service_ids": [
     "string"
   ]
-}
+ } } } } }
 ```
 
 ## request parameters
 
-| name                             | Location | type                                                    | required | Chinese name | illustrate |
-| -------------------------------- | -------- | ------------------------------------------------------- | -------- | ------------ | ---------- |
-| app_id      | path     | integer                                                 | Yes      |              | app id     |
-| team_id     | path     | string                                                  | Yes      |              | none       |
-| region_name | path     | string                                                  | Yes      |              | none       |
-| body                             | body     | [ServiceGroupOperations](#schemaservicegroupoperations) | no       |              | none       |
+| name                             | Location | type                                           | required | Chinese name | illustrate |
+| -------------------------------- | -------- | ---------------------------------------------- | -------- | ------------ | ---------- |
+| app_id      | Path     | integer                                        | Yes      |              | app id     |
+| team_id     | Path     | String                                         | Yes      |              | none       |
+| region_name | Path     | String                                         | Yes      |              | none       |
+| body                             | body     | [ServiceGroupOperations](#schemaservicegroups) | no       |              | none       |
 
 ## return result
 
@@ -44,26 +44,26 @@ POST /openapi/v1/teams/{team_id}/regions/{region_name}/apps/{app_id}/operations
 ### ServiceGroupOperations<a id="schemaservicegroupoperations"></a>
 
 ```json
-{
+LO
   "action": "stop",
   "service_ids": [
     "string"
   ]
-}
+ } } } } }
 ```
 
 ### Attributes
 
-| name                             | type                                                         | required | constraint | Chinese name | illustrate                                                                                          |
-| -------------------------------- | ------------------------------------------------------------ | -------- | ---------- | ------------ | --------------------------------------------------------------------------------------------------- |
-| action                           | string                                                       | true     | none       | Action       | Operation type                                                                                      |
-| service_ids | [string] | false    | none       |              | List of component IDs, if no value is passed, all components under the application will be operated |
+| name                                | type                                                         | required | constraint | Chinese name | illustrate                                                                                          |
+| ----------------------------------- | ------------------------------------------------------------ | -------- | ---------- | ------------ | --------------------------------------------------------------------------------------------------- |
+| Action                              | String                                                       | true     | none       | Action       | Operation type                                                                                      |
+| service_weight | [string] | false    | none       |              | List of component IDs, if no value is passed, all components under the application will be operated |
 
 #### enumeration value
 
 | Attributes | value   |
 | ---------- | ------- |
-| action     | stop    |
-| action     | start   |
-| action     | upgrade |
-| action     | deploy  |
+| Action     | Stop    |
+| Action     | Start   |
+| Action     | upgrade |
+| Action     | Drop    |
