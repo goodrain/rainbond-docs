@@ -2,57 +2,56 @@
 title: YAML transformation and creation
 description: This document describes YAML identification strategies and how to create components by uploading YAML files.
 keywords:
-- Rainbond YAML
-- Rainbond YAML 创建组件
+  - Rainbond YAML
+  - Rainbond YAML 创建组件
 ---
 
 本篇文档介绍了 Rainbond 识别 YAML 的策略和如何通过上传 YAML 文件创建组件。
 
 ## YAML 转换策略
 
-Rainbond 通过识别 YAML 文件中的资源类型，将其转换为 Rainbond 中的组件类型，以及对特定的资源转化为 Rainbond 抽象层，以下便是按照类型划分的详细的支持资源清单：   
+Rainbond 通过识别 YAML 文件中的资源类型，将其转换为 Rainbond 中的组件类型，以及对特定的资源转化为 Rainbond 抽象层，以下便是按照类型划分的详细的支持资源清单：
 
 ### 组件类型资源
 
 该类型资源导入完成后会转换成 Rainbond 中的组件。
 
-| k8s资源                      | Rainbond模型                |
-| ------------------------- | ------------------------------|
-| Deployment     | 无状态组件             |
-| StatefulSet    | 有状态组件             |
-| CronJob        | 定时任务组件            |
-| Job            | 任务组件               |
+| k8s资源       | Rainbond模型 |
+| ----------- | ---------- |
+| Deployment  | 无状态组件      |
+| StatefulSet | 有状态组件      |
+| CronJob     | 定时任务组件     |
+| Job         | 任务组件       |
 
 ### 组件属性资源
 
 组件类型资源自身携带的一些属性值，如Port、ConfigMap、volume等
 
-| 组件属性                      | Rainbond模型                |
-| ------------------------- | ------------------------------|
-| nodeSelector              | 组件特殊属性 |
-| labels                    | 组件特殊属性 |
-| tolerations               | 组件特殊属性 |
-| volumes                   | 组件特殊属性 |
-| serviceAccountName        | 组件特殊属性 |
-| affinity                  | 组件特殊属性 |
-| volumeMount               | 组件特殊属性/配置文件 |
-| privileged                | 组件特殊属性 |
-| port                      | 组件端口    |    
-| HorizontalPodAutoscalers  | 组件伸缩策略 |
-| env                       | 环境变量/组件特殊属性   |
-| HealthyCheckManagement    | 组件健康检测 |
+| 组件属性                     | Rainbond模型  |
+| ------------------------ | ----------- |
+| nodeSelector             | 组件特殊属性      |
+| labels                   | 组件特殊属性      |
+| tolerations              | 组件特殊属性      |
+| volumes                  | 组件特殊属性      |
+| serviceAccountName       | 组件特殊属性      |
+| affinity                 | 组件特殊属性      |
+| volumeMount              | 组件特殊属性/配置文件 |
+| privileged               | 组件特殊属性      |
+| port                     | 组件端口        |
+| HorizontalPodAutoscalers | 组件伸缩策略      |
+| env                      | 环境变量/组件特殊属性 |
+| HealthyCheckManagement   | 组件健康检测      |
 
-* 如果组件的 volumeMount 挂载了 ConfigMap 类型的 volume ，则会转化为组件的配置文件。
-* 如果 env 是引用类型，则不会被识别到 Rainbond 的环境变量。  
-* 其他的资源全部放在应用视图下的 k8s 资源当中。
+- 如果组件的 volumeMount 挂载了 ConfigMap 类型的 volume ，则会转化为组件的配置文件。
+- 如果 env 是引用类型，则不会被识别到 Rainbond 的环境变量。
+- 其他的资源全部放在应用视图下的 k8s 资源当中。
 
 ## 使用 YAML 创建组件
 
 ### 前提条件
 
-1. 对 Kubernetes 资源的 YAML 文件非常熟悉，准备一个或多个 Kubernetes 资源的 YAML 文件。  
+1. 对 Kubernetes 资源的 YAML 文件非常熟悉，准备一个或多个 Kubernetes 资源的 YAML 文件。
 2. 检查当前团队和应用是否是期望创建的位置。
-
 
 ### 上传 YAML 文件
 
