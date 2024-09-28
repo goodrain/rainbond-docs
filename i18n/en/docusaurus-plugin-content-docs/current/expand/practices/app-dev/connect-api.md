@@ -4,6 +4,7 @@ weight: 4004
 ---
 
 ### foreword
+
 For deploying Vue and React projects, please refer to Rainbond to deploy Vue and React projects
 
 In the past, after deploying the front-end project, we called the back-end interface in the following scenarios：
@@ -34,9 +35,7 @@ So how do we solve the problem of**cross-domain**that the interface is not unifi
 
 ​ Answer：Use**Nginx reverse proxy**.
 
-​ Most of the small partners use nginx to throw the`dist`package packaged by the project into nginx, configure a location proxy_pass reverse proxy backend, and then fill in the`Nginx`address in the global configuration of the project.Jiang Zi will still cross over 😋.Then how to deal with it, please see below👇
-
-
+​ Most of the small partners use nginx to throw the`dist`package packaged by the project into nginx, configure a location proxy_pass reverse proxy backend, and then fill in the`Nginx`address in the global configuration of the project.Jiang Zi will still cross over 😋.Then how to deal with it, please see below👇酱紫还是会跨越哦😋。那究竟该怎么处理呢，请往下看👇
 
 ### There are several ways to solve cross-domain for different scenarios：
 
@@ -44,7 +43,7 @@ So how do we solve the problem of**cross-domain**that the interface is not unifi
 
 1. If the number of interfaces is small, for example, there are only a few interfaces`system` `tool` `moitor` `login` `getmenu`and so on.
 
-   First of all, you need to modify the request api of the global configuration file`` to**/**When the front end of Jiangzi writes a request, it will be forwarded directly to nginx.
+   First of all, you need to modify the request api of the global configuration file\`\` to\*\*/\*\*When the front end of Jiangzi writes a request, it will be forwarded directly to nginx.
 
    ```shell
    ENV = 'production'
@@ -68,14 +67,16 @@ So how do we solve the problem of**cross-domain**that the interface is not unifi
          location /getmenu{
              proxy_pass http ://127.0.0.1:8080/;
          }
-}
    ```
 
-   This method is certainly possible, but it is very troublesome to configure dozens or hundreds of interfaces one by one.
+   这种方式固然可以，但对于接口几十个上百个 一一配置很麻烦。
 
-2. There are many interfaces.
+2. 接口数量很多。
 
-   Also, you need to modify the global configuration file`.env.production`, and modify the request interface to api, which is customized.Some friends have doubts, I don't have this interface, please read on.
+   This method is certainly possible, but it is very troublesome to configure dozens or hundreds of interfaces one by one.2) There are many interfaces.Also, you need to modify the global configuration file`.env.production`, and modify the request interface to api, which is customized.Some friends have doubts, I don't have this interface, please read on.```shell
+   ENV = 'production'
+   VUE_APP_BASE_API = '/api'有的小伙伴就疑问了，我没有这个接口呀，请接着往下看。
+   ```
 
    ```shell
    ENV = 'production'
@@ -102,22 +103,20 @@ So how do we solve the problem of**cross-domain**that the interface is not unifi
            rewrite ^/api/( .*)$ /$1 break;
            proxy_pass http://192.168.2.182:8080;
        }
-}
+   }
    ```
 
    `rewrite ^/api/(.*)$ /$1 break`For details, please refer to[Nginx official document rewrite_module module](http://nginx.org/en/docs/http/ngx_http_rewrite_module.html), here is a brief introduction of：
 
-   ​ rewrite ^/api/(.*)$ /$1 break
+   ​ rewrite ^/api/(.\*)$ /$1 break
 
    ​ Keyword regular alternative content flag tag
-
-
 
 #### Unified interface
 
 It's better to handle this.
 
-Also, the first thing is to modify the project's global configuration file`.env.production`, and modify the request interface to **/prod-api**.This unified interface is provided by the backend.
+Also, the first thing is to modify the project's global configuration file`.env.production`, and modify the request interface to **/prod-api**.This unified interface is provided by the backend.这个统一接口是后端提供的哈。
 
 ```shell
 ENV = 'production'
@@ -144,8 +143,6 @@ server {
 }
 ```
 
-
-
 The cross-domain problem is solved, then let's start practicing once 😁.
 
 The front-end configuration this time is the way that the**interface is unified with the**mentioned above.
@@ -154,15 +151,15 @@ Next, deploy a SpringBoot backend project to use with the frontend.
 
 ### Source deployment backend
 
-* Source address of this project`https://gitee.com/zhangbigqi/RuoYi-Vue.git` Fork open source project [Ruoyi](https://gitee.com/y_project/RuoYi-Vue.git)
+- Source address of this project`https://gitee.com/zhangbigqi/RuoYi-Vue.git` Fork open source project [Ruoyi](https://gitee.com/y_project/RuoYi-Vue.git)
 
-* Backend is**SpringBoot + Mysql + Redis** architecture.
+- Backend is**SpringBoot + Mysql + Redis** architecture.
 
 #### Dockerfile source code build and deploy Mysql
 
 Refer to the blog post Rainbond to easily build and run applications with Dockerfile
 
-1. Build and deploy Mysql through the Dockerfile source code.Reference document[Dockerfile source code construction](/docs/use-manual/component-create/language-support/dockefile)
+1. Build and deploy Mysql through the Dockerfile source code.Reference document[Dockerfile source code construction](/docs/use-manual/component-create/language-support/dockefile)参考文档[Dockerfile源码构建](/docs/use-manual/component-create/language-support/dockefile)
 
    ​ Dockerfile source code construction requires placing`Dockerfile file`in the Sql directory required by the project to automatically initialize the database.
 
@@ -176,8 +173,6 @@ Refer to the blog post Rainbond to easily build and run applications with Docker
 
 5. After the construction is completed, open the internal service in the component > port and modify the `alias`, click to modify, and change it to`MYSQL_HOST`for use in back-end connections.
 
-
-
 #### Docker image deploys Redis
 
 1. Deploy redis through docker image, refer to official document[docker image construction](/docs/use-manual/component-create/image-support/image)for details
@@ -186,11 +181,11 @@ Refer to the blog post Rainbond to easily build and run applications with Docker
 
 3. Confirm the creation, the platform will detect some image information, you can create it directly.
 
-4. After the build is complete, open the inbound service in the component > port.for backend connections
+4. After the build is complete, open the inbound service in the component > port.for backend connections以供后端连接使用
 
 #### Java source code build and deploy SpringBoot
 
-1. Here, the configuration file `ruoyi-admin/src/main/resources/application-druid.yml`in the back-end project was modified in advance to connect to the database, and changed to the environment variable connection. The port alias modified above is used here.And modified the connection Redis configuration in the`ruoyi-admin/src/main/resources/application.yml`file
+1. Here, the configuration file `ruoyi-admin/src/main/resources/application-druid.yml`in the back-end project was modified in advance to connect to the database, and changed to the environment variable connection. The port alias modified above is used here.And modified the connection Redis configuration in the`ruoyi-admin/src/main/resources/application.yml`file}
 
    ```shell
    # Main database data source
@@ -209,7 +204,7 @@ Refer to the blog post Rainbond to easily build and run applications with Docker
 
 4. The platform will detect what project is based on the `pom.xml` file in the project root directory, and the multi-module project is detected here.
 
-5. Enter the multi-module build, check the`ruoyi-admin`module, this module is runnable, and other modules are dependent.For specific module functions, please refer to[if according to the official document](https://doc.ruoyi.vip/)
+5. Enter the multi-module build, check the`ruoyi-admin`module, this module is runnable, and other modules are dependent.For specific module functions, please refer to[if according to the official document](https://doc.ruoyi.vip/)具体模块功能参考[若依官方文档](https://doc.ruoyi.vip/)
 
 6. The Maven build parameters can be modified, and no modification is required unless there are special requirements.
 
@@ -221,19 +216,20 @@ Refer to the blog post Rainbond to easily build and run applications with Docker
 
    > Custom JDK download address：https://buildpack.oss-cn-shanghai.aliyuncs.com/jdk/jdk1.8.0.tgz
 
-* Need to open **to disable the cache button**to prevent strange problems with different packages.After the build is successful, disable the cache and turn off the cache, and the correct package will be cached next time.
+- 需要打开 **禁用缓存按钮**，防止包不一样出现奇奇怪怪的问题。Need to open **to disable the cache button**to prevent strange problems with different packages.After the build is successful, disable the cache and turn off the cache, and the correct package will be cached next time.
 
+- 修改后 **保存修改**。After modification **save modification**.Build the component, wait for the build to complete, and modify the port to `8080`.
 
-* After modification **save modification**.Build the component, wait for the build to complete, and modify the port to `8080`.
-* Enter the topology map interface, switch to edit mode, and establish component dependencies.
-  * **ruoyi-ui **connect**ruoyi-admin**.
-  * **ruoyi-admin **Connect** Mysql**,**Redis**.
-* Update component`ruoyi-ui` `ruoyi-admin`, so far.
-* Final effect, topology map：
+- Enter the topology map interface, switch to edit mode, and establish component dependencies.
+  - **ruoyi-ui **connect**ruoyi-admin**.
+  - **ruoyi-admin **Connect** Mysql**,**Redis**.
+
+- Update component`ruoyi-ui` `ruoyi-admin`, so far.
+
+- Final effect, topology map：
 
 ![tuoputu](https://static.goodrain.com/docs/practice/Vue-SpringBoot-Mysql/tuoputu.png)
 
-* page effect：
+- page effect：
 
 ![ym](https://static.goodrain.com/docs/practice/Vue-SpringBoot-Mysql/ym.png)
-
