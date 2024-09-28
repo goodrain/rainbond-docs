@@ -71,21 +71,21 @@ After executing the curl request, you will get a response similar to the followi
 
 Description of request parameters:
 
-| parameter                       | Is it required | illustrate |
-| :------------------------------ | :------------- | :--------- |
-| secret_key | Yes            | key        |
+| parameter                            | Is it required | illustrate |
+| :----------------------------------- | :------------- | :--------- |
+| secretariat_key | Yes            | key        |
 
 Response parameter description:
 
-| parameter                      | type   | illustrate                                                                                                     |
-| :----------------------------- | :----- | :------------------------------------------------------------------------------------------------------------- |
-| code                           | int    | business code                                                                                                  |
-| msg                            | string | A detailed description of the response to the request                                                          |
-| msg_show  | string | A description of the response to the request, for display                                                      |
-| status                         | string | Status of the instance, possible values are: healthy, unhealthy, unknown                       |
-| ip                             | string | IP address of the instance                                                                                     |
-| is_static | bool   | Whether the instance is of static type, true: static type; false: dynamic type |
-| is_online | bool   | Whether the instance is online, true: online; false: offline                   |
+| parameter                      | type     | illustrate                                                                                                     |
+| :----------------------------- | :------- | :------------------------------------------------------------------------------------------------------------- |
+| code                           | Annex II | business code                                                                                                  |
+| msg                            | String   | A detailed description of the response to the request                                                          |
+| msg_show  | String   | A description of the response to the request, for display                                                      |
+| Status                         | String   | Status of the instance, possible values are: healthy, unhealthy, unknown                       |
+| ip                             | String   | IP address of the instance                                                                                     |
+| is_static | Bool     | Whether the instance is of static type, true: static type; false: dynamic type |
+| is_online | Bool     | Whether the instance is online, true: online; false: offline                   |
 
 ##### PUT
 
@@ -110,19 +110,19 @@ After executing the curl request, you will get a response similar to the followi
 
 Description of request parameters:
 
-| parameter                       | Is it required | type   | illustrate                            |
-| :------------------------------ | :------------- | :----- | :------------------------------------ |
-| secret_key | Yes            | string | key                                   |
-| ip                              | Yes            | string | Service instance address, ipv4 format |
-| is_online  | no             | bool   | Whether online, default true          |
+| parameter                            | Is it required | type   | illustrate                            |
+| :----------------------------------- | :------------- | :----- | :------------------------------------ |
+| secretariat_key | Yes            | String | key                                   |
+| ip                                   | Yes            | String | Service instance address, ipv4 format |
+| is_online       | no             | Bool   | Whether online, default true          |
 
 Response parameter description:
 
-| parameter                     | type   | illustrate                                                |
-| :---------------------------- | :----- | :-------------------------------------------------------- |
-| code                          | int    | business code                                             |
-| msg                           | string | A detailed description of the response to the request     |
-| msg_show | string | A description of the response to the request, for display |
+| parameter                     | type     | illustrate                                                |
+| :---------------------------- | :------- | :-------------------------------------------------------- |
+| code                          | Annex II | business code                                             |
+| msg                           | String   | A detailed description of the response to the request     |
+| msg_show | String   | A description of the response to the request, for display |
 
 ##### DELETE
 
@@ -147,18 +147,18 @@ After executing the curl request, you will get a response similar to the followi
 
 Description of request parameters:
 
-| parameter                       | Is it required | type   | illustrate                            |
-| :------------------------------ | :------------- | :----- | :------------------------------------ |
-| secret_key | Yes            | string | key                                   |
-| ip                              | Yes            | string | Service instance address, ipv4 format |
+| parameter                            | Is it required | type   | illustrate                            |
+| :----------------------------------- | :------------- | :----- | :------------------------------------ |
+| secretariat_key | Yes            | String | key                                   |
+| ip                                   | Yes            | String | Service instance address, ipv4 format |
 
 Response parameter description:
 
-| parameter                     | type   | illustrate                                                |
-| :---------------------------- | :----- | :-------------------------------------------------------- |
-| code                          | int    | business code                                             |
-| msg                           | string | A detailed description of the response to the request     |
-| msg_show | string | A description of the response to the request, for display |
+| parameter                     | type     | illustrate                                                |
+| :---------------------------- | :------- | :-------------------------------------------------------- |
+| code                          | Annex II | business code                                             |
+| msg                           | String   | A detailed description of the response to the request     |
+| msg_show | String   | A description of the response to the request, for display |
 
 The request content of the PUT and DELETE methods is of type application/json
 
@@ -177,12 +177,12 @@ For example, if you don't want to open port 7070 to the outside world or want to
 #### Docking with Alibaba Cloud RDS
 
 Rainbond provides corresponding support for domain name instances of third-party components, allowing users to add domain name instance addresses of third-party components, and provide internal services of the rainbond platform. Combined with the existing logic that domain names can be resolved to multiple IP addresses, the rainbond platform only allows adding one domain name instance address to third-party components.
-结合域名可以解析到多个 IP 地址上这样一个现有的逻辑，rainbond 平台仅允许添加一个域名实例地址到第三方组件中。
+This existing logic can be parsed to multiple IP addresses, in combination with domain names, the rainbond platform allows only one domain name instance address to a third party component.
 
 static registration
 
 In the process of creating static third-party components, there will be logic for address verification. If there are multiple addresses filled in by the user and the number of domain name addresses is greater than or equal to one, the verification cannot be passed. In other words, a third-party service added by domain name can only add one domain name instance address.
-换句话说，以域名方式添加的第三方服务只能添加 1 个域名实例地址。
+In other words, a third-party service added by domain name can only add 1 domain name instance address.
 
 Dynamic registration method
 
