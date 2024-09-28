@@ -1,8 +1,8 @@
 ---
 title: Offline install
 description: Use Helm to install Rainbond offline
-keywords: 
-- 离线安装 Rainbond
+keywords:
+  - 离线安装 Rainbond
 ---
 
 本文档介绍通过 Helm 离线安装 Rainbond。
@@ -12,7 +12,6 @@ keywords:
 - 安装 [Helm CLI](/docs/ops-guide/tools/#helm-cli)
 - 可用的 Kubernetes 集群，版本 1.16+
 - 安装 NFS 客户端
-
 
 ## 准备离线镜像和安装包
 
@@ -55,6 +54,7 @@ docker save -o rainbond-"${VERSION}".tar ${image_list}
 ```
 
 获取 Rainbond Helm Chart 安装包
+
 ```bash
 helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
 helm pull rainbond/rainbond-cluster
@@ -65,6 +65,7 @@ helm pull rainbond/rainbond-cluster
 导入上面准备镜像包和离线包到目标所有服务器，执行以下命令开始安装。
 
 ### 导入镜像包
+
 ```bash
 docker load -i rainbond-v5.17.3-release.tar
 ```
