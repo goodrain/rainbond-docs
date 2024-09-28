@@ -3,22 +3,22 @@ title: Service Mesh Usage Guide
 description: This chapter describes the Service Mesh function of Rainbond, including the concept, functions, and usage of Service Mesh.
 keywords:
   - Service Mesh
-  - 服务网格
+  - Service Grid
   - Istio
   - Envoy
 ---
 
-Service Mesh 既服务网格，作为服务间通信的基础设施层。轻量级高性能网络代理，提供安全的、快速的、可靠地服务间通讯，与实际应用部署一起，但对应用透明。应用作为服务的发起方，只需要用最简单的方式将请求发送给本地的服务网格代理，然后网格代理会进行后续的操作，如服务发现，负载均衡，最后将请求转发给目标服务。
+Service Mesh is a service grid that serves as an infrastructure layer for inter-service communication.Lightweight high-performance network agents provide secure, fast and reliable inter-service communications, deployed with actual applications but transparent for applications.The application as the initiator of the service only requires that the request be sent to the local service grid agent in the simplest way and that the grid agent will follow up with the service discovery and load equilibrium and eventually forward the request to the target service.
 
-## Service Mesh 支持
+## Service Mesh Support
 
-Rainbond 支持三种 Service Mesh 方案：
+Rainbond Supported Service Mesh Program：
 
-1. 内置 Service Mesh：Rainbond 内置了一个 Service Mesh，基于 Istio 和 Envoy 实现，无需额外安装，直接使用。
-2. 原生 Service：Rainbond 支持使用 Kubernetes 原生 Service 作为 Service Mesh，无需额外安装，直接使用。
-3. Istio：Rainbond 支持使用 Istio 作为 Service Mesh，支持 Istio 1.11.4 及以上版本。
+1. Built-in Service Mesh：Rainbond has a service Mesh, based on Istio and Envoy and using it directly without additional installation.
+2. Native Service：Rainbond supports the use of Kubernetes Native Service as Service Mesh, without additional installation and direct use.
+3. Istio：Rainbond supports the use of Istio as a service Mesh, version of Istio 1.11.4 and above.
 
-## Service Mesh 服务间通信与治理模式
+## Service Mesh Service Interservice Communication and Governance Model
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
