@@ -2,7 +2,7 @@
 title: Update certificate
 ---
 
-## Basic Information
+## 基本信息
 
 This interface is mainly used to update the certificate
 
@@ -21,11 +21,11 @@ PUT /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 ## request parameters
 
-| name           | Location | type                                          | required | Chinese name | illustrate |
-| -------------- | -------- | --------------------------------------------- | -------- | ------------ | ---------- |
+| name                                | Location | type                                          | required | Chinese name | illustrate |
+| ----------------------------------- | -------- | --------------------------------------------- | -------- | ------------ | ---------- |
 | team_id        | path     | string                                        | Yes      |              | none       |
 | certificate_id | path     | string                                        | Yes      |              | none       |
-| body           | body     | [TeamCertificatesC](#schemateamcertificatesc) | no       |              | none       |
+| body                                | body     | [TeamCertificatesC](#schemateamcertificatesc) | no       |              | none       |
 
 ## return result
 
@@ -48,12 +48,12 @@ PUT /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 ### Attributes
 
-| name             | type   | required | constraint | Chinese name     | illustrate       |
-| ---------------- | ------ | -------- | ---------- | ---------------- | ---------------- |
-| alias            | string | true     | none       | Alias            | certificate name |
-| private_key      | string | true     | none       | Private key      | Certificate      |
-| certificate      | string | true     | none       | Certificate      | certificate key  |
-| certificate_type | string | true     | none       | Certificate type | Certificate type |
+| name                                  | type   | required | constraint | Chinese name     | illustrate       |
+| ------------------------------------- | ------ | -------- | ---------- | ---------------- | ---------------- |
+| alias                                 | string | true     | none       | Alias            | certificate name |
+| private_key      | string | true     | none       | Private key      | 证书               |
+| certificate                           | string | true     | none       | Certificate      | certificate key  |
+| certificate_type | string | true     | none       | Certificate type | 证书类型             |
 
 ### TeamCertificatesR<a id="schemateamcertificatesr"></a>
 
@@ -69,10 +69,10 @@ PUT /openapi/v1/teams/{team_id}/certificates/{certificate_id}
 
 ### Attributes
 
-| name             | type    | required | constraint | Chinese name     | illustrate       |
-| ---------------- | ------- | -------- | ---------- | ---------------- | ---------------- |
-| alias            | string  | true     | none       | Alias            | certificate name |
-| private_key      | string  | true     | none       | Private key      | Certificate      |
-| certificate      | string  | true     | none       | Certificate      | certificate key  |
-| certificate_type | string  | true     | none       | Certificate type | Certificate type |
-| id               | integer | true     | none       | Id               | id               |
+| name                                  | type    | required | constraint | Chinese name     | illustrate        |
+| ------------------------------------- | ------- | -------- | ---------- | ---------------- | ----------------- |
+| alias                                 | string  | true     | none       | Alias            | certificate name  |
+| private_key      | string  | true     | none       | Private key      | 证书                |
+| certificate                           | string  | true     | none       | Certificate      | certificate key   |
+| certificate_type | string  | true     | none       | Certificate type | Basic Information |
+| id                                    | integer | true     | none       | Id               | id                |
