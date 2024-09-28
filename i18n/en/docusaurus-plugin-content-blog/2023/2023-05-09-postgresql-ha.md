@@ -1,65 +1,65 @@
 ---
-title: PostgreSQL-HA 高可用集群在 Rainbond 上的部署方案
-description: PostgreSQL 是开源关系型数据库管理系统，本文将介绍在 Rainbond 上使用 Postgresql-repmgr + Pgpool 实现 Postgresql 高可用集群的部署和管理。
-slug: postgresql-ha
+title: PostgreSQL-HA High Available Cluster Deployment Scheme on Rainbond
+description: PostgreSQL is an open-source relationship database management system that will describe the deployment and management of high-available clusters using Postgresql-repmgr + Pgpool on Rainbond to achieve Postprogresql implementation.
+slug: postcongresql-ha
 image: https://static.goodrain.com/wechat/pg-ha/pg-ha-banner.png
 ---
 
-PostgreSQL 是一种流行的开源关系型数据库管理系统。它提供了标准的SQL语言接口用于操作数据库。
+PostgreSQL is a popular open-source relationship database management system.It provides a standard SQL language interface to operate the database.
 
-repmgr 是一个用于 PostgreSQL 数据库复制管理的开源工具。它提供了自动化的复制管理，包括：
+repmgr is an open source tool for PostgreSQL database copy management.It provides automated copy management, including：
 
-- 故障检测和自动故障切换：repmgr 可以检测到主服务器故障并自动切换到备用服务器。
-- 自动故障恢复：repmgr 可以检测到从服务器故障并自动将其重新加入到复制拓扑中。
-- 多个备用服务器：repmgr 支持多个备用服务器，可以在主服务器故障时自动切换到最合适的备用服务器。
-- 灵活的复制拓扑：repmgr 支持各种复制拓扑，包括单主服务器和多主服务器。
-- 管理和监控：repmgr 提供了用于管理和监控PostgreSQL复制的各种工具和命令。
+- Incident detection and automatic failure switching：repmgr can detect primary server failure and automatically switch to backup server.
+- Auto-failure recovery：repmgr can detect failures from the server and automatically rejoin the copying top.
+- Multiple alternate servers：repmgr support multiple alternate servers that can be automatically switched to the most suitable alternate servers when the main server fails.
+- Flexible copy extension of VBVBV：repmgr supports various copying panels, including single master and multi-master servers.
+- Manage and monitor：repmgr provides tools and commands to manage and monitor PostgreSQL copies.
 
-可以说 repmgr 是一个扩展模块，简化了 PostgreSQL 复制的管理和维护，提高系统的可靠性和可用性。它是一个非常有用的工具，特别是对于需要高可用性的生产环境。同时 repmgr 也是由 Postgresql 社区开发以及维护的。
+It can be said that repmgr is an extension module that simplifies the management and maintenance of PostgreSQL copies, improving the reliability and availability of the system.It is a very useful tool, especially for a production environment that requires high availability.And repmgr was also developed and maintained by the Postgresql community.
 
-Pgpool 是一个高性能的连接池和负载均衡器，用于 PostgreSQL 数据库。Pgpool 可以作为中间层，位于客户端和 PostgreSQL 服务器之间，来管理连接请求并分配给不同的 PostgreSQL 服务器进行处理，以提高整体的系统性能和可用性。Pgpool 的一些主要功能包括：
+Pgpool is a high-performance connection pool and load balancer for PostgreSQL database.Pgpot can be used as an intermediate layer between clients and PostgreSQL servers to manage connection requests and be assigned to different PostgreSQL servers for processing to improve overall system performance and availability.Some of the main features of Pgpool include：
 
-- 连接池：Pgpool在应用程序和数据库之间建立一个连接池，使得多个应用程序可以共享一组数据库连接，避免了重复的连接和断开。
-- 负载均衡：Pgpool可以将客户端请求均衡地分配到多个PostgreSQL服务器上，以实现负载均衡和更好的性能。
-- 高可用性：Pgpool可以检测到PostgreSQL服务器的故障，并自动将客户端请求重新路由到其他可用服务器，从而提高系统的可用性和稳定性。
-- 并行查询：Pgpool可以将大型查询分成几个子查询，然后将这些子查询并行发送到多个PostgreSQL服务器上执行，以提高查询性能。
+- The connection pool：Pgpool establishes a connection pool between the application and the database, allowing multiple applications to share a set of database connections, avoiding duplicated connections and disconnects.
+- Load balance：Pgpool can evenly assign client requests to multiple PostgreSQL servers to achieve load balance and better performance.
+- High availability of：Pgpool can detect failures in the PostgreSQL server and automatically re-route client requests to other available servers, thus improving system availability and stability.
+- Parallel querying：Pgpool can split large queries into several subqueries, and then send these queries to multiple PostgreSQL servers in parallel to improve query performance.
 
-**本文将介绍在 Rainbond 上使用 Postgresql-repmgr + Pgpool 实现 Postgresql 高可用集群的部署和管理。**
+**This paper will describe the deployment and management of high-available clusters using Postgresql-repmgr + Pgpool to achieve Postgresql on Rainbond**
 
-## 架构
+## Architecture
 
-![](https://static.goodrain.com/wechat/pg-ha/postgresql-repmgr-pgpool.png)
+![](https://static.goodrain.com/wechat/pg-ha/postcongresql-repmgr-pgpool.png)
 
-当使用 Postgresql HA 集群时，应用只需连接 `pgpool` 即可。
+When using Postgresql HA cluster, the app simply needs to connect to `pgpool`.
 
-- 通过 pgpool 实现读写分离，写入操作由 Master 执行，读取操作由 Slave 执行。
-- 由 repmgr 实现流复制，Master 数据自动复制到 Slave。
-- 当 Master 遇故障下线时，由 repmgr 自定选择 Slave 为 Master，并继续执行写入操作。
-- 当某个节点遇故障下线时，由 pgpool 自动断开故障节点的连接，并切换到可用的节点上。
+- Separate reading and writing with pgpool. Writing is performed by Master, read by Slave.
+- Copied from repmgr stream, Master data is automatically copied to Slave.
+- When Master failure is offline, repmgr chooses Slave to Master, and continues writing operations.
+- When a node is offline, automatically disconnects the failure node from pgpool and switches to available nodes.
 
-## 部署 Rainbond
+## Deployment of Rainbond
 
-安装 Rainbond，可通过一条命令快速安装 Rainbond，或选择 [基于主机安装](https://www.rainbond.com/docs/installation/install-with-ui/) 和 [基于 Kubernetes 安装](https://www.rainbond.com/docs/installation/install-with-helm/) Rainbond。
+Install Rainbond, quickly install Rainbond, or select [基于主机安装](https://www.rainbond.com/docs/installation/installation/install-with-ui/) and [based on Kubernetes installation] (https://www.rainbond.com/docs/installation/installation/installation-with-helm/).
 
 ```bash
-curl -o install.sh https://get.rainbond.com && bash ./install.sh
+curl -o install.sh https://get.rainbond.com && cash ./install.sh
 ```
 
-## 通过 Rainbond 开源应用商店部署 PostgreSQL 集群
+## Deploy PostgreSQL cluster via Rainbond Open Source Store
 
-Postgresql HA 集群已发布到 Rainbond 开源应用商店，可一键部署 Postgresql HA 集群。
+Postgresql HA cluster has been posted to Rainbond Open Source Store with one click to deploy Postgresql HA cluster.
 
-登陆 Rainbond 控制台，进入 **平台管理 -> 应用市场 -> 开源应用商店** 中搜索 `postgresql-ha` 并安装。
+Sign in to the Rainbond Console to search for and install the `postcongresql-ha` in **Platform Manager -> Marketplace -> Open Source Store**.
 
-![](https://static.goodrain.com/wechat/pg-ha/postgresql-ha-store.png)
+![](https://static.goodrain.com/wechat/pg-ha/postcongresql-ha-store.png)
 
-安装完成后的拓扑图如下。
+The sketch after installation is completed is set out below.
 
 ![](https://static.goodrain.com/wechat/pg-ha/pg-store-topology.png)
 
-### 配置 Pgpool 组件
+### Configure Pgpool components
 
-1. 获取 PostgreSQL-repmgr 连接地址，进入 PostgreSQL-repmgr 组件的 Web 终端内。
+1. Gets the PostgreSQL-repmgr connection address into the PostgreSQL-repmgr component of the web terminal.
 
 ```bash
 env | grep REPMGR_PARTNER_NODES
@@ -67,15 +67,15 @@ env | grep REPMGR_PARTNER_NODES
 
 ![](https://static.goodrain.com/wechat/pg-ha/store-pgpool-env.png)
 
-2. 将上述的内容复制出并修改成以下格式，然后进入 Pgpool 组件内，修改`PGPOOL_BACKEND_NODES` 环境变量，并更新组件。
+2. Copy and modify the above to the following format, then enter the Pgpool component, modify the `PGPOOL_BACKEND_NODES` environment variable, and update the component.
 
 ```bash
-0:pg-grde8ebc-0.pg-grde8ebc.dev.svc.cluster.local:5432,1:pg-grde8ebc-1.pg-grde8ebc.dev.svc.cluster.local:5432,2:pg-grde8ebc-2.pg-grde8ebc.dev.svc.cluster.local:5432
+0:pg-grde8ebc-0.pg-grde8ebc.dev.svc.cluster.local:5432,1:pg-grde8ebc-1.pg-grde8ebc.dev.svc.cluster.local:5432,2:pg-grde8ebc-2.pg-grde8ebc.dev.svc.cluster.local:5332
 ```
 
 ![](https://static.goodrain.com/wechat/pg-ha/store-pgpool-env2.png)
 
-3. 验证集群，进入 Pgpool 组件的 Web 终端中。
+3. Verify cluster, enter the Web Terminal of the Pgpool component.
 
 ```bash
 # 连接 postgresql
@@ -85,37 +85,37 @@ PGPASSWORD=$PGPOOL_POSTGRES_PASSWORD psql -U $PGPOOL_POSTGRES_USERNAME -h localh
 show pool_nodes;
 ```
 
-status 字段均为 UP 即可。
+The status field is UP sufficient.
 
 ![](https://static.goodrain.com/wechat/pg-ha/store-pgpool-webcli.png)
 
-## 从零开始部署 PostgreSQL 集群
+## PostgreSQL cluster deployed from zero
 
-从零开始在 Rainbond 上部署 Postgresql HA 集群也是非常简单的，大致分为以下几个步骤：
+It is also very simple to deploy Postgresql HA clusters from scratch in Rainbond along the lines of the following steps：
 
-- 基于镜像部署 PostgreSQL-repmgr 组件，并修改组件配置。
-- 基于镜像部署 pgpool 组件，并修改组件配置。
-- 建立组件之间的依赖关系。
+- Deploy the PostgreSQL -repmgr component based on mirrors, and modify component configuration.
+- Deploy a pgpool component based on mirrors, and modify component configuration.
+- Create dependencies between components.
 
-镜像均采用 bitnami 制作的 [postgresql-repmgr](https://github.com/bitnami/containers/tree/main/bitnami/postgresql-repmgr) 和 [pgpool](https://github.com/bitnami/containers/tree/main/bitnami/pgpool)，因 bitnami 制作的镜像将很多配置文件都抽离成了环境变量，配置比较方便。
+The mirrors are based on [postgresql-repmgr](https://github.com/bitnami/containers/tree/main/bitnami/postprogresql-repmgr) and [pgpool](https://github.com/bitnami/containers/tree/bitnami/pgpool), and many configuration files have been drawn from the bitnami mirror, which is easier to configure.
 
-### 部署 PostgreSQL-repmgr 组件
+### Deploy PostgreSQL - repmgr component
 
-#### 1. 创建组件
+#### 1. Create Component
 
-进入团队内 -> 新建组件 -> 基于镜像创建组件，应用、组件、英文名称等自定义即可，镜像填写 `bitnami/postgresql-repmgr:14.7.0`。
+Enter the team -> New Component -> Create a component based on a mirror, the app, component, English name, etc. to fill `bitnami/postcongresql-repmgr:14.7.0`.
 
-![](https://static.goodrain.com/wechat/pg-ha/repmgr-create.png)
+![](https://static.goodrain.com/wechat/pg-ha/repmgr-cree.png)
 
-#### 2. 修改组件类型
+#### 2. Modify component type
 
-进入组件内 -> 其他设置，将组件部署类型修改为 `有状态服务`。
+Go to component -> Other settings to change component deployment type to \`state-service'.
 
-![](https://static.goodrain.com/wechat/pg-ha/repmgr-deploy-type.png)
+![](https://static.goodrain.com/wechat/pg-ha/repmgr-deemploy-type.png)
 
-#### 3. 添加环境变量
+#### 3. Add Environment Variables
 
-进入组件内 -> 环境变量，新增以下环境变量：
+Enter the component -> Environment Variable, add the following environment variable：
 
 ```bash
 # 默认初始化的数据库
@@ -140,7 +140,7 @@ REPMGR_PARTNER_NODES=${SERVICE_NAME}-0.${SERVICE_NAME}.${NAMESPACE}.svc.cluster.
 
 ![](https://static.goodrain.com/wechat/pg-ha/repmgr-env.png)
 
-进入组件内 -> 其他设置，添加 Kubernetes 属性，选择 env，添加以下内容：
+Enter the component -> Other settings, add Kubernetes properties, select env, add the following：
 
 ```yaml
 # repmgr 节点名称
@@ -155,62 +155,62 @@ REPMGR_PARTNER_NODES=${SERVICE_NAME}-0.${SERVICE_NAME}.${NAMESPACE}.svc.cluster.
 
 ![](https://static.goodrain.com/wechat/pg-ha/repmgr-env2.png)
 
-#### 4. 添加组件存储
+#### 4. Add Component Storage
 
-进入组件内 -> 存储，添加新的存储，存储路径为 `/bitnami/postgresql`，其他自定义即可。
+Enter -> Storage, add new storage, path `/bitnami/postprogresql`, other customizations.
 
-#### 5. 启动组件
+#### 5. Start Component
 
-在组件视图内构建组件等待构建完成并启动。
+Build a component in the component view waiting for it to be built and started.
 
-#### 6. 修改组件实例数量
+#### 6. Modify component instance count
 
-进入组件内 -> 伸缩，将组件实例数量设置为 `3`，等待所有实例启动即可。
+Enter the component -> Scale, set the number of component instances to `3`, waiting for all instances to start.
 
-### 部署 pgpool 组件
+### Deploy pgpool component
 
-#### 1. 创建组件
+#### 1. Create Component
 
-进入团队内 -> 新建组件 -> 基于镜像创建组件，应用、组件、英文名称等自定义即可，镜像填写 `bitnami/pgpool:4.4.2`。
+Enter the team -> New Component -> Create a component based on a mirror, you can customize the app, component, English name, etc. Mirror fill `bitnami/pgpool:4.4.2`.
 
-![](https://static.goodrain.com/wechat/pg-ha/pgpool-create.png)
+![](https://static.goodrain.com/wechat/pg-ha/pgpool-cree.png)
 
-#### 2. 添加环境变量
+#### 2. Add Environment Variables
 
-进入组件内 -> 环境变量，新增以下环境变量：
+Enter the component -> Environment Variable, add the following environment variable：
 
 ```bash
-# pgpool admin 用户与密码
+# pgpot admin and password
 PGPOOL_ADMIN_USERNAME=admin
-PGPOOL_ADMIN_PASSWORD=admin@123
+PGPOOL_ADMIN_PASSWORD=admin@12
 
-# postgres 用户与密码
+# postgres users and passwords
 PGPOOL_POSTGRES_USERNAME=postgres
-PGPOOL_POSTGRES_PASSWORD=postgres@123
+PGPOOLOL_POSTGRES_PASSRORD=post123
 
-# 用于执行流检查的用户和密码
-PGPOOL_SR_CHECK_USER=admin
-PGPOOL_SR_CHECK_PASSWORD=admin@123
+# Users and password
+PGPOOL_SER_CHECK_USER=admin
+PGPOOOL_CHECK_PASSWORD=admin@123
 
-# postgresql 后端节点。节点列表获取进入到 PostgreSQL-repmgr 组件的 Web 终端内，使用 env | grep REPMGR_PARTNER_NODES 命令获取，然后修改为以下格式
-PGPOOL_BACKEND_NODES=0:postgresql-ha-repmgr-0.postgresql-ha-repmgr.dev.svc.cluster.local:5432,1:postgresql-ha-repmgr-1.postgresql-ha-repmgr.dev.svc.cluster.local:5432,2:postgresql-ha-repmgr-2.postgresql-ha-repmgr.dev.svc.cluster.local:5432
+# postgraduql backend node. The node lists get into the PostgreSQL-repmgr component, Get it with the env | grep REPMGR_PARTNER_NODES command, then modify it to the following format
+PGPOOL_BACKEND_NODES=0:postcongresql-ha-repmgr-0. ostgresql-ha-repmgr.dev.svc.cluster.local:5432,1: postcongresql-ha-repmgr-1.postcongresql-ha-repmgr.dev.svc.cluster.local:5432,2:postprogresql-ha-repmgr-2.postgresql-ha-repmgr-1.dev.svc.cluster.local:5332
 ```
 
 ![](https://static.goodrain.com/wechat/pg-ha/pgpool-env.png)
 
-#### 3. 添加依赖
+#### 3. Add Dependency
 
-在应用视图，将 pgpool 组件依赖至 PostgreSQL-repmgr 组件。
+In app view, rely on pgpool components to PostgreSQL-repmgr components.
 
 ![](https://static.goodrain.com/wechat/pg-ha/pgpool-topology.png)
 
-#### 4. 启动组件
+#### 4. Launch Component
 
-在 pgpool 组件视图内构建组件等待构建完成并启动。
+Build components in pgpool component view waiting for build to be completed and started.
 
-#### 5. 验证集群
+#### 5. Validate cluster
 
-进入 Pgpool 组件的 Web 终端中，输入以下命令验证集群：
+Enter the following command to verify cluster： in the web terminal of the Pgpool component
 
 ```bash
 # 连接 postgresql
@@ -220,19 +220,19 @@ PGPASSWORD=$PGPOOL_POSTGRES_PASSWORD psql -U $PGPOOL_POSTGRES_USERNAME -h localh
 show pool_nodes;
 ```
 
-status 字段均为 UP 即可。
+The status field is UP sufficient.
 
 ![](https://static.goodrain.com/wechat/pg-ha/pgpool-checkcluster.png)
 
-## 最后
+## Last
 
-### 外部连接
+### External connection
 
-如想使用本地工具连接到 postgresql，可在 pgpool 组件的端口内打开对外服务端口，通过该端口连接到 postgresql，默认用户密码为 `postgres/postgres@123`。
+To connect to postprogresql using a local tool, the external service port can be opened in the port of the pgpool component, through which to connect to postprogresql, the default user password is `postgres/postprogres@123`.
 
-### 验证高可用集群
+### Verify High Available Cluster
 
-为了保障高可用集群，Kubernetes 集群至少有 3 个节点，且底层存储使用分布式存储，如没有分布式存储，需将 Postgresql 存储切换为本地存储也可保障高可用集群的数据。可通过以下方式进行高可用集群验证：
+To secure high available clusters, the Kubernetes cluster must have at least 3 nodes, and the bottom store uses distributed storage, which will guarantee high available cluster data if there is no distributed storage, while maintaining Postprogresql storage to local storage.High-available cluster validation： can be done by
 
-- 通过 Pgpool 连接后，创建数据库并写入数据，再进入 PostgreSQL-repmgr 组件的 Web 终端内查询每个实例是否都有数据。
-- 挂掉主节点，验证是否主节点自动切换并可正常连接并写入。
+- After connecting to Pgpo, create a database and write the data, then enter the PostgreSQL -repmgr component in the web terminal to query if data is available for each instance.
+- Pause the main node, verify whether the main node is automatically switched and can be connected and written to it normally.
