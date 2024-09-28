@@ -74,7 +74,7 @@ gitlab-runner register \
 | -------------------- | --------------------------------------------------------------------------------- | ---------------------------------------- |
 | --executor           | docker                                                                            | Executor type is docker. |
 | --url                | http:///127.0.0.1 | GitLab addr                              |
-| --registration-token | `<token>`                                                                         | GitLab token                             |
+| --registration-token | `token`                                                                           | GitLab token                             |
 | --tag-list           | newdocker                                                                         | Define the label/name of runner          |
 | --locked             | false                                                                             | runner is enabled                        |
 | --run-untagged       | true                                                                              | Run Job without specified tag            |
@@ -157,7 +157,7 @@ job-push:
     - curl -d '{"secret_key":"${RAINBOND_SECRET}"}' -H "Content-type:application/json" -X POST http://${RAINBOND_IP}:7070/console/custom/deploy/3321861bcadf0789af71898f23e8e740
 ```
 
-`after_script` is executed after the delivery of the mirror, building components through the Rainbond API and Rainbond will get the latest mirror building running.<RAINBOND_SECRET> can be seen in component -> Build Source -> Auto-build.See document [配置组件自动构建部署](/docs/devops/continuous-employ/auto-build)
+`after_script` is executed after the delivery of the mirror, building components through the Rainbond API and Rainbond will get the latest mirror building running.`RAINBOND_SECRET` can be seen in component -> Build Source -> Auto-build.See document [配置组件自动构建部署](/docs/devops/continuous-employ/auto-build)
 
 **4. Submit code test automatically build** ,
 
