@@ -5,9 +5,9 @@ description: Share your app on the open source app store
 
 ## background：
 
-When we are currently using Rainbond, in order to quickly deploy some applications, we can connect to the open source application store and install it with one click.In this way, for users, it can be installed directly using some open source applications or infrastructure.这样对用户而言，使用某些开源应用或基础设施直接安装即可。
+When we are currently using Rainbond, in order to quickly deploy some applications, we can connect to the open source application store and install it with one click.In this way, for users, it can be installed directly using some open source applications or infrastructure.This is sufficient for users to install directly using some open source applications or infrastructure.
 
-However, due to the different needs of each user, the app store cannot meet the needs of all users.For example, some users have encountered the following problems when using：比如一些用户在使用 Rainbond 时，就遇到过以下问题：
+However, due to the different needs of each user, the app store cannot meet the needs of all users.For example, some users have encountered the following problems when using：Some users, for example, have encountered the following problems： when using Rainbond
 
 - The application installed from the application market is very convenient to use, but the version is relatively low, and there is no version you want
 
@@ -15,13 +15,13 @@ However, due to the different needs of each user, the app store cannot meet the 
 
 - After running some open source projects on Rainbond, if you rebuild the Rainbond environment, you need to deal with various dependencies again before deploying
 
-在之前遇到这些问题时，用户只能以手动的方式处理。但现在我们提供了一种方式，使你可以将你自己的应用分享出去。既能方便自己的使用，还能供他人使用。When these problems were encountered before, users had to deal with them manually.But now we've provided a way for you to share your own apps.It is convenient for your own use and for others to use.To do this, we need to first understand what Rainstore is.
+In the case of previous problems, users can only deal with them manually.But now we offer a way for you to share your own application.It can be easily usable, but also made available to others.When these problems were encountered before, users had to deal with them manually.But now we've provided a way for you to share your own apps.It is convenient for your own use and for others to use.To do this, we need to first understand what Rainstore is.
 
 ## What is Rainstore?
 
 Rainstore is a platform that can manage the enterprise application delivery process and realize the whole process management of the store.
 
-For most users who have used Rainbond, they should have noticed the application market, which will connect to our own store：open source application store by default.This store is the store we created based on Rainstore.In this store, there will be applications made by us. Users only need to complete the authorization to install the application with one click.这个商店就是我们基于 Rainstore 创建的商店。The package type is free, and the name can be the corresponding version.After saving, go back to the background management page, and click on the shelf in the application list.
+For most users who have used Rainbond, they should have noticed the application market, which will connect to our own store：open source application store by default.This store is the store we created based on Rainstore.In this store, there will be applications made by us. Users only need to complete the authorization to install the application with one click.This store is our store based on Rainstore created.The package type is free, and the name can be the corresponding version.After saving, go back to the background management page, and click on the shelf in the application list.
 
 Of course, the premise that users can install with one click is that someone has made the application.If no one has made an app, when you encounter the above problem, you can only post to the community for help, but now, you can do it.Since you log in with your mobile phone number and the data is not complete, you can choose to enter the background, move the mouse to the avatar in the upper right corner, and modify the information.
 
@@ -47,7 +47,7 @@ If you have connected to the app store before, you need to perform the following
 
 1. Find the app market in Rainbond, switch to the Tab page of the open source app store, and click Edit
 
-2. 清空 accesskey ，点击保存。Clear the accesskey and click Save.After the save is complete, you will see that you only have read-only permissions.
+2. Clear acceskey and click Save.Clear the accesskey and click Save.After the save is complete, you will see that you only have read-only permissions.
 
 3. At this point, select an application at random, click Install, and the authentication dialog box will pop up again.
 
@@ -55,17 +55,17 @@ If you have connected to the app store before, you need to perform the following
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-store-info.png)
 
-After you complete the above steps, you will see that the open source app store has the following permissions：read-only, install, push apps.At this point the preparatory work is completed.此时前期准备完成。
+After you complete the above steps, you will see that the open source app store has the following permissions：read-only, install, push apps.At this point the preparatory work is completed.Ready to complete in advance of this time.
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-perms-show.png)
 
 ### The second step：make the application
 
-接下来就该是制作你的应用，这里我们以 harbor 为例。目前应用商店中的 harbor 版本较低。当我们想要更高的版本，但应用商店没提供时。我们就可以自己做一个 harbor 应用分享出来。
+Then we make your app. Here we use harbor as an example.A lower version of harbor is currently available in the store.When we want a higher version, the app store is not available.We can share as a harbor app of ourselves.
 
-For the applications we made before, we will share the application making tutorials with the community. Take this harbor as an example, we can refer to the deployment of[enterprise-level Docker image warehouse Harbor on Rainbond](https://t.goodrain.com/d/8204-dockerharborrainbond).Here we refer to this article to make a harbor application of version 2.3.As shown below这里我们参考该文章制作出 2.3 版本的 harbor 应用。如下图所示
+For the applications we made before, we will share the application making tutorials with the community. Take this harbor as an example, we can refer to the deployment of[enterprise-level Docker image warehouse Harbor on Rainbond](https://t.goodrain.com/d/8204-dockerharborrainbond).Here we refer to this article to make a harbor application of version 2.3.As shown belowHere we refer to this article for a 2.3 version of the harbor app.Figure below
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/harbor-topological.png)
+![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/harbor-topical.png)
 
 ### Step 3：Share the app
 
@@ -73,7 +73,7 @@ At this point, select Publish on the left, publish to the cloud application stor
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/publish-page.png)
 
-Next we need to create a new application template.Fill in the corresponding version number.Choose to publish.After the image push is completed and confirmed, the app is successfully shared.填写上对应的版本号。选择发布即可。待镜像推送完成并确认后，应用分享成功。
+Next we need to create a new application template.Fill in the corresponding version number.Choose to publish.After the image push is completed and confirmed, the app is successfully shared.Fill in the corresponding version number.Select to publishApp sharing is successful after image push is completed and confirmed.
 
 :::caution
 
@@ -81,15 +81,15 @@ Next we need to create a new application template.Fill in the corresponding vers
 
 :::
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-1.png)
+![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-app-model-1.png)
 
-At this point we create a new application template：Harbor application.As shown below如下图所示
+At this point we create a new application template：Harbor application.As shown belowFigure below
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-2.png)
+![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-app-model-2.png)
 
 Next, after selecting the corresponding version and submitting it, the component image will be synchronized. After the image synchronization is completed, click Confirm to publish, that is, the sharing is complete.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-3.png)
+![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-app-model-3.png)
 
 ### Step 4：Supplementary Information
 
@@ -97,23 +97,23 @@ You have finished sharing, but now the application has only one name, and the ot
 
 The website of the app store is https://hub.grapps.cn/enterprise/login. On this page, select the mobile phone verification code to log in, enter the mobile phone number you used when applying for authorization in Rainbond, and after logging in, select store management, and you can I saw the app you posted.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-1.png)
+![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-app-manage-1.png)
 
 Click on the app you just released, and we can edit the introduction of the app, upload the corresponding Logo, etc.
 
-完成这些以后，我们进入套餐管理，创建一个套餐，并将应用上架。上架应用的目的是为了让更多的人能看见这个应用。After completing these, we enter the package management, create a package, and put the application on the shelf.The purpose of listing the application is to allow more people to see this application.That is, you can see your published applications in the[open source application store](https://hub.grapps.cn/marketplace).
+Once this is done, we go into package management, create a package and apply it online.The purpose of the listing app is to make it visible to more people.After completing these, we enter the package management, create a package, and put the application on the shelf.The purpose of listing the application is to allow more people to see this application.That is, you can see your published applications in the[open source application store](https://hub.grapps.cn/marketplace).
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-2.png)
+![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-app-manage-2.png)
 
-套餐类型选择免费，名称可以是对应的版本。保存后，回到后台管理页面，在应用列表中点击上架即可。
+The package type is free and the name can be the corresponding version.When saved, go back to the admin page and click on the list in the app.
 
 At this point, your first app sharing is complete.
 
 ## What are you sharing?
 
-Rainbond 提出了一种应用模型 Rainbond Application Model（RAM），这是标准的 Rainbond 应用规范。Rainbond proposes an application model, the Rainbond Application Model (RAM), which is the standard Rainbond application specification.During the software delivery process, Rainbond abstracts the business system into an application model. As long as the business system can run normally in Rainbond, it can be released to the application market through the application template.
+Rainbond proposed an application model Rainbond Application Model(RAM), which is the standard Rainbond application norm.Rainbond proposes an application model, the Rainbond Application Model (RAM), which is the standard Rainbond application specification.During the software delivery process, Rainbond abstracts the business system into an application model. As long as the business system can run normally in Rainbond, it can be released to the application market through the application template.
 
-RAM 模型的抽象，囊括了企业应用所包含的所有服务组件以及组件间的关联关系。这一高级抽象无关乎企业应用内部包含多少服务组件，也无关乎组件间的关联关系是否复杂。The abstraction of the RAM model includes all the service components and the associations between the components contained in the enterprise application.This high-level abstraction has nothing to do with how many service components are included in the enterprise application, and whether the relationship between the components is complex.The application template (the specific implementation of the RAM model in the application market field) can be released to the Rainbond-specific application market, and the released application template can be regarded as the installation package of the enterprise application, no matter how complicated the original architecture is and the number of internal components, it can be Complete one-click installation and upgrade.
+The abstract of the RAM model encompasses all the service components included in the enterprise application and the relationship between the components.This advanced abstract has nothing to do with the number of service components inside an enterprise's application or with the complexity of the relationship between components.The abstraction of the RAM model includes all the service components and the associations between the components contained in the enterprise application.This high-level abstraction has nothing to do with how many service components are included in the enterprise application, and whether the relationship between the components is complex.The application template (the specific implementation of the RAM model in the application market field) can be released to the Rainbond-specific application market, and the released application template can be regarded as the installation package of the enterprise application, no matter how complicated the original architecture is and the number of internal components, it can be Complete one-click installation and upgrade.
 
 The deployment effect is shown in the following figure.Wait for the build to complete, you can accessThe RAM model is working hard to evolve towards the Open Application Model (OAM) in order to accommodate the wider delivery domain.OAM is a newly proposed application model in the industry, which is designed to deliver more robust enterprise applications in complex environments in a simple manner.
 
@@ -125,7 +125,7 @@ Now that the sharing has been completed, how should it be used at this time? You
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/search-app.png) ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/install-app-1.png)
 
-部署效果如下图所示。等待构建完成，即可访问
+The effectiveness of deployment is shown in the graph below.Waiting for build to access
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/install-app-2.png)
 
@@ -135,7 +135,7 @@ If you make any adjustments to the application in the future and need to manage 
 
 ### final effect
 
-完成以上步骤后，我们可以去看下效果。After completing the above steps, we can see the effect.Visit the[open source app store](https://hub.grapps.cn/marketplace) , search for your app, here you can see the number of visits and installs of the app.You can see that we have just completed an installation.可以看到我们刚刚完成了一次安装。
+Once we have completed the above steps, we can look for results.After completing the above steps, we can see the effect.Visit the[open source app store](https://hub.grapps.cn/marketplace) , search for your app, here you can see the number of visits and installs of the app.You can see that we have just completed an installation.We can see that we have just completed one installation.
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/app-list-show.png)
 
@@ -143,14 +143,14 @@ After clicking into it, you can see your application profile and related informa
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/app-detail-show.png)
 
-在这个页面的右侧，展示了你的相关信息。On the right side of this page, your relevant information is displayed.You can click on your name to enter the aggregation page of your personal information. On this page, your own related information and all applications published will be displayed here.
+Your information is displayed on the right side of this page.On the right side of this page, your relevant information is displayed.You can click on your name to enter the aggregation page of your personal information. On this page, your own related information and all applications published will be displayed here.
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/publish-user-show.png)
 
-此处由于是通过手机号登录，数据不完善，你可以选择进入后台，鼠标移动到右上角头像处，修改这些信息。
+Here you can choose to enter the background, mouse over the top right avatar and modify this information because you are logged in via phone number.
 
 ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-user-info.png)
 
 ## Summarize
 
-The next step is to make your application, here we take harbor as an example.The current version of harbor in the app store is lower.When we want a higher version, but the app store doesn't provide it.We can make a harbor application and share it by ourselves.欢迎大家踊跃贡献你自己做好的应用。Through the above steps, we have completed the sharing of an application, which solved the problem that the previous application store application did not meet our needs, and also allowed others to use the application you made.Everyone is welcome to contribute your own applications.If you have made a good application, please contact us, we can make your application available to more people through some channels of publicity.
+The next step is to make your application, here we take harbor as an example.The current version of harbor in the app store is lower.When we want a higher version, but the app store doesn't provide it.We can make a harbor application and share it by ourselves.Welcome to your own good apps.Through the above steps, we have completed the sharing of an application, which solved the problem that the previous application store application did not meet our needs, and also allowed others to use the application you made.Everyone is welcome to contribute your own applications.If you have made a good application, please contact us, we can make your application available to more people through some channels of publicity.
