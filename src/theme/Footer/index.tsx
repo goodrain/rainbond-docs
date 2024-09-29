@@ -13,7 +13,7 @@ import FooterLogo from '@theme/Footer/Logo';
 import FooterCopyright from '@theme/Footer/Copyright';
 import FooterLayout from '@theme/Footer/Layout';
 
-function Footer(): JSX.Element | null {
+function Footer(): React.JSX.Element | null {
   const {footer} = useThemeConfig();
   if (!footer) {
     return null;

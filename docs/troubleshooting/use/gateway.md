@@ -14,7 +14,7 @@ Rainbond 网关的工作流程如下图所示：
 ![](https://static.goodrain.com/docs/5.12/troubleshooting/installation/gateway-process.png)
 
 1. 在安装了 Rainbond 之后，默认会分配一个二级泛域名，如 `*.7a7b7c.grapps.cn`。
-2. 打开组件的对外的 HTTP 访问服务后，默认会给该组件分配一个域名，该域名的分配方式是 **<组件端口>.<组件ID>.<应用ID>.7a7b7c.grapps.cn**，如 `5000.grbc.grcc.7a7b7c.grapps.cn`。
+2. 打开组件的对外的 HTTP 访问服务后，默认会给该组件分配一个域名，该域名的分配方式是 **\<组件端口>.\<组件ID>.\<应用ID>.7a7b7c.grapps.cn**，如 `5000.grbc.grcc.7a7b7c.grapps.cn`。
 3. 打开组件的对外的 TCP 访问服务后，默认会分配 10000 以上的端口，该端口会在宿主机上进行监听。
 4. 当用户访问该 `域名/IP` 时，会通过 Rainbond 网关进行转发，转发到对应的组件端口上。
 

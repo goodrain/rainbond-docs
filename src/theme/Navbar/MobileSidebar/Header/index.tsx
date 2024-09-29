@@ -29,7 +29,7 @@ function CloseButton() {
   );
 }
 
-export default function NavbarMobileSidebarHeader(): JSX.Element {
+export default function NavbarMobileSidebarHeader(): React.JSX.Element {
   return (
     <div className="navbar-sidebar__brand">
       <NavbarLogo />

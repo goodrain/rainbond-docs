@@ -8,14 +8,14 @@
 import React from 'react';
 import {composeProviders} from '@docusaurus/theme-common';
 import {
-  ColorModeProvider,
   AnnouncementBarProvider,
-  DocsPreferredVersionContextProvider,
-  ScrollControllerProvider,
+  ColorModeProvider,
   NavbarProvider,
   PluginHtmlClassNameProvider,
+  ScrollControllerProvider,
 } from '@docusaurus/theme-common/internal';
 import type {Props} from '@theme/Layout/Provider';
+import {DocsPreferredVersionContextProvider} from '@docusaurus/plugin-content-docs/client';
 
 const Provider = composeProviders([
   ColorModeProvider,
@@ -26,6 +26,6 @@ const Provider = composeProviders([
   NavbarProvider,
 ]);
 
-export default function LayoutProvider({children}: Props): JSX.Element {
+export default function LayoutProvider({children}: Props): React.JSX.Element {
   return <Provider>{children}</Provider>;
 }

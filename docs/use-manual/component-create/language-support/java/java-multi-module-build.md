@@ -12,7 +12,7 @@ Maven 多模块项目是根据 pom.xml 文件(下面简称 pom)来划分的, Rai
 1. 根据根 pom 中的 modules 中的 module 标签, 找到相应模块下的 pom.
 2. 如果 pom 中的 packing 标签的值是 jar(war), 则解析出当前 pom 对应的模块名和 jar(war)包名. packing 标签的值为空, 会认为是 jar.
 3. 模块名由名级父 pom 中的 module 标签的值组成, 用 "/" 分割, 类似于: rbd-worker/rbd-thirdparty.
-4. jar(war) 包名默认是 ${artifaceId}-*.jar(war). 如果设置了 finalName 标签, 则会使用 finalName 标签的值; 如果finalName 标签使用了变量${project.name}或${project.aritfactId}, 则会使用变量对应的值; 如果使用了其他的变量, 则直接用 _ 代替, 即: _.jar(war).
+4. jar(war) 包名默认是 $\{artifaceId}-*.jar(war). 如果设置了 finalName 标签, 则会使用 finalName 标签的值; 如果finalName 标签使用了变量$\{project.name}或$\{project.aritfactId}, 则会使用变量对应的值; 如果使用了其他的变量, 则直接用 _ 代替, 即: _.jar(war).
 5. 如果 pom 中的 packing 标签的值是 pom, 且 modules 标签中的 module 多于 1, 则重复 1 ~ 5.
 
 > 因为很多地方都使用了通配符 \* , 在构建出来的 jar(war) 不只一个时, 识别出来的 jar(war) 包可能不能确定唯一的包; 又或者识别出来的 jar(war) 包有误, 这时候就需要用户手动进行修改.
