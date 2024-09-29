@@ -25,7 +25,7 @@ import type {Props} from '@theme/Layout';
 import styles from './styles.module.css';
 import { useLocation } from '@docusaurus/router';
 
-export default function Layout(props: Props): JSX.Element {
+export default function Layout(props: Props): React.JSX.Element {
   const {
     children,
     noFooter,
@@ -58,7 +58,7 @@ export default function Layout(props: Props): JSX.Element {
           styles.mainWrapper,
           wrapperClassName,
         )}
-        style={{ marginTop: (docs_url || community_url || blog_url || changelog_url) ? "" : "6rem" }} 
+        style={{ marginTop: (docs_url || community_url || blog_url || changelog_url) ? "" : "6rem" }}
         >
         <ErrorBoundary fallback={(params) => <ErrorPageContent {...params} />}>
           {children}

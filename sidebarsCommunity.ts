@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // But you can create a sidebar manually
   community: [
     'support',
@@ -21,12 +21,12 @@ module.exports = {
           items: [
             'contribution/compile/console',
             'contribution/compile/region',
-          ]
+          ],
         },
         'contribution/document/index',
         'contribution/app-share/index',
         'contribution/plugin/index',
-      ]
+      ],
     },
     {
       type: 'link',
@@ -34,5 +34,5 @@ module.exports = {
       href: '/changelog',
     },
     'faqs',
-  ]
+  ],
 };

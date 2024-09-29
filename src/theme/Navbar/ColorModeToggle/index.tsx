@@ -13,7 +13,7 @@ import styles from './styles.module.css';
 
 export default function NavbarColorModeToggle({
   className,
-}: Props): JSX.Element | null {
+}: Props): React.JSX.Element | null {
   const navbarStyle = useThemeConfig().navbar.style;
   const disabled = useThemeConfig().colorMode.disableSwitch;
   const {colorMode, setColorMode} = useColorMode();

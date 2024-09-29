@@ -8,7 +8,7 @@
 import React from 'react';
 import Logo from '@theme/Logo';
 
-export default function NavbarLogo(): JSX.Element {
+export default function NavbarLogo(): React.JSX.Element {
   return (
     <Logo
       className="navbar__brand"

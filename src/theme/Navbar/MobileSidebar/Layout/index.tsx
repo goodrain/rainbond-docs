@@ -14,7 +14,7 @@ export default function NavbarMobileSidebarLayout({
   header,
   primaryMenu,
   secondaryMenu,
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   const {shown: secondaryMenuShown} = useNavbarSecondaryMenu();
   return (
     <div className="navbar-sidebar">

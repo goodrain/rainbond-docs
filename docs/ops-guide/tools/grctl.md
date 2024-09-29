@@ -11,7 +11,7 @@ hidden: false
 
 该节点必须具备以下条件：
 
-1. 具有 kubectl 命令，且可用。安装请参考[kubectl](./index#kubectl)。
+1. 具有 kubectl 命令，且可用。安装请参考[kubectl](index.md)。
 2. 存在访问 Kubernetes 集群的 ~/.kube/conf 文件。
 
 安装方式：

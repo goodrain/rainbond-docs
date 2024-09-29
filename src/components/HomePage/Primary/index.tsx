@@ -5,25 +5,22 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useState } from "react";
+import React  from "react";
 import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
 import clsx from 'clsx';
 import { useLocation } from '@docusaurus/router';
 import Translate from "@docusaurus/Translate";
 import { Button } from '@douyinfe/semi-ui';
-import Iconlinux from '/img/homepage/svg/linux.svg';
 import Iconwechat from '/img/homepage/svg/wechat-white.svg';
 import IconSlack from '/img/homepage/svg/slack.svg';
-import { Tabs, TabPane, Typography } from '@douyinfe/semi-ui';
-import CTypist from '../../CTypist';
+import { Tabs, TabPane } from '@douyinfe/semi-ui';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Link from "@docusaurus/Link";
 import CodeBlock from '@theme/CodeBlock';
-import { calcLength } from "framer-motion";
 
 export default function Primary() {
-  
+
   const LocalUrlEn = useLocation().pathname.includes('/en');
   const animatedTexts = useTrail(5, {
     from: { opacity: 0, transform: 'translateY(3em)' },
@@ -67,7 +64,7 @@ export default function Primary() {
             </Button>
           </Link> */}
           {!LocalUrlEn ? (
-             <OverlayTrigger placement="bottom" 
+             <OverlayTrigger placement="bottom"
              overlay={
                <div className="card shadow--tl">
                  <div className="card__body">
@@ -160,7 +157,7 @@ export default function Primary() {
               <Translate id='primary.start.desc.one'>之后，打开浏览器，输入 http://您的IP:7070，您可以访问 Rainbond 的 UI 了。跟随 </Translate>
               <Link href="/docs/quick-start/getting-started">
                 <Translate id='primary.start.desc.two'>快速入门</Translate>
-              </Link> 
+              </Link>
               <Translate id='primary.start.desc.there'>部署您的第一个应用。</Translate>
             </p>
           </div>

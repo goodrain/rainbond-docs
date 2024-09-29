@@ -14,6 +14,6 @@ import styles from './styles.module.css';
 export default function NavbarSearch({
   children,
   className,
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   return <div className={clsx(className, styles.searchBox)}>{children}</div>;
 }

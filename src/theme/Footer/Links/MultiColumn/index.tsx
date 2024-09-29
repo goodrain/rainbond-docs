@@ -40,7 +40,7 @@ function Column({column}: {column: ColumnType}) {
   );
 }
 
-export default function FooterLinksMultiColumn({columns}: Props): JSX.Element {
+export default function FooterLinksMultiColumn({columns}: Props): React.JSX.Element {
   return (
     <div className="row footer__links">
       {columns.map((column, i) => (

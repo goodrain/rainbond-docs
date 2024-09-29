@@ -26,7 +26,7 @@ function useNavbarItems() {
   return useThemeConfig().navbar.items as NavbarItemConfig[];
 }
 
-function NavbarItems({items}: {items: NavbarItemConfig[]}): JSX.Element {
+function NavbarItems({items}: {items: NavbarItemConfig[]}): React.JSX.Element {
   return (
     <>
       {items.map((item, i) => (
@@ -63,7 +63,7 @@ function NavbarContentLayout({
   );
 }
 
-export default function NavbarContent(): JSX.Element {
+export default function NavbarContent(): React.JSX.Element {
   const mobileSidebar = useNavbarMobileSidebar();
 
   const items = useNavbarItems();
