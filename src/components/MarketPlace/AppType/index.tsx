@@ -31,7 +31,7 @@ export default function AppType() {
     <div className={styles.card}>
       <animated.div style={animatedTexts[0]} className={styles.card_body}>
         <div className={styles.apptype_img}>
-          <img src="/img/rainstore/img/apptype.jpg" alt="" />
+          <img src="/img/rainstore/svg/apptype.svg" alt="" />
         </div>
         <div className={styles.apptype_text}>
           <h2>支持常见应用包</h2>
@@ -44,7 +44,7 @@ export default function AppType() {
           <p>通过一键安装、离线包导出、私有化部署和后台一键交付等多种方式，灵活满足企业的多样化应用交付需求。</p>
         </div>
         <div className={styles.apptype_img}>
-          <img src="/img/rainstore/img/delivery.jpg" alt="" />
+          <img src="/img/rainstore/svg/delivery.svg" alt="" />
         </div>
       </animated.div>
     </div>
