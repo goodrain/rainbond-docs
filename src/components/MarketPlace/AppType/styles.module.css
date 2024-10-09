@@ -20,17 +20,20 @@
 .card_body {
   display: flex;
   justify-content: space-between;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 .apptype_img {
   width: 60%;
-  height: 340px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
 }
 .apptype_img img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 500px;
   border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
 }
 .apptype_text{
   width: 40%;
@@ -40,7 +43,7 @@
 .apptype_text h2{
   font-size: 36px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin: 36px 0px 24px 0px;
 }
 .apptype_text p{
   font-size: 18px;
