@@ -43,14 +43,14 @@ GET /openapi/v1/users/{user_id}
 
 ### Attributes
 
-| name                               | type        | required | constraint | Chinese name                       | illustrate                         |
-| ---------------------------------- | ----------- | -------- | ---------- | ---------------------------------- | ---------------------------------- |
-| user_id       | integer     | true     | none       | User id                            | none                               |
-| email                              | Stringenull | false    | none       | Email                              | email address                      |
-| nick_name     | String      | false    | none       | Nick name                          | User's Nickname                    |
-| phone                              | Stringenull | false    | none       | Phone                              | cellphone number                   |
-| is_active     | boolean     | false    | none       | Is Active                          | active state                       |
-| Origin                             | Stringenull | false    | none       | - Retiring member. | User source                        |
-| create_time   | String      | false    | none       | Create time                        | creation time                      |
-| client_ip     | Stringenull | false    | none       | Client ip                          | register ip                        |
-| Enterprise_id | String      | false    | none       | Enterprise id                      | Enterprise_id |
+| name                               | type        | required | constraint | Chinese name                        | illustrate                         |
+| ---------------------------------- | ----------- | -------- | ---------- | ----------------------------------- | ---------------------------------- |
+| user_id       | integer     | true     | none       | User id                             | none                               |
+| email                              | Stringenull | false    | none       | Email                               | email address                      |
+| nick_name     | String      | false    | none       | Nick name                           | User's Nickname                    |
+| phone                              | Stringenull | false    | none       | Phone                               | cellphone number                   |
+| is_active     | boolean     | false    | none       | Is Active                           | active state                       |
+| Origin                             | Stringenull | false    | none       | \* Retiring member. | User source                        |
+| create_time   | String      | false    | none       | Create time                         | creation time                      |
+| client_ip     | Stringenull | false    | none       | Client ip                           | register ip                        |
+| Enterprise_id | String      | false    | none       | Enterprise id                       | Enterprise_id |
