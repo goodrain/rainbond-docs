@@ -30,9 +30,9 @@ Explain that go-cron supports characters so that users can quickly use the plugi
 
 | Support characters | Function Description                                                                                                                                                                                |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -                  | Indicates all values that match the field                                                                                                                                                           |
+| \*                 | Indicates all values that match the field                                                                                                                                                           |
 | /                  | Indicates the growth interval, the value in the first field is 0/3, which means that the task starts at 0 seconds every minute and executes a task every 3 seconds                                  |
-| *                  | Indicates all values that can be matched in the range, and the first field value is 15-30, which means that within 15-30 seconds of every minute, the task is executed every second                 |
+| -                  | Indicates all values that can be matched in the range, and the first field value is 15-30, which means that within 15-30 seconds of every minute, the task is executed every second                 |
 | ,                  | Indicates the enumeration value, the value of the first field is "2, 15, 29", which means that a task will be executed every 2 seconds, 15 seconds, and 29 seconds of every minute. |
 
 In particular,`* 3 * * *`means that the task is executed every second in the 3rd minute of every hour of every day of the month, and`0 3 * * *`means that the task is executed at the 0th minute of the 3rd minute of every hour of every day of every month. Execute a task every second, please pay attention when setting
