@@ -53,12 +53,12 @@ LO
 
 ### Attributes
 
-| name                               | type                             | required | constraint | Chinese name                       | illustrate                         |
-| ---------------------------------- | -------------------------------- | -------- | ---------- | ---------------------------------- | ---------------------------------- |
-| nick_name     | String                           | true     | none       | Nick name                          | User's Nickname                    |
-| password                           | String                           | true     | none       | Password                           | Password                           |
-| Enterprise_id | String                           | true     | none       | Enterprise id                      | Enterprise_id |
-| email                              | string(email) | false    | none       | Email                              | email address                      |
-| phone                              | String                           | false    | none       | Phone                              | cellphone number                   |
-| is_active     | boolean                          | false    | none       | Is Active                          | active state                       |
-| Origin                             | String                           | false    | none       | - Retiring member. | User source                        |
+| name                               | type                             | required | constraint | Chinese name                        | illustrate                         |
+| ---------------------------------- | -------------------------------- | -------- | ---------- | ----------------------------------- | ---------------------------------- |
+| nick_name     | String                           | true     | none       | Nick name                           | User's Nickname                    |
+| password                           | String                           | true     | none       | Password                            | Password                           |
+| Enterprise_id | String                           | true     | none       | Enterprise id                       | Enterprise_id |
+| email                              | string(email) | false    | none       | Email                               | email address                      |
+| phone                              | String                           | false    | none       | Phone                               | cellphone number                   |
+| is_active     | boolean                          | false    | none       | Is Active                           | active state                       |
+| Origin                             | String                           | false    | none       | \* Retiring member. | User source                        |
