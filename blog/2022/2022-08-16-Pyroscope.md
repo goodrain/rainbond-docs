@@ -9,6 +9,8 @@ image: https://static.goodrain.com/wechat/pyroscope/Pyroscope.png
 
 本文将介绍一个 **持续性能分析平台 Pyroscope**，它能够帮助我们快速找到内存泄漏、CPU利用率高的代码。
 
+<!--truncate-->
+
 ## 什么是 Pyroscope？
 
 [Pyroscope](https://pyroscope.io/) 是一个开源的持续性能分析平台。它能够帮你：

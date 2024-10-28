@@ -11,6 +11,8 @@ image: https://static.goodrain.com/wechat/sonarqube/images.png
 今天介绍一种基于 SonarScanner 在 Rainbond 源码构建过程中，对 Java Maven 项目进行静态扫描的方法。
 
 
+<!--truncate-->
+
 
 ## SonarScanner For Maven 简介
 

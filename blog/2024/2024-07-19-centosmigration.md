@@ -11,6 +11,8 @@ slug: centosmigration
 - CentOS 6 已于 2020年11月30日 停止维护，CentOS 8 已于 2021年12月31日 停止维护。
 - CentOS 7 已于 2024年06月30日 停止维护。
 
+<!--truncate-->
+
 ## 影响
 
 CentOS 停止服务主要的影响是以下两个方面：

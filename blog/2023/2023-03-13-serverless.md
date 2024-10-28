@@ -7,6 +7,8 @@ image: https://static.goodrain.com/wechat/serverless/serverless.png
 
 随着云计算的普及，越来越多的企业开始将业务应用迁移到云上。然而，如何构建一套完整的云原生 Serverless 平台，依然是一个需要考虑的问题。
 
+<!--truncate-->
+
 ## Serverless的发展趋势
 
 云计算行业从 IaaS（基础设施即服务）到 PaaS（平台即服务），再到 Serverless（无服务器）的发展，经历了一个逐渐从底层到上层，从IT基础设施提供商到应用开发者的转移的过程。

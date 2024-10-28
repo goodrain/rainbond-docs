@@ -10,6 +10,8 @@ slug: deployRainbondToArm
 
 因此，本篇文章将详细介绍如何在国产化信创环境下部署 Kubernetes 以及 Rainbond，希望能够为用户提供实用的指导，减少在部署过程中的困扰。
 
+<!--truncate-->
+
 ![](https://static.goodrain.com/wechat/xinchuang/server.png)
 
 ## 准备离线镜像和安装包

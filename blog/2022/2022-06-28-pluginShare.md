@@ -17,6 +17,8 @@ image: https://static.goodrain.com/wechat/plugin-share/plugin-share.png
 
 插件本身仅包含描述和实现，使其可以被复用。必须绑定到组件时才具有运行时状态。在 V5.7.0-release 版本中，Rainbond 支持用户分享自己的插件到开源应用商店中，其他用户都可使用该插件。
 
+<!--truncate-->
+
 ## 插件原理
 
 ![](https://static.goodrain.com/wechat/plugin-share/1.png)

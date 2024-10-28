@@ -9,6 +9,8 @@ slug: dockermirror
 
 最近网上有很多解决 Docker Hub 镜像拉不下来的文章，我大概总结一下有以下几种办法：
 
+<!--truncate-->
+
 ### Github Action
 
 利用 Github Action Job 将 Docker Hub 镜像重新打 Tag 推送到阿里云等其他公有云镜像仓库里，这对于需要单个镜像很方便，批量就稍微麻烦一些，如果没🪜Github 访问也是个问题。

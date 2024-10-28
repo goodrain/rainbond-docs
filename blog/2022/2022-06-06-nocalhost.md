@@ -10,6 +10,8 @@ image: https://static.goodrain.com/wechat/nocalhost/nocalhost.png
 
 Nocalhost 可以直接在 Kubernetes 中开发应用，Rainbond 可以快速部署微服务项目，无需编写Yaml，Nocalhost 结合 Rainbond 加速我们的微服务开发效率。
 
+<!--truncate-->
+
 ## 一. 简介
 
 **[Nocalhost](https://nocalhost.dev "Nocalhost") 是一款开源的基于 IDE 的云原生应用开发工具：**

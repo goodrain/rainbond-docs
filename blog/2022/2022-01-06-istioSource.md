@@ -5,6 +5,7 @@ slug: istioSource
 image: https://static.goodrain.com/wechat/istio/istio.jpeg
 ---
 
+<!--truncate-->
 
 现有的 ServiceMesh 框架有很多，如 Istio、linkerd等。对于用户而言，在测试环境下，需要达到的效果是快、开箱即用。但在生产环境下，可能又有熔断、延时注入等需求。那么单一的 ServiceMesh 框架无法同时满足用户不同的需求。
 

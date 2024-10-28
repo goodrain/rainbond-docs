@@ -19,6 +19,8 @@ Gateway API 的意义和价值:
 
 综上，Gateway API 作为新一代的 Kubernetes 入口 API，有更广泛的应用场景、更强大的功能、以及更好的可靠性和扩展性。对于生产级的 Kubernetes 环境,Gateway API 是一个更好的选择。本篇文章将深入解读 Kubernetes Gateway API 的概念、特性和用法，帮助读者深入理解并实际应用 Kubernetes Gateway API，发挥其在 Kubernetes 网络流量管理中的优势。
 
+<!--truncate-->
+
 ## 发展现状
 
 ### 版本现状

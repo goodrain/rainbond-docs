@@ -26,6 +26,8 @@ Pgpool 是一个高性能的连接池和负载均衡器，用于 PostgreSQL 数�
 
 **本文将介绍在 Rainbond 上使用 Postgresql-repmgr + Pgpool 实现 Postgresql 高可用集群的部署和管理。**
 
+<!--truncate-->
+
 ## 架构
 
 ![](https://static.goodrain.com/wechat/pg-ha/postgresql-repmgr-pgpool.png)

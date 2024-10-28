@@ -13,6 +13,8 @@ image: https://static.goodrain.com/wechat/telepresence/telepresence-architecture
 
 下面介绍的工具将远程和本地融为一体，让本地开发更加流畅。
 
+<!--truncate-->
+
 ## Telepresence
 
 Telepresence 是一个开源工具，用于在本地开发环境中模拟 Kubernetes 集群中的微服务，它允许开发人员在本地开发环境中运行和调试微服务，而不必担心环境的复杂性和配置困难。

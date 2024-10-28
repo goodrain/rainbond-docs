@@ -20,6 +20,8 @@ image: https://static.goodrain.com/wechat/nocalhost2/nocalhost.png
 
 开发配置是围绕 `开发模式` 来进行的，例如使用什么镜像来进入 `开发模式`，是否需要开启持久化来保存开发容器的内容，将哪些文件同步到开发容器中，如何一键调试、一键运行容器内的服务等。 配置了正确且合适的开发配置后，可以在使用 Nocalhost `开发模式` 时更加得心应手。
 
+<!--truncate-->
+
 ## 部署 Rainbond + SpringCloud
 
 接下来继续以上文中的 SpringCloud Pig 为例，调试 Java Maven 服务的 Pig-auth 模块。

@@ -9,6 +9,8 @@ Gateway API 作为新一代的流量管理标准，对原有 Ingress 的扩展�
 
 本篇文章将以 Envoy Gateway 为例详细介绍如何制作并发布你的 Kubernetes Gateway API 插件。最后发布到开源应用商店的 Gateway API 插件将可以被其他用户使用，同时积极参与贡献也有机会获得由我们提供的小礼品。
 
+<!--truncate-->
+
 ## 前提条件
 
 * Rainbond 版本大于 v5.13

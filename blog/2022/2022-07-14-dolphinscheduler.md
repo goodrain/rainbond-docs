@@ -17,6 +17,8 @@ Apache DolphinScheduler 是一个分布式易扩展的可视化 DAG 工作流任
 
 **高扩展性**：支持自定义任务类型，调度器使用分布式调度，调度能力随集群线性增长，Master 和 Worker 支持动态上下线
 
+<!--truncate-->
+
 ## 前提条件
 
 * 可用的 Rainbond 云原生应用管理平台，请参阅文档 [Rainbond 快速安装](https://www.rainbond.com/docs/quick-start/quick-install)

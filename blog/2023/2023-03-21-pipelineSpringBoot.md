@@ -14,6 +14,8 @@ image: https://static.goodrain.com/wechat/pipeline-springboot/ci-cd.png
 
 本文将介绍使用流水线插件部署 RuoYi SpringBoot 项目，并实现提交代码后自动构建、自动部署。
 
+<!--truncate-->
+
 ## 安装 GitLab 和 Runner
 
 流水线插件是基于 GitLab 实现，所以需要依赖 GitLab 和 GitLab Runner，如果已有则可跳过此步。

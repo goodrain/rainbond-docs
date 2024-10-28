@@ -7,6 +7,9 @@ image: https://static.goodrain.com/wechat/HertzBeat/3.png
 
 在现有的监控告警体系中 Prometheus + AlertManger + Grafana 一直是主流，但对于中小团队或个人来说，这种体系显的较为复杂。而 HertzBeat 能让中小团队或个人很快速的搭建监控告警系统，并通过简单的配置实现应用、数据库、操作系统的监控与告警等。
 
+
+<!--truncate-->
+
 ## HertzBeat
 
 [HertzBeat赫兹跳动](https://hertzbeat.com/) 是一个拥有强大自定义监控能力，无需Agent的实时监控系统。网站监测，PING连通性，端口可用性，数据库，操作系统，中间件，API监控，阈值告警，告警通知（邮件微信钉钉飞书）。
