@@ -11,7 +11,7 @@ For plugin developers, the following two points need to be paid attention to：
 
 * The inbound governance plug-in needs to forward traffic according to the port forwarding rules assigned by the system. For example, the UI service itself is listening on port 8080, which cannot be changed, but we can change the access port when accessing the UI service from the edge gateway, so Rainbond application Runtime to dynamically generate listening port pairs for inbound network management plugins, such as the following configuration：
 
-  ```
+```json
   "base_ports":[
         {
             "service_alias":"gre484d9",
@@ -25,12 +25,12 @@ For plugin developers, the following two points need to be paid attention to：
             }
         }
 ]
-  ```
+```
 The plugin will automatically inject the DISCOVER_URL variable when it is running. The above configuration information can be dynamically obtained through the address of this variable value. The inbound network management plugin must listen to port 65301 through the above configuration and load traffic to port 127.0.0.1:8080.
 
 * The outbound management plug-in does not have the problem of port mapping. The outbound management plug-in generates the local listening load to the remote address according to the dynamic configuration information of the subordinates.
 
-```
+```json
 "base_services":[
         {
             "service_alias":"gre484d9",

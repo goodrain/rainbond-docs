@@ -23,7 +23,7 @@ The configuration group contains the following elements：
 - Effective state：This switch is used to determine whether the current configuration group enters the effective state
 - Configuration item：The main body of the configuration group is essentially a set of environment variables, you can click + to add a record
 
-> The configuration items will take effect in the component running environment as environment variables, and support dynamic parsing using${KEY}mode in the component's environment variables and configuration files.If the same KEY appears, the environment variable of the component has a higher priority.
+> The configuration items will take effect in the component running environment as environment variables, and support dynamic parsing using$\{KEY}mode in the component's environment variables and configuration files.If the same KEY appears, the environment variable of the component has a higher priority.
 
 - Effective component：Select the effective service component of the current configuration group, and automatically read all service components under the current application for the user to choose
 

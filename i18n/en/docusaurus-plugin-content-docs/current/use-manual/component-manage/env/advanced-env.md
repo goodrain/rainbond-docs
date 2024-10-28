@@ -50,7 +50,7 @@ Environment variables whose variable names start with`BUILD_`take effect in the 
 | BUILD_MAVEN_CUSTOM_OPTS  | -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true | For maven builds, defaults as before         |
 | BUILD_MAVEN_CUSTOM_GOALS | clean install                                                                              | For maven builds, defaults as before         |
 
-For more component build environment settings, please refer to [Build Source Configuration](./index)
+For more component build environment settings, please refer to [Build Source Configuration](./index.md)
 
 ### Application Runtime Function Control Variables
 

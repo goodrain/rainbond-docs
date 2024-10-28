@@ -6,7 +6,7 @@ description: Horizontal Scaling and Vertical Scaling Documentation for Rainbond 
 Rainbond platform components can be scaled in two：
 
 - Vertical scaling：increases or decreases the memory of the component (currently, the CPU and memory of the component are linked, adjust according to a certain ratio of`)
-- Horizontal scaling：increases or decreases the number of instances of a component, suitable for stateless components and stateful horizontal cluster components</
+- Horizontal scaling：increases or decreases the number of instances of a component, suitable for stateless components and stateful horizontal cluster components
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/automatic-telescoping/service-scaling/Telescopic.png"/>
 

@@ -111,7 +111,7 @@ docker run -d -p 8081:8081 --name nexus sonatype/nexus3
 | 提供商         | 地址                                    |                |
 | -------------- | --------------------------------------- | -------------- |
 | DaoCloud       | https://docker.m.daocloud.io            |                |
-| 阿里云         | https://<your_code>.mirror.aliyuncs.com | 登录阿里云分配 |
+| 阿里云         | https://\<your_code>.mirror.aliyuncs.com | 登录阿里云分配 |
 | Docker镜像代理 | https://dockerproxy.com                 | 看运气         |
 | 百度云         | https://mirror.baidubce.com             |                |
 | 南京大学       | https://docker.nju.edu.cn               |                |
