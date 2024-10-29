@@ -13,160 +13,162 @@ While we can debug on the test server, the entire process is also lengthy. **Sub
 
 The tools described below integrate remote and local and allow local development to flourish.
 
-## Television
+<!--truncate-->
 
-Telepresence is an open source tool used to simulate microservices in Kubernetes clusters in a local development environment that allows developers to run and debug microservices in local development environments without fear of environmental complexity and configuration difficulties.
+## Telepresence
 
-![](https://static.goodrain.com/wechat/telegram/television-archive.inline.png)
+Telepresence 是一个开源工具，用于在本地开发环境中模拟 Kubernetes 集群中的微服务，它允许开发人员在本地开发环境中运行和调试微服务，而不必担心环境的复杂性和配置困难。
 
-Simple Administrative Teleresence uses traffic agents from the Kubernetes cluster to the local. Telepresence has four services：
+![](https://static.goodrain.com/wechat/telepresence/telepresence-architecture.inline.png)
 
-**Telepresence Daemon:** Local daemy processes for cluster communication and intercepting traffic.
+简单来说 Telepresence 将 Kubernetes 集群中服务的流量代理到本地，Telepresence 主要有四个服务：
 
-**Telepresence Traffic Manager:** Installed traffic managers in clusters, proxy all related inbound and outbound traffic and track active interdiction.
+**Telepresence Daemon:** 本地的守护进程，用于集群通信和拦截流量。
 
-**Telepresence Traffic Agent:** Intercept traffic sidecar containers, which are injected into the workload POD.
+**Telepresence Traffic Manager:** 集群中安装的流量管理器，代理所有相关的入站和出站流量，并跟踪主动拦截。
 
-**Ambassador Cloud:** SaaS service, which is used together with Telefresh and mainly generates preview URLs and some value-added services.
+**Telepresence Traffic Agent:** 拦截流量的 sidecar 容器，会注入到工作负载的 POD 中。
 
-### Global traffic blocking
+**Ambassador Cloud:** SaaS 服务，结合 Telepresence 一起使用，主要是生成预览 URL 和一些增值服务。
 
-Global traffic interception means intercepting all traffic of Orders to our local developers, as shown below.
+### 全局流量拦截
+
+全局流量拦截是将 Orders 的所有流量都拦截到我们本地开发机上，如下图。
 
 ![](https://static.goodrain.com/wechat/telepresence/global.png)
 
-### Personal traffic blocking
+### 个人流量拦截
 
-**Personal traffic interceptions** allow selective interception of part of the service without disrupting the rest of the traffic.This allows us to share a cluster with others in the team without interfering with their work.Each developer can block orders only at their request and share the rest of the development environment.
+**个人流量拦截**允许选择性地拦截服务的部分流量，而不会干扰其余流量。这使我们可以与团队中的其他人共享一个集群，而不会干扰他们的工作。每个开发人员都可以只针对他们的请求拦截 Orders 服务，同时共享开发环境的其余部分。
 
-Personal Interception requires the use of Ambassador Cloud\`. This is a fee-for-service that allows free users to block up to 3 services.
+个人拦截需要配合 `Ambassador Cloud` 使用，这是一项收费服务，免费用户可以最多拦截 3 个服务。
 
-![](https://static.goodrain.com/wechat/teleprence/ind.png)
+![](https://static.goodrain.com/wechat/telepresence/ind.png)
 
-## Combining Telepresence Debugging Microservices on Rainbond
+## 结合 Telepresence 开发调试 Rainbond 上的微服务
 
-- Based on [host installation of Rainbond ](https://www.rainbond.com/docs/installation/installation/installation-with-ui/) or [Helm installs Rainbond](https://www.rainbond.com/docs/installation/installation-with-helm/).
+- 基于[主机安装 Rainbond ](https://www.rainbond.com/docs/installation/install-with-ui/)或基于 [Helm 安装 Rainbond](https://www.rainbond.com/docs/installation/install-with-helm/)。
 
-### Install Telepresence
+### 安装 Telepresence
 
 MacOS：
 
 ```bash
 # Intel
-brew install data/blackbird/telepresence
+brew install datawire/blackbird/telepresence
 
 # M1
-break install data/blackbird/telepresence-arm64
+brew install datawire/blackbird/telepresence-arm64
 ```
 
 Windows：
 
 ```bash
-# Opens Powershell
+# 使用管理员身份打开 Powershell
 
-# Downloading compression
-Invoke-WebRequest https://app.getambassor.io/download/tel2/windows/amd64/ latest/telepresence.zip -OutFile telepresence.zip
+# 下载压缩包
+Invoke-WebRequest https://app.getambassador.io/download/tel2/windows/amd64/latest/telepresence.zip -OutFile telepresence.zip
 
-# Unzip
-Expand-Archive -Path telepresence. ip -DestinationPatch telepresenceInstaller/telepresence
+# 解压缩包
+Expand-Archive -Path telepresence.zip -DestinationPath telepresenceInstaller/telepresence
 Remove-Item 'telepresence.zip'
-cd televisionInstaller/telepresence
+cd telepresenceInstaller/telepresence
 
-# Installing
-Powerell.exe -ExecutionPolicy bypass -c ". '.\install-telepresence.ps1';"
+# 安装
+powershell.exe -ExecutionPolicy bypass -c " . '.\install-telepresence.ps1';"
 ```
 
-### Install Teleresence data manager to cluster
+### 安装 Telepresence 流量管理器到集群中
 
-Traffic Manager can be installed quickly with Teleprest and kubeconfig file `~/.kube/config` is required.
+可以使用 Telepresence 快速安装 Traffic Manager，本地需要有 kubeconfig 文件 `~/.kube/config`。
 
 ```bash
-$ telepresence help install
+$ telepresence helm install
 ...
 Traffic Manager installed successfully
 ```
 
-Or use [Helm to install Traffic Manager](https://www.getambassor.io/docs/telepresence/latest/install/helm) in a Kubernetes cluster.
+或者在 Kubernetes 集群中使用 [Helm 安装 Traffic Manager](https://www.getambassador.io/docs/telepresence/latest/install/helm)。
 
-### Local connection to remote service
+### 本地连接远程服务
 
-Connect remote Kubernetes API Servers using `teleresence connect`, local needs to have `~/.kube/config`
+本地使用 `telepresence connect` 连接远程 Kubernetes API Server，本地需要有 kubeconfig 文件 `~/.kube/config`
 
 ```bash
-$ telepresence connection
+$ telepresence connect
 connected to context <your-context>
 ```
 
-### Rapid deployment of Pig Microservice Apps on Rainbond
+### 在 Rainbond 上快速部署 Pig 微服务应用
 
-Rapid deployment of Pig Microservice Apps via Rainbond Open Source Store after deployment
+通过 Rainbond 开源应用商店快速部署 Pig 微服务应用，部署后如下图
 
 ![](https://static.goodrain.com/wechat/telepresence/rainbond-pig.png)
 
-The next page uses the pig-auth service as an example to demonstrate the process of local development debugging which requires some minor changes to：
+后面会以 pig-auth 这个服务为例，演示本地开发调试的流程，这里需要做一些小改动：
 
-1. The default Workload is a string to install from the app store. You need to change the Workload as easy to view, for example pig-auth, enter the component name and change the component name to `auth`
+1. 从应用商店安装的应用默认 Workload 是字符串，需要修改 Workload 为易于查看的，这里以 pig-auth 为例，进入组件中编辑组件名称，修改组件英文名称为 `auth`
 
-2. The working theory of simple transactions is the proxy k8 service, the default gateway to auth is the nacos used for load balancing. The primary telepness cannot intercept traffic and we need to modify the gateway configuration to use k8s service for load balance.
+2. 简单来说 telepresence 的工作原理就是代理 k8s service，默认 gateway 到 auth 是使用的 nacos 做的负载均衡，这样的话 telepresence 是无法拦截到流量的，我们需要修改 gateway 配置使用 k8s service 做负载均衡。
 
-   - Open 8848 external ports of pig-register components, visit nacos, modify `spring.cloud.gateway.routes.uri: http://gr795b69:3000` and `gr795b69:3000` via the port in the pig-auth component.
+   - 打开 pig-register 组件的 8848 对外端口，访问 nacos，修改 `pig-gateway-dev.yml` 的 `spring.cloud.gateway.routes.uri: http://gr795b69:3000` ，`gr795b69:3000` 通过 pig-auth 组件内的端口访问地址获取。
 
-3. If only one pig-auth service is enabled, pig-auth needs to connect pig-register and redisis, then open the external ports of these services and modify the configuration file so that the local pig-auth service can connect remote to pig-register and redis.
+3. 如果本地只启动一个 pig-auth 服务，pig-auth 需要连接 pig-register 和 redis，那么就需要将这俩服务的对外端口打开，并修改配置文件让本地的 pig-auth 服务可以连接远程到 pig-register 和 redis。
 
-### Debug auth service locally
+### 在本地调试 auth 服务
 
-Start pig-auth service locally using IDEA or VScode.
+使用 IDEA 或 VScode 在本地启动 pig-auth 服务。
 
-Locally using teleport blocking pig-auth traffic, command the following：
+在本地使用 telepresence 拦截 pig-auth 流量，命令如下：
 
 ```bash
-$ telepresence interception <workload> --port <local-port>:<service port name> -n <namespace>
+$ telepresence intercept <workload> --port <local-port>:<service port name> -n <namespace>
 ```
 
-Command Teardowns：
+命令拆解：
 
 ```bash
 # <workload>
-# services requiring traffic interdiction workload
-$ kubectl get ploy-n zq
-NAME READY UP-TO-DATE AVAILABLE AGE
-pig-auth 1/1 1 146m
+# 需要拦截流量的服务 workload
+$ kubectl get deploy -n zq
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+pig-auth       1/1     1            1           146m
 
-# <local-port> Local port
+# <local-port> 本地端口
 
 # <service port name>
-# service name of service that requires traffic interdiction
-$ kubtl get svc gr795b69 -n zq -o yaml
-.
+# 需要拦截流量的服务的 service port name
+$ kubectl get svc gr795b69 -n zq -o yaml
+...
   ports:
   - name: http-3000
     port: 3000
     protocol: TCP
     targetPort: 3000
-.
+...
 
-# <namespace> Namespace
+# <namespace> 命名空间
 ```
 
-Final command：
+最终命令：
 
 ```bash
-$ telepresence intercept pig-auth --port 3000: http-3000 -n zq
-Using Deemployment pig-auth
+$ telepresence intercept pig-auth --port 3000:http-3000 -n zq
+Using Deployment pig-auth
 intercepted
-   Intercept name : pig-auth-zq
-   State : ACTIVE
-   Workload kind : Employment
-   Designation: 127. .0.1:3000
+   Intercept name         : pig-auth-zq
+   State                  : ACTIVE
+   Workload kind          : Deployment
+   Destination            : 127.0.0.1:3000
    Service Port Identifier: http-3000
-   Volume Mount Error : sshfs is not installed on your local machine
-   Intercept: all TCP requests
+   Volume Mount Error     : sshfs is not installed on your local machine
+   Intercepting           : all TCP requests
 ```
 
-We hit the breakpoint on the logout of logout, then sign out on the front end of the line to our local IDEA, with the overall effect of following：
+我们在本地给退出登陆这块逻辑打上断点，然后通过线上的前端退出登陆，打到我们本地 IDEA上，整体效果如下：
 
-![](https://static.goodrain.com/wechat/telepresence/teleepresence-debug.gif)
+![](https://static.goodrain.com/wechat/telepresence/telepresence-debug.gif)
 
-## Last
+## 最后
 
-Telepresence helps us simplify local development processes while ensuring the correctness and reliability of the code.It also allows us to easily debug and test codes in clusters and improve development efficiency.Integration of Rainbond deployment is simple, from development to deployment, and let us focus on code writing.
+Telepresence 可以帮助我们简化本地开发流程，同时保证代码的正确性和可靠性。还能使我们在集群中轻松调试和测试代码，提高开发效率。结合 Rainbond 的部署简化，从开发到部署都非常的简单，让我们专注于代码编写。
