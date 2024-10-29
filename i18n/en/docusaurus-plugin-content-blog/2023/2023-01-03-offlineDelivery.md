@@ -7,108 +7,110 @@ image: https://static.goodrain.com/wechat/cn-offline/2.jpeg
 
 Software products can be valuable only if they are delivered to the user, and I have several years of experience in the area of software delivery for the ToG scene, for example the Government.This article is used to share these pain points and my solutions today.
 
-## Ask a question
+<!--truncate-->
 
-The main client group of the company in which I am serving is the provincial government department, and the business system developed is a mobile APP serving on the government intranet.As the head of delivery, I have been troubled by how to deliver to my clients a service business system developed under the Spring Cloud framework.Completion of the delivery of software systems was only the first step in the long mark, and how to deal with later stages of delivery was a problem that had to be faced.The peculiarities of the government scene have added many disadvantages to my work, and these ToG scenes have been painfully delivered and I have listened to them.
+## 提出问题
 
-**Offline Environment**
+本人供职的公司，其主要客户群体是省内的政府部门，所开发的业务系统是服务于政府内网之中的移动APP。作为交付负责人，我一直苦恼于如何将一套基于 Spring Cloud 框架开发而来的服务端业务系统交付给我的客户。完成软件系统的交付只是万里长征第一步，如何处理后期的运维工作也是必须面对的问题。政府场景的特殊性，为我的工作平添了许多不利因素，这些 ToG 场景交付的痛点，且听我娓娓道来。
 
-Isolated from the public network and isolated from the corporate network, the full offline scenario is the hallmark of government delivery and the greatest pain point for ToG delivery.Believing that offline environmental delivery is a scenario that all delivery engineers do not want to face, which means that all deliveries must be prepared in advance, and that, in the event of any omissions and errors during the delivery, it means that tomorrow must come to the site again.
+**离线环境交付**
 
-**The environment for delivery is not unified**
+与公网环境隔离，与公司网络隔离，完全的离线场景是政府交付工作中的标配特征，也是 ToG 交付最大的痛点。相信离线环境交付是所有的交付工程师都不想面对的场景，这意味着所有的交付物必须在事先准备好，交付过程中一旦出现任何遗漏和错误，都意味着明天必须再来现场一次。
 
-If you have been engaged in delivery for the Government, most of you have experienced a lack of uniformity in the delivery environment.Owing to the different steps in IT construction at all levels of government and the same set of business systems, hardware facilities available to the municipal sector may be a physical server, while several virtual machines provided by the private cloud may be available to the provincial departments.Fortunately, the difference between the physical and the virtual machine is not significant.In recent years, however, government IT construction has been moving in the direction of national ownership, and when provincial authorities demand the use of the impugned aperture for CPU, or the delivery of the national unicorn system, there is already a great difference in the environment of delivery in the municipal sector.I have even had to treat the delivery of the same business system at two levels as entirely different items.This reflects the differences between the different delivery environments, and when I turn to the corporate development environment, the differences between the environment and the delivery environment are beginning to make me hear my own voices on the ground.It is difficult for me to determine whether pre-prepared resources will be delivered in advance and whether there will be dependency conflicts due to differences in operating systems and hardware facilities when deployed in the environment of the AI.This problem is magnified in an offline environment, and I do not even have the capability to connect the public to install software packages to address dependency conflicts.
+**交付环境不统一**
 
-**Lack of automatic sustainability**
+如果你从事过面向政府的交付工作，那多半会遭遇过交付环境不统一的情况。由于各级政府部门的 IT 建设脚步不一样，同样一套业务系统，在交付到市级部门时，得到的硬件设施可能是一台物理服务器，而到了省级部门时，则可能得到了私有云提供的数台虚拟机。值得庆幸，物理机与虚拟机的差异并不大。然而近年来政府的 IT 建设一直在向国产自主可控的方向前进，当省级部门要求使用鲲鹏Arm架构CPU，亦或是使用国产麒麟操作系统进行交付时，和市级部门交付环境的差异就已经非常大了。我甚至不得不将同一套业务系统在两级部门的交付当作完全不同的两个项目来对待。这体现出不同交付环境之间的差异，而当我转身看向公司开发环境时，开发环境与交付环境的差异，已经开始让我听到自己头发落到地面的声音了。我很难确定事先准备好的交付资源，在甲方环境部署时会否遭遇操作系统以及硬件设施差异所导致的依赖性冲突问题。这种问题在离线环境下又被放大，我甚至不具备连接公网安装软件包来调试解决依赖性冲突问题的能力。
 
-Delivery of the software to the client environment is only the primary goal, and maintaining the stable operation of the software system over the duration of the contract is a higher test of delivery quality.On the basis of personal experience, the deployment workload in a software delivery project is less than half the workload associated with later shipments.We do not want all software issues to be resolved by engineers in person, without guaranteeing time commitments in the SLA service agreement, and secondly with the engineers’ enthusiasm for work.It is particularly important to build an automated operating software environment in an offline environment.The reliance on automated delivery capabilities has led to self-healing of some software failures, which has somehow reduced the difficulty of transportation in government delivery scenarios.But choosing any technology to achieve the goal of automated delivery is costly, which means that I need to assemble a stable and reliable automated delivery platform in my delivery environment before the software system deliveries.
+**缺乏自动化运维能力**
 
-**Overdependence on core personnel**
+将软件交付到客户环境中，只是最初级的目标，在合同期内维护软件系统稳定运行是对交付质量更高层次的考验。依照个人经验，在一个软件交付项目中，交付部署的工作量，不及后期运维工作量的一半。我们是不希望所有的软件问题都需要工程师亲自抵达现场解决的，一来无法保障 SLA 服务协议中的时间承诺，其次也会消磨工程师的工作热情。在离线环境下如何构建起一套具备自动化运维能力的软件运行环境，变得尤为重要。依靠自动化运维能力，让一些软件故障得以自愈，在一定程度上降低了政府交付场景中的运维难度。但选择任何一种技术实现自动化运维的目标都是需要付出代价的，这意味着我需要在软件系统交付之前，先行在交付环境中组装一套稳定可靠的自动化运维平台。
 
-In the offline government delivery scenario, the following problems are often faced with：where the delivery environment is difficult to uniform, where special features are known only to a few engineers who are involved throughout the life of the project, and where practical experience tells us that these are often the source of anomalies and where the off-line work environment makes it a luxury for engineers to solve problems by searching information and in turn increases the technical requirements for engineers' experience and skills and makes it difficult for “qualified” resident engineers.The above problems have created a situation in which some of the freight forwarding tasks are overdependent on some core technical staff, which will have a significant impact on current business continuity once core technical staff are separated or transferred.All of these personal dependencies were struck by my brains when an engineer in the field who wanted to make another claim to resign to me.
+**过度依赖核心人员**
 
-**Continuing delivery difficulties**
+在离线化的政府交付场景中，常常面临如下问题：一是交付环境难以统一时，其中特殊之处只被少数全程参与项目交付的工程师所了解，而实际经验告诉我们，这些特殊之处往往是一些异常情况的根源；二是离线的工作环境使得工程师通过查询资料来解决问题变成一种奢望，反向提高了对于工程师的经验和技能的技术要求，因此，“合格”的驻场运维工程师很难招到。以上问题造成了一些运维工作过分地依赖某些核心技术人员的局面，一旦核心技术人员离职或者调岗，对当前的业务连续性将会造成较大影响。所有的这些对人的依赖，都在某个靠谱的驻场工程师希望另谋高就，向我提出辞职申请时痛击我的脑神经。
 
-Software delivery is not a one-time exercise.From the point of view of project management, it is difficult for users to present specific and achievable needs at the outset, and the scope of specific projects will be determined as the project progresses, a gradual and detailed process.This gradual breakdown in the delivery of software products is reflected in the multiple iterations of the product delivered, each of which is upgraded closer to the final demand of the user.This ongoing delivery process, in an offline environment, is no less difficult than the first delivery, and may even be more complex in some scenarios that need to be rolled back.In the microservice age, a complete business system often contains dozens of separate components, and the number of components adds complexity to ongoing delivery.
+**持续交付困难**
 
-**Stand development difficulty**
+软件交付并非一次性工作。从项目管理的角度来说，用户很难在一开始就提出具体且可落实的需求，具体的项目范围会随着项目的推进逐渐确定，这是一个渐进明细的过程。而在软件产品交付的过程中，这种渐进明细体现在交付的产品会经过多次迭代，每次升级后的产品，都距离用户的最终需求更近一步。而这个持续交付的过程，在离线环境中，所遭遇的难处并不亚于首次交付，甚至会在某些需要回滚的场景中更加复杂。在微服务时代，一套完整的业务系统往往包含了几十个独立的组件，组件数量也为持续交付添加了复杂性。
 
-Placement development is a demand that is common in the context of government delivery.Standard software products are often not directly responsive to the needs of the Party, which requires that our developers can customize the specified components directly in the office of the party and quickly update to the online environment for verification by the side.In the actual scenario, most of the microservices functions are fixed and only expert jar kits require frequent replacements.
+**驻场开发难**
 
-## Previous experience
+驻场开发是一种在政府交付场景中常见的需求。标准的软件产品往往是不能直接满足甲方需求的，这就需要我们的开发人员可以在甲方办公室直接定制开发指定的几个组件，并快速更新到线上环境中去，供甲方验证。在实际场景中，多数微服务功能是固定的，只有一两个 jar 包需要频繁更替。
 
-I have experienced a complete process of change in the delivery of corporate software products.From the initial jar packet delivery to the introduction of containerized technology delivery mirrors, to the use of Kubernetes packaging techniques, we have always been engaged in the delivery of software products around complex offline environments.Each stage has addressed the above pain points more or less and the costs have varied.Eventually, we embraced cloud-origin technologies and put the business system as a new target in practice a simpler and reliable off-line environment delivery, taking into account previous pains.
+## 以往的经历
 
-### Jar Package Delivery
+我经历了公司软件产品交付的完整变革流程。从最开始的 jar 包交付，继而引入容器化技术交付镜像，到后来采用 Kubernetes 容器编排技术，我们始终围绕着复杂的离线环境进行软件产品的交付工作。每个阶段或多或少的解决了上述各种痛点，所付出的代价也不尽相同。最终我们拥抱了云原生技术，将业务系统整体作为新的对象实践了较为简单可靠的离线环境交付，同时兼顾了以往各种痛点。
 
-Super Java development language, we can package code into a binary delivery product that depends only on JDK operating environments.Our software products are also at an early stage and the operational system consists of 10 Jar packages, Mysql databases, Redis caching, and Nginx on the front end.
+### Jar 包交付
 
-In a single delivery, first build up the basic operating environment and complete the JDK installation.Mysql, Redis and other middleware rely on very primitive rpm packages for installation, a process that often encounters problems of package dependency problems.Finally run all Jar packs without a series of manual jobs before starting up.
+得益于 Java 开发语言，我们可以将代码打包成为仅依赖 JDK 运行环境的二进制交付产物——Jar 包。彼时我们的软件产品还处于初级阶段，业务系统由10个 Jar 包、Mysql数据库、Redis 缓存、前端Nginx组成。
 
-This mode of delivery is more primitive, and we will write some scripts to achieve some degree of automation, but this will only partially improve the efficiency of the deployment, with a minimal capacity of zero.The installation of intermediate components has a high degree of binding on operating systems, which can lead to a conflict of dependency and failure of installation once the server operating systems and a slight bias we know in advance.The configuration process is too heavy for manual dependence, which is particularly pronounced in highly deployable environments where various IP configurations can easily be misplaced.
+一次交付工作中，首先要搭建起基础运行环境，完成 JDK 的安装。Mysql、Redis 等中间件依靠很原始的 rpm 包进行安装，这个过程经常会遭遇包依赖冲突问题。最后将所有的 Jar 包运行起来，启动之前免不得进行一系列的人工配置工作。
 
-To sum up, we have achieved offline delivery for simple business systems at this stage, but we have not resolved any other ToG scenario delivery pains.
+这种交付方式比较原始，我们会写一些脚本来达成一定程度上的自动化，然而这只在一定程度上提升部署效率，自动化运维能力基本为零。中间件的安装部署对操作系统的绑定程度很高，一旦服务器的操作系统和我们预先了解的稍有偏差，都可能导致依赖冲突，导致安装失败。而配置过程对人工依赖过重，这在高可用部署的环境中表现的尤为突出，配置各种 IP 很容易出错。
 
-### Import Containment Technologies
+做一个总结，这个阶段我们实现了简单业务系统的离线交付，然而没有解决其他任何一个 ToG 场景交付痛点。
 
-To smooth out the complexity of the delivery environment, we have begun to introduce containment technology, and by institutionalizing all component containers, we simply need to ensure that the client servers are able to run the Docker container, and there is no need to worry about the problem of the bottom operating system.Official docker binary files for static compilation. We no longer have to deal with software dependency.In this phase, our business systems have also begun to expand, and the number of components has risen to dozens of places, which has forced us to introduce docker-compose and docker-swarm technologies at the same time to solve the problem of organizing components under single machines or high-availability scenarios.These technologies also provide a lower degree of self-healing capacity and distance from real production.
+### 引入容器化技术
 
-Containment technologies address the lack of uniformity in the delivery environment, but there are limited increases in pain in other areas.As business functions expand, a new pain point gradually emerges, we need to deliver with dozens of container mirrors, and the complexity of delivery is held hostage to the number of deliveries.
+为了抹平交付环境不统一所带来的复杂度，我们开始引入容器化技术，通过将所有组件容器化，我们只需要确保客户的服务器能够运行 Docker 容器，就不需要再担心底层操作系统的问题了。官方提供静态编译版本的 docker 二进制文件，我们再也不用和软件依赖打交道了。这个阶段，我们的业务系统也开始扩展，组件的数量上涨到了几十个，这导致我们不得不同时引入 docker-compose 以及 docker-swarm 技术来解决单机或高可用场景下的组件编排问题。这些技术同时提供了较低程度的故障自愈能力，距离真正的生产可用还有距离。
 
-### Redirect Kubernetes
+容器化技术解决了交付环境不统一的问题，但是其他方面的痛点提升有限。随着业务功能的扩展，一个新的痛点逐渐展现出来，我们需要携带数十个容器镜像进行交付，交付复杂度被交付物数量裹挟着不断上升。
 
-After delivery teams have acquired containment technology, we have started a transition to Kubernetes in order to address the auto-transport dimension.Kubernetes technology is capable of enabling the delivery and delivery of business systems, through which our business systems have achieved a high degree of automaticity.
+### 转向 Kubernetes 技术
 
-Kubernetes technologies have improved their capabilities in the areas of self-healing, elasticity and elasticity, and business systems have truly become productive.But it also brings with it new pain that it itself is too complex and that it must be managed with sufficient knowledge on the part of both developers and on-site delivery providers.In other words, the introduction of such technologies has significantly increased reliance on core technical staff and has even raised the threshold for entry into the technical team.The up-front construction of the delivery environment has increased significantly in the offline delivery scenario, and we have to prepare a reliable Kubernetes cluster in advance in an offline environment, which has greatly hampered the diffusion of Kubernetes technology in delivery teams.
+在交付团队掌握了容器化技术之后，为了解决自动化运维问题，我们开始向 Kubernetes 转型。Kubernetes 技术是可以为业务系统的交付和运维赋能的，借助于它，我们的业务系统实现了较高程度的自动化运维能力。
 
-### New pain point
+Kubernetes 技术在故障自愈、弹性伸缩等方面的能力提升使我们非常受用，业务系统真正做到了生产可用。但是同时也带来了新的痛点，那就是它本身过于复杂，无论是开发人员还是现场运维交付人员，都必须对它有足够的了解才可以驾驭。换句话说，这种技术的引入大幅度提高了对核心技术人员的依赖程度，甚至提高了对技术团队全员的入门门槛。离线化的交付场景下，对交付环境的前期一次性建设的成本大幅度提高，我们必须事先在离线环境中准备好可靠的 Kubernetes 集群，光这一项工作，就大幅度阻碍了 Kubernetes 技术在交付团队中的推广。
 
-After several previous phases, I believe that there is no problem in continuing to move forward in the direction of container technology and Kubernetes packaging technology in the face of the complex delivery scene of offline lining. Each technical selection has somehow resolved many pain points. We have already done so without fear of an offline environment, a non-uniform delivery environment, a lack of automated delivery capacity, but have also introduced new issues that need to be addressed.
+### 新的痛点
 
-- Business extension will simultaneously increase delivery complexity.In essence, this new pain is due to the fact that we view each component independently, rather than to the entire business system.The result is a direct link between the volume and complexity of deliveries, which would greatly reduce the complexity of delivery if the business system were to be delivered as a whole rather than by individual components.
-- New complexity has been introduced in each of the new types of selection, which is particularly pronounced when turning into Kubernetes technology.The capability of the technology to empower the operational system is beyond question, but the technical capabilities of the delivery team members are on a straight rise, regardless of the first deployment in a new environment and the difficulty of delivery in a later period.To make it less difficult for new members of the delivery team, we have started selecting graphical tools that can reduce the difficulty used by Kubernetes, and ease of use is the primary influence of the selection.
-- The continuing difficulties in delivery and the development of the site are still not well addressed.Both require that we provide mechanisms to address the continuing change in the delivery environment of the business system, which focuses on iterative upgrading of the corporate framework of the business system and rapid iterations of a particular component.
+经过了前面的几个阶段，我认为面对离线化的复杂交付场景，继续在容器技术以及 Kubernetes 容器编排技术方向上前进是没有问题的，每一次技术选型，都在一定程度上解决了很多痛点，我们在交付的过程中已经不惧怕离线环境、交付环境不统一、缺乏自动化运维能力等痛点，但也引入了一些新的问题，是待解决的。
 
-We have begun to look at the area of cloud-origin technology that has gradually become fired.First, cloud technology is based on packaging and Kubernetes technology, and we already have a technical base.Second, cloud-origin technologies also focus on best practices in the area of software delivery, some of which are very congruous in the past.After a period of internal test selection, we ended with the use of the Rainbond Native Application Management Platform as a delivery tool to achieve a completely new and complex offline delivery mode for the scene.
+- 业务功能扩展会同步提升交付复杂度。这一新痛点从本质上来说，是由于我们将每一个组件独立看待，而非将整个业务系统作为整体看待。这样做的结果就是交付物的数量和交付复杂程度直接挂钩，如果能将业务系统作为整体交付，而非每个组件单独交付，那将极大的降低交付复杂度。
+- 每一次新的选型，都引入了新的复杂度，这一点在转向 Kubernetes 技术时尤为突出。这项技术对业务系统的赋能能力是毋庸置疑的，但无论是一个新环境的首次部署，还是后期的运维难度，对交付团队成员技术能力的要求是直线上升的。为了降低交付团队新成员的入门难度，我们开始选型一些能够降低 Kubernetes 使用难度的图形化工具，易用性是选型的首要影响因素。
+- 持续交付困难以及驻场开发难这两大痛点，依然没有被很好的解决。这二者都需要我们提供机制，解决业务系统在交付环境中持续变更的问题，前者注重业务系统整体框架的迭代升级，后者注重某个组件的个性化快速迭代。
 
-## Cloud Offline Delivery Practice
+我们开始将目光放在了逐渐火热起来的云原生技术领域。首先，云原生技术是基于容器化技术和 Kubernetes 技术的，我们已经具备了一定的技术基础。其次，云原生技术也注重软件交付领域的各种最佳实践，其中一些实践非常契合前文中的痛点。经过一段时间的内部测试选型，我们最终使用了 Rainbond 云原生应用管理平台作为交付工具，实现了全新的复杂场景离线交付模式。
 
-In the beginning, a member within the delivery team learned occasionally from open source sources about Rainbond of the product and was recommended for use by development team personnel.Use only as a graphical Kubernetes management tool to lower the threshold for newcomers to learn KubernetesBut with knowledge of the product, we are gradually finding that Rainbond is really being used to solve the problem of the delivery of software products.
+## 云原生离线交付实践
 
-### Abstract business system as application
+最开始，交付团队内部的一名成员从开源渠道偶然了解到了 Rainbond 这款产品，并推荐给开发团队人员使用。当时仅仅作为图形化的 Kubernetes 管理工具来使用，以此降低新手开发人员学习 Kubernetes 的门槛。但随着对产品的了解，我们逐渐发觉，Rainbond 真正的用途在于能够解决软件产品的交付问题。
 
-In the past, we have always treated each component of the business system separately, but in the Rainbond system, the managed module can be scaled to the business system level, which is referred to as the application.Application internal component deployment and layout are graphically based and understandable to use.Call relationships between components are based on topography and are clear.Most importantly, based on the application of this abstraction, we have achieved the decoupling of the number and complexity of components, which we always regard as an application regardless of how many components are in the application.The benefits of doing so are very evident in the delivery process.
+### 将业务系统抽象为应用
+
+以往的交付过程中，我们总是将业务系统中的每一个组件单独看待，但是在 Rainbond 体系中，管理的单元可以放大到业务系统级别，这种管理单元被称之为应用。应用内部的组件部署和编排都是基于图形化操作的，使用起来不难理解。组件间的调用关系基于拓扑图展现，一目了然。最重要的是，基于应用这种抽象，我们实现了将组件数量和交付复杂度脱钩，无论应用中有多少组件，我们始终视之为一个应用。这么做的好处在交付过程中体现的非常明显。
 
 ![](https://static.goodrain.com/wechat/cn-offline/1.jpeg)
 
-### Application template offline export import
+### 应用模板的离线导出导入
 
-Once the app is deployed, it can be published as an application template and exported. The exported product is a separately managed package.The offline template package is completely undependent on external networks when imported. The import can be installed in an offline environment by one click and restored to post as it is.Interdependencies between components, configuration information is saved without reconfiguration at the delivery site.This capability completely changed the logic of delivery from the delivery of dozens of individual containers to the delivery of a package covering the entire business system, in which the difficulty of falling could be imagined.
+应用一旦部署编排完成，就可以发布成一个应用模板并导出，导出的产物是单独管理的一个包。离线的模板包在导入时完全不依赖于外部网络，导入完成就可以在离线环境中一键安装，复原为发布时的样子。组件之间的相互依赖关系、配置信息都得以保存，不需要在交付现场重新配置。这一能力完全改变了交付的逻辑，从单独交付数十个容器镜像，变成了交付一个涵盖整个业务系统的包，其中难度的下降可想而知。
 
-### Easy to use
+### 简单易用
 
-Rainbond base provides a full automated delivery capability based on Kubernetes technology for the movement of containers.and convert the common configuration from the Yaml declaratory configuration into a graphical interface that significantly reduces the threshold for entry.After introducing the Rainbond system, new entrants can use Rainbond within one day after a simple training and can independently deliver the business system.
+Rainbond 底层基于 Kubernetes 技术实现容器的调度，提供全面的自动化运维能力。并且将常见的配置从 Yaml 声明式配置转化成为图形化界面操作，极大的降低了入门门槛。引入 Rainbond 体系之后，新入职的工程师可以在简单的培训后，一日之内掌握 Rainbond 的使用方式并可以独立交付业务系统。
 
-### Native Cloud Management
+### 原生多云管理
 
-Rainbond supports cloud management capabilities for Kubernetes.While government delivery scenes are isolated from the public network, there are often promising internal networks within the same system.The cloud management capacity of Rainbond was managed in a unified manner through the delivery scenarios of several urban government departments in the province and the establishment of a unified management control desk in the provincial capitals.This deployment model provides a mechanism for the rapid delivery of operational systems in multiple data centres and significantly reduces the cost of delivery across the operational system across the province.
+Rainbond 原生支持面向 Kubernetes 的多云管理能力。政府交付场景虽说与公网隔离，然而其实同个系统内往往具有想通的内部网络。借助 Rainbond 的多云管理能力，我们将省内多个城市政府部门的交付场景统一管理了起来，在省会建立了统一的管理控制台。这样的部署模式为业务系统快速在多个数据中心的交付提供了机制，极大的降低了业务系统在全省范围内交付的成本。
 
 ![](https://static.goodrain.com/wechat/cn-offline/2.jpeg)
 
-### Sustained delivery mechanisms
+### 持续交付机制
 
-Rainbond application templates support version management. When the business system has significant changes, it will only need to republish the app as a whole, re-import it into the delivery environment and upgrade or roll back a single key, greatly increasing the efficiency of business system upgrading.In the past, the up-downgrading and configuration of dozens of container mirrors, the cost of the time required was calculated on a daily basis, after introducing the version control mechanism of the Rainbond application template, the time cost of the elevation downgraded was reduced to a minute, and the operating costs were negligible.
+Rainbond 应用模板支持版本管理，当业务系统有较大改动时，只需要将应用整体重新发布一次，重新导入到交付环境中去后即可一键升级或回滚，极大提升了业务系统升级效率。在以往处理数十个容器镜像的升降级和配置工作，需要的时间成本是按天计算的，引入Rainbond 应用模板的版本控制机制之后，升降级的时间成本降低为分钟级，操作成本则可以忽略不计。
 
 ![](https://static.goodrain.com/wechat/cn-offline/3.jpeg)
 
-### Split development fast
+### 驻场开发快
 
-When Party A requires a component to make some modifications, it is clear that offline import using a template of the whole application level is not lost.At this point, only the field developer is required to pack the Jar package on the personal development notebook, quickly build the specified component by uploading the Jar package building capacity and replace the corresponding component after simple spelling.The developers need only provide Jar packages, even if they do not need to learn packaging techniques to understand the mechanisms used to pack mirrors, and Rainbond will automatically handle the follow-up work.
+当甲方要求某个组件做出些许改动时，使用整个应用级别的模板离线导入显然得不偿失。此时，只需要现场开发人员在个人开发笔记本上打包出 Jar 包，通过上传 Jar 包构建组件的能力快速构建指定的组件，简单的拼装后即可替换对应的组件。这个过程中开发人员只需要提供 Jar 包，甚至不需要学习容器化技术了解镜像打包的机制，Rainbond 会自动处理后续的工作。
 
 ![](https://static.goodrain.com/wechat/cn-offline/4.jpeg)
 
-## Summary
+## 总结
 
-With the use of cloud-origin technology, my Division delivery team has significantly reduced the cost of delivering complex offline scenarios for Governments.These cost savings are reflected in reduced delivery times, lower technical requirements for personnel, lower operating costs for personnel, fewer deliveries and fewer staffing workloads.Cost-reduction has been accompanied by the successful empowerment of the business system, which has been able to handle many anomalies automatically.Easy site development to respond quickly to the needs of clients on the one hand, and to improve client satisfaction.
+我司交付团队借助云原生技术， 极大的降低了面向政府的复杂离线场景交付工作成本。这种成本节约体现在交付时间缩短、人员技术要求降低、人员操作成本降低、交付物数量减少、配置工作量减少等多个方面。降低成本的同时，也成功为业务系统赋能，能够自动处理很多异常场景，实现了自动化运维。方便驻场开发，能够快速的响应甲方客户的需求，提升客户满意度。
 
-However, the evolution of IT engineering is constantly oriented towards new pain points.The current use of cloud-origin technologies is not a solution to all problems, and in the context of government delivery scenarios, where the tougher requirements have been imposed by side A to prohibit the use of container technology for delivery.This requirement prevents the fall of the cloud delivery technology from its roots, but the elegant retreat to the Jar package delivery route is a question of how communities are expected to support the transformation of the application template into a delivery that is available in the nudity environment.
+然而 IT 工程领域的发展过程就是在不断面向新的痛点解决问题。目前使用云原生技术也并非能够解决所有的问题，在政府交付场景中，也曾经遭遇这一类场景，甲方提出了比较严苛的要求，禁止使用容器技术进行交付。这种要求从根源上阻绝了云原生交付技术的落地，然而如何优雅的回退到 Jar 包交付的路线中去就成了一个问题，期待社区提供支持，将应用模板转化成为裸机环境可用的交付物，这是后话。
