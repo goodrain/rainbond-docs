@@ -1,47 +1,49 @@
 ---
-title: Contribute to：share your plugin
-description: This paper describes how to share your plugins with Rainbond Open Source Store. Sharing plugin extensions can also enrich the plugin market with the Rainbond community. The plugins themselves only contain descriptions and implementations so that they can be reused.
+title: Participate in community contribution：share your plugin
+description: The plugin itself contains only the description and implementation, making it reusable.Must be bound to a component to have runtime state.In the V5.7.0-release version, Rainbond supports users to share their own plug-ins to the open source application store, and other users can use the plug-ins.
 slug: pluginshare
-image: https://static.goodrain.com/wechat/plugin-share/plugin-share.png
+image: "![](https://static.goodrain.com/wechat/plugin-share/plugin-share.png)"
 ---
 
-This paper describes how to share your plugins with Rainbond Open Source Store and can also enrich the plugin market with the Rainbond community.
+article introduces how to share your plugins to the Rainbond open source app store, sharing the extension capabilities of plugins and enriching the plugin market with the Rainbond community.
 
-Because of the greater commonality of the application dimensions and in order to decouple business containers and their viability, Rainbond implemented a plugin mechanism under a component based on SideCar mode.Rainbond plugin can be used as an extension of component viability. The plugin itself is a Sidecar container that can be used to solve the following problems：
+Because of the greater commonality of the application dimensions and in order to decouple business containers and their viability, Rainbond implemented a plugin mechanism under a component based on SideCar mode.Since the implementation of application operation and maintenance features has great commonality, in order to decouple the business container from its operation and maintenance capabilities, Rainbond implements a plug-in mechanism under components based on the SideCar mode.The Rainbond plug-in can be used as an extension of component operation and maintenance capabilities. The plug-in itself is a sidecar container, which can be used to solve the following problems：
 
-- Extend component functions without changing existing business code
-- Complete some data initialization actions before business runs
-- Send business logs to external servers for analysis processing
-- Block the traffic of cleaning operations for firewall
-- Performance indicators for monitoring operations, etc.
+- Extend the functionality of components without changing existing business code
+- Complete some data initialization operations before the business runs
+- Send business logs to external servers for analysis and processing
+- Intercept the traffic of cleaning business and use it as a firewall
+- Monitor business performance indicators, etc.
 
 The plugin itself only contains descriptions and implementations, so that it can be reused.A component must be bound to be running when it is not operational.In V5.7.0-release version, Rainbond supports users to share their plugins in the Open Source Store and can be used by other users.
 
-## Principles of Plugins
+<!--truncate-->
+
+## Plug-in principle
 
 ![](https://static.goodrain.com/wechat/plugin-share/1.png)
 
-As shown in the graph above, Rainbond plugin has the following characteristics：
+As shown in the figure above, the：plugin has the following features0
 
-- Networking with apps. Consistent with cyberspace allows plugins to replicate, truncate, set component local domain parse etc.
-- Shared storage with apps, files can be exchanged between plugins and components through persistent directories
-- Share environment variables with apps. Plugin enables configuration information sharing by reading the environmental variables of the component
+- Share the network with the application, and the network space is consistent, so that the plug-in can bypass and truncate the component network traffic, set the component local domain name resolution, etc.
+- Shared storage with applications, and file exchange between plugins and components can be done through persistent directories
+- Share environment variables with applications, and plugins can share configuration information by reading the environment variables of components
 
-Based on the above features, we can create our own plugins and share them with components in an open source application store for use.
+Based on the above features, we can make our own plug-ins and share them with the components in the open source application store for everyone to use.
 
-## Plugin Production
+## Plugin production
 
-The `Fluentd-ElasticSearch6` plugin will be used as an example of how the plugin is produced.
+Next, we will take the `Fluentd-ElasticSearch6` plug-in as an example to introduce how to make the plug-in.
 
-### Make Fluentd ElasticSearch 6 plugins
+### Make Fluentd ElasticSearch 6 plugin
 
-1. Go to Rainbond team view -> Plugins -> Create new plugin to create general type plugins.
+1. Go to Rainbond Team View -> Plugins -> New Plugin, create a general type of plugin.
    - Mirror address：qlucky/fluentd-elasticsearch6:v1.14
 
 ![](https://static.goodrain.com/wechat/plugin-share/2.png)
 
-2. Create a plugin and click on the upper right corner to build a plugin.
-3. Add configuration file to the Fluentd plugin, add configuration to the `configuration file and shared storage` below the plugin.
+2. Create a plugin and click Build in the upper right corner to build the plugin.
+3. Add a configuration file to the Fluentd plugin, and add a new configuration in `configuration file and shared storage` under the plugin.
    1. Configuration file mount path：/fluentd/etc/fluent.conf
 
 ```yaml
@@ -64,41 +66,41 @@ The `Fluentd-ElasticSearch6` plugin will be used as an example of how the plugin
   index_name fluentd.${tag}
   <buffer>
     chunk_limit_size 2M
-    queue_limit_length  32
+    queue_limit_length 32
     flush_interval 5s
-    retry_max_times 30
+    retry_max_times</match>
   </buffer>
-</match>
+
 ```
 
 ![](https://static.goodrain.com/wechat/plugin-share/3.png)
 
-### Use Fluentd Plugin
+### Use Fluentd plugin
 
-1. Build components based on mirrors, using `nginx:` and mount the `var/log/nginx` storage.
-   - When mounting a storage inside a component, the plugin will also mount the store customarily and can collect logs from Nginx.
-2. In the Nginx component -> Plugins -> Unenabled, open Fluentd plugin, update\restart component to take effect.
-3. Install `Elasticsearch 6.2.4` for open source stores
-4. Add dependence, Nginx (plugins opened) depends on Elasticsearch, update\restart the Nginx component to make dependency effective.
-5. Visit the Nginx component external port to generate access logs.
-6. Enter Kibana -> Management -> Kibana -> Index Patterns, add Index, enter Discover to view log information.
+1. Create a component based on an image, the image uses `nginx:latest`, and the mount storage is`var/log/nginx`.
+   - After the storage is mounted in the component, the plugin will also mount the storage by itself, and can collect the logs generated by Nginx.
+2. In the Nginx component -> plug-in -> is not activated, open the Fluentd plug-in, and update/restart the component to take effect.
+3. Based on open source app store installation `Elasticsearch 6.2.4`
+4. Add dependencies, Nginx (plug-in has been activated) depends on Elasticsearch, update/restart Nginx components to make the dependencies take effect.
+5. Access the external port of the Nginx component to generate access logs.
+6. Enter Kibana -> Management -> Kibana -> Index Patterns, add Index, and enter Discover to view log information.
 
 ![](https://static.goodrain.com/wechat/plugin-share/4.png)
 
-Learn more about using tutorials :point_down:
+For detailed tutorials, please refer to:point_down:
 
-## Plugin Share
+## Plugin sharing
 
-> The plugin can only be published in conjunction with the component so that when publishing the plugin, the app will also be published, but the app will not be installed when the plugin is installed from the store.So it is recommended that when publishing, select a smaller base component to bind the plugin to publish.e.g.：Nginx.We will continue to optimize this release process as well.Reduce unnecessary mirror push
+> 目前插件只能配合组件进行发布，因此在发布插件时，应用下的业务组件也会发布，但从商店安装插件时，应用不会被安装。所以建议在发布时，选择镜像较小的基础组件绑定该插件进行发布。如：Nginx。我们后续也会持续优化此发布流程。减少不必要的镜像推送。
 
-App View -> Publish -> Create a New Application Template -> Check to Publish as Plugin -> Select as Release -> Select a Component that opens a plugin to publish. Make sure to publish.
+Application View -> Publish -> Create a new application template -> Check to publish as a plug-in -> Select the component with the plug-in enabled to publish, and confirm the publish.
 
-See [应用商店应用上架](https://www.rainbond.com/docs/use-manual/app-store-manage/share-app "App Store app" after release and all small partners of the community can install this plugin.
+After the release is complete, please refer to [App Store App Listing](https://www.rainbond.com/docs/use-manual/app-store-manage/share-app "应用商店应用上架")After the release, all community members can install this plugin.
 
 ![](https://static.goodrain.com/wechat/plugin-share/5.png)
 
-## Engage in community contributions
+## Participate in community contributions
 
-With these steps, we know how plugins are shared, and if small partners are interested in contributing your plugin, they can always be posted in the App Store.
+Through the above steps, we have learned how to share plugins. If you are interested in contributing your plugins, you can publish them in the app store at any time.
 
-If you need help, please contact community members!Contribute to it please check [贡献指南](https://www.rainbond.com/community/contribution/ "Contributing Guide").
+如果你需要贡献帮助，请联系社区成员哦！If you need help contributing, please contact a community member!Please refer to [Contribution Guide](https://www.rainbond.com/community/contribution/ "贡献指南")to participate in the contribution.
