@@ -39,6 +39,6 @@ web: sh target/bin/webapp
 <Service Type>: <Command>
 ```
 
-- <服务类型> : Currently only `web` service type is supported
+- \<服务类型> : Currently only `web` service type is supported
 
-- <命令> : The command line to start the program, the executed command must be running in the foreground.
+- \<命令> : The command line to start the program, the executed command must be running in the foreground.
