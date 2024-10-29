@@ -31,7 +31,6 @@
     "docusaurus-plugin-sass": "^0.2.5",
     "framer-motion": "^11.11.4",
     "i": "^0.3.7",
-    "npm": "^10.9.0",
     "path-browserify": "^1.0.1",
     "prism-react-renderer": "^2.4.0",
     "rc-queue-anim": "^2.0.0",
