@@ -11,7 +11,7 @@ The command line tool `grctl` provides some of the tools command that can be use
 
 The node must have the following conditions：
 
-1. has kubectl commands and is available.Please refer to[kubectl](./index#kubectl) for installation.
+1. has kubectl commands and is available.安装请参考[kubectl](./index.md#kubectl)。
 2. A ~/.kube/conf file exists to access the Kubernetes cluster.
 
 Installation Method：
