@@ -14,7 +14,7 @@ The workflow of the Rainbond gateway is shown in the figure below:
 ![](https://static.goodrain.com/docs/5.12/troubleshooting/installation/en-gateway-process.png)
 
 1. After installing Rainbond, a second-level wildcard domain name will be allocated by default, such as `*.7a7b7c.grapps.cn`.
-2. After opening the external HTTP access service of the component, a domain name will be assigned to the component by default, and the distribution method of the domain name is `component port.componentID.appID.7a7b7c.grapps.cn`，如 `5000.grbc.grcc.7a7b7c.grapps.cn`。
+2. 打开组件的对外的 HTTP 访问服务后，默认会给该组件分配一个域名，该域名的分配方式是 **\<组件端口>.\<组件ID>.\<应用ID>.7a7b7c.grapps.cn**，如 `5000.grbc.grcc.7a7b7c.grapps.cn`。
 3. After opening the external TCP access service of the component, a port above 10000 will be allocated by default, and the port will be monitored on the host.
 4. When a user accesses the `domain name/IP`, it will be forwarded through the Rainbond gateway and forwarded to the corresponding component port.
 
