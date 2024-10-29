@@ -11,87 +11,89 @@ On December 08, 2020, CentS officially announced the cessation of the Maintenanc
 - CentOS 6 ceased maintenance on 30 November 2020, and CentOS 8 stopped maintenance on 31 December 2021.
 - CentOS 7 stopped maintenance on 30 June 2024.
 
-## Impact
+<!--truncate-->
 
-CentOS stopped services primarily affected by two aspects of：
+## 影响
 
-- **Safety Bug：** can't get a security patch to fix the high-risk CVE hole.
+CentOS 停止服务主要的影响是以下两个方面：
 
-* **Software feature：** is no longer available for new versions of the package, no new features or architectural support;
+- \*\*安全漏洞：\*\*无法获取安全补丁来修复高风险的CVE漏洞。
 
-Stopping maintenance generally means that it is not possible to get a secure patch to fix the high-risk CVE loop, or to get new features and architecture support from new versions of the package.This has led directly to the failure to officially address any security gaps or other issues in the operating system, while many basic software packages are no longer updated.
+* \*\*软件功能：\*\*不再发布新版本软件包，缺乏新功能、新架构支持；
 
-## How to respond
+总的来说停止维护意味着无法获取安全补丁修复高风险的 CVE 漏洞，也无法获取到新版本软件包带来的新功能和架构支持。这直接导致了操作系统出现的任何安全漏洞或其他问题都无法得到官方的处理，同时许多基础软件包也不再更新。
 
-Faced with this situation, we have to consider migrating to other long-term support (LTS) distribution versions of Linux to ensure the security and continuity of the system.Alternative migration targets include：
+## 如何应对
 
-- **Ubuntu LTS**：provides security updates and maintenance for at least five years, suitable for business environments that require long-term stability support.
-- **Debian Stable**：also provides long-term security support, is stable and suitable for the production environment.
-- **Fedora Server or Fedora Workstation**：provides the latest software and features for environments that require the latest technology, although the support cycle is shorter.
-- **Rocky Linux**：was created to fill gaps left by Censorship to stop maintenance, compatible with the high level of Red Hat Enterprise Linux (RHEL) and the migration process is relatively simple.
-- **Anolis OS, openEuler, OpenCloudOS**：These Linux distributions led by domestic manufacturers and source are also highly compatible with RHEL and provide good localization support and services to business users.
+面对这种情况，我们不得不考虑迁移到其他长期支持（LTS）的 Linux 发行版，以确保系统的安全和持续更新。可选的迁移目标包括：
 
-When selecting migration targets, if migrating to **Ubuntu, Debian or Fedora** are selected, some external tools may be required to help migrate because these systems differ significantly from CentS management and the migration process may involve higher risks.
+- **Ubuntu LTS**：提供至少五年的安全更新和维护，适合需要长期稳定支持的企业环境。
+- **Debian Stable**：同样提供长期安全支持，稳定性良好，适合生产环境。
+- **Fedora Server 或 Fedora Workstation**：虽然支持周期较短，但提供最新的软件和特性，适合需要最新技术的环境。
+- **Rocky Linux**：为了填补 CentOS 停止维护留下的空白而创建的，与 Red Hat Enterprise Linux（RHEL）高度兼容，迁移过程相对简单。
+- **Anolis OS、openEuler、OpenCloudOS**：这些由国内厂商主导并开源的 Linux 发行版，同样与 RHEL 高度兼容，为企业用户提供了很好的本地化支持和服务。
 
-The choice of **Rocky Linux, Anolis OS, openEuler or OpenCloudOS** will simplify the migration process because the high compatibility of these systems with CentOS reduces migration difficulty and makes the process easier.
+在选择迁移目标时，如果选择迁移到 **Ubuntu、Debian 或 Fedora**，可能需要使用一些外部工具帮助迁移，因为这些系统与 CentOS 有较大的包管理差异，迁移过程可能涉及较高的风险。
 
-### Cents 7 migrated to Anolis OS 7
+而选择 **Rocky Linux、Anolis OS、openEuler 或 OpenCloudOS** 则会简化迁移过程，因为这些系统与 CentOS 的高度兼容性降低了迁移难度，让过程更为顺畅。
 
-Here you migrate as Cents 7 to Anolis OS 7 examples.
+### Centos 7 迁移到 Anolis OS 7
 
-1. Download Anolis OS Migration Tool yum Source
+这里以 Centos 7 迁移到 Anolis OS 7 举例。
+
+1. 下载 Anolis OS 迁移工具 yum 源
 
 ```bash
 wget https://mirrors.openanolis.cn/anolis/migration/anolis-migration.repo -O /etc/yum.repos.d/anolis-migration.repo
 ```
 
-2. Install migration tool centos2anolis
+2. 安装迁移工具 centos2anolis
 
 ```bash
-yum - y install centos2anolis
+yum -y install centos2anolis
 ```
 
-> If you report the following errors, you will need to install the epel source, the migration tool needs to depend on the python36-psutil pack in the edel source
+> 若出现下述的报错，则需要安装epel源，迁移工具需要依赖 epel 源中的 python36-psutil 包
 >
 > ```bash
-> Error: Package: centos2anolis-0.2-20.an7.no-search (migration)
+> Error: Package: centos2anolis-0.2-20.an7.noarch (migration)
 > Requires: python36-psutil
 >
-> $ yum install -y etel-release
+> $ yum install -y epel-release
 > ```
 
-3. Execute Migration Command
+3. 执行迁移命令
 
 ```bash
-# By default migrate to Anolis OS
+# 不加参数默认迁移到 ANCK 内核的 Anolis OS
 centos2anolis.py
-# to Anolis OS
-centos2anolis.py --rhck in RCK
+# 迁移到 RHCK 内核的 Anolis OS
+centos2anolis.py --rhck
 ```
 
-Figure： below after migration has been completed
+迁移完成后如下图所示：
 
-![](https://static.goodrain.com/wechat/cents-migration/1.png)
+![](https://static.goodrain.com/wechat/centos-migration/1.png)
 
-4. Reboot and verify OS version
+4. 重启并验证 OS 版本
 
-![](https://static.goodrain.com/wechat/cents-migration/2.png)
+![](https://static.goodrain.com/wechat/centos-migration/2.png)
 
-5. Migration finished, the OS version can also be seen in the node details of Rainbond cluster management.
+5. 迁移完成，在 Rainbond 集群管理的节点详情中也可查看到操作系统版本。
 
-![](https://static.goodrain.com/wechat/cents-migration/3.png)
+![](https://static.goodrain.com/wechat/centos-migration/3.png)
 
-### Migrate to other Linux distribution
+### 迁移到其他 Linux 发行版
 
-Most Linux distributions have provided migration guides since the Centos series have been announced to stop maintenance. eg:：
+自 Centos 系列项目宣布停止维护以后，大部分 Linux 发行版都提供了迁移指南，例如：
 
-- [Centos migrate to Rocky Linux](https://docs.rockylinux.org/en/guides/migrate2rocky/)
-- [Centos migrated to Anolis OS] (https://openanolis.cn/sig/migration/doc/451732372594279514)
-- [Centos migrate to openEuler](https://www.openeuler.org/en/migration/guidance/)
-- [Centos migrate to OpenCloudOS](https://docs.opencloudos.org/centos_migrate/migrate_CentOS7_to_OC7/)
+- [Centos 迁移到 Rocky Linux](https://docs.rockylinux.org/zh/guides/migrate2rocky/)
+- [Centos 迁移到 Anolis OS](https://openanolis.cn/sig/migration/doc/451732372594279514)
+- [Centos 迁移到 openEuler](https://www.openeuler.org/zh/migration/guidance/)
+- [Centos 迁移到 OpenCloudOS](https://docs.opencloudos.org/centos_migrate/migrate_CentOS7_to_OC7/)
 
-All four approaches are quite easy and simple, as they are highly compatible with Centos.
+以上四种方式都是相当容易、简单的，因为它们都与 Centos 高度兼容。
 
-## Last
+## 最后
 
-Migration of operating systems is a more important matter that requires full planning and implementation.It is recommended that all key business applications be fully tested to ensure compatibility and that detailed rollback programmes be prepared to respond to potential problems before they are implemented.Good luck in migration for all!
+迁移操作系统是一个比较重要的事情，需要完整的计划和执行。建议在大家实施之前，充分测试所有关键的业务应用以确保兼容性，准备好详细的回滚方案以应对可能出现的问题。祝大家都能完美迁移成功～
