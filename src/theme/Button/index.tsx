@@ -22,13 +22,13 @@ const Button = ({
   className,
   href,
   icon,
-  newTab,
+  newTab = true,
   onClick,
-  size,
+  size = "normal",
   to,
   type,
-  uppercase,
-  variant,
+  uppercase = true,
+  variant = "primary",
 }: Props) => {
   const classes = clsx(className, styles.button, {
     [styles["button--icon"]]: icon != null,
@@ -76,13 +76,6 @@ const Button = ({
       {children}
     </button>
   )
-}
-
-Button.defaultProps = {
-  newTab: true,
-  size: "normal",
-  uppercase: true,
-  variant: "primary",
 }
 
 export default Button

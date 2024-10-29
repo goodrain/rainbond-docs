@@ -9,6 +9,8 @@ Kubernetes 作为基础平台，提供了强大的容器编排能力。但是在
 
 而在部署上，则会利用开源项目 [Rainbond](https://github.com/goodrain/rainbond) 作为基础平台来进行实践。Rainbond 是一个云原生应用管理平台，它使用**以应用为中心**的设计模式。基于这一设计模式抽象出了标准化的应用模型。从使用的体验上不需要学习和编写YAML，即可实现业务应用的全生命周期管理。因此使用它简化业务的部署和管理。同时 Rainbond 支持 ServiceMesh 框架的替换，使我们可以按需选择与业务最匹配的 ServiceMesh 框架进行服务治理。
 
+<!--truncate-->
+
 ## Kubernetes 中如何实现灰度发布
 
 当你在 Kubernetes 集群中部署业务时，可以利用 Kubernetes 原生提供的[灰度发布](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/#canary-deployments)的方式去上线业务。这种方式是通过在旧版本和新版本的服务之间，定义一个差异化的 Label，根据不同版本之间的公共 Label 负载流量到后端 Pod，最终实现根据 Pod 的副本数控制流量的百分比。

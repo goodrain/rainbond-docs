@@ -62,7 +62,7 @@ export default function usescene() {
       img: "/img/case/csgapp.jpeg",
       title: "正观易知科技",
       description: "藏书馆App基于 Rainbond 实现云原生DevOps的实践",
-      link: "/case/csgapp"
+      link: "/case/csgApp"
     },
     {
       img: "https://static.goodrain.com/wechat/yumchina/2.png",

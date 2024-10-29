@@ -11,6 +11,8 @@ image: https://static.goodrain.com/wechat/zyplayer-doc/zyplayer-doc.png
 
 本文将介绍通过 Rainbond 部署在线知识库系统 zyplayer-doc 的两种方式，使用 Rainbond 开源应用商店一键部署和通过源代码部署。
 
+<!--truncate-->
+
 ## 部署 zyplayer-doc 
 
 ### 安装 Rainbond

@@ -7,6 +7,8 @@ image: https://static.goodrain.com/wechat/mysql-exporter/mysql-exporter.png
 
 MySQLD Exporter 插件基于标准的 MySQLD Exporter 实现。Rainbond 自带的 Prometheus 监控系统 rbd-monitor 会收集 Exporter 中的数据，并通过监控面板展示出来。用户可以自定义展示哪些关键性能数据的指标，这是监控 Mysql 数据库服务的不二之选。
 
+<!--truncate-->
+
 ## 安装 Mysql-Exporter 插件
 
 在团队视图点击左侧的 **插件** 选项卡，进入我的插件页面。选择从应用商店安装/新建插件。

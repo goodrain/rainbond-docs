@@ -18,7 +18,7 @@ So how to achieve such an effect in Rainbond?
 
 
 
-Schema initialization generally has two schemes in the traditional：
+Schema initialization generally has two schemes in the traditional:
 
 - Manual import after database startup; manual operation through the client, no automation at all;
 - Connect to the database for initialization when the business service starts, depending on the capabilities of the business server.
@@ -29,7 +29,7 @@ Let's take MySQL as an example. The official has good support for Docker. First,
 
 ![description](https://static.goodrain.com/docs/practice/Initdb/description.jpg)
 
-When the database container first starts, a new database with the specified name is created and initialized using the provided environment variables. Additionally, it will execute files with extensions 2.sh `,<code>`and `` found in `/docker-entrypoint-` </code>. The files will be executed in alphabetical order. By default, SQL files will be imported into the database specified by the`MYSQL_DATABASE` variable.Therefore, we only need to maintain the SQL required for database initialization on the basis of the Mysql mirroring working mechanism.We mentioned above that the database is also used as an independent service module. We can also manage Sql and other steps through code and divide version branches.
+When the database container first starts, a new database with the specified name is created and initialized using the provided environment variables. Additionally, it will execute files with extensions 2.sh `,<code>`and `` found in `/docker-entrypoint-` \</code>. The files will be executed in alphabetical order. By default, SQL files will be imported into the database specified by the`MYSQL_DATABASE` variable.Therefore, we only need to maintain the SQL required for database initialization on the basis of the Mysql mirroring working mechanism.We mentioned above that the database is also used as an independent service module. We can also manage Sql and other steps through code and divide version branches.
 
 Rainbond supports a variety of component creation methods. Here we use the method of creating components from source code, write a Dockerfile and upload it to a client that supports the `Git/Svn` protocol, and then build directly on the platform; this method is transparent and reproducible use and automate builds.
 
@@ -66,7 +66,7 @@ VOLUME [ "/var/lib/mysql" ]
 EXPOSE 3306
 ```
 
-Project address：https://github.com/Aaron-23/Initialize-db
+Project address: [https://github.com/Aaron-23/Initialize-db](https://github.com/Aaron-23/Initialize-db)
 
 Using this project to build on the platform, Rainbond will automatically detect the environment variables, storage, ports and other information defined in the Dockerfile, automatically configure these configuration items, and automatically start the database after the Dockerfile is built.
 

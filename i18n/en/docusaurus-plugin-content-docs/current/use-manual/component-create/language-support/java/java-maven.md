@@ -69,7 +69,7 @@ Rainbond supports the graphical definition of the compilation and runtime enviro
 
 - MAVEN build parameters and build commands are two options, which constitute the command executed by compilation. The default build command is `mvn -DskipTests clean dependency:list install`.
 
-- The MAVEN build java parameter configuration is mainly used to specify the stack memory allocated during the build process.**This configuration only affects the maven build process. The stack memory specified when the built component is run is specified by ${JAVA_OPTS} variable**.
+- The MAVEN build java parameter configuration is mainly used to specify the stack memory allocated during the build process.**This configuration only affects the maven build process. The stack memory specified when the built component is run is specified by $\{JAVA_OPTS} variable**.
 
 - The startup command specifies how Rainbond starts the current service component after the build process is completed. For details, see chapter [Startup Command Configuration](./java-maven#启动命令配置) below.
 

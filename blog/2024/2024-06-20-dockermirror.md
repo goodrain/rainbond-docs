@@ -9,6 +9,8 @@ slug: dockermirror
 
 最近网上有很多解决 Docker Hub 镜像拉不下来的文章，我大概总结一下有以下几种办法：
 
+<!--truncate-->
+
 ### Github Action
 
 利用 Github Action Job 将 Docker Hub 镜像重新打 Tag 推送到阿里云等其他公有云镜像仓库里，这对于需要单个镜像很方便，批量就稍微麻烦一些，如果没🪜Github 访问也是个问题。
@@ -111,7 +113,7 @@ docker run -d -p 8081:8081 --name nexus sonatype/nexus3
 | 提供商         | 地址                                    |                |
 | -------------- | --------------------------------------- | -------------- |
 | DaoCloud       | https://docker.m.daocloud.io            |                |
-| 阿里云         | https://<your_code>.mirror.aliyuncs.com | 登录阿里云分配 |
+| 阿里云         | https://\<your_code>.mirror.aliyuncs.com | 登录阿里云分配 |
 | Docker镜像代理 | https://dockerproxy.com                 | 看运气         |
 | 百度云         | https://mirror.baidubce.com             |                |
 | 南京大学       | https://docker.nju.edu.cn               |                |

@@ -5,7 +5,7 @@ description: Rainbond component custom storage management documentation
 
 ### Why do components need custom storage
 
-The previous document [Component Storage Settings](./index) mentioned several storage types that Rainbond supports by default. Different enterprises and different businesses have different storage requirements.For example, the big data business needs high-performance storage, etc.Rainbond implements the requirements of custom storage types. Users can install custom storage types for Rainbond to use, which can well solve the high-performance storage requirements that Rainbond's default storage types cannot meet.
+The previous document [Component Storage Settings](./index.md) mentioned several storage types that Rainbond supports by default. Different enterprises and different businesses have different storage requirements.For example, the big data business needs high-performance storage, etc.Rainbond implements the requirements of custom storage types. Users can install custom storage types for Rainbond to use, which can well solve the high-performance storage requirements that Rainbond's default storage types cannot meet.
 
 ### Implementation principle
 

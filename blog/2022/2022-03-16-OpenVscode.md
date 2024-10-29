@@ -9,6 +9,8 @@ OpenVSCode 是一款基于Web 界面的在线IDE 代码编辑器，只需要PC�
 
 Rainbond 有能力快速搭建一体化开发环境，通过对接代码仓库 webhook 机制，完成业务从代码开始，到最终上线的全流程。通过纳入 OpenVSCode 云端 IDE，可以将 Rainbond 一体化开发体系全部托管于云端，开发人员只需要一个浏览器，即可完成代码从编辑到上线的全流程。
 
+<!--truncate-->
+
 
 ![](https://static.goodrain.com/wechat/openvscode/1.png)
 

@@ -25,6 +25,8 @@ image: https://static.goodrain.com/wechat/nfs-migration/banner.png
 * 关闭正在运行的应用，避免增量数据导致数据不一致。
 * 组件挂载的存储必须是共享存储，其他存储则需要单独迁移。
 
+<!--truncate-->
+
 ## 部署 NFS 并对接到 K8s 上
 
 外部 NFS 存储可以选择部署 NFS 双机热备或其他方案，这里就不演示了，以单节点 NFS 为例。

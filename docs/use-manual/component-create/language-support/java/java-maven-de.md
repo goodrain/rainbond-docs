@@ -7,7 +7,7 @@ description: Rainbond构建Java Maven项目原理解读
 
 Apache Maven 是跨平台的项目管理工具。主要服务于基于 Java 平台的项目构建，项目管理和项目信息管理。所谓的项目构建就是对项目进行清理、编译、测试、报告、打包、部署等一系列的过程称为项目的构建。
 
-关于更多的 Maven 介绍参考官方文档：<https://maven.apache.org/>
+关于更多的 Maven 介绍参考官方文档：https://maven.apache.org/
 
 标准的 Maven 管理的 Java 项目一般有几种制品打包方式：
 
@@ -248,7 +248,7 @@ tar -z --exclude='.git' -X "$build_root/.slugignore" -C $build_root -cf $slug_fi
 
 #### 6. 生成 Docker 镜像
 
-所有语言类型编译完成后都会生成 tar 包，我们提供了 runner 基础镜像来运行这些 tar 包。源码在<https://github.com/goodrain/runner>， 其工作流程如下：
+所有语言类型编译完成后都会生成 tar 包，我们提供了 runner 基础镜像来运行这些 tar 包。源码在 https://github.com/goodrain/runner， 其工作流程如下：
 
 1. 解压 tar 包到/app 目录下。
 2. 解析 Procfile 文件获取软件启动命令。

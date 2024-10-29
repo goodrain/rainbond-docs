@@ -67,7 +67,7 @@ By means of program data separation and other means, the statelessness of the ap
 
 One of the best practices advocated by cloud-native applications is to keep the configuration in the environment.In different operating environments, it is a very good experience to use environment variables to configure.Rainbond supports setting environment variables for each service component, and can also configure environment variables in batches based on the configuration group function. :::
 
-- The main port of the component is defined by the environment variable ${PORT}
+- The main port of the component is defined by the environment variable `${PORT}`
 
   Rainbond engineers provided a little trick to configure the component listening port configuration with a fixed environment variable. The value of this variable will be automatically changed with the port number we manually added on the Rainbond console. In this way, we will You can change the port number you want to listen to without changing the code and configuration, which is very convenient.
 
