@@ -7,7 +7,7 @@ description: Interpretation of Rainbond's Principles of Building Java Maven Proj
 
 Apache Maven is a cross-platform project management tool.It mainly serves the project construction, project management and project information management based on the Java platform.The so-called project construction is a series of processes such as cleaning, compiling, testing, reporting, packaging, and deploying the project, which is called project construction.The main service is project construction, project management and project information management based on the Java platform.The so-called project construction is a series of processes known as project constructions, compiling, testing, reporting, packing, deploying, etc.
 
-For more introduction to Maven, refer to the official documentation：<https://maven.apache.org/>
+For more introduction to Maven, refer to the official documentation：[https://maven.apache.org/](https://maven.apache.org/)
 
 Standard Maven-managed Java projects generally have several product packaging：
 
@@ -249,7 +249,7 @@ By default, the entire source code, executable programs such as JDK downloaded d
 
 #### 6. Generate the Docker image
 
-After all language types are compiled, tar packages will be generated, and we provide the runner base image to run these tar packages.The source code is at<https://github.com/goodrain/runner>, and its workflow is as follows：The source code is in<https://github.com/goodrain/runner>and its workflow below：
+After all language types are compiled, tar packages will be generated, and we provide the runner base image to run these tar packages.The source code is at\<https://github.com/goodrain/runner>, and its workflow is as follows：源码在 https://github.com/goodrain/runner， 其工作流程如下：
 
 1. Unpack to /app directory.
 2. Parse the Procfile file to obtain the software startup command.
