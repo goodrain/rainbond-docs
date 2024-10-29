@@ -7,121 +7,123 @@ image: https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/16690209369248
 
 Because of data privacy and network security concerns, most of the clients of the toB scenario require privatization application delivery, that is, delivery to their clients, such as government, finance, military labour, public security, large enterprises, niche industries, etc. These privatization scenes are very restrictive, and how to improve the efficiency of privatization application delivery is a challenge. What technologies are available for privatization applications to delivery?What features do they all have?Privatization application development process.
 
-## ToB App Private Delivery Difficulty Point
+<!--truncate-->
 
-**Environmental network restrictions, affecting delivery efficiencies**
+## ToB应用私有化交付的困难点
 
-- Information cannot be easily accessible during delivery;
-- In the course of delivery, the person who delivers is required to communicate with the development of the company, network restrictions affect the use of collaborative tools, some client environments are not even mobile and affect the efficiency of problem-solving and the greater the complexity of the environment;
-- In an offline environment, installing packages does not have the means to download them directly, and we need to package installation or configuration files into offline packages and import them into the customer environment.Because of the complexity of the operations that can lead to a large number of mirrors, only handlers can be imported with hard drives to their clients, and more time will be spent on the import of offline packages.Even some environments can only be imported into the client environment, but the CD itself does not have too large a package and can only be written on multiple disks;
+**环境网络限制，影响交付效率**
 
-**Differences in client infrastructure that require adaptation**
+- 交付实施过程中不能方便查找资料；
+- 在交付过程中，交付人员需要跟公司的开发进行沟通，网络限制会影响协作工具的使用，有些客户环境甚至不能带手机，会影响解决问题的效率，环境越复杂影响越大；
+- 在离线环境内，安装软件包也没办法直接下载，我们需要将安装文件或配置文件打包成离线包，在客户环境导入。由于业务的复杂性会导致镜像很多且很大，只能有交付人员带移动硬盘到客户现场导入，导致在导入离线包就会花费较多时间。甚至有些环境只能刻录光盘在客户环境导入，光盘本身存不了太大的包，只能分多个光盘刻录；
 
-- The installation environment varies from client to client in privatization scenarios, some using physical servers, some using virtual machines, and different virtual machine manufacturers.Operating systems also differ, such as the common operating systems of CentOS/Debian/Ubuntu/Redhat and the current multi-country production operating systems.The CPU structure may also be different, with X86, ARM, etc.;
-- The resource preparation cycle is long and requires approval processes;
-- Delivery of apps requires a heavy matching process, either in the company or on the customer's site;
-- Due to the high environmental variations, complete testing and validation of the application is required and significant human and time investment is required;
+**客户基础设施差异，需要适配过程**
 
-**Technical threshold for delivery**
+- 在私有化场景，不同客户的安装环境也不一样，有些使用物理服务器，有些使用虚拟机，不同的虚拟机厂商也有差异。操作系统也各有不同，例如常见的操作系统有CentOS/Debian/Ubuntu/Redhat，当前还有很多国产化操作系统。CPU架构也可能不同，有X86、ARM等；
+- 资源准备周期长，需要审批流程；
+- 交付的应用需要很重的适配过程，要么在公司适配，要么在客户现场适配；
+- 由于环境差异很大，应用交付完需要完整测试和验证，需要大量的人力和时间投入；
 
-- Delivery personnel need to understand bottom hardware and networks;
-- Delivery personnel need to understand operating systems and system performance, service governance, high availability, security, performance analysis, backup recovery, development and so on;
-- Delivery personnel need a strong technical base to be able to independently identify problems in the delivery of the application;
+**交付人员的技术门槛高**
 
-**Custom delivery iterations are less efficient**
+- 交付人员需要懂底层硬件和网络；
+- 交付人员需要懂操作系统和系统运维，需要懂服务治理、高可用、安全、性能分析、备份恢复、交付开发等等；
+- 交付人员要能独立排查交付应用的问题，需要很强的技术基础；
 
-- In a customized delivery scenario, clients will be involved in the development process, clients will need to see post-impact feedback questions and continue iterating until they are satisfied and the products will need to be frequently upgraded during the process;
-- If developers are customized to develop, upgrade process is complex, and communication is ineffective;
-- If the developer is present at the customer, there is no good development tool and environment, there is inefficiency and high human input;
+**定制化交付迭代效率低**
 
-**Post-maintenance is more difficult**
+- 在定制化交付场景，客户会参与到开发过程中，客户需要看到效果后反馈问题，再持续迭代，直到客户满意，过程中需要频繁升级产品；
+- 如果开发人员在公司定制开发，升级过程复杂，沟通低效；
+- 如果开发人员在客户现场，没有好的开发工具和环境，开发效率低，人力投入大；
 
-- When the app is delivered, it will be necessary to guarantee the stability of the application's operation, the offline environment will not be viable, the warning will not be sent and the delivery will be difficult;
-- The product has bugs, some expected changes or upgrades require a client field mission and the support costs are higher;
+**后期维护难度大**
 
-## Traditional app delivery
+- 应用交付完成后，后期需要保障应用运行的稳定性，离线环境远程没办法运维，报警没办法发出来，运维的难度大；
+- 产品有bug、一些预期内的变更或产品升级都需要出差客户现场，支持的成本比较高；
 
-Traditional app delivery is a binary executable or package： for direct delivery
+## 传统应用交付
 
-- **Binary executable：** java Jar,Linux executable, windows' exe, etc.
-- **Package：** CentS uses RPM packages, Debian uses DEB packages, Java Web uses WAR packages.
+传统的应用交付是直接交付二进制的可执行文件或软件包：
 
-Installation requires the installation of the dependent environment and underlying software, the YUM and DEB have their own management dependencies, but the offline environment cannot be used and if the customer's operating systems are different, additional solutions need to be found and the operation of such services needs to be managed in a systemd or supervisory manner in order to solve problems of startup and automatic restart.If the application of the monolithic architecture still works well, but if it is a complex micro-service structure, it will be difficult for traditional applications to deliver.
+- **二进制的可执行文件：** java 的Jar，Linux 的可执行文件，windows的exe等。
+- **软件包：** CentOS 使用 RPM 包，Debian 使用 DEB 包，Java Web 使用 WAR 包。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/1669019774014.jpg)
+安装他们都需要先安装依赖的环境和基础软件，YUM 和DEB 有自己的管理依赖的软件源，但离线环境用不了，如果客户的操作系统不同，还需要另外想办法解决，运行这类服务为了解决启动和自动重启的问题，还需要通过 systemd 或 supervisor 的方式来管理。如果交付单体架构的应用传统应用交付方式还能胜任，但如果是复杂的微服务架构，传统应用交付方式将难以胜任。
 
-Managing these operating environments and operating system differences is a painful point in the delivery of traditional applications, and the emergence of containers has resolved this problem.
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690197774014.jpg)
 
-## Current cloud technology delivery
+在传统应用交付过程中，管理这些运行环境和操作系统差异是一个痛点，容器的出现解决了这个问题。
 
-Cloud native apps deliver primary containers and kubernetes related technologies.
+## 当前云原生技术应用交付
 
-### Docker Mirror Delivery
+云原生应用交付主要使用的容器 和 kubernetes相关技术。
 
-Docker packs the business together with the dependent library into a Docker mirror, which contains all environments and applications, so that you can get a pack and use everywhere, and we can run the image on any operating system that supports the Docker.The Docker character did solve many development, delivery, and many other problems, so the Docker Container concept was rapidly popular.
+### Docker 镜像交付
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/16690198147760.jpg)
+Docker 将业务和依赖的库一起打包成 Docker 镜像，在这个镜像中包含所有环境和应用，这样就可以达成一处打包、到处使用，我们可以将该镜像在任何支持 Docker 的操作系统上运行。Docker 的特性的确解决了很多开发、交付以及其他许多问题，因此 Docker 容器概念迅速的被普及。
 
-In the microservice architecture scenario, multiple services or applications are required to deliver together, services are dependent, and complex configurations, which Docker-Compose solves.
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690198147760.jpg)
 
-### Docker-Composer App Delivery
+在微服务架构场景，需要多个服务或应用一起交付，服务之间有依赖，还有复杂的配置，Docker-Compose解决了这个问题。
 
-Docker-compose will be managed using YAML for multiple services or apps. Deployment and management can be installed using docker-compose. For an application of a microservice architecture, a docker-compose command can be installed and run one click on any operating system, provided that Docker and docker-compose are installed.
+### Docker-Compose应用交付
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/16690198426949.jpg)
+docker-compose 将多个服务或应用使用 YAML 的方式管理，可以利用docker-compose命令安装部署和管理，对于一个微服务架构的应用，利用docker-compose命令就可以在任何操作系统实现一键安装和运行，当然前提是需要安装好Docker 和 docker-compose。
 
-For a single airfield docker-compose, docker-compose is not appropriate when applications require high-availability or nodal distribution deployments, and the emergence of Kubernetes solves the high availability and distribution of containers.
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690198426949.jpg)
 
-### Kubernetes YAML app delivery
+对于单机场景docker-compose可以适用，当应用需要高可用或多节点分布式部署，docker-compose就不能胜任，Kubernetes的出现解决了容器的高可用和分布式调度问题。
 
-Deploy in Kubernetes we need to define the type of resources such as the Employment Statefulset Service, use Kubernetes to automatically deploy to multiple nodes by adjusting copies. We just export these YAML resources and Images to deploy and deliver them to customers in their Kubernetes environment.This mode of delivery requires Kubernetes or Kubernetes to be installed in the customer environment.
+### Kubernetes YAML应用交付
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/16690198756043.jpg)
+在 Kubernetes 中部署业务我们需要定义 Deployment Statefulset Service 等资源类型，通过调整副本的方式 Kubernetes 会自动调度到多个节点实现业务高可用，在交付时我们只需要将这些 YAML 资源和 Image 导出，在客户的 Kubernetes 环境中部署并交付给客户。这种交付方式需要客户环境有Kubernetes或在客户环境安装Kubernetes。
 
-When we delivered Kubernetes YAML to a large number of customers, we needed parameters configuration, version management and simple installation and upgrading. Helm resolved this problem on the basis of Kubernetes YAML.
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690198756043.jpg)
 
-### Helm App Delivery
+当我们将Kubernetes YAML交付很多客户的时候，就需要参数配置、版本管理和简单的安装和升级，Helm在Kubernetes YAML的基础上解决了上述问题。
 
-Helm is a package manager of Kubernetes resources that defines a set of resources as Helm Chart templates, provides installation and upgrades based on Helm Chart modules, which can configure different parameters when installed.Helm is also a tool chosen by most people in Kubernetes delivery.
+### Helm 应用交付
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/166902090209027203.jpg)
+Helm 是 Kubernetes 资源的包管理器，它可以将一组资源定义成 Helm Chart 模版，提供了基于 Helm Chart 模块的安装和升级，安装时可以配置不同的参数。Helm 同样也是在 Kubernetes 交付中大多数人选择的工具。
 
-The biggest problem for Helm is the need for developers to learn the container and the entire technological stack for Kubernetes and the need for Kubernetes to have a high threshold for learning and use.The abstract application model is a solution.
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690209027203.jpg)
 
-## Delivery of cloud native application models for the future
+Helm最大的问题是需要开发者学习容器和Kubernetes整个技术栈，而且客户环境必须要有Kubernetes，学习和使用的门槛太高。抽象的应用模型是一个解决方案。
 
-The application model emphasizes an application-centred concept, allowing developers to focus on business per se, application of abstraction and complex techniques at the bottom of the packaging, full decoupling of the underlying infrastructure, automatic conversion and matching based on the infrastructure of interface and delivery, real development and automatic deployment everywhere.
+## 面向未来的云原生应用模型交付
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/ 16690209369248.jpg)
+应用模型强调以应用为中心的理念，让开发者专注在业务本身，在应用级抽象和包装底层复杂的技术，应用模型跟底层基础设施完全解耦，根据对接和交付的基础设施不同，自动转换和适配，真正实现一次开发，处处自动化部署。
 
-### OAM-based KubeVela app delivery
+![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690209369248.jpg)
 
-OAM(Open Application Model) is a standard norm that describes the application.With this norm, the description of the application can be completely separate from the details of the infrastructure deployment and management applications.By separating the application definition from cluster capacity, the app developers can be more focused on the application itself, rather than on the “details of such dimensions where the application is deployed.KubeVela has implemented cross-cloud-to-environment delivery based on OAM.Application delivery support for offline scenes is currently weak in KubeVela.
+### 基于OAM的KubeVela应用交付
 
-### RAM-based Rainbod app delivery
+OAM（Open Application Model） 是一个描述应用的标准规范。有了这个规范，应用描述就可以彻底与基础设施部署和管理应用的细节分开。通过将应用定义与集群的运维能力分离，可以让应用开发者更专注于应用本身，而不是”应用部署在哪“这样的运维细节。KubeVela基于OAM实现了应用跨云、跨环境持续交付。当前KubeVela对离线场景的应用交付支持较弱。
 
-Rainbond is a cloud application multi-cloud management platform, Rainbond follows an application-based nuclear philosophy, unifies encapsulation containers, Kubernetes and other complex technologies, unifies Kubernetes resources into RAM (Rainbond Application Model) application models, allows users to use Kubernetes very simply, reduces the threshold used by users and focuses on application development, application delivery and application viability.
+### 基于RAM的Rainbond应用交付
 
-For offline delivery scenario, Rainbod can export three offline delivery packages： based on RAM
+Rainbond 是一个云原生应用多云管理平台，Rainbond 遵循以应用为中心的核心理念，统一封装容器、Kubernetes 等复杂技术，将 Kubernetes 资源统一抽象成 RAM（Rainbond Application Model）应用模型，使用户能非常简单的使用 Kubernetes，降低用户使用的门槛，使用户专注于应用开发、应用交付和应用运维。
 
-- **Rainbod application template package** containing all elements of complex micro-service framework delivery, supporting upgrades and rollbacks, but requiring customer environments to install Kubernetes and Rainbond;
-- **Non-container-based packages** are packaged according to the traditional application delivery method, but are more user-friendly and include environmental dependencies and static compilations for most operating systems, using Systemd management;
-- **Docker-Compose** supports launch and management on the standard Docker Compose Environment;
+在对于离线交付场景，Rainbond基于RAM可以导出三种离线交付包：
 
-## Synthesis comparison
+- **Rainbond应用模版包**，其中包含了复杂微服务架构交付的所有要素，支持升级和回滚，但要求客户环境安装Kubernetes和Rainbond；
+- **非容器的软件包**，非容器包按照传统应用交付方式打包，但易用性更好，包中包含了环境依赖，并采用静态编译，适合大多数操作系统，使用 Systemd 管理；
+- **Docker-Compose离线包**，支持在标准Docker Compose 环境一键启动和管理；
 
-|                      | Threshold | Microservice support | Multi-Node Scheduler | Efficiency of offline iterations | Customer Environment Support |
-| -------------------- | --------- | :------------------- | :------------------- | :------------------------------- | :--------------------------- |
-| Traditional delivery | High      | Not supported        | Not supported        | Low                              | Server                       |
-| Docker Image         | Mid       | Not supported        | Not supported        | High                             | Container/K8s                |
-| Docker Compose       | Mid       | Support              | Not supported        | Mid                              | Container                    |
-| K8s Yaml             | Mid       | Support              | Support              | Mid                              | K8s                          |
-| Helm Chart           | Mid       | Support              | Support              | Mid                              | K8s                          |
-| KubeVela             | Mid       | Support              | Support              | Mid                              | K8s                          |
-| Rainbond             | Low       | Support              | Support              | High                             | K8s/Containers/Server        |
+## 综合对比
 
-- **Application of delivery thresholds** with the highest traditional delivery threshold; medium threshold for Docker, Docker-Compose, Kubernetes Yaml, Helm and KubeVela delivery because of the need to learn about the container and the technology associated with Kubernetes; Rainbond is the simplest to use and does not need to learn the container and Kubernetes.
-- **Microservice support** supports micro-service organization and package delivery, except for traditional app delivery and Docker images.
-- **Multinode movement and automated wire** Kubernetes Yaml, Helm, KubeVela and Rainbord support multi-nodal movement in Kubernetes.
-- **Offline iterations efficient** are the most efficient traditional delivery methods; Docker mirrors are available and an offline package can be exported from one command; Docker-Compose, Kubernetes Yaml, Helm and KubeVela require manual imaging offline packages, ineffectiveness of complex structures and ease of manual error; Rainbond supports automatization of an offline package that will import offline environments that can upgrade and roll back online, and iterate them very efficiently.
-- **Customer Environment Support** that different customers have different operating environments and that delivery packages need to be based on client environment selection, that traditional application delivery methods are suitable for some of the old infrastructure, that operating systems are older and that no operating containers are installed. The client environment does not exist in Kubernetes or is not allowed to install Kubernetes, and that docker mirrors and Docker-Compose; and that Kubernetes Yaml, Helm, KubeVela and Rainbond support an environment with Kubernetes.
+|                | 交付门槛 | 微服务支持 | 多节点调度 自动化运维 | 离线迭代效率 | 客户环境支持     |
+| -------------- | ---- | :---- | :---------- | :----- | :--------- |
+| 传统交付           | 高    | 不支持   | 不支持         | 低      | 服务器        |
+| Docker镜像       | 中    | 不支持   | 不支持         | 高      | 容器/K8s     |
+| Docker Compose | 中    | 支持    | 不支持         | 中      | 容器         |
+| K8s Yaml       | 中    | 支持    | 支持          | 中      | K8s        |
+| Helm Chart     | 中    | 支持    | 支持          | 中      | K8s        |
+| KubeVela       | 中    | 支持    | 支持          | 中      | K8s        |
+| Rainbond       | 低    | 支持    | 支持          | 高      | K8s/容器/服务器 |
+
+- **应用交付门槛**，传统方式交付门槛最高；Docker、Docker-Compose、Kubernetes Yaml、Helm 和 KubeVela交付的门槛中等，因为需要学习会容器和Kubernetes相关技术；Rainbond使用最简单，不需要学习容器和Kubernetes。
+- **微服务支持**，除传统应用交付和Docker镜像，其他方式都支持微服务编排和打包交付。
+- **多节点调度和自动化运维**，Kubernetes Yaml、Helm、KubeVela和Rainbond支持Kubernetes的多节点调度。
+- **离线迭代效率**，传统方式交付效率最低；Docker镜像有版本，而且一个命令就可以导出一个离线包，所以迭代效率高；Docker-Compose、Kubernetes Yaml、Helm 和 KubeVela需要手工逐个打出镜像离线包，复杂架构效率不高，而且手工容易出错；Rainbond支持自动化导出一个离线包，导入离线环境，可以一键升级和回滚，迭代效率很高。
+- **客户环境支持**，不同客户有不同的运行环境，交付的包需要根据客户环境选择，传统应用交付方式适合老的一些基础设施，操作系统版本老，没办法安装运行容器；客户环境没有Kubernetes，也不允许安装Kubernetes，可以选择Docker镜像和Docker-Compose；Kubernetes Yaml、Helm、KubeVela和Rainbond支持有Kubernetes的环境。
