@@ -8,43 +8,45 @@ Nationalized credit creation refers to the development and diffusion of Chinese 
 
 It is well known that there are domestically produced confidence-building products in various technical areas, such as CPU, NPOS, NPDs, etc., that are being done by manufacturers, and that have open source versions.But there are currently fewer open sources of home-grown creatures.I understand that at the domestic level, Rainbond is the first open-source cloud-origin platform to support the creation of national futures.
 
-## Country-producing Creative Environment Support
+<!--truncate-->
 
-Mainstream national production CPU manufacturers include Flighting, Huawei, Dragon, Sea Spech, Megige, etc. Its instructions are concentrated in `X86`, `Arm`, and very autonomous `LoongArch` (follow-on to MIPS set of directives).
+## 国产化信创环境支持
+
+目前主流的国产化 CPU 厂商包括飞腾、华为、龙芯、海光、兆芯等，其指令集集中在 `X86` 、`Arm` 以及自主性极高的 `LoongArch` (MIPS 指令集的后继者) 。
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%9B%BD%E4%BA%A7CPU%E7%94%9F%E6%80%81.png)
 
-Rainbond open source versions provide full support to both CPU and the national production operating systems to ensure that applications operate in a stable environment of domestically produced hardware and software.This includes the optimization and suitability of a wide range of CPU structures, such as Peng, Flightenn, Dragon core, etc., and compatibility with national production operating systems, such as SUST, Silicolin, Loronsos, Olara operating system, among others.This support covers not only the basic operating environment but also the optimization of specific hardware and software features to improve performance and security.
+Rainbond 开源版本对国产 CPU 和国产操作系统提供全面支持，确保应用能够在国产硬件和软件环境下稳定运行。这包括对多种国产 CPU 架构的优化和适配，如鲲鹏、飞腾、龙芯等，以及对国产操作系统的兼容性，例如统信、银河麒麟、中标麒麟、龙蜥、欧拉操作系统等。这种支持不仅涵盖了基础的运行环境，还包括了对特定硬件和软件特性的优化，以提高性能和安全性。
 
-## Creative Apps Migration Support
+## 信创应用迁移支持
 
-Rainbond open source versions automatically shield differences in architecture, migrating applications to a home-grown confidence creation environment at minimal cost.Only source code is provided and can be compiled and run in the specified architecture environment.Open source stores provide different application templates and hundreds of open source software one-click deployments.Creative applications can recompile different types of services and deploy them to an infancy environment with minimal technical and time costs.
+Rainbond 开源版本自动屏蔽架构差异，以最低成本将应用迁移到国产化信创环境之中。仅需要提供源代码，即可在指定架构环境中编译运行。开源应用商店提供不同架构的应用模板，上百种开源软件一键部署。信创应用供应商可以以最小的技术成本和时间成本，即可将不同类型的服务重新编译，并部署到信创环境中去。
 
 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%BF%81%E7%A7%BB.png)
 
-## National production of trust for environmental deployment
+## 国产化信创环境部署实践
 
-Rainbond has three modes of installation, all of which support the national fun environment：
+Rainbond 的有三种安装方式，这三种安装方式都支持国产化信创环境：
 
-- [快速安装](https://www.rainbond.com/docs/quick-start/quick-install)：is a fast experience version with a command to install Rainbond.
-- [基于主机安装](https://www.rainbond.com/docs/installation/installation-with-ui/)：supports the start of deployment of K8s + Rainbond through nudity operating systems.
-- [基于K8s安装](https://www.rainbond.com/docs/installation/installation-with-helm/)：requires users to deploy K8s themselves and deploy Rainbond.
+- [快速安装](https://www.rainbond.com/docs/quick-start/quick-install)：这是一个快速体验版本，使用一条命令安装 Rainbond。
+- [基于主机安装](https://www.rainbond.com/docs/installation/install-with-ui/)：支持通过裸操作系统开始部署 K8s + Rainbond。
+- [基于K8s安装](https://www.rainbond.com/docs/installation/install-with-helm/)：这种方式需要用户自行部署K8s，再部署 Rainbond。
 
-Below is a brief description of how to deploy Rainbond, using a host-based installation method to Kirin V10 + Peng.I am here to open a demonstration server on the cloud.
+下面将简述如何使用基于主机安装方式在麒麟V10 + 鲲鹏上部署 Rainbond。我这里是在华为云上开个演示服务器。
 
-![](https://static.goodrain.com/wechat/xinchanang/1.png)
+![](https://static.goodrain.com/wechat/xinchuang/1.png)
 
-### Install Docker
+### 安装 Docker
 
-Rainbond provided a docker installation script for the Arm version below：
+Rainbond 提供了 Arm 版的 Docker 安装脚本，如下：
 
 ```bash
 curl -sfL https://get.rainbond.com/install_docker | bash
 ```
 
-### Install Rainbond Console
+### 安装 Rainbond 控制台
 
-Rainbond mirrors support multiple structures, different structures automatically pull different mirrors.Launch the Rainbond Console using Docker to access the `http://IP:7070` on startup.
+Rainbond 镜像支持多架构，不同的架构自动拉取不同的镜像。使用 Docker 启动 Rainbond 控制台，启动后使用 `http://IP:7070`进行访问。
 
 ```bash
 docker run -d -p 7070:7070 \
@@ -54,29 +56,29 @@ docker run -d -p 7070:7070 \
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.3-release-allinone
 ```
 
-### Install K8s
+### 安装 K8s
 
-1. Sign in with Rainbond to enter _platform management > cluster -> Add cluster -> Install cluster -> Install from host_\* to the graphical installation page.
+1. 登录 Rainbond 后，进入 **平台管理 > 集群 -> 添加集群 -> 从主机开始安装** 进入图形化安装页面。
 2. 按照页面引导填写信息，如下：
 
-![](https://static.goodrain.com/wechat/xinchanang/2.png)
+![](https://static.goodrain.com/wechat/xinchuang/2.png)
 
-3. Wait to complete the installation.
+3. 等待完成安装即可。
 
-## Install Rainbond Cluster
+## 安装 Rainbond 集群
 
-Once the K8s cluster is installed, the next step will go to the Rainbond cluster installation page, which will lead you to complete the installation of the Rainbond cluster.
+在安装完成 K8s 集群后，下一步将进入 Rainbond 集群安装页面，这部分将引导您完成 Rainbond 集群的安装。
 
 根据页面引导填写配置，配置详情可参考 [Rainbond 集群安装配置说明](https://www.rainbond.com/docs/installation/install-with-ui/#%E5%AE%89%E8%A3%85-rainbond-%E9%9B%86%E7%BE%A4)。
 
-![](https://static.goodrain.com/wechat/xinchanang/4.png)
+![](https://static.goodrain.com/wechat/xinchuang/4.png)
 
-The configuration is completed by entering the Rainbond cluster installation page, where progress information can be seen and where each component can click on status and event information.
+配置信息填写完成后进入 Rainbond 集群安装页面，在该页面可看到安装的进度信息，并且每个组件都可点击查看状态以及事件信息。
 
-![](https://static.goodrain.com/wechat/xinchanang/5.png)
+![](https://static.goodrain.com/wechat/xinchuang/5.png)
 
-Wait that all components of Rainbond start will automatically jump to the cluster interface page, fill the cluster ID and complete the interface.
+等待 Rainbond 所有组件都启动后，会自动跳转到集群对接页面，填写集群 ID，完成对接。
 
-## Last
+## 最后
 
-After completing the above steps, you have successfully deployed the Rainbond Yun Native Platform in the national fun environment and can begin to manage and deploy your confidence-building app.As nationally-produced confidence creation progresses, Rainbond will play an increasingly important role in the future, as the first open-source platform to fully support the creation of domestically produced credits.While the path of national-producing confidence creation is challenging, Rainbond will be committed to open up sources and endogenous trusts, and we believe that the ecology of future national production clouds will be improved.
+在完成以上步骤后，您已经成功在国产化信创环境中部署了 Rainbond 云原生平台，并且可以开始管理和部署您的信创应用。随着国产化信创的不断推进，Rainbond 作为首个全面支持国产化信创的开源云原生平台，将在未来发挥越来越重要的作用。国产化信创的道路虽充满挑战，但 Rainbond 会致力做好开源、做好国产化信创，我们相信未来国产化信创云原生平台的生态将会更加完善。
