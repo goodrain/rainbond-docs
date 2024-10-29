@@ -16,7 +16,7 @@ If we also manage the database as a service module in a business, we hope that t
 
 So how to achieve such an effect in Rainbond?
 
-Schema initialization generally has two schemes in the traditional：
+Schema initialization generally has two schemes in the traditional:
 
 - Manual import after database startup; manual operation through the client, no automation at all;
 - Connect to the database for initialization when the business service starts, depending on the capabilities of the business server.
@@ -64,7 +64,7 @@ VOLUME [ "/var/lib/mysql" ]
 EXPOSE 3306
 ```
 
-Project address：https://github.com/Aaron-23/Initialize-db
+Project address: [https://github.com/Aaron-23/Initialize-db](https://github.com/Aaron-23/Initialize-db)
 
 Using this project to build on the platform, Rainbond will automatically detect the environment variables, storage, ports and other information defined in the Dockerfile, automatically configure these configuration items, and automatically start the database after the Dockerfile is built.
 
