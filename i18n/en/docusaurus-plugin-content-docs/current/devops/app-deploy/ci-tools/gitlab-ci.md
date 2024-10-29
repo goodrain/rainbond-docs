@@ -157,7 +157,7 @@ job-push:
     - curl -d '{"secret_key":"${RAINBOND_SECRET}"}' -H "Content-type:application/json" -X POST http://${RAINBOND_IP}:7070/console/custom/deploy/3321861bcadf0789af71898f23e8e740
 ```
 
-`after_script` is executed after the delivery of the mirror, building components through the Rainbond API and Rainbond will get the latest mirror building running.`RAINBOND_SECRET` can be seen in component -> Build Source -> Auto-build.See document [配置组件自动构建部署](/docs/devops/continuous-employ/auto-build)
+`after_script` is executed after the delivery of the mirror, building components through the Rainbond API and Rainbond will get the latest mirror building running.详情可参阅文档 [配置组件自动构建部署](/docs/devops/continuous-deploy/auto-build)\<RAINBOND_SECRET> 可在组件 -> 构建源 -> 自动构建中看到。
 
 **4. Submit code test automatically build** ,
 
