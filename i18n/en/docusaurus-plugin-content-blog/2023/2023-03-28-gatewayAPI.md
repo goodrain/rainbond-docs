@@ -9,61 +9,63 @@ As a new generation of flow management standards, the Gateway API has improved i
 
 This article will detail how to make and publish your Kubernetes Gateway API plugin with Envoy Gateway.The Gateway API plugin that will be released to the Open Source Store will be used by other users while actively participating in the contribution will also have the opportunity to get a small gift from us.
 
-## Prerequisite
+<!--truncate-->
 
-- Rainbond version greater than v5.13
+## 前提条件
 
-- Rainbond already has access to open source stores and has push permissions
+- Rainbond 版本大于 v5.13
 
-## Rainbond and Gateway API integration mechanisms
+- Rainbond 已经对接过开源应用商店并拥有推送权限
 
-In Rainbond, only the built-in gateway, using defined routing rules, external traffic can be accessed directly to the corresponding app.The Gateway API is combined with the platform in the form of plugins and capacity extensions.In the platform, the Gateway API custom resources are installed and at least one gateway is implemented to expand the platform gateway.
+## Rainbond 与 Gateway API 集成机制
 
-As shown in the graph below, if apps like `App 4`, `App 5` are to be implemented using gateways that support the Gateway API, then first need to define the resources associated with the Gateway API, which are provided by the `Gateway API Base Resource Plugins`, which mainly contains definitions of Gateway API resource types and associated WebHook resources.It also exposes resources of GatewayClass and Gateway types on the platform, which can be seen in the platform capacity extension.This allows users to customize gateway behavior and configuration.
+在 Rainbond 中，之前仅支持内置网关，应用定义好路由规则后，外部流量即可直接访问到对应应用。而 Gateway API 是以插件和能力扩展的形式与平台进行结合的。在平台中，只有安装了 Gateway API 自定义资源以及至少有一个网关实现后，才可以扩展平台网关能力。
 
-So we only need to create a gateway plugin to read Gateway type resources and generate corresponding configurations to provide gateway capability.Currently there are multiple implementations of the Gateway API, such as Envoy, Nginx, Istio, etc.Here we choose Envoy as a gateway, so that the external traffic can reach the app like `App 4` on the basis of the corresponding routing policy.
+如下图所示，如果 `App 4`、`App 5`等应用想要使用支持 Gateway API 的网关实现，那么首先需要定义 Gateway API 的相关资源，而这类资源是由 `Gateway API 基础资源插件`提供的，它主要包含了 Gateway API 资源类型的定义以及相关的 WebHook 资源。同时它在平台上暴露了 GatewayClass 和 Gateway 类型的资源，在平台能力扩展中可以看到。这样用户可以自定义网关行为和配置。
 
-![](https://static.foodrain.com/wechat/gateway-plugin/3.png)
+因此我们只需要制作一个网关插件，即可读取 Gateway 类型的资源并生成对应的配置，向外提供网关能力。目前 Gateway API 已有多种实现，如 Envoy、Nginx、Istio 等。这里我们选择 Envoy 作为网关，这样外部流量进入 Envoy后，即可根据对应的路由策略到达 `App 4` 等应用上。
 
-## Steps to create custom gateway plugins
+![](https://static.goodrain.com/wechat/gateway-plugin/3.png)
 
-![](https://static.foodrain.com/wechat/gateway-plugin/4.png)
+## 制作自定义网关插件的步骤
 
-The full process of implementing the Gateway API plugin, as shown in the graph above, is divided mainly into five steps： below.
+![](https://static.goodrain.com/wechat/gateway-plugin/4.png)
 
-1. The Gateway API base resource：currently consists mainly of a series of custom resources (CRD) that need to be deployed before the cluster can identify the type of resource when using its capabilities in the cluster.
-2. Select the Gateway API gateway to implement：at present the Gateway API is already known to provide services to the community [下游实现](https://gateway-api.sigs.k8s.io/implementations/), all of which are freely available for external service delivery.
-3. Platform deployment gateways and testing：need to convert gateway implementation into platform resources for deployment tests.Only then can one click be posted to the Open Source App Store for others to use.
-4. Make and publish plugin：defines the metadata associated with the plugin and post it to the Open Source App Store.
-5. Completing plugin information and listing：complete plugins will allow users to better use the plugin.
+实现 Gateway API 插件的完整流程如上图所示，主要分为以下五步：
 
-These steps are described in detail below.
+1. 部署 Gateway API 基础资源：目前 Gateway API 主要由一系列自定义资源(CRD)组成，在集群中使用其能力时，需要先部署这些基础资源，才能使集群识别该类型的资源。
+2. 选择 Gateway API 网关实现：目前 Gateway API 已有多家 [下游实现](https://gateway-api.sigs.k8s.io/implementations/)，这些网关实现都可以自由选择，提供对外服务的能力。
+3. 平台部署网关并测试：需要将网关实现转化为平台资源进行部署测试。只有这样最后才可以一键发布到开源应用商店供他人使用。
+4. 制作和发布插件：定义插件相关元数据，并发布到开源应用商店。
+5. 完善插件信息并上架：完善插件的介绍后，可以让用户更好的使用该插件。
 
-### Deployment of Gateway API base resources
+下面将会针对这几个步骤详细说明。
 
-Before creating a downstream gateway implementation plugin, we need to install resources such as CRD and controller on the Gateway API, which the platform has packaged into the plugin app and placed them on the open source store.We only need to install and install the **Platform Admin->App Marketplace - >Open Source Store - >Search GatewayAPI-Base** so we need to build a new team with the English name set to `gateway-system` namespace at the time of installation. It is better to create a single app, the name of the app's name is known and can be managed at a later stage.
+### 部署 Gateway API 基础资源
 
-### Select Gateway API Gateway implementation
+在制作下游网关实现插件之前，我们需要安装 Gateway API 基础的 CRD 和控制器等资源，平台已经将这些资源打包成插件应用上架到开源应用商店。我们只需要在 **平台管理->应⽤市场->开源应⽤商店->搜索 GatewayAPI-Base** 并进行安装即可，由于 Gateway API 中 RBAC 相关资源对命名空间有依赖，所以我们需要在安装时，新建一个团队，团队英文名设置为 `gateway-system`，这样将会将其安装至 `gateway-system` 命名空间下，最好单独创建⼀个应⽤，应⽤的名称⻅名知意，便于后期管理。
 
-k8s [Gateway API Implementation List](https://gateway-api.sigs.k8s.io/implementations/) have multiple implementations and can be selected here. Since k8s Gateway API is now supported by HttpRoute to Beta version, we need to select HTTPRoute resources to support downstream implementation of beta versions, such as [Istio](https://gateway-api.sigs.k8s.io/implementations/#istio),[Cilium](https://gateway-api.sigs.k8s.io/implementations/#clian),[Kong](https://gateway-api.sigs.sigs.k8s.io/implementations/#kong).Since [Envoy Gateway](https://gateway.envoyproxy.io/v0.3.0/) is supported in Beta version, we use it as a gateway plugin this time.
+### 选择 Gateway API 网关实现
 
-### Deploy and test on Rainbond
+k8s [Gateway API 实现列表](https://gateway-api.sigs.k8s.io/implementations/)中有多个实现，制作的话可以去这里挑选，由于目前 k8s Gateway API 目前 HttpRoute 已支持到 Beta 版本，所以我们需要挑选  HTTPRoute 资源支持到 beta 版本的下游实现，如 [Istio](https://gateway-api.sigs.k8s.io/implementations/#istio) 、[Cilium](https://gateway-api.sigs.k8s.io/implementations/#cilium) 、[Kong](https://gateway-api.sigs.k8s.io/implementations/#kong)  等。由于 [Envoy Gateway](https://gateway.envoyproxy.io/v0.3.0/) 已支持到 Beta 版本，所以我们本次使用其作为网关插件的扩展。
 
-When selected for implementation, you can see how to install the implementation in the network of implemented.Canada, for example, the network of envoy gives the following：
+### 在Rainbond上部署并测试
+
+挑选好实现后，你可以在实现的官网中看到如何安装实现，拿 envoy 为例，envoy 官网给出了两组 Yaml 如下：
 
 ```YAML
-kubectl appl-f https://github.com/envoyproxy/gateway/releases/download/v0.3.0/install.yaml
-kubtl apple-f https://raw.githubusercontent.com/envoyproxy/gateway/v0.3.0/examples/kubernetes/http-group.yaml
+kubectl apply -f https://github.com/envoyproxy/gateway/releases/download/v0.3.0/install.yaml
+kubectl apply -f https://raw.githubusercontent.com/envoyproxy/gateway/v0.3.0/examples/kubernetes/http-routing.yaml
 ```
 
-- **install.yaml** This YAML file stores the base resources needed for our plugin.
-- **http-routing.yaml** This YAML file needs to be processed. Only GatewayClass and Gateway resources required for our plugins are retained. HttpRoute resources need not be retained and will be generated automatically after the platform defines gateway policy.
+- **install.yaml** 此 YAML 文件中存放的便是我们插件所需的基础资源。
+- **http-routing.yaml** 这个 YAML 文件我们需要进行处理，只保留我们插件所需的 GatewayClass 资源和 Gateway 资源，HttpRoute 资源不需要保留，在平台定义网关策略后将会自动生成。
 
-Once the orchestrated resource YAML will be created in the K8s Resource Management Service for the application view, at：**Application View ---> k8s resource ---> Add**.
+将整理好的资源 YAML 后，在应用视图的 k8s 资源管理处创建，功能位置：**应用视图 ---> k8s 资源 ---> 添加**。
 
-![](https://static.foodrain.com/wechat/gateway-plugin/1.png)
+![](https://static.goodrain.com/wechat/gateway-plugin/1.png)
 
-⚠️：if there are resources such as RoleBinding that need to identify namespaces, you need to make sure that the namespace of the logo is consistent with that of the currently uploaded team, so as not to cause problems such as lack of permission, as follows:：
+⚠️注意：如果有RoleBinding 等需要标识命名空间的资源，则需要确保标识的命名空间和当前上传的团队所对应的命名空间是否一致，以免造成权限不足等问题，示例如下：
 
 ```YAML
 apiVersion: rbac.authorization.k8s.io/v1
@@ -75,54 +77,54 @@ subjects:
   namespace: envoy-gateway-system
 ```
 
-Once the upload is created, we will also need to process Gateway resources in **Platform Management Views->Extension->Capacity**, mark the gate's service name or prefix and then get and display your domain name parse address when creating the HTTP policy.
+上传创建完成后，我们还需要在 **平台管理视图->扩展->能力** 中处理一下 Gateway 资源，将网关的 Service 名称或前缀标记出来，后续在创建 HTTP 策略的时候便可获取并展示你的域名解析地址。
 
 ```YAML
 labels:
     service-name: envoy-envoy-gateway-system-envoy
 ```
 
-NodePort is an IP extracted from a nodeInternal, default to NodeExternalIP if NodeExternalIP exists.
+NodePort 是从节点上获取的 IP ，默认为 NodeInternalIP ，如果存在 NodeExternalIP 则优先使用 NodeExternalIP 。
 
-LoadBalancerIP fetches IP from ExternalIPs on Service Resources and does not display if it does not exist.
+LoadBalancerIP 是从 Service 资源上的 ExternalIPs 获取IP，如果不存在则不展示。
 
-After completing the above actions, we will need to conduct tests and check mainly the following items.
+完成以上操作后，我们需要进行测试，主要检查以下几项。
 
-1. Checks if all groups are running properly, and if all status is running.
-2. Check if k8s resources in app are created successfully.
-3. When all resources are in normal state, reference is made to the Gateway API gateway to use documentation for a test to see if they are workable.
+1. 检查组件是否都运行正常，状态是否都为运行中。
+2. 检查应用下的 k8s 资源是否都创建成功。
+3. 当所有资源的状态都正常后，参考 Gateway API 网关使用文档进行使用测试，查看是否可以正常使用。
 
-### Make and publish plugins
+### 制作和发布插件
 
-If you want to post this gateway as a platform gateway plugin, you will also need to prepare the RBDDPlugins resource that will be applied to the plugin, and define the resource before you can see it and manage it in \`Platform Manager -> Plugins'.Example：
+如果想将该网关实现作为平台网关插件进行发布，那么还需要准备标志应用为插件的 RBDPlugin 资源，定义好该资源后，才可以在`平台管理->插件`中查看到该插件并进行管理。示例如下：
 
 ```YAML
-apiVersion: rainbond. o/v1alpha1
+apiVersion: rainbond.io/v1alpha1
 kind: RBDPlugin
 metadata:
-  name: RBDPlugin Resource Name
+  name: RBDPlugin 资源名称
 spec:
-  alias: Plugin Alias
-  author: Plugin Producer
-  description: Plugin Intro
-  icon: Plugin Icon
-  version: Plugin Version
+  alias: 插件别名
+  author: 插件制作人
+  description: 插件简介
+  icon: 插件图标
+  version: 插件版本
 ```
 
-Once this resource is defined, we can publish it to the Open Source Store by clicking on the `Post` button on the left, selecting `Publish to the Cloud App Store`.
+定义好该资源后，我们可以进行发布了，在应用拓扑图页面，点击左侧`发布`按钮，选择`发布到云应用商店`，即可将其发布到开源应用商店。
 
-### Finish the plugin information and list it
+### 完善插件信息并上架
 
-Plugins or apps posted to the Open Source Store. We need[登录开源应用商店](https://hub.grapps.cn/marketplace) to edit its information before it can be viewed and used by other users.Reference can be made to [how to share plugins or apply to Rainbond App Store](https://mp.weixin.qq.com/s/CipIBFLYSEQUUKMzO8dVtg).
+发布到开源应用商店的插件或应用，我们需要[登录开源应用商店](https://hub.grapps.cn/marketplace)编辑其信息并上架后，该应用才可被其他用户查看和使用。可以参考[如何分享插件或应用到 Rainbond 应用商店](https://mp.weixin.qq.com/s/CIpIBFLYSEQUUKMzO8dVtg)。
 
-Click on the upper right corner of the console after logging in, select[管理应用](https://hub.grapps.cn/manage/general/myapp).This should be a time to see the recently released Envoy plugin.Tap the app name to enter the details page, and edit the app's name, logo, details at this time.
+登录完成后点击右上角控制台，选择[管理应用](https://hub.grapps.cn/manage/general/myapp)。这时候应该可以看到刚刚发布的 Envoy 插件。点击应用名称进入详情页面，此时需要编辑应用的名称、Logo、详细信息。
 
-We need to add a suite to apply the basic information when it is completed before it can be loaded.The role of the package here is primarily to manage the version of the application.The versions of different packages installed by users are also different.
+当应用基础信息补充完成后，我们需要为其添加一个套餐，才可以上架。套餐在这里的作用主要是将应用的版本管理起来。用户使用不同的套餐安装的版本也不同。
 
-The basic information and package will be completed and ready for upload.Only listed apps can be viewed and used by other users.Go back to the admin app page and select the list to go.
+在补充完应用的基本信息和套餐后，就可以准备上架了。只有上架的应用才可以被其他用户浏览和使用。回到管理应用的页面，选择上架即可。
 
-## Final Effect
+## 最终效果
 
-We can see the gateway plugin we have produced in the Open Source App Store. As shown in the graph below, the rest of the user can also be deployed in Rainbond using the documentation available from the Gateway API.
+我们可以在开源应用商店查看到我们制作的网关插件，如下图所示，其余用户也可以在 Rainbond 中一键部署使用，具体使用可以参考 Gateway API 使用文档。
 
-![](https://static.foodrain.com/wechat/gateway-plugin/2.png)
+![](https://static.goodrain.com/wechat/gateway-plugin/2.png)
