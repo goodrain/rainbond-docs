@@ -19,7 +19,7 @@ Maven 项目是根据 `pom.xml` 文件来划分的, Rainbond 对它的识别也�
 - Find POM in the corresponding module based on modules in the root POM.
 - Parse the current POM module name and jar(war) package name if the packing tag in POM is jar(war).The value of the packing tag is empty and will be considered jar.
 - The module name consists of the value of the module tag in the parent POM, split with `/` and resembles the following: rbd-worker/rbd-thirdparty.
-- jar(war) 包名默认是 **${artifaceId}-\*.jar(war)**。如果设置了 finalName 标签, 则会使用 finalName 标签的值; 如果 finalName 标签使用了变量 **${project.name}** 或 **${project.aritfactId}**，则会使用变量对应的值; 如果使用了其他的变量, 则直接用 代替, 即: .jar(war)。
+- jar(war) 包名默认是 \*\*$\{artifaceId}-\*.jar(war)\`。如果设置了 finalName 标签, 则会使用 finalName 标签的值; 如果 finalName 标签使用了变量 **$\{project.name}** 或 **$\{project.aritfactId}**，则会使用变量对应的值; 如果使用了其他的变量, 则直接用 代替, 即: .jar(war)。
 - If the packing tag value in POM is POM, and the module in the module tab is more than 1, repeat 1 - 5.
 
 ## Deploy SpringBoot Multimodule Project
