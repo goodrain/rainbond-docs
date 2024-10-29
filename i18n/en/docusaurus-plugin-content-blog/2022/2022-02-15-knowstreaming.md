@@ -8,9 +8,9 @@ keywords:
   - Knowledge Streaming
 ---
 
-## Introduction
-
 [KnowStreaming](https://github.com/didi/KnowStreaming) is a cloud control platform that is born of many years of experience in the operation of Kafka within the internet, focusing on the core scenarios of Kafka traffic control, warning monitoring, resource management and disaster preparedness.The platform, visualization and intelligent construction of user experience, monitoring, and control of transport provide a range of features that greatly facilitate the daily use of users and those who transport them, making them specialists in Kafka.
+
+<!--truncate-->
 
 ## Rapid deployment KnowStreaming
 
