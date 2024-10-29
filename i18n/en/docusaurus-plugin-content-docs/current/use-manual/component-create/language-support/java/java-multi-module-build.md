@@ -12,7 +12,7 @@ Identification strategy:
 1. According to the module label in modules in the root pom, find the pom under the corresponding module.
 2. If the value of the packing tag in the pom is jar(war), the module name and jar(war) package name corresponding to the current pom will be parsed. If the value of the packing tag is empty, it will be considered as jar.
 3. The module name consists of the value of the module tag in the named parent pom, separated by "/", like: rbd-worker/rbd-thirdparty.
-4. jar(war) The default package name is ${artifaceId}-\*.jar(war). If the finalName tag is set, the value of the finalName tag will be used; if the finalName tag uses variable${project.name}or${project.aritfactId}, the corresponding value of the variable will be used; if If other variables are used, replace them with _ directly, namely: _.jar(war).
+4. jar(war) The default package name is $\{artifaceId}-\*.jar(war). If the finalName tag is set, the value of the finalName tag will be used; if the finalName tag uses variable$\{project.name}or$\{project.aritfactId}, the corresponding value of the variable will be used; if If other variables are used, replace them with _ directly, namely: _.jar(war).
 5. If the value of the packing tag in the pom is pom, and the modules in the modules tag is more than 1, repeat 1 ~ 5.
 
 > Because the wildcard character \* is used in many places, when more than one jar (war) is built, the recognized jar (war) package may not be able to determine the unique package; or the recognized jar (war) package is wrong, In this case, the user needs to manually modify it.
