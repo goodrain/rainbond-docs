@@ -8,21 +8,23 @@ For the most recent time, the Docker mirror has been a state of Pull and feels a
 
 There have been many recent articles on the Internet to solve the Docker Hub mirror, and I may summarize the following options：
 
+<!--truncate-->
+
 ### Github Action
 
-Using Github Action Job to push the Docker Hub image back to other publicly available cloud imagery warehouses such as Aliyun which is convenient to require a single mirror, the volume is slightly more troublesome if not: ladder:Github access is a problem.
+利用 Github Action Job 将 Docker Hub 镜像重新打 Tag 推送到阿里云等其他公有云镜像仓库里，这对于需要单个镜像很方便，批量就稍微麻烦一些，如果没🪜Github 访问也是个问题。
 
 ### CloudFlare Worker
 
-The use of CloudFare Walker to rotate access requests to Docker Hub has also been more recent in that the free plans of individual users have 100,000 free requests per day, enough individuals and small and medium enterprises are using and are not able to buy an unlimited $5$ per day.There is a lot of worker's scripts online and there are examples of easy searches.
+使用 CloudFlare Worker 对 Docker Hub 的访问请求做中转，这种也是最近使用比较多的，因为个人用户的免费计划每天有10万次免费请求，足够个人和中小企业使用了，实在不够可以花 5$ 购买不限制的。Worker 脚本在网上有很多，随便搜索都有示例。
 
-Because the domain name at the end of the CloudFare Worker's default assignment of `workers.dev` does not have a fundamental national parity, hosting the domain name on CloudFlare will not work properly, and purchasing other domains such as `.xyz` will be available for proxy access.
+因为 CloudFlare Worker 默认分配的`workers.dev`结尾的域名国内根本解析不了，所以要把域名托管在 CloudFlare 上才能正常使用，可以购买 `.xyz` 等其他费用合适的域名专门用来做代理访问。
 
-But CloudFlare Worker CDN is often pumped and sometimes slow, using[自选优选IP工具](https://github.com/XIU2/CloudflareSpeedTest) to get access to CloudFare with minimal delay and write it to your local Hosts files.
+但 CloudFlare Worker CDN 经常抽风，有时很快有时很慢，可以借助[自选优选IP工具](https://github.com/XIU2/CloudflareSpeedTest)帮助获取访问 CloudFlare 延迟最低的IP，将其写入到你的本地 Hosts 文件中。
 
-### Self-build Mirror Repository
+### 自建镜像仓库
 
-I am thinking first and foremost of buying a lower-level server and building a Nginx proxy to share my successful Nginx configuration profile：
+说到自建首先我想到的就是买个配置比较低国外的服务器，搭建个 Nginx 做代理，分享下我配置成功的 Nginx 配置文件：
 
 ```bash
 server {
@@ -56,19 +58,19 @@ server {
 }
 ```
 
-Then you can get the mirror directly with the `docker pull domain/library/nginx:` and configure it in `daemon.json`.
+然后就可以直接用 `docker pull 域名/library/nginx:latest` 获取镜像了或者配置到 Docker 的`daemon.json`中。
 
-The Nginx proxy scheme needs to be able to purchase a suitable external server, otherwise the network will be slow.
+Nginx 代理的方案你需要能购买到合适的国外服务器，不然网络会很慢。
 
-Or set up on foreign servers such as Registry, Nexus, Harbor and other mirrors that have mirror cache features and get the latest mirrors from proxy services if they do not exist in private mirrors warehouses.
+又或者在国外服务器上搭建 Registry、Nexus、Harbor等镜像仓库，它们具备镜像缓存功能，如果私有镜像仓库中不存在则会去代理服务中获取最新镜像。
 
-## Proposed programme
+## 建议方案
 
-So, for individual users and SMEs, you can combine the above `CloudFare Worker` + `self-built mirror repository`, localize the Registry, Nexus, Harbor, etc. and configure your own `CloudFare Worker`, or some other available proxy\` in the mirror repository, and get the mirrors through these proxes, if the proxies are not available locally.
+所以对于个人用户、中小企业来说可以将上述的 `CloudFlare Worker` + `自建镜像仓库` 融合起来，本地搭建 Registry、Nexus、Harbor等镜像仓库，在镜像仓库中配置上自己的 `CloudFlare Worker` `Nginx反代` 等代理地址或者当前一些可用的其他代理，当本地不存在则会通过这些代理去获取镜像，代理不可用时本地依然能用。
 
-### Docker Registry
+### 搭建 Docker Registry
 
-Docker Registration can refer to the following command：
+搭建 Docker Registry 可以参考下述命令：
 
 ```bash
 docker run -d --restart=always --name registry \
@@ -83,64 +85,64 @@ docker run -d --restart=always --name registry \
 registry:2
 ```
 
-### Post Nexus
+### 搭建 Nexus
 
-Optionally use the Docker command to set up [Nexus](https://github.com/sonatepe/docker-nexus3).
+可选择使用 Docker 命令搭建 [Nexus](https://github.com/sonatype/docker-nexus3)。
 
 ```
-docker run -d -p 8081:8081 --name nexus sonate/nexus3
+docker run -d -p 8081:8081 --name nexus sonatype/nexus3
 ```
 
-Or use [Rainbond](https://www.rainbond.com/docs/quick-start/quick-install) app store one-click installation.
+或者使用 [Rainbond](https://www.rainbond.com/docs/quick-start/quick-install) 应用商店一键安装。
 
 ![](https://static.goodrain.com/wechat/docker-proxy/1.png)
 
-Normal login to Nexus page after building completion, use the page guide to configure Docker related storage Repository and proxy Repository.
+搭建完成后正常登录 Nexus 页面，根据页面引导配置 Docker 相关的存储 Repository 及代理 Repository 即可。
 
-### Cancel Harbor
+### 搭建 Harbor
 
-Available from [Harbor Document](https://goharor.io/docs/2.11.0/install-config/) or using [Rainbond](https://www.rainbond.com/docs/quick-start/quick-install) app one-click installation.
+可参考 [Harbor文档 ](https://goharbor.io/docs/2.11.0/install-config/)搭建或者使用 [Rainbond](https://www.rainbond.com/docs/quick-start/quick-install) 应用商店一键安装。
 
 ![](https://static.goodrain.com/wechat/docker-proxy/2.png)
 
-## Available Mirror Proxy
+## 可用的镜像代理
 
-Over the last decade, I have tried many mirror acceleration stations and organized the following mirror stations that are currently available, but that may be unserviceable at any time, shutdown and slow to access, suggesting multiple mirrors at the same time.
+最近十来天我尝试了很多镜像加速站，整理了以下镜像站目前是可用状态，但可能随时会遇到不可用、关停、访问比较慢的状态，建议同时配置多个镜像源。
 
-| Providers             | Address                                                                                                                                               |                            |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| DaoCloud              | https://docker.m.daocloud.io                                                          |                            |
-| Ali-Cloud             | https://<your_code>.mirror.aliyuncs.com | Login to Aliyun Assignment |
-| Docker Mirror Proxy   | https://dockerproxy.com                                                                                               | Look and Good              |
-| Baidu Cloud           | https://mirror.baidubce.com                                                                           |                            |
-| University of Nanjing | https://docker.nju.edu.cn                                                             |                            |
-| Central Courts        | https://mirror.iscas.ac.cn                                                            |                            |
+| 提供商        | 地址                                                                                                                                                      |         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| DaoCloud   | https://docker.m.daocloud.io                                                            |         |
+| 阿里云        | https://\<your_code>.mirror.aliyuncs.com | 登录阿里云分配 |
+| Docker镜像代理 | https://dockerproxy.com                                                                                                 | 看运气     |
+| 百度云        | https://mirror.baidubce.com                                                                             |         |
+| 南京大学       | https://docker.nju.edu.cn                                                               |         |
+| 中科院        | https://mirror.iscas.ac.cn                                                              |         |
 
-## Benefits
+## 福利
 
-The Rainbond community has also received many feedback Docker mirrors, which cannot be built or packed, and Rainbond has developed a mirror acceleration service to provide mirror acceleration services for users in Rainbond communities using the `CloudFare + foreign server Nginx counterpart` programme.
+近期 Rainbond 社区也接受到许多用户反馈 Docker 镜像拉不下来，不能构建、打包了，因此 Rainbond 也搭建了个镜像加速服务，采用 `CloudFlare + 国外服务器 Nginx 反代`的方案为 Rainbond 社区的用户们提供镜像加速服务。
 
 ![](https://static.goodrain.com/wechat/docker-proxy/3.png)
 
-Current speed is fast (not good for the future
+目前速度挺快的（未来不好说
 
-### Usage Method
+### 使用方法
 
-1. Get Docker Hub Image Direct
+1.直接获取 Docker Hub 镜像
 
 ```bash
 docker pull docker.rainbond.cc/library/node:20
-docker null docker.rainbond.cc/rainbond/rainbond:v5.17.2-release-allinone
+docker pull docker.rainbond.cc/rainbond/rainbond:v5.17.2-release-allinone
 ```
 
-2.Configure Mirror Accelerator
+2.配置镜像加速器
 
 ```bash
 tee /etc/docker/daemon.json <<-'EOF'
-{LO
-  "registry-mirrors": [https://docker.rainbond.cc"]
+{
+  "registry-mirrors": ["https://docker.rainbond.cc"]
 }
 EOF
 systemctl daemon-reload
-systemctl start docker
+systemctl restart docker
 ```
