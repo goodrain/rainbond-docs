@@ -11,49 +11,51 @@ It can also be used as a descriptive file for business products, supporting a si
 
 This paper will describe two ways in which the zyplayer-doc online knowledge base system is deployed, using Rainbond open source stores and using source code.
 
-## Deploying zyplayer-doc
+<!--truncate-->
 
-### Install Rainbond
+## 部署 zyplayer-doc
 
-[Rainbond](https://www.rainbond.com/) is a cloud native application management platform that uses simple and does not require knowledge of containers, Kubernetes and substrate complex technologies, supports managing multiple Kubernetes clusters and manages enterprises applying life cycles.The main functions include the application development environment, the application market, the micro-service architecture, the application delivery, the application workload, and the application of cloud management.
+### 安装 Rainbond
 
-You can quickly install Rainbod with a command.
+[Rainbond](https://www.rainbond.com/) 是一个云原生应用管理平台，使用简单，不需要懂容器、Kubernetes和底层复杂技术，支持管理多个Kubernetes集群，和管理企业应用全生命周期。主要功能包括应用开发环境、应用市场、微服务架构、应用交付、应用运维、应用级多云管理等。
+
+可通过一条命令快速安装 Rainbond。
 
 ```bash
-curl -o install.sh https://get.rainbond.com && cash ./install.sh
+curl -o install.sh https://get.rainbond.com && bash ./install.sh
 ```
 
-### Deploy zyplayer-doc through the app store
+### 通过应用商店部署 zyplayer-doc
 
-`zyplayer-doc` has been posted to the Rainbond Open Source Store where users can install `zyplayer-doc` via the Open Source Store key.
+`zyplayer-doc` 已经发布到 Rainbond 开源应用商店，用户可通过开源应用商店一键安装 `zyplayer-doc`。
 
-Search for `zyplayer-doc` and install it in the **Platform Manager -> Marketplace -> Open Source Store**.
+在 Rainbond 的 **平台管理 -> 应用市场 -> 开源应用商店** 中搜索 `zyplayer-doc` 并安装。
 
 ![](https://static.goodrain.com/wechat/zyplayer-doc/1.png)
 
-The sketch after deployment is completed is as follows.
+部署完成后拓扑图如下。
 
 ![](https://static.goodrain.com/wechat/zyplayer-doc/2.png)
 
-Access to `zyplayer-doc` is available through the domain name provided by Rainbond by default. Access requires suffix `/zyplayer-doc/`, e.g.：`http://xxx.cn/zyplayer-doc/`, default user password**zyplayer/123456**.
+可通过 Rainbond 默认提供的域名访问 `zyplayer-doc`，访问需要加后缀 `/zyplayer-doc/`，如：`http://xxx.cn/zyplayer-doc/`，默认用户密码 **zyplayer/123456**。
 
 ![](https://static.goodrain.com/wechat/zyplayer-doc/3.png)
 
-### Deploy zyplayer-doc via source
+### 通过源码部署 zyplayer-doc
 
-zyplayer-doc is a SpringBoot project written by Java, Rainbond can package blocks for Java projects by identifying the project's pom.xml file and build and deploy to achieve a one-click experience.
+zyplayer-doc 是由 Java 编写的 SpringBoot 项目，Rainbond 对于 Java 项目可以通过识别项目的 pom.xml 文件来进行模块的打包以及构建和部署，实现一键式体验。
 
-#### MySQL deployment
+#### 部署 MySQL
 
-MySQL is required for zyplayer-doc using MySQL and can be rapidly deployed through Rainbond Open Source Store.
+zyplayer-doc 需要使用 MySQL 服务，可以通过 Rainbond 开源应用商店快速部署 MySQL。
 
-Search for `mysql` and install it in the **Platform Manager -> Marketplace -> Open Source AppStore** of Rainbond, opting to install version `5.7` or `8.0`.
+在 Rainbond 的 **平台管理 -> 应用市场 -> 开源应用商店** 中搜索 `mysql` 并安装，可选择安装 `5.7` 或 `8.0` 版本。
 
 ![](https://static.goodrain.com/wechat/zyplayer-doc/4.png)
 
-#### Zyplayer-doc source deployment
+#### 源码部署 zyplayer-doc
 
-Modify the `zyplayer-doc-manage/src/main/resources/application.yml` configuration file, connection information can be viewed in MySQL components.
+修改 `zyplayer-doc-manage/src/main/resources/application.yml`配置文件，连接信息可在 MySQL 组件中的依赖信息查看。
 
 ```yaml
 zyplayer:
@@ -66,24 +68,24 @@ zyplayer:
         password: ${MYSQL_PASSWORD}
 ```
 
-Go to team/app, choose to create components by source code.
+进入到团队/应用内，选择通过源码创建组件。
 
-- The name of the component, the name of the component in English is all customized.
-- Warehouse address：https://gitee.com/droma/zyplayer-doc
-- Code branch：master
+- 组件名称、组件英文名称均自定义即可。
+- 仓库地址：https://gitee.com/dromara/zyplayer-doc
+- 代码分支：master
 
 ![](https://static.goodrain.com/wechat/zyplayer-doc/5.png)
 
-Rainbond will then detect for multi-module items, select `zyplayer-doc-manage` and build, others are dependencies and are not running.
+然后 Rainbond 会检测出来为多模块项目，选择 `zyplayer-doc-manage` 并进行构建，其他模块都是依赖项，是不可运行的。
 
 ![](https://static.goodrain.com/wechat/zyplayer-doc/6.png)
 
-#### Organization Services
+#### 编排服务
 
-In the app -> Switch to Array Mode, rely on MySQL components so that MySQL components can inject their own environment variables into zyplayer, and zyplayer components can connect to MySQL databases by environmental variables in the configuration file.
+在应用内 -> 切换到编排模式，将 zyplayer 组件依赖至 MySQL 组件，这样 MySQL 组件会将自身的环境变量注入到 zyplayer 中，zyplayer 组件就可以通过配置文件中的环境变量连接到 MySQL 数据库。
 
 ![](https://static.goodrain.com/wechat/zyplayer-doc/7.png)
 
-Then update the zyplayer component.
+然后更新 zyplayer 组件即可。
 
-Finally access `zyplayer-doc` via the domain name provided by Rainbond default. Access requires suffix `/zyplayer-doc/`, e.g.：`http://xxx.cn/zyplayer-doc/`,default user password**zyplayer/123456**.
+最后通过 Rainbond 默认提供的域名访问 `zyplayer-doc`，访问需要加后缀 `/zyplayer-doc/`，如：`http://xxx.cn/zyplayer-doc/`，默认用户密码 **zyplayer/123456**。
