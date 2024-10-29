@@ -26,40 +26,42 @@ Pgpool is a high-performance connection pool and load balancer for PostgreSQL da
 
 **This paper will describe the deployment and management of high-available clusters using Postgresql-repmgr + Pgpool to achieve Postgresql on Rainbond**
 
-## Architecture
+<!--truncate-->
 
-![](https://static.goodrain.com/wechat/pg-ha/postcongresql-repmgr-pgpool.png)
+## 架构
 
-When using Postgresql HA cluster, the app simply needs to connect to `pgpool`.
+![](https://static.goodrain.com/wechat/pg-ha/postgresql-repmgr-pgpool.png)
 
-- Separate reading and writing with pgpool. Writing is performed by Master, read by Slave.
-- Copied from repmgr stream, Master data is automatically copied to Slave.
-- When Master failure is offline, repmgr chooses Slave to Master, and continues writing operations.
-- When a node is offline, automatically disconnects the failure node from pgpool and switches to available nodes.
+当使用 Postgresql HA 集群时，应用只需连接 `pgpool` 即可。
 
-## Deployment of Rainbond
+- 通过 pgpool 实现读写分离，写入操作由 Master 执行，读取操作由 Slave 执行。
+- 由 repmgr 实现流复制，Master 数据自动复制到 Slave。
+- 当 Master 遇故障下线时，由 repmgr 自定选择 Slave 为 Master，并继续执行写入操作。
+- 当某个节点遇故障下线时，由 pgpool 自动断开故障节点的连接，并切换到可用的节点上。
 
-Install Rainbond, quickly install Rainbond, or select [基于主机安装](https://www.rainbond.com/docs/installation/installation/install-with-ui/) and [based on Kubernetes installation] (https://www.rainbond.com/docs/installation/installation/installation-with-helm/).
+## 部署 Rainbond
+
+安装 Rainbond，可通过一条命令快速安装 Rainbond，或选择 [基于主机安装](https://www.rainbond.com/docs/installation/install-with-ui/) 和 [基于 Kubernetes 安装](https://www.rainbond.com/docs/installation/install-with-helm/) Rainbond。
 
 ```bash
-curl -o install.sh https://get.rainbond.com && cash ./install.sh
+curl -o install.sh https://get.rainbond.com && bash ./install.sh
 ```
 
-## Deploy PostgreSQL cluster via Rainbond Open Source Store
+## 通过 Rainbond 开源应用商店部署 PostgreSQL 集群
 
-Postgresql HA cluster has been posted to Rainbond Open Source Store with one click to deploy Postgresql HA cluster.
+Postgresql HA 集群已发布到 Rainbond 开源应用商店，可一键部署 Postgresql HA 集群。
 
-Sign in to the Rainbond Console to search for and install the `postcongresql-ha` in **Platform Manager -> Marketplace -> Open Source Store**.
+登陆 Rainbond 控制台，进入 **平台管理 -> 应用市场 -> 开源应用商店** 中搜索 `postgresql-ha` 并安装。
 
-![](https://static.goodrain.com/wechat/pg-ha/postcongresql-ha-store.png)
+![](https://static.goodrain.com/wechat/pg-ha/postgresql-ha-store.png)
 
-The sketch after installation is completed is set out below.
+安装完成后的拓扑图如下。
 
 ![](https://static.goodrain.com/wechat/pg-ha/pg-store-topology.png)
 
-### Configure Pgpool components
+### 配置 Pgpool 组件
 
-1. Gets the PostgreSQL-repmgr connection address into the PostgreSQL-repmgr component of the web terminal.
+1. 获取 PostgreSQL-repmgr 连接地址，进入 PostgreSQL-repmgr 组件的 Web 终端内。
 
 ```bash
 env | grep REPMGR_PARTNER_NODES
@@ -67,15 +69,15 @@ env | grep REPMGR_PARTNER_NODES
 
 ![](https://static.goodrain.com/wechat/pg-ha/store-pgpool-env.png)
 
-2. Copy and modify the above to the following format, then enter the Pgpool component, modify the `PGPOOL_BACKEND_NODES` environment variable, and update the component.
+2. 将上述的内容复制出并修改成以下格式，然后进入 Pgpool 组件内，修改`PGPOOL_BACKEND_NODES` 环境变量，并更新组件。
 
 ```bash
-0:pg-grde8ebc-0.pg-grde8ebc.dev.svc.cluster.local:5432,1:pg-grde8ebc-1.pg-grde8ebc.dev.svc.cluster.local:5432,2:pg-grde8ebc-2.pg-grde8ebc.dev.svc.cluster.local:5332
+0:pg-grde8ebc-0.pg-grde8ebc.dev.svc.cluster.local:5432,1:pg-grde8ebc-1.pg-grde8ebc.dev.svc.cluster.local:5432,2:pg-grde8ebc-2.pg-grde8ebc.dev.svc.cluster.local:5432
 ```
 
 ![](https://static.goodrain.com/wechat/pg-ha/store-pgpool-env2.png)
 
-3. Verify cluster, enter the Web Terminal of the Pgpool component.
+3. 验证集群，进入 Pgpool 组件的 Web 终端中。
 
 ```bash
 # 连接 postgresql
@@ -85,37 +87,37 @@ PGPASSWORD=$PGPOOL_POSTGRES_PASSWORD psql -U $PGPOOL_POSTGRES_USERNAME -h localh
 show pool_nodes;
 ```
 
-The status field is UP sufficient.
+status 字段均为 UP 即可。
 
 ![](https://static.goodrain.com/wechat/pg-ha/store-pgpool-webcli.png)
 
-## PostgreSQL cluster deployed from zero
+## 从零开始部署 PostgreSQL 集群
 
-It is also very simple to deploy Postgresql HA clusters from scratch in Rainbond along the lines of the following steps：
+从零开始在 Rainbond 上部署 Postgresql HA 集群也是非常简单的，大致分为以下几个步骤：
 
-- Deploy the PostgreSQL -repmgr component based on mirrors, and modify component configuration.
-- Deploy a pgpool component based on mirrors, and modify component configuration.
-- Create dependencies between components.
+- 基于镜像部署 PostgreSQL-repmgr 组件，并修改组件配置。
+- 基于镜像部署 pgpool 组件，并修改组件配置。
+- 建立组件之间的依赖关系。
 
-The mirrors are based on [postgresql-repmgr](https://github.com/bitnami/containers/tree/main/bitnami/postprogresql-repmgr) and [pgpool](https://github.com/bitnami/containers/tree/bitnami/pgpool), and many configuration files have been drawn from the bitnami mirror, which is easier to configure.
+镜像均采用 bitnami 制作的 [postgresql-repmgr](https://github.com/bitnami/containers/tree/main/bitnami/postgresql-repmgr) 和 [pgpool](https://github.com/bitnami/containers/tree/main/bitnami/pgpool)，因 bitnami 制作的镜像将很多配置文件都抽离成了环境变量，配置比较方便。
 
-### Deploy PostgreSQL - repmgr component
+### 部署 PostgreSQL-repmgr 组件
 
-#### 1. Create Component
+#### 1. 创建组件
 
-Enter the team -> New Component -> Create a component based on a mirror, the app, component, English name, etc. to fill `bitnami/postcongresql-repmgr:14.7.0`.
+进入团队内 -> 新建组件 -> 基于镜像创建组件，应用、组件、英文名称等自定义即可，镜像填写 `bitnami/postgresql-repmgr:14.7.0`。
 
-![](https://static.goodrain.com/wechat/pg-ha/repmgr-cree.png)
+![](https://static.goodrain.com/wechat/pg-ha/repmgr-create.png)
 
-#### 2. Modify component type
+#### 2. 修改组件类型
 
-Go to component -> Other settings to change component deployment type to \`state-service'.
+进入组件内 -> 其他设置，将组件部署类型修改为 `有状态服务`。
 
-![](https://static.goodrain.com/wechat/pg-ha/repmgr-deemploy-type.png)
+![](https://static.goodrain.com/wechat/pg-ha/repmgr-deploy-type.png)
 
-#### 3. Add Environment Variables
+#### 3. 添加环境变量
 
-Enter the component -> Environment Variable, add the following environment variable：
+进入组件内 -> 环境变量，新增以下环境变量：
 
 ```bash
 # 默认初始化的数据库
@@ -140,7 +142,7 @@ REPMGR_PARTNER_NODES=${SERVICE_NAME}-0.${SERVICE_NAME}.${NAMESPACE}.svc.cluster.
 
 ![](https://static.goodrain.com/wechat/pg-ha/repmgr-env.png)
 
-Enter the component -> Other settings, add Kubernetes properties, select env, add the following：
+进入组件内 -> 其他设置，添加 Kubernetes 属性，选择 env，添加以下内容：
 
 ```yaml
 # repmgr 节点名称
@@ -155,62 +157,62 @@ Enter the component -> Other settings, add Kubernetes properties, select env, ad
 
 ![](https://static.goodrain.com/wechat/pg-ha/repmgr-env2.png)
 
-#### 4. Add Component Storage
+#### 4. 添加组件存储
 
-Enter -> Storage, add new storage, path `/bitnami/postprogresql`, other customizations.
+进入组件内 -> 存储，添加新的存储，存储路径为 `/bitnami/postgresql`，其他自定义即可。
 
-#### 5. Start Component
+#### 5. 启动组件
 
-Build a component in the component view waiting for it to be built and started.
+在组件视图内构建组件等待构建完成并启动。
 
-#### 6. Modify component instance count
+#### 6. 修改组件实例数量
 
-Enter the component -> Scale, set the number of component instances to `3`, waiting for all instances to start.
+进入组件内 -> 伸缩，将组件实例数量设置为 `3`，等待所有实例启动即可。
 
-### Deploy pgpool component
+### 部署 pgpool 组件
 
-#### 1. Create Component
+#### 1. 创建组件
 
-Enter the team -> New Component -> Create a component based on a mirror, you can customize the app, component, English name, etc. Mirror fill `bitnami/pgpool:4.4.2`.
+进入团队内 -> 新建组件 -> 基于镜像创建组件，应用、组件、英文名称等自定义即可，镜像填写 `bitnami/pgpool:4.4.2`。
 
-![](https://static.goodrain.com/wechat/pg-ha/pgpool-cree.png)
+![](https://static.goodrain.com/wechat/pg-ha/pgpool-create.png)
 
-#### 2. Add Environment Variables
+#### 2. 添加环境变量
 
-Enter the component -> Environment Variable, add the following environment variable：
+进入组件内 -> 环境变量，新增以下环境变量：
 
 ```bash
-# pgpot admin and password
+# pgpool admin 用户与密码
 PGPOOL_ADMIN_USERNAME=admin
-PGPOOL_ADMIN_PASSWORD=admin@12
+PGPOOL_ADMIN_PASSWORD=admin@123
 
-# postgres users and passwords
+# postgres 用户与密码
 PGPOOL_POSTGRES_USERNAME=postgres
-PGPOOLOL_POSTGRES_PASSRORD=post123
+PGPOOL_POSTGRES_PASSWORD=postgres@123
 
-# Users and password
-PGPOOL_SER_CHECK_USER=admin
-PGPOOOL_CHECK_PASSWORD=admin@123
+# 用于执行流检查的用户和密码
+PGPOOL_SR_CHECK_USER=admin
+PGPOOL_SR_CHECK_PASSWORD=admin@123
 
-# postgraduql backend node. The node lists get into the PostgreSQL-repmgr component, Get it with the env | grep REPMGR_PARTNER_NODES command, then modify it to the following format
-PGPOOL_BACKEND_NODES=0:postcongresql-ha-repmgr-0. ostgresql-ha-repmgr.dev.svc.cluster.local:5432,1: postcongresql-ha-repmgr-1.postcongresql-ha-repmgr.dev.svc.cluster.local:5432,2:postprogresql-ha-repmgr-2.postgresql-ha-repmgr-1.dev.svc.cluster.local:5332
+# postgresql 后端节点。节点列表获取进入到 PostgreSQL-repmgr 组件的 Web 终端内，使用 env | grep REPMGR_PARTNER_NODES 命令获取，然后修改为以下格式
+PGPOOL_BACKEND_NODES=0:postgresql-ha-repmgr-0.postgresql-ha-repmgr.dev.svc.cluster.local:5432,1:postgresql-ha-repmgr-1.postgresql-ha-repmgr.dev.svc.cluster.local:5432,2:postgresql-ha-repmgr-2.postgresql-ha-repmgr.dev.svc.cluster.local:5432
 ```
 
 ![](https://static.goodrain.com/wechat/pg-ha/pgpool-env.png)
 
-#### 3. Add Dependency
+#### 3. 添加依赖
 
-In app view, rely on pgpool components to PostgreSQL-repmgr components.
+在应用视图，将 pgpool 组件依赖至 PostgreSQL-repmgr 组件。
 
 ![](https://static.goodrain.com/wechat/pg-ha/pgpool-topology.png)
 
-#### 4. Launch Component
+#### 4. 启动组件
 
-Build components in pgpool component view waiting for build to be completed and started.
+在 pgpool 组件视图内构建组件等待构建完成并启动。
 
-#### 5. Validate cluster
+#### 5. 验证集群
 
-Enter the following command to verify cluster： in the web terminal of the Pgpool component
+进入 Pgpool 组件的 Web 终端中，输入以下命令验证集群：
 
 ```bash
 # 连接 postgresql
@@ -220,19 +222,19 @@ PGPASSWORD=$PGPOOL_POSTGRES_PASSWORD psql -U $PGPOOL_POSTGRES_USERNAME -h localh
 show pool_nodes;
 ```
 
-The status field is UP sufficient.
+status 字段均为 UP 即可。
 
 ![](https://static.goodrain.com/wechat/pg-ha/pgpool-checkcluster.png)
 
-## Last
+## 最后
 
-### External connection
+### 外部连接
 
-To connect to postprogresql using a local tool, the external service port can be opened in the port of the pgpool component, through which to connect to postprogresql, the default user password is `postgres/postprogres@123`.
+如想使用本地工具连接到 postgresql，可在 pgpool 组件的端口内打开对外服务端口，通过该端口连接到 postgresql，默认用户密码为 `postgres/postgres@123`。
 
-### Verify High Available Cluster
+### 验证高可用集群
 
-To secure high available clusters, the Kubernetes cluster must have at least 3 nodes, and the bottom store uses distributed storage, which will guarantee high available cluster data if there is no distributed storage, while maintaining Postprogresql storage to local storage.High-available cluster validation： can be done by
+为了保障高可用集群，Kubernetes 集群至少有 3 个节点，且底层存储使用分布式存储，如没有分布式存储，需将 Postgresql 存储切换为本地存储也可保障高可用集群的数据。可通过以下方式进行高可用集群验证：
 
-- After connecting to Pgpo, create a database and write the data, then enter the PostgreSQL -repmgr component in the web terminal to query if data is available for each instance.
-- Pause the main node, verify whether the main node is automatically switched and can be connected and written to it normally.
+- 通过 Pgpool 连接后，创建数据库并写入数据，再进入 PostgreSQL-repmgr 组件的 Web 终端内查询每个实例是否都有数据。
+- 挂掉主节点，验证是否主节点自动切换并可正常连接并写入。
