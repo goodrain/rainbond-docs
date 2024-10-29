@@ -14,27 +14,29 @@ The difference between pipeline construction and Rainbond source construction is
 
 This paper will describe the deployment of the RuoYi SpringBoot project using a plug plugin and implement automatic construction and deployment after submission of the code.
 
-## Install GitLab and Runner
+<!--truncate-->
 
-Waterline plugins are implemented on GitLab so they need to rely on GitLab and GitLab Runner and skip this step if available.
+## 安装 GitLab 和 Runner
 
-GitLab and Runner are deployed through Rainbond Open Source Store. Go to **Platform Manager -> Marketplace -> Open Source Store** to search for `GitLab` and `GitLab-runner`. Select versions to install them in the same application.
+流水线插件是基于 GitLab 实现，所以需要依赖 GitLab 和 GitLab Runner，如果已有则可跳过此步。
+
+通过 Rainbond 开源应用商店部署 GitLab 和 Runner，进入到 **平台管理 -> 应用市场 -> 开源应用商店** 中分别搜索 `GitLab` 和 `GitLab-runner`，选择版本进行安装，分别安装到同一个应用内。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/1.png)
 
-Once deployed, access the default GitLab domain name for user registration.Then close GitLab default AutoDevOps：`Admin -> Settings -> CI/CD -> Continuous Integration and Deployment` uncheck \`\`Default to Auto DevOps pipeline for all projects.
+部署完成后，访问 GitLab 默认的域名进行用户注册。然后关闭 GitLab 默认的 AutoDevOps：`Admin -> Settings -> CI/CD -> Continuous Integration and Deployment` 取消勾选 `Default to Auto DevOps pipeline for all projects`。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/2.png)
 
-### Sign up for Runner
+### 注册 Runner
 
-Once both GitLab and Runner are deployed, Runner needs to be registered in GitLab.
+GitLab 和 Runner 都部署完成后，需要将 Runner 注册到 GitLab 中。
 
-Inside group Runner **Component -> Web Terminal** execute the command below to register：
+进组 Runner **组件内 -> Web 终端**，执行以下命令进行注册：
 
-- `<URL>` is a GitLab access address
-- `<TOKEN>`Get `Registration token` on `Admin -> Runners` on GitLab
-- `<TAG>` customizes the Runner tag.
+- `<URL>` 为 GitLab 访问地址
+- `<TOKEN>` 在 GitLab 的 `Admin -> Runners` 获取 `Registration token`
+- `<TAG>` 自定义 Runner 的标签。
 
 ```bash
 gitlab-runner register \
@@ -54,52 +56,52 @@ gitlab-runner register \
   --docker-pull-policy="if-not-present"
 ```
 
-Once registered, the following graph can be found on the `Admin -> Runners` page, where `Status` is \`\`online\`.
+注册完成后，可以在`Admin -> Runners` 页面中看到如下图，`Status` 为 `online` 则正常。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/3.png)
 
-## Install Waterline Plugin
+## 安装流水线插件
 
-Deploy the Pipeline application plugin through Rainbond Open Source Store. Go to **Platform Manager -> Marketplace -> Open Source Store** to search for `Pipeline` and select the corresponding version to be deployed.
+通过 Rainbond 开源应用商店部署 Pipeline 应用插件，进入到 **平台管理 -> 应用市场 -> 开源应用商店** 中搜索 `Pipeline`，选择对应的版本进行部署。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/4.png)
 
-Once the installation has been completed, you will need to change the configuration of the Pipeline-Backend service to the **Pipeline app -> Pipeline-Backend**, modify the following environment variable：
+安装完成后，需要修改 Pipeline-Backend 服务的配置，进入到 **Pipeline 应用内 -> Pipeline-Backend组件内**，修改以下环境变量：
 
-- RAINBOND_URL：Rainbond Console Visited Address, e.g.：`http://192.168.33.33:70`.
+- RAINBOND_URL：Rainbond 控制台访问地址，例如：`http://192.168.3.33:7070`。
 
-* The Token for RAINBOND_TOKEN：Rainbond Console Console can be obtained in **Top Right Users -> Personal Center -> Access Token**.
+* RAINBOND_TOKEN：Rainbond 控制台的 Token，可以在 **右上角用户 -> 个人中心 -> 访问令牌** 中获取。
 
-Update or restart the Backend component to take effect after the modification has been completed.
+修改完成后，更新或重启 Backend 组件生效。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/5.png)
 
-Go to the **Pipeline app -> k8s resource -> Edit rainbond-pipeline**, modify the `access_urls` configuration in the `pipeline` resource to the external address of the `Pipeline-UI` component as follows:
+进入到 **Pipeline 应用内 -> k8s 资源 -> 编辑 rainbond-pipeline**，修改 `pipeline` 资源中的 `access_urls` 配置，修改为 `Pipeline-UI` 组件的对外访问地址，如下:
 
 ```yaml
-apiVersion: rainbond.io/v1alpa1
+apiVersion: rainbond.io/v1alpha1
 kind: RBDPlugin
 metadata:
   labels:
-    plugin. ainbon.io/name: pipeline
+    plugin.rainbond.io/name: pipeline
   name: pipeline
 spec:
   access_urls:
-  - https://custom. om
+  - https://custom.com
   alias: Pipeline
   author: Talkweb
-  description: This app is based on GitLab CI/CD implementation, Development Rainbond existing architectural systems.
-  icon: https://static. odrain.com/icon/pipeline.png
+  description: 该应用插件是基于 GitLab CI/CD 实现，扩展 Rainbond 已有的构建体系。
+  icon: https://static.goodrain.com/icon/pipeline.png
   version: 1.0.0
 ```
 
-Once the modification has been completed, the `waterline` button can be seen in each team view.
+修改完成后，就可以在每个团队视图中看到 `流水线` 按钮选项了。
 
-## Deployment of RuoYi project
+## 部署 RuoYi 项目
 
-Fork the [RuoYi](https://gitee.com/y_project/RuoYi.git) project in Gitee to private GitLab.
+将 Gitee 中的 [RuoYi](https://gitee.com/y_project/RuoYi.git) 项目 Fork 到私有的 GitLab 中。
 
-Modify the `mysql` connection address： in the project configuration file
+修改项目配置文件中的 `mysql` 连接地址：
 
 ```yaml
 # ruoyi-admin/src/main/resources/application-druid.yml
@@ -116,27 +118,27 @@ spring:
                 password: root
 ```
 
-### MySQL deployment
+### 部署 MySQL
 
-MySQL deployment via Rainbond Open Source Store.After deploying, open the MySQL external service port, connect to the database using local tools and create `ry` databases and initialize `quartz.sql` and `ry_20230223.sql` in the sql directory.
+通过 Rainbond 开源应用商店部署 MySQL 即可。部署之后打开 MySQL 对外服务端口，通过本地工具连接到数据库并创建 `ry` 数据库和初始化 sql 目录下的 `quartz.sql` 和 `ry_20230223.sql`。
 
-### Deploy RuoYi SpringBoot
+### 部署 RuoYi SpringBoot
 
-Go to \*\*Team View -> Stream Line \*\*.
+进入到 **团队视图 -> 流水线**。
 
-#### 1. Create Pipeline
+#### 1.创建流水线
 
-Enter the line management, select Java Maven Single Module to create a template.
+进入流水线管理，选择 Java Maven 单模块的模版创建。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/6.png)
 
-If there is no SonarQube code scanning step you can delete, modify **Build Building** step：
+如果没有 SonarQube 代码扫描步骤可以删除，修改 **编译构建物** 步骤：
 
-- Product directory：ruoyi-admin/target/\*.jar
+- 制品目录：ruoyi-admin/target/\*.jar
 
-Modify **Build Mirror** step：
+修改 **构建镜像** 步骤：
 
-- Script command：
+- 脚本命令：
 
 ```bash
 cp ruoyi-admin/target/*.jar app.jar
@@ -145,57 +147,57 @@ docker build -t  ${REPOSITORY_URL}/${ORG}/${MODULE}:${DEVOPS_VERSION} .
 docker push ${REPOSITORY_URL}/${ORG}/${MODULE}:${DEVOPS_VERSION}
 ```
 
-Specify the environment variable associated with the Docker to pack images and push image： within the variable of the waterline
+在流水线的变量内，指定 Docker 相关的环境变量用于打包镜像和推送镜像：
 
-- REPOSITORY_URL：Mirror repository address, e.g.：registry.cn-hangzhou.aliyuncs.com
-- ORG：Mirror Repository Organization, eg:：goodrain
-- REPOSITORY_USERNAME：Mirror repository username
-- REPOSITORY_PASSWORD：
+- REPOSITORY_URL：镜像仓库地址，如：registry.cn-hangzhou.aliyuncs.com
+- ORG：镜像仓库组织，例如：goodrain
+- REPOSITORY_USERNAME：镜像仓库用户名
+- REPOSITORY_PASSWORD：镜像仓库密码
 
-#### 2. Create App Service
+#### 2.创建应用服务
 
-- Service encoding：unique
-- Service name：Custom
-- Waterline：Select Waterline Template
-- Repository configuration：Fill in repository address, e.g.：http://gitlab.test.com/root/ruoy.git
-- Authentication Configuration：Optional User Password or Token
+- 服务编码：唯一的
+- 服务名称：自定义
+- 流水线：选择流水线模版
+- 仓库配置：填写仓库地址，如：http://gitlab.test.com/root/ruoyi.git
+- 认证配置：可选用户密码或Token
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/7.png)
 
-After creating the app service, two more `Dockerfile` and `.gitlab-ci.yml` files can be seen in the GitLab repository, which are automatically generated by the streaming plugin service and submitted to the repository.
+创建应用服务后，可在 GitLab 仓库内看到多了两个文件 `Dockerfile` 和 `.gitlab-ci.yml` ，这是由流水线插件服务自动生成并提交到仓库内。
 
-#### 3. Build Services
+#### 3.构建服务
 
-Go to **Code Manager** and apply services select `ruoy` and click on the `Build` button to start construction.Build status and steps can be seen on the Continuous Integration page. Click on steps to go to the GitLab details page.
+进入 **代码管理**，应用服务选择 `ruoyi`，点击 `构建` 按钮开始构建。可以在持续集成页面看到构建状态以及步骤，点击步骤可跳转至 GitLab 详情页。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/8.png)
 
-#### Deployment of backend services
+#### 4. 部署后端服务
 
-Once the build has been completed, the build version can be seen in the mirror repository. It can then be deployed through it, and it can be selected which app will be deployed to the current team.
+等待构建完成后，即可在镜像仓库中看到构建的镜像版本，接下来就可以通过该版本进行部署，可选择部署到当前团队下的哪个应用内。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/9.png)
 
-Once deployed, you can see the deployment history on the deployment history page. Click the deployment details to jump to the Rainbond component.
+部署完成后，可在部署历史页面看到部署历史，点击部署详情跳转到 Rainbond 组件内。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/10.png)
 
-### Edit Dependencies
+### 编辑依赖关系
 
-Then go into the app and switch to the layout mode where the `ruoyi` service is dependent on the MySQL service and update ruoyi components.
+接下来进入到应用内，切换到编排模式将 `ruoyi` 服务依赖至 MySQL 服务，并更新 ruoyi 组件。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/11.png)
 
-Go to the ruoyi component -> port, add 80 ports and open the external service to access ruoyi UI via default domain name.
+进入到 ruoyi 组件内 -> 端口，添加 80 端口并打开对外服务，即可通过默认的域名访问到 ruoyi UI。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/12.png)
 
-### Configure Auto Build and Auto Deploy
+### 配置自动构建和自动部署
 
-Edit the app service that has been created, open the auto-build and auto-deploy buttons that will automatically trigger the entire process when the next submission is made.
+编辑已经创建的应用服务，打开自动构建和自动部署按钮，下次提交代码时将会自动触发整个流程。
 
 ![](https://static.goodrain.com/wechat/pipeline-springboot/13.png)
 
-## Last
+## 最后
 
-More flexible extension build processes such as adding code scanning, building messages after a successful build, etc.Waterline plugins will also continue to iterate over time. Welcome to your installation!
+通过流水线插件可以更灵活的扩展构建过程，比如增加代码扫描、构建成功后的消息通知等等。流水线插件也会持续迭代，欢迎大家安装使用！
