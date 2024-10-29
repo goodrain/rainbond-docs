@@ -7,87 +7,89 @@ image: https://static.goodrain.com/wechat/serverless/serverless.png
 
 With the spread of cloud calculations, a growing number of businesses are moving their business applications to clouds.However, the question of how to construct a full set of cloudy Serverless platforms remains to be considered.
 
-## Serveress Trends
+<!--truncate-->
 
-The cloud computing industry has gone through a process of shifting from the bottom to the top, from the IT infrastructure provider to the application developer, from IaaS to PaaS (platform or service) to Serverlessness.
+## Serverless的发展趋势
 
-In the IaS era, cloud calculation providers mainly provide infrastructure services, including computing, storage, networks, etc. Users need to build their own shipping applications.This phase is intended primarily for IT drivers and for the internal enterprise development team.
+云计算行业从 IaaS（基础设施即服务）到 PaaS（平台即服务），再到 Serverless（无服务器）的发展，经历了一个逐渐从底层到上层，从IT基础设施提供商到应用开发者的转移的过程。
 
-With PaaS emerging, the cloud calculation provider begins to provide a higher level of services, including development frameworks, databases, messaging queues, etc. Users only need to focus on application development without attention to underlying facilities.This phase, which is intended primarily for application developers and startups, can significantly increase development efficiency and reduce costs.
+IaaS 时代，云计算提供商主要提供基础设施服务，包括计算、存储、网络等，用户需要自己搭建运维应用。这个阶段主要面向IT运维人员和企业内部的应用开发团队。
 
-The availability of Serverless has further freed the app developers from handcuffing the server management to the cloud calculator provider, who has to focus only on the implementation of business logic and not on the management and maintenance of the server.The emergence of Serverless has received increasing attention to making application development more flexible and efficient and to reducing development and delivery costs as well.
+随着 PaaS 的出现，云计算提供商开始提供更高层次的服务，包括开发框架、数据库、消息队列等，用户只需要关注应用开发，无需关心底层设施。这个阶段主要面向应用开发者和创业公司，可以大大提高开发效率和降低成本。
 
-Overall, the evolution from Iaaa to PaaS to Serverless is a continuous abstract and automated process of cloud computing services, which increases the efficiency of IT infrastructure and application development, reduces costs and drives the process of digitization.As technology and markets evolve, future cloud computing services will continue to evolve towards higher abstraction and automation.
+而 Serverless 的出现，则更进一步解放了应用开发者的手脚，将服务器管理交给云计算提供商，应用开发者只需关注业务逻辑的实现，无需关心服务器的管理和维护。Serverless的出现使得应用开发更加灵活和高效，也降低了开发和运维成本，因此受到了越来越多的关注。
 
-## Self Serverless Meaning and Dilemma
+总体来看，从IaaS到PaaS再到Serverless的发展，是云计算服务不断向上层抽象和自动化的过程，提高了IT基础设施和应用开发的效率，降低了成本，推动了数字化转型的进程。随着技术和市场的不断变化，未来云计算服务还将不断地向更高层次的抽象和自动化发展。
 
-It is important and necessary to build a privatized cloud Serverless platform.First, a privatized cloud Serverless platform would better meet the specific needs of enterprises, safeguard the security and privacy of data and better manage and control the allocation and use of computing resources than public cloud platforms.Second, with the digital transformation and the spread of cloud-origin technologies, there is also a growing demand for Serverless structures by enterprises, and the construction of privatized Serverless platforms can better meet the needs of businesses and increase their operational efficiency and operational effectiveness.
+## 自建 Serverless 的意义与困境
 
-However, there are some difficulties in building a privatized cloud Serverless platform.First, there is a need for enterprises to have a certain technological strength and a pool of talents, including the mastery and application of a variety of technologies, such as cloud computing, packaging, microservices, etc.Second, there is a need for systematic architecture design and resource planning, including the formation of packaging clusters, network configuration, storage planning, etc.In addition, privatized Serveress platforms need to meet the requirements of high availability, high performance and security and require multiple testing and optimization.Finally, the construction of a privatized Serverly platform needs to take into account cost control and efficiency gains, and requires a combination of factors, including hardware equipment, software development and maintenance costs.Thus, building a privatized cloud Serveress platform requires comprehensive business planning and consideration in a wide range of technical, resource, human and economic aspects to ensure its stability and sustainability.
+建设私有化的云原生 Serverless 平台具有重要的意义和必要性。首先，相比于公共云平台，私有化的云原生 Serverless 平台可以更好地满足企业的特定需求，保障数据的安全性和隐私性，同时也能够更好地管理和控制计算资源的分配和利用。其次，随着数字化转型和云原生技术的普及，企业对于 Serverless 架构的需求也越来越大，建设私有化的 Serverless 平台可以更好地满足企业的需求，提高企业的业务效率和运营效果。
 
-## ServerLess Features
+然而，建设私有化的云原生 Serverless 平台也具有一定的难点。首先，需要企业拥有一定的技术实力和人才储备，包括云计算、容器、微服务等多种技术的掌握和运用。其次，需要进行系统的架构设计和资源规划，包括容器集群的搭建、网络的配置、存储的规划等。此外，私有化的Serverless平台需要满足高可用、高性能、高安全的要求，需要进行多方面的测试和优化。最后，建设私有化的Serverless平台需要考虑成本的控制和效益的提升，需要综合考虑多种因素，包括硬件设备、软件开发和维护等成本。因此，建设私有化的云原生Serverless平台需要企业在技术、资源、人才和经济等多方面进行全面的规划和考虑，确保平台的稳定性和可持续性。
 
-At present, Serverless is not an industry uniform standard norm, as Serverless is not a specific technology or structure, but rather a cloud-based mode of operation and deployment that highlights the fact that developers need not be concerned with infrastructure such as servers.Normally, we think a cloud-born Serverless platform should provide the following：
+## ServerLess 的特点
 
-1. The：platform should support automatic scaling-up in order to cope with changes in load and traffic.
-2. The container is an：platform that should support the packaging configuration to facilitate managing the application's life cycle and resource allocation.
-3. No server compute：platform should support no server computing mode to increase developer efficiency and reduce costs.
-4. The：platform should support automated shipping features, including auto-deployment, extension, auto-recovery, etc.
-5. Service discovery and load balance：platforms should support service discovery and load balance to ensure high availability and stability of applications.
-6. Log monitoring and warning：platforms should support log monitoring and warning in order to detect and resolve app problems in a timely manner.
-7. The security management：platform should support security management, including authentication, access control, audit services, etc. to ensure the security and privacy of the app.
-8. Automated CI/CD：platform should support automated CI/CD in order to achieve rapid iterations and deployments.
-9. Multicloud support：platform should support cloud environments so that apps can deploy and run across multiple cloud platforms.
+目前，Serverless 并没有一个业界统一的标准规范，因为 Serverless 并不是一种具体的技术或架构，而是一种基于云计算的应用运行和部署方式，这种部署方式凸显出开发人员不必关心服务器等基础设施。一般情况下，我们认为一个云原生的 Serverless 平台应该提供以下能力：
 
-So many capacity requirements make it difficult to build a self-contained cloud Server.Can an open source solution be chosen to achieve this objective?
+1. 弹性伸缩：平台应该支持应用自动扩缩容，以便应对变化的负载和流量。
+2. 容器编排：平台应该支持容器编排，以方便管理应用的生命周期和资源分配。
+3. 无服务器计算：平台应该支持无服务器计算模式，以提高开发者的效率和降低成本。
+4. 自动化运维：平台应该支持自动化运维，包括自动部署、自动扩容、自动恢复等功能。
+5. 服务发现与负载均衡：平台应该支持服务发现和负载均衡，以确保应用的高可用性和稳定性。
+6. 日志监控和告警：平台应该支持日志监控和告警，以便及时发现和解决应用问题。
+7. 安全管理：平台应该支持安全管理，包括身份认证、访问控制、审计服务等功能，以确保应用的安全性和隐私性。
+8. 自动化CI/CD：平台应该支持自动化CI/CD，以便实现快速迭代和部署。
+9. 多云支持：平台应该支持多云环境，以便应用可以跨多个云平台部署和运行。
 
-## Based on Rainbond auto
+如此多的能力要求，为自建云原生 Serverless 平添了不少难度。那么是否可以选择一个开源的方案来完成这个目标呢？
 
-Rainbond is an open-source cloud application management platform that helps users to quickly build and manage cloud apps, many of whose functional features are consistent with Serverless Server-free ideas.Rainbond provides a range of tools and services that can help users achieve rapid iterations and deployment of applications, including those related to the organization of applications, the organization of containers, automatic deployment, warning monitoring, application management, etc.In addition, Rainbond supports the deployment of multilingual, multi-frame, cloud environments where users can choose different modes of deployment according to their own needs.
+## 基于 Rainbond 自建
+
+Rainbond 是一款开源的云原生应用管理平台，它可以帮助用户快速构建和管理云原生应用，其很多功能特性都与 Serverless 的无服务器理念不谋而合。Rainbond 提供了一系列的工具和服务，包括应用编排、容器编排、自动化部署、监控告警、应用管理等功能，可以帮助用户实现应用的快速迭代和部署。此外，Rainbond 还支持多语言、多框架、多云环境的部署，用户可以根据自己的需要选择不同的部署方式。
 
 ![server-1](https://static.goodrain.com/wechat/serverless/rainbond-serverless-1.png)
 
-### Native support cloud management
+### 原生支持多云管理
 
-Rainbond can be built on a variety of clouds, and native supports cloud management.This cloud-management capability helps users to defuse differences between different cloud computers, providing a consistent application deployment and application management experience.Whether public, private, or mixed, clouds become transparent layers for users, and user applications can use the capabilities offered by Rainbond to effect a rapid movement across clouds.
+Rainbond 可以架设在多种不同的云之上，原生支持多云管理。这种多云管理能力可以帮助用户抹平多种不同云计算供应商之间的差异，提供一致的应用部署、应用管理体验。无论是公有云、私有云或混合云，对用户而言都变成透明层，用户的应用可以借助Rainbond提供的能力完成跨云的快速迁移。
 ![server-2](https://static.goodrain.com/wechat/serverless/rainbond-serverless-2.png)
 
-### Simplify app deployment
+### 简化应用部署
 
-Rainbond supports user deployment of applications developed in different development languages. This process does not require users to write Dockerfile, and does not need to know how the container mirrors are packing.Supported language types include：Java, Python, Golang, PHP, NodeJS, .NetCore, and Static Html languages.A user can only provide a code repository address when they operate, or directly upload Jar, War Pack to Rainbond, which automatically identifies the language type and automatically configure the language building environment and the final operating environment.Once the job is completed, the app will run automatically. The process does not require too many users.
+Rainbond 支持用户部署由不同开发语言开发而来的应用，这个过程不需要用户编写 Dockerfile，不需要了解容器镜像如何打包。被支持的语言类型包括：Java、Python、Golang、PHP、NodeJS、.NetCore以及静态Html语言。用户在操作时仅需要提供代码仓库地址，或者直接上传 Jar、War 包即可将构建任务交给 Rainbond ，后者会自动识别语言类型，并自动配置语言的构建环境与最终运行环境。构建任务完成后，应用会自动运行起来，整个过程不需要用户过多参与。
 
-During the deployment, users can choose to deploy the app by their own choice with a prime workload type, and Rainbond supports the deployment of Job, CronJob types in addition to supporting the usual Deployment, StatefulSet.
+部署过程中，用户可以自己选择以哪种 Workload 类型来部署应用，Rainbond 除了支持常见的 Deployment、StatefulSet 之外，也支持部署 Job、CronJob 类型的 Workload。
 
-### Flexibility
+### 弹性伸缩能力
 
-Flexibility is one of the most important of the Serverless scenarios, and automatic elasticity scalability increases the use of computed resources.Users can use this capability to automate their business peak flow.Rainbond is able to use CPU/MEM resources to automatically scale up from 1-N instances. Users only need to make a very simple setup.In a higher scenario, Rainbond was able to look by the bypass to meet performance indicators, such as the average response time for Http's operations, throughput, etc. and achieve automatic scalability accordingly.
+弹性伸缩能力是 Serverless 场景中最受关注的能力之一，自动化的弹性伸缩能够提升对计算资源的利用率。用户可以借助这种能力，自动化应对业务的峰谷流量。Rainbond 能够根据 CPU/MEM 资源利用情况进行实例数量上的 1-N 自动伸缩，用户仅需要做非常简单的一次设置即可。在更高阶的场景中，Rainbond 能够旁路感知Http业务的平均响应时间、吞吐率等性能指标，并据此实现自动伸缩能力。
 
-### Microservice capacity
+### 微服务能力
 
-The Serverless architecture, similar to the traditional microservice structure, is based on the idea of a distributed system that divides an application into multiple small, relatively separate service modules for development, deployment and management.Microservice frameworks can help developers to better design and develop these service modules and improve the maintenance, scalability and reliability of the system.Rainbond, with a flexible and efficient service Mesh microservice framework, is able to complete cross-linguistic, cross-protocol, cross-structure micro-service organization and provide comprehensive microservice governance, mismanagement mechanisms, etc.
+Serverless架构与传统的微服务架构类似，都是基于分布式系统的思想，将一个应用拆分成多个小的、相对独立的服务单元来进行开发、部署和管理。而微服务框架可以帮助开发人员更好地设计和开发这些服务单元，提高系统的可维护性、可扩展性和可靠性。Rainbond内置灵活高效的ServiceMesh微服务框架，能够完成跨语言、跨协议、跨架构的微服务编排，并且提供全面的微服务治理、容错机制等能力。
 
-### Automated Transport
+### 自动化运维
 
-Rainbod provides a well-developed automatization capability capable of freeing the developers.Many applications will be taken over by the platform, including regular data backup, health testing, failure healing, etc.
+Rainbond提供完善的自动化运维能力，能够极大的解放开发人员。许多应用运维工作都将由平台来接管，包括定时数据备份、健康检测、故障自愈等。
 
-### Observability Centre
+### 可观测性中心
 
-Extensible full range of observable capabilities, providing up to the application component, down to the platform's monitoring view.Global log functionality and link trackability can help developers quickly locate issues.Real-time warning capacity ensures that every exception gets the attention of developers.
+可扩展的全方位可观测性能力，提供上至应用组件，下至平台的监控视图。全局日志功能与链路追踪能力，能够帮助开发者快速定位问题。实时告警能力，则保证了每一次异常都会得到开发者的关注。
 
-### Auto CI/CD
+### 自动CI/CD
 
-Rainbond can place Git or Svn type code repositories, simplify user creation apps and configure automated Webhook processes.The developer will be able to touch the entire CI/CD chain, automatically completing the updated code online.
+Rainbond 能够对接 Git 或 Svn 类型的代码仓库，简化用户创建应用以及配置自动化 Webhook 的流程。开发者仅需要提交一次代码，就可以触动整个CI/CD链条，自动化完成代码更新后的上线。
 
-### Configure network entry by one click
+### 一键配置网络入口
 
-Users do not need to learn complex load equilibrium configurations, but only one key, will enable the gateway strategy for L4/L7 and will be exposed to the port of application, and the platform will automatically generate access addresses in the form of IP:Port or domain names as required.
+用户不需要学习复杂的负载均衡配置，仅仅需要一键，就可以开启 L4/L7 的网关策略，将应用的端口对外暴露，平台将会根据要求自动生成 IP:Port 或域名形式的访问地址。
 
-### Security management
+### 安全管理
 
-A two-factor authentication method is used on the platform to ensure security of login and to provide a design based on RBAC to ensure permission control over the application.In addition to this, Rainbond provides the global operations log audit functionality to keep the user's record of each app operation.
+平台中采用双因素认证方式保证登录安全，并提供基于 RBAC 的设计方案来确保对应用的权限控制。除此之外，Rainbond 提供全局的操作日志审计功能，保留用户对应用的每一次操作记录。
 
-Rainbond as an open source endogenous application management platform can help businesses cope with the difficulty of building privatized cloud-origin Serverless platforms.First, Rainbond provided a wealth of components and tools that made it easier for enterprises to construct containers clusters, microservice structures, CI/CD water routes, and so on, significantly reducing the technical thresholds.Second, Rainbond provided sound application management and control mechanisms, including applications deployment, service organization, load balance, and significantly simplified the workload of applications development and delivery, automating and freeing management.In addition, Rainbond has provided gateway components that can provide an outdoor exposure to L4/L7 services by a single key, thus improving the security and accessibility of applications.Rainbond also supports the Job Type or CrontabJob Time-Time Type to enable the enterprise to make scheduled assignments easily.Most importantly, Rainbond provides ServerMesh Microservice Framework and built-in Application Organization models to help businesses easily organize and manage their outreach, and to effect rapid iterations and updates.In addition, Rainbond has been able to use Git type code warehouses, automate the CI/CD process, further improving development efficiency and operational effectiveness.
+Rainbond 作为一个开源的云原生应用管理平台，能够帮助企业应对建设私有化的云原生 Serverless 平台的难点。首先，Rainbond 提供了丰富的组件和工具，使得企业可以轻松构建容器集群、微服务架构、CI/CD流水线等，极大地降低了技术门槛。其次，Rainbond 提供了完善的应用管理和监控机制，包括应用部署、服务编排、负载均衡等功能，大大简化了应用开发和运维的工作量，实现了应用管理的自动化和免运维。此外，Rainbond 提供了网关组件，可通过一键即可对外暴露L4/L7层服务，提高了应用的安全性和可访问性。Rainbond 还支持 Job 任务类型或 CrontabJob 定时任务类型，使得企业能够方便地进行定时任务调度。最重要的是，Rainbond 提供了 ServerMesh 微服务框架和内置的应用编排模型，帮助企业轻松实现应用拓扑的编排和管理，实现应用的快速迭代和更新。此外，Rainbond 还能够对接 Git 类型代码仓库，实现自动化 CI/CD 流程，进一步提高了开发效率和运营效果。
 
-## Write in the last
+## 写在最后
 
-By building a privatized cloud Serverless platform, businesses can better cope with technological difficulties and improve its stability and sustainability.At the same time, Rainbond also provided excellent documentation and community support to help enterprises better understand and master relevant technologies and applications.As a result, building a privatized cloud Serverless platform will not only solve technological difficulties, but will also increase the efficiency of business development and reduce the cost of transport and is an ideal option to build a privatized Serverless platform.
+通过借助 Rainbond 建设私有化的云原生 Serverless 平台，企业能够更好地应对技术难点，提高平台的稳定性和可持续性。同时，Rainbond 还提供了完善的文档和社区支持，帮助企业更好地了解和掌握相关的技术和应用。因此，借助 Rainbond 建设私有化的云原生 Serverless 平台不仅能够解决技术难点，也能够提高企业的开发效率、降低运维成本，是建设私有化 Serverless 平台的理想选择。
