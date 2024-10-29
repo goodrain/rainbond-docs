@@ -1,127 +1,129 @@
 ---
-title: Use JMX Export to monitor Java apps on Rainbond.
-description: Prometheus community has developed JMX Exporter for the export of JVM monitoring indicators in order to use Prometheus to collect monitored data
+title: Monitoring Java applications on Rainbond with JMX Exporter
+description: :::info The Prometheus community developed JMX Exporter to export JVM monitoring metrics so that Prometheus can be used to collect monitoring data.When your Java application is deployed on Rainbond
 slug: JmxExporter
 image: https://static.goodrain.com/wechat/jmx-exporter/jmx-exporter.png
 ---
 
 The Prometheus community has developed JMX Exporter for the export of JVM monitoring indicators in order to use Prometheus to collect monitoring data.When your Java app is deployed on Rainbond
 
-It is available here to see how Java apps deployed on Rainbond use JMX Exporter Exposure JVM monitoring indicators.
+Learn how Java applications deployed on Rainbond can use the JMX Exporter to expose JVM monitoring metrics. :::
 
-## JMX Export Introduction
+<!--truncate-->
 
-Java Management Extensions,JMX is an extension to manage Java based on which JMX Exporter reads JVM runtime status.JMX Exporter uses Java JMX mechanism to read monitoring data when JVM is running, and then convert it to Prometheus recognizable metrics format to enable Prometheus to monitor and collect them.
+## Introduction to JMX Exporter
 
-JMX Exporter offers `start independent process` and `JVM in-process)` both ways of exposing JVM monitoring indicator：
+Java Management Extensions，JMX 是管理 Java 的一种扩展框架，JMX Exporter 基于此框架读取 JVM 的运行时状态。Java Management Extensions, JMX is an extension framework for managing Java, JMX Exporter reads the runtime state of the JVM based on this framework.JMX Exporter uses Java's JMX mechanism to read the monitoring data of the JVM runtime, and then converts it into a metrics format that can be recognized by Prometheus, so that Prometheus can monitor and collect it.
+
+JMX Exporter provides `start independent process` and `JVM in-process start (in：process)`two ways to expose JVM monitoring indicators4
 
 **Start independent process**
 
-Specifies the parameter at JVM startup, which exposes JMX RMI interfaces.JMX Exporter calls RMI to get JVM runtime data, convert to Prometheus metrics format and exposes Prometheus to gain.
+JVM 启动时指定参数，暴露 JMX 的 RMI 接口。The parameters are specified when the JVM starts, and the RMI interface of JMX is exposed.JMX Exporter calls RMI to obtain JVM runtime status data, converts it to Prometheus metrics format, and exposes ports for Prometheus to collect.
 
-**JVM process in-process**
+**JVM in-process start (in-process)**
 
-JVM starts with parameters that run JMX Exporter jars in javaagent, read JVM running state data, converted to Prometheus metrics format and exposes the port to get Prometheus collection.
+Specify parameters when the JVM starts, run the JMX Exporter jar package in the form of javaagent, read the JVM runtime status data in the process, convert it to the Prometheus metrics format, and expose the port for Prometheus to collect.
 
-> The official does not recommend the `start independent process` method, which configure complex and separate processes, and monitoring the process itself raises new questions.This paper uses JMX Export Exporter Exposure JVM for example in the `JVM process)` process.
+> 官方不建议使用 `启动独立进程` 方式，该方式配置复杂且需单独的进程，进程本身的监控又引发了新的问题。Officially, it is not recommended to use `to start an independent process` This method is complicated to configure and requires a separate process, and the monitoring of the process itself has caused new problems.This article takes the `JVM in-process (in-process)`method as an example, and uses the JMX Exporter in Rainbond to expose the JVM monitoring indicators.
 
-## Use JMX Export on Rainbond
+## Using the JMX Exporter on Rainbond
 
-Different components of the build type are treated differently on[Rainbond](https://www.rainbond.com?channel=k8s).
+On[Rainbond](https://www.rainbond.com?channel=k8s), components with different build types are handled differently, as follows
 
-**Java apps built through source code**
+**Java applications built from source**
 
-The JAVA app built through Rainbond source code after version V5.3 will be packaged by default for `JMX Exporter` and will only be opened when users add environment variables.
+JAVA applications built from Rainbond source code since V5.3 will be packaged with `JMX Exporter` by default, and users only need to add environment variables to enable them.
 
-1. Adds a specified environment variable to the JAVA service component `ES_ENABLE_JMX_EXPORTER = true`, to enable `jmx_exporter`.
+1. Add a specified environment variable `ES_ENABLE_JMX_EXPORTER = true` for the JAVA service component to enable `jmx_exporter`.
 
-2. Add a `5556` port to the port management of the JAVA service component, which is the default port for which jmx_exporter listen.
+2. Add a port `5556` to the port management of the JAVA service component, which is the default port that jmx_exporter listens on.
 
-**JavaScript Apps built by mirror**
+**Java applications built from images**
 
-For applications built on the mirror or the Marketplace, the `jmx_agent` can be injected using plugins of initialization type.
+For mirrored or market-built apps, you can inject `jmx_agent`using an initialization type of plugin.
 
-The principles of their implementation have been detailed in previous articles and can be found in：[Rainbod integrates SkyWalking with plugins to make APM plugin](https://mp.weixin.qq.com/s/cqZsy2TEYStoRaDDDODdSbcQ) \*Agent plugin implements the rationale.
+The implementation principle has been explained in detail in previous articles. You can refer to：[Rainbond integrates SkyWalking through plug-ins to realize APM plug-and-play](https://mp.weixin.qq.com/s/cqZsy2TEYStoRaDDOdSbcQ) _Agent plug-in implementation principle part_.
 
-- Build jmx_exporter plugin
+- Build the jmx_exporter plugin
 
-Go to team -> Plugins -> Create new plugin, create initialization type plugin, source address：https://github.com/goodrain-apps/jmx_exporter.git
+Enter the team -> plugins -> create a new plugin, create an initialization type plugin, source address：https://github.com/goodrain-apps/jmx_exporter.git
 
 ![](https://static.goodrain.com/wechat/app-monitor/create_jmx.png)
 
-Plugins can be used when they are successfully built. Open this plugin for the JAVA service component.
+After the plug-in is successfully constructed, it can be used, and this plug-in can be activated for the JAVA service component.
 
-- Mount Storage
+- mount storage
 
-Mount storage `/tmp/agent` for JAVA service components so that they can be stored with plugins.
+Mount storage `/tmp/agent`for the JAVA service component so that it can share storage with plugins.
 
-By sharing storage, initialize the required configuration file and `Agent` on the shared store for the main service, making the service inviolable.
+Through the shared storage, the initialization plug-in puts the required configuration files and `Agent` in the shared storage for the main service to use, so as to realize the service without intrusion.
 
-- Add Environment Variables
+- add environment variable
 
-Add environment variable `JAVA_OPTS = -javaagent:/tmp/agent/jmx_prometheus_javaagent-0.16.jar=5556:/tmp/agent/prometheus-jmx-config.yaml`
+Add environment variable `for JAVA service component JAVA_OPTS = -javaagent:/tmp/agent/jmx_prometheus_javaagent-0.16.1.jar=5556:/tmp/agent/prometheus-jmx-config.yaml`
 
-The configuration file `/tmp/agent/prometheus-jmx-config.yaml` can be mounted to replace the existing configuration file.
+The mountable configuration file `/tmp/agent/prometheus-jmx-config.yaml` replaces the existing configuration file.
 
-- Add Port
+- add port
 
-Add the new port `5556` in the port management section of the component
+In the port management of the component, add a new port `5556`
 
-The last update of the component will take effect.
+The last update component will take effect.
 
-## Add App Watchpoint
+## Add application monitoring point
 
-App monitoring is based on `rbd-monitor` and when you add a monitoring point, you create a `servicemonitor`.
+Application monitoring is based on `rbd-monitor` When we add monitoring points, it is equivalent to creating a `servicemonitor`.
 
-Enter the component -> Monitor -> Monitor -> Manage Watchpoint, add the control point, fill in the following message：
+Enter the component -> monitoring -> business monitoring -> management monitoring point, add monitoring point, fill in the following information：
 
-- Configuration name：Custom
+- Configuration name：custom
 
-- Collect Task Name：Custom
+- Collect task name：custom
 
-- Collect time for：10 seconds
+- Collection interval：10 seconds
 
-- Indicator path：/metrics
+- Metrics path：/metrics
 
-- Port：Select `jmx_exporter` port
+- Port number：select `jmx_exporter` port
 
-Update component after adding to take effect.
+After adding, update the component to make it take effect.
 
-## Add Monitoring Chart
+## Add monitoring chart
 
-Next, you can add a monitoring chart to display the JVM indicator line： in the JAVA service component
+Next, you can add a monitoring chart to display the JVM indicator line：in the JAVA service component
 
-Click on **Add Graph above the Operations Watchboard**
+Click **above the business monitoring panel to add chart**
 
-Enter a new title and the corresponding query condition `jvm_memory_bytes_used`, click **query**.If the chart is returned normally, then the search terms are correct.The definitions of titles are as clear as possible and, where necessary, unicated.
+After entering a new title and the corresponding query condition `jvm_memory_bytes_used` , click **to query**.If the chart is returned normally, the query conditions are correct.The definition of the title should be as clear and concise as possible, and the unit should be specified where necessary.如果正常返回图表，则说明查询条件是正确的。标题的定义尽量清晰明了，并在有必要的情况下明确单位。
 
-More indicators can be found in [官方文档](https://github.com/prometheus/jmx_exporter)
+For more indicators, please refer to [official document](https://github.com/prometheus/jmx_exporter)
 
-![](https://static.goodrain.com/docs/5.3/practices/app-dev/java-exporter/java-export-2.png)
+![](https://static.goodrain.com/docs/5.3/practices/app-dev/java-exporter/java-exporter-2.png)
 
-## Expansion of grafana
+## Extending Grafana
 
-Displays via `grafana`. Brief action step：
+It can be displayed through`grafana` , the following briefly describes the operation steps：
 
-1. Get the `rbd-monitor` service `CLUSTER IP`.
+1. GET `rbd-monitor` SERVICE `CLUSTER IP`.
 
 ```shell
 $ kubectl get svc -l name=rbd-monitor -n rbd-system
 
-NAME TYPE CLUSTEER-IP EXTERNAL-IP PORT(S) AGE
-rbd-monitor ClusterIP 10.43.112.131   <none>        99/TCP 13d
+NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
+rbd-monitor ClusterIP 10.43.112.131   <none>        9999/TCP 13d
 ```
 
-2. Add a third party service on the platform to fill in the `CLUSTER IP` of the `rbd-monitor` service.
-3. Install `Grafana` from the Open Source Store and add dependency.
-4. Enter Grafana, Configuration -> Add Data Source -> URL to `http://127.0.0.1:9999`, import _JVM dashboard ID 8878_, display app monitoring information via Grafana panel.
+2. Add third-party services on the platform, fill in `rbd-monitor` service `CLUSTER IP`.
+3. Install `Grafana`from the open source app store and add dependencies.
+4. Enter Grafana, Configuration -> Add Data Source -> URL is `http://127.0.0.1:9999` , import _JVM dashboard ID 8878_ , and display application monitoring information through the Grafana panel.
 
 ![](https://static.goodrain.com/wechat/app-monitor/grafana-dashboard.png)
 
 ## References Link
 
-**jmx_export plugin Github** https://github.com/goodrain-apps/jmx_exporter.git
+**jmx_export plugin Github**  https://github.com/goodrain-apps/jmx_exporter.git
 
-**jmx_export official** https://github.com/prometheus/jmx_exporter.git
+**jmx_export official**  https://github.com/prometheus/jmx_exporter.git
 
-**jvm dashboard** https://grafana.com/grafana/dashboards/8878
+**jvm dashboard**  https://grafana.com/grafana/dashboards/8878
