@@ -38,12 +38,15 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
-          includeCurrentVersion: false,
-          lastVersion: 'current',
+          includeCurrentVersion: true,
+          lastVersion: '5.17',
           versions: {
             current: {
-              label: 'Current'
-            }
+              label: 'V6.0'
+            },
+            "5.17": {
+              label: 'V5.17',
+            },
           }
         },
         blog: {
