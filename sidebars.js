@@ -52,36 +52,7 @@ const sidebars = {
             id: 'installation/install-with-helm/index'
           },
           items: [
-            'installation/install-with-helm/install-from-kubernetes',
             'installation/install-with-helm/vaules-config',
-            {
-              type: 'category',
-              label: '在托管 Kubernetes 上安装',
-              link: {
-                type: 'doc',
-                id: 'installation/install-with-helm/cloud/index'
-              },
-              items: [
-                'installation/install-with-helm/cloud/ack-install-with-helm',
-                'installation/install-with-helm/cloud/cce-install-with-helm',
-              ]
-            },
-            {
-              type: 'category',
-              label: '其他安装方式',
-              link: {
-                type: 'doc',
-                id: 'installation/install-with-helm/other/index'
-              },
-              items: [
-                'installation/install-with-helm/other/k3s-install-with-helm',
-              ]
-            },
-            // {
-            //   type: 'link',
-            //   label: 'Helm 命令生成工具',
-            //   href: '/helm'
-            // },
           ]
         },
         'installation/offline/index',
@@ -217,7 +188,6 @@ const sidebars = {
             'kubernetes-native-guide/import-manage/special-attribute',
           ]
         },
-        'kubernetes-native-guide/gateway-api',
       ]
     },
     {
@@ -237,32 +207,7 @@ const sidebars = {
             id: 'micro-service/service-mesh/index'
           },
           items: [
-            'micro-service/service-mesh/regist_and_discover',
             'micro-service/service-mesh/connection_env',
-            'micro-service/service-mesh/traffic-management',
-            {
-              type: 'category',
-              label: '熔断与限流',
-              link: {
-                type: 'doc',
-                id: 'micro-service/service-mesh/fused-limit/index'
-              },
-              items: [
-                'micro-service/service-mesh/fused-limit/fused',
-                'micro-service/service-mesh/fused-limit/limit',
-              ]
-            },
-            {
-              type: 'category',
-              label: 'Service Mesh 治理模式',
-              link: {
-                type: 'doc',
-                id: 'micro-service/service-mesh/model/index'
-              },
-              items: [
-                'micro-service/service-mesh/model/deploy-istio',
-              ]
-            },
           ]
         },
         {
@@ -337,7 +282,17 @@ const sidebars = {
             'delivery/offline/development-iteration',
           ]
         },
-        'delivery/app-model-parameters',
+        {
+          type: 'category',
+          label: '应用模板参数说明',
+          link: {
+            type: 'doc',
+            id: 'delivery/app-model-parameters',
+          },
+          items: [
+            'delivery/upgrade-app',
+          ]
+        },
       ]
     },
     {
@@ -370,77 +325,12 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '集群管理指南',
-      link: {
-        type: 'doc',
-        id: 'cluster-manage/index'
-      },
-      items: [
-        {
-          type: 'category',
-          label: '集群状态监控',
-          link: {
-            type: 'doc',
-            id: 'cluster-manage/status-monitor/index',
-          },
-          items: [
-            'cluster-manage/status-monitor/dashboard',
-          ]
-        },
-        'cluster-manage/cluster-info',
-        {
-          type: 'category',
-          label: '节点管理',
-          link: {
-            type: 'doc',
-            id: 'cluster-manage/nodes/index'
-          },
-          items: [
-            'cluster-manage/nodes/add-node',
-          ]
-        },
-      ]
-    },
-    {
-      type: 'category',
-      label: '使用手册',
+      label: '应用运维指南',
       link: {
         type: 'doc',
         id: 'use-manual/index'
       },
       items: [
-        {
-          type: 'category',
-          label: '使用入门',
-          link: {
-            type: 'doc',
-            id: 'use-manual/get-start/index'
-          },
-          items: [
-            {
-              type: 'category',
-              label: '学习概念',
-              link: {
-                type: 'doc',
-                id: 'use-manual/get-start/concept/index'
-              },
-              items: [
-                'use-manual/get-start/concept/team',
-                'use-manual/get-start/concept/app',
-                'use-manual/get-start/concept/component',
-                'use-manual/get-start/concept/plugin',
-                'use-manual/get-start/concept/gateway'
-              ]
-            },
-            'use-manual/get-start/team-management-and-multi-tenancy',
-            'use-manual/get-start/create-app-from-source',
-            'use-manual/get-start/create-app-from-market',
-            'use-manual/get-start/create-dependency',
-            'use-manual/get-start/release-to-market',
-            'use-manual/get-start/upgrade-from-market',
-            'use-manual/get-start/offline-delivery-with-market'
-          ]
-        },
         {
           type: 'category',
           label: '部署服务组件',
@@ -488,20 +378,6 @@ const sidebars = {
                 'use-manual/component-create/language-support/procfile',
                 'use-manual/component-create/language-support/rainbondfile',
                 'use-manual/component-create/language-support/envs'
-              ]
-            },
-            {
-              type: 'category',
-              label: '基于Docker镜像创建组件',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-create/image-support/index'
-              },
-              items: [
-                'use-manual/component-create/image-support/docker-compose',
-                'use-manual/component-create/image-support/image',
-                'use-manual/component-create/image-support/docker-hub',
-                'use-manual/component-create/image-support/docker-offline'
               ]
             },
             {
@@ -615,75 +491,12 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '应用管理',
-          link: {
-            type: 'doc',
-            id: 'use-manual/app-manage/index'
-          },
-          items: [
-            {
-              type: 'category',
-              label: '应用总览',
-              link: {
-                type: 'doc',
-                id: 'use-manual/app-manage/overview/index'
-              },
-              items: [
-                'use-manual/app-manage/overview/app-topology',
-                'use-manual/app-manage/overview/operation',
-              ]
-            },
-            'use-manual/app-manage/share-app',
-            {
-              type: 'link',
-              label: '应用网关',
-              href: '/docs/use-manual/team-manage/gateway/',
-            },
-            {
-              type: 'category',
-              label: '应用升级',
-              link: {
-                type: 'doc',
-                id: 'use-manual/app-manage/app-upgrade/index'
-              },
-              items: [
-                'use-manual/app-manage/app-upgrade/upgrade-app',
-              ]
-            },
-            'use-manual/app-manage/config-group',
-          ]
-        },
-        {
-          type: 'category',
           label: '团队管理',
           link: {
             type: 'doc',
             id: 'use-manual/team-manage/index'
           },
           items: [
-            {
-              type: 'category',
-              label: '网关',
-              link: {
-                type: 'doc',
-                id: 'use-manual/team-manage/gateway/index'
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: '访问策略管理',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/team-manage/gateway/rules/index'
-                  },
-                  items: [
-                    'use-manual/team-manage/gateway/rules/domain',
-                    'use-manual/team-manage/gateway/rules/tcpip',
-                  ]
-                },
-                'use-manual/team-manage/gateway/certs/index',
-              ]
-            },
             {
               type: 'category',
               label: '插件',

@@ -7,82 +7,32 @@ keywords:
 - 基于主机安装高可用 Rainbond 集群
 ---
 
-import Bvideo from '/src/components/Bvideo';
+本文介绍了如何在 Linux 系统上通过图形化界面安装 `Kubernetes`([RKE2](https://docs.rke2.io)) 集群和 `Rainbond` 集群。
 
-<Bvideo src="//player.bilibili.com/player.html?isOutside=true&aid=113193175223399&bvid=BV1Lvsee5Ep9&cid=25988171760&p=1" />
-
-当前安装方式，会引导用户从裸机开始安装 Rainbond ，服务器可以是物理机、虚拟机或各种云主机。
+:::tip
+该安装方式支持 Linux x86 和 Arm64 操作系统，支持[国产化信创](/docs/localization-guide)。
+:::
 
 ## 前提
 
-以下操作系统是经过测试的，请按照下述列表准备：
-
-* **CentOS：**`7.x 8.x`
-* **CentOS Stream：** `8 9`
-* **Ubuntu：**`16.x，18.x，20.x，22.x`
-* **Debian：** `9.x，10.x，11.x`
-* **Anolis OS：**`7.x，8.x`
-* **openEuler**
-* **KylinV10**
-
-| 资源要求（最低）             | Rainbond 所需端口         | 其他要求                  |
-| ---------------------------- | ------------------------- | ------------------------- |
-| CPU：2u；内存：4G；磁盘：50G | 80，443，6060，7070，8443 | 内核：4.0+；OpenSSH：7.0+ |
-
-:::tip
-
-该安装方式支持 Linux x86 和 Arm64 操作系统，支持[国产化信创](/docs/localization-guide)。
-
-:::
-
-## 安装 Rainbond 控制台
-
-:::info
-
-Rainbond 控制台支持在 Linux、Windows(Docker Desktop) 或 Mac(Docker Desktop) 中运行。
-
-:::
-
-您可选择自行安装 `Docker 24+`，或使用 Rainbond 提供的脚本安装 `Docker`。
-
-```bash
-curl -sfL https://get.rainbond.com/install_docker | bash
-```
-
-使用 Docker 启动 Rainbond 控制台，启动后使用 `http://IP:7070`进行访问。
-
-```bash
-docker run -d -p 7070:7070 \
---name=rainbond-allinone --restart=always \
--v ~/.ssh:/root/.ssh \
--v ~/rainbonddata:/app/data \
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.3-release-allinone
-```
-
-> 控制台将产生需要持久化的数据，存储于节点的 `~/rainbonddata` 目录中。
+* 确保你的环境满足 [RKE2安装要求](https://docs.rke2.io/install/requirements)。 如果你的主机安装并启用了 NetworkManager，请[确保将其配置为忽略 CNI 管理的接口](https://docs.rke2.io/known_issues#networkmanager)。
+* 如果主机内核支持 [AppArmor](https://apparmor.net/)，则在安装之前还必须具有 AppArmor 工具（通常可通过 `apparmor-parser` 包获得）。
+* 必须以`root`用户执行安装。
 
 ## 从主机开始安装 Kubernetes 集群
 
-1. 登录 Rainbond 后，进入 **平台管理 > 集群 -> 添加集群 -> 从主机开始安装** 进入图形化安装页面。
-2. 填写节点信息，如下：
+1. 根据[快速安装](/docs/quick-start/quick-install)部署 Rainbond。
+2. 进入`平台管理 -> 集群 -> 添加集群 -> 从主机开始安装`进入图形化安装页面。
+3. 点击`添加节点`并填写节点信息。
 
 |              | 说明                                        |
 | ------------ | ------------------------------------------- |
-| IP 地址      | 填写服务器公网 IP 地址或内网 IP 地址        |
-| 内网 IP 地址 | 填写服务器内网 IP 地址                      |
-| SSH 端口     | 通过 IP 地址 + SSH 端口安装 Kubernetes 集群 |
-| 节点属性     | 选择 Kubernetes 节点属性，管理、计算、ETCD  |
+| 节点角色      | 选择节点的角色，`ETCD 管理节点 计算节点`        |
+| 节点公网IP | 填写节点公网 IP 地址，如无公网 IP 则不填写             |
+| 节点内网IP     | 填写节点内网 IP 地址，如有多块网卡请手动填写内网 IP，为空则自动选择 |
+| 控制台访问地址     | 默认为当前浏览器访问的地址，如您的注册主机与控制台无法通信，请填写可通信的地址  |
 
-3. 节点信息填写完毕后，根据页面提示复制节点初始化命令在集群内`所有节点`上执行。
-
-:::tip
-节点初始化命令主要用于：
-* 自动创建 Docker 用户。
-* 自动配置 Docker 用户的免密登录以便后续安装。
-* 添加 SSH Forwading 配置。
-:::
-
-4. 初始化命令执行完毕后，开始安装 Kubernetes 集群。如遇到集群安装失败，请参阅[常见问题](#常见问题)。
+4. 复制注册命令到 Linux 主机上执行。
 
 ## 安装 Rainbond 集群
 
@@ -107,9 +57,6 @@ import TabItem from '@theme/TabItem';
 | [集群入口 IP](/docs/installation/install-with-ui/ha#负载均衡) | 集群入口访问IP，可以是VIP、负载均衡IP或任意网关节点的IP      | 必填 |
 | [网关节点](/docs/installation/install-with-ui/ha#网关节点)   | 指定 Rainbond 网关服务部署并运行在哪个节点上                 | 必填 |
 | [构建节点](/docs/installation/install-with-ui/ha#构建节点)   | 指定 Rainbond 构建服务部署并运行在哪个节点上                 | 必填 |
-| [存储](/docs/installation/install-with-ui/ha#存储)           | 指定 Rainbond 以及平台上应用要使用的存储，自定义则需填写存储类名称 | 可选 |
-| [ETCD](/docs/installation/install-with-ui/ha#etcd)           | 存储 Rainbond 组件状态信息、网络配置等，自定义则需填写**密钥名称、节点名称** | 可选 |
-
 
 </TabItem>
 
@@ -127,7 +74,7 @@ import TabItem from '@theme/TabItem';
 </Tabs>
 
 2. 配置信息填写完成后进入 Rainbond 集群安装页面，在该页面可看到安装的进度信息，并且每个组件都可点击查看状态以及事件信息。
-3. 等待 Rainbond 所有组件都启动后，会自动跳转到集群对接页面，填写集群 ID，完成对接。
+3. 等待所有组件都启动后，下一步完成对接。
 
 ## 高可用集群
 

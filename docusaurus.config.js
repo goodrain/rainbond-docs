@@ -39,7 +39,7 @@ const config = {
           showLastUpdateTime: true,
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
           includeCurrentVersion: true,
-          lastVersion: '5.17',
+          lastVersion: 'current',
           versions: {
             current: {
               label: 'V6.0'
@@ -416,7 +416,10 @@ const config = {
     ],
     'docusaurus-plugin-sass',
     '@docusaurus/plugin-ideal-image'
-  ]
+  ],
+  themes: [
+    '@docusaurus/theme-live-codeblock'
+  ],
 };
 
 module.exports = config;
