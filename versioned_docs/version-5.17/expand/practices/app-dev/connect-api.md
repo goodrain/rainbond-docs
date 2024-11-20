@@ -162,7 +162,7 @@ server {
 
 参考博客文章Rainbond 中用 Dockerfile 便捷构建运行应用
 
-1. 通过Dockerfile源码构建部署Mysql。参考文档[Dockerfile源码构建](/docs/use-manual/component-create/language-support/dockefile)
+1. 通过Dockerfile源码构建部署Mysql。参考文档[Dockerfile源码构建](../../../use-manual/component-create/language-support/dockefile)
 
    ​	Dockerfile源码构建需要在项目所需Sql目录放置`Dockerfile文件`自动初始化数据库。
 
@@ -180,7 +180,7 @@ server {
 
 #### Docker镜像部署Redis
 
-1. 通过 docker镜像部署redis，具体参考官方文档[docker镜像构建](/docs/use-manual/component-create/image-support/image)
+1. 通过 docker镜像部署redis，具体参考官方文档[docker镜像构建](../../../use-manual/component-create/image-support/image)
 
 2. 使用 redis 官方镜像，redis:latest
 
@@ -203,7 +203,7 @@ server {
          port: 6379
    ```
 
-2. 通过Java源码构建项目，具体参考官方文档[JAVA源码构建](/docs/use-manual/component-create/language-support/java/java-maven)
+2. 通过Java源码构建项目，具体参考官方文档[JAVA源码构建](../../../use-manual/component-create/language-support/java/java-maven)
 
 3. 填写源码仓库地址，构建SpringBoot项目。
 

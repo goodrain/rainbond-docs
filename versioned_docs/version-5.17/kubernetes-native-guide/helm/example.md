@@ -64,8 +64,8 @@ $ helm install my-wp wordpress --repo https://charts.bitnami.com/bitnami
 
 ## 管理组件 Kubernetes 属性
 
-参考文档 [kubernetes属性](/docs/kubernetes-native-guide/import-manage/special-attribute) 了解目前 Rainbond 所支持的多种规格定义的配置方式。
+参考文档 [kubernetes属性](../import-manage/special-attribute) 了解目前 Rainbond 所支持的多种规格定义的配置方式。
 
 ## 管理应用中的k8s资源
 
-参考文档 [k8s资源操作](/docs/kubernetes-native-guide/import-manage/non-workload) 了解如何管理非 Workload 类型的资源。
+参考文档 [k8s资源操作](../import-manage/non-workload) 了解如何管理非 Workload 类型的资源。

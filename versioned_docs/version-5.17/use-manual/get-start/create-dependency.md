@@ -10,19 +10,19 @@ description: 不修改代码实现 Service Mesh 微服务架构
 
 Rainbond 支持原生的 Service Mesh 微服务架构，应用一旦部署到 Rainbond 平台上，就已经接入了这一微服务架构。
 
-经过了 [从源码部署一个服务组件](/docs/use-manual/get-start/create-app-from-source/) 以及 [从应用市场部署一个应用](/docs/use-manual/get-start/create-app-from-market/)，我们已经成功的部署了两个服务组件，现在，我们来创建他们之间的依赖关系。
+经过了 [从源码部署一个服务组件](./create-app-from-source/) 以及 [从应用市场部署一个应用](./create-app-from-market/)，我们已经成功的部署了两个服务组件，现在，我们来创建他们之间的依赖关系。
 
 这么做的意义，是让 **Java 演示示例** 可以和 **Mysql5.7（单机版）** 通信，业务层面可以正常调用数据库。
 
 ### 意义
 
-通过实操，用户可以初步体会到服务组件在 Rainbond 中如何通信。用户需要阅读 [组件间通信](/docs/micro-service/service-mesh/connection_env) 来了解其中的原理。
+通过实操，用户可以初步体会到服务组件在 Rainbond 中如何通信。用户需要阅读 [组件间通信](../../micro-service/service-mesh/connection_env) 来了解其中的原理。
 
 ### 前提条件
 
-- 完成 [从源码部署一个服务组件](/docs/use-manual/get-start/create-app-from-source/) 获得 **Java 演示示例**。
+- 完成 [从源码部署一个服务组件](./create-app-from-source/) 获得 **Java 演示示例**。
 
-- 完成 [从应用市场部署一个应用](/docs/use-manual/get-start/create-app-from-market/) 获得 **Mysql5.7（单机版）**。
+- 完成 [从应用市场部署一个应用](./create-app-from-market/) 获得 **Mysql5.7（单机版）**。
 
 ### 建立依赖关系
 

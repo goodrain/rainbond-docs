@@ -33,7 +33,7 @@ import Bvideo from '/src/components/Bvideo';
 
 ### 部署开发环境
 
-1. 参考[基于源代码创建组件](/docs/use-manual/component-create/language-support)，根据你的代码语言使用 dev 分支部署你的各个业务模块。
+1. 参考[基于源代码创建组件](../../use-manual/component-create/language-support)，根据你的代码语言使用 dev 分支部署你的各个业务模块。
 
 2. 各个业务部署完成后，参考[微服务架构指南](/docs/micro-service/overview)进行服务编排，此时你就得到了一个在 Rainbond 上完整运行的应用。
 

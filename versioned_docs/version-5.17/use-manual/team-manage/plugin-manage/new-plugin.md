@@ -198,7 +198,7 @@ spec:
 
 这样一个日志收集的插件就制作完成了，可以将其安装到某个会产生日志文件的组件中收集日志到阿里云平台进行测试。
 
-插件的使用可以参考 [最佳实践](/docs/use-manual/get-start/concept/plugin) 章节。
+插件的使用可以参考 [最佳实践](../../get-start/concept/plugin) 章节。
 
 ### 常见问题
 

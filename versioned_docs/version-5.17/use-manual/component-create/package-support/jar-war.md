@@ -34,4 +34,4 @@ description: 本文讲述Jar、War包部署组件的要点，适用于开发者�
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/package-support/Pasted%20Graphic%206.png" title="访问成功"/>
 
 
-详细了解Rainbond是怎么处理Jar、War包的参考源码构建中的[基于源代码Java Jar包部署组件](/docs/use-manual/component-create/language-support/java/java-jar)
+详细了解Rainbond是怎么处理Jar、War包的参考源码构建中的[基于源代码Java Jar包部署组件](../language-support/java/java-jar)

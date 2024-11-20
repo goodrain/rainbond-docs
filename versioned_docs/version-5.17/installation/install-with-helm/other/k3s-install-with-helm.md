@@ -103,7 +103,7 @@ helm install rainbond rainbond/rainbond-cluster -n rbd-system
 :::tip
 更多 Helm Chart 参数请参考 [Chart 安装选项](../vaules-config)。
 
-执行完安装命令后，请[查询集群安装进度](/docs/installation/install-with-helm/install-from-kubernetes#4-安装进度查询)。
+执行完安装命令后，请[查询集群安装进度](../install-from-kubernetes#4-安装进度查询)。
 :::
 
 ### 安装问题排查

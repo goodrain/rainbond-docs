@@ -64,7 +64,7 @@ helm install rainbond rainbond/rainbond-cluster -n rbd-system
 
 如果你的集群有公网 IP，需要从外部访问，请指定 `Cluster.gatewayIngressIPs` 参数，如下所示，将命令中的 gatewayIngressIPs 替换成你的公网 IP 即可：
 
-新建示例[values.yaml](/docs/installation/install-with-helm/vaules-config)文件：
+新建示例[values.yaml](./vaules-config)文件：
 
 
 ```yaml
@@ -164,7 +164,7 @@ kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --templ
 
 ### 6. 高可用集群(可选)
  
-对于[部署 Rainbond 高可用集群](/docs/installation/install-with-ui/ha)来说，只需要将依赖的服务（镜像仓库、数据库、存储等）都使用外置的高可用服务，然后按照 [Chart 安装选项](/docs/installation/install-with-helm/vaules-config) 中的配置参数进行安装即可。 
+对于[部署 Rainbond 高可用集群](../install-with-ui/ha)来说，只需要将依赖的服务（镜像仓库、数据库、存储等）都使用外置的高可用服务，然后按照 [Chart 安装选项](./vaules-config) 中的配置参数进行安装即可。 
 
 ## 问题排查
 

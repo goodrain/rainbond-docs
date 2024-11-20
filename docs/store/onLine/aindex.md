@@ -25,7 +25,7 @@ description: 本章描述 开源应用商店 发布应用会有哪些价值。
 
 ## 发布应用流程
 
-发布应用的前提是要有一个制作好的应用，而在 Rainbond 上制作应用非常简单，只需要参考[部署文档](/docs/use-manual/component-create)，将应用运行起来后，直接发布即可。你可以选择发布到本地或开源应用商店。
+发布应用的前提是要有一个制作好的应用，而在 Rainbond 上制作应用非常简单，只需要参考[部署文档](../../devops/app-deploy/)，将应用运行起来后，直接发布即可。你可以选择发布到本地或开源应用商店。
 
 <div align="center">
   <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.12/store/onLine/aindex/publish-app.png" width="100%" />

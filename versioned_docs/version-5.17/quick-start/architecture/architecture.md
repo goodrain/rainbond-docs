@@ -53,7 +53,7 @@ Chaos 的输入源是支持 Git、Svn 协议的代码仓库，Docker 镜像仓�
 
 源码构建过程是一个非常消耗资源的过程，因此应用构建服务支持多节点部署来增加并发支持的构建任务数量，每一个节点支持的最大并发构建数量由节点 CPU 核数确定或运维人员手工设置。
 
-> - 关于源码编译的 BuildingPack 参考 [各语言支持文档](/docs/use-manual/component-create/creation-process)。
+> - 关于源码编译的 BuildingPack 参考 [各语言支持文档](../../use-manual/component-create/creation-process)。
 > - 应用构建服务支持多点高可用部署，多点部署从消息中间件获取应用构建任务。
 
 ### 应用运行时控制服务

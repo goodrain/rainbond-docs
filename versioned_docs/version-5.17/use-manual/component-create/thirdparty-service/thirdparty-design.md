@@ -25,7 +25,7 @@ description: 讲解Rainbond支持第三方服务的支持原理
 
 - Rainbond 的服务访问安全控制
 
-Rainbond 服务通过设置端口的对内、对外开启属性来进行内部服务注册，这其实也类似于防火墙的概念。[参考文档](/docs/use-manual/component-manage/service-port-domain/#端口访问控制) ，对于第三方服务一样，通过设置端口的对内、对外开启属性来管控当前服务是否向网关或其他服务开启访问权限。
+Rainbond 服务通过设置端口的对内、对外开启属性来进行内部服务注册，这其实也类似于防火墙的概念。[参考文档](../../component-manage/service-port-domain/#端口访问控制) ，对于第三方服务一样，通过设置端口的对内、对外开启属性来管控当前服务是否向网关或其他服务开启访问权限。
 
 - 第三方服务端口设置
 
@@ -35,7 +35,7 @@ Rainbond 服务通过设置端口的对内、对外开启属性来进行内部�
 
 - 对接服务网关
 
-第三方服务配置完端口后，开启对外服务对于 HTTP 类型即会与内置服务一样生成默认访问域名，应用网关接收到服务请求后将负载均衡到服务的 Endpoints 端点。此原理与内置服务一致，参考 [应用网关](/docs/use-manual/team-manage/gateway/rules/domain)
+第三方服务配置完端口后，开启对外服务对于 HTTP 类型即会与内置服务一样生成默认访问域名，应用网关接收到服务请求后将负载均衡到服务的 Endpoints 端点。此原理与内置服务一致，参考 [应用网关](../../../use-manual/team-manage/gateway/rules/domain)
 
 - 其他服务访问
 

@@ -14,7 +14,7 @@ description: 基于源代码一键构建并部署业务组件
 
 ### 前提条件
 
-- 完成 [团队管理与多租户](/docs/use-manual/get-start/team-management-and-multi-tenancy/)。完成第一个团队的创建。
+- 完成 [团队管理与多租户](../get-start/team-management-and-multi-tenancy/)。完成第一个团队的创建。
 
 - 一份托管于代码仓库（Git、Svn）的源代码。在文档的示例中，以一份基于 Maven 构建的 Java 语言代码为例。[源码地址](https://gitee.com/rainbond/java-maven-demo)
 

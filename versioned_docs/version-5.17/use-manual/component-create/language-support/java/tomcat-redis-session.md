@@ -20,7 +20,7 @@ Rainbond 使用 [webapp-Runner](./webapp-runner) 内嵌的 tomcat 或 jetty-Runn
    - 指定了监听端口，通过获取环境变量 \$PORT,此变量 Rainbond 根据平台设置的服务端口进行自动注入
    - 指定 session 存储`--session-store redis`
 
-2. 从应用市场安装 Redis 服务，并设置当前服务依赖创建的 Redis 服务，参考文档 [组件间通信](/docs/micro-service/service-mesh/regist_and_discover)
+2. 从应用市场安装 Redis 服务，并设置当前服务依赖创建的 Redis 服务，参考文档 [组件间通信](../../../../micro-service/service-mesh/regist_and_discover)
 
 3. 应用配置 redis：将`REDIS_URL`新增至应用环境变量中，值为 `redis://:${REDIS_PASS}@127.0.0.1:6379`。
 
@@ -51,6 +51,6 @@ EXPOSE 8080
 ```
 
 2. 确认源码的`<dir_name>`或`<filename>.war`存在，并且与 Dockerfile 文件存在同一目录，以此目录为根目录开始创建组件
-3. 安装 Redis 服务并建立依赖关系，参考文档 [组件间通信](/docs/micro-service/service-mesh/regist_and_discover)
+3. 安装 Redis 服务并建立依赖关系，参考文档 [组件间通信](../../../../micro-service/service-mesh/regist_and_discover)
 4. 应用配置 redis：配置变量`REDIS_URL`到应用环境变量中，值为 `127.0.0.1:6379`；配置变量`REDIS_SESSION`到应用环境变量中，值为`true`。
 5. 重启应用以适配

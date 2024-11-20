@@ -159,7 +159,7 @@ spring:
 
 
 :::caution
-这里使用了我的仓库地址，因为修改了一些默认配置，比如增加了 `nodestatic.json` `web.conf`，参阅 [部署Vue、React前端](/docs/use-manual/component-create/language-support/nodejs-static)
+这里使用了我的仓库地址，因为修改了一些默认配置，比如增加了 `nodestatic.json` `web.conf`，参阅 [部署Vue、React前端](../../devops/app-deploy/nodejs)
 :::
 
 4.2、创建组件后，进入 `pig-ui` 组件内 -> 构建源 -> 源码构建参数设置，修改 Node 版本为 `16.15.0`，确定修改并构建组件

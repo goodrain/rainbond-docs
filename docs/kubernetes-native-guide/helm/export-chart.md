@@ -17,7 +17,7 @@ Rainbond 提供的应用模板导出机制,主要用来解决面向最终用户�
 ## 前提要求
 
 - Rainbond 平台版本不低于 v5.10.1-release 。
-- 参考文档,完成 [应用发布](/docs/use-manual/app-manage/share-app) 流程,将应用发布到内部组件库。
+- 参考文档,完成应用发布流程,将应用发布到内部组件库。
 - 仅支持治理模式为原生 Service 模式的应用包
 
 ## 导出 Helm Chart 包
@@ -59,7 +59,7 @@ redis:
 imageDomain: goodrain.me
 storageClass: ""
 ```
-**mysql** **redis** :配置组信息, `MYSQL_HOST:127.0.0.1` `REDIS_PASS:123456`便是你的配置组详细的配置项，这里 对应的就是应用下的[配置组](/docs/use-manual/app-manage/config-group), 将配置组的内容作为 values.yaml 里的配置项。       
+**mysql** **redis** :配置组信息, `MYSQL_HOST:127.0.0.1` `REDIS_PASS:123456`便是你的配置组详细的配置项，这里 对应的就是应用下的配置组, 将配置组的内容作为 values.yaml 里的配置项。       
 **imageDomain** : 存放镜像的仓库地址,镜像获取的来源。   
 **storageClass** : Rainbond 创建的pvc默认会使用 Rainbond 所创建的 `storageClass` ,可以通过配置来修改使用自己的 `storageClass` 
 

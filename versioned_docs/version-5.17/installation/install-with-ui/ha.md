@@ -18,9 +18,9 @@ keywords:
 
 ## 高可用 Kubernetes 集群
 
-[安装 Kubernetes 集群](/docs/installation/install-with-ui/#从主机开始安装-kubernetes-集群) 至少需要部署 3 个节点的集群，3 个节点的属性都可进行复用，例如：3 管理节点、3 计算节点、3 ETCD 节点。
+[安装 Kubernetes 集群](../install-with-ui/#从主机开始安装-kubernetes-集群) 至少需要部署 3 个节点的集群，3 个节点的属性都可进行复用，例如：3 管理节点、3 计算节点、3 ETCD 节点。
 
-> 如需自定义基于主机安装的 Kubernetes 集群配置，参阅[集群配置](/docs/installation/install-with-ui/rke-config)。
+> 如需自定义基于主机安装的 Kubernetes 集群配置，参阅[集群配置](./rke-config)。
 
 ## 高可用 Rainbond 集群
 

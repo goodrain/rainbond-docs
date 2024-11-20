@@ -10,11 +10,11 @@ title: 选择架构部署组件
 
 ## 异构源码构建
 
-Rainbond 自带的 [源码构建](/docs/use-manual/component-create/language-support/) 能力，现在已经拓展到 `arm64` 可用的场景中。使用者在构建服务组件时，只需提供源代码仓库地址，再选择 `arm64` 架构，Rainbond 将自动配置合适的构建环境、运行环境，将其运行到对应的计算节点中去。
+Rainbond 自带的 [源码构建](../use-manual/component-create/language-support/) 能力，现在已经拓展到 `arm64` 可用的场景中。使用者在构建服务组件时，只需提供源代码仓库地址，再选择 `arm64` 架构，Rainbond 将自动配置合适的构建环境、运行环境，将其运行到对应的计算节点中去。
 
 ## 异构软件包构建
 
-对于 Java 类型的业务而言，其 Jar/War 包本身与 CPU 架构无关，进行要提供合适的运行环境即可。鉴于此，Rainbond [上传软件包功能](/docs/use-manual/component-create/package-support/jar-war) 也支持选择架构部署的配置。
+对于 Java 类型的业务而言，其 Jar/War 包本身与 CPU 架构无关，进行要提供合适的运行环境即可。鉴于此，Rainbond [上传软件包功能](../use-manual/component-create/package-support/jar-war) 也支持选择架构部署的配置。
 
 ## 异构镜像构建
 

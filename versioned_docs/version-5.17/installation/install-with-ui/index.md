@@ -104,11 +104,11 @@ import TabItem from '@theme/TabItem';
 
 | 配置项                                                       | 说明                                                         |      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
-| [集群入口 IP](/docs/installation/install-with-ui/ha#负载均衡) | 集群入口访问IP，可以是VIP、负载均衡IP或任意网关节点的IP      | 必填 |
-| [网关节点](/docs/installation/install-with-ui/ha#网关节点)   | 指定 Rainbond 网关服务部署并运行在哪个节点上                 | 必填 |
-| [构建节点](/docs/installation/install-with-ui/ha#构建节点)   | 指定 Rainbond 构建服务部署并运行在哪个节点上                 | 必填 |
-| [存储](/docs/installation/install-with-ui/ha#存储)           | 指定 Rainbond 以及平台上应用要使用的存储，自定义则需填写存储类名称 | 可选 |
-| [ETCD](/docs/installation/install-with-ui/ha#etcd)           | 存储 Rainbond 组件状态信息、网络配置等，自定义则需填写**密钥名称、节点名称** | 可选 |
+| [集群入口 IP](./ha#负载均衡) | 集群入口访问IP，可以是VIP、负载均衡IP或任意网关节点的IP      | 必填 |
+| [网关节点](./ha#网关节点)   | 指定 Rainbond 网关服务部署并运行在哪个节点上                 | 必填 |
+| [构建节点](./ha#构建节点)   | 指定 Rainbond 构建服务部署并运行在哪个节点上                 | 必填 |
+| [存储](./ha#存储)           | 指定 Rainbond 以及平台上应用要使用的存储，自定义则需填写存储类名称 | 可选 |
+| [ETCD](./ha#etcd)           | 存储 Rainbond 组件状态信息、网络配置等，自定义则需填写**密钥名称、节点名称** | 可选 |
 
 
 </TabItem>
@@ -119,8 +119,8 @@ import TabItem from '@theme/TabItem';
 
 | 配置项                                                     | 说明                                                         |      |
 | ---------------------------------------------------------- | ------------------------------------------------------------ | ---- |
-| [镜像仓库](/docs/installation/install-with-ui/ha#镜像仓库) | 指定 Rainbond 底层镜像仓库，平台上的所有组件镜像都会从这个仓库拉取、推送。默认提供内置镜像仓库 | 可选 |
-| [数据库](/docs/installation/install-with-ui/ha#mysql)      | 指定 Rainbond 集群的 MySQL8.0+ 数据库。默认提供内置 MySQL8.0+ 数据库 | 可选 |
+| [镜像仓库](./ha#镜像仓库) | 指定 Rainbond 底层镜像仓库，平台上的所有组件镜像都会从这个仓库拉取、推送。默认提供内置镜像仓库 | 可选 |
+| [数据库](./ha#mysql)      | 指定 Rainbond 集群的 MySQL8.0+ 数据库。默认提供内置 MySQL8.0+ 数据库 | 可选 |
 | 组件镜像源                                                 | 指定 Rainbond 自身组件通过哪个镜像源获取镜像，默认通过阿里云镜像仓库拉取 | 可选 |
 
   </TabItem>

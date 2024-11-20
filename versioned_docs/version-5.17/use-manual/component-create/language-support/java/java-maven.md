@@ -49,7 +49,7 @@ mvn -DskipTests clean dependency:list install
 
 #### 图形化设置
 
-Rainbond 支持图形化定义编译运行环境，配置位于服务组件的构建源页面。**对这些配置的修改，需要通过 [构建](/docs/use-manual/component-manage/overview/basic-operation) 来生效！**
+Rainbond 支持图形化定义编译运行环境，配置位于服务组件的构建源页面。**对这些配置的修改，需要通过 [构建](../../../component-manage/overview/basic-operation) 来生效！**
 
 <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/component-create/language-support/java/java-maven-1.png" title="编译运行环境定义" />
 

@@ -14,7 +14,7 @@ description: 基于应用市场一键构建并部署一个应用
 
 ### 前提条件
 
-- 完成 [团队管理与多租户](/docs/use-manual/get-start/team-management-and-multi-tenancy/)。完成第一个团队的创建。
+- 完成 [团队管理与多租户](../get-start/team-management-and-multi-tenancy/)。完成第一个团队的创建。
 
 - 已经安装好的 Rainbond 集群，或者已经对接好 Rainbond Cloud 公有云服务。
 

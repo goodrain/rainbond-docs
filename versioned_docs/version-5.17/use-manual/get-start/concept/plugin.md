@@ -32,4 +32,4 @@ description: 介绍Rainbond插件的概念和设计思考
 
 ### 更多阅读
 
-[插件开发说明](/docs/use-manual/team-manage/plugin-manage/plugin-design-develop/)
+[插件开发说明](../../team-manage/plugin-manage/plugin-design-develop/)

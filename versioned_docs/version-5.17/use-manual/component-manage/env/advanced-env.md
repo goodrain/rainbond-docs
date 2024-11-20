@@ -63,7 +63,7 @@ description: Rainbond关于环境变量的一些高级用法，适合于开发�
 | BUILD_MAVEN_CUSTOM_OPTS  | -DskipTests=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true | 用于 maven 构建，默认值如前 |
 | BUILD_MAVEN_CUSTOM_GOALS | clean install                                                                              | 用于 maven 构建，默认值如前 |
 
-更多组件构建环境设置，请参考 [组件构建源配置](/docs/use-manual/component-manage/build-source/)
+更多组件构建环境设置，请参考 [组件构建源配置](../../component-manage/build-source/)
 
 ### 应用运行时功能控制变量
 

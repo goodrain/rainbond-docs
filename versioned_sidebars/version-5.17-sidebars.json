@@ -625,11 +625,6 @@
             },
             "use-manual/app-manage/share-app",
             {
-              "type": "link",
-              "label": "应用网关",
-              "href": "/docs/use-manual/team-manage/gateway/"
-            },
-            {
               "type": "category",
               "label": "应用升级",
               "link": {

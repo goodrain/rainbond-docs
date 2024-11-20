@@ -40,12 +40,12 @@ description: Rainbond组件端口和注册策略管理文档
 - 对内服务
 
   > 这里的<b>内</b>是指团队内，开启组件对团队内部的访问许可，这时当前组件端口将被注册到团队的内部组件可用池、该团队内部的组件可以通过【添加依赖组件】的方式访问到该组件。
-  > 参考 [组件之间的通信](/docs/micro-service/service-mesh/regist_and_discover)
+  > 参考 [组件之间的通信](../../micro-service/service-mesh/regist_and_discover)
 
 - 对外服务
 
   > 打开对外组件后，平台会将该组件端口注册到团队对外组件可用池，这时应用网关可以以用户配置的访问策略访问到该组件，此时<b>平台外部</b>以及<b>平台内部其他团队的组件</b>都可以通过应用网关分配的域名或 IP 访问到该组件。
-  > 参考 [外网访问组件](/docs/use-manual/team-manage/gateway/rules/domain)
+  > 参考 [外网访问组件](../../use-manual/team-manage/gateway/rules/domain)
 
 * 端口打开对内服务后，其他组件要想连接到该组件，需要先【添加依赖组件】建立关联，然后通过<b>连接地址或环境变量</b>连接。
 * 端口访问控制可以根据需要开启和关闭，可单独开启，也可以全部开启，如果组件是个 worker 程序，只需要连接别的组件，本身没有端口监听就没有必要开启端口访问。
@@ -53,4 +53,4 @@ description: Rainbond组件端口和注册策略管理文档
 ## 组件访问策略管理
 
 Rainbond 为每一个 HTTP 组件自动生成一个默认的域名，一般情况下这个域名都比较长，不方便记忆。你可以在组件端口管理面板中快捷绑定自定义域名。
-关于组件访问策略的几种管理和高级设置，请参考 [外网访问组件](/docs/use-manual/team-manage/gateway/rules/domain)
+关于组件访问策略的几种管理和高级设置，请参考 [外网访问组件](../../use-manual/team-manage/gateway/rules/domain)

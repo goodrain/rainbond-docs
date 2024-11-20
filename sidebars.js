@@ -40,7 +40,6 @@ const sidebars = {
             id: 'installation/install-with-ui/index',
           },
           items: [
-            'installation/install-with-ui/ha',
             'installation/install-with-ui/console-recover',
           ]
         },
@@ -55,6 +54,7 @@ const sidebars = {
             'installation/install-with-helm/vaules-config',
           ]
         },
+        'installation/ha',
         'installation/offline/index',
         'upgrade/latest-version',
         'installation/uninstall',
@@ -78,8 +78,14 @@ const sidebars = {
             id: 'devops/app-deploy/index'
           },
           items: [
-            'devops/app-deploy/react-vue',
             'devops/app-deploy/springboot',
+            'devops/app-deploy/nodejs',
+            'devops/app-deploy/python',
+            'devops/app-deploy/golang',
+            'devops/app-deploy/php',
+            'devops/app-deploy/dockefile',
+            'devops/app-deploy/html',
+            'devops/app-deploy/thirdparty',
             {
               type: 'category',
               label: '工具集成',
@@ -107,33 +113,22 @@ const sidebars = {
             'devops/continuous-deploy/auto-build',
           ]
         },
-        {
-          type: 'category',
-          label: '应用调试',
-          link: {
-            type: 'doc',
-            id: 'devops/app-debug/index',
-          },
-          items: [
-            'devops/app-debug/nocalhost',
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Pipeline 概述',
-          link: {
-            type: 'doc',
-            id: 'devops/pipeline/index',
-          },
-          items: [
-            'devops/pipeline/install',
-            'devops/pipeline/app-service',
-            'devops/pipeline/repository',
-            'devops/pipeline/images',
-            'devops/pipeline/deploy-history',
-            'devops/pipeline/pipelines',
-          ]
-        },
+        // {
+        //   type: 'category',
+        //   label: 'Pipeline 概述',
+        //   link: {
+        //     type: 'doc',
+        //     id: 'devops/pipeline/index',
+        //   },
+        //   items: [
+        //     'devops/pipeline/install',
+        //     'devops/pipeline/app-service',
+        //     'devops/pipeline/repository',
+        //     'devops/pipeline/images',
+        //     'devops/pipeline/deploy-history',
+        //     'devops/pipeline/pipelines',
+        //   ]
+        // },
       ]
     },
     {
@@ -185,7 +180,6 @@ const sidebars = {
           items: [
             'kubernetes-native-guide/import-manage/non-workload',
             'kubernetes-native-guide/import-manage/import-resource',
-            'kubernetes-native-guide/import-manage/special-attribute',
           ]
         },
       ]
@@ -331,188 +325,12 @@ const sidebars = {
         id: 'use-manual/index'
       },
       items: [
-        {
-          type: 'category',
-          label: '部署服务组件',
-          link: {
-            type: 'doc',
-            id: 'use-manual/component-create/index'
-          },
-          items: [
-            'use-manual/component-create/creation-process',
-            {
-              type: 'category',
-              label: '基于源代码创建组件',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-create/language-support/index'
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: 'Java语言参考',
-                  link: {
-                    type: 'doc',
-                    id: 'use-manual/component-create/language-support/java/index'
-                  },
-                  items: [
-                    'use-manual/component-create/language-support/java/java-maven',
-                    'use-manual/component-create/language-support/java/java-multi-module-build',
-                    'use-manual/component-create/language-support/java/java-jar',
-                    'use-manual/component-create/language-support/java/java-war',
-                    'use-manual/component-create/language-support/java/java-gradle',
-                    'use-manual/component-create/language-support/java/java-maven-de',
-                    'use-manual/component-create/language-support/java/tomcat-redis-session',
-                    'use-manual/component-create/language-support/java/webapp-runner'
-                  ]
-                },
-                'use-manual/component-create/language-support/dockefile',
-                'use-manual/component-create/language-support/python',
-                'use-manual/component-create/language-support/php',
-                'use-manual/component-create/language-support/netcore',
-                'use-manual/component-create/language-support/golang',
-                'use-manual/component-create/language-support/html',
-                'use-manual/component-create/language-support/nodejs',
-                'use-manual/component-create/language-support/nodejs-static',
-                'use-manual/component-create/language-support/slugignore',
-                'use-manual/component-create/language-support/procfile',
-                'use-manual/component-create/language-support/rainbondfile',
-                'use-manual/component-create/language-support/envs'
-              ]
-            },
-            {
-              type: 'category',
-              label: '接入外部服务作为第三方组件',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-create/thirdparty-service/index'
-              },
-              items: [
-                'use-manual/component-create/thirdparty-service/thirdparty-define',
-                'use-manual/component-create/thirdparty-service/thirdparty-design',
-                'use-manual/component-create/thirdparty-service/thirdparty-create'
-              ]
-            },
-            {
-              type: 'category',
-              label: '本地文件创建组件',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-create/package-support/index'
-              },
-              items: [
-                'use-manual/component-create/package-support/jar-war',
-              ]
-            },
-          ]
-        },
-        {
-          type: 'category',
-          label: '组件管理',
-          link: {
-            type: 'doc',
-            id: 'use-manual/component-manage/index'
-          },
-          items: [
-            {
-              type: 'category',
-              label: '组件总览',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-manage/overview/index'
-              },
-              items: [
-                'use-manual/component-manage/overview/basic-operation',
-                'use-manual/component-manage/overview/service-properties',
-              ]
-            },
-            {
-              type: 'category',
-              label: '组件监控',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-manage/monitor/index'
-              },
-              items: [
-                'use-manual/component-manage/monitor/service-monitor',
-                'use-manual/component-manage/monitor/custom-monitor',
-              ]
-            },
-            'use-manual/component-manage/service-log',
-            {
-              type: 'category',
-              label: '组件伸缩',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-manage/automatic-telescoping/index'
-              },
-              items: [
-                'use-manual/component-manage/automatic-telescoping/service-auto-scaling'
-              ]
-            },
-            {
-              type: 'category',
-              label: '组件环境配置',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-manage/env/index'
-              },
-              items: [
-                'use-manual/component-manage/env/advanced-env'
-              ]
-            },
-            {
-              type: 'category',
-              label: '组件存储',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-manage/custom-volume/index'
-              },
-              items: [
-                'use-manual/component-manage/custom-volume/service-volume-custom'
-              ]
-            },
-            'use-manual/component-manage/service-port-domain',
-            'use-manual/component-manage/service-plugins',
-            {
-              type: 'category',
-              label: '组件构建源',
-              link: {
-                type: 'doc',
-                id: 'use-manual/component-manage/build-source/index'
-              },
-              items: [
-                'use-manual/component-manage/build-source/change_source_type'
-              ]
-            },
-            // 'use-manual/component-manage/other/dep',
-            'use-manual/component-manage/other/index',
-          ]
-        },
-        {
-          type: 'category',
-          label: '团队管理',
-          link: {
-            type: 'doc',
-            id: 'use-manual/team-manage/index'
-          },
-          items: [
-            {
-              type: 'category',
-              label: '插件',
-              link: {
-                type: 'doc',
-                id: 'use-manual/team-manage/plugin-manage/index'
-              },
-              items: [
-                'use-manual/team-manage/plugin-manage/plugin-design-develop',
-                'use-manual/team-manage/plugin-manage/mesh-plugin',
-                'use-manual/team-manage/plugin-manage/new-plugin',
-                'use-manual/team-manage/plugin-manage/tcm-plugin',
-              ]
-            },
-          ]
-        },
+        'use-manual/lifecycle',
+        'use-manual/service-auto-scaling',
+        'use-manual/environment',
+        'use-manual/storage',
+        'use-manual/app-sidecar',
+        'use-manual/k8s-attribute',
         {
           type: 'category',
           label: '应用商店',

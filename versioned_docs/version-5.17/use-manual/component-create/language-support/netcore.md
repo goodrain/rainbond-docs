@@ -43,7 +43,7 @@ dotnet publish -c Release
 BUILD_DOTNET_RESTORE_PRE=dotnet restore --ignore-failed-sources
 ```
 
-关于环境变量的设置参考 [服务环境变量](/docs/use-manual/component-manage/env/)
+关于环境变量的设置参考 [服务环境变量](../../component-manage/env/)
 
 #### 项目运行
 
@@ -57,7 +57,7 @@ BUILD_DOTNET_RESTORE_PRE=dotnet restore --ignore-failed-sources
 
 通过设置环境变量`BUILD_DOTNET_RUNTIME_VERSION` 设置你需要的版本
 
-编译的结果文件存放于运行环境的`/app`目录下。由于平台咱无法很好的感知项目的入口运行文件，需要在源码主目录中定义 [rainbondfile](/docs/use-manual/component-create/language-support/rainbondfile) 定义项目的运行启动方式，例如：
+编译的结果文件存放于运行环境的`/app`目录下。由于平台咱无法很好的感知项目的入口运行文件，需要在源码主目录中定义 [rainbondfile](./rainbondfile) 定义项目的运行启动方式，例如：
 
 ```
 ports:

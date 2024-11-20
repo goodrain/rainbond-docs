@@ -7,11 +7,11 @@ description: 讲解基于Rainbond做微服务流量路由管理
 
 ### 网关边缘流量路由
 
-网关边缘流量路由请参考 [通过域名访问提供 HTTP 服务的组件](/docs/use-manual/team-manage/gateway/rules/domain)
+网关边缘流量路由请参考 [通过域名访问提供 HTTP 服务的组件](../../use-manual/team-manage/gateway/rules/domain)
 
 ### 组件间通信路由
 
-Rainbond 中组件间通信默认情况下采用 TCP 4 层通信，因此默认情况下无需设置路由参数。当我们希望从应用层通信控制流量时，需要安装 [出口网络治理插件](/docs/use-manual/team-manage/plugin-manage/) 。将服务间的通信治理升级为 7 层通信治理。目前只支持 Restful 协议路由管理，支持以下路由参数：
+Rainbond 中组件间通信默认情况下采用 TCP 4 层通信，因此默认情况下无需设置路由参数。当我们希望从应用层通信控制流量时，需要安装 [出口网络治理插件](../../use-manual/team-manage/plugin-manage/) 。将服务间的通信治理升级为 7 层通信治理。目前只支持 Restful 协议路由管理，支持以下路由参数：
 
 1. <b>域名</b> 5.2.0 版本以前，该域名仅支持自定义顶级域名，比如 `user`。5.2.0 版本以后支持定义多级域名，比如`user.domian`。Rainbond 将自动完成填写域名的域名解析。Mesh 层根据流量访问的域名进行路由。
 

@@ -14,7 +14,7 @@ keywords:
 
 ## 前提
 
-* 使用 [Helm 安装 Rainbond](/docs/installation/install-with-helm/)。
+* 使用 [Helm 安装 Rainbond](../../installation/install-with-helm/)。
 
 ## 操作步骤
 
@@ -57,16 +57,16 @@ Component:
 * **--api-addr-ssl** 用于修改 Rainbond 的 API 端口。
 * **--ws-addr** 用于修改 Rainbond 的 Websocket 端口。
 
-更多 Helm 安装参数请参考 [Chart 安装选项](/docs/installation/install-with-helm/vaules-config)。
+更多 Helm 安装参数请参考 [Chart 安装选项](../../installation/install-with-helm/vaules-config)。
 
-参考 [基于 Kubernetes 安装](/docs/installation/install-with-helm/install-from-kubernetes)。
+参考 [基于 Kubernetes 安装](../../installation/install-with-helm/install-from-kubernetes)。
 
 安装时需要使用 `-f values.yaml` 参数指定配置文件。
 
 ### 修改私有镜像配置
 
 :::tip
-建议指定外部镜像仓库，下述操作就可跳过，可参考 [Chart 安装选项](/docs/installation/install-with-helm/vaules-config)配置外部镜像仓库。
+建议指定外部镜像仓库，下述操作就可跳过，可参考 [Chart 安装选项](../../installation/install-with-helm/vaules-config)配置外部镜像仓库。
 :::
 默认的私有镜像仓库的访问地址为 `goodrain.me`，是由 `rbd-gateway` 代理访问的，修改网关默认的 `80 443` 端口之后，无法通过 `goodrain.me` 访问到私有镜像仓库，需要修改私有镜像仓库的访问地址为 `goodrain.me:<PORT>`。
 
@@ -100,5 +100,5 @@ spec:
 ```
 
 :::tip
-等待安装完成访问 Rainbond 控制台，参考 [安装进度查询](/docs/installation/install-with-helm/install-from-kubernetes)。
+等待安装完成访问 Rainbond 控制台，参考 [安装进度查询](../../installation/install-with-helm/install-from-kubernetes)。
 :::

@@ -143,4 +143,4 @@ websocketAddress: ws://xxx:6060
 现在你已经成功将应用迁移，接下来你可以尝试：
 
 - [控制台高可用](/docs/installation/install-with-ui/console-recover): 将单机版的控制台也迁移到集群中部署。
-- [高可用部署](/docs/installation/install-with-ui/ha): 部署一个高可用集群用于生产环境。
+- [高可用部署](../installation/ha): 部署一个高可用集群用于生产环境。

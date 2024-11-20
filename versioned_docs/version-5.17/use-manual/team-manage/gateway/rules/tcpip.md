@@ -9,7 +9,7 @@ description: 本文介绍Rainbond使用IP加端口的形式访问任意类型组
 
 ### 前提条件
 
-1. 基于应用市场部署一个 Mysql 组件 [参考创建组件文档](/docs/use-manual/component-create/creation-process/)
+1. 基于应用市场部署一个 Mysql 组件 [参考创建组件文档](../../../component-create/creation-process/)
 2. 本地准备一个 Mysql 客户端用来测试连接 Mysql 服务
 
 ### 操作流程

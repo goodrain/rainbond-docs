@@ -66,4 +66,4 @@ kubectl patch storageclass rainbondvolumerwx  -p '{"metadata": {"annotations":{"
 
 #### 应用使用
 
-应用安装完毕后平台会将组件自动转换为 Rainbond 模型,会将 Helm 资源对应转换为平台资源。具体使用可移至[组件使用](/docs/use-manual/component-manage/)
+应用安装完毕后平台会将组件自动转换为 Rainbond 模型,会将 Helm 资源对应转换为平台资源。具体使用可移至[组件使用](../../use-manual/component-manage/)

@@ -16,7 +16,7 @@ description: 在离线生产环境中，通过应用市场交付。
 
 - 在离线生产环境中，离线安装 Rainbond。
 
-- 开发环境安装 Rainbond 进行在线开发，并且将开发的业务系统发布成为应用模版。本文档以 [将应用发布为应用模版](/docs/use-manual/get-start/release-to-market/) 中发布出来的应用模版为例。
+- 开发环境安装 Rainbond 进行在线开发，并且将开发的业务系统发布成为应用模版。本文档以 [将应用发布为应用模版](../get-start/release-to-market/) 中发布出来的应用模版为例。
 
 ### 导出应用模版
 
@@ -52,7 +52,7 @@ description: 在离线生产环境中，通过应用市场交付。
 
 经过上述操作，应用模版就被导入离线生产环境的 Rainbond 中去了。
 
-接下来，参照 [从应用市场部署一个应用](/docs/use-manual/get-start/create-app-from-market/) 的操作，即可将应用模版安装到生产环境中。
+接下来，参照 [从应用市场部署一个应用](../get-start/create-app-from-market/) 的操作，即可将应用模版安装到生产环境中。
 
 ### 离线环境下的应用模版升级
 
@@ -64,4 +64,4 @@ description: 在离线生产环境中，通过应用市场交付。
 
 - 将导出的应用模版导入到离线 Rainbond 环境中去即可。
 
-- 已有应用的升级，参考 [应用模版的升级](/docs/use-manual/get-start/upgrade-from-market/)。
+- 已有应用的升级，参考 [应用模版的升级](../get-start/upgrade-from-market/)。

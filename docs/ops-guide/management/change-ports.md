@@ -59,7 +59,7 @@ Component:
 
 更多 Helm 安装参数请参考 [Chart 安装选项](/docs/installation/install-with-helm/vaules-config)。
 
-参考 [基于 Kubernetes 安装](/docs/installation/install-with-helm/install-from-kubernetes)。
+<!-- 参考 [基于 Kubernetes 安装](/docs/installation/install-with-helm/install-from-kubernetes)。 -->
 
 安装时需要使用 `-f values.yaml` 参数指定配置文件。
 
@@ -100,5 +100,5 @@ spec:
 ```
 
 :::tip
-等待安装完成访问 Rainbond 控制台，参考 [安装进度查询](/docs/installation/install-with-helm/install-from-kubernetes)。
+<!-- 等待安装完成访问 Rainbond 控制台，参考 [安装进度查询](/docs/installation/install-with-helm/install-from-kubernetes)。 -->
 :::
