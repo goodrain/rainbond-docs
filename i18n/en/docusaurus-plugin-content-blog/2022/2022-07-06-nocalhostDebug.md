@@ -1,29 +1,26 @@
 ---
 title: Microservice remote debugging, Nocalhost + Rainbond microservice development second bullet
 description: Microservice remote debugging, Nocalhost + Rainbond microservice development second bullet
-slug: nocalhostdebug
+slug: noocalhostdebug
+image: "![](https://static.goodrain.com/wechat/nocalhost2/nocalhost.png)"
 ---
 
-:::info
 describes how to use Nocalhost Debug to deploy microservices on Rainbond
-:::
 
-<!--truncate-->
-
-![](https://static.goodrain.com/wechat/nocalhost2/nocalhost.png)
-
-In the previous article, we introduced how to quickly develop microservices on Rainbond through [](https://mp.weixin.qq.com/s/kC9P7fvMtJvKK7_TM2LbTw), and introduced the basic development process.
+In the previous article, we introduced how to quickly develop microservices on Rainbond through , and introduced the basic development process.
 
 This article will continue the above introduction, using [Nocalhost development configuration file](https://nocalhost.dev/docs/config/config-overview-en/) to achieve the following：
 
-* One-click Run and Remote Debug
-* persistent configuration
-* Development Container Resource Limits
-* port forwarding
+- One-click Run and Remote Debug
+- persistent configuration
+- Development Container Resource Limits
+- port forwarding
 
-**What is a development configuration?**
+**What is a development configuration?**\*\*
 
-The development configuration is carried out around `development mode` , such as what image to use to enter `development mode`, whether to enable persistence to save the content of the development container, which files to synchronize to the development container, how to debug with one click, key to run services inside the container, etc. With the correct and appropriate development configuration configured, you can be more comfortable when using Nocalhost `development mode`.
+The development configuration is carried out around `development mode` , such as what image to use to enter `development mode`, whether to enable persistence to save the content of the development container, which files to synchronize to the development container, how to debug with one click, key to run services inside the container, etc. With the correct and appropriate development configuration configured, you can be more comfortable when using Nocalhost `development mode`. Having configured the correct and appropriate development configuration, you can use Nocalhost `Development Mode`.
+
+<!--truncate-->
 
 ## Deploy Rainbond + SpringCloud
 
@@ -43,11 +40,10 @@ The English name of the installed application component from the application sto
 
 ![](https://static.goodrain.com/wechat/nocalhost2/1.png)
 
-
-
 ## Nocalhost docks Rainbond
 
 1. To install Nocalhost JetBrains Plugin, please refer to document [Install Nocalhost JetBrains Plugin](https://nocalhost.dev/docs/installation/).
+
 2. To get K8s Kubeconfig, please refer to document [to get Kubeconfig file](https://www.rainbond.com/docs/ops-guide/tools/kubectl).
 
 3. Under the `pig` namespace, find the workload `pig-auth` right click and select `Dev Config` (development configuration)
@@ -130,8 +126,6 @@ containers:
 
 ![](https://static.goodrain.com/wechat/nocalhost2/3-1.gif)
 
-
-
 ### One-click Debug
 
 1. Right click on workload `pig-auth`.
@@ -186,4 +180,3 @@ Of course, Nocalhost can debug multiple microservices at the same time. In the s
 Nocalhost also has some things that are not mentioned in the development configuration text, such as：development environment variables, two modes of file synchronization `pattern` `gitignore` , etc., and Nocalhost supports multiple languages, Java is only one of them, friends can Explore on your own.
 
 Nocalhost + Rainbond makes development and deployment more efficient and convenient.
-
