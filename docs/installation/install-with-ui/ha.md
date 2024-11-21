@@ -1,5 +1,5 @@
 ---
-title: 高可用
+title: 高可用集群说明
 description: 基于图形化界面，从Linux开始安装 Rainbond 高可用集群的说明
 keywords:
 - 基于主机安装高可用 Kubernetes 集群

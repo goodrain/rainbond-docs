@@ -18,7 +18,7 @@ keywords:
 
 * 基于 [RKE](https://github.com/rancher/rke) 封装了页面操作，简化了安装过程。
 
-* 该过程通过图形化界面的定义，安装了一套完整的 Kubernetes 集群。在安装过程中可能触发图形化界面的报错提示，也需要在安装完成后，手动安装 [Kubectl命令行工具](/docs/ops-guide/tools/#kubectl)，确认当前集群可用。
+* 该过程通过图形化界面的定义，安装了一套完整的 Kubernetes 集群。在安装过程中可能触发图形化界面的报错提示，也需要在安装完成后，手动安装 [Kubectl命令行工具](../../ops-guide/tools/#kubectl)，确认当前集群可用。
 
 **安装 Rainbond 集群流程**
 

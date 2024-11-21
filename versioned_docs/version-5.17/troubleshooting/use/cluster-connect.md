@@ -73,7 +73,7 @@ http: TLS handshake error from 10.42.0.1:35590: remote error: tls: error decrypt
 
 出现该错误的原因是集群端的 API 服务与控制台的证书不一致，导致控制台无法与集群端的 API 服务进行通信。
 
-可以通过 [grctl config](/docs/ops-guide/tools/grctl) 命令查看集群端连接信息。
+可以通过 [grctl config](../../ops-guide/tools/grctl) 命令查看集群端连接信息。
 
 ```bash
 $ grctl config

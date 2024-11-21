@@ -91,7 +91,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.17.3-release-allinone
 
 ### 集群端升级
 
-安装 [grctl](/docs/ops-guide/tools/grctl) 命令并执行以下升级操作
+安装 [grctl](../ops-guide/tools/grctl) 命令并执行以下升级操作
 
 ```bash
 # 替换基础 region 镜像版本
@@ -113,7 +113,7 @@ docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:v5.17.3-release go
 docker tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:v5.17.3-release goodrain.me/runner:latest-{架构:arm64/amd64}
 ```
 
-推送镜像到私有仓库，参阅[推送镜像到私有仓库](/docs/ops-guide/component/rbd-hub#向集群私有镜像仓库推送镜像)
+推送镜像到私有仓库，参阅[推送镜像到私有仓库](../ops-guide/component/rbd-hub#向集群私有镜像仓库推送镜像)
 
 ```bash
 如果是双架构则需要 amd64和arm64 都推

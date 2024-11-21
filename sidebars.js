@@ -9,7 +9,7 @@ const sidebars = {
         'quick-start/introduction',
         'quick-start/quick-install',
         'quick-start/getting-started',
-        'quick-start/differences',
+        // 'quick-start/differences',
         {
           type: 'category',
           label: '架构',
@@ -19,9 +19,6 @@ const sidebars = {
             'quick-start/architecture/architecture'
           ]
         },
-        // 'quick-start/edition',
-        // 'quick-start/contributing',
-        // 'quick-start/roadmap'
       ]
     },
     {
@@ -41,6 +38,8 @@ const sidebars = {
           },
           items: [
             'installation/install-with-ui/console-recover',
+            'installation/install-with-ui/ha',
+
           ]
         },
         {
@@ -54,8 +53,7 @@ const sidebars = {
             'installation/install-with-helm/vaules-config',
           ]
         },
-        'installation/ha',
-        'installation/offline/index',
+        // 'installation/offline/index',
         'upgrade/latest-version',
         'installation/uninstall',
       ]
@@ -346,152 +344,7 @@ const sidebars = {
         },
       ]
     },
-    {
-      type: 'category',
-      label: '运维手册',
-      link: {
-        type: 'doc',
-        id: 'ops-guide/index'
-      },
-      items: [
-        {
-          type: 'category',
-          label: '平台组件概述',
-          link: {
-            type: 'doc',
-            id: 'ops-guide/component/index'
-          },
-          items: [
-            'ops-guide/component/rainbond-operator',
-            'ops-guide/component/rbd-hub',
-          ]
-        },
-        'ops-guide/migrate-app',
-        {
-          type: 'category',
-          label: '高级运维',
-          link: {
-            type: 'doc',
-            id: 'ops-guide/management/index'
-          },
-          items: [
-            'ops-guide/management/resource-cleanup',
-            'ops-guide/management/data-migration',
-            'ops-guide/management/container-runtime-switch',
-            'ops-guide/management/change-gateway',
-            'ops-guide/management/buildkit-args',
-            'ops-guide/management/docker-log',
-            'ops-guide/management/custom-shared-storage',
-            'ops-guide/management/change-ports',
-            'ops-guide/management/switch-registry',
-            'ops-guide/management/auto-cert',
-            'ops-guide/management/reset-admin-password',
-          ]
-        },
-        {
-          type: 'category',
-          label: '存储解决方案',
-          link: {
-            type: 'doc',
-            id: 'ops-guide/storage/index'
-          },
-          items: [
-            'ops-guide/storage/ali-disk',
-            'ops-guide/storage/change-nfs'
-          ]
-        },
-        {
-          type: 'category',
-          label: '集群监控',
-          link: {
-            type: 'doc',
-            id: 'ops-guide/monitor/index'
-          },
-          items: [
-            'ops-guide/monitor/monitor-alert-items',
-            'ops-guide/monitor/monitor-alert-deploy',
-            {
-              type: 'category',
-              label: '告警配置项',
-              link: {
-                type: 'doc',
-                id: 'ops-guide/monitor/alert/index'
-              },
-              items: [
-                'ops-guide/monitor/alert/alert-wechat',
-                'ops-guide/monitor/alert/alert-dingtalk',
-                'ops-guide/monitor/alert/alert-mail'
-              ]
-            }
-          ]
-        },
-        {
-          type: 'category',
-          label: 'CLI 命令行',
-          link: {
-            type: 'doc',
-            id: 'ops-guide/tools/index'
-          },
-          items: [
-            'ops-guide/tools/grctl',
-            'ops-guide/tools/shell',
-          ]
-        },
-        {
-          type: 'category',
-          label: '扩展',
-          link: {
-            type: 'doc',
-            id: 'expand/index'
-          },
-          items: [
-            'expand/practices/app-dev/connect-api',
-            'expand/practices/app-dev/auto-schema',
-            'expand/practices/app-dev/data-initialization',
-          ]
-        },
-      ]
-    },
-    {
-      type: 'category',
-      label: '常见问题',
-      link: { 
-        type: 'doc', 
-        id: 'troubleshooting/index' 
-      },
-      items: [
-        {
-          type: 'category',
-          label: '安装问题',
-          link: {
-            type: 'doc',
-            id: 'troubleshooting/installation/index'
-          },
-          items: [
-            'troubleshooting/installation/dind',
-            'troubleshooting/installation/ui',
-            'troubleshooting/installation/helm',
-          ]
-        },
-        {
-          type: 'category',
-          label: '使用问题',
-          link: {
-            type: 'doc',
-            id: 'troubleshooting/use/index'
-          },
-          items: [
-            'troubleshooting/use/build',
-            'troubleshooting/use/run',
-            'troubleshooting/use/gateway',
-            'troubleshooting/use/cluster-connect',
-            'troubleshooting/use/console-exception',
-            'troubleshooting/use/cluster-component',
-            'troubleshooting/use/other',
-          ]
-        },
-      ],
-    },
+    'faq/index',
     {
       type: 'category',
       label: '企业版使用手册',

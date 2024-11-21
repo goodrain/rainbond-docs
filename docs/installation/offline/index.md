@@ -9,7 +9,7 @@ keywords:
 
 ## 前提
 
-- 安装 [Helm CLI](/docs/ops-guide/tools/#helm-cli)
+- 安装 [Helm CLI](https://helm.sh/docs/intro/install/)
 - 可用的 Kubernetes 集群，版本 1.16+
 - 安装 NFS 客户端
 

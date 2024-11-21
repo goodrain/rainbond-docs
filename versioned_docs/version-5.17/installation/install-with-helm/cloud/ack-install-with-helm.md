@@ -17,8 +17,8 @@ description: '基于阿里云 ACK 集群，使用 helm 从零开始安装 Rainbo
   * 创建 `console` `region` 数据库
   * 版本 5.7+
 * 购买 [ACR 容器镜像服务](https://www.aliyun.com/product/acr) **（可选）**
-* 安装 [Kubectl](/docs/ops-guide/tools/#kubectl)
-* 安装 [Helm](/docs/ops-guide/tools/#helm)
+* 安装 [Kubectl](../../../ops-guide/tools/#kubectl)
+* 安装 [Helm](../../../ops-guide/tools/#helm)
 
 ## 对接 ACK 集群
 
@@ -112,7 +112,7 @@ kubectl get po -n rbd-system | grep rbd-app-ui
 
 ## 安装问题排查
 
-- 安装过程中如果长时间未完成，那么请参考文档[Helm 安装问题排查指南](/docs/troubleshooting/installation/helm)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+- 安装过程中如果长时间未完成，那么请参考文档[Helm 安装问题排查指南](../../../troubleshooting/installation/helm)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
 
 ## 下一步
 

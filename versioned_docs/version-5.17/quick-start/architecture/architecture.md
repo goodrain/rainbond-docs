@@ -168,4 +168,4 @@ Rainbond 数据中心元数据目前支持存储于 Mysql 数据库或 Cockroach
 
 ## 组件部署
 
-[组件部署架构文档](/docs/ops-guide/component/)
+[组件部署架构文档](../../ops-guide/component/)

@@ -9,7 +9,7 @@ keywords:
 
 ## 前提
 
-- 安装 [grctl](/docs/ops-guide/tools/grctl) 命令行工具
+- 安装 [grctl](../tools/grctl) 命令行工具
 
 ## 操作步骤
 

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## 前提
 
-- 安装 [Helm](/docs/ops-guide/tools/#helm-cli) 3.0+
+- 安装 [Helm](../../../ops-guide/tools/#helm-cli) 3.0+
 - 确保 `80、443、6060、7070、8443` 未被占用
 - 确保服务器安装了 NFS 客户端
 - K3s 的启动需要指定启动参数 `–-disable traefik`
@@ -108,7 +108,7 @@ helm install rainbond rainbond/rainbond-cluster -n rbd-system
 
 ### 安装问题排查
 
-安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](/docs/troubleshooting/installation/helm)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](../../../troubleshooting/installation/helm)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
 
 ## 下一步
 

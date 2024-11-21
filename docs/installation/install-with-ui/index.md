@@ -54,9 +54,9 @@ import TabItem from '@theme/TabItem';
 
 | 配置项                                                       | 说明                                                         |      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
-| [集群入口 IP](../ha#负载均衡) | 集群入口访问IP，可以是VIP、负载均衡IP或任意网关节点的IP      | 必填 |
-| [网关节点](../ha#网关节点)   | 指定 Rainbond 网关服务部署并运行在哪个节点上                 | 必填 |
-| [构建节点](../ha#构建节点)   | 指定 Rainbond 构建服务部署并运行在哪个节点上                 | 必填 |
+| [集群入口 IP](ha#负载均衡) | 集群入口访问IP，可以是VIP、负载均衡IP或任意网关节点的IP      | 必填 |
+| [网关节点](ha#网关节点)   | 指定 Rainbond 网关服务部署并运行在哪个节点上                 | 必填 |
+| [构建节点](ha#构建节点)   | 指定 Rainbond 构建服务部署并运行在哪个节点上                 | 必填 |
 
 </TabItem>
 
@@ -66,8 +66,8 @@ import TabItem from '@theme/TabItem';
 
 | 配置项                                                     | 说明                                                         |      |
 | ---------------------------------------------------------- | ------------------------------------------------------------ | ---- |
-| [镜像仓库](../ha#镜像仓库) | 指定 Rainbond 底层镜像仓库，平台上的所有组件镜像都会从这个仓库拉取、推送。默认提供内置镜像仓库 | 可选 |
-| [数据库](../ha#mysql)      | 指定 Rainbond 集群的 MySQL8.0+ 数据库。默认提供内置 MySQL8.0+ 数据库 | 可选 |
+| [镜像仓库](ha#镜像仓库) | 指定 Rainbond 底层镜像仓库，平台上的所有组件镜像都会从这个仓库拉取、推送。默认提供内置镜像仓库 | 可选 |
+| [数据库](ha#mysql)      | 指定 Rainbond 集群的 MySQL8.0+ 数据库。默认提供内置 MySQL8.0+ 数据库 | 可选 |
 | 组件镜像源                                                 | 指定 Rainbond 自身组件通过哪个镜像源获取镜像，默认通过阿里云镜像仓库拉取 | 可选 |
 
   </TabItem>
@@ -76,20 +76,8 @@ import TabItem from '@theme/TabItem';
 2. 配置信息填写完成后进入 Rainbond 集群安装页面，在该页面可看到安装的进度信息，并且每个组件都可点击查看状态以及事件信息。
 3. 等待所有组件都启动后，下一步完成对接。
 
-## 高可用集群
-
-```mdx-code-block
-import DocCardList from '@theme/DocCardList';
-import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
-
-<DocCardList items={useCurrentSidebarCategory().items}/>
-```
 
 ## 下一步
 
-- [快速入门](../../quick-start/getting-started/): 快速在 Rainbond 上部署起你的第一个应用。
-- [迁移应用](/docs/ops-guide/migrate-app): 你可以参考该文档将单机版部署的应用迁移到该 Kubernetes 集群中。
-
-### 常见问题
-
-通过图形化界面基于主机安装 Rainbond 的过程中遭遇了任何问题，都可以参考文档 [Web界面安装问题排查指南](/docs/troubleshooting/installation/ui) 进行问题排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+- 完成[快速入门](../../quick-start/getting-started/)教程。
+- 将[控制台迁移](./console-recover) Kubernetes 集群中。

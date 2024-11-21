@@ -74,7 +74,7 @@ Rainbond 集群需要使用 ETCD 用来存储集群的元数据信息，如集�
 
 > ETCD 对磁盘性能要求较高，强烈建议存储使用SSD磁盘。
 
-基于主机安装的 Kubernetes 集群，ETCD证书文件位于 `/etc/kubernetes/ssl` 目录下，分别为 `kube-ca.pem` `kube-node.pen` `kube-node-key.pem` ，使用 [Kubectl](/docs/ops-guide/tools/#kubectl-cli) 命令创建 Secret，在安装时指定密钥名称 `rbd-etcd-secret`。
+基于主机安装的 Kubernetes 集群，ETCD证书文件位于 `/etc/kubernetes/ssl` 目录下，分别为 `kube-ca.pem` `kube-node.pen` `kube-node-key.pem` ，使用 [Kubectl](../../ops-guide/tools/#kubectl-cli) 命令创建 Secret，在安装时指定密钥名称 `rbd-etcd-secret`。
 
 - CA证书：/etc/kubernetes/ssl/kube-ca.pem
 - 客户端证书：/etc/etcd/ssl/kube-node.pem

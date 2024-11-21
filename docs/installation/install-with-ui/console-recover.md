@@ -1,12 +1,12 @@
 ---
-title: 控制台高可用
+title: 迁移控制台
 description: 该文档描述控制台高可用，适用于从体验环境迁移控制台到高可用集群环境。
 keywords:
 - Rainbond 控制台高可用安装
 ---
 
 :::tip
-如果你的 Rainbond 集群是通过 Helm Chart 安装的，那么控制台已经高可用，无需进行本文档的操作。
+如果你的 Rainbond 集群是通过 Helm Chart 安装的，那么无需迁移控制台，无需进行本文档的操作。
 :::
 
 [快速安装](/docs/quick-start/quick-install)的 Rainbond 控制台是由 Docker 启动的，无法实现高可用部署，本文介绍如何将 Docker 启动的控制台迁移到 K8s 集群中以 POD 方式运行。

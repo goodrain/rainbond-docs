@@ -15,7 +15,7 @@ keywords:
 * Rainbond 控制台是通过 Allinone 部署的
 * 已经安装好的高可用 Rainbond 集群
 * 确保集群内资源大于 2GB
-* 已安装 [grctl](/docs/ops-guide/tools/grctl) 工具
+* 已安装 [grctl](../../ops-guide/tools/grctl) 工具
 
 ## 集群中部署控制台
 

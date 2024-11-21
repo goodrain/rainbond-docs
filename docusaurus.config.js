@@ -362,7 +362,7 @@ const config = {
       announcementBar: {
         id: 'start',
         content:
-          '🎉 Rainbond 国产化信创版本已发布，<a href="/xinchuang">点击了解 Rainbond 国产化信创能力</a> !',
+          '🎉 Rainbond V6.0 版本已发布，<a href="/docs/quick-start/quick-install">点击快速体验</a> !',
         isCloseable: false,
       }
     }),

@@ -57,7 +57,7 @@ git clone https://github.com/goodrain/rainbond.git
 ### 前提条件
 
 1. 已经安装好 Rainbond 的测试环境
-2. Kubectl 命令，可参考[该文档](/docs/ops-guide/tools/#kubectl)安装
+2. Kubectl 命令
 
 ### 运行镜像
 

@@ -184,7 +184,7 @@ kubectl get po -n rbd-system | grep rbd-app-ui
 
 ### 安装问题排查
 
-- 安装过程中如果长时间未完成，那么请参考文档[helm 安装问题排查指南](/docs/troubleshooting/installation/helm)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+- 安装过程中如果长时间未完成，那么请参考文档[helm 安装问题排查指南](../../../troubleshooting/installation/helm)，进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
 
 ## 下一步
 

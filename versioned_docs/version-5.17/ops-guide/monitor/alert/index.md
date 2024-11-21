@@ -12,9 +12,9 @@ keywords:
 
 ### 前提
 
-* [监控告警服务部署](/docs/ops-guide/monitor/monitor-alert-deploy)
+* [监控告警服务部署](../monitor-alert-deploy)
 * [添加业务监控](/blog/JmxExporter)
-* 安装 [kubectl](/docs/ops-guide/tools/#kubectl-cli) 命令行工具
+* 安装 [kubectl](../../tools/#kubectl-cli) 命令行工具
 ### 准备配置文件
 
 配置示例：

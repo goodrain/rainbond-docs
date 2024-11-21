@@ -86,7 +86,7 @@ kiali登录时需要身份认证token，使用以下命令获取token：
 kubectl describe secret $(kubectl get secret -n istio-system | grep kiali-token | awk '{print $1}') -n istio-system
 ```
 
-没有kubectl命令时参考[命令行工具](/docs/ops-guide/tools/#kubectl)文档进行安装。
+没有kubectl命令时参考[命令行工具](../../../ops-guide/tools/#kubectl)文档进行安装。
 
 获取到token登陆至kiali可视化界面，到此完成Istio控制平面的部署。
 

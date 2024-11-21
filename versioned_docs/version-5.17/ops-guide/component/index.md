@@ -34,7 +34,7 @@ Rainbond 由 Console(控制台) + Region(集群端) + Kubernetes(RKE) 组成。
 
 |组件|版本|说明|控制器类型|必选|备注|
 |---|-----|---------------|---|---|---|
-|[rainbond-operator](./rainbond-operator)|5.x|通过 [CRD](/docs/ops-guide/component/rainbond-operator#rbdcomponentsrainbondio) 资源来维护 Rainbond 所有组件的配置与运行状态，下述列表所有|Deployment|是||
+|[rainbond-operator](./rainbond-operator)|5.x|通过 [CRD](../component/rainbond-operator#rbdcomponentsrainbondio) 资源来维护 Rainbond 所有组件的配置与运行状态，下述列表所有|Deployment|是||
 |rbd-api|5.x|API服务，提供 Region 端接口|Deployment|是||
 |rbd-chaos|5.x|应用构建服务，提供源码，Docker镜像等方式创建应用以及导入导出应用包|Daemonset|是||
 |rbd-db|8.0|数据库服务，支持MySQL `5.6` `5.7` `8.0`|Statefulset|是|可配置使用[外置数据库](/docs/installation/install-with-helm/vaules-config#配置-rainbond-集群端数据库)|

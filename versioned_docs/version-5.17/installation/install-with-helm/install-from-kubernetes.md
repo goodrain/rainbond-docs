@@ -15,8 +15,8 @@ import TabItem from '@theme/TabItem';
 ## 前提条件
 
 * Kubernetes 集群版本在 1.19-1.27 之间
-* Kubectl 命令行工具，参阅 [Kubectl 安装](/docs/ops-guide/tools/#kubectl-cli)
-* Helm 命令行工具，参阅 [Helm 安装](/docs/ops-guide/tools/#helm-cli)
+* Kubectl 命令行工具，参阅 [Kubectl 安装](../../ops-guide/tools/#kubectl-cli)
+* Helm 命令行工具，参阅 [Helm 安装](../../ops-guide/tools/#helm-cli)
 
 ## 安装 Rainbond
 
@@ -168,7 +168,7 @@ kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --templ
 
 ## 问题排查
 
-安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](/docs/troubleshooting/installation/helm)，进行故障排查。使用上问题可以参考[Rainbond 使用问题排查](/docs/troubleshooting/use/) 或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
+安装过程中如果长时间未完成，那么请参考文档 [Helm 安装问题排查指南](../../troubleshooting/installation/helm)，进行故障排查。使用上问题可以参考[Rainbond 使用问题排查](../../troubleshooting/use/) 或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。
 
 ## 下一步
 

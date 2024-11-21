@@ -57,7 +57,7 @@ Since the data center is deployed on the Kubernetes cluster, you need to meet th
 ### Preconditions
 
 1. Rainbond's test environment has been installed
-2. Kubectl command, you can refer to[this document](/docs/ops-guide/tools/#kubectl)to install
+2. Kubectl command
 
 ### run image
 

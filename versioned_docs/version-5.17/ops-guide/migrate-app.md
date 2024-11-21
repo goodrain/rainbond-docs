@@ -11,7 +11,7 @@ weight: 1001
 ## 前提
 
 - 准备一套新搭建的 Rainbond 环境。（最后一步的备份恢复会覆盖掉新环境，所以新环境中最好不要有业务数据）
-- 在新搭建 Rainbond 环境中安装 [grctl](/docs/ops-guide/tools/grctl) 工具。
+- 在新搭建 Rainbond 环境中安装 [grctl](./tools/grctl) 工具。
 
 ## 操作流程
 
