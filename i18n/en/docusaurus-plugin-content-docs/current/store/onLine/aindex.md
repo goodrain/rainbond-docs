@@ -1,0 +1,36 @@
+---
+title: General description
+description: 本章描述 云原生应用市场 发布应用会有哪些价值。
+---
+
+本章主要介绍如何将你自己的应用分享到云原生应用市场。云原生应用市场是一个汇聚了各类开源软件的应用市场，大家可以免费使用，也可以将自己的应用分享上来。目前云原生应用市场已经汇聚了500余款开源应用和中间件，均可以一键安装使用。
+
+云原生应用市场为开源开发者提供了一个广阔的舞台，可以在应用市场上创建自己的应用，展示应用的功能、特点和优势。
+
+建立一个好的开源生态环境离不开大家共同参与，如果你想你的应用让更多人使用，可以发布到云原生应用市场。将应用分享给其他人，让更多人受益。这种分享不仅限于应用本身，还包括相关的文档、教程和经验分享。通过这种协作，开发者们可以在不同的项目中汲取灵感，互利共赢。
+
+## Publish App Process
+
+发布应用的流程非常简单，一个应用模版下可以支持（Docker、Helm Chart、RAM以及软件包）四种类型，主要有以下七步：`注册账号->完善个人信息->创建应用模版->完善应用基本信息->上传应用->编辑版本信息->上架应用`。
+
+1. \*\*注册账号：\*\*在应用市场注册一个账号，这个账号可以管理你发布的所有应用。
+
+2. \*\*完善个人信息：\*\*注册完成并登录后，点击右上角控制台可以进入应用市场的管理后台，此时会弹出提示，指引你去完善个人信息。Your personal information here consists mainly of nickname, phone number, email address and personal profile.Nicknames, emails and profiles here are displayed in the Marketplace.
+
+3. \*\*创建应用模版：\*\*一个应用模版下可以支持（Docker、Helm Chart、RAM以及软件包）四种类型。
+
+4. \*\*完善应用信息：\*\*回到应用市场，点击右上角控制台，选择管理应用。This should be a time to see the app template that has just been published.Tap the app name to enter the details page, and edit the app's name, logo, details at this time.Adding more information will make it easier for others to use your software.
+
+5. \*\*上传应用：\*\*在应用版本中上传应用新版本，选择要上传的类型，根据不同的类型上传不同的信息。
+
+6. \*\*编辑版本信息：\*\*在上传完版本之后编辑版本信息只要是针对当前上传的版本做了哪些更改，以及如何使用的信息，让别人更清楚的了解这个版本的功能。
+
+7. \*\*上架应用：\*\*此时我们已经补充完了应用的基本信息，并做好了上架前的准备。It is ready to be listed.Only listed apps can be viewed and used by other users.Go back to the admin app page and select the list to go.
+
+### Helm Chart、Docker、软件包
+
+举个例子以 `mysql` 为例，注册云原生应用市场的账号之后点击头像进入控制台，选择左侧上架应用，新建一个名为 `mysql` 的应用模版，填写基本信息，填写完成之后保存，应用模版的基本信息就完成了，下一步就是上传应用，应用以版本来区分，不同类型的应用版本号可以相同，上传完成之后去编辑版本的信息，最后去上架应用只有上架之后市场才会展示出来。
+
+### Rainbond App Model（RAM）
+
+RAM 类型的应用需要通过 Rainbond 平台去发布到云原生应用市场，[Rainbond](https://www.rainbond.com)是一个不用懂 Kubernetes 的云原生应用管理平台，RAM 类型的应用发布详细步骤请[参考文档](https://rainbond.com/docs/use-manual/app-store-manage/share-app)。
