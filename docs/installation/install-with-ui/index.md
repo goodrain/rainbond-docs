@@ -76,6 +76,7 @@ import TabItem from '@theme/TabItem';
 2. 配置信息填写完成后进入 Rainbond 集群安装页面，在该页面可看到安装的进度信息，并且每个组件都可点击查看状态以及事件信息。
 3. 等待所有组件都启动后，下一步完成对接。
 
+> 如熟悉 [Kubectl](https://docs.rke2.io/reference/cli_tools) 命令，可通过 `kubectl get pods -n rbd-system` 命令查看集群状态。
 
 ## 下一步
 
