@@ -49,7 +49,7 @@ export default function Primary() {
         </a>
         <a
           className={styles.link}
-          href='https://rainbond.feishu.cn/share/base/form/shrcnwhBD2lK9GvpfThKXnGBgbe'
+          href='https://hub.grapps.cn/'
           target='_blank'
         >
           <Button icon={<IconLink />} theme="solid" className={styles.buttonRight} size='large'>

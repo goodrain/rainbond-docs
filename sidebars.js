@@ -635,6 +635,7 @@ const sidebars = {
     },
   ],
   store: [
+    'store/marketplace',
     {
       type: 'category',
       label: '使用指南',

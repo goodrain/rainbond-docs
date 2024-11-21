@@ -1,0 +1,66 @@
+---
+title: 通过 Rainbond 部署
+description: 本章描述 云原生应用市场 发布应用会有哪些价值。
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+本章主要介绍如何把云原生应用市场的 Docker 应用通过 Rainbond 部署。
+
+## 准备工作
+
+1. 提前安装好 Rainbond(支撑应用运行的平台)，参考[快速安装](https://www.rainbond.com/docs/quick-start/quick-install)。 
+
+<Tabs groupId="install">
+<TabItem value="dockerRun" label="Docker Run" default>
+
+###  操作流程
+
+通过工作空间点击团队，进入团队视图，通过侧边栏新建选择 `从镜像构建`这一项，进入页面之后选择 Docker Run 的方式。
+
+通过云原生应用市场去浏览你要安装的 Docker 类型应用，在应用列表页支持根据类型筛选，同时在每个应用的右上角都展示出当前应用对应的类型图标，选择想要安装的应用进入详情页去通过应用介绍去了解当前应用。
+
+### 选择应用版本
+
+如果想要安装当前应用的话，先选择一个合适的版本，然后再点击安装按钮，点击完之后会弹出一条命令行。
+把此 Docker Run 命令复制到命令输入框点击确定即可，如下图所示：。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/app-store/docs/docker%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85.jpg" alt="docker run 安装" />
+
+</TabItem>
+
+<TabItem value="dockerCompose" label="Docker Compose" default>
+
+###  操作流程
+
+创建方式及注意事项
+在`团队视图`下通过创建-->`基于镜像创建组件`-->`选择DockerCompose`即可进入 DockerCompose 创建流程。由于 DockerCompose 创建出一个完整应用（包含 N 个组件），因此创建时必须创建并指定一个新的应用。
+
+有以下几点注意事项
+
+- 如果 DockerCompose 配置中设置有需要读取环境变量的信息，请先手动完成更改。Rainbond 不支持动态基于环境变量渲染 DockerCompose 配置。
+- 确保 yaml 格式的 DockerCompose 配置正常，否则无法通过检测。
+- 检测过程中 Rainbond 将通过镜像信息解析镜像仓库地址并发生验证镜像是否存在请求，只有通过所有验证检测才会通过。
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/app-store/docs/docker_compose.pic.jpg" alt="docker Compose 安装" />
+
+### 选择应用版本
+
+如果想要安装当前应用的话，去云原生应用市场选择一个合适的版本，然后再点击安装按钮，点击完之后会弹出一条命令行。
+把此 Docker Compose 命令复制到命令输入框点击确定即可，如下图所示：
+
+<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/app-store/docs/docker-compose-cmd.pic.jpg" alt="docker Compose 安装" />
+
+</TabItem>
+</Tabs>
+
+### 管理应用
+
+应用安装之后，你可以进行应用的全生命周期管理，如`构建`、`更新`、`停用`、`启用`等，如果你需要访问该应用，那么需要进入组件管理页面操作。
+
+组件的作用是使开发人员能够不用关注底层基础架构的情况下定义业务单元的部署模式，组件描述了可以作为大型分布式应用程序的一部分进行实例化的功能单元。例如，应用程序中的每个微服务都被描述为一个组件。组件同样支持`更新`、`停用`、`启用`、`构建`、`访问`、`终端`等操作。具体操作流程如下：
+
+  - **第一步**：在应用视图下，选择你想要访问的组件，点击其六边形，点击弹出的卡片上端，可以进入组件管理页面。
+  - **第二步**：在组件管理页面中，点击`端口`，添加该容器对应的端口，打开对外服务，将会自动生成一条域名，点击即可访问。
+
+当然还有其他的配置，如果想要管理更复杂的业务可以参考[应用管理](https://www.rainbond.com/docs/use-manual/app-manage)和[组件管理](https://www.rainbond.com/docs/use-manual/component-manage)。
