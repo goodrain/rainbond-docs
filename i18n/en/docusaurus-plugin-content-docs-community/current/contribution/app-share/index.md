@@ -1,5 +1,5 @@
 ---
-title: 'Application Contribution'
+title: Application Contribution
 description: Contribute open source apps to the Rainbond open source app store
 ---
 
@@ -11,5 +11,5 @@ If you don't know how to share open source apps to the Rainbond open source app 
 
 ## Application Requirements
 
-* The application can be used after one-click installation.
-* The application should have a description, introducing the application introduction, how to use it, etc., and you can also cite the article.
+- App can be used to meet one click installation.
+- The application should have a description, introducing the application introduction, how to use it, etc., and you can also cite the article.
