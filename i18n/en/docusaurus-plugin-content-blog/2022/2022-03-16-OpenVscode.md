@@ -1,15 +1,15 @@
 ---
 title: OpenVSCode cloud IDE joins Rainbond integrated development system
-description: OpenVSCode cloud IDE joins Rainbond integrated development system
+description: :::info OpenVSCode is an online IDE code editor based on a web interface. It only needs a browser on the PC side to use. It is lighter, efficient and concise. Its basic functions completely inherit the [VS Code produced by Microsoft.](https://code.visualstudio.com/) You can continue to strengthen code editing capabilities by installing extensions.The OpenVSCode launched by the Rainbond open source application store is pre-installed with the gitlab-workflow extension to connect to the private code repository Gitlab, and pre-installed with common language runtime environments (the current version integrates Golang , Node.js , python , java ), which can be found in Terminal Quickly debug business code in the terminal.
 slug: OpenVscode
+image: https://static.goodrain.com/wechat/openvscode/vscode.png
 ---
 
-:::info OpenVSCode is an online IDE code editor based on a web interface. It only needs a browser on the PC side to use. It is lighter, efficient and concise. Its basic functions completely inherit the [VS Code produced by Microsoft.](https://code.visualstudio.com/) You can continue to strengthen code editing capabilities by installing extensions.The OpenVSCode launched by the Rainbond open source application store is pre-installed with the gitlab-workflow extension to connect to the private code repository Gitlab, and pre-installed with common language runtime environments (the current version integrates Golang , Node.js , python , java ), which can be found in Terminal Quickly debug business code in the terminal.
+OpenVSCode is an online IDE code editor based on the web interface. It can be used, lighter, more efficient, simple. Its basic functionality is completely inherited from Microsoft's [VS Code](https://code.visualstudio.com/). It can continue to be enhanced by installing extensions.The OpenVSCode launched by Rainbond Open Source Store pre-installs the gitlab-workflow extension to access the privatization repository Gitlab, and preload the common language operating environment (current version has been integrated in Golang, Node.js, python, jav) to quickly debug business code in the Terminal Terminal.
 
-Rainbond has the ability to quickly build an integrated development environment, and complete the whole process from the start of the code to the final launch of the business through the docking of the code warehouse webhook mechanism.By incorporating the OpenVSCode cloud IDE, the Rainbond integrated development system can be hosted on the cloud, and developers only need a browser to complete the entire process from editing to online. :::
+Rainbond has the capacity to quickly build an integrated development environment that will complete the business from the code to the final online full process by connecting to the repository webhook mechanism.Rainbond has the ability to quickly build an integrated development environment, and complete the whole process from the start of the code to the final launch of the business through the docking of the code warehouse webhook mechanism.By incorporating the OpenVSCode cloud IDE, the Rainbond integrated development system can be hosted on the cloud, and developers only need a browser to complete the entire process from editing to online. :::
 
 <!--truncate-->
-
 
 ![](https://static.goodrain.com/wechat/openvscode/1.png)
 
@@ -73,7 +73,7 @@ The OpenVSCode provided by Rainbond integrates the Gitlab-workflow extension by 
 
 - Gitlab Get Token
 
-  - In GitLab, click on the top right corner and select "Preferences" in the left sidebar.Select Access Token, then select "Add Personal Access Token"
+  - 在GitLab中，单击右上角并选择“首选项”在左侧边栏中。选择访问令牌，然后选择“添加个人访问令牌”
   - permission：api , read_user
 
 ---
@@ -108,7 +108,7 @@ After the debugged project is started, it listens to port 5000. The developer on
 
 ### Gitlab docking with Rainbond
 
-After coding and debugging, the developer's business enters the deployment phase.To make the whole process more automated, developers can connect Gitlab and Rainbond.
+完成编码与调试后，开发人员的业务进入了部署阶段。After coding and debugging, the developer's business enters the deployment phase.To make the whole process more automated, developers can connect Gitlab and Rainbond.
 
 The Oauth2 protocol can be used between Gitlab and Rainbond to open up the single sign-on process, which is convenient for users to directly select the repository in gitlab to deploy the code in the Rainbond interface, and automatically configure the webhook to complete the automatic construction after the code commit.
 
@@ -130,8 +130,8 @@ Turning on the automatic build switch can automatically configure Gitlab's Webho
 
 Add the keyword @deploy to the Commit information when the project file is modified and submitted. After the submission is successful, rainbond will automatically trigger an automatic build.
 
-  ![](https://static.goodrain.com/wechat/openvscode/openvscode-10.png)
+![](https://static.goodrain.com/wechat/openvscode/openvscode-10.png)
 
 Automatic update effect display
 
-  ![](https://static.goodrain.com/wechat/openvscode/3.png)
+![](https://static.goodrain.com/wechat/openvscode/3.png)
