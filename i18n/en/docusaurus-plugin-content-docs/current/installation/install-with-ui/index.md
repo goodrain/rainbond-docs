@@ -76,6 +76,8 @@ Details on the advanced configuration of the Rainbond cluster are described belo
 2. The configuration is completed by entering the Rainbond cluster installation page, where progress information can be seen and where each component can click on status and event information.
 3. 等待所有组件都启动后，下一步完成对接。
 
+> 如熟悉 [Kubectl](https://docs.rke2.io/reference/cli_tools) 命令，可通过 `kubectl get pods -n rbd-system` 命令查看集群状态。
+
 ## Next step
 
 - 完成[快速入门](../../quick-start/getting-started/)教程。
