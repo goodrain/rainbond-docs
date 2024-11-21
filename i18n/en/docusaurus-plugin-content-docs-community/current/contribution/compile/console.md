@@ -35,7 +35,7 @@ git clone https://github.com/goodrain/rainbond-console.git
 
 (2) Compile the project
 
-`VERSION` specifies the tag of the built image. Since the image of the front-end code is the base image, this place should be consistent with the tag of the front-end project.Please use the following commands to compile the front-end and back-end code together to form the final allinone image that can be run directly.
+`VERSION` specifies the tag of the built image. Since the image of the front-end code is the base image, this place should be consistent with the tag of the front-end project.Please use the following commands to compile the front-end and back-end code together to form the final allinone image that can be run directly.Use the command below to compile the pre- and back-end code together to form an allinone mirror that can eventually be directly running.
 
 ```
 VERSION=v5.5.0-release ./release.sh allinone
@@ -43,7 +43,7 @@ VERSION=v5.5.0-release ./release.sh allinone
 
 ### Run the business layer image
 
-After compiling the allinone image, you can refer to the following command, replace the image name in the last line with the image name you packaged, and run the image.
+When compiling the allinone mirror, you can use the command below to replace the last line of mirror name with the one you packed.
 
 ```bash
 docker run -d -p 7070:7070 \
