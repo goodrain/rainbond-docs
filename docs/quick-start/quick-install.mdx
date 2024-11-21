@@ -6,13 +6,12 @@ description: '本文介绍仅使用一个 Docker 容器运行 Rainbond'
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-当前安装方式可以仅通过运行一个容器快速体验到 Rainbond 完整功能。该版本为单机体验版，仅适用于体验 Rainbond 功能或者个人开发环境。支持 `Windows(x86_64)`、`Mac(Intel/M1)`、`Linux(x86_64,Arm64)`。
+本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Windows(x86_64)`、`Mac(Intel/M1)`、`Linux(x86_64,Arm64)`。
+
 ## 前提
 
-* 安装 Mac [Docker Desktop](https://docs.docker.com/desktop/release-notes/#docker-desktop)
-* 安装 Windows [Docker Desktop](https://docs.docker.com/desktop/windows/install/)
-* Linux 如没有 Docker 环境则默认会通过 Shell 脚本安装 Docker
-* 确保 `80 443 6060 7070 8443` 端口可用
+* 确保有 [Docker](https://docs.docker.com/get-started/get-docker/) 或 [Docker Desktop](https://docs.docker.com/get-started/get-docker/) 环境
+* 确保 `80 443 6060 7070` 端口可用
 
 ## 安装步骤
 
@@ -34,7 +33,7 @@ Rainbond 提供了 Windows 安装脚本，在 Docker 中通过容器快速启动
 在 PowerShell 中执行以下命令:
 
 ```bash
-Invoke-WebRequest "https://get.rainbond.com/install-dind.ps1" -o install-dind.ps1 ; .\install-dind.ps1
+Invoke-WebRequest "https://get.rainbond.com/install-rainbond.ps1" -o install-rainbond.ps1 ; .\install-rainbond.ps1
 ```
 
   </TabItem>
@@ -49,28 +48,8 @@ curl -o install.sh https://get.rainbond.com && bash ./install.sh
   </TabItem>
 </Tabs>
 
-执行完上述脚本后，耐心等待 3-5 分钟，可以看到如下日志输出，表示 Rainbond 已启动完成
-
-```bash
-2022-10-11 11:50:38 INFO: Rainbond started successfully, Please pass http://$EIP:7070 Access Rainbond
-```
+执行完上述脚本后，耐心等待 3-5 分钟，使用浏览器访问 `http://$EIP:7070` 即可进入 Rainbond。
 
 ## 下一步
 
-现在你已经部署好了一个可用的 Rainbond 平台，接下来你可以尝试以下路径深入了解 Rainbond：
-
-**1. [快速入门](/docs/quick-start/getting-started/) -> [部署你自己的应用](/docs/use-manual/) -> [部署集群版 Rainbond](/docs/installation/install-with-ui/#从主机开始安装) -> [将应用从单机版迁移至集群部署](/docs/ops-guide/migrate-app)**
-
-在此路径中，你将从单机版开始起步。参考[快速入门](/docs/quick-start/getting-started/)可以快速部署起来示例应用，并体验到 Rainbond 应用管理功能。接下来你可以参考[用户使用手册](/docs/use-manual/)部署你自己的应用，并直接在单机版 Rainbond 上开发和管理。后期你可以参考[从主机安装](/docs/installation/install-with-ui/#从主机开始安装)部署出集群版 Rainbond，并将单机版上的已有应用[迁移](/docs/ops-guide/migrate-app)到你的集群进行管理。
-
-**2. [快速入门](/docs/quick-start/getting-started/) -> [部署高可用集群](/docs/installation/install-with-ui/ha) -> [在高可用集群中部署你的应用](/docs/use-manual/)**
-
-在此路径中，依然是从单机版开始起步。在你通过[快速入门](/docs/quick-start/getting-started/)体验到 Rainbond 管理上的便捷后，你可以直接参考文档[部署高可用集群](/docs/installation/install-with-ui/ha)，并在高可用集群中[部署管理你的应用](/docs/use-manual/)。
-
-## 扩展参数说明
-
-默认添加了 `10000～10010` 10个端口供业务的 TCP 端口使用。如果你需要更多的 TCP 端口，通过脚本中打印的命令，删除容器重新启动并添加 `-p` 映射新的端口。
-
-## 问题排查
-
-**单节点体验版本安装过程中如果长时间未完成，那么请参考文档 [单机体验版本安装问题排查指南](/docs/troubleshooting/installation/dind) 进行故障排查。或加入 [微信群](/community/support#微信群)、[钉钉群](/community/support#钉钉群) 寻求帮助。**
+如果你已经成功安装 Rainbond 并且正常运行，请继续完成[快速入门](./getting-started)教程。

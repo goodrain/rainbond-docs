@@ -38,12 +38,15 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
-          includeCurrentVersion: false,
+          includeCurrentVersion: true,
           lastVersion: 'current',
           versions: {
             current: {
-              label: 'Current'
-            }
+              label: 'V6.0'
+            },
+            "5.17": {
+              label: 'V5.17',
+            },
           }
         },
         blog: {
@@ -359,7 +362,7 @@ const config = {
       announcementBar: {
         id: 'start',
         content:
-          '🎉 Rainbond 国产化信创版本已发布，<a href="/xinchuang">点击了解 Rainbond 国产化信创能力</a> !',
+          '🎉 Rainbond V6.0 版本已发布，<a href="/docs/quick-start/quick-install">点击快速体验</a> !',
         isCloseable: false,
       }
     }),
@@ -413,7 +416,10 @@ const config = {
     ],
     'docusaurus-plugin-sass',
     '@docusaurus/plugin-ideal-image'
-  ]
+  ],
+  themes: [
+    '@docusaurus/theme-live-codeblock'
+  ],
 };
 
 module.exports = config;

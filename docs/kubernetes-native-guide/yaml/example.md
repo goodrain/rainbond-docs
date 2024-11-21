@@ -251,7 +251,7 @@ data:
 
 ## 管理组件 Kubernetes 属性
 
-参考文档 [kubernetes属性](/docs/kubernetes-native-guide/import-manage/special-attribute) 了解目前 Rainbond 所支持的多种规格定义的配置方式。
+参考文档 [kubernetes属性](../../use-manual/k8s-attribute) 了解目前 Rainbond 所支持的多种规格定义的配置方式。
 
 ## 管理应用中的k8s资源
 
