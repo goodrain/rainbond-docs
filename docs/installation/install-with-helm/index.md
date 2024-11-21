@@ -18,48 +18,67 @@ keywords:
 
 ## 安装 Rainbond
 
-1. 您可以使用默认参数安装或[自定义安装参数](./vaules-config.md)，请执行下述命令开始安装。
+1. 添加 Helm 仓库。
 
 ```bash
-helm repo add rainbond https://openchart.goodrain.com/goodrain/rainbond
+helm repo add rainbond https://chart.rainbond.com
 helm repo update
-helm install rainbond rainbond/rainbond-cluster --create-namespace -n rbd-system
+helm install rainbond rainbond/rainbond --create-namespace -n rbd-system
 ```
 
-2. 执行完安装命令后，在集群中执行以下命令查看安装状态。
+2. 编辑 [values.yaml](./vaules-config.md) 文件，填写必须配置。
+
+```yaml title="vim values.yaml"
+Cluster:
+  gatewayIngressIPs: 172.20.251.93 #集群入口IP
+
+  nodesForGateway:
+  - externalIP: 172.20.251.93     #k8s节点外网IP
+    internalIP: 172.20.251.93     #k8s节点内网IP
+    name: 172.20.251.93           #k8s节点名称
+# - More nodes for gateway
+  nodesForChaos:
+  - name: 172.20.251.93           #k8s节点名称
+# - More nodes for chaos
+  containerdRuntimePath: /var/run/containerd  #containerd.sock文件路径
+```
+
+3. 执行安装命令。
+
+```bash
+helm install rainbond rainbond/rainbond --create-namespace -n rbd-system -f values.yaml
+```
+
+4. 执行完安装命令后，在集群中执行以下命令查看安装状态。
 
 ```bash
 watch kubectl get po -n rbd-system
 ```
 
-3. 当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。如下所示，Pod `rbd-app-ui-669bb7c74b-7bmlf` 为 Running 状态时，表示 Rainbond 安装成功。
+5. 当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。如下所示，Pod `rbd-app-ui-5577b8ff88-fpnnv` 为 Running 状态时，表示 Rainbond 安装成功。
 
 <details>
 <summary>安装成功结果示例</summary>
 
 ```bash
-NAME                                         READY   STATUS      RESTARTS   AGE
-rbd-hub-64777d89d8-l56d8                     1/1     Running     0          14d
-rbd-gateway-76djb                            1/1     Running     0          14d
-rbd-mq-6b847d874b-j5jg2                      1/1     Running     0          14d
-rbd-monitor-0                                1/1     Running     0          14d
-rbd-db-0                                     2/2     Running     0          14d
-rbd-app-ui-669bb7c74b-7bmlf                  1/1     Running     0          7d12h
-rbd-worker-679fd44bc7-n6lvg                  1/1     Running     0          9d
-rainbond-operator-7978d4d695-ws8bz           1/1     Running     0          9d
-rbd-chaos-nkxw7                              1/1     Running     0          8d
-rbd-api-5d8bb8d57d-djx2s                     1/1     Running     0          47h
+NAME                                      READY   STATUS    RESTARTS   AGE
+local-path-provisioner-78d88b6df5-wkr84   1/1     Running   0          5m37s
+minio-0                                   1/1     Running   0          5m37s
+rainbond-operator-59ff8bb988-nlqrt        1/1     Running   0          5m56s
+rbd-api-5466bd748f-brqmv                  1/1     Running   0          5m15s
+rbd-app-ui-5577b8ff88-fpnnv               1/1     Running   0          4m39s
+rbd-chaos-6828h                           1/1     Running   0          5m12s
+rbd-db-0                                  1/1     Running   0          5m35s
+rbd-gateway-69bfb68f4d-7xd9n              2/2     Running   0          5m34s
+rbd-hub-8457697d4c-fqwgn                  1/1     Running   0          5m28s
+rbd-monitor-0                             1/1     Running   0          5m27s
+rbd-mq-5b6f94b695-gmdnn                   1/1     Running   0          5m25s
+rbd-worker-7db9f9cccc-s9wml               1/1     Running   0          5m22s
 ```
 
 </details>
 
-4. 访问平台
-
-使用以下命令获取 Rainbond 访问地址。如有多个网关节点，则任意一个地址均可访问。
-
-```bash
-kubectl get rainbondcluster rainbondcluster -n rbd-system -o go-template --template='{{range.spec.gatewayIngressIPs}}{{.}}:7070{{printf "\n"}}{{end}}'
-```
+6. 使用 `gatewayIngressIPs` 配置的 IP 地址访问 Rainbond，例如: `http://172.20.251.93:7070`。
 
 ## 下一步
 
