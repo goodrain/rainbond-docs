@@ -1,0 +1,55 @@
+---
+title: Quick installation
+description: This article introduces running Rainbond using only one Docker container.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。Support for `Windows(x86_64)`, `Mac(Intel/M1)`, `Linux(x86_64, Arm64)`.
+
+## Prerequisite
+
+- 确保有 [Docker](https://docs.docker.com/get-started/get-docker/) 或 [Docker Desktop](https://docs.docker.com/get-started/get-docker/) 环境
+- 确保 `80 443 6060 7070` 端口可用
+
+## Installation steps
+
+<Tabs groupId="install">
+  <TabItem value="Linux & Mac" label="Linux & Mac" default>
+
+Rainbond provides an installation script to quickly launch Rainbond within a Docker container. During the script execution, you will be prompted to manually set the EIP (External IP). Once the deployment is complete, you will use this IP address to access the Rainbond console.You need to set the EIP manually while the script is running.Once the deployment has been completed, the IP address will be used to visit the Rainbond Console console.
+
+```bash
+curl -o install.sh https://get.rainbond.com && IMGHUB_MIRROR=rainbond bash ./install.sh
+```
+
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
+
+Rainbond provides an windows installation script to quickly launch Rainbond within a Docker container. During the script execution, you will be prompted to manually set the EIP (External IP). Once the deployment is complete, you will use this IP address to access the Rainbond console.You need to set the EIP manually while the script is running.Once the deployment has been completed, the IP address will be used to visit the Rainbond Console console.
+
+Please execute the following command in Windows PowerShell:
+
+```bash
+Invoke-WebRequest "https://get.rainbond.com/install-rainbond.ps1" -o install-rainbond.ps1 ; .\install-rainbond.ps1
+```
+
+</TabItem>
+  <TabItem value="信创" label="信创" default>
+
+Rainbond provided a one-click installation script and supported the need for a national crystallization by quickly launching Rainbond in the Docker with a container.When the script is executed, the required structure will be automatically selected, and an EIP will be created manually.Once the deployment has been completed, the IP address will be used to visit the Rainbond Console console.
+
+```bash
+curl -o install.sh https://get.rainbond.com && cash ./install.sh
+```
+
+</TabItem>
+</Tabs>
+
+执行完上述脚本后，耐心等待 3-5 分钟，使用浏览器访问 `http://$EIP:7070` 即可进入 Rainbond。
+
+## Next step
+
+如果你已经成功安装 Rainbond 并且正常运行，请继续完成[快速入门](./getting-started)教程。
