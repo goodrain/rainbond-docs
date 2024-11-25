@@ -193,6 +193,13 @@ export default function Index(props) {
                   target='_blank'
                 ></a>
               </li>
+              <li>
+                <a
+                  className={styles.gitcodeLogo}
+                  href='https://gitcode.com/goodrain/rainbond/overview'
+                  target='_blank'
+                ></a>
+              </li>
               {/* <li>
                 <NavbarColorModeToggle/>
               </li> */}

@@ -203,7 +203,20 @@ export default function Partners() {
       deployURL: "/blog/zyplayer-doc",
       tags: "Application"
     },
+    {
+      image: "/img/partners/topiam.svg",
+      title: "TopIAM",
+      githubURL: "https://github.com/topiam/eiam",
+      description: translate ({
+        id: "partners.topiam.description",
+        message: "TOPIAM 是一个以开源为核心的 IAM/IDaaS 身份管理平台",
+      }),
+      deployURL: "/blog/topiam",
+      tags: "Application"
+    },
   ];
+
+  PartnersList.sort((a, b) => a.title.localeCompare(b.title));
 
   return (
     <Layout>
