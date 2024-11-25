@@ -38,6 +38,12 @@ docker volume rm rainbond-opt
 /usr/local/bin/rke2-uninstall.sh
 ```
 
+Remove Rainbond data directory
+
+```bash
+rm -rf /opt/rainbond
+```
+
 ## 卸载基于 Helm 安装的 Rainbond 集群
 
 Uninstall Rainbond with Helm
@@ -74,7 +80,7 @@ servicemeshes.rainbond.io \
 kubectl delete ns rbd-system
 ```
 
-Remove Rainbond data directory
+删除 Rainbond 数据目录
 
 ```bash
 rm -rf /opt/rainbond
