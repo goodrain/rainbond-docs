@@ -123,11 +123,11 @@ export default function Primary() {
                 <CodeBlock language="bash" className={styles.code}>
                   {!LocalUrlEn ? (
                     <Translate id='primary.install.win.cmd'>
-                      Invoke-WebRequest "https://get.rainbond.com/install-dind.ps1" -o install-dind.ps1 ; .\install-dind.ps1
+                      Invoke-WebRequest "https://get.rainbond.com/install-rainbond.ps1" -o install-rainbond.ps1 ; .\install-rainbond.ps1
                     </Translate>
                   ) : (
                     <Translate id='primary.install.win.cmd'>
-                      Invoke-WebRequest "https://get.rainbond.com/install-dind.ps1" -o install-dind.ps1 ; .\install-dind.ps1 -IMAGE_MIRROR rainbond
+                      Invoke-WebRequest "https://get.rainbond.com/install-rainbond.ps1" -o install-rainbond.ps1 ; .\install-rainbond.ps1 -IMAGE_MIRROR rainbond
                     </Translate>
                   )}
                 </CodeBlock>

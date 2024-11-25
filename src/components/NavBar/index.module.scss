@@ -113,6 +113,14 @@
       background: url("/img/svg/gitee.svg")
         no-repeat;
     }
+    .gitcodeLogo {
+      content: '';
+      width: 24px;
+      height: 24px;
+      display: flex;
+      background: url("/img/svg/gitcode.svg")
+        no-repeat;
+    }
   }
   .nav_container .nav_lists > li:hover a {
     color: #338bff;

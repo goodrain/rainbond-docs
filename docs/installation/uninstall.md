@@ -37,6 +37,12 @@ docker volume rm rainbond-opt
 /usr/local/bin/rke2-uninstall.sh
 ```
 
+删除 Rainbond 数据目录
+
+```bash
+rm -rf /opt/rainbond
+```
+
 ## 卸载基于 Helm 安装的 Rainbond 集群
 
 使用 Helm 卸载 Rainbond 
