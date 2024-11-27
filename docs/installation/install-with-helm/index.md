@@ -23,7 +23,6 @@ keywords:
 ```bash
 helm repo add rainbond https://chart.rainbond.com
 helm repo update
-helm install rainbond rainbond/rainbond --create-namespace -n rbd-system
 ```
 
 2. 编辑 [values.yaml](./vaules-config.md) 文件，填写必须配置。
@@ -52,7 +51,7 @@ helm install rainbond rainbond/rainbond --create-namespace -n rbd-system -f valu
 4. 执行完安装命令后，在集群中执行以下命令查看安装状态。
 
 ```bash
-watch kubectl get po -n rbd-system
+watch kubectl get pod -n rbd-system
 ```
 
 5. 当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。如下所示，Pod `rbd-app-ui-5577b8ff88-fpnnv` 为 Running 状态时，表示 Rainbond 安装成功。
@@ -79,6 +78,8 @@ rbd-worker-7db9f9cccc-s9wml               1/1     Running   0          5m22s
 </details>
 
 6. 使用 `gatewayIngressIPs` 配置的 IP 地址访问 Rainbond，例如: `http://172.20.251.93:7070`。
+
+7. 如您采用默认的镜像仓库，则需要修改 Containerd 的配置，配置 [goodrain.me 私有镜像仓库](../../faq/#%E5%90%AF%E5%8A%A8%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F-x509-certificate-signed-by-unknown-authority)。
 
 ## 下一步
 
