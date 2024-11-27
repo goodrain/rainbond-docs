@@ -19,6 +19,10 @@ keywords:
 * 如果主机内核支持 [AppArmor](https://apparmor.net/)，则在安装之前还必须具有 AppArmor 工具（通常可通过 `apparmor-parser` 包获得）。
 * 必须以`root`用户执行安装。
 
+:::danger
+如已执行[快速安装](/docs/quick-start/quick-install)则不能在同一主机上再次基于主机安装，这会造成冲突。
+:::
+
 ## 从主机开始安装 Kubernetes 集群
 
 1. 根据[快速安装](/docs/quick-start/quick-install)部署 Rainbond。
