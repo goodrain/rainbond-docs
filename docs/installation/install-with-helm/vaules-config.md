@@ -30,24 +30,24 @@ Cluster:
     enable: true
     domain: image.image.com
     namespace: admin
-    password: admin
     username: admin
+    password: admin
 
   regionDatabase:
     enable: true
     host: 192.168.8.8
-    name: region
-    password: root
     port: 3306
+    name: region
     username: root
+    password: root
 
   uiDatabase:
     enable: true
     host: 192.168.8.8
-    name: console
-    password: root
     port: 3306
+    name: console
     username: root
+    password: root
 
   rainbondImageRepository: registry.cn-hangzhou.aliyuncs.com/goodrain
   installVersion: v6.0.0-release
