@@ -2,7 +2,7 @@ name: Rainbond Docs GitHub Actions
 on:
   push:
     branches:    
-      - 'main'
+      - 'pause'
 jobs:
   rainbond-docs-build:
     name: build rainbond docs

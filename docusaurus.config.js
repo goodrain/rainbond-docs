@@ -238,8 +238,8 @@ const config = {
         respectPrefersColorScheme: false
       },
       algolia: {
-        appId: '4EFG0MCBR2',
-        apiKey: '449c9313e5dfd0ebb2c330a105b302b9',
+        appId: '6NQ861LF9R',
+        apiKey: '7d389ee210249d03aca601ad100aad08',
         indexName: 'rainbond'
       },
       footer: {
