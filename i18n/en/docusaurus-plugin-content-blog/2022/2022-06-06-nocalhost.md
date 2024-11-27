@@ -1,16 +1,15 @@
 ---
 title: Use Nocalhost to develop microservice applications on Rainbond
-description: Use Nocalhost to develop microservice applications on Rainbond
+description: Nocalhost is an open-source IDE-based cloud app development tool
 slug: nocalhost
+image: https://static.goodrain.com/wechat/noocalhost/nocalhost.png
 ---
 
-:::info
 This article will introduce how to use Nocalhost to quickly develop the development process and practical steps of microservice applications on Rainbond.
-:::
-
-<!--truncate-->
 
 Nocalhost can directly develop applications in Kubernetes, and Rainbond can quickly deploy microservice projects without writing Yaml. Nocalhost combined with Rainbond accelerates our microservice development efficiency.
+
+<!--truncate-->
 
 ## 1. Introduction
 
@@ -22,7 +21,7 @@ Nocalhost can directly develop applications in Kubernetes, and Rainbond can quic
 
 **[Rainbond](https://www.rainbond.com/docs "Rainbond") is a cloud-native application management platform：**
 
-* It is easy to use, does not need to understand containers, Kubernetes and the underlying complex technologies, supports the management of multiple Kubernetes clusters, and manages the entire life cycle of enterprise applications.The main functions include application development environment, application market, microservice architecture, application delivery, application operation and maintenance, application-level multi-cloud management, etc.
+- It is easy to use, does not need to understand containers, Kubernetes and the underlying complex technologies, supports the management of multiple Kubernetes clusters, and manages the entire life cycle of enterprise applications.The main functions include application development environment, application market, microservice architecture, application delivery, application operation and maintenance, application-level multi-cloud management, etc.主要功能包括应用开发环境、应用市场、微服务架构、应用交付、应用运维、应用级多云管理等。
 
 ## 2. Local + Rainbond development of microservices
 
@@ -32,44 +31,45 @@ In the past, when we developed microservices locally + Rainbond, we ran the modu
 
 This will encounter some problems：
 
-* Difficulty in multi-person collaborative development and joint debugging
-* local environment differentiation
-* Cannot call other microservices through the registry (Nacos)
-* Remote debugging is difficult
-* Limited to local resources
+- Difficulty in multi-person collaborative development and joint debugging
+- local environment differentiation
+- Cannot call other microservices through the registry (Nacos)
+- Remote debugging is difficult
+- Limited to local resources
 
 ## 3. Use Nocalhost + Rainbond to develop microservices
 
-Now when we develop microservices through Nocalhost + Rainbond, all services run on Rainbond. When developing, the local Vscode is directly connected to the Rainbond component, and is synchronized with the local code to the Rainbond component in real time.When multiple people develop joint debugging, they can conduct joint debugging between services through the built-in Service Mesh of Rainbond.
+Now when we develop microservices through Nocalhost + Rainbond, all services run on Rainbond. When developing, the local Vscode is directly connected to the Rainbond component, and is synchronized with the local code to the Rainbond component in real time.When multiple people develop joint debugging, they can conduct joint debugging between services through the built-in Service Mesh of Rainbond.多人开发联调时，可通过 Rainbond 内置的 Service Mesh 进行服务之间联调。
 
 ![](https://static.goodrain.com/wechat/nocalhost/18.png)
 
-**Using：to develop, you can solve the problems encountered in local development0**
+**使用 Nocalhost 开发，可以解决本地开发时遇到的问题：**
 
-* Multi-person joint debugging and development are more convenient
-* Services all run on Rainbond, no longer limited to local
-* closer to production
-* Remote Debug
-* Call other microservice components through the registry (Nacos)
+- Multi-person joint debugging and development are more convenient
+- Services all run on Rainbond, no longer limited to local
+- closer to production
+- Remote Debug
+- Call other microservice components through the registry (Nacos)
 
 ## 4. Practical steps
 
 Nocalhost currently supports two development：
 
-*  Repliace DevMode
-*  Duplicate DevMode
+- Repliace DevMode
+- Duplicate DevMode
 
 This article will mainly introduce Replace DevMode. When entering Replace DevMode, Nocalhost will perform the following operations on the component:
 
 1. Reduce the number of copies to 1
 
-
 2. Replace the container's image with a development image
+
 3. Add a sidecar container.
 
-
 4. Forward a local port to the file sync server.
+
 5. Start the local file sync client.
+
 6. Open a remote terminal.
 
 ### 4.1 Install Nocalhost plugin
@@ -92,6 +92,7 @@ We choose [to install Rainbond](https://www.rainbond.com/docs/installation/insta
 ![](https://static.goodrain.com/wechat/nocalhost/4.png)
 
 2. We copy `kubeconfig` files to local and save as `yaml` files.
+
 3. Open Vscode, click button <img src="https://nocalhost.dev/zh-CN/img/icons/logo-light.svg" width="3%" />, open the Nocalhost plugin, select Connect to Cluster, select the path of our `kubeconfig` file, and click Add Cluster to add a cluster.
 
 4. After the addition is complete, as shown in Figure：
@@ -140,15 +141,15 @@ We click 🔨 next to it to enter the development mode,
 
 1. Install project dependencies, execute
 
-     ```shell
-    npm install
+   ```shell
+   npm install
    ```
 
 2. run the project
 
-    ```shell
-    npm run dev
-    ```
+   ```shell
+   npm run dev
+   ```
 
 After startup, the effect is as follows, the port in the container is 80
 
@@ -166,7 +167,7 @@ After startup, the effect is as follows, the port in the container is 80
 
 The above has demonstrated that if the service in the remote container is accessed locally, let's modify the code to see the effect.
 
-Modify `src/page/wel.vue`, add a piece of code, save it.It can be found that when we save, the terminal is automatically restarted, which is consistent with the local development effect.
+修改 `src/page/wel.vue`，新增一段代码，保存。Modify `src/page/wel.vue`, add a piece of code, save it.It can be found that when we save, the terminal is automatically restarted, which is consistent with the local development effect.
 
 Modifications to files are synced to the container in real time.
 
@@ -176,12 +177,8 @@ Refresh page`http://localhost:38000`, you can see that the modified content has 
 
 ![](https://static.goodrain.com/wechat/nocalhost/17.png)
 
-
-
 ## write at the end
 
 Through the above practical steps, we have been able to develop microservice applications on Rainbond through Nocalhost, get rid of local development, and enter cloud-native rapid development to improve our development efficiency.
 
 This article only introduces the basic development, you can also configure [Nocalhost development configuration](https://nocalhost.dev/docs/config/config-overview-en "Nocalhost开发配置") for the project, etc. Friends can explore by themselves.
-
-
