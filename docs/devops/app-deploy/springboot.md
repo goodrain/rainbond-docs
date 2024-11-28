@@ -1,10 +1,11 @@
 ---
-title: SpringBoot 项目部署
+title: Java SpringBoot 项目部署
 description: 在 Rainbond 中部署 SpringBoot 项目
 keywords:
 - Rainbond 部署 SpringBoot 项目
 - SpringBoot 项目部署
 - Java Gradle 项目部署
+- Java Maven 项目部署
 ---
 
 import Bvideo from '/src/components/Bvideo';
@@ -15,15 +16,15 @@ import Bvideo from '/src/components/Bvideo';
 
 Rainbond 支持构建 SpringBoot 单模块和多模块的项目，并自动识别。同时也支持通过 Gradle 构建的项目。
 
-### Gradle
+### Java Gradle
 
 平台默认会根据源码根目录是否有 gradlew 文件或者 build.gradle 来识别为 Java Gradle 项目.
 
-### 单模块
+### Java Maven 单模块
 
 当源代码根目录下存在 `pom.xml` 文件，Rainbond 会将源代码识别为 Java Maven 单模块项目。
 
-### 多模块
+### Java Maven 多模块
 
 Rainbond 对 Maven 项目的识别是基于 `pom.xml` 文件的内容，主要分为两个部分：构建命令和启动命令。
 
@@ -38,7 +39,7 @@ Rainbond 对 Maven 项目的识别是基于 `pom.xml` 文件的内容，主要�
 - **Jar 包名**：默认情况下，生成的 Jar 包名是 `${artifactId}-*.jar`（其中 `*` 表示版本号）。如果在 POM 文件中设置了 `finalName`，则会使用 `finalName` 中的值。如果 `finalName` 中使用了变量（如 `${project.name}` 或 `${project.artifactId}`），就会使用变量的实际值来替换。
 - **POM 模块**：如果 POM 中的 `packaging` 是 `pom`，并且该 POM 文件中有多个 `module`，则会按以上规则递归解析每个子模块。
 
-## 部署 SpringBoot 多模块项目
+## 部署 Java SpringBoot 多模块项目
 
 1. 基于源码部署组件，填写以下信息：
 
@@ -53,11 +54,11 @@ Rainbond 对 Maven 项目的识别是基于 `pom.xml` 文件的内容，主要�
 3. 进入 **组件 -> 端口** 删除掉默认5000端口，添加 **8080 http** 端口。
 4. 等待构建完成即可。
 
-## 部署 SpringBoot 单模块项目
+## 部署 Java SpringBoot 单模块项目
 
 进入到团队下，新建应用选择**基于源码示例**进行构建，选中 Java Maven Demo 并默认全部下一步即可。
 
-## 部署 Gradle 项目
+## 部署 Java Gradle 项目
 
 1. 基于源码部署组件，填写以下信息：
 
