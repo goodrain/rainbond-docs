@@ -50,7 +50,7 @@ Cluster:
     password: root
 
   rainbondImageRepository: registry.cn-hangzhou.aliyuncs.com/goodrain
-  installVersion: v6.0.0-release
+  installVersion: v6.0.1-release
   imagePullPolicy: IfNotPresent
   replicas: 2
 ```
