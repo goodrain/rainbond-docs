@@ -28,11 +28,6 @@ module.exports = {
         'contribution/plugin/index',
       ]
     },
-    {
-      type: 'link',
-      label: '变更日志',
-      href: '/changelog',
-    },
     'faqs',
   ]
 };
