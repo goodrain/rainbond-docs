@@ -64,7 +64,6 @@ kubectl get pv | grep rbd-system | grep -v NAME | awk '{print $1}' | xargs kubec
 kubectl delete crd componentdefinitions.rainbond.io \
 helmapps.rainbond.io \
 rainbondclusters.rainbond.io \
-rainbondpackages.rainbond.io \
 rainbondvolumes.rainbond.io \
 rbdcomponents.rainbond.io \
 servicemonitors.monitoring.coreos.com \

@@ -38,9 +38,7 @@ spec:
   env:
   - name: DB_TYPE
     value: mysql
-  - name: AUTO_INIT
-    value: "false"
-  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v6.0.0-release
+  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v6.0.1-release
   imagePullPolicy: IfNotPresent
   priorityComponent: false
   replicas: 1
