@@ -347,6 +347,19 @@ const sidebars = {
     'faq/index',
     {
       type: 'category',
+      label: '故障排除',
+      link: {
+        type: 'doc',
+        id: 'troubleshooting/index'
+      },
+      items: [
+        'troubleshooting/install',
+        'troubleshooting/cluster-connect',
+        'troubleshooting/common',
+      ]
+    },
+    {
+      type: 'category',
       label: '企业版使用手册',
       link: {
         type: 'doc',

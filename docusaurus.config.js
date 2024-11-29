@@ -384,20 +384,6 @@ const config = {
       }
     ],
     [
-      '@docusaurus/plugin-content-blog',
-      {
-        id: 'changelog',
-        path: './changelog',
-        routeBasePath: 'changelog',
-        blogTitle: '变更日志',
-        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/blog',
-        postsPerPage: 18,
-        blogSidebarCount: 'ALL',
-        blogSidebarTitle: '变更日志',
-        sortPosts: 'descending'
-      },
-    ],
-    [
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath) {

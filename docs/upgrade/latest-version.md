@@ -23,5 +23,5 @@ Rainbond 支持界面化的在线升级，通过界面化的在线升级可以�
 
 ## 版本变更日志
 
-您可以在 [历史版本变更日志](/changelog) 中查看每个版本的具体变更内容。
+您可以在 [历史版本变更日志](https://github.com/goodrain/rainbond/releases) 中查看每个版本的具体变更内容。
 
