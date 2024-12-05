@@ -123,3 +123,13 @@ docker system prune
 ```
 
 清理 Rainbond 镜像仓库存储的镜像，如果你采用的是 Rainbond 默认提供的镜像仓库，可参阅 [清理 rbd-hub 镜像](https://t.goodrain.com/d/21-rbd-hub)。
+
+## 源码构建提示 dial tcp look up goodrain.me on xxx:53: no such host
+
+一般这是由于本地 `/etc/hosts` 没有自动写入 `goodrain.me` 的解析，通过以下命令重新写入：
+
+```bash
+kubectl delete pod -l name=rainbond-operator -n rbd-system
+```
+
+rainbond-operator 会自动重新启动写入 `/etc/hosts` 的 Job 任务。
