@@ -11,9 +11,9 @@ keywords:
 
 ## 前提条件
 
-- Kubernetes 1.24+
-- [Kubectl CLI](https://kubernetes.io/docs/tasks/tools/#kubectl)
-- [Helm CLI](https://helm.sh/docs/intro/install/)
+- 安装 [Kubectl CLI](https://kubernetes.io/docs/tasks/tools/#kubectl)
+- 安装 [Helm CLI](https://helm.sh/docs/intro/install/)
+- Containerd 容器运行时的 Kubernetes 1.24+ 集群
 - `80 443 6060 7070 8443`端口可用
 
 ## 安装 Rainbond
