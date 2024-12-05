@@ -53,14 +53,14 @@ const sidebars = {
             'installation/install-with-helm/vaules-config',
           ]
         },
-        // 'installation/offline/index',
+        'installation/offline/index',
         'upgrade/latest-version',
         'installation/uninstall',
       ]
     },
     {
       type: 'category',
-      label: 'DevOps 指南',
+      label: '应用部署指南',
       link: {
         type: 'doc',
         id: 'devops/index'

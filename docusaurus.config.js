@@ -356,9 +356,10 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved`
       },
-      // prism: {
-      //   darkTheme: darkCodeTheme
-      // },
+      prism: {
+        // darkTheme: darkCodeTheme
+        additionalLanguages: ['bash'],
+      },
       announcementBar: {
         id: 'start',
         content:
