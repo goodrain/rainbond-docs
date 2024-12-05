@@ -81,6 +81,11 @@ Details on the advanced configuration of the Rainbond cluster are described belo
 3. 等待所有组件都启动后，下一步完成对接。
 
 > 如熟悉 [Kubectl](https://docs.rke2.io/reference/cli_tools) 命令，可通过 `kubectl get pods -n rbd-system` 命令查看集群状态。
+>
+> ```bash
+> export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+> /var/lib/rancher/rke2/bin/kubectl get nodes
+> ```
 
 ## Next step
 
