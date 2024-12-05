@@ -38,7 +38,7 @@ ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/rbd-monitor:v2.20.0
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/apisix-ingress-controller:1.8.2
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/apisix:3.9.1-debian
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/local-path-provisioner:v0.0.29
-${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/minio:RELEASE.2024-09-22T00-33-43Z
+${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/minio:RELEASE.2023-10-24T04-42-36Z
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/rbd-db:8.0.19
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/registry:2.6.2
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/alpine:latest"
@@ -136,7 +136,8 @@ rbd-worker-7db9f9cccc-s9wml               1/1     Running   0          5m22s
 #!/bin/bash
 image_list="registry.cn-hangzhou.aliyuncs.com/goodrain/buildkit:v0.12.0
 registry.cn-hangzhou.aliyuncs.com/goodrain/builder:stable-amd64
-registry.cn-hangzhou.aliyuncs.com/goodrain/runner:stable-amd64"
+registry.cn-hangzhou.aliyuncs.com/goodrain/runner:stable-amd64
+registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-resource-proxy:offline-amd64"
 
 for image in ${image_list}; do
   nerdctl pull "${image}"
@@ -145,29 +146,29 @@ done
 nerdctl save -o rainbond-sourcebuild.tar ${image_list}
 ```
 
-下载 `rbd-resource-proxy` 镜像离线包
-
-```bash
-wget https://pkg.rainbond.com/offline/5.3-enterprise/rbd-resource-proxy-offline-amd64.tar
-```
-
 ### 部署离线源码构建服务
 
 1. 将镜像包导入到目标服务器
 
 ```bash
 nerdctl -n k8s.io load -i rainbond-sourcebuild.tar
-nerdctl -n k8s.io load -i rbd-resource-proxy-offline-amd64.tar
 ```
 
 2. 在 `rbd-chaos` 构建节点上给镜像重新打 `tag` 并推送到私有镜像仓库
 
 ```bash
+# login to goodrain.me
 nerdctl login -u admin -p admin1234 goodrain.me --insecure-registry
+
+# tag
 nerdctl -n k8s.io tag registry.cn-hangzhou.aliyuncs.com/goodrain/builder:stable-amd64 goodrain.me/builder:latest-amd64
 nerdctl -n k8s.io tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:stable-amd64 goodrain.me/runner:latest-amd64
+nerdctl -n k8s.io tag registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-resource-proxy:offline-amd64 goodrain.me/rbd-resource-proxy:offline-amd64
+
+# push
 nerdctl -n k8s.io push goodrain.me/builder:latest-amd64 --insecure-registry
 nerdctl -n k8s.io push goodrain.me/runner:latest-amd64 --insecure-registry
+nerdctl -n k8s.io push goodrain.me/rbd-resource-proxy:offline-amd64 --insecure-registry
 ```
 
 3. 部署 `rbd-resource-proxy` 离线源码构建服务
@@ -195,12 +196,6 @@ spec:
       - image: goodrain.me/rbd-resource-proxy:offline-amd64
         imagePullPolicy: IfNotPresent
         name: rbd-resource-proxy
-        volumeMounts:
-        - mountPath: /data/nginx/cache
-          name: data
-      volumes:
-      - emptyDir: {}
-        name: data
 ---
 apiVersion: v1
 kind: Service

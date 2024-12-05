@@ -81,8 +81,13 @@ import TabItem from '@theme/TabItem';
 3. 等待所有组件都启动后，下一步完成对接。
 
 > 如熟悉 [Kubectl](https://docs.rke2.io/reference/cli_tools) 命令，可通过 `kubectl get pods -n rbd-system` 命令查看集群状态。
+> ```bash
+> export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+> /var/lib/rancher/rke2/bin/kubectl get nodes
+> ```
 
 ## 下一步
 
 - 完成[快速入门](../../quick-start/getting-started/)教程。
 - 将[控制台迁移](./console-recover) Kubernetes 集群中。
+
