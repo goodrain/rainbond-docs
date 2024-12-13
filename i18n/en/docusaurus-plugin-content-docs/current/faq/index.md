@@ -108,7 +108,18 @@ metadata:
 
 ## 启动无法获取镜像 x509: certificate signed by unknown authority
 
-通常是因为 Containerd 的配置不正确导致的，添加 Containerd 配置文件 `/etc/containerd/certs.d/goodrain.me/hosts.toml`。
+通常是因为 Containerd 的配置不正确导致的。
+
+1. 修改配置文件 `/etc/containerd/config.toml`
+
+```bash
+[plugins."io.containerd.grpc.v1.cri".registry.configs]
+  [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me"]
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me".tls]
+       insecure_skip_verify = true
+```
+
+2. 添加 Containerd 配置文件 `/etc/containerd/certs.d/goodrain.me/hosts.toml`
 
 ```bash
 [host."https://goodrain.me"]
