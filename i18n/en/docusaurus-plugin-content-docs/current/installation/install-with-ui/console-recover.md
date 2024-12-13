@@ -39,7 +39,7 @@ spec:
   env:
   - name: DB_TYPE
     value: mysql
-  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v6.0.1-release
+  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>-release
   imagePullPolicy: IfNotPresent
   priorityComponent: false
   replicas: 1
