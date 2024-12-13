@@ -52,7 +52,7 @@ kubectl delete pod -n rbd-system -l name=rainbond-operator
 
 ```yaml title="kubectl edit rbdcomponent -n rbd-system rbd-api"
 spec:
-  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-api:v6.0.1-release
+  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-api:<version>-release
 ```
 
 可通过 `kubectl get rbdcomponent -n rbd-system` 查看所有组件。
