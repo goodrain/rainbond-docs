@@ -26,7 +26,7 @@ keywords:
 
 IMAGE_DOMAIN=registry.cn-hangzhou.aliyuncs.com
 IMAGE_NAMESPACE=goodrain
-VERSION=v6.0.1-release
+VERSION=<version>-release
 
 image_list="${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/rainbond:${VERSION}
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/rbd-chaos:${VERSION}
