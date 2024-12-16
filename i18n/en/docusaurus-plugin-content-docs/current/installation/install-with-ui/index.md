@@ -56,11 +56,11 @@ Once the Kubernetes cluster is installed, the next step will go to the Rainbond 
 
 A detailed description of the Rainbond cluster base configuration is provided below.
 
-| Configuration Item | Note                                                                              |          |
-| ------------------ | --------------------------------------------------------------------------------- | -------- |
-| [集群入口 IP](ha#负载均衡) | IP access to cluster entrance can be VIP, load equilibrium IP or any gateway node | Required |
-| [网关节点](ha#网关节点)    | Specify which nodes Rainbond gateway service will be deployed and run             | Required |
-| [构建节点](ha#构建节点)    | Specify on which node Rainbond build services to deploy and run                   | Required |
+| Configuration Item      | Note                                                                              |          |
+| ----------------------- | --------------------------------------------------------------------------------- | -------- |
+| [集群入口 IP](./ha.md#负载均衡) | IP access to cluster entrance can be VIP, load equilibrium IP or any gateway node | Required |
+| [网关节点](./ha.md#网关节点)    | Specify which nodes Rainbond gateway service will be deployed and run             | Required |
+| [构建节点](./ha.md#构建节点)    | Specify on which node Rainbond build services to deploy and run                   | Required |
 
 </TabItem>
 
@@ -70,8 +70,8 @@ Details on the advanced configuration of the Rainbond cluster are described belo
 
 | Configuration Item      | Note                                                                                                                                                                              |          |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| [镜像仓库](ha#镜像仓库)         | Specify Rainbond mirror repository, all components on the platform will be picked up and pushed from this warehouse.Provide built-in mirror repository by default | optional |
-| [数据库](ha#mysql)         | Specify the MySQL8.0+ database of the Rainbond cluster.Built-in MySQL8.0+ database provided by default                            | optional |
+| [镜像仓库](./ha.md#镜像仓库)    | Specify Rainbond mirror repository, all components on the platform will be picked up and pushed from this warehouse.Provide built-in mirror repository by default | optional |
+| [数据库](./ha.md#mysql)    | Specify the MySQL8.0+ database of the Rainbond cluster.Built-in MySQL8.0+ database provided by default                            | optional |
 | Component Mirror Source | Specify which mirror source does Rainbond own component to retrieve the mirror, by default, through the Arjun mirror, Curaça                                                      | optional |
 
   </TabItem>
@@ -89,5 +89,5 @@ Details on the advanced configuration of the Rainbond cluster are described belo
 
 ## Next step
 
-- 完成[快速入门](../../quick-start/getting-started/)教程。
-- 将[控制台迁移](./console-recover) Kubernetes 集群中。
+- 完成[快速入门](../../quick-start/getting-started.mdx)教程。
+- 将[控制台迁移](./console-recover.md) Kubernetes 集群中。
