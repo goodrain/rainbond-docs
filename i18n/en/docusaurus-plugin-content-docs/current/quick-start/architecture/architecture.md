@@ -53,7 +53,7 @@ The application building service is a stateless architecture, designed with task
 
 The source code building process is a very resource-consuming process. Therefore, the application build service supports multi-node deployment to increase the number of concurrently supported build tasks. The maximum number of concurrent builds supported by each node is determined by the number of node CPU cores or manually set by operation and maintenance personnel.
 
-> - 关于源码编译的 BuildingPack 参考 [各语言支持文档](../../devops/app-deploy/)。
+> - 关于源码编译的 BuildingPack 参考 [各语言支持文档](../../devops/app-deploy/index.md)。
 > - The application construction service supports multi-point high-availability deployment, and multi-point deployment obtains application construction tasks from message middleware.
 
 ### Application Runtime Control Service
