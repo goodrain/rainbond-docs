@@ -12,7 +12,7 @@ keywords:
 
 ## 组件信息
 
-各个组件介绍请参见 [Rainbond组件概述](../component/)
+各个组件介绍请参见 [Rainbond组件概述](../component/index.md)
 
 ### 查看组件详细信息
 

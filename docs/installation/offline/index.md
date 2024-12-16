@@ -64,7 +64,7 @@ git clone -b main --depth=1 https://github.com/goodrain/rainbond-chart.git
 nerdctl -n k8s.io load -i rainbond-offline-images.tar
 ```
 
-2. 编辑 [values.yaml](../install-with-helm/vaules-config) 文件，填写必须配置。
+2. 编辑 [values.yaml](../install-with-helm/vaules-config.md) 文件，填写必须配置。
 
 ```yaml title="vim values.yaml"
 Cluster:
@@ -123,7 +123,7 @@ rbd-worker-7db9f9cccc-s9wml               1/1     Running   0          5m22s
 
 6. 使用 `gatewayIngressIPs` 配置的 IP 地址访问 Rainbond，例如: `http://172.20.251.93:7070`。
 
-7. 如您采用默认的镜像仓库，则需要修改 Containerd 的配置，配置 [goodrain.me 私有镜像仓库](../../faq/#%E5%90%AF%E5%8A%A8%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F-x509-certificate-signed-by-unknown-authority)。
+7. 如您采用默认的镜像仓库，则需要修改 Containerd 的配置，配置 [goodrain.me 私有镜像仓库](../../faq/index.md#%E5%90%AF%E5%8A%A8%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F-x509-certificate-signed-by-unknown-authority)。
 
 
 ## 离线环境下使用源码构建（可选）
