@@ -15,6 +15,7 @@ const config = {
   favicon: 'img/rainbond.png',
   organizationName: 'goodrain', // Usually your GitHub org/user name.
   projectName: 'rainbond-docs', // Usually your repo name.
+  trailingSlash: 'false',
   i18n: {
     defaultLocale: 'zh',
     locales: ['en', 'zh'],
