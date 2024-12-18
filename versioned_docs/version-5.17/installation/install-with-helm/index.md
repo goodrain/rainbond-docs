@@ -9,20 +9,20 @@ keywords:
 
 ## 基于已有 Kubernetes 集群安装
 
-### [基于自建 Kubernetes 集群安装](../install-with-helm/install-from-kubernetes)
+### [基于自建 Kubernetes 集群安装](install-from-kubernetes.md)
 
 了解在自建的 Kubernetes 集群中，如何使用 Helm 快速部署 Rainbond 环境。这种安装方式支持高可用部署。
 
-### [基于自建 k3s 集群安装](../install-with-helm/other/k3s-install-with-helm/)
+### [基于自建 k3s 集群安装](./other/k3s-install-with-helm.md)
 
 了解在已有的 K3s 集群中，如何使用 Helm 快速部署 Rainbond 环境。这种安装方式支持高可用部署。
 
 ## 在托管 Kubernetes 上安装
 
-### [基于阿里云 ACK 集群安装](../install-with-helm/cloud/ack-install-with-helm/)
+### [基于阿里云 ACK 集群安装](./cloud/ack-install-with-helm.md)
 
 了解在阿里云 ACK 集群中，部署 Rainbond 的最佳实践，以及各类云服务资源的建议。这种安装方式支持高可用部署。
 
-### [基于华为云 CCE 集群安装](../install-with-helm/cloud/cce-install-with-helm/)
+### [基于华为云 CCE 集群安装](./cloud/cce-install-with-helm.md)
 
 了解在华为云 CCE 集群中，部署 Rainbond 的最佳实践，以及各类云服务资源的建议。这种安装方式支持高可用部署。
