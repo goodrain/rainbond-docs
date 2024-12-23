@@ -1,22 +1,23 @@
 ---
 title: Rainbond combines NeuVector to practice container security management
-description: Rainbond combines NeuVector to practice container security management
-slug: neuvector
+description: NeuVector is the industry's first open-source container security platform
+slug: newector
+image: https://static.goodrain.com/wechat/neuvector/neuvector.png
 ---
 
 :::info
-This article mainly describes the steps of installing and deploying the NeuVector container security platform based on Rainbond, as well as the best practices in the production environment with Rainbond.
+This article mainly describes the steps to install and deploy the NeuVector container security platform based on Rainbond, as well as the best practices for implementing the production environment with Rainbond.
 :::
 
 <!--truncate-->
 
 ## foreword
 
-Rainbond is a cloud-native application management platform that is easy to use and does not require knowledge of containers, Kubernetes and the underlying complex technologies. It supports managing multiple Kubernetes clusters and managing the entire lifecycle of enterprise applications.However, with the little progress of the cloud-native era and the emergence of endless network container security incidents, everyone has a further idea of the importance of container security and network security. Similar container security incidents occur, and NeuVector is specially adapted to integrate.
+Rainbond is a cloud-native application management platform that is easy to use and does not require knowledge of containers, Kubernetes and the underlying complex technologies. It supports managing multiple Kubernetes clusters and managing the entire lifecycle of enterprise applications.However, with the little progress of the cloud-native era and the emergence of endless network container security incidents, everyone has a further idea of the importance of container security and network security. Similar container security incidents occur, and NeuVector is specially adapted to integrate.But with little progress in the days of the births, the proliferation of security incidents in cyber containers has also given rise to further ideas about the safety and importance of the containers, and Rainbond has been particularly suited to the NeuVector in order to ensure that no similar container security incidents occur in the course of use by users.
 
-NeuVector is the industry's first end-to-end open source container security platform, providing an enterprise-grade zero-trust security solution for containerized workloads.NeuVector can provide real-time in-depth container network visualization, east-west container network monitoring, active isolation and protection, container host security, and container internal security. The container management platform seamlessly integrates and automates application-level container security, suitable for various cloud environments. , container production environments such as cross-cloud or on-premises deployments.
+Rainbond combines NeuVector to practice container security managementNeuVector is the industry's first end-to-end open source container security platform, providing an enterprise-grade zero-trust security solution for containerized workloads.NeuVector can provide real-time in-depth container network visualization, east-west container network monitoring, active isolation and protection, container host security, and container internal security. The container management platform seamlessly integrates and automates application-level container security, suitable for various cloud environments. , container production environments such as cross-cloud or on-premises deployments.
 
-This article mainly describes the steps to install and deploy the NeuVector container security platform based on Rainbond, as well as the best practices for implementing the production environment with Rainbond.
+This article mainly describes the steps of installing and deploying the NeuVector container security platform based on Rainbond, as well as the best practices in the production environment with Rainbond.
 
 ## Deploy NeuVector
 
@@ -29,8 +30,6 @@ NeuVector has a variety of deployment and installation forms. In order to simpli
 NeuVector is usually installed in the neuvector namespace, and in Rainbond, the concept of a team corresponds to the namespace in kubernetes, so when installing through helm, you first need to create a corresponding team, and the English name of the team corresponds to the The namespace of the team in the cluster, fill in neuvector here, and select the corresponding cluster.
 
 <img src="https://static.goodrain.com/wechat/neuvector/1.png" width="70%;" />
-
-
 
 **Docking helm store**
 
@@ -52,16 +51,16 @@ Modify the default key and value
 
 values configuration item：
 
-| key                          | value                        |
-| ---------------------------- | ---------------------------- |
-| registry                     | docker.io                    |
-| tag                          | 5.0.0-preview.1              |
-| controller.image.repository  | neuvector/controller.preview |
-| enforcer.image.repository    | neuvector/enforcer.preview   |
-| manager.image.repository     | neuvector/manager.preview    |
-| cve.scanner.image.repository | neuvector/scanner.preview    |
-| cve.updater.image.repository | neuvector/updater.preview    |
-| manager.svc.type             | ClusterIP                    |
+| key                                                                          | value                                                            |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Registration                                                                 | docker.io                                        |
+| tag                                                                          | 5.0.0- preview.1 |
+| controller.image.repository                  | neuvector/controller.preview                     |
+| enforceer.image.repository                   | neuvector/enforcer.preview                       |
+| manager.image.repository                     | neuvector/manager.preview                        |
+| cve.scanner.image.repository | neuvector/scanner.preview                        |
+| cve.updater.image.repository | neuvector/updater.preview                        |
+| manager.svc.type                             | ClusterIP                                                        |
 
 After the installation is complete, confirm that the status of the pod is Running
 
@@ -73,12 +72,12 @@ neuvector provides a visual operation interface, the installation process will a
 
 The following are the options that need to be configured
 
-| component name                | neuvector-web           |
+| component name                | newector-web            |
 | ----------------------------- | ----------------------- |
-| Component English name        | neuvector               |
+| Component English name        | newector                |
 | Component registration method | kubernetes              |
-| Namespace                     | neuvector               |
-| Service                       | neuvector-service-webui |
+| Namespace                     | newector                |
+| Service                       | newvector-service-webui |
 
 After the addition is complete, you need to add and open the port (8443) for external access. The default username and password are both `admin/admin`
 
@@ -88,13 +87,11 @@ Note that when accessing：, you need to access it in the form of https, so far 
 
 <img src="https://static.goodrain.com/wechat/neuvector/8.png" />
 
-
-
 ## NeuVector Best Practices
 
 ### Network Traffic Monitoring Governance
 
-The network activity provided by NeuVector can clearly view the network traffic trend between each pod.As well as the corresponding ports and rules, you can view the direction more clearly.
+The network activity provided by NeuVector can clearly view the network traffic trend between each pod.As well as the corresponding ports and rules, you can view the direction more clearly.As well as the corresponding ports, rules, a clearer view trajectory.
 
 The blue line represents the normal flow recorded in the learning mode.
 
@@ -103,8 +100,6 @@ The yellow flow is recorded in monitoring mode, and we need to manually review t
 Red means that it is recorded in the protected mode, and the trend is rejected, which can also be avoided by rules.
 
 ![](https://static.goodrain.com/wechat/neuvector/9.png)
-
-
 
 ### Use of learning mode, monitoring mode, protected mode
 
@@ -128,8 +123,6 @@ NeuVector monitors the network and process operation of containers and hosts, an
 
 For the above three modes, the best practices suitable for the production environment can be summarized. When a new business is ready to go online, it can be defaulted to the learning mode. After a period of learning, the rules of the container and the host are recorded, and then Convert to monitoring mode, run for a period of time, monitor whether there are special network traffic and host processes, help us record special network trends, and alarm to confirm whether to release, and finally switch to monitoring mode to avoid some malicious operations against us the environment poses unnecessary danger.
 
-
-
 ### Cluster-based image repository for vulnerability checking
 
 The smallest unit of the kubernetes cluster deployment business is the pod, but the most important part of the pod is the image. NeuVector can also perform vulnerability checks based on the image to avoid injecting special vulnerability mechanisms into the image.
@@ -141,7 +134,7 @@ If you use an external mirror repository when connecting to Rainbond, and the do
 edit coredns
 
 ```shell
-kubectl edit cm coredns -n kube-system  
+kubtl edit cm coredns - n kube-system  
 ```
 
 <img src="https://static.goodrain.com/wechat/neuvector/10.png" width="70%;" />
@@ -149,13 +142,13 @@ kubectl edit cm coredns -n kube-system
 Get the IP resolved by goodrain.me
 
 ```shell
-kubectl get rainbondcluster -n rbd-system -oyaml | egrep -v [A-Za-z{}]
+kubtl get rainbondcluster -n rbd-system -oyaml | egrep -v [A-Za-z{}]
 ```
 
 Add the following content in the specified location, pay attention to modify the IP
 
 ```shell
-hosts {
+hosts LO
   192.168.0.1 goodrain.me
   fallthrough
 }
@@ -168,7 +161,7 @@ On the left side of the NeuVector web interface, select the asset >  image repos
 The default user of goodrain.me is admin, and the password is obtained by the following command
 
 ```shell
- kubectl get rainbondcluster -n rbd-system -oyaml | grep password | sed "1d"
+ kubectl get rainbondcluster -n rbd-system -yaml | grep password | sed "1d"
 ```
 
 After the mirror scan is completed, the mirror information will be displayed below. Click the name of the mirror you want to view to view the detailed information. The following is for reference.
@@ -178,4 +171,3 @@ After the mirror scan is completed, the mirror information will be displayed bel
 ## write at the end
 
 Through this article, I hope that you can successfully deploy the NeuVector container security platform based on Rainbond, and you can do the corresponding operations according to the best practices. Of course, the functions of NeuVector are far more than that, and you still need to continue to explore, constantly practice.
-
