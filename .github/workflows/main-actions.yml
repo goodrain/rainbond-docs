@@ -1,8 +1,7 @@
 name: Rainbond Docs GitHub Actions
 on:
-  push:
-    branches:    
-      - 'main'
+  workflow_dispatch:
+    
 jobs:
   rainbond-docs-build:
     name: build rainbond docs
