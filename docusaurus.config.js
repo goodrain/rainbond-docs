@@ -355,7 +355,7 @@ const config = {
             ]
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved`
+        copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved. <a href="https://beian.miit.gov.cn">京ICP备15028663号-4</a>`
       },
       prism: {
         // darkTheme: darkCodeTheme

@@ -158,3 +158,6 @@ kubectl delete pod -l name=rbd-chaos -n rbd-system
 快速安装的 Rainbond 默认使用 Docker 启动，并默认映射了 `30000～30010` 10个 TCP 端口供应用测试使用。如果你需要更多的 TCP 端口，通过脚本中打印的命令，删除容器重新启动并添加 `-p` 映射新的端口。
 
 
+## 无法上传软件包，Jar、WAR、ZIP等
+
+通常是因为本地浏览器与 Rainbond WebSocket 通信失败导致的。你可以在 `平台管理 -> 集群 -> 编辑集群` 修改 `WebSocket` 地址。
