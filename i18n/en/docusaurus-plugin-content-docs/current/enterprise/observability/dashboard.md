@@ -17,7 +17,7 @@ This is mainly divided into clusters of overview information and cluster details
 
 Resource monitoring data in clusters and platforms, traffic maps and access to large screens and cluster management features are shown.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/observability/observability-all.png)
+![description](https://static.goodrain.com/docs/enterprise-app/observability/observability-all.png)
 
 #### Resource Monitor
 
@@ -38,7 +38,7 @@ Resource monitoring data in clusters and platforms, traffic maps and access to l
 
 Demonstrate the details of the cluster, such as health indicators, component health, resource use, cluster networks, nodes, etc.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/observability/observability-one.png)
+![description](https://static.goodrain.com/docs/enterprise-app/observability/observability-one.png)
 
 #### Health indicators
 
