@@ -13,7 +13,7 @@ The current WAF firewall mainly supports rule management, log and monitoring, wh
 
 ### Rule management
 
-![waf](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/waf/waf.jpg)
+![waf](https://static.goodrain.com/docs/enterprise-app/waf/waf.jpg)
 
 The gate's WAF firewall contains six sets of rules inside the XSS cross-site script, defenses against Http protocol loopholes, defensive SQL injections, general defense, defensive malicious response, defensive denial of service attacks.Details below：
 
