@@ -9,7 +9,7 @@ description: The origin and philosophy of Rainbond design
 
 Application management is much more complex than resource management and involves application development, application architecture, application delivery, and application operation, among other application-level management aspects. It also needs to work in conjunction with solving the problem of automated resource management. The essence of cloud-native is to address the problem of automated application management.
 
-![cloud-native](/img/architecture/cloud_to_native.svg)
+![cloud-native](https://static.goodrain.com/docs/5.8/docs/architecture/cloud-native.png)
 
 In terms of its effect, the ultimate goal of cloud-native is to allow developers to focus on their business. They shouldn't have to worry about things outside of their business, such as infrastructure, application architecture, and application operations. They should just need to understand the business and be able to create the applications they want and deliver them on-demand to customers.
 
@@ -21,7 +21,7 @@ When these three points are addressed, developers can focus on their business, a
 
 **Based on these considerations, an application abstraction model is a solution. It wraps and abstracts the entire application, including all the runtime definitions needed for running the application. It isolates the application from the underlying technologies and concepts.** Upward-facing users don't need to learn and understand system-level concepts and technologies anymore. Internally, the application decouples business and extension capabilities, using application-level concepts for development and management. When there's a need to extend service governance, operations, security, and other capabilities, plugins can be activated as needed. Downward, it wraps Kubernetes concepts and abstractions, shielding the differences in underlying infrastructure, allowing the application abstraction model to run on various types of infrastructure.\*\* Upward users are no longer required to learn and understand system-level concepts and technologies, to apply internal coupling of business and extension capabilities, to develop and manage applications concept and to enable plugins when expanding service governance, operational maintenance, security, etc.Bottom down packaging Kubernetes concepts and abstracts, block differences in underlying infrastructure and make it possible to apply abstract models to all types of infrastructure.
 
-![export\_template](/img/architecture/export_template.svg)
+![app-template](https://static.goodrain.com/docs/5.8/docs/architecture/app-template.png)
 
 The core design of the application abstraction template includes three aspects:
 
@@ -37,7 +37,7 @@ Application-level abstraction is an "application-centric" abstraction model that
 
 In order to achieve flexible programming and automation, Kubernetes defined a number of concepts, offered a rich extension mechanism and interacted with it in YAML, these programmable experiences of Kubernetes were very good features for those who manage and expand Kubernetes, but for ordinary developers, the threshold was too high and many concepts and technologies were not directly related to the business they developed, so that a more friendly experience was needed for ordinary developers without learning to use.
 
-Decoupling of Architecture
+![app-template-1](https://static.goodrain.com/docs/5.8/docs/architecture/app-template-1.png)
 
 Coarse-grained correspondence between application-level abstraction and Kubernetes concepts:
 
@@ -72,7 +72,7 @@ The decoupling of extension capabilities in the application uses Kubernetes Pods
 | Bypass Plugin                 | Run by bypass road on the network.Runs on the network bypass. Examples: performance analysis, monitoring, call chain analysis, log management                                                                                          |
 | Initialization Plugin         | Pod's Init container, starts before the Pod. Examples: database initializatione.g.：database initialization                                                                                                             |
 
-![app\_model\_en](/img/architecture/app_model_en.png)
+![app-template-2](https://static.goodrain.com/docs/5.8/docs/architecture/app-template-2.png)
 
 Implementing plugins based on the Pod mechanism can only extend the capabilities of individual business containers. To extend the service governance capabilities of the entire application, plugins for each business container need to be extended. This is consistent with the implementation mechanism of Service Mesh.
 
@@ -86,7 +86,7 @@ The application model is embodied and stored in the form of application template
 
 \*\*From using experience, app templates can install and upgrade by one click and by dragging down the business.\*\*Application templates are flexible enough to support different particle sizes, templates and templates can amortize new templates, new templates can be continuously patched, particle size is determined by the user and meaningful by the user.**From a user experience perspective, application templates can be installed and upgraded with a single click, achieved through "drag and drop" business assembly.** Application templates are highly flexible, supporting different granularities. Templates can be combined with other templates, and new templates can be continuously assembled. The granularity is determined by the user and given meaning by the user. Application templates can be delivered to branch versions that are compatible with the Kubernetes API, achieving one-click installation and upgrade or storing the application template in an application marketplace for instant use.
 
-![app\_abstract\_model\_en](/img/architecture/app_abstract_model_en.svg)
+![app-template-3](https://static.goodrain.com/docs/5.8/docs/architecture/app-template-3.png)
 
 Application templates need to have four characteristics:
 
