@@ -19,10 +19,10 @@ Use **Business Admin Account** in **Business Views** click **App Market**, click
 Store name：custom\
 store address：Helm repository address
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/dockinghelmstore.jpg" title="对接helm仓库" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.3/user-operations/component-create/creation-process/dockinghelmstore.jpg" title="对接helm仓库" width="100%"/>
 
 Auto-display apps from the current Helm repository when pairing is completed
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-operations/component-create/creation-process/dockingcomplete.jpg" title="对接完成" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.3/user-operations/component-create/creation-process/dockingcomplete.jpg" title="对接完成" width="100%"/>
 
 Completing the steps in this section can be based on the Helm App Store deploying the application in Rainbond, followed by reference to the documentation [deployment of Helm applications in Rainbond](./creation-process/).
