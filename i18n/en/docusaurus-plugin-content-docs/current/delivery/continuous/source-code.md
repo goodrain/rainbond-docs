@@ -20,7 +20,7 @@ As shown in the graph below, the process below is usually required to achieve co
 
 3. When a version is tested, we can believe that a high-quality deliverable version already exists.This is followed by manual review, merging the code from the testing branch to the master branch for deployment of the production environment online.
 
-<!-- ![source-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/source-delivery.jpg) -->
+<!-- ![source-delivery](https://static.goodrain.com/docs/5.10/delivery/source-delivery.jpg) -->
 
 ![](https://static.goodrain.com/docs/5.11/delivery/continuous/source-code/code-delivery.png)
 
