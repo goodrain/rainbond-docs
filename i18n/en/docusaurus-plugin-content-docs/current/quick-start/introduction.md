@@ -33,7 +33,7 @@ Rainbond provides capabilities for business integration, multi-cloud delivery, p
 
 ## Rainbond's Features and Architecture
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/03/17/16474283190784.jpg)
+![](https://static.goodrain.com/case/2022/03/17/16474283190784.jpg)
 
 ### Application-Level Multi-Cloud Management
 
@@ -56,7 +56,7 @@ Components are independent, reusable, extensible, and integrable units. They sup
 
 ## How Does Rainbond Work?
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/03/17/164742867950.jpg)
+![](https://static.goodrain.com/case/2022/03/17/16474282867950.jpg)
 
 Rainbond consists mainly of two parts: the Rainbond Control Console, which provides a web interface, and the Rainbond Cluster Management End, which is installed within Kubernetes (K8s) clusters.
 
