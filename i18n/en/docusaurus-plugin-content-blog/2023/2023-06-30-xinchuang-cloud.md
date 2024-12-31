@@ -19,7 +19,7 @@ Release of Rainbond v5.14.2, also known as the **fumigation**.Beginning with thi
 
 信创应用必须运行在国产化硬件和操作系统之上。国产化硬件生态中最重要的是 CPU 芯片，CPU 芯片的架构直接影响信创应用是否可以在国产化硬件上运行。目前主流的国产化 CPU 厂商包括飞腾、华为、龙芯、海光、兆芯等，其指令集集中在 `X86` 、`Arm` 以及自主性极高的 `LoongArch` (MIPS 指令集的后继者) 之中。而指令集的不同，直接影响到信创应用是否需要重新编译来进行适配。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%9B%BD%E4%BA%A7CPU%E7%94%9F%E6%80%81.png)
+![](https://static.goodrain.com/localization-guide/%E5%9B%BD%E4%BA%A7CPU%E7%94%9F%E6%80%81.png)
 
 不难看出，国产化 CPU 芯片的生态有这么几个特点：
 
@@ -39,11 +39,11 @@ Release of Rainbond v5.14.2, also known as the **fumigation**.Beginning with thi
 
 Rainbond 信创版本可以在同个集群中统一管理和调度多种不同 CPU 架构计算节点，同时也可以借助多集群管理能力纳管多个单架构集群。超高的灵活性，可以让决策者自行决定异构计算资源的部署策略。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86.png)
+![](https://static.goodrain.com/localization-guide/%E5%BC%82%E6%9E%84%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86.png)
 
 除 Arm 架构之外，Rainbond 信创版本也兼容主流国产化软硬件，全面支持信创场景，并且获得了国内各大 CPU 厂商、操作系统厂商的认证。一体化管理信创应用的开发、运维、交付全流程，极大降低国产化信创场景下的应用管理成本。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%9B%BD%E4%BA%A7%E8%AE%A4%E8%AF%81%E9%9B%86%E5%90%88.png)
+![](https://static.goodrain.com/localization-guide/%E5%9B%BD%E4%BA%A7%E8%AE%A4%E8%AF%81%E9%9B%86%E5%90%88.png)
 
 ## 信创应用迁移难点
 
@@ -79,7 +79,7 @@ Rainbond 信创版本可以在同个集群中统一管理和调度多种不同 C
 
 Rainbond 信创版本自动屏蔽架构差异，以最低成本将应用迁移到国产化信创环境之中。仅需要提供源代码，即可在指定架构环境中编译运行。开源应用商店提供不同架构的应用模板，上百种开源软件一键部署。信创应用供应商可以以最小的技术成本和时间成本，即可将不同类型的服务重新编译，并部署到信创环境中去。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%BF%81%E7%A7%BB.png)
+![](https://static.goodrain.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%BF%81%E7%A7%BB.png)
 
 ## 异构微服务编排能力
 
@@ -87,4 +87,4 @@ Rainbond 信创版本凭借**一云多芯**管理能力， 可以在同个集群
 
 借助于 Service Mesh 亦或是 Kubernetes Service 的能力，Rainbond 天生支持跨架构微服务之间的编排与通信。使用方法与 Rainbond 一直以来的拖拉拽拼积木式的微服务编排方法无异。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%BC%96%E6%8E%92.png)
+![](https://static.goodrain.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%BC%96%E6%8E%92.png)
