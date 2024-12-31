@@ -5,7 +5,7 @@ description: Rainbond Technical Architecture
 
 ### Rainbond Technical Architecture
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/architecture.svg" width="100%"/>
+<img src="https://static.goodrain.com/images/docs/5.0/architecture/architecture.svg" width="100%"/>
 
 Rainbond implements the application-centric concept, absorbs excellent community solutions, and forms a data center logic technology architecture that combines application control, application runtime, and cluster control. The physical architecture divided by the storage node to the class node type forms a highly available and highly scalable data center architecture system.
 
@@ -17,7 +17,7 @@ Based on the data center architecture, it is divided into application management
 
 As an abstract core control service at the data center level, API service provides Restful-style API services to the outside world, and is the only entry for data center control requests. Security control is based on TLS two-way security authentication.Self-signed certificates are distributed to clients.Send the certificate to the client after issuing it on an autonomous basis.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png" width="100%"/>
+<img src="https://static.goodrain.com/images/5.1/images/api.png" width="100%"/>
 
 Once an API service request is made available by the Root module. Regular requests to enter the Handle Request Processing module. These requests are mainly requests to operate database models. API services are based on ORM support for the Mysql database and CockroachDB databases.Enter Proxy requests into API and Websocket requests.Discover proxy targets and forward requests by Discover module via the etcd service.The API provided by other components can therefore be forwarded by the API Service Agent via Service Registration.
 
@@ -29,11 +29,11 @@ The design of the application gateway is inspired by the NGINX Ingress Controlle
 
 The application gateway can increase concurrency and basic performance through horizontal expansion, and the general configuration takes effect synchronously in all gateway nodes.For 74IP+For 74IP+
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/gw.png" width="100%"/>
+<img src="https://static.goodrain.com/images/docs/5.0/architecture/gw.png" width="100%"/>
 
 The architectural goal of the single-node application gateway service is to support multiple data sources, support multiple IPs, support high concurrency capabilities, support multiple server capabilities, and support dynamic configuration change capabilities.Based on this, the application gateway architecture is designed as follows：The following： design is required for this Gateway Architecture
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/gateway.png" width="100%"/>
+<img src="https://static.goodrain.com/images/5.1/images/gateway.png" width="100%"/>
 
 The application gateway service integrates the Openresty service as a front-end traffic proxy service. Based on lua, Openresty can be extended. Lua-Config-Controller implements dynamic configuration, Upstream management, and load balancing strategy implementation. Lua-Monitor-Controller implements request data. The record and summary report, Lua-Security-Controller implements the security control of the request.The three Lua modules are driven by Openresty-Controller. The Metric-Controller module aggregates various monitoring data of the gateway and exposes the Metric-Server of the Prometheus specification.Openresty-Controller is driven by data, the data comes from Gateway-Model-Controller, the two layers have no coupling relationship, and it implements standard interface specifications.We can implement drivers based on other proxy services, such as F5, as needed.Three Lua modules are operated by Openresty-Controller, and the Metric-Controller module brings together all types of monitoring data from the gateway and exposes Prometheus to the outside.The Openresty-Controller is data driven, from Gateway-Model-Controller and has no coupling of the two layers and implements standard interface specifications.If needed, we can implement drives based on other proxy services, such as F5.
 
@@ -60,7 +60,7 @@ The source code building process is a very resource-consuming process. Therefore
 
 The application runtime control service instantiates the Rainbond-Application Model and converts it into a Kubernetes resource model, assigns various resources required for application operation, and completes the running state part of the application life cycle. It can be understood as the CD control service. The design points of this service It is the life cycle supervision that supports a large number of applications.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/worker-arch.svg" width="100%"/>
+<img src="https://static.goodrain.com/images/docs/5.0/architecture/worker-arch.svg" width="100%"/>
 
 App can experience stops, upgrades and rolls during your life cycle.The application life cycle may experience start, stop, upgrade and rollback.Different application types require different control strategies. For example, stateless applications can perform unordered rolling upgrades, while the upgrade control strategies for stateful applications will be more complex.The Worker service implements lifecycle controllers for various component types, including start, stop, update, and scaling waits.A lifecycle controller, containing start, stop, update, scaled-up waiting for all components types in the workker service.
 
