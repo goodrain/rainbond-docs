@@ -39,6 +39,8 @@ spec:
   env:
   - name: DB_TYPE
     value: mysql
+  - name: IS_STANDALONE
+    value: "false"
   image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>-release
   imagePullPolicy: IfNotPresent
   priorityComponent: false
