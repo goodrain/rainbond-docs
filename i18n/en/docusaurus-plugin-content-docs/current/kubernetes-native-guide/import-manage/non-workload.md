@@ -25,7 +25,7 @@ Below is the example of Linkerd namespace, which describes the treatment of k8s 
 
 4. See if there is a failed resource. Click for details to see the reasons for the specific failure.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_add.jpg" title="k8s资源添加"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_add.jpg" title="k8s资源添加"/>
 
 :::caution
 
@@ -43,7 +43,7 @@ Below is the example of Linkerd namespace, which describes the treatment of k8s 
 
 4. See if there is a failed resource. Click for more details to see the reasons for the failures.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_update.jpg" title="k8s资源修改"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_update.jpg" title="k8s资源修改"/>
 
 :::caution
 
@@ -55,4 +55,4 @@ Below is the example of Linkerd namespace, which describes the treatment of k8s 
 
 1. Click the delete button when the resource is confirmed.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_delete.jpg" title="k8s资源删除"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_delete.jpg" title="k8s资源删除"/>
