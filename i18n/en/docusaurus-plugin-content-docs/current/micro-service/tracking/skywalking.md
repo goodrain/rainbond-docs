@@ -19,7 +19,7 @@ SkyWalking's service needs to be enabled in the monitored service while SkyWalki
 
 The graph below shows the structure of using SkyWalking's app monitoring in Rainbond
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/practices/skywalking/SkyWalking-Rainbond.png)
+![](https://static.goodrain.com/docs/5.4/practices/skywalking/SkyWalking-Rainbond.png)
 
 ## How Agent plugin works
 
@@ -88,8 +88,8 @@ Visit the external port `skywalking-ui` to enter the visualization interface.
 
 - Dashboard
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/practices/skywalking/skywalking-page.png)
+![](https://static.goodrain.com/docs/5.4/practices/skywalking/skywalking-page.png)
 
 - Service call topography
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/practices/skywalking/Service-Topology.jpg)
+![](https://static.goodrain.com/docs/5.4/practices/skywalking/Service-Topology.jpg)
