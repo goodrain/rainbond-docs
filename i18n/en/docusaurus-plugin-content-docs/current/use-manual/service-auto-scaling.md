@@ -17,7 +17,7 @@ There are two types of automatic scaling of components, namely `horizontal autom
 
 #### Automatic scaling of components horizontally
 
-![Schematic diagram of horizontal scaling of components](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/autoscaler/%E8%87%AA%E5%8A%A8%E4%BC%B8%E7%BC%A9%E5%8E%9F%E7%90%86%E5%9B%BE.png)
+![组件水平伸缩原理图](https://static.goodrain.com/images/docs/5.1/user-manual/autoscaler/%E8%87%AA%E5%8A%A8%E4%BC%B8%E7%BC%A9%E5%8E%9F%E7%90%86%E5%9B%BE.png)
 
 `Horizontal Pod Autoscaler` consists of two parts, `HPA Resource` and `HPA Controller` `HPA Resource` defines the behavior of the component, including metrics, expected values, and maximum and minimum replica counts, etc. `HPA Controller`, Period Check the metrics set by the inspection component; its period is controlled by the parameter `--horizontal-pod-autoscaler-sync-period` of `controller manager` , the default is 15 seconds.
 
@@ -103,7 +103,7 @@ You can build an image according to the above Dockerfile, or you can use the ima
 
 We set the maximum number of instances to 10, the minimum number of instances to 1, and the CPU usage to be 50%. Roughly speaking, HPA will (through deployment) increase or decrease the number of replicas to maintain the average CPU usage across all pods at 50% . As shown below:
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E8%87%AA%E5%8A%A8%E4%BC%B8%E7%BC%A9%E8%AE%BE%E7%BD%AE.png)
+![](https://static.goodrain.com/docs/images/%E8%87%AA%E5%8A%A8%E4%BC%B8%E7%BC%A9%E8%AE%BE%E7%BD%AE.png)
 
 We use the command line to check the current status of hpa:
 
@@ -132,7 +132,7 @@ NAMESPACE NAME REFERENCE TARGETS MINPODS MAXPODS REPLICAS AGE
 
 It can be seen that the CPU usage has risen to 270%. This has caused the number of instances to be increased to 4. As shown in the following figure:
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E5%AE%9E%E4%BE%8B%E6%95%B0%E5%8F%98%E6%88%90%E4%BA%864.png)
+![](https://static.goodrain.com/docs/images/%E5%AE%9E%E4%BE%8B%E6%95%B0%E5%8F%98%E6%88%90%E4%BA%864.png)
 
 #### reduce load
 
@@ -150,7 +150,7 @@ CPU usage dropped to 0, so the number of instances scaled to 1.
 
 Let's observe the horizontal scaling record of the component to see what happens in this process. As shown in the following figure:
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E6%B0%B4%E5%B9%B3%E4%BC%B8%E7%BC%A9%E8%AE%B0%E5%BD%95.png)
+![](https://static.goodrain.com/docs/images/%E6%B0%B4%E5%B9%B3%E4%BC%B8%E7%BC%A9%E8%AE%B0%E5%BD%95.png)
 
 After we configure the relevant parameters, the horizontal auto-scaling starts to take effect, but the indicator is not ready at this time, so we see two records of failure to obtain the indicator. After we send messages to the component in an infinite loop, the horizontal auto-scaling It is checked that the CPU usage exceeds the target value, and the number of instances is scaled to 4, and then to When we stop sending messages, the load goes down, and the horizontal auto-scaling checks that the CPU usage is lower than the target value, and directly scales the instance The number is stretched to 1.
 
