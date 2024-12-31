@@ -21,13 +21,13 @@ Helm command has two entrances with：
 
 Click **New** --> in team view and **Kubernetes YAML Helm** -> Select **Helm Command** to Install -> Select \*\*Apply \*\*Enter **Helm Command** to Install -> **Make sure to create** will jump to the Helm app configuration interface.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/tenant_helm_cmd_install.jpg" title="基于 Helm 命令安装" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/tenant_helm_cmd_install.jpg" title="基于 Helm 命令安装" width="100%"/>
 
 **No.2** App View
 
 Click **Add components** -> **Install from Marketplace**, select apps from the Helm store to connect to. Click **Install** to automatically start the installation.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/app_helm_cmd_install.jpg" title="基于 Helm 命令安装" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/app_helm_cmd_install.jpg" title="基于 Helm 命令安装" width="100%"/>
 
 ### Installation process
 
