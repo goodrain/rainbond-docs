@@ -20,7 +20,7 @@ Pinpoint 是一个 APM（应用程序性能管理）工具，适用于用 Java /
 * 提供代码级别的可见性以便轻松定位失败点和瓶颈；  
 * 使用字节码增强技术，添加新功能而无需修改代码。  
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%" />
+<img src="https://static.goodrain.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%" />
 
 |      组件   |   组件功能 |
 | ------------- | ----------------- |
@@ -59,11 +59,11 @@ PinPoint 支持实时显示链路追踪数据，这需要 PinPoint 的访问地�
 
 ​访问 **Pinpoint-web**，会看到上一步的应用名称
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/get-start/best-practices/work_with_apm/java-pinpoint.png)
+![](https://static.goodrain.com/images/docs/5.2/get-start/best-practices/work_with_apm/java-pinpoint.png)
   
 ### 微服务示例图
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/get-start/best-practices/work_with_apm/springcloud_pig-pinpoint.png)
+![](https://static.goodrain.com/images/docs/5.2/get-start/best-practices/work_with_apm/springcloud_pig-pinpoint.png)
 
 ### Pinpoint 说明
 

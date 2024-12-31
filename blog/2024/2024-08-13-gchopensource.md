@@ -14,7 +14,7 @@ slug: gchopensource
 
 目前主流的国产化 CPU 厂商包括飞腾、华为、龙芯、海光、兆芯等，其指令集集中在 `X86` 、`Arm` 以及自主性极高的 `LoongArch` (MIPS 指令集的后继者) 。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%9B%BD%E4%BA%A7CPU%E7%94%9F%E6%80%81.png)
+![](https://static.goodrain.com/localization-guide/%E5%9B%BD%E4%BA%A7CPU%E7%94%9F%E6%80%81.png)
 
 Rainbond 开源版本对国产 CPU 和国产操作系统提供全面支持，确保应用能够在国产硬件和软件环境下稳定运行。这包括对多种国产 CPU 架构的优化和适配，如鲲鹏、飞腾、龙芯等，以及对国产操作系统的兼容性，例如统信、银河麒麟、中标麒麟、龙蜥、欧拉操作系统等。这种支持不仅涵盖了基础的运行环境，还包括了对特定硬件和软件特性的优化，以提高性能和安全性。
 
@@ -22,7 +22,7 @@ Rainbond 开源版本对国产 CPU 和国产操作系统提供全面支持，确
 
 Rainbond 开源版本自动屏蔽架构差异，以最低成本将应用迁移到国产化信创环境之中。仅需要提供源代码，即可在指定架构环境中编译运行。开源应用商店提供不同架构的应用模板，上百种开源软件一键部署。信创应用供应商可以以最小的技术成本和时间成本，即可将不同类型的服务重新编译，并部署到信创环境中去。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%BF%81%E7%A7%BB.png)
+![](https://static.goodrain.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%BF%81%E7%A7%BB.png)
 
 
 

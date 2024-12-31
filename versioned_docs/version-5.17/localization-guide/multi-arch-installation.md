@@ -12,7 +12,7 @@ title: 异构集群安装
 
 Rainbond “信创”版本可以在同个集群中统一管理和调度多种不同 CPU 架构计算节点，同时也可以借助多集群管理能力纳管多个单架构集群。超高的灵活性，可以让决策者自行决定异构计算资源的部署策略。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86.png)
+![](https://static.goodrain.com/localization-guide/%E5%BC%82%E6%9E%84%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86.png)
 
 # 异构集群的安装
 

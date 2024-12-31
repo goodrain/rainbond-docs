@@ -20,7 +20,7 @@ import Bvideo from '/src/components/Bvideo';
 
 3. 当某个版本测试通过以后，我们就可以认为已经有了高质量可交付的版本。接下来需要人工审核，将代码从 testing 分支合并到 master 分支，用于生产环境的部署上线。
 
-<!-- ![source-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/source-delivery.jpg) -->
+<!-- ![source-delivery](https://static.goodrain.com/docs/5.10/delivery/source-delivery.jpg) -->
 ![](https://static.goodrain.com/docs/5.11/delivery/continuous/source-code/code-delivery.png)
 
 ## 操作步骤

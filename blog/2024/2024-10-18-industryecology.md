@@ -47,7 +47,7 @@ Rainstore不仅是一个应用市场，更是一个开放的行业应用生态�
 
 
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/marketplace/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%A1%8C%E4%B8%9A%E7%94%9F%E6%80%81/AvFCZsGn32oaQMqApy7sB0slLUVSaTvXLKSoy5ybJlA%3D.png)
+![](https://static.goodrain.com/marketplace/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%A1%8C%E4%B8%9A%E7%94%9F%E6%80%81/AvFCZsGn32oaQMqApy7sB0slLUVSaTvXLKSoy5ybJlA%3D.png)
 
 Rainstore的行业应用生态建设可以分为以下几个关键步骤：
 
@@ -81,19 +81,19 @@ Rainstore为最终客户提供了多种应用交付方式，支持用户自助�
 
 聚合展示应用列表，并支持分类、排序、搜索等功能
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/marketplace/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%A1%8C%E4%B8%9A%E7%94%9F%E6%80%81/8v6UUVEKkDx_ucgAcq3UeSSZ_4Wz0SvvgQt0_Pxczfs%3D.webp)
+![](https://static.goodrain.com/marketplace/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%A1%8C%E4%B8%9A%E7%94%9F%E6%80%81/8v6UUVEKkDx_ucgAcq3UeSSZ_4Wz0SvvgQt0_Pxczfs%3D.webp)
 
 ##### 2. 应用上架和管理
 
 展示应用上架和下架功能，同时管理应用分类和应用详情。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/marketplace/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%A1%8C%E4%B8%9A%E7%94%9F%E6%80%81/c1tmTg43g9-g2G4J2DZZIPXcAhNd-6chF_BJBC18fus%3D.webp)
+![](https://static.goodrain.com/marketplace/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%A1%8C%E4%B8%9A%E7%94%9F%E6%80%81/c1tmTg43g9-g2G4J2DZZIPXcAhNd-6chF_BJBC18fus%3D.webp)
 
 ##### 3. 应用交付管理
 
 监控和管理已经交付的应用，还能实时监测应用运行情况。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/marketplace/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%A1%8C%E4%B8%9A%E7%94%9F%E6%80%81/6MpMBVgiA2oJoiPZD7gY_seFo-vLyjnd-ZisiO8ptJM%3D.png)
+![](https://static.goodrain.com/marketplace/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%A1%8C%E4%B8%9A%E7%94%9F%E6%80%81/6MpMBVgiA2oJoiPZD7gY_seFo-vLyjnd-ZisiO8ptJM%3D.png)
 
 ## 结语
 

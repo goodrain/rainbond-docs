@@ -31,24 +31,24 @@ Rainbond 提供的应用市场分为两类:
 
 当你部署完 Rainbond 时，点击左侧的应用市场按钮，选择开源应用商店，你将会看到如下页面。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/appstore.jpg" title="云端应用市场授权示意图"/>
+<img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/appstore.jpg" title="云端应用市场授权示意图"/>
 
 获取授权后，你将可以点击应用右侧的安装，如下图所示:
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/install-app.png" title="云端应用市场安装示意图"/>
+<img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/install-app.png" title="云端应用市场安装示意图"/>
 
 选择你要安装到的团队和应用，将会跳转到应用下，你可以看到应用拓扑图，它将会自动启动。接下来你就可以访问应用了
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/install-app-topological.png" title="云端应用市场安装应用拓扑图"/>
+<img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/install-app-topological.png" title="云端应用市场安装应用拓扑图"/>
 
 ### 从开源应用商店离线安装
 
 当你在[应用商店](https://hub.grapps.cn/marketplace)浏览应用时, 部分应用有可下载的离线包，此时，你可以登录并下载该离线包。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/offline-package-app.jpg" title="离线包示意图"/>
+<img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/offline-package-app.jpg" title="离线包示意图"/>
 
 下载完成后，我们可以在 Rainbond 中，选择应用市场，点击旁边的离线导入。如下图所示。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/import-app.jpg" title="离线包导入示意图"/>
+<img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/import-app.jpg" title="离线包导入示意图"/>
 
 导入完成后，就可以在本地组件库看见导入的应用，此时点击应用模版右侧的安装。等待构建完成，基于 Rainbond 应用市场的离线安装就完成了。

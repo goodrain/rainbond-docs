@@ -12,9 +12,9 @@ Rainbond 企业版提供了一系列的个性化配置选项，包括网页图�
 
 个性化配置主要分为两大块：基础信息配置、主题配置，具体配置入口为：`平台管理 -> 设置 -> 个性化配置`。以下篇幅将会对可配置项进行详细说明，需要注意的是，只有平台管理员才能自定义平台页面配置，配置好以后对所有用户生效。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-config/home-config.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-config/home-config.png)
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-config/login-config.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-config/login-config.png)
 
 ### 基础信息配置
 
@@ -61,7 +61,7 @@ Rainbond 企业版提供了一系列的个性化配置选项，包括网页图�
 
 管理员可以选择不同的颜色风格，包括头部背景颜色、头部文字颜色、侧边栏背景颜色、侧边栏文字颜色等。管理员可以直接输入颜色或者点击右侧色块来选择任意配色，可根据公司产品主色调来搭配颜色。修改即时生效，可以进行预览，只有点击保存后才会应用到所有用户。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-config/custom-config.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-config/custom-config.png)
 
 ## 使用手册
 

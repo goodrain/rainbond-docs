@@ -33,10 +33,10 @@ keywords:
 
 1. `平台管理 -> 项目/团队`，选择需要资源配额的团队
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/team-resource/team-resource.png)
+![description](https://static.goodrain.com/docs/enterprise-app/team-resource/team-resource.png)
 
 2. 设置 CPU 或则内存，默认值是0代表不限制。
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/team-resource/quota.png)
+![description](https://static.goodrain.com/docs/enterprise-app/team-resource/quota.png)
 
 3. 当对组件进行创建、构建、启动、安装等操作的时候，如果内存或者 CPU超出团队剩余资源量，则会提示资源不足。
 

@@ -20,7 +20,7 @@ Rainbond 对国产化 CPU 和国产化操作系统做了适配，同时还支持
 
 Rainbond企业版对国产CPU和国产操作系统提供全面支持，确保应用能够在国产硬件和软件环境下稳定运行。这包括对多种国产CPU架构的优化和适配，如鲲鹏、飞腾、龙芯等，以及对国产操作系统的兼容性，例如统信、银河麒麟、中标麒麟、龙蜥、欧拉操作系统等。这种支持不仅涵盖了基础的运行环境，还包括了对特定硬件和软件特性的优化，以提高性能和安全性。此外，Rainbond平台还提供了完善的开发者工具和API接口，帮助用户快速构建和部署云原生应用。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/xinchuang/xinchuang2.png)
+![description](https://static.goodrain.com/docs/enterprise-app/xinchuang/xinchuang2.png)
 
 #### 一云多芯集群支持
 
@@ -42,7 +42,7 @@ Rainbond的源码构建功能在这里发挥了关键作用。它支持将有源
 
 当前支持的源码类型主要有 Java（Maven、Jar、War、Gradle）、NodeJS、Golang、Python、PHP、Html等。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/xinchuang/xinchuang3.png)
+![description](https://static.goodrain.com/docs/enterprise-app/xinchuang/xinchuang3.png)
 
 #### 国产化能力仓库
 

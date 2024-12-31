@@ -25,7 +25,7 @@ description: 直接通过编写yaml创建k8s资源
 
 4. 查看是否有创建失败的资源，点击查看详情可以查看具体失败原因。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_add.jpg" title="k8s资源添加"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_add.jpg" title="k8s资源添加"/>
 
 :::caution
 * 创建失败的资源是查看不到资源类型和资源名称的且不支持修改的，需要删除重新创建。  
@@ -42,7 +42,7 @@ description: 直接通过编写yaml创建k8s资源
 
 4. 查看是否有修改失败的资源，点击查看详情可以查看具体失败原因。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_update.jpg" title="k8s资源修改"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_update.jpg" title="k8s资源修改"/>
 
 :::caution
 * 需要注意的是，创建成功后yaml文件会多出一行内容：`resourceVersion:xxxxxx`,这个在修改过程中是不可以删除的。
@@ -53,4 +53,4 @@ description: 直接通过编写yaml创建k8s资源
 
 1. 确认资源不需要后，点击删除按钮。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_delete.jpg" title="k8s资源删除"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/app-manage/k8s-resource/k8s_resources_delete.jpg" title="k8s资源删除"/>

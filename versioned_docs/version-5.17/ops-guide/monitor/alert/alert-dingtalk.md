@@ -20,7 +20,7 @@ description: Rainbond钉钉报警配置说明
 
 1.编辑Alertmanager配置文件，在 环境配置–>配置文件配置 中点击编辑
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/alert/alertmanager-config.jpg" width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/monitor/alert/alertmanager-config.jpg" width="100%" />
 
 2.以下是模板文件，修改完成之后覆盖原配置文件更新组件即可。
 > url无需修改，其他内容根据所需修改
@@ -46,13 +46,13 @@ receivers:
 
 3.获取钉钉 Webhook 地址时的安全设置建议设置如下：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/dingding.jpg"  width="70%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/monitor/dingding.jpg"  width="70%" />
      
 4.获取到钉钉 Webhook 地址后手动修改 DingTalk 组件的 Webhook 地址
 
 在 DingTalk 组件页面-->环境配置 中修改 `WEBHOOK_ADDRESS` 变量值，修改完成之后更新即可生效。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/setaddress.jpg"  width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/monitor/setaddress.jpg"  width="100%" />
 
 
 到此完成钉钉报警的部署。 

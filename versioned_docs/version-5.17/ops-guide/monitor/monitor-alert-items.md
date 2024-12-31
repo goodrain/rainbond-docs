@@ -24,7 +24,7 @@ NAME          TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
 rbd-monitor   ClusterIP   10.68.140.5   <none>        9999/TCP   7h11m
 ```
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/monitorservice.jpg" title="添加第三方服务打开对外端口访问" width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/monitor/monitorservice.jpg" title="添加第三方服务打开对外端口访问" width="100%" />
 
 具体监控报警项请访问 rbd-monitor 查看，以下仅作为参考。
 

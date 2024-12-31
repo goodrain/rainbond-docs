@@ -22,6 +22,6 @@ description: 介绍Rainbond应用的概念和设计思考
 我们通常建议的方式是以较为独立的业务系统来进行应用的划分，比如企业 ERP 是一个应用，在线商场系统是一个应用。另外，对于同一个业务系统，其可能存在多个阶段，一般包括开发、测试、预发布、生产。因此同一个业务系统的不同阶段应该是多个应用，再结合团队划分其可以存在于多个团队中。
 
 <img
-  src='https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/application.png'
+  src='https://static.goodrain.com/docs/5.2/application.png'
   title='应用划分用例'
 />

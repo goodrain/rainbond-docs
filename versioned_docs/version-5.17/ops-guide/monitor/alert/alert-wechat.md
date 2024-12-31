@@ -18,7 +18,7 @@ description: Rainbond企业微信报警配置说明
 
 1.编辑Alertmanager配置文件，在 环境配置–>配置文件配置 中点击编辑
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/alert/alertmanager-config.jpg" width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/monitor/alert/alertmanager-config.jpg" width="100%" />
 
 2.以下是模板文件，修改完成之后覆盖原配置文件更新组件即可。
 > url无需修改，其他内容根据所需修改
@@ -47,6 +47,6 @@ receivers:
 
 在 Wechat 组件页面–>环境配置 中修改 `Wechat_WebHook_URL` 变量值，修改完成之后更新即可生效。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/alert/alert-wechat-env.png" width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/monitor/alert/alert-wechat-env.png" width="100%" />
 
 到此完成企业微信报警的部署。

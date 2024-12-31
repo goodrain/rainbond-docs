@@ -21,7 +21,7 @@ SkyWalking对服务进行监控时服需要在被监控服务中启用agent服�
 
 下图展示了在Rainbond中使用SkyWalking对应用进行监控的结构
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/practices/skywalking/SkyWalking-Rainbond.png)
+![](https://static.goodrain.com/docs/5.4/practices/skywalking/SkyWalking-Rainbond.png)
 
 
 ## Agent插件实现原理
@@ -92,11 +92,11 @@ JAVA_OPTS=-Dskywalking.agent.service_name=backend -javaagent:/tmp/agent/skywalki
 
 - 仪表盘
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/practices/skywalking/skywalking-page.png)
+![](https://static.goodrain.com/docs/5.4/practices/skywalking/skywalking-page.png)
 
 - 服务调用拓扑图
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.4/practices/skywalking/Service-Topology.jpg)
+![](https://static.goodrain.com/docs/5.4/practices/skywalking/Service-Topology.jpg)
 
 
 

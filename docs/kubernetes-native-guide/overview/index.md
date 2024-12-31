@@ -16,7 +16,7 @@ Rainbond 可以从 Yaml 或 Helm Chart 中获取指定类型的 Workload 定义�
 
 以 Yaml 定义的 Wordpress 建站系统为例，下图展示了对各种不同资源的处理方式。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/wechat/import-exist-resource-to-rainbond/import-exist-resource-to-rainbond-2.png"/>
+<img src="https://static.goodrain.com/wechat/import-exist-resource-to-rainbond/import-exist-resource-to-rainbond-2.png"/>
 
 Rainbond 在设计上并未完全继承原生 Kubernetes 的设计思想，由于以下设计上的差异，Rainbond 在接受 Yaml 或 Helm 应用部署时，需要进行一系列转化，了解这些差异对部署 Yaml 或 Helm 类应用很有帮助。
 

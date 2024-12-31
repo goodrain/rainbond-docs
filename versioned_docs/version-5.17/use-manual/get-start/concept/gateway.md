@@ -5,7 +5,7 @@ description: 介绍Rainbond网关的概念和设计思考
 
 在百度百科中, 网关的定义是这样子的: 网关(Gateway)就是一个网络连接到另一个网络的"关口"。类似的, 应用网关是 Rainbond 中外部流量  流入应用的关口。也可以说是南北向流量中, 北向流量流向南向流量的一个"关口"。部署到 Rainbond 的所有组件需要被外部访问的话都需要通过应用网关。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/gateway/what-is-gateway/north-to-south.png" title="网关拓扑图" />
+<img src="https://static.goodrain.com/images/docs/5.0/user-manual/gateway/what-is-gateway/north-to-south.png" title="网关拓扑图" />
 
 ### 应用网关的作用
 

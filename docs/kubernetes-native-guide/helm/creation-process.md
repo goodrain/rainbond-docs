@@ -20,19 +20,19 @@ description: '根据文档完成 Helm 应用在 Rainbond 中的部署'
 
 点击 **Helm 商店** 中应用后面的 **安装** 按钮，选择需要安装到的 **团队**，定义 **应用名称**，点击 **确定** 即会自动开始安装。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/appstore_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/appstore_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
 
 **No.2** 在团队视图 **基于应用市场创建组件** 中选择应用进行安装
 
 在团队视图点击 **新增** --> **基于应用市场创建组件**，选择对接的 Helm 应用商店中的应用，点击 **安装** 即会自动开始安装。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/tenant_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/tenant_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
 
 **No.3** 在应用视图 **从应用市场安装** 中选择应用进行安装
 
 在应用视图点击 **添加组件** --> **从应用市场安装**，选择对接的 Helm 应用商店中的应用，点击 **安装** 即会自动开始安装。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/app_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/app_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
 
 #### 安装流程
 
@@ -50,7 +50,7 @@ _No.1_
 
 在 `values.yaml` 文件中指定或图形化方式指定，图形化方式指定参考[Helm 应用管理](./manage-helm-app)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_values_yaml.jpg" title="配置 Helm 应用" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/helm_values_yaml.jpg" title="配置 Helm 应用" width="100%"/>
 
 _No.2_
 

@@ -20,7 +20,7 @@ description: 自动伸缩会根据观察的指标,自动缩放组件.
 
 #### 组件水平自动伸缩
 
-![组件水平伸缩原理图](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/user-manual/autoscaler/%E8%87%AA%E5%8A%A8%E4%BC%B8%E7%BC%A9%E5%8E%9F%E7%90%86%E5%9B%BE.png)
+![组件水平伸缩原理图](https://static.goodrain.com/images/docs/5.1/user-manual/autoscaler/%E8%87%AA%E5%8A%A8%E4%BC%B8%E7%BC%A9%E5%8E%9F%E7%90%86%E5%9B%BE.png)
 
 `Horizontal Pod Autoscaler` 由两部分组成, `HPA 资源` 和 `HPA 控制器`. `HPA 资源` 定义了组件的行为, 包括指标, 期望值, 和最大最小副本数等. `HPA 控制器`, 周期性地检查检查组件所设置的指标; 其周期由 `controller manager` 的参数 `--horizontal-pod-autoscaler-sync-period` 控制, 默认是 15 秒。
 
@@ -111,7 +111,7 @@ RUN chmod a+rx index.php
 
 我们设置最大实例数为 10, 最小实例数为 1, CPU 使用率为 50%. 粗略地说，HPA 将（通过部署）增加或减少副本数，以将所有 Pod 的平均 CPU 使用率 维持在 50％. 如下图所示:
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E8%87%AA%E5%8A%A8%E4%BC%B8%E7%BC%A9%E8%AE%BE%E7%BD%AE.png)
+![](https://static.goodrain.com/docs/images/%E8%87%AA%E5%8A%A8%E4%BC%B8%E7%BC%A9%E8%AE%BE%E7%BD%AE.png)
 
 我们使用命令行检查 hpa 目前的状态:
 
@@ -140,7 +140,7 @@ NAMESPACE                          NAME                               REFERENCE 
 
 可以看出, CPU 的使用率已经上升到了 270%. 这导致实例数被增加到了 4 个. 如下图所示:
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E5%AE%9E%E4%BE%8B%E6%95%B0%E5%8F%98%E6%88%90%E4%BA%864.png)
+![](https://static.goodrain.com/docs/images/%E5%AE%9E%E4%BE%8B%E6%95%B0%E5%8F%98%E6%88%90%E4%BA%864.png)
 
 #### 降低负荷
 
@@ -158,7 +158,7 @@ CPU 使用率降低到了 0, 所以实例数伸缩到了 1.
 
 我们来观察组件的水平伸缩记录, 看看这个过程发生了什么. 如下图所示:
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/%E6%B0%B4%E5%B9%B3%E4%BC%B8%E7%BC%A9%E8%AE%B0%E5%BD%95.png)
+![](https://static.goodrain.com/docs/images/%E6%B0%B4%E5%B9%B3%E4%BC%B8%E7%BC%A9%E8%AE%B0%E5%BD%95.png)
 
 我们配置完相关参数后, 水平自动伸缩开始生效, 但此时指标尚未准备好, 所以我们看到有两条获取指标失败的记录.
 我们在一个无限循环不断给组件发送消息后, 水平自动伸缩检查到 CPU 使用率超过了目标值, 开始讲实例数伸缩到了 4, 再到 6.

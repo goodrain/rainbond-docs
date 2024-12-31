@@ -33,30 +33,30 @@ Maven 多模块项目是根据 pom.xml 文件(下面简称 pom)来划分的, Rai
 
 - 1. 从源码创建，选择自定义源码，填写项目地址
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/java-multi-module-build/dmk01.jpg
+<img src="https://static.goodrain.com/images/5.1/java-multi-module-build/dmk01.jpg
 " width="100%" />
 
 - 2. 如果是多模块项目会识别出来,选择进入多模块构建配置项
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/java-multi-module-build/dmk02.jpg
+<img src="https://static.goodrain.com/images/5.1/java-multi-module-build/dmk02.jpg
 " width="100%" />
 
 - 3. 根据**Spring Cloud 微服务部署在 RAINBOND 的案例**一文可知如下组件需要部署运行, 勾选后构建
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/java-multi-module-build/dmk03.jpg
+<img src="https://static.goodrain.com/images/5.1/java-multi-module-build/dmk03.jpg
 " width="100%" />
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/java-multi-module-build/dmk04.jpg
+<img src="https://static.goodrain.com/images/5.1/java-multi-module-build/dmk04.jpg
 " width="100%" />
 
 - 4. 构建完成效果图(仅 Java 部分)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/java-multi-module-build/dmk05.jpg
+<img src="https://static.goodrain.com/images/5.1/java-multi-module-build/dmk05.jpg
 " width="100%" />
 
 - 5. 查看某一应用构建源信息
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/java-multi-module-build/dmk06.jpg
+<img src="https://static.goodrain.com/images/5.1/java-multi-module-build/dmk06.jpg
 " width="100%" />
 
 > 这样 Pig 项目多模块构建就完成了，后续其他步骤参考[SPRING CLOUD 微服务部署在 RAINBOND 的案例](/docs/micro-service/example/pig)

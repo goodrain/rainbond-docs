@@ -48,7 +48,7 @@ description: '基于华为云 CCE 集群，使用 helm 从零开始安装 Rainbo
 - 下载 kubectl
 
 ```
-wget https://grstatic.oss-cn-shanghai.aliyuncs.com/binary/kubectl -O /usr/bin/kubectl
+wget https://static.goodrain.com/binary/kubectl -O /usr/bin/kubectl
 chmod +x /usr/bin/kubectl
 ```
 

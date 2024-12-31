@@ -28,7 +28,7 @@ description: 本文介绍Rainbond创建组件的主要过程
 
 源码地址: https://github.com/goodrain/java-maven-demo.git
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/Sourcecodeconstruction.png" title="基于源代码创建组件页面"/>
+<img src="https://static.goodrain.com/images/docs/5.2/user-manual/app-creation/creation-process/Sourcecodeconstruction.png" title="基于源代码创建组件页面"/>
 
 <b>各类语言的详细参考文档如下</b>：
 
@@ -56,13 +56,13 @@ git 获取代码时支持账号认证、Key 认证和 Oauth2.0 认证。
 
 如果需要用账号密码连接代码仓库, 则点击填写仓库账号密码, 正确填写你的登陆用户名及密码即可.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/Password%20construction.png" title="填写代码仓库授权信息和版本选择示意图"/>
+<img src="https://static.goodrain.com/images/docs/5.2/user-manual/app-creation/creation-process/Password%20construction.png" title="填写代码仓库授权信息和版本选择示意图"/>
 
 - SSH 连接代码仓库
 
 如果需要用 SSH 秘钥连接代码仓库, 则点击下方的配置授权 Key, 会为你生成一段秘钥, 然后把这段秘钥添加到你代码仓库的部署秘钥中.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/user-manual/app-creation/ssh_login.jpg" title="使用SSH KEY作为授权方式"/>
+<img src="https://static.goodrain.com/images/docs/5.0/user-manual/app-creation/ssh_login.jpg" title="使用SSH KEY作为授权方式"/>
 
 ## 从 Docker 镜像创建
 
@@ -79,7 +79,7 @@ git 获取代码时支持账号认证、Key 认证和 Oauth2.0 认证。
 
 4. 构建完成后即可访问组件。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/dockerconstruction.png" title="基于Docker镜像创建组件示意图"/>
+<img src="https://static.goodrain.com/images/docs/5.2/user-manual/app-creation/creation-process/dockerconstruction.png" title="基于Docker镜像创建组件示意图"/>
 
 由 Docker 镜像创建的组件就完成了。如果从私有镜像仓库的镜像创建组件，需要注意下述几类问题：
 
@@ -91,7 +91,7 @@ git 获取代码时支持账号认证、Key 认证和 Oauth2.0 认证。
 
 - 通过 docker run 命令方式部署: `docker run -p 8490:8490 goodrain.me/test -s "ws://192.168.1.1:8490"`
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/dockerrun.png" title="通过DockerRun命令提供更多参数示意图"/>
+<img src="https://static.goodrain.com/images/docs/5.2/user-manual/app-creation/creation-process/dockerrun.png" title="通过DockerRun命令提供更多参数示意图"/>
 
 - 通过指定镜像方式:
   - 镜像地址: `goodrain.me/test` 并构建
@@ -99,7 +99,7 @@ git 获取代码时支持账号认证、Key 认证和 Oauth2.0 认证。
 
 `goodrain.me/test`请替换为自己镜像
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-creation/creation-process/modify.png" title="镜像启动命令后期更改示意图"/>
+<img src="https://static.goodrain.com/images/docs/5.2/user-manual/app-creation/creation-process/modify.png" title="镜像启动命令后期更改示意图"/>
 
 ## 从应用市场安装
 
@@ -129,20 +129,20 @@ Rainbond 提供的应用市场分为两类:
 
 当你部署完 Rainbond 时，点击左侧的应用市场按钮，选择开源应用商店，你将会看到如下页面。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/appstore.jpg" title="云端应用市场授权示意图"/>
+<img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/appstore.jpg" title="云端应用市场授权示意图"/>
 
 获取授权后，你将可以点击应用右侧的安装，如下图所示:
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/install-app.png" title="云端应用市场安装示意图"/>
+<img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/install-app.png" title="云端应用市场安装示意图"/>
 
 选择你要安装到的团队和应用，将会跳转到应用下，你可以看到应用拓扑图，它将会自动启动。接下来你就可以访问应用了
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/install-app-topological.png" title="云端应用市场安装应用拓扑图"/>
+<img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/install-app-topological.png" title="云端应用市场安装应用拓扑图"/>
 
 ### 从本地组件库安装应用
 
 当你部署完成 Rainbond 后，你可以参考[制作可复用的应用模版](../get-start/release-to-market)，制作出属于你的应用。此处，我们已制作出 WordPress 应用，与从云应用市场安装相同，点击右侧安装，一键安装完成后。你就可以访问到你自己的应用了。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/component-create/install-app-local.png" title="本地组件库安装应用示意图"/>
+<img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/install-app-local.png" title="本地组件库安装应用示意图"/>
 
 从本地组件库安装将是应用交付的关键流程，本地组件库的应用支持一键安装和持续升级。

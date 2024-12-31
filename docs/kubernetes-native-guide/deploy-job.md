@@ -17,23 +17,23 @@ description: 本文讲述部署Job、CronJob类型组件的要点，适用于开
 ### 使用流程
 
 在创建组件的时候，可以在高级设置中选择job、cronjob类型.
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/ComponentType.png" title="高级设置"/>
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/CreatJob.png" title="设置job"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/ComponentType.png" title="高级设置"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/CreatJob.png" title="设置job"/>
 
 如果选择cronjob，需要填写调度策略
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/CreatCronJob.png" title="设置cronjob"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/CreatCronJob.png" title="设置cronjob"/>
 
 创建成功开始执行任务，待job任务执行完毕时，标识已完成.
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/JobRuning.png" title="job任务运行"/>
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/JobOK.png" title="job任务完成"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/JobRuning.png" title="job任务运行"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/JobOK.png" title="job任务完成"/>
 
 job任务执行完成，可点击重启按钮，重新执行该任务，也可以点击关闭任务.
 
 在组件其他设置中可修改部署类型和任务策略.
 
 #### 部署类型
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/ChangeType.png" title="组件部署类型"/>
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/DeploymentType.png" title="修改组件部署类型"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/ChangeType.png" title="组件部署类型"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/DeploymentType.png" title="修改组件部署类型"/>
 
 #### 任务策略
 
@@ -43,7 +43,7 @@ job任务执行完成，可点击重启按钮，重新执行该任务，也可�
 - 最大运行时间：如果Job运行的时间超过了设定的秒数，那么此Job就自动停止运行所有的Pod.
 - 完成数：完成该Job需要执行成功的Pod数.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/TaskStrategy.png" title="任务策略编辑"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/TaskStrategy.png" title="任务策略编辑"/>
 
 #### cronjob任务状态展示
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-manage/other/CronJob.png" title="cronjob任务执行"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/CronJob.png" title="cronjob任务执行"/>

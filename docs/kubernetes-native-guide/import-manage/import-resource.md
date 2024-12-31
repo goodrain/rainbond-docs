@@ -96,7 +96,7 @@ keywords:
 4. 在查看资源类型及名称并选择命名空间后，确认无误点击下一步进入到高级识别。
 
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/resource_name.jpg" title="资源识别页面"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/resource_name.jpg" title="资源识别页面"/>
 
 ### 高级资源识别
 
@@ -104,8 +104,8 @@ keywords:
 
 2. 在确认无误后，点击确认导入。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/advanced_resources.jpg" title="高级资源识别页面"/>
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/k8s_resources.jpg" title="k8s资源页面"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/advanced_resources.jpg" title="高级资源识别页面"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/k8s_resources.jpg" title="k8s资源页面"/>
 
 
 ### 资源导入
@@ -118,4 +118,4 @@ keywords:
 
 Rainbond在接管后不会立刻重启用户在集群中的资源，当用户点击重启或更新等操作后，才会生产出一个完全由 Rainbond 接管的资源。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/import.jpg" title="团队页面"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/import.jpg" title="团队页面"/>

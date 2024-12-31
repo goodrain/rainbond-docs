@@ -19,7 +19,7 @@ description: 介绍平台上如何进行操作审计和登录审计。
 
 ### 操作日志
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/audit/operate_log.jpg)
+![description](https://static.goodrain.com/docs/enterprise-app/audit/operate_log.jpg)
 
 操作日志记录功能旨在记录用户在 Rainbond 上的操作活动，包括但不限于以下内容：
 
@@ -33,7 +33,7 @@ description: 介绍平台上如何进行操作审计和登录审计。
 
 ### 登录日志
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/audit/login_log.jpg)
+![description](https://static.goodrain.com/docs/enterprise-app/audit/login_log.jpg)
 
 登录日志旨在记录用户登录的功能用于跟踪和记录用户登录企业平台的活动，包括以下信息：
 

@@ -62,9 +62,9 @@ Fork [Rainbond-docs](https://github.com/goodrain/rainbond-docs.git), Modify the 
 * The name of the title should be clear at a glance
 * The imported image format is as follows
   ```html
-  ![API](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png)
+  ![API](https://static.goodrain.com/images/5.1/images/api.png)
   <!-- can also be used  -->
-  <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png" width="100%" title="API" />
+  <img src="https://static.goodrain.com/images/5.1/images/api.png" width="100%" title="API" />
   ```
 * The citation format for the link is as follows
   1. Links within the referenced document, Ref [docusaurus doc](https://docusaurus.io/zh-CN/docs/markdown-features/assets)

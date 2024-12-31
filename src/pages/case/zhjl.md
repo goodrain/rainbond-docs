@@ -55,7 +55,7 @@ description: 最近几年，我一直负责“智慧巨鹿”这一智慧城市�
 
 我认为易用性是 Rainbond 最大的特点。它以应用为核心抽象，围绕应用所设计的诸多功能都十分有用。比如自动伸缩、健康检测等都是非常实用的功能。网关策略的配置也非常友好，操作难度基本为零，绑定域名匹配证书都非常方便。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/micro-service/horizen.png)
+![](https://static.goodrain.com/images/docs/3.6/micro-service/horizen.png)
 
 
 - 合理的可观测性

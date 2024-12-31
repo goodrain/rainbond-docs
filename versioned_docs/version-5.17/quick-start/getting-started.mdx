@@ -39,7 +39,7 @@ description: 该文档将指引你完成第一个应用的部署与安装
 
 当我们看到组件运行状态为绿色时，即代表组件运行正常，此时我们可以点击右上角的访问按钮访问到该组件，如下图所示:
 
-![maven-page](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/maven-page.jpg)
+![maven-page](https://static.goodrain.com/docs/5.7/docs/quick-start/maven-page.jpg)
 
 或者是在组件视图点击端口可看到组件的访问地址、点击访问地址便可跳转到组件页面，至此，我们已经在 Rainbond 上部署了第一个组件。
 
@@ -51,11 +51,11 @@ description: 该文档将指引你完成第一个应用的部署与安装
 
 安装完成后我们可以看见应用下多了一个 Mysql 组件。我们选择编排模式，将 Maven 与 Mysql 连接起来。这样就建立起了 Maven 项目与 Mysql 的依赖关系。依赖添加完成后按照提示更新组件。
 
-![establish-dependencies](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/establish-dependencies.jpg)
+![establish-dependencies](https://static.goodrain.com/docs/5.7/docs/quick-start/establish-dependencies.jpg)
 
 等待组件更新完成后，我们可以再次访问 Maven 组件，点击 Mysql 示例，可以看到 Mysql 的连接信息以及数据库中存在的表。如下图所示。
 
-![maven-mysql-demo](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.7/docs/quick-start/maven-mysql-demo.jpg)
+![maven-mysql-demo](https://static.goodrain.com/docs/5.7/docs/quick-start/maven-mysql-demo.jpg)
 
 这说明我们的项目已经成功连接到了我们刚刚部署的 Mysql 组件上，并读取到了对应的表信息。此时我们的应用`Maven项目示例`完整部署完毕。它包含了一个 Maven 项目以及数据库。你可以在拓扑图清楚的看到他们之间的依赖关系。如果你对 Maven 组件与 Mysql 组件之间的通信有疑问，你可以参考[服务间通信](../micro-service/service-mesh/regist_and_discover)。
 

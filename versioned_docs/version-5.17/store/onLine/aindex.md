@@ -20,7 +20,7 @@ description: 本章描述 开源应用商店 发布应用会有哪些价值。
 如果您要入驻应用或成为 Rainbond [社区合作伙伴](/partners)，可以通过以下联系方式，联系我们：
 
 <div align="center">
-  <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.12/store/onLine/aindex/zq-wechat.jpg" width="20%" />
+  <img src="https://static.goodrain.com/docs/5.12/store/onLine/aindex/zq-wechat.jpg" width="20%" />
 </div>
 
 ## 发布应用流程
@@ -28,7 +28,7 @@ description: 本章描述 开源应用商店 发布应用会有哪些价值。
 发布应用的前提是要有一个制作好的应用，而在 Rainbond 上制作应用非常简单，只需要参考[部署文档](../../use-manual/component-create/)，将应用运行起来后，直接发布即可。你可以选择发布到本地或开源应用商店。
 
 <div align="center">
-  <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.12/store/onLine/aindex/publish-app.png" width="100%" />
+  <img src="https://static.goodrain.com/docs/5.12/store/onLine/aindex/publish-app.png" width="100%" />
 </div>
 
 完整分享流程如上图所示，主要有以下七步：注册账号->完善个人信息->对接 Rainbond->发布应用->完善应用信息->管理套餐->上架应用。其中前两步和最后三步主要在开源应用商店中进行操作。只有对接应用商店和发布应用需要在 Rainbond 中进行操作。

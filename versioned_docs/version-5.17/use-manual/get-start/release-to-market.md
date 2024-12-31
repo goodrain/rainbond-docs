@@ -36,7 +36,7 @@ description: 将组件、应用、解决方案发布成为可复用的应用模�
 
 - 选择或创建 **应用模版**，如创建，则必须定义 **应用模版名称**，**分享范围**（定义该应用模版的可见范围，仅当前团队可见或企业均可见）。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-1.png" title="应用模版及发布版本设置" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/release-to-market/release-to-market-1.png" title="应用模版及发布版本设置" width="100%" />
 
 - 定义 **版本号**，使用如 1.0 这样的数字定义，后续会根据版本号的大小判断版本的新旧。
 
@@ -50,7 +50,7 @@ description: 将组件、应用、解决方案发布成为可复用的应用模�
 
 在这个页面里，Rainbond 会自动进行应用同步，包括镜像的打包与推送。用户只需要静待同步完成，看到下面的情况，即同步完成。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-2.png" title="同步完成" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/release-to-market/release-to-market-2.png" title="同步完成" width="100%" />
 
 - 点击 **确认分享**，就完成了 **应用模版** 的发布。
 
@@ -60,11 +60,11 @@ description: 将组件、应用、解决方案发布成为可复用的应用模�
 
 - 发布范围选择 **团队** 的情况下，我们仅可以在发布该应用模版的团队分页下找到应用模版。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-3.png" title="应用市场团队分页" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/release-to-market/release-to-market-3.png" title="应用市场团队分页" width="100%" />
 
 - 发布范围仅在选择 **企业** 的情况下，才可以在企业分页下找到应用模版，否则不可见。示例应用模版发布时选择发布范围为 **团队**，所以无法在企业分页展示。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-4.png" title="应用市场企业分页" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/release-to-market/release-to-market-4.png" title="应用市场企业分页" width="100%" />
 
 与可见范围相对应的，当前应用模版，只可以在 **发布时使用的团队** 中安装。仅有发布范围为 **企业** 时，应用模版才可以在当前企业下的所有团队里安装使用。
 
@@ -72,7 +72,7 @@ description: 将组件、应用、解决方案发布成为可复用的应用模�
 
 已创建的应用模版，可以进行编辑。编辑的入口如下图所示：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-5.png" title="编辑应用模版" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/release-to-market/release-to-market-5.png" title="编辑应用模版" width="100%" />
 
 可编辑的内容包括：
 
@@ -96,7 +96,7 @@ description: 将组件、应用、解决方案发布成为可复用的应用模�
 
 最终的效果，是基于应用市场复制出一个新的应用。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-8.png" title="复制出的应用" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/release-to-market/release-to-market-8.png" title="复制出的应用" width="100%" />
 
 ### 下一步
 

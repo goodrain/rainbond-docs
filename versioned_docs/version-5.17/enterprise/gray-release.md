@@ -13,7 +13,7 @@ description: 介绍平台上灰度发布的能力
 
 ### 分批次发布
 
-![gray-status](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/gray-release/gray-status1.png)
+![gray-status](https://static.goodrain.com/docs/enterprise-app/gray-release/gray-status1.png)
 
 全链路灰度发布支持将新版本应用程序分批次引入生产环境，通过将新版本应用程序运行起来，逐渐将流量切到新版本应用中的方式使您能够在控制范围内评估新版本的稳定性和性能，并及时处理可能出现的问题。
 
@@ -36,14 +36,14 @@ description: 介绍平台上灰度发布的能力
 全链路灰度发布涵盖了整个系统链路中的所有组件和服务，确保新版本应用程序在整个系统中的各个环节都得到逐步验证和部署。它可以跨越前端、后端、数据库等多个层次，确保新版本与现有系统的兼容性和稳定性。全链路灰度发布通过逐步替换和验证每个组件，确保新版本的应用程序在整个系统链路中无缝运行。以下是全链路灰度的示意图：
 
 <div align="center">
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/gray-release/gray-release.png" width="25%" height="25%" />
+<img src="https://static.goodrain.com/docs/enterprise-app/gray-release/gray-release.png" width="25%" height="25%" />
 </div>
 
 如上图所示，一个应用中有 `A->B->C->D->E` 五个服务组件，灰度流量从 A 进入时，由于只有 B 和 C 有灰度版本，所以灰度流量会在 B 和 C 的灰度版本中路由，而对于组件 D 和 E ，由于没有灰度版本，所以灰度流量路由到基础版本中去。这样就建立了两条逻辑上隔离的流量链路。这样在微服务数量较多时，可以直接减少服务的部署数量，降低部署成本。并且由于流量隔离，可以更好的控制新版本的风险和影响范围。
 
 ### 监控和回滚
 
-![gray-metrics](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/gray-release/gray-metrics.png)
+![gray-metrics](https://static.goodrain.com/docs/enterprise-app/gray-release/gray-metrics.png)
 
 全链路灰度发布提供监控和回滚功能，以确保新版本的应用程序在灰度发布过程中的稳定性和性能。您可以实时监控发布的各个阶段，包括流量分发、响应时间、错误率等关键指标。如果出现问题，您可以及时回滚到旧版本，以最小化潜在影响。
 

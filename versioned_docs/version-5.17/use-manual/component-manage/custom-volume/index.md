@@ -81,25 +81,25 @@ socket = /tmp/mysql.sock
 
 在 _管理面板/存储_ 页面点击添加存储，根据表单提示填写存储的相关信息确认即可。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Add%20storage.png)
+![](https://static.goodrain.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Add%20storage.png)
 
 > 存储添加完成为未挂载状态，需更新或重启组件才能生效。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Add%20finish.png)
+![](https://static.goodrain.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Add%20finish.png)
 
 - <b>共享其他组件的存储</b>
 
 在 _管理面板/存储_ 页面共享组件存储管理中
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Shared%20memory.png)
+![](https://static.goodrain.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Shared%20memory.png)
 
 点击【挂载共享存储】按钮后，勾选需要挂载其他组件的名称，并填写挂载到本组件的目录
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Shared%20volum02.png)
+![](https://static.goodrain.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Shared%20volum02.png)
 
 完成挂载其他组件存储
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Completion%20sharing.png)
+![](https://static.goodrain.com/images/docs/5.2/user-manual/app-service-manage/service-volume/Completion%20sharing.png)
 
 - 新增或挂载其他组件的存储后，需要更新或重启组件，挂载其他组件的存储不支持挂载到有状态的组件。
 - 新增或挂载其他组件存储时，本组件的路径不能使用 Linux 系统保留目录，如：/dev、/usr、/bin、/sys、/proc 等。
@@ -116,7 +116,7 @@ docker run -d --net=host -v /var/gogs:/data gogs/gogs
 
 - step 2 Rainbond 平台通过 docker run 方式同样运行如上命令即可,应用部署完成后可以通过 grctl 命令获取存储路径
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/service-volume/gogs.png)
+![](https://static.goodrain.com/images/5.1/service-volume/gogs.png)
 
 - step 3 把需要迁移的 gogs 数据(data1)备份，然后把平台上的 gogs 关闭，然后用备份的 data1 数据替换了平台上运行的 gogs 的数据，启动平台上的 gogs
 
