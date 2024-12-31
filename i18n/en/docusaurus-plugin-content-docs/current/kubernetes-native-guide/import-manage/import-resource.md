@@ -96,7 +96,7 @@ Below will use Linkerd namespace as an example of how to import Linkerd namespac
 
 4. After viewing the resource type and name and selecting the namespace, make sure you click next to enter advanced identification.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/resource_name.jpg" title="资源识别页面"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/resource_name.jpg" title="资源识别页面"/>
 
 ### Advanced Resource Identification
 
@@ -104,8 +104,8 @@ Below will use Linkerd namespace as an example of how to import Linkerd namespac
 
 2. After confirmation, click to confirm import.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/advanced_resources.jpg" title="高级资源识别页面"/>
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/k8s_resources.jpg" title="k8s资源页面"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/advanced_resources.jpg" title="高级资源识别页面"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/k8s_resources.jpg" title="k8s资源页面"/>
 
 ### Resource Import
 
@@ -117,4 +117,4 @@ Below will use Linkerd namespace as an example of how to import Linkerd namespac
 
 Rainbond does not reboot the user's resources in the cluster immediately after taking over them. When the user clicks on reboot or update, it will produce a resource that is completely taken over by Rainbon.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/import.jpg" title="团队页面"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/import.jpg" title="团队页面"/>
