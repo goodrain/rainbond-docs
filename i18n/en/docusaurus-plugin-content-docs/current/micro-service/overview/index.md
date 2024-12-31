@@ -25,7 +25,7 @@ The relationship between components can only be seen in the Applets pop through 
 
 If your app is based on SpringCloud development, the same is a service component deployed to Rainbond for assembly.Unlike ServiceMesh based communications, service registration and direct communication is provided by SpringCloud services registry centre as a bridge.Rainbond does not have a direct communication dependency to access the services and therefore is not shown in the top.But the key is the integration of Rainbond ServiceMosesh with SpringCloud.As shown in the graph below, communications between all services and registration centres and databases are made through ServiceMosh, and communications from UI to Gateway are completed by ServiceMesh
 
-![SpringCloud部署示意图](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/SpringCloud.png)
+![SpringCloud部署示意图](https://static.goodrain.com/docs/5.2/SpringCloud.png)
 
 ## Web Visualization
 
@@ -36,4 +36,4 @@ Web Visualizations are made in Rainbond app topography.Show the dimensions below
 3. The service provides access to the external network.
 4. Service is running in real time.
 
-![ServiceMesh架构拓扑图](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/servicemesh.png)
+![ServiceMesh架构拓扑图](https://static.goodrain.com/docs/5.2/servicemesh.png)
