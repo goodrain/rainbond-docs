@@ -13,7 +13,7 @@ This document details the core features of batch publishing, Header based matchi
 
 ### Batch Publish
 
-![gray-status](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/gray-release/gray-status1.png)
+![gray-status](https://static.goodrain.com/docs/enterprise-app/gray-release/gray-status1.png)
 
 Full link grayscale release supports the bulk introduction of new versions of applications into the production environment, gradually cutting traffic into new versions of applications by running them and allowing you to assess the stability and performance of new versions within your control and to address issues that may arise in a timely manner.
 
@@ -36,14 +36,14 @@ You can route a specific request to a new version or an old application based on
 The full link gray release covers all components and services in the entire system chain, ensuring that new versions of applications are progressively validated and deployed throughout the system.It can cut across front-end, backend, databases, etc. to ensure compatibility and stability of new versions with existing systems.Full link gray release ensures that new versions of applications operate seamlessly throughout the system links by gradually replacing and validating each component.Below is a map of the total gray scale：
 
 <div align="center">
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/gray-release/gray-release.png" width="25%" height="25%" />
+<img src="https://static.goodrain.com/docs/enterprise-app/gray-release/gray-release.png" width="25%" height="25%" />
 </div>
 
 As shown in the graph above, there are `A->B->C->C->D->E` service components in an application where gray traffic enters from A, because only B and C have gray versions, the gray flow is routed in the grey versions of B and C, and for components D and E, because there are no gray versions, the gray flow is routed to the base version.This created two logically isolated traffic links.This would directly reduce the deployment of services and reduce the cost of deployment when there is a larger volume of microservices.And because of traffic isolation, new versions of risk and impact can be better controlled.
 
 ### Monitor and roll back
 
-![gray-metrics](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/gray-release/gray-metrics.png)
+![gray-metrics](https://static.goodrain.com/docs/enterprise-app/gray-release/gray-metrics.png)
 
 Full link grayscale release provides monitoring and rollback features to ensure the stability and performance of new versions of applications during grey releases.You can monitor every stage of release in real time, including key indicators such as traffic distribution, response time, error rate, etc.If there is a problem, you can roll back to old versions in time to minimize potential effects.
 
