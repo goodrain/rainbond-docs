@@ -19,7 +19,7 @@ At present, Rainbond supports recording users' operations and login logs, both o
 
 ### Operation Log
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/audit/operate_log.jpg)
+![description](https://static.goodrain.com/docs/enterprise-app/audit/operate_log.jpg)
 
 Operation log functionality is intended to record user actions on Rainbond including, but not limited to, the same：
 
@@ -33,7 +33,7 @@ Operation log functionality is intended to record user actions on Rainbond inclu
 
 ### Login Log
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/audit/login_log.jpg)
+![description](https://static.goodrain.com/docs/enterprise-app/audit/login_log.jpg)
 
 Login log is intended to record user login functions for tracking and recording user login activity on enterprise platform, including the following information：
 
