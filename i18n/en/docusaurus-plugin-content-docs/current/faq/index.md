@@ -104,7 +104,17 @@ metadata:
   namespace: rbd-system
 ```
 
-## 存储清理
+## 存储空间清理
+
+通常来说，Rainbond 本身的组件不会占用太多存储空间，但是当服务器存储空间不足时，会导致 K8s 异常，进而导致 Rainbond 异常。
+
+以下对 Rainbond 和 K8s 存储空间进行说明，你可以根据实际情况进行清理。
+
+Rainbond 组件存储说明：
+
+- **rbd-chaos:** 存储源码构建相关的依赖包，存储在 `/opt/rainbond/cache` 目录下。如需清理，请删除该目录下的文件。
+- **rbd-hub:** 存储镜像，存储在 `minio` 组件中。如需清理，请参阅 [rbd-hub镜像仓库清理](https://t.goodrain.com/d/21-rbd-hub)。
+- **minio:** 存储 `rbd-hub` 镜像仓库的数据、以及通过页面上传的文件、导入导出的应用离线包。如需清理，请在 `minio web console` 中进行清理，访问 minio 可通过获取 `minio` 组件的 `service nodeport` 地址，默认账号密码为 `admin/admin1234`。
 
 ## 启动无法获取镜像 x509: certificate signed by unknown authority
 
