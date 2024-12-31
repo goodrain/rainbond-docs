@@ -12,9 +12,9 @@ Rainbond Enterprise version provides a range of personalized configuration optio
 
 Personalized configuration is divided mainly into two blocks of：base profile configuration, theme configuration, specific configuration entry to：\`Platform Management -> Settings -> Personalized configuration.The following lengths will be detailed for configurable items, noting that only platform administrators will be able to customize the platform page configuration, which will take effect for all users.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-config/home-config.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-config/home-config.png)
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-config/login-config.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-config/login-config.png)
 
 ### Basic Information Configuration
 
@@ -66,7 +66,7 @@ The base information is a few options for configuring the firm's flag, including
 
 Administrators can choose different color styles including head background colors, head text colors, sidebar background colors, sidebar text colors, side sidebar text colors, etc.Administrators can either enter colors directly or click on the right side color block to select any color, which can be styled according to the company's product master.Changes take effect instantly. Preview is available and will only be applied to all users when they are saved
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-config/custom-config.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-config/custom-config.png)
 
 ## Manual
 
