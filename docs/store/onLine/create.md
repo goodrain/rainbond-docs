@@ -11,7 +11,7 @@ description: 本章描述 云原生应用商店 注册账号和完善用户信�
 
 - 用户可以在云原生应用市场注册页，直接注册，需要填写账号、密码、手机号、验证码。
 
-<img src='https://grstatic.oss-cn-shanghai.aliyuncs.com/app-store/docs/%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2.jpg' alt='云原生应用市场注册页面' /> 
+<img src='https://static.goodrain.com/app-store/docs/%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2.jpg' alt='云原生应用市场注册页面' /> 
 
 注册完成之后会自动登录账号，点击右上角控制台完善自己的信息，我们想去发布应用的时候，该信息内容会呈现到`应用详情页作者介绍`里面，也可以点击作者名称，进入作者个人中心页面，该页面会展示作者发布的所有应用以及作者的信息简介。
 

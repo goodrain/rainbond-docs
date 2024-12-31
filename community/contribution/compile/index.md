@@ -7,7 +7,7 @@ description: Rainbond 项目介绍
 
 Rainbond 主要由以下三个项目组成。点击查看[技术架构](/docs/quick-start/architecture)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/quick-start/rainbond-compile-architecture.png" width="50%" />
+<img src="https://static.goodrain.com/docs/5.5/quick-start/rainbond-compile-architecture.png" width="50%" />
 
 [Rainbond-UI](https://github.com/goodrain/rainbond-ui)  
 [Rainbond-Console](https://github.com/goodrain/rainbond-console)

@@ -21,21 +21,21 @@ Rainbond 监控报警系统基于 Alertmanager 服务， Alertmanager 主要用�
 
 - **安装报警服务**
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/deploy/appmarketinstall.jpg"  width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/monitor/deploy/appmarketinstall.jpg"  width="100%" />
 
 - **运行效果**
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/deploy/monitoring-alarm.jpg"  width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/monitor/deploy/monitoring-alarm.jpg"  width="100%" />
 
 - **在集群中修改 Prometheus配置**
 
 1.首先查看Alertmanager的对外端口
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/deploy/altermanagerport.jpg"  width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/monitor/deploy/altermanagerport.jpg"  width="100%" />
 
 2.修改 Alertmanager 的环境变量，在 环境配置 > 环境变量中修改 WEB_EXTERNAL_URL 的变量值为上面的 Alertmanager 对外端口。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/deploy/deploy-env.png"  width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/monitor/deploy/deploy-env.png"  width="100%" />
 
 3.在集群中修改monitor的配置，修改连接 alertmanager 的地址，添加如下参数，参数值为上面的 Alertmanager 对外端口。
 
@@ -58,7 +58,7 @@ spec:
 
 如下
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/monitor/monitorconf.jpg"  width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/monitor/monitorconf.jpg"  width="100%" />
 
 删除资源后将会自动重启生效
 

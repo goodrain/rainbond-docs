@@ -6,7 +6,7 @@ title: 选择架构部署组件
 
 当 Rainbond 集群中具有不同 CPU 架构的计算节点时，新建组件时，即可通过选择的方式，指定架构来部署服务组件。可选择的架构信息来自 Rainbond 实时查询。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%BF%81%E7%A7%BB.png)
+![](https://static.goodrain.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%BF%81%E7%A7%BB.png)
 
 ## 异构源码构建
 

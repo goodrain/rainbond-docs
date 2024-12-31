@@ -35,7 +35,7 @@ Rainbond 插件体系为插件设计了与应用类似的生命周期，包含�
 
 插件创建流程设计如下图所示：
 
-![插件创建流程](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/images/plugin/Rainbond%E6%8F%92%E4%BB%B6%E5%88%9B%E5%BB%BA%E6%B5%81%E7%A8%8B.png)
+![插件创建流程](https://static.goodrain.com/docs/images/plugin/Rainbond%E6%8F%92%E4%BB%B6%E5%88%9B%E5%BB%BA%E6%B5%81%E7%A8%8B.png)
 
 需要注意的是，当一个插件版本固定后，其内存、版本信息、插件变量无法再做修改，这些元素仅作用于当前插件版本。需要修改插件变量等元素时，对插件进行`重新构建`，重复创建流程即可。
 

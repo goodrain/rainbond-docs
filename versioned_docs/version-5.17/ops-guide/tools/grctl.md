@@ -46,7 +46,7 @@ grctl 命令是 rainbond 自主开发的集群管理工具，它具备如下主�
 grctl  cluster
 ```
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-cluster.png" width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/tools/grctl/grctl-cluster.png" width="100%" />
 
 - 列出集群节点信息
 
@@ -54,7 +54,7 @@ grctl  cluster
 grctl node list
 ```
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-node-list.png" width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/tools/grctl/grctl-node-list.png" width="100%" />
 
 - 获取某个节点的详细信息
 
@@ -80,7 +80,7 @@ grctl node uncordon <UID>
 grctl service get grf2ebfd -t b40hkf9y
 ```
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/grctl/grctl-server-get.png" width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/tools/grctl/grctl-server-get.png" width="100%" />
 
 如果需要查看该应用的实时日志，使用上述命令得到的 `PodName/Namespace` 信息，即可查看该应用运行的实时日志
 

@@ -16,7 +16,7 @@ The previous article introduced that standardized products are delivered to the 
 
 ## The Difficulties of Personalized Delivery
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/04/06/16483950818734.jpg)
+![](https://static.goodrain.com/case/2022/04/06/16483950818734.jpg)
 
 For enterprise product delivery, the higher the degree of personalization, the higher the delivery cost. The cost of delivery includes not only labor cost, but also time cost. Only by solving the efficiency problem of personalized delivery, the profit rate of products can be greatly improved. At the same time achieve large-scale delivery.
 
@@ -50,7 +50,7 @@ Rainbond solves the challenge of personalized delivery from four aspects：
 
 During the software delivery process, Rainbond abstracts the business system into**application templates**As long as the enterprise products can run normally in Rainbond, they can be released to the application market through the application templates. The application templates contain all the resources required for the service running state. In the form of publishing to the application market or exporting an offline installation package, it can be installed in any Rainbond cluster connected to the application market with one click to complete the application delivery.
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/04/06/16488321842140.jpg)
+![](https://static.goodrain.com/case/2022/04/06/16488321842140.jpg)
 
 
 - **Shield customer environment differences, a set of product templates is delivered to all customers** Rainbond supports docking and management of various public clouds, private clouds, physical servers, and edge devices. The templates of enterprise products run on Rainbond, so delivery customers will use Rainbond together with The product template is delivered to the customer together. The product template is application-level packaging and abstraction. When the application is delivered based on the application template, the template contains all the resources required for the product to run, isolated from the underlying operating system, and only needs to focus on its own business, business In addition to technical problems：, resource management, operation and maintenance, architecture, governance, environment, etc., the Rainbond platform can solve the one-stop solution.
@@ -65,10 +65,10 @@ During the software delivery process, Rainbond abstracts the business system int
 
 For the modularization of Rainbond, please refer to the article： [Use Rainbond to package business modules to realize business building block assembly](https://mp.weixin.qq.com/s/liHYLDmBgcHuhOfODlwJvQ)
 
-- **According to customer needs, select delivery by modules** ![一个完整企业产品的拓扑](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/04/06/16488357299292.jpg) A complete enterprise product will include many functions, and the functions selected by different customers will be different according to costs and scenarios. Through Rainbond, product functions can be modularized, similar to In the figure above, each hexagonal block is a module. All modules of the entire product can be delivered to the customer environment with one click through the application template, and then the unnecessary functional modules are deleted to complete the modular delivery.
+- **According to customer needs, select delivery by modules** ![一个完整企业产品的拓扑](https://static.goodrain.com/case/2022/04/06/16488357299292.jpg) A complete enterprise product will include many functions, and the functions selected by different customers will be different according to costs and scenarios. Through Rainbond, product functions can be modularized, similar to In the figure above, each hexagonal block is a module. All modules of the entire product can be delivered to the customer environment with one click through the application template, and then the unnecessary functional modules are deleted to complete the modular delivery.
 
 
-- ****modular business assembly, and then customized development1 ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/04/06/16488789151193.jpg)
+- ****modular business assembly, and then customized development1 ![](https://static.goodrain.com/case/2022/04/06/16488789151193.jpg)
 
 After accumulating reusable modular components, the delivery customer first builds the infrastructure based on the accumulated modular components, and then develops services that need to be customized. The newly developed services have reuse value, and can be used with one click Published to the app market to facilitate subsequent delivery.
 
@@ -84,7 +84,7 @@ The development environment provided by Rainbond integrates functions such as co
 ### 4. Remote continuous delivery and operation and maintenance
 Customer delivery is a continuous process. The custom development process requires continuous iteration, new version releases or bug fixes need to be upgraded to customers, and function delivery needs to ensure operational stability. Rainbond can be used to complete the above process in the company.
 
-- **Remote continuous iteration and delivery** ![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/04/06/16491739922257.jpg) Developed and tested products in the company through Rainbond and released to the application market, which manages all versions of the product, including various customized customer versions.According to whether the customer environment can access the Internet, two processes are supported:：
+- **Remote continuous iteration and delivery** ![](https://static.goodrain.com/case/2022/04/06/16491739922257.jpg) Developed and tested products in the company through Rainbond and released to the application market, which manages all versions of the product, including various customized customer versions.According to whether the customer environment can access the Internet, two processes are supported:：
     1. The customer environment can be connected to the Internet, and the customer can connect to the application market through the assigned token, and install the specified version of the product and version with one click. If a new version is released, the customer environment can be automatically discovered, and the customer can upgrade by himself.
     2. The customer environment cannot be connected to the Internet. The offline software package is exported from the application market and sent to the customer. The customer can import it by himself, and install or upgrade it with one click.
 

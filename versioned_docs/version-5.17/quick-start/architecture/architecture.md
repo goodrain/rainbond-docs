@@ -5,7 +5,7 @@ description: Rainbond 技术架构
 
 ### Rainbond 技术架构
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/architecture.svg" width="100%"/>
+<img src="https://static.goodrain.com/images/docs/5.0/architecture/architecture.svg" width="100%"/>
 
 Rainbond 践行以应用为中心的理念，吸纳优秀的社区解决方案，形成了应用控制、应用运行时，集群控制三大模块结合的数据中心逻辑技术架构，结合以管理节点、计算节点、网关节点、存储节点给类节点类型划分的物理架构形成高可用、高扩展性的数据中心架构体系。
 
@@ -17,7 +17,7 @@ Rainbond 践行以应用为中心的理念，吸纳优秀的社区解决方案�
 
 API 服务作为数据中心级抽象的核心控制服务，对外提供 Restful 风格的 API 服务，是数据中心控制请求的唯一入口，安全控制基于 TLS 双向安全认证。自主签发证书后分发到客户端。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png" width="100%"/>
+<img src="https://static.goodrain.com/images/5.1/images/api.png" width="100%"/>
 
 API 服务请求进入后由 router 模块进行请求分发，普通请求进入 Handle 请求处理模块，这类请求主要是操作数据库模型的请求，API 服务基于 ORM 支持 Mysql 数据库和 CockroachDB 数据库。进入 Proxy 的请求分为 API 请求和 Websocket 请求。由 Discover 模块通过 etcd 服务发现其代理目标并转发请求。因此其他组件提供的 API 可通过服务注册由 API 服务代理转发请求。
 
@@ -29,11 +29,11 @@ API 服务请求进入后由 router 模块进行请求分发，普通请求进�
 
 应用网关可以通过水平扩展的方式来增加并发能力和基础性能，通用配置在所有网关节点中同步生效。对于 74IP+
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/gw.png" width="100%"/>
+<img src="https://static.goodrain.com/images/docs/5.0/architecture/gw.png" width="100%"/>
 
 单节点应用网关服务的架构目标是支持多种数据源、支持多 IP、支持高并发能力、支持多 Server 能力、支持动态配置变化能力。基于此需要应用网关架构设计如下：
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/gateway.png" width="100%"/>
+<img src="https://static.goodrain.com/images/5.1/images/gateway.png" width="100%"/>
 
 应用网关服务集成 Openresty 服务作为前置流量代理服务，基于 lua 对 Openresty 实现功能扩展，Lua-Config-Controller 实现对 Openresty 的动态配置、Upstream 管理、负载均衡策略实现, Lua-Monitor-Controller 实现对请求数据的记录和汇总上报、Lua-Security-Controller 实现对请求的安全控制。三个 Lua 模块由 Openresty-Controller 驱动工作，Metric-Controller 模块汇聚网关的各类监控数据并向外暴露 Prometheus 规范的 Metric-Server。Openresty-Controller 由数据驱动，数据来源于 Gateway-Model-Controller，两层无耦合关系，其实现了标准的接口规范。根据需要我们可以实现基于其他 proxy 服务的驱动器，比如 F5。
 
@@ -60,7 +60,7 @@ Chaos 的输入源是支持 Git、Svn 协议的代码仓库，Docker 镜像仓�
 
 应用运行时控制服务将 Rainbond-Application Model 进行实例化转化为 Kubernetes 资源模型，配属应用运行需要的各类资源，完成应用生命周期中的运行态部分，可以理解为 CD 控制服务，该服务的设计要点是支撑大量应用的生命周期监管。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.0/architecture/worker-arch.svg" width="100%"/>
+<img src="https://static.goodrain.com/images/docs/5.0/architecture/worker-arch.svg" width="100%"/>
 
 应用生命周期中可能经历启停、升级与回滚。不同的应用类型需要进行不同的控制策略，例如无状态应用能够进行无序的滚动升级，而有状态应用的升级控制策略将更加复杂。Worker 服务中实现各类组件类型的生命周期控制器器、包含启动、停止、更新、伸缩等待。
 

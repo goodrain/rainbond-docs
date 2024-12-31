@@ -30,13 +30,13 @@ description: 基于源代码一键构建并部署业务组件
 
 - **确认创建**
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-source/build-from-source-1.png" title="创建服务组件" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/create-app-from-source/build-from-source-1.png" title="创建服务组件" width="100%" />
 
 ### 代码语言识别
 
 Rainbond 会自动拉取相应的代码，并进行相应的代码检测。用户可以根据检测的结果，初步判断这个流程工作是否正常。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-source/build-from-source-2.png" title="代码识别" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/create-app-from-source/build-from-source-2.png" title="代码识别" width="100%" />
 
 ### 开始构建
 
@@ -44,11 +44,11 @@ Rainbond 会自动拉取相应的代码，并进行相应的代码检测。用�
 
 构建一旦开始，用户可以点击查看构建日志，根据日志了解构建的过程，并在构建失败的情况下进行错误排查。一般情况下，用户本地可以构建的项目，在 Rainbond 都可以正常构建，如果遇到问题，请随时联系好雨科技技术人员寻求帮助。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-source/build-from-source-3.png" title="构建日志输出" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/create-app-from-source/build-from-source-3.png" title="构建日志输出" width="100%" />
 
 构建完成后，该服务组件将自动启动，并提供服务。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-source/build-from-source-4.png" title="启动完成" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/create-app-from-source/build-from-source-4.png" title="启动完成" width="100%" />
 
 ### 下一步
 

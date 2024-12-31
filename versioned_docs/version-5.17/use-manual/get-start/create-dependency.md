@@ -32,7 +32,7 @@ Rainbond 支持原生的 Service Mesh 微服务架构，应用一旦部署到 Ra
 
 - 根据提示完成下游服务组件（Java 演示示例）的更新操作
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-depdendency/create-dependency-1.png" title="建立依赖关系" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/create-depdendency/create-dependency-1.png" title="建立依赖关系" width="100%" />
 
 依赖关系建立完成后， **Java 演示示例** 就可以与 **Mysql5.7（单机版）** 正常通信了。
 

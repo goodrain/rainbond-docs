@@ -16,9 +16,9 @@ keywords:
 
 当对 K8s 集群进行巡检时，通常会检查节点状态、核心组件状态、以及一些资源使用状况。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/cluster-scan1.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/cluster-scan1.png)
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/cluster-scan2.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/cluster-scan2.png)
 
 #### 节点健康状态
 
@@ -38,7 +38,7 @@ keywords:
 
 当对 Rainbond 底层服务进行巡检时，主要检查各个核心组件的状态以及重启状况。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/rbd-server.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/rbd-server.png)
 
 #### 运行状态
 
@@ -54,7 +54,7 @@ keywords:
 
 运行巡检主要针对于平台上运行的业务进行巡检，当进行运行巡检时，主要检查组件 pod 的运行状态和重启状况。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/running.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/running.png)
 
 #### 运行状态
 
@@ -70,7 +70,7 @@ keywords:
 
 配置巡检主要针对于平台上运行的业务资源配置、健康检测配置等进行巡检。主要检查容器镜像标签、容器运行时参数、资源限制设置、存储挂载设置、容器健康检测设置。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/config.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/config.png)
 
 #### 容器镜像标签
 - 检查容器镜像的标签是否合规，包括是否使用了 latest 标签、是否使用了明确的版本号等。
@@ -93,7 +93,7 @@ keywords:
 
 安全巡检主要针对于平台上运行的业务镜像进行扫描，并对镜像中的各类安全漏洞，给出详细信息链接，以便用户进行修复。具体来说，安全巡检主要包含了扫描镜像安全漏洞、漏洞报告、建议和解决方案、自动化定期检测。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/leak.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/leak.png)
 
 #### 扫描镜像安全漏洞
 - 通过对集群内已部署的业务镜像进行扫描，获取镜像存在的安全漏洞信息。

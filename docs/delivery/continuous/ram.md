@@ -22,7 +22,7 @@ import Bvideo from '/src/components/Bvideo';
 
 3. 当 `3.0` 版本测试通过以后，我们就可以认为已经有了高质量可交付的版本。接下来可以在应用市场标记该版本已经 Release，后续在生产环境部署时，直接从应用市场部署 `3.0` 版本即可。
 
-<!-- ![ram-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/ram-delivery.jpg) -->
+<!-- ![ram-delivery](https://static.goodrain.com/docs/5.10/delivery/ram-delivery.jpg) -->
 ![](https://static.goodrain.com/docs/5.11/delivery/continuous/source-code/template-delivery.png)
 
 ## 操作步骤

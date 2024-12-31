@@ -8,7 +8,7 @@ Rainbond 平台组件有两种伸缩方式：
 - 垂直伸缩：增加或减少组件的内存（目前组件 CPU 与内存是联动的，按照一定的`比例调整`）
 - 水平伸缩：增加或减少组件的实例数，适用于无状态组件和有状态水平集群组件
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/automatic-telescoping/service-scaling/Telescopic.png)
+![](https://static.goodrain.com/images/docs/5.2/user-manual/app-service-manage/automatic-telescoping/service-scaling/Telescopic.png)
 
 - 垂直伸缩时平台会自动调整资源后重启组件，单节点组件会中断，多节点组件不受影响。
 - 水平伸缩时平台通过滚动新增或者下线节点的方式进行操作，因此操作不会影响现有组件。

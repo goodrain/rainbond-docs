@@ -20,13 +20,13 @@ keywords:
 
 - 如果挂载存储中的一些文件想要重复利用，或者想查看具体信息，可以直接通过下载功能保存到本地。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/file-manage/file-manage.png)
+![description](https://static.goodrain.com/docs/enterprise-app/file-manage/file-manage.png)
 
 
 #### 上传记录展示
 - 如果担心上传文件会给挂载存储带来安全隐患，在执行完毕后组件操作记录当中会展示上传信息。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/file-manage/upload-event.png)
+![description](https://static.goodrain.com/docs/enterprise-app/file-manage/upload-event.png)
 
 
 ## 使用手册

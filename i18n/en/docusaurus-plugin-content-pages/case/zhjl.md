@@ -55,7 +55,7 @@ As an application management platform for smart city data centers, it assists us
 
 I think ease of use is Rainbond's greatest feature.It uses the application as the core abstraction, and many functions designed around the application are very useful.For example, automatic scaling, health detection, etc. are all very practical functions.The configuration of the gateway policy is also very friendly, the operation difficulty is basically zero, and it is very convenient to bind the domain name matching certificate.
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/3.6/micro-service/horizen.png)
+![](https://static.goodrain.com/images/docs/3.6/micro-service/horizen.png)
 
 
 - Reasonable observability

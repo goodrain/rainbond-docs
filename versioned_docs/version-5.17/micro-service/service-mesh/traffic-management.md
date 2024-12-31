@@ -21,4 +21,4 @@ Rainbond 中组件间通信默认情况下采用 TCP 4 层通信，因此默认�
 
 在插件配置中，需用开发者针对每一个通信链路进行路由匹配。比如 A 组件依赖 B\C\D 组件，分别使用 `domain.b` `domain.c` `domain.d` 域名进行通信。那么需要在插件配置中分别对 B\C\D 三个组件的链路上信息域名配置。
 
-![组件间路由参数配置](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/plugin.png)
+![组件间路由参数配置](https://static.goodrain.com/docs/5.2/plugin.png)

@@ -29,7 +29,7 @@ Rainbond 团队是企业下多租户资源划分的一个层级，在 Rainbond �
 
 > 这个模式试用于 2C 的软件开发运维场景，比如划分开发环境团队、测试环境团队、演示环境团队和生产团队。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/team.png" title="团队划分参考用例" />
+<img src="https://static.goodrain.com/docs/5.2/team.png" title="团队划分参考用例" />
 
 ### 团队是否可以管理多集群资源
 

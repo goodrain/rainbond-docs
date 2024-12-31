@@ -60,14 +60,14 @@ Rainbond 通过识别 YAML 文件中的资源类型，将其转换为 Rainbond �
 2. 上传 YAML 文件
 3. 在确认无误后，点击创建。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/package-support/yaml_push.jpg" title="上传yaml"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-create/package-support/yaml_push.jpg" title="上传yaml"/>
 
 ### Kubernetes 资源名称
 
 1. 这一部分可以识别全部的k8s资源，部分资源可转换为 Rainbond 资源的，其他资源全部存放在应用下的k8s资源当中。
 2. 检查无误后点击下一步
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/package-support/yaml_resource_name.jpg" title="yaml资源名称"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-create/package-support/yaml_resource_name.jpg" title="yaml资源名称"/>
 
 ### 高级资源识别
 
@@ -75,5 +75,5 @@ Rainbond 通过识别 YAML 文件中的资源类型，将其转换为 Rainbond �
 2. 在确认无误后，点击部署。
 3. 部署需要数据存储、拉取镜像等操作所以时间会比较长，稍加等待后便会跳到应用视图下
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/package-support/advanced_resources.jpg" title="高级资源识别"/>
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/package-support/team.jpg" title="跳转团队视图"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-create/package-support/advanced_resources.jpg" title="高级资源识别"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-create/package-support/team.jpg" title="跳转团队视图"/>

@@ -17,5 +17,5 @@ hidden: false
 
 `grctl`  命令使用参考 [grctl使用文档](./grctl.md)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/tools/shell/open-shell.png" width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/tools/shell/open-shell.png" width="100%" />
 

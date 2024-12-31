@@ -38,7 +38,7 @@ Rainstore 是一个可以管理企业应用交付流程、实现商店全流程�
 ### 第一步：对接商店
 如果你之前没有对接过开源应用商店，那么你只需要在以下页面，输入你的手机号，通过验证码登录，我们将会为你创建一个用户，并给到相应的权限。
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-authorization.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/store-authorization.png)
 
 如果你之前已经对接过应用商店，那么需要执行如下操作重新获取发布授权。
 
@@ -50,23 +50,23 @@ Rainstore 是一个可以管理企业应用交付流程、实现商店全流程�
 
 4. 最后输入手机号，验证码对接即可
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-store-info.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/edit-store-info.png)
 
 当你完成以上几步后，你将会看到开源应用商店有以下权限：只读、安装、推送应用。此时前期准备完成。
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-perms-show.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/store-perms-show.png)
 
 ### 第二步：制作应用
 接下来就该是制作你的应用，这里我们以 harbor 为例。目前应用商店中的 harbor 版本较低。当我们想要更高的版本，但应用商店没提供时。我们就可以自己做一个 harbor 应用分享出来。
 
 之前我们制作的应用，都会将应用制作教程分享到社区，拿这个 harbor 为例，我们可以参考[企业级Docker镜像仓库Harbor在Rainbond上的部署](https://t.goodrain.com/d/8204-dockerharborrainbond)。这里我们参考该文章制作出 2.3 版本的 harbor 应用。如下图所示
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/harbor-topological.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/harbor-topological.png)
 
 ### 第三步：分享应用
 此时，选择左侧发布，发布到云应用商店，选择开源应用商店即可。
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/publish-page.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/publish-page.png)
 
 接下来我们需要新建一个应用模版。填写上对应的版本号。选择发布即可。待镜像推送完成并确认后，应用分享成功。
 
@@ -76,15 +76,15 @@ Rainstore 是一个可以管理企业应用交付流程、实现商店全流程�
 
 :::
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-1.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-1.png)
 
 此时我们新建一个应用模版：Harbor应用。如下图所示
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-2.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-2.png)
 
 接下来选择对应版本提交后，将会开始同步组件镜像，待镜像同步完成，点击确认发布，即分享完成。
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-3.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-3.png)
 
 ### 第四步：补充信息
 
@@ -92,13 +92,13 @@ Rainstore 是一个可以管理企业应用交付流程、实现商店全流程�
 
 应用商店的网址为 https://hub.grapps.cn/enterprise/login, 在这个页面选择手机验证码登录，输入你在 Rainbond 申请授权时的手机号，登录进去后，选择商店管理，你就可以看到你发布的应用了。
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-1.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-1.png)
 
 点击你刚刚发布的应用，我们可以对应用的简介进行编辑，上传对应的 Logo等。
 
 完成这些以后，我们进入套餐管理，创建一个套餐，并将应用上架。上架应用的目的是为了让更多的人能看见这个应用。即在[开源应用商店](https://hub.grapps.cn/marketplace)中能看见你发布的应用。
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-2.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-2.png)
 
 套餐类型选择免费，名称可以是对应的版本。保存后，回到后台管理页面，在应用列表中点击上架即可。
 
@@ -117,12 +117,12 @@ RAM 模型的抽象，囊括了企业应用所包含的所有服务组件以及�
 
 现在分享已经完成了，此时应该如何使用呢，你可以通过在开源应用商店中搜索你的应用，选择右边的安装，安装到某个应用下即可一键部署。
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/search-app.png)
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/install-app-1.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/search-app.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/install-app-1.png)
 
 部署效果如下图所示。等待构建完成，即可访问
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/install-app-2.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/install-app-2.png)
 
 ### 管理应用
 
@@ -132,19 +132,19 @@ RAM 模型的抽象，囊括了企业应用所包含的所有服务组件以及�
 
 完成以上步骤后，我们可以去看下效果。访问[开源应用商店](https://hub.grapps.cn/marketplace) ，搜索你的应用，在这里你可以看到应用的访问数和安装数。可以看到我们刚刚完成了一次安装。
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/app-list-show.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/app-list-show.png)
 
 点击进去后，你可以看到你的应用简介及相关信息，如下图所示。
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/app-detail-show.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/app-detail-show.png)
 
 在这个页面的右侧，展示了你的相关信息。你可以点击你的姓名，即可进入你个人信息的聚合页，在这个页面，你自己的相关信息以及发布的所有应用都会展示在这里。
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/publish-user-show.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/publish-user-show.png)
 
 此处由于是通过手机号登录，数据不完善，你可以选择进入后台，鼠标移动到右上角头像处，修改这些信息。
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-user-info.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/edit-user-info.png)
 
 ## 总结
 

@@ -11,7 +11,7 @@ Rainbond 平台对组件日志采用实时推送的形式进行展示，便于�
 
 - 运行日志输出界面
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-log/Operation%20log2.png)
+![](https://static.goodrain.com/images/docs/5.2/user-manual/app-service-manage/service-log/Operation%20log2.png)
 
 - 暂停推送：暂停日志的推送，便于看到关键信息时暂停分析
 - 历史日志下载：Rainbond 会收集最近 7 天内的日志进行保存，用户可以通过点击日志界面的`历史日志下载`下载最近 7 天的日志到本机进行分析
@@ -19,13 +19,13 @@ Rainbond 平台对组件日志采用实时推送的形式进行展示，便于�
 
 在日志显示框中用户可以选择`容器ID`后只查询某个实例的运行日志；我们尽量追求将日志实时推送到控制台，但由于中间处理的原因会有一定的延时。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-service-manage/service-log/Instance%20log.png)
+![](https://static.goodrain.com/images/docs/5.2/user-manual/app-service-manage/service-log/Instance%20log.png)
 
 我们推荐用户将组件运行日志区分为访问日志和程序 Debug 日志，访问日志一般希望被统计分析，因此需要更多的处理。建议将其输出到持久化文件，然后对接其他日志分析组件进行日志分析。 程序 Debug 日志直接输出，快速的呈现给开发者及时发现和定位问题。
 
 ## 容器日志
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.3/user-manual/component-log/%E7%BB%84%E4%BB%B6%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97.png)
+![](https://static.goodrain.com/docs/5.3/user-manual/component-log/%E7%BB%84%E4%BB%B6%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97.png)
 
 我们也可以只查看指定实例容器的日志, 容器日志的实时性会比较高. 默认情况下, 每 5 秒刷新一次.
 

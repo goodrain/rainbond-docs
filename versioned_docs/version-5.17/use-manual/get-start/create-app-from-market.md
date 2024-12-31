@@ -30,9 +30,9 @@ description: 基于应用市场一键构建并部署一个应用
 
 - **确认安装**
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-1.png" title="从应用市场安装" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-1.png" title="从应用市场安装" width="100%" />
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-2.png" title="从应用市场安装" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-2.png" title="从应用市场安装" width="100%" />
 
 ### 安装完成
 
@@ -40,7 +40,7 @@ description: 基于应用市场一键构建并部署一个应用
 
 到这里，**我的第一个应用** 中已经有了两个服务组件。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-3.png" title="从应用市场安装" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/create-app-from-market/create-app-from-market-3.png" title="从应用市场安装" width="100%" />
 
 ### 下一步
 

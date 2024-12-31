@@ -17,7 +17,7 @@ keywords:
 
 展示集群和平台中的资源监控数据、流量分布图、以及提供了大屏监控和集群管理功能入口。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/observability/observability-all.png)
+![description](https://static.goodrain.com/docs/enterprise-app/observability/observability-all.png)
 
 #### 资源监控
 
@@ -38,7 +38,7 @@ keywords:
 
 展示集群的详细信息，比如健康指标、组件健康数、资源使用、集群网络、节点状况等。
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/observability/observability-one.png)
+![description](https://static.goodrain.com/docs/enterprise-app/observability/observability-one.png)
 
 #### 健康指标
 

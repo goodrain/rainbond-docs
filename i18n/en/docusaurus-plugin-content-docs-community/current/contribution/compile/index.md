@@ -7,7 +7,7 @@ description: Rainbond Project Introduction
 
 Rainbond mainly consists of the following three projects.Click to view[](/docs/quick-start/architecture)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.5/quick-start/rainbond-compile-architecture.png" width="50%" />
+<img src="https://static.goodrain.com/docs/5.5/quick-start/rainbond-compile-architecture.png" width="50%" />
 
 [Rainbond-UI](https://github.com/goodrain/rainbond-ui)  
 [Rainbond-Console](https://github.com/goodrain/rainbond-console)

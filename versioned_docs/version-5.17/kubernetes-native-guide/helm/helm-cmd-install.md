@@ -21,13 +21,13 @@ Helm 命令执行有两个入口：
 
 在团队视图点击 **新增** --> 然后点击 **Kubernetes YAML Helm** --> 选择 **Helm 命令**安装 --> 选择**应用**输入 **Helm 命令** 安装 --> **确认创建**则会跳转到Helm应用配置界面。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/tenant_helm_cmd_install.jpg" title="基于 Helm 命令安装" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/tenant_helm_cmd_install.jpg" title="基于 Helm 命令安装" width="100%"/>
 
 **No.2** 应用视图
 
 在应用视图点击 **添加组件** --> **从应用市场安装**，选择对接的 Helm 应用商店中的应用，点击 **安装** 即会自动开始安装。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/app_helm_cmd_install.jpg" title="基于 Helm 命令安装" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/app_helm_cmd_install.jpg" title="基于 Helm 命令安装" width="100%"/>
 
 ### 安装流程
 

@@ -51,7 +51,7 @@ mvn -DskipTests clean dependency:list install
 
 Rainbond 支持图形化定义编译运行环境，配置位于服务组件的构建源页面。**对这些配置的修改，需要通过 [构建](../../../component-manage/overview/basic-operation) 来生效！**
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/component-create/language-support/java/java-maven-1.png" title="编译运行环境定义" />
+<img src="https://static.goodrain.com/docs/5.2/component-create/language-support/java/java-maven-1.png" title="编译运行环境定义" />
 
 - 禁用缓存，在完成首次成功的构建之前，该开关应该始终处于打开的状态，默认关闭。
 

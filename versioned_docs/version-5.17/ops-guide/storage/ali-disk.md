@@ -110,7 +110,7 @@ Rainbond 会检测到 StorageClass 并同步到数据库中，供 Rainbond 控�
 
 **阿里云盘最小存储限制为 20G，在添加存储时设定存储大小最小为 20G**。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/storage/aliclouddisk/alistorage.jpg" width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/storage/aliclouddisk/alistorage.jpg" width="100%" />
 
 存储添加后须通过重启组件或者更新组件来触发存储的生效
 
@@ -118,4 +118,4 @@ Rainbond 会检测到 StorageClass 并同步到数据库中，供 Rainbond 控�
 
 存储是否生效可以通过组件是否可以正常启动来判断，组件正常启动则说明组件已经正常挂载了存储，也可以到阿里云盘管理页面确定存储的情况，确定是否存在对应大小的存储，其状态是否是使用中的状态。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-operations/storage/aliclouddisk/alistorage2.jpg" width="100%" />
+<img src="https://static.goodrain.com/images/docs/5.2/user-operations/storage/aliclouddisk/alistorage2.jpg" width="100%" />

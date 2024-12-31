@@ -33,7 +33,7 @@ description: 展现应用包含的所有组件的网络关系、业务关系和�
 >  如果组件六方体呈现为叠加状，表明当前组件运行了多个实例。
 
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/user-manual/app-manage/app-topology/Multiple%20instances.png)
+![](https://static.goodrain.com/images/docs/5.2/user-manual/app-manage/app-topology/Multiple%20instances.png)
 
 
 ## 编辑模式
@@ -54,15 +54,15 @@ description: 展现应用包含的所有组件的网络关系、业务关系和�
 
 在普通模式下，可以看到该应用依赖了多个组件，但是我们对于这些组件之间的关系并不清楚。
 
-![img](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/community/change/topology-normal.png)
+![img](https://static.goodrain.com/docs/5.6/community/change/topology-normal.png)
 
 我们切换到聚合模式，可以看到，组件与其他应用之间的关系清晰明了。
 
-![img](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/community/change/topology-polymerization.png)
+![img](https://static.goodrain.com/docs/5.6/community/change/topology-polymerization.png)
 
 点开 Gitlab 这个应用的拓扑图，我们可以知道这个应用的运行状态，以及依赖的组件信息。
 
-![img](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/community/change/topology-polymerization.png)
+![img](https://static.goodrain.com/docs/5.6/community/change/topology-polymerization.png)
 
 
 
@@ -70,4 +70,4 @@ description: 展现应用包含的所有组件的网络关系、业务关系和�
 
 用户可通过点击组件，在弹出的组件基础信息框内对组件进行集群的操作，分别是访问组件、进入Web终端、更新组件、关闭组件、删除组件。用户可以根据这些按钮快速操作组件，同时下方展示出了组件内的容器信息。
 
-![img](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/community/change/topology-detail.png)
+![img](https://static.goodrain.com/docs/5.6/community/change/topology-detail.png)

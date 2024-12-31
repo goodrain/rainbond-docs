@@ -31,7 +31,7 @@ Assembly scene based on business components：
 - **From the perspective of operation and maintenance management**, in the development and test environment, there is no need to enable the operation and maintenance feature, and in the production environment, there are higher requirements for business governance, monitoring, performance, stability and security, which can be enabled on demand through the plug-in mechanism. operation and maintenance characteristics;
 - **From the deployment environment**, the bottom layer of the application model implements the docking standard k8s API, and all infrastructure that conforms to the k8s standard API can be docked and deployed, which means that business components can be deployed to public cloud, private cloud and on edge devices.
 
-![Rainbond application model decoupling architecture diagram](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/01/17/16423962815678.jpg)
+![Rainbond application model decoupling architecture diagram](https://static.goodrain.com/case/2022/01/17/16423962815678.jpg)
 
 Decoupling can not only improve the flexibility of various scenarios, but also greatly improve the reuse rate of business components, operation and maintenance plug-ins, and infrastructure. When the accumulated reusable capabilities are more, we will face different scenarios and different users. And the responsiveness of different markets is also stronger.
 
@@ -70,7 +70,7 @@ Application template definition and implementation content：
 
 ## Module release and assembly process
 
-![Module release and assembly process](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/01/17/16423963768590.jpg)
+![Module release and assembly process](https://static.goodrain.com/case/2022/01/17/16423963768590.jpg)
 
 In Rainbond, the application template is the manifestation of the module, and the module release and assembly process is the release and assembly process of the application template.Module construction is a long-term process, emphasizing accumulation, and more of precipitation in the process of practice, and it needs to be continuously iterated based on feedback. This process is divided into four：
 
@@ -78,7 +78,7 @@ In Rainbond, the application template is the manifestation of the module, and th
 
 To publish business components, you first need to define the granularity and business interface from a business perspective, and then build the components to be released in Rainbond. Rainbond supports various[build sources](https://www.rainbond.com/docs/component-create/language-support/?channel=aliyun), and[application templates](https://www.rainbond.com/docs/enterprise-manager/enterprise/appcenter/application-template/?channel=aliyun)are also defined during construction. As long as the build is successful, you can One-click publishing into an application template means that any developer using the platform has the ability to publish an application template, and the low threshold for publishing is conducive to the sharing of knowledge and experience.
 
-![One-click publishing of application templates](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/01/17/16423964110669.jpg)
+![One-click publishing of application templates](https://static.goodrain.com/case/2022/01/17/16423964110669.jpg)
 
 #### The second step： stores modules of different granularity through the application market
 
@@ -88,13 +88,13 @@ The application template supports different granularities, and different granula
 - For customer-oriented delivery scenarios, it mainly accumulates business templates. The templates have a large granularity. Through the templates, customer solutions can be quickly assembled to improve delivery efficiency.
 - For sales scenarios, it mainly accumulates product templates that can be sold, with the largest granularity, which can help sales quickly demonstrate, use and deliver as a whole.
 
-![The application market precipitates application templates of different particle sizes](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/01/17/16423964507692.jpg)
+![The application market precipitates application templates of different particle sizes](https://static.goodrain.com/case/2022/01/17/16423964507692.jpg)
 
 #### The third step：realizes modular assembly by applying templates
 
 One-click installation of modules (application templates) that need to be assembled from the application market, and multiple modules can be assembled into the required scene through "drag and drop". After assembly, the original module will release a new version, and the assembled scene will be upgraded as needed.The newly assembled scene is released as an application template, which can be a larger module to support the assembly of a larger scene, and also realize the follow-up customer delivery process through the application template.
 
-![The assembled application topology](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/01/17/16423964820219.jpg)
+![The assembled application topology](https://static.goodrain.com/case/2022/01/17/16423964820219.jpg)
 
 #### Fourth step：In real application scenarios, continuous accumulation and iteration
 

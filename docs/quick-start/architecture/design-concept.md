@@ -9,7 +9,7 @@ description: Rainbond设计的由来和理念
 
 应用管理比资源管理复杂很多，涉及到应用开发、应用架构、应用交付和应用运维等应用层的管理，还要配合应用解决资源自动化管理问题，云原生本质就是解决应用的自动化管理问题。
 
-![cloud-native](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/architecture/cloud-native.png)
+![cloud-native](https://static.goodrain.com/docs/5.8/docs/architecture/cloud-native.png)
 
 从效果来看，云原生的最终目标是让开发者聚焦自己的业务，业务之外（基础设施、应用架构、应用运维）的事情不用关心，只需要懂业务就能创造出自己想要的应用，并能按需交付客户。
 
@@ -21,7 +21,7 @@ description: Rainbond设计的由来和理念
 
 **基于以上思考，通过应用抽象模型是个解决思路，对应用整体进行包装和抽象，包含应用运行所需的全部运行定义，与底层技术和概念隔离。**向上用户不需要再学习和了解系统级概念和技术，应用内部把业务和扩展能力解耦，使用应用级概念开发和管理，需要扩展服务治理、运维、安全等能力时按需开启插件。向下则包装Kubernetes的概念和抽象，屏蔽掉底层基础设施的差异，实现应用抽象模型可以运行在各类基础设施上。
 
-![app-template](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/architecture/app-template.png)
+![app-template](https://static.goodrain.com/docs/5.8/docs/architecture/app-template.png)
 
 应用抽象模版核心设计在三方面：
 
@@ -37,7 +37,7 @@ description: Rainbond设计的由来和理念
 
 为了实现灵活的应用编排和自动化调度，Kubernetes定义了很多概念，提供丰富的扩展机制，并以YAML的方式跟它交互，Kubernetes的这些可编程的体验，对管理和扩展Kubernetes的人来说，是非常好的特性，但对于普通开发者，门槛太高，并且很多概念和技术跟自己开发的业务并没有直接关系，所以对于普通开发者来说需要更加友好的操作体验，不需要学习就能使用。
 
-![app-template-1](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/architecture/app-template-1.png)
+![app-template-1](https://static.goodrain.com/docs/5.8/docs/architecture/app-template-1.png)
 
 应用级抽象和Kubernetes概念粗粒度的对应关系：
 
@@ -72,7 +72,7 @@ description: Rainbond设计的由来和理念
 | 旁路插件  | 网络上旁路运行。例如：性能分析、监控、调用链分析、日志管理 |
 | 初始化插件  | Pod的Init容器，Pod启动先启动Init容器。例如：数据库初始化 |
 
-![app-template-2](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/architecture/app-template-2.png)
+![app-template-2](https://static.goodrain.com/docs/5.8/docs/architecture/app-template-2.png)
 
 按照Pod机制实现的插件只能扩展单个业务容器的能力，而要对应用扩展微服务架构能力，需要对每一个业务容器扩展服务治理的插件，这跟Service Mesh的实现机制一致。
 
@@ -86,7 +86,7 @@ Service Mesh的Data Plane需要对每个业务容器注入Proxy，对于完整�
 
 **从使用体验上，应用模版可以一键安装和一键升级，通过“拖拉拽”的方式实现业务拼装。**应用模版有很强灵活性，应用模版支持不同颗粒度大小，模版和模版能拼装出新的模版，新的模版还可以持续拼装，颗粒的大小由使用者决定，由使用者赋予它意义。应用模版可以交付到兼容Kubernetes API的分支版本，实现一键安装和升级，或将应用模版存放到应用市场，实现即点即用的效果。
 
-![app-template-3](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/architecture/app-template-3.png)
+![app-template-3](https://static.goodrain.com/docs/5.8/docs/architecture/app-template-3.png)
 
 应用模版需要具备四个特点：
 

@@ -82,10 +82,10 @@ Rainbond 中文档分为 **概念性文档** **操作指引性文档** 和 **最
 * 引入图片格式如下
 
   ```html
-  ![API架构](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png)
+  ![API架构](https://static.goodrain.com/images/5.1/images/api.png)
   
   <!-- 也可以使用  -->
-  <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png" width="100%" title="API架构" />
+  <img src="https://static.goodrain.com/images/5.1/images/api.png" width="100%" title="API架构" />
   ```
 
 * 链接的引用格式如下

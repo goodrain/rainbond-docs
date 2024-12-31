@@ -168,7 +168,7 @@ PUT 和 DELETE 方法的请求内容的类型为 application/json
 
 > 如 Rainbond 平台的 rbd-app-ui 或者 rbd-monitor 组件
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/thirdparty-create/dsffwex1.jpg" width="100%" />
+<img src="https://static.goodrain.com/images/5.1/thirdparty-create/dsffwex1.jpg" width="100%" />
 
 创建完成后,需要手动上线。
 
@@ -190,4 +190,4 @@ Rainbond 针对第三方组件的域名实例进行了相应的支持，允许�
 
 调整流程和对接平台内部服务一样，有几点需要注意，如果平台应用需要依赖第三服务安装的 MYSQL,需要开启对内访问，同时需要手动添加应用连接信息。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/thirdparty-create/dsffwex2.jpg" width="100%" />
+<img src="https://static.goodrain.com/images/5.1/thirdparty-create/dsffwex2.jpg" width="100%" />

@@ -82,10 +82,10 @@ The documents in Rainbond are divided into **conceptual documents** **operationa
 * The imported image format is as follows
 
   ```html
-  ![API架构](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png)
+  ![API架构](https://static.goodrain.com/images/5.1/images/api.png)
 
   <!-- also works -->
-  <img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/5.1/images/api.png" width="100%" title="API架构" />
+  <img src="https://static.goodrain.com/images/5.1/images/api.png" width="100%" title="API架构" />
   ```
 
 * The citation format for the link is as follows

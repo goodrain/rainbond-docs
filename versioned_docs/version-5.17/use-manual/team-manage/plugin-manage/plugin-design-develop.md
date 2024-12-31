@@ -17,7 +17,7 @@ Rainbond 在每个计算节点提供了 statsd 服务接收性能分析插件的
 
 当为某个应用安装了入口网络插件后，该插件被置于应用的前面，它必须监听一个由 Rainbond 分配的新端口用来拦截应用的所有请求，如下图中的 8080 端口，这时我们可以在插件内部对收到的请求进行必要的处理，然后把处理后的请求转发给应用监听的端口，如下图中的 80 端口。入口网络插件与应用的关系如下图所示：
 
-![入口治理插件工作示意图](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/other/net-ingress-plugin.png)
+![入口治理插件工作示意图](https://static.goodrain.com/images/other/net-ingress-plugin.png)
 
 插件需要从 Rainbond 应用运行时中动态发现配置，发现方式如下：
 

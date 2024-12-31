@@ -34,7 +34,7 @@ Rainbond提供企业应用的业务集成、多云交付、私有交付、SaaS�
 
 
 ## Rainbond的功能及架构
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/03/17/16474283190784.jpg)
+![](https://static.goodrain.com/case/2022/03/17/16474283190784.jpg)
 
 
 ### 应用级多云管理
@@ -56,7 +56,7 @@ Rainbond提供企业应用的业务集成、多云交付、私有交付、SaaS�
 
 ## Rainbond怎么工作？
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/03/17/16474282867950.jpg)
+![](https://static.goodrain.com/case/2022/03/17/16474282867950.jpg)
 
 Rainbond主要有两部分组成，一个是提供Web界面的Rainbond控制台，另一个是安装在K8s集群内部的Rainbond集群管理端。
 

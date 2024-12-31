@@ -11,7 +11,7 @@ description: 京东方科技集团股份有限公司（BOE）创立于1993年4�
 
 北京好雨科技自2019年起，开始与京东方CTO技术团队深入合作，以自身产品 Rainbond 云原生应用管理平台、 RainStore 云原生应用商店为基础，打造出京东方物联网生态产品云（ITS云平台）。为京东方物联网解决方案提供一体化的开发、测试、交付能力。基于云原生应用研发和交付解决方案，助力京东方CTO技术团队进行中台模式转型，实现其产品研发 统一管理、产品POC自动化、项目交付标准化。
 
-![image-20230612142441103](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/boe/boe-1.png)
+![image-20230612142441103](https://static.goodrain.com/case/boe/boe-1.png)
 
 ## 需求场景
 
@@ -33,7 +33,7 @@ SaaS应用运维平台为京东方技术团队提供了全面而高效的应用�
 
 ITS云服务平台基于Rainbond的强大功能，为京东方技术团队提供了一个统一的开发和交付环境。开发人员可以使用平台提供的工具和功能，快速构建物联网应用的业务代码，并通过CI/CD流程实现自动化的构建、测试和部署。该平台提供了丰富的资源管理功能，可以有效管理和调度云计算资源。团队可以根据应用的需求，灵活分配和管理计算、存储和网络资源，实现资源的高效利用和优化。ITS云服务平台还提供了全面的运维管理功能，包括监控、日志管理、故障排查等。通过对应用和基础设施的实时监控，团队可以及时发现和解决问题，确保系统的稳定运行。
 
-![ITS云服务平台业务流程图](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/boe/boe-2.png)
+![ITS云服务平台业务流程图](https://static.goodrain.com/case/boe/boe-2.png)
 
 
 ## 技术架构
@@ -42,7 +42,7 @@ ITS云服务平台基于Rainbond的强大功能，为京东方技术团队提供
 
 ITS 云服务平台是基于云原生应用商店 RainStore 定制开发而来的 SaaS 平台，提供了对行业 SaaS 应用商品化管理的全流程能力。囊括了 SaaS 应用的交易管理、交付管理等领域，打造出行业云应用商店的使用体验。
 
-![ITS云服务平台技术架构](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/boe/boe-3.png)
+![ITS云服务平台技术架构](https://static.goodrain.com/case/boe/boe-3.png)
 
 ## 项目成果
 

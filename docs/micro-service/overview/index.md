@@ -26,7 +26,7 @@ keywords:
 
 如果您的应用是基于 SpringCloud 开发，同样的是一个服务一个组件的部署到 Rainbond 进行组装。与基于 ServiceMesh 不同的是，服务之间的通信关系由 SpringCloud 的服务注册中心为桥梁，进行服务注册和直接的通信。也就是说 Rainbond 无法获取到服务直接的通信依赖关系，从而在拓扑图中不进行展示。但是关键的是 Rainbond ServiceMesh 与 SpringCloud 在进行融合。如下图所示，所有服务与注册中心和数据库之间的通信是通过 ServiceMesh 完成，从 UI 到 Gateway 的通信是由 ServiceMesh 完成。
 
-![SpringCloud部署示意图](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/SpringCloud.png)
+![SpringCloud部署示意图](https://static.goodrain.com/docs/5.2/SpringCloud.png)
 
 ## 网络可视化
 
@@ -37,4 +37,4 @@ Rainbond 应用拓扑图中进行网络可视化展示。应用拓扑图中展�
 3. 服务对外网提供访问入口信息。
 4. 服务实时运行状态。
 
-![ServiceMesh架构拓扑图](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/servicemesh.png)
+![ServiceMesh架构拓扑图](https://static.goodrain.com/docs/5.2/servicemesh.png)

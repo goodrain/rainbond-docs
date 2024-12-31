@@ -26,9 +26,9 @@ description: 在离线生产环境中，通过应用市场交付。
 
 - **DockerComposeApp 规范** 离线应用包，可以在具备 Docker Compose 的离线环境中进行部署，这个包中会包含组件基础镜像以及相应的 **docker-compose.yaml** 文件。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-6.png" title="导出应用模版" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/release-to-market/release-to-market-6.png" title="导出应用模版" width="100%" />
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/release-to-market/release-to-market-7.png" title="导出应用模版" width="50%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/release-to-market/release-to-market-7.png" title="导出应用模版" width="50%" />
 
 - 选择 **导出版本**。
 - 点击 **RainbondApp 规范** 中 **导出**，等待一段时间后，导出会自动完成。
@@ -44,7 +44,7 @@ description: 在离线生产环境中，通过应用市场交付。
 
 - 进入 **应用市场** 页面，点击 **+** 、**导入应用模版**。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/offline-delivery-with-market/offline-delivery-with-market-1.png" title="导入应用模版" width="100%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/offline-delivery-with-market/offline-delivery-with-market-1.png" title="导入应用模版" width="100%" />
 
 - 上传离线应用包。
 
@@ -60,7 +60,7 @@ description: 在离线生产环境中，通过应用市场交付。
 
 - 导出新版本的应用模版，注意指定新的版本。
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.2/get-start/upgrade-from-market/upgrade-from-market-8.png" title="导出新版本应用模版" width="50%" />
+<img src="https://static.goodrain.com/docs/5.2/get-start/upgrade-from-market/upgrade-from-market-8.png" title="导出新版本应用模版" width="50%" />
 
 - 将导出的应用模版导入到离线 Rainbond 环境中去即可。
 
