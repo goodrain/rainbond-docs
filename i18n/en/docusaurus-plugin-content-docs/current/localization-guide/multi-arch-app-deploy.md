@@ -6,7 +6,7 @@ title: Select architecture deployment components
 
 When a compute node in the Rainbond cluster that does not fit into the CPU architecture, when a new component is created, a service component can be deployed by selecting the method.Optional architecture information from Rainbond query in real time.
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%BF%81%E7%A7%BB.png)
+![](https://static.goodrain.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%BF%81%E7%A7%BB.png)
 
 ## Isomal source build
 
