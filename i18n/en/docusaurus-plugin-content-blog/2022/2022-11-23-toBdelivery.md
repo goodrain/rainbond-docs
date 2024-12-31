@@ -2,7 +2,7 @@
 title: toB Apply Privatization Delivery Development History and Comparison
 description: Because of data privacy and network security concerns, most of the customers in the toB scenario need to be delivered with privatization applications, that is to be delivered to their customers. Such customers include government, finance, military labour, public security, large enterprises, specialised industries, etc. These privatization scenarios have many limitations, and improving the efficiency of privatization applications is a challenge.
 slug: toBdelivery
-image: https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/16690209369248.jpg
+image: https://static.goodrain.com/case/2022/11/21/16690209369248.jpg
 ---
 
 Because of data privacy and network security concerns, most of the clients of the toB scenario require privatization application delivery, that is, delivery to their clients, such as government, finance, military labour, public security, large enterprises, niche industries, etc. These privatization scenes are very restrictive, and how to improve the efficiency of privatization application delivery is a challenge. What technologies are available for privatization applications to delivery?What features do they all have?Privatization application development process.
@@ -50,7 +50,7 @@ Because of data privacy and network security concerns, most of the clients of th
 
 安装他们都需要先安装依赖的环境和基础软件，YUM 和DEB 有自己的管理依赖的软件源，但离线环境用不了，如果客户的操作系统不同，还需要另外想办法解决，运行这类服务为了解决启动和自动重启的问题，还需要通过 systemd 或 supervisor 的方式来管理。如果交付单体架构的应用传统应用交付方式还能胜任，但如果是复杂的微服务架构，传统应用交付方式将难以胜任。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690197774014.jpg)
+![](https://static.goodrain.com/case/2022/11/21/16690197774014.jpg)
 
 在传统应用交付过程中，管理这些运行环境和操作系统差异是一个痛点，容器的出现解决了这个问题。
 
@@ -62,7 +62,7 @@ Because of data privacy and network security concerns, most of the clients of th
 
 Docker 将业务和依赖的库一起打包成 Docker 镜像，在这个镜像中包含所有环境和应用，这样就可以达成一处打包、到处使用，我们可以将该镜像在任何支持 Docker 的操作系统上运行。Docker 的特性的确解决了很多开发、交付以及其他许多问题，因此 Docker 容器概念迅速的被普及。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690198147760.jpg)
+![](https://static.goodrain.com/case/2022/11/21/16690198147760.jpg)
 
 在微服务架构场景，需要多个服务或应用一起交付，服务之间有依赖，还有复杂的配置，Docker-Compose解决了这个问题。
 
@@ -70,7 +70,7 @@ Docker 将业务和依赖的库一起打包成 Docker 镜像，在这个镜像�
 
 docker-compose 将多个服务或应用使用 YAML 的方式管理，可以利用docker-compose命令安装部署和管理，对于一个微服务架构的应用，利用docker-compose命令就可以在任何操作系统实现一键安装和运行，当然前提是需要安装好Docker 和 docker-compose。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690198426949.jpg)
+![](https://static.goodrain.com/case/2022/11/21/16690198426949.jpg)
 
 对于单机场景docker-compose可以适用，当应用需要高可用或多节点分布式部署，docker-compose就不能胜任，Kubernetes的出现解决了容器的高可用和分布式调度问题。
 
@@ -78,7 +78,7 @@ docker-compose 将多个服务或应用使用 YAML 的方式管理，可以利�
 
 在 Kubernetes 中部署业务我们需要定义 Deployment Statefulset Service 等资源类型，通过调整副本的方式 Kubernetes 会自动调度到多个节点实现业务高可用，在交付时我们只需要将这些 YAML 资源和 Image 导出，在客户的 Kubernetes 环境中部署并交付给客户。这种交付方式需要客户环境有Kubernetes或在客户环境安装Kubernetes。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690198756043.jpg)
+![](https://static.goodrain.com/case/2022/11/21/16690198756043.jpg)
 
 当我们将Kubernetes YAML交付很多客户的时候，就需要参数配置、版本管理和简单的安装和升级，Helm在Kubernetes YAML的基础上解决了上述问题。
 
@@ -86,7 +86,7 @@ docker-compose 将多个服务或应用使用 YAML 的方式管理，可以利�
 
 Helm 是 Kubernetes 资源的包管理器，它可以将一组资源定义成 Helm Chart 模版，提供了基于 Helm Chart 模块的安装和升级，安装时可以配置不同的参数。Helm 同样也是在 Kubernetes 交付中大多数人选择的工具。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690209027203.jpg)
+![](https://static.goodrain.com/case/2022/11/21/16690209027203.jpg)
 
 Helm最大的问题是需要开发者学习容器和Kubernetes整个技术栈，而且客户环境必须要有Kubernetes，学习和使用的门槛太高。抽象的应用模型是一个解决方案。
 
@@ -94,7 +94,7 @@ Helm最大的问题是需要开发者学习容器和Kubernetes整个技术栈，
 
 应用模型强调以应用为中心的理念，让开发者专注在业务本身，在应用级抽象和包装底层复杂的技术，应用模型跟底层基础设施完全解耦，根据对接和交付的基础设施不同，自动转换和适配，真正实现一次开发，处处自动化部署。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/11/21/16690209369248.jpg)
+![](https://static.goodrain.com/case/2022/11/21/16690209369248.jpg)
 
 ### 基于OAM的KubeVela应用交付
 
