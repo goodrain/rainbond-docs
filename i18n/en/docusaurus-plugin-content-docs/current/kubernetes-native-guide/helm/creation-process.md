@@ -20,19 +20,19 @@ App installation has three entry：
 
 Click the **Install** button below the **Helm store** app. Select the **team**team\*\* you want to install, define **the app's name**. Click **OK** to start the installation automatically.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/appstore_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/appstore_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
 
 **No.2** Install from team view **Create components based on the Marketplace**
 
 In team view click **New** ---> **Create component based on the Marketplace**. Select apps from the next Helm store. Click **Install** to automatically start the installation.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/tenant_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/tenant_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
 
 **No.3** Install from App View **Install from Marketplace**
 
 Click **Add components** -> **Install from Marketplace**, select apps from the Helm store to connect to. Click **Install** to automatically start the installation.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/app_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/app_helm_app_install.jpg" title="安装 Helm 商店中的应用" width="100%"/>
 
 #### Installation process
 
@@ -50,7 +50,7 @@ _No.1_
 
 Specify or graphically specify in `values.yaml` file and refer to [Helm app management](./manage-helm-app)
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/helm_values_yaml.jpg" title="配置 Helm 应用" width="100%"/>
+<img src="https://static.goodrain.com/docs/5.10/helm_values_yaml.jpg" title="配置 Helm 应用" width="100%"/>
 
 _No.2_
 
