@@ -16,7 +16,7 @@ Rainbond can get a specified type of Workload definition from Yaml or Helm Chart
 
 An example is the Wordpress Station System defined by Yaml, which shows how different resources are handled.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/wechat/import-exist-resource-to-rainbond/import-exist-resource-to-rainbond-2.png"/>
+<img src="https://static.goodrain.com/wechat/import-exist-resource-to-rainbond/import-exist-resource-to-rainbond-2.png"/>
 
 Rainbond did not fully inherit the design ideas of the original Kubernetes and because of the differences in the designs listed below, Rainbond needed a series of conversions when accepting the Yaml or Helm application for deployment, knowing that the differences were helpful in deploying the Yaml or Helm category.
 
