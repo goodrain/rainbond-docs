@@ -8,4 +8,4 @@ Rainbond version of "Trust" with "One cloud of multichit" management capability 
 
 Building on the capacity of the Service Mesh or Kubernetes Service, Rainbond naturally supports the organization and communication between cross-structure microservices.Using methods is not the same as that used by Rainbond to drag and drop wooden microservices.
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%BC%96%E6%8E%92.png)
+![](https://static.goodrain.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%BC%96%E6%8E%92.png)
