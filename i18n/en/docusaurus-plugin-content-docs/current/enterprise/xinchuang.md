@@ -20,7 +20,7 @@ Rainbond adapted the national production CPU and national production operating s
 
 The Rainbod Enterprise version provides comprehensive support to the national CPU and the national production operating system to ensure that applications operate in a stable environment of domestically produced hardware and software.This includes the optimization and adaptation of a wide range of CPU structures, such as the SAP Peng, Flightenn, Dragon, etc., as well as compatibility with national production operating systems, such as commutation, galaxin rain, monologue, Loronsor, Olara operating system, etc.This support covers not only the basic operating environment but also the optimization of specific hardware and software features to improve performance and security.In addition, the Rainbod platform provides a full developer tool and API interface to help users quickly build and deploy cloud native applications.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/xinchanang/xinchanang2.png)
+![description](https://static.goodrain.com/docs/enterprise-app/xinchuang/xinchuang2.png)
 
 #### One cloud of multi-core cluster support
 
@@ -42,7 +42,7 @@ Rainbod has a key role to play here.It supports the automatic compilation of the
 
 Current supported source types include Java (Maven, Jar, War, Gradle), NodeJS, Golang, Python, PHP, Html, etc.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/xinchanang/xinchanang3.png)
+![description](https://static.goodrain.com/docs/enterprise-app/xinchuang/xinchuang3.png)
 
 #### National Productivity Repository
 
