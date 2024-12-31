@@ -20,13 +20,13 @@ Main features include file directory display, support for uploads, downloads, et
 
 - If some files in mount storage want to reuse, or want to view specific information, they can be saved directly to local location via download features.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/file-manage/file-manage.png)
+![description](https://static.goodrain.com/docs/enterprise-app/file-manage/file-manage.png)
 
 #### Upload record display
 
 - If it is feared that uploading the file will cause a security risk to the mount storage, the upload information will be displayed in the component operation record after it is done.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/file-manage/upload-event.png)
+![description](https://static.goodrain.com/docs/enterprise-app/file-manage/upload-event.png)
 
 ## Manual
 
