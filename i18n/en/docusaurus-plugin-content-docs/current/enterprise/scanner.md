@@ -16,9 +16,9 @@ Inspections mainly support the K8s cluster inspections, Rainbond service inspect
 
 When inspecting the K8s cluster, check the status of the node, the state of the core component, and some resource usage.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/cluster-scan1.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/cluster-scan1.png)
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/cluster-scan2.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/cluster-scan2.png)
 
 #### Node Health Status
 
@@ -36,7 +36,7 @@ When inspecting the K8s cluster, check the status of the node, the state of the 
 
 When inspecting Rainbond bottom services, check the state of each core component and reboot.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/rbd-server.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/rbd-server.png)
 
 #### Run Status
 
@@ -50,7 +50,7 @@ When inspecting Rainbond bottom services, check the state of each core component
 
 The running inspection is primarily directed at operations running on the platform, and when the inspection is carried out, the main component pod is checked for performance and restart.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/running.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/running.png)
 
 #### Run Status
 
@@ -64,7 +64,7 @@ The running inspection is primarily directed at operations running on the platfo
 
 Configure the inspection primarily for business resource configuration, health test configuration, etc. running on the platform.Primary check container mirror labels, parameters while the container is running, resource restriction settings, storage mount settings, container health detection settings.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/config.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/config.png)
 
 #### Container Image Label
 
@@ -91,7 +91,7 @@ Configure the inspection primarily for business resource configuration, health t
 
 The safety cruise is primarily aimed at scanning business mirrors running on the platform and providing links to detailed information to allow users to repair the various security gaps in the mirrors.In particular, safety inspections consist mainly of scanned mirrors security gaps, bug reports, recommendations and solutions, and automated periodic tests.
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/rainbond-scanner/leak.png)
+![description](https://static.goodrain.com/docs/enterprise-app/rainbond-scanner/leak.png)
 
 #### Scan mirror security gaps
 
