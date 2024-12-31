@@ -20,7 +20,7 @@ Pinpoint is an APM (Application Performance Management) tool for large distribut
 - Provide visibility at code level to easily locate failed points and bottlenecks;
 - Use byte to boost technology, add new features without changing code.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%" />
+<img src="https://static.goodrain.com/images/docs/5.1/advanced-scenarios/app-create/pinpoint/pinpoint.jpeg" title="PinPoint组件" width="80%" />
 
 | Component          | Component Features                                                                                                                                  |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,11 +56,11 @@ Find the domain name **pinpoint-web 8080 ports** in **gate** and click **Paramet
 
 Visits to the site **Pinpoint-web**, you will see the name of the last step
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/get-start/best-practices/work_with_apm/java-pinpoint.png)
+![](https://static.goodrain.com/images/docs/5.2/get-start/best-practices/work_with_apm/java-pinpoint.png)
 
 ### Microservice Sample Graph
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/images/docs/5.2/get-start/best-practices/work_with_apm/springcloud_pig-pinpoint.png)
+![](https://static.goodrain.com/images/docs/5.2/get-start/best-practices/work_with_apm/springcloud_pig-pinpoint.png)
 
 ### Pinpoint Description
 
