@@ -22,7 +22,7 @@ As shown in the graph below, in the case of \`back-office management system', th
 
 4. When the `3.0` version of the test passes, we can assume that there is a high-quality deliverable version.This version can then be marked on the Marketplace as it has been Release, and then on the production of environmental deployments, the `3.0` version can be deployed directly from the Marketplace.
 
-<!-- ![ram-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/ram-delivery.jpg) -->
+<!-- ![ram-delivery](https://static.goodrain.com/docs/5.10/delivery/ram-delivery.jpg) -->
 
 ![](https://static.goodrain.com/docs/5.11/delivery/continuous/source-code/template-delivery.png)
 
