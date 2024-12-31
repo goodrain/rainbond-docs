@@ -41,7 +41,7 @@ When you want to make your own application for yourself or others to use, you wi
 
 If you have not connected to the open source app store before, then you only need to enter your mobile phone number on the following page, log in with the verification code, and we will create a user for you and give you the corresponding permissions.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-authorization.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/store-authorization.png)
 
 If you have connected to the app store before, you need to perform the following operations to re-acquire publishing authorization.
 
@@ -53,11 +53,11 @@ If you have connected to the app store before, you need to perform the following
 
 4. Finally, enter the mobile phone number, and the verification code can be connected.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-store-info.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/edit-store-info.png)
 
 After you complete the above steps, you will see that the open source app store has the following permissions：read-only, install, push apps.At this point the preparatory work is completed.Ready to complete in advance of this time.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-perms-show.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/store-perms-show.png)
 
 ### The second step：make the application
 
@@ -65,13 +65,13 @@ Then we make your app. Here we use harbor as an example.A lower version of harbo
 
 For the applications we made before, we will share the application making tutorials with the community. Take this harbor as an example, we can refer to the deployment of[enterprise-level Docker image warehouse Harbor on Rainbond](https://t.goodrain.com/d/8204-dockerharborrainbond).Here we refer to this article to make a harbor application of version 2.3.As shown belowHere we refer to this article for a 2.3 version of the harbor app.Figure below
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/harbor-topical.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/harbor-topological.png)
 
 ### Step 3：Share the app
 
 At this point, select Publish on the left, publish to the cloud application store, and select the open source application store.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/publish-page.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/publish-page.png)
 
 Next we need to create a new application template.Fill in the corresponding version number.Choose to publish.After the image push is completed and confirmed, the app is successfully shared.Fill in the corresponding version number.Select to publishApp sharing is successful after image push is completed and confirmed.
 
@@ -81,15 +81,15 @@ Next we need to create a new application template.Fill in the corresponding vers
 
 :::
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-app-model-1.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-1.png)
 
 At this point we create a new application template：Harbor application.As shown belowFigure below
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-app-model-2.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-2.png)
 
 Next, after selecting the corresponding version and submitting it, the component image will be synchronized. After the image synchronization is completed, click Confirm to publish, that is, the sharing is complete.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-app-model-3.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/edit-app-model-3.png)
 
 ### Step 4：Supplementary Information
 
@@ -97,13 +97,13 @@ You have finished sharing, but now the application has only one name, and the ot
 
 The website of the app store is https://hub.grapps.cn/enterprise/login. On this page, select the mobile phone verification code to log in, enter the mobile phone number you used when applying for authorization in Rainbond, and after logging in, select store management, and you can I saw the app you posted.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-app-manage-1.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-1.png)
 
 Click on the app you just released, and we can edit the introduction of the app, upload the corresponding Logo, etc.
 
 Once this is done, we go into package management, create a package and apply it online.The purpose of the listing app is to make it visible to more people.After completing these, we enter the package management, create a package, and put the application on the shelf.The purpose of listing the application is to allow more people to see this application.That is, you can see your published applications in the[open source application store](https://hub.grapps.cn/marketplace).
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-app-manage-2.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/store-app-manage-2.png)
 
 The package type is free and the name can be the corresponding version.When saved, go back to the admin page and click on the list in the app.
 
@@ -123,11 +123,12 @@ The deployment effect is shown in the following figure.Wait for the build to com
 
 Now that the sharing has been completed, how should it be used at this time? You can search for your application in the open source application store, select Install on the right, and install it under an application to deploy with one click.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/search-app.png) ![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/install-app-1.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/search-app.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/install-app-1.png)
 
 The effectiveness of deployment is shown in the graph below.Waiting for build to access
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/install-app-2.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/install-app-2.png)
 
 ### Manage applications
 
@@ -137,19 +138,19 @@ If you make any adjustments to the application in the future and need to manage 
 
 Once we have completed the above steps, we can look for results.After completing the above steps, we can see the effect.Visit the[open source app store](https://hub.grapps.cn/marketplace) , search for your app, here you can see the number of visits and installs of the app.You can see that we have just completed an installation.We can see that we have just completed one installation.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/app-list-show.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/app-list-show.png)
 
 After clicking into it, you can see your application profile and related information, as shown below.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/app-detail-show.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/app-detail-show.png)
 
 Your information is displayed on the right side of this page.On the right side of this page, your relevant information is displayed.You can click on your name to enter the aggregation page of your personal information. On this page, your own related information and all applications published will be displayed here.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/publish-user-show.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/publish-user-show.png)
 
 Here you can choose to enter the background, mouse over the top right avatar and modify this information because you are logged in via phone number.
 
-![image](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.6/use-manual/app-store-manage/share-app/edit-user-info.png)
+![image](https://static.goodrain.com/docs/5.6/use-manual/app-store-manage/share-app/edit-user-info.png)
 
 ## Summarize
 
