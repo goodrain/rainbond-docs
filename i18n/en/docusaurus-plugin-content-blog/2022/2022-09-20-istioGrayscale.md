@@ -17,7 +17,7 @@ On deployment, the Open Source Project [Rainbond](https://github.com/goodrain/ra
 
 如下图所示：用户定义了两个 Deployment 对象，其中旧版本名为 frontend-stable，有3个副本。新版本为 frontend-canary，有1个副本。此时定义了一个 Service 对象，使用它们之间公共的 Label 进行选择。这就使得用户访问 frontend 这个 Service 时，能以 3:1 的比例同时访问到两个版本。并且还可以通过调整副本数持续控制流量比例，最终达到完整上线。
 
-![k8s-canary.png](https://grstatic.oss-cn-shanghai.aliyuncs.com/wechat/istio-canary-publish/k8s-canary.png)
+![k8s-canary.png](https://static.goodrain.com/wechat/istio-canary-publish/k8s-canary.png)
 
 Kubernetes 默认的实现方式在简单的部署场景下很有效，但是在一些复杂场景中，仍然会有较大的局限，如：
 
@@ -39,7 +39,7 @@ Kubernetes 默认的实现方式在简单的部署场景下很有效，但是在
 
 当用户流量来到 reviews.demo.svc.cluster.local 这个 Service 上时，可以看到 destination rules 的规则定义中根据 version 这个 label 定义了不同的实例集，实现了流量比例与副本数的解耦。不管 reviews-v1 有多少实例。始终只有 10% 的流量到达 destination rules 的 v1 子集中。这就解决了业务副本数与流量比例的冲突问题，也使得资源使用更加合理。
 
-![istio-canary.png](https://grstatic.oss-cn-shanghai.aliyuncs.com/wechat/istio-canary-publish/istio-canary.png)
+![istio-canary.png](https://static.goodrain.com/wechat/istio-canary-publish/istio-canary.png)
 
 ## Istio 灰度发布在 Rainbond 上的实践
 
@@ -63,7 +63,7 @@ Kubernetes 默认的实现方式在简单的部署场景下很有效，但是在
 
 如下图所示，一个完整应用会包含多个微服务模块，而 ServiceMesh 框架则是对所有业务容器注入 Proxy，根据注入Proxy的差异可以支持多种类型的 ServiceMesh 实现，比如：Istio、Linkerd、Dapr，应用可以按需开启 ServiceMesh 能力，或更换实现框架。为了让 BookInfo 这个应用使用到 Istio 的治理能力，所以需要切换到 `Istio 治理模式`。
 
-![service-mesh.png](https://grstatic.oss-cn-shanghai.aliyuncs.com/wechat/istio-canary-publish/service-mesh.png)
+![service-mesh.png](https://static.goodrain.com/wechat/istio-canary-publish/service-mesh.png)
 
 1. 准备镜像
 
@@ -78,7 +78,7 @@ docker.io/istio/examples-bookinfo-reviews-v3:1.17.0
 docker.io/istio/examples-bookinfo-ratings-v1:1.17.0
 ```
 
-![bookinfo.png](https://grstatic.oss-cn-shanghai.aliyuncs.com/wechat/istio-canary-publish/bookinfo.png)
+![bookinfo.png](https://static.goodrain.com/wechat/istio-canary-publish/bookinfo.png)
 
 2. 部署组件
 
@@ -114,7 +114,7 @@ spec:
 
 完成以上操作后，访问 Productpage 应用，可以看到书籍评论能正确在三个版本中切换了。此时，可以在应用视图下，切换到编排模式，根据上述 BookInfo 应用的架构图进行连线，实现拓扑图的编排。如下图所示，这样编排的好处是后期可以将这个应用整体发布出去，其他用户直接安装下来即可得到一样的拓扑关系，再也不用担心找不到各个服务依赖的组件。
 
-![topological.png](https://grstatic.oss-cn-shanghai.aliyuncs.com/wechat/istio-canary-publish/topological.png)
+![topological.png](https://static.goodrain.com/wechat/istio-canary-publish/topological.png)
 
 ### 3. 灰度发布
 
@@ -124,7 +124,7 @@ spec:
 
 访问 Kiali 管理页面，即可看到该应用。在左侧边栏选择 Services，找到 reviews 这个 Service，点击进入，右上角 Actions 选择 Traffic Shifting，即可看到如下配置：拖动滑块选择流量比例。下图中 30% 的流量将会访问到 reviews-v1 上，70% 的流量访问到 reviews-v2上。点击创建后，即可看见页面左下角，Kiali 自动为你生成了 virtual services 和 destination rules 资源。你可以点击进去根据自己需求再次编辑。
 
-![kiali.png](https://grstatic.oss-cn-shanghai.aliyuncs.com/wechat/istio-canary-publish/kiali.png)
+![kiali.png](https://static.goodrain.com/wechat/istio-canary-publish/kiali.png)
 
 2. 验证路由规则是否生效
 
