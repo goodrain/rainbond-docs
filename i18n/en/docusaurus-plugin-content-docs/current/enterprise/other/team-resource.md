@@ -33,10 +33,10 @@ The following description of how to configure and after the configuration
 
 1. `Platform Manager -> Project/Team`, select team that needs resource quota
 
-![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/team-resource/team-resource.png)
+![description](https://static.goodrain.com/docs/enterprise-app/team-resource/team-resource.png)
 
 2. Set the CPU or its memory. The default value is 0 for no limit.
-   ![description](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/enterprise-app/team-resource/quota.png)
+   ![description](https://static.goodrain.com/docs/enterprise-app/team-resource/quota.png)
 
 3. When creating components, build, launch, install, install, install, install and more, if memory or CPU exceeds the amount of remaining team resources, prompt resources to run out.
 
