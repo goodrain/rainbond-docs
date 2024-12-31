@@ -2,13 +2,13 @@
 title: What do Kubernetes experience do you have in your cloud?
 description: In order to understand what is a cloud, it is necessary to understand what is wrong with cloud calculations, which will calculate the integrated management of resources, networks, storage, etc. infrastructure to achieve reduced resource costs and improved management of resources through resource scaling-up and automated management
 slug: nounderstandk8s
-image: https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/09/13/1662308874185.jpg
+image: https://static.goodrain.com/case/2022/09/13/16623088574185.jpg
 ---
 
 ## The nature and final effect of cloud origin
 
 In order to understand what is a cloud, it is necessary to understand what the cloud calculation is problematic; it will calculate the integrated management of the infrastructure, such as resources, networks, storage, etc. through resource scaling-up and automation, reduce the cost of resources and improve the efficiency of their management. The cloud calculation will essentially solve the problem of resource automation, but the key applications of digitization and informatization, cloud computing will not solve the problem of the management of applications, the management and mobility of applications will be difficult to solve the problem of dependence on people,**The birth of clouds is to solve the problem of managing applications, which is much more complex than resource management and involves the management of applications, such as the development of applications, the application architecture, the delivery of applications and the application of shipment, and, in conjunction with the application of automation, the management of resources, which is inherently a solution to the management of applications.**
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/09/13/1662308874185.jpg)
+![](https://static.goodrain.com/case/2022/09/13/16623088574185.jpg)
 
 **In terms of effectiveness, the ultimate objective of the cloud is to focus the developers on their own business, out of business (infrastructure, application architecture, application dimension), and to create the kind of application they want and deliver their clients on demand.**
 
@@ -42,7 +42,7 @@ In order to understand what is a cloud, it is necessary to understand what the c
 
 **基于以上思考，通过应用抽象模型是个解决思路，对应用整体进行包装和抽象，包含应用运行所需的全部运行定义，与底层技术和概念隔离。向上用户不需要再学习和了解系统级概念和技术，应用内部把业务和扩展能力解耦，使用应用级概念开发和管理，需要扩展服务治理、运维、安全等能力时按需开启插件。向下则包装Kubernetes的概念和抽象，屏蔽掉底层基础设施的差异，实现应用抽象模型可以运行在各类基础设施上。**
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/09/13/16626159240760.jpg)
+![](https://static.goodrain.com/case/2022/09/13/16626159240760.jpg)
 
 应用抽象模版核心设计在三方面：
 
@@ -54,7 +54,7 @@ In order to understand what is a cloud, it is necessary to understand what the c
 
 **应用级抽象是“以应用为核心”的抽象模型，对用户暴露应用级的概念、属性和动作，底层Kubernetes和系统级的概念和技术，要么完全实现自动化，要么包装成应用级的属性和动作。**  为了实现灵活的应用编排和自动化调度，Kubernetes 定义了很多概念，提供丰富的扩展机制，并以YAML的方式跟它交互，Kubernetes的这些可编程的体验，对管理和扩展Kubernetes的人来说，是非常好的特性，但对于普通开发者，门槛太高，并且很多概念和技术跟自己开发的业务并没有直接关系，所以对于普通开发者来说需要更加友好的操作体验，不需要学习就能使用。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/09/13/16625298435470.jpg)
+![](https://static.goodrain.com/case/2022/09/13/16625298435470.jpg)
 
 应用级抽象和Kubernetes概念 粗粒度的对应关系：
 
@@ -87,7 +87,7 @@ In order to understand what is a cloud, it is necessary to understand what the c
 | 旁路插件   | 网络上旁路运行。例如：性能分析、监控 、调用链分析、日志管理                  |
 | 初始化 插件 | Pod的Init容器，Pod启动先启动Init容器。例如：数据库初始化             |
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/09/13/16629874136151.jpg)
+![](https://static.goodrain.com/case/2022/09/13/16629874136151.jpg)
 
 按照Pod机制实现的插件只能扩展单个业务容器的能力，而要对应用扩展微服务架构能力，需要对每一个业务容器扩展服务治理的插件，这跟Service Mesh的实现机制一致，Service Mesh的Data Plane需要对每个业务容器注入Proxy，对于完整应用就是扩展Service Mesh能力，对完整应用扩展的能力是应用级插件，根据注入Proxy的差异可以支持多种类型的Service Mesh 实现，比如：Istio、Linkerd、Dapr，应用可以按需开启Service Mesh 能力，或更换实现框架。当应用跟微服务架构解耦，每一个业务容器不再受微服务框架和开发语言限制，每个业务容器只需要专注业务本身，业务容器之间也同步实现了解耦。
 
@@ -97,7 +97,7 @@ In order to understand what is a cloud, it is necessary to understand what the c
 
 应用模型以应用模版的形式具象化展现和存储，应用由源码、容器镜像和插件拼装而成，然后一键导出成应用模版，应用模版设计主要围绕使用者，让使用者能用起来，让应用交付并产出价值，从而拉动应用的迭代和开发。从使用体验上，应用模版可以一键安装和一键升级，通过“拖拉拽”的方式实现业务拼装。应用模版有很强灵活性，应用模版支持不同颗粒度大小，模版和模版能拼装出新的模版，新的模版还可以持续拼装，颗粒的大小由使用者决定，由使用者赋予它意义。应用模版可以交付到兼容Kubernetes API的分支版本，实现一键安装和升级，或将应用模版存放到应用市场，实现即点即用的效果。
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/case/2022/09/13/16629938514408.jpg)
+![](https://static.goodrain.com/case/2022/09/13/16629938514408.jpg)
 
 **应用模版需要具备四个特点：**
 
