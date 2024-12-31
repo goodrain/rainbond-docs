@@ -12,7 +12,7 @@ National production of confidence is by no means overnight, and many application
 
 Rainbond version allows for the unified management and movement of CPU structures to compute nodes in the same cluster, while allowing multiple individual architecture clusters to be built with multi-cluster management capabilities.Unequal flexibility allows decision makers to decide on the deployment strategy for calculating resources for their own isomers.
 
-![](https://grstatic.oss-cn-shanghai.aliyuncs.com/localization-guide/%E5%BC%82%E6%9E%84%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86.png)
+![](https://static.goodrain.com/localization-guide/%E5%BC%82%E6%9E%84%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86.png)
 
 # Installation of isomer clusters
 
