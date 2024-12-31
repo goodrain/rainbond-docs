@@ -14,7 +14,7 @@ Import Bvideo from '/src/components/Bvideo';
 
 As shown in the figure below, we use the Rainbond application template as an example for the ongoing delivery of the cloudy environment, usually requiring the following process.
 
-<!-- ![multi-env-delivery](https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.10/delivery/multi-env-delivery.jpg) -->
+<!-- ![multi-env-delivery](https://static.goodrain.com/docs/5.10/delivery/multi-env-delivery.jpg) -->
 
 ![](https://static.goodrain.com/docs/5.11/delivery/continuous/source-code/multi-env-delivery.png)
 
