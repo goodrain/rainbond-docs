@@ -59,14 +59,14 @@ Component type resource itself carries some attribute values such as Port, Confi
 2. Upload YAML file
 3. Click to create after confirmation is correct.
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/package-support/yaml_push.jpg" title="上传yaml"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-create/package-support/yaml_push.jpg" title="上传yaml"/>
 
 ### Kubernetes Resource Name
 
 1. This section identifies the full range of k8s resources, and if part is converted to Rainbond resources, all other resources are stored in the k8s resources under application.
 2. Click next to check for error
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/package-support/yaml_resource_name.jpg" title="yaml资源名称"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-create/package-support/yaml_resource_name.jpg" title="yaml资源名称"/>
 
 ### Advanced Resource Identification
 
@@ -74,5 +74,5 @@ Component type resource itself carries some attribute values such as Port, Confi
 2. Tap to deploy after confirmation.
 3. Deploying requires data storage, pull mirrors, etc. so long and wait to jump to app view
 
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/package-support/advanced_resources.jpg" title="高级资源识别"/>
-<img src="https://grstatic.oss-cn-shanghai.aliyuncs.com/docs/5.8/docs/use-manual/component-create/package-support/team.jpg" title="跳转团队视图"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-create/package-support/advanced_resources.jpg" title="高级资源识别"/>
+<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-create/package-support/team.jpg" title="跳转团队视图"/>
