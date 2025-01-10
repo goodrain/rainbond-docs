@@ -22,7 +22,7 @@ keywords:
 您可以通过 `应用视图 -> 快速复制` 功能将应用从内置集群迁移到对接的集群中。应用后产生的数据需自行迁移，如数据库等。
 :::
 
-在对接的 K8s 集群中启动新的 Rainbond 控制台，请在管理节点上使用 [kubectl](https://docs.rke2.io/reference/cli_tools) 命令行工具执行以下命令。
+在对接的 K8s 集群中启动新的 Rainbond 控制台，请在管理节点上使用 [kubectl](https://docs.rke2.io/reference/cli_tools) 命令行工具执行以下命令。`<version>` 在 [Rainbond Release](https://github.com/goodrain/rainbond/releases) 中查看。
 
 ```yaml title="kubectl apply -f rbd-app-ui.yaml"
 apiVersion: rainbond.io/v1alpha1
@@ -40,7 +40,7 @@ spec:
     value: mysql
   - name: IS_STANDALONE
     value: "false"
-  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>-release
+  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>
   imagePullPolicy: IfNotPresent
   priorityComponent: false
   replicas: 1

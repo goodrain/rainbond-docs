@@ -9,12 +9,49 @@ keywords:
 
 本文将指引您在已有的 Kubernetes 集群中快速安装一套可用的 Rainbond 环境，支持自建集群、托管集群等。
 
-## 前提条件
+## 前提
 
 * 安装 [Kubectl CLI](https://kubernetes.io/docs/tasks/tools/#kubectl)
 * 安装 [Helm CLI](https://helm.sh/docs/intro/install/)
 * Containerd 容器运行时的 Kubernetes 1.24+ 集群
 * `80 443 6060 7070 8443`端口可用
+
+<details>
+<summary>K3S 安装说明</summary>
+
+通过创建 [registries.yaml](https://docs.k3s.io/installation/private-registry) 文件来配置使用默认的私有镜像仓库。
+
+```yaml title="vim /etc/rancher/k3s/registries.yaml"
+configs:
+  "goodrain.me":
+    auth:
+      username: admin
+      password: admin1234
+    tls:
+      insecure_skip_verify: true
+```
+
+在安装 [K3S](https://docs.k3s.io/installation) 时需禁用 `traefik` 和 `local-storage` 的安装，如下: 
+
+```bash
+curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn \
+INSTALL_K3S_EXEC="--disable traefik local-storage" \
+sh -s - \
+--system-default-registry "registry.cn-hangzhou.aliyuncs.com"
+```
+
+</details>
+
+<details>
+<summary>云托管 K8s 安装说明</summary>
+
+使用阿里云的 ACK 集群安装 Rainbond，你需要购买: `ACK`、`SLB（可选）`、`RDS MySQL（可选）`、`ACR（可选）` 资源，继续按照下述步骤安装即可。其他云厂商的托管 Kubernetes 集群也是同理，购买相同资源即可，可选部分默认提供内置服务。
+
+:::caution
+购买托管集群时，请禁用默认的 Ingress 服务，这会与 Rainbond 网关冲突，导致无法访问。
+:::
+
+</details>
 
 ## 安装 Rainbond
 
@@ -40,6 +77,8 @@ Cluster:
   - name: 172.20.251.93           #k8s节点名称
 # - More nodes for chaos
   containerdRuntimePath: /var/run/containerd  #containerd.sock文件路径
+  # if you use RKE2 or K3S, you can use the following parameter
+  # containerdRuntimePath: /var/run/k3s/containerd
 ```
 
 3. 执行安装命令。

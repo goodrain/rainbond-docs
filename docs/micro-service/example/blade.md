@@ -74,8 +74,8 @@ SpringBlade
 | ------------ | ------------------------------------ |
 | 组件名称     | 自定义                               |
 | 组件英文名称 | 自定义                               |
-| 仓库地址     | `https://gitee.com/smallc/SpringBlade` |
-| 代码版本: Tag | v3.5.0                      |
+| 仓库地址     | `https://gitee.com/zhangbigqi/SpringBlade` |
+| 代码分支 | master                      |
 
 2. **检测出多模块构建，进入多模块构建页面**  
 
@@ -230,7 +230,7 @@ blade:
 spring:
   redis:
     ##redis 单机环境配置
-    host: 127.0.0.1
+    host: ${REDIS_HOST}
     port: 6379
     password:
     database: 0
@@ -241,7 +241,7 @@ blade:
   #通用开发生产环境数据库地址(特殊情况可在对应的子工程里配置覆盖)
   datasource:
     dev:
-      url: jdbc:mysql://127.0.0.1:3306/blade?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+      url: jdbc:mysql://${MYSQL_HOST}:3306/blade?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8
       username: root
       password: root
 ```
