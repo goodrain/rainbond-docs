@@ -95,7 +95,7 @@ pig -- https://gitee.com/log4j/pig
 | 组件                   | 端口 | 端口别名 |
 | ---------------------- | ---- | ---- |
 | pig-register           | 8848 9848 9849 | 8848端口别名: `NACOS` |
-| pig-gateway            | 9999 | 端口别民: `GATEWAY` |
+| pig-gateway            | 9999 | 端口别名: `GATEWAY` |
 | pig-auth               | 3000 | |
 | pig-upms-biz           | 4000 | |
 | pig-codegen            | 5002 | |

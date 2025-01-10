@@ -50,9 +50,10 @@ Cluster:
     password: root
 
   rainbondImageRepository: registry.cn-hangzhou.aliyuncs.com/goodrain
-  installVersion: <version>-release
+  # https://github.com/goodrain/rainbond/releases
+  installVersion: <version>
   imagePullPolicy: IfNotPresent
-  replicas: 2
+  replicas: 1
 ```
 
 ## 常用选项
