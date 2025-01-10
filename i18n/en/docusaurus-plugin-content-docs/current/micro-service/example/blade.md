@@ -70,12 +70,12 @@ The `Nacos` installed from the open source store takes the `Mysql` component, en
 
 1. **Create components based on source code, fill out the following information：**
 
-|                                   | Content                                |
-| --------------------------------- | -------------------------------------- |
-| Component name                    | Custom                                 |
-| Component English Name            | Custom                                 |
-| Repository Address                | `https://gitee.com/smallc/SpringBlade` |
-| Code Version: Tag | v3.5.0 |
+|                        | Content                                    |
+| ---------------------- | ------------------------------------------ |
+| Component name         | Custom                                     |
+| Component English Name | Custom                                     |
+| Repository Address     | `https://gitee.com/zhangbigqi/SpringBlade` |
+| 代码分支                   | master                                     |
 
 2. **Detected multiple modules build, enter multi-module build page**
 
@@ -231,7 +231,7 @@ blade:
 spring:
   redis:
     ##redis 单机环境配置
-    host: 127.0.0.1
+    host: ${REDIS_HOST}
     port: 6379
     password:
     database: 0
@@ -242,7 +242,7 @@ blade:
   #通用开发生产环境数据库地址(特殊情况可在对应的子工程里配置覆盖)
   datasource:
     dev:
-      url: jdbc:mysql://127.0.0.1:3306/blade?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+      url: jdbc:mysql://${MYSQL_HOST}:3306/blade?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8
       username: root
       password: root
 ```
