@@ -95,7 +95,7 @@ Seek `Redis` from the Open Source Store and install it in the Open Source Store.
 | Component              | Port           | Port Alias                          |
 | ---------------------- | -------------- | ----------------------------------- |
 | pig-register           | 8848 9848 9849 | Port alias: `NACOS` |
-| pig-gateway            | 9999           | Port: `GATEWAY`     |
+| pig-gateway            | 9999           | 端口别名: `GATEWAY`     |
 | pig-auth               | 3000           |                                     |
 | pig-upms-biz           | 4000           |                                     |
 | pig-codegen            | 5002           |                                     |
