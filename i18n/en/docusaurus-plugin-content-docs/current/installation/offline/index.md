@@ -19,14 +19,14 @@ This document describes the installation of Rainbod via Helm offline.
 
 ### 准备 Rainbond 离线镜像和安装包
 
-1. Prepare the mirrors needed for Rainbond ahead of time in a network environment.You can download the required mirrors via the following scripts.
+1. Prepare the mirrors needed for Rainbond ahead of time in a network environment.You can download the required mirrors via the following scripts.`<version>` 在 [Rainbond Release](https://github.com/goodrain/rainbond/releases) 中查看。
 
 ```bash title="vim download_rbd_images.sh"
 #!/bin/bash
 
 IMAGE_DOMAIN=registry.cn-hangzhou.aliyuncs.com
 IMAGE_NAMESPACE=goodrain
-VERSION=<version>-release
+VERSION=<version>
 
 image_list="${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/rainbond:${VERSION}
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/rbd-chaos:${VERSION}
