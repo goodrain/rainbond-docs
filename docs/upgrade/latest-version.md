@@ -34,14 +34,14 @@ Rainbond 支持界面化的在线升级，通过界面化的在线升级可以�
 仅适用于离线安装环境。
 :::
 
-1. 在有网络的环境下提前准备好 Rainbond 新版本镜像，替换 `<version>` 为要升级的版本号。
+1. 在有网络的环境下提前准备好 Rainbond 新版本镜像，替换 `<version>` 为要升级的版本号。`<version>` 在 [Rainbond Release](https://github.com/goodrain/rainbond/releases) 中查看。
 
 ```bash
-registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>-release
-registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-api:<version>-release
-registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-chaos:<version>-release
-registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-mq:<version>-release
-registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-worker:<version>-release
+registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>
+registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-api:<version>
+registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-chaos:<version>
+registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-mq:<version>
+registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-worker:<version>
 ```
 
 2. 编辑 `rbdcomponent` CRD资源，将 `spec.image` 字段的镜像地址替换为离线镜像地址。
@@ -49,7 +49,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-worker:<version>-release
 ```yaml
 $ kubectl edit rbdcomponent -n rbd-system rbd-app-ui
 spec:
-  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>-release
+  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>
 ```
 
 3. `rbd-api`、`rbd-chaos`、`rbd-mq`、`rbd-worker` 等组件同样替换镜像地址，重复上述步骤。

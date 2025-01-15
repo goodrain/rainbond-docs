@@ -6,7 +6,7 @@ const ArchivedVersionsDropdownItems = Object.entries(VersionsArchived)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Rainbond',
+  title: 'Rainbond好雨科技',
   tagline: 'Application Delivery Center',
   url: 'https://www.rainbond.com',
   baseUrl: '/',

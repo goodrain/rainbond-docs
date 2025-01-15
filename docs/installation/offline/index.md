@@ -19,14 +19,14 @@ keywords:
 
 ### 准备 Rainbond 离线镜像和安装包
 
-1. 在有网络的环境下提前准备好 Rainbond 所需的镜像。你可以通过以下脚本下载所需的镜像。
+1. 在有网络的环境下提前准备好 Rainbond 所需的镜像。你可以通过以下脚本下载所需的镜像。`<version>` 在 [Rainbond Release](https://github.com/goodrain/rainbond/releases) 中查看。
 
 ```bash title="vim download_rbd_images.sh"
 #!/bin/bash
 
 IMAGE_DOMAIN=registry.cn-hangzhou.aliyuncs.com
 IMAGE_NAMESPACE=goodrain
-VERSION=<version>-release
+VERSION=<version>
 
 image_list="${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/rainbond:${VERSION}
 ${IMAGE_DOMAIN}/${IMAGE_NAMESPACE}/rbd-chaos:${VERSION}
