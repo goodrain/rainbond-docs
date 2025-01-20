@@ -125,3 +125,19 @@ kubectl delete pod -l name=rainbond-operator -n rbd-system
 ```
 
 rainbond-operator 会自动重新启动写入 `/etc/hosts` 的 Job 任务。
+
+## 源码构建提示 error: failed to solve: goodrain.me/runner:latest-amd64
+
+这种情况通常是无法从 `goodrain.me` 镜像仓库获取 `runner` 镜像，尝试手动重新推送该镜像:
+
+1. 获取最新的 `runner` 镜像
+```bash
+nerdctl pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:stable
+```
+
+2. 推送到 `goodrain.me` 镜像仓库
+```bash
+nerdctl tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:stable goodrain.me/runner:latest-amd64
+nerdctl login goodrain.me -u admin -padmin1234
+nerdctl push goodrain.me/runner:latest-amd64
+```
