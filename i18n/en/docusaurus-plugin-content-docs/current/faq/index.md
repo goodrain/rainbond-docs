@@ -186,3 +186,10 @@ kubectl delete pod -l name=rbd-chaos -n rbd-system
 3. 进入第三方组件内，切换到端口Tab页，添加 `7070` 端口，并开启对内对外端口。
 4. 切换到更多设置Tab页，添加健康检测。
 5. 进入应用视图的网关管理，添加域名绑定到该组件，并添加证书，完成域名访问配置。（证书无需手动绑定，自动匹配）
+
+## 快速安装或主机安装配置外部 HTTP 私有镜像仓库
+
+如你需要使用外部的 HTTP 私有镜像仓库，请按照以下步骤进行配置：
+
+- **快速安装**：Rainbond 快速安装内置了 K3S 集群，你需要进入容器内修改配置文件，具体请参阅 K3S [私有镜像仓库配置](https://docs.k3s.io/installation/private-registry)文档。
+- **主机安装**：Rainbond 主机安装采用的是 RKE2 集群，请参阅 RKE2 [私有镜像仓库配置](https://docs.rke2.io/install/private_registry)文档。
