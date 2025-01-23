@@ -55,6 +55,10 @@ sh -s - \
 
 ## 安装 Rainbond
 
+:::tip
+在安装之前，你可以通过此脚本 `curl -sfL https://get.rainbond.com/k8s-health-check.sh | bash` 检查你的 Kubernetes 集群。
+:::
+
 1. 添加 Helm 仓库。
 
 ```bash
