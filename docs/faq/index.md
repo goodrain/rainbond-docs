@@ -168,7 +168,7 @@ kubectl delete pod -l name=rbd-chaos -n rbd-system
 快速安装的 Rainbond 默认使用 Docker 启动，并默认映射了 `30000～30010` 10个 TCP 端口供应用测试使用。如果你需要更多的 TCP 端口，通过脚本中打印的命令，删除容器重新启动并添加 `-p` 映射新的端口。
 
 
-## 无法上传软件包，Jar、WAR、ZIP等
+## 无法上传离线包、软件包、Jar、WAR、ZIP等
 
 通常是因为本地浏览器与 Rainbond WebSocket 通信失败导致的。你可以在 `平台管理 -> 集群 -> 编辑集群` 修改 `WebSocket` 地址。
 
@@ -188,3 +188,23 @@ kubectl delete pod -l name=rbd-chaos -n rbd-system
 
 - **快速安装**：Rainbond 快速安装内置了 K3S 集群，你需要进入容器内修改配置文件，具体请参阅 K3S [私有镜像仓库配置](https://docs.k3s.io/installation/private-registry)文档。
 - **主机安装**：Rainbond 主机安装采用的是 RKE2 集群，请参阅 RKE2 [私有镜像仓库配置](https://docs.rke2.io/install/private_registry)文档。
+
+## 扩展 TCP/NodePort 端口范围
+
+Rainbond 主机安装默认的 TCP 端口范围为 `30000-32767`，也就是 K8s NodePort 端口范围。如你需要扩展端口范围，请按照以下步骤进行配置。
+
+1. 修改 `/etc/rancher/rke2/config.yaml.d/00-rbd.yaml` 文件，具体如下所示：
+
+```bash title="vim /etc/rancher/rke2/config.yaml.d/00-rbd.yaml"
+service-node-port-range: 20000-30000
+```
+
+2. 重启 RKE2 集群，完成端口范围扩展
+
+```bash
+systemctl restart rke2-server
+# 或
+systemctl restart rke2-agent
+```
+
+如您的 K8s 集群是自行安装的，请自行查询如何修改 K8s NodePort 端口范围。
