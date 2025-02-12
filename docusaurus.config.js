@@ -370,7 +370,7 @@ const config = {
     }),
   scripts: [
     'https://static.goodrain.com/docusaurus/baidu-statistics.js',
-    'https://static.goodrain.com/docusaurus/posthog.js'
+    'https://static.goodrain.com/docusaurus/hotjar.js'
   ],
   plugins: [
     [
