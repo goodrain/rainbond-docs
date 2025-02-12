@@ -3,6 +3,11 @@ title: 基于 Kubernetes 安装
 descrition: 该章节文档介绍基于已有的 k8s 集群，使用 helm 安装 Rainbond
 keywords:
 - 基于 Kubernetes 安装 Rainbond 集群
+- 在 K3s 集群上安装 Rainbond
+- 在 ACK 集群上安装 Rainbond
+- 在 CCE 集群上安装 Rainbond
+- 在 TKE 集群上安装 Rainbond
+- 在 RKE2 集群上安装 Rainbond
 ---
 
 ## 概述
@@ -73,12 +78,12 @@ Cluster:
   gatewayIngressIPs: 172.20.251.93 #集群入口IP
 
   nodesForGateway:
-  - externalIP: 172.20.251.93     #k8s节点外网IP
-    internalIP: 172.20.251.93     #k8s节点内网IP
-    name: 172.20.251.93           #k8s节点名称
+  - externalIP: 172.20.251.93  #k8s节点外网IP
+    internalIP: 172.20.251.93  #k8s节点内网IP
+    name: k8s-node1            #k8s节点名称
 # - More nodes for gateway
   nodesForChaos:
-  - name: 172.20.251.93           #k8s节点名称
+  - name: k8s-node1            #k8s节点名称
 # - More nodes for chaos
   containerdRuntimePath: /var/run/containerd  #containerd.sock文件路径
   # if you use RKE2 or K3S, you can use the following parameter
