@@ -113,8 +113,8 @@ metadata:
 Rainbond 组件存储说明：
 
 - **rbd-chaos:** 存储源码构建相关的依赖包，存储在 `/opt/rainbond/cache` 目录下。如需清理，请删除该目录下的文件。
-- **rbd-hub:** 存储镜像，存储在 `minio` 组件中。如需清理，请参阅 [rbd-hub镜像仓库清理](https://t.goodrain.com/d/21-rbd-hub)。
-- **minio:** 存储 `rbd-hub` 镜像仓库的数据、以及通过页面上传的文件、导入导出的应用离线包。如需清理，请在 `minio web console` 中进行清理，访问 minio 可通过获取 `minio` 组件的 `service nodeport` 地址，默认账号密码为 `admin/admin1234`。
+- **rbd-hub:** 存储平台构建的镜像，`v6.1.1-release` 版本之前存储在 `minio` 组件中，这个版本会导致 [rbd-hub 镜像仓库清理](https://t.goodrain.com/d/21-rbd-hub)有问题。[v6.1.2-release](https://github.com/goodrain/rainbond/releases/tag/v6.1.2-release) 版本的 `rbd-hub` 镜像仓库数据存储在 `local-path-provisioner` 组件中，也就是本地存储。
+- **minio:** `v6.1.1-release` 版本之前存储 `rbd-hub` 镜像仓库的数据，存储通过页面上传的文件、导入导出的应用离线包。如需清理，请在 `minio web console` 中进行清理，访问 minio 可通过获取 `minio` 组件的 `service nodeport` 地址，默认账号密码为 `admin/admin1234`。
 
 ## 启动无法获取镜像 x509: certificate signed by unknown authority
 
