@@ -73,3 +73,12 @@ spec:
   - name: LOG_MAX_SIZE
     value: 20
 ```
+
+默认情况下，每个组件只会存储 7 天的历史日志，如果你需要保存更多的历史日志，可以通过修改组件的环境变量 `DOCKER_LOG_SAVE_DAY` 来设置，默认单位为天。
+
+```yaml title='kubectl edit rbdcomponent rbd-eventlog -n rbd-system'
+spec:
+  env:
+  - name: DOCKER_LOG_SAVE_DAY
+    value: 30
+```
