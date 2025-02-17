@@ -163,6 +163,53 @@ kubectl delete pod -l name=rainbond-operator -n rbd-system
 kubectl delete pod -l name=rbd-chaos -n rbd-system
 ```
 
+## 外部镜像仓库切换到默认镜像仓库
+
+如果在安装集群时采用了外部镜像仓库，此时不想使用外部镜像仓库了，想切换到默认的 `rbd-hub` 镜像仓库，可以通过以下命令进行切换：
+
+1. 编辑 `rainbondcluster` CRD 资源，将自定义的 `imageHub` 字段删除。
+```yaml title="kubectl edit rainbondcluster -n rbd-system"
+
+spec:
+  imageHub: # 删除此字段
+    domain: 172.31.112.97:5000
+    password: admin
+    username: admin
+```
+
+2. 重启 rainbond-operator 组件。
+
+```bash
+kubectl delete pod -l name=rainbond-operator -n rbd-system
+```
+
+3. 创建 rbd-hub CRD 资源。
+```yaml title="kubectl apply -f rbd-hub.yaml"
+
+apiVersion: rainbond.io/v1alpha1
+kind: RbdComponent
+metadata:
+  name: rbd-hub
+  namespace: rbd-system
+  labels:
+    belongTo: rainbond-operator
+    creator: Rainbond
+    name: rbd-hub
+    priorityComponent: "true"
+    persistentVolumeClaimAccessModes: ReadWriteOnce
+spec:
+  replicas: 1
+  image: registry.cn-hangzhou.aliyuncs.com/goodrain/registry:2.6.2
+  imagePullPolicy: IfNotPresent
+  priorityComponent: true
+```
+
+4. 重启 `rbd-chaos` 组件。
+
+```bash
+kubectl delete pod -l name=rbd-chaos -n rbd-system
+```
+
 ## 快速安装添加更多 TCP 端口
 
 快速安装的 Rainbond 默认使用 Docker 启动，并默认映射了 `30000～30010` 10个 TCP 端口供应用测试使用。如果你需要更多的 TCP 端口，通过脚本中打印的命令，删除容器重新启动并添加 `-p` 映射新的端口。
