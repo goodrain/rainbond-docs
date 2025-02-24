@@ -176,7 +176,6 @@ kubectl delete pod -l name=rbd-chaos -n rbd-system
 1. 编辑 `rainbondcluster` CRD 资源，将自定义的 `imageHub` 字段删除。
 
 ```yaml title="kubectl edit rainbondcluster -n rbd-system"
-
 spec:
   imageHub: # 删除此字段
     domain: 172.31.112.97:5000
@@ -193,7 +192,6 @@ kubectl delete pod -l name=rainbond-operator -n rbd-system
 3. 创建 rbd-hub CRD 资源。
 
 ```yaml title="kubectl apply -f rbd-hub.yaml"
-
 apiVersion: rainbond.io/v1alpha1
 kind: RbdComponent
 metadata:
