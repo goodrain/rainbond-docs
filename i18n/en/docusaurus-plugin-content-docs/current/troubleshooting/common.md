@@ -148,6 +148,6 @@ nerdctl pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:stable
 
 ```bash
 nerdctl tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:stable goodrain.me/runner:latest-amd64
-nerdctl login goodrain.me -u admin -padmin1234
-nerdctl push goodrain.me/runner:latest-amd64
+nerdctl login goodrain.me -u admin -padmin1234 --insecure-registry
+nerdctl push goodrain.me/runner:latest-amd64 --insecure-registry
 ```
