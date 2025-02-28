@@ -6,10 +6,6 @@ keywords:
 - Rainbond Git 仓库对接
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=983036584&page=3" />
-
 Rainbond 支持对接 Git 代码仓库，从源代码仓库直接创建组件。
 
 目前 Rainbond 支持 `GitHub GitLab Gitee` 三种支持 Git 仓库对接的 Oauth 类型。Rainbond 所有支持的 OAuth 类型需要正常配置权限才能正常使用，比如 `Github GitLab Gitee` 需要授予获取代码仓库列表等权限。

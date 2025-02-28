@@ -6,10 +6,6 @@ keywords:
 - Rainbond DevOps
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=983036584&page=2" />
-
 DevOps 是文化理念、技术实践和工具的组合，可促进技术运维和软件开发团队之间的集成、协作、沟通和自动化，从而提高软件交付的质量和速度。
 
 ## 了解 Rainbond DevOps

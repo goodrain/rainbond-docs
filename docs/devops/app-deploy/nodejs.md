@@ -8,11 +8,6 @@ keywords:
 - Rainbond 部署 Koa 项目
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=983036584&page=4" />
-
-
 本篇文档介绍如何在 Rainbond 平台上通过源代码部署 NodeJS 前端项目和后端项目。例如 Vue、React 等前端项目和 Express、Koa 等后端项目。
 
 ## 概述

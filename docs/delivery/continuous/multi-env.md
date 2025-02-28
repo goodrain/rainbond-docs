@@ -6,10 +6,6 @@ keywords:
 - 持续交付
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=436800242&bvid=BV1uj411N7Vy&cid=1005328921&page=4" />
-
 ## Rainbond 上多环境交付流程图
 
 如下图所示，我们以后台管理系统为例，利用 Rainbond 应用模版实现多云多环境的持续交付，通常需要以下流程。

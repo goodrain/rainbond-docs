@@ -8,10 +8,6 @@ keywords:
 - Java Maven 项目部署
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=983036584&page=5" />
-
 ## 概述
 
 Rainbond 支持构建 SpringBoot 单模块和多模块的项目，并自动识别。同时也支持通过 Gradle 构建的项目。

@@ -4,10 +4,6 @@ describe: 本文介绍通过应用复制功能快速进行多个开发环境的�
 # keywords: 组件复制 应用复制 组件快速部署 应用快速部署
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=983036584&page=6" />
-
 ## 开发、测试环境管理
 
 应用开发过程中，同一个业务系统开发者可能需要重复多次的进行开发环境搭建。比如以下几类情况：

@@ -406,8 +406,12 @@ const config = {
     '@docusaurus/plugin-ideal-image'
   ],
   themes: [
-    '@docusaurus/theme-live-codeblock'
+    '@docusaurus/theme-live-codeblock',
+    '@docusaurus/theme-mermaid'
   ],
+  markdown: {
+    mermaid: true,
+  },
 };
 
 module.exports = config;

@@ -1,4 +1,4 @@
----
+<!-- ---
 title: 原生 Kubernetes 指南
 description: 从 Kubernetes 向 Rainbond 迁移。
 keywords:
@@ -13,4 +13,4 @@ import DocCardList from '@theme/DocCardList';
 import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 <DocCardList items={useCurrentSidebarCategory().items}/>
-```
+``` -->

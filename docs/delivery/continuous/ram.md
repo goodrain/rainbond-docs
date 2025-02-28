@@ -6,10 +6,6 @@ keywords:
 - 持续交付
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=436800242&bvid=BV1uj411N7Vy&cid=1005311597&page=3" />
-
 ## Rainbond 应用模版持续交付流程图
 
 如下图所示，我们以`后台管理系统`为例，利用 Rainbond 应用模版实现持续交付，通常需要以下流程。

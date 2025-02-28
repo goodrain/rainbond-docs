@@ -6,10 +6,6 @@ keywords:
 - Rainbond 自动部署
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=983036584&page=8" />
-
 通过自动构建的功能，可以实现代码或镜像提交后组件自动触发构建和部署，Rainbond 提供了基于代码仓库 Webhooks、镜像仓库 Webhooks 和自定义 API 三种方式触发组件自动部署。自动构建的功能可以辅助开发者便捷的实现敏捷开发。
 
 ## 前提条件

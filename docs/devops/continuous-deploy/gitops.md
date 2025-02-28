@@ -6,10 +6,6 @@ keywords:
 - 持续部署
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=983036584&page=7" />
-
 本文介绍 Rainbond 如何和 GitLab 进行 OAuth 对接，并实现对 GitLab 中项目的快速部署和利用 Webhook 实现自动构建。
 
 ## 前提条件
