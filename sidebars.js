@@ -16,11 +16,11 @@ const sidebars = {
       label: '使用教程',
       items: [
         'tutorial/via-rainbond-deploy-sourceandmiddleware',
-        'tutorial/app-exception-deployanddiagnosis',
+        'tutorial/component-version-update-and-rollback',
         'tutorial/custom-gateway',
         'tutorial/app-template-manage',
         'tutorial/app-template-offline',
-        'tutorial/docking-linuxandk8s'
+        'tutorial/docking-selfhost'
       ]
     },
     {

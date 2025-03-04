@@ -7,38 +7,50 @@ keywords:
 - SSL 证书部署
 ---
 
-在本节中，我们将引导您完成以下内容：
-- 通过容器镜像部署服务。
-- 绑定自定义域名。
-- 启动 HTTPS 访问。
+本教程将演示 Rainbond 网关管理的核心能力：
+- **开箱即用**：不需要任何额外配置，直接使用。
+- **域名自动解析**：支持动态绑定自定义域名。
+- **多协议支持**：同时支持 HTTP/HTTPS 与 WebSocket 协议
 
 ## 前提
 
 - 已完成 [Rainbond 快速安装](/docs/quick-start/quick-install)。
 
-## 通过容器镜像部署服务
+## 一、绑定自定义域名
 
-1. 进入目标团队视图，创建新应用。
-2. 选择从镜像构建 ➡️ 容器。
-    - 自定义应用名称。
-    - 镜像地址：`registry.cn-hangzhou.aliyuncs.com/goodrain/nginx:alpine`
-3. 资源配置过程（保持默认）。
-4. 基础配置过程（保持默认）。
-5. 观察部署过程
-   - 预期结果：组件状态为绿色。
+### 🚀 亮点
 
-## 绑定自定义域名
+- **通配符域名支持**：`*.example.com` 匹配所有子域名。
+- **多租户隔离**：不同团队独立域名空间。
 
-1. 进入应用视图 ➡️ 网关管理 ➡️ 新增路由。
+### 🧩 操作流程
+
+1. **使用容器镜像部署组件**
+    1. 进入目标团队视图，创建新应用。
+    2. 选择从镜像构建 ➡️ 容器。
+        - 自定义应用名称。
+        - 镜像地址：`registry.cn-hangzhou.aliyuncs.com/goodrain/nginx:alpine`
+
+2. **绑定自定义域名**
+    1. 进入应用视图 ➡️ 网关管理 ➡️ 新增路由。
+        - 域名：`demo.example.rainbond.com`。
+        - 选择上面创建的组件。
+    2. 解析域名 `demo.example.rainbond.com` 到 Rainbond 网关 IP 上，如：`192.168.1.1`。
+    3. 访问自定义域名，预期结果：`Welcome to nginx!`。
+
+![](/docs/tutorial/custom-gateway/gateway.png)
+
+## 二、配置 HTTPS 安全访问
+
+### 🚀 亮点
+
+- **自动匹配证书**：根据域名自动匹配证书，支持通配符域名。
+- **通配符域名支持**：`*.example.com` 匹配所有子域名。
+
+### 🧩 操作流程
+
+- 进入应用视图 ➡️ 网关管理 ➡️ 证书管理 ➡️ 添加证书。
     - 域名：`demo.example.rainbond.com`。
-    - 选择上面创建的组件。
-2. 解析域名 `demo.example.rainbond.com` 到 Rainbond 网关 IP 上，如：`192.168.1.1`。
-3. 访问自定义域名，预期结果：`Welcome to nginx!`。
-
-## 启动 HTTPS 访问
-
-进入应用视图 ➡️ 网关管理 ➡️ 证书管理 ➡️ 添加证书。
-- 域名：`demo.example.rainbond.com`。
 
 <details>
 <summary>公钥证书</summary>
