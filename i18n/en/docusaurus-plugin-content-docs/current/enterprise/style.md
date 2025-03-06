@@ -136,3 +136,4 @@ It is recommended that the administrator back up the configuration before modify
 #### Sidebar Text Color
 
 - It is recommended to select colors similar to the sidebar color or use grey to ensure the consistency and beauty of the page as a whole.
+
