@@ -7,10 +7,6 @@ keywords:
   - toB offline delivery
 ---
 
-Import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=524437005&bvid=BV1zM411n7UZ&cid=1011041349&page=2" />
-
 ## Offline Pain
 
 In traditional industries such as government, energy, military labour, public security, industry, transport and so forth, in order to prevent data leakage and operational safety, the network generally adopts an internal and external network isolation strategy to guard against unnecessary risks. After all, in terms of safety and security, network physical isolation is the most effective means of cybersecurity defense, while network isolation in software delivery presents a range of delivery challenges and substantial additional cost inputs for external software developers.e.g.：
@@ -136,3 +132,4 @@ Note：Only company administrators can see platform management buttons.
 1. In an offline environment where Rainbond has been deployed, we open the `Platform Manager -> App Marketplace`, choose `Offline Import` and upload the just downloaded app template.After uploading, click `confirm import`.
 
 2. Once the import is completed, you will automatically jump back to the \`App Marketplace'.Once you have imported the completed application template, you can deploy the business system by clicking on the installation, which is fully compatible with the development environment and thus completes the software delivery in the offline environment.
+
