@@ -21,7 +21,7 @@ Monitoring and visualization are important features in the API gateway, particul
 4. **Distinguished：** Rainbond allows you to monitor different routes separately.This means that you can better optimize and manage different API endpoints by understanding the performance of each API route.
 
 5. **Sub-teams and sub-apps showcase：** by displaying monitoring data for sub-teams and sub-applications, Rainbond provides a more meticulous monitoring view.This allows teams to focus on what they are responsible and not flooded with data from monitoring systems as a whole.
-   ![流量纵览](https://static.goodrain.com/docs/enterprise-app/api-gateway/1.png)
+  ![流量纵览](https://static.goodrain.com/docs/enterprise-app/api-gateway/1.png)
 
 ## API Gateway Basic Capabilities
 
@@ -36,7 +36,7 @@ The powerful features of the Rainbond API gateway include a variety of matching 
 3. **Headers match：** supports matching specific HTTP header information in the request, which is useful for situations where requests need to be routed according to the header.
 
 4. **Cookie matching：** Rainbod allows matching of the requested Cookie information, which allows you to make more sophisticated routing controls based on Cookie's content.
-   ![流量纵览](https://static.goodrain.com/docs/enterprise-app/api-gateway/4.png)
+  ![流量纵览](https://static.goodrain.com/docs/enterprise-app/api-gateway/4.png)
 
 ## Traffic Control and Limit
 
