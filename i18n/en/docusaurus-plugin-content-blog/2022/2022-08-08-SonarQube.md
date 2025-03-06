@@ -172,3 +172,4 @@ Commit Message 中包含的 `@deploy` 是触发自动构建的关键字。有关
 回顾 Rainbond 中组件的操作记录，会发现手动构建与自动构建之间的区别。
 
 ![](https://static.goodrain.com/wechat/sonarqube/sonarqube-workflow-12.png)
+
