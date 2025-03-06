@@ -6,10 +6,6 @@ keywords:
   - Continuous Delivery
 ---
 
-Import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=436800242&bvid=BV1uj411N7Vy&cid=1005268829&page=1" />
-
 Continuous delivery is a software development practice whereby systems can automatically prepare for release of code changes to the production environment.
 
 ## Distinction between continuous integration and continued delivery
