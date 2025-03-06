@@ -274,3 +274,4 @@ kubectl delete pv nfs-provisioner
 ```bash
 rm -rf /opt/rainbond/data/nfs
 ```
+
