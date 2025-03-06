@@ -104,4 +104,3 @@ image: https://static.goodrain.com/wechat/plugin-share/plugin-share.png
 
 通过以上步骤，我们了解了插件如何进行分享，如果小伙伴们有兴趣贡献你的插件，随时可以在应用商店发布。
 
-如果你需要贡献帮助，请联系社区成员哦！参与贡献请查阅 [贡献指南](https://www.rainbond.com/community/contribution/ "贡献指南")。

@@ -43,7 +43,7 @@ const config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: 'V6.1'
+              label: 'V6.2'
             },
             "5.17": {
               label: 'V5.17',
@@ -154,34 +154,6 @@ const config = {
             ],
           },
           {
-            type: 'dropdown',
-            label: '开源社区',
-            position: 'left',
-            to: '/community/support',
-            items: [
-              {
-                label: '参与贡献',
-                to: '/community/contribution/',
-              },
-              {
-                label: '社区支持',
-                to: '/community/support',
-              },
-              {
-                label: '应用商店',
-                to: 'https://hub.grapps.cn',
-              },
-              {
-                label: '合作伙伴',
-                to: '/partners',
-              },
-              {
-                label: '用户论坛',
-                to: 'https://t.goodrain.com',
-              },
-            ],
-          },
-          {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownItemsAfter: [
@@ -250,20 +222,12 @@ const config = {
             title: '文档',
             items: [
               {
-                label: '快速安装',
-                to: '/docs/quick-start/quick-install'
+                label: '快速入门',
+                to: '/docs/quick-start/getting-started'
               },
               {
-                label: 'DevOps指南',
-                to: '/docs/devops/'
-              },
-              {
-                label: '微服务架构指南',
-                to: '/docs/micro-service/'
-              },
-              {
-                label: '应用交付指南',
-                to: '/docs/delivery/'
+                label: '使用教程',
+                to: '/docs/tutorial/via-rainbond-deploy-sourceandmiddleware'
               }
             ]
           },
@@ -314,31 +278,6 @@ const config = {
             ]
           },
           {
-            title: '开源社区',
-            items: [
-              {
-                label: '参与贡献',
-                to: '/community/contribution/'
-              },
-              {
-                label: '社区支持',
-                to: '/community/support'
-              },
-              {
-                label: '应用商店',
-                to: 'https://hub.grapps.cn'
-              },
-              {
-                label: '合作伙伴',
-                to: '/partners'
-              },
-              {
-                label: '用户论坛',
-                to: 'https://t.goodrain.com'
-              },
-            ]
-          },
-          {
             title: '更多',
             items: [
               {
@@ -364,7 +303,7 @@ const config = {
       announcementBar: {
         id: 'start',
         content:
-          '🎉 Rainbond V6.0 版本已发布，<a href="/docs/quick-start/quick-install">点击快速体验</a> !',
+          '⭐️ If you like <a href="https://github.com/goodrain/rainbond">Rainbond</a>, give it a star on GitHub! ⭐️',
         isCloseable: false,
       }
     }),
@@ -373,18 +312,6 @@ const config = {
     'https://static.goodrain.com/docusaurus/hotjar.js'
   ],
   plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'community',
-        path: 'community',
-        routeBasePath: 'community',
-        sidebarPath: require.resolve('./sidebarsCommunity.js'),
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
-        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/community',
-      }
-    ],
     [
       '@docusaurus/plugin-client-redirects',
       {

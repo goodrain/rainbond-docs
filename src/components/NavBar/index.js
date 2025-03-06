@@ -112,62 +112,6 @@ export default function Index(props) {
                 </div>
               </li>
               <li>
-                <div className="dropdown dropdown--hoverable">
-                  <Translate id='navbar.community'>开源社区</Translate>
-                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg==" />
-                  <ul className="dropdown__menu">
-                    <li>
-                      <Link to="/partners" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.community.partners'>
-                          合作伙伴
-                        </Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/community/contribution/" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.community.contribution'>
-                          参与贡献
-                        </Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/community/support" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.community.support'>
-                          社区支持
-                        </Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="https://t.goodrain.com/" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.community.forum'>
-                          用户论坛
-                        </Translate>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              {/* <li>
-                <div className="dropdown dropdown--hoverable">
-                  <Translate id='navbar.community'>产品</Translate>
-                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg==" />
-                  <ul className="dropdown__menu">
-                    <li>
-                      <Link to="/enterprise_server" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.enterprise'>Rainbond 企业版</Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/marketplace" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.market'>
-                          Rainstore
-                        </Translate>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </li> */}
-              <li>
                       <Link to="/enterprise_server" >
                         <Translate id='navbar.enterprise'>企业版</Translate>
                       </Link>
