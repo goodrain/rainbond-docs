@@ -95,3 +95,4 @@ Access to large screens to show groups and platforms in real time can be used to
 - Apply the number of accesses and real time memory in the top：statistical platform;
 - The number of people per team and the number of applications in the queue：statistical platform;
 - Team activity：shows the action log in the platform.
+
