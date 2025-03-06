@@ -32,7 +32,7 @@ Reference [What is Rainbond](/)
 
 #### What are the limitations of using open source
 
-> The use of open source Rainbond is subject to the GPLv3 License.  [详情](https://github.com/goodrain/rainbond/blob/master/Licensing.md)
+> The use of open source Rainbond is subject to the GPLv3 License. [](https://github.com/goodrain/rainbond/blob/master/Licensing.md) [详情](https://github.com/goodrain/rainbond/blob/master/Licensing.md)
 
 #### What does Rainbond require from users?
 
