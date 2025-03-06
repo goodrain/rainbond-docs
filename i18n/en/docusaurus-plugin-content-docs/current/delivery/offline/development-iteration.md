@@ -9,10 +9,6 @@ keywords:
   - Continuous iteration of offline environments
 ---
 
-Import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=524437005&bvid=BV1zM411n7UZ&cid=1011063943&page=3" />
-
 ## Customize pain points for offline environments
 
 After the application has been delivered to the customer, the client will see the effect and will continue to iterate until the client is satisfied and the product will need to be frequently upgraded.In this scenario, the following problems will be encountered.
