@@ -165,11 +165,11 @@ click on the service to govern, you can see that the traffic chart was generated
 We have provided a rich configuration of parameters to support a limited flow strategy under different scenarios.Below are some common flow configuration parameters.
 
 1. **Stream Rule Parameters**：
-   - **resource(resource)**：Resource name that can be any string, generally protected resource path or method.
-   - **grade(Limit Threshold)**：Flow Rule Type, including QPS Direct Limit, Constant Thread Direct Stream etc.
-   - **count(limit flow threshold)**：limit flow threshold type is QPS threshold; limit flow threshold type is a combined thread threshold.
+  - **resource(resource)**：Resource name that can be any string, generally protected resource path or method.
+  - **grade(Limit Threshold)**：Flow Rule Type, including QPS Direct Limit, Constant Thread Direct Stream etc.
+  - **count(limit flow threshold)**：limit flow threshold type is QPS threshold; limit flow threshold type is a combined thread threshold.
 2. **Downgraded rule parameter**：
-   - **resource(resource)**：Name of the downgraded resource, corresponding to the resource in the streaming rule.
-   - **grade (downgrade threshold type)**：The type of rule to downgrade, including slow call ratio, abnormal ratio, etc. The following primary：`average response time downgrade`, `abnormal scale downgrade`,\`abnormal number downgrade\`\`
-   - **count(downgrading threshold)**：The downgrade threshold type is RT and indicates the average response time threshold; grade is an abnormal proportion threshold; and the downgrade threshold type is an exception value.
-   - **timeWindow（降级的时间窗口，单位为秒，默认值为 60）**：降级的时间窗口，表示滑动窗口的长度。
+  - **resource(resource)**：Name of the downgraded resource, corresponding to the resource in the streaming rule.
+  - **grade (downgrade threshold type)**：The type of rule to downgrade, including slow call ratio, abnormal ratio, etc. The following primary：`average response time downgrade`, `abnormal scale downgrade`,\`abnormal number downgrade\`\`
+  - **count(downgrading threshold)**：The downgrade threshold type is RT and indicates the average response time threshold; grade is an abnormal proportion threshold; and the downgrade threshold type is an exception value.
+  - **timeWindow（降级的时间窗口，单位为秒，默认值为 60）**：降级的时间窗口，表示滑动窗口的长度。
