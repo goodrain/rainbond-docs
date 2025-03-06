@@ -6,10 +6,6 @@ keywords:
   - Continuous delivery
 ---
 
-Import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=436800242&bvid=BV1uj411N7Vy&cid=1005328921&page=4" />
-
 ## Flow chart of environmental delivery on Rainbond
 
 As shown in the figure below, we use the Rainbond application template as an example for the ongoing delivery of the cloudy environment, usually requiring the following process.
@@ -42,7 +38,7 @@ As shown in the figure below, we use the Rainbond application template as an exa
 
 ### Deploying Development Test Environment
 
-1. 首先可以在`测试-内网`团队内，参考[基于源代码创建组件](/docs/devops/app-deploy/)，根据你的代码语言部署你的各个业务模块。
+1. 首先可以在`测试-内网`团队内，参考[基于源代码创建组件](../../how-to-guides/app-deploy/source-code/springboot.md)，根据你的代码语言部署你的各个业务模块。
 
 2. After each operation has been deployed, you get a fully running app on Rainbond by reference to[微服务架构指南](/docs/microservice/overview) to organize your services.
 
