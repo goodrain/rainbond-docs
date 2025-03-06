@@ -53,3 +53,4 @@ GET /openapi/v2/manage/Enterprises
 | ----- | ----------------------------------------------------------------------------------------------------- | -------- | ---------- | ------------ | ---------- |
 | Total | integer                                                                                               | true     | none       | Total        | Total      |
 | Data  | [[EnterpriseListInfo](#schemaenterpriselistinfo)] | true     | none       |              | none       |
+
