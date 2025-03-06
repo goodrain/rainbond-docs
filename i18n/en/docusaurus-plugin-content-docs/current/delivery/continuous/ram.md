@@ -6,10 +6,6 @@ keywords:
   - Continuous delivery
 ---
 
-Import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=436800242&bvid=BV1uj411N7Vy&cid=1005311597&page=3" />
-
 ## Rainbond Application Models for Continuous Delivery Flow
 
 As shown in the graph below, in the case of \`back-office management system', the following processes are usually required using Rainbond application templates for continued delivery.
@@ -34,11 +30,11 @@ As shown in the graph below, in the case of \`back-office management system', th
 
 ### Deploying the development environment
 
-1. 参考[基于源代码创建组件](/docs/devops/app-deploy/)，根据你的代码语言部署你的各个业务模块。
+1. 参考[基于源代码创建组件](../../how-to-guides/app-deploy/source-code/springboot.md)，根据你的代码语言部署你的各个业务模块。
 
 2. After each operation has been deployed, you get a fully running app on Rainbond by reference to[微服务架构指南](/docs/microservice/overview) to organize your services.
 
-3. Once your Git repository is configured for[自动部署](/docs/devops/continuous-employ/gitops) you can complete this step by submitting code to trigger the auto-build of the development environment and automated tests and then adjust the code based on the build.
+3. 在你的 Git 仓库配置[自动部署](/docs/how-to-guides/app-deploy/gitops.md)，完成该步骤后，可以通过提交代码触发开发环境的自动构建以及自动化测试，再根据构建结果完成代码调整。
 
 ### Make Application Template
 
@@ -69,3 +65,4 @@ Note：Only company administrators can see platform management buttons.
 2. Click on the `Background Management System` to install the right side of the template, the team chooses \`Production Environment', and the apps and versions to be installed, to deploy the production environment one click on the one.
 
 3. If there is a problem, the developer still publishes version `3.1`. Once the tester has passed the test, the carrier will be able to use `upgrade` in the `production environment` app.
+
