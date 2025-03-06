@@ -6,10 +6,6 @@ keywords:
 - Continuous Delivery
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=436800242&bvid=BV1uj411N7Vy&cid=1005268829&page=1" />
-
 持续交付是一种软件开发实践，通过持续交付，系统可以自动为将代码更改发布到生产环境做好准备。 
 
 ## 持续集成和持续交付的区别

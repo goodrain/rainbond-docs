@@ -9,10 +9,6 @@ keywords:
 - 离线环境持续迭代
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=524437005&bvid=BV1zM411n7UZ&cid=1011063943&page=3" />
-
 ## 离线环境定制开发的痛点
 
 在应用交付给客户后，客户看到效果后会反馈问题，再持续迭代，直到客户满意，过程中需要频繁升级产品。在这种场景下，又会遇到以下问题。

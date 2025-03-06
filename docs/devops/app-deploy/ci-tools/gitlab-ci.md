@@ -6,10 +6,6 @@ keywords:
 - GitLab Runner
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=820892498&bvid=BV1334y1f76U&cid=987870125&page=10" />
-
 用过 GitLab 的同学肯定也对 GitLab CI/CD 不陌生，GitLab CI/CD 是一个内置在 GitLab 中的工具，它可以帮助我们在每次代码推送时运行一系列脚本来构建、测试和验证代码的更改以及部署。
 
 Rainbond 本身默认集成了 CI/CD 的整套流程，用户只需提供源代码，后续构建、运行完全交给 Rainbond 处理，整个过程是由 Rainbond 定义的，无需用户干预。这样有利也有弊，利就是简化用户的操作和无需学习 CI/CD 相关知识；弊是用户无法在 CI/CD 过程中自定义，比如想集成代码检测或运行个脚本，这在 Rainbond 的源码构建流程中是不可自定义的。
@@ -161,7 +157,7 @@ job-push:
     - curl -d '{"secret_key":"${RAINBOND_SECRET}"}' -H "Content-type:application/json" -X POST http://${RAINBOND_IP}:7070/console/custom/deploy/3321861bcadf0789af71898f23e8e740
 ```
 
-`after_script` 是在推送镜像完成后执行，通过 Rainbond API 构建组件，Rainbond 会获取最新镜像构建运行。\<RAINBOND_SECRET> 可在组件 -> 构建源 -> 自动构建中看到。详情可参阅文档 [配置组件自动构建部署](/docs/devops/continuous-deploy/auto-build)
+`after_script` 是在推送镜像完成后执行，通过 Rainbond API 构建组件，Rainbond 会获取最新镜像构建运行。\<RAINBOND_SECRET> 可在组件 -> 构建源 -> 自动构建中看到。
 
 **4.提交代码测试自动构建**，
 

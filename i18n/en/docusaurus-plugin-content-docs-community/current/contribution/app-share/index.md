@@ -7,7 +7,7 @@ description: Contribute open source apps to the Rainbond open source app store
 
 Open source application contribution, allowing community members to submit their own open source applications to the Rainbond open source application store.
 
-If you don't know how to share open source apps to the Rainbond open source app store, please read [to share](/docs/use-manual/app-store-manage/share-app)
+If you don't know how to share open source apps to the Rainbond open source app store, please read [to share](/docs/how-to-guides/app-ops/app-store-manage/share-app)
 
 ## Application Requirements
 

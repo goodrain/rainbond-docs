@@ -255,4 +255,4 @@ data:
 
 ## 管理应用中的k8s资源
 
-参考文档 [k8s资源操作](/docs/kubernetes-native-guide/import-manage/non-workload) 了解如何管理非 Workload 类型的资源。
+参考文档 [k8s资源操作](../import-manage/non-workload) 了解如何管理非 Workload 类型的资源。

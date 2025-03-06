@@ -7,10 +7,6 @@ keywords:
 - toB offline delivery
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=524437005&bvid=BV1zM411n7UZ&cid=1011041349&page=2" />
-
 ## 离线交付的痛点
 
 在传统行业，如政府、能源、军工、公安、工业、交通等行业，为了防止数据泄露和运行安全考虑，一般情况下网络会采取内外网隔离的策略，以防范不必要的风险，毕竟在安全防护方面，网络物理隔离是网络安全防御最有效的手段，而网络隔离在软件交付过程中，对于外部软件开发厂商来说将会带来一系列的交付难题，也增加大量成本投入。例如：

@@ -6,10 +6,6 @@ keywords:
 - 持续交付
 ---
 
-import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=436800242&bvid=BV1uj411N7Vy&cid=1005328921&page=4" />
-
 ## Rainbond 上多环境交付流程图
 
 如下图所示，我们以后台管理系统为例，利用 Rainbond 应用模版实现多云多环境的持续交付，通常需要以下流程。
@@ -41,7 +37,7 @@ import Bvideo from '/src/components/Bvideo';
 
 ### 部署开发测试环境
 
-1. 首先可以在`测试-内网`团队内，参考[基于源代码创建组件](/docs/devops/app-deploy/)，根据你的代码语言部署你的各个业务模块。
+1. 首先可以在`测试-内网`团队内，参考[基于源代码创建组件](../../how-to-guides/app-deploy/source-code/springboot.md)，根据你的代码语言部署你的各个业务模块。
 
 2. 各个业务部署完成后，参考[微服务架构指南](/docs/micro-service/overview)进行服务编排，此时你就得到了一个在 Rainbond 上完整运行的应用。
 

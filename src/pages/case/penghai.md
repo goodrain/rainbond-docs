@@ -65,7 +65,7 @@ images: /img/case/penghai.png
 
 ### 1.对接代码仓库
 
-通过 GitLab OAuth2 对接 Rainbond，在Rainbond上可以直接通过 GitLab 构建应用，直接从源码进行打包，这一点非常方便，对接过程也非常简单，我是参考的 [整合 Git 仓库快速部署组件](/docs/devops/code-repository/) 。
+通过 GitLab OAuth2 对接 Rainbond，在Rainbond上可以直接通过 GitLab 构建应用，直接从源码进行打包，这一点非常方便，对接过程也非常简单，我是参考的 [整合 Git 仓库快速部署组件](/docs/how-to-guides/app-deploy/gitops) 。
 
 ### 2. 部署微服务
 

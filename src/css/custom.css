@@ -109,5 +109,20 @@ div[class^='announcementBar_'] {
 }
 
 .menu {
-  font-size: 15px;
+  font-size: 14.4px;
+  /* font-family: Space Grotesk; */
+  font-family: 'Lato', sans-serif;
+}
+
+.menu__link {
+  /* font-family: Space Grotesk; */
+  font-family: 'Lato', sans-serif;
+}
+
+.markdown>h2 {
+  font-size: 1.5rem !important;
+}
+
+.markdown>h3 {
+  font-size: 1.2rem !important;
 }

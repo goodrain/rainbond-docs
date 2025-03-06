@@ -24,7 +24,7 @@ Rainbond 在设计上并未完全继承原生 Kubernetes 的设计思想，由�
 
 区别于原生 Kubernetes 的使用方式，Rainbond 更加凸显应用这一核心概念的使用。应用这一概念，并非是 Kubernetes 中的某种资源，它是对一组具有关联关系的 Workload 的组合，就像一个网站类的业务系统，往往具有一个由 Deployment 部署的 Web 站点服务，以及一个由 StatefulSet 部署的数据库服务组成。对于 Kubernetes 而言，这是两个可以分开管理的 Workload ，而在 Rainbond 世界里，除了能够精细化的独立管理每个 Workload 之外，更注重将其作为一个完整的应用统一管理。
 
-在原生 Kubernetes 中没有概念与 Rainbond 中的应用概念对应，但用户可以指定将 Yaml 中所有的资源定义都部署到 Rainbond 中的应用中去。当用户在 Yaml 中定义了非 Workload 类的资源（如 Service 、Sercet 等）时，Rainbond 会将其转化后保存在 `应用 > k8s资源` 列表中，并提供编辑入口供用户后续管理。管理方式参见 [非 Workload 类资源管理](/docs/kubernetes-native-guide/import-manage/non-workload)
+在原生 Kubernetes 中没有概念与 Rainbond 中的应用概念对应，但用户可以指定将 Yaml 中所有的资源定义都部署到 Rainbond 中的应用中去。当用户在 Yaml 中定义了非 Workload 类的资源（如 Service 、Sercet 等）时，Rainbond 会将其转化后保存在 `应用 > k8s资源` 列表中，并提供编辑入口供用户后续管理。管理方式参见 [非 Workload 类资源管理](../import-manage/non-workload.md)
 
 ### Workload资源单独转化
 
@@ -35,22 +35,22 @@ Rainbond 会从用户所提供 Yaml 定义的所有资源中抽取 Workload 相�
 
 ## 使用方法
 
-当用户拥有一份可以在 Kubernetes 中使用的 Yaml 文件时，通过 Yaml 部署应用是最简单的方式。请参考 [yaml文件识别创建](/docs/kubernetes-native-guide/yaml/create)。
+当用户拥有一份可以在 Kubernetes 中使用的 Yaml 文件时，通过 Yaml 部署应用是最简单的方式。请参考 [yaml文件识别创建](../yaml/create.md)。
 
-当用户已经将业务系统制作成为 Helm Chart 包时，通过 Helm 部署应用也是一种很好的选择。请参考 [基于 Helm 命令部署 Helm 应用](/docs/kubernetes-native-guide/helm/helm-cmd-install)，或者在完成 [对接Helm仓库](/docs/kubernetes-native-guide/helm/docking_helm_store) 后， [基于应用市场部署 Helm 应用](/docs/kubernetes-native-guide/helm/creation-process) 。
+当用户已经将业务系统制作成为 Helm Chart 包时，通过 Helm 部署应用也是一种很好的选择。请参考 [基于 Helm 命令部署 Helm 应用](../helm/helm-cmd-install.md)，或者在完成 [对接Helm仓库](../helm/docking_helm_store.md) 后， [基于应用市场部署 Helm 应用](../helm/creation-process.md) 。
 
 ## 导出 Helm 包
 
 Rainbond 能够接受各种原生 Kubernetes 的输入，也可以将已部署好的应用打包输出成为 Kubernetes 体系可以接受的 Helm Chart 包。这种使用体验和 Rainbond 导出自身生成的 RAM 应用包非常相似。
 
-参见 [导出 Helm Chart 包](/docs/kubernetes-native-guide/helm/export-chart)
+参见 [导出 Helm Chart 包](../helm/export-chart.md)
 
 ## 演示示例
 
 以下文档链接提供了通过 Yaml 或 Helm Chart 的方式在 Rainbond 中部署 Wordpress 建站系统的示例。
 
-[使用 Yaml 部署 Wordpress 和 Mysql](/docs/kubernetes-native-guide/yaml/example)
+[使用 Yaml 部署 Wordpress 和 Mysql](../yaml/example.md)
 
-[使用 Helm 部署 Wordpress 和 Mysql](/docs/kubernetes-native-guide/helm/example)
+[使用 Helm 部署 Wordpress 和 Mysql](../helm/example.md)
 
 

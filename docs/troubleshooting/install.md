@@ -1,5 +1,5 @@
 ---
-title: 安装
+title: 安装故障
 descrition: 说明 Rainbond 在各种环境下的安装过程中的故障排查方案
 keywords:
 - Rainbond 安装问题排查
@@ -10,7 +10,7 @@ keywords:
 
 Rainbond 在各种环境下的安装过程中，可能会遇到各种问题，本章节将会对 Rainbond 安装过程中的常见问题进行排查。
 
-## 快速安装故障排查
+## 1. 快速安装故障排查
 
 **Rainbond 快速安装版本**是将所有的服务都运行在一个容器中，方便用户快速使用。在 [Docker 容器中运行 K3s](https://docs.k3s.io/advanced#running-k3s-in-docker)，所有的故障排查操作都在 `rainbond` 容器中进行。
 
@@ -70,7 +70,7 @@ docker rm -f rainbond
 bash ./install.sh
 ```
 
-## 基于 Kubernetes 安装故障排查
+## 2. 基于 Kubernetes 安装故障排查
 
 Pod 处于Pending 、CrashLoopBackOff 、Evicted 、ImagePullBackOff等状态
 
