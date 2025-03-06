@@ -54,3 +54,6 @@ GET /openapi/v1/users/{user_id}
 | create_time   | String      | false    | none       | Create time                         | creation time                      |
 | client_ip     | Stringenull | false    | none       | Client ip                           | register ip                        |
 | Enterprise_id | String      | false    | none       | Enterprise id                       | Enterprise_id |
+
+
+
