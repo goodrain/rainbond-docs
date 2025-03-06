@@ -7,10 +7,6 @@ keywords:
   - toB offline delivery
 ---
 
-Import Bvideo from '/src/components/Bvideo';
-
-<Bvideo src="//player.bilibili.com/player.html?aid=524437005&bvid=BV1zM411n7UZ&cid=1011022690&page=1" />
-
 Because of data privacy and network security concerns, clients in most of the toB scenario need to be delivered by privatization applications, that is, to their client environment. Such customers include government, finance, military labour, public security, large enterprises, specialty industries, etc. These privatization scenes are very restrictive, and it is difficult to improve efficiency in the delivery of privatization applications.
 
 For microservice applications in particular, an application may have dozens of modules, and the compilation of packages alone will take a long time and each service has its own configuration.Even if complete deployment documents and checklists are prepared, when servers are larger, they may fail due to manual errors.Also, in the offline environment, many sets of development tools are incomplete and problems are extremely difficult to resolve.
