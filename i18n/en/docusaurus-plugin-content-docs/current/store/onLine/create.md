@@ -14,3 +14,4 @@ The purpose of this account is primarily to manage your own release apps, while 
 <img src='https://static.goodrain.com/app-store/docs/%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2.jpg' alt='云原生应用市场注册页面' /> 
 
 Once the registration is completed, you will automatically log in to your account and you will complete your information by clicking on the upper right corner. When you want to publish the app, this message will appear inside the `App Details by the author description`, or by clicking on the author's name and entering the Author personal center page, which will show all apps that the author has published, as well as the author's profile.
+
