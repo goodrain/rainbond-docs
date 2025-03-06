@@ -53,7 +53,7 @@ The application building service is a stateless architecture, designed with task
 
 The source code building process is a very resource-consuming process. Therefore, the application build service supports multi-node deployment to increase the number of concurrently supported build tasks. The maximum number of concurrent builds supported by each node is determined by the number of node CPU cores or manually set by operation and maintenance personnel.
 
-> - 关于源码编译的 BuildingPack 参考 [各语言支持文档](../../devops/app-deploy/index.md)。
+> - 关于源码编译的 BuildingPack 参考 [各语言支持文档](../../how-to-guides/app-deploy/source-code/springboot.md)。
 > - The application construction service supports multi-point high-availability deployment, and multi-point deployment obtains application construction tasks from message middleware.
 
 ### Application Runtime Control Service
@@ -161,3 +161,4 @@ Based on the open source [Distribution](https://github.com/docker/distribution) 
 ### application console
 
 As the key module of Rainbond's application-centric abstraction, the application console UI component is oriented to application developers and application users.Based on the front-end and back-end separation architecture design of Django+Ant design, it provides users with application abstraction, application group abstraction, data center abstraction, and application market abstraction to provide interactive experience.Realize the complete application creation, management process, application delivery and sharing process, etc.Based on the Django+Ant design structure design that provides an interactive view of the user's abstraction, the group abstraction, the data centre abstraction, and the market abstraction.Achieve full app creation, management process, app delivery sharing process, etc.
+
