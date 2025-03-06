@@ -31,3 +31,4 @@ Global log main uses include monitoring applications, debugging and troubleshoot
 - By displaying application logs, developers can be helped to identify performance bottlenecks and bottlenecks in applications in order to optimize application performance.
 
 ### Manual
+
