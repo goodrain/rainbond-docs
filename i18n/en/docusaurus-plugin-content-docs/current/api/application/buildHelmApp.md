@@ -99,3 +99,4 @@ LO
 | ------------- | ------ | -------- | ----------- | -------------- | ----------------- |
 | CheckAdoption | String | true     | none        | Check adoption | Check pass status |
 | yaml          | String | true     | none        | yaml           | Failed Reason     |
+
