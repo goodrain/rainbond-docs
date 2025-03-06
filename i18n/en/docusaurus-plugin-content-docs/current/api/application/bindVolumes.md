@@ -56,3 +56,4 @@ LO
 | volume_type     | String | true     | none        |              | Mount type                           |
 | volume_path     | String | true     | none        |              | Mount Path                           |
 | volume_capacity | String | true     | none        |              | Storage size (GB) |
+
