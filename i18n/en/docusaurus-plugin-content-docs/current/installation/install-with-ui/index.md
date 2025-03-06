@@ -89,6 +89,6 @@ Details on the advanced configuration of the Rainbond cluster are described belo
 
 ## Next step
 
-- 完成[快速入门](../../quick-start/getting-started.mdx)教程。
+- 完成[快速入门](../../quick-start/getting-started.md)教程。
 - 将[控制台迁移](./console-recover.md) Kubernetes 集群中。
 
