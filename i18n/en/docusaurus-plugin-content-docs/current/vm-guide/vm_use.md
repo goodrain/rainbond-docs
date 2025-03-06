@@ -37,7 +37,7 @@ Addresses that can be downloaded to the virtual machine mirror. The virtual mach
 
 #### Link
 
-When a public image does not meet the need, it can be created by downloading the image and configuring it according to its name and download address.这里提供一个阿里云的[虚拟机镜像仓库](https://developer.aliyun.com/mirror/?spm=a2c6h.13651102.0.0.3e221b11ud8kbT\&serviceType=mirror\&tag=%E7%B3%BB%E7%BB%9F)，在里面查找你想要下载的镜像
+When a public image does not meet the need, it can be created by downloading the image and configuring it according to its name and download address.这里提供一个阿里云的虚拟机镜像仓库，在里面查找你想要下载的镜像
 
 #### Upload
 
