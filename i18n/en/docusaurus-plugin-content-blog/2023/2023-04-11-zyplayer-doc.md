@@ -89,3 +89,4 @@ zyplayer:
 然后更新 zyplayer 组件即可。
 
 最后通过 Rainbond 默认提供的域名访问 `zyplayer-doc`，访问需要加后缀 `/zyplayer-doc/`，如：`http://xxx.cn/zyplayer-doc/`，默认用户密码 **zyplayer/123456**。
+
