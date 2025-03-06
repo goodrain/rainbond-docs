@@ -127,3 +127,4 @@ Rainbond 是一个云原生应用多云管理平台，Rainbond 遵循以应用�
 - **多节点调度和自动化运维**，Kubernetes Yaml、Helm、KubeVela和Rainbond支持Kubernetes的多节点调度。
 - **离线迭代效率**，传统方式交付效率最低；Docker镜像有版本，而且一个命令就可以导出一个离线包，所以迭代效率高；Docker-Compose、Kubernetes Yaml、Helm 和 KubeVela需要手工逐个打出镜像离线包，复杂架构效率不高，而且手工容易出错；Rainbond支持自动化导出一个离线包，导入离线环境，可以一键升级和回滚，迭代效率很高。
 - **客户环境支持**，不同客户有不同的运行环境，交付的包需要根据客户环境选择，传统应用交付方式适合老的一些基础设施，操作系统版本老，没办法安装运行容器；客户环境没有Kubernetes，也不允许安装Kubernetes，可以选择Docker镜像和Docker-Compose；Kubernetes Yaml、Helm、KubeVela和Rainbond支持有Kubernetes的环境。
+
