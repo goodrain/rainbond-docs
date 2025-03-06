@@ -14,7 +14,7 @@ Rainbond 提供的应用模板导出机制，主要用来解决面向最终用�
 ## 前提要求
 
 - Rainbond 平台版本不低于 v5.8.1-release 。
-- 导出的组件基于 [源码构建](/docs/devops/app-deploy/) 部署。
+- 导出的组件基于 [源码构建](../../app-deploy/source-code/springboot.md) 部署。
 - 参考文档，完成应用发布流程，将应用发布到内部组件库。
 
 ## 导出非容器包
@@ -124,7 +124,7 @@ Stopping app golang which running with pid 24033 ...  Done
 
 ### 组件构建来源
 
-非容器包，只会导出应用中所有由 [源码构建](/docs/devops/app-deploy/) 功能部署而来的服务组件，来自其他构建源，如 Docker 镜像构建、Helm 创建等方式的服务组件，将无法被导出到非容器包中去。
+非容器包，只会导出应用中所有由 [源码构建](../../app-deploy/source-code/springboot.md) 功能部署而来的服务组件，来自其他构建源，如 Docker 镜像构建、Helm 创建等方式的服务组件，将无法被导出到非容器包中去。
 
 非容器包目前支持的源码类型包括： Java-Maven、Java-Gradle、Java-Jar、Java-War、Golang、NodeJS、NodeJS 前端项目(VUE React)、Html静态语言。
 

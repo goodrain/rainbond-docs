@@ -65,70 +65,72 @@ const sidebars = {
           label: '应用部署',
           link: {
             type: 'doc',
-            id: 'devops/app-deploy/index'
+            id: 'how-to-guides/app-deploy/source-code/index'
           },
           items: [
             {
               type: 'category',
               label: '使用源代码部署',
               items: [
-                'devops/app-deploy/springboot',
-                'devops/app-deploy/nodejs',
-                'devops/app-deploy/python',
-                'devops/app-deploy/golang',
-                'devops/app-deploy/php',
-                'devops/app-deploy/dockefile',
-                'devops/app-deploy/html',
-                'devops/app-deploy/thirdparty',
+                'how-to-guides/app-deploy/source-code/springboot',
+                'how-to-guides/app-deploy/source-code/nodejs',
+                'how-to-guides/app-deploy/source-code/python',
+                'how-to-guides/app-deploy/source-code/golang',
+                'how-to-guides/app-deploy/source-code/php',
+                'how-to-guides/app-deploy/source-code/dockefile',
+                'how-to-guides/app-deploy/source-code/html',
+                'how-to-guides/app-deploy/source-code/thirdparty',
               ]
             },
             {
               type: 'category',
-              label: '使用 YAML 部署',
+              label: '使用 YAML/Helm 部署',
               items: [
-                'kubernetes-native-guide/overview/index',
-                'kubernetes-native-guide/yaml/create',
-                'kubernetes-native-guide/yaml/example',
+                'how-to-guides/app-deploy/deploy-using-yaml-helm/yaml-convert-ram',
+                'how-to-guides/app-deploy/deploy-using-yaml-helm/yaml-example',
+                {
+                  type: 'category',
+                  label: '使用 Helm Chart 部署',
+                  link: {
+                    type: 'doc',
+                    id: 'how-to-guides/app-deploy/deploy-using-yaml-helm/helm-example',
+                  },
+                  items: [
+                    'how-to-guides/app-deploy/deploy-using-yaml-helm/export-chart',
+                  ]
+                },
               ]
             },
+            'how-to-guides/app-deploy/deploy-job',
+            'how-to-guides/app-deploy/gitops',
+            'how-to-guides/app-deploy/import-resource',
+          ]
+        },
+        {
+          type: 'category',
+          label: '应用运维',
+          items: [
+            'how-to-guides/app-ops/lifecycle',
+            'how-to-guides/app-ops/service-auto-scaling',
+            'how-to-guides/app-ops/environment',
+            'how-to-guides/app-ops/storage',
+            'how-to-guides/app-ops/app-sidecar',
+            'how-to-guides/app-ops/k8s-attribute',
+            'how-to-guides/app-ops/auto-build',
+            'how-to-guides/app-ops/environment-manage',
             {
               type: 'category',
-              label: '使用 Helm 部署',
+              label: '应用商店',
+              link: {
+                type: 'doc',
+                id: 'how-to-guides/app-ops/app-store-manage/index'
+              },
               items: [
-                'kubernetes-native-guide/helm/docking_helm_store',
-                'kubernetes-native-guide/helm/creation-process',
-                'kubernetes-native-guide/helm/manage-helm-app',
-                'kubernetes-native-guide/helm/helm-cmd-install',
-                'kubernetes-native-guide/helm/example',
-                'kubernetes-native-guide/helm/export-chart',
-                'kubernetes-native-guide/helm/helm-offlince',
+                'how-to-guides/app-ops/app-store-manage/install-app',
+                'how-to-guides/app-ops/app-store-manage/share-app',
+                'how-to-guides/app-ops/app-store-manage/export-non-container-package',
               ]
             },
-            'kubernetes-native-guide/deploy-job',
-          ]
-        },
-        {
-          type: 'category',
-          label: '自动化部署',
-          items: [
-            'devops/code-repository/index',
-            'devops/continuous-deploy/gitops',
-            'devops/continuous-deploy/auto-build',
-          ]
-        },
-        {
-          type: 'category',
-          label: '多环境管理',
-          items: [
-            'devops/env-version/index',
-          ]
-        },
-        {
-          type: 'category',
-          label: '管理已有 K8S 资源',
-          items: [
-            'kubernetes-native-guide/import-manage/non-workload',
-            'kubernetes-native-guide/import-manage/import-resource',
           ]
         },
         // {
@@ -281,31 +283,6 @@ const sidebars = {
         //     'vm-guide/vm_use',
         //   ]
         // },
-        {
-          type: 'category',
-          label: '应用运维',
-          items: [
-            'use-manual/lifecycle',
-            'use-manual/service-auto-scaling',
-            'use-manual/environment',
-            'use-manual/storage',
-            'use-manual/app-sidecar',
-            'use-manual/k8s-attribute',
-            {
-              type: 'category',
-              label: '应用商店',
-              link: {
-                type: 'doc',
-                id: 'use-manual/app-store-manage/index'
-              },
-              items: [
-                'use-manual/app-store-manage/install-app',
-                'use-manual/app-store-manage/share-app',
-                'use-manual/app-store-manage/export-non-container-package',
-              ]
-            },
-          ]
-        },
       ]
     },
     {

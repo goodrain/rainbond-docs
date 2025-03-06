@@ -1,5 +1,5 @@
 ---
-title: 导入已有资源
+title: 导入 K8S 集群已有资源
 description: 导入 Kubernetes 命名空间下的已有资源到 Rainbond 中管理。
 keywords:
 - 导入 Kubernetes 已有资源
@@ -11,7 +11,7 @@ keywords:
 * 治理模式默认为 k8s 原生 service 模式
 * Rainbond 创建或导入过的命名空间以及 'kube-' 开头的命名空间不会被识别。
 * 仅支持部分类型的转换，详细支持转换资源类型如下。
-* 导入过程中，如果组件类型资源的 pod 模版内有多个容器， Rainbond 默认只会识别第一个容器，其他容器会丢失，如果想启动多个容器，可以了解一下 Rainbond 的[插件制作](../../use-manual/app-sidecar)。
+* 导入过程中，如果组件类型资源的 pod 模版内有多个容器， Rainbond 默认只会识别第一个容器，其他容器会丢失，如果想启动多个容器，可以了解一下 Rainbond 的[插件制作](../app-ops/app-sidecar.md)。
 :::
 
 ## 导入转换策略

@@ -37,7 +37,7 @@ import Bvideo from '/src/components/Bvideo';
 
 2. 各个业务部署完成后，参考[微服务架构指南](/docs/micro-service/overview)进行服务编排，此时你就得到了一个在 Rainbond 上完整运行的应用。
 
-3. 在你的 Git 仓库配置[自动部署](/docs/devops/continuous-deploy/gitops)，完成该步骤后，可以通过提交代码触发开发环境的自动构建以及自动化测试，再根据构建结果完成代码调整。
+3. 在你的 Git 仓库配置[自动部署](/docs/how-to-guides/app-deploy/gitops.md)，完成该步骤后，可以通过提交代码触发开发环境的自动构建以及自动化测试，再根据构建结果完成代码调整。
 
 ### 制作应用模版
 

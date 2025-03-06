@@ -14,7 +14,7 @@ import Bvideo from '/src/components/Bvideo';
 
 ## 前提条件
 
-参阅 [Git 仓库对接](/docs/devops/code-repository/) 文档，完成 GitLab 仓库对接。
+参阅 [Git 仓库对接](../code-repository/index.md) 文档，完成 GitLab 仓库对接。
 
 :::tip
 使用私有化部署 Rainbond 时，需配置 GItLab 允许向本地网络发送 Webhook 请求。

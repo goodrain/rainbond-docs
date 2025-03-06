@@ -48,7 +48,7 @@ flowchart BT
 ## 前提
 
 - 已完成 [Rainbond 快速安装](/docs/quick-start/quick-install)，并体验了单机环境下的应用部署。
-- 准备额外的 Linux 服务器（物理机或虚拟机），满足[节点要求](/docs/installation/requirements/)。
+- 准备额外的 Linux 服务器（物理机或虚拟机）。
 
 ## 一、扩展计算资源
 

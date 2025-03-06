@@ -13,36 +13,6 @@ keywords:
 - 组件是由源码创建，可支持代码仓库 Webhooks，目前支持的代码仓库为`GitHub` `GitLab` `Gitee`。
 - 组件是由镜像创建，可支持镜像仓库 Webhooks，目前支持 Docker 官方仓库，阿里云镜像仓库。
 
-## 基于源代码操作流程
-
-### 开启 Rainbond Git Webhook
-开启组件 Git Webhook 在 **组件 -> 构建源** 中打开 Git-Webhook 自动构建功能，复制生成的 hook 地址。
-
-:::info
-一般情况下开发者不希望每一次代码提交都进行部署动作，因此 Rainbond hook 自动触发设置了前提，在 Commit 信息中包含 `@关键字` 时才触发动作。这个关键字可以由用户进行设置。
-:::
-
-### 配置 Git 仓库 Webhooks
-
-#### GitHub 配置
-
-进入 GitHub 项目内，**Settings -> Webhooks -> Add webhooks**
-
-|                     | 说明                            |
-| ------------------- | ------------------------------- |
-| Payload URL         | 复制 Rainbond 中的 Webhook 地址 |
-| Content type        | application/json                |
-| Just the push event | 选择 push 触发事件              |
-| Active              | 勾选 Active                     |
-
-#### GitLab 配置
-
-|         | 说明                            |
-| ------- | ------------------------------- |
-| URL     | 复制 Rainbond 中的 Webhook 地址 |
-| Trigger | 勾选 **Push events**            |
-
-其他代码仓库配置方式类似，需要说明的是目前 Rainbond hook 触发暂不支持安全请求校验。
 
 ## 基于镜像仓库操作流程
 
