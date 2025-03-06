@@ -84,7 +84,7 @@ The `Nacos` installed from the open source store takes the `Mysql` component, en
 1. Before creating, build a multi-block page -> modify button -> right to change the launch command for each module, as follows.
 2. After creating, delete the default port for each component, add new ports and port aliases for each component and open the end-to-end service for the port, as follows.
 3. Build component after modification.
-   :::
+  :::
 
 | Component      | Port  | Start command                                                                  |
 | -------------- | ----- | ------------------------------------------------------------------------------ |
