@@ -1,7 +1,8 @@
 ---
-title: 支持
+title: 社区支持
 description: Rainbond 社区支持
-keywords: [Rainbond 社区支持]
+keywords: 
+- Rainbond 社区支持
 ---
 
 ## 社区支持

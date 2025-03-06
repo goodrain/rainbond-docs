@@ -107,4 +107,3 @@ After the release is complete, please refer to [App Store App Listing](https://w
 
 Through the above steps, we have learned how to share plugins. If you are interested in contributing your plugins, you can publish them in the app store at any time.
 
-If you need help contributing, please contact a community member!Please refer to [Contribution Guide](https://www.rainbond.com/community/contribution/ "贡献指南")to participate in the contribution.
