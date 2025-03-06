@@ -5,17 +5,17 @@
 To do a microservice, we need a lot of knowledge that we need to understand and learn from a few dimensions in Administrative：
 
 - Basic functional level
-  1. Parallel control & limit flow, avoid sudden traffic knocking out services
-  2. Service registration and service discovery to ensure dynamic detection of nodes
-  3. Load Balancer, need to distribute traffic according to the capacity of the node
-  4. Timeout control, avoid wasting requests for timeout
-  5. Melt off design, fast failure, secure troubleshooter ability
+    1. Parallel control & limit flow, avoid sudden traffic knocking out services
+    2. Service registration and service discovery to ensure dynamic detection of nodes
+    3. Load Balancer, need to distribute traffic according to the capacity of the node
+    4. Timeout control, avoid wasting requests for timeout
+    5. Melt off design, fast failure, secure troubleshooter ability
 
 - Advanced Function Level
-  1. Ask for authentication, make sure that each user can only access their own data
-  2. Link tracking, used to understand the whole system and quickly locate specific requests
-  3. Logs, for data collection and problem positioning
-  4. Observability, no tweaks without measurement
+    1. Ask for authentication, make sure that each user can only access their own data
+    2. Link tracking, used to understand the whole system and quickly locate specific requests
+    3. Logs, for data collection and problem positioning
+    4. Observability, no tweaks without measurement
 
 For each of these points, it is very difficult for our back-end developers to capture and implement these points of knowledge into the business system.However, we can simplify this complex task by relying on frameworks already validated by mass flows, such as the **Rainbond Microservice Mode**.
 
