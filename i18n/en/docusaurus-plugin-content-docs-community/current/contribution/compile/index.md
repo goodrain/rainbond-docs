@@ -5,7 +5,7 @@ description: Rainbond Project Introduction
 
 ## Introduction to Rainbond related projects
 
-Rainbond mainly consists of the following three projects.Click to viewClick to view[技术架构](/docs/quick-start/archive)
+Rainbond mainly consists of the following three projects.Click to view[](/docs/quick-start/architecture)Click to view[技术架构](/docs/quick-start/archive)
 
 <img src="https://static.goodrain.com/docs/5.5/quick-start/rainbond-compile-architecture.png" width="50%" />
 
