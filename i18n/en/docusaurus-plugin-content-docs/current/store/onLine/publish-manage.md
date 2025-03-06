@@ -101,3 +101,6 @@ description: This chapter describes the value that the Open Source App Store wil
 1. 版本号的各个部分之间用点号（.）分隔，不使用其他符号。
 2. 版本号应该是一个字符串，不能包含任何空格或其他特殊字符。
 3. 版本号应该是唯一的，不允许出现相同的版本号。
+
+
+
