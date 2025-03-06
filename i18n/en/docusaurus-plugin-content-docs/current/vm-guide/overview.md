@@ -18,3 +18,4 @@ Rainbond implements the deployment and management of a virtual group by integrat
 ## Virtual Machine Component
 
 A virtual group is a special component in Rainbond that is a virtual machine created through KubeVirt that creates and manages a virtual group similar to a normal component, but the virtual group operates as a virtual machine.
+
