@@ -111,7 +111,7 @@ connected to context <your-context>
 
 2. 简单来说 telepresence 的工作原理就是代理 k8s service，默认 gateway 到 auth 是使用的 nacos 做的负载均衡，这样的话 telepresence 是无法拦截到流量的，我们需要修改 gateway 配置使用 k8s service 做负载均衡。
 
-   - 打开 pig-register 组件的 8848 对外端口，访问 nacos，修改 `pig-gateway-dev.yml` 的 `spring.cloud.gateway.routes.uri: http://gr795b69:3000` ，`gr795b69:3000` 通过 pig-auth 组件内的端口访问地址获取。
+  - 打开 pig-register 组件的 8848 对外端口，访问 nacos，修改 `pig-gateway-dev.yml` 的 `spring.cloud.gateway.routes.uri: http://gr795b69:3000` ，`gr795b69:3000` 通过 pig-auth 组件内的端口访问地址获取。
 
 3. 如果本地只启动一个 pig-auth 服务，pig-auth 需要连接 pig-register 和 redis，那么就需要将这俩服务的对外端口打开，并修改配置文件让本地的 pig-auth 服务可以连接远程到 pig-register 和 redis。
 
@@ -172,3 +172,4 @@ intercepted
 ## 最后
 
 Telepresence 可以帮助我们简化本地开发流程，同时保证代码的正确性和可靠性。还能使我们在集群中轻松调试和测试代码，提高开发效率。结合 Rainbond 的部署简化，从开发到部署都非常的简单，让我们专注于代码编写。
+
