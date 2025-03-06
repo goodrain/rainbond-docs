@@ -34,3 +34,4 @@ description: 本章描述 云原生应用市场 发布应用会有哪些价值�
 ### Rainbond App Model（RAM）
 
 RAM 类型的应用需要通过 Rainbond 平台去发布到云原生应用市场，[Rainbond](https://www.rainbond.com)是一个不用懂 Kubernetes 的云原生应用管理平台，RAM 类型的应用发布详细步骤请[参考文档](https://rainbond.com/docs/use-manual/app-store-manage/share-app)。
+
