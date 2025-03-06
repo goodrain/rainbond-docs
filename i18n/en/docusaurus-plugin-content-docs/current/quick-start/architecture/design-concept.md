@@ -114,7 +114,7 @@ Experience for Application Development:
 
 2. \*\*Business Brick Spelling.**Business block-style assembly orchestration.** Reusable business modules are accumulated in the application marketplace. When new business needs to be developed, it can be assembled based on the already existing business modules in the application marketplace, using a "drag-and-drop" approach. Then, develop any missing business capabilities. As more business modules accumulate, the speed of developing new business accelerates.
 
-3. ![service\_mesh\_decoupling\_en](/img/architecture/service_mesh_decoupling_en.svg)**Out-of-the-box Service Mesh microservices architecture with the ability to switch Service Mesh frameworks with one click.** Without needing to learn the SDK of microservices frameworks, Service Mesh microservices architecture can be implemented in a non-invasive manner. Leading Service Mesh frameworks exist as plugins, which can be activated when needed. If one framework is deemed inadequate, it can be replaced at any time.
+3. ![service_mesh_decoupling_en](/img/architecture/service_mesh_decoupling_en.svg)**Out-of-the-box Service Mesh microservices architecture with the ability to switch Service Mesh frameworks with one click.** Without needing to learn the SDK of microservices frameworks, Service Mesh microservices architecture can be implemented in a non-invasive manner. Leading Service Mesh frameworks exist as plugins, which can be activated when needed. If one framework is deemed inadequate, it can be replaced at any time.
 
 User Experience for Using Applications:
 
