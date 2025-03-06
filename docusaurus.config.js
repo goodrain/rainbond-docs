@@ -213,7 +213,7 @@ const config = {
       algolia: {
         appId: '6NQ861LF9R',
         apiKey: '7d389ee210249d03aca601ad100aad08',
-        indexName: 'rainbond'
+        indexName: 'crawler_rainbond'
       },
       footer: {
         style: 'dark',
