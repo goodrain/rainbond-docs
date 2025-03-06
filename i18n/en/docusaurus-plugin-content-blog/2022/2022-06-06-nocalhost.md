@@ -182,3 +182,5 @@ Refresh page`http://localhost:38000`, you can see that the modified content has 
 Through the above practical steps, we have been able to develop microservice applications on Rainbond through Nocalhost, get rid of local development, and enter cloud-native rapid development to improve our development efficiency.
 
 This article only introduces the basic development, you can also configure [Nocalhost development configuration](https://nocalhost.dev/docs/config/config-overview-en "Nocalhost开发配置") for the project, etc. Friends can explore by themselves.
+
+
