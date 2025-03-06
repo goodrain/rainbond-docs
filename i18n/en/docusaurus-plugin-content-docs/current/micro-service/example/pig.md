@@ -90,7 +90,7 @@ Seek `Redis` from the Open Source Store and install it in the Open Source Store.
 | Code Version: Tag | v3.6.2 |
 
 2. Multimodule build detected, enter multi-module build page, check the following modules and create them.
-   - After creating, delete the default port for each component, add new ports and port aliases for each component and open the end-to-end service, as follows:：
+  - After creating, delete the default port for each component, add new ports and port aliases for each component and open the end-to-end service, as follows:：
 
 | Component              | Port           | Port Alias                          |
 | ---------------------- | -------------- | ----------------------------------- |
@@ -159,7 +159,7 @@ Update all components except Mysql and Redis
 | Code Version           | v.3.6.2-1117 |
 
 :::caution
-这里使用了我的仓库地址，因为修改了一些默认配置，比如增加了 `nodestatic.json` `web.conf`，参阅 [部署Vue、React前端](../../devops/app-deploy/nodejs)
+这里使用了我的仓库地址，因为修改了一些默认配置，比如增加了 `nodestatic.json` `web.conf`，参阅 [部署Vue、React前端](../../how-to-guides/app-deploy/source-code/nodejs.md)
 :::
 
 4.2 After creating a component, enter the `pig-ui` component -> Build Source -> Source Build Parameter, modify Node version to `16.15.0`, make sure to modify and build components
