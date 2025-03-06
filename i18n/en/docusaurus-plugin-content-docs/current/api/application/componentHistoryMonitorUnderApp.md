@@ -169,3 +169,4 @@ LO
 | name  | type                                                         | required | constraint | Chinese name | illustrate |
 | ----- | ------------------------------------------------------------ | -------- | ---------- | ------------ | ---------- |
 | Value | [string] | true     | none       |              | none       |
+
