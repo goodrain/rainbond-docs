@@ -39,7 +39,7 @@ We have made SkyWalking app and posted to the Marketplace. Users can install it 
 
 1. Install [Rainbond](https://www.rainbond.com/docs/quick-start/quick-install/);
 2. Searching for SkyWalking, in the open source shop, by clicking on the installation;
-   3. Installation is complete and can be followed by Rainbod management and shipping SkyWalking.
+ 3. Installation is complete and can be followed by Rainbod management and shipping SkyWalking.
 
 SkyWalking server is divided into four parts of：exploration service, backend service, storage service and UI：
 
@@ -93,3 +93,6 @@ Visit the external port `skywalking-ui` to enter the visualization interface.
 - Service call topography
 
 ![](https://static.goodrain.com/docs/5.4/practices/skywalking/Service-Topology.jpg)
+
+
+
