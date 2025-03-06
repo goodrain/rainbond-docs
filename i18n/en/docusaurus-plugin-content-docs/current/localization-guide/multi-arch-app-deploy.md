@@ -10,7 +10,7 @@ When a compute node in the Rainbond cluster that does not fit into the CPU archi
 
 ## Isomal source build
 
-Rainbond 自带的 [源码构建](/docs/devops/app-deploy/) 能力，现在已经拓展到 `arm64` 可用的场景中。When building service components, users simply provide source repository addresses, then select `arm64` architecture. Rainbond will automatically configure the appropriate build, run environment and run it to the corresponding compute node.
+Rainbond 自带的 [源码构建](../how-to-guides/app-deploy/source-code/springboot.md) 能力，现在已经拓展到 `arm64` 可用的场景中。When building service components, users simply provide source repository addresses, then select `arm64` architecture. Rainbond will automatically configure the appropriate build, run environment and run it to the corresponding compute node.
 
 ## Isomable Package Builds
 
