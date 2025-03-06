@@ -88,3 +88,6 @@ Rainbond 信创版本凭借**一云多芯**管理能力， 可以在同个集群
 借助于 Service Mesh 亦或是 Kubernetes Service 的能力，Rainbond 天生支持跨架构微服务之间的编排与通信。使用方法与 Rainbond 一直以来的拖拉拽拼积木式的微服务编排方法无异。
 
 ![](https://static.goodrain.com/localization-guide/%E5%BC%82%E6%9E%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%BC%96%E6%8E%92.png)
+
+
+
