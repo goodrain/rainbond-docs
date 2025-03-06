@@ -19,3 +19,4 @@ Go to the Rainbond Console and select the **streaming line** in the left menu ba
 A cluster and application service can be selected to view the deployment history of an application service under this cluster.
 
 And click Deploying details to go to Rainbond component page for details of deployment.
+
