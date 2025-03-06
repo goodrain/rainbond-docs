@@ -50,7 +50,7 @@ keywords:
 
 - [GitHub Issues](https://github.com/goodrain/rainbond/issues) - 提交问题或查找已有解决方案
 - [Rainbond 社区](https://t.goodrain.com/) - 与其他用户和开发者交流
-- [微信群](/community/support#微信群) - 加入微信用户群获取实时帮助
-- [钉钉群](/community/support#钉钉群) - 加入钉钉用户群交流问题
+- [微信群](/docs/support#微信群) - 加入微信用户群获取实时帮助
+- [钉钉群](/docs/support#钉钉群) - 加入钉钉用户群交流问题
 - [官方支持](https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/) - 获取商业技术支持服务
 
