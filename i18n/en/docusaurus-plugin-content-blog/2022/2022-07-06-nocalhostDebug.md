@@ -7,7 +7,7 @@ image: "![](https://static.goodrain.com/wechat/nocalhost2/nocalhost.png)"
 
 describes how to use Nocalhost Debug to deploy microservices on Rainbond
 
-In the previous article, we introduced how to quickly develop microservices on Rainbond through , and introduced the basic development process.
+In the previous article, we introduced how to quickly develop microservices on Rainbond through [](https://mp.weixin.qq.com/s/kC9P7fvMtJvKK7_TM2LbTw), and introduced the basic development process.
 
 This article will continue the above introduction, using [Nocalhost development configuration file](https://nocalhost.dev/docs/config/config-overview-en/) to achieve the following：
 
@@ -180,3 +180,4 @@ Of course, Nocalhost can debug multiple microservices at the same time. In the s
 Nocalhost also has some things that are not mentioned in the development configuration text, such as：development environment variables, two modes of file synchronization `pattern` `gitignore` , etc., and Nocalhost supports multiple languages, Java is only one of them, friends can Explore on your own.
 
 Nocalhost + Rainbond makes development and deployment more efficient and convenient.
+
