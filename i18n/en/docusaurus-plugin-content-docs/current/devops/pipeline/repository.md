@@ -23,3 +23,4 @@ Go to the Rainbond console and select the **streaming line** to the left menu ba
 Optionally select the app service, see GitLab branch management of the app and recent submissions and manually trigger branch construction of the flow line.
 
 Switch to the Continuous Integration page, you can view the sustainable integration steps and the step details.
+
