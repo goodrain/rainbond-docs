@@ -1,5 +1,5 @@
 ---
-title: 常见故障排查
+title: 应用故障
 description: 介绍在使用 Rainbond 过程中的组件的运行问题排查
 keywords:
   - 在使用 Rainbond 过程中的组件的运行问题排查
