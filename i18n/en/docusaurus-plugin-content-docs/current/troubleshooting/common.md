@@ -151,3 +151,105 @@ nerdctl tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:stable goodrain.me
 nerdctl login goodrain.me -u admin -padmin1234 --insecure-registry
 nerdctl push goodrain.me/runner:latest-amd64 --insecure-registry
 ```
+
+## 应用/组件对外无法访问
+
+```mermaid
+flowchart TD
+    A[用户访问] --> B{网关响应}
+    B -->|502 Bad Gateway| C[后端服务异常]
+    B -->|503 Service Unavailable| D[服务暂时不可用]
+    B -->|504 Gateway Timeout| E[请求超时]
+    
+    style A fill:#e6f7ff,stroke:#1890ff
+    style B fill:#fff3e6,stroke:#f5a623
+    style C fill:#f6ffed,stroke:#52c41a
+    style D fill:#f6ffed,stroke:#52c41a
+    style E fill:#f6ffed,stroke:#52c41a
+```
+
+### 错误代码说明
+
+在排查前，首先了解这些错误代码的含义：
+
+| 错误代码 | 错误名称                | 含义                        |
+| ---- | ------------------- | ------------------------- |
+| 502  | Bad Gateway         | 网关从上游服务器收到无效响应            |
+| 503  | Service Unavailable | 服务当前不可用（过载或维护中）           |
+| 504  | Gateway Timeout     | 网关尝试执行请求时，上游服务器未能在规定时间内响应 |
+
+### 502 Bad Gateway 错误排查
+
+#### 可能原因
+
+1. **后端服务未正常运行**：组件处于异常状态或未启动
+2. **端口配置错误**：暴露的端口与实际服务端口不匹配
+3. **健康检查失败**：组件无法通过网关的健康检查
+
+#### 排查步骤
+
+1. **检查组件运行状态**
+
+2. **验证端口配置**
+  - 进入组件详情页面 → 端口，确认内部和对外服务端口配置正确
+  - 确认容器内的应用确实在监听该端口
+  ```bash
+  # 进入 Web 终端查看端口监听情况
+  netstat -nltp
+  ```
+
+3. **检查服务日志**
+  - 查看组件运行日志，寻找可能的错误信息
+  - 查看 `rbd-gateway` 网关日志
+  ```bash
+  kubectl logs -f -l name=rbd-gateway -n rbd-system -c apisix
+  ```
+
+### 503 Service Unavailable 错误排查
+
+#### 可能原因
+
+1. **服务过载**：组件资源不足或请求量过大
+2. **组件正在部署/更新**：滚动更新过程中可能暂时不可用
+
+#### 排查步骤
+
+1. **检查组件资源使用情况**
+2. **检查组件正在进行的操作**
+  - 查看是否有正在进行的部署、更新操作
+  - 检查滚动更新策略配置
+
+### 504 Gateway Timeout 错误排查
+
+#### 可能原因
+
+1. **请求处理时间过长**：业务逻辑复杂或数据处理耗时
+2. **上游服务超时**：依赖的其他服务响应慢
+3. **网络连接问题**：集群内网络延迟高
+
+#### 排查步骤
+
+1. **检查组件超时设置**
+  - 检查组件内部处理超时设置
+
+2. **定位耗时操作**
+  - 查看应用日志中标记的耗时操作
+  - 使用性能分析工具定位瓶颈
+
+3. **排查网络连接**
+  - 检查网络延迟
+
+### 网关日志分析
+
+网关的日志信息对排查问题至关重要：
+
+```bash
+# 查看 APISIX 网关日志
+kubectl logs -f -l name=rbd-gateway -n rbd-system -c apisix
+```
+
+常见的错误日志模式：
+
+- 对于 502 错误，查找类似 `connection refused` 或 `upstream unavailable` 的日志
+- 对于 503 错误，关注 `circuit breaking` 或 `rate limited` 相关日志
+- 对于 504 错误，查找 `timeout` 相关的信息
