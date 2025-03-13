@@ -31,7 +31,7 @@ Release of Rainbond v5.14.2, also known as the **fumigation**.Beginning with thi
 
 ## “一云多芯”统管Arm & x86集群
 
-顾名思义，[一云多芯](https://www.rainbond.com/docs/localization-guide/multi-arch-installation)的异构集群，指的是在同一个集群中的计算节点中，其 CPU 芯片架构不唯一。
+顾名思义，[一云多芯](https://www.rainbond.com/docs/how-to-guides/localization-guide/multi-arch-installation)的异构集群，指的是在同一个集群中的计算节点中，其 CPU 芯片架构不唯一。
 
 一般情况下，CPU 芯片的架构都是基于 Intel 公司推出的 `X86` 指令集，作为后起之秀的 AMD 也推出完全兼容 `X86` 的 `amd64` 指令集，二者可以视为等同。而在国产化信创场景中，很多国产 CPU 架构都是基于 `Arm` 指令集开发，常见的鲲鹏920、飞腾芯片等都属于该架构类型。为了能够融入国产化信创 IT 生态，Rainbond 自信创版本开始，全面兼容了 `Arm` 架构。
 
