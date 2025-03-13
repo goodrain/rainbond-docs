@@ -67,7 +67,7 @@ pig -- https://gitee.com/log4j/pig
 3. 进入 Mysql 组件 -> 端口，点击端口别名修改为 `MYSQL` 并打开端口的对内服务。
 
 :::info
-以上变量名和变量值可以根据自己的需求进行修改。如果其他组件依赖了 Mysql，依赖中的变量会注入到依赖了 Mysql 组件中，参阅[通信变量注入](/docs/micro-service/service-mesh/connection_env)
+以上变量名和变量值可以根据自己的需求进行修改。如果其他组件依赖了 Mysql，依赖中的变量会注入到依赖了 Mysql 组件中，参阅[通信变量注入](../service-mesh/connection_env.md)
 :::
 
 :::tip

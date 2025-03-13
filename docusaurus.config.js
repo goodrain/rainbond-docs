@@ -315,14 +315,35 @@ const config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
+        redirects: [
+          {
+            to: '/docs/how-to-guides/micro-service-deploy/blade-example',
+            from: '/docs/micro-service/example/blade',
+          },
+          {
+            to: '/docs/how-to-guides/micro-service-deploy/pig-example',
+            from: '/docs/micro-service/example/pig',
+          },
+        ],
         createRedirects(existingPath) {
-          // 配置组件自动构建部署重新 URL
-          if (existingPath.includes('docs/devops/continuous-deploy/auto-build')) {
+          if (existingPath.includes('/docs/how-to-guides/localization-guide')) {
             return [
-              existingPath.replace(
-                'docs/devops/continuous-deploy/auto-build',
-                'docs/use-manual/component-manage/build-source/auto_build',
-              )
+              existingPath.replace( '/docs/how-to-guides/localization-guide', '/docs/localization-guide')
+            ];
+          }
+          if (existingPath.includes('/docs/how-to-guides/delivery')) {
+            return [
+              existingPath.replace('/docs/how-to-guides/delivery', '/docs/delivery')
+            ];
+          }
+          if (existingPath.includes('/docs/how-to-guides/app-ops')) {
+            return [
+              existingPath.replace('/docs/how-to-guides/app-ops', '/docs/use-manual')
+            ];
+          }
+          if (existingPath.includes('/docs/how-to-guides/app-deploy')) {
+            return [
+              existingPath.replace('/docs/how-to-guides/app-deploy', '/docs/devops/app-deploy')
             ];
           }
           return undefined;

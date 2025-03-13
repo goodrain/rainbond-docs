@@ -178,7 +178,7 @@ export default function Partners() {
         id: "partners.pig.description",
         message: "基于Spring Boot 3.0,Spring Cloud Alibaba 的微服务 RBAC 权限管理系统",
       }),
-      deployURL: "/docs/micro-service/example/pig/",
+      deployURL: "/docs/how-to-guides/micro-service-deploy/pig-example",
       tags: "Application"
     },
     {
