@@ -78,7 +78,7 @@ For application delivery in an offline environment based on**, you only need to 
 
 **1. Business deployment**
 
-The whole process starts with the development environment, and we first need to move the business to Rainbond.In the development environment, based on the deployment of your own business, you can support source code or mirroring.Currently taking Spring Cloud microservice framework [Pig ](https://gitee.com/log4j/pig)as an example, deployment reference[Spring Cloud Pig deployment and application production in Rainbond](/docs/micro-service/example/pig/).
+The whole process starts with the development environment, and we first need to move the business to Rainbond.In the development environment, based on the deployment of your own business, you can support source code or mirroring.Currently taking Spring Cloud microservice framework [Pig ](https://gitee.com/log4j/pig)as an example, deployment reference[Spring Cloud Pig deployment and application production in Rainbond](/docs/how-to-guides/micro-service-deploy/pig-example).
 
 **2. Application release**
 

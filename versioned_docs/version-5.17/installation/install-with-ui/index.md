@@ -31,7 +31,7 @@ import Bvideo from '/src/components/Bvideo';
 
 :::tip
 
-该安装方式支持 Linux x86 和 Arm64 操作系统，支持[国产化信创](/docs/localization-guide)。
+该安装方式支持 Linux x86 和 Arm64 操作系统，支持[国产化信创](../../localization-guide/index.md)。
 
 :::
 

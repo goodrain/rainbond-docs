@@ -78,7 +78,7 @@ Rainbond 的应用模版 跟 OAM 的设计思路完全一致，“以应用为�
 
 **1.业务部署**
 
-整个流程始于开发环境，我们首先需要将业务搬迁至 Rainbond 之上。在开发环境基于部署自己的业务，可以支持源代码或是镜像。当前以 Spring Cloud 微服务框架 [Pig ](https://gitee.com/log4j/pig)为例，部署参考[SpringCloud Pig 在 Rainbond 部署及应用制作](/docs/micro-service/example/pig/)。
+整个流程始于开发环境，我们首先需要将业务搬迁至 Rainbond 之上。在开发环境基于部署自己的业务，可以支持源代码或是镜像。当前以 Spring Cloud 微服务框架 [Pig ](https://gitee.com/log4j/pig)为例，部署参考[SpringCloud Pig 在 Rainbond 部署及应用制作](/docs/how-to-guides/micro-service-deploy/pig-example)。
 
 **2.应用发布**
 
