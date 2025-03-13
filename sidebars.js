@@ -63,10 +63,6 @@ const sidebars = {
         {
           type: 'category',
           label: '应用部署',
-          link: {
-            type: 'doc',
-            id: 'how-to-guides/app-deploy/source-code/index'
-          },
           items: [
             {
               type: 'category',
@@ -126,6 +122,7 @@ const sidebars = {
             'how-to-guides/app-ops/app-sidecar',
             'how-to-guides/app-ops/k8s-attribute',
             'how-to-guides/app-ops/environment-manage',
+            'how-to-guides/app-ops/auto-build',
             {
               type: 'category',
               label: '应用商店',

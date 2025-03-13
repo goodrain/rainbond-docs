@@ -324,6 +324,10 @@ const config = {
             to: '/docs/how-to-guides/micro-service-deploy/pig-example',
             from: '/docs/micro-service/example/pig',
           },
+          {
+            to: '/docs/how-to-guides/app-ops/auto-build',
+            from: '/docs/use-manual/component-manage/build-source/auto_build',
+          },
         ],
         createRedirects(existingPath) {
           if (existingPath.includes('/docs/how-to-guides/localization-guide')) {
