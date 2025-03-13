@@ -10,7 +10,7 @@ keywords:
 本文介绍了如何在 Linux 系统上通过图形化界面安装 `Kubernetes`([RKE2](https://docs.rke2.io)) 集群和 `Rainbond` 集群。
 
 :::tip
-This installation supports Linux x86 and Arm64 operating systems,[国产化信创](/docs/localization-guide).
+该安装方式支持 Linux x86 和 Arm64 操作系统，支持[国产化信创](/docs/how-to-guides/localization-guide/intro.md)。
 :::
 
 ## 前提
