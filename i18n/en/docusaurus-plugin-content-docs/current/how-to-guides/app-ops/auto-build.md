@@ -1,55 +1,94 @@
 ---
-title: Auto Deploy
-description: This topic describes the Rainbond automatic deployment component
+title: 自动构建
+description: Rainbond 自动构建功能的完整配置与使用指南
 keywords:
-  - Auto Deploy
-  - Rainbond Auto-Deploy
+  - 自动构建
+  - 持续构建
+  - Webhook
+  - 镜像自动构建
+  - API自动构建
 ---
 
-Automatically build and deploy modern code or mirror to automatically trigger the building and deployment, and Rainbond offers three ways of triggering the automatic deployment of components based on repository Webhooks, mirror repositories Webhooks, and custom API.Automatically build features that can help developers achieve agile development.
+## 概述
 
-## Prerequisite
+自动构建是现代开发流程中的重要环节，能够实现代码或镜像变更后自动触发应用的构建和部署。Rainbond 提供了多种自动构建方式，可以有效提升开发效率，缩短开发周期，帮助团队实现敏捷开发与持续交付。
 
-- The component is created by the source code and supports the repository Webhooks. The currently supported repository is `GitHub` `Gite`.
-- Components are created by mirrors. They support webhooks. Currently they support the Docker official repository, Aliyun mirror repository.
+Rainbond 支持以下几种自动构建方式：
 
-## Mirror repository operation process
+1. [代码仓库自动构建](../app-deploy/gitops.md)：支持 GitHub、GitLab、Gitee 等代码仓库的 Webhook
+2. [镜像仓库自动构建](../app-deploy/image/via-registry-deploy.md)：支持 Docker Hub、阿里云镜像仓库等的 Webhook
+3. API 自动构建：提供 API 接口，支持与第三方 CI/CD 工具集成
 
-Mirror Repository Autobuild enables automatic build after push mirrors, easy to connect to third party automation.Trigger auto build when mirror updates arrive.
+## API 自动构建
 
-- The app was created by a mirror, the repository was `Docker Hub`, version 5.1.2 and later supported the Aliyun mirror repository.
+API 自动构建是最灵活的自动部署方式，可以轻松与各种 CI/CD 工具集成，如 Jenkins、GitLab CI、GitHub Actions 等。
 
-- Whether the default updated mirror name and tag match the current component build source image name (no mirror repository domain name is included when judged), version 5.1.3 and later supports configuration of Tag triggering regular policy, dynamic matching and changing the component image Tag.
+### 配置步骤
 
-### Enable Rainbond Mirror Webhook
+1. 进入组件内 → 构建源 → 开启 API 自动构建
+2. 设置自定义秘钥，秘钥用于验证 API 调用的合法性，请设置复杂且安全的值
+3. 保存配置
 
-Enable automatic build of the mirror repository Webhook, **Component -> Build Source -> Enable AutoBuild**.
+### API 使用方式
 
-**Tag triggers auto modification**
-
-The mirror name and Tag of the Webhook update event by default must match the mirror name and Tag configuration of the component build source to trigger building and deployment.Once the Tag trigger policy has been configured, according to the configured regular expression, this update is valid if the image tag of the received push event can match the regular expression correctly, based on updated Tag information to upgrade the build source of the current component and build automatically.
-
-For example, setting up Tag policies for： `v5.*` when a tag is `v5.1` `v5.2` `v5.9` etc. will be allowed.
-
-### Configure DockerHub Mirror Repository
-
-Go to DockerHub repository -> Webhooks
-
-| New Webhook  | Note                               |
-| ------------ | ---------------------------------- |
-| Webhook name | Custom                             |
-| Webhook URL  | Copy Webhook address from Rainbond |
-
-## API triggers auto-build
-
-Use the API to automatically build back URL,POST method to call the API, use the secret keys to trigger the API auto-build. Key can be customized.
-
-Go to **Component -> Building Source -> Enable Auto-Build -> Custom API**.
-
-**API usage below：**
+使用 curl 命令调用 API 触发自动构建：
 
 ```bash
 curl -d {"secret_key":"<Secret >"}' -H "Content-type: application/json" -X POST <API地址>
 ```
 
-Automatically build based on the API trigger is one of the most flexible ways to integrate with the third party CI system.
+### 与 CI/CD 系统集成
+
+#### Jenkins 集成示例
+
+在 Jenkins Pipeline 中添加以下脚本：
+
+```groovy
+stage('Trigger Rainbond Build') {
+    steps {
+        sh '''
+        curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+        '''
+    }
+}
+```
+
+#### GitLab CI 集成示例
+
+在 `.gitlab-ci.yml` 文件中添加：
+
+```yaml
+deploy:
+  stage: deploy
+  script:
+    - curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+```
+
+#### GitHub Actions 集成示例
+
+在 GitHub Actions 工作流文件中添加：
+
+```yaml
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Rainbond Build
+        run: curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+```
+
+## 常见问题
+
+### API 自动构建失败
+
+**可能原因**：
+
+- 秘钥不匹配
+- API 调用格式错误
+- API 地址错误
+
+**解决方案**：
+
+- 确认使用的秘钥与配置的秘钥一致
+- 检查 API 调用的 JSON 格式是否正确
+- 验证 API 地址是否完整且正确
