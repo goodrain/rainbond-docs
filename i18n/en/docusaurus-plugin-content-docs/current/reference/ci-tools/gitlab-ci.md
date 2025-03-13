@@ -1,0 +1,169 @@
+---
+title: GitLab CI is used
+description: Deploy applications in Rainbond using GitLab CI
+keywords:
+  - GitLab CI
+  - GitLab Runner
+---
+
+Students with GitLab are certainly not new to GitLab CI/CD and GitLab CI/CD is an internalized tool in GitLab that helps us to build, test and validate code changes and deploy every time the code is pushed up.
+
+Rainbond itself integrates CI/CD processes by default. Users only need to provide source code, then build and run completely to Rainbond handling. The process is defined by Rainbond without user intervention.This has both the advantage and the disadvantage of simplifying users' actions and not learning about CI/CD related knowledge; the disadvantage is that users cannot customize their CI/CD process, such as if they want to integrate codes to detect or run a script, which cannot be customized in Rainbond source building processes.
+
+This paper tells you how to build, test, deploy Spring Boot app using GitLab CI/CD to run the product on Rainbon.
+
+## GitLab CI Introduction
+
+Use GitLab CI to create `.gitlab-ci.yml` in the repository root directory.In this document, you can define the compilation, testing, and deployment scripts that need to be running.
+
+After adding the `.gitlab-ci.yml` file, GitLab Runner automatically executes your defined Pipeline and shows CI process and results on the GitLab CI page.
+
+GitLab CI is based on：
+
+1. Developer Push Code
+2. Trigger GitLab CI Launch
+3. runner executes predefined script
+
+![](https://static.goodrain.com/wechat/gitlabci/1.png)
+
+## GitLab CI/CD Quick Start
+
+### Deployment of GitLab and Runner
+
+Deploy GitLab and Runner with an open source store at one key, add -> Create Component -> Search `GitLab` in an Open Source Store and then install GitLab and Runner to the specified app.
+
+![](https://static.goodrain.com/wechat/gitlabci/2.png)
+
+### Configure Runner on Rainbond
+
+Prior to Rainbond v5.8, Rainbond did not support unner type components very well.Because Runner runs in the form of a container, it itself needs to load the host's docker.sock file so that it can manage the host's docker environment and create a container to perform tasks.You can customize Volumes and mount local docker.sock in version 5.8 that supports modifying the component YAML.
+
+When Runner is installed through the App Store, Kubernetes properties can be seen in Runner component -> Other Settings. Rainbond application models are compatible with Kubernetes properties.
+
+**Register Runner to GitLab ：**
+
+1. Enter sorting mode to connect runner to GitLab and update runner components.(Select 80 ports if GitLab is not enabled for internal ports)
+
+2. Access GitLab, Menu -> Admin -> Overview -> Runners -> Register an instance runner -> Copy Registration token.
+
+3. Enter the runner component, click the top right top web terminal to enter, execute the following command to register,\`<token>to change the previous copy of the registration token.
+
+```shell
+gitlab-runner register \
+  --non-interactive \
+  --executor "docker" \
+  --docker-image alpine:latest \
+  --url "http://127.0.0.1" \
+  --registration-token "NxNuoRXuzYy3GnFbkhtK" \
+  --description "docker-runner" \
+  --tag-list "newdocker" \
+  --run-untagged="true" \
+  --locked="false" \
+  --docker-volumes /var/run/docker.sock:/var/run/docker.sock \
+  --docker-privileged="true" \
+  --access-level="not_protected"
+```
+
+**Parameter descriptions**
+
+| Parameter            | Value                                                                             | Descripbe                                |
+| -------------------- | --------------------------------------------------------------------------------- | ---------------------------------------- |
+| --executor           | docker                                                                            | Executor type is docker. |
+| --url                | http:///127.0.0.1 | GitLab addr                              |
+| --registration-token | `token`                                                                           | GitLab token                             |
+| --tag-list           | newdocker                                                                         | Define the label/name of runner          |
+| --locked             | false                                                                             | runner is enabled                        |
+| --run-untagged       | true                                                                              | Run Job without specified tag            |
+| --docker-volumes     | file_path                                                    | Mount file to runner                     |
+| --docker-privileged  | true                                                                              | runner mode：privileges mode              |
+
+4. Online runner can be seen on the GitLab page when registration is completed
+
+![](https://static.goodrain.com/wechat/gitlabci/3.png)
+
+### GitLab CI/CD To Rainbond
+
+![](https://static.goodrain.com/wechat/gitlabci/4.png)
+
+The entire process can be split into：
+
+1. Developer submit code to the GitLab repository.
+2. Triggers GitLab Waterline Creation, Runner executes the stages defined by `.gitlab-ci.yml`
+3. Push created mirrors to an existing mirror warehouse for subsequent Deemployee processes.
+4. By customizing the API method in Rainbond, triggers the automatic construction of the platform component and moves into the Deployment.
+
+### Practical steps
+
+**Prerequisite：**
+
+- Rainbond Environment Existing
+- Preparing mirror repository, DockerHub for this paper
+- The code item used here is [Java-Maven-Demo](https://gitee.com/rainbond/java-maven-demo)
+
+**1. has already deployed a mirror-based component on Rainbon**
+
+**2. Import sample code into GitLab.**
+
+**3. Write .gitlab-ci.yml file：**
+
+Create `.gitlab-ci.yml` on the root of the project as follows:
+
+```yaml
+# 定义 job 的执行顺序
+stages:
+  - test
+  - package
+  - push
+# 定义基础镜像
+image: maven:3.6.3-jdk-8
+job-test:
+  stage: test
+  tags: 
+    - newdocker
+  script:
+    - echo "===============开始执行代码测试任务==============="
+    - mvn test
+job-package:
+  stage: package
+  tags: 
+    - newdocker
+  script:
+    - echo "===============开始执行打包任务==============="
+    - ls
+    - mvn clean package
+    - cp Dockerfile target/Dockerfile
+  cache:
+    key: devops
+    paths:
+      - target/ 
+job-push:
+  stage: push
+  image: docker:dind
+  cache:
+    key: devops
+    paths:
+      - target/
+  tags:
+    - newdocker
+  script:
+    - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
+    - docker build -t ${IMAGE_DOMAIN}/java-maven:latest .
+    - docker push ${IMAGE_DOMAIN}/java-maven:latest
+  after_script:  
+    - curl -d '{"secret_key":"${RAINBOND_SECRET}"}' -H "Content-type:application/json" -X POST http://${RAINBOND_IP}:7070/console/custom/deploy/3321861bcadf0789af71898f23e8e740
+```
+
+`after_script` is executed after the delivery of the mirror, building components through the Rainbond API and Rainbond will get the latest mirror building running.详情可参阅文档 [配置组件自动构建部署](/docs/devops/continuous-deploy/auto-build)
+
+**4. Submit code test automatically build** ,
+
+Modify code and submit it, after submission you can see the details of the tasks that are being performed and that have been done in your project CI/CD -> Jobs.
+
+![](https://static.goodrain.com/wechat/gitlabci/5.png)
+
+**5. View Rainbond component build**
+
+Auto-build information can be seen in the operation history of the component.
+
+![](https://static.goodrain.com/wechat/gitlabci/6.png)
+
