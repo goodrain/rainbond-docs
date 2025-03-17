@@ -57,53 +57,6 @@ spec:
 
 可通过 `kubectl get rbdcomponent -n rbd-system` 查看所有组件。
 
-## BuildKit 源码构建配置
-
-默认采用 [BuildKit](https://github.com/moby/buildkit) 作为源码构建镜像打包工具。
-
-BuildKit 配置文件名称默认为 `goodrain-me`，如在安装时指定了镜像仓库名称，则配置文件名称为镜像仓库名称，如 `registry-cn-hangzhou-aliyuncs-com`。
-
-### DockerHub 镜像加速
-
-Dockerfile 源码构建引用 DockerHub 镜像获取超时，修改 BuildKit 配置镜像加速。
-
-```yaml title="kubectl edit cm goodrain-me -n rbd-system"
-apiVersion: v1
-data:
-  buildkittoml: |-
-    debug = true
-    [registry."goodrain.me"]
-      http = false
-      insecure = true
-+   [registry."docker.io"]
-+     mirrors = ["docker.rainbond.cc"]
-kind: ConfigMap
-metadata:
-  name: goodrain.me
-  namespace: rbd-system
-```
-
-### 源码构建报错 x509: certificate signed by unknown authority
-
-安装时对接了私有仓库是 HTTP 协议，源码构建时拉取镜像报错 `x509: certificate signed by unknown authority`，需修改 BuildKit 配置文件。
-
-```yaml title="kubectl edit cm goodrain-me -n rbd-system"
-apiVersion: v1
-data:
-  buildkittoml: |-
-    debug = true
-    [registry."goodrain.me"]
-      http = false
-      insecure = true
-+   [registry."xxx.xxx.xxx.xxx:5000"]
-+     http = true
-+     insecure = true
-kind: ConfigMap
-metadata:
-  name: goodrain.me
-  namespace: rbd-system
-```
-
 ## 存储空间清理
 
 通常来说，Rainbond 本身的组件不会占用太多存储空间，但是当服务器存储空间不足时，会导致 K8s 异常，进而导致 Rainbond 异常。
@@ -136,10 +89,6 @@ Rainbond 组件存储说明：
   capabilities = ["pull", "resolve","push"]
   skip_verify = true
 ```
-
-## Web 终端无法使用
-
-Web 终端无法使用，通常是因为 `WebSocket` 地址配置错误导致的。你可以在 `平台管理 -> 集群 -> 编辑集群` 修改 `WebSocket` 地址。
 
 ## 默认镜像仓库切换外部镜像仓库
 
@@ -219,10 +168,6 @@ kubectl delete pod -l name=rbd-chaos -n rbd-system
 ## 快速安装添加更多 TCP 端口
 
 快速安装的 Rainbond 默认使用 Docker 启动，并默认映射了 `30000～30010` 10个 TCP 端口供应用测试使用。如果你需要更多的 TCP 端口，通过脚本中打印的命令，删除容器重新启动并添加 `-p` 映射新的端口。
-
-## 无法上传离线包、软件包、Jar、WAR、ZIP等
-
-通常是因为本地浏览器与 Rainbond WebSocket 通信失败导致的。你可以在 `平台管理 -> 集群 -> 编辑集群` 修改 `WebSocket` 地址。
 
 ## 使用域名访问 Rainbond
 
