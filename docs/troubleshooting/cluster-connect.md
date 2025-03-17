@@ -112,3 +112,47 @@ kubectl delete pod -l name=rbd-api -n rbd-system
 ```
 
 operator 重启后，会重新生成集群端的证书，再次通过 `kubectl get cm -n rbd-system region-config` 获取集群信息并复制到集群控制台中即可。
+
+## 2. 获取节点列表失败
+
+出现该问题说明 Kubernetes 集群的节点 Labels 不匹配，导致控制台无法获取节点列表，默认通过 `node-role.kubernetes.io/worker=true node-role.kubernetes.io/master=true` 标签来区分节点角色，查看节点标签是否正确：
+  
+```bash
+kubectl get nodes --show-labels
+```
+
+如果不存在该标签，可以通过以下命令添加：
+
+```bash
+kubectl label nodes <node-name> node-role.kubernetes.io/worker=true
+```
+
+## 3. 平台组件故障
+
+平台管理首页出现组件故障，例如：`rbd-chaos` 组件出现故障，出现该问题有以下几种可能：
+
+1. 监控数据收集的不及时，导致数据不正确，从而出现组件故障原因。
+2. 组件的确出现故障，可以通过查看组件日志排查问题。
+```bash
+# 查看组件状态是否为 running
+kubectl get pod -n rbd-system
+
+# 查看组件日志
+kubectl logs -fl name=rbd-chaos -n rbd-system
+```
+3. 组件正常工作，但组件故障的告警一直出现，可以通过以下重启组件解决：
+```bash
+kubectl delete pod -l name=rbd-chaos -n rbd-system
+```
+
+## 4. 磁盘空间超80%节点处于驱逐状态
+
+当磁盘根分区空间超过 80% 时，Kubernetes 会自动进入驱逐状态，所有的 Pod 都会被驱逐，届时 Rainbond 将无法正常工作，需要清理磁盘空间。
+
+清理 Docker 不再使用的资源：
+
+```bash
+docker system prune
+```
+
+清理 Rainbond 镜像仓库存储的镜像，如果你采用的是 Rainbond 默认提供的镜像仓库，可参阅 [清理 rbd-hub 镜像](https://t.goodrain.com/d/21-rbd-hub)。

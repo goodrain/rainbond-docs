@@ -12,6 +12,13 @@ Rainbond 在各种环境下的安装过程中，可能会遇到各种问题，�
 
 ## 1. 快速安装故障排查
 
+```mermaid
+flowchart LR
+    A[启动Docker容器] --> B[启动 K3s]
+    B --> C[启动 Rainbond]
+    C --> D[完成]
+```
+
 **Rainbond 快速安装版本**是将所有的服务都运行在一个容器中，方便用户快速使用。在 [Docker 容器中运行 K3s](https://docs.k3s.io/advanced#running-k3s-in-docker)，所有的故障排查操作都在 `rainbond` 容器中进行。
 
 ### 排查思路
