@@ -89,3 +89,41 @@ Pod 处于Pending 、CrashLoopBackOff 、Evicted 、ImagePullBackOff等状态
 - **Evicted:** Evicted 状态意味着当前 Pod 遭到了调度系统的驱逐，触发驱逐的原因可能包括根分区磁盘占用率过高、容器运行时数据分区磁盘占用率过高等，根据经验，上述原因最为常见，需要进行磁盘空间清理解除驱逐状态。可以通过执行命令 `kubectl describe node` ，观察返回中的 `Conditions` 段落输出来确定当前节点的状态。
 
 - **ImagePullBackOff:** ImagePullBackOff 状态意味着 Pod 镜像下载失败退出，通常是因为镜像过大或者网络差引起的，通过命令 `kubectl describe pod xxx -n rbd-system` 观察事件详情，进一步进行排查。
+
+## 3. 基于主机安装故障排查
+
+```mermaid
+flowchart LR
+    A[基于主机安装] -->|执行命令| B[安装 K8S]
+    B --> |填写安装基础信息| C[安装 Rainbond]
+    C --> |对接集群| D[完成]
+```
+
+### 安装 K8S 阶段
+
+这个阶段 Rainbond 会提供一条命令用于安装 K8S 集群，实际上安装的过程都是在本地执行的。正常情况下，执行命令后，会自动安装 K8S 集群，直至在页面中查看节点为 `Ready` 状态即可进行下一步操作。
+
+#### 排查思路
+
+在目标服务器中执行安装命令后，会自动注册到 Rainbond 集群中，此时会处于 `registering` 状态。如果长时间处于 `registering` 状态，请检查以下问题：
+
+1. 首先检查 K8S 集群是否安装成功，通过以下命令查看节点状态。
+    ```bash
+    export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+    /var/lib/rancher/rke2/bin/kubectl get nodes
+    ```
+    - 如果执行命令后，没有返回任何信息，请通过 `journalctl -u rke2-server` 或 `journalctl -u rke2-agent` 查看日志信息。
+    - 如果执行命令后，节点状态为 `NotReady` 状态，请检查 `kubectl get pod -n kube-system` 命令的输出信息，查看 `kube-proxy` 、`coredns` 、`metrics-server` 等 Pod 是否处于 `Running` 状态。
+
+2. 检查 Rainbond 控制台的网络是否可以连接到目标服务器的 6443 端口，默认情况下会通过 `https://<内网IP>:6443` 连接（如填写了外网 IP 会通过 `https://<外网IP>:6443` 连接）。
+
+### 安装 Rainbond 阶段
+
+#### 常见问题
+
+1. rbd-gateway 无法启动，通常是因为 `rbd-gateway` 有端口被占用，可以通过以下命令查看 `rbd-gateway` 的日志。
+
+```bash
+kubectl logs -f -n rbd-system -l name=rbd-gateway -c apisix
+```
+
