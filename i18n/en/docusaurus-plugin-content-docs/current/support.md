@@ -31,10 +31,6 @@ You can search for the group number `31096419` in DingTalk to join the Rainbond 
 - 31096419 (full)
 - 30885018060
 
-## Slack Channel
-
-You can join by clicking the link [Rainbond Slack Channel](https://join.slack.com/t/rainbond-slack/shared_invite/zt-1ft4g75pg-KJ0h_IAtvG9DMgeE_BNjZQ).
-
 ## Community Forum
 
 You can search for your question in the [Rainbond Community](https://t.goodrain.com/) or ask a new question, please check the [Community Specification](https://t.goodrain.com/d/2-rainbond)before asking a new question.
