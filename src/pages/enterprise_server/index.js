@@ -63,20 +63,11 @@ export default function Index() {
                   marginBottom: '12px'
                 }}
               >
-                <h1>服务订阅</h1>
+                <h1>Rainbond Cloud</h1>
               </div>
               <div className={styles.type_sort_details}>
-                <div
-                  className={styles.type_sort_enterprise}
-                  style={{ visibility: 'hidden' }}
-                >
-                  <a
-                    href='http://www.rainbond.com'
-                    target='_blank'
-                    style={{ color: '#f1aa4c' }}
-                  >
-                    了解解决方案
-                  </a>
+                <div className={styles.type_sort_cloud}>
+                  按需计量计费，用多少付多少
                 </div>
                 <ul
                   className={styles.cloud}
@@ -86,33 +77,29 @@ export default function Index() {
                     margin: '40px 0px'
                   }}
                 >
-                  <li>企业级功能按年提供服务</li>
-                  <li>部署到客户指定运行环境</li>
-                  <li>根据使用规模按需付费，高性价比</li>
-                  <li>一对一专业工程师提供服务
-                    <span style={{ color: '#c9c9c9' }}>
-                    （效果达成/故障协查/bug修复/平台运维/软件升级）
-                    </span>
-                  </li>
+                  <li>企业级护航 SLA 99.95% 可用性承诺</li>
+                  <li>提供商业版产品技术服务</li>
+                  <li>享企业级功能</li>
+                  <li>根据业务实际使用量，分钟级按需付费</li>
                 </ul>
               </div>
               {/* 按钮 */}
               <div>
                 <a
-                  className={`${styles.btns} ${styles.enterprise}`}
-                  href='https://rainbond.feishu.cn/share/base/shrcnvP5VXbLaTb3n7B7YMZweRb'
+                  className={`${styles.btns} ${styles.cloud}`}
+                  href='https://run.rainbond.com'
                   target='_blank'
                 >
-                  商业咨询
+                  开始使用
                 </a>
-                <a
+                {/* <a
                   style={{marginLeft:'160px'}}
                   className={`${styles.btns} ${styles.cloud}`}
                   href='https://rainbond.feishu.cn/share/base/form/shrcngJKwbek0nbP1bBIcFA5g6d'
                   target='_blank'
                 >
-                  预约演示
-                </a>
+                  价格计算器
+                </a> */}
               </div>
             </div>
                         {/* 企业版 */}
@@ -143,9 +130,12 @@ export default function Index() {
                   </li>
                   <li>提供商业版产品技术服务</li>
                   <li>产品故障支持最高响应级别 7*24</li>
+                  <li>企业级功能按年提供服务</li>
+                  <li>部署到客户指定运行环境</li>
+                  <li>根据使用规模按需付费，高性价比</li>
                   <li>
                     专业技术支持团队
-                    <span style={{ color: '#c9c9c9' }}>
+                    <span style={{ color: '#737373' }}>
                       （规划/实施/故障协查/bug修复/运维/软件升级/重要时期保障)
                     </span>
                   </li>
@@ -179,7 +169,7 @@ export default function Index() {
               <div className={styles.contrast_desc_title}>
                 <span></span>
                 <span>社区版</span>
-                <span>服务订阅</span>
+                <span>Rainbond Cloud</span>
                 <span>企业版</span>
               </div>
               {/* 详细功能差异 */}

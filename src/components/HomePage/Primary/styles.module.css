@@ -78,13 +78,13 @@
 .buttonRight {
   margin-right: 10px;
   border-radius: 30px;
-  background-color: #19AABD;
+  background-color: #b3b5bb;
   height: 55px;
   width: 210px;
   font-size: 16px;
 }
 .buttonRight:hover {
-  background-color: #19AABD !important;
+  background-color: #b3b5bb !important;
   box-shadow: 0 16px 32px 0 rgba(48, 55, 66, 0.15);
 }
 
@@ -148,4 +148,37 @@
   line-height: 30px;
   margin-left: 30px;
   font-weight: 500;
+}
+
+.pricing {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.pricing_label {
+  color: #6366F1;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.pricing_title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #1F2937;
+}
+
+.pricing_description {
+  font-size: 20px;
+  color: #6B7280;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.billing_toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48px;
 }

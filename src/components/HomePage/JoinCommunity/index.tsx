@@ -66,27 +66,6 @@ export default function JoinCommunity() {
                     <Wechat />
                   </span>
                 </OverlayTrigger>
-                <OverlayTrigger placement="bottom" overlay={
-                  <div className="card">
-                    <div className="card__body">
-                      搜索钉钉群号加入 Rainbond 社区交流群
-                      <ul>
-                        <li><b>31096419（满）</b></li>
-                        <li><b>30885018060</b></li>
-                      </ul>
-                    </div>
-                  </div>
-                }>
-                  <span className={styles.icon}>
-                    <Dingtalk />
-                  </span>
-                </OverlayTrigger>
-                <Link to="https://join.slack.com/t/rainbond-slack/shared_invite/zt-1ft4g75pg-KJ0h_IAtvG9DMgeE_BNjZQ" className={styles.icon}>
-                  <Slack />
-                </Link>
-                <Link to="https://t.goodrain.com">
-                  <Forum />
-                </Link>
               </div>
             </div>
           </div>
