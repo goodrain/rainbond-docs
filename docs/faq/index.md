@@ -173,12 +173,17 @@ kubectl delete pod -l name=rbd-chaos -n rbd-system
 4. 切换到更多设置Tab页，添加健康检测。
 5. 进入应用视图的网关管理，添加域名绑定到该组件，并添加证书，完成域名访问配置。（证书无需手动绑定，自动匹配）
 
-## 快速安装或主机安装配置外部 HTTP 私有镜像仓库
+## 快速安装或主机安装配置外部 HTTP 私有镜像仓库或 DockerHub 镜像加速
 
-如你需要使用外部的 HTTP 私有镜像仓库，请按照以下步骤进行配置：
+如你需要使用外部的 HTTP 私有镜像仓库或 DockerHub 镜像加速，请按照以下步骤进行配置：
 
-- **快速安装**：Rainbond 快速安装内置了 K3S 集群，你需要进入容器内修改配置文件，具体请参阅 K3S [私有镜像仓库配置](https://docs.k3s.io/installation/private-registry)文档。
-- **主机安装**：Rainbond 主机安装采用的是 RKE2 集群，请参阅 RKE2 [私有镜像仓库配置](https://docs.rke2.io/install/private_registry)文档。
+**快速安装**：
+- Rainbond 快速安装内置了 K3S 集群，你需要进入容器内修改 `/etc/rancher/k3s/registries.yaml` 配置文件，具体请参阅 [K3S镜像仓库配置](https://docs.k3s.io/installation/private-registry)文档。
+- 需重启容器才会生效，重启命令：`docker restart rainbond`
+
+**主机安装**：
+- Rainbond 主机安装采用的是 RKE2 集群，你需要修改 `/etc/rancher/rke2/registries.yaml` 配置文件，具体请参阅 [RKE2镜像仓库配置](https://docs.rke2.io/install/private_registry)文档。
+- 需重启 RKE2 集群才会生效，重启命令：`systemctl restart rke2-server/rke2-agent`
 
 ## 扩展 TCP/NodePort 端口范围
 
