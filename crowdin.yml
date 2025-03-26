@@ -10,7 +10,6 @@ files:
       - "/docs/api/**/*"    # 忽略 api 目录下的所有文件
       - "/docs/faq/**/*"    # 忽略 api 目录下的所有文件
       - "/docs/how-to-guides/**/*"    # 忽略 api 目录下的所有文件
-      - "/docs/installation/**/*"    # 忽略 api 目录下的所有文件
       - "/docs/reference/**/*"    # 忽略 api 目录下的所有文件
       - "/docs/store/**/*"    # 忽略 api 目录下的所有文件
       - "/docs/troubleshooting/**/*"    # 忽略 api 目录下的所有文件

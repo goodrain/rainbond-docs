@@ -75,7 +75,6 @@ flowchart BT
         ```yaml
         # Example command (actual command is subject to the console display)
         curl -sfL http://<ConsoleIP>:7070/install-cluster.sh | sh -s - --rbd-url http://<ConsoleIP>:7070  --etcd --control-plane --worker --token <TOKEN> --mirror cn
-        ```
     4. Wait for the K8S node initialization to complete, and the status changes to **Ready**.
     5. Fill in the configuration information for installing Rainbond:
         - **Cluster Entry IP**: Generally the internal or external IP of the gateway node.
