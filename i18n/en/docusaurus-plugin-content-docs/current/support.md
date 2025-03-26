@@ -1,45 +1,45 @@
 ---
-title: 社区支持
-description: Rainbond 社区支持
+title: Community Support
+description: Rainbond Community Support
 keywords:
-  - Rainbond 社区支持
+  - Rainbond Community Support
 ---
 
-## 社区支持
+## Community Support
 
-本页将列出一些 Rainbond 相关的社区供你加入。
+This page lists some Rainbond-related communities for you to join.
 
-在参与 Rainbond 社区交流前，[请先阅读我们的行为守则](https://github.com/goodrain/rainbond/blob/main/CODE_OF_CONDUCT.md)。期望所有社区成员都遵守该准则。
+Before participating in Rainbond community discussions, [please read our Code of Conduct](https://github.com/goodrain/rainbond/blob/main/CODE_OF_CONDUCT.md).All community members are expected to adhere to this code.
 
-## 微信群
+## WeChat Group
 
-你可以在 Rainbond 微信技术交流群中获得社区支持，由社区成员或社区用户帮助你解决问题。
+You can get community support in the Rainbond WeChat technical exchange group, where community members or users help you solve problems.
 
-- 请添加 Rainbond 小助手微信号，备注 【姓名-公司-城市】，由小助手邀请你加入 Rainbond 技术交流群。
+- Please add the Rainbond assistant WeChat account, note [Name-Company-City], and the assistant will invite you to join the Rainbond technical exchange group.
 
-- 关注 Rainbond 微信公众号，了解更多用户案例、最佳实践等，了解第一手干货。
+- Follow the Rainbond WeChat public account to learn more about user cases, best practices, etc., and get first-hand information.
 
 <div>
   <img src="/wechat/wechat.png" width="20%"/>
   <img src="/wechat/wechat-public.jpg" width="20%"/>
 </div>
 
-## 钉钉群
+## DingTalk Group
 
-你可以在钉钉中搜索群号加入 Rainbond 钉钉技术交流群。
+You can search for the group number in DingTalk to join the Rainbond DingTalk technical exchange group.
 
-- 31096419（满）
+- 31096419 (full)
 - 30885018060
 
-## 社区论坛
+## Community Forum
 
-你可以在 [Rainbond 社区论坛](https://t.goodrain.com/) 中搜索你的问题，也可以提出新问题，在提出新问题之前请查看 [社区规范](https://t.goodrain.com/d/2-rainbond)。
+You can search for your question in the [Rainbond Community Forum](https://t.goodrain.com/), or ask a new question. Before asking a new question, please check the [Community Guidelines](https://t.goodrain.com/d/2-rainbond).
 
-Rainbond 社区论坛由 Rainbond 社区成员或社区用户解答你的帖子问题。
+Your post questions in the Rainbond Community Forum will be answered by Rainbond community members or users.
 
 ## Github issues
 
-[Rainbond 社区论坛](https://t.goodrain.com/) 和 [Github issues](https://github.com/goodrain/rainbond/issues) 你都可以搜索你的问题或提出新的问题。
+You can search for your question or ask a new question in both the [Rainbond Community Forum](https://t.goodrain.com/) and [Github issues](https://github.com/goodrain/rainbond/issues).
 
 
 

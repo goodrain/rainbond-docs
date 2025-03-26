@@ -1,110 +1,112 @@
 ---
-title: 快速部署源码和 MySQL
-description: 逐步指导通过 Rainbond 快速部署 Java Maven 服务和 MySQL 数据库，实现服务间高效通信
+title: Quickly deploy source code and MySQL
+description: Step-by-step guide to quickly deploy Java Maven services and MySQL database through Rainbond, achieving efficient communication between services
 keywords:
-  - Rainbond 部署教程
-  - Java Maven 部署
-  - MySQL 数据库安装
+  - Rainbond Deployment Tutorial
+  - Java Maven Deployment
+  - MySQL Database Installation
 ---
 
-本教程将演示 Rainbond 的部分核心能力：
+This tutorial will demonstrate some of the core capabilities of Rainbond:
 
-- **源码构建**：自动识别 Java Maven 语言，完成从源码到运行的自动化部署。
-- **应用市场生态**：一键安装标准化中间件，实现生产级可用性。
-- **组件的拼装**：可视化建立服务依赖，自动注入环境变量与连接信息。
+- **Source Code Build**: Automatically recognize Java Maven language, complete automated deployment from source code to operation.
+- **Application Market Ecosystem**: One-click installation of standardized middleware to achieve production-level availability.
+- **Component Assembly**: Visually establish service dependencies, automatically inject environment variables and connection information.
 
-## 前提
+## Prerequisites
 
-- 已完成 [Rainbond 快速安装](/docs/quick-start/quick-install)。
+- Completed [Rainbond Quick Installation](/docs/quick-start/quick-install).
 
-## 一、通过源代码部署 Java Maven 服务
+## 1. Deploy Java Maven Service via Source Code
 
-### 🚀 亮点
+### 🚀 Highlights
 
-- **零配置构建**：自动识别`pom.xml`文件，完成依赖下载->编译打包->容器化构建全流程
-- **多环境适配**：自动检测ARM/x86架构，匹配对应基础镜像
+- **Zero Configuration Build**: Automatically recognize `pom.xml` file, complete the entire process from dependency download->compile and package->containerized build
+- **Multi-Environment Adaptation**: Automatically detect ARM/x86 architecture, match the corresponding base image
 
-### 🧩 操作流程
+### 🧩 Operation Process
 
-1. **创建应用和组件**
-    1. 进入目标团队视图 ➡️ 创建新应用。
-    2. 选择从源码构建 ➡️ 源码。
-        - 自定义应用名称。
-        - 仓库地址：`https://gitee.com/rainbond/java-maven-demo.git`。
-        - 分支：`master`。
+1. **Create Application and Component**
+    1. Enter the target team view ➡️ Create a new application.
+    2. Select to build from source code ➡️ Source code.
+        - Customize the application name.
+        - Repository address: `https://gitee.com/rainbond/java-maven-demo.git`.
+        - Branch: `master`.
 
 ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/team.png)
 
-2. **智能解析过程**
-    - 根据项目文件自动解析对应的语言类型，如项目内存在 `pom.xml` 文件，自动判断为 `Java-Maven`。
-    - 自动根据 `pom.xml` 文件解析 Maven 构建命令。
+2. **Intelligent Parsing Process**
+    - Automatically parse the corresponding language type based on the project files, such as if there is a `pom.xml` file in the project, automatically determine it as `Java-Maven`.
+    - Automatically parse the Maven build command based on the `pom.xml` file.
 
 ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source.png)
 
-3. **部署监控**
-    - 在组件的总览 ➡️ 操作记录中查看源码构建实时日志。
-        builder: [INFO] BUILD SUCCESS # 源码编译完成
-        pushing manifest for goodrain.me/xxx done # 镜像构建完成
-    - 验证运行状态（绿色）
-4. **访问验证**
-    - 自动生成访问域名规则，`<组件ID>-<端口>-<NS>-<集群根域名>`，如：`gr6f8fd7-5000-default-192.168.1.11.nip.io`。
-    - 组件  ➡️ 端口视图，使用自动生成的**域名**访问示例页面。
+3. **Deployment Monitoring**
+    - View real-time logs of source code build in the component's overview ➡️ Operation records.
+        builder: [INFO] BUILD SUCCESS # Source code compilation completed
+        pushing manifest for goodrain.me/xxx done # Image build completed
+    - Verify running status (green)
+4. **Access Verification**
+    - Automatically generate access domain name rules, `<componentID>-<port>-<NS>-<cluster root domain>`, such as: `gr6f8fd7-5000-default-192.168.1.11.nip.io`.
+    - Component ➡️ Port view, use the automatically generated **domain name** to access the sample page.
 
 ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/access.png)
 
-## 二、通过应用市场安装 MySQL 服务
+## 2. Install MySQL Service via Application Market
 
-### 🚀 亮点
+### 🚀 Highlights
 
-- **开箱即用**：预配置资源限制、持久化存储、健康检查等生产级参数。
-- **国产化适配**：自动选择与当前集群架构匹配的 MySQL 镜像（ARM/x86）。
+- **Out-of-the-Box Use**: Pre-configured resource limits, persistent storage, health checks, and other production-level parameters.
+- **Localization Adaptation**: Automatically select the MySQL image that matches the current cluster architecture (ARM/x86).
 
-### 🧩 操作流程
+### 🧩 Operation Process
 
 ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/store.png)
 
-1. **安装中间件**
-    1. 添加组件 ➡️ 选择外部应用市场。
-    2. 搜索 MySQL 并安装 8.0 版本。
+1. **Install Middleware**
+    1. Add component ➡️ Select external application market.
+    2. Search for MySQL and install version 8.0.
 
 ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/install-mysql.png)
 
-2. **智能配置说明**
-    - 自动创建 PVC 并挂载到 `/var/lib/mysql`。
-    - 自动生成 root 密码并存入组件连接信息。
-3. **状态检查**
-    - 组件状态为绿色则代表部署成功。
-4. **访问管理**
-    - 组件 ➡️ 端口视图，启用**对外服务**开关。
-    - 自动生成访问策略，点击查看 MySQL 连接信息，如地址、账号密码等。
+2. **Intelligent Configuration Instructions**
+    - Automatically create PVC and mount it to `/var/lib/mysql`.
+    - Automatically generate root password and store it in component connection information.
+3. **Status Check**
+    - If the component status is green, it means the deployment is successful.
+4. **Access Management**
+    - Component ➡️ Port view, enable the **external service** switch.
+    - Automatically generate access policies, click to view MySQL connection information, such as address, account password, etc.
 
-## 三、建立服务间的通信
+## 3) Establish Communication Between Services
 
-### 🚀 亮点
+### 🚀 Highlights
 
-- **自动注入环境变量**：动态注入环境变量，实现服务间的动态解析。
-- **服务间通信**：自动创建内部服务域名，实现内部服务使用域名访问。
+- **Automatic Injection of Environment Variables**: Dynamically inject environment variables to achieve dynamic resolution between services.
+- **Inter-Service Communication**: Automatically create internal service domain names to achieve internal service access using domain names.
 
-### 🧩 操作流程
+### 🧩 Operation Process
 
-1. **拓扑图编辑**
-    1. 进入应用视图 ➡️ 拓扑图编辑模式。
-    2. 拖动 Java Maven ➡️ MySQL 建立连接。
+1. **Topology Diagram Editing**
+    1. Enter the application view ➡️ Topology diagram editing mode.
+    2. Drag Java Maven ➡️ MySQL to establish a connection.
 
 ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/topological.png)
 
-2. **依赖生效验证（命令行）**
-    - 进入 `Java` 组件的 Web 终端内，执行：
+2. **Dependency Effect Verification (Command Line)**
+    - Enter the `Java` component's web terminal, execute:
+    ```bash
         env | grep MYSQL_HOST
         curl ${MYSQL_HOST}:${MYSQL_PORT}
-3. **依赖生效验证（浏览器）**
-    - 访问 Java 服务实例页面，并进入到 MySQL 示例页面。
-    - 确认显示 MySQL 连接信息及数据库表等。
+    ```
+3. **Dependency Effect Verification (Browser)**
+    - Access the Java service instance page, and enter the MySQL example page.
+    - Confirm the display of MySQL connection information and database tables, etc.
 
 :::info
-服务间依赖关系建立后，重启依赖方组件以确保环境变量正确注入。
+After establishing the dependency relationship between services, restart the dependent component to ensure the environment variables are correctly injected.
 :::
 
 ## Reference
 
-[如何配置服务间的内部访问](#)
+[How to Configure Internal Access Between Services](#)

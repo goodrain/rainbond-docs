@@ -1,78 +1,78 @@
 ---
-title: 部署你的第一个应用
-description: 零基础快速入门 Rainbond，通过简单步骤完成第一个应用部署
+title: Deploy your first application
+description: Get started with Rainbond quickly from scratch, and complete the deployment of your first application through simple steps
 keywords:
-  - Rainbond 入门教程
-  - 第一个应用部署
-  - 2048 游戏部署
+  - Rainbond Getting Started Tutorial
+  - First application deployment
+  - 2048 Game Deployment
 ---
 
-本教程将演示 Rainbond 的入门级使用体验，通过部署经典的 2048 游戏，帮助你快速了解 Rainbond 的基本功能和操作流程。
+This tutorial will demonstrate the entry-level usage experience of Rainbond. By deploying the classic 2048 game, it will help you quickly understand the basic functions and operation process of Rainbond.
 
 ```mermaid
 flowchart LR
-  A[代码仓库] -->|自动拉取| B[源码构建]
-  B -->|自动识别语言| C[构建镜像]
-  C -->|一键部署| D[运行应用]
-  D -->|内置网关| E[访问服务]
+  A[Code Repository] -->|Auto Pull| B[Source Build]
+  B -->|Auto Detect Language| C[Build Image]
+  C -->|One-click Deployment| D[Run Application]
+  D -->|Built-in Gateway| E[Access Service]
 
   style A fill:#e6f7ff,stroke:#1890ff
   style E fill:#e6f7ff,stroke:#1890ff
 ```
 
-## 前提条件
+## Preconditions
 
-- 已完成 [Rainbond 快速安装](/docs/quick-start/quick-install)
-- 不需要任何额外的配置，开箱即用
+- Completed [Rainbond Quick Installation](/docs/quick-start/quick-install)
+- No additional configuration required, ready to use out of the box
 
-## 部署 2048 游戏
+## Deploy 2048 Game
 
-### 🚀 亮点
+### 🚀 Highlights
 
-- **零配置构建**：自动识别语言类型，无需手动编写构建脚本
-- **网关集成**：自动生成访问域名，无需额外配置网关
+- **Zero-configuration Build**: Automatically detect language type, no need to manually write build scripts
+- **Gateway Integration**: Automatically generate access domain names, no additional gateway configuration required
 
-### 🧩 操作流程
+### 🧩 Operation Process
 
-1. **创建应用和源码组件**
-  1. 进入目标**团队视图 ➡️ 创建应用**。
+1. **Create Application and Source Component**
+  1. Enter the target **Team View ➡️ Create Application**.
     ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/team.png)
-  2. 选择**从源代码构建** ➡️ **源码**，填写以下信息：
+  2. Select **Build from Source Code** ➡️ **Source Code**, fill in the following information:
     ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source.png)
-    - 仓库地址：`https://gitee.com/rainbond/demo-2048.git`
-    - 代码分支：`master`
-    - 组件名称：`2048`（可自定义）
-  3. 点击 **确认创建**。
+    - Repository Address: `https://gitee.com/rainbond/demo-2048.git`
+    - Code Branch: `master`
+    - Component Name: `2048` (customizable)
+  3. Click **Confirm Creation**.
 
-2. **源码构建自动识别过程**
-  - Rainbond 将自动识别项目类型为 `static`（静态网站）
+2. **Source Build Auto-detection Process**
+  - Rainbond will automatically identify the project type as `static` (static website)
 
-3. **部署监控**
-  1. 进入应用视图，可观察到组件部署状态变化：
-    - **构建中**：正在从源码构建容器镜像
-    - **启动中**：镜像构建完成，正在启动容器
-    - **运行中**：应用已成功部署（显示为绿色）
+3. **Deployment Monitoring**
+  1. Enter the application view to observe the changes in component deployment status:
+    - **Building**: Building container image from source code
+    - **Starting**: Image build completed, starting container
+    - **Running**: Application successfully deployed (shown in green)
 
-  2. 点击组件，进入 **操作记录** 查看构建日志。
+  2. Click the component to enter **Operation Records** to view the build logs.
 
-4. **访问应用**
-  1. 进入**组件 ➡️ 端口** 页签，可看到自动生成的访问地址。
-  2. 点击域名链接，在浏览器中打开并体验 2048 游戏！
+4. **Access Application**
+  1. Enter the **Component ➡️ Port** tab to see the automatically generated access address.
+  2. Click the domain link to open and experience the 2048 game in your browser!
 
-:::tip 使用提示
+:::tip Usage Tips
 
-- 您的应用已经自动部署在 Kubernetes 集群中
-- 通过 Rainbond 的网关服务自动暴露，无需手动配置 Ingress
-- 所有资源（存储、网络等）都已自动配置好
+- Your application has been automatically deployed in the Kubernetes cluster
+- Automatically exposed through Rainbond's gateway service, no need to manually configure Ingress
+- All resources (storage, network, etc.) have been automatically configured
   :::
 
-## 探索更多功能
+## Explore More Features
 
-恭喜！你已成功部署了第一个应用。但这仅仅是 Rainbond 强大功能的开始，接下来可以尝试：
+Congratulations!You have successfully deployed your first application.But this is just the beginning of Rainbond's powerful features. Next, you can try:
 
-- [快速部署源码和 MySQL](../tutorial/via-rainbond-deploy-sourceandmiddleware)
-- [组件新版本构建与回滚](../tutorial/component-version-update-and-rollback)
-- [自定义域名并配置 HTTPS](../tutorial/custom-gateway)
-- [通过应用模板实现应用一键安装和升级](../tutorial/app-template-manage)
-- [离线跨环境交付](../tutorial/app-template-offline)
-- [接入已有服务器并创建多租户环境](../tutorial/docking-selfhost)
+- [Quickly Deploy Source Code and MySQL](../tutorial/via-rainbond-deploy-sourceandmiddleware)
+- [Component New Version Build and Rollback](../tutorial/component-version-update-and-rollback)
+- [Custom Domain Name and Configure HTTPS](../tutorial/custom-gateway)
+- [One-click Installation and Upgrade of Applications via Application Template](../tutorial/app-template-manage)
+- [Offline Cross-environment Delivery](../tutorial/app-template-offline)
+- [Access Existing Servers and Create Multi-tenant Environment](../tutorial/docking-selfhost)

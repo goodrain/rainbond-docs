@@ -15,6 +15,7 @@ files:
       - "/docs/store/**/*"    # 忽略 api 目录下的所有文件
       - "/docs/troubleshooting/**/*"    # 忽略 api 目录下的所有文件
       - "/docs/vm-guide/**/*"    # 忽略 api 目录下的所有文件
+      - "/docs/vm-guide/**/*"    # 忽略 api 目录下的所有文件
   # community markdown
   # - source: /community/**/*
   #   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs-community/current/**/%original_file_name%

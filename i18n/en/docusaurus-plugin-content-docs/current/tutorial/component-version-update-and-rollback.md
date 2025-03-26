@@ -1,78 +1,78 @@
 ---
-title: 组件新版本构建与回滚
-description: 本教程详细讲解如何在 Rainbond 中实现组件版本更新与回滚操作，保障业务持续稳定运行
+title: Component new version build and rollback
+description: This tutorial details how to implement component version updates and rollback operations in Rainbond to ensure continuous and stable business operation
 keywords:
-  - 组件版本管理
-  - 版本回滚操作
-  - 灰度发布
-  - 持续部署
+  - Component version management
+  - Version rollback operation
+  - Gray release
+  - Continuous deployment
 ---
 
-本教程将演示 Rainbond 组件管理的部分核心能力：
+This tutorial will demonstrate some of the core capabilities of Rainbond component management:
 
-- **多版本管理**：保留历史构建版本，支持快速版本切换
-- **滚动更新**：零停机时间构建组件新版本
-- **版本回退/更新**：一键回滚/升级到任意历史版本
+- **Multi-version management**: Retain historical build versions and support quick version switching
+- **Rolling update**: Zero downtime for building new versions of components
+- **Version rollback/update**: One-click rollback/upgrade to any historical version
 
-## 前提条件
+## Preconditions
 
-- 已完成 [Rainbond 快速安装](/docs/quick-start/quick-install)。
+- Completed [Rainbond quick installation](/docs/quick-start/quick-install).
 
-## 一、版本滚动更新
+## Version rolling update
 
-### 🚀 亮点
+### 🚀 Highlights
 
-- **快速构建**：支持基于源码分支/Tag、镜像版本、应用市场版本构建新版本。
-- **滚动更新**：零停机时间更新组件版本。
+- **Quick build**: Supports building new versions based on source code branches/tags, image versions, and application market versions.
+- **Rolling update**: Zero downtime for updating component versions.
 
-### 🧩 操作流程
+### 🧩 Operation process
 
-1. **使用源码部署组件**
+1. **Deploy components using source code**
     ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source.png)
-    1. 进入目标团队视图，创建新应用。
-    2. 选择从源码构建 ➡️ 源码。
-        - 自定义应用名称。
-        - 仓库地址：`https://gitee.com/rainbond/docs-demo.git`。
-        - 分支：`master`。
-    3. 预期结果：应用构建成功，访问示例页面应展示默认内容。
+    1. Enter the target team view and create a new application.
+    2. Select to build from source code ➡️ source code.
+        - Customize the application name.
+        - Repository address: `https://gitee.com/rainbond/docs-demo.git`.
+        - Branch: `master`.
+    3. Expected result: The application is built successfully, and the example page should display the default content.
 
-2. **更新源代码**
-    - 在 Gitee 上 Fork 并编辑源码，修改 `index.html` 文件。
+2. **Update source code**
+    - Fork and edit the source code on Gitee, modify the `index.html` file.
 
-3. **构建新版本**
-    1. 点击组件的**构建**按钮，将会重新拉取源代码并构建新版本。
-    2. 预期结果：应用构建成功，访问示例页面应展示你修改后的内容。
+3. **Build new version**
+    1. Click the **Build** button of the component, which will pull the source code again and build a new version.
+    2. Expected result: The application is built successfully, and the example page should display your modified content.
 
-## 二、版本回滚/升级
+## Version rollback/upgrade
 
-### 🚀 亮点
+### 🚀 Highlights
 
-- **版本回退**：基于历史版本镜像快速重建
-- **多版本管理**：保留历史构建版本，支持版本切换。
+- **Version rollback**: Quick rebuild based on historical version images
+- **Multi-version management**: Retain historical build versions and support version switching.
 
-### 🧩 操作流程
+### 🧩 Operation process
 
-1. **选择回滚版本**
+1. **Select rollback version**
     ![](/docs/tutorial/component-version-update-and-rollback/rollback.png)
-    - 进入总览 ➡️ 查看更多版本 ➡️ 历史版本列表
+    - Enter Overview ➡️ View more versions ➡️ Historical version list
 
-2. **执行回滚**
-    - 点击回滚按钮 ➡️ 确认回滚操作。
-    - 观察组件状态恢复至绿色健康状态。
+2. **Execute rollback**
+    - Click the rollback button ➡️ Confirm the rollback operation.
+    - Observe the component status returning to green healthy status.
 
-3. **验证回滚**
-    - 访问示例页面，应展示旧版本内容。
-    > 回滚操作不会回滚数据变更。
+3. **Verify rollback**
+    - Access the example page, which should display the old version content.
+    > Rollback operation will not roll back data changes.
 
-4. **选择升级版本**
-    - 进入总览 ➡️ 查看更多版本 ➡️ 历史版本列表。
-    - 点击升级按钮。
+4. **Select upgrade version**
+    - Enter Overview ➡️ View more versions ➡️ Historical version list.
+    - Click the upgrade button.
 
-5. **验证升级**
-    - 访问示例页面，应展示新版本内容。
+5. **Verify upgrade**
+    - Access the example page, which should display the new version content.
 
 :::info
-生产环境版本更新前，建议先在测试环境验证新版本的稳定性。
+Before updating the production environment version, it is recommended to verify the stability of the new version in the test environment first.
 :::
 
 ## Reference

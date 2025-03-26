@@ -1,42 +1,42 @@
 ---
-title: 升级
-Description: 介绍通过主机安装和通过 Helm 安装的 Rainbond 升级版本
+title: Upgrade
+Description: Introduction to the upgraded versions of Rainbond installed via host and via Helm
 keywords:
-  - Rainbond 版本升级
+  - Rainbond version upgrade
 ---
 
 :::info
-v5 版本无法直接升级到 v6 版本，请全新安装 v6 版本，再将 v5 版本中的应用迁移到新环境。
+Version v5 cannot be directly upgraded to version v6. Please install version v6 from scratch and then migrate the applications from version v5 to the new environment.
 
-1. 在 v5 版本中，通过 `应用视图 -> 应用发布 -> 发布到本地组件库`，将应用发布到本地组件库，然后在 `平台管理 -> 应用市场` 中将应用导出。
-2. 在 v6 版本中，通过 `平台管理 -> 应用市场 -> 导入应用`，将应用导入到 v6 版本中。
-3. 如部署了数据库类应用，则需要手动迁移数据库。
+1. In version v5, publish the application to the local component library via `Application View -> Application Publish -> Publish to Local Component Library`, and then export the application in `Platform Management -> Application Market`.
+2. In version v6, import the application into version v6 via `Platform Management -> Application Market -> Import Application`.
+3. If a database application is deployed, the database needs to be manually migrated.
   :::
 
-## 概述
+## Overview
 
-Rainbond 支持界面化的在线升级，通过界面化的在线升级可以快速升级 Rainbond 版本。所有安装方式都支持在线升级。
+Rainbond supports visualized online upgrade, through which the Rainbond version can be quickly upgraded.All installation methods support online upgrade.
 
-## 在线升级
+## Online upgrade
 
 :::tip
-如存在多个集群，将会全部都升级。
+If there are multiple clusters, all will be upgraded.
 :::
 
-在 **平台管理 -> 企业设置 -> 版本升级** 中，可以查看到当前 Rainbond 版本和最新版本，点击 **去更新** 按钮即可开始升级。
+In **Platform Management -> Enterprise Settings -> Version Upgrade**, you can view the current Rainbond version and the latest version. Click the **Go to Update** button to start the upgrade.
 
-升级过程中 Rainbond 会做如下操作：
+During the upgrade process, Rainbond will perform the following operations:
 
-1. 滚动升级 Rainbond 组件镜像
-2. 如有 SQL 变更，会自动执行 SQL 变更
+1. Rolling upgrade of Rainbond component images
+2. If there are SQL changes, they will be automatically executed
 
-## 离线升级
+## Offline upgrade
 
 :::info
-仅适用于离线安装环境。
+Only applicable to offline installation environments.
 :::
 
-1. 在有网络的环境下提前准备好 Rainbond 新版本镜像，替换 `<version>` 为要升级的版本号。`<version>` 在 [Rainbond Release](https://github.com/goodrain/rainbond/releases) 中查看。
+1. Prepare the new version image of Rainbond in advance in a networked environment, replace `<version>` with the version number to be upgraded.`<version>` can be viewed in [Rainbond Release](https://github.com/goodrain/rainbond/releases).
 
 ```bash
 registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>
@@ -46,7 +46,7 @@ registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-mq:<version>
 registry.cn-hangzhou.aliyuncs.com/goodrain/rbd-worker:<version>
 ```
 
-2. 编辑 `rbdcomponent` CRD资源，将 `spec.image` 字段的镜像地址替换为离线镜像地址。
+2. Edit the `rbdcomponent` CRD resource, replace the image address in the `spec.image` field with the offline image address.
 
 ```yaml
 $ kubectl edit rbdcomponent -n rbd-system rbd-app-ui
@@ -54,10 +54,10 @@ spec:
   image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>
 ```
 
-3. `rbd-api`、`rbd-chaos`、`rbd-mq`、`rbd-worker` 等组件同样替换镜像地址，重复上述步骤。
-4. 登录 Rainbond 检查首页版本号是否已经更新至新版本。
+3. Components such as `rbd-api`, `rbd-chaos`, `rbd-mq`, `rbd-worker` should also replace the image address, repeat the above steps.
+4. Log in to Rainbond to check whether the version number on the homepage has been updated to the new version.
 
-## 版本变更日志
+## Version change log
 
-您可以在 [历史版本变更日志](https://github.com/goodrain/rainbond/releases) 中查看每个版本的具体变更内容。
+You can view the specific changes of each version in [Historical Version Change Log](https://github.com/goodrain/rainbond/releases).
 

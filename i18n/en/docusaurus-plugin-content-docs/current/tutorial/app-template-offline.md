@@ -1,44 +1,44 @@
 ---
-title: 离线跨环境交付
-description: 基于应用模板实现跨环境安全交付的技术方案
+title: Offline cross-environment delivery
+description: Technical solution for secure cross-environment delivery based on application templates
 keywords:
-  - 离线应用包
-  - 跨环境部署
-  - 应用模板导出
+  - Offline application package
+  - Cross-environment deployment
+  - Application template export
 ---
 
-本教程将演示 Rainbond 离线交付的部分核心能力：
+This tutorial will demonstrate some of the core capabilities of Rainbond's offline delivery:
 
-- **离线应用打包**：将应用模板及其依赖资源打包，支持完全离线环境部署。
-- **跨环境交付**：实现从开发到测试、生产环境的标准化交付流程。
-- **一键部署验证**：在目标环境快速部署并验证应用功能。
+- **Offline application packaging**: Package the application template and its dependent resources, supporting deployment in a completely offline environment.
+- **Cross-environment delivery**: Achieve a standardized delivery process from development to testing and production environments.
+- **One-click deployment verification**: Quickly deploy and verify application functionality in the target environment.
 
 ```mermaid
 flowchart LR
-    subgraph ENV_A["环境A（源环境）"]
+    subgraph ENV_A["Environment A (Source Environment)"]
         direction TB
-        A1[创建应用] -->|标准化配置| A2[发布应用模板]
-        A2 -->|资源打包| A3[导出离线包]
+        A1[Create Application] -->|Standardized Configuration| A2[Publish Application Template]
+        A2 -->|Resource Packaging| A3[Export Offline Package]
         style A1 fill:#e6f3ff,stroke:#4a90e2
         style A3 fill:#e6f3ff,stroke:#4a90e2
     end
 
-    subgraph LIB["共享资源"]
+    subgraph LIB["Shared Resources"]
         direction TB
-        L1[应用模板] -->|完整依赖| L2[离线交付包]
+        L1[Application Template] -->|Complete Dependencies| L2[Offline Delivery Package]
         style LIB fill:#fff3e6,stroke:#f5a623
     end
 
-    subgraph ENV_B["环境B（目标环境）"]
+    subgraph ENV_B["Environment B (Target Environment)"]
         direction TB
-        B1[导入离线包] -->|资源解析| B2[安装应用模板]
-        B2 -->|零配置部署| B3[功能验证]
+        B1[Import Offline Package] -->|Resource Parsing| B2[Install Application Template]
+        B2 -->|Zero-configuration Deployment| B3[Function Verification]
         style B1 fill:#e6f3ff,stroke:#4a90e2
         style B3 fill:#e6f3ff,stroke:#4a90e2
     end
 
-    ENV_A -->|安全传输| LIB
-    LIB -->|标准交付| ENV_B
+    ENV_A -->|Secure Transmission| LIB
+    LIB -->|Standard Delivery| ENV_B
 
     classDef env fill:#e6f3ff,stroke:#4a90e2;
     classDef lib fill:#fff3e6,stroke:#f5a623;
@@ -46,70 +46,70 @@ flowchart LR
     class LIB lib
 ```
 
-## 前提
+## Prerequisites
 
-- 准备两套独立环境（标记为环境A/B）
-- 均已完成 [Rainbond 快速安装](/docs/quick-start/quick-install)。
+- Prepare two independent environments (marked as Environment A/B)
+- Both have completed [Rainbond Quick Installation](/docs/quick-start/quick-install).
 
-## 一、生成离线包（环境A）
+## 1. Generate Offline Package (Environment A)
 
-### 🚀 亮点
+### 🚀 Highlights
 
-- **标准化封装**：将应用及其依赖资源完整打包，确保交付一致性
-- **镜像预加载**：包含所有容器镜像，支持完全离线环境部署
-- **版本管理**：支持多版本并行维护，便于灰度发布和回滚
+- **Standardized Packaging**: Fully package the application and its dependent resources to ensure delivery consistency
+- **Image Pre-loading**: Includes all container images, supporting deployment in a completely offline environment
+- **Version Management**: Supports parallel maintenance of multiple versions, facilitating gray release and rollback
 
-### 🧩 操作流程
+### 🧩 Operation Process
 
-1. **部署基准应用**
-    1. 进入目标团队视图，新建应用，名为 `export-app`。
-    2. 选择从镜像构建 ➡️ 容器。
-        - 名称为：`app`。
-        - 镜像地址：`registry.cn-hangzhou.aliyuncs.com/goodrain/nginx:alpine`
-    3. 其他配置均保持默认。
+1. **Deploy Benchmark Application**
+    1. Enter the target team view, create a new application named `export-app`.
+    2. Select Build from Image ➡️ Container.
+        - Name: `app`.
+        - Image address: `registry.cn-hangzhou.aliyuncs.com/goodrain/nginx:alpine`
+    3. Other configurations remain default.
 
-2. **发布应用模板**
-    1. 进入应用视图 ➡️ 发布应用 ➡️ 发布到组件库。
-    2. 新建应用模板：
-        - 模板名称：`app-delivery`。
-        - 版本号：`1.0`。
-    3. 确认发布。
+2. **Publish Application Template**
+    1. Enter the application view ➡️ Publish Application ➡️ Publish to Component Library.
+    2. Create a new application template:
+        - Template name: `app-delivery`.
+        - Version number: `1.0`.
+    3. Confirm publish.
 
-3. **打包离线资源**
-    1. 进入应用视图 ➡️ 发布应用 ➡️ 导出应用模板，导出应用模型规范。
-    2. 下载生成的 `app-delivery-1.0.ram.tar.gz` 格式离线包。
+3. **Package Offline Resources**
+    1. Enter the application view ➡️ Publish Application ➡️ Export Application Template, export the application model specification.
+    2. Download the generated `app-delivery-1.0.ram.tar.gz` format offline package.
 
 ![](/docs/tutorial/app-template-offline/export-app.png)
 
-## 二、实施跨环境交付（环境B）
+## 2. Implement Cross-Environment Delivery (Environment B)
 
-### 🚀 亮点
+### 🚀 Highlights
 
-- **安全隔离传输**：支持通过物理介质在隔离网络间传输
-- **完整性校验**：自动验证应用包完整性，确保交付质量
-- **资源自动解析**：智能识别依赖关系，简化导入流程
+- **Secure Isolated Transmission**: Supports transmission between isolated networks via physical media
+- **Integrity Check**: Automatically verifies the integrity of the application package to ensure delivery quality
+- **Resource Automatic Parsing**: Intelligently identifies dependencies to simplify the import process
 
-### 🧩 操作流程
+### 🧩 Operation Process
 
-1. **导入应用模板**
-    1. 平台管理 ➡️ 应用市场 ➡️ 离线导入。
-    2. 上传获取的离线包文件。
-    3. 系统自动解析应用模板及其依赖资源。
+1. **Import Application Template**
+    1. Platform Management ➡️ Application Market ➡️ Offline Import.
+    2. Upload the obtained offline package file.
+    3. The system automatically parses the application template and its dependent resources.
 
 ![](/docs/tutorial/app-template-offline/import-app.png)
 
-2. **部署验证**
-    1. 进入目标团队视图，新建 `import-app` 应用。
-    2. 选择从应用市场安装 ➡️ 本地组件库 ➡️ 安装 `app-delivery` 应用。
-    3. 验证结果：
-        - 成功部署 `app` 组件
-        - 服务状态显示为运行正常
+2. **Deployment Verification**
+    1. Enter the target team view, create a new `import-app` application.
+    2. Select Install from Application Market ➡️ Local Component Library ➡️ Install `app-delivery` application.
+    3. Verification result:
+        - Successfully deployed `app` component
+        - Service status shows as running normally
 
 :::info
 
-1. 离线包包含完整的镜像资源，确保文件大小足够容纳所有依赖
-2. 建议在传输前进行完整性校验，避免文件损坏导致导入失败
-3. 对于大型应用，可考虑分批导出和导入，降低单次操作的资源消耗
+1. The offline package contains complete image resources, ensuring the file size is sufficient to accommodate all dependencies
+2. It is recommended to perform an integrity check before transmission to avoid import failure due to file corruption
+3. For large applications, consider exporting and importing in batches to reduce resource consumption per operation
     :::
 
 ## Reference
