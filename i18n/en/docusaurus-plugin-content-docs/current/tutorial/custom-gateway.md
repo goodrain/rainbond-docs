@@ -2,12 +2,13 @@
 title: 自定义域名并配置 HTTPS
 description: 通过三步实现生产级 HTTPS 配置：域名绑定、证书管理、安全加固
 keywords:
-- HTTPS 配置指南
-- 安全域名管理
-- SSL 证书部署
+  - HTTPS 配置指南
+  - 安全域名管理
+  - SSL 证书部署
 ---
 
 本教程将演示 Rainbond 网关管理的核心能力：
+
 - **开箱即用**：不需要任何额外配置，直接使用。
 - **域名自动解析**：支持动态绑定自定义域名。
 - **多协议支持**：同时支持 HTTP/HTTPS 与 WebSocket 协议
@@ -53,7 +54,6 @@ keywords:
     - 域名：`demo.example.rainbond.com`。
 
 <details>
-
 <summary>公钥证书</summary>
 
 ```bash
@@ -80,7 +80,6 @@ U6VLQSN6NTjNzZHu
 ```
 
 </details>
-
 
 <details>
 <summary>私钥证书</summary>
@@ -118,12 +117,12 @@ AycFKgRmGX9GFTafZcJfYw==
 
 </details>
 
-
 :::tip
 当添加证书后，Rainbond 会自动将证书绑定到域名上。
 :::
 
 使用 [https://demo.example.rainbond.com](https://demo.example.rainbond.com) 访问。
+
 - 浏览器会提示不安全的证书，点击继续访问。
 - 在浏览器中查看证书信息。
 

@@ -1,0 +1,55 @@
+---
+title: 快速安装
+description: 本文介绍仅使用一个 Docker 容器运行 Rainbond
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Windows(x86_64)`、`Mac(Intel/M1)`、`Linux(x86_64,Arm64)`。
+
+## 前提
+
+- 确保有 [Docker](https://docs.docker.com/get-started/get-docker/) 或 [Docker Desktop](https://docs.docker.com/get-started/get-docker/) 环境
+- 确保 `80 443 6060 7070` 端口可用
+
+## 安装步骤
+
+<Tabs groupId="install">
+  <TabItem value="Linux & Mac" label="Linux & Mac" default>
+
+Rainbond 提供了安装脚本，在 Docker 中通过容器快速启动 Rainbond。脚本执行过程中，需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
+
+```bash
+curl -o install.sh https://get.rainbond.com && bash ./install.sh
+```
+
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
+
+Rainbond 提供了 Windows 安装脚本，在 Docker 中通过容器快速启动 Rainbond。脚本执行过程中，需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
+
+在 PowerShell 中执行以下命令:
+
+```bash
+Invoke-WebRequest "https://get.rainbond.com/install-rainbond.ps1" -o install-rainbond.ps1 ; .\install-rainbond.ps1
+```
+
+</TabItem>
+  <TabItem value="信创" label="信创" default>
+
+Rainbond 提供了一键安装的脚本并且支持了国产化信创的需求，在 Docker 中通过容器快速启动 Rainbond。脚本执行过程中，会自动选择所需要的架构，同时还需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
+
+```bash
+curl -o install.sh https://get.rainbond.com && bash ./install.sh
+```
+
+</TabItem>
+</Tabs>
+
+执行完上述脚本后，耐心等待 3-5 分钟，使用浏览器访问 `http://$EIP:7070` 即可进入 Rainbond。
+
+## 下一步
+
+如果你已经成功安装 Rainbond 并且正常运行，请继续完成[快速入门](./getting-started)教程。
