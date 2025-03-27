@@ -78,13 +78,13 @@
 .buttonRight {
   margin-right: 10px;
   border-radius: 30px;
-  background-color: #b3b5bb;
+  background-color: #19AABD;
   height: 55px;
   width: 210px;
   font-size: 16px;
 }
 .buttonRight:hover {
-  background-color: #b3b5bb !important;
+  background-color: #19AABD !important;
   box-shadow: 0 16px 32px 0 rgba(48, 55, 66, 0.15);
 }
 
