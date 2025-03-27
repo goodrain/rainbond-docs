@@ -77,10 +77,10 @@ export default function Index() {
                     margin: '40px 0px'
                   }}
                 >
-                  <li>企业级护航 SLA 99.95% 可用性承诺</li>
-                  <li>提供商业版产品技术服务</li>
+                  <li>SLA 99.95% 可用性承诺</li>
+                  <li>自托管无需运维</li>
                   <li>享企业级功能</li>
-                  <li>根据业务实际使用量，分钟级按需付费</li>
+                  <li>分钟级按需付费</li>
                 </ul>
               </div>
               {/* 按钮 */}
@@ -128,11 +128,7 @@ export default function Index() {
                   <li>
                     Rainbond企业版是一个运营商级别版本，它具备超高的可靠性
                   </li>
-                  <li>提供商业版产品技术服务</li>
-                  <li>产品故障支持最高响应级别 7*24</li>
-                  <li>企业级功能按年提供服务</li>
-                  <li>部署到客户指定运行环境</li>
-                  <li>根据使用规模按需付费，高性价比</li>
+                  <li>最高响应级别 7*24</li>
                   <li>
                     专业技术支持团队
                     <span style={{ color: '#737373' }}>
@@ -270,7 +266,7 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <span>通过“拖拉拽”的方式进行服务编排</span>
+                    <span>通过"拖拉拽"的方式进行服务编排</span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -317,7 +313,7 @@ export default function Index() {
                       <img src='/img/right.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/right.svg' alt='' />
+                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
@@ -329,7 +325,7 @@ export default function Index() {
                       <img src='/img/right.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/right.svg' alt='' />
+                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
@@ -365,7 +361,7 @@ export default function Index() {
                       <img src='/img/right.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/right.svg' alt='' />
+                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
@@ -546,7 +542,61 @@ export default function Index() {
                     </span>
                   </div>
                 </div>
-                {/* 目录七 */}
+                {/* 目录七 - 服务支持 */}
+                <div>
+                  <div>
+                    <span>服务支持</span>
+                  </div>
+                  <div>
+                    <span>社区支持</span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>SLA保障</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>技术支持</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                  <div>
+                    <span>现场实施与培训</span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/error.svg' alt='' />
+                    </span>
+                    <span>
+                      <img src='/img/right.svg' alt='' />
+                    </span>
+                  </div>
+                </div>
+                {/* 目录八 */}
                 <div>
                   <div>
                     <span>企业级功能扩展</span>
@@ -736,7 +786,7 @@ export default function Index() {
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/right.svg' alt='' />
+                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
@@ -768,7 +818,7 @@ export default function Index() {
                       命令行
                     </span>
                     <span style={{color:'#7d7979'}}>
-                      图形化
+                      不支持
                     </span>
                     <span style={{color:'#7d7979'}}>
                       图形化
@@ -793,7 +843,7 @@ export default function Index() {
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/right.svg' alt='' />
+                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
@@ -805,7 +855,7 @@ export default function Index() {
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/right.svg' alt='' />
+                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
