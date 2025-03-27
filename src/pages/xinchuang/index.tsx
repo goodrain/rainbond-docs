@@ -39,7 +39,7 @@ import Head from "@docusaurus/Head";
     customButton: "true",
     LeftURL: "/docs/quick-start/quick-install",
     LeftButton: "快速安装",
-    RightURL: "/docs/localization-guide/overview/",
+    RightURL: "/docs/how-to-guides/localization-guide/intro",
     RightButton: "了解更多",
   };
 

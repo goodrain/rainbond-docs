@@ -35,7 +35,7 @@ import Bvideo from '/src/components/Bvideo';
 
 1. 参考[基于源代码创建组件](../../use-manual/component-create/language-support)，根据你的代码语言使用 dev 分支部署你的各个业务模块。
 
-2. 各个业务部署完成后，参考[微服务架构指南](/docs/micro-service/overview)进行服务编排，此时你就得到了一个在 Rainbond 上完整运行的应用。
+2. 各个业务部署完成后，参考[微服务架构指南](../../micro-service/overview/index.md)进行服务编排，此时你就得到了一个在 Rainbond 上完整运行的应用。
 
 3. 在你的 Git 仓库配置[自动部署](/docs/how-to-guides/app-deploy/gitops.md)，完成该步骤后，可以通过提交代码触发开发环境的自动构建以及自动化测试，再根据构建结果完成代码调整。
 

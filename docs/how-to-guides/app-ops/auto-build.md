@@ -1,59 +1,92 @@
 ---
-title: 自动部署
-description: 介绍 Rainbond 自动部署组件
+title: 自动构建
+description: Rainbond 自动构建功能的完整配置与使用指南
 keywords:
-- 自动部署
-- Rainbond 自动部署
+- 自动构建
+- 持续构建
+- Webhook
+- 镜像自动构建
+- API自动构建
 ---
 
-通过自动构建的功能，可以实现代码或镜像提交后组件自动触发构建和部署，Rainbond 提供了基于代码仓库 Webhooks、镜像仓库 Webhooks 和自定义 API 三种方式触发组件自动部署。自动构建的功能可以辅助开发者便捷的实现敏捷开发。
+## 概述
 
-## 前提条件
+自动构建是现代开发流程中的重要环节，能够实现代码或镜像变更后自动触发应用的构建和部署。Rainbond 提供了多种自动构建方式，可以有效提升开发效率，缩短开发周期，帮助团队实现敏捷开发与持续交付。
 
-- 组件是由源码创建，可支持代码仓库 Webhooks，目前支持的代码仓库为`GitHub` `GitLab` `Gitee`。
-- 组件是由镜像创建，可支持镜像仓库 Webhooks，目前支持 Docker 官方仓库，阿里云镜像仓库。
+Rainbond 支持以下几种自动构建方式：
 
+1. [代码仓库自动构建](../app-deploy/gitops.md)：支持 GitHub、GitLab、Gitee 等代码仓库的 Webhook
+2. [镜像仓库自动构建](../app-deploy/image/via-registry-deploy.md)：支持 Docker Hub、阿里云镜像仓库等的 Webhook
+3. API 自动构建：提供 API 接口，支持与第三方 CI/CD 工具集成
 
-## 基于镜像仓库操作流程
+## API 自动构建
 
-镜像仓库自动构建可以实现推送镜像后应用的自动构建，方便的对接第三方自动化流程。当镜像更新事件到达时判断以下条件，都满足时触发自动构建。
+API 自动构建是最灵活的自动部署方式，可以轻松与各种 CI/CD 工具集成，如 Jenkins、GitLab CI、GitHub Actions 等。
 
-- 应用是由镜像创建，镜像仓库为`Docker Hub`, 5.1.2 版本及以后支持阿里云镜像仓库。
+### 配置步骤
 
-- 默认更新的镜像名称和 tag 是否与当前组件构建源镜像名称一致（判断时不包含镜像仓库域名）, 5.1.3 版本及以后支持配置 Tag 触发正则策略，动态匹配和改变组件的镜像 Tag。
+1. 进入组件内 → 构建源 → 开启 API 自动构建
+2. 设置自定义秘钥，秘钥用于验证 API 调用的合法性，请设置复杂且安全的值
+3. 保存配置
 
+### API 使用方式
 
-### 开启 Rainbond 镜像 Webhook
-
-开启镜像仓库 Webhook 自动构建，**组件 -> 构建源 -> 开启自动构建**。
-
-**Tag 触发自动修改策略**
-
-默认情况下 Webhook 更新事件的镜像名称和 Tag 必须与组件当前构建源的镜像名称和 Tag 配置一致才能触发构建和部署。配置了 Tag 触发策略以后，根据配置的正则表达式，如果接收到的 push 事件的镜像 tag 能够正确匹配正则表达式，则认为此次更新事件有效，根据更新的 Tag 信息来升级当前组件的构建源信息并进行自动构建。
-
-比如设置 Tag 策略为： `v5.*` 当 Tag 为 `v5.1` `v5.2` `v5.9`等都将被允许。
-
-### 配置 DockerHub 镜像仓库
-
-进入 DockerHub 仓库 -> Webhooks
-
-| New Webhook  | 说明                            |
-| ------------ | ------------------------------- |
-| Webhook name | 自定义                          |
-| Webhook URL  | 复制 Rainbond 中的 Webhook 地址 |
-
-
-
-## API 触发自动构建
-
-通过开启 API 自动构建返回的 URL，POST 方法调用 API，携带秘钥即可触发 API 自动构建，秘钥可以自定义设置。
-
-进入 **组件 -> 构建源 -> 开启自动构建 -> 自定义 API**。
-
-**API 使用方式如下：**
+使用 curl 命令调用 API 触发自动构建：
 
 ```bash
 curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
 ```
 
-基于 API 触发自动构建是最灵活的方式之一，主要用于与第三方 CI 系统集成。
+### 与 CI/CD 系统集成
+
+#### Jenkins 集成示例
+
+在 Jenkins Pipeline 中添加以下脚本：
+
+```groovy
+stage('Trigger Rainbond Build') {
+    steps {
+        sh '''
+        curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+        '''
+    }
+}
+```
+
+#### GitLab CI 集成示例
+
+在 `.gitlab-ci.yml` 文件中添加：
+
+```yaml
+deploy:
+  stage: deploy
+  script:
+    - curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+```
+
+#### GitHub Actions 集成示例
+
+在 GitHub Actions 工作流文件中添加：
+
+```yaml
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Rainbond Build
+        run: curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+```
+
+## 常见问题
+
+### API 自动构建失败
+
+**可能原因**：
+- 秘钥不匹配
+- API 调用格式错误
+- API 地址错误
+
+**解决方案**：
+- 确认使用的秘钥与配置的秘钥一致
+- 检查 API 调用的 JSON 格式是否正确
+- 验证 API 地址是否完整且正确

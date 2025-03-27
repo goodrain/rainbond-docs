@@ -23,7 +23,7 @@ Maven 多模块项目是根据 pom.xml 文件(下面简称 pom)来划分的, Rai
 
 ### 案例
 
-这里以[SPRING CLOUD 微服务部署在 RAINBOND 的案例](/docs/micro-service/example/pig)一文中的 Pig 项目中 Java 源码部署部分为例，一次性多模块部署 Pig 项目(其他依赖如 Mysql 默认安装好)。
+这里以[SPRING CLOUD 微服务部署在 RAINBOND 的案例](../../../../micro-service/example/pig.md)一文中的 Pig 项目中 Java 源码部署部分为例，一次性多模块部署 Pig 项目(其他依赖如 Mysql 默认安装好)。
 
 #### 模块构建
 
@@ -59,4 +59,4 @@ Maven 多模块项目是根据 pom.xml 文件(下面简称 pom)来划分的, Rai
 <img src="https://static.goodrain.com/images/5.1/java-multi-module-build/dmk06.jpg
 " width="100%" />
 
-> 这样 Pig 项目多模块构建就完成了，后续其他步骤参考[SPRING CLOUD 微服务部署在 RAINBOND 的案例](/docs/micro-service/example/pig)
+> 这样 Pig 项目多模块构建就完成了，后续其他步骤参考[SPRING CLOUD 微服务部署在 RAINBOND 的案例](../../../../micro-service/example/pig.md)

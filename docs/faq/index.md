@@ -57,52 +57,6 @@ spec:
 
 可通过 `kubectl get rbdcomponent -n rbd-system` 查看所有组件。
 
-## BuildKit 源码构建配置
-
-默认采用 [BuildKit](https://github.com/moby/buildkit) 作为源码构建镜像打包工具。
-
-BuildKit 配置文件名称默认为 `goodrain-me`，如在安装时指定了镜像仓库名称，则配置文件名称为镜像仓库名称，如 `registry-cn-hangzhou-aliyuncs-com`。
-
-### DockerHub 镜像加速
-
-Dockerfile 源码构建引用 DockerHub 镜像获取超时，修改 BuildKit 配置镜像加速。
-
-```yaml title="kubectl edit cm goodrain-me -n rbd-system"
-apiVersion: v1
-data:
-  buildkittoml: |-
-    debug = true
-    [registry."goodrain.me"]
-      http = false
-      insecure = true
-+   [registry."docker.io"]
-+     mirrors = ["docker.rainbond.cc"]
-kind: ConfigMap
-metadata:
-  name: goodrain.me
-  namespace: rbd-system
-```
-
-### 源码构建报错 x509: certificate signed by unknown authority
-
-安装时对接了私有仓库是 HTTP 协议，源码构建时拉取镜像报错 `x509: certificate signed by unknown authority`，需修改 BuildKit 配置文件。
-
-```yaml title="kubectl edit cm goodrain-me -n rbd-system"
-apiVersion: v1
-data:
-  buildkittoml: |-
-    debug = true
-    [registry."goodrain.me"]
-      http = false
-      insecure = true
-+   [registry."xxx.xxx.xxx.xxx:5000"]
-+     http = true
-+     insecure = true
-kind: ConfigMap
-metadata:
-  name: goodrain.me
-  namespace: rbd-system
-```
 
 ## 存储空间清理
 
@@ -133,10 +87,6 @@ Rainbond 组件存储说明：
   capabilities = ["pull", "resolve","push"]
   skip_verify = true
 ```
-
-## Web 终端无法使用
-
-Web 终端无法使用，通常是因为 `WebSocket` 地址配置错误导致的。你可以在 `平台管理 -> 集群 -> 编辑集群` 修改 `WebSocket` 地址。
 
 ## 默认镜像仓库切换外部镜像仓库
 
@@ -213,10 +163,6 @@ kubectl delete pod -l name=rbd-chaos -n rbd-system
 快速安装的 Rainbond 默认使用 Docker 启动，并默认映射了 `30000～30010` 10个 TCP 端口供应用测试使用。如果你需要更多的 TCP 端口，通过脚本中打印的命令，删除容器重新启动并添加 `-p` 映射新的端口。
 
 
-## 无法上传离线包、软件包、Jar、WAR、ZIP等
-
-通常是因为本地浏览器与 Rainbond WebSocket 通信失败导致的。你可以在 `平台管理 -> 集群 -> 编辑集群` 修改 `WebSocket` 地址。
-
 ## 使用域名访问 Rainbond
 
 默认情况下访问 Rainbond 通过 `http://IP:7070`，如您需要使用域名访问，请按照以下步骤配置：
@@ -227,12 +173,17 @@ kubectl delete pod -l name=rbd-chaos -n rbd-system
 4. 切换到更多设置Tab页，添加健康检测。
 5. 进入应用视图的网关管理，添加域名绑定到该组件，并添加证书，完成域名访问配置。（证书无需手动绑定，自动匹配）
 
-## 快速安装或主机安装配置外部 HTTP 私有镜像仓库
+## 快速安装或主机安装配置外部 HTTP 私有镜像仓库或 DockerHub 镜像加速
 
-如你需要使用外部的 HTTP 私有镜像仓库，请按照以下步骤进行配置：
+如你需要使用外部的 HTTP 私有镜像仓库或 DockerHub 镜像加速，请按照以下步骤进行配置：
 
-- **快速安装**：Rainbond 快速安装内置了 K3S 集群，你需要进入容器内修改配置文件，具体请参阅 K3S [私有镜像仓库配置](https://docs.k3s.io/installation/private-registry)文档。
-- **主机安装**：Rainbond 主机安装采用的是 RKE2 集群，请参阅 RKE2 [私有镜像仓库配置](https://docs.rke2.io/install/private_registry)文档。
+**快速安装**：
+- Rainbond 快速安装内置了 K3S 集群，你需要进入容器内修改 `/etc/rancher/k3s/registries.yaml` 配置文件，具体请参阅 [K3S镜像仓库配置](https://docs.k3s.io/installation/private-registry)文档。
+- 需重启容器才会生效，重启命令：`docker restart rainbond`
+
+**主机安装**：
+- Rainbond 主机安装采用的是 RKE2 集群，你需要修改 `/etc/rancher/rke2/registries.yaml` 配置文件，具体请参阅 [RKE2镜像仓库配置](https://docs.rke2.io/install/private_registry)文档。
+- 需重启 RKE2 集群才会生效，重启命令：`systemctl restart rke2-server/rke2-agent`
 
 ## 扩展 TCP/NodePort 端口范围
 
