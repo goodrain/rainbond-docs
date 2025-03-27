@@ -14,7 +14,7 @@ import Translate from "@docusaurus/Translate";
 import { Button } from '@douyinfe/semi-ui';
 import Iconlinux from '/img/homepage/svg/linux.svg';
 import Iconwechat from '/img/homepage/svg/wechat-white.svg';
-import IconSlack from '/img/homepage/svg/slack.svg';
+import IconCloud from '/img/homepage/svg/cloud.svg';
 import { Tabs, TabPane, Typography } from '@douyinfe/semi-ui';
 import CTypist from '../../CTypist';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -61,10 +61,15 @@ export default function Primary() {
           </p>
         </animated.div>
         <animated.div style={animatedTexts[1]} className={styles.btnBox}>
-            <Button onClick={handleOnClickLinkRainbondCloud} theme="solid" className={styles.buttonLeft} size='large'>
-              开始使用
+            <Button icon={<IconCloud />} onClick={handleOnClickLinkRainbondCloud} theme="solid" className={styles.buttonLeft} size='large'>
+              在线体验
             </Button>
-          {!LocalUrlEn ? (
+            <Link to="/docs/quick-start/quick-install">
+              <Button icon={<Iconlinux />} theme="solid" className={styles.buttonRight} size='large'>
+                <Translate id='primary.install-dind'>开始安装</Translate>
+              </Button>
+            </Link>
+          {/* {!LocalUrlEn ? (
              <OverlayTrigger placement="bottom" 
              overlay={
                <div className="card shadow--tl">
@@ -81,7 +86,7 @@ export default function Primary() {
               <Button onClick={handleOnClickLink} theme="solid" className={styles.buttonRightEn} size='large'>
                 <Translate id='primary.join-user'>加入用户群</Translate>
               </Button>
-          )}
+          )} */}
         </animated.div>
       </div>
       {/* <div className={clsx("col col--5", styles.rainbond)}>
