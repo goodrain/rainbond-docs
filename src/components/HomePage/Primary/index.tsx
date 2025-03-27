@@ -66,7 +66,7 @@ export default function Primary() {
             </Button>
             <Link to="/docs/quick-start/quick-install">
               <Button icon={<Iconlinux />} theme="solid" className={styles.buttonRight} size='large'>
-                <Translate id='primary.install-dind'>安装部署</Translate>
+                <Translate id='primary.install-dind'>开始安装</Translate>
               </Button>
             </Link>
           {/* {!LocalUrlEn ? (
