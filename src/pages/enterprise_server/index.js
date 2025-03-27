@@ -77,17 +77,10 @@ export default function Index() {
                     margin: '40px 0px'
                   }}
                 >
-<<<<<<< HEAD
                   <li>SLA 99.95% 可用性承诺</li>
                   <li>自托管无需运维</li>
                   <li>享企业级功能</li>
                   <li>分钟级按需付费</li>
-=======
-                  <li>企业级护航 SLA 99.95% 可用性承诺</li>
-                  <li>提供商业版产品技术服务</li>
-                  <li>享企业级功能</li>
-                  <li>根据业务实际使用量，分钟级按需付费</li>
->>>>>>> d5776a26e735d4ce780d5e205a4bca4000dd61c8
                 </ul>
               </div>
               {/* 按钮 */}
@@ -135,15 +128,7 @@ export default function Index() {
                   <li>
                     Rainbond企业版是一个运营商级别版本，它具备超高的可靠性
                   </li>
-<<<<<<< HEAD
                   <li>最高响应级别 7*24</li>
-=======
-                  <li>提供商业版产品技术服务</li>
-                  <li>产品故障支持最高响应级别 7*24</li>
-                  <li>企业级功能按年提供服务</li>
-                  <li>部署到客户指定运行环境</li>
-                  <li>根据使用规模按需付费，高性价比</li>
->>>>>>> d5776a26e735d4ce780d5e205a4bca4000dd61c8
                   <li>
                     专业技术支持团队
                     <span style={{ color: '#737373' }}>
