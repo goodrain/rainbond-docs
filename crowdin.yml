@@ -8,8 +8,7 @@ files:
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
     ignore: 
       - "/docs/api/**/*"    # 忽略 api 目录下的所有文件
-      - "/docs/faq/**/*"    # 忽略 api 目录下的所有文件
-      - "/docs/how-to-guides/**/*"    # 忽略 api 目录下的所有文件
+      - "/docs/how-to-guides/localization-guide/**/*"    # 忽略 api 目录下的所有文件
       - "/docs/reference/**/*"    # 忽略 api 目录下的所有文件
       - "/docs/store/**/*"    # 忽略 api 目录下的所有文件
       - "/docs/troubleshooting/**/*"    # 忽略 api 目录下的所有文件
