@@ -486,5 +486,26 @@
   "sidebar.store.category.发布指南": {
     "message": "Release guidelines",
     "description": "The label for category 发布指南 in sidebar store"
+  },
+  "sidebar.docs.category.使用源代码部署": {
+    "message": "Use source code deployment",
+    "description": "The label for category 使用源代码部署 in sidebar docs"
+  },
+  "sidebar.docs.category.使用容器镜像部署": {
+    "message": "Use container image deployment",
+    "description": "The label for category 使用容器镜像部署 in sidebar docs"
+  },
+  "sidebar.docs.category.使用 YAML/Helm 部署": {
+    "message": "Use Yaml/Helm deployment",
+    "description": "The label for category 使用 Yaml/Helm 部署 in sidebar docs"
+  },
+  "sidebar.docs.category.应用运维": {
+    "message": "Application operation and maintenance",
+    "description": "The label for category 应用运维 in sidebar docs"
+  },
+  "sidebar.docs.category.微服务部署": {
+    "message": "Microservice deployment",
+    "description": "The label for category 微服务部署 in sidebar docs"
   }
+  
 }
