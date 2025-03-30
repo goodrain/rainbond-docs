@@ -10,7 +10,7 @@ keywords:
 This article describes how to install `Kubernetes`([RKE2](https://docs.rke2.io)) cluster and `Rainbond` cluster through graphical interface on Linux system.
 
 :::tip
-This installation method supports Linux x86 and Arm64 operating systems, and supports[localization of domestic innovation](/docs/how-to-guides/localization-guide/intro.md).
+This installation method supports Linux x86 and Arm64 operating systems.
 :::
 
 ## Prerequisites
