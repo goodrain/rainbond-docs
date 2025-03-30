@@ -1,0 +1,47 @@
+.footer {
+  @apply border-t py-6 md:py-8 bg-primary-light;
+}
+
+.container {
+  @apply container mx-auto px-4 flex flex-col md:flex-row items-center justify-between;
+}
+
+.logo {
+  @apply flex items-center mb-4 md:mb-0;
+  
+  svg {
+    @apply h-6 w-6 text-primary mr-2;
+  }
+}
+
+.copyright {
+  @apply text-sm text-gray-600;
+}
+
+.links {
+  @apply flex gap-6;
+}
+
+.link {
+  @apply text-sm font-medium text-gray-600 transition-colors duration-200;
+  
+  &:hover {
+    @apply text-primary;
+  }
+}
+
+.social-links {
+  @apply flex gap-4;
+}
+
+.social-link {
+  @apply text-gray-600 transition-colors duration-200;
+  
+  &:hover {
+    @apply text-primary;
+  }
+  
+  svg {
+    @apply h-6 w-6;
+  }
+} 

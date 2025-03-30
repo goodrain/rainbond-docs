@@ -1,0 +1,68 @@
+.user-card {
+  @apply bg-white rounded-lg shadow-sm p-6 transition-shadow duration-200;
+  
+  &:hover {
+    @apply shadow-md;
+  }
+}
+
+.user-icon {
+  @apply w-16 h-16 text-primary mb-4;
+}
+
+.user-title {
+  @apply text-xl font-semibold mb-4;
+}
+
+.check-list {
+  @apply space-y-3;
+}
+
+.check-item {
+  @apply flex items-start;
+  
+  svg {
+    @apply text-primary mr-2 flex-shrink-0;
+  }
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md p-6 transition-all duration-200 hover:shadow-lg;
+}
+
+.header {
+  @apply flex items-center mb-6;
+}
+
+.icon {
+  @apply text-3xl mr-4;
+}
+
+.title {
+  @apply text-xl font-semibold text-gray-900;
+}
+
+.content {
+  @apply space-y-6;
+}
+
+.section {
+  @apply space-y-3;
+}
+
+.sectionTitle {
+  @apply text-lg font-medium text-gray-700;
+}
+
+.list {
+  @apply space-y-2;
+}
+
+.listItem {
+  @apply text-gray-600 flex items-start;
+  
+  &::before {
+    content: "•";
+    @apply text-primary mr-2;
+  }
+} 
