@@ -1,20 +1,43 @@
-project_id: '533480'
-api_token: 'xxx'
-# api_token_env: CROWDIN_PERSONAL_TOKEN,
+project_id: '775202'
+# api_token: 'xxx'
+api_token_env: CROWDIN_PERSONAL_TOKEN
 preserve_hierarchy: true
 files:
-  # docs markdown
+# docs markdown
   - source: /docs/**/*
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
+    ignore: 
+      - "/docs/api/**/*"    # 忽略 api 目录下的所有文件
+      - "/docs/reference/**/*"    # 忽略 api 目录下的所有文件
+      - "/docs/store/**/*"    # 忽略 api 目录下的所有文件
+      - "/docs/troubleshooting/**/*"    # 忽略 api 目录下的所有文件
+      - "/docs/vm-guide/**/*"    # 忽略 api 目录下的所有文件
+      - "/docs/vm-guide/**/*"    # 忽略 api 目录下的所有文件
   # community markdown
-  - source: /community/**/*
-    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs-community/current/**/%original_file_name%
-  # case markdown
-  - source: /case/**/*
-    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog-case/**/%original_file_name%
-  # blog markdown
-  - source: /blog/**/*
-    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/**/%original_file_name%
-  # usescene markdown
-  - source: /usescene/**/*
-    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog-usescene/**/%original_file_name%
+  # - source: /community/**/*
+  #   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs-community/current/**/%original_file_name%
+  # # case markdown
+  # - source: /case/**/*
+  #   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog-case/**/%original_file_name%
+  # # blog markdown
+  # - source: /blog/**/*
+  #   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/**/%original_file_name%
+  # # usescene markdown
+  # - source: /usescene/**/*
+  #   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog-usescene/**/%original_file_name%
+
+  # # docs markdown
+  # - source: /docs/**/*
+  #   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
+  # # community markdown
+  # - source: /community/**/*
+  #   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs-community/current/**/%original_file_name%
+  # # case markdown
+  # - source: /case/**/*
+  #   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog-case/**/%original_file_name%
+  # # blog markdown
+  # - source: /blog/**/*
+  #   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/**/%original_file_name%
+  # # usescene markdown
+  # - source: /usescene/**/*
+  #   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog-usescene/**/%original_file_name%
