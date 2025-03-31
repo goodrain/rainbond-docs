@@ -285,6 +285,21 @@ const sidebars = {
         'troubleshooting/common',
       ]
     },
+    {
+      type: 'category',
+      label: '贡献指南',
+      link: {
+        type: 'doc',
+        id: 'contribution/index'
+      },
+      items: [
+        'contribution/code/index',
+        'contribution/code/ui',
+        'contribution/code/console',
+        'contribution/code/region',
+        'contribution/document/index',
+      ]
+    },
     'support',
   ],
   api: [
