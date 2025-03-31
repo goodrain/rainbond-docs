@@ -25,7 +25,7 @@ Rainbond 希望项目参与者遵守行为准则，请阅读 [CODE_OF_CONDUCT](h
 * [代码贡献](/docs/contribution/code/)
 * [文档贡献](/docs/contribution/document/)
 
-贡献是非常受欢迎的，如果你认为你的贡献需要帮助时，请添加[小助手微信](/community/support)联系我们，由 Rainbond TOC 成员帮助你继续贡献。
+贡献是非常受欢迎的，如果你认为你的贡献需要帮助时，请通过[社区支持](/docs/support)联系我们，由 Rainbond TOC 成员帮助你继续贡献。
 
 以下是为 Rainbond 贡献的主要步骤：
 

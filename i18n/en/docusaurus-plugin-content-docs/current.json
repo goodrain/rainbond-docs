@@ -23,6 +23,10 @@
     "message": "FAQ",
     "description": "The label for category 常见问题 in sidebar docs"
   },
+  "sidebar.docs.category.贡献指南": {
+    "message": "Contribution",
+    "description": "The label for category 贡献指南 in sidebar docs"
+  },
   "sidebar.docs.category.故障排除": {
     "message": "Troubleshooting",
     "description": "The label for category 故障排除 in sidebar docs"
