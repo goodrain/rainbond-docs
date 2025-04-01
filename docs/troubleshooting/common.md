@@ -159,7 +159,7 @@ rainbond-operator 会自动重新启动写入 `/etc/hosts` 的 Job 任务。
   kubectl get ing -n <namespace>
   ```
 
-## 4. 应用/组件对外无法访问
+## 4. 应用/组件 HTTP 对外无法访问
 
 ```mermaid
 flowchart TD
@@ -265,3 +265,12 @@ kubectl logs -f -l name=rbd-gateway -n rbd-system -c apisix
 ## 6. Web 终端无法使用
 
 Web 终端无法使用，通常是因为 `WebSocket` 地址配置错误导致的。你可以在 `平台管理 -> 集群 -> 编辑集群` 修改 `WebSocket` 地址。
+
+## 7. 应用/组件 TCP 对外无法访问
+
+TCP 对外服务实际是使用 K8S 的 NodePort 服务，如果无法访问，请检查以下几点：
+
+1. 检查 TCP 端口在服务器上是否监听
+2. 检查 `kube-proxy` 服务是否正常运行，是否存在错误日志
+3. 快速安装的 Rainbond 默认情况下只开放了 30000～30010 10个 TCP 端口，添加[更多 TCP 端口](../faq/index.md#快速安装添加更多-tcp-端口)
+4. 超出 K8S NodePort 端口范围，请[扩展端口范围](../faq/index.md#扩展-tcpnodeport-端口范围)
