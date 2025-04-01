@@ -123,6 +123,7 @@ const sidebars = {
             'how-to-guides/app-ops/k8s-attribute',
             'how-to-guides/app-ops/environment-manage',
             'how-to-guides/app-ops/auto-build',
+            'how-to-guides/app-ops/cert-manager',
             {
               type: 'category',
               label: '应用商店',
