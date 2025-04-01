@@ -35,7 +35,7 @@
   position: relative;
 }
 
-h1 {
+.titleh1 {
   font-size: 1.75rem;
   background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
   background-clip: text;
@@ -48,7 +48,7 @@ h1 {
   display: inline-block;
 }
 
-h2 {
+.titleh2 {
   font-size: 1.25rem;
   color: #1e293b;
   margin-bottom: 1.5rem;
@@ -450,11 +450,11 @@ h2 {
     padding: 1.25rem;
   }
 
-  h1 {
+  .titleh1 {
     font-size: 1.5rem;
   }
 
-  h2 {
+  .titleh2 {
     font-size: 1.125rem;
   }
 
