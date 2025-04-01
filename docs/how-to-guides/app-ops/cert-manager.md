@@ -13,7 +13,7 @@ keywords:
 
 ## 前提
 
-- 已完成 [Rainbond 快速安装](../../quick-start/quick-install.mdx)
+- 已完成 [Rainbond 快速安装](../../quick-start/quick-install)
 
 ## Cert Manager 概述
 
