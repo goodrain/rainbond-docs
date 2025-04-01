@@ -92,14 +92,14 @@ export default function Index() {
                 >
                   开始使用
                 </a>
-                {/* <a
+                <a
                   style={{marginLeft:'160px'}}
-                  className={`${styles.btns} ${styles.cloud}`}
-                  href='https://rainbond.feishu.cn/share/base/form/shrcngJKwbek0nbP1bBIcFA5g6d'
+                  className={`${styles.btns} ${styles.calculator}`}
+                  href='/calculator'
                   target='_blank'
                 >
                   价格计算器
-                </a> */}
+                </a>
               </div>
             </div>
                         {/* 企业版 */}
@@ -148,7 +148,7 @@ export default function Index() {
                 </a>
                 <a
                   style={{marginLeft:'160px'}}
-                  className={`${styles.btns} ${styles.cloud}`}
+                  className={`${styles.btns} ${styles.calculator}`}
                   href='https://rainbond.feishu.cn/share/base/form/shrcngJKwbek0nbP1bBIcFA5g6d'
                   target='_blank'
                 >
