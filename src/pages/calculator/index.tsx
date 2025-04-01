@@ -115,7 +115,7 @@ export default function Calculator() {
   return (
     <Layout title={Header.title} description={Header.description}>
       <div className={styles.container}>
-        <h1>{Header.title}</h1>
+        <h1 className={styles.titleh1}>{Header.title}</h1>
         <p className={styles.description}>{Header.description}</p>
 
         <div className={styles.mainContent}>
@@ -144,7 +144,7 @@ export default function Calculator() {
             </div>
 
             <div className={styles.calculator}>
-              <h2>资源配置</h2>
+              <h2 className={styles.titleh2}>资源配置</h2>
               <div className={styles.inputGroup}>
                 <div className={styles.inputItem}>
                   <label>内存 (GB)</label>
@@ -208,7 +208,7 @@ export default function Calculator() {
           </div>
 
           <div className={styles.advantagesSection}>
-            <h2>为什么选择 Rainbond Cloud</h2>
+            <h2 className={styles.titleh2}>为什么选择 Rainbond Cloud</h2>
             <div className={styles.advantages}>
               {advantages.map((advantage, index) => (
                 <div key={index} className={styles.advantageItem}>
