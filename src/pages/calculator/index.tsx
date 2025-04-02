@@ -28,7 +28,7 @@ export default function Calculator() {
     storage: 0,
     network: 0,
     duration: 1,
-    timeUnit: '天'
+    timeUnit: '时'
   });
 
   const [prices, setPrices] = useState<Prices>({
@@ -139,7 +139,7 @@ export default function Calculator() {
               <div className={styles.priceItem}>
                 <span>流量</span>
                 <span>¥{RATES.network.toFixed(6)}</span>
-                <div className={styles.priceUnit}>每MB/小时价格</div>
+                <div className={styles.priceUnit}>每MB价格</div>
               </div>
             </div>
 
