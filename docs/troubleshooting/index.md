@@ -17,6 +17,10 @@ keywords:
 
 ## 排查工具
 
+:::tip 提示
+在排查故障时，如使用 `kubectl` `helm` 命令，请在 **平台管理 → 集群管理 → 命令行** 中执行。
+:::
+
 在解决 Rainbond 问题时，以下工具和命令非常有用：
 
 - **kubectl**: 查看 Kubernetes 资源状态和日志
