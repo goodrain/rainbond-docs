@@ -5,10 +5,6 @@ keywords:
 - 在使用 Rainbond 过程中的组件的运行问题排查
 ---
 
-:::tip 提示
-在排查故障时，如使用 `kubectl` `helm` 命令，请在 **平台管理 → 集群管理 → 命令行** 中执行。
-:::
-
 ## 1. 构建失败故障排查
 
 ```mermaid
@@ -148,21 +144,6 @@ rainbond-operator 会自动重新启动写入 `/etc/hosts` 的 Job 任务。
 
 直至第三方组件状态为 `就绪`，才能正常使用。
 
-如果第三方组件状态为 `就绪`, 但是无法对内或对外访问，请通过以下步骤排查：
-
-1. 检查第三方组件创建的 endpoint 是否正确
-  ```bash
-  kubectl get ep -n <namespace>
-  ```
-2. 检查第三方组件创建的 service 是否正确，并通过 curl 命令检查是否能够访问
-  ```bash
-  kubectl get svc -n <namespace>
-  ```
-3. 检查第三方组件创建的 ingress 是否正确
-  ```bash
-  kubectl get ing -n <namespace>
-  ```
-
 ## 4. 应用/组件 HTTP 对外无法访问
 
 ```mermaid
@@ -208,10 +189,7 @@ flowchart TD
 
 3. **检查服务日志**
    - 查看组件运行日志，寻找可能的错误信息
-   - 查看 `rbd-gateway` 网关日志
-   ```bash
-   kubectl logs -f -l name=rbd-gateway -n rbd-system -c apisix
-   ```
+   - 在平台管理 → 日志 → 网关日志中查看
 
 ### 503 Service Unavailable 错误排查
 
@@ -249,12 +227,7 @@ flowchart TD
 
 ### 网关日志分析
 
-网关的日志信息对排查问题至关重要：
-
-```bash
-# 查看 APISIX 网关日志
-kubectl logs -f -l name=rbd-gateway -n rbd-system -c apisix
-```
+网关的日志信息对排查问题至关重要，在 **平台管理 -> 日志 -> 网关日志** 中查看。
 
 常见的错误日志模式：
 

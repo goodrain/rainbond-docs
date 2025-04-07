@@ -15,39 +15,6 @@ keywords:
 - [平台问题](./cluster-connect.md)：平台运行中可能遇到的系统级问题，影响整体平台稳定性。
 - [应用问题](./common.md)：应用级别的问题，与具体业务组件运行相关。
 
-## 排查工具
-
-:::tip 提示
-在排查故障时，如使用 `kubectl` `helm` 命令，请在 **平台管理 → 集群管理 → 命令行** 中执行。
-:::
-
-在解决 Rainbond 问题时，以下工具和命令非常有用：
-
-- **kubectl**: 查看 Kubernetes 资源状态和日志
-  ```bash
-  # 查看 Pod 状态
-  kubectl get pods -n rbd-system
-  # 查看日志
-  kubectl logs -f <pod-name> -n rbd-system
-  ```
-
-- **docker/nerdctl**: 容器和镜像管理
-  ```bash
-  # 清理不再使用的资源
-  docker system prune
-  # 检查镜像
-  nerdctl -n k8s.io images prune
-  ```
-
-- **journalctl**: 查看系统日志
-  ```bash
-  # 查看 Docker 日志
-  journalctl -fu docker
-  ```
-
-- **查看平台日志**: 通过控制台查看平台组件日志
-  - 平台管理 -> 日志 -> 控制台日志/集群日志
-
 ## 获取帮助
 
 如果您的问题在本文档中未能解决，可以通过以下渠道获取帮助：

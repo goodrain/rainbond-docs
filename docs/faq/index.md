@@ -204,3 +204,66 @@ systemctl restart rke2-agent
 ```
 
 如您的 K8s 集群是自行安装的，请自行查询如何修改 K8s NodePort 端口范围。
+
+## 迁移默认 rbd-db 至外部数据库
+
+:::tip 提示
+只针对已安装了 Rainbond 平台需要迁移 `rbd-db` 至外部数据库的场景。如需在安装时使用外部数据库，请在安装时选择使用外部数据库 [主机安装](../installation/install-with-ui/index.md)、[Helm安装](../installation/install-with-helm/index.md)
+:::
+
+Rainbond 默认使用 `rbd-db（mysql8）` 存储元数据，如您需要迁移 `rbd-db` 至外部数据库，请按照以下步骤进行操作。
+
+:::info 说明
+外部数据库需要满足以下要求：
+- 数据库版本为 `mysql8`
+- 创建 `console` `region` 数据库
+:::
+
+1. 备份 `rbd-db` 数据
+
+```bash
+kubectl exec -it rbd-db-0 -n rbd-system -- mysqldump -uroot -p$MYSQL_ROOT_PASSWORD -d console > console.sql
+kubectl exec -it rbd-db-0 -n rbd-system -- mysqldump -uroot -p$MYSQL_ROOT_PASSWORD -d region > region.sql
+```
+
+2. 将备份的数据导入到外部数据库
+3. 修改 `rainbondcluster` CRD 资源，添加外部数据库的连接信息。
+
+```yaml title="kubectl edit rainbondcluster -n rbd-system"
+spec:
+  uiDatabase:
+    host: 192.168.1.100
+    port: 3306
+    name: console
+    username: root
+    password: root
+  regionDatabase:
+    host: 192.168.1.100
+    port: 3306
+    name: region
+    username: root
+    password: root
+```
+
+4. 重启 `rainbond-operator` 组件。
+
+```bash
+kubectl delete pod -l name=rainbond-operator -n rbd-system
+```
+
+5. 验证迁移是否成功。
+
+```bash
+kubectl get pod -n rbd-system -l name=rbd-api -o yaml
+# 查看 args 字段，确认是否添加了外部数据库的连接信息
+spec:
+  containers:
+  - args:
+    - --mysql=root:root@tcp(192.168.1.100:3306)/region
+```
+
+6. 删除 `rbd-db` 组件。（可选）
+
+```bash
+kubectl delete rbdcomponent rbd-db -n rbd-system
+```
