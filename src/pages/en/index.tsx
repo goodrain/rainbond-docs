@@ -28,7 +28,7 @@ export default function EnHome() {
                     marginTop: '101.15px',
                 }}
             />
-            <Footer/>
+            {/*<Footer/>*/}
         </LayoutProviders>
     );
 }
