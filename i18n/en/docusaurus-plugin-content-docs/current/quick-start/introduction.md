@@ -33,7 +33,7 @@ Rainbond provides capabilities such as business integration, multi-cloud deliver
 
 ## Rainbond's functions and architecture
 
-![](https://static.goodrain.com/case/2022/03/17/16474283190784.jpg)
+![img.png](arch_en.png)
 
 ### Application-level multi-cloud management
 
