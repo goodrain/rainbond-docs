@@ -28,7 +28,7 @@ This tutorial will demonstrate some of the core capabilities of Rainbond compone
 ### 🧩 Operation process
 
 1. **Deploy components using source code**
-    ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source.png)
+    ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source-en.png)
     1. Enter the target team view and create a new application.
     2. Select to build from source code ➡️ source code.
         - Customize the application name.
@@ -53,7 +53,7 @@ This tutorial will demonstrate some of the core capabilities of Rainbond compone
 ### 🧩 Operation process
 
 1. **Select rollback version**
-    ![](/docs/tutorial/component-version-update-and-rollback/rollback.png)
+    ![](/docs/tutorial/component-version-update-and-rollback/rollback-en.png)
     - Enter Overview ➡️ View more versions ➡️ Historical version list
 
 2. **Execute rollback**

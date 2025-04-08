@@ -49,7 +49,7 @@ Cluster:
     username: root
     password: root
 
-  rainbondImageRepository: registry.cn-hangzhou.aliyuncs.com/goodrain
+  rainbondImageRepository: docker.io/rainbond
   # https://github.com/goodrain/rainbond/releases
   installVersion: <version>
   imagePullPolicy: IfNotPresent

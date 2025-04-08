@@ -375,6 +375,10 @@
     "message": "Deploy components using YAML",
     "description": "The label for category 使用 YAML 部署组件 in sidebar docs"
   },
+  "sidebar.docs.category.使用 Helm Chart 部署": {
+    "message": "Deploy with Helm Chart",
+    "description": "The label for category 使用 Helm Chart 部署 in sidebar docs"
+  },
   "sidebar.docs.category.使用 Helm 部署组件": {
     "message": "Deploy components using Helm",
     "description": "The label for category 使用 Helm 部署组件 in sidebar docs"
