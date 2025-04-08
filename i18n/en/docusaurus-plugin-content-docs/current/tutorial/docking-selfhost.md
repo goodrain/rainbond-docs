@@ -68,7 +68,7 @@ flowchart BT
     - Ensure the server network is interconnected with existing Rainbond nodes
 
 2. **Graphical Node Access**
-    ![](/docs/tutorial/docking-selfhost/install-selfhost.png)
+    ![](/docs/tutorial/docking-selfhost/install-selfhost-en.png)
     1. Log in to the Rainbond console, go to Platform Management ➡️ Cluster ➡️ Add Node.
     2. Select **Start Installation from Host**, and get the node access command.
     3. Execute the access command on the target server:
@@ -98,11 +98,11 @@ flowchart BT
 1. Go to Platform Management ➡️ Project/Team ➡️ Create Project/Team.
 2. Fill in the team name (e.g., Development Team, Testing Team, Production Team).
 
-![](/docs/tutorial/docking-selfhost/create-team.png)
+![](/docs/tutorial/docking-selfhost/create-team-en.png)
 
 3. Go to the team ➡️ Settings ➡️ Members, add other members to join the team.
 
-![](/docs/tutorial/docking-selfhost/invite-member.png)
+![](/docs/tutorial/docking-selfhost/invite-member-en.png)
 
 :::info
 

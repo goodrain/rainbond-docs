@@ -39,7 +39,7 @@ This tutorial will demonstrate the core capabilities of Rainbond gateway managem
     2. Resolve the domain name `demo.example.rainbond.com` to the Rainbond gateway IP, such as: `192.168.1.1`.
     3. Access the custom domain name, expected result: `Welcome to nginx!`.
 
-![](/docs/tutorial/custom-gateway/gateway.png)
+![](/docs/tutorial/custom-gateway/gateway-en.png)
 
 ## Configure HTTPS secure access
 

@@ -1,0 +1,165 @@
+.width {
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1200px) {
+  .width {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 1020px) {
+  .nav_lists > li {
+    padding: 12px !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .nav_container .nav_lists > li {
+    padding: 6px !important;
+  }
+}
+// 切换导航栏
+@media screen and (max-width: 760px) {
+  .nav_container {
+    display: none !important;
+  }
+  // 展示Nav导航栏
+  .isMobieNav {
+    display: block !important;
+    // margin-right: 12px;
+    position: relative;
+    right: 10%;
+  }
+  // 移动端导航栏
+  .isMobieNavBar {
+    background-color: #ffffff !important;
+    position: fixed;
+    width: 100%;
+    top: 84px;
+    left: 0px;
+    z-index: 9999;
+  }
+  .mobile_nav_lists {
+    list-style: none;
+    padding: 24px;
+  }
+  .mobile_nav_lists > li {
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+  .mobile_nav_lists > li > a {
+    color: #000000;
+    font-weight: var(--ifm-dropdown-font-weight)
+  }
+}
+/* 主页的自定义头部 */
+.mdHeader {
+  height: 120px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: #fff;
+  border-bottom: solid;
+  border-color: var(--background-color-light);
+  border-width: 1px;
+  // box-shadow: 5px 15px 50px rgb(0 55 79 / 20%);
+  .nav_bar {
+    height: 85%;
+    // width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .nav_container {
+      height: 100%;
+    }
+    // .left_logo {
+    //   height: 100%;
+    //   line-height: 110px;
+    // }
+    // 左侧logo
+    .left_logo img {
+      width: 240px;
+    }
+    // 右侧列表
+    .nav_container .nav_lists {
+      height: 100%;
+      display: flex;
+      list-style: none;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 0px !important;
+    }
+    .nav_container .nav_lists > li {
+      // margin-left: 16px;
+      padding: 15px;
+      font-weight: var(--ifm-dropdown-font-weight)
+    }
+    .nav_container .nav_lists > li > a {
+      color: #3f3c3c;
+    }
+    .githubLogo {
+      content: '';
+      width: 24px;
+      height: 24px;
+      display: flex;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+        no-repeat;
+    }
+    .giteeLogo {
+      content: '';
+      width: 24px;
+      height: 24px;
+      display: flex;
+      background: url("/img/svg/gitee.svg")
+        no-repeat;
+    }
+    .gitcodeLogo {
+      content: '';
+      width: 24px;
+      height: 24px;
+      display: flex;
+      background: url("/img/svg/gitcode.svg")
+        no-repeat;
+    }
+  }
+  .nav_container .nav_lists > li:hover a {
+    color: #338bff;
+    text-decoration: none;
+  }
+}
+[data-theme='dark'] .mdHeader {
+  background-color: #242526;
+  .nav_container .nav_lists > li > a {
+    color: #f5f6f7;
+  }
+  .githubLogo {
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+      no-repeat;
+  }
+}
+.iconDropDown {
+  width: 14px;
+  height: 14px;
+  margin: 8px 0px 0px 5px;
+}
+
+.buttonQuick{
+  color: #fff !important;
+  font-size: var(--ifm-code-font-size);
+}
+
+.DropDownFont{
+  color: var(--ifm-color-primary-black) !important;
+  font-size: 13px;
+}
+
+.DropDownFont:hover{
+  color: var(--ifm-color-primary) !important;
+}
+
+.StoreFont{
+  color: #3F3C3C !important;
+}
+.StoreFont:hover{
+  color: var(--ifm-color-primary) !important;
+}

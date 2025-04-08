@@ -36,9 +36,9 @@ flowchart LR
 
 1. **Create Application and Source Component**
   1. Enter the target **Team View ➡️ Create Application**.
-    ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/team.png)
+    ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/team-en.png)
   2. Select **Build from Source Code** ➡️ **Source Code**, fill in the following information:
-    ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source.png)
+    ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source-en.png)
     - Repository Address: `https://gitee.com/rainbond/demo-2048.git`
     - Code Branch: `master`
     - Component Name: `2048` (customizable)

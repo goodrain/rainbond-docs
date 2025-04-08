@@ -79,7 +79,7 @@ flowchart LR
     1. Enter the application view ➡️ Publish Application ➡️ Export Application Template, export the application model specification.
     2. Download the generated `app-delivery-1.0.ram.tar.gz` format offline package.
 
-![](/docs/tutorial/app-template-offline/export-app.png)
+![](/docs/tutorial/app-template-offline/export-app-en.png)
 
 ## 2. Implement Cross-Environment Delivery (Environment B)
 
@@ -96,7 +96,7 @@ flowchart LR
     2. Upload the obtained offline package file.
     3. The system automatically parses the application template and its dependent resources.
 
-![](/docs/tutorial/app-template-offline/import-app.png)
+![](/docs/tutorial/app-template-offline/import-app-en.png)
 
 2. **Deployment Verification**
     1. Enter the target team view, create a new `import-app` application.

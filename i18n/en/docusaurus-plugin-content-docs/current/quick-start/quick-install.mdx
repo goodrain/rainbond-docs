@@ -21,7 +21,7 @@ This document describes the one-click installation of Rainbond using a script. A
 Rainbond provides an installation script to quickly start Rainbond in a Docker container.During script execution, you need to manually set the EIP.After deployment, this IP address will be used to access the Rainbond console.
 
 ```bash
-curl -o install.sh https://get.rainbond.com && bash ./install.sh
+curl -o install.sh https://get.rainbond.com && IMGHUB_MIRROR=rainbond bash ./install.sh
 ```
 
 </TabItem>
@@ -37,15 +37,15 @@ Invoke-WebRequest "https://get.rainbond.com/install-rainbond.ps1" -o install-rai
 ```
 
 </TabItem>
-  <TabItem value="XinChuang" label="XinChuang" default>
+{/*   <TabItem value="XinChuang" label="XinChuang" default> */}
 
-Rainbond provides a one-click installation script that supports domestic XinChuang requirements, quickly starting Rainbond in a Docker container.During script execution, the required architecture will be automatically selected, and you also need to manually set the EIP.After deployment, this IP address will be used to access the Rainbond console.
+{/* Rainbond provides a one-click installation script that supports domestic XinChuang requirements, quickly starting Rainbond in a Docker container.During script execution, the required architecture will be automatically selected, and you also need to manually set the EIP.After deployment, this IP address will be used to access the Rainbond console. */}
 
-```bash
-curl -o install.sh https://get.rainbond.com && bash ./install.sh
-```
+{/* ```bash */}
+{/* curl -o install.sh https://get.rainbond.com && bash ./install.sh */}
+{/* ``` */}
 
-</TabItem>
+{/* </TabItem> */}
 </Tabs>
 
 After executing the above script, wait patiently for 3-5 minutes, then use a browser to access `http://$EIP:7070` to enter Rainbond.
