@@ -41,7 +41,7 @@ spec:
     value: mysql
   - name: IS_STANDALONE
     value: "false"
-  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>
+  image: rainbond/rainbond:<version>
   imagePullPolicy: IfNotPresent
   priorityComponent: false
   replicas: 1

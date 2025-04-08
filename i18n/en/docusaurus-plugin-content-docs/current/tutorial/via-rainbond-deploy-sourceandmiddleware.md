@@ -33,13 +33,13 @@ This tutorial will demonstrate some of the core capabilities of Rainbond:
         - Repository address: `https://gitee.com/rainbond/java-maven-demo.git`.
         - Branch: `master`.
 
-![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/team.png)
+![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/team-en.png)
 
 2. **Intelligent Parsing Process**
     - Automatically parse the corresponding language type based on the project files, such as if there is a `pom.xml` file in the project, automatically determine it as `Java-Maven`.
     - Automatically parse the Maven build command based on the `pom.xml` file.
 
-![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source.png)
+![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source-en.png)
 
 3. **Deployment Monitoring**
     - View real-time logs of source code build in the component's overview ➡️ Operation records.
@@ -50,7 +50,7 @@ This tutorial will demonstrate some of the core capabilities of Rainbond:
     - Automatically generate access domain name rules, `<componentID>-<port>-<NS>-<cluster root domain>`, such as: `gr6f8fd7-5000-default-192.168.1.11.nip.io`.
     - Component ➡️ Port view, use the automatically generated **domain name** to access the sample page.
 
-![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/access.png)
+![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/access-en.png)
 
 ## 2. Install MySQL Service via Application Market
 
@@ -61,13 +61,13 @@ This tutorial will demonstrate some of the core capabilities of Rainbond:
 
 ### 🧩 Operation Process
 
-![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/store.png)
+![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/store-en.png)
 
 1. **Install Middleware**
     1. Add component ➡️ Select external application market.
     2. Search for MySQL and install version 8.0.
 
-![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/install-mysql.png)
+![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/install-mysql-en.png)
 
 2. **Intelligent Configuration Instructions**
     - Automatically create PVC and mount it to `/var/lib/mysql`.
@@ -91,7 +91,7 @@ This tutorial will demonstrate some of the core capabilities of Rainbond:
     1. Enter the application view ➡️ Topology diagram editing mode.
     2. Drag Java Maven ➡️ MySQL to establish a connection.
 
-![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/topological.png)
+![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/topological-en.png)
 
 2. **Dependency Effect Verification (Command Line)**
     - Enter the `Java` component's web terminal, execute:

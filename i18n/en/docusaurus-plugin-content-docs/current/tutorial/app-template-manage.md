@@ -75,7 +75,7 @@ flowchart LR
     3. Other configurations remain default.
     4. Confirm submission.
 
-![](/docs/tutorial/app-template-manage/publish-app.png)
+![](/docs/tutorial/app-template-manage/publish-app-en.png)
 
 ## 2. One-click installation of application template
 
@@ -92,7 +92,7 @@ flowchart LR
 2. Select install from application market ➡️ local component library, choose `app-template` and install.
 3. Expected result: The `target-app` application contains a component named `app`.
 
-![](/docs/tutorial/app-template-manage/install-app.png)
+![](/docs/tutorial/app-template-manage/install-app-en.png)
 
 ## 3. Release a new version (2.0)
 
@@ -110,7 +110,7 @@ flowchart LR
         - Add environment variable `demo=demo`.
         - Click the **Update** button in the upper right corner.
 
-![](/docs/tutorial/app-template-manage/copy-app.png)
+![](/docs/tutorial/app-template-manage/copy-app-en.png)
 
 2. **Release a new version**
     - Enter the application view ➡️ publish application ➡️ publish to component library.
@@ -133,7 +133,7 @@ flowchart LR
         - New `app-copy` component added.
         - The original `app` component has added the `demo=demo` environment variable.
 
-![](/docs/tutorial/app-template-manage/upgrade-app.png)
+![](/docs/tutorial/app-template-manage/upgrade-app-en.png)
 
 2. **Rollback to the old version**
     1. Enter the `target-app` application view ➡️ Application upgrade ➡️ Upgrade record.
@@ -142,7 +142,7 @@ flowchart LR
         - The `app-copy` component has been removed.
         - The `demo` environment variable of the `app` component has been removed.
 
-![](/docs/tutorial/app-template-manage/rollback-app.png)
+![](/docs/tutorial/app-template-manage/rollback-app-en.png)
 
 :::info
 
