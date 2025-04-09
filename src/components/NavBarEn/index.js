@@ -6,11 +6,43 @@ import LocaleDropdownNavbarItem from '@theme/NavbarItem/LocaleDropdownNavbarItem
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import AnnouncementBar from '@theme/AnnouncementBar';
+import { useLocation } from '@docusaurus/router';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export default function Index(props) {
   // 菜单开关
   const [menu_Config, setMenu_Config] = useState(true);
   const [menu_Config_Drop, setMenu_Config_Drop] = useState(false);
+  const { i18n } = useDocusaurusContext();
+  const location = useLocation();
+  const currentLocale = i18n.currentLocale;
+  // 语言切换处理器
+  const handleLanguageChange = (newLocale) => {
+    console.log("en start new locale", newLocale);
+    if (typeof window === 'undefined' || typeof window === undefined ) {
+      return
+    }
+    let useLocale = currentLocale
+    if (localStorage.getItem('docusaurus_selected_locale')){
+      console.log("have selected locale")
+      useLocale = localStorage.getItem('docusaurus_selected_locale');
+    }
+    console.log(currentLocale, "------1-------")
+    // localStorage.setItem('docusaurus_selected_locale', "en");
+    console.log(currentLocale, "------2-------", i18n.currentLocale, "get cookie", localStorage.getItem('docusaurus_selected_locale'))
+
+    // 更新本地存储
+    console.log("new locale", newLocale, "currentLocale", currentLocale, "location.pathname", location.pathname);
+    // localStorage.setItem('docusaurus_selected_locale', newLocale);
+    // 构造新路径
+    const newPath = location.pathname.replace(
+        `/${useLocale}`,
+        `/${newLocale}`
+    );
+    console.log("newPath", newPath);
+    // 使用原生跳转确保完全刷新
+    window.location.href = newPath;
+  };
 
   return (
     <div>
@@ -28,141 +60,35 @@ export default function Index(props) {
               <li>
                 <Link to="/docs/">
                   <Translate id='navbar.doc'>
-                    文档
+                    Docs
                   </Translate>
                 </Link>
               </li>
               <li>
-                <div className="dropdown dropdown--hoverable">
-                  <Translate id='navbar.feature'>功能特性</Translate>
-                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg==" />
-                  <ul className="dropdown__menu">
-                    <li>
-                      <Link to="/xinchuang" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.xinchuang'>
-                          信创
-                        </Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/feature/devops" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.feature.devops'>
-                          一体化DevOps
-                        </Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/feature/multi-cluster" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.feature.k8scluster'>
-                          Kubernetes多集群管理
-                        </Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/feature/service-mesh" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.feature.servicemesh'>
-                          开箱即用的微服务治理
-                        </Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/feature/app-ops" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.feature.appops'>
-                          自动化应用运维
-                        </Translate>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <div className="dropdown dropdown--hoverable">
-                  <Translate id='navbar.learn'>深入</Translate>
-                  <img className={styles.iconDropDown} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABUUlEQVRoge3Wr0tdcRzH4WfeKcpwCCIMBAXBIlgWFpYMppUVLUs2i9F/4SbXtrBmsmhZWVpYWrhhRVgZCBMGggiiyIZjTsO9XyZ3XO65P86P8HngE88571c7hBBCCCGEEEIYujpuK371rDE7FRjb6d5kjYAHeFeB0e23i5FeQrQe2KvA+HQHqPUakdSwX4GI9xjtNyIZw4cSIz5ifNCIZAKfSoj4jEfDikgeo1FgRAOTw45IpvClgIhDTOcVkczga44R3/Ak74hkFkc5RBxjvqiIZA7fBxx+/35godCCexZx0mVgljvFUsHb/7OMM/1HnONp4as7eIZLvUdctJ6tlOe4kj3iJ1ZKWZrBKn7pHnGNFyVtzOwlfusc8Qfrpa3r0Zrm4PaIG7wqcVdfNjSHp4i/2Cx10QC2/AvZzvNDD/N8Od5q/jXD65y/FUIIIYRQNXfPaMyAru8lkAAAAABJRU5ErkJggg==" />
-                  <ul className="dropdown__menu">
-                    <li>
-                      <Link to="/usescene" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.usescene'>
-                          使用场景
-                        </Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/case" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.case'>
-                          用户案例
-                        </Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.blog'>
-                          博客
-                        </Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/docs/Intro" className={clsx("dropdown__link", styles.DropDownFont)}>
-                        <Translate id='navbar.intro'>
-                          OpenAPI
-                        </Translate>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                      <Link to="/enterprise_server" >
-                        <Translate id='navbar.enterprise'>企业版</Translate>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/marketplace">
-                        <Translate id='navbar.market'>
-                          应用商店
-                        </Translate>
-                      </Link>
-                    </li>
-              <li>
                 <a
-                  className={styles.githubLogo}
-                  href='https://github.com/goodrain/rainbond'
-                  target='_blank'
+                    className={styles.githubLogo}
+                    href='https://github.com/goodrain/rainbond'
+                    target='_blank'
                 ></a>
               </li>
               <li>
                 <a
-                  className={styles.giteeLogo}
-                  href='https://gitee.com/rainbond/Rainbond'
-                  target='_blank'
-                ></a>
+                    className={currentLocale === 'zh' ? styles.active : ''}
+                    onClick={() => handleLanguageChange('zh')}
+                >
+                  简体中文
+                </a>
               </li>
-              <li>
-                <a
-                  className={styles.gitcodeLogo}
-                  href='https://gitcode.com/goodrain/rainbond/overview'
-                  target='_blank'
-                ></a>
-              </li>
-              {/* <li>
-                <NavbarColorModeToggle/>
-              </li> */}
-              {/* <li>
-                <Link to="/docs/quick-start/getting-started" className={clsx("button button--primary", styles.buttonQuick)}>
-                  <Translate id='navbar.quickstart'>
-                    快速开始
-                  </Translate>
-                </Link>
-              </li> */}
-              <LocaleDropdownNavbarItem dropdownItemsBefore={[]} dropdownItemsAfter={[]} items={[]} />
+
+              {/*<LocaleDropdownNavbarItem dropdownItemsBefore={[]} dropdownItemsAfter={[]} items={[]}/>*/}
             </ul>
           </div>
           {/* 移动端导航栏 */}
           <div
-            className={styles.isMobieNav}
-            style={{ display: 'none' }}
-            onClick={() => {
-              setMenu_Config(!menu_Config);
+              className={styles.isMobieNav}
+              style={{display: 'none'}}
+              onClick={() => {
+                setMenu_Config(!menu_Config);
               setMenu_Config_Drop(!menu_Config_Drop);
             }}
           >
