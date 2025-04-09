@@ -2,8 +2,7 @@ import React from 'react';
 import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import LayoutProviders from '@theme/Layout/Provider';
-import NavBar from '../../components/NavBar';
-import Footer from '@theme/Footer';
+import NavBarEn from '../../components/NavBarEn';
 
 export default function EnHome() {
     const {siteConfig} = useDocusaurusContext();
@@ -16,7 +15,7 @@ export default function EnHome() {
             </Head>
 
             {/* <AnnouncementBar /> */}
-            <NavBar/>
+            <NavBarEn/>
             <iframe
                 src="en-home.html"
                 title="English Homepage"
