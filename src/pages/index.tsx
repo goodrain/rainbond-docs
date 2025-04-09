@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import ZhHome from './zh';
 import EnHome from './en';
