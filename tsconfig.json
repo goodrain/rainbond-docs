@@ -7,6 +7,10 @@
       "baseUrl": ".",
       "resolveJsonModule": true,
       "strict": true,
+      "paths": {
+        "@/*": ["./*"],
+        "@src/*": ["./src/*"]
+      }
     },
     "baseUrl": ".", // This is required for VSCode to resolve the path correctly.
   }
