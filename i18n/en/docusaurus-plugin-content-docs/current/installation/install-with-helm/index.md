@@ -39,8 +39,7 @@ configs:
 When installing [K3S](https://docs.k3s.io/installation), you need to disable the installation of `traefik` and `local-storage`, as follows:
 
 ```bash
-curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn \
-INSTALL_K3S_EXEC="--disable traefik local-storage" \
+curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_EXEC="--disable traefik local-storage" \
 sh -s - \
 --system-default-registry "registry.cn-hangzhou.aliyuncs.com"
 ```
@@ -88,6 +87,7 @@ Cluster:
   containerdRuntimePath: /var/run/containerd  #containerd.sock file path
   # if you use RKE2 or K3S, you can use the following parameter
   # containerdRuntimePath: /var/run/k3s/containerd
+  rainbondImageRepository: docker.io/rainbond
 ```
 
 3. Execute the installation command.
