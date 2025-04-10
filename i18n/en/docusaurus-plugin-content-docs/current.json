@@ -268,11 +268,11 @@
     "description": "The label for category 安装与升级 Rainbond in sidebar docs"
   },
   "sidebar.docs.category.基于主机安装": {
-    "message": "Via bare machine install",
+    "message": "Bare machine install",
     "description": "The label for category Via bare machine install in sidebar docs"
   },
   "sidebar.docs.category.基于 Kubernetes 安装": {
-    "message": "Via Kubernetes install",
+    "message": "Helm install",
     "description": "The label for category 基于 Kubernetes 安装 in sidebar docs"
   },
   "sidebar.docs.category.高可用集群安装": {
@@ -514,6 +514,33 @@
   "sidebar.docs.category.微服务部署": {
     "message": "Microservice deployment",
     "description": "The label for category 微服务部署 in sidebar docs"
+  },
+  "sidebar.docs.category.应用交付": {
+    "message": "Application delivery",
+    "description": "The label for category 应用交付 in sidebar docs"
+  },
+  "sidebar.docs.category.在线持续交付": {
+    "message": "Online continuous delivery",
+    "description": "The label for category 在线持续交付 in sidebar docs"
+  },
+  "sidebar.docs.category.应用模板参数说明": {
+    "message": "Application template parameter description",
+    "description": "The label for category 应用模板参数说明 in sidebar docs"
+  },
+  "sidebar.docs.category.国产化信创": {
+    "message": "National security and innovation",
+    "description": "The label for category 国产化信创 in sidebar docs"
+  },
+  "sidebar.docs.category.应用交付指南": {
+    "message": "Application delivery guide",
+    "description": "The label for category 应用交付指南 in sidebar docs"
+  },
+  "sidebar.docs.category.证书自动签发": {
+    "message": "Certificate automatic issuance",
+    "description": "The label for category 证书自动签发 in sidebar docs"
+  },
+  "sidebar.docs.category.应用交付指南": {
+    "message": "Application delivery guide",
+    "description": "The label for category 应用交付指南 in sidebar docs"
   }
-  
 }
