@@ -274,6 +274,11 @@ const config = {
               existingPath.replace('/docs/how-to-guides/app-deploy', '/docs/devops/app-deploy')
             ];
           }
+          if (existingPath.includes('/')) {
+            return [
+              existingPath.replace('/', '/en')
+            ];
+          }
           return undefined;
         }
       }

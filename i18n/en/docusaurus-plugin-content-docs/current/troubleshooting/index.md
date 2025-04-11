@@ -19,11 +19,6 @@ This document provides troubleshooting approaches and solutions for various issu
 
 If your issue is not resolved in this document, you can get help through the following channels:
 
-- [GitHub Issues](https://github.com/goodrain/rainbond/issues) - Submit issues or find existing solutions
-- [Discord](https://discord.gg/ecnYFsDJ) - Join the Discord server for real-time help
+- [Discord](https://discord.com/invite/czusNpcymS) - Join the Discord server for real-time help
 - [Slack](https://join.slack.com/t/rainbond-slack/shared_invite/zt-1ft4g75pg-KJ0h_IAtvG9DMgeE_BNjZQ) - Join the Slack server for real-time help
-- [Rainbond Community](https://t.goodrain.com/) - Exchange with other users and developers
-- [WeChat Group](/docs/support#wechat-group) - Join WeChat user group for real-time help
-- [DingTalk Group](/docs/support#dingtalk-group) - Join DingTalk user group to discuss issues
-- [Official Support](https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/) - Get commercial technical support services
-
+- [GitHub Issues](https://github.com/goodrain/rainbond/issues) - Submit issues or find existing solutions
