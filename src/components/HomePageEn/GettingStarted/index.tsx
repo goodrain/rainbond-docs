@@ -79,7 +79,7 @@ const GettingStarted: React.FC<GettingStartedProps> = ({
         </div>
         <div className="text-center mt-8">
           <a
-            href="https://www.rainbond.com/en/docs/installation/"
+            href="https://www.rainbond.com/docs/installation/"
             className="btn-primary inline-flex items-center px-6 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary-dark transition-all duration-200 transform hover:scale-105"
           >
             View Full Installation Guide
