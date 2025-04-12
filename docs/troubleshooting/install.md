@@ -1,75 +1,75 @@
 ---
-title: 安装故障
-descrition: 说明 Rainbond 在各种环境下的安装过程中的故障排查方案
+title: Installation Troubleshooting
+descrition: Troubleshooting guide for Rainbond installation in various environments
 keywords:
-- Rainbond 安装问题排查
-- Rainbond 基于 Kubernetes 安装故障排查
-- Rainbond 基于主机安装故障排查
-- Rainbond 快速安装故障排查
+- Rainbond installation troubleshooting
+- Rainbond Kubernetes-based installation troubleshooting
+- Rainbond host-based installation troubleshooting
+- Rainbond quick installation troubleshooting
 ---
 
-Rainbond 在各种环境下的安装过程中，可能会遇到各种问题，本章节将会对 Rainbond 安装过程中的常见问题进行排查。
+During the installation process of Rainbond in various environments, you may encounter various issues. This chapter will troubleshoot common problems during the Rainbond installation process.
 
-## 1. 快速安装故障排查
+## 1. Quick Installation Troubleshooting
 
 ```mermaid
 flowchart LR
-    A[启动Docker容器] --> B[启动 K3s]
-    B --> C[启动 Rainbond]
-    C --> D[完成]
+    A[Start Docker Container] --> B[Start K3s]
+    B --> C[Start Rainbond]
+    C --> D[Complete]
 ```
 
-**Rainbond 快速安装版本**是将所有的服务都运行在一个容器中，方便用户快速使用。在 [Docker 容器中运行 K3s](https://docs.k3s.io/advanced#running-k3s-in-docker)，所有的故障排查操作都在 `rainbond` 容器中进行。
+**Rainbond Quick Installation Version** runs all services in a single container for user convenience. Running [K3s in Docker Container](https://docs.k3s.io/advanced#running-k3s-in-docker), all troubleshooting operations are performed in the `rainbond` container.
 
-### 排查思路
+### Troubleshooting Approach
 
-容器启动过程都由 K3s 控制。在排查过程中，我们可以通过以下几个步骤来排查问题：
+The container startup process is controlled by K3s. During troubleshooting, we can follow these steps to identify issues:
 
-1. 查看 `rainbond` 容器的启动日志，查看是否有错误信息。
-2. 查看 `rainbond` 容器中的 `k3s` 服务是否正常启动。
-3. 查看 `rainbond` 容器中的 `rainbond` 所有服务是否正常启动。
+1. Check the startup logs of the `rainbond` container for any error messages.
+2. Check if the `k3s` service in the `rainbond` container has started normally.
+3. Check if all `rainbond` services in the `rainbond` container have started normally.
 
-#### 启动 K3s 阶段
+#### K3s Startup Phase
 
-首先需要查看 `rainbond` 容器的启动日志，查看是否有错误信息。
+First, check the startup logs of the `rainbond` container for any error messages.
 
 ```bash
 docker logs -f rainbond
 ```
 
-执行以下命令，进入 `rainbond` 容器，查看 `rainbond` 容器中的 `k3s` 服务是否正常启动。
+Execute the following command to enter the `rainbond` container and check if the `k3s` service has started normally.
 
 ```bash
 docker exec -it rainbond bash
 ```
 
-执行以下命令，查看 `k3s` 服务是否正常启动。
+Execute the following command to check if the `k3s` service has started normally.
 
 ```bash
 kubectl get node
 ```
 
-#### 启动 Rainbond 阶段
+#### Rainbond Startup Phase
 
-执行以下命令，查看 `rainbond` 容器中的 `rainbond` 所有服务是否正常启动。
+Execute the following command to check if all `rainbond` services in the `rainbond` container have started normally.
 
 ```bash
 kubectl get pod -n rbd-system
 ```
 
-#### 可能遇到的问题
+#### Possible Issues
 
-Rainbond 快速安装版本默认会将数据存储 `/opt/rainbond` 目录中，如果磁盘空间不足，可能会导致 Rainbond 无法正常启动。
+The Rainbond quick installation version stores data in the `/opt/rainbond` directory by default. If disk space is insufficient, Rainbond may fail to start normally.
 
-1. 基于 Mac、Windows 安装无法更改为本地目录，请通过 Docker Desktop 扩容存储空间。
-2. 基于 Linux 安装可以通过修改 `install.sh` 安装脚本中的 `volume` 字段，修改默认的本地目录，如下：
+1. For Mac and Windows installations, the local directory cannot be changed. Please expand storage space through Docker Desktop.
+2. For Linux installations, you can modify the default local directory by changing the `volume` field in the `install.sh` installation script, as shown below:
 ```bash
 $ vim install.sh
 
 VOLUME_OPTS="-v /opt/rainbond:/opt/rainbond"
 ```
 
-3. 删除 `rainbond` 容器，然后重新执行 `install.sh` 脚本即可。
+3. Delete the `rainbond` container and re-execute the `install.sh` script.
 
 ```bash
 docker rm -f rainbond
@@ -77,54 +77,51 @@ docker rm -f rainbond
 bash ./install.sh
 ```
 
-## 2. 基于 Kubernetes 安装故障排查
+## 2. Kubernetes-based Installation Troubleshooting
 
-Pod 处于Pending 、CrashLoopBackOff 、Evicted 、ImagePullBackOff等状态
+Pods in Pending, CrashLoopBackOff, Evicted, ImagePullBackOff, etc. states
 
-* **Pending:** 当 Pod 处于 Pending 状态时，代表其没有进入正常的启动流程，通过命令 `kubectl describe pod xxx -n rbd-system` 观察事件详情，来进一步进行排查。
+* **Pending:** When a Pod is in the Pending state, it means it has not entered the normal startup process. Use the command `kubectl describe pod xxx -n rbd-system` to observe event details for further troubleshooting.
 
-* **CrashLoopBackOff:** CrashLoopBackOff 状态意味着当前 Pod 已经可以正常启动，但是其内部的容器自行退出，这通常是因为内部的服务出了问题。通过命令 `kubectl logs -f xxx -n rbd-system` ，观察日志的输出，通过业务日志来确定问题原因。
+* **CrashLoopBackOff:** The CrashLoopBackOff state means the current Pod can start normally, but its internal container exits on its own, usually due to internal service issues. Use the command `kubectl logs -f xxx -n rbd-system` to observe log output and determine the cause through business logs.
 
-* **Evicted:** Evicted 状态意味着当前 Pod 遭到了调度系统的驱逐，触发驱逐的原因可能包括根分区磁盘占用率过高、容器运行时数据分区磁盘占用率过高等，根据经验，上述原因最为常见，需要进行磁盘空间清理解除驱逐状态。可以通过执行命令 `kubectl describe node` ，观察返回中的 `Conditions` 段落输出来确定当前节点的状态。
+* **Evicted:** The Evicted state means the current Pod has been evicted by the scheduling system. Reasons for eviction may include high root partition disk usage, high container runtime data partition disk usage, etc. Based on experience, these reasons are most common and require disk space cleanup to resolve the eviction state. You can use the command `kubectl describe node` to observe the `Conditions` paragraph output to determine the current node's state.
 
-* **ImagePullBackOff:** ImagePullBackOff 状态意味着 Pod 镜像下载失败退出，通常是因为镜像过大或者网络差引起的，通过命令 `kubectl describe pod xxx -n rbd-system` 观察事件详情，进一步进行排查。
+* **ImagePullBackOff:** The ImagePullBackOff state means the Pod image download failed and exited, usually due to large image size or poor network. Use the command `kubectl describe pod xxx -n rbd-system` to observe event details for further troubleshooting.
 
-
-## 3. 基于主机安装故障排查
+## 3. Host-based Installation Troubleshooting
 
 ```mermaid
 flowchart LR
-    A[基于主机安装] -->|执行命令| B[安装 K8S]
-    B --> |填写安装基础信息| C[安装 Rainbond]
-    C --> |对接集群| D[完成]
+    A[Host-based Installation] -->|Execute Command| B[Install K8S]
+    B --> |Fill in Installation Basic Information| C[Install Rainbond]
+    C --> |Connect to Cluster| D[Complete]
 ```
 
-### 安装 K8S 阶段
+### K8S Installation Phase
 
-这个阶段 Rainbond 会提供一条命令用于安装 K8S 集群，实际上安装的过程都是在本地执行的。正常情况下，执行命令后，会自动安装 K8S 集群，直至在页面中查看节点为 `Ready` 状态即可进行下一步操作。
+In this phase, Rainbond provides a command for installing the K8S cluster. The actual installation process is executed locally. Normally, after executing the command, the K8S cluster will be automatically installed until the nodes show as `Ready` status in the page, then you can proceed to the next step.
 
+#### Troubleshooting Approach
 
-#### 排查思路
+After executing the installation command on the target server, it will automatically register with the Rainbond cluster and be in the `registering` state. If it remains in the `registering` state for a long time, check the following issues:
 
-在目标服务器中执行安装命令后，会自动注册到 Rainbond 集群中，此时会处于 `registering` 状态。如果长时间处于 `registering` 状态，请检查以下问题：
-
-1. 首先检查 K8S 集群是否安装成功，通过以下命令查看节点状态。
+1. First, check if the K8S cluster was installed successfully by viewing the node status with the following command.
     ```bash
     export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
     /var/lib/rancher/rke2/bin/kubectl get nodes
     ```
-    - 如果执行命令后，没有返回任何信息，请通过 `journalctl -u rke2-server` 或 `journalctl -u rke2-agent` 查看日志信息。
-    - 如果执行命令后，节点状态为 `NotReady` 状态，请检查 `kubectl get pod -n kube-system` 命令的输出信息，查看 `kube-proxy` 、`coredns` 、`metrics-server` 等 Pod 是否处于 `Running` 状态。
+    - If the command returns no information, check the log information through `journalctl -u rke2-server` or `journalctl -u rke2-agent`.
+    - If the node status is `NotReady` after executing the command, check the output of the `kubectl get pod -n kube-system` command to see if Pods like `kube-proxy`, `coredns`, `metrics-server` are in the `Running` state.
 
-2. 检查 Rainbond 控制台的网络是否可以连接到目标服务器的 6443 端口，默认情况下会通过 `https://<内网IP>:6443` 连接（如填写了外网 IP 会通过 `https://<外网IP>:6443` 连接）。
+2. Check if the Rainbond console's network can connect to the target server's 6443 port. By default, it will connect through `https://<internal IP>:6443` (if an external IP is filled in, it will connect through `https://<external IP>:6443`).
 
-### 安装 Rainbond 阶段
+### Rainbond Installation Phase
 
-#### 常见问题
+#### Common Issues
 
-1. rbd-gateway 无法启动，通常是因为 `rbd-gateway` 有端口被占用，可以通过以下命令查看 `rbd-gateway` 的日志。
+1. rbd-gateway cannot start, usually because `rbd-gateway` has a port conflict. You can check the logs of `rbd-gateway` with the following command.
 
 ```bash
 kubectl logs -f -n rbd-system -l name=rbd-gateway -c apisix
 ```
-

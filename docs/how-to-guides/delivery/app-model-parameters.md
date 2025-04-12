@@ -1,42 +1,42 @@
 ---
-title: 应用模版参数说明
+title: Application template parameter description
 ---
 
-### 1. 应用模版及发布版本设置
+### 1. Application template and release version settings
 
-- 创建应用模版时参数说明：
+- Parameter description when creating an application template:
 
-| 选项名   | 说明                                                                         |
-| -------- | ---------------------------------------------------------------------------- |
-| 名称     | 定义应用名称（必填）                                                         |
-| 发布范围 | 应用模板的可见范围，**当前团队**为当前团队可见，**企业**所有团队可见（必选） |
-| 分类标签 | 应用标签，可按照架构、行业、部署方式进行分类                                 |
-| 简介     | 应用描述，帮助使用者了解此应用                                               |
-| Logo     | 应用的 Logo 图片                                                             |
+| Option name    | Description                                                                                                                                                             |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name           | Define the application name (required)                                                                                                               |
+| Release scope  | The visibility scope of the application template, **current team** is visible to the current team, **enterprise** is visible to all teams (required) |
+| Category label | Application labels, which can be categorized by architecture, industry, and deployment method                                                                           |
+| Introduction   | Application description, helping users understand this application                                                                                                      |
+| Logo           | The Logo image of the application                                                                                                                                       |
 
-- 创建应用模板后定义应用发布版本：
+- Define the application release version after creating the application template:
 
-| 选项名   | 说明                                                                                                                           |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| 版本号   | 当同应用多次发布时，如果版本号相同，则会覆盖已发布的版本，如果不同，将发布为新版本，应用升级或回滚时，平台根据版本判断（必填） |
-| 版本别名 | 应用别名，例如 高级版，初级版                                                                                                  |
-| 版本说明 | 当前发布版本的说明，可区分不同版本的功能差异等信息                                                                             |
-| 作为插件 | 当该应用模版下有插件时，选中该选项，则可以在`团队页面-插件-从本地组件库安装`，直接安装对应的插件而不安装应用                             |
+| Option name         | Description                                                                                                                                                                                                                                                                                                           |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Version number      | When the same application is released multiple times, if the version number is the same, the released version will be overwritten; if different, it will be released as a new version. During application upgrade or rollback, the platform judges based on the version (required) |
+| Version alias       | Application alias, such as Premium Edition, Basic Edition                                                                                                                                                                                                                                                             |
+| Version description | Description of the current release version, which can distinguish functional differences and other information between different versions                                                                                                                                                                             |
+| As a plugin         | When there are plugins under the application template, selecting this option allows you to directly install the corresponding plugin without installing the application at `Team Page - Plugins - Install from Local Component Library`                                                                               |
 
-### 2. 发布组件模型配置：
+### 2. Release component model configuration:
 
-| 选项名   | 说明                                                                 |
-| -------- | -------------------------------------------------------------------- |
-| 连接信息 | 当连接信息中出现密码类的信息，可选择每次部署时自动生成随机值         |
-| 环境变量 | 编辑该组件默认的环境变量                                             |
-| 伸缩规则 | 定义该组件可伸缩的最大最小节点数，及节点伸缩步长，最小安装内存限制。 |
+| Option name            | Description                                                                                                                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Connection information | When password-like information appears in the connection information, you can choose to automatically generate a random value each time you deploy                              |
+| Environment variable   | Edit the default environment variables of this component                                                                                                                        |
+| Scaling rules          | Define the maximum and minimum number of nodes that can be scaled for this component, the step size of node scaling, and the minimum installation memory limit. |
 
-### 3. 发布插件模型信息：
+### 3. Release plugin model information:
 
-要发布的应用中其组件携带有插件时，会进行展示并在发布过程中跟随组件发布。
+When the components of the application to be released carry plugins, they will be displayed and follow the components during the release process.
 
-### 4. K8s 资源：
+### 4. K8s resources:
 
-要发布的应用中存在定义好的 K8s 资源时，也会进行展示并在发布过程中跟随应用发布。
+When there are defined K8s resources in the application to be released, they will also be displayed and follow the application during the release process.
 
-所有信息配置完毕后，点击**提交**按钮进行发布，业务开发过程中定义的组件间依赖关系、环境配置、持久化存储、插件、运行环境及上述定义的所有信息都将会被打包发布。
+After all information is configured, click the **Submit** button to release. The dependencies between components, environment configuration, persistent storage, plugins, runtime environment, and all the above-defined information defined during business development will be packaged and released.

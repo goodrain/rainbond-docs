@@ -27,60 +27,7 @@ export default function ZhHome() {
         <meta property='og:title' content={siteConfig.title} />
         <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />
       </Head>
-      {/* <AnnouncementBar /> */}
-      <NavBar />
-      
-      <div>
-        <section id={styles.section_first} className={styles.width}>
-          <Primary />
-        </section>
-
-        <section id={styles.section_second} className={styles.width}>
-          <Communitydata />
-        </section>
-
-        <section id={styles.thirdscreen}>
-          <div className={styles.width}>
-            <Platform />
-          </div>
-        </section>
-
-        <section className={styles.width}>
-          <Feature />
-        </section>
-
-        <section className={styles.fifthscreen}>
-          <div id={styles.section_fifth} className={styles.width}>
-            <Rainstore />
-          </div>
-        </section>
-
-        <section className={styles.width}>
-          <Xinchuang />
-        </section>
-        
-        <section className={styles.fifthscreen}>
-          <div id={styles.section_fifth} className={styles.width}>
-            <HowRainbond />
-          </div>
-        </section>
-        
-        <section className={styles.sixthscreen}>
-          <div className={styles.width}>
-            <VideoLearn />
-          </div>
-        </section>
-        
-        <section className={styles.seventhscreen}>
-          <div className={styles.width}>
-            <Users />
-          </div>
-        </section>
-
-        <section className={styles.width}>
-            <JoinCommunity />
-        </section>
-      </div>
+      123
       <Footer/>
     </LayoutProviders>
   );

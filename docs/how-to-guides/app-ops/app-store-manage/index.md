@@ -1,6 +1,6 @@
 ---
-title: 应用市场使用手册
-description: 应用市场使用手册
+title: App Market User Manual
+description: App Market User Manual
 ---
 
 ```mdx-code-block

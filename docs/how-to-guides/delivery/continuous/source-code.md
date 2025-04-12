@@ -1,137 +1,143 @@
 ---
-title: 源码持续交付
-description: 如何在Rainbond平台上实现从开发到生产的源码持续交付流程
+title: Source Code Continuous Delivery
+description: How to implement the source code continuous delivery process from development to production on the Rainbond platform
 keywords:
-- 源码持续交付
-- CI/CD
-- DevOps
-- 环境管理
+  - Source Code Continuous Delivery
+  - CI/CD
+  - DevOps
+  - Environment Management
 ---
 
-## 什么是源码持续交付？
+## What is source code continuous delivery?
 
-源码持续交付是Rainbond平台的核心功能，它让您可以轻松地将代码从开发环境顺畅部署到测试环境和生产环境，无需复杂的DevOps工具链配置。
+Source code continuous delivery is a core feature of the Rainbond platform, allowing you to easily deploy code from the development environment to the testing and production environments without the need for complex DevOps toolchain configuration.
 
-## Rainbond如何简化您的持续交付流程？
+## How does Rainbond simplify your continuous delivery process?
 
-通过Rainbond，您可以：
+With Rainbond, you can:
 
-- **一键构建**：直接从Git仓库拉取源码并自动构建应用
-- **跨团队复制**：只需点击一下，即可将整个应用从一个环境复制到另一个环境
-- **零学习成本**：无需编写复杂的CI/CD配置文件
-- **环境一致性**：确保各环境配置一致，减少"我这能跑"的问题
+- **One-click build**: Pull source code directly from the Git repository and automatically build the application
+- **Cross-team replication**: With just one click, replicate the entire application from one environment to another
+- **Zero learning curve**: No need to write complex CI/CD configuration files
+- **Environment consistency**: Ensure consistent configuration across environments to reduce the "it works on my machine" problem
 
 ```mermaid
 graph LR
-    A[开发环境] -->|dev分支| B[代码仓库]
-    B <-->|testing分支| C[测试环境]
-    B <-->|prod分支| D[生产环境]
+    A[Development Environment] -->|dev branch| B[Code Repository]
+    B <-->|testing branch| C[Testing Environment]
+    B <-->|prod branch| D[Production Environment]
 ```
 
-## 简单三步实现持续交付
+## Three simple steps to achieve continuous delivery
 
-### 1. 开发环境：快速迭代
+### 1. Development Environment: Rapid Iteration
 
-- 开发人员提交代码到`dev`分支
-- Rainbond自动构建并部署应用
-- 开发人员可以立即查看更改效果
+- Developers submit code to the `dev` branch
+- Rainbond automatically builds and deploys the application
+- Developers can immediately see the effects of changes
 
-### 2. 测试环境：一键复制
+### 2. Testing Environment: One-click Replication
 
-- 代码合并到`testing`分支后
-- 在Rainbond控制台点击**快速复制**，选择测试团队
-- 测试人员进行功能测试，发现问题后反馈给开发人员
+- After merging the code into the `testing` branch
+- Click **Quick Replicate** in the Rainbond console and select the test team
+- Testers perform functional tests and provide feedback to developers if issues are found
 
-### 3. 生产环境：安全上线
+### 3. Production Environment: Safe Deployment
 
-- 测试通过后，代码合并到`prod`分支
-- 再次使用**快速复制**功能，将应用部署到生产环境
-- 轻松实现安全、可控的上线流程
+- After passing the tests, merge the code into the `prod` branch
+- Use the **Quick Replicate** feature again to deploy the application to the production environment
+- Easily achieve a safe and controllable deployment process
 
-## 准备工作
+## Preparation
 
-在开始源码持续交付前，您需要准备：
+Before starting source code continuous delivery, you need to prepare:
 
-- 已安装 [Rainbond](#) 平台
-- 创建三个团队：开发团队、测试团队和生产团队
-- 准备好的代码仓库，包含三个分支：`dev`、`testing`和`prod`
+- Installed [Rainbond](#) platform
+- Create three teams: development team, test team, and production team
+- Prepared code repository, containing three branches: `dev`, `testing`, and `prod`
 
-## 详细操作步骤
+## Detailed Operation Steps
 
-### 第一阶段：开发环境部署
+### Phase One: Development Environment Deployment
 
-**创建应用和组件**  
+**Create Application and Components**
 
-1. 进入开发团队视图 ➡️ 创建新应用。
-2. 选择从源码构建 ➡️ 源码。
-    - 自定义应用名称。
-    - 仓库地址：`https://gitee.com/rainbond/java-maven-demo.git`。
-    - 分支：`dev`。
+1. Enter the development team view ➡️ Create a new application.
+2. Select build from source code ➡️ Source code.
+  - Customize the application name.
+  - Repository address: `https://gitee.com/rainbond/java-maven-demo.git`.
+  - Branch: `dev`.
 
-**等待构建完成**
+**Wait for the build to complete**
 
-### 第二阶段：测试环境部署
+### Phase Two: Testing Environment Deployment
 
-**代码分支合并**
-- 开发完成功能后，在Git仓库创建合并请求
-- 将`dev`分支代码合并到`testing`分支
+**Code Branch Merge**
 
-**环境复制**
-- 在开发团队的目标应用内，点击应用上方的**快速复制**按钮
-- 在弹出窗口中选择**测试团队**作为目标团队，并修改分支版本为`testing`
-- 点击**确定**执行复制
+- After completing the development of features, create a merge request in the Git repository
+- Merge the `dev` branch code into the `testing` branch
 
-**测试与迭代**
-- 测试人员在测试环境进行功能测试，如发现问题，开发人员在`dev`分支修复，并合并到`testing`分支
-- 测试环境迭代：
-  1. 进入测试团队的目标应用内
-  2. 点击**列表**
-  3. 选择需要构建的组件（或全选），点击**批量操作** → **构建**
+**Environment Replication**
 
-:::caution 注意
-测试环境应保持与生产环境配置一致，包括资源限制、副本数量等，以确保测试结果有效。
+- Within the target application in the development team, click the **Quick Replicate** button above the application
+- In the pop-up window, select **Test Team** as the target team and modify the branch version to `testing`
+- Click **OK** to execute the replication
+
+**Testing and Iteration**
+
+- Testers perform functional tests in the testing environment. If issues are found, developers fix them in the `dev` branch and merge them into the `testing` branch
+- Testing environment iteration:
+  1. Enter the target application within the test team
+  2. Click **List**
+  3. Select the components to build (or select all), click **Batch Operations** → **Build**
+
+:::caution Note
+The testing environment should maintain the same configuration as the production environment, including resource limits, number of replicas, etc., to ensure the validity of test results.
 :::
 
-### 第三阶段：生产环境部署
+### Phase Three: Production Environment Deployment
 
-**代码审核与合并**
-- 测试通过后，在Git仓库创建`testing`到`prod`的合并请求
-- 由技术负责人进行代码审核
-- 审核通过后合并到`prod`分支
+**Code Review and Merge**
 
-**生产环境部署**
-- 在测试团队的目标应用内，点击应用上方的**快速复制**按钮
-- 在弹出窗口中选择**生产团队**作为目标团队，并修改分支版本为`prod`
-- 点击**确定**执行复制
+- After passing the tests, create a merge request from `testing` to `prod` in the Git repository
+- Code review by the technical lead
+- After approval, merge into the `prod` branch
 
-**上线检查**
-- 测试生产环境部署结果
+**Production Environment Deployment**
+
+- Within the target application in the test team, click the **Quick Replicate** button above the application
+- In the pop-up window, select **Production Team** as the target team and modify the branch version to `prod`
+- Click **OK** to execute the replication
+
+**Deployment Check**
+
+- Test the production environment deployment results
 
 :::warning
-生产环境部署前应制定回滚预案。如需回滚，可在组件管理的**构建历史**中选择稳定版本进行回滚。
+A rollback plan should be prepared before deploying to the production environment.If a rollback is needed, select a stable version in the **Build History** of component management for rollback.
 :::
 
-## 最佳实践
+## Best Practices
 
-### 分支策略
+### Branch Strategy
 
-- **dev分支**：日常开发使用，可频繁提交
-- **testing分支**：功能相对稳定，用于测试验证
-- **prod分支**：生产就绪代码，严格控制合并权限
+- **dev branch**: Used for daily development, frequent submissions allowed
+- **testing branch**: Relatively stable features, used for test verification
+- **prod branch**: Production-ready code, strictly control merge permissions
 
-### 环境隔离
+### Environment Isolation
 
-- 使用Rainbond的团队功能隔离不同环境
-- 为不同环境配置不同的资源配额
-- 生产环境应使用更严格的访问控制
+- Use Rainbond's team feature to isolate different environments
+- Configure different resource quotas for different environments
+- Production environments should use stricter access controls
 
-### 自动化提升
+### Automation enhancement
 
-- 配置自动化测试，确保代码质量
-- 使用[应用模板持续交付](./ram.md)标准化环境配置
+- Configure automated testing to ensure code quality
+- Use [application template continuous delivery](./ram.md) to standardize environment configuration
 
-## 常见问题
+## common problem
 
-### 如何处理数据库变更？
+### How to handle database changes?
 
-建议使用数据库迁移工具（如Flyway、Liquibase）管理数据库版本，确保环境间数据结构一致。
+It is recommended to use database migration tools (such as Flyway, Liquibase) to manage database versions and ensure data structure consistency across environments.

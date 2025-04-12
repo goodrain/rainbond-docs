@@ -1,71 +1,71 @@
 ---
-title: 生命周期管理
-description: Rainbond 组件的基础属性，包括组件的生命周期、基础操作等。
-keywords: 
-- Rainbond 组件全生命周期管理
+title: Lifecycle Management
+description: Basic properties of Rainbond components, including component lifecycle, basic operations, etc.
+keywords:
+  - Full lifecycle management of Rainbond components
 ---
 
-本篇文档介绍 Rainbond 组件的基础属性，包括组件的生命周期、基础操作等。
+This document introduces the basic properties of Rainbond components, including component lifecycle, basic operations, etc.
 
-## 组件状态
+## Component Status
 
-组件创建后就会进入到生命周期，在整个生命周期中会有一系列的状态，下文对各个状态进行解释。多数状态预设了超时时间，无论是否超时，在 **3 分钟** 后，都可以对组件重新进行全部生命周期操作。
+After a component is created, it enters its lifecycle, during which it will go through a series of statuses. The following explains each status.Most statuses have a preset timeout period. Regardless of whether it times out, after **3 minutes**, all lifecycle operations can be performed on the component again.
 
-| 状态                                  | 说明                                                         |
-| ------------------------------------- | :----------------------------------------------------------- |
-| <font color="#40a9ff">创建中  </font> | 新创建的服务组件，正处于设置阶段。                           |
-| <font color="#40a9ff">构建中  </font> | 新创建的服务组件设置完成，正在进行第一次服务组件版本构建。源码构建超时时间1小时，Dockerfile构建超时30分钟。**超时不意味构建失败**，参考构建日志来了解当前进度。  |
-| <font color="#ffa940">调度中  </font> | 服务组件一旦构建完成，即进入调度中状态，**实例颜色呈黄色**。这个过程由K8s分配宿主机对实例进行调度。如果长时间维持在这个状态，则可能是由于没有宿主机节点可以运行该组件。 |
-| <font color="#ffa940">启动中  </font> | 服务组件正在启动，**实例颜色呈黄色**。暂时不能访问，启动分为两个阶段，进程启动和业务启动，如果未配置启动时健康检查，只要进程启动完成则认为启动成功。启动超时时间为 40秒 * 实例数量。**启动超时不意味启动失败** |
-| <font color="#ffa940">等待启动</font> | 等待启动状态和启动中状态不会同时出现，一旦进入等待启动状态，**实例颜色呈黄色**。说明当前服务组件所依赖的其他服务组件没有启动完成。需要等待所依赖的其他服务组件启动完成后，当前服务组件才会进入启动中状态。 |
-| <font color="#28cb75">运行中  </font> | 服务组件所有运行实例处于运行状态，**实例颜色呈绿色**。正常来说处于运行中的服务组件可以被访问，也可能由于业务启动缓慢应用暂时不能访问 |
-| <font color="red">运行异常  </font>   | 服务组件运行正常的实例少于总实例即标识应用运行异常，**异常实例颜色呈红色**。对于多实例的服务组件，处于异常态的服务组件只要还有正常的实例即可提供服务。实例异常大多数情况是由于服务组件本身异常退出或因为内存不足发生 OOM 退出。平台会自动尝试重启异常的实例。可通过查看服务组件日志，或通过命令行工具查看更多应用信息 |
-| <font color="#ffa940">升级中</font>   | 服务组件正处于滚动更新过程中，**实例颜色呈黄色**。多个节点处于当前状态的服务组件可以正常访问。升级超时时间为 3分钟 * 实例数量。**升级超时不意味升级失败** |
-| 已关闭                                | 服务组件已经停止运行，持久化数据依然存在。关闭超时时间为 40秒 * 实例数量。如长时间处于 **关闭中** 状态，**实例颜色呈黑色**，请联系运维同事。 |
-| <font color="#717171">未知</font>     | **实例颜色呈淡蓝色**，服务组件处于此状态可能由于网络受阻，获取服务组件状态失败，或后端服务异常。可以尝试刷新页面，如果不能解决，请联系运维同事。 |
+| Status                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <font color="#40a9ff">Creating</font>         | A newly created service component is in the setup phase.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| <font color="#40a9ff">Building</font>         | The setup of the newly created service component is complete, and the first version of the service component is being built.The timeout for source code building is 1 hour, and for Dockerfile building is 30 minutes.**Timeout does not mean build failure**, refer to the build log to understand the current progress.                                                                                                                                                                                                                                                                                                                                                             |
+| <font color="#ffa940">Scheduling</font>       | Once the service component is built, it enters the scheduling status, **the instance color turns yellow**.This process involves K8s allocating host machines to schedule the instancesIf it remains in this status for a long time, it may be because there are no host nodes available to run the component.                                                                                                                                                                                                                                                                                                                                                                                         |
+| <font color="#ffa940">Starting</font>         | The service component is starting, **the instance color turns yellow**.Temporarily inaccessible, starting is divided into two phases, process startup and business startup. If no startup health check is configured, as long as the process startup is completed, it is considered a successful startup.The startup timeout is 40 seconds \* number of instances.**Startup timeout does not mean startup failure**                                                                                                                                                                                                                                                   |
+| <font color="#ffa940">Waiting to start</font> | The waiting to start status and the starting status will not appear at the same time. Once entering the waiting to start status, **the instance color turns yellow**.It indicates that other service components on which the current service component depends have not completed startup.The current service component will enter the starting status only after the other service components it depends on have completed startup.                                                                                                                                                                                                                                  |
+| <font color="#28cb75">Running</font>          | All running instances of the service component are in the running status, **the instance color turns green**.Normally, service components in the running status can be accessed, but the application may be temporarily inaccessible due to slow business startup                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| <font color="red">Abnormal operation</font>   | If the number of normally running instances of the service component is less than the total number of instances, it indicates abnormal operation, **the abnormal instance color turns red**.For multi-instance service components, as long as there are normal instances, the service component in an abnormal state can still provide services.Instance abnormalities are mostly due to the service component itself exiting abnormally or exiting due to OOM caused by insufficient memory.The platform will automatically try to restart abnormal instances.You can view the service component logs or use command-line tools to view more application information |
+| <font color="#ffa940">Upgrading</font>        | The service component is in the process of rolling update, **the instance color turns yellow**.Service components in this status on multiple nodes can be accessed normally.The upgrade timeout is 3 minutes \* number of instances.**Upgrade timeout does not mean upgrade failure**                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Closed                                        | The service component has stopped running, but persistent data still exists.The shutdown timeout is 40 seconds \* number of instances.If it remains in the **shutting down** status for a long time, **the instance color turns black**, please contact the operation and maintenance colleagues.                                                                                                                                                                                                                                                                                                                                                                                     |
+| <font color="#717171">Unknown</font>          | **The instance color turns light blue**, the service component is in this status possibly due to network obstruction, failure to obtain the service component status, or backend service abnormality.You can try refreshing the page. If it cannot be resolved, please contact the operation and maintenance colleagues.                                                                                                                                                                                                                                                                                                                                                              |
 
-## 基础操作
+## Basic Operations
 
-### 构建操作
+### Build Operations
 
-针对不同类型的组件，触发 `构建` 操作后，有着不同的含义，下表针对不同类型的组件加以说明：
+For different types of components, triggering the `build` operation has different meanings. The following table explains for different types of components:
 
-| 组件类型                 | 说明                                                                                                                                                             |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 从源代码构建的组件       | 拉取最新源代码，根据预先识别的语言类型进行组件版本构建并进行滚动升级                                                                                             |
-| 从 Docker 镜像构建的组件 | 重新拉取指定镜像地址的镜像，构建出组件新版本并进行滚动升级                                                                                                       |
-| 从应用市场构建的组件     | 若应用市场不存在更新的版本，构建操作将提醒用户无需操作，若已存在多个更新版本，将提示用户选择需要获取的版本号。根据所选版本获取组件介质生成构建版本并进行滚动升级 |
+| Component Type                               | Description                                                                                                                                                                                                                                                                                                                                                                                                     |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Components built from source code            | Pull the latest source code, build the component version according to the pre-identified language type, and perform a rolling upgrade                                                                                                                                                                                                                                                                           |
+| Components built from Docker images          | Re-pull the image from the specified image address, build a new version of the component, and perform a rolling upgrade                                                                                                                                                                                                                                                                                         |
+| Components built from the application market | If there is no updated version in the application market, the build operation will remind the user that no operation is needed. If there are multiple updated versions, the user will be prompted to select the version number that needs to be obtained.Obtain the component media according to the selected version to generate a build version and perform a rolling upgrade |
 
+### Update Operations
 
-### 更新操作
+When the running attributes of a component such as dependencies, storage, environment variables, features, health checks, etc., change, the update operation must be manually triggered to apply the latest attribute configuration to the component's running environment. During this update process, the rolling upgrade strategy is used by default to upgrade the component instances.
 
-当组件的依赖、存储、环境变量、特性、健康监测等运行属性发生改变以后，必须通过手工触发更新操作来将最新的属性配置应用的组件的运行环境中，在这更新过程中默认采用滚动升级的策略对组件实例进行升级。
+There are two types of control strategies for rolling upgrades:
 
-对于滚动升级有两类控制策略：
-* 无状态组件: 对无状态组件采用的是无序的先启动后停止的策略，即先启动新版本的运行实例，当其处于健康运行状态后关闭旧版本运行实例。需要注意的是，此过程会出现多版本同时工作的情况，若你的业务组件无法容忍多版本同时工作，请使用重启策略。
+- Stateless components: For stateless components, an unordered strategy of starting new versions before stopping old versions is adopted, that is, first start the running instances of the new version, and when they are in a healthy running state, close the running instances of the old version.It should be noted that there will be a situation where multiple versions work at the same time during this process. If your business component cannot tolerate multiple versions working at the same time, please use the restart strategy.
 
-* 有状态组件: 对于有状态组件采用的是有序的先停止后启动策略，即根据运行实例编号，从第一个实例开始先关闭实例然后启动新版本实例。这种控制对于像数据库类的组件至关重要，因此请勿将数据库类组件部署为无状态组件。
+- Stateful components: For stateful components, an orderly stop-then-start strategy is adopted, which means starting from the first instance according to the running instance number, the instance is stopped first and then the new version instance is started.This control is crucial for components like databases, so do not deploy database components as stateless.
 
-### 启动操作
+### Start operation
 
-启动操作会启动上一次成功构建的组件版本，启动后可以在组件概览页面的 `操作日志` 看到平台调度与处理组件的详细操作日志，当调度完成后，组件就进入启动阶段，这时候可以通过 `日志` 页面查看组件的启动日志。
+The start operation will start the last successfully built version of the component. After starting, you can see the detailed operation log of the platform scheduling and processing the component in the `Operation Log` on the component overview page. When the scheduling is completed, the component enters the startup phase, and you can view the component's startup log on the `Logs` page.
 
-### 关闭操作
+### Stop operation
 
-触发关闭操作后，将关闭所有运行实例，释放集群资源。
+After triggering the stop operation, all running instances will be stopped, and cluster resources will be released.
 
-### 重启操作
+### Restart operation
 
-触发重启操作后，平台会将现有的组件运行实例全部关闭，待关闭完成后进行启动。若出现关闭超时时 重启操作将退出，组件启动的控制权交予用户。
+After triggering the restart operation, the platform will stop all existing running instances of the component and start them after the stop is completed.If a stop timeout occurs, the restart operation will exit, and the control of the component startup will be handed over to the user.
 
-- 重启组件并不会更新组件代码或镜像，需要和`构建`操作区分。
-- 重启操作会中断组件
+- Restarting the component does not update the component code or image, which needs to be distinguished from the `Build` operation.
+- Restart operation will interrupt the component
 
-### 访问操作
+### Access operation
 
-针对不同协议的组件，点击访问按钮后所触发的命令也不一样：
+For components of different protocols, the command triggered after clicking the access button is also different:
 
-| 组件协议 | 点击访问按钮后的操作                                                           |
-| -------- | ------------------------------------------------------------------------------ |
-| HTTP     | 浏览器新开窗口，打开组件的默认域名，如果绑定多个域名，会显示域名列表供用户选择 |
-| TCP      | 弹出访问信息窗口                                                               |
+| Component protocol | Operation after clicking the access button                                                                                                                                                  |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTTP               | Open a new browser window to open the default domain name of the component. If multiple domain names are bound, a domain name list will be displayed for the user to choose |
+| TCP                | Pop up the access information window                                                                                                                                                        |

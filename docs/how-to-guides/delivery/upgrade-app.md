@@ -1,154 +1,153 @@
 ---
-title: 应用升级属性变更规则
-description: 应用市场应用进行时, 属性变更的规则
+title: Application upgrade attribute change rules
+description: Rules for attribute changes when upgrading applications in the application market
 ---
 
-应用市场的应用可以进行升级, 升级时每个属性都会按一定的规则进行变更. 本文将会介绍应用升级时, 各属性的变更规则.
+Applications in the application market can be upgraded, and each attribute will be changed according to certain rules during the upgrade. This article will introduce the change rules of each attribute when the application is upgraded.
 
-## 属性变更规则概览
+## Overview of attribute change rules
 
-| 属性          | 级别 | 规则             |
-|---------------|------|------------------|
-| 组件          | 应用 | 新增, 更新       |
-| 插件          | 应用 | 新增             |
-| 配置组        | 应用 | 新增             |
-| K8s 资源        | 应用 | 新增             |
-| 镜像          | 组件 | 更新             |
-| 启动命令      | 组件 | 更新             |
-| 环境变量      | 组件 | 新增             |
-| 组件连接信息  | 组件 | 新增             |
-| 端口          | 组件 | 新增, 更新       |
-| 存储          | 组件 | 新增             |
-| 配置文件      | 组件 | 新增, 更新       |
-| 健康检测探针  | 组件 | 新增, 更新, 删除 |
-| 监控图表      | 组件 | 新增, 更新       |
-| 监控点        | 组件 | 新增, 更新       |
-| HTTP 访问策略 | 组件 | 新增             |
-| 标签          | 组件 | 新增             |
-| 插件          | 组件 | 新增             |
-| 组件依赖关系  | 组件 | 新增, 删除       |
-| 存储依赖关系  | 组件 | 新增, 删除       |
-| Kubernetes 属性  | 组件 | 新增, 更新      |
+| Attribute                        | Level       | Rule                |
+| -------------------------------- | ----------- | ------------------- |
+| Component                        | Application | Add, Update         |
+| Plugin                           | Application | Add                 |
+| Configuration group              | Application | Add                 |
+| K8s resources                    | Application | Add                 |
+| Image                            | Component   | Update              |
+| Start command                    | Component   | Update              |
+| Environment variable             | Component   | Add                 |
+| Component connection information | Component   | Add                 |
+| Port                             | Component   | Add, Update         |
+| Storage                          | Component   | Add                 |
+| Configuration file               | Component   | Add, Update         |
+| Health check probe               | Component   | Add, Update, Delete |
+| Monitoring chart                 | Component   | Add, Update         |
+| Monitoring point                 | Component   | Add, Update         |
+| HTTP access policy               | Component   | Add                 |
+| Label                            | Component   | Add                 |
+| Plugin                           | Component   | Add                 |
+| Component dependencies           | Component   | Add, Delete         |
+| Storage dependencies             | Component   | Add, Delete         |
+| Kubernetes attributes            | Component   | Add, Update         |
 
-上表为整个应用升级属性变更的概览, 每个属性的详细说明, 请看下文:
+The above table is an overview of the attribute changes for the entire application upgrade. For detailed descriptions of each attribute, please see below:
 
-## 应用级属性
+## Application-level attributes
 
-### 组件
+### Component
 
-`组件`的变更规则是: `增加, 更新`.
+The change rule for `Component` is: `Add, Update`.
 
-源应用新增了组件, 升级时也会创建新的组件. 源应用修改了组件属性, 升级时会更新对应的属性. 但是, 源应用`删除`了组件, 升级时不会删除对应的组件.
+If the source application adds a new component, a new component will also be created during the upgrade. If the source application modifies the component attributes, the corresponding attributes will be updated during the upgrade. However, if the source application `deletes` a component, the corresponding component will not be deleted during the upgrade.
 
-### 插件
+### Plugin
 
-`插件`的变更规则是: `新增`. 当源应用新增了一个插件, 而当前应用所在团队无对应类型的插件时, 升级过程会在团队中新增该插件. 不会更新或删除插件.
+The change rule for `Plugin` is: `Add`. When the source application adds a new plugin, and the current application's team does not have a corresponding type of plugin, the upgrade process will add the plugin to the team. Plugins will not be updated or deleted.
 
-### 配置组
+### Configuration group
 
-`配置组`由`配置组`, `配置项`和`生效组件`组成. 它们的规则是`新增`.
+`Configuration group` consists of `configuration group`, `configuration item` and `effective component`. Their rule is `Add`.
 
-源应用新增了配置组, 升级时也会`新增`对应配置组. 但是, 源应用`更新`或`删除`了配置组, 那么升级时配置组不会发生变化, 即不会更新或删除已有配置组.
+If the source application adds a new configuration group, the corresponding configuration group will also be `added` during the upgrade. However, if the source application `updates` or `deletes` a configuration group, the configuration group will not change during the upgrade, that is, existing configuration groups will not be updated or deleted.
 
-### K8s 资源
+### K8s resources
 
-`K8s 资源`为用户自行通过 Yaml 文件创建的集群资源. 它们的规则是`新增`.
+`K8s resources` are cluster resources created by the user through a Yaml file. Their rule is `Add`.
 
-源应用新增了 K8s 资源, 升级时也会`新增`对应K8s 资源. 但是, 源应用`更新`或`删除`了 K8s 资源, 那么升级时 K8s 资源不会发生变化, 即不会更新或删除已有K8s 资源.
+If the source application adds a new K8s resource, the corresponding K8s resource will also be `added` during the upgrade. However, if the source application `updates` or `deletes` a K8s resource, the K8s resource will not change during the upgrade, that is, existing K8s resources will not be updated or deleted.
 
-## 组件级属性
+## Component-level attributes
 
-### 镜像
+### Image
 
-`镜像`的变更规则是: `更新`. 每次升级时, 如果源组件镜像有变化, 升级时会`更新`当前组件的镜像.
+The change rule for `Image` is: `Update`. Each time you upgrade, if the source component image changes, the current component's image will be `updated` during the upgrade.
 
-### 启动命令
+### Start command
 
-`启动命令`的变更规则是: `更新`. 每次升级时, 如果源组件启动命令有变化, 升级时会`更新当前组件的启动命令.
+The change rule for `Start command` is: `Update`. Each time you upgrade, if the source component start command changes, the current component's start command will be `updated` during the upgrade.
 
-### 环境变量
+### Environment variable
 
-`环境变量`的变更规则是: `新增`. 源组件新增了环境变量, 升级时会新增对应的环境变量. 但是, 源组件`更新`或`删除`了组件的环境变量, 升级时不会更新或删除对应的环境变量.
+The change rule for `environment variables` is: `add`. When the source component adds an environment variable, the corresponding environment variable will be added during the upgrade. However, if the source component `updates` or `deletes` the environment variable of the component, the corresponding environment variable will not be updated or deleted during the upgrade.
 
-### 组件连接信息
+### Component connection information
 
-`组件连接信息`的变更规则是: `新增`. 源组件新增了组件连接信息, 升级时会新增对应的组件连接信息. 但是, 源组件`更新`或`删除`了组件连接信息, 升级时不会更新或删除对应的组件连接信息.
+The change rule for `component connection information` is: `add`. When the source component adds component connection information, the corresponding component connection information will be added during the upgrade. However, if the source component `updates` or `deletes` the component connection information, the corresponding component connection information will not be updated or deleted during the upgrade.
 
-特别地, 如果组件连接信息是根据组件端口生成, 即 `XXX_HOST` 和 `XXX_PORT`, 那么该连接信息会根据应用的治理模式, 端口别名和内部域名重新生成.
+Specifically, if the component connection information is generated based on the component port, namely `XXX_HOST` and `XXX_PORT`, then the connection information will be regenerated based on the application's governance mode, port alias, and internal domain name.
 
-如果端口别名是 `mysql`, 生会生成连接信息为 `MYSQL_HOST` 和 `MYSQL_PORT`
+If the port alias is `mysql`, the connection information generated will be `MYSQL_HOST` and `MYSQL_PORT`
 
-如果治理模式是`内置 ServiceMesh 模式`, 则 `XXX_HOST` 的值为 `127.0.0.1`. 如果治理模式是`Kubernetes 原生 Service 模式`, 则 `XXX_HOST` 的值为 `内部域名`.
+If the governance mode is `built-in ServiceMesh mode`, then the value of `XXX_HOST` is `127.0.0.1`. If the governance mode is `Kubernetes native Service mode`, then the value of `XXX_HOST` is `internal domain name`.
 
-### 端口
+### Port
 
-`端口`的变更规则是: `新增, 更新`. 源组件新增了端口, 升级时也会为组件新增对应端口. 源组件更新了端口, 升级时也会更新组件对应的端口; 但是, 只会更新端口的 `协议`, `端口别名`, `打开端口`. 也就是说, 不会更新端口的`内部域名`, `端口号`, 也不会关闭已打开的端口. 另外, 如果源组件删除了端口, 升级时不会删除组件对应的端口.
+The change rule for `port` is: `add, update`. When the source component adds a port, the corresponding port will be added to the component during the upgrade. When the source component updates a port, the corresponding port of the component will be updated during the upgrade; however, only the `protocol`, `port alias`, and `open port` of the port will be updated. That is, the `internal domain name` and `port number` of the port will not be updated, nor will the already opened port be closed. In addition, if the source component deletes a port, the corresponding port of the component will not be deleted during the upgrade.
 
-### 存储
+### Storage
 
-`端口`的变更规则是: `新增`. 源组件新增了存储, 升级时也会为组件新增对应存储. 不会更新或删除存储.
+The change rule for `port` is: `add`. When the source component adds storage, the corresponding storage will be added to the component during the upgrade. Storage will not be updated or deleted.
 
-如果存储所需的存储驱动不存在于当前集群, 那么会用默认的共享存储去替换源存储驱动.
+If the storage driver required by the storage does not exist in the current cluster, then the default shared storage will be used to replace the source storage driver.
 
-### 配置文件
+### Configuration file
 
-`配置文件`的变更规则是: `新增, 更新`. 源组件新增了配置文件, 升级时也会为组件新增对应配置文件. 源组件更新了某个配置文件的内容, 升级时会更新组件对应的配置文件内容; 但是不会更新配置文件的`名称`和`路径`, 只更新内容. 也不会删除配置文件.
+The change rule for `configuration file` is: `add, update`. When the source component adds a configuration file, the corresponding configuration file will be added to the component during the upgrade. When the source component updates the content of a configuration file, the content of the corresponding configuration file of the component will be updated during the upgrade; however, the `name` and `path` of the configuration file will not be updated, only the content. The configuration file will also not be deleted.
 
-### 健康检测探针
+### Health check probe
 
-`健康检测探针`的变更规则是: `新增, 更新, 删除`. 源组件新增健康检测探针, 升级时会为组件新增对应探针. 源组件更新健康检测探针, 升级时会为组件更新对应探针. 源组件删除健康检测探针, 升级时会为组件删除对应探针.
+The change rule for `health check probe` is: `add, update, delete`. When the source component adds a health check probe, the corresponding probe will be added to the component during the upgrade. When the source component updates a health check probe, the corresponding probe of the component will be updated during the upgrade. When the source component deletes a health check probe, the corresponding probe of the component will be deleted during the upgrade.
 
-### 监控图表
+### Monitoring chart
 
-`监控图表`的变更规则是: `新增, 更新`. 源组件新增监控图表, 升级时会为组件新增对应监控图表. 源组件更新监控图表, 升级时会为组件更新对应监控图表的查询语句. 不会删除监控图表.
+The change rule for `monitoring chart` is: `add, update`. When the source component adds a monitoring chart, the corresponding monitoring chart will be added to the component during the upgrade. When the source component updates a monitoring chart, the query statement of the corresponding monitoring chart of the component will be updated during the upgrade. The monitoring chart will not be deleted.
 
-### 监控点
+### Monitoring point
 
-`监控点`的变更规则是: `新增, 更新`. 源组件新增监控点, 升级时会为组件新增对应监控点. 源组件更新监控点, 升级时会为组件更新对应监控点. 不会删除监控点.
+The change rule for `monitoring point` is: `add, update`. When the source component adds a monitoring point, the corresponding monitoring point will be added to the component during the upgrade. When the source component updates a monitoring point, the corresponding monitoring point of the component will be updated during the upgrade. The monitoring point will not be deleted.
 
-### HTTP 访问策略
+### HTTP access policy
 
-`HTTP 访问策略`的变更规则是: `新增`. 源组件新增 HTTP 访问策略, 升级时会为组件新增对应 HTTP 访问策略. 不会更新或删除 HTTP 访问策略.
+The change rule for `HTTP access policy` is: `add`. When the source component adds an HTTP access policy, the corresponding HTTP access policy will be added to the component during the upgrade. The HTTP access policy will not be updated or deleted.
 
-### 标签
+### Label
 
-`标签`的变更规则是: `新增`. 源组件新增标签, 升级时会为组件新增对应标签. 不会更新或删除标签.
+The change rule for `label` is: `add`. When the source component adds a label, the corresponding label will be added to the component during the upgrade. The label will not be updated or deleted.
 
-### 插件
+### Plugin
 
-`插件`的变更规则是: `新增`. 源组件新增插件, 升级时会为组件新增对应插件. 不会更新或删除插件.
+The change rule for `plugin` is: `add`. When the source component adds a plugin, the corresponding plugin will be added to the component during the upgrade. The plugin will not be updated or deleted.
 
-### 组件依赖关系
+### Component dependency
 
-`组件依赖关系`的变更规则是: `新增, 删除`. 组件依赖关系只有新增和删除, 没有更新, 所以不需要考虑升级时更新问题.
-源组件新增依赖关系, 升级时会为组件新增对应依赖关系. 源组件删除依赖关系, 升级时会为组件删除对应依赖关系.
+The change rule for `component dependency` is: `add, delete`. Component dependency only has add and delete, no update, so there is no need to consider the update problem during the upgrade. When the source component adds a dependency, the corresponding dependency will be added to the component during the upgrade. When the source component deletes a dependency, the corresponding dependency of the component will be deleted during the upgrade.
 
-新增组件依赖关系时, 组件依赖关系需要`依赖组件`和`被依赖组件`同时存在, 考虑以下几种情况:
+When adding a component dependency, the component dependency requires both `dependent component` and `depended component` to exist. Consider the following situations:
 
-- A 组件依赖 B 组件, B 组件是新增组件; 升级应用时, 如果没有选择 B 组件,  相当于被依赖组件 B 不存在, 那么不会建立 A 到 B 的依赖关系.
-- A 组件依赖 B 组件, B 组件是已存在组件; 升级应用时, 无论是否选择升级 B 组件, 都会建立 A 到 B 的依赖关系, 因为被依赖组件 B 是存在的.
-- 源应用中, 新增了 A 到 B 的依赖, 但是发布时只发布了 A 组件, 没有发布 B 组件; 那么它们的依赖关系不会被发布出去, 在进行升级时, 不会建立 A 到 B 的依赖关系.
+- Component A depends on component B, component B is a new component; when upgrading the application, if component B is not selected, it is equivalent to the depended component B does not exist, then the dependency from A to B will not be established.
+- Component A depends on component B, component B is an existing component; when upgrading the application, whether component B is selected for upgrade or not, the dependency from A to B will be established, because the depended component B exists.
+- In the source application, a dependency from A to B is added, but only component A is published, component B is not published; then their dependency will not be published, and during the upgrade, the dependency from A to B will not be established.
 
-删除组件依赖关系时, 只会删除来源于同一个应用市场应用的组件之间的组件依赖关系, 不会删除组件对非同源组件的组件依赖关系. 也不会删除对未选择组件的依赖. 考虑一下几种情况:
+When deleting component dependencies, only the component dependencies between components from the same application market application will be deleted, and the component dependencies on non-same-source components will not be deleted. Also, the dependencies on unselected components will not be deleted. Consider the following situations:
 
-- A, B 组件来源于同一个应用市场应用, A 依赖于 B. C 是通过镜像创建的组件, 与 A, B 非同源, A 依赖于 C. 源应用删除了 A 到 B 的组件依赖关系, 升级时, 会删除 A 到 B 的依赖关系, 不会删除 A 到 C 依赖关系.
-- 源应用新增了 A 到 B 的组件依赖关系, 升级时, 只选择升级 A, 没有选择 B 组件, 那么不会删除 A 到 B 的依赖.
+- Components A and B are from the same application market application, A depends on B. Component C is created through an image, which is not the same source as A and B, A depends on C. The source application deletes the component dependency from A to B, during the upgrade, the dependency from A to B will be deleted, the dependency from A to C will not be deleted.
+- The source application adds a component dependency from A to B, during the upgrade, only component A is selected for upgrade, component B is not selected, then the dependency from A to B will not be deleted.
 
-### 存储依赖关系
+### Storage dependency
 
-`存储依赖关系`的变更规则是: `新增, 删除`.
+The change rule for `storage dependency` is: `add, delete`.
 
-新增存储依赖关系时, 存储依赖关系需要`依赖存储`和`被依赖存储`同时存在, 考虑以下几种情况:
+When adding a storage dependency, the storage dependency requires both `dependent storage` and `depended storage` to exist. Consider the following situations:
 
-- A 存储依赖 B 存储, B 存储所在组件是 B, B 是新增存储组件; 升级应用时, 如果没有选择 B 组件, 相当于被依赖存储 B 不存在, 那么不会建立 A 到 B 的依赖关系.
-- A 存储依赖 B 存储, B 存储所在组件是 B, B 是已存在的组件; 升级应用时, 无论是否选择升级 B 组件, 都会建立 A 到 B 的依赖, 因为被依赖存储 B 是存在的.
-- 源应用中, 新增了存储 A 到 B 的依赖, 但是发布时只发布了 A 组件, 没有发布 B 组件; 那么它们的 A 到 B 的依赖关系不会被发布出去, 在进行升级时, 不会建立 A 到 B 的依赖关系.
+- Storage A depends on storage B, the component where storage B is located is B, B is a new storage component; when upgrading the application, if component B is not selected, it is equivalent to the depended storage B does not exist, then the dependency from A to B will not be established.
+- Storage A depends on storage B, the component where storage B is located is B, B is an existing component; when upgrading the application, whether component B is selected for upgrade or not, the dependency from A to B will be established, because the depended storage B exists.
+- In the source application, a storage dependency from A to B is added, but only component A is published, component B is not published; then the dependency from A to B will not be published, and during the upgrade, the dependency from A to B will not be established.
 
-删除存储依赖关系时, 只会删除来源于同一个应用市场应用的组件之间的存储依赖关系, 不会删除组件对非同源组件的存储依赖关系. 也不会删除对未选择组件的存储依赖关系. 考虑一下几种情况:
+When deleting storage dependencies, only the storage dependencies between components from the same application market application will be deleted, and the storage dependencies on non-same-source components will not be deleted. Also, the storage dependencies on unselected components will not be deleted. Consider the following situations:
 
-- A, B 存储来源于同一个应用市场应用, A 依赖于 B. C 是通过镜像创建的组件 C 的存储, 与 A, B 非同源, A 依赖于 C. 源应用删除了 A 到 B 的存储依赖关系, 升级时, 会删除 A 到 B 的依赖关系, 不会删除 A 到 C 的存储依赖关系.
-- 源应用新增了 A 到 B 的存储依赖关系, 升级时, 只选择升级 A 组件, 没有选择 B 组件, 那么不会删除 A 到 B 的存储依赖关系.
+- Storages A and B are from the same application market application, A depends on B. Storage C is the storage of component C created through an image, which is not the same source as A and B, A depends on C. The source application deletes the storage dependency from A to B, during the upgrade, the dependency from A to B will be deleted, the dependency from A to C will not be deleted.
+- The source application adds a storage dependency from A to B, during the upgrade, only component A is selected for upgrade, component B is not selected, then the storage dependency from A to B will not be deleted.
 
-### Kubernetes 属性
+### Kubernetes attributes
 
-`Kubernetes 属性`的变更规则是: `新增, 更新`. 源组件新增 Kubernetes 属性, 升级时会为组件新增对应 Kubernetes 属性. 源组件更新 Kubernetes 属性, 升级时会为组件更新对应 Kubernetes 属性. 不会删除 Kubernetes 属性.
+The change rule for `Kubernetes attributes` is: `add, update`. When the source component adds Kubernetes attributes, the corresponding Kubernetes attributes will be added to the component during the upgrade. When the source component updates Kubernetes attributes, the corresponding Kubernetes attributes of the component will be updated during the upgrade. Kubernetes attributes will not be deleted.

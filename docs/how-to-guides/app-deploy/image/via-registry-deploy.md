@@ -1,115 +1,115 @@
 ---
-title: 通过镜像仓库部署
-description: 详细介绍Rainbond通过镜像仓库部署应用的规范和最佳实践
+title: Deploy via Image Repository
+description: Detailed introduction to the specifications and best practices of deploying applications via image repository in Rainbond
 keywords:
-- 镜像仓库
-- 容器镜像
-- 应用部署 
-- Harbor
-- Docker Registry
+  - Image Repository
+  - Container Image
+  - Application Deployment
+  - Harbor
+  - Docker Registry
 ---
 
-本文档详细介绍了如何在 Rainbond 平台对接已有镜像仓库，并基于镜像仓库中的镜像快速创建和部署。
-
+This document details how to connect an existing image repository on the Rainbond platform and quickly create and deploy based on images in the repository.
 
 ```mermaid
 flowchart LR
-    A[镜像仓库] -->|对接| B[Rainbond平台]
-    B -->|选择镜像| C[创建组件]
-    C -->|部署| D[运行应用]
-    C -->|自动构建| E[持续部署]
+    A[Image Repository] -->|Connect| B[Rainbond Platform]
+    B -->|Select Image| C[Create Component]
+    C -->|Deploy| D[Run Application]
+    C -->|Auto Build| E[Continuous Deployment]
     
     style A fill:#e6f7ff,stroke:#1890ff
     style D fill:#f6ffed,stroke:#52c41a
     style E fill:#f6ffed,stroke:#52c41a
 ```
 
-## 镜像仓库对接概述
+## Overview of Image Repository Connection
 
-Rainbond 支持对接标准的容器镜像仓库，主要包括两种类型：
-- **Docker Registry**：开源的 Docker 官方镜像仓库
-- **Harbor**：企业级的容器镜像仓库，提供更丰富的权限管理和安全特性
+Rainbond supports connecting to standard container image repositories, mainly including two types:
 
-通过对接镜像仓库，您可以享受以下优势：
-- 直接使用已有的镜像资源，无需重复构建
-- 便捷的镜像版本选择和更新
-- 统一的镜像管理，适合多环境部署
+- **Docker Registry**: Open-source Docker official image repository
+- **Harbor**: Enterprise-level container image repository, providing richer permission management and security features
 
-## 对接镜像仓库
+By connecting to an image repository, you can enjoy the following advantages:
 
-### 支持的镜像仓库类型
+- Directly use existing image resources without repeated construction
+- Convenient image version selection and update
+- Unified image management, suitable for multi-environment deployment
 
-Rainbond 目前支持对接以下类型的镜像仓库：
-- Docker Registry (私有部署)（包含Docker Hub）
+## Connect Image Repository
+
+### Supported Image Repository Types
+
+Rainbond currently supports connecting to the following types of image repositories:
+
+- Docker Registry (Private Deployment) (including Docker Hub)
 - Harbor
-- 其他兼容 Docker Registry API 的镜像仓库
+- Other image repositories compatible with Docker Registry API
 
-### 对接步骤
+### Connection Steps
 
-1. **进入镜像仓库配置页面**
-   - 登录 Rainbond 平台
-   - 选择目标团队
-   - 点击 **个人中心** -> **镜像仓库** -> **添加镜像仓库**
+1. **Enter the Image Repository Configuration Page**
+   - Log in to the Rainbond platform
+   - Select the target team
+   - Click **Personal Center** -> **Image Repository** -> **Add Image Repository**
 
-2. **填写镜像仓库信息**
-   - **选择镜像仓库类型**：Docker Registry 或 Harbor
-   - **仓库名称**：自定义镜像仓库名称
-   - **镜像仓库地址**：例如 `https://registry.example.com` 或 `registry.hub.docker.com`
-   - **用户名**：镜像仓库账号
-   - **密码**：对应账号密码
-   
-3. **保存配置**
+2. **Fill in Image Repository Information**
+   - **Select Image Repository Type**: Docker Registry or Harbor
+   - **Repository Name**: Custom image repository name
+   - **Image Repository Address**: For example `https://registry.example.com` or `registry.hub.docker.com`
+   - **Username**: Image repository account
+   - **Password**: Corresponding account password
 
-:::caution 注意
-如果对接的是自建的私有镜像仓库，请确保：
-1. 仓库已正确配置 HTTPS（强烈推荐）或已在 Rainbond 节点配置信任该仓库
-2. Rainbond 集群节点能够网络访问该镜像仓库
-:::
+3. **Save Configuration**
 
-## 基于镜像仓库创建应用
+:::caution Note
+If connecting to a self-built private image repository, please ensure:
 
-对接完镜像仓库后，您可以基于仓库中的镜像快速创建应用组件。
+1. The repository has been correctly configured with HTTPS (strongly recommended) or has been configured to trust the repository on the Rainbond node
+2. Rainbond cluster nodes can access the image repository over the network
+   :::
 
-### 创建步骤
+## Create Application Based on Image Repository
 
-1. **创建新应用**
-   - 进入目标团队主页
-   - 点击 **新增** -> **基于镜像创建组件**
-   
-2. **选择镜像来源**
-   - 选择 **从已连接的镜像仓库选择**
-   - 从下拉列表中选择已对接的镜像仓库
-   
-3. **选择并配置镜像**
-   - 浏览并选择需要的镜像
-   - 指定镜像标签（tag）
-   - 设置组件名称和所属应用
-   - 根据需要调整高级选项（如内存限制、环境变量等）
-   
-4. **创建组件**
-   - 点击 **确认** 创建组件
-   - Rainbond 将自动拉取镜像并启动组件
+After connecting to the image repository, you can quickly create application components based on the images in the repository.
+
+### Creation Steps
+
+1. **Create New Application**
+   - Enter the target team homepage
+   - Click **Add** -> **Create Component Based on Image**
+2. **Select Image Source**
+   - Select **From Connected Image Repository**
+   - Select the connected image repository from the dropdown list
+3. **Select and Configure Image**
+   - Browse and select the required image
+   - Specify image tag (tag)
+   - Set component name and belonging application
+   - Adjust advanced options as needed (such as memory limit, environment variables, etc.)
+4. **Create Component**
+   - Click **Confirm** to create the component
+   - Rainbond will automatically pull the image and start the component
 
 ![](/docs/how-to-guides/app-deploy/image-choose.png)
 
-## 配置镜像仓库自动构建
+## Configure Image Repository Auto Build
 
-对接镜像仓库后，可以开启镜像仓库自动构建，当镜像仓库有镜像更新时，会自动触发组件构建和部署。目前仅支持 Docker Registry 镜像仓库。
+After connecting to the image repository, you can enable the image repository auto build. When the image repository has image updates, it will automatically trigger component build and deployment.Currently, only Docker Registry image repositories are supported.
 
-1. 开启镜像仓库 Webhook 自动构建，**组件 -> 构建源 -> 开启自动构建**。
+1. Enable image repository Webhook auto build, **Component -> Build Source -> Enable Auto Build**.
 
-2. 配置 Tag 触发自动修改策略，**组件 -> 构建源 -> 自动构建策略**。
+2. Configure Tag trigger auto modification strategy, **Component -> Build Source -> Auto Build Strategy**.
 
-默认情况下 Webhook 更新事件的镜像名称和 Tag 必须与组件当前构建源的镜像名称和 Tag 配置一致才能触发构建和部署。配置了 Tag 触发策略以后，根据配置的正则表达式，如果接收到的 push 事件的镜像 tag 能够正确匹配正则表达式，则认为此次更新事件有效，根据更新的 Tag 信息来升级当前组件的构建源信息并进行自动构建。
+By default, the image name and Tag of the Webhook update event must match the image name and Tag configuration of the component's current build source to trigger build and deployment.After configuring the Tag trigger strategy, according to the configured regular expression, if the image tag of the received push event can correctly match the regular expression, the update event is considered valid, and the current component's build source information is upgraded based on the updated Tag information for auto build.
 
-比如设置 Tag 策略为： `v5.*` 当 Tag 为 `v5.1` `v5.2` `v5.9`等都将被允许。
+For example, set the Tag strategy as: `v5.*` When the Tag is `v5.1` `v5.2` `v5.9`, etc., it will be allowed.
 
-### 配置 DockerHub 镜像仓库
+### Configure DockerHub Image Repository
 
-进入 DockerHub 仓库 -> Webhooks
+Enter DockerHub repository -> Webhooks
 
-| New Webhook  | 说明                            |
-| ------------ | ------------------------------- |
-| Webhook name | 自定义                          |
-| Webhook URL  | 复制 Rainbond 中的 Webhook 地址 |
+| New Webhook  | illustrate                           |
+| ------------ | ------------------------------------ |
+| Webhook name | Custom                               |
+| Webhook URL  | Copy the Webhook address in Rainbond |
 

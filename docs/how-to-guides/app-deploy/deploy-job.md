@@ -1,49 +1,47 @@
---- 
-title: 部署 Job CronJob 类型组件
-description: 本文讲述部署Job、CronJob类型组件的要点，适用于开发者和运维人员。
+---
+title: Deploy Job CronJob type component
+description: This article describes the key points of deploying Job and CronJob type components, applicable to developers and operations personnel.
 ---
 
-### 概述
+### Overview
 
-任务主要包含两种：
+Tasks mainly include two types:
 
-- Job负责批处理任务，即仅执行一次的任务，它保证批处理任务的一个或多个Pod成功结束.
-- CronJob是管理调度job，周期性的创建job去执行任务.
+- Job is responsible for batch processing tasks, that is, tasks that are executed only once. It ensures that one or more Pods of the batch processing task successfully complete.
+- CronJob manages scheduled jobs, periodically creating jobs to execute tasks.
 
-详细信息参考k8s官方文档
+For more details, refer to the official k<b>8</b>s documentation
+
 - Job  https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/job/
 - CronJob  https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/cron-jobs/
 
-### 使用流程
+### Usage Process
 
-在创建组件的时候，可以在高级设置中选择job、cronjob类型.
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/ComponentType.png" title="高级设置"/>
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/CreatJob.png" title="设置job"/>
+When creating a component, you can select the job or cronjob type in the advanced settings. <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/ComponentType.png" title="Advanced Settings"/> <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/CreatJob.png" title="Set Job"/>
 
-如果选择cronjob，需要填写调度策略
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/CreatCronJob.png" title="设置cronjob"/>
+If you select cronjob, you need to fill in the scheduling strategy <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/CreatCronJob.png" title="Set CronJob"/>
 
-创建成功开始执行任务，待job任务执行完毕时，标识已完成.
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/JobRuning.png" title="job任务运行"/>
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/JobOK.png" title="job任务完成"/>
+After successful creation, the task starts executing. When the job task is completed, it is marked as completed. <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/JobRuning.png" title="Job Task Running"/> <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/JobOK.png" title="Job Task Completed"/>
 
-job任务执行完成，可点击重启按钮，重新执行该任务，也可以点击关闭任务.
+After the job task is completed, you can click the restart button to re-execute the task, or click to close the task.
 
-在组件其他设置中可修改部署类型和任务策略.
+You can modify the deployment type and task strategy in the component's other settings.
 
-#### 部署类型
+#### Deployment Type
+
 <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/ChangeType.png" title="组件部署类型"/>
 <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/DeploymentType.png" title="修改组件部署类型"/>
 
-#### 任务策略
+#### Task Strategy
 
-- 如果是cronjob类型，定时配置必填，如 `*/1 * * * *` 一分钟执行一次.
-- 最大重试次数：如果任务失败，默认失败认定重启次数为6，可以通过配置调整失败重启次数.
-- 并行任务数：能够同时运行的Pod数，如设置3个，则有3个任务同时创建并执行.
-- 最大运行时间：如果Job运行的时间超过了设定的秒数，那么此Job就自动停止运行所有的Pod.
-- 完成数：完成该Job需要执行成功的Pod数.
+- If it is a cronjob type, the timing configuration is mandatory, such as `*/1 * * * *` to execute once a minute.
+- Maximum retry count: If the task fails, the default failure restart count is 6, which can be adjusted through configuration.
+- Parallel task count: The number of Pods that can run simultaneously. If set to 3, then 3 tasks are created and executed simultaneously.
+- Maximum runtime: If the Job runs longer than the set number of seconds, then this Job automatically stops running all Pods.
+- Completion count: The number of Pods that need to successfully execute to complete the Job.
 
 <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/TaskStrategy.png" title="任务策略编辑"/>
 
-#### cronjob任务状态展示
+#### cronjob task status display
+
 <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/CronJob.png" title="cronjob任务执行"/>

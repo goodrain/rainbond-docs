@@ -1,82 +1,86 @@
 ---
-title: 应用插件
-description: 介绍 Rainbond 插件的设计和创建过程
+title: Application plugin
+description: Introducing the design and creation process of Rainbond plugins
 keywords:
-- Rainbond 插件
-- 插件创建
-- K8s sidecar
+  - Rainbond plugin
+  - Plugin creation
+  - K8s sidecar
 ---
 
-## 概述
+## Overview
 
-Rainbond 的插件体系抽象集中在业务层面，理论基础源于 Kubernetes 的 Pod 机制和一部分容器概念。针对平台业务层面对 Kubernetes 容器编排进行抽象，转变为一个对用户体验友善的 Rainbond 插件产品的过程，方便用户在不需要懂 Kubernetes 原理的情况下使用。
+Rainbond's plugin system abstraction focuses on the business level, with its theoretical foundation rooted in Kubernetes' Pod mechanism and some container concepts.The process abstracts Kubernetes container orchestration at the platform business level, transforming it into a Rainbond plugin product that is user-friendly, enabling users to utilize it without understanding Kubernetes principles.
 
-Rainbond 的插件类型主要有以下两种:
+Rainbond's plugin types mainly include the following two:
 
-- **初始化容器:** 在 pod 创建时运行的容器，主要用于初始化应用的数据、环境等，初始化容器在主容器启动之前启动，主要用于初始化应用的数据、环境等。
-- **一般容器:** 与主容器同时启动的容器，主要用于扩展应用的功能，如日志收集、监控等。
+- **Init container:** A container that runs when the pod is created, mainly used to initialize application data, environment, etc. The init container starts before the main container, primarily for initializing application data, environment, etc.
+- **General container:** A container that starts simultaneously with the main container, mainly used to extend application functionality, such as log collection, monitoring, etc.
 
-## 设计原则
+## Design principles
 
-Rainbond插件体系的设计遵循**易于理解**和**易于使用**的原则：
+The design of the Rainbond plugin system follows the principles of **easy to understand** and **easy to use**:
 
-- **易于理解:** 在 Rainbond 插件体系中，插件使用的过程即主容器与 init 或 sidecar 等容器结合的过程，原理是将插件容器以 sidecar 容器（大部分）的形式编排至主应用的 pod 中，共享主应用容器的网络和环境变量。
-- **易于使用:** Rainbond 插件体系易于使用的原则体现在**类应用化、绑定使用、独有的变量作用域**等方面。
+- **Easy to understand:** In the Rainbond plugin system, the process of using a plugin is the process of combining the main container with init or sidecar containers. The principle is to orchestrate the plugin container into the main application's pod in the form of a sidecar container (mostly), sharing the main application container's network and environment variables.
+- **Easy to use:** The principle of easy use in the Rainbond plugin system is reflected in **application-like, binding use, unique variable scope**, etc.
 
-### 类应用化
+### Application-like
 
-Rainbond 插件体系为插件设计了与应用类似的生命周期，包含创建、启用、关闭等模式，与 Rainbond 平台用户操作应用的习惯保持一致。同时， Rainbond 插件体系简化了插件创建类型，支持基于 docker image 和 dockerfile 创建，创建插件比创建应用更加简单。
+The Rainbond plugin system designs a lifecycle for plugins similar to applications, including creation, activation, deactivation, etc., consistent with the habits of Rainbond platform users in operating applications.At the same time, the Rainbond plugin system simplifies the types of plugin creation, supporting creation based on docker image and dockerfile, making plugin creation simpler than application creation.
 
-插件创建流程设计如下图所示：
+The plugin creation process design is as shown in the following figure:
 
 ![](/docs/app-guide/plugin-create-process.png)
 
-需要注意的是，当一个插件版本固定后，其内存、版本信息、插件变量无法再做修改，这些元素仅作用于当前插件版本。需要修改插件变量等元素时，对插件进行`重新构建`，重复创建流程即可。
+It should be noted that once a plugin version is fixed, its memory, version information, and plugin variables cannot be modified again. These elements only affect the current plugin version.When modifying plugin variables and other elements, perform a `rebuild` on the plugin and repeat the creation process.
 
-创建完成后，用户可以对插件进行针对性设置，目前可以设置变量、插件生效与否和内存设定。内存的限制将在 Pod 创建时进行限制，插件变量生效与实时修改在下文中会继续介绍。
+After creation, users can make targeted settings for the plugin. Currently, variables, whether the plugin is effective, and memory settings can be set.Memory limits will be imposed when the Pod is created. The effectiveness and real-time modification of plugin variables will be further introduced below.
 
-### 独有的变量作用域
+### Unique variable scope
 
-注入到容器内的变量设计为有两类：`共用变量` 与 `插件变量`。
-- 共用变量就是主容器的变量，为使插件参与甚至扩展主应用的功能，在 Pod 创建过程中将主应用的环境变量注入到了插件容器中。
-- 插件变量则仅作用在该插件容器内部，防止插件间的变量重复与混用。
+Variables injected into the container are designed to be of two types: `shared variables` and `plugin variables`.
 
-## 插件使用
+- Shared variables are the variables of the main container. To allow the plugin to participate in or even extend the functionality of the main application, the main application's environment variables are injected into the plugin container during the Pod creation process.
+- Plugin variables only act within the plugin container, preventing variable duplication and misuse between plugins.
 
-### 从应用市场安装插件
+## Plugin usage
 
-Rainbond 提供了丰富的插件市场，用户可以在应用市场中选择合适的插件安装到自己的应用中。
+### Install plugins from the application market
 
-进入**团队 -> 插件**，点击**从应用市场安装**，选择需要的插件，点击安装即可。
+Rainbond provides a rich plugin market where users can select suitable plugins to install into their applications.
 
-### 新建插件
+Go to **Team -> Plugins**, click **Install from the application market**, select the needed plugin, and click install.
 
-1. 进入**团队 -> 插件**，点击新建插件:
-- **插件名称:** 插件的名称，用于区分不同的插件。
-- **安装来源:** Rainbond 提供镜像和 Dockerfile 两个安装来源。使用镜像时，提供镜像地址。使用 Dockerfile 文件时，提供项目源码地址。
-- **插件类型:** 插件类型有`初始化类型`和`一般类型`。
-- **资源限制:** 插件的资源限制，包括 CPU 和内存。
-- **启动命令:** 插件的启动命令。
-- **说明:** 插件的说明信息。
+### Create a new plugin
 
-2. 进入已创建的插件内，构建插件。
-3. 添加插件配置，如下：
-- **配置组名称:** 配置组的名称，用于区分不同的配置组。
-- **配置项:** 配置插件的环境变量，支持字符串、单选和多选三种类型。
+1. Go to **Team -> Plugins**, click to create a new plugin:
 
-### 开通插件
+- **Plugin name:** The name of the plugin, used to distinguish different plugins.
+- **Installation source:** Rainbond provides two installation sources: image and Dockerfile.When using an image, provide the image address.When using a Dockerfile file, provide the project source code address.
+- **Plugin type:** Plugin types include `init type` and `general type`.
+- **Resource limits:** The resource limits of the plugin, including CPU and memory.
+- **Start command:** The start command of the plugin.
+- **Description:** The description information of the plugin.
 
-安装或新建插件完成后，需要将插件开通到组件中。
+2. Enter the created plugin and build the plugin.
+3. Add plugin configuration as follows:
 
-在组件详情页，点击**插件**，选择需要的插件，点击**开通**即可。
+- **Configuration group name:** The name of the configuration group, used to distinguish different configuration groups.
+- **Configuration items:** Configure the environment variables of the plugin, supporting string, single selection, and multiple selection types.
 
-### 性能分析插件
+### Enable plugin
 
-1. 进入**团队 -> 插件**，选择从应用市场安装插件，搜索性能分析插件，点击安装。
-2. 进入组件详情页，点击**插件**，选择性能分析插件，点击**开通**。
-3. 进入监控页面，选择性能分析插件，查看性能分析详情。
+After installing or creating a new plugin, you need to enable the plugin in the component.
 
-指标解释:
-- 响应时间: 响应时间也称为延迟，组件一般工作于网络通信的应用层，比如 http、mysql、redis、grpc 等。组件每次处理一次客户端请求的用时即响应时间。如果我们从网络报文的维度来衡量的话即请求报文第一个包到达到响应报文的第一个包发出中间的时间。
-- 吞吐率: 吞吐率也称为通讯量，即组件在单位时间内处理请求的次数。
-- 错误率: 错误有显性错误（比如 HTTP 500 错误）和隐性错误（比如 HTTP 返回 200 然而业务是错误的），这里我们主要关注显形错误，每一种通信协议都有标准的错误类型，比如 mysql 有查询语句错误。错误率正常情况下与组件的饱和度有密切关系。
+On the component details page, click **Plugins**, select the needed plugin, and click **Enable**.
+
+### Performance analysis plugin
+
+1. Go to **Team -> Plugins**, select to install plugins from the application market, search for the performance analysis plugin, and click install.
+2. Go to the component details page, click **Plugins**, select the performance analysis plugin, and click **Enable**.
+3. Go to the monitoring page, select the performance analysis plugin, and view the performance analysis details.
+
+Indicator explanation:
+
+- Response time: Response time is also known as latency. Components generally work at the application layer of network communication, such as http, mysql, redis, grpc, etc.The time taken for a component to process a client request each time is the response time.If we measure from the dimension of network packets, it is the time from the arrival of the first packet of the request message to the sending of the first packet of the response message.
+- Throughput rate: Throughput rate is also known as traffic, which is the number of requests processed by the component per unit time.
+- Error rate: Errors include explicit errors (such as HTTP 500 errors) and implicit errors (such as HTTP returning 200 but the business is wrong). Here we mainly focus on explicit errors. Each communication protocol has standard error types, such as mysql having query statement errors.Under normal circumstances, the error rate is closely related to the saturation of the component.

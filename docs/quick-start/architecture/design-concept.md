@@ -1,125 +1,125 @@
 ---
-title: 设计思想
-description: Rainbond设计的由来和理念
+title: Design Philosophy
+description: The origin and concept of Rainbond design
 ---
 
-## 云原生的本质和最终效果
+## The essence and ultimate effect of cloud native
 
-**云计算本质上解决的是资源的自动化管理问题，但数字化和信息化的关键在应用，云计算没有解决应用的管理问题，应用的管理和运维是难题，对人依赖度很高，云原生的出现就是为了解决应用的管理问题。**
+**Cloud computing essentially solves the problem of automated resource management, but the key to digitalization and informatization lies in applications. Cloud computing does not solve the problem of application management. Application management and operation and maintenance are difficult problems, with a high degree of dependence on people. The emergence of cloud native is to solve the problem of application management.**
 
-应用管理比资源管理复杂很多，涉及到应用开发、应用架构、应用交付和应用运维等应用层的管理，还要配合应用解决资源自动化管理问题，云原生本质就是解决应用的自动化管理问题。
+Application management is much more complex than resource management, involving management at the application level such as application development, application architecture, application delivery, and application operation and maintenance, as well as solving the problem of automated resource management in coordination with the application. The essence of cloud native is to solve the problem of automated application management.
 
 ![cloud-native](https://static.goodrain.com/docs/5.8/docs/architecture/cloud-native.png)
 
-从效果来看，云原生的最终目标是让开发者聚焦自己的业务，业务之外（基础设施、应用架构、应用运维）的事情不用关心，只需要懂业务就能创造出自己想要的应用，并能按需交付客户。
+From the effect point of view, the ultimate goal of cloud native is to allow developers to focus on their own business, without having to worry about things outside the business (infrastructure, application architecture, application operation and maintenance), and only need to understand the business to create the applications they want, and deliver them to customers on demand.
 
-## 应用抽象模型是云原生可落地的关键（实现思路）
+## The application abstraction model is the key to the implementation of cloud native (implementation ideas)
 
-云原生落地的难点在使用，如果能将云原生底层复杂的技术包装成开发者熟悉的应用层属性和动作，开发者就不用学习新的概念和技术；如果能将业务跟运维能力解耦，跟微服务框架解耦，就能实现开发者按需扩展运维能力和切换微服务框架，实现对业务按需赋能；如果能实现根据不同客户类型，自定义交付流程和自动化交付，就能大大降低交付成本，提升客户满意度。
+The difficulty in implementing cloud native lies in its use. If the complex underlying technologies of cloud native can be packaged into application-level attributes and actions familiar to developers, developers will not need to learn new concepts and technologies; if business can be decoupled from operation and maintenance capabilities, and from microservice frameworks, developers can expand operation and maintenance capabilities and switch microservice frameworks on demand, achieving on-demand empowerment for business; if different customer types can be customized for delivery processes and automated delivery, delivery costs can be greatly reduced, and customer satisfaction can be improved.
 
-当以上三点都能解决，就可以让开发者聚焦在业务本身，业务之外的事情不用关心，有更多精力关注客户价值输出。
+When the above three points can be solved, developers can focus on the business itself, without having to worry about things outside the business, and have more energy to focus on customer value output.
 
-**基于以上思考，通过应用抽象模型是个解决思路，对应用整体进行包装和抽象，包含应用运行所需的全部运行定义，与底层技术和概念隔离。**向上用户不需要再学习和了解系统级概念和技术，应用内部把业务和扩展能力解耦，使用应用级概念开发和管理，需要扩展服务治理、运维、安全等能力时按需开启插件。向下则包装Kubernetes的概念和抽象，屏蔽掉底层基础设施的差异，实现应用抽象模型可以运行在各类基础设施上。
+\*\*Based on the above thinking, the application abstraction model is a solution idea, packaging and abstracting the application as a whole, including all operational definitions required for the application to run, isolated from underlying technologies and concepts.\*\*Upward users no longer need to learn and understand system-level concepts and technologies. Inside the application, business and extension capabilities are decoupled, using application-level concepts for development and management. When it is necessary to extend service governance, operation and maintenance, security and other capabilities, plugins can be enabled on demand.Downward, it packages the concepts and abstractions of Kubernetes, shielding the differences in underlying infrastructure, so that the application abstraction model can run on various infrastructures.
 
 ![app-template](https://static.goodrain.com/docs/5.8/docs/architecture/app-template.png)
 
-应用抽象模版核心设计在三方面：
+The core design of the application abstraction template lies in three aspects:
 
-1. 应用级抽象
+1. Application-level abstraction
 
-2. 架构充分解耦
+2. Fully decoupled architecture
 
-3. 使用应用模版交付
+3. Delivery using application templates
 
-### 应用级抽象能简化理解和使用
+### Application-level abstraction can simplify understanding and use
 
-应用级抽象是“以应用为核心”的抽象模型，对用户暴露应用级的概念、属性和动作，底层Kubernetes和系统级的概念和技术，要么完全实现自动化，要么包装成应用级的属性和动作。
+Application-level abstraction is an "application-centric" abstraction model, exposing application-level concepts, attributes, and actions to users. Underlying Kubernetes and system-level concepts and technologies are either fully automated or packaged into application-level attributes and actions.
 
-为了实现灵活的应用编排和自动化调度，Kubernetes定义了很多概念，提供丰富的扩展机制，并以YAML的方式跟它交互，Kubernetes的这些可编程的体验，对管理和扩展Kubernetes的人来说，是非常好的特性，但对于普通开发者，门槛太高，并且很多概念和技术跟自己开发的业务并没有直接关系，所以对于普通开发者来说需要更加友好的操作体验，不需要学习就能使用。
+To achieve flexible application orchestration and automated scheduling, Kubernetes defines many concepts, provides rich extension mechanisms, and interacts with it in YAML. These programmable experiences of Kubernetes are very good features for those who manage and extend Kubernetes, but for ordinary developers, the threshold is too high, and many concepts and technologies are not directly related to the business they develop, so ordinary developers need a more friendly operation experience, which can be used without learning.
 
 ![app-template-1](https://static.goodrain.com/docs/5.8/docs/architecture/app-template-1.png)
 
-应用级抽象和Kubernetes概念粗粒度的对应关系：
+The coarse-grained correspondence between application-level abstraction and Kubernetes concepts:
 
-|  应用级属性   | Kubernetes概念  |
-|  ----  | ----  |
-| 应用运行环境  | Containers |
-| 应用运行属性  | Workload |
-| 应用网络属性  | SDN |
-| 应用存储属性  | SDS |
-| 应用对外服务属性  | Ingress |
-| 应用对内服务属性  | Service |
-| 应用插件  | Pod |
-| 应用配置  | ConfigMap |
+| Application-level attributes            | Kubernetes concepts |
+| --------------------------------------- | ------------------- |
+| Application runtime environment         | Containers          |
+| Application runtime attributes          | Workload            |
+| Application network attributes          | SDN                 |
+| Application storage attributes          | SDS                 |
+| Application external service attributes | Ingress             |
+| Application internal service attributes | Service             |
+| Application plugins                     | Pod                 |
+| Application configuration               | ConfigMap           |
 
-应用级抽象并不是要将Kubernetes概念全部隐藏起来，而是对于不同的使用者，职责不同展现不同的交互界面。对普通开发者职责是开发业务，只需要关心应用级的概念，提供应用级的操作界面。
+Application-level abstraction does not mean to hide all Kubernetes concepts, but for different users, different responsibilities show different interaction interfaces.For ordinary developers, the responsibility is to develop business, only need to care about application-level concepts, and provide application-level operation interfaces.
 
-但对于云原生平台的管理人员，除了关心应用级的概念，还要关心Kubernetes的管理和维护，有能力的话还可以扩展平台的能力，所以对于平台管理人员，提供高级的暴露Kubernetes概念的操作界面，或者直接操作Kubernetes也可以管理平台上的应用，通过这种方式也规避了，由于包装概念产生的“黑箱”导致对平台的可观测性和可掌控性不足。
+But for cloud native platform managers, in addition to caring about application-level concepts, they also need to care about the management and maintenance of Kubernetes, and if they have the ability, they can also extend the capabilities of the platform. Therefore, for platform managers, advanced operation interfaces that expose Kubernetes concepts are provided, or directly operating Kubernetes can also manage applications on the platform. In this way, it also avoids the insufficient observability and controllability of the platform due to the "black box" generated by packaging concepts.
 
-### 架构充分解耦，根据使用场景按需组合
+### Fully decoupled architecture, combined on demand according to usage scenarios
 
-基于应用级的抽象，应用模型通过标准的Kubernetes API实现跟基础设施的解耦，所有符合标准Kubernetes API 的基础设施都可以实现对接和部署，比如各公有云厂商的Kubernetes实现、K3s、KubeEdge等，通过这样的解耦，开发者只需要关心业务和能力扩展，不用在关心基础设施的差异，对接应用模型的应用不需要改动就能透明部署到公有云、私有云和边缘设备上，实现了应用级多云。
+Based on application-level abstraction, the application model achieves decoupling from infrastructure through standard Kubernetes APIs. All infrastructures that comply with standard Kubernetes APIs can be connected and deployed, such as Kubernetes implementations by various public cloud vendors, K3s, KubeEdge, etc. Through such decoupling, developers only need to care about business and capability expansion, without worrying about the differences in infrastructure. Applications connected to the application model can be transparently deployed to public clouds, private clouds, and edge devices without modification, achieving application-level multi-cloud.
 
-**通常在应用里，还会包括一些跟业务无关的功能，他们的作用是为了让应用更好的运行。**比如：服务治理、微服务框架、运维工具、安全工具等，这些能力跟应用有强耦合关系的，需要改代码扩展能力，将这部分能力解耦，应用就只需要关注在业务了，而且扩展的能力有很强的复用性，其他应用也需要。
+\*\*Usually in applications, there are also some functions unrelated to business, whose role is to make the application run better.\*\*For example: service governance, microservice frameworks, operation and maintenance tools, security tools, etc. These capabilities are strongly coupled with the application, requiring code changes to extend capabilities. Decoupling these capabilities allows the application to focus only on the business, and the extended capabilities have strong reusability, which other applications also need.
 
-应用中扩展能力的解耦使用Kubernetes的Pod，Pod中包含一个或多个容器，所有容器共享网络、存储，应用运行在一个容器，扩展的能力通过扩展容器的方式运行，通过共享的网络和存储实现了应用和扩展能力的解耦，这种解耦方式对业务完全无侵入，扩展的能力用插件的形式包装，就可以实现应用按需安装和启动插件，根据网络流向和容器启动顺序可以定义几种类型插件：
+The decoupling of extended capabilities in applications uses Kubernetes' Pod. A Pod contains one or more containers, all containers share network and storage, the application runs in one container, and extended capabilities run by extending containers. Through shared network and storage, the decoupling of applications and extended capabilities is achieved. This decoupling method is completely non-invasive to the business. Extended capabilities are packaged in the form of plugins, so that applications can install and start plugins on demand. According to the network flow direction and container startup sequence, several types of plugins can be defined:
 
-|  插件类型   | 说明  |
-|  ----  | ----  |
-| 入口网络插件  | 网络流量先到入口网络插件，然后到业务容器。例如：网关、WAF、安全工具、限流 |
-| 出口网络插件  | 网络流量先到业务容器，然后到插件容器。例如：负载均衡、断路器、加密访问 |
-| 出入网络插件  | 网络流量先到插件容器，再到业务容器，再回到插件容器。例如：Service Mesh proxy |
-| 旁路插件  | 网络上旁路运行。例如：性能分析、监控、调用链分析、日志管理 |
-| 初始化插件  | Pod的Init容器，Pod启动先启动Init容器。例如：数据库初始化 |
+| Plugin type                         | illustrate                                                                                                                                                                                |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Entry network plugin                | Network traffic first goes to the entry network plugin, then to the business container.For example: gateway, WAF, security tools, current limiting        |
+| Exit network plugin                 | Network traffic first goes to the business container, then to the plugin container.For example: load balancing, circuit breaker, encrypted access         |
+| Inbound and outbound network plugin | Network traffic first goes to the plugin container, then to the business container, and then back to the plugin container.For example: Service Mesh proxy |
+| Bypass plugin                       | Runs bypass on the network.For example: performance analysis, monitoring, call chain analysis, log management                                             |
+| Initialization plugin               | Pod's Init container, Pod starts by starting the Init container first.For example: database initialization                                                |
 
 ![app-template-2](https://static.goodrain.com/docs/5.8/docs/architecture/app-template-2.png)
 
-按照Pod机制实现的插件只能扩展单个业务容器的能力，而要对应用扩展微服务架构能力，需要对每一个业务容器扩展服务治理的插件，这跟Service Mesh的实现机制一致。
+Plugins implemented according to the Pod mechanism can only extend the capabilities of a single business container. To extend the microservice architecture capabilities for an application, it is necessary to extend service governance plugins for each business container, which is consistent with the implementation mechanism of Service Mesh.
 
-Service Mesh的Data Plane需要对每个业务容器注入Proxy，对于完整应用就是扩展Service Mesh能力，对完整应用扩展的能力是应用级插件，根据注入Proxy的差异可以支持多种类型的Service Mesh实现，比如：Istio、Linkerd、Dapr，应用可以按需开启Service Mesh能力，或更换实现框架。**当应用跟微服务架构解耦，每一个业务容器不再受微服务框架和开发语言限制，每个业务容器只需要专注业务本身，业务容器之间也同步实现了解耦。**
+The Data Plane of Service Mesh needs to inject a Proxy into each business container. For a complete application, it is to extend the Service Mesh capability. The capability extended for the complete application is an application-level plugin. According to the differences in the injected Proxy, it can support various types of Service Mesh implementations, such as: Istio, Linkerd, Dapr. The application can turn on the Service Mesh capability on demand, or change the implementation framework.**When the application is decoupled from the microservice architecture, each business container is no longer limited by the microservice framework and development language. Each business container only needs to focus on the business itself, and the business containers also achieve decoupling synchronously.**
 
-通过将架构充分的解耦，解耦后的业务、插件、对接多云的能力都能实现随意组合，开发者选择喜欢的开发语言开发业务组件，根据业务契约编排依赖关系，根据服务治理和运行稳定性要求，按需开启Service Mesh插件和其他运维插件，运行的基础设施环境，也根据实际需要自动对接。
+By fully decoupling the architecture, the decoupled business, plugins, and the ability to connect to multi-cloud can be combined at will. Developers choose their favorite development language to develop business components, arrange dependencies according to business contracts, and turn on Service Mesh plugins and other operation and maintenance plugins on demand according to service governance and operational stability requirements. The operating infrastructure environment is also automatically connected according to actual needs.
 
-### 应用模版成为能力复用和应用交付的载体
+### Application template becomes the carrier of capability reuse and application delivery
 
-应用模型以应用模版的形式具象化展现和存储，应用由源码、容器镜像和插件拼装而成，然后一键导出成应用模版，应用模版设计主要围绕使用者，让使用者能用起来，让应用交付并产出价值，从而拉动应用的迭代和开发。
+The application model is concretely displayed and stored in the form of an application template. The application is assembled from source code, container images, and plugins, and then exported as an application template with one click. The design of the application template mainly revolves around the user, allowing the user to use it, deliver the application and produce value, thereby driving the iteration and development of the application.
 
-**从使用体验上，应用模版可以一键安装和一键升级，通过“拖拉拽”的方式实现业务拼装。**应用模版有很强灵活性，应用模版支持不同颗粒度大小，模版和模版能拼装出新的模版，新的模版还可以持续拼装，颗粒的大小由使用者决定，由使用者赋予它意义。应用模版可以交付到兼容Kubernetes API的分支版本，实现一键安装和升级，或将应用模版存放到应用市场，实现即点即用的效果。
+\*\*From the user experience, the application template can be installed and upgraded with one click, and business assembly can be achieved through "drag and drop".\*\*The application template has great flexibility. The application template supports different granularity sizes. Templates and templates can be assembled into new templates, and new templates can continue to be assembled. The size of the granularity is determined by the user and given meaning by the user.The application template can be delivered to a branch version compatible with the Kubernetes API, realizing one-click installation and upgrade, or the application template can be stored in the application market to achieve the effect of point-and-use.
 
 ![app-template-3](https://static.goodrain.com/docs/5.8/docs/architecture/app-template-3.png)
 
-应用模版需要具备四个特点：
+The application template needs to have four characteristics:
 
-1. 模块化，可以形成可复用的能力单元，按需拼装使用场景。
+1. Modular, can form reusable capability units, and assemble usage scenarios on demand.
 
-2. 自治，自给自足，可以独立安装、升级和管理，确保组合的灵活性。
+2. Autonomous, self-sufficient, can be installed, upgraded and managed independently, ensuring the flexibility of combination.
 
-3. 可编排，模版和模版可以拼装出新模版，具备无限拼装能力。
+3. Orchestrable, templates and templates can be assembled into new templates, with unlimited assembly capabilities.
 
-4. 可发现，通过内部服务和外部服务两种方式体现，可供业务和技术、开发者和其他应用访问。
+4. Discoverable, reflected through internal services and external services, accessible to business and technology, developers and other applications.
 
-**通过应用模版实现可复用模块和能力的打包。**应用的架构充分解耦后，业务组件和扩展插件理论上可以复制到其他应用中，但直接复制代码或镜像非常低效，而且还有很多运行环境相关的配置需要考虑，将业务组件和扩展插件打包成应用模版，并将应用模版发布到应用市场供其他人使用，可以最大程度实现模块和能力的复用，减少重复造轮子。
+\*\*Packaging reusable modules and capabilities through application templates.\*\*After the application architecture is fully decoupled, business components and extension plugins can theoretically be copied to other applications, but directly copying code or images is very inefficient, and there are many runtime environment-related configurations to consider. Packaging business components and extension plugins into application templates and publishing the application templates to the application market for others to use can maximize the reuse of modules and capabilities and reduce reinventing the wheel.
 
-**通过应用模版实现SaaS、私有化和离线环境的自动化交付，和个性化场景模块拼装。**应用模板中包含应用运行态所需的全部资源，对接到客户运行环境，就可以实现一键安装和运行，屏蔽了客户环境差异，一套产品模版可以交付所有类型客户，对于离线环境，应用模版以文件的形式导出，到客户离线环境再导入运行即可。
+\*\*Through application templates, automated delivery of SaaS, privatization and offline environments, and personalized scenario module assembly are achieved.\*\*The application template contains all the resources required for the application runtime. By connecting to the customer's runtime environment, one-click installation and operation can be achieved, shielding the differences in customer environments. A set of product templates can be delivered to all types of customers. For offline environments, the application template is exported in the form of a file and then imported into the customer's offline environment to run.
 
-对于功能需要个性化的场景，利用应用模版对业务模版打包的能力，先拼装已经模块化的能力，然后再定制化开发，新开发的功能，如果可复用还可以继续发布成应用模版，供后续复用。
+For scenarios where functions need to be personalized, use the ability of application templates to package business templates, first assemble modularized capabilities, and then customize development. Newly developed functions, if reusable, can continue to be published as application templates for subsequent reuse.
 
-## Rainbond 上实现云原生的体验
+## Achieving a cloud-native experience on Rainbond
 
-基于以上的设计思路，让开发者专注于业务本身，回到用户效果和价值体现的原点上，不用关心底层复杂的技术和不相关的概念，全面实现应用自动化。Rainbond提供了开箱即用的体验，使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。主要功能包括应用开发环境、应用市场、微服务架构、应用交付、应用运维、应用级多云管理等。
+Based on the above design ideas, developers can focus on the business itself, return to the origin of user effect and value embodiment, without having to care about the underlying complex technology and unrelated concepts, and fully realize application automation.Rainbond provides an out-of-the-box experience, is simple to use, does not require knowledge of containers and Kubernetes, supports the management of multiple Kubernetes clusters, and provides enterprise-level application lifecycle management.Main functions include application development environment, application market, microservice architecture, application delivery, application operation and maintenance, application-level multi-cloud management, etc.
 
-开发应用的体验：
+Experience of developing applications:
 
-1. **代码无需改动，就能变成云原生应用。**对于新业务或已有业务，代码不需要改动就能将其容器化。不需要懂Docker 、Kubernetes等技术，就能将应用部署起来，具备云原生应用的全部特性。
+1. \*\*The code does not need to be modified to become a cloud-native application.\*\*For new or existing businesses, the code does not need to be modified to containerize it.Without understanding Docker, Kubernetes and other technologies, the application can be deployed and have all the characteristics of a cloud-native application.
 
-2. **业务积木式拼装编排。**可复用的业务模块积累到应用市场，当有新业务需要开发，基于应用市场已经业务模块，通过“拖拉拽”的方式拼装，然后再开发没有的业务能力，当积累的业务模块越多，开发新业务的速度越快。
+2. \*\*Business building block assembly and orchestration.\*\*Reusable business modules are accumulated in the application market. When new businesses need to be developed, based on the existing business modules in the application market, they are assembled by "drag and drop", and then the non-existent business capabilities are developed. The more business modules are accumulated, the faster the development of new businesses.
 
-3. **开箱即用的Service Mesh微服务架构，并可一键更换Service Mesh框架。**不用学习微服务框架的SDK，通过无侵入的方式实现Service Mesh微服务架构，主流的Service Mesh框架以插件的形式存在，需要时开启，如果觉得不好还可以随时更换。
+3. \*\*Out-of-the-box Service Mesh microservice architecture, and the Service Mesh framework can be changed with one click.\*\*Without learning the SDK of the microservice framework, the Service Mesh microservice architecture is implemented in a non-invasive way. The mainstream Service Mesh framework exists in the form of plugins, which can be turned on when needed, and can be replaced at any time if it is not good.
 
-使用应用的体验：
+Experience of using applications:
 
-1. **像安装手机App一样安装云原生应用。**云原生应用以应用模版的形式存放到应用市场，当对接各种基础设施或云资源，实现应用即点即用或一键安装/升级。
+1. \*\*Install cloud-native applications like installing mobile apps.\*\*Cloud-native applications are stored in the application market in the form of application templates. When connecting to various infrastructures or cloud resources, the application can be used with a click or installed/upgraded with one click.
 
-2. **普通开发者不需要学习就能实现应用运维。**通过应用级抽象，普通开发者了解应用级属性就能实现应用运维，并通过插件扩展监控、性能分析、日志、安全等运维能力，应用运维不再需要专用的SRE。
+2. \*\*Ordinary developers can achieve application operation and maintenance without learning.\*\*Through application-level abstraction, ordinary developers can achieve application operation and maintenance by understanding application-level attributes, and extend operation and maintenance capabilities such as monitoring, performance analysis, logs, and security through plugins. Application operation and maintenance no longer requires dedicated SRE.
 
-3. **复杂应用一键交付客户环境。**复杂应用发布成应用模版，当客户环境可以联网，对接客户环境一键安装运行，当客户环境不能联网，导出离线应用模版，到客户环境导入并一键安装运行。
+3. \*\*Complex applications can be delivered to the customer environment with one click.\*\*Complex applications are published as application templates. When the customer environment can be connected to the network, connect to the customer environment to install and run with one click. When the customer environment cannot be connected to the network, export the offline application template, import it into the customer environment and install and run it with one click.

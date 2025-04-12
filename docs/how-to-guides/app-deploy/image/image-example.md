@@ -1,80 +1,84 @@
 ---
-title: 容器镜像支持规范
-description: 详细介绍Rainbond基于Docker镜像创建组件的支持规范和最佳实践
+title: Container Image Support Specification
+description: Detailed introduction to Rainbond's support specifications and best practices for creating components based on Docker images
 keywords:
-- Docker镜像部署
-- Rainbond镜像规范
-- 容器化应用
+  - Docker Image Deployment
+  - Rainbond Image Specification
+  - Containerized Applications
 ---
 
-本文档详细介绍了 Rainbond 基于 Docker 镜像创建组件的支持规范，帮助您了解哪些类型的镜像适合在 Rainbond 平台上运行，以及如何正确配置镜像以获得最佳体验。
+This document details Rainbond's support specifications for creating components based on Docker images, helping you understand which types of images are suitable for running on the Rainbond platform and how to correctly configure images for the best experience.
 
-## 镜像类型支持说明
+## Image Type Support Description
 
-Rainbond 支持大多数符合标准的 Docker 镜像，但有一些特定类型的镜像不适合直接在平台上运行。理解这些差异对于成功部署应用至关重要。
+Rainbond supports most standard Docker images, but there are some specific types of images that are not suitable for direct operation on the platform.Understanding these differences is crucial for successful application deployment.
 
-### 不支持直接运行的镜像类型
+### Image Types Not Supported for Direct Operation
 
-以下类型的镜像不能直接在 Rainbond 上运行：
+The following types of images cannot be directly operated on Rainbond:
 
-1. **基础系统镜像**：如：`alpine`、`centos`、`debian` 等基础系统镜像，这些镜像的启动进程默认是非前台运行的，容器启动后会立即退出。它们通常只用于本地运行时打开 stdin 进行 TTL 交互式操作，不适合作为长期运行的服务。
+1. **Basic System Images**: Such as: `alpine`, `centos`, `debian` and other basic system images. The startup process of these images is not foreground by default, and the container will exit immediately after startup.They are usually only used for local runtime to open stdin for TTL interactive operations and are not suitable as long-running services.
 
-2. **基础语言环境和工具类镜像**：如：golang 编译环境、docker 编译环境、maven 编译环境等，这些镜像主要用于构建和编译过程，而非运行实际服务。它们通常在完成特定任务后退出，不适合作为持续运行的应用。
+2. **Basic Language Environment and Tool Images**: Such as: golang compilation environment, docker compilation environment, maven compilation environment, etc. These images are mainly used for the build and compilation process, not for running actual services.They usually exit after completing specific tasks and are not suitable as continuously running applications.
 
-:::caution 注意
-请勿直接使用基础系统镜像创建组件，应在此基础上构建包含实际应用服务的镜像。
+:::caution Note
+Do not directly use basic system images to create components. You should build images containing actual application services on this basis.
 :::
 
-### 推荐使用的镜像类型
+### Recommended Image Types
 
-以下类型的镜像非常适合在 Rainbond 平台上运行：
+The following types of images are very suitable for running on the Rainbond platform:
 
-**中间件类**
-- 数据库：MySQL、MongoDB、Redis
-- Web服务器：Tomcat、Nginx、Apache
-- 消息队列：RabbitMQ、Kafka
+**Middleware Class**
 
-**Web工具类**
-- phpMyAdmin、Adminer、Grafana 等
+- Databases: MySQL, MongoDB, Redis
+- Web Servers: Tomcat, Nginx, Apache
+- Message Queues: RabbitMQ, Kafka
 
-**基础组件类**
-- SFTP 组件、MinIO 对象存储等
+**Web Tools Class**
 
-**其他提供 TCP/UDP 服务的组件**
-- 所有设计为长期运行并提供网络服务的容器化应用。
+- phpMyAdmin, Adminer, Grafana, etc
 
-## 镜像检测与配置规范
+**Basic Components Class**
 
-### 镜像可访问性要求
+- SFTP components, MinIO object storage, etc
 
-- 镜像必须能被 Rainbond 集群服务器正常获取
-- 镜像名称必须准确，且存在于对应的镜像仓库中
-- 私有仓库镜像需提供正确的账号密码
-- 自建仓库应配置 HTTPS 或为 Rainbond 集群节点配置 Docker 信任设置
+**Other Components Providing TCP/UDP Services**
 
-### Rainbond 自动获取的镜像属性
+- All containerized applications designed for long-term operation and providing network services.
 
-Rainbond 会自动从镜像中提取以下信息：
+## Image Detection and Configuration Specifications
 
-1. **端口信息**：从 Dockerfile 中的 `EXPOSE` 指令获取
-2. **环境变量**：作为云原生应用推荐的配置方式
-3. **存储挂载**：从 Dockerfile 中的 `VOLUME` 指令获取
+### Image Accessibility Requirements
+
+- The image must be able to be normally obtained by the Rainbond cluster server
+- The image name must be accurate and exist in the corresponding image repository
+- Private repository images need to provide correct account and password
+- Self-built repositories should configure HTTPS or configure Docker trust settings for Rainbond cluster nodes
+
+### Image Attributes Automatically Obtained by Rainbond
+
+Rainbond will automatically extract the following information from the image:
+
+1. **Port Information**: Obtained from the `EXPOSE` instruction in Dockerfile
+2. **Environment Variables**: As the recommended configuration method for cloud-native applications
+3. **Storage Mounts**: Obtained from the `VOLUME` instruction in Dockerfile
 
 :::info
-使用 Docker Compose 创建的组件只从 compose 配置中获取相关信息，而 docker run 命令创建的组件则同时从创建命令和镜像中获取信息。
+Components created using Docker Compose only obtain relevant information from the compose configuration, while components created with the docker run command obtain information from both the creation command and the image.
 :::
 
-### 组件配置默认设置
+### Default Component Configuration Settings
 
-#### 内存分配
+#### Memory Allocation
 
-- 默认分配：512MB 内存
-- 特例：通过 docker run 或 docker compose 创建时，如明确设置了内存参数，将采用设定值
+- Default allocation: <b>512</b>MB memory
+- Exception: When created via docker run or docker compose, if memory parameters are explicitly set, the set value will be adopted
 
-#### 部署类型设置
+#### Deployment Type Settings
 
-- 默认设置：无状态部署类型
-- 特例：以下镜像名称将自动设置为有状态部署类型
+- Default setting: Stateless deployment type
+- Exception: The following image names will automatically be set to stateful deployment type
 
   - mysql
   - mariadb
@@ -97,7 +101,7 @@ Rainbond 会自动从镜像中提取以下信息：
   - mysql-server
   - mysql-cluster
 
-  例如以下镜像将部署为有状态类型：
+  For example, the following images will be deployed as stateful types:
 
   - mysql:latest
   - hub.example.com/xxx/mysql:5.5

@@ -1,36 +1,37 @@
 ---
-title: 接入已有服务器并创建多租户环境
-description: 从单机体验扩展到多服务器多团队协作的最佳实践
+title: Access existing servers and create a multi-tenant environment
+description: Best practices for scaling from a single-machine experience to multi-server, multi-team collaboration
 keywords:
-- 多租户管理
-- 团队协作
-- 资源扩展
+  - Multi-tenant management
+  - Team collaboration
+  - Resource expansion
 ---
 
-本教程将演示 Rainbond 多租户管理的部分核心能力：
-- **资源扩展**：无缝接入已有服务器，快速扩充计算资源池。
-- **多租户隔离**：创建独立团队空间，实现资源和应用的安全隔离。
-- **权限精细管理**：灵活分配用户角色，满足不同协作场景需求。
+This tutorial will demonstrate some of the core capabilities of Rainbond's multi-tenant management:
+
+- **Resource expansion**: Seamlessly access existing servers to quickly expand the computing resource pool.
+- **Multi-tenant isolation**: Create independent team spaces to achieve secure isolation of resources and applications.
+- **Fine-grained permission management**: Flexibly assign user roles to meet the needs of different collaboration scenarios.
 
 ```mermaid
 flowchart BT
-    subgraph COLLAB["协作开发"]
+    subgraph COLLAB["Collaborative Development"]
         direction LR
-        C1[开发环境] -->|CI/CD| C2[测试环境]
-        C2 -->|持续交付| C3[生产环境]
+        C1[Development Environment] -->|CI/CD| C2[Testing Environment]
+        C2 -->|Continuous Delivery| C3[Production Environment]
         style C1 fill:#e6f3ff,stroke:#4a90e2
         style C3 fill:#e6f3ff,stroke:#4a90e2
     end
 
-    subgraph TENANT["多租户管理"]
+    subgraph TENANT["Multi-tenant Management"]
         direction LR
-        T1[创建团队] --> |权限控制| T2[用户管理]
+        T1[Create Team] --> |Permission Control| T2[User Management]
         style TENANT fill:#fff3e6,stroke:#f5a623
     end
 
-    subgraph INFRA["基础设施层"]
+    subgraph INFRA["Infrastructure Layer"]
         direction LR
-        I1[单机环境] -->|资源扩展| I2[多服务器集群]
+        I1[Single-machine Environment] -->|Resource Expansion| I2[Multi-server Cluster]
         style I1 fill:#e6f3ff,stroke:#4a90e2
         style I2 fill:#e6f3ff,stroke:#4a90e2
     end
@@ -45,70 +46,68 @@ flowchart BT
     class COLLAB infra
 ```
 
-## 前提
+## Prerequisites
 
-- 已完成 [Rainbond 快速安装](/docs/quick-start/quick-install)，并体验了单机环境下的应用部署。
-- 准备额外的 Linux 服务器（物理机或虚拟机）。
+- Completed [Rainbond Quick Installation](/docs/quick-start/quick-install) and experienced application deployment in a single-machine environment.
+- Prepare additional Linux servers (physical or virtual machines).
 
-## 一、扩展计算资源
+## Expand Computing Resources
 
-### 亮点
+### Highlights
 
-- **零侵入接入**：不改变已有服务器配置，保持原有业务稳定
-- **自动化安装**：一键完成节点初始化、组件部署和集群接入
-- **异构支持**：兼容不同配置和系统版本的服务器资源
+- **Zero-intrusion access**: Without changing the existing server configuration, maintain the stability of the original business
+- **Automated installation**: Complete node initialization, component deployment, and cluster access with one click
+- **Heterogeneous support**: Compatible with server resources of different configurations and system versions
 
-### 操作流程
+### Operation Process
 
-1. **准备计算节点**
-    - 确认目标服务器满足基本要求：
-      - 2核4G以上配置
-      - 常见的 Linux 系统（如 CentOS/Ubuntu/Debian）
-    - 确保服务器网络与现有 Rainbond 节点互通
+1. **Prepare Computing Nodes**
+    - Confirm the target server meets the basic requirements:
+        - Configuration above 2 cores and 4GB
+        - Common Linux systems (such as CentOS/Ubuntu/Debian)
+    - Ensure the server network is interconnected with existing Rainbond nodes
 
-2. **图形化接入节点**
-    ![](/docs/tutorial/docking-selfhost/install-selfhost.png)
-    1. 登录 Rainbond 控制台，进入平台管理 ➡️ 集群 ➡️ 添加节点。
-    2. 选择**从主机开始安装**，获取节点接入命令。
-    3. 在目标服务器上执行接入命令：
-        ```bash
-        # 示例命令（实际以控制台显示为准）
-        curl -sfL http://<控制台IP>:7070/install-cluster.sh | sh -s - --rbd-url http://<控制台IP>:7070  --etcd --control-plane --worker --token <TOKEN> --mirror cn
-        ```
-    4. 等待 K8S 节点初始化完成，状态变为**Ready**。
-    5. 填写安装 Rainbond 的配置信息：
-        - **集群入口 IP**：一般为网关节点的内网或外网IP。
-        - **网关节点**：选择哪些节点作为网关节点。
-        - **构建节点**：选择哪些节点作为构建节点
-    6. 等待所有组件安装完成。
-    7. 完成对接！   
-    ![](/docs/tutorial/docking-selfhost/docking-rainbond.png)
+2. **Graphical Node Access**
+    ![](/docs/tutorial/docking-selfhost/install-selfhost-en.png)
+    1. Log in to the Rainbond console, go to Platform Management ➡️ Cluster ➡️ Add Node.
+    2. Select **Start Installation from Host**, and get the node access command.
+    3. Execute the access command on the target server:
+        ```yaml
+        # Example command (actual command is subject to the console display)
+        curl -sfL http://<ConsoleIP>:7070/install-cluster.sh | sh -s - --rbd-url http://<ConsoleIP>:7070  --etcd --control-plane --worker --token <TOKEN> --mirror cn
+    4. Wait for the K8S node initialization to complete, and the status changes to **Ready**.
+    5. Fill in the configuration information for installing Rainbond:
+        - **Cluster Entry IP**: Generally the internal or external IP of the gateway node.
+        - **Gateway Node**: Select which nodes to serve as gateway nodes.
+        - **Build Node**: Select which nodes to serve as build nodes
+    6. Wait for all components to be installed.
+    7. Docking completed!\
+        ![](/docs/tutorial/docking-selfhost/docking-rainbond.png)
 
+## Create a Multi-tenant Environment
 
-## 二、创建多租户环境
+### Highlights
 
-### 亮点
+- **Resource isolation**: Resources between teams do not affect each other, ensuring business security
+- **Self-service**: Team administrators can independently manage applications and members within the team
 
-- **资源隔离**：团队间资源互不影响，保障业务安全
-- **自助服务**：团队管理员可自主管理团队内应用和成员
+### Operation Process
 
-### 操作流程
+**Create Business Team**
 
-**创建业务团队**
+1. Go to Platform Management ➡️ Project/Team ➡️ Create Project/Team.
+2. Fill in the team name (e.g., Development Team, Testing Team, Production Team).
 
-1. 进入平台管理 ➡️ 项目/团队 ➡️ 创建项目/团队。
-2. 填写团队名称（如：开发团队、测试团队、生产团队）。
+![](/docs/tutorial/docking-selfhost/create-team-en.png)
 
-![](/docs/tutorial/docking-selfhost/create-team.png)
+3. Go to the team ➡️ Settings ➡️ Members, add other members to join the team.
 
-3. 进入团队内 ➡️ 设置 ➡️ 成员，添加其他成员加入团队。
-
-![](/docs/tutorial/docking-selfhost/invite-member.png)
-
+![](/docs/tutorial/docking-selfhost/invite-member-en.png)
 
 :::info
-1. 建议根据实际组织架构创建团队，避免过多团队导致管理复杂
-2. 合理分配资源配额，预留20%左右的资源余量应对突发需求
-:::
+
+1. It is recommended to create teams according to the actual organizational structure to avoid too many teams leading to management complexity
+2. Allocate resource quotas reasonably, reserve about 20% of resources to cope with sudden needs
+    :::
 
 ## Reference

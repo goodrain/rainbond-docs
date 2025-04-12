@@ -1,30 +1,30 @@
 ---
-title: 基于 Kubernetes 安装
-descrition: 该章节文档介绍基于已有的 k8s 集群，使用 helm 安装 Rainbond
+title: Installation based on Kubernetes
+descrition: This document introduces the installation of Rainbond using helm based on an existing k8s cluster
 keywords:
-- 基于 Kubernetes 安装 Rainbond 集群
-- 在 K3s 集群上安装 Rainbond
-- 在 ACK 集群上安装 Rainbond
-- 在 CCE 集群上安装 Rainbond
-- 在 TKE 集群上安装 Rainbond
-- 在 RKE2 集群上安装 Rainbond
+  - Install Rainbond cluster based on Kubernetes
+  - Install Rainbond on K3s cluster
+  - Install Rainbond on ACK cluster
+  - Install Rainbond on CCE cluster
+  - Install Rainbond on TKE cluster
+  - Install Rainbond on RKE2 cluster
 ---
 
-## 概述
+## Overview
 
-本文将指引您在已有的 Kubernetes 集群中快速安装一套可用的 Rainbond 环境，支持自建集群、托管集群等。
+This article will guide you to quickly install a set of available Rainbond environment in an existing Kubernetes cluster, supporting self-built clusters, managed clusters, etc.
 
-## 前提
+## Prerequisites
 
-* 安装 [Kubectl CLI](https://kubernetes.io/docs/tasks/tools/#kubectl)
-* 安装 [Helm CLI](https://helm.sh/docs/intro/install/)
-* Containerd 容器运行时的 Kubernetes 1.24+ 集群
-* `80 443 6060 7070 8443`端口可用
+- Install [Kubectl CLI](https://kubernetes.io/docs/tasks/tools/#kubectl)
+- Install [Helm CLI](https://helm.sh/docs/intro/install/)
+- Kubernetes 1.24+ cluster with Containerd container runtime
+- Ports `80 443 6060 7070 8443` available
 
 <details>
-<summary>K3S 安装说明</summary>
+<summary>K3S Installation Instructions</summary>
 
-通过创建 [registries.yaml](https://docs.k3s.io/installation/private-registry) 文件来配置使用默认的私有镜像仓库。
+Configure the use of the default private image repository by creating a [registries.yaml](https://docs.k3s.io/installation/private-registry) file.
 
 ```yaml title="vim /etc/rancher/k3s/registries.yaml"
 configs:
@@ -36,11 +36,10 @@ configs:
       insecure_skip_verify: true
 ```
 
-在安装 [K3S](https://docs.k3s.io/installation) 时需禁用 `traefik` 和 `local-storage` 的安装，如下: 
+When installing [K3S](https://docs.k3s.io/installation), you need to disable the installation of `traefik` and `local-storage`, as follows:
 
 ```bash
-curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn \
-INSTALL_K3S_EXEC="--disable traefik local-storage" \
+curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_EXEC="--disable traefik local-storage" \
 sh -s - \
 --system-default-registry "registry.cn-hangzhou.aliyuncs.com"
 ```
@@ -48,64 +47,65 @@ sh -s - \
 </details>
 
 <details>
-<summary>云托管 K8s 安装说明</summary>
+<summary>Cloud Managed K8s Installation Instructions</summary>
 
-使用阿里云的 ACK 集群安装 Rainbond，你需要购买: `ACK`、`SLB（可选）`、`RDS MySQL（可选）`、`ACR（可选）` 资源，继续按照下述步骤安装即可。其他云厂商的托管 Kubernetes 集群也是同理，购买相同资源即可，可选部分默认提供内置服务。
+To install Rainbond using Alibaba Cloud's ACK cluster, you need to purchase: `ACK`, `SLB (optional)`, `RDS MySQL (optional)`, `ACR (optional)` resources, and then proceed with the installation steps below.The same applies to managed Kubernetes clusters from other cloud providers, purchase the same resources, the optional parts are provided with built-in services by default.
 
 :::caution
-购买托管集群时，请禁用默认的 Ingress 服务，这会与 Rainbond 网关冲突，导致无法访问。
+When purchasing a managed cluster, please disable the default Ingress service, which will conflict with the Rainbond gateway and cause access failure.
 :::
 
 </details>
 
-## 安装 Rainbond
+## Install Rainbond
 
 :::tip
-在安装之前，你可以通过此脚本 `curl -sfL https://get.rainbond.com/k8s-health-check.sh | bash` 检查你的 Kubernetes 集群。
+Before installation, you can check your Kubernetes cluster with this script `curl -sfL https://get.rainbond.com/k8s-health-check.sh | bash`.
 :::
 
-1. 添加 Helm 仓库。
+1. Add Helm repository.
 
 ```bash
 helm repo add rainbond https://chart.rainbond.com
 helm repo update
 ```
 
-2. 编辑 [values.yaml](./vaules-config.md) 文件，填写必须配置。
+2. Edit the [values.yaml](./vaules-config.md) file and fill in the necessary configurations.
 
 ```yaml title="vim values.yaml"
 Cluster:
-  gatewayIngressIPs: 172.20.251.93 #集群入口IP
+  gatewayIngressIPs: 172.20.251.93 #Cluster entry IP
 
   nodesForGateway:
-  - externalIP: 172.20.251.93  #k8s节点外网IP
-    internalIP: 172.20.251.93  #k8s节点内网IP
-    name: k8s-node1            #k8s节点名称
+  - externalIP: 172.20.251.93  #k8s node external IP
+    internalIP: 172.20.251.93  #k8s node internal IP
+    name: k8s-node1            #k8s node name
 # - More nodes for gateway
   nodesForChaos:
-  - name: k8s-node1            #k8s节点名称
+  - name: k8s-node1            #k8s node name
 # - More nodes for chaos
-  containerdRuntimePath: /var/run/containerd  #containerd.sock文件路径
+  containerdRuntimePath: /var/run/containerd  #containerd.sock file path
   # if you use RKE2 or K3S, you can use the following parameter
   # containerdRuntimePath: /var/run/k3s/containerd
+  rainbondImageRepository: docker.io/rainbond
 ```
 
-3. 执行安装命令。
+3. Execute the installation command.
 
 ```bash
 helm install rainbond rainbond/rainbond --create-namespace -n rbd-system -f values.yaml
 ```
 
-4. 执行完安装命令后，在集群中执行以下命令查看安装状态。
+4. After executing the installation command, execute the following command in the cluster to check the installation status.
 
 ```bash
 watch kubectl get pod -n rbd-system
 ```
 
-5. 当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。如下所示，Pod `rbd-app-ui-5577b8ff88-fpnnv` 为 Running 状态时，表示 Rainbond 安装成功。
+5. When the Pod with the name containing `rbd-app-ui` is in the Running state, the installation is successful.As shown below, when the Pod `rbd-app-ui-5577b8ff88-fpnnv` is in the Running state, it means that Rainbond has been successfully installed.
 
 <details>
-<summary>安装成功结果示例</summary>
+<summary>Example of successful installation result</summary>
 
 ```bash
 NAME                                      READY   STATUS    RESTARTS   AGE
@@ -125,10 +125,10 @@ rbd-worker-7db9f9cccc-s9wml               1/1     Running   0          5m22s
 
 </details>
 
-6. 使用 `gatewayIngressIPs` 配置的 IP 地址访问 Rainbond，例如: `http://172.20.251.93:7070`。
+6. Access Rainbond using the IP address configured in `gatewayIngressIPs`, for example: `http://172.20.251.93:7070`.
 
-7. 如您采用默认的镜像仓库，则需要修改 Containerd 的配置，配置 [goodrain.me 私有镜像仓库](../../faq/index.md#%E5%90%AF%E5%8A%A8%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F-x509-certificate-signed-by-unknown-authority)。
+7. If you use the default image repository, you need to modify the configuration of Containerd, configure the [goodrain.me private image repository](../../faq/index.md#%E5%90%AF%E5%8A%A8%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F-x509-certificate-signed-by-unknown-authority).
 
-## 下一步
+## Next
 
-参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
+Refer to [Quick Start](/docs/quick-start/getting-started/) to deploy your first application.

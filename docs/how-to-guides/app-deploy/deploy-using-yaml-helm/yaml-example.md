@@ -1,25 +1,25 @@
 ---
-title: 使用 YAML 文件部署
-description: 通过上传 Kubernetes 原生 YAML 文件在 Rainbond 平台上部署 WordPress 应用的完整指南
+title: Deploy using YAML file
+description: A complete guide to deploying WordPress applications on the Rainbond platform by uploading native Kubernetes YAML files
 keywords:
-- WordPress YAML 部署
-- Rainbond YAML 导入
-- Kubernetes 应用迁移
-- WordPress 示例部署
+  - WordPress YAML deployment
+  - Rainbond YAML import
+  - Kubernetes application migration
+  - WordPress example deployment
 ---
 
-本文档将指导您如何利用 Rainbond 的 YAML 导入功能，通过上传标准 Kubernetes YAML 文件部署一个功能完整的 WordPress 博客系统。通过本指南，您将了解 Rainbond 如何将 Kubernetes 原生资源无缝转换为平台应用模型。
+This document will guide you on how to use Rainbond's YAML import feature to deploy a fully functional WordPress blog system by uploading standard Kubernetes YAML files.Through this guide, you will learn how Rainbond seamlessly converts native Kubernetes resources into platform application models.
 
-## 准备工作
+## Preparation
 
-1. 已了解 [Kubernetes 资源到 Rainbond 应用模型的转换原理](./yaml-convert-ram.md)
-2. 准备示例 `example.yaml` 文件，该文件包含以下 Kubernetes 资源：
-   - `Deployment`：WordPress 应用组件
-   - `StatefulSet`：MySQL 数据库组件
-   - `Service`：MySQL 服务资源
+1. Understand the [Conversion principle from Kubernetes resources to Rainbond application models](./yaml-convert-ram.md)
+2. Prepare the example `example.yaml` file, which contains the following Kubernetes resources:
+  - `Deployment`: WordPress application component
+  - `StatefulSet`: MySQL database component
+  - `Service`: MySQL service resource
 
 <details>
-  <summary>example.yaml</summary>
+<summary>example.yaml</summary>
   <div>
 
 ```yaml
@@ -115,77 +115,77 @@ spec:
       - name: mysql-data
         emptyDir: {}
 ```
+
 </div>
 </details>
 
-## 实施步骤
+## Implementation steps
 
-### 1. 导入 YAML 文件
+### 1. Import YAML file
 
-1. 进入 Rainbond 平台，选择目标团队
-2. 点击 **新建应用** → **Kubernetes YAML/Helm** → **YAML 文件上传**
-3. 选择本地 `example.yaml` 文件至上传区域
-4. 点击 **确认上传**
+1. Enter the Rainbond platform and select the target team
+2. Click **New Application** → **Kubernetes YAML/Helm** → **YAML file upload**
+3. Select the local `example.yaml` file to the upload area
+4. Click **Confirm upload**
 
-   ![上传YAML文件](/docs/how-to-guides/deploy-using-yaml-helm/upload-yaml.png)
+  ![Upload YAML file](/docs/how-to-guides/deploy-using-yaml-helm/upload-yaml.png)
 
-### 2. 资源识别阶段
+### 2) Resource identification phase
 
-上传完成后，Rainbond 自动识别 YAML 文件中包含的 Kubernetes 资源，并显示为列表：
+After uploading, Rainbond automatically identifies the Kubernetes resources contained in the YAML file and displays them as a list:
 
-* **工作负载资源**：
-  * `Deployment`: wordpress-example（WordPress 应用服务器）
-  * `StatefulSet`: mysql-wordpress-example（MySQL 数据库服务器）
-* **服务资源**：
-  * `Service`: mysql-wordpress-example（MySQL 服务）
+- **Workload resources**:
+  - `Deployment`: wordpress-example (WordPress application server)
+  - `StatefulSet`: mysql-wordpress-example (MySQL database server)
+- **Service resources**:
+  - `Service`: mysql-wordpress-example (MySQL service)
 
-确认资源列表无误后，点击 **下一步**。
+After confirming the resource list is correct, click **Next**.
 
-   ![资源识别](/docs/how-to-guides/deploy-using-yaml-helm/yaml-resource.png)
+![Resource identification](/docs/how-to-guides/deploy-using-yaml-helm/yaml-resource.png)
 
-### 3. 应用模型转换
+### 3. Application model conversion
 
-Rainbond 将识别到的 Kubernetes 资源转换为平台应用模型：
+Rainbond converts the identified Kubernetes resources into platform application models:
 
-* **WordPress 组件**：由 `Deployment` 类型工作负载转换而来
-  * 容器镜像、环境变量、挂载卷等规格定义被映射到对应的 Rainbond 配置项
-  * 端口配置转换为组件端口设置
-* **MySQL 组件**：由 `StatefulSet` 类型工作负载转换而来
-  * 数据库参数通过环境变量方式保留
-  * 存储卷配置被转换为存储设置
-* **其他 Kubernetes 资源**：进入应用的 **K8s 资源** 管理面板
+- **WordPress component**: Converted from `Deployment` type workload
+  - Container image, environment variables, mounted volumes and other specifications are mapped to the corresponding Rainbond configuration items
+  - Port configuration is converted to component port settings
+- **MySQL component**: Converted from `StatefulSet` type workload
+  - Database parameters are retained through environment variables
+  - Storage volume configuration is converted to storage settings
+- **Other Kubernetes resources**: Enter the application's **K8s resources** management panel
 
-   ![高级资源识别](/docs/how-to-guides/deploy-using-yaml-helm/advanced-resources.png)
+  ![Advanced resource identification](/docs/how-to-guides/deploy-using-yaml-helm/advanced-resources.png)
 
-检查转换结果无误后，点击 **部署**。
+After checking the conversion results are correct, click **Deploy**.
 
-### 4. 部署和访问应用
+### 4. Deploy and access the application
 
-1. 在应用拓扑图页面，点击 **启动** 按钮启动整个应用
-2. 等待所有组件启动完成（状态变为绿色运行中）
-3. 进入 `wordpress-example` 组件详情页 → **端口** 选项卡
-4. 为 WordPress 的 HTTP 端口（8080）启用 **对外服务**
-5. 使用生成的访问地址打开 WordPress 站点
+1. On the application topology page, click the **Start** button to start the entire application
+2. Wait for all components to start (status turns green running)
+3. Enter the `wordpress-example` component details page → **Port** tab
+4. Enable **External service** for WordPress's HTTP port (8080)
+5. Use the generated access address to open the WordPress site
 
-> **提示**：WordPress 管理后台路径为 `/wp-admin`，默认管理员账号/密码：`admin`/`admin`
+> **Tip**: WordPress admin backend path is `/wp-admin`, default admin account/password: `admin`/`admin`
 
+## Optimization configuration
 
-## 优化配置
+### Storage persistence optimization
 
-### 存储持久化优化
+The storage resources defined in the YAML file (such as EmptyDir) can be optimized in Rainbond:
 
-YAML 文件中定义的存储资源（如 EmptyDir）在 Rainbond 中可以进行优化处理：
+1. After import, the original YAML's `volumeMounts` and `volumes` configurations will be saved in the component's **Other settings** > **Kubernetes properties**
+2. For data that needs to be persisted (such as WordPress content and MySQL data), it is recommended to use Rainbond's storage function:
+  - Delete the corresponding `volumeMounts`/`volumes` entries in Kubernetes properties
+  - Enter the component's **Storage** > **Storage settings** > **Add storage**
+  - Add the corresponding persistence path
+    - For example MySQL's `/bitnami/mysql/data`
+    - For example WordPress's `/bitnami/wordpress`
 
-1. 导入后，原 YAML 中的 `volumeMounts` 和 `volumes` 配置会被保存在组件的 **其他设置** > **Kubernetes属性** 中
-2. 对于需要持久化的数据（如 WordPress 内容和 MySQL 数据），推荐使用 Rainbond 的存储功能：
-    - 删除 Kubernetes 属性中相应的 `volumeMounts`/`volumes` 条目
-    - 进入组件的 **存储** > **存储设置** > **添加存储**
-    - 添加相应的持久化路径
-      - 例如 MySQL 的 `/bitnami/mysql/data`
-      - 例如 WordPress 的 `/bitnami/wordpress`
+## Troubleshooting
 
-## 故障排除
-
-* **组件启动失败**: 查看组件的事件和日志，确认镜像拉取和资源配置是否正确
-* **WordPress 无法连接 MySQL**: 检查环境变量配置，确保数据库连接参数正确且 MySQL 服务已正常启动
-* **数据持久化问题**: 如使用了默认的 EmptyDir，重启后数据会丢失，请参照上述存储优化配置持久化存储
+- **Component startup failure**: Check the component's events and logs to confirm whether the image pull and resource configuration are correct
+- **WordPress cannot connect to MySQL**: Check the environment variable configuration to ensure the database connection parameters are correct and the MySQL service has started normally
+- **Data persistence issue**: If the default EmptyDir is used, data will be lost after restart. Please refer to the above storage optimization configuration for persistent storage

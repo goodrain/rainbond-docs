@@ -4,7 +4,7 @@ const sidebars = {
     'quick-start/introduction',
     {
       type: 'category',
-      label: '快速开始',
+      label: 'Rainbond - No need understand K8s',
       collapsed: false,
       items: [
         'quick-start/quick-install',
@@ -13,7 +13,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '使用教程',
+      label: 'Tutorials',
       items: [
         'tutorial/via-rainbond-deploy-sourceandmiddleware',
         'tutorial/component-version-update-and-rollback',
@@ -25,11 +25,11 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '安装&升级',
+      label: 'Installation & Upgrade',
       items: [
         {
           type: 'category',
-          label: '基于主机安装',
+          label: 'Bare machine install',
           link: {
             type: 'doc',
             id: 'installation/install-with-ui/index',
@@ -42,7 +42,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '基于 Kubernetes 安装',
+          label: 'Helm install',
           link: {
             type: 'doc',
             id: 'installation/install-with-helm/index'
@@ -58,15 +58,15 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '操作指南',
+      label: 'How-to Guides',
       items: [
         {
           type: 'category',
-          label: '应用部署',
+          label: 'Application Deployment',
           items: [
             {
               type: 'category',
-              label: '使用源代码部署',
+              label: 'Source Code Deployment',
               items: [
                 'how-to-guides/app-deploy/source-code/springboot',
                 'how-to-guides/app-deploy/source-code/nodejs',
@@ -80,7 +80,7 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '使用容器镜像部署',
+              label: 'Image Deployment',
               items: [
                 'how-to-guides/app-deploy/image/image-example',
                 'how-to-guides/app-deploy/image/via-registry-deploy',
@@ -88,13 +88,13 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '使用 YAML/Helm 部署',
+              label: 'YAML/Helm Deployment',
               items: [
                 'how-to-guides/app-deploy/deploy-using-yaml-helm/yaml-convert-ram',
                 'how-to-guides/app-deploy/deploy-using-yaml-helm/yaml-example',
                 {
                   type: 'category',
-                  label: '使用 Helm Chart 部署',
+                  label: 'Helm Chart Deployment',
                   link: {
                     type: 'doc',
                     id: 'how-to-guides/app-deploy/deploy-using-yaml-helm/helm-example',
@@ -112,7 +112,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '应用运维',
+          label: 'Application operation and maintenance',
           items: [
             'how-to-guides/app-ops/lifecycle',
             'how-to-guides/app-ops/service-auto-scaling',
@@ -126,7 +126,7 @@ const sidebars = {
             'how-to-guides/app-ops/cert-manager',
             {
               type: 'category',
-              label: '应用商店',
+              label: 'App governance',
               link: {
                 type: 'doc',
                 id: 'how-to-guides/app-ops/app-store-manage/index'
@@ -139,26 +139,9 @@ const sidebars = {
             },
           ]
         },
-        // {
-        //   type: 'category',
-        //   label: 'Pipeline 概述',
-        //   link: {
-        //     type: 'doc',
-        //     id: 'devops/pipeline/index',
-        //   },
-        //   items: [
-        //     'devops/pipeline/install',
-        //     'devops/pipeline/app-service',
-        //     'devops/pipeline/repository',
-        //     'devops/pipeline/images',
-        //     'devops/pipeline/deploy-history',
-        //     'devops/pipeline/pipelines',
-        //   ]
-        // },
-        // {
         {
           type: 'category',
-          label: '微服务部署',
+          label: 'Microservice deployment',
           items: [
             'how-to-guides/micro-service-deploy/intro',
             'how-to-guides/micro-service-deploy/pig-example',
@@ -167,11 +150,11 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '应用交付',
+          label: 'Application delivery',
           items: [
             {
               type: 'category',
-              label: '在线持续交付',
+              label: 'Online continuous delivery',
               items: [
                 'how-to-guides/delivery/continuous/source-code',
                 'how-to-guides/delivery/continuous/ram',
@@ -180,7 +163,7 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '离线交付',
+              label: 'Offline Delivery',
               items: [
                 'how-to-guides/delivery/offline/micro-service',
                 'how-to-guides/delivery/offline/development-iteration',
@@ -188,7 +171,7 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '应用模板参数说明',
+              label: 'Application template parameter description',
               link: {
                 type: 'doc',
                 id: 'how-to-guides/delivery/app-model-parameters',
@@ -199,83 +182,12 @@ const sidebars = {
             },
           ]
         },
-        {
-          type: 'category',
-          label: '国产化信创',
-          items: [
-            'how-to-guides/localization-guide/intro',
-            'how-to-guides/localization-guide/multi-arch-installation',
-            'how-to-guides/localization-guide/multi-arch-app-deploy',
-            'how-to-guides/localization-guide/multi-arch-app-orchestration',
-            'how-to-guides/localization-guide/multi-arch-model',
-          ]
-        },
-        // {
-        //   type: 'category',
-        //   label: '虚拟机指南',
-        //   link: {
-        //     type: 'doc',
-        //     id: 'vm-guide/index'
-        //   },
-        //   items: [
-        //     'vm-guide/overview',
-        //     'vm-guide/vm_deploy',
-        //     'vm-guide/vm_use',
-        //   ]
-        // },
-      ]
-    },
-    {
-      type: 'category',
-      label: '参考指南',
-      items: [
-        {
-          type: 'category',
-          label: 'Rainbond 中的工具集成',
-          items: [
-            {
-              type: 'category',
-              label: 'CI 工具',
-              items: [
-                'reference/ci-tools/gitlab-ci',
-                'reference/ci-tools/sonarqube',
-              ]
-            },
-            {
-              type: 'category',
-              label: '链路追踪',
-              items: [
-                'reference/tracking/pinpoint',
-                'reference/tracking/skywalking',
-                'reference/tracking/jaeger',
-              ]
-            },
-            {
-              type: 'category',
-              label: '性能分析',
-              items: [
-                'reference/analysis/pyroscope',
-                'reference/analysis/arthas',
-              ]
-            },
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Rainbond 架构',
-          items: [
-            // 'quick-start/differences',
-            'quick-start/architecture/design-concept',
-            'quick-start/architecture/flow',
-            'quick-start/architecture/architecture'
-          ]
-        },
       ]
     },
     'faq/index',
     {
       type: 'category',
-      label: '故障排除',
+      label: 'Troubleshooting',
       link: {
         type: 'doc',
         id: 'troubleshooting/index'
@@ -288,7 +200,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '贡献指南',
+      label: 'Contribution Guide',
       link: {
         type: 'doc',
         id: 'contribution/index'
@@ -302,92 +214,6 @@ const sidebars = {
       ]
     },
     'support',
-  ],
-  api: [
-    'api/Intro',
-    {
-      type: 'category',
-      label: '企业API',
-      items: [
-        {
-          type: 'autogenerated',
-          dirName: 'api/enterprise'
-        }
-      ]
-    },
-    {
-      type: 'category',
-      label: '团队API',
-      items: [
-        {
-          type: 'autogenerated',
-          dirName: 'api/team',
-        },
-      ]
-    },
-    {
-      type: 'category',
-      label: '集群API',
-      items: [
-        {
-          type: 'autogenerated',
-          dirName: 'api/region',
-        },
-      ]
-    },
-    {
-      type: 'category',
-      label: '应用API',
-      items: [
-        {
-          type: 'autogenerated',
-          dirName: 'api/application',
-        },
-      ]
-    },
-    {
-      type: 'category',
-      label: '网关API',
-      items: [
-        {
-          type: 'autogenerated',
-          dirName: 'api/gateway',
-        },
-      ]
-    },
-    {
-      type: 'category',
-      label: '用户API',
-      items: [
-        {
-          type: 'autogenerated',
-          dirName: 'api/user',
-        },
-      ]
-    },
-  ],
-  store: [
-    'store/marketplace',
-    {
-      type: 'category',
-      label: '使用指南',
-      items: [
-        {
-          type: 'autogenerated',
-          dirName: 'store/install'
-        }
-      ]
-    },
-    {
-      type: 'category',
-      label: '发布指南',
-      items: [
-        {
-          type: 'autogenerated',
-          dirName: 'store/onLine'
-        }
-      ]
-    },
   ]
 };
 

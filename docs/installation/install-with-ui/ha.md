@@ -1,77 +1,78 @@
 ---
-title: 高可用集群说明
-description: 基于图形化界面，从Linux开始安装 Rainbond 高可用集群的说明
+title: High Availability Cluster Description
+description: Instructions for installing Rainbond high availability cluster from Linux based on graphical interface
 keywords:
-- 基于主机安装高可用 Kubernetes 集群
-- 基于主机安装高可用 Rainbond 集群
+  - Install high availability Kubernetes cluster based on host
+  - Install high availability Rainbond cluster based on host
 ---
 
 :::tip
-部署高可用集群关键在于规划，例如：整个集群规划使用多少台服务器，每台服务器的角色是什么，服务器资源、磁盘如何规划等。
+The key to deploying a high availability cluster lies in planning, such as: how many servers the entire cluster plans to use, what the role of each server is, how server resources and disks are planned, etc.
 :::
 
-## 部署架构
+## Deployment Architecture
 
 ![](/docs/installation/ha.png)
 
-如图所示：采用了最少的节点数量（3节点）保证高可用，K8s 采用多 Master + 多 ETCD 集群保障高可用，Rainbond 采用外部负载均衡 + 多网关节点 + MySQL高可用集群保障高可用。
+As shown in the figure: the minimum number of nodes (3 nodes) is used to ensure high availability, K8s uses multiple Master + multiple ETCD clusters to ensure high availability, and Rainbond uses external load balancing + multiple gateway nodes + MySQL high availability cluster to ensure high availability.
 
-## 高可用 Kubernetes 集群
+## High Availability Kubernetes Cluster
 
-Kubernetes 集群至少需要部署 3 个节点的集群，3 个节点的属性都可进行复用，例如：3 管理节点、3 计算节点、3 ETCD 节点。
+The Kubernetes cluster needs to deploy at least a 3-node cluster, and the attributes of the 3 nodes can be reused, for example: 3 management nodes, 3 compute nodes, 3 ETCD nodes.
 
-可自行安装 Kubernets 集群，也可通过 Rainbond [安装 Kubernetes 集群](/docs/installation/install-with-ui/#从主机开始安装-kubernetes-集群)。
+You can install the Kubernets cluster by yourself, or you can [install the Kubernetes cluster](/docs/installation/install-with-ui/#install-kubernetes-cluster-from-host) through Rainbond.
 
-## 高可用 Rainbond 集群
+## High Availability Rainbond Cluster
 
-部署高可用 Rainbond 集群关键在于：
+The key to deploying a high availability Rainbond cluster lies in:
 
-* 高可用 Kubernetes 集群；
-* Rainbond 集群的高级配置使用外置的高可用服务。
+- High availability Kubernetes cluster;
+- Rainbond cluster's advanced configuration uses external high availability services.
 
-下述将对 Rainbond 所需要的外部服务分别进行说明，包括这些服务的高可用部署。
+The following will explain the external services required by Rainbond separately, including the high availability deployment of these services.
 
-### 负载均衡
+### Load Balancing
 
-Rainbond 集群网关需要部署在高可用的负载均衡器上，保障集群网关的高可用性。
+Rainbond cluster gateway needs to be deployed on a high availability load balancer to ensure the high availability of the cluster gateway.
 
-#### 使用已有的负载均衡器
+#### Use existing load balancer
 
-若已有高可用的负载均衡器，可直接使用，需满足以下条件：
-* 代理到 Rainbond 所有网关节点
-* 开放 80，443，6060，7070，8443 端口
+If there is already a high availability load balancer, it can be used directly, provided the following conditions are met:
 
-#### 部署 Keepalived
+- Proxy to all gateway nodes of Rainbond
+- Open ports 80, 443, 6060, 7070, 8443
 
-若还没有负载均衡服务则可通过在网关节点上 [部署 Keepalived](https://t.goodrain.com/d/8334-keepalived) 服务来确保网关的高可用性，通过该种方式网关节点为主备关系。
+#### Deploy Keepalived
 
-### 网关节点
+If there is no load balancing service yet, the high availability of the gateway can be ensured by [deploying Keepalived](https://t.goodrain.com/d/8334-keepalived) service on the gateway node. In this way, the gateway nodes are in a master-backup relationship.
 
-指定 Rainbond 网关服务部署并运行在哪个节点上，每个节点上的网关服务都可独立进行工作，即使某一个网关节点挂掉，其他网关节点依旧能正常工作。 
+### Gateway Node
 
-### 构建节点
+Specify which node the Rainbond gateway service is deployed and runs on. The gateway service on each node can work independently. Even if one gateway node goes down, other gateway nodes can still work normally.
 
-指定 Rainbond 构建服务部署并运行在哪个节点上，构建节点的数量越多代表能同时并行构建的任务也就越多。
+### Build Node
 
-> 构建比较消耗磁盘，建议将构建服务运行在有 SSD 磁盘的节点上。
+Specify which node the Rainbond build service is deployed and runs on. The more build nodes there are, the more tasks can be built in parallel at the same time.
 
-### 镜像仓库
+> Building consumes a lot of disk space. It is recommended to run the build service on nodes with SSD disks.
 
-指定 Rainbond 底层镜像仓库，平台上的所有组件镜像都会从这个仓库拉取、推送。默认提供内置镜像仓库，以 Pod 方式运行在`rbd-system`命名空间下，默认元数据通过  `rbd-hub` pvc 进行存储。
+### Image Repository
 
-如已有镜像仓库可直接使用，需满足以下条件：
+Specify the underlying image repository of Rainbond. All component images on the platform will be pulled and pushed from this repository.The default built-in image repository is provided, running in the `rbd-system` namespace as a Pod, and the default metadata is stored through the `rbd-hub` pvc.
 
-* 建议使用 https 协议以及可信任证书，如使用 http 则需要修改 Docker、Containerd 相关的配置。
+If you already have an image repository, you can use it directly, provided the following conditions are met:
+
+- It is recommended to use the https protocol and trusted certificates. If http is used, the configuration related to Docker and Containerd needs to be modified.
 
 ### MySQL
 
-Rainbond 需要使用 MySQL 存储控制台及集群端数据。默认提供内置的 MySQL 数据库，以 Pod 方式运行在`rbd-system`命名空间下，会随机绑定一个节点并将元数据存储该节点的`/opt/rainbond/data/dbxxx`目录下。
+Rainbond needs to use MySQL to store console and cluster data.The default built-in MySQL database is provided, running in the `rbd-system` namespace as a Pod, and will randomly bind to a node and store the metadata in the `/opt/rainbond/data/dbxxx` directory of the node.
 
-若已有高可用数据库则可直接使用，需满足以下条件：
+If you already have a high availability database, you can use it directly, provided the following conditions are met:
 
-* 数据库版本为MySQL 5.7，8.0；
-* 提前创建 console region 库；
-* 数据库字符编码为 utf8mb4；
-* 推荐数据库与 Rainbond 集群网络在同一内网范围内。
+- The database version is MySQL 5.7, 8.0;
+- Create the console region library in advance;
+- The database character encoding is utf8mb4;
+- It is recommended that the database and Rainbond cluster network are in the same intranet range.
 
-如还未安装数据库，请参阅文档安装 [在 Docker 中部署 MySQL 主从集群](https://t.goodrain.com/d/8335-docker-mysql)、[在 Centos 7 中部署 MySQL 主从集群](https://t.goodrain.com/d/8304-centos-7-mysql)
+If the database has not been installed yet, please refer to the documentation to install [Deploy MySQL master-slave cluster in Docker](https://t.goodrain.com/d/8335-docker-mysql), [Deploy MySQL master-slave cluster in Centos 7](https://t.goodrain.com/d/8304-centos-7-mysql)

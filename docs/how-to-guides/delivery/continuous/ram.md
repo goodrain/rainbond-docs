@@ -1,156 +1,158 @@
 ---
-title: 应用模版交付
-description: 通过 Rainbond 应用模版实现持续交付的完整操作指南
+title: Application Template Delivery
+description: A complete operational guide to continuous delivery through Rainbond application templates
 keywords:
-- 应用模版
-- 持续交付
-- DevOps
+  - Application Template
+  - Continuous Delivery
+  - DevOps
 ---
 
-## 概述
+## Overview
 
-Rainbond 应用模版持续交付是一种高效的软件交付方式，它允许开发、测试和运维团队通过统一的应用模版快速完成环境部署和版本迭代。
+Rainbond application template continuous delivery is an efficient software delivery method that allows development, testing, and operations teams to quickly complete environment deployment and version iteration through a unified application template.
 
-## 应用模版持续交付流程
+## Application Template Continuous Delivery Process
 
 ```mermaid
 graph LR
-    A[代码仓库]-->|代码提交| B[开发环境]
-    B -->|发布应用模版| C[应用市场]
-    C <-->|验证| D[测试环境]
-    C <-->|部署、升级、回滚| E[生产环境]
+    A[Code Repository]-->|Code Submission| B[Development Environment]
+    B -->|Publish Application Template| C[Application Market]
+    C <-->|Verify| D[Test Environment]
+    C <-->|Deploy, Upgrade, Rollback| E[Production Environment]
 ```
 
-### 流程说明
+### Process Description
 
-1. **代码提交与自动化测试**：
-   - 开发人员提交代码到源码仓库
-   - 触发开发环境的自动构建和自动化测试
-   - 测试不通过时，反馈给开发人员进行修复
+1. **Code Submission and Automated Testing**:
+   - Developers submit code to the source code repository
+   - Trigger automatic build and automated testing in the development environment
+   - When the test fails, feedback is given to the developers for repair
 
-2. **版本发布与测试环境部署**：
-   - 功能开发完成后，将应用发布到应用市场作为`1.0`版本
-   - 测试人员从应用市场一键安装`1.0`版本到测试环境
-   - 开发人员继续在开发环境迭代，测试人员进行功能测试
+2. **Version Release and Test Environment Deployment**:
+   - After the feature development is completed, publish the application to the application market as version `1.0`
+   - Testers install the `1.0` version from the application market to the test environment with one click
+   - Developers continue to iterate in the development environment, testers perform functional testing
 
-3. **版本迭代与更新**：
-   - 根据测试反馈，开发人员修复问题后发布`2.0`版本
-   - 测试人员在测试环境一键升级至新版本并继续测试
-   - 循环迭代直至版本质量满足要求
+3. **Version Iteration and Update**:
+   - According to the test feedback, developers fix the problem and release version `2.0`
+   - Testers upgrade to the new version in the test environment with one click and continue testing
+   - Iterate in cycles until the version quality meets the requirements
 
-4. **生产环境交付**：
-   - 当版本（如`3.0`）测试通过后，在应用市场将其标记为`Release`状态
-   - 生产环境直接从应用市场部署已发布的稳定版本
+4. **Production Environment Delivery**:
+   - When the version (such as `3.0`) passes the test, mark it as `Release` status in the application market
+   - The production environment directly deploys the released stable version from the application market
 
-## 操作步骤
+## Operation Steps
 
-### 前提条件
+### Preconditions
 
-- 已完成 [Rainbond 快速安装](../../../quick-start/quick-install.mdx)
-- 已创建多个团队/项目（如开发环境、测试环境、生产环境）
-- 拥有相应的操作权限
+- Completed [Rainbond Quick Installation](../../../quick-start/quick-install.mdx)
+- Multiple teams/projects have been created (such as development environment, test environment, production environment)
+- Have the corresponding operation permissions
 
-### 一、部署开发环境
+### Deploy Development Environment
 
-**部署业务组件**
-1. 进入开发团队视图 → 创建新应用。
-2. 选择从源码构建 → 源码。
-    - 自定义应用名称。
-    - 仓库地址：`https://gitee.com/rainbond/java-maven-demo.git`。
-    - 分支：`dev`。
+**Deploy Business Components**
 
-### 二、制作应用模版
+1. Enter the development team view → create a new application.
+2. Select build from source → source code.
+   - Customize the application name.
+   - Repository address: `https://gitee.com/rainbond/java-maven-demo.git`.
+   - Branch: `dev`.
 
-1. **进入应用发布页面**
-   - 进入`应用发布 → 发布到本地组件库`
-   - 此时会进入模版设置页面
+### Create Application Template
 
-2. **设置模版信息**
-   - 创建新应用模版，命名为**后台管理系统**
-   - 发布范围选择**企业**
-   - 设置版本号为**1.0**
-   - 填写应用描述、分类等信息
-   - 可选择上传应用图标，增强识别度
+1. **Enter Application Release Page**
+   - Enter `Application Release → Publish to Local Component Library`
+   - At this time, you will enter the template setting page
 
-3. **确认发布**
-   - 点击**提交**，系统会同步所有组件镜像到本地仓库
-   - 同步完成后，点击**确认发布**完成发布流程
-   - 发布后在`平台管理 → 应用市场 → 本地组件库`中查看发布结果
+2. **Set Template Information**
+   - Create a new application template, named **Backend Management System**
+   - Select **Enterprise** for the release scope
+   - Set the version number to **1.0**
+   - Fill in application description, category and other information
+   - You can choose to upload the application icon to enhance recognition
 
-   > **注意**：只有企业管理员可以看到**平台管理**按钮。镜像同步过程可能需要几分钟时间，请耐心等待。
+3. **Confirm Release**
+   - Click **Submit**, the system will synchronize all component images to the local repository
 
-### 三、部署测试环境
+   - After synchronization is completed, click **Confirm Release** to complete the release process
 
-1. **创建测试环境**
-   - 新建一个名为**测试环境**的团队（如已有可跳过）
-   - 在该团队中创建应用，命名为**后台管理系统**
+   - After release, check the release result in `Platform Management → Application Market → Local Component Library`
+   > **Note**: Only enterprise administrators can see the **Platform Management** button.The image synchronization process may take a few minutes, please wait patiently.
 
-2. **从应用市场安装应用**
-   - 在应用页面中，点击`添加组件 → 本地组件库`
-   - 选择刚发布的**后台管理系统**模版
-   - 选择**1.0**版本，点击安装
-   - 等待应用部署完成，检查功能是否正常
+### Deploy Test Environment
 
-3. **进行测试与迭代**
-   - 测试人员在测试环境中进行功能测试
-   - 将发现的问题反馈给开发人员
-   - 开发人员修复问题后，在开发环境中发布新的版本（如**2.0**）
+1. **Create Test Environment**
+   - Create a new team named **Test Environment** (skip if already exists)
+   - Create an application in this team, named **Backend Management System**
 
-4. **应用升级**
-   - 测试人员在测试环境中选择应用，点击**升级**
-   - 查看版本差异（**2.0**vs**1.0**）
-   - 确认升级，系统将自动完成应用更新
-   - 升级后继续测试，直到某个版本（如**3.0**）通过完整测试
+2. **Install Application from Application Market**
+   - In the application page, click `Add Component → Local Component Library`
+   - Select the newly released **Backend Management System** template
+   - Select version **1.0**, click install
+   - Wait for the application deployment to complete, check if the function is normal
 
-5. **标记稳定版本**
-   - 当**3.0**版本通过完整测试后
-   - 管理员前往`平台管理 → 应用市场 → 本地组件库 → 后台管理系统`
-   - 找到**3.0**版本，点击**设置为 Release 状态**
-   - 这标志着该版本已经是高质量可交付的稳定版本
+3. **Perform Testing and Iteration**
+   - Testers perform functional testing in the test environment
+   - Feedback the found problems to the developers
+   - After the developers fix the problems, release a new version (such as **2.0**) in the development environment
 
-### 四、部署生产环境
+4. **Application Upgrade**
+   - Testers select the application in the test environment, click **Upgrade**
+   - View version differences (**2.0**vs**1.0**)
+   - Confirm the upgrade, the system will automatically complete the application update
+   - Continue testing after the upgrade until a version (such as **3.0**) passes the complete test
 
-1. **查看可用的发布版本**
-   - 具有生产环境部署权限的用户进入`平台管理 → 应用市场 → 本地组件库`
-   - 查看**后台管理系统**的版本状态，确认**3.0**已标记为**Release**
+5. **Mark Stable Version**
+   - After the **3.0** version passes all tests
+   - Administrator goes to `Platform Management → App Market → Local Component Library → Backend Management System`
+   - Find the **3.0** version, click **Set as Release Status**
+   - This marks the version as a high-quality, deliverable stable version
 
-2. **部署到生产环境**
-   - 点击**后台管理系统**模版右侧的**安装**按钮
-   - 选择**生产环境**团队
-   - 选择要安装的应用名称和版本（**3.0**）
-   - 点击确认，一键完成生产环境部署
+### IV. Deploy Production Environment
 
-3. **后续版本更新**
-   - 当有新的功能或修复时，开发人员发布新版本（如**3.1**）
-   - 新版本经测试环境验证通过后
-   - 运维人员在生产环境的应用中选择**升级**
-   - 确认升级信息后，完成生产环境的平滑更新
+1. **View Available Release Versions**
+   - Users with production environment deployment permissions enter `Platform Management → App Market → Local Component Library`
+   - Check the version status of the **Backend Management System**, confirm **3.0** is marked as **Release**
 
-## 最佳实践与常见问题
+2. **Deploy to Production Environment**
+   - Click the **Install** button on the right side of the **Backend Management System** template
+   - Select the **Production Environment** team
+   - Select the application name and version (**3.0**) to install
+   - Click confirm to complete the production environment deployment with one click
 
-### 最佳实践
+3. **Subsequent Version Updates**
+   - When there are new features or fixes, developers release a new version (e.g., **3.1**)
+   - After the new version is verified in the test environment
+   - Operations personnel select **Upgrade** in the production environment application
+   - After confirming the upgrade information, complete the smooth update of the production environment
 
-- **版本命名规范**：建议采用语义化版本号（如 1.0.0），便于理解版本变更程度
-- **模版说明完善**：在发布模版时添加详细的功能说明和版本变更记录
-- **分阶段测试**：重要版本先在预发布环境验证后再升级生产环境
-- **保留回滚路径**：生产环境升级前备份关键数据，确保必要时可回滚
+## Best Practices and Common Problems
 
-### 常见问题
+### Best Practices
 
-1. **Q: 应用模版发布失败怎么办？**  
-   A: 检查网络环境、镜像仓库状态，确认所有组件都已正常运行，然后重试发布。
+- **Version Naming Convention**: It is recommended to use semantic version numbers (e.g., 1.0.0) to facilitate understanding the degree of version changes
+- **Template Description Improvement**: Add detailed functional descriptions and version change records when releasing templates
+- **Phased Testing**: Important versions are first verified in the pre-release environment before upgrading the production environment
+- **Preserve Rollback Path**: Back up critical data before upgrading the production environment to ensure rollback is possible if necessary
 
-2. **Q: 升级过程中出现服务中断？**  
-   A: 检查新版本的配置变更，确保环境变量、配置文件等兼容性。建议在非高峰期进行升级。
+### Common Problems
 
-3. **Q: 如何回滚到之前的版本？**  
-   A: 在应用升级页面选择之前的稳定版本进行回滚操作。
+1. **Q: What to do if the application template fails to publish?**\
+   A: Check the network environment, image repository status, confirm all components are running normally, then retry publishing.
 
-4. **Q: 多人协作时如何避免版本冲突？**  
-   A: 建立明确的版本发布流程，指定专人负责应用发布，避免同时发布不同版本。
+2. **Q: Service interruption during upgrade?**\
+   A: Check the configuration changes of the new version to ensure compatibility of environment variables, configuration files, etc.It is recommended to perform upgrades during off-peak hours.
+
+3. **Q: How to roll back to a previous version?**\
+   A: On the application upgrade page, select the previous stable version to perform the rollback operation.
+
+4. **Q: How to avoid version conflicts in multi-person collaboration?**\
+   A: Establish a clear version release process, designate a person responsible for application releases to avoid simultaneous releases of different versions.
 
 ## Reference
 
-- [Rainbond 应用模版参数说明](../app-model-parameters.md)
-- [Rainbond 应用升级属性变更规则](../upgrade-app.md)
+- [Rainbond Application Template Parameter Description](../app-model-parameters.md)
+- [Rainbond Application Upgrade Attribute Change Rules](../upgrade-app.md)
 

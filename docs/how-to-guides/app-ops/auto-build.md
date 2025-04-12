@@ -1,72 +1,72 @@
 ---
-title: 自动构建
-description: Rainbond 自动构建功能的完整配置与使用指南
+title: Auto Build
+description: Complete Guide to Configuration and Usage of Rainbond Auto Build Feature
 keywords:
-- 自动构建
-- 持续构建
-- Webhook
-- 镜像自动构建
-- API自动构建
+  - Auto Build
+  - Continuous Build
+  - Webhook
+  - Image Auto Build
+  - API Auto Build
 ---
 
-## 概述
+## Overview
 
-自动构建是现代开发流程中的重要环节，能够实现代码或镜像变更后自动触发应用的构建和部署。Rainbond 提供了多种自动构建方式，可以有效提升开发效率，缩短开发周期，帮助团队实现敏捷开发与持续交付。
+Auto build is a crucial part of modern development processes, enabling automatic triggering of application builds and deployments upon code or image changes.Rainbond offers various auto-build methods to effectively enhance development efficiency, shorten development cycles, and assist teams in achieving agile development and continuous delivery.
 
-Rainbond 支持以下几种自动构建方式：
+Rainbond supports the following auto-build methods:
 
-1. [代码仓库自动构建](../app-deploy/gitops.md)：支持 GitHub、GitLab、Gitee 等代码仓库的 Webhook
-2. [镜像仓库自动构建](../app-deploy/image/via-registry-deploy.md)：支持 Docker Hub、阿里云镜像仓库等的 Webhook
-3. API 自动构建：提供 API 接口，支持与第三方 CI/CD 工具集成
+1. [Code Repository Auto Build](../app-deploy/gitops.md): Supports Webhooks for code repositories like GitHub, GitLab, Gitee
+2. [Image Repository Auto Build](../app-deploy/image/via-registry-deploy.md): Supports Webhooks for Docker Hub, Alibaba Cloud Image Repository
+3. API Auto Build: Provides API interfaces, supporting integration with third-party CI/CD tools
 
-## API 自动构建
+## API Auto Build
 
-API 自动构建是最灵活的自动部署方式，可以轻松与各种 CI/CD 工具集成，如 Jenkins、GitLab CI、GitHub Actions 等。
+API Auto Build is the most flexible auto-deployment method, easily integrating with various CI/CD tools such as Jenkins, GitLab CI, GitHub Actions, etc.
 
-### 配置步骤
+### Configuration Steps
 
-1. 进入组件内 → 构建源 → 开启 API 自动构建
-2. 设置自定义秘钥，秘钥用于验证 API 调用的合法性，请设置复杂且安全的值
-3. 保存配置
+1. Enter the component → Build source → Enable API Auto Build
+2. Set a custom secret key, which is used to verify the legality of API calls. Please set a complex and secure value
+3. Save configuration
 
-### API 使用方式
+### API Usage
 
-使用 curl 命令调用 API 触发自动构建：
+Use the curl command to call the API to trigger auto build:
 
 ```bash
-curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+curl -d '{"secret_key":"<secret_key>"}' -H "Content-type: application/json" -X POST <API_address>
 ```
 
-### 与 CI/CD 系统集成
+### Integration with CI/CD Systems
 
-#### Jenkins 集成示例
+#### Jenkins Integration Example
 
-在 Jenkins Pipeline 中添加以下脚本：
+Add the following script in Jenkins Pipeline:
 
 ```groovy
 stage('Trigger Rainbond Build') {
     steps {
         sh '''
-        curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+        curl -d '{"secret_key":"<secret_key>"}' -H "Content-type: application/json" -X POST <API_address>
         '''
     }
 }
 ```
 
-#### GitLab CI 集成示例
+#### GitLab CI Integration Example
 
-在 `.gitlab-ci.yml` 文件中添加：
+Add in `.gitlab-ci.yml` file:
 
 ```yaml
 deploy:
   stage: deploy
   script:
-    - curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+    - curl -d '{"secret_key":"<secret_key>"}' -H "Content-type: application/json" -X POST <API_address>
 ```
 
-#### GitHub Actions 集成示例
+#### GitHub Actions Integration Example
 
-在 GitHub Actions 工作流文件中添加：
+Add in GitHub Actions workflow file:
 
 ```yaml
 jobs:
@@ -74,19 +74,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Rainbond Build
-        run: curl -d '{"secret_key":"<秘钥>"}' -H "Content-type: application/json" -X POST <API地址>
+        run: curl -d '{"secret_key":"<secret_key>"}' -H "Content-type: application/json" -X POST <API_address>
 ```
 
-## 常见问题
+## Common Problems
 
-### API 自动构建失败
+### API Auto Build Failure
 
-**可能原因**：
-- 秘钥不匹配
-- API 调用格式错误
-- API 地址错误
+**Possible Reasons**:
 
-**解决方案**：
-- 确认使用的秘钥与配置的秘钥一致
-- 检查 API 调用的 JSON 格式是否正确
-- 验证 API 地址是否完整且正确
+- Secret key mismatch
+- API call format error
+- API address error
+
+**Solutions**:
+
+- Ensure the secret key used matches the configured secret key
+- Check if the API call's JSON format is correct
+- Verify the API address is complete and correct

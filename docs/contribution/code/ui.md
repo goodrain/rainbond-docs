@@ -1,137 +1,135 @@
 ---
-title: UI 贡献指南
-description: 该文档介绍如何为 Rainbond 前端 UI 项目做出贡献。
+title: UI Contribution Guide
+description: This document describes how to contribute to the Rainbond front-end UI project.
 ---
 
-## 前置条件
-1. 克隆前端项目代码
+## Preconditions
+
+1. Clone the front-end project code
+
 ```bash
 git clone https://github.com/goodrain/rainbond-ui.git
 ```
-2. 使用符合要求的 node 版本
+
+2. Use the required node version
+
 ```
-Node.js 版本  >=  14.15.0
+Node.js version >= 14.15.0
 ```
 
-## 安装依赖
+## Install dependencies
 
-运行npm安装命令
+Run npm install command
 
 ```
 npm install
 ```
 
-或者yarn安装命令
+Or yarn install command
 
 ```
 yarn install
 ```
 
-## 文件配置
+## File configuration
 
-#### 代理地址配置
+#### Proxy address configuration
 
-文件地址：根目录>config>config.js
+File path: root directory>config>config.js
 
-更改 proxy 配置，将地址代理到 Rainbond 的控制台服务，控制台服务可以是你云端部署的，也可以是本地运行的。
+Change the proxy configuration to proxy the address to the Rainbond console service, which can be either your cloud deployment or locally run.
 
-## 项目运行
+## Project run
 
-npm运行
+npm run
 
 ```
 npm run start   
 ```
 
-yarn运行
+yarn run
 
 ```
 yarn start
 ```
 
-## 开发流程
+## Development process
 
-### 页面创建
+### Page creation
 
-**注意：该项目使用的框架为UMI 2.x ，UI组件库为 antd 3.x。**
+**Note: The framework used in this project is UMI 2.x, and the UI component library is antd 3.x.**
 
-1. 按照前面的流程安装好对应依赖以及配置好相应文件，启动项目。
+1. Follow the previous process to install the corresponding dependencies and configure the corresponding files, and start the project.
 
-2. 添加想要开发的对应功能的路由地址。
+2. Add the route address of the corresponding function you want to develop.
 
-   路由地址文件在 **根目录>config>router.config.js**
+   The route address file is in **root directory>config>router.config.js**
 
-   如果想在平台管理端添加功能的路由。
-
-   ```
-         {
-           path: '/enterprise/:eid',
-           component: '../layouts/EnterpriseLayout',
-           name: 'EnterprisePage',
-           authority: ['admin', 'user'],
-           Routes: ['./routes/AdminRoute.js'],
-           routes: [
-           	...
-           	  {
-               path: '/enterprise/:eid/自定义路由地址',
-               component: './自定义pages文件夹名称',
-               name: '自定义名称',
-               authority: ['admin', 'user']
-             }
-           ]
-   ```
-
-   如果想在用户端添加功能的路由。
-
-   ```
-         {
-           path: '/team/:teamName/region/:regionName/',
-           component: '../layouts/TeamLayout',
-           name: 'TeamBasicLayout',
-           authority: ['admin', 'user'],
-           Routes: ['./routes/UserRoute.js'],
-           routes: [
-           ...
-              {
-               path: '/team/:teamName/region/:regionName/自定义路由地址',
-               component: './自定义pages文件夹名称',
-               name: '自定义名称',
-               authority: ['admin', 'user'],
-             },
-           ]
-   ```
-
-3. 在pages文件夹下创建对应的 **自定义pages文件夹名称**（同路由参数component的名称一致）。
-
-   例如现在开发了一个针对于平台管理端的审计功能。那么应该在router.config.js 文件下添加以下内容：
-
-   ```
-         {
-           path: '/enterprise/:eid',
-           component: '../layouts/EnterpriseLayout',
-           name: 'EnterprisePage',
-           authority: ['admin', 'user'],
-           Routes: ['./routes/AdminRoute.js'],
-           routes: [
-           	...
-           	  {
-               path: '/enterprise/:eid/audit',
-               component: './Audit',
-               name: 'EnterpriseAudit',
-               authority: ['admin', 'user']
-             }
-           ]
-   ```
-
-   同时，在 **根目录>src>pages**  目录下新建一个名为  **Audit**（同component的key值一致）的文件夹。在里面创建一个index.js的文件。
-
-4. 刷新项目，输入对应路由地址，即可看到相应页面。
-
-#### 侧边栏导航添加
-
-找到根目录>src>common。（这里以添加一个管理端侧边导航为例）
-
+   If you want to add a route for a function in the platform management console.
+```json
+            {
+              path: '/enterprise/:eid',
+              component: '../layouts/EnterpriseLayout',
+              name: 'EnterprisePage',
+              authority: ['admin', 'user'],
+              Routes: ['./routes/AdminRoute.js'],
+              routes: [
+              	...
+              	  {
+                  path: '/enterprise/:eid/custom route address',
+                  component: './custom pages folder name',
+                  name: 'custom name',
+                  authority: ['admin', 'user']
+                }
+              ]
 ```
+   If you want to add a route for a function in the user console.
+```json
+            {
+              path: '/team/:teamName/region/:regionName/',
+              component: '../layouts/TeamLayout',
+              name: 'TeamBasicLayout',
+              authority: ['admin', 'user'],
+              Routes: ['./routes/UserRoute.js'],
+              routes: [
+              ...
+                 {
+                  path: '/team/:teamName/region/:regionName/custom route address',
+                  component: './custom pages folder name',
+                  name: 'custom name',
+                  authority: ['admin', 'user'],
+                },
+              ]
+```
+3. Create the corresponding **custom pages folder name** (consistent with the component's key value in the route parameters) under the pages folder.
+
+   For example, an audit function for the platform management console has been developed now.Then the following content should be added in the router.config.js file:
+```json
+            {
+              path: '/enterprise/:eid',
+              component: '../layouts/EnterpriseLayout',
+              name: 'EnterprisePage',
+              authority: ['admin', 'user'],
+              Routes: ['./routes/AdminRoute.js'],
+              routes: [
+              	...
+              	  {
+                  path: '/enterprise/:eid/audit',
+                  component: './Audit',
+                  name: 'EnterpriseAudit',
+                  authority: ['admin', 'user']
+                }
+              ]
+```
+   At the same time, create a folder named **Audit** (consistent with the component's key value) under the **root directory>src>pages** directory.Create an index.js file inside.
+
+4. Refresh the project, enter the corresponding route address, and you can see the corresponding page.
+
+#### Sidebar navigation addition
+
+Find root directory>src>common.(Here is an example of adding a management console sidebar navigation)
+
+```node
     if (isEnterpriseAudit) {
       menuArr.push({
         name: formatMessage({ id: 'menu.enterprise.audit' }),
@@ -142,115 +140,107 @@ yarn start
     }
 ```
 
-| 变量              | 说明                                                         |
-| ----------------- | ------------------------------------------------------------ |
-| name              | 导航栏文字                                                   |
-| icon              | 导航栏图标                                                   |
-| path              | 导航路径                                                     |
+| Variable | illustrate          |
+| -------- | ------------------- |
+| name     | Navigation bar text |
+| icon     | Navigation bar icon |
+| path     | Navigation path     |
 
+### API request
 
-### API请求
+1. Find root directory> src > services > team.js (can be added under other js files, here is just an example)
 
-1. 找到根目录> src > services > team.js (可以在其他js文件下添加，这里只是举例)
+2. Create an interface request.
+```node
+      // Collect application
+      export async function collectApp(data, handleError) {
+          return request(`${apiconfig.baseUrl}/console/enterprise/${data.enterprise_id}/app_library_collect`, {
+              method: 'post',
+              data: data.data,
+              handleError
+          });
+      }
+```
+3. Find root directory> src > models > teamControl.js
 
-2. 创建接口请求。
+4. Introduce and store the corresponding request information.
+```node
+      import {
+          collectApp,
+      }
+          from '../services/team';
+          import { push } from 'umi/router';
+      export default {
+          namespace: 'teamControl',
+          state: {
+          },
+          effects: {
+              collectApp({ payload, callback, handleError }, { call }) {
+                  const data = yield call(collectApp, payload, handleError);
+                  if (data && callback) {
+                      callback(data);
+                  }
+              }
+          },
+      };
+```
 
-   ```
-   // 收藏应用
-   export async function collectApp(data, handleError) {
-       return request(`${apiconfig.baseUrl}/console/enterprise/${data.enterprise_id}/app_library_collect`, {
-           method: 'post',
-           data: data.data,
-           handleError
-       });
-   }
-   ```
-   
-3. 找到根目录> src > models > teamControl.js
+5. Send request.( Introduce connect, and @connect(), connect is used to link components and state managers.You can call the methods in the corresponding warehouse through dispatch, or you can find the warehouse data under this.props for operation. )
 
-4. 引入，并存储对应的请求信息。
+   type: Point to the collectApp function under the teamControl file.
 
-   ```
-   import {
-       collectApp,
-   }
-       from '../services/team';
-       import { push } from 'umi/router';
-   export default {
-       namespace: 'teamControl',
-       state: {
-       },
-       effects: {
-           *collectApp({ payload, callback, handleError }, { call }) {
-               const data = yield call(collectApp, payload, handleError);
-               if (data && callback) {
-                   callback(data);
-               }
-           }
-       },
-   };
-   
-   ```
+   payload: Pass parameters
 
-5. 发送请求。( 引入connect，并@connect() ，connect用来链接组件和状态管理器。你可以通过dispath调用对应仓库中的方法，也可以通过在this.props下找到仓库的数据进行操作。 )
+   callback: Callback function
 
-   type：指向 teamControl 文件下的collectApp函数。
+   handleError: Error return
+```node
+      import React, { Component } from 'react'
+      import { connect } from 'dva';
+      @connect()
+      
+      export default class index extends Component {
+        constructor(props) {
+          super(props);
+      		this.state={
+      
+      		}}
+      		/\*\*
+        \* Collect or cancel collection application
+        \* Perform collection or cancel collection operation according to the boolean value, and update the application list.
+        \* @param {boolean} bool - Whether to collect
+        \* @param {\*} id - Application ID
+        \*/
+        collect = (bool, id) => {
+          const { dispatch, eid } = this.props;
+          dispatch({
+              type: 'teamControl/collectApp',
+              payload: {
+                data: {
+                  app_library_id: id,
+                },
+                enterprise_id: eid
+              },
+              callback: (res) => {
+                if (res && res.code == 200) {
+                  notification.success({ message: 'Collection successful' })
+                }
+              },
+              handleError: (res) => {
+                notification.error({ message: 'Collection failed' })
+              }
+            })
+        }
+      		render() {}
+      
+      }
+```
+### redux data acquisition
 
-   payload：传参
+#### Get data
 
-   callback： 回调函数
-
-   handleError：错误返回
-
-   ```
-   import React, { Component } from 'react'
-   import { connect } from 'dva';
-   @connect()
-   
-   export default class index extends Component {
-     constructor(props) {
-       super(props);
-   		this.state={
-   		
-   		}}
-   		/**
-     * 收藏或取消收藏应用
-     * 根据布尔值执行收藏或取消收藏操作，并更新应用列表。
-     * @param {boolean} bool - 是否收藏
-     * @param {*} id - 应用ID
-     */
-     collect = (bool, id) => {
-       const { dispatch, eid } = this.props;
-       dispatch({
-           type: 'teamControl/collectApp',
-           payload: {
-             data: {
-               app_library_id: id,
-             },
-             enterprise_id: eid
-           },
-           callback: (res) => {
-             if (res && res.code == 200) {
-               notification.success({ message: '收藏成功' })
-             }
-           },
-           handleError: (res) => {
-             notification.error({ message: '收藏失败' })
-           }
-         })
-     }
-   		render() {}
-   
-   }
-   ```
-
-### redux数据获取
-
-#### 获取数据
-
-connect用来链接组件和状态管理器。你可以通过dispath调用对应仓库中的方法，也可以通过在this.props下找到仓库的数据进行操作。
-
-   ```
+connect is used to link components and state managers.You can call the corresponding method in the repository through dispatch, or you can operate on the data of the repository found under this.props.
+```node
    import React, { Component } from 'react'
    import { connect } from 'dva';
    @connect(({ user }) => ({
@@ -268,26 +258,22 @@ connect用来链接组件和状态管理器。你可以通过dispath调用对应
    		render() {}
    
    }
-   ```
+```
+This way, you can get the data stored in the corresponding redux through this.props.user.
 
-这样就可以通过 this.props.user 获取到对应redux里存储的数据了。
+### Common public methods
 
-### 常用公共方法
+#### Public method file address root directory> src > utils > global.js
 
-#### 公共方法文件地址 根目录> src > utils > global.js
+| Method name                              | Function                                       |
+| ---------------------------------------- | ---------------------------------------------- |
+| getCurrEnterpriseId() | Extract the current enterprise ID from the URL |
+| getCurrTeamName()     | Extract the current team name from the URL     |
+| getComponentID()      | Extract the current component ID from the URL  |
+| getAppID(url)         | Extract the application ID from the URL        |
+| getCurrRegionName()   | Extract the current cluster ID from the URL    |
 
-| 方法名称              | 作用                        |
-   | --------------------- | --------------------------- |
-| getCurrEnterpriseId() | 从 URL 中提取当前的企业 ID  |
-| getCurrTeamName()     | 从 URL 中提取当前的团队名称 |
-| getComponentID()      | 从URL 中提取当前组件的 ID   |
-| getAppID(url)         | 从URL 中提取应用程序的 ID   |
-| getCurrRegionName()   | 从 URL 中提取当前集群ID     |
-
-## 项目编译
-
-   ```
+## Project compilation
+```bash
    npm run build
-   ```
-
-   
+```

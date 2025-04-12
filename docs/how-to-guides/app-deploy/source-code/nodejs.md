@@ -1,49 +1,53 @@
 ---
-title: NodeJS 前后端项目部署
-description: 在 Rainbond 上通过源代码部署 NodeJS 前端项目和后端项目。例如 Vue、React 等前端项目和 Express、Koa 等后端项目。
+title: NodeJS Frontend and Backend Project Deployment
+description: Deploy NodeJS frontend and backend projects on Rainbond via source code.For example, frontend projects like Vue, React and backend projects like Express, Koa.
 keywords:
-- Rainbond 部署 Vue React 前端项目
-- Vue React 前端项目部署
-- Rainbond 部署 Express 项目
-- Rainbond 部署 Koa 项目
+  - Rainbond deploys Vue React frontend projects
+  - Vue React frontend project deployment
+  - Rainbond deploys Express project
+  - Rainbond deploys Koa project
 ---
 
-本篇文档介绍如何在 Rainbond 平台上通过源代码部署 NodeJS 前端项目和后端项目。例如 Vue、React 等前端项目和 Express、Koa 等后端项目。
+This document introduces how to deploy NodeJS frontend and backend projects on the Rainbond platform via source code.For example, frontend projects like Vue, React and backend projects like Express, Koa.
 
-## 概述
+## Overview
 
-在基于源码构建时，Rainbond 会识别项目根目录的 **package.json** 文件来判断为 NodeJS 项目。
-1. 支持在页面上选择为 Node 前端项目或者后端项目并自动添加下述文件，并选择使用 NPM 还是 YARN 构建项目。
-2. 在源代码根目录根据下述描述添加文件来确定项目类型。
+When building based on source code, Rainbond identifies the **package.json** file in the project root directory to determine it as a NodeJS project.
 
-Rainbond 会根据源码根目录是否有`package.json`来识别为 NodeJS 项目。根据是否存在`nodestate.json`文件来识别为 Node 前端项目。
+1. Supports selecting on the page as a Node frontend or backend project and automatically adding the following files, and choosing to use NPM or YARN to build the project.
+2. Add files in the source code root directory according to the following description to determine the project type.
 
-- **package-lock.json:** 如源码根目录存在则使用 NPM 构建，不可与 yarn.lock 同时存在。
-- **yarn.lock:** 如源码根目录存在则使用 YARN 构建，不可与 package-lock.json 同时存在。
-- **nodestatic.json:** 如源码根目录存在则为 Node 前端项目，默认如下：
-  ```json
-  {
-    "path": "dist"
-  }
-  ```
-  > 指定静态文件编译后的输出目录，默认为 dist
-- **web.conf:** Nginx配置文件。如源码根目录存在则使用，不存在则采用下述默认配置。
-  ```conf
-  server {
-      listen       5000;
-      
-      location / {
-          root   /app/www;
-          try_files $uri $uri/ /index.html;
-          index  index.html index.htm;
-      }
-  }
-  ```
-  > 容器内 Nginx 默认路径为 /app/nginx，静态文件默认路径为 /app/www。如 /app/nginx/nginx.conf、/app/nginx/conf.d/web.conf
+Rainbond identifies it as a NodeJS project based on whether there is a `package.json` in the source code root directory.Identifies as a Node frontend project based on the existence of the `nodestate.json` file.
 
-### 自定义构建脚本
+- **package-lock.json:** If it exists in the source code root directory, use NPM to build, and it cannot coexist with yarn.lock.
+- **yarn.lock:** If it exists in the source code root directory, use YARN to build, and it cannot coexist with package-lock.json.
+- **nodestatic.json:** If it exists in the source code root directory, it is a Node frontend project, default as follows:
 
-如需要在构建前执行安装其他依赖等操作，在 `package.json` 中添加 `scripts` 节点，如:
+```json
+    {
+      "path": "dist"
+    }
+```
+
+> Specify the output directory of static files after compilation, default is dist
+- **web.conf:** Nginx configuration file.If it exists in the source code root directory, use it; otherwise, use the following default configuration.
+
+```bash
+server {
+    listen       5000;
+    \
+        location / {
+            root   /app/www;
+            try_files $uri $uri/ /index.html;
+            index  index.html index.htm;
+        }
+    }
+```
+  > The default path for Nginx in the container is /app/nginx, and the default path for static files is /app/www.Such as /app/nginx/nginx.conf, /app/nginx/conf.d/web.conf
+
+### Custom build script
+
+If you need to perform operations such as installing other dependencies before building, add a `scripts` node in `package.json`, for example:
 
 ```json
 {
@@ -54,7 +58,7 @@ Rainbond 会根据源码根目录是否有`package.json`来识别为 NodeJS 项�
 }
 ```
 
-在上述的 `package.json` 文件中，关键字 `preinstall` 指定了在安装依赖前所做的操作。示例中为执行代码根目录下的一个脚本文件，其内容为设置构建私服：
+In the above `package.json` file, the keyword `preinstall` specifies the operations to be performed before installing dependencies.In the example, it is to execute a script file in the code root directory, the content of which is to set up a build private server:
 
 ```bash
 #!/bin/bash
@@ -65,26 +69,25 @@ yarn config set profiler_binary_host_mirror https://npmmirror.com/mirrors/node-i
 yarn config set chromedriver_cdnurl https://npmmirror.com/mirrors/chromedriver --global
 ```
 
-## 前端项目部署示例
+## Frontend project deployment example
 
-* Vue Demo: https://gitee.com/zhangbigqi/vue-demo
-* React Demo: https://gitee.com/zhangbigqi/react-demo
+- Vue Demo: https://gitee.com/zhangbigqi/vue-demo
+- React Demo: https://gitee.com/zhangbigqi/react-demo
 
-### 源码部署 Vue Or React 项目
+### Source code deployment Vue Or React project
 
-1. 基于源码创建组件，填写以下信息：
+1. Create a component based on source code, fill in the following information:
 
-|              | 内容                                 |
-| ------------ | ------------------------------------ |
-| 组件名称     | 自定义                               |
-| 组件英文名称 | 自定义                               |
-| 仓库地址     | `https://gitee.com/zhangbigqi/vue-demo.git` or `https://gitee.com/zhangbigqi/react-demo` |
-| 代码版本     | main                    |
+|                        | Content                                                                                  |
+| ---------------------- | ---------------------------------------------------------------------------------------- |
+| Component name         | Custom                                                                                   |
+| Component English name | Custom                                                                                   |
+| Repository address     | `https://gitee.com/zhangbigqi/vue-demo.git` or `https://gitee.com/zhangbigqi/react-demo` |
+| Code version           | main                                                                                     |
 
-2. 选择为 Node 前端项目并指定使用 Npm 还是 Yarn 构建项目。
-3. 在组件构建源中切换 Node 版本至 `16.15.0` 保存并构建。
+2. Select as a Node frontend project and specify whether to use Npm or Yarn to build the project.
+3. Switch the Node version to `16.15.0` in the component build source, save and build.
 
+## Backend project deployment example
 
-## 后端项目部署示例
-
-进入到团队下，新建应用选择**基于源码示例**进行构建，选中 NodeJS Demo 并默认全部下一步即可。
+Enter the team, create a new application, select **Based on source code example** to build, select NodeJS Demo and default all the next steps.

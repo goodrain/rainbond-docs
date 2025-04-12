@@ -16,7 +16,7 @@ import {
 import {useKeyboardNavigation} from '@docusaurus/theme-common/internal';
 import SkipToContent from '@theme/SkipToContent';
 import AnnouncementBar from '@theme/AnnouncementBar';
-import NavbarCustom from '../../components/NavBar';
+// import NavbarCustom from '../../components/NavBar';
 import Navbar from '@theme/Navbar';
 import Footer from '@theme/Footer';
 import LayoutProvider from '@theme/Layout/Provider';
@@ -48,9 +48,10 @@ export default function Layout(props: Props): JSX.Element {
 
       <SkipToContent />
 
-      {docs_url || community_url || blog_url || changelog_url ? <AnnouncementBar /> : null }
-      {docs_url || community_url || blog_url || changelog_url ? <Navbar /> : <NavbarCustom /> }
-
+      {/* {docs_url || community_url || blog_url || changelog_url ? <AnnouncementBar /> : null }
+      {docs_url || community_url || blog_url || changelog_url ? <Navbar /> : <NavbarCustom /> } */}
+      <AnnouncementBar /> 
+      <Navbar />
       <div
         id={SkipToContentFallbackId}
         className={clsx(
