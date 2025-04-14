@@ -1,42 +1,42 @@
 ---
 title: Dockerfile
-description: 在 Rainbond 上通过 Dockerfile 部署应用
+description: Deploy applications on Rainbond via Dockerfile
 ---
 
-## 概述
+## Overview
 
-代码主目录下有 `Dockerfile` 文件，Rainbond 会识别代码语言类型为 **Dockerfile** 。
+If there is a `Dockerfile` file in the main directory of the code, Rainbond will identify the code language type as **Dockerfile**.
 
-### 编译原理
+### Compilation Principle
 
-识别为 Dockerfile 类型的源码将使用类似于 `docker build -t xxx .` 的命令进行镜像构建，构建过程支持 docker multi-stage(多阶段构建)和 ARG 参数指定。
+Source code identified as Dockerfile type will use a command similar to `docker build -t xxx .` for image construction, supporting docker multi-stage construction and ARG parameter specification during the construction process.
 
-### Dockerfile 规范
+### Dockerfile Specification
 
-**Dockerfile** 是由一系列命令和参数构成的脚本，这些命令应用于基础镜像并最终创建一个新的镜像。
+**Dockerfile** is a script composed of a series of commands and parameters, which are applied to the base image and ultimately create a new image.
 
-Rainbond 在源码检测阶段会读取 [Dockerfile](https://docs.docker.com/engine/reference/builder/) 定义的如下参数：
+Rainbond will read the following parameters defined in [Dockerfile](https://docs.docker.com/engine/reference/builder/) during the source code detection phase:
 
-| 参数类型 | 名称       | 说明                           |
-| -------- | ---------- | ------------------------------ |
-| ENV      | 环境变量   | 识别为服务可设置的环境变量配置 |
-| ARG      | 构建参数   | 识别为构建可设置的参数配置     |
-| EXPOSE   | 暴露端口   | 识别为服务的端口配置           |
-| VOLUME   | 持久化存储 | 识别为服务的共享持久化存储配置 |
+| Parameter Type | Name                 | Illustrate                                                               |
+| -------------- | -------------------- | ------------------------------------------------------------------------ |
+| ENV            | Environment Variable | Identified as configurable environment variable settings for the service |
+| ARG            | Build Parameter      | Identified as configurable parameter settings for construction           |
+| EXPOSE         | Expose Port          | Identified as port configuration for the service                         |
+| VOLUME         | Persistent Storage   | Identified as shared persistent storage configuration for the service    |
 
-### 私有仓库
+### Private Repository
 
-如果 Dockerfile 中使用私有镜像，在`团队管理 -> 镜像仓库授权信息`，填写私有镜像仓库的域名、用户名和密码，保存后再次构建，即可构建成功。
+If a private image is used in the Dockerfile, fill in the domain name, username, and password of the private image repository in `Team Management -> Image Repository Authorization Information`, save it and build again to succeed.
 
-## 部署示例
+## Deployment Example
 
-1. 基于源码创建组件，填写以下信息：
+1. Create a component based on the source code and fill in the following information:
 
-|              | 内容                                 |
-| ------------ | ------------------------------------ |
-| 组件名称     | 自定义                               |
-| 组件英文名称 | 自定义                               |
-| 仓库地址     | `https://gitee.com/rainbond/dockerfile-demo.git` |
-| 代码版本     | master                    |
+|                        | Content                                          |
+| ---------------------- | ------------------------------------------------ |
+| Component Name         | Custom                                           |
+| Component English Name | Custom                                           |
+| Repository Address     | `https://gitee.com/rainbond/dockerfile-demo.git` |
+| Code Version           | master                                           |
 
-2. 识别为 Dockerfile 项目，点击构建启动。
+2. Identified as a Dockerfile project, click to build and start.

@@ -1,15 +1,13 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const VersionsArchived = require('./versionsArchived.json');
-const ArchivedVersionsDropdownItems = Object.entries(VersionsArchived)
 const path = require('path');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Rainbond',
   tagline: 'Application Delivery Center',
-  url: 'https://www.rainbond.com',
+  url: 'https://www.rainbond.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -19,11 +17,8 @@ const config = {
   trailingSlash: false,
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'zh'],
+    locales: ['en'],
     localeConfigs: {
-      zh: {
-        label: '简体中文',
-      },
       en: {
         label: 'English',
       },
@@ -39,27 +34,14 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
+          editUrl: 'https://github.com/goodrain/rainbond-docs/tree/english-website',
           includeCurrentVersion: true,
           lastVersion: 'current',
           versions: {
             current: {
-              label: 'V6.2'
-            },
-            "5.17": {
-              label: 'V5.17',
-            },
+              label: 'v6.2'
+            }
           }
-        },
-        blog: {
-          routeBasePath: '/blog',
-          path: 'blog',
-          blogTitle: '博客',
-          editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/blog',
-          postsPerPage: 18,
-          blogSidebarCount: 'ALL',
-          blogSidebarTitle: '所有文章',
-          sortPosts: 'descending'
         },
         theme: {
           customCss: [
@@ -80,7 +62,7 @@ const config = {
       },
       {
         name: 'keywords', 
-        content: '信创, 国产化, 云原生, 应用管理平台, 信创云平台, Kubernetes, k8s, 应用交付, 应用运维, 微服务, 服务网格, Service Mesh, DevOps, CICD, 持续交付, 持续集成, 持续部署, 持续运维, Helm, RAM, Rainbond, Rainbond Xinchuang, Rainbond Xinchuang Cloud Platform, Cloud Native, Cloud Application Management Platform, Micro service, Service Mesh'
+        content: 'Cloud Native Application Management Platform, Kubernetes, k8s, Application Delivery, Application Operations, Microservice, Service Mesh, DevOps, CICD, Continuous Delivery, Continuous Integration, Continuous Deployment, Continuous Operations, Helm, RAM, Rainbond, Rainbond Xinchuang, Rainbond Xinchuang Cloud Platform, Cloud Native, Cloud Application Management Platform, Micro service, Service Mesh'
       }
     ],
       tableOfContents: {
@@ -94,102 +76,15 @@ const config = {
           src: 'img/rainbond.png',
           href: '/'
         },
-        hideOnScroll: true,
-        // navbar的选项卡
         items: [
-          // {
-          //   type: 'docSidebar',
-          //   position: 'left',
-          //   sidebarId: 'docs',
-          //   label: '文档',
-          // },
-          // {
-          //   type: 'dropdown',
-          //   label: '功能特性',
-          //   position: 'left',
-          //   items: [
-          //     {
-          //       label: '信创',
-          //       to: '/xinchuang'
-          //     },
-          //     {
-          //       label: '一体化DevOps',
-          //       to: '/feature/devops'
-          //     },
-          //     {
-          //       label: 'Kubernetes多集群管理',
-          //       to: '/feature/multi-cluster'
-          //     },
-          //     {
-          //       label: '开箱即用的微服务治理',
-          //       to: '/feature/service-mesh'
-          //     },
-          //     {
-          //       label: '自动化应用运维',
-          //       to: '/feature/app-ops'
-          //     }
-          //   ]
-          // },
-          // {
-          //   type: 'dropdown',
-          //   label: '深入',
-          //   position: 'left',
-          //   items: [
-          //     {
-          //       label: '使用场景',
-          //       href: '/usescene',
-          //     },
-          //     {
-          //       label: '用户案例',
-          //       href: '/case',
-          //     },
-          //     {
-          //       label: '博客',
-          //       href: '/blog',
-          //     },
-          //     {
-          //       type: 'docSidebar',
-          //       sidebarId: 'api',
-          //       label: 'OpenAPI',
-          //     },
-          //   ],
-          // },
           {
-            type: 'docsVersionDropdown',
-            position: 'right',
-            dropdownItemsAfter: [
-              {
-                type: 'html',
-                value: '<hr class="dropdown-separator">',
-              },
-              {
-                type: 'html',
-                className: 'dropdown-archived-versions',
-                value: '<b style="font-size: 14px;">Archived versions</b>',
-              },
-              ...ArchivedVersionsDropdownItems.map(
-                ([versionName, versionUrl]) => ({
-                  label: versionName,
-                  href: versionUrl,
-                }),
-              ),
-              {
-                type: 'html',
-                value: '<hr class="dropdown-separator">',
-              },
-              {
-                to: '/docs/versions',
-                label: 'All versions',
-              },
-            ]
+            label: 'Documentation',
+            to: '/docs',
+            position: 'left',
           },
-          // {
-          //   position: 'right',
-          //   label: '企业版',
-          //   href: '/enterprise_server'
-          // },
           {
-            type: 'localeDropdown',
+            label: '中文站',
+            to: 'https://www.rainbond.com',
             position: 'right',
           },
           {
@@ -208,8 +103,7 @@ const config = {
       },
       colorMode: {
         defaultMode: 'light',
-        disableSwitch: true, // 黑白切换按钮
-        respectPrefersColorScheme: false
+        disableSwitch: true,
       },
       algolia: {
         appId: '6NQ861LF9R',
@@ -218,7 +112,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved. <a href="https://beian.miit.gov.cn">京ICP备15028663号-4</a>. Powered by <a href="https://www.netlify.com">Netlify</a>`
+        copyright: `Copyright © ${new Date().getFullYear()} Rainbond, Inc. All Rights Reserved. Powered by <a href="https://www.netlify.com">Netlify</a>`
       },
       prism: {
         // darkTheme: darkCodeTheme
@@ -231,58 +125,7 @@ const config = {
         isCloseable: false,
       }
     }),
-  scripts: [
-    'https://static.goodrain.com/docusaurus/baidu-statistics.js',
-    'https://static.goodrain.com/docusaurus/hotjar.js'
-  ],
   plugins: [
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [
-          {
-            to: '/docs/how-to-guides/micro-service-deploy/blade-example',
-            from: '/docs/micro-service/example/blade',
-          },
-          {
-            to: '/docs/how-to-guides/micro-service-deploy/pig-example',
-            from: '/docs/micro-service/example/pig',
-          },
-          {
-            to: '/docs/how-to-guides/app-ops/auto-build',
-            from: '/docs/use-manual/component-manage/build-source/auto_build',
-          },
-        ],
-        createRedirects(existingPath) {
-          if (existingPath.includes('/docs/how-to-guides/localization-guide')) {
-            return [
-              existingPath.replace( '/docs/how-to-guides/localization-guide', '/docs/localization-guide')
-            ];
-          }
-          if (existingPath.includes('/docs/how-to-guides/delivery')) {
-            return [
-              existingPath.replace('/docs/how-to-guides/delivery', '/docs/delivery')
-            ];
-          }
-          if (existingPath.includes('/docs/how-to-guides/app-ops')) {
-            return [
-              existingPath.replace('/docs/how-to-guides/app-ops', '/docs/use-manual')
-            ];
-          }
-          if (existingPath.includes('/docs/how-to-guides/app-deploy')) {
-            return [
-              existingPath.replace('/docs/how-to-guides/app-deploy', '/docs/devops/app-deploy')
-            ];
-          }
-          if (existingPath.includes('/')) {
-            return [
-              existingPath.replace('/', '/en')
-            ];
-          }
-          return undefined;
-        }
-      }
-    ],
     'docusaurus-plugin-sass',
     '@docusaurus/plugin-ideal-image',
     function customWebpackPlugin() {

@@ -1,46 +1,46 @@
 ---
-title: '贡献指南'
-description: '引导您为Rainbond做出贡献'
+title: Contribution Guide
+description: Guide you to contribute to Rainbond
 ---
 
-## 为 Rainbond 做出贡献
+## Contribute to Rainbond
 
-Rainbond 是一个云原生应用管理平台，使用简单，不需要懂容器、Kubernetes和底层复杂技术，支持管理多个Kubernetes集群，和管理企业应用全生命周期。主要功能包括应用开发环境、应用市场、微服务架构、应用交付、应用运维、应用级多云管理等。
+Rainbond is a cloud-native application management platform, easy to use, no need to understand containers, Kubernetes and underlying complex technologies, supports managing multiple Kubernetes clusters, and managing the full lifecycle of enterprise applications.Main features include application development environment, application market, microservice architecture, application delivery, application operation and maintenance, application-level multi-cloud management, etc.
 
-如果你有兴趣为 Rainbond 做出贡献，希望这份文档能够让你的贡献过程更加简单、快速、有效。
+If you are interested in contributing to Rainbond, we hope this document will make your contribution process simpler, faster, and more effective.
 
-如果你是开源贡献初学者，可以参阅 [Open Source Guides](https://opensource.guide/) 网站，它提供了一些开源贡献指南，为想要学习如何为开源项目做出贡献的人、社区和公司提供了一系列资源。
+If you are a beginner in open source contribution, you can refer to the [Open Source Guides](https://opensource.guide/) website, which provides some open source contribution guides and a series of resources for individuals, communities, and companies who want to learn how to contribute to open source projects.
 
 ## CODE_OF_CONDUCT
 
-Rainbond 希望项目参与者遵守行为准则，请阅读 [CODE_OF_CONDUCT](https://github.com/goodrain/rainbond/blob/main/CODE_OF_CONDUCT.md)。
+Rainbond expects project participants to adhere to the code of conduct, please read [CODE_OF_CONDUCT](https://github.com/goodrain/rainbond/blob/main/CODE_OF_CONDUCT.md).
 
-## 参与其中
+## Get Involved
 
-有许多方法可以为 Rainbond 做出贡献，不仅仅是代码贡献：
+There are many ways to contribute to Rainbond, not just code contributions:
 
-* 处理未解决 [issues](https://github.com/goodrain/rainbond/issues)，提出你的解决思路。
-* 反馈 Bug。当你发现一个 bug，请使用 [issues](https://github.com/goodrain/rainbond/issues) 来报告和讨论。
-* 提出新功能。当你想要提出一个新功能，请使用 [issues](https://github.com/goodrain/rainbond/issues) 来报告和讨论。
-* [代码贡献](/docs/contribution/code/)
-* [文档贡献](/docs/contribution/document/)
+- Address unresolved [issues](https://github.com/goodrain/rainbond/issues), propose your solutions.
+- Report Bugs.When you find a bug, please use [issues](https://github.com/goodrain/rainbond/issues) to report and discuss.
+- Propose new features.When you want to propose a new feature, please use [issues](https://github.com/goodrain/rainbond/issues) to report and discuss.
+- [Code Contribution](/docs/contribution/code/)
+- [Documentation Contribution](/docs/contribution/document/)
 
-贡献是非常受欢迎的，如果你认为你的贡献需要帮助时，请通过[社区支持](/docs/support)联系我们，由 Rainbond TOC 成员帮助你继续贡献。
+Contributions are very welcome. If you think your contribution needs help, please contact [community support](/docs/support) to contact us, and Rainbond TOC members will help you continue to contribute.
 
-以下是为 Rainbond 贡献的主要步骤：
+The following are the main steps to contribute to Rainbond:
 
-1. 根据项目、文档 Fork 对应的仓库
-2. 克隆到本地并安装依赖
-3. 创建新分支进行开发或文档修改
-4. 本地运行或打包测试
-5. 提交符合规范的 Commit 并推送到远程仓库
-6. 创建 Pull Request，说明你此次提交解决的问题
-7. 等待 CI 检查和维护者审核
-8. 审核通过将会合并到主分支，需要修改的则会在 PR 中讨论
+1. Fork the corresponding repository according to the project and documentation
+2. Clone to local and install dependencies
+3. Create a new branch for development or documentation modification
+4. Run or package test locally
+5. Submit a compliant Commit and push to the remote repository
+6. Create a Pull Request, explaining the problem solved by your submission
+7. Wait for CI checks and maintainer review
+8. If approved, it will be merged into the main branch; if modifications are needed, they will be discussed in the PR
 
-## Git Commit 规范
+## Git Commit Specification
 
-我们参考 [Angular 规范](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits)，尽量提供更明确的历史信息，方便判断提交目的和浏览。每个 commit message 包含一个 header，body 和 footer。header 有一个特殊的格式包含有 type，scope 和 subject：
+We refer to [Angular Specification](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits), trying to provide clearer historical information, making it easier to judge the purpose of submission and browse.Each commit message contains a header, body, and footer.The header has a special format including type, scope, and subject:
 
 ```
 <type>(<scope>): <subject>
@@ -50,36 +50,36 @@ Rainbond 希望项目参与者遵守行为准则，请阅读 [CODE_OF_CONDUCT](h
 <footer>
 ```
 
-header、body、footer 之间都要空一行，header 是必填项，scope 是选填项。commit message 的每一行的文字不能超过 72 个字符。这样子在 github 和 git 工具上更便于阅读。
+There must be a blank line between header, body, and footer, the header is required, scope is optional.Each line of the commit message cannot exceed 72 characters.This makes it easier to read on github and git tools.
 
 ### Type
 
-type 用于说明 commit 的类别，必须为以下类型的一种：
+type is used to explain the category of the commit, must be one of the following types:
 
-- feat: 新的功能
-- fix: 修复 bug
-- docs: 只是文档的更改
-- style: 不影响代码含义的更改 (例如空格、格式化、少了分号)
-- refactor: 既不是修复 bug 也不是添加新功能的代码更改
-- perf: 提高性能的代码更改
-- test: 添加或修正测试
-- chore: 对构建或者辅助工具的更改，例如生成文档
-- ci: 对 CI 配置或脚本的修改，例如 Github Actions
-- revert: 回滚某一次提交
+- feat: new feature
+- fix: bug fix
+- docs: documentation changes only
+- style: changes that do not affect the meaning of the code (e.g., spaces, formatting, missing semicolons)
+- refactor: code changes that neither fix a bug nor add a feature
+- perf: code changes that improve performance
+- test: adding or correcting tests
+- chore: changes to the build process or auxiliary tools, such as generating documentation
+- ci: changes to CI configuration or scripts, such as Github Actions
+- revert: revert a commit
 
-### Scope(可选项)
+### Scope(Optional)
 
-scope 用于说明 commit 影响的范围，当影响的范围有多个时候，可以使用 * 或不填。scope 是可选的，它可以给类型提供附加的上下文信息并包含在括号中，它可以是指定提交更改位置的内容。也可以是修复 Github 某个 issues 的链接。例如：fix(worker)、fix(#123)等。
+scope is used to explain the scope of the commit, when there are multiple affected scopes, you can use \* or leave it blank.scope is optional, it can provide additional context information for the type and is included in parentheses, it can be the content that specifies the location of the commit change.It can also be a link to a Github issue.For example: fix(worker), fix(#123), etc.
 
 ### Subject
 
-subject 用于对 commit 变化的简洁描述：
+subject is used to briefly describe the commit changes:
 
-- 使用祈使句，一般以动词原形开始，例如使用 change 而不是 changed 或者 changes
-- 第一个字母小写
-- 结尾不加句号（.）
+- Use imperative mood, generally starting with the original form of the verb, for example, use change instead of changed or changes
+- First letter lowercase
+- No period (.) at the end
 
-### 示例
+### Example
 
 ```
 feat: add code audit function
@@ -89,11 +89,11 @@ fix(api): wrong number of running apps
 style: add couple of missing semi colons
 ```
 
-## 撰写合格 Commit message 的工具
+## Tools for Writing Qualified Commit Messages
 
-[Commitizen](https://github.com/commitizen/cz-cli) 是一个撰写合格 Commit message 的工具。
+[Commitizen](https://github.com/commitizen/cz-cli) is a tool for writing qualified Commit messages.
 
-### 安装
+### Installation
 
 ```
 npm install -g commitizen
@@ -101,15 +101,15 @@ npm install -g cz-conventional-changelog
 echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
 
-### 使用
+### Usage
 
 ```
 git add .
 git cz
 ```
 
-接下来选择对应的影响范围，输入提交消息即可。
+Next, select the corresponding affected scope and enter the commit message.
 
-## Pull Request 规范
+## Pull Request Specification
 
-当我们接受 Pull Request 时，会将所有提交压缩为一个。因此 Pull Request 的标题将会成为提交消息的主题行。所以我们希望 Pull Request 的标题也能提供较准确的信息。请确保 Pull Request 的标题使用与提交消息中的主题行相同的格式。如果不遵循该格式，将无法通过 CI 检查。
+When we accept a Pull Request, all commits will be squashed into one.Therefore, the title of the Pull Request will become the subject line of the commit message.So we hope the title of the Pull Request can also provide more accurate information.Please ensure that the title of the Pull Request uses the same format as the subject line in the commit message.If this format is not followed, it will not pass the CI check.

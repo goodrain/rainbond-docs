@@ -1,15 +1,15 @@
 ---
-title: PHP 项目部署
-description: 在 Rainbond 上通过源代码部署 PHP 项目
+title: PHP Project Deployment
+description: Deploying PHP Projects via Source Code on Rainbond
 ---
 
-## 概述
+## Overview
 
-平台默认会根据源码根目录是否有`index.php` 文件或者 `composer.json`来识别为 PHP 项目.
+The platform defaults to recognizing PHP projects based on the presence of an `index.php` file or `composer.json` in the root directory of the source code.
 
-### shell hook 支持
+### Shell Hook Support
 
-通过配置 `composer.json` 进行 shell hook 对调用
+Configure `composer.json` to call shell hooks
 
 ```json
 {
@@ -24,21 +24,21 @@ description: 在 Rainbond 上通过源代码部署 PHP 项目
 }
 ```
 
-其中 `pre-install-cmd` 定义内容会在 install 前执行，`post-install-cmd` 定义内容会在 install 后执行，定义脚本必须提前创建并赋予执行权限
+The content defined in `pre-install-cmd` will be executed before install, and the content defined in `post-install-cmd` will be executed after install. The defined scripts must be created in advance and given execute permissions
 
-### Composer 文件
+### Composer Files
 
-默认源码根目录需要存在 `composer.json` 和 `composer.lock` 文件。`composer.lock` 其中可以通过如下命令生成
+By default, the `composer.json` and `composer.lock` files must exist in the root directory of the source code.`composer.lock` can be generated with the following command
 
 ```php
 composer update --ignore-platform-reqs
 ```
 
-### 扩展支持
+### Extension Support
 
 #### PHP 5.6
 
-在 Rainbond 上自动启用以下内置扩展(此列表不包括默认情况下 PHP 启用的扩展，例如 [DOM](http://php.net/manual/book.dom)，[JSON](http://php.net/manual/book.json)，[PCRE](http://php.net/manual/book.pcre) 或 [PDO](http://php.net/manual/book.pdo)):
+The following built-in extensions are automatically enabled on Rainbond (this list does not include extensions enabled by default in PHP, such as [DOM](http://php.net/manual/book.dom), [JSON](http://php.net/manual/book.json), [PCRE](http://php.net/manual/book.pcre), or [PDO](http://php.net/manual/book.pdo)):
 
 - [Bzip2](http://php.net/manual/book.bzip2)
 - [cURL](http://php.net/manual/book.curl)
@@ -55,7 +55,7 @@ composer update --ignore-platform-reqs
 - [Zip](http://php.net/manual/book.zip)
 - [Zlib](http://php.net/manual/book.zlib)
 
-以下内置扩展已经构建为“共享”，可以通过 composer.json（括号中给出的内部标识符名称）启用：
+The following built-in extensions have been built as "shared" and can be enabled via composer.json (the internal identifier name is given in parentheses):
 
 - [BCMath](http://php.net/manual/book.bc) (`bcmath`)
 - [Calendar](http://php.net/manual/book.calendar) (`calendar`)
@@ -77,7 +77,7 @@ composer update --ignore-platform-reqs
 - [XMLRPC](http://php.net/manual/book.xmlrpc) (`xmlrpc`)
 - [XSL](http://php.net/manual/book.xsl) (`xsl`)
 
-可以通过 composer.json 启用以下第三方扩展（括号中给出的内部标识符名称）：
+The following third-party extensions can be enabled via composer.json (the internal identifier name is given in parentheses):
 
 - [APCu](http://pecl.php.net/package/apcu) (`apcu`; provides an apc extension for compatibility with legacy software)
 - [Blackfire](http://blackfire.io/) (`blackfire`)
@@ -97,7 +97,7 @@ composer update --ignore-platform-reqs
 
 #### PHP 7.0
 
-在 Rainbond 上自动启用以下内置扩展(此列表不包括默认情况下 PHP 启用的扩展，例如 [DOM](http://php.net/manual/book.dom)，[JSON](http://php.net/manual/book.json)，[PCRE](http://php.net/manual/book.pcre) 或 [PDO](http://php.net/manual/book.pdo)):
+The following built-in extensions are automatically enabled on Rainbond (this list does not include extensions enabled by default in PHP, such as [DOM](http://php.net/manual/book.dom), [JSON](http://php.net/manual/book.json), [PCRE](http://php.net/manual/book.pcre), or [PDO](http://php.net/manual/book.pdo)):
 
 - [Bzip2](http://php.net/manual/book.bzip2)
 - [cURL](http://php.net/manual/book.curl)
@@ -113,7 +113,7 @@ composer update --ignore-platform-reqs
 - [Zip](http://php.net/manual/book.zip)
 - [Zlib](http://php.net/manual/book.zlib)
 
-以下内置扩展已经构建为“共享”，可以通过 composer.json（括号中给出的内部标识符名称）启用：
+The following built-in extensions have been built as "shared" and can be enabled via composer.json (internal identifier names given in parentheses):
 
 - [BCMath](http://php.net/manual/book.bc) (`bcmath`)
 - [Calendar](http://php.net/manual/book.calendar) (`calendar`)
@@ -135,7 +135,7 @@ composer update --ignore-platform-reqs
 - [XMLRPC](http://php.net/manual/book.xmlrpc) (`xmlrpc`)
 - [XSL](http://php.net/manual/book.xsl) (`xsl`)
 
-可以通过 composer.json 启用以下第三方扩展（括号中给出的内部标识符名称）：
+The following third-party extensions can be enabled via composer.json (internal identifier names given in parentheses):
 
 - [APCu](http://pecl.php.net/package/apcu) (`apcu`; provides an apc extension for compatibility with legacy software)
 - [Blackfire](http://blackfire.io/) (`blackfire`)
@@ -154,7 +154,7 @@ composer update --ignore-platform-reqs
 
 #### PHP 7.1
 
-在 Rainbond 上自动启用以下内置扩展(此列表不包括默认情况下 PHP 启用的扩展，例如 [DOM](http://php.net/manual/book.dom)，[JSON](http://php.net/manual/book.json)，[PCRE](http://php.net/manual/book.pcre) 或 [PDO](http://php.net/manual/book.pdo)):
+The following built-in extensions are automatically enabled on Rainbond (this list does not include extensions enabled by default in PHP, such as [DOM](http://php.net/manual/book.dom), [JSON](http://php.net/manual/book.json), [PCRE](http://php.net/manual/book.pcre) or [PDO](http://php.net/manual/book.pdo)):
 
 - [Bzip2](http://php.net/manual/book.bzip2)
 - [cURL](http://php.net/manual/book.curl)
@@ -170,7 +170,7 @@ composer update --ignore-platform-reqs
 - [Zip](http://php.net/manual/book.zip)
 - [Zlib](http://php.net/manual/book.zlib)
 
-以下内置扩展已经构建为“共享”，可以通过 composer.json（括号中给出的内部标识符名称）启用：
+The following built-in extensions have been built as "shared" and can be enabled via composer.json (internal identifier names given in parentheses):
 
 - [BCMath](http://php.net/manual/book.bc) (`bcmath`)
 - [Calendar](http://php.net/manual/book.calendar) (`calendar`)
@@ -192,7 +192,7 @@ composer update --ignore-platform-reqs
 - [XMLRPC](http://php.net/manual/book.xmlrpc) (`xmlrpc`)
 - [XSL](http://php.net/manual/book.xsl) (`xsl`)
 
-可以通过 composer.json 启用以下第三方扩展（括号中给出的内部标识符名称）：
+The following third-party extensions can be enabled via composer.json (the internal identifier name is given in parentheses):
 
 - [APCu](http://pecl.php.net/package/apcu) (`apcu`; provides an apc extension for compatibility with legacy software)
 - [Blackfire](http://blackfire.io/) (`blackfire`)
@@ -209,6 +209,6 @@ composer update --ignore-platform-reqs
 - [rdkafka](https://pecl.php.net/package/rdkafka) (`rdkafka`)
 - [PHPRedis](http://pecl.php.net/package/redis) (`redis`)
 
-## 部署示例
+## Deployment example
 
-进入到团队下，新建应用选择基于源码示例进行构建，选中 PHP Demo 并默认全部下一步即可。
+Go to the team, create a new application and select the source code example for construction, select PHP Demo and default all the next steps.

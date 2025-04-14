@@ -1,54 +1,54 @@
 ---
-title: 安装应用
-description: 从开源应用商店安装你的应用
+title: Install application
+description: Install your application from the open source app store
 ---
 
-## 从应用市场安装
+## Install from the app market
 
-Rainbond 提出了一种应用模型 Rainbond Application Model（RAM），这是标准的 Rainbond 应用规范。基于该模型以及 Rainbond 的应用市场机制，最终实现了一键安装/升级。高度自动化的交付体验，提升了企业应用交付效率，降低交付成本。
+Rainbond proposes an application model called Rainbond Application Model (RAM), which is the standard Rainbond application specification.Based on this model and Rainbond's app market mechanism, one-click installation/upgrade is ultimately achieved.The highly automated delivery experience enhances the efficiency of enterprise application delivery and reduces delivery costs.
 
-Rainbond 提供的应用市场分为两类: 
+The app market provided by Rainbond is divided into two categories:
 
-**1. 本地组件库**
-
-:::info
-
-本地组件库是 Rainbond 自带的应用市场，你在这个企业下发布的所有应用模版都可以保存在此。企业内部的其他用户可以通过从本地组件库安装应用模版来快速复制这个应用。
-
-:::
-
-**2. 开源应用商店**
+**1. Local component library**
 
 :::info
 
-开源应用商店是由好雨科技官方支持的应用市场，所有 Rainbond 都可以对接该市场，并一键安装上面的应用。
+The local component library is the app market that comes with Rainbond. All application templates you publish under this enterprise can be stored here.Other users within the enterprise can quickly replicate this application by installing the application template from the local component library.
 
 :::
 
-本地组件库与云应用市场的区别主要在于: 你在本地组件库中发布的应用，只能在部署的这套 Rainbond 环境中流转。而发布到云应用市场的应用，可以在多套 Rainbond 环境中一键安装。
+**2. Open source app store**
 
-### 从开源应用商店在线安装
+:::info
 
-当你部署完 Rainbond 时，点击左侧的应用市场按钮，选择开源应用商店，你将会看到如下页面。
+The open source app store is an app market officially supported by Goodrain Technology. All Rainbond can connect to this market and install the applications on it with one click.
+
+:::
+
+The main difference between the local component library and the cloud app market is that the applications you publish in the local component library can only circulate in the deployed Rainbond environment.Applications published to the cloud app market can be installed with one click in multiple Rainbond environments.
+
+### Online installation from the open source app store
+
+When you finish deploying Rainbond, click the app market button on the left, select the open source app store, and you will see the following page.
 
 <img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/appstore.jpg" title="云端应用市场授权示意图"/>
 
-获取授权后，你将可以点击应用右侧的安装，如下图所示:
+After obtaining authorization, you can click the install button on the right side of the application, as shown below:
 
 <img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/install-app.png" title="云端应用市场安装示意图"/>
 
-选择你要安装到的团队和应用，将会跳转到应用下，你可以看到应用拓扑图，它将会自动启动。接下来你就可以访问应用了
+Select the team and application you want to install to, and it will jump to the application, where you can see the application topology, which will start automatically.Next, you can access the application
 
 <img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/install-app-topological.png" title="云端应用市场安装应用拓扑图"/>
 
-### 从开源应用商店离线安装
+### Offline installation from the open source app store
 
-当你在[应用商店](https://hub.grapps.cn/marketplace)浏览应用时, 部分应用有可下载的离线包，此时，你可以登录并下载该离线包。
+When you browse applications in the [App Store](https://hub.grapps.cn/marketplace), some applications have downloadable offline packages. At this time, you can log in and download the offline package.
 
 <img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/offline-package-app.jpg" title="离线包示意图"/>
 
-下载完成后，我们可以在 Rainbond 中，选择应用市场，点击旁边的离线导入。如下图所示。
+After the download is complete, we can select the app market in Rainbond and click the offline import next to it.As shown below.
 
 <img src="https://static.goodrain.com/docs/5.6/use-manual/component-create/import-app.jpg" title="离线包导入示意图"/>
 
-导入完成后，就可以在本地组件库看见导入的应用，此时点击应用模版右侧的安装。等待构建完成，基于 Rainbond 应用市场的离线安装就完成了。
+After the import is completed, you can see the imported application in the local component library. At this time, click the install button on the right side of the application template.Wait for the build to complete, and the offline installation based on the Rainbond app market is completed.

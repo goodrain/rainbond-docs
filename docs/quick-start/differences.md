@@ -1,42 +1,42 @@
 ---
-title: 与其他技术差异
-description: 本章描述 Rainbond 与其他产品/技术的关键区别和共同点。
+title: Differences with other technologies
+description: This chapter describes the key differences and commonalities between Rainbond and other products/technologies.
 ---
 
 ## Rainbond vs. Helm
 
-### 1. 定位差异
+### 1. Positioning differences
 
-Helm 定位于 Kubernetes 上的包管理工具，主要是 Kubernetes Yaml 文件的模版。对整个应用的状态无合理管控机制。Rainbond 则定位于应用管理平台，不需要了解 Kubernetes 以及各类资源。可以做到应用级的生命周期管理（构建、启动、停止、删除以及应用状态展示）。
+Helm is positioned as a package management tool on Kubernetes, mainly as a template for Kubernetes Yaml files.There is no reasonable control mechanism for the state of the entire application.Rainbond is positioned as an application management platform, without the need to understand Kubernetes and various resources.It can achieve application-level lifecycle management (build, start, stop, delete, and application status display).
 
-### 2. 使用差异
+### 2. Usage differences
 
-1. Helm 安装应用完成后，没有明确的状态回流机制。用户无法直接了解整个应用的部署状态以及应用的运行状态。Rainbond 则通过拓扑图的形式直观展示了应用下所有组件的依赖关系以及运行状态。同时能可视化的管理应用下各个组件的生命周期。
+1. After Helm installs the application, there is no clear status feedback mechanism.Users cannot directly understand the deployment status of the entire application and the running status of the application.Rainbond visually displays the dependency relationships and running status of all components under the application through a topology diagram.At the same time, it can visually manage the lifecycle of each component under the application.
 
-2. Helm 应用的版本化管理是直接完整覆盖，没有合理的灰度策略。Rainbond 则可以通过应用模型以及插件能力选择性的进行灰度发布。必要时可以快速回滚。在制作 Helm 应用模版时，用户需要详细了解 Helm Chart 的编写。Rainbond 则通过界面的一键发布实现应用能力的积累复用。
+2. Helm's version management of applications is directly and completely covered, without a reasonable grayscale strategy.Rainbond can selectively perform grayscale releases through application models and plugin capabilities.If necessary, it can quickly roll back.When creating Helm application templates, users need to understand the writing of Helm Chart in detail.Rainbond achieves the accumulation and reuse of application capabilities through one-click publishing on the interface.
 
 ## Rainbond vs. KubeSphere
 
-### 1. 定位差异
+### 1. Positioning differences
 
-KubeSphere 主要定位于面向云原生应用的容器混合云，主打即插即用的插件式生态扩展能力。Rainbond 则定位于易用的云原生多云应用管理平台。主打应用的全生命周期管理以及2B行业的应用交付问题。
+KubeSphere is mainly positioned as a container hybrid cloud for cloud-native applications, focusing on plug-and-play plugin-style ecological expansion capabilities.Rainbond is positioned as an easy-to-use cloud-native multi-cloud application management platform.It focuses on the full lifecycle management of applications and the application delivery issues in the <b>2B</b> industry.
 
-### 2. 使用差异
+### 2. Usage differences
 
-1. KubeSphere 基于图形化界面来部署自己的业务组件时，需要填写的字段通常是 yaml 声明式配置文件的 “翻译”，对于 Kubernetes 不够熟悉的用户想要顺利使用，仍有一定的门槛。Rainbond 不直接使用 yaml 文件，应用的各类资源均以开发者的视角定义，部署业务时则完全不需要了解 Kubernetes 相关知识，用户只需填写源码地址，关注于业务即可。对于不熟悉 Kubernetes 的用户而言非常友好。
+1. When deploying business components based on the graphical interface, KubeSphere requires filling in fields that are usually "translations" of yaml declarative configuration files. For users not familiar enough with Kubernetes, there is still a certain threshold to use smoothly.Rainbond does not directly use yaml files. All types of resources of the application are defined from the developer's perspective. When deploying business, there is no need to understand Kubernetes-related knowledge. Users only need to fill in the source code address and focus on the business.It is very friendly to users who are not familiar with Kubernetes.
 
-2. 二者均提出了应用模版的概念，应用模版主要是通过对应用整体进行包装和抽象，包含应用运行所需的全部运行定义，使其与底层技术和概念隔离。最终实现用户一键部署应用的体验。KubeSphere 的应用模版主要基于标准的 Helm 应用模版实现，对 Helm 模版的支持较好，开发人员可以上传自己制作的 Helm Chart 作为应用模版。Rainbond 则是基于 RAM(Rainbond Application Model) 实现的应用模版。开发人员可以直接将正在运行的应用一键发布到应用商店，所见即所得，安装下来的应用与原应用保持一致。不需要了解 RAM 的具体实现，也不需要学习 Helm Chart 的编写。即可制作出自己的应用模版并实现离线交付、多云交付、私有交付等。
+2. Both have proposed the concept of application templates. Application templates mainly package and abstract the entire application, including all operational definitions required for the application to run, isolating it from underlying technologies and concepts.Ultimately, it achieves the experience of users deploying applications with one click.KubeSphere's application templates are mainly based on standard Helm application templates, with good support for Helm templates. Developers can upload their own Helm Charts as application templates.Rainbond's application templates are based on RAM (Rainbond Application Model).Developers can directly publish running applications to the application store with one click, what you see is what you get, and the installed application is consistent with the original application.There is no need to understand the specific implementation of RAM, nor to learn the writing of Helm Chart.You can create your own application templates and achieve offline delivery, multi-cloud delivery, private delivery, etc.
 
-3. 在微服务架构上，KubeSphere 产品化的包装了 Istio，大幅度降低了 Istio 的使用体验，但这不意味着用户可以完全抛却 Istio 这一层的概念，应用内部的拓扑依靠事先的配置来体现。Rainbond 自研的微服务框架易用性更高一些，实现了拖拉拽式的微服务拼装模式。但在 Istio、Linkerd 这些 Service Mesh 微服务框架一统江湖的情况下，标准化还有所欠缺。目前 Rainbond 也提供集成方式接纳了 Istio 治理模式，但还没有得到大量用户的使用验证。
+3. In terms of microservice architecture, KubeSphere has productized Istio, greatly reducing the user experience of Istio, but this does not mean that users can completely discard the concept of Istio. The topology inside the application is reflected by prior configuration.Rainbond's self-developed microservice framework is more user-friendly, achieving a drag-and-drop microservice assembly mode.However, in the case where Istio, Linkerd, and other Service Mesh microservice frameworks dominate the world, standardization is still lacking.Currently, Rainbond also provides integration methods to accept Istio governance models, but it has not yet been verified by a large number of users.
 
 ## Rainbond vs. Rancher
 
-### 1. 定位差异
+### 1. Positioning differences
 
-Rancher 是一个全栈式的 Kubernetes 容器管理平台，可以帮助运维人员快速部署和运行集群并管理上面的容器。Rainbond 则在云原生应用级包装和抽象，面向开发、测试和应用运维有应用管理的控制台，用于应用的全生命周期管理和运维。并在应用之上实现场景化的应用交付流程（软件开发交付流程、企业 IT 管理流程、企业应用市场生态）。面向系统运维则提供了命令行工具 grctl。
+Rancher is a full-stack Kubernetes container management platform that can help operation and maintenance personnel quickly deploy and run clusters and manage the containers on them.Rainbond, on the other hand, is packaged and abstracted at the cloud-native application level, providing an application management console for development, testing, and application operation and maintenance, for the full lifecycle management and operation and maintenance of applications.And on top of the application, it implements scenario-based application delivery processes (software development delivery processes, enterprise IT management processes, enterprise application market ecosystems).For system operation and maintenance, it provides the command-line tool grctl.
 
-### 2. 使用差异
+### 2. Usage differences
 
-1. Rancher 最大的优点是完全兼容 K8s 体系，更注重对k8s基础设施的结合, 提供了更原生的应用部署方式，同时在各个层次可以集成的云原生领域工具集已经非常丰富，虽然学习成本较高，但提供了一站式的解决方案，对运维更加友好。Rainbond 则面向开发人员提供了更高的易用性。让开发者不需要学习 Kubernetes 和容器相关技术和概念就能快速实现云原生的体验。另外，Rainbond 提供的一体化开发环境、模块编排、应用市场等功能，能大幅度提高定制开发以及应用交付的效率。能通过应用模版的交付降低交付成本以及交付难度。
+1. Rancher's biggest advantage is its complete compatibility with the K<b>8</b>s system, paying more attention to the integration with k<b>8</b>s infrastructure, providing a more native application deployment method, and at the same time, the cloud-native domain toolset that can be integrated at various levels is already very rich. Although the learning cost is high, it provides a one-stop solution, which is more friendly to operation and maintenance.Rainbond, on the other hand, provides higher usability for developers.It allows developers to quickly experience cloud-native without learning Kubernetes and container-related technologies and concepts.In addition, the integrated development environment, module orchestration, application market and other functions provided by Rainbond can greatly improve the efficiency of custom development and application delivery.It can reduce delivery costs and difficulties through the delivery of application templates.
 
-2. Rancher 专注于帮助 DevOps 团队面对多集群情况下的运维和安全挑战，多集群部署、集群监控、容器安全等方面较为出色。而 Rainbond 在使用上，没有提供直接操作集群和节点的功能。主要还是基于“应用”的多云管理，支持应用在多集群中快速部署。所以 Rancher 和 Rainbond 并没有冲突，向下对接基础设施，管理集群的安全性与合规性是 Rancher 最擅长的事情，向上为最终开发人员提高易用的云原生平台的使用体验则交给 Rainbond。
+2. Rancher focuses on helping DevOps teams face the challenges of operation and maintenance and security in multi-cluster situations, excelling in multi-cluster deployment, cluster monitoring, container security, etc.Rainbond, in use, does not provide the function of directly operating clusters and nodes.It is mainly based on "application" multi-cloud management, supporting the rapid deployment of applications in multiple clusters.Therefore, Rancher and Rainbond do not conflict. Downward, connecting to infrastructure, managing the security and compliance of clusters is what Rancher is best at. Upward, providing developers with an easy-to-use cloud-native platform experience is left to Rainbond.

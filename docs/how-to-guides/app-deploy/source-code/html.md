@@ -1,13 +1,13 @@
 ---
-title: 静态HTML
-description: 在 Rainbond 上通过源代码部署静态HTML项目
+title: Static HTML
+description: Deploy static HTML projects on Rainbond via source code
 ---
 
-## 概述
+## Overview
 
-平台默认会根据源码根目录是否有`index.html`文件来识别为静态语言项目.
+The platform identifies it as a static language project by default based on whether there is an `index.html` file in the root directory of the source code.
 
-如需自定义请在源码根目录定义 `web.conf` 配置文件，默认配置文件如下:
+To customize, please define the `web.conf` configuration file in the root directory of the source code. The default configuration file is as follows:
 
 ```conf
 server {
@@ -19,6 +19,6 @@ server {
 }
 ```
 
-## 部署示例
+## Deployment Example
 
-进入到团队下，新建应用选择**基于源码示例**进行构建，选中 `2048 Demo` 并默认全部下一步即可。
+Enter the team, create a new application, select **Based on source code example** to build, select `2048 Demo` and default all the next steps.

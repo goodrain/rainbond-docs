@@ -1,56 +1,55 @@
 ---
-title: 环境与版本管理
-describe: 本文介绍通过应用复制功能快速进行多个开发环境的搭建，提高开发者搭建开发环境的效率
-# keywords: 组件复制 应用复制 组件快速部署 应用快速部署
+title: Environment and Version Management
+describe: This article introduces how to quickly set up multiple development environments through the application replication function, improving the efficiency of developers in setting up development environments
 ---
 
-## 开发、测试环境管理
+## Development and Testing Environment Management
 
-应用开发过程中，同一个业务系统开发者可能需要重复多次的进行开发环境搭建。比如以下几类情况：
+During the application development process, developers of the same business system may need to repeatedly set up the development environment multiple times.For example, the following situations:
 
-- 多个新功能在不同的分支进行同时迭代，那么不同的分支代码需要独立的部署；
-- 团队中多个开发者进行开发，每个开发者都需要自己独立的一套开发环境；
-- 开发环境应用开发完成，希望快速部署到测试环境或预发布环境；
-- 生产环境灰度发布，希望快速部署指定组件使用指定的源代码版本；
+- Multiple new features are being iterated on different branches simultaneously, then different branch codes need to be deployed independently;
+- Multiple developers in the team are developing, each developer needs their own independent set of development environment;
+- After the development environment application development is completed, it is hoped to quickly deploy to the testing environment or pre-release environment;
+- Gray release in the production environment, hoping to quickly deploy specified components using specified source code versions;
 
-遇到以上的情况，如果应用只有一个组件，或许从头开始创建并不复杂。那如果应用包括 5 个甚至更多组件的时候呢，创建过程将耗费大量时间且是在做重复的事情。这个时候基于已经部署好的应用直接进行复制则可有效解决效率问题。
+Faced with the above situations, if the application has only one component, perhaps starting from scratch is not complicated.But what if the application includes 5 or even more components? The creation process will consume a lot of time and is doing repetitive things.At this time, directly copying based on the already deployed application can effectively solve the efficiency problem.
 
-### 前提条件
+### Preconditions
 
-1. 准备一个部署好的应用，可以包括使用源码、镜像创建的多个组件。
-2. 准备至少两个团队，验证跨团队应用复制。
-3. 组件对应的源码可以准备多个分支或者镜像可以准备多个 Tag，验证复制时便捷修改构建源版本。
+1. Prepare a deployed application, which can include multiple components created using source code and images.
+2. Prepare at least two teams to verify cross-team application replication.
+3. Prepare multiple branches for the source code corresponding to the components or multiple Tags for the images to conveniently modify the build source version during replication.
 
-### 操作流程
+### Operation Process
 
-1. 进入 **应用视图 -> 总览拓扑** 页面，点击右上方 **快速复制** 按钮；
-2. 弹窗中上方区域显示复制的目标应用，默认是当前应用，可以根据需求选择不同的团队或应用，也可以直接在指定团队中创建新的应用。
-3. 弹窗中下方区域显示当前应用的所有组件信息及其构建源信息，默认选中所有组件进行复制，可根据需要选择部分组件。且可根据需要更改组件的构建源版本，比如代码分支或镜像的 Tag。
-4. 点击确定则开始进行复制，复制完成后自己构建并启动所有复制的组件，页面跳转到目标应用中。
+1. Enter **Application View -> Overview Topology** page, click the **Quick Copy** button in the upper right corner;
+2. The upper area of the pop-up window shows the target application for copying, which is the current application by default. You can choose different teams or applications according to your needs, or directly create a new application in the specified team.
+3. The lower area of the pop-up window shows all component information and their build source information of the current application. All components are selected for copying by default, and you can choose part of the components as needed.And you can change the build source version of the components as needed, such as the code branch or the Tag of the image.
+4. Click OK to start copying. After copying is completed, all copied components will be built and started by themselves, and the page will jump to the target application.
 
-### 了解原理
+### Understanding the Principle
 
-**应用模型的关键性体现**
+**Key Manifestation of Application Model**
 
-Rainbond 中默认基于应用模型对各类型软件进行抽象管理，因此复制其实就是模型属性的复制，可以保障复制出来的组件与源组件属性保持一致。这再一次说明了一点，在 Rainbond 中部署组件的过程其实是在组装应用模型的过程，一旦部署完成即完成了业务模型的定义。
+In Rainbond, the default is based on the application model to abstractly manage various types of software. Therefore, copying is actually the copying of model attributes, which can ensure that the copied components are consistent with the source component attributes.This once again illustrates that in Rainbond, the process of deploying components is actually the process of assembling the application model. Once the deployment is completed, the definition of the business model is completed.
 
-**组件复制时依赖关系的处理**
+**Handling of Dependency Relationships During Component Copying**
 
-组件之间目前有两个属性具有关联性，包括组件依赖和存储依赖。复制组件时会存在两种情况，组件和依赖的组件双方一起被复制和只有依赖方被复制。若是双方都同时被复制，那么它们之间的依赖关系将保持，在新的组件双方之间进行建立，不管是否跨团队复制。若只有依赖方被复制，将会出现两种处理模式。复制的目标应用在当前团队下，则复制出的新组件依然依赖源依赖的组件，若复制的目标应用不在当前团队，那么依赖关系在复制时进行解除。
+Currently, there are two attributes between components that are related, including component dependencies and storage dependencies.When copying components, there will be two situations: both the component and the dependent component are copied together and only the dependent party is copied.If both are copied at the same time, then their dependency relationship will be maintained, established between the new component parties, regardless of whether it is cross-team copying.If only the dependent party is copied, there will be two processing modes.If the target application for copying is under the current team, then the newly copied component will still depend on the source dependent component. If the target application for copying is not in the current team, then the dependency relationship will be released during copying.
 
-## 版本管理​
+## Version Management
 
-组件的每一次构建都会根据任务进行时的时间生成组件版本号，如果是由源码创建的组件，每个版本记录对应的源码提交 Commit 信息，方便开发者对应检查代码。 在组件总览页面中显示当前运行的版本信息，点击版本信息下发的入口即可进入组件版本列表查询页面。Rainbond 默认保留 30 天内版本记录，历史版本自动进行清理动作。
+Each build of the component will generate a component version number based on the time when the task is performed. If the component is created by source code, each version record corresponds to the source code submission Commit information, which is convenient for developers to check the code. The current running version information is displayed on the component overview page. Click the entry below the version information to enter the component version list query page.Rainbond retains version records within 30 days by default, and historical versions are automatically cleaned up.
 
-组件版本主要包括运行镜像版本，目前组件属性暂不支持版本化控制。
+Component versions mainly include running image versions. Currently, component attributes do not support version control.
 
-### 组件版本回滚
+### Component Version Rollback
 
-进入 **组件总览页面  -> 点击查看更多版本 -> 进入构建版本历史**。
+Enter **Component Overview Page -> Click to View More Versions -> Enter Build Version History**.
 
-* 编辑：给版本打上标签
-* 日志：查看已构建的版本日志
-* 回滚：选择回滚到哪个版本
-* 删除：删除此次版本记录，删除后不可恢复。
+- Edit: Tag the version
+- Log: View the logs of the built versions
+- Rollback: Choose which version to roll back to
+- Delete: Delete this version record, it cannot be recovered after deletion.
 
 ![](https://static.goodrain.com/docs/5.6/use-manual/component-manage/overview/rollback.png)

@@ -1,0 +1,112 @@
+.navbar {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  padding: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    top: 1rem;
+  }
+}
+
+.homeLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  color: #374151;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.homeLink:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.divider {
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 8px 0;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  padding: 0 8px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: #374151;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.navLink:hover {
+  background: rgba(0, 0, 0, 0.05);
+  text-decoration: none !important;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+.github_button {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid #f3f4f6;
+  border-radius: 999px;
+  color: #111827;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.github_button:hover {
+  background-color: #f3f4f6;
+  text-decoration: none;
+  color: #111827;
+}
+
+.github_icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.github_text {
+
+  margin-right: 8px;
+}
+
+.star_count {
+  font-weight: 600;
+}
+
+

@@ -1,121 +1,120 @@
 ---
-title: 导入 K8S 集群已有资源
-description: 导入 Kubernetes 命名空间下的已有资源到 Rainbond 中管理。
+title: Import existing resources from K8S cluster
+description: Import existing resources under Kubernetes namespace into Rainbond for management.
 keywords:
-- 导入 Kubernetes 已有资源
+  - Import existing Kubernetes resources
 ---
 
-本篇文档介绍了如何将集群中命名空间下的资源导入 Rainbond 。  
+This document introduces how to import resources under the namespace in the cluster into Rainbond.
 
 :::caution
-* 治理模式默认为 k8s 原生 service 模式
-* Rainbond 创建或导入过的命名空间以及 'kube-' 开头的命名空间不会被识别。
-* 仅支持部分类型的转换，详细支持转换资源类型如下。
-* 导入过程中，如果组件类型资源的 pod 模版内有多个容器， Rainbond 默认只会识别第一个容器，其他容器会丢失，如果想启动多个容器，可以了解一下 Rainbond 的[插件制作](../app-ops/app-sidecar.md)。
-:::
 
-## 导入转换策略
+- The governance mode defaults to the native k8s service mode
+- Namespaces created or imported by Rainbond and namespaces starting with 'kube-' will not be recognized.
+- Only supports conversion of some types. The detailed supported resource types for conversion are as follows.
+- During the import process, if the pod template of the component type resource contains multiple containers, Rainbond will only recognize the first container by default, and other containers will be lost. If you want to start multiple containers, you can learn about Rainbond's [plugin making](../app-ops/app-sidecar.md).
+  :::
 
-以下便是按照类型划分的详细的支持资源清单。  
+## Import conversion strategy
 
-### 组件类型资源
+The following is a detailed list of supported resources divided by type.
 
-该类型资源导入完成后会转换成 Rainbond 中的组件。
+### Component type resources
 
-| k8s资源                      | Rainbond模型                |
-| ------------------------- | ------------------------------|
-| Deployment     | 无状态组件             |
-| StatefulSet    | 有状态组件             |
-| CronJob        | 定时任务组件            |
-| Job            | 任务组件               |
+After importing, this type of resource will be converted into components in Rainbond.
 
-### 组件属性资源
+| k8s resources | Rainbond model           |
+| ------------- | ------------------------ |
+| Deployment    | Stateless component      |
+| StatefulSet   | Stateful component       |
+| CronJob       | Scheduled task component |
+| Job           | Task component           |
 
-组件类型资源自身携带的一些属性值，如Port、ConfigMap、volume等
+### Component attribute resources
 
-| 组件属性                      | Rainbond模型                |
-| ------------------------- | ------------------------------|
-| nodeSelector              | 组件特殊属性 |
-| labels                    | 组件特殊属性 |
-| tolerations               | 组件特殊属性 |
-| volumes                   | 组件特殊属性 |
-| serviceAccountName        | 组件特殊属性 |
-| affinity                  | 组件特殊属性 |
-| volumeMount               | 组件特殊属性/配置文件 |
-| privileged                | 组件特殊属性 |
-| port                      | 组件端口    |    
-| HorizontalPodAutoscalers  | 组件伸缩策略 |
-| env                       | 环境变量/组件特殊属性   |
-| HealthyCheckManagement    | 组件健康检测 |
+Some attribute values carried by the component type resource itself, such as Port, ConfigMap, volume, etc
 
-如果组件的 volumeMount 挂载了 ConfigMap 类型的 volume ，则会转化为组件的配置文件。  
-如果 env 是引用类型，则不会被识别到 Rainbond 的环境变量。  
+| Component attributes     | Rainbond model                                     |
+| ------------------------ | -------------------------------------------------- |
+| nodeSelector             | Component special attributes                       |
+| labels                   | Component special attributes                       |
+| tolerations              | Component special attributes                       |
+| volumes                  | Component special attributes                       |
+| serviceAccountName       | Component special attributes                       |
+| affinity                 | Component special attributes                       |
+| volumeMount              | Component special attributes/configuration file    |
+| privileged               | Component special attributes                       |
+| port                     | Component port                                     |
+| HorizontalPodAutoscalers | Component scaling policy                           |
+| env                      | Environment variables/component special attributes |
+| HealthyCheckManagement   | Component health check                             |
 
-### k8s资源类型
+If the component's volumeMount mounts a ConfigMap type volume, it will be converted into the component's configuration file.\
+If env is a reference type, it will not be recognized as Rainbond's environment variable.
 
-供应用下的组件调用的资源（暂只支持导入以下几种资源）
+### k8s resource types
 
-|       k8s资源类型                |
-| ------------------------- | 
-| Service              | 
-| PersistentVolumeClaim                    |
-| Ingress               |
-| NetworkPolicy                   |
-| ConfigMap        |
-| Secret                  |
-| ServiceAccount               |
-| RoleBinding                |
-| HorizontalPodAutoscaler   |
-| Role  | 
-该类型资源导入完成后会存储到对应应用下的 k8s 资源中供组件特殊属性使用，特殊属性中volume可以绑定 ConfigMap 、 Secret
+Resources called by components under the application (currently only supports importing the following types of resources)
 
-## 开始导入
+| k8s resource types                                                                                                                                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Service                                                                                                                                                                                                                            |
+| PersistentVolumeClaim                                                                                                                                                                                                              |
+| Ingress                                                                                                                                                                                                                            |
+| NetworkPolicy                                                                                                                                                                                                                      |
+| ConfigMap                                                                                                                                                                                                                          |
+| Secret                                                                                                                                                                                                                             |
+| ServiceAccount                                                                                                                                                                                                                     |
+| RoleBinding                                                                                                                                                                                                                        |
+| HorizontalPodAutoscaler                                                                                                                                                                                                            |
+| Role                                                                                                                                                                                                                               |
+| After importing, this type of resource will be stored in the k8s resources under the corresponding application for use by component special attributes. Special attributes can bind ConfigMap and Secret to volume |
 
-资源导入有两个入口：
+## Start importing
 
-1. 平台管理 -> 集群 -> 导入。
-2. 团队视图内 -> 新增 -> Kubernetes YAML Helm -> 导入 Kubernetes 已有资源。
+There are two entry points for resource import:
 
-### 前提条件
+1. Platform management -> Cluster -> Import.
+2. Within the team view -> Add -> Kubernetes YAML Helm -> Import existing Kubernetes resources.
 
-1. 已了解 Rainbond 的团队、应用、组件等所有模块的概念
-2. 存在一个不是 Rainbond 所管理的命名空间并且命名空间下有k8s资源。
-3. 把想要放在同一应用下的 k8s 资源添加上统一的label标签，格式为 `app.kubernetes.io/name:xxx`或`app:xxx`。
-4. 了解资源导入的入口(在集群视图下的操作栏里点击导入按钮)。
+### Preconditions
 
-下面将会以 Linkerd 命名空间为例, 介绍在 Rainbond 上导入Linkerd命名空间及其内部的资源。
+1. Understand the concepts of all modules such as team, application, and component of Rainbond
+2. There is a namespace that is not managed by Rainbond and there are k8s resources under the namespace
+3. Add a unified label tag to the k8s resources that you want to put under the same application, the format is `app.kubernetes.io/name:xxx` or `app:xxx`
+4. Understand the entry point for resource import (click the import button in the operation bar under the cluster view).
 
-### 选择命名空间
+The following will take the Linkerd namespace as an example to introduce how to import the Linkerd namespace and its internal resources on Rainbond.
 
-1. 从下拉框中选择你要导入的命名空间。
+### Select namespace
 
-2. 等待页面识别完毕后，你会看到页面会按照应用/资源类型/名称 逐级划分，应用是按照标签`app.kubernetes.io/name:xxx`或`app:xxx`划分的请检查是否有遗漏或排列位置不对的资源，不含划分应用标签的资源会全部放到默认的未分组应用下。
+1. Select the namespace you want to import from the drop-down box.
 
-3. 在检测过程中如果有资源位置不对需要调整，或者不想导入了，可点击上一步后进去集群中去调整，调整完成后再重新进入识别页面，识别页面是可以反复查看的。
+2. After waiting for the page to recognize, you will see that the page is divided by application/resource type/name level by level. Applications are divided according to the label `app.kubernetes.io/name:xxx` or `app:xxx`. Please check if there are any resources that are missing or misplaced. Resources without the application label will all be placed under the default ungrouped application.
 
-4. 在查看资源类型及名称并选择命名空间后，确认无误点击下一步进入到高级识别。
+3. During the detection process, if the resource position is wrong and needs to be adjusted, or you do not want to import, you can click the previous step to go into the cluster to adjust, and then re-enter the recognition page after the adjustment is completed. The recognition page can be viewed repeatedly.
 
+4. After reviewing the resource type and name and selecting the namespace, confirm and click Next to proceed to advanced identification.
 
 <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/resource_name.jpg" title="资源识别页面"/>
 
-### 高级资源识别
+### Advanced Resource Identification
 
-1. 在这个页面你能看到你部署在集群中的资源对应到 Rainbond 各个模块后的体现。其中Deployment、Job、Cronjob、StatefulSet会识别为组件，其他Service、HPA等资源会对应解析为应用视图下的k8s资源中。
+1. On this page, you can see how the resources you deployed in the cluster are reflected in the various modules of Rainbond.Deployment, Job, Cronjob, and StatefulSet will be identified as components, while other resources such as Service and HPA will be parsed into the k8s resources under the application view.
 
-2. 在确认无误后，点击确认导入。
+2. After confirming everything is correct, click Confirm Import.
 
 <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/advanced_resources.jpg" title="高级资源识别页面"/>
 <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/k8s_resources.jpg" title="k8s资源页面"/>
 
+### Resource Import
 
-### 资源导入
+1. After the first two rounds of checks, click Confirm Import, and Rainbond will start importing and taking over the resources. The process involves a series of operations such as pulling images and data入库, so it may take some time. The waiting time depends on the number of resources under the namespace.
 
-1. 在经过前两轮的检查后，点击确认导入，Rainbond将开始导入并接管资源，过程需要经过拉取镜像、数据入库等一系列操作，所以需要等待一些时间，等待时间长短取决于命名空间下资源的数量。
+2. After the import is completed, you will be redirected to the team view, where you can see the resources taken over by Rainbond.
 
-2. 导入完成后会跳转到团队视图下，便可以看到 Rainbond 接管后的资源。
+3. The unclassified application is the default ungrouped application mentioned above.
 
-3. unclassified应用则是上面所说的默认未分组应用。
-
-Rainbond在接管后不会立刻重启用户在集群中的资源，当用户点击重启或更新等操作后，才会生产出一个完全由 Rainbond 接管的资源。
+After taking over, Rainbond will not immediately restart the resources in the cluster. Only when the user clicks restart or update will a resource completely taken over by Rainbond be produced.
 
 <img src="https://static.goodrain.com/docs/5.8/docs/use-manual/team-manage/ns-to-team/import.jpg" title="团队页面"/>

@@ -1,60 +1,61 @@
 ---
-title: 自定义域名并配置 HTTPS
-description: 通过三步实现生产级 HTTPS 配置：域名绑定、证书管理、安全加固
+title: Custom domain name and configure HTTPS
+description: "Achieve production-level HTTPS configuration in three steps: domain name binding, certificate management, and security hardening"
 keywords:
-- HTTPS 配置指南
-- 安全域名管理
-- SSL 证书部署
+  - HTTPS Configuration Guide
+  - Secure Domain Management
+  - SSL Certificate Deployment
 ---
 
-本教程将演示 Rainbond 网关管理的核心能力：
-- **开箱即用**：不需要任何额外配置，直接使用。
-- **域名自动解析**：支持动态绑定自定义域名。
-- **多协议支持**：同时支持 HTTP/HTTPS 与 WebSocket 协议
+This tutorial will demonstrate the core capabilities of Rainbond gateway management:
 
-## 前提
+- **Out of the box**: No additional configuration required, use directly.
+- **Automatic domain name resolution**: Supports dynamic binding of custom domain names.
+- **Multi-protocol support**: Simultaneously supports HTTP/HTTPS and WebSocket protocols
 
-- 已完成 [Rainbond 快速安装](/docs/quick-start/quick-install)。
+## Prerequisites
 
-## 一、绑定自定义域名
+- Completed [Rainbond Quick Installation](/docs/quick-start/quick-install).
 
-### 🚀 亮点
+## Bind a custom domain name
 
-- **通配符域名支持**：`*.example.com` 匹配所有子域名。
-- **多租户隔离**：不同团队独立域名空间。
+### 🚀 Highlights
 
-### 🧩 操作流程
+- **Wildcard domain name support**: `*.example.com` matches all subdomains.
+- **Multi-tenant isolation**: Different teams have independent domain name spaces.
 
-1. **使用容器镜像部署组件**
-    1. 进入目标团队视图，创建新应用。
-    2. 选择从镜像构建 ➡️ 容器。
-        - 自定义应用名称。
-        - 镜像地址：`registry.cn-hangzhou.aliyuncs.com/goodrain/nginx:alpine`
+### 🧩 Operation process
 
-2. **绑定自定义域名**
-    1. 进入应用视图 ➡️ 网关管理 ➡️ 新增路由。
-        - 域名：`demo.example.rainbond.com`。
-        - 选择上面创建的组件。
-    2. 解析域名 `demo.example.rainbond.com` 到 Rainbond 网关 IP 上，如：`192.168.1.1`。
-    3. 访问自定义域名，预期结果：`Welcome to nginx!`。
+1. **Deploy components using container images**
+    1. Enter the target team view and create a new application.
+    2. Select Build from Image ➡️ Container.
+        - Customize the application name.
+        - Image address：`registry.cn-hangzhou.aliyuncs.com/goodrain/nginx:alpine`
 
-![](/docs/tutorial/custom-gateway/gateway.png)
+2. **Bind a custom domain name**
+    1. Enter the application view ➡️ Gateway management ➡️ Add route.
+        - Domain name：`demo.example.rainbond.com`.
+        - Select the component created above.
+    2. Resolve the domain name `demo.example.rainbond.com` to the Rainbond gateway IP, such as: `192.168.1.1`.
+    3. Access the custom domain name, expected result: `Welcome to nginx!`.
 
-## 二、配置 HTTPS 安全访问
+![](/docs/tutorial/custom-gateway/gateway-en.png)
 
-### 🚀 亮点
+## Configure HTTPS secure access
 
-- **自动匹配证书**：根据域名自动匹配证书，支持通配符域名。
-- **通配符域名支持**：`*.example.com` 匹配所有子域名。
+### 🚀 Highlights
 
-### 🧩 操作流程
+- **Automatic certificate matching**: Automatically matches certificates based on domain names, supports wildcard domain names.
+- **Wildcard domain name support**: `*.example.com` matches all subdomains.
 
-- 进入应用视图 ➡️ 网关管理 ➡️ 证书管理 ➡️ 添加证书。
-    - 域名：`demo.example.rainbond.com`。
+### 🧩 Operation process
+
+- Enter the application view ➡️ Gateway management ➡️ Certificate management ➡️ Add certificate.
+    - Domain name：`demo.example.rainbond.com`.
 
 <details>
 
-<summary>公钥证书</summary>
+<summary>Public key certificate</summary>
 
 ```bash
 -----BEGIN CERTIFICATE-----
@@ -81,9 +82,8 @@ U6VLQSN6NTjNzZHu
 
 </details>
 
-
 <details>
-<summary>私钥证书</summary>
+<summary>Private key certificate</summary>
 
 ```bash
 -----BEGIN RSA PRIVATE KEY-----
@@ -118,14 +118,14 @@ AycFKgRmGX9GFTafZcJfYw==
 
 </details>
 
-
 :::tip
-当添加证书后，Rainbond 会自动将证书绑定到域名上。
+After adding the certificate, Rainbond will automatically bind the certificate to the domain name.
 :::
 
-使用 [https://demo.example.rainbond.com](https://demo.example.rainbond.com) 访问。
-- 浏览器会提示不安全的证书，点击继续访问。
-- 在浏览器中查看证书信息。
+Access using [https://demo.example.rainbond.com](https://demo.example.rainbond.com).
 
-> 你可以在你的本地 hosts 中添加对应的解析并使用上述的域名和证书进行测试。
+- The browser will prompt an unsafe certificate, click to continue accessing.
+- View certificate information in the browser.
+
+> You can add the corresponding resolution in your local hosts and use the above domain name and certificate for testing.
 

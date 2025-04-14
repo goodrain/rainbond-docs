@@ -1,0 +1,134 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes iconFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.core_capabilities {
+  text-align: center;
+  margin-bottom: 5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.core_capabilities_title {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.core_capabilities_description {
+  font-size: 16px;
+  font-weight: 450;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards 0.4s;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.core_capabilities_card {
+  padding: 0 20px 20px 0;
+  opacity: 0;
+  animation: fadeInScale 0.8s ease-out forwards;
+  animation-delay: calc(0.2s * var(--card-index, 0));
+}
+
+.core_capabilities_card_header {
+  line-height: 25px;
+}
+
+.core_capabilities_card_header_icon {
+  color: var(--ifm-color-primary);
+  transition: transform 0.3s ease;
+}
+
+.core_capabilities_card_header_title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.core_capabilities_card_description {
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 25px;
+}
+
+.core_capabilities_card_style {
+  height: 305px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .core_capabilities {
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+  }
+
+  .core_capabilities_title {
+    font-size: 28px;
+    margin-bottom: 1rem;
+  }
+
+  .core_capabilities_description {
+    font-size: 14px;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .core_capabilities_card {
+    padding: 1rem;
+  }
+
+  .core_capabilities_card_header {
+    gap: 0.5rem;
+  }
+
+  .core_capabilities_card_header_icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .core_capabilities_card_header_title {
+    font-size: 18px;
+  }
+
+  .core_capabilities_card_description {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .core_capabilities_card_style {
+    height: auto;
+    min-height: 250px;
+    padding: 1.5rem;
+  }
+}

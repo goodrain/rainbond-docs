@@ -1,14 +1,14 @@
 ---
-title: Helm Chart 选项
-description: '详细介绍 helm 安装过程中的 values 参数设置及如何变更已安装集群配置'
+title: Helm Chart Options
+description: Detailed introduction to the values parameter settings during helm installation and how to change the configuration of an installed cluster
 keywords:
-- rainbond helm values 配置 安装 集群
-- rainbond helm values config install cluster
+  - rainbond helm values configuration installation cluster
+  - rainbond helm values config install cluster
 ---
 
-本文提供了 Rainbond Helm Chart 的配置参考。
+This article provides a configuration reference for Rainbond Helm Chart.
 
-## 示例配置
+## Example Configuration
 
 ```yaml title="vi values.yaml"
 Cluster:
@@ -49,103 +49,101 @@ Cluster:
     username: root
     password: root
 
-  rainbondImageRepository: registry.cn-hangzhou.aliyuncs.com/goodrain
+  rainbondImageRepository: docker.io/rainbond
   # https://github.com/goodrain/rainbond/releases
   installVersion: <version>
   imagePullPolicy: IfNotPresent
   replicas: 1
 ```
 
-## 常用选项
+## Common Options
 
-### 集群对外 IP
+### Cluster External IP
 
-Rainbond 平台统一对外访问`IP`，位于网关节点之上的负载均衡`IP`，如无则填写任意网关节点的内/外网`IP`。
+The unified external access `IP` of the Rainbond platform, the load balancer `IP` on the gateway node, if not, fill in the internal/external network `IP` of any gateway node.
 
-| 配置项                    | 默认值 | 类型  | 说明               |
-| ------------------------- | ------ | ----- | ------------------ |
-| `Cluster.gatewayIngressIPs` |      | Array | 配置网关负责均衡`IP` |
+| Configuration Item          | Default Value | Type  | illustrate                           |
+| --------------------------- | ------------- | ----- | ------------------------------------ |
+| `Cluster.gatewayIngressIPs` |               | Array | Configure gateway load balancer `IP` |
 
-### 网关节点
+### Gateway Node
 
-选择 Rainbond 网关服务运行在哪些`K8s`节点上。
+Select which `K8s` nodes the Rainbond gateway service runs on.
 
-| 配置项                             | 默认值 | 类型  | 说明                                  |
-| ---------------------------------- | ------ | ----- | ----------------- |
-| `Cluster.nodesForGateway.externalIP` |      | Array | `K8s`节点外网`IP` |
-| `Cluster.nodesForGateway.internalIP` |      | Array | `K8s`节点内网`IP` |
-| `Cluster.nodesForGateway.name`       |      | Array | `K8s`节点名称    |
+| Configuration Item                   | Default Value | Type  | illustrate                       |
+| ------------------------------------ | ------------- | ----- | -------------------------------- |
+| `Cluster.nodesForGateway.externalIP` |               | Array | `K8s` node external network `IP` |
+| `Cluster.nodesForGateway.internalIP` |               | Array | `K8s` node internal network `IP` |
+| `Cluster.nodesForGateway.name`       |               | Array | `K8s` node name                  |
 
-### 构建节点
+### Build Node
 
-| 配置项                     | 默认值 | 类型  | 说明                                   |
-| -------------------------- | ------ | ----- | -------------------------------------- |
-| `Cluster.nodesForChaos.name` |      | Array | `K8s`节点名称 |
+| Configuration Item           | Default Value | Type  | illustrate      |
+| ---------------------------- | ------------- | ----- | --------------- |
+| `Cluster.nodesForChaos.name` |               | Array | `K8s` node name |
 
-### Containerd 目录
+### Containerd Directory
 
-| 配置项                     | 默认值 | 类型  | 说明                                   |
-| -------------------------- | ------ | ----- | -------------------------------------- |
-| `Cluster.containerdRuntimePath` | `/run/containerd` | String | 定义`containerd`运行时目录路径。如使用`k3s`或`RKE2`，则为`/var/run/k3s/containerd` |
+| Configuration Item              | Default Value     | Type   | illustrate                                                                                                               |
+| ------------------------------- | ----------------- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `Cluster.containerdRuntimePath` | `/run/containerd` | String | Define the `containerd` runtime directory path.If using `k3s` or `RKE2`, it is `/var/run/k3s/containerd` |
 
+## Advanced Options
 
-## 高级选项
+### External Image Repository
 
-### 外部镜像仓库
+| Configuration Item           | Default Value | Type   | illustrate                       |
+| ---------------------------- | ------------- | ------ | -------------------------------- |
+| `Cluster.imageHub.enable`    | false         | Bool   | Enable external image repository |
+| `Cluster.imageHub.domain`    |               | String | Image repository address         |
+| `Cluster.imageHub.namespace` |               | String | Image repository namespace       |
+| `Cluster.imageHub.password`  |               | String | Image repository password        |
+| `Cluster.imageHub.username`  |               | String | Image repository username        |
 
-| 配置项                       | 默认值 | 类型   | 说明             |
-| ---------------------------- | ------ | ------ | ---------------- |
-| `Cluster.imageHub.enable`    | false  | Bool   | 启用外部镜像仓库 |
-| `Cluster.imageHub.domain`    |        | String | 镜像仓库地址     |
-| `Cluster.imageHub.namespace` |        | String | 镜像仓库命名空间 |
-| `Cluster.imageHub.password`  |        | String | 镜像仓库密码     |
-| `Cluster.imageHub.username`  |        | String | 镜像仓库用户名   |
+### Rainbond Cluster Database
 
+| Configuration Item                | Default Value | Type   | illustrate                       |
+| --------------------------------- | ------------- | ------ | -------------------------------- |
+| `Cluster.regionDatabase.enable`   | false         | Bool   | Enable external cluster database |
+| `Cluster.regionDatabase.host`     |               | String | database address                 |
+| `Cluster.regionDatabase.name`     |               | String | data storage name                |
+| `Cluster.regionDatabase.password` |               | String | database password                |
+| `Cluster.regionDatabase.port`     |               | String | database port                    |
+| `Cluster.regionDatabase.username` |               | String | database username                |
 
-### Rainbond 集群端数据库
+### Rainbond console database
 
-| 配置项                            | 默认值 | 类型   | 说明                 |
-| --------------------------------- | ------ | ------ | -------------------- |
-| `Cluster.regionDatabase.enable`   | false  | Bool   | 启用外部集群端数据库 |
-| `Cluster.regionDatabase.host`     |        | String | 数据库地址           |
-| `Cluster.regionDatabase.name`     |        | String | 数据库名称           |
-| `Cluster.regionDatabase.password` |        | String | 数据库密码           |
-| `Cluster.regionDatabase.port`     |        | String | 数据库端口           |
-| `Cluster.regionDatabase.username` |        | String | 数据库用户           |
+MySQL 8.0 and above requires `default_authentication_plugin` to be set to `mysql_native_password`.
 
-### Rainbond 控制台数据库
+| Configuration item            | Default value | Type   | illustrate                       |
+| ----------------------------- | ------------- | ------ | -------------------------------- |
+| `Cluster.uiDatabase.enable`   | false         | Bool   | Enable external console database |
+| `Cluster.uiDatabase.host`     |               | String | database address                 |
+| `Cluster.uiDatabase.name`     |               | String | data storage name                |
+| `Cluster.uiDatabase.password` |               | String | database password                |
+| `Cluster.uiDatabase.port`     |               | String | database port                    |
+| `Cluster.uiDatabase.username` |               | String | database username                |
 
-MySQL 8.0 以上版本需要配置 `default_authentication_plugin` 为 `mysql_native_password`。
+### Image source address
 
-| 配置项                        | 默认值 | 类型   | 说明                 |
-| ----------------------------- | ------ | ------ | -------------------- |
-| `Cluster.uiDatabase.enable`   | false  | Bool   | 启用外部控制台数据库 |
-| `Cluster.uiDatabase.host`     |        | String | 数据库地址           |
-| `Cluster.uiDatabase.name`     |        | String | 数据库名称           |
-| `Cluster.uiDatabase.password` |        | String | 数据库密码           |
-| `Cluster.uiDatabase.port`     |        | String | 数据库端口           |
-| `Cluster.uiDatabase.username` |        | String | 数据库用户           |
+| Configuration item                | Default value                                | Type   | illustrate                                       |
+| --------------------------------- | -------------------------------------------- | ------ | ------------------------------------------------ |
+| `Cluster.rainbondImageRepository` | `registry.cn-hangzhou.aliyuncs.com/goodrain` | String | Installation to get the image repository address |
 
-### 镜像源地址
+### Installation version
 
-| 配置项                            | 默认值                                       | 类型   | 说明                   |
-| --------------------------------- | -------------------------------------------- | ------ | ---------------------- |
-| `Cluster.rainbondImageRepository` | `registry.cn-hangzhou.aliyuncs.com/goodrain` | String | 安装获取镜像的仓库地址 |
+| Configuration item       | Default value | Type   | illustrate  |
+| ------------------------ | ------------- | ------ | ----------- |
+| `Cluster.installVersion` | latest        | String | Image `tag` |
 
-### 安装版本
+### Image pull policy
 
-| 配置项                   | 默认值 | 类型   | 说明      |
-| ------------------------ | ------ | ------ | --------- |
-| `Cluster.installVersion` | latest | String | 镜像`tag` |
+| Configuration item        | Default value | Type   | illustrate        |
+| ------------------------- | ------------- | ------ | ----------------- |
+| `Cluster.imagePullPolicy` | IfNotPresent  | String | Image pull policy |
 
-### 镜像拉取策略
+### Number of replicas
 
-| 配置项                    | 默认值       | 类型   | 说明         |
-| ------------------------- | ------------ | ------ | ------------ |
-| `Cluster.imagePullPolicy` | IfNotPresent | String | 镜像拉取策略 |
-
-### 副本数
-
-| 配置项           | 默认值 | 类型 | 说明   |
-| ---------------- | ------ | ---- | ------ |
-| Cluster.replicas | 2      | int  | 副本数 |
+| Configuration item               | Default value | Type | illustrate         |
+| -------------------------------- | ------------- | ---- | ------------------ |
+| Cluster.replicas | 2             | int  | Number of replicas |

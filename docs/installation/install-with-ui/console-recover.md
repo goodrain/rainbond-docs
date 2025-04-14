@@ -1,28 +1,29 @@
 ---
-title: 迁移控制台
-description: 该文档描述控制台高可用，适用于从体验环境迁移控制台到高可用集群环境。
+title: Migration Console
+description: This document describes the high availability of the console, applicable to migrating the console from the trial environment to a high-availability cluster environment.
 keywords:
-- Rainbond 控制台高可用安装
+  - Rainbond Console High Availability Installation
 ---
 
 :::tip
-如果你的 Rainbond 集群是通过 Helm Chart 安装的，那么无需迁移控制台，无需进行本文档的操作。
+If your Rainbond cluster was installed via Helm Chart, then there is no need to migrate the console, and the operations described in this document are unnecessary.
 :::
 
-[快速安装](/docs/quick-start/quick-install)的 Rainbond 控制台是由 Docker 启动的，无法实现高可用部署，本文介绍如何将 Docker 启动的控制台迁移到 K8s 集群中以 POD 方式运行。
+The Rainbond console installed via [Quick Installation](/docs/quick-start/quick-install) is started by Docker and cannot achieve high-availability deployment. This document describes how to migrate the Docker-started console to run as a POD in the K8s cluster.
 
-## 前提
+## Prerequisites
 
-* [快速安装 Rainbond](/docs/quick-start/quick-install) 并对接[主机安装](/docs/installation/install-with-ui/)的集群。
+- [Quick Install Rainbond](/docs/quick-start/quick-install) and connect to the cluster installed via [Host Installation](/docs/installation/install-with-ui/).
 
-## 启动新控制台
+## Start New Console
+
 :::warning
-快速安装的 Rainbond 控制台默认提供了内置集群，如您在内置集群中创建了应用，请将应用都迁移到对接的集群中。
+The Rainbond console installed via quick installation provides a built-in cluster by default. If you have created applications in the built-in cluster, please migrate all applications to the connected cluster.
 
-您可以通过 `应用视图 -> 快速复制` 功能将应用从内置集群迁移到对接的集群中。应用后产生的数据需自行迁移，如数据库等。
+You can use the `Application View -> Quick Copy` feature to migrate applications from the built-in cluster to the connected cluster.Data generated after application needs to be migrated by yourself, such as databases.
 :::
 
-在对接的 K8s 集群中启动新的 Rainbond 控制台，请在管理节点上使用 [kubectl](https://docs.rke2.io/reference/cli_tools) 命令行工具执行以下命令。`<version>` 在 [Rainbond Release](https://github.com/goodrain/rainbond/releases) 中查看。
+To start a new Rainbond console in the connected K8s cluster, please use the [kubectl](https://docs.rke2.io/reference/cli_tools) command-line tool on the management node to execute the following commands.`<version>` can be viewed in [Rainbond Release](https://github.com/goodrain/rainbond/releases).
 
 ```yaml title="kubectl apply -f rbd-app-ui.yaml"
 apiVersion: rainbond.io/v1alpha1
@@ -40,13 +41,13 @@ spec:
     value: mysql
   - name: IS_STANDALONE
     value: "false"
-  image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:<version>
+  image: rainbond/rainbond:<version>
   imagePullPolicy: IfNotPresent
   priorityComponent: false
   replicas: 1
 ```
 
-默认使用 `rbd-db` 数据库，如需使用外部数据库请修改 `rainbondcluster` 资源。
+By default, the `rbd-db` database is used. If you need to use an external database, please modify the `rainbondcluster` resource.
 
 ```yaml title="kubectl edit rainbondcluster -n rbd-system"
 ...
@@ -60,18 +61,18 @@ spec:
     username: root
 ```
 
-## 备份恢复控制台数据
+## Backup and Restore Console Data
 
-### 备份旧控制台数据
+### Backup Old Console Data
 
-在旧控制台的 `平台管理 -> 设置 -> 数据库备份`，增加备份后并下载。
+In the old console's `Platform Management -> Settings -> Database Backup`, add a backup and then download it.
 
-### 导入备份到新控制台
+### Import Backup to New Console
 
-在新控制台的 `平台管理 -> 设置 -> 数据库备份 -> 导入备份`，导入成功后点击 `恢复`。恢复成功后需要`退出登录`，使用旧控制台的账号信息登录。
+In the new console's `Platform Management -> Settings -> Database Backup -> Import Backup`, import the backup successfully and then click `Restore`.After successful restoration, you need to `Logout` and log in using the old console's account information.
 
-此时新控制台中已经不存在**内置集群**，您需要在`平台管理 -> 集群` 中删除**内置集群**。
+At this point, the **built-in cluster** no longer exists in the new console. You need to delete the **built-in cluster** in `Platform Management -> Clusters`.
 
 :::danger
-控制台迁移后，内置集群将不再可用，请确保恢复备份后的控制台中存在正常进入的团队，否则登录时将匹配不到对应的团队，导致登录失败。
+After the console migration, the built-in cluster will no longer be available. Please ensure that there are teams in the console that can be normally accessed after restoring the backup. Otherwise, the corresponding team will not be matched during login, resulting in login failure.
 :::

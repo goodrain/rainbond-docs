@@ -1,218 +1,221 @@
 ---
-title: 使用 GitOps 实现应用持续部署
-description: 通过 Rainbond 的 GitOps 功能，实现应用的持续部署，包括代码仓库对接、自动构建配置及部署流程
+title: Achieving Continuous Deployment of Applications with GitOps
+description: Through Rainbond's GitOps feature, achieve continuous deployment of applications, including code repository integration, automatic build configuration, and deployment process
 keywords:
-- GitOps
-- 持续部署
-- 自动化部署
-- Webhook
-- CI/CD
+  - GitOps
+  - Continuous Deployment
+  - Automated Deployment
+  - Webhook
+  - CI/CD
 ---
 
-GitOps 是一种通过 Git 仓库作为应用配置和部署的唯一真实来源的持续交付方法。本文将详细介绍如何在 Rainbond 平台上实现 GitOps 持续部署流程，包括代码仓库对接、自动构建配置及完整部署流程。
+GitOps is a continuous delivery method that uses Git repositories as the single source of truth for application configuration and deployment.This article details how to implement the GitOps continuous deployment process on the Rainbond platform, including code repository integration, automatic build configuration, and the complete deployment process.
 
-Rainbond 支持两种 GitOps 持续部署方式：
+Rainbond supports two GitOps continuous deployment methods:
 
-1. 通过 OAuth 对接 Git 仓库，基于源码创建组件是通过打开自动构建按钮，Rainbond 会自动在对应的仓库中配置 WebHook。
-2. 手动配置 WebHook，在代码仓库中配置 WebHook 地址，并设置触发条件。
+1. Integrate Git repository via OAuth, create components based on source code by turning on the automatic build button, Rainbond will automatically configure WebHook in the corresponding repository.
+2. Manually configure WebHook, set the WebHook address in the code repository, and configure trigger conditions.
 
-## 前提条件
+## Preconditions
 
-- 已安装并配置 Rainbond 平台
-- 拥有 GitHub、GitLab 或 Gitee 等代码仓库的管理员权限
-- 拥有 Rainbond 平台的团队管理员或平台管理员权限
-- 确保网络连接畅通，代码仓库和 Rainbond 平台可以相互访问
+- Rainbond platform installed and configured
+- Have administrator permissions for code repositories such as GitHub, GitLab, or Gitee
+- Have team administrator or platform administrator permissions for the Rainbond platform
+- Ensure network connectivity, code repositories and Rainbond platform can access each other
 
-## 一、对接代码仓库并配置自动构建
+## 1. Integrate code repository and configure automatic build
 
-Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权认证，目前支持 GitHub、GitLab 和 Gitee 三种代码仓库。
+Rainbond supports integration with various Git code repositories, achieving authorization and authentication through the OAuth protocol, currently supporting GitHub, GitLab, and Gitee code repositories.
 
 <details>
-  <summary>对接 GitHub</summary>
+<summary>Integrate GitHub</summary>
   <div>
 
-**创建 GitHub OAuth Apps**
+**Create GitHub OAuth Apps**
 
-1. 登录 GitHub 账号，进入 **Settings -> Developer settings -> OAuth Apps -> New OAuth App**
-2. 填写以下信息：
-   - **Application name**：自定义应用名称，例如 "Rainbond GitOps"
-   - **Homepage URL**：Rainbond 访问地址，例如 `https://rainbond.com`
-   - **Authorization callback URL**：回调地址，格式为 `{Rainbond地址}/console/oauth/redirect`，例如 `https://rainbond.com/console/oauth/redirect`
-3. 点击 **Register application** 完成创建
-4. 创建完成后，记录生成的 **Client ID** 和 **Client Secret**
+1. Log in to GitHub account, go to **Settings -> Developer settings -> OAuth Apps -> New OAuth App**
+2. Fill in the following information:
+  - **Application name**: Custom application name, such as "Rainbond GitOps"
+  - **Homepage URL**: Rainbond access address, such as `https://rainbond.com`
+  - **Authorization callback URL**: Callback address, format as `{Rainbond address}/console/oauth/redirect`, such as `https://rainbond.com/console/oauth/redirect`
+3. Click **Register application** to complete creation
+4. After creation, record the generated **Client ID** and **Client Secret**
 
-**在 Rainbond 中配置 OAuth**
+**Configure OAuth in Rainbond**
 
-1. 登录 Rainbond 平台，
-   - 全局配置：进入 **平台管理 -> 设置 -> 基础设置 -> OAuth 第三方服务集成 -> 添加**
-   - 个人配置：进入 **个人中心 -> Git私有仓库 -> 添加**
-2. 填写以下信息：
-   - **OAuth 类型**：选择 github
-   - **名称**：自定义名称，例如 "GitHub"
-   - **客户端 ID**：填写 GitHub OAuth Apps 中的 Client ID
-   - **客户端密钥**：填写 GitHub OAuth Apps 中的 Client Secret
-   - **回调地址**：默认为当前 Rainbond 访问地址
-3. 点击 **确认** 完成配置
+1. Log in to Rainbond platform,
+  - Global configuration: go to **Platform Management -> Settings -> Basic Settings -> OAuth Third-party Service Integration -> Add**
+  - Personal configuration: go to **Personal Center -> Git Private Repository -> Add**
+2. Fill in the following information:
+  - **OAuth Type**: Select github
+  - **Name**: Custom name, such as "GitHub"
+  - **Client ID**: Fill in the Client ID from GitHub OAuth Apps
+  - **Client Secret**: Fill in the Client Secret from GitHub OAuth Apps
+  - **Callback Address**: Default is the current Rainbond access address
+3. Click **Confirm** to complete configuration
 
   </div>
 </details>
 
 <details>
-  <summary>对接 GitLab</summary>
+<summary>Integrate GitLab</summary>
   <div>
 
-**创建 GitLab Applications**
+**Create GitLab Applications**
 
-1. 登录 GitLab 账号，进入 **User Settings -> Applications**
-2. 填写以下信息：
-   - **Name**：自定义名称，例如 "Rainbond GitOps"
-   - **Redirect URL**：回调地址，格式为 `{Rainbond地址}/console/oauth/redirect`，例如 `https://rainbond.com/console/oauth/redirect`
-   - **Scopes**：勾选 `api` `read_user` `read_repository`
-3. 点击 **Save application** 完成创建
-4. 记录生成的 **Application ID** 和 **Secret**
+1. Log in to GitLab account, go to **User Settings -> Applications**
+2. Fill in the following information:
+  - **Name**: Custom name, such as "Rainbond GitOps"
+  - **Redirect URL**: Callback address, format as `{Rainbond address}/console/oauth/redirect`, such as `https://rainbond.com/console/oauth/redirect`
+  - **Scopes**: Check `api` `read_user` `read_repository`
+3. Click **Save application** to complete creation
+4. Record the generated **Application ID** and **Secret**
 
-> **注意**：如果使用的是 GitLab 10.6 及以上版本，需要允许向本地网络发送 Webhook 请求。进入 **Admin area -> settings -> OutBound Request**，勾选 `Allow requests to the local network from hooks and services`。
+> **Note**: If using GitLab 10.6 or above, you need to allow sending Webhook requests to the local network.Go to **Admin area -> settings -> OutBound Request**, check `Allow requests to the local network from hooks and services`.
 
-**在 Rainbond 中配置 OAuth**
+**Configure OAuth in Rainbond**
 
-1. 登录 Rainbond 平台，
-   - 全局配置：进入 **平台管理 -> 设置 -> 基础设置 -> OAuth 第三方服务集成 -> 添加**
-   - 个人配置：进入 **个人中心 -> Git私有仓库 -> 添加**
-2. 填写以下信息：
-   - **OAuth 类型**：选择 gitlab
-   - **名称**：自定义名称，例如 "GitLab"
-   - **服务地址**：GitLab 访问地址，例如 `https://gitlab.example.com`
-   - **客户端 ID**：填写 GitLab Applications 中的 Application ID
-   - **客户端密钥**：填写 GitLab Applications 中的 Secret
-   - **回调地址**：默认为当前 Rainbond 访问地址
-3. 点击 **确认** 完成配置
+1. Log in to Rainbond platform,
+  - Global configuration: go to **Platform Management -> Settings -> Basic Settings -> OAuth Third-party Service Integration -> Add**
+  - Personal configuration: go to **Personal Center -> Git Private Repository -> Add**
+2. Fill in the following information:
+  - **OAuth Type**: Select gitlab
+  - **Name**: Custom name, such as "GitLab"
+  - **Service Address**: GitLab access address, such as `https://gitlab.example.com`
+  - **Client ID**: Fill in the Application ID from GitLab Applications
+  - **Client Secret**: Fill in the Secret from GitLab Applications
+  - **Callback Address**: Default is the current Rainbond access address
+3. Click **Confirm** to complete configuration
 
   </div>
 </details>
 
 <details>
-  <summary>对接 Gitee</summary>
+<summary>Integrate Gitee</summary>
   <div>
 
-**创建 Gitee 第三方应用**
+**Create Gitee Third-party Application**
 
-1. 登录 Gitee 账号，进入 **设置 -> 第三方应用 -> 创建应用**
-2. 填写以下信息：
-   - **应用名称**：自定义名称，例如 "Rainbond GitOps"
-   - **应用主页**：Rainbond 访问地址，例如 `https://rainbond.com`
-   - **应用回调地址**：回调地址，格式为 `{Rainbond地址}/console/oauth/redirect`，例如 `https://rainbond.com/console/oauth/redirect`
-   - **权限**：勾选 `user_info` `projects` `hook`
-3. 点击 **创建应用** 完成创建
-4. 记录生成的 **Client ID** 和 **Client Secret**
+1. Log in to Gitee account, go to **Settings -> Third-party Applications -> Create Application**
+2. Fill in the following information:
+  - **Application Name**: Custom name, such as "Rainbond GitOps"
+  - **Application Homepage**: Rainbond access address, such as `https://rainbond.com`
+  - **Application Callback Address**: Callback address, format as `{Rainbond address}/console/oauth/redirect`, such as `https://rainbond.com/console/oauth/redirect`
+  - **Permissions**: Check `user_info` `projects` `hook`
+3. Click **Create Application** to complete the creation
+4. Record the generated **Client ID** and **Client Secret**
 
-**在 Rainbond 中配置 OAuth**
+**Configure OAuth in Rainbond**
 
-1. 登录 Rainbond 平台，
-   - 全局配置：进入 **平台管理 -> 设置 -> 基础设置 -> OAuth 第三方服务集成 -> 添加**
-   - 个人配置：进入 **个人中心 -> Git私有仓库 -> 添加**
-2. 填写以下信息：
-   - **OAuth 类型**：选择 gitee
-   - **名称**：自定义名称，例如 "Gitee"
-   - **服务地址**：填写 `https://gitee.com`
-   - **客户端 ID**：填写 Gitee 第三方应用中的 Client ID
-   - **客户端密钥**：填写 Gitee 第三方应用中的 Client Secret
-   - **回调地址**：默认为当前 Rainbond 访问地址
-3. 点击 **确认** 完成配置
+1. Log in to the Rainbond platform,
+  - Global configuration: Go to **Platform Management -> Settings -> Basic Settings -> OAuth Third-party Service Integration -> Add**
+  - Personal configuration: Go to **Personal Center -> Git Private Repository -> Add**
+2. Fill in the following information:
+  - **OAuth Type**: Select gitee
+  - **Name**: Custom name, such as "Gitee"
+  - **Service Address**: Fill in `https://gitee.com`
+  - **Client ID**: Fill in the Client ID from the Gitee third-party application
+  - **Client Secret**: Fill in the Client Secret from the Gitee third-party application
+  - **Callback Address**: Default is the current Rainbond access address
+3. Click **Confirm** to complete the configuration
 
   </div>
 </details>
 
-### OAuth 账号认证
+### OAuth account authentication
 
-在完成 OAuth 配置后，需要进行账号认证与第三方平台互联：
+After completing the OAuth configuration, account authentication is required to connect with the third-party platform:
 
-1. 点击 Rainbond 页面右上角的用户头像
-2. 选择 **个人中心 -> OAuth 账号绑定**
-3. 在对应的代码仓库平台（GitHub/GitLab/Gitee）点击 **去认证**
-4. 按照页面引导完成授权认证过程
+1. Click the user avatar in the upper right corner of the Rainbond page
+2. Select **Personal Center -> OAuth Account Binding**
+3. On the corresponding code repository platform (GitHub/GitLab/Gitee), click **Go to Authentication**
+4. Follow the page instructions to complete the authorization authentication process
 
-### 基于源码仓库创建应用并配置自动部署
+### Create an application based on the source code repository and configure automatic deployment
 
-- 完成代码仓库对接后，可以基于源码创建应用并配置自动部署。
+- After completing the code repository connection, you can create an application based on the source code and configure automatic deployment.
 
-1. 进入 Rainbond 团队视图，点击 **新增 -> 基于源码创建组件**
-2. 选择已对接的代码仓库（GitHub/GitLab/Gitee）
-3. 浏览并选择要部署的代码项目
-4. 填写组件名称、应用名称等基本信息
-5. 打开**自动构建**开关。
-6. 点击 **创建组件** 开始构建
+1. Enter the Rainbond team view, click **Add -> Create Component Based on Source Code**
+2. Select the connected code repository (GitHub/GitLab/Gitee)
+3. Browse and select the code project to be deployed
+4. Fill in basic information such as component name, application name
+5. Turn on the **Auto Build** switch.
+6. Click **Create Component** to start building
 
+- After the component is created, you can configure automatic builds to achieve automatic deployment after code submission:
 
-- 在组件创建完成后，可以配置自动构建实现代码提交后的自动部署：
+1. Enter the component details page, click **Build Source**
+2. Set a trigger keyword, such as `@deploy` (can be customized)
 
-1. 进入组件详情页，点击 **构建源**
-2. 设置触发关键字，例如 `@deploy`（可自定义）
+> **Note**: The trigger keyword is a specific string included in the Git commit information. Only when the submission information contains this keyword will the automatic build be triggered.
 
-> **说明**：触发关键字是 Git commit 信息中包含的特定字符串，只有当提交信息中包含该关键字时，才会触发自动构建。
+## Manually configure Webhook to achieve automatic build
 
-## 二、手动配置 Webhook 实现自动构建
+### Enable Rainbond Git Webhook
 
-### 开启 Rainbond Git Webhook
+Enable component Git Webhook In **Component -> Build Source**, turn on the Git-Webhook auto-build function, and copy the generated hook address.
 
-开启组件 Git Webhook 在 **组件 -> 构建源** 中打开 Git-Webhook 自动构建功能，复制生成的 hook 地址。
-
-### 配置 Git 仓库 Webhooks
+### Configure Git repository Webhooks
 
 <details>
-  <summary>GitHub 配置</summary>
+<summary>GitHub Configuration</summary>
 
-进入 GitHub 项目内，**Settings -> Webhooks -> Add webhooks**
-* Payload URL：复制 Rainbond 中的 Webhook 地址
-* Content type：`application/json`
-* Just the push event：选择 `push` 触发事件
-* Active：勾选 `Active`
+Enter the GitHub project, **Settings -> Webhooks -> Add webhooks**
+
+- Payload URL: Copy the Webhook address in Rainbond
+- Content type: `application/json`
+- Just the push event: Select `push` trigger event
+- Active: Check `Active`
 
 </details>
 
 <details>
-  <summary>GitLab 配置</summary>
+<summary>GitLab Configuration</summary>
 
-进入 GitLab 项目内，**Settings -> Integrations -> Add webhooks**
-* URL：复制 Rainbond 中的 Webhook 地址
-* Trigger：勾选 **Push events**
+Enter the GitLab project, **Settings -> Integrations -> Add webhooks**
+
+- URL: Copy the Webhook address in Rainbond
+- Trigger: Check **Push events**
 
 </details>
 
-其他代码仓库配置方式类似，需要说明的是目前 Rainbond hook 触发暂不支持安全请求校验。
+The configuration methods for other code repositories are similar. It should be noted that Rainbond hook triggering currently does not support secure request verification.
 
-## 三、GitOps 持续部署实践
+## GitOps Continuous Deployment Practice
 
-### 3.1 完整的 GitOps 工作流
+### 3.1 Complete GitOps Workflow
 
-一个完整的 GitOps 工作流包括以下步骤：
+A complete GitOps workflow includes the following steps:
 
-1. 开发者在本地开发环境修改代码
-2. 提交代码到 Git 仓库，在 commit 信息中包含触发关键字（如 `@deploy`）
-3. Git 仓库通过 Webhook 通知 Rainbond 平台
-4. Rainbond 检测到提交信息中包含触发关键字，自动拉取最新代码
-5. Rainbond 自动构建应用并部署
-6. 应用更新完成，开发者可以立即看到最新变更
+1. Developers modify code in the local development environment
+2. Submit code to the Git repository, including the trigger keyword (such as `@deploy`) in the commit information
+3. The Git repository notifies the Rainbond platform via Webhook
+4. Rainbond detects that the submission information contains the trigger keyword and automatically pulls the latest code
+5. Rainbond automatically builds and deploys the application
+6. Application update completed, developers can immediately see the latest changes
 
-### 3.2 最佳实践
+### 3.2 Best Practices
 
-推荐为不同环境配置不同的分支和自动构建策略：
+It is recommended to configure different branches and automatic build strategies for different environments:
 
-- **开发环境**：配置 `develop` 分支的自动构建，可以使用较宽松的触发条件
-- **测试环境**：配置 `test` 或 `staging` 分支的自动构建，使用明确的触发关键字
-- **生产环境**：配置 `master` 或 `main` 分支的自动构建，建议增加人工审核步骤
+- **Development Environment**: Configure automatic builds for the `develop` branch, which can use more relaxed trigger conditions
+- **Test Environment**: Configure automatic builds for the `test` or `staging` branch, using explicit trigger keywords
+- **Production Environment**: Configure automatic builds for the `master` or `main` branch, it is recommended to add manual review steps
 
-## 常见问题
+## common problem
 
-### Webhook 未触发自动构建
+### Webhook did not trigger automatic build
 
-**可能原因**：
-- Commit 信息中没有包含触发关键字
-- Webhook 配置不正确或 URL 错误
-- 网络连接问题导致 Webhook 请求未到达 Rainbond
-- GitLab 版本较高，未允许本地网络 Webhook 请求
+**Possible reasons**:
 
-**解决方法**：
-1. 检查 commit 信息是否包含正确的触发关键字
-2. 在代码仓库的 Webhook 配置页面检查 Webhook 的送达状态
-3. 对于私有化部署的 GitLab，检查是否开启了「允许向本地网络发送 Webhook 请求」的选项
+- The commit information does not contain the trigger keyword
+- Webhook configuration is incorrect or the URL is wrong
+- Network connection issues caused the Webhook request not to reach Rainbond
+- GitLab version is higher and does not allow local network Webhook requests
+
+**Solution**:
+
+1. Check if the commit information contains the correct trigger keyword
+2. Check the delivery status of the Webhook on the Webhook configuration page of the code repository
+3. For privately deployed GitLab, check if the option "Allow sending Webhook requests to the local network" is enabled
 

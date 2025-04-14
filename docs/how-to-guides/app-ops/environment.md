@@ -1,35 +1,36 @@
 ---
-title: 环境配置管理
-description: 管理应用的环境变量、配置文件、配置组等。
+title: Environment Configuration Management
+description: Manage application environment variables, configuration files, configuration groups, etc.
 keywords:
-- 环境变量
-- 配置文件
-- 配置组
+  - Environment variables
+  - Configuration files
+  - Configuration groups
 ---
 
 :::warning
-以上环境变量的操作均需要更新/重启组件后生效。
+Operations on the above environment variables will take effect after updating/restarting the component.
 :::
 
-## 环境变量
+## Environment variables
 
-Rainbond 为组件提供了环境变量的管理功能，用户可以在组件中添加、删除、修改环境变量，以及将环境变量转移为依赖的环境变量。
+Rainbond provides component environment variable management functionality, allowing users to add, delete, modify environment variables, and transfer environment variables to dependent environment variables.
 
-* 将环境变量转移为依赖的环境变量，在该组件被依赖时，此环境变量将会注入到依赖了该组件的组件中。
-  
-  > 转移后环境变量依然会在当前组件中生效。
+- Transferring environment variables to dependent environment variables will inject these environment variables into components that depend on this component when it is depended upon.
 
-## 配置文件管理
+  > After transfer, the environment variables will still take effect in the current component.
 
-Rainbond 为组件提供了配置文件的管理功能，用户可以在组件中添加、删除、修改配置文件，以及共享其他组件的配置文件。
+## Configuration file management
 
-进入到组件的环境配置页下，点击添加配置文件，内容如下:
-* 配置文件名称：自定义
-* 配置文件挂载路径：需填写绝对路径包含文件名，例如：/data/test.conf
-* 权限：文件的权限，如: 777
-* 配置文件内容：自定义
+Rainbond provides component configuration file management functionality, allowing users to add, delete, modify configuration files, and share configuration files from other components.
 
-同时支持动态渲染环境变量。例如 Ningx 配置文件本身不支持环境变量渲染，但可以通过 Rainbond 的配置文件挂载实现环境变量动态渲染，如下：
+Enter the component's environment configuration page, click to add a configuration file, the content is as follows:
+
+- Configuration name：custom
+- Configuration file mount path: Must be an absolute path including the file name, for example: /data/test.conf
+- Permissions: File permissions, such as: 777
+- Configuration file content: Custom
+
+Also supports dynamic rendering of environment variables.For example, Ningx configuration files do not support environment variable rendering by default, but Rainbond's configuration file mounting can achieve dynamic rendering of environment variables, as follows:
 
 ```nginx
 server {
@@ -41,52 +42,53 @@ server {
 }
 ```
 
-### 共享配置文件
+### Share configuration files
 
-共享配置文件是将别的组件的配置文件挂载到当前的组件中，适用于多个组件配置文件一致的场景。
+Sharing configuration files involves mounting another component's configuration files to the current component, suitable for scenarios where multiple components share the same configuration files.
 
-### 挂载共享配置文件
+### Mount shared configuration files
 
-进入到组件的环境配置页下，点击挂载共享配置文件，内容如下:
-* 填写本地挂载配置文件路径，如：/data/test.conf
+Enter the component's environment configuration page, click to mount shared configuration files, the content is as follows:
 
-## 配置组
+- Fill in the local mount configuration file path, for example: /data/test.conf
 
-配置组是一组可以在同一应用下的多个组件中同时生效的一组环境变量，配置组非常适合在需要为很多组件配置统一的环境变量时使用。
+## Configuration groups
 
-进入到应用视图下，点击配置组，添加配置组。保存后需更新组件才会生效。
+Configuration groups are a set of environment variables that can take effect simultaneously across multiple components within the same application, very suitable for configuring unified environment variables for many components.
 
-## 默认环境变量
+Enter the application view, click on configuration groups, add a configuration group.The last update component will take effect.
 
-组件的运行环境除了用户自己设置的环境变量以外，平台还会默认注入默认的环境变量。
+## Default environment variables
 
-| 变量名           | 说明                                                         |
-| ---------------- | ------------------------------------------------------------ |
-| _PORT            | 端口号                                                       |
-| _PROTOCOL        | 端口协议类型                                                 |
-| _TENANT_ID       | 租户 ID                                                      |
-| _SERVICE_ID      | 应用 ID                                                      |
-| _SERVICE_NAME    | 应用名称，由应用英文名和组件英文名组成，格式为：应用英文名-组件英文名 |
-| _NAMESPACE       | 命名空间                                                     |
-| _MEMORY_SIZE     | `micro、small`等，对应关系见下文                             |
-| _SERVICE_POD_NUM | 实例数量                                                     |
-| _HOST_IP         | 所在宿主机 IP 地址                                           |
-| _POD_IP          | 运行时的 IP 地址                                             |
-| _POD_NAME        | Pod 名称                                                     |
+In addition to the environment variables set by the user, the platform will also inject default environment variables into the component's runtime environment.
 
-内存大小与`MEMORY_SIZE`环境变量值的对应关系
+| Variable name                                                                   | illustrate                                                                                                                                                           |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _PORT                                                      | Port number                                                                                                                                                          |
+| _PROTOCOL                                                  | Port protocol type                                                                                                                                                   |
+| _TENANT_ID                            | Tenant ID                                                                                                                                                            |
+| _SERVICE_ID                           | Application ID                                                                                                                                                       |
+| _SERVICE_NAME                         | Application name, composed of the application English name and component English name, formatted as: application English name-component English name |
+| _NAMESPACE                                                 | Namespace                                                                                                                                                            |
+| _MEMORY_SIZE                          | `micro、small` etc., the corresponding relationship is shown below                                                                                    |
+| _SERVICE_POD_NUM | Instance count                                                                                                                                                       |
+| _HOST_IP                              | Host machine IP address                                                                                                                                              |
+| _POD_IP                               | Runtime IP address                                                                                                                                                   |
+| _POD_NAME                             | Pod name                                                                                                                                                             |
 
-> JVM 配置可根据 MEMORY_SIZE 变量进行动态调整，如 `JAVA_OPTS="-Xms${MEMORY_SIZE}m -Xmx${MEMORY_SIZE}m"`
+Correspondence between memory size and `MEMORY_SIZE` environment variable value
 
-| 内存/Mb | 环境变量值 |
-| ------- | ---------- |
-| 128     | micro      |
-| 256     | small      |
-| 512     | medium     |
-| 1024    | large      |
-| 2048    | 2xlarge    |
-| 4096    | 4xlarge    |
-| 8192    | 8xlarge    |
-| 16384   | 16xlarge   |
-| 32768   | 32xlarge   |
-| 65536   | 64xlarge   |
+> JVM configuration can be dynamically adjusted according to the MEMORY_SIZE variable, such as `JAVA_OPTS="-Xms${MEMORY_SIZE}m -Xmx${MEMORY_SIZE}m"`
+
+| Memory/Mb | Environment variable value |
+| --------- | -------------------------- |
+| 128       | micro                      |
+| 256       | small                      |
+| 512       | medium                     |
+| 1024      | large                      |
+| 2048      | 2xlarge                    |
+| 4096      | 4xlarge                    |
+| 8192      | 8xlarge                    |
+| 16384     | 16xlarge                   |
+| 32768     | 32xlarge                   |
+| 65536     | 64xlarge                   |

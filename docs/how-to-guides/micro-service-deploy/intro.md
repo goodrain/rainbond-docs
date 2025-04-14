@@ -1,77 +1,76 @@
 ---
-title: 微服务部署概述
-description: 详细介绍基于 Rainbond 搭建和管理微服务架构应用的方法与优势
-keywords: 
-- 微服务部署
-- Spring Cloud 部署
-- Service Mesh
-- 微服务架构
+title: Overview of Microservices Deployment
+description: Detailed introduction to the methods and advantages of building and managing microservices architecture applications based on Rainbond
+keywords:
+  - Microservices Deployment
+  - Spring Cloud Deployment
+  - Service Mesh
+  - Microservices Architecture
 ---
 
-本文档全面介绍基于 Rainbond 部署和管理微服务架构应用的方法、优势及最佳实践，帮助用户深入理解如何利用 Rainbond 构建现代化微服务体系。
+This document comprehensively introduces the methods, advantages, and best practices of deploying and managing microservices architecture applications based on Rainbond, helping users deeply understand how to use Rainbond to build modern microservices systems.
 
+## Overview of Microservices Architecture
 
-## 微服务架构概述
+Microservices architecture is a form of architecture that decomposes large applications into multiple independent components, each responsible for specific business functions, collaborating with each other through standard interfaces.This architecture has the following characteristics:
 
-微服务架构是一种将大型应用分解成多个独立组件的架构形式，每个组件负责特定的业务功能，通过标准接口相互协作。这种架构具有以下特点：
+- **Service Decoupling**: Each service can be independently developed, deployed, and scaled
+- **Technology Diversity**: Different services can be developed using different technology stacks
+- **Elastic Scaling**: Specific services can be independently scaled according to business needs
+- **Continuous Delivery**: Supports more flexible release strategies and faster iteration speeds
 
-- **服务解耦**：每个服务可独立开发、部署和扩展
-- **技术多样性**：不同服务可使用不同的技术栈开发
-- **弹性伸缩**：可根据业务需求对特定服务进行独立扩缩容
-- **持续交付**：支持更灵活的发布策略和更快的迭代速度
+## Microservices Assembly Strategy
 
-## 微服务组装策略
+### Assembly Based on Rainbond Native Service Mode
 
-### 基于 Rainbond 原生 Service 模式组装
+Rainbond native Service mode assembly is suitable for any type of application, including traditional monolithic applications, existing microservices applications, or newly developed services:
 
-Rainbond 原生 Service 模式组装适用于任何类型的应用，包括传统单体应用、已有微服务应用或全新开发的服务：
+1. **Componentized Deployment**: Deploy applications as independent components by function
+2. **Establish Dependency Relationships**: Create communication dependency relationships between components
+3. **Automatic Service Discovery**: Components automatically obtain access information through dependencies
+4. **Topology Visualization**: Intuitively present communication relationships between services in the application topology diagram
 
-1. **组件化部署**：将应用按功能拆分为独立组件部署
-2. **建立依赖关系**：在组件间创建通信依赖关系
-3. **自动服务发现**：组件间通过依赖自动获取访问信息
-4. **拓扑可视化**：在应用拓扑图中直观呈现服务间通信关系
+The advantage of this method is that it is **completely non-invasive to the application**, suitable for rapid microservices transformation of legacy systems and mixed deployment of various technology stacks.
 
-这种方式的优势在于**对应用完全无侵入**，适合遗留系统快速微服务化和各类技术栈混合部署。
+### Assembly Based on Spring Cloud Architecture
 
-### 基于 Spring Cloud 架构组装
+For applications developed based on Spring Cloud, the assembly method is slightly different:
 
-对于基于 Spring Cloud 开发的应用，组装方式略有不同：
-
-1. **注册中心部署**：首先部署 Nacos/Eureka 等注册中心
-2. **组件化部署**：部署各微服务组件
-3. **建立关键依赖**：将服务与注册中心、数据库等建立依赖关系
-4. **保持内部通信**：服务间通信仍通过注册中心
+1. **Registry Deployment**: First deploy registries such as Nacos/Eureka
+2. **Componentized Deployment**: Deploy each microservice component
+3. **Establish Key Dependencies**: Establish dependency relationships between services and registries, databases, etc
+4. **Maintain Internal Communication**: Communication between services still goes through the registry
 
 <!-- ![SpringCloud部署示意图](https://static.goodrain.com/docs/5.2/SpringCloud.png) -->
 
-在这种模式中，Spring Cloud 服务注册发现机制与 Rainbond 相互融合，形成优势互补。
+In this mode, the Spring Cloud service registration and discovery mechanism and Rainbond complement each other, forming a complementary advantage.
 
-## Spring Cloud 与 Rainbond 集成优势
+## Advantages of Spring Cloud and Rainbond Integration
 
-将 Spring Cloud 微服务部署在 Rainbond 平台上，可获得多方面的增强能力：
+Deploying Spring Cloud microservices on the Rainbond platform can obtain enhanced capabilities in many aspects:
 
-### 组件全生命周期管理
+### Component Lifecycle Management
 
-Rainbond 对 Spring Cloud 的每个微服务组件提供全面管理：
+Rainbond provides comprehensive management for each microservice component of Spring Cloud:
 
-- **运行状态控制**：开启、关闭、重启、构建、滚动更新、版本回滚
-- **性能监控**：资源使用、请求响应时间、吞吐率等多维监控
-- **日志管理**：集中式日志收集、查看与分析
-- **弹性伸缩**：支持垂直和水平伸缩，适应业务负载变化
-- **插件扩展**：通过插件机制增强服务能力
+- **Operation Status Control**: Start, stop, restart, build, rolling update, version rollback
+- **Performance Monitoring**: Multi-dimensional monitoring of resource usage, request response time, throughput rate, etc
+- **Log Management**: Centralized log collection, viewing, and analysis
+- **Elastic Scaling**: Supports vertical and horizontal scaling to adapt to business load changes
+- **Plugin Extension**: Enhance service capabilities through the plugin mechanism
 
-### 简化的服务通信配置
+### Simplified Service Communication Configuration
 
-Rainbond 通过依赖关系和环境变量机制简化服务通信配置：
+Rainbond simplifies service communication configuration through dependency relationships and environment variable mechanisms:
 
-- **自动服务发现**：无需硬编码服务地址
-- **环境变量注入**：自动注入上下游服务连接信息
-- **域名自动解析**：内部服务域名自动生成与解析
+- **Automatic Service Discovery**: No need to hardcode service addresses
+- **Environment Variable Injection**: Automatically injects connection information for upstream and downstream services
+- **Automatic Domain Name Resolution**: Internal service domain names are automatically generated and resolved
 
-推荐在配置文件中使用环境变量定义连接信息，例如：
+It is recommended to use environment variables to define connection information in configuration files, for example:
 
 ```yaml
-#Mysql相关
+#Mysql related
 jdbc:
   name: ${MYSQL_USER}
   passwd: ${MYSQL_PASSWORD}
@@ -79,7 +78,7 @@ jdbc:
   port: ${MYSQL_PORT}
   database: ${MYSQL_DATABASE}
 
-# Spring 相关
+# Spring related
 spring:
   redis:
     password: ${REDIS_PASS}
@@ -87,27 +86,27 @@ spring:
     port: ${REDIS_PORT}
 ```
 
-### 服务启动顺序控制
+### Service Startup Sequence Control
 
-Rainbond 基于依赖关系自动控制服务启动顺序：
+Rainbond automatically controls the service startup sequence based on dependency relationships:
 
-- 被依赖的服务优先启动
-- 只有当依赖的服务全部正常运行后，才会启动当前服务
-- 自动重试机制确保服务正确启动
+- Dependent services are started first
+- The current service will only start after all dependent services are running normally
+- Automatic retry mechanism ensures the service starts correctly
 
-这解决了微服务架构中服务启动顺序不当导致的问题，无需编写额外脚本。
+This solves the problems caused by improper service startup sequence in microservices architecture without the need to write additional scripts.
 
-### 应用市场快速部署
+### Quick Deployment from Application Market
 
-基于 Rainbond 应用市场，可实现微服务应用的一键部署：
+Based on the Rainbond application market, one-click deployment of microservices applications can be achieved:
 
-- **应用模板发布**：将整套微服务连同中间件一起打包发布
-- **一键安装**：从应用市场一键安装完整应用
-- **开箱即用的中间件**：MySQL、Redis、RabbitMQ 等常用中间件可直接安装使用
+- **Application Template Release**: Package and release the entire set of microservices along with middleware
+- **One-click Installation**: Install the complete application with one click from the application market
+- **Out-of-the-box Middleware**: Commonly used middleware such as MySQL, Redis, RabbitMQ can be directly installed and used
 
-## 参考案例
+## Reference Cases
 
-想了解更多 Spring Cloud 微服务在 Rainbond 上的部署示例，可参考以下案例：
+To learn more about Spring Cloud microservices deployment examples on Rainbond, refer to the following cases:
 
-- [Spring Cloud Pig 微服务部署](./pig-example.md)
-- [Spring Cloud Blade 微服务部署](./blade-example.md)
+- [Spring Cloud Pig Microservices Deployment](./pig-example.md)
+- [Spring Cloud Blade Microservices Deployment](./blade-example.md)

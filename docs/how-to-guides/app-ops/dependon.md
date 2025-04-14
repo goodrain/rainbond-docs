@@ -1,51 +1,52 @@
 ---
-title: 组件间环境变量传递
-description: 介绍Rainbond平台中组件间环境变量的自动传递机制及应用场景
+title: Inter-component environment variable transfer
+description: Introduce the automatic transfer mechanism and application scenarios of environment variables between components in the Rainbond platform
 keywords:
-- 服务间通信变量注入
-- 组件依赖关系
-- 环境变量传递
+  - Inter-service communication variable injection
+  - Component dependencies
+  - Environment variable transfer
 ---
 
-## 概述
+## Overview
 
-组件间通信变量注入是 Rainbond 平台的核心特性之一，它通过自动注入环境变量实现组件间的解耦通信。本文详细介绍这一机制的工作原理、配置方法及最佳实践。
+Inter-component communication variable injection is one of the core features of the Rainbond platform, which achieves decoupled communication between components through automatic injection of environment variables.This article details the working principle, configuration methods, and best practices of this mechanism.
 
 ```mermaid
 graph LR
-    A[组件A] -->|依赖| B[组件B]
-    B -->|自动注入| C["环境变量(MYSQL_HOST等)"]
-    C -->|传递至| A
+    A[Component A] -->|Depends on| B[Component B]
+    B -->|Auto-injects| C["Environment variables (MYSQL_HOST, etc.)"]
+    C -->|Transfers to| A
     style B fill:#e6f7ff,stroke:#1890ff
     style C fill:#f6ffed,stroke:#52c41a
 ```
 
-## 通信变量原理
+## Communication variable principle
 
-### 什么是通信变量？
+### What is a communication variable?
 
-通信变量是指组件为其依赖方提供的连接信息，例如：
-- 数据库的连接地址、端口、用户名和密码
-- API服务的认证信息和访问地址
-- 消息队列的连接参数
+Communication variables refer to the connection information provided by a component for its dependents, such as:
 
-这些变量使得组件间可以在不硬编码连接信息的情况下实现灵活通信。
+- Database connection address, port, username, and password
+- API service authentication information and access address
+- Message queue connection parameters
 
-### 解耦设计的价值
+These variables enable flexible communication between components without hard-coding connection information.
 
-标准化的设计场景中，业务代码依赖的服务**类型**不变，但具体依赖的服务**实例**可以灵活替换：
+### The value of decoupled design
 
-- 开发环境可使用轻量级数据库
-- 测试环境可使用模拟服务
-- 生产环境使用高可用集群
+In standardized design scenarios, the **type** of service that the business code depends on remains unchanged, but the specific dependent service **instance** can be flexibly replaced:
 
-通过环境变量注入机制，实现了这种灵活替换而无需修改代码。
+- Development environment can use lightweight databases
+- Test environment can use mock services
+- Production environment uses high-availability clusters
 
-## 实践示例
+Through the environment variable injection mechanism, this flexible replacement is achieved without modifying the code.
 
-### 代码中使用环境变量
+## Practical example
 
-以Spring Boot应用为例，配置数据库连接：
+### Using environment variables in code
+
+Taking a Spring Boot application as an example, configure the database connection:
 
 ```yaml
 spring:
@@ -56,93 +57,96 @@ spring:
 ```
 
 :::tip
-注意示例中`${VAR:default}`语法，它提供了默认值，便于本地开发测试。
+Note the `${VAR:default}` syntax in the example, which provides default values for local development and testing.
 :::
 
-### 配置和使用通信变量
+### Configure and use communication variables
 
-**前提条件**：
-- 已创建两个组件A和B
+**Prerequisites**:
 
-#### 1. 配置端口别名
+- Two components A and B have been created
 
-1. 进入组件B的管理页面
-2. 选择【端口】选项卡
-3. 找到需要暴露的端口（如MySQL的3306端口）
-4. 点击【端口设置】→【使用别名】
-5. 设置别名为`DB`
-6. 保存设置
+#### 1. Configure port alias
+
+1. Enter the management page of component B
+2. Select the [Ports] tab
+3. Find the port that needs to be exposed (such as MySQL's 3306 port)
+4. Click [Port Settings] → [Use Alias]
+5. Set the alias to `DB`
+6. Save the settings
 
 :::info
-设置别名后，系统会自动生成`DB_HOST`和`DB_PORT`两个变量
+After setting the alias, the system will automatically generate two variables `DB_HOST` and `DB_PORT`
 :::
 
-#### 2. 配置连接信息变量
+#### 2. Configure connection information variables
 
-1. 进入组件B的管理页面
-2. 选择【依赖】选项卡，切换到【连接信息】标签
-3. 点击【添加变量】，配置其他必要的连接变量：
-   - `DB_USER`: 数据库用户名
-   - `DB_PASSWORD`: 数据库密码
-   - `DB_DATABASE`: 数据库名称
-4. 点击【确认】保存变量
+1. Enter the management page of component B
+2. Select the [Dependencies] tab, switch to the [Connection Information] tab
+3. Click [Add Variable], configure other necessary connection variables:
+  - `DB_USER`: Database username
+  - `DB_PASSWORD`: Database password
+  - `DB_DATABASE`: Database name
+4. Click [Confirm] to save the variables
 
-#### 3. 建立组件依赖关系
+#### 3) Build dependencies between components
 
-1. 在应用视图的拓扑图中，拖拽连线从组件A指向组件B
-2. 确认建立依赖关系
-3. 更新或重启组件A使配置生效
+1. In the application view's topology diagram, drag a line from component A to component B
+2. Confirm to build dependencies
+3. Update or restart component A to make the configuration take effect
 
-#### 4. 验证环境变量注入
+#### 4) Verify environment variable injection
 
-1. 进入组件A的管理页面
-2. 选择【环境】选项卡
-3. 查看是否已注入`DB_HOST`、`DB_PORT`等环境变量
+1. Enter the management page of component A
+2. Select the [Environment] tab
+3. Check if environment variables such as `DB_HOST`, `DB_PORT` have been injected
 
-## 高级应用
+## Advanced application
 
-### 变量作用域
+### Variable scope
 
-通信变量具有两个作用域：
+Communication variables have two scopes:
 
-| 作用域 | 描述 |
-|-------|------|
-| 当前组件 | 变量作为普通环境变量在定义它的组件中生效 |
-| 依赖组件 | 变量自动注入到依赖当前组件的所有组件中 |
+| Scope               | Description                                                                                   |
+| ------------------- | --------------------------------------------------------------------------------------------- |
+| Current component   | Variables take effect as ordinary environment variables in the component that defines them    |
+| Dependent component | Variables are automatically injected into all components that depend on the current component |
 
-### 变量覆盖规则
+### Variable override rules
 
-当多个来源定义了同名变量时，优先级从高到低为：
+When multiple sources define variables with the same name, the priority from high to low is:
 
-1. 组件自身定义的环境变量
-2. 依赖注入的连接信息变量
-3. 代码中定义的默认值
+1. Environment variables defined by the component itself
+2. Dependency-injected connection information variables
+3. Default values defined in the code
 
-## 常见问题
+## Common problem
 
-### 连接信息与普通环境变量的区别
+### The difference between connection information and ordinary environment variables
 
-**相同点**：
-- 对于组件自身，两者都会作为环境变量在运行环境中生效
+**Same points**:
 
-**不同点**：
-- 连接信息会被注入到依赖当前组件的其他组件中（相当于"公开"的环境变量）
-- 普通环境变量仅在组件自身环境中生效
+- For the component itself, both will take effect as environment variables in the runtime environment
 
-### 何时应该定义连接信息？
+**Different points**:
 
-建议在以下情况定义连接信息：
+- Connection information will be injected into other components that depend on the current component (equivalent to "public" environment variables)
+- Ordinary environment variables only take effect in the component's own environment
 
-- 组件提供服务给其他组件使用时
-- 组件需要标准化连接方式时
-- 希望实现组件可替换性时
+### When should connection information be defined?
 
-### 变量未正确注入的排查
+It is recommended to define connection information in the following situations:
 
-如果发现变量未被正确注入，请检查：
+- When a component provides services to other components
+- When a component needs standardized connection methods
+- When you want to achieve component replaceability
 
-1. 依赖关系是否正确建立
-2. 组件是否在变量设置后重新部署
-3. 变量名称是否与预期一致
-4. 是否有同名环境变量覆盖了连接信息
+### Troubleshooting for variables not being correctly injected
+
+If you find that variables are not being correctly injected, please check:
+
+1. Are the dependencies correctly established
+2. Is the component redeployed after variable settings
+3. Does the variable name match the expected one
+4. Is there an environment variable with the same name overwriting the connection information
 

@@ -1,67 +1,67 @@
 ---
-title: 应用故障
-description: 介绍在使用 Rainbond 过程中的组件的运行问题排查
+title: Application Troubleshooting
+description: Introduction to component operation issues during Rainbond usage
 keywords:
-- 在使用 Rainbond 过程中的组件的运行问题排查
+- Component operation troubleshooting during Rainbond usage
 ---
 
-## 1. 构建失败故障排查
+## 1. Build Failure Troubleshooting
 
 ```mermaid
 flowchart LR
-    A[页面发起构建任务] --> B[代码构建阶段（buildpack）]
-    B --> C[镜像构建阶段（buildkit）]
-    C --> D[完成]
+    A[Page initiates build task] --> B[Code build phase（buildpack）]
+    B --> C[Image build phase（buildkit）]
+    C --> D[Complete]
 ```
 
-- **代码构建阶段**: 进入代码构建阶段，首先会进行代码的打包，如果代码打包失败，则构建任务失败。
-- **镜像构建阶段**: 如果代码打包成功，则进入镜像构建阶段，如果镜像构建失败，则构建任务失败。
-- **完成**: 如果镜像构建成功，则构建任务完成。
+- **Code Build Phase**: In the code build phase, code packaging is performed first. If code packaging fails, the build task fails.
+- **Image Build Phase**: If code packaging succeeds, it enters the image build phase. If image building fails, the build task fails.
+- **Complete**: If image building succeeds, the build task is completed.
 
-### 代码构建阶段常见问题（buildpack）
+### Common Issues in Code Build Phase (buildpack)
 
-- 构建日志一直卡在 `Start clone source code from git` 获取源代码阶段
-    1. 请检查代码源是否正确，以及是否存在权限问题。
-    2. 请检查网络连接是否正常。
-- 构建日志一直卡在 `make code package success, create build code job success` 启动代码构建任务阶段
-    - 代码构建任务会在 `rbd-system` 命名空间下启动一个 Job 任务，请检查该 Job 任务状态。
+- Build logs stuck at `Start clone source code from git` source code acquisition phase
+    1. Please check if the code source is correct and if there are any permission issues.
+    2. Please check if the network connection is normal.
+- Build logs stuck at `make code package success, create build code job success` code build task startup phase
+    - The code build task will start a Job task in the `rbd-system` namespace. Please check the status of this Job task.
     ```bash
     $ kubectl get pod -n rbd-system
     NAME                                              READY   STATUS    RESTARTS      AGE
     ef9363dc8987cc5afa439e296e378622-20250317161307   1/1     Running   0             8s
     ......
     ```
-- 其他情况可能是代码问题，请详细查看构建日志进行排查。
+- Other cases may be code issues. Please check the build logs in detail for troubleshooting.
 
-### 镜像构建阶段常见问题（buildkit）
-- 构建日志一直卡在 `code build success, create build code job success` 启动镜像构建任务阶段
-    - 镜像构建任务会在 `rbd-system` 命名空间下启动一个 Job 任务，请检查该 Job 任务状态。
+### Common Issues in Image Build Phase (buildkit)
+- Build logs stuck at `code build success, create build code job success` image build task startup phase
+    - The image build task will start a Job task in the `rbd-system` namespace. Please check the status of this Job task.
     ```bash
     $ kubectl get pod -n rbd-system
     NAME                                                        READY   STATUS    RESTARTS      AGE
     ef9363dc8987cc5afa439e296e378622-20250317161307-dockerfile   1/1     Running   0             8s
     ......
     ```
-- 源码构建提示 error: failed to solve: goodrain.me/runner:latest-amd64，这种情况通常是无法从 `goodrain.me` 镜像仓库获取 `runner` 镜像，尝试手动重新推送该镜像:
-    1. 获取最新的 `runner` 镜像
+- Source code build shows error: failed to solve: goodrain.me/runner:latest-amd64. This usually occurs when unable to get the `runner` image from the `goodrain.me` image repository. Try manually pushing the image again:
+    1. Get the latest `runner` image
     ```bash
     nerdctl pull registry.cn-hangzhou.aliyuncs.com/goodrain/runner:stable
     ```
-    2. 推送到 `goodrain.me` 镜像仓库
+    2. Push to the `goodrain.me` image repository
     ```bash
     nerdctl tag registry.cn-hangzhou.aliyuncs.com/goodrain/runner:stable goodrain.me/runner:latest-amd64
     nerdctl login goodrain.me -u admin -padmin1234 --insecure-registry
     nerdctl push goodrain.me/runner:latest-amd64 --insecure-registry
     ```
-#### BuildKit 源码构建配置
+#### BuildKit Source Code Build Configuration
 
-默认采用 [BuildKit](https://github.com/moby/buildkit) 作为源码构建镜像打包工具。
+By default, [BuildKit](https://github.com/moby/buildkit) is used as the source code build image packaging tool.
 
-BuildKit 配置文件名称默认为 `goodrain-me`，如在安装时指定了镜像仓库名称，则配置文件名称为镜像仓库名称，如 `registry-cn-hangzhou-aliyuncs-com`。
+The BuildKit configuration file name defaults to `goodrain-me`. If an image repository name is specified during installation, the configuration file name will be the image repository name, such as `registry-cn-hangzhou-aliyuncs-com`.
 
-##### DockerHub 镜像加速
+##### DockerHub Image Acceleration
 
-Dockerfile 源码构建引用 DockerHub 镜像获取超时，修改 BuildKit 配置镜像加速。
+Dockerfile source code build references DockerHub images timeout. Modify BuildKit configuration for image acceleration.
 
 ```yaml title="kubectl edit cm goodrain-me -n rbd-system"
 apiVersion: v1
@@ -79,9 +79,9 @@ metadata:
   namespace: rbd-system
 ```
 
-##### 源码构建报错 x509: certificate signed by unknown authority
+##### Source Code Build Error x509: certificate signed by unknown authority
 
-安装时对接了私有仓库是 HTTP 协议，源码构建时拉取镜像报错 `x509: certificate signed by unknown authority`，需修改 BuildKit 配置文件。
+When connecting to a private repository using HTTP protocol during installation, source code build fails with error `x509: certificate signed by unknown authority`. Modify the BuildKit configuration file.
 
 ```yaml title="kubectl edit cm goodrain-me -n rbd-system"
 apiVersion: v1
@@ -100,58 +100,58 @@ metadata:
   namespace: rbd-system
 ```
 
-### 源码构建提示 dial tcp look up goodrain.me on xxx:53: no such host
+### Source Code Build Shows dial tcp look up goodrain.me on xxx:53: no such host
 
-一般这是由于本地 `/etc/hosts` 没有自动写入 `goodrain.me` 的解析，通过以下命令重新写入：
+This is usually because the local `/etc/hosts` does not automatically write the resolution for `goodrain.me`. Re-write it using the following command:
 
 ```bash
 kubectl delete pod -l name=rainbond-operator -n rbd-system
 ```
 
-rainbond-operator 会自动重新启动写入 `/etc/hosts` 的 Job 任务。
+rainbond-operator will automatically restart and write the `/etc/hosts` Job task.
 
 
-## 2. 组件运行故障排查
+## 2. Component Operation Troubleshooting
 
-### 组件无运行日志信息
+### No Component Operation Log Information
 
-组件的日志通过 `WebSocket` 进行推送，如果无日志信息，在 **平台管理 -> 集群 -> 编辑**，查看 `WebSocket` 通信地址是否正确，本地是否可以与该地址进行通信。
+Component logs are pushed through `WebSocket`. If there are no log messages, go to **Platform Management -> Cluster -> Edit** and check if the `WebSocket` communication address is correct and if local communication with this address is possible.
 
-### 组件异常状态故障排查
+### Component Abnormal State Troubleshooting
 
-- **调度中**：组件实例一直处于**调度中**状态的实例，体现为橙黄色的方块。说明集群中已经没有足够的资源来运行这个实例。具体的资源项短缺详情，可以点击橙黄色的方块，打开实例详情页面后在 `说明` 处了解到。例如：
+- **Scheduling**: Component instances that remain in the **Scheduling** state, shown as orange-yellow squares, indicate that there are not enough resources in the cluster to run this instance. Specific resource shortage details can be found by clicking the orange-yellow square and checking the `Description` in the instance details page. For example:
   ```bash
-  实例状态：调度中
-  原因：   Unschedulable
-  说明：   0/1 nodes are available: 1 node(s) had desk pressure
+  Instance Status: Scheduling
+  Reason:   Unschedulable
+  Description:   0/1 nodes are available: 1 node(s) had desk pressure
   ```
-  - 根据 `说明` 可以了解到，当前集群中共有 1 个宿主机节点，但是处于不可用状态，原因是该节点存在磁盘压力。根据原因对节点进行磁盘扩容或空间清理后，该问题会自动解除。常见的资源短缺类型还包括：CPU 不足、内存不足。
+  - From the `Description`, we can see that there is currently 1 host node in the cluster, but it is in an unavailable state because the node has disk pressure. After expanding disk space or cleaning up space based on the reason, this issue will automatically resolve. Common resource shortage types also include: insufficient CPU, insufficient memory.
 
-- **等待启动**：组件实例一直处于等待启动状态。Rainbond 平台根据组件之间的依赖关系确定启动顺序，如果组件长时间处于等待启动状态，则说明其依赖的某些组件未能正常启动。切换至应用拓扑视图梳理组件间依赖关系，确保其依赖的组件都处于正常的运行状态。
+- **Waiting to Start**: Component instances remain in the waiting to start state. The Rainbond platform determines the startup order based on dependencies between components. If a component remains in the waiting to start state for a long time, it means some of its dependent components have not started normally. Switch to the application topology view to sort out component dependencies and ensure all dependent components are in normal running state.
 
-- **运行异常**：运行异常状态代表该实例无法正常运行。点击红色的方块，可以在实例详情页面找到提示，重点关注实例中的容器的状态，通过状态的不同，来继续排查问题。以下是常见的几种问题状态：
-  - **ImagePullBackOff**: 该状态说明当前容器的镜像无法被拉取，下拉至 `事件` 列表处，可以得到更为详细的信息。确保对应的镜像可以被拉取，如果发现无法拉取的镜像以 `goodrain.me` 开头，则可以尝试构建该组件解决问题。
-  - **CrashLoopBackup**: 该状态说明当前容器本身启动失败，或正在遭遇运行错误。切换至 `日志` 页面查看业务日志输出并解决问题即可。
-  - **OOMkilled**: 该状态说明为容器分配的内存太小，或业务本身存在内存泄漏问题。业务容器的内存配置入口位于 `伸缩` 页面。插件容器的内存配置入口位于 `插件` 页面。
+- **Running Exception**: The running exception state indicates that the instance cannot run normally. Click the red square to find prompts in the instance details page, focusing on the status of containers in the instance. Continue troubleshooting based on different statuses. Here are some common problem states:
+  - **ImagePullBackOff**: This state indicates that the current container's image cannot be pulled. Scroll down to the `Events` list for more detailed information. Ensure the corresponding image can be pulled. If you find that the image that cannot be pulled starts with `goodrain.me`, you can try building the component to solve the problem.
+  - **CrashLoopBackup**: This state indicates that the current container itself failed to start or is experiencing runtime errors. Switch to the `Logs` page to view business log output and solve the problem.
+  - **OOMkilled**: This state indicates that the memory allocated to the container is too small, or there is a memory leak in the business itself. The memory configuration entry for business containers is located on the `Scaling` page. The memory configuration entry for plugin containers is located on the `Plugins` page.
 
-## 3. 第三方组件故障排查
+## 3. Third-party Component Troubleshooting
 
-请按照以下步骤操作第三方组件：
+Please follow these steps for third-party components:
 
-1. 打开第三方组件对内端口
-2. 设置第三方组件健康检测
-3. 启动/更新第三方组件
+1. Open internal ports for third-party components
+2. Set health checks for third-party components
+3. Start/update third-party components
 
-直至第三方组件状态为 `就绪`，才能正常使用。
+Until the third-party component status is `Ready`, it can be used normally.
 
-## 4. 应用/组件 HTTP 对外无法访问
+## 4. Application/Component HTTP External Access Issues
 
 ```mermaid
 flowchart TD
-    A[用户访问] --> B{网关响应}
-    B -->|502 Bad Gateway| C[后端服务异常]
-    B -->|503 Service Unavailable| D[服务暂时不可用]
-    B -->|504 Gateway Timeout| E[请求超时]
+    A[User Access] --> B{Gateway Response}
+    B -->|502 Bad Gateway| C[Backend Service Exception]
+    B -->|503 Service Unavailable| D[Service Temporarily Unavailable]
+    B -->|504 Gateway Timeout| E[Request Timeout]
     
     style A fill:#e6f7ff,stroke:#1890ff
     style B fill:#fff3e6,stroke:#f5a623
@@ -160,94 +160,94 @@ flowchart TD
     style E fill:#f6ffed,stroke:#52c41a
 ```
 
-### 错误代码说明
+### Error Code Explanation
 
-在排查前，首先了解这些错误代码的含义：
+Before troubleshooting, first understand the meaning of these error codes:
 
-| 错误代码 | 错误名称 | 含义 |
+| Error Code | Error Name | Meaning |
 |---------|---------|------|
-| 502 | Bad Gateway | 网关从上游服务器收到无效响应 |
-| 503 | Service Unavailable | 服务当前不可用（过载或维护中） |
-| 504 | Gateway Timeout | 网关尝试执行请求时，上游服务器未能在规定时间内响应 |
+| 502 | Bad Gateway | Gateway received invalid response from upstream server |
+| 503 | Service Unavailable | Service currently unavailable (overloaded or under maintenance) |
+| 504 | Gateway Timeout | Upstream server did not respond within specified time when gateway attempted to execute request |
 
-### 502 Bad Gateway 错误排查
+### 502 Bad Gateway Error Troubleshooting
 
-**可能原因**
-1. **后端服务未正常运行**：组件处于异常状态或未启动
-2. **端口配置错误**：暴露的端口与实际服务端口不匹配
-3. **健康检查失败**：组件无法通过网关的健康检查
+**Possible Causes**
+1. **Backend Service Not Running Normally**: Component in abnormal state or not started
+2. **Port Configuration Error**: Exposed port does not match actual service port
+3. **Health Check Failure**: Component cannot pass gateway health check
 
-**排查步骤**
-1. **检查组件运行状态**
-2. **验证端口配置**
-   - 进入组件详情页面 → 端口，确认内部和对外服务端口配置正确
-   - 确认容器内的应用确实在监听该端口
+**Troubleshooting Steps**
+1. **Check Component Running Status**
+2. **Verify Port Configuration**
+   - Go to component details page → Ports, confirm internal and external service port configurations are correct
+   - Confirm the application in the container is actually listening on this port
    ```bash
-   # 进入 Web 终端查看端口监听情况
+   # Enter Web terminal to check port listening status
    netstat -nltp
    ```
 
-3. **检查服务日志**
-   - 查看组件运行日志，寻找可能的错误信息
-   - 在平台管理 → 日志 → 网关日志中查看
+3. **Check Service Logs**
+   - View component operation logs for possible error messages
+   - Check in Platform Management → Logs → Gateway Logs
 
-### 503 Service Unavailable 错误排查
+### 503 Service Unavailable Error Troubleshooting
 
-**可能原因**
+**Possible Causes**
 
-1. **服务过载**：组件资源不足或请求量过大
-2. **组件正在部署/更新**：滚动更新过程中可能暂时不可用
+1. **Service Overload**: Component resources insufficient or request volume too large
+2. **Component Being Deployed/Updated**: May be temporarily unavailable during rolling update
 
-**排查步骤**
+**Troubleshooting Steps**
 
-1. **检查组件资源使用情况**
-2. **检查组件正在进行的操作**
-   - 查看是否有正在进行的部署、更新操作
-   - 检查滚动更新策略配置
+1. **Check Component Resource Usage**
+2. **Check Component Ongoing Operations**
+   - Check if there are ongoing deployment or update operations
+   - Check rolling update strategy configuration
 
-### 504 Gateway Timeout 错误排查
+### 504 Gateway Timeout Error Troubleshooting
 
-**可能原因**
+**Possible Causes**
 
-1. **请求处理时间过长**：业务逻辑复杂或数据处理耗时
-2. **上游服务超时**：依赖的其他服务响应慢
-3. **网络连接问题**：集群内网络延迟高
+1. **Request Processing Time Too Long**: Complex business logic or time-consuming data processing
+2. **Upstream Service Timeout**: Dependent services responding slowly
+3. **Network Connection Issues**: High network latency within cluster
 
-**排查步骤**
+**Troubleshooting Steps**
 
-1. **检查组件超时设置**
-   - 检查组件内部处理超时设置
+1. **Check Component Timeout Settings**
+   - Check component internal processing timeout settings
 
-2. **定位耗时操作**
-   - 查看应用日志中标记的耗时操作
-   - 使用性能分析工具定位瓶颈
+2. **Locate Time-consuming Operations**
+   - Check application logs for marked time-consuming operations
+   - Use performance analysis tools to locate bottlenecks
 
-3. **排查网络连接**
-   - 检查网络延迟
+3. **Troubleshoot Network Connection**
+   - Check network latency
 
-### 网关日志分析
+### Gateway Log Analysis
 
-网关的日志信息对排查问题至关重要，在 **平台管理 -> 日志 -> 网关日志** 中查看。
+Gateway log information is crucial for troubleshooting. Check in **Platform Management -> Logs -> Gateway Logs**.
 
-常见的错误日志模式：
+Common error log patterns:
 
-- 对于 502 错误，查找类似 `connection refused` 或 `upstream unavailable` 的日志
-- 对于 503 错误，关注 `circuit breaking` 或 `rate limited` 相关日志
-- 对于 504 错误，查找 `timeout` 相关的信息
+- For 502 errors, look for logs like `connection refused` or `upstream unavailable`
+- For 503 errors, focus on `circuit breaking` or `rate limited` related logs
+- For 504 errors, look for `timeout` related information
 
-## 5. 无法上传离线包、软件包、Jar、WAR、ZIP等
+## 5. Unable to Upload Offline Packages, Software Packages, Jar, WAR, ZIP, etc.
 
-通常是因为本地浏览器与 Rainbond WebSocket 通信失败导致的。你可以在 `平台管理 -> 集群 -> 编辑集群` 修改 `WebSocket` 地址。
+This is usually caused by local browser failing to communicate with Rainbond WebSocket. You can modify the `WebSocket` address in `Platform Management -> Cluster -> Edit Cluster`.
 
-## 6. Web 终端无法使用
+## 6. Web Terminal Cannot Be Used
 
-Web 终端无法使用，通常是因为 `WebSocket` 地址配置错误导致的。你可以在 `平台管理 -> 集群 -> 编辑集群` 修改 `WebSocket` 地址。
+Web terminal cannot be used, usually because the `WebSocket` address is configured incorrectly. You can modify the `WebSocket` address in `Platform Management -> Cluster -> Edit Cluster`.
 
-## 7. 应用/组件 TCP 对外无法访问
+## 7. Application/Component TCP External Access Issues
 
-TCP 对外服务实际是使用 K8S 的 NodePort 服务，如果无法访问，请检查以下几点：
+TCP external service actually uses K8S's NodePort service. If it cannot be accessed, please check the following points:
 
-1. 检查 TCP 端口在服务器上是否监听
-2. 检查 `kube-proxy` 服务是否正常运行，是否存在错误日志
-3. 快速安装的 Rainbond 默认情况下只开放了 30000～30010 10个 TCP 端口，添加[更多 TCP 端口](../faq#快速安装添加更多-tcp-端口)
-4. 超出 K8S NodePort 端口范围，请[扩展端口范围](../faq#扩展-tcpnodeport-端口范围)
+1. Check if TCP port is listening on the server
+2. Check if `kube-proxy` service is running normally and if there are any error logs
+3. For quick installation of Rainbond, only 10 TCP ports (30000～30010) are open by default. Add [more TCP ports](../faq#quick-installation-add-more-tcp-ports)
+4. If exceeding K8S NodePort port range, please [extend port range](../faq#extend-tcpnodeport-port-range)

@@ -1,164 +1,164 @@
 ---
-title: 技术架构
-description: Rainbond 技术架构
+title: Technical Architecture
+description: Rainbond Technical Architecture
 ---
 
-### Rainbond 技术架构
+### Rainbond Technical Architecture
 
 <img src="https://static.goodrain.com/images/docs/5.0/architecture/architecture.svg" width="100%"/>
 
-Rainbond 践行以应用为中心的理念，吸纳优秀的社区解决方案，形成了应用控制、应用运行时，集群控制三大模块结合的数据中心逻辑技术架构，结合以管理节点、计算节点、网关节点、存储节点给类节点类型划分的物理架构形成高可用、高扩展性的数据中心架构体系。
+Rainbond adheres to the application-centric philosophy, incorporating excellent community solutions to form a logical technical architecture of the data center that combines three major modules: application control, application runtime, and cluster control. Together with the physical architecture categorized by node types such as management nodes, compute nodes, gateway nodes, and storage nodes, it forms a highly available and scalable data center architecture system.
 
-在数据中心架构之上，根据使用目标人群划分为应用管理控制终端和资源管理控制终端，来分别服务于应用开发运维者和资源使用者。支撑用户同时管理和控制多个数据中心的多数据中心模式。
+Above the data center architecture, it is divided into application management control terminals and resource management control terminals based on the target user groups, serving application development and operation maintainers and resource users respectively.Supporting users to manage and control multiple data centers simultaneously in a multi-data center mode.
 
-## 数据中心服务组件说明
+## Data Center Service Components Description
 
-### 数据中心 API 服务
+### Data Center API Service
 
-API 服务作为数据中心级抽象的核心控制服务，对外提供 Restful 风格的 API 服务，是数据中心控制请求的唯一入口，安全控制基于 TLS 双向安全认证。自主签发证书后分发到客户端。
+As the core control service of the data center level abstraction, the API service provides Restful-style API services externally and is the sole entry point for data center control requests, with security control based on TLS mutual security authentication.After self-signing certificates, distribute them to the client.
 
 <img src="https://static.goodrain.com/images/5.1/images/api.png" width="100%"/>
 
-API 服务请求进入后由 router 模块进行请求分发，普通请求进入 Handle 请求处理模块，这类请求主要是操作数据库模型的请求，API 服务基于 ORM 支持 Mysql 数据库和 CockroachDB 数据库。进入 Proxy 的请求分为 API 请求和 Websocket 请求。由 Discover 模块通过 etcd 服务发现其代理目标并转发请求。因此其他组件提供的 API 可通过服务注册由 API 服务代理转发请求。
+After API service requests enter, they are distributed by the router module. Ordinary requests enter the Handle request processing module, which mainly handles requests for operating database models. The API service supports MySQL database and CockroachDB database based on ORM.Requests entering the Proxy are divided into API requests and Websocket requests.The Discover module finds its proxy target through etcd service and forwards the request.Therefore, APIs provided by other components can have their requests forwarded by the API service proxy through service registration.
 
-### 应用网关服务
+### Application Gateway Service
 
-应用网关是外部流量进入 Rainbond 租户内部组件的唯一入口, 提供 HTTP, HTTPs 路由, TCP/UDP 服务, 负载均衡器, 高级路由(A/B 测试, 灰度发布)，虚拟 IP 支持等功能.
+The application gateway is the sole entry point for external traffic to enter the internal components of Rainbond tenants, providing HTTP, HTTPS routing, TCP/UDP services, load balancer, advanced routing (A/B testing, canary release), virtual IP support, and other functions.
 
-应用网关的设计灵感来自于 NGINX Ingress Controller, 基于从 kube-apiserver 将监听到的 Kubernetes 资源(Ingress, Service, Secret, Endpoint)模型转化为 Proxy 控制器的配置，提供一种自动工作、实时生效、动态热配置的 7 层、4 层网关服务。
+The design inspiration for the application gateway comes from NGINX Ingress Controller, based on converting the Kubernetes resources (Ingress, Service, Secret, Endpoint) models monitored from kube-apiserver into configurations for the Proxy controller, providing an automatically working, real-time effective, dynamically hot-configured 7-layer, 4-layer gateway service.
 
-应用网关可以通过水平扩展的方式来增加并发能力和基础性能，通用配置在所有网关节点中同步生效。对于 74IP+
+The application gateway can increase concurrent capabilities and basic performance through horizontal scaling, with universal configurations taking effect synchronously across all gateway nodes.For <b>74</b>IP+
 
 <img src="https://static.goodrain.com/images/docs/5.0/architecture/gw.png" width="100%"/>
 
-单节点应用网关服务的架构目标是支持多种数据源、支持多 IP、支持高并发能力、支持多 Server 能力、支持动态配置变化能力。基于此需要应用网关架构设计如下：
+The architectural goal of the single-node application gateway service is to support multiple data sources, multiple IPs, high concurrency capability, multi-Server capability, and dynamic configuration change capability.Based on this, the application gateway architecture design is as follows:
 
 <img src="https://static.goodrain.com/images/5.1/images/gateway.png" width="100%"/>
 
-应用网关服务集成 Openresty 服务作为前置流量代理服务，基于 lua 对 Openresty 实现功能扩展，Lua-Config-Controller 实现对 Openresty 的动态配置、Upstream 管理、负载均衡策略实现, Lua-Monitor-Controller 实现对请求数据的记录和汇总上报、Lua-Security-Controller 实现对请求的安全控制。三个 Lua 模块由 Openresty-Controller 驱动工作，Metric-Controller 模块汇聚网关的各类监控数据并向外暴露 Prometheus 规范的 Metric-Server。Openresty-Controller 由数据驱动，数据来源于 Gateway-Model-Controller，两层无耦合关系，其实现了标准的接口规范。根据需要我们可以实现基于其他 proxy 服务的驱动器，比如 F5。
+The application gateway service integrates Openresty service as the front-end traffic proxy service, extends Openresty functionality based on lua, Lua-Config-Controller implements dynamic configuration, Upstream management, load balancing strategy for Openresty, Lua-Monitor-Controller implements recording and summary reporting of request data, Lua-Security-Controller implements security control of requests.The three Lua modules are driven by Openresty-Controller to work, the Metric-Controller module aggregates various monitoring data of the gateway and exposes a Prometheus-compliant Metric-Server externally.Openresty-Controller is data-driven, with data sourced from Gateway-Model-Controller, the two layers are decoupled, implementing standard interface specifications.As needed, we can implement drivers based on other proxy services, such as <b>F5</b>.
 
-应用网关的数据模型来源支持 kubernetes 的 ingress 模型或从 etcd 中发现精简模型，由数据发现服务驱动整个网关动态工作。IP 是网关的重要资源，IP-Port-Pool 模块启动后将获取当前集群的所有可用 IP 地址和端口，并建立对 IP 地址变化的感知，IP-Manage 模块将根据 IP 和端口数据判断网关策略是否在当前节点生效。
+The data model source of the application gateway supports the ingress model of kubernetes or discovers a simplified model from etcd, driven by data discovery service to make the entire gateway work dynamically.IP is an important resource of the gateway, the IP-Port-Pool module will acquire all available IP addresses and ports of the current cluster after startup and establish awareness of IP address changes, the IP-Manage module will determine whether the gateway strategy takes effect on the current node based on IP and port data.
 
-### 应用构建服务
+### Application Build Service
 
 <img src="https://static.goodrain.com/images/docs/3.6/architecture/app-ci.png" width="100%"/>
 
-Rainbond 应用构建服务处理 CI 过程，将输入源包括 `源代码` 或 `Docker镜像` 或 `应用市场应用` 进行解析、编译、打包，最终生成 应用（组件）的版本介质。
+Rainbond application build service handles the CI process, parsing, compiling, and packaging input sources including `source code` or `Docker image` or `application market application`, ultimately generating version media for the application (component).
 
-传统意义上说，完整的 CI 过程会包括：设计、编码、打包、测试和发布，Docker 镜像自推出以来逐步成为众多应用代码打包的新形式。现有的 CI 产品中已经在源码测试和 Pipline 方面做得非常成熟，例如 Jenkins，Gitlab 等，因此 Rainbond 在对于源码或 Docker 镜像的前置处理方面可以直接对接第三方服务，由第三方服务处理完成的源码或镜像再对接到 Rainbond-Chaos 模块进行应用抽象。
+Traditionally, the complete CI process includes: design, coding, packaging, testing, and release. Since its introduction, Docker images have gradually become a new form of packaging for many application codes.Existing CI products have already done very well in source code testing and Pipeline, such as Jenkins, Gitlab, etc. Therefore, Rainbond can directly connect to third-party services for the pre-processing of source code or Docker images, with the source code or images processed by third-party services then connected to the Rainbond-Chaos module for application abstraction.
 
-Chaos 的输入源是支持 Git、Svn 协议的代码仓库，Docker 镜像仓库。如果是源代码，Chaos 智能判断源码的类型，例如 Java, PHP , Python, Dockerfile 等，根据不同的源码类型选择对应的 BuildingPack(源码构建器)进行源码编译，同时识别源码中定义的运行环境要求参数，应用端口、环境变量等参数，形成应用抽象的配置雏形。除了 Dockerfile 以外的源码类型将被编译成应用代码环境包（SLUG）存储于分布式存储中，其他的生成 Docker 本地镜像存储于数据中心镜像仓库中，结合应用的各类属性信息形成应用组件属性。
+The input sources of Chaos support code repositories with Git, Svn protocols, and Docker image repositories.If it is source code, Chaos intelligently determines the type of source code, such as Java, PHP, Python, Dockerfile, etc., selects the corresponding BuildingPack (source code builder) for source code compilation according to different source code types, and identifies the runtime environment requirement parameters, application ports, environment variables and other parameters defined in the source code, forming the configuration prototype of the application abstraction.Source code types other than Dockerfile will be compiled into application code environment packages (SLUG) stored in distributed storage, others generate Docker local images stored in the data center image repository, forming application component attributes combined with various attribute information of the application.
 
-应用构建服务是无状态架构，由消息系统（rbd-mq）驱动的任务执行器设计。 实现了 Git 客户端和镜像仓库客户端，集成了 SVN 客户端来获取组件构建源资源。 任务执行过程记录完整日志由 event 客户端通过消息流将日志输入到 rbd-event-log 服务。每一个源码构建过程由 Chaos 控制调用本机 Docker API 创建构建容器并维护容器生命周期。
+The application build service is a stateless architecture, designed as a task executor driven by the message system (rbd-mq). Implemented Git client and image repository client, integrated SVN client to obtain component build source resources. The task execution process records complete logs, which are input to the rbd-event-log service by the event client through the message stream.Each source code build process is controlled by Chaos to call the local Docker API to create a build container and maintain the container lifecycle.
 
-源码构建过程是一个非常消耗资源的过程，因此应用构建服务支持多节点部署来增加并发支持的构建任务数量，每一个节点支持的最大并发构建数量由节点 CPU 核数确定或运维人员手工设置。
+The source code build process is a very resource-consuming process, so the application build service supports multi-node deployment to increase the number of concurrent build tasks supported, with the maximum number of concurrent builds supported by each node determined by the node's CPU cores or manually set by the operation and maintenance personnel.
 
-> - 关于源码编译的 BuildingPack 参考 [各语言支持文档](../../how-to-guides/app-deploy/source-code/springboot.md)。
-> - 应用构建服务支持多点高可用部署，多点部署从消息中间件获取应用构建任务。
+> - For source code compilation BuildingPack reference [Language Support Documentation](../../how-to-guides/app-deploy/source-code/springboot.md).
+> - The application build service supports multi-point high-availability deployment, with multi-point deployment obtaining application build tasks from the message middleware.
 
-### 应用运行时控制服务
+### Application Runtime Control Service
 
-应用运行时控制服务将 Rainbond-Application Model 进行实例化转化为 Kubernetes 资源模型，配属应用运行需要的各类资源，完成应用生命周期中的运行态部分，可以理解为 CD 控制服务，该服务的设计要点是支撑大量应用的生命周期监管。
+The application runtime control service instantiates the Rainbond-Application Model into Kubernetes resource models, allocates various resources required for application operation, completes the operational part of the application lifecycle, which can be understood as the CD control service. The design focus of this service is to support the lifecycle supervision of a large number of applications.
 
 <img src="https://static.goodrain.com/images/docs/5.0/architecture/worker-arch.svg" width="100%"/>
 
-应用生命周期中可能经历启停、升级与回滚。不同的应用类型需要进行不同的控制策略，例如无状态应用能够进行无序的滚动升级，而有状态应用的升级控制策略将更加复杂。Worker 服务中实现各类组件类型的生命周期控制器器、包含启动、停止、更新、伸缩等待。
+The application lifecycle may experience starts, stops, upgrades, and rollbacks.Different application types require different control strategies, for example, stateless applications can perform unordered rolling upgrades, while the upgrade control strategy for stateful applications will be more complex.The Worker service implements lifecycle controllers for various component types, including startup, shutdown, update, scaling, etc.
 
-应用运行需要各种外部环境支持，例如需要分配租户 IP,端口等网络资源，需要根据应用设置配属持久化存储资源，例如共享文件存储分配存储目录，块存储等依托各类插件分配存储资源。 根据应用依赖属性建立服务发现和负载均衡策略供给 mesh 插件。根据应用属性生成调度策略调用 Kubernetes 集群调度应用运行。
+Application operation requires various external environment supports, such as allocating tenant IP, port and other network resources, allocating persistent storage resources according to application settings, such as shared file storage allocating storage directories, block storage, etc., relying on various plugins to allocate storage resources. Establish service discovery and load balancing strategies based on application dependency properties to supply mesh plugins.Generate scheduling strategies based on application attributes to call Kubernetes cluster to schedule application operation.
 
-目前 Rainbond 使用 Kubernetes 以下资源类型：Deployment、Statefulset、Service、Ingress、Secret、ConfigMap、Pod。对于用户来说，无需理解这些资源，产品中也不体现，其只是应用运行的载体。
+Currently, Rainbond uses the following Kubernetes resource types: Deployment, Statefulset, Service, Ingress, Secret, ConfigMap, Pod.For users, there is no need to understand these resources, nor are they reflected in the product, they are just carriers for application operation.
 
-Worker 组件功能分为有状态部分和无状态部分，为了实现 worker 组件的集群部署，worker 进行了主节点选举，选举为主节点的服务将提供应用存储 Provider 和存储统计服务。
+The Worker component functions are divided into stateful and stateless parts. To achieve cluster deployment of worker components, worker performs master node election, and the service elected as the master node will provide application storage Provider and storage statistics services.
 
-Worker 组件是 kubernetes-controller 控制器扩展和调度器扩展的模块，目前有实现本地存储 Provider，有状态组件的共享存储 Provider 等等，其同时会获取 Kubernetes 集群中已有的资源供 Rainbond 应用组件选择使用。
+The Worker component is a module for kubernetes-controller controller extension and scheduler extension, currently implementing local storage Provider, stateful component shared storage Provider, etc., and it also obtains existing resources in the Kubernetes cluster for Rainbond application components to choose to use.
 
-Worker 组件可支持多节点部署已保证高可用性。
+The Worker component supports multi-node deployment to ensure high availability.
 
-### 监控服务
+### Monitoring service
 
-Rainbond 集群监控服务的设计目标是对应用业务性能级，应用容器资源级，集群节点级，管理服务级四个维度进行全面监控，从功能上提供数据存储、查询、可视化和报警，从性能上支持大规模集群。
+The design goal of the Rainbond cluster monitoring service is to comprehensively monitor four dimensions: application business performance level, application container resource level, cluster node level, and management service level. Functionally, it provides data storage, query, visualization, and alarm. Performance-wise, it supports large-scale clusters.
 
-Rainbond 基于 Prometheus 封装了 Monitor 组件，通过从 etcd、Kubernetes 集群中自动发现应用、集群、集群节点服务的各类监控对象并完成 Prometheus 监控目标配置，将监控目标纳入 Prometheus 监控范围。Rainbond 各组件也都实现了 Prometheus 的 exporter 端暴露监控指标。无需用户干预的条件下实现对多个维度的自动化监控。
+Rainbond encapsulates the Monitor component based on Prometheus, automatically discovers various monitoring objects such as applications, clusters, and cluster node services from etcd and Kubernetes clusters, completes Prometheus monitoring target configuration, and includes the monitoring targets in the Prometheus monitoring scope.Each component of Rainbond also implements the exporter side of Prometheus to expose monitoring metrics.Achieve automated monitoring of multiple dimensions without user intervention.
 
-Monitor 组件能够自动配置一些默认的报警规则，计划支持从 Kubernetes 中获取自定义的报警规则资源生成 Prometheus 报警规则使其动态生效，从而支持自定义报警规则，报警信息由第三方 Alter-Manage 系统处理。
+The Monitor component can automatically configure some default alarm rules. It plans to support obtaining custom alarm rule resources from Kubernetes to generate Prometheus alarm rules for dynamic effect, thereby supporting custom alarm rules. Alarm information is processed by the third-party Alter-Manage system.
 
-Prometheus 默认情况下不支持集群部署，无法直接通过扩充节点来提高监控能力。为了提高监控系统的处理能力，目前支持将存储数据通过远程存储来提高数据存储能力；支持多个节点配置同步来提供服务可用性；支持调整监控数据存储窗口和减少对内存资源的占用。计划支持对监控目标进行集群化分区，从而支持扩充节点来扩充监控能力，对外提供统一的查询 API 屏蔽底层的数据分区。
+By default, Prometheus does not support cluster deployment and cannot directly improve monitoring capabilities by expanding nodes.To enhance the processing capability of the monitoring system, it currently supports improving data storage capability through remote storage; supports configuring synchronization across multiple nodes to provide service availability; supports adjusting the monitoring data storage window and reducing memory resource usage.Plans to support clustering partitions for monitoring targets, thereby supporting node expansion to enhance monitoring capabilities, providing a unified query API to shield the underlying data partitions.
 
-### 消息中间件服务
+### Message middleware service
 
-MQ 组件是基于 Etcd 实现的轻量级分布式、消息持久化和全局一致性的消息中间件。该组件维护异步任务消息，提供多主题的消息发布和订阅能力。
+The MQ component is a lightweight distributed, message persistent, and globally consistent message middleware implemented based on Etcd.This component maintains asynchronous task messages and provides multi-topic message publishing and subscription capabilities.
 
-市场上消息中间件产品众多，ActiveMQ、RabbitMQ、ZeroMQ 等等，针对我们的需求：分布式、持久化、全局一致性、轻量级、有序等关键属性，目前已有的消息中间件产品或多或少不满足。
+There are many message middleware products on the market, such as ActiveMQ, RabbitMQ, ZeroMQ, etc. For our needs: distributed, persistent, globally consistent, lightweight, ordered, and other key attributes, the existing message middleware products more or less do not meet.
 
-Etcd 是简单、安全、快速、可信的键值存储服务，在我们的整个系统架构中扮演重要角色。基于 etcd 已有的特性很方便的实现一个基础消息系统。对于每一个订阅主题采用一个 key，由 etcd 控制时序和独占机制，使进入的消息可以顺序消费，客户端通过 etcd 提供的 watch 机制可以非常简单的订阅消息。基于此我们包装了两类 API: restful 和 grpc。客户端即可便捷的操作消息的 PUB/SUB。
+Etcd is a simple, secure, fast, and reliable key-value storage service, playing an important role in our entire system architecture.It is very convenient to implement a basic message system based on the existing features of etcd.For each subscription topic, a key is used, controlled by etcd for timing and exclusive mechanism, so that incoming messages can be consumed in order. Clients can subscribe to messages very simply through the watch mechanism provided by etcd.Based on this, we have packaged two types of APIs: restful and grpc.Clients can conveniently operate the PUB/SUB of messages.
 
-### 事件与日志处理服务
+### Event and log processing service
 
-Rainbond 平台需要处理的日志和消息信息包含三大类，分别为：用户异步操作日志、应用构建日志和应用运行日志。
+The logs and message information that the Rainbond platform needs to process include three major categories: user asynchronous operation logs, application build logs, and application runtime logs.
 
-用户异步操作日志：对于用户操作日志，我们需要分布式跟踪每一次操作的最终状态，目前由 eventlog 组件根据每一次操作的日志汇聚判断操作的最终状态。其他组件在处理某一次异步任务过程中会将过程日志记录通过 gRPC 消息流发送到 eventlog 集群。
+User asynchronous operation logs: For user operation logs, we need to distributedly track the final status of each operation. Currently, the eventlog component determines the final status of the operation based on the log aggregation of each operation.Other components will send process log records to the eventlog cluster through gRPC message streams during the processing of an asynchronous task.
 
-应用构建日志：主要展示源码构建或 Docker 镜像构建的输出信息，这些信息来自于应用构建服务。
+Application build logs: Mainly display the output information of source code build or Docker image build, which comes from the application build service.
 
-应用运行日志，目前我们分为两种形式：
+Application runtime logs, currently we divide them into two forms:
 
-(1) 标准输出/错误输出的日志
+(1) Standard output/error output logs
 
-对于标准输出的日志，计算节点日志收集器通过 Docker Daemon 获取日志流后进行业务分离，默认基于 TCP 数据流通信实现将所有计算节点的容器日志实时送往 Eventlog 组件按照应用级别的汇聚，从而进行存储和实时推送到 UI，后续版本中日志收集器将实现与第三方 日志系统对接直接将日志输送到第三方日志处理平台。
+For standard output logs, the computing node log collector obtains the log stream through Docker Daemon for business separation, and by default, based on TCP data stream communication, sends all container logs from computing nodes to the Eventlog component in real time for application-level aggregation, thereby storing and pushing to the UI in real time. In future versions, the log collector will implement docking with third-party log systems to directly send logs to third-party log processing platforms.
 
-(2) 输出到持久化文件的业务日志（访问日志）
+(2) Business logs (access logs) output to persistent files
 
-对于输出到持久化目录的业务日志，一般需要对其进行自动分析，例如对接 ELK 系统，因此在插件体系中安装日志处理插件，收集持久化目录的日志文件输送到第三方日志分析服务上。
+For business logs output to persistent directories, they generally need to be automatically analyzed, such as docking with the ELK system. Therefore, install log processing plugins in the plugin system to collect log files from persistent directories and send them to third-party log analysis services.
 
-对于集群的日志处理设计需求是支持日志聚合、存储、实时推送和查询。并能够支撑较大的日志量。
+The design requirements for cluster log processing are to support log aggregation, storage, real-time push, and query.And it can support a large amount of logs.
 
-根据上述日志类型分析，操作类日志是有限的日志流，其主要需求是实现存储和实施推送客户端。针对此类日志的处理链路主要是由 grpc 消息流接受各类组件客户端发来的日志，以 event 为单位进行日志汇聚存储，同时在集群中进行同步传播，从而向客户端提供分布式日志订阅能力。实现单节点存储，多节点可读的效果。
+According to the above log type analysis, operation logs are limited log streams, and their main requirement is to achieve storage and implement push to clients.The processing chain for such logs mainly involves receiving logs sent by various component clients through gRPC message streams, aggregating and storing logs by event, and simultaneously spreading them in the cluster, thereby providing distributed log subscription capabilities to clients.Achieve the effect of single-node storage and multi-node readability.
 
-应用运行日志是无限的日志流，且日志源多，由当前集群中存在的应用量和每个应用产生的日志量决定。因此，为了支持庞大的应用日志量，eventlog 服务实现了分区化日志处理能力，以组件（service_id）为单位灵活调整日志处理的节点，同一个组件的运行日志由每一个计算节点的日志收集服务通过 TCP 消息流发送日志到指定的 eventlog 服务节点，eventlog 服务接受到日志后进行汇聚、缓冲并落盘。同时提供向订阅客户端的实时推送能力。客户端订阅时由 rbd-api 服务根据订阅的 service_id 信息负载到指定的 eventlog 服务节点。
+Application runtime logs are unlimited log streams, with multiple log sources, determined by the number of applications existing in the current cluster and the amount of logs generated by each application.Therefore, to support the huge amount of application logs, the eventlog service implements partitioned log processing capabilities, flexibly adjusting the log processing nodes by component (service_id). The runtime logs of the same component are sent by the log collection service of each computing node to the designated eventlog service node through TCP message streams. After receiving the logs, the eventlog service aggregates, buffers, and stores them.At the same time, it provides real-time push capabilities to subscribing clients.When clients subscribe, the rbd-api service loads to the designated eventlog service node based on the subscribed service_id information.
 
-Eventlog 服务的集群节点需要互相通信，包括操作日志流共享和处理能力汇报以决策应用运行日志的处理节点。因此 Eventlog 服务的节点间通过 ZeroMQ 订阅模式实现节点间通信，ZeroMQ 是一个高性能消息类库，基于此来保证 Eventlog 服务间的通信性能。Eventlog 的工作节点处理日志时充分使用内存缓冲机制来提高日志消息吞吐率的同时减少对磁盘的压力。
+Eventlog service cluster nodes need to communicate with each other, including sharing operation log streams and reporting processing capabilities to decide the processing nodes for application runtime logs.Therefore, Eventlog service nodes communicate through ZeroMQ subscription mode. ZeroMQ is a high-performance messaging library, ensuring the communication performance between Eventlog services.When processing logs, Eventlog worker nodes fully utilize the memory buffering mechanism to improve the throughput rate of log messages while reducing the pressure on the disk.
 
-Eventlog 服务是有状态集群服务，可支持水平扩展来提高应用日志的处理能力。
+The Eventlog service is a stateful cluster service that supports horizontal scaling to improve the processing capability of application logs.
 
-### 集群、节点管理服务
+### Cluster and node management service
 
-Node 组件是 Rainbond 集群组建的基础服务，集群内所有节点都需要运行该组件。提供节点信息采集、集群服务维护、应用日志收集、应用运行时支持等关键能力。
+The Node component is the basic service for forming the Rainbond cluster, and all nodes in the cluster need to run this component.It provides key capabilities such as node information collection, cluster service maintenance, application log collection, and application runtime support.
 
-Node 组件有两种角色，分别是 master 角色和 worker 角色。一般运行于管理节点的 Node 具有 master 角色，master 角色维护所有节点的状态和信息汇聚，并提供 API 查询服务，worker 角色的节点定时向 master 节点汇报状态。
+The Node component has two roles: master role and worker role.Generally, the Node running on the management node has the master role. The master role maintains the status and information aggregation of all nodes and provides API query services. Worker role nodes regularly report their status to the master node.
 
 <img src="https://static.goodrain.com/images/docs/3.6/architecture/rainbond-cluster-ctl.png" width="100%" />
 
-节点控制器首先充当当前节点运行服务的守护任务，这方面类似于 Kubelet。每个节点需要运行的服务或健康检测项目，通过 yaml 的格式在/opt/rainbond/conf 目录中定义。控制器启动后将读取此目录下的配置，对于需要启动的服务调用 systemd 守护进程来启动服务， 对于健康检测项目则根据配置生成健康检测控制器。这里的设计主要是为了实现集群的自动化运维和扩充 kubernetes 节点的监控项目。节点控制器将维护所有配置项的状态并汇报给 master 节点。对于异常的服务控制器将根据规则尝试重启恢复服务，若无法恢复时将建议 master 节点将当前节点设置为不健康状态并脱离调度可用范围，直到节点恢复。
+The node controller first acts as the guardian task for the services running on the current node, similar to Kubelet in this regard.Each node needs to run services or health check items, defined in yaml format in the /opt/rainbond/conf directory.After startup, the controller will read the configuration in this directory. For services that need to be started, it will call the systemd daemon to start the service. For health check items, it will generate health check controllers according to the configuration.The design here is mainly to achieve automated cluster operation and maintenance and expand the monitoring items of Kubernetes nodes.The node controller will maintain the status of all configuration items and report them to the master node.For abnormal services, the controller will try to restart and recover the service according to the rules. If recovery is not possible, it will suggest the master node to set the current node to an unhealthy state and remove it from the available scheduling scope until the node recovers.
 
-在监控方面，Node 暴露出节点的操作系统和硬件级别各类监控指标（集成 promethes node-exporter），并作为应用性能分析数据的收集者，转化暴露应用性能分析指标。所有暴露的监控指标由 rbd-monitor 服务收集。
+In terms of monitoring, Node exposes various monitoring indicators at the operating system and hardware level (integrated prometheus node-exporter), and acts as a collector for application performance analysis data, transforming and exposing application performance analysis indicators.All exposed monitoring indicators are collected by the rbd-monitor service.
 
-所有计算节点运行的 Node 服务组建起租户网络内运行应用的运行环境支持，特别是 ServiceMesh 支持和插件动态配置查询的支持。Node 服务提供通用的配置发现 API 和服务发现 API 支持当前节点运行的应用架构，在此基础上提供 XDS Server 服务，为内置的 ServiceMesh 架构提供动态配置。
+The Node service running on all computing nodes establishes the runtime environment support for applications running within the tenant network, especially the support for ServiceMesh and dynamic configuration query of plugins.The Node service provides universal configuration discovery API and service discovery API to support the application architecture running on the current node. On this basis, it offers XDS Server service to provide dynamic configuration for the built-in ServiceMesh architecture.
 
 <img src="https://static.goodrain.com/images/docs/3.6/architecture/ServiceMesh.png" width="100%"/>
 
-节点控制器日志收集模块实现对当前节点所有应用容器运行日志收集。通过从 Dockerd 实时获取容器的列表和日志驱动配置，生成针对每一个容器的日志 copyer 驱动，日志 copyer 驱动有多种实现，默认的实现是将日志传输到 eventlog 服务中。也支持时间其他日志收集服务的驱动，比如 ES。
+The node controller log collection module implements the collection of runtime logs for all application containers on the current node.By obtaining the container list and log driver configuration from Dockerd in real-time, it generates a log copyer driver for each container. The log copyer driver has multiple implementations, with the default being to transmit logs to the eventlog service.It also supports drivers for other log collection services, such as ES.
 
-### 应用 Web 终端控制服务
+### Application Web Terminal Control Service
 
-该组件实现了通过 web 的方式连接到容器控制台的功能。该组件通过与 UI 进行 WebSocket 通信，用户可以通过模拟 Web 终端发送各类 shell 命令，webcli 通过 kube-apiserver 提供的 exec 方式在容器中执行命令并返回结果到 Web 终端。
+This component implements the function of connecting to the container console via the web.This component communicates with the UI through WebSocket, allowing users to send various shell commands via a simulated web terminal. The webcli executes commands in the container through the exec method provided by kube-apiserver and returns the results to the web terminal.
 
-rbd-webcli 服务可以拦截和清洗所有的用户命令。防止恶意的命令注入，通过的通信模式实现终端到浏览器端。
+The rbd-webcli service can intercept and sanitize all user commands.Prevent malicious command injection, achieving terminal to browser communication through a secure mode.
 
-### 元数据存储服务
+### Metadata Storage Service
 
-Rainbond 数据中心元数据目前支持存储于 Mysql 数据库或 CockroachDB 数据库。数据库主要存储应用模型的基础元数据，不记录应用的运行态数据。运行态数据主要由 Kubernetes 集群维护或在 ETCD 服务中记录。
+Rainbond data center metadata currently supports storage in Mysql database or CockroachDB database.The database mainly stores the basic metadata of the application model and does not record the runtime data of the application.Runtime data is mainly maintained by the Kubernetes cluster or recorded in the ETCD service.
 
-5.1.8 及以前版本支持 Mysql 5.6
+Versions 5.1.8 and earlier support Mysql 5.6
 
-5.1.9 及以后版本支持 Mysql 5.7 8.0
+Versions 5.1.9 and later support Mysql 5.7 8.0
 
-### 镜像仓库服务
+### Image Repository Service
 
-基于开源 [Distribution](https://github.com/docker/distribution) 项目，用于当前数据中心下的容器镜像存储。
+Based on the open-source [Distribution](https://github.com/docker/distribution) project, used for container image storage under the current data center.
 
-## 业务逻辑层组件说明
+## Business Logic Layer Component Description
 
-### 应用控制台
+### Application Console
 
-应用控制台 UI 组件作为 Rainbond 以应用为中心抽象的关键模块，面向应用开发者和应用使用者。基于 Django+Ant design 前后端分离架构设计，提供用户对应用抽象、应用组抽象，数据中心抽象，应用市场抽象提供交互体验。实现完整的应用创建、管理流程，应用交付分享流程等。
+As a key module of Rainbond's application-centric abstraction, the application console UI component is designed for application developers and users.Based on the Django+Ant design front-end and back-end separation architecture, it provides users with an interactive experience for application abstraction, application group abstraction, data center abstraction, and application market abstraction.It implements the complete application creation and management process, application delivery and sharing process, etc.
 

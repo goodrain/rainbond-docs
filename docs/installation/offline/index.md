@@ -1,25 +1,25 @@
 ---
-title: 离线安装
-description: 使用 Helm 离线安装 Rainbond
-keywords: 
-- 离线安装 Rainbond
+title: Offline Installation
+description: Install Rainbond Offline with Helm
+keywords:
+  - Offline Installation Rainbond
 ---
 
-本文档介绍通过 Helm 离线安装 Rainbond。
+This document describes how to install Rainbond offline with Helm.
 
-## 前提
+## Prerequisites
 
-* 安装 [Kubectl CLI](https://kubernetes.io/docs/tasks/tools/#kubectl)
-* 安装 [Helm CLI](https://helm.sh/docs/intro/install/)
-* 安装 [nerdctl CLI](https://github.com/containerd/nerdctl/releases)
-* Containerd 容器运行时的 Kubernetes 1.24+ 集群
-* `80 443 6060 7070 8443`端口可用
+- Install [Kubectl CLI](https://kubernetes.io/docs/tasks/tools/#kubectl)
+- Install [Helm CLI](https://helm.sh/docs/intro/install/)
+- Install [nerdctl CLI](https://github.com/containerd/nerdctl/releases)
+- Kubernetes 1.24+ cluster with Containerd container runtime
+- Ports `80 443 6060 7070 8443` are available
 
-## 离线安装 Rainbond
+## Offline Installation Rainbond
 
-### 准备 Rainbond 离线镜像和安装包
+### Prepare Rainbond offline images and installation package
 
-1. 在有网络的环境下提前准备好 Rainbond 所需的镜像。你可以通过以下脚本下载所需的镜像。`<version>` 在 [Rainbond Release](https://github.com/goodrain/rainbond/releases) 中查看。
+1. Prepare the required images for Rainbond in advance in a networked environment.You can download the required images through the following script.`<version>` can be viewed in [Rainbond Release](https://github.com/goodrain/rainbond/releases).
 
 ```bash title="vim download_rbd_images.sh"
 #!/bin/bash
@@ -51,58 +51,58 @@ done
 nerdctl save -o rainbond-offline-images.tar ${image_list}
 ```
 
-2. 获取 Rainbond Helm Chart
+2. Get Rainbond Helm Chart
 
 ```bash
 git clone -b main --depth=1 https://github.com/goodrain/rainbond-chart.git
 ```
 
-### 开始安装
+### Start Installation
 
-1. 导入提前准备好的镜像包和 Chart 包到目标服务器，执行以下命令导入镜像。
+1. Import the pre-prepared image package and Chart package to the target server, and execute the following command to import the images.
 
 ```bash
 nerdctl -n k8s.io load -i rainbond-offline-images.tar
 ```
 
-2. 编辑 [values.yaml](../install-with-helm/vaules-config.md) 文件，填写必须配置。
+2. Edit the [values.yaml](../install-with-helm/vaules-config.md) file and fill in the necessary configurations.
 
 ```yaml title="vim values.yaml"
 Cluster:
-  gatewayIngressIPs: 172.20.251.93 #集群入口IP
+  gatewayIngressIPs: 172.20.251.93 #Cluster ingress IP
 
   nodesForGateway:
-  - externalIP: 172.20.251.93     #k8s节点外网IP
-    internalIP: 172.20.251.93     #k8s节点内网IP
-    name: 172.20.251.93           #k8s节点名称
+  - externalIP: 172.20.251.93     #k8s node external IP
+    internalIP: 172.20.251.93     #k8s node internal IP
+    name: 172.20.251.93           #k8s node name
 # - More nodes for gateway
   nodesForChaos:
-  - name: 172.20.251.93           #k8s节点名称
+  - name: 172.20.251.93           #k8s node name
 # - More nodes for chaos
-  containerdRuntimePath: /var/run/containerd  #containerd.sock文件路径
+  containerdRuntimePath: /var/run/containerd  #containerd.sock file path
 Component:
   rbd_app_ui:
     env:
-    - name: DISABLE_DEFAULT_APP_MARKET # 禁用默认开源应用商店
+    - name: DISABLE_DEFAULT_APP_MARKET # Disable default open source app store
       value: true
 ```
 
-3. 执行安装命令。
+3. Execute the installation command.
 
 ```bash
 helm install rainbond ./rainbond-chart --create-namespace -n rbd-system -f values.yaml
 ```
 
-4. 执行完安装命令后，在集群中执行以下命令查看安装状态。
+4. After executing the installation command, execute the following command in the cluster to check the installation status.
 
 ```bash
 watch kubectl get pod -n rbd-system
 ```
 
-5. 当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。如下所示，Pod `rbd-app-ui-5577b8ff88-fpnnv` 为 Running 状态时，表示 Rainbond 安装成功。
+5. When the Pod with the name containing `rbd-app-ui` is in the Running state, the installation is successful.As shown below, when the Pod `rbd-app-ui-5577b8ff88-fpnnv` is in the Running state, it means Rainbond is successfully installed.
 
 <details>
-<summary>安装成功结果示例</summary>
+<summary>Example of successful installation</summary>
 
 ```bash
 NAME                                      READY   STATUS    RESTARTS   AGE
@@ -122,16 +122,15 @@ rbd-worker-7db9f9cccc-s9wml               1/1     Running   0          5m22s
 
 </details>
 
-6. 使用 `gatewayIngressIPs` 配置的 IP 地址访问 Rainbond，例如: `http://172.20.251.93:7070`。
+6. Access Rainbond using the IP address configured in `gatewayIngressIPs`, for example: `http://172.20.251.93:7070`.
 
-7. 如您采用默认的镜像仓库，则需要修改 Containerd 的配置，配置 [goodrain.me 私有镜像仓库](../../faq/index.md#%E5%90%AF%E5%8A%A8%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F-x509-certificate-signed-by-unknown-authority)。
+7. If you use the default image repository, you need to modify the configuration of Containerd, configure [goodrain.me private image repository](../../faq/index.md#%E5%90%AF%E5%8A%A8%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F-x509-certificate-signed-by-unknown-authority).
 
+## Using source code build in offline environment (optional)
 
-## 离线环境下使用源码构建（可选）
+### Get images
 
-### 获取镜像
-
-在有网络的环境下提前准备好源码构建所需的镜像，你可以通过以下脚本下载所需的镜像。
+Prepare the required images for source code build in advance in a networked environment, you can download the required images through the following script.
 
 ```bash title="vim download_rbd_images_sourcebuild.sh"
 #!/bin/bash
@@ -147,15 +146,15 @@ done
 nerdctl save -o rainbond-sourcebuild.tar ${image_list}
 ```
 
-### 部署离线源码构建服务
+### Deploy offline source code build service
 
-1. 将镜像包导入到目标服务器
+1. Import the image package to the target server
 
 ```bash
 nerdctl -n k8s.io load -i rainbond-sourcebuild.tar
 ```
 
-2. 在 `rbd-chaos` 构建节点上给镜像重新打 `tag` 并推送到私有镜像仓库
+2. On the `rbd-chaos` build node, re-tag the images and push them to the private image repository
 
 ```bash
 # login to goodrain.me
@@ -172,7 +171,7 @@ nerdctl -n k8s.io push goodrain.me/runner:latest-amd64 --insecure-registry
 nerdctl -n k8s.io push goodrain.me/rbd-resource-proxy:offline-amd64 --insecure-registry
 ```
 
-3. 部署 `rbd-resource-proxy` 离线源码构建服务
+3. Deploy `rbd-resource-proxy` offline source code build service
 
 ```yaml title="vim rbd-resource-proxy.yaml"
 apiVersion: apps/v1
@@ -216,7 +215,7 @@ spec:
   type: NodePort
 ```
 
-4. 获取 `rbd-resource-proxy` 服务的 `NodePort` 端口
+4. Get the `NodePort` port of the `rbd-resource-proxy` service
 
 ```bash
 kubectl get svc -n rbd-system rbd-resource-proxy
@@ -224,7 +223,7 @@ NAME                 TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 rbd-resource-proxy   NodePort   10.43.122.71   <none>        80:31980/TCP   8h
 ```
 
-5. 将上述获取到的 `NodePort` 端口和 IP 配置到下述配置中，IP 为 `rbd-resource-proxy` 服务所在节点的 IP
+5. Configure the `NodePort` port and IP obtained above in the following configuration, the IP is the IP of the node where the `rbd-resource-proxy` service is located
 
 ```yaml title="kubectl edit apisixroute lang-proxy -n rbd-system"
 spec:

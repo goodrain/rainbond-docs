@@ -1,85 +1,85 @@
 ---
-title: 集群端贡献指南
-description: 该文档介绍如何为 Rainbond 集群端项目做出贡献。
+title: Cluster-side Contribution Guide
+description: This document describes how to contribute to the Rainbond cluster-side project.
 ---
 
-## Rainbond集群端源码编译
+## Rainbond cluster-side source code compilation
 
-数据中心端是直接部署在 Kubernetes 集群上的，同时组件较多，因此你可以根据需要编译单个组件。
+The data center side is directly deployed on the Kubernetes cluster, and there are many components, so you can compile a single component as needed.
 
-## 单组件编译
+## Single component compilation
 
-单组件编译在实际开发过程中⾮常重要，由于 Rainbond 系统的体系较为庞⼤，平时开发过程中通常是修改了某个组件后编译该组件，使⽤最新的组件镜像在已安装的开发测试环境中直接替换镜像。
+Single component compilation is very important in the actual development process. Due to the large system architecture of Rainbond, it is usually to modify a certain component during the development process, compile the component, and use the latest component image to directly replace the image in the installed development and test environment.
 
-单组件编译支持以下组件：
+Single component compilation supports the following components:
 
-| 组件            | 说明                                                         |
-| --------------- | ------------------------------------------------------------ |
-| chaos           | chaos 组件对应 Rainbond 应用构建服务，主要处理 CI 过程，将输入源包括 `源代码` 或 `Docker镜像` 或 `应用市场应用` 进行解析、编译、打包，最终生成 应用（组件）的版本介质。 |
-| api             | api 组件对应 Rainbond 数据中心 API 服务，API 服务作为数据中心级抽象的核心控制服务，对外提供 Restful 风格的 API 服务，是数据中心控制请求的唯一入口。 |
-| gateway         | gateway 组件对应 Rainbond 应用网关服务，应用网关是外部流量进入 Rainbond 租户内部组件的唯一入口, 提供 HTTP, HTTPs 路由, TCP/UDP 服务, 负载均衡器, 高级路由(A/B 测试, 灰度发布)，虚拟 IP 支持等功能。 |
-| monitor         | monitor 组件对应 Rainbond 监控服务，Rainbond 基于 Prometheus 封装了 Monitor 组件，通过从 etcd、Kubernetes 集群中自动发现应用、集群、集群节点服务的各类监控对象并完成 Prometheus 监控目标配置，将监控目标纳入 Prometheus 监控范围。 |
-| mq              | mq 组件对应 Rainbond 消息中间件服务，MQ 组件是基于 Etcd 实现的轻量级分布式、消息持久化和全局一致性的消息中间件。该组件维护异步任务消息，提供多主题的消息发布和订阅能力。 |
-| webcli          | webcli 组件对应 Rainbond 应用 Web 终端控制服务，该组件实现了通过 web 的方式连接到容器控制台的功能。该组件通过与 UI 进行 WebSocket 通信，用户可以通过模拟 Web 终端发送各类 shell 命令，webcli 通过 kube-apiserver 提供的 exec 方式在容器中执行命令并返回结果到 Web 终端。 |
-| worker          | worker 组件对应 Rainbond 应用运行时控制服务，应用运行时控制服务将 Rainbond-Application Model 进行实例化转化为 Kubernetes 资源模型，配属应用运行需要的各类资源，完成应用生命周期中的运行态部分，可以理解为 CD 控制服务，该服务的设计要点是支撑大量应用的生命周期监管。 |
+| Component | illustrate                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| chaos     | The chaos component corresponds to the Rainbond application build service, mainly processing the CI process, parsing, compiling, and packaging input sources including `source code` or `Docker image` or `application market application`, and finally generating the version medium of the application (component).                                                                                                                                                                                                     |
+| api       | The api component corresponds to the Rainbond data center API service. The API service, as the core control service of the data center level abstraction, provides Restful style API services externally and is the only entry point for data center control requests.                                                                                                                                                                                                                                                       |
+| gateway   | The gateway component corresponds to the Rainbond application gateway service. The application gateway is the only entry point for external traffic to enter the internal components of the Rainbond tenant, providing HTTP, HTTPs routing, TCP/UDP services, load balancer, advanced routing (A/B testing, gray release), virtual IP support and other functions.                                                                                                                                        |
+| monitor   | The monitor component corresponds to the Rainbond monitoring service. Rainbond encapsulates the Monitor component based on Prometheus, automatically discovers various monitoring objects of applications, clusters, and cluster node services from etcd and Kubernetes clusters, completes Prometheus monitoring target configuration, and includes the monitoring targets in the Prometheus monitoring scope.                                                                                                              |
+| mq        | The mq component corresponds to the Rainbond message middleware service. The MQ component is a lightweight distributed, message persistent and globally consistent message middleware based on Etcd.This component maintains asynchronous task messages and provides multi-topic message publishing and subscription capabilities.                                                                                                                                                                           |
+| webcli    | The webcli component corresponds to the Rainbond application Web terminal control service. This component implements the function of connecting to the container console through the web.This component communicates with the UI through WebSocket. Users can send various shell commands through the simulated Web terminal. Webcli executes commands in the container through the exec method provided by kube-apiserver and returns the results to the Web terminal.      |
+| worker    | The worker component corresponds to the Rainbond application runtime control service. The application runtime control service instantiates the Rainbond-Application Model into the Kubernetes resource model, configures various resources required for application operation, completes the running state part of the application life cycle, and can be understood as the CD control service. The design point of this service is to support the life cycle supervision of a large number of applications. |
 
-## 编译⽅式如下：
+## The compilation method is as follows:
 
-(1) 克隆项目
+(1) Clone the project
 
 ```bash
 git clone https://github.com/goodrain/rainbond.git
 ```
 
-(2) 以 chaos 组件为例，在 rainbond 代码主目录下执行
+(2) Take the chaos component as an example, execute in the main directory of the rainbond code
 
 ```bash
 ./release.sh chaos
 ```
 
-## 完整安装包打包编译
+## Complete installation package packaging and compilation
 
-编译完整安装包适⽤于改动了较多源代码后,重新⽣成安装包。在 rainbond 代码主⽬录下执⾏
+Compiling the complete installation package is suitable for regenerating the installation package after modifying more source code.Execute in the main directory of the rainbond code
 
 ```
 ./release.sh all
 ```
 
-## 运行数据中心端镜像
+## Run the data center side image
 
-由于数据中心端部署在 Kubernetes 集群上，因此你需要满足以下前提条件，才能将编译好的组件镜像运行起来。
+Since the data center side is deployed on the Kubernetes cluster, you need to meet the following preconditions to run the compiled component image.
 
-### 前提条件
+### Preconditions
 
-1. 已经安装好 Rainbond 的测试环境
-2. 安装 Kubectl 命令
+1. A test environment with Rainbond installed
+2. Install the Kubectl command
 
-### 运行镜像
+### Run the image
 
-Rainbond 数据中心端的组件，都是由 rbdcomponent 这个 CRD 资源进行定义的。因此当你编译好某个组件的镜像，需要运行时，则需要修改 rbdcomponent 这个资源。
+The components of the Rainbond data center side are all defined by the rbdcomponent CRD resource.Therefore, when you compile an image of a certain component and need to run it, you need to modify the rbdcomponent resource.
 
-仍然以 chaos 组件为例。假设你编译好的 chaos 镜像名为
+Still take the chaos component as an example.Assume the chaos image you compiled is named
 
 ```Bash
 rainbond/rbd-chaos:v5.5.0-release
 ```
 
-那么你需要依次执行以下操作，替换你集群中的组件镜像。
+Then you need to perform the following operations in sequence to replace the component image in your cluster.
 
-(1) 编辑对应的 rbdcomponent 文件
+(1) Edit the corresponding rbdcomponent file
 
 ```Bash
 kubectl edit rbdcomponent rbd-chaos -n rbd-system
 ```
 
-(2) 找到镜像地址一栏，修改为你的镜像，如
+(2) Find the image address column and modify it to your image, such as
 
 ```Bash
 image: rainbond/rbd-chaos:v5.5.0-release
 imagePolicy: IfNotPresent
 ```
 
-(3) 保存退出，此时执行以下命令，应该可以看到对应组件正在更新。等待 pod 更新完毕即可。
+(3) Save and exit. At this time, execute the following command, and you should see the corresponding component being updated.Wait for the pod to update.
 
 ```Bash
 kubectl get po -n rbd-system

@@ -1,117 +1,118 @@
 ---
-title: K8S 资源到 Rainbond 应用模型的转换原理
-description: 解析 Kubernetes 资源与 Rainbond 应用模型的映射转换逻辑
+title: The principle of converting K8S resources to Rainbond application model
+description: Analyze the mapping conversion logic between Kubernetes resources and Rainbond application model
 keywords:
-- Kubernetes YAML 转换 Rainbond
-- Helm Chart 转换 Rainbond
-- Rainbond 应用模型
+  - Kubernetes YAML to Rainbond
+  - Helm Chart to Rainbond
+  - Rainbond application model
 ---
 
-## 核心概念
+## Core concepts
 
-Rainbond 从 V5.8 版本开始支持直接将原生 Kubernetes 的 YAML 文件或 Helm Chart 部署到平台中。本文档阐述 Rainbond 为何需要进行应用模型转换，以及转换的技术原理和意义。
+Starting from version V5.8, Rainbond supports directly deploying native Kubernetes YAML files or Helm Charts to the platform.This document explains why Rainbond needs to perform application model conversion, as well as the technical principles and significance of the conversion.
 
-## 为什么需要模型转换
+## Why model conversion is needed
 
-Rainbond 和 Kubernetes 在设计理念上存在以下关键差异：
+There are the following key differences in design philosophy between Rainbond and Kubernetes:
 
-1. **应用中心化 vs 资源中心化**：Rainbond 围绕"应用"这一核心概念设计，将相关联的多个服务视为一个整体；而 Kubernetes 采用资源中心化的设计，各类资源（Deployment、Service等）相对独立。
+1. **Application-centric vs resource-centric**: Rainbond is designed around the core concept of "application", treating multiple related services as a whole; while Kubernetes adopts a resource-centric design, with various resources (Deployment, Service, etc.) being relatively independent.
 
-2. **抽象层次不同**：Rainbond 提供了比 Kubernetes 更高层次的抽象，通过扩展 RAM（Rainbond Application Model）模型，在保持易用性的同时提供了必要的灵活性。
+2. **Different levels of abstraction**: Rainbond provides a higher level of abstraction than Kubernetes, through the extension of the RAM (Rainbond Application Model) model, offering necessary flexibility while maintaining ease of use.
 
-3. **管理模式差异**：Kubernetes 注重全面、精细的资源定义能力，而 Rainbond 优化了常用操作的使用体验，将复杂的资源规格定义转化为直观的界面操作。
+3. **Management mode differences**: Kubernetes focuses on comprehensive, fine-grained resource definition capabilities, while Rainbond optimizes the user experience for common operations, transforming complex resource specifications into intuitive interface operations.
 
-这些差异决定了在导入 Kubernetes 资源时必须进行模型转换，以确保两种系统的兼容性和功能完整性。
+These differences determine that model conversion must be performed when importing Kubernetes resources to ensure compatibility and functional integrity between the two systems.
 
-## 转换原理与技术实现
+## Conversion principle and technical implementation
 
-### 资源识别与分类处理
+### Resource identification and classification processing
 
-Rainbond 将 Kubernetes 资源分为两类进行处理：
+Rainbond divides Kubernetes resources into two categories for processing:
 
-1. **Workload 类资源**：包括 Deployment、StatefulSet、Job 和 CronJob，这些资源被转换为 Rainbond 的组件（Component）。
+1. **Workload resources**: Including Deployment, StatefulSet, Job, and CronJob, these resources are converted into Rainbond's components (Component).
 
-2. **非 Workload 类资源**：如 Service、ConfigMap、Secret 等，被存储在应用的 `k8s资源` 列表中统一管理。
+2. **Non-Workload resources**: Such as Service, ConfigMap, Secret, etc., are stored in the application's `k8s resources` list for unified management.
 
 ![](https://static.goodrain.com/wechat/import-exist-resource-to-rainbond/import-exist-resource-to-rainbond-2.png)
 
-### Workload 转换逻辑
+### Workload conversion logic
 
-Rainbond 在转换 Workload 时采用以下处理流程：
+Rainbond adopts the following processing flow when converting Workload:
 
-1. **提取核心定义**：从 YAML 或 Helm Chart 中提取 Workload 的规格定义(Spec)。
+1. **Extract core definitions**: Extract the specification definition (Spec) of the Workload from YAML or Helm Chart.
 
-2. **映射到 RAM 模型**：将提取的定义映射到 Rainbond 应用模型的各个属性：
-   - 容器镜像、端口、环境变量等常用配置被映射到对应的 Rainbond 界面元素
-   - 特殊或扩展属性被存储在 `其他设置 > Kubernetes属性` 中
+2. **Map to RAM model**: Map the extracted definitions to various attributes of the Rainbond application model:
+   - Common configurations such as container images, ports, and environment variables are mapped to corresponding Rainbond interface elements
+   - Special or extended attributes are stored in `Other Settings > Kubernetes Attributes`
 
-3. **自动识别关联**：自动识别资源间的依赖关系，构建应用内组件的连接关系
+3. **Automatic identification of associations**: Automatically identify dependencies between resources to build connection relationships between components within the application
 
-Rainbond 通过识别 YAML 文件中的资源类型，将其转换为 Rainbond 中的组件类型和相应的抽象层。以下是按照类型划分的详细支持资源清单：
+Rainbond identifies the resource types in YAML files and converts them into component types and corresponding abstraction layers in Rainbond.The following is a detailed list of supported resources divided by type:
 
-#### 组件类型资源
+#### Component type resources
 
-该类型资源导入完成后会转换成 Rainbond 中的组件：
+After importing, this type of resource will be converted into components in Rainbond:
 
-| k8s资源      | Rainbond模型  |
-| ----------- | ------------ |
-| Deployment  | 无状态组件      |
-| StatefulSet | 有状态组件      |
-| CronJob     | 定时任务组件    |
-| Job         | 任务组件       |
+| k8s resources | Rainbond model           |
+| ------------- | ------------------------ |
+| Deployment    | Stateless component      |
+| StatefulSet   | Stateful component       |
+| CronJob       | Scheduled task component |
+| Job           | Task component           |
 
-#### 组件属性资源
+#### Component attribute resources
 
-组件类型资源自身携带的一些属性值，如Port、ConfigMap、volume等：
+Some attribute values carried by component type resources themselves, such as Port, ConfigMap, volume, etc:
 
-| 组件属性                  | Rainbond模型        |
-| ------------------------- | ------------------- |
-| nodeSelector              | 组件特殊属性         |
-| labels                    | 组件特殊属性         |
-| tolerations               | 组件特殊属性         |
-| volumes                   | 组件特殊属性         |
-| serviceAccountName        | 组件特殊属性         |
-| affinity                  | 组件特殊属性         |
-| volumeMount               | 组件特殊属性/配置文件 |
-| privileged                | 组件特殊属性         |
-| port                      | 组件端口            |
-| HorizontalPodAutoscalers  | 组件伸缩策略         |
-| env                       | 环境变量/组件特殊属性 |
-| HealthyCheckManagement    | 组件健康检测         |
+| Component attributes     | Rainbond model                                     |
+| ------------------------ | -------------------------------------------------- |
+| nodeSelector             | Component special attributes                       |
+| labels                   | Component special attributes                       |
+| tolerations              | Component special attributes                       |
+| volumes                  | Component special attributes                       |
+| serviceAccountName       | Component special attributes                       |
+| affinity                 | Component special attributes                       |
+| volumeMount              | Component special attributes/configuration file    |
+| privileged               | Component special attributes                       |
+| port                     | Component port                                     |
+| HorizontalPodAutoscalers | Component scaling policy                           |
+| env                      | Environment variables/component special attributes |
+| HealthyCheckManagement   | Component health check                             |
 
-**特别说明**：
-- 如果组件的 volumeMount 挂载了 ConfigMap 类型的 volume，则会转化为组件的配置文件
-- 如果 env 是引用类型，则不会被识别到 Rainbond 的环境变量中
-- 其他的资源全部放在应用视图下的 k8s 资源当中
+**Special note**:
 
-### 非 Workload 资源处理
+- If the component's volumeMount is mounted with a ConfigMap type volume, it will be converted into the component's configuration file
+- If env is a reference type, it will not be recognized in Rainbond's environment variables
+- Other resources are all placed in the k8s resources under the application view
 
-对于 Service、ConfigMap、Secret 等非 Workload 资源：
+### Non-Workload resource processing
 
-1. Rainbond 将其转换为内部表示，存储在应用级别的 `k8s资源` 列表中
-2. 提供图形化界面供用户查看和编辑这些资源
-3. 在应用部署时，这些资源会被自动应用到 Kubernetes 集群中
+For non-Workload resources such as Service, ConfigMap, Secret, etc:
 
-## 双向转换能力
+1. Rainbond converts them into internal representations and stores them in the application-level `k8s resources` list
+2. Provide a graphical interface for users to view and edit these resources
+3. When the application is deployed, these resources will be automatically applied to the Kubernetes cluster
 
-Rainbond 不仅支持将 Kubernetes 资源导入转换为应用模型，还支持反向操作：
+## Bidirectional conversion capability
 
-- **导入转换**：YAML/Helm → Rainbond 应用模型
-- **导出转换**：Rainbond 应用 → Helm Chart
+Rainbond not only supports importing Kubernetes resources and converting them into application models, but also supports the reverse operation:
 
-这种双向转换能力确保了应用可以在 Rainbond 和原生 Kubernetes 环境间自由迁移，无缝对接企业现有的 Kubernetes 生态和工具链。
+- **Import Conversion**: YAML/Helm → Rainbond Application Model
+- **Export Conversion**: Rainbond Application → Helm Chart
 
-## 实际应用场景
+This bidirectional conversion capability ensures that applications can freely migrate between Rainbond and native Kubernetes environments, seamlessly integrating with the existing Kubernetes ecosystem and toolchain of enterprises.
 
-### 导入 Kubernetes 资源
+## Practical Application Scenarios
 
-对于已有 Kubernetes 资源的导入，Rainbond 提供两种主要方式：
+### Importing Kubernetes Resources
 
-- **YAML 文件导入**：适用于单个或少量资源定义的场景 [详细指南](./yaml-example.md)
-- **Helm Chart 导入**：适用于完整应用包的场景 [详细指南](./helm-example.md)
+For the import of existing Kubernetes resources, Rainbond provides two main methods:
 
-### 导出为 Helm Chart
+- **YAML File Import**: Suitable for scenarios with single or a small number of resource definitions [Detailed Guide](./yaml-example.md)
+- **Helm Chart Import**: Suitable for scenarios with complete application packages [Detailed Guide](./helm-example.md)
 
-Rainbond 可将平台中的应用导出为标准 Helm Chart 包，便于在其他 Kubernetes 环境中部署或分享：
+### Export as Helm Chart
 
-- [导出 Helm Chart 包指南](./export-chart.md)
+Rainbond can export applications on the platform as standard Helm Chart packages, facilitating deployment or sharing in other Kubernetes environments:
+
+- [Guide to Exporting Helm Chart Packages](./export-chart.md)

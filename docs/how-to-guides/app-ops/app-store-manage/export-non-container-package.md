@@ -1,27 +1,28 @@
 ---
-title: 导出非容器包
-description: 将源码构建而来的应用导出成为在非容器环境下可用的安装包
+title: Export non-container package
+description: Export the application built from source code into an installation package that can be used in a non-container environment
 ---
 
-## 场景
+## Scenario
 
-Rainbond 提供的应用模板导出机制，主要用来解决面向最终用户的应用交付问题。然而以往的应用模板的运行，始终无法免除对容器运行环境的要求。应用模板扩展了导出非容器包的能力，专门用于解决最终交付环境中没有容器运行环境的场景中的应用交付问题。
+The application template export mechanism provided by Rainbond is mainly used to solve the application delivery problem for end users.However, the operation of previous application templates cannot eliminate the requirement for a container runtime environment.The application template extends the ability to export non-container packages, specifically designed to solve the application delivery problem in scenarios where there is no container runtime environment in the final delivery environment.
 
-适用的场景包括：
-- 交付环境完全离线，导致无法正常安装 Docker 等容器运行时环境。
-- 交付环境安全要求极高，不允许使用容器技术。
+Applicable scenarios include:
 
-## 前提要求
+- The delivery environment is completely offline, making it impossible to install container runtime environments such as Docker normally.
+- The delivery environment has extremely high security requirements and does not allow the use of container technology.
 
-- Rainbond 平台版本不低于 v5.8.1-release 。
-- 导出的组件基于 [源码构建](../../app-deploy/source-code/springboot.md) 部署。
-- 参考文档，完成应用发布流程，将应用发布到内部组件库。
+## Prerequisites
 
-## 导出非容器包
+- The Rainbond platform version is not lower than v5.8.1-release.
+- The exported components are deployed based on [source code build](../../app-deploy/source-code/springboot.md).
+- Refer to the documentation to complete the application release process and publish the application to the internal component library.
 
-在内部组件库中找到已经发布好的应用模板，在 `导出应用模板` 页面中，点击导出 `导出非容器包` 。导出完成后，即可下载导出的非容器包。
+## Export non-container package
 
-得到的非容器包，命名格式为 `{应用名称}-{应用模板版本号}-slug.tar.gz` 。该包可以在任意 Linux 操作系统中解压，解压后的目录结构如下：
+In the internal component library, find the published application template, and on the `Export Application Template` page, click to export `Export non-container package`.After the export is completed, you can download the exported non-container package.
+
+The obtained non-container package is named in the format `{application name}-{application template version}-slug.tar.gz`.This package can be decompressed in any Linux operating system, and the directory structure after decompression is as follows:
 
 ```bash
 non-docker-demo-0.1-slug
@@ -36,16 +37,16 @@ non-docker-demo-0.1-slug
 └── non-docker-demo.sh
 ```
 
-- 应用中包含的服务组件，以目录的形式分割，目录命名格式为组件的名字。
-- 应用目录下，存在以应用名称命名的全局控制脚本。
-- 服务组件目录下，存在单独控制组件的脚本。
-- 服务组件目录下，存在以 `{服务组件名}.env` 结尾的环境变量配置文件，其中包含自定义环境变量、配置组环境变量、连接信息环境变量以及定义监听端口的变量 `PORT`。
+- The service components included in the application are separated in the form of directories, and the directory naming format is the name of the component.
+- Under the application directory, there is a global control script named after the application name.
+- Under the service component directory, there is a script to control the component individually.
+- Under the service component directory, there is an environment variable configuration file ending with `{service component name}.env`, which contains custom environment variables, configuration group environment variables, connection information environment variables, and the variable `PORT` that defines the listening port.
 
-## 管理非容器包
+## Manage non-container package
 
-通过全局控制脚本，可以批量控制应用下所有组件的启动、关闭、状态查询操作。
+Through the global control script, you can batch control the start, stop, and status query operations of all components under the application.
 
-- 全局启动
+- Global start
 
 ```bash
 [root@localhost non-docker-demo-0.1-slug]# ./non-docker-demo.sh start
@@ -54,7 +55,7 @@ The environment variable $MEMORY_SIZE was not identified,The Java process will n
 Running app java-demo with process:  11472 java ...  Done
 ```
 
-- 组件状态查询
+- Component status query
 
 ```bash
 [root@localhost non-docker-demo-0.1-slug]# ./non-docker-demo.sh status
@@ -63,7 +64,7 @@ golang                         Active(Running)                3984
 java-demo                      Active(Running)                11472
 ```
 
-- 全局关闭
+- Global stop
 
 ```bash
 [root@localhost non-docker-demo-0.1-slug]# ./non-docker-demo.sh stop
@@ -71,9 +72,9 @@ Stopping app golang which running with pid 3984 ...  Done
 Stopping app java-demo which running with pid 11472 ...  Done
 ```
 
-通过每个服务组件文件夹内的控制脚本，可以管理单个服务组件的启动、关闭、状态查询操作。
+Through the control script in each service component folder, you can manage the start, stop, and status query operations of a single service component.
 
-- 启动服务组件
+- Start service component
 
 ```bash
 [root@localhost golang]# ./golang.sh start
@@ -84,7 +85,7 @@ We will start your app with ==> go-demo
 Running app golang with process: 24033 go-demo ...  Done
 ```
 
-- 查询服务组件状态
+- Query service component status
 
 ```bash
 [root@localhost golang]# ./golang.sh status
@@ -92,49 +93,49 @@ AppName                        Status                         PID
 golang                         Active(Running)                24033
 ```
 
-- 关闭服务组件
+- Stop service component
 
 ```bash
 [root@localhost golang]# ./golang.sh stop
 Stopping app golang which running with pid 24033 ...  Done
 ```
 
-## 配置管理
+## Configuration management
 
-服务组件的配置依然通过环境变量来进行管理。
+The configuration of service components is still managed through environment variables.
 
-每个服务组件目录中，会包含 `{服务组件名}.env` 类型的环境变量配置文件，服务组件在启动时会加载其中的变量对自身进行配置。
+Each service component directory contains an environment variable configuration file of the type `{service component name}.env`. The service component will load the variables in it to configure itself when starting.
 
-`{服务组件名}.env` 文件会包含以下四种来源的环境变量：
+The `{service component name}.env` file will contain environment variables from the following four sources:
 
-- 服务组件在发布时，组件自定义的环境变量
-- 服务组件在发布时，配置组中定义的应用级全局配置的环境变量
-- 服务组件之间的连接信息环境变量
-- 特别用来声明端口信息的环境变量 $PORT
+- Custom environment variables of the service component when it was released
+- Application-level global configuration environment variables defined in the configuration group when the service component was released
+- Connection information environment variables between service components
+- The environment variable $PORT specifically used to declare port information
 
-在非容器包启动之前，用户可以自定义 `{服务组件名}.env` 配置文件来修改服务组件的配置。一种常见的场景是：服务组件在 Rainbond 运行时依赖其他中间件，引用的连接信息环境变量中会包含 `MYSQL_HOST=127.0.0.1` 这样的配置信息，在非容器包中并不包含 Mysql 服务组件，需要用户手动将 `MYSQL_HOST` 环境变量的值，修改为当前交付环境中 Mysql 的真实 IP 地址，再启动服务组件。
+Before starting the non-container package, users can customize the `{service component name}.env` configuration file to modify the configuration of the service component.A common scenario is: the service component depends on other middleware when running on Rainbond, and the referenced connection information environment variables will contain configuration information such as `MYSQL_HOST=127.0.0.1`. The non-container package does not include the Mysql service component, so users need to manually modify the value of the `MYSQL_HOST` environment variable to the real IP address of Mysql in the current delivery environment, and then start the service component.
 
-## 日志查询
+## Log query
 
-服务组件一旦启动，其日志会输出到服务组件目录下的 `{服务组件名}.log` 日志文件中去。
+Once the service component is started, its logs will be output to the `{service component name}.log` log file under the service component directory.
 
-## 使用须知
+## Usage notes
 
-相对于在 Rainbond 上运行的应用，非容器包的使用有一些限制，特此在本章节说明。
+Compared to applications running on Rainbond, the use of non-container packages has some limitations, which are explained in this section.
 
-### 组件构建来源
+### Component build source
 
-非容器包，只会导出应用中所有由 [源码构建](../../app-deploy/source-code/springboot.md) 功能部署而来的服务组件，来自其他构建源，如 Docker 镜像构建、Helm 创建等方式的服务组件，将无法被导出到非容器包中去。
+The non-container package will only export all service components in the application that are deployed by the [source code build](../../app-deploy/source-code/springboot.md) function. Service components from other build sources, such as Docker image build, Helm creation, etc., cannot be exported to the non-container package.
 
-非容器包目前支持的源码类型包括： Java-Maven、Java-Gradle、Java-Jar、Java-War、Golang、NodeJS、NodeJS 前端项目(VUE React)、Html静态语言。
+The source code types currently supported by the non-container package include: Java-Maven, Java-Gradle, Java-Jar, Java-War, Golang, NodeJS, NodeJS front-end projects (VUE React), Html static language.
 
-Python 与 PHP 语言，由于其语言特性，需要用户自行处理运行时所依赖的操作系统级的库文件。
+Due to the language characteristics of Python and PHP, users need to handle the operating system-level library files that the runtime depends on by themselves.
 
-### 端口冲突
+### Port conflict
 
-由于非容器包中的服务组件，在启动时直接占用了服务器的端口，所以要求服务组件的监听端口不可以冲突。这里推荐将服务组件运行时监听的端口以环境变量 `PORT` 来定义，方便在 `{服务组件名}.env` 文件中修改配置。
+Since the service components in the non-container package directly occupy the server's ports when starting, the listening ports of the service components must not conflict.It is recommended to define the port that the service component listens to at runtime with the environment variable `PORT`, which is convenient to modify the configuration in the `{service component name}.env` file.
 
-### 拆分运行
+### Split operation
 
-非容器包目录中的每个服务组件目录，都可以单独拆解到其他服务器上运行，如果用户决定这么做，那么请注意配置不同服务之间的访问地址，避免连接不到的情况。
+Each service component directory in the non-container package directory can be separately split and run on other servers. If users decide to do so, please pay attention to configuring the access addresses between different services to avoid connection failures.
 

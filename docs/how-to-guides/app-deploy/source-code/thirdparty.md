@@ -1,43 +1,46 @@
 ---
-title: 第三方服务部署
-description: 讲解Rainbond支持第三方服务的创建方式和流程
+title: Third-party service deployment
+description: Explain the creation methods and processes of third-party services supported by Rainbond
 ---
 
-## 概述
+## Overview
 
-运行于 Rainbond 集群之外，运行生命周期不受 Rainbond 管理，且在网络上能够与 Rainbond 集群通信的服务称为第三方服务。例如单独运行的 Oracle 服务，或运行于 Windows 服务器的.net 服务等。
+Services that run outside the Rainbond cluster, whose lifecycle is not managed by Rainbond, and can communicate with the Rainbond cluster over the network are called third-party services.For example, a standalone Oracle service, or a .NET service running on a Windows server.
 
-Rainbond 支持第三方服务管理的初衷是为了解决企业在使用 Rainbond 落地过程中遇到的两类主要问题：迁移过程中的集群内外服务共存和未迁移服务与 Rainbond 上服务的统一管理与通信。
+The original intention of Rainbond supporting third-party service management is to solve two main problems encountered by enterprises in the process of using Rainbond: the coexistence of services inside and outside the cluster during the migration process, and the unified management and communication of unmigrated services with services on Rainbond.
 
-1. 循序渐进的迁移策略：在服务迁移到 Rainbond 平台时，常常需要与未迁移的遗留服务通信和统一管理。Rainbond 以应用和服务为核心，提供服务注册和发现机制，但过去的版本中无法很好地支持未迁移的外部服务。为了实现逐步迁移的策略，Rainbond 致力于通过环境变量和统一管理功能来简化配置管理和服务通信，使得新旧服务可以共存并高效协作。
+1. Gradual migration strategy: When services are migrated to the Rainbond platform, they often need to communicate and be uniformly managed with legacy services that have not been migrated.Rainbond is centered around applications and services, providing service registration and discovery mechanisms, but in past versions, it could not well support unmigrated external services.To achieve a gradual migration strategy, Rainbond is committed to simplifying configuration management and service communication through environment variables and unified management functions, enabling old and new services to coexist and collaborate efficiently.
 
-2. 共享外网端口与域名：Rainbond 的应用网关提供了强大的外网服务能力，但过去未迁移的服务无法直接使用这些功能，用户不得不在网关前额外添加一层 nginx，增加了配置复杂性。通过支持第三方服务管理，Rainbond 旨在让遗留服务也可以共享其网关的外网功能，减少配置复杂性，并享受域名访问监控等开箱即用的能力。
+2. Sharing external network ports and domain names: Rainbond's application gateway provides powerful external network service capabilities, but in the past, unmigrated services could not directly use these functions, forcing users to add an additional layer of nginx in front of the gateway, increasing configuration complexity.By supporting third-party service management, Rainbond aims to allow legacy services to also share the external network functions of its gateway, reduce configuration complexity, and enjoy out-of-the-box capabilities such as domain name access monitoring.
 
-## 创建第三方服务
+## Create a third-party service
 
-### 静态注册
+### Static registration
 
-在 **应用视图 -> 添加组件 -> 第三方组件** 中，选择服务注册方式为静态注册，
-1. 填写服务的通信地址如 `192.168.1.1:8080` 
-2. 创建组件
+In **Application View -> Add Component -> Third-party Component**, select the service registration method as static registration,
 
-进入组件详情页，配置端口、连接信息、健康检查属性等。
+1. Fill in the service communication address such as `192.168.1.1:8080`
+2. Create component
+
+Enter the component details page, configure port, connection information, health check attributes, etc.
 
 ### Kubernetes
 
-在 **应用视图 -> 添加组件 -> 第三方组件** 中，选择服务注册方式为 Kubernetes，
-1. 填写 Namespace ，默认为当前团队所在 Namespace
-2. 填写 Service ，Service 应属于上边填写的 Namespace
-3. 创建组件
+In **Application View -> Add Component -> Third-party Component**, select the service registration method as Kubernetes,
 
-进入组件详情页，配置端口、连接信息、健康检查属性等。
+1. Fill in the Namespace, default is the current team's Namespace
+2. Fill in the Service, the Service should belong to the Namespace filled in above
+3. Create component
 
-## 示例
+Enter the component details page, configure port, connection information, health check attributes, etc.
 
-使用第三方服务代理 Rainbond 控制台，通过域名访问 Rainbond 控制台。
+## Example
 
-在 **应用视图 -> 添加组件 -> 第三方组件** 中，选择服务注册方式为静态注册，
-1. 填写服务的通信地址如 `192.168.1.1:7070` 
-2. 创建组件
+Use a third-party service to proxy the Rainbond console, access the Rainbond console through a domain name.
 
-进入组件详情页，配置端口协议为 `HTTP`，端口号为 `7070`，打开对外访问，即可通过域名访问 Rainbond 控制台。
+In **Application View -> Add Component -> Third-party Component**, select the service registration method as static registration,
+
+1. Fill in the service communication address such as `192.168.1.1:7070`
+2. Create component
+
+Enter the component details page, configure the port protocol as `HTTP`, port number as `7070`, enable external access, and then you can access the Rainbond console through the domain name.

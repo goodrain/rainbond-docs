@@ -1,23 +1,23 @@
 ---
-title: Python 项目部署
-description: 在 Rainbond 上通过源码部署 Python 项目
+title: Python Project Deployment
+description: Deploy Python projects on Rainbond through source code
 ---
 
-## 概述
+## Overview
 
-平台默认会根据源码根目录是否有 `requirements.txt` 文件来识别为 Python 项目.
+The platform defaults to identifying it as a Python project based on whether there is a `requirements.txt` file in the root directory of the source code.
 
-### requirements.txt 规范
+### requirements.txt specification
 
-若无 `requirements.txt` 可用如下命令生成
+If there is no `requirements.txt`, you can generate it with the following command
 
 ```bash
 pip freeze > requirements.txt
 ```
 
-### Django 静态文件支持
+### Django static file support
 
-由于 [Django](https://www.djangoproject.com/) 的静态文件支持（CSS、图片等）不是很容易配置而且不方便调试，这里给出一个示例：
+Since [Django](https://www.djangoproject.com/) static file support (CSS, images, etc.) is not easy to configure and inconvenient to debug, here is an example:
 
 **settings.py**
 
@@ -34,20 +34,20 @@ STATICFILES_DIRS = (
 )
 ```
 
-默认情况下系统会在构建 Django 应用时自动执行以下命令尝试检测（--dry-run）静态文件配置是否正确：
+By default, the system will automatically execute the following command during the Django application build to try to detect (--dry-run) whether the static file configuration is correct:
 
 ```bash
 $ python manage.py collectstatic --dry-run --noinput
 ```
 
-如果此命令没有出错，将执行真正的命令拷贝静态文件到 STATIC_ROOT 目录：
+If this command does not report an error, the real command will be executed to copy the static files to the STATIC_ROOT directory:
 
 ```bash
 $ python manage.py collectstatic --noinput
 ```
 
-可以手工禁用上述特性，只需要在应用的环境变量里配置 `BUILD_DISABLE_COLLECTSTATIC` 的值为 1。
+You can manually disable the above feature by setting the value of `BUILD_DISABLE_COLLECTSTATIC` to 1 in the application's environment variables.
 
-## 部署示例
+## Deployment example
 
-进入到团队下，新建应用选择**基于源码示例**进行构建，选中 Python Demo 并默认全部下一步即可。
+Enter the team, create a new application, select **Based on source code example** to build, select Python Demo and default to all next steps.
