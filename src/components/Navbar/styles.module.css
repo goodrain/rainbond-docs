@@ -91,4 +91,36 @@
   opacity: 0.7;
 }
 
+.github_button {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid #f3f4f6;
+  border-radius: 999px;
+  color: #111827;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.github_button:hover {
+  background-color: #f3f4f6;
+  text-decoration: none;
+  color: #111827;
+}
+
+.github_icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.github_text {
+
+  margin-right: 8px;
+}
+
+.star_count {
+  font-weight: 600;
+}
+
 
