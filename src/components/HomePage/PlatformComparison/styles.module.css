@@ -1,0 +1,120 @@
+.row {
+  padding: 4rem 0;
+}
+
+.section_title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.platform_tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.platform_tab {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.platform_tab:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+.platform_tab.active {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.platform_cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.platform_card {
+  background-color: var(--ifm-background-color);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.platform_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card_header {
+  padding: 1.5rem;
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.card_header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card_header p {
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+}
+
+.card_content {
+  padding: 1.5rem;
+}
+
+.product_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.product_tag {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.features h4 {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.feature_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature_item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.feature_item::before {
+  content: "✓";
+  margin-right: 0.5rem;
+  color: var(--ifm-color-primary);
+  font-weight: bold;
+}

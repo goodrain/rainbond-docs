@@ -1,34 +1,29 @@
-import Head from '@docusaurus/Head';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import LayoutProviders from '@theme/Layout/Provider';
 import React from 'react';
-import NavBar from '../components/NavBar';
-import styles from './index.module.scss';
-import AnnouncementBar from '@theme/AnnouncementBar';
-import Footer from '@theme/Footer';
+import Layout from '@theme/Layout';
+import Background from '../components/Background';
+import CoreCapabilities from '@src/components/HomePage/CoreCapabilities';
+import Hero from '@src/components/HomePage/Hero';
+import WhyRainbond from '@src/components/HomePage/WhyRainbond';
+import PlatformComparison from '@src/components/HomePage/PlatformComparison';
+import WhoDesignedFor from '@src/components/HomePage/WhoDesignedFor';
+import GettingStarted from '@src/components/HomePage/GettingStarted';
 
-import Primary from '../components/HomePage/Primary';
-import Communitydata from '../components/HomePage/Communitydata';
-import Platform from '../components/HomePage/Platform';
-import Feature from '../components/HomePage/Feature';
-import Rainstore from '../components/HomePage/Rainstore';
-import Xinchuang from '../components/HomePage/Xinchuang';
-import VideoLearn from '../components/HomePage/VideoLearn';
-import HowRainbond from '../components/HomePage/HowRainbond';
-import Users from '../components/HomePage/Users';
-import JoinCommunity from '../components/HomePage/JoinCommunity';
-  
-export default function ZhHome() {
-  const { siteConfig } = useDocusaurusContext();
+export default function Home() {
+
   return (
-    <LayoutProviders>
-      <Head>
-        <title>{siteConfig.title}</title>
-        <meta property='og:title' content={siteConfig.title} />
-        <link rel='icon' href={siteConfig.favicon} type='image/x-icon' />
-      </Head>
-      123
-      <Footer/>
-    </LayoutProviders>
+    <Layout>
+      <Background />
+      <Hero />
+      <span style={{ margin: '7rem 0 7rem 0', borderTop: '1px dashed #e5e7eb' }}/>
+      <CoreCapabilities />
+      <span style={{ margin: '5rem 0 5rem 0', borderTop: '1px dashed #e5e7eb' }}/>
+      <WhyRainbond />
+      <span style={{ margin: '5rem 0 5rem 0', borderTop: '1px dashed #e5e7eb' }}/>
+      <PlatformComparison />
+      <span style={{ margin: '5rem 0 5rem 0', borderTop: '1px dashed #e5e7eb' }}/>
+      <WhoDesignedFor />
+      <span style={{ margin: '5rem 0 5rem 0', borderTop: '1px dashed #e5e7eb' }}/>
+      <GettingStarted />
+    </Layout>
   );
 }

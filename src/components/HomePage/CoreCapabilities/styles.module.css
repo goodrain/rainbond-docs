@@ -1,0 +1,43 @@
+.core_capabilities {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.core_capabilities_title {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.core_capabilities_description {
+  font-size: 16px;
+  font-weight: 450;
+  margin: 0 auto;
+}
+
+.core_capabilities_card {
+  padding: 0 20px 20px 0;
+}
+
+.core_capabilities_card_header {
+  line-height: 25px;
+}
+
+.core_capabilities_card_header_icon {
+  color: var(--ifm-color-primary);
+}
+
+.core_capabilities_card_header_title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.core_capabilities_card_description {
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 25px;
+}
+
+.core_capabilities_card_style {
+  height: 305px;
+}

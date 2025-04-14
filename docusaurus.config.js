@@ -34,7 +34,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          editUrl: 'https://github.com/goodrain/rainbond-docs/tree/en-docs',
+          editUrl: 'https://github.com/goodrain/rainbond-docs/tree/english-website',
           includeCurrentVersion: true,
           lastVersion: 'current',
           versions: {
@@ -78,7 +78,7 @@ const config = {
         },
         items: [
           {
-            label: 'Docs',
+            label: 'Documentation',
             to: '/docs',
             position: 'left',
           },
@@ -98,6 +98,7 @@ const config = {
       },
       colorMode: {
         defaultMode: 'light',
+        disableSwitch: true,
       },
       algolia: {
         appId: '6NQ861LF9R',
@@ -106,7 +107,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved. Powered by <a href="https://www.netlify.com">Netlify</a>`
+        copyright: `Copyright © ${new Date().getFullYear()} Rainbond, Inc. All Rights Reserved. Powered by <a href="https://www.netlify.com">Netlify</a>`
       },
       prism: {
         // darkTheme: darkCodeTheme
