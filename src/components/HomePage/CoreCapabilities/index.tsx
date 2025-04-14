@@ -57,7 +57,7 @@ export default function CardList() {
               <div className={styles.core_capabilities_card_header}>
                 <IconTerminal size='extra-large' className={styles.core_capabilities_card_header_icon}/>
                 <p className={styles.core_capabilities_card_header_title}>
-                  Full Application Lifecycle Management
+                  Full Application Lifecycle Management &nbsp;
                 </p>
               </div>
             }

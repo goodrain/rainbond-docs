@@ -22,7 +22,7 @@ export default function Home() {
       <div className={clsx(styles.hero_button, 'row')}>
         <div className='col col--12'>
           <Link to="/docs/quick-start/quick-install">
-            <Button theme='solid' type='primary' style={{ marginRight: 50 }} icon={<IconBolt />} size='large' className={styles.hero_button_style}>
+            <Button theme='solid' type='primary' icon={<IconBolt />} size='large' className={clsx(styles.hero_button_style, styles.hero_button_style_left)}>
               Get Started
             </Button>
           </Link>

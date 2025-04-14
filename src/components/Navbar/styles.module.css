@@ -15,21 +15,7 @@
 
 @media (max-width: 768px) {
   .navbar {
-    top: auto;
-    width: calc(100% - 48px);
-    padding: 4px;
-  }
-  
-  .nav {
-    padding: 0 4px;
-  }
-  
-  .navLink {
-    padding: 8px;
-  }
-  
-  .navLinkText {
-    display: none;
+    top: 1rem;
   }
 }
 

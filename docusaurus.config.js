@@ -7,7 +7,7 @@ const path = require('path');
 const config = {
   title: 'Rainbond',
   tagline: 'Application Delivery Center',
-  url: 'https://www.rainbond.com',
+  url: 'https://www.rainbond.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -83,6 +83,11 @@ const config = {
             position: 'left',
           },
           {
+            label: '中文站',
+            to: 'https://www.rainbond.com',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/goodrain/rainbond',
             position: 'right',
             className: 'header-github-link',
@@ -120,9 +125,6 @@ const config = {
         isCloseable: false,
       }
     }),
-  // scripts: [
-  //   'https://static.goodrain.com/docusaurus/baidu-statistics.js'
-  // ],
   plugins: [
     'docusaurus-plugin-sass',
     '@docusaurus/plugin-ideal-image',
