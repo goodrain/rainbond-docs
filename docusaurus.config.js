@@ -15,9 +15,9 @@ const config = {
   favicon: 'img/rainbond.png',
   organizationName: 'goodrain', // Usually your GitHub org/user name.
   projectName: 'rainbond-docs', // Usually your repo name.
-  trailingSlash: false,
+  trailingSlash: 'false',
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'zh',
     locales: ['en', 'zh'],
     localeConfigs: {
       zh: {
@@ -96,63 +96,63 @@ const config = {
         hideOnScroll: true,
         // navbar的选项卡
         items: [
-          // {
-          //   type: 'docSidebar',
-          //   position: 'left',
-          //   sidebarId: 'docs',
-          //   label: '文档',
-          // },
-          // {
-          //   type: 'dropdown',
-          //   label: '功能特性',
-          //   position: 'left',
-          //   items: [
-          //     {
-          //       label: '信创',
-          //       to: '/xinchuang'
-          //     },
-          //     {
-          //       label: '一体化DevOps',
-          //       to: '/feature/devops'
-          //     },
-          //     {
-          //       label: 'Kubernetes多集群管理',
-          //       to: '/feature/multi-cluster'
-          //     },
-          //     {
-          //       label: '开箱即用的微服务治理',
-          //       to: '/feature/service-mesh'
-          //     },
-          //     {
-          //       label: '自动化应用运维',
-          //       to: '/feature/app-ops'
-          //     }
-          //   ]
-          // },
-          // {
-          //   type: 'dropdown',
-          //   label: '深入',
-          //   position: 'left',
-          //   items: [
-          //     {
-          //       label: '使用场景',
-          //       href: '/usescene',
-          //     },
-          //     {
-          //       label: '用户案例',
-          //       href: '/case',
-          //     },
-          //     {
-          //       label: '博客',
-          //       href: '/blog',
-          //     },
-          //     {
-          //       type: 'docSidebar',
-          //       sidebarId: 'api',
-          //       label: 'OpenAPI',
-          //     },
-          //   ],
-          // },
+          {
+            type: 'docSidebar',
+            position: 'left',
+            sidebarId: 'docs',
+            label: '文档',
+          },
+          {
+            type: 'dropdown',
+            label: '功能特性',
+            position: 'left',
+            items: [
+              {
+                label: '信创',
+                to: '/xinchuang'
+              },
+              {
+                label: '一体化DevOps',
+                to: '/feature/devops'
+              },
+              {
+                label: 'Kubernetes多集群管理',
+                to: '/feature/multi-cluster'
+              },
+              {
+                label: '开箱即用的微服务治理',
+                to: '/feature/service-mesh'
+              },
+              {
+                label: '自动化应用运维',
+                to: '/feature/app-ops'
+              }
+            ]
+          },
+          {
+            type: 'dropdown',
+            label: '深入',
+            position: 'left',
+            items: [
+              {
+                label: '使用场景',
+                href: '/usescene',
+              },
+              {
+                label: '用户案例',
+                href: '/case',
+              },
+              {
+                label: '博客',
+                href: '/blog',
+              },
+              {
+                type: 'docSidebar',
+                sidebarId: 'api',
+                label: 'OpenAPI',
+              },
+            ],
+          },
           {
             type: 'docsVersionDropdown',
             position: 'right',
@@ -182,11 +182,11 @@ const config = {
               },
             ]
           },
-          // {
-          //   position: 'right',
-          //   label: '企业版',
-          //   href: '/enterprise_server'
-          // },
+          {
+            position: 'right',
+            label: '企业版',
+            href: '/enterprise_server'
+          },
           {
             type: 'localeDropdown',
             position: 'right',
@@ -217,7 +217,84 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved. <a href="https://beian.miit.gov.cn">京ICP备15028663号-4</a>. Powered by <a href="https://www.netlify.com">Netlify</a>`
+        links: [
+          {
+            title: '文档',
+            items: [
+              {
+                label: '快速入门',
+                to: '/docs/quick-start/getting-started'
+              },
+              {
+                label: '使用教程',
+                to: '/docs/tutorial/via-rainbond-deploy-sourceandmiddleware'
+              }
+            ]
+          },
+          {
+            title: '功能特性',
+            items: [
+              {
+                label: '信创',
+                to: '/xinchuang'
+              },
+              {
+                label: '一体化DevOps',
+                to: '/feature/devops'
+              },
+              {
+                label: 'Kubernetes多集群管理',
+                to: '/feature/multi-cluster'
+              },
+              {
+                label: '开箱即用的微服务治理',
+                to: '/feature/service-mesh'
+              },
+              {
+                label: '自动化应用运维',
+                to: '/feature/app-ops'
+              }
+            ]
+          },
+          {
+            title: '深入',
+            items: [
+              {
+                label: '使用场景',
+                to: 'usescene'
+              },
+              {
+                label: '用户案例',
+                to: 'case'
+              },
+              {
+                label: '博客',
+                to: 'blog'
+              },
+              {
+                label: 'OpenAPI',
+                to: '/docs/Intro'
+              },
+            ]
+          },
+          {
+            title: '更多',
+            items: [
+              {
+                label: '企业版',
+                to: 'enterprise_server'
+              },
+              {
+                label: '联系我们',
+                to: 'https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg'
+              },
+              {
+                html: `<a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> </a>`
+              }
+            ]
+          }
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved. <a href="https://beian.miit.gov.cn">京ICP备15028663号-4</a>`
       },
       prism: {
         // darkTheme: darkCodeTheme
