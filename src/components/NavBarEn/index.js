@@ -27,7 +27,7 @@ export default function Index(props) {
             <ul className={styles.nav_lists}>
               <li>
                 <a
-                    href='https://www.rainbond.com/en/docs'
+                    href='/en/docs'
                     target='_blank'
                 >Docs</a>
               </li>

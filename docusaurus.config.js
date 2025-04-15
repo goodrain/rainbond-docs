@@ -18,7 +18,7 @@ const config = {
   trailingSlash: 'false',
   i18n: {
     defaultLocale: 'zh',
-    locales: ['en', 'zh'],
+    locales: ['zh', 'en'],
     localeConfigs: {
       zh: {
         label: '简体中文',
@@ -294,8 +294,7 @@ const config = {
             ]
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved. <a href="https://beian.miit.gov.cn">京ICP备15028663号-4</a>`
-      },
+        copyright: `Copyright © ${new Date().getFullYear()} Goodrain, Inc. All Rights Reserved. <a href="https://beian.miit.gov.cn">京ICP备15028663号-4</a>`      },
       prism: {
         // darkTheme: darkCodeTheme
         additionalLanguages: ['bash'],
@@ -348,11 +347,6 @@ const config = {
           if (existingPath.includes('/docs/how-to-guides/app-deploy')) {
             return [
               existingPath.replace('/docs/how-to-guides/app-deploy', '/docs/devops/app-deploy')
-            ];
-          }
-          if (existingPath.includes('/')) {
-            return [
-              existingPath.replace('/', '/en')
             ];
           }
           return undefined;
