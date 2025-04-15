@@ -102,5 +102,9 @@
   "link.item.label.OpenAPI": {
     "message": "OpenAPI",
     "description": "The label of footer link with label=OpenAPI linking to /docs/Intro"
+  },
+  "copyright": {
+    "message": "Copyright © 2023 Goodrain, Inc. All Rights Reserved",
+    "description": "The footer copyright"
   }
 }
