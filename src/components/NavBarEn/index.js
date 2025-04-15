@@ -26,11 +26,10 @@ export default function Index(props) {
           <div className={styles.nav_container}>
             <ul className={styles.nav_lists}>
               <li>
-                <Link to="/docs/">
-                  <Translate id='navbar.doc'>
-                    文档
-                  </Translate>
-                </Link>
+                <a
+                    href='https://www.rainbond.com/en/docs'
+                    target='_blank'
+                >Docs</a>
               </li>
               <li>
                 <a

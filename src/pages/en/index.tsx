@@ -2,7 +2,7 @@ import React from 'react';
 import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import LayoutProviders from '@theme/Layout/Provider';
-import NavBarEn from '@src/components/NavBarEn';
+import NavBarEn from '../../components/NavBarEn';
 
 export default function EnHome() {
     const {siteConfig} = useDocusaurusContext();
