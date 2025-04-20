@@ -270,6 +270,43 @@ const sidebars = {
             'quick-start/architecture/architecture'
           ]
         },
+        {
+          "type": "category",
+          "label": "最佳实践",
+          "items": [
+            "reference/best-practice/connect-api",
+            "reference/best-practice/auto-schema",
+            "reference/best-practice/data-initialization"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "运维指南",
+      "items": [
+        'ops-guides/overview',
+        {
+          "type": "category",
+          "label": "管理",
+          "items": [
+            "ops-guides/management/resource-cleanup",
+            "ops-guides/management/data-migration",
+            "ops-guides/management/buildkit-args",
+            "ops-guides/management/switch-registry",
+            "ops-guides/management/add-gatewayorchaos",
+            "ops-guides/management/change-tcp-range",
+            "ops-guides/management/reset-pwd",
+          ]
+        },
+        {
+          "type": "category",
+          "label": "配置",
+          "items": [
+            "ops-guides/configuration/use-domain-for-rainbond",
+          ]
+        },
+        "ops-guides/cli-tools",
       ]
     },
     'faq/index',
