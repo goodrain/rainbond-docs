@@ -53,3 +53,10 @@ curl -o install.sh https://get.rainbond.com && bash ./install.sh
 ## 下一步
 
 如果你已经成功安装 Rainbond 并且正常运行，请继续完成[快速入门](./getting-started)教程。
+
+## 常见问题
+
+### 添加更多 TCP 端口
+
+快速安装的 Rainbond 默认使用 Docker 启动，并默认映射了 `30000～30010` 10个 TCP 端口供应用测试使用。如果你需要更多的 TCP 端口，通过脚本中打印的命令，删除容器重新启动并添加 `-p` 映射新的端口。
+

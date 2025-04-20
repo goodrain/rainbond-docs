@@ -134,6 +134,26 @@ rainbond-operator 会自动重新启动写入 `/etc/hosts` 的 Job 任务。
   - **CrashLoopBackup**: 该状态说明当前容器本身启动失败，或正在遭遇运行错误。切换至 `日志` 页面查看业务日志输出并解决问题即可。
   - **OOMkilled**: 该状态说明为容器分配的内存太小，或业务本身存在内存泄漏问题。业务容器的内存配置入口位于 `伸缩` 页面。插件容器的内存配置入口位于 `插件` 页面。
 
+### 常见故障
+
+#### 启动无法获取镜像 x509: certificate signed by unknown authority
+
+通常是因为 Containerd 的配置不正确导致的。
+1. 修改配置文件 `/etc/containerd/config.toml`
+```bash
+[plugins."io.containerd.grpc.v1.cri".registry.configs]
+  [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me"]
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me".tls]
+       insecure_skip_verify = true
+```
+
+2. 添加 Containerd 配置文件 `/etc/containerd/certs.d/goodrain.me/hosts.toml`
+```bash
+[host."https://goodrain.me"]
+  capabilities = ["pull", "resolve","push"]
+  skip_verify = true
+```
+
 ## 3. 第三方组件故障排查
 
 请按照以下步骤操作第三方组件：
