@@ -61,14 +61,14 @@ export default function Primary() {
           </p>
         </animated.div>
         <animated.div style={animatedTexts[1]} className={styles.btnBox}>
-            <Button icon={<IconCloud />} onClick={handleOnClickLinkRainbondCloud} theme="solid" className={styles.buttonLeft} size='large'>
-              在线体验
-            </Button>
             <Link to="/docs/quick-start/quick-install">
-              <Button icon={<Iconlinux />} theme="solid" className={styles.buttonRight} size='large'>
-                <Translate id='primary.install-dind'>开始安装</Translate>
+              <Button theme="solid" className={styles.buttonLeft} size='large'>
+                <Translate id='primary.install-dind'>开始部署</Translate>
               </Button>
             </Link>
+            <Button onClick={handleOnClickLinkRainbondCloud} theme="solid" className={styles.buttonRight} size='large'>
+              免费试用
+            </Button>
           {/* {!LocalUrlEn ? (
              <OverlayTrigger placement="bottom" 
              overlay={
