@@ -67,7 +67,7 @@
   border-radius: 30px;
   background-color: var(--ifm-color-primary);
   height: 55px;
-  width: 210px;
+  width: 180px;
   font-size: 16px;
 }
 .buttonLeft:hover {
@@ -78,14 +78,15 @@
 .buttonRight {
   margin-right: 10px;
   border-radius: 30px;
-  background-color: #19AABD;
+  border: 1px solid #d4d7dd;
+  background-color: #fff;
   height: 55px;
-  width: 210px;
+  width: 180px;
   font-size: 16px;
+  color: #444;
 }
 .buttonRight:hover {
-  background-color: #19AABD !important;
-  box-shadow: 0 16px 32px 0 rgba(48, 55, 66, 0.15);
+  background-color: #fff !important;
 }
 
 .buttonRightEn {
