@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "https://www.rainbond.com/en"
+  to = "https://www.rainbond.io"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.rainbond.com/en/*"
+  to = "https://www.rainbond.io/:splat"
+  status = 301
+  force = true
