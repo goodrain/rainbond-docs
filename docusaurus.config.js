@@ -18,13 +18,10 @@ const config = {
   trailingSlash: 'false',
   i18n: {
     defaultLocale: 'zh',
-    locales: ['zh', 'en'],
+    locales: ['zh'],
     localeConfigs: {
       zh: {
         label: '简体中文',
-      },
-      en: {
-        label: 'English',
       },
     },
   },
@@ -190,6 +187,12 @@ const config = {
           {
             type: 'localeDropdown',
             position: 'right',
+            dropdownItemsAfter: [
+              {
+                href: 'https://www.rainbond.io',
+                label: 'English',
+              },
+            ],
           },
           {
             href: 'https://github.com/goodrain/rainbond',

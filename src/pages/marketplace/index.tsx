@@ -3,7 +3,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import LayoutProviders from '@theme/Layout/Provider';
 import React from 'react';
 import NavBar from '../../components/NavBar';
-import styles from '../zh/index.module.scss';
+import styles from '../index.module.scss';
 import AnnouncementBar from '@theme/AnnouncementBar';
 import Footer from '@theme/Footer';
 
