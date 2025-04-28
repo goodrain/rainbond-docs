@@ -40,7 +40,7 @@ export default function Primary() {
     window.open('https://join.slack.com/t/rainbond-slack/shared_invite/zt-1ft4g75pg-KJ0h_IAtvG9DMgeE_BNjZQ')
   }
   const handleOnClickLinkRainbondCloud = () => {
-    window.open('https://run.rainbond.com')
+    window.open('https://run.rainbond.com/#/user/login?link=rainbond')
   }
   const xinchuang = <Translate id='primary.install.xc.title'>信创</Translate>
 
