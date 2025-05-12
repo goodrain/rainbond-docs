@@ -12,6 +12,7 @@ import clsx from 'clsx';
 import { useLocation } from '@docusaurus/router';
 import Translate from "@docusaurus/Translate";
 import { Button } from '@douyinfe/semi-ui';
+import axios from 'axios';
 import Iconlinux from '/img/homepage/svg/linux.svg';
 import Iconwechat from '/img/homepage/svg/wechat-white.svg';
 import IconCloud from '/img/homepage/svg/cloud.svg';
@@ -40,6 +41,22 @@ export default function Primary() {
     window.open('https://join.slack.com/t/rainbond-slack/shared_invite/zt-1ft4g75pg-KJ0h_IAtvG9DMgeE_BNjZQ')
   }
   const handleOnClickLinkRainbondCloud = () => {
+    axios({
+      method: 'get',
+      url: 'https://run.rainbond.com/console/user_source',
+      params: {
+        content: 'visit',
+        sms_type: 'rainbond',
+      },
+    })
+    .then((response) => {
+      console.log(response.data);
+    }
+    )
+    .catch((error) => {
+      console.error(error);
+    }
+    );
     window.open('https://run.rainbond.com/#/user/login?link=rainbond')
   }
   const xinchuang = <Translate id='primary.install.xc.title'>信创</Translate>
@@ -67,7 +84,7 @@ export default function Primary() {
               </Button>
             </Link>
             <Button onClick={handleOnClickLinkRainbondCloud} theme="solid" className={styles.buttonRight} size='large'>
-              免费试用
+              免费试用 30 天
             </Button>
           {/* {!LocalUrlEn ? (
              <OverlayTrigger placement="bottom" 
