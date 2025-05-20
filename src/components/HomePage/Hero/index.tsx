@@ -6,8 +6,28 @@ import Link from '@docusaurus/Link';
 import { IconCloud, IconDownload, IconServer, IconGlobe } from '@douyinfe/semi-icons';
 import CodeBlock from '@theme/CodeBlock';
 import { Tabs, TabPane, Tooltip } from '@douyinfe/semi-ui';
+import axios from 'axios';
 
 export default function Home() {
+  const handleOnClickLinkRainbondCloud = () => {
+    axios({
+      method: 'get',
+      url: 'https://run.rainbond.com/console/user_source',
+      params: {
+        content: 'visit',
+        sms_type: 'rainbond',
+      },
+    })
+    .then((response) => {
+      console.log(response.data);
+    }
+    )
+    .catch((error) => {
+      console.error(error);
+    }
+    );
+    window.open('https://run.rainbond.com/#/user/login?link=rainbond')
+  }
 
   return (
     <div className={clsx('container', styles.container)}>
@@ -30,11 +50,9 @@ export default function Home() {
             </Button>
           </Link>
           <Tooltip position='topLeft' content='注册即领 SaaS 免费托管，试用 30 天'>
-            <Link to="https://run.rainbond.com/#/user/login?link=rainbond">
-              <Button theme='outline' type='tertiary' icon={<IconCloud />} size='large' className={styles.hero_button_style}>
-                在线托管
-              </Button>
-            </Link>
+            <Button theme='outline' type='tertiary' icon={<IconCloud />} size='large' className={styles.hero_button_style} onClick={handleOnClickLinkRainbondCloud}>
+              在线托管
+            </Button>
           </Tooltip>
         </div>
       </div>
