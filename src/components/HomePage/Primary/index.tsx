@@ -84,7 +84,7 @@ export default function Primary() {
               </Button>
             </Link>
             <Button onClick={handleOnClickLinkRainbondCloud} theme="solid" className={styles.buttonRight} size='large'>
-              免费试用 30 天
+              在线体验
             </Button>
           {/* {!LocalUrlEn ? (
              <OverlayTrigger placement="bottom" 
