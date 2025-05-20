@@ -1,0 +1,647 @@
+.scenarioTag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: var(--ifm-color-gray-700);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-gray-900);
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 18px;
+  color: var(--ifm-color-gray-600);
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.divider {
+  width: 5rem;
+  height: 2px;
+  background: var(--ifm-color-gray-900);
+  margin: 1.5rem auto 0;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .contentWrapper {
+    flex-direction: row;
+  }
+}
+
+.tabsContainer {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .tabsContainer {
+    width: 20%;
+  }
+}
+
+.tabsWrapper {
+  position: sticky;
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tabButton {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  color: var(--ifm-color-gray-700);
+}
+
+.tabButton:hover {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.activeTab {
+  background: rgb(59, 130, 246) !important;
+  color: white !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.tabTitle {
+  font-weight: 500;
+}
+
+.tabSubtitle {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.contentContainer {
+  width: 100%;
+}
+
+.tabContent {
+  border-radius: 1rem;
+  padding: 2rem 1rem 1rem 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(229, 231, 235, 1);
+}
+
+.contentHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.iconWrapper {
+  background: rgb(59, 130, 246);
+  color: white;
+  border-radius: 9999px;
+  padding: 0.75rem;
+  height: 48px;
+}
+
+.contentTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-gray-900);
+  margin: 0;
+}
+
+.contentSubtitle {
+  color: var(--ifm-color-gray-600);
+  margin: 0;
+}
+
+.enterpriseTypes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.enterpriseTypeButton {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.traditional {
+  background: rgb(30, 58, 138);
+  border-color: rgb(29, 78, 216);
+  color: white;
+}
+
+.enterpriseTypeTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.enterpriseTypeSubtitle {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 300;
+}
+
+.sme {
+  background: rgb(0, 144, 255);
+  border-color: rgb(2, 132, 199);
+  color: white;
+}
+
+.b2b {
+  background: rgb(14, 165, 233);
+  border-color: rgb(56, 189, 248);
+  color: white;
+}
+
+.solutionCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.solutionCards_devops {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.solutionCard {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.solutionCard:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.traditionalCard {
+  background: linear-gradient(to bottom right, rgba(30, 58, 138, 0.1), rgba(30, 58, 138, 0.2));
+  border: 1px solid rgba(30, 58, 138, 0.2);
+}
+
+.smeCard {
+  background: linear-gradient(to bottom right, rgba(0, 144, 255, 0.1), rgba(0, 144, 255, 0.2));
+  border: 1px solid rgba(0, 144, 255, 0.2);
+}
+
+.b2bCard {
+  background: linear-gradient(to bottom right, rgba(14, 165, 233, 0.1), rgba(14, 165, 233, 0.2));
+  border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.cardHeader {
+  background: var(--card-header-bg);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cardHeader h4 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.cardHeader :global(.semi-icon) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.traditionalCard .cardHeader {
+  background: rgb(30, 58, 138);
+}
+
+.smeCard .cardHeader {
+  background: rgb(0, 144, 255);
+}
+
+.b2bCard .cardHeader {
+  background: rgb(14, 165, 233);
+}
+
+.cardContent {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.painPoints, .solutions {
+  margin-bottom: 1rem;
+}
+
+.painPoints h5, .solutions h5 {
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ifm-color-gray-900);
+  line-height: 1;
+  font-size: 18px;
+}
+
+.painPoints h5 :global(.semi-icon), 
+.solutions h5 :global(.semi-icon) {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.painPoints h5 :global(.semi-icon) {
+  background: rgba(239, 68, 68, 0.1);
+  color: rgb(239, 68, 68);
+}
+
+.solutions h5 :global(.semi-icon) {
+  background: rgba(34, 197, 94, 0.1);
+  color: rgb(34, 197, 94);
+}
+
+[data-theme='dark'] .painPoints h5 :global(.semi-icon) {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+[data-theme='dark'] .solutions h5 :global(.semi-icon) {
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.painPoints ul, .solutions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 2rem;
+}
+
+.painPoints li, .solutions li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-color-gray-700);
+  line-height: 1.5;
+  position: relative;
+}
+
+[data-theme='dark'] .painPoints li,
+[data-theme='dark'] .solutions li {
+  color: var(--ifm-color-gray-300);
+}
+
+.painPoints li::before {
+  content: '•';
+  color: rgb(239, 68, 68);
+  position: absolute;
+  left: -1rem;
+}
+
+.solutions li::before {
+  content: '•';
+  color: rgb(34, 197, 94);
+  position: absolute;
+  left: -1rem;
+}
+
+/* 调整段落样式 */
+.painPoints p,
+.solutions p {
+  margin: 0;
+  color: var(--ifm-color-gray-700);
+  padding-left: 2rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+[data-theme='dark'] .painPoints p,
+[data-theme='dark'] .solutions p {
+  color: var(--ifm-color-gray-300);
+}
+
+.painPoints p::before,
+.solutions p::before {
+  content: '•';
+  position: absolute;
+  left: 0.75rem;
+  font-size: 1.5em;
+  line-height: 1;
+  margin-top: 0.1em;
+}
+
+.painPoints p::before {
+  color: rgb(239, 68, 68);
+}
+
+.solutions p::before {
+  color: rgb(34, 197, 94);
+}
+
+.metric {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--metric-color);
+}
+
+.traditionalCard .metricValue {
+  color: rgb(30, 58, 138);
+}
+
+.smeCard .metricValue {
+  color: rgb(0, 144, 255);
+}
+
+.b2bCard .metricValue {
+  color: rgb(14, 165, 233);
+}
+
+.metricLabel {
+  font-size: 0.875rem;
+  color: var(--ifm-color-gray-600);
+}
+
+[data-theme='dark'] .scenarioTag {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--ifm-color-gray-300);
+}
+
+[data-theme='dark'] .sectionTitle {
+  color: white;
+}
+
+[data-theme='dark'] .sectionSubtitle {
+  color: var(--ifm-color-gray-400);
+}
+
+[data-theme='dark'] .divider {
+  background: white;
+}
+
+[data-theme='dark'] .tabButton {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--ifm-color-gray-300);
+}
+
+[data-theme='dark'] .tabButton:hover {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+[data-theme='dark'] .tabContent {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(75, 85, 99, 0.3);
+}
+
+[data-theme='dark'] .contentTitle {
+  color: white;
+}
+
+[data-theme='dark'] .contentSubtitle {
+  color: var(--ifm-color-gray-400);
+}
+
+[data-theme='dark'] .metric {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .metricLabel {
+  color: var(--ifm-color-gray-400);
+}
+
+/* 新增样式 */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .metricsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.metricBox {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+[data-theme='dark'] .metricBox {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.techTags span {
+  background: rgba(20, 184, 166, 0.1);
+  color: rgb(20, 184, 166);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+[data-theme='dark'] .techTags span {
+  background: rgba(20, 184, 166, 0.2);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .featureGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.featureBox {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+[data-theme='dark'] .featureBox {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.featureBox h6 {
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  color: var(--ifm-color-gray-900);
+}
+
+[data-theme='dark'] .featureBox h6 {
+  color: white;
+}
+
+.featureBox p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--ifm-color-gray-600);
+}
+
+[data-theme='dark'] .featureBox p {
+  color: var(--ifm-color-gray-400);
+}
+
+.painCard {
+  background: #fef2f2;
+  border: 1.5px solid #fecaca;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem 1.25rem 2rem;
+  margin-bottom: 1.5rem;
+}
+.painCardTitle {
+  color: #b91c1c;
+  font-weight: bold;
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+.painCardContent {
+  color: #b91c1c;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.solutionCardBlock {
+  background: #ecfdf5;
+  border: 1.5px solid #6ee7b7;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem 1.25rem 2rem;
+  margin-bottom: 1.5rem;
+}
+.solutionCardTitle {
+  color: #047857;
+  font-weight: bold;
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+.solutionCardContent {
+  color: #047857;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+[data-theme='dark'] .painCard {
+  background: #2a1515;
+  border-color: #7f1d1d;
+}
+[data-theme='dark'] .painCardTitle,
+[data-theme='dark'] .painCardContent {
+  color: #fecaca;
+}
+[data-theme='dark'] .solutionCardBlock {
+  background: #10271b;
+  border-color: #047857;
+}
+[data-theme='dark'] .solutionCardTitle,
+[data-theme='dark'] .solutionCardContent {
+  color: #6ee7b7;
+}
+
+.painPointListItem {
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  margin-bottom: 8px;
+  list-style: none;
+}
+.painPointListIcon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  height: 24px;
+}
+.painPointListContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.painPointListDetail {
+  margin-top: 4px;
+  color: #888;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.noDotList li::before {
+  content: none !important;
+}
+
+.core_content_init {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.core_content_fadein {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.core_content_fadeout {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.3s, transform 0.3s;
+}

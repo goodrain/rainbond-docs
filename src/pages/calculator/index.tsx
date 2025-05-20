@@ -1,7 +1,7 @@
 import Layout from '@theme/Layout';
 import React, { useState, useEffect } from 'react';
 import styles from './index.module.css';
-
+import Background from '@src/components/Background';
 type TimeUnit = '年' | '月' | '天' | '时';
 
 interface Resources {
@@ -114,6 +114,7 @@ export default function Calculator() {
 
   return (
     <Layout title={Header.title} description={Header.description}>
+      <Background />
       <div className={styles.container}>
         <h1 className={styles.titleh1}>{Header.title}</h1>
         <p className={styles.description}>{Header.description}</p>

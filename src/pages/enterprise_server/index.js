@@ -3,10 +3,12 @@ import NavBar from '../../components/NavBar';
 import styles from './index.module.scss';
 import LayoutProviders from '@theme/Layout/Provider';
 import Footer from '@theme/Footer';
-
+import Layout from '@theme/Layout';
+import Background from '@src/components/Background';
 export default function Index() {
   return (
-    <LayoutProviders>
+    <Layout>
+      <Background />
       {/* 导航栏 */}
       <NavBar />
       <div id={styles.box_container}>
@@ -868,6 +870,6 @@ export default function Index() {
         </section>
         <Footer/>
       </div>
-    </LayoutProviders>
+    </Layout>
   );
 }

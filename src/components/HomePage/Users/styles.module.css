@@ -78,3 +78,22 @@
   color: #19AABD !important;
   border-bottom: 1px solid #19AABD !important;
 }
+
+.hero_button_style {
+  font-size: 16px !important;
+  height: 50px !important;
+  width: 180px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero_button_style:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.divider {
+  width: 5rem;
+  height: 2px;
+  background: var(--ifm-color-gray-900);
+  margin: 1.5rem auto 0;
+}

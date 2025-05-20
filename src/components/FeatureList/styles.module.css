@@ -36,7 +36,7 @@
 }
 
 .header {
-  background-color: var(--background-color-lighter);
+  /* background-color: var(--background-color-lighter); */
 }
 
 .global_content {
