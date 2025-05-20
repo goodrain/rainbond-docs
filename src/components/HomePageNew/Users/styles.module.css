@@ -1,0 +1,92 @@
+/**
+ * Copyright (c) Goodrain, Inc.
+ *
+ * This source code is licensed under the LGPL-3.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ **/
+
+@media screen and (max-width: 996px) {
+  .col {
+    --ifm-col-width: 200px !important;
+  }
+}
+
+.row {
+  padding-top: 30px;
+}
+
+.title {
+  font-size: 32px;
+  color: var(--ifm-color-primary-black);
+  text-align: center;
+}
+
+.card {
+  border-radius: 0;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 180px;
+  height: 100px;
+}
+
+.col {
+  padding-top: 15px;
+}
+
+.card_image {
+  width: 180px;
+  height: 100px;
+  line-height: 100px;
+}
+
+.image {
+  width: 180px;
+  height: 80px;
+  object-fit: contain;
+  vertical-align: middle;
+  display: inline-block;
+  /* line-height: 100px; */
+}
+
+.case {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.case_col {
+  padding-top: 15px;
+}
+
+.button {
+  margin-right: 10px;
+  border-radius: 30px;
+  background-color: #19AABD;
+  height: 55px;
+  width: 210px;
+  font-size: 16px;
+}
+.button:hover {
+  background-color: #19AABD !important;
+  box-shadow: 0 16px 32px 0 rgba(48, 55, 66, 0.15);
+}
+
+.text > a {
+  color: var(--ifm-color-primary-black) !important;
+  border-bottom: 1px solid;
+}
+.text > a > span:hover {
+  color: #19AABD !important;
+  border-bottom: 1px solid #19AABD !important;
+}
+
+.hero_button_style {
+  font-size: 16px !important;
+  height: 50px !important;
+  width: 180px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero_button_style:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,259 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.container {
+  text-align: center;
+  margin-top: 5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero_title {
+  line-height: 60px;
+}
+.hero_title_one {
+  font-size: 60px;
+  font-weight: 700;
+  background: linear-gradient(to right, #06b6d4, #2563eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 6s linear infinite;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards 0.2s;
+}
+
+.hero_title_two {
+  font-size: 60px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards 0.4s;
+}
+
+/* .hero_title_three_div {
+  border: 1px solid var(--semi-color-border);
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 53rem;
+} */
+.hero_title_three {
+  font-size: 18px;
+  font-weight: 600;
+  /* color: var(--ifm-color-primary); */
+  color: rgb(29 78 216 / 1);
+  /* line-height: 25px; */
+  border: 1px solid var(--semi-color-border);
+  border-radius: 999px;
+  margin: 0 auto;
+  width: 53rem;
+  background-color: rgb(239 246 255 / 1);
+  border-color: rgb(219 234 254 / 1);
+  opacity: 0;
+  transform: scale(0.95);
+  animation: scaleIn 0.8s ease-out forwards 0.6s;
+}
+
+.hero_title_four {
+  font-size: 18px;
+  max-width: 50rem;
+  line-height: 2rem;
+  margin: 0 auto;
+  font-weight: 500;
+  margin-top: 15px;
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideInFromRight 0.8s ease-out forwards 0.8s;
+}
+
+.hero_button {
+  margin-top: 4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards 1s;
+}
+
+.hero_button_style {
+  font-size: 16px !important;
+  height: 50px !important;
+  width: 180px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero_button_style:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero_button_style_left {
+  margin-right: 50px;
+}
+
+.hero_stat_item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero_stats_row {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  color: #4B5563;
+  font-size: 16px;
+  animation: scaleIn 0.8s ease-out forwards 1.2s;
+}
+
+/* 命令区域样式 */
+.command_container {
+  margin-top: 8rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards 1.4s;
+}
+
+.command_wrapper {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.command_text {
+  text-align: left;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* 确保代码块自身也是居中的 */
+.command_wrapper :global(.semi-tabs-content) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.command_wrapper :global(.theme-code-block) {
+  width: 100%;
+}
+
+.command_code {
+  text-align: left;
+}
+
+.inline_code {
+  font-family: monospace;
+  background-color: #f6f6f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid #e0e0e0;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-top: 3rem;
+    padding: 0 1rem;
+  }
+
+  .hero_title {
+    line-height: 1.2;
+  }
+
+  .hero_title_one,
+  .hero_title_two {
+    font-size: 32px;
+  }
+
+  .hero_title_three {
+    font-size: 16px;
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  .hero_title_four {
+    font-size: 16px;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .hero_button {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero_button_style {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin-bottom: 1rem;
+  }
+
+  .hero_button_style_left {
+    margin-right: 0;
+  }
+  
+  .hero_stats_row {
+    flex-direction: column;
+    gap: 1.2rem;
+    font-size: 16px;
+    margin-top: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .command_wrapper {
+    padding: 0 1rem;
+  }
+  
+  .command_container {
+    margin-top: 2rem;
+  }
+}

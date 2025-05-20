@@ -3,6 +3,7 @@
 
 const VersionsArchived = require('./versionsArchived.json');
 const ArchivedVersionsDropdownItems = Object.entries(VersionsArchived)
+const path = require('path');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -310,8 +311,7 @@ const config = {
       }
     }),
   scripts: [
-    'https://static.goodrain.com/docusaurus/baidu-statistics.js',
-    'https://static.goodrain.com/docusaurus/hotjar.js'
+    'https://static.goodrain.com/docusaurus/baidu-statistics.js'
   ],
   plugins: [
     [
@@ -357,7 +357,21 @@ const config = {
       }
     ],
     'docusaurus-plugin-sass',
-    '@docusaurus/plugin-ideal-image'
+    '@docusaurus/plugin-ideal-image',
+    function customWebpackPlugin() {
+      return {
+        name: 'custom-webpack-plugin',
+        configureWebpack() {
+          return {
+            resolve: {
+              alias: {
+                '@src': path.resolve(__dirname, './src'),
+              },
+            },
+          };
+        },
+      };
+    },
   ],
   themes: [
     '@docusaurus/theme-live-codeblock',

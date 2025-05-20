@@ -288,7 +288,7 @@ const sidebars = {
         'ops-guides/overview',
         {
           "type": "category",
-          "label": "管理",
+          "label": "管理集群",
           "items": [
             "ops-guides/management/resource-cleanup",
             "ops-guides/management/data-migration",
@@ -301,7 +301,7 @@ const sidebars = {
         },
         {
           "type": "category",
-          "label": "配置",
+          "label": "配置集群",
           "items": [
             "ops-guides/configuration/use-domain-for-rainbond",
           ]
