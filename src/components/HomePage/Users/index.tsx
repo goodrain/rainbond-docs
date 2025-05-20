@@ -14,19 +14,11 @@ import { Button } from '@douyinfe/semi-ui';
 import Case from '/img/homepage/svg/case.svg';
 import { Typography } from '@douyinfe/semi-ui';
 import Translate from "@docusaurus/Translate";
+import { IconBriefcase } from '@douyinfe/semi-icons';
 
 export default function Users() {
 
   const { Text } = Typography;
-  const animatedTexts = useTrail(5, {
-    from: { opacity: 0, transform: 'translateY(3em)' },
-    to: { opacity: 1, transform: 'translateY(0)' },
-    config: {
-      mass: 3,
-      friction: 45,
-      tension: 460,
-    },
-  })
 
   const Cards = () => (
     [
@@ -123,10 +115,11 @@ export default function Users() {
     ])
 
   return (
-    <animated.div style={animatedTexts[0]}>
+    <div className="container">
       <h2 className={ styles.title }>
-        <Translate id="users.title">我们的用户</Translate>
+        我们的用户
       </h2>
+      <div className={styles.divider}></div>
       <div className={clsx("row", styles.row)}>
         {Cards().map(({image},index) => (
           <div className={clsx("col col--2", styles.col)} key={index}>
@@ -140,18 +133,18 @@ export default function Users() {
       </div>
       <div className={clsx("row",styles.case)}>
         <div className={clsx("col col--12", styles.case_col)}>
-          <Text link={{ href: '/case' }}>
-            <Button icon={<Case />} theme="solid" className={styles.button} size='large'>
-              <Translate id="users.case">用户案例</Translate>
+          <Link to="/case">
+            <Button theme='solid' type='primary' icon={<IconBriefcase />} size='large' className={clsx(styles.hero_button_style, styles.hero_button_style_left)}>
+              用户案例
             </Button>
-          </Text>
+          </Link>
         </div>
         <div className={clsx("col col--12", styles.case_col)}>
           <Text underline link={{ href: 'https://github.com/goodrain/rainbond/issues/1273', target: '_blank'}} className={styles.text} >
-            <Translate id="users.case.contribute">如果你想贡献使用案例并在 Rainbond 官网上展示你的 Logo，请在 Github 上登记或联系我们。</Translate>
+            如果你想贡献使用案例并在 Rainbond 官网上展示你的 Logo，请在 Github 上登记或联系我们。
           </Text>
         </div>
       </div>
-    </animated.div>
+    </div>
   );
 }

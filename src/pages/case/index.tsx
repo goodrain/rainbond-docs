@@ -3,6 +3,7 @@ import React from 'react';
 import { CardList } from '../../components/CardList';
 import { FeatureHeader } from '@site/src/components/FeatureList';
 import { animated, useTrail } from 'react-spring';
+import Background from '@src/components/Background';
 
 export default function usescene() {
 
@@ -86,6 +87,7 @@ export default function usescene() {
   
   return (
     <Layout title={Header.title} description={Header.description}>
+      <Background />
       <animated.div style={animatedTexts[1]}>
         <FeatureHeader props={{...Header}} />
       </animated.div>

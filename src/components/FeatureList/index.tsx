@@ -58,7 +58,7 @@ export function FeatureContent(item): JSX.Element {
   return (
     <>
       {ContentList.map(({ imageRight, titleRight, imageLeft, titleLeft, descListLeft, descListRight },index) => (
-        <div key={index} style={{ backgroundColor: '#f5f8f9' }}>
+        <div key={index}>
           <div>
             <div className={styles.global_content}>
               <div className={clsx("row", styles.row)}>
