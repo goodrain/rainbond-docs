@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import { Button, Card } from '@douyinfe/semi-ui';
@@ -79,8 +79,25 @@ const capabilities = [
 
 export default function Core() {
   const [activeId, setActiveId] = useState(capabilities[0].id);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [fade, setFade] = useState<'in' | 'out'>('in');
   const active = capabilities.find(c => c.id === activeId);
   if (!active) return null;
+
+  // 首次加载动画
+  useEffect(() => {
+    setTimeout(() => setIsLoaded(true), 50);
+  }, []);
+
+  // 切换动画
+  const handleTabClick = (id: number) => {
+    if (id === activeId) return;
+    setFade('out');
+    setTimeout(() => {
+      setActiveId(id);
+      setFade('in');
+    }, 250); // 动画时长与CSS一致
+  };
 
   return (
     <div className={clsx('container', styles.core_section)}>
@@ -98,14 +115,19 @@ export default function Core() {
             theme={activeId === cap.id ? 'solid' : 'borderless'}
             type={activeId === cap.id ? 'primary' : 'tertiary'}
             className={clsx(styles.core_nav_btn, activeId === cap.id && styles.core_nav_btn_active)}
-            onClick={() => setActiveId(cap.id)}
+            onClick={() => handleTabClick(cap.id)}
           >
             {cap.title}
           </Button>
         ))}
       </div>
       {/* 内容区 */}
-      <div className={styles.core_content_row}>
+      <div className={clsx(
+        styles.core_content_row,
+        !isLoaded && styles.core_content_init,
+        fade === 'in' && isLoaded && styles.core_content_fadein,
+        fade === 'out' && isLoaded && styles.core_content_fadeout
+      )}>
         {/* 左侧彩色卡片 */}
         <div className={clsx(styles.core_card, active.colorClass)}>
           <div className={styles.core_card_icon}>{active.icon}</div>

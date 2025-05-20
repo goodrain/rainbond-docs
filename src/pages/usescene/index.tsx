@@ -1,7 +1,7 @@
 import Layout from '@theme/Layout';
 import React from 'react';
 import { CardList } from '../../components/CardList';
-import { FeatureHeader } from '@site/src/components/FeatureList';
+import { FeatureHeader } from '@src/components/FeatureList';
 import { animated, useTrail } from 'react-spring';
 import Background from "@src/components/Background";
 

@@ -5,7 +5,7 @@ import { Button } from '@douyinfe/semi-ui';
 import Link from '@docusaurus/Link';
 import { IconCloud, IconDownload, IconServer, IconGlobe } from '@douyinfe/semi-icons';
 import CodeBlock from '@theme/CodeBlock';
-import { Tabs, TabPane } from '@douyinfe/semi-ui';
+import { Tabs, TabPane, Tooltip } from '@douyinfe/semi-ui';
 
 export default function Home() {
 
@@ -29,11 +29,13 @@ export default function Home() {
               下载安装
             </Button>
           </Link>
-          <Link to="https://run.rainbond.com/#/user/login?link=rainbond">
-            <Button theme='outline' type='tertiary' icon={<IconCloud />} size='large' className={styles.hero_button_style}>
-              免费试用
-            </Button>
-          </Link>
+          <Tooltip position='topLeft' content='注册即领 SaaS 免费托管，试用 30 天'>
+            <Link to="https://run.rainbond.com/#/user/login?link=rainbond">
+              <Button theme='outline' type='tertiary' icon={<IconCloud />} size='large' className={styles.hero_button_style}>
+                在线托管
+              </Button>
+            </Link>
+          </Tooltip>
         </div>
       </div>
       {/* 统计信息横向排列，按钮下方 */}

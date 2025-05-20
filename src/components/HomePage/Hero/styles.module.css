@@ -61,18 +61,17 @@
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: gradientFlow 6s linear infinite;
+  animation: fadeInUp 0.8s ease-out forwards 0.1s;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards 0.2s;
 }
 
 .hero_title_two {
   font-size: 60px;
   font-weight: 700;
+  animation: fadeInUp 0.8s ease-out forwards 0.2s;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards 0.4s;
 }
 
 /* .hero_title_three_div {
@@ -93,9 +92,9 @@
   width: 53rem;
   background-color: rgb(239 246 255 / 1);
   border-color: rgb(219 234 254 / 1);
-  opacity: 0;
-  transform: scale(0.95);
-  animation: scaleIn 0.8s ease-out forwards 0.6s;
+  animation: none;
+  opacity: 1;
+  transform: none;
 }
 
 .hero_title_four {
@@ -105,16 +104,16 @@
   margin: 0 auto;
   font-weight: 500;
   margin-top: 15px;
-  opacity: 0;
-  transform: translateX(30px);
-  animation: slideInFromRight 0.8s ease-out forwards 0.8s;
+  animation: none;
+  opacity: 1;
+  transform: none;
 }
 
 .hero_button {
   margin-top: 4rem;
+  animation: fadeInUp 0.8s ease-out forwards 0.3s;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards 1s;
 }
 
 .hero_button_style {
@@ -146,7 +145,9 @@
   margin-top: 2.5rem;
   color: #4B5563;
   font-size: 16px;
-  animation: scaleIn 0.8s ease-out forwards 1.2s;
+  animation: fadeInUp 0.8s ease-out forwards 0.4s;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 /* 命令区域样式 */
@@ -155,8 +156,9 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  animation: fadeInUp 0.8s ease-out forwards 0.5s;
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards 1.4s;
+  transform: translateY(20px);
 }
 
 .command_wrapper {

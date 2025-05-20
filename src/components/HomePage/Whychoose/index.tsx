@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IconBriefcase, IconCode, IconShield, IconCloud, IconLayers, IconBox, IconBookmark, IconAlertTriangle, IconTickCircle, IconChevronRight } from '@douyinfe/semi-icons';
 import { Tooltip } from '@douyinfe/semi-ui';
 import clsx from 'clsx';
@@ -6,6 +6,8 @@ import styles from './styles.module.css';
 
 const WhyChoose: React.FC = () => {
   const [activeTab, setActiveTab] = useState('enterprise');
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [fade, setFade] = useState<'in' | 'out'>('in');
   const [supplierOpen, setSupplierOpen] = useState(false);
 
   // 供应商管理每个li的展开状态
@@ -108,6 +110,21 @@ const WhyChoose: React.FC = () => {
   </ul>
 );
 
+  // 首次加载动画
+  useEffect(() => {
+    setTimeout(() => setIsLoaded(true), 50);
+  }, []);
+
+  // 切换动画
+  const handleTabClick = (tab: string) => {
+    if (tab === activeTab) return;
+    setFade('out');
+    setTimeout(() => {
+      setActiveTab(tab);
+      setFade('in');
+    }, 250);
+  };
+
   return (
     <div className="container">
       <div className="text--center margin-bottom--xl">
@@ -123,7 +140,7 @@ const WhyChoose: React.FC = () => {
         <div className={styles.tabsContainer}>
           <div className={styles.tabsWrapper}>
             <button
-              onClick={() => setActiveTab('enterprise')}
+              onClick={() => handleTabClick('enterprise')}
               className={clsx(styles.tabButton, {
                 [styles.activeTab]: activeTab === 'enterprise'
               })}
@@ -136,7 +153,7 @@ const WhyChoose: React.FC = () => {
             </button>
 
             <button
-              onClick={() => setActiveTab('devops')}
+              onClick={() => handleTabClick('devops')}
               className={clsx(styles.tabButton, {
                 [styles.activeTab]: activeTab === 'devops'
               })}
@@ -149,7 +166,7 @@ const WhyChoose: React.FC = () => {
             </button>
 
             <button
-              onClick={() => setActiveTab('domestic')}
+              onClick={() => handleTabClick('domestic')}
               className={clsx(styles.tabButton, {
                 [styles.activeTab]: activeTab === 'domestic'
               })}
@@ -162,7 +179,7 @@ const WhyChoose: React.FC = () => {
             </button>
 
             <button
-              onClick={() => setActiveTab('offline')}
+              onClick={() => handleTabClick('offline')}
               className={clsx(styles.tabButton, {
                 [styles.activeTab]: activeTab === 'offline'
               })}
@@ -177,7 +194,12 @@ const WhyChoose: React.FC = () => {
         </div>
 
         {/* Content */}
-        <div className={styles.contentContainer}>
+        <div className={clsx(
+          styles.contentContainer,
+          !isLoaded && styles.core_content_init,
+          fade === 'in' && isLoaded && styles.core_content_fadein,
+          fade === 'out' && isLoaded && styles.core_content_fadeout
+        )}>
           {/* Enterprise Content */}
           {activeTab === 'enterprise' && (
             <div className={styles.tabContent}>

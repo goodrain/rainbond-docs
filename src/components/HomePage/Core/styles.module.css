@@ -249,3 +249,19 @@
     padding: 8px 18px !important;
   }
 }
+
+.core_content_init {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.core_content_fadein {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.core_content_fadeout {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.3s, transform 0.3s;
+}
