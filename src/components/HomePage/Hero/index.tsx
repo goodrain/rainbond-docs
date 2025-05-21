@@ -33,7 +33,7 @@ export default function Home() {
     <div className={clsx('container', styles.container)}>
       <div className={clsx(styles.hero_title, 'row')}>
         <div className='col col--12'>
-          <p className={styles.hero_title_one}>无需学习 Kubernetes</p>
+          <p className={styles.hero_title_one}>无需学习 Kubernetes 的容器平台</p>
           <p className={styles.hero_title_two}>像管理手机APP一样管理企业应用</p>
           {/* <div className={styles.hero_title_three_div}>
             <p className={styles.hero_title_three}>Rainbond = 手机级应用管理体验 + 原生 Kubernetes 能力 + 私有化部署特性</p>

@@ -54,6 +54,15 @@
   line-height: 60px;
 }
 .hero_title_one {
+  font-size: 46px;
+  font-weight: 700;
+  animation: fadeInUp 0.8s ease-out forwards 0.2s;
+  opacity: 0;
+  transform: translateY(20px);
+
+}
+
+.hero_title_two {
   font-size: 60px;
   font-weight: 700;
   background: linear-gradient(to right, #06b6d4, #2563eb);
@@ -62,14 +71,6 @@
   color: transparent;
   -webkit-text-fill-color: transparent;
   animation: fadeInUp 0.8s ease-out forwards 0.1s;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.hero_title_two {
-  font-size: 60px;
-  font-weight: 700;
-  animation: fadeInUp 0.8s ease-out forwards 0.2s;
   opacity: 0;
   transform: translateY(20px);
 }

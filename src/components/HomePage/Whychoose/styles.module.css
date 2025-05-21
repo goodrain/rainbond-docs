@@ -190,7 +190,7 @@
 
 .solutionCards_devops {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 2rem;
 }
 
@@ -624,6 +624,16 @@
   color: #888;
   font-size: 14px;
   line-height: 1.5;
+  max-height: 0;
+  opacity: 0;
+  transform: scaleY(0.95);
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.25s, transform 0.25s;
+}
+.painPointListDetailOpen {
+  max-height: 200px;
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 .noDotList li::before {
