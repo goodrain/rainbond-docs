@@ -21,8 +21,9 @@ import { Button, Typography } from "@douyinfe/semi-ui";
 import Iconlinux from '/img/homepage/svg/linux.svg';
 import Iconk8s from '/img/homepage/svg/k8s.svg';
 import Link from "@docusaurus/Link";
-import { IconHelm, IconServer, IconInfoCircle } from '@douyinfe/semi-icons';
-
+import { IconCloud, IconServer, IconInfoCircle, IconDownload } from '@douyinfe/semi-icons';
+import { Tooltip } from '@douyinfe/semi-ui';
+import axios from 'axios';
 
 export function FeatureHeader(item): JSX.Element {
   const { title, description, customButton} = item.props
@@ -112,19 +113,38 @@ export function FeatureContent(item): JSX.Element {
 }
 
 export function FeatureButton(): JSX.Element {
-  
+  const handleOnClickLinkRainbondCloud = () => {
+    axios({
+      method: 'get',
+      url: 'https://run.rainbond.com/console/user_source',
+      params: {
+        content: 'visit',
+        sms_type: 'rainbond',
+      },
+    })
+    .then((response) => {
+      console.log(response.data);
+    }
+    )
+    .catch((error) => {
+      console.error(error);
+    }
+    );
+    window.open('https://run.rainbond.com/#/user/login?link=rainbond')
+  }
+
   return (
     <>
-      <Link to='/docs/quick-start/quick-install' className={styles.link}>
-        <Button icon={<IconServer/>} theme="solid" type="primary" className={clsx(styles.button_style, styles.button_style_left)} size='large' >
-          <Translate id='primary.install-dind'>在单机安装</Translate>
+      <Link to="/docs/quick-start/quick-install">
+        <Button theme='solid' type='primary' icon={<IconDownload size='large'/>} size='large' className={clsx(styles.button_style, styles.button_style_left)}>
+          下载安装
         </Button>
       </Link>
-      <Link to='/docs/installation/install-with-helm/' className={styles.link}>
-        <Button icon={<IconHelm size="large"/>} theme="outline" type="tertiary" className={styles.button_style} size='large'>
-          <Translate id='primary.install-helm'>在 Kubernetes 安装</Translate>
+      <Tooltip position='topLeft' content='注册即领 SaaS 免费托管，试用 30 天'>
+        <Button theme='outline' type='tertiary' icon={<IconCloud size='large'/>} size='large' className={styles.button_style} onClick={handleOnClickLinkRainbondCloud}>
+          在线托管
         </Button>
-      </Link>
+      </Tooltip>
     </>
   );
 }
@@ -133,9 +153,9 @@ export function CustomButton(item): JSX.Element {
   const { LeftURL, LeftButton, RightURL, RightButton } = item.props
   return (
     <>
-      <Link to={LeftURL} className={styles.link}>
-        <Button icon={<IconServer/>} theme="solid" type="primary" className={clsx(styles.button_style, styles.button_style_left)} size='large'>
-          {LeftButton}
+      <Link to="/docs/quick-start/quick-install">
+        <Button theme='solid' type='primary' icon={<IconDownload size='large'/>} size='large' className={clsx(styles.button_style, styles.button_style_left)}>
+          下载安装
         </Button>
       </Link>
       <Link to={RightURL} className={styles.link}>
