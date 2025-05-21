@@ -122,3 +122,18 @@
 .link:hover {
   text-decoration: none !important;
 }
+
+.button_style {
+  height: 50px !important;
+  width: 180px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button_style:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.button_style_left {
+  margin-right: 50px;
+}

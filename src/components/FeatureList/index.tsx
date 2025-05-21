@@ -21,6 +21,8 @@ import { Button, Typography } from "@douyinfe/semi-ui";
 import Iconlinux from '/img/homepage/svg/linux.svg';
 import Iconk8s from '/img/homepage/svg/k8s.svg';
 import Link from "@docusaurus/Link";
+import { IconHelm, IconServer, IconInfoCircle } from '@douyinfe/semi-icons';
+
 
 export function FeatureHeader(item): JSX.Element {
   const { title, description, customButton} = item.props
@@ -114,12 +116,12 @@ export function FeatureButton(): JSX.Element {
   return (
     <>
       <Link to='/docs/quick-start/quick-install' className={styles.link}>
-        <Button icon={<Iconlinux />} theme="solid" className={styles.buttonLeft} size='large'>
+        <Button icon={<IconServer/>} theme="solid" type="primary" className={clsx(styles.button_style, styles.button_style_left)} size='large' >
           <Translate id='primary.install-dind'>在单机安装</Translate>
         </Button>
       </Link>
       <Link to='/docs/installation/install-with-helm/' className={styles.link}>
-        <Button icon={<Iconk8s />} theme="solid" className={styles.buttonRight} size='large'>
+        <Button icon={<IconHelm size="large"/>} theme="outline" type="tertiary" className={styles.button_style} size='large'>
           <Translate id='primary.install-helm'>在 Kubernetes 安装</Translate>
         </Button>
       </Link>
@@ -132,12 +134,12 @@ export function CustomButton(item): JSX.Element {
   return (
     <>
       <Link to={LeftURL} className={styles.link}>
-        <Button theme="solid" className={styles.buttonLeft} size='large'>
+        <Button icon={<IconServer/>} theme="solid" type="primary" className={clsx(styles.button_style, styles.button_style_left)} size='large'>
           {LeftButton}
         </Button>
       </Link>
       <Link to={RightURL} className={styles.link}>
-        <Button theme="solid" className={styles.buttonRight} size='large'>
+        <Button icon={<IconInfoCircle size="large"/>} theme="outline" type="tertiary" className={styles.button_style} size='large'>
           {RightButton}
         </Button>
       </Link>
