@@ -35,9 +35,8 @@ flowchart LR
 ### 🧩 操作流程
 
 1. **创建应用和源码组件**
-    1. 进入目标**团队视图 ➡️ 创建应用**。
-    ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/team.png)
-    2. 选择**从源代码构建** ➡️ **源码**，填写以下信息：
+    1. 进入目标**团队视图 → 新建应用**。
+    2. 选择**从源代码构建 → 源码**，填写以下信息：
     ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source.png)
         - 仓库地址：`https://gitee.com/rainbond/demo-2048.git`
         - 代码分支：`master`

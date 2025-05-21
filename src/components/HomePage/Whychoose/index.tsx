@@ -101,9 +101,9 @@ const WhyChoose: React.FC = () => {
         </span>
         <div className={styles.painPointListContent}>
           {item.title}
-          {openArr[idx] && (
-            <div className={styles.painPointListDetail}>{item.detail}</div>
-          )}
+          <div className={clsx(styles.painPointListDetail, openArr[idx] && styles.painPointListDetailOpen)}>
+            {item.detail}
+          </div>
         </div>
       </li>
     ))}
@@ -147,8 +147,8 @@ const WhyChoose: React.FC = () => {
             >
               <IconBriefcase size="large" />
               <div>
-                <div className={styles.tabTitle}>企业技术团队</div>
-                <div className={styles.tabSubtitle}>传统, 国企</div>
+                <div className={styles.tabTitle}>企业 IT 管理</div>
+                <div className={styles.tabSubtitle}>企业, 政府, 事业</div>
               </div>
             </button>
 
@@ -160,8 +160,8 @@ const WhyChoose: React.FC = () => {
             >
               <IconCode size="large" />
               <div>
-                <div className={styles.tabTitle}>开发与中小型</div>
-                <div className={styles.tabSubtitle}>开发者, 中小团队</div>
+                <div className={styles.tabTitle}>快速开发和迭代</div>
+                <div className={styles.tabSubtitle}>开发者，中小型团队</div>
               </div>
             </button>
 
@@ -208,58 +208,58 @@ const WhyChoose: React.FC = () => {
                   <IconBriefcase size="extra-large" />
                 </div>
                 <div>
-                  <h3 className={styles.contentTitle}>企业技术团队</h3>
-                  <p className={styles.contentSubtitle}>满足企业数字化云原生转型需求</p>
+                  <h3 className={styles.contentTitle}>企业 IT 管理</h3>
+                  <p className={styles.contentSubtitle}>替代虚拟机的IT基础设施，满足企业数字化云原生转型需求</p>
                 </div>
               </div>
 
               <div className={styles.solutionCards}>
                 {/* Traditional Enterprise Card */}
                 <div className={clsx(styles.solutionCard, styles.traditionalCard)}>
-                  <div className={styles.cardHeader}>
+                  {/* <div className={styles.cardHeader}>
                     <IconBriefcase size="large" />
                     <h4>供应商与资源管理</h4>
-                  </div>
+                  </div> */}
                   <div className={styles.cardContent}>
                     <div className={styles.solutions}>
                       <h5 style={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                         <IconTickCircle size="small" />
-                        <span style={{marginLeft: 4, marginRight: 4}}>供应商管理</span>
+                        <span style={{marginLeft: 4, marginRight: 4}}>供应商交付全流程管理</span>
                       </h5>
                       <ExpandableList list={supplierList} openArr={supplierOpenArr} setOpenArr={setSupplierOpenArr} />
                     </div>
                     <div className={styles.solutions}>
                       <h5 style={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                         <IconTickCircle size="small" />
-                        <span style={{marginLeft: 4, marginRight: 4}}>资源统一管理</span>
+                        <span style={{marginLeft: 4, marginRight: 4}}>以应用为中心的自动化运维</span>
                       </h5>
-                      <ExpandableList list={resourcesList} openArr={resourcesOpenArr} setOpenArr={setResourcesOpenArr} />
+                      <ExpandableList list={opsList} openArr={opsOpenArr} setOpenArr={setOpsOpenArr} />
                     </div>
                     <div className={styles.metric}>
-                      <div className={styles.metricValue}>80%</div>
-                      <div className={styles.metricLabel}>应用转型周期缩短</div>
+                      <div className={styles.metricValue}>300%</div>
+                      <div className={styles.metricLabel}>应用交付效率提升</div>
                     </div>
                   </div>
                 </div>
 
                 {/* SME Card */}
                 <div className={clsx(styles.solutionCard, styles.smeCard)}>
-                  <div className={styles.cardHeader}>
+                  {/* <div className={styles.cardHeader}>
                     <IconLayers size="large" />
                     <h4>应用运维与资产化管理</h4>
-                  </div>
+                  </div> */}
                   <div className={styles.cardContent}>
                     <div className={styles.solutions}>
                       <h5 style={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                         <IconTickCircle size="small" />
-                        <span style={{marginLeft: 4, marginRight: 4}}>应用自动化运维</span>
+                        <span style={{marginLeft: 4, marginRight: 4}}>统一的资源管理面板</span>
                       </h5>
-                      <ExpandableList list={opsList} openArr={opsOpenArr} setOpenArr={setOpsOpenArr} />
+                      <ExpandableList list={resourcesList} openArr={resourcesOpenArr} setOpenArr={setResourcesOpenArr} />
                     </div>
                     <div className={styles.solutions}>
                       <h5 style={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                         <IconTickCircle size="small" />
-                        <span style={{marginLeft: 4, marginRight: 4}}>软件资产化管理</span>
+                        <span style={{marginLeft: 4, marginRight: 4}}>软件资产化沉淀与能力复用</span>
                       </h5>
                       <ExpandableList list={softwareList} openArr={softwareOpenArr} setOpenArr={setSoftwareOpenArr} />
                     </div>
@@ -281,14 +281,14 @@ const WhyChoose: React.FC = () => {
                   <IconCode size="extra-large" />
                 </div>
                 <div>
-                  <h3 className={styles.contentTitle}>开发与中小型</h3>
-                  <p className={styles.contentSubtitle}>提升个人与初创、中小团队开发效率</p>
+                  <h3 className={styles.contentTitle}>快速开发和迭代</h3>
+                  <p className={styles.contentSubtitle}>个人开发者，中小型开发团队</p>
                 </div>
               </div>
 
               <div className={styles.solutionCards_devops}>
                 {/* Developer Card */}
-                <div className={clsx(styles.solutionCard, styles.traditionalCard)}>
+                {/* <div className={clsx(styles.solutionCard, styles.traditionalCard)}>
                   <div className={styles.cardHeader}>
                     <IconCode size="large" />
                     <h4>个人开发者</h4>
@@ -321,16 +321,16 @@ const WhyChoose: React.FC = () => {
                       <div className={styles.metricLabel}>开发效率提升</div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Ops Card */}
                 <div className={clsx(styles.solutionCard, styles.smeCard)}>
-                  <div className={styles.cardHeader}>
+                  {/* <div className={styles.cardHeader}>
                     <IconShield size="large" />
                     <h4>初创与中小团队</h4>
-                  </div>
+                  </div> */}
                   <div className={styles.cardContent}>
-                    <div className={styles.painPoints}>
+                    {/* <div className={styles.painPoints}>
                       <h5>
                         <IconAlertTriangle size="small" />
                         痛点挑战
@@ -340,21 +340,24 @@ const WhyChoose: React.FC = () => {
                         <li>手动部署 K8s 难度大、易出错</li>
                         <li>企业预算有限，需控制技术投入成本</li>
                       </ul>
-                    </div>
+                    </div> */}
                     <div className={styles.solutions}>
                       <h5>
                         <IconTickCircle size="small" />
                         解决方案
                       </h5>
                       <ul>
-                        <li>全图形化操作替代复杂代码配置</li>
-                        <li>自动识别多语言源码并生成运行环境</li>
-                        <li>内置 500+ 开源应用一键安装</li>
+                        <li>开箱即用，最快1小时即可上线业务系统</li>
+                        <li>专注业务开发，屏蔽底层技术复杂性</li>
+                        <li>在线协作开发和应用持续交付</li>
+                        <li>支持主流语言的开发框架</li>
+                        <li>应用自动化运维，按需伸缩</li>
+                        <li>内置 100+ 开源应用一键安装</li>
                       </ul>
                     </div>
                     <div className={styles.metric}>
-                      <div className={styles.metricValue}>60%</div>
-                      <div className={styles.metricLabel}>IT 资源投入降低</div>
+                      <div className={styles.metricValue}>200%</div>
+                      <div className={styles.metricLabel}>不需要专门的运维工程师，开发迭代效率提升</div>
                     </div>
                   </div>
                 </div>

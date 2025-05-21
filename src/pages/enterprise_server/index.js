@@ -9,8 +9,6 @@ export default function Index() {
   return (
     <Layout>
       <Background />
-      {/* 导航栏 */}
-      <NavBar />
       <div id={styles.box_container}>
         <section className={`${styles.width} ${styles.outside_container}`}>
           {/* 标题 */}
@@ -868,7 +866,6 @@ export default function Index() {
             </div>
           </div>
         </section>
-        <Footer/>
       </div>
     </Layout>
   );
