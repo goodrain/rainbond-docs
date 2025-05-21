@@ -45,12 +45,12 @@ export default function Home() {
       <div className={clsx(styles.hero_button, 'row')}>
         <div className='col col--12'>
           <Link to="/docs/quick-start/quick-install">
-            <Button theme='solid' type='primary' icon={<IconDownload />} size='large' className={clsx(styles.hero_button_style, styles.hero_button_style_left)}>
+            <Button theme='solid' type='primary' icon={<IconDownload size='large'/>} size='large' className={clsx(styles.hero_button_style, styles.hero_button_style_left)}>
               下载安装
             </Button>
           </Link>
           <Tooltip position='topLeft' content='注册即领 SaaS 免费托管，试用 30 天'>
-            <Button theme='outline' type='tertiary' icon={<IconCloud />} size='large' className={styles.hero_button_style} onClick={handleOnClickLinkRainbondCloud}>
+            <Button theme='outline' type='tertiary' icon={<IconCloud size='large'/>} size='large' className={styles.hero_button_style} onClick={handleOnClickLinkRainbondCloud}>
               在线托管
             </Button>
           </Tooltip>

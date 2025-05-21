@@ -59,58 +59,40 @@ export default function Users() {
         image: "/img/users/guangxitizhuan.png",
       },
       {
-        image: "/img/users/penghai.png",
+        image: "/img/users/kaaosi.png",
+      },
+      {
+        image: "/img/users/ghh.jpeg",
+      },
+      {
+        image: "/img/users/xjny.png",
       },
       {
         image: "/img/users/bkrj.png",
       },
       {
-        image: "/img/users/linewell.png",
+        image: "/img/users/bjcj.png",
       },
       {
         image: "/img/users/gitee.png",
       },
       {
-        image: "/img/users/ugreen.png",
-      },
-      {
-        image: "/img/users/xyqy.png",
-      },
-      {
-        image: "/img/users/jingyun.png",
-      },
-      {
-        image: "/img/users/lyyl.png",
-      },
-      {
-        image: "/img/users/ann.png",
-      },
-      {
-        image: "/img/users/hanguang.png",
-      },
-      {
-        image: "/img/users/fzsc.png",
-      },
-      {
-        image: "/img/users/novastar.png",
-      },
-      {
-        image: "/img/users/zjzn.png",
-      },
-      {
-        image: "/img/users/qingneng.png",
+        image: "/img/users/xndl.png",
       },
       {
         image: "/img/users/dianxinwusuo.png",
       },
       {
-        image: "/img/users/gillion.png",
+        image: "/img/users/28s.jpg",
       },
       {
-        image: "/img/users/csg.png",
+        image: "/img/users/ann.png",
       },
       {
-        image: "/img/users/sdbj.png",
+        image: "/img/users/lyyl.png",
+      },
+      {
+        image: "/img/users/fzsc.png",
       },
     ])
 
