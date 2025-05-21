@@ -11,6 +11,12 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   display: flex;
   gap: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 64px;
+  background: var(--ifm-navbar-background-color);
+  box-shadow: var(--ifm-navbar-shadow);
 }
 
 @media (max-width: 768px) {
@@ -35,6 +41,7 @@
   width: 24px;
   height: 24px;
   object-fit: contain;
+  height: 32px;
 }
 
 .homeLink:hover {
@@ -43,14 +50,18 @@
 
 .divider {
   width: 1px;
-  background: rgba(0, 0, 0, 0.1);
-  margin: 8px 0;
+  height: 24px;
+  background: var(--ifm-color-emphasis-200);
+  margin: 0 16px;
 }
 
 .nav {
   display: flex;
   gap: 8px;
   padding: 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .navLink {
@@ -64,6 +75,7 @@
   font-weight: 600;
   border-radius: 10px;
   transition: all 0.2s;
+  position: relative;
 }
 
 .navLink:hover {
@@ -86,6 +98,9 @@
   color: #111827;
   font-size: 14px;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
 }
 
 .github_button:hover {
@@ -97,10 +112,11 @@
   width: 20px;
   height: 20px;
   margin-right: 8px;
+  color: var(--ifm-navbar-link-color);
+  transition: color 0.3s ease;
 }
 
 .github_text {
-
   margin-right: 8px;
 }
 
@@ -112,4 +128,52 @@
   color: #000;
   text-decoration: none !important;
   font-weight: 500;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: max-content;
+  width: auto;
+  white-space: nowrap;
+  background: var(--ifm-navbar-background-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  z-index: 1000;
+  padding: 4px;
+}
+
+.dropdown:hover .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownItem {
+  display: block;
+  padding: 8px 16px;
+  color: var(--ifm-navbar-link-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.dropdownItem:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-navbar-link-hover-color);
+  text-decoration: none;
+}
+
+.github_button:hover .github_icon {
+  color: var(--ifm-navbar-link-hover-color);
 }
