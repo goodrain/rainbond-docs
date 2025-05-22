@@ -21,7 +21,7 @@ export default function Navbar() {
             </Button>
           </Link>
         </div>
-        <div className={styles.navLink}>
+        {/* <div className={styles.navLink}>
           <div className={styles.dropdown}>
             <Button 
               theme="borderless" 
@@ -48,7 +48,7 @@ export default function Navbar() {
               </Link>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className={styles.navLink}>
           <div className={styles.dropdown}>
             <Button 
