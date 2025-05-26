@@ -236,31 +236,6 @@ const config = {
             ]
           },
           {
-            title: '功能特性',
-            items: [
-              {
-                label: '信创',
-                to: '/xinchuang'
-              },
-              {
-                label: '一体化DevOps',
-                to: '/feature/devops'
-              },
-              {
-                label: 'Kubernetes多集群管理',
-                to: '/feature/multi-cluster'
-              },
-              {
-                label: '开箱即用的微服务治理',
-                to: '/feature/service-mesh'
-              },
-              {
-                label: '自动化应用运维',
-                to: '/feature/app-ops'
-              }
-            ]
-          },
-          {
             title: '深入',
             items: [
               {
