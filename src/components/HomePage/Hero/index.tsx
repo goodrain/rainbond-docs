@@ -29,6 +29,20 @@ export default function Home() {
     window.open('https://run.rainbond.com/#/user/login?link=rainbond')
   }
 
+  // 检测是否为移动设备
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
   return (
     <div className={clsx('container', styles.container)}>
       <div className={clsx(styles.hero_title, 'row')}>
@@ -73,7 +87,7 @@ export default function Home() {
       </div>
       <div className={styles.command_container}>
         <div className={styles.command_wrapper}>
-          <Tabs tabPosition="left">
+          <Tabs tabPosition={isMobile ? "top" : "left"}>
             <TabPane tab={ <span><IconServer />Linux & MacOS</span>} itemKey="1">
               <div className={styles.command_text}>在您的终端执行以下命令：</div>
               <CodeBlock language="bash" className={styles.command_code}>
