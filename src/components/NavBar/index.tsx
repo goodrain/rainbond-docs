@@ -82,7 +82,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className={styles.navLink}>
-          <Link to="/marketplace">
+          <Link to="https://hub.grapps.cn">
             <Button theme="borderless" type="tertiary" icon={<IconApps />}>
               应用商店
             </Button>
