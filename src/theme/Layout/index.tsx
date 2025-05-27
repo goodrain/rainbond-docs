@@ -24,7 +24,7 @@ import ErrorPageContent from '@theme/ErrorPageContent';
 import type {Props} from '@theme/Layout';
 import styles from './styles.module.css';
 import { useLocation } from '@docusaurus/router';
-
+import IPLocationDetector from '@src/components/IPLocationDetector';
 export default function Layout(props: Props): JSX.Element {
   const {
     children,
@@ -49,7 +49,7 @@ export default function Layout(props: Props): JSX.Element {
       <SkipToContent />
 
       {docs_url ? <Navbar /> : <NavbarCustom /> }
-      
+      <IPLocationDetector />
       <div
         id={SkipToContentFallbackId}
         className={clsx(
