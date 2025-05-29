@@ -3,10 +3,11 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 import { Button } from '@douyinfe/semi-ui';
 import Link from '@docusaurus/Link';
-import { IconCloud, IconDownload, IconServer, IconGlobe } from '@douyinfe/semi-icons';
+import { IconCloud, IconDownload, IconServer, IconGlobe, IconUserGroup } from '@douyinfe/semi-icons';
 import CodeBlock from '@theme/CodeBlock';
 import { Tabs, TabPane, Tooltip } from '@douyinfe/semi-ui';
 import axios from 'axios';
+import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
 
 export default function Home() {
   const handleOnClickLinkRainbondCloud = () => {
@@ -47,12 +48,12 @@ export default function Home() {
     <div className={clsx('container', styles.container)}>
       <div className={clsx(styles.hero_title, 'row')}>
         <div className='col col--12'>
-          <p className={styles.hero_title_one}>无需学习 Kubernetes 的容器平台</p>
-          <p className={styles.hero_title_two}>像管理手机APP一样管理企业应用</p>
+          {/* <p className={styles.hero_title_one}>无需学习 Kubernetes 的容器平台</p> */}
+          <p className={styles.hero_title_two}>无需学习 Kubernetes 的容器平台</p>
           {/* <div className={styles.hero_title_three_div}>
-            <p className={styles.hero_title_three}>Rainbond = 手机级应用管理体验 + 原生 Kubernetes 能力 + 私有化部署特性</p>
+            <p className={styles.hero_title_three}>在 Kubernetes 上构建、部署、扩展应用，无需 K8s 专业知识，全流程图形化管理</p>
           </div> */}
-          {/* <p className={styles.hero_title_four}>Rainbond 是一个云原生应用管理平台，100% 兼容 Kubernetes API，100% 开源。支持国产化信创，深度适配私有部署，轻松管理容器化应用，让企业应用管理如手机 APP 操作般简单。</p> */}
+          <p className={styles.hero_title_four}>⎈ 在 Kubernetes 上构建、部署、扩展应用，无需 K8s 专业知识，全流程图形化管理</p>
         </div>
       </div>
       {/* 按钮区块 */}
@@ -63,11 +64,23 @@ export default function Home() {
               下载安装
             </Button>
           </Link>
-          <Tooltip position='topLeft' content='注册即领 SaaS 免费托管，试用 30 天'>
+          {/* <Tooltip position='topLeft' content='注册即领 SaaS 免费托管，试用 30 天'>
             <Button theme='outline' type='tertiary' icon={<IconCloud size='large'/>} size='large' className={styles.hero_button_style} onClick={handleOnClickLinkRainbondCloud}>
               在线托管
             </Button>
-          </Tooltip>
+          </Tooltip> */}
+
+          <OverlayTrigger placement="bottom" overlay={
+            <div className="card">
+              <div className="card__body">
+                <img width="200px" height="200px" src="/wechat/wechatgroup-text.png" />
+              </div>
+            </div>
+          }>
+            <Button theme='outline' type='tertiary' icon={<IconUserGroup size='large'/>} size='large' className={styles.hero_button_style}>
+              加入社群
+            </Button>
+          </OverlayTrigger>
         </div>
       </div>
       {/* 统计信息横向排列，按钮下方 */}
