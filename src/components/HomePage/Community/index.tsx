@@ -12,14 +12,9 @@ import { animated, useTrail } from "react-spring";
 import styles from "./styles.module.css";
 import Signal from "/img/homepage/svg/signal.svg";
 import Wechat from "/img/homepage/svg/wechat.svg";
-import Dingtalk from "/img/homepage/svg/dingtalk.svg";
 import Github from "/img/homepage/svg/github.svg";
-import Partner from "/img/homepage/svg/partner.svg";
-import Slack from "/img/homepage/svg/slack.svg";
-import Forum from "/img/homepage/svg/forum.svg";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Translate from "@docusaurus/Translate";
-import Douyin from "/img/homepage/svg/douyin.svg";
 import Bilibili from "/img/homepage/svg/bilibili.svg";
 import Gitee from "/img/homepage/svg/gitee.svg";
 
@@ -47,7 +42,7 @@ export default function Community() {
               <OverlayTrigger placement="bottom" overlay={
                 <div className="card">
                   <div className="card__body">
-                    <img width="200px" height="200px" src="/wechat/wechat.png" />
+                    <img width="200px" height="200px" src="/wechat/wechat-public.jpg" />
                   </div>
                 </div>
               }>
