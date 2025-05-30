@@ -53,7 +53,7 @@ export default function Home() {
           {/* <div className={styles.hero_title_three_div}>
             <p className={styles.hero_title_three}>在 Kubernetes 上构建、部署、扩展应用，无需 K8s 专业知识，全流程图形化管理</p>
           </div> */}
-          <p className={styles.hero_title_four}>⎈ 在 Kubernetes 上构建、部署、扩展应用，无需 K8s 专业知识，全流程图形化管理</p>
+          <p className={styles.hero_title_four}>⎈ 在 Kubernetes 上构建、部署、组装和管理应用，无需 K8s 专业知识，全流程图形化管理</p>
         </div>
       </div>
       {/* 按钮区块 */}
