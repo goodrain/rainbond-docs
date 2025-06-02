@@ -44,7 +44,7 @@
 }
 
 .container {
-  text-align: center;
+  /* text-align: center; */
   margin-top: 5rem;
   opacity: 0;
   animation: fadeInUp 0.8s ease-out forwards;
@@ -59,7 +59,6 @@
   animation: fadeInUp 0.8s ease-out forwards 0.2s;
   opacity: 0;
   transform: translateY(20px);
-
 }
 
 .hero_title_two {
@@ -73,6 +72,7 @@
   animation: fadeInUp 0.8s ease-out forwards 0.1s;
   opacity: 0;
   transform: translateY(20px);
+  width: 45rem;
 }
 
 /* .hero_title_three_div {
@@ -100,9 +100,9 @@
 
 .hero_title_four {
   font-size: 18px;
-  max-width: 50rem;
+  max-width: 30rem;
   line-height: 2rem;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   font-weight: 500;
   margin-top: 15px;
   animation: none;
@@ -111,7 +111,7 @@
 }
 
 .hero_button {
-  margin-top: 4rem;
+  margin-top: 1rem;
   animation: fadeInUp 0.8s ease-out forwards 0.3s;
   opacity: 0;
   transform: translateY(20px);
@@ -212,6 +212,7 @@
   .hero_title_one,
   .hero_title_two {
     font-size: 32px;
+    width: 100%;
   }
 
   .hero_title_three {
