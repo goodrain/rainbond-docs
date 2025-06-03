@@ -60,10 +60,10 @@ export default function Home() {
   return (
     <div className={clsx('container', styles.container)}>
       <div className={clsx(styles.hero_title, 'row')}>
-        <div className='col col--7'>
+        <div className='col col--6'>
           {/* 标题部分 */}
           <p className={styles.hero_title_two}>无需学习 Kubernetes 的容器平台</p>
-          <p className={styles.hero_title_four}>在 Kubernetes 上构建、部署、组装和管理应用，无需 K8s 专业知识，全流程图形化管理。 ⎈</p>
+          <p className={styles.hero_title_four}>在 Kubernetes 上构建、部署、组装和管理应用，无需 K8s 专业知识，全流程图形化管理 ⎈</p>
           {/* 按钮区块 */}
           <div className={clsx(styles.hero_button)}>
             <Link to="/docs/quick-start/quick-install">
@@ -99,12 +99,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className='col col--5'>
+        <div className='col col--6'>
           <div
             className={clsx(styles.videoWrapper, { [styles.hideControls]: !isPlaying })}
           >
             <VideoPlayer
-              height={292}
+              height={"22.1rem"}
               controlsList={['play', 'time', 'volume', 'fullscreen', 'quality']}
               src="https://static.goodrain.com/mp4/home-page-intro.mp4"
               poster=""
