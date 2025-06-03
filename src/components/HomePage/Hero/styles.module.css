@@ -62,7 +62,7 @@
 }
 
 .hero_title_two {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 700;
   background: linear-gradient(to right, #06b6d4, #2563eb);
   -webkit-background-clip: text;
@@ -72,7 +72,6 @@
   animation: fadeInUp 0.8s ease-out forwards 0.1s;
   opacity: 0;
   transform: translateY(20px);
-  width: 45rem;
   margin-bottom: 1.5rem;
 }
 

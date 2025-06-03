@@ -127,7 +127,7 @@ const WhyChoose: React.FC = () => {
 
   return (
     <div className="container">
-      <div className="text--center margin-bottom--xl">
+      <div className="text--center" style={{marginBottom: '2.5rem'}}>
         <h2 className={styles.sectionTitle}>为什么选择 Rainbond？</h2>
         <p className={styles.sectionSubtitle}>
           为不同场景量身定制云原生解决方案
