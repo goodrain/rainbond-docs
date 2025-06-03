@@ -20,14 +20,14 @@ export default function Home() {
         sms_type: 'rainbond',
       },
     })
-    .then((response) => {
-      console.log(response.data);
-    }
-    )
-    .catch((error) => {
-      console.error(error);
-    }
-    );
+      .then((response) => {
+        console.log(response.data);
+      }
+      )
+      .catch((error) => {
+        console.error(error);
+      }
+      );
     window.open('https://run.rainbond.com/#/user/login?link=rainbond')
   }
 
@@ -38,12 +38,24 @@ export default function Home() {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
+
     checkIsMobile();
     window.addEventListener('resize', checkIsMobile);
-    
+
     return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
+
+  const [isPlaying, setIsPlaying] = React.useState(false);
+
+  const handlePlay = () => {
+    console.log('Video playing');
+    setIsPlaying(true);
+  };
+
+  const handlePause = () => {
+    console.log('Video paused');
+    setIsPlaying(false);
+  };
 
   return (
     <div className={clsx('container', styles.container)}>
@@ -51,19 +63,14 @@ export default function Home() {
         <div className='col col--7'>
           {/* 标题部分 */}
           <p className={styles.hero_title_two}>无需学习 Kubernetes 的容器平台</p>
-          <p className={styles.hero_title_four}>在 Kubernetes 上构建、部署、组装和管理应用，无需 K8s 专业知识，全流程图形化管理 ⎈</p>
+          <p className={styles.hero_title_four}>在 Kubernetes 上构建、部署、组装和管理应用，无需 K8s 专业知识，全流程图形化管理。 ⎈</p>
           {/* 按钮区块 */}
           <div className={clsx(styles.hero_button)}>
             <Link to="/docs/quick-start/quick-install">
-              <Button theme='solid' type='primary' icon={<IconDownload size='large'/>} size='large' className={clsx(styles.hero_button_style, styles.hero_button_style_left)}>
+              <Button theme='solid' type='primary' icon={<IconDownload size='large' />} size='large' className={clsx(styles.hero_button_style, styles.hero_button_style_left)}>
                 下载安装
               </Button>
             </Link>
-            {/* <Tooltip position='topLeft' content='注册即领 SaaS 免费托管，试用 30 天'>
-              <Button theme='outline' type='tertiary' icon={<IconCloud size='large'/>} size='large' className={styles.hero_button_style} onClick={handleOnClickLinkRainbondCloud}>
-                在线托管
-              </Button>
-            </Tooltip> */}
             <OverlayTrigger placement="bottom" overlay={
               <div className="card">
                 <div className="card__body">
@@ -71,13 +78,13 @@ export default function Home() {
                 </div>
               </div>
             }>
-              <Button theme='outline' type='tertiary' icon={<IconUserGroup size='large'/>} size='large' className={styles.hero_button_style}>
+              <Button theme='outline' type='tertiary' icon={<IconUserGroup size='large' />} size='large' className={styles.hero_button_style}>
                 加入社群
               </Button>
             </OverlayTrigger>
           </div>
           {/* 统计信息区块 */}
-          <div className={styles.hero_stats_row} style={{ justifyContent: 'flex-start', marginTop: '1rem' }}>
+          <div className={styles.hero_stats_row} style={{ justifyContent: 'flex-start' }}>
             <div className={styles.hero_stat_item}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
               <span>Github star 5k+</span>
@@ -93,28 +100,34 @@ export default function Home() {
           </div>
         </div>
         <div className='col col--5'>
-          <VideoPlayer
-            height={292}
-            controlsList={['play', 'time', 'volume', 'fullscreen', 'quality']}
-            src="https://static.goodrain.com/mp4/home-page-intro.mp4"
-            poster=""
-          />
+          <div
+            className={clsx(styles.videoWrapper, { [styles.hideControls]: !isPlaying })}
+          >
+            <VideoPlayer
+              height={292}
+              controlsList={['play', 'time', 'volume', 'fullscreen', 'quality']}
+              src="https://static.goodrain.com/mp4/home-page-intro.mp4"
+              poster=""
+              onPlay={handlePlay}
+              onPause={handlePause}
+            />
+          </div>
         </div>
       </div>
       <div className={styles.command_container}>
         <div className={styles.command_wrapper}>
           <Tabs tabPosition={isMobile ? "top" : "left"}>
-            <TabPane tab={ <span><IconServer />Linux & MacOS</span>} itemKey="1">
+            <TabPane tab={<span><IconServer />Linux & MacOS</span>} itemKey="1">
               <div className={styles.command_text}>在您的终端执行以下命令：</div>
               <CodeBlock language="bash" className={styles.command_code}>
                 {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
               </CodeBlock>
               <div className={styles.command_text}>10 分钟后打开浏览器，输入<span className={styles.inline_code}>http://您的IP:7070</span>访问 Rainbond UI。跟随<Link to="/docs/quick-start/getting-started">快速入门</Link>部署首个应用。</div>
             </TabPane>
-            <TabPane tab={ <span><IconGlobe />Windows</span>} itemKey="2"> 
+            <TabPane tab={<span><IconGlobe />Windows</span>} itemKey="2">
               <div className={styles.command_text}>在您的 PowerShell 执行以下命令：</div>
               <CodeBlock language="powershell" className={styles.command_code}>
-                  {`Invoke-WebRequest "https://get.rainbond.com/install-dind.ps1" -o install-dind.ps1 ; ./install-dind.ps1`}
+                {`Invoke-WebRequest "https://get.rainbond.com/install-dind.ps1" -o install-dind.ps1 ; ./install-dind.ps1`}
               </CodeBlock>
               <div className={styles.command_text}>10 分钟后打开浏览器，输入<span className={styles.inline_code}>http://您的IP:7070</span>访问 Rainbond UI。跟随<Link to="/docs/quick-start/getting-started">快速入门</Link>部署首个应用。</div>
             </TabPane>

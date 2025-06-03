@@ -62,7 +62,7 @@
 }
 
 .hero_title_two {
-  font-size: 60px;
+  font-size: 48px;
   font-weight: 700;
   background: linear-gradient(to right, #06b6d4, #2563eb);
   -webkit-background-clip: text;
@@ -73,6 +73,7 @@
   opacity: 0;
   transform: translateY(20px);
   width: 45rem;
+  margin-bottom: 1.5rem;
 }
 
 /* .hero_title_three_div {
@@ -100,19 +101,20 @@
 
 .hero_title_four {
   font-size: 18px;
-  max-width: 30rem;
+  max-width: 37rem;
   line-height: 2rem;
   /* margin: 0 auto; */
   font-weight: 500;
-  margin-top: 15px;
   animation: none;
-  opacity: 1;
+  opacity: 0;
+  transform: translateY(20px);
   transform: none;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease-out forwards 0.2s;
 }
 
 .hero_button {
-  margin-top: 1rem;
-  animation: fadeInUp 0.8s ease-out forwards 0.3s;
+  animation: fadeInUp 0.8s ease-out forwards 0.5s;
   opacity: 0;
   transform: translateY(20px);
 }
@@ -143,12 +145,13 @@
   display: flex;
   justify-content: center;
   gap: 2.5rem;
-  margin-top: 2.5rem;
   color: #4B5563;
   font-size: 16px;
   animation: fadeInUp 0.8s ease-out forwards 0.4s;
   opacity: 0;
   transform: translateY(20px);
+  margin-top: .8rem;
+  margin-bottom: 1rem;
 }
 
 /* 命令区域样式 */
@@ -484,4 +487,23 @@
     font-size: 10px !important;
     padding: 0.5rem !important;
   }
+}
+
+.videoWrapper {
+  position: relative;
+}
+
+/* 只修改控制栏的显示/隐藏属性 */
+.videoWrapper :global([class*="controls"]) {
+  transition: opacity 0.3s ease !important;
+}
+
+.hideControls :global([class*="controls"]) {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 确保视频播放器容器有正确的定位 */
+.videoWrapper :global(.semi-video-player) {
+  position: relative !important;
 }
