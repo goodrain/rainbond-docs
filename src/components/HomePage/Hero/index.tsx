@@ -46,16 +46,21 @@ export default function Home() {
   }, []);
 
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const [showControls, setShowControls] = React.useState(true);
 
   const handlePlay = () => {
-    console.log('Video playing');
     setIsPlaying(true);
+    setShowControls(true);
   };
 
   const handlePause = () => {
-    console.log('Video paused');
     setIsPlaying(false);
+    setShowControls(true);
   };
+
+  // 鼠标移入/移出控制
+  const handleMouseEnter = () => setShowControls(true);
+  const handleMouseLeave = () => setShowControls(false);
 
   return (
     <div className={clsx('container', styles.container)}>
@@ -101,7 +106,9 @@ export default function Home() {
         </div>
         <div className='col col--6'>
           <div
-            className={clsx(styles.videoWrapper, { [styles.hideControls]: !isPlaying })}
+            className={clsx(styles.videoWrapper, { [styles.hideControls]: !showControls })}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <VideoPlayer
               height={"22.1rem"}
