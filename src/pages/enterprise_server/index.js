@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import NavBar from '../../components/NavBar';
 import styles from './index.module.scss';
 import LayoutProviders from '@theme/Layout/Provider';
@@ -6,6 +7,25 @@ import Footer from '@theme/Footer';
 import Layout from '@theme/Layout';
 import Background from '@src/components/Background';
 export default function Index() {
+  const handleOnClickLinkRainbondCloud = () => {
+      axios({
+        method: 'get',
+        url: 'https://run.rainbond.com/console/user_source',
+        params: {
+          content: 'visit rainbond cloud',
+          sms_type: 'rainbond',
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+      }
+      )
+      .catch((error) => {
+        console.error(error);
+      }
+      );
+      window.open('https://run.rainbond.com/#/user/login?link=enterprise')
+    }
   return (
     <Layout>
       <Background />
@@ -87,10 +107,9 @@ export default function Index() {
               <div>
                 <a
                   className={`${styles.btns} ${styles.cloud}`}
-                  href='https://run.rainbond.com'
-                  target='_blank'
+                  onClick={handleOnClickLinkRainbondCloud}
                 >
-                  开始使用
+                  开始体验
                 </a>
                 <a
                   style={{marginLeft:'160px'}}
