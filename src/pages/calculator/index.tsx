@@ -240,7 +240,7 @@ export default function Calculator() {
             <div className={styles.advantages}>
                 <div className={styles.advantageDesc}>
                   <div>Rainbond Cloud 是一个不需要懂运维的云服务平台，用于高效部署、管理和扩展应用程序。</div>
-                  <div>无需购买昂贵服务器，无需搭建复杂运维体系，直接使用我们的自动化平台，30分钟就能完成产品部署。自动弹性扩缩容，用多少资源付多少钱，成本比传统方案降低60%！</div>
+                  <div>无需购买昂贵服务器，无需搭建复杂运维体系，直接使用我们的自动化平台，3分钟就能完成产品部署。自动弹性扩缩容，用多少资源付多少钱，成本比传统方案降低40%！</div>
                 </div>
             </div>
             <h2 className={styles.titleh2}>为什么选择 Rainbond Cloud</h2>
