@@ -1,7 +1,9 @@
 import Layout from '@theme/Layout';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styles from './index.module.css';
 import Background from '@src/components/Background';
+
 type TimeUnit = '年' | '月' | '天' | '时';
 
 interface Resources {
@@ -87,7 +89,25 @@ export default function Calculator() {
       maximumFractionDigits: decimals
     });
   };
-
+  const handleOnClickLinkRainbondCloud = () => {
+      axios({
+        method: 'get',
+        url: 'https://run.rainbond.com/console/user_source',
+        params: {
+          content: 'visit calculator',
+          sms_type: 'rainbond',
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+      }
+      )
+      .catch((error) => {
+        console.error(error);
+      }
+      );
+      window.open('https://run.rainbond.com/#/user/login?link=calculator')
+    }
   const Header = {
     title: "Rainbond Cloud 价格计算器",
     description: "简单、透明的定价，助您轻松预算，开启云原生之旅"
@@ -111,6 +131,7 @@ export default function Calculator() {
       description: "比公有云包月费用低 40%，性价比更高"
     }
   ];
+  
 
   return (
     <Layout title={Header.title} description={Header.description}>
@@ -118,6 +139,12 @@ export default function Calculator() {
       <div className={styles.container}>
         <h1 className={styles.titleh1}>{Header.title}</h1>
         <p className={styles.description}>{Header.description}</p>
+        <a
+          className={`${styles.btns} ${styles.cloud}`}
+          onClick={handleOnClickLinkRainbondCloud}
+        >
+          开始体验
+        </a>
 
         <div className={styles.mainContent}>
           <div className={styles.calculatorSection}>
@@ -209,6 +236,13 @@ export default function Calculator() {
           </div>
 
           <div className={styles.advantagesSection}>
+            <h2 className={styles.titleh2}>Rainbond Cloud 是什么？</h2>
+            <div className={styles.advantages}>
+                <div className={styles.advantageDesc}>
+                  <div>Rainbond Cloud 是一个不需要懂运维的云服务平台，用于高效部署、管理和扩展应用程序。</div>
+                  <div>无需购买昂贵服务器，无需搭建复杂运维体系，直接使用我们的自动化平台，3分钟就能完成产品部署。自动弹性扩缩容，用多少资源付多少钱，成本比传统方案降低40%！</div>
+                </div>
+            </div>
             <h2 className={styles.titleh2}>为什么选择 Rainbond Cloud</h2>
             <div className={styles.advantages}>
               {advantages.map((advantage, index) => (

@@ -9,23 +9,6 @@
   overflow: hidden;
 }
 
-.container::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at center,
-    rgba(79, 172, 254, 0.06) 0%,
-    rgba(0, 242, 254, 0.06) 25%,
-    transparent 50%
-  );
-  z-index: 0;
-  border-radius: 50%;
-}
-
 .description {
   color: #64748b;
   margin-bottom: 1.5rem;
@@ -358,6 +341,22 @@
   gap: 0.75rem;
 }
 
+.advantageDesc{
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+}
+
+.advantageDesc div {
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+}
+
 .advantageItem {
   padding: 1rem;
   background: #ffffff;
@@ -507,4 +506,28 @@
 .inputItem input:focus,
 .inputItem select:focus {
   animation: focusGlow 2s infinite;
+}
+
+.btns {
+  width: 120px;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  cursor: pointer;
+  color: white;
+  padding: 12px 20px;
+  margin-left: -2px;
+  font-weight: 600;
+  border-radius: 50px;
+  font-family: 'Yuanti SC', Youyuan, 'You Yuan', 幼圆, 'PingFang SC',
+    'Microsoft Yahei', Helvetica, sans-serif;
+}
+.btns.cloud {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+.btns:hover {
+  text-decoration: none;
+  color: white;
 }
