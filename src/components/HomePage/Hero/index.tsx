@@ -134,7 +134,7 @@ export default function Home() {
             <TabPane tab={<span><IconGlobe />Windows</span>} itemKey="2">
               <div className={styles.command_text}>在您的 PowerShell 执行以下命令：</div>
               <CodeBlock language="powershell" className={styles.command_code}>
-                {`Invoke-WebRequest "https://get.rainbond.com/install-dind.ps1" -o install-dind.ps1 ; ./install-dind.ps1`}
+                {`Invoke-WebRequest "https://get.rainbond.com/install-rainbond.ps1" -o install-rainbond.ps1 ; ./install-rainbond.ps1`}
               </CodeBlock>
               <div className={styles.command_text}>10 分钟后打开浏览器，输入<span className={styles.inline_code}>http://您的IP:7070</span>访问 Rainbond UI。跟随<Link to="/docs/quick-start/getting-started">快速入门</Link>部署首个应用。</div>
             </TabPane>
