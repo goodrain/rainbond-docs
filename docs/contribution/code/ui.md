@@ -10,18 +10,12 @@ git clone https://github.com/goodrain/rainbond-ui.git
 ```
 2. 使用符合要求的 node 版本
 ```
-Node.js 版本  >=  14.15.0
+Node.js 版本  >=  14.15.0  <17
 ```
 
 ## 安装依赖
 
-运行npm安装命令
-
-```
-npm install
-```
-
-或者yarn安装命令
+运行yarn安装命令
 
 ```
 yarn install
