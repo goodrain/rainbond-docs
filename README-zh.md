@@ -11,7 +11,7 @@ Rainbond 文档，包含 Rainbond 5.x 所有文档
 确保您的开发环境有如下软件：
 
 - [Git](http://git-scm.com/)
-- [Node.js](http://nodejs.org/) \>= 14 (with NPM)
+- [Node.js](http://nodejs.org/) \>= 18.0 (with NPM)
 - [Yarn](https://yarnpkg.com/en/docs/install) \>= 1.5
 
 ### 安装
