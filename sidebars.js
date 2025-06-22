@@ -29,7 +29,7 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: '基于主机安装',
+          label: '基于 Linux 安装',
           link: {
             type: 'doc',
             id: 'installation/install-with-ui/index',
@@ -286,6 +286,16 @@ const sidebars = {
       "label": "运维指南",
       "items": [
         'ops-guides/overview',
+        {
+          "type": "category",
+          "label": "拓展安装",
+          "items": [
+            "ops-guides/more-installation/k3s",
+            "ops-guides/more-installation/ack",
+            "ops-guides/more-installation/tke",
+            "ops-guides/more-installation/cce",
+          ]
+        },
         {
           "type": "category",
           "label": "管理集群",
