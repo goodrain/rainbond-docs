@@ -11,25 +11,6 @@ import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
 import { VideoPlayer } from '@douyinfe/semi-ui';
 
 export default function Home() {
-  const handleOnClickLinkRainbondCloud = () => {
-    axios({
-      method: 'get',
-      url: 'https://run.rainbond.com/console/user_source',
-      params: {
-        content: 'visit',
-        sms_type: 'rainbond',
-      },
-    })
-      .then((response) => {
-        console.log(response.data);
-      }
-      )
-      .catch((error) => {
-        console.error(error);
-      }
-      );
-    window.open('https://run.rainbond.com/#/user/login?link=rainbond')
-  }
 
   // 检测是否为移动设备
   const [isMobile, setIsMobile] = React.useState(false);
