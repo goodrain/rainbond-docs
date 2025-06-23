@@ -1,10 +1,30 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
+import axios from 'axios';
 import { Button } from '@douyinfe/semi-ui';
-import { IconFile, IconGallery, IconBox, IconForward, IconGithubLogo, IconLayers, IconSetting, IconApartment, IconApps } from '@douyinfe/semi-icons';
+import { IconFile, IconGallery, IconBox, IconForward, IconGithubLogo, IconLayers, IconSetting, IconApartment, IconApps, IconCloud } from '@douyinfe/semi-icons';
 
 export default function Navbar() {
+  const handleOnClickLinkRainbondCloud = () => {
+      axios({
+        method: 'get',
+        url: 'https://run.rainbond.com/console/user_source',
+        params: {
+          content: 'rainbond',
+          sms_type: 'rainbond',
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+      }
+      )
+      .catch((error) => {
+        console.error(error);
+      }
+      );
+      window.open('https://run.rainbond.com/#/user/login?link=rainbond')
+    }
   return (
     <nav className={styles.navbar}>
       <Link href="/" className={styles.homeLink}>
@@ -80,6 +100,13 @@ export default function Navbar() {
               企业版
             </Button>
           </Link>
+        </div>
+        <div className={styles.navLink}>
+          <a onClick={handleOnClickLinkRainbondCloud}>
+            <Button theme="borderless" type="tertiary" icon={<IconCloud />}>
+            云服务
+            </Button>
+          </a>
         </div>
         <div className={styles.navLink}>
           <Link to="https://hub.grapps.cn">
