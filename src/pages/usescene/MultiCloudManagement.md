@@ -35,7 +35,7 @@ keywords:
 
 企业需要一个可以管理各类计算资源和各类应用程序的一站式管理平台 ——— **Rainbond 应运而生**。
 
-[Rainbond](https://www.rainbond.com?channel=aliyun)是“以应用为中心“的多云应用管理平台，提供的容器多云和混合云的解决方案，为您提供跨云的多集群统一管理、应用在多云环境下的统一部署和管理。基于 Rainbond 上开发的任何运行的应用，都能够交付给任何基于 Rainbond 的应用管理平台上去使用，也就是基于 Rainbond 可以将任何应用以任何规模部署到任何云上面，对开发者来说就是 只需构建一次，即可随时随地运行。
+Rainbond] 是“以应用为中心“的多云应用管理平台，提供的容器多云和混合云的解决方案，为您提供跨云的多集群统一管理、应用在多云环境下的统一部署和管理。基于 Rainbond 上开发的任何运行的应用，都能够交付给任何基于 Rainbond 的应用管理平台上去使用，也就是基于 Rainbond 可以将任何应用以任何规模部署到任何云上面，对开发者来说就是 只需构建一次，即可随时随地运行。
 
 ### Rainbond 与 CMP 对比
 
@@ -49,7 +49,7 @@ Rainbond 是“应用级”的多云管理，通过统一的应用模型，应�
 
 ### 多云应用管理的四个典型场景
 
-在 [Rainbond](https://www.rainbond.com?channel=aliyun)中实现多云目前有以下四个典型场景：
+在 Rainbond 中实现多云目前有以下四个典型场景：
 
 - **开发和生产环境分离：**
 
@@ -71,9 +71,9 @@ Rainbond 是“应用级”的多云管理，通过统一的应用模型，应�
 
 **1、通过 Rainbond 对接多云**
 
-首先需拥有可用的 [Rainbond](https://www.rainbond.com/docs/quick-start/quick-install?channel=aliyun) 。
+首先需拥有可用的 [Rainbond](https://www.rainbond.com/docs/quick-start/quick-install) 。
 
-完成 Rainbond 控制台的安装后，进入 Rainbond 控制台 **企业视图** >> **集群** >> **添加集群**，在公有云或私有云的服务器上安装 [Rainbond 集群端](https://www.rainbond.com/docs/user-operations/deploy?channel=aliyun) ，可添加并对接多个集群。
+完成 Rainbond 控制台的安装后，进入 Rainbond 控制台 **企业视图** >> **集群** >> **添加集群**，在公有云或私有云的服务器上安装 [Rainbond 集群端](https://www.rainbond.com/docs/user-operations/deploy) ，可添加并对接多个集群。
 
 多集群对接后效果图:point_down:
 
@@ -83,14 +83,6 @@ Rainbond 是“应用级”的多云管理，通过统一的应用模型，应�
 
 当 Rainbond 对接多集群后，在 Rainbond 上可以创建和管理多团队，并为每个团队在多集群中分配资源，在团队空间中就可以管理应用全生命周期。
 
-多云应用管理参考文档：
-
-- [团队管理](https://www.rainbond.com/docs/get-start/team-management-and-multi-tenancy?channel=aliyun)
-- [复杂组织结构的团队管理](https://mp.weixin.qq.com/s/Dt6FjAyRvJHQhm9p4--ceQ)
-- [应用构建](https://www.rainbond.com/docs/component-create/creation-process?channel=aliyun)
-- [服务运维](https://www.rainbond.com/docs/user-manual/component-op?channel=aliyun)
-- [应用运维](https://www.rainbond.com/docs/user-manual/app-manage?channel=aliyun)
-
 **3、开发环境和生产环境分离**
 
 **A 云上做测试/开发，B 云上进行生产** 是最常见的环境分离。一般是在云上做测试/开发，在本地进行生产。但有时候可能颠倒过来，因为你可能需要**云的多区域能力**或者像 CDN 这种高级功能来为**生产环境加速**。
@@ -99,33 +91,9 @@ Rainbond 是“应用级”的多云管理，通过统一的应用模型，应�
 
 <img src="https://i.loli.net/2021/11/11/aGVgxeTIq1Uyrcu.png" alt="image-20211111174506912"  />
 
-具体操作过程可以参考文档：
-
-- [多云应用复制](https://www.rainbond.com/docs/user-manual/component-dev/app_copy?channel=aliyun)
-- [一键上线和回滚](https://www.rainbond.com/docs/practices/app-dev/update-rollback?channel=aliyun)
-
 **4、通过应用市场实现多云应用交付：**
 
 用户可将已部署的业务通过 Rainbond 应用发布 功能一键发布到内部应用商店，可通过应用模板对应用进行版本管理以及应用详情介绍。也可通过应用模板可在多云环境中一键部署。
 <img src="https://pic.imgdb.cn/item/61a5d0942ab3f51d91d5bf1c.png" alt="image-20211118144714895"  />
 
 ![image-20211205122143246](https://s2.loli.net/2021/12/05/so8LfOTVtPb5EiD.png)
-
-具体操作过程可以参考文档：
-
-- [应用发布](https://www.rainbond.com/docs/user-manual/app-manage/share-app?channel=aliyun)
-- [应用模板](https://www.rainbond.com/docs/enterprise-manager/enterprise/appcenter/application-template?channel=aliyun)
-- [制作应用模版](https://www.rainbond.com/docs/get-start/release-to-market?channel=aliyun)
-- [基于应用市场的多云交付](https://www.rainbond.com/docs/enterprise-manager/enterprise/appcenter/add-app?channel=aliyun)
-
-**5、多云应用备份和迁移**
-
-Rainbond 目前提供了两种[备份](https://www.rainbond.com/docs/user-manual/app-manage/app-backup?channel=aliyun)方式，分别是本地备份及云端备份：
-
-- 本地备份：备份后可将应用进行跨团队的迁移，将应用完整迁移到其他团队
-
-- 云端备份：支持对接 `阿里云OSS` 、 `标准S3`，备份后应用可进行跨集群的迁移，在任何具有 Rainbond 平台的地方均可进行恢复，可实现应用的快速迁移。
-
-进入 **应用视图** >> **备份** >> **新增备份**，备份操作分为 `本地备份` 和 `云端备份` 两种，选择后将进行自动备份。
-
-备份完成后，当云环境不可用时，可在另外的云环境中通过备份快速恢复环境。
