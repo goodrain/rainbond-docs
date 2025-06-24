@@ -28,7 +28,7 @@ keywords:
 
 ### 解决之道
 
-[Rainbond](https://www.rainbond.com/?channel=aliyun) 可以利用自身能力抹平芯片架构的差异，无论是开发人员，还是交付人员，都可以基于 Rainbond 找到拥抱 `Arm64` 的解决之道。Rainbond 通过不同层次的能力来解决从 `X86_64` 到 `Arm64` 的迁移问题。
+Rainbond 可以利用自身能力抹平芯片架构的差异，无论是开发人员，还是交付人员，都可以基于 Rainbond 找到拥抱 `Arm64` 的解决之道。Rainbond 通过不同层次的能力来解决从 `X86_64` 到 `Arm64` 的迁移问题。
 
 - 既有能力：Rainbond 本身是一款适用于软件交付，或者应用运维管理的云原生应用管理平台。无论是快速交付部署，还是应用的管理、监控、迭代、容灾，既有的功能已经可以满足交付运维人员的日常需求。
 
@@ -39,7 +39,7 @@ keywords:
 
 ### Rainbond 兼容 Arm64
 
-[Rainbond](https://www.rainbond.com/?channel=aliyun) 云原生应用管理平台可以被部署在 `Arm64` 环境中。从 2020 年 1 月起，Rainbond 分别和华为、飞腾进行了适配测试。经过验证，Rainbond 在 Kunpeng 920 芯片以及 FT2000+/64 这两款 `Arm64` 芯片上均可以稳定运行， 达到生产可用的标准。
+Rainbond 云原生应用管理平台可以被部署在 `Arm64` 环境中。从 2020 年 1 月起，Rainbond 分别和华为、飞腾进行了适配测试。经过验证，Rainbond 在 Kunpeng 920 芯片以及 FT2000+/64 这两款 `Arm64` 芯片上均可以稳定运行， 达到生产可用的标准。
 
 ![](https://static.goodrain.com/wechat/arm-compile/rainbondauth.png)
 
@@ -51,7 +51,7 @@ keywords:
 
 ### Arm64 中的源码编译
 
-[Rainbond](https://www.rainbond.com/?channel=aliyun) 具备的源码编译能力由来已久。该功能脱胎自 Heroku/buildpack 项目，并由 Rainbond 团队针对自身需求做了大量优化。借助其能力，使用者可以基于多种语言的源代码，跳过编写 Dockerfile 的过程，完成业务的容器化。源码编译是部署企业自行开发业务的最简单方式，仅需要提供源代码的仓库地址。
+Rainbond 具备的源码编译能力由来已久。该功能脱胎自 Heroku/buildpack 项目，并由 Rainbond 团队针对自身需求做了大量优化。借助其能力，使用者可以基于多种语言的源代码，跳过编写 Dockerfile 的过程，完成业务的容器化。源码编译是部署企业自行开发业务的最简单方式，仅需要提供源代码的仓库地址。
 
 目前 `Arm64` 源码编译支持的语言及版本如下：
 
