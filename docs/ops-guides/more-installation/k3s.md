@@ -60,6 +60,7 @@ configs:
       password: admin1234
     tls:
       insecure_skip_verify: true
+EOF
 ```
 
 ### 2. 执行 K3s 安装脚本
@@ -104,8 +105,8 @@ Cluster:
   nodesForChaos:
   - name: <K3s节点名称>
   
-  # K3s 特有配置
-  containerdRuntimePath: /run/k3s/containerd/containerd.sock
+  # K3s containerd.sock 目录路径
+  containerdRuntimePath: /run/k3s/containerd
 ```
 
 > **说明：**
