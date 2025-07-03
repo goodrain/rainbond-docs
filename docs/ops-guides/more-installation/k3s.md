@@ -112,7 +112,7 @@ Cluster:
 > **说明：**
 > - `gatewayIngressIPs`: Rainbond 的访问入口 IP，请填写你的 K3s 节点的 IP 地址。
 > - `nodesForGateway / nodesForChaos`: 指定哪个节点用于网关和构建服务。单节点场景下，填写该节点信息即可。
-> - `containerdRuntimePath`: **必须配置**。K3s 的 containerd socket 文件路径与默认不同，需要显式指定为 `/run/k3s/containerd/containerd.sock`。
+> - `containerdRuntimePath`: **必须配置**。K3s 的 containerd socket 文件路径与默认不同，需要指定为 `/run/k3s/containerd`。
 
 ### 3. 安装 Rainbond
 
