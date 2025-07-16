@@ -39,6 +39,10 @@ curl -o install.sh https://get.rainbond.com && bash ./install.sh
 
 Rainbond 提供了 Windows 安装脚本，在 Docker 中通过容器快速启动 Rainbond。脚本执行过程中，需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
 
+:::warning
+在默认情况下，Windows 系统不允许直接运行脚本。您需要以管理员身份打开 `PowerShell`，并执行该命令以更改执行策略：`set-executionpolicy remotesigned`。
+:::
+
 在 PowerShell 中执行以下命令:
 
 ```bash
