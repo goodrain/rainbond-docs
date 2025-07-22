@@ -38,141 +38,59 @@ export default function Index() {
           {/* 分类 */}
           <div className={styles.type_sort}>
             {/* 社区版 */}
-            <div>
-              <div
-                className={styles.type_sort_title}
-                style={{
-                  borderBottom: '1px solid #cccccc',
-                  marginBottom: '12px'
-                }}
-              >
-                <h1>社区版</h1>
+            <div className={styles.card}>
+              <div className={styles.cardTag}>自托管</div>
+              <div className={styles.cardTitle}>社区版</div>
+              <div className={styles.cardDesc}>为开发者提供体验与协作基础能力</div>
+              <div className={styles.cardPriceRow}>
+                <span className={styles.cardPrice}>免费</span>
+                {/* <span className={styles.cardPriceUnit}>/月</span> */}
               </div>
-              <div className={styles.type_sort_details}>
-                <div className={styles.type_sort_free}>
-                  <span>免费</span>
-                </div>
-                <ul
-                  style={{
-                    listStyle: 'none',
-                    paddingLeft: 0,
-                    margin: '40px 0px'
-                  }}
-                >
-                  <li>Rainbond社区版迭代快速，优先体验产品特性</li>
-                  <li>开放&开源，对接上下游项目</li>
-                  <li>社区支持 & 开发者支持</li>
-                </ul>
-              </div>
-              {/* 按钮 */}
-              <div>
-                <a
-                  className={`${styles.btns} ${styles.free}`}
-                  href='/docs/quick-start/quick-install/'
-                >
-                  免费下载
-                </a>
+              <ul className={styles.cardFeatureList}>
+                <li><span className={styles.cardCheck}>{/* svg */}</span>开放开源</li>
+                <li><span className={styles.cardCheck}></span>社区支持</li>
+                <li><span className={styles.cardCheck}></span>社区版迭代</li>
+              </ul>
+              <div className={styles.cardBtns}>
+                <a className={styles.cardBtnOutline} href='/docs/quick-start/quick-install/'>免费下载</a>
               </div>
             </div>
-            {/* Rainbond  Cloud */}
-            <div>
-              <div
-                className={styles.type_sort_title}
-                style={{
-                  borderBottom: '1px solid #cccccc',
-                  marginBottom: '12px'
-                }}
-              >
-                <h1>Rainbond Cloud</h1>
+            {/* Rainbond Cloud 主推卡片 */}
+            <div className={styles.cardActive}>
+              <div className={styles.cardTag}>免运维</div>
+              <div className={styles.cardTitleActive}>Rainbond Cloud</div>
+              <div className={styles.cardDesc}>灵活适配使用场景，按需计量计费</div>
+              <div className={styles.cardPriceRow}>
+                <span className={styles.cardPriceActive}>按量付费</span>
+                <span className={styles.cardPriceUnitActive}>/时</span>
               </div>
-              <div className={styles.type_sort_details}>
-                <div className={styles.type_sort_cloud}>
-                  按需计量计费，用多少付多少
-                </div>
-                <ul
-                  className={styles.cloud}
-                  style={{
-                    listStyle: 'none',
-                    paddingLeft: 0,
-                    margin: '40px 0px'
-                  }}
-                >
-                  <li>SLA 99.95% 可用性承诺</li>
-                  <li>自托管无需运维</li>
-                  <li>享企业级功能</li>
-                  <li>分钟级按需付费</li>
-                </ul>
-              </div>
-              {/* 按钮 */}
-              <div>
-                <a
-                  className={`${styles.btns} ${styles.cloud}`}
-                  onClick={handleOnClickLinkRainbondCloud}
-                >
-                  开始体验
-                </a>
-                <a
-                  style={{marginLeft:'160px'}}
-                  className={`${styles.btns} ${styles.calculator}`}
-                  href='/calculator'
-                  target='_blank'
-                >
-                  价格计算器
-                </a>
+              <ul className={styles.cardFeatureList}>
+                <li><span className={styles.cardCheckActive}></span>SLA保障</li>
+                <li><span className={styles.cardCheckActive}></span>企业级功能</li>
+                <li><span className={styles.cardCheckActive}></span>在线技术支持</li>
+              </ul>
+              <div className={styles.cardActiveBtns}>
+                <a className={styles.cardBtnActive} onClick={handleOnClickLinkRainbondCloud}>开始体验</a>
+                <a className={styles.cardBtnOutline} href='/calculator' target='_blank'>价格计算器</a>
               </div>
             </div>
-                        {/* 企业版 */}
-                        <div>
-              <div
-                className={styles.type_sort_title}
-                style={{
-                  borderBottom: '1px solid #cccccc',
-                  marginBottom: '12px'
-                }}
-              >
-                <h1>企业版</h1>
+            {/* 企业版 */}
+            <div className={styles.card}>
+              <div className={styles.cardTag}>私有化</div>
+              <div className={styles.cardTitle}>企业版</div>
+              <div className={styles.cardDesc}>为企业提供专属支持与运营商级可靠性</div>
+              <div className={styles.cardPriceRow}>
+                <span className={styles.cardPrice}>联系我们</span>
+                <span className={styles.cardPriceUnit}></span>
               </div>
-              <div className={styles.type_sort_details}>
-                <div className={styles.type_sort_enterprise}>
-                  <a href='/usescene'>了解解决方案</a>
-                </div>
-                <ul
-                  className={styles.enterprise}
-                  style={{
-                    listStyle: 'none',
-                    paddingLeft: 0,
-                    margin: '40px 0px'
-                  }}
-                >
-                  <li>
-                    Rainbond企业版是一个运营商级别版本，它具备超高的可靠性
-                  </li>
-                  <li>最高响应级别 7*24</li>
-                  <li>
-                    专业技术支持团队
-                    <span style={{ color: '#737373' }}>
-                      （规划/实施/故障协查/bug修复/运维/软件升级/重要时期保障)
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              {/* 按钮 */}
-              <div>
-                <a
-                  className={`${styles.btns} ${styles.enterprise}`}
-                  href='https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg'
-                  target='_blank'
-                >
-                  商业咨询
-                </a>
-                <a
-                  style={{marginLeft:'160px'}}
-                  className={`${styles.btns} ${styles.calculator}`}
-                  href='https://rainbond.feishu.cn/share/base/form/shrcngJKwbek0nbP1bBIcFA5g6d'
-                  target='_blank'
-                >
-                  预约演示
-                </a>
+              <ul className={styles.cardFeatureList}>
+                <li><span className={styles.cardCheck}></span> 专业支持</li>
+                <li><span className={styles.cardCheck}></span> 7*24响应</li>
+                <li><span className={styles.cardCheck}></span> 定制服务</li>
+              </ul>
+              <div className={styles.cardBtns}>
+                <a className={styles.cardBtnActive} href='https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg' target='_blank'>商业咨询</a>
+                <a className={styles.cardBtnOutline} href='https://rainbond.feishu.cn/share/base/form/shrcngJKwbek0nbP1bBIcFA5g6d' target='_blank'>预约演示</a>
               </div>
             </div>
           </div>
@@ -622,12 +540,10 @@ export default function Index() {
                   </div>
                   {/* 国产化信创 */}
                   <div>
-                    <a href='/docs/enterprise/xinchuang' target='_blank'>
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>国产化信创</p>
-                        <span style={{fontSize:'10px'}}>支持国产CPU和操作系统</span>
-                      </span>
-                    </a>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>国产化信创</p>
+                      <span style={{fontSize:'10px'}}>支持国产CPU和操作系统</span>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -640,12 +556,10 @@ export default function Index() {
                   </div>
                   {/* 可观测性中心 */}
                   <div>
-                    <a href='/docs/enterprise/observability' target='_blank'>
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>可观测性中心</p>
-                        <span style={{fontSize:'10px'}}>全局日志、报警中心、高级监控、大屏</span>
-                      </span>
-                    </a>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>可观测性中心</p>
+                      <span style={{fontSize:'10px'}}>全局日志、报警中心、高级监控、大屏</span>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -658,12 +572,10 @@ export default function Index() {
                   </div>
                   {/* 集群巡检 */}
                   <div>
-                    <a href='/docs/enterprise/scanner' target='_blank'>
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>集群巡检</p>
-                        <span style={{fontSize:'10px'}}>运行巡检、配置规范巡检、安全巡检</span>
-                      </span>
-                    </a>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>集群巡检</p>
+                      <span style={{fontSize:'10px'}}>运行巡检、配置规范巡检、安全巡检</span>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -676,12 +588,10 @@ export default function Index() {
                   </div>
                   {/* 安全增强 */}
                   <div>
-                    <a href='/docs/enterprise/security/' target='_blank'>
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>安全增强</p>
-                        <span style={{fontSize:'10px'}}>操作审计、安全配置、源码安全</span>
-                      </span>
-                    </a>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>安全增强</p>
+                      <span style={{fontSize:'10px'}}>操作审计、安全配置、源码安全</span>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -694,12 +604,10 @@ export default function Index() {
                   </div>
                   {/* 网关增强 */}
                   <div>
-                    <a href='/docs/enterprise/gateway' target='_blank'> 
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>网关增强</p>
-                        <span style={{fontSize:'10px'}}>WAF防火墙、API网关、网关监控、性能提升</span>
-                      </span>
-                    </a>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>网关增强</p>
+                      <span style={{fontSize:'10px'}}>WAF防火墙、API网关、网关监控、性能提升</span>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -712,12 +620,10 @@ export default function Index() {
                   </div>
                   {/* Istio可视化管理 */}
                   <div>
-                    <a href='/docs/enterprise/microservices/istio' target='_blank'> 
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>Istio可视化管理</p>
-                        <span style={{fontSize:'10px'}}>流量拓扑、流量监控、零信任网络、流量控制</span>
-                      </span>
-                    </a>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>Istio可视化管理</p>
+                      <span style={{fontSize:'10px'}}>流量拓扑、流量监控、零信任网络、流量控制</span>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -730,12 +636,10 @@ export default function Index() {
                   </div>
                   {/* Spring  Cloud可视化管理 */}
                   <div>
-                    <a href='/docs/enterprise/microservices/springcloud' target='_blank'> 
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>Spring  Cloud可视化管理</p>
-                        <span style={{fontSize:'10px'}}>流量拓扑、流量监控、调用链分析、流量控制、网关配置</span>
-                      </span>
-                    </a>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>Spring  Cloud可视化管理</p>
+                      <span style={{fontSize:'10px'}}>流量拓扑、流量监控、调用链分析、流量控制、网关配置</span>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -748,11 +652,9 @@ export default function Index() {
                   </div>
                   {/* 全链路灰度 */}
                   <div>
-                    <a href='/docs/enterprise/gray-release' target='_blank'> 
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>全链路灰度</p>
-                      </span>
-                    </a>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>全链路灰度</p>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -765,9 +667,7 @@ export default function Index() {
                   </div>
                   {/* 云原生应用商店 */}
                   <div>
-                    <a href='https://hub.grapps.cn/privatization' target='_blank'>
-                      云原生应用商店
-                    </a>
+                    <span>云原生应用商店</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -780,12 +680,10 @@ export default function Index() {
                   </div>
                   {/* 其他功能优化 */}
                   <div>
-                    <a href='/docs/enterprise/other' target='_blank'>
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>其他功能优化</p>
-                        <span style={{fontSize:'10px'}}>团队资源配额、组件存储文件管理</span>
-                      </span>
-                    </a>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>其他功能优化</p>
+                      <span style={{fontSize:'10px'}}>团队资源配额、组件存储文件管理</span>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -798,9 +696,7 @@ export default function Index() {
                   </div>
                   {/* 定制化样式 */}
                   <div>
-                    <a href='/docs/enterprise/style' target='_blank'> 
-                     <span>定制化和样式</span>
-                    </a>
+                    <span>定制化和样式</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -812,11 +708,9 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <a href='/docs/enterprise/backup' target='_blank'> 
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>企业级备份</p>
-                      </span>
-                    </a>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>企业级备份</p>
+                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -828,11 +722,9 @@ export default function Index() {
                     </span>
                   </div>
                   <div>
-                    <a href='/docs/enterprise/offline' target='_blank'> 
-                      <span>
-                        <p style={{marginBottom:'-4px'}}>离线环境支持</p>
-                      </span>
-                    </a>
+                    <span>
+                      <p style={{marginBottom:'-4px'}}>离线环境支持</p>
+                    </span>
                     <span style={{color:'#7d7979'}}>
                       命令行
                     </span>
