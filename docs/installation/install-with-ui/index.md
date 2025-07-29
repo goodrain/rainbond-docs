@@ -42,10 +42,6 @@ Rainbond 一体化安装是一种**全自动的安装方式**，它会帮您：
 * 如果主机内核支持 [AppArmor](https://apparmor.net/)，则在安装之前还必须具有 AppArmor 工具。
 * 必须以 `root` 用户执行安装。
 
-:::danger
-如已在某台主机上执行过[快速安装](/docs/quick-start/quick-install)并用于体验，则不能在该主机上再次执行此安装流程，这会造成冲突。
-:::
-
 ### 系统优化（可选）
 
 在开始安装之前，建议先对所有准备用于部署 Rainbond 的 Linux 主机执行系统优化脚本，以确保系统处于最佳状态。
@@ -69,7 +65,7 @@ curl -sfL https://get.rainbond.com/linux-system-optimize.sh | bash
 请在您准备的一台服务器上，参照 [快速安装文档](../../quick-start/quick-install.mdx) 来启动图形化安装向导。
 
 :::tip
-如果您的某台主机上**已经运行了 Rainbond 快速安装实例**，您可以直接将其作为安装向导使用，无需重复执行此步骤，请直接进入下一步。
+如果您的某台主机上**已经运行了 Rainbond 快速安装**，您可以直接将其作为安装向导使用，无需重复执行此步骤，请直接进入下一步。
 :::
 
 通常，您只需执行以下命令即可：
@@ -77,6 +73,10 @@ curl -sfL https://get.rainbond.com/linux-system-optimize.sh | bash
 curl -o install.sh https://get.rainbond.com && bash ./install.sh
 ```
 执行完上述脚本后，耐心等待 3-5 分钟，使用浏览器访问 `http://<服务器IP>:7070` 即可看到 Rainbond 的登录/注册界面。
+
+:::warning 注意
+如当前主机上**已经运行了 Rainbond 快速安装**，则不能在该主机上再次执行以下安装流程，这会造成冲突。
+:::
 
 ## 步骤二：开始图形化部署
 
