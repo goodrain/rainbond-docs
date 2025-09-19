@@ -307,6 +307,7 @@ const sidebars = {
             "ops-guides/management/add-gatewayorchaos",
             "ops-guides/management/change-tcp-range",
             "ops-guides/management/reset-pwd",
+            "ops-guides/management/host-directory-expansion",
           ]
         },
         {
