@@ -305,6 +305,10 @@ const config = {
             to: '/docs/how-to-guides/app-ops/auto-build',
             from: '/docs/use-manual/component-manage/build-source/auto_build',
           },
+          {
+            to: '/docs/how-to-guides/app-gateway/lb',
+            from: '/docs/how-to-guides/app-ops/gateway',
+          },
         ],
         createRedirects(existingPath) {
           if (existingPath.includes('/docs/how-to-guides/localization-guide')) {

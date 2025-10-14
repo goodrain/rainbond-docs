@@ -136,7 +136,7 @@ flowchart LR
     1. 进入到 `target-app` 应用视图 ➡️ 应用升级 ➡️ 升级记录。
     2. 回滚到 1.0 版本。
     3. 验证回滚结果：
-        - `app-copy` 组件被移除。
+        - `app-copy` 组件不发生变化。
         - `app` 组件的 `demo` 环境变量被移除。
 
 ![](/docs/tutorial/app-template-manage/rollback-app.png)

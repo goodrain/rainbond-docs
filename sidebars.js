@@ -123,7 +123,6 @@ const sidebars = {
             'how-to-guides/app-ops/k8s-attribute',
             'how-to-guides/app-ops/environment-manage',
             'how-to-guides/app-ops/auto-build',
-            'how-to-guides/app-ops/cert-manager',
             {
               type: 'category',
               label: '应用商店',
@@ -135,6 +134,32 @@ const sidebars = {
                 'how-to-guides/app-ops/app-store-manage/install-app',
                 'how-to-guides/app-ops/app-store-manage/share-app',
                 'how-to-guides/app-ops/app-store-manage/export-non-container-package',
+              ]
+            },
+          ]
+        },
+        {
+          type: 'category',
+          label: '应用网关',
+          items: [
+            {
+              type: 'category',
+              label: '路由管理',
+              items: [
+                'how-to-guides/app-gateway/http',
+                'how-to-guides/app-gateway/tcp',
+                'how-to-guides/app-gateway/lb',
+              ]
+            },
+            {
+              type: 'category',
+              label: '证书管理',
+              link: {
+                type: 'doc',
+                id: 'how-to-guides/app-gateway/certificate',
+              },
+              items: [
+                'how-to-guides/app-ops/cert-manager',
               ]
             },
           ]
