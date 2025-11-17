@@ -41,11 +41,8 @@ const config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: 'V6-latest'
-            },
-            "5.17": {
-              label: 'V5.17',
-            },
+              label: 'V6.4(Latest)'
+            }
           }
         },
         blog: {
