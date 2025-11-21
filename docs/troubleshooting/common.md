@@ -138,20 +138,37 @@ rainbond-operator 会自动重新启动写入 `/etc/hosts` 的 Job 任务。
 
 #### 启动无法获取镜像 x509: certificate signed by unknown authority
 
-通常是因为 Containerd 的配置不正确导致的。
-1. 修改配置文件 `/etc/containerd/config.toml`
-```bash
+通常是因为 Containerd 的配置不正确导致的。有两种配置方式：
+
+1. 修改 Containerd 的 `config.toml` 文件，允许不安全的仓库
+
+```bash title="vim /etc/containerd/config.toml"
 [plugins."io.containerd.grpc.v1.cri".registry.configs]
   [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me"]
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me".auth]
+      username = "admin"
+      password = "admin1234"
     [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me".tls]
-       insecure_skip_verify = true
+      insecure_skip_verify = true
 ```
 
-2. 添加 Containerd 配置文件 `/etc/containerd/certs.d/goodrain.me/hosts.toml`
+2. 如果 `/etc/containerd/config.toml` 包含以下内容：
 ```bash
+[plugins."io.containerd.grpc.v1.cri".registry]
+  config_path = "/etc/containerd/certs.d"
+```
+
+请添加如下配置：
+```bash
+mkdir -p /etc/containerd/certs.d/goodrain.me
+cat > /etc/containerd/certs.d/goodrain.me/hosts.toml << EOF
 [host."https://goodrain.me"]
   capabilities = ["pull", "resolve","push"]
   skip_verify = true
+  [host."https://goodrain.me".auth]
+    username = "admin"
+    password = "admin1234"
+EOF
 ```
 
 ## 3. 第三方组件故障排查

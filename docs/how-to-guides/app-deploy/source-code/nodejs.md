@@ -88,3 +88,9 @@ yarn config set chromedriver_cdnurl https://npmmirror.com/mirrors/chromedriver -
 ## 后端项目部署示例
 
 进入到团队下，新建应用选择**基于源码示例**进行构建，选中 NodeJS Demo 并默认全部下一步即可。
+
+## 常见问题
+
+### vite 构建内存溢出
+
+如遇到 vite 等前端项目构建时内存溢出，可以在组件的**环境配置**中添加环境变量 `BUILD_NODE_OPTIONS`，值为 `--max-old-space-size=4096`，然后重新构建组件。

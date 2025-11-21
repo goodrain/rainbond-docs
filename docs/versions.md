@@ -11,7 +11,7 @@ keywords:
 
 | 版本号             | 文档链接 | 版本变更                               |
 |-----------------| -------------------------------------- |------------------------------------|
-| v6.1.x-release | [https://www.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](https://github.com/goodrain/rainbond/releases) |
+| v6.4.x-release | [https://www.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](https://github.com/goodrain/rainbond/releases) |
 
 ## 过往版本（不再维护）
 
@@ -19,11 +19,25 @@ keywords:
 
 | 版本号          | 文档链接                                                     | 版本变更                                                     |
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| v6.0.x-release | [https://www.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.0.3-release)                            |
-| v5.17.3-release | [https://www.rainbond.com/docs/v5.17](https://www.rainbond.com/docs/v5.17) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v5.17.3-release)                            |
-| v5.17.2-release | [https://www.rainbond.com/docs/v5.17](https://www.rainbond.com/docs/v5.17) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v5.17.2-release)                            |
-| v5.17.1-release | [https://www.rainbond.com/docs/v5.17](https://www.rainbond.com/docs/v5.17) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v5.17.1-release)                            |
-| v5.17.0-release | [https://www.rainbond.com/docs/v5.17](https://www.rainbond.com/docs/v5.17) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v5.17.0)                            |
+| v6.3.4-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.3.4-release) |
+| v6.3.3-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.3.3-release) |
+| v6.3.2-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.3.2-release) |
+| v6.3.1-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.3.1-release) |
+| v6.3.0-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.3.0-release) |
+| v6.2.1-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.2.1-release) |
+| v6.2.0-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.2.0-release) |
+| v6.1.3-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.1.3-release) |
+| v6.1.2-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.1.2-release) |
+| v6.1.1-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.1.1-release) |
+| v6.1.0-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.1.0-release) |
+| v6.0.3-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.0.3-release) |
+| v6.0.2-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.0.2-release) |
+| v6.0.1-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.0.1-release) |
+| v6.0.0-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.0.0-release)                           |
+| v5.17.3-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs/5.17](https://v6.3-v6.0-v5.17.rainbond.com/docs/5.17) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v5.17.3-release)                            |
+| v5.17.2-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs/5.17](https://v6.3-v6.0-v5.17.rainbond.com/docs/5.17) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v5.17.2-release)                            |
+| v5.17.1-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs/5.17](https://v6.3-v6.0-v5.17.rainbond.com/docs/5.17) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v5.17.1-release)                            |
+| v5.17.0-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs/5.17](https://v6.3-v6.0-v5.17.rainbond.com/docs/5.17) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v5.17.0)                            |
 | v5.16.0-release | [https://v5.16-docs.rainbond.com/docs/](https://v5.16-docs.rainbond.com/docs/) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v5.16.0)                            |
 | v5.15.3-release | [https://v5.15-docs.rainbond.com/docs/](https://v5.15-docs.rainbond.com/docs/) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v5.15.3)                            |
 | v5.15.2-release | [https://v5.15-docs.rainbond.com/docs/](https://v5.15-docs.rainbond.com/docs/) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v5.15.2)                            |
