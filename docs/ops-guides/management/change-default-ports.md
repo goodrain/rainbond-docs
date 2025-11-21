@@ -71,7 +71,7 @@ helm install rainbond ./rainbond-chart \
 
 1. 编辑网关配置 ConfigMap:
 
-```yaml title="kubectl edit configmap apisix-gw-config -n rbd-system"
+```yaml title="kubectl edit configmap apisix-gw-config.yaml -n rbd-system"
 apisix:
   proxy_mode: "http&stream"
   ssl:
