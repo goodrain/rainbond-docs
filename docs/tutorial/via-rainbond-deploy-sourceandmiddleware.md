@@ -37,7 +37,7 @@ keywords:
     - 根据项目文件自动解析对应的语言类型，如项目内存在 `pom.xml` 文件，自动判断为 `Java-Maven`。
     - 自动根据 `pom.xml` 文件解析 Maven 构建命令。
 
-![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source.png)
+![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source-new.png)
 
 3. **部署监控**
     - 在组件的总览 → 操作记录中查看源码构建实时日志。
@@ -61,13 +61,13 @@ keywords:
 
 ### 🧩 操作流程
 
-![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/store.png)
+![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/store-new.png)
 
 1. **安装中间件** 
     1. 添加组件 ➡️ 选择外部应用市场。
     2. 搜索 MySQL 并安装 8.0 版本。
 
-![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/install-mysql.png)
+![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/install-mysql-new.png)
 
 2. **智能配置说明**
     - 自动创建 PVC 并挂载到 `/var/lib/mysql`。
@@ -87,11 +87,9 @@ keywords:
 
 ### 🧩 操作流程
 
-1. **添加依赖**
-    1. 进入组件 → 依赖。
-    2. 依赖外部组件 → 添加依赖，选择 MySQL 组件。
+1. **添加依赖:** 右键 `java-maven-demo` 组件 → 创建依赖 → 拖拽到 `mysql` 组件。
 
-![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/dep-mysql.png)
+![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/dep-mysql-new.png)
 
 2. **依赖生效验证（命令行）**
     - 进入 `Java` 组件的 Web 终端内，执行：
@@ -109,4 +107,4 @@ keywords:
 
 ## Reference
 
-[如何配置服务间的内部访问](#)
+[如何配置服务间的内部访问](/docs/how-to-guides/app-ops/dependon)

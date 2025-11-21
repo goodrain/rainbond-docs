@@ -27,9 +27,9 @@ keywords:
 ### 🧩 操作流程
 
 1. **使用源码部署组件**
-    ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source.png)
+    ![](/docs/tutorial/via-rainbond-deploy-sourceandmiddleware/source-new.png)
     1. 进入目标团队视图，创建新应用。
-    2. 选择从源码构建 ➡️ 源码。
+    2. 选择从源码构建 → 源码。
         - 自定义应用名称。
         - 仓库地址：`https://gitee.com/rainbond/docs-demo.git`。
         - 分支：`master`。

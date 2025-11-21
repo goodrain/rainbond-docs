@@ -51,7 +51,24 @@ const sidebars = {
             'installation/install-with-helm/vaules-config',
           ]
         },
-        'installation/offline/index',
+        {
+          type: 'category',
+          label: '离线安装',
+          items: [
+            'installation/offline/index',
+            {
+              type: 'category',
+              label: 'ROI 离线安装',
+              items: [
+                'installation/offline/roi/intro',
+                'installation/offline/roi/quickstart',
+                'installation/offline/roi/configuration',
+                'installation/offline/roi/command-reference',
+              ]
+            },
+            'installation/offline/sourcecompile',
+          ]
+        },
         'upgrade/latest-version',
         'installation/uninstall',
       ]
@@ -70,10 +87,11 @@ const sidebars = {
               items: [
                 'how-to-guides/app-deploy/source-code/springboot',
                 'how-to-guides/app-deploy/source-code/nodejs',
+                'how-to-guides/app-deploy/source-code/upload-package',
+                'how-to-guides/app-deploy/source-code/dockefile',
                 'how-to-guides/app-deploy/source-code/python',
                 'how-to-guides/app-deploy/source-code/golang',
                 'how-to-guides/app-deploy/source-code/php',
-                'how-to-guides/app-deploy/source-code/dockefile',
                 'how-to-guides/app-deploy/source-code/html',
                 'how-to-guides/app-deploy/source-code/thirdparty',
               ]
@@ -84,6 +102,7 @@ const sidebars = {
               items: [
                 'how-to-guides/app-deploy/image/image-example',
                 'how-to-guides/app-deploy/image/via-registry-deploy',
+                'how-to-guides/app-deploy/image/upload-image',
               ]
             },
             {
@@ -108,6 +127,19 @@ const sidebars = {
             'how-to-guides/app-deploy/deploy-job',
             'how-to-guides/app-deploy/gitops',
             'how-to-guides/app-deploy/import-resource',
+          ]
+        },
+        {
+          type: 'category',
+          label: '数据库部署',
+          items: [
+            'how-to-guides/databases/intro',
+            'how-to-guides/databases/install',
+            'how-to-guides/databases/mysql',
+            'how-to-guides/databases/postgresql',
+            'how-to-guides/databases/redis',
+            'how-to-guides/databases/rabbitmq',
+            'how-to-guides/databases/ops',
           ]
         },
         {
@@ -333,6 +365,7 @@ const sidebars = {
             "ops-guides/management/change-tcp-range",
             "ops-guides/management/reset-pwd",
             "ops-guides/management/host-directory-expansion",
+            "ops-guides/management/change-default-ports",
           ]
         },
         {

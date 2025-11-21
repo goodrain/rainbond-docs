@@ -19,13 +19,13 @@ Rainbond 支持两种 GitOps 持续部署方式：
 ## 前提条件
 
 - 已安装并配置 Rainbond 平台
-- 拥有 GitHub、GitLab 或 Gitee 等代码仓库的管理员权限
+- 拥有 GitHub、GitLab、Gitee、Gitea 等代码仓库的管理员权限
 - 拥有 Rainbond 平台的团队管理员或平台管理员权限
 - 确保网络连接畅通，代码仓库和 Rainbond 平台可以相互访问
 
 ## 一、对接代码仓库并配置自动构建
 
-Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权认证，目前支持 GitHub、GitLab 和 Gitee 三种代码仓库。
+Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权认证，目前支持 GitHub、GitLab、Gitee、Gitea 四种代码仓库。
 
 <details>
   <summary>对接 GitHub</summary>
@@ -33,7 +33,7 @@ Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权�
 
 **创建 GitHub OAuth Apps**
 
-1. 登录 GitHub 账号，进入 **Settings -> Developer settings -> OAuth Apps -> New OAuth App**
+1. 登录 GitHub 账号，进入 **Settings → Developer settings → OAuth Apps → New OAuth App**
 2. 填写以下信息：
    - **Application name**：自定义应用名称，例如 "Rainbond GitOps"
    - **Homepage URL**：Rainbond 访问地址，例如 `https://rainbond.com`
@@ -44,8 +44,8 @@ Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权�
 **在 Rainbond 中配置 OAuth**
 
 1. 登录 Rainbond 平台，
-   - 全局配置：进入 **平台管理 -> 设置 -> 基础设置 -> OAuth 第三方服务集成 -> 添加**
-   - 个人配置：进入 **个人中心 -> Git私有仓库 -> 添加**
+   - 全局配置：进入 **平台管理 → 设置 → 基础设置 → OAuth 第三方服务集成 → 添加**
+   - 个人配置：进入 **个人中心 → Git私有仓库 → 添加**
 2. 填写以下信息：
    - **OAuth 类型**：选择 github
    - **名称**：自定义名称，例如 "GitHub"
@@ -63,7 +63,7 @@ Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权�
 
 **创建 GitLab Applications**
 
-1. 登录 GitLab 账号，进入 **User Settings -> Applications**
+1. 登录 GitLab 账号，进入 **User Settings → Applications**
 2. 填写以下信息：
    - **Name**：自定义名称，例如 "Rainbond GitOps"
    - **Redirect URL**：回调地址，格式为 `{Rainbond地址}/console/oauth/redirect`，例如 `https://rainbond.com/console/oauth/redirect`
@@ -71,13 +71,13 @@ Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权�
 3. 点击 **Save application** 完成创建
 4. 记录生成的 **Application ID** 和 **Secret**
 
-> **注意**：如果使用的是 GitLab 10.6 及以上版本，需要允许向本地网络发送 Webhook 请求。进入 **Admin area -> settings -> OutBound Request**，勾选 `Allow requests to the local network from hooks and services`。
+> **注意**：如果使用的是 GitLab 10.6 及以上版本，需要允许向本地网络发送 Webhook 请求。进入 **Admin area → settings → OutBound Request**，勾选 `Allow requests to the local network from hooks and services`。
 
 **在 Rainbond 中配置 OAuth**
 
 1. 登录 Rainbond 平台，
-   - 全局配置：进入 **平台管理 -> 设置 -> 基础设置 -> OAuth 第三方服务集成 -> 添加**
-   - 个人配置：进入 **个人中心 -> Git私有仓库 -> 添加**
+   - 全局配置：进入 **平台管理 → 设置 → 基础设置 → OAuth 第三方服务集成 → 添加**
+   - 个人配置：进入 **个人中心 → Git私有仓库 → 添加**
 2. 填写以下信息：
    - **OAuth 类型**：选择 gitlab
    - **名称**：自定义名称，例如 "GitLab"
@@ -96,7 +96,7 @@ Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权�
 
 **创建 Gitee 第三方应用**
 
-1. 登录 Gitee 账号，进入 **设置 -> 第三方应用 -> 创建应用**
+1. 登录 Gitee 账号，进入 **设置 → 第三方应用 → 创建应用**
 2. 填写以下信息：
    - **应用名称**：自定义名称，例如 "Rainbond GitOps"
    - **应用主页**：Rainbond 访问地址，例如 `https://rainbond.com`
@@ -108,8 +108,8 @@ Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权�
 **在 Rainbond 中配置 OAuth**
 
 1. 登录 Rainbond 平台，
-   - 全局配置：进入 **平台管理 -> 设置 -> 基础设置 -> OAuth 第三方服务集成 -> 添加**
-   - 个人配置：进入 **个人中心 -> Git私有仓库 -> 添加**
+   - 全局配置：进入 **平台管理 → 设置 → 基础设置 → OAuth 第三方服务集成 → 添加**
+   - 个人配置：进入 **个人中心 → Git私有仓库 → 添加**
 2. 填写以下信息：
    - **OAuth 类型**：选择 gitee
    - **名称**：自定义名称，例如 "Gitee"
@@ -122,12 +122,42 @@ Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权�
   </div>
 </details>
 
+<details>
+  <summary>对接 Gitea</summary>
+  <div>
+
+**创建 Gitea 应用**
+
+1. 登录 Gitea 账号，进入 **设置 → 应用 → 创建应用**
+2. 填写以下信息：
+   - **应用名称**：自定义名称，例如 "Rainbond GitOps"
+   - **应用回调地址**：回调地址，格式为 `{Rainbond地址}/console/oauth/redirect`，例如 `https://rainbond.com/console/oauth/redirect`
+3. 点击 **创建应用** 完成创建
+4. 记录生成的 **Client ID** 和 **Client Secret**
+
+**在 Rainbond 中配置 OAuth**
+
+1. 登录 Rainbond 平台，
+   - 全局配置：进入 **平台管理 → 设置 → 基础设置 → OAuth 第三方服务集成 → 添加**
+   - 个人配置：进入 **个人中心 → Git私有仓库 → 添加**
+2. 填写以下信息：
+   - **OAuth 类型**：选择 gitea
+   - **名称**：自定义名称，例如 "Gitea"
+   - **服务地址**：填写 `https://gitea.com`
+   - **客户端 ID**：填写 Gitea 第三方应用中的 Client ID
+   - **客户端密钥**：填写 Gitea 第三方应用中的 Client Secret
+   - **回调地址**：默认为当前 Rainbond 访问地址
+3. 点击 **确认** 完成配置
+
+  </div>
+</details>
+
 ### OAuth 账号认证
 
 在完成 OAuth 配置后，需要进行账号认证与第三方平台互联：
 
 1. 点击 Rainbond 页面右上角的用户头像
-2. 选择 **个人中心 -> OAuth 账号绑定**
+2. 选择 **个人中心 → OAuth 账号绑定**
 3. 在对应的代码仓库平台（GitHub/GitLab/Gitee）点击 **去认证**
 4. 按照页面引导完成授权认证过程
 
@@ -135,7 +165,7 @@ Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权�
 
 - 完成代码仓库对接后，可以基于源码创建应用并配置自动部署。
 
-1. 进入 Rainbond 团队视图，点击 **新增 -> 基于源码创建组件**
+1. 进入 Rainbond 团队视图，点击 **新增 → 基于源码创建组件**
 2. 选择已对接的代码仓库（GitHub/GitLab/Gitee）
 3. 浏览并选择要部署的代码项目
 4. 填写组件名称、应用名称等基本信息
@@ -154,14 +184,14 @@ Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权�
 
 ### 开启 Rainbond Git Webhook
 
-开启组件 Git Webhook 在 **组件 -> 构建源** 中打开 Git-Webhook 自动构建功能，复制生成的 hook 地址。
+开启组件 Git Webhook 在 **组件 → 构建源** 中打开 Git-Webhook 自动构建功能，复制生成的 hook 地址。
 
 ### 配置 Git 仓库 Webhooks
 
 <details>
   <summary>GitHub 配置</summary>
 
-进入 GitHub 项目内，**Settings -> Webhooks -> Add webhooks**
+进入 GitHub 项目内，**Settings → Webhooks → Add webhooks**
 * Payload URL：复制 Rainbond 中的 Webhook 地址
 * Content type：`application/json`
 * Just the push event：选择 `push` 触发事件
@@ -172,9 +202,31 @@ Rainbond 支持对接多种 Git 代码仓库，通过 OAuth 协议实现授权�
 <details>
   <summary>GitLab 配置</summary>
 
-进入 GitLab 项目内，**Settings -> Integrations -> Add webhooks**
+进入 GitLab 项目内，**Settings → Integrations → Add webhooks**
 * URL：复制 Rainbond 中的 Webhook 地址
 * Trigger：勾选 **Push events**
+
+</details>
+
+<details>
+  <summary>Gitee 配置</summary>
+
+进入 Gitee 项目内，**管理 → WebHooks → 添加WebHooks**
+* URL：复制 Rainbond 中的 Webhook 地址
+* Trigger：勾选 **Push events**
+
+</details>
+
+<details>
+  <summary>Gitea 配置</summary>
+
+进入 Gitee 项目内，**设置 → 添加 Web 钩子**
+* 目标URL：复制 Rainbond 中的 Webhook 地址
+* HTTP 方法：选择 `POST`
+* POST 内容类型：选择 `application/json`
+* 勾选 `激活`
+* 分支过滤：填写 `*`（表示所有分支均触发）
+* 自定义事件：勾选 `推送`
 
 </details>
 

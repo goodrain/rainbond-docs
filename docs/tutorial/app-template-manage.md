@@ -89,7 +89,7 @@ flowchart LR
 2. 选择从应用市场安装 ➡️ 本地组件库，选择 `app-template` 并安装。
 3. 预期结果：`target-app` 应用内存在名为 `app` 的组件。
 
-![](/docs/tutorial/app-template-manage/install-app.png)
+![](/docs/tutorial/app-template-manage/install-app-new.png)
 
 ## 三、发布新版本（2.0）
 ### 🚀 亮点
