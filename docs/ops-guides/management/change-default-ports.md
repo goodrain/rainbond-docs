@@ -134,6 +134,13 @@ configs:
       insecure_skip_verify: true
 ```
 
+```bash
+# 重启 Containerd 服务使配置生效
+systemctl restart containerd
+# 或者 RKE2 服务
+systemctl restart rke2-server / rke2-agent
+```
+
 #### 更新 RainbondCluster 配置
 
 修改镜像仓库域名:
@@ -189,6 +196,10 @@ spec:
 # 测试镜像仓库访问
 curl -k https://goodrain.me:9443/v2/
 ```
+
+### 修改 WebSocket 端口
+
+登录控制台，进入 **平台管理 -> 集群 -> 编辑**，修改 `WebSocket 通信地址` 中的端口为新的端口。
 
 ## 常见问题
 
