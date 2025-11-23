@@ -23,7 +23,7 @@ keywords:
 
 ```bash
 # 下载最新版本 ROI
-curl -o roi https://pkg.rainbond.com/roi/roi-amd64 && chmod +x roi
+curl -o roi https://get.rainbond.com/roi/roi-amd64 && chmod +x roi
 
 # 验证安装
 ./roi version
@@ -60,7 +60,7 @@ offline-packages/
 ## 三、单机快速安装
 
 :::warning 注意
-单机快速默认 NFS 存储，那么需要您手动安装 `nfs-common` 包:
+单机快速安装默认 NFS 使用存储，需要您手动安装 `nfs-common` 包:
 
 ```bash
 apt-get update && apt-get install -y nfs-common
