@@ -174,7 +174,7 @@ spec:
 
 ### 步骤三: 修改 Websocket 端口
 
-通过浏览器 `http://192.168.1.1:7071` (默认7070) 登录控制台，进入 **平台管理 -> 集群 -> 编辑**，修改 `WebSocket 通信地址` 中的端口为新的端口。
+如果修改了 Websocket（默认6060），则需要通过浏览器 `http://192.168.1.1:7071` (默认7070) 登录控制台，进入 **平台管理 -> 集群 -> 编辑**，修改 `WebSocket 通信地址` 中的端口为新的端口。
 
 同时还需要修改路由规则:
 
@@ -188,13 +188,17 @@ spec:
     ...
 ```
 
-### 验证配置
+### 步骤四：修改源码构建软件包下载地址
 
-等待所有 Pod 重启完成后, 验证镜像仓库访问:
+如果您修改了默认的`80`端口，这会对源码构建时下载 JDK 等软件包造成影响，请按照以下方式修改：
 
-```bash
-# 测试镜像仓库访问
-curl -k https://goodrain.me:9443/v2/
+```yaml title="kubectl edit rbdcomponent rbd-chaos -n rbd-system"
+...
+spec:
+  env:
+  - name: LANG_GOODRAIN_ME
+    value: "http://lang.goodrain.me:8080"
+  ...
 ```
 
 ## 常见问题
