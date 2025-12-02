@@ -15,7 +15,6 @@ keywords:
 - 操作系统: Ubuntu 20.04+
 
 :::warning 注意
-- 目前仅支持 x86_64 (amd64) 架构，后续版本将支持 arm64。
 - 目前仅在 Ubuntu 20/22/24 上进行了测试，其他操作系统没有经过充分验证。
 :::
 
@@ -24,6 +23,7 @@ keywords:
 ```bash
 # 下载最新版本 ROI
 curl -o roi https://get.rainbond.com/roi/roi-amd64 && chmod +x roi
+# roi-amd64 or roi-arm64
 
 # 验证安装
 ./roi version
