@@ -63,7 +63,7 @@ offline-packages/
 单机快速安装默认 NFS 使用存储，需要您手动安装 `nfs-common` 包:
 
 ```bash
-apt-get update && apt-get install -y nfs-common
+apt-get update && apt-get install -y nfs-common nfs-kernel-server
 ```
 :::
 
