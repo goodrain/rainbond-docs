@@ -60,6 +60,9 @@ Cluster:
   containerdRuntimePath: /var/run/containerd  #containerd.sock文件路径
   # if you use RKE2 or K3S, you can use the following parameter
   # containerdRuntimePath: /var/run/k3s/containerd
+  
+  # 如果你的 K8s 集群使用 Docker 作为运行时，那么 Docker 版本至少在 24.0.0 及以上。Docker 24.0.0 版本之后默认也采用了 Containerd 作为容器运行时。
+  # containerdRuntimePath: /var/run/containerd
 ```
 
 3. 执行安装命令。
