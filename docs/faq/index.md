@@ -48,4 +48,7 @@ docker run --privileged -d \
   -p 30000-30010:30000-30010 \ # 默认端口映射
   -p 30011:30020 \             # 新增端口映射
   ......
+
+# 删除旧容器，使用上述新命令启动容器。注意：请检查 volume 挂载参数，确保数据不丢失
+docker stop rainbond && docker rm rainbond
 ```
