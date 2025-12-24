@@ -6,9 +6,41 @@ keywords:
 - 离线 Kubernetes 安装
 ---
 
-## 前置条件
+Rainbond Offline Installer (ROI) 是一个用于在完全离线环境下安装 Rainbond 平台的工具。
 
-**硬件要求:**
+- **极简操作:** 不再需要繁琐的 K8s 部署脚本。
+- **全栈交付:** 在完全无网的物理机或虚拟机上，ROI 可以从零开始完成全套安装。
+- **生产就绪:** 通过 ROI 交付的集群完全符合生产环境标准，真正实现了离线环境下的"开箱即用"。
+
+<details>
+<summary>ROI 工具介绍</summary>
+
+**功能特性:**
+
+- **一键下载:** 通过简单命令下载所有必需的 K8s 和 Rainbond 离线包。
+- **自动分发:** 自动将离线包分发到所有集群节点，无需手动传输。
+- **高可用支持:** 支持单节点和多节点高可用集群安装。
+- **镜像预加载:** 自动将所有必需的容器镜像加载到节点，无需联网拉取。
+- **多架构支持:** 支持 amd64 和 arm64 架构。
+
+**工作流程:**
+
+ROI 的工作流程主要分为以下阶段:
+
+```
+[1/7] check        → 环境检查(硬件、网络、磁盘性能)
+[2/7] lvm          → LVM 存储自动配置(可选)
+[3/7] optimize     → 系统优化(内核参数、防火墙等)
+[4/7] rke2         → RKE2 Kubernetes 集群安装
+[5/7] nfs          → NFS 存储配置(可选)
+[6/7] mysql        → MySQL 数据库集群部署(可选)
+[7/7] rainbond     → Rainbond 平台部署
+```
+
+</details>
+
+## 前提
+
 - CPU: 4 核及以上
 - 内存: 8GB 及以上
 - 磁盘: 100GB 及以上可用空间
@@ -18,27 +50,22 @@ keywords:
 - 目前仅在 Ubuntu 20/22/24 上进行了测试，其他操作系统没有经过充分验证。
 :::
 
-## 一、下载 ROI 工具
+## 下载 ROI 工具
 
 ```bash
-# 下载最新版本 ROI
+# amd64
 curl -o roi https://get.rainbond.com/roi/roi-amd64 && chmod +x roi
-# roi-amd64 or roi-arm64
-
-# 验证安装
-./roi version
+# arm64
+curl -o roi https://get.rainbond.com/roi/roi-arm64 && chmod +x roi
 ```
 
-## 二、下载离线包
+## 下载离线包
 
 1. 在有网络的环境中,使用以下命令下载离线包:
 
 ```bash
 # 下载默认版本的所有离线包
 ./roi download
-
-# 下载特定版本
-./roi download --rbd-version v6.4.0-release
 ```
 
 2. 下载完成后应该看到以下文件:
@@ -57,7 +84,7 @@ offline-packages/
 
 3. 将 `offline-packages/` 目录复制到目标离线环境的服务器上。
 
-## 三、单机快速安装
+## 单节点快速安装
 
 :::warning 注意
 单机快速安装默认 NFS 使用存储，需要您手动安装 `nfs-common` 包:
@@ -80,7 +107,7 @@ ROI 会自动:
 - 配置 NFS 存储
 - 安装 Kubernetes + Rainbond
 
-## 四、集群模式安装
+## 多节点集群安装
 
 :::info
 集群安装时必须在集群内的某个节点上执行该命令，同时该节点上还要有 `offline-packages/` 目录。
@@ -186,3 +213,4 @@ export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
 
 - [配置文件详解](./configuration) - 学习如何编写配置文件
 - [命令参考](./command-reference) - 查看所有 ROI 命令的详细说明
+- [源码构建](../sourcecompile) - 在离线环境下进行源码构建

@@ -1,32 +1,27 @@
 ---
-title: '快速安装'
-description: '本文介绍仅使用一个 Docker 容器运行 Rainbond'
+title: 快速安装
+description: 本文介绍如何使用脚本一键安装 Rainbond 平台
+keywords:
+- rainbond 快速安装
+- rainbond one-click install
 ---
-
-:::tip 安装方式说明
-当前页面展示的是**Rainbond 快速安装**方法。它主要有两个目的：
-
-1.  **本地体验**：在你自己的 Windows、Mac 或 Linux 电脑上，用一个 Docker 容器快速启动一个单机版的 Rainbond，用于功能体验和测试。
-2.  **安装向导**：作为[基于Linux一体化安装](./../installation/install-with-ui/index.md)模式的起点。如果你需要在自己的服务器上部署一套包含 Kubernetes 的、生产可用的 Rainbond 平台，请遵循此模式。
-
-如果你**已经拥有 Kubernetes 集群**，请直接参考 **[基于 Kubernetes 的 Helm 安装](./../installation/install-with-helm/index.md)**。
-:::
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Windows(x86_64)`、`Mac(Intel/M1)`、`Linux(x86_64,Arm64)`。
+本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Windows(x86_64)`、`Mac(Intel/M1)`、`Linux(x86_64、Arm64)`。
 
-## 工作原理
+<details>
+<summary>了解原理</summary>
 
-### 快速安装模式的工作原理
+**快速安装模式的工作原理**
 
 在快速安装模式下，Rainbond 采用了一种简化的架构设计：
 
 1. **单容器部署**：整个 Rainbond 平台被封装在一个 Docker 容器中，包含了所有必要的组件
 2. **内置 Kubernetes**：容器内部运行了一个轻量级的 Kubernetes 集群，你无需手动安装和配置
 
-### 与传统部署方式的区别
+**与传统部署方式的区别**
 
 | 特性 | 快速安装模式 | 生产环境部署 |
 |------|-------------|-------------|
@@ -35,36 +30,60 @@ import TabItem from '@theme/TabItem';
 | **扩展性** | 单机部署，单节点 | 集群部署，多节点 |
 | **适用场景** | 学习、测试、体验 | 生产环境、团队协作 |
 
-### 核心概念解释
+**核心概念解释**
 
 - **EIP（External IP）**：外部访问 IP（内网/公网IP），用于从外部访问 Rainbond 控制台和部署的应用
 - **应用**：在 Rainbond 中，你的网站、API 服务等都称为"应用"
 - **组件**：应用由多个组件组成，比如前端、后端、数据库等
 - **网关**：负责将外部请求路由到正确的应用组件
 
-## 前提
+</details>
 
-* 确保有 [Docker](https://docs.docker.com/get-started/get-docker/) 或 [Docker Desktop](https://docs.docker.com/get-started/get-docker/) 环境
-* 确保 `80 443 6060 7070` 端口可用
-
-## 安装步骤
+## 操作步骤
 
 <Tabs groupId="install">
-  <TabItem value="Linux & Mac" label="Linux & Mac" default>
+  <TabItem value="Linux" label="Linux" default>
 
-Rainbond 提供了安装脚本，在 Docker 中通过容器快速启动 Rainbond。脚本执行过程中，需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
+在 Linux 上执行以下命令，该脚本会通过 Docker 快速启动 Rainbond。
 
 ```bash
 curl -o install.sh https://get.rainbond.com && bash ./install.sh
 ```
 
-:::info 安装过程说明
-1. **下载脚本**：`curl -o install.sh https://get.rainbond.com` 下载安装脚本
-2. **环境检测**：脚本会自动检测你的系统环境（Docker、端口等）
-3. **设置 EIP**：脚本会提示你输入 EIP，这是访问 Rainbond 的 IP 地址
-4. **启动容器**：脚本会启动一个包含完整 Rainbond 平台的 Docker 容器
-5. **等待启动**：容器启动后需要 3-5 分钟完成初始化
+执行完上述脚本后，耐心等待 2-3 分钟，直到出现如下提示，即表示安装成功：
+
+```bash
+🎉 Rainbond Installation Successful!
+......
+OS: Linux
+Access Rainbond:
+    🌐 Console: http://192.168.1.1:7070
+```
+
+  </TabItem>
+
+  <TabItem value="Mac" label="MacOS" default>
+
+:::warning 注意
+由于 Rainbond 需要运行内置的 Kubernetes，而 Docker Desktop 在 MacOS 上存在虚拟化嵌套限制，因此需要使用 OrbStack 替代。OrbStack 是更底层的容器运行时，与 MacOS 兼容性更好，且完全兼容 Docker 命令，使用方式不变。
+- 请在 MacOS 上安装并启动 [OrbStack](https://orbstack.dev/)
 :::
+
+在 MacOS 终端上执行以下命令，该脚本会通过 OrbStack Docker 快速启动 Rainbond。
+
+```bash
+curl -o install.sh https://get.rainbond.com && bash ./install.sh
+```
+
+执行完上述脚本后，耐心等待 2-3 分钟，直到出现如下提示，即表示安装成功：
+
+```bash
+🎉 Rainbond Installation Successful!
+......
+OS: Darwin
+Access Rainbond:
+    🌐 Console: http://192.168.1.1:7070
+```
 
   </TabItem>
 
@@ -82,46 +101,35 @@ Rainbond 提供了 Windows 安装脚本，在 Docker 中通过容器快速启动
 Invoke-WebRequest "https://get.rainbond.com/install-rainbond.ps1" -o install-rainbond.ps1 ; .\install-rainbond.ps1
 ```
 
-:::info Windows 安装说明
-1. **权限设置**：首次运行需要设置 PowerShell 执行策略
-2. **下载脚本**：自动下载 Windows 版本的安装脚本
-3. **环境检测**：检测 Docker Desktop 是否正常运行
-4. **设置 EIP**：输入你的本机 IP 地址（通常是 192.168.x.x 格式）
-5. **启动服务**：在 Docker 中启动 Rainbond 容器
-:::
-
   </TabItem>
   <TabItem value="信创" label="信创" default>
 
-Rainbond 提供了一键安装的脚本并且支持了国产化信创的需求，在 Docker 中通过容器快速启动 Rainbond。脚本执行过程中，会自动选择所需要的架构，同时还需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
+Rainbond 支持在国产化信创的环境中运行，请在 Linux 上执行以下命令，该脚本会通过 Docker 快速启动 Rainbond。
 
 ```bash
 curl -o install.sh https://get.rainbond.com && bash ./install.sh
 ```
 
-:::info 信创环境说明
-1. **自动检测架构**：脚本会自动检测你的 CPU 架构（x86_64 或 ARM64）
-2. **适配国产化**：支持国产化操作系统和硬件环境
-3. **设置 EIP**：输入你的服务器 IP 地址
-4. **启动服务**：使用适配的镜像启动 Rainbond 容器
-:::
+执行完上述脚本后，耐心等待 2-3 分钟，直到出现如下提示，即表示安装成功：
+
+```bash
+🎉 Rainbond Installation Successful!
+......
+OS: Linux
+Access Rainbond:
+    🌐 Console: http://192.168.1.1:7070
+```
 
   </TabItem>
 </Tabs>
 
-执行完上述脚本后，耐心等待 3-5 分钟，使用浏览器访问 `http://$EIP:7070` 即可进入 Rainbond。
-
 ## 下一步
 
-如果你已经成功安装 Rainbond 并且正常运行，请继续完成[快速入门](./getting-started)教程。
+- 跟随[快速入门](./getting-started)教程，部署你的第一个应用
+- 阅读[使用教程](../tutorial/via-rainbond-deploy-sourceandmiddleware)，学习和了解更多 Rainbond 功能
+- 阅读[安装文档](../installation/install-with-ui/)，了解如何部署 Rainbond 多节点集群
 
-## 常见问题
+### 其他文档
 
-### 添加更多 TCP 端口
-
-快速安装的 Rainbond 默认使用 Docker 启动，并默认映射了 `30000～30010` 10个 TCP 端口供应用测试使用。如果你需要更多的 TCP 端口，通过脚本中打印的命令，删除容器重新启动并添加 `-p` 映射新的端口。
-
-
-:::info 更多故障排查
-如果遇到其他问题，请参考[故障排查文档](../troubleshooting/install#1-快速安装故障排查)获取更详细的解决方案。
-:::
+- [故障排查文档](../troubleshooting/install#1-快速安装故障排查)
+- [常见问题](../faq/)

@@ -95,7 +95,8 @@ data:
     # 添加您的私有仓库配置
     [registry."your-registry.com:5000"]
       http = true
-      insecure = true
+      # Use HTTPS with self-signed certificates. Do not enable this together with http.
+      insecure = false
       # 如果需要认证，添加以下配置
       username = "your-username"
       password = "your-password"
@@ -161,6 +162,9 @@ data:
       insecure = true
     [registry."docker.io"]
       mirrors = ["https://your-mirror-address"]
+      http = true
+      # Use HTTPS with self-signed certificates. Do not enable this together with http.
+      insecure = false
 ```
 
 ## 常见问题
