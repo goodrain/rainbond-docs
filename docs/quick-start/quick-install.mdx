@@ -9,7 +9,7 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Windows(x86_64)`、`Mac(Intel/M1)`、`Linux(x86_64、Arm64)`。
+本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Windows(x86_64)`、`Mac(Intel/Apple Silicon)`、`Linux(x86_64、Arm64)`。
 
 <details>
 <summary>了解原理</summary>
@@ -44,7 +44,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="install">
   <TabItem value="Linux" label="Linux" default>
 
-在 Linux 上执行以下命令，该脚本会通过 Docker 快速启动 Rainbond。
+在 Linux 上执行以下命令，该脚本会通过 Docker 快速启动 Rainbond。也支持在国产化信创的环境中运行。
 
 ```bash
 curl -o install.sh https://get.rainbond.com && bash ./install.sh
@@ -99,25 +99,6 @@ Rainbond 提供了 Windows 安装脚本，在 Docker 中通过容器快速启动
 
 ```bash
 Invoke-WebRequest "https://get.rainbond.com/install-rainbond.ps1" -o install-rainbond.ps1 ; .\install-rainbond.ps1
-```
-
-  </TabItem>
-  <TabItem value="信创" label="信创" default>
-
-Rainbond 支持在国产化信创的环境中运行，请在 Linux 上执行以下命令，该脚本会通过 Docker 快速启动 Rainbond。
-
-```bash
-curl -o install.sh https://get.rainbond.com && bash ./install.sh
-```
-
-执行完上述脚本后，耐心等待 2-3 分钟，直到出现如下提示，即表示安装成功：
-
-```bash
-🎉 Rainbond Installation Successful!
-......
-OS: Linux
-Access Rainbond:
-    🌐 Console: http://192.168.1.1:7070
 ```
 
   </TabItem>
