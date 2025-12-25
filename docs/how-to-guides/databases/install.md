@@ -100,8 +100,6 @@ kubectl create -f https://jihulab.com/api/v4/projects/98723/packages/generic/kub
 
 # 设置 Helm Repository
 helm repo add kubeblocks https://jihulab.com/api/v4/projects/85949/packages/helm/stable
-
-helm repo add kubeblocks https://apecloud.github.io/helm-charts
 helm repo update
 
 # 设置使用 KubeBlocks 提供的国内阿里云镜像源
@@ -160,7 +158,7 @@ KubeBlocks 安装完成后，需要安装 Rainbond 的数据库管理插件，�
 1. 执行以下命令安装 Rainbond 数据库管理插件:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/goodrain/rainbond/refs/heads/main/plugins/kb-adapter-rbdplugin/deploy/k8s/deploy.yaml
+kubectl apply -f https://get.rainbond.com/kb-adapter-rbdplugin/deploy.yaml
 ```
 
 2. 验证插件是否安装成功:
