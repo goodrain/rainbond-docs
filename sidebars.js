@@ -54,18 +54,14 @@ const sidebars = {
         {
           type: 'category',
           label: '离线安装',
+          link: {
+            type: 'doc',
+            id: 'installation/offline/roi/quickstart',
+          },
           items: [
-            'installation/offline/index',
-            {
-              type: 'category',
-              label: 'ROI 离线安装',
-              items: [
-                'installation/offline/roi/intro',
-                'installation/offline/roi/quickstart',
-                'installation/offline/roi/configuration',
-                'installation/offline/roi/command-reference',
-              ]
-            },
+            // 'installation/offline/index',
+            'installation/offline/roi/configuration',
+            'installation/offline/roi/command-reference',
             'installation/offline/sourcecompile',
           ]
         },
@@ -132,8 +128,11 @@ const sidebars = {
         {
           type: 'category',
           label: '数据库部署',
+          link: {
+            type: 'doc',
+            id: 'how-to-guides/databases/intro',
+          },
           items: [
-            'how-to-guides/databases/intro',
             'how-to-guides/databases/install',
             'how-to-guides/databases/mysql',
             'how-to-guides/databases/postgresql',

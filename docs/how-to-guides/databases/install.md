@@ -88,18 +88,6 @@ backupRepo:
     accessKeyId: <ACCESS KEY>
     secretAccessKey: <SECRET KEY>
 EOF
-
-cat >> backuprepo.yaml << EOF
-backupRepo:
-  create: true
-  storageProvider: minio
-  config:
-    bucket: kubeblocks-backup
-    endpoint: http://minio-service.rbd-system.svc.cluster.local:9000
-  secrets:
-    accessKeyId: hLRGNgZmGXEJHlEMXT1n
-    secretAccessKey: KvvfO7kxFoCvoEOo3VSFqT5bFRcpxXMnd31XjyfS
-EOF
 ```
 
 ### 步骤 3: 安装 KubeBlocks
@@ -108,10 +96,10 @@ EOF
 
 ```bash
 # 安装 CRDs
-kubectl create -f https://github.com/apecloud/kubeblocks/releases/download/v1.0.1/kubeblocks_crds.yaml
+kubectl create -f https://jihulab.com/api/v4/projects/98723/packages/generic/kubeblocks/v1.0.1/kubeblocks_crds.yaml
 
 # 设置 Helm Repository
-helm repo add kubeblocks https://apecloud.github.io/helm-charts
+helm repo add kubeblocks https://jihulab.com/api/v4/projects/85949/packages/helm/stable
 helm repo update
 
 # 设置使用 KubeBlocks 提供的国内阿里云镜像源
@@ -139,22 +127,26 @@ snapshot-controller-5cccb6fb98-6tnhd        1/1     Running   0          26m
 3. 更新 KubeBlocks Addon:
 
 ```bash
+# 添加 KubeBlocks Addon 仓库
+helm repo add kubeblocks-addons https://jihulab.com/api/v4/projects/150246/packages/helm/stable
+helm repo update
+```
+
+```bash
 #更新 MySQL Addon 为国内镜像源
-helm upgrade -i kb-addon-mysql kubeblocks/mysql --namespace kb-system --version 1.0.1 \
+helm upgrade -i kb-addon-mysql kubeblocks-addons/mysql --namespace kb-system --version 1.0.1 \
 --set image.registry=apecloud-registry.cn-zhangjiakou.cr.aliyuncs.com
 #更新 Redis Addon 为国内镜像源
-helm upgrade -i kb-addon-redis kubeblocks/redis --namespace kb-system --version 1.0.1 \
+helm upgrade -i kb-addon-redis kubeblocks-addons/redis --namespace kb-system --version 1.0.1 \
 --set image.registry=apecloud-registry.cn-zhangjiakou.cr.aliyuncs.com
 #更新 PostgreSQL Addon 为国内镜像源
-helm upgrade -i kb-addon-postgresql kubeblocks/postgresql --namespace kb-system --version 1.0.1 \
+helm upgrade -i kb-addon-postgresql kubeblocks-addons/postgresql --namespace kb-system --version 1.0.1 \
 --set image.registry=apecloud-registry.cn-zhangjiakou.cr.aliyuncs.com
 ```
 
 4. 添加 RabbitMQ Addon:
 
 ```bash
-helm repo add kubeblocks-addons https://jihulab.com/api/v4/projects/150246/packages/helm/stable
-helm repo update
 helm upgrade -i kb-addon-rabbitmq kubeblocks-addons/rabbitmq --version 1.0.1 -n kb-system \
 --set image.registry=apecloud-registry.cn-zhangjiakou.cr.aliyuncs.com
 ```
@@ -166,7 +158,7 @@ KubeBlocks 安装完成后，需要安装 Rainbond 的数据库管理插件，�
 1. 执行以下命令安装 Rainbond 数据库管理插件:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/goodrain/rainbond/refs/heads/main/plugins/kb-adapter-rbdplugin/deploy/k8s/deploy.yaml
+kubectl apply -f https://get.rainbond.com/kb-adapter-rbdplugin/deploy.yaml
 ```
 
 2. 验证插件是否安装成功:

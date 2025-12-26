@@ -82,21 +82,6 @@ roleGroups:
 # 存储配置
 # ==========================================
 storage:
-  # 离线软件仓库配置(用于安装 LVM 和 NFS 包)
-  # TODO: 未来版本支持
-  offline:
-    # 单个 ISO 路径(适用于单一操作系统) )
-    isoPath: "/root/ubuntu-20.04-amd64-debs.iso"
-
-    # 或者为不同操作系统指定不同 ISO
-    isoPaths:
-      ubuntu: "/root/ubuntu-20.04-amd64-debs.iso"
-      centos: "/root/centos-7-x86_64-rpms.iso"
-      debian: "/root/debian-11-amd64-debs.iso"
-
-    # ISO 挂载目录
-    mountDir: "/tmp/roi-repository"
-
   # LVM 自动配置
   lvm:
     enabled: false                         # 是否启用 LVM
@@ -198,35 +183,6 @@ roleGroups:
 ```
 
 ### storage - 存储配置
-
-#### storage.offline - 离线软件仓库
-
-:::info
-TODO: 未来版本支持
-:::
-
-用于在完全离线环境中提供系统软件包(如 lvm2, nfs-kernel-server)。
-
-| 字段 | 类型 | 必需 | 说明 |
-|------|------|------|------|
-| isoPath | string | 条件 | 单个 ISO 文件路径 |
-| isoPaths | map | 条件 | 不同操作系统的 ISO 路径映射 |
-| mountDir | string | 否 | ISO 挂载目录,默认 /tmp/roi-repository |
-
-**支持的操作系统键:**
-- `ubuntu`: Ubuntu 系统
-- `centos`: CentOS/RHEL 系统
-- `debian`: Debian 系统
-
-**示例:**
-
-```yaml
-storage:
-  offline:
-    isoPaths:
-      ubuntu: "/root/ubuntu-20.04-amd64-debs.iso"
-      centos: "/root/centos-7-x86_64-rpms.iso"
-```
 
 #### storage.lvm - LVM 存储配置
 

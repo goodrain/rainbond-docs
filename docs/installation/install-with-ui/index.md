@@ -14,7 +14,10 @@ keywords:
 
 该安装方式适用于希望 Rainbond 帮助您从零搭建 Kubernetes 和 Rainbond 的场景，支持 Linux x86 和 Arm64 操作系统，并兼容[国产化信创](/docs/how-to-guides/localization-guide/intro.md)环境。
 
-:::info 什么是 Rainbond 一体化安装？
+<details>
+<summary>了解原理</summary>
+
+:::tip 什么是 Rainbond 一体化安装？
 Rainbond 一体化安装是一种**全自动的安装方式**，它会帮您：
 - 自动搭建 Kubernetes 集群（您不需要手动安装复杂的 Kubernetes）
 - 自动部署 Rainbond 平台（在 Kubernetes 集群上安装所有组件）
@@ -23,16 +26,16 @@ Rainbond 一体化安装是一种**全自动的安装方式**，它会帮您：
 就像安装一个"一键安装包"，您只需要准备几台服务器，然后通过网页界面点击几下，就能得到一个完整的 Rainbond 平台。
 :::
 
-## 安装逻辑
-
 此安装模式的核心逻辑是：首先在一个节点上，通过 Docker 运行 **Rainbond 快速安装包**，并将其作为一个**临时的安装向导**。接着，利用这个向导的图形化控制台，在您指定的多个服务器节点上部署一个**生产级的 RKE2 Kubernetes 集群**以及**一套全新的 Rainbond 平台**。最终的 Rainbond 平台将运行在新的 K8s 集群中，而最初的 Docker 安装向导则可以安全销毁。
 
-:::info 简单理解
+:::tip 简单理解
 这就像：
 - 先启动一个"安装助手"（向导）
 - 让助手帮您在多台电脑上安装"操作系统"（Kubernetes）
 - 然后在"操作系统"上安装"应用程序"（Rainbond）
 :::
+
+</details>
 
 ## 前提
 
@@ -42,13 +45,9 @@ Rainbond 一体化安装是一种**全自动的安装方式**，它会帮您：
 * 如果主机内核支持 [AppArmor](https://apparmor.net/)，则在安装之前还必须具有 AppArmor 工具。
 * 必须以 `root` 用户执行安装。
 
-### 系统优化（可选）
+### 系统内核优化
 
-在开始安装之前，建议先对所有准备用于部署 Rainbond 的 Linux 主机执行系统优化脚本，以确保系统处于最佳状态。
-
-:::tip
-此步骤为可选，但强烈建议执行，尤其是在生产环境中。
-:::
+在开始安装之前，建议先对所有准备用于部署 Rainbond 的 Linux 主机执行系统内核优化脚本，以确保系统处于最佳状态。
 
 在每台主机上执行以下命令：
 
@@ -56,27 +55,9 @@ Rainbond 一体化安装是一种**全自动的安装方式**，它会帮您：
 curl -sfL https://get.rainbond.com/linux-system-optimize.sh | bash
 ```
 
-该脚本将自动执行以下优化操作：
-- 内核参数优化
-- 禁用防火墙和关闭 Swap 分区
-
 ## 步骤一：启动安装向导
 
-请在您准备的一台服务器上，参照 [快速安装文档](../../quick-start/quick-install.mdx) 来启动图形化安装向导。
-
-:::tip
-如果您的某台主机上**已经运行了 Rainbond 快速安装**，您可以直接将其作为安装向导使用，无需重复执行此步骤，请直接进入下一步。
-:::
-
-通常，您只需执行以下命令即可：
-```bash
-curl -o install.sh https://get.rainbond.com && bash ./install.sh
-```
-执行完上述脚本后，耐心等待 3-5 分钟，使用浏览器访问 `http://<服务器IP>:7070` 即可看到 Rainbond 的登录/注册界面。
-
-:::warning 注意
-如当前主机上**已经运行了 Rainbond 快速安装**，则不能在该主机上再次执行以下安装流程，这会造成冲突。
-:::
+请在一台干净的 Linux 服务器上，参阅[快速安装](../../quick-start/quick-install.mdx)来启动图形化安装向导。
 
 ## 步骤二：开始图形化部署
 
@@ -133,16 +114,12 @@ Kubernetes 集群安装完成后，将自动进入 Rainbond 平台的部署页�
 2. 配置信息填写完成后，点击`开始安装`，即可看到 Rainbond 各组件的安装进度。
 3. 等待所有组件都启动后，下一步完成对接。
 
-> 整个安装过程通常需要 10-30 分钟，具体时间取决于您的服务器性能和网络状况。  
-> 您可以通过 `kubectl get pods -n rbd-system` 命令在任意已接入的节点上查看集群状态。
-> ```bash
-> export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
-> /var/lib/rancher/rke2/bin/kubectl get nodes
-> ```
-
 ## 下一步
 
-- 完成[快速入门](../../quick-start/getting-started.md)教程。
-- 将[控制台迁移](./console-recover.md)至新部署的 Kubernetes 集群中，以实现高可用。
-  > 迁移后，您可以清空向导节点，并将其继续添加为计算节点。
+- 跟随[快速入门](../../quick-start/getting-started.md)教程，部署你的第一个应用
+- 阅读[使用教程](../../tutorial/via-rainbond-deploy-sourceandmiddleware.md)，学习和了解更多 Rainbond 功能
 
+### 其他文档
+
+- [故障排查文档](../../troubleshooting/install.md)
+- [常见问题](../../faq/index.md)

@@ -11,6 +11,10 @@ keywords:
 ## 示例配置
 
 ```yaml title="vi values.yaml"
+operator:
+  env:
+  - name: STORAGE_CLASS_NAME
+    value: "nfs-storage"
 Cluster:
   gatewayIngressIPs: 192.168.8.8
 
@@ -149,3 +153,14 @@ MySQL 8.0 以上版本需要配置 `default_authentication_plugin` 为 `mysql_na
 | 配置项           | 默认值 | 类型 | 说明   |
 | ---------------- | ------ | ---- | ------ |
 | Cluster.replicas | 2      | int  | 副本数 |
+
+### 指定 StorageClass
+
+指定 rbd-system 命名空间下的所有 PVC 使用的 StorageClass 名称：
+
+```bash
+operator:
+  env:
+  - name: STORAGE_CLASS_NAME
+    value: "nfs-storage"
+```

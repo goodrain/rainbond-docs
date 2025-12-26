@@ -32,7 +32,7 @@ keywords:
 
 ## 安装 Rainbond
 
-:::tip
+:::info
 在安装之前，你可以通过此脚本 `curl -sfL https://get.rainbond.com/k8s-health-check.sh | bash` 检查你的 Kubernetes 集群。
 :::
 
@@ -43,41 +43,25 @@ helm repo add rainbond https://chart.rainbond.com
 helm repo update
 ```
 
-2. 编辑 [values.yaml](./vaules-config.md) 文件，填写必须配置。
-
-```yaml title="vim values.yaml"
-Cluster:
-  gatewayIngressIPs: 172.20.251.93 #集群入口IP
-
-  nodesForGateway:
-  - externalIP: 172.20.251.93  #k8s节点外网IP
-    internalIP: 172.20.251.93  #k8s节点内网IP
-    name: k8s-node1            #k8s节点名称
-# - More nodes for gateway
-  nodesForChaos:
-  - name: k8s-node1            #k8s节点名称
-# - More nodes for chaos
-  containerdRuntimePath: /var/run/containerd  #containerd.sock文件路径
-  # if you use RKE2 or K3S, you can use the following parameter
-  # containerdRuntimePath: /var/run/k3s/containerd
-  
-  # 如果你的 K8s 集群使用 Docker 作为运行时，那么 Docker 版本至少在 24.0.0 及以上。Docker 24.0.0 版本之后默认也采用了 Containerd 作为容器运行时。
-  # containerdRuntimePath: /var/run/containerd
-```
-
-3. 执行安装命令。
+2. 执行以下安装命令。如需指定自定义的[values.yaml](./vaules-config.md)文件，请使用 `-f` 参数。
 
 ```bash
-helm install rainbond rainbond/rainbond --create-namespace -n rbd-system -f values.yaml
+helm install rainbond rainbond/rainbond --create-namespace -n rbd-system 
 ```
 
-4. 执行完安装命令后，在集群中执行以下命令查看安装状态。
+> Rainbond 默认在 `/run/containerd`、`/var/run/k3s/containerd` 路径查找 `containerd.sock`。如使用其他路径，请在 `values.yaml` 中配置 `Cluster.containerdRuntimePath` 参数。
 
 ```bash
-watch kubectl get pod -n rbd-system
+......
+NOTES:
+Please use the following command to view the installation progress:
+
+kubectl get pod -n rbd-system
+
+Enter http://172.16.0.145:7070 in your browser to access Rainbond
 ```
 
-5. 当名称包含 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。如下所示，Pod `rbd-app-ui-5577b8ff88-fpnnv` 为 Running 状态时，表示 Rainbond 安装成功。
+3. 执行安装命令后，使用上述 `kubectl` 命令查看安装进度。当所有 `Pod` 都处于 `1/1 Running` 状态且 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。
 
 <details>
 <summary>安装成功结果示例</summary>
@@ -100,10 +84,18 @@ rbd-worker-7db9f9cccc-s9wml               1/1     Running   0          5m22s
 
 </details>
 
-6. 使用 `gatewayIngressIPs` 配置的 IP 地址访问 Rainbond，例如: `http://172.20.251.93:7070`。
+4. 通过终端打印的地址访问 Rainbond 控制台，如上例中的 `http://172.16.0.145:7070`。
 
-7. 如您采用默认的镜像仓库，则需要修改 Containerd 的配置，配置 [goodrain.me 私有镜像仓库](../troubleshooting/common#启动无法获取镜像-x509-certificate-signed-by-unknown-authority)。
+:::warning 注意
+默认使用 goodrain.me 镜像仓库，需要自行修改 [Containerd 私有镜像仓库](../troubleshooting/common#启动无法获取镜像-x509-certificate-signed-by-unknown-authority)配置。
+:::
 
 ## 下一步
 
-参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
+- 跟随[快速入门](../../quick-start/getting-started.md)教程，部署你的第一个应用
+- 阅读[使用教程](../../tutorial/via-rainbond-deploy-sourceandmiddleware.md)，学习和了解更多 Rainbond 功能
+
+### 其他文档
+
+- [故障排查文档](../../troubleshooting/install.md)
+- [常见问题](../../faq/index.md)

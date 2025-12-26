@@ -11,23 +11,22 @@ keywords:
 
 本文将手把手教你如何在 [K3s](https://k3s.io/)（一个轻量级的 Kubernetes 发行版）上安装 Rainbond。
 
-## 一、准备工作
+## 准备工作
 
-### 1. 什么是 K3s？
+### 什么是 K3s？
 K3s 是一个轻量级、完全兼容的 Kubernetes 发行版，专为边缘计算、物联网等资源受限环境设计。它打包为一个小于 100MB 的二进制文件，易于安装和管理。
 
-### 2. 环境要求
+### 环境要求
+
 - 建议使用一个全新的、干净的操作系统。
 - 操作系统：Ubuntu 20.04 / CentOS 7+
 - 硬件：2核 CPU / 4GB 内存 / 40GB 磁盘以上
 - 确保端口 `80, 443, 6060, 7070, 8443` 未被占用。
 - 安装 [Helm CLI](https://helm.sh/docs/intro/install/)。
 
----
+## 安装 K3s
 
-## 二、安装 K3s
-
-### 1. 创建 K3s 配置文件
+### 创建 K3s 配置文件
 
 K3s 允许通过配置文件来自定义其行为。我们需要禁用一些内置组件，以避免与 Rainbond 冲突。
 
@@ -63,13 +62,13 @@ configs:
 EOF
 ```
 
-### 2. 执行 K3s 安装脚本
+### 执行 K3s 安装脚本
 
 ```bash
 curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh -s -
 ```
 
-### 3. 配置 Kubeconfig
+### 配置 Kubeconfig
 
 将 K3s 生成的 Kubeconfig 文件复制到默认路径，以便 `kubectl` 和 `helm` 命令可以直接使用。
 
@@ -77,56 +76,32 @@ curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIR
 cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 ```
 
----
+## 安装 Rainbond
 
-## 三、安装 Rainbond
-
-### 1. 添加 Rainbond Helm 仓库
+1. 添加 Helm 仓库。
 
 ```bash
 helm repo add rainbond https://chart.rainbond.com
 helm repo update
 ```
 
-### 2. 准备 values.yaml 配置文件
-
-编辑 [values.yaml](../../installation/install-with-helm/vaules-config.md) 文件，填写以下关键信息：
-
-```yaml title="vim values.yaml"
-Cluster:
-  gatewayIngressIPs: <你的节点IP> # K3s 节点的 IP 地址
-
-  # 绑定节点为 Rainbond 网关节点
-  nodesForGateway:
-  - externalIP: <K3s节点外网IP>
-    internalIP: <K3s节点内网IP>
-    name: <K3s节点名称>
-  # 绑定节点为 Rainbond 构建节点
-  nodesForChaos:
-  - name: <K3s节点名称>
-  
-  # K3s containerd.sock 目录路径
-  containerdRuntimePath: /run/k3s/containerd
-```
-
-> **说明：**
-> - `gatewayIngressIPs`: Rainbond 的访问入口 IP，请填写你的 K3s 节点的 IP 地址。
-> - `nodesForGateway / nodesForChaos`: 指定哪个节点用于网关和构建服务。单节点场景下，填写该节点信息即可。
-> - `containerdRuntimePath`: **必须配置**。K3s 的 containerd socket 文件路径与默认不同，需要指定为 `/run/k3s/containerd`。
-
-### 3. 安装 Rainbond
+2. 执行以下安装命令。如需指定自定义的[values.yaml](../../installation/install-with-helm/vaules-config)文件，请使用 `-f` 参数。
 
 ```bash
-helm install rainbond rainbond/rainbond --create-namespace -n rbd-system -f values.yaml
+helm install rainbond rainbond/rainbond --create-namespace -n rbd-system 
 ```
-
-### 4. 查看安装状态
 
 ```bash
-watch kubectl get pod -n rbd-system
+......
+NOTES:
+Please use the following command to view the installation progress:
+
+kubectl get pod -n rbd-system
+
+Enter http://172.16.0.145:7070 in your browser to access Rainbond
 ```
 
-等待所有 Pod 状态为 Running，尤其是 `rbd-app-ui` 相关 Pod。
+3. 执行安装命令后，使用上述 `kubectl` 命令查看安装进度。当所有 `Pod` 都处于 `1/1 Running` 状态且 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。
 
 <details>
 <summary>安装成功结果示例</summary>
@@ -149,17 +124,10 @@ rbd-worker-7db9f9cccc-s9wml               1/1     Running   0          5m22s
 
 </details>
 
-### 5. 访问 Rainbond
+4. 通过终端打印的地址访问 Rainbond 控制台，如上例中的 `http://172.16.0.145:7070`。
 
-使用 `gatewayIngressIPs` 配置的 IP 地址访问 Rainbond：
 
-```
-http://<gatewayIngressIPs>:7070
-```
-
----
-
-## 四、常见问题与排查
+## 常见问题与排查
 
 ### 1. Pod 长时间 Pending 或 CrashLoopBackOff？
 - 检查节点资源是否充足（CPU/内存）。
@@ -175,8 +143,6 @@ http://<gatewayIngressIPs>:7070
 - 检查 `gatewayIngressIPs` 是否填写正确。
 - 检查 `rbd-gateway` Pod 是否 Running。
 
----
-
-## 五、下一步
+## 下一步
 
 Rainbond 安装完成后，你可以参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
