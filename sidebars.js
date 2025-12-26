@@ -128,8 +128,11 @@ const sidebars = {
         {
           type: 'category',
           label: '数据库部署',
+          link: {
+            type: 'doc',
+            id: 'how-to-guides/databases/intro',
+          },
           items: [
-            'how-to-guides/databases/intro',
             'how-to-guides/databases/install',
             'how-to-guides/databases/mysql',
             'how-to-guides/databases/postgresql',
