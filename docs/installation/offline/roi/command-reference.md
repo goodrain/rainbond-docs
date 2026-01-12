@@ -120,7 +120,7 @@ roi download [flags]
 roi download
 
 # 下载特定版本
-roi download --rbd-version v6.4.0-release
+roi download --rbd-version v6.x.x-release
 
 # 预览下载内容(不实际下载)
 roi download --dry-run

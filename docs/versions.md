@@ -11,7 +11,7 @@ keywords:
 
 | 版本号             | 文档链接 | 版本变更                               |
 |-----------------| -------------------------------------- |------------------------------------|
-| v6.4.x-release | [https://www.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](https://github.com/goodrain/rainbond/releases) |
+| v6.4.x-release - v6.5.x-release | [https://www.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](https://github.com/goodrain/rainbond/releases) |
 
 ## 过往版本（不再维护）
 
