@@ -123,7 +123,8 @@ database:
 # Rainbond 配置
 # ==========================================
 rainbond:
-  version: v6.4.0-release                   # Rainbond 版本
+  # 通过 github release 获取最新版本号，https://github.com/goodrain/rainbond/releases/latest，如 v6.5.1-release
+  version: v6.5.1-release                   # Rainbond 版本
 
   # 自定义 Helm values(可选)
   # values:
@@ -275,13 +276,13 @@ database:
 
 | 字段 | 类型 | 必需 | 默认值 | 说明 |
 |------|------|------|--------|------|
-| version | string | 否 | v6.4.0-release | Rainbond 版本 |
+| version | string | 否 | https://github.com/goodrain/rainbond/releases/latest | Rainbond 版本 |
 | values | object | 否 | - | 自定义 Helm values |
 
 **自定义 Helm values 示例:**
 
 ```yaml
 rainbond:
-  version: "v6.4.0-release"
+  version: ""
   values:
 ```

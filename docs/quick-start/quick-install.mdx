@@ -89,16 +89,14 @@ Access Rainbond:
 
   <TabItem value="Windows" label="Windows">
 
-Rainbond 提供了 Windows 安装脚本，在 Docker 中通过容器快速启动 Rainbond。脚本执行过程中，需要手动设置 EIP。在部署完成后，将使用该 IP 地址访问 Rainbond 控制台。
-
-:::warning
-在默认情况下，Windows 系统不允许直接运行脚本。您需要以管理员身份打开 `PowerShell`，并执行该命令以更改执行策略：`set-executionpolicy remotesigned`。
+:::info
+在 Windows 上安装需要依赖 WSL（Windows Subsystem for Linux），该脚本会自动检测并安装启动 WSL 环境，然后通过 Docker 快速启动 Rainbond。
 :::
 
-在 PowerShell 中执行以下命令:
+使用管理员打开 CMD 并执行以下命令:
 
 ```bash
-Invoke-WebRequest "https://get.rainbond.com/install-rainbond.ps1" -o install-rainbond.ps1 ; .\install-rainbond.ps1
+powershell -ExecutionPolicy Bypass -Command "irm https://get.rainbond.com/install-rainbond-wsl.ps1 | iex"
 ```
 
   </TabItem>

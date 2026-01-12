@@ -166,10 +166,6 @@ database:
     enabled: true
     masterPassword: "RootPassword123!"
     replicationPassword: "ReplPassword123!"
-
-# Rainbond configuration
-rainbond:
-  version: v6.4.0-release
 ```
 
 :::warning 注意
