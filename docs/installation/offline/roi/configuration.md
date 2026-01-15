@@ -85,12 +85,21 @@ storage:
   # LVM 自动配置
   lvm:
     enabled: false                         # 是否启用 LVM
-    devices: []                            # 设备列表(空=自动扫描未使用的磁盘)
-                                           # 或手动指定: ["/dev/sdb", "/dev/sdc"]
+    # 填写各个节点的磁盘设备列表，必须与 hosts 中的节点一一对应
+    nodeDevices:
+      node-1:
+        - /dev/sdb
+        - /dev/sdc
+      node-2:
+        - /dev/nvme0n1
+      node-3:
+        - /dev/vdb
 
     # 方式1: 百分比分配(推荐)
-    rke2Percentage: 70                    # RKE2 存储占比 70%
-    rainbondPercentage: 30                # Rainbond 存储占比 30%
+    rke2Percentage: 70                    # RKE2 存储占比 70% (/var/lib/rancher/rke2)
+    rainbondPercentage: 30                # Rainbond 存储占比 30% (/opt/rainbond)
+    # rke2Percentage: 100                 # 只创建RKE2分区
+    # rainbondPercentage: 0               # 跳过Rainbond分区
 
     # 方式2: 固定大小分配(会覆盖百分比配置)
     # rke2Size: "200G"
@@ -118,6 +127,21 @@ database:
     #   enabled: true                        # 自动根据 mysql.enabled 设置
     #   storageClass: "nfs-storage"          # 自动根据 nfs.enabled 选择
     #   size: "5Gi"                          # 数据卷大小
+  # 使用外部自定义MySQL数据库
+  custom:
+    enabled: false
+    console:
+      host: "mysql.example.com"
+      port: 3306
+      database: "console"
+      username: "rainbond"
+      password: "your-password"
+    region:
+      host: "mysql.example.com"
+      port: 3306
+      database: "region"
+      username: "rainbond"
+      password: "your-password"
 
 # ==========================================
 # Rainbond 配置
@@ -192,9 +216,9 @@ roleGroups:
 | 字段 | 类型 | 必需 | 默认值 | 说明 |
 |------|------|------|--------|------|
 | enabled | bool | 是 | false | 是否启用 LVM |
-| devices | []string | 否 | [] | 磁盘设备列表,空则自动扫描 |
-| rke2Percentage | int | 条件 | - | RKE2 存储占比(0-100) |
-| rainbondPercentage | int | 条件 | - | Rainbond 存储占比(0-100) |
+| nodeDevices | []list | 是 | - | 节点磁盘设备列表 |
+| rke2Percentage | int | 条件 | - | RKE2 存储占比(0-100)，为0代表跳过创建 |
+| rainbondPercentage | int | 条件 | - | Rainbond 存储占比(0-100)，为0代表跳过创建 |
 | rke2Size | string | 条件 | - | RKE2 固定大小(如 "200G") |
 | rainbondSize | string | 条件 | - | Rainbond 固定大小(如 "100G") |
 
@@ -208,7 +232,14 @@ roleGroups:
 storage:
   lvm:
     enabled: true
-    devices: []  # 自动扫描
+    nodeDevices:
+      node-1:
+        - /dev/sdb
+        - /dev/sdc
+      node-2:
+        - /dev/nvme0n1
+      node-3:
+        - /dev/vdb
     rke2Percentage: 70
     rainbondPercentage: 30
 ```
@@ -219,7 +250,14 @@ storage:
 storage:
   lvm:
     enabled: true
-    devices: ["/dev/sdb", "/dev/sdc"]
+    nodeDevices:
+      node-1:
+        - /dev/sdb
+        - /dev/sdc
+      node-2:
+        - /dev/nvme0n1
+      node-3:
+        - /dev/vdb
     rke2Size: "300G"
     rainbondSize: "200G"
 ```
@@ -247,17 +285,25 @@ storage:
 
 ### database - 数据库配置
 
-配置外部 MySQL 数据库。
+:::info
+
+如果 mysql.enabled 和 custom.enabled 都为 false，那么将会使用 Rainbond 创建的单节点 rbd-db 为默认数据库。
+
+:::
+
+#### mysql - 内置安装
+
+配置 MySQL 主从数据库，默认由 ROI 程序自动安装。
 
 | 字段 | 类型 | 必需 | 默认值 | 说明 |
 |------|------|------|--------|------|
-| enabled | bool | 是 | false | 是否启用外部 MySQL |
-| masterPassword | string | 是 | - | Root 密码 |
-| replicationPassword | string | 是 | - | 复制密码 |
-| replicaCount | int | 否 | 1 | secondary副本数 |
-| persistence.enabled | bool | 否 | - | 自动根据 enabled 推断 |
-| persistence.storageClass | string | 否 | - | 自动根据 NFS 配置推断 |
-| persistence.size | string | 否 | 5Gi | 数据卷大小 |
+| mysql.enabled | bool | 是 | false | 是否启用外部 MySQL |
+| mysql.masterPassword | string | 是 | - | Root 密码 |
+| mysql.replicationPassword | string | 是 | - | 复制密码 |
+| mysql.replicaCount | int | 否 | 1 | secondary副本数 |
+| mysql.persistence.enabled | bool | 否 | - | 自动根据 enabled 推断 |
+| mysql.persistence.storageClass | string | 否 | - | 自动根据 NFS 配置推断 |
+| mysql.persistence.size | string | 否 | 5Gi | 数据卷大小 |
 
 **示例:**
 
@@ -268,6 +314,46 @@ database:
     masterPassword: "MySQL@Root123!"
     replicationPassword: "MySQL@Repl123!"
     replicaCount: 2  # 主从复制
+```
+
+#### custom - 外部自定义
+
+配置外部自定义数据库。
+
+| 字段                    | 类型   | 必需 | 默认值 | 说明                               |
+| ----------------------- | ------ | ---- | ------ | ---------------------------------- |
+| custom.enabled          | bool   | 是   | false  | 是否启用外部数据库                 |
+| custom.console          | -      | -    | -      | 配置外部自定义控制台端的数据库信息 |
+| custom.console.host     | string | 是   | -      | 数据库地址                         |
+| custom.console.port     | int    | 是   | -      | 数据库端口                         |
+| custom.console.database | string | 是   | -      | 数据库名称                         |
+| custom.console.username | string | 是   | -      | 数据库用户名                       |
+| custom.console.password | string | 是   | -      | 数据库密码                         |
+| custom.region           | -      | -    | -      | 配置外部自定义集群端的数据库信息   |
+| custom.region.host      | string | 是   | -      | 数据库地址                         |
+| custom.region.port      | int    | 是   | -      | 数据库端口                         |
+| custom.region.database  | string | 是   | -      | 数据库名称                         |
+| custom.region.username  | string | 是   | -      | 数据库用户名                       |
+| custom.region.password  | string | 是   | -      | 数据库密码                         |
+
+**示例:**
+
+```yaml
+database:
+  custom:
+    enabled: true
+    console:
+      host: "mysql.example.com"
+      port: 3306
+      database: "console"
+      username: "rainbond"
+      password: "your-password"
+    region:
+      host: "mysql.example.com"
+      port: 3306
+      database: "region"
+      username: "rainbond"
+      password: "your-password"
 ```
 
 ### rainbond - Rainbond 配置
