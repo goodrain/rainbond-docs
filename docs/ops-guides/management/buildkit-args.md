@@ -167,6 +167,22 @@ data:
       insecure = false
 ```
 
+## 配置镜像构建缓存
+
+为了提升源码构建速度，您可以配置 BuildKit 使用镜像缓存。请按以下步骤操作：
+
+```yaml title="kubectl edit rbdcomponent rbd-chaos -n rbd-system"
+...
+spec:
+  # 新增 args 配置
+  args:
+  - --buildkit-cache=true
+  image: ...
+...
+```
+
+
+
 ## 常见问题
 
 1. **配置没有生效？**
