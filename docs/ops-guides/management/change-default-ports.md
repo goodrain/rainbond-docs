@@ -56,7 +56,7 @@ apisix:
 
 ### 步骤 3: 执行安装
 
-请阅读[基于 Kubernetes 安装](../../installation/install-with-helm/)以及[Chart 安装选项](../../installation/install-with-helm/vaules-config), 根据需要创建 `values.yaml` 文件, 然后执行以下命令使用本地 Chart 目录进行安装:
+请阅读[基于 Kubernetes 安装](../../installation/install-with-helm/)以及[Chart 安装选项](../configuration/vaules-config.md), 根据需要创建 `values.yaml` 文件, 然后执行以下命令使用本地 Chart 目录进行安装:
 
 ```bash
 helm install rainbond ./rainbond-chart \
