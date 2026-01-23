@@ -83,3 +83,15 @@ kubectl delete ns rbd-system
 ```bash
 rm -rf /opt/rainbond
 ```
+
+## 卸载基于 ROI 工具安装的集群
+
+如果您是基于 ROI 工具安装的集群，您可以通过以下步骤卸载：
+
+卸载 Rainbond 集群
+
+```bash
+./roi delete cluster
+```
+
+这会删除并清理整个集群，包括 RKE2 和 Rainbond 组件以及所有数据。
