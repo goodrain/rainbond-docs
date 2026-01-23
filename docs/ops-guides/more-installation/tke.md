@@ -59,7 +59,7 @@ helm repo update
 
 ### 2. 准备 values.yaml 配置文件
 
-编辑 [values.yaml](../../installation/install-with-helm/vaules-config.md) 文件，填写以下关键信息：
+编辑 [values.yaml](../configuration/vaules-config.md) 文件，填写以下关键信息：
 
 ```yaml title="vim values.yaml"
 Cluster:

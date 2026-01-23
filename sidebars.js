@@ -26,45 +26,15 @@ const sidebars = {
     {
       type: 'category',
       label: '安装&升级',
+      link: {
+        type: 'doc',
+        id: 'installation/index'
+      },
       items: [
-        {
-          type: 'category',
-          label: '基于 Linux 安装',
-          link: {
-            type: 'doc',
-            id: 'installation/install-with-ui/index',
-          },
-          items: [
-            'installation/install-with-ui/console-recover',
-            'installation/install-with-ui/ha',
-
-          ]
-        },
-        {
-          type: 'category',
-          label: '基于 Kubernetes 安装',
-          link: {
-            type: 'doc',
-            id: 'installation/install-with-helm/index'
-          },
-          items: [
-            'installation/install-with-helm/vaules-config',
-          ]
-        },
-        {
-          type: 'category',
-          label: '离线安装',
-          link: {
-            type: 'doc',
-            id: 'installation/offline/roi/quickstart',
-          },
-          items: [
-            // 'installation/offline/index',
-            'installation/offline/roi/configuration',
-            'installation/offline/roi/command-reference',
-            'installation/offline/sourcecompile',
-          ]
-        },
+        'installation/multi-node-install',
+        'installation/install-with-helm/index',
+        'installation/offline',
+        'installation/install-with-ui/index',
         'upgrade/latest-version',
         'installation/uninstall',
       ]
@@ -365,6 +335,7 @@ const sidebars = {
             "ops-guides/management/reset-pwd",
             "ops-guides/management/host-directory-expansion",
             "ops-guides/management/change-default-ports",
+            'ops-guides/management/console-recover',
           ]
         },
         {
@@ -372,6 +343,16 @@ const sidebars = {
           "label": "配置集群",
           "items": [
             "ops-guides/configuration/use-domain-for-rainbond",
+            'ops-guides/configuration/ha',
+            'ops-guides/configuration/vaules-config',
+          ]
+        },
+        {
+          "type": "category",
+          "label": "ROI 工具参考",
+          "items": [
+            "ops-guides/roi-reference/command-reference",
+            "ops-guides/roi-reference/configuration",
           ]
         },
         "ops-guides/cli-tools",

@@ -98,7 +98,7 @@ kubectl delete pod -l name=rbd-gateway -n rbd-system
 ### 步骤1: 修改内置镜像仓库配置
 
 :::tip
-建议使用外部镜像仓库, 可跳过此步骤。配置方法参考 [Chart 安装选项](../../installation/install-with-helm/vaules-config)。
+建议使用外部镜像仓库, 可跳过此步骤。配置方法参考 [Chart 安装选项](../configuration/vaules-config.md)。
 :::
 
 默认内置镜像仓库的访问地址为 `goodrain.me`, 由 APISIX 网关代理访问。修改网关 HTTPS 端口后, 需要同步修改镜像仓库访问配置。

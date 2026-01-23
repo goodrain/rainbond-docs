@@ -45,7 +45,7 @@ keywords:
 
 1. 拥有两套 Rainbond 集群，模拟开发环境及交付环境(开发环境为在线环境，交付环境为离线环境)。
 
-2. 开发环境安装，参考[快速安装](/docs/quick-start/quick-install)，交付环境安装，参考[离线安装](/docs/installation/offline/)。
+2. 开发环境安装，参考[快速安装](/docs/quick-start/quick-install)，交付环境安装，参考[离线安装](/docs/installation/offline)。
 
 3. 已完成应用的第一次交付，可参考[微服务架构离线交付](./micro-service.md)。
 
