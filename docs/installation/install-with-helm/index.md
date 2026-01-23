@@ -43,7 +43,7 @@ helm repo add rainbond https://chart.rainbond.com
 helm repo update
 ```
 
-2. 执行以下安装命令。如需指定自定义的[values.yaml](./vaules-config.md)文件，请使用 `-f` 参数。
+2. 执行以下安装命令。如需指定自定义的[values.yaml](../../ops-guides/configuration/vaules-config.md)文件，请使用 `-f` 参数。
 
 ```bash
 helm install rainbond rainbond/rainbond --create-namespace -n rbd-system 
@@ -95,7 +95,8 @@ rbd-worker-7db9f9cccc-s9wml               1/1     Running   0          5m22s
 - 跟随[快速入门](../../quick-start/getting-started.md)教程，部署你的第一个应用
 - 阅读[使用教程](../../tutorial/via-rainbond-deploy-sourceandmiddleware.md)，学习和了解更多 Rainbond 功能
 
-### 其他文档
+## 相关文档
 
-- [故障排查文档](../../troubleshooting/install.md)
-- [常见问题](../../faq/index.md)
+- [values.yaml](../../ops-guides/configuration/vaules-config.md) - Rainbond Helm Chart 配置说明
+- [故障排查文档](../../troubleshooting/install.md) - 安装相关问题排查
+- [常见问题](../../faq/index.md) - 常见安装问题解答

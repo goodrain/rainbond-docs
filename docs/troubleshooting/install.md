@@ -128,3 +128,66 @@ flowchart LR
 kubectl logs -f -n rbd-system -l name=rbd-gateway -c apisix
 ```
 
+## 4. 对接 Kubernetes 集群故障排查
+
+```mermaid
+flowchart LR
+    A[页面生成 Helm 命令] --> B[集群执行 helm install]
+    B --> C[Rainbond 控制台请求集群入口IP:8443]
+    C --> D{连接是否成功}
+    D -->|成功| E[完成对接]
+    D -->|失败| F[排查问题]
+    F --> G[检查 Pod 状态]
+    F --> H[检查网络连通性]
+    F --> I[检查端口监听]
+```
+
+### 排查思路
+
+对接 Kubernetes 集群时，Rainbond 控制台会通过 `https://<集群入口IP>:8443` 与集群进行通信。如果长时间无法完成对接，请按以下步骤排查：
+
+#### 1. 检查 Pod 状态
+
+首先检查 Rainbond 相关 Pod 是否正常运行：
+
+```bash
+kubectl get pod -n rbd-system
+```
+
+重点关注 `rbd-api` Pod 的状态，如果状态异常，查看日志：
+
+```bash
+kubectl logs -f -n rbd-system -l name=rbd-api
+```
+
+#### 2. 检查网络连通性
+
+确保 Rainbond 控制台所在的网络可以访问目标集群的入口 IP 和 8443 端口：
+
+```bash
+# 在控制台所在服务器执行
+curl -k https://<集群入口IP>:8443
+```
+
+如果无法连接，请检查：
+- 防火墙规则是否放行 8443 端口
+- 安全组配置是否正确
+- 网络路由是否可达
+
+#### 3. 检查端口监听
+
+在目标集群节点上检查 8443 端口是否正常监听：
+
+```bash
+netstat -tlnp | grep 8443
+# 或
+ss -tlnp | grep 8443
+```
+
+如果端口未监听，请检查 `rbd-api` 服务是否正常启动。
+
+### 常见问题
+
+1. **连接超时**：通常是网络不通或防火墙拦截，请检查网络策略和防火墙规则。
+2. **连接被拒绝**：端口未监听，请检查 `rbd-api` Pod 状态和日志。
+3. **证书错误**：可以使用 `-k` 参数跳过证书验证进行测试。

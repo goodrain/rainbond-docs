@@ -86,6 +86,17 @@ client.pem: |
   -----END CERTIFICATE-----
 ```
 
+上述获取的证书是加密格式的，需要将其解密后复制到控制台的集群编辑页面中。
+
+```bash
+#解密 ca.pem
+kubectl get cm -n rbd-system region-config -o jsonpath='{.binaryData.ca\.pem}' | base64 -d
+#解密 client.pem
+kubectl get cm -n rbd-system region-config -o jsonpath='{.binaryData.client\.pem}' | base64 -d
+#解密 client.key.pem
+kubectl get cm -n rbd-system region-config -o jsonpath='{.binaryData.client\.key\.pem}' | base64 -d
+```
+
 将打印出的内容复制到控制台的 **平台管理 -> 集群 -> 编辑** 中，点击 **保存** 即可。
 * apiAddress 对应 **API 地址**
 * ca.pem 对应 **API-CA证书**

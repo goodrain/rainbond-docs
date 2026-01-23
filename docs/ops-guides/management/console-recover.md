@@ -5,15 +5,7 @@ keywords:
 - Rainbond 控制台高可用安装
 ---
 
-:::tip
-如果你的 Rainbond 集群是通过 Helm Chart 安装的，那么无需迁移控制台，无需进行本文档的操作。
-:::
-
-[快速安装](/docs/quick-start/quick-install)的 Rainbond 控制台是由 Docker 启动的，无法实现高可用部署，本文介绍如何将 Docker 启动的控制台迁移到 K8s 集群中以 POD 方式运行。
-
-## 前提
-
-* [快速安装 Rainbond](/docs/quick-start/quick-install) 并对接[主机安装](/docs/installation/install-with-ui/)的集群。
+本文档针对通过[快速安装](/docs/quick-start/quick-install)的 Rainbond 在通过[主机安装](/docs/installation/install-with-ui/)对接了多集群后，想把迁移控制台到 K8s 集群中以 POD 方式运行的场景。
 
 ## 启动新控制台
 :::warning
