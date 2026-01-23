@@ -221,5 +221,10 @@ ROI 支持阶段性重试，可以只执行失败的阶段：
 
 ## 下一步
 
+- 跟随[快速入门](../quick-start/getting-started.md)教程，部署你的第一个应用
+- 阅读[使用教程](../tutorial/via-rainbond-deploy-sourceandmiddleware.md)，学习和了解更多 Rainbond 功能
+
+## 相关文档
+
 - [配置文件详解](../ops-guides/roi-reference/configuration) - 了解完整的配置文件选项
 - [命令参考](../ops-guides/roi-reference/command-reference) - 查看所有 ROI 命令，例如添加节点、删除节点等

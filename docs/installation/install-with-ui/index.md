@@ -141,7 +141,7 @@ curl -sfL https://get.rainbond.com/linux-system-optimize.sh | bash
 - 跟随[快速入门](../../quick-start/getting-started.md)教程，部署你的第一个应用
 - 阅读[使用教程](../../tutorial/via-rainbond-deploy-sourceandmiddleware.md)，学习和了解更多 Rainbond 功能
 
-### 其他文档
+## 其他文档
 
 - [故障排查文档](../../troubleshooting/install.md)
 - [常见问题](../../faq/index.md)
