@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 :::tip
 已通过以下任一方式部署 Rainbond 平台：
 - [快速安装](../../quick-start/quick-install.mdx)
-- [多节点集群安装](../multi-node-install.md)
+- [基于主机安装集群](../multi-node-install.md)
 - [基于 Kubernetes 安装](../install-with-helm/index.md)
 :::
 
