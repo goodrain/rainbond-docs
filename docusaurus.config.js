@@ -41,7 +41,8 @@ const config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: 'V6.5+(Latest)'
+              label: 'V6.5',
+              banner: 'unmaintained',
             }
           }
         },
@@ -175,7 +176,13 @@ const config = {
                 to: '/docs/versions',
                 label: 'All versions',
               },
-            ]
+            ],
+            dropdownItemsBefore: [
+              {
+                label: 'Latest stable',
+                href: 'https://www.rainbond.com/docs/',
+              }
+            ],
           },
           {
             position: 'right',
@@ -276,9 +283,10 @@ const config = {
         additionalLanguages: ['bash'],
       },
       announcementBar: {
-        id: 'start',
+        id: 'archived-version',
         content:
-          '⭐️ If you like <a href="https://github.com/goodrain/rainbond">Rainbond</a>, give it a star on GitHub! ⭐️',
+          '此为 Rainbond 过时文档,现已不再积极维护.<a href="https://www.rainbond.com/docs/">请阅读 Rainbond 最新版本文档</a>。',
+        textColor: '#ff0000',
         isCloseable: false,
       }
     }),
