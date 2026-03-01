@@ -16,7 +16,7 @@ keywords:
 
 在已有的 Kubernetes 集群上通过 Helm 部署 Rainbond，适合想复用现有 K8s 基础设施的场景。
 
-### [离线安装](./offline.md)
+### [离线安装](offline.md)
 
 在无法访问外网的隔离环境中部署 Rainbond，需要提前下载离线安装包。
 
