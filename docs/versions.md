@@ -11,7 +11,7 @@ keywords:
 
 | 版本号             | 文档链接 | 版本变更                               |
 |-----------------| -------------------------------------- |------------------------------------|
-| v6.5.x-release | [https://www.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](https://github.com/goodrain/rainbond/releases) |
+| v6.6.x-release | [https://www.rainbond.com/docs/](https://www.rainbond.com/docs/) | [版本变更日志](https://github.com/goodrain/rainbond/releases) |
 
 ## 过往版本（不再维护）
 
@@ -19,6 +19,7 @@ keywords:
 
 | 版本号          | 文档链接                                                     | 版本变更                                                     |
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| v6.5.x-release | https://v6.5.rainbond.com/docs/ | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.5.0-release) |
 | v6.4.x-release | https://v6.4.rainbond.com/docs/ | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.4.0-release) |
 | v6.3.4-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.3.4-release) |
 | v6.3.3-release | [https://v6.3-v6.0-v5.17.rainbond.com/docs](https://v6.3-v6.0-v5.17.rainbond.com/docs) | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.3.3-release) |
