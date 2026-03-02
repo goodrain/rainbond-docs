@@ -358,6 +358,19 @@ const sidebars = {
         "ops-guides/cli-tools",
       ]
     },
+    {
+      "type": "category",
+      "label": "功能扩展",
+      "items": [
+        "plugins/gpu",
+        "plugins/monitor",
+        "plugins/pipeline",
+        "plugins/disaster-recovery",
+        "plugins/source-scan",
+        "plugins/logs",
+        "plugins/alert",
+      ]
+    },
     'faq/index',
     {
       type: 'category',

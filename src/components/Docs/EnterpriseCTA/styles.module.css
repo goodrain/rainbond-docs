@@ -1,0 +1,120 @@
+.card {
+  margin-top: 48px;
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid #dbeafe;
+  border-left: 4px solid #2563eb;
+  background: linear-gradient(135deg, #f0f6ff, #f8faff);
+}
+
+[data-theme='dark'] .card {
+  border-color: #1e3a5f;
+  border-left-color: #3b82f6;
+  background: linear-gradient(135deg, #1a2744, #1c2e4a);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+[data-theme='dark'] .icon {
+  color: #60a5fa;
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+}
+
+.description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.divider {
+  height: 1px;
+  background: #dbeafe;
+  margin: 16px 0;
+}
+
+[data-theme='dark'] .divider {
+  background: #1e3a5f;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btnIcon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  background: #2563eb;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.primaryBtn:hover {
+  color: #fff;
+  background: #1d4ed8;
+  text-decoration: none;
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.secondaryBtn:hover {
+  color: #374151;
+  border-color: #9ca3af;
+  text-decoration: none;
+}
+
+[data-theme='dark'] .secondaryBtn {
+  color: #d1d5db;
+  background: #1f2937;
+  border-color: #374151;
+}
+
+[data-theme='dark'] .secondaryBtn:hover {
+  color: #d1d5db;
+  border-color: #6b7280;
+}
