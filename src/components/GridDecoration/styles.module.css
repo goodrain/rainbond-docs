@@ -1,0 +1,75 @@
+.gridLeft,
+.gridRight {
+  position: absolute;
+  top: 5rem;
+  bottom: 5rem;
+  width: 350px;
+  height: auto;
+  max-height: 700px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  opacity: 1;
+  z-index: 10;
+}
+
+.gridLeft {
+  left: 0;
+  background-position: left top;
+  mask-image:
+    linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent 100%),
+    linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent 100%),
+    linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+.gridRight {
+  right: 0;
+  background-position: right top;
+  mask-image:
+    linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent 100%),
+    linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent 100%),
+    linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+@media (min-width: 1401px) {
+  .gridLeft {
+    left: -350px;
+  }
+
+  .gridRight {
+    right: -350px;
+  }
+}
+
+@media (max-width: 1800px) {
+  .gridLeft,
+  .gridRight {
+    width: 250px;
+    background-size: 60px 60px;
+  }
+
+  .gridLeft {
+    left: -250px;
+  }
+
+  .gridRight {
+    right: -250px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .gridLeft,
+  .gridRight {
+    display: none;
+  }
+}

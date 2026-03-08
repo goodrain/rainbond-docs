@@ -4,6 +4,7 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 0;
+  margin: 4rem 0 4rem 0;
 }
 
 .comparisonHeader {
@@ -34,13 +35,14 @@
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   border: 1px solid #e5e7eb;
+  table-layout: fixed;
 }
 .comparisonTh {
   border-bottom: 1px solid #e5e7eb;
-  min-width: 220px;
+  width: 25%;
 }
 .comparisonThFirst {
-  width: 120px;
+  width: 15%;
 }
 .comparisonThRainbond {
   border-left: 2px solid #bfdbfe;
@@ -117,16 +119,31 @@
   margin-top: 2rem;
 }
 
-.button_style {
-  font-size: 16px !important;
-  height: 50px !important;
-  width: 180px !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.learnMoreButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 40px !important;
+  padding: 10px 20px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 115.296% !important;
+  transition: all 0.2s ease !important;
+  font-family: var(--font-family-base) !important;
+  text-decoration: none !important;
+  border: 1px solid #000 !important;
+  background: rgba(0, 0, 0, 0.84) !important;
+  box-shadow: 0 0.8px 0 0 rgba(255, 255, 255, 0.3) inset !important;
+  color: #fff !important;
 }
 
-.button_style:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.learnMoreButton:hover {
+  background: rgba(0, 0, 0, 0.92) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 0.8px 0 0 rgba(255, 255, 255, 0.3) inset, 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  color: #fff !important;
 }
 
 .divider {
@@ -173,7 +190,7 @@
   .button_row {
     margin-top: 1.2rem;
   }
-  .button_style {
+  .learnMoreButton {
     width: 100% !important;
     max-width: 300px !important;
     height: 42px !important;
@@ -222,7 +239,7 @@
   .button_row {
     margin-top: 0.8rem;
   }
-  .button_style {
+  .learnMoreButton {
     width: 100% !important;
     max-width: 200px !important;
     height: 36px !important;

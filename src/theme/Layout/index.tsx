@@ -59,7 +59,7 @@ export default function Layout(props: Props): JSX.Element {
           styles.mainWrapper,
           wrapperClassName,
         )}
-        style={{ marginTop: (docs_url || community_url || blog_url || changelog_url) ? "" : "6rem" }} 
+        // style={{ marginTop: (docs_url || community_url || blog_url || changelog_url) ? "" : "6rem" }} 
         >
         <ErrorBoundary fallback={(params) => <ErrorPageContent {...params} />}>
           {children}

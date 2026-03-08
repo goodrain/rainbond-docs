@@ -1,0 +1,42 @@
+.section {
+  /* padding: 1rem 0; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.sectionBorder {
+  border-bottom: 1px solid var(--border-color, #eaebee);
+}
+
+/* 内容容器 */
+.section > * {
+  max-width: var(--content-max-width, 1380px);
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section > * {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .section > * {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

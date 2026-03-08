@@ -1,20 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Tag } from '@douyinfe/semi-ui';
-import {
-  IconCheckCircleStroked,
-  IconUserGroup,
-  IconLightningStroked,
-  IconLayers,
-} from '@douyinfe/semi-icons';
-import { CircleEllipsis, Target, TrendingUp } from 'lucide-react';
 import styles from './styles.module.css';
-import { Button } from '@douyinfe/semi-ui';
 import Link from "@docusaurus/Link";
-import { IconBriefcase } from '@douyinfe/semi-icons';
-
-// lucide-react 备用
-// import { CheckCircle, Users, Zap, Target, TrendingUp, Layers } from 'lucide-react';
 
 export default function Comparison() {
   return (
@@ -48,10 +36,7 @@ export default function Comparison() {
             {/* 核心定位 */}
             <tr className={styles.comparisonTrHover}>
               <td className={styles.comparisonTdFirst}>
-                <div className={styles.comparisonTdContentCenter}>
-                  <Target style={{ color: '#2563eb', width: 18, height: 18 }} />
-                  <span>核心定位</span>
-                </div>
+                <span>核心定位</span>
               </td>
               <td className={styles.comparisonTdRainbond}>
                 <span className={styles.comparisonRainbondDesc}>应用级 PaaS，应用抽象与交付，无需学习 K8s 的容器平台</span>
@@ -66,10 +51,7 @@ export default function Comparison() {
             {/* 面向用户 */}
             <tr className={styles.comparisonTrHover}>
               <td className={styles.comparisonTdFirst}>
-                <div className={styles.comparisonTdContentCenter}>
-                  <IconUserGroup style={{ color: '#22c55e' }} size="small" />
-                  <span>面向用户</span>
-                </div>
+                <span>面向用户</span>
               </td>
               <td className={styles.comparisonTdRainbond}>
               <span className={styles.comparisonRainbondDesc}>开发者 / 运维 / 企业 IT 管理</span>
@@ -84,10 +66,7 @@ export default function Comparison() {
             {/* 与K8s关系 */}
             <tr className={styles.comparisonTrHover}>
               <td className={styles.comparisonTdFirst}>
-                <div className={styles.comparisonTdContentCenter}>
-                  <IconLayers style={{ color: '#a78bfa' }} size="small" />
-                  <span>与K8s关系</span>
-                </div>
+                <span>与K8s关系</span>
               </td>
               <td className={styles.comparisonTdRainbond}>
                 <span className={styles.comparisonRainbondDesc}>高度抽象 K8s 细节，可纳管 / 安装 K8s</span>
@@ -102,10 +81,7 @@ export default function Comparison() {
             {/* 学习曲线 */}
             <tr className={styles.comparisonTrHover}>
               <td className={styles.comparisonTdFirst}>
-                <div className={styles.comparisonTdContentCenter}>
-                  <TrendingUp style={{ color: '#fb923c', width: 18, height: 18 }} />
-                  <span>学习曲线</span>
-                </div>
+                <span>学习曲线</span>
               </td>
               <td className={styles.comparisonTdRainbond}>
                 <Tag color="green" size="small" className={styles.comparisonTagLow}>低</Tag>
@@ -125,10 +101,8 @@ export default function Comparison() {
       </div>
       <div className={clsx("row",styles.button_row)}>
         <div className='col col--12'>
-          <Link to="/docs">
-            <Button theme='solid' type='primary' icon={<CircleEllipsis />} size='large' className={clsx(styles.button_style)}>
-              了解更多
-            </Button>
+          <Link to="/docs" className={styles.learnMoreButton}>
+            了解更多
           </Link>
         </div>
       </div>

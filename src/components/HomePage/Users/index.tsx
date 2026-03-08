@@ -5,126 +5,154 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import Link from "@docusaurus/Link";
-import clsx from "clsx";
-import React, { useState } from "react";
-import { animated, useTrail } from "react-spring";
+import React from "react";
 import styles from "./styles.module.css";
-import { Button } from '@douyinfe/semi-ui';
-import Case from '/img/homepage/svg/case.svg';
-import { Typography } from '@douyinfe/semi-ui';
-import Translate from "@docusaurus/Translate";
-import { IconBriefcase } from '@douyinfe/semi-icons';
 
 export default function Users() {
+  const logos = [
+    {
+      image: "/img/users/boe.png",
+      name: "Boe",
+    },
+    {
+      image: "/img/users/ccteg.png",
+      name: "CCTEG",
+    },
+    {
+      image: "/img/users/benz.jpeg",
+      name: "Benz",
+    },
+    {
+      image: "/img/users/talkweb.png",
+      name: "Talkweb",
+    },
+    {
+      image: "/img/users/zhx.png",
+      name: "ZHX",
+    },
+    {
+      image: "/img/users/zggk.png",
+      name: "ZGGK",
+    },
+    {
+      image: "/img/users/xinanminzu.png",
+      name: "Xinanminzu",
+    },
+    {
+      image: "/img/users/haijun.png",
+      name: "Haijun",
+    },
+    {
+      image: "/img/users/ligong.png",
+      name: "Ligong",
+    },
+    {
+      image: "/img/users/guofang.png",
+      name: "Guofang",
+    },
+    {
+      image: "/img/users/renminjc.png",
+      name: "Renminjc",
+    },
+    {
+      image: "/img/users/guangxitizhuan.png",
+      name: "Guangxitizhuan",
+    },
+    {
+      image: "/img/users/kaaosi.png",
+      name: "Kaaosi",
+    },
+    {
+      image: "/img/users/ghh.jpeg",
+      name: "Ghh",
+    },
+    {
+      image: "/img/users/xjny.png",
+      name: "Xjny",
+    },
+    {
+      image: "/img/users/bkrj.png",
+      name: "Bkrj",
+    },
+    {
+      image: "/img/users/bjcj.png",
+      name: "Bjcj",
+    },
+    {
+      image: "/img/users/gitee.png",
+      name: "Gitee",
+    },
+    {
+      image: "/img/users/xndl.png",
+      name: "Xndl",
+    },
+    {
+      image: "/img/users/dianxinwusuo.png",
+      name: "Dianxinwusuo",
+    },
+    {
+      image: "/img/users/28s.jpg",
+      name: "28s",
+    },
+    {
+      image: "/img/users/ann.png",
+      name: "Ann",
+    },
+    {
+      image: "/img/users/lyyl.png",
+      name: "Lyyl",
+    },
+    {
+      image: "/img/users/fzsc.png",
+      name: "Fzsc",
+    },
+  ];
 
-  const { Text } = Typography;
-
-  const Cards = () => (
-    [
-      {
-        image: "/img/users/boe.png",
-      },
-      {
-        image: "/img/users/ccteg.png",
-      },
-      {
-        image: "/img/users/benz.jpeg",
-      },
-      {
-        image: "/img/users/talkweb.png",
-      },
-      {
-        image: "/img/users/zhx.png",
-      },
-      {
-        image: "/img/users/zggk.png",
-      },
-      {
-        image: "/img/users/xinanminzu.png",
-      },
-      {
-        image: "/img/users/haijun.png",
-      },
-      {
-        image: "/img/users/ligong.png",
-      },
-      {
-        image: "/img/users/guofang.png",
-      },
-      {
-        image: "/img/users/renminjc.png",
-      },
-      {
-        image: "/img/users/guangxitizhuan.png",
-      },
-      {
-        image: "/img/users/kaaosi.png",
-      },
-      {
-        image: "/img/users/ghh.jpeg",
-      },
-      {
-        image: "/img/users/xjny.png",
-      },
-      {
-        image: "/img/users/bkrj.png",
-      },
-      {
-        image: "/img/users/bjcj.png",
-      },
-      {
-        image: "/img/users/gitee.png",
-      },
-      {
-        image: "/img/users/xndl.png",
-      },
-      {
-        image: "/img/users/dianxinwusuo.png",
-      },
-      {
-        image: "/img/users/28s.jpg",
-      },
-      {
-        image: "/img/users/ann.png",
-      },
-      {
-        image: "/img/users/lyyl.png",
-      },
-      {
-        image: "/img/users/fzsc.png",
-      },
-    ])
+  // Duplicate logos for seamless loop
+  const allLogos = [...logos, ...logos];
 
   return (
-    <div className="container">
-      <h2 className={ styles.title }>
-        我们的用户
-      </h2>
-      <div className={styles.divider}></div>
-      <div className={clsx("row", styles.row)}>
-        {Cards().map(({image},index) => (
-          <div className={clsx("col col--2", styles.col)} key={index}>
-              <div className={clsx("card", styles.card)}>
-                <div className={clsx("card__image", styles.card_image)}>
-                  <img src={image} className={styles.image}/>
-                </div>
-              </div>
+    <div className={styles.usersSection}>
+      {/* 背景分割区域 */}
+      <div className={styles.bgSection}>
+        {/* <div className={styles.lf}></div> */}
+        <div className={styles.mid}>
+          <img src="/img/split-bg.png" alt="" />
+
+          {/* 标题居中在背景分割区域 */}
+          <div className={styles.titleWrapper}>
+            <h2 className={styles.title}>
+              受到上千家生产用户的信赖
+            </h2>
           </div>
-        ))}
-      </div>
-      <div className={clsx("row",styles.case)}>
-        <div className={clsx("col col--12", styles.case_col)}>
-          <Link to="/case">
-            <Button theme='solid' type='primary' icon={<IconBriefcase />} size='large' className={clsx(styles.hero_button_style, styles.hero_button_style_left)}>
-              用户案例
-            </Button>
-          </Link>
         </div>
-        <div className={clsx("col col--12", styles.case_col)}>
-          <Text underline link={{ href: 'https://github.com/goodrain/rainbond/issues/1273', target: '_blank'}} className={styles.text} >
-            如果你想贡献使用案例并在 Rainbond 官网上展示你的 Logo，请在 Github 上登记或联系我们。
-          </Text>
+        {/* <div className={styles.rt}></div> */}
+      </div>
+
+      {/* Logo Carousel - Full Width */}
+      <div className={styles.logoCarousel}>
+        <div className={styles.logoTrack}>
+          {allLogos.map((logo, index) => (
+            <div key={index} className={styles.logoItem}>
+              <img
+                src={logo.image}
+                alt={logo.name}
+                className={styles.logoImage}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.container}>
+        {/* Testimonial */}
+        <div className={styles.testimonial}>
+          <p className={styles.quote}>
+            "Rainbond 让我们的技术团队从繁琐的 K8s 配置中解放出来，应用交付效率提升了 <span className={styles.highlight}>300%</span> "
+          </p>
+          <div className={styles.author}>
+            <div className={styles.authorTitle}>某公司技术总监</div>
+          </div>
         </div>
       </div>
     </div>

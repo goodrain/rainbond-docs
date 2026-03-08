@@ -1,0 +1,20 @@
+.pageContainer {
+  position: relative;
+  flex: 1;
+  border-left: 1px solid var(--border-color, #eaebee);
+  border-right: 1px solid var(--border-color, #eaebee);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--content-max-width, 1380px);
+  margin: 0 auto;
+  background: var(--ifm-background-color);
+}
+
+@media (max-width: 1400px) {
+  .pageContainer {
+    border-left: none;
+    border-right: none;
+  }
+}

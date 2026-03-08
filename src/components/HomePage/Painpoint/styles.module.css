@@ -1,0 +1,193 @@
+/**
+ * Copyright (c) Goodrain, Inc.
+ *
+ * This source code is licensed under the LGPL-3.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ **/
+
+.painpointSection {
+  width: 100%;
+  padding: 6rem 0;
+  background: #f8f9fa;
+  position: relative;
+}
+
+.bgSection {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.lf,
+.rt {
+  flex: 1;
+  border-top: 1px solid #eaebee;
+  border-bottom: 1px solid #eaebee;
+  background: #f8f9fa;
+}
+
+.mid {
+  width: min(100%, var(--content-max-width, 1380px));
+  border-top: 1px solid #eaebee;
+  border-bottom: 1px solid #eaebee;
+  background: #f8f9fa;
+}
+
+.container {
+  max-width: var(--content-max-width, 1380px);
+  margin: 4rem 0 4rem 0;
+  padding: 0 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+  padding: 4rem 0;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-family-base);
+}
+
+.subtitle {
+  color: #999;
+}
+
+.description {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.8;
+  margin: 0;
+  margin-top: 1.5rem;
+}
+
+.cardsGrid {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  max-width: none;
+  pointer-events: none;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eaebee;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  max-width: 360px;
+  position: absolute;
+  pointer-events: auto;
+}
+
+.card:nth-child(1) {
+  top: 20px;
+  left: calc((100vw - var(--content-max-width, 1380px)) / 1.5 - 50px);
+}
+
+.card:nth-child(2) {
+  top: 20px;
+  right: calc((100vw - var(--content-max-width, 1380px)) / 1.5 - 50px);
+}
+
+.card:nth-child(3) {
+  bottom: 0px;
+  right: calc((100vw - var(--content-max-width, 1380px)) / 2 - 100px);
+}
+
+.card:nth-child(4) {
+  bottom: 0;
+  left: calc((100vw - var(--content-max-width, 1380px)) / 2 - 100px);
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.cardContent {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #666;
+}
+
+.cardText {
+  flex: 1;
+}
+
+.role {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 0.5rem 0;
+}
+
+.cardDescription {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .painpointSection {
+    padding: 3rem 0;
+  }
+
+  .lf,
+  .rt {
+    display: none;
+  }
+
+  .mid {
+    width: 100vw;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
