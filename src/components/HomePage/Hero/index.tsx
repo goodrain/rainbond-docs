@@ -17,20 +17,31 @@ export default function Home() {
         {/* 标题部分 */}
         <h1 className={styles.hero_title_one}>以应用为中心的</h1>
         <h1 className={styles.hero_title_two}>下一代容器平台</h1>
-        <p className={styles.hero_title_four}>彻底屏蔽 K8s 复杂性，从源码到 AI 大模型，让应用交付像下载 App 一样简单</p>
+        <p className={styles.hero_title_four}>彻底屏蔽 K8s 复杂性，从源码到 AI 应用，让应用交付像下载 App 一样简单</p>
 
         {/* 按钮区块 */}
         <div className={styles.hero_button}>
           <Link to="/docs/quick-start/quick-install" className={`${styles.hero_button_style} ${styles.hero_button_primary}`}>
             立即使用
           </Link>
-          <OverlayTrigger placement="bottom" overlay={
-            <div className="card">
-              <div className="card__body">
-                <img width="200px" height="200px" src="/wechat/wechatgroup-text.png" />
+          <OverlayTrigger
+            placement="bottom"
+            container={typeof document !== 'undefined' ? document.body : undefined}
+            popperConfig={{ strategy: 'fixed' }}
+            overlay={(overlayProps) => (
+              <div
+                {...overlayProps}
+                className={styles.wechatOverlay}
+                style={{ ...overlayProps.style, zIndex: 9999 }}
+              >
+                <div className="card">
+                  <div className="card__body">
+                    <img width="200px" height="200px" src="/wechat/wechatgroup-text.png" />
+                  </div>
+                </div>
               </div>
-            </div>
-          }>
+            )}
+          >
             <button className={`${styles.hero_button_style} ${styles.hero_button_secondary}`}>
               加入社群
             </button>

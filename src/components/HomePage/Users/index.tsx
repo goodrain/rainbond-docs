@@ -6,6 +6,7 @@
  */
 
 import React from "react";
+import { motion } from "framer-motion";
 import styles from "./styles.module.css";
 
 export default function Users() {
@@ -111,6 +112,15 @@ export default function Users() {
   // Duplicate logos for seamless loop
   const allLogos = [...logos, ...logos];
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
     <div className={styles.usersSection}>
       {/* 背景分割区域 */}
@@ -120,11 +130,17 @@ export default function Users() {
           <img src="/img/split-bg.png" alt="" />
 
           {/* 标题居中在背景分割区域 */}
-          <div className={styles.titleWrapper}>
+          <motion.div 
+            className={styles.titleWrapper}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={itemVariants}
+          >
             <h2 className={styles.title}>
               受到上千家生产用户的信赖
             </h2>
-          </div>
+          </motion.div>
         </div>
         {/* <div className={styles.rt}></div> */}
       </div>
@@ -144,7 +160,13 @@ export default function Users() {
         </div>
       </div>
 
-      <div className={styles.container}>
+      <motion.div 
+        className={styles.container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={itemVariants}
+      >
         {/* Testimonial */}
         <div className={styles.testimonial}>
           <p className={styles.quote}>
@@ -154,7 +176,7 @@ export default function Users() {
             <div className={styles.authorTitle}>某公司技术总监</div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

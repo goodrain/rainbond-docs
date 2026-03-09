@@ -5,6 +5,7 @@ import {
   IconShield,
   IconCloud,
 } from '@douyinfe/semi-icons';
+import { motion } from 'framer-motion';
 import styles from './styles.module.css';
 
 type CardTheme = 'enterprise' | 'devops' | 'domestic' | 'offline';
@@ -68,23 +69,58 @@ const iconMap: Record<CardTheme, React.ReactNode> = {
 };
 
 export default function WhyChoose() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
     <div className={styles.whyChooseSection}>
       <div className={styles.bgSection}>
         <div className={styles.lf}></div>
         <div className={styles.mid}>
           <img src="/img/split-bg.png" alt="" />
-          <div className={styles.titleWrapper}>
+          <motion.div 
+            className={styles.titleWrapper}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={itemVariants}
+          >
             <h2 className={styles.sectionTitle}>为什么选择 Rainbond？</h2>
             <p className={styles.sectionSubtitle}>为不同场景量身定制云原生解决方案</p>
-          </div>
+          </motion.div>
         </div>
         <div className={styles.rt}></div>
       </div>
 
-      <div className={styles.cardGrid}>
+      <motion.div 
+        className={styles.cardGrid}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+      >
         {cards.map((card) => (
-          <article key={card.title} className={`${styles.card} ${styles[card.theme]}`}>
+          <motion.article 
+            key={card.title} 
+            className={`${styles.card} ${styles[card.theme]}`}
+            variants={itemVariants}
+          >
             <div className={styles.cardTop}>
               <div className={styles.iconBadge}>{iconMap[card.theme]}</div>
             </div>
@@ -104,9 +140,9 @@ export default function WhyChoose() {
                 </div>
               ))}
             </div>
-          </article>
+          </motion.article>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

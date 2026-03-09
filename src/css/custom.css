@@ -162,3 +162,48 @@ div[class^='announcementBar_'] {
 .markdown>h3 {
   font-size: 1.2rem !important;
 }
+
+/* Sidebar Badges */
+.sidebar-enterprise .menu__link::after {
+  content: 'Enterprise';
+  display: inline-flex;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+  background-color: rgba(0, 102, 255, 0.1);
+  color: #0066ff;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  letter-spacing: 0.2px;
+}
+
+[data-theme='dark'] .sidebar-enterprise .menu__link::after {
+  background-color: rgba(0, 102, 255, 0.15);
+  color: #4dabf7;
+  border-color: rgba(0, 102, 255, 0.3);
+}
+
+.sidebar-opensource .menu__link::after {
+  content: 'Opensource';
+  display: inline-flex;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.2);
+  letter-spacing: 0.2px;
+}
+
+[data-theme='dark'] .sidebar-opensource .menu__link::after {
+  background-color: rgba(40, 167, 69, 0.15);
+  color: #63e6be;
+  border-color: rgba(40, 167, 69, 0.3);
+}

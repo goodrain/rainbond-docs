@@ -7,25 +7,7 @@ import Footer from '@theme/Footer';
 import Layout from '@theme/Layout';
 import Background from '@src/components/Background';
 export default function Index() {
-  const handleOnClickLinkRainbondCloud = () => {
-      axios({
-        method: 'get',
-        url: 'https://run.rainbond.com/console/user_source',
-        params: {
-          content: 'visit rainbond cloud',
-          sms_type: 'rainbond',
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      }
-      )
-      .catch((error) => {
-        console.error(error);
-      }
-      );
-      window.open('https://run.rainbond.com/#/user/login?link=enterprise')
-    }
+
   return (
     <Layout>
       <Background />
@@ -55,27 +37,8 @@ export default function Index() {
                 <a className={styles.cardBtnOutline} href='/docs/quick-start/quick-install/'>免费下载</a>
               </div>
             </div>
-            {/* Rainbond Cloud 主推卡片 */}
-            <div className={styles.cardActive}>
-              <div className={styles.cardTag}>免运维</div>
-              <div className={styles.cardTitleActive}>Rainbond Cloud</div>
-              <div className={styles.cardDesc}>灵活适配使用场景，按需计量计费</div>
-              <div className={styles.cardPriceRow}>
-                <span className={styles.cardPriceActive}>按量付费</span>
-                <span className={styles.cardPriceUnitActive}>/时</span>
-              </div>
-              <ul className={styles.cardFeatureList}>
-                <li><span className={styles.cardCheckActive}></span>SLA保障</li>
-                <li><span className={styles.cardCheckActive}></span>企业级功能</li>
-                <li><span className={styles.cardCheckActive}></span>在线技术支持</li>
-              </ul>
-              <div className={styles.cardActiveBtns}>
-                <a className={styles.cardBtnActive} onClick={handleOnClickLinkRainbondCloud}>开始体验</a>
-                <a className={styles.cardBtnOutline} href='/calculator' target='_blank'>价格计算器</a>
-              </div>
-            </div>
             {/* 企业版 */}
-            <div className={styles.card}>
+            <div className={`${styles.card} ${styles.enterpriseCard}`}>
               <div className={styles.cardTag}>私有化</div>
               <div className={styles.cardTitle}>企业版</div>
               <div className={styles.cardDesc}>为企业提供专属支持与运营商级可靠性</div>
@@ -102,7 +65,6 @@ export default function Index() {
               <div className={styles.contrast_desc_title}>
                 <span></span>
                 <span>社区版</span>
-                <span>Rainbond Cloud</span>
                 <span>企业版</span>
               </div>
               {/* 详细功能差异 */}
@@ -120,15 +82,9 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>Dockerfile构建和镜像构建</span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -144,9 +100,6 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>持续构建及版本回滚</span>
@@ -156,15 +109,9 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>一体化开发测试环境</span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -186,15 +133,9 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>支持Spring Cloud和Dubbo等常见微服务架构</span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -210,9 +151,6 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>多级探索式服务拓扑</span>
@@ -222,15 +160,9 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>集成skywalking/pinpoint</span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -250,9 +182,6 @@ export default function Index() {
                       <img src='/img/right.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
@@ -262,17 +191,11 @@ export default function Index() {
                       <img src='/img/right.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
                   <div>
                     <span>离线导入和导出</span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -288,17 +211,11 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>对接多个外部Helm市场</span>
                     <span>
                       <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
@@ -318,15 +235,9 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>手动伸缩和自动伸缩</span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -342,15 +253,9 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>应用级监控和性能分析</span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -366,15 +271,9 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>web终端管理</span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -396,9 +295,6 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>统一的域名管理和HTTPS证书管理</span>
@@ -408,15 +304,9 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>灰度发布和A/B测试</span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -438,15 +328,9 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>应用无差别的在多云上运行</span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -462,15 +346,9 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>多团队和多租户管理</span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
@@ -492,17 +370,11 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>SLA保障</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/right.svg' alt='' />
@@ -516,15 +388,9 @@ export default function Index() {
                     <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
                   </div>
                   <div>
                     <span>现场实施与培训</span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
@@ -548,9 +414,6 @@ export default function Index() {
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
@@ -558,9 +421,6 @@ export default function Index() {
                     <span>
                       <p style={{marginBottom:'-4px'}}>基础功能扩展</p>
                       <span style={{fontSize:'10px'}}>应用备份、个性化视觉配置及审计日志等核心模块增强</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
@@ -578,9 +438,6 @@ export default function Index() {
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
@@ -588,9 +445,6 @@ export default function Index() {
                     <span>
                       <p style={{marginBottom:'-4px'}}>告警中心</p>
                       <span style={{fontSize:'10px'}}>实时异常检测与智能告警系统，支持自定义阈值规则、多通道通知（邮件/钉钉/Webhook）</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
@@ -608,9 +462,6 @@ export default function Index() {
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
@@ -618,9 +469,6 @@ export default function Index() {
                     <span>
                       <p style={{marginBottom:'-4px'}}>GPU高级管理</p>
                       <span style={{fontSize:'10px'}}>支持AI训练/推理任务加速、显存监控、多卡分配策略等</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
@@ -638,9 +486,6 @@ export default function Index() {
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
@@ -648,9 +493,6 @@ export default function Index() {
                     <span>
                       <p style={{marginBottom:'-4px'}}>灾备恢复</p>
                       <span style={{fontSize:'10px'}}>提供可视化的备份策略配置和自动化恢复能力</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
@@ -668,9 +510,6 @@ export default function Index() {
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
@@ -683,223 +522,29 @@ export default function Index() {
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
-                  {/* 可观测性中心 */}
-                  {/* <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>可观测性中心</p>
-                      <span style={{fontSize:'10px'}}>全局日志、报警中心、高级监控、大屏</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div> */}
-                  {/* 集群巡检 */}
-                  {/* <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>集群巡检</p>
-                      <span style={{fontSize:'10px'}}>运行巡检、配置规范巡检、安全巡检</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div> */}
-                  {/* 安全增强 */}
-                  {/* <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>安全增强</p>
-                      <span style={{fontSize:'10px'}}>操作审计、安全配置、源码安全</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div> */}
-                  {/* 网关增强 */}
-                  {/* <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>网关增强</p>
-                      <span style={{fontSize:'10px'}}>WAF防火墙、API网关、网关监控、性能提升</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div> */}
-                  {/* Istio可视化管理 */}
-                  {/* <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>Istio可视化管理</p>
-                      <span style={{fontSize:'10px'}}>流量拓扑、流量监控、零信任网络、流量控制</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div> */}
-                  {/* Spring  Cloud可视化管理 */}
-                  {/* <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>Spring  Cloud可视化管理</p>
-                      <span style={{fontSize:'10px'}}>流量拓扑、流量监控、调用链分析、流量控制、网关配置</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div> */}
-                  {/* 全链路灰度 */}
-                  {/* <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>全链路灰度</p>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div> */}
-                  {/* 云原生应用商店 */}
                   <div>
                     <span>云原生应用商店</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
-                  {/* 其他功能优化 */}
-                  {/* <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>其他功能优化</p>
-                      <span style={{fontSize:'10px'}}>团队资源配额、组件存储文件管理</span>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div> */}
-                  {/* 定制化样式 */}
-                  {/* <div>
-                    <span>定制化和样式</span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div> */}
-                  {/* <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>企业级备份</p>
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div> */}
-                  {/* <div>
-                    <span>
-                      <p style={{marginBottom:'-4px'}}>离线环境支持</p>
-                    </span>
-                    <span style={{color:'#7d7979'}}>
-                      命令行
-                    </span>
-                    <span style={{color:'#7d7979'}}>
-                      不支持
-                    </span>
-                    <span style={{color:'#7d7979'}}>
-                      图形化
-                    </span>
-                  </div> */}
                   <div>
                     <span>应用集成和展示门户</span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>
                     <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
                       <img src='/img/right.svg' alt='' />
                     </span>
                   </div>
-                  
-                  {/* <div>
-                    <span> 开源中间件（集群版）</span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
-                    <span>
-                      <img src='/img/right.svg' alt='' />
-                    </span>
-                  </div> */}
                   <div>
                     <span>三级等保支持</span>
-                    <span>
-                      <img src='/img/error.svg' alt='' />
-                    </span>
                     <span>
                       <img src='/img/error.svg' alt='' />
                     </span>

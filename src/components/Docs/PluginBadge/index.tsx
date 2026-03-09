@@ -17,7 +17,7 @@ const config = {
       </svg>
     ),
     label: '企业版插件',
-    desc: '该功能为企业版专属，可免费试用 30 天',
+    desc: '该功能为企业版专属，可免费试用 15 天',
     linkText: '了解企业版 →',
     linkTo: '/enterprise_server',
     className: styles.enterprise,

@@ -252,6 +252,47 @@ const sidebars = {
       ]
     },
     {
+      "type": "category",
+      "label": "功能扩展",
+      "items": [
+        {
+          type: 'doc',
+          id: 'plugins/gpu',
+          className: 'sidebar-enterprise',
+        },
+        {
+          type: 'doc',
+          id: 'plugins/monitor',
+          className: 'sidebar-enterprise',
+        },
+        {
+          type: 'doc',
+          id: 'plugins/pipeline',
+          className: 'sidebar-enterprise',
+        },
+        {
+          type: 'doc',
+          id: 'plugins/disaster-recovery',
+          className: 'sidebar-enterprise',
+        },
+        {
+          type: 'doc',
+          id: 'plugins/source-scan',
+          className: 'sidebar-enterprise',
+        },
+        {
+          type: 'doc',
+          id: 'plugins/logs',
+          className: 'sidebar-enterprise',
+        },
+        {
+          type: 'doc',
+          id: 'plugins/alert',
+          className: 'sidebar-enterprise',
+        },
+      ]
+    },
+    {
       type: 'category',
       label: '参考指南',
       items: [
@@ -356,19 +397,6 @@ const sidebars = {
           ]
         },
         "ops-guides/cli-tools",
-      ]
-    },
-    {
-      "type": "category",
-      "label": "功能扩展",
-      "items": [
-        "plugins/gpu",
-        "plugins/monitor",
-        "plugins/pipeline",
-        "plugins/disaster-recovery",
-        "plugins/source-scan",
-        "plugins/logs",
-        "plugins/alert",
       ]
     },
     'faq/index',

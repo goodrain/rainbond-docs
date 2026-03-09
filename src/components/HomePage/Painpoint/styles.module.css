@@ -91,34 +91,42 @@
   pointer-events: none;
 }
 
+.cardWrapper1,
+.cardWrapper2,
+.cardWrapper3,
+.cardWrapper4 {
+  position: absolute;
+  pointer-events: auto;
+  max-width: 360px;
+  width: 100%;
+}
+
+.cardWrapper1 {
+  top: 20px;
+  left: calc((100vw - var(--content-max-width, 1380px)) / 1.5 - 50px);
+}
+
+.cardWrapper2 {
+  top: 20px;
+  right: calc((100vw - var(--content-max-width, 1380px)) / 1.5 - 50px);
+}
+
+.cardWrapper3 {
+  bottom: 0px;
+  right: calc((100vw - var(--content-max-width, 1380px)) / 2 - 100px);
+}
+
+.cardWrapper4 {
+  bottom: 0;
+  left: calc((100vw - var(--content-max-width, 1380px)) / 2 - 100px);
+}
+
 .card {
   background: #fff;
   border: 1px solid #eaebee;
   border-radius: 12px;
   transition: all 0.3s ease;
-  max-width: 360px;
-  position: absolute;
-  pointer-events: auto;
-}
-
-.card:nth-child(1) {
-  top: 20px;
-  left: calc((100vw - var(--content-max-width, 1380px)) / 1.5 - 50px);
-}
-
-.card:nth-child(2) {
-  top: 20px;
-  right: calc((100vw - var(--content-max-width, 1380px)) / 1.5 - 50px);
-}
-
-.card:nth-child(3) {
-  bottom: 0px;
-  right: calc((100vw - var(--content-max-width, 1380px)) / 2 - 100px);
-}
-
-.card:nth-child(4) {
-  bottom: 0;
-  left: calc((100vw - var(--content-max-width, 1380px)) / 2 - 100px);
+  width: 100%;
 }
 
 .card:hover {

@@ -1,22 +1,37 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Tag } from '@douyinfe/semi-ui';
+import { motion } from 'framer-motion';
 import styles from './styles.module.css';
 import Link from "@docusaurus/Link";
 
 export default function Comparison() {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
-    <div className={styles.comparisonContainer}>
+    <motion.div 
+      className={styles.comparisonContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+    >
       {/* 标题区 */}
-      <div className={styles.comparisonHeader}>
+      <motion.div className={styles.comparisonHeader} variants={itemVariants}>
         <h2 className={styles.comparisonTitle}>产品差异</h2>
         <p className={styles.comparisonDesc}>
           了解 Rainbond 与主流容器平台的差异化优势
         </p>
-      </div>
-      <div className={styles.divider}></div>
+      </motion.div>
+      <motion.div className={styles.divider} variants={itemVariants}></motion.div>
       {/* 表格区 */}
-      <div className={styles.comparisonTableWrap}>
+      <motion.div className={styles.comparisonTableWrap} variants={itemVariants}>
         <table className={styles.comparisonTable}>
           <thead>
             <tr style={{ background: '#f8fafc' }}>
@@ -98,14 +113,14 @@ export default function Comparison() {
             </tr>
           </tbody>
         </table>
-      </div>
-      <div className={clsx("row",styles.button_row)}>
+      </motion.div>
+      <motion.div className={clsx("row",styles.button_row)} variants={itemVariants}>
         <div className='col col--12'>
           <Link to="/docs" className={styles.learnMoreButton}>
             了解更多
           </Link>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

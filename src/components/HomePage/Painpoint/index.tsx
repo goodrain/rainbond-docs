@@ -7,13 +7,14 @@
 
 import React from "react";
 import { Card } from "@douyinfe/semi-ui";
+import { motion } from "framer-motion";
 import styles from "./styles.module.css";
 
 export default function Painpoint() {
   const painpoints = [
     {
       role: "初学者 / 个人开发者",
-      description: "只会基础的 Linux 命令，面对 Kubernetes 庞大晦涩的概念体系宛如看天书。想部署个复杂的开源项目或 AI 大模型，跟着教程折腾几天连环境都跑不起来。",
+      description: "只会基础的 Linux 命令，面对 Kubernetes 庞大晦涩的概念体系宛如看天书。想部署个复杂的开源项目或 AI 应用，跟着教程折腾几天连环境都跑不起来。",
     },
     {
       role: "开发工程师",
@@ -29,6 +30,25 @@ export default function Painpoint() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
     <div className={styles.painpointSection}>
       <div className={styles.bgSection} aria-hidden="true">
@@ -36,8 +56,14 @@ export default function Painpoint() {
         <div className={styles.mid}></div>
         <div className={styles.rt}></div>
       </div>
-      <div className={styles.container}>
-        <div className={styles.header}>
+      <motion.div 
+        className={styles.container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+      >
+        <motion.div className={styles.header} variants={itemVariants}>
           <h2 className={styles.title}>
             您需要
             <br />
@@ -50,26 +76,27 @@ export default function Painpoint() {
             <br />
             割裂的工具链与错综复杂的架构黑盒中被严重内耗。
           </p>
-        </div>
+        </motion.div>
 
         <div className={styles.cardsGrid}>
           {painpoints.map((item, index) => (
-            <Card
-              key={index}
-              className={styles.card}
-              bodyStyle={{ padding: "24px" }}
-            >
-              <div className={styles.cardContent}>
-                <div className={styles.icon}>!</div>
-                <div className={styles.cardText}>
-                  <h3 className={styles.role}>{item.role}：</h3>
-                  <p className={styles.cardDescription}>{item.description}</p>
+            <motion.div key={index} variants={itemVariants} className={styles[`cardWrapper${index + 1}`]}>
+              <Card
+                className={styles.card}
+                bodyStyle={{ padding: "24px" }}
+              >
+                <div className={styles.cardContent}>
+                  <div className={styles.icon}>!</div>
+                  <div className={styles.cardText}>
+                    <h3 className={styles.role}>{item.role}：</h3>
+                    <p className={styles.cardDescription}>{item.description}</p>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

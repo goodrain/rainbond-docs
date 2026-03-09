@@ -30,10 +30,11 @@
 
 .type_sort {
   display: flex;
-  gap: 0;
+  gap: 24px;
   justify-content: center;
-  align-items: stretch;
-  margin: 48px 0 0 0;
+  align-items: flex-start;
+  margin: 40px auto 0;
+  max-width: 860px;
   flex-wrap: wrap;
 }
 .card, .cardActive {
@@ -42,25 +43,23 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  min-width: 320px;
-  // max-width: 370px;
+  min-width: 280px;
   padding: 40px 32px 32px 32px;
-  border-radius: 0;
+  border-radius: 24px;
   border: 1px solid #ececf1;
   box-shadow: none;
   position: relative;
-  flex: 1 1 320px;
+  flex: 0 1 418px;
+  max-width: 418px;
   background: #fff;
 }
-.card:first-child { border-radius: 32px 0 0 32px; }
-.card:last-child  { border-radius: 0 32px 32px 0; }
+.card:first-child { border-radius: 24px; }
+.card:last-child  { border-radius: 24px; }
 .cardActive {
   background: #fff;
   border-right: none;
   border-left: none;
-  // box-shadow: 0 12px 36px rgba(99,102,241,0.13);
   color: #18181b;
-  // transform: translateY(-24px);
   z-index: 3;
 }
 // .cardTitleActive,
@@ -97,16 +96,16 @@
 }
 .cardBtns, .cardActiveBtns {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
   margin-top: auto;
 }
 .cardBtnActive, .cardBtnOutline {
   cursor: pointer;
   flex: 1;
-  height: 50px;
+  height: 40px;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -136,21 +135,21 @@
 }
 .cardTag {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 18px;
+  right: 18px;
   background: #ede9fe;
   color: oklch(51.1% .262 276.966);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  padding: 4px 16px;
+  padding: 4px 12px;
   border-radius: 999px;
   letter-spacing: 1px;
   z-index: 3;
 }
 .cardTitle, .cardTitleActive {
-  font-size: 1.25rem;
+  font-size: 1.08rem;
   font-weight: 800;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: #18181b;
 }
 // .cardTitleActive {
@@ -158,18 +157,18 @@
 // }
 .cardDesc {
   color: #6b7280;
-  font-size: 1.05rem;
-  margin-bottom: 28px;
-  min-height: 60px;
+  font-size: 0.94rem;
+  margin-bottom: 16px;
+  min-height: 42px;
 }
 .cardPriceRow {
   display: flex;
   align-items: flex-end;
-  margin-bottom: 24px;
-  margin-top: 8px;
+  margin-bottom: 18px;
+  margin-top: 6px;
 }
 .cardPrice, .cardPriceActive {
-  font-size: 2.5rem;
+  font-size: 1.95rem;
   font-weight: 900;
   color: #18181b;
   line-height: 1;
@@ -178,7 +177,7 @@
 //   color: oklch(51.1% .262 276.966);
 // }
 .cardPriceUnit, .cardPriceUnitActive {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #6b7280;
   font-weight: 500;
   margin-left: 4px;
@@ -191,23 +190,23 @@
 .cardFeatureList {
   list-style: none;
   padding: 0;
-  margin: 0 0 32px 0;
+  margin: 0 0 18px 0;
   width: 100%;
 }
 .cardFeatureList li {
   display: flex;
   align-items: center;
-  font-size: 1.05rem;
+  font-size: 0.94rem;
   color: #18181b;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-weight: 500;
 }
 .cardCheck, .cardCheckActive {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   margin-right: 8px;
 }
 .cardCheck::before {
@@ -245,6 +244,14 @@
     border-radius: 18px;
     padding: 24px 10px 20px 10px;
     font-size: 15px;
+  }
+  .enterpriseCard {
+    padding-top: 24px;
+    padding-bottom: 48px;
+  }
+  .enterpriseCard::before {
+    top: -20px;
+    border-radius: 18px;
   }
   .cardBtns, .cardActiveBtns {
     flex-direction: column;
@@ -297,7 +304,7 @@
 }
 .contrast_desc_title {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 2fr) minmax(120px, 1fr) minmax(120px, 1fr);
   font-size: 1.15rem;
   font-weight: 700;
   color: #1e293b;
@@ -317,7 +324,7 @@
 .contrast_desc_detail > div > div:not(:first-child) {
   display: grid;
   height: 56px;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 2fr) minmax(120px, 1fr) minmax(120px, 1fr);
   border-bottom: 1px solid #f1f1f1;
   align-items: center;
   font-size: 1rem;

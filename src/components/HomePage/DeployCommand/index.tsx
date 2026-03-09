@@ -3,6 +3,7 @@ import Link from '@docusaurus/Link';
 import CodeBlock from '@theme/CodeBlock';
 import { Tabs } from '@douyinfe/semi-ui';
 import { IconGlobe, IconServer } from '@douyinfe/semi-icons';
+import { motion } from 'framer-motion';
 import styles from './styles.module.css';
 
 const deploymentHighlights = [
@@ -32,7 +33,13 @@ export default function DeployCommand() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.panel}>
+      <motion.div 
+        className={styles.panel}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         <div className={styles.backdrop} aria-hidden="true">
           <span className={styles.orbPrimary}></span>
           <span className={styles.orbSecondary}></span>
@@ -126,7 +133,7 @@ export default function DeployCommand() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
