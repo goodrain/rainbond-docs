@@ -217,7 +217,7 @@ const config = {
         indexName: 'crawler_rainbond'
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
             title: '文档',
