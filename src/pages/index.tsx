@@ -12,11 +12,12 @@ import Comparison from '@src/components/HomePage/Comparison';
 import Section from '@src/components/Section';
 import PageContainer from '@src/components/PageContainer';
 import GridDecoration from '@src/components/GridDecoration';
+import styles from './styles.module.css';
 
 export default function Home() {
 
   return (
-    <Layout>
+    <Layout wrapperClassName={styles.homeWrapper}>
       {/* <Background /> */}
       <PageContainer>
         <Section style={{ position: 'relative' }}>
