@@ -2,127 +2,97 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 import axios from 'axios';
-import { Button } from '@douyinfe/semi-ui';
-import { IconFile, IconGallery, IconBox, IconForward, IconGithubLogo, IconLayers, IconSetting, IconApartment, IconApps, IconCloud } from '@douyinfe/semi-icons';
+import { IconGithubLogo } from '@douyinfe/semi-icons';
+
+// 下拉箭头 SVG 组件
+const DropdownArrow = () => (
+  <svg className={styles.dropdownArrow} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.5 6.25L8 9.75L11.5 6.25" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
 
 export default function Navbar() {
   const handleOnClickLinkRainbondCloud = () => {
-      axios({
-        method: 'get',
-        url: 'https://run.rainbond.com/console/user_source',
-        params: {
-          content: 'rainbond',
-          sms_type: 'rainbond',
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      }
-      )
-      .catch((error) => {
-        console.error(error);
-      }
-      );
-      window.open('https://run.rainbond.com/#/user/login?link=rainbond')
-    }
+    axios({
+      method: 'get',
+      url: 'https://run.rainbond.com/console/user_source',
+      params: {
+        content: 'rainbond',
+        sms_type: 'rainbond',
+      },
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+    window.open('https://run.rainbond.com/#/user/login?link=rainbond')
+  }
+
   return (
     <nav className={styles.navbar}>
-      <Link href="/" className={styles.homeLink}>
-        <img src="/img/rainbond.png" alt="Rainbond Logo" className={styles.logo} />
-      </Link>
-      
-      <div className={styles.divider} />
-      
-      <div className={styles.nav}>
-        <div className={styles.navLink}>
-          <Link to="/docs">
-            <Button theme="borderless" type="tertiary" icon={<IconFile />}>
+      <div className={styles.navbarContent}>
+        {/* 左侧区域 */}
+        <div className={styles.navbarLeft}>
+          <Link href="/" className={styles.homeLink}>
+            <img src="/img/rainbondlog.png" alt="Rainbond Logo" className={styles.logo} />
+          </Link>
+
+          <div className={styles.nav}>
+            <Link to="/docs" className={styles.navLink}>
               文档
-            </Button>
-          </Link>
-        </div>
-        {/* <div className={styles.navLink}>
-          <div className={styles.dropdown}>
-            <Button 
-              theme="borderless" 
-              type="tertiary" 
-              icon={<IconGallery />}
-            >
-              功能特性
-            </Button>
-            <div className={styles.dropdownMenu}>
-              <Link to="/xinchuang" className={styles.dropdownItem}>
-                信创
-              </Link>
-              <Link to="/feature/devops" className={styles.dropdownItem}>
-                一体化DevOps
-              </Link>
-              <Link to="/feature/multi-cluster" className={styles.dropdownItem}>
-                K8s 多集群管理
-              </Link>
-              <Link to="/feature/service-mesh" className={styles.dropdownItem}>
-                开箱即用的微服务治理
-              </Link>
-              <Link to="/feature/app-ops" className={styles.dropdownItem}>
-                自动化应用运维
-              </Link>
+            </Link>
+
+            <div className={styles.dropdown}>
+              <div className={styles.dropdownTrigger}>
+                <span>深入</span>
+                <DropdownArrow />
+              </div>
+              <div className={styles.dropdownMenu}>
+                <Link to="/usescene" className={styles.dropdownItem}>
+                  使用场景
+                </Link>
+                <Link to="/case" className={styles.dropdownItem}>
+                  用户案例
+                </Link>
+                <Link to="/blog" className={styles.dropdownItem}>
+                  博客
+                </Link>
+                <Link to="/docs/Intro" className={styles.dropdownItem}>
+                  OpenAPI
+                </Link>
+              </div>
             </div>
-          </div>
-        </div> */}
-        <div className={styles.navLink}>
-          <div className={styles.dropdown}>
-            <Button 
-              theme="borderless" 
-              type="tertiary" 
-              icon={<IconLayers />}
-            >
-              深入
-            </Button>
-            <div className={styles.dropdownMenu}>
-              <Link to="/usescene" className={styles.dropdownItem}>
-                使用场景
-              </Link>
-              <Link to="/case" className={styles.dropdownItem}>
-                用户案例
-              </Link>
-              <Link to="/blog" className={styles.dropdownItem}>
-                博客
-              </Link>
-              <Link to="/docs/Intro" className={styles.dropdownItem}>
-                OpenAPI
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className={styles.navLink}>
-          <Link to="/enterprise_server">
-            <Button theme="borderless" type="tertiary" icon={<IconApartment />}>
+
+            <Link to="/enterprise_server" className={styles.navLink}>
               企业版
-            </Button>
-          </Link>
-        </div>
-        <div className={styles.navLink}>
-          <a onClick={handleOnClickLinkRainbondCloud}>
-            <Button theme="borderless" type="tertiary" icon={<IconCloud />}>
-            云服务
-            </Button>
-          </a>
-        </div>
-        <div className={styles.navLink}>
-          <Link to="https://hub.grapps.cn">
-            <Button theme="borderless" type="tertiary" icon={<IconApps />}>
+            </Link>
+
+            <a onClick={handleOnClickLinkRainbondCloud} className={styles.navLink}>
+              云服务
+            </a>
+
+            <Link to="https://hub.grapps.cn" className={styles.navLink}>
               应用商店
-            </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* 右侧区域 */}
+        <div className={styles.navbarRight}>
+          <a
+            href="https://github.com/goodrain/rainbond"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.github_button}
+          >
+            <IconGithubLogo size="extra-large" className={styles.github_icon} />
+          </a>
+          <Link to="/docs/quick-start/quick-install" className={`${styles.github_button} ${styles.primaryButton}`}>
+            立即使用
           </Link>
         </div>
-        <a
-          href="https://github.com/goodrain/rainbond" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className={styles.github_button}
-        >
-          <IconGithubLogo className={styles.github_icon} size="large"/>
-        </a>
       </div>
     </nav>
   );

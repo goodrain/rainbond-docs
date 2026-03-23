@@ -5,95 +5,278 @@
  * LICENSE file in the root directory of this source tree.
  **/
 
-@media screen and (max-width: 996px) {
-  .col {
-    --ifm-col-width: 200px !important;
-  }
+.usersSection {
+  width: 100%;
+  padding: 5rem 0;
+  background: #fff;
+  position: relative;
+  margin-bottom: 4rem;
 }
 
-.row {
-  margin-top: 2.5rem;
+/* .usersSection::before,
+.usersSection::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #eaebee;
+  z-index: 0;
+} */
+
+.usersSection::before {
+  left: 0;
+}
+
+.usersSection::after {
+  right: 0;
+}
+
+.container {
+  max-width: var(--content-max-width, 1380px);
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
 }
 
 .title {
   font-size: 32px;
-  color: var(--ifm-color-primary-black);
+  font-weight: 600;
+  color: #000;
   text-align: center;
+  margin-bottom: 4rem;
+  font-family: var(--font-family-base);
 }
 
-.card {
-  border-radius: 0;
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 180px;
-  height: 100px;
+/* Logo Carousel */
+.logoCarousel {
+  overflow: hidden;
+  margin-bottom: 5rem;
+  margin-top: 61px;
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3rem 0;
+  background: #fff;
+  z-index: 1;
 }
 
-.col {
-  padding-top: 15px;
+/* 左右两侧的上下边框 */
+.logoCarousel::before,
+.logoCarousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc((100vw - var(--content-max-width, 1380px)) / 2);
+  border-top: 1px solid #eaebee;
+  border-bottom: 1px solid #eaebee;
+  z-index: 2;
 }
 
-.card_image {
-  width: 180px;
-  height: 100px;
-  line-height: 100px;
+.logoCarousel::before {
+  left: 0;
 }
 
-.image {
-  width: 180px;
-  height: 80px;
+.logoCarousel::after {
+  right: 0;
+}
+
+.logoTrack {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 60s linear infinite;
+  width: fit-content;
+}
+
+.logoTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 140px;
+  transition: all 0.3s ease;
+}
+
+.logoImage {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
   object-fit: contain;
-  vertical-align: middle;
-  display: inline-block;
-  /* line-height: 100px; */
+  filter: grayscale(100%) opacity(0.6);
+  transition: all 0.3s ease;
 }
 
-.case {
-  padding-top: 50px;
+.logoItem:hover .logoImage {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.1);
+}
+
+/* Testimonial */
+.testimonial {
+  max-width: 900px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.case_col {
-  padding-top: 15px;
+.quote {
+  font-size: 24px;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 2rem;
+  font-weight: 400;
 }
 
-.button {
-  margin-right: 10px;
-  border-radius: 30px;
-  background-color: #19AABD;
-  height: 55px;
-  width: 210px;
+.highlight {
+  color: #006dff;
+  font-weight: 600;
+}
+
+.author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.authorInfo {
+  text-align: center;
+}
+
+.authorName {
   font-size: 16px;
-}
-.button:hover {
-  background-color: #19AABD !important;
-  box-shadow: 0 16px 32px 0 rgba(48, 55, 66, 0.15);
-}
-
-.text > a {
-  color: var(--ifm-color-primary-black) !important;
-  border-bottom: 1px solid;
-}
-.text > a > span:hover {
-  color: #19AABD !important;
-  border-bottom: 1px solid #19AABD !important;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 0.25rem;
 }
 
-.hero_button_style {
-  font-size: 16px !important;
-  height: 50px !important;
-  width: 180px !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.authorTitle {
+  font-size: 14px;
+  color: #666;
 }
 
-.hero_button_style:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Responsive */
+@media (max-width: 1200px) {
+  .logoTrack {
+    gap: 3rem;
+  }
+
+  .logoItem {
+    width: 120px;
+  }
 }
 
-.divider {
-  width: 5rem;
-  height: 2px;
-  background: var(--ifm-color-gray-900);
-  margin: 1.5rem auto 0;
+@media (max-width: 768px) {
+  .usersSection {
+    padding: 3rem 0;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 2rem;
+  }
+
+  .logoCarousel {
+    margin-bottom: 3rem;
+  }
+
+  .logoTrack {
+    gap: 2rem;
+  }
+
+  .logoItem {
+    width: 100px;
+  }
+
+  .quote {
+    font-size: 18px;
+  }
+
+  .author {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .authorInfo {
+    text-align: center;
+  }
+}
+
+/* Background Split Section */
+.bgSection {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  height: 142px;
+  z-index: 10;
+}
+
+.lf,
+.rt {
+  flex: 1;
+  background: #fff;
+}
+
+.mid {
+  width: var(--content-max-width, 1380px);
+  max-width: var(--content-max-width, 1380px);
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid #eaebee;
+  border-right: 1px solid #eaebee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mid img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+
+.titleWrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.bgSection .title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+  text-align: center;
 }

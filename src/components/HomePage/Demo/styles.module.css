@@ -1,0 +1,234 @@
+.demo {
+  width: 100%;
+  position: relative;
+  margin-top: -1px;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3rem;
+}
+
+.bgSection {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  height: 142px;
+  border-bottom: 1px solid #eaebee;
+  z-index: 10;
+}
+
+.lf,
+.rt {
+  flex: 1;
+  border-top: 1px solid #eaebee;
+  background: #fff;
+}
+
+.mid {
+  width: var(--content-max-width, 1380px);
+  max-width: var(--content-max-width, 1380px);
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid #eaebee;
+  border-right: 1px solid #eaebee;
+  border-top: 1px solid #eaebee;
+}
+
+.mid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tabs :global(.semi-tabs-bar) {
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.tabs :global(.semi-tabs-tab) {
+  padding: 8px 20px;
+  font-size: 14px;
+  color: #666;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.tabs :global(.semi-tabs-tab:hover) {
+  background: rgba(0, 0, 0, 0.04);
+  color: #666;
+}
+
+.tabs :global(.semi-tabs-tab-active) {
+  background: #fff;
+  color: #000 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.videoContainer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 2rem 0;
+  background: transparent;
+  overflow: visible;
+  min-height: 600px;
+}
+
+.gradientBackground {
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: calc(var(--content-max-width, 1380px) - 40px);
+  margin: 50px auto 0;
+  background: linear-gradient(
+    180deg,
+    #4a90e2 0%,
+    #5ba3d0 25%,
+    #7ec8e3 50%,
+    #a8dde8 75%,
+    #d4f1f4 100%
+  );
+  z-index: 0;
+  padding: 30px 2rem 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.tabsWrapper {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.tabDescriptionWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tabDescription {
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 900px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.75rem 2.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.01em;
+  transition: all 0.3s ease;
+}
+
+.videoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.videoStage {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: transparent;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.videoActive {
+  z-index: 2;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.videoHidden {
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.01);
+}
+
+.video::-webkit-media-controls {
+  display: none !important;
+}
+
+.video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+.video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+.video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+.video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .demo {
+    height: auto;
+    min-height: calc(100vh - 54px);
+  }
+
+  .bgSection {
+    height: 120px;
+  }
+
+  .tabs :global(.semi-tabs-tab) {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .videoContainer {
+    padding: calc(120px + 2rem) 1rem 1rem;
+  }
+
+  .gradientBackground {
+    width: calc(100% - 20px);
+    padding: 24px 1rem;
+  }
+
+  .tabDescription {
+    font-size: 14px;
+    padding: 0.75rem 1rem;
+    border-radius: 20px;
+  }
+}
