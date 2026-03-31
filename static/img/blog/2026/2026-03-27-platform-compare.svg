@@ -1,0 +1,71 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9fbfd"/>
+      <stop offset="100%" stop-color="#eef6ff"/>
+    </linearGradient>
+    <filter id="shadowC" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#9eb6ca" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgC)"/>
+  <text x="72" y="88" font-size="34" font-weight="700" fill="#16324f" font-family="Arial, Helvetica, sans-serif">Rainbond、Rancher、KubeSphere、Sealos 的关键区别</text>
+  <text x="72" y="126" font-size="18" fill="#4b6478" font-family="Arial, Helvetica, sans-serif">不是谁更强，而是谁更适合你当前的团队阶段。</text>
+
+  <g filter="url(#shadowC)">
+    <rect x="60" y="170" width="1160" height="470" rx="24" ry="24" fill="#ffffff" stroke="#d9e6ef" stroke-width="2"/>
+  </g>
+
+  <!-- Grid definition -->
+  <!-- col0 label: 180, each data col: 240 -->
+  <!-- x positions: 90, 270, 510, 750, 990, 1230 -->
+
+  <!-- Header pills aligned to column centers -->
+  <rect x="290" y="212" width="200" height="64" rx="18" ry="18" fill="#e9f6ef" stroke="#4db38a" stroke-width="2"/>
+  <rect x="530" y="212" width="200" height="64" rx="18" ry="18" fill="#eaf8f6" stroke="#2fb79d" stroke-width="2"/>
+  <rect x="770" y="212" width="200" height="64" rx="18" ry="18" fill="#eef5ff" stroke="#3d8bfd" stroke-width="2"/>
+  <rect x="1010" y="212" width="200" height="64" rx="18" ry="18" fill="#fff2e8" stroke="#42b0b8" stroke-width="2"/>
+
+  <text x="390" y="252" text-anchor="middle" font-size="22" font-weight="700" fill="#1b3d2f" font-family="Arial, Helvetica, sans-serif">Rainbond</text>
+  <text x="630" y="252" text-anchor="middle" font-size="22" font-weight="700" fill="#14695f" font-family="Arial, Helvetica, sans-serif">Sealos</text>
+  <text x="870" y="252" text-anchor="middle" font-size="22" font-weight="700" fill="#183861" font-family="Arial, Helvetica, sans-serif">Rancher</text>
+  <text x="1110" y="252" text-anchor="middle" font-size="20" font-weight="700" fill="#17474a" font-family="Arial, Helvetica, sans-serif">KubeSphere</text>
+
+  <!-- Table grid -->
+  <line x1="270" y1="312" x2="270" y2="600" stroke="#e4edf4" stroke-width="2"/>
+  <line x1="510" y1="312" x2="510" y2="600" stroke="#e4edf4" stroke-width="2"/>
+  <line x1="750" y1="312" x2="750" y2="600" stroke="#e4edf4" stroke-width="2"/>
+  <line x1="990" y1="312" x2="990" y2="600" stroke="#e4edf4" stroke-width="2"/>
+  <line x1="1230" y1="312" x2="1230" y2="600" stroke="#e4edf4" stroke-width="2"/>
+
+  <line x1="90" y1="408" x2="1230" y2="408" stroke="#e4edf4" stroke-width="2"/>
+  <line x1="90" y1="504" x2="1230" y2="504" stroke="#e4edf4" stroke-width="2"/>
+  <line x1="90" y1="600" x2="1230" y2="600" stroke="#e4edf4" stroke-width="2"/>
+
+  <!-- Row labels -->
+  <text x="110" y="364" font-size="20" font-weight="700" fill="#16324f" font-family="Arial, Helvetica, sans-serif">上手门槛</text>
+  <text x="110" y="460" font-size="20" font-weight="700" fill="#16324f" font-family="Arial, Helvetica, sans-serif">更适合谁</text>
+  <text x="110" y="556" font-size="20" font-weight="700" fill="#16324f" font-family="Arial, Helvetica, sans-serif">核心价值</text>
+
+  <!-- Row 1 values -->
+  <text x="390" y="364" text-anchor="middle" font-size="16" fill="#536575" font-family="Arial, Helvetica, sans-serif">更低</text>
+  <text x="630" y="364" text-anchor="middle" font-size="16" fill="#536575" font-family="Arial, Helvetica, sans-serif">更低到中等</text>
+  <text x="870" y="364" text-anchor="middle" font-size="16" fill="#536575" font-family="Arial, Helvetica, sans-serif">中到高</text>
+  <text x="1110" y="364" text-anchor="middle" font-size="16" fill="#536575" font-family="Arial, Helvetica, sans-serif">中到高</text>
+
+  <!-- Row 2 values -->
+  <text x="390" y="452" text-anchor="middle" font-size="14" fill="#536575" font-family="Arial, Helvetica, sans-serif">想先跑通应用试点的团队</text>
+  <text x="630" y="440" text-anchor="middle" font-size="14" fill="#536575" font-family="Arial, Helvetica, sans-serif">偏云上开发效率</text>
+  <text x="630" y="462" text-anchor="middle" font-size="14" fill="#536575" font-family="Arial, Helvetica, sans-serif">或 AI-native 场景团队</text>
+  <text x="870" y="452" text-anchor="middle" font-size="14" fill="#536575" font-family="Arial, Helvetica, sans-serif">成熟 K8s 能力的团队</text>
+  <text x="1110" y="452" text-anchor="middle" font-size="14" fill="#536575" font-family="Arial, Helvetica, sans-serif">需要完整平台能力的团队</text>
+
+  <!-- Row 3 values -->
+  <text x="390" y="548" text-anchor="middle" font-size="14" fill="#536575" font-family="Arial, Helvetica, sans-serif">不懂 K8s 也能先跑起来</text>
+  <text x="630" y="536" text-anchor="middle" font-size="14" fill="#536575" font-family="Arial, Helvetica, sans-serif">云上开发到部署</text>
+  <text x="630" y="558" text-anchor="middle" font-size="14" fill="#536575" font-family="Arial, Helvetica, sans-serif">一体化体验</text>
+  <text x="870" y="548" text-anchor="middle" font-size="14" fill="#536575" font-family="Arial, Helvetica, sans-serif">多集群治理和企业控制面</text>
+  <text x="1110" y="536" text-anchor="middle" font-size="14" fill="#536575" font-family="Arial, Helvetica, sans-serif">更完整的云原生</text>
+  <text x="1110" y="558" text-anchor="middle" font-size="14" fill="#536575" font-family="Arial, Helvetica, sans-serif">平台能力组合</text>
+</svg>

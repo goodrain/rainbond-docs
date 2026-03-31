@@ -50,10 +50,11 @@ const config = {
           path: 'blog',
           blogTitle: '博客',
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/blog',
-          postsPerPage: 18,
+          postsPerPage: 'ALL',
           blogSidebarCount: 'ALL',
           blogSidebarTitle: '所有文章',
-          sortPosts: 'descending'
+          sortPosts: 'descending',
+          onUntruncatedBlogPosts: 'ignore'
         },
         theme: {
           customCss: [
@@ -125,28 +126,9 @@ const config = {
           //   ]
           // },
           {
-            type: 'dropdown',
-            label: '深入',
+            label: '博客',
             position: 'left',
-            items: [
-              {
-                label: '使用场景',
-                href: '/usescene',
-              },
-              {
-                label: '用户案例',
-                href: '/case',
-              },
-              {
-                label: '博客',
-                href: '/blog',
-              },
-              {
-                type: 'docSidebar',
-                sidebarId: 'api',
-                label: 'OpenAPI',
-              },
-            ],
+            href: '/blog',
           },
           {
             type: 'docsVersionDropdown',

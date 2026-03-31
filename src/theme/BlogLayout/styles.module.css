@@ -1,0 +1,73 @@
+.mainCol {
+  min-width: 0;
+}
+
+.postContainer {
+  max-width: 1380px;
+}
+
+.postRow {
+  align-items: flex-start;
+}
+
+.postMainNoToc {
+  max-width: 980px;
+}
+
+.postMainWithToc {
+  max-width: 820px;
+}
+
+.blogPostMain :global(article) {
+  min-width: 0;
+}
+
+.blogPostMain :global(.markdown) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.blogPostMain :global(.markdown img) {
+  max-width: 100%;
+  height: auto;
+}
+
+.blogPostMain :global(.theme-code-block),
+.blogPostMain :global(pre),
+.blogPostMain :global(.prism-code) {
+  max-width: 100%;
+}
+
+.blogPostMain :global(pre),
+.blogPostMain :global(.theme-code-block) {
+  overflow-x: auto;
+}
+
+.blogPostMain :global(code) {
+  word-break: break-word;
+}
+
+.tocCol {
+  min-width: 0;
+}
+
+.tocCol :global(.table-of-contents) {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.tocCol :global(.table-of-contents li) {
+  margin: 0.2rem 0;
+}
+
+.tocCol :global(.table-of-contents ul ul) {
+  padding-left: 0.8rem;
+}
+
+@media (max-width: 996px) {
+  .postMainNoToc,
+  .postMainWithToc {
+    max-width: none;
+  }
+}

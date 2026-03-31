@@ -207,3 +207,8 @@ div[class^='announcementBar_'] {
   color: #63e6be;
   border-color: rgba(40, 167, 69, 0.3);
 }
+
+/* Blog migrated content */
+.migratedBlogContent h1:first-of-type {
+  display: none;
+}

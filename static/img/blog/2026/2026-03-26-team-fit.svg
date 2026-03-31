@@ -1,0 +1,41 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9fbfd"/>
+      <stop offset="100%" stop-color="#eef6ff"/>
+    </linearGradient>
+    <filter id="shadow2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#9db4ca" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg2)"/>
+  <text x="80" y="92" font-size="34" font-weight="700" fill="#16324f" font-family="Arial, Helvetica, sans-serif">Rainbond 团队适配决策图</text>
+  <text x="80" y="132" font-size="18" fill="#4b6478" font-family="Arial, Helvetica, sans-serif">判断重点不是“功能多不多”，而是“你的团队当前最缺什么”。</text>
+
+  <g filter="url(#shadow2)">
+    <rect x="390" y="165" rx="28" ry="28" width="500" height="126" fill="#ffffff" stroke="#3d8bfd" stroke-width="2"/>
+    <rect x="120" y="380" rx="28" ry="28" width="390" height="170" fill="#ffffff" stroke="#4db38a" stroke-width="2"/>
+    <rect x="770" y="380" rx="28" ry="28" width="390" height="170" fill="#ffffff" stroke="#f08b36" stroke-width="2"/>
+  </g>
+
+  <text x="510" y="214" font-size="22" font-weight="700" fill="#16324f" font-family="Arial, Helvetica, sans-serif">你的团队现在是否已经具备</text>
+  <text x="466" y="246" font-size="22" font-weight="700" fill="#16324f" font-family="Arial, Helvetica, sans-serif">成熟的 Kubernetes 平台工程能力？</text>
+
+  <path d="M540 292 L340 380" stroke="#9ab3c8" stroke-width="4" fill="none"/>
+  <path d="M740 292 L950 380" stroke="#9ab3c8" stroke-width="4" fill="none"/>
+
+  <circle cx="458" cy="334" r="28" fill="#ecf7f1" stroke="#4db38a" stroke-width="2"/>
+  <text x="446" y="341" font-size="20" font-weight="700" fill="#2d7a58" font-family="Arial, Helvetica, sans-serif">否</text>
+  <circle cx="822" cy="334" r="28" fill="#fff3e9" stroke="#f08b36" stroke-width="2"/>
+  <text x="810" y="341" font-size="20" font-weight="700" fill="#b7651a" font-family="Arial, Helvetica, sans-serif">是</text>
+
+  <text x="158" y="425" font-size="22" font-weight="700" fill="#1b3d2f" font-family="Arial, Helvetica, sans-serif">更适合先试点 Rainbond</text>
+  <text x="158" y="465" font-size="17" fill="#506473" font-family="Arial, Helvetica, sans-serif">• 更关心上手门槛和交付效率</text>
+  <text x="158" y="496" font-size="17" fill="#506473" font-family="Arial, Helvetica, sans-serif">• 没有专职 Kubernetes 专家</text>
+  <text x="158" y="527" font-size="17" fill="#506473" font-family="Arial, Helvetica, sans-serif">• 需要先用真实业务做试点</text>
+
+  <text x="808" y="425" font-size="20" font-weight="700" fill="#7a4a19" font-family="Arial, Helvetica, sans-serif">更适合优先评估更重的平台治理能力</text>
+  <text x="808" y="465" font-size="17" fill="#506473" font-family="Arial, Helvetica, sans-serif">• 已有成熟的平台工程体系</text>
+  <text x="808" y="496" font-size="17" fill="#506473" font-family="Arial, Helvetica, sans-serif">• 更关注多集群治理和复杂能力</text>
+  <text x="808" y="527" font-size="17" fill="#506473" font-family="Arial, Helvetica, sans-serif">• 组织能承受更高平台复杂度</text>
+</svg>
