@@ -6,6 +6,13 @@ import styles from './styles.module.css';
 import Link from "@docusaurus/Link";
 
 export default function Comparison() {
+  const compareLinks = [
+    {label: 'Rainbond vs Rancher', href: '/compare/rainbond-vs-rancher'},
+    {label: 'Rainbond vs KubeSphere', href: '/compare/rainbond-vs-kubesphere'},
+    {label: 'Rainbond vs Sealos', href: '/compare/rainbond-vs-sealos'},
+    {label: 'Rainbond vs Kuboard', href: '/compare/rainbond-vs-kuboard'},
+  ];
+
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
@@ -24,9 +31,9 @@ export default function Comparison() {
     >
       {/* 标题区 */}
       <motion.div className={styles.comparisonHeader} variants={itemVariants}>
-        <h2 className={styles.comparisonTitle}>产品差异</h2>
+        <h2 className={styles.comparisonTitle}>选型中心</h2>
         <p className={styles.comparisonDesc}>
-          了解 Rainbond 与主流容器平台的差异化优势
+          把 Rainbond 与 Rancher、KubeSphere、Sealos、Kuboard 的差异统一收敛到一个对比入口，帮助你更快判断平台适配度。
         </p>
       </motion.div>
       <motion.div className={styles.divider} variants={itemVariants}></motion.div>
@@ -114,10 +121,17 @@ export default function Comparison() {
           </tbody>
         </table>
       </motion.div>
+      <motion.div className={styles.quickLinks} variants={itemVariants}>
+        {compareLinks.map((item) => (
+          <Link key={item.href} to={item.href} className={styles.quickLink}>
+            {item.label}
+          </Link>
+        ))}
+      </motion.div>
       <motion.div className={clsx("row",styles.button_row)} variants={itemVariants}>
         <div className='col col--12'>
-          <Link to="/docs" className={styles.learnMoreButton}>
-            了解更多
+          <Link to="/compare" className={styles.learnMoreButton}>
+            进入选型中心
           </Link>
         </div>
       </motion.div>

@@ -1,0 +1,200 @@
+---
+title: Rainbond vs Rancher：哪个更适合你的团队？
+sidebar_position: 2
+slug: /rainbond-vs-rancher
+description: 如果你更关注应用交付效率和低 K8s 门槛，Rainbond 更适合；如果你更关注多集群治理，Rancher 更合适。
+hide_title: true
+hide_table_of_contents: true
+keywords:
+  - Rainbond vs Rancher
+  - Rainbond 和 Rancher 区别
+  - Rancher 和 Rainbond 怎么选
+  - 多集群管理平台 怎么选
+  - 离线环境 应用交付 平台
+---
+
+import Head from '@docusaurus/Head';
+import CompareHeroGraphic from '@site/src/components/Compare/CompareHeroGraphic';
+import CompareEvidenceCards from '@site/src/components/Compare/CompareEvidenceCards';
+import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
+
+<Head>
+  <link rel="canonical" href="https://www.rainbond.com/compare/rainbond-vs-rancher" />
+  <meta property="og:title" content="Rainbond vs Rancher：哪个更适合你的团队？" />
+  <meta
+    property="og:description"
+    content="如果你更关注应用交付效率和低 K8s 门槛，Rainbond 更适合；如果你更关注多集群治理，Rancher 更合适。"
+  />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.rainbond.com/compare/rainbond-vs-rancher" />
+</Head>
+
+<div className="compareDocPage">
+
+<CompareHeroGraphic
+  title="Rainbond vs Rancher：哪个更适合你的团队？"
+  subtitle="如果你更关注应用交付效率、低 Kubernetes 门槛、离线交付和版本升级，Rainbond 更适合；如果你更关注多集群治理、安全与基础设施统一管理，Rancher 更合适。"
+  decision="如果你先想把应用更快交付出去，先看 Rainbond；如果你先想把 Kubernetes 集群统一管起来，先看 Rancher。"
+  primaryCta={{label: '快速安装', href: '/docs/quick-start/quick-install'}}
+  secondaryCta={{label: '部署实践', href: '/docs/quick-start/getting-started'}}
+  audienceHint="适合正在比较“应用交付平台”和“多集群治理平台”边界的团队，尤其是还没想清楚自己到底是在管集群，还是在管应用的团队。"
+  left={{
+    name: 'Rainbond',
+    accent: 'blue',
+    summary: '更偏应用交付',
+    bullets: [
+      {label: '更适合谁', value: '开发、实施、应用运维团队'},
+      {label: 'K8s 门槛', value: '低，先围绕应用工作'},
+      {label: '核心重点', value: '上线、升级、回滚、环境复制'},
+      {label: '典型场景', value: '私有化、离线交付、AI 落地'},
+    ],
+  }}
+  right={{
+    name: 'Rancher',
+    accent: 'orange',
+    summary: '更偏集群治理',
+    bullets: [
+      {label: '更适合谁', value: '平台运维、平台工程团队'},
+      {label: 'K8s 门槛', value: '中高，需要理解集群资源'},
+      {label: '核心重点', value: '多集群、权限、安全、控制面'},
+      {label: '典型场景', value: '集群纳管、统一运维、多云治理'},
+    ],
+  }}
+/>
+
+## 先给结论
+
+#### 如果你符合这些情况，优先看 Rainbond
+
+- 团队开发多，专业 Kubernetes 运维少，不想先把整套 K8s 心智教给所有人。
+- 你当前更想解决的是应用上线、升级、回滚、环境复制，而不是先补平台治理体系。
+- 你经常要面对客户现场、内网环境、离线环境，交付效率和版本管理比“资源面板”更重要。
+
+#### 如果你更符合这些情况，优先看 Rancher
+
+- 你已经有成熟的平台工程团队，主要工作是多集群治理、权限控制和基础设施纳管。
+- 你需要统一管理多个 Kubernetes 集群，关注控制面、安全与集群生命周期。
+- 你可以接受更高的 Kubernetes 学习成本，优先把平台治理能力做扎实。
+
+## 适合谁 / 不适合谁
+
+#### Rainbond 更适合谁
+
+- 10 到 100 人左右、开发主导、K8s 专职运维不足的团队。
+- ToB 交付团队、企业 IT 团队、应用运维团队。
+- 需要经常做多环境复制、版本升级、客户交付和私有化部署的场景。
+
+#### Rainbond 不太适合谁
+
+- 已经把平台工程体系搭得比较成熟，当前痛点主要在多集群控制面与基础设施治理。
+- 希望直接围绕 Kubernetes 资源层做细粒度运维控制的团队。
+- 把“统一管理集群”放在“更快交付应用”之前的组织。
+
+#### Rancher 更适合谁
+
+- 拥有平台运维、SRE 或平台工程角色的大中型团队。
+- 需要统一纳管多个 Kubernetes 集群的组织。
+- 更关注安全、权限、资源和集群侧标准化能力的团队。
+
+#### Rancher 不太适合谁
+
+- 团队还没准备好承担较高的 Kubernetes 心智和运维复杂度。
+- 当前最紧迫的问题不是管第 3 个集群，而是先把第 1 个试点业务交付起来。
+- 需要把交付动作沉淀成模板、版本和环境复制能力的交付型团队。
+
+## 核心对比表
+
+如果你想先用 30 秒看方向，先看这张表。它不是用来“比谁功能多”，而是帮你判断哪一类问题更接近你当前的处境。
+
+| 维度 | Rainbond | Rancher |
+| --- | --- | --- |
+| 产品定位 | 应用交付与应用运维平台 | 多集群 Kubernetes 管理平台 |
+| 目标用户 | 开发、实施、应用运维、企业 IT 团队 | 平台运维、K8s 管理员、平台工程团队 |
+| 学习曲线 | 低，更强调应用视角 | 中高，更强调集群与资源视角 |
+| 是否需要懂 K8s | 不需要先掌握大量 K8s 细节 | 需要理解集群、工作负载和常见资源 |
+| 部署与交付方式 | 强调应用上线、升级、回滚、复制 | 强调集群纳管、资源控制与治理 |
+| 多环境/离线支持 | 强，适合客户现场和离线交付 | 可支撑集群管理，但不是应用交付主轴 |
+| 应用市场/模板能力 | 强，强调应用模板、应用市场和版本沉淀 | 不以应用模板交付为核心 |
+| 应用级可视化能力 | 强，强调拓扑、生命周期和运行状态 | 更偏资源与集群视角 |
+| 多集群/基础设施治理能力 | 可结合集群使用 | 强，是核心优势 |
+| 典型适用场景 | 私有化部署、ToB 交付、低门槛上云原生 | 多集群治理、安全合规、平台统一运维 |
+
+## 场景化决策说明
+
+下面 3 个场景，不是抽象“能力对比”，而是把你放回真实团队处境里判断。
+
+#### 1、小团队 / 中小企业
+
+如果你是小团队或中小企业，最怕的是平台太重、上线太慢。  
+这时候更值得优先看 Rainbond，因为你最需要的是一条更短的应用上线路径，而不是先把整套多集群治理体系搭起来。
+
+#### 2、交付型团队 / 离线环境
+
+如果你要把软件反复交付到客户环境、内网环境或离线环境，优先看 Rainbond。  
+这类场景拼的是应用模板、版本管理、导出导入、升级回滚，不只是把集群装好。
+
+#### 3、平台团队 / 多集群治理团队
+
+如果你已经有多个 Kubernetes 集群，目标是统一纳管、统一权限和统一控制面，优先看 Rancher。  
+这时候你真正缺的不是应用交付能力，而是集群治理能力。
+
+## 案例区
+
+<CompareEvidenceCards
+  items={[
+    {
+      type: '案例',
+      title: '咸阳市大数据管理局：智慧城市应用统一承载',
+      metric: '100+ 应用 / 500+ 组件',
+      description:
+        '基于 Rainbond 建设的应用管理平台已承载超过 100 套应用、500+ 组件，说明它更适合从“应用交付和统一运维”视角落地业务系统。',
+      href: '/blog/case-xybigdata',
+    },
+    {
+      type: '案例',
+      title: '某餐饮企业：Rainbond 与 Rancher 各司其职',
+      metric: '3 个月 -> 1 个月',
+      description:
+        '企业 IT 团队明确把 Rancher 用在资源与集群管理，把 Rainbond 用在应用交付与持续升级；一个原计划 3 个月上线的中台，借助 Rainbond 在 1 个月内完成迁移。',
+      href: '/blog/case-diningroom',
+    }
+  ]}
+/>
+
+## FAQ
+
+#### 1、Rainbond 和 Rancher 的本质区别是什么？
+
+一句话说，Rancher 更偏集群管理，Rainbond 更偏应用交付。  
+前者先解决“把 Kubernetes 集群管好”，后者先解决“把应用更快交付和运维好”。
+
+#### 2、我完全不懂 K8s 能不能用？
+
+如果你是问 Rainbond，通常可以。  
+Rainbond 的核心价值之一就是把大量 K8s 细节吸收到平台内部，让团队先围绕应用工作。  
+如果你是问 Rancher，虽然也有图形化界面，但很多核心操作依然建立在 Kubernetes 概念之上。
+
+#### 3、哪个更适合离线环境？
+
+如果重点是软件交付、升级、回滚和环境复制，通常更适合 Rainbond。  
+如果重点是客户环境中的集群纳管，才更偏 Rancher。
+
+#### 4、哪个更适合 AI 私有化部署？
+
+如果只是想把底层集群准备好，Rancher 可以参与。  
+如果你想把 AI 应用真正交付给团队或客户，并长期升级维护，Rainbond 更适合。
+
+## 最后
+
+<CompareCtaFooter
+  caseLink={{
+    href: '/blog',
+    note: '看企业 IT 团队如何把 3 个月上线周期压缩到 1 个月。',
+  }}
+  sceneLink={{
+    href: '/blog',
+    note: '看离线环境、客户现场和版本升级怎样做成标准化交付。',
+  }}
+/>
+
+</div>

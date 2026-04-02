@@ -69,6 +69,18 @@ export default function Navbar() {
               企业版
             </Link>
 
+            <div className={styles.dropdown}>
+              <div className={styles.dropdownTrigger}>
+                <span>专题</span>
+                <DropdownArrow />
+              </div>
+              <div className={styles.dropdownMenu}>
+                <Link to="/compare" className={styles.dropdownItem}>
+                  选型中心
+                </Link>
+              </div>
+            </div>
+
             <a onClick={handleOnClickLinkRainbondCloud} className={styles.navLink}>
               云服务
             </a>
@@ -96,4 +108,4 @@ export default function Navbar() {
       </div>
     </nav>
   );
-} 
+}

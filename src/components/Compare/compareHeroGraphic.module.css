@@ -1,0 +1,232 @@
+.wrap {
+  margin: 1.5rem 0 1.75rem;
+}
+
+.top {
+  display: block;
+  max-width: 900px;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(0, 102, 255, 0.08);
+  color: #005ce6;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0.9rem 0 0;
+  color: #0f172a;
+  font-size: clamp(1.7rem, 2.4vw, 2.4rem);
+  line-height: 1.15;
+}
+
+.subtitle {
+  margin: 0.7rem 0 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.decisionInline {
+  margin-top: 1rem;
+}
+
+.decisionInlineLabel {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  color: #005ce6;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.decisionInline p {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 1.15rem;
+  border-radius: 14px;
+  font-size: 0.96rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.primaryButton {
+  background: #0f172a;
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.16);
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.hintInline {
+  margin: 1rem 0 0;
+  color: #334155;
+  line-height: 1.85;
+  font-size: 0.98rem;
+}
+
+.hintInline strong {
+  color: #0f172a;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  padding: 1.15rem;
+  border-radius: 24px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.cardBlue {
+  background: linear-gradient(180deg, #f7fbff 0%, #eef6ff 100%);
+}
+
+.cardOrange {
+  background: linear-gradient(180deg, #fffaf5 0%, #fff3e8 100%);
+}
+
+.cardTeal {
+  background: linear-gradient(180deg, #f5fffd 0%, #ebfffb 100%);
+}
+
+.cardGreen {
+  background: linear-gradient(180deg, #f7fff8 0%, #eefff1 100%);
+}
+
+.cardSlate {
+  background: linear-gradient(180deg, #fbfcfe 0%, #f5f7fb 100%);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 0.85rem;
+  border-radius: 999px;
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.badgeBlue {
+  background: #0b6bff;
+  color: #fff;
+}
+
+.badgeOrange {
+  background: #f97316;
+  color: #fff;
+}
+
+.badgeTeal {
+  background: #00a6a6;
+  color: #fff;
+}
+
+.badgeGreen {
+  background: #16a34a;
+  color: #fff;
+}
+
+.badgeSlate {
+  background: #475569;
+  color: #fff;
+}
+
+.summary {
+  margin: 0.9rem 0 0;
+  color: #0f172a;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.list {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.item {
+  padding: 0.9rem 0.95rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.itemLabel {
+  color: #64748b;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.itemValue {
+  margin-top: 0.45rem;
+  color: #0f172a;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  font-weight: 600;
+}
+
+@media (max-width: 996px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .summary {
+    font-size: 1.2rem;
+  }
+}
