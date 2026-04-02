@@ -1,0 +1,195 @@
+.evidenceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0rem;
+}
+
+.evidenceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1rem;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.05);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.evidenceCard::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: rgba(0, 102, 255, 0.16);
+}
+
+.evidenceCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 102, 255, 0.18);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
+  text-decoration: none;
+}
+
+.evidenceCase {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+}
+
+.evidenceCase::before {
+  background: linear-gradient(180deg, #0b6bff 0%, #63a4ff 100%);
+}
+
+.evidenceScene {
+  background: linear-gradient(180deg, #ffffff 0%, #f5fffb 100%);
+}
+
+.evidenceScene::before {
+  background: linear-gradient(180deg, #00a6a6 0%, #5ad6d6 100%);
+}
+
+.evidenceInstall {
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf3 100%);
+}
+
+.evidenceInstall::before {
+  background: linear-gradient(180deg, #f59e0b 0%, #fcd34d 100%);
+}
+
+.evidenceMarket {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7ff 100%);
+}
+
+.evidenceMarket::before {
+  background: linear-gradient(180deg, #6366f1 0%, #a5b4fc 100%);
+}
+
+.evidenceMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.evidenceType {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 0.72rem;
+  border-radius: 999px;
+  background: rgba(0, 102, 255, 0.08);
+  color: #005ce6;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.evidenceMetric {
+  color: #0f172a;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.evidenceBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.evidenceTitle {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+
+.evidenceDesc {
+  margin: 0;
+  color: #475569;
+  line-height: 1.75;
+}
+
+.evidenceFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.2rem;
+}
+
+.evidenceLink {
+  color: #005ce6;
+  font-weight: 700;
+}
+
+.ctaWrap {
+  margin-top: 1.25rem;
+  padding: 1.15rem;
+  border-radius: 26px;
+  background:
+    linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(15, 23, 42, 0.02)),
+    #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.07);
+}
+
+.ctaTitle {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.ctaDesc {
+  margin: 0.55rem 0 0;
+  color: #475569;
+  line-height: 1.75;
+}
+
+.ctaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.ctaCard {
+  display: block;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  text-decoration: none;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.ctaCard:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 102, 255, 0.18);
+  background: #f8fbff;
+  text-decoration: none;
+}
+
+.ctaLabel {
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.ctaNote {
+  margin-top: 0.45rem;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+@media (max-width: 996px) {
+  .evidenceGrid,
+  .ctaGrid {
+    grid-template-columns: 1fr;
+  }
+}

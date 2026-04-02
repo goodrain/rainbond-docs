@@ -3,6 +3,15 @@ title: 与其他技术差异
 description: 本章描述 Rainbond 与其他产品/技术的关键区别和共同点。
 ---
 
+如果你当前已经进入平台选型阶段，建议直接进入 [选型中心](/compare)，或者查看这些聚合后的对比页：
+
+- [Rainbond vs Rancher](/compare/rainbond-vs-rancher)
+- [Rainbond vs KubeSphere](/compare/rainbond-vs-kubesphere)
+- [Rainbond vs Sealos](/compare/rainbond-vs-sealos)
+- [Rainbond vs Kuboard](/compare/rainbond-vs-kuboard)
+
+如果你是在比较 Helm 这类更偏工具链的方案，可以继续阅读本页下方 Helm 章节。
+
 ## Rainbond vs. Helm
 
 ### 1. 定位差异
@@ -40,3 +49,15 @@ Rancher 是一个全栈式的 Kubernetes 容器管理平台，可以帮助运维
 1. Rancher 最大的优点是完全兼容 K8s 体系，更注重对k8s基础设施的结合, 提供了更原生的应用部署方式，同时在各个层次可以集成的云原生领域工具集已经非常丰富，虽然学习成本较高，但提供了一站式的解决方案，对运维更加友好。Rainbond 则面向开发人员提供了更高的易用性。让开发者不需要学习 Kubernetes 和容器相关技术和概念就能快速实现云原生的体验。另外，Rainbond 提供的一体化开发环境、模块编排、应用市场等功能，能大幅度提高定制开发以及应用交付的效率。能通过应用模版的交付降低交付成本以及交付难度。
 
 2. Rancher 专注于帮助 DevOps 团队面对多集群情况下的运维和安全挑战，多集群部署、集群监控、容器安全等方面较为出色。而 Rainbond 在使用上，没有提供直接操作集群和节点的功能。主要还是基于“应用”的多云管理，支持应用在多集群中快速部署。所以 Rancher 和 Rainbond 并没有冲突，向下对接基础设施，管理集群的安全性与合规性是 Rancher 最擅长的事情，向上为最终开发人员提高易用的云原生平台的使用体验则交给 Rainbond。
+
+## Rainbond vs. Kuboard
+
+### 1. 定位差异
+
+Kuboard 更偏向 Kubernetes 的可视化管理界面，帮助团队更直观地查看和操作集群中的命名空间、工作负载、服务和其他资源。Rainbond 则定位于应用管理与交付平台，重点不是把 K8s 资源更直观地展示出来，而是把应用的部署、升级、运维和交付流程沉淀成团队可复用的能力。
+
+### 2. 使用差异
+
+1. Kuboard 的主要对象仍然是 Kubernetes 资源，因此即便有图形化界面，使用者依然需要理解 K8s 的常见概念与操作逻辑。Rainbond 则尽量把底层资源细节隐藏在平台内部，让开发、实施和应用运维团队可以直接围绕“应用”工作。
+
+2. Kuboard 更适合已经在使用 Kubernetes、只是希望管理体验更直观的团队。Rainbond 更适合需要低门槛上线业务应用、做版本升级和回滚、离线交付、多环境复制以及私有化部署的团队。两者解决的核心问题不同，一个偏资源管理，一个偏应用交付。

@@ -1,0 +1,209 @@
+---
+title: Rainbond 和 Kuboard 区别是什么？
+sidebar_position: 5
+slug: /rainbond-vs-kuboard
+description: 如果你更关注应用交付和低 K8s 门槛，Rainbond 更适合；如果你更关注 Kubernetes 管理界面，Kuboard 更合适。
+hide_title: true
+hide_table_of_contents: true
+keywords:
+  - Rainbond 和 Kuboard 区别
+  - Rainbond vs Kuboard
+  - Kuboard 和 Rainbond 怎么选
+  - Kubernetes 管理界面 怎么选
+  - K8s 管理平台
+---
+
+import Head from '@docusaurus/Head';
+import CompareHeroGraphic from '@site/src/components/Compare/CompareHeroGraphic';
+import CompareEvidenceCards from '@site/src/components/Compare/CompareEvidenceCards';
+import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
+
+<Head>
+  <link rel="canonical" href="https://www.rainbond.com/compare/rainbond-vs-kuboard" />
+  <meta property="og:title" content="Rainbond 和 Kuboard 区别是什么？" />
+  <meta
+    property="og:description"
+    content="如果你更关注应用交付和低 K8s 门槛，Rainbond 更适合；如果你更关注 Kubernetes 管理界面，Kuboard 更合适。"
+  />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.rainbond.com/compare/rainbond-vs-kuboard" />
+</Head>
+
+<div className="compareDocPage">
+
+<CompareHeroGraphic
+  title="Rainbond 和 Kuboard 区别是什么？"
+  subtitle="如果你要的是更直观的 Kubernetes 管理界面，Kuboard 更适合；如果你要的是低门槛的应用交付、升级回滚、离线交付和私有化部署，Rainbond 更适合。"
+  decision="如果你只想把 K8s 资源看清楚、管顺手，先看 Kuboard；如果你想让团队更低门槛地上线和交付应用，先看 Rainbond。"
+  primaryCta={{label: '快速安装', href: '/docs/quick-start/quick-install'}}
+  secondaryCta={{label: '部署实践', href: '/docs/quick-start/getting-started'}}
+  audienceHint="适合已经在用 Kubernetes，或者准备上 Kubernetes，但还没想清楚自己到底要的是资源管理界面还是应用交付平台的团队。"
+  left={{
+    name: 'Rainbond',
+    accent: 'blue',
+    summary: '更偏应用交付',
+    bullets: [
+      {label: '更适合谁', value: '开发、实施、应用运维、企业 IT 团队'},
+      {label: 'K8s 门槛', value: '低，不必让所有人都直面资源对象'},
+      {label: '核心重点', value: '部署、升级、回滚、运行状态'},
+      {label: '典型场景', value: 'ToB 交付、私有化、AI 运维'},
+    ],
+  }}
+  right={{
+    name: 'Kuboard',
+    accent: 'slate',
+    summary: '更偏 K8s 管理',
+    bullets: [
+      {label: '更适合谁', value: 'K8s 管理员、运维、资源可视化团队'},
+      {label: 'K8s 门槛', value: '中，仍需理解资源操作'},
+      {label: '核心重点', value: '集群、工作负载、资源状态可视化'},
+      {label: '典型场景', value: 'K8s 管理面板、资源查看与运维'},
+    ],
+  }}
+/>
+
+## 先给结论
+
+#### 如果你符合这些情况，优先看 Rainbond
+
+- 你希望业务团队围绕“应用”工作，而不是围绕 Kubernetes 资源对象工作。
+- 你需要应用交付、升级回滚、环境复制、离线部署和私有化维护能力。
+- 你不想把所有开发、实施和运维角色都训练成 K8s 使用者。
+
+#### 如果你更符合这些情况，优先看 Kuboard
+
+- 你已经在用 Kubernetes，只是想找一个更直观的可视化管理入口。
+- 你的主要任务是查看和操作集群、命名空间、工作负载与资源状态。
+- 你更关心资源管理体验，而不是完整的应用交付体系。
+
+## 适合谁 / 不适合谁
+
+#### Rainbond 更适合谁
+
+- 需要让开发、实施、应用运维共同参与交付的团队。
+- 需要版本升级、回滚、应用模板、多环境复制和客户交付的组织。
+- 不想把 K8s 底层资源直接暴露给所有使用者的企业团队。
+
+#### Rainbond 不太适合谁
+
+- 已经习惯直接操作 Kubernetes 资源，且只需要一个更顺手的管理界面。
+- 当前主要问题是“资源管理不够直观”，不是“应用交付不够顺畅”。
+- 不需要完整交付链路，只想增强资源查看与管理效率的团队。
+
+#### Kuboard 更适合谁
+
+- 已经在使用 Kubernetes 的运维或平台管理员。
+- 需要更直观地查看命名空间、工作负载、节点和资源状态的团队。
+- 主要目标是改善 K8s 管理体验，而不是建设交付工作流的组织。
+
+#### Kuboard 不太适合谁
+
+- 不想先理解 Kubernetes 概念，却又希望完成应用交付和运维的团队。
+- 需要应用模板、应用市场、版本升级和客户环境复制能力的交付型团队。
+- 想把交付动作沉淀成业务团队可复用能力的组织。
+
+## 核心对比表
+
+如果你现在最想搞清楚“我到底需要一个资源管理界面，还是一个应用交付平台”，先看这张表。
+
+| 维度 | Rainbond | Kuboard |
+| --- | --- | --- |
+| 产品定位 | 应用交付与运维平台 | Kubernetes 可视化管理界面 |
+| 目标用户 | 开发、实施、应用运维、企业 IT 团队 | K8s 管理员、运维、资源可视化团队 |
+| 学习曲线 | 低，更强调应用视角 | 中，仍然建立在 K8s 资源视角之上 |
+| 是否需要懂 K8s | 不需要先深入掌握资源模型 | 需要理解常见资源和管理方式 |
+| 部署与交付方式 | 更偏应用部署、升级、回滚和交付 | 更偏资源查看与集群操作 |
+| 多环境/离线支持 | 强，适合客户环境与离线交付 | 不是主要卖点 |
+| 应用市场/模板能力 | 强，强调应用模板和应用市场 | 不以应用模板交付为核心 |
+| 应用级可视化能力 | 强，强调拓扑和生命周期 | 更偏资源状态与集群视图 |
+| 多集群/基础设施治理能力 | 可支撑应用层协作，但非最强项 | 更偏 K8s 管理体验，不是完整治理平台 |
+| 典型适用场景 | ToB 交付、私有化部署、低门槛运维 | K8s 资源管理、集群面板、运维查看 |
+
+## 场景化决策说明
+
+下面 3 个场景，帮助你把“界面更直观”和“交付更高效”这两个经常被混在一起的问题拆开。
+
+#### 1、小团队 / 中小企业
+
+如果你是小团队或中小企业，通常更不应该把太多精力花在理解 Kubernetes 资源对象上。  
+这时候更值得优先看 Rainbond，因为你真正需要的是把应用更快上线并可持续维护。
+
+#### 2、交付型团队 / 离线环境
+
+如果你要做客户环境交付、离线部署和后续升级，优先看 Rainbond。  
+Kuboard 可以帮助你看清资源，但它不是为完整应用交付体系设计的。
+
+#### 3、平台团队 / 多集群治理团队
+
+如果你已经在用 Kubernetes，只是觉得原生操作不够直观，Kuboard 更值得先看。  
+但如果你要的是更完整的多集群治理能力，往往还需要再看 Rancher 这类更偏治理的平台。
+
+## 案例区
+
+<CompareEvidenceCards
+  items={[
+    {
+      type: '案例',
+      title: '藏书馆 App：低门槛平台带来的直接收益',
+      metric: '资源缩减 2/3',
+      description:
+        '藏书馆团队明确表示“不需要精通 Kubernetes 的工程师”，引入 Rainbond 后平台资源缩减了三分之二，说明对这类团队来说，“应用视角”比“资源视角”更有价值。',
+      href: '/blog/case-csg-app',
+    },
+    {
+      type: '案例',
+      title: '拓维信息：从资源运维转向应用运维',
+      metric: '1500+ 政企客户服务经验',
+      description:
+        '拓维信息在选型过程中强调应用生命周期可视化、自动化和低学习门槛，这类诉求更接近应用交付平台，而不是单纯的 K8s 管理界面。',
+      href: '/blog/case-talkweb',
+    },
+    {
+      type: '场景',
+      title: '应用级多云管理',
+      metric: '跨团队 / 跨集群复制',
+      description:
+        'Rainbond 强调的是应用级多云管理与跨集群交付，这类能力比“看资源更方便”更接近企业真实交付问题。',
+      href: '/blog/usescene-multi-cloud-management',
+    },
+  ]}
+/>
+
+## FAQ
+
+#### 1、Rainbond 和 Kuboard 的本质区别是什么？
+
+Kuboard 更偏 Kubernetes 管理界面，Rainbond 更偏应用交付与运维平台。  
+前者主要解决资源可视化管理，后者主要解决应用上线、升级、回滚和交付。
+
+#### 2、我完全不懂 K8s 能不能用？
+
+如果是 Rainbond，通常可以。  
+Rainbond 更强调把复杂性收进平台内部。  
+如果是 Kuboard，即便界面更直观，很多操作背后依然是 Kubernetes 资源心智。
+
+#### 3、哪个更适合离线环境？
+
+如果你说的是业务应用离线交付、客户环境部署和后续升级，通常更适合 Rainbond。  
+Kuboard 更适合管理已经存在的 Kubernetes 环境。
+
+#### 4、哪个更适合 AI 私有化部署？
+
+如果你想把 AI 应用真正交付给团队和企业环境，优先看 Rainbond。  
+如果你只是想更清楚地看 K8s 资源状态，Kuboard 可以作为辅助工具。
+
+
+## 最后
+
+<CompareCtaFooter
+  caseLink={{
+    href: '/blog',
+    note: '看不想培养 K8s 专家的团队，如何把资源缩减三分之二。',
+  }}
+  sceneLink={{
+    href: '/blog',
+    note: '看应用级多云和多集群协作到底该管到哪一层。',
+  }}
+/>
+
+</div>

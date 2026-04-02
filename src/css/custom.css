@@ -212,3 +212,57 @@ div[class^='announcementBar_'] {
 .migratedBlogContent h1:first-of-type {
   display: none;
 }
+
+/* Compare docs */
+.compareDocPage {
+  width: min(1000px, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: calc(var(--ifm-navbar-height)) 0 56px;
+}
+
+.compareDocPage :is(h1, h2, h3, h4, h5, h6) {
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 24px);
+}
+
+.compareDocNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.25rem 0 2rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.compareDocNavLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 102, 255, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  color: #1e293b;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.compareDocNavLink:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  border-color: rgba(0, 102, 255, 0.22);
+  background: #eef5ff;
+  color: #005ce6;
+}
+
+@media (max-width: 996px) {
+  .compareDocPage {
+    width: min(860px, calc(100vw - 1.5rem));
+    padding-top: calc(var(--ifm-navbar-height) + 22px);
+  }
+}

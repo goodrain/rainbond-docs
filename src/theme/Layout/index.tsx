@@ -42,6 +42,8 @@ export default function Layout(props: Props): JSX.Element {
   const community_url = useLocation().pathname.includes('community');
   const blog_url = useLocation().pathname.includes('blog');
   const changelog_url = useLocation().pathname.includes('changelog');
+  const compare_url = useLocation().pathname.startsWith('/compare');
+  const useDocsNavbar = docs_url || community_url || blog_url || changelog_url || compare_url;
 
   return (
     <LayoutProvider>
@@ -49,8 +51,8 @@ export default function Layout(props: Props): JSX.Element {
 
       <SkipToContent />
 
-      {docs_url || community_url || blog_url || changelog_url ? <AnnouncementBar /> : null }
-      {docs_url || community_url || blog_url || changelog_url ? <Navbar /> : <NavbarNew /> }
+      {useDocsNavbar ? <AnnouncementBar /> : null }
+      {useDocsNavbar ? <Navbar /> : <NavbarNew /> }
       <IPLocationDetector/>
       <div
         id={SkipToContentFallbackId}
