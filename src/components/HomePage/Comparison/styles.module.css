@@ -119,6 +119,36 @@
   margin-top: 2rem;
 }
 
+.quickLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.quickLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #f8fafc;
+  border: 1px solid #dbe4ef;
+  color: #1e293b;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.quickLink:hover {
+  text-decoration: none;
+  color: #2563eb;
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+
 .learnMoreButton {
   display: inline-flex;
   justify-content: center;
@@ -190,6 +220,14 @@
   .button_row {
     margin-top: 1.2rem;
   }
+  .quickLinks {
+    margin-top: 16px;
+    gap: 8px;
+  }
+  .quickLink {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
   .learnMoreButton {
     width: 100% !important;
     max-width: 300px !important;
@@ -238,6 +276,14 @@
   }
   .button_row {
     margin-top: 0.8rem;
+  }
+  .quickLinks {
+    gap: 6px;
+  }
+  .quickLink {
+    width: calc(50% - 3px);
+    font-size: 11px;
+    padding: 8px 10px;
   }
   .learnMoreButton {
     width: 100% !important;

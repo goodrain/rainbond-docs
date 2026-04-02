@@ -65,7 +65,6 @@ const config = {
       })
     ]
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -131,6 +130,24 @@ const config = {
             href: '/blog',
           },
           {
+            type: 'dropdown',
+            label: '专题',
+            position: 'left',
+            items: [
+              {
+                type: 'doc',
+                docsPluginId: 'compare',
+                docId: 'index',
+                label: '选型中心',
+              },
+            ],
+          },
+          {
+            position: 'left',
+            label: '企业版',
+            href: '/enterprise_server'
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownItemsAfter: [
@@ -158,11 +175,6 @@ const config = {
                 label: 'All versions',
               },
             ]
-          },
-          {
-            position: 'right',
-            label: '企业版',
-            href: '/enterprise_server'
           },
           {
             type: 'localeDropdown',
@@ -269,9 +281,25 @@ const config = {
   ],
   plugins: [
     [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'compare',
+        path: 'compare',
+        routeBasePath: 'compare',
+        sidebarPath: require.resolve('./compareSidebar.js'),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
+      },
+    ],
+    [
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
+          {
+            to: '/compare',
+            from: '/selection-center',
+          },
           {
             to: '/docs/how-to-guides/micro-service-deploy/blade-example',
             from: '/docs/micro-service/example/blade',
