@@ -229,14 +229,14 @@ const config = {
           {
             title: '深入',
             items: [
-              {
-                label: '使用场景',
-                to: 'usescene'
-              },
-              {
-                label: '用户案例',
-                to: 'case'
-              },
+              // {
+              //   label: '使用场景',
+              //   to: 'usescene'
+              // },
+              // {
+              //   label: '用户案例',
+              //   to: 'case'
+              // },
               {
                 label: '博客',
                 to: 'blog'
