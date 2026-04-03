@@ -22,7 +22,7 @@ export default function Home() {
         {/* 按钮区块 */}
         <div className={styles.hero_button}>
           <Link to="/docs/quick-start/quick-install" className={`${styles.hero_button_style} ${styles.hero_button_primary}`}>
-            立即使用
+            快速开始
           </Link>
           <OverlayTrigger
             placement="bottom"

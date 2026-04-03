@@ -92,6 +92,10 @@ export default function Navbar() {
                 ))}
               </div>
             </div>
+{/* 
+            <Link to="/blog" className={styles.dropdownItem}>
+              博客
+            </Link> */}
 
             <Link to="/enterprise_server" className={styles.navLink}>
               企业版
@@ -118,7 +122,7 @@ export default function Navbar() {
             <IconGithubLogo size="extra-large" className={styles.github_icon} />
           </a>
           <Link to="/docs/quick-start/quick-install" className={`${styles.github_button} ${styles.primaryButton}`}>
-            立即使用
+            快速开始
           </Link>
         </div>
       </div>
