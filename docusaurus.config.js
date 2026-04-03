@@ -291,7 +291,12 @@ const config = {
       }
     }),
   scripts: [
-    'https://static.goodrain.com/docusaurus/baidu-statistics.js'
+    'https://static.goodrain.com/docusaurus/baidu-statistics.js',
+    {
+      src: 'https://umami.goodrain.com/script.js',
+      defer: true,
+      'data-website-id': 'ddb75d48-7c13-41c2-8bda-0daa569344dd',
+    }
   ],
   plugins: [
     [
