@@ -4,6 +4,31 @@ import styles from './styles.module.css';
 import axios from 'axios';
 import { IconGithubLogo } from '@douyinfe/semi-icons';
 
+const learningSections = [
+  {
+    title: '博客',
+    items: [
+      {
+        label: '博客',
+        to: '/blog',
+      },
+    ],
+  },
+  {
+    title: '专题',
+    items: [
+      {
+        label: '容器平台选型中心',
+        to: '/compare',
+      },
+      {
+        label: '国产化信创专题',
+        to: '/offline-and-xinchuang',
+      },
+    ],
+  },
+];
+
 // 下拉箭头 SVG 组件
 const DropdownArrow = () => (
   <svg className={styles.dropdownArrow} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,22 +71,25 @@ export default function Navbar() {
 
             <div className={styles.dropdown}>
               <div className={styles.dropdownTrigger}>
-                <span>深入</span>
+                <span>学习</span>
                 <DropdownArrow />
               </div>
               <div className={styles.dropdownMenu}>
-                <Link to="/usescene" className={styles.dropdownItem}>
-                  使用场景
-                </Link>
-                <Link to="/case" className={styles.dropdownItem}>
-                  用户案例
-                </Link>
-                <Link to="/blog" className={styles.dropdownItem}>
-                  博客
-                </Link>
-                <Link to="/docs/Intro" className={styles.dropdownItem}>
-                  OpenAPI
-                </Link>
+                {learningSections.map((section) => (
+                  <div className={styles.dropdownSection} key={section.title}>
+                    <div className={styles.dropdownSectionTitle}>{section.title}</div>
+                    <div className={styles.dropdownSectionItems}>
+                      {section.items.map((item) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          className={styles.dropdownItem}>
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -69,21 +97,9 @@ export default function Navbar() {
               企业版
             </Link>
 
-            <div className={styles.dropdown}>
-              <div className={styles.dropdownTrigger}>
-                <span>专题</span>
-                <DropdownArrow />
-              </div>
-              <div className={styles.dropdownMenu}>
-                <Link to="/compare" className={styles.dropdownItem}>
-                  选型中心
-                </Link>
-              </div>
-            </div>
-
-            <a onClick={handleOnClickLinkRainbondCloud} className={styles.navLink}>
+            {/* <a onClick={handleOnClickLinkRainbondCloud} className={styles.navLink}>
               云服务
-            </a>
+            </a> */}
 
             <Link to="https://hub.grapps.cn" className={styles.navLink}>
               应用商店

@@ -40,8 +40,8 @@ import Background from "@src/components/Background";
     customButton: "true",
     LeftURL: "/docs/quick-start/quick-install",
     LeftButton: "快速安装",
-    RightURL: "/docs/how-to-guides/localization-guide/intro",
-    RightButton: "了解更多",
+    RightURL: "/offline-and-xinchuang",
+    RightButton: "进入新版专题",
   };
 
   const FeatureHeaderImage = {

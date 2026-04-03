@@ -1,0 +1,70 @@
+.dropdown {
+  position: relative;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(10rem, 1fr));
+  gap: 1rem 1.5rem;
+  min-width: 25rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 1rem;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+}
+
+.section {
+  min-width: 0;
+}
+
+.sectionTitle {
+  margin: 0 0 0.625rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sectionItems {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.sectionLink {
+  display: block;
+  padding: 0.35rem 0;
+  color: var(--ifm-font-color-base);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sectionLink:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.sectionLinkActive {
+  color: var(--ifm-color-primary);
+}
+
+.mobileMenu {
+  padding-left: 0.75rem;
+}
+
+.mobileSection {
+  margin-top: 0.75rem;
+}
+
+.mobileSectionTitle {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

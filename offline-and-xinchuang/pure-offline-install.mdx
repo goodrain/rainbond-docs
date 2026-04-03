@@ -1,0 +1,171 @@
+---
+title: 纯离线环境安装：完全不能联网时，Rainbond 应该怎么装？
+sidebar_position: 3
+slug: /pure-offline-install
+description: 面向完全离线环境，帮助你判断离线安装包怎么准备、该优先走哪条安装路径，以及实施前需要确认哪些约束。
+hide_title: true
+hide_table_of_contents: true
+keywords:
+  - 纯离线环境安装
+  - Rainbond 离线安装
+  - 完全离线部署
+  - 内网安装 Rainbond
+  - 国产化离线环境
+---
+
+import Head from '@docusaurus/Head';
+import CompareEvidenceCards from '@site/src/components/Compare/CompareEvidenceCards';
+import TopicActionGrid from '@site/src/components/OfflineAndXinchuang/TopicActionGrid';
+
+<Head>
+  <link rel="canonical" href="https://www.rainbond.com/offline-and-xinchuang/pure-offline-install" />
+  <meta property="og:title" content="纯离线环境安装：完全不能联网时，Rainbond 应该怎么装？" />
+  <meta
+    property="og:description"
+    content="面向完全离线环境，帮助你判断离线安装包怎么准备、该优先走哪条安装路径，以及实施前需要确认哪些约束。"
+  />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.rainbond.com/offline-and-xinchuang/pure-offline-install" />
+</Head>
+
+<div className="compareDocPage">
+
+# 纯离线环境安装：完全不能联网时，Rainbond 应该怎么装？
+
+如果你的项目环境完全不能访问公网，那重点就不再是“能不能用一条命令装起来”，而是先把离线安装包、环境准备、安装路径和验证顺序讲清楚。
+
+- 完全离线环境下部署 Rainbond 是可以做的，但必须把安装包、镜像、依赖和安装顺序提前准备好。
+- 对纯离线环境来说，最常见的问题不是平台本身，而是实施准备不充分：离线包没备齐、系统环境没校验、安装路径选错。
+- 如果项目同时叠加国产化 CPU / OS 约束，建议把这页和 [鲲鹏 / 麒麟部署](/offline-and-xinchuang/kunpeng-kylin-deploy) 一起看。
+
+## 适合谁 / 不适合谁
+
+#### 更适合谁
+
+- 网络隔离严格、完全不能访问公网的政企或内网项目
+- 需要将安装过程写成可执行交付手册的实施团队
+- 同时面对离线部署和后续应用交付的企业 IT 团队
+
+#### 不太适合谁
+
+- 只是在测试环境做快速体验的团队
+- 当前没有离线约束，优先级更高的是快速验证
+- 只想做概念判断，暂时还没有实施窗口的团队
+
+## 纯离线安装真正要先确认什么
+
+#### 1. 你面对的是“环境准备问题”
+
+在完全离线场景里，最容易被忽略的不是安装步骤，而是前置准备：
+
+- 离线安装包是否准备完整
+- 镜像和依赖是否可以在目标环境中使用
+- 目标操作系统、CPU 架构和节点角色是否已经明确
+
+
+#### 2. 你需要的是“可执行路径”，不是泛说明
+
+纯离线环境的安装一定要能回答：
+
+- 包从哪里准备
+- 怎么带进目标环境
+- 安装命令和顺序是什么
+- 出问题时先看哪一层
+
+### 3. 安装之后还要衔接交付和升级
+
+很多团队把“纯离线安装”当成终点，但真正的项目路径通常是：
+
+离线安装完成 -> 应用交付 -> 版本升级 -> 回滚与维护
+
+## 为什么很多团队会把纯离线安装做成一场噩梦
+
+很多团队真正卡住的并不是“不会装 Rainbond”，而是离线环境下连 Kubernetes 本身都已经足够折腾：
+
+- 镜像不全，`ImagePullBackOff` 会反复出现
+- 证书、ETCD、网络插件和依赖包准备链路太长
+- 装完 K8s 还没结束，后面还要继续补监控、网关和应用管理能力
+
+这也是为什么纯离线环境安装不该只看零散命令，而应该优先找一条完整、可执行、适合交付的工具链。
+
+## ROI：更适合纯离线环境的一站式安装路径
+
+如果你想把“先把一个可用的 K8s + Rainbond 平台端进离线机房”这件事做得更顺，当前更值得优先看的路径是 ROI。
+
+ROI 的意义不只是“帮你装个 K8s”，而是把纯离线环境下常见的准备动作打成一个更完整的交付包：
+
+- 自动 OS 调优：把内核参数、防火墙、Swap 等基础项按最佳实践收口
+- 内置 RKE2：直接基于生产可用的 RKE2 安装 Kubernetes
+- 自动存储配置：支持 LVM、NFS 等常见离线交付场景
+- 预加载镜像：减少离线环境下手工补镜像的负担
+- 集群模式可继续承接 MySQL 和 Rainbond 平台部署
+
+## 零基础怎么快速开始
+
+如果你现在的目标是先把离线安装路径跑通，可以按这个顺序判断：
+
+### 第一步：在有网环境准备离线资源
+
+```bash
+curl -o roi https://get.rainbond.com/roi/roi-amd64 && chmod +x roi
+./roi download
+```
+
+### 第二步：把离线资源带入目标环境
+
+把下载出来的 `offline-packages` 目录通过 U 盘、光盘或受控传输方式带进目标内网环境。
+
+### 第三步：先用单机模式跑通最短路径
+
+```bash
+./roi up
+```
+
+如果你的目标不是试点，而是正式交付，就继续用 `cluster.yaml` 方式做多节点集群安装。
+
+## 单机验证和生产交付的区别
+
+- 单机模式更适合先验证离线环境里“能不能顺利把平台装起来”
+- 集群模式更适合正式生产、交付和高可用要求
+- 真正进入生产时，建议继续结合 [ROI 配置参考](/docs/ops-guides/roi-reference/configuration) 和 [ROI 命令参考](/docs/ops-guides/roi-reference/command-reference) 一起看
+
+## FAQ
+
+#### 1. 完全离线环境是不是就不能用 Rainbond？
+
+关键是要按离线路径准备安装包和依赖，而不是直接套用在线安装思路。
+
+#### 2. 我是不是应该优先看 ROI？
+
+如果你的重点是纯离线环境下尽快拿到一条“可执行的 K8s + Rainbond 安装路径”，很推荐先看 ROI。  
+它更适合作为纯离线环境的第一条主线，再往后衔接离线交付和生产集群配置。
+
+#### 3. 我应该先看纯离线安装还是离线交付？
+
+如果你还没把环境装起来，先看这页；  
+如果你已经在思考怎么把软件标准化交到客户环境，下一步看离线交付页。
+
+#### 4. 纯离线安装和国产化信创是什么关系？
+
+它们不是同一个问题，但在真实项目里经常叠加出现。  
+很多国产化项目也同时是内网和完全离线环境。
+
+
+<TopicActionGrid
+  title="下一步动作"
+  description="如果你已经确认当前环境就是纯离线环境，接下来就应该顺着安装路径、交付路径和信创环境路径继续往下走。"
+  items={[
+    {
+      label: '查看离线安装文档',
+      note: '直接进入离线安装包准备和安装步骤。',
+      href: '/docs/installation/offline',
+    },
+    {
+      label: '继续看鲲鹏 / 麒麟部署',
+      note: '如果你的离线环境还是国产化信创环境，下一步看这里。',
+      href: '/offline-and-xinchuang/kunpeng-kylin-deploy',
+    }
+  ]}
+/>
+
+</div>
