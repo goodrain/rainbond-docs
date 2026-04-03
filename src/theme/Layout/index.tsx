@@ -43,7 +43,14 @@ export default function Layout(props: Props): JSX.Element {
   const blog_url = useLocation().pathname.includes('blog');
   const changelog_url = useLocation().pathname.includes('changelog');
   const compare_url = useLocation().pathname.startsWith('/compare');
-  const useDocsNavbar = docs_url || community_url || blog_url || changelog_url || compare_url;
+  const offline_and_xinchuang_url = useLocation().pathname.startsWith('/offline-and-xinchuang');
+  const useDocsNavbar =
+    docs_url ||
+    community_url ||
+    blog_url ||
+    changelog_url ||
+    compare_url ||
+    offline_and_xinchuang_url;
 
   return (
     <LayoutProvider>

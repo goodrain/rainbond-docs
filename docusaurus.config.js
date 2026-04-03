@@ -35,7 +35,7 @@ const config = {
           // routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+          showLastUpdateTime: false,
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
           includeCurrentVersion: true,
           lastVersion: 'current',
@@ -125,20 +125,34 @@ const config = {
           //   ]
           // },
           {
-            label: '博客',
+            type: 'custom-learning-dropdown',
+            label: '学习',
             position: 'left',
-            href: '/blog',
-          },
-          {
-            type: 'dropdown',
-            label: '专题',
-            position: 'left',
-            items: [
+            sections: [
               {
-                type: 'doc',
-                docsPluginId: 'compare',
-                docId: 'index',
-                label: '选型中心',
+                title: '博客',
+                items: [
+                  {
+                    label: '博客',
+                    to: '/blog',
+                    activeBasePath: '/blog',
+                  },
+                ],
+              },
+              {
+                title: '专题',
+                items: [
+                  {
+                    label: '容器平台选型中心',
+                    to: '/compare',
+                    activeBasePath: '/compare',
+                  },
+                  {
+                    label: '国产化信创专题',
+                    to: '/offline-and-xinchuang',
+                    activeBasePath: '/offline-and-xinchuang',
+                  },
+                ],
               },
             ],
           },
@@ -288,7 +302,19 @@ const config = {
         routeBasePath: 'compare',
         sidebarPath: require.resolve('./compareSidebar.js'),
         showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
+        showLastUpdateTime: false,
+        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'offline-and-xinchuang',
+        path: 'offline-and-xinchuang',
+        routeBasePath: 'offline-and-xinchuang',
+        sidebarPath: require.resolve('./offlineAndXinchuangSidebar.js'),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: false,
         editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
       },
     ],

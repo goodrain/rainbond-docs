@@ -12,6 +12,7 @@ import {
   useNavbarMobileSidebar,
 } from '@docusaurus/theme-common/internal';
 import NavbarItem, {type Props as NavbarItemConfig} from '@theme/NavbarItem';
+import LearningDropdownNavbarItem from '@theme/NavbarItem/LearningDropdownNavbarItem';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 import SearchBar from '@theme/SearchBar';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
@@ -24,6 +25,12 @@ import clsx from 'clsx';
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
   return useThemeConfig().navbar.items as NavbarItemConfig[];
+}
+
+function isLearningDropdownItem(
+  item: NavbarItemConfig,
+): item is NavbarItemConfig & {type: 'custom-learning-dropdown'} {
+  return item.type === 'custom-learning-dropdown';
 }
 
 function NavbarItems({items}: {items: NavbarItemConfig[]}): JSX.Element {
@@ -40,7 +47,11 @@ ${JSON.stringify(item, null, 2)}`,
               {cause: error},
             )
           }>
-          <NavbarItem {...item} />
+          {isLearningDropdownItem(item) ? (
+            <LearningDropdownNavbarItem {...item} />
+          ) : (
+            <NavbarItem {...item} />
+          )}
         </ErrorCauseBoundary>
       ))}
     </>

@@ -1,0 +1,184 @@
+---
+title: 鲲鹏 / 麒麟部署：国产化信创环境能不能跑？怎么装？
+sidebar_position: 3
+slug: /kunpeng-kylin-deploy
+description: 围绕鲲鹏 CPU、麒麟系统和离线环境部署，帮助你快速判断 Rainbond 在国产化信创环境中的部署路径和注意事项。
+hide_title: true
+hide_table_of_contents: true
+keywords:
+  - 鲲鹏 麒麟 部署
+  - Rainbond 鲲鹏
+  - Rainbond 麒麟 V10
+  - 国产化信创部署
+  - ARM 离线部署
+---
+
+import Head from '@docusaurus/Head';
+import CompareEvidenceCards from '@site/src/components/Compare/CompareEvidenceCards';
+import TopicActionGrid from '@site/src/components/OfflineAndXinchuang/TopicActionGrid';
+
+<Head>
+  <link rel="canonical" href="https://www.rainbond.com/offline-and-xinchuang/kunpeng-kylin-deploy" />
+  <meta property="og:title" content="鲲鹏 / 麒麟部署：国产化信创环境能不能跑？怎么装？" />
+  <meta
+    property="og:description"
+    content="围绕鲲鹏 CPU、麒麟系统和离线环境部署，帮助你快速判断 Rainbond 在国产化信创环境中的部署路径和注意事项。"
+  />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.rainbond.com/offline-and-xinchuang/kunpeng-kylin-deploy" />
+</Head>
+
+<div className="compareDocPage">
+
+# 鲲鹏 / 麒麟部署：国产化信创环境能不能跑？怎么装？
+
+如果你当前最关心的是“鲲鹏 CPU + 麒麟系统到底能不能跑 Rainbond，以及应该怎么开始部署”，那这页的重点不是再讲一遍平台愿景，而是先把环境可行性、安装路径和实施注意事项讲清楚。
+
+- 可以从鲲鹏 / 麒麟这条路径开始验证 Rainbond，站内已经有现成的部署实践和多架构安装文档。
+- 如果你面对的是国产化信创环境，而且还有离线条件，那更应该优先看“环境准备 + 离线安装 + 实践教程”的组合，而不是只看快速安装命令。
+- 对这类场景来说，真正关键的是确认架构、系统、安装路径和依赖包准备方式，而不是把所有内容都混在一个大而泛的说明里。
+
+## 你真正需要先确认的 3 件事
+
+#### 1. 这是“安装问题”，不是“概念问题”
+
+在鲲鹏 / 麒麟环境里，最先要确认的是：
+
+- 服务器架构和系统版本
+- 是在线部署还是离线部署
+- 是从主机开始安装，还是已有 Kubernetes 再安装 Rainbond
+
+#### 2. 国产化信创环境往往会叠加离线条件
+
+很多国产化信创项目不会只提出“CPU / OS 必须国产化”，还会进一步要求：
+
+- 环境必须在内网
+- 依赖包不能直接访问公网下载
+- 安装过程需要可以沉淀为实施手册
+
+## 如果要照着“保姆级教程”落地，最短路径是什么
+
+![kunpeng-kylin-deploy-flow](/img/offline-and-xinchuang/kunpeng-kylin-deploy-flow.svg)
+
+### 1、环境规划
+
+先准备至少两台机器：
+
+| 架构 | OS | 作用 |
+| --- | --- | --- |
+| Arm64 | 任意，可联网环境 | 下载离线包 |
+| Arm64 | 麒麟 V10 | 单机部署 K8s 和 Rainbond |
+
+这一步的重点不是机器数量，而是先把“下载环境”和“目标离线环境”分开，避免边安装边补包。
+
+### 2、离线包准备
+
+这条路径至少要把下面几类资源准备齐：
+
+- RKE2 离线安装包
+- Helm ARM64 二进制包
+- Rainbond 离线镜像包
+- Rainbond Helm Chart
+
+### 3、K8s 安装阶段
+
+如果你走的是文中那条 RKE2 路线，有两个细节特别值得先记住：
+
+1. 要禁用默认 `Ingress Nginx`，避免和 Rainbond 网关冲突  
+2. 要把离线镜像和私有仓库配置提前放好，让 RKE2 启动时就能直接加载  
+
+
+### 4、Rainbond 安装阶段
+
+在 K8s Ready 之后，再通过 Helm 安装 Rainbond。  
+对这类项目来说，真正关键的是 `values.yaml` 里把入口 IP、网关节点和运行时路径写对，而不是盲目照抄默认值。
+
+### 5、验证阶段
+
+安装完成之后，至少做两次验证：
+
+- Kubernetes 层验证：`kubectl get node`、`kubectl get pod -n kube-system`
+- Rainbond 层验证：访问控制台，注册并登录，然后部署一个最小测试应用
+
+## 常见注意事项
+
+- 如果项目一开始就确定是离线环境，优先从离线安装与离线包准备路径入手
+- 如果你已经有明确的 Arm / 麒麟环境，不要只看通用快速安装，要结合多架构安装文档一起判断
+- 如果你还同时面对应用迁移问题，建议继续看本专题里的 [x86 到 ARM 迁移](/offline-and-xinchuang/x86-to-arm)
+- 如果你是零基础或要给实施同学交接，优先用“环境规划 -> 离线包准备 -> RKE2 安装 -> Rainbond 安装 -> 控制台验证”这条顺序，不要来回跳读文档
+- 如果你要在离线环境里用源码构建，安装完成后还要继续补看离线源码构建相关文档，而不是把控制台能打开当成终点
+
+## 案例区
+
+<CompareEvidenceCards
+  items={[
+    {
+      type: '安装',
+      title: '鲲鹏 Arm + 麒麟 V10 离线部署教程',
+      metric: '实操教程',
+      description:
+        '把国产化信创环境中的部署过程拆成可执行步骤，适合直接进入落地验证。',
+      href: '/blog/kunpeng-kylin-offline-k8s-guide',
+    },
+    {
+      type: '安装',
+      title: '一云多芯与多架构安装文档',
+      metric: '架构说明',
+      description:
+        '说明异构集群、多架构环境和安装策略的关系，帮助你判断部署方式。',
+      href: '/docs/how-to-guides/localization-guide/multi-arch-installation',
+    },
+    {
+      type: '案例',
+      title: '国产化信创平台介绍',
+      metric: '环境支持',
+      description:
+        '从站内已有内容中快速了解 Rainbond 在国产化 CPU 和国产系统上的支持方向。',
+      href: '/blog/gchopensource',
+    }
+  ]}
+/>
+
+## FAQ
+
+#### 1. 鲲鹏 + 麒麟环境下到底能不能部署？
+
+可以先基于站内现有的部署实践和多架构安装文档验证。  
+如果项目要求的是离线部署，优先看离线路径。
+
+#### 2. 我应该先看快速安装还是离线安装？
+
+如果你只是做可行性验证，可以先看快速安装；如果项目环境本身就是内网和离线条件，直接看离线安装更贴近真实情况。
+
+#### 3. 这和“信创平台能力”有什么关系？
+
+鲲鹏 / 麒麟部署回答的是“能不能装、怎么装”；  
+而信创平台能力回答的是“装完以后为什么它适合作为长期应用管理平台”。
+
+#### 4. 只解决安装够吗？
+
+不够。国产化信创项目往往还会继续进入应用迁移、交付标准化和后续升级阶段，所以安装只是起点。
+
+#### 5. 这条路适合零基础团队吗？
+
+如果你要的是“按保姆级教程一步步做完”，是适合的。  
+但前提仍然是先把离线包、目标环境信息和安装路径准备好，不要边做边补环境信息。
+
+<TopicActionGrid
+  title="下一步动作"
+  description="如果你已经确认目标环境就是鲲鹏 / 麒麟，不要再泛看资料，直接进入教程、安装文档或迁移专题。"
+  items={[
+    {
+      label: '查看离线安装',
+      note: '如果项目环境不能访问公网，先按离线路径准备。',
+      href: '/docs/installation/offline',
+    },
+    {
+      label: '查看部署教程',
+      note: '直接进入鲲鹏 Arm + 麒麟 V10 的离线部署实操内容。',
+      href: '/blog/kunpeng-kylin-offline-k8s-guide',
+    }
+  ]}
+/>
+
+</div>

@@ -11,6 +11,10 @@ keywords:
 之前 [柯基数据通过 Rainbond 完成云原生改造，实现离线持续交付客户](https://mp.weixin.qq.com/s?__biz=Mzg3MTcyMjA4MQ==&mid=2247487792&idx=1&sn=3c01e6175c87bc1d9ecef993fd167dea&source=41#wechat_redirect) 这篇文章，开源群里一直有用户想要更详细的文档，渴望自己上手操作。「使用 Rainbond 实现离线环境软件交付」来了，安排 👇。
 :::
 
+:::tip 专题入口
+如果你是从“离线怎么交付、怎么升级、怎么回滚”这类问题进来的，建议回到 [离线 / 信创 / 国产化专题](/offline-and-xinchuang) 看完整路径；如果你当前面对的是完全离线环境，先看 [纯离线环境安装](/offline-and-xinchuang/pure-offline-install) 会更快。
+:::
+
 <!--truncate-->
 
 ## 离线交付的痛点

@@ -1,0 +1,163 @@
+<svg width="1280" height="1080" viewBox="0 0 1280 1080" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">鲲鹏 / 麒麟部署路径图</title>
+  <desc id="desc">在鲲鹏 CPU 与麒麟系统环境中部署 Rainbond 的六步路径图，包含环境确认、机器规划、离线资源准备、Kubernetes 安装、Rainbond 安装与双层验证，并提示完全离线场景需要同步参考纯离线安装路径。</desc>
+  <defs>
+    <linearGradient id="bg" x1="640" y1="0" x2="640" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FBFF"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="430" y1="110" x2="430" y2="968" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9FBFF"/>
+      <stop offset="1" stop-color="#F3F8FF"/>
+    </linearGradient>
+    <filter id="shadow" x="98" y="84" width="704" height="920" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="16"/>
+      <feGaussianBlur stdDeviation="18"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0588235 0 0 0 0 0.0901961 0 0 0 0 0.164706 0 0 0 0.12 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1" result="shape"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0L10 5L0 10V0Z" fill="#64748B"/>
+    </marker>
+    <marker id="arrowWarn" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0L10 5L0 10V0Z" fill="#EA580C"/>
+    </marker>
+    <style>
+      .title {
+        fill: #0F172A;
+        font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        font-size: 34px;
+        font-weight: 700;
+      }
+      .subtitle {
+        fill: #475569;
+        font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .sectionLabel {
+        fill: #64748B;
+        font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .stepIndex {
+        fill: #FFFFFF;
+        font-family: "SFMono-Regular", "Menlo", monospace;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+      }
+      .stepTitle {
+        fill: #0F172A;
+        font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .stepBody {
+        fill: #334155;
+        font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .warnTitle {
+        fill: #7C2D12;
+        font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .warnBody {
+        fill: #9A3412;
+        font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1280" height="1080" rx="32" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <rect x="134" y="110" width="632" height="858" rx="32" fill="url(#panel)" stroke="#D9E6F4"/>
+  </g>
+
+  <g transform="translate(184 184)">
+    <rect width="532" height="102" rx="26" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/>
+    <rect x="24" y="22" width="62" height="28" rx="999" fill="#2563EB"/>
+    <text x="55" y="41" text-anchor="middle" class="stepIndex">STEP 1</text>
+    <text x="112" y="42" class="stepTitle">确认环境边界</text>
+    <text x="112" y="68" class="stepBody">
+      <tspan x="112" dy="0">先确认鲲鹏 CPU、麒麟版本，以及当前环境是在线还是离线。</tspan>
+      <tspan x="112" dy="22">同时判断是从主机安装，还是已有 Kubernetes 再装 Rainbond。</tspan>
+    </text>
+  </g>
+
+  <path d="M450 286V328" stroke="#64748B" stroke-width="2.4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(184 344)">
+    <rect width="532" height="102" rx="26" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/>
+    <rect x="24" y="22" width="62" height="28" rx="999" fill="#2563EB"/>
+    <text x="55" y="41" text-anchor="middle" class="stepIndex">STEP 2</text>
+    <text x="112" y="42" class="stepTitle">规划两类机器</text>
+    <text x="112" y="68" class="stepBody">
+      <tspan x="112" dy="0">把下载环境和目标环境分开。</tspan>
+      <tspan x="112" dy="22">这样可以避免在目标环境里一边安装一边补资源。</tspan>
+    </text>
+  </g>
+
+  <path d="M450 446V488" stroke="#64748B" stroke-width="2.4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(184 504)">
+    <rect width="532" height="102" rx="26" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.3"/>
+    <rect x="24" y="22" width="62" height="28" rx="999" fill="#475569"/>
+    <text x="55" y="41" text-anchor="middle" class="stepIndex">STEP 3</text>
+    <text x="112" y="42" class="stepTitle">准备离线资源</text>
+    <text x="112" y="68" class="stepBody">
+      <tspan x="112" dy="0">提前准备 RKE2、Helm、Rainbond 镜像和 Chart。</tspan>
+      <tspan x="112" dy="22">先把包准备齐，再把资源带入目标环境。</tspan>
+    </text>
+  </g>
+
+  <path d="M450 606V648" stroke="#64748B" stroke-width="2.4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(184 664)">
+    <rect width="532" height="102" rx="26" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.3"/>
+    <rect x="24" y="22" width="62" height="28" rx="999" fill="#475569"/>
+    <text x="55" y="41" text-anchor="middle" class="stepIndex">STEP 4</text>
+    <text x="112" y="42" class="stepTitle">安装 K8s 底座</text>
+    <text x="112" y="68" class="stepBody">
+      <tspan x="112" dy="0">禁用默认 Ingress，避免和 Rainbond 网关冲突。</tspan>
+      <tspan x="112" dy="22">提前配置私有仓库与离线镜像，让底座先稳定跑起来。</tspan>
+    </text>
+  </g>
+
+  <path d="M450 766V808" stroke="#64748B" stroke-width="2.4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(184 824)">
+    <rect width="532" height="102" rx="26" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.3"/>
+    <rect x="24" y="22" width="62" height="28" rx="999" fill="#475569"/>
+    <text x="55" y="41" text-anchor="middle" class="stepIndex">STEP 5</text>
+    <text x="112" y="42" class="stepTitle">安装 Rainbond</text>
+    <text x="112" y="68" class="stepBody">
+      <tspan x="112" dy="0">确认入口 IP、网关节点和 values.yaml 的关键配置。</tspan>
+      <tspan x="112" dy="22">不要直接照抄默认参数，先结合当前环境实际情况调整。</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(820 430)">
+    <rect width="340" height="152" rx="28" fill="#FFF7ED" stroke="#F97316" stroke-width="1.4"/>
+    <text x="28" y="44" class="warnTitle">完全离线时要并行判断</text>
+    <text x="28" y="74" class="warnBody">
+      <tspan x="28" dy="0">如果项目同时完全离线，</tspan>
+      <tspan x="28" dy="24">不要只看鲲鹏 / 麒麟部署，</tspan>
+      <tspan x="28" dy="24">还要同步参考纯离线安装路径，</tspan>
+      <tspan x="28" dy="24">一起确认资源准备方式。</tspan>
+    </text>
+  </g>
+
+  <path d="M820 506C786 506 760 522 716 548" stroke="#EA580C" stroke-width="2.4" stroke-dasharray="9 9" marker-end="url(#arrowWarn)"/>
+</svg>
