@@ -31,7 +31,7 @@ export default function Comparison() {
     >
       {/* 标题区 */}
       <motion.div className={styles.comparisonHeader} variants={itemVariants}>
-        <h2 className={styles.comparisonTitle}>选型中心</h2>
+        <h2 className={styles.comparisonTitle}>产品差异</h2>
         <p className={styles.comparisonDesc}>
           把 Rainbond 与 Rancher、KubeSphere、Sealos、Kuboard 的差异统一收敛到一个对比入口，帮助你更快判断平台适配度。
         </p>
@@ -120,13 +120,6 @@ export default function Comparison() {
             </tr>
           </tbody>
         </table>
-      </motion.div>
-      <motion.div className={styles.quickLinks} variants={itemVariants}>
-        {compareLinks.map((item) => (
-          <Link key={item.href} to={item.href} className={styles.quickLink}>
-            {item.label}
-          </Link>
-        ))}
       </motion.div>
       <motion.div className={clsx("row",styles.button_row)} variants={itemVariants}>
         <div className='col col--12'>
