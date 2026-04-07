@@ -1,6 +1,6 @@
 <svg width="1280" height="600" viewBox="0 0 1280 600" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Rainbond 核心概念速览</title>
-  <desc id="desc">展示企业团队、应用、组件、网关、RAM 和应用市场之间关系的简要流程图。</desc>
+  <desc id="desc">展示企业团队、应用、组件、网关、应用模版和应用市场之间关系的简要流程图。</desc>
   <defs>
     <linearGradient id="bg" x1="120" y1="72" x2="1160" y2="520" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F8FBFF"/>
@@ -22,11 +22,11 @@
       <stop stop-color="#EA580C"/>
       <stop offset="1" stop-color="#F97316"/>
     </linearGradient>
-    <linearGradient id="ram" x1="0" y1="0" x2="250" y2="122" gradientUnits="userSpaceOnUse">
+    <linearGradient id="template" x1="0" y1="0" x2="250" y2="122" gradientUnits="userSpaceOnUse">
       <stop stop-color="#B45309"/>
       <stop offset="1" stop-color="#F59E0B"/>
     </linearGradient>
-    <linearGradient id="market" x1="0" y1="0" x2="190" y2="122" gradientUnits="userSpaceOnUse">
+    <linearGradient id="market" x1="0" y1="0" x2="300" y2="122" gradientUnits="userSpaceOnUse">
       <stop stop-color="#0F766E"/>
       <stop offset="1" stop-color="#22C55E"/>
     </linearGradient>
@@ -40,42 +40,42 @@
 
   <rect x="40" y="40" width="1200" height="520" rx="28" fill="url(#bg)"/>
   <g filter="url(#shadow)">
-    <rect x="90" y="92" width="240" height="126" rx="24" fill="url(#team)"/>
-    <rect x="420" y="86" width="270" height="138" rx="28" fill="url(#app)"/>
-    <rect x="780" y="86" width="300" height="138" rx="28" fill="url(#component)"/>
+    <rect x="90" y="206" width="240" height="126" rx="24" fill="url(#team)"/>
+    <rect x="420" y="200" width="270" height="138" rx="28" fill="url(#app)"/>
+    <rect x="780" y="200" width="300" height="138" rx="28" fill="url(#component)"/>
 
-    <rect x="380" y="324" width="240" height="122" rx="24" fill="url(#gateway)"/>
-    <rect x="680" y="324" width="250" height="122" rx="24" fill="url(#ram)"/>
-    <rect x="990" y="324" width="190" height="122" rx="24" fill="url(#market)"/>
+    <rect x="435" y="50" width="240" height="122" rx="24" fill="url(#gateway)"/>
+    <rect x="430" y="366" width="250" height="122" rx="24" fill="url(#template)"/>
+    <rect x="780" y="366" width="300" height="122" rx="24" fill="url(#market)"/>
   </g>
 
-  <path d="M338 155H408" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M698 155H768" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M555 238V306" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M626 385H674" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M936 385H984" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M338 269H408" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M698 269H768" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M555 196V176" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M555 342V362" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M688 427H774" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow)"/>
 
-  <text x="210" y="160" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">企业 / 团队</text>
-  <text x="210" y="196" fill="#DBEAFE" font-size="16" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">协作与资源隔离空间</text>
+  <text x="210" y="274" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">企业 / 团队</text>
+  <text x="210" y="310" fill="#DBEAFE" font-size="16" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">协作与资源隔离空间</text>
 
-  <text x="555" y="160" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">应用</text>
-  <text x="555" y="196" fill="#D1FAE5" font-size="16" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">一个完整业务系统</text>
+  <text x="555" y="274" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">应用</text>
+  <text x="555" y="310" fill="#D1FAE5" font-size="16" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">一个完整业务系统</text>
 
-  <text x="930" y="160" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">组件</text>
-  <text x="930" y="196" fill="#EDE9FE" font-size="16" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">前端、API、数据库等运行单元</text>
+  <text x="930" y="274" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">组件</text>
+  <text x="930" y="310" fill="#EDE9FE" font-size="16" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">前端、API、数据库等运行单元</text>
 
-  <text x="500" y="386" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">网关</text>
-  <text x="500" y="422" fill="#FFEDD5" font-size="16" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">对外暴露应用访问入口</text>
+  <text x="555" y="126" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">网关</text>
+  <text x="555" y="162" fill="#FFEDD5" font-size="16" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">对外暴露应用访问入口</text>
 
-  <text x="805" y="386" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">RAM</text>
-  <text x="805" y="422" fill="#FEF3C7" font-size="16" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">可安装、可升级的应用模板</text>
+  <text x="555" y="428" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">应用模版</text>
+  <text x="555" y="464" fill="#FEF3C7" font-size="16" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">可安装、可升级的应用模版</text>
 
-  <text x="1085" y="386" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">应用市场</text>
-  <text x="1085" y="422" fill="#DCFCE7" font-size="15" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">安装与分发应用模板</text>
+  <text x="930" y="428" fill="#FFFFFF" font-size="34" font-weight="700" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">应用市场</text>
+  <text x="930" y="464" fill="#DCFCE7" font-size="15" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">安装与分发应用模版</text>
 
-  <text x="140" y="500" fill="#475569" font-size="20" font-weight="600" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif">先把它记成一句话：</text>
-  <text x="640" y="502" fill="#0F172A" font-size="20" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">
-    <tspan x="640" dy="0">在团队里管理应用，把应用拆成组件；需要访问就配网关。</tspan>
-    <tspan x="640" dy="28">需要复用与交付时，就发布为 RAM 并进入应用市场。</tspan>
+  <text x="140" y="520" fill="#475569" font-size="20" font-weight="600" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif">先把它记成一句话：</text>
+  <text x="640" y="522" fill="#0F172A" font-size="20" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">
+    <tspan x="640" dy="0">在团队里管理应用，把应用拆成组件；应用可以对接网关暴露访问入口。</tspan>
+    <tspan x="640" dy="28">需要复用与交付时，就沉淀为应用模版，再进入应用市场。</tspan>
   </text>
 </svg>
