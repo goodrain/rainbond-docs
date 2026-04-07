@@ -9,7 +9,6 @@ import Users from '@src/components/HomePage/Users';
 import Painpoint from '@src/components/HomePage/Painpoint';
 import DeployCommand from '@src/components/HomePage/DeployCommand';
 import Comparison from '@src/components/HomePage/Comparison';
-import TopicHub from '@src/components/HomePage/TopicHub';
 import Section from '@src/components/Section';
 import PageContainer from '@src/components/PageContainer';
 import GridDecoration from '@src/components/GridDecoration';
@@ -35,9 +34,6 @@ export default function Home() {
         </Section>
         <Section>
           <Comparison/>
-        </Section>
-        <Section>
-          <TopicHub />
         </Section>
         <Section noBorder>
           <DeployCommand />
