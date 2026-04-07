@@ -11,7 +11,9 @@ import TabItem from '@theme/TabItem';
 
 本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Windows(x86_64)`、`Mac(Intel/Apple Silicon)`、`Linux(x86_64、Arm64)`。
 
-## 2 分钟理解 Rainbond
+<details>
+
+<summary>安装前了解 Rainbond 概念</summary>
 
 如果你是第一次接触 Rainbond，先记住这条主线就够了：你通常会先进入一个`团队`，在团队里创建`应用`，再把应用拆成多个`组件`运行；需要对外访问时交给`网关`，需要复用和交付时就把应用沉淀为 `RAM`，再通过`应用市场`安装和分发。
 
@@ -23,11 +25,14 @@ import TabItem from '@theme/TabItem';
 - **应用**：一个完整业务系统的集合，例如商城、门户、支付平台。
 - **组件**：应用里的运行单元，例如前端、后端 API、MySQL、Redis。
 - **网关**：把外部请求转发到应用或组件的入口，通常对应域名、证书和访问策略。
-- **RAM**：`Rainbond Application Model`，可以理解为把一个应用及其依赖关系打包成可安装、可升级、可复用的模板。
-- **应用市场**：安装和分发 RAM 的地方，既能复用官方现成应用，也能复用企业内部沉淀下来的模板。
+- **应用模版**：可以理解为把一个应用及其依赖关系打包成可安装、可升级、可复用的模板。
+- **应用市场**：安装和分发应用模版的地方，既能复用官方现成应用，也能复用企业内部沉淀下来的模板。
+</details>
 
+
+## 操作步骤
 <details>
-<summary>了解原理</summary>
+<summary>了解安装原理</summary>
 
 **快速安装模式的工作原理**
 
@@ -50,9 +55,6 @@ import TabItem from '@theme/TabItem';
 - **EIP（External IP）**：外部访问 IP（内网/公网IP），用于从外部访问 Rainbond 控制台和部署的应用
 
 </details>
-
-## 操作步骤
-
 <Tabs groupId="install">
   <TabItem value="Linux" label="Linux" default>
 

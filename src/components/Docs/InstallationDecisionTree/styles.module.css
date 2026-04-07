@@ -1,0 +1,124 @@
+.wrapper {
+  margin: 20px 0 28px;
+  padding: 22px 24px;
+  border: 1px solid #d7e1ec;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.1), transparent 28%),
+    linear-gradient(180deg, #fdfefe 0%, #f6f9fc 100%);
+}
+
+[data-theme='dark'] .wrapper {
+  border-color: #274160;
+  background:
+    radial-gradient(circle at top left, rgba(96, 165, 250, 0.14), transparent 32%),
+    linear-gradient(180deg, #131d2b 0%, #101827 100%);
+}
+
+.tree {
+  font-family:
+    ui-monospace,
+    'SFMono-Regular',
+    'SF Mono',
+    Menlo,
+    Monaco,
+    Consolas,
+    'Liberation Mono',
+    monospace;
+}
+
+.question {
+  margin-bottom: 14px;
+  color: #102a43;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+[data-theme='dark'] .question {
+  color: #eef5ff;
+}
+
+.children {
+  margin-left: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto auto auto minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 10px;
+  row-gap: 6px;
+  min-height: 40px;
+  line-height: 1.8;
+}
+
+.prefix {
+  white-space: pre;
+  color: #61758a;
+  font-weight: 600;
+}
+
+[data-theme='dark'] .prefix {
+  color: #8ba2bd;
+}
+
+.branch {
+  color: #1f2937;
+  font-weight: 700;
+}
+
+[data-theme='dark'] .branch {
+  color: #e2e8f0;
+}
+
+.arrow {
+  color: #61758a;
+}
+
+[data-theme='dark'] .arrow {
+  color: #8ba2bd;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  color: #1d4ed8;
+  font-weight: 700;
+  text-decoration: none;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.link:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+[data-theme='dark'] .link {
+  color: #7cc0ff;
+}
+
+[data-theme='dark'] .link:hover {
+  color: #93c5fd;
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    padding: 18px 16px;
+  }
+
+  .row {
+    grid-template-columns: auto 1fr;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .link {
+    grid-column: 2;
+    padding-left: 0;
+  }
+}
