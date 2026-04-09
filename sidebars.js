@@ -74,26 +74,29 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: '使用 YAML/Helm 部署',
+              label: '使用 YAML 部署',
               items: [
                 'how-to-guides/app-deploy/deploy-using-yaml-helm/yaml-convert-ram',
                 'how-to-guides/app-deploy/deploy-using-yaml-helm/yaml-example',
-                {
-                  type: 'category',
-                  label: '使用 Helm Chart 部署',
-                  link: {
-                    type: 'doc',
-                    id: 'how-to-guides/app-deploy/deploy-using-yaml-helm/helm-example',
-                  },
-                  items: [
-                    'how-to-guides/app-deploy/deploy-using-yaml-helm/export-chart',
-                  ]
-                },
               ]
             },
             'how-to-guides/app-deploy/deploy-job',
             'how-to-guides/app-deploy/gitops',
-            'how-to-guides/app-deploy/import-resource',
+          ]
+        },
+        {
+          type: 'category',
+          label: 'K8s 原生资源管理',
+          link: {
+            type: 'doc',
+            id: 'how-to-guides/k8s-native-resource/index',
+          },
+          items: [
+            'how-to-guides/k8s-native-resource/connect-namespace',
+            'how-to-guides/k8s-native-resource/yaml-native-create',
+            'how-to-guides/k8s-native-resource/helm-native-deploy',
+            'how-to-guides/k8s-native-resource/team-native-resources',
+            'how-to-guides/k8s-native-resource/platform-storage',
           ]
         },
         {
@@ -117,6 +120,7 @@ const sidebars = {
           label: '应用运维',
           items: [
             'how-to-guides/app-ops/lifecycle',
+            'how-to-guides/app-ops/app-snapshot',
             'how-to-guides/app-ops/service-auto-scaling',
             'how-to-guides/app-ops/environment',
             'how-to-guides/app-ops/dependon',
