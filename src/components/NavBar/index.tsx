@@ -22,8 +22,12 @@ const learningSections = [
         to: '/compare',
       },
       {
-        label: '国产化信创专题',
+        label: '内网、离线、国产化信创',
         to: '/offline-and-xinchuang',
+      },
+      {
+        label: '多团队、企业 IT 管理',
+        to: '/it-and-enterprise',
       },
     ],
   },

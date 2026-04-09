@@ -1,0 +1,25 @@
+.layout {
+  background: var(--ifm-background-color);
+}
+
+.main {
+  width: 100%;
+  padding-top: calc(var(--ifm-navbar-height) + 1rem);
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem 2.8rem;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-top: calc(var(--ifm-navbar-height) + 0.6rem);
+  }
+
+  .container {
+    padding: 0.9rem 1rem 2rem;
+  }
+}

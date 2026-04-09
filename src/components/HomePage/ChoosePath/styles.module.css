@@ -1,0 +1,253 @@
+.choosePathSection {
+  --whychoose-surface: #fbfbf9;
+  --whychoose-border: #dedfd7;
+  --whychoose-text: #131a22;
+  --whychoose-muted: #667085;
+  width: 100%;
+  max-width: var(--content-max-width, 1380px);
+  margin: 0 auto;
+  padding: 1.2rem 2rem 4rem;
+}
+
+.bgSection {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  height: 142px;
+  z-index: 10;
+}
+
+.lf,
+.rt {
+  flex: 1;
+  /* border-top: 1px solid #eaebee; */
+  background: #fff;
+}
+
+.mid {
+  width: min(100vw, var(--content-max-width, 1380px));
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid #eaebee;
+  border-right: 1px solid #eaebee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mid img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+  opacity: 0.72;
+}
+
+.titleWrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--whychoose-text);
+  margin: 0 0 0.55rem 0;
+  font-family: var(--font-family-base);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  color: #626a76;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+}
+.cardGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 142px;
+}
+
+.card {
+  composes: card from '../Whychoose/styles.module.css';
+  --card-border: var(--whychoose-border);
+  --card-shadow: rgba(20, 27, 45, 0.06);
+  --tag-bg: rgba(231, 239, 255, 0.95);
+  --tag-text: #4f72df;
+  min-height: 16.25rem;
+  gap: 0.68rem;
+  padding: 1.25rem 1.2rem 1.15rem;
+  border-radius: 22px;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(20, 27, 45, 0.08);
+}
+
+.cardTag,
+.cardTitle,
+.cardSummary,
+.cardFooter {
+  position: relative;
+  z-index: 1;
+}
+
+.cardTag {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.4rem 0.72rem;
+  border-radius: 999px;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.cardTitle {
+  composes: cardTitle from '../Whychoose/styles.module.css';
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.28;
+}
+
+.cardSummary {
+  composes: cardSummary from '../Whychoose/styles.module.css';
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.62;
+  color: #697586;
+  font-weight: 400;
+}
+
+.cardFooter {
+  margin-top: auto;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.35rem;
+}
+
+.cardButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ifm-color-primary);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 0.2s ease, text-decoration-thickness 0.2s ease;
+}
+
+.cardButton:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
+.cardButton:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.beginner {
+  --card-border: #d8dfef;
+  --tag-bg: rgba(231, 239, 255, 0.95);
+  --tag-text: #4f72df;
+}
+
+.ai {
+  --card-border: #dfe4f4;
+  --tag-bg: rgba(236, 230, 255, 0.96);
+  --tag-text: #7256e5;
+}
+
+.offline {
+  --card-border: #e6dff0;
+  --tag-bg: rgba(255, 240, 211, 0.98);
+  --tag-text: #cb8517;
+}
+
+.enterprise {
+  --card-border: #d9e8df;
+  --tag-bg: rgba(220, 247, 240, 0.96);
+  --tag-text: #2e9b84;
+}
+
+@media (max-width: 1200px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .choosePathSection {
+    padding: 0.75rem 1rem 1.2rem;
+  }
+
+  .panel {
+    padding: 0.35rem 0 0;
+  }
+
+  .title {
+    font-size: 30px;
+    max-width: 14ch;
+  }
+
+  .headerNote {
+    font-size: 14px;
+    line-height: 1.55;
+    padding: 0.72rem 0.85rem;
+    border-radius: 20px;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .card {
+    min-height: auto;
+    padding: 1rem;
+    border-radius: 18px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .cardSummary {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}

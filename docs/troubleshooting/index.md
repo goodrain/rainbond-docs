@@ -9,6 +9,17 @@ keywords:
 
 本文档提供了 Rainbond 平台使用过程中可能遇到的各类问题的排查思路和解决方案，按照问题类型分为安装问题、平台问题和应用问题三大类。
 
+## 先按阶段找问题
+
+如果你只是想尽快恢复，不必先看完整文档，按阶段进入更快：
+
+| 你现在卡在哪一步 | 建议入口 |
+| :--- | :--- |
+| 还没装完，脚本执行失败 / UI 打不开 | [安装问题](./install.md) |
+| 平台跑起来了，但集群状态异常 | [平台问题](./cluster-connect.md) |
+| 第一个应用部署后访问失败 | [应用问题](./common.md) |
+| 我不想自己查了，想直接问人 | [社区支持](../support.md) |
+
 ## 问题分类
 
 - [安装问题](./install.md)：安装阶段遇到的问题通常与环境配置、资源限制或底层依赖有关。
@@ -21,7 +32,5 @@ keywords:
 
 - [GitHub Issues](https://github.com/goodrain/rainbond/issues) - 提交问题或查找已有解决方案
 - [Rainbond 社区](https://t.goodrain.com/) - 与其他用户和开发者交流
-- [微信群](/docs/support#微信群) - 加入微信用户群获取实时帮助
-- [钉钉群](/docs/support#钉钉群) - 加入钉钉用户群交流问题
+- [社区支持](../support.md) - 查看微信群、公众号和其他社区入口
 - [官方支持](https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/) - 获取商业技术支持服务
-

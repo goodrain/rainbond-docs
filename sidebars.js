@@ -15,6 +15,7 @@ const sidebars = {
       type: 'category',
       label: '使用教程',
       items: [
+        'tutorial/install-concepts',
         'tutorial/via-rainbond-deploy-sourceandmiddleware',
         'tutorial/component-version-update-and-rollback',
         'tutorial/custom-gateway',
