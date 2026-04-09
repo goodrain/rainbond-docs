@@ -1,9 +1,12 @@
 import React from 'react';
+import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
 import PageContainer from '@src/components/PageContainer';
 
 import Section from '@src/components/Section';
 import styles from './index.module.scss';
+
+const enterpriseKeywords = 'Rainbond 企业版, 私有化部署, 商业支持, 企业级能力, 企业级应用平台, 监控告警, 日志中心, 灾备恢复, GPU 高级管理, ToB 交付';
 
 const CheckIcon = ({ className }) => (
   <svg className={className || styles.checkIcon} viewBox="0 0 20 20" fill="currentColor">
@@ -135,6 +138,9 @@ function CellValue({ value }) {
 export default function Index() {
   return (
     <Layout wrapperClassName={styles.layoutWrapper}>
+      <Head>
+        <meta name="keywords" content={enterpriseKeywords} />
+      </Head>
       <PageContainer>
         {/* Screen 1: Hero */}
         <Section style={{ position: 'relative' }}>

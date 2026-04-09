@@ -175,6 +175,10 @@ export default function Demo() {
 
       <div className={styles.videoContainer}>
         <div className={styles.gradientBackground}>
+          <div className={styles.sectionIntro}>
+            <h2 className={styles.sectionTitle}>Rainbond 的核心功能</h2>
+          </div>
+
           <div className={styles.tabsWrapper}>
             <Tabs type="button" className={styles.tabs} activeKey={activeKey} onTabClick={handleTabChange}>
               <Tabs.TabPane tab="应用部署" itemKey="1" />

@@ -9,25 +9,31 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
+:::tip 先选正确安装路径
+如果你还不确定自己更适合体验安装、生产安装、离线安装还是信创安装，建议先进入 [安装总入口](/install-hub) 做判断，再回到对应方案。
+:::
+
+## 1 分钟判断
+
+- **适合谁：** 学习、PoC、低成本验证上手门槛的团队。
+- **预计耗时：** 2 到 3 分钟完成基础环境启动。
+- **不适合谁：** 直接拿来做正式生产部署的团队。
+- **Mac 前置条件：** 需要安装并启动 OrbStack。
+- **Windows 前置条件：** 依赖 WSL（Windows Subsystem for Linux）。
+- **离线 / 信创环境：** 优先看 [离线安装文档](../installation/offline.md) 或 [离线 / 信创专题](/offline-and-xinchuang)。
+
+## 成功标准
+
+- 脚本执行完成后输出 `Rainbond Installation Successful`。
+- 浏览器可以打开 `http://你的IP:7070`。
+- 你已经知道下一步要去 [部署第一个应用](./getting-started.md)，而不是停在“命令执行成功”。
+
 本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Windows(x86_64)`、`Mac(Intel/Apple Silicon)`、`Linux(x86_64、Arm64)`。
 
-<details>
-
-<summary>安装前了解 Rainbond 概念</summary>
-
-如果你是第一次接触 Rainbond，先记住这条主线就够了：你通常会先进入一个`团队`，在团队里创建`应用`，再把应用拆成多个`组件`运行；需要对外访问时交给`网关`，需要复用和交付时就把应用沉淀为 `RAM`，再通过`应用市场`安装和分发。
-
-<img src="/img/svg/quick-start-core-concepts.svg" alt="Rainbond 核心概念速览图" width="100%" />
-
-### 先记住这 6 个概念
-
-- **团队**：多人协作和资源隔离的工作空间，成员、权限、应用通常都在团队内管理。
-- **应用**：一个完整业务系统的集合，例如商城、门户、支付平台。
-- **组件**：应用里的运行单元，例如前端、后端 API、MySQL、Redis。
-- **网关**：把外部请求转发到应用或组件的入口，通常对应域名、证书和访问策略。
-- **应用模版**：可以理解为把一个应用及其依赖关系打包成可安装、可升级、可复用的模板。
-- **应用市场**：安装和分发应用模版的地方，既能复用官方现成应用，也能复用企业内部沉淀下来的模板。
-</details>
+:::info 第一次接触 Rainbond？
+如果你还不熟悉 `团队`、`应用`、`组件`、`网关`、`应用模版` 和 `应用市场` 这些概念，建议先看 [安装前了解 Rainbond 概念](../tutorial/install-concepts)，再继续下面的安装步骤。
+:::
 
 
 ## 操作步骤
