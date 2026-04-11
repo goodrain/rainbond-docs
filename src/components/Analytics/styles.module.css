@@ -1,0 +1,82 @@
+.copyShell {
+  margin: 1rem 0 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--ifm-background-surface-color);
+}
+
+.copyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1rem 0.6rem;
+}
+
+.copyMeta {
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.copyHint {
+  margin-top: 0.2rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.84rem;
+}
+
+.copyButton {
+  white-space: nowrap;
+}
+
+.trackedDetails {
+  margin: 1rem 0 1.4rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.02);
+}
+
+.detailSummary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.detailBody {
+  margin-top: 1rem;
+}
+
+.qrCard {
+  margin: 1rem 0 1.4rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.01));
+}
+
+.qrCompact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.qrTitle {
+  margin: 0;
+  color: var(--ifm-color-emphasis-900);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.qrDescription {
+  margin: 0.4rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.7;
+}
+
+.qrImage {
+  width: min(240px, 100%);
+  border-radius: 14px;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+}

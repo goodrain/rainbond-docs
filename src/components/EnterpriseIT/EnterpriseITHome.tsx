@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './enterpriseITHome.module.css';
+import TrackedLink from '@src/components/Analytics/TrackedLink';
 
 type TextItem = {
   title: string;
@@ -232,9 +233,17 @@ export default function EnterpriseITHome(): JSX.Element {
           而是如何把采购来的软件真正装起来、管起来、交付起来，并逐步沉淀成可复用的数字资产。
         </p>
         <div className={styles.heroActions}>
-          <Link to="/install-hub" className={styles.primaryAction}>
+          <TrackedLink
+            to="/install-hub"
+            className={styles.primaryAction}
+            eventName="cta_install_clicked"
+            eventProps={{
+              module: 'it_enterprise_hero',
+              cta_text: '先选安装路径',
+              target_path: '/install-hub',
+            }}>
             先选安装路径
-          </Link>
+          </TrackedLink>
         </div>
       </section>
 

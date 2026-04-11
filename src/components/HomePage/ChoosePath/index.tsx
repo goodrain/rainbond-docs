@@ -3,6 +3,7 @@ import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import styles from './styles.module.css';
+import TrackedLink from '@src/components/Analytics/TrackedLink';
 
 type CardTone = 'beginner' | 'ai' | 'offline' | 'enterprise';
 
@@ -12,6 +13,7 @@ interface PathCard {
   summary: string;
   href: string;
   tone: CardTone;
+  buttonLabel?: string;
   showCta?: boolean;
 }
 
@@ -20,8 +22,9 @@ const pathCards: PathCard[] = [
     tag: '快速上手',
     title: '不会 K8s，想把应用跑起来',
     summary: '适合开发多、平台运维少，想先解决应用交付而不是先补齐 k8s 复杂概念。',
-    href: '/compare',
+    href: '/install-hub',
     tone: 'beginner',
+    buttonLabel: '先选安装路径',
   },
   {
     tag: 'AI 私有化',
@@ -90,9 +93,23 @@ export default function ChoosePath() {
 
               {card.showCta !== false && (
                 <div className={styles.cardFooter}>
-                  <Link to={card.href} className={styles.cardButton}>
-                    了解更多
-                  </Link>
+                  {card.href === '/install-hub' ? (
+                    <TrackedLink
+                      to={card.href}
+                      className={styles.cardButton}
+                      eventName="cta_install_clicked"
+                      eventProps={{
+                        module: 'home_choose_path',
+                        cta_text: card.buttonLabel || '先选安装路径',
+                        target_path: card.href,
+                      }}>
+                      {card.buttonLabel || '了解更多'}
+                    </TrackedLink>
+                  ) : (
+                    <Link to={card.href} className={styles.cardButton}>
+                      {card.buttonLabel || '了解更多'}
+                    </Link>
+                  )}
                 </div>
               )}
             </article>

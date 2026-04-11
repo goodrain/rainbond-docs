@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Link from '@docusaurus/Link';
 import CodeBlock from '@theme/CodeBlock';
 import { Tabs } from '@douyinfe/semi-ui';
 import { IconGlobe, IconServer } from '@douyinfe/semi-icons';
 import { motion } from 'framer-motion';
 import styles from './styles.module.css';
+import TrackedLink from '@src/components/Analytics/TrackedLink';
 
 const deploymentHighlights = [
   { label: '交付方式', value: '一条命令完成安装' },
@@ -56,12 +56,23 @@ export default function DeployCommand() {
                   让 Rainbond 部署在你的基础设施里。几分钟内把应用平台交到团队手里。
                 </p>
                 <div className={styles.actions}>
-                  <Link to="/docs/quick-start/quick-install" className={styles.primaryButton}>
+                  <TrackedLink
+                    to="/docs/quick-start/quick-install"
+                    className={styles.primaryButton}
+                    eventName="cta_install_clicked"
+                    eventProps={{
+                      module: 'home_deploy_command',
+                      cta_text: '立即私有化部署',
+                      target_path: '/docs/quick-start/quick-install',
+                    }}>
                     立即私有化部署
-                  </Link>
-                  <Link to="/docs/quick-start/getting-started" className={styles.secondaryLink}>
+                  </TrackedLink>
+                  <TrackedLink
+                    to="/docs/quick-start/getting-started"
+                    className={styles.secondaryLink}
+                    appendSourcePageParam>
                     查看快速入门
-                  </Link>
+                  </TrackedLink>
                 </div>
               </div>
 
@@ -104,9 +115,12 @@ export default function DeployCommand() {
                         </div>
                         <div className={styles.commandLinkRow}>
                           <span className={styles.commandTip}>推荐继续完成初始化引导</span>
-                          <Link to="/docs/quick-start/getting-started" className={styles.commandLink}>
+                          <TrackedLink
+                            to="/docs/quick-start/getting-started"
+                            className={styles.commandLink}
+                            appendSourcePageParam>
                             前往快速入门
-                          </Link>
+                          </TrackedLink>
                         </div>
                       </div>
                     </TabPane>
@@ -121,9 +135,12 @@ export default function DeployCommand() {
                         </div>
                         <div className={styles.commandLinkRow}>
                           <span className={styles.commandTip}>推荐继续完成初始化引导</span>
-                          <Link to="/docs/quick-start/getting-started" className={styles.commandLink}>
+                          <TrackedLink
+                            to="/docs/quick-start/getting-started"
+                            className={styles.commandLink}
+                            appendSourcePageParam>
                             前往快速入门
-                          </Link>
+                          </TrackedLink>
                         </div>
                       </div>
                     </TabPane>

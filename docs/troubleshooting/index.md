@@ -7,6 +7,11 @@ keywords:
 - 应用部署问题解决
 ---
 
+import PageEntryTracker from '@site/src/components/Analytics/PageEntryTracker';
+import TrackedLink from '@site/src/components/Analytics/TrackedLink';
+
+<PageEntryTracker eventName="troubleshooting_opened" />
+
 本文档提供了 Rainbond 平台使用过程中可能遇到的各类问题的排查思路和解决方案，按照问题类型分为安装问题、平台问题和应用问题三大类。
 
 ## 先按阶段找问题
@@ -18,7 +23,7 @@ keywords:
 | 还没装完，脚本执行失败 / UI 打不开 | [安装问题](./install.md) |
 | 平台跑起来了，但集群状态异常 | [平台问题](./cluster-connect.md) |
 | 第一个应用部署后访问失败 | [应用问题](./common.md) |
-| 我不想自己查了，想直接问人 | [社区支持](../support.md) |
+| 我不想自己查了，想直接问人 | <TrackedLink to="/docs/support" appendSourcePageParam>社区支持</TrackedLink> |
 
 ## 问题分类
 
@@ -32,5 +37,5 @@ keywords:
 
 - [GitHub Issues](https://github.com/goodrain/rainbond/issues) - 提交问题或查找已有解决方案
 - [Rainbond 社区](https://t.goodrain.com/) - 与其他用户和开发者交流
-- [社区支持](../support.md) - 查看微信群、公众号和其他社区入口
+- <TrackedLink to="/docs/support" appendSourcePageParam>社区支持</TrackedLink> - 查看微信群、公众号和其他社区入口
 - [官方支持](https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/) - 获取商业技术支持服务

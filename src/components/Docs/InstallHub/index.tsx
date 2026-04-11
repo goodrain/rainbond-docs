@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
+import TrackedLink from '@src/components/Analytics/TrackedLink';
 
 interface PrimaryPath {
   badge: string;
@@ -9,7 +9,8 @@ interface PrimaryPath {
   to: string;
   cta: string;
   facts: string[];
-  tone: 'trial' | 'host' | 'k8s' | 'offline';
+  installPath: string;
+  tone: 'trial' | 'host' | 'k8s' | 'offline' | 'xinchuang';
 }
 
 interface SecondaryEntry {
@@ -61,6 +62,7 @@ const primaryPaths: PrimaryPath[] = [
     summary: '适合本地电脑试装、学习和 PoC 验证，最快进入可用控制台。',
     to: '/docs/quick-start/quick-install',
     cta: '快速安装',
+    installPath: 'quick_install',
     facts: ['学习 / PoC / 本地试装', 'Mac 需 OrbStack，Windows 需 WSL', '2 到 3 分钟完成基础环境启动'],
     tone: 'trial',
   },
@@ -70,6 +72,7 @@ const primaryPaths: PrimaryPath[] = [
     summary: '从 Linux 主机开始搭建正式集群，适合没有现成 K8s 集群的生产部署。',
     to: '/docs/installation/multi-node-install',
     cta: '集群安装',
+    installPath: 'multi_node_install',
     facts: ['没有现成 Kubernetes 集群', '至少 3 台 Linux 主机，节点间网络互通', '使用 ROI 从主机搭建 Rainbond 集群'],
     tone: 'host',
   },
@@ -79,6 +82,7 @@ const primaryPaths: PrimaryPath[] = [
     summary: '已有可用 Kubernetes 集群时，直接通过 Helm 安装 Rainbond。',
     to: '/docs/installation/install-with-helm',
     cta: 'Kubernetes 安装',
+    installPath: 'helm_install',
     facts: ['适合自建或托管 Kubernetes 集群', '需要 kubectl、Helm 和 Kubernetes 1.24+', '直接在现有集群中安装 Rainbond'],
     tone: 'k8s',
   },
@@ -88,6 +92,7 @@ const primaryPaths: PrimaryPath[] = [
     summary: '适合客户现场、内网和断网环境，优先解决离线包准备与交付问题。',
     to: '/docs/installation/offline',
     cta: '离线安装',
+    installPath: 'offline_install',
     facts: ['客户现场 / 内网 / 不能直接联网', '至少 3 台 Linux 主机，并提前准备离线包', '使用 ROI + offline-packages 完成安装'],
     tone: 'offline',
   },
@@ -97,6 +102,7 @@ const primaryPaths: PrimaryPath[] = [
     summary: '适合国产化、多架构、一云多芯等场景，先确认架构与迁移方式，再进入对应安装路径。',
     to: '/docs/installation/multi-node-install',
     cta: '信创安装',
+    installPath: 'xinchuang_install',
     facts: ['聚焦 x86_64、ARM64 与异构环境', '适合先判断安装、迁移与编排策略再落地'],
     tone: 'xinchuang',
   },
@@ -173,9 +179,17 @@ export default function InstallHub(): JSX.Element {
                   </li>
                 ))}
               </ul>
-              <Link to={item.to} className={styles.pathButton}>
+              <TrackedLink
+                to={item.to}
+                className={styles.pathButton}
+                eventName="install_path_selected"
+                eventProps={{
+                  install_path: item.installPath,
+                  module: 'install_hub_primary',
+                  target_path: item.to,
+                }}>
                 {item.cta}
-              </Link>
+              </TrackedLink>
             </article>
           ))}
         </div>
@@ -192,11 +206,37 @@ export default function InstallHub(): JSX.Element {
             <article key={item.title} className={`${styles.followUpCard} ${styles[item.tone]}`}>
               <h3 className={styles.followUpCardTitle}>{item.title}</h3>
               <p className={styles.followUpCardSummary}>{item.summary}</p>
-              <Link to={item.to} className={styles.followUpLink}>
+              <TrackedLink
+                to={item.to}
+                className={styles.followUpLink}
+                appendSourcePageParam>
                 {item.cta}
-              </Link>
+              </TrackedLink>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2 className={styles.sectionTitle}>安装中途卡住了怎么办？</h2>
+          <p className={styles.sectionDescription}>
+            不必回到首页重新找。先判断是继续换安装路径、看排障，还是直接进入社区支持。
+          </p>
+        </div>
+        <div className={styles.followUpGrid}>
+          <article className={`${styles.followUpCard} ${styles.support}`}>
+            <h3 className={styles.followUpCardTitle}>直接找人继续推进</h3>
+            <p className={styles.followUpCardSummary}>
+              如果你已经知道自己卡住了，直接进入社区支持页会比继续盲查更快，里面已经包含微信群和其他支持入口。
+            </p>
+            <TrackedLink
+              to="/docs/support"
+              className={styles.followUpLink}
+              appendSourcePageParam>
+              去社区支持
+            </TrackedLink>
+          </article>
         </div>
       </section>
     </div>

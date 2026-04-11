@@ -16,7 +16,7 @@ const config = {
   favicon: 'img/rainbond.png',
   organizationName: 'goodrain', // Usually your GitHub org/user name.
   projectName: 'rainbond-docs', // Usually your repo name.
-  trailingSlash: 'false',
+  trailingSlash: false,
   i18n: {
     defaultLocale: 'zh',
     locales: ['zh'],
@@ -48,7 +48,8 @@ const config = {
         blog: {
           routeBasePath: '/blog',
           path: 'blog',
-          blogTitle: '博客',
+          blogTitle: '博客：云原生应用交付、Kubernetes 与私有化部署实践',
+          blogDescription: 'Rainbond 博客聚焦云原生应用交付、Kubernetes、私有化部署、离线交付与企业平台实践，帮助团队理解平台选型与落地方法。',
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main/blog',
           postsPerPage: 'ALL',
           blogSidebarCount: 'ALL',
@@ -301,6 +302,9 @@ const config = {
       src: 'https://umami.goodrain.com/script.js',
       defer: true,
       'data-website-id': 'ddb75d48-7c13-41c2-8bda-0daa569344dd',
+      'data-domains': 'rainbond.com,www.rainbond.com',
+      'data-exclude-hash': 'true',
+      'data-exclude-search': 'true',
     }
   ],
   plugins: [

@@ -7,6 +7,8 @@ import Section from '@src/components/Section';
 import styles from './index.module.scss';
 
 const enterpriseKeywords = 'Rainbond 企业版, 私有化部署, 商业支持, 企业级能力, 企业级应用平台, 监控告警, 日志中心, 灾备恢复, GPU 高级管理, ToB 交付';
+const enterpriseTitle = 'Rainbond 企业版：私有化部署与应用交付平台 | Rainbond';
+const enterpriseDescription = 'Rainbond 企业版面向有私有化部署、离线交付、统一运维和企业级支持需求的团队，提供应用交付平台、部署能力与商业支持服务。';
 
 const CheckIcon = ({ className }) => (
   <svg className={className || styles.checkIcon} viewBox="0 0 20 20" fill="currentColor">
@@ -139,6 +141,8 @@ export default function Index() {
   return (
     <Layout wrapperClassName={styles.layoutWrapper}>
       <Head>
+        <title>{enterpriseTitle}</title>
+        <meta name="description" content={enterpriseDescription} />
         <meta name="keywords" content={enterpriseKeywords} />
       </Head>
       <PageContainer>

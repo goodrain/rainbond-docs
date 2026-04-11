@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
 import styles from './compareHeroGraphic.module.css';
+import TrackedLink from '@src/components/Analytics/TrackedLink';
 
 type Bullet = {
   label: string;
@@ -58,7 +58,7 @@ export default function CompareHeroGraphic({
         <div className={styles.top}>
           {(title || subtitle || primaryCta || secondaryCta || audienceHint) ? (
             <div>
-              {title ? <h3 className={styles.title}>{title}</h3> : null}
+              {title ? <h1 className={styles.title}>{title}</h1> : null}
               {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
               {decision ? (
                 <div className={styles.decisionInline}>
@@ -68,14 +68,25 @@ export default function CompareHeroGraphic({
               {primaryCta || secondaryCta ? (
                 <div className={styles.actions}>
                   {primaryCta ? (
-                    <Link className={styles.primaryButton} to={primaryCta.href}>
+                    <TrackedLink
+                      className={styles.primaryButton}
+                      to={primaryCta.href}
+                      eventName="cta_install_clicked"
+                      eventProps={{
+                        module: 'compare_page_hero',
+                        cta_text: primaryCta.label,
+                        target_path: primaryCta.href,
+                      }}>
                       {primaryCta.label}
-                    </Link>
+                    </TrackedLink>
                   ) : null}
                   {secondaryCta ? (
-                    <Link className={styles.secondaryButton} to={secondaryCta.href}>
+                    <TrackedLink
+                      className={styles.secondaryButton}
+                      to={secondaryCta.href}
+                      appendSourcePageParam>
                       {secondaryCta.label}
-                    </Link>
+                    </TrackedLink>
                   ) : null}
                 </div>
               ) : null}

@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
-import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
+import TrackedLink from '@src/components/Analytics/TrackedLink';
 
 export default function Home() {
 
@@ -21,31 +21,21 @@ export default function Home() {
 
         {/* 按钮区块 */}
         <div className={styles.hero_button}>
-          <Link to="/install-hub" className={`${styles.hero_button_style} ${styles.hero_button_primary}`}>
+          <TrackedLink
+            to="/install-hub"
+            className={`${styles.hero_button_style} ${styles.hero_button_primary}`}
+            eventName="cta_install_clicked"
+            eventProps={{
+              module: 'home_hero',
+              cta_text: '3 分钟体验安装',
+              target_path: '/install-hub',
+            }}>
             3 分钟体验安装
+          </TrackedLink>
+
+          <Link to="/docs" className={`${styles.hero_button_style} ${styles.hero_button_secondary}`}>
+            了解 Rainbond
           </Link>
-          <OverlayTrigger
-            placement="bottom"
-            container={typeof document !== 'undefined' ? document.body : undefined}
-            popperConfig={{ strategy: 'fixed' }}
-            overlay={(overlayProps) => (
-              <div
-                {...overlayProps}
-                className={styles.wechatOverlay}
-                style={{ ...overlayProps.style, zIndex: 9999 }}
-              >
-                <div className="card">
-                  <div className="card__body">
-                    <img width="200px" height="200px" src="/wechat/wechatgroup-text.png" />
-                  </div>
-                </div>
-              </div>
-            )}
-          >
-            <button className={`${styles.hero_button_style} ${styles.hero_button_secondary}`}>
-              加入社群
-            </button>
-          </OverlayTrigger>
         </div>
 
         {/* 统计信息区块 */}
