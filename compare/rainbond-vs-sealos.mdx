@@ -17,6 +17,7 @@ import Head from '@docusaurus/Head';
 import CompareHeroGraphic from '@site/src/components/Compare/CompareHeroGraphic';
 import CompareEvidenceCards from '@site/src/components/Compare/CompareEvidenceCards';
 import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
+import CompareInlineCta from '@site/src/components/Compare/CompareInlineCta';
 
 <Head>
   <link rel="canonical" href="https://www.rainbond.com/compare/rainbond-vs-sealos" />
@@ -138,6 +139,15 @@ import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
 如果你的主要问题已经变成多集群治理，那 Sealos 和 Rainbond 都不是最典型的第一选择。  
 但如果你是在两者之间选，Rainbond 仍然更接近“生产交付和长期运维”的路径。
 
+<CompareInlineCta
+  title="如果你已经决定走长期交付路线，就直接装起来"
+  description="AI 场景最容易在“先试一试”和“真的要交付”之间反复摇摆。对这类页面，最有效的动作通常是直接进入体验安装，再判断是否继续升级到正式部署。"
+  primaryLabel="直接快速安装"
+  primaryHref="/docs/quick-start/quick-install"
+  secondaryLabel="继续看首个应用"
+  secondaryHref="/docs/quick-start/getting-started"
+/>
+
 ## 案例区
 
 <CompareEvidenceCards
@@ -192,8 +202,15 @@ import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
 如果你已经明确要做企业内网、长期交付和可维护的 AI 应用，Rainbond 更值得优先验证。
 
 ## 最后
+如果你的目标是先把 AI 场景试起来，可以先看 Sealos；如果你的目标是把 AI 应用稳定交付到企业环境，优先看 Rainbond。
+
 
 <CompareCtaFooter
+  installLink={{
+    href: '/docs/quick-start/quick-install',
+    label: '直接快速安装',
+    note: '如果你要先验证 AI 应用是否能顺利跑起来，最快的动作就是先装起来再继续看。',
+  }}
   caseLink={{
     href: '/blog',
     note: '看企业级生产场景如何承载 5000+ 峰值在线业务。',

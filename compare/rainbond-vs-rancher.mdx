@@ -17,6 +17,7 @@ import Head from '@docusaurus/Head';
 import CompareHeroGraphic from '@site/src/components/Compare/CompareHeroGraphic';
 import CompareEvidenceCards from '@site/src/components/Compare/CompareEvidenceCards';
 import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
+import CompareInlineCta from '@site/src/components/Compare/CompareInlineCta';
 
 <Head>
   <link rel="canonical" href="https://www.rainbond.com/compare/rainbond-vs-rancher" />
@@ -33,9 +34,9 @@ import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
 
 <CompareHeroGraphic
   title="Rainbond vs Rancher：哪个更适合你的团队？"
-  subtitle="如果你更关注应用交付效率、低 Kubernetes 门槛、离线交付和版本升级，Rainbond 更适合；如果你更关注多集群治理、安全与基础设施统一管理，Rancher 更合适。"
+  subtitle="如果你更关注应用交付效率、私有化部署、离线交付和降低 Kubernetes 门槛，Rainbond 更适合；如果你更关注多集群治理、安全与基础设施统一管理，Rancher 更合适。"
   decision="如果你先想把应用更快交付出去，先看 Rainbond；如果你先想把 Kubernetes 集群统一管起来，先看 Rancher。"
-  primaryCta={{label: '快速安装', href: '/docs/quick-start/quick-install'}}
+  primaryCta={{label: '去离线安装', href: '/docs/installation/offline'}}
   secondaryCta={{label: '部署实践', href: '/docs/quick-start/getting-started'}}
   audienceHint="适合正在比较“应用交付平台”和“多集群治理平台”边界的团队，尤其是还没想清楚自己到底是在管集群，还是在管应用的团队。"
   left={{
@@ -138,6 +139,15 @@ import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
 如果你已经有多个 Kubernetes 集群，目标是统一纳管、统一权限和统一控制面，优先看 Rancher。  
 这时候你真正缺的不是应用交付能力，而是集群治理能力。
 
+<CompareInlineCta
+  title="如果你更像交付型团队，下一步直接去更贴近落地的安装路径"
+  description="Rancher 对比页的高意向用户，通常更接近离线、客户现场和正式部署场景。比起继续看概念，更有价值的是直接进入离线安装或正式部署路线。"
+  primaryLabel="去离线安装"
+  primaryHref="/docs/installation/offline"
+  secondaryLabel="继续看首个应用"
+  secondaryHref="/docs/quick-start/getting-started"
+/>
+
 ## 案例区
 
 <CompareEvidenceCards
@@ -185,8 +195,13 @@ Rainbond 的核心价值之一就是把大量 K8s 细节吸收到平台内部，
 如果你想把 AI 应用真正交付给团队或客户，并长期升级维护，Rainbond 更适合。
 
 ## 最后
-
+先解决“应用怎么交付”看 Rainbond，先解决“集群怎么统一管理”看 Rancher。
 <CompareCtaFooter
+  installLink={{
+    href: '/docs/installation/offline',
+    label: '去离线安装',
+    note: '如果你的目标更接近客户现场、内网和正式交付，直接进入离线安装更贴近真实动作。',
+  }}
   caseLink={{
     href: '/blog',
     note: '看企业 IT 团队如何把 3 个月上线周期压缩到 1 个月。',

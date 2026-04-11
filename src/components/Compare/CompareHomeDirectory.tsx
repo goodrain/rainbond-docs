@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './compareHomeDirectory.module.css';
+import TrackedLink from '@src/components/Analytics/TrackedLink';
 
 type DirectoryCard = {
   tag: string;
@@ -236,6 +237,30 @@ export default function CompareHomeDirectory(): JSX.Element {
         <p className={styles.heroDesc}>
           不会 Kubernetes 用什么平台？离线环境应用交付平台怎么选？AI 私有化部署平台怎么选？Kubernetes 管理界面怎么选？
         </p>
+        <div className={styles.heroActions}>
+          <TrackedLink
+            to="/install-hub"
+            className={styles.primaryAction}
+            eventName="cta_install_clicked"
+            eventProps={{
+              module: 'compare_directory_hero',
+              cta_text: '先选安装路径',
+              target_path: '/install-hub',
+            }}>
+            先选安装路径
+          </TrackedLink>
+          <TrackedLink
+            to="/docs/quick-start/quick-install"
+            className={styles.secondaryAction}
+            eventName="cta_install_clicked"
+            eventProps={{
+              module: 'compare_directory_hero',
+              cta_text: '直接快速安装',
+              target_path: '/docs/quick-start/quick-install',
+            }}>
+            直接快速安装
+          </TrackedLink>
+        </div>
       </section>
 
       <section className={styles.section}>

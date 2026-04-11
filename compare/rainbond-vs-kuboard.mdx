@@ -17,6 +17,7 @@ import Head from '@docusaurus/Head';
 import CompareHeroGraphic from '@site/src/components/Compare/CompareHeroGraphic';
 import CompareEvidenceCards from '@site/src/components/Compare/CompareEvidenceCards';
 import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
+import CompareInlineCta from '@site/src/components/Compare/CompareInlineCta';
 
 <Head>
   <link rel="canonical" href="https://www.rainbond.com/compare/rainbond-vs-kuboard" />
@@ -33,9 +34,9 @@ import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
 
 <CompareHeroGraphic
   title="Rainbond 和 Kuboard 区别是什么？"
-  subtitle="如果你要的是更直观的 Kubernetes 管理界面，Kuboard 更适合；如果你要的是低门槛的应用交付、升级回滚、离线交付和私有化部署，Rainbond 更适合。"
+  subtitle="如果你要的是更直观的 Kubernetes 管理界面，Kuboard 更适合；如果你要的是低门槛的应用交付、升级回滚和私有化部署能力，Rainbond 更适合。"
   decision="如果你只想把 K8s 资源看清楚、管顺手，先看 Kuboard；如果你想让团队更低门槛地上线和交付应用，先看 Rainbond。"
-  primaryCta={{label: '快速安装', href: '/docs/quick-start/quick-install'}}
+  primaryCta={{label: '先选安装路径', href: '/install-hub'}}
   secondaryCta={{label: '部署实践', href: '/docs/quick-start/getting-started'}}
   audienceHint="适合已经在用 Kubernetes，或者准备上 Kubernetes，但还没想清楚自己到底要的是资源管理界面还是应用交付平台的团队。"
   left={{
@@ -138,6 +139,15 @@ Kuboard 可以帮助你看清资源，但它不是为完整应用交付体系设
 如果你已经在用 Kubernetes，只是觉得原生操作不够直观，Kuboard 更值得先看。  
 但如果你要的是更完整的多集群治理能力，往往还需要再看 Rancher 这类更偏治理的平台。
 
+<CompareInlineCta
+  title="如果你最终要的是应用交付，不要只停在资源管理对比"
+  description="这类页面的高意向用户，最容易从“我要一个更好用的 K8s 面板”转向“我其实要一条更低门槛的应用交付路径”。先去安装决策页会更接近真实动作。"
+  primaryLabel="先选安装路径"
+  primaryHref="/install-hub"
+  secondaryLabel="继续看部署实践"
+  secondaryHref="/docs/quick-start/getting-started"
+/>
+
 ## 案例区
 
 <CompareEvidenceCards
@@ -194,8 +204,14 @@ Kuboard 更适合管理已经存在的 Kubernetes 环境。
 
 
 ## 最后
+如果你主要是在管 Kubernetes 资源，先看 Kuboard；如果你主要是在交付和运维应用，优先看 Rainbond。
 
 <CompareCtaFooter
+  installLink={{
+    href: '/install-hub',
+    label: '先选安装路径',
+    note: '如果你最终要的是应用交付平台，先回到安装决策页会比继续停在资源对比里更有效。',
+  }}
   caseLink={{
     href: '/blog',
     note: '看不想培养 K8s 专家的团队，如何把资源缩减三分之二。',
@@ -205,5 +221,6 @@ Kuboard 更适合管理已经存在的 Kubernetes 环境。
     note: '看应用级多云和多集群协作到底该管到哪一层。',
   }}
 />
+
 
 </div>

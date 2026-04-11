@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './offlineAndXinchuangHome.module.css';
+import TrackedLink from '@src/components/Analytics/TrackedLink';
 
 type TopicCard = {
   tag: string;
@@ -104,12 +105,28 @@ export default function OfflineAndXinchuangHome(): JSX.Element {
           Rainbond 是一体化的云原生应用管理平台。在国产化信创、客户内网和完全离线环境中，它不只是回答“能不能安装”，而是把环境适配、应用迁移、标准化交付、升级回滚和持续运维尽量收口到统一平台里。
         </p>
         <div className={styles.heroActions}>
-          <Link to="/docs/installation/offline" className={styles.primaryAction}>
+          <TrackedLink
+            to="/docs/installation/offline"
+            className={styles.primaryAction}
+            eventName="cta_install_clicked"
+            eventProps={{
+              module: 'offline_xinchuang_hero',
+              cta_text: '去离线安装',
+              target_path: '/docs/installation/offline',
+            }}>
             去离线安装
-          </Link>
-          <Link to="/docs/quick-start/quick-install" className={styles.secondaryAction}>
+          </TrackedLink>
+          <TrackedLink
+            to="/docs/installation/multi-node-install"
+            className={styles.secondaryAction}
+            eventName="cta_install_clicked"
+            eventProps={{
+              module: 'offline_xinchuang_hero',
+              cta_text: '去信创安装',
+              target_path: '/docs/installation/multi-node-install',
+            }}>
             去信创安装
-          </Link>
+          </TrackedLink>
         </div>
       </section>
 

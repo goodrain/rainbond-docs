@@ -10,6 +10,10 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import PageEntryTracker from '@site/src/components/Analytics/PageEntryTracker';
+import TrackedLink from '@site/src/components/Analytics/TrackedLink';
+
+<PageEntryTracker eventName="getting_started_opened" />
 
 这篇文章只保留最短路径。跟着下面 3 步操作，看到组件状态变绿并打开应用页面，就算完成第一次部署。
 
@@ -21,7 +25,14 @@ import TabItem from '@theme/TabItem';
 ## 选择一种方式部署
 
 <Tabs groupId="deploy-way">
-  <TabItem value="source" label="源码部署" default>
+  <TabItem
+    value="source"
+    label="从示例源码部署"
+    default
+    attributes={{
+      'data-umami-event': 'first_app_mode_selected',
+      'data-umami-mode': 'source_code',
+    }}>
 
 ### 第 1 步：打开源码部署弹窗
 
@@ -47,7 +58,13 @@ import TabItem from '@theme/TabItem';
 你看到应用页面后，这次部署就完成了。
 
   </TabItem>
-  <TabItem value="market" label="应用市场部署">
+  <TabItem
+    value="market"
+    label="开源软件一键部署"
+    attributes={{
+      'data-umami-event': 'first_app_mode_selected',
+      'data-umami-mode': 'app_market',
+    }}>
 
 ### 第 1 步：进入应用市场
 
@@ -82,7 +99,28 @@ import TabItem from '@theme/TabItem';
 
 ## 探索更多功能
 
-第一个应用跑通后，可以继续看这些实战教程：
+<div className="gettingStartedActions">
+  <TrackedLink
+    to="/docs/tutorial/via-rainbond-deploy-sourceandmiddleware"
+    className="button button--primary button--lg gettingStartedActionButton gettingStartedActionButtonPrimary"
+    appendSourcePageParam>
+    部署成功，继续深入教程
+  </TrackedLink>
+  <TrackedLink
+    to="/docs/troubleshooting"
+    className="button button--secondary button--lg gettingStartedActionButton gettingStartedActionButtonSecondary"
+    appendSourcePageParam>
+    部署失败，去排障
+  </TrackedLink>
+  <TrackedLink
+    to="/docs/support"
+    className="button button--secondary button--lg gettingStartedActionButton gettingStartedActionButtonSecondary"
+    appendSourcePageParam>
+    想找人问，去社区支持
+  </TrackedLink>
+</div>
+
+还可以继续看这些实战教程：
 
 - [快速部署源码和 MySQL](../tutorial/via-rainbond-deploy-sourceandmiddleware)
 - [组件新版本构建与回滚](../tutorial/component-version-update-and-rollback)

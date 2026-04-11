@@ -17,6 +17,7 @@ import Head from '@docusaurus/Head';
 import CompareHeroGraphic from '@site/src/components/Compare/CompareHeroGraphic';
 import CompareEvidenceCards from '@site/src/components/Compare/CompareEvidenceCards';
 import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
+import CompareInlineCta from '@site/src/components/Compare/CompareInlineCta';
 
 <Head>
   <link rel="canonical" href="https://www.rainbond.com/compare/rainbond-vs-kubesphere" />
@@ -33,9 +34,9 @@ import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
 
 <CompareHeroGraphic
   title="Rainbond 和 KubeSphere 区别是什么？"
-  subtitle="如果你更关注低学习门槛、应用抽象和标准化交付，Rainbond 更适合；如果你更关注围绕 Kubernetes 建设一套较完整的平台能力，KubeSphere 更合适。"
+  subtitle="如果你更关注低学习门槛、应用交付和环境复制，Rainbond 更适合；如果你更关注围绕 Kubernetes 建设更完整的平台能力，KubeSphere 更合适。"
   decision="如果你不想先把团队训练成 Kubernetes 专家，先看 Rainbond；如果你想围绕 K8s 做更完整的平台建设，先看 KubeSphere。"
-  primaryCta={{label: '快速安装', href: '/docs/quick-start/quick-install'}}
+  primaryCta={{label: '先选安装路径', href: '/install-hub'}}
   secondaryCta={{label: '部署实践', href: '/docs/quick-start/getting-started'}}
   audienceHint="适合在中国市场里比较两类平台的团队，尤其是正在判断“该先解决平台复杂度，还是先解决应用交付效率”的团队。"
   left={{
@@ -138,6 +139,15 @@ import CompareCtaFooter from '@site/src/components/Compare/CompareCtaFooter';
 如果你已经有专门的平台工程团队，目标是围绕 Kubernetes 继续建设统一平台能力，KubeSphere 更值得优先看。  
 这时候平台完整性会比业务团队低门槛更重要。
 
+<CompareInlineCta
+  title="如果你已经更偏向 Rainbond，下一步不要停在对比页"
+  description="这类团队最容易卡在“看懂了，但还没真正开始”。更稳的动作是先去安装决策页，确认自己应该走试装还是正式安装。"
+  primaryLabel="先选安装路径"
+  primaryHref="/install-hub"
+  secondaryLabel="继续看部署实践"
+  secondaryHref="/docs/quick-start/getting-started"
+/>
+
 ## 案例区
 
 <CompareEvidenceCards
@@ -185,8 +195,13 @@ Rainbond 更强调把复杂性收进平台内部。
 如果你只是从“能否跑在 Kubernetes 上”角度判断，两者都可以继续评估。
 
 ## 最后
-
+如果你当前更想先把业务应用稳定交付出去，优先看 Rainbond；如果你更想先建设完整平台能力，优先看 KubeSphere。
 <CompareCtaFooter
+  installLink={{
+    href: '/install-hub',
+    label: '先选安装路径',
+    note: '先判断自己是试装、正式部署还是已有 Kubernetes，再进入对应安装路径。',
+  }}
   caseLink={{
     href: '/blog/case-csg-app',
     note: '看 1500W 用户体量团队为什么更在意低门槛和自动化交付。',

@@ -260,6 +260,45 @@ div[class^='announcementBar_'] {
   color: #005ce6;
 }
 
+.gettingStartedActions {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 1.45rem;
+}
+
+.gettingStartedActionButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 60px;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.gettingStartedActionButton p {
+  margin: 0;
+}
+
+@media (max-width: 996px) {
+  .gettingStartedActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gettingStartedActionButton {
+    width: 100%;
+  }
+}
+
 @media (max-width: 996px) {
   .compareDocPage {
     width: min(860px, calc(100vw - 1.5rem));

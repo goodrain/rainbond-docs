@@ -5,9 +5,18 @@ keywords:
 - Rainbond 社区支持
 ---
 
+import PageEntryTracker from '@site/src/components/Analytics/PageEntryTracker';
+import SupportEntryNotice from '@site/src/components/Analytics/SupportEntryNotice';
+import CommunityQrCard from '@site/src/components/Analytics/CommunityQrCard';
+import TrackedLink from '@site/src/components/Analytics/TrackedLink';
+
+<PageEntryTracker eventName="support_opened" />
+
 ## 社区支持
 
 本页将列出一些 Rainbond 相关的社区供你加入。
+
+<SupportEntryNotice />
 
 ## 获取帮助之前，先判断你的问题属于哪一类
 
@@ -33,9 +42,14 @@ keywords:
 
 扫描下方二维码加入微信群，由社区成员或社区用户帮助你解决问题。
 
-<div>
-  <img src="/wechat/wechatgroup.png" width="20%"/>
-</div>
+<CommunityQrCard
+  imageSrc="/wechat/wechatgroup.png"
+  imageAlt="Rainbond 微信群二维码"
+  module="support_page"
+  title="微信群支持"
+  description="如果你已经卡在安装、访问或首个应用阶段，打开二维码后可以直接进群继续问。"
+  alwaysVisible
+/>
 
 ### 微信公众号
 
@@ -45,7 +59,8 @@ keywords:
   <img src="/wechat/wechat-public.jpg" width="20%"/>
 </div>
 
-### GitHub Issues
+你也可以继续使用下面这些入口：
 
-你可以在 [GitHub Issues](https://github.com/goodrain/rainbond/issues) 中搜索你的问题或提出新的问题。
-
+- <TrackedLink to="https://github.com/goodrain/rainbond/issues" target="_blank" rel="noreferrer" eventName="community_link_clicked" eventProps={{target: 'github_issues'}}>GitHub Issues</TrackedLink>：搜索同类问题或提交新的问题。
+- <TrackedLink to="https://t.goodrain.com/" target="_blank" rel="noreferrer" eventName="community_link_clicked" eventProps={{target: 'community_forum'}}>Rainbond 社区论坛</TrackedLink>：适合继续看历史讨论和使用经验。
+- <TrackedLink to="https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/" target="_blank" rel="noreferrer" eventName="community_link_clicked" eventProps={{target: 'official_support'}}>官方支持</TrackedLink>：适合需要商业支持的团队。

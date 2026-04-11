@@ -128,7 +128,7 @@ function BlogListPageContent(props) {
   }, [activeCategory, items]);
 
   return (
-    <Layout title="博客">
+    <Layout>
       <div className={clsx('container margin-vert--lg', styles.blogShell)}>
         <div className="row">
           <aside className={clsx('col col--3', styles.leftCol)}>

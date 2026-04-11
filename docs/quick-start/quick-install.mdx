@@ -8,6 +8,9 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TrackedDetails from '@site/src/components/Analytics/TrackedDetails';
+import CopyCommandBlock from '@site/src/components/Analytics/CopyCommandBlock';
+import TrackedLink from '@site/src/components/Analytics/TrackedLink';
 
 
 :::tip 先选正确安装路径
@@ -37,8 +40,7 @@ import TabItem from '@theme/TabItem';
 
 
 ## 操作步骤
-<details>
-<summary>了解安装原理</summary>
+<TrackedDetails summary="了解安装原理" section="quick_install_principle">
 
 **快速安装模式的工作原理**
 
@@ -60,15 +62,26 @@ import TabItem from '@theme/TabItem';
 
 - **EIP（External IP）**：外部访问 IP（内网/公网IP），用于从外部访问 Rainbond 控制台和部署的应用
 
-</details>
+</TrackedDetails>
 <Tabs groupId="install">
-  <TabItem value="Linux" label="Linux" default>
+  <TabItem
+    value="Linux"
+    label="Linux"
+    default
+    attributes={{
+      'data-umami-event': 'install_path_selected',
+      'data-umami-install-path': 'quick_install_linux',
+      'data-umami-module': 'quick_install_os_tabs',
+    }}>
 
 在 Linux 上执行以下命令，该脚本会通过 Docker 快速启动 Rainbond。也支持在国产化信创的环境中运行。
 
-```bash
-curl -o install.sh https://get.rainbond.com && bash ./install.sh
-```
+<CopyCommandBlock
+  code={`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
+  osTab="linux"
+  commandType="quick_install"
+  hint="复制后直接在终端执行，适合 Linux 体验安装。"
+/>
 
 执行完上述脚本后，耐心等待 2-3 分钟，直到出现如下提示，即表示安装成功：
 
@@ -82,7 +95,14 @@ Access Rainbond:
 
   </TabItem>
 
-  <TabItem value="Mac" label="MacOS" default>
+  <TabItem
+    value="Mac"
+    label="MacOS"
+    attributes={{
+      'data-umami-event': 'install_path_selected',
+      'data-umami-install-path': 'quick_install_mac',
+      'data-umami-module': 'quick_install_os_tabs',
+    }}>
 
 :::warning 注意
 由于 Rainbond 需要运行内置的 Kubernetes，而 Docker Desktop 在 MacOS 上存在虚拟化嵌套限制，因此需要使用 OrbStack 替代。OrbStack 是更底层的容器运行时，与 MacOS 兼容性更好，且完全兼容 Docker 命令，使用方式不变。
@@ -91,9 +111,12 @@ Access Rainbond:
 
 在 MacOS 终端上执行以下命令，该脚本会通过 OrbStack Docker 快速启动 Rainbond。
 
-```bash
-curl -o install.sh https://get.rainbond.com && bash ./install.sh
-```
+<CopyCommandBlock
+  code={`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
+  osTab="mac"
+  commandType="quick_install"
+  hint="复制后直接在 OrbStack 环境里执行。"
+/>
 
 执行完上述脚本后，耐心等待 2-3 分钟，直到出现如下提示，即表示安装成功：
 
@@ -107,7 +130,14 @@ Access Rainbond:
 
   </TabItem>
 
-  <TabItem value="Windows" label="Windows">
+  <TabItem
+    value="Windows"
+    label="Windows"
+    attributes={{
+      'data-umami-event': 'install_path_selected',
+      'data-umami-install-path': 'quick_install_windows',
+      'data-umami-module': 'quick_install_os_tabs',
+    }}>
 
 :::info
 在 Windows 上安装需要依赖 WSL（Windows Subsystem for Linux），该脚本会自动检测并安装启动 WSL 环境，然后通过 Docker 快速启动 Rainbond。
@@ -115,20 +145,46 @@ Access Rainbond:
 
 使用管理员打开 CMD 并执行以下命令:
 
-```bash
-powershell -ExecutionPolicy Bypass -Command "irm https://get.rainbond.com/install-rainbond-wsl.ps1 | iex"
-```
+<CopyCommandBlock
+  code={`powershell -ExecutionPolicy Bypass -Command "irm https://get.rainbond.com/install-rainbond-wsl.ps1 | iex"`}
+  language="powershell"
+  osTab="windows"
+  commandType="quick_install"
+  hint="使用管理员权限打开 CMD 或 PowerShell 后再复制执行。"
+/>
 
   </TabItem>
 </Tabs>
 
-## 下一步
+## 装完之后不要停在这里
 
-- 跟随[快速入门](./getting-started)教程，部署你的第一个应用
+<div className="gettingStartedActions">
+  <TrackedLink
+    to="/docs/quick-start/getting-started"
+    className="button button--primary button--lg gettingStartedActionButton gettingStartedActionButtonSecondary"
+    appendSourcePageParam>
+    安装成功，去部署第一个应用
+  </TrackedLink>
+  <TrackedLink
+    to="/docs/troubleshooting"
+    className="button button--secondary button--lg gettingStartedActionButton gettingStartedActionButtonSecondary"
+    appendSourcePageParam>
+    安装失败，去故障排查
+  </TrackedLink>
+  <TrackedLink
+    to="/docs/support"
+    className="button button--secondary button--lg gettingStartedActionButton gettingStartedActionButtonSecondary"
+    appendSourcePageParam>
+    想找人问，去社区支持
+  </TrackedLink>
+</div>
+
+
+还可以继续看其他教程：
+
 - 阅读[使用教程](../tutorial/via-rainbond-deploy-sourceandmiddleware)，学习和了解更多 Rainbond 功能
-- 阅读[安装文档](../installation/)，了解如何 Rainbond 更多安装方式
-
-### 其他文档
-
+- 阅读[安装文档](../installation)，了解如何 Rainbond 更多安装方式
 - [故障排查文档](../troubleshooting/install#1-快速安装故障排查)
-- [常见问题](../faq/)
+- [常见问题](../faq)
+
+
