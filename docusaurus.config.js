@@ -34,7 +34,7 @@ const config = {
         docs: {
           // routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          showLastUpdateAuthor: true,
+          showLastUpdateAuthor: false,
           showLastUpdateTime: false,
           editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
           includeCurrentVersion: true,

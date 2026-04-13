@@ -51,8 +51,6 @@ Rainbond 云原生应用管理平台可以被部署在 `Arm64` 环境中。从 2
 
 - [在 Mac 上运行 Rainbond，10 分钟快速安装](https://mp.weixin.qq.com/s/tNKNfi4RhDpyTB_GuLka7w)
 
-- [在 Windows 上运行 Rainbond，10 分钟快速安装](https://mp.weixin.qq.com/s/OPINQRRSRcBLc4zQ-S3raw)
-
 ### Arm64 中的源码编译
 
 Rainbond 具备的源码编译能力由来已久。该功能脱胎自 Heroku/buildpack 项目，并由 Rainbond 团队针对自身需求做了大量优化。借助其能力，使用者可以基于多种语言的源代码，跳过编写 Dockerfile 的过程，完成业务的容器化。源码编译是部署企业自行开发业务的最简单方式，仅需要提供源代码的仓库地址。

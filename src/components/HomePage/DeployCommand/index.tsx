@@ -103,8 +103,8 @@ export default function DeployCommand() {
 
               <div className={styles.commandContainer}>
                 <div className={styles.commandWrapper}>
-                  <Tabs tabPosition={isMobile ? 'top' : 'left'}>
-                    <TabPane tab={<span><IconServer />Linux & MacOS</span>} itemKey="1">
+                  {/* <Tabs tabPosition={isMobile ? 'top' : 'left'}>
+                    <TabPane tab={<span><IconServer />Linux & MacOS</span>} itemKey="1"> */}
                       <div className={styles.commandText}>在您的终端执行以下命令：</div>
                       <CodeBlock language="bash" className={styles.commandCode}>
                         {`curl -o install.sh https://get.rainbond.com && bash ./install.sh`}
@@ -123,28 +123,8 @@ export default function DeployCommand() {
                           </TrackedLink>
                         </div>
                       </div>
-                    </TabPane>
-                    <TabPane tab={<span><IconGlobe />Windows</span>} itemKey="2">
-                      <div className={styles.commandText}>使用管理员打开 CMD 并执行以下命令：</div>
-                      <CodeBlock language="powershell" className={styles.commandCode}>
-                        {`powershell -ExecutionPolicy Bypass -Command "irm https://get.rainbond.com/install-rainbond-wsl.ps1 | iex"`}
-                      </CodeBlock>
-                      <div className={styles.commandFooter}>
-                        <div className={styles.commandText}>
-                          安装完成后，在浏览器输入<span className={styles.inlineCode}>http://您的IP:7070</span>访问 Rainbond UI。
-                        </div>
-                        <div className={styles.commandLinkRow}>
-                          <span className={styles.commandTip}>推荐继续完成初始化引导</span>
-                          <TrackedLink
-                            to="/docs/quick-start/getting-started"
-                            className={styles.commandLink}
-                            appendSourcePageParam>
-                            前往快速入门
-                          </TrackedLink>
-                        </div>
-                      </div>
-                    </TabPane>
-                  </Tabs>
+                    {/* </TabPane>
+                  </Tabs> */}
                 </div>
               </div>
             </div>

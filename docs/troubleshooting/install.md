@@ -61,7 +61,7 @@ kubectl get pod -n rbd-system
 
 Rainbond 快速安装版本默认会将数据存储 `/opt/rainbond` 目录中，如果磁盘空间不足，可能会导致 Rainbond 无法正常启动。
 
-1. 基于 Mac、Windows 安装无法更改为本地目录，请通过 Docker Desktop 扩容存储空间。
+1. 基于 MacOS 安装无法更改为本地目录，请通过 Docker Desktop 扩容存储空间。
 2. 基于 Linux 安装可以通过修改 `install.sh` 安装脚本中的 `volume` 字段，修改默认的本地目录，如下：
 ```bash
 $ vim install.sh
