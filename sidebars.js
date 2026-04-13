@@ -46,22 +46,31 @@ const sidebars = {
         {
           type: 'category',
           label: '应用部署',
+          link: {
+            type: 'doc',
+            id: 'how-to-guides/app-deploy/index'
+          },
           items: [
             {
               type: 'category',
               label: '使用源代码部署',
+              link: {
+                type: 'doc',
+                id: 'how-to-guides/app-deploy/source-code/index'
+              },
               items: [
                 'how-to-guides/app-deploy/source-code/springboot',
                 'how-to-guides/app-deploy/source-code/nodejs',
-                'how-to-guides/app-deploy/source-code/upload-package',
-                'how-to-guides/app-deploy/source-code/dockefile',
                 'how-to-guides/app-deploy/source-code/python',
                 'how-to-guides/app-deploy/source-code/golang',
+                'how-to-guides/app-deploy/source-code/dockefile',
+                'how-to-guides/app-deploy/source-code/dotnet',
                 'how-to-guides/app-deploy/source-code/php',
                 'how-to-guides/app-deploy/source-code/html',
                 'how-to-guides/app-deploy/source-code/thirdparty',
               ]
             },
+            'how-to-guides/app-deploy/source-code/upload-package',
             {
               type: 'category',
               label: '使用容器镜像部署',
