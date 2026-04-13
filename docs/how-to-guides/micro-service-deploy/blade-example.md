@@ -45,7 +45,7 @@ SpringBlade
 
 ## 通过源码部署 Spring Cloud Blade
 
-本文档教程基于 [Spring Cloud Blade v3.5.0](https://gitee.com/smallc/SpringBlade/tree/v3.5.0/) 版本部署
+本文档教程基于 [Spring Cloud Blade v3.5.0](https://gitee.com/smallc/SpringBlade/tree/v3.5.0) 版本部署
 
 ### 一、部署 Nacos
 

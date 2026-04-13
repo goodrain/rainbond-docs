@@ -45,7 +45,7 @@ docker build -t xxx -f test/test/Dockerfile.test .
 
 **Dockerfile** 是由一系列命令和参数构成的脚本，这些命令应用于基础镜像并最终创建一个新的镜像。
 
-Rainbond 在源码检测阶段会读取 [Dockerfile](https://docs.docker.com/engine/reference/builder/) 定义的如下参数：
+Rainbond 在源码检测阶段会读取 [Dockerfile](https://docs.docker.com/engine/reference/builder) 定义的如下参数：
 
 | 参数类型 | 名称       | 说明                           |
 | -------- | ---------- | ------------------------------ |

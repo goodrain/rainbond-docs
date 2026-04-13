@@ -27,7 +27,7 @@ const plans = [
     desc: '为开发者提供体验与协作基础能力，开放开源',
     features: ['开放开源', '社区支持', '社区版迭代'],
     primaryBtn: null,
-    outlineBtn: { text: '免费下载', href: '/docs/quick-start/quick-install/' },
+    outlineBtn: { text: '免费下载', href: '/docs/quick-start/quick-install' },
     highlighted: false,
   },
   {

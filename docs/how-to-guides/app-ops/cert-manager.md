@@ -7,7 +7,7 @@ keywords:
 - 自动签发证书
 ---
 
-[Cert Manager](https://cert-manager.io/) 是 Kubernetes 上的证书管理工具，基于 [ACME](https://tools.ietf.org/html/rfc8555) 协议与 [Let's Encrypt](https://letsencrypt.org/) 签发免费证书并为证书自动续期，实现永久免费使用证书。  
+[Cert Manager](https://cert-manager.io) 是 Kubernetes 上的证书管理工具，基于 [ACME](https://tools.ietf.org/html/rfc8555) 协议与 [Let's Encrypt](https://letsencrypt.org) 签发免费证书并为证书自动续期，实现永久免费使用证书。  
 
 本文档将介绍如何使用 Cert Manager 实现自动签发证书并与 Rainbond 结合使用。
 
@@ -57,7 +57,7 @@ keywords:
 
 ## 安装与配置 Cert Manager
 
-使用 [kubectl apply](https://cert-manager.io/docs/installation/kubectl/) 安装，进入 **平台管理 → 集群管理 → 命令行**，执行以下命令安装 Cert Manager。
+使用 [kubectl apply](https://cert-manager.io/docs/installation/kubectl) 安装，进入 **平台管理 → 集群管理 → 命令行**，执行以下命令安装 Cert Manager。
 
 ```bash
 kubectl apply -f https://get.rainbond.com/cert-manager/cert-manager-v1.17.0.yaml
@@ -74,7 +74,7 @@ cert-manager-webhook-787858fcdb-nlzsq      1/1     Running   0          2m
 
 ### 创建 ClusterIssuer
 
-[ClusterIssuer](https://cert-manager.io/docs/configuration/acme/http01/) 是 Cert Manager 的核心资源，用于定义证书的签发方式和配置。
+[ClusterIssuer](https://cert-manager.io/docs/configuration/acme/http01) 是 Cert Manager 的核心资源，用于定义证书的签发方式和配置。
 
 Rainbond 默认采用 `ClusterIssuer` 的 **HTTP-01** 校验方式签发证书，执行以下命令创建 `ClusterIssuer`。
 

@@ -233,7 +233,3 @@ Rainbond 就是在这个位置上有意义。
 
 而 Rainbond 的价值，恰好不在底座层，而在这层更难、也更现实的组织门槛上。
 
-## 参考信息
-- Rainbond 官方文档：
-  - [Rainbond 是什么](/docs "Rainbond 是什么")
-  - [设计思想](/docs/quick-start/architecture/design-concept "设计思想")

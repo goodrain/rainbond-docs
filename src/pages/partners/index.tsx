@@ -167,7 +167,7 @@ export default function Partners() {
         id: "partners.blade.description",
         message: "SpringBlade 是一个由商业级项目升级优化而来的企业级的SaaS多租户微服务平台",
       }),
-      deployURL: "/docs/micro-service/example/blade/",
+      deployURL: "/docs/micro-service/example/blade",
       tags: "Application"
     },
     {
@@ -189,7 +189,7 @@ export default function Partners() {
         id: "partners.talkweb.description",
         message: "拓维信息是中国领先的软硬一体化产品及解决方案提供商",
       }),
-      deployURL: "/docs/devops/pipeline/",
+      deployURL: "/docs/devops/pipeline",
       tags: "Plugin"
     },
     {

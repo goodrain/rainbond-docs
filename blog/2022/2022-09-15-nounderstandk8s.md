@@ -135,5 +135,5 @@ image: https://static.goodrain.com/case/2022/09/13/16623088574185.jpg
 
 ## 实现方案
 
-基于上面的设计思路，我们在Kubernetes基础上实现了[Rainbond](https://www.rainbond.com/)，并将它[开源](https://github.com/goodrain/rainbond)。Rainbond提供开箱即用的体验，使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。主要功能包括应用开发环境、应用市场、微服务架构、应用交付、应用运维、应用级多云管理等。
+基于上面的设计思路，我们在Kubernetes基础上实现了[Rainbond](https://www.rainbond.com)，并将它[开源](https://github.com/goodrain/rainbond)。Rainbond提供开箱即用的体验，使用简单，不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。主要功能包括应用开发环境、应用市场、微服务架构、应用交付、应用运维、应用级多云管理等。
 

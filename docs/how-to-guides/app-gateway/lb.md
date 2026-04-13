@@ -27,7 +27,7 @@ LoadBalancer 适用于以下场景:
 
 ### 本地环境(MetalLB)
 
-MetalLB 是一个为裸金属 Kubernetes 集群提供网络负载均衡器实现的解决方案,允许在本地环境中使用 LoadBalancer 类型的服务。关于 MetalLB 的详细安装和配置说明,请参考 [MetalLB 官方文档](https://metallb.io/)。
+MetalLB 是一个为裸金属 Kubernetes 集群提供网络负载均衡器实现的解决方案,允许在本地环境中使用 LoadBalancer 类型的服务。关于 MetalLB 的详细安装和配置说明,请参考 [MetalLB 官方文档](https://metallb.io)。
 
 使用 MetalLB 需要满足以下条件:
 - 集群中已安装并配置 MetalLB
@@ -152,7 +152,7 @@ LoadBalancer 创建成功后,可以通过外部 IP 访问服务:
 
 **解决方法:**
 - 检查 MetalLB 运行状态和配置
-- 参考 [MetalLB 官方文档](https://metallb.io/) 进行故障排查
+- 参考 [MetalLB 官方文档](https://metallb.io) 进行故障排查
 
 ### 无法通过外部 IP 访问
 
@@ -173,4 +173,4 @@ LoadBalancer 创建成功后,可以通过外部 IP 访问服务:
 **解决方法:**
 - 确认外部 IP 地址可以从客户端访问
 - 检查防火墙规则
-- 参考 [MetalLB 官方文档](https://metallb.io/) 进行故障排查
+- 参考 [MetalLB 官方文档](https://metallb.io) 进行故障排查

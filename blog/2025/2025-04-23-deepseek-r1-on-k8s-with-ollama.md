@@ -354,7 +354,7 @@ ollama run deepseek-r1:32b
 
 ### 1. 下载并安装 Chatbox
 
-从 [Chatbox 官方网站](https://chatboxai.app/) 下载对应平台的客户端（支持 Windows/macOS/Linux），完成安装后启动应用。
+从 [Chatbox 官方网站](https://chatboxai.app) 下载对应平台的客户端（支持 Windows/macOS/Linux），完成安装后启动应用。
 
 ### 2. 添加 Ollama API 地址
 

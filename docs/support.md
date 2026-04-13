@@ -26,7 +26,7 @@ import TrackedLink from '@site/src/components/Analytics/TrackedLink';
 | 首个应用部署失败、域名打不开 | [故障排除概述](./troubleshooting/index.md) |
 | 想提交 Bug 或查找已知问题 | [GitHub Issues](https://github.com/goodrain/rainbond/issues) |
 | 想找人快速交流 | 看下方微信群 / 社区入口 |
-| 需要正式商业支持 | [官方支持](https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/) |
+| 需要正式商业支持 | [官方支持](https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg) |
 
 ## 提问前建议准备的信息
 
@@ -62,5 +62,5 @@ import TrackedLink from '@site/src/components/Analytics/TrackedLink';
 你也可以继续使用下面这些入口：
 
 - <TrackedLink to="https://github.com/goodrain/rainbond/issues" target="_blank" rel="noreferrer" eventName="community_link_clicked" eventProps={{target: 'github_issues'}}>GitHub Issues</TrackedLink>：搜索同类问题或提交新的问题。
-- <TrackedLink to="https://t.goodrain.com/" target="_blank" rel="noreferrer" eventName="community_link_clicked" eventProps={{target: 'community_forum'}}>Rainbond 社区论坛</TrackedLink>：适合继续看历史讨论和使用经验。
+- <TrackedLink to="https://t.goodrain.com" target="_blank" rel="noreferrer" eventName="community_link_clicked" eventProps={{target: 'community_forum'}}>Rainbond 社区论坛</TrackedLink>：适合继续看历史讨论和使用经验。
 - <TrackedLink to="https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg/" target="_blank" rel="noreferrer" eventName="community_link_clicked" eventProps={{target: 'official_support'}}>官方支持</TrackedLink>：适合需要商业支持的团队。

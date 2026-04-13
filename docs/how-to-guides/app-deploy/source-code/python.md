@@ -43,7 +43,7 @@ pip freeze > requirements.txt
 
 ## 支持的应用类型
 
-Rainbond 会优先读取项目根目录中的 `Procfile`。如果没有 `Procfile`，则根据项目依赖和入口文件自动识别启动命令。
+由于 [Django](https://www.djangoproject.com) 的静态文件支持（CSS、图片等）不是很容易配置而且不方便调试，这里给出一个示例：
 
 | 类型 | 自动识别方式 | 默认启动方式 |
 |------|-------------|-------------|

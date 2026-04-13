@@ -47,7 +47,7 @@ Telepresence 是一个开源工具，用于在本地开发环境中模拟 Kubern
 
 ## 结合 Telepresence 开发调试 Rainbond 上的微服务
 
-* 基于[主机安装 Rainbond ](https://www.rainbond.com/docs/installation/install-with-ui/)或基于 [Helm 安装 Rainbond](https://www.rainbond.com/docs/installation/install-with-helm/)。
+* 基于[主机安装 Rainbond ](https://www.rainbond.com/docs/installation/install-with-ui)或基于 [Helm 安装 Rainbond](https://www.rainbond.com/docs/installation/install-with-helm)。
 
 ### 安装 Telepresence 
 

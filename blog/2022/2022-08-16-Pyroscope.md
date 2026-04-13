@@ -13,7 +13,7 @@ image: https://static.goodrain.com/wechat/pyroscope/Pyroscope.png
 
 ## 什么是 Pyroscope？
 
-[Pyroscope](https://pyroscope.io/) 是一个开源的持续性能分析平台。它能够帮你：
+[Pyroscope](https://pyroscope.io) 是一个开源的持续性能分析平台。它能够帮你：
 
 - 查找代码中的性能问题
 - 解决 CPU 利用率高的问题
@@ -55,7 +55,7 @@ Pyroscope 由两个主要组件支撑运行：**Pyroscope Server** 和 **Pyrosco
 4. 建立微服务与 Pyroscope 之间的依赖关系
 4. Pyroscope 基本使用
 
-Rainbond 部署请参阅文档 [快速安装](https://www.rainbond.com/docs/quick-start/quick-install/)
+Rainbond 部署请参阅文档 [快速安装](https://www.rainbond.com/docs/quick-start/quick-install)
 
 ### 1. 部署微服务 Spring Cloud Pig
 
@@ -120,4 +120,4 @@ Pyroscope 还可以结合 Jaeger 一起使用，可以集成在 Jaeger UI 中，
 
 ---
 
-[Rainbond](https://www.rainbond.com/) 是一个云原生应用管理平台，核心100%开源、使用简单、不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
+[Rainbond](https://www.rainbond.com) 是一个云原生应用管理平台，核心100%开源、使用简单、不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。

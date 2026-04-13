@@ -82,5 +82,5 @@ spring.datasource.password=${POSTGRESQL_DEFAULT_PASSWORD}
 
 ## 相关文档
 
-- [PostgreSQL 官方文档](https://www.postgresql.org/docs/)
+- [PostgreSQL 官方文档](https://www.postgresql.org/docs)
 - [应用依赖组件](../app-ops/dependon)

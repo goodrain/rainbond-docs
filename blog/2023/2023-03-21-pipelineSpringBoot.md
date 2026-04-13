@@ -5,7 +5,7 @@ slug: pipelinespringboot
 image: https://static.goodrain.com/wechat/pipeline-springboot/ci-cd.png
 ---
 
-[流水线插件](https://www.rainbond.com/docs/devops/pipeline/) 是基于 Rainbond **插件体系** 扩展实现，通过插件化的方式，可以实现对 Rainbond 构建体系的扩展。该插件由社区合作伙伴 **拓维信息** 参与开发并贡献，底层是基于 GitLab CI/CD 实现。
+[流水线插件](https://www.rainbond.com/docs/devops/pipeline) 是基于 Rainbond **插件体系** 扩展实现，通过插件化的方式，可以实现对 Rainbond 构建体系的扩展。该插件由社区合作伙伴 **拓维信息** 参与开发并贡献，底层是基于 GitLab CI/CD 实现。
 
 流水线构建与 Rainbond 源码构建的区别是：
 

@@ -2,7 +2,7 @@
 
 Rainbond 文档，包含 Rainbond 5.x 所有文档
 
-本网站使用了 ~~Hugo框架~~ [Docusaurus 2](https://docusaurus.io/) 文档框架。
+本网站使用了 ~~Hugo框架~~ [Docusaurus 2](https://docusaurus.io) 文档框架。
 
 ## 如何开发？
 
@@ -10,8 +10,8 @@ Rainbond 文档，包含 Rainbond 5.x 所有文档
 
 确保您的开发环境有如下软件：
 
-- [Git](http://git-scm.com/)
-- [Node.js](http://nodejs.org/) \>= 18.0 (with NPM)
+- [Git](http://git-scm.com)
+- [Node.js](http://nodejs.org) \>= 18.0 (with NPM)
 - [Yarn](https://yarnpkg.com/en/docs/install) \>= 1.5
 
 ### 安装

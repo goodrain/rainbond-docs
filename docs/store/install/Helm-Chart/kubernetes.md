@@ -9,7 +9,7 @@ description: 本章描述 云原生应用市场 通过 Helm 命令行安装到 k
 
 - 拥有可用的 Kubernetes 集群。
 - 安装有 Helm 客户端 3.0 或更高的版本。
-- 用户对 Kubernetes 及 Helm 相关概念及如何使用有基本了解，如有不了解可以去 [Kubernetes](https://kubernetes.io/)、[Helm](https://helm.sh/) 官网安装了解。
+- 用户对 Kubernetes 及 Helm 相关概念及如何使用有基本了解，如有不了解可以去 [Kubernetes](https://kubernetes.io)、[Helm](https://helm.sh) 官网安装了解。
 
 
 ## 操作流程

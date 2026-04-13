@@ -9,7 +9,7 @@ tags:
   - Kubernetes
 ---
 
-相信很多小伙伴对于 Cert Manager 不陌生，Cert Manager 是 Kubernetes 上的证书管理工具，基于 [ACME](https://tools.ietf.org/html/rfc8555) 协议与 [Let's Encrypt](https://letsencrypt.org/) 签发免费证书并为证书自动续期，实现永久免费使用证书。  
+相信很多小伙伴对于 Cert Manager 不陌生，Cert Manager 是 Kubernetes 上的证书管理工具，基于 [ACME](https://tools.ietf.org/html/rfc8555) 协议与 [Let's Encrypt](https://letsencrypt.org) 签发免费证书并为证书自动续期，实现永久免费使用证书。  
 
 本文将介绍如何使用 Cert Manager 实现自动签发证书并与 Rainbond 结合使用。
 
@@ -55,7 +55,7 @@ tags:
 
 ## 部署 Cert Manager 和 Rainbond
 
-使用 Helm 安装 Cert Manager，更多请参考[Cert Manager 部署文档](https://cert-manager.io/docs/installation/)。
+使用 Helm 安装 Cert Manager，更多请参考[Cert Manager 部署文档](https://cert-manager.io/docs/installation)。
 
 ```bash
 $ helm repo add jetstack https://charts.jetstack.io
@@ -75,7 +75,7 @@ curl -o install.sh https://get.rainbond.com && bash ./install.sh
 
 ### 创建 Issuer
 
-[Issuer](https://cert-manager.io/docs/configuration/acme/http01/) 是 Cert Manager 的核心资源，用于定义证书的签发方式和配置。以下是一个示例，使用 **HTTP-01** 校验方式结合 `Ingress` 签发证书。
+[Issuer](https://cert-manager.io/docs/configuration/acme/http01) 是 Cert Manager 的核心资源，用于定义证书的签发方式和配置。以下是一个示例，使用 **HTTP-01** 校验方式结合 `Ingress` 签发证书。
 
 ```yaml
 $ kubectl apply -f issuer.yaml
@@ -97,7 +97,7 @@ spec:
 
 ### 创建 Certificate
 
-[Certificate](https://cert-manager.io/docs/usage/certificate/) 是 Cert Manager 的核心资源之一，用于指定需要签发的域名证书及其相关配置。以下是一个完整的配置示例，结合前面创建的 `Issuer`，为指定域名自动签发和续期证书。
+[Certificate](https://cert-manager.io/docs/usage/certificate) 是 Cert Manager 的核心资源之一，用于指定需要签发的域名证书及其相关配置。以下是一个完整的配置示例，结合前面创建的 `Issuer`，为指定域名自动签发和续期证书。
 
 以下 YAML 文件创建了一个 `Certificate` 资源，为域名 `test.rainbond.com` 签发证书：
 

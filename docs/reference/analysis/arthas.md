@@ -17,7 +17,7 @@ keywords:
 * 怎么快速定位应用的热点，生成火焰图？
 * 怎样直接从 JVM 内查找某个类的实例？
 
-[Arthas](https://arthas.aliyun.com/)（阿尔萨斯）是一款线上监控诊断产品，通过全局视角实时查看应用 load、内存、gc、线程的状态信息，并能在不修改应用代码的情况下，对业务问题进行诊断，包括查看方法调用的出入参、异常，监测方法执行耗时，类加载信息等，大大提升线上问题排查效率。
+[Arthas](https://arthas.aliyun.com)（阿尔萨斯）是一款线上监控诊断产品，通过全局视角实时查看应用 load、内存、gc、线程的状态信息，并能在不修改应用代码的情况下，对业务问题进行诊断，包括查看方法调用的出入参、异常，监测方法执行耗时，类加载信息等，大大提升线上问题排查效率。
 
 Arthas 采用命令行交互模式，同时提供丰富的 `Tab` 自动补全功能，进一步方便进行问题的定位和诊断。
 
@@ -39,7 +39,7 @@ Arthas Tunnel 可通过 Rainbond 开源应用商店一键安装。
 
 **3. Arthas Web Console**
 
-对于 Spring Boot 应用则无需通过 Arthas Tunnel 访问 Web Console，在组件内添加8563端口即可访问 Web Console。(注意：域名访问需开启 Websocket 支持
+对于 Spring Boot 应用则无需通过 Arthas Tunnel 访问 Web Console，在组件内添加8563端口即可访问 Web Console。(注意：域名访问需开启 Websocket 支持)
 
 ![](https://static.goodrain.com/wechat/arthas/10.png)
 
