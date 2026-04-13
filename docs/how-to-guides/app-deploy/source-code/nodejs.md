@@ -10,7 +10,7 @@ keywords:
 
 本篇文档介绍如何在 Rainbond 平台上通过源代码部署 NodeJS 前端项目和后端项目。
 
-Rainbond 使用 [Cloud Native Buildpacks (CNB)](https://buildpacks.io/) 构建 NodeJS 项目，基于 [Paketo Buildpacks](https://paketo.io/) 自动检测项目类型、安装依赖、执行构建并生成容器镜像。
+Rainbond 使用 [Cloud Native Buildpacks (CNB)](https://buildpacks.io) 构建 NodeJS 项目，基于 [Paketo Buildpacks](https://paketo.io) 自动检测项目类型、安装依赖、执行构建并生成容器镜像。
 
 ## 项目识别
 
@@ -298,7 +298,7 @@ http {
       }
 
       # Specify files sent to client if specific file not requested (e.g.
-      # GET www.example.com/). NGINX sends first existing file in the list.
+      # GET www.example.com). NGINX sends first existing file in the list.
       index index.html index.htm Default.htm;
     }
 
@@ -461,7 +461,7 @@ export default defineNuxtConfig({
 部分框架（如 Docusaurus）在构建时会调用 `git log` 获取文档的最后更新时间。默认情况下，CNB 构建环境不包含 `.git` 目录，会导致构建失败：
 
 ```
-fatal: not a git repository (or any parent up to mount point /)
+fatal: not a git repository (or any parent up to mount point )
 ```
 
 **解决方案**：在组件的 **环境配置** 中添加环境变量 `BUILD_KEEP_GIT`，值为 `true`，然后重新构建组件。该变量会保留 `.git` 目录到构建环境中。

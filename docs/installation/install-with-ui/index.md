@@ -32,7 +32,7 @@ import TabItem from '@theme/TabItem';
 * 准备至少一台干净的 Linux 主机（建议 3 台以上组成集群）。
 * 主机配置建议：`4核CPU` `8G+内存` `50G+磁盘`。
 * 确保您的环境满足 [RKE2 对硬件和操作系统的要求](https://docs.rke2.io/install/requirements)。
-* 如果主机内核支持 [AppArmor](https://apparmor.net/)，则在安装之前还必须具有 AppArmor 工具。
+* 如果主机内核支持 [AppArmor](https://apparmor.net)，则在安装之前还必须具有 AppArmor 工具。
 * 必须以 `root` 用户执行安装。
 
 :::info 系统内核优化

@@ -89,7 +89,7 @@ mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken
 
 Rainbond 可以基于 Oauth2.0 与 Gitlab 代码仓库对接，可以非常方便的选择构建 Gitlab 中的项目，并自动配置代码自动构建。
 
-参阅文档：[Rainbond 与 Gitlab 的对接](https://www.rainbond.com/docs/use-manual/enterprise-manage/enterprise-settings/base/oauth2.0/)
+参阅文档：[Rainbond 与 Gitlab 的对接](https://www.rainbond.com/docs/use-manual/enterprise-manage/enterprise-settings/base/oauth2.0)
 
 我所使用的 Gitlab 中已经存在一份标准的 Java Maven 项目代码。点击基于源码构建组件，选择对接好的 Gitlab，就可以搜索想要部署的项目了。
 

@@ -35,7 +35,7 @@ description: Rainbond组件存储的管理文档
 
 ## 对接其他存储
 
-Rainbond 平台会检测 Kubernetes 集群中存在的 [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) 资源，将 StorageClass 资源对象认为是用户自定义的存储类型，供 Rainbond 控制台组件选择使用。对接存储服务完成后，可以在添加存储中选择到对接的存储类型。
+Rainbond 平台会检测 Kubernetes 集群中存在的 [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes) 资源，将 StorageClass 资源对象认为是用户自定义的存储类型，供 Rainbond 控制台组件选择使用。对接存储服务完成后，可以在添加存储中选择到对接的存储类型。
 
 - [在 Linux 搭建 NFS 存储](https://t.goodrain.com/d/8325-linux-nfs-server)
 - [在 Kubernetes 中部署 NFS Client Provisioner](https://t.goodrain.com/d/8326-kubernetes-nfs-client-provisioner)

@@ -9,7 +9,7 @@ image: https://static.goodrain.com/wechat/nocalhost2/nocalhost.png
 
 之前的文章中我们介绍了如何通过 [Nocalhost 快速开发 Rainbond 上的微服务](https://mp.weixin.qq.com/s/kC9P7fvMtJvKK7_TM2LbTw)，介绍了基本的开发流程。
 
-本文将续接上文继续介绍，使用 [Nocalhost 开发配置文件](https://nocalhost.dev/docs/config/config-overview-en/) 实现以下内容：
+本文将续接上文继续介绍，使用 [Nocalhost 开发配置文件](https://nocalhost.dev/docs/config/config-overview-en) 实现以下内容：
 
 * 一键 Run 和 远程Debug
 * 持久化配置
@@ -44,7 +44,7 @@ image: https://static.goodrain.com/wechat/nocalhost2/nocalhost.png
 
 ## Nocalhost 对接 Rainbond
 
-1. 安装 Nocalhost JetBrains Plugin 插件，请参阅文档 [安装Nocalhost JetBrains Plugin 插件](https://nocalhost.dev/docs/installation/)。
+1. 安装 Nocalhost JetBrains Plugin 插件，请参阅文档 [安装Nocalhost JetBrains Plugin 插件](https://nocalhost.dev/docs/installation)。
 2. 获取 K8s Kubeconfig，请参阅文档 [获取 Kubeconfig 文件](https://www.rainbond.com/docs/ops-guide/tools/kubectl)。
 
 3. 在 `pig` 命名空间下，找到工作负载 `pig-auth` 右击并选择 `Dev Config` （开发配置）

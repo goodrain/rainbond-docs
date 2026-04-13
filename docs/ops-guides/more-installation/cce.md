@@ -29,8 +29,8 @@ keywords:
 
 ### 3. 安装必要工具
 在任意 CCE 节点上，安装：
-- [Kubectl](https://kubernetes.io/docs/tasks/tools/)（Kubernetes 命令行工具）
-- [Helm](https://helm.sh/docs/intro/install/)（Kubernetes 包管理工具）
+- [Kubectl](https://kubernetes.io/docs/tasks/tools)（Kubernetes 命令行工具）
+- [Helm](https://helm.sh/docs/intro/install)（Kubernetes 包管理工具）
 
 > 建议提前配置好 kubectl 连接到你的 CCE 集群。
 
@@ -182,4 +182,4 @@ http://<gatewayIngressIPs>:7070
 
 ## 四、下一步
 
-Rainbond 安装完成后，你可以参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
+Rainbond 安装完成后，你可以参考[快速入门](/docs/quick-start/getting-started)部署你的第一个应用。

@@ -2,7 +2,7 @@
 
 Rainbond Document, Contains all documents for Rainbond 5.x.
 
-This website uses [Docusaurus 2](https://docusaurus.io/) framework.
+This website uses [Docusaurus 2](https://docusaurus.io) framework.
 
 ## How to develop?
 
@@ -10,8 +10,8 @@ This website uses [Docusaurus 2](https://docusaurus.io/) framework.
 
 Development Environment Requirements:
 
-- [Git](http://git-scm.com/)
-- [Node.js](http://nodejs.org/) \>= 14 (with NPM)
+- [Git](http://git-scm.com)
+- [Node.js](http://nodejs.org) \>= 14 (with NPM)
 - [Yarn](https://yarnpkg.com/en/docs/install) \>= 1.5
 
 ### Install

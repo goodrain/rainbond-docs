@@ -7,7 +7,7 @@ keywords:
 - 使用 Pyroscope 分析微服务性能
 ---
 
-[Pyroscope](https://pyroscope.io/) 是一个开源的持续性能分析平台。它能够帮你：
+[Pyroscope](https://pyroscope.io) 是一个开源的持续性能分析平台。它能够帮你：
 
 - 查找代码中的性能问题
 - 解决 CPU 利用率高的问题

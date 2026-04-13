@@ -19,7 +19,7 @@ GitLab 擅长源代码管理，Rainbond 擅长应用自动化管理，整合 Git
 
 Rainbond 作为应用运行环境，Gitlab 可以运行在 Rainbond 之上，为了便于 Gitlab 安装，我们制作了 Gitlab 安装包放到了 Rainbond 的应用市场，实现 Gitlab 的一键安装。
 
-1. 安装 Rainbond，[安装步骤](https://www.rainbond.com/docs/quick-start/quick-install/)。
+1. 安装 Rainbond，[安装步骤](https://www.rainbond.com/docs/quick-start/quick-install)。
 
 2. 从应用市场搜索“Gitlab”，点击安装，一键完成 Gitlab 所有安装和配置工作，包括数据安装和初始化。
    ![WechatIMG71](https://i.loli.net/2021/11/05/z6bwP4WMA7f1BSh.jpg)
@@ -29,7 +29,7 @@ Rainbond 作为应用运行环境，Gitlab 可以运行在 Rainbond 之上，为
 
 ### Rainbond 源码构建对接 Gitlab Oauth，实现一键代码部署
 
-使用过[Rainbond](https://www.rainbond.com/)的小伙伴一定知道，在[Rainbond](https://www.rainbond.com/)上创建组件有三种方式：源代码创建、镜像创建、应用市场创建。
+使用过[Rainbond](https://www.rainbond.com)的小伙伴一定知道，在[Rainbond](https://www.rainbond.com)上创建组件有三种方式：源代码创建、镜像创建、应用市场创建。
 
 源码构建方式通过配置源码地址实现代码构建，Gitlab 虽然可以提供源码地址，但构建新应用需要拷贝源码地址及设置用户名密码，这个过程很麻烦，也容易犯错。
 

@@ -23,7 +23,7 @@ keywords:
 阿里云 ACK（Alibaba Cloud Kubernetes）是阿里云提供的托管 Kubernetes 服务，帮助你快速搭建和管理容器集群。
 
 ### 2. 创建 ACK 集群
-1. 登录 [阿里云控制台](https://homenew.console.aliyun.com/) → 容器服务 ACK。
+1. 登录 [阿里云控制台](https://homenew.console.aliyun.com) → 容器服务 ACK。
 2. 点击"创建集群"，选择 `ACK 托管集群` 类型。
 3. 按需选择节点配置、网络、地域等。
 
@@ -34,8 +34,8 @@ keywords:
 
 ### 3. 安装必要工具
 在任意 ACK 节点上，安装：
-- [Kubectl](https://kubernetes.io/docs/tasks/tools/)（Kubernetes 命令行工具）
-- [Helm](https://helm.sh/docs/intro/install/)（Kubernetes 包管理工具）
+- [Kubectl](https://kubernetes.io/docs/tasks/tools)（Kubernetes 命令行工具）
+- [Helm](https://helm.sh/docs/intro/install)（Kubernetes 包管理工具）
 
 > 建议提前配置好 kubectl 连接到你的 ACK 集群。
 
@@ -187,4 +187,4 @@ http://<gatewayIngressIPs>:7070
 
 ## 四、下一步
 
-Rainbond 安装完成后，你可以参考[快速入门](/docs/quick-start/getting-started/)部署你的第一个应用。
+Rainbond 安装完成后，你可以参考[快速入门](/docs/quick-start/getting-started)部署你的第一个应用。

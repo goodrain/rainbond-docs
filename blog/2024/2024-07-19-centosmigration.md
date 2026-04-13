@@ -1,12 +1,12 @@
 ---
 title: CentOS 7 服务终止，何去何从？一文搞懂，迁移无忧
-description: 2020年12月08日，CentOS 官方宣布了停止维护 CentOS 项目，并推出了 CentOS Stream 项目，并表示后续都会投入到 CentOS Stream 项目中。更多信息，请参见 [CentOS官方公告 ](https://blog.centos.org/2020/12/future-is-centos-stream/)。
+description: 2020年12月08日，CentOS 官方宣布了停止维护 CentOS 项目，并推出了 CentOS Stream 项目，并表示后续都会投入到 CentOS Stream 项目中。更多信息，请参见 [CentOS官方公告 ](https://blog.centos.org/2020/12/future-is-centos-stream)。
 slug: centosmigration
 ---
 
 ## 背景
 
-2020年12月08日，CentOS 官方宣布了停止维护 CentOS 项目，并推出了 CentOS Stream 项目，并表示后续都会投入到 CentOS Stream 项目中。更多信息，请参见 [CentOS官方公告 ](https://blog.centos.org/2020/12/future-is-centos-stream/)。
+2020年12月08日，CentOS 官方宣布了停止维护 CentOS 项目，并推出了 CentOS Stream 项目，并表示后续都会投入到 CentOS Stream 项目中。更多信息，请参见 [CentOS官方公告 ](https://blog.centos.org/2020/12/future-is-centos-stream)。
 
 - CentOS 6 已于 2020年11月30日 停止维护，CentOS 8 已于 2021年12月31日 停止维护。
 - CentOS 7 已于 2024年06月30日 停止维护。
@@ -87,10 +87,10 @@ centos2anolis.py --rhck
 
 自 Centos 系列项目宣布停止维护以后，大部分 Linux 发行版都提供了迁移指南，例如：
 
-* [Centos 迁移到 Rocky Linux](https://docs.rockylinux.org/zh/guides/migrate2rocky/)
+* [Centos 迁移到 Rocky Linux](https://docs.rockylinux.org/zh/guides/migrate2rocky)
 * [Centos 迁移到 Anolis OS](https://openanolis.cn/sig/migration/doc/451732372594279514)
-* [Centos 迁移到 openEuler](https://www.openeuler.org/zh/migration/guidance/)
-* [Centos 迁移到 OpenCloudOS](https://docs.opencloudos.org/centos_migrate/migrate_CentOS7_to_OC7/)
+* [Centos 迁移到 openEuler](https://www.openeuler.org/zh/migration/guidance)
+* [Centos 迁移到 OpenCloudOS](https://docs.opencloudos.org/centos_migrate/migrate_CentOS7_to_OC7)
 
 以上四种方式都是相当容易、简单的，因为它们都与 Centos 高度兼容。
 

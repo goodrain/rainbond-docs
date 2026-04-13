@@ -302,7 +302,7 @@ graph TD
 
 rainbond-operator 控制着 Rainbond 所有组件的配置与运行状态，持续的监控各个组件的状态，做出不同的动作，比如，rbd-api 的 pod 实例被删除或者参数修改了，operator立即会做出反馈。
 
-> [rainbond-operator](https://github.com/goodrain/rainbond-operator) 是基于 [kubebuilder](https://book.kubebuilder.io/) 实现。
+> [rainbond-operator](https://github.com/goodrain/rainbond-operator) 是基于 [kubebuilder](https://book.kubebuilder.io) 实现。
 
 在安装集群端时，首先会安装 rainbond-operator，接下来会创建一些 CRD 资源，如下：
 

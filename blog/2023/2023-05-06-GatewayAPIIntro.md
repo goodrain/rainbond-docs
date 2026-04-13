@@ -202,7 +202,7 @@ spec:
 整理一下部署思路，如果在业务中使用 Gateway API 我们都需要做什么。
 
 - Kubernetes Gateway API 基础 CRD。[安装网关 API CRD地址](https://gateway-api.sigs.k8s.io/guides/#installing-gateway-api)。
-- Gateway API 下游实现，即基础设备供应商。（包含 GatewayClass 资源）[下游实现地址](https://gateway-api.sigs.k8s.io/implementations/)。
+- Gateway API 下游实现，即基础设备供应商。（包含 GatewayClass 资源）[下游实现地址](https://gateway-api.sigs.k8s.io/implementations)。
 - 创建 Gateway ，定义基础的路由方式供 HTTPRoute 选择。根据上面的字段解释自行编写。
 - 创建 HTTPRoute 设置规则绑定自己的业务。根据上面的字段解释自行编写。
 
@@ -323,7 +323,7 @@ Gateway API使用到生产需要考虑易用性、可管理性和稳定性因素
 
 ### 在Kubernetes上安装Rainbond
 
-参考安装文档： [基于 Kubernetes 安装 Rainbond ](https://www.rainbond.com/docs/installation/install-with-helm/)
+参考安装文档： [基于 Kubernetes 安装 Rainbond ](https://www.rainbond.com/docs/installation/install-with-helm)
 
 ### 管理员安装Gateway API的网关实现
 

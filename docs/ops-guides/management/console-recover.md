@@ -5,7 +5,7 @@ keywords:
 - Rainbond 控制台高可用安装
 ---
 
-本文档针对通过[快速安装](/docs/quick-start/quick-install)的 Rainbond 在通过[主机安装](/docs/installation/install-with-ui/)对接了多集群后，想把迁移控制台到 K8s 集群中以 POD 方式运行的场景。
+本文档针对通过[快速安装](/docs/quick-start/quick-install)的 Rainbond 在通过[主机安装](/docs/installation/install-with-ui)对接了多集群后，想把迁移控制台到 K8s 集群中以 POD 方式运行的场景。
 
 ## 启动新控制台
 :::warning

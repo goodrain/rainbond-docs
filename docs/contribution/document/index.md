@@ -5,7 +5,7 @@ description: 该文档介绍如何为 Rainbond 文档项目做出贡献。
 
 ## Rainbond 文档贡献指南
 
-Rainbond 文档使用 [Docusaurus 2](https://docusaurus.io/) 文档框架。
+Rainbond 文档使用 [Docusaurus 2](https://docusaurus.io) 文档框架。
 
 ## 如何开发？
 
@@ -13,8 +13,8 @@ Rainbond 文档使用 [Docusaurus 2](https://docusaurus.io/) 文档框架。
 
 确保您的开发环境有如下软件：
 
-- [Git](http://git-scm.com/)
-- [Node.js](http://nodejs.org/) \>= 14 (with NPM)
+- [Git](http://git-scm.com)
+- [Node.js](http://nodejs.org) \>= 14 (with NPM)
 - [Yarn](https://yarnpkg.com/en/docs/install) \>= 1.5
 
 ### 安装

@@ -7,7 +7,7 @@ description: 在 Rainbond 上通过源代码部署纯静态 HTML 项目
 
 Rainbond 通过源码根目录是否存在 `index.html`（或 `index.htm`）且不存在 `package.json` 来识别为纯静态项目。
 
-纯静态项目使用 [Paketo Nginx Buildpack](https://paketo.io/docs/howto/nginx/) 构建，自动配置 Nginx 作为 Web 服务器，无需 Node.js 环境。
+纯静态项目使用 [Paketo Nginx Buildpack](https://paketo.io/docs/howto/nginx) 构建，自动配置 Nginx 作为 Web 服务器，无需 Node.js 环境。
 
 ## 项目结构
 
@@ -203,7 +203,7 @@ http {
       }
 
       # Specify files sent to client if specific file not requested (e.g.
-      # GET www.example.com/). NGINX sends first existing file in the list.
+      # GET www.example.com). NGINX sends first existing file in the list.
       index index.html index.htm Default.htm;
     }
 

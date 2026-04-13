@@ -80,8 +80,8 @@ composer update --ignore-platform-reqs
 可以通过 composer.json 启用以下第三方扩展（括号中给出的内部标识符名称）：
 
 - [APCu](http://pecl.php.net/package/apcu) (`apcu`; provides an apc extension for compatibility with legacy software)
-- [Blackfire](http://blackfire.io/) (`blackfire`)
-- [Cassandra](http://datastax.github.io/php-driver/) (`cassandra`)
+- [Blackfire](http://blackfire.io) (`blackfire`)
+- [Cassandra](http://datastax.github.io/php-driver) (`cassandra`)
 - [ev](http://php.net/manual/book.ev) (`ev`)
 - [event](http://php.net/manual/book.event) (`event`)
 - [ImageMagick](http://php.net/manual/book.imagick) (`imagick`)
@@ -90,7 +90,7 @@ composer update --ignore-platform-reqs
 - [MongoDB](http://php.net/manual/book.mongodb) (`mongodb`)
 - [New Relic](http://newrelic.com/php) (`newrelic`; will automatically be enabled when the New Relic Add-On is detected during a build)
 - [OAuth](http://php.net/manual/book.oauth) (`oauth`)
-- [Phalcon](https://phalconphp.com/) (`phalcon`)
+- [Phalcon](https://phalconphp.com) (`phalcon`)
 - [pq](https://mdref.m6w6.name/pq) (`pq`)
 - [rdkafka](https://pecl.php.net/package/rdkafka) (`rdkafka`)
 - [PHPRedis](http://pecl.php.net/package/redis) (`redis`)
@@ -138,8 +138,8 @@ composer update --ignore-platform-reqs
 可以通过 composer.json 启用以下第三方扩展（括号中给出的内部标识符名称）：
 
 - [APCu](http://pecl.php.net/package/apcu) (`apcu`; provides an apc extension for compatibility with legacy software)
-- [Blackfire](http://blackfire.io/) (`blackfire`)
-- [Cassandra](http://datastax.github.io/php-driver/) (`cassandra`)
+- [Blackfire](http://blackfire.io) (`blackfire`)
+- [Cassandra](http://datastax.github.io/php-driver) (`cassandra`)
 - [ev](http://php.net/manual/book.ev) (`ev`)
 - [event](http://php.net/manual/book.event) (`event`)
 - [ImageMagick](http://php.net/manual/book.imagick) (`imagick`)
@@ -147,7 +147,7 @@ composer update --ignore-platform-reqs
 - [MongoDB](http://php.net/manual/book.mongodb) (`mongodb`)
 - [New Relic](http://newrelic.com/php) (`newrelic`; will automatically be enabled when the New Relic Add-On is detected during a build)
 - [OAuth](http://php.net/manual/book.oauth) (`oauth`)
-- [Phalcon](https://phalconphp.com/) (`phalcon`)
+- [Phalcon](https://phalconphp.com) (`phalcon`)
 - [pq](https://mdref.m6w6.name/pq) (`pq`)
 - [rdkafka](https://pecl.php.net/package/rdkafka) (`rdkafka`)
 - [PHPRedis](http://pecl.php.net/package/redis) (`redis`)
@@ -195,8 +195,8 @@ composer update --ignore-platform-reqs
 可以通过 composer.json 启用以下第三方扩展（括号中给出的内部标识符名称）：
 
 - [APCu](http://pecl.php.net/package/apcu) (`apcu`; provides an apc extension for compatibility with legacy software)
-- [Blackfire](http://blackfire.io/) (`blackfire`)
-- [Cassandra](http://datastax.github.io/php-driver/) (`cassandra`)
+- [Blackfire](http://blackfire.io) (`blackfire`)
+- [Cassandra](http://datastax.github.io/php-driver) (`cassandra`)
 - [ev](http://php.net/manual/book.ev) (`ev`)
 - [event](http://php.net/manual/book.event) (`event`)
 - [ImageMagick](http://php.net/manual/book.imagick) (`imagick`)
@@ -204,7 +204,7 @@ composer update --ignore-platform-reqs
 - [MongoDB](http://php.net/manual/book.mongodb) (`mongodb`)
 - [New Relic](http://newrelic.com/php) (`newrelic`; will automatically be enabled when the New Relic Add-On is detected during a build)
 - [OAuth](http://php.net/manual/book.oauth) (`oauth`)
-- [Phalcon](https://phalconphp.com/) (`phalcon`)
+- [Phalcon](https://phalconphp.com) (`phalcon`)
 - [pq](https://mdref.m6w6.name/pq) (`pq`)
 - [rdkafka](https://pecl.php.net/package/rdkafka) (`rdkafka`)
 - [PHPRedis](http://pecl.php.net/package/redis) (`redis`)

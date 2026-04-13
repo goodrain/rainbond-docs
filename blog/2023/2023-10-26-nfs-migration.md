@@ -6,7 +6,7 @@ image: https://static.goodrain.com/wechat/nfs-migration/banner.png
 ---
 
 
-[基于主机安装](https://www.rainbond.com/docs/installation/install-with-ui/host-install-with-ui)或[基于Kubernetes安装](https://www.rainbond.com/docs/installation/install-with-helm/)的 Rainbond 集群（均使用默认参数安装），默认使用的共享文件存储是 NFS ，以 Pod 方式运行在 Kubernetes 中，但这种方式也有一些无法避免的问题，比如：NFS 的 SVC 无法通信时集群无法挂载存储则导致不能使用、服务器关机时卡在 `umount` 导致不能正常关机等等。
+[基于主机安装](https://www.rainbond.com/docs/installation/install-with-ui/host-install-with-ui)或[基于Kubernetes安装](https://www.rainbond.com/docs/installation/install-with-helm)的 Rainbond 集群（均使用默认参数安装），默认使用的共享文件存储是 NFS ，以 Pod 方式运行在 Kubernetes 中，但这种方式也有一些无法避免的问题，比如：NFS 的 SVC 无法通信时集群无法挂载存储则导致不能使用、服务器关机时卡在 `umount` 导致不能正常关机等等。
 
 当然还有切换共享文件存储的需求，在第一次安装 Rainbond 时，大多数都使用的默认安装，使用一段时间后想切换到外部的 NFS，或者云上的 NAS等等。
 

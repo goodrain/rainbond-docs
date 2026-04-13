@@ -17,7 +17,7 @@ pip freeze > requirements.txt
 
 ### Django 静态文件支持
 
-由于 [Django](https://www.djangoproject.com/) 的静态文件支持（CSS、图片等）不是很容易配置而且不方便调试，这里给出一个示例：
+由于 [Django](https://www.djangoproject.com) 的静态文件支持（CSS、图片等）不是很容易配置而且不方便调试，这里给出一个示例：
 
 **settings.py**
 

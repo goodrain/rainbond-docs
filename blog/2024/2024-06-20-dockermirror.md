@@ -102,7 +102,7 @@ docker run -d -p 8081:8081 --name nexus sonatype/nexus3
 
 ### 搭建 Harbor
 
-可参考 [Harbor文档 ](https://goharbor.io/docs/2.11.0/install-config/)搭建或者使用 [Rainbond](https://www.rainbond.com/docs/quick-start/quick-install) 应用商店一键安装。
+可参考 [Harbor文档 ](https://goharbor.io/docs/2.11.0/install-config)搭建或者使用 [Rainbond](https://www.rainbond.com/docs/quick-start/quick-install) 应用商店一键安装。
 
 ![](https://static.goodrain.com/wechat/docker-proxy/2.png)
 

@@ -99,5 +99,5 @@ jedis.auth("your-password");
 
 ## 相关文档
 
-- [Redis 官方文档](https://redis.io/docs/)
+- [Redis 官方文档](https://redis.io/docs)
 - [应用依赖组件](../app-ops/dependon)

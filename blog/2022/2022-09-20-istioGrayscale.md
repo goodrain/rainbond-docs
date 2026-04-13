@@ -51,11 +51,11 @@ Kubernetes 默认的实现方式在简单的部署场景下很有效，但是在
 
 1) 安装 Rainbond
 
-参考 [Rainbond 官方文档](https://www.rainbond.com/docs/quick-start/quick-install/) 快速安装，安装完成后可以通过对接 Helm 商店一键安装 Istio 以及相应组件。
+参考 [Rainbond 官方文档](https://www.rainbond.com/docs/quick-start/quick-install) 快速安装，安装完成后可以通过对接 Helm 商店一键安装 Istio 以及相应组件。
 
 2. 安装 Istio 以及 Kiali
 
-登录到 Rainbond 控制台后，先创建一个团队，团队英文名对应 Kubernetes 中的命名空间，Istio 默认安装的命名空间为 `istio-system` ，因此团队英文名填写`istio-system`，名称可以填写为 `istio项目`。接下来对接 Helm 商店，通过 `应用市场 -> 点击➕号 -> Helm 商店` 对接。商店名称随意填写，地址填写 `https://openchart.goodrain.com/goodrain/rainbond`。商店对接完成后，我们即可点击安装 istio、kiali 等应用。详细可参考 [Istio 安装](https://www.rainbond.com/docs/use-manual/app-manage/overview/model/deploy-istio/)。
+登录到 Rainbond 控制台后，先创建一个团队，团队英文名对应 Kubernetes 中的命名空间，Istio 默认安装的命名空间为 `istio-system` ，因此团队英文名填写`istio-system`，名称可以填写为 `istio项目`。接下来对接 Helm 商店，通过 `应用市场 -> 点击➕号 -> Helm 商店` 对接。商店名称随意填写，地址填写 `https://openchart.goodrain.com/goodrain/rainbond`。商店对接完成后，我们即可点击安装 istio、kiali 等应用。详细可参考 [Istio 安装](https://www.rainbond.com/docs/use-manual/app-manage/overview/model/deploy-istio)。
 
 ### 2. 部署 BookInfo 应用
 
@@ -67,7 +67,7 @@ Kubernetes 默认的实现方式在简单的部署场景下很有效，但是在
 
 1. 准备镜像
 
-[BookInfo](https://istio.io/latest/docs/examples/bookinfo/) 这个应用程序由 6 个微服务组成，它们之间的依赖如下图所示。其中 Productpage 这个服务提供了访问页面，从 Details 这个服务中获得书籍详细信息。从 Reviews 服务中获得书籍评价。其中 Reviews-v2 和 Reviews-v3 会从 Ratings 这个服务中获得书籍的评级信息。这六个微服务的镜像如下：
+[BookInfo](https://istio.io/latest/docs/examples/bookinfo) 这个应用程序由 6 个微服务组成，它们之间的依赖如下图所示。其中 Productpage 这个服务提供了访问页面，从 Details 这个服务中获得书籍详细信息。从 Reviews 服务中获得书籍评价。其中 Reviews-v2 和 Reviews-v3 会从 Ratings 这个服务中获得书籍的评级信息。这六个微服务的镜像如下：
 
 ```bash
 docker.io/istio/examples-bookinfo-productpage-v1:1.17.0

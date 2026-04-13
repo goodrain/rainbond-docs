@@ -370,27 +370,29 @@ const config = {
           },
         ],
         createRedirects(existingPath) {
+          const redirects = [];
+
           if (existingPath.includes('/docs/how-to-guides/localization-guide')) {
-            return [
-              existingPath.replace( '/docs/how-to-guides/localization-guide', '/docs/localization-guide')
-            ];
+            redirects.push(
+              existingPath.replace('/docs/how-to-guides/localization-guide', '/docs/localization-guide')
+            );
           }
           if (existingPath.includes('/docs/how-to-guides/delivery')) {
-            return [
+            redirects.push(
               existingPath.replace('/docs/how-to-guides/delivery', '/docs/delivery')
-            ];
+            );
           }
           if (existingPath.includes('/docs/how-to-guides/app-ops')) {
-            return [
+            redirects.push(
               existingPath.replace('/docs/how-to-guides/app-ops', '/docs/use-manual')
-            ];
+            );
           }
           if (existingPath.includes('/docs/how-to-guides/app-deploy')) {
-            return [
+            redirects.push(
               existingPath.replace('/docs/how-to-guides/app-deploy', '/docs/devops/app-deploy')
-            ];
+            );
           }
-          return undefined;
+          return redirects.length ? redirects : undefined;
         }
       }
     ],
