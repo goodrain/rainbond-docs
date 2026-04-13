@@ -23,7 +23,6 @@ import TrackedLink from '@site/src/components/Analytics/TrackedLink';
 - **预计耗时：** 2 到 3 分钟完成基础环境启动。
 - **不适合谁：** 直接拿来做正式生产部署的团队。
 - **Mac 前置条件：** 需要安装并启动 OrbStack。
-- **Windows 前置条件：** 依赖 WSL（Windows Subsystem for Linux）。
 - **离线 / 信创环境：** 优先看 [离线安装文档](../installation/offline.md) 或 [离线 / 信创专题](/offline-and-xinchuang)。
 
 ## 成功标准
@@ -32,7 +31,7 @@ import TrackedLink from '@site/src/components/Analytics/TrackedLink';
 - 浏览器可以打开 `http://你的IP:7070`。
 - 你已经知道下一步要去 [部署第一个应用](./getting-started.md)，而不是停在“命令执行成功”。
 
-本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Windows(x86_64)`、`Mac(Intel/Apple Silicon)`、`Linux(x86_64、Arm64)`。
+本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Mac(Intel/Apple Silicon)`、`Linux(x86_64、Arm64)`。
 
 :::info 第一次接触 Rainbond？
 如果你还不熟悉 `团队`、`应用`、`组件`、`网关`、`应用模版` 和 `应用市场` 这些概念，建议先看 [安装前了解 Rainbond 概念](../tutorial/install-concepts)，再继续下面的安装步骤。
@@ -127,31 +126,6 @@ OS: Darwin
 Access Rainbond:
     🌐 Console: http://192.168.1.1:7070
 ```
-
-  </TabItem>
-
-  <TabItem
-    value="Windows"
-    label="Windows"
-    attributes={{
-      'data-umami-event': 'install_path_selected',
-      'data-umami-install-path': 'quick_install_windows',
-      'data-umami-module': 'quick_install_os_tabs',
-    }}>
-
-:::info
-在 Windows 上安装需要依赖 WSL（Windows Subsystem for Linux），该脚本会自动检测并安装启动 WSL 环境，然后通过 Docker 快速启动 Rainbond。
-:::
-
-使用管理员打开 CMD 并执行以下命令:
-
-<CopyCommandBlock
-  code={`powershell -ExecutionPolicy Bypass -Command "irm https://get.rainbond.com/install-rainbond-wsl.ps1 | iex"`}
-  language="powershell"
-  osTab="windows"
-  commandType="quick_install"
-  hint="使用管理员权限打开 CMD 或 PowerShell 后再复制执行。"
-/>
 
   </TabItem>
 </Tabs>

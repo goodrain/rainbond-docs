@@ -25,7 +25,7 @@ docker stop rainbond && docker rm rainbond
 # Linux
 rm -rf /opt/rainbond
 
-# MacOS & Windows
+# MacOS
 docker volume rm rainbond-opt
 ```
 
