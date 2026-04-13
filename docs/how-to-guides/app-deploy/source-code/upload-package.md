@@ -1,8 +1,10 @@
 ---
-title: 上传本地软件包部署
-description: 在 Rainbond 中通过上传软件包部署应用的完整指南
+title: 本地源码包或软件包部署
+description: 在 Rainbond 中通过上传源码 ZIP、JAR、WAR 或静态资源 ZIP 部署应用的完整指南
 keywords:
 - Rainbond 软件包部署
+- Rainbond 源码 ZIP 部署
+- 上传源码 ZIP
 - 上传 JAR 包
 - 上传 WAR 包
 - 上传 ZIP 包
@@ -11,19 +13,31 @@ keywords:
 
 ## 概述
 
-Rainbond 支持通过上传本地软件包的方式快速部署应用,无需连接代码仓库。这种方式适用于已经在本地完成构建的项目,或者需要快速部署预编译软件包的场景。
+Rainbond 支持通过上传本地文件的方式快速部署应用，无需连接代码仓库。根据上传内容不同，可以分为两类：
 
-## 支持的软件包类型
+- **源码 ZIP**：上传未构建的项目源码压缩包，Rainbond 解压后会继续识别语言、安装依赖、执行构建并生成镜像
+- **软件包 / 构建产物**：上传已经准备好的 `JAR`、`WAR` 或前端静态资源 ZIP，平台直接按对应类型部署
 
-Rainbond 支持以下三种软件包格式:
+如果你希望 Rainbond 接管依赖安装、构建和启动过程，优先使用源码 ZIP；如果你已经有可直接运行或可直接托管的产物，则使用软件包方式更合适。
 
-| 包类型 | 适用场景 | 说明 |
-|--------|----------|------|
+## 支持的上传类型
+
+Rainbond 支持以下几种本地上传方式：
+
+| 类型 | 适用场景 | 说明 |
+|------|----------|------|
+| **源码 ZIP** | 本地已有完整项目源码，但暂未托管到 Git | 上传后由 Rainbond 继续识别语言并执行源码构建 |
 | **JAR** | Java SpringBoot 应用 | 可直接运行的 SpringBoot Jar 包 |
 | **WAR** | Java Web 应用 | 需要在 Servlet 容器中运行的 Web 应用 |
-| **ZIP** | 前端静态资源 | 前端构建后的静态资源包 |
+| **静态资源 ZIP** | 前端静态站点 | 前端构建后的静态资源包，由 Nginx 提供服务 |
 
-## 软件包要求
+## 如何选择上传方式
+
+- 选择 **源码 ZIP**：你手里是未构建的项目源码，希望 Rainbond 自动完成依赖安装、构建和启动配置
+- 选择 **JAR / WAR**：你已经有可直接运行的 Java 构建产物，希望跳过源码构建
+- 选择 **静态资源 ZIP**：你已经完成前端构建，只需要部署 `dist`、`build`、`out` 等静态产物
+
+## 上传内容要求
 
 ### JAR 包要求
 
@@ -34,13 +48,38 @@ Rainbond 支持以下三种软件包格式:
 
 - 符合 Java Servlet 规范的 Web 应用包
 - 将在 Tomcat 或 Jetty 等容器中运行
-- 确保 WEB-INF 目录结构完整
+- 确保 `WEB-INF` 目录结构完整
 
-### ZIP 包要求
+### 源码 ZIP 包要求
 
-ZIP 包是前端项目构建后的静态资源包,**必须满足以下结构要求**:
+源码 ZIP 用于上传未构建的项目代码，解压后应能直接看到项目根目录和语言识别文件。例如：
 
+```text
+source.zip
+├── pom.xml / build.gradle / package.json / requirements.txt / go.mod
+├── src/
+├── app/ 或 cmd/
+├── public/ 或 static/
+└── ...
 ```
+
+- ZIP 解压后应直接为项目源码根目录
+- 根目录需保留语言识别文件，如 `pom.xml`、`build.gradle`、`package.json`、`requirements.txt`、`go.mod` 等
+- 压缩包中应包含构建所需的源码、配置文件和依赖描述文件
+- 建议不要上传 `node_modules`、`target`、`build`、`dist` 等本地构建缓存
+- 如果上传的是前端构建产物，而不是源码，请使用下文的静态资源 ZIP 方式
+
+:::warning 重要提示
+- Rainbond 会按源码继续检测项目语言并执行构建
+- 如果 ZIP 根目录缺少语言识别文件，或者上传的只是残缺源码，可能无法正确识别项目类型
+- 如果你上传的是已构建的前端静态资源，请不要按源码 ZIP 方式处理
+:::
+
+### 静态资源 ZIP 包要求
+
+静态资源 ZIP 是前端项目构建后的静态资源包，**必须满足以下结构要求**：
+
+```text
 package.zip
 └── dist/           # 必须包含 dist 文件夹
     ├── index.html
@@ -53,132 +92,94 @@ package.zip
 
 :::warning 重要提示
 - ZIP 包解压后**必须包含 dist 文件夹**
-- dist 文件夹下必须包含 index.html 或其他 HTML 入口文件
-- dist 文件夹下包含 js、css、img 等静态资源
-- 如果 ZIP 包结构不符合要求,部署将会失败
+- `dist` 文件夹下必须包含 `index.html` 或其他 HTML 入口文件
+- `dist` 文件夹下包含 `js`、`css`、`img` 等静态资源
+- 如果 ZIP 包结构不符合要求，部署将会失败
 :::
 
 ## 操作步骤
 
-1. 进入目标团队和应用
-2. 点击 **新建 → 从源码构建 → 软件包**
-3. 点击 **上传软件包** 按钮，选择本地的 JAR、WAR 或 ZIP 文件
-4. 等待文件上传完成并确认构建
+### 1. 上传源码 ZIP 进行源码构建
 
-> - 上传大文件时请保持网络连接稳定
-> - 上传过程中可以看到上传进度
+1. 进入目标团队，点击 **新建应用** → **上传软件包构建** 并上传源码 ZIP 文件
+2. Rainbond 解压后自动识别项目类型，并进入对应的源码构建流程
+3. 在 **构建源** 页面确认语言版本、构建命令、启动命令等参数
+4. 点击 **构建** 完成部署
+
+### 2. 上传 JAR / WAR / 静态资源 ZIP 直接部署
+
+1. 进入目标团队和应用，**新建应用** → **上传软件包构建** 并上传 JAR、WAR 或静态资源 ZIP 文件
+2. 根据上传的文件类型，Rainbond 会自动识别为 Java JAR、Java WAR 或前端静态资源，并进入对应的部署流程
+3. 在 **构建源** 页面确认 Java 版本、Web 服务器、启动命令等参数
+4. 点击 **构建** 完成部署
+
+- [下载示例 Jar 包](https://gitee.com/rainbond/sourcecode-examples/blob/master/java/jar/springboot-maven-0.0.1-SNAPSHOT.jar)
+- [下载示例 WAR 包](https://gitee.com/rainbond/sourcecode-examples/blob/master/java/war/ROOT.war)
 
 ## 运行环境配置
 
-### 1. JAR 包配置
+### 1. 源码 ZIP 配置
 
-对于 JAR 包,可以在 **高级设置 → 构建源** 页面配置以下参数:
+源码 ZIP 上传后，会进入对应语言的源码构建流程。具体构建参数请参考对应语言文档：
 
-| 配置项 | 说明 |
-|--------|------|
-| **OpenJDK版本** | 选择 Java 运行时版本: 1.8, 11, 17, 21 等 |
-| **启动命令** | 自定义 JAR 包启动命令,默认为 `java -jar app.jar` |
-| **JVM参数** | 设置 JVM 运行参数,如 `-Xmx1024m -Xms512m` |
+- [Java 项目部署](./springboot.md)
+- [NodeJS 前后端项目部署](./nodejs.md)
+- [Python 项目部署](./python.md)
+- [Golang 源码项目部署](./golang.md)
+- [PHP 项目部署](./php.md)
+- [.NET 项目部署](./dotnet.md)
 
-示例启动命令:
-```bash
-java -Xmx2048m -Xms1024m -jar app.jar --server.port=8080
-```
+### 2. JAR 包配置
 
-### 2. WAR 包配置
-
-对于 WAR 包,可以配置:
+对于 JAR 包，可以在 **高级设置 → 构建源** 页面配置以下参数：
 
 | 配置项 | 说明 |
 |--------|------|
-| **OpenJDK版本** | 选择 Java 版本 |
-| **Web服务器** | 选择容器: tomcat7, tomcat8, tomcat85, tomcat9, jetty7, jetty9 |
+| OpenJDK版本 | 与 [Java 项目部署](./springboot.md#支持的-java-版本) 版本一致 |
+| JVM 类型 | 默认使用 JRE，只有运行期依赖 JDK 工具时才选 JDK |
+|	启动方式 | 默认或自定义 |
+| 启动命令 | 仅在自定义启动方式时填写，留空则使用默认启动进程 |
 
-### 3. ZIP 包配置
+Java 运行时配置参考 [SpringBoot 项目部署](./springboot.md#组件运行变量)。
 
-ZIP 包部署后会自动识别为静态网站,使用 Nginx 提供服务。
+### 3. WAR 包配置
 
-**默认 Nginx 配置**:
-```nginx
-server {
-    listen 5000;
-    
-    location / {
-        root   /app/www;
-        index  index.html index.htm;
-    }
-}
-```
+对于 WAR 包，可以配置：
 
-**自定义 Nginx 配置**:
+| 配置项 | 说明 |
+|--------|------|
+| OpenJDK版本 | 与 [Java 项目部署](./springboot.md#支持的-java-版本) 版本一致 |
+| Web Server | 默认 Tomcat |
+| JVM 类型 | 默认使用 JRE，只有运行期依赖 JDK 工具时才选 JDK |
+|	启动方式 | 默认或自定义 |
+| 启动命令 | 仅在自定义启动方式时填写，留空则使用默认启动进程 |
 
-如果需要自定义 Nginx 配置，在组件 → 环境配置 → 添加配置文件，示例如下:
-1. 配置文件名称：conf
-2. 配置文件路径：/app/nginx/conf.d/web.conf
-3. 权限：777
-4. 内容：自定义 Nginx 配置内容
 
-`web.conf` 示例:
-```bash
-server {
-    listen       5000;
+### 4. 静态资源 ZIP 包配置
 
-    # 开启 gzip 压缩
-    gzip on;
-    gzip_types text/plain text/css application/json application/javascript;
-
-    location / {
-        root   /app/www;
-        index  index.html index.htm;
-        try_files $uri $uri/ /index.html;
-    }
-
-    # API 代理配置
-    location /api {
-        proxy_pass http://backend-service:8080;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-}
-```
-
-### 4. 端口配置
-
-部署完成后,需要配置端口以对外提供服务:
-
-1. 进入**组件 → 高级设置 → 端口**，添加端口
-2. 根据应用类型添加端口:
-   - **JAR 包 (SpringBoot)**: 通常为 8080 或 application.properties 中配置的端口
-   - **WAR 包**: 默认 8080 (Tomcat) 或 8080 (Jetty)
-   - **ZIP 包**: 默认 5000 端口
+静态资源 ZIP 部署后会自动识别为静态网站，使用 Nginx 提供服务。
+- [自定义 Nginx 配置](./html#自定义-nginx-配置)
 
 
 ## 常见问题
 
-### 前端 ZIP 包部署后页面路由 404
+### 上传源码 ZIP 后没有被识别为预期语言
 
-SPA 应用的路由需要特殊配置。在 ZIP 包中添加 `web.conf` 文件,配置 try_files:
+请优先检查以下几点：
 
-```nginx
-server {
-    listen       80;
-    location / {
-        root   /app/www/dist;
-        index  index.html index.htm;
-        # 支持 Vue/React 等 SPA 的路由
-        try_files $uri $uri/ /index.html;
-    }
-}
-```
+- ZIP 解压后根目录是否直接包含 `pom.xml`、`package.json`、`requirements.txt`、`go.mod` 等识别文件
+- 上传的是完整源码，还是只有部分目录
+- 是否误把前端构建产物 `dist`、`build` 当成源码 ZIP 上传
 
-### 上传后想更新软件包怎么办?
+如果源码 ZIP 结构不完整，建议先整理为完整项目根目录后再压缩上传。
 
-**解决方案**:
+### 上传后想更新本地上传内容怎么办？
+
 1. 进入组件 → 构建源
-2. 点击 **重新上传软件包**
+2. 根据当前类型重新上传源码 ZIP 或软件包
 3. 上传新版本的文件
 4. 点击 **构建** 部署新版本
 
 :::warning 注意
-前端 ZIP 包更新后，需要点击构建源的**重新检测**按钮，否则不会解压新的 ZIP 包内容
+ZIP 压缩包更新后，需要点击构建源的**重新检测**按钮，否则不会解压新的 ZIP 包内容
 :::
