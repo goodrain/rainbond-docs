@@ -22,13 +22,13 @@ export default function Home() {
         {/* 按钮区块 */}
         <div className={styles.hero_button}>
           <TrackedLink
-            to="/install-hub"
+            to="/docs/quick-start/quick-install"
             className={`${styles.hero_button_style} ${styles.hero_button_primary}`}
             eventName="cta_install_clicked"
             eventProps={{
               module: 'home_hero',
               cta_text: '3 分钟体验安装',
-              target_path: '/install-hub',
+              target_path: '/docs/quick-start/quick-install',
             }}>
             3 分钟体验安装
           </TrackedLink>

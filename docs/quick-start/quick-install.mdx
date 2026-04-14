@@ -17,26 +17,6 @@ import TrackedLink from '@site/src/components/Analytics/TrackedLink';
 如果你还不确定自己更适合体验安装、生产安装、离线安装还是信创安装，建议先进入 [安装总入口](/install-hub) 做判断，再回到对应方案。
 :::
 
-## 1 分钟判断
-
-- **适合谁：** 学习、PoC、低成本验证上手门槛的团队。
-- **预计耗时：** 2 到 3 分钟完成基础环境启动。
-- **不适合谁：** 直接拿来做正式生产部署的团队。
-- **Mac 前置条件：** 需要安装并启动 OrbStack。
-- **离线 / 信创环境：** 优先看 [离线安装文档](../installation/offline.md) 或 [离线 / 信创专题](/offline-and-xinchuang)。
-
-## 成功标准
-
-- 脚本执行完成后输出 `Rainbond Installation Successful`。
-- 浏览器可以打开 `http://你的IP:7070`。
-- 你已经知道下一步要去 [部署第一个应用](./getting-started.md)，而不是停在“命令执行成功”。
-
-本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Mac(Intel/Apple Silicon)`、`Linux(x86_64、Arm64)`。
-
-:::info 第一次接触 Rainbond？
-如果你还不熟悉 `团队`、`应用`、`组件`、`网关`、`应用模版` 和 `应用市场` 这些概念，建议先看 [安装前了解 Rainbond 概念](../tutorial/install-concepts)，再继续下面的安装步骤。
-:::
-
 
 ## 操作步骤
 <TrackedDetails summary="了解安装原理" section="quick_install_principle">
@@ -130,7 +110,17 @@ Access Rainbond:
   </TabItem>
 </Tabs>
 
-## 装完之后不要停在这里
+## 成功标准
+
+- 脚本执行完成后输出 `Rainbond Installation Successful`。
+- 浏览器可以打开 `http://你的IP:7070`。
+- 你已经知道下一步要去 [部署第一个应用](./getting-started.md)，而不是停在“命令执行成功”。
+
+本文档介绍使用脚本一键安装 Rainbond，脚本检测环境完成后会在使用 Docker 启动 Rainbond 容器。支持 `Mac(Intel/Apple Silicon)`、`Linux(x86_64、Arm64)`。
+
+:::info 第一次接触 Rainbond？
+如果你还不熟悉 `团队`、`应用`、`组件`、`网关`、`应用模版` 和 `应用市场` 这些概念，建议先看 [安装前了解 Rainbond 概念](../tutorial/install-concepts)，再继续下面的安装步骤。
+:::
 
 <div className="gettingStartedActions">
   <TrackedLink
