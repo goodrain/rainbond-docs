@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import Link from '@docusaurus/Link';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
 
 export default function Home() {
@@ -15,16 +14,16 @@ export default function Home() {
         </div>
 
         {/* 标题部分 */}
-        <h1 className={styles.hero_title_one}>以应用为中心的</h1>
-        <h1 className={styles.hero_title_two}>下一代容器平台</h1>
-        <p className={styles.hero_title_four}>彻底屏蔽 K8s 复杂性，从源码到 AI 应用，让应用交付像下载 App 一样简单</p>
+        <h1 className={styles.hero_title_one}>不用懂 Kubernetes</h1>
+        <h1 className={styles.hero_title_two}>的开源容器平台</h1>
+        <p className={styles.hero_title_four}>底层基于 Kubernetes，屏蔽复杂性，让团队更容易交付和管理应用，像安装手机 App 一样简单。</p>
 
         {/* 按钮区块 */}
         <div className={styles.hero_button}>
           <TrackedLink
             to="/docs/quick-start/quick-install"
             className={`${styles.hero_button_style} ${styles.hero_button_primary}`}
-            eventName="cta_install_clicked"
+            eventName="cta_home_install_clicked"
             eventProps={{
               module: 'home_hero',
               cta_text: '3 分钟体验安装',
@@ -33,9 +32,17 @@ export default function Home() {
             3 分钟体验安装
           </TrackedLink>
 
-          <Link to="/docs" className={`${styles.hero_button_style} ${styles.hero_button_secondary}`}>
+          <TrackedLink
+            to="/docs"
+            className={`${styles.hero_button_style} ${styles.hero_button_secondary}`}
+            eventName="cta_docs_clicked"
+            eventProps={{
+              module: 'home_hero',
+              cta_text: '了解 Rainbond',
+              target_path: '/docs',
+            }}>
             了解 Rainbond
-          </Link>
+          </TrackedLink>
         </div>
 
         {/* 统计信息区块 */}

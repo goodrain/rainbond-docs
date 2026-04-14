@@ -113,7 +113,7 @@ export default function InstallHub(): JSX.Element {
                     key={`${card.title}-${action.label}`}
                     to={action.to}
                     className={`${styles.actionButton} ${action.variant === 'secondary' ? styles.actionButtonSecondary : styles.actionButtonPrimary}`}
-                    eventName="install_path_selected"
+                    eventName="install_hub_path_selected"
                     eventProps={{
                       install_path: action.installPath,
                       module: 'install_hub_decision',
@@ -145,7 +145,7 @@ export default function InstallHub(): JSX.Element {
                   key={`${card.title}-${action.label}`}
                   to={action.to}
                   className={`${styles.actionButton} ${action.variant === 'secondary' ? styles.actionButtonSecondary : styles.actionButtonPrimary}`}
-                  eventName="install_path_selected"
+                  eventName="install_hub_path_selected"
                   eventProps={{
                     install_path: action.installPath,
                     module: 'install_hub_decision',

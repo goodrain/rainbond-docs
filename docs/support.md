@@ -10,7 +10,12 @@ import SupportEntryNotice from '@site/src/components/Analytics/SupportEntryNotic
 import CommunityQrCard from '@site/src/components/Analytics/CommunityQrCard';
 import TrackedLink from '@site/src/components/Analytics/TrackedLink';
 
-<PageEntryTracker eventName="support_opened" />
+<PageEntryTracker
+  eventName="support_opened"
+  eventProps={{
+    module: 'support_page',
+  }}
+/>
 
 ## 社区支持
 
