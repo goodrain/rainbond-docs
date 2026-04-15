@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::tip 专题入口
-如果你不是只想照着命令安装，而是想先判断自己更适合“纯离线安装、离线交付、鲲鹏 / 麒麟部署”还是“信创迁移”，建议先进入 [离线 / 信创 / 国产化专题](/offline-and-xinchuang)。
+如果你不是只想照着命令安装，而是想先判断自己更适合“纯离线安装、离线交付、麒麟 V10 / ARM 部署”还是“信创迁移”，建议先进入 [离线 / 信创 / 国产化专题](/offline-and-xinchuang)。
 :::
 
 ## 前提

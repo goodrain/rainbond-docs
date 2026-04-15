@@ -13,7 +13,7 @@ keywords:
 :::
 
 :::tip 专题入口
-如果你要判断“x86 到 ARM 怎么迁、鲲鹏 / 麒麟怎么装、平台是否适合长期承载”，建议直接进入 [离线 / 信创 / 国产化专题](/offline-and-xinchuang)；如果你只关心迁移路径，下一步看 [x86 到 ARM 迁移专题页](/offline-and-xinchuang/x86-to-arm)。
+如果你要判断“x86 到 ARM 怎么迁、麒麟 V10 / ARM 怎么装、平台是否适合长期承载”，建议直接进入 [离线 / 信创 / 国产化专题](/offline-and-xinchuang)；如果你只关心迁移路径，下一步看 [x86 到 ARM 迁移专题页](/offline-and-xinchuang/x86-to-arm)。
 :::
 
 <!--truncate-->

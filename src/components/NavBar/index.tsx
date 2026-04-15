@@ -109,7 +109,7 @@ export default function Navbar() {
               云服务
             </a> */}
 
-            <Link to="https://hub.grapps.cn" className={styles.navLink}>
+            <Link to="https://hub.rainbond.com" className={styles.navLink}>
               应用商店
             </Link>
           </div>

@@ -94,7 +94,7 @@ POSTS: tuple[PostConfig, ...] = (
     ),
     PostConfig(
         source="鲲鹏Arm+麒麟V10，国产化信创 K8s 离线部署保姆级教程/鲲鹏Arm+麒麟V10，国产化信创 K8s 离线部署保姆级教程.md",
-        slug="kunpeng-kylin-offline-k8s-guide",
+        slug="kylin-offline-k8s-guide",
         tags=("信创实践", "ARM", "麒麟 V10", "离线部署"),
     ),
 )

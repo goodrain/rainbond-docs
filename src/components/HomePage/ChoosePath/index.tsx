@@ -30,7 +30,7 @@ const pathCards: PathCard[] = [
     tag: 'AI 私有化',
     title: '几十款 AI 应用私有化部署',
     summary: '适合想把Dify或其他AI应用带进企业环境，并持续升级维护的团队。',
-    href: 'https://hub.grapps.cn',
+    href: 'https://hub.rainbond.com',
     tone: 'ai',
   },
   {

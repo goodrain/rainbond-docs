@@ -42,7 +42,7 @@ export default function Num500App() {
                     </PhotoProvider>
                 </div>
                 <div className="col col--12">
-                    <Link to="https://hub.grapps.cn" className={styles.button}>
+                    <Link to="https://hub.rainbond.com" className={styles.button}>
                     <Translate id="appstore.link">访问开源应用市场</Translate> {'>'}
                     </Link>
                 </div>
