@@ -6,8 +6,6 @@ keywords:
 - 安装方式选择
 ---
 
-import InstallationDecisionTree from '@site/src/components/Docs/InstallationDecisionTree';
+import InstallationEntryGrid from '@site/src/components/Docs/InstallationEntryGrid';
 
-根据您的环境选择合适的安装方式：
-
-<InstallationDecisionTree />
+<InstallationEntryGrid />

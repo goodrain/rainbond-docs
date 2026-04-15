@@ -1,0 +1,145 @@
+.wrapper {
+  margin: 1rem 0 1.5rem;
+}
+
+.lead {
+  margin: 0 0 1rem;
+  color: #4a5b70;
+  line-height: 1.8;
+}
+
+[data-theme='dark'] .lead {
+  color: #b3c0d1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 12.5rem;
+  padding: 1.15rem;
+  border: 1px solid #d7e1ec;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme='dark'] .card {
+  border-color: #274160;
+  background: #101827;
+  box-shadow: 0 14px 28px rgba(2, 6, 23, 0.24);
+}
+
+.quick {
+  background: linear-gradient(180deg, #ffffff 0%, #f5fbff 100%);
+}
+
+.host {
+  background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+}
+
+.k8s {
+  background: linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
+}
+
+.offline {
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf3 100%);
+}
+
+[data-theme='dark'] .quick,
+[data-theme='dark'] .host,
+[data-theme='dark'] .k8s,
+[data-theme='dark'] .offline {
+  background: linear-gradient(180deg, #101827 0%, #0f1a29 100%);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 30px;
+  padding: 0 0.72rem;
+  border-radius: 999px;
+  background: rgba(21, 94, 239, 0.08);
+  color: #155eef;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+[data-theme='dark'] .badge {
+  color: #8ecbff;
+  background: rgba(142, 203, 255, 0.12);
+}
+
+.cardTitle {
+  margin: 0;
+  color: #172236;
+  font-size: 1.12rem;
+  line-height: 1.45;
+}
+
+[data-theme='dark'] .cardTitle {
+  color: #eff5ff;
+}
+
+.cardSummary {
+  margin: 0;
+  color: #465468;
+  line-height: 1.8;
+}
+
+[data-theme='dark'] .cardSummary {
+  color: #d4deeb;
+}
+
+.actionLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  min-height: 42px;
+  margin-top: auto;
+  padding: 0 1rem;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.actionLink:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+[data-theme='dark'] .actionLink {
+  background: #8ecbff;
+  color: #0f172a;
+}
+
+[data-theme='dark'] .actionLink:hover {
+  color: #0f172a;
+}
+
+@media (max-width: 996px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .lead {
+    margin-bottom: 0.9rem;
+  }
+}

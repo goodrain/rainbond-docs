@@ -19,9 +19,9 @@ type InstallCard = {
 
 const regularInstallCards: InstallCard[] = [
   {
-    badge: '只想先体验',
+    badge: '单机版',
     title: '快速安装',
-    summary: '适合本地试装、学习和 PoC 验证，先把 Rainbond 跑起来。',
+    summary: '适合在 Linux 和 macOS 上快速部署。',
     tone: 'trial',
     actions: [
       {
@@ -32,9 +32,9 @@ const regularInstallCards: InstallCard[] = [
     ],
   },
   {
-    badge: '没有现成集群',
+    badge: '集群版',
     title: '集群安装',
-    summary: '从 Linux 主机开始搭建正式集群，适合生产环境部署。',
+    summary: '从 Linux 主机开始搭建正式集群，适合高可用场景。',
     tone: 'host',
     actions: [
       {
