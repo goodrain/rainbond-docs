@@ -63,7 +63,7 @@ ROI 不止安装 K8s。它提供了一个包含所有依赖的大礼包。
 
 ROI + Rainbond，不仅解决了**怎么装**的问题，更解决了**怎么用**的问题。
 
-> 如果你想从解决方案角度判断“纯离线安装、离线交付、鲲鹏 / 麒麟部署、x86 到 ARM 迁移”应该先看哪条路径，建议进入 [离线 / 信创 / 国产化专题](/offline-and-xinchuang)，完全离线环境可以直接从 [纯离线环境安装](/offline-and-xinchuang/pure-offline-install) 开始。
+> 如果你想从解决方案角度判断“纯离线安装、离线交付、麒麟 V10 / ARM 部署、x86 到 ARM 迁移”应该先看哪条路径，建议进入 [离线 / 信创 / 国产化专题](/offline-and-xinchuang)，完全离线环境可以直接从 [纯离线环境安装](/offline-and-xinchuang/pure-offline-install) 开始。
 
 ## 快速上手演示
 

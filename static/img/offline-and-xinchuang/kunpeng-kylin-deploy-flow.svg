@@ -1,6 +1,6 @@
 <svg width="1280" height="1080" viewBox="0 0 1280 1080" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">鲲鹏 / 麒麟部署路径图</title>
-  <desc id="desc">在鲲鹏 CPU 与麒麟系统环境中部署 Rainbond 的六步路径图，包含环境确认、机器规划、离线资源准备、Kubernetes 安装、Rainbond 安装与双层验证，并提示完全离线场景需要同步参考纯离线安装路径。</desc>
+  <title id="title">麒麟 V10 / ARM 部署路径图</title>
+  <desc id="desc">在 ARM 架构与麒麟 V10 环境中部署 Rainbond 的六步路径图，包含环境确认、机器规划、离线资源准备、Kubernetes 安装、Rainbond 安装与双层验证，并提示完全离线场景需要同步参考纯离线安装路径。</desc>
   <defs>
     <linearGradient id="bg" x1="640" y1="0" x2="640" y2="1080" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F8FBFF"/>
@@ -91,7 +91,7 @@
     <text x="55" y="41" text-anchor="middle" class="stepIndex">STEP 1</text>
     <text x="112" y="42" class="stepTitle">确认环境边界</text>
     <text x="112" y="68" class="stepBody">
-      <tspan x="112" dy="0">先确认鲲鹏 CPU、麒麟版本，以及当前环境是在线还是离线。</tspan>
+      <tspan x="112" dy="0">先确认 ARM 架构、麒麟版本，以及当前环境是在线还是离线。</tspan>
       <tspan x="112" dy="22">同时判断是从主机安装，还是已有 Kubernetes 再装 Rainbond。</tspan>
     </text>
   </g>
@@ -153,7 +153,7 @@
     <text x="28" y="44" class="warnTitle">完全离线时要并行判断</text>
     <text x="28" y="74" class="warnBody">
       <tspan x="28" dy="0">如果项目同时完全离线，</tspan>
-      <tspan x="28" dy="24">不要只看鲲鹏 / 麒麟部署，</tspan>
+      <tspan x="28" dy="24">不要只看麒麟 V10 / ARM 部署，</tspan>
       <tspan x="28" dy="24">还要同步参考纯离线安装路径，</tspan>
       <tspan x="28" dy="24">一起确认资源准备方式。</tspan>
     </text>

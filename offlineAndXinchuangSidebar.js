@@ -18,7 +18,7 @@ module.exports = {
     {
       type: 'doc',
       id: 'kunpeng-kylin-deploy',
-      label: '鲲鹏 / 麒麟环境怎么部署',
+      label: '麒麟 V10 / ARM 环境怎么部署',
     },
     {
       type: 'doc',

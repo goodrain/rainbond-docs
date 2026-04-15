@@ -27,9 +27,9 @@ const topicCards: TopicCard[] = [
     linkLabel: '进入离线交付专题',
   },
   {
-    tag: '鲲鹏 / 麒麟',
-    title: '鲲鹏 / 麒麟部署',
-    description: '鲲鹏 CPU + 麒麟系统能不能跑、怎么装、有哪些实施注意事项。',
+    tag: '麒麟 / ARM',
+    title: '麒麟 V10 / ARM 部署',
+    description: '麒麟 V10 + ARM 架构能不能跑、怎么装、有哪些实施注意事项。',
     href: '/offline-and-xinchuang/kunpeng-kylin-deploy',
     linkLabel: '进入部署专题',
   },
