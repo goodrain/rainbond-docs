@@ -36,7 +36,7 @@ import TrackedLink from '@site/src/components/Analytics/TrackedLink';
 ## 提问前建议准备的信息
 
 - Rainbond 版本
-- 安装方式（体验安装 / 生产安装 / 离线安装 / 信创路径）
+- 安装方式（单机安装 / 集群安装 / 离线安装 / 信创路径）
 - 操作系统与环境类型
 - 报错截图、日志或复现步骤
 - 你当前在哪一步失败（安装、首次访问、部署第一个应用、升级等）

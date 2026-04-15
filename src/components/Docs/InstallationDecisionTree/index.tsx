@@ -20,7 +20,7 @@ const directPath: TreeLeaf = {
 const guidedPaths: TreeLeaf[] = [
   {
     prefix: '    ├──',
-    branch: '只想体验/测试',
+    branch: '单机版',
     title: '快速安装',
     subtitle: 'Docker 单机',
     to: '/docs/quick-start/quick-install',

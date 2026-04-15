@@ -169,7 +169,7 @@ const nextActions: LinkItem[] = [
   {
     title: '先选安装路径',
     description:
-      '如果你已经想开始验证，先区分体验安装、生产安装、离线安装和信创安装。',
+      '如果你已经想开始验证，先区分单机安装、集群安装、离线安装和信创安装。',
     href: '/install-hub',
     linkLabel: '进入安装总入口',
   },
