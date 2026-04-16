@@ -55,7 +55,7 @@ mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken
 
 ### 搭建 SonarQube
 
-除了 Rainbond 云原生应用管理平台，还需要准备代码仓库和 SonarQube 服务。前者我们选择使用 Gitlab ，而 SonarQube 服务则可以直接基于开源应用商店安装。目前开源应用商店提供了 8.9.9 （lts）版本的 SonarQube ，供用户一键安装。
+除了 Rainbond，还需要准备代码仓库和 SonarQube 服务。前者我们选择使用 Gitlab ，而 SonarQube 服务则可以直接基于开源应用商店安装。目前开源应用商店提供了 8.9.9 （lts）版本的 SonarQube ，供用户一键安装。
 
 用户只需要在 Rainbond 的应用市场界面选择开源应用商店，搜索 `sonarqube` 即可找到对应的安装入口：
 

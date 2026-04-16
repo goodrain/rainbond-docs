@@ -17,7 +17,7 @@ image: https://static.goodrain.com/wechat/zyplayer-doc/zyplayer-doc.png
 
 ### 安装 Rainbond
 
-[Rainbond](https://www.rainbond.com) 是一个云原生应用管理平台，使用简单，不需要懂容器、Kubernetes和底层复杂技术，支持管理多个Kubernetes集群，和管理企业应用全生命周期。主要功能包括应用开发环境、应用市场、微服务架构、应用交付、应用运维、应用级多云管理等。
+[Rainbond](https://www.rainbond.com) 是一个不用懂 Kubernetes 的开源容器平台，使用简单，不需要懂容器、Kubernetes和底层复杂技术，支持管理多个Kubernetes集群，和管理企业应用全生命周期。主要功能包括应用开发环境、应用市场、微服务架构、应用交付、应用运维、应用级多云管理等。
 
 可通过一条命令快速安装 Rainbond。
 

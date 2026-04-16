@@ -36,7 +36,7 @@ export default function FooterLayout({
             </div>
             <div className={clsx("footer__bottom", footSytles.slogan)}>
               <p>
-                <Translate id='Footer.intro.p1'>简单易用的云原生应用管理平台，让应用管理和应用交付更加简单</Translate> 
+                <Translate id='Footer.intro.p1'>不用懂 Kubernetes 的开源容器平台，让应用管理和应用交付更加简单</Translate> 
               </p>
             </div>
             <div className={clsx("footer__bottom", footSytles.slogan)}>

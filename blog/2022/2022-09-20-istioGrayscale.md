@@ -7,7 +7,7 @@ image: https://static.goodrain.com/wechat/istio/istio.jpeg
 
 Kubernetes 作为基础平台，提供了强大的容器编排能力。但是在其上部署业务和服务治理上，仍然会面对一些复杂性和局限性。在服务治理上，已经有许多成熟的 ServiceMesh 框架用于扩充其能力，如 Istio、Linkerd、Dapr 等。本文将主要介绍如何使用 Istio 扩充 Kubernetes 灰度发布的能力。
 
-而在部署上，则会利用开源项目 [Rainbond](https://github.com/goodrain/rainbond) 作为基础平台来进行实践。Rainbond 是一个云原生应用管理平台，它使用**以应用为中心**的设计模式。基于这一设计模式抽象出了标准化的应用模型。从使用的体验上不需要学习和编写YAML，即可实现业务应用的全生命周期管理。因此使用它简化业务的部署和管理。同时 Rainbond 支持 ServiceMesh 框架的替换，使我们可以按需选择与业务最匹配的 ServiceMesh 框架进行服务治理。
+而在部署上，则会利用开源项目 [Rainbond](https://github.com/goodrain/rainbond) 作为基础平台来进行实践。Rainbond 是一个不用懂 Kubernetes 的开源容器平台，它使用**以应用为中心**的设计模式。基于这一设计模式抽象出了标准化的应用模型。从使用的体验上不需要学习和编写YAML，即可实现业务应用的全生命周期管理。因此使用它简化业务的部署和管理。同时 Rainbond 支持 ServiceMesh 框架的替换，使我们可以按需选择与业务最匹配的 ServiceMesh 框架进行服务治理。
 
 <!--truncate-->
 

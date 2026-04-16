@@ -102,7 +102,7 @@ export default function OfflineAndXinchuangHome(): JSX.Element {
       <section className={styles.hero}>
         <h1 className={styles.heroTitle}>通过Rainbond实现离线场景和国产化信创</h1>
         <p className={styles.heroDesc}>
-          Rainbond 是一体化的云原生应用管理平台。在国产化信创、客户内网和完全离线环境中，它不只是回答“能不能安装”，而是把环境适配、应用迁移、标准化交付、升级回滚和持续运维尽量收口到统一平台里。
+          Rainbond 是一不用懂 Kubernetes 的开源容器平台。在国产化信创、客户内网和完全离线环境中，它不只是回答“能不能安装”，而是把环境适配、应用迁移、标准化交付、升级回滚和持续运维尽量收口到统一平台里。
         </p>
         <div className={styles.heroActions}>
           <TrackedLink
@@ -126,6 +126,18 @@ export default function OfflineAndXinchuangHome(): JSX.Element {
               target_path: '/docs/installation/multi-node-install',
             }}>
             去信创安装
+          </TrackedLink>
+          <TrackedLink
+            to="/marketplace"
+            className={styles.secondaryAction}
+            eventName="cta_marketplace_clicked"
+            eventProps={{
+              module: 'offline_xinchuang_hero',
+              cta_text: '进入应用市场',
+              target_path: '/marketplace',
+            }}
+            appendSourcePageParam>
+            进入应用市场
           </TrackedLink>
         </div>
       </section>

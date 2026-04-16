@@ -26,10 +26,10 @@ export default function Home() {
             eventName="cta_home_install_clicked"
             eventProps={{
               module: 'home_hero',
-              cta_text: '3 分钟安装体验',
+              cta_text: '快速安装',
               target_path: '/docs/quick-start/quick-install',
             }}>
-            3 分钟安装体验
+            快速安装
           </TrackedLink>
 
           <TrackedLink

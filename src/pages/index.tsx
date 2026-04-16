@@ -15,11 +15,11 @@ import GridDecoration from '@src/components/GridDecoration';
 import styles from './styles.module.css';
 
 export default function Home() {
-  const homeTitle = 'Rainbond - 开源云原生应用管理平台';
+  const homeTitle = 'Rainbond - 不用懂 Kubernetes 的开源容器平台';
   const homeDescription =
-    'Rainbond 是开源云原生应用管理平台，帮助团队在不深入学习 Kubernetes 的前提下完成应用构建、部署、升级、运维与私有化交付。';
+    'Rainbond 是不用懂 Kubernetes 的开源容器平台，帮助团队在不深入学习 Kubernetes 的前提下完成应用构建、部署、升级、运维与私有化交付。';
   const homeKeywords =
-    'Rainbond, 开源云原生应用管理平台, Kubernetes 应用交付, Kubernetes 管理平台, 应用交付与管理, 私有化部署, 云原生平台';
+    'Rainbond, 不用懂 Kubernetes 的开源容器平台, Kubernetes 应用交付, Kubernetes 管理平台, 应用交付与管理, 私有化部署, 云原生平台';
 
   return (
     <Layout wrapperClassName={styles.homeWrapper}>
