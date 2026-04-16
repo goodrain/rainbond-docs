@@ -110,7 +110,7 @@ export default function Navbar() {
             </a> */}
 
             <Link to="https://hub.rainbond.com" className={styles.navLink}>
-              应用商店
+              Rainbond 应用商店
             </Link>
           </div>
         </div>

@@ -9,7 +9,7 @@ keywords:
 
 ### Q: Rainbond 是否开源？
 
-Rainbond 是 100% 开源的云原生应用管理平台，源代码主要托管在 [Github](https://github.com/goodrain/rainbond)，国内代码托管平台 [Gitee](https://gitee.com/rainbond/Rainbond)、[GitCode](https://gitcode.com/goodrain/rainbond)。
+Rainbond 是不用懂 Kubernetes 的开源容器平台，源代码主要托管在 [Github](https://github.com/goodrain/rainbond)，国内代码托管平台 [Gitee](https://gitee.com/rainbond/Rainbond)、[GitCode](https://gitcode.com/goodrain/rainbond)。
 
 社区版完全免费，企业版提供额外功能和商业支持。
 

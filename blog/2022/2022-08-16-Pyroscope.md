@@ -120,4 +120,4 @@ Pyroscope 还可以结合 Jaeger 一起使用，可以集成在 Jaeger UI 中，
 
 ---
 
-[Rainbond](https://www.rainbond.com) 是一个云原生应用管理平台，核心100%开源、使用简单、不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。
+[Rainbond](https://www.rainbond.com) 是一个不用懂 Kubernetes 的开源容器平台，核心100%开源、使用简单、不需要懂容器和Kubernetes，支持管理多种Kubernetes集群，提供企业级应用的全生命周期管理。

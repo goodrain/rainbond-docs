@@ -260,6 +260,18 @@ export default function CompareHomeDirectory(): JSX.Element {
             }}>
             直接快速安装
           </TrackedLink>
+          <TrackedLink
+            to="/marketplace"
+            className={styles.secondaryAction}
+            eventName="cta_marketplace_clicked"
+            eventProps={{
+              module: 'compare_directory_hero',
+              cta_text: '进入应用市场',
+              target_path: '/marketplace',
+            }}
+            appendSourcePageParam>
+            进入应用市场
+          </TrackedLink>
         </div>
       </section>
 

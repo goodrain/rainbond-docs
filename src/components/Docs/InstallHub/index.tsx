@@ -173,6 +173,18 @@ export default function InstallHub(): JSX.Element {
             去部署第一个应用
           </TrackedLink>
           <TrackedLink
+            to="/marketplace"
+            className={styles.footerLink}
+            eventName="cta_marketplace_clicked"
+            eventProps={{
+              module: 'install_hub_footer',
+              cta_text: '进入应用市场',
+              target_path: '/marketplace',
+            }}
+            appendSourcePageParam>
+            进入应用市场
+          </TrackedLink>
+          <TrackedLink
             to="/docs/support"
             className={styles.footerLink}
             appendSourcePageParam>
