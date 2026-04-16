@@ -12,14 +12,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- import Link from "@docusaurus/Link";
- import Translate from "@docusaurus/Translate";
- import clsx from "clsx";
  import React from "react";
  import { animated, useTrail } from "react-spring";
- import styles from "./styles.module.css";
  import Layout from '@theme/Layout';
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { FeatureContent, FeatureContentImage, FeatureHeader } from '../../../components/FeatureList';
 import Head from "@docusaurus/Head";
 import Background from "@src/components/Background";
