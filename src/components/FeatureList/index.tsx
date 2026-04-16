@@ -12,44 +12,41 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- import Translate from "@docusaurus/Translate";
- import clsx from "clsx";
- import React, { useEffect, useState } from "react";
- import styles from "./styles.module.css";
+import clsx from "clsx";
+import React from "react";
+import styles from "./styles.module.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import { Button, Typography } from "@douyinfe/semi-ui";
-import Iconlinux from '/img/homepage/svg/linux.svg';
-import Iconk8s from '/img/homepage/svg/k8s.svg';
+import { Button } from "@douyinfe/semi-ui";
 import Link from "@docusaurus/Link";
-import { IconCloud, IconServer, IconInfoCircle, IconDownload } from '@douyinfe/semi-icons';
+import { IconCloud, IconInfoCircle, IconDownload } from '@douyinfe/semi-icons';
 import { Tooltip } from '@douyinfe/semi-ui';
 import axios from 'axios';
 
 export function FeatureHeader(item): JSX.Element {
-  const { title, description, customButton} = item.props
+  const { title, description, customButton } = item.props;
   return (
     <div className={styles.header}>
-      <div className={clsx('container',styles.container_header)}>
+      <div className={clsx('container', styles.container_header)}>
         <div className="row">
           <div className="col col--12">
-            <h2 className={styles.title}>{title}</h2>
+            <h1 className={styles.title}>{title}</h1>
           </div>
-          <div className="col col--12" style={{ margin: "40px 0 40px 0"}}>
+          <div className="col col--12" style={{ margin: "40px 0 40px 0" }}>
             <p className={styles.content}>{description}</p>
           </div>
         </div>
-        { customButton === "true" ? <CustomButton props={item.props} /> : <FeatureButton/> }
+        {customButton === "true" ? <CustomButton props={item.props} /> : <FeatureButton />}
       </div>
     </div>
   );
- }
+}
 
 export function FeatureContentImage(item): JSX.Element {
-  const { imageURL } = item.props.FeatureHeaderImage;
+  const { imageURL, imageAlt, title } = item.props.FeatureHeaderImage;
   return (
     <div className={styles.global_content}>
       <div className={clsx('card', styles.card)}>
-        <img src={imageURL} width="100%" />
+        <img src={imageURL} alt={imageAlt || title} width="100%" />
       </div>
     </div>
   );
@@ -60,7 +57,16 @@ export function FeatureContent(item): JSX.Element {
 
   return (
     <>
-      {ContentList.map(({ imageRight, titleRight, imageLeft, titleLeft, descListLeft, descListRight },index) => (
+      {ContentList.map(({
+        imageRight,
+        imageAltRight,
+        titleRight,
+        imageLeft,
+        imageAltLeft,
+        titleLeft,
+        descListLeft,
+        descListRight
+      }, index) => (
         <div key={index}>
           <div>
             <div className={styles.global_content}>
@@ -69,37 +75,37 @@ export function FeatureContent(item): JSX.Element {
                   <div className={clsx('card', styles.card)}>
                     <PhotoProvider>
                       <PhotoView src={imageRight}>
-                        <img src={imageRight} width="100%" />
+                        <img src={imageRight} alt={imageAltRight || titleRight} width="100%" />
                       </PhotoView>
                     </PhotoProvider>
                   </div>
                 </div>
                 <div className={clsx("col col--6", styles.col_right)}>
-                  <h3 className={styles.subtitle}>{titleRight}</h3>
+                  <h2 className={styles.subtitle}>{titleRight}</h2>
                   <ul className={styles.ul}>
-                  {descListRight.map(( description ,index) => (
-                    description === "" ? "" : <li key={index}>{description}</li>
-                  ))}
+                    {descListRight.map((description, descriptionIndex) => (
+                      description === "" ? "" : <li key={descriptionIndex}>{description}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-          <div className={styles.global_content} style={{ display: ( titleLeft === "") ? "none" : ""}}>
+          <div className={styles.global_content} style={{ display: titleLeft === "" ? "none" : "" }}>
             <div className={clsx("row", styles.row)}>
               <div className={clsx("col col--6",styles.col_left)}>
-                <h3 className={styles.subtitle}>{titleLeft}</h3>
+                <h2 className={styles.subtitle}>{titleLeft}</h2>
                 <ul className={styles.ul}>
-                {descListLeft.map(( description ,index) => (
-                  description === "" ? "" : <li key={index}>{description}</li>
-                ))}
+                  {descListLeft.map((description, descriptionIndex) => (
+                    description === "" ? "" : <li key={descriptionIndex}>{description}</li>
+                  ))}
                 </ul>
               </div>
               <div className="col col--6">
                 <div className={clsx('card', styles.card)}>
                   <PhotoProvider>
                     <PhotoView src={imageLeft}>
-                      <img src={imageLeft} width="100%" />
+                      <img src={imageLeft} alt={imageAltLeft || titleLeft} width="100%" />
                     </PhotoView>
                   </PhotoProvider>
                 </div>
@@ -150,7 +156,7 @@ export function FeatureButton(): JSX.Element {
 }
 
 export function CustomButton(item): JSX.Element {
-  const { LeftURL, LeftButton, RightURL, RightButton } = item.props
+  const { RightURL, RightButton } = item.props;
   return (
     <>
       <Link to="/docs/quick-start/quick-install">
