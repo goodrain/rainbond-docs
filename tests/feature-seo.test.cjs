@@ -23,6 +23,9 @@ const featureListSource = read('src/components/FeatureList/index.tsx');
 const appOpsSource = read('src/pages/feature/app-ops/index.tsx');
 const devopsSource = read('src/pages/feature/devops/index.tsx');
 const multiClusterSource = read('src/pages/feature/multi-cluster/index.tsx');
+const serviceMeshSource = read('src/pages/feature/service-mesh/index.tsx');
+const xinchuangSource = read('src/pages/xinchuang/index.tsx');
+const searchPageSource = read('src/theme/SearchPage/index.tsx');
 
 test('feature pages use h1 and image alt text support in shared components', () => {
   assertMatches(featureListSource, /<h1 className=\{styles\.title\}>\{title\}<\/h1>/);
@@ -51,6 +54,27 @@ test('multi-cluster page includes structured seo metadata and cluster management
   assertMatches(multiClusterSource, /\/docs\/installation\/install-with-ui/);
   assertMatches(multiClusterSource, /\/docs\/how-to-guides\/delivery\/continuous\/multi-env/);
   assertMatches(multiClusterSource, /\/compare\/rainbond-vs-rancher/);
+});
+
+test('service mesh page includes structured seo metadata and observability links', () => {
+  assertMatches(serviceMeshSource, /application\/ld\+json/);
+  assertMatches(serviceMeshSource, /meta name="keywords"/);
+  assertMatches(serviceMeshSource, /\/docs\/reference\/tracking\/skywalking/);
+  assertMatches(serviceMeshSource, /\/docs\/reference\/analysis\/arthas/);
+});
+
+test('xinchuang page includes structured seo metadata and localization links', () => {
+  assertMatches(xinchuangSource, /application\/ld\+json/);
+  assertMatches(xinchuangSource, /meta name="keywords"/);
+  assertMatches(xinchuangSource, /\/offline-and-xinchuang/);
+  assertMatches(xinchuangSource, /\/docs\/how-to-guides\/localization-guide\/multi-arch-installation/);
+});
+
+test('search page override includes dedicated metadata and noindex guidance', () => {
+  assertMatches(searchPageSource, /@theme-original\/SearchPage/);
+  assertMatches(searchPageSource, /meta name="description"/);
+  assertMatches(searchPageSource, /property="og:title"/);
+  assertMatches(searchPageSource, /content="noindex, follow"/);
 });
 
 console.log('feature seo tests passed');
