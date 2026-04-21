@@ -271,6 +271,11 @@ const sidebars = {
       "items": [
         {
           type: 'doc',
+          id: 'plugins/base',
+          className: 'sidebar-enterprise',
+        },
+        {
+          type: 'doc',
           id: 'plugins/gpu',
           className: 'sidebar-enterprise',
         },
