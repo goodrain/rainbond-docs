@@ -407,14 +407,6 @@ const sidebars = {
             'ops-guides/configuration/vaules-config',
           ]
         },
-        {
-          "type": "category",
-          "label": "ROI 工具参考",
-          "items": [
-            "ops-guides/roi-reference/command-reference",
-            "ops-guides/roi-reference/configuration",
-          ]
-        },
         "ops-guides/cli-tools",
       ]
     },
