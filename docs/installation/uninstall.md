@@ -31,17 +31,13 @@ docker volume rm rainbond-opt
 
 ## 卸载基于主机安装的 Rainbond 集群
 
-如果您是基于主机安装的集群，您可以在 **平台管理 -> 集群 -> 删除集群**。并在每个节点上执行以下命令：
+如果您是基于主机安装的集群，您可以执行以下命令：
 
 ```bash
-/usr/local/bin/rke2-uninstall.sh
+./roi delete cluster
 ```
 
-删除 Rainbond 数据目录
-
-```bash
-rm -rf /opt/rainbond
-```
+注意：这会删除并清理整个集群，包括 RKE2 和 Rainbond 组件以及所有数据。
 
 ## 卸载基于 Helm 安装的 Rainbond 集群
 
