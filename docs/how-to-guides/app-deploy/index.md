@@ -18,6 +18,7 @@ Rainbond 提供源码、容器镜像、YAML 等多种应用部署方式，也支
 | 应用代码已经托管在 Git 仓库，希望平台自动构建发布 | 使用源代码部署 | [使用源代码部署](./source-code/index.md) |
 | 本地已有源码 ZIP、JAR、WAR 或静态资源包，希望直接上传部署 | 上传本地源码包或软件包 | [本地源码包或软件包部署](./source-code/upload-package.md) |
 | 已经有可直接运行的容器镜像 | 使用容器镜像部署 | [容器镜像支持规范](./image/image-example.md) |
+| 已有 Docker Compose 项目，希望批量创建多组件应用 | 使用 Docker Compose 创建应用 | [使用 Docker Compose 创建应用](./docker-compose.md) |
 | 已有 Kubernetes YAML，希望转换为 Rainbond 应用模型进行治理 | YAML 转换为应用模型 | [K8S 资源到 Rainbond 应用模型的转换原理](./deploy-using-yaml-helm/yaml-convert-ram.md) |
 | 已有 Kubernetes YAML，希望保留原生对象结构直接使用 | K8s 原生资源管理 | [使用原生 YAML 创建资源](../k8s-native-resource/yaml-native-create.md) |
 | 已有 Helm Chart，希望按 Helm Release 原生方式安装和维护 | K8s 原生资源管理 | [使用 Helm 部署](../k8s-native-resource/helm-native-deploy.md) |

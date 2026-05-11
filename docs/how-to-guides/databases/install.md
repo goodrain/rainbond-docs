@@ -177,18 +177,20 @@ cat <<EOF | kubectl apply -f -
 apiVersion: rainbond.io/v1alpha1
 kind: RBDPlugin
 metadata:
+  name: rainbond-databases
   labels:
     plugin.rainbond.io/enable: "true"
     plugin.rainbond.io/name: "rainbond-databases"
-  name: rainbond-databases
 spec:
   display_name: "数据库"
-  description: "提供数据库管理能力，支持多种数据库类型，包括 MySQL、PostgreSQL、Redis、RabbitMQ 等。"
-  version: "v1.0"
-  icon: "https://plugins.rainbond.com/databases/logo.svg"
-  authors:
-    - name: "Official"
-      email: "support@rainbond.com"
+  plugin_type: "Iframe"
+  plugin_views:
+    - Application
+  menu_title: "数据库"
+  route_path: "/rainbond-databases"
+  namespace: "rainbond-databases"
+  backend_service: "http://rainbond-databases:8080"
+  frontend_service: "http://rainbond-databases:8080"
 EOF
 ```
 
