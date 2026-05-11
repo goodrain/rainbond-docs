@@ -221,6 +221,57 @@ JAVA_OPTS=-Dserver.port=8082 -XX:+UseG1GC
 tr '\0' '\n' </proc/1/environ | grep '^JAVA_TOOL_OPTIONS='
 ```
 
+### 需要启用 TLSv1 或 TLSv1.1 时怎么配置
+
+如果应用需要连接只支持 TLSv1 或 TLSv1.1 的旧系统，直接在 JVM 启动参数中设置 `-Djdk.tls.disabledAlgorithms=...` 通常不会生效。`jdk.tls.disabledAlgorithms` 属于 Java Security 配置项，需要通过 `java.security.properties` 文件覆盖。
+
+建议按以下步骤处理：
+
+1. 首先让程序先正常运行起来。
+2. 在组件 **环境配置 → 配置文件** 中新增配置文件，挂载路径填写：
+
+```text
+/java-security.properties
+```
+
+3. 配置文件内容可以从同版本 Java 安装目录中复制一份 `java.security`，例如 JDK 11 及以上通常位于 `$JAVA_HOME/conf/security/java.security`，JDK 8 通常位于 `$JAVA_HOME/jre/lib/security/java.security`。复制后修改 `jdk.tls.disabledAlgorithms`，将 `TLSv1`、`TLSv1.1` 从禁用算法列表中移除。
+
+示例：
+
+```properties
+# 修改前示例
+jdk.tls.disabledAlgorithms=SSLv3, TLSv1, TLSv1.1, RC4, DES, MD5withRSA, DH keySize < 1024
+
+# 修改后示例
+jdk.tls.disabledAlgorithms=SSLv3, RC4, DES, MD5withRSA, DH keySize < 1024
+```
+
+4. 在组件 **环境配置 → 环境变量** 中为 `JAVA_OPTS` 追加自定义配置文件路径：
+
+```bash
+JAVA_OPTS=-Djava.security.properties=/java-security.properties
+```
+
+如果已有 `JAVA_OPTS`，请在原值后追加该参数，不要覆盖已有启动参数。
+
+5. 回到 **构建源** 页面，勾选 **禁用缓存** 后重新构建。
+
+启动后可以在运行日志或 Web 终端中确认参数是否生效：
+
+```bash
+tr '\0' '\n' </proc/1/environ | grep 'JAVA_OPTS'
+```
+
+输出中包含以下内容，说明组件已经使用自定义 Java Security 配置文件启动：
+
+```text
+-Djava.security.properties=/java-security.properties
+```
+
+:::warning
+TLSv1 和 TLSv1.1 已经不推荐用于新系统，仅建议在必须兼容旧系统时开启。
+:::
+
 ### Java 应用需要处理中文文件名或中文内容怎么办
 
 如果应用需要上传或下载中文文件名，或导出包含中文内容的 `xlsx`、`pdf`、图片等文件，建议同时完成以下配置：

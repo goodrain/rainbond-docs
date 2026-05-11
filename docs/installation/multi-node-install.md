@@ -245,6 +245,18 @@ database:
 
 ## 常见问题
 
+### ROI 检测到磁盘不足，可以更换目录吗？
+
+不可以。基于主机安装时，ROI 会按固定目录部署 Rainbond 和 RKE2 相关数据，其中 `/opt/rainbond` 和 `/var/lib/rancher` 需要分别预留至少 40GB 可用空间。当前安装流程不支持通过 `cluster.yaml` 将这两个目录改到其他路径。
+
+如果前置检查提示磁盘不足，请在安装前处理节点磁盘：
+
+- 扩容根分区或对应挂载点
+- 提前将数据盘挂载到 `/opt/rainbond`、`/var/lib/rancher` 这两个固定路径
+- 处理完成后重新执行 `./roi up -f cluster.yaml`
+
+不建议通过软链接方式绕过目录检查，可能导致 RKE2、容器运行时或 Rainbond 组件在后续运行中出现不可预期的问题。
+
 ### 如何添加节点
 
 先在 `cluster.yaml` 的 `hosts` 和 `roleGroups` 中加入新节点，再显式指定要添加的节点名：
