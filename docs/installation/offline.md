@@ -379,6 +379,30 @@ storage:
 
 确认当前节点是 `cluster.yaml` 中配置了 `bootstrap: true` 的节点。未配置时，请在第一个同时属于 `roleGroups.etcd` 和 `roleGroups.master` 的节点上执行。
 
+### 已安装平台在离线环境中页面加载慢怎么办？
+
+如果平台已经安装完成，但在离线环境中访问页面时出现加载慢、部分页面长时间等待等情况，通常是因为 `rbd-app-ui` 默认请求了外部应用市场。离线环境无法访问外网时，可以通过环境变量 `DISABLE_DEFAULT_APP_MARKET=true` 禁用默认外部应用市场。
+
+执行以下命令编辑 `rbd-app-ui` 组件：
+
+```bash
+kubectl edit rbdcomponent rbd-app-ui -n rbd-system
+```
+
+在 `spec.env` 中增加 `DISABLE_DEFAULT_APP_MARKET`，示例如下：
+
+```yaml
+...
+spec:
+  env:
+  - name: DISABLE_DEFAULT_APP_MARKET
+    value: "true"
+  image: xxx
+...
+```
+
+保存后等待 `rbd-app-ui` 重新生效，再刷新页面确认加载情况。
+
 ## 下一步
 
 - 跟随[快速入门](../quick-start/getting-started.md)教程，部署你的第一个应用
