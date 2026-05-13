@@ -131,12 +131,17 @@ const config = {
             position: 'left',
             sections: [
               {
-                title: '博客',
+                title: '学习资源',
                 items: [
                   {
                     label: '博客',
                     to: '/blog',
                     activeBasePath: '/blog',
+                  },
+                  {
+                    label: '视频教程',
+                    to: '/videos',
+                    activeBasePath: '/videos',
                   },
                 ],
               },

@@ -6,11 +6,15 @@ import { IconGithubLogo } from '@douyinfe/semi-icons';
 
 const learningSections = [
   {
-    title: '博客',
+    title: '学习资源',
     items: [
       {
         label: '博客',
         to: '/blog',
+      },
+      {
+        label: '视频教程',
+        to: '/videos',
       },
     ],
   },
