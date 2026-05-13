@@ -35,3 +35,17 @@ Rainbond 是一款以应用为中心的开源容器平台。它底层基于 Kube
 - **多集群与多云管理**：支持统一接入和管理多个 Kubernetes 集群及不同环境。
 
 - **离线 / 信创 / 多架构支持**：适合客户现场、内网、国产化和 x86/ARM 混合场景。
+
+## 视频教程
+
+如果你更习惯跟着视频一步步操作，可以直接进入对应教程：
+
+- [快速安装 Rainbond 单机版](/videos/quick-install)
+- [从零开始搭建多节点集群](/videos/cluster-install)
+- [已有 K8s 集群上用 Helm 安装](/videos/helm-install)
+- [离线、国产化信创环境安装教程](/videos/offline-xinchuang-install)
+- [源码部署若依项目](/videos/source-ruoyi-deploy)
+- [应用商店介绍和安装](/videos/app-store-install)
+- [网关管理](/videos/gateway-management)
+- [一分钟看懂如何应用运维](/videos/ops-management)
+- [离线环境软件交付](/videos/offline-delivery)
