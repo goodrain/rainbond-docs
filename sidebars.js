@@ -81,6 +81,7 @@ const sidebars = {
                 'how-to-guides/app-deploy/image/upload-image',
               ]
             },
+            'how-to-guides/app-deploy/docker-compose',
             {
               type: 'category',
               label: '使用 YAML 部署',
