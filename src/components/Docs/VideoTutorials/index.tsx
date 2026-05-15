@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from '@docusaurus/Link';
+import { useLocation } from '@docusaurus/router';
 import copyToClipboard from 'copy-to-clipboard';
 import {
   ArrowLeft,
@@ -20,6 +21,12 @@ import {
   type VideoStep,
   type VideoTutorial,
 } from '@site/src/data/videoTutorials';
+import TrackedLink from '@site/src/components/Analytics/TrackedLink';
+import { trackUmamiEvent } from '@src/utils/umami';
+import {
+  buildVideoAnalyticsPayload,
+  buildVideoStepAnalyticsPayload,
+} from '@src/utils/videoAnalytics';
 import 'react-photo-view/dist/react-photo-view.css';
 import styles from './styles.module.css';
 
@@ -35,7 +42,15 @@ function VideoCard({ video }: { video: VideoTutorial }) {
   const hasCover = Boolean(video.cover);
 
   return (
-    <Link className={styles.videoCard} to={video.href}>
+    <TrackedLink
+      className={styles.videoCard}
+      to={video.href}
+      eventName="video_card_clicked"
+      eventProps={buildVideoAnalyticsPayload(video, {
+        module: 'video_hub_card',
+        source_page: '/videos',
+      })}
+    >
       <span className={styles.coverWrap}>
         {hasCover ? (
           <img className={styles.cover} src={video.cover} alt="" loading="lazy" />
@@ -54,11 +69,17 @@ function VideoCard({ video }: { video: VideoTutorial }) {
         <span className={styles.cardTitle}>{video.title}</span>
         <span className={styles.cardSummary}>{video.summary}</span>
       </span>
-    </Link>
+    </TrackedLink>
   );
 }
 
 export function VideoTutorialHub() {
+  useEffect(() => {
+    trackUmamiEvent('video_hub_opened', {
+      module: 'video_hub',
+    }, '/videos');
+  }, []);
+
   return (
     <div className={styles.videoPage}>
       <section className={styles.hero} aria-labelledby="video-hub-title">
@@ -84,6 +105,7 @@ function VideoSwitcher({ activeVideo }: { activeVideo: VideoTutorial }) {
     activeVideo,
     ...videoTutorials.filter((video) => video.id !== activeVideo.id),
   ];
+  const location = useLocation();
 
   return (
     <aside className={styles.videoSwitcher} aria-label="切换视频教程">
@@ -98,11 +120,20 @@ function VideoSwitcher({ activeVideo }: { activeVideo: VideoTutorial }) {
           const originalIndex = videoTutorials.findIndex((item) => item.id === video.id);
 
           return (
-            <Link
+            <TrackedLink
               className={isActive ? styles.switcherItemActive : styles.switcherItem}
               key={video.id}
               to={video.href}
               aria-current={isActive ? 'page' : undefined}
+              eventName={isActive ? undefined : 'video_switcher_clicked'}
+              eventProps={
+                isActive
+                  ? undefined
+                  : buildVideoAnalyticsPayload(video, {
+                      module: 'video_switcher',
+                      source_page: location.pathname,
+                    })
+              }
             >
               <span className={styles.switcherCover}>
                 <img src={video.cover} alt="" loading="lazy" />
@@ -112,7 +143,7 @@ function VideoSwitcher({ activeVideo }: { activeVideo: VideoTutorial }) {
               <span className={styles.switcherCopy}>
                 <strong>{video.title}</strong>
               </span>
-            </Link>
+            </TrackedLink>
           );
         })}
       </nav>
@@ -121,12 +152,24 @@ function VideoSwitcher({ activeVideo }: { activeVideo: VideoTutorial }) {
 }
 
 function MobileVideoSelect({ activeVideo }: { activeVideo: VideoTutorial }) {
+  const location = useLocation();
   return (
     <label className={styles.mobileSwitcher}>
       <span>切换视频</span>
       <select
         value={activeVideo.href}
         onChange={(event) => {
+          const targetVideo = videoTutorials.find((video) => video.href === event.target.value);
+          if (targetVideo) {
+            trackUmamiEvent(
+              'video_mobile_switch_changed',
+              buildVideoAnalyticsPayload(targetVideo, {
+                module: 'video_mobile_switcher',
+                source_page: location.pathname,
+              }),
+              location.pathname
+            );
+          }
           window.location.href = event.target.value;
         }}
       >
@@ -143,6 +186,17 @@ function MobileVideoSelect({ activeVideo }: { activeVideo: VideoTutorial }) {
 function VideoCoverLink({ video }: { video: VideoTutorial }) {
   const hasCover = Boolean(video.cover);
   const videoUrl = video.bvid ? getBilibiliVideoUrl(video.bvid) : '';
+  const location = useLocation();
+  const handleWatchClick = (module: string) => {
+    trackUmamiEvent(
+      'video_watch_clicked',
+      buildVideoAnalyticsPayload(video, {
+        module,
+        source_page: location.pathname,
+      }),
+      location.pathname
+    );
+  };
   const coverContent = hasCover ? (
     <img src={video.cover} alt={`${video.title} 视频封面`} loading="lazy" />
   ) : (
@@ -161,6 +215,7 @@ function VideoCoverLink({ video }: { video: VideoTutorial }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`在 B 站打开 ${video.title}`}
+          onClick={() => handleWatchClick('video_detail_cover')}
         >
           {coverContent}
           <span className={styles.playerButton} aria-hidden="true">
@@ -177,7 +232,13 @@ function VideoCoverLink({ video }: { video: VideoTutorial }) {
           {videoUrl ? '点击封面后将在新窗口打开 Rainbond 官方 B 站视频。' : '视频链接待补充。'}
         </span>
         {videoUrl ? (
-          <a className={styles.playerAction} href={videoUrl} target="_blank" rel="noopener noreferrer">
+          <a
+            className={styles.playerAction}
+            href={videoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => handleWatchClick('video_detail_action')}
+          >
             <ExternalLink size={15} aria-hidden="true" />
             B 站打开
           </a>
@@ -187,8 +248,9 @@ function VideoCoverLink({ video }: { video: VideoTutorial }) {
   );
 }
 
-function CommandBlock({ title, command }: { title: string; command: string }) {
+function CommandBlock({ title, command, video }: { title: string; command: string; video: VideoTutorial }) {
   const [copied, setCopied] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     if (!copied) {
@@ -207,6 +269,14 @@ function CommandBlock({ title, command }: { title: string; command: string }) {
   const handleCopy = () => {
     copyToClipboard(command);
     setCopied(true);
+    trackUmamiEvent(
+      'video_command_copied',
+      buildVideoStepAnalyticsPayload(video, title, {
+        module: 'video_command_block',
+        source_page: location.pathname,
+      }),
+      location.pathname
+    );
   };
 
   return (
@@ -230,10 +300,17 @@ function CommandBlock({ title, command }: { title: string; command: string }) {
   );
 }
 
-function StepCodePanel({ panel }: { panel: NonNullable<VideoStep['codePanel']> }) {
+function StepCodePanel({
+  panel,
+  video,
+}: {
+  panel: NonNullable<VideoStep['codePanel']>;
+  video: VideoTutorial;
+}) {
   const [value, setValue] = useState(panel.content);
   const [copied, setCopied] = useState(false);
   const isEditable = panel.editable !== false;
+  const location = useLocation();
 
   useEffect(() => {
     setValue(panel.content);
@@ -257,6 +334,14 @@ function StepCodePanel({ panel }: { panel: NonNullable<VideoStep['codePanel']> }
   const handleCopy = () => {
     copyToClipboard(isEditable ? value : panel.content);
     setCopied(true);
+    trackUmamiEvent(
+      'video_command_copied',
+      buildVideoStepAnalyticsPayload(video, panel.title, {
+        module: 'video_code_panel',
+        source_page: location.pathname,
+      }),
+      location.pathname
+    );
   };
 
   return (
@@ -299,13 +384,18 @@ function StepCodePanel({ panel }: { panel: NonNullable<VideoStep['codePanel']> }
 function StepImageGallery({
   images,
   fallbackCaption,
+  video,
+  stepTitle,
 }: {
   images: NonNullable<VideoStep['images']>;
   fallbackCaption: string;
+  video: VideoTutorial;
+  stepTitle: string;
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeImage = images[activeIndex] || images[0];
   const imageKey = images.map((image) => image.src).join('|');
+  const location = useLocation();
 
   useEffect(() => {
     setActiveIndex(0);
@@ -325,6 +415,16 @@ function StepImageGallery({
           className={styles.shotPreviewButton}
           type="button"
           aria-label={`预览截图：${activeImage.caption || fallbackCaption}`}
+          onClick={() => {
+            trackUmamiEvent(
+              'video_step_image_opened',
+              buildVideoStepAnalyticsPayload(video, stepTitle, {
+                module: 'video_step_preview',
+                source_page: location.pathname,
+              }),
+              location.pathname
+            );
+          }}
         >
           <img src={activeImage.src} alt={activeImage.alt} loading="lazy" />
           <span className={styles.shotPreviewIcon} aria-hidden="true">
@@ -362,7 +462,7 @@ function StepImageGallery({
   );
 }
 
-function TutorialStep({ step, index }: { step: VideoStep; index: number }) {
+function TutorialStep({ step, index, video }: { step: VideoStep; index: number; video: VideoTutorial }) {
   const stepImages =
     step.images && step.images.length > 0
       ? step.images
@@ -402,7 +502,7 @@ function TutorialStep({ step, index }: { step: VideoStep; index: number }) {
           ) : null}
 
           {step.command && step.commandTitle ? (
-            <CommandBlock title={step.commandTitle} command={step.command} />
+            <CommandBlock title={step.commandTitle} command={step.command} video={video} />
           ) : null}
 
           {step.commands?.map((commandItem) => (
@@ -410,6 +510,7 @@ function TutorialStep({ step, index }: { step: VideoStep; index: number }) {
               key={`${step.title}-${commandItem.title}`}
               title={commandItem.title}
               command={commandItem.command}
+              video={video}
             />
           ))}
 
@@ -419,9 +520,14 @@ function TutorialStep({ step, index }: { step: VideoStep; index: number }) {
         <figure className={styles.stepShot}>
           <div className={styles.shotImageWrap}>
             {step.codePanel ? (
-              <StepCodePanel panel={step.codePanel} />
+              <StepCodePanel panel={step.codePanel} video={video} />
             ) : hasImages ? (
-              <StepImageGallery images={stepImages} fallbackCaption={step.imageCaption} />
+              <StepImageGallery
+                images={stepImages}
+                fallbackCaption={step.imageCaption}
+                video={video}
+                stepTitle={step.title}
+              />
             ) : (
               <div className={styles.shotPlaceholder}>
                 <MonitorPlay size={28} aria-hidden="true" />
@@ -439,6 +545,17 @@ function TutorialStep({ step, index }: { step: VideoStep; index: number }) {
 export function VideoTutorialDetail({ video }: { video: VideoTutorial }) {
   const categoryLine = [video.category, video.difficulty].filter(Boolean).join(' / ');
   const hasMeta = Boolean(video.duration || video.operationTime || video.audience);
+  const location = useLocation();
+
+  useEffect(() => {
+    trackUmamiEvent(
+      'video_detail_opened',
+      buildVideoAnalyticsPayload(video, {
+        module: 'video_detail',
+      }),
+      location.pathname
+    );
+  }, [location.pathname, video]);
 
   return (
     <div className={styles.detailPage}>
@@ -509,7 +626,7 @@ export function VideoTutorialDetail({ video }: { video: VideoTutorial }) {
             <PhotoProvider>
               <div className={styles.steps}>
                 {video.steps.map((step, index) => (
-                  <TutorialStep key={`${video.id}-${step.title}`} step={step} index={index} />
+                  <TutorialStep key={`${video.id}-${step.title}`} step={step} index={index} video={video} />
                 ))}
               </div>
             </PhotoProvider>

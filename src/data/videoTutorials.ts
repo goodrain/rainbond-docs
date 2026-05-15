@@ -53,7 +53,7 @@ export type VideoTutorial = {
 export const videoTutorials: VideoTutorial[] = [
   {
     id: 'quick-install',
-    title: '快速安装 Rainbond 单机版',
+    title: '快速安装',
     summary: '通过一条脚本在 Linux 或 MacOS 上启动 Rainbond 体验环境，完成控制台访问验证。',
     category: '快速入门',
     difficulty: '新手推荐',
@@ -151,7 +151,7 @@ export const videoTutorials: VideoTutorial[] = [
   },
   {
     id: 'cluster-install',
-    title: '从零开始搭建多节点集群',
+    title: '集群安装',
     summary: '通过视频了解 Rainbond 多节点集群安装流程，完成集群安装前准备、节点配置和控制台访问验证。',
     category: '安装部署',
     difficulty: '多节点集群',
@@ -355,7 +355,7 @@ storage:
   },
   {
     id: 'helm-install',
-    title: '已有 K8s 集群上用 Helm 安装',
+    title: '基于 K8s 集群上 Helm 安装',
     summary: '在已有 Kubernetes 集群中添加 Rainbond Helm 仓库，执行 Helm 安装并验证控制台访问。',
     category: '安装部署',
     difficulty: '已有 K8s 集群',
@@ -492,7 +492,7 @@ storage:
   },
   {
     id: 'offline-xinchuang-install',
-    title: '离线、国产化信创环境安装教程',
+    title: '离线、信创安装',
     summary: '在麒麟 V10、ARM 等国产化信创离线环境中，通过 ROI 离线包完成 Rainbond 单节点安装和访问验证。',
     category: '安装部署',
     difficulty: '麒麟 V10 / ARM',
@@ -638,7 +638,7 @@ storage:
   },
   {
     id: 'source-ruoyi-deploy',
-    title: '源码部署若依项目',
+    title: '源码部署',
     summary: '从零创建应用，准备 MySQL 和 Redis，再通过源码构建完成若依后端、前端部署和访问验证。',
     category: '应用部署',
     difficulty: '源码部署',
@@ -946,7 +946,7 @@ storage:
   },
   {
     id: 'app-store-install',
-    title: '应用商店介绍和安装',
+    title: '应用商店安装软件',
     summary: '了解 Rainbond 应用商店的使用方式，并演示从应用市场一键安装开源应用。',
     category: '应用商店',
     difficulty: '功能介绍',
@@ -1157,7 +1157,7 @@ storage:
   },
   {
     id: 'offline-delivery',
-    title: '离线环境软件交付',
+    title: '离线交付',
     summary: '通过应用模板把开发环境中的业务系统导出为离线包，并在客户内网环境中完成导入、安装和后续升级。',
     category: '离线交付',
     difficulty: '交付场景',
@@ -1364,7 +1364,7 @@ storage:
   },
   {
     id: 'ops-management',
-    title: '一分钟看懂如何应用运维',
+    title: '应用运维',
     summary: '从部署入口、组件状态、日志排查、Web 终端到手动伸缩和自动伸缩，快速了解 Rainbond 的日常应用运维入口。',
     category: '应用运维',
     difficulty: '日常维护',
