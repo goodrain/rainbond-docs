@@ -12,10 +12,6 @@ const learningSections = [
         label: '博客',
         to: '/blog',
       },
-      {
-        label: '视频教程',
-        to: '/videos',
-      },
     ],
   },
   {
@@ -105,6 +101,10 @@ export default function Navbar() {
               博客
             </Link> */}
 
+            <Link to="/videos" className={styles.navLink}>
+              视频教程
+            </Link>
+
             <Link to="/enterprise_server" className={styles.navLink}>
               企业版
             </Link>
@@ -114,7 +114,7 @@ export default function Navbar() {
             </a> */}
 
             <Link to="https://hub.rainbond.com" className={styles.navLink}>
-              Rainbond 应用商店
+              应用商店
             </Link>
           </div>
         </div>

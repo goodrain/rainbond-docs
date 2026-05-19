@@ -42,15 +42,73 @@ Rainbond 是一款以应用为中心的开源容器平台。它底层基于 Kube
 
 ### 安装
 
-- [快速安装](/videos/quick-install)
-- [集群安装](/videos/cluster-install)
-- [基于 K8s 集群上 Helm 安装](/videos/helm-install)
-- [离线、信创安装](/videos/offline-xinchuang-install)
+<div className="docsVideoGrid">
+  <a className="docsVideoCard" href="/videos/quick-install">
+    <span className="docsVideoThumb">
+      <img src="/img/video/quick-install-cover.jpg" alt="快速安装视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">快速安装</span>
+  </a>
+  <a className="docsVideoCard" href="/videos/cluster-install">
+    <span className="docsVideoThumb">
+      <img src="/img/video/cluster-install-cover.jpg" alt="集群安装视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">集群安装</span>
+  </a>
+  <a className="docsVideoCard" href="/videos/helm-install">
+    <span className="docsVideoThumb">
+      <img src="/img/video/helm-install-cover.jpg" alt="基于 K8s 集群上 Helm 安装视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">基于 K8s 集群上 Helm 安装</span>
+  </a>
+  <a className="docsVideoCard" href="/videos/offline-xinchuang-install">
+    <span className="docsVideoThumb">
+      <img src="/img/video/offline-xinchuang-install-cover.jpg" alt="离线、信创安装视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">离线、信创安装</span>
+  </a>
+</div>
 
 ### 使用
 
-- [源码部署](/videos/source-ruoyi-deploy)
-- [应用商店安装软件](/videos/app-store-install)
-- [网关管理](/videos/gateway-management)
-- [应用运维](/videos/ops-management)
-- [离线交付](/videos/offline-delivery)
+<div className="docsVideoGrid">
+  <a className="docsVideoCard" href="/videos/source-ruoyi-deploy">
+    <span className="docsVideoThumb">
+      <img src="/img/video/source-ruoyi-deploy-cover.jpg" alt="源码部署视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">源码部署</span>
+  </a>
+  <a className="docsVideoCard" href="/videos/app-store-install">
+    <span className="docsVideoThumb">
+      <img src="/img/video/app-store-install-cover.jpg" alt="应用商店安装软件视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">应用商店安装软件</span>
+  </a>
+  <a className="docsVideoCard" href="/videos/gateway-management">
+    <span className="docsVideoThumb">
+      <img src="/img/video/gateway-management-cover.jpg" alt="网关管理视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">网关管理</span>
+  </a>
+  <a className="docsVideoCard" href="/videos/ops-management">
+    <span className="docsVideoThumb">
+      <img src="/img/video/ops-management-cover.jpg" alt="应用运维视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">应用运维</span>
+  </a>
+  <a className="docsVideoCard" href="/videos/offline-delivery">
+    <span className="docsVideoThumb">
+      <img src="/img/video/offline-delivery-cover.jpg" alt="离线交付视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">离线交付</span>
+  </a>
+</div>

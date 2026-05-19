@@ -138,11 +138,6 @@ const config = {
                     to: '/blog',
                     activeBasePath: '/blog',
                   },
-                  {
-                    label: '视频教程',
-                    to: '/videos',
-                    activeBasePath: '/videos',
-                  },
                 ],
               },
               {
@@ -166,6 +161,12 @@ const config = {
                 ],
               },
             ],
+          },
+          {
+            label: '视频教程',
+            to: '/videos',
+            activeBasePath: '/videos',
+            position: 'left',
           },
           {
             position: 'left',
