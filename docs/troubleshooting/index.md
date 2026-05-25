@@ -21,6 +21,7 @@ import TrackedLink from '@site/src/components/Analytics/TrackedLink';
 | 你现在卡在哪一步 | 建议入口 |
 | :--- | :--- |
 | 还没装完，脚本执行失败 / UI 打不开 | [安装问题](./install.md) |
+| 服务器刚重启，不确定平台是否恢复 | [服务器重启后检查 Rainbond 是否启动](./cluster-connect.md#4-服务器重启后如何判断-rainbond-是否启动) |
 | 平台跑起来了，但集群状态异常 | [平台问题](./cluster-connect.md) |
 | 第一个应用部署后访问失败 | [应用问题](./common.md) |
 | 我不想自己查了，想直接问人 | <TrackedLink to="/docs/support" appendSourcePageParam>社区支持</TrackedLink> |

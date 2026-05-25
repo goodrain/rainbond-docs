@@ -154,7 +154,97 @@ kubectl logs -fl name=rbd-chaos -n rbd-system
 kubectl delete pod -l name=rbd-chaos -n rbd-system
 ```
 
-## 4. 磁盘空间超80%节点处于驱逐状态
+## 4. 服务器重启后如何判断 Rainbond 是否启动
+
+服务器重启后，不要只通过控制台页面是否能打开来判断 Rainbond 是否已经完全恢复。更可靠的方式是同时检查容器或 Kubernetes、Rainbond 核心组件、控制台访问和集群 API。
+
+### 先确认安装方式
+
+如果你使用的是快速安装，Rainbond 会运行在名为 `rainbond` 的 Docker 容器中：
+
+```bash
+docker ps -a --filter "name=rainbond"
+```
+
+如果能看到 `rainbond` 容器，说明是快速安装模式，需要进入容器内检查 Kubernetes 和 Rainbond 组件。如果没有该容器，通常是基于 Kubernetes、主机安装或 Helm 安装，直接检查 Kubernetes 集群即可。
+
+### 快速安装模式检查
+
+快速安装模式下，服务器重启后需要确认 Docker 服务、`rainbond` 容器、容器内 Kubernetes 和 Rainbond 组件都已恢复。
+
+```bash
+systemctl status docker
+docker ps -a --filter "name=rainbond"
+```
+
+正常情况下，`rainbond` 容器状态应为 `Up`。如果容器处于 `Exited` 状态，可以先启动容器：
+
+```bash
+docker start rainbond
+docker logs -f rainbond
+```
+
+等待日志中没有持续报错后，再进入容器继续检查。
+
+```bash
+docker exec -it rainbond bash
+kubectl get nodes
+kubectl get pod -n kube-system
+kubectl get pod -n rbd-system
+```
+
+节点状态应为 `Ready`，`kube-system` 下的核心 Pod 应为 `Running` 或 `Completed`，`rbd-system` 下的 Rainbond 核心组件应为 `Running`。
+
+### 主机安装模式检查
+
+基于 Kubernetes、主机安装或 Helm 安装时，先确认 Kubernetes 集群恢复，再检查 Rainbond 组件。
+
+```bash
+kubectl get nodes -o wide
+kubectl get pod -n rbd-system -o wide
+```
+
+所有承载 Rainbond 组件的节点都应为 `Ready`。正常恢复时，核心组件应为 `Running`，并且 `READY` 列显示所有容器已就绪。例如 `rbd-gateway` 通常需要达到 `2/2 Running`，`rbd-api`、`rbd-app-ui` 通常需要达到 `1/1 Running`。
+
+### 状态异常时怎么继续排查
+
+如果 `rbd-system` 中存在异常 Pod，先查看事件，再看日志：
+
+```bash
+kubectl describe pod <pod-name> -n rbd-system
+kubectl logs <pod-name> -n rbd-system --all-containers --tail=200
+```
+
+也可以按组件标签查看日志：
+
+```bash
+kubectl logs -fl name=rbd-api -n rbd-system
+kubectl logs -fl name=rbd-gateway -n rbd-system -c apisix
+kubectl logs -fl name=rainbond-operator -n rbd-system
+```
+
+常见判断方向如下：
+
+| 现象 | 优先排查 |
+| :--- | :--- |
+| `kubectl` 无法连接集群 | Kubernetes 服务是否启动、`KUBECONFIG` 是否正确 |
+| 节点 `NotReady` | 容器运行时、网络插件、磁盘空间、系统负载 |
+| Pod 一直 `Pending` | 节点资源、节点是否可调度、存储卷是否可挂载 |
+| Pod `CrashLoopBackOff` | 对应组件日志、配置错误、依赖服务是否可用 |
+| Pod `ImagePullBackOff` | 镜像仓库、网络、镜像拉取凭据 |
+| Pod `Evicted` | 节点磁盘压力或内存压力 |
+| 控制台打不开但 Pod 正常 | `rbd-gateway` 状态、7070 端口、防火墙或安全组 |
+| 控制台打开但集群通信异常 | `rbd-api` 状态、8443 端口、控制台中的集群 API 地址 |
+
+满足以下条件后，基本可以判断 Rainbond 已经启动并恢复可用：
+
+1. `kubectl get nodes` 显示节点为 `Ready`。
+2. `kubectl get pod -n rbd-system` 中核心组件为 `Running`，`READY` 列全部就绪。
+3. `http://<服务器IP>:7070` 可以打开控制台。
+
+如果以上检查未通过，可以继续参考本文前面的集群通信、平台组件和节点驱逐相关问题。
+
+## 5. 磁盘空间超80%节点处于驱逐状态
 
 当磁盘根分区空间超过 80% 时，Kubernetes 会自动进入驱逐状态，所有的 Pod 都会被驱逐，届时 Rainbond 将无法正常工作，需要清理磁盘空间。
 

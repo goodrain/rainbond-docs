@@ -134,6 +134,7 @@ const sidebars = {
             'how-to-guides/app-ops/service-auto-scaling',
             'how-to-guides/app-ops/environment',
             'how-to-guides/app-ops/dependon',
+            'how-to-guides/app-ops/component-logs',
             'how-to-guides/app-ops/storage',
             'how-to-guides/app-ops/app-sidecar',
             'how-to-guides/app-ops/k8s-attribute',
@@ -361,7 +362,6 @@ const sidebars = {
           "type": "category",
           "label": "最佳实践",
           "items": [
-            "reference/best-practice/connect-api",
             "reference/best-practice/auto-schema",
             "reference/best-practice/data-initialization"
           ]
