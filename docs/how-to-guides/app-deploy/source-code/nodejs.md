@@ -465,3 +465,48 @@ fatal: not a git repository (or any parent up to mount point )
 ```
 
 **解决方案**：在组件的 **环境配置** 中添加环境变量 `BUILD_KEEP_GIT`，值为 `true`，然后重新构建组件。该变量会保留 `.git` 目录到构建环境中。
+
+### Vue/React 前端如何调用后端接口避免跨域
+
+前端项目构建后由 Nginx 提供静态文件，不建议在 `.env.production` 中直接写后端 IP 和端口，例如 `http://192.168.1.10:8080`。这样浏览器会直接跨域访问后端，容易触发 CORS 问题。
+
+推荐做法是：前端请求使用同源相对路径，再由前端组件内的 Nginx 反向代理到后端组件。
+
+1. 在前端环境变量中配置相对路径：
+
+```bash
+# Vue CLI
+VUE_APP_BASE_API=/prod-api
+
+# Vite
+VITE_API_BASE_URL=/prod-api
+```
+
+2. 在项目根目录添加或修改 [nginx.conf](#自定义-nginxconf)，在 `server` 中增加代理规则：
+
+```conf
+location /prod-api/ {
+  proxy_pass http://backend:8080;
+  proxy_set_header Host $host;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Forwarded-Proto $scheme;
+}
+```
+
+其中 `http://backend:8080` 替换为后端组件的内部访问地址和端口。前端请求 `/prod-api/system/menu` 时，浏览器访问的是前端组件域名，Nginx 再将请求转发到后端。
+
+如果后端接口没有统一前缀，可以给前端统一加一个前缀，再在 Nginx 中去掉该前缀：
+
+```bash
+VUE_APP_BASE_API=/api
+```
+
+```conf
+location /api/ {
+  rewrite ^/api/(.*)$ /$1 break;
+  proxy_pass http://backend:8080;
+}
+```
+
+这样前端请求 `/api/system/menu`，实际转发到后端的路径是 `/system/menu`。

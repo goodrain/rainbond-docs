@@ -26,17 +26,11 @@ Rainbond 通过源码根目录是否存在 `index.html`（或 `index.htm`）且�
 默认 `nginx.conf` 配置如下：
 
 ```conf
-# Number of worker processes running in container
 worker_processes 1;
-
-# Run NGINX in foreground (necessary for containerized NGINX)
 daemon off;
-
-# Set the location of the server's error log
 error_log stderr;
 
 events {
-  # Set number of simultaneous connections each worker process can serve
   worker_connections 1024;
 }
 
@@ -47,7 +41,6 @@ http {
 
   charset utf-8;
 
-  # Map media types to file extensions
   types {
     text/html html htm shtml;
     text/css css;
@@ -126,28 +119,14 @@ http {
     video/x-ms-wmv wmv;
     video/x-msvideo avi;
   }
-
   access_log /dev/stdout;
-
-  # Set the default MIME type of responses; 'application/octet-stream'
-  # represents an arbitrary byte stream
   default_type application/octet-stream;
-
-  # (Performance) When sending files, skip copying into buffer before sending.
   sendfile on;
-  # (Only active with sendfile on) wait for packets to reach max size before
-  # sending.
   tcp_nopush on;
-
-  # (Performance) Enable compressing responses
   gzip on;
-  # For all clients
   gzip_static always;
-  # Including responses to proxied requests
   gzip_proxied any;
-  # For responses above a certain length
   gzip_min_length 1100;
-  # That are one of the following MIME types
   gzip_types
     text/plain
     text/css
@@ -163,55 +142,26 @@ http {
     font/otf
     font/ttf
     image/svg+xml;
-  # Compress responses to a medium degree
   gzip_comp_level 6;
-  # Using 16 buffers of 8k bytes each
   gzip_buffers 16 8k;
-
-  # Add "Vary: Accept-Encoding” response header to compressed responses
   gzip_vary on;
-
-  # Decompress responses if client doesn't support compressed
   gunzip on;
-
-  # Don't compress responses if client is Internet Explorer 6
   gzip_disable "msie6";
-
-  # Set a timeout during which a keep-alive client connection will stay open on
-  # the server side
   keepalive_timeout 30;
-
-  # Ensure that redirects don't include the internal container PORT - <%=
-  # ENV["PORT"] %>
   port_in_redirect off;
-
-  # (Security) Disable emitting nginx version on error pages and in the
-  # “Server” response header field
   server_tokens off;
 
   server {
     listen 8080 default_server;
     server_name _;
-
-    # Directory where static files are located
+    # 默认目录 /workspace/dist，构建时会将源码复制到 /workspace 目录下，并将 dist 目录作为 Nginx 的根目录。
     root /workspace/dist;
 
     location / {
-      # Send the content at / in response to *any* requested endpoint
       if (!-e $request_filename) {
         rewrite ^(.*)$ / break;
       }
-
-      # Specify files sent to client if specific file not requested (e.g.
-      # GET www.example.com). NGINX sends first existing file in the list.
       index index.html index.htm Default.htm;
-    }
-
-    # (Security) Don't serve dotfiles, except .well-known/, which is needed by
-    # LetsEncrypt
-    location ~ /\.(?!well-known) {
-      deny all;
-      return 404;
     }
   }
 }
