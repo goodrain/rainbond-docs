@@ -16,11 +16,11 @@ Rainbond 是一款以应用为中心的开源容器平台。它底层基于 Kube
 | :--- | :--- |
 | 我想先判断 Rainbond 适不适合 | [选型中心](/compare) |
 | 我想马上开始体验 | [安装总入口](/install-hub) |
-| 我在做客户现场 / 内网 / 离线环境 | [离线/信创专题](/offline-and-xinchuang) |
 | 我装完了，想跑第一个应用 | [部署你的第一个应用](./getting-started.md) |
 | 我卡住了，想快速找到社区或支持入口 | [社区支持](/docs/support) |
 | 我关心开源、私有化、多集群、高可用等问题 | [常见问题](/docs/faq) |
-| 我想进一步理解平台的设计理念和工作方式 | [平台架构](/docs/quick-start/architecture/design-concept) |
+| 我想了解 Rainbond 的 AI 能力 | [AI 视频教程](/videos) |
+| 我在做客户现场 / 内网 / 离线环境 | [离线/信创专题](/offline-and-xinchuang) |
 
 ## 主要特点
 
@@ -37,8 +37,6 @@ Rainbond 是一款以应用为中心的开源容器平台。它底层基于 Kube
 - **离线 / 信创 / 多架构支持**：适合客户现场、内网、国产化和 x86/ARM 混合场景。
 
 ## 视频教程
-
-如果你更习惯跟着视频一步步操作，可以直接进入对应教程：
 
 ### 安装
 
@@ -70,6 +68,25 @@ Rainbond 是一款以应用为中心的开源容器平台。它底层基于 Kube
       <span className="docsVideoPlayIcon" aria-hidden="true"></span>
     </span>
     <span className="docsVideoTitle">离线、信创安装</span>
+  </a>
+</div>
+
+### AI
+
+<div className="docsVideoGrid">
+  <a className="docsVideoCard" href="/videos/rainskills-ai-deploy">
+    <span className="docsVideoThumb">
+      <img src="/img/video/rainskills-ai-deploy-cover.jpg" alt="RainSkills 安装使用视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">RainSkills 安装使用</span>
+  </a>
+  <a className="docsVideoCard" href="/videos/rainagent-install-use">
+    <span className="docsVideoThumb">
+      <img src="/img/video/rainagent-install-use-cover.jpg" alt="RainAgent 安装使用视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">RainAgent 安装使用</span>
   </a>
 </div>
 

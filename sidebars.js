@@ -42,6 +42,26 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'AI 能力',
+      link: {
+        type: 'doc',
+        id: 'ai/index',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'ai/rainskills/index',
+          className: 'sidebar-community',
+        },
+        {
+          type: 'doc',
+          id: 'ai/rainagent/index',
+          className: 'sidebar-community-enterprise',
+        },
+      ]
+    },
+    {
+      type: 'category',
       label: '操作指南',
       items: [
         {

@@ -60,6 +60,115 @@
   line-height: 1.75;
 }
 
+.hubToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.searchBox {
+  position: relative;
+  display: flex;
+  flex: 1 1 320px;
+  align-items: center;
+  max-width: 460px;
+  min-width: 240px;
+  height: 44px;
+  border: 1px solid var(--video-border);
+  border-radius: 999px;
+  background: var(--video-surface);
+  color: var(--video-muted);
+  padding: 0 16px;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.searchBox:focus-within {
+  border-color: rgba(31, 115, 255, 0.58);
+  box-shadow: 0 12px 28px rgba(31, 115, 255, 0.1);
+}
+
+.searchBox input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--video-fg);
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0 0 0 10px;
+}
+
+.searchBox input::placeholder {
+  color: var(--video-muted);
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.filterButton,
+.filterButtonActive {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  border: 1px solid var(--video-border);
+  border-radius: 999px;
+  background: var(--video-surface);
+  color: var(--video-muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.94rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.filterButton:hover,
+.filterButtonActive {
+  border-color: rgba(31, 115, 255, 0.45);
+  background: var(--video-accent-soft);
+  color: var(--video-accent);
+  box-shadow: 0 12px 28px rgba(31, 115, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.filterButtonActive {
+  border-color: rgba(31, 115, 255, 0.72);
+  background: var(--video-accent);
+  color: #ffffff;
+  box-shadow: 0 14px 32px rgba(31, 115, 255, 0.2);
+}
+
+.filterButton strong,
+.filterButtonActive strong {
+  display: inline-grid;
+  min-width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(100, 116, 139, 0.12);
+  color: inherit;
+  font-size: 0.78rem;
+}
+
+.filterButtonActive strong {
+  background: rgba(255, 255, 255, 0.18);
+}
+
 .mobileSwitcher select {
   width: 100%;
   min-width: 0;
@@ -75,6 +184,19 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   margin-top: 28px;
+}
+
+.emptyState {
+  display: grid;
+  min-height: 180px;
+  place-items: center;
+  margin-top: 28px;
+  border: 1px dashed var(--video-border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--video-muted);
+  font-size: 0.98rem;
+  font-weight: 700;
 }
 
 .videoCard {
@@ -152,8 +274,31 @@
   padding: 16px;
 }
 
+.cardTitleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+}
+
+.cardMeta {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  min-height: 26px;
+  border-radius: 999px;
+  background: var(--video-accent-soft);
+  color: var(--video-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 6px 10px;
+}
+
 .cardTitle {
   display: block;
+  min-width: 0;
   color: var(--video-fg);
   font-size: 1.08rem;
   font-weight: 700;
@@ -691,6 +836,32 @@
   box-shadow: 0 0 0 4px rgba(31, 115, 255, 0.1);
 }
 
+.bulletInlineLinks {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: 8px;
+  vertical-align: baseline;
+}
+
+.bulletInlineLinks a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--video-accent);
+  text-decoration: none;
+  font-size: 0.94em;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.bulletInlineLinks a:hover,
+.bulletInlineLinks a:focus-visible {
+  color: var(--video-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .stepLinks {
   display: flex;
   flex-wrap: wrap;
@@ -1150,6 +1321,21 @@
   .hero,
   .videoGrid {
     grid-template-columns: 1fr;
+  }
+
+  .hubToolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .searchBox {
+    max-width: none;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .filterBar {
+    justify-content: flex-start;
   }
 
   .hero h1 {
