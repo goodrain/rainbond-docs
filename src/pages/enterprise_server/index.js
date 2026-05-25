@@ -114,6 +114,7 @@ const comparisonSections = [
   {
     category: '企业级功能扩展',
     rows: [
+      { feature: 'AI 助手', sub: '控制台 AI 助手 (RainAgent)，全自动运维、部署、排障操作', community: '限制 1 人', enterprise: '不限制' },
       { feature: '国产化信创', sub: '支持国产CPU和操作系统', community: false, enterprise: true },
       { feature: '基础功能扩展', sub: '应用备份、个性化视觉配置及审计日志等核心模块增强', community: false, enterprise: true },
       { feature: '监控中心', sub: '集群与应用级全方位监控，集成指标采集、日志分析、链路追踪', community: false, enterprise: true },

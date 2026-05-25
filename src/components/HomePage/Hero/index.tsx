@@ -15,9 +15,9 @@ export default function Home() {
           </div>
 
           {/* 标题部分 */}
-          <h1 className={styles.hero_title_one}>不用懂 Kubernetes 的</h1>
+          <h1 className={styles.hero_title_one}>AI 时代的</h1>
           <h1 className={styles.hero_title_two}>开源容器平台</h1>
-          <p className={styles.hero_title_four}>底层基于 Kubernetes，屏蔽复杂性，让团队更容易交付和管理应用，像安装手机 App 一样简单。</p>
+          <p className={styles.hero_title_four}>Rainbond 基于 Kubernetes，屏蔽底层复杂度，用 AI 增强应用部署、排障和运维流程，帮助团队交付业务应用、AI 应用</p>
 
           {/* 按钮区块 */}
           <div className={styles.hero_button}>

@@ -12,6 +12,7 @@ import {
   Maximize2,
   MonitorPlay,
   Play,
+  Search,
   Tag,
   UserRound,
 } from 'lucide-react';
@@ -38,8 +39,37 @@ const formatIndex = (index: number): string => {
   return String(index + 1).padStart(2, '0');
 };
 
+type VideoHubFilter = 'all' | 'ai' | 'install' | 'usage';
+
+const videoHubFilterOptions: { id: VideoHubFilter; label: string }[] = [
+  { id: 'all', label: '全部视频' },
+  { id: 'ai', label: 'AI' },
+  { id: 'install', label: '平台安装' },
+  { id: 'usage', label: '功能使用' },
+];
+
+const videoHubFilterLabels: Record<Exclude<VideoHubFilter, 'all'>, string> = {
+  ai: 'AI',
+  install: '平台安装',
+  usage: '功能使用',
+};
+
+const videoHubFilterById: Record<string, Exclude<VideoHubFilter, 'all'>> = {
+  'quick-install': 'install',
+  'cluster-install': 'install',
+  'helm-install': 'install',
+  'offline-xinchuang-install': 'install',
+  'rainskills-ai-deploy': 'ai',
+  'rainagent-install-use': 'ai',
+};
+
+const getVideoHubFilter = (video: VideoTutorial): Exclude<VideoHubFilter, 'all'> => {
+  return videoHubFilterById[video.id] || 'usage';
+};
+
 function VideoCard({ video }: { video: VideoTutorial }) {
   const hasCover = Boolean(video.cover);
+  const filter = getVideoHubFilter(video);
 
   return (
     <TrackedLink
@@ -66,7 +96,10 @@ function VideoCard({ video }: { video: VideoTutorial }) {
       </span>
 
       <span className={styles.cardBody}>
-        <span className={styles.cardTitle}>{video.title}</span>
+        <span className={styles.cardTitleRow}>
+          <span className={styles.cardTitle}>{video.title}</span>
+          <span className={styles.cardMeta}>{videoHubFilterLabels[filter]}</span>
+        </span>
         <span className={styles.cardSummary}>{video.summary}</span>
       </span>
     </TrackedLink>
@@ -74,6 +107,29 @@ function VideoCard({ video }: { video: VideoTutorial }) {
 }
 
 export function VideoTutorialHub() {
+  const [activeFilter, setActiveFilter] = useState<VideoHubFilter>('all');
+  const [searchText, setSearchText] = useState('');
+  const normalizedSearchText = searchText.trim().toLowerCase();
+  const searchedVideos = normalizedSearchText
+    ? videoTutorials.filter((video) =>
+        [
+          video.title,
+          video.summary,
+          video.category,
+          video.difficulty,
+          video.audience,
+          ...video.tags,
+        ]
+          .join(' ')
+          .toLowerCase()
+          .includes(normalizedSearchText)
+      )
+    : videoTutorials;
+  const visibleVideos =
+    activeFilter === 'all'
+      ? searchedVideos
+      : searchedVideos.filter((video) => getVideoHubFilter(video) === activeFilter);
+
   useEffect(() => {
     trackUmamiEvent('video_hub_opened', {
       module: 'video_hub',
@@ -91,11 +147,64 @@ export function VideoTutorialHub() {
         </div>
       </section>
 
-      <section className={styles.videoGrid} aria-label="视频教程列表">
-        {videoTutorials.map((video) => (
-          <VideoCard key={video.id} video={video} />
-        ))}
-      </section>
+      <div className={styles.hubToolbar}>
+        <label className={styles.searchBox}>
+          <Search size={18} aria-hidden="true" />
+          <input
+            type="search"
+            value={searchText}
+            onChange={(event) => setSearchText(event.target.value)}
+            aria-label="搜索视频教程"
+            placeholder="搜索视频名称或关键词"
+          />
+        </label>
+
+        <div className={styles.filterBar} role="group" aria-label="筛选视频方向">
+          {videoHubFilterOptions.map((option) => {
+            const count =
+              option.id === 'all'
+                ? searchedVideos.length
+                : searchedVideos.filter((video) => getVideoHubFilter(video) === option.id).length;
+            const isActive = option.id === activeFilter;
+
+            return (
+              <button
+                className={isActive ? styles.filterButtonActive : styles.filterButton}
+                key={option.id}
+                type="button"
+                aria-pressed={isActive}
+                onClick={() => {
+                  setActiveFilter(option.id);
+                  trackUmamiEvent(
+                    'video_hub_filter_clicked',
+                    {
+                      module: 'video_hub_filter',
+                      filter: option.id,
+                      filter_label: option.label,
+                    },
+                    '/videos'
+                  );
+                }}
+              >
+                <span>{option.label}</span>
+                <strong>{count}</strong>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {visibleVideos.length > 0 ? (
+        <section className={styles.videoGrid} aria-label="视频教程列表">
+          {visibleVideos.map((video) => (
+            <VideoCard key={video.id} video={video} />
+          ))}
+        </section>
+      ) : (
+        <section className={styles.emptyState} aria-live="polite">
+          没有找到匹配的视频教程
+        </section>
+      )}
     </div>
   );
 }
@@ -484,9 +593,28 @@ function TutorialStep({ step, index, video }: { step: VideoStep; index: number; 
 
           {step.bullets.length > 0 ? (
             <ul className={styles.instructionList}>
-              {step.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
-              ))}
+              {step.bullets.map((bullet, bulletIndex) => {
+                const relatedLinks =
+                  step.bulletLinks?.filter((linkGroup) => linkGroup.bulletIndex === bulletIndex) || [];
+
+                return (
+                  <li key={`${bullet}-${bulletIndex}`}>
+                    <span>{bullet}</span>
+                    {relatedLinks.length > 0 ? (
+                      <span className={styles.bulletInlineLinks}>
+                        {relatedLinks.flatMap((linkGroup) =>
+                          linkGroup.links.map((link) => (
+                            <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+                              {link.label}
+                              <ExternalLink size={14} aria-hidden="true" />
+                            </a>
+                          ))
+                        )}
+                      </span>
+                    ) : null}
+                  </li>
+                );
+              })}
             </ul>
           ) : null}
 
