@@ -1128,7 +1128,7 @@ storage:
             links: [
               {
                 label: '查看私有部署入口',
-                href: '/install-hub',
+                href: '/videos/quick-install',
               },
             ],
           },
