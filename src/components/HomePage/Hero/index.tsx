@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
+import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
 
 export default function Home() {
 
@@ -15,9 +16,9 @@ export default function Home() {
           </div>
 
           {/* 标题部分 */}
-          <h1 className={styles.hero_title_one}>AI 时代的</h1>
+          <h1 className={styles.hero_title_one}>不用懂 Kubernetes</h1>
           <h1 className={styles.hero_title_two}>开源容器平台</h1>
-          <p className={styles.hero_title_four}>Rainbond 基于 Kubernetes，屏蔽底层复杂度，用 AI 增强应用部署、排障和运维流程，帮助团队交付业务应用、AI 应用</p>
+          <p className={styles.hero_title_four}>Rainbond 是基于 Kubernetes 的开源容器平台，屏蔽 YAML、容器和集群复杂度，帮助团队统一部署、升级和运维业务应用和AI 应用。</p>
 
           {/* 按钮区块 */}
           <div className={styles.hero_button}>
@@ -32,7 +33,29 @@ export default function Home() {
               }}>
               快速安装
             </TrackedLink>
-
+            <OverlayTrigger
+              placement="bottom"
+              container={typeof document !== 'undefined' ? document.body : undefined}
+              popperConfig={{ strategy: 'fixed' }}
+              overlay={(overlayProps) => (
+                <div
+                  {...overlayProps}
+                  className={styles.wechatOverlay}
+                  style={{ ...overlayProps.style, zIndex: 9999 }}
+                >
+                  <div className="card">
+                    <div className="card__body">
+                      <img width="200px" height="200px" src="/wechat/wechatgroup-text.png" />
+                    </div>
+                  </div>
+                </div>
+              )}
+            >
+              <button className={`${styles.hero_button_style} ${styles.hero_button_secondary}`}>
+                加入社群
+              </button>
+            </OverlayTrigger>
+{/*       
             <TrackedLink
               to="/docs"
               className={`${styles.hero_button_style} ${styles.hero_button_secondary}`}
@@ -43,7 +66,7 @@ export default function Home() {
                 target_path: '/docs',
               }}>
               了解 Rainbond
-            </TrackedLink>
+            </TrackedLink> */}
           </div>
         </div>
 

@@ -12,7 +12,7 @@ keywords:
 
 # Rainbond AI 能力概览
 
-Rainbond 是面向 AI 时代的开源容器平台。它基于 Kubernetes，但屏蔽底层复杂度，帮助团队部署、运行、排障和交付业务应用、AI 应用。
+Rainbond 是不用懂 Kubernetes 的开源容器平台。它基于 Kubernetes，但屏蔽底层复杂度，帮助团队部署、运行、排障和交付业务应用、AI 应用。
 
 Rainbond 的 AI 能力主要由两部分组成：
 
