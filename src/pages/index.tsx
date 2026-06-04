@@ -44,10 +44,10 @@ export default function Home() {
           <GridDecoration />
           <Hero />
         </Section>
-        <Demo />
         <Section>
           <ChoosePath />
         </Section>
+        <Demo />
         <Painpoint />
         <Section>
           <WhyChoose />
