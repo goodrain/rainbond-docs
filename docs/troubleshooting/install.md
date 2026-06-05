@@ -122,11 +122,42 @@ flowchart LR
 
 #### 常见问题
 
-1. rbd-gateway 无法启动，通常是因为 `rbd-gateway` 有端口被占用，可以通过以下命令查看 `rbd-gateway` 的日志。
+##### rbd-gateway 无法启动
+
+通常是因为 `rbd-gateway` 有端口被占用，可以通过以下命令查看 `rbd-gateway` 的日志。
 
 ```bash
 kubectl logs -f -n rbd-system -l name=rbd-gateway -c apisix
 ```
+
+##### 主机部署集群证书有效期与续签
+
+通过主机部署创建的集群中，普通组件证书默认有效期为 365 天，CA 证书默认有效期为 10 年。日常需要关注的是普通组件证书，例如 kube-apiserver、kubelet、scheduler、controller-manager、etcd 等组件使用的证书。
+
+普通组件证书在过期或临近过期时，会在集群服务启动时自动续签。建议在证书到期前安排维护窗口，重启主节点集群服务触发续签，避免证书过期后导致节点异常或控制台与集群通信异常。
+
+查看证书有效期：
+
+```bash
+rke2 certificate check
+```
+
+续签普通组件证书：
+
+```bash
+systemctl restart rke2-server
+```
+
+多主节点环境建议逐台重启。每台重启后，确认节点和平台组件恢复正常，再继续处理下一台：
+
+```bash
+export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+/var/lib/rancher/rke2/bin/kubectl get nodes
+/var/lib/rancher/rke2/bin/kubectl get pod -n kube-system
+/var/lib/rancher/rke2/bin/kubectl get pod -n rbd-system
+```
+
+节点为 `Ready`，核心组件为 `Running` 后，基本可以判断本节点已恢复正常。
 
 ## 4. 对接 Kubernetes 集群故障排查
 
