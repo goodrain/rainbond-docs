@@ -1089,6 +1089,119 @@
   white-space: pre;
 }
 
+.prerequisitePanel {
+  width: 100%;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #0b1118;
+  color: #edf4ff;
+  box-shadow:
+    0 24px 54px rgba(23, 32, 51, 0.2),
+    0 8px 18px rgba(23, 32, 51, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.prerequisitePanelHeader {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.prerequisitePanelHeader span {
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.prerequisiteList {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  padding: 22px;
+  list-style: none;
+}
+
+.prerequisiteList li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 14px;
+}
+
+.prerequisiteIndex {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(31, 115, 255, 0.18);
+  color: #7cb7ff;
+  font-weight: 800;
+}
+
+.prerequisiteContent {
+  min-width: 0;
+}
+
+.prerequisiteTitleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.prerequisiteTitleRow strong {
+  color: #ffffff;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.prerequisiteTitleRow span {
+  border: 1px solid rgba(124, 183, 255, 0.36);
+  border-radius: 999px;
+  background: rgba(31, 115, 255, 0.14);
+  color: #9cccff;
+  padding: 2px 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.prerequisiteContent p {
+  margin: 0 0 8px;
+  color: #c9d4e5;
+  font-size: 0.88rem;
+  line-height: 1.62;
+}
+
+.prerequisiteLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.prerequisiteContent a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #4d9cff;
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.prerequisiteContent a:hover,
+.prerequisiteContent a:focus-visible {
+  color: #80b7ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .shotGallery {
   width: 100%;
   display: grid;

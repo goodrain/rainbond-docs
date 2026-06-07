@@ -27,8 +27,8 @@ type Props = {
     href: string;
   };
   audienceHint?: string;
-  left: Side;
-  right: Side;
+  left?: Side;
+  right?: Side;
 };
 
 function cardClassName(accent: Side['accent']) {
@@ -50,7 +50,11 @@ export default function CompareHeroGraphic({
   right,
 }: Props): JSX.Element {
   const hasTopContent = Boolean(title || subtitle || decision || primaryCta || secondaryCta || audienceHint);
-  const ariaLabel = title ? `${title} 对比摘要` : `${left.name} 与 ${right.name} 对比摘要`;
+  const ariaLabel = title
+    ? `${title} 摘要`
+    : left && right
+      ? `${left.name} 与 ${right.name} 对比摘要`
+      : '专题摘要';
 
   return (
     <section className={styles.wrap} aria-label={ariaLabel}>
@@ -101,33 +105,35 @@ export default function CompareHeroGraphic({
         </div>
       ) : null}
 
-      <div className={styles.grid}>
-        <article className={cardClassName(left.accent)}>
-          <div className={badgeClassName(left.accent)}>{left.name}</div>
-          <h3 className={styles.summary}>{left.summary}</h3>
-          <div className={styles.list}>
-            {left.bullets.map((item) => (
-              <div key={`${left.name}-${item.label}`} className={styles.item}>
-                <div className={styles.itemLabel}>{item.label}</div>
-                <div className={styles.itemValue}>{item.value}</div>
-              </div>
-            ))}
-          </div>
-        </article>
+      {left && right ? (
+        <div className={styles.grid}>
+          <article className={cardClassName(left.accent)}>
+            <div className={badgeClassName(left.accent)}>{left.name}</div>
+            <h3 className={styles.summary}>{left.summary}</h3>
+            <div className={styles.list}>
+              {left.bullets.map((item) => (
+                <div key={`${left.name}-${item.label}`} className={styles.item}>
+                  <div className={styles.itemLabel}>{item.label}</div>
+                  <div className={styles.itemValue}>{item.value}</div>
+                </div>
+              ))}
+            </div>
+          </article>
 
-        <article className={cardClassName(right.accent)}>
-          <div className={badgeClassName(right.accent)}>{right.name}</div>
-          <h3 className={styles.summary}>{right.summary}</h3>
-          <div className={styles.list}>
-            {right.bullets.map((item) => (
-              <div key={`${right.name}-${item.label}`} className={styles.item}>
-                <div className={styles.itemLabel}>{item.label}</div>
-                <div className={styles.itemValue}>{item.value}</div>
-              </div>
-            ))}
-          </div>
-        </article>
-      </div>
+          <article className={cardClassName(right.accent)}>
+            <div className={badgeClassName(right.accent)}>{right.name}</div>
+            <h3 className={styles.summary}>{right.summary}</h3>
+            <div className={styles.list}>
+              {right.bullets.map((item) => (
+                <div key={`${right.name}-${item.label}`} className={styles.item}>
+                  <div className={styles.itemLabel}>{item.label}</div>
+                  <div className={styles.itemValue}>{item.value}</div>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+      ) : null}
     </section>
   );
 }

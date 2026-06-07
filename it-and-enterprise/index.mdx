@@ -1,20 +1,24 @@
 ---
-title: 应用现代化专题首页
+title: 企业应用统一管理平台：供应商交付、统一运维与软件资产化
 sidebar_position: 1
 slug: /
-description: 面向企业总部 IT、政府、学校和平台型机构，帮助你从采购软件、统一交付、统一运维到软件资产沉淀，判断 Rainbond 是否适合当前的应用现代化路径。
+description: Rainbond 企业应用统一管理平台，帮助企业总部 IT、政企、学校和平台型机构统一管理采购软件、自研系统和供应商交付物，建立供应商准入、应用验收、生产上线、升级回滚和软件资产化闭环。
 hide_title: true
 hide_table_of_contents: true
 keywords:
-  - Rainbond IT 场景
-  - Rainbond 企业场景
-  - 企业应用现代化
-  - 采购软件统一管理
+  - 企业应用统一管理平台
+  - 企业应用管理平台
   - 企业应用统一交付
-  - 企业应用资产化
-  - 政府软件交付平台
-  - 学校应用管理平台
+  - 供应商交付管理
+  - 软件资产化管理
   - 企业 IT 应用管理
+  - 政企应用管理平台
+  - 学校应用管理平台
+  - Kubernetes 应用交付平台
+  - 供应商应用验收
+  - 应用模板交付
+  - 企业软件资产库
+  - 内网应用交付
 ---
 
 import Head from '@docusaurus/Head';
@@ -24,16 +28,17 @@ import EnterpriseITHome from '@site/src/components/EnterpriseIT/EnterpriseITHome
   <link rel="canonical" href="https://www.rainbond.com/it-and-enterprise" />
   <meta
     name="description"
-    content="面向企业总部 IT、政府、学校和平台型机构，帮助你从采购软件、统一交付、统一运维到软件资产沉淀，判断 Rainbond 是否适合当前的应用现代化路径。"
+    content="Rainbond 企业应用统一管理平台，帮助企业总部 IT、政企、学校和平台型机构统一管理采购软件、自研系统和供应商交付物，建立供应商准入、应用验收、生产上线、升级回滚和软件资产化闭环。"
   />
-  <meta property="og:title" content="Rainbond IT / 企业场景专题" />
+  <meta property="og:title" content="企业应用统一管理平台：供应商交付、应用验收与软件资产化 | Rainbond" />
   <meta
     property="og:description"
-    content="面向企业总部 IT、政府、学校和平台型机构，帮助你从采购软件、统一交付、统一运维到软件资产沉淀，判断 Rainbond 是否适合当前的应用现代化路径。"
+    content="Rainbond 企业应用统一管理平台，帮助企业总部 IT、政企、学校和平台型机构统一管理采购软件、自研系统和供应商交付物，建立供应商准入、应用验收、生产上线、升级回滚和软件资产化闭环。"
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.rainbond.com/it-and-enterprise" />
-  <script type="application/ld+json">{`{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.rainbond.com"},{"@type":"ListItem","position":2,"name":"IT / 企业场景专题","item":"https://www.rainbond.com/it-and-enterprise"}]}`}</script>
+  <script type="application/ld+json">{`{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.rainbond.com"},{"@type":"ListItem","position":2,"name":"企业应用统一管理平台","item":"https://www.rainbond.com/it-and-enterprise"}]}`}</script>
+  <script type="application/ld+json">{`{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"什么是企业应用统一管理平台？","acceptedAnswer":{"@type":"Answer","text":"企业应用统一管理平台是面向企业 IT 的应用管理入口，用来统一部署、升级、回滚、监控和沉淀采购软件、自研系统与供应商交付物。"}},{"@type":"Question","name":"Rainbond 解决的核心问题是什么？","acceptedAnswer":{"@type":"Answer","text":"Rainbond 解决的是企业应用从交付到运维的标准化问题：应用怎么装、怎么验收、怎么升级、怎么回滚、怎么沉淀为可复用资产。"}},{"@type":"Question","name":"为什么只用虚拟机或 Kubernetes 工具还不够？","acceptedAnswer":{"@type":"Answer","text":"虚拟机更关注资源，Kubernetes 工具更关注集群和资源对象；企业 IT 真正需要的是围绕应用的交付、运维、权限、版本和资产闭环。"}},{"@type":"Question","name":"Rainbond 和 Rancher、KubeSphere、OpenShift 怎么选？","acceptedAnswer":{"@type":"Answer","text":"如果重点是多集群和底层治理，可以优先看 Rancher；如果要建设完整云原生平台，可以评估 KubeSphere 或 OpenShift；如果要先解决应用交付、升级回滚、供应商协作和软件资产沉淀，Rainbond 更贴近。"}},{"@type":"Question","name":"供应商交付为什么适合用 Rainbond 管？","acceptedAnswer":{"@type":"Answer","text":"Rainbond 可以让供应商先在隔离空间完成部署和验证，再发布成应用模板。企业在生产环境按模板安装和升级，减少供应商直接操作生产环境。"}},{"@type":"Question","name":"什么时候不适合优先上 Rainbond？","acceptedAnswer":{"@type":"Answer","text":"如果只是做服务器资产登记、工单流转，或者团队已经有成熟的 GitOps 和平台工程体系，应该先明确 Rainbond 与现有体系的边界。"}}]}`}</script>
 </Head>
 
 <div className="compareDocPage">

@@ -22,6 +22,19 @@ export type VideoStep = {
     editable?: boolean;
     copyLabel?: string;
   };
+  prerequisitePanel?: {
+    title: string;
+    items: {
+      title: string;
+      description: string;
+      badge?: string;
+      href?: string;
+      links?: {
+        label: string;
+        href: string;
+      }[];
+    }[];
+  };
   links?: {
     label: string;
     href: string;
@@ -1348,6 +1361,193 @@ storage:
         image: '/img/video/rainagent-step-7.png',
         imageAlt: 'RainAgent 排查组件异常并验证应用访问结果的截图',
         imageCaption: '排错并验证访问',
+        timestamp: '',
+      },
+    ],
+  },
+  {
+    id: 'rainbond-llm-install-use',
+    title: '大模型安装使用',
+    summary: '通过 Rainbond 内置的大模型入口，完成大模型插件安装、模型仓库下载或上传、模型实例部署、API 密钥创建和模型监控查看。',
+    category: 'AI 部署',
+    difficulty: '功能介绍',
+    duration: '01:24',
+    operationTime: '10 分钟',
+    audience: '希望在 Rainbond 中统一部署、调用和监控大模型的用户',
+    cover: '/img/video/rainbond-llm-install-use-cover.jpg',
+    bvid: 'BV1817661EXc',
+    tags: ['大模型', 'GPU', 'NVIDIA 驱动', '模型仓库', '模型实例', 'API 密钥', '模型监控'],
+    href: '/videos/rainbond-llm-install-use',
+    relatedIds: ['rainagent-install-use', 'rainskills-ai-deploy', 'app-store-install'],
+    steps: [
+      {
+        label: '',
+        title: '安装 GPU 驱动和容器运行依赖',
+        duration: '',
+        description: '这一步不在 Rainbond 控制台中操作，需要先在 GPU 节点的操作系统里完成基础运行环境准备。',
+        bullets: [
+          '如果 GPU 节点尚未准备好，先按官方文档完成 NVIDIA 驱动、Docker 和 NVIDIA Container Toolkit 安装。',
+          '准备完成后，确认节点可以正常识别 GPU，并且容器运行时可用。',
+          '环境确认无误后，再回到 Rainbond 控制台继续后续的大模型插件安装和模型部署。',
+        ],
+        bulletLinks: [
+          {
+            bulletIndex: 0,
+            links: [
+              {
+                label: 'NVIDIA 驱动',
+                href: 'https://docs.nvidia.com/datacenter/tesla/driver-installation-guide/',
+              },
+              {
+                label: 'Docker',
+                href: 'https://docs.docker.com/engine/install/',
+              },
+              {
+                label: 'NVIDIA Container Toolkit',
+                href: 'https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html',
+              },
+            ],
+          },
+        ],
+        prerequisitePanel: {
+          title: '前提条件',
+          items: [
+            {
+              title: 'NVIDIA GPU 节点',
+              description: '准备一个至少配备一块 NVIDIA GPU 的 Linux 节点，用于运行大模型推理实例。',
+              badge: '必备',
+            },
+            {
+              title: '驱动和容器运行依赖',
+              description: '确保节点上已安装 NVIDIA 驱动程序、Docker 和 NVIDIA Container Toolkit。',
+              badge: '必装',
+            },
+            {
+              title: 'GPU 节点系统要求',
+              description: 'GPU 节点仅支持 Linux。Windows 可考虑 WSL2 并避免使用 Docker Desktop；macOS 不支持作为 GPU 节点。',
+              badge: 'Linux',
+            },
+          ],
+        },
+        image: '',
+        imageAlt: 'Rainbond 大模型 GPU 节点前提条件说明',
+        imageCaption: 'GPU 节点前提条件',
+        timestamp: '',
+      },
+      {
+        label: '',
+        title: '准备 Rainbond 控制台',
+        duration: '',
+        description: '使用大模型能力前，需要先有一个可访问的 Rainbond 控制台，并确认当前账号具备安装插件和创建模型实例的权限。',
+        bullets: [
+          '确认 Rainbond 控制台可以正常访问。',
+          '如果还没有安装 Rainbond，可以先通过快速安装完成环境部署。',
+          '登录控制台后，进入创建向导或平台入口，准备查找大模型能力。',
+        ],
+        bulletLinks: [
+          {
+            bulletIndex: 1,
+            links: [
+              {
+                label: '快速安装视频',
+                href: '/videos/quick-install',
+              },
+            ],
+          },
+        ],
+        image: '/img/video/rainbond-llm-install-use-step-1.png',
+        imageAlt: '准备 Rainbond 控制台并进入创建向导的截图',
+        imageCaption: '准备 Rainbond 控制台',
+        timestamp: '',
+      },
+      {
+        label: '',
+        title: '安装大模型插件',
+        duration: '',
+        description: '在创建向导中找到大模型入口。如果当前环境还没有安装插件，系统会提示并跳转到插件列表。',
+        bullets: [
+          '在创建向导或插件列表中找到大模型插件。',
+          '点击安装并等待插件安装完成。',
+          '安装完成后，左侧菜单会新增 AI 大模型入口。',
+        ],
+        image: '/img/video/rainbond-llm-install-use-step-2.png',
+        imageAlt: '在 Rainbond 中安装大模型插件的截图',
+        imageCaption: '安装大模型插件',
+        timestamp: '',
+      },
+      {
+        label: '',
+        title: '进入 AI 大模型模块并准备模型',
+        duration: '',
+        description: '插件安装完成后，从左侧菜单进入 AI 大模型模块，在模型仓库中准备后续部署要用的基础模型。',
+        bullets: [
+          '打开左侧菜单中的 AI 大模型。',
+          '进入模型仓库页面，选择平台提供的模型，例如千问 0.6B。',
+          '点击下载并等待模型准备完成；如果已有自己的模型，也可以通过上传方式导入。',
+        ],
+        image: '/img/video/rainbond-llm-install-use-step-3.png',
+        imageAlt: '进入 Rainbond AI 大模型模型仓库并下载或上传模型的截图',
+        imageCaption: '准备基础模型',
+        timestamp: '',
+      },
+      {
+        label: '',
+        title: '创建模型实例',
+        duration: '',
+        description: '模型准备好后，创建模型实例，选择基础模型并填写部署参数。',
+        bullets: [
+          '选择刚刚下载或上传的基础模型。',
+          '填写实例名称、资源规格和相关部署参数。',
+          '确认配置后开始部署模型实例。',
+        ],
+        image: '/img/video/rainbond-llm-install-use-step-4.png',
+        imageAlt: '创建 Rainbond 大模型实例并填写参数的截图',
+        imageCaption: '创建模型实例',
+        timestamp: '',
+      },
+      {
+        label: '',
+        title: '查看日志并验证回复',
+        duration: '',
+        description: '模型部署过程中可以通过日志查看进度。部署完成后，直接验证模型是否能正常返回结果。',
+        bullets: [
+          '打开模型实例日志，查看下载、启动和服务就绪进度。',
+          '等待模型实例部署完成。',
+          '在页面中发起测试请求，确认模型可以正常回复。',
+        ],
+        image: '/img/video/rainbond-llm-install-use-step-5.png',
+        imageAlt: '查看模型部署日志并验证模型回复的截图',
+        imageCaption: '验证模型回复',
+        timestamp: '',
+      },
+      {
+        label: '',
+        title: '创建 API 密钥',
+        duration: '',
+        description: '模型可以正常回复后，切换到 API 密钥页面创建密钥，供后续业务系统调用。',
+        bullets: [
+          '进入 API 密钥页面。',
+          '创建新的调用密钥。',
+          '后续业务系统、智能体应用或知识库服务，都可以通过这个密钥调用模型接口。',
+        ],
+        image: '/img/video/rainbond-llm-install-use-step-6.png',
+        imageAlt: '在 Rainbond 大模型模块中创建 API 密钥的截图',
+        imageCaption: '创建 API 密钥',
+        timestamp: '',
+      },
+      {
+        label: '',
+        title: '查看模型监控',
+        duration: '',
+        description: '进入模型监控页面，查看模型实例运行状态、节点信息和资源指标，确认模型持续可用。',
+        bullets: [
+          '查看模型实例当前运行状态。',
+          '确认节点信息和资源使用率。',
+          '结合监控数据判断模型服务是否稳定运行。',
+        ],
+        image: '/img/video/rainbond-llm-install-use-step-7.png',
+        imageAlt: '查看 Rainbond 大模型监控指标的截图',
+        imageCaption: '查看模型监控',
         timestamp: '',
       },
     ],

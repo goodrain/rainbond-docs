@@ -1,6 +1,17 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import Head from '@docusaurus/Head';
-import { CheckCircle2, Database, GitBranch, Scaling, Wrench } from 'lucide-react';
+import {
+  AppWindow,
+  BrainCircuit,
+  CheckCircle2,
+  Database,
+  GitBranch,
+  Maximize2,
+  Scaling,
+  ServerCog,
+  Wrench,
+  X,
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './styles.module.css';
 
@@ -55,10 +66,311 @@ const getNextVideoKey = (key: DemoTabKey) => {
   return videoKeys[(currentIndex + 1) % videoKeys.length];
 };
 
+const workloadStories = [
+  {
+    key: 'business',
+    title: '业务应用',
+    description: '源码、镜像、Compose、Helm、YAML 都能部署，适合 Java、Node.js、Python、Go、前后端、微服务和企业自研系统。',
+    icon: AppWindow,
+    accent: '#0f6fff',
+    accent2: '#5bd6ff',
+    surface: '#eaf3ff',
+    screenshot: {
+      imageSrc: '/img/homepage/workloads/business.png',
+    },
+  },
+  {
+    key: 'ai',
+    title: 'AI / 大模型',
+    description: '把 AI 应用和模型服务部署进企业内网，支持 Dify、n8n、Qwen 和 DeepSeek 等 AI 应用与大模型服务。',
+    icon: BrainCircuit,
+    accent: '#12a594',
+    accent2: '#8b5cf6',
+    surface: '#e8f7f4',
+    screenshot: {
+      imageSrc: '/img/homepage/workloads/ai.png',
+    },
+  },
+  {
+    key: 'virtual-machine',
+    title: '虚拟机类工作负载',
+    description: '承接暂时无法容器化的存量系统，让传统系统、容器应用和云原生应用逐步进入同一套交付与运维入口。',
+    icon: ServerCog,
+    accent: '#64748b',
+    accent2: '#0ea5e9',
+    surface: '#eef2f7',
+    screenshot: {
+      imageSrc: '/img/homepage/workloads/virtual-machine.png',
+    },
+  },
+] as const;
+
+type WorkloadStoryKey = (typeof workloadStories)[number]['key'];
+
 type IdleWindow = Window & {
   requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
   cancelIdleCallback?: (handle: number) => void;
 };
+
+type WorkloadStyle = React.CSSProperties & {
+  '--workload-story-count'?: number;
+  '--workload-track-index'?: number;
+  '--workload-accent'?: string;
+  '--workload-accent-2'?: string;
+  '--workload-surface'?: string;
+  '--visual-item-index'?: number;
+};
+
+const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
+
+function WorkloadStory() {
+  const workloadStoryRef = useRef<HTMLElement | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null);
+
+  const updateScrollState = useCallback(() => {
+    const section = workloadStoryRef.current;
+    if (!section || typeof window === 'undefined') {
+      return;
+    }
+
+    const stickyTop = 72;
+    const rect = section.getBoundingClientRect();
+    const scrollableDistance = Math.max(section.offsetHeight - window.innerHeight, 1);
+    const nextProgress = clamp((stickyTop - rect.top) / scrollableDistance, 0, 1);
+    const maxStoryIndex = workloadStories.length - 1;
+    const nextActiveIndex = clamp(
+      Math.round(nextProgress * maxStoryIndex),
+      0,
+      maxStoryIndex,
+    );
+
+    setActiveIndex(nextActiveIndex);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
+    const scheduleFrame: (callback: FrameRequestCallback) => number =
+      window.requestAnimationFrame?.bind(window) ??
+      ((callback) => window.setTimeout(() => callback(Date.now()), 16));
+    const cancelFrame: (handle: number) => void =
+      window.cancelAnimationFrame?.bind(window) ?? window.clearTimeout.bind(window);
+    let frameId: number | null = null;
+
+    const requestUpdate = () => {
+      if (frameId !== null) {
+        return;
+      }
+
+      frameId = scheduleFrame(() => {
+        frameId = null;
+        updateScrollState();
+      });
+    };
+
+    updateScrollState();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+
+    return () => {
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+      if (frameId !== null) {
+        cancelFrame(frameId);
+      }
+    };
+  }, [updateScrollState]);
+
+  const handleWorkloadSelect = useCallback((index: number) => {
+    const section = workloadStoryRef.current;
+    setActiveIndex(index);
+
+    if (!section || typeof window === 'undefined' || window.matchMedia('(max-width: 900px)').matches) {
+      return;
+    }
+
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+    const scrollableDistance = Math.max(section.offsetHeight - window.innerHeight, 1);
+    const maxStoryIndex = Math.max(workloadStories.length - 1, 1);
+    const targetProgress = index / maxStoryIndex;
+    window.scrollTo({
+      top: sectionTop - 72 + scrollableDistance * targetProgress,
+      behavior: 'smooth',
+    });
+  }, []);
+
+  const closePreview = useCallback(() => {
+    setPreviewIndex(null);
+  }, []);
+
+  useEffect(() => {
+    if (previewIndex === null || typeof window === 'undefined') {
+      return undefined;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closePreview();
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [closePreview, previewIndex]);
+
+  const snappedTrackIndex = activeIndex;
+  const previewStory = previewIndex === null ? null : workloadStories[previewIndex];
+  const storyStyle: WorkloadStyle = {
+    '--workload-story-count': workloadStories.length,
+  };
+  const visualTrackStyle: WorkloadStyle = {
+    '--workload-track-index': snappedTrackIndex,
+  };
+
+  return (
+    <section
+      ref={workloadStoryRef}
+      className={styles.workloadStory}
+      style={storyStyle}
+      aria-labelledby="workload-story-title"
+    >
+      <div className={styles.workloadSticky}>
+        <div className={styles.workloadLeft}>
+          <h4 id="workload-story-title" className={styles.workloadTitle}>
+            装好 Rainbond，企业常见工作负载统一交付
+          </h4>
+          <p className={styles.workloadLead}>
+            不同来源、不同技术栈、不同现代化阶段的应用，都可以逐步进入同一套平台入口。
+          </p>
+
+          <div className={styles.workloadTabs} aria-label="企业工作负载类型">
+            {workloadStories.map((story, index) => {
+              const Icon = story.icon;
+              const isActive = index === activeIndex;
+
+              return (
+                <button
+                  key={story.key}
+                  type="button"
+                  className={`${styles.workloadTab} ${isActive ? styles.workloadTabActive : ''}`}
+                  onClick={() => handleWorkloadSelect(index)}
+                  aria-current={isActive}
+                >
+                  <span className={styles.workloadTabIcon} aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <span className={styles.workloadTabCopy}>
+                    <span className={styles.workloadTabTitle}>{story.title}</span>
+                    <span className={styles.workloadTabDescription}>{story.description}</span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className={styles.workloadRight}>
+          <div className={styles.workloadVisualFrame}>
+            <div className={styles.workloadFrameTopbar}>
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className={styles.workloadVisualViewport}>
+              <div className={styles.workloadVisualTrack} style={visualTrackStyle}>
+                {workloadStories.map((story, index) => {
+                  const isActive = index === activeIndex;
+                  const panelStyle: WorkloadStyle = {
+                    '--workload-accent': story.accent,
+                    '--workload-accent-2': story.accent2,
+                    '--workload-surface': story.surface,
+                  };
+
+                  return (
+                    <div
+                      key={story.key as WorkloadStoryKey}
+                      className={`${styles.workloadVisualPanel} ${isActive ? styles.workloadVisualPanelActive : ''}`}
+                      style={panelStyle}
+                    >
+                      <div className={styles.visualSceneStage}>
+                        <div className={styles.visualScreenshotStage}>
+                          <button
+                            type="button"
+                            className={styles.visualScreenshotShell}
+                            onClick={() => setPreviewIndex(index)}
+                            aria-label={`放大查看${story.title}截图`}
+                          >
+                            <img
+                              className={styles.visualScreenshotImage}
+                              src={story.screenshot.imageSrc}
+                              alt={story.title}
+                              loading="lazy"
+                            />
+                            <span className={styles.visualScreenshotExpandCue} aria-hidden="true">
+                              <Maximize2 />
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {previewStory ? (
+          <motion.div
+            className={styles.workloadPreviewOverlay}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${previewStory.title}截图预览`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
+            onClick={closePreview}
+          >
+            <motion.div
+              className={styles.workloadPreviewDialog}
+              initial={{ opacity: 0, y: 18, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.98 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                className={styles.workloadPreviewClose}
+                onClick={closePreview}
+                aria-label="关闭截图预览"
+              >
+                <X />
+              </button>
+              <img
+                className={styles.workloadPreviewImage}
+                src={previewStory.screenshot.imageSrc}
+                alt={`${previewStory.title}截图放大预览`}
+              />
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </section>
+  );
+}
 
 export default function Demo() {
   const videoRefs = useRef<Partial<Record<DemoTabKey, HTMLVideoElement | null>>>({});
@@ -399,6 +711,8 @@ export default function Demo() {
           </div>
         </div>
       </div>
+
+      <WorkloadStory />
     </div>
   );
 }

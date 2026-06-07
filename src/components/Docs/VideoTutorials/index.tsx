@@ -61,6 +61,7 @@ const videoHubFilterById: Record<string, Exclude<VideoHubFilter, 'all'>> = {
   'offline-xinchuang-install': 'install',
   'rainskills-ai-deploy': 'ai',
   'rainagent-install-use': 'ai',
+  'rainbond-llm-install-use': 'ai',
 };
 
 const getVideoHubFilter = (video: VideoTutorial): Exclude<VideoHubFilter, 'all'> => {
@@ -490,6 +491,40 @@ function StepCodePanel({
   );
 }
 
+function StepPrerequisitePanel({ panel }: { panel: NonNullable<VideoStep['prerequisitePanel']> }) {
+  return (
+    <div className={styles.prerequisitePanel}>
+      <div className={styles.prerequisitePanelHeader}>
+        <span>{panel.title}</span>
+      </div>
+      <ol className={styles.prerequisiteList}>
+        {panel.items.map((item, itemIndex) => (
+          <li key={`${item.title}-${itemIndex}`}>
+            <div className={styles.prerequisiteIndex}>{itemIndex + 1}</div>
+            <div className={styles.prerequisiteContent}>
+              <div className={styles.prerequisiteTitleRow}>
+                <strong>{item.title}</strong>
+                {item.badge ? <span>{item.badge}</span> : null}
+              </div>
+              <p>{item.description}</p>
+              {item.links?.length || item.href ? (
+                <div className={styles.prerequisiteLinks}>
+                  {(item.links || [{ label: '查看安装步骤', href: item.href! }]).map((link) => (
+                    <a href={link.href} key={link.href} target="_blank" rel="noopener noreferrer">
+                      {link.label}
+                      <ExternalLink size={14} aria-hidden="true" />
+                    </a>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 function StepImageGallery({
   images,
   fallbackCaption,
@@ -647,7 +682,9 @@ function TutorialStep({ step, index, video }: { step: VideoStep; index: number; 
 
         <figure className={styles.stepShot}>
           <div className={styles.shotImageWrap}>
-            {step.codePanel ? (
+            {step.prerequisitePanel ? (
+              <StepPrerequisitePanel panel={step.prerequisitePanel} />
+            ) : step.codePanel ? (
               <StepCodePanel panel={step.codePanel} video={video} />
             ) : hasImages ? (
               <StepImageGallery

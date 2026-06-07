@@ -315,6 +315,481 @@
   transition: transform 0.08s linear;
 }
 
+.workloadStory {
+  --workload-story-count: 4;
+  width: 100%;
+  min-height: calc(var(--workload-story-count) * 100vh);
+  position: relative;
+  background: #ffffff;
+  border-top: 1px solid #eaebee;
+}
+
+.workloadSticky {
+  position: sticky;
+  top: 72px;
+  width: min(100%, var(--content-max-width, 1380px));
+  min-height: calc(100vh - 72px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(360px, 0.9fr) minmax(520px, 1.1fr);
+  gap: 1px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.workloadLeft,
+.workloadRight {
+  min-height: calc(100vh - 72px);
+  background: #ffffff;
+}
+
+.workloadLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 4.5rem);
+}
+
+.workloadEyebrow {
+  color: #0052cc;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.workloadTitle {
+  max-width: 620px;
+  margin: 0.85rem 0 0;
+  color: #111827;
+  font-size: clamp(2.1rem, 3vw, 4.5rem);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.workloadLead {
+  max-width: 560px;
+  margin: 1rem 0 0;
+  color: #526071;
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.workloadTabs {
+  width: 100%;
+  max-width: 620px;
+  margin-top: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.workloadTab {
+  position: relative;
+  width: 100%;
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 0.95rem;
+  align-items: flex-start;
+  padding: 1rem 1.15rem 1rem 1.3rem;
+  border: 0;
+  border-left: 3px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: #9aa1ad;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.workloadTab:hover {
+  background: #f8fbff;
+  color: #334155;
+}
+
+.workloadTab:focus-visible {
+  outline: 3px solid rgba(0, 102, 255, 0.24);
+  outline-offset: 2px;
+}
+
+.workloadTabActive {
+  border-left-color: #0f6fff;
+  background: #f5f9ff;
+  color: #111827;
+}
+
+.workloadTabIcon {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+}
+
+.workloadTabIcon svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.2;
+}
+
+.workloadTabCopy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.workloadTabTitle {
+  color: currentColor;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.workloadTabDescription {
+  display: none;
+  max-width: 520px;
+  color: #5d6674;
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.workloadTabActive .workloadTabDescription {
+  display: block;
+}
+
+.workloadRight {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 4.5rem);
+  background:
+    linear-gradient(90deg, rgba(15, 111, 255, 0.06), rgba(18, 165, 148, 0.05)),
+    #f8fafc;
+}
+
+.workloadVisualFrame {
+  width: min(100%, 720px);
+  height: min(620px, calc(100vh - 150px));
+  min-height: 500px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  border-radius: 8px;
+  background: #07101d;
+  box-shadow:
+    0 32px 80px rgba(15, 23, 42, 0.24),
+    0 12px 30px rgba(15, 23, 42, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.workloadFrameTopbar {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04)),
+    #0b1422;
+}
+
+.workloadFrameTopbar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #cbd5e1;
+}
+
+.workloadFrameTopbar span:first-child {
+  background: #ef4444;
+}
+
+.workloadFrameTopbar span:nth-child(2) {
+  background: #f59e0b;
+}
+
+.workloadFrameTopbar span:nth-child(3) {
+  background: #22c55e;
+}
+
+.workloadVisualViewport {
+  height: calc(100% - 42px);
+  overflow: hidden;
+  background: #08111f;
+}
+
+.workloadVisualTrack {
+  --workload-track-index: 0;
+  height: 100%;
+  transform: translate3d(0, calc(var(--workload-track-index) * -100%), 0);
+  transition: transform 0.46s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.workloadVisualPanel {
+  --workload-accent: #0f6fff;
+  --workload-accent-2: #5bd6ff;
+  --workload-surface: #eaf3ff;
+  height: 100%;
+  padding: 1rem;
+  color: #ffffff;
+}
+
+.visualSceneStage {
+  height: 100%;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--workload-accent) 34%, rgba(255, 255, 255, 0.2));
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 16% 14%, color-mix(in srgb, var(--workload-accent-2) 32%, transparent), transparent 30%),
+    radial-gradient(circle at 84% 20%, color-mix(in srgb, var(--workload-accent) 34%, transparent), transparent 28%),
+    radial-gradient(circle at 50% 84%, rgba(255, 255, 255, 0.12), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 28%),
+    linear-gradient(145deg, color-mix(in srgb, var(--workload-accent) 24%, #08111f) 0%, #08111f 48%, color-mix(in srgb, var(--workload-accent-2) 18%, #121826) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -80px 120px rgba(0, 0, 0, 0.18);
+}
+
+.visualSceneStage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 82%);
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.visualSceneStage::after {
+  content: '';
+  position: absolute;
+  left: -30%;
+  right: -30%;
+  top: 16%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--workload-accent-2) 80%, #ffffff), transparent);
+  opacity: 0.72;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.visualScreenshotStage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+}
+
+.visualScreenshotShell {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  min-height: 0;
+  display: block;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--workload-accent) 34%, rgba(255, 255, 255, 0.18));
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--workload-accent) 18%, #101827), #08111f 48%, color-mix(in srgb, var(--workload-accent-2) 16%, #111827)),
+    #08111f;
+  box-shadow:
+    0 28px 62px rgba(0, 0, 0, 0.28),
+    0 0 42px color-mix(in srgb, var(--workload-accent) 18%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  cursor: zoom-in;
+}
+
+.visualScreenshotShell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.2), transparent 38%),
+    radial-gradient(circle at 78% 18%, color-mix(in srgb, var(--workload-accent-2) 24%, transparent), transparent 34%);
+  pointer-events: none;
+}
+
+.visualScreenshotShell::after {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.visualScreenshotImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.visualScreenshotShell:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--workload-accent-2) 78%, #ffffff);
+  outline-offset: 4px;
+}
+
+.visualScreenshotExpandCue {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(2, 6, 23, 0.62);
+  color: #ffffff;
+  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.28);
+  opacity: 0;
+  transform: translateY(6px) scale(0.96);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    background 0.18s ease;
+  backdrop-filter: blur(10px);
+}
+
+.visualScreenshotExpandCue svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.2;
+}
+
+.visualScreenshotShell:hover .visualScreenshotExpandCue,
+.visualScreenshotShell:focus-visible .visualScreenshotExpandCue {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  background: rgba(15, 23, 42, 0.78);
+}
+
+.workloadPreviewOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background:
+    radial-gradient(circle at 50% 14%, rgba(59, 130, 246, 0.2), transparent 32%),
+    rgba(2, 6, 23, 0.82);
+  backdrop-filter: blur(14px);
+}
+
+.workloadPreviewDialog {
+  position: relative;
+  max-width: min(1180px, 94vw);
+  max-height: 86vh;
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  background: #020617;
+  box-shadow:
+    0 32px 110px rgba(0, 0, 0, 0.48),
+    0 0 72px rgba(59, 130, 246, 0.18);
+}
+
+.workloadPreviewImage {
+  width: 100%;
+  height: auto;
+  max-height: 86vh;
+  display: block;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.workloadPreviewClose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(2, 6, 23, 0.68);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.32);
+  backdrop-filter: blur(12px);
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.workloadPreviewClose:hover,
+.workloadPreviewClose:focus-visible {
+  background: rgba(15, 23, 42, 0.86);
+  transform: scale(1.04);
+}
+
+.workloadPreviewClose:focus-visible {
+  outline: 3px solid rgba(147, 197, 253, 0.9);
+  outline-offset: 3px;
+}
+
+.workloadPreviewClose svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.3;
+}
+
+.workloadVisualPanelActive .visualScreenshotShell {
+  animation: visualScreenshotSettle 0.48s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes visualScreenshotSettle {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workloadVisualPanelActive .visualScreenshotShell {
+    animation: none;
+  }
+
+  .visualScreenshotExpandCue,
+  .workloadPreviewClose {
+    transition: none;
+  }
+}
+
 @media (max-width: 768px) {
   .demo {
     height: auto;
@@ -383,5 +858,144 @@
 
   .moduleButtonLabel {
     white-space: normal;
+  }
+}
+
+@media (max-width: 1180px) {
+  .workloadSticky {
+    grid-template-columns: minmax(330px, 0.9fr) minmax(430px, 1.1fr);
+  }
+
+  .workloadLeft,
+  .workloadRight {
+    padding: 2rem;
+  }
+
+  .workloadTabTitle {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 900px) {
+  .workloadStory {
+    min-height: auto;
+  }
+
+  .workloadSticky {
+    position: relative;
+    top: auto;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .workloadLeft,
+  .workloadRight {
+    min-height: auto;
+  }
+
+  .workloadLeft {
+    padding: 2.2rem 1rem 1.5rem;
+  }
+
+  .workloadTitle {
+    font-size: clamp(1.75rem, 7vw, 2.35rem);
+  }
+
+  .workloadLead {
+    font-size: 15px;
+  }
+
+  .workloadTabs {
+    margin-top: 1.4rem;
+  }
+
+  .workloadTab {
+    min-height: auto;
+    grid-template-columns: 26px minmax(0, 1fr);
+    padding: 0.9rem 0.85rem;
+    border-left-width: 2px;
+  }
+
+  .workloadTabIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .workloadTabIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .workloadTabTitle {
+    font-size: 17px;
+  }
+
+  .workloadTabDescription {
+    display: block;
+    font-size: 14px;
+  }
+
+  .workloadRight {
+    padding: 0 1rem 2rem;
+  }
+
+  .workloadVisualFrame {
+    height: auto;
+    min-height: 0;
+  }
+
+  .workloadVisualViewport {
+    height: auto;
+    overflow: visible;
+  }
+
+  .workloadVisualTrack {
+    height: auto;
+    transform: translate3d(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .workloadVisualPanel {
+    height: auto;
+    min-height: 520px;
+    padding: 1rem;
+    display: none;
+  }
+
+  .workloadVisualPanelActive {
+    display: flex;
+  }
+
+  .visualSceneStage {
+    min-height: 500px;
+    padding: 1rem;
+  }
+
+  .visualScreenshotShell {
+    aspect-ratio: 4 / 3;
+  }
+
+  .visualScreenshotExpandCue {
+    right: 10px;
+    bottom: 10px;
+    width: 36px;
+    height: 36px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .workloadPreviewOverlay {
+    padding: 0.75rem;
+  }
+
+  .workloadPreviewClose {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
   }
 }

@@ -19,10 +19,14 @@ const homeSource = read('src/pages/index.tsx');
 const demoSource = read('src/components/HomePage/Demo/index.tsx');
 const demoStyles = read('src/components/HomePage/Demo/styles.module.css');
 
-test('home places core video demo before problem cards', () => {
+test('home places core video demo after path cards and before user proof', () => {
   assert.ok(
-    homeSource.indexOf('<Demo />') < homeSource.indexOf('<ChoosePath />'),
-    'Expected Demo to render before ChoosePath.'
+    homeSource.indexOf('<ChoosePath />') < homeSource.indexOf('<Demo />'),
+    'Expected ChoosePath to render before Demo.'
+  );
+  assert.ok(
+    homeSource.indexOf('<Demo />') < homeSource.indexOf('<Users />'),
+    'Expected Demo to render before Users after removing the intervening marketing sections.'
   );
 });
 

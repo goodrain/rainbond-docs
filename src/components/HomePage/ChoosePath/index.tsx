@@ -28,9 +28,9 @@ const pathCards: PathCard[] = [
   },
   {
     tag: 'AI 私有化',
-    title: '几十款 AI 应用私有化部署',
-    summary: '适合想把Dify或其他AI应用带进企业环境，并持续升级维护的团队。',
-    href: 'https://hub.rainbond.com',
+    title: 'AI 应用、大模型私有化',
+    summary: '适合把自研 AI 应用、Dify 等 AI 应用平台，以及 Qwen、DeepSeek 等大模型服务部署进企业内网，并统一升级维护。',
+    href: '/solutions/ai-private-deployment',
     tone: 'ai',
   },
   {
@@ -42,8 +42,8 @@ const pathCards: PathCard[] = [
   },
   {
     tag: '企业管理',
-    title: '多团队、应用和资源统一管理',
-    summary: '适合企业IT、平台负责人和要统一纳管应用交付流程的团队。',
+    title: '供应商交付、应用验收与软件资产化',
+    summary: '适合企业IT、政企、学校和平台型机构，统一纳管采购软件、供应商交付物与自研系统，沉淀可复用的软件资产。',
     href: '/it-and-enterprise',
     tone: 'enterprise',
   },
