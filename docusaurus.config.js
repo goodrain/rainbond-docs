@@ -154,9 +154,14 @@ const config = {
                     activeBasePath: '/offline-and-xinchuang',
                   },
                   {
-                    label: '多团队、企业 IT 管理',
+                    label: '供应商交付、应用验收与软件资产化',
                     to: '/it-and-enterprise',
                     activeBasePath: '/it-and-enterprise',
+                  },
+                  {
+                    label: 'AI 应用与大模型私有化部署',
+                    to: '/solutions/ai-private-deployment',
+                    activeBasePath: '/solutions/ai-private-deployment',
                   },
                 ],
               },
@@ -351,9 +356,25 @@ const config = {
       },
     ],
     [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'solutions',
+        path: 'solutions',
+        routeBasePath: 'solutions',
+        sidebarPath: require.resolve('./solutionsSidebar.js'),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: false,
+        editUrl: 'https://github.com/goodrain/rainbond-docs/tree/main',
+      },
+    ],
+    [
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
+          {
+            to: '/solutions/ai-private-deployment',
+            from: '/ai-private-deployment',
+          },
           {
             to: '/compare',
             from: '/selection-center',

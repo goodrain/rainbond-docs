@@ -74,6 +74,13 @@ Rainbond 是一款以应用为中心的开源容器平台。它底层基于 Kube
 ### AI
 
 <div className="docsVideoGrid">
+  <a className="docsVideoCard" href="/videos/rainbond-llm-install-use">
+    <span className="docsVideoThumb">
+      <img src="/img/video/rainbond-llm-install-use-cover.jpg" alt="大模型安装使用视频封面" />
+      <span className="docsVideoPlayIcon" aria-hidden="true"></span>
+    </span>
+    <span className="docsVideoTitle">大模型安装使用</span>
+  </a>
   <a className="docsVideoCard" href="/videos/rainskills-ai-deploy">
     <span className="docsVideoThumb">
       <img src="/img/video/rainskills-ai-deploy-cover.jpg" alt="RainSkills 安装使用视频封面" />

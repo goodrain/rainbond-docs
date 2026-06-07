@@ -3,7 +3,7 @@ module.exports = {
     {
       type: 'doc',
       id: 'index',
-      label: '应用现代化专题',
+      label: '供应商交付、应用验收与软件资产化',
     },
   ],
 };

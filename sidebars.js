@@ -58,6 +58,11 @@ const sidebars = {
           id: 'ai/rainagent/index',
           className: 'sidebar-community-enterprise',
         },
+        {
+          type: 'doc',
+          id: 'ai/rainbond-llm/index',
+          className: 'sidebar-community',
+        },
       ]
     },
     {

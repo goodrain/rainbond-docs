@@ -1,0 +1,451 @@
+.sectionBlock {
+  margin: 2.3rem 0;
+}
+
+.sectionHead {
+  max-width: 880px;
+  margin-bottom: 1rem;
+}
+
+.sectionHead h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  line-height: 1.28;
+}
+
+.sectionHead p {
+  margin: 0.55rem 0 0;
+  color: #475569;
+  line-height: 1.76;
+}
+
+.valueGrid,
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.valueGrid + .flow,
+.flow + .tablePanel,
+.operationGrid + .screenshotGrid {
+  margin-top: 1rem;
+}
+
+.valueCard,
+.capabilityCard {
+  padding: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.05);
+}
+
+.valueCard h3,
+.capabilityCard h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.06rem;
+  line-height: 1.45;
+}
+
+.valueCard p,
+.capabilityCard p {
+  margin: 0.55rem 0 0;
+  color: #475569;
+  line-height: 1.72;
+}
+
+.capabilityGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.capabilityCard ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.05rem;
+}
+
+.capabilityCard li {
+  color: #475569;
+  line-height: 1.7;
+}
+
+.capabilityCard li + li {
+  margin-top: 0.35rem;
+}
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flowItem {
+  position: relative;
+  min-height: 168px;
+  padding: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff 0%, #f5fffb 100%);
+}
+
+.flowItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  right: -0.55rem;
+  width: 0.8rem;
+  height: 1px;
+  background: rgba(0, 102, 255, 0.24);
+}
+
+.flowNo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.flowItem h3 {
+  margin: 0.8rem 0 0;
+  color: #0f172a;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.flowItem p {
+  margin: 0.45rem 0 0;
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.screenshotGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.screenshotGrid figure {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.05);
+}
+
+.screenshotGrid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #f8fbff;
+}
+
+.screenshotGrid figcaption {
+  padding: 0.7rem 0.9rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  background: #fff;
+}
+
+.timelineItem span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 999px;
+  background: rgba(0, 102, 255, 0.08);
+  color: #005ce6;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.timelineItem p {
+  margin: 0;
+  margin-top: 0;
+  color: #0f172a;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.issueGrid,
+.operationGrid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.issueGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.issueCard {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: start;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.issueCard span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.05rem;
+  height: 2.05rem;
+  border-radius: 999px;
+  background: rgba(0, 102, 255, 0.08);
+  color: #005ce6;
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.issueCard p {
+  margin: 0;
+  color: #0f172a;
+  line-height: 1.62;
+}
+
+.sectionNote {
+  margin: 1rem 0 0;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid #0066ff;
+  border-radius: 14px;
+  background: #f8fbff;
+  color: #0f172a;
+  font-weight: 650;
+  line-height: 1.7;
+}
+
+.tablePanel {
+  overflow-x: auto;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.05);
+}
+
+.tablePanel table {
+  display: table;
+  width: 100%;
+  min-width: 760px;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.tablePanel th,
+.tablePanel td {
+  border-color: rgba(15, 23, 42, 0.08);
+  padding: 0.85rem 0.95rem;
+  vertical-align: top;
+  line-height: 1.65;
+}
+
+.tablePanel th {
+  background: #f8fbff;
+  color: #0f172a;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.tablePanel td {
+  color: #475569;
+}
+
+.operationGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.operationCard,
+.fitCard {
+  padding: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.operationCard h3,
+.fitCard h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.operationCard p {
+  margin: 0.55rem 0 0;
+  color: #475569;
+  line-height: 1.72;
+}
+
+.operationCard ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.05rem;
+}
+
+.operationCard li {
+  color: #475569;
+  line-height: 1.7;
+}
+
+.operationCard li + li {
+  margin-top: 0.35rem;
+}
+
+.fitGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.fitCard:first-child {
+  background: linear-gradient(180deg, #ffffff 0%, #f5fffb 100%);
+}
+
+.fitCard:last-child {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+}
+
+.fitCard ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.05rem;
+}
+
+.fitCard li {
+  color: #475569;
+  line-height: 1.7;
+}
+
+.fitCard li + li {
+  margin-top: 0.4rem;
+}
+
+.faqAccordion {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.faqItem {
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.faqItem summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem 3rem 1rem 1rem;
+  position: relative;
+  color: #0f172a;
+  font-weight: 750;
+  line-height: 1.55;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem summary::after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 999px;
+  background: rgba(0, 102, 255, 0.08);
+  color: #005ce6;
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+
+.faqItem[open] summary {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  background: #f8fbff;
+}
+
+.faqItem[open] summary::after {
+  content: '-';
+}
+
+.faqItem p {
+  margin: 0;
+  padding: 0.9rem 1rem 1rem;
+  color: #475569;
+  line-height: 1.74;
+}
+
+@media (max-width: 996px) {
+  .valueGrid,
+  .capabilityGrid,
+  .flow,
+  .timeline,
+  .issueGrid,
+  .operationGrid,
+  .fitGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .timelineItem p {
+    line-height: 1.55;
+  }
+
+  .flowItem {
+    min-height: 0;
+  }
+
+  .flowItem:not(:last-child)::after {
+    display: none;
+  }
+
+  .screenshotGrid {
+    grid-template-columns: 1fr;
+  }
+}

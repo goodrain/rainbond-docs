@@ -4,11 +4,8 @@ import Layout from '@theme/Layout';
 import Hero from '@src/components/HomePage/Hero';
 import ChoosePath from '@src/components/HomePage/ChoosePath';
 import Demo from '@src/components/HomePage/Demo';
-import WhyChoose from '@src/components/HomePage/Whychoose';
 import Users from '@src/components/HomePage/Users';
-import Painpoint from '@src/components/HomePage/Painpoint';
 import DeployCommand from '@src/components/HomePage/DeployCommand';
-import Comparison from '@src/components/HomePage/Comparison';
 import Section from '@src/components/Section';
 import PageContainer from '@src/components/PageContainer';
 import GridDecoration from '@src/components/GridDecoration';
@@ -48,15 +45,8 @@ export default function Home() {
           <ChoosePath />
         </Section>
         <Demo />
-        <Painpoint />
-        <Section>
-          <WhyChoose />
-        </Section>
         <Section>
           <Users />
-        </Section>
-        <Section>
-          <Comparison/>
         </Section>
         <Section noBorder>
           <DeployCommand />

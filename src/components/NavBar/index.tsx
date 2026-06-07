@@ -26,8 +26,12 @@ const learningSections = [
         to: '/offline-and-xinchuang',
       },
       {
-        label: '多团队、企业 IT 管理',
+        label: '供应商交付、应用验收与软件资产化',
         to: '/it-and-enterprise',
+      },
+      {
+        label: 'AI 应用与大模型私有化部署',
+        to: '/solutions/ai-private-deployment',
       },
     ],
   },

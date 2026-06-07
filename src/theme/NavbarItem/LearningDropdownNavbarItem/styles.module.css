@@ -4,9 +4,9 @@
 
 .menu {
   display: grid;
-  grid-template-columns: repeat(2, minmax(10rem, 1fr));
-  gap: 1rem 1.5rem;
-  min-width: 25rem;
+  grid-template-columns: minmax(11rem, 0.8fr) minmax(18rem, 1.2fr);
+  gap: 1rem 2rem;
+  min-width: 34rem;
   padding: 1rem 1.25rem;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 1rem;
@@ -39,6 +39,8 @@
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
+  white-space: nowrap;
+  word-break: keep-all;
   transition: color 0.2s ease;
 }
 

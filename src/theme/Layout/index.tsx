@@ -45,6 +45,7 @@ export default function Layout(props: Props): JSX.Element {
   const compare_url = useLocation().pathname.startsWith('/compare');
   const offline_and_xinchuang_url = useLocation().pathname.startsWith('/offline-and-xinchuang');
   const it_and_enterprise_url = useLocation().pathname.startsWith('/it-and-enterprise');
+  const solutions_url = useLocation().pathname.startsWith('/solutions');
   const useDocsNavbar =
     docs_url ||
     community_url ||
@@ -52,7 +53,8 @@ export default function Layout(props: Props): JSX.Element {
     changelog_url ||
     compare_url ||
     offline_and_xinchuang_url ||
-    it_and_enterprise_url;
+    it_and_enterprise_url ||
+    solutions_url;
 
   return (
     <LayoutProvider>
