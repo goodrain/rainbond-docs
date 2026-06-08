@@ -280,11 +280,6 @@ function WorkloadStory() {
 
         <div className={styles.workloadRight}>
           <div className={styles.workloadVisualFrame}>
-            <div className={styles.workloadFrameTopbar}>
-              <span />
-              <span />
-              <span />
-            </div>
             <div className={styles.workloadVisualViewport}>
               <div className={styles.workloadVisualTrack} style={visualTrackStyle}>
                 {workloadStories.map((story, index) => {
@@ -301,26 +296,22 @@ function WorkloadStory() {
                       className={`${styles.workloadVisualPanel} ${isActive ? styles.workloadVisualPanelActive : ''}`}
                       style={panelStyle}
                     >
-                      <div className={styles.visualSceneStage}>
-                        <div className={styles.visualScreenshotStage}>
-                          <button
-                            type="button"
-                            className={styles.visualScreenshotShell}
-                            onClick={() => setPreviewIndex(index)}
-                            aria-label={`放大查看${story.title}截图`}
-                          >
-                            <img
-                              className={styles.visualScreenshotImage}
-                              src={story.screenshot.imageSrc}
-                              alt={story.title}
-                              loading="lazy"
-                            />
-                            <span className={styles.visualScreenshotExpandCue} aria-hidden="true">
-                              <Maximize2 />
-                            </span>
-                          </button>
-                        </div>
-                      </div>
+                      <button
+                        type="button"
+                        className={styles.visualScreenshotShell}
+                        onClick={() => setPreviewIndex(index)}
+                        aria-label={`放大查看${story.title}截图`}
+                      >
+                        <img
+                          className={styles.visualScreenshotImage}
+                          src={story.screenshot.imageSrc}
+                          alt={story.title}
+                          loading="lazy"
+                        />
+                        <span className={styles.visualScreenshotExpandCue} aria-hidden="true">
+                          <Maximize2 />
+                        </span>
+                      </button>
                     </div>
                   );
                 })}
