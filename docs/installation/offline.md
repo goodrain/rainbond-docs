@@ -22,7 +22,6 @@ import TabItem from '@theme/TabItem';
 
 - 准备至少 3 台 Linux 主机及以上，所有节点内网互通。
 - 生产环境建议配置 8 核 16GB 200GB。
-- 所有节点可访问互联网，至少能访问 Rainbond、RKE2、Helm 相关镜像源。
 - bootstrap 节点可通过 `root` 用户 SSH 到其他所有节点。
 - 对外开放 7070、80、443、6060 端口；节点间放通 Kubernetes、RKE2 集群内部通信端口。
 
