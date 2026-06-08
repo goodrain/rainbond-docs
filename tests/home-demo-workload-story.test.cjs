@@ -59,8 +59,28 @@ test('home demo workload story uses sticky left and fixed visual frame with snap
     'Expected sticky story grid.'
   );
   assert.ok(
+    /\.workloadSticky\s*\{[\s\S]*width:\s*min\(100%,\s*var\(--content-max-width,\s*1380px\)\);[\s\S]*grid-template-columns:\s*minmax\(360px,\s*0\.9fr\)\s*minmax\(520px,\s*1\.1fr\);/.test(
+      demoStyles
+    ),
+    'Expected desktop workload grid to keep the original left/right proportion.'
+  );
+  assert.ok(
     /\.workloadVisualFrame\s*\{[\s\S]*overflow:\s*hidden;/.test(demoStyles),
     'Expected fixed right visual frame to clip moving content.'
+  );
+  assert.ok(
+    /\.workloadVisualFrame\s*\{[\s\S]*width:\s*min\(100%,\s*880px\);[\s\S]*height:\s*min\(700px,\s*calc\(100vh\s*-\s*120px\)\);/.test(
+      demoStyles
+    ),
+    'Expected desktop visual frame to keep the existing screenshot frame scale.'
+  );
+  assert.ok(
+    /\.workloadRight\s*\{[\s\S]*padding:\s*clamp\(0\.5rem,\s*0\.8vw,\s*1rem\);/.test(demoStyles),
+    'Expected right side spacing to be reduced without changing the column ratio.'
+  );
+  assert.ok(
+    /\.workloadVisualPanel\s*\{[\s\S]*padding:\s*0;/.test(demoStyles),
+    'Expected screenshot panel spacing to be removed so the image can use the right column.'
   );
   assert.ok(
     /\.workloadVisualTrack\s*\{[\s\S]*transform:\s*translate3d\(0,\s*calc\(var\(--workload-track-index\)\s*\*\s*-100%\),\s*0\);/.test(demoStyles),
@@ -89,8 +109,6 @@ test('home demo workload visuals use three provided screenshot panels', () => {
   });
 
   [
-    'visualSceneStage',
-    'visualScreenshotStage',
     'visualScreenshotShell',
     'visualScreenshotImage',
   ].forEach(className => {
@@ -106,21 +124,24 @@ test('home demo workload visuals use three provided screenshot panels', () => {
     'visualSceneStatus',
     'visualScreenshotCaption',
     'visualScreenshotPlaceholder',
+    'workloadFrameTopbar',
+    'visualSceneStage',
+    'visualScreenshotStage',
   ].forEach(token => {
     assert.ok(!demoSource.includes(token), `Expected visual composition to omit ${token}.`);
   });
 
   assert.ok(
-    /\.visualSceneStage\s*\{[\s\S]*background:/.test(demoStyles),
-    'Expected visual scene stage background styling.'
+    /\.workloadVisualFrame\s*\{[\s\S]*background:\s*transparent;/.test(demoStyles),
+    'Expected fixed visual frame to clip content without adding another visible layer.'
   );
   assert.ok(
-    /\.visualScreenshotShell\s*\{[\s\S]*aspect-ratio:\s*16\s*\/\s*10;/.test(demoStyles),
-    'Expected screenshot shell to reserve a stable image area.'
+    /\.visualScreenshotShell\s*\{[\s\S]*aspect-ratio:\s*3420\s*\/\s*1904;/.test(demoStyles),
+    'Expected screenshot shell to match the provided screenshot ratio without horizontal cropping.'
   );
   assert.ok(
-    /\.visualScreenshotImage\s*\{[\s\S]*object-fit:\s*cover;/.test(demoStyles),
-    'Expected real screenshots to fill the reserved image area.'
+    /\.visualScreenshotImage\s*\{[\s\S]*object-fit:\s*contain;/.test(demoStyles),
+    'Expected real screenshots to display fully without cropping.'
   );
   assert.ok(
     /alt=\{story\.title\}/.test(demoSource),
@@ -133,17 +154,22 @@ test('home demo workload visuals use three provided screenshot panels', () => {
 });
 
 test('home demo workload visuals have premium depth and polish styling', () => {
+  const screenshotShellRuleMatch = demoStyles.match(/\.visualScreenshotShell\s*\{[^}]*\}/);
+  assert.ok(screenshotShellRuleMatch, 'Expected screenshot shell styles to exist.');
+
   assert.ok(
-    /\.visualSceneStage\s*\{[\s\S]*isolation:\s*isolate;[\s\S]*radial-gradient/.test(demoStyles),
-    'Expected visual scene stage to use isolated radial lighting layers.'
+    /\.workloadVisualFrame\s*\{[\s\S]*overflow:\s*hidden;[\s\S]*background:\s*transparent;/.test(demoStyles),
+    'Expected the fixed visual frame to act as a transparent clipping area.'
   );
   assert.ok(
-    /\.visualScreenshotShell\s*\{[\s\S]*box-shadow:/.test(demoStyles),
-    'Expected screenshot shell to have premium framed depth.'
+    !/box-shadow:/.test(screenshotShellRuleMatch[0]),
+    'Expected screenshot shell to render without an outer shadow.'
   );
   assert.ok(
-    /\.visualScreenshotShell::before/.test(demoStyles),
-    'Expected screenshot shell to include a soft highlight layer.'
+    !/\.visualScreenshotShell::before|\.visualScreenshotShell::after|\.workloadFrameTopbar|\.visualSceneStage|\.visualScreenshotStage/.test(
+      demoStyles
+    ),
+    'Expected nested chrome, stage layers, and screenshot pseudo overlays to be removed.'
   );
   assert.ok(
     !/\.visualScreenshotCaption|\.visualScreenshotPlaceholder|\.visualSceneHeader|\.visualSceneBadge|\.visualSceneStatus/.test(

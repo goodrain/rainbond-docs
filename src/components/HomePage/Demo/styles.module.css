@@ -467,62 +467,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(2rem, 4vw, 4.5rem);
+  padding: clamp(0.5rem, 0.8vw, 1rem);
   background:
     linear-gradient(90deg, rgba(15, 111, 255, 0.06), rgba(18, 165, 148, 0.05)),
     #f8fafc;
 }
 
 .workloadVisualFrame {
-  width: min(100%, 720px);
-  height: min(620px, calc(100vh - 150px));
-  min-height: 500px;
+  width: min(100%, 880px);
+  height: min(700px, calc(100vh - 120px));
+  min-height: 560px;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(15, 23, 42, 0.2);
-  border-radius: 8px;
-  background: #07101d;
-  box-shadow:
-    0 32px 80px rgba(15, 23, 42, 0.24),
-    0 12px 30px rgba(15, 23, 42, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.workloadFrameTopbar {
-  height: 42px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04)),
-    #0b1422;
-}
-
-.workloadFrameTopbar span {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: #cbd5e1;
-}
-
-.workloadFrameTopbar span:first-child {
-  background: #ef4444;
-}
-
-.workloadFrameTopbar span:nth-child(2) {
-  background: #f59e0b;
-}
-
-.workloadFrameTopbar span:nth-child(3) {
-  background: #22c55e;
+  border-radius: 0;
+  background: transparent;
 }
 
 .workloadVisualViewport {
-  height: calc(100% - 42px);
+  height: 100%;
   overflow: hidden;
-  background: #08111f;
+  background: transparent;
 }
 
 .workloadVisualTrack {
@@ -538,111 +502,32 @@
   --workload-accent-2: #5bd6ff;
   --workload-surface: #eaf3ff;
   height: 100%;
-  padding: 1rem;
-  color: #ffffff;
-}
-
-.visualSceneStage {
-  height: 100%;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  display: flex;
-  padding: 1.25rem;
-  border: 1px solid color-mix(in srgb, var(--workload-accent) 34%, rgba(255, 255, 255, 0.2));
-  border-radius: 8px;
-  background:
-    radial-gradient(circle at 16% 14%, color-mix(in srgb, var(--workload-accent-2) 32%, transparent), transparent 30%),
-    radial-gradient(circle at 84% 20%, color-mix(in srgb, var(--workload-accent) 34%, transparent), transparent 28%),
-    radial-gradient(circle at 50% 84%, rgba(255, 255, 255, 0.12), transparent 34%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 28%),
-    linear-gradient(145deg, color-mix(in srgb, var(--workload-accent) 24%, #08111f) 0%, #08111f 48%, color-mix(in srgb, var(--workload-accent-2) 18%, #121826) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    inset 0 -80px 120px rgba(0, 0, 0, 0.18);
-}
-
-.visualSceneStage::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 82%);
-  opacity: 0.72;
-  pointer-events: none;
-}
-
-.visualSceneStage::after {
-  content: '';
-  position: absolute;
-  left: -30%;
-  right: -30%;
-  top: 16%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--workload-accent-2) 80%, #ffffff), transparent);
-  opacity: 0.72;
-  transform: rotate(-8deg);
-  pointer-events: none;
-}
-
-.visualScreenshotStage {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  min-height: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #ffffff;
 }
 
 .visualScreenshotShell {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3420 / 1904;
   width: 100%;
   min-height: 0;
   display: block;
   padding: 0;
-  border: 1px solid color-mix(in srgb, var(--workload-accent) 34%, rgba(255, 255, 255, 0.18));
-  border-radius: 8px;
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--workload-accent) 18%, #101827), #08111f 48%, color-mix(in srgb, var(--workload-accent-2) 16%, #111827)),
-    #08111f;
-  box-shadow:
-    0 28px 62px rgba(0, 0, 0, 0.28),
-    0 0 42px color-mix(in srgb, var(--workload-accent) 18%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border: 0;
+  border-radius: 10px;
+  background: #ffffff;
   cursor: zoom-in;
-}
-
-.visualScreenshotShell::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.2), transparent 38%),
-    radial-gradient(circle at 78% 18%, color-mix(in srgb, var(--workload-accent-2) 24%, transparent), transparent 34%);
-  pointer-events: none;
-}
-
-.visualScreenshotShell::after {
-  content: '';
-  position: absolute;
-  inset: 14px;
-  z-index: 1;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  pointer-events: none;
 }
 
 .visualScreenshotImage {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .visualScreenshotShell:focus-visible {
@@ -866,9 +751,12 @@
     grid-template-columns: minmax(330px, 0.9fr) minmax(430px, 1.1fr);
   }
 
-  .workloadLeft,
-  .workloadRight {
+  .workloadLeft {
     padding: 2rem;
+  }
+
+  .workloadRight {
+    padding: 0.75rem;
   }
 
   .workloadTabTitle {
@@ -961,8 +849,8 @@
 
   .workloadVisualPanel {
     height: auto;
-    min-height: 520px;
-    padding: 1rem;
+    min-height: 420px;
+    padding: 1rem 0;
     display: none;
   }
 
@@ -970,13 +858,8 @@
     display: flex;
   }
 
-  .visualSceneStage {
-    min-height: 500px;
-    padding: 1rem;
-  }
-
   .visualScreenshotShell {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3420 / 1904;
   }
 
   .visualScreenshotExpandCue {
