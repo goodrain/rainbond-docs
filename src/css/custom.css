@@ -269,19 +269,20 @@ div[class^='announcementBar_'] {
 
 /* Sidebar Badges */
 .sidebar-enterprise .menu__link::after {
-  content: 'Enterprise';
+  content: '企业版';
   display: inline-flex;
   align-items: center;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
-  line-height: 1;
-  padding: 2px 6px;
+  line-height: 1.1;
+  padding: 3px 7px;
   border-radius: 10px;
   margin-left: 8px;
   background-color: rgba(0, 102, 255, 0.1);
   color: #0066ff;
   border: 1px solid rgba(0, 102, 255, 0.2);
   letter-spacing: 0.2px;
+  white-space: nowrap;
 }
 
 [data-theme='dark'] .sidebar-enterprise .menu__link::after {
@@ -291,13 +292,13 @@ div[class^='announcementBar_'] {
 }
 
 .sidebar-community .menu__link::after {
-  content: 'Community';
+  content: '社区版';
   display: inline-flex;
   align-items: center;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
-  line-height: 1;
-  padding: 2px 6px;
+  line-height: 1.1;
+  padding: 3px 7px;
   border-radius: 10px;
   margin-left: 8px;
   background-color: rgba(40, 167, 69, 0.1);
@@ -322,17 +323,17 @@ div[class^='announcementBar_'] {
 .sidebar-community-enterprise .menu__link::after {
   display: inline-flex;
   align-items: center;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
-  line-height: 1;
-  padding: 2px 6px;
+  line-height: 1.1;
+  padding: 3px 7px;
   border-radius: 10px;
   letter-spacing: 0.2px;
   white-space: nowrap;
 }
 
 .sidebar-community-enterprise .menu__link::before {
-  content: 'Community';
+  content: '社区版';
   order: 1;
   margin-left: 8px;
   background-color: rgba(40, 167, 69, 0.1);
@@ -341,7 +342,7 @@ div[class^='announcementBar_'] {
 }
 
 .sidebar-community-enterprise .menu__link::after {
-  content: 'Enterprise';
+  content: '企业版';
   order: 2;
   margin-left: 4px;
   background-color: rgba(0, 102, 255, 0.1);
@@ -362,19 +363,20 @@ div[class^='announcementBar_'] {
 }
 
 .sidebar-opensource .menu__link::after {
-  content: 'Opensource';
+  content: '开源版';
   display: inline-flex;
   align-items: center;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
-  line-height: 1;
-  padding: 2px 6px;
+  line-height: 1.1;
+  padding: 3px 7px;
   border-radius: 10px;
   margin-left: 8px;
   background-color: rgba(40, 167, 69, 0.1);
   color: #28a745;
   border: 1px solid rgba(40, 167, 69, 0.2);
   letter-spacing: 0.2px;
+  white-space: nowrap;
 }
 
 [data-theme='dark'] .sidebar-opensource .menu__link::after {

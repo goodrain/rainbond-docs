@@ -298,6 +298,11 @@ const sidebars = {
       "items": [
         {
           type: 'doc',
+          id: 'plugins/vm',
+          className: 'sidebar-community',
+        },
+        {
+          type: 'doc',
           id: 'plugins/base',
           className: 'sidebar-enterprise',
         },
