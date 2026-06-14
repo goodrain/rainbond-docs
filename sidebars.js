@@ -136,22 +136,6 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '数据库部署',
-          link: {
-            type: 'doc',
-            id: 'how-to-guides/databases/intro',
-          },
-          items: [
-            'how-to-guides/databases/install',
-            'how-to-guides/databases/mysql',
-            'how-to-guides/databases/postgresql',
-            'how-to-guides/databases/redis',
-            'how-to-guides/databases/rabbitmq',
-            'how-to-guides/databases/ops',
-          ]
-        },
-        {
-          type: 'category',
           label: '应用运维',
           items: [
             'how-to-guides/app-ops/lifecycle',
@@ -299,6 +283,11 @@ const sidebars = {
         {
           type: 'doc',
           id: 'plugins/vm',
+          className: 'sidebar-community',
+        },
+        {
+          type: 'doc',
+          id: 'plugins/database',
           className: 'sidebar-community',
         },
         {
