@@ -10,6 +10,9 @@ keywords:
 - 在 RKE2 集群上安装 Rainbond
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## 概述
 
 本文将指引您在已有的 Kubernetes 集群中快速安装一套可用的 Rainbond 环境，支持自建集群、托管集群等。
@@ -43,7 +46,64 @@ helm repo add rainbond https://chart.rainbond.com
 helm repo update
 ```
 
-2. 执行以下安装命令。如需指定自定义的[values.yaml](../../ops-guides/configuration/vaules-config.md)文件，请使用 `-f` 参数。
+2. 在所有 Kubernetes 节点上配置 `goodrain.me` 镜像仓库。
+
+Rainbond 默认使用 `goodrain.me` 作为内置镜像仓库地址，安装前需要配置 Containerd 通过 HTTP 访问该仓库。请根据集群的 Containerd 配置方式，任选以下一种方式配置。
+
+<Tabs groupId="containerd-goodrain">
+  <TabItem value="config-toml" label="修改 config.toml" default>
+
+直接修改 `/etc/containerd/config.toml`。
+
+```toml title="/etc/containerd/config.toml"
+[plugins."io.containerd.grpc.v1.cri".registry.mirrors]
+  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."goodrain.me"]
+    endpoint = ["http://goodrain.me"]
+
+[plugins."io.containerd.grpc.v1.cri".registry.configs]
+  [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me"]
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."goodrain.me".auth]
+      username = "admin"
+      password = "admin1234"
+```
+
+```bash
+systemctl restart containerd
+```
+
+  </TabItem>
+  <TabItem value="certs-d" label="配置 certs.d">
+
+如果 `/etc/containerd/config.toml` 中已启用 `config_path`：
+
+```toml title="/etc/containerd/config.toml"
+[plugins."io.containerd.grpc.v1.cri".registry]
+  config_path = "/etc/containerd/certs.d"
+```
+
+请创建 `goodrain.me` 的 `hosts.toml`：
+
+```bash
+mkdir -p /etc/containerd/certs.d/goodrain.me
+cat > /etc/containerd/certs.d/goodrain.me/hosts.toml <<'EOF'
+server = "http://goodrain.me"
+
+[host."http://goodrain.me"]
+  capabilities = ["pull", "resolve", "push"]
+  [host."http://goodrain.me".auth]
+    username = "admin"
+    password = "admin1234"
+EOF
+```
+
+```bash
+systemctl restart containerd
+```
+
+  </TabItem>
+</Tabs>
+
+3. 执行以下安装命令。如需指定自定义的[values.yaml](../../ops-guides/configuration/vaules-config.md)文件，请使用 `-f` 参数。
 
 ```bash
 helm install rainbond rainbond/rainbond --create-namespace -n rbd-system 
@@ -61,7 +121,7 @@ kubectl get pod -n rbd-system
 Enter http://172.16.0.145:7070 in your browser to access Rainbond
 ```
 
-3. 执行安装命令后，使用上述 `kubectl` 命令查看安装进度。当所有 `Pod` 都处于 `1/1 Running` 状态且 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。
+4. 执行安装命令后，使用上述 `kubectl` 命令查看安装进度。当所有 `Pod` 都处于 `1/1 Running` 状态且 `rbd-app-ui` 的 Pod 为 Running 状态时即安装成功。
 
 <details>
 <summary>安装成功结果示例</summary>
@@ -84,11 +144,7 @@ rbd-worker-7db9f9cccc-s9wml               1/1     Running   0          5m22s
 
 </details>
 
-4. 通过终端打印的地址访问 Rainbond 控制台，如上例中的 `http://172.16.0.145:7070`。
-
-:::warning 注意
-默认使用 goodrain.me 镜像仓库，需要自行修改 [Containerd 私有镜像仓库](../troubleshooting/common#启动无法获取镜像-x509-certificate-signed-by-unknown-authority)配置。
-:::
+5. 通过终端打印的地址访问 Rainbond 控制台，如上例中的 `http://172.16.0.145:7070`。
 
 ## 下一步
 
