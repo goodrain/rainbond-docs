@@ -325,8 +325,8 @@ database:
 先在 `cluster.yaml` 的 `hosts` 和 `roleGroups` 中加入新节点，再显式指定要添加的节点名：
 
 ```bash
-./roi up -f cluster.yaml --add-nodes node4
-./roi up -f cluster.yaml --add-nodes node4,node5
+./roi up -f cluster.yaml --add-nodes node4 --mode offline
+./roi up -f cluster.yaml --add-nodes node4,node5 --mode offline
 ```
 
 ### 如何删除节点
@@ -334,14 +334,14 @@ database:
 先从 `roleGroups` 中移除目标节点（**保留** `hosts` 中的 SSH 信息，ROI 需要用它连接节点执行卸载），再显式指定要删除的节点名：
 
 ```bash
-./roi up -f cluster.yaml --prune-nodes node4
-./roi up -f cluster.yaml --prune-nodes node4,node5
+./roi up -f cluster.yaml --prune-nodes node4 --mode offline
+./roi up -f cluster.yaml --prune-nodes node4,node5 --mode offline
 ```
 
 ### 如何启用调试日志
 
 ```bash
-./roi up -f cluster.yaml -d
+./roi up -f cluster.yaml -d --mode offline
 ```
 
 ### 如何使用自己的分布式存储
@@ -351,7 +351,7 @@ database:
 1. 先执行如下命令安装 Kubernetes，该命令只会执行 `prepare` 和 `rke2` 阶段，不会安装 NFS、MySQL、Rainbond：
 
 ```bash
-./roi up -f cluster.yaml --stage rke2
+./roi up -f cluster.yaml --stage rke2 --mode offline
 ```
 
 2. 在 Kubernetes 集群上部署你的分布式存储，并确保它的 StorageClass 已经创建成功。记录下 StorageClass 的名称，后续安装 Rainbond 时需要用到。
@@ -369,8 +369,8 @@ storage:
 3. 继续执行如下命令安装 Rainbond：
 
 ```bash
-./roi up -f cluster.yaml --stage rainbond
-./roi up -f cluster.yaml --stage mysql,rainbond 
+./roi up -f cluster.yaml --stage rainbond --mode offline
+./roi up -f cluster.yaml --stage mysql,rainbond  --mode offline
 # 如果你也想使用 ROI 部署的 MySQL，可以同时执行 mysql 和 rainbond 阶段。mysql 阶段会自动使用 storage.existingStorageClass.name 指定的 StorageClass 来部署 MySQL 的持久化存储。
 ```
 
