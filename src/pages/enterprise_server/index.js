@@ -116,7 +116,7 @@ const comparisonSections = [
     rows: [
       { feature: 'AI 助手', sub: '控制台 AI 助手 (RainAgent)，全自动运维、部署、排障操作', community: '限制 1 人', enterprise: '不限制' },
       { feature: '国产化信创', sub: '支持国产CPU和操作系统', community: false, enterprise: true },
-      { feature: '基础功能扩展', sub: '应用备份、个性化视觉配置及审计日志等核心模块增强', community: false, enterprise: true },
+      { feature: '企业功能扩展', sub: '应用备份、个性化视觉配置及审计日志等核心模块增强', community: false, enterprise: true },
       { feature: '监控中心', sub: '集群与应用级全方位监控，集成指标采集、日志分析、链路追踪', community: false, enterprise: true },
       { feature: '告警中心', sub: '实时异常检测与智能告警，支持自定义阈值、多通道通知', community: false, enterprise: true },
       { feature: '日志中心', sub: '平台、组件级的日志分析与检索', community: false, enterprise: true },
