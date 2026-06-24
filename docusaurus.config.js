@@ -41,7 +41,7 @@ const config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: 'V6.9+(Latest)'
+              label: 'V6.9'
             }
           }
         },
@@ -301,9 +301,9 @@ const config = {
         additionalLanguages: ['bash'],
       },
       announcementBar: {
-        id: 'start',
+        id: 'archived-version',
         content:
-          '⭐️ If you like <a href="https://github.com/goodrain/rainbond">Rainbond</a>, give it a star on GitHub! ⭐️',
+          '此为 Rainbond 过时文档,现已不再积极维护.<a href="https://www.rainbond.com/docs/">请阅读 Rainbond 最新版本文档</a>。',
         isCloseable: false,
       }
     }),
