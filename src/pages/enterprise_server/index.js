@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
+import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import PageContainer from '@src/components/PageContainer';
 
@@ -114,16 +115,16 @@ const comparisonSections = [
   {
     category: '企业级功能扩展',
     rows: [
-      { feature: 'AI 助手', sub: '控制台 AI 助手 (RainAgent)，全自动运维、部署、排障操作', community: '限制 1 人', enterprise: '不限制' },
+      { feature: 'AI 助手', href: '/docs/ai/rainagent', sub: '控制台 AI 助手 (RainAgent)，全自动运维、部署、排障操作', community: '限制 1 人', enterprise: '不限制' },
       { feature: '国产化信创', sub: '支持国产CPU和操作系统', community: false, enterprise: true },
-      { feature: '企业功能扩展', sub: '应用备份、个性化视觉配置及审计日志等核心模块增强', community: false, enterprise: true },
-      { feature: '监控中心', sub: '集群与应用级全方位监控，集成指标采集、日志分析、链路追踪', community: false, enterprise: true },
-      { feature: '告警中心', sub: '实时异常检测与智能告警，支持自定义阈值、多通道通知', community: false, enterprise: true },
-      { feature: '日志中心', sub: '平台、组件级的日志分析与检索', community: false, enterprise: true },
-      { feature: 'GPU高级管理', sub: 'AI训练/推理加速、显存监控、多卡分配策略', community: false, enterprise: true },
-      { feature: '源码安全扫描', sub: '代码质量和安全检测', community: false, enterprise: true },
-      { feature: '灾备恢复', sub: '可视化备份策略配置和自动化恢复能力', community: false, enterprise: true },
-      { feature: '流水线', sub: '灰度发布、自动化编排', community: false, enterprise: true },
+      { feature: '企业功能扩展', href: '/docs/plugins/base', sub: '应用备份、个性化视觉配置及审计日志等核心模块增强', community: false, enterprise: true },
+      { feature: '监控中心', href: '/docs/plugins/monitor', sub: '集群与应用级全方位监控，集成指标采集、日志分析、链路追踪', community: false, enterprise: true },
+      { feature: '告警中心', href: '/docs/plugins/alert', sub: '实时异常检测与智能告警，支持自定义阈值、多通道通知', community: false, enterprise: true },
+      { feature: '日志中心', href: '/docs/plugins/logs', sub: '平台、组件级的日志分析与检索', community: false, enterprise: true },
+      { feature: 'GPU高级管理', href: '/docs/plugins/gpu', sub: 'AI训练/推理加速、显存监控、多卡分配策略', community: false, enterprise: true },
+      { feature: '源码安全扫描', href: '/docs/plugins/source-scan', sub: '代码质量和安全检测', community: false, enterprise: true },
+      { feature: '灾备恢复', href: '/docs/plugins/disaster-recovery', sub: '可视化备份策略配置和自动化恢复能力', community: false, enterprise: true },
+      { feature: '流水线', href: '/docs/plugins/pipeline', sub: '灰度发布、自动化编排', community: false, enterprise: true },
       { feature: '计量计费', sub: '账户充值、账单明细、价格计算器、用量明细', community: false, enterprise: true },
       { feature: '云原生应用商店', community: false, enterprise: true },
       { feature: '应用集成和展示门户', community: false, enterprise: true },
@@ -136,6 +137,18 @@ function CellValue({ value }) {
   if (value === true) return <CheckIcon />;
   if (value === false) return <DashIcon />;
   return <span className={styles.cellText}>{value}</span>;
+}
+
+function FeatureName({ row }) {
+  if (!row.href) {
+    return <span className={styles.featureName}>{row.feature}</span>;
+  }
+
+  return (
+    <Link to={row.href} className={`${styles.featureName} ${styles.featureLink}`}>
+      {row.feature}
+    </Link>
+  );
 }
 
 export default function Index() {
@@ -230,7 +243,7 @@ export default function Index() {
                 {section.rows.map((row) => (
                   <div key={row.feature} className={styles.tableRow}>
                     <div className={styles.tableFeature}>
-                      <span className={styles.featureName}>{row.feature}</span>
+                      <FeatureName row={row} />
                       {row.sub && <span className={styles.featureSub}>{row.sub}</span>}
                     </div>
                     <div className={styles.tableCell}>

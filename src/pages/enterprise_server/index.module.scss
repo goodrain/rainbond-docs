@@ -338,6 +338,21 @@
   font-weight: 400;
 }
 
+.featureLink {
+  width: fit-content;
+  max-width: 100%;
+  color: #2563eb;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.featureLink:hover {
+  color: #1d4ed8;
+  text-decoration: none;
+  border-bottom-color: currentColor;
+}
+
 .featureSub {
   font-size: 0.78rem;
   color: #94a3b8;
@@ -491,6 +506,14 @@
 
 [data-theme='dark'] .featureName {
   color: #cbd5e1;
+}
+
+[data-theme='dark'] .featureLink {
+  color: #93c5fd;
+}
+
+[data-theme='dark'] .featureLink:hover {
+  color: #bfdbfe;
 }
 
 [data-theme='dark'] .featureSub {
