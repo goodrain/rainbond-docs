@@ -12,6 +12,8 @@ keywords:
 - AI 编码部署
 ---
 
+import VideoDocCallout, { VideoDocCalloutGrid } from '@site/src/components/Docs/VideoDocCallout';
+
 # Rainbond AI 能力概览
 
 Rainbond 是不用懂 Kubernetes 的开源容器平台。它基于 Kubernetes，但屏蔽底层复杂度，帮助团队部署、运行、排障和交付业务应用、AI 应用。
@@ -27,6 +29,35 @@ Rainbond 的 AI 能力主要由三部分组成：
 它们共同解决一个问题：
 
 > 从 AI 写出代码，到应用上线运行，再到模型服务接入和异常排查，Rainbond 希望把这些环节接成一条完整链路。
+
+## 视频教程
+
+<VideoDocCalloutGrid>
+  <VideoDocCallout
+    layout="stacked"
+    title="RainAgent 安装使用"
+    description="在 Rainbond 控制台中安装 AI 助手，并通过对话完成部署、排错和验证。"
+    href="/videos/rainagent-install-use"
+    cover="/img/video/rainagent-install-use-cover.jpg"
+    coverAlt="RainAgent 安装使用视频封面"
+  />
+  <VideoDocCallout
+    layout="stacked"
+    title="RainSkills 安装使用"
+    description="把 Codex、Claude Code 等 AI 编码工具接入 Rainbond 部署闭环。"
+    href="/videos/rainskills-ai-deploy"
+    cover="/img/video/rainskills-ai-deploy-cover.jpg"
+    coverAlt="RainSkills 安装使用视频封面"
+  />
+  <VideoDocCallout
+    layout="stacked"
+    title="大模型安装使用"
+    description="在 Rainbond 中安装大模型能力，部署模型实例并开放 OpenAI 兼容接口。"
+    href="/videos/rainbond-llm-install-use"
+    cover="/img/video/rainbond-llm-install-use-cover.jpg"
+    coverAlt="大模型安装使用视频封面"
+  />
+</VideoDocCalloutGrid>
 
 ## 三类 AI 能力分别解决什么问题？
 

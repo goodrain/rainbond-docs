@@ -12,10 +12,19 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VideoDocCallout from '@site/src/components/Docs/VideoDocCallout';
 
 ## 概述
 
 本文将指引您在已有的 Kubernetes 集群中快速安装一套可用的 Rainbond 环境，支持自建集群、托管集群等。
+
+<VideoDocCallout
+  title="Helm 安装视频教程"
+  description="打开视频详情页，按照页面中的关键步骤在已有 Kubernetes 集群上完成 Helm 安装。"
+  href="/videos/helm-install"
+  cover="/img/video/helm-install-cover.jpg"
+  coverAlt="Helm 安装视频封面"
+/>
 
 :::tip 专属安装指南
 我们为部分主流的 Kubernetes 服务和发行版提供了专属的、更详细的安装指南。如果你的环境是其中之一，强烈建议你参考对应的文档：

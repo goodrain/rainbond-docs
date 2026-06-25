@@ -1,0 +1,122 @@
+.callout {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  margin: 1rem 0 1.35rem;
+  padding: 0.72rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.callout:hover,
+.callout:focus-visible {
+  border-color: rgba(51, 139, 255, 0.36);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(23, 32, 51, 0.08);
+  transform: translateY(-1px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 0.85rem 0 1.45rem;
+}
+
+.stacked {
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+  align-items: start;
+  margin: 0;
+}
+
+.coverWrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1f73ff;
+  box-shadow: 0 8px 18px rgba(23, 32, 51, 0.14);
+  transform: translate(-50%, -50%);
+}
+
+.play::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  content: "";
+  margin-left: 0.08rem;
+  border-top: 0.36rem solid transparent;
+  border-bottom: 0.36rem solid transparent;
+  border-left: 0.56rem solid currentColor;
+  transform: translate(-40%, -50%);
+}
+
+.content {
+  min-width: 0;
+  display: grid;
+  gap: 0.22rem;
+}
+
+.label {
+  width: fit-content;
+  color: var(--ifm-color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.title {
+  color: var(--ifm-heading-color);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.description {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .callout {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
