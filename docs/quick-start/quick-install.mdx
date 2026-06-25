@@ -27,29 +27,7 @@ import VideoDocCallout from '@site/src/components/Docs/VideoDocCallout';
 />
 
 ## 操作步骤
-<TrackedDetails summary="了解安装原理" section="quick_install_principle">
 
-**快速安装模式的工作原理**
-
-在快速安装模式下，Rainbond 采用了一种简化的架构设计：
-
-1. **单容器部署**：整个 Rainbond 平台被封装在一个 Docker 容器中，包含了所有必要的组件
-2. **内置 Kubernetes**：容器内部运行了一个轻量级的 Kubernetes 集群，你无需手动安装和配置
-
-**与传统部署方式的区别**
-
-| 特性 | 快速安装模式 | 生产环境部署 |
-|------|-------------|-------------|
-| **复杂度** | 一键安装，无需了解 K8s | 需要了解 K8s 或使用安装向导 |
-| **资源占用** | 轻量级，适合体验和测试 | 完整功能，适合生产环境 |
-| **扩展性** | 单机部署，单节点 | 集群部署，多节点 |
-| **适用场景** | 学习、测试、体验 | 生产环境、团队协作 |
-
-**快速安装相关名词**
-
-- **EIP（External IP）**：外部访问 IP（内网/公网IP），用于从外部访问 Rainbond 控制台和部署的应用
-
-</TrackedDetails>
 <Tabs groupId="install">
   <TabItem
     value="Linux"
