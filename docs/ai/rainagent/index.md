@@ -10,6 +10,8 @@ keywords:
 - 自然语言交互
 ---
 
+import VideoDocCallout from '@site/src/components/Docs/VideoDocCallout';
+
 # RainAgent (Rainbond AI 助手)
 
 ## 概述
@@ -17,6 +19,14 @@ keywords:
 RainAgent 是 Rainbond 平台内置的 AI 助手插件，面向应用部署，排错和运维场景，提供自然语言驱动的平台操作体验。用户可以通过对话描述目标，例如“帮我检查当前应用状态”“查看组件日志”“帮我部署这个项目”，RainAgent 会结合当前页面上下文、用户权限和 Rainbond MCP 工具，完成信息查询、问题分析和必要的运维操作。
 
 在开源版 Rainbond 中，RainAgent 仅开放给首个注册的企业管理员使用。企业版开放完整使用范围，让平台用户能够通过自然语言完成平台查询、排障分析、配置管理和交付验证等操作。
+
+<VideoDocCallout
+  title="RainAgent 安装使用视频教程"
+  description="打开视频详情页，按照页面中的关键步骤完成 AI 助手安装、模型配置、部署和排错。"
+  href="/videos/rainagent-install-use"
+  cover="/img/video/rainagent-install-use-cover.jpg"
+  coverAlt="RainAgent 安装使用视频封面"
+/>
 
 ## 功能对比
 

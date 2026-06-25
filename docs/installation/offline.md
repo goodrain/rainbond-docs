@@ -8,10 +8,19 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VideoDocCallout from '@site/src/components/Docs/VideoDocCallout';
 
 :::info 专题入口
 如果你不是只想照着命令安装，而是想先判断自己更适合“纯离线安装、离线交付、麒麟 V10 / ARM 部署”还是“信创迁移”，建议先进入 [离线 / 信创 / 国产化专题](/offline-and-xinchuang)。
 :::
+
+<VideoDocCallout
+  title="离线、信创安装视频教程"
+  description="打开视频详情页，按照页面中的关键步骤准备离线包并完成安装配置。"
+  href="/videos/offline-xinchuang-install"
+  cover="/img/video/offline-xinchuang-install-cover.jpg"
+  coverAlt="离线、信创安装视频封面"
+/>
 
 离线安装是指在没有任何外网访问权限的环境中安装 Rainbond 平台。相比在线安装，离线安装需要提前在有外网访问权限的环境中下载好 RKE2、Helm Chart 和 Rainbond 镜像等离线包，并将其传输到目标环境中进行安装。离线安装适用于以下场景：
 - 生产环境对安全要求较高，禁止直接访问互联网。

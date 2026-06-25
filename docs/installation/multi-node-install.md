@@ -9,8 +9,17 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VideoDocCallout from '@site/src/components/Docs/VideoDocCallout';
 
 基于主机安装集群是指在 Linux 裸机上使用 ROI 命令行工具安装 RKE2 Kubernetes 集群和 Rainbond 平台。相比基于 Kubernetes 的安装方式，基于主机的安装方式不依赖任何预先存在的 Kubernetes 集群，更适合在全新环境中部署 Rainbond。
+
+<VideoDocCallout
+  title="集群安装视频教程"
+  description="打开视频详情页，按照页面中的关键步骤完成多节点集群安装。"
+  href="/videos/cluster-install"
+  cover="/img/video/cluster-install-cover.jpg"
+  coverAlt="集群安装视频封面"
+/>
 
 ## 前提
 

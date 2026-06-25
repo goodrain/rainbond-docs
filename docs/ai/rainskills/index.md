@@ -13,11 +13,21 @@ keywords:
 - MCP
 ---
 
+import VideoDocCallout from '@site/src/components/Docs/VideoDocCallout';
+
 # RainSkills（Rainbond  AI 工作流技能）
 
 ## 概述
 
 RainSkills 是一组面向 Rainbond 平台的开源 AI 工作流技能，用于增强 Codex、Claude Code 等 AI 编程助手在 Rainbond 场景下的部署，排障和运维能力。安装后，用户可以用自然语言描述目标，例如“帮我把当前项目部署到 Rainbond”“排查这个应用为什么没有运行起来”“给当前应用创建一个快照”，AI 助手会结合本地项目文件、Rainbond MCP 工具和当前平台状态，完成上下文识别、部署编排、运行排障、交付验证和版本操作。
+
+<VideoDocCallout
+  title="RainSkills 安装使用视频教程"
+  description="打开视频详情页，按照页面中的关键步骤完成 RainSkills 安装、AI 工具接入和一句话部署。"
+  href="/videos/rainskills-ai-deploy"
+  cover="/img/video/rainskills-ai-deploy-cover.jpg"
+  coverAlt="RainSkills 安装使用视频封面"
+/>
 
 ## 核心能力
 
