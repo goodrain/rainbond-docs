@@ -207,7 +207,7 @@ registry:
   # Rainbond 平台使用的外部镜像仓库。
   external:
     enabled: false
-    domain: registry.com      # 镜像仓库地址，需所有节点可访问
+    domain: registry.com      # 镜像仓库地址，需所有节点可访问，如果是 HTTP 协议，请在 domain 后加端口号。例如 registry.com:80
     namespace: rainbond       # 镜像仓库命名空间
     username: username        # 镜像仓库用户名
     password: password        # 镜像仓库密码
