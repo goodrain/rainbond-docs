@@ -316,32 +316,60 @@ curl http://demo.example.com/
 - 插件按添加顺序执行
 
 <details>
+<summary><b>limit-req</b></summary>
+
+使用漏桶算法限制单个客户端对服务的请求速率。
+
+**配置参数**
+
+| 字段 | 参数 | 必填 | 类型 | 说明 | 示例值 |
+|------|----------|------|------|------|--------|
+| 请求速率 | `rate` | 是 | 数字 | 指定每秒请求速率。超过 `rate` 但未超过 `rate + burst` 的请求会被延时处理。 | 10 |
+| 突发请求数 | `burst` | 是 | 数字 | 请求速率超过 `rate + burst` 后会被直接拒绝。 | 20 |
+| 限流 Key 类型 | `key_type` | 否 | 下拉选择 | 限流 Key 的类型。 | `var` |
+| 限流 Key | `key` | 否 | 下拉选择 | 用来区分限流对象的依据。 | `remote_addr` |
+| 拒绝状态码 | `rejected_code` | 否 | 数字 | 请求超过阈值被拒绝时返回的 HTTP 状态码。 | 503 |
+| 拒绝响应内容 | `rejected_msg` | 否 | 字符串 | 请求超过阈值被拒绝时返回的响应体。 | 请求过于频繁 |
+| 不延迟处理 | `nodelay` | 否 | 开关 | 开启后，超过 `rate` 但未超过 `rate + burst` 的请求不会被延迟处理。 | 关闭 |
+| 允许降级放行 | `allow_degradation` | 否 | 开关 | 限速插件临时不可用时，是否允许请求继续访问。 | 关闭 |
+
+**限流 Key 可选值**
+
+- `remote_addr`：客户端 IP 地址
+- `server_addr`：服务端 IP 地址
+- `http_x_real_ip`：`X-Real-IP` 请求头
+- `http_x_forwarded_for`：`X-Forwarded-For` 请求头
+- `consumer_name`：Consumer 的用户名
+
+</details>
+
+<details>
 <summary><b>limit-count</b></summary>
 
 基于固定时间窗口的请求计数限流，可以限制指定时间内的请求数量。
 
 **配置参数**
 
-| 参数名称 | 必填 | 类型 | 说明 | 示例值 |
-|---------|------|------|------|--------|
-| count | 是 | 数字 | 时间窗口内允许的请求数量 | 100 |
-| time_window | 是 | 数字 | 时间窗口大小（秒） | 60 |
-| key_type | 是 | 下拉选择 | 限流粒度类型 | var（变量） |
-| key | 是 | 字符串 | 限流键，根据此值区分不同的限流对象 | remote_addr（客户端IP） |
-| rejected_code | 是 | 数字 | 超过限流后返回的 HTTP 状态码 | 503 |
-| rejected_msg | 否 | 字符串 | 超过限流后返回的错误消息 | "请求过于频繁，请稍后再试" |
-| policy | 是 | 下拉选择 | 限流策略 | local（本地限流） |
-| show_limit_quota_header | 否 | 开关 | 是否在响应头中显示限流配额信息 | 开启/关闭 |
+| 字段 | 参数 | 必填 | 类型 | 说明 | 示例值 |
+|------|----------|------|------|------|--------|
+| 请求次数上限 | `count` | 是 | 数字 | 时间窗口内允许的最大请求数量。 | 100 |
+| 时间窗口 | `time_window` | 是 | 数字 | 计数时间窗口，单位为秒。超过该时间后重新开始计数。 | 60 |
+| 计数 Key 类型 | `key_type` | 否 | 下拉选择 | 计数 Key 的类型。 | `var` |
+| 计数 Key | `key` | 否 | 字符串 | 用来区分计数对象的依据。为空时默认使用 `remote_addr`。 | `remote_addr` |
+| 拒绝状态码 | `rejected_code` | 否 | 数字 | 请求超过阈值被拒绝时返回的 HTTP 状态码。 | 503 |
+| 拒绝响应内容 | `rejected_msg` | 否 | 字符串 | 请求超过阈值被拒绝时返回的响应体。 | 请求过于频繁 |
+| 计数策略 | `policy` | 否 | 下拉选择 | 计数器存储策略。当前表单支持本地计数。 | `local` |
+| 显示限额响应头 | `show_limit_quota_header` | 否 | 开关 | 开启后在响应头中显示 `X-RateLimit-Limit` 和 `X-RateLimit-Remaining`。 | 开启 |
 
-**key_type 可选值**
+**计数 Key 类型可选值**
 
-- `var`：使用 Nginx 变量，如 `remote_addr`（客户端IP）、`http_x_forwarded_for`（代理IP）
+- `var`：使用 Nginx 变量，如 `remote_addr`、`http_x_forwarded_for`
+- `var_combination`：使用变量组合，如 `$remote_addr $consumer_name`
 - `constant`：使用常量值，对所有请求统一限流
 
-**policy 可选值**
+**计数策略可选值**
 
 - `local`：本地限流，仅在当前网关节点生效
-- `redis`：分布式限流，需要配置 Redis（适用于多网关节点场景）
 
 </details>
 
@@ -352,22 +380,22 @@ curl http://demo.example.com/
 
 **配置参数**
 
-| 参数名称 | 必填 | 类型 | 说明 | 示例值 |
-|---------|------|------|------|--------|
-| conn | 是 | 数字 | 允许的最大并发连接数 | 10 |
-| burst | 否 | 数字 | 允许的突发连接数（超出 conn 但可以排队的数量） | 5 |
-| default_conn_delay | 否 | 数字 | 默认的连接延迟时间（秒） | 1 |
-| only_use_default_delay | 否 | 开关 | 是否只使用默认延迟 | 关闭 |
-| key_type | 是 | 下拉选择 | 限流粒度类型 | var |
-| key | 是 | 字符串 | 限流键 | remote_addr |
-| rejected_code | 是 | 数字 | 超过限制后返回的 HTTP 状态码 | 503 |
-| rejected_msg | 否 | 字符串 | 超过限制后返回的错误消息 | "连接数过多" |
-| allow_degradation | 否 | 开关 | 是否允许降级（当限流失败时放行请求） | 关闭 |
+| 字段 | 参数 | 必填 | 类型 | 说明 | 示例值 |
+|------|----------|------|------|------|--------|
+| 最大并发数 | `conn` | 是 | 数字 | 允许的最大并发请求数。超过 `conn` 但低于 `conn + burst` 的请求会被延迟处理。 | 10 |
+| 突发并发数 | `burst` | 是 | 数字 | 超过 `conn + burst` 的请求会被直接拒绝。 | 5 |
+| 默认延迟时间 | `default_conn_delay` | 是 | 数字 | 默认的连接或请求处理延迟时间，单位为秒。 | 1 |
+| 仅使用默认延迟 | `only_use_default_delay` | 否 | 开关 | 开启后严格按照 `default_conn_delay` 进行延迟处理。 | 关闭 |
+| 限流 Key 类型 | `key_type` | 否 | 下拉选择 | 限流 Key 的类型。 | `var` |
+| 限流 Key | `key` | 否 | 字符串 | 用来区分限流对象的依据。 | `remote_addr` |
+| 拒绝状态码 | `rejected_code` | 否 | 数字 | 请求超过阈值被拒绝时返回的 HTTP 状态码。 | 503 |
+| 拒绝响应内容 | `rejected_msg` | 否 | 字符串 | 请求超过阈值被拒绝时返回的响应体。 | 连接数过多 |
+| 允许降级放行 | `allow_degradation` | 否 | 开关 | 限速插件临时不可用时，是否允许请求继续访问。 | 关闭 |
 
-**key_type 可选值**
+**限流 Key 类型可选值**
 
-- `var`：使用 Nginx 变量，如 `remote_addr`（客户端IP）、`http_x_forwarded_for`（代理IP）
-- `constant`：使用常量值，对所有连接统一限制
+- `var`：使用 Nginx 变量，如 `remote_addr`、`http_x_forwarded_for`
+- `var_combination`：使用变量组合
 
 </details>
 
@@ -378,18 +406,18 @@ curl http://demo.example.com/
 
 **配置参数**
 
-| 参数名称 | 必填 | 类型 | 说明 | 示例值 |
-|---------|------|------|------|--------|
-| uri | 否 | 字符串 | 重写后的 URI | /new/path |
-| method | 否 | 下拉选择 | 重写后的请求方法 | GET/POST/PUT/DELETE |
-| regex_uri | 否 | 字符串数组 | 使用正则表达式重写 URI | ["^/api/v1/(.*)", "/$1"] |
-| host | 否 | 字符串 | 重写后的 Host 头 | backend.example.com |
-| headers.add | 否 | 键值对 | 添加请求头 | X-Custom-Header: value |
-| headers.set | 否 | 键值对 | 设置（覆盖）请求头 | X-Real-IP: $remote_addr |
-| headers.remove | 否 | 字符串数组 | 删除请求头 | ["X-Forwarded-For"] |
-| use_real_request_uri_unsafe | 否 | 开关 | 使用原始请求 URI（不安全） | 关闭 |
+| 字段 | 参数 | 必填 | 类型 | 说明 | 示例值 |
+|------|----------|------|------|------|--------|
+| 目标 URI | `uri` | 否 | 字符串 | 转发到上游的新 URI，支持 NGINX 变量。 | `/new/path` |
+| 请求方法 | `method` | 否 | 下拉选择 | 将路由请求代理为指定请求方法。 | `GET` |
+| 正则 URI 重写 | `regex_uri` | 否 | 字符串数组 | 使用正则表达式匹配客户端 URI，并替换为上游 URI。 | `["^/api/v1/(.*)", "/$1"]` |
+| 目标 Host | `host` | 否 | 字符串 | 转发到上游的新 Host。 | `backend.example.com` |
+| 追加请求头 | `headers.add` | 否 | 键值对 | 添加新的请求头；如果请求头已存在，则追加到末尾。 | `{"X-Custom-Header":"value"}` |
+| 设置请求头 | `headers.set` | 否 | 键值对 | 设置或覆盖请求头。 | `{"X-Real-IP":"$remote_addr"}` |
+| 移除请求头 | `headers.remove` | 否 | 字符串数组 | 删除指定请求头。 | `["X-Forwarded-For"]` |
+| 使用原始请求 URI | `use_real_request_uri_unsafe` | 否 | 开关 | 使用 NGINX 原始 `$request_uri`，会绕过 URI 规范化，仅在明确需要时开启。 | 关闭 |
 
-**method 可选值**
+**请求方法可选值**
 
 - GET
 - POST
@@ -409,16 +437,16 @@ curl http://demo.example.com/
 
 **配置参数**
 
-| 参数名称 | 必填 | 类型 | 说明 | 示例值 |
-|---------|------|------|------|--------|
-| allow_origins | 是 | 字符串 | 允许的源（Origin），`*` 表示允许所有 | * 或 https://example.com |
-| allow_methods | 是 | 字符串 | 允许的 HTTP 方法 | * 或 GET,POST,PUT |
-| allow_headers | 是 | 字符串 | 允许的请求头 | * 或 Content-Type,Authorization |
-| expose_headers | 否 | 字符串 | 暴露给客户端的响应头 | X-Custom-Header |
-| max_age | 否 | 数字 | 预检请求的缓存时间（秒） | 5 |
-| allow_credentials | 否 | 开关 | 是否允许发送凭证（Cookie） | 关闭 |
-| allow_origins_by_regex | 否 | 字符串数组 | 使用正则表达式匹配允许的源 | ["https://.*\\.example\\.com"] |
-| allow_origins_by_metadata | 否 | 字符串数组 | 基于元数据匹配允许的源 | - |
+| 字段 | 参数 | 必填 | 类型 | 说明 | 示例值 |
+|------|----------|------|------|------|--------|
+| 允许来源 | `allow_origins` | 否 | 字符串 | 允许跨域访问的源，多个源用逗号分隔。 | `*` 或 `https://example.com` |
+| 允许方法 | `allow_methods` | 否 | 字符串 | 允许跨域的请求方法，多个方法用逗号分隔。 | `GET,POST,PUT` |
+| 允许请求头 | `allow_headers` | 否 | 字符串 | 允许跨域请求中携带的请求头，多个请求头用逗号分隔。 | `Content-Type,Authorization` |
+| 暴露响应头 | `expose_headers` | 否 | 字符串 | 允许浏览器读取的响应头，多个响应头用逗号分隔。 | `X-Custom-Header` |
+| 预检缓存时间 | `max_age` | 否 | 数字 | 预检请求结果缓存时间，单位为秒。设置为 `-1` 可禁用缓存。 | 5 |
+| 允许携带凭据 | `allow_credentials` | 否 | 开关 | 是否允许请求携带 Cookie 等凭据。开启后其他 CORS 字段不能使用 `*` 允许所有值。 | 关闭 |
+| 来源正则匹配 | `allow_origins_by_regex` | 否 | 字符串数组 | 使用正则表达式匹配允许跨域访问的源。 | `[".*\\.example\\.com$"]` |
+| 来源元数据引用 | `allow_origins_by_metadata` | 否 | 字符串数组 | 从插件元数据中引用允许跨域访问的源。 | `["EXAMPLE"]` |
 
 </details>
 
@@ -429,13 +457,13 @@ curl http://demo.example.com/
 
 **配置参数**
 
-| 参数名称 | 必填 | 类型 | 说明 | 示例值 |
-|---------|------|------|------|--------|
-| source | 是 | 字符串 | IP 来源字段名 | arg_realip 或 http_x_forwarded_for |
-| trusted_addresses | 否 | 字符串数组 | 受信任的代理服务器地址列表（CIDR 格式） | ["10.0.0.0/8", "192.168.0.0/16"] |
-| recursive | 否 | 开关 | 是否递归查找真实 IP | 关闭 |
+| 字段 | 参数 | 必填 | 类型 | 说明 | 示例值 |
+|------|----------|------|------|------|--------|
+| 真实 IP 来源 | `source` | 是 | 字符串 | 从 APISIX 视角动态设置客户端 IP 地址、端口或主机名。 | `http_x_forwarded_for` |
+| 可信地址 | `trusted_addresses` | 否 | 字符串数组 | 受信任的代理服务器地址列表。 | `["10.0.0.0/8", "192.168.0.0/16"]` |
+| 递归查找 | `recursive` | 否 | 开关 | 开启后从可信代理链中递归查找最后一个非受信任地址。 | 关闭 |
 
-**source 可选值**
+**真实 IP 来源常用值**
 
 | 值 | 说明 | 使用场景 |
 |----|------|----------|
@@ -456,9 +484,9 @@ curl http://demo.example.com/
 
 **配置参数**
 
-| 参数名称 | 必填 | 类型 | 说明 | 示例值 |
-|---------|------|------|------|--------|
-| max_body_size | 是 | 数字 | 最大请求体大小（MB），0 表示不限制 | 10 |
+| 字段 | 参数 | 必填 | 类型 | 说明 | 示例值 |
+|------|----------|------|------|------|--------|
+| 最大请求体大小 | `max_body_size` | 否 | 数字 | 客户端请求体最大上限，单位为字节。设置为 `0` 时不检查请求体大小。 | 10485760 |
 
 </details>
 
@@ -469,16 +497,16 @@ curl http://demo.example.com/
 
 **配置参数**
 
-| 参数名称 | 必填 | 类型 | 说明 | 示例值 |
-|---------|------|------|------|--------|
-| http_to_https | 否 | 开关 | 是否将 HTTP 请求自动重定向到 HTTPS | 关闭 |
-| uri | 否 | 字符串 | 重定向的目标 URI | https://www.example.com |
-| regex_uri | 否 | 字符串数组 | 使用正则表达式匹配并重定向 | ["^/old/(.*)", "/new/$1"] |
-| ret_code | 否 | 数字 | 重定向的 HTTP 状态码 | 302 |
-| encode_uri | 否 | 开关 | 是否对重定向 URI 进行 URL 编码 | 关闭 |
-| append_query_string | 否 | 开关 | 是否将原始查询字符串附加到重定向 URI | 关闭 |
+| 字段 | 参数 | 必填 | 类型 | 说明 | 示例值 |
+|------|----------|------|------|------|--------|
+| HTTP 转 HTTPS | `http_to_https` | 否 | 开关 | 请求为 HTTP 时，使用 301 状态码重定向到相同 URI 的 HTTPS 地址。 | 关闭 |
+| 重定向 URI | `uri` | 否 | 字符串 | 要重定向到的 URI，可包含 NGINX 变量。 | `https://www.example.com` |
+| 正则重定向 URI | `regex_uri` | 否 | 字符串数组 | 使用正则表达式匹配客户端 URL 并重定向。 | `["^/old/(.*)", "/new/$1"]` |
+| 重定向状态码 | `ret_code` | 否 | 数字 | HTTP 重定向响应状态码。 | 302 |
+| 编码 URI | `encode_uri` | 否 | 开关 | 开启后，`Location` 响应头中的 URI 会按照 RFC 3986 编码。 | 关闭 |
+| 附加查询参数 | `append_query_string` | 否 | 开关 | 开启后，将原始请求中的查询字符串附加到 `Location` 响应头。 | 关闭 |
 
-**ret_code 可选值**
+**重定向状态码可选值**
 
 | 状态码 | 名称 | 说明 | 使用场景 |
 |--------|------|------|----------|
@@ -486,6 +514,79 @@ curl http://demo.example.com/
 | 302 | Found | 临时重定向（默认值），不会被缓存 | 临时跳转、测试环境 |
 | 307 | Temporary Redirect | 临时重定向，保持请求方法不变 | POST 请求临时跳转 |
 | 308 | Permanent Redirect | 永久重定向，保持请求方法不变 | POST 请求永久跳转 |
+
+</details>
+
+<details>
+<summary><b>jwt-auth</b></summary>
+
+使用 JSON Web Token（JWT）作为客户端访问上游资源前的认证机制。
+
+**配置参数**
+
+| 字段 | 参数 | 必填 | 类型 | 说明 | 示例值 |
+|------|----------|------|------|------|--------|
+| 请求头 | `header` | 否 | 字符串 | 从指定请求头读取 JWT。 | `authorization` |
+| 查询参数 | `query` | 否 | 字符串 | 从指定 URL 查询参数读取 JWT。 | `jwt` |
+| Cookie 名称 | `cookie` | 否 | 字符串 | 从指定 Cookie 读取 JWT。 | `jwt` |
+| 隐藏凭据 | `hide_credentials` | 否 | 开关 | 开启后，转发到上游前会移除客户端请求中携带的 JWT 凭据。 | 关闭 |
+| 校验 Claims | `claims_to_verify` | 否 | 多选 | 需要校验的 JWT claims，常用为 `exp` 和 `nbf`。 | `["exp", "nbf"]` |
+| 匿名消费者 | `anonymous_consumer` | 否 | 字符串 | JWT 缺失或校验失败时使用的匿名 Consumer 名称。留空时认证失败会直接拒绝请求。 | `anonymous` |
+| 存入上下文 | `store_in_ctx` | 否 | 开关 | 开启后，APISIX 会将认证结果存入上下文，便于后续插件读取。 | 关闭 |
+| 认证域 | `realm` | 否 | 字符串 | 认证失败时 `WWW-Authenticate` 响应头中的 realm 值。 | `jwt` |
+| Key Claim | `key_claim_name` | 否 | 字符串 | 用于匹配 Consumer key 的 JWT claim 名称。 | `key` |
+| 高级配置 | `extra_config` | 否 | JSON 对象 | 直接合并到插件配置中的高级 JSON 配置，适合填写当前表单未覆盖的 APISIX 插件字段。 | `{"cache_segment":"team-a"}` |
+
+</details>
+
+<details>
+<summary><b>openid-connect</b></summary>
+
+接入 OpenID Connect 身份提供商，完成认证、令牌校验和用户信息透传。
+
+**配置参数**
+
+| 字段 | 参数 | 必填 | 类型 | 说明 | 示例值 |
+|------|----------|------|------|------|--------|
+| 客户端 ID | `client_id` | 是 | 字符串 | 身份提供商分配的 OpenID Connect 客户端 ID。 | `rainbond` |
+| 客户端密钥 | `client_secret` | 是 | 密码 | 身份提供商分配的 OpenID Connect 客户端密钥。请勿在公开环境中泄露该值。 | `<client_secret>` |
+| 发现地址 | `discovery` | 是 | 字符串 | 身份提供商的 discovery 地址，通常以 `/.well-known/openid-configuration` 结尾。 | `https://idp.example.com/.well-known/openid-configuration` |
+| 授权范围 | `scope` | 否 | 字符串 | 请求的 OAuth/OIDC scope，多个 scope 用空格分隔。 | `openid profile email` |
+| 仅 Bearer Token | `bearer_only` | 否 | 开关 | 开启后仅校验请求中的 Bearer Token，不会发起浏览器重定向登录流程。 | 关闭 |
+| 回调地址 | `redirect_uri` | 否 | 字符串 | 授权码流程的回调地址，需要和身份提供商客户端配置保持一致。 | `https://app.example.com/callback` |
+| 认证域 | `realm` | 否 | 字符串 | 认证失败时 `WWW-Authenticate` 响应头中的 realm 值。 | `apisix` |
+| 登出路径 | `logout_path` | 否 | 字符串 | 触发登出的路径。 | `/logout` |
+| 登出后跳转 | `post_logout_redirect_uri` | 否 | 字符串 | 登出完成后跳转的地址。 | `https://app.example.com` |
+| 校验证书 | `ssl_verify` | 否 | 开关 | 是否校验身份提供商 HTTPS 证书，生产环境建议保持开启。 | 开启 |
+| 超时时间 | `timeout` | 否 | 数字 | 访问身份提供商接口的超时时间，单位为秒。 | 3 |
+| Token 校验端点 | `introspection_endpoint` | 否 | 字符串 | Token introspection 端点，用于向身份提供商校验 access token。 | `https://idp.example.com/oauth2/introspect` |
+| 校验端点认证方式 | `introspection_endpoint_auth_method` | 否 | 下拉选择 | 调用 introspection endpoint 时使用的客户端认证方式。 | `client_secret_basic` |
+| Token 端点认证方式 | `token_endpoint_auth_method` | 否 | 下拉选择 | 调用 token endpoint 时使用的客户端认证方式。 | `client_secret_basic` |
+| 公钥 | `public_key` | 否 | 文本 | 用于校验 JWT 签名的公钥。不使用 JWKS 或 discovery 自动获取密钥时可填写。 | `<public_key>` |
+| 使用 JWKS | `use_jwks` | 否 | 开关 | 开启后从 JWKS 端点获取公钥校验 token。 | 关闭 |
+| 使用 PKCE | `use_pkce` | 否 | 开关 | 开启授权码流程中的 PKCE 校验，需要身份提供商客户端同步开启。 | 关闭 |
+| Token 签名算法 | `token_signing_alg_values_expected` | 否 | 字符串 | 期望的 token 签名算法，留空时使用身份提供商返回的配置。 | `RS256` |
+| 透传 Access Token | `set_access_token_header` | 否 | 开关 | 开启后，将 access token 透传到上游请求头。 | 开启 |
+| 放入 Authorization | `access_token_in_authorization_header` | 否 | 开关 | 开启后，将 access token 放入 `Authorization` 请求头透传到上游。 | 关闭 |
+| 透传 ID Token | `set_id_token_header` | 否 | 开关 | 开启后，将 ID token 透传到上游请求头。 | 开启 |
+| 透传用户信息 | `set_userinfo_header` | 否 | 开关 | 开启后，将用户信息透传到上游请求头。 | 开启 |
+| 透传 Refresh Token | `set_refresh_token_header` | 否 | 开关 | 开启后，将 refresh token 透传到上游请求头。仅在确有需要时开启。 | 关闭 |
+| 会话密钥 | `session.secret` | 否 | 密码 | 用于加密浏览器会话 Cookie 的密钥，授权码流程或 standalone 模式通常需要显式配置。 | `<session_secret>` |
+| 未认证处理 | `unauth_action` | 否 | 下拉选择 | 未认证请求的处理方式。 | `auth` |
+| 高级配置 | `extra_config` | 否 | JSON 对象 | 直接合并到插件配置中的高级 JSON 配置，适合填写当前表单未覆盖的 APISIX 插件字段。 | `{"cache_segment":"team-a"}` |
+
+**认证方式可选值**
+
+- `client_secret_basic`：Basic 认证
+- `client_secret_post`：表单提交密钥
+- `private_key_jwt`：私钥 JWT
+- `client_secret_jwt`：密钥 JWT
+
+**未认证处理可选值**
+
+- `auth`：发起认证
+- `deny`：拒绝请求
+- `pass`：放行请求
 
 </details>
 

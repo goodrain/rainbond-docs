@@ -144,6 +144,7 @@ const sidebars = {
             'how-to-guides/app-ops/environment',
             'how-to-guides/app-ops/dependon',
             'how-to-guides/app-ops/component-logs',
+            'how-to-guides/app-ops/web-terminal',
             'how-to-guides/app-ops/storage',
             'how-to-guides/app-ops/app-sidecar',
             'how-to-guides/app-ops/k8s-attribute',
