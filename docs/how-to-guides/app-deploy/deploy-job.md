@@ -1,49 +1,87 @@
---- 
-title: 部署 Job CronJob 类型组件
-description: 本文讲述部署Job、CronJob类型组件的要点，适用于开发者和运维人员。
+---
+title: 部署特殊类型组件
+description: 介绍如何在 Rainbond 中部署 Job、CronJob 和 DaemonSet 类型组件。
+keywords:
+- Job
+- CronJob
+- DaemonSet
+- 守护进程组件
 ---
 
-### 概述
+## 概述
 
-任务主要包含两种：
+Rainbond 支持在创建组件时选择不同的部署类型。除常见的无状态服务和有状态服务外，还支持 Job、CronJob 和 DaemonSet 等特殊类型组件。
 
-- Job负责批处理任务，即仅执行一次的任务，它保证批处理任务的一个或多个Pod成功结束.
-- CronJob是管理调度job，周期性的创建job去执行任务.
+这些类型适合以下场景：
 
-详细信息参考k8s官方文档
-- Job  https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/job/
-- CronJob  https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/cron-jobs/
+| 部署类型 | 适用场景 |
+| --- | --- |
+| Job | 一次性批处理任务，任务完成后容器退出 |
+| CronJob | 定时任务，按 Cron 表达式周期性创建 Job |
+| DaemonSet | 守护进程组件，在每个符合条件的节点上运行一个实例 |
 
-### 使用流程
+详细信息可参考 Kubernetes 官方文档：
 
-在创建组件的时候，可以在高级设置中选择job、cronjob类型.
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/ComponentType.png" title="高级设置"/>
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/CreatJob.png" title="设置job"/>
+- [Job](https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/job/)
+- [CronJob](https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/cron-jobs/)
+- [DaemonSet](https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/daemonset/)
 
-如果选择cronjob，需要填写调度策略
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/CreatCronJob.png" title="设置cronjob"/>
+## 创建时选择组件类型
 
-创建成功开始执行任务，待job任务执行完毕时，标识已完成.
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/JobRuning.png" title="job任务运行"/>
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/JobOK.png" title="job任务完成"/>
+创建组件时，在 **基础信息设置** 中可以修改组件类型。根据业务场景选择对应类型：
 
-job任务执行完成，可点击重启按钮，重新执行该任务，也可以点击关闭任务.
+| 组件类型 | 页面说明 | 适用场景 |
+| --- | --- | --- |
+| 任务(Job类型) | 部署为任务(Job类型),一般用于一次性任务,完成后容器就退出。 | 数据初始化、一次性脚本、离线批处理 |
+| 周期性任务(Cronjob类型) | 部署为周期性任务(Cronjob类型),一般用于处理周期性的、需反复执行的定时任务。 | 定时同步、定时报表、定时清理 |
+| 守护进程组件(DaemonSet类型) | 部署为守护进程组件(DaemonSet类型),一般用于每个节点都需要运行的日志、监控、节点代理类组件。 | 日志采集、节点监控、节点代理 |
 
-在组件其他设置中可修改部署类型和任务策略.
+创建完成后，如果需要修改组件部署类型，进入组件的 **高级 -> 设置 -> 其他设置**，在组件部署类型中调整。
 
-#### 部署类型
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/ChangeType.png" title="组件部署类型"/>
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/DeploymentType.png" title="修改组件部署类型"/>
+## 部署 Job 组件
 
-#### 任务策略
+Job 适合运行一次性任务，例如数据初始化、离线批处理、一次性脚本执行等。创建组件时，在 **基础信息设置** 中将组件类型修改为 **部署为任务(Job类型),一般用于一次性任务,完成后容器就退出。**
 
-- 如果是cronjob类型，定时配置必填，如 `*/1 * * * *` 一分钟执行一次.
-- 最大重试次数：如果任务失败，默认失败认定重启次数为6，可以通过配置调整失败重启次数.
-- 并行任务数：能够同时运行的Pod数，如设置3个，则有3个任务同时创建并执行.
-- 最大运行时间：如果Job运行的时间超过了设定的秒数，那么此Job就自动停止运行所有的Pod.
-- 完成数：完成该Job需要执行成功的Pod数.
+Job 任务执行完成后，可以点击重启按钮重新执行该任务，也可以点击关闭任务。
 
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/TaskStrategy.png" title="任务策略编辑"/>
+## 部署 CronJob 组件
 
-#### cronjob任务状态展示
-<img src="https://static.goodrain.com/docs/5.8/docs/use-manual/component-manage/other/CronJob.png" title="cronjob任务执行"/>
+CronJob 适合运行周期性任务，例如定时同步、定时报表、定时清理等。创建组件时，在 **基础信息设置** 中将组件类型修改为 **部署为周期性任务(Cronjob类型),一般用于处理周期性的、需反复执行的定时任务。**
+
+常见任务策略包括：
+
+- 定时配置：CronJob 类型必填，例如 `*/1 * * * *` 表示每分钟执行一次
+- 最大重试次数：任务失败后的重试次数
+- 并行任务数：允许同时运行的 Pod 数量
+- 最大运行时间：任务运行超过指定秒数后停止
+- 完成数：完成该 Job 需要成功结束的 Pod 数量
+
+CronJob 任务状态可在组件页面查看。
+
+## 部署 DaemonSet 组件
+
+DaemonSet 在 Rainbond 中显示为 **守护进程组件(DaemonSet类型)**。它会在每个符合调度条件的节点上运行一个组件实例，适合部署节点级服务。
+
+常见使用场景包括：
+
+- 日志采集 Agent
+- 节点监控 Agent
+- 网络或存储节点代理
+- 每个节点都需要运行的系统辅助服务
+
+创建方式：
+
+1. 创建组件时进入 **基础信息设置**。
+2. 部署类型选择 **守护进程组件(DaemonSet类型)**。
+3. 根据需要配置镜像、环境变量、存储和 Kubernetes 高级属性。
+4. 创建组件并等待实例调度完成。
+
+DaemonSet 的实例数量由集群节点和调度条件决定，不适合像普通无状态组件一样手动设置固定副本数。如果需要限制运行节点，可通过 Kubernetes 高级属性配置 `nodeSelector`、`affinity` 或 `tolerations`。
+
+:::caution 注意
+DaemonSet 类型暂不支持与其他组件部署类型在线互相切换。若需要从普通组件改为 DaemonSet，建议重新创建组件，并在变更前确认业务访问、存储和节点调度策略。
+:::
+
+## 修改部署类型和任务策略
+
+创建组件后，可以进入组件的 **高级 -> 设置 -> 其他设置** 查看和修改组件部署类型、任务策略等配置。修改后需要按页面提示更新组件，使配置生效。
