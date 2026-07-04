@@ -149,7 +149,7 @@ systemctl restart rke2-agent
 
 1. 编辑配置：
 ```bash
-kubectl edit cm goodrainme -n rbd-system
+kubectl edit cm goodrain-me -n rbd-system
 ```
 
 2. 添加镜像加速配置：
