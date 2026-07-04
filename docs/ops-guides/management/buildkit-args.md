@@ -81,7 +81,7 @@ systemctl restart rke2-agent
 1. 首先执行一次源码构建（无论成功与否），以生成配置文件
 2. 编辑 BuildKit 配置：
 ```bash
-kubectl edit cm goodrain.me -n rbd-system
+kubectl edit cm goodrain-me -n rbd-system
 ```
 
 3. 添加私有仓库配置：
@@ -149,7 +149,7 @@ systemctl restart rke2-agent
 
 1. 编辑配置：
 ```bash
-kubectl edit cm goodrain.me -n rbd-system
+kubectl edit cm goodrain-me -n rbd-system
 ```
 
 2. 添加镜像加速配置：
