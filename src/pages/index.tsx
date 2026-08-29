@@ -2,6 +2,7 @@ import React from 'react';
 import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
 import Hero from '@src/components/HomePage/Hero';
+import WhyRainbond from '@src/components/HomePage/WhyRainbond';
 import ChoosePath from '@src/components/HomePage/ChoosePath';
 import Demo from '@src/components/HomePage/Demo';
 import Users from '@src/components/HomePage/Users';
@@ -41,10 +42,11 @@ export default function Home() {
           <GridDecoration />
           <Hero />
         </Section>
+        <WhyRainbond />
+        <Demo />
         <Section>
           <ChoosePath />
         </Section>
-        <Demo />
         <Section>
           <Users />
         </Section>
