@@ -19,14 +19,14 @@ const homeSource = read('src/pages/index.tsx');
 const demoSource = read('src/components/HomePage/Demo/index.tsx');
 const demoStyles = read('src/components/HomePage/Demo/styles.module.css');
 
-test('home places core video demo after path cards and before user proof', () => {
+test('home places core video demo before path cards and user proof', () => {
   assert.ok(
-    homeSource.indexOf('<ChoosePath />') < homeSource.indexOf('<Demo />'),
-    'Expected ChoosePath to render before Demo.'
+    homeSource.indexOf('<Demo />') < homeSource.indexOf('<ChoosePath />'),
+    'Expected Demo to render before ChoosePath.'
   );
   assert.ok(
-    homeSource.indexOf('<Demo />') < homeSource.indexOf('<Users />'),
-    'Expected Demo to render before Users after removing the intervening marketing sections.'
+    homeSource.indexOf('<ChoosePath />') < homeSource.indexOf('<Users />'),
+    'Expected ChoosePath to render directly before Users.'
   );
 });
 
@@ -42,13 +42,13 @@ test('core demo uses the five latest feature videos', () => {
   });
 });
 
-test('core demo uses RainAgent headline and description', () => {
-  assert.ok(demoSource.includes('让 AI 替你部署、排错、运维'));
-  assert.ok(demoSource.includes('只用自然语言描述需求，RainAgent 会自动查状态、读日志、定位问题，并在你确认后执行操作。'));
+test('core demo explains that AI operations remain visible and controlled', () => {
+  assert.ok(demoSource.includes('让 AI 操作，也能看得见、控得住'));
+  assert.ok(demoSource.includes('部署、排错和运维过程实时呈现在控制台，涉及变更时由你确认后执行。'));
 });
 
 test('core demo places heading inside the split background title container', () => {
-  assert.ok(/<div className=\{styles\.mid\}>[\s\S]*<div className=\{styles\.titleWrapper\}>[\s\S]*让 AI 替你部署、排错、运维/.test(demoSource));
+  assert.ok(/<div className=\{styles\.mid\}>[\s\S]*<div className=\{styles\.titleWrapper\}>[\s\S]*让 AI 操作，也能看得见、控得住/.test(demoSource));
   assert.ok(/\.titleWrapper\s*\{/.test(demoStyles), 'Expected titleWrapper styles for header layout.');
 });
 

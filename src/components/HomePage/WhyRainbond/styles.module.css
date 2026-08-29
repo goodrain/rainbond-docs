@@ -1,0 +1,336 @@
+.section {
+  --why-rainbond-text: #111827;
+  --why-rainbond-muted: #667085;
+  --why-rainbond-surface: #ffffff;
+  --why-rainbond-border: #e5e9f0;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color, #eaebee);
+  background:
+    radial-gradient(circle at 82% 56%, rgba(37, 99, 235, 0.045), transparent 28%),
+    var(--ifm-background-color, #ffffff);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-max-width, 1380px);
+  margin: 0 auto;
+  padding: clamp(5rem, 7vw, 7rem) 3.5rem clamp(4.5rem, 6.5vw, 6.5rem);
+}
+
+.header {
+  max-width: 790px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 0.85rem;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+}
+
+.title {
+  margin: 0;
+  color: var(--why-rainbond-text);
+  font-family: var(--font-family-base);
+  font-size: clamp(2.1rem, 3.5vw, 2.75rem);
+  font-weight: 750;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+
+.subtitle {
+  max-width: 650px;
+  margin: 1rem auto 0;
+  color: var(--why-rainbond-muted);
+  font-size: 16px;
+  line-height: 1.72;
+  text-wrap: balance;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.46fr) minmax(0, 0.54fr);
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 5.75rem);
+  max-width: 1180px;
+  margin: clamp(3.75rem, 6vw, 5.25rem) auto 0;
+}
+
+.message {
+  min-width: 0;
+}
+
+.claim {
+  margin: 0;
+  color: var(--why-rainbond-text);
+  font-family: var(--font-family-base);
+  font-size: clamp(1.65rem, 2.5vw, 2.15rem);
+  font-weight: 720;
+  line-height: 1.42;
+  letter-spacing: -0.025em;
+}
+
+.highlight {
+  color: #2563eb;
+}
+
+.benefitList {
+  display: grid;
+  gap: 1.35rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefitItem {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: start;
+  gap: 0.8rem;
+}
+
+.benefitIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #eef4ff;
+  color: #2563eb;
+}
+
+.benefitTitle {
+  margin: 0.05rem 0 0.25rem;
+  color: var(--why-rainbond-text);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.benefitDescription {
+  margin: 0;
+  color: var(--why-rainbond-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.visual {
+  position: relative;
+  min-width: 0;
+  min-height: 430px;
+}
+
+.visualCard {
+  position: absolute;
+  box-sizing: border-box;
+  min-height: 108px;
+  padding: 1.1rem 1.15rem 1rem;
+  border: 1px solid var(--why-rainbond-border);
+  border-radius: 16px;
+  background: var(--why-rainbond-surface);
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.1);
+}
+
+.codeCard {
+  top: 12px;
+  left: 1%;
+  width: clamp(330px, 66%, 410px);
+}
+
+.databaseCard {
+  top: 116px;
+  right: 0;
+  width: clamp(345px, 72%, 445px);
+  z-index: 1;
+}
+
+.platformCard {
+  top: 286px;
+  left: 9%;
+  width: clamp(340px, 68%, 420px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.cardIcon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #111827;
+  color: #ffffff;
+}
+
+.cardTitle {
+  min-width: 0;
+  margin: 0;
+  color: var(--why-rainbond-text);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.status {
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 0.33rem 0.56rem;
+  border-radius: 7px;
+  background: #fff0f0;
+  color: #a21717;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.database .cardIcon {
+  background: #7555e8;
+}
+
+.platform .cardIcon {
+  background: #16a269;
+}
+
+.platform .status {
+  background: #e9f8ef;
+  color: #176b3a;
+}
+
+.cardLines {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+}
+
+.cardLines span {
+  display: block;
+  width: 78%;
+  height: 6px;
+  border-radius: 999px;
+  background: #edf0f5;
+}
+
+.cardLines span:nth-child(2) {
+  width: 91%;
+}
+
+.cardLines span:nth-child(3) {
+  width: 63%;
+}
+
+:global([data-theme='dark']) .section {
+  --why-rainbond-text: #f4f6fa;
+  --why-rainbond-muted: #aab3c2;
+  --why-rainbond-surface: #171b24;
+  --why-rainbond-border: #303747;
+}
+
+:global([data-theme='dark']) .benefitIcon {
+  background: rgba(37, 99, 235, 0.18);
+  color: #8db7ff;
+}
+
+:global([data-theme='dark']) .cardLines span {
+  background: #2b3240;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
+  .contentGrid {
+    gap: 2.5rem;
+  }
+
+  .codeCard,
+  .databaseCard,
+  .platformCard {
+    max-width: calc(100% - 1rem);
+  }
+}
+
+@media (max-width: 959px) {
+  .container {
+    padding: 4.5rem 2rem;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 700px;
+  }
+
+  .message {
+    max-width: 620px;
+  }
+
+  .visual {
+    display: grid;
+    gap: 1rem;
+    min-height: 0;
+  }
+
+  .visualCard {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 3.75rem 1rem 4rem;
+  }
+
+  .header {
+    text-align: left;
+  }
+
+  .title {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .contentGrid {
+    margin-top: 3rem;
+  }
+
+  .claim {
+    font-size: 1.55rem;
+  }
+
+  .benefitDescription {
+    font-size: 14px;
+  }
+
+  .visualCard {
+    min-height: 104px;
+    padding: 1rem;
+  }
+
+  .cardTitle {
+    white-space: normal;
+  }
+}

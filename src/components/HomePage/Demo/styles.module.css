@@ -316,7 +316,6 @@
 }
 
 .workloadStory {
-  --workload-story-count: 4;
   width: 100%;
   position: relative;
   background:
@@ -334,7 +333,7 @@
   min-height: auto;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
   gap: clamp(1.4rem, 2.6vw, 2.5rem);
   padding: 0 var(--workload-x-padding) var(--workload-bottom-padding);
   overflow: hidden;
@@ -399,322 +398,251 @@
   text-shadow: none;
 }
 
-.workloadFusionStage {
-  --workload-stage-height: clamp(500px, 40vw, 620px);
+.workloadArchitecture {
   position: relative;
-  height: var(--workload-stage-height);
-  min-height: 0;
+  display: grid;
+  gap: clamp(1rem, 1.8vw, 1.4rem);
+  padding: clamp(1rem, 2.2vw, 1.75rem);
+  border: 1px solid #dce6f2;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(238, 246, 255, 0.94) 0%, rgba(248, 251, 255, 0.98) 48%, rgba(232, 240, 249, 0.94) 100%);
+  box-shadow: 0 22px 60px rgba(15, 68, 130, 0.08);
   overflow: hidden;
-  display: grid;
-  grid-template-columns: minmax(250px, 300px) minmax(0, 1fr);
-  gap: clamp(1.2rem, 2vw, 2rem);
-  align-items: stretch;
-  padding: clamp(1rem, 1.6vw, 1.4rem);
-  border-radius: 22px;
-  background:
-    linear-gradient(135deg, rgba(238, 246, 255, 0.94) 0%, rgba(244, 248, 252, 0.86) 46%, rgba(232, 240, 249, 0.94) 100%);
 }
 
-.workloadTimeline {
-  position: relative;
-  z-index: 2;
+.architectureLayer {
   min-width: 0;
-  height: 100%;
   display: grid;
-  grid-template-rows: repeat(var(--workload-story-count), minmax(0, 1fr));
-  gap: clamp(0.38rem, 0.75vw, 0.62rem);
-  align-content: stretch;
+  gap: 0.65rem;
 }
 
-.workloadTimelineItem {
-  position: relative;
-  width: 100%;
-  min-height: 0;
+.architectureLayerLabel {
+  color: #66758a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.workloadGrid,
+.runtimeGrid,
+.platformTags,
+.architectureBenefits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workloadGrid {
   display: grid;
-  grid-template-columns: 40px minmax(0, 1fr);
-  gap: 0.75rem;
-  align-items: center;
-  padding: clamp(0.64rem, 0.85vw, 0.82rem);
-  border: 0;
-  border-radius: 14px;
-  background: transparent;
-  color: #64748b;
-  text-align: left;
-  cursor: pointer;
-  overflow: hidden;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.85rem;
 }
 
-.workloadTimelineItem:hover {
-  background: rgba(255, 255, 255, 0.52);
-  color: #334155;
-}
-
-.workloadTimelineItem:focus-visible {
-  outline: 3px solid rgba(0, 102, 255, 0.24);
-  outline-offset: 2px;
-}
-
-.workloadTimelineItemActive {
-  background: rgba(255, 255, 255, 0.82);
-  color: #111827;
-  box-shadow: 0 10px 26px rgba(15, 111, 255, 0.08);
-  transform: none;
-}
-
-.workloadTimelineMarker {
-  width: 28px;
-  height: 28px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  justify-self: center;
-  border: 2px solid #b8c5d6;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #98a2b3;
-  font-size: 0;
-  font-weight: 800;
-}
-
-.workloadTimelineItemActive .workloadTimelineMarker {
-  border-color: #0f6fff;
-  background: #0f6fff;
-  color: #ffffff;
-  font-size: 11px;
-}
-
-.workloadTimelineContent {
+.workloadCard {
   min-width: 0;
+  min-height: 138px;
   display: flex;
   flex-direction: column;
-  gap: 0.36rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid #dce5f0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.045);
 }
 
-.workloadTimelineTitle {
+.workloadCardIcon {
+  width: 38px;
+  height: 38px;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  color: currentColor;
-  font-size: clamp(1rem, 1.08vw, 1.14rem);
-  line-height: 1.2;
-  font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.workloadTimelineTitle svg {
-  width: 18px;
-  height: 18px;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+  border-radius: 11px;
+  background: #e7f0ff;
   color: #0f6fff;
-  stroke-width: 2.2;
 }
 
-.workloadTimelineDescription {
-  color: #536275;
-  font-size: 15px;
-  line-height: 1.5;
-  font-weight: 500;
-  overflow: visible;
-}
-
-.workloadMediaViewport {
-  position: relative;
-  min-width: 0;
-  height: 100%;
-  min-height: 0;
-  width: 100%;
-  display: block;
-  padding: 0;
-  border: 0;
-  border-radius: 22px;
-  background: transparent;
-  cursor: zoom-in;
-  box-shadow: none;
-  overflow: hidden;
-}
-
-.workloadMediaViewport:focus-visible {
-  outline: 3px solid rgba(15, 111, 255, 0.38);
-  outline-offset: 4px;
-}
-
-.workloadViewportMedia {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain;
-  border-radius: inherit;
-  background: transparent;
-  pointer-events: none;
-  transition:
-    opacity 0.26s ease,
-    transform 0.3s ease;
-}
-
-.workloadViewportMediaActive {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.workloadViewportMediaHidden {
-  opacity: 0;
-  transform: translateY(18px);
-}
-
-.workloadViewportProgress {
-  position: absolute;
-  left: 50%;
-  bottom: 14px;
-  z-index: 3;
-  width: min(34%, 320px);
-  height: 4px;
-  display: block;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: rgba(148, 163, 184, 0.52);
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-}
-
-.workloadViewportProgress span {
-  width: calc(100% / var(--workload-story-count));
-  height: 100%;
-  display: block;
-  border-radius: inherit;
-  background: #0f6fff;
-  transition: transform 0.3s ease;
-}
-
-.workloadMediaExpandCue {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  z-index: 2;
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
-  background: rgba(2, 6, 23, 0.62);
-  color: #ffffff;
-  opacity: 0;
-  transform: translateY(6px) scale(0.96);
-  transition:
-    opacity 0.18s ease,
-    transform 0.18s ease,
-    background 0.18s ease;
-  backdrop-filter: blur(10px);
-}
-
-.workloadMediaExpandCue svg {
-  width: 18px;
-  height: 18px;
-  stroke-width: 2.2;
-}
-
-.workloadMediaViewport:hover .workloadMediaExpandCue,
-.workloadMediaViewport:focus-visible .workloadMediaExpandCue {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  background: rgba(15, 23, 42, 0.78);
-}
-
-.workloadPreviewOverlay {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(1rem, 4vw, 3rem);
-  background:
-    radial-gradient(circle at 50% 14%, rgba(59, 130, 246, 0.2), transparent 32%),
-    rgba(2, 6, 23, 0.82);
-  backdrop-filter: blur(14px);
-}
-
-.workloadPreviewDialog {
-  position: relative;
-  max-width: min(1180px, 94vw);
-  max-height: 86vh;
-  display: flex;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 10px;
-  background: #020617;
-  box-shadow:
-    0 32px 110px rgba(0, 0, 0, 0.48),
-    0 0 72px rgba(59, 130, 246, 0.18);
-}
-
-.workloadPreviewMedia {
-  width: 100%;
-  height: auto;
-  max-height: 86vh;
-  display: block;
-  object-fit: contain;
-  border-radius: 10px;
-}
-
-.workloadPreviewClose {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 2;
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
-  background: rgba(2, 6, 23, 0.68);
-  color: #ffffff;
-  cursor: pointer;
-  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.32);
-  backdrop-filter: blur(12px);
-  transition:
-    background 0.18s ease,
-    transform 0.18s ease;
-}
-
-.workloadPreviewClose:hover,
-.workloadPreviewClose:focus-visible {
-  background: rgba(15, 23, 42, 0.86);
-  transform: scale(1.04);
-}
-
-.workloadPreviewClose:focus-visible {
-  outline: 3px solid rgba(147, 197, 253, 0.9);
-  outline-offset: 3px;
-}
-
-.workloadPreviewClose svg {
+.workloadCardIcon svg {
   width: 20px;
   height: 20px;
-  stroke-width: 2.3;
+  stroke-width: 2;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .workloadTimelineItem,
-  .workloadViewportMedia,
-  .workloadViewportProgress span {
-    transition: none;
-  }
+.workloadCard strong {
+  color: #152033;
+  font-size: 15px;
+  line-height: 1.35;
+}
 
-  .workloadMediaExpandCue,
-  .workloadPreviewClose {
-    transition: none;
-  }
+.workloadCardDetails {
+  display: grid;
+  gap: 0.15rem;
+  margin-top: 0.48rem;
+  color: #66758a;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.platformBand {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.15rem 1.35rem;
+  border: 1px solid rgba(123, 178, 255, 0.72);
+  border-radius: 17px;
+  background: linear-gradient(135deg, #0f6fff 0%, #2f7cff 55%, #245fd1 100%);
+  color: #ffffff;
+  box-shadow: 0 16px 38px rgba(15, 111, 255, 0.23);
+}
+
+.platformIdentity {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.platformIcon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.platformIcon svg {
+  width: 23px;
+  height: 23px;
+  stroke-width: 2;
+}
+
+.platformCopy {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+}
+
+.platformCopy strong {
+  font-size: clamp(1.02rem, 1.45vw, 1.25rem);
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.platformCopy span {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+.platformTags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.platformTags li {
+  padding: 0.42rem 0.62rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.runtimeGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.runtimeCard {
+  min-width: 0;
+  min-height: 86px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem;
+  border: 1px solid #dce5f0;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #35445a;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.runtimeCard svg {
+  width: 20px;
+  height: 20px;
+  color: #59708e;
+  stroke-width: 1.9;
+}
+
+.architectureBenefits {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem 2rem;
+  padding-top: 0.1rem;
+}
+
+.architectureBenefits li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  color: #5a6b80;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.architectureBenefits svg {
+  width: 16px;
+  height: 16px;
+  color: #16a36a;
+  stroke-width: 2.4;
+}
+
+:global([data-theme='dark']) .workloadStory {
+  background: #0f172a;
+  border-color: #263247;
+}
+
+:global([data-theme='dark']) .workloadArchitecture {
+  border-color: #334155;
+  background: linear-gradient(135deg, rgba(20, 35, 59, 0.98) 0%, rgba(17, 29, 49, 0.98) 50%, rgba(23, 41, 65, 0.98) 100%);
+}
+
+:global([data-theme='dark']) .workloadCard,
+:global([data-theme='dark']) .runtimeCard {
+  border-color: #334155;
+  background: rgba(24, 38, 60, 0.9);
+}
+
+:global([data-theme='dark']) .workloadCard strong,
+:global([data-theme='dark']) .runtimeCard {
+  color: #f1f5f9;
+}
+
+:global([data-theme='dark']) .workloadCardDetails,
+:global([data-theme='dark']) .architectureLayerLabel,
+:global([data-theme='dark']) .architectureBenefits li {
+  color: #a9b7c9;
 }
 
 @media (max-width: 768px) {
@@ -794,38 +722,21 @@
     --workload-bottom-padding: 2rem;
   }
 
-  .workloadFusionStage {
-    grid-template-columns: minmax(250px, 300px) minmax(0, 1fr);
-    gap: 1rem;
+  .platformBand {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
-  .workloadTimelineItem {
-    min-height: 86px;
-    padding: 0.8rem;
+  .platformTags {
+    justify-content: flex-start;
   }
-
-  .workloadTimelineTitle {
-    font-size: 1.08rem;
-  }
-
 }
 
 @media (max-width: 900px) {
-  .workloadStory {
-    min-height: auto;
-  }
-
   .workloadSticky {
-    position: relative;
-    top: auto;
-    min-height: auto;
-    display: grid;
-    grid-template-rows: auto auto;
     gap: 1.3rem;
     --workload-x-padding: 1rem;
     --workload-bottom-padding: 2rem;
-    border-left: 0;
-    border-right: 0;
   }
 
   .workloadHeaderShell {
@@ -840,69 +751,61 @@
     font-size: 15px;
   }
 
-  .workloadFusionStage {
-    height: auto;
-    min-height: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0.9rem;
+  .workloadArchitecture {
+    padding: 1rem;
     border-radius: 18px;
-    overflow: visible;
   }
 
-  .workloadTimeline {
-    height: auto;
-    grid-template-rows: none;
-    align-content: start;
+  .workloadGrid,
+  .runtimeGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .workloadTimelineItem {
+  .platformCopy {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.24rem;
+  }
+
+  .platformCopy strong,
+  .platformCopy span {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 560px) {
+  .workloadGrid,
+  .runtimeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .workloadCard {
     min-height: auto;
-    grid-template-columns: 38px minmax(0, 1fr);
-    padding: 0.9rem;
   }
 
-  .workloadTimelineItemActive {
-    transform: none;
+  .platformBand {
+    gap: 1rem;
+    padding: 1rem;
   }
 
-  .workloadTimelineMarker {
-    width: 24px;
-    height: 24px;
+  .platformIdentity {
+    align-items: flex-start;
   }
 
-  .workloadTimelineTitle {
-    font-size: 1.05rem;
+  .platformTags {
+    width: 100%;
   }
 
-  .workloadTimelineDescription {
-    font-size: 15px;
+  .architectureBenefits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+    justify-items: start;
   }
+}
 
-  .workloadMediaViewport {
-    height: auto;
-    aspect-ratio: 16 / 9;
-    min-height: 220px;
-  }
-
-  .workloadMediaExpandCue {
-    right: 10px;
-    bottom: 10px;
-    width: 36px;
-    height: 36px;
-    opacity: 1;
-    transform: none;
-  }
-
-  .workloadPreviewOverlay {
-    padding: 0.75rem;
-  }
-
-  .workloadPreviewClose {
-    top: 10px;
-    right: 10px;
-    width: 36px;
-    height: 36px;
+@media (max-width: 360px) {
+  .architectureBenefits {
+    grid-template-columns: 1fr;
   }
 }

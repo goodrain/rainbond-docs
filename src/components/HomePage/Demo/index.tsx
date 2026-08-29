@@ -3,14 +3,20 @@ import Head from '@docusaurus/Head';
 import {
   AppWindow,
   BrainCircuit,
+  Boxes,
+  Building2,
   CheckCircle2,
+  Check,
+  Cloud,
+  Code2,
   Database,
   GitBranch,
-  Maximize2,
+  Layers3,
   Scaling,
+  Server,
   ServerCog,
+  WifiOff,
   Wrench,
-  X,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './styles.module.css';
@@ -66,55 +72,60 @@ const getNextVideoKey = (key: DemoTabKey) => {
   return videoKeys[(currentIndex + 1) % videoKeys.length];
 };
 
-const workloadStories = [
+const workloadGroups = [
   {
-    key: 'business',
-    title: '业务应用',
-    description: '源码、镜像、Compose、Helm、YAML 都能部署。',
-    icon: AppWindow,
-    accent: '#0f6fff',
-    accent2: '#5bd6ff',
-    surface: '#eaf3ff',
-    media: {
-      videoSrc: 'https://grstatic.tos-cn-beijing.volces.com/mp4/工作负载/业务应用.mp4',
-    },
+    key: 'ai-generated',
+    title: 'AI 生成项目',
+    details: ['Codex · Claude Code', '本地代码仓库'],
+    icon: Code2,
   },
   {
-    key: 'ai',
-    title: 'AI / 大模型',
-    description: '把 AI 应用和模型服务部署进企业内网。',
+    key: 'ai-open-source',
+    title: 'AI 开源应用',
+    details: ['Dify · RAGFlow · MaxKB', '100+ 一键部署应用'],
+    icon: Boxes,
+  },
+  {
+    key: 'model-inference',
+    title: '模型与推理',
+    details: ['大模型 · Embedding', 'OpenAI 兼容 API'],
     icon: BrainCircuit,
-    accent: '#12a594',
-    accent2: '#8b5cf6',
-    surface: '#e8f7f4',
-    media: {
-      videoSrc: 'https://grstatic.tos-cn-beijing.volces.com/mp4/工作负载/AI大模型.mp4',
-    },
+  },
+  {
+    key: 'business',
+    title: '业务系统',
+    details: ['前端 · API · 中间件', '数据库 · 定时任务'],
+    icon: AppWindow,
   },
   {
     key: 'middleware',
     title: '生产级中间件',
-    description: '数据库、缓存、消息队列不再散落各处。',
+    details: ['MySQL · Redis', 'Kafka · RabbitMQ'],
     icon: Database,
-    accent: '#2563eb',
-    accent2: '#22c55e',
-    surface: '#eef6ff',
-    media: {
-      videoSrc: 'https://grstatic.tos-cn-beijing.volces.com/mp4/工作负载/数据库.mp4',
-    },
   },
   {
-    key: 'virtual-machine',
-    title: '虚拟机类工作负载',
-    description: '承接暂时无法容器化的存量系统。',
+    key: 'virtual-machines',
+    title: '虚拟机',
+    details: ['Linux · Windows · qcow2', '存量系统统一纳管'],
     icon: ServerCog,
-    accent: '#64748b',
-    accent2: '#0ea5e9',
-    surface: '#eef2f7',
-    media: {
-      videoSrc: 'https://grstatic.tos-cn-beijing.volces.com/mp4/工作负载/部署虚拟机.mp4',
-    },
   },
+] as const;
+
+const platformCapabilities = ['RainSkills', 'RainAgent', '应用模型', '应用市场'] as const;
+
+const runtimeTargets = [
+  { title: '公有云', icon: Cloud },
+  { title: '私有云', icon: Building2 },
+  { title: 'Kubernetes', icon: Boxes },
+  { title: '物理服务器', icon: Server },
+  { title: '离线环境', icon: WifiOff },
+] as const;
+
+const architectureBenefits = [
+  '代码与数据归你',
+  '支持离线部署',
+  '不锁定云厂商',
+  '支持信创环境',
 ] as const;
 
 type IdleWindow = Window & {
@@ -122,220 +133,88 @@ type IdleWindow = Window & {
   cancelIdleCallback?: (handle: number) => void;
 };
 
-type WorkloadStyle = React.CSSProperties & {
-  '--workload-story-count'?: number;
-  '--workload-accent'?: string;
-  '--workload-accent-2'?: string;
-  '--workload-surface'?: string;
-};
-
 function WorkloadStory() {
-  const workloadVideoRefs = useRef<Array<HTMLVideoElement | null>>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [previewIndex, setPreviewIndex] = useState<number | null>(null);
-
-  const handleWorkloadSelect = useCallback((index: number) => {
-    setActiveIndex(index);
-  }, []);
-
-  const handleWorkloadVideoEnded = useCallback((index: number) => {
-    if (previewIndex !== null) {
-      return;
-    }
-
-    setActiveIndex(currentIndex => {
-      if (currentIndex !== index) {
-        return currentIndex;
-      }
-
-      return (currentIndex + 1) % workloadStories.length;
-    });
-  }, [previewIndex]);
-
-  const closePreview = useCallback(() => {
-    setPreviewIndex(null);
-  }, []);
-
-  useEffect(() => {
-    workloadVideoRefs.current.forEach((video, index) => {
-      if (!video) {
-        return;
-      }
-
-      if (index === activeIndex && previewIndex === null) {
-        try {
-          video.currentTime = 0;
-        } catch (error) {
-          console.warn('Reset workload video progress failed:', error);
-        }
-
-        video.play().catch(err => console.log('Workload video autoplay prevented:', err));
-        return;
-      }
-
-      video.pause();
-      try {
-        video.currentTime = 0;
-      } catch (error) {
-        console.warn('Reset hidden workload video failed:', error);
-      }
-    });
-  }, [activeIndex, previewIndex]);
-
-  useEffect(() => {
-    if (previewIndex === null || typeof window === 'undefined') {
-      return undefined;
-    }
-
-    const previousOverflow = document.body.style.overflow;
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        closePreview();
-      }
-    };
-
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [closePreview, previewIndex]);
-
-  const activeStory = workloadStories[activeIndex];
-  const previewStory = previewIndex === null ? null : workloadStories[previewIndex];
-  const storyStyle: WorkloadStyle = {
-    '--workload-story-count': workloadStories.length,
-  };
-
   return (
     <section
       className={styles.workloadStory}
-      style={storyStyle}
       aria-labelledby="workload-story-title"
     >
       <div className={styles.workloadSticky}>
         <div className={styles.workloadHeaderShell}>
           <img className={styles.workloadHeaderPattern} src="/img/split-bg.png" alt="" />
           <div className={styles.workloadSliceHeader}>
-            <h4 id="workload-story-title" className={styles.workloadTitle}>
-              企业常见工作负载统一交付
-            </h4>
+            <h2 id="workload-story-title" className={styles.workloadTitle}>
+              把整套 AI 应用栈，运行在自己的环境。
+            </h2>
             <p className={styles.workloadLead}>
-              从业务应用、AI 应用到存量虚拟机，统一进入 Rainbond 的交付和运维链路。
+              不只是部署一个模型。AI 生成项目、开源应用、模型、业务系统、生产级中间件和虚拟机，都由 Rainbond 统一运行和管理。
             </p>
           </div>
         </div>
 
-        <div className={styles.workloadFusionStage}>
-          <div className={styles.workloadTimeline} aria-label="工作负载来源">
-            {workloadStories.map((story, index) => {
-              const Icon = story.icon;
-              const isActive = index === activeIndex;
+        <div className={styles.workloadArchitecture} aria-label="Rainbond 应用运行架构">
+          <div className={styles.architectureLayer}>
+            <span className={styles.architectureLayerLabel}>工作负载</span>
+            <ul className={styles.workloadGrid} aria-label="工作负载">
+              {workloadGroups.map(group => {
+                const Icon = group.icon;
 
-              return (
-                <button
-                  key={story.key}
-                  type="button"
-                  className={`${styles.workloadTimelineItem} ${isActive ? styles.workloadTimelineItemActive : ''}`}
-                  onClick={() => handleWorkloadSelect(index)}
-                  aria-current={isActive}
-                >
-                  <span className={styles.workloadTimelineMarker} aria-hidden="true">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span className={styles.workloadTimelineContent}>
-                    <span className={styles.workloadTimelineTitle}>
-                      <Icon aria-hidden="true" />
-                      {story.title}
+                return (
+                  <li key={group.key} className={styles.workloadCard}>
+                    <span className={styles.workloadCardIcon} aria-hidden="true">
+                      <Icon />
                     </span>
-                    <span className={styles.workloadTimelineDescription}>{story.description}</span>
-                  </span>
-                </button>
-              );
-            })}
+                    <strong>{group.title}</strong>
+                    <span className={styles.workloadCardDetails}>
+                      {group.details.map(detail => <span key={detail}>{detail}</span>)}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
 
-          <button
-            type="button"
-            className={styles.workloadMediaViewport}
-            onClick={() => setPreviewIndex(activeIndex)}
-            aria-label={`放大查看${activeStory.title}演示`}
-          >
-            {workloadStories.map((story, index) => {
-              const isActive = index === activeIndex;
+          <div className={styles.platformBand}>
+            <div className={styles.platformIdentity}>
+              <span className={styles.platformIcon} aria-hidden="true">
+                <Layers3 />
+              </span>
+              <span className={styles.platformCopy}>
+                <strong>Rainbond 开源应用运行平台</strong>
+                <span>统一部署、运维、升级、交付</span>
+              </span>
+            </div>
+            <ul className={styles.platformTags} aria-label="平台能力">
+              {platformCapabilities.map(capability => <li key={capability}>{capability}</li>)}
+            </ul>
+          </div>
 
-              return (
-                <video
-                  key={story.key}
-                  ref={node => {
-                    workloadVideoRefs.current[index] = node;
-                  }}
-                  className={`${styles.workloadViewportMedia} ${isActive ? styles.workloadViewportMediaActive : styles.workloadViewportMediaHidden}`}
-                  src={story.media.videoSrc}
-                  aria-label={`${story.title}演示视频`}
-                  muted
-                  playsInline
-                  autoPlay={isActive && previewIndex === null}
-                  preload={isActive ? 'auto' : 'metadata'}
-                  onEnded={() => handleWorkloadVideoEnded(index)}
-                />
-              );
-            })}
-            <span className={styles.workloadMediaExpandCue} aria-hidden="true">
-              <Maximize2 />
-            </span>
-            <span className={styles.workloadViewportProgress} aria-hidden="true">
-              <span style={{ transform: `translateX(${activeIndex * 100}%)` }} />
-            </span>
-          </button>
+          <div className={styles.architectureLayer}>
+            <span className={styles.architectureLayerLabel}>运行环境</span>
+            <ul className={styles.runtimeGrid} aria-label="运行环境">
+              {runtimeTargets.map(target => {
+                const Icon = target.icon;
+
+                return (
+                  <li key={target.title} className={styles.runtimeCard}>
+                    <Icon aria-hidden="true" />
+                    <span>{target.title}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <ul className={styles.architectureBenefits} aria-label="平台价值">
+            {architectureBenefits.map(benefit => (
+              <li key={benefit}>
+                <Check aria-hidden="true" />
+                <span>{benefit}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-
-      <AnimatePresence>
-        {previewStory ? (
-          <motion.div
-            className={styles.workloadPreviewOverlay}
-            role="dialog"
-            aria-modal="true"
-            aria-label={`${previewStory.title}演示预览`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.18 }}
-            onClick={closePreview}
-          >
-            <motion.div
-              className={styles.workloadPreviewDialog}
-              initial={{ opacity: 0, y: 18, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 10, scale: 0.98 }}
-              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-              onClick={(event) => event.stopPropagation()}
-            >
-              <button
-                type="button"
-                className={styles.workloadPreviewClose}
-                onClick={closePreview}
-                aria-label="关闭演示预览"
-              >
-                <X />
-              </button>
-              <video
-                className={styles.workloadPreviewMedia}
-                src={previewStory.media.videoSrc}
-                aria-label={`${previewStory.title}演示视频放大预览`}
-                controls
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-            </motion.div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
     </section>
   );
 }
@@ -596,9 +475,9 @@ export default function Demo() {
         <div className={styles.mid}>
           <img src="/img/split-bg.png" alt="" />
           <div className={styles.titleWrapper}>
-            <h2 className={styles.sectionTitle}>让 AI 替你部署、排错、运维</h2>
+            <h2 className={styles.sectionTitle}>让 AI 操作，也能看得见、控得住</h2>
             <p className={styles.sectionSubtitle}>
-              只用自然语言描述需求，RainAgent 会自动查状态、读日志、定位问题，并在你确认后执行操作。
+              部署、排错和运维过程实时呈现在控制台，涉及变更时由你确认后执行。
             </p>
           </div>
         </div>

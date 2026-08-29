@@ -1,10 +1,118 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
+import copyToClipboard from 'copy-to-clipboard';
+import { Modal } from '@douyinfe/semi-ui';
+import { Check, Copy, X } from 'lucide-react';
 import styles from './styles.module.css';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
 import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
+import { trackUmamiEvent } from '@src/utils/umami';
+
+const RAINSKILLS_INSTALL_PROMPT = '帮我通过npx 安装rainskills';
+const RAINSKILLS_DEPLOY_PROMPT = '帮我部署当前项目';
+const SUPPORTED_AGENTS = [
+  { name: 'Codex', logo: '/img/agents/codex.svg' },
+  { name: 'Claude Code', logo: '/img/agents/claude-code.svg' },
+  { name: 'Pi', logo: '/img/agents/pi.svg' },
+  { name: 'WorkBuddy', logo: '/img/agents/workbuddy.svg' },
+  { name: 'DeepSeek Harness', logo: '/img/agents/deepseek-harness.svg' },
+  { name: 'Harness', logo: '/img/agents/harness.svg' },
+] as const;
+
+type CopyTarget = 'install' | 'deploy';
+type CopyStatus = 'idle' | 'copied' | 'error';
+type CopyState = {
+  target: CopyTarget | null;
+  status: CopyStatus;
+};
+
+const INITIAL_COPY_STATE: CopyState = { target: null, status: 'idle' };
 
 export default function Home() {
+  const [isAgentModalOpen, setAgentModalOpen] = useState(false);
+  const [copyState, setCopyState] = useState<CopyState>(INITIAL_COPY_STATE);
+  const agentEntryButtonRef = useRef<HTMLButtonElement>(null);
+  const copyButtonRef = useRef<HTMLButtonElement>(null);
+  const copyResetTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!isAgentModalOpen) {
+      return undefined;
+    }
+
+    const focusTimer = window.setTimeout(() => {
+      copyButtonRef.current?.focus();
+    }, 0);
+
+    return () => {
+      window.clearTimeout(focusTimer);
+    };
+  }, [isAgentModalOpen]);
+
+  useEffect(() => {
+    return () => {
+      if (copyResetTimerRef.current !== null) {
+        window.clearTimeout(copyResetTimerRef.current);
+      }
+    };
+  }, []);
+
+  const clearCopyResetTimer = () => {
+    if (copyResetTimerRef.current !== null) {
+      window.clearTimeout(copyResetTimerRef.current);
+      copyResetTimerRef.current = null;
+    }
+  };
+
+  const openAgentModal = () => {
+    clearCopyResetTimer();
+    setCopyState(INITIAL_COPY_STATE);
+    setAgentModalOpen(true);
+    trackUmamiEvent('cta_home_rainskills_agent_opened', {
+      module: 'home_hero',
+      cta_text: '接入我的 AI Agent',
+    });
+  };
+
+  const closeAgentModal = () => {
+    clearCopyResetTimer();
+    setCopyState(INITIAL_COPY_STATE);
+    setAgentModalOpen(false);
+  };
+
+  const handleCopyPrompt = (target: CopyTarget) => {
+    clearCopyResetTimer();
+    const prompt = target === 'install'
+      ? RAINSKILLS_INSTALL_PROMPT
+      : RAINSKILLS_DEPLOY_PROMPT;
+    const copied = copyToClipboard(prompt);
+
+    if (copied) {
+      setCopyState({ target, status: 'copied' });
+      trackUmamiEvent(target === 'install'
+        ? 'cta_home_rainskills_prompt_copied'
+        : 'cta_home_rainskills_deploy_prompt_copied', {
+        module: 'home_hero',
+        cta_text: target === 'install' ? '复制安装指令' : '复制部署指令',
+      });
+      copyResetTimerRef.current = window.setTimeout(() => setCopyState(INITIAL_COPY_STATE), 1800);
+    } else {
+      setCopyState({ target, status: 'error' });
+    }
+  };
+
+  const getCopyButtonLabel = (target: CopyTarget, idleLabel: string) => {
+    if (copyState.target !== target) {
+      return idleLabel;
+    }
+    if (copyState.status === 'copied') {
+      return '已复制';
+    }
+    if (copyState.status === 'error') {
+      return '重新复制';
+    }
+    return idleLabel;
+  };
 
   return (
     <div className={clsx('container', styles.container)}>
@@ -16,22 +124,54 @@ export default function Home() {
           </div>
 
           {/* 标题部分 */}
-          <h1 className={styles.hero_title_one}>不用懂 Kubernetes</h1>
-          <h1 className={styles.hero_title_two}>开源容器平台</h1>
-          <p className={styles.hero_title_four}>Rainbond 是基于 Kubernetes 的开源容器平台，屏蔽 YAML、容器和集群复杂度，帮助团队统一部署、升级和运维业务应用和AI 应用。</p>
+          <h1 className={styles.hero_title_one}>AI 生成</h1>
+          <h1 className={styles.hero_title_two}>Rainbond 运行</h1>
+          <h1 className={clsx(styles.hero_title_one, styles.hero_title_last)}>始终由你掌控</h1>
+          <p className={styles.hero_title_four}>将 AI 生成的项目、AI 开源软件和业务应用，以容器方式运行在自己的服务器或 Kubernetes 上，并持续完成部署、运维、升级与交付。</p>
 
           {/* 按钮区块 */}
           <div className={styles.hero_button}>
+            <div className={styles.hero_primary_actions}>
+              <button
+                ref={agentEntryButtonRef}
+                type="button"
+                className={`${styles.hero_button_style} ${styles.hero_button_primary}`}
+                onClick={openAgentModal}
+              >
+                接入我的 AI Agent
+              </button>
+              <TrackedLink
+                to="/docs/quick-start/quick-install"
+                className={`${styles.hero_button_style} ${styles.hero_button_secondary}`}
+                eventName="cta_home_install_clicked"
+                eventProps={{
+                  module: 'home_hero',
+                  cta_text: '安装 Rainbond',
+                  target_path: '/docs/quick-start/quick-install',
+                }}>
+                安装 Rainbond
+              </TrackedLink>
+            </div>
+            <div className={styles.heroAgentCompatibility}>
+              <ul className={styles.agentCompatibilityList} aria-label="首页支持的 AI Agent">
+                {SUPPORTED_AGENTS.map(({ name, logo }) => (
+                  <li key={name} className={styles.agentCompatibilityItem}>
+                    <img src={logo} alt="" width={20} height={20} aria-hidden="true" />
+                    <span>{name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <TrackedLink
-              to="/docs/quick-start/quick-install"
-              className={`${styles.hero_button_style} ${styles.hero_button_primary}`}
-              eventName="cta_home_install_clicked"
+              to="/compare"
+              className={styles.hero_compare_link}
+              eventName="cta_home_compare_clicked"
               eventProps={{
                 module: 'home_hero',
-                cta_text: '快速安装',
-                target_path: '/docs/quick-start/quick-install',
+                cta_text: '正在选型容器平台？了解 Rainbond 的不同',
+                target_path: '/compare',
               }}>
-              快速安装
+              正在选型容器平台？了解 Rainbond 的不同 <span aria-hidden="true">→</span>
             </TrackedLink>
             <OverlayTrigger
               placement="bottom"
@@ -51,8 +191,8 @@ export default function Home() {
                 </div>
               )}
             >
-              <button className={`${styles.hero_button_style} ${styles.hero_button_secondary}`}>
-                加入社群
+              <button type="button" className={styles.hero_community_link}>
+                加入微信交流群
               </button>
             </OverlayTrigger>
 {/*       
@@ -69,28 +209,6 @@ export default function Home() {
             </TrackedLink> */}
           </div>
         </div>
-
-        <TrackedLink
-          to="https://www.bilibili.com/video/BV1Lzo5BGEuc"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.hero_media_link}
-          eventName="cta_home_video_clicked"
-          eventProps={{
-            module: 'home_hero',
-            cta_text: '观看 Rainbond 视频',
-            target_path: 'https://www.bilibili.com/video/BV1Lzo5BGEuc',
-          }}
-        >
-          <div className={styles.hero_media_frame}>
-            <span className={styles.hero_media_badge}>点击观看产品演示</span>
-            <img
-              src="/img/video/rainbond-video.png"
-              alt="Rainbond 视频封面"
-              className={styles.hero_media_image}
-            />
-          </div>
-        </TrackedLink>
       </div>
 
       {/* 统计信息区块 */}
@@ -108,6 +226,93 @@ export default function Home() {
           <span>生产用户 10000+</span>
         </div>
       </div>
+
+      <Modal
+        visible={isAgentModalOpen}
+        onCancel={closeAgentModal}
+        afterClose={() => agentEntryButtonRef.current?.focus()}
+        closable={false}
+        maskClosable
+        closeOnEsc
+        centered
+        footer={null}
+        className={styles.agentModal}
+        header={(
+          <div className={styles.modalTitleRow}>
+            <h2 id="semi-modal-title" className={styles.modalTitle}>让 AI Agent 连接 Rainbond</h2>
+            <button
+              type="button"
+              className={styles.modalCloseButton}
+              aria-label="关闭 RainSkills 接入说明"
+              onClick={closeAgentModal}
+            >
+              <X size={20} strokeWidth={2} aria-hidden="true" />
+            </button>
+          </div>
+        )}
+      >
+        <p className={styles.modalSummary}>安装 RainSkills 后，就可以直接让 Agent 部署和运维应用。</p>
+        <div className={styles.agentCompatibility}>
+          <p className={styles.agentCompatibilityLabel}>已适配这些 Agent</p>
+          <ul className={styles.agentCompatibilityList} aria-label="已适配的 AI Agent">
+            {SUPPORTED_AGENTS.map(({ name, logo }) => (
+              <li key={name} className={styles.agentCompatibilityItem}>
+                <img src={logo} alt="" width={20} height={20} aria-hidden="true" />
+                <span>{name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className={styles.modalStageTitle}>连接 AI Agent</p>
+        <p className={styles.modalInstruction}>复制下面的指令，发送给你正在使用的 Agent：</p>
+        <div className={styles.promptBox}>
+          <code>{RAINSKILLS_INSTALL_PROMPT}</code>
+          <button
+            ref={copyButtonRef}
+            type="button"
+            className={clsx(styles.copyPromptButton, {
+              [styles.copyPromptButtonSuccess]: copyState.target === 'install' && copyState.status === 'copied',
+              [styles.copyPromptButtonError]: copyState.target === 'install' && copyState.status === 'error',
+            })}
+            onClick={() => handleCopyPrompt('install')}
+          >
+            {copyState.target === 'install' && copyState.status === 'copied' ? (
+              <Check size={17} strokeWidth={2.2} aria-hidden="true" />
+            ) : (
+              <Copy size={17} strokeWidth={2.2} aria-hidden="true" />
+            )}
+            {getCopyButtonLabel('install', '复制安装指令')}
+          </button>
+        </div>
+        <div className={styles.modalNextStep}>
+          <div className={styles.modalNextStepTitle}>
+            <span className={styles.modalStageBadge}>接入后</span>
+            <p className={styles.modalStageTitle}>部署应用</p>
+          </div>
+          <p className={styles.modalInstruction}>安装完成后，继续在同一个对话中输入：</p>
+          <div className={styles.promptBox}>
+            <code>{RAINSKILLS_DEPLOY_PROMPT}</code>
+            <button
+              type="button"
+              className={clsx(styles.copyPromptButton, styles.copyPromptButtonSecondary, {
+                [styles.copyPromptButtonSuccess]: copyState.target === 'deploy' && copyState.status === 'copied',
+                [styles.copyPromptButtonError]: copyState.target === 'deploy' && copyState.status === 'error',
+              })}
+              onClick={() => handleCopyPrompt('deploy')}
+            >
+              {copyState.target === 'deploy' && copyState.status === 'copied' ? (
+                <Check size={17} strokeWidth={2.2} aria-hidden="true" />
+              ) : (
+                <Copy size={17} strokeWidth={2.2} aria-hidden="true" />
+              )}
+              {getCopyButtonLabel('deploy', '复制部署指令')}
+            </button>
+          </div>
+        </div>
+        <p className={styles.copyFeedback} aria-live="polite">
+          {copyState.status === 'copied' ? '已复制' : copyState.status === 'error' ? '复制失败，请手动复制' : ''}
+        </p>
+      </Modal>
     </div>
   );
 }
