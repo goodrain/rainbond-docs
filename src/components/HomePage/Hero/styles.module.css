@@ -246,6 +246,7 @@
   transition: all 0.2s ease !important;
   font-family: var(--font-family-base) !important;
   text-decoration: none !important;
+  cursor: pointer;
 }
 
 .hero_button_primary {
@@ -424,8 +425,13 @@
 
 .heroAgentCompatibility {
   width: 100%;
-  max-width: 560px;
+  max-width: 320px;
   margin: 1.25rem auto 0;
+}
+
+.heroAgentCompatibility .agentCompatibilityList {
+  justify-content: center;
+  gap: 1.25rem;
 }
 
 .agentCompatibilityLabel {

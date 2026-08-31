@@ -106,9 +106,12 @@ test('home hero keeps the three clear left-side actions', () => {
   );
   assert.ok(!heroSource.includes('to="/docs/ai/rainskills"'), 'Expected RainSkills to stop navigating to documentation.');
   assert.ok(
-    /<button\b(?=[^>]*ref=\{agentEntryButtonRef\})(?=[^>]*className=\{`\$\{styles\.hero_button_style\} \$\{styles\.hero_button_primary\}`\})(?=[^>]*onClick=\{openAgentModal\})[^>]*>\s*接入我的 AI Agent\s*<\/button>[\s\S]*?<TrackedLink\s+to="\/docs\/quick-start\/quick-install"/.test(heroSource),
+    /<button\b(?=[^>]*ref=\{agentEntryButtonRef\})(?=[^>]*className=\{`\$\{styles\.hero_button_style\} \$\{styles\.hero_button_primary\}`\})(?=[^>]*onClick=\{openAgentModal\})[^>]*>\s*让 AI 帮我部署\s*<\/button>[\s\S]*?<TrackedLink\s+to="\/docs\/quick-start\/quick-install"/.test(heroSource),
     'Expected the Agent entry to be the first primary Hero action.'
   );
+
+  const heroButtonRule = cssRule(heroStyles, '.hero_button_style');
+  assertCssProperty(heroButtonRule, 'cursor', 'pointer');
 });
 
 test('home hero removes the right-side Agent deployment demo without removing modal prompts', () => {
@@ -292,10 +295,19 @@ test('home hero repeats the supported Agent logo row directly below the primary 
   assert.ok(/<div className=\{styles\.heroAgentCompatibility\}>[\s\S]*?<ul className=\{styles\.agentCompatibilityList\} aria-label="首页支持的 AI Agent">/.test(heroSource));
   assert.strictEqual((heroSource.match(/SUPPORTED_AGENTS\.map\(\(\{ name, logo \}\) => \(/g) || []).length, 2);
 
+  const heroCompatibilityMarkup = heroSource.slice(heroCompatibilityIndex, compareLinkIndex);
+  assert.ok(/aria-label=\{name\}/.test(heroCompatibilityMarkup));
+  assert.ok(/title=\{name\}/.test(heroCompatibilityMarkup));
+  assert.ok(!/<span>\{name\}<\/span>/.test(heroCompatibilityMarkup));
+
   const heroCompatibilityRule = cssRule(heroStyles, '.heroAgentCompatibility');
   assertCssProperty(heroCompatibilityRule, 'width', '100%');
-  assertCssProperty(heroCompatibilityRule, 'max-width', '560px');
+  assertCssProperty(heroCompatibilityRule, 'max-width', '320px');
   assertCssProperty(heroCompatibilityRule, 'margin', '1.25rem auto 0');
+
+  const heroCompatibilityListRule = cssRule(heroStyles, '.heroAgentCompatibility .agentCompatibilityList');
+  assertCssProperty(heroCompatibilityListRule, 'justify-content', 'center');
+  assertCssProperty(heroCompatibilityListRule, 'gap', '1.25rem');
 });
 
 test('RainSkills install and deploy prompts copy independently with exact analytics payloads', () => {
@@ -327,7 +339,7 @@ test('RainSkills install and deploy prompts copy independently with exact analyt
 
   const openHandler = balancedBlock(heroSource, /const openAgentModal = \(\) => \{/, 'openAgentModal function');
   assert.ok(
-    /trackUmamiEvent\(\s*'cta_home_rainskills_agent_opened'\s*,\s*\{\s*module:\s*'home_hero',\s*cta_text:\s*'接入我的 AI Agent',?\s*\}\s*\);/.test(openHandler),
+    /trackUmamiEvent\(\s*'cta_home_rainskills_agent_opened'\s*,\s*\{\s*module:\s*'home_hero',\s*cta_text:\s*'让 AI 帮我部署',?\s*\}\s*\);/.test(openHandler),
     'Expected the opened event and exact payload in the open handler.'
   );
   assert.ok(
