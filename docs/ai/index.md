@@ -119,7 +119,7 @@ RainSkills 会结合本地项目文件、Rainbond MCP 工具和平台状态，�
 快速安装：
 
 ```bash
-bash <(curl -fsSL https://get.rainbond.com/rainskills/install.sh)
+npx --yes rainskills
 ```
 
 继续阅读：[RainSkills：AI 编码工作流技能](/docs/ai/rainskills)
