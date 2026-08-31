@@ -1,0 +1,336 @@
+.workflowList {
+  margin: 1.25rem 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.workflowStep {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.workflowStep:last-child {
+  padding-bottom: 0;
+}
+
+.workflowStep:not(:last-child)::after {
+  position: absolute;
+  z-index: 0;
+  top: 44px;
+  bottom: -2px;
+  left: 21px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgba(51, 139, 255, 0.5), rgba(51, 139, 255, 0.18));
+  content: '';
+}
+
+.workflowStep:not(:last-child)::before {
+  position: absolute;
+  z-index: 1;
+  bottom: 4px;
+  left: 18px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid rgba(51, 139, 255, 0.72);
+  border-bottom: 2px solid rgba(51, 139, 255, 0.72);
+  content: '';
+  transform: rotate(45deg);
+}
+
+.workflowMarker {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(51, 139, 255, 0.24);
+  border-radius: 50%;
+  background: #eef6ff;
+  color: var(--ifm-color-primary-dark);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.workflowCard {
+  min-width: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 6px 18px rgba(23, 32, 51, 0.035);
+}
+
+.workflowCard strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--ifm-font-color-base);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.workflowCard p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.workflowStepEmphasis .workflowMarker {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.workflowStepEmphasis .workflowCard {
+  border-color: rgba(51, 139, 255, 0.42);
+  background: linear-gradient(135deg, rgba(238, 246, 255, 0.94), rgba(255, 255, 255, 0.98));
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.08);
+}
+
+:global(html[data-theme='dark']) .workflowCard {
+  border-color: var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  box-shadow: none;
+}
+
+:global(html[data-theme='dark']) .workflowStepEmphasis .workflowCard {
+  border-color: rgba(128, 183, 255, 0.5);
+  background: rgba(51, 139, 255, 0.08);
+}
+
+:global(html[data-theme='dark']) .workflowMarker {
+  background: rgba(51, 139, 255, 0.14);
+}
+
+:global(html[data-theme='dark']) .workflowStepEmphasis .workflowMarker {
+  background: var(--ifm-color-primary);
+}
+
+.faqList {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.faqItem {
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 14px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 6px 18px rgba(23, 32, 51, 0.035);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.faqItem:hover {
+  border-color: rgba(51, 139, 255, 0.36);
+  box-shadow: 0 10px 24px rgba(23, 32, 51, 0.07);
+}
+
+.faqItem[open] {
+  border-color: rgba(51, 139, 255, 0.48);
+  background: linear-gradient(180deg, rgba(238, 246, 255, 0.72), rgba(255, 255, 255, 0.96));
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.09);
+}
+
+.faqSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 64px;
+  padding: 0.9rem 1.15rem;
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.5;
+  list-style: none;
+}
+
+.faqSummary::-webkit-details-marker {
+  display: none;
+}
+
+.faqSummary::marker {
+  content: '';
+}
+
+.faqSummary:focus-visible {
+  outline: 3px solid rgba(51, 139, 255, 0.34);
+  outline-offset: -3px;
+}
+
+.faqQuestion {
+  min-width: 0;
+}
+
+.faqIcon {
+  position: relative;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(51, 139, 255, 0.1);
+  color: var(--ifm-color-primary-dark);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.faqIcon::before,
+.faqIcon::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  content: '';
+  transform: translate(-50%, -50%);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.faqIcon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faqItem[open] .faqSummary {
+  color: var(--ifm-color-primary-darkest);
+}
+
+.faqItem[open] .faqIcon {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.faqItem[open] .faqIcon::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg) scaleX(0);
+}
+
+.faqAnswer {
+  margin: 0 1.15rem;
+  padding: 1rem 0 1.15rem;
+  border-top: 1px solid rgba(51, 139, 255, 0.16);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.faqAnswer p {
+  margin: 0;
+}
+
+.faqItem[open] .faqAnswer {
+  animation: faqReveal 180ms ease-out;
+}
+
+@keyframes faqReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:global(html[data-theme='dark']) .faqItem {
+  border-color: var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  box-shadow: none;
+}
+
+:global(html[data-theme='dark']) .faqItem:hover,
+:global(html[data-theme='dark']) .faqItem[open] {
+  border-color: rgba(128, 183, 255, 0.55);
+  background: rgba(51, 139, 255, 0.08);
+}
+
+:global(html[data-theme='dark']) .faqItem[open] .faqSummary {
+  color: var(--ifm-color-primary-light);
+}
+
+:global(html[data-theme='dark']) .faqAnswer {
+  color: var(--ifm-color-emphasis-800);
+}
+
+@media (max-width: 576px) {
+  .workflowStep {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 0.75rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .workflowMarker {
+    width: 36px;
+    height: 36px;
+    font-size: 11px;
+  }
+
+  .workflowStep:not(:last-child)::after {
+    top: 36px;
+    left: 17px;
+  }
+
+  .workflowStep:not(:last-child)::before {
+    bottom: 2px;
+    left: 14px;
+  }
+
+  .workflowCard {
+    padding: 0.75rem 0.85rem;
+  }
+
+  .workflowCard strong {
+    font-size: 15px;
+  }
+
+  .faqList {
+    gap: 0.625rem;
+  }
+
+  .faqSummary {
+    min-height: 58px;
+    padding: 0.8rem 0.9rem;
+    font-size: 15px;
+  }
+
+  .faqIcon {
+    flex-basis: 26px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .faqAnswer {
+    margin: 0 0.9rem;
+    padding: 0.85rem 0 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faqItem,
+  .faqIcon,
+  .faqIcon::before,
+  .faqIcon::after {
+    transition: none;
+  }
+
+  .faqItem[open] .faqAnswer {
+    animation: none;
+  }
+}

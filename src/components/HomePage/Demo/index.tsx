@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import Head from '@docusaurus/Head';
+import Link from '@docusaurus/Link';
 import {
   AppWindow,
   BrainCircuit,
@@ -111,7 +112,12 @@ const workloadGroups = [
   },
 ] as const;
 
-const platformCapabilities = ['RainSkills', 'RainAgent', '应用模型', '应用市场'] as const;
+const platformCapabilities = [
+  { label: 'RainSkills', to: '/docs/ai/rainskills' },
+  { label: 'RainAgent', to: undefined },
+  { label: '应用模型', to: undefined },
+  { label: '应用市场', to: undefined },
+] as const;
 
 const runtimeTargets = [
   { title: '公有云', icon: Cloud },
@@ -185,7 +191,19 @@ function WorkloadStory() {
               </span>
             </div>
             <ul className={styles.platformTags} aria-label="平台能力">
-              {platformCapabilities.map(capability => <li key={capability}>{capability}</li>)}
+              {platformCapabilities.map(capability => (
+                <li key={capability.label}>
+                  {capability.to ? (
+                    <Link
+                      to={capability.to}
+                      className={styles.platformTagLink}
+                      aria-label="了解 RainSkills"
+                    >
+                      {capability.label}
+                    </Link>
+                  ) : capability.label}
+                </li>
+              ))}
             </ul>
           </div>
 
