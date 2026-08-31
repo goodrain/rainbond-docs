@@ -184,8 +184,6 @@ RainSkills 是 Rainbond 官方开源 Agent Skills，安装在 Codex、Claude Cod
 
 它解决的不是“让 AI 多写一段部署脚本”，而是让 AI 能理解项目、应用、组件和运行状态，把一次部署继续推进到可以访问、可以排障、可以升级和可以交付。
 
-> 最后更新：2026-08-31 ｜ 当前安装器 npm 版本：0.1.34 ｜ [查看 RainSkills GitHub](https://github.com/goodrain/rainskills)
-
 <VideoDocCallout
   title="RainSkills 安装使用视频教程"
   description="按照视频中的关键步骤完成 RainSkills 安装、Agent 接入、Rainbond 授权和一句话部署。"
@@ -210,7 +208,6 @@ Agent 会启动官方安装器。安装过程中需要选择 Rainbond Cloud、�
 npx --yes rainskills
 ```
 
-更多安装方式和高级参数请查看 [RainSkills GitHub](https://github.com/goodrain/rainskills#readme)。
 
 ## 为什么不直接让 Agent 操作服务器？
 
@@ -299,7 +296,7 @@ RainSkills 和 RainAgent 都使用 AI 辅助 Rainbond 操作，但入口和上�
 
 ## 支持的 Agent 与运行环境
 
-当前官方主安装流程优先支持 Codex 和 Claude Code。npm 安装器同时包含 Pi Agent、DeepSeek Harness、WorkBuddy 和 Hermes Agent 等适配入口，但不同操作系统和安装方式可能有额外限制，应以当前稳定版本的 [GitHub README](https://github.com/goodrain/rainskills#readme) 为准。
+当前官方主安装流程优先支持 Codex 和 Claude Code。npm 安装器同时包含 Pi Agent、DeepSeek Harness、WorkBuddy 和 Hermes Agent 等适配入口，但不同操作系统和安装方式可能有额外限制。
 
 RainSkills 可以连接或协助准备以下 Rainbond 环境：
 
