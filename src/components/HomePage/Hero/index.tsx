@@ -70,7 +70,7 @@ export default function Home() {
     setAgentModalOpen(true);
     trackUmamiEvent('cta_home_rainskills_agent_opened', {
       module: 'home_hero',
-      cta_text: '接入我的 AI Agent',
+      cta_text: '让 AI 帮我部署',
     });
   };
 
@@ -138,7 +138,7 @@ export default function Home() {
                 className={`${styles.hero_button_style} ${styles.hero_button_primary}`}
                 onClick={openAgentModal}
               >
-                接入我的 AI Agent
+                让 AI 帮我部署
               </button>
               <TrackedLink
                 to="/docs/quick-start/quick-install"
@@ -155,9 +155,13 @@ export default function Home() {
             <div className={styles.heroAgentCompatibility}>
               <ul className={styles.agentCompatibilityList} aria-label="首页支持的 AI Agent">
                 {SUPPORTED_AGENTS.map(({ name, logo }) => (
-                  <li key={name} className={styles.agentCompatibilityItem}>
+                  <li
+                    key={name}
+                    className={styles.agentCompatibilityItem}
+                    aria-label={name}
+                    title={name}
+                  >
                     <img src={logo} alt="" width={20} height={20} aria-hidden="true" />
-                    <span>{name}</span>
                   </li>
                 ))}
               </ul>
