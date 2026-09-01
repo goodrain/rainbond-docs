@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import copyToClipboard from 'copy-to-clipboard';
 import { Modal } from '@douyinfe/semi-ui';
-import { Check, Copy, X } from 'lucide-react';
+import { Check, ChevronRight, Copy, MessageCircle, X } from 'lucide-react';
 import styles from './styles.module.css';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
 import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
@@ -189,14 +189,22 @@ export default function Home() {
                 >
                   <div className="card">
                     <div className="card__body">
-                      <img width="200px" height="200px" src="/wechat/wechatgroup-text.png" />
+                      <img width={200} height={201} src="/wechat/rainbond-xzs.png" alt="Rainbond 微信交流群二维码" />
                     </div>
                   </div>
                 </div>
               )}
             >
-              <button type="button" className={styles.hero_community_link}>
-                加入微信交流群
+              <button
+                type="button"
+                className={styles.hero_community_link}
+                aria-label="查看 Rainbond 微信交流群二维码"
+              >
+                <span className={styles.hero_community_icon} aria-hidden="true">
+                  <MessageCircle size={18} strokeWidth={2} />
+                </span>
+                <span className={styles.hero_community_label}>加入 Rainbond 微信交流群</span>
+                <ChevronRight className={styles.hero_community_arrow} size={16} strokeWidth={2} aria-hidden="true" />
               </button>
             </OverlayTrigger>
 {/*       

@@ -1,6 +1,6 @@
 ---
 title: 国产化和信创支撑
-description: 不用懂 Kubernetes 的开源容器平台可以被部署在 Arm64 环境中。从 2020 年 1 月起，Rainbond 分别和华为、飞腾进行了适配测试。经过验证，Rainbond 在 Kunpeng 920 芯片以及 FT2000+/64 这两款 Arm64 芯片上均可以稳定运行， 达到生产可用的标准。
+description: Rainbond 开源 AI 应用运行平台可以部署在 Arm64 环境中。从 2020 年 1 月起，Rainbond 分别和华为、飞腾进行了适配测试。经过验证，Rainbond 在 Kunpeng 920 芯片以及 FT2000+/64 这两款 Arm64 芯片上均可以稳定运行，达到生产可用的标准。
 keywords:
 - 云原生
 - Arm64
