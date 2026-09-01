@@ -9,13 +9,13 @@ keywords:
 
 ### Q: Rainbond 是否开源？
 
-Rainbond 是不用懂 Kubernetes 的开源容器平台，源代码主要托管在 [Github](https://github.com/goodrain/rainbond)，国内代码托管平台 [Gitee](https://gitee.com/rainbond/Rainbond)、[GitCode](https://gitcode.com/goodrain/rainbond)。
+Rainbond 是一个开源的 AI 应用运行平台，源代码主要托管在 [Github](https://github.com/goodrain/rainbond)，国内代码托管平台 [Gitee](https://gitee.com/rainbond/Rainbond)、[GitCode](https://gitcode.com/goodrain/rainbond)。
 
 社区版完全免费，企业版提供额外功能和商业支持。
 
 ### Q: Rainbond 和 Kubernetes 是什么关系？
 
-Rainbond 以 Kubernetes 为基础设施，在其之上构建了应用管理平台。用户无需学习 Kubernetes 即可管理应用，但又能充分利用 Kubernetes 的优势。
+Rainbond 可以使用 Kubernetes 作为运行基础设施，并在其上提供面向应用的构建、部署、运维、升级与交付能力。用户无需直接学习和操作复杂的 Kubernetes 资源，也能充分利用 Kubernetes 的优势。
 
 ### Q: Rainbond 支持多集群管理吗？
 

@@ -13,11 +13,11 @@ import GridDecoration from '@src/components/GridDecoration';
 import styles from './styles.module.css';
 
 export default function Home() {
-  const homeTitle = 'Rainbond - 不用懂 Kubernetes 的开源容器平台';
+  const homeTitle = 'Rainbond - 开源 AI 应用运行平台';
   const homeDescription =
-    'Rainbond 是不用懂 Kubernetes 的开源容器平台，帮助团队在不深入学习 Kubernetes 的前提下完成应用构建、部署、升级、运维与私有化交付。';
+    'Rainbond 是一个开源的 AI 应用运行平台，将 AI 生成的项目、AI 开源软件和业务应用，以容器方式运行在自己的服务器或 Kubernetes 上，并持续完成部署、运维、升级与交付。';
   const homeKeywords =
-    'Rainbond, 不用懂 Kubernetes 的开源容器平台, Kubernetes 应用交付, Kubernetes 管理平台, 应用交付与管理, 私有化部署, 云原生平台';
+    'Rainbond, AI 应用运行平台, AI 应用部署, AI 开源软件, Kubernetes 应用交付, 私有化部署, 开源应用平台';
 
   return (
     <Layout wrapperClassName={styles.homeWrapper}>

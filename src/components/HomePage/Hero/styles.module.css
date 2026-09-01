@@ -276,33 +276,60 @@
 }
 
 .hero_community_link {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 0 2px;
-  border: 0;
-  background: transparent;
-  color: var(--ifm-color-emphasis-700, #526077);
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 272px;
+  min-height: 48px;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid rgba(37, 99, 235, 0.16);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.42);
+  color: var(--ifm-font-color-base, #1e293b);
   cursor: pointer;
   font-family: var(--font-family-base);
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.4;
-  text-decoration: none;
-  transition: color 0.2s ease;
+  text-align: left;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .hero_community_link:hover {
-  color: var(--ifm-color-primary, #2563eb);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  border-color: rgba(37, 99, 235, 0.34);
+  background: rgba(239, 246, 255, 0.66);
+}
+
+.hero_community_link:active {
+  background: rgba(219, 234, 254, 0.72);
 }
 
 .hero_community_link:focus-visible {
   outline: 3px solid rgba(37, 99, 235, 0.34);
   outline-offset: 3px;
-  border-radius: 4px;
+}
+
+.hero_community_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--ifm-color-primary, #2563eb);
+}
+
+.hero_community_label {
+  min-width: 0;
+  color: var(--ifm-font-color-base, #1e293b);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.hero_community_arrow {
+  color: var(--ifm-color-primary, #2563eb);
 }
 
 .hero_compare_link {
@@ -630,9 +657,20 @@
   background: var(--ifm-background-surface-color, #172033);
 }
 
+:global([data-theme='dark']) .hero_community_link {
+  border-color: rgba(96, 165, 250, 0.24);
+  background: rgba(23, 32, 51, 0.48);
+}
+
+:global([data-theme='dark']) .hero_community_link:hover {
+  border-color: rgba(96, 165, 250, 0.42);
+  background: rgba(30, 41, 59, 0.72);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .modalCloseButton,
-  .copyPromptButton {
+  .copyPromptButton,
+  .hero_community_link {
     transition: none;
   }
 }

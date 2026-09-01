@@ -9,7 +9,7 @@ keywords:
 
 SkyWalking 是一个开源可观察性平台，用于收集、分析、聚合和可视化来自服务和云原生基础设施的数据。支持分布式追踪、性能指标分析、应用和服务依赖分析等；它是一种现代 APM，专为云原生、基于容器的分布式系统而设计。
 
-Rainbond是一个不用懂 Kubernetes 的开源容器平台，使用简单，不需要懂容器和Kubernetes，支持管理多个Kubernetes集群，提供企业级应用的全生命周期管理，功能包括应用开发环境、应用市场、微服务架构、应用持续交付、应用运维、应用级多云管理等。
+Rainbond 是一个开源的 AI 应用运行平台。它将 AI 生成的项目、AI 开源软件和业务应用，以容器方式运行在自己的服务器或 Kubernetes 上，并持续完成部署、运维、升级与交付。
 
 本文整合的目标要达成，运行在Rainbond上的应用，通过开启Rainbond的SkyWalking插件，自动对接SkyWalking Server，灵活开启APM，不需要时关闭插件，实现即插即用的APM。
 
@@ -97,4 +97,3 @@ JAVA_OPTS=-Dskywalking.agent.service_name=backend -javaagent:/tmp/agent/skywalki
 - 服务调用拓扑图
 
 ![](https://static.goodrain.com/docs/5.4/practices/skywalking/Service-Topology.jpg)
-

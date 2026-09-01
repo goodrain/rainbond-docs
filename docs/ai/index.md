@@ -16,7 +16,7 @@ import VideoDocCallout, { VideoDocCalloutGrid } from '@site/src/components/Docs/
 
 # Rainbond AI 能力概览
 
-Rainbond 是不用懂 Kubernetes 的开源容器平台。它基于 Kubernetes，但屏蔽底层复杂度，帮助团队部署、运行、排障和交付业务应用、AI 应用。
+Rainbond 是一个开源的 AI 应用运行平台。它将 AI 生成的项目、AI 开源软件和业务应用，以容器方式运行在自己的服务器或 Kubernetes 上，并持续完成部署、运维、升级与交付。
 
 Rainbond 的 AI 能力主要由三部分组成：
 
@@ -182,7 +182,7 @@ Rainbond 的 AI 能力不是替代原有应用管理能力，而是让应用交�
 
 ### Rainbond 现在是 AI 平台吗？
 
-Rainbond 不是单独的大模型平台，也不是单独的 Agent 平台。Rainbond 仍然是开源容器平台和应用交付平台，AI 能力用于增强部署、排障、运维和大模型服务管理。
+Rainbond 不是单独的大模型平台，也不是单独的 Agent 平台，而是开源的 AI 应用运行平台。RainAgent、RainSkills 和大模型服务等能力共同覆盖 AI 应用的部署、排障、运维与持续交付。
 
 ### RainAgent 和 RainSkills 有什么区别？
 
