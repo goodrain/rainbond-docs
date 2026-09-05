@@ -9,7 +9,7 @@ keywords:
 
 ### Q: Rainbond 是否开源？
 
-Rainbond 是一个开源的 AI 应用运行平台，源代码主要托管在 [Github](https://github.com/goodrain/rainbond)，国内代码托管平台 [Gitee](https://gitee.com/rainbond/Rainbond)、[GitCode](https://gitcode.com/goodrain/rainbond)。
+Rainbond 是 AI 应用运行平台，源代码主要托管在 [Github](https://github.com/goodrain/rainbond)，国内代码托管平台 [Gitee](https://gitee.com/rainbond/Rainbond)、[GitCode](https://gitcode.com/goodrain/rainbond)。
 
 社区版完全免费，企业版提供额外功能和商业支持。
 

@@ -13,9 +13,9 @@ import GridDecoration from '@src/components/GridDecoration';
 import styles from './styles.module.css';
 
 export default function Home() {
-  const homeTitle = 'Rainbond - 开源 AI 应用运行平台';
+  const homeTitle = 'Rainbond - AI 应用运行平台';
   const homeDescription =
-    'Rainbond 是一个开源的 AI 应用运行平台，将 AI 生成的项目、AI 开源软件和业务应用，以容器方式运行在自己的服务器或 Kubernetes 上，并持续完成部署、运维、升级与交付。';
+    'Rainbond 是 AI 应用运行平台，统一运行和管理 AI 项目、大模型、开源软件及业务应用，让 AI 完成部署与运维，并将应用稳定运行在用户自己的服务器或 Kubernetes 上。';
   const homeKeywords =
     'Rainbond, AI 应用运行平台, AI 应用部署, AI 开源软件, Kubernetes 应用交付, 私有化部署, 开源应用平台';
 

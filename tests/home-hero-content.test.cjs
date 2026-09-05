@@ -87,15 +87,23 @@ function markupElementByClass(source, tagName, className) {
 
 const heroSource = withoutJsxComments(read('src/components/HomePage/Hero/index.tsx'));
 const heroStyles = read('src/components/HomePage/Hero/styles.module.css');
+const homePageSource = read('src/pages/index.tsx');
+const navbarSource = withoutJsxComments(read('src/components/NavBar/index.tsx'));
+const navbarStyles = read('src/components/NavBar/styles.module.css');
 
-test('home hero renders the approved three-line headline and description', () => {
+test('home hero renders the approved two-line headline and description', () => {
   assert.ok(
-    /<h1 className=\{styles\.hero_title_one\}>AI 生成<\/h1>\s*<h1 className=\{styles\.hero_title_two\}>Rainbond 运行<\/h1>\s*<h1 className=\{clsx\(styles\.hero_title_one, styles\.hero_title_last\)\}>始终由你掌控<\/h1>/.test(heroSource),
-    'Expected the three approved title lines in order with the middle line emphasized.'
+    /<h1 className=\{styles\.hero_title_one\}>AI 生成<\/h1>\s*<h1 className=\{styles\.hero_title_two\}>Rainbond 运行<\/h1>/.test(heroSource),
+    'Expected the two approved title lines in order with the second line emphasized.'
+  );
+  assert.ok(!heroSource.includes('始终由你掌控'));
+  assert.ok(
+    /<p className=\{styles\.hero_title_four\}>Rainbond 是 AI 应用运行平台，统一运行和管理 AI 项目、大模型、开源软件及业务应用，让 AI 完成部署与运维，并将应用稳定运行在用户自己的服务器或 Kubernetes 上。<\/p>/.test(heroSource),
+    'Expected the approved Hero description verbatim.'
   );
   assert.ok(
-    /<p className=\{styles\.hero_title_four\}>将 AI 生成的项目、AI 开源软件和业务应用，以容器方式运行在自己的服务器或 Kubernetes 上，并持续完成部署、运维、升级与交付。<\/p>/.test(heroSource),
-    'Expected the approved Hero description verbatim.'
+    homePageSource.includes("'Rainbond 是 AI 应用运行平台，统一运行和管理 AI 项目、大模型、开源软件及业务应用，让 AI 完成部署与运维，并将应用稳定运行在用户自己的服务器或 Kubernetes 上。'"),
+    'Expected the homepage metadata to use the approved description.'
   );
 });
 
@@ -112,6 +120,30 @@ test('home hero keeps the three clear left-side actions', () => {
 
   const heroButtonRule = cssRule(heroStyles, '.hero_button_style');
   assertCssProperty(heroButtonRule, 'cursor', 'pointer');
+});
+
+test('home hero uses the approved neutral badge and unified title-blue actions', () => {
+  const badgeRule = cssRule(heroStyles, '.hero_badge');
+  assertCssProperty(badgeRule, 'background', 'rgba(107, 114, 128, 0.1)');
+  assertCssProperty(badgeRule, 'border', '1px solid rgba(107, 114, 128, 0.28)');
+  assertCssProperty(badgeRule, 'color', 'var(--text-secondary, #6c757d)');
+
+  const primaryRule = cssRule(heroStyles, '.hero_button_primary');
+  assertCssProperty(primaryRule, 'border', '1px solid #006dff');
+  assertCssProperty(primaryRule, 'background', '#006dff');
+  assertCssProperty(primaryRule, 'color', '#fff');
+
+  const secondaryRule = cssRule(heroStyles, '.hero_button_secondary');
+  assertCssProperty(secondaryRule, 'border', '1px solid #d1d5db');
+  assertCssProperty(secondaryRule, 'background', '#fff');
+  assertCssProperty(secondaryRule, 'color', '#000');
+  const secondaryHoverRule = cssRule(heroStyles, '.hero_button_secondary:hover');
+  assertCssProperty(secondaryHoverRule, 'border-color', '#006dff');
+  assertCssProperty(secondaryHoverRule, 'background', '#fff');
+  assertCssProperty(secondaryHoverRule, 'color', '#006dff');
+  const secondaryFocusRule = cssRule(heroStyles, '.hero_button_secondary:focus-visible');
+  assertCssProperty(secondaryFocusRule, 'border-color', '#006dff');
+  assertCssProperty(secondaryFocusRule, 'color', '#006dff');
 });
 
 test('home hero removes the right-side Agent deployment demo without removing modal prompts', () => {
@@ -156,7 +188,7 @@ test('home hero uses a centered single column on desktop and left alignment on m
   assertCssProperty(actionsRule, 'flex-direction', 'column');
   assertCssProperty(actionsRule, 'align-items', 'center');
   assertCssProperty(actionsRule, 'justify-content', 'center');
-  assert.ok(heroSource.includes('className={styles.hero_primary_actions}'), 'Expected the two main actions to share one row above the community action.');
+  assert.ok(heroSource.includes('className={styles.hero_primary_actions}'), 'Expected the two main actions to share one row.');
   assertCssProperty(cssRule(heroStyles, '.hero_primary_actions'), 'justify-content', 'center');
   const statsRule = cssRule(heroStyles, '.hero_stats_row');
   assertCssProperty(statsRule, 'max-width', '900px');
@@ -183,16 +215,20 @@ test('home hero reserves safe top space below the fixed 65px navigation', () => 
 
 test('RainSkills Agent modal presents the approved concise prompt flow', () => {
   [
-    '让 AI Agent 连接 Rainbond',
+    '让 AI 帮我部署应用',
     '安装 RainSkills 后，就可以直接让 Agent 部署和运维应用。',
     '连接 AI Agent',
     '复制下面的指令，发送给你正在使用的 Agent：',
-    '帮我通过npx 安装rainskills',
+    '帮我安装rainskills',
     '复制安装指令',
     '接入后',
     '部署应用',
     '安装完成后，继续在同一个对话中输入：',
     '帮我部署当前项目',
+    '需要平台时',
+    '部署 Rainbond',
+    '如果还没有 Rainbond，继续在同一个对话中输入：',
+    '帮我部署 Rainbond',
     '复制部署指令',
     '已复制',
     '重新复制',
@@ -208,7 +244,8 @@ test('RainSkills Agent modal presents the approved concise prompt flow', () => {
   assert.ok(!heroSource.includes('按 Agent 提示完成安装和连接'));
   assert.ok(/<span className=\{styles\.modalStageBadge\}>\s*接入后\s*<\/span>/.test(heroSource));
   assert.ok(/className=\{styles\.modalNextStep\}/.test(heroSource));
-  assert.strictEqual((heroSource.match(/onClick=\{\(\) => handleCopyPrompt\('(install|deploy)'\)\}/g) || []).length, 2);
+  assert.strictEqual((heroSource.match(/onClick=\{\(\) => handleCopyPrompt\('(install|deploy|rainbond)'\)\}/g) || []).length, 3);
+  assert.strictEqual((heroSource.match(/className=\{styles\.modalNextStep\}/g) || []).length, 2);
 
   const feedback = markupElementByClass(heroSource, 'p', 'copyFeedback');
   assert.ok(feedback.includes('aria-live="polite"'));
@@ -284,41 +321,23 @@ test('RainSkills Agent modal identifies every supported Agent with a lightweight
   );
 });
 
-test('home hero repeats the supported Agent logo row directly below the primary buttons', () => {
-  const primaryActionsIndex = heroSource.indexOf('className={styles.hero_primary_actions}');
-  const heroCompatibilityIndex = heroSource.indexOf('className={styles.heroAgentCompatibility}');
-  const compareLinkIndex = heroSource.indexOf('className={styles.hero_compare_link}');
-
-  assert.ok(primaryActionsIndex >= 0);
-  assert.ok(heroCompatibilityIndex > primaryActionsIndex);
-  assert.ok(compareLinkIndex > heroCompatibilityIndex);
-  assert.ok(/<div className=\{styles\.heroAgentCompatibility\}>[\s\S]*?<ul className=\{styles\.agentCompatibilityList\} aria-label="首页支持的 AI Agent">/.test(heroSource));
-  assert.strictEqual((heroSource.match(/SUPPORTED_AGENTS\.map\(\(\{ name, logo \}\) => \(/g) || []).length, 2);
-
-  const heroCompatibilityMarkup = heroSource.slice(heroCompatibilityIndex, compareLinkIndex);
-  assert.ok(/aria-label=\{name\}/.test(heroCompatibilityMarkup));
-  assert.ok(/title=\{name\}/.test(heroCompatibilityMarkup));
-  assert.ok(!/<span>\{name\}<\/span>/.test(heroCompatibilityMarkup));
-
-  const heroCompatibilityRule = cssRule(heroStyles, '.heroAgentCompatibility');
-  assertCssProperty(heroCompatibilityRule, 'width', '100%');
-  assertCssProperty(heroCompatibilityRule, 'max-width', '320px');
-  assertCssProperty(heroCompatibilityRule, 'margin', '1.25rem auto 0');
-
-  const heroCompatibilityListRule = cssRule(heroStyles, '.heroAgentCompatibility .agentCompatibilityList');
-  assertCssProperty(heroCompatibilityListRule, 'justify-content', 'center');
-  assertCssProperty(heroCompatibilityListRule, 'gap', '1.25rem');
+test('home hero omits the supported Agent logo row while the modal keeps it', () => {
+  assert.ok(!heroSource.includes('className={styles.heroAgentCompatibility}'));
+  assert.ok(!heroSource.includes('aria-label="首页支持的 AI Agent"'));
+  assert.ok(!heroStyles.includes('.heroAgentCompatibility'));
+  assert.strictEqual((heroSource.match(/SUPPORTED_AGENTS\.map\(\(\{ name, logo \}\) => \(/g) || []).length, 1);
 });
 
-test('RainSkills install and deploy prompts copy independently with exact analytics payloads', () => {
-  assert.ok(heroSource.includes("const RAINSKILLS_INSTALL_PROMPT = '帮我通过npx 安装rainskills';"));
+test('RainSkills and Rainbond prompts copy independently with exact analytics payloads', () => {
+  assert.ok(heroSource.includes("const RAINSKILLS_INSTALL_PROMPT = '帮我安装rainskills';"));
   assert.ok(heroSource.includes("const RAINSKILLS_DEPLOY_PROMPT = '帮我部署当前项目';"));
+  assert.ok(heroSource.includes("const RAINBOND_DEPLOY_PROMPT = '帮我部署 Rainbond';"));
   const copyHandler = balancedBlock(
     heroSource,
     /const handleCopyPrompt = \(target: CopyTarget\) => \{/,
     'handleCopyPrompt function'
   );
-  assert.ok(/const prompt = target === 'install'\s*\? RAINSKILLS_INSTALL_PROMPT\s*:\s*RAINSKILLS_DEPLOY_PROMPT;/.test(copyHandler));
+  assert.ok(/const prompt = target === 'install'\s*\? RAINSKILLS_INSTALL_PROMPT\s*:\s*target === 'deploy'\s*\? RAINSKILLS_DEPLOY_PROMPT\s*:\s*RAINBOND_DEPLOY_PROMPT;/.test(copyHandler));
   assert.ok(copyHandler.includes('const copied = copyToClipboard(prompt);'));
   assert.ok(
     /const getCopyButtonLabel = \(target: CopyTarget, idleLabel: string\) => \{[\s\S]*copyState\.target !== target[\s\S]*copyState\.status === 'copied'[\s\S]*'已复制'[\s\S]*copyState\.status === 'error'[\s\S]*'重新复制'[\s\S]*idleLabel;/.test(heroSource),
@@ -334,6 +353,7 @@ test('RainSkills install and deploy prompts copy independently with exact analyt
   );
   assert.ok(copyHandler.includes("'cta_home_rainskills_prompt_copied'"));
   assert.ok(copyHandler.includes("'cta_home_rainskills_deploy_prompt_copied'"));
+  assert.ok(copyHandler.includes("'cta_home_rainbond_deploy_prompt_copied'"));
   assert.ok(copyHandler.includes("'复制安装指令'"));
   assert.ok(copyHandler.includes("'复制部署指令'"));
 
@@ -393,14 +413,17 @@ test('RainSkills modal stays within the viewport and preserves accessible touch 
   );
 });
 
-test('home hero keeps the WeChat overlay and gives its button an unambiguous label', () => {
+test('the homepage navbar owns the single accessible WeChat community icon', () => {
+  assert.ok(!heroSource.includes('OverlayTrigger'));
+  assert.ok(!heroSource.includes('hero_community_link'));
   assert.ok(
-    /<OverlayTrigger[\s\S]*?overlay=\{\(overlayProps\) => \([\s\S]*?src="\/wechat\/wechatgroup-text\.png"[\s\S]*?>[\s\S]*?<button type="button" className=\{styles\.hero_community_link\}>\s*加入微信交流群\s*<\/button>\s*<\/OverlayTrigger>/.test(heroSource),
-    'Expected the existing WeChat QR overlay to wrap a visually subordinate, explicitly labeled community entry.'
+    /<OverlayTrigger[\s\S]*?src="\/wechat\/rainbond-xzs\.png"[\s\S]*?<button[\s\S]*?className=\{`\$\{styles\.github_button\} \$\{styles\.communityButton\}`\}[\s\S]*?aria-label="查看 Rainbond 微信交流群二维码"[\s\S]*?title="加入 Rainbond 微信交流群"[\s\S]*?<img[\s\S]*?src="\/img\/homepage\/svg\/wechat\.svg"/.test(navbarSource),
+    'Expected one labeled WeChat community icon in the homepage navbar.'
   );
-  const communityRule = cssRule(heroStyles, '.hero_community_link');
-  assertCssProperty(communityRule, 'background', 'transparent');
-  assertCssProperty(communityRule, 'border', '0');
+  assert.ok(navbarSource.includes("import { IconGithubLogo } from '@douyinfe/semi-icons';"));
+  assert.ok(!/MessageCircle|IconComment|IconUserGroup/.test(navbarSource));
+  const communityRule = cssRule(navbarStyles, '.communityButton');
+  assert.ok(Number.parseFloat(cssProperty(communityRule, 'min-width')) >= 44);
   assert.ok(Number.parseFloat(cssProperty(communityRule, 'min-height')) >= 44);
 });
 
@@ -411,23 +434,23 @@ test('home hero links platform evaluators to the comparison center below the act
   );
 
   const compareRule = cssRule(heroStyles, '.hero_compare_link');
-  assertCssProperty(compareRule, 'color', 'var(--ifm-color-primary, #2563eb)');
+  assertCssProperty(compareRule, 'background', 'linear-gradient(135deg, #006dff 0%, #0066ff 100%)');
+  assertCssProperty(compareRule, 'color', 'transparent');
+  assertCssProperty(compareRule, '-webkit-text-fill-color', 'transparent');
+  assertCssProperty(cssRule(heroStyles, '.hero_compare_link:visited'), 'color', 'transparent');
   assertCssProperty(compareRule, 'text-decoration', 'underline');
   assert.ok(Number.parseFloat(cssProperty(compareRule, 'min-height')) >= 44);
 });
 
-test('home hero final title line retains responsive sizing and owns the description gap', () => {
+test('home hero second title line retains responsive sizing and owns the description gap', () => {
   assert.ok(
-    /\.hero_title_two\s*\{[\s\S]*?margin-bottom:\s*0\.5rem;[\s\S]*?\}/.test(heroStyles),
-    'Expected the middle title line to use only the inter-line gap.'
+    /\.hero_title_two\s*\{[\s\S]*?margin-bottom:\s*2rem;[\s\S]*?\}/.test(heroStyles),
+    'Expected the second title line to own the desktop description gap.'
   );
+  assert.ok(!heroStyles.includes('.hero_title_last'));
   assert.ok(
-    /\.hero_title_last\s*\{[\s\S]*?margin-bottom:\s*2rem;[\s\S]*?\}/.test(heroStyles),
-    'Expected the final dark title line to own the desktop description gap.'
-  );
-  assert.ok(
-    /@media \(max-width:\s*768px\)[\s\S]*?\.hero_title_one,\s*\.hero_title_two\s*\{[\s\S]*?font-size:\s*36px;[\s\S]*?\}[\s\S]*?\.hero_title_last\s*\{[\s\S]*?margin-bottom:\s*1\.5rem;/.test(heroStyles),
-    'Expected the composed final line to retain tablet sizing and the mobile description gap.'
+    /@media \(max-width:\s*768px\)[\s\S]*?\.hero_title_one,\s*\.hero_title_two\s*\{[\s\S]*?font-size:\s*36px;[\s\S]*?\}[\s\S]*?\.hero_title_two\s*\{[\s\S]*?margin-bottom:\s*1\.5rem;/.test(heroStyles),
+    'Expected the second title line to retain tablet sizing and the mobile description gap.'
   );
   assert.ok(
     /@media \(max-width:\s*480px\)[\s\S]*?\.hero_title_one,\s*\.hero_title_two\s*\{[\s\S]*?font-size:\s*28px;/.test(heroStyles),
