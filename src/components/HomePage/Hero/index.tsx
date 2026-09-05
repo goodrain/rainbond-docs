@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import copyToClipboard from 'copy-to-clipboard';
 import { Modal } from '@douyinfe/semi-ui';
-import { Check, Copy, X } from 'lucide-react';
+import { Check, ChevronRight, Copy, MessageCircle, X } from 'lucide-react';
 import styles from './styles.module.css';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
 import { trackUmamiEvent } from '@src/utils/umami';
