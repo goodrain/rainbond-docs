@@ -208,6 +208,29 @@
   transform: none;
 }
 
+.communityButton {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.communityButton:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.34);
+  outline-offset: 2px;
+}
+
+.communityIcon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.wechatOverlay {
+  z-index: 9999;
+}
+
 .primaryButton {
   border: 1px solid #000 !important;
   background: rgba(0, 0, 0, 0.84) !important;

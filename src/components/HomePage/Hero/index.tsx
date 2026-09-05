@@ -5,11 +5,11 @@ import { Modal } from '@douyinfe/semi-ui';
 import { Check, ChevronRight, Copy, MessageCircle, X } from 'lucide-react';
 import styles from './styles.module.css';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
-import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
 import { trackUmamiEvent } from '@src/utils/umami';
 
-const RAINSKILLS_INSTALL_PROMPT = '帮我通过npx 安装rainskills';
+const RAINSKILLS_INSTALL_PROMPT = '帮我安装rainskills';
 const RAINSKILLS_DEPLOY_PROMPT = '帮我部署当前项目';
+const RAINBOND_DEPLOY_PROMPT = '帮我部署 Rainbond';
 const SUPPORTED_AGENTS = [
   { name: 'Codex', logo: '/img/agents/codex.svg' },
   { name: 'Claude Code', logo: '/img/agents/claude-code.svg' },
@@ -19,7 +19,7 @@ const SUPPORTED_AGENTS = [
   { name: 'Harness', logo: '/img/agents/harness.svg' },
 ] as const;
 
-type CopyTarget = 'install' | 'deploy';
+type CopyTarget = 'install' | 'deploy' | 'rainbond';
 type CopyStatus = 'idle' | 'copied' | 'error';
 type CopyState = {
   target: CopyTarget | null;
@@ -84,14 +84,18 @@ export default function Home() {
     clearCopyResetTimer();
     const prompt = target === 'install'
       ? RAINSKILLS_INSTALL_PROMPT
-      : RAINSKILLS_DEPLOY_PROMPT;
+      : target === 'deploy'
+        ? RAINSKILLS_DEPLOY_PROMPT
+        : RAINBOND_DEPLOY_PROMPT;
     const copied = copyToClipboard(prompt);
 
     if (copied) {
       setCopyState({ target, status: 'copied' });
       trackUmamiEvent(target === 'install'
         ? 'cta_home_rainskills_prompt_copied'
-        : 'cta_home_rainskills_deploy_prompt_copied', {
+        : target === 'deploy'
+          ? 'cta_home_rainskills_deploy_prompt_copied'
+          : 'cta_home_rainbond_deploy_prompt_copied', {
         module: 'home_hero',
         cta_text: target === 'install' ? '复制安装指令' : '复制部署指令',
       });
@@ -126,8 +130,7 @@ export default function Home() {
           {/* 标题部分 */}
           <h1 className={styles.hero_title_one}>AI 生成</h1>
           <h1 className={styles.hero_title_two}>Rainbond 运行</h1>
-          <h1 className={clsx(styles.hero_title_one, styles.hero_title_last)}>始终由你掌控</h1>
-          <p className={styles.hero_title_four}>将 AI 生成的项目、AI 开源软件和业务应用，以容器方式运行在自己的服务器或 Kubernetes 上，并持续完成部署、运维、升级与交付。</p>
+          <p className={styles.hero_title_four}>Rainbond 是 AI 应用运行平台，统一运行和管理 AI 项目、大模型、开源软件及业务应用，让 AI 完成部署与运维，并将应用稳定运行在用户自己的服务器或 Kubernetes 上。</p>
 
           {/* 按钮区块 */}
           <div className={styles.hero_button}>
@@ -152,20 +155,6 @@ export default function Home() {
                 安装 Rainbond
               </TrackedLink>
             </div>
-            <div className={styles.heroAgentCompatibility}>
-              <ul className={styles.agentCompatibilityList} aria-label="首页支持的 AI Agent">
-                {SUPPORTED_AGENTS.map(({ name, logo }) => (
-                  <li
-                    key={name}
-                    className={styles.agentCompatibilityItem}
-                    aria-label={name}
-                    title={name}
-                  >
-                    <img src={logo} alt="" width={20} height={20} aria-hidden="true" />
-                  </li>
-                ))}
-              </ul>
-            </div>
             <TrackedLink
               to="/compare"
               className={styles.hero_compare_link}
@@ -177,36 +166,6 @@ export default function Home() {
               }}>
               正在选型容器平台？了解 Rainbond 的不同 <span aria-hidden="true">→</span>
             </TrackedLink>
-            <OverlayTrigger
-              placement="bottom"
-              container={typeof document !== 'undefined' ? document.body : undefined}
-              popperConfig={{ strategy: 'fixed' }}
-              overlay={(overlayProps) => (
-                <div
-                  {...overlayProps}
-                  className={styles.wechatOverlay}
-                  style={{ ...overlayProps.style, zIndex: 9999 }}
-                >
-                  <div className="card">
-                    <div className="card__body">
-                      <img width={200} height={201} src="/wechat/rainbond-xzs.png" alt="Rainbond 微信交流群二维码" />
-                    </div>
-                  </div>
-                </div>
-              )}
-            >
-              <button
-                type="button"
-                className={styles.hero_community_link}
-                aria-label="查看 Rainbond 微信交流群二维码"
-              >
-                <span className={styles.hero_community_icon} aria-hidden="true">
-                  <MessageCircle size={18} strokeWidth={2} />
-                </span>
-                <span className={styles.hero_community_label}>加入 Rainbond 微信交流群</span>
-                <ChevronRight className={styles.hero_community_arrow} size={16} strokeWidth={2} aria-hidden="true" />
-              </button>
-            </OverlayTrigger>
 {/*       
             <TrackedLink
               to="/docs"
@@ -251,7 +210,7 @@ export default function Home() {
         className={styles.agentModal}
         header={(
           <div className={styles.modalTitleRow}>
-            <h2 id="semi-modal-title" className={styles.modalTitle}>让 AI Agent 连接 Rainbond</h2>
+            <h2 id="semi-modal-title" className={styles.modalTitle}>让 AI 帮我部署应用</h2>
             <button
               type="button"
               className={styles.modalCloseButton}
@@ -318,6 +277,31 @@ export default function Home() {
                 <Copy size={17} strokeWidth={2.2} aria-hidden="true" />
               )}
               {getCopyButtonLabel('deploy', '复制部署指令')}
+            </button>
+          </div>
+        </div>
+        <div className={styles.modalNextStep}>
+          <div className={styles.modalNextStepTitle}>
+            <span className={styles.modalStageBadge}>需要平台时</span>
+            <p className={styles.modalStageTitle}>部署 Rainbond</p>
+          </div>
+          <p className={styles.modalInstruction}>如果还没有 Rainbond，继续在同一个对话中输入：</p>
+          <div className={styles.promptBox}>
+            <code>{RAINBOND_DEPLOY_PROMPT}</code>
+            <button
+              type="button"
+              className={clsx(styles.copyPromptButton, styles.copyPromptButtonSecondary, {
+                [styles.copyPromptButtonSuccess]: copyState.target === 'rainbond' && copyState.status === 'copied',
+                [styles.copyPromptButtonError]: copyState.target === 'rainbond' && copyState.status === 'error',
+              })}
+              onClick={() => handleCopyPrompt('rainbond')}
+            >
+              {copyState.target === 'rainbond' && copyState.status === 'copied' ? (
+                <Check size={17} strokeWidth={2.2} aria-hidden="true" />
+              ) : (
+                <Copy size={17} strokeWidth={2.2} aria-hidden="true" />
+              )}
+              {getCopyButtonLabel('rainbond', '复制部署指令')}
             </button>
           </div>
         </div>
