@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import copyToClipboard from 'copy-to-clipboard';
 import { Modal } from '@douyinfe/semi-ui';
-import { Check, CircleCheck, Copy, PlugZap, X } from 'lucide-react';
+import { Check, Copy, PlugZap, X } from 'lucide-react';
 import styles from './styles.module.css';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
 import { trackUmamiEvent } from '@src/utils/umami';
@@ -31,7 +31,6 @@ const INITIAL_COPY_STATE: CopyState = { target: null, status: 'idle' };
 export default function Home() {
   const [isAgentModalOpen, setAgentModalOpen] = useState(false);
   const [copyState, setCopyState] = useState<CopyState>(INITIAL_COPY_STATE);
-  const [hasCopiedInstallPrompt, setHasCopiedInstallPrompt] = useState(false);
   const agentEntryButtonRef = useRef<HTMLButtonElement>(null);
   const copyButtonRef = useRef<HTMLButtonElement>(null);
   const copyResetTimerRef = useRef<number | null>(null);
@@ -68,7 +67,6 @@ export default function Home() {
   const openAgentModal = () => {
     clearCopyResetTimer();
     setCopyState(INITIAL_COPY_STATE);
-    setHasCopiedInstallPrompt(false);
     setAgentModalOpen(true);
     trackUmamiEvent('cta_home_rainskills_agent_opened', {
       module: 'home_hero',
@@ -79,7 +77,6 @@ export default function Home() {
   const closeAgentModal = () => {
     clearCopyResetTimer();
     setCopyState(INITIAL_COPY_STATE);
-    setHasCopiedInstallPrompt(false);
     setAgentModalOpen(false);
   };
 
@@ -94,9 +91,6 @@ export default function Home() {
 
     if (copied) {
       setCopyState({ target, status: 'copied' });
-      if (target === 'install') {
-        setHasCopiedInstallPrompt(true);
-      }
       trackUmamiEvent(target === 'install'
         ? 'cta_home_rainskills_prompt_copied'
         : target === 'deploy'
@@ -271,70 +265,64 @@ export default function Home() {
           </div>
         </div>
 
-        {hasCopiedInstallPrompt && (
-          <div className={styles.modalFollowUp} aria-label="接入后的可用操作">
-            <div className={styles.modalFollowUpHeader}>
-              <CircleCheck size={18} strokeWidth={2} aria-hidden="true" />
-              <span>已复制</span>
-            </div>
-            <div className={styles.modalFollowUpList}>
-              <div className={styles.modalNextStep}>
-                <div className={styles.modalNextStepTitle}>
-                  <span className={styles.modalStageBadge}>接入后</span>
-                  <p className={styles.modalStageTitle}>部署应用</p>
-                </div>
-                <p className={styles.modalInstruction}>安装完成后，继续在同一个对话中输入：</p>
-                <div className={styles.promptBox}>
-                  <code>{RAINSKILLS_DEPLOY_PROMPT}</code>
-                  <button
-                    type="button"
-                    className={clsx(styles.copyPromptButton, styles.copyPromptButtonSecondary, {
-                      [styles.copyPromptButtonSuccess]: copyState.target === 'deploy' && copyState.status === 'copied',
-                      [styles.copyPromptButtonError]: copyState.target === 'deploy' && copyState.status === 'error',
-                    })}
-                    onClick={() => handleCopyPrompt('deploy')}
-                  >
-                    {copyState.target === 'deploy' && copyState.status === 'copied' ? (
-                      <Check size={17} strokeWidth={2.2} aria-hidden="true" />
-                    ) : (
-                      <Copy size={17} strokeWidth={2.2} aria-hidden="true" />
-                    )}
-                    {getCopyButtonLabel('deploy', '复制部署指令')}
-                  </button>
-                </div>
+        <div className={styles.modalFollowUp} aria-label="安装完成后的可用操作">
+          <div className={styles.modalFollowUpHeader}>
+            <span>安装完成后，根据你的情况继续：</span>
+          </div>
+          <div className={styles.modalFollowUpList}>
+            <div className={styles.modalNextStep}>
+              <div className={styles.modalNextStepTitle}>
+                <span className={styles.modalStageBadge}>接入后</span>
+                <p className={styles.modalStageTitle}>部署应用</p>
               </div>
+              <p className={styles.modalInstruction}>安装完成后，继续在同一个对话中输入：</p>
+              <div className={styles.promptBox}>
+                <code>{RAINSKILLS_DEPLOY_PROMPT}</code>
+                <button
+                  type="button"
+                  className={clsx(styles.copyPromptButton, styles.copyPromptButtonSecondary, {
+                    [styles.copyPromptButtonSuccess]: copyState.target === 'deploy' && copyState.status === 'copied',
+                    [styles.copyPromptButtonError]: copyState.target === 'deploy' && copyState.status === 'error',
+                  })}
+                  onClick={() => handleCopyPrompt('deploy')}
+                >
+                  {copyState.target === 'deploy' && copyState.status === 'copied' ? (
+                    <Check size={17} strokeWidth={2.2} aria-hidden="true" />
+                  ) : (
+                    <Copy size={17} strokeWidth={2.2} aria-hidden="true" />
+                  )}
+                  {getCopyButtonLabel('deploy', '复制部署指令')}
+                </button>
+              </div>
+            </div>
 
-              <div className={styles.modalNextStep}>
-                <div className={styles.modalNextStepTitle}>
-                  <span className={styles.modalStageBadge}>没有平台时</span>
-                  <p className={styles.modalStageTitle}>部署 Rainbond</p>
-                </div>
-                <p className={styles.modalInstruction}>如果还没有 Rainbond，继续在同一个对话中输入：</p>
-                <div className={styles.promptBox}>
-                  <code>{RAINBOND_DEPLOY_PROMPT}</code>
-                  <button
-                    type="button"
-                    className={clsx(styles.copyPromptButton, styles.copyPromptButtonSecondary, {
-                      [styles.copyPromptButtonSuccess]: copyState.target === 'rainbond' && copyState.status === 'copied',
-                      [styles.copyPromptButtonError]: copyState.target === 'rainbond' && copyState.status === 'error',
-                    })}
-                    onClick={() => handleCopyPrompt('rainbond')}
-                  >
-                    {copyState.target === 'rainbond' && copyState.status === 'copied' ? (
-                      <Check size={17} strokeWidth={2.2} aria-hidden="true" />
-                    ) : (
-                      <Copy size={17} strokeWidth={2.2} aria-hidden="true" />
-                    )}
-                    {getCopyButtonLabel('rainbond', '复制部署指令')}
-                  </button>
-                </div>
+            <div className={styles.modalNextStep}>
+              <div className={styles.modalNextStepTitle}>
+                <span className={styles.modalStageBadge}>没有平台时</span>
+                <p className={styles.modalStageTitle}>部署 Rainbond</p>
+              </div>
+              <p className={styles.modalInstruction}>如果还没有 Rainbond，继续在同一个对话中输入：</p>
+              <div className={styles.promptBox}>
+                <code>{RAINBOND_DEPLOY_PROMPT}</code>
+                <button
+                  type="button"
+                  className={clsx(styles.copyPromptButton, styles.copyPromptButtonSecondary, {
+                    [styles.copyPromptButtonSuccess]: copyState.target === 'rainbond' && copyState.status === 'copied',
+                    [styles.copyPromptButtonError]: copyState.target === 'rainbond' && copyState.status === 'error',
+                  })}
+                  onClick={() => handleCopyPrompt('rainbond')}
+                >
+                  {copyState.target === 'rainbond' && copyState.status === 'copied' ? (
+                    <Check size={17} strokeWidth={2.2} aria-hidden="true" />
+                  ) : (
+                    <Copy size={17} strokeWidth={2.2} aria-hidden="true" />
+                  )}
+                  {getCopyButtonLabel('rainbond', '复制部署指令')}
+                </button>
               </div>
             </div>
           </div>
-        )}
-        <p className={styles.copyFeedback} aria-live="polite">
-          {copyState.status === 'copied' ? '已复制' : copyState.status === 'error' ? '复制失败，请手动复制' : ''}
-        </p>
+        </div>
       </Modal>
     </div>
   );

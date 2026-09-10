@@ -531,9 +531,8 @@
 .modalFollowUpHeader {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   margin-bottom: 0.875rem;
-  color: var(--ifm-color-success-dark, #15803d);
+  color: var(--ifm-color-emphasis-700, #526077);
   font-size: 13px;
   font-weight: 600;
   line-height: 1.4;
@@ -678,17 +677,6 @@
   border-color: #fecaca;
   background: #fef2f2;
   color: #b91c1c;
-}
-
-.copyFeedback {
-  margin: 0.5rem 0 0;
-  color: var(--ifm-color-emphasis-700, #526077);
-  font-size: 13px;
-  line-height: 1.35rem;
-}
-
-.copyFeedback:empty {
-  margin: 0;
 }
 
 :global([data-theme='dark']) .agentModal :global(.semi-modal-content),

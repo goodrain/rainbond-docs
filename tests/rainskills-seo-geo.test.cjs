@@ -199,16 +199,40 @@ test('links the homepage architecture to the canonical RainSkills document', () 
   assert.ok(/\.platformTagLink:focus-visible\s*\{[\s\S]*?outline:/.test(demoStyles));
 });
 
-test('updates the RainSkills video entry to the current install path and SEO intent', () => {
+test('keeps the RainSkills video page focused on installation and runtime connection', () => {
   [
-    'title: RainSkills 安装使用视频：让 AI Agent 部署 Rainbond 应用',
-    'description: 通过视频学习 RainSkills 安装、Agent 接入、Rainbond 授权和一句话部署应用的完整流程。',
+    'title: RainSkills 安装与连接教程：在 AI Agent 中开始使用',
+    'description: 通过视频学习如何使用 AI Agent 对话或命令行安装 RainSkills、选择应用运行环境并完成浏览器授权。',
     'image: /img/video/rainskills-ai-deploy-cover.jpg',
   ].forEach(copy => assert.ok(videoPage.includes(copy), `Expected RainSkills video metadata: ${copy}`));
 
-  assert.ok(videoData.includes("command: 'npx --yes rainskills'"));
-  assert.ok(videoData.includes('当前推荐使用 npx 安装'));
-  assert.ok(videoData.includes('CDN 命令作为 Node.js 不可用时的兜底方式'));
+  const entryStart = videoData.indexOf("id: 'rainskills-ai-deploy'");
+  const entryEnd = videoData.indexOf("id: 'rainagent-install-use'", entryStart);
+  const videoEntry = videoData.slice(entryStart, entryEnd);
+
+  assert.ok(videoEntry.includes("title: 'RainSkills 安装与连接'"));
+  assert.ok(videoEntry.includes("bvid: 'BV1TxG46WE3L'"));
+  assert.ok(videoEntry.includes("title: '安装 RainSkills'"));
+  assert.ok(videoEntry.includes("command: '帮我安装 RainSkills'"));
+  assert.ok(videoEntry.includes("command: 'npx --yes rainskills'"));
+  assert.ok(!videoEntry.includes('get.rainbond.com/rainskills/install.sh'));
+  assert.ok(!videoEntry.includes("title: '通过命令行安装 RainSkills'"));
+  assert.ok(!videoEntry.includes("title: '确认 RainSkills 安装完成'"));
+  assert.ok(videoEntry.includes("command: '帮我连接应用运行环境'"));
+  assert.ok(!videoEntry.includes("title: '发起运行环境连接'"));
+  assert.ok(videoEntry.includes("title: '连接并选择应用运行环境'"));
+  assert.ok(videoEntry.includes("title: '在浏览器中确认授权'"));
+  assert.ok(videoEntry.includes("title: '确认运行环境连接成功'"));
+  [
+    '/img/video/rainskills-step-1.png',
+    '/img/video/rainskills-step-2.png',
+    '/img/video/rainskills-step-3.png',
+    '/img/video/rainskills-step-4.png',
+  ].forEach(image => assert.ok(videoEntry.includes(`image: '${image}'`), `Expected tutorial screenshot: ${image}`));
+  assert.ok(!videoEntry.includes("image: ''"));
+  assert.ok(!videoEntry.includes('发起部署'));
+  assert.ok(!videoEntry.includes('识别组件和依赖关系'));
+  assert.ok(!videoEntry.includes('配置部署参数并触发上线'));
 });
 
 console.log('RainSkills SEO and GEO tests passed');

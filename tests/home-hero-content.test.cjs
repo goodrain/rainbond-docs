@@ -77,14 +77,6 @@ function cssLeafRules(source) {
   }));
 }
 
-function markupElementByClass(source, tagName, className) {
-  const match = source.match(
-    new RegExp(`<${tagName}\\b(?=[^>]*className=\\{styles\\.${className}\\})[^>]*>[\\s\\S]*?<\\/${tagName}>`)
-  );
-  assert.ok(match, `Expected a ${tagName} using styles.${className}.`);
-  return match[0];
-}
-
 const heroSource = withoutJsxComments(read('src/components/HomePage/Hero/index.tsx'));
 const heroStyles = read('src/components/HomePage/Hero/styles.module.css');
 const homePageSource = read('src/pages/index.tsx');
@@ -221,6 +213,7 @@ test('RainSkills Agent modal presents the approved concise prompt flow', () => {
     '复制下面的指令，发送给你正在使用的 Agent：',
     '帮我安装rainskills',
     '复制安装指令',
+    '安装完成后，根据你的情况继续：',
     '接入后',
     '部署应用',
     '安装完成后，继续在同一个对话中输入：',
@@ -232,7 +225,6 @@ test('RainSkills Agent modal presents the approved concise prompt flow', () => {
     '复制部署指令',
     '已复制',
     '重新复制',
-    '复制失败，请手动复制',
   ].forEach((copy) => {
     assert.ok(heroSource.includes(copy), `Expected approved Agent modal copy: ${copy}`);
   });
@@ -243,19 +235,14 @@ test('RainSkills Agent modal presents the approved concise prompt flow', () => {
   assert.ok(!heroSource.includes('发送到 Codex 或 Claude Code 对话中'));
   assert.ok(!heroSource.includes('按 Agent 提示完成安装和连接'));
   assert.ok(/<span className=\{styles\.modalStageBadge\}>\s*接入后\s*<\/span>/.test(heroSource));
-  assert.ok(heroSource.includes('const [hasCopiedInstallPrompt, setHasCopiedInstallPrompt] = useState(false);'));
+  assert.ok(!heroSource.includes('hasCopiedInstallPrompt'));
   assert.ok(/<div className=\{styles\.modalPrimaryTitle\}>[\s\S]*<PlugZap[\s\S]*连接 AI Agent[\s\S]*<\/div>/.test(heroSource));
-  assert.ok(/\{hasCopiedInstallPrompt && \(\s*<div className=\{styles\.modalFollowUp\}/.test(heroSource));
+  assert.ok(/<div className=\{styles\.modalFollowUp\} aria-label="安装完成后的可用操作">/.test(heroSource));
+  assert.ok(!/\{[^}]*&& \(\s*<div className=\{styles\.modalFollowUp\}/.test(heroSource));
   assert.ok(/className=\{styles\.modalNextStep\}/.test(heroSource));
   assert.strictEqual((heroSource.match(/onClick=\{\(\) => handleCopyPrompt\('(install|deploy|rainbond)'\)\}/g) || []).length, 3);
   assert.strictEqual((heroSource.match(/className=\{styles\.modalNextStep\}/g) || []).length, 2);
 
-  const feedback = markupElementByClass(heroSource, 'p', 'copyFeedback');
-  assert.ok(feedback.includes('aria-live="polite"'));
-  assert.ok(
-    /copyState\.status === 'error'\s*\?\s*'复制失败，请手动复制'/.test(feedback),
-    'Expected a separate polite live region to announce the exact copy failure message.'
-  );
   assert.ok(
     /<button\b(?=[^>]*className=\{styles\.modalCloseButton\})(?=[^>]*aria-label="关闭 RainSkills 接入说明")(?=[^>]*onClick=\{closeAgentModal\})[^>]*>/.test(heroSource),
     'Expected the visible custom close control to use the shared close handler.'
@@ -350,7 +337,6 @@ test('RainSkills and Rainbond prompts copy independently with exact analytics pa
   const copiedBranch = balancedBlock(copyHandler, /if \(copied\) \{/, 'successful copy branch');
   assert.ok(
     /setCopyState\(\{ target, status: 'copied' \}\);/.test(copiedBranch)
-      && /if \(target === 'install'\) \{\s*setHasCopiedInstallPrompt\(true\);\s*\}/.test(copiedBranch)
       && /copyResetTimerRef\.current\s*=\s*window\.setTimeout\(\(\)\s*=>\s*setCopyState\(INITIAL_COPY_STATE\),\s*1800\);/.test(copiedBranch)
       && /else\s*\{\s*setCopyState\(\{ target, status: 'error' \}\);/.test(copyHandler),
     'Expected the selected prompt to own success, reset, and error state.'
@@ -367,14 +353,14 @@ test('RainSkills and Rainbond prompts copy independently with exact analytics pa
     'Expected the opened event and exact payload in the open handler.'
   );
   assert.ok(
-    /const closeAgentModal = \(\) => \{\s*clearCopyResetTimer\(\);\s*setCopyState\(INITIAL_COPY_STATE\);\s*setHasCopiedInstallPrompt\(false\);\s*setAgentModalOpen\(false\);/.test(heroSource),
+    /const closeAgentModal = \(\) => \{\s*clearCopyResetTimer\(\);\s*setCopyState\(INITIAL_COPY_STATE\);\s*setAgentModalOpen\(false\);/.test(heroSource),
     'Expected one close handler to clear copy state before hiding the modal.'
   );
   assert.ok(
     /const clearCopyResetTimer = \(\) => \{[\s\S]*window\.clearTimeout\(copyResetTimerRef\.current\);[\s\S]*copyResetTimerRef\.current = null;/.test(heroSource)
   );
   assert.ok(/const openAgentModal = \(\) => \{\s*clearCopyResetTimer\(\);\s*setCopyState\(INITIAL_COPY_STATE\);/.test(heroSource));
-  assert.strictEqual((heroSource.match(/setHasCopiedInstallPrompt\(false\);/g) || []).length, 2);
+  assert.strictEqual((heroSource.match(/setHasCopiedInstallPrompt/g) || []).length, 0);
   assert.ok(/const handleCopyPrompt = \(target: CopyTarget\) => \{\s*clearCopyResetTimer\(\);/.test(heroSource));
 });
 
@@ -395,7 +381,6 @@ test('RainSkills modal stays within the viewport and preserves accessible touch 
   assertCssProperty(modalContentRule, 'overflow-y', 'auto');
   assertCssProperty(modalContentRule, 'background', 'var(--ifm-background-surface-color, #fff)');
 
-  assertCssProperty(cssRule(heroStyles, '.copyFeedback:empty'), 'margin', '0');
   const primaryTitleRule = cssRule(heroStyles, '.modalPrimaryTitle');
   assertCssProperty(primaryTitleRule, 'display', 'flex');
   assertCssProperty(primaryTitleRule, 'align-items', 'center');
