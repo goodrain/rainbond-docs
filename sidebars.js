@@ -323,6 +323,11 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'plugins/security-center',
+          className: 'sidebar-enterprise',
+        },
+        {
+          type: 'doc',
           id: 'plugins/logs',
           className: 'sidebar-enterprise',
         },
