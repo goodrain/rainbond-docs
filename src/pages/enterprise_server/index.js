@@ -123,6 +123,7 @@ const comparisonSections = [
       { feature: '日志中心', href: '/docs/plugins/logs', sub: '平台、组件级的日志分析与检索', community: false, enterprise: true },
       { feature: 'GPU高级管理', href: '/docs/plugins/gpu', sub: 'AI训练/推理加速、显存监控、多卡分配策略', community: false, enterprise: true },
       { feature: '源码安全扫描', href: '/docs/plugins/source-scan', sub: '代码质量和安全检测', community: false, enterprise: true },
+      { feature: '安全中心', href: '/docs/plugins/security-center', sub: '平台与组件级安全治理，覆盖镜像漏洞、运行风险、网络隔离和报告管理', community: false, enterprise: true },
       { feature: '灾备恢复', href: '/docs/plugins/disaster-recovery', sub: '可视化备份策略配置和自动化恢复能力', community: false, enterprise: true },
       { feature: '流水线', href: '/docs/plugins/pipeline', sub: '灰度发布、自动化编排', community: false, enterprise: true },
       { feature: '计量计费', sub: '账户充值、账单明细、价格计算器、用量明细', community: false, enterprise: true },
