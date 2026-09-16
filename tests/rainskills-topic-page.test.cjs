@@ -196,7 +196,7 @@ test('links all four search-intent articles from the main topic page', () => {
 test('targets the requested RainSkills search intent from one canonical landing page', () => {
   const source = read('src/components/Solutions/RainSkillsDeployment.tsx');
   [
-    'RainSkills：让Claude Code、Codex等AI Agent完成应用部署、排错和验证的开源Skill',
+    'RainSkills：用 Claude Code、Codex 部署应用到自己的服务器',
     "const canonicalUrl = 'https://www.rainbond.com/rainskills';",
     'Claude Code部署应用',
     'Claude Code部署到服务器',

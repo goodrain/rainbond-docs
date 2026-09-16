@@ -100,9 +100,9 @@ export default function OfflineAndXinchuangHome(): JSX.Element {
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
-        <h1 className={styles.heroTitle}>通过Rainbond实现离线场景和国产化信创</h1>
+        <h1 className={styles.heroTitle}>软件离线部署与交付、国产化信创适配</h1>
         <p className={styles.heroDesc}>
-          Rainbond 是 AI 应用运行平台。在国产化信创、客户内网和完全离线环境中，它不只是回答“能不能安装”，而是把环境适配、应用迁移、标准化交付、升级回滚和持续运维尽量收口到统一平台里。
+          Rainbond 是一款不用懂 Kubernetes 的开源容器平台。在国产化信创、客户内网和完全离线环境中，它不只是回答“能不能安装”，而是把环境适配、应用迁移、标准化交付、升级回滚和持续运维尽量收口到统一平台里。
         </p>
         <div className={styles.heroActions}>
           <TrackedLink

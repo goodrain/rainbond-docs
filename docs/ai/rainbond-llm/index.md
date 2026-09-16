@@ -1,8 +1,12 @@
 ---
-title: Rainbond 大模型
-description: Rainbond 大模型面向用户的大模型私有化部署能力说明，覆盖模型部署、模型管理、模型 API 管理和模型监控等当前版本已提供功能。
+title: 大模型私有化部署与推理服务管理
+sidebar_label: Rainbond 大模型
+description: 在 Rainbond 中私有化部署大模型，创建 CPU 或 GPU 推理实例，配置 OpenAI 兼容接口，并管理模型资产、访问密钥、运行日志和资源监控。
 keywords:
 - Rainbond
+- 大模型私有化部署
+- 大模型推理服务
+- GPU 模型部署
 - 大模型
 - 私有化部署
 - 模型部署
@@ -16,7 +20,7 @@ keywords:
 
 import VideoDocCallout from '@site/src/components/Docs/VideoDocCallout';
 
-# Rainbond 大模型
+# 大模型私有化部署与推理服务管理
 
 ## 概述
 

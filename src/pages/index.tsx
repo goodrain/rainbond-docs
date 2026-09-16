@@ -2,7 +2,6 @@ import React from 'react';
 import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
 import Hero from '@src/components/HomePage/Hero';
-import WhyRainbond from '@src/components/HomePage/WhyRainbond';
 import ChoosePath from '@src/components/HomePage/ChoosePath';
 import Demo from '@src/components/HomePage/Demo';
 import Users from '@src/components/HomePage/Users';
@@ -13,11 +12,11 @@ import GridDecoration from '@src/components/GridDecoration';
 import styles from './styles.module.css';
 
 export default function Home() {
-  const homeTitle = 'Rainbond - AI 应用运行平台';
+  const homeTitle = 'Rainbond - 不用懂 Kubernetes 的开源容器平台';
   const homeDescription =
-    'Rainbond 是 AI 应用运行平台，统一运行和管理 AI 项目、大模型、开源软件及业务应用，让 AI 完成部署与运维，并将应用稳定运行在用户自己的服务器或 Kubernetes 上。';
+    'Rainbond 是基于 Kubernetes 的开源容器平台，屏蔽底层技术复杂性，统一部署和管理业务应用、AI 应用与大模型服务，让 AI 帮助团队完成部署和运维。';
   const homeKeywords =
-    'Rainbond, AI 应用运行平台, AI 应用部署, AI 开源软件, Kubernetes 应用交付, 私有化部署, 开源应用平台';
+    'Rainbond, 不用懂 Kubernetes 的开源容器平台, Kubernetes 应用交付, Kubernetes 管理平台, 应用交付与管理, 私有化部署, 云原生平台';
 
   return (
     <Layout wrapperClassName={styles.homeWrapper}>
@@ -42,11 +41,10 @@ export default function Home() {
           <GridDecoration />
           <Hero />
         </Section>
-        <WhyRainbond />
-        <Demo />
         <Section>
           <ChoosePath />
         </Section>
+        <Demo />
         <Section>
           <Users />
         </Section>

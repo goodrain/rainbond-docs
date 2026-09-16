@@ -46,7 +46,7 @@ test('home demo architecture connects workloads through Rainbond to owned enviro
   [
     '把整套 AI 应用栈，运行在自己的环境。',
     '不只是部署一个模型。AI 生成项目、开源应用、模型、业务系统、生产级中间件和虚拟机，都由 Rainbond 统一运行和管理。',
-    'Rainbond 开源应用运行平台',
+    'Rainbond 开源容器平台',
     '统一部署、运维、升级、交付',
     'RainSkills',
     'RainAgent',

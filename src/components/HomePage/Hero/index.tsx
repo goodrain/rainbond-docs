@@ -6,6 +6,13 @@ import { Check, Copy, PlugZap, X } from 'lucide-react';
 import styles from './styles.module.css';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
 import { trackUmamiEvent } from '@src/utils/umami';
+import heroVideoCover from '@site/static/img/video/rainbond-video.png';
+
+// The ideal-image plugin returns metadata in production and a URL in development.
+const coverAsset = heroVideoCover as unknown as string | { default: string } | { src: { src: string } };
+const heroVideoCoverUrl = typeof coverAsset === 'string'
+  ? coverAsset
+  : 'default' in coverAsset ? coverAsset.default : coverAsset.src.src;
 
 const RAINSKILLS_INSTALL_PROMPT = '帮我安装rainskills';
 const RAINSKILLS_DEPLOY_PROMPT = '帮我部署当前项目';
@@ -122,50 +129,40 @@ export default function Home() {
     <div className={clsx('container', styles.container)}>
       <div className={styles.hero_layout}>
         <div className={styles.hero_title}>
-          {/* 标签 */}
-          <div className={styles.hero_badge}>
-            100%开源，核心功能永久免费
-          </div>
-
           {/* 标题部分 */}
-          <h1 className={styles.hero_title_one}>AI 生成</h1>
-          <h1 className={styles.hero_title_two}>Rainbond 运行</h1>
-          <p className={styles.hero_title_four}>Rainbond 是 AI 应用运行平台，统一运行和管理 AI 项目、大模型、开源软件及业务应用，让 AI 完成部署与运维，并将应用稳定运行在用户自己的服务器或 Kubernetes 上。</p>
+          <div className={styles.hero_heading}>
+            <div className={styles.hero_eyebrow}>
+              <span className={styles.hero_ai_badge}>
+                <span className={styles.hero_ai_badge_text}>AI 驱动</span>
+              </span>
+              <span className={styles.hero_open_source}>100%开源，核心功能永久免费</span>
+            </div>
+            <h1 className={styles.hero_title_one}>不用懂 Kubernetes</h1>
+            <h1 className={styles.hero_title_two}>开源容器平台</h1>
+          </div>
+          <p className={styles.hero_title_four}>Rainbond 是基于 Kubernetes 的开源容器平台，屏蔽底层技术复杂性，统一部署和管理业务应用、AI 应用与大模型服务，让 AI 帮助团队完成部署和运维。</p>
 
           {/* 按钮区块 */}
           <div className={styles.hero_button}>
-            <div className={styles.hero_primary_actions}>
-              <button
-                ref={agentEntryButtonRef}
-                type="button"
-                className={`${styles.hero_button_style} ${styles.hero_button_primary}`}
-                onClick={openAgentModal}
-              >
-                让 AI 帮我部署
-              </button>
-              <TrackedLink
-                to="/docs/quick-start/quick-install"
-                className={`${styles.hero_button_style} ${styles.hero_button_secondary}`}
-                eventName="cta_home_install_clicked"
-                eventProps={{
-                  module: 'home_hero',
-                  cta_text: '安装 Rainbond',
-                  target_path: '/docs/quick-start/quick-install',
-                }}>
-                安装 Rainbond
-              </TrackedLink>
-            </div>
             <TrackedLink
-              to="/compare"
-              className={styles.hero_compare_link}
-              eventName="cta_home_compare_clicked"
+              to="/docs/quick-start/quick-install"
+              className={`${styles.hero_button_style} ${styles.hero_button_primary}`}
+              eventName="cta_home_install_clicked"
               eventProps={{
                 module: 'home_hero',
-                cta_text: '正在选型容器平台？了解 Rainbond 的不同',
-                target_path: '/compare',
+                cta_text: '快速安装',
+                target_path: '/docs/quick-start/quick-install',
               }}>
-              正在选型容器平台？了解 Rainbond 的不同 <span aria-hidden="true">→</span>
+              快速安装
             </TrackedLink>
+            <button
+              ref={agentEntryButtonRef}
+              type="button"
+              className={`${styles.hero_button_style} ${styles.hero_button_secondary}`}
+              onClick={openAgentModal}
+            >
+              让 AI 帮我部署
+            </button>
 {/*       
             <TrackedLink
               to="/docs"
@@ -180,6 +177,28 @@ export default function Home() {
             </TrackedLink> */}
           </div>
         </div>
+
+        <TrackedLink
+          to="https://www.bilibili.com/video/BV1Lzo5BGEuc"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.hero_media_link}
+          eventName="cta_home_video_clicked"
+          eventProps={{
+            module: 'home_hero',
+            cta_text: '观看 Rainbond 视频',
+            target_path: 'https://www.bilibili.com/video/BV1Lzo5BGEuc',
+          }}
+        >
+          <div className={styles.hero_media_frame}>
+            <span className={styles.hero_media_badge}>点击观看产品演示</span>
+            <img
+              src={heroVideoCoverUrl}
+              alt="Rainbond 视频封面"
+              className={styles.hero_media_image}
+            />
+          </div>
+        </TrackedLink>
       </div>
 
       {/* 统计信息区块 */}
@@ -197,7 +216,6 @@ export default function Home() {
           <span>生产用户 10000+</span>
         </div>
       </div>
-
       <Modal
         visible={isAgentModalOpen}
         onCancel={closeAgentModal}

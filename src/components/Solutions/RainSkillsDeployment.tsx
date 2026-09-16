@@ -5,12 +5,12 @@ import CompareHeroGraphic from '@site/src/components/Compare/CompareHeroGraphic'
 import TopicActionGrid from '@site/src/components/OfflineAndXinchuang/TopicActionGrid';
 import styles from './rainskills-deployment.module.css';
 
-const pageTitle = 'RainSkills：让Claude Code、Codex等AI Agent完成应用部署、排错和验证的开源Skill';
+const pageTitle = 'RainSkills：用 Claude Code、Codex 部署应用到自己的服务器';
 const pageDescription =
-  'RainSkills 是面向 Claude Code、Codex 等 AI Agent 的开源部署 Skill，让 AI 从当前项目出发，将应用部署到自己的服务器，自动排查部署失败并验证交付结果。';
+  'AI 生成的代码如何上线？RainSkills 让 Claude Code、Codex 从当前项目出发，通过 Rainbond 部署到自己的服务器或 Kubernetes，继续排查部署失败并验证访问结果。';
 const canonicalUrl = 'https://www.rainbond.com/rainskills';
 const keywords =
-  'RainSkills,Claude Code部署应用,Claude Code部署到服务器,Claude Code deployment skill,Claude Code部署Skill,Codex部署项目,Codex deployment skill,Codex部署到自己的服务器,AI Agent运维Skill,开源部署Skill';
+  'AI 生成代码怎么部署,AI 项目上线,部署到自己的服务器,RainSkills,Claude Code部署应用,Claude Code部署到服务器,Claude Code deployment skill,Claude Code部署Skill,Codex部署项目,Codex deployment skill,Codex部署到自己的服务器,AI Agent运维Skill,开源部署Skill';
 
 const problemCards = [
   {
@@ -132,6 +132,10 @@ const comparisonRows = [
 ];
 
 const faqs = [
+  {
+    question: 'AI 生成的代码怎么部署到自己的服务器？',
+    answer: '先确认项目可以运行，准备 Rainbond 环境并连接 RainSkills，然后在 Claude Code 或 Codex 中要求部署当前项目。Agent 会结合项目结构处理组件、依赖与配置，触发构建和部署，再检查日志与访问地址；数据库、域名和模型接口等配置仍需按实际环境提供。',
+  },
   {
     question: 'RainSkills 是什么？',
     answer: 'RainSkills 是 Rainbond 官方开源 Agent Skills，安装在 Claude Code、Codex 等 AI 编码工具中，通过 Rainbond MCP 完成项目接入、应用部署、运行排错、交付验证和版本管理。',

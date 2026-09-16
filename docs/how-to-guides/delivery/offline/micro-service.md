@@ -82,7 +82,7 @@ OAM（Open Application Model） 是一个描述应用的标准规范。有了这
 
 ### 基于RAM的Rainbond应用交付
 
-Rainbond 是一个云原生应用多云管理平台，Rainbond 遵循以应用为中心的核心理念，统一封装容器、Kubernetes 等复杂技术，将 Kubernetes 资源统一抽象成 RAM（Rainbond Application Model）应用模型，使用户能非常简单的使用 Kubernetes，降低用户使用的门槛，使用户专注于应用开发、应用交付和应用运维。
+Rainbond 是一款不用懂 Kubernetes 的开源容器平台。它遵循以应用为中心的核心理念，统一封装容器、Kubernetes 等复杂技术，将 Kubernetes 资源统一抽象成 RAM（Rainbond Application Model）应用模型，使用户能非常简单的使用 Kubernetes，降低用户使用的门槛，使用户专注于应用开发、应用交付和应用运维。
 
 在对于离线交付场景，Rainbond基于RAM可以导出三种离线交付包：
 

@@ -47,13 +47,13 @@ mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken
 
 ### 前提条件
 
-本文中介绍的包括了代码扫描的持续集成链条，都是基于 Rainbond 云原生管理平台实现的。所以需要用户自行准备可用的 Rainbond 环境，该环境需要连接公网，为使用开源应用商店做准备。
+本文介绍的代码扫描和持续集成流程基于 Rainbond 实现。Rainbond 是一款不用懂 Kubernetes 的开源容器平台。请先准备可用的 Rainbond 环境，并连接公网以使用开源应用商店。
 
 
 
 ### 搭建 SonarQube
 
-除了 Rainbond 环境外，还需要准备代码仓库和 SonarQube 服务。前者我们选择使用 GitLab，而 SonarQube 服务则可以直接基于开源应用商店安装。目前开源应用商店提供了 8.9.9（LTS）版本的 SonarQube，供用户一键安装。
+除了 Rainbond 容器平台外，还需要准备代码仓库和 SonarQube 服务。前者我们选择使用 Gitlab ，而 SonarQube 服务则可以直接基于开源应用商店安装。目前开源应用商店提供了 8.9.9 （lts）版本的 SonarQube ，供用户一键安装。
 
 用户只需要在 Rainbond 的应用市场界面选择开源应用商店，搜索 `sonarqube` 即可找到对应的安装入口：
 

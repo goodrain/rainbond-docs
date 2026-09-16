@@ -186,7 +186,7 @@ function WorkloadStory() {
                 <Layers3 />
               </span>
               <span className={styles.platformCopy}>
-                <strong>Rainbond 开源应用运行平台</strong>
+                <strong>Rainbond 开源容器平台</strong>
                 <span>统一部署、运维、升级、交付</span>
               </span>
             </div>
@@ -493,9 +493,9 @@ export default function Demo() {
         <div className={styles.mid}>
           <img src="/img/split-bg.png" alt="" />
           <div className={styles.titleWrapper}>
-            <h2 className={styles.sectionTitle}>让 AI 操作，也能看得见、控得住</h2>
+            <h2 className={styles.sectionTitle}>让 AI 替你部署、排错、运维</h2>
             <p className={styles.sectionSubtitle}>
-              部署、排错和运维过程实时呈现在控制台，涉及变更时由你确认后执行。
+              只用自然语言描述需求，RainAgent 会自动查状态、读日志、定位问题，并在你确认后执行操作。
             </p>
           </div>
         </div>
