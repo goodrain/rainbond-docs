@@ -1,8 +1,13 @@
 ---
-title: RainAgent
-description: RainAgent AI 助手插件，为 Rainbond 平台提供自然语言交互、应用排障、组件运维、部署交付和审批执行等智能化能力。
+title: RainAgent：AI 运维助手与 Kubernetes 应用排障
+sidebar_label: RainAgent
+description: 使用 RainAgent AI 运维助手分析应用启动失败、容器访问不通和日志异常，在 Rainbond 控制台通过自然语言检查状态、排障和执行经确认的运维操作。
 keywords:
 - RainAgent
+- AI 运维助手
+- Kubernetes 应用排障
+- 容器访问不通
+- 应用启动失败
 - AI 助手
 - 智能运维
 - 应用排障
@@ -12,7 +17,7 @@ keywords:
 
 import VideoDocCallout from '@site/src/components/Docs/VideoDocCallout';
 
-# RainAgent (Rainbond AI 助手)
+# RainAgent：AI 运维助手与应用排障
 
 ## 概述
 

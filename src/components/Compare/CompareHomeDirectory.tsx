@@ -2,6 +2,7 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './compareHomeDirectory.module.css';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
+import CompareAiCapabilities from './CompareAiCapabilities';
 
 type DirectoryCard = {
   tag: string;
@@ -44,7 +45,7 @@ const journeySteps: JourneyStep[] = [
   {
     step: '03',
     title: '你在做 AI 私有化，而不是短期 Demo',
-    description: '如果你要把 Dify 或其他 AI 应用带进企业环境并长期维护，重点通常不是“先跑起来”，而是“能不能长期交付和运维”。',
+    description: '如果你要把 Dify、自研 AI 应用和大模型带进企业环境，还希望用 AI 辅助部署、排障与运维，可以一起验证 RainSkills、RainAgent 和大模型服务能力。',
   },
 ];
 
@@ -233,9 +234,9 @@ export default function CompareHomeDirectory(): JSX.Element {
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
-        <h1 className={styles.heroTitle}>容器平台对比选型</h1>
+        <h1 className={styles.heroTitle}>开源容器平台对比与选型指南</h1>
         <p className={styles.heroDesc}>
-          不会 Kubernetes 用什么平台？离线环境应用交付平台怎么选？AI 私有化部署平台怎么选？Kubernetes 管理界面怎么选？
+          从应用交付、集群治理、AI 辅助部署与运维、AI 私有化四个角度，找到适合团队的平台。
         </p>
         <div className={styles.heroActions}>
           <TrackedLink
@@ -292,6 +293,8 @@ export default function CompareHomeDirectory(): JSX.Element {
           ))}
         </div>
       </section>
+
+      <CompareAiCapabilities />
 
       <section id="compare-by-product" className={styles.section}>
         <div className={styles.sectionHead}>

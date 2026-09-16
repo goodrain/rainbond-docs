@@ -1,12 +1,12 @@
 ---
 title: Rainbond是什么？
-description: Rainbond 文档中心提供安装、部署、使用和运维相关指南，帮助团队快速上手并在企业环境中落地 Rainbond。。
+description: Rainbond 是一款不用懂 Kubernetes 的开源容器平台。文档提供安装、应用部署、AI 辅助运维、大模型服务和私有化交付指南。
 slug: /
 ---
 
 <!-- ## Rainbond是什么？ -->
 
-Rainbond 是 AI 应用运行平台，核心能力 100% 开源。它统一承载和管理 AI 生成的项目、大模型服务、开源 AI 软件及业务应用，通过 AI 完成部署、排错、升级与运维，让应用以容器方式稳定运行在用户自己的服务器或 Kubernetes 上。
+Rainbond 是一款不用懂 Kubernetes 的开源容器平台。它屏蔽底层技术复杂性，统一部署和管理业务应用、AI 应用与大模型服务，让 AI 帮助团队完成部署、排障和日常运维。
 
 ## 快速链接
 

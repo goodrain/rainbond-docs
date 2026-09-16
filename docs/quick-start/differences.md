@@ -16,7 +16,7 @@ description: 本章描述 Rainbond 与其他产品/技术的关键区别和共�
 
 | 方案 | 核心定位 | 更适合谁 | 深入阅读 |
 | :--- | :--- | :--- | :--- |
-| Rainbond | 应用级 PaaS，强调应用抽象、交付和全生命周期管理 | 希望降低 K8s 门槛、提升应用交付效率的团队 | [Rainbond 是什么？](/docs) |
+| Rainbond | 不用懂 Kubernetes 的开源容器平台，提供应用交付和全生命周期管理能力 | 希望降低 K8s 门槛、提升应用交付效率的团队 | [Rainbond 是什么？](/docs) |
 | Rancher | Kubernetes 管理平台，强调多集群治理、安全和基础设施运维 | 需要统一管理多个异构 K8s 集群的运维团队 | [Rainbond vs Rancher](/compare/rainbond-vs-rancher) |
 | KubeSphere | Kubernetes 之上的扩展平台，强调平台能力建设与生态整合 | 想围绕 K8s 建设更完整平台能力的团队 | [Rainbond vs KubeSphere](/compare/rainbond-vs-kubesphere) |
 | Sealos | 面向云操作系统的一体化平台，覆盖从资源到底层环境的统一体验 | 想把底层资源管理和应用运行放在同一套平台内的团队 | [Rainbond vs Sealos](/compare/rainbond-vs-sealos) |
