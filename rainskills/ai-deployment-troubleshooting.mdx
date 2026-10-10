@@ -1,16 +1,16 @@
 ---
-title: AI项目部署失败自动排查：从构建日志到访问验证
-description: 使用 RainSkills 按构建、镜像、启动、依赖和访问层逐步分析日志、Pod 状态与平台事件，定位 AI 项目部署失败原因。
+title: AI 项目部署失败怎么排查：构建、启动与访问问题
+description: 按项目识别、源码构建、镜像调度、进程启动、组件依赖和对外访问六个层级排查 AI 项目部署失败，并根据日志和平台事件定位根因。
 sidebar_position: 4
 keywords:
-  - AI项目部署失败
-  - AI项目部署失败自动排查
-  - AI部署自动排查
-  - AI部署自动排错
-  - AI Agent运维Skill
+  - AI 项目部署失败
+  - AI 项目部署失败排查
+  - AI 部署排查
+  - AI 部署排错
+  - AI Agent 运维 Skill
   - 应用部署失败排查
   - 应用构建失败
-  - RainSkills排错
+  - RainSkills 排错
 ---
 
 import Head from '@docusaurus/Head';
@@ -19,31 +19,31 @@ import RainSkillsArticleFaq from '@site/src/components/Solutions/RainSkillsArtic
 export const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'TechArticle',
-  headline: 'AI项目部署失败自动排查：从构建日志到访问验证',
-  description: '按构建、镜像、启动、依赖和访问层定位 AI 项目部署失败原因。',
+  headline: 'AI 项目部署失败怎么排查：构建、启动与访问问题',
+  description: '按项目识别、源码构建、镜像调度、进程启动、组件依赖和对外访问六个层级定位失败原因。',
   url: 'https://www.rainbond.com/rainskills/ai-deployment-troubleshooting',
   mainEntityOfPage: 'https://www.rainbond.com/rainskills/ai-deployment-troubleshooting',
   image: 'https://www.rainbond.com/img/video/rainskills-ai-deploy-cover.jpg',
-  keywords: ['AI项目部署失败自动排查', 'AI部署自动排错', '应用构建失败', 'RainSkills排错'],
+  keywords: ['AI 项目部署失败排查', 'AI 部署排错', '应用构建失败', 'RainSkills 排错'],
   inLanguage: 'zh-CN',
   about: [
     { '@type': 'Thing', name: 'AI 项目部署排错' },
     { '@type': 'SoftwareApplication', name: 'RainSkills', url: 'https://github.com/goodrain/rainskills' },
     { '@type': 'SoftwareApplication', name: 'Rainbond', url: 'https://www.rainbond.com' },
   ],
-  isPartOf: { '@type': 'WebSite', name: 'RainSkills：AI Agent 部署应用', url: 'https://www.rainbond.com/rainskills' },
+  isPartOf: { '@type': 'WebSite', name: 'AI 生成代码如何部署到自己的服务器', url: 'https://www.rainbond.com/rainskills' },
   author: { '@type': 'Organization', name: 'Rainbond', url: 'https://www.rainbond.com' },
   publisher: { '@type': 'Organization', name: 'Rainbond', url: 'https://www.rainbond.com' },
 };
 
 <Head>
   <link rel="canonical" href="https://www.rainbond.com/rainskills/ai-deployment-troubleshooting" />
-  <meta property="og:title" content="AI项目部署失败自动排查：从构建日志到访问验证" />
-  <meta property="og:description" content="按构建、镜像、启动、依赖和访问层定位 AI 项目部署失败原因。" />
+  <meta property="og:title" content="AI 项目部署失败怎么排查：构建、启动与访问问题" />
+  <meta property="og:description" content="按六个部署层级读取日志和平台事件，定位 AI 项目部署失败的根因。" />
   <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
 </Head>
 
-# AI项目部署失败自动排查：从构建日志到访问验证
+# AI 项目部署失败怎么排查：构建、启动与访问问题
 
 部署失败后，先别连续点“重新部署”。如果代码、配置和资源都没有变化，重试只会再跑一遍同样的错误。先看页面上停在哪一步，再去找对应的日志和事件。
 
@@ -266,7 +266,7 @@ RainSkills 可以在明确证据和安全边界内继续处理低风险配置问
 ## 相关内容
 
 - 返回专题总览：[AI Agent 部署应用](/rainskills)
-- 从 Claude Code 发起部署：[Claude Code部署应用](/rainskills/claude-code-deploy-app)
-- 从 Codex 发起部署：[Codex部署应用](/rainskills/codex-deploy-app)
-- 准备项目上线：[Vibe Coding项目如何上线](/rainskills/vibe-coding-go-live)
+- 从 Claude Code 发起部署：[Claude Code 部署应用](/rainskills/claude-code-deploy-app)
+- 从 Codex 发起部署：[Codex 部署应用](/rainskills/codex-deploy-app)
+- 准备项目上线：[Vibe Coding 项目如何上线](/rainskills/vibe-coding-go-live)
 - 查看 RainSkills 能力边界：[RainSkills 使用文档](/docs/ai/rainskills)

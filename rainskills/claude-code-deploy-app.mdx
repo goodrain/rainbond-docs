@@ -1,13 +1,13 @@
 ---
-title: Claude Code部署应用：用 RainSkills 部署到自己的服务器
-description: 使用 Claude Code 和 RainSkills 识别当前项目、创建应用拓扑、部署到自己的服务器或 Kubernetes，并完成失败排查和访问验证。
+title: Claude Code 部署应用到自己的服务器 | RainSkills
+description: 使用 Claude Code 和 RainSkills 识别当前项目，通过 Rainbond 部署到自己的服务器或 Kubernetes，持续排查构建与运行问题并验证最终访问地址。
 sidebar_position: 2
 keywords:
-  - Claude Code部署应用
-  - Claude Code部署到服务器
+  - Claude Code 部署应用
+  - Claude Code 部署到服务器
   - Claude Code deployment skill
-  - Claude Code部署Skill
-  - Claude Code部署项目
+  - Claude Code 部署 Skill
+  - Claude Code 部署项目
   - Claude Code RainSkills
 ---
 
@@ -17,31 +17,31 @@ import RainSkillsArticleFaq from '@site/src/components/Solutions/RainSkillsArtic
 export const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'TechArticle',
-  headline: 'Claude Code部署应用：用 RainSkills 部署到自己的服务器',
-  description: '使用 Claude Code 和 RainSkills 识别当前项目、部署应用、排查失败并验证访问结果。',
+  headline: 'Claude Code 部署应用到自己的服务器',
+  description: '使用 Claude Code 和 RainSkills 识别当前项目，通过 Rainbond 部署应用、排查构建与运行问题并验证访问结果。',
   url: 'https://www.rainbond.com/rainskills/claude-code-deploy-app',
   mainEntityOfPage: 'https://www.rainbond.com/rainskills/claude-code-deploy-app',
   image: 'https://www.rainbond.com/img/video/rainskills-ai-deploy-cover.jpg',
-  keywords: ['Claude Code部署应用', 'Claude Code部署到服务器', 'Claude Code deployment skill', 'Claude Code部署项目'],
+  keywords: ['Claude Code 部署应用', 'Claude Code 部署到服务器', 'Claude Code deployment skill', 'Claude Code 部署项目'],
   inLanguage: 'zh-CN',
   about: [
     { '@type': 'SoftwareApplication', name: 'Claude Code' },
     { '@type': 'SoftwareApplication', name: 'RainSkills', url: 'https://github.com/goodrain/rainskills' },
     { '@type': 'SoftwareApplication', name: 'Rainbond', url: 'https://www.rainbond.com' },
   ],
-  isPartOf: { '@type': 'WebSite', name: 'RainSkills：AI Agent 部署应用', url: 'https://www.rainbond.com/rainskills' },
+  isPartOf: { '@type': 'WebSite', name: 'AI 生成代码如何部署到自己的服务器', url: 'https://www.rainbond.com/rainskills' },
   author: { '@type': 'Organization', name: 'Rainbond', url: 'https://www.rainbond.com' },
   publisher: { '@type': 'Organization', name: 'Rainbond', url: 'https://www.rainbond.com' },
 };
 
 <Head>
   <link rel="canonical" href="https://www.rainbond.com/rainskills/claude-code-deploy-app" />
-  <meta property="og:title" content="Claude Code部署应用：用 RainSkills 部署到自己的服务器" />
-  <meta property="og:description" content="让 Claude Code 从当前项目继续完成应用部署、失败排查和交付验证。" />
+  <meta property="og:title" content="Claude Code 部署应用到自己的服务器 | RainSkills" />
+  <meta property="og:description" content="让 Claude Code 从当前项目继续完成应用部署、构建与运行排查和交付验证。" />
   <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
 </Head>
 
-# Claude Code部署应用：用 RainSkills 部署到自己的服务器
+# Claude Code 部署应用到自己的服务器
 
 ## 先确认这次要部署什么
 
@@ -50,7 +50,7 @@ export const articleJsonLd = {
 你可以直接在项目目录中告诉 Claude Code：
 
 ```text
-帮我安装 RainSkills，并连接到我要使用的 Rainbond。
+帮我安装 RainSkills。
 ```
 
 安装完成后继续输入：
@@ -72,7 +72,7 @@ export const articleJsonLd = {
 | 只有 Git 仓库地址，还没在本地运行 | 先确认分支、构建方式和必要配置，不要直接部署到生产 |
 | 已经有 Rainbond 应用，只想发布新代码 | 先核对本地项目绑定，运行测试后更新已有组件 |
 | 部署已经失败 | 不要重复点击部署，先进入[部署失败自动排查](/rainskills/ai-deployment-troubleshooting) |
-| 还没有 Rainbond | 先让安装器列出 Cloud、私有服务器或 Kubernetes 方案，由你选择目标环境 |
+| 还没有 Rainbond | 直接提出部署任务，在第一次需要运行环境时选择 Cloud、私有服务器或 Kubernetes |
 
 如果你不确定属于哪一种，直接让 Claude Code “先分析、不要部署”。确认它理解的组件、端口和依赖正确后，再进入下一步。
 
@@ -112,13 +112,13 @@ Claude Code 能在当前目录中理解代码、编辑文件和执行开发命�
 
 检查结果是否符合真实架构。如果项目包含多个服务，确认哪些服务需要独立扩缩容，哪些服务需要持久化数据。
 
-### 第二步：安装 RainSkills 并连接 Rainbond
+### 第二步：安装 RainSkills
 
 ```text
-帮我安装 RainSkills，并连接到我要使用的 Rainbond。
+帮我安装 RainSkills。
 ```
 
-连接过程中可能需要选择 Rainbond Cloud、已有私有环境或新安装环境。涉及平台安装、登录和授权时，Agent 应暂停并等待你确认，而不是替你选择目标环境。
+安装阶段只安装完整的 Skill 集合和本地运行组件。下一步部署任务第一次需要 Rainbond 时，Agent 才会让你选择 Cloud、已有私有环境或新安装环境。涉及平台安装、登录和授权时，Agent 应暂停并等待你确认。
 
 ### 第三步：创建应用拓扑并部署
 
@@ -232,7 +232,7 @@ RainSkills 可以结合构建日志、运行日志、Pod 状态和平台事件�
 ## 相关内容
 
 - 了解整体能力：[AI Agent 部署应用](/rainskills)
-- 使用其他编码 Agent：[Codex部署应用](/rainskills/codex-deploy-app)
-- 部署失败时：[AI项目部署失败自动排查](/rainskills/ai-deployment-troubleshooting)
-- 从原型进入生产：[Vibe Coding项目如何上线](/rainskills/vibe-coding-go-live)
+- 使用其他编码 Agent：[Codex 部署应用](/rainskills/codex-deploy-app)
+- 部署失败时：[AI 项目部署失败排查](/rainskills/ai-deployment-troubleshooting)
+- 从原型进入生产：[Vibe Coding 项目如何上线](/rainskills/vibe-coding-go-live)
 - 查看开源实现：[RainSkills GitHub](https://github.com/goodrain/rainskills)

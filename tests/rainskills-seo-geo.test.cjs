@@ -33,12 +33,12 @@ test('keeps the existing RainSkills document as the canonical usage document', (
 
 test('gives the RainSkills document intent-led metadata and social previews', () => {
   [
-    'title: RainSkills：让 AI Agent 部署、排障和交付 Rainbond 应用',
+    'title: RainSkills 安装与使用：支持的 Agent、运行环境与部署流程',
     'sidebar_label: RainSkills',
-    'description: RainSkills 是 Rainbond 官方开源 Agent Skills',
+    'description: 了解如何在 Codex、Claude Code、Pi Agent、DeepSeek Harness、WorkBuddy 和 Hermes Agent 中安装 RainSkills',
     'image: /img/video/rainskills-ai-deploy-cover.jpg',
     '<link rel="canonical" href={rainskillsUrl} />',
-    '<meta property="og:title" content="RainSkills：让 AI Agent 部署、排障和交付 Rainbond 应用 | Rainbond" />',
+    '<meta property="og:title" content="RainSkills 安装与使用：支持的 Agent、运行环境与部署流程 | Rainbond" />',
     '<meta property="og:image" content={rainskillsImageUrl} />',
     '<meta name="twitter:card" content="summary_large_image" />',
   ].forEach(copy => assert.ok(rainskillsDoc.includes(copy), `Expected RainSkills SEO metadata: ${copy}`));
@@ -47,7 +47,7 @@ test('gives the RainSkills document intent-led metadata and social previews', ()
 test('keeps the AI capability overview on the current RainSkills install path', () => {
   assert.ok(aiOverview.includes('npx --yes rainskills'));
   assert.ok(!aiOverview.includes('bash <(curl -fsSL https://get.rainbond.com/rainskills/install.sh)'));
-  assert.ok(aiOverview.includes('[RainSkills：AI 编码工作流技能](/docs/ai/rainskills)'));
+  assert.ok(aiOverview.includes('[RainSkills 安装与使用](/docs/ai/rainskills)'));
 });
 
 test('defines one consistent RainSkills entity for generative search', () => {
@@ -59,18 +59,21 @@ test('defines one consistent RainSkills entity for generative search', () => {
     "'@type': 'BreadcrumbList'",
     "applicationCategory: 'DeveloperApplication'",
     'isAccessibleForFree: true',
-    "dateModified: '2026-08-31'",
     'https://github.com/goodrain/rainskills',
     'https://www.npmjs.com/package/rainskills',
     '<script type="application/ld+json">',
   ].forEach(token => assert.ok(rainskillsDoc.includes(token), `Expected entity signal: ${token}`));
+  assert.ok(!rainskillsDoc.includes('dateModified:'));
 });
 
 test('answers the core RainSkills discovery questions in visible text', () => {
   [
-    '# RainSkills：让 AI 帮你部署应用',
+    '# RainSkills 安装与使用',
     'RainSkills 是 Rainbond 官方开源 Agent Skills',
-    '## 为什么不直接让 Agent 操作服务器？',
+    '## 支持的 Agent 和系统',
+    '## 安装 RainSkills',
+    '## 安装后的第一条任务',
+    '## 连接应用运行环境',
     '## RainSkills 如何工作？',
     '## RainSkills 能做什么？',
     '## RainSkills 与 RainAgent 有什么区别？',
@@ -116,7 +119,7 @@ test('renders the RainSkills workflow as an explicit top-to-bottom semantic sequ
     "title: '当前项目'",
     "title: 'AI Agent'",
     "title: 'RainSkills'",
-    "title: 'Rainbond MCP'",
+    "title: '受保护的本地运行时'",
     "title: 'Rainbond 应用运行平台'",
     "title: '目标运行环境'",
   ];
@@ -154,10 +157,10 @@ test('renders the RainSkills workflow as an explicit top-to-bottom semantic sequ
 
 test('describes every supported Rainbond connection and installation target without a single-node-only ambiguity', () => {
   [
-    'RainSkills 可以连接或协助准备以下 Rainbond 环境：',
-    '已经运行的私有化 Rainbond。',
-    '由安装器引导新建的单机版或多节点集群版 Rainbond。',
-    '在已有 Kubernetes 集群中安装并接入 Rainbond。',
+    'RainSkills 可以连接或协助准备以下环境：',
+    '已经运行的私有 Rainbond。',
+    '独立服务器上的单节点或多节点 Rainbond。',
+    '已有 Kubernetes 集群中的 Rainbond。',
   ].forEach(copy => assert.ok(rainskillsDoc.includes(copy), `Expected Rainbond target: ${copy}`));
 
   assert.ok(!rainskillsDoc.includes('安装器可以继续引导安装单机版 Rainbond；多节点、高可用和离线安装仍应使用对应的 Rainbond 安装方案'));
@@ -172,9 +175,15 @@ test('describes every supported Rainbond connection and installation target with
 test('keeps the primary RainSkills installation path simple and direct', () => {
   [
     '## 安装 RainSkills',
-    '帮我安装 RainSkills，并连接到我要使用的 Rainbond。',
+    '帮我安装 RainSkills。',
     'npx --yes rainskills',
+    '## 安装后的第一条任务',
+    '帮我部署当前项目，并验证页面和 API。',
+    '## 连接应用运行环境',
+    '帮我连接应用运行环境。',
   ].forEach(copy => assert.ok(rainskillsDoc.includes(copy), `Expected current install path: ${copy}`));
+
+  assert.ok(!rainskillsDoc.includes('帮我安装 RainSkills，并连接到我要使用的 Rainbond。'));
 
   [
     '## 快速开始',
@@ -189,6 +198,18 @@ test('keeps the primary RainSkills installation path simple and direct', () => {
     'npx --yes rainskills all --self-hosted',
     '如果无法使用 npx，再使用 CDN 兜底命令：',
   ].forEach(copy => assert.ok(!rainskillsDoc.includes(copy), `Expected the main install flow to omit: ${copy}`));
+});
+
+test('uses the protected local runtime instead of a client MCP configuration', () => {
+  [rainskillsDoc, aiOverview].forEach(source => {
+    [
+      'Rainbond MCP',
+      '配置当前 Agent 对应的 Rainbond MCP',
+      '验证 MCP 是否可以访问',
+      'MCP 客户端通常在进程启动时读取环境变量',
+    ].forEach(copy => assert.ok(!source.includes(copy), `Unexpected legacy client MCP copy: ${copy}`));
+  });
+  assert.ok(rainskillsDoc.includes('受保护的本地运行时'));
 });
 
 test('links the homepage architecture to the canonical RainSkills document', () => {

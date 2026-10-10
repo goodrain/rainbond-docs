@@ -1,14 +1,14 @@
 ---
-title: Vibe Coding项目如何上线：从本地原型到生产环境
-description: 将 Vibe Coding 生成的前端、后端、数据库和缓存项目部署到自己的服务器，补齐配置、存储、访问、验证和回滚能力。
+title: Vibe Coding 项目如何上线到生产环境
+description: 将 Vibe Coding 生成的前端、后端和数据库项目部署到自己的服务器，补齐生产构建、敏感配置、持久化、域名、访问验证和回滚能力。
 sidebar_position: 5
 keywords:
-  - Vibe Coding项目如何上线
-  - Vibe Coding部署
-  - Vibe Coding项目部署
-  - AI生成项目上线
-  - AI项目部署服务器
-  - Vibe Coding生产部署
+  - Vibe Coding 项目如何上线
+  - Vibe Coding 部署
+  - Vibe Coding 项目部署
+  - AI 生成项目上线
+  - AI 项目部署服务器
+  - Vibe Coding 生产部署
 ---
 
 import Head from '@docusaurus/Head';
@@ -17,31 +17,31 @@ import RainSkillsArticleFaq from '@site/src/components/Solutions/RainSkillsArtic
 export const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'TechArticle',
-  headline: 'Vibe Coding项目如何上线：从本地原型到生产环境',
+  headline: 'Vibe Coding 项目如何上线到生产环境',
   description: '把 AI 生成的本地原型部署成可访问、可升级、可排错和可回滚的生产应用。',
   url: 'https://www.rainbond.com/rainskills/vibe-coding-go-live',
   mainEntityOfPage: 'https://www.rainbond.com/rainskills/vibe-coding-go-live',
   image: 'https://www.rainbond.com/img/video/rainskills-ai-deploy-cover.jpg',
-  keywords: ['Vibe Coding项目如何上线', 'Vibe Coding项目部署', 'AI生成项目上线', 'Vibe Coding生产部署'],
+  keywords: ['Vibe Coding 项目如何上线', 'Vibe Coding 项目部署', 'AI 生成项目上线', 'Vibe Coding 生产部署'],
   inLanguage: 'zh-CN',
   about: [
     { '@type': 'Thing', name: 'Vibe Coding 项目上线' },
     { '@type': 'SoftwareApplication', name: 'RainSkills', url: 'https://github.com/goodrain/rainskills' },
     { '@type': 'SoftwareApplication', name: 'Rainbond', url: 'https://www.rainbond.com' },
   ],
-  isPartOf: { '@type': 'WebSite', name: 'RainSkills：AI Agent 部署应用', url: 'https://www.rainbond.com/rainskills' },
+  isPartOf: { '@type': 'WebSite', name: 'AI 生成代码如何部署到自己的服务器', url: 'https://www.rainbond.com/rainskills' },
   author: { '@type': 'Organization', name: 'Rainbond', url: 'https://www.rainbond.com' },
   publisher: { '@type': 'Organization', name: 'Rainbond', url: 'https://www.rainbond.com' },
 };
 
 <Head>
   <link rel="canonical" href="https://www.rainbond.com/rainskills/vibe-coding-go-live" />
-  <meta property="og:title" content="Vibe Coding项目如何上线：从本地原型到生产环境" />
+  <meta property="og:title" content="Vibe Coding 项目如何上线到生产环境" />
   <meta property="og:description" content="把 AI 生成的本地原型部署成可访问、可升级、可排错和可回滚的生产应用。" />
   <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
 </Head>
 
-# Vibe Coding项目如何上线：从本地原型到生产环境
+# Vibe Coding 项目如何上线到生产环境
 
 很多 Vibe Coding 项目都卡在同一个地方：页面在本地看起来已经完成，一换电脑或关闭开发终端就不能用了。此时缺的通常不是更多功能，而是一套可以重复构建、保存数据、对外访问和出现问题后恢复的运行方式。
 
@@ -135,7 +135,8 @@ export const articleJsonLd = {
 安装 RainSkills 后，让 Agent 建立明确应用拓扑：
 
 ```text
-帮我安装 RainSkills，并连接到我要使用的 Rainbond。然后根据当前项目结构创建应用拓扑，先让我确认组件和依赖再部署。
+帮我安装 RainSkills。
+安装完成后，根据当前项目结构创建应用拓扑，先让我确认组件和依赖再部署。
 ```
 
 组件拆分应遵循实际运行边界：
@@ -167,7 +168,7 @@ export const articleJsonLd = {
 部署当前项目。如果失败，按项目识别、源码构建、镜像与调度、进程启动、组件依赖和对外访问逐层检查，不要盲目重试。
 ```
 
-更详细的排查方法见：[AI项目部署失败自动排查](/rainskills/ai-deployment-troubleshooting)。
+更详细的排查方法见：[AI 项目部署失败排查](/rainskills/ai-deployment-troubleshooting)。
 
 ### 6. 验证真实用户路径
 
@@ -286,7 +287,7 @@ Vibe Coding 项目真正上线后，你应该能够回答这些用户问题：
 ## 相关内容
 
 - 返回专题总览：[AI Agent 部署应用](/rainskills)
-- 使用 Claude Code 部署：[Claude Code部署应用](/rainskills/claude-code-deploy-app)
-- 使用 Codex 部署：[Codex部署应用](/rainskills/codex-deploy-app)
-- 排查上线问题：[AI项目部署失败自动排查](/rainskills/ai-deployment-troubleshooting)
+- 使用 Claude Code 部署：[Claude Code 部署应用](/rainskills/claude-code-deploy-app)
+- 使用 Codex 部署：[Codex 部署应用](/rainskills/codex-deploy-app)
+- 排查上线问题：[AI 项目部署失败排查](/rainskills/ai-deployment-troubleshooting)
 - 查看 RainSkills 源码：[GitHub](https://github.com/goodrain/rainskills)

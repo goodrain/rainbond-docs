@@ -107,7 +107,7 @@ RainSkills 是一组面向 Rainbond 的开源 AI 工作流技能，用于增强 
 帮我把当前项目部署到 Rainbond。
 ```
 
-RainSkills 会结合本地项目文件、Rainbond MCP 工具和平台状态，完成这些工作：
+RainSkills 会结合本地项目文件、受保护的本地运行时和 Rainbond 平台状态，完成这些工作：
 
 - 识别本地项目结构
 - 建立本地项目与 Rainbond 应用的绑定关系
@@ -122,7 +122,7 @@ RainSkills 会结合本地项目文件、Rainbond MCP 工具和平台状态，�
 npx --yes rainskills
 ```
 
-继续阅读：[RainSkills：AI 编码工作流技能](/docs/ai/rainskills)
+继续阅读：[RainSkills 安装与使用](/docs/ai/rainskills)
 
 ## Rainbond 大模型：部署和管理文本大模型服务
 
