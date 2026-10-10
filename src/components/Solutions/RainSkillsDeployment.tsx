@@ -5,12 +5,13 @@ import CompareHeroGraphic from '@site/src/components/Compare/CompareHeroGraphic'
 import TopicActionGrid from '@site/src/components/OfflineAndXinchuang/TopicActionGrid';
 import styles from './rainskills-deployment.module.css';
 
-const pageTitle = 'RainSkills：用 Claude Code、Codex 部署应用到自己的服务器';
+const pageTitle = 'AI 生成代码如何部署到自己的服务器 | RainSkills';
+const pageHeading = 'AI 生成代码如何部署到自己的服务器';
 const pageDescription =
-  'AI 生成的代码如何上线？RainSkills 让 Claude Code、Codex 从当前项目出发，通过 Rainbond 部署到自己的服务器或 Kubernetes，继续排查部署失败并验证访问结果。';
+  'RainSkills 让 Codex、Claude Code 等 AI Agent 读取当前项目，通过 Rainbond 部署到自己的服务器或 Kubernetes，继续排查构建与运行问题，并验证页面和 API。';
 const canonicalUrl = 'https://www.rainbond.com/rainskills';
 const keywords =
-  'AI 生成代码怎么部署,AI 项目上线,部署到自己的服务器,RainSkills,Claude Code部署应用,Claude Code部署到服务器,Claude Code deployment skill,Claude Code部署Skill,Codex部署项目,Codex deployment skill,Codex部署到自己的服务器,AI Agent运维Skill,开源部署Skill';
+  'AI 生成代码怎么部署,AI 项目上线,部署到自己的服务器,RainSkills,Claude Code 部署应用,Codex 部署应用,AI Agent 部署,开源部署 Skill';
 
 const problemCards = [
   {
@@ -49,28 +50,28 @@ const agents = [
   {
     name: '更多 AI Agent',
     logo: '/img/agents/harness.svg',
-    description: '通过开放的 Agent Skills 与 MCP 接口接入同一套流程。',
+    description: 'Pi Agent、DeepSeek Harness、WorkBuddy 和 Hermes Agent 使用同一套 Skills 与本地运行时。',
   },
 ];
 
 const guideCards = [
   {
-    title: 'Claude Code部署应用',
+    title: 'Claude Code 部署应用',
     description: '从当前项目开始，让 Claude Code 完成部署、排错和访问验证。',
     href: '/rainskills/claude-code-deploy-app',
   },
   {
-    title: 'Codex部署应用',
+    title: 'Codex 部署应用',
     description: '让 Codex 在写完代码后继续更新应用并给出交付结果。',
     href: '/rainskills/codex-deploy-app',
   },
   {
-    title: 'AI项目部署失败自动排查',
+    title: 'AI 项目部署失败排查',
     description: '根据你看到的失败现象，逐层检查构建、运行、依赖和访问。',
     href: '/rainskills/ai-deployment-troubleshooting',
   },
   {
-    title: 'Vibe Coding项目如何上线',
+    title: 'Vibe Coding 项目如何上线',
     description: '把本地原型推进到有域名、数据持久化、验证和回滚的生产应用。',
     href: '/rainskills/vibe-coding-go-live',
   },
@@ -128,17 +129,17 @@ const comparisonRows = [
   ['失败排查', '在多处日志之间手动切换', 'Agent 读取构建、运行、Pod 和事件状态'],
   ['完成标准', '命令退出码为 0 或进程已启动', '页面/API 可访问并输出交付结论'],
   ['后续维护', '继续维护脚本与服务器差异', '基于同一平台完成升级、快照和回滚'],
-  ['安全边界', 'Agent 直接拥有服务器操作能力', '通过 MCP、平台权限和关键操作确认执行'],
+  ['安全边界', 'Agent 直接拥有服务器操作能力', '通过受控工具调用、平台权限和关键操作确认执行'],
 ];
 
 const faqs = [
   {
     question: 'AI 生成的代码怎么部署到自己的服务器？',
-    answer: '先确认项目可以运行，准备 Rainbond 环境并连接 RainSkills，然后在 Claude Code 或 Codex 中要求部署当前项目。Agent 会结合项目结构处理组件、依赖与配置，触发构建和部署，再检查日志与访问地址；数据库、域名和模型接口等配置仍需按实际环境提供。',
+    answer: '先安装 RainSkills，再在 Claude Code 或 Codex 中要求部署当前项目。Agent 会结合项目结构处理组件、依赖与配置，首次需要时引导选择 Rainbond 运行环境，然后触发构建、检查日志并验证访问地址；数据库、域名和模型接口等配置仍需按实际环境提供。',
   },
   {
     question: 'RainSkills 是什么？',
-    answer: 'RainSkills 是 Rainbond 官方开源 Agent Skills，安装在 Claude Code、Codex 等 AI 编码工具中，通过 Rainbond MCP 完成项目接入、应用部署、运行排错、交付验证和版本管理。',
+    answer: 'RainSkills 是 Rainbond 官方开源 Agent Skills，安装在 Claude Code、Codex 等 AI 编码工具中，通过受保护的本地运行时连接 Rainbond，完成项目接入、应用部署、运行排错、交付验证和版本管理。',
   },
   {
     question: 'Claude Code 可以直接把应用部署到自己的服务器吗？',
@@ -205,7 +206,7 @@ const breadcrumbJsonLd = {
     {
       '@type': 'ListItem',
       position: 2,
-      name: 'RainSkills：AI Agent 部署应用',
+      name: 'AI 生成代码部署',
       item: canonicalUrl,
     },
   ],
@@ -231,9 +232,9 @@ export default function RainSkillsDeployment(): JSX.Element {
       </Head>
 
       <CompareHeroGraphic
-        title={pageTitle}
-        subtitle="把 RainSkills 安装到 Claude Code、Codex 等 AI Agent 中，让 AI 从当前项目继续完成部署、排错、验证和后续运维。"
-        decision="AI Agent 不只负责生成代码。借助 RainSkills 与 Rainbond，它还能理解应用拓扑、读取真实运行状态，并把项目稳定交付到你自己的服务器或 Kubernetes。"
+        title={pageHeading}
+        subtitle="把 RainSkills 安装到你正在使用的 AI Agent，让它带着当前项目上下文继续完成部署、排错、访问验证和版本管理。"
+        decision="RainSkills 让 AI Agent 理解应用拓扑、读取真实运行状态，并把项目交付到你自己的服务器或 Kubernetes。"
         primaryCta={{label: '开始使用 RainSkills', href: '/docs/ai/rainskills'}}
         secondaryCta={{label: '查看 GitHub 源码', href: 'https://github.com/goodrain/rainskills'}}
       />
@@ -259,7 +260,7 @@ export default function RainSkillsDeployment(): JSX.Element {
       <section className={styles.sectionBlock}>
         <div className={styles.sectionHead}>
           <h2>从当前项目到自己的服务器，一条对话完成交付闭环</h2>
-          <p>RainSkills 负责选择正确的 Agent 工作流，Rainbond MCP 提供受控的平台操作，Rainbond 负责应用持续运行。</p>
+          <p>RainSkills 负责选择正确的 Agent 工作流，受保护的本地运行时连接 Rainbond，Rainbond 负责应用持续运行。</p>
         </div>
         <ol className={styles.workflow} aria-label="RainSkills 应用交付流程">
           {workflowSteps.map((step, index) => (
@@ -284,7 +285,7 @@ export default function RainSkillsDeployment(): JSX.Element {
 
       <section className={styles.sectionBlock}>
         <div className={styles.sectionHead}>
-          <h2>Claude Code、Codex 都能使用同一套部署能力</h2>
+          <h2>六类 AI Agent 使用同一套部署能力</h2>
           <p>能力沉淀在开源 Skill 与标准化工具接口中，不依赖某一次对话，也不把项目锁定在单一 AI Agent。</p>
         </div>
         <div className={styles.agentGrid}>
@@ -318,7 +319,7 @@ export default function RainSkillsDeployment(): JSX.Element {
 
       <section className={styles.sectionBlock}>
         <div className={styles.sectionHead}>
-          <h2>部署、排错、验证，不止是执行一段脚本</h2>
+          <h2>部署、排错和验证形成一条可检查的流程</h2>
           <p>RainSkills 把一次部署拆成可观察、可判断、可恢复的步骤，让 Agent 知道什么时候继续，什么时候停止并请求确认。</p>
         </div>
         <div className={styles.capabilityGrid}>

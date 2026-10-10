@@ -39,16 +39,16 @@ test('creates an independent RainSkills content collection with its own sidebar'
   [
     'rainskillsSidebar',
     "type: 'doc'",
-    "label: 'AI Agent 部署应用'",
+    "label: 'AI 生成代码部署'",
     "id: 'index'",
     "id: 'claude-code-deploy-app'",
-    "label: 'Claude Code部署应用'",
+    "label: 'Claude Code 部署应用'",
     "id: 'codex-deploy-app'",
-    "label: 'Codex部署应用'",
+    "label: 'Codex 部署应用'",
     "id: 'ai-deployment-troubleshooting'",
-    "label: 'AI项目部署失败自动排查'",
+    "label: 'AI 项目部署失败排查'",
     "id: 'vibe-coding-go-live'",
-    "label: 'Vibe Coding项目如何上线'",
+    "label: 'Vibe Coding 项目如何上线'",
   ].forEach(copy => assert.ok(rainskillsSidebar.includes(copy), `Expected RainSkills sidebar: ${copy}`));
   assert.strictEqual((rainskillsSidebar.match(/type: 'doc'/g) || []).length, 5);
   assert.ok(!rainskillsSidebar.includes("type: 'category'"));
@@ -72,22 +72,22 @@ test('adds four substantive and indexable content pages', () => {
   const pages = [
     [
       'rainskills/claude-code-deploy-app.mdx',
-      'Claude Code部署应用',
+      'Claude Code 部署应用到自己的服务器 | RainSkills',
       ['## 先确认这次要部署什么', '## Claude Code 部署应用的完整流程', '## 怎么判断部署真的完成了', '## 常见问题'],
     ],
     [
       'rainskills/codex-deploy-app.mdx',
-      'Codex部署应用',
+      'Codex 部署应用到自己的服务器 | RainSkills',
       ['## 在 Codex 里怎么发起部署', '## 用 Codex 部署应用的完整流程', '## 部署结束时要看什么', '## 常见问题'],
     ],
     [
       'rainskills/ai-deployment-troubleshooting.mdx',
-      'AI项目部署失败自动排查',
+      'AI 项目部署失败怎么排查：构建、启动与访问问题',
       ['## 别急着重试，先看现象', '## RainSkills 如何逐层排查', '## 一次有效的排查应该留下什么', '## 常见问题'],
     ],
     [
       'rainskills/vibe-coding-go-live.mdx',
-      'Vibe Coding项目如何上线',
+      'Vibe Coding 项目如何上线到生产环境',
       ['## 先判断项目能不能上线', '## 原型能运行，为什么还不能直接上线？', '## Vibe Coding 项目上线流程', '## 上线之后，至少要回答这几个问题', '## 常见问题'],
     ],
   ];
@@ -131,10 +131,10 @@ test('adds four substantive and indexable content pages', () => {
 
 test('uses a distinct keyword cluster for each search intent', () => {
   const keywordPlans = [
-    ['rainskills/claude-code-deploy-app.mdx', ['Claude Code部署应用', 'Claude Code部署到服务器', 'Claude Code deployment skill', 'Claude Code部署项目']],
-    ['rainskills/codex-deploy-app.mdx', ['Codex部署应用', 'Codex部署项目', 'Codex deployment skill', 'Codex应用上线']],
-    ['rainskills/ai-deployment-troubleshooting.mdx', ['AI项目部署失败自动排查', 'AI部署自动排错', '应用构建失败', 'RainSkills排错']],
-    ['rainskills/vibe-coding-go-live.mdx', ['Vibe Coding项目如何上线', 'Vibe Coding项目部署', 'AI生成项目上线', 'Vibe Coding生产部署']],
+    ['rainskills/claude-code-deploy-app.mdx', ['Claude Code 部署应用', 'Claude Code 部署到服务器', 'Claude Code deployment skill', 'Claude Code 部署项目']],
+    ['rainskills/codex-deploy-app.mdx', ['Codex 部署应用', 'Codex 部署项目', 'Codex deployment skill', 'Codex 应用上线']],
+    ['rainskills/ai-deployment-troubleshooting.mdx', ['AI 项目部署失败排查', 'AI 部署排错', '应用构建失败', 'RainSkills 排错']],
+    ['rainskills/vibe-coding-go-live.mdx', ['Vibe Coding 项目如何上线', 'Vibe Coding 项目部署', 'AI 生成项目上线', 'Vibe Coding 生产部署']],
   ];
 
   keywordPlans.forEach(([relativePath, keywords]) => {
@@ -196,17 +196,13 @@ test('links all four search-intent articles from the main topic page', () => {
 test('targets the requested RainSkills search intent from one canonical landing page', () => {
   const source = read('src/components/Solutions/RainSkillsDeployment.tsx');
   [
-    'RainSkills：用 Claude Code、Codex 部署应用到自己的服务器',
+    'AI 生成代码如何部署到自己的服务器 | RainSkills',
+    "const pageHeading = 'AI 生成代码如何部署到自己的服务器';",
     "const canonicalUrl = 'https://www.rainbond.com/rainskills';",
-    'Claude Code部署应用',
-    'Claude Code部署到服务器',
-    'Claude Code deployment skill',
-    'Claude Code部署Skill',
-    'Codex部署项目',
-    'Codex deployment skill',
-    'Codex部署到自己的服务器',
-    'AI Agent运维Skill',
-    '开源部署Skill',
+    'Claude Code 部署应用',
+    'Codex 部署应用',
+    'AI Agent 部署',
+    '开源部署 Skill',
     "'@type': 'SoftwareApplication'",
     "'@type': 'FAQPage'",
     "'@type': 'BreadcrumbList'",
@@ -219,14 +215,21 @@ test('presents a product-style deployment journey instead of a documentation art
     '<CompareHeroGraphic',
     'AI 写完代码后，部署不该重新从零开始',
     '从当前项目到自己的服务器，一条对话完成交付闭环',
-    'Claude Code、Codex 都能使用同一套部署能力',
-    '部署、排错、验证，不止是执行一段脚本',
+    '六类 AI Agent 使用同一套部署能力',
+    '部署、排错和验证形成一条可检查的流程',
     '为什么不直接让 Agent SSH 到服务器？',
     '常见问题',
     '开始使用 RainSkills',
     '/img/agents/claude-code.svg',
     '/img/agents/codex.svg',
   ].forEach(copy => assert.ok(source.includes(copy), `Expected product landing content: ${copy}`));
+});
+
+test('keeps the landing page free of legacy client MCP positioning', () => {
+  const source = read('src/components/Solutions/RainSkillsDeployment.tsx');
+  assert.ok(!source.includes('Rainbond MCP'));
+  assert.ok(!source.includes('MCP 接口'));
+  assert.ok(source.includes('受保护的本地运行时连接 Rainbond'));
 });
 
 test('shows the real RainSkills deployment result instead of a simulated terminal', () => {

@@ -1,10 +1,10 @@
 ---
-title: RainSkills：让 AI Agent 部署、排障和交付 Rainbond 应用
-description: RainSkills 是 Rainbond 官方开源 Agent Skills，帮助 Codex、Claude Code 等 AI 编码工具完成项目接入、应用部署、运行排障、交付验证和版本管理。
+title: RainSkills 安装与使用：支持的 Agent、运行环境与部署流程
+description: 了解如何在 Codex、Claude Code、Pi Agent、DeepSeek Harness、WorkBuddy 和 Hermes Agent 中安装 RainSkills，连接 Rainbond，并部署、排障和验证应用。
 sidebar_label: RainSkills
 keywords:
-- RainSkills
-- Rainbond Skills
+- RainSkills 安装
+- RainSkills 使用
 - AI Agent 部署
 - Codex 部署应用
 - Claude Code 部署应用
@@ -12,7 +12,6 @@ keywords:
 - 应用部署
 - 应用排障
 - 交付验证
-- MCP
 image: /img/video/rainskills-ai-deploy-cover.jpg
 ---
 
@@ -27,7 +26,11 @@ export const rainskillsSoftwareId = 'https://www.rainbond.com/docs/ai/rainskills
 export const rainskillsFaqs = [
   {
     question: 'RainSkills 是什么？',
-    answer: 'RainSkills 是 Rainbond 官方开源 Agent Skills，安装在 Codex、Claude Code 等 AI 编码工具中，通过 Rainbond MCP 完成项目接入、应用部署、运行排障、交付验证和版本管理。',
+    answer: 'RainSkills 是 Rainbond 官方开源 Agent Skills，安装在 Codex、Claude Code 等 AI 编码工具中。它通过受保护的本地运行时连接 Rainbond，完成项目接入、应用部署、运行排障、交付验证和版本管理。',
+  },
+  {
+    question: '安装 RainSkills 时会直接连接 Rainbond 吗？',
+    answer: '不会。安装阶段只安装完整的独立 Skill 集合和本地运行组件。用户第一次提出部署、查询或其他需要 Rainbond 的任务时，Agent 才会引导选择并连接一个运行环境。',
   },
   {
     question: 'RainSkills 和 RainAgent 有什么区别？',
@@ -35,7 +38,7 @@ export const rainskillsFaqs = [
   },
   {
     question: '没有 Rainbond 可以使用 RainSkills 吗？',
-    answer: '可以先安装 RainSkills。选择私有化且没有可用 Rainbond 时，RainSkills 可以引导安装单机版、多节点集群版，或在已有 Kubernetes 集群中安装并接入 Rainbond。',
+    answer: '可以先安装 RainSkills。第一次需要运行环境时，可以选择 Rainbond Cloud、已有私有 Rainbond，或在本机、独立服务器和已有 Kubernetes 中准备私有 Rainbond。',
   },
   {
     question: 'RainSkills 会自动执行高风险操作吗？',
@@ -43,7 +46,7 @@ export const rainskillsFaqs = [
   },
   {
     question: 'RainSkills 会上传本地项目或凭据吗？',
-    answer: 'RainSkills 只读取完成当前任务所需的项目和 Rainbond 上下文，不会把 JWT、密码或本地源码写入公开文档与统计事件；敏感信息应继续通过受保护的本地文件或环境变量管理。',
+    answer: 'RainSkills 只读取完成当前任务所需的项目和 Rainbond 上下文，不会把 JWT、密码或本地源码写入公开文档与统计事件。Rainbond 授权凭据保存在受保护的本地状态中。',
   },
 ];
 
@@ -64,8 +67,8 @@ export const rainskillsWorkflowSteps = [
     emphasis: true,
   },
   {
-    title: 'Rainbond MCP',
-    description: '以受控接口读取平台状态，并把确认后的操作发送给 Rainbond。',
+    title: '受保护的本地运行时',
+    description: '在首次需要时连接一个 Rainbond，并通过固定工具契约执行操作。',
     emphasis: false,
   },
   {
@@ -75,7 +78,7 @@ export const rainskillsWorkflowSteps = [
   },
   {
     title: '目标运行环境',
-    description: '让应用运行在公有云、私有云、Kubernetes、服务器或离线环境。',
+    description: '让应用运行在云端、自己的服务器、Kubernetes 或离线环境。',
     emphasis: false,
   },
 ];
@@ -111,12 +114,11 @@ export const rainskillsJsonLd = {
     },
     {
       '@type': 'TechArticle',
-      headline: 'RainSkills：让 AI 帮你部署应用',
-      description: 'RainSkills 产品说明、安装方式、工作流程、能力边界和使用指南。',
+      headline: 'RainSkills 安装与使用',
+      description: 'RainSkills 支持的 Agent、安装方式、运行环境连接、部署流程、能力边界和常用提示词。',
       url: rainskillsUrl,
       image: rainskillsImageUrl,
       inLanguage: 'zh-CN',
-      dateModified: '2026-08-31',
       about: { '@id': rainskillsSoftwareId },
       author: {
         '@type': 'Organization',
@@ -157,7 +159,7 @@ export const rainskillsJsonLd = {
         {
           '@type': 'ListItem',
           position: 3,
-          name: 'RainSkills',
+          name: 'RainSkills 安装与使用',
           item: rainskillsUrl,
         },
       ],
@@ -168,8 +170,8 @@ export const rainskillsJsonLd = {
 <Head>
   <link rel="canonical" href={rainskillsUrl} />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="RainSkills：让 AI Agent 部署、排障和交付 Rainbond 应用 | Rainbond" />
-  <meta property="og:description" content="RainSkills 是 Rainbond 官方开源 Agent Skills，帮助 AI 编码工具完成项目接入、部署、排障和交付。" />
+  <meta property="og:title" content="RainSkills 安装与使用：支持的 Agent、运行环境与部署流程 | Rainbond" />
+  <meta property="og:description" content="在 Codex、Claude Code 等 AI Agent 中安装 RainSkills，连接 Rainbond，并部署、排障和验证应用。" />
   <meta property="og:url" content={rainskillsUrl} />
   <meta property="og:image" content={rainskillsImageUrl} />
   <meta name="twitter:card" content="summary_large_image" />
@@ -178,50 +180,86 @@ export const rainskillsJsonLd = {
   </script>
 </Head>
 
-# RainSkills：让 AI 帮你部署应用
+# RainSkills 安装与使用
 
-RainSkills 是 Rainbond 官方开源 Agent Skills，安装在 Codex、Claude Code 等 AI 编码工具中，通过 Rainbond MCP 将当前项目接入 Rainbond，完成应用部署、运行排障、交付验证和版本管理。
+RainSkills 是 Rainbond 官方开源 Agent Skills，安装在 Codex、Claude Code 等 AI 编码工具中。它从当前项目出发，通过受保护的本地运行时连接 Rainbond，完成应用部署、运行排障、交付验证和版本管理。
 
-它解决的不是“让 AI 多写一段部署脚本”，而是让 AI 能理解项目、应用、组件和运行状态，把一次部署继续推进到可以访问、可以排障、可以升级和可以交付。
+安装 RainSkills 与连接应用运行环境是两个阶段。安装完成后可以直接提出部署任务；第一次需要 Rainbond 时，Agent 再引导你选择 Cloud、已有私有环境、本机或服务器。
 
 <VideoDocCallout
-  title="RainSkills 安装使用视频教程"
-  description="按照视频中的关键步骤完成 RainSkills 安装、Agent 接入、Rainbond 授权和一句话部署。"
+  title="RainSkills 安装与连接视频教程"
+  description="按照视频中的步骤完成 RainSkills 安装、运行环境选择、浏览器授权和连接验证。"
   href="/videos/rainskills-ai-deploy"
   cover="/img/video/rainskills-ai-deploy-cover.jpg"
-  coverAlt="RainSkills 安装使用视频封面"
+  coverAlt="RainSkills 安装与连接视频封面"
 />
+
+## 支持的 Agent 和系统
+
+RainSkills 当前支持以下 AI Agent：
+
+- Codex。
+- Claude Code。
+- Pi Agent。
+- DeepSeek Harness。
+- WorkBuddy。
+- Hermes Agent。
+
+安装器支持 macOS、Linux 和 Windows。原生 Windows 使用本地 Node.js 入口；macOS、Linux 和 WSL 使用相同的 Skill 集合与本地运行时。不同 Agent 在安装目录和会话刷新方式上可能存在差异，安装器会自动选择匹配入口。
 
 ## 安装 RainSkills
 
-如果你正在使用 Codex 或 Claude Code，可以先把下面这句话发送给当前 Agent：
+在受支持的 Agent 中发送：
 
 ```text
-帮我安装 RainSkills，并连接到我要使用的 Rainbond。
+帮我安装 RainSkills。
 ```
 
-Agent 会启动官方安装器。安装过程中需要选择 Rainbond Cloud、已有私有化 Rainbond、新建单机版或多节点集群版 Rainbond，或在已有 Kubernetes 集群中安装 Rainbond 时，安装器会暂停并让你确认，不会替你做环境选择。
-
-如果你希望直接运行安装器：
+也可以直接运行官方安装器：
 
 ```bash
 npx --yes rainskills
 ```
 
+`npx` 安装方式需要 Node.js 18 或更高版本。建议使用仍在维护的 Node.js 22 或 24。
 
-## 为什么不直接让 Agent 操作服务器？
+安装器会识别当前 Agent，并安装完整的独立 Skill 集合和受保护的本地运行组件。安装阶段不会选择 Rainbond、打开浏览器授权或创建应用。
 
-Agent 直接通过 SSH、终端命令或临时脚本操作服务器，可以完成简单的文件复制和进程启动，但难以稳定处理数据库、依赖关系、域名、证书、存储、日志、升级、回滚和最终访问验证。
+## 安装后的第一条任务
 
-| 直接操作服务器 | RainSkills + Rainbond |
-| --- | --- |
-| 依赖当前对话、SSH 和临时脚本 | 通过稳定的 Rainbond 应用对象和 MCP 操作 |
-| 容易把进程启动当作部署完成 | 检查组件、Pod、事件、访问入口和存储状态 |
-| 数据库、缓存和服务依赖需要人工拼装 | 使用应用拓扑表达组件与依赖关系 |
-| 升级和回滚依赖额外脚本 | 通过快照、版本和发布流程持续管理 |
-| 难以判断应用是否真正可访问 | 通过交付验证输出访问地址和交付结论 |
+安装完成后，可以直接在项目目录告诉 Agent：
 
-RainSkills 不会绕过 Rainbond 直接接管服务器。Rainbond 负责应用运行和管理，RainSkills 负责让 Agent 正确理解并使用这些平台能力。
+```text
+帮我部署当前项目，并验证页面和 API。
+```
+
+RainSkills 会先分析项目结构、组件、构建命令、端口和依赖。任务第一次需要 Rainbond 时，Agent 才会进入运行环境选择。
+
+你也可以先要求分析，不立即部署：
+
+```text
+分析当前项目应该如何部署，列出组件、依赖、端口和存储，先不要创建资源。
+```
+
+## 连接应用运行环境
+
+如果当前还没有可用的 Rainbond，Agent 会根据任务提供运行环境选项。你也可以单独发送：
+
+```text
+帮我连接应用运行环境。
+```
+
+RainSkills 可以连接或协助准备以下环境：
+
+- Rainbond Cloud。
+- 已经运行的私有 Rainbond。
+- 本机 Rainbond。
+- 独立服务器上的单节点或多节点 Rainbond。
+- 已有 Kubernetes 集群中的 Rainbond。
+
+选择 Cloud 或已有 Rainbond 后，按照浏览器页面完成账号授权。不需要在聊天中粘贴 Token、JWT、密码或私钥。浏览器显示授权成功后，继续等待原连接过程结束；只有 Agent 明确返回连接成功，当前运行环境才可使用。
+
+RainSkills 只保存一个全局运行环境。更换环境会替换当前连接，新的授权和可用性验证成功后才会覆盖原有凭据。
 
 ## RainSkills 如何工作？
 
@@ -242,7 +280,7 @@ RainSkills 不会绕过 Rainbond 直接接管服务器。Rainbond 负责应用�
   ))}
 </ol>
 
-RainSkills 会结合当前项目文件、项目与 Rainbond 的绑定信息、Rainbond MCP 返回的平台状态，以及用户在关键节点的确认继续工作。
+RainSkills 会结合当前项目文件、项目与 Rainbond 的绑定信息、Rainbond 返回的真实平台状态，以及用户在关键节点的确认继续工作。
 
 ## RainSkills 能做什么？
 
@@ -283,8 +321,6 @@ RainSkills 会结合当前项目文件、项目与 Rainbond 的绑定信息、Ra
 
 ## RainSkills 与 RainAgent 有什么区别？
 
-RainSkills 和 RainAgent 都使用 AI 辅助 Rainbond 操作，但入口和上下文不同。
-
 | 对比项 | RainSkills | RainAgent |
 | --- | --- | --- |
 | 使用位置 | Codex、Claude Code 等本地 AI 编码工具 | Rainbond 控制台 |
@@ -292,31 +328,7 @@ RainSkills 和 RainAgent 都使用 AI 辅助 Rainbond 操作，但入口和上�
 | 主要场景 | 项目接入、部署、排障、交付验证和版本操作 | 平台内查询、排障、运维和授权执行 |
 | 关系 | 从本地开发流程连接 Rainbond | 从 Rainbond 页面上下文操作平台 |
 
-它们不会互相替代。开发者可以用 RainSkills 从本地项目发起部署，再用 RainAgent 在控制台中结合页面上下文继续查看和运维。
-
-## 支持的 Agent 与运行环境
-
-当前官方主安装流程优先支持 Codex 和 Claude Code。npm 安装器同时包含 Pi Agent、DeepSeek Harness、WorkBuddy 和 Hermes Agent 等适配入口，但不同操作系统和安装方式可能有额外限制。
-
-RainSkills 可以连接或协助准备以下 Rainbond 环境：
-
-- Rainbond Cloud。
-- 已经运行的私有化 Rainbond。
-- 由安装器引导新建的单机版或多节点集群版 Rainbond。
-- 在已有 Kubernetes 集群中安装并接入 Rainbond。
-
-不同安装目标的节点规划、资源、网络、存储、高可用和离线材料要求不同。RainSkills 会根据用户选择进入对应流程，具体前置条件仍以 [Rainbond 安装文档](/docs/installation) 为准。
-
-## 安装器会完成什么？
-
-- 识别或选择 Codex、Claude Code 等目标 Agent。
-- 安装 RainSkills 的独立业务 Skill。
-- 选择 Rainbond Cloud、已有私有化环境、新建单机或多节点 Rainbond，或接入已有 Kubernetes。
-- 在浏览器中完成登录和授权。
-- 配置当前 Agent 对应的 Rainbond MCP。
-- 验证 MCP 是否可以访问。
-
-安装完成后，重新加载 Plugin 或重启当前 AI 编码工具，确保 Skill 和 MCP 配置生效。
+开发者可以用 RainSkills 从本地项目发起部署，再用 RainAgent 在控制台中结合页面上下文继续查看和运维。
 
 ## 常用提示词
 
@@ -368,30 +380,41 @@ RainSkills 可以连接或协助准备以下 Rainbond 环境：
 把当前应用回滚到上一个快照。
 ```
 
-## 更新、刷新与故障处理
+## 更新、重新连接与故障处理
 
-### 更新 RainSkills
+### 更新或修复 RainSkills
 
-```bash
-npx --yes rainskills@latest --force
+可以让当前 Agent 重新运行安装流程：
+
+```text
+帮我更新 RainSkills。
 ```
 
-### 刷新授权
-
-如果 Rainbond MCP 返回 401、403、`unauthorized` 或 `token expired`，执行：
+也可以直接运行最新安装器：
 
 ```bash
-npx --yes rainskills refresh
+npx --yes rainskills@latest
 ```
 
-刷新成功后重启当前 Agent，因为 MCP 客户端通常在进程启动时读取环境变量。
+安装器会比较并更新已经安装的独立 Skills。Hermes Agent 的已打开会话可能需要执行 `/reset` 或新建会话，让 Skill 目录重新加载。
+
+### 重新连接 Rainbond
+
+如果运行环境返回 401、403、`unauthorized` 或 `token expired`，发送：
+
+```text
+帮我重新连接 Rainbond。
+```
+
+RainSkills 会重新进入浏览器授权。继续等待原连接过程结束，不要在浏览器显示成功后重复发起连接。
 
 ## 安全、权限和数据边界
 
 - RainSkills 优先读取当前项目下的 `rainbond.app.json` 和 `.rainbond/local.json`，不会扫描其他仓库猜测绑定关系。
 - `.rainbond/env.preview.json` 和 `.rainbond/env.prod.json` 只保存非敏感环境覆盖，不应写入密码、Token、证书或私钥。
+- Rainbond 授权凭据保存在受保护的本地状态中，不写入项目文件。
 - 删除应用、删除组件、修改业务代码和平台安装等高风险动作需要明确确认。
-- 用户没有明确选择 Rainbond Cloud 或私有化环境时，Agent 不应替用户采用默认项。
+- 用户没有明确选择运行环境时，Agent 不应替用户采用默认项。
 - 问题定位到业务代码、构建脚本、镜像内容或平台容量时，RainSkills 会停止继续尝试并说明下一步。
 
 ## 常见问题
@@ -412,8 +435,8 @@ npx --yes rainskills refresh
 
 ## 相关内容
 
-- [Rainbond AI 能力概览](/docs/ai)
-- [RainSkills 安装使用视频](/videos/rainskills-ai-deploy)
+- [AI 生成代码如何部署到自己的服务器](/rainskills)
+- [RainSkills 安装与连接视频](/videos/rainskills-ai-deploy)
 - [RainAgent：控制台 AI 助手](/docs/ai/rainagent)
 - [Rainbond 快速安装](/docs/quick-start/quick-install)
 - [RainSkills GitHub 源码](https://github.com/goodrain/rainskills)

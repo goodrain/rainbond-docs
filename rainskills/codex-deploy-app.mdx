@@ -1,13 +1,13 @@
 ---
-title: Codex部署应用：从代码修改到交付验证
-description: 使用 Codex 和 RainSkills 将当前项目部署到 Rainbond，持续读取构建与运行状态，排查失败并验证最终访问地址。
+title: Codex 部署应用到自己的服务器 | RainSkills
+description: 使用 Codex 和 RainSkills 将当前项目部署到 Rainbond，在代码修改后继续跟踪构建、启动和访问状态，并验证页面、API 和最终访问地址。
 sidebar_position: 3
 keywords:
-  - Codex部署应用
-  - Codex部署项目
+  - Codex 部署应用
+  - Codex 部署项目
   - Codex deployment skill
-  - Codex部署到自己的服务器
-  - Codex应用上线
+  - Codex 部署到自己的服务器
+  - Codex 应用上线
   - Codex RainSkills
 ---
 
@@ -17,31 +17,31 @@ import RainSkillsArticleFaq from '@site/src/components/Solutions/RainSkillsArtic
 export const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'TechArticle',
-  headline: 'Codex部署应用：从代码修改到交付验证',
-  description: '使用 Codex 和 RainSkills 部署当前项目、处理运行问题并验证最终访问结果。',
+  headline: 'Codex 部署应用到自己的服务器',
+  description: '使用 Codex 和 RainSkills 部署当前项目，在代码修改后跟踪构建、启动和访问状态并验证最终结果。',
   url: 'https://www.rainbond.com/rainskills/codex-deploy-app',
   mainEntityOfPage: 'https://www.rainbond.com/rainskills/codex-deploy-app',
   image: 'https://www.rainbond.com/img/video/rainskills-ai-deploy-cover.jpg',
-  keywords: ['Codex部署应用', 'Codex部署项目', 'Codex deployment skill', 'Codex应用上线'],
+  keywords: ['Codex 部署应用', 'Codex 部署项目', 'Codex deployment skill', 'Codex 应用上线'],
   inLanguage: 'zh-CN',
   about: [
     { '@type': 'SoftwareApplication', name: 'Codex' },
     { '@type': 'SoftwareApplication', name: 'RainSkills', url: 'https://github.com/goodrain/rainskills' },
     { '@type': 'SoftwareApplication', name: 'Rainbond', url: 'https://www.rainbond.com' },
   ],
-  isPartOf: { '@type': 'WebSite', name: 'RainSkills：AI Agent 部署应用', url: 'https://www.rainbond.com/rainskills' },
+  isPartOf: { '@type': 'WebSite', name: 'AI 生成代码如何部署到自己的服务器', url: 'https://www.rainbond.com/rainskills' },
   author: { '@type': 'Organization', name: 'Rainbond', url: 'https://www.rainbond.com' },
   publisher: { '@type': 'Organization', name: 'Rainbond', url: 'https://www.rainbond.com' },
 };
 
 <Head>
   <link rel="canonical" href="https://www.rainbond.com/rainskills/codex-deploy-app" />
-  <meta property="og:title" content="Codex部署应用：从代码修改到交付验证" />
-  <meta property="og:description" content="让 Codex 在完成编码后继续部署当前项目、处理运行问题并验证交付结果。" />
+  <meta property="og:title" content="Codex 部署应用到自己的服务器 | RainSkills" />
+  <meta property="og:description" content="让 Codex 在完成编码后继续部署当前项目、跟踪构建与运行状态并验证交付结果。" />
   <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
 </Head>
 
-# Codex部署应用：从代码修改到交付验证
+# Codex 部署应用到自己的服务器
 
 ## 在 Codex 里怎么发起部署
 
@@ -50,7 +50,7 @@ export const articleJsonLd = {
 推荐从当前项目目录开始：
 
 ```text
-帮我安装 RainSkills，并连接到我要使用的 Rainbond。
+帮我安装 RainSkills。
 ```
 
 安装完成后输入：
@@ -63,16 +63,16 @@ export const articleJsonLd = {
 
 Codex 擅长理解仓库、修改代码、执行命令和验证开发结果，但生产部署需要另一组长期存在的上下文：应用属于哪个环境、包含哪些组件、依赖如何连接、端口如何开放、数据如何持久化，以及失败后应该读取哪些平台状态。
 
-RainSkills 将这些部署知识整理为 Agent 可以遵循的工作流，并通过 Rainbond MCP 读取和操作平台。三者的职责可以这样理解：
+RainSkills 将这些部署知识整理为 Agent 可以遵循的工作流，并通过受保护的本地运行时连接 Rainbond。各部分的职责可以这样理解：
 
 | 能力 | 主要职责 |
 | --- | --- |
 | Codex | 理解当前项目、执行任务、修改代码并根据证据继续推进 |
 | RainSkills | 选择项目接入、部署、排错或交付验证流程 |
-| Rainbond MCP | 提供受控的平台状态查询和操作接口 |
+| 受保护的本地运行时 | 连接一个 Rainbond，并通过固定工具契约执行查询和操作 |
 | Rainbond | 持续管理构建、组件、依赖、网络、存储、版本和运行状态 |
 
-这与“让 Codex 登录服务器执行几条命令”不同。应用被建模后，后续更新、扩缩容、排障和回滚都可以复用相同的对象与状态。
+应用被建模后，后续更新、扩缩容、排障和回滚都可以复用相同的对象与状态，不必依赖散落的服务器命令。
 
 ## 把任务范围说清楚
 
@@ -246,8 +246,8 @@ Codex 完成部署后，你需要的是一份清楚的交付结果，而不是�
 ## 相关内容
 
 - 查看专题总览：[AI Agent 部署应用](/rainskills)
-- 使用 Claude Code：[Claude Code部署应用](/rainskills/claude-code-deploy-app)
-- 排查部署失败：[AI项目部署失败自动排查](/rainskills/ai-deployment-troubleshooting)
-- 准备生产上线：[Vibe Coding项目如何上线](/rainskills/vibe-coding-go-live)
+- 使用 Claude Code：[Claude Code 部署应用](/rainskills/claude-code-deploy-app)
+- 排查部署失败：[AI 项目部署失败排查](/rainskills/ai-deployment-troubleshooting)
+- 准备生产上线：[Vibe Coding 项目如何上线](/rainskills/vibe-coding-go-live)
 - 了解 Codex：[OpenAI Codex 官方文档](https://developers.openai.com/codex/overview)
 - 查看 RainSkills 源码：[GitHub](https://github.com/goodrain/rainskills)
