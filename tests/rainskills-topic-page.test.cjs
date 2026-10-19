@@ -213,15 +213,15 @@ test('presents a product-style deployment journey instead of a documentation art
   const source = read('src/components/Solutions/RainSkillsDeployment.tsx');
   [
     '<CompareHeroGraphic',
-    'AI 写完代码后，部署不该重新从零开始',
-    '从当前项目到自己的服务器，一条对话完成交付闭环',
-    '六类 AI Agent 使用同一套部署能力',
-    '部署、排错和验证形成一条可检查的流程',
+    '从当前项目到可访问的应用',
+    '支持的 AI Agent',
+    '查看完整交付流程',
     '为什么不直接让 Agent SSH 到服务器？',
     '常见问题',
     '开始使用 RainSkills',
-    '/img/agents/claude-code.svg',
-    '/img/agents/codex.svg',
+    'Claude Code',
+    'Codex',
+    'Hermes Agent',
   ].forEach(copy => assert.ok(source.includes(copy), `Expected product landing content: ${copy}`));
 });
 
