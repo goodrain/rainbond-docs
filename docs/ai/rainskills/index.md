@@ -17,6 +17,7 @@ image: /img/video/rainskills-ai-deploy-cover.jpg
 
 import Head from '@docusaurus/Head';
 import VideoDocCallout from '@site/src/components/Docs/VideoDocCallout';
+import RainSkillsWechatSupport from '@site/src/components/RainSkillsWechatSupport';
 import styles from './styles.module.css';
 
 export const rainskillsUrl = 'https://www.rainbond.com/docs/ai/rainskills';
@@ -432,6 +433,10 @@ RainSkills 会重新进入浏览器授权。继续等待原连接过程结束，
     </details>
   ))}
 </div>
+
+## 微信交流 {#wechat-support}
+
+<RainSkillsWechatSupport module="rainskills_docs" />
 
 ## 相关内容
 

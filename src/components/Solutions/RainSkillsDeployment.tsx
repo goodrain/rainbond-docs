@@ -2,7 +2,7 @@ import React from 'react';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import CompareHeroGraphic from '@site/src/components/Compare/CompareHeroGraphic';
-import TopicActionGrid from '@site/src/components/OfflineAndXinchuang/TopicActionGrid';
+import RainSkillsWechatSupport from '@site/src/components/RainSkillsWechatSupport';
 import styles from './rainskills-deployment.module.css';
 
 const pageTitle = 'AI 生成代码如何部署到自己的服务器 | RainSkills';
@@ -13,66 +13,27 @@ const canonicalUrl = 'https://www.rainbond.com/rainskills';
 const keywords =
   'AI 生成代码怎么部署,AI 项目上线,部署到自己的服务器,RainSkills,Claude Code 部署应用,Codex 部署应用,AI Agent 部署,开源部署 Skill';
 
-const problemCards = [
-  {
-    no: '01',
-    title: '代码写完，部署上下文却断了',
-    description: 'AI 已经理解项目结构，但传统上线流程还要重新整理端口、依赖、数据库、环境变量和启动方式。',
-  },
-  {
-    no: '02',
-    title: '脚本执行成功，不等于应用可访问',
-    description: '进程启动之后，还要确认网关、域名、证书、存储、健康检查和前后端接口是否真正正常。',
-  },
-  {
-    no: '03',
-    title: '失败后，日志散落在不同位置',
-    description: '构建日志、运行日志、Pod 状态和平台事件彼此分散，Agent 很难判断下一步应该改配置还是改代码。',
-  },
-  {
-    no: '04',
-    title: '一次上线之后，还要持续运维',
-    description: '应用需要升级、扩缩容、备份、回滚和再次交付，临时 SSH 命令无法沉淀成长期可复用的能力。',
-  },
-];
-
-const agents = [
-  {
-    name: 'Claude Code',
-    logo: '/img/agents/claude-code.svg',
-    description: '从当前代码目录发起部署、排错和交付验证。',
-  },
-  {
-    name: 'Codex',
-    logo: '/img/agents/codex.svg',
-    description: '在编码任务完成后继续把项目交付到运行环境。',
-  },
-  {
-    name: '更多 AI Agent',
-    logo: '/img/agents/harness.svg',
-    description: 'Pi Agent、DeepSeek Harness、WorkBuddy 和 Hermes Agent 使用同一套 Skills 与本地运行时。',
-  },
-];
+const supportedAgents = ['Claude Code', 'Codex', 'Pi Agent', 'DeepSeek Harness', 'WorkBuddy', 'Hermes Agent'];
 
 const guideCards = [
   {
     title: 'Claude Code 部署应用',
-    description: '从当前项目开始，让 Claude Code 完成部署、排错和访问验证。',
+    description: '从当前项目发起部署与验证。',
     href: '/rainskills/claude-code-deploy-app',
   },
   {
     title: 'Codex 部署应用',
-    description: '让 Codex 在写完代码后继续更新应用并给出交付结果。',
+    description: '写完代码，继续部署和更新应用。',
     href: '/rainskills/codex-deploy-app',
   },
   {
     title: 'AI 项目部署失败排查',
-    description: '根据你看到的失败现象，逐层检查构建、运行、依赖和访问。',
+    description: '定位构建、运行与访问问题。',
     href: '/rainskills/ai-deployment-troubleshooting',
   },
   {
     title: 'Vibe Coding 项目如何上线',
-    description: '把本地原型推进到有域名、数据持久化、验证和回滚的生产应用。',
+    description: '从本地原型走向可维护的生产应用。',
     href: '/rainskills/vibe-coding-go-live',
   },
 ];
@@ -100,27 +61,11 @@ const workflowSteps = [
   },
 ];
 
-const capabilityCards = [
-  {
-    title: '部署当前项目',
-    description: '识别源码、镜像或软件包，创建应用与组件，并补齐端口、依赖、连接变量和必要存储。',
-    points: ['单组件与全栈项目', '源码、镜像、Compose 与应用模板', '服务器与 Kubernetes 环境'],
-  },
-  {
-    title: '部署失败自动排查',
-    description: '让 Agent 基于真实平台状态继续工作，而不是只根据一段终端输出猜测失败原因。',
-    points: ['构建与运行日志', 'Pod 诊断与平台事件', '配置问题与代码问题分界'],
-  },
-  {
-    title: '交付结果验证',
-    description: '不把“资源已创建”当作完成，继续验证页面、API、组件状态、存储和最终访问入口。',
-    points: ['页面与 API 路径', '组件、Pod 和事件收敛', '访问地址与交付结论'],
-  },
-  {
-    title: '持续运维与版本管理',
-    description: '在同一套应用模型上继续升级、快照、发布与回滚，让一次部署变成可持续维护的资产。',
-    points: ['应用快照与版本', '发布成应用模版', '受控回滚与风险确认'],
-  },
+const capabilities = [
+  {title: '部署', description: '识别源码、镜像与组件依赖，组织应用拓扑。'},
+  {title: '排错', description: '读取构建、运行日志与平台事件，定位失败原因。'},
+  {title: '验证', description: '检查页面与 API，返回访问地址和交付结论。'},
+  {title: '运维', description: '在同一应用上继续升级、快照、发布与回滚。'},
 ];
 
 const comparisonRows = [
@@ -231,78 +176,94 @@ export default function RainSkillsDeployment(): JSX.Element {
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
       </Head>
 
-      <CompareHeroGraphic
-        title={pageHeading}
-        subtitle="把 RainSkills 安装到你正在使用的 AI Agent，让它带着当前项目上下文继续完成部署、排错、访问验证和版本管理。"
-        decision="RainSkills 让 AI Agent 理解应用拓扑、读取真实运行状态，并把项目交付到你自己的服务器或 Kubernetes。"
-        primaryCta={{label: '开始使用 RainSkills', href: '/docs/ai/rainskills'}}
-        secondaryCta={{label: '查看 GitHub 源码', href: 'https://github.com/goodrain/rainskills'}}
-      />
-
-      <section className={styles.sectionBlock}>
-        <div className={styles.sectionHead}>
-          <h2>AI 写完代码后，部署不该重新从零开始</h2>
-          <p>传统部署会在代码完成的那一刻丢失上下文。RainSkills 让同一个 Agent 带着对项目的理解继续进入运行环境。</p>
+      <header className={styles.intro}>
+        <CompareHeroGraphic
+          title={pageHeading}
+          subtitle="让 AI Agent 带着当前项目上下文，通过 Rainbond 完成部署、排错、验证与持续运维。"
+          primaryCta={{label: '开始使用 RainSkills', href: '/docs/ai/rainskills'}}
+          secondaryCta={{label: '查看 GitHub 源码', href: 'https://github.com/goodrain/rainskills'}}
+        />
+        <div className={styles.agentSupport} aria-label="支持的 AI Agent">
+          <span>支持</span>
+          {supportedAgents.map((name) => <span className={styles.agentTag} key={name}>{name}</span>)}
         </div>
-        <div className={styles.problemGrid}>
-          {problemCards.map((item) => (
-            <article className={styles.problemCard} key={item.no}>
-              <span className={styles.cardNo}>{item.no}</span>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            </article>
-          ))}
+      </header>
+
+      <section className={styles.sectionBlock} aria-labelledby="deployment-overview">
+        <div className={styles.sectionHead}>
+          <h2 id="deployment-overview">从当前项目到可访问的应用</h2>
+          <p>受保护的本地运行时连接 Rainbond，让应用运行在 Cloud、自己的服务器或 Kubernetes 中。</p>
+        </div>
+        <div className={styles.overviewGrid}>
+          <ul className={styles.capabilityList}>
+            {capabilities.map((item, index) => (
+              <li key={item.title}>
+                <span className={styles.capabilityNo} aria-hidden="true">0{index + 1}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <figure className={styles.deployScreenshot}>
+            <a href="https://grstatic.tos-cn-beijing.volces.com/wechat/rainskills/rainskills-deploy.png" target="_blank" rel="noopener noreferrer">
+              <img
+                src="https://grstatic.tos-cn-beijing.volces.com/wechat/rainskills/rainskills-deploy.png"
+                alt="RainSkills 在 AI Agent 中完成应用部署并返回访问地址"
+                width={1720}
+                height={1194}
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <figcaption>实际部署结果 · 点击查看原图</figcaption>
+          </figure>
+        </div>
+
+        <div className={styles.detailList}>
+          <details className={styles.disclosure}>
+            <summary>查看完整交付流程</summary>
+            <ol className={styles.workflow} aria-label="RainSkills 应用交付流程">
+              {workflowSteps.map((step) => (
+                <li key={step.title}>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </li>
+              ))}
+            </ol>
+          </details>
+          <details className={styles.disclosure}>
+            <summary>为什么不直接让 Agent SSH 到服务器？</summary>
+            <p className={styles.detailIntro}>RainSkills 用应用拓扑管理组件与依赖，并持续验证运行状态、访问结果和后续版本。</p>
+            <div className={styles.tablePanel} role="region" aria-label="部署方式对比" tabIndex={0}>
+              <table>
+                <caption className={styles.srOnly}>Agent 直接操作服务器与 RainSkills + Rainbond 的交付能力对比</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">对比维度</th>
+                    <th scope="col">Agent 直接操作服务器</th>
+                    <th scope="col">RainSkills + Rainbond</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonRows.map(([label, direct, rainskills]) => (
+                    <tr key={label}>
+                      <th scope="row">{label}</th>
+                      <td>{direct}</td>
+                      <td>{rainskills}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
         </div>
       </section>
 
-      <section className={styles.sectionBlock}>
+      <section className={styles.sectionBlock} aria-labelledby="deployment-guides">
         <div className={styles.sectionHead}>
-          <h2>从当前项目到自己的服务器，一条对话完成交付闭环</h2>
-          <p>RainSkills 负责选择正确的 Agent 工作流，受保护的本地运行时连接 Rainbond，Rainbond 负责应用持续运行。</p>
-        </div>
-        <ol className={styles.workflow} aria-label="RainSkills 应用交付流程">
-          {workflowSteps.map((step, index) => (
-            <li className={styles.workflowStep} key={step.title}>
-              <span className={styles.workflowNo}>{String(index + 1).padStart(2, '0')}</span>
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
-            </li>
-          ))}
-        </ol>
-        <figure className={styles.deployScreenshot}>
-          <img
-            src="https://grstatic.tos-cn-beijing.volces.com/wechat/rainskills/rainskills-deploy.png"
-            alt="RainSkills 在 AI Agent 中完成应用部署并返回访问地址"
-            width={1720}
-            height={1194}
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
-      </section>
-
-      <section className={styles.sectionBlock}>
-        <div className={styles.sectionHead}>
-          <h2>六类 AI Agent 使用同一套部署能力</h2>
-          <p>能力沉淀在开源 Skill 与标准化工具接口中，不依赖某一次对话，也不把项目锁定在单一 AI Agent。</p>
-        </div>
-        <div className={styles.agentGrid}>
-          {agents.map((item) => (
-            <article className={styles.agentCard} key={item.name}>
-              <img src={item.logo} alt={`${item.name} 标志`} width={52} height={52} />
-              <h3>{item.name}</h3>
-              <p>{item.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.sectionBlock}>
-        <div className={styles.sectionHead}>
-          <h2>按你的工具和问题继续阅读</h2>
-          <p>选择你正在使用的 AI Agent，或者直接从当前遇到的部署问题开始。</p>
+          <h2 id="deployment-guides">按你的工具和问题继续阅读</h2>
         </div>
         <div className={styles.guideGrid}>
           {guideCards.map((guide) => (
@@ -317,82 +278,35 @@ export default function RainSkillsDeployment(): JSX.Element {
         </div>
       </section>
 
-      <section className={styles.sectionBlock}>
-        <div className={styles.sectionHead}>
-          <h2>部署、排错和验证形成一条可检查的流程</h2>
-          <p>RainSkills 把一次部署拆成可观察、可判断、可恢复的步骤，让 Agent 知道什么时候继续，什么时候停止并请求确认。</p>
-        </div>
-        <div className={styles.capabilityGrid}>
-          {capabilityCards.map((item) => (
-            <article className={styles.capabilityCard} key={item.title}>
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              <ul>
-                {item.points.map((point) => <li key={point}>{point}</li>)}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.sectionBlock}>
-        <div className={styles.sectionHead}>
-          <h2>为什么不直接让 Agent SSH 到服务器？</h2>
-          <p>SSH 能执行命令，但稳定交付还需要应用模型、状态判断、权限边界和长期运维能力。</p>
-        </div>
-        <div className={styles.tablePanel}>
-          <table>
-            <thead>
-              <tr>
-                <th>对比维度</th>
-                <th>Agent 直接操作服务器</th>
-                <th>RainSkills + Rainbond</th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonRows.map(([label, direct, rainskills]) => (
-                <tr key={label}>
-                  <td>{label}</td>
-                  <td>{direct}</td>
-                  <td>{rainskills}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className={styles.sectionBlock}>
-        <div className={styles.sectionHead}>
-          <h2>常见问题</h2>
-          <p>关于 Claude Code 部署应用、Codex 部署项目、服务器环境和安全边界的常见问题。</p>
-        </div>
-        <div className={styles.faqList}>
-          {faqs.map((faq) => (
-            <details className={styles.faqItem} key={faq.question}>
-              <summary>{faq.question}</summary>
-              <p>{faq.answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      <TopicActionGrid
-        title="开始使用 RainSkills"
-        description="选择最适合你的下一步：安装 Skill、观看完整流程，或者直接查看开源代码。"
-        items={[
-          {
-            label: '安装 RainSkills',
-            note: '查看安装方式、支持的 Agent 和连接 Rainbond 的完整说明。',
-            href: '/docs/ai/rainskills',
-          },
-          {
-            label: '安装 Rainbond',
-            note: '准备自己的应用运行平台和目标服务器环境。',
-            href: '/install-hub',
-          },
-        ]}
-      />
+      <div className={styles.helpGrid}>
+        <section aria-labelledby="rainskills-faq">
+          <div className={styles.sectionHead}>
+            <h2 id="rainskills-faq">常见问题</h2>
+          </div>
+          <div className={styles.faqList}>
+            {faqs.map((faq) => (
+              <details className={styles.faqItem} key={faq.question}>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+        <aside className={styles.helpPanel} aria-labelledby="get-started">
+          <h2 id="get-started">开始使用 RainSkills</h2>
+          <p>安装到你正在使用的 AI Agent，再告诉它：</p>
+          <blockquote>帮我部署当前项目，并验证页面和 API。</blockquote>
+          <div className={styles.helpLinks}>
+            <Link to="/docs/ai/rainskills">安装与使用文档 ↗</Link>
+            <Link to="/videos/rainskills-ai-deploy">观看安装视频 ↗</Link>
+            <Link to="/install-hub">准备 Rainbond 运行环境 ↗</Link>
+          </div>
+          <div className={styles.wechatSupport}>
+            <h3 id="wechat-support">微信交流</h3>
+            <RainSkillsWechatSupport module="rainskills_topic" compact />
+          </div>
+        </aside>
+      </div>
     </>
   );
 }
