@@ -7,16 +7,18 @@ import styles from './ai-private-deployment.module.css';
 
 const pageTitle = 'AI 应用与大模型私有化部署解决方案 | Rainbond';
 const pageDescription =
-  '在 Rainbond 上私有化部署 Qwen、DeepSeek、GLM 等大模型，开放 OpenAI 兼容 API，并通过应用市场部署 Dify 等 AI 应用。结合 RainAgent 和 RainSkills，让团队完成 AI 应用部署、排障、升级和运维。';
+  '安装并启用 Rainbond AI 大模型插件后，可以准备模型、创建 CPU 或 GPU 推理实例、开放 OpenAI 兼容 API，并将 Dify 等 AI 应用部署到私有环境。';
 const canonicalUrl = 'https://www.rainbond.com/solutions/ai-private-deployment';
 const aiDocsUrl = 'https://rainbond.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg';
 
 const capabilityRows = [
+  ['启用前提', '安装并启用 AI 大模型插件；GPU 管理需要相应插件、驱动和指标采集', '先确认企业授权、插件版本和集群环境是否满足要求'],
   ['大模型服务层', '模型部署、模型实例、推理服务、CPU/GPU 配置、vLLM 参数', '把模型文件部署成可访问的在线推理服务'],
   ['API 接入层', 'API 密钥、OpenAI 兼容 base URL、curl / Python SDK 示例', '让业务系统和 AI 应用安全调用私有模型'],
-  ['AI 应用层', '应用市场、一键安装、升级、复用、应用拓扑', '快速部署 Dify 等 AI 应用，并和模型服务连接'],
+  ['AI 网关边界', '模型地址、模型名称、API 密钥和 OpenAI 兼容调用', '当前证据支持模型 API 接入，不等同于完整的多厂商路由、配额和计费网关'],
+  ['AI 应用层', '应用市场、镜像或 Compose 部署、升级、应用拓扑', '部署 Dify 等 AI 应用，并连接已运行的模型服务'],
   ['运维监控层', '服务概览、实例状态、日志、调用记录、GPU 指标', '判断模型服务是否健康、资源是否足够'],
-  ['AI 辅助层', 'RainAgent、RainSkills、受控工具调用、审批确认', '用自然语言完成部署、排障、配置检查和交付验证'],
+  ['AI 辅助层', 'RainAgent、RainSkills、受控工具调用、审批确认', '可用范围取决于版本授权、账号权限和部署环境'],
   ['企业交付层', '多团队、多租户、应用市场、离线导入导出、版本管理', '支撑企业内网、客户现场和长期交付'],
 ];
 
@@ -48,7 +50,7 @@ const valueCards = [
   },
   {
     title: '让部署、监控、排障可持续',
-    description: '把模型监控、组件日志、GPU 指标、RainAgent 和 RainSkills 放进同一条交付闭环。',
+    description: '在同一处查看模型监控、组件日志和 GPU 指标，并用 RainAgent 或 RainSkills 辅助排查。',
   },
 ];
 
@@ -78,7 +80,7 @@ const flowSteps = [
 const capabilityCards = [
   {
     title: '大模型服务',
-    summary: '从模型来源、推理参数到实例生命周期，统一放在 Rainbond 中管理。',
+    summary: '管理模型来源、推理参数、实例状态和运行日志。',
     points: ['内置模型、ModelScope、HTTP、上传文件和本地路径', 'CPU/GPU 模式、节点、环境变量与 vLLM 参数', '实例状态、运行详情、日志和在线调试'],
   },
   {
@@ -88,12 +90,12 @@ const capabilityCards = [
   },
   {
     title: 'AI 应用市场',
-    summary: '把 Dify 等常用 AI 应用变成可安装、可升级、可复用的软件资产。',
-    points: ['一键安装 AI 应用和依赖组件', '用应用拓扑连接模型、数据库和业务系统', '把验证过的交付结果沉淀到应用市场'],
+    summary: '从应用市场安装 Dify 等已上架模板，也可以用镜像或 Compose 部署其他 AI 应用。',
+    points: ['从应用市场安装已上架的 AI 应用模板', '用应用拓扑连接模型、数据库和业务系统', '把验证过的交付结果发布为应用模板'],
   },
   {
     title: 'AI 辅助运维',
-    summary: '让 AI 从“生成代码”继续走到“部署、排障和交付验证”。',
+    summary: 'RainAgent 和 RainSkills 可以参与部署、日志分析和交付检查。',
     points: ['RainAgent 在控制台中结合页面上下文操作', 'RainSkills 在本地 AI 编码工具中识别项目并部署', '变更类操作通过审批确认降低风险'],
   },
 ];
@@ -159,33 +161,48 @@ const operationCards = [
   {
     title: 'AI 应用市场',
     description:
-      '企业 AI 通常还需要知识库、RAG、工作流、聊天界面、自动化工具和内部系统集成。Rainbond 应用市场可以把 Dify 等常用 AI 应用沉淀为可复用的软件资产。',
+      '企业 AI 通常还需要知识库、RAG、工作流、聊天界面和内部系统。应用市场中已有的模板可以直接安装；没有模板时仍需使用镜像、Compose 或源码部署。',
   },
   {
     title: 'RainAgent',
     description:
-      'RainAgent 运行在 Rainbond 控制台内，适合在平台页面中通过自然语言部署、排障和运维应用，并结合页面上下文给出操作建议。',
+      'RainAgent 运行在 Rainbond 控制台内，可以结合页面上下文查询、排障和执行受控变更。开源版默认仅首个注册的企业管理员可用；企业版仍受当前用户权限控制。',
   },
   {
     title: 'RainSkills',
     description:
-      'RainSkills 安装在 Codex、Claude Code 等本地 AI 编码工具里，适合从本地项目出发完成 Rainbond 接入、部署、排错和交付验证。',
+      'RainSkills 安装在 Codex、Claude Code 等本地 AI 编码工具里，可以从本地项目发起 Rainbond 接入、部署、排错和交付验证。实际可用操作受平台版本、账号和目标资源权限限制。',
   },
 ];
 
 const faqs = [
+  {
+    question: '安装 Rainbond 后会默认出现模型和 GPU 管理吗？',
+    answer:
+      '不会。模型仓库、模型实例、API 密钥和模型监控来自 AI 大模型插件；GPU 资源池、配额和组件 GPU 配置依赖 GPU 插件及集群中的驱动、Device Plugin 和指标采集。部署前要核对插件与平台版本。',
+  },
+  {
+    question: 'AI 应用怎样统一配置模型地址和密钥？',
+    answer:
+      '可以在 Rainbond 的模型服务中创建 API 密钥，并使用 OpenAI 兼容 base URL 和模型名称接入 Dify 或业务系统。这里可承接基础 AI 网关接入需求，但当前公开证据不支持把它描述为完整的多模型厂商路由、配额和计费网关。',
+  },
+  {
+    question: 'AI 运维与自动化排错能做到什么？',
+    answer:
+      'RainAgent 和 RainSkills 可以辅助读取应用状态、事件与日志，给出部署或排障步骤，并在受控流程中执行操作。它们属于 AI 辅助运维，不代表无人值守的全自动 AIOps。',
+  },
   {
     question: '企业如何私有化部署 AI 应用？',
     answer:
       '企业私有化部署 AI 应用，需要同时准备模型服务、AI 应用、数据库、访问入口、API 密钥、资源监控和升级机制。Rainbond 可以把这些对象按应用拓扑统一管理，并通过应用市场、模型 API 和 AI 助手能力降低部署和运维复杂度。',
   },
   {
-    question: 'Rainbond 能部署哪些大模型？',
+    question: '私有化环境能部署哪些大模型？',
     answer:
-      'Rainbond 大模型能力面向 Qwen、DeepSeek、GLM、Kimi 等模型私有化部署场景，支持从内置模型、ModelScope、HTTP 地址、上传文件和本地路径等方式准备模型。具体可部署模型取决于模型格式、推理引擎、算力资源和平台环境。',
+      '具体模型清单以 AI 大模型插件中的模型仓库为准。插件也支持 ModelScope、HTTP 地址、上传文件和本地路径等准备方式。模型能否运行取决于格式、推理引擎、CPU/GPU 资源和平台环境。',
   },
   {
-    question: 'Rainbond 是否支持 OpenAI 兼容接口？',
+    question: '私有模型能提供 OpenAI 兼容接口吗？',
     answer:
       '支持。模型实例运行后，Rainbond 可以提供 OpenAI 兼容接入示例，包括 base URL、curl 示例和 Python OpenAI SDK 示例。外部应用调用时需要使用有效 API 密钥，并指定正在运行的模型名称。',
   },
@@ -195,22 +212,22 @@ const faqs = [
       '可以按 OpenAI 兼容方式接入。通常先在 Rainbond 中部署模型服务并创建 API 密钥，再在 Dify 的模型供应商配置中填写模型服务地址、模型名称和密钥。如果 Dify 与模型服务部署在同一 Rainbond 集群内，也可以优先使用内网访问地址。',
   },
   {
-    question: 'RainAgent 和 RainSkills 有什么区别？',
+    question: '控制台 AI 助手和本地 Agent 部署工具有什么区别？',
     answer:
       'RainAgent 运行在 Rainbond 控制台内，适合在平台页面中通过自然语言部署、排障和运维应用。RainSkills 安装在 Codex、Claude Code 等本地 AI 编码工具里，适合从本地项目出发完成 Rainbond 接入、部署、排错和交付验证。',
   },
   {
-    question: 'Rainbond 的 AI 大模型能力是否必须使用 GPU？',
+    question: '私有化模型部署必须使用 GPU 吗？',
     answer:
       '不一定。部署时可以选择 CPU 或 GPU 模式。但对于较大规模文本模型，GPU 通常能显著提升推理性能。当前 GPU 资源识别和分配主要以 NVIDIA GPU 资源为主，实际规格应根据模型大小、上下文长度和并发要求评估。',
   },
   {
-    question: 'Rainbond 适合离线或内网环境吗？',
+    question: 'AI 应用可以部署到离线或内网环境吗？',
     answer:
       'Rainbond 适合需要私有化、内网、离线交付和客户现场部署的团队。模型下载、上传和部署仍依赖具体环境中的网络、共享存储、GPU 资源和镜像准备情况；完全离线环境需要提前准备镜像、模型文件和安装包。',
   },
   {
-    question: '如果模型部署失败，Rainbond 怎么排查？',
+    question: '模型部署失败时应该怎么排查？',
     answer:
       '可以先查看模型实例运行详情、日志、组件状态、事件和资源使用情况，判断问题来自模型加载、启动参数、资源不足、网络访问还是服务响应异常。RainAgent 和 RainSkills 也可以辅助读取日志、分析原因并给出下一步处理建议。',
   },
@@ -235,6 +252,7 @@ const articleJsonLd = {
   headline: 'AI 应用与大模型私有化部署解决方案',
   description: pageDescription,
   url: canonicalUrl,
+  dateModified: '2026-10-25',
   author: {
     '@type': 'Organization',
     name: 'Rainbond',
@@ -273,12 +291,14 @@ export default function AiPrivateDeployment(): JSX.Element {
         <meta name="description" content={pageDescription} />
         <meta
           name="keywords"
-          content="AI应用私有化部署,AI应用部署到自己的服务器,企业AI应用私有化,AI应用内网部署,AI应用离线部署,大模型私有化部署,AI应用栈私有化部署,信创AI应用部署,国产化AI应用平台,Dify私有化部署,OpenAI兼容接口,RainAgent,RainSkills"
+          content="AI应用部署平台,Dify部署平台,n8n部署平台,AI应用私有化部署,AI大模型部署,AI网关,GPU管理,AI运维,AI OPS,AI开发部署,AI开发交付,OpenAI兼容接口,RainAgent,RainSkills"
         />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content="https://www.rainbond.com/img/video/rainbond-llm-install-use-step-4.png" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
@@ -286,18 +306,19 @@ export default function AiPrivateDeployment(): JSX.Element {
 
       <CompareHeroGraphic
         title="AI 应用与大模型私有化部署解决方案"
-        subtitle="在 Rainbond 上部署大模型、开放 OpenAI 兼容 API、安装 Dify 等 AI 应用，并用 RainAgent / RainSkills 完成部署、排障和运维。"
-        decision="企业做 AI 私有化，难点通常不只是“模型能不能跑起来”，而是模型服务、AI 应用、GPU 资源、API 密钥、版本升级和排障运维能不能长期可控。"
+        subtitle="启用 AI 大模型插件后，在 Rainbond 中准备模型、创建推理实例、开放 OpenAI 兼容 API，并部署 Dify 等 AI 应用。"
+        decision="模型服务和 GPU 管理依赖对应插件、驱动与指标采集。部署前需要核对企业授权、插件版本和集群资源。"
         primaryCta={{label: '获取 AI 私有化部署方案', href: aiDocsUrl}}
         secondaryCta={{label: '先快速安装 Rainbond', href: '/install-hub'}}
         audienceHint="适合已经进入企业内网、客户现场、离线交付或长期运维阶段，希望把 Dify、私有模型、业务系统和 GPU 资源统一管理的团队。"
       />
+      <p className={styles.updated}>最近更新时间：2026-10-25</p>
 
       <section className={styles.sectionBlock}>
         <div className={styles.sectionHead}>
-          <h2>从 AI Demo 到企业可用，真正难的是长期交付和运维</h2>
+          <h2>部署前先确认插件和运行环境</h2>
           <p>
-            很多团队第一次尝试 AI 应用时，会先部署一个 Dify、Ollama 或本地模型 Demo。但进入企业环境后，问题会变成模型来源、资源调度、API 管理、监控排障和多环境复制。
+            AI 大模型入口来自 Rainbond 插件。基础平台、AI 大模型插件、GPU 插件、驱动和指标采集组件的版本需要相互匹配；没有 GPU 时可以先用 CPU 模式验证轻量模型。
           </p>
         </div>
         <div className={styles.issueGrid}>
@@ -309,13 +330,13 @@ export default function AiPrivateDeployment(): JSX.Element {
           ))}
         </div>
         <p className={styles.sectionNote}>
-          Rainbond 的价值不是把某一个 AI 工具跑起来，而是把 AI 应用和大模型服务纳入企业应用交付体系。
+          Rainbond 用应用、组件和模型实例管理 AI 应用与大模型服务。下面列出目前可以从产品界面和文档中核对的能力。
         </p>
       </section>
 
       <section className={styles.sectionBlock}>
         <div className={styles.sectionHead}>
-          <h2>一条链路完成模型、应用、API、监控和 AI 辅助运维</h2>
+          <h2>模型、应用、API 和监控如何配合</h2>
           <p>
             Rainbond 将模型服务、API 接入、AI 应用、监控运维和企业交付统一到应用管理体系中。
           </p>
@@ -386,7 +407,7 @@ export default function AiPrivateDeployment(): JSX.Element {
 
       <section className={styles.sectionBlock}>
         <div className={styles.sectionHead}>
-          <h2>从模型服务到 AI 应用，通过应用市场快速组合</h2>
+          <h2>通过应用市场安装 AI 应用</h2>
           <p>
             企业 AI 不是只有模型。真实业务通常还需要知识库、RAG、工作流、聊天界面、自动化工具和内部系统集成。Rainbond 应用市场可以把常用 AI 应用沉淀为可复用的软件资产。
           </p>
@@ -414,7 +435,7 @@ export default function AiPrivateDeployment(): JSX.Element {
         <div className={styles.sectionHead}>
           <h2>让 AI 不只生成代码，还能继续部署、排障和验证</h2>
           <p>
-            RainAgent 运行在 Rainbond 控制台内，RainSkills 接入 Codex、Claude Code 等本地 AI 编码工具，共同把 AI 从代码生成延伸到部署、运维和交付验证。
+            RainAgent 运行在 Rainbond 控制台内；RainSkills 接入 Codex、Claude Code 等本地 AI 编码工具。两者都可以读取部署上下文，辅助处理部署、排障和交付检查。
           </p>
         </div>
         <div className={styles.operationGrid}>
@@ -437,7 +458,7 @@ export default function AiPrivateDeployment(): JSX.Element {
         <div className={styles.sectionHead}>
           <h2>企业用 Rainbond 部署 AI 应用，通常走这 6 步</h2>
           <p>
-            从环境准备到模型接入，再到应用部署和持续运维，形成一条适合内网和客户现场复用的交付路径。
+            这 6 步覆盖环境准备、模型接入、应用部署和后续维护，也适用于内网和客户现场。
           </p>
         </div>
         <ol className={styles.timeline}>
@@ -452,9 +473,9 @@ export default function AiPrivateDeployment(): JSX.Element {
 
       <section className={styles.sectionBlock}>
         <div className={styles.sectionHead}>
-          <h2>什么团队更适合用 Rainbond 做 AI 私有化？</h2>
+          <h2>哪些团队适合用 Rainbond 部署 AI 应用</h2>
           <p>
-            如果你的 AI 应用需要进入内网、客户现场、离线环境或长期运维，Rainbond 更适合作为统一交付底座。
+            需要进入内网、客户现场或离线环境，并且要长期升级维护时，可以把 Rainbond 作为应用运行和交付平台。
           </p>
         </div>
         <div className={styles.fitGrid}>
@@ -481,7 +502,7 @@ export default function AiPrivateDeployment(): JSX.Element {
         <div className={styles.sectionHead}>
           <h2>Rainbond 和手工 Kubernetes / 公有云 AI 平台有什么区别？</h2>
           <p>
-            Rainbond 的定位不是替代所有 AI 平台，而是降低企业在私有化交付、应用组合和长期运维中的复杂度。
+            Rainbond 不替代模型训练平台。它主要管理私有环境中的模型服务、AI 应用及其运行依赖。
           </p>
         </div>
         <div className={styles.tablePanel}>
@@ -510,16 +531,30 @@ export default function AiPrivateDeployment(): JSX.Element {
 
       <section className={styles.sectionBlock}>
         <div className={styles.sectionHead}>
-          <h2>按你的私有化场景继续阅读</h2>
+          <h2>按部署环境继续阅读</h2>
           <p>
-            从整套 AI 应用栈、企业内网、离线信创到 Cloud 迁移，选择最接近当前项目的一条路径。
+            下面的文章分别讨论整套应用栈、企业内网、离线信创和 Cloud 迁移。
           </p>
         </div>
         <CompareEvidenceCards
           items={[
             {
+              type: '产品文档',
+              title: '大模型部署与推理服务管理',
+              metric: '插件能力与边界',
+              description: '核对模型来源、实例、API 密钥、OpenAI 兼容调用和监控条件。',
+              href: '/docs/ai/rainbond-llm',
+            },
+            {
+              type: '产品文档',
+              title: 'GPU 管理插件',
+              metric: '资源池 · 配额 · 组件配置',
+              description: '核对 GPU 管理入口、指标来源和插件安装要求。',
+              href: '/docs/plugins/gpu',
+            },
+            {
               type: '应用栈',
-              title: 'AI应用栈私有化部署',
+              title: 'AI应用栈私有化部署：AI应用部署到自己的服务器',
               metric: '前端 · API · 模型 · 数据',
               description: '把模型服务、AI 应用、数据库和业务系统作为一套应用部署到自己的环境。',
               href: '/solutions/ai-application-stack-private-deployment',
@@ -528,14 +563,14 @@ export default function AiPrivateDeployment(): JSX.Element {
               type: '企业内网',
               title: '企业内网部署',
               metric: '网络 · 账号 · 内部访问',
-              description: '规划镜像来源、模型文件、内部域名、身份认证和跨网络访问。',
+              description: '企业AI应用私有化与AI应用内网部署，需要规划镜像、模型文件、内部域名、身份认证和跨网络访问。',
               href: '/solutions/enterprise-intranet-ai-deployment',
             },
             {
               type: '离线信创',
               title: '离线与信创部署',
               metric: '材料 · 架构 · 现场验收',
-              description: '提前准备安装包、镜像、模型和架构适配清单，减少现场反复补材料。',
+              description: 'AI应用离线部署和信创AI应用部署需要提前准备物料，并按具体硬件验证国产化AI应用平台边界。',
               href: '/solutions/offline-xinchuang-ai-deployment',
             },
             {
@@ -593,7 +628,7 @@ export default function AiPrivateDeployment(): JSX.Element {
               type: '场景',
               title: 'RainSkills 安装使用',
               metric: 'AI 编码工作流',
-              description: '把 Codex / Claude Code 等 AI 编码工具接入 Rainbond 部署闭环。',
+              description: '让 Codex、Claude Code 等 AI 编码工具调用 Rainbond 的部署与排障能力。',
               href: '/videos/rainskills-ai-deploy',
             },
             {

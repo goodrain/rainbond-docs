@@ -451,6 +451,31 @@
   align-items: center;
 }
 
+@media (max-width: 900px) {
+  .navbarLeft {
+    flex: 0 0 auto;
+    gap: 0;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .navbarRight {
+    gap: 0.4rem;
+  }
+
+  .primaryButton {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .communityButton {
+    display: none;
+  }
+}
+
 .github_button:hover .github_icon {
   color: var(--ifm-navbar-link-hover-color);
 }

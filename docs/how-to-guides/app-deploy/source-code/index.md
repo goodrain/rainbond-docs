@@ -2,6 +2,7 @@
 title: 使用源代码部署
 description: 了解 Rainbond 源码部署的适用场景、默认构建体系与各语言文档入口。
 keywords:
+- 源码部署Kubernetes
 - Rainbond 使用源代码部署
 - Rainbond 源码构建
 - Rainbond CNB Buildpacks

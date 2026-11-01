@@ -1,0 +1,980 @@
+.section {
+  width: 100%;
+  padding: clamp(4.5rem, 6vw, 6rem) clamp(1rem, 2vw, 1.5rem);
+  color: #edf4ff;
+  background: #0c1728;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.5fr);
+  align-items: end;
+  gap: clamp(2rem, 3.5vw, 4rem);
+  max-width: 1380px;
+  margin: 0 auto 2.5rem;
+}
+
+.kicker {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #8ab5ff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.intro h2 {
+  max-width: 780px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.2rem, 4vw, 3.65rem);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.intro p {
+  margin: 0;
+  color: #aebdd2;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.systemFrame {
+  max-width: 1380px;
+  margin: 0 auto;
+  border: 1px solid #31435e;
+  background: #101d30;
+}
+
+.systemCanvas {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(210px, 0.66fr) auto minmax(430px, 1.42fr) minmax(220px, 0.72fr);
+  align-items: center;
+  gap: 1rem;
+  min-height: 350px;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border-bottom: 1px solid #31435e;
+  background-image:
+    linear-gradient(rgba(89, 114, 151, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 114, 151, 0.09) 1px, transparent 1px);
+  background-size: 34px 34px;
+  overflow: hidden;
+}
+
+.agentRail {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(230px, 0.85fr) minmax(360px, 1.6fr) auto;
+  align-items: center;
+  gap: 22px;
+  min-height: 82px;
+  margin-bottom: 0.5rem;
+  padding: 14px 18px;
+  border: 1px solid #43618d;
+  background: #172a46;
+  box-shadow: 0 12px 30px rgba(4, 13, 29, 0.2);
+}
+
+.agentIdentity {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.agentIdentity > svg {
+  width: 23px;
+  color: #80acff;
+}
+
+.agentIdentity strong,
+.agentIdentity span {
+  display: block;
+}
+
+.agentIdentity strong {
+  color: #fff;
+  font-size: 14px;
+}
+
+.agentIdentity span {
+  margin-top: 2px;
+  color: #93a7c4;
+  font-size: 10px;
+}
+
+.agentProcess {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #bbcae0;
+  font-size: 11px;
+}
+
+.agentProcess i {
+  color: #6680a6;
+  font-style: normal;
+}
+
+.agentRail > b {
+  padding: 6px 9px;
+  border: 1px solid #4e77b3;
+  color: #a9c7ff;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.canvasLabels {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(380px, 1.18fr) minmax(250px, 0.82fr);
+  gap: calc(1rem + 23px);
+  color: #7f91ac;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.canvasLabels span:nth-child(2) {
+  text-align: center;
+}
+
+.canvasLabels span:last-child {
+  text-align: right;
+}
+
+.systemCanvas > div,
+.systemCanvas > svg {
+  position: relative;
+  z-index: 1;
+}
+
+.scanLine {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  pointer-events: none;
+  transform: translateX(-100%);
+  animation: canvasSweep 4.5s ease-in-out infinite;
+}
+
+.scanLine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: rgba(92, 151, 255, 0.7);
+  box-shadow: 0 0 18px rgba(92, 151, 255, 0.42);
+}
+
+.sourceRail,
+.capabilityGrid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sourceItem,
+.capabilityItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 50px;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #3a4d69;
+  color: #becbe0;
+  background: #15253b;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.62;
+  transition: transform 320ms ease, opacity 320ms ease, border-color 320ms ease, box-shadow 320ms ease;
+}
+
+.sourceItem > svg,
+.capabilityItem > svg {
+  flex: 0 0 auto;
+  width: 17px;
+  color: #7facff;
+}
+
+.sourceItem span,
+.sourceItem strong,
+.sourceItem small,
+.capabilityItem span,
+.capabilityItem strong,
+.capabilityItem small {
+  display: block;
+}
+
+.sourceItem strong,
+.capabilityItem strong {
+  color: #dce7f6;
+  font-size: 12px;
+}
+
+.sourceItem small,
+.capabilityItem small {
+  margin-top: 3px;
+  color: #8294af;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.flowArrow {
+  width: 23px;
+  color: #6e8bb3;
+  transform: rotate(-90deg);
+  animation: flowArrowPulse 1.4s ease-in-out infinite;
+}
+
+.modelCore {
+  display: block;
+  min-height: 420px;
+  padding: 0;
+  border: 1px solid #4382df;
+  background: #142844;
+  box-shadow: 0 0 0 8px rgba(49, 114, 216, 0.08);
+  opacity: 0.72;
+  overflow: hidden;
+  transition: transform 320ms ease, opacity 320ms ease, border-color 320ms ease, box-shadow 320ms ease;
+}
+
+.modelCoreHead {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 58px;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid #304562;
+}
+
+.modelCoreHead > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: #fff;
+  background: #1768f2;
+}
+
+.modelCoreHead svg {
+  width: 18px;
+}
+
+.modelCoreHead small,
+.modelCoreHead strong {
+  display: block;
+}
+
+.modelCoreHead small {
+  margin-bottom: 0.15rem;
+  color: #7facff;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.modelCoreHead strong {
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.modelCoreHead b {
+  padding: 4px 7px;
+  border: 1px solid #4382df;
+  color: #a9c7ff;
+  font-size: 9px;
+}
+
+.topologyCanvas {
+  position: relative;
+  height: 300px;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.topologyBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(circle, rgba(126, 157, 203, 0.2) 1.2px, transparent 1.3px);
+  background-position: center;
+  background-size: 18px 18px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 82%);
+}
+
+.topologyBackdrop::after {
+  content: '';
+  position: absolute;
+  inset: 18% 17%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(48, 111, 224, 0.16), transparent 68%);
+  filter: blur(12px);
+}
+
+.topologyConnections {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.connectionBase path,
+.connectionPulse path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.connectionBase path {
+  stroke: #3c5a82;
+  stroke-width: 1.25;
+  opacity: 0.9;
+}
+
+.connectionPulse path {
+  stroke: url('#topology-line');
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1 15;
+  opacity: 0.78;
+  animation: topologyFlow 2.8s linear infinite;
+}
+
+.connectionPulse path:nth-child(2n) { animation-delay: -1.4s; }
+.connectionPulse path:nth-child(3n) { animation-delay: -0.8s; }
+
+.flowParticles {
+  fill: #bfdbfe;
+}
+
+.gatewayNode {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 128px;
+  color: #eaf3ff;
+  transform: translateX(-50%);
+}
+
+.gatewayCloud {
+  position: relative;
+  display: grid;
+  width: 86px;
+  height: 57px;
+  place-items: center;
+  color: #64b5ff;
+  filter: drop-shadow(0 0 9px rgba(76, 164, 255, 0.42));
+}
+
+.gatewayCloud > svg {
+  width: 82px;
+  height: 58px;
+  stroke-width: 1.7;
+  fill: rgba(32, 73, 126, 0.42);
+}
+
+.gatewayCloud > i {
+  position: absolute;
+  top: 27px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #60a5fa;
+  box-shadow: 0 0 0 5px rgba(96, 165, 250, 0.14), 0 0 14px rgba(96, 165, 250, 0.7);
+  transform: translate(-50%, -50%);
+}
+
+.gatewayNode > span:last-child,
+.gatewayNode strong,
+.gatewayNode small {
+  display: block;
+  text-align: center;
+}
+
+.gatewayNode strong {
+  font-size: 10px;
+}
+
+.gatewayNode small {
+  margin-top: 1px;
+  color: #7f96b7;
+  font-size: 7px;
+}
+
+.topologyNode {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 88px;
+  color: #dce7f6;
+  transform: translateX(-50%);
+  --node-color: #60a5fa;
+  --node-color-soft: rgba(96, 165, 250, 0.13);
+}
+
+.topologyNode[data-tone='orange'] {
+  --node-color: #ff9f43;
+  --node-color-soft: rgba(255, 159, 67, 0.12);
+}
+
+.topologyNode[data-tone='green'] {
+  --node-color: #34d399;
+  --node-color-soft: rgba(52, 211, 153, 0.12);
+}
+
+.topologyNode[data-tone='violet'] {
+  --node-color: #a78bfa;
+  --node-color-soft: rgba(167, 139, 250, 0.12);
+}
+
+.topologyNode[data-tone='red'] {
+  --node-color: #fb7185;
+  --node-color-soft: rgba(251, 113, 133, 0.12);
+}
+
+.hexagon {
+  position: relative;
+  display: block;
+  width: 66px;
+  height: 74px;
+  filter: drop-shadow(0 9px 14px rgba(2, 11, 25, 0.32));
+}
+
+.hexagon > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.hexagonHalo {
+  fill: var(--node-color-soft);
+  stroke: var(--node-color);
+  stroke-width: 3;
+}
+
+.hexagonFace {
+  fill: #152a45;
+  stroke: color-mix(in srgb, var(--node-color) 42%, #36506f);
+  stroke-width: 1;
+}
+
+.hexagonContent {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.hexagonContent > i {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.12), 0 0 10px rgba(52, 211, 153, 0.55);
+}
+
+.hexagonContent > svg {
+  width: 19px;
+  color: var(--node-color);
+  stroke-width: 1.8;
+}
+
+.topologyNodeLabel,
+.topologyNodeLabel strong,
+.topologyNodeLabel small {
+  display: block;
+  text-align: center;
+}
+
+.topologyNodeLabel {
+  min-width: 70px;
+  margin-top: 2px;
+  padding: 2px 6px 3px;
+  border: 1px solid rgba(85, 111, 148, 0.36);
+  background: rgba(12, 28, 49, 0.82);
+  backdrop-filter: blur(6px);
+}
+
+.topologyNodeLabel strong {
+  color: #eef5ff;
+  font-size: 9px;
+  line-height: 1.2;
+}
+
+.topologyNodeLabel small {
+  margin-top: 2px;
+  color: #8195b2;
+  font-size: 7px;
+  line-height: 1.2;
+}
+
+.topologyNodeFeatured .hexagon {
+  width: 74px;
+  height: 83px;
+}
+
+.topologyNodeFeatured .hexagonHalo {
+  stroke-width: 4;
+  filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.6));
+}
+
+.frontendNode { top: 112px; left: 21.5%; }
+.apiNode { top: 108px; left: 50%; }
+.databaseNode { top: 112px; left: 78.5%; }
+.workerNode { top: 210px; left: 36.5%; }
+.redisNode { top: 210px; left: 65.5%; }
+
+.modelCoreStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid #304562;
+}
+
+.modelCoreStats > span {
+  padding: 7px 8px;
+  border-right: 1px solid #304562;
+}
+
+.modelCoreStats > span:last-child {
+  border-right: 0;
+}
+
+.modelCoreStats small,
+.modelCoreStats strong {
+  display: block;
+}
+
+.modelCoreStats small {
+  color: #7f91ac;
+  font-size: 7px;
+}
+
+.modelCoreStats strong {
+  margin-top: 2px;
+  color: #dce7f6;
+  font-size: 8px;
+}
+
+.capabilityGrid {
+  grid-template-columns: 1fr;
+}
+
+.foundationRail {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.8rem;
+  padding: 12px 14px;
+  border: 1px solid #3a4d69;
+  background: #0f1b2c;
+}
+
+.foundationRail .foundationLabel {
+  color: #8fa2bd;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.foundationRail > strong {
+  padding-right: 14px;
+  border-right: 1px solid #304562;
+  color: #fff;
+  font-size: 14px;
+}
+
+.foundationTargets {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.foundationTargets span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #9bacc3;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.foundationTargets i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00a878;
+}
+
+.systemCanvas[data-active='connect'] .sourceItem,
+.systemCanvas[data-active='deliver'] .capabilityItem:nth-child(3),
+.systemCanvas[data-active='operate'] .capabilityItem:nth-child(2),
+.systemCanvas[data-active='operate'] .capabilityItem:nth-child(4),
+.systemCanvas[data-active='deliver'] .foundationTargets span,
+.systemCanvas[data-active='operate'] .foundationTargets span {
+  opacity: 1;
+  transform: translateY(-3px);
+  border-color: #4382df;
+  box-shadow: 0 10px 24px rgba(23, 104, 242, 0.18);
+  animation: nodeSignal 520ms ease both;
+}
+
+.systemCanvas[data-active='connect'] .agentRail {
+  border-color: #72a5ff;
+  box-shadow: 0 14px 34px rgba(23, 104, 242, 0.16);
+}
+
+.systemCanvas[data-active='model'] .modelCore {
+  opacity: 1;
+  transform: translateY(-3px);
+  border-color: #72a5ff;
+  box-shadow: 0 0 0 8px rgba(49, 114, 216, 0.13), 0 18px 38px rgba(5, 18, 39, 0.32);
+  animation: nodeSignal 520ms ease both;
+}
+
+.systemCanvas[data-active='model'] .connectionPulse path {
+  stroke-width: 2.4;
+  opacity: 1;
+  animation-duration: 1.65s;
+}
+
+.systemCanvas[data-active='model'] .hexagonHalo,
+.systemCanvas[data-active='model'] .gatewayCloud {
+  animation: topologyNodeSignal 1.8s ease-in-out infinite alternate;
+}
+
+.systemCanvas[data-active='model'] .apiNode .hexagonHalo {
+  animation-delay: 180ms;
+}
+
+.systemCanvas[data-active='model'] .databaseNode .hexagonHalo {
+  animation-delay: 360ms;
+}
+
+.stepTabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: #0f1c2e;
+}
+
+.stepTab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 64px;
+  padding: 0.85rem 1.15rem;
+  border: 0;
+  border-right: 1px solid #31435e;
+  border-radius: 0;
+  color: #8699b5;
+  background: #101d30;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.stepTab::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: #4382df;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.stepTab:last-child {
+  border-right: 0;
+}
+
+.stepTab span,
+.stepTab strong {
+  display: inline-block;
+}
+
+.stepTab span {
+  display: inline-grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 1px solid #3b5271;
+  font-size: 10px;
+}
+
+.stepTab strong {
+  color: #c2cee0;
+  font-size: 14px;
+}
+
+.stepTab:hover,
+.stepTabActive {
+  color: #9ec1ff;
+  background: #172a46;
+}
+
+.stepTabActive strong {
+  color: #ffffff;
+}
+
+.stepTabActive span {
+  border-color: #4f91f4;
+  color: #fff;
+  background: #1768f2;
+}
+
+.stepTabActive::after {
+  animation: stepProgress 4.5s linear forwards;
+}
+
+.systemFramePaused .scanLine,
+.systemFramePaused .flowArrow,
+.systemFramePaused .stepTabActive::after {
+  animation-play-state: paused;
+}
+
+.stepTab:focus-visible {
+  outline: 2px solid #72a5ff;
+  outline-offset: -3px;
+}
+
+.modelDifference {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1380px;
+  margin: 28px auto 0;
+  border: 1px solid #31435e;
+}
+
+.modelDifference > div {
+  min-height: 170px;
+  padding: 26px 28px;
+  background: #101d30;
+}
+
+.modelDifference > div:first-child {
+  border-right: 1px solid #31435e;
+}
+
+.modelDifference span,
+.modelDifference strong {
+  display: block;
+}
+
+.modelDifference span {
+  color: #7f91ac;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.modelDifference strong {
+  margin: 10px 0 8px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.modelDifference p {
+  margin: 0;
+  color: #96a8c0;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.modelDifference .rainbondDifference {
+  background: #1768f2;
+}
+
+.rainbondDifference span,
+.rainbondDifference p {
+  color: #dbe8ff;
+}
+
+@keyframes canvasSweep {
+  0% { opacity: 0; transform: translateX(-100%); }
+  12% { opacity: 1; }
+  72% { opacity: 0.55; }
+  100% { opacity: 0; transform: translateX(100%); }
+}
+
+@keyframes flowArrowPulse {
+  0%, 100% { opacity: 0.42; transform: rotate(-90deg) translateY(0); }
+  50% { opacity: 1; transform: rotate(-90deg) translateY(4px); }
+}
+
+@keyframes nodeSignal {
+  from { filter: brightness(0.84); }
+  to { filter: brightness(1); }
+}
+
+@keyframes stepProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes topologyFlow {
+  to { stroke-dashoffset: -32; }
+}
+
+@keyframes topologyNodeSignal {
+  from { opacity: 0.72; filter: brightness(0.94); }
+  to { opacity: 1; filter: brightness(1.18); }
+}
+
+@media (max-width: 980px) {
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .systemCanvas {
+    grid-template-columns: 1fr;
+  }
+
+  .agentRail {
+    grid-template-columns: 1fr auto;
+  }
+
+  .agentProcess {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: flex-start;
+  }
+
+  .canvasLabels {
+    display: none;
+  }
+
+  .flowArrow {
+    display: none;
+  }
+
+  .modelCore {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .sourceRail,
+  .capabilityGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .foundationRail {
+    grid-template-columns: auto auto 1fr;
+  }
+
+}
+
+@media (max-width: 680px) {
+  .section {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .systemCanvas,
+  .foundationRail {
+    grid-template-columns: 1fr;
+  }
+
+  .agentRail,
+  .modelCore {
+    grid-column: auto;
+  }
+
+  .agentRail {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .agentProcess {
+    grid-column: auto;
+    grid-row: auto;
+    flex-wrap: wrap;
+  }
+
+  .agentRail > b {
+    justify-self: start;
+  }
+
+  .sourceRail,
+  .capabilityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .foundationRail > strong {
+    padding: 0;
+    border-right: 0;
+  }
+
+  .foundationTargets {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .capabilityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepTabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stepTab:nth-child(-n + 2) {
+    border-bottom: 1px solid #31435e;
+  }
+
+  .stepTab:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .modelDifference {
+    grid-template-columns: 1fr;
+  }
+
+  .modelDifference > div:first-child {
+    border-right: 0;
+    border-bottom: 1px solid #31435e;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanLine {
+    display: none;
+  }
+
+  .flowArrow,
+  .connectionPulse path,
+  .hexagonHalo,
+  .gatewayCloud,
+  .stepTabActive::after,
+  .systemCanvas[data-active] .sourceItem,
+  .systemCanvas[data-active] .capabilityItem,
+  .systemCanvas[data-active] .foundationTargets span,
+  .systemCanvas[data-active] .agentRail,
+  .systemCanvas[data-active] .modelCore {
+    animation: none;
+  }
+
+  .flowParticles {
+    display: none;
+  }
+}

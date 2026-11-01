@@ -1,0 +1,367 @@
+.section {
+  --step-rail-height: 64px;
+  --step-rail-line: #d8e0ec;
+  --step-rail-active: #1768f2;
+  --step-rail-active-bg: #f3f7ff;
+  width: 100%;
+  padding-top: 12px;
+  background: #f7f9fc;
+  border-bottom: 1px solid #e4e9f1;
+}
+
+.showcaseFrame {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: min(1400px, calc(177.78dvh - 299px));
+  height: min(900px, calc(100dvh - 48px));
+  margin: 0 auto 24px;
+  overflow: hidden;
+  border: 1px solid #aebbd0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(23, 46, 82, 0.14);
+}
+
+.scenarioHeader {
+  display: flex;
+  flex: 0 0 64px;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 8px 14px;
+  border-bottom: 1px solid #d8e0ec;
+  background: #f8fafc;
+}
+
+.windowDots {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 7px;
+}
+
+.windowDots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c5cfdd;
+}
+
+.scenarioTabs {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  width: auto;
+  padding: 3px;
+  border: 1px solid #dfe5ee;
+  border-radius: 10px;
+  overflow-x: auto;
+  background: #eef2f7;
+  scrollbar-width: none;
+}
+
+.scenarioTab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  color: #5f6b7e;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.scenarioTab:last-child {
+  border-right: 0;
+}
+
+.scenarioTab:hover {
+  color: #175cd3;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.scenarioTab:focus-visible {
+  z-index: 2;
+  outline: 2px solid #8ab5ff;
+  outline-offset: -3px;
+}
+
+.scenarioTabActive {
+  color: #fff;
+  background: transparent;
+}
+
+.scenarioTabActive:hover {
+  color: #fff;
+  background: transparent;
+}
+
+.scenarioActivePill {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 7px;
+  background: #1768f2;
+  box-shadow: 0 5px 14px rgba(23, 104, 242, 0.24);
+  pointer-events: none;
+}
+
+.scenarioTabContent {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  padding: 0.5rem 0.8rem;
+  pointer-events: none;
+}
+
+.scenarioTabContent > svg {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+}
+
+.scenarioTabContent > strong {
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.scenarioStatus {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+  color: #087859;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.scenarioStatus i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #00a878;
+  box-shadow: 0 0 0 4px rgba(0, 168, 120, 0.1);
+}
+
+.scenarioPanel {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.preview {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+  animation: previewIn 220ms ease both;
+}
+
+.previewMedia {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  aspect-ratio: auto;
+  overflow: hidden;
+  background: #eaf0f7;
+}
+
+.previewMedia img,
+.previewMedia video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: top;
+}
+
+.previewSteps {
+  flex: 0 0 56px;
+}
+
+.preview .previewSteps {
+  width: 100%;
+  margin: 0;
+  border: 1px solid #d9e0e8;
+  border-top: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@keyframes previewIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+
+.reservedPanel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 0.78fr) minmax(360px, 1.22fr);
+  align-items: center;
+  gap: 2rem;
+  width: calc(100% - 4rem);
+  max-width: 1280px;
+  min-height: 520px;
+  margin: 0 auto 4rem;
+  padding: clamp(2rem, 4vw, 4rem);
+  border: 1px solid #cfd8e6;
+  background: #ffffff;
+}
+
+.reservedMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: #1768f2;
+  background: #eaf2ff;
+}
+
+.reservedMark svg {
+  width: 23px;
+}
+
+.reservedPanel span {
+  color: #1768f2;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.reservedPanel h3 {
+  margin: 0.45rem 0 0.8rem;
+  color: #101828;
+  font-size: clamp(1.6rem, 2.6vw, 2.35rem);
+  line-height: 1.18;
+}
+
+.reservedPanel p {
+  max-width: 470px;
+  margin: 0;
+  color: #667085;
+  line-height: 1.75;
+}
+
+.reservedCanvas {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+  border: 1px solid #d8e0ec;
+  background: #f7f9fc;
+}
+
+.reservedCanvas span {
+  display: block;
+  height: 74px;
+  border: 1px solid #d8e0ec;
+  background: #ffffff;
+}
+
+.reservedCanvas span:nth-child(2) {
+  width: 84%;
+}
+
+.reservedCanvas span:nth-child(3) {
+  width: 68%;
+}
+
+@media (max-width: 1080px) {
+  .scenarioStatus {
+    display: none;
+  }
+
+  .reservedPanel {
+    grid-template-columns: auto 1fr;
+  }
+
+  .reservedCanvas {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 680px) {
+  .showcaseFrame {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 24px;
+  }
+
+  .reservedPanel {
+    width: calc(100% - 1rem);
+  }
+
+  .scenarioTabs {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .scenarioTab {
+    min-height: 44px;
+    border-bottom: 0;
+    scroll-snap-align: start;
+  }
+
+  .scenarioTab:nth-child(3) {
+    border-bottom: 0;
+  }
+
+  .scenarioHeader {
+    gap: 10px;
+    padding-inline: 10px;
+  }
+
+  .windowDots {
+    gap: 5px;
+  }
+
+  .windowDots i {
+    width: 8px;
+    height: 8px;
+  }
+
+  .previewMedia {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    flex: 0 0 auto;
+  }
+
+
+  .scenarioTab:last-child {
+    border-bottom: 0;
+  }
+
+  .reservedPanel {
+    grid-template-columns: 1fr;
+    min-height: 480px;
+    padding: 1.5rem;
+  }
+
+  .reservedCanvas {
+    grid-column: auto;
+    padding: 1rem;
+  }
+}

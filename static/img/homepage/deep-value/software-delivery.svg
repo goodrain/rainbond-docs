@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="520" viewBox="0 0 760 520" fill="none">
+  <title>多组件系统打包为应用模板，交付到不同环境</title>
+  <desc>前端、后端和数据库的组件关系、配置与存储被保存为应用模板，随后安装到在线、内网或离线环境，并按版本持续升级和回滚。</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#dfe7f2"/></pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="m1 1 4 3-4 3" stroke="#6385b5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <path fill="#f7faff" d="M0 0h760v520H0z"/>
+  <path fill="url(#grid)" d="M0 0h760v520H0z"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+    <text x="36" y="44" fill="#14243c" font-size="23" font-weight="700">一次建模，多环境交付</text>
+    <text x="36" y="72" fill="#64748b" font-size="14">把组件关系、配置和版本一起带到客户现场</text>
+
+    <rect x="36" y="116" width="184" height="270" rx="10" fill="white" stroke="#cad7e8"/>
+    <text x="56" y="146" fill="#263b58" font-size="16" font-weight="700">多组件业务系统</text>
+    <rect x="56" y="164" width="144" height="48" rx="6" fill="#f1f5fb" stroke="#dce5f1"/>
+    <path d="M72 180h20v15H72zM72 184h20" stroke="#6385b5" stroke-width="1.5"/>
+    <text x="106" y="194" fill="#334966" font-size="15">前端页面</text>
+    <path d="M128 213v15" stroke="#93aac9" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="56" y="232" width="144" height="48" rx="6" fill="#f1f5fb" stroke="#dce5f1"/>
+    <path d="m78 247-6 8 6 8m8-16 6 8-6 8" stroke="#6385b5" stroke-width="1.5"/>
+    <text x="106" y="262" fill="#334966" font-size="15">后端服务</text>
+    <path d="M128 281v15" stroke="#93aac9" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="56" y="300" width="144" height="48" rx="6" fill="#f1f5fb" stroke="#dce5f1"/>
+    <ellipse cx="82" cy="316" rx="10" ry="4" stroke="#6385b5" stroke-width="1.5"/>
+    <path d="M72 316v14c0 5 20 5 20 0v-14" stroke="#6385b5" stroke-width="1.5"/>
+    <text x="106" y="330" fill="#334966" font-size="15">数据服务</text>
+    <text x="128" y="370" fill="#7b8da6" font-size="12" text-anchor="middle">组件拓扑与依赖关系</text>
+
+    <path d="M220 252h64" stroke="#6385b5" stroke-width="1.7" marker-end="url(#arrow)"/>
+    <text x="252" y="237" fill="#64748b" font-size="13" text-anchor="middle">打包</text>
+
+    <rect x="292" y="154" width="188" height="196" rx="10" fill="#1768f2"/>
+    <path d="m366 185 20-10 20 10v22l-20 10-20-10zm0 0 20 10 20-10m-20 10v22" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+    <text x="386" y="245" fill="white" font-size="20" font-weight="700" text-anchor="middle">Rainbond 应用模板</text>
+    <rect x="344" y="259" width="84" height="25" rx="12.5" fill="#fff" fill-opacity=".15"/>
+    <text x="386" y="277" fill="white" font-size="12" text-anchor="middle">版本 v1.8.2</text>
+    <path d="M314 300h144" stroke="#70a0f9"/>
+    <text x="386" y="325" fill="#e3edff" font-size="14" text-anchor="middle">组件 · 配置 · 存储声明</text>
+
+    <path d="M480 252h38m0 0v-101h28m-28 101h28m-28 0v101h28" stroke="#6385b5" stroke-width="1.7" stroke-linejoin="round"/>
+    <path d="M536 151h12M536 252h12M536 353h12" stroke="#6385b5" stroke-width="1.7" marker-end="url(#arrow)"/>
+    <text x="510" y="127" fill="#64748b" font-size="13" text-anchor="middle">安装</text>
+    <g fill="white" stroke="#cad7e8">
+      <rect x="556" y="116" width="168" height="70" rx="8"/>
+      <rect x="556" y="217" width="168" height="70" rx="8"/>
+      <rect x="556" y="318" width="168" height="70" rx="8"/>
+    </g>
+    <g stroke="#1768f2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M574 150h22v13h-22zm11 13v5m-7 0h14"/>
+      <path d="M574 247h22v18h-22zm5 5h12m-12 6h12"/>
+      <path d="M577 350v-5a8 8 0 0 1 16 0v5m-19 0h22v16h-22z"/>
+    </g>
+    <g fill="#263b58" font-size="16" font-weight="600">
+      <text x="608" y="158">在线环境</text><text x="608" y="259">企业内网</text><text x="608" y="360">离线现场</text>
+    </g>
+
+    <rect x="36" y="426" width="688" height="58" rx="8" fill="#eaf1fc" stroke="#d5e2f6"/>
+    <text x="58" y="461" fill="#476285" font-size="14">同一应用，持续维护</text>
+    <g fill="#1659c1" font-size="15" font-weight="600"><text x="312" y="461">安装</text><text x="458" y="461">版本升级</text><text x="628" y="461">版本回滚</text></g>
+    <path d="M366 455h62m111 0h62" stroke="#8da8cc" stroke-width="1.5" marker-end="url(#arrow)"/>
+  </g>
+</svg>

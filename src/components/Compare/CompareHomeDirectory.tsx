@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import styles from './compareHomeDirectory.module.css';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
@@ -35,36 +36,44 @@ const journeySteps: JourneyStep[] = [
   {
     step: '01',
     title: '不会 Kubernetes，也想尽快把应用跑起来',
-    description: '如果你的团队开发多、专职平台运维少，通常应该先从 Rainbond 方向看，而不是先把大家训练成 Kubernetes 专家。',
+    description: '开发人员多、平台运维少时，应先比较应用部署、日志、域名和回滚是否容易使用，再考虑需要暴露多少 Kubernetes 细节。',
   },
   {
     step: '02',
     title: '你要做的是离线交付、客户现场或内网部署',
-    description: '如果你真正担心的是版本升级、环境复制、标准化交付和客户环境落地，Rainbond 这条线通常更值得优先看。',
+    description: '这类项目要比较应用模板、离线包、环境参数、升级和回滚，不能只看集群是否能接入。',
   },
   {
     step: '03',
     title: '你在做 AI 私有化，而不是短期 Demo',
-    description: '如果你要把 Dify、自研 AI 应用和大模型带进企业环境，还希望用 AI 辅助部署、排障与运维，可以一起验证 RainSkills、RainAgent 和大模型服务能力。',
+    description: '把 Dify、自研 AI 应用和大模型带进企业环境时，需要同时验证模型服务、GPU、密钥、监控、升级和离线物料。',
   },
 ];
 
 const quickGuides: QuickGuide[] = [
   {
     title: '我更关心多集群治理',
-    description: '如果你的核心诉求是权限、安全、控制面和集群统一纳管，别在导航页停太久，直接看 Rancher 路径。',
+    description: '主要需求是权限、安全、控制面和集群纳管时，重点比较 Rancher 等集群管理产品。',
     href: '/compare/rainbond-vs-rancher',
   },
   {
     title: '我更关心平台能力建设',
-    description: '如果你能接受更高的平台复杂度，想围绕 Kubernetes 建设更完整的平台能力，直接看 KubeSphere 路径。',
+    description: '需要工作空间、多租户和较完整的 Kubernetes 平台能力时，可以继续比较 KubeSphere。',
     href: '/compare/rainbond-vs-kubesphere',
   },
   {
     title: '我只想找个 K8s 管理界面',
-    description: '如果你不是要交付平台，只是想找更直观的 Kubernetes 管理面板，先看 Kuboard 路径会更快。',
+    description: '只需要更直观地查看和操作 Kubernetes 资源时，可以比较 Kuboard 等管理面板。',
     href: '/compare/rainbond-vs-kuboard',
   },
+];
+
+const platformRows = [
+  ['Rainbond', '应用交付与应用全生命周期', '源码、镜像、Compose、模板、升级回滚和多集群应用', '开发、实施、企业 IT 与应用运维团队', '/docs/quick-start/architecture/design-concept'],
+  ['Rancher', 'Kubernetes 集群管理', '集群供应、统一认证、RBAC、监控与 Fleet 持续交付', '平台与基础设施团队', 'https://ranchermanager.docs.rancher.com/getting-started/overview'],
+  ['KubeSphere', '多租户 Kubernetes 平台', '多集群、工作空间、项目、RBAC 与可插拔平台能力', '希望建设综合云原生平台的团队', 'https://www.kubesphere.io/docs/v4.1/07-cluster-management/'],
+  ['Sealos', '云上开发与应用部署体验', 'DevBox、App Deploy 与应用商店', '快速试验和云上开发团队', 'https://sealos.io/docs/guides/app-deploy/'],
+  ['OpenShift', '企业 Kubernetes 应用平台', '集群、Operator、构建、开发者控制台和企业支持生态', '需要完整企业平台与商业支持的组织', 'https://docs.redhat.com/en/documentation/openshift_container_platform/4.21/html/building_applications/index'],
 ];
 
 const compareCards: DirectoryCard[] = [
@@ -133,7 +142,7 @@ const alternativeCards: DirectoryCard[] = [
   {
     tag: '替代方案',
     title: 'Rancher 替代方案',
-    description: '如果你不是单纯要多集群治理，而是想找更低门槛的应用交付入口，可以从这里判断是否该先试 Rainbond。',
+    description: '需要多集群治理时重点看 Rancher；需要让开发和实施人员管理应用时，再比较 Rainbond 的交付入口。',
     href: '/compare/rainbond-vs-rancher',
     linkLabel: '看 Rancher 替代思路',
   },
@@ -154,7 +163,7 @@ const alternativeCards: DirectoryCard[] = [
   {
     tag: '替代方案',
     title: 'Kuboard 替代方案',
-    description: '如果你要的不只是 Kubernetes Dashboard 替代，而是要把应用部署、升级和交付也纳入一条链路，可以从这里进入。',
+    description: '需要查看 Kubernetes 资源时比较管理面板；还要管理应用部署、升级和交付时，再比较应用平台。',
     href: '/compare/rainbond-vs-kuboard',
     linkLabel: '看 Kuboard 替代思路',
   },
@@ -211,7 +220,7 @@ const faqItems: FaqItem[] = [
     linkLabel: '看不会 Kubernetes 的入口',
   },
   {
-    question: '我是不是应该先试 Rainbond？',
+    question: '应该先试用应用交付平台吗？',
     answer: '如果你现在最想验证的是低门槛 Kubernetes 平台、内网环境应用部署平台或客户现场软件交付平台，直接装起来通常比继续看功能列表更快。',
     href: '/docs/quick-start/quick-install',
     linkLabel: '先做安装验证',
@@ -231,13 +240,24 @@ const faqItems: FaqItem[] = [
 ];
 
 export default function CompareHomeDirectory(): JSX.Element {
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {'@type': 'Answer', text: item.answer},
+    })),
+  };
   return (
     <div className={styles.page}>
+      <Head><script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script></Head>
       <section className={styles.hero}>
         <h1 className={styles.heroTitle}>开源容器平台对比与选型指南</h1>
         <p className={styles.heroDesc}>
-          从应用交付、集群治理、AI 辅助部署与运维、AI 私有化四个角度，找到适合团队的平台。
+          容器管理关注工作负载，集群管理关注节点、权限与 Kubernetes 控制面，应用管理关注代码到上线、升级和交付。先确定主要问题，再比较 Rainbond、KubeSphere、Rancher、Sealos 和 OpenShift。
         </p>
+        <p className={styles.heroDesc}>最近更新时间：2026-10-25。竞品信息依据下方官方文档，产品版本变化时应重新核对。</p>
         <div className={styles.heroActions}>
           <TrackedLink
             to="/install-hub"
@@ -278,9 +298,22 @@ export default function CompareHomeDirectory(): JSX.Element {
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle}>大多数用户会先从这三个问题判断要不要优先看 Rainbond</h2>
+          <h2 className={styles.sectionTitle}>集群管理、容器管理和应用管理不是同一件事</h2>
+          <p className={styles.sectionDesc}>如果问题是创建或接入集群、统一 RBAC 和策略，优先看集群管理；如果问题是部署、升级、回滚和交付业务系统，优先看应用管理；两类平台也可以分工使用。</p>
+        </div>
+        <div className={styles.selectionTableWrap}>
+          <table>
+            <thead><tr><th>平台</th><th>主要定位</th><th>官方能力线索</th><th>更适合</th><th>来源</th></tr></thead>
+            <tbody>{platformRows.map((row) => <tr key={row[0]}><td><strong>{row[0]}</strong></td><td>{row[1]}</td><td>{row[2]}</td><td>{row[3]}</td><td><Link to={row[4]}>官方文档</Link></td></tr>)}</tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2 className={styles.sectionTitle}>先判断团队要管理什么</h2>
           <p className={styles.sectionDesc}>
-            这不是功能大全，而是先帮你判断：你的问题更接近低门槛应用交付，还是更接近集群治理、平台建设和资源管理。
+            应用交付、集群治理和资源管理使用的是同一套 Kubernetes 基础，但对应不同的产品重点和使用人员。
           </p>
         </div>
         <div className={styles.journeyGrid}>
@@ -314,7 +347,7 @@ export default function CompareHomeDirectory(): JSX.Element {
 
       <section id="compare-by-situation" className={styles.section}>
         <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle}>如果你搜的不是品牌，而是“我这种情况该选什么”</h2>
+          <h2 className={styles.sectionTitle}>按使用场景比较</h2>
         </div>
         <div className={styles.cardGrid}>
           {situationCards.map((item) => (
@@ -330,7 +363,7 @@ export default function CompareHomeDirectory(): JSX.Element {
 
       <section id="compare-by-alternative" className={styles.section}>
         <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle}>如果你在搜某个平台的替代方案</h2>
+          <h2 className={styles.sectionTitle}>已有候选产品时怎么比较</h2>
         </div>
         <div className={styles.cardGrid}>
           {alternativeCards.map((item) => (
@@ -341,6 +374,13 @@ export default function CompareHomeDirectory(): JSX.Element {
               <span className={styles.cardLinkLabel}>{item.linkLabel}</span>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}><h2 className={styles.sectionTitle}>常见问题</h2></div>
+        <div className={styles.faqList}>
+          {faqItems.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p><Link to={item.href}>{item.linkLabel}</Link></details>)}
         </div>
       </section>
     </div>

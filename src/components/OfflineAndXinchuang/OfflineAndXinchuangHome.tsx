@@ -42,8 +42,8 @@ const topicCards: TopicCard[] = [
   },
   {
     tag: '平台能力',
-    title: '信创平台能力',
-    description: '为什么 Rainbond 能作为国产化信创场景下的一体化应用管理平台。',
+    title: '信创环境能力与边界',
+    description: '核对 x86_64、ARM64、麒麟 V10 等公开验证范围，以及仍需现场测试的组合。',
     href: '/offline-and-xinchuang/xinchuang-platform',
     linkLabel: '进入平台专题',
   },
@@ -54,29 +54,29 @@ const capabilitySteps: CapabilityStep[] = [
     phase: '第一步',
     title: '平台级信创环境适配',
     description:
-      'Rainbond 面向国产化信创场景，不只是“能不能跑起来”，而是把环境支持、平台承载和长期运维放到同一条能力链路里。',
+      'Rainbond 可以在已验证的国产 CPU 和操作系统组合上承载应用，并继续管理部署、升级和日常运维。',
     points: [
-      '兼容国产 CPU、国产操作系统等典型信创环境',
-      '支持一云多芯和异构集群统一管理，适合过渡期混合架构场景',
-      '帮助团队先把环境差异收敛到平台层，而不是每个项目重复消化',
+      '当前公开实操覆盖 x86_64、ARM64 以及麒麟 V10 / 鲲鹏路径',
+      '文档提供 x86_64 与 ARM64 混合集群、独立多集群两种管理方式',
+      '飞腾、龙芯、统信和国产数据库等组合需要按具体版本重新验证',
     ],
   },
   {
     phase: '第二步',
     title: '应用迁移与多架构承载',
     description:
-      '面对从 x86 到 ARM、从传统交付到云原生应用管理的过渡，Rainbond 更强调应用级视角，而不是只停留在资源管理层。',
+      '迁移到 ARM 前，需要逐项检查业务镜像和依赖。通过验证的组件可以继续按应用统一部署和编排。',
     points: [
-      '支持通过源代码、软件包、容器镜像等方式承接现有业务',
-      '适合把遗留系统逐步迁入国产化信创环境，而不是一次性重构',
-      '便于在异构资源池中持续做应用部署、升级和编排',
+      '可以通过源代码、软件包或容器镜像部署现有业务',
+      '迁移前需要检查基础镜像、系统包和闭源依赖是否支持目标架构',
+      '应用模板跨架构安装的前提是组件镜像或源码能够支持目标架构',
     ],
   },
   {
     phase: '第三步',
     title: '完全离线环境安装落地',
     description:
-      '对客户内网、政企机房和完全离线环境，Rainbond 提供的不只是安装命令，而是一条更适合实施和交付的落地路径。',
+      '客户内网或完全离线时，需要提前准备平台安装包、业务镜像、应用模板和依赖清单。',
     points: [
       '支持提前准备离线安装包、镜像和依赖，适应严格网络隔离环境',
       '可结合 ROI 等路径更快完成纯离线环境中的平台部署',
@@ -87,11 +87,11 @@ const capabilitySteps: CapabilityStep[] = [
     phase: '第四步',
     title: '离线交付、升级与回滚',
     description:
-      '很多团队的难点不在首次安装，而在后续交付。Rainbond 更适合从应用模板、版本管理和复制交付来降低重复劳动。',
+      '应用首次安装后，还要持续升级和维护。模板和版本记录可以减少多个客户环境中的重复操作。',
     points: [
       '把业务系统沉淀为可导出导入的应用模板，提升多环境复用能力',
       '围绕版本做升级和回滚，而不是每次都重新拼装环境',
-      '更适合私有化交付、客户现场实施和长期运维场景',
+      '适用于私有化交付、客户现场实施和长期运维',
     ],
   },
 ];
@@ -102,8 +102,9 @@ export default function OfflineAndXinchuangHome(): JSX.Element {
       <section className={styles.hero}>
         <h1 className={styles.heroTitle}>软件离线部署与交付、国产化信创适配</h1>
         <p className={styles.heroDesc}>
-          Rainbond 是一款不用懂 Kubernetes 的开源容器平台。在国产化信创、客户内网和完全离线环境中，它不只是回答“能不能安装”，而是把环境适配、应用迁移、标准化交付、升级回滚和持续运维尽量收口到统一平台里。
+          Rainbond 是基于 Kubernetes 的开源容器平台。在国产化信创、客户内网和完全离线环境中，平台用于管理环境适配、应用迁移、模板交付、升级回滚和日常运维。
         </p>
+        <p className={styles.heroHint}>最近更新时间：2026-10-25。公开验证范围包括麒麟 V10 / 鲲鹏 ARM 场景；统信、飞腾、龙芯及国产数据库组合需要按具体版本现场验证。</p>
         <div className={styles.heroActions}>
           <TrackedLink
             to="/docs/installation/offline"
@@ -149,7 +150,7 @@ export default function OfflineAndXinchuangHome(): JSX.Element {
             对很多团队来说，应用既要运行在国产 CPU、国产操作系统和异构资源环境里，又要面对内网隔离、离线安装、客户现场交付以及后续升级回滚。
           </p>
           <p className={styles.sectionDesc}>
-            Rainbond 的价值不只是替你把底层 Kubernetes 装起来，也不是只提供一个资源管理面板，而是以应用为中心，把环境支持、应用迁移、应用模板、部署升级和日常运维尽量放到同一套平台能力里。
+            Rainbond 按应用组织组件、依赖、配置和版本。底层仍然是 Kubernetes，但开发和实施人员处理更多的是应用部署与维护，而不是单独管理每个资源对象。
           </p>
         </div>
       </section>

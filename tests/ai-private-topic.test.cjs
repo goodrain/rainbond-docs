@@ -17,22 +17,18 @@ function test(name, fn) {
   }
 }
 
-test('adds four flat AI private deployment articles to the solutions sidebar', () => {
+test('keeps the solutions sidebar stable within one content plugin', () => {
   const sidebar = read('solutionsSidebar.js');
-  const items = [
-    ["id: 'ai-private-deployment'", "label: 'AI应用私有化'"],
-    ["id: 'ai-application-stack-private-deployment'", "label: 'AI应用栈私有化部署'"],
-    ["id: 'enterprise-intranet-ai-deployment'", "label: '企业内网部署'"],
-    ["id: 'offline-xinchuang-ai-deployment'", "label: '离线与信创部署'"],
-    ["id: 'cloud-to-private-ai-migration'", "label: 'Cloud迁移到私有环境'"],
-  ];
-
-  items.forEach(([id, label]) => {
-    assert.ok(sidebar.includes(id), `Expected sidebar id: ${id}`);
-    assert.ok(sidebar.includes(label), `Expected sidebar label: ${label}`);
-  });
-  assert.strictEqual((sidebar.match(/type: 'doc'/g) || []).length, 5);
+  [
+    "id: 'index'",
+    "id: 'software-delivery'",
+    "id: 'platform-engineering'",
+    "id: 'ai-private-deployment'",
+  ].forEach(id => assert.ok(sidebar.includes(id), `Expected stable topic entry: ${id}`));
+  assert.strictEqual((sidebar.match(/type: 'doc'/g) || []).length, 4);
+  assert.ok(!sidebar.includes("type: 'link'"));
   assert.ok(!sidebar.includes("type: 'category'"));
+  assert.ok(!sidebar.includes("id: 'ai-application-stack-private-deployment'"));
 });
 
 test('creates substantive, indexable and structured AI private deployment articles', () => {
@@ -96,7 +92,7 @@ test('links all four articles from the main AI private deployment topic', () => 
     '/solutions/enterprise-intranet-ai-deployment',
     '/solutions/offline-xinchuang-ai-deployment',
     '/solutions/cloud-to-private-ai-migration',
-    '按你的私有化场景继续阅读',
+    '按部署环境继续阅读',
   ].forEach(copy => assert.ok(source.includes(copy), `Expected topic article entry: ${copy}`));
 });
 

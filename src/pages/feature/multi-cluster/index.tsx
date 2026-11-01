@@ -36,7 +36,7 @@ export default function HowRainbond() {
   const pageDescription =
     "Rainbond 提供 Kubernetes 多集群管理平台能力，支持多云和混合云集群接入、应用级统一管理、跨集群交付、迁移与团队权限管理，帮助企业降低多集群运维复杂度。";
   const pageKeywords =
-    "Kubernetes 多集群管理, 多云应用管理, 多集群平台, 混合云管理, 跨集群交付, 应用级多云管理, 团队权限管理, Rainbond";
+    "Kubernetes管理平台, Kubernetes容器管理平台, Kubernetes应用管理平台, 多集群应用管理, Kubernetes 多集群管理, 多云应用管理, 混合云管理, 跨集群交付, Rainbond";
   const pageUrl = new URL(routePath, siteConfig.url).toString();
 
   const FeatureHeaderTitle = {

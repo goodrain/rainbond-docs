@@ -15,139 +15,93 @@ function test(name, fn) {
   }
 }
 
+const uniqueValueSource = read('src/components/HomePage/UniqueValue/index.tsx');
+const uniqueValueStyles = read('src/components/HomePage/UniqueValue/styles.module.css');
 const demoSource = read('src/components/HomePage/Demo/index.tsx');
 const demoStyles = read('src/components/HomePage/Demo/styles.module.css');
 
-test('home demo presents the approved six workload categories', () => {
-  [
-    'AI 生成项目',
-    'AI 开源应用',
-    '模型与推理',
-    '业务系统',
-    '生产级中间件',
-    '虚拟机',
-  ].forEach(title => {
-    assert.ok(demoSource.includes(`title: '${title}'`), `Expected workload category ${title}.`);
+test('unique value module presents four concise Rainbond delivery phases', () => {
+  ['软件接入', '应用建模', '版本交付', '持续运维'].forEach(label => {
+    assert.ok(uniqueValueSource.includes(`label: '${label}'`), `Expected value layer ${label}.`);
   });
 
-  [
-    'Codex · Claude Code',
-    'Dify · RAGFlow · MaxKB',
-    '大模型 · Embedding',
-    '前端 · API · 中间件',
-    'MySQL · Redis',
-    'Linux · Windows · qcow2',
-  ].forEach(copy => {
-    assert.ok(demoSource.includes(copy), `Expected workload example copy: ${copy}.`);
-  });
+  assert.strictEqual((uniqueValueSource.match(/key: '(connect|model|deliver|operate)'/g) || []).length, 4);
+  assert.ok(!uniqueValueSource.includes('role="tabpanel"'));
+  assert.ok(!uniqueValueSource.includes('className={styles.stepPanel}'));
 });
 
-test('home demo architecture connects workloads through Rainbond to owned environments', () => {
+test('unique value module connects software sources through the application model to infrastructure', () => {
   [
-    '把整套 AI 应用栈，运行在自己的环境。',
-    '不只是部署一个模型。AI 生成项目、开源应用、模型、业务系统、生产级中间件和虚拟机，都由 Rainbond 统一运行和管理。',
-    'Rainbond 开源容器平台',
-    '统一部署、运维、升级、交付',
-    'RainSkills',
-    'RainAgent',
-    '应用模型',
-    '应用市场',
-    '公有云',
-    '私有云',
+    '一个应用模型，贯穿交付的每一层',
+    'RAM · Rainbond Application Model',
+    'Rainbond 应用模型',
+    'RainAgent 智能交付助手',
+    '代码仓库',
+    '现有描述',
+    '开源软件',
+    '平台接口',
+    '版本化软件包',
+    '安装与升级',
+    '客户现场交付',
+    '企业统一治理',
     'Kubernetes',
-    '物理服务器',
-    '离线环境',
-    '代码与数据归你',
-    '支持离线部署',
-    '不锁定云厂商',
-    '支持信创环境',
-  ].forEach(copy => {
-    assert.ok(demoSource.includes(copy), `Expected architecture copy: ${copy}.`);
-  });
+    '信创与离线环境',
+  ].forEach(copy => assert.ok(uniqueValueSource.includes(copy), `Expected system copy: ${copy}.`));
 
-  [
-    'aria-label="工作负载"',
-    'aria-label="平台能力"',
-    'aria-label="运行环境"',
-    'aria-label="平台价值"',
-  ].forEach(label => {
-    assert.ok(demoSource.includes(label), `Expected semantic architecture group ${label}.`);
-  });
+  assert.ok(uniqueValueSource.includes('role="tablist"'));
+  assert.ok(uniqueValueSource.includes('aria-label="Rainbond 应用交付体系"'));
+  assert.ok(uniqueValueSource.includes('降低平台使用门槛，不替代平台本身'));
+  assert.ok(uniqueValueSource.includes('理解任务'));
+  assert.ok(uniqueValueSource.includes('调用 Rainbond 能力'));
+  assert.ok(uniqueValueSource.includes('aria-label="Rainbond 与普通部署工具的结果差异"'));
+  assert.ok(uniqueValueSource.includes('得到一个正在运行的容器'));
+  assert.ok(uniqueValueSource.includes('得到一套可持续交付的软件资产'));
 });
 
-test('home demo workload architecture removes legacy video interaction', () => {
-  [
-    'https://grstatic.tos-cn-beijing.volces.com/mp4/工作负载/业务应用.mp4',
-    'https://grstatic.tos-cn-beijing.volces.com/mp4/工作负载/AI大模型.mp4',
-    'https://grstatic.tos-cn-beijing.volces.com/mp4/工作负载/数据库.mp4',
-    'https://grstatic.tos-cn-beijing.volces.com/mp4/工作负载/部署虚拟机.mp4',
-    'workloadVideoRefs',
-    'handleWorkloadVideoEnded',
-    'previewIndex',
-    'workloadMediaViewport',
-    'workloadTimelineItem',
-    'workloadPreviewOverlay',
-    '关闭演示预览',
-  ].forEach(token => {
-    assert.ok(!demoSource.includes(token), `Expected legacy workload implementation to remove ${token}.`);
+test('application model renders an animated multi-component topology', () => {
+  ['网关', '前端', 'API', 'MySQL', 'Worker', 'Redis', '8 条已连接', '全部正常'].forEach(copy => {
+    assert.ok(uniqueValueSource.includes(copy), `Expected topology content: ${copy}.`);
   });
-
-  [
-    '.workloadMediaViewport',
-    '.workloadTimelineItem',
-    '.workloadPreviewOverlay',
-    '.workloadViewportProgress',
-  ].forEach(selector => {
-    assert.ok(!demoStyles.includes(selector), `Expected legacy workload styles to remove ${selector}.`);
-  });
+  assert.ok(uniqueValueSource.includes('aria-label="Rainbond 多组件应用拓扑"'));
+  assert.strictEqual((uniqueValueSource.match(/<path id="route-/g) || []).length, 8);
+  assert.ok(uniqueValueSource.includes('<GatewayNode />'));
+  assert.ok(uniqueValueSource.includes('className={styles.hexagonHalo}'));
+  assert.ok(uniqueValueSource.includes('<animateMotion'));
+  assert.ok(uniqueValueStyles.includes('.topologyCanvas'));
+  assert.ok(uniqueValueStyles.includes('.topologyNode'));
+  assert.ok(uniqueValueStyles.includes('.hexagon'));
+  assert.ok(uniqueValueStyles.includes('.gatewayCloud'));
+  assert.ok(uniqueValueStyles.includes('@keyframes topologyFlow'));
+  assert.ok(uniqueValueStyles.includes(".systemCanvas[data-active='model'] .connectionPulse path"));
 });
 
-test('home demo architecture matches the homepage visual system and reflows responsively', () => {
-  [
-    'workloadArchitecture',
-    'workloadGrid',
-    'workloadCard',
-    'platformBand',
-    'platformTags',
-    'runtimeGrid',
-    'runtimeCard',
-    'architectureBenefits',
-  ].forEach(className => {
-    assert.ok(demoSource.includes(`styles.${className}`), `Expected architecture markup class ${className}.`);
-    assert.ok(demoStyles.includes(`.${className}`), `Expected architecture styles for ${className}.`);
+test('unique value module uses a stable responsive system frame', () => {
+  ['.systemFrame', '.systemCanvas', '.modelCore', '.foundationRail', '.stepTabs'].forEach(selector => {
+    assert.ok(uniqueValueStyles.includes(selector), `Expected styles for ${selector}.`);
   });
 
-  assert.ok(
-    /\.workloadGrid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(6,\s*minmax\(0,\s*1fr\)\);/.test(demoStyles),
-    'Expected all six workload categories to form one architecture row on desktop.'
-  );
-  assert.ok(
-    /\.runtimeGrid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(5,\s*minmax\(0,\s*1fr\)\);/.test(demoStyles),
-    'Expected a five-column runtime grid on desktop.'
-  );
-  assert.ok(
-    /\.platformTags\s*\{[\s\S]*?flex-wrap:\s*wrap;/.test(demoStyles),
-    'Expected platform capability tags to wrap instead of overflowing.'
-  );
-  assert.ok(
-    /\.workloadArchitecture\s*\{[\s\S]*?linear-gradient\(135deg,\s*rgba\(238,\s*246,\s*255,\s*0\.94\)/.test(demoStyles),
-    'Expected the architecture stage to reuse the homepage light-blue visual language.'
-  );
-  assert.ok(
-    /\.platformBand\s*\{[\s\S]*?linear-gradient\(135deg,\s*#0f6fff\s*0%,\s*#2f7cff\s*55%,\s*#245fd1\s*100%\)/.test(demoStyles),
-    'Expected the Rainbond platform layer to be the strongest blue visual layer.'
-  );
-  assert.ok(
-    /@media\s*\(max-width:\s*900px\)\s*\{[\s\S]*?\.workloadGrid,[\s\S]*?\.runtimeGrid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\);/.test(demoStyles),
-    'Expected workload and runtime cards to reflow to two columns on tablet.'
-  );
-  assert.ok(
-    /@media\s*\(max-width:\s*560px\)\s*\{[\s\S]*?\.workloadGrid,[\s\S]*?\.runtimeGrid\s*\{[\s\S]*?grid-template-columns:\s*1fr;/.test(demoStyles),
-    'Expected workload and runtime cards to stack on phones.'
-  );
+  assert.ok(/\.stepTabs\s*\{[\s\S]*?grid-template-columns:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\);/.test(uniqueValueStyles));
+  assert.ok(/@media\s*\(max-width:\s*680px\)[\s\S]*?\.stepTabs\s*\{[\s\S]*?repeat\(2,\s*minmax\(0,\s*1fr\)\)/.test(uniqueValueStyles));
+  assert.ok(/\.systemFrame\s*\{[\s\S]*?max-width:\s*1380px;/.test(uniqueValueStyles));
+  assert.ok(/\.intro\s*\{[\s\S]*?max-width:\s*1380px;/.test(uniqueValueStyles));
+  assert.ok(/\.systemCanvas\s*\{[\s\S]*?grid-template-columns:\s*minmax\(210px,\s*0\.66fr\)[\s\S]*?minmax\(430px,\s*1\.42fr\)/.test(uniqueValueStyles));
+  assert.ok(uniqueValueStyles.includes('.agentRail'));
+  assert.ok(uniqueValueStyles.includes('.modelDifference'));
 });
 
-test('home demo preserves the unrelated feature video module', () => {
+test('unique value module animates the system path and respects user control', () => {
+  assert.ok(uniqueValueSource.includes("window.matchMedia('(prefers-reduced-motion: reduce)').matches"));
+  assert.ok(uniqueValueSource.includes('}, 4500)'));
+  assert.ok(uniqueValueSource.includes('data-active={activeStep.key}'));
+  assert.ok(uniqueValueSource.includes('styles.scanLine'));
+  assert.ok(uniqueValueSource.includes('onMouseEnter={() => setIsPaused(true)}'));
+  assert.ok(uniqueValueStyles.includes('@keyframes canvasSweep'));
+  assert.ok(uniqueValueStyles.includes('@keyframes stepProgress'));
+  assert.ok(uniqueValueStyles.includes('.systemFramePaused .stepTabActive::after'));
+  assert.ok(uniqueValueStyles.includes(".systemCanvas[data-active='model'] .modelCore"));
+});
+
+test('feature video module remains focused on the AI scenario', () => {
   [
     'const featureVideos = [',
     'https://static.goodrain.com/mp4/源码部署.mp4',
@@ -156,16 +110,13 @@ test('home demo preserves the unrelated feature video module', () => {
     'https://static.goodrain.com/mp4/伸缩.mp4',
     'https://static.goodrain.com/mp4/授权确认.mp4',
     'handleVideoEnded',
-    'styles.moduleControls',
+    '<VideoProgressControls',
     '<AnimatePresence mode="wait">',
-    '<motion.div',
-  ].forEach(token => {
-    assert.ok(demoSource.includes(token), `Expected feature-video invariant ${token}.`);
-  });
+  ].forEach(token => assert.ok(demoSource.includes(token), `Expected video invariant ${token}.`));
 
   ['.demo', '.videoContainer', '.gradientBackground', '.moduleControls', '.moduleButton'].forEach(selector => {
-    assert.ok(demoStyles.includes(selector), `Expected feature-video styles to preserve ${selector}.`);
+    assert.ok(demoStyles.includes(selector), `Expected video styles to preserve ${selector}.`);
   });
 });
 
-console.log('home demo workload architecture tests passed');
+console.log('home unique value architecture tests passed');

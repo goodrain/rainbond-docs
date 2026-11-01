@@ -1,3 +1,9 @@
 .homeWrapper {
   overflow-x: clip;
 }
+
+.homePage {
+  width: 100%;
+  overflow-x: clip;
+  background: #f4f7fb;
+}

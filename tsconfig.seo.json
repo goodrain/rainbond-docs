@@ -1,0 +1,17 @@
+{
+  "extends": "@tsconfig/docusaurus/tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"]
+    }
+  },
+  "include": [
+    "src/components/Solutions/CapabilityTopicPage.tsx",
+    "src/components/Solutions/SolutionsDirectory.tsx",
+    "src/data/capabilityTopicPages.ts"
+  ]
+}

@@ -1,0 +1,115 @@
+.section { padding: 28px 0; background: radial-gradient(ellipse at 50% 40%, #173858 0, transparent 65%), #0c1b2c; color: #edf5ff; scroll-margin-top: 64px; }
+.container { width: min(1440px, calc(100% - 64px)); margin: auto; }
+.heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 20px; }
+.heading > div > span { color: #8eb6ea; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
+.heading h2 { margin: 8px 0 0; color: #fff; font-size: clamp(26px, 2.5vw, 34px); line-height: 1.25; letter-spacing: 0; }
+.heading p { max-width: 350px; margin: 0; color: #a5b9d1; font-size: 15px; line-height: 1.7; }
+.diagram { padding: 12px 0 0; color: #e9f2ff; }
+.layer { position: relative; }
+.label { margin: 0; font-size: 14px; color: #b2c9e4; font-weight: 600; line-height: 1.4; }
+.entries { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; padding: 10px 26px 28px; }
+.entries > span { position: relative; display: flex; align-items: center; justify-content: center; gap: 14px; min-height: 50px; color: #e1ecfc; font-size: 17px; font-weight: 600; }
+.entries > span::after { content: ''; position: absolute; top: 100%; left: 50%; height: 15px; width: 1px; background: #628cbb; }
+.entries::after { content: ''; position: absolute; bottom: 13px; left: calc(26px + 8.7%); right: calc(26px + 8.7%); height: 1px; background: #628cbb; }
+.entries::before { content: ''; position: absolute; bottom: 0; left: 50%; width: 1px; height: 13px; background: #81baff; }
+.entries svg { width: 29px; height: 29px; color: #9cc9ff; flex-shrink: 0; }
+.application { padding: 12px 22px 18px; border-top: 1px solid #496587; background: linear-gradient(90deg, transparent, #244e7733, transparent); }
+.application .label { color: #b6d5ff; }
+.platform { display: grid; grid-template-columns: minmax(0, 1fr) 280px minmax(0, 1fr); align-items: center; gap: 40px; padding: 8px 26px 0; }
+.capabilities { display: grid; gap: 12px; }
+.capabilities > div { position: relative; display: flex; align-items: center; gap: 18px; padding: 12px 16px; min-height: 67px; }
+.capabilities:first-child > div::after, .capabilities:last-child > div::before { content: ''; position: absolute; top: 50%; width: 40px; height: 1px; background: linear-gradient(90deg, #6b9bcc66, #9acaff); }
+.capabilities:first-child > div::after { left: 100%; }
+.capabilities:last-child > div::before { right: 100%; }
+.capabilities svg { width: 32px; height: 32px; color: #92bdf4; flex-shrink: 0; }
+.capabilities strong, .capabilities span { display: block; }
+.capabilities strong { color: #eef5ff; font-size: 20px; line-height: 1.35; }
+.capabilities span { margin-top: 7px; color: #a4b9d2; font-size: 14px; line-height: 1.45; }
+.model { position: relative; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+.model::before { content: ''; position: absolute; top: -24px; width: 210px; height: 210px; border: 1px solid #70b4ff1c; border-radius: 50%; background: radial-gradient(circle, #3387db26, transparent 70%); pointer-events: none; }
+.modelShape { display: grid; place-items: center; width: 108px; height: 122px; background: linear-gradient(145deg, #a2d5ff, #3b7abf); clip-path: polygon(50% 0, 94% 24%, 94% 76%, 50% 100%, 6% 76%, 6% 24%); position: relative; }
+.modelShape::before { content: ''; position: absolute; inset: 2px; background: #1b3d69; clip-path: inherit; }
+.modelShape > svg { position: relative; width: 50px; height: 50px; color: #d1ecff; }
+.model strong, .model > div > span { display: block; }
+.model strong { position: relative; font-size: 23px; color: #fff; line-height: 1.4; }
+.model > div > span { position: relative; margin-top: 5px; color: #a9c3e2; font-size: 14px; }
+.governance { display: flex; align-items: center; gap: 28px; padding: 14px 22px; border-top: 1px solid #4c7b8b; border-bottom: 1px solid #4c7b8b; background: #274f5c44; }
+.governance .label { color: #b2d7da; white-space: nowrap; }
+.governanceItems { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.governanceItems > svg { width: 20px; height: 20px; color: #80d5c5; flex-shrink: 0; }
+.governanceItems > span { color: #d1e6ea; font-size: 15px; }
+.layer[data-layer='04'] { margin-top: 22px; }
+.layer[data-layer='04']::before { content: ''; position: absolute; left: 50%; top: -22px; height: 22px; width: 1px; background: #739ecb; }
+.layer[data-layer='04'] > .label { position: absolute; top: 10px; left: 20px; }
+.foundation { display: grid; grid-template-columns: 320px minmax(0, 1fr); align-items: center; min-height: 80px; padding: 26px 20px 10px; border-top: 1px solid #5277ac; border-bottom: 1px solid #5277ac; background: #264c783d; }
+.kubernetes { display: flex; align-items: center; gap: 13px; }
+.kubernetes > svg { width: 36px; height: 36px; color: #9fcbff; }
+.kubernetes strong, .kubernetes span { display: block; }
+.kubernetes strong { color: #fff; font-size: 24px; line-height: 1.3; }
+.kubernetes span { margin-top: 2px; color: #b4c9e3; font-size: 12px; }
+.infraItems { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.infraItems > span { padding: 4px 12px; border-left: 1px solid #547299; color: #dce9fa; text-align: center; font-size: 17px; }
+.serverLayer { margin-top: 16px; display: flex; align-items: center; gap: 28px; }
+.serverLayer > .label { flex: 0 0 70px; }
+.servers { flex: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.servers > div { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 6px 0; }
+.servers svg { width: 32px; height: 36px; color: #9db5d3; flex-shrink: 0; }
+.servers strong, .servers span { display: block; }
+.servers strong { color: #dce8f7; font-size: 15px; line-height: 1.4; }
+.servers span { margin-top: 4px; color: #95abc7; font-size: 12px; }
+
+@media (min-width: 1101px) and (max-height: 800px) {
+  .section { padding: 16px 0; }
+  .heading { margin-bottom: 12px; }
+  .heading h2 { font-size: 30px; }
+  .diagram { padding: 8px 0 0; }
+  .entries > span { min-height: 46px; }
+  .application { padding-top: 8px; padding-bottom: 10px; }
+  .platform { padding-top: 6px; }
+  .capabilities { gap: 10px; }
+  .capabilities > div { min-height: 59px; padding: 9px 16px; }
+  .model { gap: 8px; }
+  .modelShape { width: 96px; height: 108px; }
+  .governance { padding-top: 12px; padding-bottom: 12px; }
+  .foundation { min-height: 72px; }
+  .serverLayer { margin-top: 12px; }
+}
+
+@media (max-width: 1100px) {
+  .container { width: calc(100% - 32px); }
+  .diagram { padding: 20px; }
+  .platform { grid-template-columns: minmax(0, 1fr) 205px minmax(0, 1fr); gap: 20px; padding-inline: 0; }
+  .capabilities > div { padding: 12px; }
+  .capabilities:first-child > div::after, .capabilities:last-child > div::before { width: 20px; }
+  .foundation { grid-template-columns: 250px 1fr; }
+  .governance { gap: 20px; }
+  .governanceItems { flex-wrap: wrap; justify-content: flex-start; gap: 10px 22px; }
+  .governanceItems > span { font-size: 13px; }
+}
+@media (max-width: 700px) {
+  .section { padding: 36px 0; }
+  .heading { display: block; }
+  .heading p { margin-top: 12px; }
+  .diagram { padding: 16px; }
+  .entries { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 10px 0 22px; gap: 10px; }
+  .entries > span { font-size: 13px; gap: 6px; }
+  .entries > span::after, .entries::after { display: none; }
+  .application { padding: 14px; }
+  .platform { grid-template-columns: 1fr; padding-top: 16px; }
+  .model { grid-row: 1; padding-bottom: 10px; }
+  .model::before { width: 180px; height: 180px; }
+  .model strong { font-size: 21px; }
+  .capabilities strong { font-size: 18px; }
+  .capabilities:first-child > div::after, .capabilities:last-child > div::before { display: none; }
+  .governance { display: block; padding: 14px; }
+  .governanceItems { margin-top: 12px; gap: 12px 16px; }
+  .foundation { grid-template-columns: 1fr; gap: 16px; padding: 32px 16px 16px; }
+  .infraItems { grid-template-columns: 1fr; gap: 10px; }
+  .infraItems > span { border: 0; padding: 0; text-align: left; font-size: 14px; }
+  .serverLayer { display: block; }
+  .servers { margin-top: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 10px; }
+  .servers > div { justify-content: flex-start; gap: 8px; }
+  .servers svg { width: 24px; }
+  .servers strong { font-size: 14px; }
+  .servers span { font-size: 11px; }
+}

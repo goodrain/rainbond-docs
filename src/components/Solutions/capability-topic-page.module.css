@@ -1,0 +1,55 @@
+.page { display: flex; flex-direction: column; gap: 3rem; color: #172033; }
+.hero { padding: 1rem 0 0.5rem; }
+.eyebrow { color: #0969da; font-size: .82rem; font-weight: 700; }
+.hero h1 { max-width: 960px; margin: .8rem 0 1rem; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.15; letter-spacing: 0; }
+.answer { max-width: 900px; margin: 0; color: #334155; font-size: 1.08rem; line-height: 1.85; }
+.audience { max-width: 900px; margin: .8rem 0 0; color: #596579; line-height: 1.75; }
+.updated { margin: .8rem 0 0; color: #758195; font-size: .86rem; }
+.topicNav { display: flex; flex-wrap: wrap; gap: .65rem; padding: .85rem 0; border-top: 1px solid #dce3ec; border-bottom: 1px solid #dce3ec; }
+.topicNav a { color: #334155; font-size: .9rem; text-decoration: none; }
+.topicNav a:hover { color: #0969da; text-decoration: underline; }
+.section { display: flex; flex-direction: column; gap: 1rem; }
+.section h2, .caseStudy h2 { margin: 0; font-size: 1.65rem; line-height: 1.35; letter-spacing: 0; }
+.section h3 { letter-spacing: 0; }
+.problemGrid, .capabilityGrid, .fitGrid, .linkGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.problemGrid p, .capabilityGrid article, .fitGrid > div { margin: 0; padding: 1.1rem; border: 1px solid #dce3ec; border-radius: 8px; background: #fff; line-height: 1.75; }
+.capabilityGrid h3, .fitGrid h3 { margin: 0 0 .5rem; font-size: 1.05rem; }
+.capabilityGrid p { margin: 0; color: #475569; line-height: 1.75; }
+.boundary { margin-top: .7rem !important; padding-top: .7rem; border-top: 1px solid #e6ebf1; }
+.evidenceLink { display: inline-flex; margin-top: .65rem; font-size: .88rem; font-weight: 600; }
+.processList, .stepList { display: flex; flex-direction: column; gap: .8rem; margin: 0; padding: 0; list-style: none; }
+.processList li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: .9rem; align-items: start; }
+.processList li > span { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #14213d; color: #fff; font-weight: 700; }
+.processList h3, .processList p { margin: 0; }
+.processList p { margin-top: .25rem; color: #526076; line-height: 1.75; }
+.stepList li { display: grid; grid-template-columns: minmax(180px, .55fr) minmax(0, 1.45fr); gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #dce3ec; }
+.stepList span { color: #526076; line-height: 1.7; }
+.mediaGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.mediaGrid figure { margin: 0; overflow: hidden; border: 1px solid #dce3ec; border-radius: 8px; background: #f7f9fc; }
+.mediaGrid img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; }
+.mediaGrid figcaption { padding: .8rem 1rem; color: #526076; font-size: .9rem; }
+.tableWrap { overflow-x: auto; border: 1px solid #dce3ec; border-radius: 8px; }
+.tableWrap table { width: 100%; margin: 0; min-width: 720px; }
+.tableWrap th { background: #f1f5f9; }
+.tableWrap td, .tableWrap th { padding: .8rem; line-height: 1.55; }
+.caseStudy { padding: 1.4rem; border-left: 4px solid #0f766e; background: #f0fdfa; border-radius: 0 8px 8px 0; }
+.caseStudy > span { color: #0f766e; font-size: .8rem; font-weight: 700; }
+.caseStudy h2 { margin-top: .5rem; }
+.caseStudy p { max-width: 900px; line-height: 1.75; }
+.fitGrid ul { margin: 0; padding-left: 1.2rem; }
+.fitGrid li + li { margin-top: .5rem; }
+.faqList details { border-bottom: 1px solid #dce3ec; }
+.faqList summary { cursor: pointer; padding: 1rem 0; font-weight: 700; }
+.faqList p { margin: 0 0 1rem; color: #526076; line-height: 1.75; }
+.linkGrid a { display: flex; flex-direction: column; gap: .35rem; padding: 1rem; border: 1px solid #dce3ec; border-radius: 8px; color: inherit; text-decoration: none; }
+.linkGrid a:hover { border-color: #0969da; text-decoration: none; }
+.linkGrid span { color: #64748b; line-height: 1.55; }
+.sourceTitle { margin: 1rem 0 0; font-size: 1.05rem; }
+.sourceList { margin: 0; padding-left: 1.2rem; line-height: 1.8; }
+@media (max-width: 760px) {
+  .page { gap: 2.3rem; }
+  .problemGrid, .capabilityGrid, .fitGrid, .linkGrid, .mediaGrid { grid-template-columns: 1fr; }
+  .stepList li { grid-template-columns: 1fr; gap: .35rem; }
+  .hero h1 { font-size: 2rem; }
+  .topicNav { gap: .75rem 1rem; }
+}

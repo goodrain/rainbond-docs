@@ -8,7 +8,11 @@ const sidebars = {
       collapsed: false,
       items: [
         'quick-start/quick-install',
-        'quick-start/getting-started'
+        'quick-start/getting-started',
+        'quick-start/ai-project',
+        'quick-start/open-source',
+        'quick-start/git-project',
+        'quick-start/xinchuang-single-node'
       ]
     },
     {
@@ -250,6 +254,26 @@ const sidebars = {
               ]
             },
           ]
+        },
+        {
+          type: 'category',
+          label: '场景实操',
+          link: {
+            type: 'doc',
+            id: 'how-to-guides/scenario-tutorials/index',
+          },
+          items: [
+            'how-to-guides/scenario-tutorials/docker-compose-to-kubernetes',
+            'how-to-guides/scenario-tutorials/git-source-auto-deploy',
+            'how-to-guides/scenario-tutorials/fully-offline-delivery',
+            'how-to-guides/scenario-tutorials/app-template-lifecycle',
+            'how-to-guides/scenario-tutorials/x86-to-arm64',
+            'how-to-guides/scenario-tutorials/multi-cluster-app-management',
+            'how-to-guides/scenario-tutorials/internal-app-marketplace',
+            'how-to-guides/scenario-tutorials/dify-private-deployment',
+            'how-to-guides/scenario-tutorials/n8n-private-deployment',
+            'how-to-guides/scenario-tutorials/ai-model-gpu-instance',
+          ],
         },
         {
           type: 'category',

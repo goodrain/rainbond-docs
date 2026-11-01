@@ -2,6 +2,8 @@
   margin: 2.3rem 0;
 }
 
+.updated { margin: -1rem 0 0; color: #64748b; font-size: .86rem; }
+
 .sectionHead {
   max-width: 880px;
   margin-bottom: 1rem;

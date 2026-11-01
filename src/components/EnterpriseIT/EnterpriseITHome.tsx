@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import styles from './enterpriseITHome.module.css';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
@@ -120,7 +121,7 @@ const fitItems: FitItem[] = [
   },
   {
     title: '供应商长期参与交付',
-    description: '需要供应商准入、隔离测试、标准验收、生产上线和持续升级的闭环。',
+    description: '需要供应商准入、隔离测试、验收、生产上线和持续升级。',
   },
   {
     title: '有内网、离线或信创要求',
@@ -139,7 +140,7 @@ const unfitItems: FitItem[] = [
   },
   {
     title: '只管理底层 Kubernetes 集群',
-    description: '如果核心诉求是多集群安全、策略和基础设施治理，应优先看 Rancher 等集群管理平台。',
+    description: '主要需求是多集群安全、策略和基础设施治理时，应比较 Rancher 等集群管理平台。',
   },
   {
     title: '只有少量简单单机应用',
@@ -174,7 +175,7 @@ const capabilities: CapabilityItem[] = [
   {
     title: '应用统一纳管',
     description:
-      '从应用视角统一管理采购软件、自研系统、供应商交付物和中间件，减少“每套系统一套运维方式”的混乱。',
+      '按应用管理采购软件、自研系统、供应商交付物和中间件，减少每套系统各用一套运维方式的情况。',
     bullets: [
       '支持源码、镜像、Helm 等多来源部署',
       '应用拓扑、运行状态、日志、监控统一查看',
@@ -188,7 +189,7 @@ const capabilities: CapabilityItem[] = [
     bullets: [
       '供应商测试环境与生产环境隔离',
       '应用模板标准化交付与验收',
-      '生产环境一键安装、升级与回滚',
+      '生产环境按模板安装，并按版本升级或回滚',
     ],
   },
   {
@@ -237,7 +238,7 @@ const operatingSteps: OperatingStep[] = [
   {
     phase: '运维',
     title: '统一升级、回滚、伸缩和排障',
-    output: '应用级日志、监控、Web 终端、网关和版本记录形成运维闭环。',
+    output: '应用页面集中提供日志、监控、Web 终端、网关和版本记录。',
   },
   {
     phase: '复用',
@@ -300,7 +301,7 @@ const comparisonRows = [
     label: '供应商交付协作',
     vm: '交付物离散、验收难、升级难',
     container: '交付更标准，但协作仍偏底层资源和配置',
-    rainbond: '供应商测试、模板发布、企业一键安装形成闭环',
+    rainbond: '供应商完成测试并发布模板，企业验收后安装',
   },
   {
     label: '软件资产沉淀',
@@ -315,7 +316,7 @@ const alternativeRows: AlternativeRow[] = [
     option: '传统虚拟机 / IaaS',
     bestFor: '已有虚拟化体系、主要问题是服务器资源分配',
     limitation: '不直接解决应用部署、升级、回滚和供应商交付标准化',
-    rainbondFit: '保留基础设施投资，在上层补应用管理与交付闭环',
+    rainbondFit: '保留现有基础设施，在上层增加应用管理和交付流程',
   },
   {
     option: '原生 Kubernetes / Helm',
@@ -326,7 +327,7 @@ const alternativeRows: AlternativeRow[] = [
   {
     option: 'Rancher',
     bestFor: '多集群治理、集群安全、底层基础设施统一管理',
-    limitation: '主要从集群和资源视角出发，应用交付闭环需要额外建设',
+    limitation: '主要从集群和资源视角出发，应用交付流程需要额外建设',
     rainbondFit: '可与 Rancher 分工：Rancher 管集群，Rainbond 管应用交付与运维',
   },
   {
@@ -391,27 +392,27 @@ const faqItems: FAQItem[] = [
       '企业应用统一管理平台是面向企业 IT 的应用管理入口，用来统一部署、升级、回滚、监控和沉淀采购软件、自研系统与供应商交付物。',
   },
   {
-    question: 'Rainbond 解决的核心问题是什么？',
+    question: '公司有很多应用怎么统一管理？',
     answer:
-      'Rainbond 解决的是企业应用从交付到运维的标准化问题：应用怎么装、怎么验收、怎么升级、怎么回滚、怎么沉淀为可复用资产。',
+      'Rainbond 用统一流程管理企业应用的安装、验收、升级、回滚和模板复用。',
   },
   {
     question: '为什么只用虚拟机或 Kubernetes 工具还不够？',
     answer:
-      '虚拟机更关注资源，Kubernetes 工具更关注集群和资源对象；企业 IT 真正需要的是围绕应用的交付、运维、权限、版本和资产闭环。',
+      '虚拟机侧重服务器资源，Kubernetes 工具侧重集群和资源对象。应用管理还要记录交付、运维、权限、版本和组件关系。',
   },
   {
-    question: 'Rainbond 适合哪些团队？',
+    question: '哪些团队适合建设应用统一管理平台？',
     answer:
       'Rainbond 适合供应商多、系统多、环境复杂、希望降低 Kubernetes 门槛的企业 IT、政企信息化、学校平台和系统集成团队。',
   },
   {
-    question: 'Rainbond 和 Rancher、KubeSphere、OpenShift 怎么选？',
+    question: '应用管理平台和集群管理平台怎么选？',
     answer:
       '如果重点是多集群和底层治理，可以优先看 Rancher；如果要建设完整云原生平台，可以评估 KubeSphere 或 OpenShift；如果要先解决应用交付、升级回滚、供应商协作和软件资产沉淀，Rainbond 更贴近。',
   },
   {
-    question: '供应商交付为什么适合用 Rainbond 管？',
+    question: '供应商交付的软件怎么统一管理？',
     answer:
       'Rainbond 可以让供应商先在隔离空间完成部署和验证，再发布成应用模板。企业在生产环境按模板安装和升级，减少供应商直接操作生产环境。',
   },
@@ -421,21 +422,36 @@ const faqItems: FAQItem[] = [
       '不需要让所有开发、实施和企业 IT 都先学会 Kubernetes。Rainbond 基于 Kubernetes，但通过应用模型把高频操作抽象成应用、组件、网关、存储和模板。',
   },
   {
-    question: '什么时候不适合优先上 Rainbond？',
+    question: '哪些场景不适合先建设应用管理平台？',
     answer:
       '如果只是做服务器资产登记、工单流转，或者团队已经有成熟的 GitOps 和平台工程体系，应该先明确 Rainbond 与现有体系的边界。',
   },
 ];
 
 export default function EnterpriseITHome(): JSX.Element {
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {'@type': 'Answer', text: item.answer},
+    })),
+  };
+
   return (
     <div className={styles.page}>
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+      </Head>
       <section className={styles.hero}>
         <div className={styles.heroCopy}>
-          <h1 className={styles.heroTitle}>让企业 IT 掌握每一套应用的交付、升级和运维</h1>
+          <h1 className={styles.heroTitle}>企业应用统一管理：软件资产、供应商应用与多集群统一纳管</h1>
           <p className={styles.heroLead}>
             Rainbond 面向企业总部 IT、政企、学校和平台型机构，把采购软件、供应商交付物和自研系统纳入同一应用模型，形成从测试、验收、上线、升级到资产复用的标准流程。
           </p>
+          <p className={styles.heroLead}>这里的“采购”和“供应商管理”仅指采购完成后的软件交付、运行与供应商交付应用管理，不包含采购审批、合同、财务或完整供应商关系管理。</p>
+          <p className={styles.heroLead}>最近更新时间：2026-10-25</p>
           <div className={styles.heroSignals}>
             {heroSignals.map((item) => (
               <span key={item}>{item}</span>
@@ -460,15 +476,15 @@ export default function EnterpriseITHome(): JSX.Element {
       </section>
 
       <section className={styles.answerBox}>
-        <h2>企业应用统一管理，关键不是再买一套资源平台，而是把应用生命周期标准化</h2>
+        <h2>企业应用统一管理包含哪些工作</h2>
         <p>
-          企业 IT 真正要解决的是：采购软件、自研系统和供应商交付物能不能统一部署、验收、升级、回滚，并沉淀为可复用的软件资产。
+          企业 IT 需要统一部署、验收、升级和回滚采购软件、自研系统与供应商交付物，并记录可继续复用的应用模板。
         </p>
       </section>
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>
-          <h2>这套方案最终带来什么结果？</h2>
+          <h2>统一管理后可以看到什么</h2>
         </div>
         <div className={styles.outcomeGrid}>
           {outcomes.map((item) => (
@@ -482,8 +498,8 @@ export default function EnterpriseITHome(): JSX.Element {
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>
-          <h2>这个方案主要解决哪 3 件事？</h2>
-          <p>如果你继续往下看，通常就是因为你在这三件事里至少命中了一件。</p>
+          <h2>先处理这三类问题</h2>
+          <p>下面分别对应应用纳管、供应商交付和日常运维。</p>
         </div>
         <ol className={styles.numberedList}>
           {focusItems.map((item) => (
@@ -528,7 +544,7 @@ export default function EnterpriseITHome(): JSX.Element {
       <section className={styles.section}>
         <div className={styles.sectionHead}>
           <h2>为什么传统模式会把应用管理越做越重？</h2>
-          <p>这些问题不是单点故障，而是企业应用管理模式长期缺少统一标准的结果。</p>
+          <p>这些问题通常来自不同系统长期使用不同的交付和运维方式。</p>
         </div>
         <ol className={styles.problemList}>
           {problems.map((item, index) => (
@@ -545,8 +561,8 @@ export default function EnterpriseITHome(): JSX.Element {
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>
-          <h2>关键不是把资源堆得更复杂，而是把重心从“资源”切到“应用”</h2>
-          <p>真正要统一的不是机器，而是应用交付、升级、回滚、环境复制和后续运维的整条链路。</p>
+          <h2>从服务器清单转向应用关系</h2>
+          <p>除了机器和容器，还需要记录应用交付、升级、回滚、环境复制和日常运维。</p>
         </div>
         <div className={styles.shiftPanel}>
           <div className={styles.shiftSide}>
@@ -564,7 +580,7 @@ export default function EnterpriseITHome(): JSX.Element {
             <h3>应用为中心</h3>
             <ul>
               <li>统一纳管各类应用，只从应用视角组织交付和运维</li>
-              <li>部署、升级、回滚、环境复制形成标准化闭环</li>
+              <li>部署、升级、回滚和环境复制使用同一套流程</li>
               <li>应用模板、应用市场和版本管理沉淀为数字资产</li>
             </ul>
           </div>
@@ -596,7 +612,7 @@ export default function EnterpriseITHome(): JSX.Element {
       <section className={styles.section}>
         <div className={styles.sectionHead}>
           <h2>实际落地会怎么运转？</h2>
-          <p>这不是只上一套工具，而是把供应商准入、应用验收、生产上线、长期运维和资产复用连成闭环。</p>
+          <p>供应商准入、应用验收、生产上线、长期运维和模板复用需要使用同一套交付约定。</p>
         </div>
         <div className={styles.processGrid}>
           {operatingSteps.map((item, index) => (
@@ -612,7 +628,7 @@ export default function EnterpriseITHome(): JSX.Element {
       <section className={styles.section}>
         <div className={styles.sectionHead}>
           <h2>Rainbond 跟传统虚拟机和 Kubernetes 工具的差异</h2>
-          <p>这不是“谁功能多”的比较，而是你到底应该管理什么、由谁来管理、后续怎么持续演进。</p>
+          <p>比较时先确认管理对象、使用人员和后续维护方式，不要只统计功能数量。</p>
         </div>
         <div className={styles.compareTableWrap}>
           <table className={styles.compareTable}>
@@ -640,8 +656,8 @@ export default function EnterpriseITHome(): JSX.Element {
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>
-          <h2>客户还有哪些替代方案？应该怎么选？</h2>
-          <p>Rainbond 不需要把所有平台都说成对手。更准确的判断是：客户当前最想解决的是集群治理、完整云原生平台，还是应用交付与运维闭环。</p>
+          <h2>还有哪些可选方案</h2>
+          <p>先区分当前要解决的是集群治理、综合云原生平台建设，还是应用交付与运维。</p>
         </div>
         <div className={styles.compareTableWrap}>
           <table className={styles.compareTable}>
@@ -722,7 +738,7 @@ export default function EnterpriseITHome(): JSX.Element {
       <section className={styles.section}>
         <div className={styles.sectionHead}>
           <h2>常见问题</h2>
-          <p>这些问答用于帮助搜索用户和 AI 搜索结果快速理解 Rainbond 在企业应用统一管理中的定位。</p>
+          <p>这些问题说明应用统一管理的范围和产品边界。</p>
         </div>
         <div className={styles.faqList}>
           {faqItems.map((item) => (
