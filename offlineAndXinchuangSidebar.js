@@ -28,7 +28,7 @@ module.exports = {
     {
       type: 'doc',
       id: 'xinchuang-platform',
-      label: '为什么 Rainbond 适合作为信创平台',
+      label: '信创环境能力与实施边界',
     },
   ],
 };

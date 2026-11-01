@@ -12,7 +12,10 @@
     "serve": "docusaurus serve",
     "crowdin": "crowdin",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "typecheck": "node node_modules/typescript/bin/tsc -p tsconfig.seo.json",
+    "test": "node --test tests/*.test.cjs",
+    "check:seo": "node scripts/validate-seo-content.cjs"
   },
   "dependencies": {
     "@crowdin/cli": "4",

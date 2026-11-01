@@ -1,16 +1,15 @@
 ---
-title: x86 到 ARM 迁移：现有业务怎样更平稳地过渡到国产化信创环境？
+title: x86 到 ARM64 迁移：依赖检查、镜像构建和分阶段验证
 sidebar_position: 4
 slug: /x86-to-arm
-description: 围绕传统 x86 业务向 ARM 和国产化信创环境迁移，帮助你判断哪些系统适合先迁、Rainbond 在迁移链路中的价值是什么。
+description: 说明 x86 应用迁移到 ARM64 时需要检查的镜像、二进制和依赖，以及 Rainbond 能提供的构建、调度、应用管理能力与边界。
 hide_title: true
 hide_table_of_contents: true
 keywords:
   - x86 到 ARM 迁移
-  - Rainbond ARM 迁移
+  - ARM64 应用迁移
   - 信创迁移
   - 多架构应用部署
-  - 国产化迁移方案
 ---
 
 import Head from '@docusaurus/Head';
@@ -18,162 +17,142 @@ import CompareEvidenceCards from '@site/src/components/Compare/CompareEvidenceCa
 import TopicActionGrid from '@site/src/components/OfflineAndXinchuang/TopicActionGrid';
 
 <Head>
+  <title>x86 到 ARM64 迁移：依赖检查、镜像构建和分阶段验证 | Rainbond</title>
   <link rel="canonical" href="https://www.rainbond.com/offline-and-xinchuang/x86-to-arm" />
-  <meta property="og:title" content="x86 到 ARM 迁移：现有业务怎样更平稳地过渡到国产化信创环境？" />
-  <meta
-    property="og:description"
-    content="围绕传统 x86 业务向 ARM 和国产化信创环境迁移，帮助你判断哪些系统适合先迁、Rainbond 在迁移链路中的价值是什么。"
-  />
+  <meta property="og:title" content="x86 到 ARM64 迁移：依赖检查、镜像构建和分阶段验证 | Rainbond" />
+  <meta property="og:description" content="说明 x86 应用迁移到 ARM64 时需要检查的镜像、二进制和依赖，以及 Rainbond 能提供的构建、调度、应用管理能力与边界。" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.rainbond.com/offline-and-xinchuang/x86-to-arm" />
+  <script type="application/ld+json">{`{"@context":"https://schema.org","@type":"Article","headline":"x86 到 ARM64 迁移：依赖检查、镜像构建和分阶段验证","description":"说明 x86 应用迁移到 ARM64 时需要检查的镜像、二进制和依赖，以及 Rainbond 能提供的构建、调度、应用管理能力与边界。","dateModified":"2026-10-25","mainEntityOfPage":"https://www.rainbond.com/offline-and-xinchuang/x86-to-arm","author":{"@type":"Organization","name":"Rainbond"}}`}</script>
 </Head>
 
 <div className="compareDocPage">
 
-# x86 到 ARM 迁移：现有业务怎样更平稳地过渡到国产化信创环境？
+# x86 到 ARM64 迁移：依赖检查、镜像构建和分阶段验证
 
-如果你已经不是在问“能不能装”，而是在问“现有业务怎样从 x86 迁到 ARM，成本和路径是什么”，重点就是把迁移问题拆开，而不是继续用抽象口号覆盖具体技术路径。
+x86 与 ARM64 使用不同指令集，现有镜像和二进制不能默认跨架构运行。Rainbond 可以在目标架构上构建源码、部署多架构镜像，并管理 x86_64 与 ARM64 节点或集群；业务依赖、闭源 SDK、数据库兼容和性能验证仍由应用团队负责。
 
-- x86 到 ARM 的难点，不是“换一台服务器”这么简单，而是应用构建、镜像兼容、依赖适配和业务分阶段迁移的问题叠加。
-- 不是所有系统都应该一次性迁完，更现实的做法往往是按照业务耦合度和技术形态分阶段迁移。
-- Rainbond 的价值不在于替你消灭所有迁移工作，而在于把多架构构建、部署和异构编排收口到一条更可执行的路径里。
+最近更新时间：2026-10-25。
 
-## 哪些场景最容易遇到迁移问题
+## 迁移前先做依赖盘点
 
-- 政企和国央企项目在推进国产化替代，要求业务逐步进入 ARM 环境
-- 原本在 x86 上运行的 Java、Go、C/C++ 等服务需要重新评估构建与运行路径
-- 团队既不能一次性重做全部系统，又不能长期维持完全割裂的双环境体系
+逐个组件记录以下信息：
 
-对这类项目来说，真正的问题不是“要不要迁”，而是“怎么迁得更稳”。
+| 检查项 | 要确认的内容 |
+| --- | --- |
+| 基础镜像 | 镜像 manifest 是否包含 `linux/arm64` |
+| 编译产物 | Go、C/C++、Rust 等二进制是否需要重新构建 |
+| 本地扩展 | Node.js、Python、Java JNI 等扩展是否提供 ARM64 版本 |
+| 系统依赖 | apt/yum 包、字体、浏览器、驱动和动态链接库 |
+| 闭源软件 | SDK、许可证服务和厂商中间件是否明确支持 ARM64 |
+| 数据服务 | 数据库版本、驱动、备份和回切路径 |
 
-## 迁移为什么难
+没有源码且厂商不提供 ARM64 版本的组件，不能通过平台配置解决。平台识别节点架构，但不会把 x86 二进制自动转换为 ARM64 二进制。这类组件应继续运行在 x86 节点，或更换依赖后再迁移。
 
-#### 1. 架构差异
+## Rainbond 可以提供什么
 
-x86 和 ARM 指令集不同，编译型语言产物不能直接跨架构运行。  
-这意味着部分业务必须重新构建，甚至要补依赖和镜像适配。
+### 在目标架构上构建源码
 
-如果用更直白的话说：  
-x86 镜像像是用一套旧指令体系写出来的“说明书”，直接扔到 ARM 环境里，系统并不会自动读懂。很多团队迁移时真正被拖慢的，不是代码逻辑，而是 Dockerfile、依赖、运行时和构建环境反复对齐。
+源码组件由目标集群中的构建节点完成构建。ARM64 集群需要可用的 ARM64 构建节点，依赖仓库和基础镜像也要支持该架构。平台会执行构建流程，但不会自动修改不兼容的业务代码和第三方依赖。
 
-#### 2. 系统里不是所有组件都一样好迁
+### 部署多架构镜像
 
-- 解释型语言和部分字节码型产物，迁移门槛相对更低
-- 编译型语言和依赖底层环境的服务，迁移成本往往更高
-- 老旧系统如果连源码都不完整，迁移难度会进一步上升
+同一镜像标签可以包含 amd64 和 arm64 manifest。Kubernetes 根据节点架构拉取相应镜像。迁移前可使用以下命令检查：
 
-#### 3. 迁移不是单一服务动作，而是整套业务动作
+```bash
+docker buildx imagetools inspect registry.example.com/team/app:v1.0.0
+```
 
-业务系统往往由多个服务组成。  
-如果只有部分组件先迁到 ARM，剩余组件仍然留在 x86，那么平台必须能支撑异构环境下的协同运行和编排。
+如果输出中没有 `linux/arm64`，需要重新构建镜像，或为 ARM64 使用单独的镜像标签。
 
-## Rainbond 在迁移链路中的价值
+### 管理混合节点或独立集群
 
-![](https://static.goodrain.com/localization-guide/%E5%BC%82%E6%9E%84%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86.png)
+多架构文档提供两种方式：
 
-### 1. 多架构构建和部署
+- 在同一 Kubernetes 集群中管理 x86_64 和 ARM64 节点。
+- 分别接入 x86_64 与 ARM64 集群，通过团队和应用管理不同环境。
 
-- 对源码构建链路提供 ARM 方向的支撑
-- 让部分服务可以先按目标架构构建和运行
-- 降低因为架构差异带来的重复手工劳动
+跨集群网络、数据同步和容灾不会自动完成，需要独立方案。
 
-在现有实践里，这一点不是停留在“理论上支持”，而是能通过源码构建流程直接做验证：  
-提交原有 x86 项目的源码，平台自动识别目标 ARM 架构，完成依赖解析、构建环境适配、镜像构建和运行。
+### 保留应用关系和版本
 
-### 2. 一云多芯与异构集群
+应用模型可以记录组件、依赖、配置和版本，便于在测试环境复现迁移后的拓扑。应用模板跨架构安装时，所有组件仍必须具备目标架构制品。
 
-- 允许你在同一个平台里管理不同架构的资源
-- 适合国产化替代过渡期，不需要一次性让所有业务一起切过去
-- 更接近真实项目里的分阶段迁移方式
+## 推荐迁移顺序
 
-### 3. 应用级视角比纯资源视角更适合迁移协同
+1. 先选择一个依赖清晰、可以回切的非核心应用。
+2. 在 ARM64 环境验证 Rainbond、网络、存储和镜像仓库。
+3. 构建或准备 ARM64 镜像，检查每个组件的运行日志和健康检查。
+4. 验证接口、文件处理、字符集、时区和外部系统连接。
+5. 对相同请求和数据量做性能测试，不直接套用 x86 资源规格。
+6. 备份数据并演练回切，再安排生产流量迁移。
 
-迁移不是只看“Pod 能不能起”，还要看整套应用是不是能继续协同工作。  
-应用级视角更容易把迁移过程纳入持续交付、版本和运维体系。
+## Rainbond 不能替代的工作
 
-## 拿现有 Java 项目做实测
+- 修改不兼容的业务代码或闭源二进制。
+- 为缺少 ARM64 版本的系统包、驱动和 SDK 生成兼容版本。
+- 自动完成数据库 schema、业务数据和跨集群网络迁移。
+- 保证迁移后的性能与 x86 环境相同。
 
-如果你想快速判断 Rainbond 这条路值不值得继续看，最好的办法不是继续讨论概念，而是拿一个熟悉的 x86 项目做最小验证。
-
-一个很典型的办法，就是像现有实践里那样拿 RuoYi 这类常见 Java Maven 多模块项目做测试：
-
-1. 先把 Rainbond 跑在 Arm64 测试环境上  
-2. 准备现有 Java 项目源码，不改业务代码  
-3. 在 Rainbond 中选择“从源码创建应用”  
-4. 让平台自动识别 Java / Maven 项目和模块结构  
-5. 观察它如何自动准备 Arm 版依赖、完成构建并运行  
-
-这条路径的价值，不是证明“任何项目都零成本迁移”，而是让团队先快速确认：  
-自己当前最耗时间的那部分兼容性工作，Rainbond 到底能不能替你消化掉一大截。
-
-## RuoYi 实测能说明什么
-
-现有文章里用 RuoYi 做验证，有两个点很关键：
-
-- 它是典型的 Java 多模块项目，更接近很多企业实际业务系统
-- 平台可以识别模块结构，只选择 `ruoyi-admin` 这样的入口模块构建，而不是把整套项目生硬当成一个黑盒
-
-后端跑通后，前端同样可以按源码构建方式继续迁移。  
-这说明 Rainbond 的价值不只在单个后端服务，而是在更完整的业务系统迁移链路里。
-
-## 案例区
+## 公开证据
 
 <CompareEvidenceCards
   items={[
     {
-      type: '场景',
-      title: 'x86 到 ARM 自动适配实践',
-      metric: '迁移实践',
-      description:
-        '围绕真实迁移场景说明为什么架构差异会成为障碍，以及 Rainbond 怎样降低迁移成本。',
-      href: '/blog/x86-to-arm-auto-adaptation',
+      type: '文档',
+      title: '多架构应用部署',
+      metric: '构建与镜像要求',
+      description: '核对源码构建、多架构镜像和依赖条件。',
+      href: '/docs/how-to-guides/localization-guide/multi-arch-app-deploy',
     },
     {
-      type: '场景',
-      title: '国产化和信创支撑场景页',
-      metric: '场景说明',
-      description:
-        '从站内现有场景内容快速理解为什么 ARM、国产 CPU 和应用迁移会一起出现。',
+      type: '文档',
+      title: '异构集群部署',
+      metric: '混合集群 · 独立集群',
+      description: '查看 x86_64 和 ARM64 节点或集群的管理方式。',
+      href: '/docs/how-to-guides/localization-guide/multi-arch-installation',
+    },
+    {
+      type: '历史案例',
+      title: '鲲鹏与飞腾适配记录',
+      metric: 'Kunpeng 920 · FT2000+/64',
+      description: '历史材料证明已有实践，但当前硬件和软件版本仍要重新验收。',
       href: '/blog/usescene-x86-to-arm',
     }
   ]}
 />
 
-## FAQ
+## 常见问题
 
-#### 1. 是不是所有业务都适合一次性迁到 ARM？
+### Java 应用是不是不需要适配？
 
-通常不是。  
-更现实的方式是先按业务耦合度、技术形态和迁移成本做优先级排序。
+Java 字节码本身可以跨架构，但 JDK、JNI、本地库、字体和外部命令仍可能依赖架构。需要在目标环境完整构建和测试。
 
-#### 2. 为什么迁移问题不能只靠底层资源层解决？
+### 多架构镜像会自动生成吗？
 
-因为真正要迁的是整套业务系统，而不是单个容器实例。  
-平台需要支撑构建、部署、编排和持续运维。
+不会。应用团队需要在 CI 或构建环境中生成 amd64/arm64 镜像，或分别维护两个架构的镜像。
 
-#### 3. Rainbond 能不能替代所有迁移工作？
+### 可以一次迁移所有组件吗？
 
-不能。  
-但它能把多架构构建、部署和异构编排收口到一个更可执行的平台路径里，让迁移过程更可控。
+技术上取决于依赖是否都支持 ARM64。实施时通常先迁移无状态、依赖清晰的组件，再处理数据库和外部设备相关服务。
 
-#### 4. 我怎么快速验证这条迁移路径值不值得继续？
+### 平台能自动选择正确镜像吗？
 
-拿一个自己熟悉、结构不算太复杂的现有项目做试点最好。  
-像 RuoYi 这类 Java 多模块项目就是很合适的验证对象，可以先判断源码构建链路在 ARM 环境里的适配效果。
+镜像标签包含多架构 manifest 时，Kubernetes 会按节点架构拉取对应镜像。只有单架构 manifest 时，调度到错误架构会启动失败。
 
 <TopicActionGrid
-  title="下一步动作"
-  description="如果你已经明确自己面对的是迁移问题，接下来就应该进入具体实践、部署文档和平台能力判断。"
+  title="继续验证"
+  description="先核对多架构文档，再选一套可回切的应用做测试。"
   items={[
     {
-      label: '查看离线安装文档',
-      note: '直接进入离线安装包准备和安装步骤。',
-      href: '/docs/installation/offline',
+      label: '查看多架构应用部署',
+      note: '核对源码、镜像和依赖要求。',
+      href: '/docs/how-to-guides/localization-guide/multi-arch-app-deploy',
     },
     {
-      label: '查看迁移实践',
-      note: '从真实 x86 到 ARM 迁移案例继续确认路径。',
-      href: '/blog/x86-to-arm-auto-adaptation',
+      label: '查看迁移实操',
+      note: '使用多架构构建命令和故障检查清单。',
+      href: '/docs/how-to-guides/scenario-tutorials/x86-to-arm64',
     }
   ]}
 />

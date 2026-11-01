@@ -220,26 +220,28 @@
   z-index: 2;
   width: min(100%, 1020px);
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--module-count, 5), minmax(0, 1fr));
   gap: 0;
   margin-top: -0.15rem;
-  padding: 0.38rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14);
+  padding: 0;
+  border-top: 1px solid #d8e0ec;
+  border-bottom: 1px solid #d8e0ec;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
 }
 
 .moduleButton {
   position: relative;
   min-width: 0;
-  min-height: 60px;
-  padding: 0.82rem 1rem;
+  min-height: 64px;
+  padding: 10px 14px;
   border: 0;
   border-right: 1px solid #d9e0e8;
-  border-radius: 10px;
+  border-radius: 0;
   background: transparent;
-  color: #7c808d;
-  font-size: 17px;
+  color: #667085;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.2;
   cursor: pointer;
@@ -252,8 +254,8 @@
 }
 
 .moduleButton:hover {
-  color: #0052cc;
-  background: rgba(0, 102, 255, 0.08);
+  color: #0d4bb5;
+  background: #f7faff;
 }
 
 .moduleButton:focus-visible {
@@ -262,8 +264,8 @@
 }
 
 .moduleButtonActive {
-  color: #003f8f;
-  background: #eaf3ff;
+  color: #0d4bb5;
+  background: #f3f7ff;
 }
 
 .moduleButtonContent {
@@ -272,13 +274,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.62rem;
+  gap: 0.5rem;
   width: 100%;
 }
 
 .moduleIcon {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   color: currentColor;
   stroke-width: 2.2;
   flex: 0 0 auto;
@@ -292,9 +294,11 @@
 
 .moduleProgress {
   position: absolute;
-  inset: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 1;
-  border-radius: inherit;
+  height: 3px;
   overflow: hidden;
   opacity: 0;
   background: transparent;
@@ -307,12 +311,71 @@
 .moduleProgressFill {
   display: block;
   width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, rgba(0, 102, 255, 0.34) 0%, rgba(128, 183, 255, 0.62) 100%);
+  height: 3px;
+  background: #1768f2;
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.08s linear;
+}
+
+.demoEmbedded {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding-bottom: 0;
+}
+
+.demoEmbedded .videoContainer {
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+}
+
+.demoEmbedded .gradientBackground {
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.demoEmbedded .videoStage {
+  height: 100%;
+  aspect-ratio: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.demoEmbedded .video {
+  object-fit: contain;
+  object-position: top;
+}
+
+.demoEmbedded .moduleControls {
+  flex: 0 0 56px;
+  width: 100%;
+  margin: 0;
+  border: 1px solid #d9e0e8;
+  border-top: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.demoEmbedded .videoWrapper {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.demoEmbedded .tabDescriptionWrapper {
+  display: none;
+}
+
+.demoEmbedded .tabDescription {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .workloadStory {
@@ -669,6 +732,10 @@
     min-height: calc(100vh - 54px);
   }
 
+  .demoEmbedded {
+    min-height: 0;
+  }
+
   .bgSection {
     height: 120px;
   }
@@ -713,25 +780,46 @@
   }
 
   .moduleControls {
-    grid-template-columns: 1fr;
+    display: flex;
     width: 100%;
-    border-radius: 12px;
+    overflow-x: auto;
+    border-radius: 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
   }
 
   .moduleButton {
-    min-height: 52px;
-    border-right: 0;
-    border-bottom: 1px solid #d9e0e8;
-    font-size: 15px;
+    flex: 0 0 148px;
+    min-height: 60px;
+    border-right: 1px solid #d9e0e8;
+    border-bottom: 0;
+    font-size: 12px;
+    scroll-snap-align: start;
   }
 
   .moduleButton:last-child {
-    border-bottom: 0;
+    border-right: 0;
   }
 
   .moduleButtonLabel {
     white-space: normal;
   }
+
+  .demoEmbedded .videoContainer {
+    padding: 0;
+  }
+
+  .demoEmbedded .gradientBackground {
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .demoEmbedded .videoStage {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 0;
+  }
+
 }
 
 @media (max-width: 1180px) {

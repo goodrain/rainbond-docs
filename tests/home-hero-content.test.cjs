@@ -87,7 +87,7 @@ test('home hero restores the Kubernetes platform positioning and product video',
   assert.ok(heroSource.includes('>不用懂 Kubernetes</h1>'));
   assert.ok(heroSource.includes('>开源容器平台</h1>'));
   assert.ok(heroSource.includes('Rainbond 是基于 Kubernetes 的开源容器平台'));
-  assert.ok(homePageSource.includes('Rainbond - 不用懂 Kubernetes 的开源容器平台'));
+  assert.ok(homePageSource.includes('Rainbond - AI 驱动的开源应用交付平台'));
   assert.ok(heroSource.includes('https://www.bilibili.com/video/BV1Lzo5BGEuc'));
   assert.ok(heroSource.includes('Rainbond 视频封面'));
 });

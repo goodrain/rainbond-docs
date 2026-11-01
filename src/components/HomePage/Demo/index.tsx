@@ -1,26 +1,19 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import Head from '@docusaurus/Head';
-import Link from '@docusaurus/Link';
 import {
-  AppWindow,
-  BrainCircuit,
-  Boxes,
-  Building2,
   CheckCircle2,
-  Check,
-  Cloud,
-  Code2,
   Database,
   GitBranch,
-  Layers3,
   Scaling,
-  Server,
-  ServerCog,
-  WifiOff,
   Wrench,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './styles.module.css';
+import VideoProgressControls from './VideoProgressControls';
+
+interface DemoProps {
+  embedded?: boolean;
+}
 
 const featureVideos = [
   {
@@ -73,171 +66,12 @@ const getNextVideoKey = (key: DemoTabKey) => {
   return videoKeys[(currentIndex + 1) % videoKeys.length];
 };
 
-const workloadGroups = [
-  {
-    key: 'ai-generated',
-    title: 'AI 生成项目',
-    details: ['Codex · Claude Code', '本地代码仓库'],
-    icon: Code2,
-  },
-  {
-    key: 'ai-open-source',
-    title: 'AI 开源应用',
-    details: ['Dify · RAGFlow · MaxKB', '100+ 一键部署应用'],
-    icon: Boxes,
-  },
-  {
-    key: 'model-inference',
-    title: '模型与推理',
-    details: ['大模型 · Embedding', 'OpenAI 兼容 API'],
-    icon: BrainCircuit,
-  },
-  {
-    key: 'business',
-    title: '业务系统',
-    details: ['前端 · API · 中间件', '数据库 · 定时任务'],
-    icon: AppWindow,
-  },
-  {
-    key: 'middleware',
-    title: '生产级中间件',
-    details: ['MySQL · Redis', 'Kafka · RabbitMQ'],
-    icon: Database,
-  },
-  {
-    key: 'virtual-machines',
-    title: '虚拟机',
-    details: ['Linux · Windows · qcow2', '存量系统统一纳管'],
-    icon: ServerCog,
-  },
-] as const;
-
-const platformCapabilities = [
-  { label: 'RainSkills', to: '/docs/ai/rainskills' },
-  { label: 'RainAgent', to: undefined },
-  { label: '应用模型', to: undefined },
-  { label: '应用市场', to: undefined },
-] as const;
-
-const runtimeTargets = [
-  { title: '公有云', icon: Cloud },
-  { title: '私有云', icon: Building2 },
-  { title: 'Kubernetes', icon: Boxes },
-  { title: '物理服务器', icon: Server },
-  { title: '离线环境', icon: WifiOff },
-] as const;
-
-const architectureBenefits = [
-  '代码与数据归你',
-  '支持离线部署',
-  '不锁定云厂商',
-  '支持信创环境',
-] as const;
-
 type IdleWindow = Window & {
   requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
   cancelIdleCallback?: (handle: number) => void;
 };
 
-function WorkloadStory() {
-  return (
-    <section
-      className={styles.workloadStory}
-      aria-labelledby="workload-story-title"
-    >
-      <div className={styles.workloadSticky}>
-        <div className={styles.workloadHeaderShell}>
-          <img className={styles.workloadHeaderPattern} src="/img/split-bg.png" alt="" />
-          <div className={styles.workloadSliceHeader}>
-            <h2 id="workload-story-title" className={styles.workloadTitle}>
-              把整套 AI 应用栈，运行在自己的环境。
-            </h2>
-            <p className={styles.workloadLead}>
-              不只是部署一个模型。AI 生成项目、开源应用、模型、业务系统、生产级中间件和虚拟机，都由 Rainbond 统一运行和管理。
-            </p>
-          </div>
-        </div>
-
-        <div className={styles.workloadArchitecture} aria-label="Rainbond 应用运行架构">
-          <div className={styles.architectureLayer}>
-            <span className={styles.architectureLayerLabel}>工作负载</span>
-            <ul className={styles.workloadGrid} aria-label="工作负载">
-              {workloadGroups.map(group => {
-                const Icon = group.icon;
-
-                return (
-                  <li key={group.key} className={styles.workloadCard}>
-                    <span className={styles.workloadCardIcon} aria-hidden="true">
-                      <Icon />
-                    </span>
-                    <strong>{group.title}</strong>
-                    <span className={styles.workloadCardDetails}>
-                      {group.details.map(detail => <span key={detail}>{detail}</span>)}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
-          <div className={styles.platformBand}>
-            <div className={styles.platformIdentity}>
-              <span className={styles.platformIcon} aria-hidden="true">
-                <Layers3 />
-              </span>
-              <span className={styles.platformCopy}>
-                <strong>Rainbond 开源容器平台</strong>
-                <span>统一部署、运维、升级、交付</span>
-              </span>
-            </div>
-            <ul className={styles.platformTags} aria-label="平台能力">
-              {platformCapabilities.map(capability => (
-                <li key={capability.label}>
-                  {capability.to ? (
-                    <Link
-                      to={capability.to}
-                      className={styles.platformTagLink}
-                      aria-label="了解 RainSkills"
-                    >
-                      {capability.label}
-                    </Link>
-                  ) : capability.label}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className={styles.architectureLayer}>
-            <span className={styles.architectureLayerLabel}>运行环境</span>
-            <ul className={styles.runtimeGrid} aria-label="运行环境">
-              {runtimeTargets.map(target => {
-                const Icon = target.icon;
-
-                return (
-                  <li key={target.title} className={styles.runtimeCard}>
-                    <Icon aria-hidden="true" />
-                    <span>{target.title}</span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
-          <ul className={styles.architectureBenefits} aria-label="平台价值">
-            {architectureBenefits.map(benefit => (
-              <li key={benefit}>
-                <Check aria-hidden="true" />
-                <span>{benefit}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export default function Demo() {
+export default function Demo({ embedded = false }: DemoProps) {
   const videoRefs = useRef<Partial<Record<DemoTabKey, HTMLVideoElement | null>>>({});
   const progressFillRefs = useRef<Partial<Record<DemoTabKey, HTMLSpanElement | null>>>({});
   const [activeKey, setActiveKey] = useState<DemoTabKey>('source');
@@ -482,13 +316,13 @@ export default function Demo() {
   const activeVideo = featureVideos.find(video => video.key === activeKey) || featureVideos[0];
 
   return (
-    <div className={styles.demo}>
+    <div className={`${styles.demo} ${embedded ? styles.demoEmbedded : ''}`}>
       <Head>
         <link rel="preconnect" href="https://static.goodrain.com" />
         <link rel="dns-prefetch" href="https://static.goodrain.com" />
         <link rel="preload" as="video" href={featureVideos[0].src} type="video/mp4" />
       </Head>
-      <div className={styles.bgSection}>
+      {!embedded && <div className={styles.bgSection}>
         <div className={styles.lf}></div>
         <div className={styles.mid}>
           <img src="/img/split-bg.png" alt="" />
@@ -500,7 +334,7 @@ export default function Demo() {
           </div>
         </div>
         <div className={styles.rt}></div>
-      </div>
+      </div>}
 
       <div className={styles.videoContainer}>
         <div className={styles.gradientBackground}>
@@ -531,34 +365,13 @@ export default function Demo() {
             </div>
           </div>
 
-          <div className={styles.moduleControls} aria-label="核心功能视频">
-            {featureVideos.map(video => {
-              const Icon = video.icon;
-
-              return (
-                <button
-                  key={video.key}
-                  type="button"
-                  className={`${styles.moduleButton} ${video.key === activeKey ? styles.moduleButtonActive : ''}`}
-                  onClick={() => handleTabChange(video.key)}
-                  aria-current={video.key === activeKey}
-                >
-                  <span className={styles.moduleProgress} aria-hidden="true">
-                    <span
-                      ref={node => {
-                        progressFillRefs.current[video.key] = node;
-                      }}
-                      className={styles.moduleProgressFill}
-                    />
-                  </span>
-                  <span className={styles.moduleButtonContent}>
-                    <Icon className={styles.moduleIcon} aria-hidden="true" />
-                    <span className={styles.moduleButtonLabel}>{video.title}</span>
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+          <VideoProgressControls
+            items={featureVideos}
+            activeKey={activeKey}
+            label="核心功能视频"
+            onChange={handleTabChange}
+            fillRef={(key, node) => { progressFillRefs.current[key] = node; }}
+          />
 
           <div className={styles.tabDescriptionWrapper}>
             <AnimatePresence mode="wait">
@@ -577,7 +390,6 @@ export default function Demo() {
         </div>
       </div>
 
-      <WorkloadStory />
     </div>
   );
 }

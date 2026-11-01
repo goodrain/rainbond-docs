@@ -81,6 +81,14 @@
   line-height: 1.8;
 }
 
+.selectionTableWrap { overflow-x: auto; border: 1px solid rgba(15, 23, 42, .1); border-radius: 8px; }
+.selectionTableWrap table { width: 100%; min-width: 900px; margin: 0; }
+.selectionTableWrap th { background: #f4f7fb; }
+.selectionTableWrap th, .selectionTableWrap td { padding: .8rem; line-height: 1.55; vertical-align: top; }
+.faqList details { padding: 1rem 0; border-bottom: 1px solid rgba(15, 23, 42, .1); }
+.faqList summary { cursor: pointer; font-weight: 700; }
+.faqList p { max-width: 900px; color: #475569; line-height: 1.75; }
+
 .sectionTitle {
   margin: 0;
   color: #0f172a;

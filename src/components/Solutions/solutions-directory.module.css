@@ -1,0 +1,24 @@
+.page { display: flex; flex-direction: column; gap: 2.5rem; color: #172033; }
+.header { max-width: 900px; padding-top: .5rem; }
+.eyebrow { color: #0969da; font-size: .82rem; font-weight: 700; }
+.header h1 { margin: .75rem 0 1rem; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.15; letter-spacing: 0; }
+.header p { margin: 0; color: #475569; font-size: 1.05rem; line-height: 1.8; }
+.updated { display: block; margin-top: .8rem; color: #758195; font-size: .86rem; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+.group { display: flex; flex-direction: column; min-width: 0; padding: 1.25rem; border: 1px solid #dce3ec; border-radius: 8px; background: #fff; }
+.groupHeader { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .85rem; align-items: start; }
+.icon { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 8px; background: #eef5ff; color: #0969da; }
+.icon svg { width: 1.25rem; height: 1.25rem; }
+.group h2 { margin: 0; font-size: 1.15rem; line-height: 1.45; letter-spacing: 0; }
+.groupHeader p { margin: .4rem 0 0; color: #526076; line-height: 1.7; }
+.primaryLink { display: inline-flex; align-self: flex-start; margin-top: 1rem; padding: .65rem .9rem; border-radius: 6px; background: #14213d; color: #fff; font-weight: 700; text-decoration: none; }
+.primaryLink:hover { color: #fff; text-decoration: none; background: #22335a; }
+.related { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e6ebf1; }
+.related > span { color: #758195; font-size: .8rem; font-weight: 700; }
+.related ul { display: flex; flex-wrap: wrap; gap: .55rem 1rem; margin: .55rem 0 0; padding: 0; list-style: none; }
+.related a { font-size: .9rem; }
+@media (max-width: 760px) {
+  .page { gap: 2rem; }
+  .grid { grid-template-columns: 1fr; }
+  .group { padding: 1rem; }
+}

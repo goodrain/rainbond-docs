@@ -251,20 +251,17 @@ test('shows the real RainSkills deployment result instead of a simulated termina
   assert.ok(styles.includes('.deployScreenshot'));
 });
 
-test('links the homepage and both header implementations to the standalone page', () => {
+test('keeps the homepage RainSkills entry and groups it under the AI topic in docs navigation', () => {
   const choosePath = read('src/components/HomePage/ChoosePath/index.tsx');
   const customNavbar = read('src/components/NavBar/index.tsx');
   const docusaurusConfig = read('docusaurus.config.js');
+  const solutionsDirectory = read('src/components/Solutions/SolutionsDirectory.tsx');
 
-  [customNavbar, docusaurusConfig].forEach((source, index) => {
-    assert.ok(
-      source.includes("label: 'AI Agent 部署应用'"),
-      `Expected user-centered RainSkills title in navigation source ${index + 1}.`
-    );
-    assert.ok(!source.includes("label: 'RainSkills：AI Agent 部署应用'"));
-  });
+  assert.ok(customNavbar.includes("label: 'AI Agent 部署应用'"));
+  assert.ok(docusaurusConfig.includes("label: 'AI 应用开发与交付'"));
+  assert.ok(!customNavbar.includes("label: 'RainSkills：AI Agent 部署应用'"));
 
-  [choosePath, customNavbar, docusaurusConfig].forEach((source, index) => {
+  [choosePath, customNavbar, solutionsDirectory].forEach((source, index) => {
     assert.ok(
       source.includes("'/rainskills'"),
       `Expected standalone RainSkills link in source ${index + 1}.`

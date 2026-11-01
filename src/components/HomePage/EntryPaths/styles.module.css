@@ -1,0 +1,225 @@
+.section {
+  width: 100%;
+  padding: 42px 0 72px;
+  border-bottom: 1px solid #d8e0eb;
+  background: #fff;
+}
+
+.container {
+  width: min(1380px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.introRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.introRow p {
+  margin: 0;
+  color: #647087;
+  font-size: 16px;
+}
+
+.introRow strong {
+  color: #0c1526;
+}
+
+.introRow > span {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+  color: #1768f2;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.introRow svg,
+.pathAction svg,
+.platformActions svg {
+  width: 17px;
+  height: 17px;
+}
+
+.pathGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid #d8e0eb;
+}
+
+.pathCard {
+  display: flex;
+  min-width: 0;
+  min-height: 238px;
+  flex-direction: column;
+  padding: 28px 24px;
+  border-right: 1px solid #d8e0eb;
+  background: #fff;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.pathCard:last-child {
+  border-right: 0;
+}
+
+.pathCard:hover {
+  z-index: 1;
+  background: #f7faff;
+  transform: translateY(-2px);
+}
+
+.pathCard > svg {
+  width: 25px;
+  height: 25px;
+  color: #1768f2;
+}
+
+.pathCard h3 {
+  margin: 34px 0 8px;
+  color: #101828;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.pathCard p {
+  margin: 0;
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.pathAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 22px;
+  color: #0d5dcc;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pathAction:focus-visible {
+  outline: 2px solid #1768f2;
+  outline-offset: 4px;
+}
+
+.platformRoute {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  margin-top: 28px;
+  padding: 24px 28px;
+  border: 1px solid #b8c8df;
+  background: #edf4ff;
+}
+
+.platformRoute > svg {
+  width: 28px;
+  height: 28px;
+  color: #1768f2;
+}
+
+.platformRoute strong {
+  display: block;
+  color: #101828;
+  font-size: 16px;
+}
+
+.platformRoute p {
+  margin: 4px 0 0;
+  color: #667085;
+  font-size: 13px;
+}
+
+.platformActions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  white-space: nowrap;
+}
+
+.platformActions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #0d5dcc;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.platformActions a:last-child {
+  color: #344054;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .pathGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pathCard:nth-child(2) {
+    border-right: 0;
+  }
+
+  .pathCard:nth-child(-n + 2) {
+    border-bottom: 1px solid #d8e0eb;
+  }
+
+  .platformRoute {
+    grid-template-columns: auto 1fr;
+  }
+
+  .platformActions {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 32px 0 56px;
+  }
+
+  .introRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pathGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pathCard,
+  .pathCard:nth-child(2) {
+    min-height: 190px;
+    border-right: 0;
+    border-bottom: 1px solid #d8e0eb;
+  }
+
+  .pathCard:last-child {
+    border-bottom: 0;
+  }
+
+  .pathCard h3 {
+    margin-top: 24px;
+  }
+
+  .platformRoute {
+    grid-template-columns: 1fr;
+    padding: 22px 20px;
+  }
+
+  .platformActions {
+    grid-column: auto;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

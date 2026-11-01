@@ -1,29 +1,8 @@
 module.exports = {
   solutionsSidebar: [
-    {
-      type: 'doc',
-      id: 'ai-private-deployment',
-      label: 'AI应用私有化',
-    },
-    {
-      type: 'doc',
-      id: 'ai-application-stack-private-deployment',
-      label: 'AI应用栈私有化部署',
-    },
-    {
-      type: 'doc',
-      id: 'enterprise-intranet-ai-deployment',
-      label: '企业内网部署',
-    },
-    {
-      type: 'doc',
-      id: 'offline-xinchuang-ai-deployment',
-      label: '离线与信创部署',
-    },
-    {
-      type: 'doc',
-      id: 'cloud-to-private-ai-migration',
-      label: 'Cloud迁移到私有环境',
-    },
+    {type: 'doc', id: 'index', label: '专题总览'},
+    {type: 'doc', id: 'software-delivery', label: '软件交付与企业应用管理'},
+    {type: 'doc', id: 'platform-engineering', label: '开发者平台与平台工程'},
+    {type: 'doc', id: 'ai-private-deployment', label: 'AI 应用开发与交付'},
   ],
 };

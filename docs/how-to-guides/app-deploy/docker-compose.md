@@ -2,6 +2,8 @@
 title: 使用 Docker Compose 部署
 description: 介绍如何在 Rainbond 中上传 Docker Compose 项目包，自动解析服务、镜像、端口、环境变量、存储和配置文件，并完成应用创建。
 keywords:
+- Docker Compose迁移Kubernetes
+- Docker应用管理平台
 - Docker Compose
 - docker-compose.yml
 - Compose 应用部署
@@ -14,7 +16,7 @@ Rainbond 支持通过上传 Docker Compose 项目包创建应用。平台会解�
 
 ## 适用场景
 
-- 已有 Docker Compose 项目，希望迁移到 Rainbond 统一部署和运维。
+- 已有 Docker Compose 项目，希望迁移到 Kubernetes，并由 Rainbond 统一部署和运维。
 - 应用由多个服务组成，例如 Web、API、Worker、数据库、缓存、对象存储等。
 - 希望通过一次上传，将 Compose 中的多个服务批量创建为同一个 Rainbond 应用下的组件。
 

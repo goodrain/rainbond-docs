@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="520" viewBox="0 0 760 520" fill="none">
+  <title>供应商提交版本、Rainbond 部署验证、企业 IT 验收接管的流程</title>
+  <desc>三条泳道分别表示软件供应商、Rainbond 平台和企业 IT。供应商提交版本和变更，平台记录部署与运行状态，企业基于实际结果验收并接管运维，后续版本沿同一流程持续交付。</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#dfe7f2"/></pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="m1 1 4 3-4 3" stroke="#1768f2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <path fill="#f7faff" d="M0 0h760v520H0z"/>
+  <path fill="url(#grid)" d="M0 0h760v520H0z"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+    <text x="36" y="44" fill="#14243c" font-size="23" font-weight="700">交付有过程，验收有依据</text>
+    <text x="36" y="72" fill="#64748b" font-size="14">供应商提交版本，企业保留应用的运行控制权</text>
+
+    <rect x="36" y="106" width="688" height="312" rx="10" fill="white" stroke="#cad7e8"/>
+    <path d="M36 210h688M36 314h688M158 106v312" stroke="#dce5f1"/>
+    <path d="M46 107h111v102H37v-93a9 9 0 0 1 9-9zm-9 104h120v102H37zm0 104h120v102H46a9 9 0 0 1-9-9z" fill="#f0f5fc"/>
+    <g fill="#263b58" font-size="16" font-weight="700" text-anchor="middle">
+      <text x="97" y="157">软件供应商</text><text x="97" y="261">Rainbond</text><text x="97" y="365">企业 IT</text>
+    </g>
+    <g fill="#7b8da6" font-size="12" text-anchor="middle"><text x="97" y="180">交付软件</text><text x="97" y="284">部署与记录</text><text x="97" y="388">验收与运维</text></g>
+
+    <rect x="184" y="126" width="236" height="64" rx="7" fill="white" stroke="#b7cbea"/>
+    <circle cx="208" cy="150" r="12" fill="#e8f1ff"/>
+    <text x="208" y="155" fill="#1768f2" font-size="12" font-weight="700" text-anchor="middle">1</text>
+    <text x="230" y="155" fill="#263b58" font-size="16" font-weight="700">提交应用版本</text>
+    <text x="230" y="176" fill="#71839c" font-size="12">组件配置 · 版本 · 变更说明</text>
+    <text x="446" y="154" fill="#71839c" font-size="13">按授权范围交付</text>
+    <text x="446" y="177" fill="#71839c" font-size="13">运行环境归企业管理</text>
+
+    <path d="M302 190v22h136v13" stroke="#1768f2" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+    <rect x="320" y="230" width="236" height="64" rx="7" fill="#1768f2"/>
+    <circle cx="344" cy="254" r="12" fill="white" fill-opacity=".18"/>
+    <text x="344" y="259" fill="white" font-size="12" font-weight="700" text-anchor="middle">2</text>
+    <text x="366" y="259" fill="white" font-size="16" font-weight="700">部署并验证运行</text>
+    <text x="366" y="280" fill="#deebff" font-size="12">部署记录 · 组件状态 · 访问地址</text>
+
+    <path d="M438 294v22h136v13" stroke="#1768f2" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+    <rect x="456" y="334" width="236" height="64" rx="7" fill="white" stroke="#b7cbea"/>
+    <circle cx="480" cy="358" r="12" fill="#e8f1ff"/>
+    <text x="480" y="363" fill="#1768f2" font-size="12" font-weight="700" text-anchor="middle">3</text>
+    <text x="502" y="363" fill="#263b58" font-size="16" font-weight="700">按结果验收并接管</text>
+    <text x="502" y="384" fill="#71839c" font-size="12">验证业务 · 接管运维 · 管理资产</text>
+
+    <path d="M574 398v44H172V158h7" stroke="#8da8cc" stroke-width="1.5" stroke-dasharray="5 5" stroke-linejoin="round"/>
+    <rect x="234" y="431" width="244" height="22" rx="11" fill="#f7faff"/>
+    <text x="356" y="447" fill="#6380a6" font-size="12" text-anchor="middle">新版本沿同一流程持续交付</text>
+    <text x="380" y="488" fill="#476285" font-size="14" text-anchor="middle">版本与运行记录留在企业环境，软件资产持续积累</text>
+  </g>
+</svg>

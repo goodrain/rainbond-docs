@@ -2,6 +2,9 @@
 title: 应用部署
 description: 汇总 Rainbond 应用部署章节的主要路径、适用场景与文档入口。
 keywords:
+- 应用部署平台
+- 开源应用部署平台
+- Docker应用管理平台
 - Rainbond 应用部署
 - Rainbond 部署导航
 - Rainbond 源码部署

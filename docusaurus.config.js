@@ -57,6 +57,33 @@ const config = {
           sortPosts: 'descending',
           onUntruncatedBlogPosts: 'ignore'
         },
+        sitemap: {
+          lastmod: 'date',
+          async createSitemapItems(params) {
+            const items = await params.defaultCreateSitemapItems(params);
+            const refreshedPaths = new Set([
+              '/solutions',
+              '/compare',
+              '/it-and-enterprise',
+              '/offline-and-xinchuang',
+              '/offline-and-xinchuang/kunpeng-kylin-deploy',
+              '/offline-and-xinchuang/offline-delivery',
+              '/offline-and-xinchuang/x86-to-arm',
+              '/offline-and-xinchuang/xinchuang-platform',
+              '/solutions/ai-private-deployment',
+              '/feature/multi-cluster',
+              '/docs/how-to-guides/app-deploy',
+              '/docs/how-to-guides/app-deploy/docker-compose',
+              '/docs/how-to-guides/app-deploy/source-code',
+            ]);
+            return items.map((item) => ({
+              ...item,
+              lastmod: refreshedPaths.has(new URL(item.url).pathname)
+                ? '2026-10-25'
+                : item.lastmod || '2026-10-25',
+            }));
+          },
+        },
         theme: {
           customCss: [
             require.resolve('./src/css/custom.css'),
@@ -75,7 +102,7 @@ const config = {
       },
       {
         name: 'keywords', 
-        content: '信创, 国产化, 云原生, 应用管理平台, 信创云平台, Kubernetes, k8s, 应用交付, 应用运维, 微服务, 服务网格, Service Mesh, DevOps, CICD, 持续交付, 持续集成, 持续部署, 持续运维, Helm, RAM, Rainbond, Rainbond Xinchuang, Rainbond Xinchuang Cloud Platform, Cloud Native, Cloud Application Management Platform, Micro service, Service Mesh'
+        content: 'Rainbond, Kubernetes, 云原生, 应用管理, 应用交付'
       }
     ],
       tableOfContents: {
@@ -144,29 +171,28 @@ const config = {
                 title: '专题',
                 items: [
                   {
-                    label: 'AI Agent 部署应用',
-                    to: '/rainskills',
-                    activeBasePath: '/rainskills',
+                    label: '专题总览',
+                    to: '/solutions',
                   },
                   {
-                    label: '容器平台选型中心',
-                    to: '/compare',
-                    activeBasePath: '/compare',
+                    label: '软件交付与企业应用管理',
+                    to: '/solutions/software-delivery',
+                    activeBasePath: '/solutions/software-delivery',
                   },
                   {
-                    label: '内网、离线、国产化信创',
-                    to: '/offline-and-xinchuang',
-                    activeBasePath: '/offline-and-xinchuang',
+                    label: '开发者平台与平台工程',
+                    to: '/solutions/platform-engineering',
+                    activeBasePath: '/solutions/platform-engineering',
                   },
                   {
-                    label: '供应商交付、应用验收与软件资产化',
-                    to: '/it-and-enterprise',
-                    activeBasePath: '/it-and-enterprise',
-                  },
-                  {
-                    label: 'AI 应用与大模型私有化部署',
+                    label: 'AI 应用开发与交付',
                     to: '/solutions/ai-private-deployment',
                     activeBasePath: '/solutions/ai-private-deployment',
+                  },
+                  {
+                    label: '容器平台选型',
+                    to: '/compare',
+                    activeBasePath: '/compare',
                   },
                 ],
               },
@@ -395,6 +421,14 @@ const config = {
           {
             to: '/solutions/ai-private-deployment',
             from: '/ai-private-deployment',
+          },
+          {
+            to: '/solutions/platform-engineering',
+            from: '/solutions/developer-self-service',
+          },
+          {
+            to: '/solutions/software-delivery',
+            from: '/solutions/modular-application',
           },
           {
             to: '/compare',

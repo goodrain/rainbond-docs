@@ -23,7 +23,7 @@ const rainskillsFaqStyles = fs.existsSync(rainskillsFaqStylesPath)
   : '';
 const aiOverview = read('docs/ai/index.md');
 const demoSource = read('src/components/HomePage/Demo/index.tsx');
-const demoStyles = read('src/components/HomePage/Demo/styles.module.css');
+const scenarioSource = read('src/components/HomePage/ScenarioShowcase/index.tsx');
 const videoPage = read('src/pages/videos/rainskills-ai-deploy.mdx');
 const videoData = read('src/data/videoTutorials.ts');
 
@@ -212,12 +212,12 @@ test('uses the protected local runtime instead of a client MCP configuration', (
   assert.ok(rainskillsDoc.includes('受保护的本地运行时'));
 });
 
-test('links the homepage architecture to the canonical RainSkills document', () => {
-  assert.ok(demoSource.includes("import Link from '@docusaurus/Link';"));
-  assert.ok(demoSource.includes("{ label: 'RainSkills', to: '/docs/ai/rainskills' }"));
-  assert.ok(/<Link\s+to=\{capability\.to\}[\s\S]*?aria-label="了解 RainSkills"/.test(demoSource));
-  assert.ok(/\.platformTagLink\s*\{[\s\S]*?color:\s*inherit;[\s\S]*?text-decoration:\s*none;/.test(demoStyles));
-  assert.ok(/\.platformTagLink:focus-visible\s*\{[\s\S]*?outline:/.test(demoStyles));
+test('keeps RainSkills represented by the homepage AI scenario', () => {
+  assert.ok(scenarioSource.includes("eyebrow: 'AI Agent'"));
+  assert.ok(scenarioSource.includes("title: 'AI 部署项目'"));
+  assert.ok(scenarioSource.includes("title: 'AI 智能运维'"));
+  assert.ok(scenarioSource.includes('<Demo embedded />'));
+  assert.ok(demoSource.includes('让 AI 替你部署、排错、运维'));
 });
 
 test('keeps the RainSkills video page focused on installation and runtime connection', () => {

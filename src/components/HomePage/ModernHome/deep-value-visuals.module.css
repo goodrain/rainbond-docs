@@ -1,0 +1,90 @@
+.canvas {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  background: #eaf0f8;
+}
+
+.diagram {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #cbd8ea;
+  border-radius: 10px;
+  background: #f7faff;
+}
+
+.diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.productShot {
+  width: 100%;
+  margin: 0;
+}
+
+.productShot a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #cbd8ea;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(30 60 100 / 8%);
+}
+
+.productShot a:focus-visible {
+  outline: 2px solid #1768f2;
+  outline-offset: 4px;
+}
+
+.productShot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.productShot figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  color: #647087;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.productShot figcaption span:last-child {
+  flex-shrink: 0;
+  color: #0d5dcc;
+}
+
+@media (max-width: 1000px) {
+  .canvas {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .canvas {
+    padding: 12px;
+  }
+
+  .diagram {
+    overflow-x: auto;
+  }
+
+  .diagram img {
+    min-width: 580px;
+  }
+
+  .diagram:focus-visible {
+    outline: 2px solid #1768f2;
+    outline-offset: 2px;
+  }
+
+  .productShot figcaption {
+    flex-wrap: wrap;
+  }
+}
