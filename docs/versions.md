@@ -19,8 +19,6 @@ keywords:
 
 | 版本号          | 文档链接                                                     | 版本变更                                                     |
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| v6.8.x-release | https://v6.8.rainbond.com/docs | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.8.0-release) |
-| v6.7.x-release | https://v6.7.rainbond.com/docs | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.7.0-release) |
 | v6.6.x-release | https://v6.6.rainbond.com/docs | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.6.0-release) |
 | v6.5.x-release | https://v6.5.rainbond.com/docs | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.5.0-release) |
 | v6.4.x-release | https://v6.4.rainbond.com/docs | [版本变更日志](https://github.com/goodrain/rainbond/releases/tag/v6.4.0-release) |
