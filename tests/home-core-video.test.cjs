@@ -43,7 +43,7 @@ test('home places the scenario showcase and unique value before the complete pro
   ['<LandingHero />', '<PlatformSection />', '<DeepValueSection />', '<JourneySection />', '<ProofSection />', '<StartFaqSection />', '<FinalCta />'].forEach(component => {
     assert.ok(homeSource.includes(component), `Expected complete homepage module ${component}.`);
   });
-  assert.ok(scenarioSource.includes('<Demo embedded />'), 'Expected operations to embed the core video demo inside the scenario panel.');
+  assert.ok(scenarioSource.includes('<Demo embedded onComplete={onComplete}'), 'Expected operations to embed the core video demo with scenario handoff.');
 });
 
 test('homepage links the four entry paths to practical tutorials', () => {
@@ -64,16 +64,18 @@ test('homepage links the four entry paths to practical tutorials', () => {
     '/docs/quick-start/xinchuang-single-node',
   ].forEach(href => assert.ok(entryPathsSource.includes(`href: '${href}'`), `Expected practical tutorial ${href}.`));
   assert.ok(/\.pathGrid\s*\{[\s\S]*grid-template-columns:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\);/.test(entryPathsStyles));
-  assert.ok(entryPathsSource.includes('href="#platform"'));
-  assert.ok(entryPathsSource.includes('to="/enterprise_server"'));
+  assert.ok(entryPathsSource.includes('to="/compare"'));
+  assert.ok(entryPathsSource.includes('to="#platform"'));
+  assert.ok(entryPathsSource.includes('平台对比选型'));
+  assert.ok(!entryPathsSource.includes('申请 POC'));
 });
 
 test('scenario showcase exposes four integrated button entries without destination links', () => {
   [
-    'AI 部署项目',
-    'Git 仓库上线',
+    'AI Skill 部署项目',
+    '源码部署上线',
     '部署开源软件',
-    'AI 智能运维',
+    'AI Agent 运维',
   ].forEach(title => assert.ok(scenarioSource.includes(title), `Expected scenario ${title}.`));
   assert.ok(!scenarioSource.includes('运行到信创环境'));
   assert.ok(!scenarioSource.includes("key: 'xinchuang'"));
@@ -134,10 +136,10 @@ test('AI deployment scenario uses four remote videos without user confirmation',
 test('hero avoids a duplicate product demo and scenario controls stay compact', () => {
   assert.ok(!landingHeroSource.includes('productTheater'));
   assert.ok(!landingHeroSource.includes('hero-app-deploy.png'));
-  assert.ok(/\.scenarioHeader\s*\{[\s\S]*background:\s*#f8fafc;/.test(scenarioStyles));
-  assert.ok(/\.scenarioTab\s*\{[\s\S]*min-height:\s*38px;/.test(scenarioStyles));
-  assert.ok(/\.scenarioTabs\s*\{[\s\S]*background:\s*#eef2f7;/.test(scenarioStyles));
-  assert.ok(/\.scenarioActivePill\s*\{[\s\S]*background:\s*#1768f2;/.test(scenarioStyles));
+  assert.ok(/\.scenarioHeader\s*\{[\s\S]*background:\s*#e9edf3;/.test(scenarioStyles));
+  assert.ok(/\.scenarioTab\s*\{[\s\S]*min-height:\s*44px;/.test(scenarioStyles));
+  assert.ok(/\.scenarioTabs\s*\{[\s\S]*background:\s*transparent;/.test(scenarioStyles));
+  assert.ok(/\.scenarioActivePill\s*\{[\s\S]*background:\s*#fff;/.test(scenarioStyles));
   assert.ok(/\.scenarioActivePill\s*\{[\s\S]*pointer-events:\s*none;/.test(scenarioStyles));
   assert.ok(/\.scenarioTabContent\s*\{[\s\S]*pointer-events:\s*none;/.test(scenarioStyles));
   assert.ok(scenarioSource.includes('layoutId="scenario-active-pill"'));
@@ -146,7 +148,7 @@ test('hero avoids a duplicate product demo and scenario controls stay compact', 
   assert.ok(/\.showcaseFrame\s*\{[\s\S]*width:\s*100%;[\s\S]*max-width:\s*min\(1400px,\s*calc\(177\.78dvh - 299px\)\);/.test(scenarioStyles));
   assert.ok(/\.scenarioTabs\s*\{[\s\S]*display:\s*flex;[\s\S]*overflow-x:\s*auto;/.test(scenarioStyles));
   assert.ok(scenarioSource.includes('styles.windowDots'));
-  assert.ok(scenarioSource.includes('styles.scenarioStatus'));
+  assert.ok(!scenarioSource.includes('styles.scenarioStatus'));
   assert.ok(!scenarioSource.includes('五种场景，共用一套应用交付能力'));
   assert.ok(!scenarioSource.includes('选择当前任务，直接查看从输入到可访问结果的完整过程。'));
   assert.ok(!scenarioStyles.includes('.heading'));
@@ -178,37 +180,54 @@ test('homepage removes repeated scene chrome and secondary platform narration', 
   assert.ok(!scenarioStyles.includes('.activeBar'));
   assert.ok(!scenarioStyles.includes('.previewMessage'));
   assert.ok(!platformSource.includes('platformPrinciple'));
-  assert.ok(platformSource.includes('aria-label="Rainbond 五层平台架构图"'));
+  assert.ok(platformSource.includes('aria-label="Rainbond 平台功能全景图"'));
   assert.ok(!platformSource.includes('selectionPanel'));
   assert.ok(!platformSource.includes('用真实应用完成 POC'));
   assert.ok(!platformSource.includes('申请选型验证'));
   assert.ok(!modernHomeStyles.includes('.selectionPanel'));
 });
 
-test('platform architecture preserves the five product layers', () => {
+test('platform overview presents product capabilities instead of infrastructure topology', () => {
   [
-    '使用入口',
-    '应用平台',
-    '企业治理',
-    'RainAgent',
-    '源码构建 · 镜像部署',
-    '应用模型',
-    '应用发布 · 安装 · 升级 · 回滚',
-    '多租户与权限',
-    '多集群管理',
-    'Kubernetes',
-    '数据中心',
-    '私有云',
-    '分支机构 / 客户现场',
-    '信创服务器',
+    '应用部署',
+    '应用编排',
+    '运行运维',
+    '软件交付',
+    '团队治理',
+    '集群管理',
+    'AI助手',
+    '源码构建',
+    '应用拓扑',
+    '升级回滚',
+    '基础权限',
+    '多集群',
+    '原生资源',
+    '弹性伸缩',
+    '模板发布',
+    '跨集群迁移',
+    '离线交付',
+    '操作审计',
+    '企业与插件扩展',
+    '源码扫描',
+    '灾备恢复',
+    '监控中心',
+    '告警中心',
+    '日志中心',
+    '安全中心',
+    'GPU 管理',
+    '流水线',
+    '个性化配置',
+    '资源超分',
+    '应用集成门户',
   ].forEach(copy => assert.ok(platformSource.includes(copy), `Expected architecture content: ${copy}.`));
 
-  const layerOrder = ['使用入口', '应用平台', '企业治理'];
-  layerOrder.slice(1).forEach((layer, index) => {
-    assert.ok(platformSource.indexOf(layerOrder[index]) < platformSource.indexOf(layer));
-  });
+  assert.ok(!platformSource.includes('data-layer='));
+  assert.ok(!platformSource.includes('modelShape'));
   assert.ok(!platformSource.includes('rbd-api'));
+  assert.ok(!platformSource.includes('RAINBOND ARCHITECTURE'));
+  assert.ok(!platformSource.includes('物理服务器'));
   assert.ok(!platformSource.includes('flowLabels'));
+  assert.ok(!platformSource.includes('计量计费'));
 });
 
 test('scenario media preserves the complete widescreen frame', () => {
@@ -292,8 +311,8 @@ test('all scenarios use the same icon buttons and video progress controls', () =
   assert.ok(demoSource.includes('<VideoProgressControls'));
   assert.ok(scenarioSource.includes('<VideoProgressControls'));
   assert.ok(controlsSource.includes('styles.moduleIcon'), 'Expected icon styling on module buttons.');
-  assert.ok(/\.moduleProgress\s*\{[\s\S]*bottom:\s*0;[\s\S]*height:\s*3px;/.test(demoStyles), 'Expected progress at the bottom edge.');
-  assert.ok(/\.moduleProgressFill\s*\{[\s\S]*height:\s*3px;/.test(demoStyles), 'Expected a slim progress fill.');
+  assert.ok(/\.moduleProgress\s*\{[\s\S]*inset:\s*0;/.test(demoStyles), 'Expected progress to cover the entire step button.');
+  assert.ok(/\.moduleProgressFill\s*\{[\s\S]*height:\s*100%;/.test(demoStyles), 'Expected a full-height progress fill.');
   assert.ok(/\.moduleButtonActive\s*\{[\s\S]*color:\s*#0d4bb5;[\s\S]*background:\s*#f3f7ff;/.test(demoStyles), 'Expected a light active state.');
   assert.ok(!scenarioSource.includes('styles.previewStepComplete'));
   assert.ok(!scenarioStyles.includes('@keyframes previewStepProgress'));
@@ -306,7 +325,7 @@ test('core demo progress animation is smooth, high contrast, and blue themed', (
   assert.ok(demoSource.includes('cancelAnimationFrame(animationFrameId)'), 'Expected animation frame cleanup.');
   assert.ok(demoSource.includes('progressFillRefs'), 'Expected progress animation to update fill elements directly.');
   assert.ok(demoSource.includes('progressFill.style.transform'), 'Expected progress animation to avoid React state updates on every frame.');
-  assert.ok(/\.moduleProgressFill\s*\{[\s\S]*background:\s*#1768f2;/.test(demoStyles));
+  assert.ok(/\.moduleProgressFill\s*\{[\s\S]*background:\s*#d6e6ff;/.test(demoStyles));
   assert.ok(/transition:\s*transform 0\.08s linear;/.test(demoStyles));
 });
 

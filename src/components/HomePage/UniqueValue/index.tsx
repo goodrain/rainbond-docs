@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import {
   ArrowDown,
@@ -46,13 +46,11 @@ type ValueStepKey = (typeof valueSteps)[number]['key'];
 
 export default function UniqueValue() {
   const [activeKey, setActiveKey] = useState<ValueStepKey>('model');
-  const [isPaused, setIsPaused] = useState(false);
-  const frameRef = useRef<HTMLDivElement>(null);
   const activeIndex = valueSteps.findIndex(step => step.key === activeKey);
   const activeStep = valueSteps[activeIndex] || valueSteps[0];
 
   useEffect(() => {
-    if (isPaused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return undefined;
     }
 
@@ -62,13 +60,7 @@ export default function UniqueValue() {
     }, 4500);
 
     return () => window.clearTimeout(timer);
-  }, [activeIndex, isPaused]);
-
-  const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {
-    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-      setIsPaused(false);
-    }
-  };
+  }, [activeIndex]);
 
   return (
     <section className={styles.section} aria-labelledby="unique-value-title">
@@ -82,14 +74,7 @@ export default function UniqueValue() {
         </p>
       </div>
 
-      <div
-        ref={frameRef}
-        className={clsx(styles.systemFrame, isPaused && styles.systemFramePaused)}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onFocusCapture={() => setIsPaused(true)}
-        onBlurCapture={handleBlur}
-      >
+      <div className={styles.systemFrame}>
         <div className={styles.systemCanvas} data-active={activeStep.key} aria-label="Rainbond 应用交付体系">
           <span className={styles.scanLine} aria-hidden="true" />
           <div className={styles.agentRail}>

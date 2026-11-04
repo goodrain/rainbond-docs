@@ -69,11 +69,11 @@ const quickGuides: QuickGuide[] = [
 ];
 
 const platformRows = [
-  ['Rainbond', '应用交付与应用全生命周期', '源码、镜像、Compose、模板、升级回滚和多集群应用', '开发、实施、企业 IT 与应用运维团队', '/docs/quick-start/architecture/design-concept'],
-  ['Rancher', 'Kubernetes 集群管理', '集群供应、统一认证、RBAC、监控与 Fleet 持续交付', '平台与基础设施团队', 'https://ranchermanager.docs.rancher.com/getting-started/overview'],
-  ['KubeSphere', '多租户 Kubernetes 平台', '多集群、工作空间、项目、RBAC 与可插拔平台能力', '希望建设综合云原生平台的团队', 'https://www.kubesphere.io/docs/v4.1/07-cluster-management/'],
-  ['Sealos', '云上开发与应用部署体验', 'DevBox、App Deploy 与应用商店', '快速试验和云上开发团队', 'https://sealos.io/docs/guides/app-deploy/'],
-  ['OpenShift', '企业 Kubernetes 应用平台', '集群、Operator、构建、开发者控制台和企业支持生态', '需要完整企业平台与商业支持的组织', 'https://docs.redhat.com/en/documentation/openshift_container_platform/4.21/html/building_applications/index'],
+  ['Rainbond', '应用交付与应用全生命周期', '源码、镜像、Compose、模板、升级回滚和多集群应用', '开发、实施、企业 IT 与应用运维团队'],
+  ['Rancher', 'Kubernetes 集群管理', '集群供应、统一认证、RBAC、监控与 Fleet 持续交付', '平台与基础设施团队'],
+  ['KubeSphere', '多租户 Kubernetes 平台', '多集群、工作空间、项目、RBAC 与可插拔平台能力', '希望建设综合云原生平台的团队'],
+  ['Sealos', '云上开发与应用部署体验', 'DevBox、App Deploy 与应用商店', '快速试验和云上开发团队'],
+  ['OpenShift', '企业 Kubernetes 应用平台', '集群、Operator、构建、开发者控制台和企业支持生态', '需要完整企业平台与商业支持的组织'],
 ];
 
 const compareCards: DirectoryCard[] = [
@@ -303,8 +303,8 @@ export default function CompareHomeDirectory(): JSX.Element {
         </div>
         <div className={styles.selectionTableWrap}>
           <table>
-            <thead><tr><th>平台</th><th>主要定位</th><th>官方能力线索</th><th>更适合</th><th>来源</th></tr></thead>
-            <tbody>{platformRows.map((row) => <tr key={row[0]}><td><strong>{row[0]}</strong></td><td>{row[1]}</td><td>{row[2]}</td><td>{row[3]}</td><td><Link to={row[4]}>官方文档</Link></td></tr>)}</tbody>
+            <thead><tr><th>平台</th><th>主要定位</th><th>官方能力线索</th><th>更适合</th></tr></thead>
+            <tbody>{platformRows.map((row) => <tr key={row[0]}><td><strong>{row[0]}</strong></td><td>{row[1]}</td><td>{row[2]}</td><td>{row[3]}</td></tr>)}</tbody>
           </table>
         </div>
       </section>

@@ -24,7 +24,7 @@ const scenarios = [
   {
     key: 'git',
     eyebrow: '源码交付',
-    title: 'Git 仓库上线',
+    title: '源码部署上线',
     summary: '自动识别框架、完成构建并生成访问地址。',
     media: '/img/homepage/imagevideo/hero-app-deploy.png',
     steps: ['配置仓库地址', '代码框架检测', '源码构建部署', '生成访问地址'],
@@ -36,22 +36,6 @@ const scenarios = [
       'https://grstatic.tos-cn-beijing.volces.com/mp4/访问.mp4',
     ],
     icon: GitBranch,
-  },
-  {
-    key: 'ai-deploy',
-    eyebrow: 'AI Agent',
-    title: 'AI 部署项目',
-    summary: '用一句话把当前全栈项目部署并验证上线。',
-    media: '/img/homepage/imagevideo/hero-app-deploy.png',
-    steps: ['读取项目', '生成计划', '构建部署', '获得地址'],
-    stepIcons: [FileSearch, ListChecks, Rocket, CheckCircle2],
-    videos: [
-      'https://grstatic.tos-cn-beijing.volces.com/mp4/读取项目.mp4',
-      'https://grstatic.tos-cn-beijing.volces.com/mp4/生成计划.mp4',
-      'https://grstatic.tos-cn-beijing.volces.com/mp4/构建部署.mp4',
-      'https://grstatic.tos-cn-beijing.volces.com/mp4/获得地址.mp4',
-    ],
-    icon: Bot,
   },
   {
     key: 'market',
@@ -70,9 +54,25 @@ const scenarios = [
     icon: PackageOpen,
   },
   {
+    key: 'ai-deploy',
+    eyebrow: 'AI Agent',
+    title: 'AI Skill 部署项目',
+    summary: '用一句话把当前全栈项目部署并验证上线。',
+    media: '/img/homepage/imagevideo/hero-app-deploy.png',
+    steps: ['读取项目', '生成计划', '构建部署', '获得地址'],
+    stepIcons: [FileSearch, ListChecks, Rocket, CheckCircle2],
+    videos: [
+      'https://grstatic.tos-cn-beijing.volces.com/mp4/读取项目.mp4',
+      'https://grstatic.tos-cn-beijing.volces.com/mp4/生成计划.mp4',
+      'https://grstatic.tos-cn-beijing.volces.com/mp4/构建部署.mp4',
+      'https://grstatic.tos-cn-beijing.volces.com/mp4/获得地址.mp4',
+    ],
+    icon: Bot,
+  },
+  {
     key: 'operations',
     eyebrow: '持续运维',
-    title: 'AI 智能运维',
+    title: 'AI Agent 运维',
     summary: '查状态、读日志、修故障并执行日常运维。',
     icon: Wrench,
   },
@@ -83,15 +83,31 @@ type PreviewScenario = Exclude<(typeof scenarios)[number], { key: 'operations' }
 
 export default function ScenarioShowcase() {
   const [activeKey, setActiveKey] = useState<ScenarioKey>('git');
+  const tabsRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const activeScenario = scenarios.find(item => item.key === activeKey) || scenarios[0];
+
+  useEffect(() => {
+    const tabs = tabsRef.current;
+    const selected = tabs?.querySelector<HTMLElement>('[aria-selected="true"]');
+    if (tabs && selected) {
+      tabs.scrollTo({ left: selected.offsetLeft - (tabs.clientWidth - selected.offsetWidth) / 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
+  }, [activeKey, reduceMotion]);
+
+  const completeScenario = () => {
+    // A late ended event from an exiting panel must not advance the new scene.
+    const next = scenarios[(scenarios.findIndex(item => item.key === activeKey) + 1) % scenarios.length];
+    setActiveKey(current => current === activeKey ? next.key : current);
+  };
+  const onComplete = !reduceMotion ? completeScenario : undefined;
 
   return (
     <section className={styles.section} aria-label="Rainbond 应用交付场景">
       <div className={styles.showcaseFrame}>
         <div className={styles.scenarioHeader}>
           <span className={styles.windowDots} aria-hidden="true"><i /><i /><i /></span>
-          <div className={styles.scenarioTabs} role="tablist" aria-label="选择 Rainbond 使用场景">
+          <div ref={tabsRef} className={styles.scenarioTabs} role="tablist" aria-label="选择 Rainbond 使用场景">
             {scenarios.map(scenario => {
               const Icon = scenario.icon;
               const isActive = scenario.key === activeKey;
@@ -110,7 +126,7 @@ export default function ScenarioShowcase() {
                     <motion.span
                       layoutId="scenario-active-pill"
                       className={styles.scenarioActivePill}
-                      transition={reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 420, damping: 36 }}
+                      transition={{ duration: reduceMotion ? 0 : 0.18, ease: 'easeOut' }}
                       aria-hidden="true"
                     />
                   )}
@@ -122,7 +138,6 @@ export default function ScenarioShowcase() {
               );
             })}
           </div>
-          <span className={styles.scenarioStatus}><i />演示进行中</span>
         </div>
 
         <AnimatePresence mode="wait" initial={false}>
@@ -132,14 +147,14 @@ export default function ScenarioShowcase() {
             role="tabpanel"
             aria-labelledby={`scenario-tab-${activeScenario.key}`}
             className={styles.scenarioPanel}
-            initial={reduceMotion ? false : { opacity: 0, x: 14 }}
+            initial={reduceMotion ? false : { opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             exit={reduceMotion ? { opacity: 1 } : { opacity: 0, x: -10 }}
-            transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeOut' }}
+            transition={{ duration: reduceMotion ? 0 : 0.26, ease: 'easeOut' }}
           >
             {activeScenario.key === 'operations'
-              ? <Demo embedded />
-              : <ScenarioPreview scenario={activeScenario as PreviewScenario} />}
+              ? <Demo embedded onComplete={onComplete} />
+              : <ScenarioPreview scenario={activeScenario as PreviewScenario} onComplete={onComplete} />}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -147,7 +162,7 @@ export default function ScenarioShowcase() {
   );
 }
 
-function ScenarioPreview({ scenario }: { scenario: PreviewScenario }) {
+function ScenarioPreview({ scenario, onComplete }: { scenario: PreviewScenario; onComplete?: () => void }) {
   const [currentStep, setCurrentStep] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressFillRefs = useRef<Record<string, HTMLSpanElement | null>>({});
@@ -196,6 +211,11 @@ function ScenarioPreview({ scenario }: { scenario: PreviewScenario }) {
 
   const handleVideoEnded = (endedStep: number) => {
     if (currentStepRef.current !== endedStep) {
+      return;
+    }
+    if (endedStep === scenario.steps.length - 1 && onComplete) {
+      currentStepRef.current = -1;
+      onComplete();
       return;
     }
     const nextStep = (endedStep + 1) % scenario.steps.length;

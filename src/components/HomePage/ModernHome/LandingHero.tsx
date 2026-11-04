@@ -20,7 +20,7 @@ export default function LandingHero() {
         <div className={styles.heroCopy}>
           <span className={styles.eyebrow}><Sparkles /> AI 驱动的开源应用交付平台</span>
           <h1>把代码和复杂软件<strong>持续交付到自己的服务器</strong></h1>
-          <p>AI 帮你完成第一次部署，Rainbond 让整套应用持续运行、升级和跨环境交付。无需先学 Kubernetes，代码、数据和运行环境始终由你掌控。</p>
+          <p>Rainbond 基于 Kubernetes，统一管理整套应用的部署、运行、升级和跨环境交付。开发者无需先学 Kubernetes，仍能掌控底层集群、数据和运行环境。</p>
           <div className={styles.heroActions}>
             <Link className={styles.primaryButton} to="/docs/quick-start/quick-install" eventName="cta_home_install_clicked" eventProps={{ module: 'home_hero', cta_text: '安装到我的服务器', target_path: '/docs/quick-start/quick-install' }}>安装到我的服务器</Link>
             <button ref={agentEntryButtonRef} type="button" className={styles.secondaryButton} onClick={openAgentModal} aria-haspopup="dialog">让 AI 部署当前项目</button>

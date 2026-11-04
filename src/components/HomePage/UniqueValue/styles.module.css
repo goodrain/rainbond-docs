@@ -151,11 +151,11 @@
 .scanLine {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 2;
   width: 100%;
   pointer-events: none;
   transform: translateX(-100%);
-  animation: canvasSweep 4.5s ease-in-out infinite;
+  animation: canvasSweep 4.5s linear infinite;
 }
 
 .scanLine::after {
@@ -747,12 +747,6 @@
   animation: stepProgress 4.5s linear forwards;
 }
 
-.systemFramePaused .scanLine,
-.systemFramePaused .flowArrow,
-.systemFramePaused .stepTabActive::after {
-  animation-play-state: paused;
-}
-
 .stepTab:focus-visible {
   outline: 2px solid #72a5ff;
   outline-offset: -3px;
@@ -811,9 +805,8 @@
 
 @keyframes canvasSweep {
   0% { opacity: 0; transform: translateX(-100%); }
-  12% { opacity: 1; }
-  72% { opacity: 0.55; }
-  100% { opacity: 0; transform: translateX(100%); }
+  2%, 98% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(0); }
 }
 
 @keyframes flowArrowPulse {
