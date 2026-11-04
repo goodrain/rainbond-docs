@@ -26,39 +26,46 @@
 .scenarioHeader {
   display: flex;
   flex: 0 0 64px;
-  align-items: center;
-  gap: 14px;
+  align-items: stretch;
+  gap: 0;
   min-width: 0;
-  padding: 8px 14px;
-  border-bottom: 1px solid #d8e0ec;
-  background: #f8fafc;
+  padding: 12px 12px 0;
+  border-bottom: 0;
+  background: #e9edf3;
 }
 
 .windowDots {
-  display: inline-flex;
+  display: flex;
   flex: 0 0 auto;
-  gap: 7px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px 12px 6px;
 }
 
 .windowDots i {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 50%;
-  background: #c5cfdd;
+  background: #ff5f57;
 }
 
+.windowDots i:nth-child(2) { background: #febc2e; }
+.windowDots i:nth-child(3) { background: #28c840; }
+
 .scenarioTabs {
+  position: relative;
   display: flex;
   flex: 1 1 auto;
-  align-items: center;
-  gap: 2px;
+  align-items: stretch;
+  gap: 0;
   min-width: 0;
   width: auto;
-  padding: 3px;
-  border: 1px solid #dfe5ee;
-  border-radius: 10px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 0;
   overflow-x: auto;
-  background: #eef2f7;
+  background: transparent;
   scrollbar-width: none;
 }
 
@@ -67,26 +74,40 @@
   display: flex;
   align-items: center;
   min-width: 0;
-  flex: 0 0 auto;
-  min-height: 38px;
+  flex: 1 0 auto;
+  justify-content: flex-start;
+  min-height: 44px;
   padding: 0;
   border: 0;
-  border-radius: 7px;
-  color: #5f6b7e;
+  border-radius: 12px 12px 0 0;
+  color: #596579;
   background: transparent;
   text-align: left;
   cursor: pointer;
-  overflow: hidden;
+  overflow: visible;
   transition: background-color 180ms ease, color 180ms ease;
 }
 
-.scenarioTab:last-child {
-  border-right: 0;
+.scenarioTab::after {
+  position: absolute;
+  content: '';
+  right: 0;
+  top: 13px;
+  bottom: 13px;
+  width: 1px;
+  background: #c7cfda;
+  pointer-events: none;
+}
+
+.scenarioTab:last-child::after,
+.scenarioTabActive::after,
+.scenarioTab:has(+ .scenarioTabActive)::after {
+  opacity: 0;
 }
 
 .scenarioTab:hover {
   color: #175cd3;
-  background: rgba(255, 255, 255, 0.72);
+  background: #dfe5ee;
 }
 
 .scenarioTab:focus-visible {
@@ -96,12 +117,13 @@
 }
 
 .scenarioTabActive {
-  color: #fff;
+  z-index: 2;
+  color: #163c70;
   background: transparent;
 }
 
 .scenarioTabActive:hover {
-  color: #fff;
+  color: #163c70;
   background: transparent;
 }
 
@@ -109,10 +131,29 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  border-radius: 7px;
-  background: #1768f2;
-  box-shadow: 0 5px 14px rgba(23, 104, 242, 0.24);
+  border-radius: 12px 12px 0 0;
+  background: #fff;
   pointer-events: none;
+}
+
+.scenarioActivePill::before,
+.scenarioActivePill::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+}
+
+.scenarioActivePill::before {
+  left: -12px;
+  background: radial-gradient(circle at 0 0, transparent 12px, #fff 12.5px);
+}
+
+.scenarioActivePill::after {
+  right: -12px;
+  background: radial-gradient(circle at 100% 0, transparent 12px, #fff 12.5px);
 }
 
 .scenarioTabContent {
@@ -120,42 +161,29 @@
   z-index: 1;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 10px;
   min-width: 0;
-  padding: 0.5rem 0.8rem;
+  padding: 12px 20px;
   pointer-events: none;
 }
 
 .scenarioTabContent > svg {
   flex: 0 0 auto;
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
+  transition: color 180ms ease;
+}
+
+.scenarioTabActive .scenarioTabContent > svg {
+  color: #1768f2;
 }
 
 .scenarioTabContent > strong {
   min-width: 0;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.3;
+  font-weight: 500;
   white-space: nowrap;
-}
-
-.scenarioStatus {
-  display: inline-flex;
-  flex: 0 0 auto;
-  align-items: center;
-  gap: 8px;
-  color: #087859;
-  font-size: 13px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.scenarioStatus i {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #00a878;
-  box-shadow: 0 0 0 4px rgba(0, 168, 120, 0.1);
 }
 
 .scenarioPanel {
@@ -196,6 +224,17 @@
   display: block;
   object-fit: contain;
   object-position: top;
+}
+
+.previewMedia video { animation: videoReveal 240ms ease-out both; }
+
+@keyframes videoReveal {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview, .previewMedia video { animation: none; }
 }
 
 .previewSteps {
@@ -289,10 +328,6 @@
 }
 
 @media (max-width: 1080px) {
-  .scenarioStatus {
-    display: none;
-  }
-
   .reservedPanel {
     grid-template-columns: auto 1fr;
   }
@@ -330,18 +365,13 @@
   }
 
   .scenarioHeader {
-    gap: 10px;
-    padding-inline: 10px;
+    padding-inline: 4px;
   }
 
-  .windowDots {
-    gap: 5px;
-  }
+  .windowDots { gap: 6px; padding-inline: 6px 8px; }
+  .windowDots i { width: 10px; height: 10px; }
 
-  .windowDots i {
-    width: 8px;
-    height: 8px;
-  }
+  .scenarioTabContent { padding-inline: 14px; }
 
   .previewMedia {
     height: auto;

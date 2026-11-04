@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from '@src/components/Analytics/TrackedLink';
-import { trackUmamiEvent } from '@src/utils/umami';
 import {
   ArrowDown,
   ArrowRight,
@@ -76,8 +75,8 @@ export default function EntryPaths() {
             <p>直接查看 Kubernetes 架构、多集群管理、应用治理、离线部署与迁移方式。</p>
           </div>
           <div className={styles.platformActions}>
-            <a href="#platform" onClick={() => trackUmamiEvent('home_platform_clicked', { module: 'home_entry_paths', cta_text: '评估平台能力', target_path: '/#platform' })}>评估平台能力 <ArrowRight aria-hidden="true" /></a>
-            <Link to="/enterprise_server" eventName="home_poc_clicked" eventProps={{ module: 'home_entry_paths', cta_text: '申请 POC', target_path: '/enterprise_server' }}>申请 POC</Link>
+            <Link to="#platform" eventName="home_platform_clicked" eventProps={{ module: 'home_entry_paths', cta_text: '评估平台能力', target_path: '#platform' }}>评估平台能力 <ArrowDown aria-hidden="true" /></Link>
+            <Link to="/compare" eventName="home_compare_clicked" eventProps={{ module: 'home_entry_paths', cta_text: '平台对比选型', target_path: '/compare' }}>平台对比选型 <ArrowRight aria-hidden="true" /></Link>
           </div>
         </aside>
       </div>

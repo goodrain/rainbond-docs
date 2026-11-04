@@ -214,9 +214,9 @@ test('uses the protected local runtime instead of a client MCP configuration', (
 
 test('keeps RainSkills represented by the homepage AI scenario', () => {
   assert.ok(scenarioSource.includes("eyebrow: 'AI Agent'"));
-  assert.ok(scenarioSource.includes("title: 'AI 部署项目'"));
-  assert.ok(scenarioSource.includes("title: 'AI 智能运维'"));
-  assert.ok(scenarioSource.includes('<Demo embedded />'));
+  assert.ok(scenarioSource.includes("title: 'AI Skill 部署项目'"));
+  assert.ok(scenarioSource.includes("title: 'AI Agent 运维'"));
+  assert.ok(scenarioSource.includes('<Demo embedded onComplete={onComplete}'));
   assert.ok(demoSource.includes('让 AI 替你部署、排错、运维'));
 });
 

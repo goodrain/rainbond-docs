@@ -89,15 +89,17 @@ test('unique value module uses a stable responsive system frame', () => {
   assert.ok(uniqueValueStyles.includes('.modelDifference'));
 });
 
-test('unique value module animates the system path and respects user control', () => {
+test('unique value scanning runs independently of hover and focus', () => {
   assert.ok(uniqueValueSource.includes("window.matchMedia('(prefers-reduced-motion: reduce)').matches"));
   assert.ok(uniqueValueSource.includes('}, 4500)'));
   assert.ok(uniqueValueSource.includes('data-active={activeStep.key}'));
   assert.ok(uniqueValueSource.includes('styles.scanLine'));
-  assert.ok(uniqueValueSource.includes('onMouseEnter={() => setIsPaused(true)}'));
+  assert.ok(!uniqueValueSource.includes('setIsPaused'));
+  assert.ok(!uniqueValueSource.includes('onFocusCapture'));
   assert.ok(uniqueValueStyles.includes('@keyframes canvasSweep'));
   assert.ok(uniqueValueStyles.includes('@keyframes stepProgress'));
-  assert.ok(uniqueValueStyles.includes('.systemFramePaused .stepTabActive::after'));
+  assert.ok(!uniqueValueStyles.includes('animation-play-state: paused'));
+  assert.ok(uniqueValueStyles.includes('animation: canvasSweep 4.5s linear infinite'));
   assert.ok(uniqueValueStyles.includes(".systemCanvas[data-active='model'] .modelCore"));
 });
 

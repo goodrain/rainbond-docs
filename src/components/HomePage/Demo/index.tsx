@@ -13,6 +13,7 @@ import VideoProgressControls from './VideoProgressControls';
 
 interface DemoProps {
   embedded?: boolean;
+  onComplete?: () => void;
 }
 
 const featureVideos = [
@@ -71,7 +72,7 @@ type IdleWindow = Window & {
   cancelIdleCallback?: (handle: number) => void;
 };
 
-export default function Demo({ embedded = false }: DemoProps) {
+export default function Demo({ embedded = false, onComplete }: DemoProps) {
   const videoRefs = useRef<Partial<Record<DemoTabKey, HTMLVideoElement | null>>>({});
   const progressFillRefs = useRef<Partial<Record<DemoTabKey, HTMLSpanElement | null>>>({});
   const [activeKey, setActiveKey] = useState<DemoTabKey>('source');
@@ -295,6 +296,12 @@ export default function Demo({ embedded = false }: DemoProps) {
       return;
     }
 
+    if (key === videoKeys[videoKeys.length - 1] && onComplete) {
+      setProgressFill(key, 100);
+      onComplete();
+      return;
+    }
+
     const nextKey = getNextVideoKey(visibleKey);
     prepareVideo(nextKey);
     prepareVideo(getNextVideoKey(nextKey));
@@ -302,7 +309,7 @@ export default function Demo({ embedded = false }: DemoProps) {
     setProgressFill(nextKey, 0);
     setActiveKey(nextKey);
     setVisibleKey(nextKey);
-  }, [prepareVideo, setProgressFill, visibleKey]);
+  }, [onComplete, prepareVideo, setProgressFill, visibleKey]);
 
   const keepVideoPlaying = useCallback((key: DemoTabKey) => {
     const video = videoRefs.current[key];

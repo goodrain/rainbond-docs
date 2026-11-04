@@ -108,10 +108,15 @@ const entryLinks = nodes(entries).filter(node => node.props.eventName === 'home_
 assert.equal(entryLinks.length, 4);
 entryLinks.forEach(click);
 assert.equal(new Set(events.splice(0).map(event => event.payload.target_path)).size, 4);
-click(find(entries, node => node.props.href === '#platform'));
-assert.equal(events.pop().name, 'home_platform_clicked');
-click(find(entries, node => node.props.to === '/enterprise_server'));
-assert.equal(events.pop().name, 'home_poc_clicked');
+click(find(entries, node => node.props.to === '#platform'));
+const platformEvent = events.pop();
+assert.equal(platformEvent.name, 'home_platform_clicked');
+assert.equal(platformEvent.payload.target_path, '/', 'Analytics normalize anchors to the current page path');
+click(find(entries, node => node.props.to === '/compare'));
+const compareEvent = events.pop();
+assert.equal(compareEvent.name, 'home_compare_clicked');
+assert.equal(compareEvent.payload.target_path, '/compare');
+assert.equal(nodes(entries).filter(node => node.props.eventName === 'home_poc_clicked').length, 0);
 
 const proof = render('ModernHome/ProofSection');
 const evidenceLinks = nodes(proof)
@@ -124,8 +129,10 @@ assert.equal(events.splice(0).length, 3, 'Each evidence click must be counted ex
 const finalCta = render('ModernHome/FinalCta');
 click(find(finalCta, node => node.props.to === '/docs/quick-start/quick-install'));
 assert.equal(events.pop().name, 'cta_install_clicked');
-click(find(finalCta, node => node.props.to === '/rainskills'));
-assert.equal(events.pop().name, 'home_rainskills_clicked');
+click(find(finalCta, node => node.props.to === '/docs/quick-start/ai-project'));
+const finalAiEvent = events.pop();
+assert.equal(finalAiEvent.name, 'home_rainskills_clicked');
+assert.equal(finalAiEvent.payload.target_path, '/docs/quick-start/ai-project');
 const sdk = browser.umami;
 delete browser.umami;
 click(entryLinks[0]);
