@@ -118,10 +118,11 @@ OK
 
 **3.3 修改构建源 JDK 版本**
 
-为每个组件修改构建源 JDK 版本为 `17`：
+为每个组件修改构建源 OpenJDK 版本为 `17`：
 - 进入组件详情页 → 构建源 → 源码构建参数设置
-- 修改 JDK 版本为 `17`
+- 修改 OpenJDK 版本为 `17`
 - 确认修改
+> 其他配置项保持默认
 
 **3.4 配置微服务端口和别名**
 
@@ -185,56 +186,177 @@ graph LR
 - 代码分支：`v3.8.2`
 
 **4.2 配置构建方式**
-- 代码语言：`NodeJSStatic`
-- 包管理器：`npm`
-- 打包目录：`dist`
+- 代码语言：`Node.js`
+- 框架：`Vite`
 
 **4.3 配置 Node 版本**
-- 配置 Node 版本为 `18.16.0`
+- 配置 Node 版本为 `18.20.8`
 
 **4.4 添加配置文件**
 - 添加配置文件
   - 配置文件名称：自定义（例如：nginx-config）
-  - 配置文件路径：`/app/nginx/conf.d/web.conf`
+  - 配置文件路径：`/workspace/nginx.conf`
   - 配置文件内容：
-  ```bash
-  server {
-      listen 5000;
+```bash
+worker_processes 1;
 
-      gzip on;
-      gzip_static on; # 需要http_gzip_static_module 模块
-      gzip_min_length 1k;
-      gzip_comp_level 4;
-      gzip_proxied any;
-      gzip_types text/plain text/xml text/css;
-      gzip_vary on;
-      gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+daemon off;
 
-      # 存放前端打包后的 dist 默认目录
-      root /app/www;
+error_log stderr;
 
-      # 注意维护新增微服务，gateway 路由前缀
-      location ^~/api/ {
-        proxy_pass http://${GATEWAY_HOST}:9999/; #注意/后缀
-        proxy_connect_timeout 60s;
-        proxy_read_timeout 120s;
-        proxy_send_timeout 120s;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto http;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $http_host;
-        proxy_set_header from "";
-      }
+events {
+  worker_connections 1024;
+}
 
-      # 屏蔽所有敏感路径，不用改代码
-      location ~* ^/(actuator|swagger-ui|v3/api-docs|swagger-resources|webjars|doc.html) {
-        return 403; # 禁止访问
-      }
+http {
+  client_body_temp_path /tmp/client_body_temp;
+  proxy_temp_path /tmp/proxy_temp;
+  fastcgi_temp_path /tmp/fastcgi_temp;
+
+  charset utf-8;
+
+  types {
+    text/html html htm shtml;
+    text/css css;
+    text/xml xml;
+    image/gif gif;
+    image/jpeg jpeg jpg;
+    application/javascript js;
+    application/atom+xml atom;
+    application/rss+xml rss;
+    font/ttf ttf;
+    font/woff woff;
+    font/woff2 woff2;
+    text/mathml mml;
+    text/plain txt;
+    text/vnd.sun.j2me.app-descriptor jad;
+    text/vnd.wap.wml wml;
+    text/x-component htc;
+    text/cache-manifest manifest;
+    image/png png;
+    image/tiff tif tiff;
+    image/vnd.wap.wbmp wbmp;
+    image/x-icon ico;
+    image/x-jng jng;
+    image/x-ms-bmp bmp;
+    image/svg+xml svg svgz;
+    image/webp webp;
+    application/java-archive jar war ear;
+    application/mac-binhex40 hqx;
+    application/msword doc;
+    application/pdf pdf;
+    application/postscript ps eps ai;
+    application/rtf rtf;
+    application/vnd.ms-excel xls;
+    application/vnd.ms-powerpoint ppt;
+    application/vnd.wap.wmlc wmlc;
+    application/vnd.google-earth.kml+xml  kml;
+    application/vnd.google-earth.kmz kmz;
+    application/x-7z-compressed 7z;
+    application/x-cocoa cco;
+    application/x-java-archive-diff jardiff;
+    application/x-java-jnlp-file jnlp;
+    application/x-makeself run;
+    application/x-perl pl pm;
+    application/x-pilot prc pdb;
+    application/x-rar-compressed rar;
+    application/x-redhat-package-manager  rpm;
+    application/x-sea sea;
+    application/x-shockwave-flash swf;
+    application/x-stuffit sit;
+    application/x-tcl tcl tk;
+    application/x-x509-ca-cert der pem crt;
+    application/x-xpinstall xpi;
+    application/xhtml+xml xhtml;
+    application/zip zip;
+    application/octet-stream bin exe dll;
+    application/octet-stream deb;
+    application/octet-stream dmg;
+    application/octet-stream eot;
+    application/octet-stream iso img;
+    application/octet-stream msi msp msm;
+    application/json json;
+    audio/midi mid midi kar;
+    audio/mpeg mp3;
+    audio/ogg ogg;
+    audio/x-m4a m4a;
+    audio/x-realaudio ra;
+    video/3gpp 3gpp 3gp;
+    video/mp4 mp4;
+    video/mpeg mpeg mpg;
+    video/quicktime mov;
+    video/webm webm;
+    video/x-flv flv;
+    video/x-m4v m4v;
+    video/x-mng mng;
+    video/x-ms-asf asx asf;
+    video/x-ms-wmv wmv;
+    video/x-msvideo avi;
   }
-  ```
+
+  access_log /dev/stdout;
+
+  default_type application/octet-stream;
+
+  sendfile on;
+  tcp_nopush on;
+
+  gzip on;
+  gzip_static always;
+  gzip_proxied any;
+  gzip_min_length 1100;
+  gzip_types
+    text/plain
+    text/css
+    text/js
+    text/xml
+    text/javascript
+    application/javascript
+    application/x-javascript
+    application/json
+    application/xml
+    application/xml+rss
+    font/eot
+    font/otf
+    font/ttf
+    image/svg+xml;
+  gzip_comp_level 6;
+  gzip_buffers 16 8k;
+
+  gzip_vary on;
+  gunzip on;
+  gzip_disable "msie6";
+  keepalive_timeout 30;
+
+  server {
+    listen 8080 default_server;
+    server_name _;
+
+    root /workspace/dist;
+
+    # 注意维护新增微服务，gateway 路由前缀
+    location ^~/api/ {
+      proxy_pass http://${GATEWAY_HOST}:9999/; #注意/后缀
+      proxy_connect_timeout 60s;
+      proxy_read_timeout 120s;
+      proxy_send_timeout 120s;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto http;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection "upgrade";
+      proxy_set_header Host $http_host;
+      proxy_set_header from "";
+    }
+
+    # 屏蔽所有敏感路径，不用改代码
+    location ~* ^/(actuator|swagger-ui|v3/api-docs|swagger-resources|webjars|doc.html) {
+      return 403; # 禁止访问
+    }
+  }
+}
+```
 
 **4.5 确认构建组件**
 
