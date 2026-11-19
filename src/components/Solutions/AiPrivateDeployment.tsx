@@ -309,7 +309,7 @@ export default function AiPrivateDeployment(): JSX.Element {
         title="AI 应用与大模型私有化部署解决方案"
         subtitle="启用 AI 大模型插件后，在 Rainbond 中准备模型、创建推理实例、开放 OpenAI 兼容 API，并部署 Dify 等 AI 应用。"
         decision="模型服务和 GPU 管理依赖对应插件、驱动与指标采集。部署前需要核对企业授权、插件版本和集群资源。"
-        primaryCta={{label: '获取 AI 私有化部署方案', href: aiDocsUrl, eventName: CONSULTATION_EVENT_NAME, eventProps: buildConsultationEventProps('ai_private_deployment_hero', 'enterprise_consultation', '获取 AI 私有化部署方案'), appendSourcePageParam: true, appendEntryParam: 'ai_private_deployment_hero'}}
+        primaryCta={{label: '获取 AI 私有化部署方案', href: aiDocsUrl, eventName: CONSULTATION_EVENT_NAME, eventProps: buildConsultationEventProps('ai_private_deployment_hero', 'enterprise_consultation', '获取 AI 私有化部署方案'), appendSourcePageParam: true, appendEntryParam: 'ai_private_deployment_hero', target: '_blank'}}
         secondaryCta={{label: '先快速安装 Rainbond', href: '/install-hub'}}
         audienceHint="适合已经进入企业内网、客户现场、离线交付或长期运维阶段，希望把 Dify、私有模型、业务系统和 GPU 资源统一管理的团队。"
       />

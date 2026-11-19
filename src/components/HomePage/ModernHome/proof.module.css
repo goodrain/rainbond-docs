@@ -195,7 +195,8 @@
   }
 
   .evidence article,
-  .evidence article:nth-child(2n) {
+  .evidence article:nth-child(2n),
+  .evidence article:nth-last-child(-n + 2) {
     border-right: 0;
     border-bottom: 1px solid #d8e0eb;
   }

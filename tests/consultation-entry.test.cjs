@@ -52,8 +52,9 @@ assert.match(
 );
 
 const compareHero = fs.readFileSync(path.resolve(__dirname, '..', 'src/components/Compare/CompareHeroGraphic.tsx'), 'utf8');
-assert.match(compareHero, /appendEntryParam=\{primaryCta\.appendEntryParam\}>/);
+assert.match(compareHero, /appendEntryParam=\{primaryCta\.appendEntryParam\}/);
 assert.doesNotMatch(compareHero, /\}\}>\s*appendSourcePageParam=/);
+assert.match(compareHero, /target=\{primaryCta\.target\}/);
 
 const enterprisePage = fs.readFileSync(path.resolve(__dirname, '..', 'src/pages/enterprise_server/index.js'), 'utf8');
 assert.match(enterprisePage, /plan\.outlineBtn\.entryName && trackUmamiEvent/);
@@ -68,5 +69,9 @@ assert.match(aiPrivateDeployment, /appendEntryParam: 'ai_private_deployment_hero
 const proofStyles = fs.readFileSync(path.resolve(__dirname, '..', 'src/components/HomePage/ModernHome/proof.module.css'), 'utf8');
 assert.match(proofStyles, /@media \(max-width: 1000px\)[\s\S]*\.evidence article:nth-child\(2n\)[\s\S]*border-right: 0/);
 assert.match(proofStyles, /@media \(max-width: 520px\)[\s\S]*\.evidence article:last-child[\s\S]*border-bottom: 0/);
+assert.match(proofStyles, /@media \(max-width: 520px\)[\s\S]*\.evidence article:nth-last-child\(-n \+ 2\)[\s\S]*border-bottom: 1px solid #d8e0eb/);
+
+const appType = fs.readFileSync(path.resolve(__dirname, '..', 'src/components/MarketPlace/AppType/index.tsx'), 'utf8');
+assert.doesNotMatch(appType, /window\.open\(/);
 
 console.log('consultation entry tests passed');

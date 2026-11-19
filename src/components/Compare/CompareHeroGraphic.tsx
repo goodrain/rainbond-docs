@@ -25,6 +25,7 @@ type Props = {
     eventProps?: Record<string, string>;
     appendSourcePageParam?: boolean;
     appendEntryParam?: string;
+    target?: string;
   };
   secondaryCta?: {
     label: string;
@@ -86,7 +87,8 @@ export default function CompareHeroGraphic({
                         target_path: primaryCta.href,
                       }}
                       appendSourcePageParam={primaryCta.appendSourcePageParam}
-                      appendEntryParam={primaryCta.appendEntryParam}>
+                      appendEntryParam={primaryCta.appendEntryParam}
+                      target={primaryCta.target}>
                       {primaryCta.label}
                     </TrackedLink>
                   ) : null}
