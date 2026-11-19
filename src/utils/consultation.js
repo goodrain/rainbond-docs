@@ -5,7 +5,6 @@ const CONSULTATION_EVENT_NAME = 'consult_clicked';
 const ENTERPRISE_PAGE_ENTRY_EVENT_NAME = 'enterprise_page_entry_clicked';
 
 const ENTRY_CTA_TEXT = {
-  homepage_hero: '企业版 / 商业咨询',
   homepage_customer_proof: '商业咨询',
   navigation_enterprise: '企业版',
   legacy_navigation_enterprise: '企业版',
