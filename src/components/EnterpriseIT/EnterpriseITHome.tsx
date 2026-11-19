@@ -3,6 +3,7 @@ import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import styles from './enterpriseITHome.module.css';
 import TrackedLink from '@src/components/Analytics/TrackedLink';
+import {CONSULTATION_EVENT_NAME, CONSULTATION_FORM_URL, buildConsultationEventProps} from '@src/utils/consultation';
 
 type TextItem = {
   title: string;
@@ -68,7 +69,7 @@ type FAQItem = {
   answer: string;
 };
 
-const consultationHref = 'https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg';
+const consultationHref = CONSULTATION_FORM_URL;
 
 const heroSignals = [
   '多供应商交付',
@@ -463,12 +464,10 @@ export default function EnterpriseITHome(): JSX.Element {
               target="_blank"
               rel="noreferrer"
               className={styles.primaryAction}
-              eventName="cta_enterprise_it_consult_clicked"
-              eventProps={{
-                module: 'it_enterprise_hero',
-                cta_text: '获取企业应用管理方案',
-                target_path: 'feishu_consultation',
-              }}>
+              eventName={CONSULTATION_EVENT_NAME}
+              eventProps={buildConsultationEventProps('it_enterprise_hero', 'enterprise_consultation', '获取企业应用管理方案')}
+              appendSourcePageParam
+              appendEntryParam="it_enterprise_hero">
               获取企业应用管理方案
             </TrackedLink>
           </div>
@@ -763,12 +762,10 @@ export default function EnterpriseITHome(): JSX.Element {
           target="_blank"
           rel="noreferrer"
           className={styles.primaryAction}
-          eventName="cta_enterprise_it_consult_clicked"
-          eventProps={{
-            module: 'it_enterprise_final',
-            cta_text: '获取企业应用管理方案',
-            target_path: 'feishu_consultation',
-          }}>
+          eventName={CONSULTATION_EVENT_NAME}
+          eventProps={buildConsultationEventProps('it_enterprise_final', 'enterprise_consultation', '获取企业应用管理方案')}
+          appendSourcePageParam
+          appendEntryParam="it_enterprise_final">
           获取企业应用管理方案
         </TrackedLink>
       </section>

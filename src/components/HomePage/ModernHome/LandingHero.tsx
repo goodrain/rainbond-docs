@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from '@src/components/Analytics/TrackedLink';
+import {ENTERPRISE_PAGE_ENTRY_EVENT_NAME, buildEnterprisePageEntryEventProps} from '@src/utils/consultation';
 import { Sparkles } from 'lucide-react';
 import { useAgentDeploymentModal } from '@src/components/HomePage/Hero';
 import styles from './styles.module.css';
@@ -24,6 +25,7 @@ export default function LandingHero() {
           <div className={styles.heroActions}>
             <Link className={styles.primaryButton} to="/docs/quick-start/quick-install" eventName="cta_home_install_clicked" eventProps={{ module: 'home_hero', cta_text: '安装到我的服务器', target_path: '/docs/quick-start/quick-install' }}>安装到我的服务器</Link>
             <button ref={agentEntryButtonRef} type="button" className={styles.secondaryButton} onClick={openAgentModal} aria-haspopup="dialog">让 AI 部署当前项目</button>
+            <Link className={styles.secondaryButton} to="/enterprise_server" eventName={ENTERPRISE_PAGE_ENTRY_EVENT_NAME} eventProps={buildEnterprisePageEntryEventProps('homepage_hero')}>企业版 / 商业咨询</Link>
           </div>
           <div className={styles.heroProof}>
             {proofItems.map(([value, label]) => <span key={label}><strong>{value}</strong>{label}</span>)}

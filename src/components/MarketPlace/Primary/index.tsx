@@ -15,6 +15,8 @@ import { Button } from '@douyinfe/semi-ui';
 import Link from "@docusaurus/Link";
 import IconLink from '/img/rainstore/svg/link.svg';
 import Iconconsult from '/img/rainstore/svg/consult.svg';
+import {trackUmamiEvent} from '@src/utils/umami';
+import {CONSULTATION_EVENT_NAME, buildConsultationEventProps} from '@src/utils/consultation';
 
 export default function Primary() {
 
@@ -42,6 +44,8 @@ export default function Primary() {
           className={styles.link}
           href='https://rainbond.feishu.cn/share/base/shrcnv2iqnRsNJM6Y3hN5VhTJvg'
           target='_blank'
+          rel="noopener noreferrer"
+          onClick={() => trackUmamiEvent(CONSULTATION_EVENT_NAME, buildConsultationEventProps('marketplace_primary', 'rainstore_consultation', '商业咨询'))}
         >
           <Button icon={<Iconconsult />} theme="solid" className={styles.buttonLeft} size='large'>
             <Translate id=''>商业咨询</Translate>
@@ -51,6 +55,7 @@ export default function Primary() {
           className={styles.link}
           href='https://hub.rainbond.com'
           target='_blank'
+          rel="noopener noreferrer"
         >
           <Button icon={<IconLink />} theme="solid" className={styles.buttonRight} size='large'>
             <Translate id=''>访问开源应用市场</Translate>

@@ -6,6 +6,8 @@ import PageContainer from '@src/components/PageContainer';
 
 import Section from '@src/components/Section';
 import styles from './index.module.scss';
+import {trackUmamiEvent} from '@src/utils/umami';
+import {CONSULTATION_EVENT_NAME, CONSULTATION_FORM_URL, buildConsultationEventProps, buildConsultationHref} from '@src/utils/consultation';
 
 const enterpriseKeywords = 'Rainbond 企业版, 私有化部署, 商业支持, 企业级能力, 企业级应用平台, 监控告警, 日志中心, 灾备恢复, GPU 高级管理, ToB 交付';
 const enterpriseTitle = 'Rainbond 企业版：私有化部署与应用交付平台 | Rainbond';
@@ -38,8 +40,8 @@ const plans = [
     priceUnit: '',
     desc: '为企业提供专属支持与运营商级可靠性',
     features: ['专业支持', '7×24 响应', '定制服务'],
-    primaryBtn: { text: '商业咨询', href: 'https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg' },
-    outlineBtn: { text: '预约演示', href: 'https://rainbond.feishu.cn/share/base/form/shrcngJKwbek0nbP1bBIcFA5g6d' },
+    primaryBtn: { text: '商业咨询', href: CONSULTATION_FORM_URL, entryName: 'enterprise_pricing_consult', targetForm: 'enterprise_consultation' },
+    outlineBtn: { text: '预约演示', href: 'https://rainbond.feishu.cn/share/base/form/shrcngJKwbek0nbP1bBIcFA5g6d', entryName: 'enterprise_pricing_demo', targetForm: 'enterprise_demo' },
     highlighted: true,
   },
 ];
@@ -200,9 +202,10 @@ export default function Index() {
                     {plan.primaryBtn && (
                       <a
                         className={styles.btnPrimary}
-                        href={plan.primaryBtn.href}
+                        href={plan.primaryBtn.href === CONSULTATION_FORM_URL ? buildConsultationHref('/enterprise_server', plan.primaryBtn.entryName) : plan.primaryBtn.href}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackUmamiEvent(CONSULTATION_EVENT_NAME, buildConsultationEventProps(plan.primaryBtn.entryName, plan.primaryBtn.targetForm, plan.primaryBtn.text))}
                       >
                         {plan.primaryBtn.text}
                       </a>
@@ -213,6 +216,7 @@ export default function Index() {
                         href={plan.outlineBtn.href}
                         target={plan.outlineBtn.href.startsWith('http') ? '_blank' : undefined}
                         rel={plan.outlineBtn.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        onClick={() => plan.outlineBtn.entryName && trackUmamiEvent(CONSULTATION_EVENT_NAME, buildConsultationEventProps(plan.outlineBtn.entryName, plan.outlineBtn.targetForm, plan.outlineBtn.text))}
                       >
                         {plan.outlineBtn.text}
                       </a>

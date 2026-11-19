@@ -18,6 +18,8 @@ import clsx from "clsx";
 import React from "react";
 import Translate, { translate } from '@docusaurus/Translate';
 import { Typography } from '@douyinfe/semi-ui';
+import {trackUmamiEvent} from '@src/utils/umami';
+import {CONSULTATION_EVENT_NAME, buildConsultationEventProps} from '@src/utils/consultation';
 
 export default function Partners() {
 
@@ -271,7 +273,7 @@ export default function Partners() {
             <h1>合作伙伴</h1>
           </div>
           <div className="col col--12">
-            <Text underline link={{ href: 'https://rainbond.feishu.cn/share/base/form/shrcnywQpD9yBvs21AAbXMCfXWb', target: '_blank'}} className={styles.text} >
+            <Text underline link={{ href: 'https://rainbond.feishu.cn/share/base/form/shrcnywQpD9yBvs21AAbXMCfXWb', target: '_blank', rel: 'noopener noreferrer', onClick: () => trackUmamiEvent(CONSULTATION_EVENT_NAME, buildConsultationEventProps('partners_apply', 'partner_application', '申请成为 Rainbond 合作伙伴'))}} className={styles.text} >
               <Translate id="">如果您想在合作伙伴列表展示您的应用程序信息，请申请成为 Rainbond 合作伙伴或直接联系我们。</Translate>
             </Text>
           </div>

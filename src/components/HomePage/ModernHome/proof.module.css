@@ -84,7 +84,7 @@
 
 .evidence {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 28px;
   border: 1px solid #d8e0eb;
 }
@@ -170,10 +170,43 @@
   .logos img { width: 132px; height: 48px; }
 
   .evidence {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .evidence article {
+    border-bottom: 1px solid #d8e0eb;
+  }
+
+  .evidence article:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .evidence article:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .evidence {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .evidence article:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .evidence article:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .evidence {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence article,
+  .evidence article:nth-child(2n) {
     border-right: 0;
     border-bottom: 1px solid #d8e0eb;
   }

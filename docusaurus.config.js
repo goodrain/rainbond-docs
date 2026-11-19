@@ -205,6 +205,7 @@ const config = {
             position: 'left',
           },
           {
+            type: 'custom-consultation-navbar',
             position: 'left',
             label: '企业版',
             href: '/enterprise_server'
@@ -318,7 +319,7 @@ const config = {
               },
               {
                 label: '联系我们',
-                to: 'https://p5yh4rek1e.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg'
+                href: 'https://rainbond.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg'
               },
               {
                 html: `<a href="https://www.netlify.com"> <img src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg" alt="Deploys by Netlify" /> </a>`

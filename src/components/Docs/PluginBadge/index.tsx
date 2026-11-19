@@ -1,6 +1,7 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
+import Link from '@src/components/Analytics/TrackedLink';
 import styles from './styles.module.css';
+import {ENTERPRISE_PAGE_ENTRY_EVENT_NAME, buildEnterprisePageEntryEventProps} from '@src/utils/consultation';
 
 interface PluginBadgeProps {
   type: 'enterprise' | 'open-source';
@@ -52,7 +53,7 @@ export default function PluginBadge({ type }: PluginBadgeProps): JSX.Element {
         <span className={styles.desc}>{desc}</span>
       </div>
       {linkText && linkTo && (
-        <Link className={styles.link} to={linkTo}>
+        <Link className={styles.link} to={linkTo} eventName={ENTERPRISE_PAGE_ENTRY_EVENT_NAME} eventProps={buildEnterprisePageEntryEventProps('docs_plugin_badge')}>
           {linkText}
         </Link>
       )}

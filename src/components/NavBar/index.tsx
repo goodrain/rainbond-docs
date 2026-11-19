@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import TrackedLink from '@src/components/Analytics/TrackedLink';
+import {ENTERPRISE_PAGE_ENTRY_EVENT_NAME, buildEnterprisePageEntryEventProps} from '@src/utils/consultation';
 import styles from './styles.module.css';
 import axios from 'axios';
 import { IconGithubLogo } from '@douyinfe/semi-icons';
@@ -114,9 +116,9 @@ export default function Navbar() {
               视频教程
             </Link>
 
-            <Link to="/enterprise_server" className={styles.navLink}>
+            <TrackedLink to="/enterprise_server" className={styles.navLink} eventName={ENTERPRISE_PAGE_ENTRY_EVENT_NAME} eventProps={buildEnterprisePageEntryEventProps('legacy_navigation_enterprise')}>
               企业版
-            </Link>
+            </TrackedLink>
 
             {/* <a onClick={handleOnClickLinkRainbondCloud} className={styles.navLink}>
               云服务

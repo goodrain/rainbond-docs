@@ -1,5 +1,6 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
+import Link, {ConsultationLink} from '@src/components/Analytics/TrackedLink';
+import {ENTERPRISE_PAGE_ENTRY_EVENT_NAME, buildEnterprisePageEntryEventProps} from '@src/utils/consultation';
 import styles from './styles.module.css';
 
 export default function EnterpriseCTA(): JSX.Element {
@@ -19,15 +20,17 @@ export default function EnterpriseCTA(): JSX.Element {
       </p>
       <div className={styles.divider} />
       <div className={styles.actions}>
-        <Link className={styles.primaryBtn} to="/enterprise_server">
+        <Link className={styles.primaryBtn} to="/enterprise_server" eventName={ENTERPRISE_PAGE_ENTRY_EVENT_NAME} eventProps={buildEnterprisePageEntryEventProps('docs_enterprise_cta_trial', '免费试用')}>
           免费试用
         </Link>
-        <Link
+        <ConsultationLink
           className={styles.secondaryBtn}
-          to="https://rainbond.feishu.cn/share/base/shrcn4dG9z5zvbZZWd1MFf6ILBg"
+          entryName="docs_enterprise_cta"
+          target="_blank"
+          rel="noreferrer"
         >
           商业咨询
-        </Link>
+        </ConsultationLink>
       </div>
     </div>
   );

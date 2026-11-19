@@ -6,10 +6,19 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@src/*": ["src/*"]
+      "@src/*": ["src/*"],
+      "@site/*": ["*"]
     }
   },
   "include": [
+    "src/components/Analytics/TrackedLink.tsx",
+    "src/components/Compare/CompareHeroGraphic.tsx",
+    "src/components/Docs/EnterpriseCTA/index.tsx",
+    "src/components/Docs/PluginBadge/index.tsx",
+    "src/components/EnterpriseIT/EnterpriseITHome.tsx",
+    "src/components/HomePage/ModernHome/LandingHero.tsx",
+    "src/components/HomePage/ModernHome/ProofSection.tsx",
+    "src/types/assets.d.ts",
     "src/components/Solutions/CapabilityTopicPage.tsx",
     "src/components/Solutions/SolutionsDirectory.tsx",
     "src/data/capabilityTopicPages.ts"
