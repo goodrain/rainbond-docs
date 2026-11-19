@@ -36,6 +36,15 @@ assert.deepEqual(
   },
 );
 
+assert.deepEqual(
+  buildEnterprisePageEntryEventProps('legacy_navigation_enterprise'),
+  {
+    entry_name: 'legacy_navigation_enterprise',
+    target_page: 'enterprise_server',
+    cta_text: '企业版',
+  },
+);
+
 const footerConfig = fs.readFileSync(path.resolve(__dirname, '..', 'docusaurus.config.js'), 'utf8');
 assert.match(
   footerConfig,
@@ -55,5 +64,9 @@ assert.doesNotMatch(homepageHero, /CONSULTATION_EVENT_NAME/);
 
 const aiPrivateDeployment = fs.readFileSync(path.resolve(__dirname, '..', 'src/components/Solutions/AiPrivateDeployment.tsx'), 'utf8');
 assert.match(aiPrivateDeployment, /appendEntryParam: 'ai_private_deployment_hero'/);
+
+const proofStyles = fs.readFileSync(path.resolve(__dirname, '..', 'src/components/HomePage/ModernHome/proof.module.css'), 'utf8');
+assert.match(proofStyles, /@media \(max-width: 1000px\)[\s\S]*\.evidence article:nth-child\(2n\)[\s\S]*border-right: 0/);
+assert.match(proofStyles, /@media \(max-width: 520px\)[\s\S]*\.evidence article:last-child[\s\S]*border-bottom: 0/);
 
 console.log('consultation entry tests passed');

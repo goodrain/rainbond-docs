@@ -4,7 +4,8 @@ const {
   appendSourceParam,
   buildEventPayload,
   getUmamiEventSpecFromAttributes,
-  normalizePathname
+  normalizePathname,
+  trackUmamiEvent,
 } = require('../src/utils/umami');
 
 function test(name, fn) {
@@ -73,6 +74,17 @@ test('getUmamiEventSpecFromAttributes extracts event name and payload fields', (
       },
     }
   );
+});
+
+test('trackUmamiEvent ignores analytics SDK errors', () => {
+  const previousWindow = global.window;
+  global.window = {
+    location: {pathname: '/docs/support'},
+    umami: {track: () => { throw new Error('analytics unavailable'); }},
+  };
+
+  assert.equal(trackUmamiEvent('consult_clicked', {entry_name: 'docs_support'}), false);
+  global.window = previousWindow;
 });
 
 console.log('umami utils tests passed');

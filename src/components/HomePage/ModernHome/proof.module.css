@@ -169,21 +169,6 @@
   .logos li { flex-basis: 148px; }
   .logos img { width: 132px; height: 48px; }
 
-  .evidence {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .evidence article {
-    border-bottom: 1px solid #d8e0eb;
-  }
-
-  .evidence article:nth-child(2n) {
-    border-right: 0;
-  }
-
-  .evidence article:nth-last-child(-n + 2) {
-    border-bottom: 0;
-  }
 }
 
 @media (max-width: 1000px) {
@@ -193,6 +178,10 @@
 
   .evidence article:nth-child(2n) {
     border-right: 0;
+  }
+
+  .evidence article:nth-child(-n + 2) {
+    border-bottom: 1px solid #d8e0eb;
   }
 
   .evidence article:nth-last-child(-n + 2) {

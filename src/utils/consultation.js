@@ -8,6 +8,7 @@ const ENTRY_CTA_TEXT = {
   homepage_hero: '企业版 / 商业咨询',
   homepage_customer_proof: '商业咨询',
   navigation_enterprise: '企业版',
+  legacy_navigation_enterprise: '企业版',
   footer_enterprise: '企业版',
   footer_contact: '联系我们',
   docs_enterprise_cta: '商业咨询',

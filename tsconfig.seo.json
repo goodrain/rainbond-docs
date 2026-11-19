@@ -18,9 +18,14 @@
     "src/components/EnterpriseIT/EnterpriseITHome.tsx",
     "src/components/HomePage/ModernHome/LandingHero.tsx",
     "src/components/HomePage/ModernHome/ProofSection.tsx",
+    "src/components/MarketPlace/Contact/index.tsx",
+    "src/components/MarketPlace/Primary/index.tsx",
+    "src/components/NavBar/index.tsx",
     "src/types/assets.d.ts",
+    "src/pages/partners/index.tsx",
     "src/components/Solutions/CapabilityTopicPage.tsx",
     "src/components/Solutions/SolutionsDirectory.tsx",
+    "src/theme/Footer/LinkItem/index.tsx",
     "src/data/capabilityTopicPages.ts"
   ]
 }

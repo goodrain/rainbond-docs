@@ -121,9 +121,12 @@ function trackUmamiEvent(eventName, payload, currentPath) {
 
   const pagePath = currentPath || (window.location && window.location.pathname) || ROOT_PATH;
 
-  window.umami.track(eventName, buildEventPayload(payload, pagePath));
-
-  return true;
+  try {
+    window.umami.track(eventName, buildEventPayload(payload, pagePath));
+    return true;
+  } catch (_) {
+    return false;
+  }
 }
 
 module.exports = {

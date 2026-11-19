@@ -18,7 +18,7 @@ import {trackUmamiEvent} from '@src/utils/umami';
 
 export default function FooterLinkItem({item}: Props): JSX.Element {
   const location = useLocation();
-  const {to, href, label, prependBaseUrlToHref, ...props} = item;
+  const {to, href, label, prependBaseUrlToHref, onClick, ...linkProps} = item;
   const isConsultationLink = href === CONSULTATION_FORM_URL || to === CONSULTATION_FORM_URL;
   const isEnterprisePageLink = to === 'enterprise_server' || to === '/enterprise_server' || href === '/enterprise_server';
   const toUrl = useBaseUrl(to);
@@ -54,9 +54,11 @@ export default function FooterLinkItem({item}: Props): JSX.Element {
             location.pathname,
           );
         }
-        props.onClick?.(event);
+        if (typeof onClick === 'function') {
+          onClick(event);
+        }
       }}
-      {...props}>
+      {...linkProps}>
       {label}
       {href && !isInternalUrl(href) && <IconExternalLink />}
     </Link>
