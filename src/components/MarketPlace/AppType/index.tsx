@@ -23,10 +23,6 @@ export default function AppType() {
     },
   })
 
-  const handleOnClickLink = () => {
-    window.open('https://rainbond.feishu.cn/share/base/shrcnv2iqnRsNJM6Y3hN5VhTJvg')
-  }
-
   return (
     <div className={styles.card}>
       <animated.div style={animatedTexts[0]} className={styles.card_body}>

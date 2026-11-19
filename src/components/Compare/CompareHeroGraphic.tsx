@@ -21,6 +21,11 @@ type Props = {
   primaryCta?: {
     label: string;
     href: string;
+    eventName?: string;
+    eventProps?: Record<string, string>;
+    appendSourcePageParam?: boolean;
+    appendEntryParam?: string;
+    target?: string;
   };
   secondaryCta?: {
     label: string;
@@ -75,12 +80,15 @@ export default function CompareHeroGraphic({
                     <TrackedLink
                       className={styles.primaryButton}
                       to={primaryCta.href}
-                      eventName="cta_install_clicked"
-                      eventProps={{
+                      eventName={primaryCta.eventName || 'cta_install_clicked'}
+                      eventProps={primaryCta.eventProps || {
                         module: 'compare_page_hero',
                         cta_text: primaryCta.label,
                         target_path: primaryCta.href,
-                      }}>
+                      }}
+                      appendSourcePageParam={primaryCta.appendSourcePageParam}
+                      appendEntryParam={primaryCta.appendEntryParam}
+                      target={primaryCta.target}>
                       {primaryCta.label}
                     </TrackedLink>
                   ) : null}

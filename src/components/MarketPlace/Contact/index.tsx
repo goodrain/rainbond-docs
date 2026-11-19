@@ -16,6 +16,8 @@ import IconApp from '/img/rainstore/svg/app.svg';
 import Iconapply from '/img/rainstore/svg/apply.svg';
 import Iconconsult from '/img/rainstore/svg/consult.svg';
 import Carousel from '../Carousel';
+import {trackUmamiEvent} from '@src/utils/umami';
+import {CONSULTATION_EVENT_NAME, buildConsultationEventProps} from '@src/utils/consultation';
 export default function Contact() {
 
   const LocalUrlEn = useLocation().pathname.includes('/en');
@@ -40,6 +42,8 @@ export default function Contact() {
             className={styles.link}
             href='https://rainbond.feishu.cn/share/base/shrcnv2iqnRsNJM6Y3hN5VhTJvg'
             target='_blank'
+            rel="noopener noreferrer"
+            onClick={() => trackUmamiEvent(CONSULTATION_EVENT_NAME, buildConsultationEventProps('marketplace_contact', 'rainstore_consultation', '商业咨询'))}
           >
             <Button icon={<Iconconsult />} theme="solid" className={styles.buttonLeft} size='large'>
               <Translate id=''>商业咨询</Translate>

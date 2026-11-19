@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import Link from '@src/components/Analytics/TrackedLink';
+import Link, {ConsultationLink} from '@src/components/Analytics/TrackedLink';
 import { ArrowRight, BadgeCheck, BookOpen, Github, Store } from 'lucide-react';
 import styles from './styles.module.css';
 import proofStyles from './proof.module.css';
@@ -97,11 +97,26 @@ export default function ProofSection() {
         <Evidence icon={Github} title="检查源代码和更新记录" copy="先确认项目是否持续维护，再决定是否安装。" to="https://github.com/goodrain/rainbond" action="查看 GitHub" />
         <Evidence icon={Store} title="用一个真实软件验证" copy="选择开源应用，验证安装、访问与后续升级。" to="https://hub.rainbond.com/" action="浏览应用市场" />
         <Evidence icon={BookOpen} title="按当前任务阅读文档" copy="不从概念开始，直接进入部署、安装或交付路径。" to="/docs" action="进入文档" />
+        <Evidence icon={BadgeCheck} title="评估企业版服务" copy="咨询私有化交付、企业支持与生产环境方案。" action="商业咨询" consultationEntryName="homepage_customer_proof" />
       </div>
     </div>
   </section>;
 }
 
-function Evidence({ icon: Icon, title, copy, to, action }) {
-  return <article><Icon aria-hidden="true" /><h3>{title}</h3><p>{copy}</p><Link to={to} eventName="home_evidence_clicked" eventProps={{ module: 'home_proof', cta_text: action, target_path: to }}>{action} <ArrowRight aria-hidden="true" /></Link></article>;
+type EvidenceProps = {
+  icon: React.ElementType;
+  title: string;
+  copy: string;
+  to?: string;
+  action: string;
+  consultationEntryName?: string;
+};
+
+function Evidence({ icon: Icon, title, copy, to, action, consultationEntryName }: EvidenceProps) {
+  const actionLink = consultationEntryName ? (
+    <ConsultationLink entryName={consultationEntryName} target="_blank" rel="noopener noreferrer">{action} <ArrowRight aria-hidden="true" /></ConsultationLink>
+  ) : (
+    <Link to={to!} eventName="home_evidence_clicked" eventProps={{ module: 'home_proof', cta_text: action, target_path: to }}>{action} <ArrowRight aria-hidden="true" /></Link>
+  );
+  return <article><Icon aria-hidden="true" /><h3>{title}</h3><p>{copy}</p>{actionLink}</article>;
 }

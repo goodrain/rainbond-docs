@@ -2,6 +2,7 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import {useLocation} from '@docusaurus/router';
 import {appendSourceParam, trackUmamiEvent} from '@src/utils/umami';
+import {CONSULTATION_EVENT_NAME, CONSULTATION_FORM_URL, buildConsultationEventProps, buildConsultationHref} from '@src/utils/consultation';
 
 type TrackedLinkProps = {
   to: string;
@@ -10,6 +11,7 @@ type TrackedLinkProps = {
   eventName?: string;
   eventProps?: Record<string, unknown>;
   appendSourcePageParam?: boolean;
+  appendEntryParam?: string;
   sourceParamKey?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   target?: string;
@@ -23,6 +25,7 @@ export default function TrackedLink({
   eventName,
   eventProps,
   appendSourcePageParam = false,
+  appendEntryParam,
   sourceParamKey = 'from',
   onClick,
   target,
@@ -30,7 +33,11 @@ export default function TrackedLink({
 }: TrackedLinkProps): JSX.Element {
   const location = useLocation();
   const currentPath = location.pathname || '/';
-  const nextTo = appendSourcePageParam ? appendSourceParam(to, currentPath, sourceParamKey) : to;
+  const sourceAwareTo = appendSourcePageParam ? appendSourceParam(to, currentPath, sourceParamKey) : to;
+  const nextTo = appendEntryParam && to === CONSULTATION_FORM_URL
+    ? buildConsultationHref(currentPath, appendEntryParam)
+    : sourceAwareTo;
+  const safeRel = target === '_blank' ? 'noopener noreferrer' : rel;
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     if (eventName) {
@@ -43,8 +50,21 @@ export default function TrackedLink({
   };
 
   return (
-    <Link className={className} to={nextTo} onClick={handleClick} rel={rel} target={target}>
+    <Link className={className} to={nextTo} onClick={handleClick} rel={safeRel} target={target}>
       {children}
     </Link>
+  );
+}
+
+export function ConsultationLink({entryName, ...props}: Omit<TrackedLinkProps, 'to' | 'eventName' | 'eventProps' | 'appendSourcePageParam'> & {entryName: string}): JSX.Element {
+  return (
+    <TrackedLink
+      {...props}
+      to={CONSULTATION_FORM_URL}
+      eventName={CONSULTATION_EVENT_NAME}
+      eventProps={buildConsultationEventProps(entryName, 'enterprise_consultation')}
+      appendSourcePageParam
+      appendEntryParam={entryName}
+    />
   );
 }
