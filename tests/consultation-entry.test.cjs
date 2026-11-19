@@ -55,6 +55,7 @@ assert.doesNotMatch(homepageHero, /ENTERPRISE_PAGE_ENTRY_EVENT_NAME|homepage_her
 const homepageStyles = fs.readFileSync(path.resolve(__dirname, '..', 'src/components/HomePage/ModernHome/styles.module.css'), 'utf8');
 assert.match(homepageStyles, /@media\(max-width:700px\)\{[\s\S]*?\.heroActions\{display:grid;grid-template-columns:repeat\(2,minmax\(0,1fr\)\)\}/);
 assert.match(homepageStyles, /@media\(max-width:700px\)\{[\s\S]*?\.heroActions a,\.heroActions button\{min-width:0;padding:8px 6px;font-size:13px\}/);
+assert.match(homepageStyles, /\.heroActions button\{cursor:pointer;font-family:inherit;font-size:inherit;line-height:inherit\}/);
 
 const consultationUtils = fs.readFileSync(path.resolve(__dirname, '..', 'src/utils/consultation.js'), 'utf8');
 assert.doesNotMatch(consultationUtils, /homepage_hero:/);

@@ -141,4 +141,4 @@
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
-.heroActions button{cursor:pointer}.heroActions button:focus-visible{outline:2px solid #1768f2;outline-offset:4px}
+.heroActions button{cursor:pointer;font-family:inherit;font-size:inherit;line-height:inherit}.heroActions button:focus-visible{outline:2px solid #1768f2;outline-offset:4px}
